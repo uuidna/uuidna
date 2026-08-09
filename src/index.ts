@@ -27,3 +27,5 @@ export {
 } from './harness.js'
 
 export { coins, billUuidna, type UuidnaUsage } from './billing.js'
+
+export { renderTheorem, renderList, type TheoremView } from './render.js'

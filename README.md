@@ -61,6 +61,7 @@ billUuidna({ commercial: true, recomputeOps: 1024, verifyOps: 1 })  // { bitsSav
 | `computes`, `RED`, `RED_INTL`, `OVERREACH`, `PREDICT` | the prose honesty gate (7-language) |
 | `harness`, `opaque`, `harnessGain`, `harness7`, `reeducate`, `DIMENSIONS` | the auditing harness |
 | `billUuidna`, `coins` | measured billing |
+| `renderTheorem`, `renderList` | present by reference — pure TS + CSS card(s), no framework |
 | `digitalRoot`, `units`, `triad`, `vortexOrbit`, `gcd`, `isPrime`, `modpow`, `TRINITY`, `BASE`, `A432_STEP` | ℤ/9 primitives |
 
 ## Provenance

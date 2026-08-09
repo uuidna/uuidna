@@ -6,6 +6,7 @@ import {
   imprintTextChain, readImprintTextChain,
   merkleRoot, merkleProof, verifyProof,
   computes, harness, reeducate, harness7, billUuidna, coins,
+  renderTheorem, renderList,
 } from '../dist/index.js'
 
 test('content-address is deterministic and context-free', () => {
@@ -50,6 +51,17 @@ test('harness makes any output auditable; reeducate bounds overclaims until they
   const r = reeducate('we prove the Riemann hypothesis and it is faster than light, unbreakable')
   assert.equal(r.passed, true)
   assert.ok(r.steps.length >= 1)
+})
+
+test('render presents by reference — pure TS+CSS, address in every card, no framework', () => {
+  const html = renderTheorem({ name: 'a decidable theorem — computed by exhaustion' })
+  assert.match(html, /<article class="uuidna-card"/)
+  assert.match(html, /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/) // the content-address pointer
+  assert.match(html, /integrity, not truth · 0\/7/)
+  assert.ok(!/<script/i.test(html)) // no framework, no script
+  // present many BY REFERENCE within a fixed per-card budget
+  const list = renderList(Array.from({ length: 50 }, (_, i) => ({ name: 'theorem ' + i })))
+  assert.equal((list.match(/uuidna-card/g) || []).length, 50)
 })
 
 test('billing measures bits saved; coins are conserved; public interest is free', () => {
