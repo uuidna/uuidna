@@ -1,0 +1,25 @@
+{
+  "name": "@uuidna/uuidna",
+  "version": "0.1.0",
+  "publishConfig": { "access": "public" },
+  "description": "Content-addressed identity, honest by construction — mint + mind, holographic merkle proofs, a reversible imprint codec, a reeducating harness, and a measured billing model. Integrity, not truth. 0/7.",
+  "type": "module",
+  "license": "CC-BY-NC-4.0",
+  "author": "Tsvetan Rouschev <ceccec@psg.bg>",
+  "homepage": "https://github.com/uuidna/uuidna",
+  "repository": { "type": "git", "url": "git+https://github.com/uuidna/uuidna.git" },
+  "bugs": { "url": "https://github.com/uuidna/uuidna/issues" },
+  "keywords": ["uuid", "content-address", "merkle", "merkle-proof", "integrity", "fnv", "hash", "identity", "honest"],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/smoke.test.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": { "typescript": "^5.5.0" }
+}

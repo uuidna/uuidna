@@ -1,0 +1,75 @@
+# uuidna
+
+**Content-addressed identity, honest by construction.**
+
+`mint` (integrity — every value has a reproducible address) · `mind` (every claim drains its own
+over-reach before it holds) · a **holographic merkle proof** (verify the whole from a tiny part, in
+`O(log N)`) · a reversible **imprint codec** · a client-side **harness** that reeducates overclaims · a
+**measured billing** model.
+
+A content-address proves **integrity, not truth**. It settles **0 / 7** — it solves none of the seven
+Millennium problems; it *reflects* them. FNV-1a is **non-cryptographic by design**: public and
+reproducible, not secret.
+
+## Install
+
+```bash
+npm install @uuidna/uuidna
+```
+
+## Use
+
+```js
+import { toUuid, merkleRoot, merkleProof, verifyProof, computes, reeducate, billUuidna } from '@uuidna/uuidna'
+
+// mint — the same input always mints the same address, for anyone, with no key
+toUuid('hello')                 // 'a1b2…' (128-bit content-address, v8 UUID)
+
+// holographic proof — verify one leaf against the root in O(log N), no other leaf needed
+const leaves = ['a', 'b', 'c', 'd']
+const root = merkleRoot(leaves)
+const proof = merkleProof(leaves, 2)
+verifyProof('c', proof, root)   // true   ·   verifyProof('x', proof, root) === false
+
+// mind — the honesty gate: overclaims drain (0), the honest floor signs (1)
+computes(anOverclaim).binary                              // 0  — a Millennium or physics overclaim drains
+computes('proves integrity, not truth; 0/7').binary       // 1  — the honest floor holds
+
+// reeducate — a failing output is bounded until it holds, keeping the honest remainder
+reeducate(aFailingOutput).passed                          // true — each overclaim bounded until it holds
+
+// billing — measured bits saved; the two coins are the conserved invariant; public interest is free
+billUuidna({ commercial: true, recomputeOps: 1024, verifyOps: 1 })  // { bitsSaved: 1023, coins: 2, free: false }
+```
+
+## What it is — and isn't
+
+- **Is:** a content-addressed integrity layer. Same input → same address, reproducible by anyone. A
+  holographic merkle proof verifies membership in `O(log N)`. The imprint codec carries a message *inside*
+  a uuid, round-tripping exactly (a public, reversible encoding — **not** encryption).
+- **Isn't:** encryption, secrecy, a currency, a blockchain, a quantum machine, or a solver. It offers
+  **no** secrecy (the hash is non-cryptographic) and makes **no** claim to break physics or hardware
+  limits. The honesty gate is a **tripwire, not an oracle** — necessary, not sufficient.
+
+## API
+
+| export | what |
+|---|---|
+| `toUuid`, `strictUuidna`, `merge`, `coin64` | content-address (mint) |
+| `merkleFold`, `merkleRoot`, `merkleProof`, `verifyProof` | order-free fold + holographic inclusion proof |
+| `imprint*` / `readImprint*` (incl. `…TextChain`), `CAPACITY` | reversible binary↔uuid codec |
+| `computes`, `RED`, `RED_INTL`, `OVERREACH`, `PREDICT` | the prose honesty gate (7-language) |
+| `harness`, `opaque`, `harnessGain`, `harness7`, `reeducate`, `DIMENSIONS` | the auditing harness |
+| `billUuidna`, `coins` | measured billing |
+| `digitalRoot`, `units`, `triad`, `vortexOrbit`, `gcd`, `isPrime`, `modpow`, `TRINITY`, `BASE`, `A432_STEP` | ℤ/9 primitives |
+
+## Provenance
+
+Extracted from the **Millennium Solutions** deposit (`ceccec.psg.bg/millennium-solutions`), where every
+capability is a decidable theorem re-verified on each build. The functions here are the *same pure
+functions* — extraction preserves the mapping, it does not change behaviour.
+
+## License
+
+CC BY-NC 4.0 — free for non-commercial use with attribution (Tsvetan Rouschev). Commercial use is billed
+on the measured bits saved; the two coins (110 − 108 = 2) are the conserved fair-exchange invariant.
