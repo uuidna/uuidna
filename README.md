@@ -63,21 +63,21 @@ same pure functions this package seals — integrity, not truth. `0/7`.
 
 ## Encryption (layered — real secrecy)
 
-Secrecy is **AES-256-GCM** (WebCrypto, built-in — zero deps), keyed by **PBKDF2-SHA-256** (600k iterations);
-the uuidna **7d fold** content-addresses the sealed envelope for public integrity/routing. Two layers: the
-cipher keeps the secret, the address names it (and never carries it).
+Secrecy is **ChaCha20-Poly1305** (RFC 8439) in **pure TypeScript** — no native WebCrypto — keyed by pure-TS
+**PBKDF2-SHA-256** (600k); the uuidna **7d fold** content-addresses the sealed envelope for public integrity.
+KAT-verified against the standards' own vectors. Deterministic (convergent): same input → same seal.
 
 ```js
 import { encrypt, decrypt, verifyEnvelope } from '@uuidna/uuidna'
 
-const sealed = await encrypt('beat to windward at 30°', 'a-strong-passphrase')
-// { v:1, alg:'AES-256-GCM', kdf:'PBKDF2-SHA256', iter:600000, salt, iv, ct, address }
-await decrypt(sealed, 'a-strong-passphrase')   // 'beat to windward at 30°'
-await decrypt(sealed, 'wrong')                  // throws — GCM authentication (wrong key or tamper)
+const sealed = encrypt('beat to windward at 30°', 'a-strong-passphrase')
+// { v:1, alg:'ChaCha20-Poly1305', kdf:'PBKDF2-SHA256', iter:600000, salt, nonce, ct, tag, address }
+decrypt(sealed, 'a-strong-passphrase')   // 'beat to windward at 30°'
+decrypt(sealed, 'wrong')                        // throws — Poly1305 authentication (wrong key or tamper)
 verifyEnvelope(sealed)                          // true — public integrity, no key needed
 ```
 
-Honest scope: strength is **AES-256 + your passphrase entropy** — measured, not asserted. The content-address
+Honest scope: strength is **ChaCha20-Poly1305 + your passphrase entropy** — measured, not asserted. The content-address
 (FNV) stays non-cryptographic; secrecy comes from AES, integrity from the fold. Private/RBAC messaging builds
 on this (encrypt to a shared key; a key per role). `0/7`.
 
@@ -101,7 +101,8 @@ on this (encrypt to a shared key; a key per role). `0/7`.
 | `harness`, `opaque`, `harnessGain`, `harness7`, `reeducate`, `DIMENSIONS` | the auditing harness |
 | `billUuidna`, `coins` | measured billing |
 | `renderTheorem`, `renderList` | present by reference — pure TS + CSS card(s), no framework |
-| `encrypt`, `decrypt`, `verifyEnvelope` | AES-256-GCM encryption (secrecy) under a 7d-fold envelope (integrity) |
+| `encrypt`, `decrypt`, `verifyEnvelope` | pure-TS ChaCha20-Poly1305 encryption under a 7d-fold envelope |
+| `sha256`, `hmacSha256`, `pbkdf2Sha256`, `aeadEncrypt`, `aeadDecrypt` | pure-TS crypto primitives (FIPS/RFC, KAT-verified) |
 | `digitalRoot`, `units`, `triad`, `vortexOrbit`, `gcd`, `isPrime`, `modpow`, `TRINITY`, `BASE`, `A432_STEP` | ℤ/9 primitives |
 
 ## Provenance

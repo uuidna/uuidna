@@ -30,5 +30,8 @@ export { coins, billUuidna, type UuidnaUsage } from './billing.js'
 
 export { renderTheorem, renderList, type TheoremView } from './render.js'
 
-// crypt — REAL encryption, layered: AES-256-GCM core (secrecy) + uuidna 7d-fold envelope (integrity/routing).
-export { encrypt, decrypt, verifyEnvelope, type Sealed } from './crypt.js'
+// crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
+// envelope. No native WebCrypto — nothing but latest TypeScript, KAT-verified against the standards' vectors.
+export { encrypt, decrypt, verifyEnvelope, ITER, type Sealed } from './crypt.js'
+export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
+export { aeadEncrypt, aeadDecrypt } from './chacha.js'

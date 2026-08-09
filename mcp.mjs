@@ -9,7 +9,7 @@ import {
   encrypt, decrypt, verifyEnvelope,
 } from './dist/index.js'
 
-const VERSION = '0.3.0'
+const VERSION = '0.4.0'
 
 const TOOLS = [
   { name: 'uuidna_address',
@@ -49,11 +49,11 @@ const TOOLS = [
     inputSchema: { type: 'object', properties: { commercial: { type: 'boolean' }, recomputeOps: { type: 'number' }, verifyOps: { type: 'number' } }, required: ['commercial', 'recomputeOps', 'verifyOps'] },
     run: (a) => billUuidna({ commercial: !!a.commercial, recomputeOps: Number(a.recomputeOps), verifyOps: Number(a.verifyOps) }) },
   { name: 'uuidna_encrypt',
-    description: 'Encrypt text under a passphrase. Secrecy: AES-256-GCM (PBKDF2-SHA256, 600k). Returns a sealed envelope whose content-address is the uuidna 7d-fold of its parts (public integrity/routing — never the secret).',
+    description: 'Encrypt text under a passphrase. Secrecy: pure-TS ChaCha20-Poly1305 (PBKDF2-SHA256, 600k) — no native crypto. Returns a sealed envelope whose content-address is the uuidna 7d-fold of its parts (public integrity/routing — never the secret).',
     inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' } }, required: ['text', 'passphrase'] },
     run: (a) => encrypt(String(a.text), String(a.passphrase)) },
   { name: 'uuidna_decrypt',
-    description: 'Decrypt a sealed envelope from uuidna_encrypt with the passphrase. A wrong key or tampered ciphertext throws (GCM authentication).',
+    description: 'Decrypt a sealed envelope from uuidna_encrypt with the passphrase. A wrong key or tampered ciphertext throws (Poly1305 authentication).',
     inputSchema: { type: 'object', properties: { sealed: { type: 'object' }, passphrase: { type: 'string' } }, required: ['sealed', 'passphrase'] },
     run: (a) => decrypt(a.sealed, String(a.passphrase)) },
   { name: 'uuidna_verify_envelope',
