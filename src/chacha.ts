@@ -15,7 +15,7 @@ function quarter(w: Uint32Array, a: number, b: number, c: number, d: number): vo
   w[c] = (w[c] + w[d]) >>> 0; w[b] = rotl(w[b] ^ w[c], 7)
 }
 
-function chachaBlock(key: Uint8Array, counter: number, nonce: Uint8Array): Uint8Array {
+export function chachaBlock(key: Uint8Array, counter: number, nonce: Uint8Array): Uint8Array {
   const s = new Uint32Array(16)
   s[0] = CONST[0]; s[1] = CONST[1]; s[2] = CONST[2]; s[3] = CONST[3]
   for (let i = 0; i < 8; i++) s[4 + i] = u32le(key, i * 4)
@@ -34,7 +34,7 @@ function chachaBlock(key: Uint8Array, counter: number, nonce: Uint8Array): Uint8
   return out
 }
 
-function chacha20(key: Uint8Array, counter: number, nonce: Uint8Array, data: Uint8Array): Uint8Array {
+export function chacha20(key: Uint8Array, counter: number, nonce: Uint8Array, data: Uint8Array): Uint8Array {
   const out = new Uint8Array(data.length)
   for (let i = 0; i < data.length; i += 64) {
     const ks = chachaBlock(key, counter + (i / 64 | 0), nonce)
@@ -44,7 +44,7 @@ function chacha20(key: Uint8Array, counter: number, nonce: Uint8Array, data: Uin
 }
 
 // Poly1305 (RFC 8439 §2.5) — BigInt for exact 130-bit modular arithmetic (minimum code, provably correct).
-function poly1305(msg: Uint8Array, otk: Uint8Array): Uint8Array {
+export function poly1305(msg: Uint8Array, otk: Uint8Array): Uint8Array {
   let r = 0n; for (let i = 15; i >= 0; i--) r = (r << 8n) | BigInt(otk[i])
   r &= 0x0ffffffc0ffffffc0ffffffc0fffffffn
   let s = 0n; for (let i = 15; i >= 0; i--) s = (s << 8n) | BigInt(otk[16 + i])

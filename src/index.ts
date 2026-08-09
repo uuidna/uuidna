@@ -34,4 +34,4 @@ export { renderTheorem, renderList, type TheoremView } from './render.js'
 // envelope. No native WebCrypto — nothing but latest TypeScript, KAT-verified against the standards' vectors.
 export { encrypt, decrypt, verifyEnvelope, ITER, type Sealed } from './crypt.js'
 export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
-export { aeadEncrypt, aeadDecrypt } from './chacha.js'
+export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './chacha.js'
