@@ -42,6 +42,20 @@ reeducate(aFailingOutput).passed                          // true — each overc
 billUuidna({ commercial: true, recomputeOps: 1024, verifyOps: 1 })  // { bitsSaved: 1023, coins: 2, free: false }
 ```
 
+## MCP — fuse it into any harness
+
+uuidna ships an [MCP](https://modelcontextprotocol.io) server (zero extra deps), so any MCP client — Claude,
+Cursor, or your own agent — can content-address, prove membership, gate prose, imprint/read, and bill, live.
+Add it to your client's `mcpServers`:
+
+```json
+{ "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
+```
+
+Tools exposed: `uuidna_address`, `uuidna_gate`, `uuidna_reeducate`, `uuidna_merkle_root`,
+`uuidna_merkle_prove`, `uuidna_merkle_verify`, `uuidna_imprint`, `uuidna_read`, `uuidna_bill`. They call the
+same pure functions this package seals — integrity, not truth. `0/7`.
+
 ## What it is — and isn't
 
 - **Is:** a content-addressed integrity layer. Same input → same address, reproducible by anyone. A
