@@ -1,27 +1,63 @@
 {
   "name": "@uuidna/uuidna",
-  "version": "0.4.0",
-  "publishConfig": { "access": "public" },
+  "version": "6.4.7",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Content-addressed identity, honest by construction — mint + mind, holographic merkle proofs, a reversible imprint codec, a reeducating harness, a measured billing model, pure-TypeScript ChaCha20-Poly1305 encryption (no native crypto) under a 7d-fold envelope, and an MCP server to fuse it into any harness. Integrity, not truth. 0/7.",
   "type": "module",
   "license": "CC-BY-NC-4.0",
   "author": "Tsvetan Rouschev <ceccec@psg.bg>",
   "homepage": "https://github.com/uuidna/uuidna",
-  "repository": { "type": "git", "url": "git+https://github.com/uuidna/uuidna.git" },
-  "bugs": { "url": "https://github.com/uuidna/uuidna/issues" },
-  "keywords": ["uuid", "content-address", "merkle", "merkle-proof", "integrity", "fnv", "hash", "identity", "honest", "mcp", "model-context-protocol"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uuidna/uuidna.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uuidna/uuidna/issues"
+  },
+  "keywords": [
+    "uuid",
+    "content-address",
+    "merkle",
+    "merkle-proof",
+    "integrity",
+    "fnv",
+    "hash",
+    "identity",
+    "honest",
+    "mcp",
+    "model-context-protocol"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
-  "bin": { "uuidna-mcp": "./mcp.mjs" },
-  "files": ["dist", "mcp.mjs", "README.md", "LICENSE", "reserved.uuidna"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "uuidna-mcp": "./mcp.mjs"
+  },
+  "files": [
+    "dist",
+    "mcp.mjs",
+    "README.md",
+    "LICENSE",
+    "reserved.uuidna"
+  ],
   "sideEffects": false,
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && node --test test/smoke.test.mjs",
     "mcp": "node mcp.mjs",
     "prepublishOnly": "npm run build"
   },
-  "devDependencies": { "typescript": "^5.5.0" }
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
 }

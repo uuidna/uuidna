@@ -9,7 +9,7 @@ import {
   encrypt, decrypt, verifyEnvelope,
 } from './dist/index.js'
 
-const VERSION = '0.4.0'
+const VERSION = '6.4.7'
 
 const TOOLS = [
   { name: 'uuidna_address',

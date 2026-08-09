@@ -111,6 +111,14 @@ Extracted from the **Millennium Solutions** deposit (`ceccec.psg.bg/millennium-s
 capability is a decidable theorem re-verified on each build. The functions here are the *same pure
 functions* — extraction preserves the mapping, it does not change behaviour.
 
+## Versioning
+
+One scheme with the **Millennium Solutions** deposit it is extracted from: a **single-digit odometer** —
+each of `major.minor.patch` is `0..9`, rolling over at 9 (the vortex odometer, gated in CI) — and the
+**LTS** minors are the Fibonacci numbers `{1, 2, 3, 5, 8}`. The package version tracks the deposit version at
+extraction (this is `6.4.7`), so the number tells you which deposit state it is. The true "latest" is the
+**content-address**, not the label — identical content keeps its address; a real delta moves it.
+
 ## License
 
 CC BY-NC 4.0 — free for non-commercial use with attribution (Tsvetan Rouschev). Commercial use is billed
