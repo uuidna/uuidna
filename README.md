@@ -1,6 +1,11 @@
 # uuidna
 
-**Content-addressed identity, honest by construction.**
+**uuidna = uuid ⊕ dna** — identity's DNA. **Content-addressed identity, honest by construction.**
+
+Every value carries its DNA: a reproducible, keyless content-address. The brand holds itself to the same rule —
+its own name's DNA is `uuidna_address("uuidna") = fc511532-6e8a-8418-a522-a51b1d46a70c`, reproducible by anyone.
+The fold folds every direction at once — `+/−` (reflection), `/` (halving, `O(log N)`), `\` (the other
+diagonal) — so it is **order-independent**: any pairing, forward or reverse, collapses to the same root.
 
 `mint` (integrity — every value has a reproducible address) · `mind` (every claim drains its own
 over-reach before it holds) · a **holographic merkle proof** (verify the whole from a tiny part, in
