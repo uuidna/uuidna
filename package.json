@@ -1,6 +1,6 @@
 {
   "name": "@uuidna/uuidna",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publishConfig": { "access": "public" },
   "description": "Content-addressed identity, honest by construction — mint + mind, holographic merkle proofs, a reversible imprint codec, a reeducating harness, and a measured billing model. Integrity, not truth. 0/7.",
   "type": "module",
@@ -13,7 +13,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": ["dist", "README.md", "LICENSE", "reserved.uuidna"],
   "sideEffects": false,
   "engines": { "node": ">=18" },
   "scripts": {
