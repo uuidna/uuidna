@@ -1,0 +1,11 @@
+# uuidna.com — a static site served by Cloudflare Workers Assets.
+# The npm package still builds with `tsc` (npm run build); this config makes `wrangler deploy` serve the
+# ./site directory (landing + /captain/message), fixing "Could not detect a directory containing static files".
+name = "uuidna"
+compatibility_date = "2026-08-01"
+
+[assets]
+directory = "./site"
+# clean URLs: /captain/message resolves to ./site/captain/message/index.html
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
