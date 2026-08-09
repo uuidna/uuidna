@@ -3,6 +3,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   toUuid, strictUuidna, merkleFold, digitalRoot, units, vortexOrbit,
+  encrypt, decrypt, verifyEnvelope,
   imprintTextChain, readImprintTextChain,
   merkleRoot, merkleProof, verifyProof,
   computes, harness, reeducate, harness7, billUuidna, coins,
@@ -69,4 +70,16 @@ test('billing measures bits saved; coins are conserved; public interest is free'
   assert.equal(billUuidna({ commercial: true, recomputeOps: 1024, verifyOps: 1 }).bitsSaved, 1023)
   assert.equal(billUuidna({ commercial: true, recomputeOps: 5, verifyOps: 1 }).coins, 2)
   assert.equal(billUuidna({ commercial: false, recomputeOps: 1e6, verifyOps: 1 }).free, true)
+})
+
+test('crypt: AES-256-GCM round-trips; wrong key and tamper fail; 7d-fold envelope verifies', async () => {
+  const s = await encrypt('beat to windward at 30°', 'gold-string-60')
+  assert.equal(s.alg, 'AES-256-GCM')
+  assert.equal(await decrypt(s, 'gold-string-60'), 'beat to windward at 30°') // round-trip
+  await assert.rejects(decrypt(s, 'wrong'))                                    // wrong passphrase
+  const tampered = { ...s, ct: s.ct.slice(0, -2) + (s.ct.slice(-2) === 'AA' ? 'BB' : 'AA') }
+  await assert.rejects(decrypt(tampered, 'gold-string-60'))                    // GCM authentication
+  assert.ok(verifyEnvelope(s))                                                 // public envelope integrity
+  const s2 = await encrypt('beat to windward at 30°', 'gold-string-60')
+  assert.notEqual(s.address, s2.address)                                       // random iv/salt → distinct
 })

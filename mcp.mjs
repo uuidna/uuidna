@@ -6,9 +6,10 @@
 import {
   toUuid, merkleRoot, merkleProof, verifyProof, computes,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
+  encrypt, decrypt, verifyEnvelope,
 } from './dist/index.js'
 
-const VERSION = '0.2.0'
+const VERSION = '0.3.0'
 
 const TOOLS = [
   { name: 'uuidna_address',
@@ -47,6 +48,18 @@ const TOOLS = [
     description: 'Measured billing: bits saved (O(N) − O(1)) and the two coins (the conserved fair-exchange invariant). Public interest is free.',
     inputSchema: { type: 'object', properties: { commercial: { type: 'boolean' }, recomputeOps: { type: 'number' }, verifyOps: { type: 'number' } }, required: ['commercial', 'recomputeOps', 'verifyOps'] },
     run: (a) => billUuidna({ commercial: !!a.commercial, recomputeOps: Number(a.recomputeOps), verifyOps: Number(a.verifyOps) }) },
+  { name: 'uuidna_encrypt',
+    description: 'Encrypt text under a passphrase. Secrecy: AES-256-GCM (PBKDF2-SHA256, 600k). Returns a sealed envelope whose content-address is the uuidna 7d-fold of its parts (public integrity/routing — never the secret).',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' } }, required: ['text', 'passphrase'] },
+    run: (a) => encrypt(String(a.text), String(a.passphrase)) },
+  { name: 'uuidna_decrypt',
+    description: 'Decrypt a sealed envelope from uuidna_encrypt with the passphrase. A wrong key or tampered ciphertext throws (GCM authentication).',
+    inputSchema: { type: 'object', properties: { sealed: { type: 'object' }, passphrase: { type: 'string' } }, required: ['sealed', 'passphrase'] },
+    run: (a) => decrypt(a.sealed, String(a.passphrase)) },
+  { name: 'uuidna_verify_envelope',
+    description: 'Verify a sealed envelope\'s 7d-fold content-address (integrity/routing) without the key — public, reproducible.',
+    inputSchema: { type: 'object', properties: { sealed: { type: 'object' } }, required: ['sealed'] },
+    run: (a) => verifyEnvelope(a.sealed) },
 ]
 
 const send = (msg) => process.stdout.write(JSON.stringify(msg) + '\n')
@@ -65,10 +78,10 @@ function handle(msg) {
   if (method === 'tools/call') {
     const t = TOOLS.find((x) => x.name === params?.name)
     if (!t) return err(id, -32602, 'unknown tool: ' + params?.name)
-    try {
-      const out = t.run(params.arguments || {})
-      return ok(id, { content: [{ type: 'text', text: typeof out === 'string' ? out : JSON.stringify(out) }] })
-    } catch (e) { return ok(id, { content: [{ type: 'text', text: 'error: ' + (e?.message || String(e)) }], isError: true }) }
+    return Promise.resolve()
+      .then(() => t.run(params.arguments || {}))
+      .then((out) => ok(id, { content: [{ type: 'text', text: typeof out === 'string' ? out : JSON.stringify(out) }] }))
+      .catch((e) => ok(id, { content: [{ type: 'text', text: 'error: ' + (e?.message || String(e)) }], isError: true }))
   }
   if (id !== undefined) return err(id, -32601, 'method not found: ' + method)
 }
@@ -85,4 +98,5 @@ process.stdin.on('data', (chunk) => {
     try { handle(msg) } catch (e) { if (msg?.id !== undefined) err(msg.id, -32603, String(e?.message || e)) }
   }
 })
-process.stdin.on('end', () => process.exit(0))
+// Do NOT exit on stdin 'end' — a pending async call (e.g. PBKDF2 in uuidna_encrypt) must flush its response
+// first. With no more input and no pending work, Node's event loop drains and the process exits on its own.

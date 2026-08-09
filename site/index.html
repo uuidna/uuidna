@@ -62,7 +62,10 @@
   <p><b>Fuse into any harness (MCP):</b> add to your client's <code>mcpServers</code>:</p>
   <pre class="card mono" style="overflow-x:auto;white-space:pre;font-size:.82rem;">{ "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }</pre>
   <p>Tools: <code>uuidna_address · uuidna_gate · uuidna_reeducate · uuidna_merkle_prove/verify ·
-  uuidna_imprint/read · uuidna_bill</code> — the same pure functions the build seals.</p>
+  uuidna_imprint/read · uuidna_bill · uuidna_encrypt/decrypt</code> — the same pure functions the build seals.</p>
+  <p><b>Encryption (layered):</b> <code>encrypt/decrypt</code> — real <b>AES-256-GCM</b> secrecy (PBKDF2-SHA256,
+  600k) under a uuidna <b>7d-fold</b> envelope for public integrity. Secrecy from AES, integrity from the fold;
+  the content-address never carries the secret.</p>
 
   <div class="links">
     <a href="https://www.npmjs.com/package/@uuidna/uuidna">npm: @uuidna/uuidna</a>

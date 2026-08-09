@@ -58,15 +58,35 @@ Add it to your client's `mcpServers`:
 ```
 
 Tools exposed: `uuidna_address`, `uuidna_gate`, `uuidna_reeducate`, `uuidna_merkle_root`,
-`uuidna_merkle_prove`, `uuidna_merkle_verify`, `uuidna_imprint`, `uuidna_read`, `uuidna_bill`. They call the
+`uuidna_merkle_prove`, `uuidna_merkle_verify`, `uuidna_imprint`, `uuidna_read`, `uuidna_bill`, `uuidna_encrypt`, `uuidna_decrypt`, `uuidna_verify_envelope`. They call the
 same pure functions this package seals — integrity, not truth. `0/7`.
+
+## Encryption (layered — real secrecy)
+
+Secrecy is **AES-256-GCM** (WebCrypto, built-in — zero deps), keyed by **PBKDF2-SHA-256** (600k iterations);
+the uuidna **7d fold** content-addresses the sealed envelope for public integrity/routing. Two layers: the
+cipher keeps the secret, the address names it (and never carries it).
+
+```js
+import { encrypt, decrypt, verifyEnvelope } from '@uuidna/uuidna'
+
+const sealed = await encrypt('beat to windward at 30°', 'a-strong-passphrase')
+// { v:1, alg:'AES-256-GCM', kdf:'PBKDF2-SHA256', iter:600000, salt, iv, ct, address }
+await decrypt(sealed, 'a-strong-passphrase')   // 'beat to windward at 30°'
+await decrypt(sealed, 'wrong')                  // throws — GCM authentication (wrong key or tamper)
+verifyEnvelope(sealed)                          // true — public integrity, no key needed
+```
+
+Honest scope: strength is **AES-256 + your passphrase entropy** — measured, not asserted. The content-address
+(FNV) stays non-cryptographic; secrecy comes from AES, integrity from the fold. Private/RBAC messaging builds
+on this (encrypt to a shared key; a key per role). `0/7`.
 
 ## What it is — and isn't
 
 - **Is:** a content-addressed integrity layer. Same input → same address, reproducible by anyone. A
   holographic merkle proof verifies membership in `O(log N)`. The imprint codec carries a message *inside*
   a uuid, round-tripping exactly (a public, reversible encoding — **not** encryption).
-- **Isn't:** encryption, secrecy, a currency, a blockchain, a quantum machine, or a solver. It offers
+- **The content-address isn't:** encryption, secrecy (on its own), a currency, a blockchain, a quantum machine, or a solver. It offers
   **no** secrecy (the hash is non-cryptographic) and makes **no** claim to break physics or hardware
   limits. The honesty gate is a **tripwire, not an oracle** — necessary, not sufficient.
 
@@ -81,6 +101,7 @@ same pure functions this package seals — integrity, not truth. `0/7`.
 | `harness`, `opaque`, `harnessGain`, `harness7`, `reeducate`, `DIMENSIONS` | the auditing harness |
 | `billUuidna`, `coins` | measured billing |
 | `renderTheorem`, `renderList` | present by reference — pure TS + CSS card(s), no framework |
+| `encrypt`, `decrypt`, `verifyEnvelope` | AES-256-GCM encryption (secrecy) under a 7d-fold envelope (integrity) |
 | `digitalRoot`, `units`, `triad`, `vortexOrbit`, `gcd`, `isPrime`, `modpow`, `TRINITY`, `BASE`, `A432_STEP` | ℤ/9 primitives |
 
 ## Provenance

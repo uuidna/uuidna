@@ -29,3 +29,6 @@ export {
 export { coins, billUuidna, type UuidnaUsage } from './billing.js'
 
 export { renderTheorem, renderList, type TheoremView } from './render.js'
+
+// crypt — REAL encryption, layered: AES-256-GCM core (secrecy) + uuidna 7d-fold envelope (integrity/routing).
+export { encrypt, decrypt, verifyEnvelope, type Sealed } from './crypt.js'
