@@ -206,6 +206,27 @@ const roots = TRIAL.map((t) => t.proofRoot)
 const TRIAL_RECEIPT = merkleGravity(roots)
 const orderInvariant = TRIAL_RECEIPT === merkleGravity([...roots].reverse())
 const tally = counts.SEALED + ' SEALED · ' + counts.REFUTED + ' REFUTED · ' + counts.UNVERIFIED + ' UNVERIFIED'
+
+// ── THE LABELS AND THE TALLY, SEALED ──────────────────────────────────────────────
+// The labels are AUTHORED (src/adjudicate.ts, VerdictKind), NOT chosen by a theorem; adjudicate() ASSIGNS one
+// per statement from the gate binary + test. The counts were a bare counter — un-audited. Seal them now: a
+// meta-verdict recomputes the tally from the ledger, and another proves the label set is closed. These
+// meta-verdicts are NOT folded into TRIAL_RECEIPT (that would be self-reference) — they carry their own receipts.
+const KIND = ['REFUTED', 'SEALED', 'UNVERIFIED'] // the closed set VerdictKind declares
+const recount = TRIAL.reduce((a, t) => (a[t.verdict]++, a), { SEALED: 0, REFUTED: 0, UNVERIFIED: 0 })
+function metaRow(statement, test) {
+  const v = adjudicate(statement, test)
+  const pv = proveVerdict(statement, [v.receipt])
+  return `  <p class="stmt"><span class="v v-${v.verdict.toLowerCase()}">${v.verdict}</span> <code class="rcpt">${v.receipt}</code><br>`
+    + `${escapeHtml(statement)}<br><small class="note">${escapeHtml(v.note)} · proof-root <code class="rcpt">${pv.proofRoot}</code></small></p>`
+}
+const meta = [
+  metaRow('the trial tally is recomputed from the ledger and internally consistent — each verdict counted once, the three states sum to the ledger length',
+    () => KIND.every((k) => recount[k] === counts[k]) && counts.SEALED + counts.REFUTED + counts.UNVERIFIED === TRIAL.length && TRIAL.length > 0),
+  metaRow('every verdict label in this trial is one of the three declared by VerdictKind in src/adjudicate.ts — the label set is closed',
+    () => TRIAL.every((t) => KIND.includes(t.verdict))),
+  metaRow('the three verdict labels are authored in src/adjudicate.ts, not chosen by a theorem; adjudicate() assigns one per statement from the gate binary and the decidable test'),
+].join('\n')
 const ledger = TRIAL.map((t) =>
   `  <p class="stmt"><span class="v v-${t.verdict.toLowerCase()}">${t.verdict}</span> <code class="rcpt">${t.proofRoot}</code><br>${escapeHtml(t.statement)}</p>`).join('\n')
 write(join('trial', 'index.html'), page({
@@ -215,6 +236,8 @@ write(join('trial', 'index.html'), page({
   <h1>The trial receipt</h1>
   <p class="stmt" style="font-size:1.05rem"><code class="rcpt">${TRIAL_RECEIPT}</code></p>
   <p class="note">${TRIAL.length} verdicts · ${escapeHtml(tally)} · order-invariant fold ${orderInvariant ? '✓ (reverse-order yields the same root)' : '✗ BREAK'} · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
+  <h2>The labels and the tally, sealed</h2>
+${meta}
   <h2>The trial ledger — every verdict, by its proof-of-verdict root</h2>
 ${ledger}`,
 }))
