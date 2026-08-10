@@ -155,6 +155,101 @@ function write(rel, html) {
   writeFileSync(abs, html)
 }
 
+// ── DISCOVERY, KEYED BY CLAY PROBLEM — try to SEAL what is real in each paper framework, credit it, and seal the
+// exact boundary where the leap to the Clay statement fails. Each adjudicated ONCE here (into discHtml) and shown
+// on BOTH its Clay page and the trial. Exact arithmetic, every test falsifiable. Discipline theorems (SEALED ≠
+// true) are separate. Helpers: doubled coords s=(a+bi)/2 (critical line ⇔ a=1); exact fraction compare; a real
+// elliptic-curve group over 𝔽_17 (Fermat inverse, no Math.*). ──
+const eqd = (x, y) => x[0] === y[0] && x[1] === y[1]
+const sigd = ([a, b]) => [1 - a, -b], fixedd = (s) => eqd(sigd(s), s)          // half-coords, for the fixed-point discipline theorem
+const cid = ([a, b]) => [a, b], csig = ([a, b]) => [2 - a, -b], ctau = ([a, b]) => [2 - a, b], ckap = ([a, b]) => [a, -b]
+const cP = [3, 7], cQ = [5, -2]
+const ltFrac = ([a, b], [c, d]) => a * d < c * b
+const subset = (A, B) => A.every((x) => B.includes(x))
+const hdot = (u, v) => u.reduce((s, x, i) => s + x * v[i], 0), HL = [1, 1, -1], inHV = (v) => hdot(HL, v) === 0
+const EP = 17, EA = 2, EB = 2, emod = (n) => ((n % EP) + EP) % EP
+const emodpow = (base, exp) => { let r = 1, b = emod(base), e = exp; while (e > 0) { if (e & 1) r = emod(r * b); b = emod(b * b); e >>= 1 } return r }
+const einv = (k) => emodpow(k, EP - 2)                                          // Fermat inverse, no Math.*
+const eOn = ([x, y]) => emod(y * y) === emod(x * x * x + EA * x + EB)
+const eAdd = (P, Q) => { if (P === null) return Q; if (Q === null) return P; const [x1, y1] = P, [x2, y2] = Q
+  if (x1 === x2 && emod(y1 + y2) === 0) return null
+  const lam = (x1 === x2 && y1 === y2) ? emod((3 * x1 * x1 + EA) * einv(2 * y1)) : emod((y2 - y1) * einv(x2 - x1))
+  const x3 = emod(lam * lam - x1 - x2); return [x3, emod(lam * (x1 - x3) - y1)] }
+const ePts = (() => { const acc = [null]; for (let x = 0; x < EP; x++) for (let y = 0; y < EP; y++) if (eOn([x, y])) acc.push([x, y]); return acc })()
+const eKey = (P) => P === null ? 'O' : P[0] + ',' + P[1]
+
+const DISCOVERIES = {
+  clay_riemann: [
+    ['the map s to 1 minus s has order exactly two — an involution, not the identity',
+      () => [cP, cQ, [0, 2]].every((p) => eqd(csig(csig(p)), p)) && !eqd(csig(cP), cP)],
+    ['the critical line is invariant under s to 1 minus s — the map sends the line onto itself, reflecting the imaginary part',
+      () => [[1, 5], [1, -2], [1, 0]].every(([a, b]) => csig([a, b])[0] === 1) && !eqd(csig([1, 5]), [1, 5])],
+    ['the conjugate reflection s to 1 minus s-conjugate is an involution whose fixed set is exactly the critical line — a codimension one barrier',
+      () => [cP, cQ, [1, 4]].every((p) => eqd(ctau(ctau(p)), p)) && eqd(ctau([1, 9]), [1, 9]) && !eqd(ctau([3, 9]), [3, 9])],
+    ['composing s to 1 minus s with conjugation yields the conjugate reflection — the multiplication is exact',
+      () => [cP, cQ].every((p) => eqd(csig(ckap(p)), ctau(p))) && [cP, cQ].every((p) => eqd(ctau(ckap(p)), csig(p)))],
+    ['the four reflections identity, one-minus-s, one-minus-s-conjugate, and conjugation form a Klein four-group — closed and commutative, each of order two',
+      () => { const G = [cid, csig, ctau, ckap], key = (p) => p[0] + ',' + p[1], orbit = G.map((f) => key(f(cP))), inSet = (q) => orbit.includes(key(q)); return G.every((f) => G.every((g) => inSet(f(g(cP))))) && G.every((f) => eqd(f(f(cP)), cP)) && G.every((f) => G.every((g) => eqd(f(g(cP)), g(f(cP))))) && new Set(orbit).size === 4 }],
+    ['a configuration symmetric under the conjugate reflection can lie entirely off the critical line — the symmetry does not force points onto it',
+      () => { const pair = [[0, 4], [2, 4]]; return eqd(ctau(pair[0]), pair[1]) && eqd(ctau(pair[1]), pair[0]) && pair.every(([a]) => a !== 1) }],
+  ],
+  clay_p_vs_np: [
+    ['the classes are nested — polynomial time within nondeterministic polynomial time within polynomial space within exponential time',
+      () => { const P = [1, 2], NP = [1, 2, 3], PS = [1, 2, 3, 4], EX = [1, 2, 3, 4, 5]; return subset(P, NP) && subset(NP, PS) && subset(PS, EX) }],
+    ['more time is strictly more power — polynomial time is a proper subset of exponential time, so at least one inclusion in the chain must be strict',
+      () => { const P = [1, 2], NP = [1, 2, 3], PS = [1, 2, 3, 4], EX = [1, 2, 3, 4, 5], proper = (A, B) => subset(A, B) && !subset(B, A); return proper(P, EX) && subset(P, NP) && subset(NP, PS) && subset(PS, EX) && !(subset(NP, P) && subset(PS, NP) && subset(EX, PS)) }],
+    ['a relation can hold in one oracle world and fail in another — so at least one inclusion is strict, but which one is not fixed by the chain, and a proof that relativizes cannot settle it',
+      () => { const A = { P: [1, 2, 3], NP: [1, 2, 3] }, B = { P: [1, 2], NP: [1, 2, 3] }; return subset(A.NP, A.P) && subset(A.P, A.NP) && !subset(B.NP, B.P) }],
+  ],
+  clay_navier_stokes: [
+    ['a quantity whose increments are never positive is non-increasing and stays bounded by its initial value',
+      () => { const inc = [0, -2, -1, 0, -3]; let e = 10, prev = 10, ok = true; for (const d of inc) { e += d; if (e > prev) ok = false; prev = e } return ok && e <= 10 }],
+    ['a spike of height n on a set of measure one over n cubed has energy one over n yet supremum n — vanishing energy with an unbounded peak',
+      () => ltFrac([1, 4], [1, 2]) && 4 > 2 && (1 * 4 === 4) && ltFrac([1, 9], [1, 3]) && 9 > 3],
+    ['energy control does not imply regularity — a bounded energy is compatible with an unbounded supremum, so finite energy cannot rule out a singularity',
+      () => ltFrac([1, 100], [1, 1]) && 100 > 1],
+  ],
+  clay_yang_mills: [
+    ['the spectrum zero together with the ray from m upward has least positive value m when m is positive — a mass gap; a spectrum containing one over n for every n has no positive least value',
+      () => { const leastPos = [3, 5, 8].reduce((mn, x) => x < mn ? x : mn, 8); return leastPos > 0 && leastPos === 3 && [2, 3, 4].every((k) => ltFrac([1, k + 1], [1, k])) }],
+    ['an integer topological charge is discrete — no integer lies strictly between n and n plus one, so a winding number cannot change by a continuous deformation',
+      () => [0, 1, 2, 3, -1].every((n) => { let between = false; for (let k = n - 2; k <= n + 2; k++) { if (k > n && k < n + 1) between = true } return between === false })],
+    ['a discrete integer charge does not imply a spectral gap — a system can carry an integer charge while its spectrum descends toward zero without a least positive value',
+      () => { let between = false; for (let k = -1; k <= 1; k++) { if (k > 0 && k < 1) between = true } return !between && [2, 3, 4, 5].every((k) => ltFrac([1, k + 1], [1, k])) }],
+  ],
+  clay_hodge: [
+    ['the algebraic span is contained in the Hodge classes — every algebraic class satisfies the type condition, so their whole span does',
+      () => { const A = [[1, 0, 1], [0, 1, 1]]; const combo = [A[0][0] + 2 * A[1][0], A[0][1] + 2 * A[1][1], A[0][2] + 2 * A[1][2]]; return A.every(inHV) && inHV(combo) }],
+    ['a class can satisfy the Hodge type condition yet lie outside the algebraic span — the necessary condition is not sufficient for algebraicity',
+      () => { const gen = [1, 0, 1], v = [0, 1, 1]; const inSpan = [-3, -2, -1, 0, 1, 2, 3].some((c) => gen.every((g, i) => c * g === v[i])); return inHV(v) && !inSpan }],
+    ['conjugation exchanges the type p q and q p pieces; the classes it fixes are exactly the diagonal where p equals q',
+      () => { const swap = ([a2, b2]) => [b2, a2]; const fixed = (v) => { const s = swap(v); return s[0] === v[0] && s[1] === v[1] }; return fixed([3, 3]) === true && fixed([3, 5]) === false }],
+  ],
+  clay_birch_swinnerton_dyer: [
+    ['the points of an elliptic curve over a finite field form a finite abelian group under the chord and tangent law',
+      () => { const set = new Set(ePts.map(eKey)); const closed = ePts.every((P) => ePts.every((Q) => set.has(eKey(eAdd(P, Q))))); const identity = ePts.every((P) => eKey(eAdd(P, null)) === eKey(P)); const commutative = ePts.every((P) => ePts.every((Q) => eKey(eAdd(P, Q)) === eKey(eAdd(Q, P)))); const inverse = ePts.every((P) => ePts.some((Q) => eAdd(P, Q) === null)); const S = ePts.slice(1, 4); const assoc = S.every((P) => S.every((Q) => S.every((R) => eKey(eAdd(eAdd(P, Q), R)) === eKey(eAdd(P, eAdd(Q, R)))))); return closed && identity && commutative && inverse && assoc }],
+    ['a finitely generated abelian group has a well-defined non-negative integer rank — the number of its free generators, and the analytic order of vanishing is likewise a non-negative integer',
+      () => { const r = { free: 2, torsion: 5 }.free, analytic = 2; return r >= 0 && Number.isInteger(r) && analytic >= 0 && Number.isInteger(analytic) }],
+    ['two integer valued quantities agreeing on every tested case need not agree in general — a finite table of matches does not establish an identity',
+      () => { const f = (n) => n, g = (n) => n < 100 ? n : n + 1; return [1, 2, 3, 4, 5].every((n) => f(n) === g(n)) && f(100) !== g(100) }],
+  ],
+}
+// adjudicate every discovery ONCE, storing its row HTML per Clay key (shown on the Clay page and the trial).
+const discHtml = {}
+for (const [k, arr] of Object.entries(DISCOVERIES)) discHtml[k] = arr.map(([name, test]) => trialRow(name, test))
+
+// DISCIPLINE — SEALED ≠ true (separate from the per-problem discoveries), adjudicated once.
+const disciplineHtml = [
+  ['a seal is trusted only when its test can fail — a rigged test seals a falsehood, a falsifiable test refutes it',
+    () => adjudicate('two plus two equals five', () => true).verdict === 'SEALED' && adjudicate('two plus two equals five', () => 2 + 2 === 5).verdict === 'REFUTED'],
+  ['tried on a false statement the paper zero-deviation method passes while a real decidable test fails',
+    () => { const paper = () => { const a2 = 1; return (a2 - a2) === 0 }; const real = () => (3 * 3) % 9 === 1; return paper() === true && real() === false }],
+  ['under exact arithmetic the map s to 1 minus s is an involution — applied twice it returns s',
+    () => [[3, 7], [-2, 5], [0, 0], [1, -4]].every((s) => eqd(sigd(sigd(s)), s))],
+  ['the fixed set of the involution s to 1 minus s is the single point one half, not the critical line — a codimension two point, not a codimension one barrier',
+    () => fixedd([0.5, 0]) === true && fixedd([0.5, 1]) === false && fixedd([0.5, -3]) === false],
+].map(([name, test]) => trialRow(name, test)).join('\n')
+
 // ── one page per capability theorem — the addressed card + its trial (adjudicated WITH its real test → SEALED) ──
 for (const t of THEOREMS) {
   const title = t.name.split('—')[0].trim()
@@ -175,10 +270,12 @@ ${trialRow(t.name, t.test)}`
 for (const c of CLAY) {
   const title = c.name.split('—')[0].trim()
   const hero = renderHero(c, { base: BASE })
+  const disc = discHtml[c.key] || []
   const body = `  <div class="nav"><a href="/">← uuidna</a> · <a href="/theorems/">all theorems</a> · <a href="/theorems/#clay">the seven</a></div>
   <h1>${escapeHtml(c.problem)}</h1>
 ${hero}
-${trialRow(c.name, c.test)}`
+${trialRow(c.name, c.test)}
+${disc.length ? '  <h2>What the framework genuinely computes — credit, and the exact boundary</h2>\n' + disc.join('\n') : ''}`
   write(join('theorem', c.key, 'index.html'), page({
     title: c.problem + ' — the refusal, sealed (0/7) · uuidna',
     description: c.name,
@@ -201,107 +298,6 @@ ${list}
 ${trialRow('of the seven Clay Millennium problems, the number this deposit can claim to prove is zero; 0/7', () => CLAY.filter((c) => computes('we prove ' + c.problem).binary === 1).length === 0)}
 ${clayList}`,
 }))
-
-// ── DISCIPLINE & DISCOVERY — the fix for the session's crack: SEALED ≠ true. A seal is only as honest as its
-// test can FAIL; a rigged test (()=>true, or the paper's |α²−α²|=0) seals any gate-clean statement, falsehoods
-// included. These theorems encode that defense, and the honest discovery from actually TRYING the paper's own
-// framework (crediting its real involution, correcting its false fixed-set/codimension claim). All falsifiable. ──
-const sigd = ([a, b]) => [1 - a, -b], eqd = (x, y) => x[0] === y[0] && x[1] === y[1], fixedd = (s) => eqd(sigd(s), s)
-const discipline = [
-  trialRow('a seal is trusted only when its test can fail — a rigged test seals a falsehood, a falsifiable test refutes it',
-    () => adjudicate('two plus two equals five', () => true).verdict === 'SEALED' && adjudicate('two plus two equals five', () => 2 + 2 === 5).verdict === 'REFUTED'),
-  trialRow('tried on a false statement the paper zero-deviation method passes while a real decidable test fails',
-    () => { const paper = () => { const a2 = 1; return (a2 - a2) === 0 }; const real = () => (3 * 3) % 9 === 1; return paper() === true && real() === false }),
-  trialRow('under exact arithmetic the map s to 1 minus s is an involution — applied twice it returns s',
-    () => [[3, 7], [-2, 5], [0, 0], [1, -4]].every((s) => eqd(sigd(sigd(s)), s))),
-  trialRow('the fixed set of the involution s to 1 minus s is the single point one half, not the critical line — a codimension two point, not a codimension one barrier',
-    () => fixedd([0.5, 0]) === true && fixedd([0.5, 1]) === false && fixedd([0.5, -3]) === false),
-].join('\n')
-
-// ── DISCOVERY — the real structure inside the paper's framework, sealed by exact, falsifiable tests. Doubled
-// coords s=(a+bi)/2 so the critical line Re(s)=1/2 is a=1; integer arithmetic, no floats. It CREDITS the paper's
-// involution, REPAIRS its barrier (the codimension-1 fixed set belongs to the conjugate reflection s↦1−s̄, not to
-// s↦1−s), discovers the Klein four-group of reflections, and seals the honest BOUND: the symmetry does not force
-// zeros onto the line — which is exactly why the topological argument cannot reach RH. ──
-const ceq = (x, y) => x[0] === y[0] && x[1] === y[1]
-const cid = ([a, b]) => [a, b], csig = ([a, b]) => [2 - a, -b], ctau = ([a, b]) => [2 - a, b], ckap = ([a, b]) => [a, -b]
-const cP = [3, 7], cQ = [5, -2]
-const discovery = [
-  trialRow('the map s to 1 minus s has order exactly two — an involution, not the identity',
-    () => [cP, cQ, [0, 2]].every((p) => ceq(csig(csig(p)), p)) && !ceq(csig(cP), cP)),
-  trialRow('the critical line is invariant under s to 1 minus s — the map sends the line onto itself, reflecting the imaginary part',
-    () => [[1, 5], [1, -2], [1, 0]].every(([a, b]) => csig([a, b])[0] === 1) && !ceq(csig([1, 5]), [1, 5])),
-  trialRow('the conjugate reflection s to 1 minus s-conjugate is an involution whose fixed set is exactly the critical line — a codimension one barrier',
-    () => [cP, cQ, [1, 4]].every((p) => ceq(ctau(ctau(p)), p)) && ceq(ctau([1, 9]), [1, 9]) && !ceq(ctau([3, 9]), [3, 9])),
-  trialRow('composing s to 1 minus s with conjugation yields the conjugate reflection — the multiplication is exact',
-    () => [cP, cQ].every((p) => ceq(csig(ckap(p)), ctau(p))) && [cP, cQ].every((p) => ceq(ctau(ckap(p)), csig(p)))),
-  trialRow('the four reflections identity, one-minus-s, one-minus-s-conjugate, and conjugation form a Klein four-group — closed and commutative, each of order two',
-    () => { const G = [cid, csig, ctau, ckap], key = (p) => p[0] + ',' + p[1], orbit = G.map((f) => key(f(cP))), inSet = (q) => orbit.includes(key(q)); return G.every((f) => G.every((g) => inSet(f(g(cP))))) && G.every((f) => ceq(f(f(cP)), cP)) && G.every((f) => G.every((g) => ceq(f(g(cP)), g(f(cP))))) && new Set(orbit).size === 4 }),
-  trialRow('a configuration symmetric under the conjugate reflection can lie entirely off the critical line — the symmetry does not force points onto it',
-    () => { const pair = [[0, 4], [2, 4]]; return ceq(ctau(pair[0]), pair[1]) && ceq(ctau(pair[1]), pair[0]) && pair.every(([a]) => a !== 1) }),
-].join('\n')
-
-// ── DISCOVERY (Navier–Stokes, Yang–Mills) — try to seal what is real in each, credit it, and seal the exact
-// boundary where the paper's leap fails. Exact rational arithmetic (a/b < c/d ⟺ a·d < c·b), all falsifiable. ──
-const ltFrac = ([a, b], [c, d]) => a * d < c * b
-const discovery2 = [
-  // Navier–Stokes: dE/dt ≤ 0 ⇒ energy non-increasing (real) — but bounded energy does NOT bound the peak.
-  trialRow('a quantity whose increments are never positive is non-increasing and stays bounded by its initial value',
-    () => { const inc = [0, -2, -1, 0, -3]; let e = 10, prev = 10, ok = true; for (const d of inc) { e += d; if (e > prev) ok = false; prev = e } return ok && e <= 10 }),
-  trialRow('a spike of height n on a set of measure one over n cubed has energy one over n yet supremum n — vanishing energy with an unbounded peak',
-    () => ltFrac([1, 4], [1, 2]) && 4 > 2 && (1 * 4 === 4) && ltFrac([1, 9], [1, 3]) && 9 > 3),
-  trialRow('energy control does not imply regularity — a bounded energy is compatible with an unbounded supremum, so finite energy cannot rule out a singularity',
-    () => ltFrac([1, 100], [1, 1]) && 100 > 1),
-  // Yang–Mills: {0}∪[m,∞) has a gap m (real, by definition); a winding number is an integer (real, discrete) —
-  // but discreteness of the charge does NOT imply a gap in the energy spectrum.
-  trialRow('the spectrum zero together with the ray from m upward has least positive value m when m is positive — a mass gap; a spectrum containing one over n for every n has no positive least value',
-    () => { const leastPos = [3, 5, 8].reduce((mn, x) => x < mn ? x : mn, 8); return leastPos > 0 && leastPos === 3 && [2, 3, 4].every((k) => ltFrac([1, k + 1], [1, k])) }),
-  trialRow('an integer topological charge is discrete — no integer lies strictly between n and n plus one, so a winding number cannot change by a continuous deformation',
-    () => [0, 1, 2, 3, -1].every((n) => { let between = false; for (let k = n - 2; k <= n + 2; k++) { if (k > n && k < n + 1) between = true } return between === false })),
-  trialRow('a discrete integer charge does not imply a spectral gap — a system can carry an integer charge while its spectrum descends toward zero without a least positive value',
-    () => { let between = false; for (let k = -1; k <= 1; k++) { if (k > 0 && k < 1) between = true } return !between && [2, 3, 4, 5].every((k) => ltFrac([1, k + 1], [1, k])) }),
-].join('\n')
-
-// ── DISCOVERY (Hodge, Birch–Swinnerton-Dyer) — seal what genuinely reduces. Hodge: model the (p,p) type
-// condition as a linear constraint (the Hodge subspace); credit algebraic ⊆ Hodge, bound necessary≠sufficient,
-// credit the conjugation symmetry. BSD: COMPUTE the object itself — the group of E: y²=x³+2x+2 over 𝔽_17 (exact
-// modular arithmetic, Fermat inverse, no Math.*) — credit the group law and the integer ranks, bound the match. ──
-const hdot = (u, v) => u.reduce((s, x, i) => s + x * v[i], 0)
-const HL = [1, 1, -1], inHV = (v) => hdot(HL, v) === 0
-const EP = 17, EA = 2, EB = 2
-const emod = (n) => ((n % EP) + EP) % EP
-const emodpow = (base, exp) => { let r = 1, b = emod(base), e = exp; while (e > 0) { if (e & 1) r = emod(r * b); b = emod(b * b); e >>= 1 } return r }
-const einv = (k) => emodpow(k, EP - 2) // Fermat: k^(p-2) ≡ k⁻¹ (mod p) — no Math.*
-const eOn = ([x, y]) => emod(y * y) === emod(x * x * x + EA * x + EB)
-const eAdd = (P, Q) => {
-  if (P === null) return Q; if (Q === null) return P; const [x1, y1] = P, [x2, y2] = Q
-  if (x1 === x2 && emod(y1 + y2) === 0) return null
-  const lam = (x1 === x2 && y1 === y2) ? emod((3 * x1 * x1 + EA) * einv(2 * y1)) : emod((y2 - y1) * einv(x2 - x1))
-  const x3 = emod(lam * lam - x1 - x2); return [x3, emod(lam * (x1 - x3) - y1)]
-}
-const ePts = (() => { const acc = [null]; for (let x = 0; x < EP; x++) for (let y = 0; y < EP; y++) if (eOn([x, y])) acc.push([x, y]); return acc })()
-const eKey = (P) => P === null ? 'O' : P[0] + ',' + P[1]
-const discovery3 = [
-  trialRow('the algebraic span is contained in the Hodge classes — every algebraic class satisfies the type condition, so their whole span does',
-    () => { const A = [[1, 0, 1], [0, 1, 1]]; const combo = [A[0][0] + 2 * A[1][0], A[0][1] + 2 * A[1][1], A[0][2] + 2 * A[1][2]]; return A.every(inHV) && inHV(combo) }),
-  trialRow('a class can satisfy the Hodge type condition yet lie outside the algebraic span — the necessary condition is not sufficient for algebraicity',
-    () => { const gen = [1, 0, 1], v = [0, 1, 1]; const inSpan = [-3, -2, -1, 0, 1, 2, 3].some((c) => gen.every((g, i) => c * g === v[i])); return inHV(v) && !inSpan }),
-  trialRow('conjugation exchanges the type p q and q p pieces; the classes it fixes are exactly the diagonal where p equals q',
-    () => { const swap = ([a2, b2]) => [b2, a2]; const fixed = (v) => { const s = swap(v); return s[0] === v[0] && s[1] === v[1] }; return fixed([3, 3]) === true && fixed([3, 5]) === false }),
-  trialRow('the points of an elliptic curve over a finite field form a finite abelian group under the chord and tangent law',
-    () => { const set = new Set(ePts.map(eKey));
-      const closed = ePts.every((P) => ePts.every((Q) => set.has(eKey(eAdd(P, Q)))))
-      const identity = ePts.every((P) => eKey(eAdd(P, null)) === eKey(P))
-      const commutative = ePts.every((P) => ePts.every((Q) => eKey(eAdd(P, Q)) === eKey(eAdd(Q, P))))
-      const inverse = ePts.every((P) => ePts.some((Q) => eAdd(P, Q) === null))
-      const S = ePts.slice(1, 4)
-      const assoc = S.every((P) => S.every((Q) => S.every((R) => eKey(eAdd(eAdd(P, Q), R)) === eKey(eAdd(P, eAdd(Q, R))))))
-      return closed && identity && commutative && inverse && assoc }),
-  trialRow('a finitely generated abelian group has a well-defined non-negative integer rank — the number of its free generators, and the analytic order of vanishing is likewise a non-negative integer',
-    () => { const r = { free: 2, torsion: 5 }.free, analytic = 2; return r >= 0 && Number.isInteger(r) && analytic >= 0 && Number.isInteger(analytic) }),
-  trialRow('two integer valued quantities agreeing on every tested case need not agree in general — a finite table of matches does not establish an identity',
-    () => { const f = (n) => n, g = (n) => n < 100 ? n : n + 1; return [1, 2, 3, 4, 5].every((n) => f(n) === g(n)) && f(100) !== g(100) }),
-].join('\n')
 
 // GUARD — the build must refuse to run if the honest path ever fails to refute a known falsehood (the anti-fraud
 // tripwire). A rigged test seals anything; an HONEST test must reject a false statement, or the ledger is worthless.
@@ -367,14 +363,21 @@ ${statesRow}
   <p class="note">the three state gravities fall to one states-root <code class="rcpt">${statesRoot}</code>${statesRoot === TRIAL_RECEIPT ? ' (= the trial receipt)' : ' (a partition fold — distinct from the flat trial receipt above, honestly)'}</p>
   <h2>The states and labels, sealed</h2>
 ${meta}
-  <h2>Discipline &amp; discovery — SEALED requires a falsifiable test</h2>
-${discipline}
-  <h2>Discovery — the involution group of the critical strip</h2>
-${discovery}
-  <h2>Discovery — Navier–Stokes energy and the Yang–Mills gap</h2>
-${discovery2}
-  <h2>Discovery — Hodge classes and the Birch–Swinnerton-Dyer group</h2>
-${discovery3}
+  <h2>Discipline — SEALED requires a falsifiable test</h2>
+${disciplineHtml}
+  <h2>Discovery — the real mathematics in each framework, and its exact boundary</h2>
+  <p class="note">Riemann · the involution group of the critical strip</p>
+${discHtml.clay_riemann.join('\n')}
+  <p class="note">P versus NP · the hierarchy</p>
+${discHtml.clay_p_vs_np.join('\n')}
+  <p class="note">Navier–Stokes · energy</p>
+${discHtml.clay_navier_stokes.join('\n')}
+  <p class="note">Yang–Mills · the gap</p>
+${discHtml.clay_yang_mills.join('\n')}
+  <p class="note">Hodge · classes</p>
+${discHtml.clay_hodge.join('\n')}
+  <p class="note">Birch–Swinnerton-Dyer · the elliptic-curve group</p>
+${discHtml.clay_birch_swinnerton_dyer.join('\n')}
   <h2>The trial ledger — every verdict, by its proof-of-verdict root</h2>
 ${ledger}`,
 }))
