@@ -4,15 +4,16 @@
 // Run:  npx @uuidna/uuidna         (bin: uuidna-mcp)
 // Add to a client's mcpServers as { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }.
 import {
-  toUuid, merkleRoot, merkleProof, verifyProof, computes,
+  toUuid, strictUuidna, merkleRoot, merkleProof, verifyProof, computes,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
   encrypt, decrypt, verifyEnvelope,
-  digitalRoot, merkleGravity, adjudicate, proveVerdict, verifyUuidna,
-  harness, harness7, renderTheorem, renderHero,
+  digitalRoot, merkleGravity, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
+  units, vortexOrbit, diamond, involute, involutionFixed, seats,
+  harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
 } from './dist/index.js'
 
-const VERSION = '6.4.7'
+const VERSION = '6.5.0'
 
 // byte codecs — the low-level crypto primitives are Uint8Array in/out; MCP is JSON, so keys/nonces/tags/ciphertext
 // cross the wire as hex and human text crosses as UTF-8. (toUuid/merkleFold use non-cryptographic FNV; sha256 here
@@ -135,6 +136,41 @@ const TOOLS = [
     description: 'Verify + open a raw ChaCha20-Poly1305 seal (local theorem). key/nonce/ct/tag are hex, optional aad hex; returns the UTF-8 plaintext. A wrong key or any tamper throws (Poly1305 authentication).',
     inputSchema: { type: 'object', properties: { key: { type: 'string' }, nonce: { type: 'string' }, ct: { type: 'string' }, tag: { type: 'string' }, aad: { type: 'string', description: 'optional hex' } }, required: ['key', 'nonce', 'ct', 'tag'] },
     run: (a) => td.decode(aeadDecrypt(need(unhex(a.key), 32, 'key'), need(unhex(a.nonce), 12, 'nonce'), unhex(a.ct), need(unhex(a.tag), 16, 'tag'), a.aad ? unhex(a.aad) : new Uint8Array())) },
+  // ── the uuid + dna surface: the ℤ/9 structure the content-address is built on — the units, the doubling
+  //    vortex, the diamond involution (fixed point 5, the heart), the double torus — plus the strict address and
+  //    the pigeonhole seat bound. Pure, decidable, recomputable by anyone. Integrity, not truth. 0/7. ──
+  { name: 'uuidna_strict',
+    description: 'The STRICT content-address: normalise the input (so equivalent values converge) then address it — strictUuidna(3) === strictUuidna(" 3 "). Use when whitespace/format should not change identity.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' } }, required: ['text'] },
+    run: ({ text }) => strictUuidna(String(text)) },
+  { name: 'uuidna_units',
+    description: 'The six units of ℤ/9 — {1,2,4,5,7,8}, the invertible residues (3 and 6 are zero-divisors, 9≡0). The harmonic solutions the fold moves through. Returns the array.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => units() },
+  { name: 'uuidna_vortex',
+    description: 'The doubling circuit 1→2→4→8→7→5 — the vortex orbit of the units under ×2 mod 9, the DNA of the fold (5→1 closes the loop). Returns the array.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => vortexOrbit() },
+  { name: 'uuidna_double_torus',
+    description: 'The double-torus 7D field of a set of addresses: the doubling vortex and its reverse rotate the set; at each of the 7 dimensions the two fold together, and the seven dimension-roots fold to ONE. Order-DEPENDENT (the sequence is the signal) — use uuidna_gravity for an order-invariant receipt. Returns {dims,root}.',
+    inputSchema: { type: 'object', properties: { addresses: { type: 'array', items: { type: 'string' } } }, required: ['addresses'] },
+    run: ({ addresses }) => doubleTorusField(addresses.map(String)) },
+  { name: 'uuidna_diamond',
+    description: 'The diamond involution r(d)=10−d on a digit 1..9: self-inverse (diamond(diamond(d))=d), with the unique fixed point 5 — the heart where mint meets mind. Returns the reflected digit.',
+    inputSchema: { type: 'object', properties: { d: { type: 'number', description: 'a digit 1..9' } }, required: ['d'] },
+    run: ({ d }) => diamond(Number(d)) },
+  { name: 'uuidna_involute',
+    description: 'Lift the diamond involution to a list: pair each element with its mirror across the centre (total, closed, self-inverse). An odd list has exactly one fixed centre; an even list none. Returns {pairs,fixed}.',
+    inputSchema: { type: 'object', properties: { items: { type: 'array', items: { type: 'string' } } }, required: ['items'] },
+    run: ({ items }) => { const xs = items.map(String); return { pairs: involute(xs), fixed: involutionFixed(xs) } } },
+  { name: 'uuidna_seats',
+    description: 'The pigeonhole seat bound: a b-bit digest has 2^b distinct seats, so past 2^b inputs a collision is forced — true for EVERY finite hash (the strong ones only resist finding one computationally). Returns 2^bits.',
+    inputSchema: { type: 'object', properties: { bits: { type: 'number' } }, required: ['bits'] },
+    run: ({ bits }) => seats(Number(bits)) },
+  { name: 'uuidna_render_list',
+    description: 'Render many statements as a grid of framework-free, CSP-safe cards — each by reference (its content-address), schema.org microdata, shadcn anatomy, linked to its proof page. Pure HTML+CSS, no script.',
+    inputSchema: { type: 'object', properties: { names: { type: 'array', items: { type: 'string' } }, base: { type: 'string', description: 'site base for proof links' } }, required: ['names'] },
+    run: (a) => renderList(a.names.map((n) => ({ name: String(n) })), a.base ? { base: String(a.base) } : {}) },
 ]
 
 const send = (msg) => process.stdout.write(JSON.stringify(msg) + '\n')

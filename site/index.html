@@ -71,10 +71,13 @@
   <p><b>Install:</b> <code>npm install @uuidna/uuidna</code> — ESM, zero runtime deps, typed.</p>
   <p><b>Fuse into any harness (MCP):</b> add to your client's <code>mcpServers</code>:</p>
   <pre class="card mono" style="overflow-x:auto;white-space:pre;font-size:.82rem;">{ "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }</pre>
-  <p>Tools: <code>uuidna_address · uuidna_gate · uuidna_reeducate · uuidna_merkle_prove/verify ·
-  uuidna_imprint/read · uuidna_bill · uuidna_encrypt/decrypt</code> — the same pure functions the build seals.</p>
-  <p><b>Encryption (layered):</b> <code>encrypt/decrypt</code> — real <b>AES-256-GCM</b> secrecy (PBKDF2-SHA256,
-  600k) under a uuidna <b>7d-fold</b> envelope for public integrity. Secrecy from AES, integrity from the fold;
+  <p><b>35 tools</b>, the whole surface — <b>uuid</b> (<code>address · strict · imprint/read</code>),
+  <b>dna</b> (<code>units · vortex · diamond · involute · gravity · double_torus · digital_root</code>),
+  <b>proof</b> (<code>merkle_root/prove/verify</code>), <b>crypto</b> (<code>sha256 · hmac · pbkdf2 · chacha20 ·
+  poly1305 · aead_encrypt/decrypt · encrypt/decrypt · verify_envelope</code>), <b>trial</b>
+  (<code>gate · adjudicate · prove_verdict · harness</code>) — the same pure functions the build seals.</p>
+  <p><b>Encryption (layered):</b> <code>encrypt/decrypt</code> — real <b>ChaCha20-Poly1305</b> secrecy (RFC 8439,
+  pure-TS, PBKDF2-SHA256 600k) under a uuidna <b>7d-fold</b> envelope for public integrity. Secrecy from the cipher, integrity from the fold;
   the content-address never carries the secret.</p>
 
   <div class="links">

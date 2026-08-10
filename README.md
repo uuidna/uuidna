@@ -57,9 +57,16 @@ Add it to your client's `mcpServers`:
 { "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
 ```
 
-Tools exposed: `uuidna_address`, `uuidna_gate`, `uuidna_reeducate`, `uuidna_merkle_root`,
-`uuidna_merkle_prove`, `uuidna_merkle_verify`, `uuidna_imprint`, `uuidna_read`, `uuidna_bill`, `uuidna_encrypt`, `uuidna_decrypt`, `uuidna_verify_envelope`. They call the
-same pure functions this package seals — integrity, not truth. `0/7`.
+**35 tools** exposed, the whole surface — they call the same pure functions this package seals:
+
+- **uuid / identity** — `uuidna_address`, `uuidna_strict`, `uuidna_imprint`, `uuidna_read`
+- **dna (ℤ/9 structure)** — `uuidna_units`, `uuidna_vortex`, `uuidna_diamond`, `uuidna_involute`, `uuidna_gravity`, `uuidna_double_torus`, `uuidna_digital_root`, `uuidna_seats`
+- **holographic proof** — `uuidna_merkle_root`, `uuidna_merkle_prove`, `uuidna_merkle_verify`
+- **crypto (pure-TS, KAT-verified)** — `uuidna_sha256`, `uuidna_hmac`, `uuidna_pbkdf2`, `uuidna_chacha20`, `uuidna_poly1305`, `uuidna_aead_encrypt`, `uuidna_aead_decrypt`, `uuidna_encrypt`, `uuidna_decrypt`, `uuidna_verify_envelope`
+- **honesty / trial** — `uuidna_gate`, `uuidna_reeducate`, `uuidna_adjudicate`, `uuidna_prove_verdict`, `uuidna_verify`, `uuidna_harness`, `uuidna_harness7`
+- **present / bill** — `uuidna_render`, `uuidna_render_list`, `uuidna_bill`
+
+Integrity, not truth. `0/7`.
 
 ## Encryption (layered — real secrecy)
 
