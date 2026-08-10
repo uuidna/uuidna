@@ -11,11 +11,20 @@
   @media (prefers-color-scheme: dark) { :root { --bg:#151517; --fg:#eaeaea; --mut:#9a9a9a; --acc:#a78bfa; --line:#2a2a2e; --soft:#1d1d20; } }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
-  main { max-width:44rem; margin:0 auto; padding:2.5rem 1.25rem 4rem; }
+  main { max-width:44rem; margin:0 auto; padding:2rem 1.25rem 4rem; }
   h1 { font-size:1.9rem; letter-spacing:-0.02em; margin:0 0 0.3rem; }
   h2 { font-size:1.15rem; margin:2.2rem 0 .4rem; }
   a { color:var(--acc); font-weight:600; text-decoration:none; } a:hover { text-decoration:underline; }
-  .nav { font-size:.85rem; margin-bottom:1.5rem; }
+  .masthead { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:.5rem 1rem; flex-wrap:wrap; padding:.65rem 1.25rem; background:var(--bg); border-bottom:1px solid var(--line); }
+  .masthead .brand { font-weight:800; font-size:1.05rem; letter-spacing:-.02em; color:var(--fg); }
+  .masthead .brand:hover { text-decoration:none; }
+  .masthead .brand .fl { font-size:.62rem; font-weight:700; color:var(--acc); border:1px solid var(--acc); border-radius:5px; padding:.02rem .3rem; margin-left:.3rem; vertical-align:.12em; }
+  .masthead nav { display:flex; gap:.15rem .9rem; flex-wrap:wrap; font-size:.88rem; }
+  .masthead nav a { color:var(--mut); font-weight:600; }
+  .masthead nav a:hover { color:var(--fg); text-decoration:none; }
+  .masthead nav a.active { color:var(--acc); }
+  .crumb { font-size:.82rem; color:var(--mut); margin-bottom:1.3rem; }
+  .crumb a { color:var(--mut); font-weight:500; } .crumb a:hover { color:var(--acc); }
   code, .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
   .stmt { margin:.6rem 0; font-size:.92rem; }
   .rcpt { color:var(--acc); font-size:.78rem; user-select:all; word-break:break-all; }
@@ -27,8 +36,11 @@
   footer { color:var(--mut); font-size:0.82rem; margin-top:2.5rem; border-top:1px solid var(--line); padding-top:1rem; }</style>
 </head>
 <body>
+<header class="masthead">
+  <a class="brand" href="/">uuidna<span class="fl">0/7</span></a>
+  <nav><a href="/theorems/">Theorems</a><a href="/trial/" class="active">Trial</a><a href="/theorems/#clay">Clay</a><a href="/captain/message">Captain</a><a href="https://github.com/uuidna/uuidna">GitHub</a></nav>
+</header>
 <main>
-  <div class="nav"><a href="/">← uuidna</a> · <a href="/theorems/">all theorems</a></div>
   <h1>The trial receipt</h1>
   <p class="stmt" style="font-size:1.05rem"><code class="rcpt">3618f31a-4099-833f-8432-3b37eef7f093</code></p>
   <p class="note">80 verdicts · order-invariant fold ✓ (reverse-order yields the same root) · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
@@ -164,7 +176,13 @@
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">d5405c6f-72f9-8929-a91f-18be05407475</code><br>the overclaim to settle the Birch and Swinnerton-Dyer conjecture is refused at the honest floor — 0/7</p>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">e4469dad-85f7-8615-904d-47849bf890c6</code><br>the overclaim to settle the Poincaré conjecture is refused at the honest floor — 0/7</p>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">7de18ddf-1a21-880e-8bf7-edb2bc548f42</code><br>of the seven Clay Millennium problems, the number this deposit can claim to prove is zero; 0/7</p>
-  <footer>License CC BY-NC 4.0 — Tsvetan Rouschev. <span class="mono">npm test</span> recomputes every verdict above.</footer>
+  <footer>
+    <nav style="display:flex;gap:.4rem 1rem;flex-wrap:wrap;margin-bottom:.6rem">
+      <a href="/">Home</a><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/captain/message">Captain</a>
+      <a href="https://www.npmjs.com/package/@uuidna/uuidna">npm</a><a href="https://github.com/uuidna/uuidna">GitHub</a>
+    </nav>
+    License CC BY-NC 4.0 — Tsvetan Rouschev. <span class="mono">npm test</span> recomputes every receipt. Integrity, not truth. <span class="mono">0/7</span>.
+  </footer>
 </main>
 </body>
 </html>

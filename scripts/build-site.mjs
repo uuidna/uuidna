@@ -98,11 +98,20 @@ const STYLE = `
   @media (prefers-color-scheme: dark) { :root { --bg:#151517; --fg:#eaeaea; --mut:#9a9a9a; --acc:#a78bfa; --line:#2a2a2e; --soft:#1d1d20; } }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
-  main { max-width:44rem; margin:0 auto; padding:2.5rem 1.25rem 4rem; }
+  main { max-width:44rem; margin:0 auto; padding:2rem 1.25rem 4rem; }
   h1 { font-size:1.9rem; letter-spacing:-0.02em; margin:0 0 0.3rem; }
   h2 { font-size:1.15rem; margin:2.2rem 0 .4rem; }
   a { color:var(--acc); font-weight:600; text-decoration:none; } a:hover { text-decoration:underline; }
-  .nav { font-size:.85rem; margin-bottom:1.5rem; }
+  .masthead { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:.5rem 1rem; flex-wrap:wrap; padding:.65rem 1.25rem; background:var(--bg); border-bottom:1px solid var(--line); }
+  .masthead .brand { font-weight:800; font-size:1.05rem; letter-spacing:-.02em; color:var(--fg); }
+  .masthead .brand:hover { text-decoration:none; }
+  .masthead .brand .fl { font-size:.62rem; font-weight:700; color:var(--acc); border:1px solid var(--acc); border-radius:5px; padding:.02rem .3rem; margin-left:.3rem; vertical-align:.12em; }
+  .masthead nav { display:flex; gap:.15rem .9rem; flex-wrap:wrap; font-size:.88rem; }
+  .masthead nav a { color:var(--mut); font-weight:600; }
+  .masthead nav a:hover { color:var(--fg); text-decoration:none; }
+  .masthead nav a.active { color:var(--acc); }
+  .crumb { font-size:.82rem; color:var(--mut); margin-bottom:1.3rem; }
+  .crumb a { color:var(--mut); font-weight:500; } .crumb a:hover { color:var(--acc); }
   code, .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
   .stmt { margin:.6rem 0; font-size:.92rem; }
   .rcpt { color:var(--acc); font-size:.78rem; user-select:all; word-break:break-all; }
@@ -114,6 +123,13 @@ const STYLE = `
   footer { color:var(--mut); font-size:0.82rem; margin-top:2.5rem; border-top:1px solid var(--line); padding-top:1rem; }`
 
 const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
+
+// the site masthead — one navigation across every page. `active` highlights the current section.
+const NAV = [['/theorems/', 'Theorems', 'theorems'], ['/trial/', 'Trial', 'trial'], ['/theorems/#clay', 'Clay', 'clay'], ['/captain/message', 'Captain', 'captain'], ['https://github.com/uuidna/uuidna', 'GitHub', 'github']]
+const masthead = (active = '') => `<header class="masthead">
+  <a class="brand" href="/">uuidna<span class="fl">0/7</span></a>
+  <nav>${NAV.map(([href, label, id]) => `<a href="${href}"${id === active ? ' class="active"' : ''}>${label}</a>`).join('')}</nav>
+</header>`
 
 // ── the trial: every statement adjudicated (with its real test when it has one), rendered WITH its verdict and
 // its proof-of-verdict root. Nothing dodged, nothing skipped — REFUTED and UNVERIFIED ship too, labelled. ──
@@ -128,7 +144,7 @@ function trialRow(statement, test) {
     + `${escapeHtml(statement)}<br><small class="note">${escapeHtml(v.note)} · proof-root <code class="rcpt">${pv.proofRoot}</code></small></p>`
 }
 
-function page({ title, description, body, extraHead = '' }) {
+function page({ title, description, body, extraHead = '', active = '' }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -140,9 +156,16 @@ function page({ title, description, body, extraHead = '' }) {
 ${extraHead}<style>${STYLE}</style>
 </head>
 <body>
+${masthead(active)}
 <main>
 ${body}
-  <footer>License CC BY-NC 4.0 — Tsvetan Rouschev. <span class="mono">npm test</span> recomputes every verdict above.</footer>
+  <footer>
+    <nav style="display:flex;gap:.4rem 1rem;flex-wrap:wrap;margin-bottom:.6rem">
+      <a href="/">Home</a><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/captain/message">Captain</a>
+      <a href="https://www.npmjs.com/package/@uuidna/uuidna">npm</a><a href="https://github.com/uuidna/uuidna">GitHub</a>
+    </nav>
+    License CC BY-NC 4.0 — Tsvetan Rouschev. <span class="mono">npm test</span> recomputes every receipt. Integrity, not truth. <span class="mono">0/7</span>.
+  </footer>
 </main>
 </body>
 </html>
@@ -264,7 +287,7 @@ const disciplineHtml = [
 for (const t of THEOREMS) {
   const title = t.name.split('—')[0].trim()
   const hero = renderHero(t, { base: BASE })
-  const body = `  <div class="nav"><a href="/">← uuidna</a> · <a href="/theorems/">all theorems</a></div>
+  const body = `  <div class="crumb"><a href="/theorems/">Theorems</a> / ${escapeHtml(title)}</div>
   <h1>${escapeHtml(title)}</h1>
 ${hero}
 ${trialRow(t.name, t.test)}`
@@ -272,6 +295,7 @@ ${trialRow(t.name, t.test)}`
     title: title + ' — uuidna theorem',
     description: t.name,
     body,
+    active: 'theorems',
     extraHead: renderHero(t, { base: BASE }).match(/<meta property="[^"]*"[^>]*>/g).join('\n') + '\n',
   }))
 }
@@ -281,7 +305,7 @@ for (const c of CLAY) {
   const title = c.name.split('—')[0].trim()
   const hero = renderHero(c, { base: BASE })
   const disc = discHtml[c.key] || []
-  const body = `  <div class="nav"><a href="/">← uuidna</a> · <a href="/theorems/">all theorems</a> · <a href="/theorems/#clay">the seven</a></div>
+  const body = `  <div class="crumb"><a href="/theorems/">Theorems</a> / <a href="/theorems/#clay">Clay</a> / ${escapeHtml(c.problem)}</div>
   <h1>${escapeHtml(c.problem)}</h1>
 ${hero}
 ${trialRow(c.name, c.test)}
@@ -290,6 +314,7 @@ ${disc.length ? '  <h2>What the framework genuinely computes — credit, and the
     title: c.problem + ' — the refusal, sealed (0/7) · uuidna',
     description: c.name,
     body,
+    active: 'clay',
     extraHead: renderHero(c, { base: BASE }).match(/<meta property="[^"]*"[^>]*>/g).join('\n') + '\n',
   }))
 }
@@ -300,8 +325,8 @@ const clayList = renderList(CLAY, { base: BASE })
 write(join('theorems', 'index.html'), page({
   title: 'Theorems — uuidna',
   description: 'Every card is a decidable theorem, adjudicated with its own test and recomputed on every build; the seven Clay Millennium problems are sealed as refusals — 0/7. Integrity, not truth.',
-  body: `  <div class="nav"><a href="/">← uuidna</a></div>
-  <h1>Theorems</h1>
+  active: 'theorems',
+  body: `  <h1>Theorems</h1>
 ${list}
 
   <h2 id="clay">The seven Clay Millennium problems — 0/7</h2>
@@ -378,8 +403,8 @@ const ledger = TRIAL.map((t) =>
 write(join('trial', 'index.html'), page({
   title: 'The trial receipt — uuidna',
   description: 'The order-invariant content-address of the whole trial: ' + TRIAL.length + ' verdicts (' + tally + ') folded to one recomputable root. Integrity, not truth. 0/7.',
-  body: `  <div class="nav"><a href="/">← uuidna</a> · <a href="/theorems/">all theorems</a></div>
-  <h1>The trial receipt</h1>
+  active: 'trial',
+  body: `  <h1>The trial receipt</h1>
   <p class="stmt" style="font-size:1.05rem"><code class="rcpt">${TRIAL_RECEIPT}</code></p>
   <p class="note">${TRIAL.length} verdicts · order-invariant fold ${orderInvariant ? '✓ (reverse-order yields the same root)' : '✗ BREAK'} · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
   <h2>Reverse — the chain re-seals</h2>
