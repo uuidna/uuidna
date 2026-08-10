@@ -22,10 +22,20 @@ test('content-address is deterministic and context-free', () => {
   assert.equal(strictUuidna(3), strictUuidna(' 3 '))
 })
 
-test('ℤ/9 primitives compute from the axiom', () => {
-  assert.deepEqual(units(), [1, 2, 4, 5, 7, 8])
-  assert.deepEqual(vortexOrbit(), [1, 2, 4, 8, 7, 5])
-  assert.equal(digitalRoot(432), 9)
+test('the Lean 4 formal layer — its asserted ℤ/9 facts recompute true (toolchain-independent)', () => {
+  // The .lean proofs (import Mathlib, sorry-free) cannot be `lake build`-verified without the toolchain, so this
+  // REQUIRED test independently recomputes the exact arithmetic each Lean theorem asserts — the honest bridge:
+  // compile-verification needs `lake build`; this confirms the claims are true regardless.
+  const m9 = (n) => ((n % 9) + 9) % 9
+  assert.deepEqual(units(), [1, 2, 4, 5, 7, 8])                 // (ℤ/9)* — the six units (six harmonic solutions)
+  assert.deepEqual(vortexOrbit(), [1, 2, 4, 8, 7, 5])           // the doubling circuit
+  assert.equal(digitalRoot(432), 9)                            // a432 → digital root 9
+  assert.equal(m9(3 * 3), 0)                                   // 3²≡0 mod 9 (three_sq_zero)
+  assert.equal(m9(6 * 6), 0)                                   // 6²≡0 mod 9 (six_sq_zero)
+  assert.equal(m9(2 * 5), 1)                                   // 2·5≡1 (two_mul_five)
+  assert.equal(m9(4 * 7), 1)                                   // 4·7≡1 (four_mul_seven)
+  assert.equal(m9(8 * 8), 1)                                   // 8·8≡1 (eight_self_inv)
+  assert.ok(![0, 1, 2, 3, 4, 5, 6, 7, 8].some((x) => m9(3 * x) === 1)) // 3 has no inverse mod 9
 })
 
 test('imprint codec round-trips arbitrary text', () => {
