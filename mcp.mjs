@@ -11,10 +11,11 @@ import {
   units, triad, vortexOrbit, diamond, involute, involutionFixed, seats,
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
+  bellState, ghzState, distribution, marginal, receiptOf, fraction, label,
   THEOREMS, runTrial, theorems,
 } from './dist/index.js'
 
-const VERSION = '6.7.0'
+const VERSION = '6.8.0'
 
 // byte codecs — the low-level crypto primitives are Uint8Array in/out; MCP is JSON, so keys/nonces/tags/ciphertext
 // cross the wire as hex and human text crosses as UTF-8. (toUuid/merkleFold use non-cryptographic FNV; sha256 here
@@ -218,6 +219,22 @@ const TOOLS = [
     description: 'RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope, then decrypt with the passphrase. The reverse direction of the bidirectional channel. A wrong key or any tamper throws (Poly1305 authentication).',
     inputSchema: { type: 'object', properties: { uuids: { type: 'array', items: { type: 'string' } }, passphrase: { type: 'string' } }, required: ['uuids', 'passphrase'] },
     run: (a) => decrypt(JSON.parse(readImprintTextChain(a.uuids.map(String))), String(a.passphrase)) },
+  // ── the quantum computer — the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale),
+  //    no floats, no decimal drift). Build a Bell or GHZ state; read its exact rational distribution, marginals, and
+  //    order-invariant receipt. Classical simulation, 2^n amplitudes — exponential, NO quantum advantage. 0/7. ──
+  { name: 'uuidna_quantum',
+    description: 'Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale) — no floats, no decimal drift): build a Bell (2-qubit) or GHZ (n-qubit) state and read its EXACT rational distribution, per-qubit marginals (the no-signaling check), and order-invariant quantum receipt. HONEST: classical simulation — 2^n amplitudes, EXPONENTIAL, NO quantum advantage, NOT quantum hardware. Integrity, not truth. 0/7.',
+    inputSchema: { type: 'object', properties: { circuit: { type: 'string', enum: ['bell', 'ghz'], description: 'bell (2 qubits) or ghz (n qubits); default bell' }, qubits: { type: 'number', description: 'qubit count for ghz, 1..12 (default 3)' } } },
+    run: (a = {}) => {
+      const circuit = a.circuit === 'ghz' ? 'ghz' : 'bell'
+      const n = a.qubits ? Number(a.qubits) : 3
+      if (circuit === 'ghz' && (!Number.isInteger(n) || n < 1 || n > 12)) throw new Error('qubits must be an integer in 1..12')
+      const state = circuit === 'ghz' ? ghzState(n) : bellState()
+      const outcomes = {}
+      distribution(state).forEach((p, i) => { const f = fraction(p); if (f !== '0') outcomes[label(i, state.qubits)] = f })
+      const marginals = Array.from({ length: state.qubits }, (_, q) => ({ qubit: q, p0: fraction(marginal(state, q, 0)), p1: fraction(marginal(state, q, 1)) }))
+      return { circuit, qubits: state.qubits, outcomes, marginals, receipt: receiptOf(state), honest: 'classical state-vector simulation — 2^n amplitudes, exponential, no quantum advantage, not quantum hardware; 0/7' }
+    } },
 ]
 
 const send = (msg) => process.stdout.write(JSON.stringify(msg) + '\n')

@@ -57,7 +57,7 @@ Add it to your client's `mcpServers`:
 { "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
 ```
 
-**44 tools** exposed, the whole surface — they call the same pure functions this package seals:
+**45 tools** exposed, the whole surface — they call the same pure functions this package seals:
 
 - **uuid / identity** — `uuidna_address`, `uuidna_strict`, `uuidna_merge` (order-sensitive fold), `uuidna_coin64` (64-bit coin), `uuidna_imprint`, `uuidna_read`
 - **dna (ℤ/9 structure)** — `uuidna_units`, `uuidna_triad`, `uuidna_vortex`, `uuidna_diamond`, `uuidna_involute`, `uuidna_gravity`, `uuidna_double_torus`, `uuidna_digital_root`, `uuidna_seats`
@@ -65,6 +65,7 @@ Add it to your client's `mcpServers`:
 - **crypto (pure-TS, KAT-verified)** — `uuidna_sha256`, `uuidna_hmac`, `uuidna_pbkdf2`, `uuidna_chacha20`, `uuidna_poly1305`, `uuidna_aead_encrypt`, `uuidna_aead_decrypt`, `uuidna_encrypt` (with the crypt-salt `step`), `uuidna_seal_stream`, `uuidna_decrypt`, `uuidna_verify_envelope`
 - **bidirectional channel** — `uuidna_send` (encrypt → imprint into a uuid stream), `uuidna_receive` (read the uuid stream → decrypt). The channel *is* uuid itself; one side per direction; an advancing `step` closes the equality leak in transit; the wrong key never opens it.
 - **honesty / trial** — `uuidna_gate`, `uuidna_reeducate`, `uuidna_adjudicate`, `uuidna_prove_verdict`, `uuidna_verify`, `uuidna_harness`, `uuidna_harness7`, `uuidna_theorems`, `uuidna_theorem`, `uuidna_trial`
+- **quantum** — `uuidna_quantum` (the exact classical state-vector simulator — Bell/GHZ, rational distribution, no-signaling marginals, quantum receipt; 2^n amplitudes, no quantum advantage)
 - **present / bill** — `uuidna_render`, `uuidna_render_list`, `uuidna_bill`
 
 Integrity, not truth. `0/7`.

@@ -21,6 +21,7 @@ export const PRINCIPLE = [
   ['DivByZero.lean', 'Division by zero', 'the reflection dz(x)=10−x — a finite residue, never infinity'],
   ['BioPhysics.lean', 'Applied structure — the science pairs', 'blood, DNA, sound, chemistry, music, acid-base, heredity, colour — the algebra, demarcated'],
   ['Discover.lean', 'Self-discovered', 'facts derived by function: Lagrange, the unit criterion, idempotents'],
+  ['Quantum.lean', 'The quantum computer', 'the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware'],
   ['OneLeap.lean', 'One leap', 'the whole vortex proved in a single by decide'],
 ]
 
