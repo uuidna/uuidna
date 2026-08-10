@@ -6,7 +6,7 @@
 import {
   toUuid, strictUuidna, merge, coin64, merkleRoot, merkleProof, verifyProof, computes,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
-  encrypt, decrypt, verifyEnvelope, sealSequence,
+  encrypt, decrypt, verifyEnvelope, sealSequence, MAX_ITER,
   digitalRoot, merkleGravity, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
   units, triad, vortexOrbit, diamond, involute, involutionFixed, seats,
   harness, harness7, renderTheorem, renderHero, renderList,
@@ -116,7 +116,7 @@ const TOOLS = [
     run: ({ text }) => harness7(String(text)) },
   { name: 'uuidna_render',
     description: 'Render a statement as a framework-free, CSP-safe card (or OpenGraph hero) — schema.org microdata, shadcn anatomy, content-address in every card, linked to its proof page. Pure HTML+CSS, no script.',
-    inputSchema: { type: 'object', properties: { name: { type: 'string', description: 'the statement' }, key: { type: 'string', description: 'proof-page slug' }, base: { type: 'string', description: 'site base for the proof link, e.g. /millennium-solutions' }, kind: { type: 'string', enum: ['card', 'hero'], description: 'card (default) or hero' } }, required: ['name'] },
+    inputSchema: { type: 'object', properties: { name: { type: 'string', description: 'the statement' }, key: { type: 'string', description: 'proof-page slug' }, base: { type: 'string', description: 'site base for the proof link (default root: /theorem/<key>); e.g. /site' }, kind: { type: 'string', enum: ['card', 'hero'], description: 'card (default) or hero' } }, required: ['name'] },
     run: (a) => (a.kind === 'hero' ? renderHero : renderTheorem)({ name: String(a.name), ...(a.key ? { key: String(a.key) } : {}) }, a.base ? { base: String(a.base) } : {}) },
   // ── the crypto surface: the standards AS local theorems (pure-TS, KAT-verified against the RFC/NIST vectors,
   //    zero native crypto). Bytes cross the wire as hex, human text as UTF-8. Integrity where the theorem gives
@@ -132,7 +132,12 @@ const TOOLS = [
   { name: 'uuidna_pbkdf2',
     description: 'Passphrase key-stretching — PBKDF2-HMAC-SHA256 (local theorem). Work factor = iterations (default 600000, OWASP 2023). passphrase and salt are UTF-8; returns a length-byte hex key (default 32).',
     inputSchema: { type: 'object', properties: { passphrase: { type: 'string' }, salt: { type: 'string' }, iterations: { type: 'number' }, length: { type: 'number' } }, required: ['passphrase', 'salt'] },
-    run: (a) => hex(pbkdf2Sha256(utf8(a.passphrase), utf8(a.salt), a.iterations ? Number(a.iterations) : 600000, a.length ? Number(a.length) : 32)) },
+    run: (a) => {
+      const iter = a.iterations ? Number(a.iterations) : 600000, len = a.length ? Number(a.length) : 32
+      if (!Number.isInteger(iter) || iter < 1 || iter > MAX_ITER) throw new Error(`iterations must be an integer in 1..${MAX_ITER} (DoS guard)`)
+      if (!Number.isInteger(len) || len < 1 || len > 1024) throw new Error('length must be an integer in 1..1024 bytes')
+      return hex(pbkdf2Sha256(utf8(a.passphrase), utf8(a.salt), iter, len))
+    } },
   { name: 'uuidna_chacha20',
     description: 'ChaCha20 keystream cipher (local theorem, RFC 8439 ARX permutation): returns hex of text ⊕ keystream. key is 32-byte hex, nonce 12-byte hex, counter defaults to 0. CAVEAT (0/7): NEVER reuse a (key, nonce, counter) — keystream reuse destroys confidentiality. For passphrase secrecy use uuidna_encrypt.',
     inputSchema: { type: 'object', properties: { key: { type: 'string', description: '32-byte hex' }, nonce: { type: 'string', description: '12-byte hex' }, counter: { type: 'number' }, text: { type: 'string' } }, required: ['key', 'nonce', 'text'] },

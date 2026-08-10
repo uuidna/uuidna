@@ -24,6 +24,10 @@ import { aeadEncrypt, aeadDecrypt } from './chacha.js'
 
 const enc = new TextEncoder(), dec = new TextDecoder()
 export const ITER = 600_000 // PBKDF2-SHA-256 iterations (OWASP 2023)
+// Hard ceiling on the work factor. `iter` travels in the envelope and is attacker-controlled on decrypt; pure-TS
+// PBKDF2 has no upper bound, so a hostile `iter` (e.g. 1e12) would spin forever (CPU DoS). 10M is ~16× the default
+// and still finite — a legitimate envelope never exceeds it. Recompute-cost is bounded, not unbounded. 0/7.
+export const MAX_ITER = 10_000_000
 
 // truncate toward zero with exact integer arithmetic — no Math.* host intrinsic (the two-coins guard). n - n%1.
 const intOf = (n: number): number => n - (n % 1)
@@ -92,7 +96,9 @@ export function sealSequence(messages: readonly string[], passphrase: string, st
 
 /** Decrypt a sealed envelope. A wrong passphrase or tampered ciphertext throws (Poly1305 authentication). */
 export function decrypt(sealed: Sealed, passphrase: string): string {
-  const key = deriveKey(enc.encode(passphrase), ub64(sealed.salt), sealed.iter)
+  const iter = sealed.iter
+  if (!Number.isInteger(iter) || iter < 1 || iter > MAX_ITER) throw new Error(`crypt: refusing iter=${iter} — must be an integer in 1..${MAX_ITER} (DoS guard)`)
+  const key = deriveKey(enc.encode(passphrase), ub64(sealed.salt), iter)
   return dec.decode(aeadDecrypt(key, ub64(sealed.nonce), ub64(sealed.ct), ub64(sealed.tag)))
 }
 

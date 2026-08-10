@@ -248,7 +248,7 @@ test('777 · the same tests generate the UI — shadcn microdata cards, each sta
   const card = renderTheorem({ name: 'a decidable theorem — computed by exhaustion; 0/7', key: 'a_decidable_theorem' })
   assert.match(card, /itemscope itemtype="https:\/\/schema\.org\/CreativeWork"/)
   assert.match(card, /itemprop="identifier"/)
-  assert.match(card, /href="\/millennium-solutions\/theorem\/a_decidable_theorem"/) // statement → its proof
+  assert.match(card, /href="\/theorem\/a_decidable_theorem"/) // statement → its proof (root-relative default)
   for (const slot of ['card', 'card-header', 'card-title', 'card-description', 'card-content', 'card-footer']) {
     assert.match(card, new RegExp('data-slot="' + slot + '"')) // strict shadcn anatomy for widget-API compatibility
   }
@@ -256,7 +256,7 @@ test('777 · the same tests generate the UI — shadcn microdata cards, each sta
   assert.ok(!/<script/i.test(card)) // framework-free, CSP-safe
   // the OpenGraph hero exposes statement, proof URL and address on first contact
   const hero = renderHero({ name: 'the honesty gate returns a binary verdict; 0/7', key: 'the_trial_returns_a_binary_verdict' })
-  assert.match(hero, /<meta property="og:url" content="\/millennium-solutions\/theorem\/the_trial_returns_a_binary_verdict">/)
+  assert.match(hero, /<meta property="og:url" content="\/theorem\/the_trial_returns_a_binary_verdict">/)
   assert.match(hero, /<meta property="uuidna:address" content="[0-9a-f-]{36}">/)
   assert.match(hero, /<meta property="uuidna:floor" content="0\/7">/)
 })
