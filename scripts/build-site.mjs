@@ -202,6 +202,28 @@ ${trialRow('of the seven Clay Millennium problems, the number this deposit can c
 ${clayList}`,
 }))
 
+// ── DISCIPLINE & DISCOVERY — the fix for the session's crack: SEALED ≠ true. A seal is only as honest as its
+// test can FAIL; a rigged test (()=>true, or the paper's |α²−α²|=0) seals any gate-clean statement, falsehoods
+// included. These theorems encode that defense, and the honest discovery from actually TRYING the paper's own
+// framework (crediting its real involution, correcting its false fixed-set/codimension claim). All falsifiable. ──
+const sigd = ([a, b]) => [1 - a, -b], eqd = (x, y) => x[0] === y[0] && x[1] === y[1], fixedd = (s) => eqd(sigd(s), s)
+const discipline = [
+  trialRow('a seal is trusted only when its test can fail — a rigged test seals a falsehood, a falsifiable test refutes it',
+    () => adjudicate('two plus two equals five', () => true).verdict === 'SEALED' && adjudicate('two plus two equals five', () => 2 + 2 === 5).verdict === 'REFUTED'),
+  trialRow('tried on a false statement the paper zero-deviation method passes while a real decidable test fails',
+    () => { const paper = () => { const a2 = 1; return (a2 - a2) === 0 }; const real = () => (3 * 3) % 9 === 1; return paper() === true && real() === false }),
+  trialRow('under exact arithmetic the map s to 1 minus s is an involution — applied twice it returns s',
+    () => [[3, 7], [-2, 5], [0, 0], [1, -4]].every((s) => eqd(sigd(sigd(s)), s))),
+  trialRow('the fixed set of the involution s to 1 minus s is the single point one half, not the critical line — a codimension two point, not a codimension one barrier',
+    () => fixedd([0.5, 0]) === true && fixedd([0.5, 1]) === false && fixedd([0.5, -3]) === false),
+].join('\n')
+
+// GUARD — the build must refuse to run if the honest path ever fails to refute a known falsehood (the anti-fraud
+// tripwire). A rigged test seals anything; an HONEST test must reject a false statement, or the ledger is worthless.
+if (adjudicate('two plus two equals five', () => 2 + 2 === 5).verdict !== 'REFUTED') {
+  throw new Error('falsifiability guard tripped: an honest decidable test failed to REFUTE a falsehood — the seal is not trustworthy')
+}
+
 // ── THE TRIAL RECEIPT — fold every proof-of-verdict root through merkleGravity to ONE address. It is
 // ORDER-INVARIANT (the quantum receipt): any observer ordering of the verdicts yields the same trial root,
 // so the whole trial is content-addressed by one recomputable value. Persisted as a referrer-able page. ──
@@ -260,6 +282,8 @@ ${statesRow}
   <p class="note">the three state gravities fall to one states-root <code class="rcpt">${statesRoot}</code>${statesRoot === TRIAL_RECEIPT ? ' (= the trial receipt)' : ' (a partition fold — distinct from the flat trial receipt above, honestly)'}</p>
   <h2>The states and labels, sealed</h2>
 ${meta}
+  <h2>Discipline &amp; discovery — SEALED requires a falsifiable test</h2>
+${discipline}
   <h2>The trial ledger — every verdict, by its proof-of-verdict root</h2>
 ${ledger}`,
 }))
