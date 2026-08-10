@@ -186,6 +186,17 @@ const TOOLS = [
     description: 'Run the whole theorem ledger through the trial: adjudicate each theorem WITH its decidable test and fold every proof-of-verdict root through the order-invariant gravity to ONE receipt. Returns {count,sealed,refuted,unverified,receipt,verdicts}. Recomputable by anyone — same ledger, same receipt.',
     inputSchema: { type: 'object', properties: {} },
     run: () => runTrial() },
+  // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the
+  //    sealed envelope INTO a uuid chain; RECEIVE = read the uuid chain then decrypt. One side per direction; the
+  //    seven dimension streams each carry both ways; the wrong key never opens it (the pattern the 777 tests seal). ──
+  { name: 'uuidna_send',
+    description: 'SEND (→): encrypt text under a passphrase (pure-TS ChaCha20-Poly1305, 7d-fold envelope), then imprint the sealed envelope INTO a uuid stream — the channel is uuid itself. Returns the uuid chain to transport. Receive it with uuidna_receive and the same passphrase.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' } }, required: ['text', 'passphrase'] },
+    run: (a) => imprintTextChain(JSON.stringify(encrypt(String(a.text), String(a.passphrase)))) },
+  { name: 'uuidna_receive',
+    description: 'RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope, then decrypt with the passphrase. The reverse direction of the bidirectional channel. A wrong key or any tamper throws (Poly1305 authentication).',
+    inputSchema: { type: 'object', properties: { uuids: { type: 'array', items: { type: 'string' } }, passphrase: { type: 'string' } }, required: ['uuids', 'passphrase'] },
+    run: (a) => decrypt(JSON.parse(readImprintTextChain(a.uuids.map(String))), String(a.passphrase)) },
 ]
 
 const send = (msg) => process.stdout.write(JSON.stringify(msg) + '\n')

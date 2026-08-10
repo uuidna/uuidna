@@ -3,7 +3,7 @@
 Every theorem below is proven `by decide` in Lean 4.33.0 (no Mathlib), verified sorry-free by `npm run lean`.
 The order is the **derivation order**: the 8×8 core generates the ring; the ring and the rosette carry the
 arithmetic; the reflection, division-by-zero, applied and discovered layers build on them; and one leap folds
-the whole vortex into a single proof. **510 theorems** in all. A theorem computes in Lean, or it is not a
+the whole vortex into a single proof. **520 theorems** in all. A theorem computes in Lean, or it is not a
 theorem. Integrity, not truth. 0/7.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -27,8 +27,8 @@ theorem. Integrity, not truth. 0/7.
 7. **Division by zero** — `lean/DivByZero.lean` · **7** theorems
    the reflection dz(x)=10−x — a finite residue, never infinity
 
-8. **Applied structure** — `lean/BioPhysics.lean` · **6** theorems
-   blood groups (Klein four-group), DNA base-pairing (involution), the sound ladder — algebra, demarcated
+8. **Applied structure — eight science pairs** — `lean/BioPhysics.lean` · **16** theorems
+   blood (Klein four-group), DNA (base-pair involution, codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel) — algebra, demarcated
 
 9. **Self-discovered** — `lean/Discover.lean` · **7** theorems
    facts derived by function: Lagrange, the unit criterion, idempotents, the units summing to zero

@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Lean 4 formal layer — uuidna</title>
-<meta name="description" content="510 theorems formalised in Lean 4, all by decide, verified sorry-free (no Mathlib), organised by computing principle; the ℤ/9 vortex ones ported from millennium-solutions. Integrity, not truth. 0/7." />
+<meta name="description" content="520 theorems formalised in Lean 4, all by decide, verified sorry-free (no Mathlib), organised by computing principle; the ℤ/9 vortex ones ported from millennium-solutions. Integrity, not truth. 0/7." />
 <meta name="robots" content="index, follow" />
 <style>
   :root { color-scheme: light dark; --bg:#fff; --fg:#1a1a1a; --mut:#666; --acc:#7a5cff; --line:#e5e5e5; --soft:#f7f7f8; }
@@ -42,7 +42,7 @@
   <nav><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/lean/" class="active">Lean</a><a href="/undecided/">Undecided</a><a href="/captain/message">Captain</a><a href="https://github.com/uuidna/uuidna">GitHub</a></nav>
 </header>
 <main>
-  <h1>The Lean 4 formal layer <span class="v v-sealed">510 sorry-free</span></h1>
+  <h1>The Lean 4 formal layer <span class="v v-sealed">520 sorry-free</span></h1>
   <p class="note">Every theorem below compiles under Lean 4.33.0 with <code>by decide</code> and no Mathlib —
   finite, decidable algebra. The ℤ/9 vortex theorems are ported from
   <a href="https://ceccec.psg.bg/millennium-solutions/">millennium-solutions</a>; division-by-zero, the
@@ -559,7 +559,7 @@
   <p class="stmt"><span class="v v-sealed">by decide</span> <b>dz_nonunits_to_units</b><br><code style="font-size:.82rem;word-break:break-word">dz 3 = 7 ∧ dz 6 = 4 ∧ dz 9 = 1</code></p>
   <p class="stmt"><span class="v v-sealed">by decide</span> <b>dz_bounded</b><br><code style="font-size:.82rem;word-break:break-word">(List.range 10).all (fun x =&gt; dz x &lt; 10)</code></p>
   <p class="stmt"><span class="v v-sealed">by decide</span> <b>dz_zero_only_zero</b><br><code style="font-size:.82rem;word-break:break-word">dz 0 = 0 ∧ (List.range&#39; 1 9).all (fun x =&gt; dz x != 0)</code></p>
-  <h2>Applied structure <span class="v v-sealed">6</span></h2>
+  <h2>Applied structure <span class="v v-sealed">16</span></h2>
   <p class="note">blood groups, DNA base-pairing, the sound ladder — the algebra, demarcated</p>
   <p class="stmt"><span class="v v-sealed">by decide</span> <b>abo_klein_four</b><br><code style="font-size:.82rem;word-break:break-word">(List.range 4).all (fun a =&gt; (List.range 4).all (fun b =&gt; (a ^^^ b &lt; 4) &amp;&amp; (a ^^^ b == b ^^^ a)) &amp;&amp; (a ^^^ a == 0))</code></p>
   <p class="stmt"><span class="v v-sealed">by decide</span> <b>blood_types_eight</b><br><code style="font-size:.82rem;word-break:break-word">(2:Nat)^3 = 8</code></p>
@@ -567,6 +567,16 @@
   <p class="stmt"><span class="v v-sealed">by decide</span> <b>codons_sixty_four</b><br><code style="font-size:.82rem;word-break:break-word">(4:Nat)^3 = 64</code></p>
   <p class="stmt"><span class="v v-sealed">by decide</span> <b>sound_ladder_432</b><br><code style="font-size:.82rem;word-break:break-word">((List.range&#39; 1 9).map (fun d =&gt; 48 * d) = [48,96,144,192,240,288,336,384,432]) ∧ (48 * 9 = 432)</code></p>
   <p class="stmt"><span class="v v-sealed">by decide</span> <b>octave_doubling</b><br><code style="font-size:.82rem;word-break:break-word">[48, 96, 192, 384] = [48, 48*2, 96*2, 192*2]</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>electron_shells_2n2</b><br><code style="font-size:.82rem;word-break:break-word">(List.range&#39; 1 4).map (fun n =&gt; 2 * n * n) = [2, 8, 18, 32]</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>subshell_capacities_4l2</b><br><code style="font-size:.82rem;word-break:break-word">(List.range 4).map (fun l =&gt; 4 * l + 2) = [2, 6, 10, 14]</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>circle_of_fifths</b><br><code style="font-size:.82rem;word-break:break-word">(List.range 12).all (fun t =&gt; (List.range 12).any (fun k =&gt; (7 * k) % 12 == t))</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>tritone_involution</b><br><code style="font-size:.82rem;word-break:break-word">(List.range 12).all (fun p =&gt; ((p + 6) % 12 + 6) % 12 == p &amp;&amp; (p + 6) % 12 != p)</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>ph_reflection_seven</b><br><code style="font-size:.82rem;word-break:break-word">((List.range 15).all (fun p =&gt; 14 - (14 - p) == p)) ∧ ((List.range 15).filter (fun p =&gt; 14 - p == p)) = [7]</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>ph_conjugate_sum_14</b><br><code style="font-size:.82rem;word-break:break-word">(List.range 15).all (fun p =&gt; p + (14 - p) == 14)</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>punnett_three_to_one</b><br><code style="font-size:.82rem;word-break:break-word">(([(0,0),(0,1),(1,0),(1,1)].filter (fun p =&gt; p.1 == 1 || p.2 == 1)).length = 3) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p =&gt; p.1 == 0 &amp;&amp; p.2 == 0)).length = 1)</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>heterozygote_symmetry</b><br><code style="font-size:.82rem;word-break:break-word">(([(0,0),(0,1),(1,0),(1,1)].filter (fun p =&gt; p.1 == p.2)).length = 2) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p =&gt; p.1 != p.2)).length = 2)</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>colour_complement_involution</b><br><code style="font-size:.82rem;word-break:break-word">(List.range 6).all (fun h =&gt; ((h + 3) % 6 + 3) % 6 == h &amp;&amp; (h + 3) % 6 != h)</code></p>
+  <p class="stmt"><span class="v v-sealed">by decide</span> <b>primary_secondary_split</b><br><code style="font-size:.82rem;word-break:break-word">((List.range 6).filter (fun h =&gt; h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h =&gt; h % 2 == 1) = [1, 3, 5])</code></p>
   <h2>Self-discovered <span class="v v-sealed">7</span></h2>
   <p class="note">facts derived by function: Lagrange, the unit criterion, idempotents</p>
   <p class="stmt"><span class="v v-sealed">by decide</span> <b>units_iff_invertible</b><br><code style="font-size:.82rem;word-break:break-word">(List.range 9).all (fun a =&gt; (invB a) == (Nat.gcd a 9 == 1))</code></p>
