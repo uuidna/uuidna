@@ -68,6 +68,8 @@ const THEOREMS = [
   { key: 'multilingual_roundtrip', name: 'multilingual streams round-trip bidirectionally — the rosetta dimension', test: () => ['доказателство', '概念验证', 'preuve de concept', 'دليل', '증명', 'Machbarkeitsnachweis', 'सिद्धि'].every((p) => decrypt(encrypt(p, KEY), KEY) === p) },
   { key: 'honest_floor_holds_streams', name: 'the honest floor holds across every stream — no ciphertext boast leaks', test: () => STREAMS.every((p) => computes(encrypt(p, KEY).alg + ' — integrity of the envelope, not truth; 0/7').binary === 1) && computes('unbreakable 100% secure quantum encryption').binary === 0 },
   { key: 'tests_generate_ui', name: 'the same tests generate the UI — shadcn microdata cards, each statement linked to its proof', test: () => { const c = renderTheorem({ name: 'a decidable theorem — computed by exhaustion; 0/7', key: 'a_decidable_theorem' }); return /itemprop="identifier"/.test(c) && /data-slot="card-footer"/.test(c) && !/<script/i.test(c) } },
+  // 0/7 IS A THEOREM, NOT DECORATION — its decidable test recomputes the count of admissible Clay solve-claims (0).
+  { key: 'zero_of_seven', name: 'the honest floor — of the seven Clay Millennium problems, the number this deposit can claim to prove is zero; 0/7', test: () => CLAY.filter((c) => computes('we prove ' + c.problem).binary === 1).length === 0 },
 ]
 
 // ── the seven Clay Millennium Prize problems — BOUNDARY pages, never solutions ──
@@ -191,7 +193,7 @@ ${trialRow('every capability is a decidable theorem, presented by its content-ad
 ${list}
 
   <h2 id="clay">The seven Clay Millennium problems — 0/7</h2>
-${trialRow('these seven Clay Millennium problems are left unsolved by this deposit, which claims no prize; the honesty gate drains any claim to prove them — 0/7')}
+${trialRow('of the seven Clay Millennium problems, the number this deposit can claim to prove is zero; 0/7', () => CLAY.filter((c) => computes('we prove ' + c.problem).binary === 1).length === 0)}
 ${clayList}`,
 }))
 

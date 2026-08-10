@@ -72,11 +72,23 @@ test('merkle proof is sound — the true leaf verifies, a forgery fails', () => 
   }
 })
 
+// the seven Clay Millennium Prize problems — the canonical list "0/7" quantifies over.
+const CLAY_SEVEN = [
+  'the Riemann hypothesis', 'P versus NP', 'Navier–Stokes existence and smoothness',
+  'Yang–Mills existence and mass gap', 'the Hodge conjecture',
+  'the Birch and Swinnerton-Dyer conjecture', 'the Poincaré conjecture',
+]
+
 test('the honesty gate drains overclaims and signs the honest floor', () => {
   assert.equal(computes('we prove the Riemann hypothesis').binary, 0)
   assert.equal(computes('это faster than light').binary, 0)
   assert.equal(computes('мы доказали гипотезу').binary, 0) // hard in all 7 dimensions
   assert.equal(computes('a content-address proves integrity, not truth; 0/7').binary, 1)
+  // 0/7 COMPUTES, AND IS AUDITED HERE: the count of the seven Clay solve-claims the gate would ADMIT is zero.
+  // Not decoration — a recomputable quantity: |{ p ∈ the seven : computes('we prove p').binary === 1 }| === 0.
+  // (Audits the canonical claim shape for each problem — the same scope as the Riemann assertion above; it does
+  // not assert unsolvability, only that this deposit's gate refuses each solve-claim → 0 admissible of 7.)
+  assert.equal(CLAY_SEVEN.filter((p) => computes('we prove ' + p).binary === 1).length, 0) // 0/7 — none claimable
   // the trial — a recomputable three-way verdict; proveVerdict folds the formulas to an order-invariant root
   assert.equal(adjudicate('we prove all seven').verdict, 'REFUTED')      // the gate drains a named overclaim
   assert.equal(adjudicate('a plain unbacked claim').verdict, 'UNVERIFIED') // gate-clean, no test → not an oracle
