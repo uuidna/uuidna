@@ -8,7 +8,7 @@ export const RED = /\bwe prove\b|\bproven\b|confidence\s*=?\s*1\.0|ready for pee
 // HARD IN ALL 7 — the same "we prove / proven" tripwire, in the seven locales' languages, so a translated
 // overclaim cannot hide from an English-only gate. Targets the ASSERTION forms only, never the honest
 // "proof of concept" nouns present in localized descriptions. Negation-blind, like RED.
-export const RED_INTL = /wir haben bewiesen|bewiesen|nous avons prouv|prouvée?s?|démontrée?s?|hemos demostrado|demostrad[oa]s?|мы доказали|доказан[оаи]|доказали|доказахме|已证明|我们证明了|证明了|abbiamo dimostrato|dimostrat[oi]|demonstrámos|provámos|証明した|証明しました|أثبتنا|برهنّا|सिद्ध कर|udowodni\w*|wij hebben bewezen|bewezen/i
+export const RED_INTL = /wir haben bewiesen|bewiesen|nous avons prouv|prouvée?s?|démontrée?s?|hemos demostrado|demostrad[oa]s?|мы доказали|доказан[оаи]|доказали|доказахме|已证明|我们证明了|证明了|abbiamo dimostrato|dimostrat[oi]|demonstrámos|provámos|証明した|証明しました|أثبتنا|برهنّا|सिद्ध कर|udowodni\w*|wij hebben bewezen|bewezen|증명했|증명됨|증명된|kanıtladık|kanıtlan\w*|ispatladık|αποδείξαμε|αποδεδειγμ\w*|הוכחנו|מוכח|vi har bevisat|bevisa[dt]|membuktikan|dibuktikan|terbukti|đã chứng minh|được chứng minh|am demonstrat|dovedit\w*/i
 
 const PROBLEM = '(clay|millennium|riemann|hodge|poincar[eé]|navier[- ]?stokes|yang[- ]?mills|birch|swinnerton|p ?vs\\.? ?np|p versus np|p ?= ?np)'
 const CLAIM = '(prov(e|es|ed|en|ing)|proofs? of|solv(e|es|ed|ing))'
@@ -21,6 +21,13 @@ export const OVERREACH = new RegExp([
   '\\b(100 ?% ?secure|(absolutely|totally|completely|fully|perfectly) (secure|private|anonymous)|tamper[ -]?proof|(hack|crack|break|bullet|fool)[ -]?proof|uncrackable|undefeatable|invulnerable|impenetrable|indestructible|provably secure|mathematically proven secure|guaranteed (correct|secure|private|safe)|always correct)\\b',
   '\\b((most|best|strongest) (secure|private|encryption|security|cipher|hash)|fastest (hash|encryption|cipher|digest)|(ultimate|strongest|flawless|foolproof|perfect|unbeatable) (encryption|security|cipher|hash|crypto)|strongest \\w+ ever|(beats|defeats) all attacks|immune to attack)\\b',
   '\\b(post[ -]?quantum|quantum[ -]?resistant|zero[ -]?knowledge|zero[ -]?trust|end[ -]?to[ -]?end (encrypt\\w*|secure)|solv\\w* (all )?(cryptography|encryption)|(cryptography|encryption) (is |completely |entirely )?solved)\\b',
+  '\\b(irrefutabl\\w*|incontrovertibl\\w*|indisputabl\\w*|beyond (all )?doubt|beyond question|conclusively (prov\\w*|shown|demonstrat\\w*)|definitive(ly)? (prov\\w*|solv\\w*|answer\\w*)|definitive proof)\\b',
+  '\\b(100 ?% ?(guaranteed|certain|proven)|guaranteed (profit|returns?|results?|income|success|wins?)|risk[- ]?free|financial freedom)\\b',
+  '\\b(miracle cure|clinically proven|doctor recommended|snake oil)\\b',
+  '\\b(revolutionary|groundbreaking|game[- ]?chang\\w*|world[- ]?(first|leading)|world.s (best|first|leading|greatest)|unparalleled|unrivall?ed|cutting[- ]?edge|bleeding[- ]?edge|battle[- ]?tested|production[- ]?hardened|industry[- ]?leading|enterprise[- ]?ready)\\b',
+  '\\b(antigravity|anti[- ]?gravity|warp[- ]?drive|free[- ]?energy|reactionless)\\b',
+  '\\b(superintelligen\\w*|artificial general intelligence|autonomous agi|conscious machine|sentient (ai|machine|system|program))\\b',
+  '\\b((hacker|nsa|zero[- ]?day|bullet)[- ]?proof)\\b',
   near(CLAIM, PROBLEM),
   near(PROBLEM, CLAIM),
   near(CRYPTO, BREAK, 20),
@@ -32,11 +39,23 @@ const NEGATOR = /\b(not|no|nothing|none|never|isn'?t|aren'?t|does ?n'?t|do ?n'?t
 export const PREDICT = /\b(guaranteed to|will (certainly|surely|inevitably|definitely|always)|is (inevitable|guaranteed|certain to)|bound to (hold|win|succeed) forever|roll(s)? (with it )?unchanged)\b/i
 const NEGATOR_WORD = /\b(not|no|never|isn'?t|won'?t|will not|cannot|can'?t|without|neither|nor)\b/i
 
+// THE ROSETTA — Glagolitic (oldest Slavic script, U+2C00–U+2C5E) crosslinked to Cyrillic via a declared
+// transliteration table, so a Slavic proof-boast in Glagolitic reaches the same detector as its Cyrillic
+// twin. One message, many scripts. Uppercase folds to lowercase by the −0x30 offset before lookup.
+const GLAG: Record<string, string> = {
+  'ⰰ': 'а', 'ⰱ': 'б', 'ⰲ': 'в', 'ⰳ': 'г', 'ⰴ': 'д', 'ⰵ': 'е', 'ⰶ': 'ж',
+  'ⰸ': 'з', 'ⰹ': 'и', 'ⰽ': 'к', 'ⰾ': 'л', 'ⰿ': 'м', 'ⱀ': 'н', 'ⱁ': 'о',
+  'ⱂ': 'п', 'ⱃ': 'р', 'ⱄ': 'с', 'ⱅ': 'т', 'ⱆ': 'у', 'ⱇ': 'ф', 'ⱈ': 'х',
+  'ⱋ': 'щ', 'ⱌ': 'ц', 'ⱍ': 'ч', 'ⱎ': 'ш',
+}
+export const rosetta = (t: string): string =>
+  t.replace(/[Ⰰ-ⱞ]/g, (c) => GLAG[c] ?? GLAG[String.fromCodePoint((c.codePointAt(0) as number) - 0x30)] ?? c)
+
 /** The binary. true = honest (stays); false = overclaim (drained). `hit` is the exact prose that failed. */
 export const computes = (text: string): { binary: 0 | 1; hit: string | null } => {
   const r = text.match(RED)
   if (r) return { binary: 0, hit: r[0] }
-  const ri = text.match(RED_INTL)
+  const ri = text.match(RED_INTL) ?? rosetta(text).match(RED_INTL)
   if (ri) return { binary: 0, hit: ri[0] }
   const re = new RegExp(OVERREACH.source, 'gi')
   let m: RegExpExecArray | null
