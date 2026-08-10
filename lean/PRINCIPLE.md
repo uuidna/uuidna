@@ -1,43 +1,50 @@
 # The formal layer, organized by computing principle
 
-Every theorem below is proven `by decide` in Lean 4.33.0 (no Mathlib), verified sorry-free by `npm run lean`.
-The order is the **derivation order**: the 8×8 core generates the ring; the ring and the rosette carry the
-arithmetic; the reflection, division-by-zero, applied and discovered layers build on them; and one leap folds
-the whole vortex into a single proof. **524 theorems** in all. A theorem computes in Lean, or it is not a
-theorem. Integrity, not truth.
+<!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
+
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **564 theorems** in
+derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
-   the multiplication table of ℤ/9’s eight non-zero residues — the generator: units, inverses, nilpotents and the vortex all read off this table
+   the multiplication table of ℤ/9's eight non-zero residues — from these 64 the rest computes
 
-2. **The ring ℤ/9 (the vortex)** — `lean/Ring.lean` · **234** theorems
-   the full multiplication, addition and power tables of the ring
+2. **The ring ℤ/9** — `lean/Ring.lean` · **234** theorems
+   the vortex ring: its full multiplication, addition and power tables
 
-3. **The rosette ℤ/7 (the Pliska group)** — `lean/Rosette.lean` · **145** theorems
-   the full tables, plus the Pliska rosette decoded — seven rays, primitive root 3, Fermat, the center
+3. **The rosette ℤ/7** — `lean/Rosette.lean` · **145** theorems
+   the Pliska group: its full multiplication, addition and power tables
 
 4. **The vortex algebra** — `lean/Uuidna.lean` · **15** theorems
-   units, orbit, the involution, gravity, division by zero, light — the foundational facts
+   units, orbit, involution, gravity, division by zero, light — the foundational facts
 
 5. **Ported from millennium-solutions** — `lean/Vortex.lean` · **16** theorems
    the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)
 
 6. **The sequence & reflection group** — `lean/Sequence.lean` · **19** theorems
-   the mirror, AGL(1,ℤ/9)=54, one strip, defined neighbours, the ± polarities, and the crypt salt (why a content-only salt leaks equality — a division by zero — and an advancing sequence closes it)
+   the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt
 
 7. **Division by zero** — `lean/DivByZero.lean` · **7** theorems
    the reflection dz(x)=10−x — a finite residue, never infinity
 
-8. **Applied structure — eight science pairs** — `lean/BioPhysics.lean` · **16** theorems
-   blood (Klein four-group), DNA (base-pair involution, codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel) — algebra, demarcated
+8. **Applied structure — the science pairs** — `lean/BioPhysics.lean` · **16** theorems
+   blood, DNA, sound, chemistry, music, acid-base, heredity, colour — the algebra, demarcated
 
 9. **Self-discovered** — `lean/Discover.lean` · **7** theorems
-   facts derived by function: Lagrange, the unit criterion, idempotents, the units summing to zero
+   facts derived by function: Lagrange, the unit criterion, idempotents
 
-10. **One leap** — `lean/OneLeap.lean` · **1** theorems
+10. **The quantum computer** — `lean/Quantum.lean` · **20** theorems
+   the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware
+
+11. **The seven reflected** — `lean/Clay.lean` · **11** theorems
+   the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none
+
+12. **The physics infinities, made finite** — `lean/Infinity.lean` · **9** theorems
+   the nasty divergences of physics — UV catastrophe, self-energy, the Landau pole, 1+2+3+…, the derivative 0/0, δ(0), the horizon, the 1/r singularity — each the finite object physics puts where the naive infinity was, exactly as dz(x)=10−x replaces x/0
+
+13. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---
 
-See them rendered as schema.org microdata cards at [uuidna.com/theorems](https://uuidna.com/theorems), folded to one receipt at [uuidna.com/trial](https://uuidna.com/trial),
-and every proof at [uuidna.com/lean](https://uuidna.com/lean). Open (undecided) propositions are held at
-[uuidna.com/undecided](https://uuidna.com/undecided).
+Rendered as schema.org microdata cards at [uuidna.com/theorems](https://uuidna.com/theorems), folded to one recomputable
+receipt at [uuidna.com/trial](https://uuidna.com/trial). Open (undecided) propositions are held at [uuidna.com/undecided](https://uuidna.com/undecided).

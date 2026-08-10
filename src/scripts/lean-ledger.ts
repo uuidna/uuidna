@@ -41,6 +41,10 @@ const titleOf = (f: string) => (PRINCIPLE.find((p) => p[0] === f) || [f, 'lean/'
 
 const ledger = ordered.flatMap((file) => parseLean(file).map((t) => ({ ...t, file, principle: titleOf(file) })))
 
+// A principle appears only if it actually carries theorems — remove any with a count of zero (not needed).
+const countOf = (f: string) => ledger.filter((t) => t.file === f).length
+const keptPrinciples = PRINCIPLE.filter((p) => ordered.includes(p[0]) && countOf(p[0]) > 0)
+
 const body = ledger.map((t) =>
   `  { key: ${JSON.stringify(t.key)}, name: ${JSON.stringify(t.name)}, statement: ${JSON.stringify(t.statement)}, tactic: ${JSON.stringify(t.tactic)}, file: ${JSON.stringify(t.file)}, principle: ${JSON.stringify(t.principle)} },`
 ).join('\n')
@@ -56,11 +60,29 @@ export const LEAN_LEDGER: readonly LeanTheorem[] = [
 ${body}
 ]
 
-/** The principles, in derivation order — [file, title, blurb]. */
+/** The principles that carry theorems, in derivation order — [file, title, blurb]. */
 export const PRINCIPLES: readonly [string, string, string][] = [
-${PRINCIPLE.filter((p) => ordered.includes(p[0])).map((p) => `  [${JSON.stringify(p[0])}, ${JSON.stringify(p[1])}, ${JSON.stringify(p[2])}],`).join('\n')}
+${keptPrinciples.map((p) => `  [${JSON.stringify(p[0])}, ${JSON.stringify(p[1])}, ${JSON.stringify(p[2])}],`).join('\n')}
 ]
 `
 
 writeFileSync(join(ROOT, 'src', 'theorems', 'generated.ts'), out)
-console.log('✓ src/theorems/generated.ts — ' + ledger.length + ' Lean theorems (single source), organised by ' + PRINCIPLE.filter((p) => ordered.includes(p[0])).length + ' principles.')
+
+// Also derive lean/PRINCIPLE.md — the human index. Every COUNT and the TOTAL are computed from the parsed ledger
+// (never hardcoded, so the doc can never go stale); titles and blurbs come from the PRINCIPLE metadata above.
+const md = `# The formal layer, organized by computing principle
+
+<!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
+
+Every theorem below is proven \`by decide\` in Lean, verified sorry-free by \`npm run lean\` — **${ledger.length} theorems** in
+derivation order. A theorem computes in Lean, or it is not a theorem.
+
+${keptPrinciples.map((p, i) => `${i + 1}. **${p[1]}** — \`lean/${p[0]}\` · **${countOf(p[0])}** theorems\n   ${p[2]}`).join('\n\n')}
+
+---
+
+Rendered as schema.org microdata cards at [uuidna.com/theorems](https://uuidna.com/theorems), folded to one recomputable
+receipt at [uuidna.com/trial](https://uuidna.com/trial). Open (undecided) propositions are held at [uuidna.com/undecided](https://uuidna.com/undecided).
+`
+writeFileSync(join(ROOT, 'lean', 'PRINCIPLE.md'), md)
+console.log('✓ src/theorems/generated.ts + lean/PRINCIPLE.md — ' + ledger.length + ' Lean theorems (single source), organised by ' + keptPrinciples.length + ' principles.')
