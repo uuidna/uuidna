@@ -63,7 +63,7 @@
     <dt>statement</dt><dd><code>((List.range&#39; 1 9).filter (fun a =&gt; (List.range 9).any (fun e =&gt; a*e % 9 == 1))).length = 6 ∧ ((List.range&#39; 1 9).filter (fun a =&gt; ¬ (List.range 9).any (fun e =&gt; a*e % 9 == 1))).length = 3</code></dd>
     <dt>proof</dt><dd><code class="lean">theorem partition_six_three : ((List.range&#39; 1 9).filter (fun a =&gt; (List.range 9).any (fun e =&gt; a*e % 9 == 1))).length = 6 ∧ ((List.range&#39; 1 9).filter (fun a =&gt; ¬ (List.range 9).any (fun e =&gt; a*e % 9 == 1))).length = 3 := by decide</code></dd>
     <dt>content-address</dt><dd><code class="rcpt">7f4d7ad1-97f1-8c07-83cf-788578d27a41</code></dd>
-    <dt>principle</dt><dd>The sequence &amp; reflection group — <span class="note">the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities</span></dd>
+    <dt>principle</dt><dd>The sequence &amp; reflection group — <span class="note">the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt</span></dd>
     <dt>verdict</dt><dd><b>SEALED</b> — its <code>by decide</code> proof compiles sorry-free (Lean 4.33.0, no Mathlib)</dd>
   </dl>
   <div class="links">

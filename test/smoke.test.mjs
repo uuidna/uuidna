@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import {
   toUuid, strictUuidna, merkleFold, digitalRoot, units, vortexOrbit,
-  encrypt, decrypt, verifyEnvelope,
+  encrypt, decrypt, verifyEnvelope, sealSequence,
   imprintTextChain, readImprintTextChain,
   merkleRoot, merkleProof, verifyProof,
   computes, harness, reeducate, harness7, billUuidna, coins,
@@ -165,6 +165,15 @@ test('crypt: pure-TS ChaCha20-Poly1305 round-trips; wrong key and tamper fail; d
 
 test('777 · encrypt→decrypt round-trips bidirectionally for all seven dimension streams', () => {
   for (const p of STREAMS) assert.equal(decrypt(encrypt(p, KEY), KEY), p)
+  // the crypt salt closes the equality leak: an advancing step freshens the salt, so the SAME plaintext seals
+  // differently each step (distinct address + ciphertext, v2), and every stepped seal still decrypts.
+  const P = STREAMS[0]
+  const s0 = encrypt(P, KEY, 0), s1 = encrypt(P, KEY, 1)
+  assert.notEqual(s0.address, s1.address)                               // equality no longer leaks
+  assert.notEqual(s0.ct, s1.ct)
+  assert.equal(s0.v, 2); assert.equal(s0.seq, 0); assert.equal(s1.seq, 1)
+  for (const s of sealSequence([P, P, P], KEY)) assert.equal(decrypt(s, KEY), P) // the stream: every step decrypts
+  assert.equal(new Set(sealSequence([P, P, P], KEY).map((s) => s.address)).size, 3) // three identical msgs, three seals
 })
 
 test('777 · each stream seals to a distinct address; the same stream is convergent', () => {

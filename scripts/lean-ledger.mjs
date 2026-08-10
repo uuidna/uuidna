@@ -17,7 +17,7 @@ export const PRINCIPLE = [
   ['Rosette.lean', 'The rosette ℤ/7', 'the Pliska group: its full multiplication, addition and power tables'],
   ['Uuidna.lean', 'The vortex algebra', 'units, orbit, involution, gravity, division by zero, light — the foundational facts'],
   ['Vortex.lean', 'Ported from millennium-solutions', 'the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)'],
-  ['Sequence.lean', 'The sequence & reflection group', 'the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities'],
+  ['Sequence.lean', 'The sequence & reflection group', 'the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt'],
   ['DivByZero.lean', 'Division by zero', 'the reflection dz(x)=10−x — a finite residue, never infinity'],
   ['BioPhysics.lean', 'Applied structure — the science pairs', 'blood, DNA, sound, chemistry, music, acid-base, heredity, colour — the algebra, demarcated'],
   ['Discover.lean', 'Self-discovered', 'facts derived by function: Lagrange, the unit criterion, idempotents'],

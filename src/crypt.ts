@@ -4,17 +4,29 @@
 //   CIPHER: ChaCha20-Poly1305 AEAD (RFC 8439) — pure TS (./chacha), KAT-verified.
 //   ENVELOPE: the uuidna 7d fold content-addresses the sealed message (public integrity/routing).
 //
-// DETERMINISTIC (convergent): salt, key, and nonce are derived from the passphrase and plaintext, so the same
-// (passphrase, plaintext) always seals to the same envelope — reproducible, content-addressable, like the rest
-// of uuidna. Honest caveats: pure JS is NOT constant-time (timing side-channels); determinism reveals when two
-// envelopes hold the same plaintext under the same passphrase (no per-message randomness — pure TS has no
-// secure entropy source). Strength = ChaCha20-Poly1305 + the passphrase's own entropy. Integrity, not truth. 0/7.
+// DETERMINISTIC (convergent) by default: salt, key, and nonce are derived from the passphrase and plaintext, so
+// the same (passphrase, plaintext) always seals to the same envelope — reproducible, content-addressable, like
+// the rest of uuidna.
+//
+// THE CRYPT SALT — closing the equality leak. Pure TS has no secure entropy source, so a content-only salt is
+// constant in the message's position: two seals of the same plaintext are byte-identical, revealing equality
+// (and recovering the position is a division by zero — the whole step-fibre collapses; proven in lean/Sequence
+// .lean: salt_conv_leaks_equality, salt_conv_step_is_division_by_zero). The fix is an ADVANCING SEQUENCE: pass a
+// monotonic `step`, and the salt is derived from (plaintext, step) — injective in the step (salt_seq_injective),
+// so the same plaintext seals differently each time the step advances, and no observer can tell two envelopes
+// hold the same plaintext. The step plays the role a nonce-counter plays elsewhere: it must ADVANCE (never reuse
+// a step for the same passphrase). This closes the equality leak; it does NOT make the FNV address collision-
+// resistant (a different, non-crypto-by-design gap). Honest caveats: pure JS is NOT constant-time (timing side-
+// channels). Strength = ChaCha20-Poly1305 + the passphrase's own entropy. Integrity, not truth. 0/7.
 import { toUuid, merkleFold } from './address.js'
 import { pbkdf2Sha256, sha256 } from './sha256.js'
 import { aeadEncrypt, aeadDecrypt } from './chacha.js'
 
 const enc = new TextEncoder(), dec = new TextDecoder()
 export const ITER = 600_000 // PBKDF2-SHA-256 iterations (OWASP 2023)
+
+// truncate toward zero with exact integer arithmetic — no Math.* host intrinsic (the two-coins guard). n - n%1.
+const intOf = (n: number): number => n - (n % 1)
 
 const b64 = (u: Uint8Array): string => { let s = ''; for (let i = 0; i < u.length; i++) s += String.fromCharCode(u[i]); return btoa(s) }
 const ub64 = (s: string): Uint8Array => { const bin = atob(s), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u }
@@ -36,9 +48,10 @@ const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array
   return key
 }
 
-/** A sealed envelope: the ChaCha20-Poly1305 ciphertext + tag, its public parameters, and its 7d-fold address. */
+/** A sealed envelope: the ChaCha20-Poly1305 ciphertext + tag, its public parameters, and its 7d-fold address.
+ *  `v:2` envelopes carry `seq`, the advancing-sequence step that freshens the salt (closing the equality leak). */
 export interface Sealed {
-  v: 1
+  v: 1 | 2
   alg: 'ChaCha20-Poly1305'
   kdf: 'PBKDF2-SHA256'
   iter: number
@@ -47,19 +60,34 @@ export interface Sealed {
   ct: string
   tag: string
   address: string
+  seq?: number
 }
 
-/** Encrypt plaintext under a passphrase — full pure-TS, deterministic (convergent). */
-export function encrypt(plaintext: string, passphrase: string): Sealed {
+/** Encrypt plaintext under a passphrase — full pure-TS. Convergent by default; pass an advancing `step` (the
+ *  crypt salt) to freshen the salt per position, so the same plaintext seals differently and equality no longer
+ *  leaks. The step is public (stored as `seq`); it must ADVANCE — never reuse a step for the same passphrase. */
+export function encrypt(plaintext: string, passphrase: string, step?: number): Sealed {
   const pt = enc.encode(plaintext), pass = enc.encode(passphrase)
-  // content-derived, per-plaintext salt (unique per plaintext → no cross-target rainbow tables), pure & deterministic
-  const salt = sha256(cat(enc.encode('uuidna-crypt-salt-v1'), pt)).slice(0, 16)
+  const fresh = step !== undefined
+  // the crypt salt: content-only (v1) is constant in the step → leaks equality; advancing the SEQUENCE (v2) makes
+  // the salt injective in the step, so the same plaintext seals differently as the step advances. Both stay pure.
+  const salt = fresh
+    ? sha256(cat(enc.encode('uuidna-crypt-salt-v2|' + intOf(step as number) + '|'), pt)).slice(0, 16)
+    : sha256(cat(enc.encode('uuidna-crypt-salt-v1'), pt)).slice(0, 16)
   const key = deriveKey(pass, salt, ITER)
-  // nonce derived from the (unique-per-plaintext) key — pure, deterministic, non-repeating for distinct plaintexts
+  // nonce derived from the (unique per plaintext+step) key — pure, deterministic, non-repeating for distinct keys
   const nonce = sha256(cat(enc.encode('uuidna-crypt-nonce-v1'), key)).slice(0, 12)
   const { ct, tag } = aeadEncrypt(key, nonce, pt)
-  const s = { v: 1 as const, alg: 'ChaCha20-Poly1305' as const, kdf: 'PBKDF2-SHA256' as const, iter: ITER, salt: b64(salt), nonce: b64(nonce), ct: b64(ct), tag: b64(tag) }
-  return { ...s, address: foldEnvelope(s.alg, s.salt, s.nonce, s.ct, s.tag) }
+  const base = { alg: 'ChaCha20-Poly1305' as const, kdf: 'PBKDF2-SHA256' as const, iter: ITER, salt: b64(salt), nonce: b64(nonce), ct: b64(ct), tag: b64(tag) }
+  const address = foldEnvelope(base.alg, base.salt, base.nonce, base.ct, base.tag)
+  return fresh ? { v: 2, ...base, address, seq: intOf(step as number) } : { v: 1, ...base, address }
+}
+
+/** Seal a sequence of messages under one passphrase, each ADVANCING the step (start, start+1, …) — the sequence
+ *  is the stripe, one seal per step. Repeated messages never seal alike, so the equality leak stays closed across
+ *  the whole stream. Decrypt each envelope with `decrypt` (the salt travels in the envelope; no step needed back). */
+export function sealSequence(messages: readonly string[], passphrase: string, start = 0): Sealed[] {
+  return messages.map((m, i) => encrypt(m, passphrase, start + i))
 }
 
 /** Decrypt a sealed envelope. A wrong passphrase or tampered ciphertext throws (Poly1305 authentication). */

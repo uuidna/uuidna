@@ -3,7 +3,7 @@
 Every theorem below is proven `by decide` in Lean 4.33.0 (no Mathlib), verified sorry-free by `npm run lean`.
 The order is the **derivation order**: the 8×8 core generates the ring; the ring and the rosette carry the
 arithmetic; the reflection, division-by-zero, applied and discovered layers build on them; and one leap folds
-the whole vortex into a single proof. **520 theorems** in all. A theorem computes in Lean, or it is not a
+the whole vortex into a single proof. **524 theorems** in all. A theorem computes in Lean, or it is not a
 theorem. Integrity, not truth. 0/7.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -21,8 +21,8 @@ theorem. Integrity, not truth. 0/7.
 5. **Ported from millennium-solutions** — `lean/Vortex.lean` · **16** theorems
    the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)
 
-6. **The sequence & reflection group** — `lean/Sequence.lean` · **15** theorems
-   the mirror, AGL(1,ℤ/9)=54, one strip, defined neighbours, the ± polarities
+6. **The sequence & reflection group** — `lean/Sequence.lean` · **19** theorems
+   the mirror, AGL(1,ℤ/9)=54, one strip, defined neighbours, the ± polarities, and the crypt salt (why a content-only salt leaks equality — a division by zero — and an advancing sequence closes it)
 
 7. **Division by zero** — `lean/DivByZero.lean` · **7** theorems
    the reflection dz(x)=10−x — a finite residue, never infinity

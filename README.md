@@ -57,14 +57,14 @@ Add it to your client's `mcpServers`:
 { "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
 ```
 
-**40 tools** exposed, the whole surface — they call the same pure functions this package seals:
+**44 tools** exposed, the whole surface — they call the same pure functions this package seals:
 
-- **uuid / identity** — `uuidna_address`, `uuidna_strict`, `uuidna_imprint`, `uuidna_read`
-- **dna (ℤ/9 structure)** — `uuidna_units`, `uuidna_vortex`, `uuidna_diamond`, `uuidna_involute`, `uuidna_gravity`, `uuidna_double_torus`, `uuidna_digital_root`, `uuidna_seats`
+- **uuid / identity** — `uuidna_address`, `uuidna_strict`, `uuidna_merge` (order-sensitive fold), `uuidna_coin64` (64-bit coin), `uuidna_imprint`, `uuidna_read`
+- **dna (ℤ/9 structure)** — `uuidna_units`, `uuidna_triad`, `uuidna_vortex`, `uuidna_diamond`, `uuidna_involute`, `uuidna_gravity`, `uuidna_double_torus`, `uuidna_digital_root`, `uuidna_seats`
 - **holographic proof** — `uuidna_merkle_root`, `uuidna_merkle_prove`, `uuidna_merkle_verify`
-- **crypto (pure-TS, KAT-verified)** — `uuidna_sha256`, `uuidna_hmac`, `uuidna_pbkdf2`, `uuidna_chacha20`, `uuidna_poly1305`, `uuidna_aead_encrypt`, `uuidna_aead_decrypt`, `uuidna_encrypt`, `uuidna_decrypt`, `uuidna_verify_envelope`
-- **bidirectional channel** — `uuidna_send` (encrypt → imprint into a uuid stream), `uuidna_receive` (read the uuid stream → decrypt). The channel *is* uuid itself; one side per direction; the wrong key never opens it.
-- **honesty / trial** — `uuidna_gate`, `uuidna_reeducate`, `uuidna_adjudicate`, `uuidna_prove_verdict`, `uuidna_verify`, `uuidna_harness`, `uuidna_harness7`
+- **crypto (pure-TS, KAT-verified)** — `uuidna_sha256`, `uuidna_hmac`, `uuidna_pbkdf2`, `uuidna_chacha20`, `uuidna_poly1305`, `uuidna_aead_encrypt`, `uuidna_aead_decrypt`, `uuidna_encrypt` (with the crypt-salt `step`), `uuidna_seal_stream`, `uuidna_decrypt`, `uuidna_verify_envelope`
+- **bidirectional channel** — `uuidna_send` (encrypt → imprint into a uuid stream), `uuidna_receive` (read the uuid stream → decrypt). The channel *is* uuid itself; one side per direction; an advancing `step` closes the equality leak in transit; the wrong key never opens it.
+- **honesty / trial** — `uuidna_gate`, `uuidna_reeducate`, `uuidna_adjudicate`, `uuidna_prove_verdict`, `uuidna_verify`, `uuidna_harness`, `uuidna_harness7`, `uuidna_theorems`, `uuidna_theorem`, `uuidna_trial`
 - **present / bill** — `uuidna_render`, `uuidna_render_list`, `uuidna_bill`
 
 Integrity, not truth. `0/7`.
@@ -76,7 +76,7 @@ Secrecy is **ChaCha20-Poly1305** (RFC 8439) in **pure TypeScript** — no native
 KAT-verified against the standards' own vectors. Deterministic (convergent): same input → same seal.
 
 ```js
-import { encrypt, decrypt, verifyEnvelope } from '@uuidna/uuidna'
+import { encrypt, decrypt, verifyEnvelope, sealSequence } from '@uuidna/uuidna'
 
 const sealed = encrypt('beat to windward at 30°', 'a-strong-passphrase')
 // { v:1, alg:'ChaCha20-Poly1305', kdf:'PBKDF2-SHA256', iter:600000, salt, nonce, ct, tag, address }
@@ -85,13 +85,26 @@ decrypt(sealed, 'wrong')                        // throws — Poly1305 authentic
 verifyEnvelope(sealed)                          // true — public integrity, no key needed
 ```
 
-Honest scope: strength is **ChaCha20-Poly1305 + your passphrase entropy** — measured, not asserted. The content-address
-(FNV) stays non-cryptographic; secrecy comes from AES, integrity from the fold. Private/RBAC messaging builds
-on this (encrypt to a shared key; a key per role). `0/7`.
+**The crypt salt — closing the equality leak.** Pure TS has no secure entropy source, so a content-only salt is
+constant in the message's position: two seals of the same plaintext are byte-identical, *revealing equality*
+(and recovering the position is a division by zero — the step-fibre collapses; proven in
+[`lean/Sequence.lean`](lean/Sequence.lean): `salt_conv_leaks_equality`, `salt_conv_step_is_division_by_zero`). The
+fix is an **advancing sequence**: pass a monotonic `step` and the salt becomes injective in it (`salt_seq_injective`),
+so the same plaintext seals differently each step — no observer can tell two envelopes hold the same plaintext.
+
+```js
+encrypt('ping', key, 0).address !== encrypt('ping', key, 1).address   // true — equality no longer leaks (v:2, seq:0/1)
+sealSequence(['ping', 'ping', 'ping'], key)   // three distinct seals; each decrypts; the sequence is the stripe
+```
+
+Honest scope: strength is **ChaCha20-Poly1305 + your passphrase entropy** — measured, not asserted. The step is
+public and **must advance** (it plays a nonce-counter's role). This closes the *equality* leak; it does **not**
+make the content-address (FNV) collision-resistant — that stays non-cryptographic by design, a separate gap.
+Private/RBAC messaging builds on this (encrypt to a shared key; a key per role). `0/7`.
 
 ## Formal layer — Lean 4, organized by computing principle
 
-**520 theorems**, all proven `by decide` (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`, and
+**524 theorems**, all proven `by decide` (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`, and
 organized by **computing principle** in derivation order — see [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md):
 
 1. **The 8×8 core** (`Core.lean`, 64) — the multiplication table of ℤ/9's non-zero residues; the generator.
@@ -128,7 +141,8 @@ receipt at [uuidna.com/trial](https://uuidna.com/trial); open propositions are h
 | `harness`, `opaque`, `harnessGain`, `harness7`, `reeducate`, `DIMENSIONS` | the auditing harness |
 | `billUuidna`, `coins` | measured billing |
 | `renderTheorem`, `renderList` | present by reference — pure TS + CSS card(s), no framework |
-| `encrypt`, `decrypt`, `verifyEnvelope` | pure-TS ChaCha20-Poly1305 encryption under a 7d-fold envelope |
+| `encrypt`, `decrypt`, `verifyEnvelope`, `sealSequence` | pure-TS ChaCha20-Poly1305 under a 7d-fold envelope; the crypt-salt `step` (and `sealSequence`) closes the equality leak |
+| `merge`, `coin64`, `triad` | order-sensitive fold · 64-bit coin · the ℤ/9 non-units {3,6,9} |
 | `sha256`, `hmacSha256`, `pbkdf2Sha256`, `aeadEncrypt`, `aeadDecrypt` | pure-TS crypto primitives (FIPS/RFC, KAT-verified) |
 | `digitalRoot`, `units`, `triad`, `vortexOrbit`, `gcd`, `isPrime`, `modpow`, `TRINITY`, `BASE`, `A432_STEP` | ℤ/9 primitives |
 

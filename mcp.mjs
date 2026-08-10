@@ -4,17 +4,17 @@
 // Run:  npx @uuidna/uuidna         (bin: uuidna-mcp)
 // Add to a client's mcpServers as { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }.
 import {
-  toUuid, strictUuidna, merkleRoot, merkleProof, verifyProof, computes,
+  toUuid, strictUuidna, merge, coin64, merkleRoot, merkleProof, verifyProof, computes,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
-  encrypt, decrypt, verifyEnvelope,
+  encrypt, decrypt, verifyEnvelope, sealSequence,
   digitalRoot, merkleGravity, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
-  units, vortexOrbit, diamond, involute, involutionFixed, seats,
+  units, triad, vortexOrbit, diamond, involute, involutionFixed, seats,
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   THEOREMS, runTrial, theorems,
 } from './dist/index.js'
 
-const VERSION = '6.6.0'
+const VERSION = '6.7.0'
 
 // byte codecs — the low-level crypto primitives are Uint8Array in/out; MCP is JSON, so keys/nonces/tags/ciphertext
 // cross the wire as hex and human text crosses as UTF-8. (toUuid/merkleFold use non-cryptographic FNV; sha256 here
@@ -27,9 +27,17 @@ const need = (u, n, what) => { if (u.length !== n) throw new Error(what + ' must
 
 const TOOLS = [
   { name: 'uuidna_address',
-    description: 'Content-address any text: a deterministic 128-bit v8 UUID. Same input → same address, for anyone, with no key. Integrity, not secrecy.',
+    description: 'Content-address any text: a deterministic 128-bit v8 UUID. Same input → same address, for anyone, with no key. Integrity, not secrecy. Measured entropy: 122 free bits, ~2^61 birthday wall; non-cryptographic (forgeable by design).',
     inputSchema: { type: 'object', properties: { text: { type: 'string', description: 'the value to address' } }, required: ['text'] },
     run: ({ text }) => toUuid(String(text)) },
+  { name: 'uuidna_merge',
+    description: 'Fold two content-addresses into one, ORDER-SENSITIVE (merge(a,b) ≠ merge(b,a)) — the directed edge. For the order-INVARIANT fold use uuidna_gravity or uuidna_merkle_root.',
+    inputSchema: { type: 'object', properties: { a: { type: 'string' }, b: { type: 'string' } }, required: ['a', 'b'] },
+    run: ({ a, b }) => merge(String(a), String(b)) },
+  { name: 'uuidna_coin64',
+    description: 'Mint a 64-bit coin (16 hex digits) from any content — the top 64 bits of its content-address. A shorter pointer; ~2^32 birthday wall (halve the address bits, halve the exponent). Integrity, not secrecy.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' } }, required: ['text'] },
+    run: ({ text }) => coin64(String(text)) },
   { name: 'uuidna_gate',
     description: 'The honesty gate: does the prose hold the floor (binary 1) or drain as an overclaim (0)? 7-language. Returns {binary,hit}. A tripwire, not an oracle.',
     inputSchema: { type: 'object', properties: { text: { type: 'string' } }, required: ['text'] },
@@ -63,11 +71,15 @@ const TOOLS = [
     inputSchema: { type: 'object', properties: { commercial: { type: 'boolean' }, recomputeOps: { type: 'number' }, verifyOps: { type: 'number' } }, required: ['commercial', 'recomputeOps', 'verifyOps'] },
     run: (a) => billUuidna({ commercial: !!a.commercial, recomputeOps: Number(a.recomputeOps), verifyOps: Number(a.verifyOps) }) },
   { name: 'uuidna_encrypt',
-    description: 'Encrypt text under a passphrase. Secrecy: pure-TS ChaCha20-Poly1305 (PBKDF2-SHA256, 600k) — no native crypto. Returns a sealed envelope whose content-address is the uuidna 7d-fold of its parts (public integrity/routing — never the secret).',
-    inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' } }, required: ['text', 'passphrase'] },
-    run: (a) => encrypt(String(a.text), String(a.passphrase)) },
+    description: 'Encrypt text under a passphrase. Secrecy: pure-TS ChaCha20-Poly1305 (PBKDF2-SHA256, 600k) — no native crypto. Convergent by default (the same text seals identically → equality leaks). Pass an advancing `step` (the crypt salt) to freshen the salt per position so the same text seals differently and equality no longer leaks; the step is public (`seq`) and MUST advance. Returns a sealed envelope whose content-address is the 7d-fold of its parts.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' }, step: { type: 'integer', description: 'the advancing-sequence step — omit for convergent, supply and advance to close the equality leak' } }, required: ['text', 'passphrase'] },
+    run: (a) => encrypt(String(a.text), String(a.passphrase), a.step === undefined ? undefined : Number(a.step)) },
+  { name: 'uuidna_seal_stream',
+    description: 'Seal a list of messages under one passphrase, each ADVANCING the step (the sequence is the stripe, one seal per step) — repeated messages never seal alike, so the equality leak stays closed across the whole stream. Returns the sealed envelopes; decrypt each with uuidna_decrypt.',
+    inputSchema: { type: 'object', properties: { messages: { type: 'array', items: { type: 'string' } }, passphrase: { type: 'string' }, start: { type: 'integer', description: 'the starting step (default 0)' } }, required: ['messages', 'passphrase'] },
+    run: (a) => sealSequence(a.messages.map(String), String(a.passphrase), a.start === undefined ? 0 : Number(a.start)) },
   { name: 'uuidna_decrypt',
-    description: 'Decrypt a sealed envelope from uuidna_encrypt with the passphrase. A wrong key or tampered ciphertext throws (Poly1305 authentication).',
+    description: 'Decrypt a sealed envelope from uuidna_encrypt / uuidna_seal_stream with the passphrase (v1 convergent or v2 sequence-salted — the salt travels in the envelope, no step needed back). A wrong key or tampered ciphertext throws (Poly1305 authentication).',
     inputSchema: { type: 'object', properties: { sealed: { type: 'object' }, passphrase: { type: 'string' } }, required: ['sealed', 'passphrase'] },
     run: (a) => decrypt(a.sealed, String(a.passphrase)) },
   { name: 'uuidna_verify_envelope',
@@ -148,6 +160,10 @@ const TOOLS = [
     description: 'The six units of ℤ/9 — {1,2,4,5,7,8}, the invertible residues (3 and 6 are zero-divisors, 9≡0). The harmonic solutions the fold moves through. Returns the array.',
     inputSchema: { type: 'object', properties: {} },
     run: () => units() },
+  { name: 'uuidna_triad',
+    description: 'The triad {3,6,9} — the non-units of ℤ/9 (the complement of the six units): the nilpotents 3,6 (a²≡0) and the void 9≡0. The still axis the vortex turns around. Returns the array.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => triad() },
   { name: 'uuidna_vortex',
     description: 'The doubling circuit 1→2→4→8→7→5 — the vortex orbit of the units under ×2 mod 9, the DNA of the fold (5→1 closes the loop). Returns the array.',
     inputSchema: { type: 'object', properties: {} },
@@ -190,9 +206,9 @@ const TOOLS = [
   //    sealed envelope INTO a uuid chain; RECEIVE = read the uuid chain then decrypt. One side per direction; the
   //    seven dimension streams each carry both ways; the wrong key never opens it (the pattern the 777 tests seal). ──
   { name: 'uuidna_send',
-    description: 'SEND (→): encrypt text under a passphrase (pure-TS ChaCha20-Poly1305, 7d-fold envelope), then imprint the sealed envelope INTO a uuid stream — the channel is uuid itself. Returns the uuid chain to transport. Receive it with uuidna_receive and the same passphrase.',
-    inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' } }, required: ['text', 'passphrase'] },
-    run: (a) => imprintTextChain(JSON.stringify(encrypt(String(a.text), String(a.passphrase)))) },
+    description: 'SEND (→): encrypt text under a passphrase (pure-TS ChaCha20-Poly1305, 7d-fold envelope), then imprint the sealed envelope INTO a uuid stream — the channel is uuid itself. Returns the uuid chain to transport. Pass an advancing `step` (the crypt salt) so identical messages never ride the wire alike — the equality leak stays closed in transit. Receive it with uuidna_receive and the same passphrase.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' }, step: { type: 'integer', description: 'the advancing-sequence step — omit for convergent, supply and advance to close the equality leak in transit' } }, required: ['text', 'passphrase'] },
+    run: (a) => imprintTextChain(JSON.stringify(encrypt(String(a.text), String(a.passphrase), a.step === undefined ? undefined : Number(a.step)))) },
   { name: 'uuidna_receive',
     description: 'RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope, then decrypt with the passphrase. The reverse direction of the bidirectional channel. A wrong key or any tamper throws (Poly1305 authentication).',
     inputSchema: { type: 'object', properties: { uuids: { type: 'array', items: { type: 'string' } }, passphrase: { type: 'string' } }, required: ['uuids', 'passphrase'] },

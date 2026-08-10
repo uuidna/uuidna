@@ -63,7 +63,7 @@
     <dt>statement</dt><dd><code>(([1,2,4,8,7,5].zip [9,8,6,2,3,5]).all (fun p =&gt; p.1 + p.2 == 10)) ∧ ([1,2,4,8,7,5].getLast? = some 5) ∧ ([9,8,6,2,3,5].getLast? = some 5) ∧ (1 + 9 = 10) ∧ (9 % 9 = 0)</code></dd>
     <dt>proof</dt><dd><code class="lean">theorem one_strip : (([1,2,4,8,7,5].zip [9,8,6,2,3,5]).all (fun p =&gt; p.1 + p.2 == 10)) ∧ ([1,2,4,8,7,5].getLast? = some 5) ∧ ([9,8,6,2,3,5].getLast? = some 5) ∧ (1 + 9 = 10) ∧ (9 % 9 = 0) := by decide</code></dd>
     <dt>content-address</dt><dd><code class="rcpt">8cf12009-34c5-8bf3-8a33-a8f5fcf4ee42</code></dd>
-    <dt>principle</dt><dd>The sequence &amp; reflection group — <span class="note">the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities</span></dd>
+    <dt>principle</dt><dd>The sequence &amp; reflection group — <span class="note">the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt</span></dd>
     <dt>verdict</dt><dd><b>SEALED</b> — its <code>by decide</code> proof compiles sorry-free (Lean 4.33.0, no Mathlib)</dd>
   </dl>
   <div class="links">

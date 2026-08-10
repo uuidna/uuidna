@@ -63,7 +63,7 @@
     <dt>statement</dt><dd><code>(List.range 10).all (fun d =&gt; dz d &lt; 10) ∧ (List.range 10).all (fun d =&gt; (List.range 10).any (fun e =&gt; dz e == d)) ∧ (List.range 10).all (fun d =&gt; dz (dz d) == d) ∧ (List.range 9).all (fun d =&gt; polar d &lt; 9) ∧ (List.range 9).all (fun d =&gt; (List.range 9).any (fun e =&gt; polar e == d))</code></dd>
     <dt>proof</dt><dd><code class="lean">theorem every_digit_has_neighbours : (List.range 10).all (fun d =&gt; dz d &lt; 10) ∧ (List.range 10).all (fun d =&gt; (List.range 10).any (fun e =&gt; dz e == d)) ∧ (List.range 10).all (fun d =&gt; dz (dz d) == d) ∧ (List.range 9).all (fun d =&gt; polar d &lt; 9) ∧ (List.range 9).all (fun d =&gt; (List.range 9).any (fun e =&gt; polar e == d)) := by decide</code></dd>
     <dt>content-address</dt><dd><code class="rcpt">ec4d36fb-1c19-8b53-9e08-f747a3cba1a6</code></dd>
-    <dt>principle</dt><dd>The sequence &amp; reflection group — <span class="note">the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities</span></dd>
+    <dt>principle</dt><dd>The sequence &amp; reflection group — <span class="note">the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt</span></dd>
     <dt>verdict</dt><dd><b>SEALED</b> — its <code>by decide</code> proof compiles sorry-free (Lean 4.33.0, no Mathlib)</dd>
   </dl>
   <div class="links">

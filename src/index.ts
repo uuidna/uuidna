@@ -43,7 +43,7 @@ export { renderTheorem, renderList, renderHero, type TheoremView, type RenderOpt
 
 // crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
 // envelope. No native WebCrypto — nothing but latest TypeScript, KAT-verified against the standards' vectors.
-export { encrypt, decrypt, verifyEnvelope, ITER, type Sealed } from './crypt.js'
+export { encrypt, decrypt, verifyEnvelope, sealSequence, ITER, type Sealed } from './crypt.js'
 export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
 export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './chacha.js'
 

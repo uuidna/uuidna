@@ -1,4 +1,4 @@
--- lean/Sequence.lean — GENERATED. The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift. Every proof `by decide`, sorry-free, no Mathlib. 0/7.
+-- lean/Sequence.lean — GENERATED. The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. Every proof `by decide`, sorry-free, no Mathlib. 0/7.
 
 def ap (a b x : Nat) : Nat := (a * x + b) % 9          -- an affine map on ℤ/9: x ↦ a·x + b
 def tour : List Nat := [1, 2, 4, 8, 7, 5, 3, 6, 0]     -- the vortex tour in ℤ/9 (9 ≡ 0)
@@ -9,6 +9,8 @@ def carries9 (d nx : Nat) : Bool :=                    -- ×2 on units, +3 on {3
   else false
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x -- the mirror neighbour (= division by zero)
 def polar (x : Nat) : Nat := (9 - x) % 9               -- the polar neighbour (negation in ℤ/9)
+def saltConv (c _s : Nat) : Nat := c % 9               -- crypt: OLD leaky salt = f(content) — the step _s is dropped
+def saltSeq  (_c s : Nat) : Nat := s % 9               -- crypt: NEW fresh salt = f(sequence) — the step s is kept
 
 -- the mirror m(d)=10−d equals 1−d (mod 9) — a reflection through the origin+1
 theorem mirror_congruence : (List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9) := by decide
@@ -54,3 +56,15 @@ theorem forward_reflected_mirror : ([9,8,6,2,3,5,7,4,1] = ([1,2,4,8,7,5,3,6,9].m
 
 -- every digit in ANY arrangement has DEFINED neighbours — the mirror (division by zero) and polar maps are total, surjective and self-inverse; no digit is isolated
 theorem every_digit_has_neighbours : (List.range 10).all (fun d => dz d < 10) ∧ (List.range 10).all (fun d => (List.range 10).any (fun e => dz e == d)) ∧ (List.range 10).all (fun d => dz (dz d) == d) ∧ (List.range 9).all (fun d => polar d < 9) ∧ (List.range 9).all (fun d => (List.range 9).any (fun e => polar e == d)) := by decide
+
+-- the crypt equality leak: a content-only salt is constant in the step, so two seals of the same content are byte-identical
+theorem salt_conv_leaks_equality : (List.range 9).all (fun c => (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => saltConv c s1 == saltConv c s2))) := by decide
+
+-- recovering the seal's step from a content-only salt is a division by zero — the whole step-fibre collapses (size 9)
+theorem salt_conv_step_is_division_by_zero : (List.range 9).all (fun c => ((List.range 9).filter (fun s => saltConv c s == saltConv c 0)).length == 9) := by decide
+
+-- the crypt fix: an advancing-sequence salt is injective in the step (equal salts ⇔ equal steps) — distinct seals never collide
+theorem salt_seq_injective : (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => (saltSeq 0 s1 == saltSeq 0 s2) == (s1 == s2))) := by decide
+
+-- the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept, not collapsed
+theorem salt_seq_fibre_singleton : (List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0)).length == 1) := by decide
