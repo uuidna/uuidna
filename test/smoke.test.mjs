@@ -7,7 +7,7 @@ import {
   imprintTextChain, readImprintTextChain,
   merkleRoot, merkleProof, verifyProof,
   computes, harness, reeducate, harness7, billUuidna, coins,
-  renderTheorem, renderList,
+  renderTheorem, renderList, renderHero,
 } from '../dist/index.js'
 
 // The seven dimension streams (0..7 above the floor) — one plaintext per dimension, used to cover the 7d ("777")
@@ -162,4 +162,33 @@ test('777 · the same tests generate the UI — each stream renders a card by re
     assert.match(html, /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/) // address in every card
   }
   assert.equal((renderList(STREAMS.map((p) => ({ name: p }))).match(/uuidna-card/g) || []).length, STREAMS.length)
+})
+
+test('ui automation · every card is schema.org microdata and links its statement to its proof page', () => {
+  const html = renderTheorem({ name: 'a decidable theorem — computed by exhaustion; 0/7', key: 'a_decidable_theorem' })
+  assert.match(html, /itemscope itemtype="https:\/\/schema\.org\/CreativeWork"/) // microdata
+  assert.match(html, /itemprop="identifier"/)                                     // the content-address
+  assert.match(html, /itemprop="description"/)
+  assert.match(html, /href="\/millennium-solutions\/theorem\/a_decidable_theorem"/) // statement → its proof
+  assert.match(html, /itemprop="url"/)
+  assert.ok(!/<script/i.test(html))                                               // no framework, no script
+  const custom = renderTheorem({ name: 'x', key: 'k' }, { base: '/site' })
+  assert.match(custom, /href="\/site\/theorem\/k"/)                               // base is configurable
+})
+
+test('ui automation · cards follow strict shadcn anatomy (data-slot) for widget-API compatibility', () => {
+  const html = renderTheorem({ name: 'a decidable theorem — computed; 0/7', key: 'k' })
+  for (const slot of ['card', 'card-header', 'card-title', 'card-description', 'card-content', 'card-footer']) {
+    assert.match(html, new RegExp('data-slot="' + slot + '"'))
+  }
+  assert.ok(!/<script/i.test(html)) // shadcn-compatible structure, still framework-free and CSP-safe
+})
+
+test('ui automation · the OpenGraph hero exposes statement, proof URL and address on first contact', () => {
+  const hero = renderHero({ name: 'the honesty gate returns a binary verdict; 0/7', key: 'the_trial_returns_a_binary_verdict' })
+  assert.match(hero, /<meta property="og:title" content="[^"]+">/)
+  assert.match(hero, /<meta property="og:url" content="\/millennium-solutions\/theorem\/the_trial_returns_a_binary_verdict">/) // proof URL in OG
+  assert.match(hero, /<meta property="uuidna:address" content="[0-9a-f-]{36}">/)  // content-address in OG
+  assert.match(hero, /<meta property="uuidna:floor" content="0\/7">/)             // the honest floor, machine-readable
+  assert.match(hero, /<article class="uuidna-card"/)                              // hero includes the microdata card
 })

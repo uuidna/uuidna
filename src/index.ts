@@ -28,7 +28,7 @@ export {
 
 export { coins, billUuidna, type UuidnaUsage } from './billing.js'
 
-export { renderTheorem, renderList, type TheoremView } from './render.js'
+export { renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from './render.js'
 
 // crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
 // envelope. No native WebCrypto — nothing but latest TypeScript, KAT-verified against the standards' vectors.
