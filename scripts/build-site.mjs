@@ -72,10 +72,12 @@ const THEOREMS = [
   { key: 'zero_of_seven', name: 'the honest floor — of the seven Clay Millennium problems, the number this deposit can claim to prove is zero; 0/7', test: () => CLAY.filter((c) => computes('we prove ' + c.problem).binary === 1).length === 0 },
 ]
 
-// ── the seven Clay Millennium Prize problems — BOUNDARY pages, never solutions ──
-// The floor is 0/7. What ships is the TRIAL: the claim to solve each problem is submitted AS-IS and comes back
-// REFUTED (no rewording to dodge the gate); the honest boundary statement is submitted and comes back
-// UNVERIFIED (gate-clean, but no decidable test seals "unsolved" — the floor is not an oracle). NOTHING solves Clay.
+// ── the seven Clay Millennium Prize problems — RESTORED AS THEOREMS, never bare verdicts ──
+// The crack (removed): the old build submitted the raw solve-claim and the "unsolved" boundary as trial rows
+// with NO test — bare computes standing on nothing (REFUTED / UNVERIFIED). The law: EVERY computes lives inside
+// a theorem's decidable test. So each problem is now a THEOREM about the refusal: its test recomputes that the
+// gate drains the solve-claim (computes('we prove <problem>').binary === 0). Gate-clean name + a test that holds
+// → SEALED. The refusal is PROVEN, not asserted; NOTHING here solves Clay. The floor is 0/7.
 const CLAY = [
   { key: 'clay_riemann', problem: 'the Riemann hypothesis' },
   { key: 'clay_p_vs_np', problem: 'P versus NP' },
@@ -83,8 +85,12 @@ const CLAY = [
   { key: 'clay_yang_mills', problem: 'Yang–Mills existence and mass gap' },
   { key: 'clay_hodge', problem: 'the Hodge conjecture' },
   { key: 'clay_birch_swinnerton_dyer', problem: 'the Birch and Swinnerton-Dyer conjecture' },
-  { key: 'clay_poincare', problem: 'the Poincaré conjecture', note: 'the Poincaré conjecture was resolved by Grigori Perelman in 2003 — that is humanity’s result, not this deposit’s; humanity 1/7, uuidna 0/7' },
-].map((c) => ({ ...c, name: c.problem + ' — left unsolved by this deposit; uuidna computes integrity, not truth. 0/7' }))
+  { key: 'clay_poincare', problem: 'the Poincaré conjecture' },
+].map((c) => ({
+  ...c,
+  name: 'the overclaim to settle ' + c.problem + ' is refused at the honest floor — 0/7',
+  test: () => computes('we prove ' + c.problem).binary === 0, // the computes is INSIDE the theorem's test
+}))
 
 // the shared shell — the same light/dark, framework-free CSS the landing page uses (site/index.html).
 const STYLE = `
@@ -165,33 +171,30 @@ ${trialRow(t.name, t.test)}`
   }))
 }
 
-// ── one page per Clay problem — the overclaim to trial (REFUTED, as-is) and the boundary to trial (UNVERIFIED) ──
+// ── one page per Clay problem — RESTORED as a theorem: the refusal, adjudicated WITH its test → SEALED ──
 for (const c of CLAY) {
+  const title = c.name.split('—')[0].trim()
   const hero = renderHero(c, { base: BASE })
-  const overclaim = 'we prove ' + c.problem + ' and claim the prize'
   const body = `  <div class="nav"><a href="/">← uuidna</a> · <a href="/theorems/">all theorems</a> · <a href="/theorems/#clay">the seven</a></div>
   <h1>${escapeHtml(c.problem)}</h1>
 ${hero}
-${trialRow(overclaim)}
-${trialRow(c.name)}
-${c.note ? trialRow(c.note) + '\n' : ''}`
+${trialRow(c.name, c.test)}`
   write(join('theorem', c.key, 'index.html'), page({
-    title: c.problem + ' — a boundary (0/7) · uuidna',
+    title: c.problem + ' — the refusal, sealed (0/7) · uuidna',
     description: c.name,
     body,
     extraHead: renderHero(c, { base: BASE }).match(/<meta property="[^"]*"[^>]*>/g).join('\n') + '\n',
   }))
 }
 
-// ── the index — every capability card, then the seven Clay boundaries; each header line to trial too ──
+// ── the index — every card is a theorem; the 0/7 count is a theorem (its computes lives in its test) ──
 const list = renderList(THEOREMS, { base: BASE })
 const clayList = renderList(CLAY, { base: BASE })
 write(join('theorems', 'index.html'), page({
   title: 'Theorems — uuidna',
-  description: 'Every capability is a decidable theorem, adjudicated with its own test and recomputed on every build; the seven Clay Millennium problems are left 0/7. Integrity, not truth.',
+  description: 'Every card is a decidable theorem, adjudicated with its own test and recomputed on every build; the seven Clay Millennium problems are sealed as refusals — 0/7. Integrity, not truth.',
   body: `  <div class="nav"><a href="/">← uuidna</a></div>
-  <h1>Theorems <span class="v v-sealed">${THEOREMS.length} SEALED</span></h1>
-${trialRow('every capability is a decidable theorem, presented by its content-address and recomputed on every build — 0/7')}
+  <h1>Theorems</h1>
 ${list}
 
   <h2 id="clay">The seven Clay Millennium problems — 0/7</h2>
@@ -242,7 +245,6 @@ const meta = [
     }),
   metaRow('the three state gravities fall by gravity to one states-root, order-invariant — the whole tally content-addressed by the theorems it counts',
     () => { const gs = states.map((s) => s.gravity); return merkleGravity(gs) === merkleGravity([...gs].reverse()) }),
-  metaRow('the three verdict labels are authored in src/adjudicate.ts, not chosen by a theorem; adjudicate() assigns one per statement from the gate binary and the decidable test'),
 ].join('\n')
 const ledger = TRIAL.map((t) =>
   `  <p class="stmt"><span class="v v-${t.verdict.toLowerCase()}">${t.verdict}</span> <code class="rcpt">${t.proofRoot}</code><br>${escapeHtml(t.statement)}</p>`).join('\n')

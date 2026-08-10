@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The trial receipt — uuidna</title>
-<meta name="description" content="The order-invariant content-address of the whole trial: 58 verdicts (42 SEALED · 7 REFUTED · 9 UNVERIFIED) folded to one recomputable root. Integrity, not truth. 0/7." />
+<meta name="description" content="The order-invariant content-address of the whole trial: 49 verdicts (49 SEALED · 0 REFUTED · 0 UNVERIFIED) folded to one recomputable root. Integrity, not truth. 0/7." />
 <meta name="robots" content="index, follow" />
 <style>
   :root { color-scheme: light dark; --bg:#fff; --fg:#1a1a1a; --mut:#666; --acc:#7a5cff; --line:#e5e5e5; --soft:#f7f7f8; }
@@ -30,17 +30,16 @@
 <main>
   <div class="nav"><a href="/">← uuidna</a> · <a href="/theorems/">all theorems</a></div>
   <h1>The trial receipt</h1>
-  <p class="stmt" style="font-size:1.05rem"><code class="rcpt">a0861c9d-346c-8a6b-a763-5c3b6e9c6756</code></p>
-  <p class="note">58 verdicts · order-invariant fold ✓ (reverse-order yields the same root) · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
+  <p class="stmt" style="font-size:1.05rem"><code class="rcpt">ac18be80-a80d-8fa6-864a-b3f03f8b6b95</code></p>
+  <p class="note">49 verdicts · order-invariant fold ✓ (reverse-order yields the same root) · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
   <h2>The states, by gravity</h2>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <b>42</b> theorem(s) · count falls to ℤ/9 = <b>6</b> · gravity <code class="rcpt">bd40f132-1083-8c6a-82e5-bbdad162f426</code></p>
-  <p class="stmt"><span class="v v-refuted">REFUTED</span> <b>7</b> theorem(s) · count falls to ℤ/9 = <b>7</b> · gravity <code class="rcpt">791de3f5-c04a-8930-95c3-5fa68027c568</code></p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <b>9</b> theorem(s) · count falls to ℤ/9 = <b>9</b> · gravity <code class="rcpt">fb1571ae-f8c2-8764-98b2-03680b91535c</code></p>
-  <p class="note">the three state gravities fall to one states-root <code class="rcpt">a23fc948-3245-8351-98df-2bc2c01da28c</code> (a partition fold — distinct from the flat trial receipt above, honestly)</p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <b>49</b> theorem(s) · count falls to ℤ/9 = <b>4</b> · gravity <code class="rcpt">ac18be80-a80d-8fa6-864a-b3f03f8b6b95</code></p>
+  <p class="stmt"><span class="v v-refuted">REFUTED</span> <b>0</b> theorem(s) · count falls to ℤ/9 = <b>9</b> · gravity <code class="rcpt">93929a2d-4810-8ac6-9f32-4ed07d9e016c</code></p>
+  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <b>0</b> theorem(s) · count falls to ℤ/9 = <b>9</b> · gravity <code class="rcpt">93929a2d-4810-8ac6-9f32-4ed07d9e016c</code></p>
+  <p class="note">the three state gravities fall to one states-root <code class="rcpt">57648be2-8e21-8853-b24a-079a077490e4</code> (a partition fold — distinct from the flat trial receipt above, honestly)</p>
   <h2>The states and labels, sealed</h2>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">d5c32684-78d4-8667-b154-3b0852a9893e</code><br>the trial partitions into three states by verdict; each state&#39;s theorems fall by gravity (order-invariant) to one root, its count falls to ℤ/9, and the states are disjoint and exhaustive — summing to the ledger length<br><small class="note">gate-clean and a decidable test holds — recomputable, admissible · proof-root <code class="rcpt">a9d472c0-14d2-8c81-9d2c-1c557379a893</code></small></p>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">061c612a-867d-86eb-b98a-92e2457f6ec5</code><br>the three state gravities fall by gravity to one states-root, order-invariant — the whole tally content-addressed by the theorems it counts<br><small class="note">gate-clean and a decidable test holds — recomputable, admissible · proof-root <code class="rcpt">bbd073e9-c382-85cb-a579-eb82f860e4eb</code></small></p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">3154fb7c-e83c-8b97-8773-de0222f69a6f</code><br>the three verdict labels are authored in src/adjudicate.ts, not chosen by a theorem; adjudicate() assigns one per statement from the gate binary and the decidable test<br><small class="note">gate-clean but no recomputable receipt — the floor is not an oracle; bring a decidable test · proof-root <code class="rcpt">8696ab3e-6102-8d2d-b88e-52c19f0d77ef</code></small></p>
   <h2>The trial ledger — every verdict, by its proof-of-verdict root</h2>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">e7a9ffdd-42e6-853c-8a54-e7c409724d3c</code><br>the units of ℤ/9 — exactly {1,2,4,5,7,8}, the six harmonic solutions</p>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">5da06dfd-9f60-8742-a3a1-66c7962f3141</code><br>the doubling circuit — 1→2→4→8→7→5, the vortex orbit</p>
@@ -83,22 +82,13 @@
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">7f896229-5e0c-8150-97c1-c359b907e26b</code><br>the honest floor holds across every stream — no ciphertext boast leaks</p>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">d0f61b05-5c4a-8796-b2bb-fcdb8650b15f</code><br>the same tests generate the UI — shadcn microdata cards, each statement linked to its proof</p>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">51915784-a4b3-8884-a0a9-dba2fa4316ba</code><br>the honest floor — of the seven Clay Millennium problems, the number this deposit can claim to prove is zero; 0/7</p>
-  <p class="stmt"><span class="v v-refuted">REFUTED</span> <code class="rcpt">712143ac-9211-871e-998d-0fd21f27a0fe</code><br>we prove the Riemann hypothesis and claim the prize</p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">07117c20-e5b2-8f9a-bfb0-6f2d599b2b1c</code><br>the Riemann hypothesis — left unsolved by this deposit; uuidna computes integrity, not truth. 0/7</p>
-  <p class="stmt"><span class="v v-refuted">REFUTED</span> <code class="rcpt">8bc32655-c17b-8ab1-9f67-00f49120b950</code><br>we prove P versus NP and claim the prize</p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">e383dc53-ce69-8d99-a6ab-e886fa8f3309</code><br>P versus NP — left unsolved by this deposit; uuidna computes integrity, not truth. 0/7</p>
-  <p class="stmt"><span class="v v-refuted">REFUTED</span> <code class="rcpt">7371a91c-b2bc-8bb4-bf00-827c3e1e332a</code><br>we prove Navier–Stokes existence and smoothness and claim the prize</p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">a07dd7ff-a825-8437-abec-b5124ecc62ff</code><br>Navier–Stokes existence and smoothness — left unsolved by this deposit; uuidna computes integrity, not truth. 0/7</p>
-  <p class="stmt"><span class="v v-refuted">REFUTED</span> <code class="rcpt">029a271d-c603-8c9f-a2ad-0e45ee4e44ee</code><br>we prove Yang–Mills existence and mass gap and claim the prize</p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">9aa69312-656e-887e-b3d2-2c0d590c85e1</code><br>Yang–Mills existence and mass gap — left unsolved by this deposit; uuidna computes integrity, not truth. 0/7</p>
-  <p class="stmt"><span class="v v-refuted">REFUTED</span> <code class="rcpt">dbba0b05-c3a9-8e18-b546-79e86f475d33</code><br>we prove the Hodge conjecture and claim the prize</p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">55b171d3-b4c0-8032-8495-90ccdd6dcdf4</code><br>the Hodge conjecture — left unsolved by this deposit; uuidna computes integrity, not truth. 0/7</p>
-  <p class="stmt"><span class="v v-refuted">REFUTED</span> <code class="rcpt">065a3b5a-fc5d-87b7-a51f-ed0eec44e33f</code><br>we prove the Birch and Swinnerton-Dyer conjecture and claim the prize</p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">362307b0-6291-8e44-baed-76a03a924f83</code><br>the Birch and Swinnerton-Dyer conjecture — left unsolved by this deposit; uuidna computes integrity, not truth. 0/7</p>
-  <p class="stmt"><span class="v v-refuted">REFUTED</span> <code class="rcpt">23a70347-5fa5-88fd-85ce-77365f813769</code><br>we prove the Poincaré conjecture and claim the prize</p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">c8185c69-219e-84a3-bfdb-ff20ccf58ece</code><br>the Poincaré conjecture — left unsolved by this deposit; uuidna computes integrity, not truth. 0/7</p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">3756fb73-41d0-8dba-936b-552b8abfc20c</code><br>the Poincaré conjecture was resolved by Grigori Perelman in 2003 — that is humanity’s result, not this deposit’s; humanity 1/7, uuidna 0/7</p>
-  <p class="stmt"><span class="v v-unverified">UNVERIFIED</span> <code class="rcpt">19b9933a-5508-8054-8c15-b224af9e3984</code><br>every capability is a decidable theorem, presented by its content-address and recomputed on every build — 0/7</p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">0b83a99e-ae4d-8a28-a8fb-f74542468027</code><br>the overclaim to settle the Riemann hypothesis is refused at the honest floor — 0/7</p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">9b54668e-fbf1-88e5-bdcd-613bd4a7cd8b</code><br>the overclaim to settle P versus NP is refused at the honest floor — 0/7</p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">76833f3d-4951-852e-a086-bb19d1ab5956</code><br>the overclaim to settle Navier–Stokes existence and smoothness is refused at the honest floor — 0/7</p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">73e51368-578f-8a7d-a854-a07738aca055</code><br>the overclaim to settle Yang–Mills existence and mass gap is refused at the honest floor — 0/7</p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">f257453b-fb43-871c-8159-da91da39eb05</code><br>the overclaim to settle the Hodge conjecture is refused at the honest floor — 0/7</p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">d5405c6f-72f9-8929-a91f-18be05407475</code><br>the overclaim to settle the Birch and Swinnerton-Dyer conjecture is refused at the honest floor — 0/7</p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">e4469dad-85f7-8615-904d-47849bf890c6</code><br>the overclaim to settle the Poincaré conjecture is refused at the honest floor — 0/7</p>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">7de18ddf-1a21-880e-8bf7-edb2bc548f42</code><br>of the seven Clay Millennium problems, the number this deposit can claim to prove is zero; 0/7</p>
   <footer>License CC BY-NC 4.0 — Tsvetan Rouschev. <span class="mono">npm test</span> recomputes every verdict above.</footer>
 </main>
