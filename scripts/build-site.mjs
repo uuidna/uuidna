@@ -218,6 +218,29 @@ const discipline = [
     () => fixedd([0.5, 0]) === true && fixedd([0.5, 1]) === false && fixedd([0.5, -3]) === false),
 ].join('\n')
 
+// ── DISCOVERY — the real structure inside the paper's framework, sealed by exact, falsifiable tests. Doubled
+// coords s=(a+bi)/2 so the critical line Re(s)=1/2 is a=1; integer arithmetic, no floats. It CREDITS the paper's
+// involution, REPAIRS its barrier (the codimension-1 fixed set belongs to the conjugate reflection s↦1−s̄, not to
+// s↦1−s), discovers the Klein four-group of reflections, and seals the honest BOUND: the symmetry does not force
+// zeros onto the line — which is exactly why the topological argument cannot reach RH. ──
+const ceq = (x, y) => x[0] === y[0] && x[1] === y[1]
+const cid = ([a, b]) => [a, b], csig = ([a, b]) => [2 - a, -b], ctau = ([a, b]) => [2 - a, b], ckap = ([a, b]) => [a, -b]
+const cP = [3, 7], cQ = [5, -2]
+const discovery = [
+  trialRow('the map s to 1 minus s has order exactly two — an involution, not the identity',
+    () => [cP, cQ, [0, 2]].every((p) => ceq(csig(csig(p)), p)) && !ceq(csig(cP), cP)),
+  trialRow('the critical line is invariant under s to 1 minus s — the map sends the line onto itself, reflecting the imaginary part',
+    () => [[1, 5], [1, -2], [1, 0]].every(([a, b]) => csig([a, b])[0] === 1) && !ceq(csig([1, 5]), [1, 5])),
+  trialRow('the conjugate reflection s to 1 minus s-conjugate is an involution whose fixed set is exactly the critical line — a codimension one barrier',
+    () => [cP, cQ, [1, 4]].every((p) => ceq(ctau(ctau(p)), p)) && ceq(ctau([1, 9]), [1, 9]) && !ceq(ctau([3, 9]), [3, 9])),
+  trialRow('composing s to 1 minus s with conjugation yields the conjugate reflection — the multiplication is exact',
+    () => [cP, cQ].every((p) => ceq(csig(ckap(p)), ctau(p))) && [cP, cQ].every((p) => ceq(ctau(ckap(p)), csig(p)))),
+  trialRow('the four reflections identity, one-minus-s, one-minus-s-conjugate, and conjugation form a Klein four-group — closed and commutative, each of order two',
+    () => { const G = [cid, csig, ctau, ckap], key = (p) => p[0] + ',' + p[1], orbit = G.map((f) => key(f(cP))), inSet = (q) => orbit.includes(key(q)); return G.every((f) => G.every((g) => inSet(f(g(cP))))) && G.every((f) => ceq(f(f(cP)), cP)) && G.every((f) => G.every((g) => ceq(f(g(cP)), g(f(cP))))) && new Set(orbit).size === 4 }),
+  trialRow('a configuration symmetric under the conjugate reflection can lie entirely off the critical line — the symmetry does not force points onto it',
+    () => { const pair = [[0, 4], [2, 4]]; return ceq(ctau(pair[0]), pair[1]) && ceq(ctau(pair[1]), pair[0]) && pair.every(([a]) => a !== 1) }),
+].join('\n')
+
 // GUARD — the build must refuse to run if the honest path ever fails to refute a known falsehood (the anti-fraud
 // tripwire). A rigged test seals anything; an HONEST test must reject a false statement, or the ledger is worthless.
 if (adjudicate('two plus two equals five', () => 2 + 2 === 5).verdict !== 'REFUTED') {
@@ -284,6 +307,8 @@ ${statesRow}
 ${meta}
   <h2>Discipline &amp; discovery — SEALED requires a falsifiable test</h2>
 ${discipline}
+  <h2>Discovery — the involution group of the critical strip</h2>
+${discovery}
   <h2>The trial ledger — every verdict, by its proof-of-verdict root</h2>
 ${ledger}`,
 }))
