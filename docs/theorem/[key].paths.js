@@ -1,7 +1,7 @@
 // Dynamic route: one show page per proven Lean theorem, generated at build time from the ledger — no 557 files on
 // disk. Each page carries the detailed proof, the formal statement, the content-address, its principle and the
 // source link. `params` also feeds per-page Open Graph + uuidna:address meta via transformPageData in config.ts.
-import { theorems, PRINCIPLES, renderTheorem } from '../dist/index.js'
+import { theorems, PRINCIPLES, renderTheorem } from '../../dist/index.js'
 
 const blurb = Object.fromEntries(PRINCIPLES.map((p) => [p[1], p[2]]))
 const GH = 'https://github.com/uuidna/uuidna/blob/main/lean/'

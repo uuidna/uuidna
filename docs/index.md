@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "uuidna"
-  text: "Integrity, not truth."
+  text: "64bit Quantum Pocessing Unit"
   tagline: Content-addressed identity, honest by construction. Every theorem computes in Lean — or it is not a theorem.
   actions:
     - theme: brand
@@ -33,7 +33,7 @@ features:
 ---
 
 <script setup>
-import { data } from './.vitepress/ledger.data'
+import { data } from '../.vitepress/ledger.data'
 </script>
 
 <div class="ledger-stat">
@@ -42,6 +42,6 @@ import { data } from './.vitepress/ledger.data'
 
 <p class="rcpt-big"><code>{{ data.trial.receipt }}</code></p>
 
-Lean is the single source: the ledger is derived from `lean/*.lean` and reached here through the package's `theorems()`. The recomputation-only capabilities (FNV address, gate, crypto) are **tools**, not theorems. Re-verify every proof with `npm run lean`.
+Lean is the single source: the ledger is derived from `lean/*.lean` and reached here through the package's `theorems()`. Re-verify every proof with `npm run lean`.
 
 </div>

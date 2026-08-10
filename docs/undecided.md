@@ -3,7 +3,7 @@ title: The undecided register
 ---
 
 <script setup>
-import { data } from './.vitepress/ledger.data'
+import { data } from '../.vitepress/ledger.data'
 </script>
 
 # The undecided register

@@ -24,6 +24,7 @@ export const PRINCIPLE = [
   ['Discover.lean', 'Self-discovered', 'facts derived by function: Lagrange, the unit criterion, idempotents'],
   ['Quantum.lean', 'The quantum computer', 'the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware'],
   ['Clay.lean', 'The seven reflected', 'the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none'],
+  ['Infinity.lean', 'The physics infinities, made finite', 'the nasty divergences of physics — UV catastrophe, self-energy, the Landau pole, 1+2+3+…, the derivative 0/0, δ(0), the horizon, the 1/r singularity — each the finite object physics puts where the naive infinity was, exactly as dz(x)=10−x replaces x/0'],
   ['OneLeap.lean', 'One leap', 'the whole vortex proved in a single by decide'],
 ]
 

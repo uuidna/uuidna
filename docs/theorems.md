@@ -4,7 +4,7 @@ aside: false
 ---
 
 <script setup>
-import { data } from './.vitepress/ledger.data'
+import { data } from '../.vitepress/ledger.data'
 </script>
 
 # Theorems <Badge type="tip" :text="`${data.total} Lean-proven`" />

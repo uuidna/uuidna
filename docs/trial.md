@@ -3,7 +3,7 @@ title: The trial receipt
 ---
 
 <script setup>
-import { data } from './.vitepress/ledger.data'
+import { data } from '../.vitepress/ledger.data'
 </script>
 
 # The trial receipt

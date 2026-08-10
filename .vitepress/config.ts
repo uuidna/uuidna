@@ -26,8 +26,11 @@ export default defineConfig({
   lang: 'en-US',
   cleanUrls: true,
   outDir: 'site', // wrangler.toml serves ./site — VitePress now produces it
-  // The site is exactly the ledger pages — keep repo markdown that is not a page out of the build.
-  srcExclude: ['README.md', 'lean/**', 'src/**', 'scripts/**', 'test/**', 'dist/**'],
+  // All site pages live under docs/ (index, theorems, trial, undecided, theorem/[key], captain/) — the docs root.
+  // Pointing srcDir there makes VitePress serve them at root URLs (docs/theorem/x.md → /theorem/x), so the nav and
+  // sidebar links resolve through VitePress with no rewrites. Non-page code (src/, lean/, dist/) sits outside and is
+  // never globbed. `.vitepress` stays at the project root, where VitePress resolves the config from.
+  srcDir: 'docs',
   lastUpdated: true,
   ignoreDeadLinks: true,
   sitemap: { hostname: 'https://uuidna.com' },
