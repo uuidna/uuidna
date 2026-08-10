@@ -47,7 +47,8 @@ export { encrypt, decrypt, verifyEnvelope, ITER, type Sealed } from './crypt.js'
 export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
 export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './chacha.js'
 
-// the theorem ledger — the tools, the theorems, and their Lean 4 proofs, one system. THEOREMS is every
-// capability as a decidable, falsifiable, self-proving theorem (algebraic ones carry a verified `by decide`
-// Lean proof); runTrial() adjudicates them all and folds to one receipt; theorems() lists them with formula+lean.
-export { THEOREMS, runTrial, theorems, type Theorem, type TheoremVerdict, type TrialResult } from './theorems/index.js'
+// the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
+// (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS
+// is the typed, addressed view. runTrial() folds every theorem's content-address to one receipt; theorems() lists
+// them with proof + principle; PRINCIPLES is the derivation order. A theorem computes in Lean, or it is not one.
+export { THEOREMS, runTrial, theorems, PRINCIPLES, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult } from './theorems/index.js'

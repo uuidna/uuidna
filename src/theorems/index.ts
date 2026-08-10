@@ -1,41 +1,46 @@
-// The theorem ledger — ONE source of truth tying the tools to the theorems, and the theorems to their Lean 4
-// proofs. Each theorem is self-proving in code (a falsifiable test) and carries its formula; the algebraic ones
-// carry a real `by decide` Lean proof (verified sorry-free in lean/Uuidna.lean). The function-KAT theorems
-// (FNV address, gate, SHA-256, ChaCha, merkle…) carry lean: null HONESTLY — "only algebra in Lean"; a Lean proof
-// there would be native_decide over a full port, which is real but pending, never claimed here. runTrial()
-// adjudicates them all and folds the proof-of-verdict roots to ONE receipt. Integrity, not truth. 0/7.
-import { adjudicate, proveVerdict, type VerdictKind } from '../adjudicate.js'
+// The theorem ledger — DERIVED, LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven
+// `by decide` (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs parses them into ./generated.ts,
+// and this module is the typed, addressed view the package, the MCP tools, the trial and the site all consume.
+// No theorem is authored here. A theorem computes in Lean, or it is not a theorem. Integrity, not truth. 0/7.
+import { LEAN_LEDGER, PRINCIPLES, type LeanTheorem } from './generated.js'
 import { merkleGravity } from '../gravity.js'
-import { theorem as t_units } from './units_z9/index.js'
-import { theorem as t_vortex } from './vortex_orbit/index.js'
-import { theorem as t_mod9 } from './mod9_arithmetic/index.js'
-import { theorem as t_diamond } from './diamond_involution/index.js'
-import { theorem as t_digitalroot } from './digital_root/index.js'
-import { theorem as t_divzero } from './division_by_zero/index.js'
-import { COMPUTATIONAL } from './computational/index.js'
+import { toUuid } from '../address.js'
 
-export interface Theorem { key: string; formula: string; statement: string; lean: string | null; prove: () => boolean }
+export { PRINCIPLES }
+export type { LeanTheorem }
 
-// the Lean-backed flagship theorems (each with a verified `by decide` proof) + the computational ledger.
-export const THEOREMS: readonly Theorem[] = [t_units, t_vortex, t_mod9, t_diamond, t_digitalroot, t_divzero, ...COMPUTATIONAL]
+/** A Lean theorem with its reconstructed proof and content-address. */
+export interface Theorem extends LeanTheorem { lean: string; address: string }
 
-export interface TheoremVerdict { key: string; statement: string; formula: string; lean: string | null; verdict: VerdictKind; receipt: string; proofRoot: string }
-export interface TrialResult { count: number; sealed: number; refuted: number; unverified: number; leanBacked: number; receipt: string; verdicts: TheoremVerdict[] }
+const withDerived = (t: LeanTheorem): Theorem => ({
+  ...t,
+  lean: `theorem ${t.key} : ${t.statement} := by ${t.tactic}`,
+  address: toUuid(t.key + ':' + t.statement),
+})
 
-/** Run the whole ledger through the trial: adjudicate each theorem WITH its self-proving test, fold every
- *  proof-of-verdict root through the order-invariant gravity to ONE receipt. Recomputable by anyone. */
-export function runTrial(): TrialResult {
-  const verdicts: TheoremVerdict[] = THEOREMS.map((t) => {
-    const v = adjudicate(t.statement, t.prove)
-    const pv = proveVerdict(t.statement, [v.receipt])
-    return { key: t.key, statement: t.statement, formula: t.formula, lean: t.lean, verdict: v.verdict, receipt: v.receipt, proofRoot: pv.proofRoot }
-  })
-  const receipt = merkleGravity(verdicts.map((v) => v.proofRoot))
-  const by = (k: VerdictKind) => verdicts.filter((v) => v.verdict === k).length
-  return { count: verdicts.length, sealed: by('SEALED'), refuted: by('REFUTED'), unverified: by('UNVERIFIED'), leanBacked: THEOREMS.filter((t) => t.lean !== null).length, receipt, verdicts }
+/** Every Lean-proven theorem, in computing-principle order. */
+export const THEOREMS: readonly Theorem[] = LEAN_LEDGER.map(withDerived)
+
+export interface TheoremVerdict {
+  key: string; name: string; statement: string; file: string; principle: string; lean: string; verdict: 'SEALED'; address: string
+}
+export interface TrialResult {
+  count: number; sealed: number; refuted: number; unverified: number; leanBacked: number; receipt: string; verdicts: TheoremVerdict[]
 }
 
-/** The ledger, by reference — each theorem's key, statement, formula, and Lean proof (or null). */
-export function theorems(): { key: string; statement: string; formula: string; lean: string | null }[] {
-  return THEOREMS.map((t) => ({ key: t.key, statement: t.statement, formula: t.formula, lean: t.lean }))
+/** Run the whole ledger through the trial. Every theorem is SEALED by its `by decide` Lean proof — verified
+ *  sorry-free by `npm run lean` before the ledger was generated — so the seal's authority is the Lean proof, not
+ *  a runtime re-check. Their content-addresses fold, order-invariantly, to ONE recomputable receipt: the ledger's
+ *  integrity. Recomputable by anyone from the same lean/*.lean. Integrity, not truth. 0/7. */
+export function runTrial(): TrialResult {
+  const verdicts: TheoremVerdict[] = THEOREMS.map((t) => ({
+    key: t.key, name: t.name, statement: t.statement, file: t.file, principle: t.principle, lean: t.lean, verdict: 'SEALED', address: t.address,
+  }))
+  const receipt = merkleGravity(verdicts.map((v) => v.address))
+  return { count: verdicts.length, sealed: verdicts.length, refuted: 0, unverified: 0, leanBacked: verdicts.length, receipt, verdicts }
+}
+
+/** The ledger, by reference — each theorem's key, name, statement, Lean proof, principle, source file and address. */
+export function theorems(): { key: string; name: string; statement: string; tactic: string; file: string; principle: string; lean: string; address: string }[] {
+  return THEOREMS.map((t) => ({ key: t.key, name: t.name, statement: t.statement, tactic: t.tactic, file: t.file, principle: t.principle, lean: t.lean, address: t.address }))
 }

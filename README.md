@@ -100,10 +100,13 @@ organized by **computing principle** in derivation order — see [`lean/PRINCIPL
    structure, self-discovered facts) and **one leap** that folds the whole vortex into a single proof.
 
 A **theorem computes in Lean, or it is not a theorem** — the recomputation-only capabilities (FNV address,
-gate, crypto) are *tools*, not theorems. Rendered as schema.org microdata at
-[uuidna.com/theorems](https://uuidna.com/theorems), folded to one receipt at
-[uuidna.com/trial](https://uuidna.com/trial), every proof at [uuidna.com/lean](https://uuidna.com/lean); open
-propositions held at [uuidna.com/undecided](https://uuidna.com/undecided). Regenerate + re-verify: `npm run lean`.
+gate, crypto) are *tools*, not theorems. **Lean is the single source:** `npm run lean` verifies every proof
+sorry-free and then derives the one ledger ([`src/theorems/generated.ts`](src/theorems/generated.ts)) that the
+package, the MCP tools and the site all consume — nothing is authored elsewhere. The filterable collection of
+proven theorems, each with its detailed `by decide` proof, formal statement and content-address, is at
+[uuidna.com/theorems](https://uuidna.com/theorems) (one show page per theorem); the whole set folds to one
+receipt at [uuidna.com/trial](https://uuidna.com/trial); open propositions are held at
+[uuidna.com/undecided](https://uuidna.com/undecided). Regenerate + re-verify: `npm run lean`.
 
 ## What it is — and isn't
 

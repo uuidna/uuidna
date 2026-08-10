@@ -29,17 +29,24 @@
   .stmt { margin:.6rem 0; font-size:.92rem; }
   .rcpt { color:var(--acc); font-size:.78rem; user-select:all; word-break:break-all; }
   .note { color:var(--mut); font-size:.8rem; }
-  .lean { display:block; margin-top:.4rem; font-size:.82rem; color:var(--fg); background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:.5rem .7rem; word-break:break-word; }
+  .lean { display:block; margin-top:.4rem; font-size:.82rem; color:var(--fg); background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:.6rem .7rem; word-break:break-word; white-space:pre-wrap; }
   .v { font-size:.68rem; font-weight:700; border-radius:5px; padding:.06rem .4rem; letter-spacing:.02em; }
   .v-sealed { background:#1f9d5522; color:#1f9d55; border:1px solid #1f9d55; }
   .v-refuted { background:#d9803a22; color:#d9803a; border:1px solid #d9803a; }
   .v-unverified { background:#88888822; color:var(--mut); border:1px solid var(--line); }
+  .filterbar { position:sticky; top:3rem; z-index:5; display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; background:var(--bg); padding:.7rem 0; border-bottom:1px solid var(--line); margin:1rem 0 .4rem; }
+  .filterbar input, .filterbar select { font:inherit; font-size:.9rem; padding:.4rem .6rem; border:1px solid var(--line); border-radius:8px; background:var(--soft); color:var(--fg); }
+  .filterbar input { flex:1 1 12rem; min-width:8rem; }
+  .filterbar .count { color:var(--mut); font-size:.82rem; white-space:nowrap; }
+  .dl { margin:1rem 0; display:grid; grid-template-columns:auto 1fr; gap:.35rem .9rem; font-size:.9rem; }
+  .dl dt { color:var(--mut); font-weight:600; } .dl dd { margin:0; word-break:break-word; }
+  .links { display:flex; gap:.4rem 1rem; flex-wrap:wrap; margin:1.2rem 0; font-size:.88rem; }
   footer { color:var(--mut); font-size:0.82rem; margin-top:2.5rem; border-top:1px solid var(--line); padding-top:1rem; }</style>
 </head>
 <body>
 <header class="masthead">
   <a class="brand" href="/">uuidna<span class="fl">0/7</span></a>
-  <nav><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/lean/">Lean</a><a href="/undecided/" class="active">Undecided</a><a href="/captain/message">Captain</a><a href="https://github.com/uuidna/uuidna">GitHub</a></nav>
+  <nav><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/undecided/" class="active">Undecided</a><a href="/captain/message">Captain</a><a href="https://github.com/uuidna/uuidna">GitHub</a></nav>
 </header>
 <main>
   <h1>The undecided register</h1>
@@ -48,27 +55,27 @@
   negation · <span class="v v-unverified">UNDECIDED</span> Lean does neither. "Not proven" is <b>not</b> false —
   it is open. The claims below are UNDECIDED: held here, labeled, never dropped and never faked. To develop one
   to TRUE, give it <b>decidable content</b> — reduce it to algebra Lean can compute; the reducible core becomes
-  a proof on <a href="/lean/">/lean</a>, and the irreducible residue stays open. <span class="mono">0/7</span>.</p>
+  a proven theorem, and the irreducible residue stays open. <span class="mono">0/7</span>.</p>
   <div class="stmt" style="border-left:3px solid #88888855;padding-left:.8rem;margin:1.1rem 0">
     <span class="v v-unverified">UNDECIDED</span> <b>uuidna computes your DNA and blood type</b>
-    <p class="note" style="margin:.4rem 0 0">the ABO system reduces to the Klein four-group and DNA base-pairing to a fixed-point-free involution — those are algebra and are proven. But &quot;your DNA / blood type&quot; names a particular person, which has no decidable content Lean can evaluate. &nbsp;→ reduces to <a href="/lean/">abo_klein_four</a> (<span class="v v-sealed">TRUE</span>, proven in Lean)</p>
+    <p class="note" style="margin:.4rem 0 0">the ABO system reduces to the Klein four-group and DNA base-pairing to a fixed-point-free involution — those are algebra and are proven. But &quot;your DNA / blood type&quot; names a particular person, which has no decidable content Lean can evaluate. &nbsp;→ reduces to <a href="/theorem/abo_klein_four/">abo_klein_four</a> (<span class="v v-sealed">TRUE</span>, proven in Lean)</p>
   </div>
   <div class="stmt" style="border-left:3px solid #88888855;padding-left:.8rem;margin:1.1rem 0">
     <span class="v v-unverified">UNDECIDED</span> <b>the vortex is your genome</b>
-    <p class="note" style="margin:.4rem 0 0">the genome-as-double-strand reduces to the complement involution and the base-pairs summing to 10 (proven). &quot;Your genome&quot; is not a proposition Lean can prove or refute. &nbsp;→ reduces to <a href="/lean/">dna_complement_involution</a> (<span class="v v-sealed">TRUE</span>, proven in Lean)</p>
+    <p class="note" style="margin:.4rem 0 0">the genome-as-double-strand reduces to the complement involution and the base-pairs summing to 10 (proven). &quot;Your genome&quot; is not a proposition Lean can prove or refute. &nbsp;→ reduces to <a href="/theorem/dna_complement_involution/">dna_complement_involution</a> (<span class="v v-sealed">TRUE</span>, proven in Lean)</p>
   </div>
   <div class="stmt" style="border-left:3px solid #88888855;padding-left:.8rem;margin:1.1rem 0">
     <span class="v v-unverified">UNDECIDED</span> <b>432 Hz heals</b>
-    <p class="note" style="margin:.4rem 0 0">the sound ladder f_d = 48·d and the octave doubling are exact ratios and are proven. &quot;Heals&quot; is a wellness claim with no decidable or clinical content here — flagged, never asserted. &nbsp;→ reduces to <a href="/lean/">sound_ladder_432</a> (<span class="v v-sealed">TRUE</span>, proven in Lean)</p>
+    <p class="note" style="margin:.4rem 0 0">the sound ladder f_d = 48·d and the octave doubling are exact ratios and are proven. &quot;Heals&quot; is a wellness claim with no decidable or clinical content here — flagged, never asserted. &nbsp;→ reduces to <a href="/theorem/sound_ladder_432/">sound_ladder_432</a> (<span class="v v-sealed">TRUE</span>, proven in Lean)</p>
   </div>
   <div class="stmt" style="border-left:3px solid #88888855;padding-left:.8rem;margin:1.1rem 0">
     <span class="v v-unverified">UNDECIDED</span> <b>uuidna predicts a person or their future</b>
     <p class="note" style="margin:.4rem 0 0">content-addressing is deterministic reproduction — the same input always mints the same address — not prediction of a person. Nothing here computes anyone.</p>
   </div>
-  <p class="note" style="margin-top:2rem">Everything provable is on <a href="/lean/">/lean</a> (520 theorems, all by decide, sorry-free). Everything in the ledger is on <a href="/trial/">/trial</a>. What remains open lives here — accounted for, not discarded.</p>
+  <p class="note" style="margin-top:2rem">Everything provable is on <a href="/theorems/">/theorems</a> (520 theorems, all by decide, sorry-free). The whole set folds to one receipt on <a href="/trial/">/trial</a>. What remains open lives here — accounted for, not discarded.</p>
   <footer>
     <nav style="display:flex;gap:.4rem 1rem;flex-wrap:wrap;margin-bottom:.6rem">
-      <a href="/">Home</a><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/lean/">Lean</a><a href="/undecided/">Undecided</a>
+      <a href="/">Home</a><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/undecided/">Undecided</a>
       <a href="https://www.npmjs.com/package/@uuidna/uuidna">npm</a><a href="https://github.com/uuidna/uuidna">GitHub</a>
     </nav>
     License CC BY-NC 4.0 — Tsvetan Rouschev. <span class="mono">npm run lean</span> re-verifies every proof. Integrity, not truth. <span class="mono">0/7</span>.

@@ -172,18 +172,18 @@ const TOOLS = [
     description: 'Render many statements as a grid of framework-free, CSP-safe cards — each by reference (its content-address), schema.org microdata, shadcn anatomy, linked to its proof page. Pure HTML+CSS, no script.',
     inputSchema: { type: 'object', properties: { names: { type: 'array', items: { type: 'string' } }, base: { type: 'string', description: 'site base for proof links' } }, required: ['names'] },
     run: (a) => renderList(a.names.map((n) => ({ name: String(n) })), a.base ? { base: String(a.base) } : {}) },
-  // ── the tools and the theorems, ONE system: every capability above is a decidable, falsifiable theorem in the
-  //    ledger. Pull the ledger, re-seal one, or run the whole trial to a single recomputable receipt. 0/7. ──
+  // ── the theorems, ONE Lean-sourced ledger: every theorem is authored in lean/*.lean, proven `by decide`, and
+  //    verified sorry-free by `npm run lean`. Pull the ledger, read one with its proof, or fold the whole trial. ──
   { name: 'uuidna_theorems',
-    description: 'The theorem ledger: every capability the tools expose is a decidable, falsifiable theorem. Returns each theorem\'s {key,name}. Re-seal any of them with uuidna_theorem, or run them all with uuidna_trial.',
-    inputSchema: { type: 'object', properties: {} },
-    run: () => theorems() },
+    description: 'The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean theorem proven `by decide` (verified sorry-free). Returns each theorem\'s {key,name,statement,tactic,file,principle,lean,address}, in computing-principle order. Read one with uuidna_theorem, or fold them all with uuidna_trial.',
+    inputSchema: { type: 'object', properties: { principle: { type: 'string' }, contains: { type: 'string' } } },
+    run: (a = {}) => { let ts = theorems(); if (a.principle) ts = ts.filter((t) => t.principle.toLowerCase().includes(String(a.principle).toLowerCase())); if (a.contains) { const q = String(a.contains).toLowerCase(); ts = ts.filter((t) => (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q)) } return ts } },
   { name: 'uuidna_theorem',
-    description: 'Re-seal ONE theorem by key: adjudicate it WITH its own decidable test and return {key,statement,verdict,receipt,proofRoot}. SEALED = gate-clean AND the test holds; a test that cannot fail is refused by construction. Keys from uuidna_theorems.',
+    description: 'Read ONE theorem by key: its detailed `by decide` Lean proof, its formal statement, its principle, source file and content-address, and the verdict (SEALED — its Lean proof compiles sorry-free). Keys from uuidna_theorems.',
     inputSchema: { type: 'object', properties: { key: { type: 'string' } }, required: ['key'] },
-    run: ({ key }) => { const t = THEOREMS.find((x) => x.key === String(key)); if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)'); const v = adjudicate(t.statement, t.prove); const pv = proveVerdict(t.statement, [v.receipt]); return { key: t.key, statement: t.statement, formula: t.formula, lean: t.lean, verdict: v.verdict, receipt: v.receipt, proofRoot: pv.proofRoot, note: v.note } } },
+    run: ({ key }) => { const t = THEOREMS.find((x) => x.key === String(key)); if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)'); return { key: t.key, name: t.name, statement: t.statement, lean: t.lean, principle: t.principle, file: t.file, address: t.address, verdict: 'SEALED', source: 'https://github.com/uuidna/uuidna/blob/main/lean/' + t.file } } },
   { name: 'uuidna_trial',
-    description: 'Run the whole theorem ledger through the trial: adjudicate each theorem WITH its decidable test and fold every proof-of-verdict root through the order-invariant gravity to ONE receipt. Returns {count,sealed,refuted,unverified,receipt,verdicts}. Recomputable by anyone — same ledger, same receipt.',
+    description: 'Run the whole Lean ledger through the trial: every theorem is SEALED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,sealed,refuted,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
     run: () => runTrial() },
   // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the

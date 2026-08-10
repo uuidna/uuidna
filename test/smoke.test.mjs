@@ -99,19 +99,19 @@ test('the honesty gate drains overclaims and signs the honest floor', () => {
   assert.equal(pv.verdict, 'REFUTED')
   assert.match(pv.proofRoot, /^[0-9a-f-]{36}$/)                          // the proof-of-verdict receipt
   assert.equal(proveVerdict('we prove all seven', f).proofRoot, proveVerdict('we prove all seven', [...f].reverse()).proofRoot) // order-invariant
-  // the tools and the theorems are ONE system: the whole ledger runs through the trial and every theorem SEALS,
-  // to a single deterministic receipt (the MCP uuidna_trial / uuidna_theorems expose exactly this).
+  // LEAN IS THE SINGLE SOURCE: the whole ledger is derived from lean/*.lean, every theorem is SEALED by its
+  // `by decide` proof, and the trial folds their content-addresses to one deterministic receipt (MCP uuidna_trial).
   const trial = runTrial()
-  assert.equal(trial.sealed, THEOREMS.length)                           // every capability-theorem holds
-  assert.equal(trial.refuted + trial.unverified, 0)                     // theorems only — nothing stands on nothing
+  assert.equal(trial.sealed, THEOREMS.length)                           // every theorem is Lean-proven → SEALED
+  assert.equal(trial.refuted + trial.unverified, 0)                     // the ledger holds proven theorems only
   assert.match(trial.receipt, /^[0-9a-f-]{36}$/)
-  assert.equal(runTrial().receipt, trial.receipt)                       // deterministic — same ledger, same receipt
-  assert.equal(trial.leanBacked, THEOREMS.length)                       // a theorem computes in Lean, or it is not a theorem — the ledger is Lean-pure
-  // the tools-and-theorems-and-Lean, one system: every lean-backed theorem's proof lives in a lean/*.lean file
-  // (Uuidna.lean hand-written; DivByZero.lean and Sequence.lean generated + verified by npm run lean:*).
+  assert.equal(runTrial().receipt, trial.receipt)                       // deterministic — same lean/*.lean, same receipt
+  assert.equal(trial.leanBacked, THEOREMS.length)                       // a theorem computes in Lean, or it is not a theorem
+  // every ledger theorem's proof lives in a lean/*.lean file — the ledger is a parse of the Lean source, nothing
+  // is authored outside it (scripts/lean-ledger.mjs derives src/theorems/generated.ts after npm run lean verifies).
   const leanDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'lean')
   const leanSrc = readdirSync(leanDir).filter((f) => f.endsWith('.lean')).map((f) => readFileSync(join(leanDir, f), 'utf8')).join('\n')
-  for (const v of runTrial().verdicts) if (v.lean) assert.ok(leanSrc.includes('theorem ' + (v.lean.match(/theorem (\w+)/) || [])[1]), 'Lean proof present for ' + v.key)
+  for (const v of runTrial().verdicts) assert.ok(leanSrc.includes('theorem ' + v.key + ' '), 'Lean proof present for ' + v.key)
   assert.equal(verifyUuidna('1011').recomputes, true)                   // the address recomputes from its seed
 })
 

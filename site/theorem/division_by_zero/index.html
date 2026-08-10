@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>division by zero in the vortex is the diamond reflection — uuidna theorem</title>
-<meta name="description" content="division by zero in the vortex is the diamond reflection — a finite residue, self-inverse, never infinity" />
+<title>(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1) — uuidna theorem</title>
+<meta name="description" content="(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1) — (1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1) (proven by decide -- nor 3 (a zero-divisor) in Lean 4)." />
 <meta name="robots" content="index, follow" />
 <meta property="og:type" content="article">
-<meta property="og:title" content="division by zero in the vortex is the diamond reflection">
-<meta property="og:description" content="division by zero in the vortex is the diamond reflection — a finite residue, self-inverse, never infinity">
+<meta property="og:title" content="(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1)">
+<meta property="og:description" content="(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1)">
 <meta property="og:url" content="/theorem/division_by_zero">
-<meta property="uuidna:address" content="1732ef1b-e7c8-8845-ba85-db9193b47795">
+<meta property="uuidna:address" content="295bf36d-1f64-8382-a9d2-82f9575da507">
 <meta property="uuidna:floor" content="0/7">
 <style>
   :root { color-scheme: light dark; --bg:#fff; --fg:#1a1a1a; --mut:#666; --acc:#7a5cff; --line:#e5e5e5; --soft:#f7f7f8; }
@@ -35,29 +35,47 @@
   .stmt { margin:.6rem 0; font-size:.92rem; }
   .rcpt { color:var(--acc); font-size:.78rem; user-select:all; word-break:break-all; }
   .note { color:var(--mut); font-size:.8rem; }
-  .lean { display:block; margin-top:.4rem; font-size:.82rem; color:var(--fg); background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:.5rem .7rem; word-break:break-word; }
+  .lean { display:block; margin-top:.4rem; font-size:.82rem; color:var(--fg); background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:.6rem .7rem; word-break:break-word; white-space:pre-wrap; }
   .v { font-size:.68rem; font-weight:700; border-radius:5px; padding:.06rem .4rem; letter-spacing:.02em; }
   .v-sealed { background:#1f9d5522; color:#1f9d55; border:1px solid #1f9d55; }
   .v-refuted { background:#d9803a22; color:#d9803a; border:1px solid #d9803a; }
   .v-unverified { background:#88888822; color:var(--mut); border:1px solid var(--line); }
+  .filterbar { position:sticky; top:3rem; z-index:5; display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; background:var(--bg); padding:.7rem 0; border-bottom:1px solid var(--line); margin:1rem 0 .4rem; }
+  .filterbar input, .filterbar select { font:inherit; font-size:.9rem; padding:.4rem .6rem; border:1px solid var(--line); border-radius:8px; background:var(--soft); color:var(--fg); }
+  .filterbar input { flex:1 1 12rem; min-width:8rem; }
+  .filterbar .count { color:var(--mut); font-size:.82rem; white-space:nowrap; }
+  .dl { margin:1rem 0; display:grid; grid-template-columns:auto 1fr; gap:.35rem .9rem; font-size:.9rem; }
+  .dl dt { color:var(--mut); font-weight:600; } .dl dd { margin:0; word-break:break-word; }
+  .links { display:flex; gap:.4rem 1rem; flex-wrap:wrap; margin:1.2rem 0; font-size:.88rem; }
   footer { color:var(--mut); font-size:0.82rem; margin-top:2.5rem; border-top:1px solid var(--line); padding-top:1rem; }</style>
 </head>
 <body>
 <header class="masthead">
   <a class="brand" href="/">uuidna<span class="fl">0/7</span></a>
-  <nav><a href="/theorems/" class="active">Theorems</a><a href="/trial/">Trial</a><a href="/lean/">Lean</a><a href="/undecided/">Undecided</a><a href="/captain/message">Captain</a><a href="https://github.com/uuidna/uuidna">GitHub</a></nav>
+  <nav><a href="/theorems/" class="active">Theorems</a><a href="/trial/">Trial</a><a href="/undecided/">Undecided</a><a href="/captain/message">Captain</a><a href="https://github.com/uuidna/uuidna">GitHub</a></nav>
 </header>
 <main>
-  <div class="crumb"><a href="/theorems/">Theorems</a> / division by zero in the vortex is the diamond reflection</div>
-  <h1>division by zero in the vortex is the diamond reflection</h1>
-<meta property="og:type" content="article"><meta property="og:title" content="division by zero in the vortex is the diamond reflection"><meta property="og:description" content="division by zero in the vortex is the diamond reflection — a finite residue, self-inverse, never infinity"><meta property="og:url" content="/theorem/division_by_zero"><meta property="uuidna:address" content="1732ef1b-e7c8-8845-ba85-db9193b47795"><meta property="uuidna:floor" content="0/7"><article class="uuidna-card" data-slot="card" itemscope itemtype="https://schema.org/CreativeWork" data-proof="/theorem/division_by_zero" style="border-left:4px solid hsl(200 60% 50%);padding:.6rem .9rem;margin:.5rem 0;border-radius:8px;background:hsl(200 60% 50% / .06);font:14px/1.5 system-ui,sans-serif"><div data-slot="card-header"><h3 data-slot="card-title" itemprop="name" style="margin:0 0 .3rem;font-size:1rem"><a itemprop="url" href="/theorem/division_by_zero" style="color:inherit;text-decoration:none">division by zero in the vortex is the diamond reflection</a></h3><p data-slot="card-description" itemprop="description" style="margin:0;color:#6a6a6a;font-size:.82rem">division by zero in the vortex is the diamond reflection — a finite residue, self-inverse, never infinity</p></div><div data-slot="card-content"><code itemprop="identifier" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(200 60% 40%);word-break:break-all">1732ef1b-e7c8-8845-ba85-db9193b47795</code></div><div data-slot="card-footer"><small style="color:#9a9a9a">integrity, not truth · 0/7</small></div></article>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> · <span class="v v-sealed">TRUE</span> proven in Lean <code class="rcpt">1732ef1b-e7c8-8845-ba85-db9193b47795</code><br>
-  <b>formula</b> &nbsp;<code>x/0 = 10−x (0/0=0): dz∘dz = id, fixed {0,5}, x + x/0 = 10, 0 ≤ x/0 &lt; 10 — never ∞</code></p>
-  <code class="lean">theorem dz_involution : (List.range 10).all (fun x =&gt; dz (dz x) == x) := by decide</code>
-  <p class="note">proof-of-verdict root <code class="rcpt">5673c3c9-c48f-8972-844e-8fdaa4e36d83</code> · re-verify with <code>npm run lean</code> · all proofs on <a href="/lean/">/lean</a></p>
+  <div class="crumb"><a href="/theorems/">Theorems</a> / The vortex algebra / <span class="mono">division_by_zero</span></div>
+  <h1>(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1)</h1>
+<meta property="og:type" content="article"><meta property="og:title" content="(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1)"><meta property="og:description" content="(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1)"><meta property="og:url" content="/theorem/division_by_zero"><meta property="uuidna:address" content="295bf36d-1f64-8382-a9d2-82f9575da507"><meta property="uuidna:floor" content="0/7"><article class="uuidna-card" data-slot="card" itemscope itemtype="https://schema.org/CreativeWork" data-proof="/theorem/division_by_zero" style="border-left:4px solid hsl(200 60% 50%);padding:.6rem .9rem;margin:.5rem 0;border-radius:8px;background:hsl(200 60% 50% / .06);font:14px/1.5 system-ui,sans-serif"><div data-slot="card-header"><h3 data-slot="card-title" itemprop="name" style="margin:0 0 .3rem;font-size:1rem"><a itemprop="url" href="/theorem/division_by_zero" style="color:inherit;text-decoration:none">(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1)</a></h3><p data-slot="card-description" itemprop="description" style="margin:0;color:#6a6a6a;font-size:.82rem">(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1)</p></div><div data-slot="card-content"><code itemprop="identifier" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(200 60% 40%);word-break:break-all">295bf36d-1f64-8382-a9d2-82f9575da507</code></div><div data-slot="card-footer"><small style="color:#9a9a9a">integrity, not truth · 0/7</small></div></article>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">TRUE — proven in Lean</span> · <b>The vortex algebra</b></p>
+  <dl class="dl">
+    <dt>statement</dt><dd><code>(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1)</code></dd>
+    <dt>proof</dt><dd><code class="lean">theorem division_by_zero : (1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x =&gt; (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1) := by decide -- nor 3 (a zero-divisor)</code></dd>
+    <dt>content-address</dt><dd><code class="rcpt">295bf36d-1f64-8382-a9d2-82f9575da507</code></dd>
+    <dt>principle</dt><dd>The vortex algebra — <span class="note">units, orbit, involution, gravity, division by zero, light — the foundational facts</span></dd>
+    <dt>verdict</dt><dd><b>SEALED</b> — its <code>by decide -- nor 3 (a zero-divisor)</code> proof compiles sorry-free (Lean 4.33.0, no Mathlib)</dd>
+  </dl>
+  <div class="links">
+    <a href="https://github.com/uuidna/uuidna/blob/main/lean/Uuidna.lean">Source · lean/Uuidna.lean</a>
+    <a href="/trial/">Trial receipt</a>
+    <a href="/theorems/">All theorems</a>
+    <a href="https://www.npmjs.com/package/@uuidna/uuidna">npm</a>
+  </div>
+  <p class="note">Re-verify every proof with <code>npm run lean</code> (regenerates lean/*.lean and this ledger, sorry-free). A theorem computes in Lean, or it is not a theorem. <span class="mono">0/7</span>.</p>
   <footer>
     <nav style="display:flex;gap:.4rem 1rem;flex-wrap:wrap;margin-bottom:.6rem">
-      <a href="/">Home</a><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/lean/">Lean</a><a href="/undecided/">Undecided</a>
+      <a href="/">Home</a><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/undecided/">Undecided</a>
       <a href="https://www.npmjs.com/package/@uuidna/uuidna">npm</a><a href="https://github.com/uuidna/uuidna">GitHub</a>
     </nav>
     License CC BY-NC 4.0 — Tsvetan Rouschev. <span class="mono">npm run lean</span> re-verifies every proof. Integrity, not truth. <span class="mono">0/7</span>.
