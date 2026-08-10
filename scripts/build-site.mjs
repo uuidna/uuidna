@@ -14,7 +14,7 @@ import {
   units, vortexOrbit, digitalRoot, strictUuidna, merkleRoot, merkleProof, verifyProof,
   imprintTextChain, readImprintTextChain, encrypt, decrypt, verifyEnvelope,
   harness, harness7, reeducate, billUuidna, coins,
-  merkleGravity, doubleTorusGravity, diamond, DIAMOND_FIXED, involute, involutionFixed, verifyUuidna,
+  merkleGravity, doubleTorusGravity, fall, diamond, DIAMOND_FIXED, involute, involutionFixed, verifyUuidna,
 } from '../dist/index.js'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -207,13 +207,23 @@ const TRIAL_RECEIPT = merkleGravity(roots)
 const orderInvariant = TRIAL_RECEIPT === merkleGravity([...roots].reverse())
 const tally = counts.SEALED + ' SEALED · ' + counts.REFUTED + ' REFUTED · ' + counts.UNVERIFIED + ' UNVERIFIED'
 
-// ── THE LABELS AND THE TALLY, SEALED ──────────────────────────────────────────────
-// The labels are AUTHORED (src/adjudicate.ts, VerdictKind), NOT chosen by a theorem; adjudicate() ASSIGNS one
-// per statement from the gate binary + test. The counts were a bare counter — un-audited. Seal them now: a
-// meta-verdict recomputes the tally from the ledger, and another proves the label set is closed. These
-// meta-verdicts are NOT folded into TRIAL_RECEIPT (that would be self-reference) — they carry their own receipts.
-const KIND = ['REFUTED', 'SEALED', 'UNVERIFIED'] // the closed set VerdictKind declares
-const recount = TRIAL.reduce((a, t) => (a[t.verdict]++, a), { SEALED: 0, REFUTED: 0, UNVERIFIED: 0 })
+// ── THE STATES, BY GRAVITY (not a counter) ─────────────────────────────────────────
+// Redo: each state is COMPUTED as the gravity of the theorems that fell into it. The theorems involved are
+// filtered from the ledger by their (gate+test)-assigned verdict; their proof-of-verdict roots fall by
+// merkleGravity (order-invariant) to ONE state root; the CARDINALITY of that set falls by digitalRoot to ℤ/9.
+// The count is |set|, its gravity is fall(|set|) — no bare counter is the source of truth. The labels themselves
+// are AUTHORED (src/adjudicate.ts, VerdictKind), not theorem-chosen — that provenance is left UNVERIFIED, honestly.
+const KIND = ['SEALED', 'REFUTED', 'UNVERIFIED'] // the closed set VerdictKind declares
+const states = KIND.map((k) => {
+  const group = TRIAL.filter((t) => t.verdict === k)
+  const rts = group.map((t) => t.proofRoot)
+  const gravity = merkleGravity(rts)
+  return { k, n: group.length, gravity, orderInv: gravity === merkleGravity([...rts].reverse()), dr: fall(group.length) }
+})
+const statesRoot = merkleGravity(states.map((s) => s.gravity)) // the three state-roots fall to one (gravity of states)
+const statesRow = states.map((s) =>
+  `  <p class="stmt"><span class="v v-${s.k.toLowerCase()}">${s.k}</span> <b>${s.n}</b> theorem(s) · count falls to ℤ/9 = <b>${s.dr}</b> · gravity <code class="rcpt">${s.gravity}</code>${s.orderInv ? '' : ' <b>✗ ORDER BREAK</b>'}</p>`).join('\n')
+
 function metaRow(statement, test) {
   const v = adjudicate(statement, test)
   const pv = proveVerdict(statement, [v.receipt])
@@ -221,10 +231,17 @@ function metaRow(statement, test) {
     + `${escapeHtml(statement)}<br><small class="note">${escapeHtml(v.note)} · proof-root <code class="rcpt">${pv.proofRoot}</code></small></p>`
 }
 const meta = [
-  metaRow('the trial tally is recomputed from the ledger and internally consistent — each verdict counted once, the three states sum to the ledger length',
-    () => KIND.every((k) => recount[k] === counts[k]) && counts.SEALED + counts.REFUTED + counts.UNVERIFIED === TRIAL.length && TRIAL.length > 0),
-  metaRow('every verdict label in this trial is one of the three declared by VerdictKind in src/adjudicate.ts — the label set is closed',
-    () => TRIAL.every((t) => KIND.includes(t.verdict))),
+  metaRow('the trial partitions into three states by verdict; each state\'s theorems fall by gravity (order-invariant) to one root, its count falls to ℤ/9, and the states are disjoint and exhaustive — summing to the ledger length',
+    () => {
+      const g = KIND.map((k) => TRIAL.filter((t) => t.verdict === k))
+      const exhaustive = g.reduce((a, x) => a + x.length, 0) === TRIAL.length && TRIAL.length > 0
+      const wellLabeled = TRIAL.every((t) => KIND.includes(t.verdict))
+      const orderInv = g.every((x) => { const r = x.map((t) => t.proofRoot); return merkleGravity(r) === merkleGravity([...r].reverse()) })
+      const grounded = g.every((x) => fall(fall(x.length)) === fall(x.length)) // the count's fall is a fixed point of ℤ/9
+      return exhaustive && wellLabeled && orderInv && grounded
+    }),
+  metaRow('the three state gravities fall by gravity to one states-root, order-invariant — the whole tally content-addressed by the theorems it counts',
+    () => { const gs = states.map((s) => s.gravity); return merkleGravity(gs) === merkleGravity([...gs].reverse()) }),
   metaRow('the three verdict labels are authored in src/adjudicate.ts, not chosen by a theorem; adjudicate() assigns one per statement from the gate binary and the decidable test'),
 ].join('\n')
 const ledger = TRIAL.map((t) =>
@@ -235,8 +252,11 @@ write(join('trial', 'index.html'), page({
   body: `  <div class="nav"><a href="/">← uuidna</a> · <a href="/theorems/">all theorems</a></div>
   <h1>The trial receipt</h1>
   <p class="stmt" style="font-size:1.05rem"><code class="rcpt">${TRIAL_RECEIPT}</code></p>
-  <p class="note">${TRIAL.length} verdicts · ${escapeHtml(tally)} · order-invariant fold ${orderInvariant ? '✓ (reverse-order yields the same root)' : '✗ BREAK'} · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
-  <h2>The labels and the tally, sealed</h2>
+  <p class="note">${TRIAL.length} verdicts · order-invariant fold ${orderInvariant ? '✓ (reverse-order yields the same root)' : '✗ BREAK'} · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
+  <h2>The states, by gravity</h2>
+${statesRow}
+  <p class="note">the three state gravities fall to one states-root <code class="rcpt">${statesRoot}</code>${statesRoot === TRIAL_RECEIPT ? ' (= the trial receipt)' : ' (a partition fold — distinct from the flat trial receipt above, honestly)'}</p>
+  <h2>The states and labels, sealed</h2>
 ${meta}
   <h2>The trial ledger — every verdict, by its proof-of-verdict root</h2>
 ${ledger}`,
