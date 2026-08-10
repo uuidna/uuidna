@@ -22,6 +22,7 @@ export const PRINCIPLE = [
   ['BioPhysics.lean', 'Applied structure — the science pairs', 'blood, DNA, sound, chemistry, music, acid-base, heredity, colour — the algebra, demarcated'],
   ['Discover.lean', 'Self-discovered', 'facts derived by function: Lagrange, the unit criterion, idempotents'],
   ['Quantum.lean', 'The quantum computer', 'the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware'],
+  ['Clay.lean', 'The seven reflected — 0/7', 'the seven Clay problems reflected into the ℤ/9 structure and solved 0/7 — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none'],
   ['OneLeap.lean', 'One leap', 'the whole vortex proved in a single by decide'],
 ]
 

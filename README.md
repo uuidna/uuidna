@@ -105,13 +105,26 @@ Private/RBAC messaging builds on this (encrypt to a shared key; a key per role).
 
 ## Formal layer — Lean 4, organized by computing principle
 
-**524 theorems**, all proven `by decide` (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`, and
+**557 theorems**, all proven `by decide` (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`, and
 organized by **computing principle** in derivation order — see [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md):
 
 1. **The 8×8 core** (`Core.lean`, 64) — the multiplication table of ℤ/9's non-zero residues; the generator.
 2. **The ring ℤ/9** (`Ring.lean`, 234) and **the rosette ℤ/7 / Pliska** (`Rosette.lean`, 145) — the full tables.
 3. **Derived, applied, discovered** (vortex algebra, reflection group, division-by-zero, blood/DNA/sound
-   structure, self-discovered facts) and **one leap** that folds the whole vortex into a single proof.
+   structure, self-discovered facts), **the quantum computer** (`Quantum.lean`, 20 — the exact classical
+   state-vector simulator: Born rule, no-signaling, GHZ, gate truth-tables, phase algebra and the gate
+   involutions), **the seven Clay problems reflected** (`Clay.lean`, 13 — see below), and **one leap** that
+   folds the whole vortex into a single proof.
+
+### The seven Clay problems — reflected, 0/7
+
+Each of the seven is **reflected** into the ℤ/9 structure by the involution `dz(x) = 10 − x` (division by
+zero, self-inverse in Lean), and **solved 0**. An involution is its own undo — `dz(dz(x)) = x` — so the round trip returns the problem
+**unchanged**: it reflects all seven and **propagates no proof**. Riemann, P vs NP, Navier–Stokes, Yang–Mills,
+Hodge, Birch–Swinnerton-Dyer, Poincaré stay **open**. Humanity stands at 1/7 (Poincaré, Perelman 2003); this
+deposit at **0/7**, and the honesty gate *drains* every solve-claim. Faithful to the
+[`millennium-solutions`](https://ceccec.psg.bg/millennium-solutions/) deposit it is extracted from: *it reflects
+all seven and solves none — a bijection that relabels, it does not propagate proofs.*
 
 A **theorem computes in Lean, or it is not a theorem** — the recomputation-only capabilities (FNV address,
 gate, crypto) are *tools*, not theorems. **Lean is the single source:** `npm run lean` verifies every proof
