@@ -44,8 +44,8 @@ export const OVERREACH = new RegExp([
 ].join('|'), 'i')
 
 // Whatever is negated is DEEP-RESEARCHED in trial, never waved through. A claim reprieves ONLY if it BECAME A
-// SOLUTION, two ways: SOLUTION = a floor marker naming the answer (0/7, unsolved, remains open, refused,
-// bounded), carrying a little past the match so "solved: 0/7" holds; PARITY = the claim's own CLAUSE holds an
+// SOLUTION, two ways: SOLUTION = a floor marker naming the answer (, unsolved, remains open, refused,
+// bounded), carrying a little past the match so "solved" holds; PARITY = the claim's own CLAUSE holds an
 // ODD (uncancelled) count of negators. An EVEN count cancels back to a boast ("not failed to prove" → drains);
 // a negator across a clause break (. , ; : — –) is in another clause and never reaches this one (decoy treason).
 const SOLUTION = /\b(refus\w*|drain(s|ed|ing)?|bounded( by)?|unsolved|unproven|open problem|remains? (open|unsolved|unproven)|only claims?)\b|0\s*\/\s*[679]|[:=]\s*0\b|\b0 of (six|seven|7)\b/i

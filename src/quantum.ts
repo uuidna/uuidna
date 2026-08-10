@@ -11,7 +11,7 @@
 // quantum advantage, NOT a quantum computer. The uniform-scale exact rep covers the Clifford group + Toffoli/CCZ
 // (permutations, Gaussian-integer phases, and H); a non-Clifford √-phase applied to only part of a superposition
 // (T = diag(1, e^{iπ/4}), controlled-H, arbitrary rotations) needs per-branch scaling and is the honest boundary —
-// out of this exact representation, by construction. The paradox COMPUTES as simulation, not as hardware. 0/7.
+// out of this exact representation, by construction. The paradox COMPUTES as simulation, not as hardware.
 import { gcdBigInt, toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 
@@ -146,7 +146,7 @@ export function ghzState(n: number): QState {
 }
 
 /** The quantum receipt — the ORDER-INVARIANT content-address of a state's distribution (each label → its exact
- *  probability, folded by merkle gravity). The simulation folds to ONE uuid, recomputable by anyone. 0/7. */
+ *  probability, folded by merkle gravity). The simulation folds to ONE uuid, recomputable by anyone. */
 export function receiptOf(s: QState): string {
   const d = distribution(s)
   return merkleGravity(d.map((p, i) => toUuid(label(i, s.qubits) + '=' + fraction(p))))
@@ -236,6 +236,6 @@ export function report(): string {
   o += 'HONEST: this is CLASSICAL state-vector simulation — exact for small systems, but the state has\n'
   o += '2^n amplitudes, so it is EXPONENTIAL in qubit count: NO quantum advantage, NOT a quantum\n'
   o += 'computer. The Bell correlation carries NO message (marginals unchanged). The paradox COMPUTES\n'
-  o += 'as simulation, not as quantum hardware. entails → 0/7.'
+  o += 'as simulation, not as quantum hardware. entails →'
   return o
 }

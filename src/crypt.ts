@@ -17,7 +17,7 @@
 // hold the same plaintext. The step plays the role a nonce-counter plays elsewhere: it must ADVANCE (never reuse
 // a step for the same passphrase). This closes the equality leak; it does NOT make the FNV address collision-
 // resistant (a different, non-crypto-by-design gap). Honest caveats: pure JS is NOT constant-time (timing side-
-// channels). Strength = ChaCha20-Poly1305 + the passphrase's own entropy. Integrity, not truth. 0/7.
+// channels). Strength = ChaCha20-Poly1305 + the passphrase's own entropy. Integrity, not truth.
 import { toUuid, merkleFold } from './address.js'
 import { pbkdf2Sha256, sha256 } from './sha256.js'
 import { aeadEncrypt, aeadDecrypt } from './chacha.js'
@@ -26,7 +26,7 @@ const enc = new TextEncoder(), dec = new TextDecoder()
 export const ITER = 600_000 // PBKDF2-SHA-256 iterations (OWASP 2023)
 // Hard ceiling on the work factor. `iter` travels in the envelope and is attacker-controlled on decrypt; pure-TS
 // PBKDF2 has no upper bound, so a hostile `iter` (e.g. 1e12) would spin forever (CPU DoS). 10M is ~16× the default
-// and still finite — a legitimate envelope never exceeds it. Recompute-cost is bounded, not unbounded. 0/7.
+// and still finite — a legitimate envelope never exceeds it. Recompute-cost is bounded, not unbounded.
 export const MAX_ITER = 10_000_000
 
 // truncate toward zero with exact integer arithmetic — no Math.* host intrinsic (the two-coins guard). n - n%1.
@@ -43,7 +43,7 @@ const foldEnvelope = (alg: string, salt: string, nonce: string, ct: string, tag:
 // (passphrase, salt, iter), so its output is CONTENT-ADDRESSED and never recomputed. Because the salt is itself
 // content-derived, a decrypt derives the exact key its encrypt already did — the second pass is a cache hit, not
 // 600k more rounds. ITER is unchanged; we only stop paying it twice. Process-lifetime, in-memory (holds derived
-// keys like any KDF memo); the address is a uuid, so the raw passphrase is not the map key. 0/7.
+// keys like any KDF memo); the address is a uuid, so the raw passphrase is not the map key.
 const kdfCache = new Map<string, Uint8Array>()
 const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array => {
   const addr = toUuid('uuidna-kdf-v1|' + iter + '|' + b64(salt) + '|' + b64(pass)) // content-address of the derivation

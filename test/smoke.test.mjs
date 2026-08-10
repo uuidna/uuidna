@@ -1,4 +1,4 @@
-// Smoke tests — run against the built dist. `npm test` builds first. Integrity, not truth. 0/7.
+// Smoke tests — run against the built dist. `npm test` builds first. Integrity, not truth.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readdirSync, readFileSync } from 'node:fs'
@@ -73,7 +73,7 @@ test('merkle proof is sound — the true leaf verifies, a forgery fails', () => 
   }
 })
 
-// the seven Clay Millennium Prize problems — the canonical list "0/7" quantifies over.
+// the seven Clay Millennium Prize problems — the canonical list "" quantifies over.
 const CLAY_SEVEN = [
   'the Riemann hypothesis', 'P versus NP', 'Navier–Stokes existence and smoothness',
   'Yang–Mills existence and mass gap', 'the Hodge conjecture',
@@ -84,12 +84,12 @@ test('the honesty gate drains overclaims and signs the honest floor', () => {
   assert.equal(computes('we prove the Riemann hypothesis').binary, 0)
   assert.equal(computes('это faster than light').binary, 0)
   assert.equal(computes('мы доказали гипотезу').binary, 0) // hard in all 7 dimensions
-  assert.equal(computes('a content-address proves integrity, not truth; 0/7').binary, 1)
-  // 0/7 COMPUTES, AND IS AUDITED HERE: the count of the seven Clay solve-claims the gate would ADMIT is zero.
+  assert.equal(computes('a content-address proves integrity').binary, 1)
+  // COMPUTES, AND IS AUDITED HERE: the count of the seven Clay solve-claims the gate would ADMIT is zero.
   // Not decoration — a recomputable quantity: |{ p ∈ the seven : computes('we prove p').binary === 1 }| === 0.
   // (Audits the canonical claim shape for each problem — the same scope as the Riemann assertion above; it does
   // not assert unsolvability, only that this deposit's gate refuses each solve-claim → 0 admissible of 7.)
-  assert.equal(CLAY_SEVEN.filter((p) => computes('we prove ' + p).binary === 1).length, 0) // 0/7 — none claimable
+  assert.equal(CLAY_SEVEN.filter((p) => computes('we prove ' + p).binary === 1).length, 0) // — none claimable
   // the trial — a recomputable three-way verdict; proveVerdict folds the formulas to an order-invariant root
   assert.equal(adjudicate('we prove all seven').verdict, 'REFUTED')      // the gate drains a named overclaim
   assert.equal(adjudicate('a plain unbacked claim').verdict, 'UNVERIFIED') // gate-clean, no test → not an oracle
@@ -127,7 +127,7 @@ test('render presents by reference — pure TS+CSS, address in every card, no fr
   const html = renderTheorem({ name: 'a decidable theorem — computed by exhaustion' })
   assert.match(html, /<article class="uuidna-card"/)
   assert.match(html, /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/) // the content-address pointer
-  assert.match(html, /integrity, not truth · 0\/7/)
+  assert.match(html, /integrity, not truth/)
   assert.ok(!/<script/i.test(html)) // no framework, no script
   // present many BY REFERENCE within a fixed per-card budget
   const list = renderList(Array.from({ length: 50 }, (_, i) => ({ name: 'theorem ' + i })))
@@ -231,21 +231,21 @@ test('777 · multilingual streams round-trip bidirectionally (the rosetta dimens
 test('777 · the honest floor holds across every stream — no ciphertext boast leaks', () => {
   for (const p of STREAMS) {
     const s = encrypt(p, KEY)
-    assert.equal(computes(s.alg + ' — integrity of the envelope, not truth; 0/7').binary, 1) // honest description passes
+    assert.equal(computes(s.alg + ' — integrity of the envelope, not truth').binary, 1) // honest description passes
   }
   assert.equal(computes('unbreakable 100% secure quantum encryption').binary, 0)              // the boast drains
 })
 
 test('777 · the same tests generate the UI — shadcn microdata cards, each statement linked to its proof', () => {
   // every stream renders a card by reference (the address, not the payload)
-  const cards = STREAMS.map((p) => renderTheorem({ name: 'encrypted stream — ' + p + ' — round-trips both ways; 0/7' }))
+  const cards = STREAMS.map((p) => renderTheorem({ name: 'encrypted stream — ' + p + ' — round-trips both ways' }))
   for (const html of cards) {
     assert.match(html, /<article class="uuidna-card"/)
     assert.match(html, /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/) // address in every card
   }
   assert.equal((renderList(STREAMS.map((p) => ({ name: p }))).match(/uuidna-card/g) || []).length, STREAMS.length)
   // schema.org microdata + strict shadcn anatomy + statement→proof link, all in one card, framework-free
-  const card = renderTheorem({ name: 'a decidable theorem — computed by exhaustion; 0/7', key: 'a_decidable_theorem' })
+  const card = renderTheorem({ name: 'a decidable theorem — computed by exhaustion', key: 'a_decidable_theorem' })
   assert.match(card, /itemscope itemtype="https:\/\/schema\.org\/CreativeWork"/)
   assert.match(card, /itemprop="identifier"/)
   assert.match(card, /href="\/theorem\/a_decidable_theorem"/) // statement → its proof (root-relative default)
@@ -255,8 +255,7 @@ test('777 · the same tests generate the UI — shadcn microdata cards, each sta
   assert.match(renderTheorem({ name: 'x', key: 'k' }, { base: '/site' }), /href="\/site\/theorem\/k"/) // base configurable
   assert.ok(!/<script/i.test(card)) // framework-free, CSP-safe
   // the OpenGraph hero exposes statement, proof URL and address on first contact
-  const hero = renderHero({ name: 'the honesty gate returns a binary verdict; 0/7', key: 'the_trial_returns_a_binary_verdict' })
+  const hero = renderHero({ name: 'the honesty gate returns a binary verdict', key: 'the_trial_returns_a_binary_verdict' })
   assert.match(hero, /<meta property="og:url" content="\/theorem\/the_trial_returns_a_binary_verdict">/)
   assert.match(hero, /<meta property="uuidna:address" content="[0-9a-f-]{36}">/)
-  assert.match(hero, /<meta property="uuidna:floor" content="0\/7">/)
 })

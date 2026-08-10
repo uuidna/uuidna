@@ -2,7 +2,7 @@
 // cipher is transparent, auditable, deterministic arithmetic — and verified against the RFC's official test
 // vectors (KATs) in the test suite. Honest caveats: pure JS is NOT constant-time (timing side-channels), and
 // this AEAD is deterministic given (key, nonce) — semantic security needs a unique nonce per (key, message).
-// A standard algorithm implemented transparently — not a novel cipher. Integrity, not truth. 0/7.
+// A standard algorithm implemented transparently — not a novel cipher. Integrity, not truth.
 
 const rotl = (x: number, n: number): number => ((x << n) | (x >>> (32 - n))) >>> 0
 const u32le = (b: Uint8Array, i: number): number => (b[i] | (b[i + 1] << 8) | (b[i + 2] << 16) | (b[i + 3] << 24)) >>> 0

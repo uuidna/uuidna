@@ -3,7 +3,7 @@
 // pigeonhole 1024 payloads cannot fit a small budget, but 1024 addresses (36 kB) do. Present by reference,
 // the same bound as a single address. Every card is schema.org microdata and LINKS its statement to its
 // proof page (/theorem/<key>) — the statement and its proof are one edge. A content-address proves integrity,
-// not truth. 0/7.
+// not truth.
 import { toUuid } from './address.js'
 
 export interface TheoremView { name: string; address?: string; key?: string }
@@ -55,7 +55,7 @@ export function renderTheorem(t: TheoremView, opts: RenderOpts = {}): string {
     + `<div data-slot="card-content">`
     + `<code itemprop="identifier" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(${hue} 60% 40%);word-break:break-all">${escapeHtml(address)}</code>`
     + `</div>`
-    + `<div data-slot="card-footer"><small style="color:#9a9a9a">integrity, not truth · 0/7</small></div>`
+    + `<div data-slot="card-footer"><small style="color:#9a9a9a">integrity, not truth</small></div>`
     + `</article>`
 }
 
@@ -72,7 +72,6 @@ export function renderHero(t: TheoremView, opts: RenderOpts = {}): string {
     ['og:description', t.name],
     ['og:url', url],
     ['uuidna:address', address],
-    ['uuidna:floor', '0/7'],
   ].map(([p, c]) => `<meta property="${escapeHtml(p)}" content="${escapeHtml(c)}">`).join('')
   return og + renderTheorem({ ...t, address }, opts)
 }

@@ -2,7 +2,7 @@
 // upstream where these vectors were authored; uuidna's crypto comments cited them but the test never shipped.
 // Every case asserts a pure-TS primitive against a STANDARD's own published vector (FIPS 180-4 / RFC 2104 /
 // RFC 4231 / RFC 8018 / RFC 8439) — the independent evidence that makes "KAT-verified" a true claim, not prose.
-// A round-trip proves invertibility; only a published vector proves CONFORMANCE. Integrity, not truth. 0/7.
+// A round-trip proves invertibility; only a published vector proves CONFORMANCE. Integrity, not truth.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { sha256, hmacSha256, pbkdf2Sha256, chachaBlock, chacha20, poly1305, aeadEncrypt, aeadDecrypt } from '../dist/index.js'

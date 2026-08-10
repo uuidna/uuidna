@@ -3,7 +3,7 @@
 //   REFUTED    — the gate drains a named overclaim, OR a supplied decidable test fails (counterexample).
 //   SEALED     — gate-clean AND a decidable test holds → recomputable, admissible.
 //   UNVERIFIED — gate-clean but no recomputable receipt supplied → bring a decidable test to move it.
-// Integrity, not truth. Everything content-addressed. 0/7.
+// Integrity, not truth. Everything content-addressed.
 import { computes } from './gate.js'
 import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity.js'
@@ -40,7 +40,7 @@ export function proveVerdict(statement: string, formulaReceipts: readonly string
 
 // uuidna quantum verification: recompute the address from its seed (integrity, reproducible by anyone), decode
 // any bounded imprinted message, and fold a MULTI-PERSPECTIVE receipt — the same for any observer ordering (the
-// merkle fold is order-invariant). The quantum here is the multi-perspective structure, not hardware. 0/7.
+// merkle fold is order-invariant). The quantum here is the multi-perspective structure, not hardware.
 export interface UuidnaVerdict { seed: string; address: string; recomputes: boolean; message: string | null; jointReceipt: string }
 export function verifyUuidna(seed: string): UuidnaVerdict {
   const address = toUuid(seed)

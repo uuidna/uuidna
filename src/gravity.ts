@@ -1,6 +1,6 @@
 // gravity — a naming of decidable contractions (NOT physics: no force, nothing faster than light). Every set of
 // addresses falls to ONE root; every integer falls to ℤ/9. The merkle fold is ORDER-INVARIANT — the quantum
-// receipt property: the same root for any observer ordering. Computed, not stored. Falls, like all of it, to 0/7.
+// receipt property: the same root for any observer ordering. Computed, not stored. Falls, like all of it, to
 import { toUuid, merkleFold, digitalRoot, vortexOrbit, BASE } from './address.js'
 
 /** Gravity 1 — the merkle fold: any set of addresses falls to ONE root (order-invariant contraction).
@@ -13,7 +13,7 @@ export function merkleGravity(addresses: readonly string[]): string {
  *  [1,2,4,8,7,5] and its reverse (the halving torus) — rotate the address set; at EACH of the 7 dimensions the
  *  two tori combine (a merkle fold of the two rotations), and the 7 dimension-roots fold to ONE gravity root.
  *  Order-DEPENDENT by construction (the coordinate turns with position) — use merkleGravity for an observer-
- *  invariant receipt; use this when the sequence itself is the signal. NOT physics. Falls to 0/7. */
+ *  invariant receipt; use this when the sequence itself is the signal. NOT physics. Falls to */
 export function doubleTorusField(addresses: readonly string[]): { dims: string[]; root: string } {
   const src = addresses.length ? addresses : [toUuid('∅')]
   const inner = vortexOrbit()          // torus 1 — the doubling circuit [1,2,4,8,7,5]

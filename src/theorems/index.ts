@@ -1,7 +1,7 @@
 // The theorem ledger — DERIVED, LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven
 // `by decide` (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs parses them into ./generated.ts,
 // and this module is the typed, addressed view the package, the MCP tools, the trial and the site all consume.
-// No theorem is authored here. A theorem computes in Lean, or it is not a theorem. Integrity, not truth. 0/7.
+// No theorem is authored here. A theorem computes in Lean, or it is not a theorem. Integrity, not truth.
 import { LEAN_LEDGER, PRINCIPLES, type LeanTheorem } from './generated.js'
 import { merkleGravity } from '../gravity.js'
 import { toUuid } from '../address.js'
@@ -31,7 +31,7 @@ export interface TrialResult {
 /** Run the whole ledger through the trial. Every theorem is SEALED by its `by decide` Lean proof — verified
  *  sorry-free by `npm run lean` before the ledger was generated — so the seal's authority is the Lean proof, not
  *  a runtime re-check. Their content-addresses fold, order-invariantly, to ONE recomputable receipt: the ledger's
- *  integrity. Recomputable by anyone from the same lean/*.lean. Integrity, not truth. 0/7. */
+ *  integrity. Recomputable by anyone from the same lean/*.lean. Integrity, not truth. */
 export function runTrial(): TrialResult {
   const verdicts: TheoremVerdict[] = THEOREMS.map((t) => ({
     key: t.key, name: t.name, statement: t.statement, file: t.file, principle: t.principle, lean: t.lean, verdict: 'SEALED', address: t.address,

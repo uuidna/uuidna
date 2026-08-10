@@ -4,7 +4,7 @@
 //   before it holds) · a holographic merkle proof (verify the whole from a tiny part, in O(log N)) · a
 //   reversible imprint codec · a client-side harness that reeducates overclaims · a measured billing model.
 //
-// A content-address proves INTEGRITY, not truth. It settles 0/7. Licensed CC BY-NC 4.0 · Tsvetan Rouschev.
+// A content-address proves INTEGRITY, not truth. It settles Licensed CC BY-NC 4.0 · Tsvetan Rouschev.
 
 export {
   toUuid, strictUuidna, merge, coin64, merkleFold, digitalRoot,
@@ -29,7 +29,7 @@ export { merkleGravity, doubleTorusGravity, doubleTorusField, fall, fixedPoints,
 export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
 
 // the trial — a recomputable three-way verdict (REFUTED/SEALED/UNVERIFIED); proveVerdict folds the formula
-// receipts through the order-invariant gravity to one proof-of-verdict root. Integrity, not truth. 0/7.
+// receipts through the order-invariant gravity to one proof-of-verdict root. Integrity, not truth.
 export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from './adjudicate.js'
 
 export {
@@ -43,7 +43,7 @@ export { coins, billUuidna, type UuidnaUsage } from './billing.js'
 // computes: on integer positions, no decimal drift. Amplitudes are GAUSSIAN INTEGERS over √(2^scale) — the ring
 // ℤ[i,1/√2] the Clifford gates live in — so the full gate set (X, Y, Z, S, S†, H, CNOT, CZ, SWAP, Toffoli, CCZ)
 // runs in BigInt and every probability is an exact rational. Honestly bounded — 2^n amplitudes, EXPONENTIAL, no
-// quantum advantage; non-Clifford √-phase gates (T, controlled-H) need per-branch scaling — the honest boundary. 0/7.
+// quantum advantage; non-Clifford √-phase gates (T, controlled-H) need per-branch scaling — the honest boundary.
 export {
   ket0, hadamard, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
   distribution, probability, marginal, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
