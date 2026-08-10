@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>the doubling circuit of ℤ/9 is 1→2→4→8→7→5 — uuidna theorem</title>
-<meta name="description" content="the doubling circuit of ℤ/9 is 1→2→4→8→7→5 — the vortex orbit of the units under times two" />
+<title>the arithmetic of ℤ/9 holds — uuidna theorem</title>
+<meta name="description" content="the arithmetic of ℤ/9 holds — the inverse pairs and nilpotents compute, and three has no inverse" />
 <meta name="robots" content="index, follow" />
 <meta property="og:type" content="article">
-<meta property="og:title" content="the doubling circuit of ℤ/9 is 1→2→4→8→7→5">
-<meta property="og:description" content="the doubling circuit of ℤ/9 is 1→2→4→8→7→5 — the vortex orbit of the units under times two">
-<meta property="og:url" content="/theorem/vortex_orbit">
-<meta property="uuidna:address" content="cf2e205a-5eab-8776-b5da-cb73ae4a8301">
+<meta property="og:title" content="the arithmetic of ℤ/9 holds">
+<meta property="og:description" content="the arithmetic of ℤ/9 holds — the inverse pairs and nilpotents compute, and three has no inverse">
+<meta property="og:url" content="/theorem/mod9_arithmetic">
+<meta property="uuidna:address" content="749256cb-ff1e-87dd-b1b4-60f51c5a1e61">
 <meta property="uuidna:floor" content="0/7">
 <style>
   :root { color-scheme: light dark; --bg:#fff; --fg:#1a1a1a; --mut:#666; --acc:#7a5cff; --line:#e5e5e5; --soft:#f7f7f8; }
@@ -48,16 +48,16 @@
   <nav><a href="/theorems/" class="active">Theorems</a><a href="/trial/">Trial</a><a href="/lean/">Lean</a><a href="/undecided/">Undecided</a><a href="/captain/message">Captain</a><a href="https://github.com/uuidna/uuidna">GitHub</a></nav>
 </header>
 <main>
-  <div class="crumb"><a href="/theorems/">Theorems</a> / the doubling circuit of ℤ/9 is 1→2→4→8→7→5</div>
-  <h1>the doubling circuit of ℤ/9 is 1→2→4→8→7→5</h1>
-<meta property="og:type" content="article"><meta property="og:title" content="the doubling circuit of ℤ/9 is 1→2→4→8→7→5"><meta property="og:description" content="the doubling circuit of ℤ/9 is 1→2→4→8→7→5 — the vortex orbit of the units under times two"><meta property="og:url" content="/theorem/vortex_orbit"><meta property="uuidna:address" content="cf2e205a-5eab-8776-b5da-cb73ae4a8301"><meta property="uuidna:floor" content="0/7"><article class="uuidna-card" data-slot="card" itemscope itemtype="https://schema.org/CreativeWork" data-proof="/theorem/vortex_orbit" style="border-left:4px solid hsl(0 60% 50%);padding:.6rem .9rem;margin:.5rem 0;border-radius:8px;background:hsl(0 60% 50% / .06);font:14px/1.5 system-ui,sans-serif"><div data-slot="card-header"><h3 data-slot="card-title" itemprop="name" style="margin:0 0 .3rem;font-size:1rem"><a itemprop="url" href="/theorem/vortex_orbit" style="color:inherit;text-decoration:none">the doubling circuit of ℤ/9 is 1→2→4→8→7→5</a></h3><p data-slot="card-description" itemprop="description" style="margin:0;color:#6a6a6a;font-size:.82rem">the doubling circuit of ℤ/9 is 1→2→4→8→7→5 — the vortex orbit of the units under times two</p></div><div data-slot="card-content"><code itemprop="identifier" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(0 60% 40%);word-break:break-all">cf2e205a-5eab-8776-b5da-cb73ae4a8301</code></div><div data-slot="card-footer"><small style="color:#9a9a9a">integrity, not truth · 0/7</small></div></article>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> · <span class="v v-sealed">TRUE</span> proven in Lean <code class="rcpt">cf2e205a-5eab-8776-b5da-cb73ae4a8301</code><br>
-  <b>formula</b> &nbsp;<code>orbit_{×2}(1) in ℤ/9 = [1, 2, 4, 8, 7, 5],  5·2 ≡ 1 (closes the loop)</code></p>
-  <code class="lean">theorem vortex_orbit :
-  [1, (1*2)%9, (2*2)%9, (4*2)%9, (8*2)%9, (7*2)%9] = [1, 2, 4, 8, 7, 5]
-  ∧ (5*2) % 9 = 1 := by
+  <div class="crumb"><a href="/theorems/">Theorems</a> / the arithmetic of ℤ/9 holds</div>
+  <h1>the arithmetic of ℤ/9 holds</h1>
+<meta property="og:type" content="article"><meta property="og:title" content="the arithmetic of ℤ/9 holds"><meta property="og:description" content="the arithmetic of ℤ/9 holds — the inverse pairs and nilpotents compute, and three has no inverse"><meta property="og:url" content="/theorem/mod9_arithmetic"><meta property="uuidna:address" content="749256cb-ff1e-87dd-b1b4-60f51c5a1e61"><meta property="uuidna:floor" content="0/7"><article class="uuidna-card" data-slot="card" itemscope itemtype="https://schema.org/CreativeWork" data-proof="/theorem/mod9_arithmetic" style="border-left:4px solid hsl(320 60% 50%);padding:.6rem .9rem;margin:.5rem 0;border-radius:8px;background:hsl(320 60% 50% / .06);font:14px/1.5 system-ui,sans-serif"><div data-slot="card-header"><h3 data-slot="card-title" itemprop="name" style="margin:0 0 .3rem;font-size:1rem"><a itemprop="url" href="/theorem/mod9_arithmetic" style="color:inherit;text-decoration:none">the arithmetic of ℤ/9 holds</a></h3><p data-slot="card-description" itemprop="description" style="margin:0;color:#6a6a6a;font-size:.82rem">the arithmetic of ℤ/9 holds — the inverse pairs and nilpotents compute, and three has no inverse</p></div><div data-slot="card-content"><code itemprop="identifier" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(320 60% 40%);word-break:break-all">749256cb-ff1e-87dd-b1b4-60f51c5a1e61</code></div><div data-slot="card-footer"><small style="color:#9a9a9a">integrity, not truth · 0/7</small></div></article>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> · <span class="v v-sealed">TRUE</span> proven in Lean <code class="rcpt">749256cb-ff1e-87dd-b1b4-60f51c5a1e61</code><br>
+  <b>formula</b> &nbsp;<code>2·5 ≡ 1,  4·7 ≡ 1,  8·8 ≡ 1,  3² ≡ 0,  6² ≡ 0  (mod 9),  and  ∀x, 3·x ≢ 1 (mod 9)</code></p>
+  <code class="lean">theorem mod9_arithmetic :
+  (2*5) % 9 = 1 ∧ (4*7) % 9 = 1 ∧ (8*8) % 9 = 1 ∧ (3*3) % 9 = 0 ∧ (6*6) % 9 = 0
+  ∧ (List.range 9).all (fun x =&gt; (3 * x) % 9 != 1) := by
   decide</code>
-  <p class="note">proof-of-verdict root <code class="rcpt">c4021354-d4aa-866a-8c73-55a2d1cd2d61</code> · re-verify with <code>npm run lean</code> · all proofs on <a href="/lean/">/lean</a></p>
+  <p class="note">proof-of-verdict root <code class="rcpt">4837aa78-7172-83aa-b161-31ea466bcea2</code> · re-verify with <code>npm run lean</code> · all proofs on <a href="/lean/">/lean</a></p>
   <footer>
     <nav style="display:flex;gap:.4rem 1rem;flex-wrap:wrap;margin-bottom:.6rem">
       <a href="/">Home</a><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/lean/">Lean</a><a href="/undecided/">Undecided</a>
