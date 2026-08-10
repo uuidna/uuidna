@@ -21,6 +21,17 @@ export { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 
 export { computes, RED, RED_INTL, OVERREACH, PREDICT } from './gate.js'
 
+// gravity — decidable contractions (a set of addresses falls to one root; an integer to ℤ/9). merkleGravity is
+// ORDER-INVARIANT: the quantum receipt, the same for any observer ordering. NOT physics, nothing faster than light.
+export { merkleGravity, doubleTorusGravity, doubleTorusField, fall, fixedPoints, seats } from './gravity.js'
+
+// the diamond involution r(d)=10−d and its lift to a list (involute): self-inverse, closed, no islands, one centre.
+export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
+
+// the trial — a recomputable three-way verdict (REFUTED/SEALED/UNVERIFIED); proveVerdict folds the formula
+// receipts through the order-invariant gravity to one proof-of-verdict root. Integrity, not truth. 0/7.
+export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from './adjudicate.js'
+
 export {
   type Harnessed, DIMENSIONS,
   harness, opaque, harnessGain, harness7, reeducate,

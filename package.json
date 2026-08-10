@@ -25,7 +25,6 @@
     "fnv",
     "hash",
     "identity",
-    "honest",
     "mcp",
     "model-context-protocol"
   ],
@@ -53,7 +52,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && node --test test/*.test.mjs",
+    "test": "npm run build && node --test test/smoke.test.mjs",
     "mcp": "node mcp.mjs",
     "prepublishOnly": "npm run build"
   },
