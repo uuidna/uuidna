@@ -39,6 +39,11 @@ export {
 
 export { coins, billUuidna, type UuidnaUsage } from './billing.js'
 
+// quantum — a CLASSICAL state-vector simulator (H · CNOT → Bell state), ported from millennium-solutions and made
+// EXACT: amplitudes are integer coefficients over √(2^scale), so every measurement probability is an exact rational
+// (no floating point, no Math.*). Honestly bounded — 2^n amplitudes, EXPONENTIAL, no quantum advantage. 0/7.
+export { ket0, hadamard, cnot, bellState, distribution, marginal, quantumReceipt, report, fraction, label, type QState, type Prob } from './quantum.js'
+
 export { renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from './render.js'
 
 // crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
