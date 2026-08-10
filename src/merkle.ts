@@ -31,7 +31,7 @@ export function merkleProof(leaves: readonly string[], index: number): { sibling
     const next: string[] = []
     for (let i = 0; i < layer.length; i += 2) next.push(i + 1 < layer.length ? merge(layer[i], layer[i + 1]) : layer[i])
     layer = next
-    idx = Math.floor(idx / 2)
+    idx = idx >> 1 // ⌊idx/2⌋ — the parent index, by bit shift (no Math.*)
   }
   return proof
 }

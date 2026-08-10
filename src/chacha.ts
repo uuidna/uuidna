@@ -51,7 +51,7 @@ export function poly1305(msg: Uint8Array, otk: Uint8Array): Uint8Array {
   const p = (1n << 130n) - 5n
   let acc = 0n
   for (let i = 0; i < msg.length; i += 16) {
-    const n = Math.min(16, msg.length - i)
+    const rem = msg.length - i, n = rem < 16 ? rem : 16 // min(16, remaining) by comparison (no Math.*)
     let blk = 0n; for (let j = n - 1; j >= 0; j--) blk = (blk << 8n) | BigInt(msg[i + j])
     blk |= 1n << BigInt(8 * n)
     acc = ((acc + blk) * r) % p

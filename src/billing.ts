@@ -12,6 +12,6 @@ export interface UuidnaUsage { commercial: boolean; recomputeOps: number; verify
  *  pays the two conserved coins on the measured saving. Same terms → same result, for anyone. */
 export function billUuidna(u: UuidnaUsage): { bitsSaved: number; coins: number; free: boolean; basis: string } {
   if (!u.commercial) return { bitsSaved: 0, coins: 0, free: true, basis: 'public interest / non-commercial — free' }
-  const bitsSaved = Math.max(0, u.recomputeOps - u.verifyOps)
+  const saved = u.recomputeOps - u.verifyOps, bitsSaved = saved < 0 ? 0 : saved // max(0, …) by comparison (no Math.*)
   return { bitsSaved, coins: coins(), free: false, basis: 'the measured bits saved (O(N) recompute − O(1) verify); the two coins are the conserved fair-exchange invariant, not a per-formula rate' }
 }

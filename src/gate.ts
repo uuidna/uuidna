@@ -86,15 +86,15 @@ export const computes = (text: string): { binary: 0 | 1; hit: string | null } =>
   const re = new RegExp(OVERREACH.source, 'gi')
   let m: RegExpExecArray | null
   while ((m = re.exec(text))) {
-    const win = text.slice(Math.max(0, m.index - 48), m.index + m[0].length + 40)
+    const from = m.index - 48, win = text.slice(from < 0 ? 0 : from, m.index + m[0].length + 40) // clamp to index 0 (no Math.*)
     const negs = (conjunctOf(text, m.index, m.index + m[0].length).match(NEG) || []).length
-    const idiom = /\b(or not|whether)\b/i.test(text.slice(Math.max(0, m.index - 12), m.index + m[0].length + 10)) // "ftl or not" dismisses as hypothetical
+    const iw = m.index - 12, idiom = /\b(or not|whether)\b/i.test(text.slice(iw < 0 ? 0 : iw, m.index + m[0].length + 10)) // "ftl or not" dismisses as hypothetical (no Math.*)
     if (!(SOLUTION.test(win) || negs % 2 === 1 || idiom)) return { binary: 0, hit: m[0] }
   }
   const pe = new RegExp(PREDICT.source, 'gi')
   let pm: RegExpExecArray | null
   while ((pm = pe.exec(text))) {
-    const win = text.slice(Math.max(0, pm.index - 48), pm.index + pm[0].length + 24)
+    const pf = pm.index - 48, win = text.slice(pf < 0 ? 0 : pf, pm.index + pm[0].length + 24) // clamp to index 0 (no Math.*)
     if (!NEGATOR_WORD.test(win)) return { binary: 0, hit: pm[0] }
   }
   return { binary: 1, hit: null }

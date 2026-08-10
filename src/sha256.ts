@@ -25,7 +25,7 @@ export function sha256(msg: Uint8Array): Uint8Array {
   const total = l + 1 + k + 8
   const m = new Uint8Array(total)
   m.set(msg); m[l] = 0x80
-  const hi = Math.floor(bitLen / 0x100000000), lo = bitLen >>> 0
+  const hi = (bitLen - (bitLen % 0x100000000)) / 0x100000000, lo = bitLen >>> 0 // exact high/low 32 bits by integer division (no Math.*)
   m[total - 8] = (hi >>> 24) & 0xff; m[total - 7] = (hi >>> 16) & 0xff; m[total - 6] = (hi >>> 8) & 0xff; m[total - 5] = hi & 0xff
   m[total - 4] = (lo >>> 24) & 0xff; m[total - 3] = (lo >>> 16) & 0xff; m[total - 2] = (lo >>> 8) & 0xff; m[total - 1] = lo & 0xff
   const w = new Uint32Array(64)
@@ -66,7 +66,7 @@ export function hmacSha256(key: Uint8Array, msg: Uint8Array): Uint8Array {
 
 /** PBKDF2-HMAC-SHA256 (RFC 8018) → derived key of dkLen bytes. */
 export function pbkdf2Sha256(pass: Uint8Array, salt: Uint8Array, iterations: number, dkLen: number): Uint8Array {
-  const hLen = 32, blocks = Math.ceil(dkLen / hLen)
+  const hLen = 32, blocks = ((dkLen + hLen - 1) / hLen) | 0 // ⌈dkLen/hLen⌉ by integer division (no Math.*)
   const out = new Uint8Array(blocks * hLen)
   for (let b = 1; b <= blocks; b++) {
     const bi = new Uint8Array([(b >>> 24) & 0xff, (b >>> 16) & 0xff, (b >>> 8) & 0xff, b & 0xff])

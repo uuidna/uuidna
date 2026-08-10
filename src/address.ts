@@ -6,7 +6,7 @@
 const BYTE_MASK = 0xff
 const MASK_32 = 0xffffffffn
 
-/** Exact 32-bit unsigned integer multiply (algebraic; replaces Math.imul). */
+/** Exact 32-bit unsigned integer multiply — algebraic, via BigInt; the local theorem, no host intrinsic. */
 function mul32(a: number, b: number): number {
   return Number((BigInt(a >>> 0) * BigInt(b >>> 0)) & MASK_32)
 }
