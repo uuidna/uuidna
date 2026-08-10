@@ -53,6 +53,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && node --test test/smoke.test.mjs",
+    "site": "npm run build && node scripts/build-site.mjs",
     "mcp": "node mcp.mjs",
     "prepublishOnly": "npm run build"
   },
