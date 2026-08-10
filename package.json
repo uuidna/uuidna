@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "Content-addressed identity, honest by construction — mint + mind, holographic merkle proofs, a reversible imprint codec, a reeducating harness, a measured billing model, pure-TypeScript ChaCha20-Poly1305 encryption (no native crypto) under a 7d-fold envelope, and an MCP server to fuse it into any harness. Integrity, not truth. 0/7.",
+  "description": "Content-addressed identity, honest by construction — mint + mind, holographic merkle proofs, a reversible imprint codec, a reeducating harness, a measured billing model, pure-TypeScript ChaCha20-Poly1305 encryption under a 7d-fold envelope, and an MCP server to fuse it into any harness.",
   "type": "module",
   "license": "CC-BY-NC-4.0",
   "author": "Tsvetan Rouschev <ceccec@psg.bg>",
@@ -37,11 +37,10 @@
     }
   },
   "bin": {
-    "uuidna-mcp": "./mcp.mjs"
+    "uuidna-mcp": "./dist/mcp.js"
   },
   "files": [
     "dist",
-    "mcp.mjs",
     "README.md",
     "LICENSE",
     "reserved.uuidna"
@@ -52,22 +51,29 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && node --test test/*.test.mjs",
-    "site": "npm run build && node scripts/build-site.mjs",
-    "lean": "npm run lean:core && npm run lean:tables && lean lean/Uuidna.lean && lean lean/Vortex.lean && npm run lean:sequence && npm run lean:divzero && npm run lean:biophysics && npm run lean:discover && npm run lean:quantum && npm run lean:clay && lean lean/OneLeap.lean && npm run lean:ledger",
-    "lean:quantum": "node scripts/lean-quantum.mjs",
-    "lean:clay": "node scripts/lean-clay.mjs",
-    "lean:ledger": "node scripts/lean-ledger.mjs",
-    "lean:divzero": "node scripts/lean-divzero.mjs",
-    "lean:sequence": "node scripts/lean-sequence.mjs",
-    "mcp": "node mcp.mjs",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "site": "npm run docs:build",
+    "docs:dev": "npm run build && vitepress dev",
+    "docs:build": "npm run build && vitepress build",
+    "docs:preview": "vitepress preview",
+    "lean": "npm run build && npm run lean:core && npm run lean:tables && lean lean/Uuidna.lean && lean lean/Vortex.lean && npm run lean:sequence && npm run lean:divzero && npm run lean:biophysics && npm run lean:discover && npm run lean:quantum && npm run lean:clay && lean lean/OneLeap.lean && npm run lean:ledger",
+    "lean:quantum": "node dist/scripts/lean-quantum.js",
+    "lean:clay": "node dist/scripts/lean-clay.js",
+    "lean:ledger": "node dist/scripts/lean-ledger.js",
+    "lean:divzero": "node dist/scripts/lean-divzero.js",
+    "lean:sequence": "node dist/scripts/lean-sequence.js",
+    "mcp": "node dist/mcp.js",
     "prepublishOnly": "npm run build",
-    "lean:biophysics": "node scripts/lean-biophysics.mjs",
-    "lean:discover": "node scripts/lean-discover.mjs",
-    "lean:core": "node scripts/lean-core.mjs",
-    "lean:tables": "node scripts/lean-tables.mjs"
+    "lean:biophysics": "node dist/scripts/lean-biophysics.js",
+    "lean:discover": "node dist/scripts/lean-discover.js",
+    "lean:core": "node dist/scripts/lean-core.js",
+    "lean:tables": "node dist/scripts/lean-tables.js",
+    "dev": "npm run build && vitepress dev",
+    "preview": "vitepress preview"
   },
   "devDependencies": {
-    "typescript": "^5.5.0"
+    "@types/node": "^24.13.3",
+    "typescript": "^5.5.0",
+    "vitepress": "^2.0.0-alpha.19"
   }
 }

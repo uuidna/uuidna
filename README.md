@@ -124,7 +124,7 @@ zero, self-inverse in Lean), and **solved 0**. An involution is its own undo —
 Hodge, Birch–Swinnerton-Dyer, Poincaré stay **open**. Humanity stands at 1/7 (Poincaré, Perelman 2003); this
 deposit solves none, and the honesty gate *drains* every solve-claim. Faithful to the
 [`millennium-solutions`](https://ceccec.psg.bg/millennium-solutions/) deposit it is extracted from: *it reflects
-all seven and solves none — a bijection that relabels, it does not propagate proofs.*
+all seven.*
 
 A **theorem computes in Lean, or it is not a theorem** — the recomputation-only capabilities (FNV address,
 gate, crypto) are *tools*, not theorems. **Lean is the single source:** `npm run lean` verifies every proof

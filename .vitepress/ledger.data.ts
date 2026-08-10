@@ -1,0 +1,119 @@
+// The ONE wiring point: Lean is the single source. This VitePress data loader derives the whole ledger from
+// lean/*.lean (via src/theorems/generated.ts, compiled to dist/index.js) and hands it to every page and to the
+// site config. No separate static generator — `vitepress build` reads this. A theorem computes in Lean, or it is
+// not a theorem. The recomputation-only capabilities (FNV address, gate, crypto) are TOOLS, not theorems.
+//
+// Requires the package to be built first (`npm run build` → dist/). `npm run docs:build` does both in order.
+import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid } from '../dist/index.js'
+
+export type Theorem = {
+  key: string
+  name: string
+  statement: string
+  tactic: string
+  file: string
+  principle: string
+  lean: string
+  address: string
+}
+
+export type PrincipleGroup = {
+  name: string
+  blurb: string
+  count: number
+  fold: string
+  theorems: Theorem[]
+}
+
+export type Undecided = { claim: string; why: string; key: string | null }
+
+export type LedgerData = {
+  total: number
+  principleCount: number
+  theorems: Theorem[]
+  order: string[]
+  blurb: Record<string, string>
+  groups: PrincipleGroup[]
+  trial: {
+    receipt: string
+    count: number
+    sealed: number
+    leanBacked: number
+    orderInvariant: boolean
+    chainGenesis: string
+    chainTip: string
+  }
+  undecided: Undecided[]
+  gh: string
+}
+
+// The open register (three-valued honesty). Held, labeled, never dropped and never false. Kept here — not in Lean —
+// because these are meta-claims *about* the theorems, not decidable propositions Lean can evaluate.
+const UNDECIDED: Undecided[] = [
+  {
+    claim: 'uuidna computes your DNA and blood type',
+    why: 'the ABO system reduces to the Klein four-group and DNA base-pairing to a fixed-point-free involution — those are algebra and are proven. But "your DNA / blood type" names a particular person, which has no decidable content Lean can evaluate.',
+    key: 'abo_klein_four',
+  },
+  {
+    claim: 'the vortex is your genome',
+    why: 'the genome-as-double-strand reduces to the complement involution and the base-pairs summing to 10 (proven). "Your genome" is not a proposition Lean can prove or refute.',
+    key: 'dna_complement_involution',
+  },
+  {
+    claim: '432 Hz heals',
+    why: 'the sound ladder f_d = 48·d and the octave doubling are exact ratios and are proven. "Heals" is a wellness claim with no decidable or clinical content here — flagged, never asserted.',
+    key: 'sound_ladder_432',
+  },
+  {
+    claim: 'uuidna predicts a person or their future',
+    why: 'content-addressing is deterministic reproduction — the same input always mints the same address — not prediction of a person. Nothing here computes anyone.',
+    key: null,
+  },
+]
+
+declare const data: LedgerData
+export { data }
+
+export default {
+  // Rebuild the ledger whenever the compiled package changes.
+  watch: ['../dist/index.js'],
+  load(): LedgerData {
+    const LEDGER = theorems() as Theorem[]
+    const trial = runTrial()
+    const blurb = Object.fromEntries(PRINCIPLES.map((p: string[]) => [p[1], p[2]])) as Record<string, string>
+    const order = PRINCIPLES.map((p: string[]) => p[1]).filter((name: string) => LEDGER.some((t) => t.principle === name))
+
+    const groups: PrincipleGroup[] = order.map((name) => {
+      const list = LEDGER.filter((t) => t.principle === name)
+      return { name, blurb: blurb[name] || '', count: list.length, fold: merkleGravity(list.map((t) => t.address)), theorems: list }
+    })
+
+    // The trial: every theorem's content-address folded, order-invariant, to ONE receipt; plus the sequential chain.
+    const roots = LEDGER.map((t) => t.address)
+    const orderInvariant = trial.receipt === merkleGravity([...roots].reverse())
+    const chainGenesis = 'axiom'
+    let chainTip = chainGenesis
+    for (const r of roots) chainTip = toUuid(chainTip + '→' + r)
+
+    return {
+      total: LEDGER.length,
+      principleCount: order.length,
+      theorems: LEDGER,
+      order,
+      blurb,
+      groups,
+      trial: {
+        receipt: trial.receipt,
+        count: trial.count,
+        sealed: trial.sealed,
+        leanBacked: trial.leanBacked,
+        orderInvariant,
+        chainGenesis,
+        chainTip,
+      },
+      undecided: UNDECIDED,
+      gh: 'https://github.com/uuidna/uuidna/blob/main/lean/',
+    }
+  },
+}
