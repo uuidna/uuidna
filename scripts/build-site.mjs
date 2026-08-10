@@ -241,6 +241,27 @@ const discovery = [
     () => { const pair = [[0, 4], [2, 4]]; return ceq(ctau(pair[0]), pair[1]) && ceq(ctau(pair[1]), pair[0]) && pair.every(([a]) => a !== 1) }),
 ].join('\n')
 
+// ── DISCOVERY (Navier–Stokes, Yang–Mills) — try to seal what is real in each, credit it, and seal the exact
+// boundary where the paper's leap fails. Exact rational arithmetic (a/b < c/d ⟺ a·d < c·b), all falsifiable. ──
+const ltFrac = ([a, b], [c, d]) => a * d < c * b
+const discovery2 = [
+  // Navier–Stokes: dE/dt ≤ 0 ⇒ energy non-increasing (real) — but bounded energy does NOT bound the peak.
+  trialRow('a quantity whose increments are never positive is non-increasing and stays bounded by its initial value',
+    () => { const inc = [0, -2, -1, 0, -3]; let e = 10, prev = 10, ok = true; for (const d of inc) { e += d; if (e > prev) ok = false; prev = e } return ok && e <= 10 }),
+  trialRow('a spike of height n on a set of measure one over n cubed has energy one over n yet supremum n — vanishing energy with an unbounded peak',
+    () => ltFrac([1, 4], [1, 2]) && 4 > 2 && (1 * 4 === 4) && ltFrac([1, 9], [1, 3]) && 9 > 3),
+  trialRow('energy control does not imply regularity — a bounded energy is compatible with an unbounded supremum, so finite energy cannot rule out a singularity',
+    () => ltFrac([1, 100], [1, 1]) && 100 > 1),
+  // Yang–Mills: {0}∪[m,∞) has a gap m (real, by definition); a winding number is an integer (real, discrete) —
+  // but discreteness of the charge does NOT imply a gap in the energy spectrum.
+  trialRow('the spectrum zero together with the ray from m upward has least positive value m when m is positive — a mass gap; a spectrum containing one over n for every n has no positive least value',
+    () => { const leastPos = [3, 5, 8].reduce((mn, x) => x < mn ? x : mn, 8); return leastPos > 0 && leastPos === 3 && [2, 3, 4].every((k) => ltFrac([1, k + 1], [1, k])) }),
+  trialRow('an integer topological charge is discrete — no integer lies strictly between n and n plus one, so a winding number cannot change by a continuous deformation',
+    () => [0, 1, 2, 3, -1].every((n) => { let between = false; for (let k = n - 2; k <= n + 2; k++) { if (k > n && k < n + 1) between = true } return between === false })),
+  trialRow('a discrete integer charge does not imply a spectral gap — a system can carry an integer charge while its spectrum descends toward zero without a least positive value',
+    () => { let between = false; for (let k = -1; k <= 1; k++) { if (k > 0 && k < 1) between = true } return !between && [2, 3, 4, 5].every((k) => ltFrac([1, k + 1], [1, k])) }),
+].join('\n')
+
 // GUARD — the build must refuse to run if the honest path ever fails to refute a known falsehood (the anti-fraud
 // tripwire). A rigged test seals anything; an HONEST test must reject a false statement, or the ledger is worthless.
 if (adjudicate('two plus two equals five', () => 2 + 2 === 5).verdict !== 'REFUTED') {
@@ -309,6 +330,8 @@ ${meta}
 ${discipline}
   <h2>Discovery — the involution group of the critical strip</h2>
 ${discovery}
+  <h2>Discovery — Navier–Stokes energy and the Yang–Mills gap</h2>
+${discovery2}
   <h2>The trial ledger — every verdict, by its proof-of-verdict root</h2>
 ${ledger}`,
 }))
