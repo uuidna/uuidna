@@ -3,7 +3,7 @@
 // affine algebra (self-proving in JS), GENERATE a `by decide` Lean theorem, write lean/Sequence.lean, and VERIFY
 // it compiles sorry-free with `lean`. The mirror m(d)=10−d (≡1−d mod 9, fixed at 5); doubling σ and the mirror
 // generate AGL(1,ℤ/9) of order 54, acting in ONE orbit; the commutator [σ,μ] is the unit shift x↦x+1. Nothing
-// typed twice — every cell derived. Integrity, not truth. 0/7.
+// typed twice — every cell derived. Integrity, not truth.
 import { emit } from './lean-gen.mjs'
 
 const m9 = (n) => ((n % 9) + 9) % 9

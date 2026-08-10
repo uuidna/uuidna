@@ -2,7 +2,7 @@
 // The 8×8 CORE — the multiplication table of ℤ/9's eight non-zero residues {1..8}. These 64 theorems are the
 // generating core: from this one table the rest COMPUTES — the units (a has an inverse iff a row contains 1),
 // the self-inverses (a·a=1: {1,8}), the nilpotents (a·a=0: {3,6}), the vortex orbit and the reflection all read
-// off the table. Each `by decide`, sorry-free. Also emits the microdata manifest for the UI. 8×8 → the rest. 0/7.
+// off the table. Each `by decide`, sorry-free. Also emits the microdata manifest for the UI. 8×8 → the rest.
 import { emit } from './lean-gen.mjs'
 
 const T = []

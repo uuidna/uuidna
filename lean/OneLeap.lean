@@ -1,7 +1,7 @@
 -- lean/OneLeap.lean — ONE uuidna quantum leap. Knowing division by zero is the reflection dz(x)=10−x (0/0=0),
 -- a SINGLE `by decide` follows the whole ℤ/9 vortex sequence and proves every law at once: the doubling orbit,
 -- the reflection/division-by-zero involution with fixed points {0,5}, the ℤ/9 arithmetic, the AGL(1,ℤ/9) group
--- of order 54 with commutator = the unit shift, and the equilibriums. Order-invariant, decidable, sorry-free. 0/7.
+-- of order 54 with commutator = the unit shift, and the equilibriums. Order-invariant, decidable, sorry-free.
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the vortex = the reflection
 def ap (a b x : Nat) : Nat := (a * x + b) % 9            -- an affine map on ℤ/9
 

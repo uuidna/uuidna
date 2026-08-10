@@ -4,7 +4,7 @@ Every theorem below is proven `by decide` in Lean 4.33.0 (no Mathlib), verified 
 The order is the **derivation order**: the 8×8 core generates the ring; the ring and the rosette carry the
 arithmetic; the reflection, division-by-zero, applied and discovered layers build on them; and one leap folds
 the whole vortex into a single proof. **524 theorems** in all. A theorem computes in Lean, or it is not a
-theorem. Integrity, not truth. 0/7.
+theorem. Integrity, not truth.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
    the multiplication table of ℤ/9’s eight non-zero residues — the generator: units, inverses, nilpotents and the vortex all read off this table

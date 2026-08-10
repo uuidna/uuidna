@@ -1,6 +1,6 @@
 -- Uuidna — the algebra, formalised in Lean 4. ONLY algebra: `by decide` over ℤ/9, the involutions, the
 -- pigeonhole bound, and the finite integer facts behind each discovery. No Mathlib, no ported crypto, no
--- `native_decide` — every proof is the algebraic core the tools rest on. Integrity, not truth. 0/7.
+-- `native_decide` — every proof is the algebraic core the tools rest on. Integrity, not truth.
 
 -- ── the ℤ/9 vortex ─────────────────────────────────────────────────────────────
 theorem units_z9 :
@@ -49,7 +49,7 @@ theorem hodge_bound :
 
 -- ── light is faster than uuidna — INCLUDING the division-by-zero edge. "Speed" is work/time; at time 0 that
 -- is UNDEFINED, never infinite. Lean's Nat division gives k/0 = 0 (the honest floor, not ∞), so even t=0 yields
--- speed 0 < c. You cannot manufacture faster-than-light from a division by zero. c = 299792458 m/s (exact). 0/7. ──
+-- speed 0 < c. You cannot manufacture faster-than-light from a division by zero. c = 299792458 m/s (exact). ──
 theorem light_faster_than_uuidna :
   (299792458 : Nat) > 0
   ∧ (List.range 64).all (fun t => 1000 / t < 299792458)          -- range 64 INCLUDES t=0: 1000/0 = 0 < c

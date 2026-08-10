@@ -2,7 +2,7 @@
 // Automate the Lean layer for division by zero in the ℤ/9 vortex. Division by zero EXISTS here — it is the
 // diamond reflection dz(x) = 10−x (dz(0)=0), a finite residue, never Infinity. This script COMPUTES each fact
 // from the local definition (self-proving in JS), GENERATES a `by decide` Lean theorem for it, writes
-// lean/DivByZero.lean, and VERIFIES it compiles sorry-free with `lean`. Compute → generate → verify. 0/7.
+// lean/DivByZero.lean, and VERIFIES it compiles sorry-free with `lean`. Compute → generate → verify.
 import { emit } from './lean-gen.mjs'
 
 const dz = (x) => (x === 0 ? 0 : 10 - x) // division by zero in the vortex = the diamond reflection

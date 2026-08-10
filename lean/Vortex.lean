@@ -1,6 +1,6 @@
 -- lean/Vortex.lean — the honest ℤ/9 & ℤ/7 vortex theorems, PORTED from millennium-solutions' Vortex.lean into
 -- plain Lean 4 (Nat, `by decide` — NO Mathlib, so verifiable with a single `lean` call). Same facts, Mathlib-free.
--- The vacuous α²=1 "theorems" are NOT ported — they are tautologies (0/7). Integrity, not truth.
+-- The vacuous α²=1 "theorems" are NOT ported — they are tautologies (). Integrity, not truth.
 
 -- ℤ/9 : nilpotents, inverses, the doubling circuit and its order
 theorem three_sq_zero : (3*3) % 9 = 0 := by decide

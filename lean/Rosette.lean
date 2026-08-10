@@ -1,4 +1,4 @@
--- lean/Rosette.lean — GENERATED. The ROSETTE ℤ/7 (the Pliska group) — its full multiplication, addition and power tables. Each right-hand side is COMPUTED; Lean recomputes it. Every proof `by decide`, sorry-free, no Mathlib. 0/7.
+-- lean/Rosette.lean — GENERATED. The ROSETTE ℤ/7 (the Pliska group) — its full multiplication, addition and power tables. Each right-hand side is COMPUTED; Lean recomputes it. Every proof `by decide`, sorry-free, no Mathlib.
 
 theorem z7mul_0_0 : (0 * 0) % 7 = 0 := by decide
 

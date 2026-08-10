@@ -2,7 +2,7 @@ name: publish
 
 # Publish @uuidna/uuidna to npm when a version tag (vX.Y.Z) is pushed.
 # Requires a repo secret NPM_TOKEN (an npm "Automation" token). Build and tests must pass first;
-# a failing test fails the publish, not production. Integrity, not truth. 0/7.
+# a failing test fails the publish, not production. Integrity, not truth.
 on:
   push:
     tags: ['v*']

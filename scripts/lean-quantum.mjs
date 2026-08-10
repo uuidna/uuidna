@@ -3,7 +3,7 @@
 // is the algebra of a CLASSICAL state-vector simulation (integer positions, no decimal drift), NOT quantum
 // hardware and NO quantum advantage. Amplitudes are Gaussian integers over √(2^scale); the Born-rule weights and
 // marginals are non-negative integers (Nat), and the phase-gate algebra (S·S=Z, Z²=I, S·S†=I) lives in ℤ. COMPUTE
-// each fact, GENERATE a `by decide` theorem, VERIFY it compiles sorry-free (lean). Simulation, not hardware. 0/7.
+// each fact, GENERATE a `by decide` theorem, VERIFY it compiles sorry-free (lean). Simulation, not hardware.
 import { emit } from './lean-gen.mjs'
 
 // JS mirrors of the exact simulator arithmetic (must each hold before a line is written).

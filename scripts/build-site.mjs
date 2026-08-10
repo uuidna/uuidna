@@ -5,7 +5,7 @@
 // carries the detailed proof, the formal statement, the content-address, its principle and the source + public
 // links; /trial folds every theorem's address to ONE receipt; /undecided holds the open propositions (three-
 // valued honesty). There is no separate /lean page — /theorems is it. A theorem computes in Lean, or it is not a
-// theorem. The recomputation-only capabilities (FNV address, gate, crypto) are TOOLS, not theorems. 0/7.
+// theorem. The recomputation-only capabilities (FNV address, gate, crypto) are TOOLS, not theorems.
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -57,7 +57,7 @@ const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', 
 
 const NAV = [['/theorems/', 'Theorems', 'theorems'], ['/trial/', 'Trial', 'trial'], ['/undecided/', 'Undecided', 'undecided'], ['/captain/message', 'Captain', 'captain'], ['https://github.com/uuidna/uuidna', 'GitHub', 'github']]
 const masthead = (active = '') => `<header class="masthead">
-  <a class="brand" href="/">uuidna<span class="fl">0/7</span></a>
+  <a class="brand" href="/">uuidna<span class="fl"></span></a>
   <nav>${NAV.map(([href, label, id]) => `<a href="${href}"${id === active ? ' class="active"' : ''}>${label}</a>`).join('')}</nav>
 </header>`
 
@@ -81,7 +81,7 @@ ${body}
       <a href="/">Home</a><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/undecided/">Undecided</a>
       <a href="https://www.npmjs.com/package/@uuidna/uuidna">npm</a><a href="https://github.com/uuidna/uuidna">GitHub</a>
     </nav>
-    License CC BY-NC 4.0 — Tsvetan Rouschev. <span class="mono">npm run lean</span> re-verifies every proof. Integrity, not truth. <span class="mono">0/7</span>.
+    License CC BY-NC 4.0 — Tsvetan Rouschev. <span class="mono">npm run lean</span> re-verifies every proof. Integrity, not truth. <span class="mono"></span>.
   </footer>
 </main>
 </body>
@@ -123,7 +123,7 @@ ${hero}
     <a href="/theorems/">All theorems</a>
     <a href="https://www.npmjs.com/package/@uuidna/uuidna">npm</a>
   </div>
-  <p class="note">Re-verify every proof with <code>npm run lean</code> (regenerates lean/*.lean and this ledger, sorry-free). A theorem computes in Lean, or it is not a theorem. <span class="mono">0/7</span>.</p>`
+  <p class="note">Re-verify every proof with <code>npm run lean</code> (regenerates lean/*.lean and this ledger, sorry-free). A theorem computes in Lean, or it is not a theorem. <span class="mono"></span>.</p>`
   write(join('theorem', t.key, 'index.html'), page({
     title: t.name.split('—')[0].trim() + ' — uuidna theorem',
     description: t.name + ' — ' + t.statement + ' (proven by ' + t.tactic + ' in Lean 4).',
@@ -157,7 +157,7 @@ const filterScript = `<script>
 </script>`
 write(join('theorems', 'index.html'), page({
   title: 'Theorems — uuidna',
-  description: 'The filterable collection of ' + TOTAL + ' proven Lean theorems, each with its by decide proof (verified sorry-free), organised by computing principle. Lean is the single source. A theorem computes in Lean, or it is not a theorem. Integrity, not truth. 0/7.',
+  description: 'The filterable collection of ' + TOTAL + ' proven Lean theorems, each with its by decide proof (verified sorry-free), organised by computing principle. Lean is the single source. A theorem computes in Lean, or it is not a theorem. Integrity, not truth.',
   active: 'theorems',
   body: `  <h1>Theorems <span class="v v-sealed">${TOTAL} Lean-proven</span></h1>
   <p class="note"><b>The collection of proven Lean theorems</b> — every one authored in <code>lean/*.lean</code>,
@@ -165,7 +165,7 @@ write(join('theorems', 'index.html'), page({
   organised by computing principle: the 8×8 core generates, then the ring ℤ/9, the rosette ℤ/7, and the derived,
   discovered and applied layers. Filter by text or principle; open any card for its detailed proof. Lean is the
   single source — the recomputation-only capabilities (FNV address, gate, crypto) are <b>tools</b>, not theorems.
-  <span class="mono">0/7</span>.</p>
+  <span class="mono"></span>.</p>
   <div class="filterbar">
     <input id="q" type="search" placeholder="Filter theorems — key, statement, principle…" autocomplete="off" />
     <select id="p"><option value="">All principles</option>${order.map((n) => `<option value="${escapeHtml(n)}">${escapeHtml(n)} (${byPrinciple[n].length})</option>`).join('')}</select>
@@ -181,7 +181,7 @@ ${filterScript}`,
 const roots = LEDGER.map((t) => t.address)
 const RECEIPT = trial.receipt
 const orderInvariant = RECEIPT === merkleGravity([...roots].reverse())
-const CHAIN_GENESIS = 'axiom:0/7'
+const CHAIN_GENESIS = 'axiom'
 let chainTip = CHAIN_GENESIS
 for (const r of roots) chainTip = toUuid(chainTip + '→' + r)
 const principleRows = order.map((name) => {
@@ -190,7 +190,7 @@ const principleRows = order.map((name) => {
 }).join('\n')
 write(join('trial', 'index.html'), page({
   title: 'The trial receipt — uuidna',
-  description: 'The order-invariant content-address of the whole Lean layer: ' + TOTAL + ' theorems, all proven by decide, folded to one recomputable receipt. Integrity, not truth. 0/7.',
+  description: 'The order-invariant content-address of the whole Lean layer: ' + TOTAL + ' theorems, all proven by decide, folded to one recomputable receipt. Integrity, not truth.',
   active: 'trial',
   body: `  <h1>The trial receipt</h1>
   <p class="stmt" style="font-size:1.05rem"><code class="rcpt">${RECEIPT}</code></p>
@@ -218,7 +218,7 @@ const undecidedRows = UNDECIDED.map(([claim, why, key]) =>
   </div>`).join('\n')
 write(join('undecided', 'index.html'), page({
   title: 'The undecided register — uuidna',
-  description: 'Three-valued honesty: TRUE (Lean proves it) · FALSE (Lean proves its negation) · UNDECIDED (Lean does neither). The open propositions, held and labeled — never dropped, never called false. Integrity, not truth. 0/7.',
+  description: 'Three-valued honesty: TRUE (Lean proves it) · FALSE (Lean proves its negation) · UNDECIDED (Lean does neither). The open propositions, held and labeled — never dropped, never called false. Integrity, not truth.',
   active: 'undecided',
   body: `  <h1>The undecided register</h1>
   <p class="note">The binary that matters is Lean, not the lexical gate. There are <b>three</b> states, not two:
@@ -226,7 +226,7 @@ write(join('undecided', 'index.html'), page({
   negation · <span class="v v-unverified">UNDECIDED</span> Lean does neither. "Not proven" is <b>not</b> false —
   it is open. The claims below are UNDECIDED: held here, labeled, never dropped and never faked. To develop one
   to TRUE, give it <b>decidable content</b> — reduce it to algebra Lean can compute; the reducible core becomes
-  a proven theorem, and the irreducible residue stays open. <span class="mono">0/7</span>.</p>
+  a proven theorem, and the irreducible residue stays open. <span class="mono"></span>.</p>
 ${undecidedRows}
   <p class="note" style="margin-top:2rem">Everything provable is on <a href="/theorems/">/theorems</a> (${TOTAL} theorems, all by decide, sorry-free). The whole set folds to one receipt on <a href="/trial/">/trial</a>. What remains open lives here — accounted for, not discarded.</p>`,
 }))

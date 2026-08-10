@@ -2,7 +2,7 @@
 // computes its facts (each a decidable JS predicate paired with a Lean proposition or full theorem), and calls
 // emit(): it checks every fact holds in JS, writes lean/<File>.lean and lean/<file>-manifest.json (the microdata
 // bridge — {key,name} per theorem), and shells out to `lean` to verify the file compiles sorry-free. One helper,
-// no repetition. Integrity, not truth. 0/7.
+// no repetition. Integrity, not truth.
 import { writeFileSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { join, dirname } from 'node:path'
@@ -19,7 +19,7 @@ export function emit({ file, header, facts, defs = '' }) {
   const fail = facts.filter((f) => f.js && f.js() !== true)
   if (fail.length) { console.log('✗ ' + file + ' — JS check failed: ' + fail.map((f) => f.key).join(', ')); process.exit(1) }
   const body = facts.map((f) => (f.lean ? (f.name ? '-- ' + f.name + '\n' : '') + f.lean : `theorem ${f.key} : ${f.stmt} := by decide`)).join('\n\n')
-  const lean = `-- lean/${file} — GENERATED. ${header} Every proof \`by decide\`, sorry-free, no Mathlib. 0/7.\n\n${defs ? defs.trim() + '\n\n' : ''}${body}\n`
+  const lean = `-- lean/${file} — GENERATED. ${header} Every proof \`by decide\`, sorry-free, no Mathlib.\n\n${defs ? defs.trim() + '\n\n' : ''}${body}\n`
   writeFileSync(join(ROOT, 'lean', file), lean)
   writeFileSync(join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json'), JSON.stringify(facts.map((f) => ({ key: f.key, name: f.name || f.stmt || f.key })), null, 0) + '\n')
   execSync('lean ' + JSON.stringify(join(ROOT, 'lean', file)), { cwd: ROOT, stdio: 'pipe', maxBuffer: 64 * 1024 * 1024 })

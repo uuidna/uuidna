@@ -5,7 +5,7 @@
 // reflection through 7), heredity (the Mendelian 3:1 + allele-swap involution), and colour (the ℤ/6 complement
 // wheel). COMPUTE each fact, GENERATE a `by decide` Lean theorem, VERIFY it compiles sorry-free. HONEST SCOPE:
 // these prove the combinatorial/algebraic SKELETON — NOT a medical, genetic, chemical or physical claim about any
-// person or measurement. The structure is algebra; the scientific reading is the shared pattern, demarcated. 0/7.
+// person or measurement. The structure is algebra; the scientific reading is the shared pattern, demarcated.
 import { emit } from './lean-gen.mjs'
 
 const xor = (a, b) => a ^ b

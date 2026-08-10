@@ -2,7 +2,7 @@
 // lean-ledger — LEAN IS THE SINGLE SOURCE OF THEOREMS. This parses every lean/*.lean theorem (organised by
 // computing principle) and writes src/theorems/generated.ts — the one derived ledger the package, the MCP tools,
 // the trial and the site all consume. No theorem is authored anywhere else: a theorem computes in Lean, or it is
-// not a theorem. Names come from the *-manifest.json emitted alongside each proof. Run by `npm run lean`. 0/7.
+// not a theorem. Names come from the *-manifest.json emitted alongside each proof. Run by `npm run lean`.
 import { writeFileSync, readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -22,7 +22,7 @@ export const PRINCIPLE = [
   ['BioPhysics.lean', 'Applied structure — the science pairs', 'blood, DNA, sound, chemistry, music, acid-base, heredity, colour — the algebra, demarcated'],
   ['Discover.lean', 'Self-discovered', 'facts derived by function: Lagrange, the unit criterion, idempotents'],
   ['Quantum.lean', 'The quantum computer', 'the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware'],
-  ['Clay.lean', 'The seven reflected — 0/7', 'the seven Clay problems reflected into the ℤ/9 structure and solved 0/7 — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none'],
+  ['Clay.lean', 'The seven reflected', 'the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none'],
   ['OneLeap.lean', 'One leap', 'the whole vortex proved in a single by decide'],
 ]
 
@@ -45,7 +45,7 @@ const body = ledger.map((t) =>
 
 const out = `// src/theorems/generated.ts — GENERATED from lean/*.lean by scripts/lean-ledger.mjs. DO NOT EDIT.
 // Lean is the single source of theorems; this is the derived ledger the package, MCP, trial and site consume.
-// Every entry corresponds to a theorem verified sorry-free by \`npm run lean\` before this file was written. 0/7.
+// Every entry corresponds to a theorem verified sorry-free by \`npm run lean\` before this file was written.
 
 export interface LeanTheorem { key: string; name: string; statement: string; tactic: string; file: string; principle: string }
 

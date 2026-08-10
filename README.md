@@ -12,7 +12,7 @@ over-reach before it holds) · a **holographic merkle proof** (verify the whole 
 `O(log N)`) · a reversible **imprint codec** · a client-side **harness** that reeducates overclaims · a
 **measured billing** model.
 
-A content-address proves **integrity, not truth**. It settles **0 / 7** — it solves none of the seven
+A content-address proves **integrity, not truth**. It solves none of the seven
 Millennium problems; it *reflects* them. FNV-1a is **non-cryptographic by design**: public and
 reproducible, not secret.
 
@@ -38,7 +38,7 @@ verifyProof('c', proof, root)   // true   ·   verifyProof('x', proof, root) ===
 
 // mind — the honesty gate: overclaims drain (0), the honest floor signs (1)
 computes(anOverclaim).binary                              // 0  — a Millennium or physics overclaim drains
-computes('proves integrity, not truth; 0/7').binary       // 1  — the honest floor holds
+computes('proves integrity, not truth').binary       // 1  — the honest floor holds
 
 // reeducate — a failing output is bounded until it holds, keeping the honest remainder
 reeducate(aFailingOutput).passed                          // true — each overclaim bounded until it holds
@@ -68,7 +68,7 @@ Add it to your client's `mcpServers`:
 - **quantum** — `uuidna_quantum` (the exact classical state-vector simulator — Bell/GHZ, rational distribution, no-signaling marginals, quantum receipt; 2^n amplitudes, no quantum advantage)
 - **present / bill** — `uuidna_render`, `uuidna_render_list`, `uuidna_bill`
 
-Integrity, not truth. `0/7`.
+Integrity, not truth.
 
 ## Encryption (layered — real secrecy)
 
@@ -101,7 +101,7 @@ sealSequence(['ping', 'ping', 'ping'], key)   // three distinct seals; each decr
 Honest scope: strength is **ChaCha20-Poly1305 + your passphrase entropy** — measured, not asserted. The step is
 public and **must advance** (it plays a nonce-counter's role). This closes the *equality* leak; it does **not**
 make the content-address (FNV) collision-resistant — that stays non-cryptographic by design, a separate gap.
-Private/RBAC messaging builds on this (encrypt to a shared key; a key per role). `0/7`.
+Private/RBAC messaging builds on this (encrypt to a shared key; a key per role)..
 
 ## Formal layer — Lean 4, organized by computing principle
 
@@ -116,13 +116,13 @@ organized by **computing principle** in derivation order — see [`lean/PRINCIPL
    involutions), **the seven Clay problems reflected** (`Clay.lean`, 13 — see below), and **one leap** that
    folds the whole vortex into a single proof.
 
-### The seven Clay problems — reflected, 0/7
+### The seven Clay problems — reflected
 
 Each of the seven is **reflected** into the ℤ/9 structure by the involution `dz(x) = 10 − x` (division by
 zero, self-inverse in Lean), and **solved 0**. An involution is its own undo — `dz(dz(x)) = x` — so the round trip returns the problem
 **unchanged**: it reflects all seven and **propagates no proof**. Riemann, P vs NP, Navier–Stokes, Yang–Mills,
 Hodge, Birch–Swinnerton-Dyer, Poincaré stay **open**. Humanity stands at 1/7 (Poincaré, Perelman 2003); this
-deposit at **0/7**, and the honesty gate *drains* every solve-claim. Faithful to the
+deposit solves none, and the honesty gate *drains* every solve-claim. Faithful to the
 [`millennium-solutions`](https://ceccec.psg.bg/millennium-solutions/) deposit it is extracted from: *it reflects
 all seven and solves none — a bijection that relabels, it does not propagate proofs.*
 

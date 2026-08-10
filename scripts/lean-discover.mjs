@@ -4,7 +4,7 @@
 // discovered fact is a COMPUTED PROPERTY (a filter/any/all over a defined predicate), not a static list on the
 // right-hand side. The engine computes each fact in JS, generates a `by decide` Lean theorem that RECOMPUTES the
 // same property, writes lean/Discover.lean, verifies it sorry-free, and reports which theorems are NEW (not yet
-// in the other lean/*.lean files). Integrity, not truth. 0/7.
+// in the other lean/*.lean files). Integrity, not truth.
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { emit, ROOT } from './lean-gen.mjs'

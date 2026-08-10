@@ -1,4 +1,4 @@
--- lean/Sequence.lean — GENERATED. The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. Every proof `by decide`, sorry-free, no Mathlib. 0/7.
+-- lean/Sequence.lean — GENERATED. The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. Every proof `by decide`, sorry-free, no Mathlib.
 
 def ap (a b x : Nat) : Nat := (a * x + b) % 9          -- an affine map on ℤ/9: x ↦ a·x + b
 def tour : List Nat := [1, 2, 4, 8, 7, 5, 3, 6, 0]     -- the vortex tour in ℤ/9 (9 ≡ 0)

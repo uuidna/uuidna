@@ -11,7 +11,7 @@
 //     equality leak, its v2 closure, and tamper-rejection — the claims, run.
 //
 // Every finding is content-addressed; the addresses fold, ORDER-INVARIANTLY, to ONE recomputable audit receipt.
-// Recomputable by anyone from this same tree. Integrity, not truth. 0/7.
+// Recomputable by anyone from this same tree. Integrity, not truth.
 
 import { readFileSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'

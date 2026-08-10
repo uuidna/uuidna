@@ -1,4 +1,4 @@
--- lean/Core.lean — GENERATED. The 8×8 CORE: the multiplication table of ℤ/9's eight non-zero residues {1..8}. From these 64 theorems the rest COMPUTES — units, inverses, self-inverses {1,8}, nilpotents {3,6}, the vortex orbit and the reflection all read off this table. Every proof `by decide`, sorry-free, no Mathlib. 0/7.
+-- lean/Core.lean — GENERATED. The 8×8 CORE: the multiplication table of ℤ/9's eight non-zero residues {1..8}. From these 64 theorems the rest COMPUTES — units, inverses, self-inverses {1,8}, nilpotents {3,6}, the vortex orbit and the reflection all read off this table. Every proof `by decide`, sorry-free, no Mathlib.
 
 theorem mul9_1_1 : (1 * 1) % 9 = 1 := by decide
 
