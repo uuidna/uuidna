@@ -23,6 +23,19 @@ const cat = (...a: Uint8Array[]): Uint8Array => { const t = new Uint8Array(a.red
 const foldEnvelope = (alg: string, salt: string, nonce: string, ct: string, tag: string): string =>
   merkleFold([alg, salt, nonce, ct, tag].map(toUuid))
 
+// The uuidna cache — the KDF applied to the uuidna thesis: the 600k-iteration derivation is a PURE function of
+// (passphrase, salt, iter), so its output is CONTENT-ADDRESSED and never recomputed. Because the salt is itself
+// content-derived, a decrypt derives the exact key its encrypt already did — the second pass is a cache hit, not
+// 600k more rounds. ITER is unchanged; we only stop paying it twice. Process-lifetime, in-memory (holds derived
+// keys like any KDF memo); the address is a uuid, so the raw passphrase is not the map key. 0/7.
+const kdfCache = new Map<string, Uint8Array>()
+const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array => {
+  const addr = toUuid('uuidna-kdf-v1|' + iter + '|' + b64(salt) + '|' + b64(pass)) // content-address of the derivation
+  let key = kdfCache.get(addr)
+  if (!key) { key = pbkdf2Sha256(pass, salt, iter, 32); kdfCache.set(addr, key) }
+  return key
+}
+
 /** A sealed envelope: the ChaCha20-Poly1305 ciphertext + tag, its public parameters, and its 7d-fold address. */
 export interface Sealed {
   v: 1
@@ -41,7 +54,7 @@ export function encrypt(plaintext: string, passphrase: string): Sealed {
   const pt = enc.encode(plaintext), pass = enc.encode(passphrase)
   // content-derived, per-plaintext salt (unique per plaintext → no cross-target rainbow tables), pure & deterministic
   const salt = sha256(cat(enc.encode('uuidna-crypt-salt-v1'), pt)).slice(0, 16)
-  const key = pbkdf2Sha256(pass, salt, ITER, 32)
+  const key = deriveKey(pass, salt, ITER)
   // nonce derived from the (unique-per-plaintext) key — pure, deterministic, non-repeating for distinct plaintexts
   const nonce = sha256(cat(enc.encode('uuidna-crypt-nonce-v1'), key)).slice(0, 12)
   const { ct, tag } = aeadEncrypt(key, nonce, pt)
@@ -51,7 +64,7 @@ export function encrypt(plaintext: string, passphrase: string): Sealed {
 
 /** Decrypt a sealed envelope. A wrong passphrase or tampered ciphertext throws (Poly1305 authentication). */
 export function decrypt(sealed: Sealed, passphrase: string): string {
-  const key = pbkdf2Sha256(enc.encode(passphrase), ub64(sealed.salt), sealed.iter, 32)
+  const key = deriveKey(enc.encode(passphrase), ub64(sealed.salt), sealed.iter)
   return dec.decode(aeadDecrypt(key, ub64(sealed.nonce), ub64(sealed.ct), ub64(sealed.tag)))
 }
 
