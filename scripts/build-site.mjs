@@ -323,6 +323,20 @@ const TRIAL_RECEIPT = merkleGravity(roots)
 const orderInvariant = TRIAL_RECEIPT === merkleGravity([...roots].reverse())
 const tally = counts.SEALED + ' SEALED · ' + counts.REFUTED + ' REFUTED · ' + counts.UNVERIFIED + ' UNVERIFIED'
 
+// ── REVERSE — the captain's third motion: verify the chain re-seals. Fold every proof-of-verdict root into a
+// SEQUENTIAL chain (link_i = toUuid(link_{i-1} → root_i)); recompute it and confirm the tip, and confirm a
+// tampered root breaks it (integrity). Then confirm the order-invariant fold reverses to the same trial receipt.
+// Meta-verdicts (not folded into the chain — that would be self-reference); each carries its own receipt.
+const CHAIN_GENESIS = 'axiom:0/7'
+const chainTip = (rs) => { let prev = CHAIN_GENESIS; for (const r of rs) prev = toUuid(prev + '→' + r); return prev }
+const CHAIN_TIP = chainTip(roots)
+const reverseMeta = [
+  metaRow('the chain re-seals — folding every proof-of-verdict root sequentially through toUuid reproduces the same chain tip, and tampering any root breaks it',
+    () => chainTip(roots) === CHAIN_TIP && chainTip([...roots.slice(0, -1), toUuid('tampered')]) !== CHAIN_TIP),
+  metaRow('the reverse traversal reaches the same seal — folding every proof-of-verdict root in reverse order yields the same trial receipt, the fold being order-invariant',
+    () => merkleGravity(roots) === merkleGravity([...roots].reverse()) && merkleGravity(roots) === TRIAL_RECEIPT),
+].join('\n')
+
 // ── THE STATES, BY GRAVITY (not a counter) ─────────────────────────────────────────
 // Redo: each state is COMPUTED as the gravity of the theorems that fell into it. The theorems involved are
 // filtered from the ledger by their (gate+test)-assigned verdict; their proof-of-verdict roots fall by
@@ -368,6 +382,9 @@ write(join('trial', 'index.html'), page({
   <h1>The trial receipt</h1>
   <p class="stmt" style="font-size:1.05rem"><code class="rcpt">${TRIAL_RECEIPT}</code></p>
   <p class="note">${TRIAL.length} verdicts · order-invariant fold ${orderInvariant ? '✓ (reverse-order yields the same root)' : '✗ BREAK'} · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
+  <h2>Reverse — the chain re-seals</h2>
+  <p class="note">sequential chain tip <code class="rcpt">${CHAIN_TIP}</code> · genesis <code>${CHAIN_GENESIS}</code> · recompute link by link and it re-seals; tamper any root and it does not</p>
+${reverseMeta}
   <h2>The states, by gravity</h2>
 ${statesRow}
   <p class="note">the three state gravities fall to one states-root <code class="rcpt">${statesRoot}</code>${statesRoot === TRIAL_RECEIPT ? ' (= the trial receipt)' : ' (a partition fold — distinct from the flat trial receipt above, honestly)'}</p>

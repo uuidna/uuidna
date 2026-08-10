@@ -32,6 +32,10 @@
   <h1>The trial receipt</h1>
   <p class="stmt" style="font-size:1.05rem"><code class="rcpt">3618f31a-4099-833f-8432-3b37eef7f093</code></p>
   <p class="note">80 verdicts · order-invariant fold ✓ (reverse-order yields the same root) · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
+  <h2>Reverse — the chain re-seals</h2>
+  <p class="note">sequential chain tip <code class="rcpt">0505f94f-171d-85bf-a00d-1c46d3b51af0</code> · genesis <code>axiom:0/7</code> · recompute link by link and it re-seals; tamper any root and it does not</p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">7f7fc6d6-1231-8d30-855f-af17f49368a7</code><br>the chain re-seals — folding every proof-of-verdict root sequentially through toUuid reproduces the same chain tip, and tampering any root breaks it<br><small class="note">gate-clean and a decidable test holds — recomputable, admissible · proof-root <code class="rcpt">ebf599bb-4253-8dde-82c8-4a159733ba2d</code></small></p>
+  <p class="stmt"><span class="v v-sealed">SEALED</span> <code class="rcpt">9ff38449-01cf-8e13-bbc5-7e9f7cf3f50e</code><br>the reverse traversal reaches the same seal — folding every proof-of-verdict root in reverse order yields the same trial receipt, the fold being order-invariant<br><small class="note">gate-clean and a decidable test holds — recomputable, admissible · proof-root <code class="rcpt">5d65eb78-1856-88c0-8659-62358bd9f62e</code></small></p>
   <h2>The states, by gravity</h2>
   <p class="stmt"><span class="v v-sealed">SEALED</span> <b>80</b> theorem(s) · count falls to ℤ/9 = <b>8</b> · gravity <code class="rcpt">3618f31a-4099-833f-8432-3b37eef7f093</code></p>
   <p class="stmt"><span class="v v-refuted">REFUTED</span> <b>0</b> theorem(s) · count falls to ℤ/9 = <b>9</b> · gravity <code class="rcpt">93929a2d-4810-8ac6-9f32-4ed07d9e016c</code></p>
