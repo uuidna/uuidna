@@ -11,7 +11,7 @@ import {
   units, triad, vortexOrbit, diamond, involute, involutionFixed, seats,
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
-  bellState, ghzState, distribution, marginal, receiptOf, fraction, label,
+  bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   THEOREMS, runTrial, theorems,
 } from './dist/index.js'
 
@@ -223,17 +223,29 @@ const TOOLS = [
   //    no floats, no decimal drift). Build a Bell or GHZ state; read its exact rational distribution, marginals, and
   //    order-invariant receipt. Classical simulation, 2^n amplitudes — exponential, NO quantum advantage. 0/7. ──
   { name: 'uuidna_quantum',
-    description: 'Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale) — no floats, no decimal drift): build a Bell (2-qubit) or GHZ (n-qubit) state and read its EXACT rational distribution, per-qubit marginals (the no-signaling check), and order-invariant quantum receipt. HONEST: classical simulation — 2^n amplitudes, EXPONENTIAL, NO quantum advantage, NOT quantum hardware. Integrity, not truth. 0/7.',
-    inputSchema: { type: 'object', properties: { circuit: { type: 'string', enum: ['bell', 'ghz'], description: 'bell (2 qubits) or ghz (n qubits); default bell' }, qubits: { type: 'number', description: 'qubit count for ghz, 1..12 (default 3)' } } },
+    description: 'Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale) — no floats, no decimal drift). Either a named `circuit` (bell/ghz) OR an arbitrary `ops` circuit in OpenQASM/Qiskit gate names (h, x, y, z, s, sdg, cx, cz, swap, ccx, ccz) — so any system that speaks quantum circuits interops. Returns the EXACT rational distribution, per-qubit marginals (the no-signaling check), the order-invariant receipt, and — for an H-free circuit — the CLASSICAL truth table (the reversible logic the gates compute, usable directly by classical systems; Toffoli/ccx is universal). HONEST: classical simulation — 2^n amplitudes, EXPONENTIAL, NO quantum advantage, NOT quantum hardware. 0/7.',
+    inputSchema: { type: 'object', properties: { circuit: { type: 'string', enum: ['bell', 'ghz'], description: 'bell (2 qubits) or ghz (n qubits); ignored if ops is given' }, qubits: { type: 'number', description: 'qubit count, 1..12 (ghz default 3; required for ops)' }, ops: { type: 'array', description: 'OpenQASM circuit: [{gate, qubits:[...]}] with gate ∈ h,x,y,z,s,sdg,cx,cz,swap,ccx,ccz', items: { type: 'object', properties: { gate: { type: 'string' }, qubits: { type: 'array', items: { type: 'number' } } }, required: ['gate', 'qubits'] } } } },
     run: (a = {}) => {
-      const circuit = a.circuit === 'ghz' ? 'ghz' : 'bell'
-      const n = a.qubits ? Number(a.qubits) : 3
-      if (circuit === 'ghz' && (!Number.isInteger(n) || n < 1 || n > 12)) throw new Error('qubits must be an integer in 1..12')
-      const state = circuit === 'ghz' ? ghzState(n) : bellState()
+      let state, meta
+      if (Array.isArray(a.ops)) {
+        const n = Number(a.qubits)
+        if (!Number.isInteger(n) || n < 1 || n > 12) throw new Error('qubits must be an integer in 1..12 for an ops circuit')
+        if (a.ops.length > 4096) throw new Error('circuit too long (max 4096 ops)')
+        state = runCircuit(n, a.ops) // validates gate names + qubit ranges, throws on the unknown
+        meta = { circuit: 'custom', gates: a.ops.length }
+      } else {
+        const circuit = a.circuit === 'ghz' ? 'ghz' : 'bell'
+        const n = a.qubits ? Number(a.qubits) : 3
+        if (circuit === 'ghz' && (!Number.isInteger(n) || n < 1 || n > 12)) throw new Error('qubits must be an integer in 1..12')
+        state = circuit === 'ghz' ? ghzState(n) : bellState()
+        meta = { circuit }
+      }
       const outcomes = {}
       distribution(state).forEach((p, i) => { const f = fraction(p); if (f !== '0') outcomes[label(i, state.qubits)] = f })
       const marginals = Array.from({ length: state.qubits }, (_, q) => ({ qubit: q, p0: fraction(marginal(state, q, 0)), p1: fraction(marginal(state, q, 1)) }))
-      return { circuit, qubits: state.qubits, outcomes, marginals, receipt: receiptOf(state), honest: 'classical state-vector simulation — 2^n amplitudes, exponential, no quantum advantage, not quantum hardware; 0/7' }
+      const out = { ...meta, qubits: state.qubits, outcomes, marginals, receipt: receiptOf(state), honest: 'classical state-vector simulation — 2^n amplitudes, exponential, no quantum advantage, not quantum hardware; 0/7' }
+      if (Array.isArray(a.ops) && isClassical(a.ops)) out.classical = truthTable(state.qubits, a.ops) // the reversible logic, for classical systems
+      return out
     } },
 ]
 

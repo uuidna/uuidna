@@ -6,6 +6,7 @@ import {
   ket0, hadamard, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
   distribution, probability, marginal, amplitude, equalState, isInvolution, bellState, ghzState,
   receiptOf, quantumReceipt, report, fraction, computes,
+  runCircuit, isClassical, classicalMap, truthTable,
 } from '../dist/index.js'
 
 const dist = (s) => distribution(s).map(fraction)
@@ -99,6 +100,37 @@ test('the quantum receipt is deterministic and recomputable; distinct states →
   assert.equal(quantumReceipt(), quantumReceipt())
   assert.notEqual(receiptOf(bellState()), receiptOf(ghzState(3)))
 })
+// ── operational: arbitrary circuits (OpenQASM gate names) and the classical bridge ────────────────────────────
+test('runCircuit with OpenQASM gates reproduces Bell and GHZ', () => {
+  assert.deepEqual(distribution(runCircuit(2, [{ gate: 'h', qubits: [0] }, { gate: 'cx', qubits: [0, 1] }])).map(fraction), ['1/2', '0', '0', '1/2'])
+  const ghz = distribution(runCircuit(3, [{ gate: 'h', qubits: [0] }, { gate: 'cx', qubits: [0, 1] }, { gate: 'cx', qubits: [0, 2] }])).map(fraction)
+  assert.equal(ghz[0], '1/2'); assert.equal(ghz[7], '1/2')
+})
+test('classical bridge: cx = XOR, ccx = reversible AND (truth table)', () => {
+  // cx(q0→q1) is XOR: the basis permutation [0,3,2,1]
+  assert.deepEqual(classicalMap(2, [{ gate: 'cx', qubits: [0, 1] }]), [0, 3, 2, 1])
+  // ccx(q0,q1→q2) flips q2 iff q0∧q1 — the reversible AND into an ancilla
+  const tt = truthTable(3, [{ gate: 'ccx', qubits: [0, 1, 2] }])
+  assert.deepEqual(tt.find((r) => r.in === '011').out, '111') // q1q0=11 (index 3) → carry bit q2 set (index 7)
+  assert.deepEqual(tt.find((r) => r.in === '001').out, '001') // only one control set → unchanged
+})
+test('classical bridge: a half-adder (sum = a⊕b, carry = a∧b) from cx + ccx', () => {
+  // qubits: 0=a, 1=b, 2=carry, 3=sum(copy of b then xor a)
+  const half = [{ gate: 'ccx', qubits: [0, 1, 2] }, { gate: 'cx', qubits: [0, 1] }]
+  const tt = truthTable(3, half)
+  // a=1,b=1 (index 3): carry(q2)=1, and b←a⊕b=0 → outputs q0=1,q1=0,q2=1 = index 5
+  assert.equal(tt.find((r) => r.in === '011').out, '101')
+})
+test('a circuit with H has no classical map (honestly flagged)', () => {
+  assert.equal(isClassical([{ gate: 'h', qubits: [0] }, { gate: 'cx', qubits: [0, 1] }]), false)
+  assert.throws(() => classicalMap(2, [{ gate: 'h', qubits: [0] }]), /no classical function/)
+  assert.equal(isClassical([{ gate: 'cx', qubits: [0, 1] }, { gate: 'ccx', qubits: [0, 1, 2] }]), true)
+})
+test('runCircuit rejects unknown gates and out-of-range qubits', () => {
+  assert.throws(() => runCircuit(2, [{ gate: 'cnot', qubits: [0, 1] }]), /unknown gate/) // legacy name → not OpenQASM
+  assert.throws(() => runCircuit(2, [{ gate: 'x', qubits: [5] }]), /out of range/)
+})
+
 test('the report is honest (passes the gate) and carries no floating point', () => {
   const o = report()
   assert.equal(computes(o).binary, 1)

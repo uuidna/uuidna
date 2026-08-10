@@ -47,7 +47,8 @@ export { coins, billUuidna, type UuidnaUsage } from './billing.js'
 export {
   ket0, hadamard, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
   distribution, probability, marginal, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
-  report, fraction, label, type QState, type Prob, type Cx,
+  runCircuit, isClassical, classicalMap, truthTable,
+  report, fraction, label, type QState, type Prob, type Cx, type GateOp,
 } from './quantum.js'
 
 export { renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from './render.js'

@@ -154,6 +154,63 @@ export function receiptOf(s: QState): string {
 /** The Bell-state quantum receipt (the canonical one). */
 export function quantumReceipt(): string { return receiptOf(bellState()) }
 
+// ── operational: run an ARBITRARY circuit given as data, and bridge to classical systems ──────────────────────
+// Gate names follow the OpenQASM / Qiskit standard so any classical system that speaks quantum circuits interops
+// seamlessly: h, x, y, z, s, sdg, cx (CNOT), cz, swap, ccx (Toffoli), ccz. Qubits: control(s) first, target last.
+export interface GateOp { gate: 'x' | 'y' | 'z' | 's' | 'sdg' | 'h' | 'cx' | 'cz' | 'swap' | 'ccx' | 'ccz'; qubits: number[] }
+
+const GATES: Record<GateOp['gate'], (s: QState, q: number[]) => QState> = {
+  x: (s, q) => pauliX(s, q[0]), y: (s, q) => pauliY(s, q[0]), z: (s, q) => pauliZ(s, q[0]),
+  s: (s, q) => phaseS(s, q[0]), sdg: (s, q) => phaseSdg(s, q[0]), h: (s, q) => hadamard(s, q[0]),
+  cx: (s, q) => cnot(s, q[0], q[1]), cz: (s, q) => cz(s, q[0], q[1]), swap: (s, q) => swap(s, q[0], q[1]),
+  ccx: (s, q) => toffoli(s, q[0], q[1], q[2]), ccz: (s, q) => ccz(s, q[0], q[1], q[2]),
+}
+
+/** Run an arbitrary circuit (a list of gate ops) on |0…0⟩ of `qubits` — the general, operational entry point. */
+export function runCircuit(qubits: number, ops: readonly GateOp[]): QState {
+  let s = ket0(qubits)
+  for (const op of ops) {
+    const g = GATES[op.gate]
+    if (!g) throw new Error('unknown gate: ' + op.gate)
+    if (op.qubits.some((i) => !Number.isInteger(i) || i < 0 || i >= qubits)) throw new Error('qubit index out of range in ' + op.gate)
+    s = g(s, op.qubits)
+  }
+  return s
+}
+
+// Only H turns a computational-basis state into a superposition; every other gate maps a basis state to a single
+// basis state (X/Y flip, CNOT/SWAP/Toffoli permute, Z/S/S†/CZ/CCZ add a phase but keep the bitstring). So an
+// H-free circuit IS a CLASSICAL REVERSIBLE function on bitstrings — and Toffoli alone is universal for it.
+const superposes = (g: GateOp['gate']): boolean => g === 'h'
+const swapBits = (i: number, a: number, b: number): number => (((i >> a) & 1) === ((i >> b) & 1) ? i : i ^ (1 << a) ^ (1 << b))
+/** The classical action of one gate on a basis index (phase gates leave the bitstring; H has none — excluded upstream). */
+function classicalStep(op: GateOp, i: number): number {
+  const q = op.qubits
+  switch (op.gate) {
+    case 'x': case 'y': return i ^ (1 << q[0])
+    case 'cx': return ((i >> q[0]) & 1) === 1 ? i ^ (1 << q[1]) : i
+    case 'swap': return swapBits(i, q[0], q[1])
+    case 'ccx': return ((i >> q[0]) & 1) === 1 && ((i >> q[1]) & 1) === 1 ? i ^ (1 << q[2]) : i
+    default: return i // z, s, sdg, cz, ccz — a phase on the amplitude, identity on the bitstring
+  }
+}
+
+/** True iff the circuit is H-free — i.e. it computes a deterministic CLASSICAL reversible function, not a superposition. */
+export function isClassical(ops: readonly GateOp[]): boolean { return ops.every((op) => !superposes(op.gate)) }
+
+/** The classical reversible function an H-free circuit computes: a permutation of {0 … 2^qubits−1} (input index →
+ *  output index), a bijection classical systems can use directly. Throws for a circuit with H (no classical map —
+ *  run it as a quantum distribution instead). This is the honest quantum→classical bridge: these gates ARE logic. */
+export function classicalMap(qubits: number, ops: readonly GateOp[]): number[] {
+  if (!isClassical(ops)) throw new Error('circuit contains H (superposition) — no classical function; use runCircuit + distribution')
+  return Array.from({ length: 1 << qubits }, (_, i) => ops.reduce((idx, op) => classicalStep(op, idx), i))
+}
+
+/** The truth table of an H-free circuit as readable bitstrings {in, out} — the classical reversible logic, exposed. */
+export function truthTable(qubits: number, ops: readonly GateOp[]): { in: string; out: string }[] {
+  return classicalMap(qubits, ops).map((out, i) => ({ in: label(i, qubits), out: label(out, qubits) }))
+}
+
 /** The demonstration, computed EXACTLY (integer positions, no decimal drift — the captain's rule): the Bell
  *  correlation, no-signaling, superposition, GHZ, and two Clifford identities checked by exact state equality. */
 export function report(): string {
