@@ -12,7 +12,7 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
-  THEOREMS, runTrial, theorems,
+  THEOREMS, runTrial, theorems, skillGroups,
 } from './index.js'
 import type { Sealed, GateOp, QState } from './index.js'
 
@@ -210,9 +210,13 @@ const TOOLS: Tool[] = [
   // ── the theorems, ONE Lean-sourced ledger: every theorem is authored in lean/*.lean, proven `by decide`, and
   //    verified sorry-free by `npm run lean`. Pull the ledger, read one with its proof, or fold the whole trial. ──
   { name: 'uuidna_theorems',
-    description: 'The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean theorem proven `by decide` (verified sorry-free). Returns each theorem\'s {key,name,statement,tactic,file,principle,lean,address}, in computing-principle order. Read one with uuidna_theorem, or fold them all with uuidna_trial.',
-    inputSchema: { type: 'object', properties: { principle: { type: 'string' }, contains: { type: 'string' } } },
-    run: (a = {}) => { let ts = theorems(); if (a.principle) ts = ts.filter((t) => t.principle.toLowerCase().includes(String(a.principle).toLowerCase())); if (a.contains) { const q = String(a.contains).toLowerCase(); ts = ts.filter((t) => (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q)) } return ts } },
+    description: 'The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean theorem proven `by decide` (verified sorry-free). Returns each theorem\'s {key,name,statement,tactic,file,principle,skill,lean,address}. Filter by `principle` (derivation axis), `skill` (capability axis — see uuidna_skills), or `contains`.',
+    inputSchema: { type: 'object', properties: { principle: { type: 'string' }, skill: { type: 'string', description: 'the capability axis: involution, z9-ring, z7-rosette, clay-reflection, reflection, quantum, crypt-salt, science-pairs, vortex, foundational' }, contains: { type: 'string' } } },
+    run: (a = {}) => { let ts = theorems(a.skill ? { skill: String(a.skill) } : {}); if (a.principle) ts = ts.filter((t) => t.principle.toLowerCase().includes(String(a.principle).toLowerCase())); if (a.contains) { const q = String(a.contains).toLowerCase(); ts = ts.filter((t) => (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q)) } return ts } },
+  { name: 'uuidna_skills',
+    description: 'The theorem ledger organised by SKILL — the capability axis, orthogonal to principle. A skill is derived (recomputable) from each theorem\'s key. Returns each skill with its count and the order-invariant fold of its theorems\' content-addresses. Then pull one skill\'s theorems with uuidna_theorems { skill }.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => skillGroups().map((g) => ({ skill: g.skill, count: g.count, fold: g.fold })) },
   { name: 'uuidna_theorem',
     description: 'Read ONE theorem by key: its detailed `by decide` Lean proof, its formal statement, its principle, source file and content-address, and the verdict (SEALED — its Lean proof compiles sorry-free). Keys from uuidna_theorems.',
     inputSchema: { type: 'object', properties: { key: { type: 'string' } }, required: ['key'] },
