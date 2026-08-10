@@ -1,6 +1,6 @@
 // sha256 — SHA-256 (FIPS 180-4), HMAC-SHA256 (RFC 2104), PBKDF2-HMAC-SHA256 (RFC 8018) in PURE TypeScript.
 // No native WebCrypto, no deps — transparent, auditable, deterministic arithmetic, verified against the
-// standards' official test vectors (KATs) in scripts/discover.ts. Honest caveat: pure JS is NOT constant-time
+// standards' official test vectors (KATs) in test/kat.test.mjs. Honest caveat: pure JS is NOT constant-time
 // (timing side-channels). A standard implemented transparently — not a novel primitive. Integrity, not truth. 0/7.
 
 const K = new Uint32Array([
