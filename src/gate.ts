@@ -8,7 +8,7 @@ export const RED = /\bwe prove\b|\bproven\b|confidence\s*=?\s*1\.0|ready for pee
 // HARD IN ALL 7 — the same "we prove / proven" tripwire, in the seven locales' languages, so a translated
 // overclaim cannot hide from an English-only gate. Targets the ASSERTION forms only, never the honest
 // "proof of concept" nouns present in localized descriptions. Negation-blind, like RED.
-export const RED_INTL = /wir haben bewiesen|bewiesen|nous avons prouv|prouvée?s?|démontrée?s?|hemos demostrado|demostrad[oa]s?|мы доказали|доказан[оаи]|доказали|доказахме|已证明|我们证明了|证明了/i
+export const RED_INTL = /wir haben bewiesen|bewiesen|nous avons prouv|prouvée?s?|démontrée?s?|hemos demostrado|demostrad[oa]s?|мы доказали|доказан[оаи]|доказали|доказахме|已证明|我们证明了|证明了|abbiamo dimostrato|dimostrat[oi]|demonstrámos|provámos|証明した|証明しました|أثبتنا|برهنّا|सिद्ध कर|udowodni\w*|wij hebben bewezen|bewezen/i
 
 const PROBLEM = '(clay|millennium|riemann|hodge|poincar[eé]|navier[- ]?stokes|yang[- ]?mills|birch|swinnerton|p ?vs\\.? ?np|p versus np|p ?= ?np)'
 const CLAIM = '(prov(e|es|ed|en|ing)|proofs? of|solv(e|es|ed|ing))'
