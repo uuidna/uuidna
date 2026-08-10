@@ -107,8 +107,10 @@ test('the honesty gate drains overclaims and signs the honest floor', () => {
   assert.match(trial.receipt, /^[0-9a-f-]{36}$/)
   assert.equal(runTrial().receipt, trial.receipt)                       // deterministic — same ledger, same receipt
   assert.ok(trial.leanBacked >= 8)                                      // the algebraic theorems carry a Lean proof
-  // the tools-and-theorems-and-Lean, one system: every lean-backed theorem's proof lives in lean/Uuidna.lean.
-  const leanSrc = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'lean', 'Uuidna.lean'), 'utf8')
+  // the tools-and-theorems-and-Lean, one system: every lean-backed theorem's proof lives in a lean/*.lean file
+  // (Uuidna.lean hand-written; DivByZero.lean and Sequence.lean generated + verified by npm run lean:*).
+  const leanDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'lean')
+  const leanSrc = readdirSync(leanDir).filter((f) => f.endsWith('.lean')).map((f) => readFileSync(join(leanDir, f), 'utf8')).join('\n')
   for (const v of runTrial().verdicts) if (v.lean) assert.ok(leanSrc.includes('theorem ' + (v.lean.match(/theorem (\w+)/) || [])[1]), 'Lean proof present for ' + v.key)
   assert.equal(verifyUuidna('1011').recomputes, true)                   // the address recomputes from its seed
 })

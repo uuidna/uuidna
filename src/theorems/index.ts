@@ -11,12 +11,13 @@ import { theorem as t_vortex } from './vortex_orbit/index.js'
 import { theorem as t_mod9 } from './mod9_arithmetic/index.js'
 import { theorem as t_diamond } from './diamond_involution/index.js'
 import { theorem as t_digitalroot } from './digital_root/index.js'
+import { theorem as t_divzero } from './division_by_zero/index.js'
 import { COMPUTATIONAL } from './computational/index.js'
 
 export interface Theorem { key: string; formula: string; statement: string; lean: string | null; prove: () => boolean }
 
 // the Lean-backed flagship theorems (each with a verified `by decide` proof) + the computational ledger.
-export const THEOREMS: readonly Theorem[] = [t_units, t_vortex, t_mod9, t_diamond, t_digitalroot, ...COMPUTATIONAL]
+export const THEOREMS: readonly Theorem[] = [t_units, t_vortex, t_mod9, t_diamond, t_digitalroot, t_divzero, ...COMPUTATIONAL]
 
 export interface TheoremVerdict { key: string; statement: string; formula: string; lean: string | null; verdict: VerdictKind; receipt: string; proofRoot: string }
 export interface TrialResult { count: number; sealed: number; refuted: number; unverified: number; leanBacked: number; receipt: string; verdicts: TheoremVerdict[] }

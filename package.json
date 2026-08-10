@@ -54,6 +54,9 @@
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && node --test test/smoke.test.mjs",
     "site": "npm run build && node scripts/build-site.mjs",
+    "lean": "lean lean/Uuidna.lean && npm run lean:divzero && npm run lean:sequence",
+    "lean:divzero": "node scripts/lean-divzero.mjs",
+    "lean:sequence": "node scripts/lean-sequence.mjs",
     "mcp": "node mcp.mjs",
     "prepublishOnly": "npm run build"
   },
