@@ -54,7 +54,7 @@
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && node --test test/smoke.test.mjs",
     "site": "npm run build && node scripts/build-site.mjs",
-    "lean": "lean lean/Uuidna.lean && lean lean/Vortex.lean && lean lean/OneLeap.lean && npm run lean:core && npm run lean:tables && npm run lean:divzero && npm run lean:sequence && npm run lean:biophysics && npm run lean:discover",
+    "lean": "npm run lean:core && npm run lean:tables && lean lean/Uuidna.lean && lean lean/Vortex.lean && npm run lean:sequence && npm run lean:divzero && npm run lean:biophysics && npm run lean:discover && lean lean/OneLeap.lean",
     "lean:divzero": "node scripts/lean-divzero.mjs",
     "lean:sequence": "node scripts/lean-sequence.mjs",
     "mcp": "node mcp.mjs",

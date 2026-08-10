@@ -88,6 +88,22 @@ Honest scope: strength is **ChaCha20-Poly1305 + your passphrase entropy** — me
 (FNV) stays non-cryptographic; secrecy comes from AES, integrity from the fold. Private/RBAC messaging builds
 on this (encrypt to a shared key; a key per role). `0/7`.
 
+## Formal layer — Lean 4, organized by computing principle
+
+**510 theorems**, all proven `by decide` (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`, and
+organized by **computing principle** in derivation order — see [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md):
+
+1. **The 8×8 core** (`Core.lean`, 64) — the multiplication table of ℤ/9's non-zero residues; the generator.
+2. **The ring ℤ/9** (`Ring.lean`, 234) and **the rosette ℤ/7 / Pliska** (`Rosette.lean`, 145) — the full tables.
+3. **Derived, applied, discovered** (vortex algebra, reflection group, division-by-zero, blood/DNA/sound
+   structure, self-discovered facts) and **one leap** that folds the whole vortex into a single proof.
+
+A **theorem computes in Lean, or it is not a theorem** — the recomputation-only capabilities (FNV address,
+gate, crypto) are *tools*, not theorems. Rendered as schema.org microdata at
+[uuidna.com/theorems](https://uuidna.com/theorems), folded to one receipt at
+[uuidna.com/trial](https://uuidna.com/trial), every proof at [uuidna.com/lean](https://uuidna.com/lean); open
+propositions held at [uuidna.com/undecided](https://uuidna.com/undecided). Regenerate + re-verify: `npm run lean`.
+
 ## What it is — and isn't
 
 - **Is:** a content-addressed integrity layer. Same input → same address, reproducible by anyone. A
