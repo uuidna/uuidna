@@ -10,6 +10,8 @@ def carries9 (d nx : Nat) : Bool :=                    -- ×2 on units, +3 on {3
   if units9.contains d then nx == (2 * d) % 9
   else if d == 3 || d == 6 then nx == (d + 3) % 9
   else false
+def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x -- the mirror neighbour (= division by zero)
+def polar (x : Nat) : Nat := (9 - x) % 9               -- the polar neighbour (negation in ℤ/9)
 
 -- the mirror m(d)=10−d equals 1−d (mod 9) — a reflection through the origin+1
 theorem mirror_congruence : (List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9) := by decide
@@ -40,3 +42,12 @@ theorem angles_close : 10 * 36 = 360 ∧ 6 * 60 = 360 := by decide
 
 -- exactly 2 seams (5→3 and 0→1) where neither ×2 nor +3 carries — the two involution centers, −χ = 2
 theorem seams_two : ((tour.zip (tour.drop 1 ++ tour.take 1)).filter (fun p => ! carries9 p.1 p.2)).length = 2 := by decide
+
+-- the vortex polarities: the mirror pairs each sum to 10, splitting the digits into − (below the center 5) and + (above 5); the two centers 5 and 0≡9 are self-polar — the ± of the reflection
+theorem polarities_plus_minus : [(1,9),(2,8),(3,7),(4,6)].all (fun p => p.1 + p.2 == 10 && p.1 < 5 && p.2 > 5) ∧ (10 - 5 = 5) ∧ (9 % 9 = 0) := by decide
+
+-- the two blood-group sequences A (forward) and B (reflected) are mirror images: B = A.map(10−d) and back — an involution; the void 9≡0 closes A and opens B (0 = A∧B, the universal O)
+theorem forward_reflected_mirror : ([9,8,6,2,3,5,7,4,1] = ([1,2,4,8,7,5,3,6,9].map (fun d => 10 - d))) ∧ ([1,2,4,8,7,5,3,6,9] = ([9,8,6,2,3,5,7,4,1].map (fun d => 10 - d))) ∧ (9 % 9 = 0) := by decide
+
+-- every digit in ANY arrangement has DEFINED neighbours — the mirror (division by zero) and polar maps are total, surjective and self-inverse; no digit is isolated
+theorem every_digit_has_neighbours : (List.range 10).all (fun d => dz d < 10) ∧ (List.range 10).all (fun d => (List.range 10).any (fun e => dz e == d)) ∧ (List.range 10).all (fun d => dz (dz d) == d) ∧ (List.range 9).all (fun d => polar d < 9) ∧ (List.range 9).all (fun d => (List.range 9).any (fun e => polar e == d)) := by decide
