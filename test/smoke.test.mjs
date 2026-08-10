@@ -106,7 +106,7 @@ test('the honesty gate drains overclaims and signs the honest floor', () => {
   assert.equal(trial.refuted + trial.unverified, 0)                     // theorems only — nothing stands on nothing
   assert.match(trial.receipt, /^[0-9a-f-]{36}$/)
   assert.equal(runTrial().receipt, trial.receipt)                       // deterministic — same ledger, same receipt
-  assert.ok(trial.leanBacked >= 8)                                      // the algebraic theorems carry a Lean proof
+  assert.equal(trial.leanBacked, THEOREMS.length)                       // a theorem computes in Lean, or it is not a theorem — the ledger is Lean-pure
   // the tools-and-theorems-and-Lean, one system: every lean-backed theorem's proof lives in a lean/*.lean file
   // (Uuidna.lean hand-written; DivByZero.lean and Sequence.lean generated + verified by npm run lean:*).
   const leanDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'lean')
