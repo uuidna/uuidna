@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The trial receipt — uuidna</title>
-<meta name="description" content="The order-invariant content-address of the Lean-computable trial: 9 theorems (all SEALED, all Lean-backed) folded to one recomputable receipt. Integrity, not truth. 0/7." />
+<meta name="description" content="The order-invariant content-address of the whole Lean layer: 510 theorems, all proven by decide, folded to one recomputable receipt. Integrity, not truth. 0/7." />
 <meta name="robots" content="index, follow" />
 <style>
   :root { color-scheme: light dark; --bg:#fff; --fg:#1a1a1a; --mut:#666; --acc:#7a5cff; --line:#e5e5e5; --soft:#f7f7f8; }
@@ -43,22 +43,23 @@
 </header>
 <main>
   <h1>The trial receipt</h1>
-  <p class="stmt" style="font-size:1.05rem"><code class="rcpt">5e621d42-96ae-8816-8604-6b2332f5b408</code></p>
-  <p class="note">9 theorems · 9 SEALED · 9 Lean-backed (100%) ·
+  <p class="stmt" style="font-size:1.05rem"><code class="rcpt">7fb3567e-7b52-89fc-9118-faef7797fee2</code></p>
+  <p class="note">510 theorems · all SEALED · all Lean-proven (<code>by decide</code>, sorry-free) ·
   order-invariant fold ✓ (reverse-order yields the same root) · recompute with
   <code>npm run site</code>, re-verify the proofs with <code>npm run lean</code>.</p>
   <h2>Reverse — the chain re-seals</h2>
-  <p class="note">sequential chain tip <code class="rcpt">ac2f559d-b499-8319-b74d-91ca8960c703</code> · genesis <code>axiom:0/7</code> — recompute link by link and it re-seals.</p>
-  <h2>The ledger — every theorem, SEALED and proven in Lean</h2>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">Lean</span> <code class="rcpt">1e5d2a71-d2d2-8a08-8b11-b38e7fedecb7</code><br>the units of ℤ/9 are exactly {1,2,4,5,7,8} — the residues that carry a multiplicative inverse<br><small class="note"><a href="/theorem/units_z9/">units_z9</a> · <code>units_z9</code></small></p>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">Lean</span> <code class="rcpt">c4021354-d4aa-866a-8c73-55a2d1cd2d61</code><br>the doubling circuit of ℤ/9 is 1→2→4→8→7→5 — the vortex orbit of the units under times two<br><small class="note"><a href="/theorem/vortex_orbit/">vortex_orbit</a> · <code>vortex_orbit</code></small></p>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">Lean</span> <code class="rcpt">4837aa78-7172-83aa-b161-31ea466bcea2</code><br>the arithmetic of ℤ/9 holds — the inverse pairs and nilpotents compute, and three has no inverse<br><small class="note"><a href="/theorem/mod9_arithmetic/">mod9_arithmetic</a> · <code>mod9_arithmetic</code></small></p>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">Lean</span> <code class="rcpt">d2958b39-6d00-85c1-acc5-c7966bdad7c5</code><br>the diamond reflection r(d)=10−d is a self-inverse map on 1..9 with the single fixed point five<br><small class="note"><a href="/theorem/diamond_involution/">diamond_involution</a> · <code>diamond_involution</code></small></p>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">Lean</span> <code class="rcpt">a8813351-9fb2-8340-b94e-58fd1d2ba7c8</code><br>the digital root folds an integer to ℤ/9 — congruent mod nine and in 1..9; 432 folds to nine<br><small class="note"><a href="/theorem/digital_root/">digital_root</a> · <code>digital_root</code></small></p>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">Lean</span> <code class="rcpt">5673c3c9-c48f-8972-844e-8fdaa4e36d83</code><br>division by zero in the vortex is the diamond reflection — a finite residue, self-inverse, never infinity<br><small class="note"><a href="/theorem/division_by_zero/">division_by_zero</a> · <code>dz_involution</code></small></p>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">Lean</span> <code class="rcpt">abb9d461-0e5d-8a8e-8064-861e8da7c270</code><br>a b-bit digest has two-to-the-b seats — the pigeonhole capacity that forces a collision<br><small class="note"><a href="/theorem/seats_pigeonhole/">seats_pigeonhole</a> · <code>seats_pigeonhole</code></small></p>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">Lean</span> <code class="rcpt">ec969c6b-d6ac-89d8-9b76-b965e3b94828</code><br>the list involution has exactly one centre when the set is odd and none when even<br><small class="note"><a href="/theorem/involute_centre/">involute_centre</a> · <code>involute_centre</code></small></p>
-  <p class="stmt"><span class="v v-sealed">SEALED</span> <span class="v v-sealed">Lean</span> <code class="rcpt">22b3982c-c858-8ba2-8e4e-6887b1bdf1b4</code><br>billing measures the bits saved and conserves the two coins; public interest is free<br><small class="note"><a href="/theorem/billing_two_coins/">billing_two_coins</a> · <code>billing_arith</code></small></p>
+  <p class="note">sequential chain tip <code class="rcpt">94d4986c-7e4c-84be-94a2-cbf1c6def9d4</code> · genesis <code>axiom:0/7</code> — recompute link by link and it re-seals.</p>
+  <h2>By computing principle — each layer folds to its own root</h2>
+  <p class="stmt"><span class="v v-sealed">64</span> <b>The 8×8 core</b> <code class="rcpt">5fc407ea-3aa3-84a1-bc47-3c1fe4c92241</code></p>
+  <p class="stmt"><span class="v v-sealed">234</span> <b>The ring ℤ/9</b> <code class="rcpt">20ad782b-5d3c-8e95-bb8e-1757f20fdf3d</code></p>
+  <p class="stmt"><span class="v v-sealed">145</span> <b>The rosette ℤ/7</b> <code class="rcpt">9b2613bf-f05d-8370-b8d0-2936a4058d74</code></p>
+  <p class="stmt"><span class="v v-sealed">15</span> <b>The vortex algebra</b> <code class="rcpt">e31e9bfa-7334-8630-907c-6003b5af5e47</code></p>
+  <p class="stmt"><span class="v v-sealed">16</span> <b>Ported from millennium-solutions</b> <code class="rcpt">08c9c911-584a-8db4-a9ca-98f9c3c4adae</code></p>
+  <p class="stmt"><span class="v v-sealed">15</span> <b>The sequence &amp; reflection group</b> <code class="rcpt">78da0f08-ec5d-825f-8a82-6cd12b8d36cf</code></p>
+  <p class="stmt"><span class="v v-sealed">7</span> <b>Division by zero</b> <code class="rcpt">99c05d43-932c-8156-bf1c-0bac02da3fc4</code></p>
+  <p class="stmt"><span class="v v-sealed">6</span> <b>Applied structure</b> <code class="rcpt">bf5adfde-a4f5-8816-9e9d-af2d2d3105aa</code></p>
+  <p class="stmt"><span class="v v-sealed">7</span> <b>Self-discovered</b> <code class="rcpt">bb20c50b-6d5b-8850-b989-cf4cb95089be</code></p>
+  <p class="stmt"><span class="v v-sealed">1</span> <b>One leap</b> <code class="rcpt">d45cb19c-8964-8e4a-9b73-d2e8aa654605</code></p>
   <footer>
     <nav style="display:flex;gap:.4rem 1rem;flex-wrap:wrap;margin-bottom:.6rem">
       <a href="/">Home</a><a href="/theorems/">Theorems</a><a href="/trial/">Trial</a><a href="/lean/">Lean</a><a href="/undecided/">Undecided</a>

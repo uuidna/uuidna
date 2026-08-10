@@ -54,13 +54,15 @@
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && node --test test/smoke.test.mjs",
     "site": "npm run build && node scripts/build-site.mjs",
-    "lean": "lean lean/Uuidna.lean && lean lean/Vortex.lean && lean lean/OneLeap.lean && npm run lean:divzero && npm run lean:sequence && npm run lean:biophysics && npm run lean:discover",
+    "lean": "lean lean/Uuidna.lean && lean lean/Vortex.lean && lean lean/OneLeap.lean && npm run lean:core && npm run lean:tables && npm run lean:divzero && npm run lean:sequence && npm run lean:biophysics && npm run lean:discover",
     "lean:divzero": "node scripts/lean-divzero.mjs",
     "lean:sequence": "node scripts/lean-sequence.mjs",
     "mcp": "node mcp.mjs",
     "prepublishOnly": "npm run build",
     "lean:biophysics": "node scripts/lean-biophysics.mjs",
-    "lean:discover": "node scripts/lean-discover.mjs"
+    "lean:discover": "node scripts/lean-discover.mjs",
+    "lean:core": "node scripts/lean-core.mjs",
+    "lean:tables": "node scripts/lean-tables.mjs"
   },
   "devDependencies": {
     "typescript": "^5.5.0"

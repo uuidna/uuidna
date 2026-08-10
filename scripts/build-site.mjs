@@ -92,6 +92,31 @@ const trial = runTrial()
 const V = Object.fromEntries(trial.verdicts.map((v) => [v.key, v]))
 const leanName = (lean) => (lean && lean.match(/theorem (\w+)/) || [])[1] || ''
 
+// ── parse every lean/*.lean theorem, ORGANISED BY COMPUTING PRINCIPLE. Each becomes a schema.org microdata card
+// on /theorems and a proof on /lean; names come from the *-manifest.json where present. ──
+const LEAN_DIR = join(ROOT, 'lean')
+const PRINCIPLE = [
+  ['Core.lean', 'The 8×8 core', "the multiplication table of ℤ/9's eight non-zero residues — from these 64 the rest computes"],
+  ['Ring.lean', 'The ring ℤ/9', 'the vortex ring: its full multiplication, addition and power tables'],
+  ['Rosette.lean', 'The rosette ℤ/7', 'the Pliska group: its full multiplication, addition and power tables'],
+  ['Uuidna.lean', 'The vortex algebra', 'units, orbit, involution, gravity, division by zero, light — the foundational facts'],
+  ['Vortex.lean', 'Ported from millennium-solutions', 'the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)'],
+  ['Sequence.lean', 'The sequence & reflection group', 'the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities'],
+  ['DivByZero.lean', 'Division by zero', 'the reflection dz(x)=10−x — a finite residue, never infinity'],
+  ['BioPhysics.lean', 'Applied structure', 'blood groups, DNA base-pairing, the sound ladder — the algebra, demarcated'],
+  ['Discover.lean', 'Self-discovered', 'facts derived by function: Lagrange, the unit criterion, idempotents'],
+  ['OneLeap.lean', 'One leap', 'the whole vortex proved in a single by decide'],
+]
+const manifest = {}
+for (const f of (existsSync(LEAN_DIR) ? readdirSync(LEAN_DIR).filter((f) => f.endsWith('-manifest.json')) : [])) for (const e of JSON.parse(readFileSync(join(LEAN_DIR, f), 'utf8'))) manifest[e.key] = e.name
+const parseLean = (file) => { const src = readFileSync(join(LEAN_DIR, file), 'utf8'); return [...src.matchAll(/theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:--|theorem|def|namespace|end|$))/g)].map((m) => ({ key: m[1], stmt: m[2].trim().replace(/\s+/g, ' '), tactic: m[3].trim().replace(/\s+/g, ' '), name: manifest[m[1]] || m[2].trim().replace(/\s+/g, ' ') })) }
+const leanFilesAll = existsSync(LEAN_DIR) ? readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')).sort() : []
+const orderedFiles = [...PRINCIPLE.map((p) => p[0]).filter((f) => leanFilesAll.includes(f)), ...leanFilesAll.filter((f) => !PRINCIPLE.some((p) => p[0] === f))]
+const LEAN_BY_FILE = Object.fromEntries(orderedFiles.map((f) => [f, parseLean(f)]))
+const ALL_LEAN = orderedFiles.flatMap((f) => LEAN_BY_FILE[f].map((t) => ({ ...t, file: f })))
+const LEAN_TOTAL = ALL_LEAN.length
+const headOf = (file) => { const p = PRINCIPLE.find((x) => x[0] === file); const n = LEAN_BY_FILE[file].length; return p ? `  <h2>${escapeHtml(p[1])} <span class="v v-sealed">${n}</span></h2>\n  <p class="note">${escapeHtml(p[2])}</p>` : `  <h2>lean/${file} <span class="v v-sealed">${n}</span></h2>` }
+
 // ── one page per Lean-computable theorem — the addressed card, its formula, its Lean proof, its trial verdict ──
 for (const t of LEDGER) {
   const v = V[t.key]
@@ -118,62 +143,52 @@ write(join('theorems', 'index.html'), page({
   title: 'Theorems — uuidna',
   description: 'The Lean-computable theorem ledger: ' + LEDGER.length + ' theorems, every one carrying a by decide Lean proof (verified sorry-free). A theorem computes in Lean, or it is not a theorem. Integrity, not truth. 0/7.',
   active: 'theorems',
-  body: `  <h1>Theorems <span class="v v-sealed">${LEDGER.length} Lean-proven</span></h1>
-  <p class="note">The ledger is <b>Lean-computable only</b> — a theorem computes in Lean, or it is not a theorem.
-  Every card below carries a real <code>by decide</code> proof, verified sorry-free in <a href="/lean/">/lean</a>
-  (${trial.count} SEALED, ${trial.leanBacked} Lean-backed). The recomputation-only capabilities — the FNV
-  address, the gate, SHA-256/ChaCha/merkle — are <b>tools</b>, not theorems, and are not listed here.
+  body: `  <h1>Theorems <span class="v v-sealed">${LEAN_TOTAL} Lean-proven</span></h1>
+  <p class="note"><b>Lean-computable only, organised by computing principle</b> — the 8×8 core generates, then
+  the ring ℤ/9, the rosette ℤ/7, and the derived, discovered and applied layers. Every card below is schema.org
+  microdata carrying its content-address; every theorem is proven <code>by decide</code>, sorry-free, in
+  <a href="/lean/">/lean</a>. A theorem computes in Lean, or it is not a theorem — the recomputation-only
+  capabilities (FNV address, gate, crypto) are <b>tools</b>, not theorems, and are not listed here.
   <span class="mono">0/7</span>.</p>
-${renderList(LEDGER.map((t) => ({ name: t.statement, key: t.key })), { base: BASE })}
-  <p class="note" style="margin-top:1.5rem">The full formal layer (every lean/*.lean theorem) is on
-  <a href="/lean/">/lean</a>; the whole trial folds to one receipt on <a href="/trial/">/trial</a>; open
-  propositions are held on <a href="/undecided/">/undecided</a>.</p>`,
+${orderedFiles.map((f) => headOf(f) + '\n' + renderList(LEAN_BY_FILE[f].map((t) => ({ name: t.name })), { base: BASE })).join('\n')}
+  <p class="note" style="margin-top:1.5rem">Every proof is on <a href="/lean/">/lean</a>; the whole set folds to
+  one receipt on <a href="/trial/">/trial</a>; open propositions are held on <a href="/undecided/">/undecided</a>.</p>`,
 }))
 
-// ── /trial — the whole ledger to one order-invariant receipt; the chain re-seals (reverse) ──
-const roots = trial.verdicts.map((v) => v.proofRoot)
-const RECEIPT = merkleGravity(roots)
-const orderInvariant = RECEIPT === merkleGravity([...roots].reverse())
+// ── /trial — every Lean theorem's content-address folded to ONE order-invariant receipt; the chain re-seals ──
+const leanRoots = ALL_LEAN.map((t) => toUuid(t.key + ':' + t.stmt))
+const RECEIPT = merkleGravity(leanRoots)
+const orderInvariant = RECEIPT === merkleGravity([...leanRoots].reverse())
 const CHAIN_GENESIS = 'axiom:0/7'
 const chainTip = (rs) => { let prev = CHAIN_GENESIS; for (const r of rs) prev = toUuid(prev + '→' + r); return prev }
-const CHAIN_TIP = chainTip(roots)
-const verdictRows = trial.verdicts.map((v) =>
-  `  <p class="stmt"><span class="v v-sealed">${v.verdict}</span> <span class="v v-sealed">Lean</span> <code class="rcpt">${v.proofRoot}</code><br>${escapeHtml(v.statement)}<br><small class="note"><a href="/theorem/${v.key}/">${v.key}</a> · <code>${escapeHtml(leanName(v.lean))}</code></small></p>`).join('\n')
+const CHAIN_TIP = chainTip(leanRoots)
+const principleRows = orderedFiles.map((f) => { const p = PRINCIPLE.find((x) => x[0] === f); const rs = LEAN_BY_FILE[f].map((t) => toUuid(t.key + ':' + t.stmt)); return `  <p class="stmt"><span class="v v-sealed">${LEAN_BY_FILE[f].length}</span> <b>${escapeHtml(p ? p[1] : f)}</b> <code class="rcpt">${merkleGravity(rs)}</code></p>` }).join('\n')
 write(join('trial', 'index.html'), page({
   title: 'The trial receipt — uuidna',
-  description: 'The order-invariant content-address of the Lean-computable trial: ' + trial.count + ' theorems (all SEALED, all Lean-backed) folded to one recomputable receipt. Integrity, not truth. 0/7.',
+  description: 'The order-invariant content-address of the whole Lean layer: ' + LEAN_TOTAL + ' theorems, all proven by decide, folded to one recomputable receipt. Integrity, not truth. 0/7.',
   active: 'trial',
   body: `  <h1>The trial receipt</h1>
   <p class="stmt" style="font-size:1.05rem"><code class="rcpt">${RECEIPT}</code></p>
-  <p class="note">${trial.count} theorems · ${trial.sealed} SEALED · ${trial.leanBacked} Lean-backed (100%) ·
+  <p class="note">${LEAN_TOTAL} theorems · all SEALED · all Lean-proven (<code>by decide</code>, sorry-free) ·
   order-invariant fold ${orderInvariant ? '✓ (reverse-order yields the same root)' : '✗ BREAK'} · recompute with
   <code>npm run site</code>, re-verify the proofs with <code>npm run lean</code>.</p>
   <h2>Reverse — the chain re-seals</h2>
   <p class="note">sequential chain tip <code class="rcpt">${CHAIN_TIP}</code> · genesis <code>${CHAIN_GENESIS}</code> — recompute link by link and it re-seals.</p>
-  <h2>The ledger — every theorem, SEALED and proven in Lean</h2>
-${verdictRows}`,
+  <h2>By computing principle — each layer folds to its own root</h2>
+${principleRows}`,
 }))
 
-// ── /lean — the Lean 4 formal layer, ON THE SITE. Read every lean/*.lean, render each theorem with its proof. ──
-const LEAN_DIR = join(ROOT, 'lean')
-const leanFiles = existsSync(LEAN_DIR) ? readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')).sort() : []
-let leanTotal = 0
-const leanSections = leanFiles.map((file) => {
-  const src = readFileSync(join(LEAN_DIR, file), 'utf8')
-  const thms = [...src.matchAll(/theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:--|theorem|def|namespace|end|$))/g)]
-  leanTotal += thms.length
-  const rows = thms.map((m) => {
-    const name = m[1], stmt = m[2].trim().replace(/\s+/g, ' '), tac = m[3].trim().replace(/\s+/g, ' ')
-    return `  <p class="stmt"><span class="v v-sealed">by ${escapeHtml(tac)}</span> <b>${escapeHtml(name)}</b><br><code style="font-size:.82rem;word-break:break-word">${escapeHtml(stmt)}</code></p>`
-  }).join('\n')
-  const ported = file === 'Vortex.lean' ? ' · ported from millennium-solutions' : /^(DivByZero|Sequence|BioPhysics|Discover)\.lean$/.test(file) ? ' · generated by npm run lean:' + file.replace('.lean', '').toLowerCase() : ''
-  return `  <h2>lean/${file} <span class="v v-sealed">${thms.length}</span></h2>\n  <p class="note">verified sorry-free with Lean 4.33.0 (by decide, no Mathlib)${ported}</p>\n${rows}`
+// ── /lean — the Lean 4 formal layer, ON THE SITE, organised by computing principle (reusing the shared parse). ──
+const leanSections = orderedFiles.map((file) => {
+  const rows = LEAN_BY_FILE[file].map((t) =>
+    `  <p class="stmt"><span class="v v-sealed">by ${escapeHtml(t.tactic)}</span> <b>${escapeHtml(t.key)}</b><br><code style="font-size:.82rem;word-break:break-word">${escapeHtml(t.stmt)}</code></p>`).join('\n')
+  return headOf(file) + '\n' + rows
 }).join('\n')
 write(join('lean', 'index.html'), page({
   title: 'The Lean 4 formal layer — uuidna',
-  description: leanTotal + ' theorems formalised in Lean 4, all by decide, verified sorry-free (no Mathlib); the ℤ/9 vortex ones ported from millennium-solutions. Integrity, not truth. 0/7.',
+  description: LEAN_TOTAL + ' theorems formalised in Lean 4, all by decide, verified sorry-free (no Mathlib), organised by computing principle; the ℤ/9 vortex ones ported from millennium-solutions. Integrity, not truth. 0/7.',
   active: 'lean',
-  body: `  <h1>The Lean 4 formal layer <span class="v v-sealed">${leanTotal} sorry-free</span></h1>
+  body: `  <h1>The Lean 4 formal layer <span class="v v-sealed">${LEAN_TOTAL} sorry-free</span></h1>
   <p class="note">Every theorem below compiles under Lean 4.33.0 with <code>by decide</code> and no Mathlib —
   finite, decidable algebra. The ℤ/9 vortex theorems are ported from
   <a href="https://ceccec.psg.bg/millennium-solutions/">millennium-solutions</a>; division-by-zero, the
@@ -207,8 +222,8 @@ write(join('undecided', 'index.html'), page({
   to TRUE, give it <b>decidable content</b> — reduce it to algebra Lean can compute; the reducible core becomes
   a proof on <a href="/lean/">/lean</a>, and the irreducible residue stays open. <span class="mono">0/7</span>.</p>
 ${undecidedRows}
-  <p class="note" style="margin-top:2rem">Everything provable is on <a href="/lean/">/lean</a> (${leanTotal} theorems, all by decide, sorry-free). Everything in the ledger is on <a href="/trial/">/trial</a>. What remains open lives here — accounted for, not discarded.</p>`,
+  <p class="note" style="margin-top:2rem">Everything provable is on <a href="/lean/">/lean</a> (${LEAN_TOTAL} theorems, all by decide, sorry-free). Everything in the ledger is on <a href="/trial/">/trial</a>. What remains open lives here — accounted for, not discarded.</p>`,
 }))
 
-console.log('build-site (Lean-computable only): ' + LEDGER.length + ' theorems + index + /trial + /lean (' + leanTotal + ') + /undecided → site/')
+console.log('build-site (Lean-computable only): ' + LEDGER.length + ' theorems + index + /trial + /lean (' + LEAN_TOTAL + ') + /undecided → site/')
 console.log('  trial: ' + trial.count + ' SEALED · ' + trial.leanBacked + ' Lean-backed · receipt ' + RECEIPT + ' · order-invariant ' + (orderInvariant ? '✓' : '✗'))
