@@ -235,8 +235,18 @@ const DISCOVERIES = {
   ],
 }
 // adjudicate every discovery ONCE, storing its row HTML per Clay key (shown on the Clay page and the trial).
+// Then INVERT: proveVerdict folds the discovery's FORMULAS (their proof-of-verdict roots) to ONE proof root;
+// reversing the order of the formulas yields the SAME root (merkleGravity is order-invariant). The formulas are
+// the proof, not their order — that inversion-invariance is itself sealed as a theorem, per problem.
+const clayProblem = Object.fromEntries(CLAY.map((c) => [c.key, c.problem]))
 const discHtml = {}
-for (const [k, arr] of Object.entries(DISCOVERIES)) discHtml[k] = arr.map(([name, test]) => trialRow(name, test))
+for (const [k, arr] of Object.entries(DISCOVERIES)) {
+  const before = TRIAL.length
+  discHtml[k] = arr.map(([name, test]) => trialRow(name, test))
+  const formulas = TRIAL.slice(before).map((t) => t.proofRoot) // the decidable formulas of this discovery
+  const invName = 'inverting the order of the formulas of the ' + clayProblem[k] + ' discovery yields the same proof-of-verdict root — the formulas are the proof, not their order'
+  discHtml[k].push(trialRow(invName, () => formulas.length > 0 && proveVerdict(invName, formulas).proofRoot === proveVerdict(invName, [...formulas].reverse()).proofRoot))
+}
 
 // DISCIPLINE — SEALED ≠ true (separate from the per-problem discoveries), adjudicated once.
 const disciplineHtml = [
