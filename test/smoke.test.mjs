@@ -13,6 +13,7 @@ import {
   renderTheorem, renderList, renderHero,
   merkleGravity, doubleTorusGravity, diamond, DIAMOND_FIXED, involute, involutionFixed,
   adjudicate, proveVerdict, verifyUuidna,
+  THEOREMS, runTrial,
 } from '../dist/index.js'
 
 // The seven dimension streams (0..7 above the floor) — one plaintext per dimension, used to cover the 7d ("777")
@@ -98,6 +99,17 @@ test('the honesty gate drains overclaims and signs the honest floor', () => {
   assert.equal(pv.verdict, 'REFUTED')
   assert.match(pv.proofRoot, /^[0-9a-f-]{36}$/)                          // the proof-of-verdict receipt
   assert.equal(proveVerdict('we prove all seven', f).proofRoot, proveVerdict('we prove all seven', [...f].reverse()).proofRoot) // order-invariant
+  // the tools and the theorems are ONE system: the whole ledger runs through the trial and every theorem SEALS,
+  // to a single deterministic receipt (the MCP uuidna_trial / uuidna_theorems expose exactly this).
+  const trial = runTrial()
+  assert.equal(trial.sealed, THEOREMS.length)                           // every capability-theorem holds
+  assert.equal(trial.refuted + trial.unverified, 0)                     // theorems only — nothing stands on nothing
+  assert.match(trial.receipt, /^[0-9a-f-]{36}$/)
+  assert.equal(runTrial().receipt, trial.receipt)                       // deterministic — same ledger, same receipt
+  assert.ok(trial.leanBacked >= 8)                                      // the algebraic theorems carry a Lean proof
+  // the tools-and-theorems-and-Lean, one system: every lean-backed theorem's proof lives in lean/Uuidna.lean.
+  const leanSrc = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'lean', 'Uuidna.lean'), 'utf8')
+  for (const v of runTrial().verdicts) if (v.lean) assert.ok(leanSrc.includes('theorem ' + (v.lean.match(/theorem (\w+)/) || [])[1]), 'Lean proof present for ' + v.key)
   assert.equal(verifyUuidna('1011').recomputes, true)                   // the address recomputes from its seed
 })
 

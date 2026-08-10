@@ -46,3 +46,8 @@ export { renderTheorem, renderList, renderHero, type TheoremView, type RenderOpt
 export { encrypt, decrypt, verifyEnvelope, ITER, type Sealed } from './crypt.js'
 export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
 export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './chacha.js'
+
+// the theorem ledger — the tools, the theorems, and their Lean 4 proofs, one system. THEOREMS is every
+// capability as a decidable, falsifiable, self-proving theorem (algebraic ones carry a verified `by decide`
+// Lean proof); runTrial() adjudicates them all and folds to one receipt; theorems() lists them with formula+lean.
+export { THEOREMS, runTrial, theorems, type Theorem, type TheoremVerdict, type TrialResult } from './theorems/index.js'

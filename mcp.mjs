@@ -11,9 +11,10 @@ import {
   units, vortexOrbit, diamond, involute, involutionFixed, seats,
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
+  THEOREMS, runTrial, theorems,
 } from './dist/index.js'
 
-const VERSION = '6.5.0'
+const VERSION = '6.6.0'
 
 // byte codecs — the low-level crypto primitives are Uint8Array in/out; MCP is JSON, so keys/nonces/tags/ciphertext
 // cross the wire as hex and human text crosses as UTF-8. (toUuid/merkleFold use non-cryptographic FNV; sha256 here
@@ -171,6 +172,20 @@ const TOOLS = [
     description: 'Render many statements as a grid of framework-free, CSP-safe cards — each by reference (its content-address), schema.org microdata, shadcn anatomy, linked to its proof page. Pure HTML+CSS, no script.',
     inputSchema: { type: 'object', properties: { names: { type: 'array', items: { type: 'string' } }, base: { type: 'string', description: 'site base for proof links' } }, required: ['names'] },
     run: (a) => renderList(a.names.map((n) => ({ name: String(n) })), a.base ? { base: String(a.base) } : {}) },
+  // ── the tools and the theorems, ONE system: every capability above is a decidable, falsifiable theorem in the
+  //    ledger. Pull the ledger, re-seal one, or run the whole trial to a single recomputable receipt. 0/7. ──
+  { name: 'uuidna_theorems',
+    description: 'The theorem ledger: every capability the tools expose is a decidable, falsifiable theorem. Returns each theorem\'s {key,name}. Re-seal any of them with uuidna_theorem, or run them all with uuidna_trial.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => theorems() },
+  { name: 'uuidna_theorem',
+    description: 'Re-seal ONE theorem by key: adjudicate it WITH its own decidable test and return {key,statement,verdict,receipt,proofRoot}. SEALED = gate-clean AND the test holds; a test that cannot fail is refused by construction. Keys from uuidna_theorems.',
+    inputSchema: { type: 'object', properties: { key: { type: 'string' } }, required: ['key'] },
+    run: ({ key }) => { const t = THEOREMS.find((x) => x.key === String(key)); if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)'); const v = adjudicate(t.statement, t.prove); const pv = proveVerdict(t.statement, [v.receipt]); return { key: t.key, statement: t.statement, formula: t.formula, lean: t.lean, verdict: v.verdict, receipt: v.receipt, proofRoot: pv.proofRoot, note: v.note } } },
+  { name: 'uuidna_trial',
+    description: 'Run the whole theorem ledger through the trial: adjudicate each theorem WITH its decidable test and fold every proof-of-verdict root through the order-invariant gravity to ONE receipt. Returns {count,sealed,refuted,unverified,receipt,verdicts}. Recomputable by anyone — same ledger, same receipt.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => runTrial() },
 ]
 
 const send = (msg) => process.stdout.write(JSON.stringify(msg) + '\n')
