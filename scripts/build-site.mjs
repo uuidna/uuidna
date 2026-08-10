@@ -112,10 +112,12 @@ const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&l
 // ── the trial: every statement adjudicated (with its real test when it has one), rendered WITH its verdict and
 // its proof-of-verdict root. Nothing dodged, nothing skipped — REFUTED and UNVERIFIED ship too, labelled. ──
 const counts = { SEALED: 0, REFUTED: 0, UNVERIFIED: 0 }
+const TRIAL = [] // every adjudicated verdict this run — folded to ONE order-invariant trial receipt at the end.
 function trialRow(statement, test) {
   const v = adjudicate(statement, test)
   const pv = proveVerdict(statement, [v.receipt])
   counts[v.verdict]++
+  TRIAL.push({ statement, verdict: v.verdict, receipt: v.receipt, proofRoot: pv.proofRoot })
   return `  <p class="stmt"><span class="v v-${v.verdict.toLowerCase()}">${v.verdict}</span> <code class="rcpt">${v.receipt}</code><br>`
     + `${escapeHtml(statement)}<br><small class="note">${escapeHtml(v.note)} · proof-root <code class="rcpt">${pv.proofRoot}</code></small></p>`
 }
@@ -197,5 +199,26 @@ ${trialRow('of the seven Clay Millennium problems, the number this deposit can c
 ${clayList}`,
 }))
 
-console.log('build-site: ' + THEOREMS.length + ' capability + ' + CLAY.length + ' Clay page(s) + index → site/theorem/<key>/ · site/theorems/')
-console.log('  all to trial: ' + counts.SEALED + ' SEALED · ' + counts.REFUTED + ' REFUTED · ' + counts.UNVERIFIED + ' UNVERIFIED (each shown with its verdict + proof-root)')
+// ── THE TRIAL RECEIPT — fold every proof-of-verdict root through merkleGravity to ONE address. It is
+// ORDER-INVARIANT (the quantum receipt): any observer ordering of the verdicts yields the same trial root,
+// so the whole trial is content-addressed by one recomputable value. Persisted as a referrer-able page. ──
+const roots = TRIAL.map((t) => t.proofRoot)
+const TRIAL_RECEIPT = merkleGravity(roots)
+const orderInvariant = TRIAL_RECEIPT === merkleGravity([...roots].reverse())
+const tally = counts.SEALED + ' SEALED · ' + counts.REFUTED + ' REFUTED · ' + counts.UNVERIFIED + ' UNVERIFIED'
+const ledger = TRIAL.map((t) =>
+  `  <p class="stmt"><span class="v v-${t.verdict.toLowerCase()}">${t.verdict}</span> <code class="rcpt">${t.proofRoot}</code><br>${escapeHtml(t.statement)}</p>`).join('\n')
+write(join('trial', 'index.html'), page({
+  title: 'The trial receipt — uuidna',
+  description: 'The order-invariant content-address of the whole trial: ' + TRIAL.length + ' verdicts (' + tally + ') folded to one recomputable root. Integrity, not truth. 0/7.',
+  body: `  <div class="nav"><a href="/">← uuidna</a> · <a href="/theorems/">all theorems</a></div>
+  <h1>The trial receipt</h1>
+  <p class="stmt" style="font-size:1.05rem"><code class="rcpt">${TRIAL_RECEIPT}</code></p>
+  <p class="note">${TRIAL.length} verdicts · ${escapeHtml(tally)} · order-invariant fold ${orderInvariant ? '✓ (reverse-order yields the same root)' : '✗ BREAK'} · merkleGravity over every proof-of-verdict root · recompute with <code>npm run site</code></p>
+  <h2>The trial ledger — every verdict, by its proof-of-verdict root</h2>
+${ledger}`,
+}))
+
+console.log('build-site: ' + THEOREMS.length + ' capability + ' + CLAY.length + ' Clay page(s) + index + /trial → site/')
+console.log('  all to trial: ' + tally + ' (' + TRIAL.length + ' verdicts, each with its proof-of-verdict root)')
+console.log('  TRIAL RECEIPT: ' + TRIAL_RECEIPT + '  · order-invariant ' + (orderInvariant ? '✓' : '✗ BREAK'))
