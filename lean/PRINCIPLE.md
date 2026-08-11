@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **588 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **594 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -47,7 +47,10 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 14. **The detectors, proven** — `lean/Audit.lean` · **6** theorems
    the provenance gate as decidable logic — flag(h,d,b)=h·(1−d)·(1−b): hollow prose is flagged only when neither demarcated nor backed by a sealed theorem, a demarcation clears it, a backing clears it, and of the eight states exactly one fires — the honesty detector, itself a theorem set
 
-15. **One leap** — `lean/OneLeap.lean` · **1** theorems
+15. **The two coins & the 64** — `lean/Coins.lean` · **6** theorems
+   the honest billing/measure algebra — the two coins are the conserved fair-exchange invariant (110−108 = 2 = −χ of the double torus, genus 2), 64 = 2⁶ is the bit measure, contribute 2 to save up to 64 (leverage 32), n qubits give 2ⁿ direct outcomes reaching 64 at n=6, and the measured saving never goes negative — a measured unit of work saved, not a price and not a claim of speed
+
+16. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---
