@@ -7,7 +7,7 @@ theorem abo_klein_four : (List.range 4).all (fun a => (List.range 4).all (fun b 
 theorem blood_types_eight : (2:Nat)^3 = 8 := by decide
 
 -- DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs
-theorem dna_complement_involution : (List.range 4).all (fun b => ((b ^^^ 1) ^^^ 1 == b) && (b ^^^ 1 != b)) := by decide
+theorem dna_base_pairing_involution : (List.range 4).all (fun b => ((b ^^^ 1) ^^^ 1 == b) && (b ^^^ 1 != b)) := by decide
 
 -- a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons
 theorem codons_sixty_four : (4:Nat)^3 = 64 := by decide

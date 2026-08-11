@@ -21,9 +21,12 @@ const FACTS = [
     lean: 'theorem blood_types_eight : (2:Nat)^3 = 8 := by decide' },
   // ── biology: DNA base-pairing is a fixed-point-FREE involution on 4 bases (A↔T, G↔C), i.e. b ↦ b XOR 1 —
   //    two complementary pairs, self-inverse; codons are 4³ = 64. ──
-  { key: 'dna_complement_involution', why: 'DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs',
+  // Distinct key from the Cipher domain's `dna_complement_involution` (the arithmetic comp(x)=3−x): this is the
+  // biophysics XOR statement of the same biology, b↦b⊕1 — a different construction, so a different theorem and
+  // its own content-address. Two theorems must never share a key (the key IS the /theorem/ route).
+  { key: 'dna_base_pairing_involution', why: 'DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs',
     js: () => [0, 1, 2, 3].every((b) => xor(xor(b, 1), 1) === b && xor(b, 1) !== b),
-    lean: 'theorem dna_complement_involution : (List.range 4).all (fun b => ((b ^^^ 1) ^^^ 1 == b) && (b ^^^ 1 != b)) := by decide' },
+    lean: 'theorem dna_base_pairing_involution : (List.range 4).all (fun b => ((b ^^^ 1) ^^^ 1 == b) && (b ^^^ 1 != b)) := by decide' },
   { key: 'codons_sixty_four', why: 'a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons',
     js: () => 4 ** 3 === 64,
     lean: 'theorem codons_sixty_four : (4:Nat)^3 = 64 := by decide' },

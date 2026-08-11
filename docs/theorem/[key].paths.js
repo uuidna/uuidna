@@ -25,6 +25,18 @@ const bySkill = Object.fromEntries([...new Set(ALL.map((t) => t.skill))].map((s)
 const byPrin = Object.fromEntries([...new Set(ALL.map((t) => t.principle))].map((p) => [p, axis(ALL.filter((t) => t.principle === p))]))
 const bySeq = axis(ALL)
 
+// --- The rotation: CYCLIC axes over the ledger index, wrapping — modular, hence TOTAL (no gap, no orphan across the
+// sealed theorems). N = 721 = 7 × 103, so the strides land exactly: stride 1 (discovery) and stride 9 (ℤ/9 vortex)
+// are each coprime to N → ONE cycle of all N (stepping forward covers everything, exactly as the sequence discovered
+// all); stride 7 (ℤ/7 rosette) shares the factor 7 → SEVEN strands of 103. Reflection is the dz(x)=10−x involution:
+// mirror through the centre, self-inverse. Each rotation is backed by the sealed theorem that proves its group closes.
+// These fill the frontier gaps the linear skill/principle axes leave; the frontiers themselves are the invisible next.
+const N = ALL.length
+const pos = new Map(ALL.map((t, i) => [t.key, i]))
+const at = (i) => ALL[((i % N) + N) % N]
+const rot = (stride) => (t) => at(pos.get(t.key) + stride)
+const reflectOf = (t) => at(N - 1 - pos.get(t.key))
+
 const link = (t) => (t ? `[${t.name}](/theorem/${t.key})` : '—')
 const compass = (label, target, [prev, next]) =>
   `- **${label} · ${target}:** ${prev ? '← ' + link(prev) : '—'} · ${next ? link(next) + ' →' : '—'}`
@@ -41,8 +53,23 @@ const GEN = {
   'Navigation.lean': 'lean-navigation.ts',
 }
 
-// "Next possible solutions" for a SEALED theorem are the frontier it opens: the forward neighbours (real sealed
-// theorems), and the concrete place the NEXT theorem is delivered — in code, not coin. No fabricated promises.
+// The ROTATION — seven axes weave every theorem to its neighbours; three are cyclic rotations over the ledger,
+// modular and total, so they fill the gaps the linear axes leave. Each is backed by a sealed theorem it links.
+const rotation = (t) => `## The rotation — fills the gaps at scale
+
+Every theorem is woven on **seven axes**: three navigational (skill · principle · sequence), three **cyclic
+rotations** over the ledger, and the runtime referer above. The rotations are modular, so they are *total* — no
+gap, no orphan across the ${N} sealed theorems (${N} = 7 × 103; [\`vortex_one_leap\`](/theorem/vortex_one_leap) is
+the one leap that generates the turn):
+
+- **Discovery · sequence → ${link(rot(1)(t))}** — stepping **next** covers all ${N}, exactly as the sequence discovered all, then wraps to the genesis: a closed cover.
+- **Vortex · ℤ/9, step 9 → ${link(rot(9)(t))}** — coprime to ${N}, so this too is one full turn of all ${N} ([\`z9add_0_0\`](/theorem/z9add_0_0)).
+- **Rosette · ℤ/7, step 7 → ${link(rot(7)(t))}** — one of the **seven** strands of 103 ([\`z7add_0_0\`](/theorem/z7add_0_0)).
+- **Reflection · dz(x)=10−x → ${link(reflectOf(t))}** — the mirror through the centre, self-inverse ([\`tens_complement_involutive\`](/theorem/tens_complement_involutive)).`
+
+// "Next possible solutions" for a SEALED theorem are the frontier it opens. Where the forward link is INVISIBLE —
+// a frontier with none sealed beyond — is exactly where the next, missing theorem hides, until it is delivered in
+// code (compute → generate → verify), not coin. No fabricated promises: an absent link marks an absent theorem.
 const developNext = (t) => {
   const [, nextSkill] = bySkill[t.skill](t)
   const [, nextPrin] = byPrin[t.principle](t)
@@ -50,15 +77,16 @@ const developNext = (t) => {
   const where = GEN[t.file]
     ? `a fact in [scripts/${GEN[t.file]}](${SCRIPTS}${GEN[t.file]}) — compute → generate → verify`
     : `a theorem in [lean/${t.file}](${GH}${t.file}) (hand-authored, verified by \`lean\`)`
-  return `## Deliver the next
+  const invisible = (what) => `**invisible next** — the missing ${what} theorem hides here`
+  return `## Deliver the next — the missing theorem hides in the invisible next
 
-A sealed theorem is settled — its "next possible solutions" are the frontier it opens. Forward from here:
+A sealed theorem is settled. Where its forward link is **invisible** — a frontier with none sealed beyond — is exactly where the next, missing theorem hides, waiting to be discovered and sealed:
 
-- **Skill · ${t.skill}:** ${nextSkill ? link(nextSkill) + ' →' : 'frontier — none sealed beyond this yet'}
-- **Principle · ${t.principle}:** ${nextPrin ? link(nextPrin) + ' →' : 'frontier — none sealed beyond this yet'}
-- **Sequence:** ${nextSeq ? link(nextSeq) + ' →' : 'frontier — the ledger tip'}
+- **Skill · ${t.skill}:** ${nextSkill ? link(nextSkill) + ' →' : invisible(t.skill)}
+- **Principle · ${t.principle}:** ${nextPrin ? link(nextPrin) + ' →' : invisible(t.principle)}
+- **Discovery:** ${nextSeq ? link(nextSeq) + ' →' : invisible('newest — the ledger tip, where the next to be discovered')}
 
-To deliver the **next** theorem in _${t.principle}_, add ${where}; then \`npm run lean\` seals it, folds it into the trial receipt, and the provenance gate lets any claim that links it pass. The promise is delivered in code, not coin.`
+To make the invisible next visible, add ${where}; then \`npm run lean\` seals it, folds it into the trial receipt, and the provenance gate lets any claim that links it pass. The promise is delivered in code, not coin.`
 }
 
 export default {
@@ -107,6 +135,8 @@ Woven to its neighbours in every direction — each axis, backward and forward:
 ${compass('Skill', t.skill, bySkill[t.skill](t))}
 ${compass('Principle', t.principle, byPrin[t.principle](t))}
 ${compass('Sequence', 'ledger order', bySeq(t))}
+
+${rotation(t)}
 
 ${developNext(t)}
 
