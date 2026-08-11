@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "uuidna"
   text: "64-bit Quantum Analog"
-  tagline: A human quantum analog — simulated on 64-bit hardware in precise theorem sets, honest by construction. Public and free for the public interest (CC BY-NC 4.0), usable in code and at uuidna.com.
+  tagline: A human quantum analog — simulated on 64-bit hardware in precise theorem sets, tuned to 432 Hz, honest by construction. Public and free for the public interest (CC BY-NC 4.0), usable in code and at uuidna.com.
   actions:
     - theme: brand
       text: Browse the theorems

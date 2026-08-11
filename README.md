@@ -2,7 +2,7 @@
 
 **uuidna = uuid ⊕ dna** — identity's DNA. **Content-addressed identity, honest by construction.**
 
-> A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, honest by construction. Public and **free for the public interest** (CC BY-NC 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
+> A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
 Every value carries its DNA: a reproducible, keyless content-address. The brand holds itself to the same rule —
 its own name's DNA is `uuidna_address("uuidna") = fc511532-6e8a-8418-a522-a51b1d46a70c`, reproducible by anyone.
