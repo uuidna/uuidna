@@ -74,6 +74,22 @@ const FACTS = [
     why: 'The SAME recurrence fused to the rosette modulus (mod 7): 16 single digits close into a 16-cycle — the Pisano period π(7)=16. One sequence, read through pentagram (5), rosette (7) and single digit (9).',
     js: () => fibCycleJS(7, F7, 16),
     lean: `theorem fib_rosette_cycle_16 : fibCycle 7 ${lst(F7)} 16 = true := by decide` },
+
+  // ── "777" as three sevens, and how 3×7 fuses the trinity to the rosette — rotation and DNA in one count. ──
+  { key: 'three_sevens_twentyone',
+    why: 'The "777" is three sevens — 7+7+7 = 21 = 3·7. Not 777 of anything: the trinity (3) times the rosette (7), the same 21 as a sum and as a product. A mnemonic that computes.',
+    js: () => 7 + 7 + 7 === 21 && 3 * 7 === 21,
+    lean: 'theorem three_sevens_twentyone : 7 + 7 + 7 = 21 ∧ 3 * 7 = 21 := by decide' },
+
+  { key: 'trinity_rosette_coprime',
+    why: 'The trinity (3) and the rosette (7) are coprime — gcd(3,7)=1 — so a step of 3 permutes ℤ/7 (visits every ray), and ℤ/3 and ℤ/7 fuse into a single ℤ/21 cycle (the Chinese remainder theorem). Coprimality IS the fusion.',
+    js: () => gcd(3, 7) === 1,
+    lean: 'theorem trinity_rosette_coprime : Nat.gcd 3 7 = 1 := by decide' },
+
+  { key: 'codon_frame_rotates_rosette',
+    why: 'DNA reads in triplets: the codon reading frame steps by 3. Through the seven-ray rosette that step visits ALL seven rays in one rotation — [0,3,6,2,5,1,4] — because 3 is coprime to 7. The reading frame (the DNA 3) IS a full rotation (the rosette 7): 3×7 in one stroke.',
+    js: () => JSON.stringify([0, 1, 2, 3, 4, 5, 6].map((k) => (3 * k) % 7)) === JSON.stringify([0, 3, 6, 2, 5, 1, 4]),
+    lean: 'theorem codon_frame_rotates_rosette : (List.range 7).map (fun k => (3*k) % 7) = [0,3,6,2,5,1,4] := by decide' },
 ]
 
 emit({

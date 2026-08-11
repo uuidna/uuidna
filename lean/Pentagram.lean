@@ -28,3 +28,12 @@ theorem fib_pentagram_cycle_20 : fibCycle 5 [0,1,1,2,3,0,3,3,1,4,0,4,4,3,2,0,2,2
 
 -- The SAME recurrence fused to the rosette modulus (mod 7): 16 single digits close into a 16-cycle — the Pisano period π(7)=16. One sequence, read through pentagram (5), rosette (7) and single digit (9).
 theorem fib_rosette_cycle_16 : fibCycle 7 [0,1,1,2,3,5,1,6,0,6,6,5,4,2,6,1] 16 = true := by decide
+
+-- The "777" is three sevens — 7+7+7 = 21 = 3·7. Not 777 of anything: the trinity (3) times the rosette (7), the same 21 as a sum and as a product. A mnemonic that computes.
+theorem three_sevens_twentyone : 7 + 7 + 7 = 21 ∧ 3 * 7 = 21 := by decide
+
+-- The trinity (3) and the rosette (7) are coprime — gcd(3,7)=1 — so a step of 3 permutes ℤ/7 (visits every ray), and ℤ/3 and ℤ/7 fuse into a single ℤ/21 cycle (the Chinese remainder theorem). Coprimality IS the fusion.
+theorem trinity_rosette_coprime : Nat.gcd 3 7 = 1 := by decide
+
+-- DNA reads in triplets: the codon reading frame steps by 3. Through the seven-ray rosette that step visits ALL seven rays in one rotation — [0,3,6,2,5,1,4] — because 3 is coprime to 7. The reading frame (the DNA 3) IS a full rotation (the rosette 7): 3×7 in one stroke.
+theorem codon_frame_rotates_rosette : (List.range 7).map (fun k => (3*k) % 7) = [0,3,6,2,5,1,4] := by decide
