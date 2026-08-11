@@ -31,6 +31,13 @@ Sign it by *behaving* it: back your claims, or let them be flagged. There is no 
 - [The Navigator](/captain/navigator) — how to sail: fixed references, true bearings, two crossing lines
 - [The captain's message](/captain/message) — contribute 2 to save up to 64
 
+## Reflect your own data
+
+Try it — content-addressing runs **in your browser**. Nothing is stored without your consent; here, your chosen data
+reflects to its address and stays with you.
+
+<Reflect />
+
 ## Configure the harness
 
 Add uuidna to any MCP client — zero runtime deps, a JSON-RPC 2.0 server over stdio:
