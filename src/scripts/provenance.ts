@@ -36,7 +36,9 @@ const findings: Finding[] = []
 const scan = (surface: string, text: string): void => {
   for (const u of units(text)) {
     const m = u.match(HOLLOW)
-    if (m && !DEMARCATED.test(u) && !backed(u))
+    // Test demarcation on the unit with the hollow token REMOVED, so a phrase cannot clear itself with its own
+    // words — e.g. "at no time" must not pass just because it contains "no". A genuine negation elsewhere still clears.
+    if (m && !DEMARCATED.test(u.replace(m[0], ' ')) && !backed(u))
       findings.push({ surface, unit: u.length > 160 ? u.slice(0, 157) + '…' : u, token: m[0], address: toUuid(surface + '|' + u) })
   }
 }
