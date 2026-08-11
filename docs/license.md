@@ -23,11 +23,11 @@ The uuidna content — the theorems, the proofs, the site — is licensed
 ## Canonical and the three domains
 
 - **uuidna.com** — the default, canonical home, and this license.
-- **[license].uuidna.org** — **SaaS**: each deployment gets its own subdomain, named for the license it runs under.
+- **[contract-uuid].uuidna.org** — **SaaS**: each deployment's subdomain IS its contract's content-address (a UUID) — the domain itself names the exact terms it runs under, recomputable by anyone.
 - **uuidna.net** — **PaaS**: the platform the whole thing runs on.
-- **Commercial** — a commercial deployment may **CNAME its own domain** to its `[license].uuidna.org` subdomain. Commercial use is the measured contribution (the two coins — see [the captain's message](/captain/message)); it still carries the attribution and this license link.
+- **Commercial** — a commercial deployment may **CNAME its own domain** to its `[contract-uuid].uuidna.org` subdomain. Commercial use is the measured contribution (the two coins — see [the captain's message](/captain/message)); it still carries the attribution and this license link.
 
-**Any deployment** — a `[license].uuidna.org` subdomain, the `.net` platform, a fork, a mirror, or any other domain
+**Any deployment** — a `[contract-uuid].uuidna.org` subdomain, the `.net` platform, a fork, a mirror, or any other domain
 — is governed by these terms and must carry the attribution and a link back to this canonical license at
 **uuidna.com/license**. That link *is* the attribution the license requires; it is not optional for reuse.
 
