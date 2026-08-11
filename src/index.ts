@@ -64,6 +64,7 @@ export { sealStream, openStream, sealMessages, openMessages, sealChain, openChai
 export { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract, type ContractSealed, type ContractChain } from './contract.js'
 export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit } from './books.js'
 export { gcdInt, coprime, starPolygon, fibonacciCycle, rotate, crt } from './cycles.js'
+export { recomputableCost, type CostReport } from './cost.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS

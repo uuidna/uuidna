@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="65 keys" />
+# MCP tools <Badge type="tip" text="66 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 65 tools below are read from the server's own tool list and
+is **built from the keys**: the 66 tools below are read from the server's own tool list and
 organised into 13 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`65`" />
+## The grid <Badge type="tip" :text="`66`" />
 
-65 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+66 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -31,6 +31,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-read"><code>read</code></a>
 <a href="#uuidna-bill"><code>bill</code></a>
 <a href="#uuidna-tokens"><code>tokens</code></a>
+<a href="#uuidna-cost"><code>cost</code></a>
 <a href="#uuidna-encrypt"><code>encrypt</code></a>
 <a href="#uuidna-seal-stream"><code>seal_stream</code></a>
 <a href="#uuidna-decrypt"><code>decrypt</code></a>
@@ -323,7 +324,7 @@ RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope, 
 | `uuids` | array | **yes** |  |
 | `passphrase` | string | **yes** |  |
 
-## Billing & measure <Badge type="tip" :text="'2'" />
+## Billing & measure <Badge type="tip" :text="'3'" />
 
 *skill: billing, measure*
 
@@ -352,6 +353,12 @@ Measure TOKENS-PER-THEOREM — the honest cost-of-proof metric (independent skil
 | `cached` | number | no | cache-read tokens |
 | `reasoning` | number | no | reasoning/thinking tokens |
 | `label` | string | no | optional tag for this report |
+
+### `uuidna_cost`
+
+The RECOMPUTABLE cost of the ledger — computed from lean/*.lean itself, NOT self-reported like uuidna_tokens. The PRODUCE cost is the formal-corpus size (Σ bytes of every `theorem … := by decide`); the VERIFY cost is O(1) per theorem (recompute its content-address). Anyone recomputes the SAME numbers from the same source, so nothing is on trust — it folds to a receipt you recheck. This is efficiency PROVEN (routed to the ledger), where uuidna_tokens is efficiency MEASURED (a self-report). Returns {count, formalBytes, bytesPerTheorem, verifyOps, largest, smallest, receipt}.
+
+_No parameters._
 
 ## Crypto & streams <Badge type="tip" :text="'8'" />
 

@@ -10,7 +10,7 @@ import {
   sealStream, openStream, sealChain, openChain,
   contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract,
   auditText, auditTranslation, auditBook, auditMovie,
-  gcdInt, starPolygon, fibonacciCycle, rotate, crt,
+  gcdInt, starPolygon, fibonacciCycle, rotate, crt, recomputableCost,
   digitalRoot, merkleGravity, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
   units, triad, vortexOrbit, diamond, involute, involutionFixed, seats,
   harness, harness7, renderTheorem, renderHero, renderList,
@@ -109,6 +109,10 @@ const TOOLS: Tool[] = [
         note: 'token counts are the agent self-report (this server cannot observe your context); the theorem count is the recomputable ledger truth',
       }
     } },
+  { name: 'uuidna_cost',
+    description: 'The RECOMPUTABLE cost of the ledger — computed from lean/*.lean itself, NOT self-reported like uuidna_tokens. The PRODUCE cost is the formal-corpus size (Σ bytes of every `theorem … := by decide`); the VERIFY cost is O(1) per theorem (recompute its content-address). Anyone recomputes the SAME numbers from the same source, so nothing is on trust — it folds to a receipt you recheck. This is efficiency PROVEN (routed to the ledger), where uuidna_tokens is efficiency MEASURED (a self-report). Returns {count, formalBytes, bytesPerTheorem, verifyOps, largest, smallest, receipt}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => recomputableCost() },
   { name: 'uuidna_encrypt',
     description: 'Encrypt text under a passphrase. Secrecy: pure-TS ChaCha20-Poly1305 (PBKDF2-SHA256, 600k) — no native crypto. Convergent by default (the same text seals identically → equality leaks). Pass an advancing `step` (the crypt salt) to freshen the salt per position so the same text seals differently and equality no longer leaks; the step is public (`seq`) and MUST advance. Returns a sealed envelope whose content-address is the 7d-fold of its parts.',
     inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' }, step: { type: 'integer', description: 'the advancing-sequence step — omit for convergent, supply and advance to close the equality leak' } }, required: ['text', 'passphrase'] },
@@ -463,7 +467,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
   [/^quantum$/, 'Quantum simulation', 'quantum'],
   [/^bill$/, 'Billing & measure', 'billing'],
-  [/^tokens$/, 'Billing & measure', 'measure'],
+  [/^(tokens|cost)$/, 'Billing & measure', 'measure'],
 ]
 const categoryOf = (name: string): [string, string] => {
   const key = name.replace(/^uuidna_/, '')

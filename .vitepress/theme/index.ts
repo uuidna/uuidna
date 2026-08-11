@@ -13,6 +13,7 @@ import StarPlay from './StarPlay.vue'
 import Chess from './Chess.vue'
 import MessageStream from './MessageStream.vue'
 import TokenMeter from './TokenMeter.vue'
+import CostMeter from './CostMeter.vue'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -52,5 +53,7 @@ export default {
     app.component('MessageStream', MessageStream)
     // TokenMeter — tokens-per-theorem any time, computed in the browser against the live ledger count.
     app.component('TokenMeter', TokenMeter)
+    // CostMeter — the RECOMPUTABLE cost, read from the ledger itself (no self-report); the proven counterpart to TokenMeter.
+    app.component('CostMeter', CostMeter)
   }
 } satisfies Theme

@@ -45,3 +45,12 @@ the recomputable denominator; the tokens are your own self-report (this page can
 watch the cost-per-theorem fall.
 
 <TokenMeter />
+
+### Recomputable cost — efficiency proven, not measured
+
+Tokens are a **self-report** — they *measure* efficiency, they don't *prove* it. The recomputable cost replaces the
+self-reported numerator with one **computed from `lean/*.lean` itself**: the produce cost is the formal-corpus size,
+the verify cost is O(1) per theorem, and it folds to a receipt anyone rechecks. No inputs, no trust — routed to the
+ledger, not hallucinated. Run it as [`uuidna_cost`](/mcp#uuidna-cost).
+
+<CostMeter />
