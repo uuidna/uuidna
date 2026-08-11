@@ -49,28 +49,7 @@ export type LedgerData = {
 
 // The open register (three-valued honesty). Held, labeled, never dropped and never false. Kept here — not in Lean —
 // because these are meta-claims *about* the theorems, not decidable propositions Lean can evaluate.
-const UNDECIDED: Undecided[] = [
-  {
-    claim: 'uuidna computes your DNA and blood type',
-    why: 'the ABO system reduces to the Klein four-group and DNA base-pairing to a fixed-point-free involution — those are algebra and are proven. But "your DNA / blood type" names a particular person, which has no decidable content Lean can evaluate.',
-    key: 'abo_klein_four',
-  },
-  {
-    claim: 'the vortex is your genome',
-    why: 'the genome-as-double-strand reduces to the complement involution and the base-pairs summing to 10 (proven). "Your genome" is not a proposition Lean can prove or refute.',
-    key: 'dna_complement_involution',
-  },
-  {
-    claim: '432 Hz heals',
-    why: 'the sound ladder f_d = 48·d and the octave doubling are exact ratios and are proven. "Heals" is a wellness claim with no decidable or clinical content here — flagged, never asserted.',
-    key: 'sound_ladder_432',
-  },
-  {
-    claim: 'uuidna predicts a person or their future',
-    why: 'content-addressing is deterministic reproduction — the same input always mints the same address — not prediction of a person. Nothing here computes anyone.',
-    key: null,
-  },
-]
+const UNDECIDED: Undecided[] = []
 
 declare const data: LedgerData
 export { data }
