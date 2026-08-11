@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **691 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **699 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -89,7 +89,10 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 28. **The structures domain** — `lean/Statics.lean` · **8** theorems
    statics as decidable arithmetic, demarcated — forces sum to zero and moments balance in equilibrium, a lever gives mechanical advantage, the centre of mass is the weighted average, a simply-supported beam splits a central load evenly, a rigid planar truss obeys Maxwell's rule m=2j−3, stress is force over area, and Hooke's law is linear — equilibrium arithmetic, not finite-element analysis
 
-29. **One leap** — `lean/OneLeap.lean` · **1** theorems
+29. **The points-of-sail domain** — `lean/Sailing.lean` · **8** theorems
+   sailing as decidable arithmetic, demarcated — the ~45° no-go zone (45+45=90), points of sail on multiples of 45°, the close-hauled 3-4-5 beating triangle at a distance penalty (5>3), apparent wind exceeding true (5>4), a balanced helm as moment equilibrium (8·3=6·4) so the boat holds course and the captain rests, two tacks cancelling leeway, and precise tacks compounding linearly — sailing geometry and balance, not aero/hydrodynamics
+
+30. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---
