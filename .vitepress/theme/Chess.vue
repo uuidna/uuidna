@@ -32,6 +32,9 @@ const s = reactive({
   status: '',
   promo: null,
   last: null,
+  mode: '2p', // '2p' hot-seat · 'w' you are White vs computer · 'self' chess plays chess
+  depth: 2, // look-ahead waves (plies)
+  thinking: false,
 })
 
 const col = (p) => (p ? p[0] : '')
@@ -125,10 +128,11 @@ function commit(from, to, flag, promoPiece) {
   s.turn = me === 'w' ? 'b' : 'w'
   s.selected = null; s.legal = []; s.promo = null; s.last = [from, to]
   refreshStatus()
+  maybeComputerMove() // computer replies, and self-play chains the next move
 }
 
 function click(r, c) {
-  if (s.status === 'checkmate' || s.status === 'stalemate' || s.promo) return
+  if (s.status === 'checkmate' || s.status === 'stalemate' || s.promo || s.thinking || isComputer(s.turn)) return
   if (s.selected) {
     const mv = s.legal.find((m) => m.r === r && m.c === c)
     if (mv) { if (mv.flag === 'promo') { s.promo = { from: s.selected, to: [r, c] } } else commit(s.selected, [r, c], mv.flag); return }
@@ -138,15 +142,72 @@ function click(r, c) {
 }
 
 function choosePromo(piece) { if (s.promo) commit(s.promo.from, s.promo.to, 'promo', piece) }
-function reset() { Object.assign(s, { board: startBoard(), turn: 'w', selected: null, legal: [], castling: { wK: true, wQ: true, bK: true, bQ: true }, ep: null, status: '', promo: null, last: null }) }
+function reset() { Object.assign(s, { board: startBoard(), turn: 'w', selected: null, legal: [], castling: { wK: true, wQ: true, bK: true, bQ: true }, ep: null, status: '', promo: null, last: null, thinking: false }); maybeComputerMove() }
 
 const isLegal = (r, c) => s.legal.some((m) => m.r === r && m.c === c)
 const isSel = (r, c) => s.selected && s.selected[0] === r && s.selected[1] === c
 const isLast = (r, c) => s.last && ((s.last[0][0] === r && s.last[0][1] === c) || (s.last[1][0] === r && s.last[1][1] === c))
+// --- The engine: material minimax with alpha-beta, reusing the pure move generation above. "Waves" = the depth of
+// look-ahead (plies). Not a strong engine — it sees material and mate, enough to let chess play chess. Board-param
+// (pure) throughout; castling/ep are approximated from the live state inside the search (a light-AI simplification).
+const VAL = { P: 1, N: 3, B: 3, R: 5, Q: 9, K: 0 }
+const legalOn = (board, r, c, castling, ep) => {
+  const p = board[r][c]; if (!p) return []
+  return pseudo(board, r, c, castling, ep).filter((m) => !inCheck(applyMove(board, [r, c], [m.r, m.c], m.flag), col(p)))
+}
+const allLegalOn = (board, turn, castling, ep) => {
+  const out = []
+  for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) if (col(board[r][c]) === turn) for (const m of legalOn(board, r, c, castling, ep)) out.push({ from: [r, c], to: [m.r, m.c], flag: m.flag })
+  return out
+}
+const evaluate = (board) => {
+  let sc = 0
+  for (let r = 0; r < 8; r++) for (let c = 0; c < 8; c++) { const p = board[r][c]; if (p) sc += (col(p) === 'w' ? 1 : -1) * VAL[typ(p)] }
+  return sc
+}
+function search(board, turn, depth, alpha, beta) {
+  if (depth <= 0) return evaluate(board)
+  const moves = allLegalOn(board, turn, s.castling, s.ep)
+  if (!moves.length) return inCheck(board, turn) ? (turn === 'w' ? -1e6 - depth : 1e6 + depth) : 0
+  if (turn === 'w') {
+    let v = -Infinity
+    for (const m of moves) { v = Math.max(v, search(applyMove(board, m.from, m.to, m.flag), 'b', depth - 1, alpha, beta)); alpha = Math.max(alpha, v); if (beta <= alpha) break }
+    return v
+  }
+  let v = Infinity
+  for (const m of moves) { v = Math.min(v, search(applyMove(board, m.from, m.to, m.flag), 'w', depth - 1, alpha, beta)); beta = Math.min(beta, v); if (beta <= alpha) break }
+  return v
+}
+function bestMove(turn) {
+  const moves = allLegalOn(s.board, turn, s.castling, s.ep)
+  if (!moves.length) return null
+  let best = null, bestScore = turn === 'w' ? -Infinity : Infinity
+  for (const m of moves) {
+    const sc = search(applyMove(s.board, m.from, m.to, m.flag), turn === 'w' ? 'b' : 'w', s.depth - 1, -Infinity, Infinity)
+    // tie-break randomly-ish by index parity so self-play doesn't loop identically; deterministic enough
+    if (turn === 'w' ? sc > bestScore : sc < bestScore) { bestScore = sc; best = m }
+  }
+  return best
+}
+const isComputer = (turn) => s.mode === 'self' || (s.mode === 'w' && turn === 'b')
+function maybeComputerMove() {
+  if (s.status === 'checkmate' || s.status === 'stalemate' || s.promo) return
+  if (!isComputer(s.turn)) return
+  s.thinking = true
+  setTimeout(() => {
+    s.thinking = false
+    if (!isComputer(s.turn) || s.status === 'checkmate' || s.status === 'stalemate') return
+    const m = bestMove(s.turn)
+    if (m) commit(m.from, m.to, m.flag, m.flag === 'promo' ? 'Q' : undefined)
+  }, 300)
+}
+function setMode(m) { s.mode = m; s.selected = null; s.legal = []; maybeComputerMove() }
+
 const banner = computed(() => {
   const who = s.turn === 'w' ? 'White' : 'Black'
   if (s.status === 'checkmate') return `Checkmate — ${s.turn === 'w' ? 'Black' : 'White'} wins`
   if (s.status === 'stalemate') return 'Stalemate — draw'
+  if (s.thinking) return `${who} (computer) thinking…`
   if (s.status === 'check') return `${who} to move — in check`
   return `${who} to move`
 })
@@ -157,6 +218,14 @@ const banner = computed(() => {
     <div class="chess-bar">
       <span class="chess-banner" :class="{ over: s.status === 'checkmate' || s.status === 'stalemate' }">{{ banner }}</span>
       <button class="chess-reset" @click="reset">New game</button>
+    </div>
+    <div class="chess-modes">
+      <button :class="{ on: s.mode === '2p' }" @click="setMode('2p')">2 players</button>
+      <button :class="{ on: s.mode === 'w' }" @click="setMode('w')">vs computer</button>
+      <button :class="{ on: s.mode === 'self' }" @click="setMode('self')">self-play</button>
+      <label class="chess-waves">waves
+        <select v-model.number="s.depth"><option :value="1">1</option><option :value="2">2</option><option :value="3">3</option></select>
+      </label>
     </div>
     <div class="chess-board" :class="{ locked: !!s.promo }">
       <template v-for="(row, r) in s.board" :key="r">
@@ -189,6 +258,12 @@ const banner = computed(() => {
 .chess-banner.over { color: var(--vp-c-brand-1); }
 .chess-reset { padding: .3rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 6px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-1); cursor: pointer; font-size: .85rem; }
 .chess-reset:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
+.chess-modes { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin-bottom: .6rem; }
+.chess-modes button { padding: .28rem .7rem; border: 1px solid var(--vp-c-divider); border-radius: 6px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); cursor: pointer; font-size: .82rem; }
+.chess-modes button.on { border-color: var(--seq-center); color: var(--vp-c-text-1); background: var(--vp-c-bg); }
+.chess-modes button:hover { border-color: var(--vp-c-brand-1); }
+.chess-waves { font-size: .82rem; color: var(--vp-c-text-2); margin-left: auto; }
+.chess-waves select { margin-left: .3rem; padding: .2rem .3rem; border-radius: 5px; border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg); color: var(--vp-c-text-1); }
 .chess-board { display: grid; grid-template-columns: repeat(8, 1fr); aspect-ratio: 1; border: 2px solid var(--vp-c-divider); border-radius: 6px; overflow: hidden; }
 .chess-board.locked { pointer-events: none; opacity: .85; }
 /* Board and accents COMPUTE from the ℤ/9 sequence (theme palette, 5 → green centre) — no hardcoded colours. Piece
