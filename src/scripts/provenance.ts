@@ -54,6 +54,8 @@ const receipt = findings.length ? merkleFold(findings.map((f) => f.address)) : t
 console.log('\n  PROVENANCE AUDIT — prose earns its claim by linking a sealed theorem, or it is audited.')
 console.log('    surfaces : README + lean/PRINCIPLE.md + docs/*.md + ' + MCP_CATALOG.length + ' MCP descriptions')
 console.log('    hollow-and-unbacked claims : ' + findings.length)
-for (const f of findings) console.log(`      • [${f.token}] ${f.surface}\n        "${f.unit}"`)
-console.log('    audit receipt : ' + receipt + (findings.length ? '  (FLAGGED — audited until backed or demarcated)' : '  (CLEAN — every claim is demarcated or backed by a sealed theorem)'))
+// The remedy is free of money and paid in CODE: back the claim with a sealed theorem, or demarcate it. The flag is
+// on the CLAIM, never on a person — a hollow sentence is cleared by delivering the proof that makes it true.
+for (const f of findings) console.log(`      • [${f.token}] ${f.surface}\n        "${f.unit}"\n        remedy (paid in code, not coin): link a sealed /theorem/<key> that backs it, or demarcate it (not / never / no / simulation / finite)`)
+console.log('    audit receipt : ' + receipt + (findings.length ? '  (FLAGGED — audited until backed by a theorem or demarcated)' : '  (CLEAN — every claim is demarcated or backed by a sealed theorem)'))
 process.exitCode = findings.length ? 1 : 0
