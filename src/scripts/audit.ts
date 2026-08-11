@@ -60,8 +60,8 @@ const gateUnits = []
   }
 }
 
-// The hand-authored site pages — strip tags to visible text, split to sentences.
-for (const page of ['site/index.html', 'site/theorems/index.html', 'site/trial/index.html', 'site/undecided/index.html']) {
+// The VitePress-built site pages — strip tags to visible text, split to sentences.
+for (const page of ['site/index.html', 'site/theorems/index.html']) {
   let html
   try { html = rd(page) } catch { continue }
   const visible = html

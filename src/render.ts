@@ -9,9 +9,9 @@ import { toUuid } from './address.js'
 export interface TheoremView { name: string; address?: string; key?: string }
 export interface RenderOpts { base?: string } // site base for proof links; '' → served at root (/theorem/<key>)
 
-// Root-relative by default — the site is served at root (scripts/build-site.mjs), so proof links resolve to
-// /theorem/<key>. Pass an explicit base (e.g. '/site') to prefix them. (Was '/millennium-solutions', the upstream
-// deposit uuidna is extracted from — a stale default that pointed consumers' cards at the wrong site.)
+// Root-relative by default — VitePress serves the site at root, so proof links resolve to /theorem/<key>.
+// Pass an explicit base (e.g. '/site') to prefix them. (Was '/millennium-solutions', the upstream deposit
+// uuidna is extracted from — a stale default that pointed consumers' cards at the wrong site.)
 const DEFAULT_BASE = ''
 
 /** A single hue (0..359) from a content-address — the vortex colour, computed, nothing fetched. */

@@ -81,8 +81,7 @@ ${keptPrinciples.map((p, i) => `${i + 1}. **${p[1]}** — \`lean/${p[0]}\` · **
 
 ---
 
-Rendered as schema.org microdata cards at [uuidna.com/theorems](https://uuidna.com/theorems), folded to one recomputable
-receipt at [uuidna.com/trial](https://uuidna.com/trial). Open (undecided) propositions are held at [uuidna.com/undecided](https://uuidna.com/undecided).
+Rendered as schema.org microdata cards at [uuidna.com/theorems](https://uuidna.com/theorems), folded to one recomputable receipt.
 `
 writeFileSync(join(ROOT, 'lean', 'PRINCIPLE.md'), md)
 console.log('✓ src/theorems/generated.ts + lean/PRINCIPLE.md — ' + ledger.length + ' Lean theorems (single source), organised by ' + keptPrinciples.length + ' principles.')

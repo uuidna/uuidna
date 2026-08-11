@@ -27,4 +27,4 @@ capabilities (FNV address, gate, crypto) are **tools**, not theorems.
   </ul>
 </section>
 
-The whole set folds to one receipt on [/trial](/trial); open propositions are held on [/undecided](/undecided).
+The whole set folds to one order-invariant receipt: <code>{{ data.trial.receipt }}</code>. Re-verify every proof with `npm run lean`.

@@ -25,7 +25,6 @@ export type PrincipleGroup = {
   theorems: Theorem[]
 }
 
-export type Undecided = { claim: string; why: string; key: string | null }
 
 export type LedgerData = {
   total: number
@@ -43,13 +42,8 @@ export type LedgerData = {
     chainGenesis: string
     chainTip: string
   }
-  undecided: Undecided[]
   gh: string
 }
-
-// The open register (three-valued honesty). Held, labeled, never dropped and never false. Kept here — not in Lean —
-// because these are meta-claims *about* the theorems, not decidable propositions Lean can evaluate.
-const UNDECIDED: Undecided[] = []
 
 declare const data: LedgerData
 export { data }
@@ -91,7 +85,6 @@ export default {
         chainGenesis,
         chainTip,
       },
-      undecided: UNDECIDED,
       gh: 'https://github.com/uuidna/uuidna/blob/main/lean/',
     }
   },
