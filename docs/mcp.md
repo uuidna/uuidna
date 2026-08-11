@@ -4,15 +4,86 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="59 keys" />
+# MCP tools <Badge type="tip" text="64 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 59 tools below are read from the server's own tool list and
-organised into 12 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 64 tools below are read from the server's own tool list and
+organised into 13 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
+
+## The grid <Badge type="tip" :text="`64`" />
+
+64 tools, laid out 8×8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+
+<div class="mcp-grid">
+<a href="#uuidna-address"><code>address</code></a>
+<a href="#uuidna-merge"><code>merge</code></a>
+<a href="#uuidna-coin64"><code>coin64</code></a>
+<a href="#uuidna-gate"><code>gate</code></a>
+<a href="#uuidna-reeducate"><code>reeducate</code></a>
+<a href="#uuidna-merkle-root"><code>merkle_root</code></a>
+<a href="#uuidna-merkle-prove"><code>merkle_prove</code></a>
+<a href="#uuidna-merkle-verify"><code>merkle_verify</code></a>
+<a href="#uuidna-imprint"><code>imprint</code></a>
+<a href="#uuidna-read"><code>read</code></a>
+<a href="#uuidna-bill"><code>bill</code></a>
+<a href="#uuidna-tokens"><code>tokens</code></a>
+<a href="#uuidna-encrypt"><code>encrypt</code></a>
+<a href="#uuidna-seal-stream"><code>seal_stream</code></a>
+<a href="#uuidna-decrypt"><code>decrypt</code></a>
+<a href="#uuidna-verify-envelope"><code>verify_envelope</code></a>
+<a href="#uuidna-seal-onion"><code>seal_onion</code></a>
+<a href="#uuidna-open-onion"><code>open_onion</code></a>
+<a href="#uuidna-seal-chain"><code>seal_chain</code></a>
+<a href="#uuidna-open-chain"><code>open_chain</code></a>
+<a href="#uuidna-contract"><code>contract</code></a>
+<a href="#uuidna-contract-seal"><code>contract_seal</code></a>
+<a href="#uuidna-contract-open"><code>contract_open</code></a>
+<a href="#uuidna-contract-chain"><code>contract_chain</code></a>
+<a href="#uuidna-contract-open-chain"><code>contract_open_chain</code></a>
+<a href="#uuidna-audit-text"><code>audit_text</code></a>
+<a href="#uuidna-audit-book"><code>audit_book</code></a>
+<a href="#uuidna-audit-translation"><code>audit_translation</code></a>
+<a href="#uuidna-coprime"><code>coprime</code></a>
+<a href="#uuidna-pentagram"><code>pentagram</code></a>
+<a href="#uuidna-fibonacci"><code>fibonacci</code></a>
+<a href="#uuidna-rotate"><code>rotate</code></a>
+<a href="#uuidna-crt"><code>crt</code></a>
+<a href="#uuidna-gravity"><code>gravity</code></a>
+<a href="#uuidna-digital-root"><code>digital_root</code></a>
+<a href="#uuidna-adjudicate"><code>adjudicate</code></a>
+<a href="#uuidna-prove-verdict"><code>prove_verdict</code></a>
+<a href="#uuidna-verify"><code>verify</code></a>
+<a href="#uuidna-harness"><code>harness</code></a>
+<a href="#uuidna-harness7"><code>harness7</code></a>
+<a href="#uuidna-render"><code>render</code></a>
+<a href="#uuidna-sha256"><code>sha256</code></a>
+<a href="#uuidna-hmac"><code>hmac</code></a>
+<a href="#uuidna-pbkdf2"><code>pbkdf2</code></a>
+<a href="#uuidna-chacha20"><code>chacha20</code></a>
+<a href="#uuidna-poly1305"><code>poly1305</code></a>
+<a href="#uuidna-aead-encrypt"><code>aead_encrypt</code></a>
+<a href="#uuidna-aead-decrypt"><code>aead_decrypt</code></a>
+<a href="#uuidna-strict"><code>strict</code></a>
+<a href="#uuidna-units"><code>units</code></a>
+<a href="#uuidna-triad"><code>triad</code></a>
+<a href="#uuidna-vortex"><code>vortex</code></a>
+<a href="#uuidna-double-torus"><code>double_torus</code></a>
+<a href="#uuidna-diamond"><code>diamond</code></a>
+<a href="#uuidna-involute"><code>involute</code></a>
+<a href="#uuidna-seats"><code>seats</code></a>
+<a href="#uuidna-render-list"><code>render_list</code></a>
+<a href="#uuidna-theorems"><code>theorems</code></a>
+<a href="#uuidna-skills"><code>skills</code></a>
+<a href="#uuidna-theorem"><code>theorem</code></a>
+<a href="#uuidna-trial"><code>trial</code></a>
+<a href="#uuidna-send"><code>send</code></a>
+<a href="#uuidna-receive"><code>receive</code></a>
+<a href="#uuidna-quantum"><code>quantum</code></a>
+</div>
 
 ## Getting started
 
@@ -475,6 +546,66 @@ Audit a translation as a source↔translation PAIR: content-address both texts a
 | `title` | string | no |  |
 | `sourceLang` | string | no |  |
 | `targetLang` | string | no |  |
+
+## Rotation & cycles <Badge type="tip" :text="'5'" />
+
+*skill: cycles*
+
+### `uuidna_coprime`
+
+gcd(a,b) and whether a and b are coprime (gcd = 1). Coprimality is what makes a step permute ℤ/n — visiting every point in one stroke — and what fuses moduli (CRT). Mirrors the sealed circle_of_fifths and trinity_rosette_coprime. Returns {gcd,coprime}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `a` | integer | **yes** |  |
+| `b` | integer | **yes** |  |
+
+### `uuidna_pentagram`
+
+The star polygon {n/step}: the stroke visiting (step·k mod n). A SINGLE closed stroke covering all n points iff gcd(step,n)=1, else it splits into gcd shorter loops. Default {5/2} is the pentagram — [0,2,4,1,3], one stroke (sealed: pentagram_single_stroke). Returns {n,step,stroke,single,loops}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `n` | integer | no | points (default 5) |
+| `step` | integer | no | stride (default 2 — the pentagram) |
+
+### `uuidna_fibonacci`
+
+The single-digit Fibonacci sequence mod m and its Pisano period — the cycle up to the return to the seed (0,1). m=9 → period 24 (the digital-root Fibonacci); m=5 → 20 (pentagram); m=7 → 16 (rosette). Mirrors the sealed fib_single_digit_cycle_24 and siblings. Returns {mod,period,cycle}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `mod` | integer | no | the modulus (default 9 — the single digit) |
+
+### `uuidna_rotate`
+
+Rotate a list cyclically by `stride` and report its strand structure over ℤ/n: gcd(stride,n) strands of n/gcd each; `covers` is true when one strand visits every element (gcd=1) — the closed cover the cross-link compass derives. Returns {rotated,strands,strandLength,covers}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `list` | array | **yes** |  |
+| `stride` | integer | **yes** |  |
+
+### `uuidna_crt`
+
+The Chinese remainder solution: for COPRIME moduli m,n the unique x in [0, m·n) with x ≡ a (mod m) and x ≡ b (mod n) — the bijection ℤ/mn ≅ ℤ/m × ℤ/n (e.g. ℤ/21 ≅ ℤ/3 × ℤ/7, the trinity fused to the rosette). Non-coprime moduli throw. Returns {x,mod}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `a` | integer | **yes** |  |
+| `m` | integer | **yes** |  |
+| `b` | integer | **yes** |  |
+| `n` | integer | **yes** |  |
 
 ## Theorems & trial <Badge type="tip" :text="'6'" />
 

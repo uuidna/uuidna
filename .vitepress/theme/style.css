@@ -219,3 +219,12 @@ code.rcpt {
   color: var(--vp-c-text-2);
 }
 .referer-compass a { font-weight: 600; }
+
+/* The MCP tool grid — an 8×8 at-a-glance index of every tool, each linking to its entry. */
+.mcp-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: .4rem; margin: 1rem 0 1.5rem; }
+.mcp-grid a { display: block; padding: .35rem .3rem; text-align: center; border: 1px solid var(--vp-c-divider); border-radius: 6px; text-decoration: none; overflow: hidden; text-overflow: ellipsis; }
+.mcp-grid a:hover { border-color: var(--vp-c-brand-1); background: var(--vp-c-bg-soft); }
+.mcp-grid a code { font-size: .68rem; color: var(--vp-c-text-2); white-space: nowrap; }
+.mcp-grid a:hover code { color: var(--vp-c-brand-1); }
+@media (max-width: 860px) { .mcp-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 480px) { .mcp-grid { grid-template-columns: repeat(2, 1fr); } }

@@ -42,6 +42,11 @@ const sections = order.map((cat) => {
   return `## ${cat} <Badge type="tip" :text="'${tools.length}'" />\n\n*skill: ${skills}*\n\n${rows}`
 }).join('\n')
 
+// Integer sqrt without Math.* (the purity guard scans src/scripts too): is the tool count a perfect square (8×8)?
+let isqrt = 0
+while ((isqrt + 1) * (isqrt + 1) <= MCP_CATALOG.length) isqrt++
+const GRID_LAYOUT = isqrt * isqrt === MCP_CATALOG.length ? `${isqrt}×${isqrt}` : 'in rows of 8'
+
 const md = `---
 title: MCP tools
 aside: true
@@ -57,6 +62,14 @@ is **built from the keys**: the ${MCP_CATALOG.length} tools below are read from 
 organised into ${order.length} categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
+
+## The grid <Badge type="tip" :text="\`${MCP_CATALOG.length}\`" />
+
+${MCP_CATALOG.length} tools, laid out ${GRID_LAYOUT} — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+
+<div class="mcp-grid">
+${MCP_CATALOG.map((t) => `<a href="#${t.name.replace(/_/g, '-')}"><code>${t.name.replace(/^uuidna_/, '')}</code></a>`).join('\n')}
+</div>
 
 ## Getting started
 
