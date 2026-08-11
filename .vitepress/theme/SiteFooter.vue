@@ -12,6 +12,7 @@ const cols = [
     { text: 'Topics (by skill)', href: '/topics' },
     { text: 'Search', href: '/search' },
     { text: 'The trials', href: '/trials' },
+    { text: 'Games', href: '/games' },
   ] },
   { title: 'Fuse it in', links: [
     { text: 'MCP tools', href: '/mcp' },

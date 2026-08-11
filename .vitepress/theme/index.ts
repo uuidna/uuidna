@@ -8,6 +8,8 @@ import SiteFooter from './SiteFooter.vue'
 import Reflect from './Reflect.vue'
 import BookReflect from './BookReflect.vue'
 import SearchResults from './SearchResults.vue'
+import BillCalc from './BillCalc.vue'
+import StarPlay from './StarPlay.vue'
 import './style.css'
 
 export default {
@@ -32,5 +34,9 @@ export default {
     // SearchResults — an honest results page over the static theorem index; filters the bundled ledger in the
     // browser and lists matches. A static client-side index, not a live engine; nothing sent or stored.
     app.component('SearchResults', SearchResults)
+    // BillCalc — the measured exchange (bits saved, the two coins), computed in the browser. Not financial trading.
+    app.component('BillCalc', BillCalc)
+    // StarPlay — the star-polygon {n/step} game drawn from the real starPolygon; single stroke iff coprime.
+    app.component('StarPlay', StarPlay)
   }
 } satisfies Theme
