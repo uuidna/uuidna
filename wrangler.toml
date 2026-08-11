@@ -5,12 +5,18 @@
 # the MCP catalog + `vitepress build` → ./site.
 name = "uuidna"
 compatibility_date = "2026-08-01"
+# The edge worker enforces the license domain rule: uuidna.com licenses itself and auto-licenses the first-party
+# wildcard *.uuidna.{com,net,org}; every other, unlicensed host is redirected to the canonical uuidna.com. See
+# worker.js and docs/license.md. Remove this line (and run_worker_first below) to revert to plain static assets.
+main = "worker.js"
 
 [build]
 command = "npm run docs:build"
 
 [assets]
 directory = "./site"
+binding = "ASSETS" # worker.js delegates the serve path to env.ASSETS.fetch
+run_worker_first = true # intercept EVERY request by Host first (even asset hits), then serve or redirect
 # clean URLs: /captain/message resolves to ./site/captain/message/index.html
 html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"

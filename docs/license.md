@@ -31,6 +31,18 @@ The uuidna content — the theorems, the proofs, the site — is licensed
 — is governed by these terms and must carry the attribution and a link back to this canonical license at
 **uuidna.com/license**. That link *is* the attribution the license requires; it is not optional for reuse.
 
+## uuidna.com licenses itself; the rest redirects
+
+**uuidna.com licenses itself** — the canonical home is bound by the very license it publishes, its own receipt minted
+by the tool it governs. That self-license **auto-licenses the whole first-party wildcard**: every apex and subdomain of
+`*.uuidna.com`, `*.uuidna.net`, and `*.uuidna.org` is licensed by this page automatically, no separate signature.
+
+**Every other host is redirected here.** A request to any domain that is not first-party and does not hold a license
+(a commercial CNAME licensed via this page) is sent to the canonical **uuidna.com**, keeping its path. The redirect is
+temporary (302), because a license is conditional and a license change is a new signature — nothing is cached hard. So
+there is exactly one source of terms: you either run under a license that traces back to this page, or you are routed to
+it. Enforced at the edge in [`worker.js`](https://github.com/uuidna/uuidna/blob/main/worker.js).
+
 ## Change is a new signature
 
 The license text is content-addressed. If the terms change, the address changes — a new address is a new license, so
