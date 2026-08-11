@@ -207,3 +207,15 @@ code.rcpt {
   font-size: 0.9rem;
   margin: 0.3rem 0 0;
 }
+
+/* Referer-aware backlink on theorem pages — the path-contextual cross-link (see RefererCompass.vue). */
+.referer-compass {
+  margin: 0 0 1rem;
+  padding: 0.5rem 0.85rem;
+  border-left: 3px solid var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9em;
+  color: var(--vp-c-text-2);
+}
+.referer-compass a { font-weight: 600; }

@@ -68,6 +68,8 @@ ${t.lean}
 
 ## Cross-links
 
+<RefererCompass />
+
 Woven to its neighbours in every direction — each axis, backward and forward:
 
 ${compass('Skill', t.skill, bySkill[t.skill](t))}
