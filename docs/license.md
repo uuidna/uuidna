@@ -44,6 +44,27 @@ nothing is cached hard. So there is exactly one source of terms: you either run 
 this page, or you are routed straight to it. Enforced at the edge in
 [`worker.js`](https://github.com/uuidna/uuidna/blob/main/worker.js).
 
+## What the license can and cannot lock
+
+The redirect **routes**; it does not **restrict** — the theorems are public and meant to be rechecked. Could uuidna
+instead *encrypt its messaging with the license itself*, so only the licensed can read? Half of that is real, and the
+honest half is the powerful one. **Secrecy is exactly the secrecy of the key:**
+
+- **Keyed by the public license — coupling, not secrecy.** A public key is public: anyone who reads this page derives
+  the same key. That is sealed, not hoped — [`complement_is_xor_key3`](/theorem/complement_is_xor_key3): *a fixed pad
+  is public, not secret.* Encrypting public content with the public license **binds** the message to the license (you
+  cannot decrypt without invoking it, and a license change — a new content-address — kills old ciphertext) but hides
+  nothing from anyone who can read the page. The public tier stays a signpost.
+- **Keyed by a private contract — real confidentiality.** A commercial deployment's contract (the `[contract-uuid]`,
+  a secret shared only with the licensee) is **not** public. Messaging sealed under it — pure-TS ChaCha20-Poly1305 via
+  `uuidna_send` / `uuidna_seal_chain` — is genuinely private: only contract-holders decrypt, a wrong or changed
+  contract fails Poly1305 authentication, and the subdomain that names the deployment *is* that contract's
+  content-address. That is a **lock**, not a signpost — as private as the contract is kept, and as strong as its
+  entropy. This is the commercial tier.
+
+So "encrypt with the license" gates access only when the license is a **secret** (the private contract), never with
+the public terms. Integrity, not truth.
+
 ## Change is a new signature
 
 The license text is content-addressed. If the terms change, the address changes — a new address is a new license, so
