@@ -7,6 +7,7 @@ import FoldAnimation from './FoldAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
 import Reflect from './Reflect.vue'
 import BookReflect from './BookReflect.vue'
+import SearchResults from './SearchResults.vue'
 import './style.css'
 
 export default {
@@ -28,5 +29,8 @@ export default {
     // BookReflect — automate the audit while writing: the full offline auditText recomputes live in the browser on
     // every keystroke (fingerprint, chapter root, structure, gravity, gate). Nothing sent or stored.
     app.component('BookReflect', BookReflect)
+    // SearchResults — an honest results page over the static theorem index; filters the bundled ledger in the
+    // browser and lists matches. A static client-side index, not a live engine; nothing sent or stored.
+    app.component('SearchResults', SearchResults)
   }
 } satisfies Theme

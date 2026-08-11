@@ -10,6 +10,7 @@ const cols = [
   { title: 'The ledger', links: [
     { text: 'All theorems', href: '/theorems' },
     { text: 'Topics (by skill)', href: '/topics' },
+    { text: 'Search', href: '/search' },
     { text: 'The trials', href: '/trials' },
   ] },
   { title: 'Fuse it in', links: [
