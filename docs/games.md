@@ -10,6 +10,11 @@ description: Play with the uuidna geometry — the star-polygon game (single str
 Each game runs a **real** uuidna function in your browser — the same code the MCP tools and the sealed theorems use —
 so you are playing with the actual algebra, not a mock-up. Nothing is sent or stored.
 
+## Chess <Badge type="tip" text="complete · offline" />
+
+A complete, correct chess — full legal moves, castling, en passant, promotion, check &amp; checkmate — hot-seat
+two-player, offline-capable. **[Play chess →](/games/chess)**
+
 ## The star-polygon game
 
 Pick a number of points and a step. The stroke closes in **one line** exactly when the step is coprime to the count

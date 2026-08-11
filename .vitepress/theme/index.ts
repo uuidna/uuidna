@@ -10,6 +10,7 @@ import BookReflect from './BookReflect.vue'
 import SearchResults from './SearchResults.vue'
 import BillCalc from './BillCalc.vue'
 import StarPlay from './StarPlay.vue'
+import Chess from './Chess.vue'
 import './style.css'
 
 export default {
@@ -38,5 +39,7 @@ export default {
     app.component('BillCalc', BillCalc)
     // StarPlay — the star-polygon {n/step} game drawn from the real starPolygon; single stroke iff coprime.
     app.component('StarPlay', StarPlay)
+    // Chess — a complete, correct, offline chess (full legal moves, castling, en passant, promotion, mate). Pure client-side.
+    app.component('Chess', Chess)
   }
 } satisfies Theme
