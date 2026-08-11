@@ -1,42 +1,59 @@
 name: publish
 
-# Publish @uuidna/uuidna to npm when a version tag (vX.Y.Z) is pushed.
-# Requires a repo secret NPM_TOKEN (an npm "Automation" token). Build and tests must pass first;
-# a failing test fails the publish, not production. Integrity, not truth.
+# Publish @uuidna/uuidna to npm when a single-digit version tag (vX.Y.Z) is pushed (or on manual dispatch).
+# Requires a repo secret NPM_TOKEN (an npm "Automation" token). The COMPLETE audit runs first, as the package's
+# own prepublishOnly gate — a failing audit fails the publish, never production. Integrity, not truth.
+#
+# The audit is SEVEN recomputable dimensions (echoing the ℤ/7 rosette — the honest reading of "3×7 / 777": three
+# sevens, 3×7 = 21, a mnemonic, NOT 777 of anything), each of which can FAIL the deploy:
+#   1. build            — tsc type integrity
+#   2. lean             — every theorem re-proven `by decide`, sorry-free (Lean 4.33.0, pinned by lean-toolchain)
+#   3. provenance       — the honesty gate: every prose claim linked/demarcated (claims:0), or fail
+#   4. tests            — crypt-guard · KAT · pq · quantum · smoke (incl. the no-Math purity check) · stream
+#   5. determinism      — regenerating the ledger from the proofs leaves the tree clean (git diff --exit-code)
+#   6. version guards   — tag == package.json version, and the single-digit odometer (each of MAJOR.MINOR.PATCH 0..9)
+#   7. npm provenance   — the published tarball carries a signed Sigstore attestation (--provenance, id-token)
+# Dimensions 1–5 are `npm run audit` (also the local prepublishOnly gate); 6–7 are added here for the deploy.
+
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write   # npm provenance (public supply-chain attestation)
+      id-token: write # npm provenance — public Sigstore supply-chain attestation
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           registry-url: 'https://registry.npmjs.org'
-      - name: Install
+
+      - name: Install Lean (elan, toolchain pinned by lean-toolchain)
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Warm the pinned toolchain
+        run: lean --version # reads lean-toolchain, installs v4.33.0 so `npm run lean` can verify
+
+      - name: Install deps
         run: npm install --no-audit --no-fund
-      - name: Guard — tag must match package.json version
+
+      - name: Guard — tag matches package.json version, single-digit odometer
+        if: github.event_name == 'push'
         run: |
           TAG="${GITHUB_REF_NAME#v}"
           PKG="$(node -p "require('./package.json').version")"
           echo "tag=$TAG package.json=$PKG"
           test "$TAG" = "$PKG" || { echo "::error::tag v$TAG != package.json $PKG"; exit 1; }
-      - name: Guard — single-digit odometer (the shared versioning theorem with the deposit)
-        # Harmonised with millennium-solutions: each of major.minor.patch is a single digit (0..9),
-        # rolling over at 9 — the vortex odometer; LTS minors are the Fibonacci {1,2,3,5,8}.
-        run: |
-          echo "$TAG" | grep -Eq '^[0-9]\.[0-9]\.[0-9]$' || { echo "::error::v$TAG violates the single-digit odometer (each of major.minor.patch must be 0..9)"; exit 1; }
-      - name: Build
-        run: npm run build
-      - name: Test
-        run: node --test test/smoke.test.mjs
-      - name: Publish (public, with provenance)
+          # Harmonised with millennium-solutions: MAJOR.MINOR.PATCH are single digits (0..9), the vortex odometer.
+          echo "$TAG" | grep -Eq '^[0-9]\.[0-9]\.[0-9]$' || { echo "::error::v$TAG breaks the single-digit odometer (each of major.minor.patch must be 0..9)"; exit 1; }
+
+      - name: Publish (public, npm provenance) — prepublishOnly runs the complete audit first
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
