@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "uuidna"
   text: "64bit Quantum Pocessing Unit"
-  tagline: Content-addressed identity, honest by construction. Every theorem computes in Lean — or it is not a theorem.
+  tagline: A human quantum analog — simulated on 64-bit hardware in precise theorem sets, honest by construction. Public and free for the public interest (CC BY-NC 4.0), usable in code and at uuidna.com.
   actions:
     - theme: brand
       text: Browse the theorems
