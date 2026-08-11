@@ -23,6 +23,13 @@ is two triangles. This is [`starPolygon`](/mcp#uuidna-pentagram), sealed as [`pe
 
 <StarPlay />
 
+## Watch a message become a stream
+
+Type a message and a passphrase, seal it, and watch it become a chain of uuids — the onion carried *as* the stream —
+then arrive and decrypt back. Real ChaCha20-Poly1305, sealed and opened in your browser, nothing sent:
+
+<MessageStream />
+
 ## Reflect anything to its address
 
 Type anything and watch it fall to its content-address — deterministically, the same for anyone, in your browser:

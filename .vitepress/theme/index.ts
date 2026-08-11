@@ -11,6 +11,7 @@ import SearchResults from './SearchResults.vue'
 import BillCalc from './BillCalc.vue'
 import StarPlay from './StarPlay.vue'
 import Chess from './Chess.vue'
+import MessageStream from './MessageStream.vue'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -45,5 +46,8 @@ export default {
     app.component('StarPlay', StarPlay)
     // Chess — a complete, correct, offline chess (full legal moves, castling, en passant, promotion, mate). Pure client-side.
     app.component('Chess', Chess)
+    // MessageStream — a live visualisation of uuidna messaging: seal a message into its uuid stream and open it back,
+    // real ChaCha20-Poly1305 in the browser, nothing sent.
+    app.component('MessageStream', MessageStream)
   }
 } satisfies Theme
