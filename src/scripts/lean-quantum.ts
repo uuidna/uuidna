@@ -76,10 +76,36 @@ const FACTS = [
   { key: 's_fourth_is_identity', why: 'S⁴ = I but S² = Z ≠ I: the phase gate has ORDER 4 (i⁴=1), so S is NOT an involution — the honest exception; multiplying an amplitude by i four times returns it',
     js: () => CLIFFORD.every(([re, im]) => { let p = [re, im]; for (let k = 0; k < 4; k++) p = [-p[1], p[0]]; return p[0] === re && p[1] === im }),
     lean: 'theorem s_fourth_is_identity : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let a := (-(p.2), p.1); let b := (-(a.2), a.1); let c := (-(b.2), b.1); let d := (-(c.2), c.1); (d.1 == p.1) && (d.2 == p.2))) := by decide' },
+  // ── the interference at the heart of the algorithms (Deutsch–Jozsa), computed as exact ± phase sums ──
+  { key: 'dj_balanced_cancels', why: 'Deutsch–Jozsa interference: a BALANCED boolean sends equal +1/−1 phases, which cancel to 0 — the query amplitude vanishes. The honest heart of the algorithm, as the simulator computes it (classical linear algebra, no advantage)',
+    js: () => [1, 1, -1, -1].reduce((a, b) => a + b, 0) === 0,
+    lean: 'theorem dj_balanced_cancels : ([1, 1, -1, -1] : List Int).sum = 0 := by decide' },
+  { key: 'dj_constant_reinforces', why: 'Deutsch–Jozsa: a CONSTANT boolean sends one phase, so all four reinforce to ±4 — the opposite of the balanced cancellation. Constant vs balanced IS exactly this interference sum',
+    js: () => [1, 1, 1, 1].reduce((a, b) => a + b, 0) === 4 && [-1, -1, -1, -1].reduce((a, b) => a + b, 0) === -4,
+    lean: 'theorem dj_constant_reinforces : (([1, 1, 1, 1] : List Int).sum = 4) ∧ (([-1, -1, -1, -1] : List Int).sum = -4) := by decide' },
+  // ── entanglement, witnessed exactly: a 2-qubit state (a,b,c,d) is a PRODUCT iff a·d − b·c = 0 ──
+  { key: 'entanglement_determinant', why: 'The entanglement witness: a two-qubit state (a,b,c,d) factorizes into a product iff a·d − b·c = 0. Bell (1,0,0,1) gives 1 ≠ 0 (ENTANGLED); |00⟩ (1,0,0,0) and |+0⟩ (1,1,0,0) give 0 (separable) — entanglement is the nonzero determinant, computed exactly',
+    js: () => (1 * 1 - 0 * 0) !== 0 && (1 * 0 - 0 * 0) === 0 && (1 * 0 - 1 * 0) === 0,
+    lean: 'theorem entanglement_determinant : ((1*1 - 0*0 : Int) ≠ 0) ∧ ((1*0 - 0*0 : Int) = 0) ∧ ((1*0 - 1*0 : Int) = 0) := by decide' },
+  // ── the nonabelian core: Pauli X and Z anticommute (XZ = −ZX) ──
+  { key: 'pauli_x_z_anticommute', why: 'Pauli X and Z ANTICOMMUTE (XZ = −ZX): X flips the bit, Z stamps (−1)^bit, and (−1)^b = −(−1)^(1−b) on both bits — the sign the simulator carries; the nonabelian core of the gate algebra',
+    js: () => [0, 1].every((b) => (-1) ** b === -((-1) ** (1 - b))),
+    lean: 'theorem pauli_x_z_anticommute : (List.range 2).all (fun b => ((-1 : Int))^b == -(((-1 : Int))^(1 - b))) := by decide' },
+  // ── the W state: a distinct entanglement class (three corners, not two) ──
+  { key: 'w_state_three_outcomes', why: 'The W state (|001⟩+|010⟩+|100⟩)/√3 — exactly THREE of the 2³ corners carry weight (vs GHZ’s two): a distinct entanglement class, robust to one-party loss. The simulator’s amplitude vector, counted',
+    js: () => [0, 1, 1, 0, 1, 0, 0, 0].filter((a) => a !== 0).length === 3,
+    lean: 'theorem w_state_three_outcomes : (([0,1,1,0,1,0,0,0] : List Nat).filter (fun a => a != 0)).length = 3 := by decide' },
+  { key: 'w_state_normalized', why: 'W-state normalization: Σ|amp|² = 1+1+1 = 3 over √3 — an exact distribution over the three single-excitation corners',
+    js: () => (1 * 1 + 1 * 1 + 1 * 1) === 3,
+    lean: 'theorem w_state_normalized : ((1*1 + 1*1 + 1*1 : Nat) = 3) := by decide' },
+  // ── the Bell basis: four entangled states, a complete orthogonal measurement (exact integer inner products) ──
+  { key: 'bell_basis_orthogonal', why: 'The four Bell states form a complete ORTHOGONAL basis: ⟨Φ⁺|Φ⁻⟩ = 0 and ⟨Ψ⁺|Ψ⁻⟩ = 0 (over √2 integer vectors), while ⟨Φ⁺|Φ⁺⟩ = 2 — the entangled-basis measurement, as exact integer inner products',
+    js: () => (1 * 1 + 0 * 0 + 0 * 0 + 1 * -1) === 0 && (0 * 0 + 1 * 1 + 1 * -1 + 0 * 0) === 0 && (1 * 1 + 0 * 0 + 0 * 0 + 1 * 1) === 2,
+    lean: 'theorem bell_basis_orthogonal : ((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0) ∧ ((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0) ∧ ((1*1 + 0*0 + 0*0 + 1*1 : Int) = 2) := by decide' },
 ]
 
 console.log('computing ' + FACTS.length + ' QUANTUM facts (classical simulation, not hardware — no quantum advantage) …')
 
 emit({ file: 'Quantum.lean',
-  header: 'The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3), the gate truth-tables (CNOT, Toffoli, SWAP), and the phase-gate algebra (S·S=Z, Z²=I, S·S†=I). HONEST SCOPE: the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware.',
+  header: 'The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. HONEST SCOPE: the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -16,6 +16,7 @@ import {
   THEOREMS, runTrial, theorems, skillGroups,
 } from './index.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
+import { pathToFileURL } from 'node:url'
 
 const VERSION = '6.8.0'
 
@@ -333,17 +334,47 @@ function handle(msg: RpcMessage) {
   if (id !== undefined) return err(id, -32601, 'method not found: ' + method)
 }
 
-let buf = ''
-process.stdin.setEncoding('utf8')
-process.stdin.on('data', (chunk) => {
-  buf += chunk
-  let i
-  while ((i = buf.indexOf('\n')) >= 0) {
-    const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1)
-    if (!line) continue
-    let msg: RpcMessage; try { msg = JSON.parse(line) } catch { continue }
-    try { handle(msg) } catch (e) { if (msg?.id !== undefined) err(msg.id, -32603, String((e as { message?: unknown })?.message || e)) }
-  }
+// Start the stdio server ONLY when run as the entrypoint (npx uuidna-mcp / node dist/mcp.js) — so the module can
+// be imported for its catalog (MCP_CATALOG, below) without consuming stdin. Do NOT exit on stdin 'end': a pending
+// async call (e.g. PBKDF2 in uuidna_encrypt) must flush its response first; with no more input and no pending
+// work Node's event loop drains and the process exits on its own.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  let buf = ''
+  process.stdin.setEncoding('utf8')
+  process.stdin.on('data', (chunk) => {
+    buf += chunk
+    let i
+    while ((i = buf.indexOf('\n')) >= 0) {
+      const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1)
+      if (!line) continue
+      let msg: RpcMessage; try { msg = JSON.parse(line) } catch { continue }
+      try { handle(msg) } catch (e) { if (msg?.id !== undefined) err(msg.id, -32603, String((e as { message?: unknown })?.message || e)) }
+    }
+  })
+}
+
+// The MCP catalog — every tool key organised into a CATEGORY and a SKILL, derived from the tool name itself, so
+// the site's search and navigation build themselves from the keys (docs/mcp.md is generated from this). Data only,
+// no `run` handler — safe to import without starting the server.
+export interface McpCatalogEntry { name: string; description: string; category: string; skill: string }
+const CATEGORIES: [RegExp, string, string][] = [
+  [/^(address|merge|coin64|strict|digital_root)$/, 'Identity & addressing', 'address'],
+  [/^(units|triad|vortex|double_torus|diamond|involute|seats)$/, 'Vortex algebra', 'algebra'],
+  [/^(merkle_root|merkle_prove|merkle_verify|gravity)$/, 'Merkle & gravity', 'merkle'],
+  [/^(imprint|read|send|receive)$/, 'Imprint & messaging', 'imprint'],
+  [/^(encrypt|decrypt|seal_stream|verify_envelope|seal_onion|open_onion|seal_chain|open_chain)$/, 'Crypto & streams', 'crypto'],
+  [/^(sha256|hmac|pbkdf2|chacha20|poly1305|aead_encrypt|aead_decrypt)$/, 'Crypto primitives', 'crypto'],
+  [/^(theorems|theorem|trial|skills|render|render_list)$/, 'Theorems & trial', 'theorem'],
+  [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
+  [/^quantum$/, 'Quantum simulation', 'quantum'],
+  [/^bill$/, 'Billing', 'billing'],
+]
+const categoryOf = (name: string): [string, string] => {
+  const key = name.replace(/^uuidna_/, '')
+  for (const [re, cat, skill] of CATEGORIES) if (re.test(key)) return [cat, skill]
+  return ['Other', 'other']
+}
+export const MCP_CATALOG: McpCatalogEntry[] = TOOLS.map((t) => {
+  const [category, skill] = categoryOf(t.name)
+  return { name: t.name, description: t.description, category, skill }
 })
-// Do NOT exit on stdin 'end' — a pending async call (e.g. PBKDF2 in uuidna_encrypt) must flush its response
-// first. With no more input and no pending work, Node's event loop drains and the process exits on its own.

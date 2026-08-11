@@ -57,6 +57,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: `Theorems`, link: '/theorems' },
+      { text: 'MCP', link: '/mcp' },
       { text: 'Captain', link: '/captain/message' },
     ],
 
