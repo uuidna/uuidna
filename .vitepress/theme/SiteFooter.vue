@@ -40,7 +40,7 @@ const cols = [
       </section>
     </div>
     <div class="sf-base">
-      <span>License <strong>CC BY-NC 4.0</strong> — Tsvetan Rouschev.</span>
+      <span><a :href="href('/license')">License <strong>CC BY-NC 4.0</strong></a> — Tsvetan Rouschev.</span>
       <span>A theorem computes in Lean, or it is not a theorem. <em>Integrity, not truth.</em></span>
     </div>
   </footer>
