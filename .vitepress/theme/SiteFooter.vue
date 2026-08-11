@@ -1,6 +1,10 @@
 <!-- Global site footer — categorised useful links on every page (the default-theme footer only shows a flat message
      on no-sidebar pages). Mounted via the layout-bottom slot. Self-contained, responsive, themed with VitePress vars. -->
 <script setup>
+import { withBase } from 'vitepress'
+// Internal links go through VitePress's withBase so the site base (and any locale prefix) is applied — no
+// hand-built absolute paths that break under a base or a locale. External links (http…) pass through unchanged.
+const href = (h) => (h.startsWith('/') ? withBase(h) : h)
 const GH = 'https://github.com/uuidna/uuidna'
 const cols = [
   { title: 'The ledger', links: [
@@ -31,7 +35,7 @@ const cols = [
       <section v-for="c in cols" :key="c.title" class="sf-col">
         <h3>{{ c.title }}</h3>
         <ul>
-          <li v-for="l in c.links" :key="l.text"><a :href="l.href">{{ l.text }}</a></li>
+          <li v-for="l in c.links" :key="l.text"><a :href="href(l.href)">{{ l.text }}</a></li>
         </ul>
       </section>
     </div>

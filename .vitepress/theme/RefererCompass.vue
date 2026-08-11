@@ -4,7 +4,7 @@
      (skill / principle) — the cross-linking made contextual to your path. Renders nothing on a fresh entry. -->
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useData } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 
 const { params } = useData()
 const from = ref(null)
@@ -27,6 +27,6 @@ onMounted(() => {
 
 <template>
   <div v-if="from" class="referer-compass">
-    You arrived from <a :href="`/theorem/${from.key}`">{{ from.name }}</a><span v-if="from.shared.length"> · shared {{ from.shared.join(' · ') }}</span>.
+    You arrived from <a :href="withBase(`/theorem/${from.key}`)">{{ from.name }}</a><span v-if="from.shared.length"> · shared {{ from.shared.join(' · ') }}</span>.
   </div>
 </template>
