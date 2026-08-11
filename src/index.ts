@@ -7,7 +7,7 @@
 // A content-address proves INTEGRITY, not truth. It settles Licensed CC BY-NC 4.0 · Tsvetan Rouschev.
 
 export {
-  toUuid, strictUuidna, merge, coin64, merkleFold, digitalRoot,
+  toUuid, cryptoAddress, strictUuidna, merge, coin64, merkleFold, digitalRoot,
   gcd, gcdBigInt, isPrime, modpow,
   TRINITY, BASE, A432_STEP, digits, units, triad, vortexOrbit,
 } from './address.js'

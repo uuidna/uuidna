@@ -18,6 +18,11 @@
 // a step for the same passphrase). This closes the equality leak; it does NOT make the FNV address collision-
 // resistant (a different, non-crypto-by-design gap). Honest caveats: pure JS is NOT constant-time (timing side-
 // channels). Strength = ChaCha20-Poly1305 + the passphrase's own entropy. Integrity, not truth.
+//
+// QUANTUM POSTURE (honest): the scheme is SYMMETRIC-ONLY — no RSA/ECC — so Shor's algorithm has no asymmetric
+// target here. The one quantum threat, Grover, is a quadratic speedup that reduces the 256-bit ChaCha key to
+// ~128-bit and SHA-256 preimages to ~128-bit — still strong. This code has no quantum device and no key exchange;
+// a classical simulator secures nothing.
 import { toUuid, merkleFold } from './address.js'
 import { pbkdf2Sha256, sha256 } from './sha256.js'
 import { aeadEncrypt, aeadDecrypt } from './chacha.js'
@@ -39,16 +44,16 @@ const cat = (...a: Uint8Array[]): Uint8Array => { const t = new Uint8Array(a.red
 const foldEnvelope = (alg: string, salt: string, nonce: string, ct: string, tag: string): string =>
   merkleFold([alg, salt, nonce, ct, tag].map(toUuid))
 
-// The uuidna cache — the KDF applied to the uuidna thesis: the 600k-iteration derivation is a PURE function of
-// (passphrase, salt, iter), so its output is CONTENT-ADDRESSED and never recomputed. Because the salt is itself
-// content-derived, a decrypt derives the exact key its encrypt already did — the second pass is a cache hit, not
-// 600k more rounds. ITER is unchanged; we only stop paying it twice. Process-lifetime, in-memory (holds derived
-// keys like any KDF memo); the address is a uuid, so the raw passphrase is not the map key.
+// The uuidna KDF memo — the 600k-iteration derivation is a PURE function of (passphrase, salt, iter), so a decrypt
+// re-derives the exact key its encrypt already did: the second pass is a cache hit, not 600k more rounds. ITER is
+// unchanged; we only stop paying it twice. Process-lifetime, in-memory. The cache key is a SHA-256 digest of the
+// derivation string — NOT FNV: keying a secret's memo on a non-cryptographic hash would return the WRONG key on a
+// collision, so the map key must be collision-resistant (the value is the derived key, never the raw passphrase).
 const kdfCache = new Map<string, Uint8Array>()
 const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array => {
-  const addr = toUuid('uuidna-kdf-v1|' + iter + '|' + b64(salt) + '|' + b64(pass)) // content-address of the derivation
-  let key = kdfCache.get(addr)
-  if (!key) { key = pbkdf2Sha256(pass, salt, iter, 32); kdfCache.set(addr, key) }
+  const memoKey = b64(sha256(enc.encode('uuidna-kdf-v1|' + iter + '|' + b64(salt) + '|' + b64(pass)))) // collision-resistant memo key
+  let key = kdfCache.get(memoKey)
+  if (!key) { key = pbkdf2Sha256(pass, salt, iter, 32); kdfCache.set(memoKey, key) }
   return key
 }
 

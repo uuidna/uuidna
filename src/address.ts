@@ -1,8 +1,11 @@
 // uuidna — the content-addressed core. Dependency-free, exact integer arithmetic (no Math.*).
-// A content-address proves INTEGRITY, not truth: the same input always mints the same address, for
-// anyone, with no key. FNV-1a is NON-cryptographic by design — public and reproducible, not secret.
+// toUuid provides INTEGRITY, not secrecy: the same input always mints the same address, for anyone, with no key.
+// FNV-1a is NON-cryptographic by design — public and reproducible, not secret. For adversarial integrity use
+// cryptoAddress (SHA-256), which is collision- and preimage-resistant.
 // Licensed CC BY-NC 4.0 · Attribution: Tsvetan Rouschev (ceccec@psg.bg).
+import { sha256 } from './sha256.js'
 
+const enc = new TextEncoder()
 const BYTE_MASK = 0xff
 const MASK_32 = 0xffffffffn
 
@@ -45,17 +48,30 @@ function bytesFromSeed(seed: string): number[] {
 
 const _uuidCache = new Map<string, string>()
 
-/** Deterministic UUID from a seed string — the content-address. Same input → same address, always. */
+/** Format 16 bytes as a v8 UUID string (version nibble 8, RFC-4122 variant). Shared by the FNV and SHA-256 addresses. */
+function formatUuid(bytes: number[]): string {
+  const b = bytes.slice(0, 16)
+  b[6] = (b[6] & 0x0f) | 0x80
+  b[8] = (b[8] & 0x3f) | 0x80
+  const hex = b.map(hexByte).join('')
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`
+}
+
+/** Deterministic UUID from a seed string — the fast, public, NON-cryptographic content-address (FNV-1a).
+ *  Same input → same address, always. For adversary-resistant integrity use cryptoAddress. */
 export function toUuid(seed: string): string {
   const cached = _uuidCache.get(seed)
   if (cached !== undefined) return cached
-  const bytes = bytesFromSeed(seed)
-  bytes[6] = (bytes[6] & 0x0f) | 0x80
-  bytes[8] = (bytes[8] & 0x3f) | 0x80
-  const hex = bytes.map(hexByte).join('')
-  const uuid = `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`
+  const uuid = formatUuid(bytesFromSeed(seed))
   _uuidCache.set(seed, uuid)
   return uuid
+}
+
+/** Cryptographic (SHA-256) content-address — collision- and preimage-resistant, formatted as a v8 UUID from the
+ *  first 128 bits of SHA-256('uuidna:' + seed). Use where the address must resist an adversary; toUuid stays the
+ *  fast public identity. Recomputable by anyone from the same seed; still integrity, not secrecy (it carries no key). */
+export function cryptoAddress(seed: string): string {
+  return formatUuid([...sha256(enc.encode('uuidna:' + seed))])
 }
 
 /** Strict, canonical mint: coerce to string, normalize (NFC), trim — so the SAME logical value always
