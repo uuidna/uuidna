@@ -191,17 +191,18 @@ const banner = computed(() => {
 .chess-reset:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 .chess-board { display: grid; grid-template-columns: repeat(8, 1fr); aspect-ratio: 1; border: 2px solid var(--vp-c-divider); border-radius: 6px; overflow: hidden; }
 .chess-board.locked { pointer-events: none; opacity: .85; }
-.sq { position: relative; border: 0; padding: 0; background: #efd9b5; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-.sq.dark { background: #b58863; }
-.sq.sel { box-shadow: inset 0 0 0 3px var(--vp-c-brand-1); }
-.sq.last { background: #d6e39a; }
-.sq.last.dark { background: #a8bd6a; }
+/* Board and accents COMPUTE from the ℤ/9 sequence (theme palette, 5 → green centre) — no hardcoded colours. Piece
+   fills stay white/black by the nature of chess, with a contrast outline. */
+.sq { position: relative; border: 0; padding: 0; background: var(--seq-light); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.sq.dark { background: var(--seq-dark); }
+.sq.sel { box-shadow: inset 0 0 0 3px var(--seq-center); }
+.sq.last { background: var(--seq-last); }
 .sq.legal { cursor: pointer; }
-.sq.cap { box-shadow: inset 0 0 0 3px rgba(220, 60, 60, .8); }
+.sq.cap { box-shadow: inset 0 0 0 3px var(--seq-1); }
 .pc { font-size: clamp(1.4rem, 7vw, 2.3rem); line-height: 1; }
 .pc.w { color: #fff; text-shadow: 0 0 2px #000, 0 1px 2px #000; }
 .pc.b { color: #111; text-shadow: 0 0 2px rgba(255,255,255,.4); }
-.dot { width: 26%; height: 26%; border-radius: 50%; background: rgba(60, 90, 60, .45); }
+.dot { width: 26%; height: 26%; border-radius: 50%; background: var(--seq-center); opacity: .5; }
 .chess-promo { margin: .7rem 0; display: flex; gap: .5rem; align-items: center; font-size: .9rem; }
 .chess-promo button { font-size: 1.6rem; line-height: 1; border: 1px solid var(--vp-c-divider); border-radius: 6px; background: var(--vp-c-bg-soft); cursor: pointer; padding: .1rem .4rem; }
 .chess-promo button:hover { border-color: var(--vp-c-brand-1); }

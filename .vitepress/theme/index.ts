@@ -11,6 +11,7 @@ import SearchResults from './SearchResults.vue'
 import BillCalc from './BillCalc.vue'
 import StarPlay from './StarPlay.vue'
 import Chess from './Chess.vue'
+import { applySequence } from './palette'
 import './style.css'
 
 export default {
@@ -22,6 +23,9 @@ export default {
     })
   },
   enhanceApp({ app }) {
+    // No hardcoded palette — the accent colours COMPUTE from the ℤ/9 sequence (5 → green, the heart), injected as
+    // CSS custom properties on the document root so components read --seq-* instead of hex literals.
+    applySequence()
     // Global — the theorem pages embed <RefererCompass /> to show a path-aware backlink (referer tracked client-side).
     app.component('RefererCompass', RefererCompass)
     // The 7d fold, animated — seven addresses fold to one receipt (self-contained SVG/CSS).
