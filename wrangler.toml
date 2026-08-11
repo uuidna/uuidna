@@ -13,6 +13,13 @@ main = "worker.js"
 [build]
 command = "npm run docs:build"
 
+# Trial CRUD storage (opt-in). POST /trials persists a trial ONLY with explicit consent, into this KV namespace.
+# Until a namespace exists the worker still computes and returns trials — it just cannot persist them. To enable
+# storage: `wrangler kv namespace create TRIALS`, then uncomment below and paste the returned id.
+# [[kv_namespaces]]
+# binding = "TRIALS"
+# id = "REPLACE_WITH_THE_ID_FROM_wrangler_kv_namespace_create"
+
 [assets]
 directory = "./site"
 binding = "ASSETS" # worker.js delegates the serve path to env.ASSETS.fetch
