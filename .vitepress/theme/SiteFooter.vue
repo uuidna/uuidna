@@ -19,6 +19,7 @@ const cols = [
   ] },
   { title: 'Fuse it in', links: [
     { text: 'MCP tools', href: '/mcp' },
+    { text: 'Chat', href: '/chat' },
     { text: 'Books', href: '/books' },
     { text: 'Guides', href: '/guides' },
     { text: 'npm · @uuidna/uuidna', href: 'https://www.npmjs.com/package/@uuidna/uuidna' },
