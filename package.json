@@ -93,7 +93,8 @@
     "lean:core": "node dist/scripts/lean-core.js",
     "lean:tables": "node dist/scripts/lean-tables.js",
     "dev": "npm run build && vitepress dev",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "heartbeats": "npm run build && node dist/scripts/lean-heartbeats.js"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",

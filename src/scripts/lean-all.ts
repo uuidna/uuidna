@@ -15,7 +15,7 @@ const LEAN = join(ROOT, 'lean')
 const run = (cmd: string) => execSync(cmd, { cwd: ROOT, stdio: 'inherit', maxBuffer: 64 * 1024 * 1024 })
 
 // 1) every generator — dist/scripts/lean-*.js — except the shared helper, the aggregator, and this runner itself.
-const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js'])
+const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js']) // heartbeats is an on-demand cost probe, not a generator
 const generators = readdirSync(SCRIPTS).filter((f) => /^lean-.*\.js$/.test(f) && !SKIP.has(f)).sort()
 for (const g of generators) run('node ' + JSON.stringify(join(SCRIPTS, g)))
 
