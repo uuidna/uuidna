@@ -58,7 +58,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: `Theorems`, link: '/theorems' },
       { text: 'MCP', link: '/mcp' },
-      { text: 'Captain', link: '/captain/message' },
+      { text: 'Captain', items: [{ text: "The captain's message", link: '/captain/message' }, { text: 'The Navigator', link: '/captain/navigator' }] },
     ],
 
     sidebar: {
