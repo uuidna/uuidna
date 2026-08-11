@@ -13,6 +13,7 @@ export type Theorem = {
   tactic: string
   file: string
   principle: string
+  skill: string
   lean: string
   address: string
 }
@@ -20,6 +21,14 @@ export type Theorem = {
 export type PrincipleGroup = {
   name: string
   blurb: string
+  count: number
+  fold: string
+  theorems: Theorem[]
+}
+
+// A discussion topic, computed by the theorem skill axis (mined from theorem keys) — public, folded to a receipt.
+export type SkillGroup = {
+  skill: string
   count: number
   fold: string
   theorems: Theorem[]
@@ -33,6 +42,7 @@ export type LedgerData = {
   order: string[]
   blurb: Record<string, string>
   groups: PrincipleGroup[]
+  skillGroups: SkillGroup[]
   trial: {
     receipt: string
     count: number
@@ -62,6 +72,14 @@ export default {
       return { name, blurb: blurb[name] || '', count: list.length, fold: merkleGravity(list.map((t) => t.address)), theorems: list }
     })
 
+    // Discussion topics computed by the theorem skill axis — biggest first, each folded to its own receipt. Public.
+    const skillGroups: SkillGroup[] = [...new Set(LEDGER.map((t) => t.skill))]
+      .map((skill) => {
+        const list = LEDGER.filter((t) => t.skill === skill)
+        return { skill, count: list.length, fold: merkleGravity(list.map((t) => t.address)), theorems: list }
+      })
+      .sort((a, b) => b.count - a.count)
+
     // The trial: every theorem's content-address folded, order-invariant, to ONE receipt; plus the sequential chain.
     const roots = LEDGER.map((t) => t.address)
     const orderInvariant = trial.receipt === merkleGravity([...roots].reverse())
@@ -76,6 +94,7 @@ export default {
       order,
       blurb,
       groups,
+      skillGroups,
       trial: {
         receipt: trial.receipt,
         count: trial.count,
