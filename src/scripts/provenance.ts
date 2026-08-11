@@ -16,7 +16,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const rd = (p: string) => readFileSync(join(ROOT, p), 'utf8')
 
 // the hollow lexicon — superlatives that assert a property no prose can settle; each must be BACKED or demarcated.
-const HOLLOW = /\b(quantum[- ]?secure|quantum[- ]?speed|computes at once|instantaneous(ly)?|unbreakable|uncrackable|unhackable|untraceable|undetectable|FTL|faster[- ]than[- ]light|at no time|production[- ]grade|military[- ]grade|zero[- ]knowledge|100%\s*secure|keyless\s+secure|perfectly\s+secure|absolute\s+security|unlimited|infinitely|infinite)\b/i
+const HOLLOW = /\b(quantum[- ]?secure|quantum[- ]?speed|computes at once|instantaneous(ly)?|at no [\w ]{0,30}?time|no (additional |extra )?(development |dev )?time|zero[- ]time|unbreakable|uncrackable|unhackable|untraceable|undetectable|FTL|faster[- ]than[- ]light|production[- ]grade|military[- ]grade|zero[- ]knowledge|100%\s*secure|keyless\s+secure|perfectly\s+secure|absolute\s+security|unlimited|infinitely|infinite)\b/i
 
 // a demarcation/negation clears a token — the repo's honest prose ("never infinity", "no fake FTL", "simulation,
 // not hardware", "bounded, never infinite") is the CORRECT use of these words, not a boast.
