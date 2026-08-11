@@ -36,3 +36,12 @@ Compute the exchange yourself — in your browser, nothing sent:
 The measurement is [`uuidna_bill`](/mcp#uuidna-bill) run locally. What you trade is independent skilled work — proof of
 the uuidna concept — measured in bits saved, never in money. See [the captain's message](/captain/message) for the full
 billing model. Integrity, not truth.
+
+## Tokens per theorem — any time
+
+The honest cost-of-proof metric: your token spend divided by the **live** sealed-theorem count. The theorem count is
+the recomputable denominator; the tokens are your own self-report (this page cannot observe them). The same
+[`uuidna_tokens`](/mcp#uuidna-tokens) computation, in your browser, any time — fold many reports over a session to
+watch the cost-per-theorem fall.
+
+<TokenMeter />

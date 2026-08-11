@@ -12,6 +12,7 @@ import BillCalc from './BillCalc.vue'
 import StarPlay from './StarPlay.vue'
 import Chess from './Chess.vue'
 import MessageStream from './MessageStream.vue'
+import TokenMeter from './TokenMeter.vue'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -49,5 +50,7 @@ export default {
     // MessageStream — a live visualisation of uuidna messaging: seal a message into its uuid stream and open it back,
     // real ChaCha20-Poly1305 in the browser, nothing sent.
     app.component('MessageStream', MessageStream)
+    // TokenMeter — tokens-per-theorem any time, computed in the browser against the live ledger count.
+    app.component('TokenMeter', TokenMeter)
   }
 } satisfies Theme
