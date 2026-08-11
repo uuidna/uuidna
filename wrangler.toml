@@ -1,8 +1,13 @@
 # uuidna.com — a static site served by Cloudflare Workers Assets.
-# The npm package still builds with `tsc` (npm run build); this config makes `wrangler deploy` serve the
-# ./site directory (landing + /captain/message), fixing "Could not detect a directory containing static files".
+# `wrangler deploy` runs the [build] command below to GENERATE ./site (VitePress → outDir 'site'), then serves it.
+# The site dir is gitignored and not in the repo, so the build MUST run here — `npm run build` alone is only `tsc`
+# and never produces ./site (that was the "assets.directory does not exist" deploy failure). docs:build does tsc +
+# the MCP catalog + `vitepress build` → ./site.
 name = "uuidna"
 compatibility_date = "2026-08-01"
+
+[build]
+command = "npm run docs:build"
 
 [assets]
 directory = "./site"
