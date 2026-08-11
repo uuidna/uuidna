@@ -4,13 +4,13 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="51 keys" />
+# MCP tools <Badge type="tip" text="56 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 51 tools below are read from the server's own tool list and
-organised into 10 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 56 tools below are read from the server's own tool list and
+organised into 11 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
@@ -376,6 +376,65 @@ Open a ratchet chain: verifies the referer rotation and that each receipt matche
 | `links` | array | **yes** |  |
 | `passphrases` | array | **yes** |  |
 | `genesis` | string | no |  |
+
+## Contract-keyed messaging <Badge type="tip" :text="'5'" />
+
+*skill: contract*
+
+### `uuidna_contract`
+
+The contract identity: content-address a contract TEXT to its [contract-uuid] and the domain that names it (&lt;contract-uuid&gt;.uuidna.org) — the domain IS the contract's address. This uuid is PUBLIC (routing, and a proof anyone holding the exact terms can recompute); the terms themselves are the private key. Same fold as uuidna_address, so the license is itself a contract. Returns {contract,domain}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `terms` | string | **yes** | the contract text (the terms) — kept private; only its address is returned |
+
+### `uuidna_contract_seal`
+
+Seal a message UNDER a contract: encrypt it with the contract text as the ChaCha20-Poly1305 key and tag the sealed uuid stream with the public [contract-uuid]. Only holders of the terms can open it. HONEST: confidentiality is EXACTLY the secrecy of the terms — a PUBLIC contract (e.g. the CC BY-NC license) gives NONE (sealed: complement_is_xor_key3, a fixed pad is public, not secret); a PRIVATE contract gives real secrecy. `step` freshens the salt so repeats never seal alike. Returns {contract,uuids,layers,receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `message` | string | **yes** |  |
+| `terms` | string | **yes** | the contract text — the private key |
+| `step` | integer | no | advancing salt step (optional) |
+
+### `uuidna_contract_open`
+
+Open a contract-sealed message: checks your terms address to the tagged [contract-uuid] (public proof of holding the right contract), then decrypts. A wrong contract fails the address check or Poly1305 authentication. Returns the message.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `sealed` | object | **yes** | the {contract,uuids,...} from uuidna_contract_seal |
+| `terms` | string | **yes** |  |
+
+### `uuidna_contract_chain`
+
+Seal a STREAM of messages under a contract as a forward-linked ratchet — each step ROTATED from the prior link's receipt (the referer sequence), all tagged with the [contract-uuid], seeded from it. HONEST: the rotation buys freshness, linkage and tamper-evidence, NOT extra secrecy (that is the ChaCha20-Poly1305 layer, keyed by the terms). Returns {contract,links}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `messages` | array | **yes** |  |
+| `terms` | string | **yes** |  |
+
+### `uuidna_contract_open_chain`
+
+Open a contract-keyed ratchet: verifies your terms address to the tagged [contract-uuid] and the referer chain rotates correctly, then decrypts each link in order. A wrong contract, or a dropped / reordered / edited link, throws. Returns the messages.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `chain` | object | **yes** | the {contract,links} from uuidna_contract_chain |
+| `terms` | string | **yes** |  |
 
 ## Theorems & trial <Badge type="tip" :text="'6'" />
 
