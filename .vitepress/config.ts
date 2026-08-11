@@ -21,15 +21,10 @@ export default defineConfig({
   title: 'uuidna',
   description:
     'Content-addressed identity, honest by construction. ' +
-    `${LEDGER.length} theorems proven in Lean 4 (by decide, sorry-free), folded to one recomputable receipt. ` +
-    'Three-valued honesty: TRUE · FALSE · UNDECIDED. Integrity, not truth.',
+    `${LEDGER.length} theorems proven in Lean 4 (by decide, sorry-free), folded to one recomputable receipt. `,
   lang: 'en-US',
   cleanUrls: true,
   outDir: 'site', // wrangler.toml serves ./site — VitePress now produces it
-  // All site pages live under docs/ (index, theorems, trial, undecided, theorem/[key], captain/) — the docs root.
-  // Pointing srcDir there makes VitePress serve them at root URLs (docs/theorem/x.md → /theorem/x), so the nav and
-  // sidebar links resolve through VitePress with no rewrites. Non-page code (src/, lean/, dist/) sits outside and is
-  // never globbed. `.vitepress` stays at the project root, where VitePress resolves the config from.
   srcDir: 'docs',
   lastUpdated: true,
   ignoreDeadLinks: true,
@@ -62,14 +57,12 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: `Theorems`, link: '/theorems' },
-      { text: 'Trial', link: '/trial' },
-      { text: 'Undecided', link: '/undecided' },
       { text: 'Captain', link: '/captain/message' },
     ],
 
     sidebar: {
       '/theorem/': theoremSidebar,
-      '/theorems': [{ text: 'The ledger', items: [{ text: 'All theorems', link: '/theorems' }, { text: 'Trial receipt', link: '/trial' }, { text: 'Undecided register', link: '/undecided' }] }, ...theoremSidebar],
+      '/theorems': [{ text: 'The ledger', items: [{ text: 'All theorems', link: '/theorems' }] }, ...theoremSidebar],
     },
 
     socialLinks: [
@@ -83,9 +76,8 @@ export default defineConfig({
     },
 
     footer: {
-      message:
-        'License CC BY-NC 4.0 — Tsvetan Rouschev. <code>npm run lean</code> re-verifies every proof. Integrity, not truth.',
-      copyright: 'A theorem computes in Lean, or it is not a theorem.',
+      message: 'License CC BY-NC 4.0 — Tsvetan Rouschev.',
+      copyright: 'License CC BY-NC 4.0 — Tsvetan Rouschev.',
     },
   },
 })
