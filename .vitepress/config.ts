@@ -50,6 +50,23 @@ export default defineConfig({
   // Per-theorem Open Graph + content-address meta, derived from the dynamic-route params.
   transformPageData(pageData) {
     const p = pageData.params as (T & Record<string, string>) | undefined
+
+    // Canonical → uuidna.com, on EVERY page, whichever host actually serves it: the
+    // .net PaaS, a [contract-uuid].uuidna.org SaaS subdomain, or a commercial CNAME.
+    // Relative links follow the serving host by design (that is why /captain/message
+    // renders as uuidna.net/captain/message on the .net deployment); rel=canonical
+    // names the one recomputable home so crawlers fold the copies to a single source
+    // instead of splitting them as duplicate content. https://vitepress.dev/reference/site-config
+    const slug = p?.key
+      ? `theorem/${p.key}`
+      : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
+    const canonical = `https://uuidna.com/${slug}`
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(
+      ['link', { rel: 'canonical', href: canonical }],
+      ['meta', { property: 'og:url', content: canonical }],
+    )
+
     if (!p?.address) return
     // Per-page meta description (Google SEO: unique, descriptive per page) — the theorem's own statement, not the
     // shared site description. VitePress renders pageData.description as the <meta name="description">.
