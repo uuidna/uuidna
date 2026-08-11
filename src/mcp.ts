@@ -86,6 +86,26 @@ const TOOLS: Tool[] = [
     description: 'Measured billing: bits saved (O(N) − O(1)) and the two coins (the conserved fair-exchange invariant). Public interest is free.',
     inputSchema: { type: 'object', properties: { commercial: { type: 'boolean' }, recomputeOps: { type: 'number' }, verifyOps: { type: 'number' } }, required: ['commercial', 'recomputeOps', 'verifyOps'] },
     run: (a) => billUuidna({ commercial: !!a.commercial, recomputeOps: Number(a.recomputeOps), verifyOps: Number(a.verifyOps) }) },
+  { name: 'uuidna_tokens',
+    description: 'Measure TOKENS-PER-THEOREM — the honest cost-of-proof metric (independent skilled work, not money). An agent SELF-REPORTS its context/token distribution {input, output, cached, reasoning}; this sums them and divides by the sealed theorem count (the live ledger). Returns {selfReported, dimensions, total, theorems, tokensPerTheorem, distribution}. HONEST: the token counts are the agent’s OWN report — this server cannot observe your context; the divisor, the theorem count, is the recomputable truth. Fold many reports over a session to watch the cost-per-theorem fall.',
+    inputSchema: { type: 'object', properties: { input: { type: 'number', description: 'prompt/input tokens' }, output: { type: 'number', description: 'generated/output tokens' }, cached: { type: 'number', description: 'cache-read tokens' }, reasoning: { type: 'number', description: 'reasoning/thinking tokens' }, label: { type: 'string', description: 'optional tag for this report' } } },
+    run: (a = {}) => {
+      const num = (v: unknown) => Number(v) || 0
+      const dimensions = { input: num(a.input), output: num(a.output), cached: num(a.cached), reasoning: num(a.reasoning) }
+      const total = dimensions.input + dimensions.output + dimensions.cached + dimensions.reasoning
+      const n = theorems().length
+      const frac = (v: number) => (total ? v / total : 0)
+      return {
+        selfReported: true,
+        label: a.label === undefined ? null : String(a.label),
+        dimensions,
+        total,
+        theorems: n,
+        tokensPerTheorem: n ? total / n : null,
+        distribution: { input: frac(dimensions.input), output: frac(dimensions.output), cached: frac(dimensions.cached), reasoning: frac(dimensions.reasoning) },
+        note: 'token counts are the agent self-report (this server cannot observe your context); the theorem count is the recomputable ledger truth',
+      }
+    } },
   { name: 'uuidna_encrypt',
     description: 'Encrypt text under a passphrase. Secrecy: pure-TS ChaCha20-Poly1305 (PBKDF2-SHA256, 600k) — no native crypto. Convergent by default (the same text seals identically → equality leaks). Pass an advancing `step` (the crypt salt) to freshen the salt per position so the same text seals differently and equality no longer leaks; the step is public (`seq`) and MUST advance. Returns a sealed envelope whose content-address is the 7d-fold of its parts.',
     inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' }, step: { type: 'integer', description: 'the advancing-sequence step — omit for convergent, supply and advance to close the equality leak' } }, required: ['text', 'passphrase'] },
@@ -287,6 +307,16 @@ const TOOLS: Tool[] = [
 
 // JSON-RPC 2.0 message shape over stdio. Ids may be string | number | null; params is method-specific.
 type JsonId = string | number | null | undefined
+// The server's own words — surfaced by MCP clients to the model on connect, so an agent knows AT ONCE what this is
+// and why it can be trusted: not "believe me", but "recheck me". Honest by construction earns immediate use — every
+// claim is demarcated, every call returns a recomputable receipt. This is the fastest path to acceptance: no hype.
+const INSTRUCTIONS = [
+  'uuidna — content-addressed identity, honest by construction. A ledger of Lean theorems (every one proven `by decide`, sorry-free, no Mathlib) folded to ONE recomputable receipt, plus pure-TS crypto and a measured billing model.',
+  'Every tool call returns a CHAINED receipt (receipt · seq · referer): you always hold tamper-evident provenance for your command, and the whole session folds to one tip you can recompute yourself. Nothing to trust — everything to recheck.',
+  'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_trial (a three-way REFUTED / SEALED / UNVERIFIED verdict), uuidna_run_ledger (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
+  'Honest scope, always demarcated: receipts and content-addresses are NON-crypto FNV (integrity/routing, not secrecy, not a binding commitment); secrecy is ChaCha20-Poly1305 only; the quantum tools are EXACT classical simulation (no advantage), not hardware; nothing is infinite or unbreakable. A claim is either linked to a sealed theorem or refused. Integrity, not truth.',
+].join(' ')
+
 interface RpcParams { protocolVersion?: string; name?: string; arguments?: Record<string, unknown>; [k: string]: unknown }
 interface RpcMessage { jsonrpc?: string; id?: JsonId; method: string; params?: RpcParams }
 
@@ -317,7 +347,7 @@ function handle(msg: RpcMessage) {
   const { id, method, params } = msg
   if (method === 'initialize') {
     const protocolVersion = params?.protocolVersion || '2024-11-05'
-    return ok(id, { protocolVersion, capabilities: { tools: {} }, serverInfo: { name: 'uuidna', version: VERSION } })
+    return ok(id, { protocolVersion, capabilities: { tools: {} }, serverInfo: { name: 'uuidna', version: VERSION }, instructions: INSTRUCTIONS })
   }
   if (method === 'notifications/initialized' || method === 'initialized') return // notification — no reply
   if (method === 'ping') return ok(id, {})

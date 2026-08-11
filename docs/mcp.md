@@ -4,13 +4,13 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="50 keys" />
+# MCP tools <Badge type="tip" text="51 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories and skills are derived from the tool keys. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 50 tools below are read from the server's tool list and organised
-into 10 categories and their skills, so the site search and this page's navigation stay in lockstep with
+is **built from the keys**: the 51 tools below are read from the server's tool list and organised
+into 11 categories and their skills, so the site search and this page's navigation stay in lockstep with
 the code. Every call returns a chained **receipt** — a content-address of the command — so an agent always holds a
 tamper-evident record of what it ran. Add to a client as `{ "command": "npx", "args": ["-y", "@uuidna/uuidna"] }`.
 
@@ -117,6 +117,14 @@ RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope, 
 ### `uuidna_bill`
 
 Measured billing: bits saved (O(N) − O(1)) and the two coins (the conserved fair-exchange invariant). Public interest is free.
+
+## Other <Badge type="tip" :text="'1'" />
+
+*skill: other*
+
+### `uuidna_tokens`
+
+Measure TOKENS-PER-THEOREM — the honest cost-of-proof metric (independent skilled work, not money). An agent SELF-REPORTS its context/token distribution {input, output, cached, reasoning}; this sums them and divides by the sealed theorem count (the live ledger). Returns {selfReported, dimensions, total, theorems, tokensPerTheorem, distribution}. HONEST: the token counts are the agent’s OWN report — this server cannot observe your context; the divisor, the theorem count, is the recomputable truth. Fold many reports over a session to watch the cost-per-theorem fall.
 
 ## Crypto & streams <Badge type="tip" :text="'8'" />
 
