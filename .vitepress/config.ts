@@ -10,6 +10,17 @@ const LEDGER = theorems() as T[]
 const order = PRINCIPLES.map((p: string[]) => p[1]).filter((name: string) => LEDGER.some((t) => t.principle === name))
 const blurb = Object.fromEntries(PRINCIPLES.map((p: string[]) => [p[1], p[2]])) as Record<string, string>
 
+// Sequence neighbours (ledger order) → the OFFICIAL VitePress prev/next doc-footer links, set per page in
+// transformPageData below (https://vitepress.dev/reference/default-theme-prev-next-links). A concise key label
+// so the footer bar stays short; the full three-axis compass still lives in the page body.
+const seqNav: Record<string, { prev?: { text: string; link: string }; next?: { text: string; link: string } }> = {}
+LEDGER.forEach((t, i) => {
+  seqNav[t.key] = {
+    prev: i > 0 ? { text: LEDGER[i - 1].key, link: `/theorem/${LEDGER[i - 1].key}` } : undefined,
+    next: i < LEDGER.length - 1 ? { text: LEDGER[i + 1].key, link: `/theorem/${LEDGER[i + 1].key}` } : undefined,
+  }
+})
+
 // One collapsed sidebar group per principle; every proven theorem is a leaf linking to its show page.
 const theoremSidebar = order.map((name) => ({
   text: `${name} · ${LEDGER.filter((t) => t.principle === name).length}`,
@@ -47,6 +58,10 @@ export default defineConfig({
       ['meta', { property: 'og:description', content: `${p.statement} — proven by ${p.tactic} in Lean 4.` }],
       ['meta', { property: 'uuidna:address', content: p.address }],
     )
+    // Official prev/next doc-footer links (VitePress frontmatter) — the ledger's sequence neighbours.
+    const nav = seqNav[p.key]
+    if (nav?.prev) pageData.frontmatter.prev = nav.prev
+    if (nav?.next) pageData.frontmatter.next = nav.next
   },
 
   themeConfig: {
