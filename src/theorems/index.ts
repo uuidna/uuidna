@@ -17,6 +17,7 @@ const SKILL_RULES: readonly [RegExp, string][] = [
   [/involut/, 'involution'],
   [/^z9|(^|_)mul9|mod9|_sq_zero|_self_inv|_no_inverse|_mul_(two|three|four|five|six|seven|eight|nine)/, 'z9-ring'],
   [/^z7/, 'z7-rosette'],
+  [/pentag|(^|_)fib(_|onacci)|pisano/, 'pentagram'],
   [/^clay_/, 'clay-reflection'],
   [/(^|_)(dz|reflection|mirror|diamond|complement|division_by_zero|div_by_zero)/, 'reflection'],
   [/bell|ghz|born|no_signaling|superposition|truth_table|pauli|(^|_)cnot|(^|_)cz|swap|toffoli|ccz|s_squared|s_dagger|s_fourth|hadamard|quantum/, 'quantum'],

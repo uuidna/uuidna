@@ -36,6 +36,14 @@ const pos = new Map(ALL.map((t, i) => [t.key, i]))
 const at = (i) => ALL[((i % N) + N) % N]
 const rot = (stride) => (t) => at(pos.get(t.key) + stride)
 const reflectOf = (t) => at(N - 1 - pos.get(t.key))
+// The cycle structure is DERIVED from N, never hardcoded — so it cannot go stale when theorems are added (adding
+// the pentagram set moved N from 721=7×103 to 729=3⁶, which flips which strides cover and which split). A stride s
+// over the N-cycle makes gcd(s,N) strands of N/gcd(s,N); coprime (gcd 1) is one full turn covering all N.
+const gcd2 = (a, b) => (b ? gcd2(b, a % b) : a)
+const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹'
+const prettyFactor = (n) => { const f = {}; let m = n; for (let d = 2; d * d <= m; d++) while (m % d === 0) { f[d] = (f[d] || 0) + 1; m /= d } if (m > 1) f[m] = (f[m] || 0) + 1; return Object.entries(f).map(([p, e]) => e > 1 ? p + [...String(e)].map((c) => SUP[+c]).join('') : p).join(' × ') }
+const strand = (s) => { const g = gcd2(s, N); return g === 1 ? `one full turn of all ${N}` : `${g} strands of ${N / g}` }
+const NFAC = prettyFactor(N)
 
 const link = (t) => (t ? `[${t.name}](/theorem/${t.key})` : '—')
 const compass = (label, target, [prev, next]) =>
@@ -50,7 +58,7 @@ const GEN = {
   'Discover.lean': 'lean-discover.ts', 'Quantum.lean': 'lean-quantum.ts', 'Clay.lean': 'lean-clay.ts',
   'Infinity.lean': 'lean-infinity.ts', 'Cipher.lean': 'lean-cipher.ts', 'Audit.lean': 'lean-audit.ts',
   'Coins.lean': 'lean-coins.ts', 'Neuro.lean': 'lean-neuro.ts', 'Propulsion.lean': 'lean-propulsion.ts',
-  'Navigation.lean': 'lean-navigation.ts',
+  'Navigation.lean': 'lean-navigation.ts', 'Pentagram.lean': 'lean-pentagram.ts',
 }
 
 // The ROTATION — seven axes weave every theorem to its neighbours; three are cyclic rotations over the ledger,
@@ -59,12 +67,13 @@ const rotation = (t) => `## The rotation — fills the gaps at scale
 
 Every theorem is woven on **seven axes**: three navigational (skill · principle · sequence), three **cyclic
 rotations** over the ledger, and the runtime referer above. The rotations are modular, so they are *total* — no
-gap, no orphan across the ${N} sealed theorems (${N} = 7 × 103; [\`vortex_one_leap\`](/theorem/vortex_one_leap) is
-the one leap that generates the turn):
+gap, no orphan across the ${N} sealed theorems (${N} = ${NFAC}; the strand structure below is DERIVED from that
+count, never hardcoded, so it cannot go stale as theorems are added; [\`vortex_one_leap\`](/theorem/vortex_one_leap)
+is the one leap that generates the turn):
 
-- **Discovery · sequence → ${link(rot(1)(t))}** — stepping **next** covers all ${N}, exactly as the sequence discovered all, then wraps to the genesis: a closed cover.
-- **Vortex · ℤ/9, step 9 → ${link(rot(9)(t))}** — coprime to ${N}, so this too is one full turn of all ${N} ([\`z9add_0_0\`](/theorem/z9add_0_0)).
-- **Rosette · ℤ/7, step 7 → ${link(rot(7)(t))}** — one of the **seven** strands of 103 ([\`z7add_0_0\`](/theorem/z7add_0_0)).
+- **Discovery · sequence, step 1 → ${link(rot(1)(t))}** — ${strand(1)}: clicking **next** covers all ${N} in discovery order, exactly as the sequence discovered all, then wraps to the genesis — a closed cover.
+- **Vortex · ℤ/9, step 9 → ${link(rot(9)(t))}** — ${strand(9)} ([\`z9add_0_0\`](/theorem/z9add_0_0)).
+- **Rosette · ℤ/7, step 7 → ${link(rot(7)(t))}** — ${strand(7)} ([\`z7add_0_0\`](/theorem/z7add_0_0)).
 - **Reflection · dz(x)=10−x → ${link(reflectOf(t))}** — the mirror through the centre, self-inverse ([\`tens_complement_involutive\`](/theorem/tens_complement_involutive)).`
 
 // "Next possible solutions" for a SEALED theorem are the frontier it opens. Where the forward link is INVISIBLE —

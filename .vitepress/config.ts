@@ -16,7 +16,7 @@ const blurb = Object.fromEntries(PRINCIPLES.map((p: string[]) => [p[1], p[2]])) 
 // The discovery sequence is CYCLIC: the tip's next wraps to the genesis and the genesis's prev wraps to the tip,
 // so a reader clicking the doc-footer "next" covers all N theorems exactly as the sequence discovered them, then
 // closes the loop — no terminal gap. (The per-axis frontiers, where a theorem is genuinely missing, are surfaced
-// separately on the page body as the "invisible next".) N = 721 = 7 × 103; stride 1 is coprime to N → one full cycle.
+// separately on the page body as the "invisible next".) Stride 1 is coprime to any N → one full cycle covering all.
 const seqNav: Record<string, { prev: { text: string; link: string }; next: { text: string; link: string } }> = {}
 const NSEQ = LEDGER.length
 LEDGER.forEach((t, i) => {
