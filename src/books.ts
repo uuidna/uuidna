@@ -136,3 +136,25 @@ export async function auditBook(id: number | string): Promise<BookAudit> {
   const b = await fetchGutenberg(id)
   return auditText(b.text, { title: b.title, authors: b.authors, source: b.source })
 }
+
+/** A film audit — the provenance fingerprint of the PUBLIC description of a movie, NOT the film. */
+export interface MovieAudit extends BookAudit { movieDescription: string }
+
+/** auditMovie(title) → content-address the PUBLIC Wikipedia summary of a film (its factual description, CC BY-SA,
+ *  free, no key) — a recomputable provenance fingerprint of the public facts. It does NOT and CANNOT decode the
+ *  film: a movie is video, and a copyrighted film's footage, dialogue and screenplay are neither fetched nor
+ *  reproduced here. uuidna audits text provenance only; this fingerprints public metadata, not a hidden meaning. */
+export async function auditMovie(title: string): Promise<MovieAudit> {
+  const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`)
+  if (!r.ok) throw new Error(`movies: Wikipedia summary responded ${r.status} for "${title}"`)
+  const j = (await r.json()) as { title?: string; description?: string; extract?: string; content_urls?: { desktop?: { page?: string } } }
+  const source = j.content_urls?.desktop?.page || ''
+  return {
+    ...auditText(j.extract || '', { title: j.title || title, source }),
+    movieDescription: j.description || '',
+    honest:
+      'Fingerprints the PUBLIC Wikipedia summary of the film (facts and description, CC BY-SA), content-addressed — ' +
+      'NOT the copyrighted film content, footage, dialogue or screenplay, which uuidna does not fetch, decode or ' +
+      'reproduce. A movie is video; uuidna audits text provenance only. There is no hidden meaning being decoded.',
+  }
+}

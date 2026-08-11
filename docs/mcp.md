@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="64 keys" />
+# MCP tools <Badge type="tip" text="65 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 64 tools below are read from the server's own tool list and
+is **built from the keys**: the 65 tools below are read from the server's own tool list and
 organised into 13 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`64`" />
+## The grid <Badge type="tip" :text="`65`" />
 
-64 tools, laid out 8×8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+65 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -47,6 +47,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-audit-text"><code>audit_text</code></a>
 <a href="#uuidna-audit-book"><code>audit_book</code></a>
 <a href="#uuidna-audit-translation"><code>audit_translation</code></a>
+<a href="#uuidna-audit-movie"><code>audit_movie</code></a>
 <a href="#uuidna-coprime"><code>coprime</code></a>
 <a href="#uuidna-pentagram"><code>pentagram</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
@@ -507,7 +508,7 @@ Open a contract-keyed ratchet: verifies your terms address to the tagged [contra
 | `chain` | object | **yes** | the {contract,links} from uuidna_contract_chain |
 | `terms` | string | **yes** |  |
 
-## Public-domain books <Badge type="tip" :text="'3'" />
+## Provenance audit (public text & metadata) <Badge type="tip" :text="'4'" />
 
 *skill: books*
 
@@ -546,6 +547,16 @@ Audit a translation as a source↔translation PAIR: content-address both texts a
 | `title` | string | no |  |
 | `sourceLang` | string | no |  |
 | `targetLang` | string | no |  |
+
+### `uuidna_audit_movie`
+
+Content-address the PUBLIC Wikipedia summary of a film by title (free, no key) — a recomputable provenance fingerprint of the public facts + structure + honesty gate. HONEST AND BOUNDED: this fingerprints the public DESCRIPTION only; it does NOT fetch, decode, or reproduce the copyrighted film — its footage, dialogue or screenplay. A movie is video; uuidna audits text provenance, not a hidden meaning. Returns the audit of the public summary.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `title` | string | **yes** | a film title, e.g. "The Matrix" |
 
 ## Rotation & cycles <Badge type="tip" :text="'5'" />
 
