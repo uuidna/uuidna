@@ -94,6 +94,14 @@ test('the honesty gate drains overclaims and signs the honest floor', () => {
   assert.equal(adjudicate('we prove all seven').verdict, 'REFUTED')      // the gate drains a named overclaim
   assert.equal(adjudicate('a plain unbacked claim').verdict, 'UNVERIFIED') // gate-clean, no test → not an oracle
   assert.equal(adjudicate('two units multiply to a unit', () => (2 * 5) % 9 === 1).verdict, 'SEALED') // test holds
+  // the develop plan — every verdict emits ordered, non-empty algebra-development steps.
+  const crypto = adjudicate('the Clay theorems are the new crypto standard')  // UNVERIFIED + the crypto proxies
+  assert.ok(crypto.develop.length >= 4 && crypto.develop.some((s) => /keyspace/.test(s) && /2\^128/.test(s)))
+  // self-consistency: the plans that do NOT quote a banned phrase are themselves gate-clean (the recipe to
+  // resolve a claim passes the trial's own gate); the gate-drain plan must instead NAME the exact phrase to cut.
+  for (const v of [crypto, adjudicate('two units multiply to a unit', () => false)])
+    for (const step of v.develop) assert.equal(computes(step).binary, 1, `develop step must be gate-clean: ${step}`)
+  assert.match(adjudicate('we prove all seven').develop[0], /"we prove"/) // names the exact drained phrase to cut
   const f = [toUuid('formula-1'), toUuid('formula-2')]
   const pv = proveVerdict('we prove all seven', f)
   assert.equal(pv.verdict, 'REFUTED')

@@ -10,20 +10,64 @@ import { merkleGravity } from './gravity.js'
 import { imprint, readImprint } from './imprint.js'
 
 export type VerdictKind = 'REFUTED' | 'SEALED' | 'UNVERIFIED'
-export interface Verdict { statement: string; gateBinary: 0 | 1; verdict: VerdictKind; receipt: string; note: string }
+export interface Verdict { statement: string; gateBinary: 0 | 1; verdict: VerdictKind; receipt: string; note: string; develop: string[] }
+
+// The develop plan — exact, ordered algebra-development steps that move a verdict toward resolution, so a claim
+// is not left at "UNVERIFIED, good luck". Deterministic and gate-clean by construction (the trial's own
+// instructions pass the trial's own gate). Keyed on the verdict and a light lexical read of the claim's domain.
+const CRYPTO_WORDS = /\b(crypto\w*|cipher|encrypt\w*|secur\w*|hash|key(space|s)?|aes|rsa|sha)\b/i
+const GROUP_WORDS = /\b(group|closure|closed|orbit|involution|permutation|affine|vortex|map)\b/i
+const IDENTITY_WORDS = /\b(equals?|identity|inverse|mod|residue|digital root|z\/9|involution)\b/i
+
+function developPlan(statement: string, verdict: VerdictKind, gateBinary: 0 | 1, hit: string | null): string[] {
+  if (verdict === 'SEALED') return [
+    'Resolved: gate-clean and the decidable test recomputes true — admissible.',
+    'Fold it in: proveVerdict(statement, [formulaReceipts]) → one order-invariant proof root.',
+    'If it is a general law, author it in lean/*.lean `by decide` so runTrial() carries it forever.',
+  ]
+  if (verdict === 'REFUTED' && gateBinary === 0) return [
+    `Cut the drained phrase ${JSON.stringify(hit)} — a lexical red flag, not a computation.`,
+    'Restate as the checkable residue: keep the mechanism, drop the superlative, name its measurable bound (e.g. the keyspace bit-length).',
+    'Re-run adjudicate on the residue, then attach a decidable test — see the UNVERIFIED plan.',
+  ]
+  if (verdict === 'REFUTED') { // gate-clean, but the supplied test failed
+    const steps = [
+      'The decidable test returned false — a counterexample exists; the claim is refuted as stated.',
+      'Either (a) narrow the claim to the sub-domain where the predicate holds, or (b) develop the construction until it holds, then re-run the same test.',
+    ]
+    if (CRYPTO_WORDS.test(statement)) steps.push('For a cipher: the affine/vortex layer fails nonlinearity — develop a nonlinear primitive (ARX / S-box). The deposit\'s SHA-256 and ChaCha20 already return isAffine === false.')
+    return steps
+  }
+  // UNVERIFIED — the develop-until-resolved recipe.
+  const steps = [
+    'Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).',
+    'Express the claim as a boolean predicate that recomputes over it — exact integers, no floats, no Math.*.',
+    'Supply it: adjudicate(statement, () => predicate). Holds → SEALED; fails → REFUTED with the counterexample.',
+  ]
+  if (CRYPTO_WORDS.test(statement)) steps.push(
+    'Note: security is not a decidable property — it can never SEAL directly. Develop the three decidable PROXIES, each a () => boolean:',
+    '1. keyspace — generate the map family to closure; assert |G| ≥ 2^128 (the affine/vortex family closes at 54, so it fails this).',
+    '2. nonlinearity — assert the map is NOT affine: isAffine(perm) === false.',
+    '3. key-dependence — assert the output varies with the key, not a keyless content-address.',
+    'All three hold → the claim meets a necessary standard (still not a superlative). Any one fails → REFUTED.',
+  )
+  else if (GROUP_WORDS.test(statement)) steps.push('Group/closure claim: generate from the generators to closure, then assert the cardinality or the closure property as the predicate.')
+  else if (IDENTITY_WORDS.test(statement)) steps.push('Identity claim: enumerate the finite domain and assert equality for every element (e.g. dz(dz(x)) === x for x in 1..9).')
+  return steps
+}
 
 export function adjudicate(statement: string, decidableTest?: () => boolean): Verdict {
   const g = computes(statement)
   const receipt = toUuid(statement)
-  if (g.binary === 0) return { statement, gateBinary: 0, verdict: 'REFUTED', receipt, note: 'the honesty gate drains a named overclaim: ' + JSON.stringify(g.hit) }
-  if (decidableTest) {
+  let gateBinary: 0 | 1, verdict: VerdictKind, note: string
+  if (g.binary === 0) { gateBinary = 0; verdict = 'REFUTED'; note = 'the honesty gate drains a named overclaim: ' + JSON.stringify(g.hit) }
+  else if (decidableTest) {
     let holds = false
     try { holds = decidableTest() === true } catch { holds = false }
-    return holds
-      ? { statement, gateBinary: 1, verdict: 'SEALED', receipt, note: 'gate-clean and a decidable test holds — recomputable, admissible' }
-      : { statement, gateBinary: 1, verdict: 'REFUTED', receipt, note: 'gate-clean but its decidable test fails — refuted by counterexample' }
-  }
-  return { statement, gateBinary: 1, verdict: 'UNVERIFIED', receipt, note: 'gate-clean but no recomputable receipt — the floor is not an oracle; bring a decidable test' }
+    gateBinary = 1; verdict = holds ? 'SEALED' : 'REFUTED'
+    note = holds ? 'gate-clean and a decidable test holds — recomputable, admissible' : 'gate-clean but its decidable test fails — refuted by counterexample'
+  } else { gateBinary = 1; verdict = 'UNVERIFIED'; note = 'gate-clean but no recomputable receipt — the floor is not an oracle; bring a decidable test' }
+  return { statement, gateBinary, verdict, receipt, note, develop: developPlan(statement, verdict, gateBinary, g.hit) }
 }
 
 // A valid trial folds the FORMULAS, not just the verdict text: the caller supplies the receipts of the decidable
