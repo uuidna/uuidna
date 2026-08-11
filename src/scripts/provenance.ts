@@ -9,8 +9,14 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { join, dirname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { theorems, merkleFold, toUuid } from '../index.js'
+import { theorems, merkleFold, toUuid, RED, RED_INTL, rosetta } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
+
+// Translation-aware overreach: the gate's own lexicons — RED (English proof-boasts) and RED_INTL (the same boast
+// in 20+ languages) — checked with the text AND its Glagolitic→Cyrillic fold (rosetta), so an overclaim cannot
+// hide in another script or tongue. A hollow claim in Bulgarian, German or Glagolitic reaches the same detector.
+const redFlag = (u: string): string | null => (RED.test(u) || RED.test(rosetta(u))) ? (u.match(RED) || rosetta(u).match(RED))![0]
+  : (RED_INTL.test(u) || RED_INTL.test(rosetta(u))) ? (u.match(RED_INTL) || rosetta(u).match(RED_INTL))![0] : null
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const rd = (p: string) => readFileSync(join(ROOT, p), 'utf8')
@@ -38,11 +44,17 @@ const findings: Finding[] = []
 // merely with negation words — so a theorem's claim is cleared by its own proof.
 const scan = (surface: string, text: string, backedBy?: string): void => {
   for (const u of units(text)) {
+    // (1) English hollow superlatives. Test demarcation on the unit with the hollow token REMOVED, so a phrase
+    // cannot clear itself with its own words — "at no time" must not pass just because it contains "no".
     const m = u.match(HOLLOW)
-    // Test demarcation on the unit with the hollow token REMOVED, so a phrase cannot clear itself with its own
-    // words — e.g. "at no time" must not pass just because it contains "no". A genuine negation elsewhere still clears.
-    if (m && !backedBy && !DEMARCATED.test(u.replace(m[0], ' ')) && !backed(u))
+    if (m && !backedBy && !DEMARCATED.test(u.replace(m[0], ' ')) && !backed(u)) {
       findings.push({ surface, unit: u.length > 160 ? u.slice(0, 157) + '…' : u, token: m[0], address: toUuid(surface + '|' + u) })
+      continue
+    }
+    // (2) TRANSLATION-AWARE: proof-boasts in any of 20+ languages, and in Glagolitic (folded to Cyrillic first).
+    const r = redFlag(u)
+    if (r && !backedBy && !backed(u))
+      findings.push({ surface, unit: u.length > 160 ? u.slice(0, 157) + '…' : u, token: r, address: toUuid(surface + '|' + u) })
   }
 }
 
@@ -62,7 +74,9 @@ for (const f of readdirSync(join(ROOT, 'lean')).filter((f) => f.endsWith('.lean'
 // the CODE too — every src/**/*.ts comment line (the inline docs that describe what the code claims to do). The
 // honesty-gate files (this scanner, gate, audit, adjudicate) necessarily NAME the words they hunt for, so they are
 // excluded — a lexicon that lists "quantum-secure" as a flag is not a claim of being quantum-secure.
-const GATE_FILES = /(provenance|gate|audit|adjudicate)\.ts$/
+// Excluded from the code scan: the honesty-gate files (they NAME the words they hunt) and the tests (they quote
+// boast phrases as inputs to verify the detector catches them). Neither is a claim.
+const GATE_FILES = /(provenance|gate|audit|adjudicate)\.ts$|\.test\.ts$/
 const tsFiles = (d: string): string[] => existsSync(d) ? readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? tsFiles(join(d, e.name)) : /\.ts$/.test(e.name) ? [join(d, e.name)] : []) : []
 for (const f of tsFiles(join(ROOT, 'src')).filter((f) => !GATE_FILES.test(f))) scan(relative(ROOT, f), [...readFileSync(f, 'utf8').matchAll(/^\s*\/\/\s?(.*)$/gm)].map((m) => m[1]).join('\n'))
 

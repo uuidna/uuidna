@@ -19,7 +19,7 @@ export {
 
 export { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 
-export { computes, RED, RED_INTL, OVERREACH, PREDICT } from './gate.js'
+export { computes, RED, RED_INTL, OVERREACH, PREDICT, rosetta } from './gate.js'
 
 // gravity — decidable contractions (a set of addresses falls to one root; an integer to ℤ/9). merkleGravity is
 // ORDER-INVARIANT: the quantum receipt, the same for any observer ordering. NOT physics, nothing faster than light.
