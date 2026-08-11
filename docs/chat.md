@@ -1,6 +1,6 @@
 ---
 title: Chat
-description: What "chat" means in uuidna — not a chatbot, but two real things: agents conversing through receipted MCP tool calls (the receipt chain is the transcript), and parties exchanging end-to-end encrypted messages as uuid streams. Try the messaging live, in your browser.
+description: 'What chat means in uuidna — not a chatbot, but two real things. Agents converse through receipted MCP tool calls (the receipt chain is the transcript), and parties exchange encrypted messages as uuid streams. Try the messaging live, in your browser.'
 ---
 
 # Chat <Badge type="tip" text="receipted" />
