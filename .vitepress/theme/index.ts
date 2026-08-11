@@ -4,13 +4,15 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
 import FoldAnimation from './FoldAnimation.vue'
+import SiteFooter from './SiteFooter.vue'
 import './style.css'
 
 export default {
   extends: DefaultTheme,
   Layout: () => {
+    // Global categorised footer on every page, via the layout-bottom slot.
     return h(DefaultTheme.Layout, null, {
-      // https://vitepress.dev/guide/extending-default-theme#layout-slots
+      'layout-bottom': () => h(SiteFooter),
     })
   },
   enhanceApp({ app }) {

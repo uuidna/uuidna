@@ -92,10 +92,8 @@ export default defineConfig({
       text: 'Edit / source on GitHub',
     },
 
-    footer: {
-      message: 'License CC BY-NC 4.0 — Tsvetan Rouschev.',
-      copyright: 'License CC BY-NC 4.0 — Tsvetan Rouschev.',
-    },
+    // The footer is the global categorised SiteFooter (theme layout-bottom slot) — shown on every page, not just
+    // no-sidebar ones, so the default-theme `footer` config is intentionally omitted here.
   },
 })
 
