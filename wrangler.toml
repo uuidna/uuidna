@@ -20,6 +20,10 @@ command = "npm run docs:build"
 # binding = "TRIALS"
 # id = "REPLACE_WITH_THE_ID_FROM_wrangler_kv_namespace_create"
 
+# Trial signing key (a secret, NOT stored here). `wrangler secret put TRIAL_KEY` — the worker HMAC-SHA256s each
+# trial verdict with it, so only uuidna.com can sign an authoritative trial (a fork recomputes the same verdict but
+# cannot forge the signature). Until the secret is set, trials return unsigned (valid by recomputation only).
+
 [assets]
 directory = "./site"
 binding = "ASSETS" # worker.js delegates the serve path to env.ASSETS.fetch

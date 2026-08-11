@@ -17,6 +17,17 @@
 // node:child_process helper unavailable in the Workers runtime); adjudicate/address and their deps are pure.
 import { adjudicate } from './dist/adjudicate.js'
 import { toUuid } from './dist/address.js'
+import { hmacSha256 } from './dist/sha256.js'
+
+// A trial is authoritative only when SIGNED BY uuidna.com. The worker HMAC-SHA256s each verdict with a secret held
+// only by uuidna.com (env.TRIAL_KEY, a Cloudflare secret) — a fork running the same public code produces the same
+// recomputable verdict, but CANNOT produce this signature. HONEST: it is a symmetric MAC, so you verify by
+// re-requesting the same statement from uuidna.com (the signature is deterministic) or by trusting the TLS origin —
+// not a public asymmetric signature (the pure-TS lib has no Ed25519 yet). Null when no signing key is bound.
+const _enc = new TextEncoder()
+const _hex = (u8) => Array.from(u8, (b) => b.toString(16).padStart(2, '0')).join('')
+const signTrial = (env, statement, verdict, receipt) =>
+  env && env.TRIAL_KEY ? _hex(hmacSha256(_enc.encode(env.TRIAL_KEY), _enc.encode(statement + '|' + verdict + '|' + receipt))) : null
 
 const FIRST_PARTY = /(^|\.)uuidna\.(com|net|org)$/i
 
@@ -56,10 +67,23 @@ async function handleTrials(request, url, env) {
       return json({ id, layers: s.layers, stored: true, encrypted: true, note: 'stored as ciphertext — neither the worker nor the provider can read it; open it client-side with your keys. Recommended depth: 7 layers.' }, 201)
     }
 
-    // COMPUTE ONLY — run the trial and return the verdict; store NOTHING (plaintext is never persisted).
+    // COMPUTE ONLY — run the trial, SIGN it as uuidna.com, and return the verdict; store NOTHING.
     const statement = typeof body.statement === 'string' ? body.statement.trim() : ''
-    if (!statement) return json({ error: 'POST /trials needs { "statement": "…" } (returns the verdict, stores nothing) OR { "sealed": <7-layer onion>, "consent": true } to persist ciphertext' }, 400)
-    return json({ id: toUuid(statement), statement, verdict: adjudicate(statement), stored: false, note: 'computed, not stored. To persist, seal it client-side into a 7-layer onion (uuidna_seal_onion) and POST { sealed, consent: true } — plaintext is never stored.' }, 200)
+    if (!statement) return json({ error: 'POST /trials needs { "statement": "…" } (returns the signed verdict, stores nothing) OR { "sealed": <7-layer onion>, "consent": true } to persist ciphertext' }, 400)
+    const verdict = adjudicate(statement)
+    const signature = signTrial(env, statement, verdict.verdict, verdict.receipt)
+    return json({
+      id: toUuid(statement),
+      statement,
+      verdict,
+      signature,
+      signedBy: signature ? 'uuidna.com' : null,
+      valid: signature
+        ? 'signed by uuidna.com — a fork cannot forge this HMAC; verify by re-requesting the same statement here (deterministic)'
+        : 'UNSIGNED — no uuidna.com signing key is bound; a trial is authoritative only when signed by uuidna.com',
+      stored: false,
+      note: 'computed, not stored. To persist, seal it client-side into a 7-layer onion (uuidna_seal_onion) and POST { sealed, consent: true } — plaintext is never stored.',
+    }, 200)
   }
 
   // Read a stored trial — returns the OPAQUE ciphertext (the owner decrypts client-side).

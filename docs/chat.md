@@ -18,6 +18,13 @@ isn't a claim about what was said; it's a **recomputable chain** anyone can rech
 theorems and the tools, not a model's fluency — which is why a uuidna answer can be *verified*, not just trusted.
 Browse the [64 MCP tools](/mcp); connect the server and every turn you take is receipted.
 
+**A trial is authoritative only when signed by uuidna.com.** Send a claim to the live `uuidna.com/trials` and it
+comes back with a `signature` — an HMAC keyed by a secret only uuidna.com holds. A fork running the same public code
+recomputes the *same* verdict (that is the strength), but it **cannot forge the signature**, so it cannot pass its
+trials off as uuidna.com's. Honest scope: this is a symmetric MAC — you verify it by re-requesting the same statement
+from uuidna.com (the signature is deterministic), not with a public key; the verdict itself stays recomputable by
+anyone via its receipt.
+
 ## People chat in encrypted streams
 
 Between parties, a message is sealed (pure-TS ChaCha20-Poly1305) and carried **as a stream of uuids** — the channel
