@@ -29,6 +29,38 @@ const link = (t) => (t ? `[${t.name}](/theorem/${t.key})` : '—')
 const compass = (label, target, [prev, next]) =>
   `- **${label} · ${target}:** ${prev ? '← ' + link(prev) : '—'} · ${next ? link(next) + ' →' : '—'}`
 
+// Each domain's generator — where the NEXT theorem is delivered (compute → generate → verify). Hand-authored files
+// (Uuidna, Vortex, OneLeap) have no generator; there the next theorem is added to the .lean directly.
+const SCRIPTS = 'https://github.com/uuidna/uuidna/blob/main/src/scripts/'
+const GEN = {
+  'Core.lean': 'lean-core.ts', 'Ring.lean': 'lean-tables.ts', 'Rosette.lean': 'lean-tables.ts',
+  'Sequence.lean': 'lean-sequence.ts', 'DivByZero.lean': 'lean-divzero.ts', 'BioPhysics.lean': 'lean-biophysics.ts',
+  'Discover.lean': 'lean-discover.ts', 'Quantum.lean': 'lean-quantum.ts', 'Clay.lean': 'lean-clay.ts',
+  'Infinity.lean': 'lean-infinity.ts', 'Cipher.lean': 'lean-cipher.ts', 'Audit.lean': 'lean-audit.ts',
+  'Coins.lean': 'lean-coins.ts', 'Neuro.lean': 'lean-neuro.ts', 'Propulsion.lean': 'lean-propulsion.ts',
+  'Navigation.lean': 'lean-navigation.ts',
+}
+
+// "Next possible solutions" for a SEALED theorem are the frontier it opens: the forward neighbours (real sealed
+// theorems), and the concrete place the NEXT theorem is delivered — in code, not coin. No fabricated promises.
+const developNext = (t) => {
+  const [, nextSkill] = bySkill[t.skill](t)
+  const [, nextPrin] = byPrin[t.principle](t)
+  const [, nextSeq] = bySeq(t)
+  const where = GEN[t.file]
+    ? `a fact in [scripts/${GEN[t.file]}](${SCRIPTS}${GEN[t.file]}) — compute → generate → verify`
+    : `a theorem in [lean/${t.file}](${GH}${t.file}) (hand-authored, verified by \`lean\`)`
+  return `## Deliver the next
+
+A sealed theorem is settled — its "next possible solutions" are the frontier it opens. Forward from here:
+
+- **Skill · ${t.skill}:** ${nextSkill ? link(nextSkill) + ' →' : 'frontier — none sealed beyond this yet'}
+- **Principle · ${t.principle}:** ${nextPrin ? link(nextPrin) + ' →' : 'frontier — none sealed beyond this yet'}
+- **Sequence:** ${nextSeq ? link(nextSeq) + ' →' : 'frontier — the ledger tip'}
+
+To deliver the **next** theorem in _${t.principle}_, add ${where}; then \`npm run lean\` seals it, folds it into the trial receipt, and the provenance gate lets any claim that links it pass. The promise is delivered in code, not coin.`
+}
+
 export default {
   paths() {
     return ALL.map((t) => ({
@@ -75,6 +107,8 @@ Woven to its neighbours in every direction — each axis, backward and forward:
 ${compass('Skill', t.skill, bySkill[t.skill](t))}
 ${compass('Principle', t.principle, byPrin[t.principle](t))}
 ${compass('Sequence', 'ledger order', bySeq(t))}
+
+${developNext(t)}
 
 [All theorems](/theorems) · [Source · lean/${t.file}](${GH}${t.file}) · [npm](https://www.npmjs.com/package/@uuidna/uuidna)
 
