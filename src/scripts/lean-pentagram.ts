@@ -90,6 +90,17 @@ const FACTS = [
     why: 'DNA reads in triplets: the codon reading frame steps by 3. Through the seven-ray rosette that step visits ALL seven rays in one rotation — [0,3,6,2,5,1,4] — because 3 is coprime to 7. The reading frame (the DNA 3) IS a full rotation (the rosette 7): 3×7 in one stroke.',
     js: () => JSON.stringify([0, 1, 2, 3, 4, 5, 6].map((k) => (3 * k) % 7)) === JSON.stringify([0, 3, 6, 2, 5, 1, 4]),
     lean: 'theorem codon_frame_rotates_rosette : (List.range 7).map (fun k => (3*k) % 7) = [0,3,6,2,5,1,4] := by decide' },
+
+  // ── The angles the pentagram folds through, and the honest edge: π is irrational — NOT a `by decide` object. ──
+  { key: 'pentagon_interior_angle_108',
+    why: 'The human pentagram’s pentagon: each interior angle is 108° — (5−2)·180 = 540, and 540 = 5·108. A finite count of degrees, exact; the five points fold to a half-turn (5·36 = 180).',
+    js: () => (5 - 2) * 180 === 540 && 5 * 108 === 540,
+    lean: 'theorem pentagon_interior_angle_108 : (5 - 2) * 180 = 540 ∧ 5 * 108 = 540 := by decide' },
+
+  { key: 'pi_bracketed_by_finite_rationals',
+    why: 'π is the honest edge: irrational, infinite, non-repeating — NOT a `by decide` object (proving anything about π itself needs analysis, not decision). What decides is the finite rationals AROUND it: Archimedes’ bounds 223/71 < π < 22/7 are two ordered fractions — 223·7 = 1561 < 1562 = 22·71 — bracketing π within 1/(71·7). The ledger holds the finite witnesses; π stays outside, by its nature, not by omission.',
+    js: () => 223 * 7 === 1561 && 22 * 71 === 1562 && 223 * 7 < 22 * 71,
+    lean: 'theorem pi_bracketed_by_finite_rationals : 223 * 7 = 1561 ∧ 22 * 71 = 1562 ∧ 223 * 7 < 22 * 71 := by decide' },
 ]
 
 emit({
