@@ -44,15 +44,18 @@ const findings: Finding[] = []
 // merely with negation words — so a theorem's claim is cleared by its own proof.
 const scan = (surface: string, text: string, backedBy?: string): void => {
   for (const u of units(text)) {
-    // (1) English hollow superlatives. Test demarcation on the unit with the hollow token REMOVED, so a phrase
-    // cannot clear itself with its own words — "at no time" must not pass just because it contains "no".
-    const m = u.match(HOLLOW)
-    if (m && !backedBy && !DEMARCATED.test(u.replace(m[0], ' ')) && !backed(u)) {
+    // A quoted phrase is a CITATION, not a claim — tests quote boasts as inputs ('we prove p'), and prose quotes
+    // words to discuss them. De-quote before matching so a cited boast doesn't read as an asserted one.
+    const cited = u.replace(/'[^']*'|"[^"]*"|“[^”]*”|«[^»]*»/g, ' ')
+    // (1) English hollow superlatives. Test demarcation with the hollow token REMOVED, so a phrase cannot clear
+    // itself with its own words — "at no time" must not pass just because it contains "no".
+    const m = cited.match(HOLLOW)
+    if (m && !backedBy && !DEMARCATED.test(cited.replace(m[0], ' ')) && !backed(u)) {
       findings.push({ surface, unit: u.length > 160 ? u.slice(0, 157) + '…' : u, token: m[0], address: toUuid(surface + '|' + u) })
       continue
     }
     // (2) TRANSLATION-AWARE: proof-boasts in any of 20+ languages, and in Glagolitic (folded to Cyrillic first).
-    const r = redFlag(u)
+    const r = redFlag(cited)
     if (r && !backedBy && !backed(u))
       findings.push({ surface, unit: u.length > 160 ? u.slice(0, 157) + '…' : u, token: r, address: toUuid(surface + '|' + u) })
   }
@@ -74,9 +77,10 @@ for (const f of readdirSync(join(ROOT, 'lean')).filter((f) => f.endsWith('.lean'
 // the CODE too — every src/**/*.ts comment line (the inline docs that describe what the code claims to do). The
 // honesty-gate files (this scanner, gate, audit, adjudicate) necessarily NAME the words they hunt for, so they are
 // excluded — a lexicon that lists "quantum-secure" as a flag is not a claim of being quantum-secure.
-// Excluded from the code scan: the honesty-gate files (they NAME the words they hunt) and the tests (they quote
-// boast phrases as inputs to verify the detector catches them). Neither is a claim.
-const GATE_FILES = /(provenance|gate|audit|adjudicate)\.ts$|\.test\.ts$/
+// Excluded from the code scan only: the honesty-gate files themselves — they NAME the words they hunt, so a
+// lexicon is not a claim. TESTS ARE SCANNED (they quote boast phrases as inputs, and a quoted phrase is a
+// citation, not a claim — handled by de-quoting in scan(), below).
+const GATE_FILES = /(provenance|gate|audit|adjudicate)\.ts$/
 const tsFiles = (d: string): string[] => existsSync(d) ? readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? tsFiles(join(d, e.name)) : /\.ts$/.test(e.name) ? [join(d, e.name)] : []) : []
 for (const f of tsFiles(join(ROOT, 'src')).filter((f) => !GATE_FILES.test(f))) scan(relative(ROOT, f), [...readFileSync(f, 'utf8').matchAll(/^\s*\/\/\s?(.*)$/gm)].map((m) => m[1]).join('\n'))
 
