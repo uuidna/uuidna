@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **659 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **667 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -77,7 +77,10 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 24. **The reactions domain** — `lean/Chemistry.lean` · **8** theorems
    chemical reactions as decidable arithmetic, demarcated — a balanced equation conserves atoms (Haber, combustion), a neutral compound conserves charge (Al₂O₃), oxidation states sum to the molecular charge, pH+pOH=14 at 25°C, Boyle's law keeps P·V constant, neutralization pairs H⁺ with OH⁻, and stoichiometry scales linearly — reaction bookkeeping, not thermodynamics, distinct from the electron-shell chemistry in BioPhysics
 
-25. **One leap** — `lean/OneLeap.lean` · **1** theorems
+25. **The energy domain** — `lean/Thermodynamics.lean` · **8** theorems
+   thermodynamics as decidable arithmetic, demarcated — the first law conserves energy (ΔU=Q−W), the second law forbids entropy decrease and sends heat hot→cold, the Carnot efficiency is below 1 (no perpetual motion), the Kelvin scale floors at absolute zero (0°C=273K), Charles's law keeps V/T constant, and specific heat is linear in ΔT — the laws as arithmetic, not statistical mechanics
+
+26. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---
