@@ -22,3 +22,24 @@ theorem vortex_is_the_units : (((List.range 6).map (fun k => (2^k)%9)).all (fun 
 
 -- the units of ℤ/9 sum to 0 (mod 9): 1+2+4+5+7+8 = 27 ≡ 0 — computed by folding the discovered units
 theorem sum_of_units_zero : ((List.range 9).filter (fun a => invB a)).foldl (· + ·) 0 % 9 = 0 := by decide
+
+-- the order of 1 is 1 — discovered as the first k≥1 with 1^k ≡ 1 (mod 9)
+theorem order_of_one_is_one : ((List.range' 1 8).find? (fun k => (1^k) % 9 == 1)) = some 1 := by decide
+
+-- the order of 2 is 6 — 2 generates the whole unit group, and its orbit IS the doubling vortex 1→2→4→8→7→5 of length 6
+theorem order_of_two_is_six : ((List.range' 1 8).find? (fun k => (2^k) % 9 == 1)) = some 6 := by decide
+
+-- the order of 4 is 3 — 4 = 2² sits at index 2 of the vortex, so it cycles in 6/gcd(2,6)=3
+theorem order_of_four_is_three : ((List.range' 1 8).find? (fun k => (4^k) % 9 == 1)) = some 3 := by decide
+
+-- the order of 5 is 6 — 5 is the OTHER generator of ℤ/9* (5 = 2⁵ = the vortex tail), a full six-cycle
+theorem order_of_five_is_six : ((List.range' 1 8).find? (fun k => (5^k) % 9 == 1)) = some 6 := by decide
+
+-- the order of 7 is 3 — 7 = 2⁴, index 4, cycles in 6/gcd(4,6)=3
+theorem order_of_seven_is_three : ((List.range' 1 8).find? (fun k => (7^k) % 9 == 1)) = some 3 := by decide
+
+-- the order of 8 is 2 — 8 ≡ −1 (mod 9) is its own inverse, an involution: 8² = 64 ≡ 1
+theorem order_of_eight_is_two : ((List.range' 1 8).find? (fun k => (8^k) % 9 == 1)) = some 2 := by decide
+
+-- the generators of ℤ/9* (the units of order 6) are EXACTLY {2,5} — discovered by filtering every element for full order
+theorem generators_are_two_and_five : ((List.range 9).filter (fun a => ((List.range' 1 8).find? (fun k => (a^k) % 9 == 1)) == some 6)) = [2,5] := by decide

@@ -18,6 +18,7 @@ const hasInverse = (a: number) => R.some((e) => m(a * e) === 1)
 const inverseOf = (a: number) => R.find((e) => m(a * e) === 1)
 const orbit2 = () => { const o: number[] = []; let x = 1; do { o.push(x); x = m(x * 2) } while (x !== 1); return o } // ⟨2⟩ by iteration
 const pow = (a: number, k: number) => { let r = 1; for (let i = 0; i < k; i++) r = m(r * a); return r }
+const orderOf = (a: number) => { for (let k = 1; k <= BASE - 1; k++) if (pow(a, k) === 1) return k; return 0 } // multiplicative order, discovered by iteration
 
 // ── the discovery set — each fact COMPUTED from the functions above; its Lean recomputes the same property ──
 const DISCOVERED = [
@@ -42,6 +43,29 @@ const DISCOVERED = [
   { key: 'sum_of_units_zero', why: 'the units of ℤ/9 sum to 0 (mod 9): 1+2+4+5+7+8 = 27 ≡ 0 — computed by folding the discovered units',
     js: () => m(R.filter(hasInverse).reduce((s, u) => s + u, 0)) === 0,
     lean: 'theorem sum_of_units_zero : ((List.range 9).filter (fun a => invB a)).foldl (· + ·) 0 % 9 = 0 := by decide' },
+
+  // ── a CROWD discovered by iteration: the multiplicative order of every unit — the first k with a^k ≡ 1 (mod 9). ──
+  { key: 'order_of_one_is_one', why: 'the order of 1 is 1 — discovered as the first k≥1 with 1^k ≡ 1 (mod 9)',
+    js: () => orderOf(1) === 1,
+    lean: 'theorem order_of_one_is_one : ((List.range\' 1 8).find? (fun k => (1^k) % 9 == 1)) = some 1 := by decide' },
+  { key: 'order_of_two_is_six', why: 'the order of 2 is 6 — 2 generates the whole unit group, and its orbit IS the doubling vortex 1→2→4→8→7→5 of length 6',
+    js: () => orderOf(2) === 6,
+    lean: 'theorem order_of_two_is_six : ((List.range\' 1 8).find? (fun k => (2^k) % 9 == 1)) = some 6 := by decide' },
+  { key: 'order_of_four_is_three', why: 'the order of 4 is 3 — 4 = 2² sits at index 2 of the vortex, so it cycles in 6/gcd(2,6)=3',
+    js: () => orderOf(4) === 3,
+    lean: 'theorem order_of_four_is_three : ((List.range\' 1 8).find? (fun k => (4^k) % 9 == 1)) = some 3 := by decide' },
+  { key: 'order_of_five_is_six', why: 'the order of 5 is 6 — 5 is the OTHER generator of ℤ/9* (5 = 2⁵ = the vortex tail), a full six-cycle',
+    js: () => orderOf(5) === 6,
+    lean: 'theorem order_of_five_is_six : ((List.range\' 1 8).find? (fun k => (5^k) % 9 == 1)) = some 6 := by decide' },
+  { key: 'order_of_seven_is_three', why: 'the order of 7 is 3 — 7 = 2⁴, index 4, cycles in 6/gcd(4,6)=3',
+    js: () => orderOf(7) === 3,
+    lean: 'theorem order_of_seven_is_three : ((List.range\' 1 8).find? (fun k => (7^k) % 9 == 1)) = some 3 := by decide' },
+  { key: 'order_of_eight_is_two', why: 'the order of 8 is 2 — 8 ≡ −1 (mod 9) is its own inverse, an involution: 8² = 64 ≡ 1',
+    js: () => orderOf(8) === 2,
+    lean: 'theorem order_of_eight_is_two : ((List.range\' 1 8).find? (fun k => (8^k) % 9 == 1)) = some 2 := by decide' },
+  { key: 'generators_are_two_and_five', why: 'the generators of ℤ/9* (the units of order 6) are EXACTLY {2,5} — discovered by filtering every element for full order',
+    js: () => R.filter((a) => orderOf(a) === 6).join(',') === '2,5',
+    lean: 'theorem generators_are_two_and_five : ((List.range 9).filter (fun a => ((List.range\' 1 8).find? (fun k => (a^k) % 9 == 1)) == some 6)) = [2,5] := by decide' },
 ]
 
 // which are NEW? compare against the existing lean/*.lean files before regenerating this one
