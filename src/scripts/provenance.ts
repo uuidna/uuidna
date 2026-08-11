@@ -20,7 +20,7 @@ const HOLLOW = /\b(quantum[- ]?secure|quantum[- ]?speed|computes at once|instant
 
 // a demarcation/negation clears a token — the repo's honest prose ("never infinity", "no fake FTL", "simulation,
 // not hardware", "bounded, never infinite") is the CORRECT use of these words, not a boast.
-const DEMARCATED = /\b(not|never|no|non|isn'?t|aren'?t|cannot|can'?t|without|honest|honestly|simulation|integrity|finite|bounded|demarcat)\b/i
+const DEMARCATED = /\b(not|never|no|non|isn'?t|aren'?t|cannot|can'?t|without|honest|honestly|simulation|integrity|finite|bounded|refus\w*|forbid\w*|impossible|reject\w*|prohibit\w*|ruled out|demarcat)\b/i
 
 const sealedKeys = theorems().map((t) => t.key)
 // BACKED — the unit carries a /theorem/ link or names a sealed theorem key (specific underscored identifiers).
@@ -33,12 +33,15 @@ const units = (text: string): string[] =>
 
 interface Finding { surface: string; unit: string; token: string; address: string }
 const findings: Finding[] = []
-const scan = (surface: string, text: string): void => {
+// `backedBy` — a sealed theorem key that backs THIS whole unit (used when scanning a theorem's own description:
+// its "why" is backed by the theorem it describes, committed in git). A debunk is disputed with a theorem, not
+// merely with negation words — so a theorem's claim is cleared by its own proof.
+const scan = (surface: string, text: string, backedBy?: string): void => {
   for (const u of units(text)) {
     const m = u.match(HOLLOW)
     // Test demarcation on the unit with the hollow token REMOVED, so a phrase cannot clear itself with its own
     // words — e.g. "at no time" must not pass just because it contains "no". A genuine negation elsewhere still clears.
-    if (m && !DEMARCATED.test(u.replace(m[0], ' ')) && !backed(u))
+    if (m && !backedBy && !DEMARCATED.test(u.replace(m[0], ' ')) && !backed(u))
       findings.push({ surface, unit: u.length > 160 ? u.slice(0, 157) + '…' : u, token: m[0], address: toUuid(surface + '|' + u) })
   }
 }
@@ -50,11 +53,24 @@ const walk = (d: string): string[] => existsSync(d) ? readdirSync(d, { withFileT
 for (const f of walk(join(ROOT, 'docs'))) scan(relative(ROOT, f), readFileSync(f, 'utf8'))
 for (const t of MCP_CATALOG) scan('mcp:' + t.name, t.description)
 
+// INLINE DOCS as an audit surface too — the theorem descriptions (the "why", rendered on every theorem page) and
+// the lean/*.lean header/comment prose. The docs that describe the proofs are held to the same standard as the
+// proofs: a hollow description of a finite, decidable fact is flagged, exactly like hollow site prose.
+for (const t of theorems()) scan('theorem:' + t.key, t.name, t.key)
+for (const f of readdirSync(join(ROOT, 'lean')).filter((f) => f.endsWith('.lean')))
+  scan('lean/' + f, [...readFileSync(join(ROOT, 'lean', f), 'utf8').matchAll(/^--\s?(.*)$/gm)].map((m) => m[1]).join('\n'))
+// the CODE too — every src/**/*.ts comment line (the inline docs that describe what the code claims to do). The
+// honesty-gate files (this scanner, gate, audit, adjudicate) necessarily NAME the words they hunt for, so they are
+// excluded — a lexicon that lists "quantum-secure" as a flag is not a claim of being quantum-secure.
+const GATE_FILES = /(provenance|gate|audit|adjudicate)\.ts$/
+const tsFiles = (d: string): string[] => existsSync(d) ? readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? tsFiles(join(d, e.name)) : /\.ts$/.test(e.name) ? [join(d, e.name)] : []) : []
+for (const f of tsFiles(join(ROOT, 'src')).filter((f) => !GATE_FILES.test(f))) scan(relative(ROOT, f), [...readFileSync(f, 'utf8').matchAll(/^\s*\/\/\s?(.*)$/gm)].map((m) => m[1]).join('\n'))
+
 // fold the findings to ONE recomputable receipt (order-invariant), recomputable by anyone from this same tree.
 const receipt = findings.length ? merkleFold(findings.map((f) => f.address)) : toUuid('provenance-clean')
 
 console.log('\n  PROVENANCE AUDIT — prose earns its claim by linking a sealed theorem, or it is audited.')
-console.log('    surfaces : README + lean/PRINCIPLE.md + docs/*.md + ' + MCP_CATALOG.length + ' MCP descriptions')
+console.log('    surfaces : README + docs/*.md + ' + MCP_CATALOG.length + ' MCP descriptions + inline docs (theorem "why" + lean/*.lean) + code comments (src/**/*.ts)')
 console.log('    hollow-and-unbacked claims : ' + findings.length)
 // The remedy is free of money and paid in CODE: back the claim with a sealed theorem, or demarcate it. The flag is
 // on the CLAIM, never on a person — a hollow sentence is cleared by delivering the proof that makes it true.
