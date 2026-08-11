@@ -28,26 +28,41 @@ const json = (obj, status = 200) =>
   new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8' } })
 
 // The trial CRUD. Returns a Response for an API request, or null to fall through (e.g. GET /trials → the page).
+//
+// STORAGE IS ENCRYPTED END-TO-END. Plaintext is NEVER persisted. To store, the owner seals the trial CLIENT-SIDE
+// into a 7-layer onion (uuidna_seal_onion / sealStream with seven passphrases — each a real ChaCha20-Poly1305 layer,
+// carried as a uuid chain) and POSTs the CIPHERTEXT. The worker stores only that opaque blob, keyed by its own
+// content-address (receipt); it never sees the key or the plaintext, so neither the worker nor the provider
+// (Cloudflare, whose at-rest encryption is a SEPARATE, additional layer) can read it. Only the owner's keys open it,
+// client-side. Confidentiality is exactly the secrecy and entropy of those seven keys.
 async function handleTrials(request, url, env) {
   const idMatch = url.pathname.match(/^\/trials\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/)
 
-  // Create — run the trial; persist ONLY with explicit consent.
   if (url.pathname === '/trials' && request.method === 'POST') {
     let body = {}
-    try { body = await request.json() } catch { /* empty / invalid body → treated as no statement */ }
+    try { body = await request.json() } catch { /* empty / invalid body */ }
+
+    // ENCRYPTED STORAGE — store a client-sealed onion the worker cannot read. Persisted only with explicit consent.
+    if (body.sealed) {
+      const s = body.sealed
+      if (!s || !Array.isArray(s.uuids) || typeof s.receipt !== 'string')
+        return json({ error: 'sealed must be a { uuids, layers, receipt } onion from uuidna_seal_onion — seal client-side so the keys never leave you' }, 400)
+      const id = s.receipt // the ciphertext's own content-address
+      if (body.consent !== true)
+        return json({ id, layers: s.layers, stored: false, note: 'not stored — no consent. Send "consent": true to persist the ciphertext.' }, 200)
+      if (!env.TRIALS)
+        return json({ id, layers: s.layers, stored: false, note: 'consent given, but storage is unavailable (no KV namespace bound).' }, 200)
+      await env.TRIALS.put(id, JSON.stringify(s))
+      return json({ id, layers: s.layers, stored: true, encrypted: true, note: 'stored as ciphertext — neither the worker nor the provider can read it; open it client-side with your keys. Recommended depth: 7 layers.' }, 201)
+    }
+
+    // COMPUTE ONLY — run the trial and return the verdict; store NOTHING (plaintext is never persisted).
     const statement = typeof body.statement === 'string' ? body.statement.trim() : ''
-    if (!statement) return json({ error: 'POST /trials needs a JSON body { "statement": "…" } (add "consent": true to persist)' }, 400)
-    const verdict = adjudicate(statement)
-    const record = { id: toUuid(statement), statement, verdict }
-    if (body.consent !== true)
-      return json({ ...record, stored: false, note: 'not stored — no consent. Send { "consent": true } to persist. Without consent the trial is computed and returned, never saved.' }, 200)
-    if (!env.TRIALS)
-      return json({ ...record, stored: false, note: 'consent given, but storage is unavailable (no KV namespace bound). The trial still computed.' }, 200)
-    await env.TRIALS.put(record.id, JSON.stringify(record))
-    return json({ ...record, stored: true }, 201)
+    if (!statement) return json({ error: 'POST /trials needs { "statement": "…" } (returns the verdict, stores nothing) OR { "sealed": <7-layer onion>, "consent": true } to persist ciphertext' }, 400)
+    return json({ id: toUuid(statement), statement, verdict: adjudicate(statement), stored: false, note: 'computed, not stored. To persist, seal it client-side into a 7-layer onion (uuidna_seal_onion) and POST { sealed, consent: true } — plaintext is never stored.' }, 200)
   }
 
-  // Read a stored trial.
+  // Read a stored trial — returns the OPAQUE ciphertext (the owner decrypts client-side).
   if (idMatch && request.method === 'GET') {
     if (!env.TRIALS) return json({ error: 'storage unavailable (no KV namespace bound)' }, 503)
     const stored = await env.TRIALS.get(idMatch[1])
