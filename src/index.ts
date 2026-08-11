@@ -58,6 +58,9 @@ export { renderTheorem, renderList, renderHero, type TheoremView, type RenderOpt
 export { encrypt, decrypt, verifyEnvelope, sealSequence, ITER, MAX_ITER, type Sealed } from './crypt.js'
 export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
 export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './chacha.js'
+// stream — encrypted uuid messaging streams: onion-seal (N ChaCha20-Poly1305 layers, bounded) carried entirely
+// as a chain of uuids. Self-communicating uuids: the message channel IS the uuid stream, secrecy from crypt only.
+export { sealStream, openStream, sealMessages, openMessages, sealChain, openChain, MAX_LAYERS, GENESIS, type Stream, type Link } from './stream.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS

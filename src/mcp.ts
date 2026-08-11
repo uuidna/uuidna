@@ -4,9 +4,10 @@
 // Run:  npx @uuidna/uuidna         (bin: uuidna-mcp)
 // Add to a client's mcpServers as { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }.
 import {
-  toUuid, strictUuidna, merge, coin64, merkleRoot, merkleProof, verifyProof, computes,
+  toUuid, strictUuidna, merge, coin64, merkleFold, merkleRoot, merkleProof, verifyProof, computes,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
   encrypt, decrypt, verifyEnvelope, sealSequence, MAX_ITER,
+  sealStream, openStream, sealChain, openChain,
   digitalRoot, merkleGravity, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
   units, triad, vortexOrbit, diamond, involute, involutionFixed, seats,
   harness, harness7, renderTheorem, renderHero, renderList,
@@ -14,7 +15,7 @@ import {
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   THEOREMS, runTrial, theorems, skillGroups,
 } from './index.js'
-import type { Sealed, GateOp, QState } from './index.js'
+import type { Sealed, GateOp, QState, Link } from './index.js'
 
 const VERSION = '6.8.0'
 
@@ -100,6 +101,22 @@ const TOOLS: Tool[] = [
     description: 'Verify a sealed envelope\'s 7d-fold content-address (integrity/routing) without the key — public, reproducible.',
     inputSchema: { type: 'object', properties: { sealed: { type: 'object' } }, required: ['sealed'] },
     run: (a) => verifyEnvelope(a.sealed as Sealed) },
+  { name: 'uuidna_seal_onion',
+    description: 'Onion-seal a message under N passphrases (each a real ChaCha20-Poly1305 layer; bounded 1..16, never infinite) and carry the whole envelope AS a chain of uuids. passphrases[0] is the innermost wrap, passphrases[n-1] the outermost. Returns { uuids, layers, receipt }. HONEST: secrecy is ChaCha20-Poly1305 ONLY; the uuid transport is public and hides nothing; the receipt is non-crypto FNV (integrity/routing). Content is hidden — message LENGTH is not.',
+    inputSchema: { type: 'object', properties: { message: { type: 'string' }, passphrases: { type: 'array', items: { type: 'string' }, description: 'innermost→outermost, 1..16 layers' }, step: { type: 'integer', description: 'optional advancing crypt-salt step' } }, required: ['message', 'passphrases'] },
+    run: (a) => sealStream(String(a.message), (a.passphrases as string[]).map(String), a.step === undefined ? undefined : Number(a.step)) },
+  { name: 'uuidna_open_onion',
+    description: 'Open an onion-sealed uuid chain with its passphrases, applied OUTERMOST-first. A wrong key, a reordered key list, or a tampered chain throws (Poly1305 authentication).',
+    inputSchema: { type: 'object', properties: { uuids: { type: 'array', items: { type: 'string' } }, passphrases: { type: 'array', items: { type: 'string' } } }, required: ['uuids', 'passphrases'] },
+    run: (a) => openStream((a.uuids as string[]).map(String), (a.passphrases as string[]).map(String)) },
+  { name: 'uuidna_seal_chain',
+    description: 'Seal a stream of messages as a forward-linked RATCHET: each link onion-seals at a step ROTATED from the prior link’s receipt (the referer sequence), so every step is fresh and the stream is content-chained. HONEST: the rotation is over a PUBLIC non-crypto receipt — it buys freshness, linkage and accidental-tamper-evidence, NOT secrecy and NOT a binding commitment. Returns the ratchet links.',
+    inputSchema: { type: 'object', properties: { messages: { type: 'array', items: { type: 'string' } }, passphrases: { type: 'array', items: { type: 'string' } }, genesis: { type: 'string', description: 'optional zeroth referer seed' } }, required: ['messages', 'passphrases'] },
+    run: (a) => sealChain((a.messages as string[]).map(String), (a.passphrases as string[]).map(String), a.genesis === undefined ? undefined : String(a.genesis)) },
+  { name: 'uuidna_open_chain',
+    description: 'Open a ratchet chain: verifies the referer rotation and that each receipt matches its uuids BEFORE decrypting, then returns the messages in order. A dropped, reordered, or edited link throws.',
+    inputSchema: { type: 'object', properties: { links: { type: 'array', items: { type: 'object' } }, passphrases: { type: 'array', items: { type: 'string' } }, genesis: { type: 'string' } }, required: ['links', 'passphrases'] },
+    run: (a) => openChain(a.links as Link[], (a.passphrases as string[]).map(String), a.genesis === undefined ? undefined : String(a.genesis)) },
   { name: 'uuidna_gravity',
     description: 'The quantum receipt: the order-INVARIANT merkle gravity of a set of addresses — every observer ordering falls to the SAME root. NOT physics; a content-addressed fixed point.',
     inputSchema: { type: 'object', properties: { addresses: { type: 'array', items: { type: 'string' } } }, required: ['addresses'] },
@@ -276,6 +293,25 @@ const send = (msg: unknown) => process.stdout.write(JSON.stringify(msg) + '\n')
 const ok = (id: JsonId, r: unknown) => send({ jsonrpc: '2.0', id, result: r })
 const err = (id: JsonId, code: number, message: string) => send({ jsonrpc: '2.0', id, error: { code, message } })
 
+// The MCP receipt ledger — every tool call folds to a content-address CHAINED from the prior (the referer
+// rotation), so an agent always holds a tamper-evident receipt for its command and the whole session folds to one
+// recomputable tip. HONEST: this is a NON-crypto FNV content-address — an audit/integrity/routing trail, not a
+// secret and not a binding (collision-resistant) commitment. Where secrecy or a hard seal is needed, that is the
+// crypt/sha256 layer, not this. Integrity, not truth.
+interface Receipt { receipt: string; seq: number; referer: string; tool: string }
+let rSeq = 0
+let rTip = toUuid('uuidna-mcp-genesis')
+const receiptFor = (tool: string, args: unknown, out: unknown): Receipt => {
+  const body = toUuid(JSON.stringify({ tool, args, out }))
+  const receipt = merkleFold([rTip, body]) // chain: prior tip + this call → the new tip
+  const rec: Receipt = { receipt, seq: rSeq, referer: rTip, tool }
+  rSeq += 1
+  rTip = receipt
+  return rec
+}
+const withReceipt = (id: JsonId, rec: Receipt, content: unknown[], isError = false) =>
+  ok(id, { content: [...content, { type: 'text', text: `receipt ${rec.receipt} · seq ${rec.seq} · referer ${rec.referer}` }], _meta: rec, ...(isError ? { isError: true } : {}) })
+
 function handle(msg: RpcMessage) {
   const { id, method, params } = msg
   if (method === 'initialize') {
@@ -288,10 +324,11 @@ function handle(msg: RpcMessage) {
   if (method === 'tools/call') {
     const t = TOOLS.find((x) => x.name === params?.name)
     if (!t) return err(id, -32602, 'unknown tool: ' + params?.name)
+    const args = params?.arguments || {}
     return Promise.resolve()
-      .then(() => t.run(params?.arguments || {}))
-      .then((out) => ok(id, { content: [{ type: 'text', text: typeof out === 'string' ? out : JSON.stringify(out) }] }))
-      .catch((e) => ok(id, { content: [{ type: 'text', text: 'error: ' + (e?.message || String(e)) }], isError: true }))
+      .then(() => t.run(args))
+      .then((out) => withReceipt(id, receiptFor(t.name, args, out), [{ type: 'text', text: typeof out === 'string' ? out : JSON.stringify(out) }]))
+      .catch((e) => withReceipt(id, receiptFor(t.name, args, { error: e?.message || String(e) }), [{ type: 'text', text: 'error: ' + (e?.message || String(e)) }], true))
   }
   if (id !== undefined) return err(id, -32601, 'method not found: ' + method)
 }
