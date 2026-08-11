@@ -51,6 +51,9 @@ export default defineConfig({
   transformPageData(pageData) {
     const p = pageData.params as (T & Record<string, string>) | undefined
     if (!p?.address) return
+    // Per-page meta description (Google SEO: unique, descriptive per page) — the theorem's own statement, not the
+    // shared site description. VitePress renders pageData.description as the <meta name="description">.
+    pageData.description = `${p.statement} — proven by ${p.tactic} in Lean 4, sorry-free (no Mathlib); part of ${p.principle}.`
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(
       ['meta', { property: 'og:type', content: 'article' }],
