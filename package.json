@@ -99,6 +99,6 @@
     "@types/node": "^26.2.0",
     "typescript": "^5.9.3",
     "vitepress": "^2.0.0-alpha.19",
-    "wrangler": "4.91.0"
+    "wrangler": "^4.121.0"
   }
 }
