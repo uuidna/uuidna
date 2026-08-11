@@ -6,6 +6,7 @@ import RefererCompass from './RefererCompass.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
 import Reflect from './Reflect.vue'
+import BookReflect from './BookReflect.vue'
 import './style.css'
 
 export default {
@@ -24,5 +25,8 @@ export default {
     // Reflect — a client-side content-addresser; the visitor's chosen data reflects to its address in the browser,
     // nothing sent or stored. Privacy by default; opt-in storage is a separate, consent-gated feature.
     app.component('Reflect', Reflect)
+    // BookReflect — automate the audit while writing: the full offline auditText recomputes live in the browser on
+    // every keystroke (fingerprint, chapter root, structure, gravity, gate). Nothing sent or stored.
+    app.component('BookReflect', BookReflect)
   }
 } satisfies Theme

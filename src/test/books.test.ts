@@ -3,7 +3,7 @@
 // live HTTP in CI); auditBook is just fetchGutenberg piped into this same auditText. Integrity, not truth.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { auditText, toUuid, digitalRoot, merkleRoot } from '../index.js'
+import { auditText, auditTranslation, toUuid, digitalRoot, merkleRoot } from '../index.js'
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 const BOOK = `The Project
@@ -54,4 +54,25 @@ test('empty text is handled (zero words, still a valid fingerprint)', () => {
   const a = auditText('')
   assert.equal(a.words, 0)
   assert.match(a.address, UUID)
+})
+
+test('translation audit binds source→translation with a directional provenance receipt', () => {
+  const src = 'It is a truth universally acknowledged.'
+  const tr = 'Всеобще признанная истина.'
+  const a = auditTranslation(src, tr, { title: 'Opening line', sourceLang: 'en', targetLang: 'ru' })
+  assert.equal(a.source.address, toUuid(src)) // each side keeps its own exact-copy fingerprint
+  assert.equal(a.translation.address, toUuid(tr))
+  assert.match(a.pair, UUID)
+  assert.equal(a.pair, toUuid(`${a.source.address}→${a.translation.address}`)) // recomputable, directional
+  assert.notEqual(a.pair, toUuid(`${a.translation.address}→${a.source.address}`)) // reverse is a different receipt
+  assert.equal(a.targetLang, 'ru')
+})
+
+test('a revised translation re-addresses — the change is visible in the pair', () => {
+  const src = 'the vortex speaks'
+  const a1 = auditTranslation(src, 'вихрь говорит')
+  const a2 = auditTranslation(src, 'вихрь говорит.') // one edit
+  assert.equal(a1.source.address, a2.source.address) // same source
+  assert.notEqual(a1.translation.address, a2.translation.address) // changed translation
+  assert.notEqual(a1.pair, a2.pair) // so the binding receipt changes too
 })

@@ -73,6 +73,42 @@ export function auditText(text: string, meta: { title?: string; authors?: string
   }
 }
 
+/** A translation audited as a source↔translation PAIR — each text's own audit, bound by a directional provenance
+ *  receipt (source → translation). Proves the pairing and each text's integrity; NOT the translation's fidelity. */
+export interface TranslationAudit {
+  source: BookAudit
+  translation: BookAudit
+  pair: string
+  sourceLang?: string
+  targetLang?: string
+  honest: string
+}
+
+/** auditTranslation(source, translation[, opts]) → audit both texts and bind them with a directional provenance
+ *  receipt source → translation (order-sensitive: the reverse pairing is a different receipt). Pure and offline.
+ *  HONEST: this proves the PAIRING and each text's exact-copy integrity — never that the translation is accurate or
+ *  faithful. Semantic fidelity is human judgement; provenance is what recomputes. Useful for writing a translation
+ *  (each revision re-addresses, so a change is visible) and for citing which source a translation descends from. */
+export function auditTranslation(
+  source: string,
+  translation: string,
+  opts: { title?: string; sourceLang?: string; targetLang?: string } = {},
+): TranslationAudit {
+  const s = auditText(source, { title: opts.title })
+  const t = auditText(translation)
+  return {
+    source: s,
+    translation: t,
+    pair: toUuid(`${s.address}→${t.address}`),
+    sourceLang: opts.sourceLang,
+    targetLang: opts.targetLang,
+    honest:
+      'The pair receipt binds THIS translation to THIS source — both exact-copy fingerprints, folded source→translation. ' +
+      'uuidna proves the pairing and each text’s integrity, NOT that the translation is accurate or faithful: semantic ' +
+      'fidelity is human, provenance is recomputable. Re-address after each revision and the change is visible.',
+  }
+}
+
 /** The public source a book was pulled from: the id, its metadata, and the exact text URL (all recomputable). */
 export interface FetchedBook { id: number; title: string; authors: string[]; text: string; source: string }
 

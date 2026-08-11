@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="58 keys" />
+# MCP tools <Badge type="tip" text="59 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 58 tools below are read from the server's own tool list and
+is **built from the keys**: the 59 tools below are read from the server's own tool list and
 organised into 12 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
@@ -436,7 +436,7 @@ Open a contract-keyed ratchet: verifies your terms address to the tagged [contra
 | `chain` | object | **yes** | the {contract,links} from uuidna_contract_chain |
 | `terms` | string | **yes** |  |
 
-## Public-domain books <Badge type="tip" :text="'2'" />
+## Public-domain books <Badge type="tip" :text="'3'" />
 
 *skill: books*
 
@@ -461,6 +461,20 @@ Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id (via the public Gutendex
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e.g. 1342 (Pride and Prejudice) |
+
+### `uuidna_audit_translation`
+
+Audit a translation as a source↔translation PAIR: content-address both texts and bind them with a directional provenance receipt (source→translation, order-sensitive), plus each text's own structural audit. HONEST: this proves the PAIRING and each text's exact-copy integrity — NOT that the translation is accurate or faithful. Semantic fidelity is human judgement; provenance is what recomputes. Re-address after each revision and the change is visible. Returns {source,translation,pair}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `source` | string | **yes** |  |
+| `translation` | string | **yes** |  |
+| `title` | string | no |  |
+| `sourceLang` | string | no |  |
+| `targetLang` | string | no |  |
 
 ## Theorems & trial <Badge type="tip" :text="'6'" />
 
