@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **667 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **675 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -80,7 +80,10 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 25. **The energy domain** — `lean/Thermodynamics.lean` · **8** theorems
    thermodynamics as decidable arithmetic, demarcated — the first law conserves energy (ΔU=Q−W), the second law forbids entropy decrease and sends heat hot→cold, the Carnot efficiency is below 1 (no perpetual motion), the Kelvin scale floors at absolute zero (0°C=273K), Charles's law keeps V/T constant, and specific heat is linear in ΔT — the laws as arithmetic, not statistical mechanics
 
-26. **One leap** — `lean/OneLeap.lean` · **1** theorems
+26. **The bond domain** — `lean/Molecular.lean` · **8** theorems
+   molecular bonding as decidable arithmetic, demarcated — the octet rule (4+4=8), a bond of order n shares 2n electrons, bond order gives N₂ a triple and O₂ a double, main-group valence is group−10, Lewis structures count valence electrons, a large electronegativity gap is ionic, molar mass sums the atoms, and bond strength rises with order — bonding bookkeeping, not quantum chemistry
+
+27. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---
