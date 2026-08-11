@@ -10,10 +10,12 @@ const cols = [
   { title: 'The ledger', links: [
     { text: 'All theorems', href: '/theorems' },
     { text: 'Topics (by skill)', href: '/topics' },
-    { text: 'The trial receipt', href: '/trial' },
+    { text: 'The trials', href: '/trials' },
   ] },
   { title: 'Fuse it in', links: [
     { text: 'MCP tools', href: '/mcp' },
+    { text: 'Books', href: '/books' },
+    { text: 'Guides', href: '/guides' },
     { text: 'npm · @uuidna/uuidna', href: 'https://www.npmjs.com/package/@uuidna/uuidna' },
     { text: 'GitHub repository', href: GH },
   ] },
@@ -22,6 +24,7 @@ const cols = [
     { text: 'The Navigator', href: '/captain/navigator' },
   ] },
   { title: 'Verify it yourself', links: [
+    { text: 'The tests', href: '/tests' },
     { text: 'Lean proofs · lean/', href: GH + '/tree/main/lean' },
     { text: 'PRINCIPLE.md', href: GH + '/blob/main/lean/PRINCIPLE.md' },
     { text: 'npm run lean (recompute)', href: GH + '#verify' },

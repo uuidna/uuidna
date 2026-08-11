@@ -33,7 +33,7 @@ Sign it by *behaving* it: back your claims, or let them be flagged. There is no 
 ## Learn the links
 
 - [MCP tools](/mcp) — the 50 keys, in 10 categories, each call receipted
-- [All theorems](/theorems) · [Topics](/topics) · [The trial receipt](/trial)
+- [All theorems](/theorems) · [Topics](/topics) · [The trials](/trials)
 - [The Navigator](/captain/navigator) — how to sail: fixed references, true bearings, two crossing lines
 - [The captain's message](/captain/message) — contribute 2 to save up to 64
 
