@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **683 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **691 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -86,7 +86,10 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 27. **The field domain** — `lean/Electromagnetism.lean` · **8** theorems
    electromagnetism as decidable arithmetic, demarcated — Coulomb sets the sign (like repel, opposite attract), Ohm's law V=I·R, power V·I=I²R, series resistance adds and parallel combines reciprocally, Kirchhoff conserves current at a node and voltage around a loop, and Faraday induces EMF only from a changing flux — circuit and field arithmetic, not a full Maxwell derivation, distinct from the light waves in Optics
 
-28. **One leap** — `lean/OneLeap.lean` · **1** theorems
+28. **The structures domain** — `lean/Statics.lean` · **8** theorems
+   statics as decidable arithmetic, demarcated — forces sum to zero and moments balance in equilibrium, a lever gives mechanical advantage, the centre of mass is the weighted average, a simply-supported beam splits a central load evenly, a rigid planar truss obeys Maxwell's rule m=2j−3, stress is force over area, and Hooke's law is linear — equilibrium arithmetic, not finite-element analysis
+
+29. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---
