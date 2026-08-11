@@ -386,7 +386,10 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
 // The MCP catalog — every tool key organised into a CATEGORY and a SKILL, derived from the tool name itself, so
 // the site's search and navigation build themselves from the keys (docs/mcp.md is generated from this). Data only,
 // no `run` handler — safe to import without starting the server.
-export interface McpCatalogEntry { name: string; description: string; category: string; skill: string }
+// A JSON-schema-shaped input contract, carried onto the catalog so the generated /mcp page can show each tool's
+// PARAMETERS (name · type · required · description) — a list of tools is not usable without knowing what to pass.
+export interface ToolSchema { type?: string; properties?: Record<string, { type?: string; description?: string }>; required?: string[] }
+export interface McpCatalogEntry { name: string; description: string; category: string; skill: string; inputSchema?: ToolSchema }
 const CATEGORIES: [RegExp, string, string][] = [
   [/^(address|merge|coin64|strict|digital_root)$/, 'Identity & addressing', 'address'],
   [/^(units|triad|vortex|double_torus|diamond|involute|seats)$/, 'Vortex algebra', 'algebra'],
@@ -397,7 +400,8 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^(theorems|theorem|trial|skills|render|render_list)$/, 'Theorems & trial', 'theorem'],
   [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
   [/^quantum$/, 'Quantum simulation', 'quantum'],
-  [/^bill$/, 'Billing', 'billing'],
+  [/^bill$/, 'Billing & measure', 'billing'],
+  [/^tokens$/, 'Billing & measure', 'measure'],
 ]
 const categoryOf = (name: string): [string, string] => {
   const key = name.replace(/^uuidna_/, '')
@@ -406,5 +410,5 @@ const categoryOf = (name: string): [string, string] => {
 }
 export const MCP_CATALOG: McpCatalogEntry[] = TOOLS.map((t) => {
   const [category, skill] = categoryOf(t.name)
-  return { name: t.name, description: t.description, category, skill }
+  return { name: t.name, description: t.description, category, skill, inputSchema: t.inputSchema as ToolSchema }
 })
