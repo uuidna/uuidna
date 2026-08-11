@@ -37,11 +37,12 @@ The uuidna content — the theorems, the proofs, the site — is licensed
 by the tool it governs. That self-license **auto-licenses the whole first-party wildcard**: every apex and subdomain of
 `*.uuidna.com`, `*.uuidna.net`, and `*.uuidna.org` is licensed by this page automatically, no separate signature.
 
-**Every other host is redirected here.** A request to any domain that is not first-party and does not hold a license
-(a commercial CNAME licensed via this page) is sent to the canonical **uuidna.com**, keeping its path. The redirect is
-temporary (302), because a license is conditional and a license change is a new signature — nothing is cached hard. So
-there is exactly one source of terms: you either run under a license that traces back to this page, or you are routed to
-it. Enforced at the edge in [`worker.js`](https://github.com/uuidna/uuidna/blob/main/worker.js).
+**Every other host is redirected to this page.** A request to any domain that is not first-party and does not hold a
+license (a commercial CNAME licensed via this page) is sent to **uuidna.com/license** — the terms it is missing, not
+the home. The redirect is temporary (302), because a license is conditional and a license change is a new signature —
+nothing is cached hard. So there is exactly one source of terms: you either run under a license that traces back to
+this page, or you are routed straight to it. Enforced at the edge in
+[`worker.js`](https://github.com/uuidna/uuidna/blob/main/worker.js).
 
 ## Change is a new signature
 

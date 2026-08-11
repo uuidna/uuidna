@@ -2,13 +2,14 @@
 //
 //   • uuidna.com licenses ITSELF, and that licence AUTO-LICENSES the first-party wildcard
 //     *.uuidna.com | *.uuidna.net | *.uuidna.org (every apex and subdomain). Those are served.
-//   • Any OTHER host is redirected to the canonical uuidna.com — UNLESS it holds a licence: a commercial CNAME
-//     licensed via uuidna.com/license, listed in LICENSED below. The first-party wildcard needs no entry.
+//   • Any OTHER host is redirected to uuidna.com/LICENSE — UNLESS it holds a licence: a commercial CNAME licensed
+//     via uuidna.com/license, listed in LICENSED below. The first-party wildcard needs no entry.
 //
-// The path and query are preserved, so a deep link lands on the same page at uuidna.com. The redirect is 302
-// (temporary), not 301: licensing is conditional and can change (a licence change is a new signature — a new
-// content-address — so prior state must not be cached hard). uuidna.com is itself first-party, so it serves and
-// never loops. Reversible: remove `main`/`run_worker_first` and the site is plain assets again.
+// An unlicensed domain lands on the LICENSE itself (not the home): it is shown the terms it is missing, and the one
+// canonical place to get one. The redirect is 302 (temporary), not 301: licensing is conditional and can change (a
+// licence change is a new signature — a new content-address — so prior state must not be cached hard). uuidna.com
+// (and its /license) is first-party, so it serves and never loops. Reversible: remove `main`/`run_worker_first`
+// and the site is plain assets again.
 //
 // Runs on Cloudflare Workers Assets with run_worker_first = true, so it intercepts EVERY request (including asset
 // hits) before the static layer; the serve path delegates to env.ASSETS.fetch, which still honours the [assets]
@@ -29,10 +30,8 @@ export default {
     // Licensed (first-party wildcard, auto-licensed; or an explicitly licensed CNAME) → serve the assets.
     if (FIRST_PARTY.test(host) || LICENSED.has(host)) return env.ASSETS.fetch(request)
 
-    // Unlicensed host → redirect to the canonical source, keeping the path and query.
-    url.protocol = 'https:'
-    url.hostname = 'uuidna.com'
-    url.port = ''
-    return Response.redirect(url.toString(), 302)
+    // Unlicensed host → redirect to the LICENSE, not just the home: an unlicensed domain must be shown the terms it
+    // is missing. https://uuidna.com/license is itself first-party, so it serves and never loops.
+    return Response.redirect('https://uuidna.com/license', 302)
   },
 }
