@@ -5,6 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
+import NextPage from './NextPage.vue'
 import Reflect from './Reflect.vue'
 import BookReflect from './BookReflect.vue'
 import SearchResults from './SearchResults.vue'
@@ -22,7 +23,8 @@ export default {
   Layout: () => {
     // Global categorised footer on every page, via the layout-bottom slot.
     return h(DefaultTheme.Layout, null, {
-      'layout-bottom': () => h(SiteFooter),
+      // Every page gets a referrer-aware "next" link (walking the whole site, wrapping) above the global footer.
+      'layout-bottom': () => [h(NextPage), h(SiteFooter)],
     })
   },
   enhanceApp({ app }) {
