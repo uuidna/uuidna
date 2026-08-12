@@ -12,5 +12,6 @@ npm run next
 status=$?
 if [ $status -ne 0 ]; then
   echo "pre-push: GATE FAILED (exit $status) — push BLOCKED. Fix the denial, or bypass knowingly with --no-verify (owned, not hidden)."
+  echo "pre-push: MOST failures after adding theorems are a STALE DERIVED LAYER (a git-diff of generated.ts / PRINCIPLE.md / heartbeats.json / docs/mcp.md / audit-citations.json). The fix is one command:  npm run reconcile  — it regenerates, syncs the heartbeats, commits, and re-pushes. A genuine overclaim or unsealed proof must be fixed at the source instead."
 fi
 exit $status
