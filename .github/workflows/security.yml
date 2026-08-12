@@ -1,0 +1,50 @@
+name: security
+
+# The security dimension, gated on every push and PR — three recomputable checks, each of which can FAIL the build.
+# Complements codeql.yml (SAST) and publish.yml (the full audit on release). Integrity, not truth.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # 1) the RECOMPUTABLE security audit — zero runtime deps, dev-deps bounded, defence theorems sealed, collision
+  #    resistance by pigeonhole, the honesty gate biting a fabricated citation, no committed secret, KAT suite present.
+  recomputable-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Recomputable security audit (npm run security)
+        run: npm run security
+      # 0 runtime deps → npm audit is trivially clean; run it as a belt-and-braces informational check.
+      - name: npm audit (runtime deps)
+        run: npm audit --omit=dev --audit-level=low
+
+  # 2) secret scan — no credential ever enters history. gitleaks over the full tree (free for public repos).
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+
+  # 3) dependency review — block a PR that introduces a vulnerable or newly-added dependency (uuidna ships zero, so
+  #    any addition is itself the signal). PR-only: the action needs the base↔head dependency diff.
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: low

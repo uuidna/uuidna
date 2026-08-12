@@ -65,6 +65,7 @@ export { contractId, contractDomain, sealToContract, openFromContract, sealChain
 export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit } from './books.js'
 export { gcdInt, coprime, starPolygon, fibonacciCycle, rotate, crt } from './cycles.js'
 export { recomputableCost, THERMODYNAMICS, type CostReport } from './cost.js'
+export { securityAudit, KNOWN_DEV_DEPS, DEFENCE_THEOREMS, type SecurityCheck, type SecurityAuditReport } from './security-audit.js'
 // publish — write PUBLICATIONS in lean human prose, AUDITED before publishing: a domain note composed by reading
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.
