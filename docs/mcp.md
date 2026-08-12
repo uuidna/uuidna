@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="70 keys" />
+# MCP tools <Badge type="tip" text="71 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 70 tools below are read from the server's own tool list and
+is **built from the keys**: the 71 tools below are read from the server's own tool list and
 organised into 14 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`70`" />
+## The grid <Badge type="tip" :text="`71`" />
 
-70 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+71 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -84,6 +84,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-theorem"><code>theorem</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
+<a href="#uuidna-vocabulary"><code>vocabulary</code></a>
 <a href="#uuidna-compare"><code>compare</code></a>
 <a href="#uuidna-trial"><code>trial</code></a>
 <a href="#uuidna-send"><code>send</code></a>
@@ -852,7 +853,7 @@ The pigeonhole seat bound: a b-bit digest has 2^b distinct seats, so past 2^b in
 | --- | --- | --- | --- |
 | `bits` | number | **yes** |  |
 
-## Publications (audited prose) <Badge type="tip" :text="'3'" />
+## Publications (audited prose) <Badge type="tip" :text="'4'" />
 
 *skill: publish*
 
@@ -877,6 +878,12 @@ The EDITOR primitive — audit a draft, or a revision, BEFORE publishing. With `
 | `draft` | string | no | prose to audit + content-address before publishing |
 | `before` | string | no | the prose before an edit (pair with `after`) |
 | `after` | string | no | the prose after an edit (pair with `before`) |
+
+### `uuidna_vocabulary`
+
+The COMMON, COMPUTABLE vocabulary derived from every theorem and its domain — each term (a domain or a capability) defined by the sealed ledger, self-audited by the honesty gate, content-addressed, and folded (in trinities) to ONE recomputable receipt: the honest "all is one" — one receipt, integrity, NOT a metaphysical singularity. Maps each domain to the STANDARDS it formalizes or references (RFC 8439, ISBN/ISO 2108, SMPTE, Nyquist–Shannon …) — a citation, never a compliance claim. Translation-ready: a translation binds to a term by a provenance receipt. Deterministic and recomputable by anyone.
+
+_No parameters._
 
 ### `uuidna_compare`
 

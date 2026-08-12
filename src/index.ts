@@ -75,6 +75,9 @@ export { canonicalOrder, nextOf, gaps, type PageNode } from './site.js'
 // prose-gate — the honest-prose overreach floor (HOLLOW superlatives + translated proof-boasts, with demarcation
 // clearing), shared by the provenance audit and the self-trial. Extracted so it is tested, not buried in a script.
 export { overreachOf, HOLLOW, DEMARCATED } from './prose-gate.js'
+// vocab — a common, computable, translation-ready vocabulary derived from every theorem and its domain: each term
+// self-audited by the honesty gate, content-addressed, folded (in trinities) to ONE receipt — the honest "all is one".
+export { vocabulary, type Term, type Vocabulary } from './vocab.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS
