@@ -34,6 +34,8 @@ const SKILL_RULES: readonly [RegExp, string][] = [
   [/modus_ponens|modus_tollens|contrapositive|de_morgan|double_negation|excluded_middle|hypothetical_syllogism|disjunctive_syllogism/, 'reasoning'],
   [/full_stop_is_exact|shutter_125_rounds|shutter_60_rounds|fstop_14_rounds|fstop_squared_is_exact|iso_full_stops|equivalent_exposure|stops_fold_mod_nine/, 'photography'],
   [/handshake_degree_sum|edges_are_half|introductions_among|perfect_matching_needs|n_people_make_n_half|proposals_bounded|pairing_is_fixedpoint|mutual_match_is_symmetric/, 'matching'],
+  [/wave_product_is_constant|light_speed_rounds|seven_bands_in_order|photon_energy_rises|visible_under_one_octave|octave_of_light|inverse_at_fixed_c|visible_seven_colours/, 'spectrum'],
+  [/twelve_hue_wheel|complementary_hues|primaries_and_secondaries|triadic_harmony|square_harmony|true_colour_is|tint_and_shade|warm_cool_split/, 'colour'],
   [/^clay_/, 'clay-reflection'],
   [/(^|_)(dz|reflection|mirror|diamond|complement|division_by_zero|div_by_zero)/, 'reflection'],
   [/bell|ghz|born|no_signaling|superposition|truth_table|pauli|(^|_)cnot|(^|_)cz|swap|toffoli|ccz|s_squared|s_dagger|s_fourth|hadamard|quantum/, 'quantum'],
