@@ -12,7 +12,7 @@ import { RED, RED_INTL, rosetta } from './gate.js'
 
 // The hollow lexicon — superlatives that assert a property no prose can settle; each must be BACKED or demarcated.
 // "in no time" (idiomatic zero-time) joins the "at no …time/cost" family: everything uuidna does costs heartbeats.
-export const HOLLOW = /\b(quantum[- ]?secure|quantum[- ]?speed|computes at once|instantaneous(ly)?|in\s+no\s+time|at no [\w ]{0,30}?(time|cost)|no (additional |extra )?(development |dev |token )?(time|cost)|zero[- ](time|cost)|unbreakable|uncrackable|unhackable|untraceable|undetectable|FTL|faster[- ]than[- ]light|production[- ]grade|professional[- ]grade|military[- ]grade|enterprise[- ]grade|zero[- ]knowledge|100%\s*secure|keyless\s+secure|perfectly\s+secure|absolute\s+security|unlimited|infinitely|infinite)\b/i
+export const HOLLOW = /\b(quantum[- ]?secure|quantum[- ]?speed|computes at once|instantaneous(ly)?|in\s+no\s+time|at no [\w ]{0,30}?(time|cost)|no (additional |extra )?(development |dev |token )?(time|cost)|zero[- ](time|cost)|unbreakable|uncrackable|unhackable|unstoppable|untraceable|undetectable|FTL|faster[- ]than[- ]light|production[- ]grade|professional[- ]grade|military[- ]grade|enterprise[- ]grade|zero[- ]knowledge|100%\s*secure|keyless\s+secure|perfectly\s+secure|absolute\s+security|unlimited|infinitely|infinite)\b/i
 
 // A demarcation/negation clears a HOLLOW token — the repo's honest prose ("never infinity", "no fake FTL",
 // "simulation, not hardware", "bounded, never infinite") is the CORRECT use of these words, not a boast.

@@ -33,6 +33,7 @@ test('hollow quality grades are drained; an honest "professional" use is not', (
   assert.ok(overreachOf('professional-grade security tools'), 'professional-grade is a hollow quality claim')
   assert.ok(overreachOf('enterprise-grade encryption'), 'enterprise-grade too')
   assert.ok(overreachOf('production-grade'), 'production-grade (already covered)')
+  assert.ok(overreachOf('this tool is unstoppable'), 'unstoppable is a hollow superlative')
   assert.equal(overreachOf('the craft a professional editor works in'), null, '"professional" without "grade" is honest')
 })
 
