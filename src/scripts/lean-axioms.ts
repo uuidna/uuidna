@@ -38,8 +38,10 @@ for (const t of T) (byFile[t.file] ||= []).push(t.key)
 // Returns name → axiom list ([] = clean). Name equals the bare key (no namespace in these files).
 function parse(out: string): Record<string, string[]> {
   const verdict: Record<string, string[]> = {}
-  for (const m of out.matchAll(/'([^']+)' does not depend on any axioms/g)) verdict[m[1]] = []
-  for (const m of out.matchAll(/'([^']+)' depends on axioms: \[([^\]]*)\]/g))
+  // Capture the name LAZILY up to the verdict phrase — a prime in a Lean name (`foo'`) prints as `'foo''`, which a
+  // `'([^']+)'` class would truncate at the inner quote (dropping the theorem, then falsely draining as unseen).
+  for (const m of out.matchAll(/'(.+?)' does not depend on any axioms/g)) verdict[m[1]] = []
+  for (const m of out.matchAll(/'(.+?)' depends on axioms: \[([^\]]*)\]/g))
     verdict[m[1]] = m[2].split(',').map((s) => s.trim()).filter(Boolean)
   return verdict
 }
@@ -65,12 +67,13 @@ const runLean = (probe: string, attempt = 0): Promise<string> =>
     })
   })
 
-// Compile one file + its axiom queries; resolve name → axiom-list for every theorem in the file.
-const auditFile = (file: string, keys: string[]): Promise<Record<string, string[]>> => {
+// Compile one file + its axiom queries; resolve name → axiom-list for every theorem in the file. `async` so a failed
+// read/write (a missing probe source) surfaces as a promise REJECTION the pool awaits, not a synchronous throw.
+const auditFile = async (file: string, keys: string[]): Promise<Record<string, string[]>> => {
   const src = readFileSync(join(ROOT, 'lean', file), 'utf8')
   const probe = join(tmpdir(), 'uuidna-ax-' + file)
   writeFileSync(probe, src + '\n' + keys.map((k) => `#print axioms ${k}`).join('\n') + '\n')
-  return runLean(probe).then(parse)
+  return parse(await runLean(probe))
 }
 
 // Bounded-concurrency pool (parallel Lean processes), mirroring lean-heartbeats.
