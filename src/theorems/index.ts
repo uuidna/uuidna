@@ -26,6 +26,7 @@ const SKILL_RULES: readonly [RegExp, string][] = [
   [/folio|quarto|octavo|signature_multiple|page_diagonal|readable_measure|leading_exceeds|ream_|recto_odd|seventytwo_points/, 'typesetting'],
   [/frame_index|frames_per|dropframe|uhd_is_four|widescreen|rule_of_thirds|crossfade|audio_samples_per_frame|angle_of_the_cut/, 'editing'],
   [/chromatic_is_z12|octave_doubles|tempo_ms_per_beat|nyquist|midi_is_seven|sixteen_bit_dynamic|fifth_cycles/, 'music-production'],
+  [/defence_layers|two_layers_multiply|each_key_bit|birthday_halves|verify_cheaper_than_forge|no_maximum_only_bounds/, 'security'],
   [/^clay_/, 'clay-reflection'],
   [/(^|_)(dz|reflection|mirror|diamond|complement|division_by_zero|div_by_zero)/, 'reflection'],
   [/bell|ghz|born|no_signaling|superposition|truth_table|pauli|(^|_)cnot|(^|_)cz|swap|toffoli|ccz|s_squared|s_dagger|s_fourth|hadamard|quantum/, 'quantum'],

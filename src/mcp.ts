@@ -17,7 +17,7 @@ import {
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   THEOREMS, runTrial, theorems, skillGroups,
-  publications, composePublication, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence,
+  publications, composePublication, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint,
 } from './index.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { pathToFileURL } from 'node:url'
@@ -346,6 +346,10 @@ const TOOLS: Tool[] = [
     description: 'The COMMON, COMPUTABLE vocabulary derived from every theorem and its domain — each term (a domain or a capability) defined by the sealed ledger, self-audited by the honesty gate, content-addressed, and folded (in trinities) to ONE recomputable receipt: the honest "all is one" — one receipt, integrity, NOT a metaphysical singularity. Maps each domain to the STANDARDS it formalizes or references (RFC 8439, ISBN/ISO 2108, SMPTE, Nyquist–Shannon …) — a citation, never a compliance claim. Translation-ready: a translation binds to a term by a provenance receipt. Deterministic and recomputable by anyone.',
     inputSchema: { type: 'object', properties: {} },
     run: () => vocabulary() },
+  { name: 'uuidna_fingerprint',
+    description: 'The FUSED ledger fingerprint — two integrity layers, stated honestly. The fast FNV receipt is TAMPER-EVIDENT (any change moves it, keyless) but NOT collision-resistant; the SHA-256 fold (over the sorted addresses, order-invariant) IS collision-resistant, so a forgery that survives it costs a ~2^128 collision — a BOUND set by the primitive, NOT a maximum. Add a key (HMAC) and forgery also needs the secret. Recomputable by anyone from the same lean/*.lean. Returns {count, fnvReceipt, sha256, tamperCost}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => ledgerFingerprint() },
   { name: 'uuidna_forensics',
     description: 'FORENSICS — audit an agent STATEMENT against the RECEIPTS, to catch a FALSE TRIAL (a claim dressed as sealed that the ledger does not back). Recomputes and compares, detecting: a fabricated citation (cites a /theorem/<key> not in the sealed ledger), a false address (a uuid presented as a sealed address that is not one), a drained overclaim (the honesty gate), an unbacked legal claim (says lawful/compliant but carries no receipt — a legal claim must cite the specific content-addressed statement; the receipt proves the claim was made, NEVER that it is legally correct), and an address-mismatch (a {text→address} claim that does not recompute). Every violation is a recomputable fact about the CLAIM, never an accusation of a person. Pass {statement} and optional {claims:[{text,address}]}.',
     inputSchema: { type: 'object', properties: { statement: { type: 'string' }, claims: { type: 'array', items: { type: 'object', properties: { text: { type: 'string' }, address: { type: 'string' } } } } }, required: ['statement'] },
@@ -499,7 +503,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^contract($|_)/, 'Contract-keyed messaging', 'contract'],
   [/^audit_(text|book|translation|movie|record)$/, 'Provenance audit (public text & metadata)', 'books'],
   [/^(sha256|hmac|pbkdf2|chacha20|poly1305|aead_encrypt|aead_decrypt)$/, 'Crypto primitives', 'crypto'],
-  [/^(theorems|theorem|trial|skills|render|render_list)$/, 'Theorems & trial', 'theorem'],
+  [/^(theorems|theorem|trial|skills|render|render_list|fingerprint)$/, 'Theorems & trial', 'theorem'],
   [/^(publish|edit|compare|vocabulary)$/, 'Publications (audited prose)', 'publish'],
   [/^(forensics|evidence)$/, 'Forensics & evidence (statements vs receipts)', 'forensics'],
   [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],

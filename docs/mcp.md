@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="73 keys" />
+# MCP tools <Badge type="tip" text="74 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 73 tools below are read from the server's own tool list and
+is **built from the keys**: the 74 tools below are read from the server's own tool list and
 organised into 15 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`73`" />
+## The grid <Badge type="tip" :text="`74`" />
 
-73 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+74 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -85,6 +85,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-vocabulary"><code>vocabulary</code></a>
+<a href="#uuidna-fingerprint"><code>fingerprint</code></a>
 <a href="#uuidna-forensics"><code>forensics</code></a>
 <a href="#uuidna-evidence"><code>evidence</code></a>
 <a href="#uuidna-compare"><code>compare</code></a>
@@ -642,7 +643,7 @@ The Chinese remainder solution: for COPRIME moduli m,n the unique x in [0, m·n)
 | `b` | integer | **yes** |  |
 | `n` | integer | **yes** |  |
 
-## Theorems & trial <Badge type="tip" :text="'6'" />
+## Theorems & trial <Badge type="tip" :text="'7'" />
 
 *skill: theorem*
 
@@ -697,6 +698,12 @@ Read ONE theorem by key: its detailed `by decide` Lean proof, its formal stateme
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `key` | string | **yes** |  |
+
+### `uuidna_fingerprint`
+
+The FUSED ledger fingerprint — two integrity layers, stated honestly. The fast FNV receipt is TAMPER-EVIDENT (any change moves it, keyless) but NOT collision-resistant; the SHA-256 fold (over the sorted addresses, order-invariant) IS collision-resistant, so a forgery that survives it costs a ~2^128 collision — a BOUND set by the primitive, NOT a maximum. Add a key (HMAC) and forgery also needs the secret. Recomputable by anyone from the same lean/*.lean. Returns {count, fnvReceipt, sha256, tamperCost}.
+
+_No parameters._
 
 ### `uuidna_trial`
 

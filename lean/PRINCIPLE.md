@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **806 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **812 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -125,10 +125,13 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 40. **The cut** — `lean/Editing.lean` · **9** theorems
    video and film editing as decidable arithmetic, the craft a professional editor works in — timecode is a ring (at 24 fps the frame field runs 0..23 then wraps, ℤ/24), a minute is 1440 frames, NTSC drop-frame drops 2 frame-numbers a minute except every tenth (108 an hour) to hold 29.97 to the clock, 4K UHD is EXACTLY four Full-HD frames (3840×2160 = 4·1920·1080), widescreen 16:9 beats academy 4:3 by cross-multiplication (48 > 36), the rule of thirds crosses at four power points in a nine-square, a crossfade makes two clips a+b−L long (inclusion–exclusion on the timeline, the same identity the compare tool folds), 48 kHz audio is 2000 samples a frame exactly in sync, and six 30° steps span the 180° axis — the arithmetic of the edit, NOT a codec, an NLE or a renderer
 
-41. **The mix** — `lean/Production.lean` · **10** theorems
+41. **The layered defence** — `lean/Security.lean` · **6** theorems
+   the arithmetic of why FUSING security raises the cost of tampering, proven by decide — NOT a proof that any cryptographic primitive is secure (that rests on assumptions), and claiming NO maximum: independent layers add their bits (64 + 64 = 128) and multiply the search space (2⁸·2⁸ = 2¹⁶), each key bit doubles the space (2¹¹ = 2·2¹⁰), a collision costs about half the exponent of a preimage (2·64 = 128, the honest caveat that collisions are cheaper), verifying is exponentially cheaper than forging (16 < 2¹⁶), and for every bound there is a strictly larger one (2⁸ < 2⁹) so there is NO maximum, only bounds — the honest kernel of "fuse security → raise tampering cost", refusing the word max
+
+42. **The mix** — `lean/Production.lean` · **10** theorems
    music production as decidable arithmetic and the studio INVOLUTIONS made exact — reversing a clip is self-inverse (reverse twice returns), inverting its phase (x ↦ −x) is self-inverse, and their FUSION reverse-then-invert is ITSELF an involution (applied twice, the identity): the ultimate test that reverse and inverse compose to a clean self-inverse, proven on a real signal. Around them the counting of the studio: the chromatic scale is ℤ/12 (the octave wraps like the rosette), an octave doubles frequency (440→880), 120 BPM is 500 ms a beat and 2 s a 4/4 bar, Nyquist is half the sample rate (44.1 k → 22.05 k, the honest ceiling, not lossless), MIDI is 7-bit (128 notes, 0..127), 16-bit is the ~6 dB-per-bit rule of thumb (≈96 dB), and the circle of fifths is ONE cycle (7 semitones coprime to 12 visits all twelve, the pentagram idea in sound) — the arithmetic and involutions of the mix, NOT a DAW, a synth or a mastering chain
 
-42. **One leap** — `lean/OneLeap.lean` · **1** theorems
+43. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---

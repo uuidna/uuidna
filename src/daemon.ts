@@ -10,7 +10,7 @@
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
 import { readFileSync } from 'node:fs'
 import {
-  toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics, evidence,
+  toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics, evidence, ledgerFingerprint,
 } from './index.js'
 
 const VERSION = (() => {
@@ -42,6 +42,7 @@ export function route(method: string, path: string, query: URLSearchParams, body
       'GET /theorems': 'the sealed ledger (?skill= ?contains=)',
       'GET /theorem/<key>': 'one theorem with its proof',
       'GET /run': 'fold the whole ledger to one receipt',
+      'GET /fingerprint': 'the fused fingerprint — FNV receipt + collision-resistant SHA-256',
       'GET /vocabulary': 'the common computable vocabulary',
     },
   })
@@ -101,6 +102,7 @@ export function route(method: string, path: string, query: URLSearchParams, body
   }
 
   if (method === 'GET' && path === '/run') return ok(runTrial())
+  if (method === 'GET' && path === '/fingerprint') return ok(ledgerFingerprint())
   if (method === 'GET' && path === '/vocabulary') return ok(vocabulary())
 
   return { status: 404, json: { error: 'no such route: ' + method + ' ' + path + ' — GET / for the index' } }

@@ -10,7 +10,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/). A content-addres
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-Ledger: **806 theorems** across **42 principles**, folded to receipt `c62beaea-977e-829c-8bdc-202c14becd00`
+Ledger: **812 theorems** across **43 principles**, folded to receipt `16c1ecde-632b-80d8-a385-c5bc2f4efc89`
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added
@@ -34,6 +34,12 @@ Ledger: **806 theorems** across **42 principles**, folded to receipt `c62beaea-9
 - **The homepage as a graph** — every principle a domain card, a horizontal slider of its top theorems linking its
   monograph; the categories strip; all computed from the ledger and the ℤ/9 palette.
 - **The trial charter** on `/trials` — what the trial does and does not judge, drawn from the three verdicts.
+- **The layered defence** (Security.lean) — the *arithmetic* of why fusing security raises tampering cost, proven by
+  decide: independent layers add their bits (64+64=128) and multiply the space (2⁸·2⁸=2¹⁶), a collision halves the
+  exponent (the honest caveat), verifying is exponentially cheaper than forging, and for every bound there is a larger
+  one — so there is **no maximum, only bounds**. Refuses the word "max" by proving there isn't one.
+- **The fused fingerprint** — `ledgerFingerprint()`: the fast tamper-evident FNV receipt *and* the collision-resistant
+  SHA-256 fold, so an undetected forgery costs a ~2^128 collision (a ceiling, not a maximum). `uuidna_fingerprint`.
 - **Zenodo** — `auditZenodo` (public-metadata fingerprint, sandbox-aware) and `.zenodo.json` deposit metadata.
 
 ### Changed

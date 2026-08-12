@@ -84,6 +84,9 @@ export { forensics, auditAgents, type Violation, type ForensicReport } from './f
 // evidence — deliver the recomputable evidence bundle for a statement (verdict + forensics + every cited proof in
 // full + the ledger receipt + the steps to reproduce every number), so a court accepts a trial by RECOMPUTING it.
 export { evidence, type Evidence, type ProofExhibit } from './evidence.js'
+// fingerprint — the FUSED ledger fingerprint: the fast tamper-evident FNV receipt AND the collision-resistant SHA-256
+// fold. Raises the cost of an undetected forgery to the SHA-256 collision bound — a ceiling, not a maximum.
+export { ledgerFingerprint, type LedgerFingerprint } from './fingerprint.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS
