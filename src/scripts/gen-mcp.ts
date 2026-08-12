@@ -51,6 +51,12 @@ let isqrt = 0
 while ((isqrt + 1) * (isqrt + 1) <= MCP_CATALOG.length) isqrt++
 const GRID_LAYOUT = isqrt * isqrt === MCP_CATALOG.length ? `${isqrt}×${isqrt}` : 'in rows of 8'
 
+// The grid EMERGES from the usability metric, not a hand-kept order: rank by fewest REQUIRED keys first, so the
+// maximally-reusable (zero-arg) tools rise to the top — exactly what uuidna_mcp_benchmark measures. Top at the top.
+const requiredOf = (t: (typeof MCP_CATALOG)[number]): number => (t.inputSchema?.required?.length ?? 0)
+const byUsability = [...MCP_CATALOG].sort((a, b) => requiredOf(a) - requiredOf(b) || a.name.localeCompare(b.name))
+const zeroArg = byUsability.filter((t) => requiredOf(t) === 0).length
+
 const md = `---
 title: MCP tools
 aside: true
@@ -69,10 +75,10 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 
 ## The grid <Badge type="tip" :text="\`${MCP_CATALOG.length}\`" />
 
-${MCP_CATALOG.length} tools, laid out ${GRID_LAYOUT} — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+${MCP_CATALOG.length} tools, **ranked by usability — the reusable at the top** (fewest required keys first; the ${zeroArg} zero-arg tools lead). The order EMERGES from \`uuidna_mcp_benchmark\`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
-${MCP_CATALOG.map((t) => `<a href="#${t.name.replace(/_/g, '-')}"><code>${t.name.replace(/^uuidna_/, '')}</code></a>`).join('\n')}
+${byUsability.map((t) => `<a href="#${t.name.replace(/_/g, '-')}"><code>${t.name.replace(/^uuidna_/, '')}</code></a>`).join('\n')}
 </div>
 
 ## Getting started
