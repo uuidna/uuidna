@@ -127,12 +127,19 @@ export default defineConfig({
     // Per-page meta description (Google SEO: unique, descriptive per page) — the theorem's own statement, not the
     // shared site description. VitePress renders pageData.description as the <meta name="description">.
     pageData.description = `${p.statement} — proven by ${p.tactic} in Lean 4, sorry-free (no Mathlib); part of ${p.principle}.`
+    // INLINE FRONTMATTER TAGS — the capability axis, organised as page tags. The skill is authored in Lean (the
+    // single source, carried through the manifest → ledger → params), so the tag on the page IS the sealed skill,
+    // never a hand-kept list; the principle rides alongside as the derivation-cluster tag.
+    pageData.frontmatter.tags = [p.skill, p.principle].filter(Boolean)
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(
       ['meta', { property: 'og:type', content: 'article' }],
       ['meta', { property: 'og:title', content: p.name }],
       ['meta', { property: 'og:description', content: `${p.statement} — proven by ${p.tactic} in Lean 4.` }],
       ['meta', { property: 'uuidna:address', content: p.address }],
+      // the LLM/microdata facet — skill and principle as machine-readable keywords + a typed uuidna:skill tag.
+      ['meta', { property: 'uuidna:skill', content: p.skill || '' }],
+      ['meta', { name: 'keywords', content: [p.skill, p.principle].filter(Boolean).join(', ') }],
     )
   },
 
