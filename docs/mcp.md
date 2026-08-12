@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="87 keys" />
+# MCP tools <Badge type="tip" text="88 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 87 tools below are read from the server's own tool list and
-organised into 23 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 88 tools below are read from the server's own tool list and
+organised into 24 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`87`" />
+## The grid <Badge type="tip" :text="`88`" />
 
-87 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 19 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+88 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 20 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -35,6 +35,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-tokens"><code>tokens</code></a>
 <a href="#uuidna-triad"><code>triad</code></a>
 <a href="#uuidna-trial"><code>trial</code></a>
+<a href="#uuidna-unify"><code>unify</code></a>
 <a href="#uuidna-units"><code>units</code></a>
 <a href="#uuidna-vocabulary"><code>vocabulary</code></a>
 <a href="#uuidna-vortex"><code>vortex</code></a>
@@ -1113,6 +1114,16 @@ Deliver the recomputable EVIDENCE bundle for a {statement}, so a court or audito
 ### `uuidna_mcp_benchmark`
 
 Feed the MCP to itself: a USABILITY benchmark over the server's OWN catalog. Measures the surface on "maximum reusable tools per minimum keys" — how many tools are zero-arg (maximally reusable), the reusable-tools-per-required-key density, the average required keys, and the HARDEST tools (most required keys) as the self-development targets to simplify. Returns {tools,zeroArgReusable,totalRequiredKeys,reusablePerKey,avgRequiredKeys,hardest}. Recomputable — the MCP measuring the MCP, no opinion.
+
+_No parameters._
+
+## Unified self-description (one receipt) <Badge type="tip" :text="'1'" />
+
+*skill: measure*
+
+### `uuidna_unify`
+
+The UNIFIED self-description: ONE recomputable receipt folding uuidna's three faces — the sealed theorems (the trial), the domains that carry them (the reviews), and the tools that serve them (the usability benchmark/ratings). CI, the MCP and the site read this one object; recompute from the same ledger and the receipt returns. Returns {theorems,domains,tools,receipt}.
 
 _No parameters._
 

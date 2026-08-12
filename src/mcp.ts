@@ -422,6 +422,10 @@ const TOOLS: Tool[] = [
     description: 'Feed the MCP to itself: a USABILITY benchmark over the server\'s OWN catalog. Measures the surface on "maximum reusable tools per minimum keys" — how many tools are zero-arg (maximally reusable), the reusable-tools-per-required-key density, the average required keys, and the HARDEST tools (most required keys) as the self-development targets to simplify. Returns {tools,zeroArgReusable,totalRequiredKeys,reusablePerKey,avgRequiredKeys,hardest}. Recomputable — the MCP measuring the MCP, no opinion.',
     inputSchema: { type: 'object', properties: {} },
     run: () => mcpBenchmark() },
+  { name: 'uuidna_unify',
+    description: 'The UNIFIED self-description: ONE recomputable receipt folding uuidna\'s three faces — the sealed theorems (the trial), the domains that carry them (the reviews), and the tools that serve them (the usability benchmark/ratings). CI, the MCP and the site read this one object; recompute from the same ledger and the receipt returns. Returns {theorems,domains,tools,receipt}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => unify() },
   // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the
   //    sealed envelope INTO a uuid chain; RECEIVE = read the uuid chain then decrypt. One side per direction; the
   //    seven dimension streams each carry both ways; the wrong key never opens it (the pattern the 777 tests seal). ──
@@ -573,6 +577,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^bill$/, 'Billing & measure', 'billing'],
   [/^(tokens|cost|resources)$/, 'Billing & measure', 'measure'],
   [/^mcp_benchmark$/, 'MCP self-benchmark (usability)', 'measure'],
+  [/^unify$/, 'Unified self-description (one receipt)', 'measure'],
 ]
 const categoryOf = (name: string): [string, string] => {
   const key = name.replace(/^uuidna_/, '')
@@ -632,5 +637,28 @@ export function mcpBenchmark(): McpBenchmark {
     avgRating: +(totalRating / perTool.length).toFixed(3),
     hardest: [...perTool].sort((a, b) => a.rating - b.rating || b.required - a.required).slice(0, 8),
     ratings: [...perTool].sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name)),
+  }
+}
+
+// ── UNIFY: one recomputable self-description folding uuidna's three faces to a SINGLE receipt — the sealed theorems
+// (the trial), the domains that carry them (the reviews), and the tools that serve them (the usability benchmark).
+// CI, the MCP and the site read this ONE object; recompute it from the same ledger and the unified receipt returns.
+export interface UuidnaUnified {
+  theorems: { count: number; verified: number; receipt: string }
+  domains: { count: number; verdict: 'VERIFIED'; receipt: string }
+  tools: { count: number; avgRating: number; reusablePerKey: number; receipt: string }
+  receipt: string
+}
+export function unify(): UuidnaUnified {
+  const trial = runTrial()
+  const reviews = reviewDomains()
+  const bench = mcpBenchmark()
+  const domainsReceipt = merkleGravity(reviews.map((r) => r.receipt))
+  const toolsReceipt = merkleFold(bench.ratings.map((t) => toUuid(t.name + ':' + t.rating)))
+  return {
+    theorems: { count: trial.count, verified: trial.verified, receipt: trial.receipt },
+    domains: { count: reviews.length, verdict: 'VERIFIED', receipt: domainsReceipt },
+    tools: { count: bench.tools, avgRating: bench.avgRating, reusablePerKey: bench.reusablePerKey, receipt: toolsReceipt },
+    receipt: merkleGravity([trial.receipt, domainsReceipt, toolsReceipt]),
   }
 }

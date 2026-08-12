@@ -30,6 +30,13 @@ test('CI through the MCP: the served tools return what the sealed package comput
   assert.deepEqual(reviews, reviewDomains())
 })
 
+test('unify: one receipt folds theorems + domains + tools, recomputable', () => {
+  const u = callTool('uuidna_unify', {}) as { theorems: { receipt: string }; receipt: string }
+  assert.match(u.receipt, /^[0-9a-f-]{36}$/)
+  assert.equal(u.theorems.receipt, runTrial().receipt)  // the theorems face IS the trial
+  assert.deepEqual(u, callTool('uuidna_unify', {}))      // recomputes identically
+})
+
 test('the MCP measures itself: uuidna_mcp_benchmark scores the whole served surface', () => {
   const b = callTool('uuidna_mcp_benchmark', {}) as ReturnType<typeof mcpBenchmark>
   assert.equal(b.tools, TOOL_NAMES.length)                 // it benchmarks every served tool, including itself
