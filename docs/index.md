@@ -36,3 +36,5 @@ import { data } from '../.vitepress/ledger.data'
 Lean is the single source: the ledger is derived from `lean/*.lean` and reached here through the package's `theorems()`. Re-verify every proof with `npm run lean`.
 
 </div>
+
+<HomeGraph :groups="data.groups" :skills="data.skillGroups" />

@@ -5,6 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
+import HomeGraph from './HomeGraph.vue'
 import Reflect from './Reflect.vue'
 import BookReflect from './BookReflect.vue'
 import SearchResults from './SearchResults.vue'
@@ -57,5 +58,8 @@ export default {
     app.component('TokenMeter', TokenMeter)
     // CostMeter — the RECOMPUTABLE cost, read from the ledger itself (no self-report); the proven counterpart to TokenMeter.
     app.component('CostMeter', CostMeter)
+    // HomeGraph — the homepage as a graph: every principle a domain card, each a horizontal slider of its top
+    // theorems linking its monograph. Computes from the ledger + the ℤ/9 palette; adding a domain adds a card.
+    app.component('HomeGraph', HomeGraph)
   }
 } satisfies Theme
