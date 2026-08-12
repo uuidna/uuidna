@@ -59,8 +59,20 @@ for (const p of pubs) { trials++; if (!p.publishable) fails.push(`pub:${p.slug}:
 // the source. A key over five words is flagged (the name carries more than it can hold).
 const wide = MCP_CATALOG.filter((t) => t.name.replace(/^uuidna_/, '').split('_').length > 5)
 for (const t of wide) fails.push(`mcp:${t.name}: key is ${t.name.replace(/^uuidna_/, '').split('_').length} words — fold to ≤5`)
-console.log(`  ARM 2 · prose    — ${pubs.length} publications publishable: ${pubs.every((p) => p.publishable) ? 'yes' : 'NO'}; MCP keys ≤5 words: ${wide.length === 0 ? 'yes' : 'NO (' + wide.length + ')'}`)
-const armProse = merkleGravity([toUuid('publishable:' + pubs.filter((p) => p.publishable).length + '/' + pubs.length), toUuid('widekeys:' + wide.length)])
+// The changelog audits the release itself: it must document THIS version AND carry THIS ledger receipt, or a change
+// shipped undocumented. Auditing self using the changelog — recompute the receipt, and the changelog either names it
+// or is stale. (The receipt for the unreleased entry tracks HEAD, so adding a domain without updating it fails here.)
+let changelogOk = false
+try {
+  const cl = readFileSync(join(ROOT, 'CHANGELOG.md'), 'utf8')
+  const hasVersion = cl.includes(VERSION)
+  const hasReceipt = cl.includes(trial.receipt)
+  changelogOk = hasVersion && hasReceipt
+  if (!hasVersion) fails.push(`changelog: CHANGELOG.md does not mention version ${VERSION}`)
+  if (!hasReceipt) fails.push(`changelog: CHANGELOG.md does not carry the current ledger receipt ${trial.receipt} — update the [${VERSION}] entry`)
+} catch { fails.push('changelog: CHANGELOG.md is missing — a release documents itself') }
+console.log(`  ARM 2 · prose    — ${pubs.length} publications publishable: ${pubs.every((p) => p.publishable) ? 'yes' : 'NO'}; MCP keys ≤5 words: ${wide.length === 0 ? 'yes' : 'NO (' + wide.length + ')'}; changelog documents ${VERSION} + receipt: ${changelogOk ? 'yes' : 'NO'}`)
+const armProse = merkleGravity([toUuid('publishable:' + pubs.filter((p) => p.publishable).length + '/' + pubs.length), toUuid('widekeys:' + wide.length), toUuid('changelog:' + changelogOk)])
 
 // ── ARM 3 · THE ACCOUNTS — reconcile: per-file counts sum to the total, every key and every address is distinct.
 const all = theorems()
