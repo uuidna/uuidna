@@ -3,7 +3,7 @@
 // principle, and a cross-link COMPASS — prev/next along three axes (skill, principle, sequence) so every theorem is
 // woven to its neighbours in all directions. `params` also feeds per-page Open Graph + uuidna:address meta via
 // transformPageData in config.ts.
-import { theorems, PRINCIPLES, renderTheorem } from '../../dist/index.js'
+import { theorems, PRINCIPLES, renderTheorem, merkleGravity, runTrial } from '../../dist/index.js'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
@@ -54,6 +54,29 @@ const SUP = '⁰¹²³⁴⁵⁶⁷⁸⁹'
 const prettyFactor = (n) => { const f = {}; let m = n; for (let d = 2; d * d <= m; d++) while (m % d === 0) { f[d] = (f[d] || 0) + 1; m /= d } if (m > 1) f[m] = (f[m] || 0) + 1; return Object.entries(f).map(([p, e]) => e > 1 ? p + [...String(e)].map((c) => SUP[+c]).join('') : p).join(' × ') }
 const strand = (s) => { const g = gcd2(s, N); return g === 1 ? `one full turn of all ${N}` : `${g} strands of ${N / g}` }
 const NFAC = prettyFactor(N)
+
+// The NEIGHBOUR FOLD — a theorem is PROVEN alone (its `by decide` proof) but WITNESSED by its neighbours. Its
+// content-address is one leaf of the ledger's ORDER-INVARIANT fold: the same receipt from any starting point and any
+// of the seven rotations, so no theorem can be altered without every neighbour's fold reporting it. This section
+// makes that concrete and recomputable per page — a LOCAL witness (this theorem folded with its four cyclic
+// neighbours) and the WHOLE ledger receipt it contributes to. Integrity, not truth — the neighbours make each
+// theorem tamper-evident, they do not prove it (Lean does).
+const LEDGER_RECEIPT = runTrial().receipt
+const neighbourFold = (t) => {
+  const nb = [rot(1)(t), rot(7)(t), rot(9)(t), reflectOf(t)] // the four cyclic neighbours the rotation links
+  const witness = merkleGravity([t.address, ...nb.map((n) => n.address)])
+  return `## The neighbour fold — proven alone, witnessed by all its neighbours
+
+This theorem is **proven alone** — its \`by decide\` proof above is its whole authority. But it is **witnessed by its
+neighbours**: its content-address is one leaf of the ledger's **order-invariant** fold — the same receipt from any of
+the ${N} starting points and any of the seven rotations — so no theorem can be altered without every neighbour's fold
+reporting it.
+
+- **Local witness** — this theorem folded with its four cyclic neighbours (${link(rot(9)(t))} · ${link(rot(7)(t))} · ${link(rot(1)(t))} · ${link(reflectOf(t))}): \`${witness}\`. Change any one of the five and this witness moves.
+- **Ledger receipt** — all ${N} addresses folded to one: [\`${LEDGER_RECEIPT}\`](/trials). Change **this** theorem and the whole receipt moves.
+
+Recompute either by folding the content-addresses with \`merkleGravity\` (\`uuidna_run_ledger\` folds the whole ledger). The neighbours make it **tamper-evident**, they do not prove it — proof is Lean's, integrity is the fold's.`
+}
 
 const link = (t) => (t ? `[${t.name}](/theorem/${t.key})` : '—')
 const compass = (label, target, [prev, next]) =>
@@ -158,6 +181,8 @@ ${compass('Principle', t.principle, byPrin[t.principle](t))}
 ${compass('Sequence', 'ledger order', bySeq(t))}
 
 ${rotation(t)}
+
+${neighbourFold(t)}
 
 ${developNext(t)}
 
