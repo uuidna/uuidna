@@ -22,6 +22,7 @@ const SKILL_RULES: readonly [RegExp, string][] = [
   [/hamming|codeword|repetition|singleton_bound|checksum|_corrects_|_detects_/, 'codes'],
   [/twelfths|tide|flood|semidiurnal|spring_exceeds|neap/, 'tides'],
   [/isbn|issn|bookland/, 'identifiers'],
+  [/gregorian|doomsday|leap_years?_|_shifts_|century_leap|months_sum|week_is_z7/, 'calendar'],
   [/^clay_/, 'clay-reflection'],
   [/(^|_)(dz|reflection|mirror|diamond|complement|division_by_zero|div_by_zero)/, 'reflection'],
   [/bell|ghz|born|no_signaling|superposition|truth_table|pauli|(^|_)cnot|(^|_)cz|swap|toffoli|ccz|s_squared|s_dagger|s_fourth|hadamard|quantum/, 'quantum'],
