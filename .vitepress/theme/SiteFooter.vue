@@ -52,7 +52,7 @@ const cols = [
       </section>
     </div>
     <div class="sf-base">
-      <span><a :href="href('/license')">License <strong>CC BY-NC-ND 4.0</strong></a> · <a :href="href('/privacy')">Privacy</a> · <code class="sf-uuid">{{ licenseUuid }}</code> — Tsvetan Rouschev.</span>
+      <span><a :href="href('/license')">License <strong>CC BY-NC-ND 4.0</strong></a> · <a :href="href('/privacy')">Privacy</a> · <a :href="href('/justice')">Justice</a> · <code class="sf-uuid">{{ licenseUuid }}</code> — Tsvetan Rouschev.</span>
       <span>A theorem computes in Lean, or it is not a theorem. <em>Integrity, not truth.</em></span>
     </div>
   </footer>
