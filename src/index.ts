@@ -78,6 +78,9 @@ export { overreachOf, HOLLOW, DEMARCATED } from './prose-gate.js'
 // vocab — a common, computable, translation-ready vocabulary derived from every theorem and its domain: each term
 // self-audited by the honesty gate, content-addressed, folded (in trinities) to ONE receipt — the honest "all is one".
 export { vocabulary, type Term, type Vocabulary } from './vocab.js'
+// forensics — audit an agent's STATEMENTS against the RECEIPTS: a fabricated citation, a false address, a drained
+// overclaim, an unbacked legal claim. Every violation is a recomputable fact about the CLAIM, never an accusation.
+export { forensics, auditAgents, type Violation, type ForensicReport } from './forensics.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS

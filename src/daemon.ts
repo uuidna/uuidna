@@ -10,7 +10,7 @@
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
 import { readFileSync } from 'node:fs'
 import {
-  toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS,
+  toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics,
 } from './index.js'
 
 const VERSION = (() => {
@@ -35,6 +35,7 @@ export function route(method: string, path: string, query: URLSearchParams, body
       'GET /health': 'liveness + ledger receipt',
       'GET|POST /address': 'content-address a value (?of= or {text})',
       'POST /trial': 'a three-way verdict for {statement}',
+      'POST /forensics': 'audit an agent {statement} (+ optional {claims}) against the receipts',
       'GET /gate': 'run the honesty gate on ?text=',
       'POST /verify': 'tamper-check {text, address} — recompute and compare (keyless)',
       'GET /theorems': 'the sealed ledger (?skill= ?contains=)',
@@ -58,6 +59,12 @@ export function route(method: string, path: string, query: URLSearchParams, body
   if (method === 'POST' && path === '/trial') {
     if (typeof body.statement !== 'string') return bad('provide {"statement":…}')
     return ok(adjudicate(body.statement))
+  }
+
+  if (method === 'POST' && path === '/forensics') {
+    if (typeof body.statement !== 'string') return bad('provide {"statement":…} (an agent statement to audit against the receipts)')
+    const claims = Array.isArray(body.claims) ? (body.claims as { text: string; address: string }[]) : undefined
+    return ok(forensics(body.statement, claims ? { claims } : {}))
   }
 
   if (method === 'GET' && path === '/gate') {
