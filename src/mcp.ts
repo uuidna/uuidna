@@ -423,7 +423,7 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: {} },
     run: () => mcpBenchmark() },
   { name: 'uuidna_unify',
-    description: 'The UNIFIED self-description: ONE recomputable receipt folding uuidna\'s three faces — the sealed theorems (the trial), the domains that carry them (the reviews), and the tools that serve them (the usability benchmark/ratings). CI, the MCP and the site read this one object; recompute from the same ledger and the receipt returns. Returns {theorems,domains,tools,receipt}.',
+    description: 'The UNIFIED self-description: ONE recomputable receipt folding uuidna\'s three faces — the sealed theorems (the trial), the domains that carry them (the reviews), and the tools that serve them (the usability benchmark/ratings). CI, the MCP and the site read this one object; recompute from the same ledger and the receipt returns. Returns {handle,theorems,domains,tools,receipt} — cite the handle (the first segment), the whole receipt is the fold.',
     inputSchema: { type: 'object', properties: {} },
     run: () => unify() },
   // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the
@@ -644,6 +644,7 @@ export function mcpBenchmark(): McpBenchmark {
 // (the trial), the domains that carry them (the reviews), and the tools that serve them (the usability benchmark).
 // CI, the MCP and the site read this ONE object; recompute it from the same ledger and the unified receipt returns.
 export interface UuidnaUnified {
+  handle: string   // the first segment of the receipt — the identity to CITE (like snapshot/reactor); the whole uuid is the fold
   theorems: { count: number; verified: number; receipt: string }
   domains: { count: number; verdict: 'VERIFIED'; receipt: string }
   tools: { count: number; avgRating: number; reusablePerKey: number; receipt: string }
@@ -655,10 +656,12 @@ export function unify(): UuidnaUnified {
   const bench = mcpBenchmark()
   const domainsReceipt = merkleGravity(reviews.map((r) => r.receipt))
   const toolsReceipt = merkleFold(bench.ratings.map((t) => toUuid(t.name + ':' + t.rating)))
+  const receipt = merkleGravity([trial.receipt, domainsReceipt, toolsReceipt])
   return {
+    handle: receipt.slice(0, 8),
     theorems: { count: trial.count, verified: trial.verified, receipt: trial.receipt },
     domains: { count: reviews.length, verdict: 'VERIFIED', receipt: domainsReceipt },
     tools: { count: bench.tools, avgRating: bench.avgRating, reusablePerKey: bench.reusablePerKey, receipt: toolsReceipt },
-    receipt: merkleGravity([trial.receipt, domainsReceipt, toolsReceipt]),
+    receipt,
   }
 }
