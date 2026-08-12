@@ -9,7 +9,7 @@ import {
   encrypt, decrypt, verifyEnvelope, sealSequence, MAX_ITER,
   sealStream, openStream, sealChain, openChain,
   contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract,
-  auditText, auditTranslation, auditBook, auditMovie, auditZenodo,
+  auditText, auditTranslation, auditBook, auditMovie, auditZenodo, beaconAnchor,
   gcdInt, starPolygon, fibonacciCycle, rotate, crt, recomputableCost,
   digitalRoot, merkleGravity, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
   units, triad, vortexOrbit, diamond, involute, involutionFixed, seats,
@@ -21,6 +21,7 @@ import {
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { legalFacts } from './legal.js'
+import { priorArt } from './priorart.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { pathToFileURL } from 'node:url'
 
@@ -352,6 +353,14 @@ const TOOLS: Tool[] = [
     description: 'Honest device resource accounting — balance the thermodynamics by MEASURING what is spent, never claiming it is free. Reports CPU time (this process), memory (rss/heap), and the machine\'s load, cores, total/free memory and uptime, all read from Node/OS, content-addressed as a signed reading. States plainly what it does NOT measure (GPU, bandwidth, and the actual joules need platform-specific probes and are not invented). No free energy: this work costs energy, bounded below by Landauer\'s kT·ln2 per bit and far more on a real chip; efficiency is pushed toward that floor, never past it.',
     inputSchema: { type: 'object', properties: {} },
     run: () => resources() },
+  { name: 'uuidna_anchor',
+    description: 'Anchor a record\'s content-address to an EXTERNAL, independent, signed timestamp — the rigorous "Schumann resonance at the time". Fetches the current NIST Randomness Beacon pulse (a 512-bit value published, SIGNED, and archived every 60s at beacon.nist.gov) and folds it into {address}, giving a re-verifiable NOT-BEFORE bound: the record existed at or after that pulse, because its unpredictable value could not be known before. Anyone re-fetches NIST\'s archived pulse and re-verifies the fold IN-HOUSE. HONEST: NOT-BEFORE only; for NOT-AFTER, publish (a git push GitHub timestamps); for a formal legal timestamp, use an RFC 3161 authority or OpenTimestamps. One network call; the fold is pure.',
+    inputSchema: { type: 'object', properties: { address: { type: 'string' } }, required: ['address'] },
+    run: (a) => beaconAnchor(String(a.address)) },
+  { name: 'uuidna_prior_art',
+    description: 'Mint an IN-HOUSE defensive-publication record for the named theorems ({keys:[...]}) — a self-contained, recomputable manifest of WHAT was published (each theorem in full, statement + proof), by WHOM (attribution), under WHAT terms (CC BY-NC-ND 4.0 + its address), bound to the ledger receipt, folded to one content-address any change moves. Zero external dependency. THE ONE HONEST LIMIT: the WHEN is NOT in-house — a self-signed date is worthless for priority; it names the external anchor to cite (the public git commit on GitHub, a Zenodo DOI, or an RFC 3161 timestamp authority) and fakes nothing. Proves what/who/integrity/terms; not when, and not that the result is law or standard.',
+    inputSchema: { type: 'object', properties: { keys: { type: 'array', items: { type: 'string' } } }, required: ['keys'] },
+    run: (a) => priorArt((a.keys as string[]).map(String)) },
   { name: 'uuidna_legal_facts',
     description: 'The recomputable legal FACT BASE, in chat — explicitly NOT a legal audit, legal advice, or a compliance opinion, and it must not be presented as one. Gathers the legally-relevant facts a qualified attorney/auditor starts FROM: the licence (CC BY-NC-ND 4.0 + its content-address), the copyright/attribution (Tsvetan Rouschev), the ledger\'s tamper-evident receipt, the compliance STANCE (the project makes no compliance claim and its own forensics refuses a blanket one), and the standards it CITES (not certifies) — folded to one receipt anyone recomputes. The inputs, never the verdict; a real legal audit needs licensed counsel reviewing specific jurisdictions against the actual deployment. uuidna delivers what recomputes; the ruling is a human\'s.',
     inputSchema: { type: 'object', properties: {} },
@@ -524,7 +533,8 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^(theorems|theorem|trial|skills|render|render_list|fingerprint)$/, 'Theorems & trial', 'theorem'],
   [/^(publish|edit|compare|vocabulary)$/, 'Publications (audited prose)', 'publish'],
   [/^(forensics|evidence)$/, 'Forensics & evidence (statements vs receipts)', 'forensics'],
-  [/^legal_facts$/, 'Legal fact base (not an opinion)', 'legal'],
+  [/^(legal_facts|prior_art)$/, 'Legal fact base & prior art (not an opinion)', 'legal'],
+  [/^anchor$/, 'Timestamp anchor (external, verified in-house)', 'anchor'],
   [/^reason$/, 'Reasoning (in-house inference)', 'reason'],
   [/^reflects$/, 'Reflection (systems ↔ theorems)', 'reflects'],
   [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],

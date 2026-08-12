@@ -84,6 +84,12 @@ export { reflects, type Reflection, type Reflected } from './reflects.js'
 // legal — the recomputable legal FACT BASE (licence, attribution, ledger receipt, compliance stance, standards
 // cited), NOT a legal audit or opinion: the inputs counsel starts from, delivered in chat, the ruling left to humans.
 export { legalFacts, type LegalFacts } from './legal.js'
+// priorart — an IN-HOUSE defensive-publication record: what/who/integrity/terms, recomputable and self-contained; the
+// WHEN (priority-dating) it names as an external anchor, never faked. You cannot notarise your own document.
+export { priorArt, type PriorArt, type PriorArtExhibit } from './priorart.js'
+// anchor — the external WHEN, verified in-house: fold a NIST Randomness Beacon pulse (signed, timestamped, archived)
+// into a record's address for a re-verifiable NOT-BEFORE bound — the rigorous "Schumann resonance at the time".
+export { beaconAnchor, type Anchor } from './anchor.js'
 // vocab — a common, computable, translation-ready vocabulary derived from every theorem and its domain: each term
 // self-audited by the honesty gate, content-addressed, folded (in trinities) to ONE receipt — the honest "all is one".
 export { vocabulary, type Term, type Vocabulary } from './vocab.js'
