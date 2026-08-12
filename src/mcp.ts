@@ -18,6 +18,7 @@ import {
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   THEOREMS, runTrial, theorems, skillGroups,
   publications, composePublication, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate,
+  snapshot, reactor,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { legalFacts } from './legal.js'
@@ -326,6 +327,14 @@ const TOOLS: Tool[] = [
     description: 'The theorem ledger organised by SKILL — the capability axis, orthogonal to principle. A skill is derived (recomputable) from each theorem\'s key. Returns each skill with its count and the order-invariant fold of its theorems\' content-addresses. Then pull one skill\'s theorems with uuidna_theorems { skill }.',
     inputSchema: { type: 'object', properties: {} },
     run: () => skillGroups().map((g) => ({ skill: g.skill, count: g.count, fold: g.fold })) },
+  { name: 'uuidna_snapshot',
+    description: 'The FUSION half of the reactor: fold a chosen set of sealed theorems — across ANY domains — into ONE superposition uuid. The first segment is the identity HANDLE you cite; the whole uuid superposes every member address, order-invariant, so the same set recomputes the same uuid and a changed member moves it (drift refused). Each principle and skill the set spans is returned as a point-of-view fold. Unknown keys are NAMED, never silently dropped. Returns {keys,members,unknown,handle,superposition,viewpoints,receipt}. A snapshot proves a recomputable fold of sealed theorems, not any new truth.',
+    inputSchema: { type: 'object', properties: { keys: { type: 'array', items: { type: 'string' }, description: 'theorem keys from uuidna_theorems, from any domains' } }, required: ['keys'] },
+    run: (a) => snapshot(Array.isArray(a?.keys) ? a.keys.map(String) : []) },
+  { name: 'uuidna_reactor',
+    description: 'The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets a verdict (SEALED / REFUTED — cites a proof not in the ledger / UNVERIFIED — cites none); SEALED cells are kept, and REFUTED and UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would seal their honest kernel. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal is the start of the next fusion. Returns {cells,sealed,recycled,handle,superposition,receipt}. The recycle plan is the honest NEXT, not a proof the recycled claim is true.',
+    inputSchema: { type: 'object', properties: { claims: { type: 'array', items: { type: 'string' }, description: 'claims or external theories to adjudicate and recycle' } }, required: ['claims'] },
+    run: (a) => reactor(Array.isArray(a?.claims) ? a.claims.map(String) : []) },
   { name: 'uuidna_theorem',
     description: 'Read ONE theorem by key: its detailed `by decide` Lean proof, its formal statement, its principle, source file and content-address, and the verdict (SEALED — its Lean proof compiles sorry-free). Keys from uuidna_theorems.',
     inputSchema: { type: 'object', properties: { key: { type: 'string' } }, required: ['key'] },

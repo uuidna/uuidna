@@ -78,6 +78,10 @@ export { overreachOf } from './prose-gate.js'
 // slimgate — the gate of all gates: ONLY theorems, no lexicon. A claim is judged solely by whether the theorems it
 // cites are sealed in the ledger. Delete every word-list and this gate still stands, because it stands on the proofs.
 export { slimGate, type SlimVerdict } from './slimgate.js'
+// reactor — the involutionary refusion reactor: snapshot() folds a chosen set of sealed theorems across domains into
+// one superposition uuid (first segment the identity handle); reactor() recycles REFUTED/UNVERIFIED claims back with
+// their develop plan (nothing is waste — refusal starts the next fusion). Recomputable. Integrity, not truth.
+export { snapshot, reactor, type Snapshot, type Viewpoint, type ReactorRun, type ReactorCell } from './reactor.js'
 // reason — an IN-HOUSE forward-chaining reasoner that USES the sealed rules of inference: it derives conclusions by
 // modus ponens / the hypothetical syllogism, citing the sealed theorem at each step, bounded and recomputable.
 export { reason, type Rule, type Derivation, type Reasoning } from './reason.js'

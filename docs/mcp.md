@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="83 keys" />
+# MCP tools <Badge type="tip" text="85 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 83 tools below are read from the server's own tool list and
-organised into 21 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 85 tools below are read from the server's own tool list and
+organised into 22 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`83`" />
+## The grid <Badge type="tip" :text="`85`" />
 
-83 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+85 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -81,6 +81,8 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-render-list"><code>render_list</code></a>
 <a href="#uuidna-theorems"><code>theorems</code></a>
 <a href="#uuidna-skills"><code>skills</code></a>
+<a href="#uuidna-snapshot"><code>snapshot</code></a>
+<a href="#uuidna-reactor"><code>reactor</code></a>
 <a href="#uuidna-theorem"><code>theorem</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
@@ -886,6 +888,30 @@ The pigeonhole seat bound: a b-bit digest has 2^b distinct seats, so past 2^b in
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `bits` | number | **yes** |  |
+
+## Other <Badge type="tip" :text="'2'" />
+
+*skill: other*
+
+### `uuidna_snapshot`
+
+The FUSION half of the reactor: fold a chosen set of sealed theorems — across ANY domains — into ONE superposition uuid. The first segment is the identity HANDLE you cite; the whole uuid superposes every member address, order-invariant, so the same set recomputes the same uuid and a changed member moves it (drift refused). Each principle and skill the set spans is returned as a point-of-view fold. Unknown keys are NAMED, never silently dropped. Returns {keys,members,unknown,handle,superposition,viewpoints,receipt}. A snapshot proves a recomputable fold of sealed theorems, not any new truth.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `keys` | array | **yes** | theorem keys from uuidna_theorems, from any domains |
+
+### `uuidna_reactor`
+
+The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets a verdict (SEALED / REFUTED — cites a proof not in the ledger / UNVERIFIED — cites none); SEALED cells are kept, and REFUTED and UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would seal their honest kernel. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal is the start of the next fusion. Returns {cells,sealed,recycled,handle,superposition,receipt}. The recycle plan is the honest NEXT, not a proof the recycled claim is true.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `claims` | array | **yes** | claims or external theories to adjudicate and recycle |
 
 ## Publications (audited prose) <Badge type="tip" :text="'4'" />
 

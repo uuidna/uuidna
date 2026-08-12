@@ -1,0 +1,18 @@
+{
+  "name": "uuidna — content-addressed identity",
+  "short_name": "uuidna",
+  "description": "Content-addressed identity, honest by construction — a ledger of Lean theorems (by decide, sorry-free) folded to one recomputable receipt, with pure-TS crypto and an MCP server.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "lang": "en",
+  "categories": ["developer", "productivity", "utilities"],
+  "icons": [
+    { "src": "/icon.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

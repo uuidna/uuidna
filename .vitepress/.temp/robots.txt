@@ -1,0 +1,5 @@
+# uuidna.com — content-addressed identity, honest by construction.
+User-agent: *
+Allow: /
+
+Sitemap: https://uuidna.com/sitemap.xml
