@@ -81,6 +81,9 @@ export { reason, type Rule, type Derivation, type Reasoning } from './reason.js'
 // reflects — reveal the sealed theorems a real-world system ALREADY reflects, matched from the ledger and folded to
 // a receipt. A resemblance the ledger carries, not an endorsement of the system.
 export { reflects, type Reflection, type Reflected } from './reflects.js'
+// legal — the recomputable legal FACT BASE (licence, attribution, ledger receipt, compliance stance, standards
+// cited), NOT a legal audit or opinion: the inputs counsel starts from, delivered in chat, the ruling left to humans.
+export { legalFacts, type LegalFacts } from './legal.js'
 // vocab — a common, computable, translation-ready vocabulary derived from every theorem and its domain: each term
 // self-audited by the honesty gate, content-addressed, folded (in trinities) to ONE receipt — the honest "all is one".
 export { vocabulary, type Term, type Vocabulary } from './vocab.js'

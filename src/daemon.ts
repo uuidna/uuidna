@@ -13,6 +13,7 @@ import {
   toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics, evidence, ledgerFingerprint, reason, reflects,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
+import { legalFacts } from './legal.js'
 
 const VERSION = (() => {
   try { return JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version as string } catch { return '0.0.0' }
@@ -45,6 +46,7 @@ export function route(method: string, path: string, query: URLSearchParams, body
       'GET /run': 'fold the whole ledger to one receipt',
       'GET /fingerprint': 'the fused fingerprint — FNV receipt + collision-resistant SHA-256',
       'GET /resources': 'honest device resource accounting (CPU + memory measured; GPU/bandwidth/joules not faked)',
+      'GET /legal': 'recomputable legal FACT BASE (not a legal opinion)',
       'GET /vocabulary': 'the common computable vocabulary',
     },
   })
@@ -106,6 +108,7 @@ export function route(method: string, path: string, query: URLSearchParams, body
   if (method === 'GET' && path === '/run') return ok(runTrial())
   if (method === 'GET' && path === '/fingerprint') return ok(ledgerFingerprint())
   if (method === 'GET' && path === '/resources') return ok(resources())
+  if (method === 'GET' && path === '/legal') return ok(legalFacts())
 
   if (method === 'POST' && path === '/reason') {
     if (!Array.isArray(body.facts) || !Array.isArray(body.rules)) return bad('provide {"facts":[atoms], "rules":[{"if":[atoms],"then":atom}]}')
