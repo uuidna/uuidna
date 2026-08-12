@@ -15,8 +15,12 @@ Each topic gathers every theorem that carries that skill, folded (order-invarian
 content-addresses — nothing secret is ever in it (see [The Navigator](/captain/navigator) and the security posture).
 Every theorem links to its page, where the full statement, the `by decide` proof and the source are displayed.
 
+<nav class="topic-index">
+  <a v-for="g in data.skillGroups" :key="g.skill" :href="'#skill-' + g.skill" class="topic-chip">{{ g.skill }} <span class="chip-n">{{ g.count }}</span></a>
+</nav>
+
 <section v-for="g in data.skillGroups" :key="g.skill" class="psec">
-  <h2>{{ g.skill }} <Badge type="tip" :text="String(g.count)" /></h2>
+  <h2 :id="'skill-' + g.skill">{{ g.skill }} <Badge type="tip" :text="String(g.count)" /></h2>
   <p class="psec-fold">topic fold <code>{{ g.fold }}</code></p>
   <ul class="tlist">
     <li v-for="t in g.theorems" :key="t.key">

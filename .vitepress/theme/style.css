@@ -240,3 +240,14 @@ code.rcpt {
   50% { box-shadow: inset 0 0 15px color-mix(in srgb, var(--seq-center) 14%, transparent); }
 }
 @media (prefers-reduced-motion: reduce) { .uuidna-card, .uuidna-card::after { animation: none; transition: none; } }
+
+/* Topics (skill hubs) jump index — chips linking to each skill's anchored section. */
+.topic-index { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 1.5rem; }
+.topic-index .topic-chip {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.2rem 0.6rem; border-radius: 999px;
+  border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg-soft);
+  font-size: 0.85em; font-weight: 600; text-decoration: none; color: var(--vp-c-text-1);
+}
+.topic-index .topic-chip:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
+.topic-index .chip-n { color: var(--vp-c-text-3); font-weight: 400; }
