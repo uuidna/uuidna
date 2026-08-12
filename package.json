@@ -57,7 +57,7 @@
     "docs:build": "npm run build && node dist/scripts/gen-mcp.js && vitepress build",
     "gen:mcp": "npm run build && node dist/scripts/gen-mcp.js",
     "audit:provenance": "npm run build && node dist/scripts/provenance.js",
-    "audit": "npm run lean && npm run build && node dist/scripts/provenance.js && node --test dist/test/*.test.js && git diff --exit-code -- lean/ src/theorems/generated.ts lean/PRINCIPLE.md",
+    "audit": "npm run lean && npm run build && node dist/scripts/provenance.js && node dist/scripts/account.js && node --test dist/test/*.test.js && git diff --exit-code -- lean/ src/theorems/generated.ts lean/PRINCIPLE.md",
     "docs:preview": "vitepress preview",
     "lean": "npm run build && node dist/scripts/lean-all.js",
     "lean:quantum": "node dist/scripts/lean-quantum.js",
@@ -94,7 +94,8 @@
     "lean:tables": "node dist/scripts/lean-tables.js",
     "dev": "npm run build && vitepress dev",
     "preview": "vitepress preview",
-    "heartbeats": "npm run build && node dist/scripts/lean-heartbeats.js"
+    "heartbeats": "npm run build && node dist/scripts/lean-heartbeats.js",
+    "account": "npm run build && node dist/scripts/account.js"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
