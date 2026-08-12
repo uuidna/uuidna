@@ -140,19 +140,22 @@ export async function auditBook(id: number | string): Promise<BookAudit> {
 /** A research-record audit — the provenance fingerprint of an open-access Zenodo record's PUBLIC metadata. */
 export interface RecordAudit extends BookAudit { doi: string }
 
-/** auditZenodo(id) → content-address the PUBLIC metadata of an open-access Zenodo record (title, DOI, creators,
- *  date) via the Zenodo REST API (developers.zenodo.org, no key) — a recomputable provenance fingerprint of the
- *  open record. HONEST: it fingerprints the public metadata only, NOT the deposited files or their content; uuidna
- *  audits text provenance. Anyone re-fetches the same public record and recomputes the same address. */
-export async function auditZenodo(id: number | string): Promise<RecordAudit> {
-  const r = await fetch(`https://zenodo.org/api/records/${encodeURIComponent(String(id))}`)
-  if (!r.ok) throw new Error(`records: Zenodo responded ${r.status} for id ${id}`)
+/** auditZenodo(id[, opts]) → content-address the PUBLIC metadata of an open-access Zenodo record (title, DOI,
+ *  creators, date) via the Zenodo REST API (developers.zenodo.org, no key) — a recomputable provenance fingerprint
+ *  of the open record. Pass `{ sandbox: true }` to read a record on sandbox.zenodo.org (the test instance) instead,
+ *  for verifying a deposit before it is public. HONEST: it fingerprints the public metadata only, NOT the deposited
+ *  files or their content; uuidna audits text provenance. Anyone re-fetches the same public record and recomputes
+ *  the same address. Read-only — it never deposits, authenticates, or changes a record. */
+export async function auditZenodo(id: number | string, opts: { sandbox?: boolean } = {}): Promise<RecordAudit> {
+  const host = opts.sandbox ? 'sandbox.zenodo.org' : 'zenodo.org'
+  const r = await fetch(`https://${host}/api/records/${encodeURIComponent(String(id))}`)
+  if (!r.ok) throw new Error(`records: Zenodo (${host}) responded ${r.status} for id ${id}`)
   const j = (await r.json()) as { doi?: string; metadata?: { title?: string; creators?: { name?: string }[]; publication_date?: string }; links?: { self_html?: string } }
   const md = j.metadata || {}
   const creators = (md.creators || []).map((c) => c.name || '').filter(Boolean).join(', ')
   const meta = `${md.title || ''}\n${j.doi || ''}\n${creators}\n${md.publication_date || ''}`
   return {
-    ...auditText(meta, { title: md.title || String(id), source: j.links?.self_html || `https://zenodo.org/records/${id}` }),
+    ...auditText(meta, { title: md.title || String(id), source: j.links?.self_html || `https://${host}/records/${id}` }),
     doi: j.doi || '',
     honest:
       'Fingerprints the PUBLIC metadata of an open-access Zenodo record (title, DOI, creators, date), content-addressed — ' +

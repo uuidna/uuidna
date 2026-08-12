@@ -1,0 +1,26 @@
+{
+  "title": "uuidna — content-addressed identity, honest by construction",
+  "description": "A content-addressed identity system, honest by construction: a Lean 4 theorem ledger (every theorem proven by decide, sorry-free, no Mathlib, folded to one order-invariant receipt), holographic merkle proofs, a reversible imprint codec, a reeducating honesty gate, a measured billing model, pure-TypeScript ChaCha20-Poly1305 encryption under a 7-dimensional fold envelope, and an MCP server. A content-address proves integrity, not truth. Deposited metadata fingerprints the release; the proofs recompute from the source with `npm run lean`.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "cc-by-nc-4.0",
+  "creators": [
+    { "name": "Rouschev, Tsvetan" }
+  ],
+  "keywords": [
+    "content-address",
+    "uuid",
+    "merkle-proof",
+    "integrity",
+    "Lean 4",
+    "formal verification",
+    "by decide",
+    "model-context-protocol",
+    "honest by construction"
+  ],
+  "related_identifiers": [
+    { "identifier": "https://github.com/uuidna/uuidna", "relation": "isSupplementTo", "resource_type": "software" },
+    { "identifier": "https://www.npmjs.com/package/@uuidna/uuidna", "relation": "isIdenticalTo", "resource_type": "software" },
+    { "identifier": "https://uuidna.com", "relation": "isDocumentedBy", "resource_type": "publication-softwaredocumentation" }
+  ]
+}
