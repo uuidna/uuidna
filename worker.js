@@ -18,6 +18,13 @@
 import { adjudicate } from './dist/adjudicate.js'
 import { toUuid } from './dist/address.js'
 import { hmacSha256 } from './dist/sha256.js'
+// The handle map — the first 8 hex of every content-address → its theorem key, generated at build (gen-handles).
+// Pages and proofs are one uuid: /<handle> resolves to /theorem/<key> ON THE SPOT, no static pages, ~30 KB in memory.
+import HANDLES from './handles.js'
+
+// A bare first-part handle: exactly 8 lowercase hex at the root (/808f7b27). The full uuid is never a URL — only its
+// first part is the door; the rest recomputes from the proof. Unknown handle → fall through (asset 404), never a wrong page.
+const HANDLE = /^\/([0-9a-f]{8})$/
 
 // A trial is authoritative only when SIGNED BY uuidna.com. The worker HMAC-SHA256s each verdict with a secret held
 // only by uuidna.com (env.TRIAL_KEY, a Cloudflare secret) — a fork running the same public code produces the same
@@ -113,6 +120,13 @@ export default {
     if (licensed && (url.pathname === '/trials' || url.pathname.startsWith('/trials/'))) {
       const res = await handleTrials(request, url, env)
       if (res) return res
+    }
+
+    // THE CONTENT-ADDRESS DOOR — /<handle> (first 8 hex of a proof's address) resolves to its theorem on the spot,
+    // computed here, no static page. 301 (permanent) so the handle is a stable citation; unknown handle falls through.
+    if (licensed) {
+      const m = HANDLE.exec(url.pathname)
+      if (m) { const key = HANDLES[m[1]]; if (key) return Response.redirect(`${url.origin}/theorem/${key}`, 301) }
     }
 
     if (licensed) return env.ASSETS.fetch(request) // serve the static site
