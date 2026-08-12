@@ -1,0 +1,6 @@
+#!/bin/sh
+# commit-msg — the commit-message gate. A commit message is a thought published to the record; it must come cleanly
+# from uuidna. Runs the honesty gate on the message ($1 is git's message file); a non-zero exit BLOCKS the commit.
+# The INVERTED overclaim (gate-work, a refutation, the lexicon named) is cleared — the reflection that balances the
+# ledger. Skips gracefully if dist is not built. Bypassable with --no-verify (owned, not hidden).
+[ -f dist/scripts/check-msg.js ] && node dist/scripts/check-msg.js "$1"
