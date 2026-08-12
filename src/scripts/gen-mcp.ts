@@ -7,6 +7,10 @@ import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { MCP_CATALOG } from '../mcp.js'
+import { adjudicate, theorems, toUuid } from '../index.js'
+// A WORKED EXAMPLE, computed at generation time from the package the tools wrap — so the request/response shown is
+// REAL and recomputable by anyone, not a hand-written mock (the honest 'production MCP example').
+const EX = adjudicate('FNV-1a is cryptographic')
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 
@@ -83,6 +87,24 @@ On connect the server sends an **instructions** summary — what uuidna is, and 
 rechecked. Every \`tools/call\` returns a chained **receipt** (\`receipt · seq · referer\`, a content-address of the
 command), so an agent always holds a tamper-evident record of what it ran and the whole session folds to one
 recomputable tip. New here? Sign the [Contract](/captain/config) and learn the links first.
+
+## Worked example — a real call
+
+The signature capability is the **trial**: send any claim, get a recomputable verdict. Here is a real call and its
+ACTUAL response — computed when this page was generated, recompute it yourself and the receipt returns.
+
+\`\`\`json
+// request
+{ "method": "tools/call", "params": { "name": "uuidna_adjudicate", "arguments": { "statement": "FNV-1a is cryptographic" } } }
+// response
+${JSON.stringify({ verdict: EX.verdict, receipt: EX.receipt, note: EX.note, develop: EX.develop.slice(0, 2) }, null, 2)}
+\`\`\`
+
+The verdict is **${EX.verdict}** — no word-list ruled; the claim simply cites no sealed proof, so the trial holds it
+open and hands back a **develop plan** (the next decidable step to move it). Two more one-liners: mint an address for
+any value — \`uuidna_address { "seed": "hello" }\` → \`${toUuid('hello')}\` — or pull a whole domain —
+\`uuidna_theorems { "skill": "navigation" }\` → **${theorems({ skill: 'navigation' }).length}** sealed theorems.
+Every call is recomputable: same input, same receipt. That is the production contract.
 
 ${sections}
 `

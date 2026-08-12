@@ -119,6 +119,32 @@ rechecked. Every `tools/call` returns a chained **receipt** (`receipt · seq · 
 command), so an agent always holds a tamper-evident record of what it ran and the whole session folds to one
 recomputable tip. New here? Sign the [Contract](/captain/config) and learn the links first.
 
+## Worked example — a real call
+
+The signature capability is the **trial**: send any claim, get a recomputable verdict. Here is a real call and its
+ACTUAL response — computed when this page was generated, recompute it yourself and the receipt returns.
+
+```json
+// request
+{ "method": "tools/call", "params": { "name": "uuidna_adjudicate", "arguments": { "statement": "FNV-1a is cryptographic" } } }
+// response
+{
+  "verdict": "UNVERIFIED",
+  "receipt": "784ebd72-c604-8280-853f-179d8fa3ed19",
+  "note": "no decidable test and no sealed citation — UNVERIFIED; bring a proof to verify it",
+  "develop": [
+    "Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).",
+    "Express the claim as a boolean predicate that recomputes over it — exact integers, no floats, no Math.*."
+  ]
+}
+```
+
+The verdict is **UNVERIFIED** — no word-list ruled; the claim simply cites no sealed proof, so the trial holds it
+open and hands back a **develop plan** (the next decidable step to move it). Two more one-liners: mint an address for
+any value — `uuidna_address { "seed": "hello" }` → `5b344fcd-5b13-8a6f-a3f8-39582c45e246` — or pull a whole domain —
+`uuidna_theorems { "skill": "navigation" }` → **5** sealed theorems.
+Every call is recomputable: same input, same receipt. That is the production contract.
+
 ## Identity & addressing <Badge type="tip" :text="'5'" />
 
 *skill: address*
