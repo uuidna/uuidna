@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="85 keys" />
+# MCP tools <Badge type="tip" text="86 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 85 tools below are read from the server's own tool list and
-organised into 22 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 86 tools below are read from the server's own tool list and
+organised into 23 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`85`" />
+## The grid <Badge type="tip" :text="`86`" />
 
-85 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+86 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -101,6 +101,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-evidence"><code>evidence</code></a>
 <a href="#uuidna-compare"><code>compare</code></a>
 <a href="#uuidna-trial"><code>trial</code></a>
+<a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
 <a href="#uuidna-send"><code>send</code></a>
 <a href="#uuidna-receive"><code>receive</code></a>
 <a href="#uuidna-quantum"><code>quantum</code></a>
@@ -1097,6 +1098,16 @@ Deliver the recomputable EVIDENCE bundle for a {statement}, so a court or audito
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `statement` | string | **yes** |  |
+
+## MCP self-benchmark (usability) <Badge type="tip" :text="'1'" />
+
+*skill: measure*
+
+### `uuidna_mcp_benchmark`
+
+Feed the MCP to itself: a USABILITY benchmark over the server's OWN catalog. Measures the surface on "maximum reusable tools per minimum keys" — how many tools are zero-arg (maximally reusable), the reusable-tools-per-required-key density, the average required keys, and the HARDEST tools (most required keys) as the self-development targets to simplify. Returns {tools,zeroArgReusable,totalRequiredKeys,reusablePerKey,avgRequiredKeys,hardest}. Recomputable — the MCP measuring the MCP, no opinion.
+
+_No parameters._
 
 ## Quantum simulation <Badge type="tip" :text="'1'" />
 

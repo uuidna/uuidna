@@ -414,6 +414,10 @@ const TOOLS: Tool[] = [
     description: 'Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
     run: () => runTrial() },
+  { name: 'uuidna_mcp_benchmark',
+    description: 'Feed the MCP to itself: a USABILITY benchmark over the server\'s OWN catalog. Measures the surface on "maximum reusable tools per minimum keys" — how many tools are zero-arg (maximally reusable), the reusable-tools-per-required-key density, the average required keys, and the HARDEST tools (most required keys) as the self-development targets to simplify. Returns {tools,zeroArgReusable,totalRequiredKeys,reusablePerKey,avgRequiredKeys,hardest}. Recomputable — the MCP measuring the MCP, no opinion.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => mcpBenchmark() },
   // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the
   //    sealed envelope INTO a uuid chain; RECEIVE = read the uuid chain then decrypt. One side per direction; the
   //    seven dimension streams each carry both ways; the wrong key never opens it (the pattern the 777 tests seal). ──
@@ -564,6 +568,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^quantum$/, 'Quantum simulation', 'quantum'],
   [/^bill$/, 'Billing & measure', 'billing'],
   [/^(tokens|cost|resources)$/, 'Billing & measure', 'measure'],
+  [/^mcp_benchmark$/, 'MCP self-benchmark (usability)', 'measure'],
 ]
 const categoryOf = (name: string): [string, string] => {
   const key = name.replace(/^uuidna_/, '')
@@ -585,4 +590,34 @@ export function callTool(name: string, args: Record<string, unknown> = {}): unkn
   const tool = TOOLS.find((t) => t.name === name)
   if (!tool) throw new Error(`unknown tool: ${name}`)
   return tool.run(args)
+}
+
+// ── MCP fed to MCP: a usability benchmark over the server's OWN catalog, so the surface can develop against a
+// measured signal instead of taste. The axis is "maximum reusable tools per minimum keys": a tool that needs zero
+// required keys is maximally reusable (composes anywhere); a tool that needs many is a friction point. The benchmark
+// ranks the hardest (most required keys) as the self-development targets to simplify. Recomputable — no opinion.
+export interface ToolUsability { name: string; required: number; params: number; reusable: boolean }
+export interface McpBenchmark {
+  tools: number
+  zeroArgReusable: number    // callable with NO required keys — maximally reusable
+  totalRequiredKeys: number
+  reusablePerKey: number     // tools ÷ required keys — the "max reusable tools / min keys" density
+  avgRequiredKeys: number
+  hardest: ToolUsability[]   // most required keys first — where to simplify next
+}
+export function mcpBenchmark(): McpBenchmark {
+  const perTool: ToolUsability[] = MCP_CATALOG.map((t) => {
+    const required = (t.inputSchema?.required ?? []).length
+    const params = Object.keys(t.inputSchema?.properties ?? {}).length
+    return { name: t.name, required, params, reusable: required === 0 }
+  })
+  const totalRequiredKeys = perTool.reduce((n, t) => n + t.required, 0)
+  return {
+    tools: perTool.length,
+    zeroArgReusable: perTool.filter((t) => t.reusable).length,
+    totalRequiredKeys,
+    reusablePerKey: +(perTool.length / (totalRequiredKeys || 1)).toFixed(3),
+    avgRequiredKeys: +(totalRequiredKeys / perTool.length).toFixed(3),
+    hardest: [...perTool].sort((a, b) => b.required - a.required).slice(0, 8),
+  }
 }

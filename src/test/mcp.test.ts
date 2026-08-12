@@ -4,7 +4,7 @@
 // function computes. "CI uses MCP, and vice versa" — one path, verified both ways.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { callTool, TOOL_NAMES, MCP_CATALOG } from '../mcp.js'
+import { callTool, TOOL_NAMES, MCP_CATALOG, mcpBenchmark } from '../mcp.js'
 import { toUuid, adjudicate, theorems, runTrial } from '../index.js'
 
 test('catalog ↔ handlers: the catalog lists exactly the dispatchable tools, unknown tools throw', () => {
@@ -23,4 +23,13 @@ test('CI through the MCP: the served tools return what the sealed package comput
   assert.equal((callTool('uuidna_theorems', { skill: 'navigation' }) as unknown[]).length, theorems({ skill: 'navigation' }).length)
   // the fold — the served trial receipt IS the package's receipt
   assert.equal((callTool('uuidna_trial', {}) as { receipt: string }).receipt, runTrial().receipt)
+})
+
+test('the MCP measures itself: uuidna_mcp_benchmark scores the whole served surface', () => {
+  const b = callTool('uuidna_mcp_benchmark', {}) as ReturnType<typeof mcpBenchmark>
+  assert.equal(b.tools, TOOL_NAMES.length)                 // it benchmarks every served tool, including itself
+  assert.ok(b.zeroArgReusable > 0 && b.zeroArgReusable <= b.tools)
+  assert.ok(b.reusablePerKey > 0 && b.avgRequiredKeys >= 0)
+  assert.ok(b.hardest.length > 0 && b.hardest[0].required >= b.hardest[b.hardest.length - 1].required)
+  assert.deepEqual(b, mcpBenchmark())                       // served result IS the function's — no drift
 })
