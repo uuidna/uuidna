@@ -14,10 +14,10 @@
 // prose is elegant — only that it says nothing its theorems do not. Its content-address recomputes from the text;
 // the member proofs fold, order-invariantly, to one receipt anyone recomputes from the same ledger.
 import { THEOREMS, type Theorem, PRINCIPLES } from './theorems/index.js'
-import { computes, RED, RED_INTL, rosetta } from './gate.js'
+import { computes } from './gate.js'
 import { toUuid, merkleFold, gcd } from './address.js'
 
-/** A finding: a sentence that leans on an overreach token without a proof to back it or a demarcation to clear it. */
+/** A finding: a sentence that cites a FABRICATED theorem — the one decidably-false thing a note can do. */
 export interface PubFinding { unit: string; token: string; address: string }
 
 /** A publication — a domain note in lean human prose, each claim backed by a proof, audited before it is published. */
@@ -36,12 +36,6 @@ export interface Publication {
   honest: string
 }
 
-// A sentence is BACKED when it links a proof (/theorem/<key>) or names a sealed theorem key — the provenance rule.
-const SEALED = new Set(THEOREMS.map((t) => t.key))
-const backed = (u: string): boolean => /\/theorem\//.test(u) || [...SEALED].some((k) => u.includes(k))
-// A demarcation/negation clears an overreach token — honest prose ("never infinite", "bounded", "simulation") is
-// the CORRECT use of these words, not a boast. Mirrors the site-wide provenance gate so the rule is one rule.
-const DEMARCATED = /\b(not|never|no|non|isn'?t|aren'?t|cannot|can'?t|without|honest|honestly|simulation|integrity|finite|bounded|refus\w*|forbid\w*|impossible|reject\w*|prohibit\w*|ruled out|demarcat)\b/i
 
 // Split prose into sentence-ish units, dropping fenced/inline code (examples legitimately carry API strings) and
 // normalising each unit's leading markdown marker (list `-`/`*`, heading `#`, blockquote `>`) so a claim reads the
@@ -50,30 +44,28 @@ const units = (text: string): string[] =>
   text.replace(/```[\s\S]*?```/g, ' ').replace(/`[^`]*`/g, ' ')
     .split(/(?<=[.!?])\s+|\n+/).map((s) => s.replace(/^[\s>#*-]+/, '').trim()).filter((s) => s.length > 0 && s.length < 2000)
 
-// The overreach tripwire: the canonical honesty gate (computes) OR a proof-boast in any of the RED lexicons —
-// English and 20+ languages, checked against the text AND its Glagolitic→Cyrillic fold, so a boast cannot hide in
-// another script. A quoted phrase is a CITATION, not a claim, so de-quote before matching.
+// The tripwire, folded to the theorems: a sentence blocks publishing only when it CITES A FABRICATED theorem — a
+// key that is not sealed in the ledger (computes → binary 0). No lexicon, no demarcation guessing: a note that
+// links a real proof is SEALED and passes; a note that makes an unbacked claim is REVEALED (held open), not refused;
+// only a fabricated citation — the one decidably-false thing — is drained. A quoted phrase is a citation of a word,
+// so de-quote before matching. This is the same theorem-fold the site-wide provenance audit now runs.
 const tripped = (u: string): string | null => {
   const cited = u.replace(/'[^']*'|"[^"]*"|“[^”]*”|«[^»]*»/g, ' ')
   const g = computes(cited)
-  if (g.binary === 0 && g.hit) return g.hit
-  if (RED.test(cited) || RED.test(rosetta(cited))) return (cited.match(RED) || rosetta(cited).match(RED))![0]
-  if (RED_INTL.test(cited) || RED_INTL.test(rosetta(cited))) return (cited.match(RED_INTL) || rosetta(cited).match(RED_INTL))![0]
-  return null
+  return g.binary === 0 ? g.hit : null
 }
 
-/** auditPublication(markdown[, sealed]) → the findings that block publishing: every sentence that trips the
- *  overreach gate UNBACKED by a proof and UNDEMARCATED. Empty ⇒ the note is publishable. The same gate the site-wide
- *  provenance audit runs, applied to a note BEFORE it is written to the site — so an overclaiming note is refused,
- *  not shipped. `sealed` pre-clears units that ARE sealed, committed, already-audited artifacts (a domain title, a
- *  blurb, a theorem's own name) — exactly as the site audit clears a theorem's words by its proof; only the note's
- *  OWN framing prose is then held to the strict gate. Called with no `sealed` set it audits any prose strictly. */
+/** auditPublication(markdown[, sealed]) → the findings that block publishing: every sentence that cites a FABRICATED
+ *  theorem. Empty ⇒ the note is publishable. The same theorem-fold the site-wide provenance audit runs, applied to a
+ *  note BEFORE it is written to the site — so a note that invents a proof is refused, not shipped. `sealed` pre-clears
+ *  units that ARE sealed, committed artifacts (a domain title, a blurb, a theorem's own name). No word-list: a claim
+ *  is refused only for citing a proof that does not exist; everything else is revealed. */
 export function auditPublication(markdown: string, sealed: Set<string> = new Set()): PubFinding[] {
   const findings: PubFinding[] = []
   for (const u of units(markdown)) {
     if (sealed.has(u)) continue
     const token = tripped(u)
-    if (token && !backed(u) && !DEMARCATED.test(u.replace(token, ' ')))
+    if (token)
       findings.push({ unit: u.length > 160 ? u.slice(0, 157) + '…' : u, token, address: toUuid(u) })
   }
   return findings

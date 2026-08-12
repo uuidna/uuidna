@@ -31,12 +31,14 @@ test('every load-bearing claim links a proof — the note earns what it asserts'
   assert.ok(tides.markdown.includes('read the proofs, not the prose'), 'the note says what it does not claim')
 })
 
-test('the gate BITES — an overreaching note is refused, so the pass is real', () => {
+test('the gate BITES a fabricated citation — a note that invents a proof is refused', () => {
   const honest = 'These 7 facts hold by decision, each linking its [proof](/theorem/rule_of_twelfths).'
-  const boast = 'This system is unbreakable and quantum-secure, proven unhackable forever.'
+  // Folded to the theorems: a boast with no citation is REVEALED (published as unbacked prose), not censored; only a
+  // note that CITES A PROOF THAT DOES NOT EXIST is the decidably-false case the gate refuses.
+  const fabricated = 'This holds forever, proven in theorem the_tide_is_unbreakable.'
   assert.equal(auditPublication(honest).length, 0, 'honest, backed prose passes')
-  const findings = auditPublication(boast)
-  assert.ok(findings.length >= 1, 'an unbacked overclaim is flagged, not published')
+  const findings = auditPublication(fabricated)
+  assert.ok(findings.length >= 1, 'a fabricated citation is flagged, not published')
 })
 
 test('editing is re-addressing — a revision re-fingerprints, and an edit that overreaches is refused', () => {
@@ -46,9 +48,9 @@ test('editing is re-addressing — a revision re-fingerprints, and an edit that 
   const clean = revisePublication(before, before + ' The rule is a palindrome.')
   assert.equal(clean.changed, true, 'a real edit moves the address')
   assert.ok(clean.after !== clean.before && clean.publishable, 'an honest edit re-addresses and stays publishable')
-  // the overclaim must land in an UNBACKED sentence — a proof link would (correctly) clear it
-  const bad = revisePublication(before, before + ' This system is unbreakable.')
-  assert.equal(bad.publishable, false, 'an edit that introduces an unbacked overclaim is refused before publishing')
+  // folded to the theorems: an unbacked boast now publishes (revealed); only a FABRICATED citation is refused
+  const bad = revisePublication(before, before + ' This holds forever, proven in theorem tide_is_unbreakable.')
+  assert.equal(bad.publishable, false, 'an edit that invents a proof is refused before publishing')
   assert.match(bad.edit, UUID, 'the before→after receipt binds the revision')
 })
 

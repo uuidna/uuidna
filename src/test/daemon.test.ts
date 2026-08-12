@@ -31,16 +31,20 @@ test('verify is a keyless tamper-check', () => {
   assert.equal(tampered.match, false, 'one changed character no longer matches — tamper detected')
 })
 
-test('gate flags an overclaim and clears honest prose', () => {
-  const bad = route('GET', '/gate', Q('text=' + encodeURIComponent('this is unbreakable')), {}).json as { clean: boolean }
+test('gate drains a fabricated citation and reveals everything else', () => {
+  // The gate is folded to the theorems: only a claim citing a proof that does NOT exist is drained; a lexical
+  // boast with no citation is revealed (clean), not censored.
+  const bad = route('GET', '/gate', Q('text=' + encodeURIComponent('proven in theorem this_is_unbreakable')), {}).json as { clean: boolean }
+  const boast = route('GET', '/gate', Q('text=' + encodeURIComponent('this is unbreakable')), {}).json as { clean: boolean }
   const good = route('GET', '/gate', Q('text=' + encodeURIComponent('content-addressed, recomputable')), {}).json as { clean: boolean }
-  assert.equal(bad.clean, false)
+  assert.equal(bad.clean, false)   // fabricated proof → drained
+  assert.equal(boast.clean, true)  // no citation → revealed, not drained
   assert.equal(good.clean, true)
 })
 
 test('trial returns a three-way verdict', () => {
-  const r = route('POST', '/trial', Q(), { statement: 'uuidna is a quantum computer' }).json as { verdict: string }
-  assert.equal(r.verdict, 'REFUTED')
+  const r = route('POST', '/trial', Q(), { statement: 'quantum supremacy, proven in theorem uuidna_is_a_quantum_computer' }).json as { verdict: string }
+  assert.equal(r.verdict, 'REFUTED') // a fabricated citation is the one decidably-false case
 })
 
 test('an unknown route 404s, never crashes', () => {

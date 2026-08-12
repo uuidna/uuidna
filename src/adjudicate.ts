@@ -26,9 +26,9 @@ function developPlan(statement: string, verdict: VerdictKind, gateBinary: 0 | 1,
     'If it is a general law, author it in lean/*.lean `by decide` so runTrial() carries it forever.',
   ]
   if (verdict === 'REFUTED' && gateBinary === 0) return [
-    `Cut the drained phrase ${JSON.stringify(hit)} — a lexical red flag, not a computation.`,
-    'Restate as the checkable residue: keep the mechanism, drop the superlative, name its measurable bound (e.g. the keyspace bit-length).',
-    'Re-run adjudicate on the residue, then attach a decidable test — see the UNVERIFIED plan.',
+    `Cut the fabricated citation ${JSON.stringify(hit)} — it names a theorem that is NOT sealed in the ledger, the one decidably-false thing a claim can do.`,
+    'Either seal that theorem (author it in lean/*.lean `by decide` and re-run npm run lean), or drop the citation and restate the claim as its checkable residue.',
+    'Re-run adjudicate on the residue, then attach a decidable test or a REAL /theorem/<key> — see the UNVERIFIED plan.',
   ]
   if (verdict === 'REFUTED') { // gate-clean, but the supplied test failed
     const steps = [

@@ -19,7 +19,7 @@ export {
 
 export { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 
-export { computes, RED, RED_INTL, OVERREACH, PREDICT, rosetta } from './gate.js'
+export { computes } from './gate.js'
 
 // gravity — decidable contractions (a set of addresses falls to one root; an integer to ℤ/9). merkleGravity is
 // ORDER-INVARIANT: the quantum receipt, the same for any observer ordering. NOT physics, nothing faster than light.
@@ -72,9 +72,9 @@ export { composePublication, publications, auditPublication, revisePublication, 
 // site — the ONE navigable graph: every page in a canonical wrapping order (no next-gap, no orphan). The native
 // pager and the release gate both read `next` from this, so the button clicked and the gap hunted are one edge.
 export { canonicalOrder, nextOf, gaps, type PageNode } from './site.js'
-// prose-gate — the honest-prose overreach floor (HOLLOW superlatives + translated proof-boasts, with demarcation
-// clearing), shared by the provenance audit and the self-trial. Extracted so it is tested, not buried in a script.
-export { overreachOf, HOLLOW, DEMARCATED } from './prose-gate.js'
+// prose-gate — folded to the theorems (the lexical floor is gone): overreachOf drains only a fabricated theorem
+// citation, and reveals everything else. Shared by the provenance audit and the self-trial. See gate.ts for the trial.
+export { overreachOf } from './prose-gate.js'
 // slimgate — the gate of all gates: ONLY theorems, no lexicon. A claim is judged solely by whether the theorems it
 // cites are sealed in the ledger. Delete every word-list and this gate still stands, because it stands on the proofs.
 export { slimGate, type SlimVerdict } from './slimgate.js'

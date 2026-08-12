@@ -27,8 +27,12 @@ export interface SlimVerdict {
  *  false); UNVERIFIED iff it cites none. Recomputable from the sealed ledger alone. */
 export function slimGate(claim: string): SlimVerdict {
   const keys = new Set<string>()
+  // The link form /theorem/<key> is an unambiguous CITATION — always counted. The bare "theorem <token>" form is
+  // ambiguous with ordinary prose ("the theorem ledger", "a theorem computes"), so it counts ONLY when the token is
+  // KEY-SHAPED — carries an underscore or a digit, the real key convention (diamond_involution, z7fermat) — which no
+  // plain English word does. This is what keeps the theorem-fold from misreading prose about theorems as a citation.
   for (const m of claim.matchAll(/\/theorem\/([a-z0-9_]+)/gi)) keys.add(m[1])
-  for (const m of claim.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,})/gi)) keys.add(m[1])
+  for (const m of claim.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,})/gi)) if (/[_0-9]/.test(m[1])) keys.add(m[1])
   const cited = [...keys]
   const real = cited.filter((k) => SEALED.has(k))
   const fabricated = cited.filter((k) => !SEALED.has(k))

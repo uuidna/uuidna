@@ -80,33 +80,34 @@ const CLAY_SEVEN = [
   'the Birch and Swinnerton-Dyer conjecture', 'the Poincaré conjecture',
 ]
 
-test('the honesty gate drains overclaims and signs the honest floor', () => {
-  assert.equal(computes('we prove the Riemann hypothesis').binary, 0)
-  assert.equal(computes('это faster than light').binary, 0)
-  assert.equal(computes('мы доказали гипотезу').binary, 0) // hard in all 7 dimensions
+test('the gate folded to the theorems — a fabricated citation drains, everything else is revealed', () => {
+  // Folded to the ledger (see gate.ts): only a claim citing a proof that is NOT sealed is drained; a lexical boast
+  // with no citation is REVEALED (binary 1), held open as UNVERIFIED, never word-censored.
+  assert.equal(computes('we prove the Riemann hypothesis').binary, 1)                    // no citation → revealed
+  assert.equal(computes('proven in theorem riemann_is_solved').binary, 0)               // fabricated proof → drained
   assert.equal(computes('a content-address proves integrity').binary, 1)
-  // COMPUTES, AND IS AUDITED HERE: the count of the seven Clay solve-claims the gate would ADMIT is zero.
-  // Not decoration — a recomputable quantity: |{ p ∈ the seven : computes('we prove p').binary === 1 }| === 0.
-  // (Audits the canonical claim shape for each problem — the same scope as the Riemann assertion above; it does
-  // not assert unsolvability, only that this deposit's gate refuses each solve-claim → 0 admissible of 7.)
-  assert.equal(CLAY_SEVEN.filter((p) => computes('we prove ' + p).binary === 1).length, 0) // — none claimable
+  // AUDITED, recomputable quantity: of the seven Clay solve-claims, the count the trial SEALS is zero — no theorem
+  // in the ledger proves a Clay problem, so each is UNVERIFIED (revealed as unbacked), none SEALED.
+  assert.equal(CLAY_SEVEN.filter((p) => adjudicate('we prove ' + p).verdict === 'SEALED').length, 0)
+  assert.equal(CLAY_SEVEN.filter((p) => adjudicate('we prove ' + p).verdict === 'UNVERIFIED').length, CLAY_SEVEN.length)
   // the trial — a recomputable three-way verdict; proveVerdict folds the formulas to an order-invariant root
-  assert.equal(adjudicate('we prove all seven').verdict, 'REFUTED')      // the gate drains a named overclaim
+  assert.equal(adjudicate('we prove all seven').verdict, 'UNVERIFIED')                   // unbacked → revealed, not refused
+  assert.equal(adjudicate('proven in theorem we_prove_all_seven').verdict, 'REFUTED')    // fabricated citation → refuted
   assert.equal(adjudicate('a plain unbacked claim').verdict, 'UNVERIFIED') // gate-clean, no test → not an oracle
   assert.equal(adjudicate('two units multiply to a unit', () => (2 * 5) % 9 === 1).verdict, 'SEALED') // test holds
   // the develop plan — every verdict emits ordered, non-empty algebra-development steps.
   const crypto = adjudicate('the Clay theorems are the new crypto standard')  // UNVERIFIED + the crypto proxies
   assert.ok(crypto.develop.length >= 4 && crypto.develop.some((s) => /keyspace/.test(s) && /2\^128/.test(s)))
-  // self-consistency: the plans that do NOT quote a banned phrase are themselves gate-clean (the recipe to
-  // resolve a claim passes the trial's own gate); the gate-drain plan must instead NAME the exact phrase to cut.
+  // self-consistency: the develop plans are themselves gate-clean (the recipe to resolve a claim passes the trial's
+  // own gate); the fabricated-citation plan must NAME the exact fabricated key to cut.
   for (const v of [crypto, adjudicate('two units multiply to a unit', () => false)])
     for (const step of v.develop) assert.equal(computes(step).binary, 1, `develop step must be gate-clean: ${step}`)
-  assert.match(adjudicate('we prove all seven').develop[0], /"we prove"/) // names the exact drained phrase to cut
+  assert.match(adjudicate('proven in theorem we_prove_all_seven').develop[0], /we_prove_all_seven/) // names the fabricated citation to cut
   const f = [toUuid('formula-1'), toUuid('formula-2')]
-  const pv = proveVerdict('we prove all seven', f)
+  const pv = proveVerdict('proven in theorem we_prove_all_seven', f)
   assert.equal(pv.verdict, 'REFUTED')
   assert.match(pv.proofRoot, /^[0-9a-f-]{36}$/)                          // the proof-of-verdict receipt
-  assert.equal(proveVerdict('we prove all seven', f).proofRoot, proveVerdict('we prove all seven', [...f].reverse()).proofRoot) // order-invariant
+  assert.equal(proveVerdict('proven in theorem we_prove_all_seven', f).proofRoot, proveVerdict('proven in theorem we_prove_all_seven', [...f].reverse()).proofRoot) // order-invariant
   // LEAN IS THE SINGLE SOURCE: the whole ledger is derived from lean/*.lean, every theorem is SEALED by its
   // `by decide` proof, and the trial folds their content-addresses to one deterministic receipt (MCP uuidna_trial).
   const trial = runTrial()
@@ -126,7 +127,8 @@ test('the honesty gate drains overclaims and signs the honest floor', () => {
 test('harness makes any output auditable; reeducate bounds overclaims until they hold', () => {
   assert.equal(harness('anything').auditable, true)
   assert.equal(harness7('x').auditableInAll, true)
-  const r = reeducate('we prove the Riemann hypothesis and it is faster than light, unbreakable')
+  // reeducate bounds a FABRICATED citation until it holds (the theorem-fold: a lexical boast is revealed, not bounded)
+  const r = reeducate('quantum supremacy, proven in theorem riemann_is_solved, faster than light')
   assert.equal(r.passed, true)
   assert.ok(r.steps.length >= 1)
 })
@@ -236,12 +238,15 @@ test('777 · multilingual streams round-trip bidirectionally (the rosetta dimens
   }
 })
 
-test('777 · the honest floor holds across every stream — no ciphertext boast leaks', () => {
+test('777 · the theorem-fold gate holds across every stream — a real description passes, a fabricated proof drains', () => {
   for (const p of STREAMS) {
     const s = encrypt(p, KEY)
-    assert.equal(computes(s.alg + ' — integrity of the envelope, not truth').binary, 1) // honest description passes
+    assert.equal(computes(s.alg + ' — integrity of the envelope, not truth').binary, 1) // cites no theorem → revealed
   }
-  assert.equal(computes('unbreakable 100% secure quantum encryption').binary, 0)              // the boast drains
+  // The gate folded to the theorems: a lexical boast is no longer drained (it is revealed as UNVERIFIED); only a
+  // FABRICATED theorem citation is the decidably-false case that drains.
+  assert.equal(computes('unbreakable 100% secure quantum encryption').binary, 1)             // no citation → revealed
+  assert.equal(computes('proven in theorem quantum_encryption_is_unbreakable').binary, 0)    // fabricated proof drains
 })
 
 test('777 · the same tests generate the UI — shadcn microdata cards, each statement linked to its proof', () => {

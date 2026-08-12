@@ -1,49 +1,33 @@
-// Prose-gate tests — the honest-prose overreach floor, hardened from real near-misses. A pure claim survives the
-// trial; an overclaim is drained; and a SECOND overclaim's stray negation can no longer clear a FIRST. The tricky
-// fixtures are verbatim from a real session's prompts (audited without exception), so the gate hardens from life,
-// not from invention. Integrity, not truth.
+// prose-gate tests — the gate FOLDED TO THE THEOREMS. The lexical honesty floor was put on trial (see gate.ts),
+// found leaky and hardcoded, and removed by folding to 0. So overreachOf no longer drains a word: it drains ONLY a
+// FABRICATED theorem citation — a claim that a proof exists which does not — and REVEALS everything else, held open
+// (UNVERIFIED) rather than word-censored. These tests pin exactly that: the one decidably-false case drains; the old
+// lexical superlatives now pass, by design, because no word decides truth — the ledger does. Integrity, not truth.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { overreachOf } from '../index.js'
 
-test('a pure claim survives — nothing to drain', () => {
-  for (const clean of [
+test('a claim that cites no theorem is REVEALED, not drained', () => {
+  for (const revealed of [
     'Build the next domain of skilled theorems.',
     'The heart is 5, the fixed point of the reflection.',
-    'Every proof costs heartbeats, paid in code, not coin.',
     'Content-addressed, recomputable by anyone.',
-  ]) assert.equal(overreachOf(clean), null, `clean: ${clean}`)
+    // The former lexical overclaims: no word-list drains them now. They are revealed as UNVERIFIED, not censored.
+    'uuidna computes at once.',
+    'this tool is unbreakable and 100% secure',
+    'professional-grade, enterprise-grade, unstoppable',
+    'rotate in combinations resulting in infinite results all in no time',
+  ]) assert.equal(overreachOf(revealed), null, `revealed (cites no theorem): ${revealed}`)
 })
 
-test('an undemarcated overclaim is drained', () => {
-  assert.ok(overreachOf('uuidna computes at once.'))
-  assert.ok(overreachOf('build all 7 dimensions simultaneously at no time'))
-  assert.ok(overreachOf('trial upgrades all skills at no additional development time'))
-  assert.ok(overreachOf('self communicating uuids with infinite layered onions'))
+test('citing a FABRICATED theorem is the one decidably-false case — it drains', () => {
+  assert.equal(overreachOf('honesty is total, proven in theorem honesty_is_guaranteed'), 'honesty_is_guaranteed')
+  assert.equal(overreachOf('see /theorem/unbreakable_forever for the proof'), 'unbreakable_forever')
 })
 
-test('the hardened blind spot — a second overclaim cannot clear the first with its stray "no"', () => {
-  // Verbatim near-miss: the "no" in "in no time" once cleared the "infinite" beside it. Both are overclaims now.
-  const drained = overreachOf('rotate in combinations resulting in infinite computable results all in no time')
-  assert.ok(drained, 'the run-on overclaim no longer slips through')
-  assert.ok(overreachOf('generates results in no time'), '"in no time" is itself drained')
-})
-
-test('hollow quality grades are drained; an honest "professional" use is not', () => {
-  assert.ok(overreachOf('professional-grade security tools'), 'professional-grade is a hollow quality claim')
-  assert.ok(overreachOf('enterprise-grade encryption'), 'enterprise-grade too')
-  assert.ok(overreachOf('production-grade'), 'production-grade (already covered)')
-  assert.ok(overreachOf('this tool is unstoppable'), 'unstoppable is a hollow superlative')
-  assert.ok(overreachOf('tamper-proof') && overreachOf('future-proof'), 'the -proof family is hollow')
-  assert.equal(overreachOf('tamper-evident by content-address'), null, 'tamper-EVIDENT is honest')
-  assert.equal(overreachOf('the craft a professional editor works in'), null, '"professional" without "grade" is honest')
-})
-
-test('a demarcation still clears an HONEST use — the gate drains overclaim, not disagreement', () => {
-  for (const honest of [
-    'x/0 is a finite value, NEVER Infinity — no fake FTL.',
-    'a simulation, not real quantum hardware',
-    'bounded, never infinite',
-    'nothing exceeds c: no FTL',
-  ]) assert.equal(overreachOf(honest), null, `honest/demarcated: ${honest}`)
+test('citing a REAL sealed theorem passes — a backed claim is not drained', () => {
+  for (const backed of [
+    'the fixed point is 5, proven in theorem diamond_involution',
+    'the week is the rosette, see /theorem/week_is_z7',
+  ]) assert.equal(overreachOf(backed), null, `backed by a real proof: ${backed}`)
 })
