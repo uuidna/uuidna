@@ -19,6 +19,7 @@ import {
   THEOREMS, runTrial, theorems, skillGroups,
   publications, composePublication, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint,
 } from './index.js'
+import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { pathToFileURL } from 'node:url'
 
@@ -346,6 +347,10 @@ const TOOLS: Tool[] = [
     description: 'The COMMON, COMPUTABLE vocabulary derived from every theorem and its domain — each term (a domain or a capability) defined by the sealed ledger, self-audited by the honesty gate, content-addressed, and folded (in trinities) to ONE recomputable receipt: the honest "all is one" — one receipt, integrity, NOT a metaphysical singularity. Maps each domain to the STANDARDS it formalizes or references (RFC 8439, ISBN/ISO 2108, SMPTE, Nyquist–Shannon …) — a citation, never a compliance claim. Translation-ready: a translation binds to a term by a provenance receipt. Deterministic and recomputable by anyone.',
     inputSchema: { type: 'object', properties: {} },
     run: () => vocabulary() },
+  { name: 'uuidna_resources',
+    description: 'Honest device resource accounting — balance the thermodynamics by MEASURING what is spent, never claiming it is free. Reports CPU time (this process), memory (rss/heap), and the machine\'s load, cores, total/free memory and uptime, all read from Node/OS, content-addressed as a signed reading. States plainly what it does NOT measure (GPU, bandwidth, and the actual joules need platform-specific probes and are not invented). No free energy: this work costs energy, bounded below by Landauer\'s kT·ln2 per bit and far more on a real chip; efficiency is pushed toward that floor, never past it.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => resources() },
   { name: 'uuidna_fingerprint',
     description: 'The FUSED ledger fingerprint — two integrity layers, stated honestly. The fast FNV receipt is TAMPER-EVIDENT (any change moves it, keyless) but NOT collision-resistant; the SHA-256 fold (over the sorted addresses, order-invariant) IS collision-resistant, so a forgery that survives it costs a ~2^128 collision — a BOUND set by the primitive, NOT a maximum. Add a key (HMAC) and forgery also needs the secret. Recomputable by anyone from the same lean/*.lean. Returns {count, fnvReceipt, sha256, tamperCost}.',
     inputSchema: { type: 'object', properties: {} },
@@ -509,7 +514,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
   [/^quantum$/, 'Quantum simulation', 'quantum'],
   [/^bill$/, 'Billing & measure', 'billing'],
-  [/^(tokens|cost)$/, 'Billing & measure', 'measure'],
+  [/^(tokens|cost|resources)$/, 'Billing & measure', 'measure'],
 ]
 const categoryOf = (name: string): [string, string] => {
   const key = name.replace(/^uuidna_/, '')

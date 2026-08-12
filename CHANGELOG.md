@@ -40,6 +40,9 @@ Ledger: **812 theorems** across **43 principles**, folded to receipt `16c1ecde-6
   one — so there is **no maximum, only bounds**. Refuses the word "max" by proving there isn't one.
 - **The fused fingerprint** — `ledgerFingerprint()`: the fast tamper-evident FNV receipt *and* the collision-resistant
   SHA-256 fold, so an undetected forgery costs a ~2^128 collision (a ceiling, not a maximum). `uuidna_fingerprint`.
+- **The resource meter** — `resources()` / daemon `/resources`: honest device accounting (CPU, memory, load, cores,
+  free memory), content-addressed. Balances the thermodynamics by measuring the spend; GPU, bandwidth and joules are
+  named as *not measured* rather than faked. No free energy. `uuidna_resources`.
 - **Zenodo** — `auditZenodo` (public-metadata fingerprint, sandbox-aware) and `.zenodo.json` deposit metadata.
 
 ### Changed

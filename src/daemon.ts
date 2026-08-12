@@ -12,6 +12,7 @@ import { readFileSync } from 'node:fs'
 import {
   toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics, evidence, ledgerFingerprint,
 } from './index.js'
+import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 
 const VERSION = (() => {
   try { return JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version as string } catch { return '0.0.0' }
@@ -43,6 +44,7 @@ export function route(method: string, path: string, query: URLSearchParams, body
       'GET /theorem/<key>': 'one theorem with its proof',
       'GET /run': 'fold the whole ledger to one receipt',
       'GET /fingerprint': 'the fused fingerprint — FNV receipt + collision-resistant SHA-256',
+      'GET /resources': 'honest device resource accounting (CPU + memory measured; GPU/bandwidth/joules not faked)',
       'GET /vocabulary': 'the common computable vocabulary',
     },
   })
@@ -103,6 +105,7 @@ export function route(method: string, path: string, query: URLSearchParams, body
 
   if (method === 'GET' && path === '/run') return ok(runTrial())
   if (method === 'GET' && path === '/fingerprint') return ok(ledgerFingerprint())
+  if (method === 'GET' && path === '/resources') return ok(resources())
   if (method === 'GET' && path === '/vocabulary') return ok(vocabulary())
 
   return { status: 404, json: { error: 'no such route: ' + method + ' ' + path + ' — GET / for the index' } }
