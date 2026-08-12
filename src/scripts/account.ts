@@ -49,12 +49,20 @@ check(nonneg, 'the bill is never negative across a 5×5 grid (matches sealed bil
 check(ADDRESS_BITS === 128 && referenceBitsSaved(1024, 64) === 0 && referenceBitsSaved(1024, 1024) === 1024 * (1024 - 128),
   `reference-bits saving is honest: 0 when payload ≤ ${ADDRESS_BITS}-bit address, ${(1024 * (1024 - 128)).toLocaleString()} bits on 1024×1024-bit payloads`)
 
-// decide-step cost coverage — reported (a snapshot; the fold is on-demand), not a hard failure
+// decide-step cost coverage — VERIFY ALL, and the cracks seal: the heartbeat address set must EQUAL the ledger's,
+// exactly. Every theorem measured (no missing), and NO entry left for a theorem no longer in the ledger (no stale —
+// a renamed/changed theorem moved its address, so its old cost is drift). A hard failure now, not a soft snapshot:
+// the whole is verified together, so a manual patch cannot leave a crack. Recompute with `npm run heartbeats --all`.
 try {
   const hb = JSON.parse(readFileSync(join(ROOT, 'lean', 'heartbeats.json'), 'utf8')).costs || {}
-  const measured = T.filter((t) => hb[t.address] !== undefined).length
-  console.log(`  · decide-step cost coverage: ${measured}/${T.length} measured` + (measured < T.length ? ` — ${T.length - measured} not yet folded (npm run heartbeats --all)` : ' (complete)'))
-} catch { console.log('  · heartbeats.json absent — decide-step cost coverage not checked') }
+  const ledger = new Set(T.map((t) => t.address))
+  const missing = T.filter((t) => hb[t.address] === undefined)
+  const stale = Object.keys(hb).filter((a) => !ledger.has(a))
+  check(missing.length === 0 && stale.length === 0,
+    `decide-step cost: heartbeats cover the ledger EXACTLY — ${Object.keys(hb).length} entries = ${T.length} theorems, 0 missing, 0 stale` +
+    (missing.length ? ` (MISSING ${missing.length}: ${missing.slice(0, 3).map((t) => t.key).join(', ')} — run npm run heartbeats --all)` : '') +
+    (stale.length ? ` (STALE ${stale.length}: entries for theorems no longer in the ledger — run npm run heartbeats --all)` : ''))
+} catch { check(false, 'decide-step cost: heartbeats.json is present and parses (run npm run heartbeats --all)') }
 
 console.log(failed ? '\n✗ accounting does NOT reconcile' : '\n✓ all is accounted — the ledger reconciles')
 process.exit(failed ? 1 : 0)

@@ -89,6 +89,33 @@ async function pool<X, R>(items: X[], concurrency: number, worker: (x: X, i: num
 
 async function main() {
   const args = process.argv.slice(2)
+  if (args[0] === '--sync') {
+    // Incremental, drift-free: keyed by content-address, PRUNE every entry no longer in the ledger (a renamed or
+    // changed theorem moved its address, so its old entry is stale), then MEASURE only the addresses still missing
+    // (the genuinely new theorems). Same result as --all when the map is empty, but it re-probes only what changed —
+    // closing the gap that a hand-merge left open (stale entries → measured ≠ total). Recompute-from-scratch is --all.
+    const path = join(ROOT, 'lean', 'heartbeats.json')
+    let costs: Record<string, number> = {}
+    try { costs = JSON.parse(readFileSync(path, 'utf8')).costs || {} } catch { costs = {} }
+    const valid = new Set(T.map((t) => t.address))
+    const pruned = Object.keys(costs).filter((a) => !valid.has(a))
+    for (const a of pruned) delete costs[a]
+    const missing = T.filter((t) => !(t.address in costs))
+    process.stderr.write(`sync: ${pruned.length} stale pruned, ${missing.length} to measure, ${Object.keys(costs).length} already current\n`)
+    const measured = await pool(missing, 8, async (t) => {
+      let c: number | null
+      try { c = await costOf(t) } catch { c = null }
+      return { address: t.address, key: t.key, cost: c }
+    })
+    for (const m of measured) if (m.cost !== null) costs[m.address] = m.cost
+    const total = Object.values(costs).reduce((s, c) => s + c, 0)
+    writeFileSync(path, JSON.stringify({ measured: Object.keys(costs).length, total, costs }) + '\n')
+    const covered = Object.keys(costs).length
+    console.log(`wrote lean/heartbeats.json — ${covered}/${T.length} measured` +
+      (covered === T.length ? ' (100% coverage)' : ` (${T.length - covered} unmeasured)`) +
+      `; ${pruned.length} stale entries pruned, ${missing.length} newly measured`)
+    return
+  }
   if (args[0] === '--all') {
     const started = process.hrtime.bigint()
     let done = 0
