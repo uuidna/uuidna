@@ -91,8 +91,19 @@ const dupes = order.length !== new Set(order.map((n) => n.route)).size
 trials += order.length
 for (const g of gap) fails.push(`graph: /${g} has no next — an orphan the walk does not cover`)
 if (dupes) fails.push('graph: the canonical order has a duplicate route')
+// No theorem invisible, none uncovered — in everyone's interest: every theorem must be a NODE in the gapless walk
+// (reachable by clicking next), it must have its own page (the dynamic route mints one per ledger key, so this holds
+// by construction), and it must be DISPLAYED in exactly one monograph (its domain's note folds them all). Prove it.
+const walkRoutes = new Set(order.map((n) => n.route))
+const inMonograph = new Set(publications().flatMap((p) => p.theorems))
+const notInWalk = theorems().filter((t) => !walkRoutes.has(`/theorem/${t.key}`))
+const notShown = theorems().filter((t) => !inMonograph.has(t.key))
+for (const t of notInWalk.slice(0, 5)) fails.push(`coverage: ${t.key} is not a node in the walk — invisible`)
+for (const t of notShown.slice(0, 5)) fails.push(`coverage: ${t.key} appears in no monograph — uncovered`)
+const covered = notInWalk.length === 0 && notShown.length === 0
 console.log(`  ARM 4 · graph    — ${order.length} pages in one wrapping walk (${staticPages.length} sections + ${theorems().length} theorems + ${publications().length} publications), next-gaps: ${gap.length}`)
-const armGraph = merkleGravity([toUuid('pages:' + order.length), toUuid('gaps:' + gap.length)])
+console.log(`           coverage — every theorem a node in the walk AND shown in its monograph: ${covered ? 'yes — none invisible, none uncovered' : 'NO (' + notInWalk.length + ' invisible, ' + notShown.length + ' uncovered)'}`)
+const armGraph = merkleGravity([toUuid('pages:' + order.length), toUuid('gaps:' + gap.length), toUuid('covered:' + covered)])
 
 // ── THE FOLD — the four arms fold on the rosette to one readiness receipt (order-invariant, recomputable by anyone).
 const readiness = merkleGravity([armProofs, armProse, armAccounts, armGraph])
