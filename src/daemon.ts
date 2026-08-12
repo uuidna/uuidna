@@ -10,7 +10,7 @@
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
 import { readFileSync } from 'node:fs'
 import {
-  toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics, evidence, ledgerFingerprint,
+  toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics, evidence, ledgerFingerprint, reason,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 
@@ -106,6 +106,11 @@ export function route(method: string, path: string, query: URLSearchParams, body
   if (method === 'GET' && path === '/run') return ok(runTrial())
   if (method === 'GET' && path === '/fingerprint') return ok(ledgerFingerprint())
   if (method === 'GET' && path === '/resources') return ok(resources())
+
+  if (method === 'POST' && path === '/reason') {
+    if (!Array.isArray(body.facts) || !Array.isArray(body.rules)) return bad('provide {"facts":[atoms], "rules":[{"if":[atoms],"then":atom}]}')
+    return ok(reason((body.facts as string[]).map(String), body.rules as { if: string[]; then: string }[]))
+  }
   if (method === 'GET' && path === '/vocabulary') return ok(vocabulary())
 
   return { status: 404, json: { error: 'no such route: ' + method + ' ' + path + ' — GET / for the index' } }

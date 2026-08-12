@@ -75,6 +75,9 @@ export { canonicalOrder, nextOf, gaps, type PageNode } from './site.js'
 // prose-gate — the honest-prose overreach floor (HOLLOW superlatives + translated proof-boasts, with demarcation
 // clearing), shared by the provenance audit and the self-trial. Extracted so it is tested, not buried in a script.
 export { overreachOf, HOLLOW, DEMARCATED } from './prose-gate.js'
+// reason — an IN-HOUSE forward-chaining reasoner that USES the sealed rules of inference: it derives conclusions by
+// modus ponens / the hypothetical syllogism, citing the sealed theorem at each step, bounded and recomputable.
+export { reason, type Rule, type Derivation, type Reasoning } from './reason.js'
 // vocab — a common, computable, translation-ready vocabulary derived from every theorem and its domain: each term
 // self-audited by the honesty gate, content-addressed, folded (in trinities) to ONE receipt — the honest "all is one".
 export { vocabulary, type Term, type Vocabulary } from './vocab.js'
