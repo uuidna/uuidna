@@ -67,6 +67,11 @@ const FACTS = [
     why: 'The MISÈRE demarcation: three heaps of one stone, [1,1,1], fold to nim-sum lxor(lxor 1 1) 1 = 1 — a WIN under NORMAL play (last stone wins). Under MISÈRE play (last stone LOSES) the same position is a LOSS: the endgame rule flips near the end, so the nim-sum rule holds only while some heap exceeds one. This theorem is the normal-play arithmetic; misère is a different game.',
     js: () => nimsum(1, 1, 1) === 1,
     lean: 'theorem nim_misere_differs : lxor (lxor 1 1) 1 = 1 := by decide' },
+
+  { key: 'nim_max_is_a_diamond_nilpotent',
+    why: 'Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6 is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond\'s self-annihilating residue, its "draw". The biggest win reduces to the vortex\'s zero-square, while chess sits at the units {1,8} and the audit at 8. HONEST SCOPE: a structural residue of the nim-sum, NOT a claim nim IS the ring.',
+    js: () => 15 % 9 === 6 && (6 * 6) % 9 === 0,
+    lean: 'theorem nim_max_is_a_diamond_nilpotent : (15 % 9 = 6) ∧ ((6 * 6) % 9 = 0) := by decide' },
 ]
 
 console.log('computing ' + FACTS.length + ' NIM facts (normal-play nim-sum arithmetic — misère is demarcated) …')

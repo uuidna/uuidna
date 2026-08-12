@@ -1,18 +1,18 @@
 {
-  "key": "da7220ef-75e9-8436-b4b8-ee62c9701004",
-  "publications": 54,
-  "sealedTheorems": 920,
+  "key": "8d8f798c-998f-881b-8437-c9c7ed56d95b",
+  "publications": 55,
+  "sealedTheorems": 933,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 920,
-    "theorems": 920,
+    "claims": 933,
+    "theorems": 933,
     "bijection": true,
     "digitalRoots": {
-      "claims": 2,
-      "theorems": 2,
-      "publications": 9
+      "claims": 6,
+      "theorems": 6,
+      "publications": 1
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -112,6 +112,13 @@
       "slug": "audit",
       "claims": 6,
       "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "audit-game",
+      "claims": 11,
+      "cited": 11,
       "uncited": [],
       "fabricated": []
     },
@@ -264,15 +271,15 @@
     },
     {
       "slug": "chessgames",
-      "claims": 13,
-      "cited": 13,
+      "claims": 14,
+      "cited": 14,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "nim",
-      "claims": 11,
-      "cited": 11,
+      "claims": 12,
+      "cited": 12,
       "uncited": [],
       "fabricated": []
     },

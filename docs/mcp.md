@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="89 keys" />
+# MCP tools <Badge type="tip" text="90 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 89 tools below are read from the server's own tool list and
-organised into 25 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 90 tools below are read from the server's own tool list and
+organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`89`" />
+## The grid <Badge type="tip" :text="`90`" />
 
-89 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 21 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+90 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 22 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -30,6 +30,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-quantum"><code>quantum</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
 <a href="#uuidna-review-domains"><code>review_domains</code></a>
+<a href="#uuidna-security-audit"><code>security_audit</code></a>
 <a href="#uuidna-selftest"><code>selftest</code></a>
 <a href="#uuidna-skills"><code>skills</code></a>
 <a href="#uuidna-theorems"><code>theorems</code></a>
@@ -412,6 +413,16 @@ _No parameters._
 ### `uuidna_resources`
 
 Honest device resource accounting — balance the thermodynamics by MEASURING what is spent, never claiming it is free. Reports CPU time (this process), memory (rss/heap), and the machine's load, cores, total/free memory and uptime, all read from Node/OS, content-addressed as a signed reading. States plainly what it does NOT measure (GPU, bandwidth, and the actual joules need platform-specific probes and are not invented). No free energy: this work costs energy, bounded below by Landauer's kT·ln2 per bit and far more on a real chip; efficiency is pushed toward that floor, never past it.
+
+_No parameters._
+
+## Security posture (recomputable) <Badge type="tip" :text="'1'" />
+
+*skill: security*
+
+### `uuidna_security_audit`
+
+The RECOMPUTABLE security posture computed from what the package SHIPS (package.json + the sealed ledger + the honesty gate), folded to an order-invariant receipt anyone rechecks — NOT a scanner and NOT a pentest. It verifies the supply-chain surface (zero runtime dependencies, dev-deps bounded to a known set), the defence-in-depth theorems sealed (layers add bits, a key bit doubles the space, the birthday bound halves the exponent, verify is cheaper than forge, no maximum only bounds), collision resistance by pigeonhole (seats_pigeonhole), and that the honesty gate BITES a fabricated theorem citation. HONEST SCOPE: the repo-tree scans (no committed secret across tracked files, the KAT suite present) and the CI gates run in the source tree, NOT here — this is the posture provable from the package itself. Returns {checks, passed, failed, receipt}.
 
 _No parameters._
 
