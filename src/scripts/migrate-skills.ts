@@ -61,6 +61,10 @@ const MAP: Record<string, [string, string]> = {
   'lean-quantum.ts': ['Quantum.lean', 'quantum'],
   'lean-relativity.ts': ['Relativity.lean', 'relativity'],
   'lean-typesetting.ts': ['Typesetting.lean', 'typesetting'],
+  // batch 4 — Discover is uniform (ℤ/9 group theory), so file-wide vortex. Sequence is genuinely mixed: file-default
+  // 'sequence', but its four salt_* facts are overridden to 'crypt-salt' per-fact in lean-sequence.ts directly.
+  'lean-discover.ts': ['Discover.lean', 'vortex'],
+  'lean-sequence.ts': ['Sequence.lean', 'sequence'],
 }
 
 let changed = 0

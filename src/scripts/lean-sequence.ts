@@ -68,23 +68,23 @@ const FACTS = [
   // convergent salt drops the step, so seals of the same content collide (the equality leak) and recovering the
   // step is a DIVISION BY ZERO (the whole step-fibre collapses). The NEW fresh salt advances with the SEQUENCE:
   // injective in the step, every fibre a singleton, so distinct seals never share a salt. ──
-  { key: 'salt_conv_leaks_equality', why: 'the crypt equality leak: a content-only salt is constant in the step, so two seals of the same content are byte-identical',
+  { key: 'salt_conv_leaks_equality', skill: 'crypt-salt', why: 'the crypt equality leak: a content-only salt is constant in the step, so two seals of the same content are byte-identical',
     js: () => { const sc = (c: number, _s: number) => m9(c); const R = [0, 1, 2, 3, 4, 5, 6, 7, 8]; return R.every((c) => R.every((s1) => R.every((s2) => sc(c, s1) === sc(c, s2)))) },
     lean: "theorem salt_conv_leaks_equality : (List.range 9).all (fun c => (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => saltConv c s1 == saltConv c s2))) := by decide" },
-  { key: 'salt_conv_step_is_division_by_zero', why: "recovering the seal's step from a content-only salt is a division by zero — the whole step-fibre collapses (size 9)",
+  { key: 'salt_conv_step_is_division_by_zero', skill: 'crypt-salt', why: "recovering the seal's step from a content-only salt is a division by zero — the whole step-fibre collapses (size 9)",
     js: () => { const sc = (c: number, _s: number) => m9(c); const R = [0, 1, 2, 3, 4, 5, 6, 7, 8]; return R.every((c) => R.filter((s) => sc(c, s) === sc(c, 0)).length === 9) },
     lean: "theorem salt_conv_step_is_division_by_zero : (List.range 9).all (fun c => ((List.range 9).filter (fun s => saltConv c s == saltConv c 0)).length == 9) := by decide" },
-  { key: 'salt_seq_injective', why: 'the crypt fix: an advancing-sequence salt is injective in the step (equal salts ⇔ equal steps) — distinct seals never collide',
+  { key: 'salt_seq_injective', skill: 'crypt-salt', why: 'the crypt fix: an advancing-sequence salt is injective in the step (equal salts ⇔ equal steps) — distinct seals never collide',
     js: () => { const ss = (_c: number, s: number) => m9(s); const R = [0, 1, 2, 3, 4, 5, 6, 7, 8]; return R.every((s1) => R.every((s2) => (ss(0, s1) === ss(0, s2)) === (s1 === s2))) },
     lean: "theorem salt_seq_injective : (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => (saltSeq 0 s1 == saltSeq 0 s2) == (s1 == s2))) := by decide" },
-  { key: 'salt_seq_fibre_singleton', why: 'the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept, not collapsed',
+  { key: 'salt_seq_fibre_singleton', skill: 'crypt-salt', why: 'the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept, not collapsed',
     js: () => { const ss = (_c: number, s: number) => m9(s); const R = [0, 1, 2, 3, 4, 5, 6, 7, 8]; return R.every((s0) => R.filter((s) => ss(0, s) === ss(0, s0)).length === 1) },
     lean: "theorem salt_seq_fibre_singleton : (List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0)).length == 1) := by decide" },
 ]
 
 console.log('computing ' + FACTS.length + ' sequence/group facts from the vortex (seams = ' + seams + ') …')
 
-emit({ file: 'Sequence.lean',
+emit({ file: 'Sequence.lean', skill: 'sequence',
   header: 'The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective.',
   defs: `def ap (a b x : Nat) : Nat := (a * x + b) % 9          -- an affine map on ℤ/9: x ↦ a·x + b
 def tour : List Nat := [1, 2, 4, 8, 7, 5, 3, 6, 0]     -- the vortex tour in ℤ/9 (9 ≡ 0)

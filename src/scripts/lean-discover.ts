@@ -76,7 +76,7 @@ const news = DISCOVERED.filter((f) => isNew(f.key))
 console.log('missing (new) theorems not in the other lean files: ' + (news.length ? news.map((f) => f.key).join(', ') : 'none'))
 
 // compute → generate → verify: invB DERIVES the units, every theorem RECOMPUTES its property (no static lists)
-emit({ file: 'Discover.lean',
+emit({ file: 'Discover.lean', skill: 'vortex',
   header: 'Self-discovery; all computes by itself. No hardcoded structure: `invB a` DERIVES whether a is a unit (it has an inverse), and every theorem RECOMPUTES its property by filter/any/all over the ring — nothing typed as a static list.',
   defs: 'def invB (a : Nat) : Bool := (List.range 9).any (fun e => (a * e) % 9 == 1)   -- a is a unit iff it has an inverse',
   facts: DISCOVERED.map((f) => ({ ...f, name: f.why })) })
