@@ -1,6 +1,7 @@
 // reactor tests — the involutionary refusion reactor. Snapshot fuses sealed theorems across domains to one
 // recomputable superposition uuid (first segment the handle); a changed set moves it, so drift is refused. The
-// reactor recycles: nothing refused is discarded — a REFUTED or UNVERIFIED claim returns with its develop plan.
+// reactor recycles: nothing refused is discarded — an UNVERIFIED claim (cites no proof, or a fabricated one)
+// returns with its develop plan.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { snapshot, reactor, theorems } from '../index.js'
