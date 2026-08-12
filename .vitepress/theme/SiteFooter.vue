@@ -2,13 +2,15 @@
      on no-sidebar pages). Mounted via the layout-bottom slot. Self-contained, responsive, themed with VitePress vars. -->
 <script setup>
 import { withBase } from 'vitepress'
+import { toUuid } from '../../dist/index.js'
 // Internal links go through VitePress's withBase so the site base (and any locale prefix) is applied — no
 // hand-built absolute paths that break under a base or a locale. External links (http…) pass through unchanged.
 const href = (h) => (h.startsWith('/') ? withBase(h) : h)
 const GH = 'https://github.com/uuidna/uuidna'
-// The licence, shown as its content-address on every page — its own recomputable receipt (the fold of the canonical
-// licence line; see /license). Every domain but uuidna.com redirects to /license; here the licence rides as a uuid.
-const licenseUuid = '9ffcda04-5adc-872e-9358-6b831bbd0c0d'
+// The licence, shown as its content-address on every page — COMPUTED, not hardcoded: toUuid of the canonical licence
+// line, so a licence change re-mints the receipt automatically (no pasted literal to go stale). See /license.
+const LICENSE_LINE = 'CC BY-NC-ND 4.0 — free to read and redistribute with attribution, non-commercially, and without modification. Canonical at uuidna.com/license.'
+const licenseUuid = toUuid(LICENSE_LINE)
 const cols = [
   { title: 'The ledger', links: [
     { text: 'All theorems', href: '/theorems' },

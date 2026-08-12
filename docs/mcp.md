@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="78 keys" />
+# MCP tools <Badge type="tip" text="82 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 78 tools below are read from the server's own tool list and
-organised into 18 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 82 tools below are read from the server's own tool list and
+organised into 20 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`78`" />
+## The grid <Badge type="tip" :text="`82`" />
 
-78 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+82 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -86,6 +86,10 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-vocabulary"><code>vocabulary</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
+<a href="#uuidna-audit-cve"><code>audit_cve</code></a>
+<a href="#uuidna-nist-constant"><code>nist_constant</code></a>
+<a href="#uuidna-anchor"><code>anchor</code></a>
+<a href="#uuidna-prior-art"><code>prior_art</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
 <a href="#uuidna-reflects"><code>reflects</code></a>
 <a href="#uuidna-reason"><code>reason</code></a>
@@ -533,7 +537,7 @@ Open a contract-keyed ratchet: verifies your terms address to the tagged [contra
 | `chain` | object | **yes** | the {contract,links} from uuidna_contract_chain |
 | `terms` | string | **yes** |  |
 
-## Provenance audit (public text & metadata) <Badge type="tip" :text="'5'" />
+## Provenance audit (public text & metadata) <Badge type="tip" :text="'6'" />
 
 *skill: books*
 
@@ -592,6 +596,16 @@ Fetch an OPEN-ACCESS Zenodo research record by id (via the public Zenodo REST AP
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `recordId` | integer | **yes** | a Zenodo record id, e.g. 1234567 |
+
+### `uuidna_audit_cve`
+
+Fingerprint a CVE's PUBLIC advisory metadata from NIST's NVD (National Vulnerability Database, no key) — id, description, CVSS severity, dates — content-addressed, for the security reflection. Pass {cveId} like "CVE-2021-44228". HONEST: it fingerprints the PUBLIC metadata only, NOT an exploit or the affected code, and it is NOT a claim uuidna assesses, reproduces or fixes the vulnerability. NVD publishes; uuidna fingerprints the public record so it can be cited and rechecked by anyone.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `cveId` | string | **yes** | a CVE id, e.g. CVE-2021-44228 |
 
 ## Rotation & cycles <Badge type="tip" :text="'5'" />
 
@@ -915,9 +929,47 @@ PATTERN RECOGNITION — recognise the pattern two texts share by examining how t
 | `a` | string | **yes** |  |
 | `b` | string | **yes** |  |
 
-## Legal fact base (not an opinion) <Badge type="tip" :text="'1'" />
+## External verification (NIST CODATA) <Badge type="tip" :text="'1'" />
+
+*skill: nist*
+
+### `uuidna_nist_constant`
+
+Verify uuidna's physics against NIST's AUTHORITATIVE CODATA values. Fetches the official NIST fundamental-constants table (physics.nist.gov) and returns constants matching {query} — value, uncertainty, unit, and a content-address — so a constant uuidna uses (the speed of light in cosmic_speed_limit, Boltzmann's k for Landauer's kT·ln2) is RECHECKED against the external authority, not self-asserted. HONEST: verification against NIST's published values, NOT a claim NIST endorses uuidna; values carry uncertainties except the defined-exact ones. One network call; the address recomputes against NIST's table.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `query` | string | **yes** | a constant name, e.g. "speed of light" or "Boltzmann" |
+
+## Timestamp anchor (external, verified in-house) <Badge type="tip" :text="'1'" />
+
+*skill: anchor*
+
+### `uuidna_anchor`
+
+Anchor a record's content-address to an EXTERNAL, independent, signed timestamp — the rigorous "Schumann resonance at the time". Fetches the current NIST Randomness Beacon pulse (a 512-bit value published, SIGNED, and archived every 60s at beacon.nist.gov) and folds it into {address}, giving a re-verifiable NOT-BEFORE bound: the record existed at or after that pulse, because its unpredictable value could not be known before. Anyone re-fetches NIST's archived pulse and re-verifies the fold IN-HOUSE. HONEST: NOT-BEFORE only; for NOT-AFTER, publish (a git push GitHub timestamps); for a formal legal timestamp, use an RFC 3161 authority or OpenTimestamps. One network call; the fold is pure.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `address` | string | **yes** |  |
+
+## Legal fact base & prior art (not an opinion) <Badge type="tip" :text="'2'" />
 
 *skill: legal*
+
+### `uuidna_prior_art`
+
+Mint an IN-HOUSE defensive-publication record for the named theorems ({keys:[...]}) — a self-contained, recomputable manifest of WHAT was published (each theorem in full, statement + proof), by WHOM (attribution), under WHAT terms (CC BY-NC-ND 4.0 + its address), bound to the ledger receipt, folded to one content-address any change moves. Zero external dependency. THE ONE HONEST LIMIT: the WHEN is NOT in-house — a self-signed date is worthless for priority; it names the external anchor to cite (the public git commit on GitHub, a Zenodo DOI, or an RFC 3161 timestamp authority) and fakes nothing. Proves what/who/integrity/terms; not when, and not that the result is law or standard.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `keys` | array | **yes** |  |
 
 ### `uuidna_legal_facts`
 
