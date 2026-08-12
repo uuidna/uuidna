@@ -71,9 +71,16 @@ export const PRINCIPLE = [
 const manifest: Record<string, { name: string; skill?: string }> = {}
 for (const f of readdirSync(LEAN_DIR).filter((f) => f.endsWith('-manifest.json'))) for (const e of JSON.parse(readFileSync(join(LEAN_DIR, f), 'utf8')) as { key: string; name: string; skill?: string }[]) manifest[e.key] = { name: e.name, skill: e.skill }
 
+// Inline @skill for HAND-WRITTEN lean files (Uuidna/Vortex/OneLeap — no generator, no manifest): `-- @skill: <skill>`
+// on the line directly above a theorem authors its capability AT THE LEAN SOURCE, exactly as the manifest does for
+// generated files. Same single-source principle; the annotation is a comment, so the proof is untouched.
+const inlineSkill: Record<string, string> = {}
+for (const f of readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')))
+  for (const mm of readFileSync(join(LEAN_DIR, f), 'utf8').matchAll(/--\s*@skill:\s*([\w-]+)\s*\n\s*theorem\s+(\w+)/g)) inlineSkill[mm[2]] = mm[1]
+
 const parseLean = (file: string): Omit<LeanTheorem, 'file' | 'principle'>[] => [...readFileSync(join(LEAN_DIR, file), 'utf8')
   .matchAll(/theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:--|theorem|def|namespace|end|$))/g)]
-  .map((m) => ({ key: m[1], statement: m[2].trim().replace(/\s+/g, ' '), tactic: m[3].trim().replace(/\s+/g, ' '), name: manifest[m[1]]?.name || m[2].trim().replace(/\s+/g, ' '), skill: manifest[m[1]]?.skill }))
+  .map((m) => ({ key: m[1], statement: m[2].trim().replace(/\s+/g, ' '), tactic: m[3].trim().replace(/\s+/g, ' '), name: manifest[m[1]]?.name || m[2].trim().replace(/\s+/g, ' '), skill: manifest[m[1]]?.skill ?? inlineSkill[m[1]] }))
 
 const allFiles = existsSync(LEAN_DIR) ? readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')).sort() : []
 const ordered = [...PRINCIPLE.map((p) => p[0]).filter((f) => allFiles.includes(f)), ...allFiles.filter((f) => !PRINCIPLE.some((p) => p[0] === f))]

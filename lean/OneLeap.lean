@@ -5,6 +5,7 @@
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the vortex = the reflection
 def ap (a b x : Nat) : Nat := (a * x + b) % 9            -- an affine map on ℤ/9
 
+-- @skill: vortex
 theorem vortex_one_leap :
   -- follow the sequence: the doubling orbit on the units
   (List.range 6).map (fun k => (2 ^ k) % 9) = [1, 2, 4, 8, 7, 5]
