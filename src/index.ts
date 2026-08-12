@@ -120,4 +120,4 @@ export { ledgerFingerprint, type LedgerFingerprint } from './fingerprint.js'
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS
 // is the typed, addressed view. runTrial() folds every theorem's content-address to one receipt; theorems() lists
 // them with proof + principle; PRINCIPLES is the derivation order. A theorem computes in Lean, or it is not one.
-export { THEOREMS, runTrial, theorems, PRINCIPLES, skillOf, SKILLS, skillGroups, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup } from './theorems/index.js'
+export { THEOREMS, runTrial, theorems, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay } from './theorems/index.js'

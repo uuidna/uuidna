@@ -152,6 +152,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: `Theorems`, link: '/theorems' },
       { text: 'Topics', link: '/topics' },
+      { text: 'Rosette', link: '/rosetta' },
       { text: 'MCP', link: '/mcp' },
       { text: 'Books', link: '/books' },
       { text: 'Publications', link: '/publications' },

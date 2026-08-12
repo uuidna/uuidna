@@ -4,7 +4,7 @@
 // not a theorem. The recomputation-only capabilities (FNV address, gate, crypto) are TOOLS, not theorems.
 //
 // Requires the package to be built first (`npm run build` → dist/). `npm run docs:build` does both in order.
-import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid, publications } from '../dist/index.js'
+import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid, publications, rosettaIndex } from '../dist/index.js'
 
 export type Theorem = {
   key: string
@@ -44,6 +44,7 @@ export type LedgerData = {
   blurb: Record<string, string>
   groups: PrincipleGroup[]
   skillGroups: SkillGroup[]
+  rosetta: { ray: number; count: number; fold: string; theorems: { key: string; name: string }[] }[]
   trial: {
     receipt: string
     count: number
@@ -99,6 +100,8 @@ export default {
       blurb,
       groups,
       skillGroups,
+      // the 7-ray rosette index — a decidable ℤ/7 partition of the ledger by content-address, each ray folded.
+      rosetta: rosettaIndex().map((r) => ({ ray: r.ray, count: r.count, fold: r.fold, theorems: r.theorems.map((t) => ({ key: t.key, name: t.name })) })),
       trial: {
         receipt: trial.receipt,
         count: trial.count,

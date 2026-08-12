@@ -79,6 +79,18 @@ export function skillGroups(): SkillGroup[] {
   })
 }
 
+// ── The 7-ray ROSETTE index — a computing structure, not a folder move. Index-only. ──
+export interface RosettaRay { ray: number; count: number; fold: string; theorems: Theorem[] }
+/** The ℤ/7 ROSETTE index — a decidable partition of the whole ledger onto SEVEN rays by each theorem's content-
+ *  address (ray = address mod 7), each ray folded order-invariantly to one recomputable receipt. A structure for
+ *  computing in seven dimensions — balanced 7-way folds and lookup over the flat ledger, recomputable by anyone.
+ *  It is ORGANISATION, not meaning: which ray a theorem lands on carries no significance, only a stable index. */
+export function rosettaIndex(): RosettaRay[] {
+  const rays: Theorem[][] = Array.from({ length: 7 }, () => [])
+  for (const t of THEOREMS) rays[Number(BigInt('0x' + t.address.replace(/-/g, '')) % 7n)].push(t)
+  return rays.map((ts, ray) => ({ ray, count: ts.length, fold: ts.length ? merkleGravity(ts.map((t) => t.address)) : toUuid('rosette-empty-ray-' + ray), theorems: ts }))
+}
+
 export interface TheoremVerdict {
   key: string; name: string; statement: string; file: string; principle: string; lean: string; verdict: 'VERIFIED'; address: string
 }
