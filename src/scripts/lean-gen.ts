@@ -10,6 +10,10 @@ import { fileURLToPath } from 'node:url'
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 export const m9 = (n: number): number => ((n % 9) + 9) % 9
+// One shared exec buffer for every `lean` shell-out across the pipeline (generators, the audit, the heartbeat probe)
+// — a Lean file's stdout/stderr never approaches this, but a single constant keeps the cap consistent, not guessed
+// per call site.
+export const MAXBUF = 64 * 1024 * 1024
 
 // Axiom-free primitives — kept HERE so every generator shares ONE definition (DRY). Lean's native `Nat.xor` (`^^^`)
 // and `List.getD` are defined by well-founded recursion over `Nat.bitwise`, whose `by decide` path borrows the
@@ -71,7 +75,16 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   // The manifest carries {key, name, skill} — the microdata bridge. skill is the inline, authored capability
   // (a Fact's own skill, else the file-level default); omitted when neither is set, so the ledger falls back.
   writeFileSync(join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json'), JSON.stringify(facts.map((f) => { const s = f.skill ?? skill; return s ? { key: f.key, name: f.name || f.stmt || f.key, skill: s } : { key: f.key, name: f.name || f.stmt || f.key } }), null, 0) + '\n')
-  execSync('lean ' + JSON.stringify(join(ROOT, 'lean', file)), { cwd: ROOT, stdio: 'pipe', maxBuffer: 64 * 1024 * 1024 })
+  try {
+    execSync('lean ' + JSON.stringify(join(ROOT, 'lean', file)), { cwd: ROOT, stdio: 'pipe', maxBuffer: MAXBUF })
+  } catch (e) {
+    // stdio:'pipe' captures Lean's diagnostic ON the thrown error — print it (the actual proof failure) named to the
+    // file, so a broken generator surfaces its OWN error instead of an opaque Node status dump, then drain.
+    const err = e as { stdout?: Buffer | string; stderr?: Buffer | string }
+    const diag = (String(err.stdout || '') + String(err.stderr || '')).trim()
+    console.error('✗ lean/' + file + ' — Lean verification FAILED:\n' + (diag || String(e)))
+    process.exit(1)
+  }
   console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified sorry-free.')
   return facts.length
 }

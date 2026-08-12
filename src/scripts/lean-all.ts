@@ -8,11 +8,21 @@ import { execSync } from 'node:child_process'
 import { readdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { MAXBUF } from './lean-gen.js'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const SCRIPTS = join(ROOT, 'dist', 'scripts')
 const LEAN = join(ROOT, 'lean')
-const run = (cmd: string) => execSync(cmd, { cwd: ROOT, stdio: 'inherit', maxBuffer: 64 * 1024 * 1024 })
+// Each step streams its own output (stdio:'inherit'); on failure, replace Node's raw status-object dump with a clean
+// line NAMING the step that failed (the generator/file already printed the cause above), then drain.
+const run = (cmd: string) => {
+  try {
+    execSync(cmd, { cwd: ROOT, stdio: 'inherit', maxBuffer: MAXBUF })
+  } catch {
+    console.error('\n✗ lean-all — step FAILED: ' + cmd + '\n  (the cause is in that step\'s output above)')
+    process.exit(1)
+  }
+}
 
 // 1) every generator — dist/scripts/lean-*.js — except the shared helper, the aggregator, and this runner itself.
 const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js']) // heartbeats is an on-demand cost probe, not a generator

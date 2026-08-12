@@ -15,7 +15,7 @@ import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { theorems } from '../index.js'
-import { ROOT } from './lean-gen.js'
+import { ROOT, MAXBUF } from './lean-gen.js'
 
 const T = theorems()
 const half = (n: number): number => (n - (n % 2)) / 2 // floor(n/2), no Math.*
@@ -40,14 +40,17 @@ for (const file of [...new Set(T.map((t) => t.file))]) {
 }
 
 // Does `by decide` verify under a maxHeartbeats cap of N? Deterministic — heartbeats are machine-independent.
-const fits = (probe: string, defs: string, lean: string, N: number): Promise<boolean> =>
+const HB_RETRIES = 2
+const fits = (probe: string, defs: string, lean: string, N: number, attempt = 0): Promise<boolean> =>
   new Promise((resolve, reject) => {
     writeFileSync(probe, `set_option maxHeartbeats ${N}\n${defs}\n${lean}\n`)
-    execFile('lean', [probe], { maxBuffer: 32 * 1024 * 1024 }, (err, stdout, stderr) => {
+    execFile('lean', [probe], { maxBuffer: MAXBUF }, (err, stdout, stderr) => {
       if (!err) return resolve(true)
       const msg = String(stdout || '') + String(stderr || '')
       if (/maximum number of heartbeats/.test(msg)) return resolve(false) // capped out — N too low
       if (msg.trim() === '') return resolve(true)
+      // a non-empty, non-heartbeat error: retry a few times (a flaky parallel spawn) before treating it as real.
+      if (attempt < HB_RETRIES) return resolve(fits(probe, defs, lean, N, attempt + 1))
       reject(new Error(msg.slice(0, 160)))
     })
   })

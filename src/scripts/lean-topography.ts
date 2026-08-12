@@ -8,8 +8,9 @@
 // forward turned 180° about the compass (bearings live in ℤ/360); relief is the highest spot height less the
 // lowest; and the triangulation that fixed every hilltop rests on a triangle whose angles sum to 180°. HONEST
 // SCOPE: the arithmetic of the map — exact ratios, counts and cycles — NOT a survey, a GPS fix, a route planner, or
-// safety guidance; the √2 of a slope and Naismith's walking time are demarcated as irrational / rule-of-thumb where
-// they appear. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// safety guidance. The ledger seals only EXACT rational facts — the 3-4-5 slope triple, not the irrational length of
+// a general hillside — and Naismith's walking time is a rule-of-thumb ESTIMATE, demarcated where it appears.
+// COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -64,7 +65,7 @@ const FACTS = [
     lean: 'theorem triangulation_angles_sum : (60 + 60 + 60 = 180) ∧ (90 + 45 + 45 = 180) := by decide' },
 
   { key: 'gunters_chain_measures',
-    why: "Gunter's chain laid the grid before the satellite: eighty chains of 66 feet make the mile (80 · 66 = 5280 ft) and ten square chains make the acre (22 · 220 = 4840 sq yd). The awkward 66 is chosen precisely so the mile and the acre both come out whole.",
+    why: "Gunter's chain laid the grid before the satellite: eighty chains of 66 feet make the mile (80 · 66 = 5280 ft), and a chain by a furlong makes the acre — ten square chains, since a furlong is ten chains — which in yards is 22 · 220 = 4840 sq yd (a chain being 22 yd, a furlong 220 yd). The awkward 66 is chosen precisely so the mile and the acre both come out whole.",
     js: () => 80 * 66 === 5280 && 22 * 220 === 4840,
     lean: 'theorem gunters_chain_measures : (80 * 66 = 5280) ∧ (22 * 220 = 4840) := by decide' },
 
@@ -83,6 +84,6 @@ console.log('computing ' + FACTS.length + ' TOPOGRAPHY facts (the arithmetic of 
 
 emit({
   file: 'Topography.lean', skill: 'topography',
-  header: 'TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor\'s chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith\'s walking estimate. HONEST SCOPE: exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the √2 slope shape and Naismith\'s time are demarcated where they appear.',
+  header: 'TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor\'s chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith\'s walking estimate. HONEST SCOPE: exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside\'s irrational length), and Naismith\'s time is a rule-of-thumb estimate, demarcated where it appears.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

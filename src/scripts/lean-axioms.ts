@@ -17,7 +17,7 @@ import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { theorems } from '../index.js'
-import { ROOT } from './lean-gen.js'
+import { ROOT, MAXBUF } from './lean-gen.js'
 
 // The trust base is the kernel alone — NO axiom is tolerated, not even propext/Quot.sound. Widen this set only by a
 // conscious, documented decision; a `by decide` ledger should never need to.
@@ -44,19 +44,34 @@ function parse(out: string): Record<string, string[]> {
   return verdict
 }
 
-// Compile one file + its axiom queries; resolve name → axiom-list for every theorem in the file.
-const auditFile = (file: string, keys: string[]): Promise<Record<string, string[]>> =>
+// Run `lean probe` for the axiom report, hardened two ways:
+//  • A real Lean ELABORATION error (`: error:` in the output) fails HARD, even if `#print axioms` stanzas were also
+//    printed for the theorems that DID elaborate — so a file with one broken proof can never be silently read as
+//    axiom-free (Lean keeps elaborating past an error, which would otherwise mask it).
+//  • A failure with NO verdict and NO error is treated as a TRANSIENT spawn/exec hiccup (a flaky parallel `lean`) and
+//    retried, so the audit does not drop a theorem to "unaudited" on a resource blip.
+const RETRIES = 2
+const runLean = (probe: string, attempt = 0): Promise<string> =>
   new Promise((resolve, reject) => {
-    const src = readFileSync(join(ROOT, 'lean', file), 'utf8')
-    const probe = join(tmpdir(), 'uuidna-ax-' + file)
-    writeFileSync(probe, src + '\n' + keys.map((k) => `#print axioms ${k}`).join('\n') + '\n')
-    execFile('lean', [probe], { maxBuffer: 64 * 1024 * 1024 }, (err, stdout, stderr) => {
+    execFile('lean', [probe], { maxBuffer: MAXBUF }, (err, stdout, stderr) => {
       const msg = String(stdout || '') + String(stderr || '')
-      // A genuine compile error (not the axiom report) means the file itself broke — surface it.
-      if (err && !/depends on axioms|does not depend on any axioms/.test(msg)) return reject(new Error(msg.slice(0, 200)))
-      resolve(parse(msg))
+      if (/: error:/.test(msg)) return reject(new Error('lean elaboration error in ' + probe + ':\n' + msg.slice(0, 300)))
+      const hasVerdict = /depends on axioms|does not depend on any axioms/.test(msg)
+      if (err && !hasVerdict) {
+        if (attempt < RETRIES) return resolve(runLean(probe, attempt + 1)) // transient — retry
+        return reject(new Error('lean produced no axiom verdict after ' + (RETRIES + 1) + ' attempts on ' + probe + ':\n' + msg.slice(0, 200)))
+      }
+      resolve(msg)
     })
   })
+
+// Compile one file + its axiom queries; resolve name → axiom-list for every theorem in the file.
+const auditFile = (file: string, keys: string[]): Promise<Record<string, string[]>> => {
+  const src = readFileSync(join(ROOT, 'lean', file), 'utf8')
+  const probe = join(tmpdir(), 'uuidna-ax-' + file)
+  writeFileSync(probe, src + '\n' + keys.map((k) => `#print axioms ${k}`).join('\n') + '\n')
+  return runLean(probe).then(parse)
+}
 
 // Bounded-concurrency pool (parallel Lean processes), mirroring lean-heartbeats.
 async function pool<X, R>(items: X[], concurrency: number, worker: (x: X) => Promise<R>): Promise<R[]> {
