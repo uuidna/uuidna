@@ -37,6 +37,12 @@ test('unify: one receipt folds theorems + domains + tools, recomputable', () => 
   assert.deepEqual(u, callTool('uuidna_unify', {}))      // recomputes identically
 })
 
+test('mcp tests itself: catalog↔handlers hold, zero-arg tools recompute (only live resources may vary)', () => {
+  const s = callTool('uuidna_selftest', {}) as { checks: number; passed: number; deterministic: number; failed: { name: string }[] }
+  assert.ok(s.checks > 80 && s.deterministic > 0)
+  for (const f of s.failed) assert.equal(f.name, 'uuidna_resources', `unexpected self-test failure: ${JSON.stringify(f)}`)
+})
+
 test('the MCP measures itself: uuidna_mcp_benchmark scores the whole served surface', () => {
   const b = callTool('uuidna_mcp_benchmark', {}) as ReturnType<typeof mcpBenchmark>
   assert.equal(b.tools, TOOL_NAMES.length)                 // it benchmarks every served tool, including itself

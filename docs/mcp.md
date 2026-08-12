@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="88 keys" />
+# MCP tools <Badge type="tip" text="89 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 88 tools below are read from the server's own tool list and
-organised into 24 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 89 tools below are read from the server's own tool list and
+organised into 25 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`88`" />
+## The grid <Badge type="tip" :text="`89`" />
 
-88 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 20 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+89 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 21 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -30,6 +30,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-quantum"><code>quantum</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
 <a href="#uuidna-review-domains"><code>review_domains</code></a>
+<a href="#uuidna-selftest"><code>selftest</code></a>
 <a href="#uuidna-skills"><code>skills</code></a>
 <a href="#uuidna-theorems"><code>theorems</code></a>
 <a href="#uuidna-tokens"><code>tokens</code></a>
@@ -1124,6 +1125,16 @@ _No parameters._
 ### `uuidna_unify`
 
 The UNIFIED self-description: ONE recomputable receipt folding uuidna's three faces — the sealed theorems (the trial), the domains that carry them (the reviews), and the tools that serve them (the usability benchmark/ratings). CI, the MCP and the site read this one object; recompute from the same ledger and the receipt returns. Returns {handle,theorems,domains,tools,receipt} — cite the handle (the first segment), the whole receipt is the fold.
+
+_No parameters._
+
+## MCP self-test (recomputable contract) <Badge type="tip" :text="'1'" />
+
+*skill: measure*
+
+### `uuidna_selftest`
+
+The MCP tests ITSELF — pure self-consistency, no external oracle: every catalog tool must resolve to a handler, and every zero-arg tool must RUN and be DETERMINISTIC (two calls recompute identically). A tool that reads live device state surfaces as non-deterministic, honestly. Folds to one self-test receipt. Returns {checks,passed,deterministic,failed,receipt}.
 
 _No parameters._
 

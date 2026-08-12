@@ -426,6 +426,10 @@ const TOOLS: Tool[] = [
     description: 'The UNIFIED self-description: ONE recomputable receipt folding uuidna\'s three faces — the sealed theorems (the trial), the domains that carry them (the reviews), and the tools that serve them (the usability benchmark/ratings). CI, the MCP and the site read this one object; recompute from the same ledger and the receipt returns. Returns {handle,theorems,domains,tools,receipt} — cite the handle (the first segment), the whole receipt is the fold.',
     inputSchema: { type: 'object', properties: {} },
     run: () => unify() },
+  { name: 'uuidna_selftest',
+    description: 'The MCP tests ITSELF — pure self-consistency, no external oracle: every catalog tool must resolve to a handler, and every zero-arg tool must RUN and be DETERMINISTIC (two calls recompute identically). A tool that reads live device state surfaces as non-deterministic, honestly. Folds to one self-test receipt. Returns {checks,passed,deterministic,failed,receipt}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => mcpSelfTest() },
   // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the
   //    sealed envelope INTO a uuid chain; RECEIVE = read the uuid chain then decrypt. One side per direction; the
   //    seven dimension streams each carry both ways; the wrong key never opens it (the pattern the 777 tests seal). ──
@@ -578,6 +582,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^(tokens|cost|resources)$/, 'Billing & measure', 'measure'],
   [/^mcp_benchmark$/, 'MCP self-benchmark (usability)', 'measure'],
   [/^unify$/, 'Unified self-description (one receipt)', 'measure'],
+  [/^selftest$/, 'MCP self-test (recomputable contract)', 'measure'],
 ]
 const categoryOf = (name: string): [string, string] => {
   const key = name.replace(/^uuidna_/, '')
@@ -650,6 +655,29 @@ export interface UuidnaUnified {
   tools: { count: number; avgRating: number; reusablePerKey: number; receipt: string }
   receipt: string
 }
+// ── The MCP tests ITSELF: no external oracle, pure self-consistency. Every catalog tool must resolve to a handler,
+// and every zero-arg tool must RUN and be DETERMINISTIC (recompute identically) — the recomputable contract, checked
+// from inside. A tool that reads live device state (resources) surfaces here as non-deterministic — honestly, not
+// as a hidden pass. Folds to one self-test receipt.
+export interface McpSelfTest { checks: number; passed: number; deterministic: number; failed: { name: string; why: string }[]; receipt: string }
+export function mcpSelfTest(): McpSelfTest {
+  const failed: { name: string; why: string }[] = []
+  let checks = 0, deterministic = 0
+  for (const entry of MCP_CATALOG) {
+    checks++
+    const tool = TOOLS.find((x) => x.name === entry.name)
+    if (!tool) { failed.push({ name: entry.name, why: 'catalog lists it but no handler answers' }); continue }
+    if (entry.name === 'uuidna_selftest') continue // don't RUN self — that recurses; the handler check above suffices
+    if ((entry.inputSchema?.required ?? []).length > 0) continue // needs args — not a zero-arg self-check
+    try {
+      const a = JSON.stringify(tool.run({})), b = JSON.stringify(tool.run({}))
+      if (a === b) deterministic++
+      else failed.push({ name: entry.name, why: 'non-deterministic (two calls differ)' })
+    } catch (e) { failed.push({ name: entry.name, why: 'threw: ' + (e as Error).message.slice(0, 48) }) }
+  }
+  return { checks, passed: checks - failed.length, deterministic, failed, receipt: merkleFold([toUuid('mcp-selftest:' + checks + ':' + (checks - failed.length)), ...failed.map((f) => toUuid(f.name + '|' + f.why))]) }
+}
+
 export function unify(): UuidnaUnified {
   const trial = runTrial()
   const reviews = reviewDomains()
