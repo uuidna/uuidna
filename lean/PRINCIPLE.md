@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **829 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **837 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -128,16 +128,19 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 41. **The exposure** — `lean/Photography.lean` · **8** theorems
    photography as decidable arithmetic, focused on WHERE uuidna differs from the photographic standard and WHY — the standard prints convenient ROUNDED numbers for the dial (shutter 1/125, 1/60; aperture f/1.4) while uuidna keeps the EXACT powers of two the physics follows, and the theorems measure the gap: 1/125 rounds the exact 1/128 (2⁷, off by 3), 1/60 rounds 1/64 (2⁶, off by 4), f/1.4 rounds √2 (1.4² = 1.96 < 2); where the standard does NOT round, the full-stop ISO doublings (100·2⁵ = 3200), uuidna and the standard AGREE exactly; reciprocity is exact because it is pure addition of stops; and the light-multipliers 2⁰..2⁵ fold mod 9 to the vortex 1,2,4,8,7,5 — the camera doubles in the ring uuidna turns on, the dial just rounds the readout — the arithmetic of stops and the rounding gap, NOT a light meter or sensor model
 
-42. **The rules of inference** — `lean/Reasoning.lean` · **9** theorems
+42. **The matching** — `lean/Matching.lean` · **8** theorems
+   connecting people as decidable arithmetic — the HONEST kernel of "social dating / connecting people", stated with its scope: uuidna is a theorem ledger and a content-addresser, it does NOT run a dating service, hold anyone's profile, or match real people; matching real humans means personal data, consent and safety obligations that live OUTSIDE these theorems (see /privacy). What IS sealed is only the graph theory a matching rests on: the handshake lemma (every edge touches two, so the degree sum is even and the edges are half of it), the count of possible introductions among n people (n(n−1)/2, ten among five), a perfect matching needs an EVEN number of people (six pair, five leave one out) and splits them in half, a mutual match is SYMMETRIC (both must choose — a one-sided choice is not a match), a pairing is a fixed-point-free involution (each partnered with exactly one other, no self-pairing), and — the honest ceiling — stable matching (Gale–Shapley) halts in AT MOST n² proposals, BOUNDED not free, the same "no maximum, only bounds" the security layer proves — the arithmetic of connection, NOT a matchmaking product or anyone's data
+
+43. **The rules of inference** — `lean/Reasoning.lean` · **9** theorems
    reasoning itself as decidable arithmetic — every classical inference rule is a boolean tautology over a finite truth table, so each is proven by decide: modus ponens (from p and p→q, q) and modus tollens (from ¬q and p→q, ¬p), the contrapositive (p→q equals ¬q→¬p), De Morgan for and/or, double negation (¬¬p = p), the excluded middle (p ∨ ¬p), and the hypothetical and disjunctive syllogisms — implication p→q being the boolean !p ∨ q, checked on every assignment. The rules a valid argument is built from, sealed so a reasoning step can cite the exact rule it uses — classical propositional logic as decidable truth tables, NOT a theorem prover or predicate logic over infinite domains
 
-43. **The layered defence** — `lean/Security.lean` · **6** theorems
+44. **The layered defence** — `lean/Security.lean` · **6** theorems
    the arithmetic of why FUSING security raises the cost of tampering, proven by decide — NOT a proof that any cryptographic primitive is secure (that rests on assumptions), and claiming NO maximum: independent layers add their bits (64 + 64 = 128) and multiply the search space (2⁸·2⁸ = 2¹⁶), each key bit doubles the space (2¹¹ = 2·2¹⁰), a collision costs about half the exponent of a preimage (2·64 = 128, the honest caveat that collisions are cheaper), verifying is exponentially cheaper than forging (16 < 2¹⁶), and for every bound there is a strictly larger one (2⁸ < 2⁹) so there is NO maximum, only bounds — the honest kernel of "fuse security → raise tampering cost", refusing the word max
 
-44. **The mix** — `lean/Production.lean` · **10** theorems
+45. **The mix** — `lean/Production.lean` · **10** theorems
    music production as decidable arithmetic and the studio INVOLUTIONS made exact — reversing a clip is self-inverse (reverse twice returns), inverting its phase (x ↦ −x) is self-inverse, and their FUSION reverse-then-invert is ITSELF an involution (applied twice, the identity): the ultimate test that reverse and inverse compose to a clean self-inverse, proven on a real signal. Around them the counting of the studio: the chromatic scale is ℤ/12 (the octave wraps like the rosette), an octave doubles frequency (440→880), 120 BPM is 500 ms a beat and 2 s a 4/4 bar, Nyquist is half the sample rate (44.1 k → 22.05 k, the honest ceiling, not lossless), MIDI is 7-bit (128 notes, 0..127), 16-bit is the ~6 dB-per-bit rule of thumb (≈96 dB), and the circle of fifths is ONE cycle (7 semitones coprime to 12 visits all twelve, the pentagram idea in sound) — the arithmetic and involutions of the mix, NOT a DAW, a synth or a mastering chain
 
-45. **One leap** — `lean/OneLeap.lean` · **1** theorems
+46. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---
