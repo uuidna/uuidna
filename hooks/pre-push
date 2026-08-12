@@ -1,0 +1,16 @@
+#!/bin/sh
+# pre-push — the gate AT THE BOUNDARY. It runs the full readiness gate (npm run next); a non-zero exit BLOCKS the
+# push, so a KNOWN denial — an overclaim the honesty gate drains, an unsealed proof, an unreconciled account, a
+# next-gap, a stale changelog, a non-deterministic build — cannot cross to starboard (npm/deploy) undetected.
+#
+# HONEST SCOPE (integrity, not truth): this catches the gate's KNOWN forms only. It does NOT prove no denial can ever
+# intrude: the gate's lexicon is incomplete (new forms appear and are hardened after), and a hook is bypassable with
+# `git push --no-verify`. It RAISES the cost of intruding to a full gate pass; it does not close it to zero. A floor,
+# not a maximum — the same honest bound the ledger proves in no_maximum_only_bounds.
+echo "pre-push: running the readiness gate (npm run next) — a failing gate blocks the push."
+npm run next
+status=$?
+if [ $status -ne 0 ]; then
+  echo "pre-push: GATE FAILED (exit $status) — push BLOCKED. Fix the denial, or bypass knowingly with --no-verify (owned, not hidden)."
+fi
+exit $status
