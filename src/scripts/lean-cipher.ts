@@ -8,7 +8,7 @@
 // proving), GENERATES its `by decide` Lean theorem, writes lean/Cipher.lean, and VERIFIES it compiles sorry-free.
 // HONEST SCOPE: these are the decidable BOUNDS of the algebra — what it guarantees and what it cannot. Secrecy is
 // ChaCha20-Poly1305 (src/crypt.ts); these theorems are the demarcation, computed, not a claim of a secure cipher.
-import { emit } from './lean-gen.js'
+import { emit, LXOR_DEF } from './lean-gen.js'
 
 const comp = (x: number) => 3 - x // the base-pair complement — the diamond reflection on {A,C,G,T} = {0,1,2,3}
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i) // [a, b)
@@ -28,22 +28,22 @@ const FACTS = [
   { key: 'complement_is_xor_key3',
     why: 'Base-pairing IS a XOR cipher: on the 2-bit encoding comp(x)=3−x equals x XOR 3 — a one-time-pad STEP with the fixed pad 3. Real, but a FIXED pad is public, not secret.',
     js: () => R(0, 4).every((x) => comp(x) === (x ^ 3)),
-    lean: 'theorem complement_is_xor_key3 : (List.range 4).all (fun x => 3 - x == x ^^^ 3) := by decide' },
+    lean: 'theorem complement_is_xor_key3 : (List.range 4).all (fun x => 3 - x == lxor x 3) := by decide' },
 
   { key: 'otp_self_inverse',
     why: 'The one-time-pad is its own inverse (Vernam): (m ⊕ k) ⊕ k = m for every symbol and key — the one information-theoretically secure primitive, WHEN the key is fresh and never reused.',
     js: () => R(0, 16).every((m) => R(0, 16).every((k) => ((m ^ k) ^ k) === m)),
-    lean: 'theorem otp_self_inverse : (List.range 16).all (fun m => (List.range 16).all (fun k => (m ^^^ k) ^^^ k == m)) := by decide' },
+    lean: 'theorem otp_self_inverse : (List.range 16).all (fun m => (List.range 16).all (fun k => lxor (lxor m k) k == m)) := by decide' },
 
   { key: 'otp_key_reuse_leaks_xor',
     why: 'Key reuse is fatal: two messages under the SAME key leak their plaintext XOR — (m₁⊕k) ⊕ (m₂⊕k) = m₁⊕m₂, independent of k. The honest reason a step MUST advance (the ratchet), and why a fixed-pad complement hides nothing.',
     js: () => R(0, 8).every((m1) => R(0, 8).every((m2) => R(0, 8).every((k) => (((m1 ^ k) ^ (m2 ^ k)) === (m1 ^ m2))))),
-    lean: 'theorem otp_key_reuse_leaks_xor : (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => ((m1 ^^^ k) ^^^ (m2 ^^^ k)) == (m1 ^^^ m2)))) := by decide' },
+    lean: 'theorem otp_key_reuse_leaks_xor : (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2)))) := by decide' },
 
   { key: 'xor_fold_is_malleable',
     why: 'A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing, NOT a binding one-way seal.',
     js: () => R(0, 16).every((a) => R(0, 16).every((d) => (((a ^ d) ^ a) === d))),
-    lean: 'theorem xor_fold_is_malleable : (List.range 16).all (fun a => (List.range 16).all (fun d => (a ^^^ d) ^^^ a == d)) := by decide' },
+    lean: 'theorem xor_fold_is_malleable : (List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d)) := by decide' },
 
   { key: 'transport_leaks_length',
     why: 'The uuid transport leaks SIZE: a message of b bits occupies ⌈b/115⌉ uuids, a step function of length — content is hidden by the cipher, message LENGTH is not (the chain grows in whole-uuid quanta of 115 bits).',
@@ -73,6 +73,6 @@ const FACTS = [
 
 // compute → generate → verify, via the shared pipeline (JS-checks every fact, writes the file + manifest, and
 // compiles it sorry-free with `lean`). Crypto ∩ DNA — the shared algebra and its honest limits, demarcated.
-emit({ file: 'Cipher.lean',
+emit({ file: 'Cipher.lean', defs: LXOR_DEF,
   header: 'CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

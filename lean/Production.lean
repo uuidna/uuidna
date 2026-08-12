@@ -1,4 +1,4 @@
--- lean/Production.lean — GENERATED. THE MIX — the studio involutions (reverse, invert, and their fusion) and the counting of pitch, tempo and sample, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Production.lean — GENERATED. THE MIX — the studio involutions (reverse, invert, and their fusion) and the counting of pitch, tempo and sample, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- Reversing a clip is self-inverse: reverse it twice and the signal returns — ([3,-5,8] : List Int).reverse.reverse = [3,-5,8]. The tape run backward and backward again is the tape.
 theorem reverse_involutive : ([3, -5, 8] : List Int).reverse.reverse = [3, -5, 8] := by decide

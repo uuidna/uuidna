@@ -1,4 +1,4 @@
--- lean/Editing.lean — GENERATED. THE CUT — timecode as a ring, drop-frame, 4K as four HD, the crossfade and the sync, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Editing.lean — GENERATED. THE CUT — timecode as a ring, drop-frame, 4K as four HD, the crossfade and the sync, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- Timecode is a ring: at 24 fps the frame field runs 0..23 then wraps to the next second — (List.range 24).length = 24 ∧ 24 % 24 = 0. An editor counts frames in ℤ/24, the same close the rosette makes in ℤ/7.
 theorem frame_index_is_z24 : (List.range 24).length = 24 ∧ 24 % 24 = 0 := by decide

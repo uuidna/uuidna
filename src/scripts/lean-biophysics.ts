@@ -6,7 +6,7 @@
 // wheel). COMPUTE each fact, GENERATE a `by decide` Lean theorem, VERIFY it compiles sorry-free. HONEST SCOPE:
 // these prove the combinatorial/algebraic SKELETON — NOT a medical, genetic, chemical or physical claim about any
 // person or measurement. The structure is algebra; the scientific reading is the shared pattern, demarcated.
-import { emit } from './lean-gen.js'
+import { emit, LXOR_DEF } from './lean-gen.js'
 
 const xor = (a: number, b: number) => a ^ b
 
@@ -15,7 +15,7 @@ const FACTS = [
   //    four-group {O,A,B,AB} under XOR; with the Rh bit it is (ℤ/2)³ = 8 blood types. Pure combinatorics. ──
   { key: 'abo_klein_four', why: 'the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative, each self-inverse (order ≤ 2)',
     js: () => [0, 1, 2, 3].every((a) => [0, 1, 2, 3].every((b) => xor(a, b) < 4 && xor(a, b) === xor(b, a)) && xor(a, a) === 0),
-    lean: 'theorem abo_klein_four : (List.range 4).all (fun a => (List.range 4).all (fun b => (a ^^^ b < 4) && (a ^^^ b == b ^^^ a)) && (a ^^^ a == 0)) := by decide' },
+    lean: 'theorem abo_klein_four : (List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == lxor b a)) && (lxor a a == 0)) := by decide' },
   { key: 'blood_types_eight', why: 'with the Rh ± bit the blood system is (ℤ/2)³ — exactly 2³ = 8 blood types (A±,B±,AB±,O±)',
     js: () => 2 ** 3 === 8,
     lean: 'theorem blood_types_eight : (2:Nat)^3 = 8 := by decide' },
@@ -26,7 +26,7 @@ const FACTS = [
   // its own content-address. Two theorems must never share a key (the key IS the /theorem/ route).
   { key: 'dna_base_pairing_involution', why: 'DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs',
     js: () => [0, 1, 2, 3].every((b) => xor(xor(b, 1), 1) === b && xor(b, 1) !== b),
-    lean: 'theorem dna_base_pairing_involution : (List.range 4).all (fun b => ((b ^^^ 1) ^^^ 1 == b) && (b ^^^ 1 != b)) := by decide' },
+    lean: 'theorem dna_base_pairing_involution : (List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b)) := by decide' },
   { key: 'codons_sixty_four', why: 'a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons',
     js: () => 4 ** 3 === 64,
     lean: 'theorem codons_sixty_four : (4:Nat)^3 = 64 := by decide' },
@@ -82,6 +82,6 @@ const FACTS = [
 
 console.log('computing ' + FACTS.length + ' bio/physics STRUCTURE facts (algebra, not a medical/physical claim) …')
 
-emit({ file: 'BioPhysics.lean',
+emit({ file: 'BioPhysics.lean', defs: LXOR_DEF,
   header: 'The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). HONEST SCOPE: the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

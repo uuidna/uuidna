@@ -1,4 +1,4 @@
--- lean/Identifiers.lean — GENERATED. THE IDENTIFIERS — ISBN-10/13 check-digit arithmetic: the mod-11/mod-10 weighted sums and the errors they catch, decidable. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Identifiers.lean — GENERATED. THE IDENTIFIERS — ISBN-10/13 check-digit arithmetic: the mod-11/mod-10 weighted sums and the errors they catch, decidable. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- ISBN-10 0-306-40615-2 checks out: its weighted sum Σ (11−i)·dᵢ = 132 = 12·11 ≡ 0 (mod 11) — the check digit 2 makes the whole thing divisible by 11.
 theorem isbn10_valid_check : (([10,9,8,7,6,5,4,3,2,1].zip [0,3,0,6,4,0,6,1,5,2]).map (fun p => p.1 * p.2)).foldl (· + ·) 0 % 11 = 0 := by decide

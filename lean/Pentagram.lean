@@ -1,4 +1,4 @@
--- lean/Pentagram.lean — GENERATED. THE PENTAGRAM & THE FIBONACCI DIGITS — the star polygon {5/2} and the single-digit (Pisano) Fibonacci cycles, finite and decidable. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Pentagram.lean — GENERATED. THE PENTAGRAM & THE FIBONACCI DIGITS — the star polygon {5/2} and the single-digit (Pisano) Fibonacci cycles, finite and decidable. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 def fibCycle (m : Nat) (f : List Nat) (len : Nat) : Bool :=
   (f.length == len) && (f.take 2 == [0, 1]) &&

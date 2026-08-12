@@ -1,4 +1,4 @@
--- lean/Photography.lean — GENERATED. THE EXPOSURE — where the photographic standard ROUNDS (1/125≈1/128, f/1.4≈√2) and uuidna keeps the EXACT powers of two, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Photography.lean — GENERATED. THE EXPOSURE — where the photographic standard ROUNDS (1/125≈1/128, f/1.4≈√2) and uuidna keeps the EXACT powers of two, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- The physics uuidna keeps: a full stop is EXACTLY a doubling, so the exact shutter after 1/64 is 1/128 = 2⁷ — a power of two, not a round number.
 theorem full_stop_is_exact_doubling : 2^7 = 128 := by decide

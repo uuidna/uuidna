@@ -6,7 +6,7 @@
 // Singleton bound (3 ≤ n−k+1 = 4). The (3,1) repetition code corrects one flip by majority; a linear XOR checksum
 // catches any single flip. HONEST SCOPE: the arithmetic and bounds, NOT a decoder or a full coding-theory treatment.
 // COMPUTE each fact in JS, GENERATE its `by decide` theorem, VERIFY sorry-free. Integrity, not truth.
-import { emit } from './lean-gen.js'
+import { emit, LXOR_DEF } from './lean-gen.js'
 
 const FACTS = [
   { key: 'hamming_seven_four',
@@ -42,7 +42,7 @@ const FACTS = [
   { key: 'xor_checksum_catches_flip',
     why: 'A linear XOR checksum catches any single flip: XOR is self-inverse, so flipping a word by d and re-checking recovers exactly d — (a ⊕ d) ⊕ a = d, for every a. The error cannot hide.',
     js: () => [0, 1, 2, 3, 4, 5, 6, 7].every((a) => ((a ^ 5) ^ a) === 5),
-    lean: 'theorem xor_checksum_catches_flip : (List.range 8).all (fun a => (a ^^^ 5) ^^^ a == 5) := by decide' },
+    lean: 'theorem xor_checksum_catches_flip : (List.range 8).all (fun a => lxor (lxor a 5) a == 5) := by decide' },
 
   { key: 'codewords_sparse',
     why: 'Correction needs room: 2⁴ = 16 codewords sit sparsely inside 2⁷ = 128 possible words (16 < 128) — the redundancy is exactly what lets a flipped word be traced back to its origin.',
@@ -53,5 +53,6 @@ const FACTS = [
 emit({
   file: 'Codes.lean',
   header: 'THE ERROR-CORRECTING CODES — Hamming(7,4), the perfect-code sphere-packing, distance/correction bounds, and the XOR checksum, decidable.',
+  defs: LXOR_DEF,
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

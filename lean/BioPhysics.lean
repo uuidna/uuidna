@@ -1,13 +1,22 @@
--- lean/BioPhysics.lean — GENERATED. The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). HONEST SCOPE: the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/BioPhysics.lean — GENERATED. The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). HONEST SCOPE: the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+
+-- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded
+-- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it
+-- is NOT kernel-only. This structural recursion over an 8-bit fuel (covers 0..255, wider than any xor the ledger
+-- takes) folds the SAME value with NO axiom; scripts/lean-axioms proves it. `lxor a b` = a XOR b.
+def lxorAux : Nat → Nat → Nat → Nat
+  | 0, _, _ => 0
+  | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)
+def lxor (a b : Nat) : Nat := lxorAux 8 a b
 
 -- the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative, each self-inverse (order ≤ 2)
-theorem abo_klein_four : (List.range 4).all (fun a => (List.range 4).all (fun b => (a ^^^ b < 4) && (a ^^^ b == b ^^^ a)) && (a ^^^ a == 0)) := by decide
+theorem abo_klein_four : (List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == lxor b a)) && (lxor a a == 0)) := by decide
 
 -- with the Rh ± bit the blood system is (ℤ/2)³ — exactly 2³ = 8 blood types (A±,B±,AB±,O±)
 theorem blood_types_eight : (2:Nat)^3 = 8 := by decide
 
 -- DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs
-theorem dna_base_pairing_involution : (List.range 4).all (fun b => ((b ^^^ 1) ^^^ 1 == b) && (b ^^^ 1 != b)) := by decide
+theorem dna_base_pairing_involution : (List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b)) := by decide
 
 -- a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons
 theorem codons_sixty_four : (4:Nat)^3 = 64 := by decide

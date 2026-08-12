@@ -3,6 +3,7 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
+import LinkAuditor from './LinkAuditor.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
 import HomeGraph from './HomeGraph.vue'
@@ -24,8 +25,10 @@ export default {
     // Global categorised footer on every page, via the layout-bottom slot. The "next" link is VitePress's OWN
     // native pager (fed by frontmatter prev/next in config.ts — seqNav) — one next button, the local skill, not a
     // second custom one that duplicated it and confused the page.
+    // LinkAuditor rides the layout-bottom slot so it mounts on EVERY page and re-audits on each route change — the
+    // UI follows any link and audits its destination from the referrer-only perspective, automatically, by default.
     return h(DefaultTheme.Layout, null, {
-      'layout-bottom': () => [h(SiteFooter)],
+      'layout-bottom': () => [h(SiteFooter), h(LinkAuditor)],
     })
   },
   enhanceApp({ app }) {

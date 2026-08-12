@@ -1,4 +1,4 @@
--- lean/Ring.lean — GENERATED. The RING ℤ/9 (the vortex) — its full multiplication, addition and power tables. Each right-hand side is COMPUTED; Lean recomputes it. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Ring.lean — GENERATED. The RING ℤ/9 (the vortex) — its full multiplication, addition and power tables. Each right-hand side is COMPUTED; Lean recomputes it. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 theorem z9mul_0_0 : (0 * 0) % 9 = 0 := by decide
 

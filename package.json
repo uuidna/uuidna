@@ -57,7 +57,7 @@
     "docs:build": "npm run build && node dist/scripts/gen-mcp.js && vitepress build",
     "gen:mcp": "npm run build && node dist/scripts/gen-mcp.js",
     "audit:provenance": "npm run build && node dist/scripts/provenance.js",
-    "audit": "npm run lean && npm run build && node dist/scripts/provenance.js && node dist/scripts/account.js && node --test dist/test/*.test.js && git diff --exit-code -- lean/ src/theorems/generated.ts lean/PRINCIPLE.md CHANGELOG.md",
+    "audit": "npm run lean && npm run build && node dist/scripts/lean-axioms.js && node dist/scripts/provenance.js && node dist/scripts/account.js && node --test dist/test/*.test.js && git diff --exit-code -- lean/ src/theorems/generated.ts lean/PRINCIPLE.md CHANGELOG.md",
     "docs:preview": "vitepress preview",
     "lean": "npm run build && node dist/scripts/lean-all.js && node dist/scripts/sync-changelog.js",
     "lean:quantum": "node dist/scripts/lean-quantum.js",
@@ -96,6 +96,7 @@
     "dev": "npm run build && vitepress dev",
     "preview": "vitepress preview",
     "heartbeats": "npm run build && node dist/scripts/lean-heartbeats.js",
+    "axioms": "npm run build && node dist/scripts/lean-axioms.js",
     "account": "npm run build && node dist/scripts/account.js",
     "next": "npm run audit && node dist/scripts/next.js",
     "hooks:install": "git config core.hooksPath hooks && echo \"git hooks installed (core.hooksPath=hooks): pre-push runs the readiness gate\""

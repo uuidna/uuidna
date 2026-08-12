@@ -1,4 +1,4 @@
--- lean/Audit.lean — GENERATED. THE DETECTORS — the provenance audit's decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise, never vacuous. The honesty detector, itself a skilled theorem. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Audit.lean — GENERATED. THE DETECTORS — the provenance audit's decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise, never vacuous. The honesty detector, itself a skilled theorem. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 def flag (h d b : Nat) : Nat := h * (1 - d) * (1 - b)
 

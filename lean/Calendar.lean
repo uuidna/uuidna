@@ -1,4 +1,4 @@
--- lean/Calendar.lean — GENERATED. THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Calendar.lean — GENERATED. THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- The week is the rosette ℤ/7: seven days, and advancing by seven returns to the same day — 7 % 7 = 0. The calendar counts in the same ring uuidna turns on.
 theorem week_is_z7 : [0,1,2,3,4,5,6].length = 7 ∧ 7 % 7 = 0 := by decide

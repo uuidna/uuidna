@@ -1,4 +1,4 @@
--- lean/Tides.lean — GENERATED. THE TIDES — the rule of twelfths, half-tide, the semidiurnal period and spring/neap, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Tides.lean — GENERATED. THE TIDES — the rule of twelfths, half-tide, the semidiurnal period and spring/neap, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- The sailor's rule of twelfths: over six hours a tide rises 1,2,3,3,2,1 twelfths of its range — and 1+2+3+3+2+1 = 12, the whole range accounted for.
 theorem rule_of_twelfths : 1 + 2 + 3 + 3 + 2 + 1 = 12 := by decide

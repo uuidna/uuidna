@@ -1,4 +1,4 @@
--- lean/Chess.lean — GENERATED. THE CHESSBOARD — the 8×8 = 64 = 2⁶ board, its two-colouring, and the pieces’ parity and reach, decidable. Every proof `by decide`, sorry-free, no Mathlib.
+-- lean/Chess.lean — GENERATED. THE CHESSBOARD — the 8×8 = 64 = 2⁶ board, its two-colouring, and the pieces’ parity and reach, decidable. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- The board is 8×8 = 64 = 2⁶ squares — the same 64 the whole project is tuned to (six doublings, the bit measure).
 theorem chessboard_sixty_four : 8 * 8 = 64 ∧ 64 = 2^6 := by decide

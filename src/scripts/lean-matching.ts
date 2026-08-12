@@ -8,7 +8,7 @@
 // free involution (each partnered with exactly one other, no self-pairing), the introductions among n people number
 // n(n−1)/2, and — the honest ceiling — Gale–Shapley halts in AT MOST n² proposals (bounded, not free; the same
 // "no maximum, only bounds" the Security domain proves). COMPUTE → GENERATE → VERIFY. Integrity, not truth.
-import { emit } from './lean-gen.js'
+import { emit, NTH_DEF } from './lean-gen.js'
 
 const FACTS = [
   { key: 'handshake_degree_sum_even',
@@ -44,16 +44,17 @@ const FACTS = [
   { key: 'pairing_is_fixedpoint_free_involution',
     why: 'A pairing p = [1,0,3,2] is a fixed-point-free involution: applied twice it returns everyone to themselves (p(p(x)) = x — the match is MUTUAL) and no one is paired with themselves (p(x) ≠ x — a match needs an other). Both halves proven for all four.',
     js: () => { const p = [1, 0, 3, 2]; return [0, 1, 2, 3].every((x) => p[p[x]] === x && p[x] !== x) },
-    lean: 'theorem pairing_is_fixedpoint_free_involution : (let p := [1,0,3,2]; (List.range 4).all (fun x => p.getD (p.getD x 0) 0 == x && p.getD x 0 != x)) = true := by decide' },
+    lean: 'theorem pairing_is_fixedpoint_free_involution : (let p := [1,0,3,2]; (List.range 4).all (fun x => nth p (nth p x) == x && nth p x != x)) = true := by decide' },
 
   { key: 'mutual_match_is_symmetric',
     why: 'A mutual match is SYMMETRIC: on the choice matrix m, a matches b exactly when b matches a — m[a][b] = m[b][a] for every pair. A one-sided choice is not a match; both sides must hold. Proven for all pairs among three.',
     js: () => { const m = [[0, 1, 0], [1, 0, 1], [0, 1, 0]]; return [0, 1, 2].every((a) => [0, 1, 2].every((b) => m[a][b] === m[b][a])) },
-    lean: 'theorem mutual_match_is_symmetric : (let m := [[0,1,0],[1,0,1],[0,1,0]]; (List.range 3).all (fun a => (List.range 3).all (fun b => (m.getD a []).getD b 0 == (m.getD b []).getD a 0))) = true := by decide' },
+    lean: 'theorem mutual_match_is_symmetric : (let m := [[0,1,0],[1,0,1],[0,1,0]]; (List.range 3).all (fun a => (List.range 3).all (fun b => nth (nthR m a) b == nth (nthR m b) a))) = true := by decide' },
 ]
 
 emit({
   file: 'Matching.lean',
   header: 'THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching. NOT a dating service, NOT anyone\'s data — only the graph theory a matching rests on.',
+  defs: NTH_DEF,
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })
