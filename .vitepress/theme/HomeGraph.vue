@@ -13,14 +13,25 @@ const props = defineProps({ groups: Array, skills: Array })
 // the same /publications/<slug> the build generated. Falls back to null if a domain has no file (defensive).
 const slugOf = (file) => file ? file.replace(/\.lean$/i, '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase() : null
 
-// Domains, biggest first — each with its monograph slug and its top theorems (the slider's articles).
+// TOP — a bounded number of articles per card, so every slider is the same order of size (harmony) instead of one
+// card sliding 234 while another slides 6. The rest is reached through the monograph, which folds them all.
+const TOP = 8
+
+// Domains, biggest first — each with its monograph slug and its TOP theorems (the slider's articles).
 const domains = computed(() => (props.groups || []).map((g) => ({
   name: g.name,
   count: g.count,
   blurb: g.blurb,
   fold: g.fold,
   slug: slugOf(g.theorems?.[0]?.file),
-  top: (g.theorems || []),
+  top: (g.theorems || []).slice(0, TOP),
+  more: Math.max(0, (g.count || 0) - TOP),
+})).sort((a, b) => b.count - a.count))
+
+// Categories — the skill axis (orthogonal to domain), biggest first. A chip strip that links to /topics, so the
+// homepage shows BOTH cuts of the ledger: what a theorem proves (domain) and what capability it demonstrates (skill).
+const categories = computed(() => (props.skills || []).map((s) => ({
+  skill: s.skill, count: s.count, fold: s.fold,
 })).sort((a, b) => b.count - a.count))
 
 // A stable hue per card from its fold address — the vortex colour, computed, nothing fetched (mirrors render.ts).
@@ -58,9 +69,20 @@ const hueOf = (addr) => (parseInt((addr || '0').replace(/[^0-9a-f]/gi, '').slice
           <span class="hg-item-t">{{ t.name.split('—')[0].split(':')[0].trim() }}</span>
           <code class="hg-item-s">{{ t.statement }}</code>
         </a>
+        <a v-if="d.more && d.slug" class="hg-more" :href="withBase('/publications/' + d.slug)">+{{ d.more }} more<br>in the monograph →</a>
       </div>
       <p class="hg-fold">layer fold <code>{{ d.fold }}</code></p>
     </section>
+
+    <h2 class="hg-h">Categories <small>— {{ categories.length }} skills, the capability axis</small></h2>
+    <p class="hg-sub">The orthogonal cut: what a theorem <em>demonstrates</em>, across domains. Open <a :href="withBase('/topics')">Topics</a> for the full grouping.</p>
+    <div class="hg-hero" role="list" aria-label="All categories">
+      <a v-for="c in categories" :key="'c-' + c.skill" class="hg-hero-chip" role="listitem"
+         :href="withBase('/topics')" :style="{ '--h': hueOf(c.fold) }">
+        <span class="hg-hero-n">{{ c.count }}</span>
+        <span class="hg-hero-t">{{ c.skill }}</span>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -97,6 +119,9 @@ const hueOf = (addr) => (parseInt((addr || '0').replace(/[^0-9a-f]/gi, '').slice
 .hg-item:hover { transform: translateY(-2px); border-color: hsl(var(--h, 200) 60% 50%); }
 .hg-item-t { font-weight: 600; font-size: .82rem; line-height: 1.25; }
 .hg-item-s { font-size: .7rem; color: var(--vp-c-text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hg-more { scroll-snap-align: start; flex: 0 0 120px; display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: .55rem .7rem; border-radius: 9px; text-decoration: none; font-size: .76rem; font-weight: 600;
+  color: hsl(var(--h, 200) 60% 45%); background: hsl(var(--h, 200) 60% 50% / .08); border: 1px dashed hsl(var(--h, 200) 60% 50% / .4); }
 .hg-fold { margin: .3rem 0 0; font-size: .72rem; color: var(--vp-c-text-3); }
 .hg-fold code, .hg-item-s { font-family: var(--vp-font-family-mono); }
 </style>
