@@ -6,7 +6,7 @@ aside: false
 
 <script setup>
 import { data } from '../.vitepress/theories.data'
-const cls = (v) => v === 'VERIFIED' ? 'v-sealed' : 'v-unverified'
+const cls = (v) => v === 'VERIFIED' ? 'v-verified' : 'v-unverified'
 </script>
 
 # Theories <Badge type="tip" :text="`${data.verified} verified · ${data.unverified} recycled`" />
@@ -46,7 +46,6 @@ verdict on belief.
 .trecycle li { margin: .15rem 0; color: var(--vp-c-text-2); }
 .taddr { margin: .4rem 0 0; font-size: .74rem; opacity: .7; }
 .vbadge { display: inline-block; padding: .1rem .5rem; border-radius: 999px; font-size: .72rem; font-weight: 700; letter-spacing: .03em; margin-right: .4rem; vertical-align: middle; }
-.v-sealed { background: var(--vp-c-green-soft); color: var(--vp-c-green-1); }
-.v-refuted { background: var(--vp-c-red-soft); color: var(--vp-c-red-1); }
+.v-verified { background: var(--vp-c-green-soft); color: var(--vp-c-green-1); }
 .v-unverified { background: var(--vp-c-yellow-soft); color: var(--vp-c-yellow-1); }
 </style>
