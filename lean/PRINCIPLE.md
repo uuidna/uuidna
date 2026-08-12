@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **787 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **796 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -122,7 +122,10 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 39. **The measures of type** — `lean/Typesetting.lean` · **8** theorems
    typesetting and bookbinding as decidable arithmetic, the craft beneath the publications — the printer's units close exactly (6 picas of 12 points make the 72-point inch); a folded sheet is a folio (2 leaves, 4 pages), folded again a quarto (8), again an octavo (16), leaves doubling so pages run in powers of two and every bound signature is a multiple of four; the harmonious page is the 3:4 rectangle whose diagonal is a whole 5 (3²+4²=5²); the readable measure is 66 characters, inside the 45–75 a typographer keeps; leading exceeds its type (12 on 14); a ream is 500 sheets (20 quires of 25); and a leaf has a recto (odd) and a verso (even) — the arithmetic of the page, NOT a layout engine or a font renderer
 
-40. **One leap** — `lean/OneLeap.lean` · **1** theorems
+40. **The cut** — `lean/Editing.lean` · **9** theorems
+   video and film editing as decidable arithmetic, the craft a professional editor works in — timecode is a ring (at 24 fps the frame field runs 0..23 then wraps, ℤ/24), a minute is 1440 frames, NTSC drop-frame drops 2 frame-numbers a minute except every tenth (108 an hour) to hold 29.97 to the clock, 4K UHD is EXACTLY four Full-HD frames (3840×2160 = 4·1920·1080), widescreen 16:9 beats academy 4:3 by cross-multiplication (48 > 36), the rule of thirds crosses at four power points in a nine-square, a crossfade makes two clips a+b−L long (inclusion–exclusion on the timeline, the same identity the compare tool folds), 48 kHz audio is 2000 samples a frame exactly in sync, and six 30° steps span the 180° axis — the arithmetic of the edit, NOT a codec, an NLE or a renderer
+
+41. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---
