@@ -46,6 +46,24 @@ const theoremSidebar = order.map((name) => ({
   items: LEDGER.filter((t) => t.principle === name).map((t) => ({ text: t.name, link: `/theorem/${t.key}` })),
 }))
 
+// The sidebar was a GAP: it existed only on /theorem/ pages, so every section page (home, /trials, /deploy, /mcp,
+// the captain's cabin …) had NO sidebar — navigation split across the top nav, the pager and this theorem-only tree,
+// three structures for one site. Close it from the SAME canonical walk the pager reads (ORDER): one sidebar, shown on
+// every page, whose sections and publications come off the one graph so nothing is orphaned and nothing is repeated.
+const prettyRoute = (route: string): string =>
+  route === '/' ? 'Home'
+    : route.slice(1).split('/').map((s) => s === 'mcp' ? 'MCP' : s.charAt(0).toUpperCase() + s.slice(1)).join(' · ')
+const inWalk = (pred: (r: string) => boolean) => ORDER.filter((n) => pred(n.route)).map((n) => ({ text: prettyRoute(n.route), link: n.route }))
+// The full site tree, in ONE order for EVERY page: the sections first (the voyage), then each publication, then the
+// 45 principle groups of theorems. Derived, not hand-listed — add a page and it appears; remove one and it's gone.
+const siteSidebar = [
+  { text: `The voyage · ${ORDER.filter((n) => !n.route.startsWith('/theorem/') && !n.route.startsWith('/publications/')).length}`,
+    collapsed: false, items: inWalk((r) => !r.startsWith('/theorem/') && !r.startsWith('/publications/')) },
+  { text: `Publications · ${ORDER.filter((n) => n.route.startsWith('/publications/')).length}`,
+    collapsed: true, items: inWalk((r) => r.startsWith('/publications/')) },
+  ...theoremSidebar,
+]
+
 export default defineConfig({
   title: 'uuidna',
   description:
@@ -136,10 +154,9 @@ export default defineConfig({
       { text: 'Captain', items: [{ text: 'The Contract', link: '/captain/config' }, { text: "The captain's message", link: '/captain/message' }, { text: 'The Navigator', link: '/captain/navigator' }] },
     ],
 
-    sidebar: {
-      '/theorem/': theoremSidebar,
-      '/theorems': [{ text: 'The ledger', items: [{ text: 'All theorems', link: '/theorems' }] }, ...theoremSidebar],
-    },
+    // ONE sidebar for the whole site (the '/' key matches every route), so no page is left without the graph — the
+    // gap that split navigation into three structures is closed. Derived from the same canonical walk as the pager.
+    sidebar: { '/': siteSidebar },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/uuidna/uuidna' },
