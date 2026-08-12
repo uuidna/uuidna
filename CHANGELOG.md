@@ -10,7 +10,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/). A content-addres
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-Ledger: **812 theorems** across **43 principles**, folded to receipt `16c1ecde-632b-80d8-a385-c5bc2f4efc89`
+Ledger: **821 theorems** across **44 principles**, folded to receipt `30933be2-0672-8672-9e68-9cc819836d75`
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added
@@ -34,6 +34,10 @@ Ledger: **812 theorems** across **43 principles**, folded to receipt `16c1ecde-6
 - **The homepage as a graph** — every principle a domain card, a horizontal slider of its top theorems linking its
   monograph; the categories strip; all computed from the ledger and the ℤ/9 palette.
 - **The trial charter** on `/trials` — what the trial does and does not judge, drawn from the three verdicts.
+- **The rules of inference** (Reasoning.lean) — reasoning itself proven by decide: every classical inference rule is
+  a boolean tautology over a finite truth table, so modus ponens/tollens, the contrapositive, De Morgan, double
+  negation, the excluded middle, and the hypothetical/disjunctive syllogisms are each sealed — a reasoning step can now
+  cite the exact rule it uses.
 - **The layered defence** (Security.lean) — the *arithmetic* of why fusing security raises tampering cost, proven by
   decide: independent layers add their bits (64+64=128) and multiply the space (2⁸·2⁸=2¹⁶), a collision halves the
   exponent (the honest caveat), verifying is exponentially cheaper than forging, and for every bound there is a larger
