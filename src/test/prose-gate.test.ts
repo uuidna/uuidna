@@ -29,6 +29,13 @@ test('the hardened blind spot — a second overclaim cannot clear the first with
   assert.ok(overreachOf('generates results in no time'), '"in no time" is itself drained')
 })
 
+test('hollow quality grades are drained; an honest "professional" use is not', () => {
+  assert.ok(overreachOf('professional-grade security tools'), 'professional-grade is a hollow quality claim')
+  assert.ok(overreachOf('enterprise-grade encryption'), 'enterprise-grade too')
+  assert.ok(overreachOf('production-grade'), 'production-grade (already covered)')
+  assert.equal(overreachOf('the craft a professional editor works in'), null, '"professional" without "grade" is honest')
+})
+
 test('a demarcation still clears an HONEST use — the gate drains overclaim, not disagreement', () => {
   for (const honest of [
     'x/0 is a finite value, NEVER Infinity — no fake FTL.',
