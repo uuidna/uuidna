@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **933 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1024 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -113,10 +113,10 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 36. **The chessboard** — `lean/Chess.lean` · **8** theorems
    chess geometry as decidable arithmetic — the board is 8×8 = 64 = 2⁶ squares in two colours of 32 each ((rank+file) parity); the knight leaps 1+2=3 (odd), so it flips colour every move and a closed tour is even; the rook reaches 7+7=14 on an open board; the bishop preserves colour, forever closed out of half the board; and the queen is rook+bishop, 7+7+7=21 from a corner — board arithmetic and parity, NOT a solved game or an engine
 
-37. **The chess horizon** — `lean/Chessgames.lean` · **14** theorems
+37. **The chess horizon** — `lean/Chessgames.lean` · **24** theorems
    the HONEST kernel of "all chess games recompute instantly in uuidna", sealed by decide — the opening combinations (20 first moves, 20×20 = 400 after one full move); the un-enumerable game tree (Shannon ~10^120 > the ~10^80 atoms of the observable universe, so no machine ever traverses it); the pigeonhole collision of identity (2^128 uuids < ~10^44 legal positions < the naive 13^64 state space, 13 = 6+6+1 states a square); the FINITE game (the fifty-move rule caps a run at 100 plies) whose address is therefore a bounded, INSTANT identity (6000 < 10^120 — recompute is O(moves), not O(all games)); the d-dimensional board 8^d = 2^(3d) (the 3D 512 = 2⁹, the 8-dimensional 8⁸ = 2²⁴, no maximal board only bounds); and the knight's leap 1+2=3 reflected by the diamond dz(3)=7. HONEST SCOPE: uuidna does NOT enumerate the game tree — a content-address proves INTEGRITY, not truth, here not enumeration; the diamond and combination facts are STRUCTURE, not a claim that chess IS the ring
 
-38. **The heaps** — `lean/Nim.lean` · **12** theorems
+38. **The heaps** — `lean/Nim.lean` · **93** theorems
    NIM as decidable arithmetic and the FIRST application of the ledger's axiom-free XOR (lxor) — the nim-sum is the bitwise XOR of the heap sizes (3⊕5⊕7 = 1), a P-position (loss for the mover) is exactly a zero nim-sum (Bouton's theorem: 1⊕2⊕3 = 0), equal heaps cancel (n⊕n = 0, the mirror strategy), the empty heap is neutral (n⊕0 = n), the nim-sum commutes and associates so heaps are a set, a lone heap wins, a nonzero nim-sum always has a move to zero, and Sprague–Grundy folds any impartial game to one heap by XOR. HONEST SCOPE: NORMAL play (last to move WINS) only — MISÈRE nim flips the endgame and is demarcated; the exact arithmetic of the nim-sum, not a general game solver
 
 39. **The error-correcting codes** — `lean/Codes.lean` · **8** theorems

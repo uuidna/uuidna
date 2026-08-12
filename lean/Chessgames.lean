@@ -41,3 +41,33 @@ theorem knight_on_the_diamond : ((1 + 2) % 9 = 3) ∧ ((10 - 3) = 7) := by decid
 
 -- The board enters the ℤ/9 diamond, where the games interact: the flat board 64 ≡ 1 (the vortex origin) and the 3D board 512 ≡ 8 (mod 9), and {1, 8} are exactly the TWO self-inverse units of the ring (8·8 ≡ 1). The board, in either dimension, is a self-inverse of the diamond — and the 3D board shares residue 8 with the audit game. HONEST SCOPE: a structural residue, NOT a claim the board IS the ring.
 theorem boards_are_diamond_self_inverses : (64 % 9 = 1) ∧ (512 % 9 = 8) ∧ ((8 * 8) % 9 = 1) := by decide
+
+-- A knight on a central square (d4) commands all EIGHT moves — maximal mobility, why knights belong in the centre.
+theorem knight_centre_eight : (([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 3 + d.1 ∧ 3 + d.1 < 8 ∧ 0 <= 3 + d.2 ∧ 3 + d.2 < 8))).length = 8 := by decide
+
+-- A knight one step in from the edge (c3) commands SIX moves.
+theorem knight_near_centre_six : (([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 2 + d.1 ∧ 2 + d.1 < 8 ∧ 0 <= 1 + d.2 ∧ 1 + d.2 < 8))).length = 6 := by decide
+
+-- A knight on the edge (a4) commands FOUR moves — half its reach falls off the board.
+theorem knight_edge_four : (([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 3 + d.1 ∧ 3 + d.1 < 8 ∧ 0 <= 0 + d.2 ∧ 0 + d.2 < 8))).length = 4 := by decide
+
+-- A knight beside the corner (b1) commands THREE moves.
+theorem knight_near_corner_three : (([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 0 + d.1 ∧ 0 + d.1 < 8 ∧ 0 <= 1 + d.2 ∧ 1 + d.2 < 8))).length = 3 := by decide
+
+-- A knight in the corner (a1) commands only TWO moves — "a knight on the rim is dim" at its worst.
+theorem knight_corner_two : (([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 0 + d.1 ∧ 0 + d.1 < 8 ∧ 0 <= 0 + d.2 ∧ 0 + d.2 < 8))).length = 2 := by decide
+
+-- A king in the centre (d4) touches all EIGHT neighbours.
+theorem king_centre_eight : (([(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 3 + d.1 ∧ 3 + d.1 < 8 ∧ 0 <= 3 + d.2 ∧ 3 + d.2 < 8))).length = 8 := by decide
+
+-- A king on the edge (a4) touches FIVE squares.
+theorem king_edge_five : (([(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 3 + d.1 ∧ 3 + d.1 < 8 ∧ 0 <= 0 + d.2 ∧ 0 + d.2 < 8))).length = 5 := by decide
+
+-- A king in the corner (a1) touches THREE squares.
+theorem king_corner_three : (([(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 0 + d.1 ∧ 0 + d.1 < 8 ∧ 0 <= 0 + d.2 ∧ 0 + d.2 < 8))).length = 3 := by decide
+
+-- The classical piece values sum to 21: pawn 1 + knight 3 + bishop 3 + rook 5 + queen 9 = 21 — the material a side commands beyond the king (itself invaluable). A convention, exact as arithmetic.
+theorem material_sum_twentyone : 1 + 3 + 3 + 5 + 9 = 21 := by decide
+
+-- The centre the pieces fight for is the 2×2 block d4-d5-e4-e5 — 2·2 = 4 squares, the four the opening contests. The board's heart, counted.
+theorem central_four_squares : 2 * 2 = 4 := by decide

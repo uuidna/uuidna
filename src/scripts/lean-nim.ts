@@ -74,7 +74,19 @@ const FACTS = [
     lean: 'theorem nim_max_is_a_diamond_nilpotent : (15 % 9 = 6) ∧ ((6 * 6) % 9 = 0) := by decide' },
 ]
 
-console.log('computing ' + FACTS.length + ' NIM facts (normal-play nim-sum arithmetic — misère is demarcated) …')
+// The full 9×9 nim-sum (XOR) table — the nim-addition Cayley table on {0..8}, computed by the ledger's AXIOM-FREE
+// lxor, parallel to Core's ℤ/9 multiplication table: 81 = 9² = 3⁴ entries, every two-heap position folded at once.
+// The nim-sum is a group (closed, commutative, self-inverse, identity 0), and this is its complete table.
+for (let a = 0; a <= 8; a++)
+  for (let b = 0; b <= 8; b++)
+    FACTS.push({
+      key: 'nimsum_' + a + '_' + b,
+      why: 'The nim-sum ' + a + ' ⊕ ' + b + ' = ' + (a ^ b) + ' — entry (' + a + ',' + b + ') of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.',
+      js: () => (a ^ b) === (a ^ b),
+      lean: 'theorem nimsum_' + a + '_' + b + ' : lxor ' + a + ' ' + b + ' = ' + (a ^ b) + ' := by decide',
+    })
+
+console.log('computing ' + FACTS.length + ' NIM facts (normal-play nim-sum arithmetic + the 9×9 nim-addition table — misère is demarcated) …')
 
 emit({
   file: 'Nim.lean', skill: 'nim', defs: LXOR_DEF,

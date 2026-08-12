@@ -99,6 +99,7 @@
     "heartbeats": "npm run build && node dist/scripts/lean-heartbeats.js",
     "axioms": "npm run build && node dist/scripts/lean-axioms.js",
     "account": "npm run build && node dist/scripts/account.js",
+    "reconcile": "npm run build && node dist/scripts/reconcile.js",
     "security": "npm run build && node dist/scripts/security-audit.js",
     "next": "npm run audit && node dist/scripts/next.js",
     "hooks:install": "git config core.hooksPath hooks && echo \"git hooks installed (core.hooksPath=hooks): pre-push runs the readiness gate\""

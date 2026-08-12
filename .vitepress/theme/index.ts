@@ -17,6 +17,9 @@ import MessageStream from './MessageStream.vue'
 import TokenMeter from './TokenMeter.vue'
 import CostMeter from './CostMeter.vue'
 import Handle from './Handle.vue'
+import NimPlay from './NimPlay.vue'
+import ChessMobility from './ChessMobility.vue'
+import AuditPanel from './AuditPanel.vue'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -68,5 +71,14 @@ export default {
     // Handle — the unified uuid citation: shows the 8-char handle, carries the full uuid (title + click-to-copy).
     // Used on every page so the "cite the handle, the fold is the whole" rule is one component, not per-page slices.
     app.component('Handle', Handle)
+    // NimPlay — the game of heaps with the REAL nim-sum (XOR, the axiom-free lxor the 9×9 table seals): Bouton's
+    // P-position, the exact winning move, and the "two coins" (verify by one XOR, not recompute the tree). Nothing sent.
+    app.component('NimPlay', NimPlay)
+    // ChessMobility — place a knight/king on any square; the reachable squares light up and the move-count links to
+    // its sealed theorem. The decidable board geometry (deltas that stay on the 8×8), computed in-browser, nothing sent.
+    app.component('ChessMobility', ChessMobility)
+    // AuditPanel — the audit game: toggle independent refuters and the claim's verdict resolves by the {0,1} algebra
+    // (survive = ∏(1−rᵢ), a P-position); N refuters are strictly more accurate. Sealed in AuditGame.lean; nothing sent.
+    app.component('AuditPanel', AuditPanel)
   }
 } satisfies Theme

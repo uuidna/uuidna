@@ -44,3 +44,246 @@ theorem nim_misere_differs : lxor (lxor 1 1) 1 = 1 := by decide
 
 -- Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6 is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond's self-annihilating residue, its "draw". The biggest win reduces to the vortex's zero-square, while chess sits at the units {1,8} and the audit at 8. HONEST SCOPE: a structural residue of the nim-sum, NOT a claim nim IS the ring.
 theorem nim_max_is_a_diamond_nilpotent : (15 % 9 = 6) ∧ ((6 * 6) % 9 = 0) := by decide
+
+-- The nim-sum 0 ⊕ 0 = 0 — entry (0,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_0_0 : lxor 0 0 = 0 := by decide
+
+-- The nim-sum 0 ⊕ 1 = 1 — entry (0,1) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_0_1 : lxor 0 1 = 1 := by decide
+
+-- The nim-sum 0 ⊕ 2 = 2 — entry (0,2) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_0_2 : lxor 0 2 = 2 := by decide
+
+-- The nim-sum 0 ⊕ 3 = 3 — entry (0,3) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_0_3 : lxor 0 3 = 3 := by decide
+
+-- The nim-sum 0 ⊕ 4 = 4 — entry (0,4) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_0_4 : lxor 0 4 = 4 := by decide
+
+-- The nim-sum 0 ⊕ 5 = 5 — entry (0,5) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_0_5 : lxor 0 5 = 5 := by decide
+
+-- The nim-sum 0 ⊕ 6 = 6 — entry (0,6) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_0_6 : lxor 0 6 = 6 := by decide
+
+-- The nim-sum 0 ⊕ 7 = 7 — entry (0,7) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_0_7 : lxor 0 7 = 7 := by decide
+
+-- The nim-sum 0 ⊕ 8 = 8 — entry (0,8) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_0_8 : lxor 0 8 = 8 := by decide
+
+-- The nim-sum 1 ⊕ 0 = 1 — entry (1,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_1_0 : lxor 1 0 = 1 := by decide
+
+-- The nim-sum 1 ⊕ 1 = 0 — entry (1,1) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_1_1 : lxor 1 1 = 0 := by decide
+
+-- The nim-sum 1 ⊕ 2 = 3 — entry (1,2) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_1_2 : lxor 1 2 = 3 := by decide
+
+-- The nim-sum 1 ⊕ 3 = 2 — entry (1,3) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_1_3 : lxor 1 3 = 2 := by decide
+
+-- The nim-sum 1 ⊕ 4 = 5 — entry (1,4) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_1_4 : lxor 1 4 = 5 := by decide
+
+-- The nim-sum 1 ⊕ 5 = 4 — entry (1,5) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_1_5 : lxor 1 5 = 4 := by decide
+
+-- The nim-sum 1 ⊕ 6 = 7 — entry (1,6) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_1_6 : lxor 1 6 = 7 := by decide
+
+-- The nim-sum 1 ⊕ 7 = 6 — entry (1,7) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_1_7 : lxor 1 7 = 6 := by decide
+
+-- The nim-sum 1 ⊕ 8 = 9 — entry (1,8) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_1_8 : lxor 1 8 = 9 := by decide
+
+-- The nim-sum 2 ⊕ 0 = 2 — entry (2,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_2_0 : lxor 2 0 = 2 := by decide
+
+-- The nim-sum 2 ⊕ 1 = 3 — entry (2,1) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_2_1 : lxor 2 1 = 3 := by decide
+
+-- The nim-sum 2 ⊕ 2 = 0 — entry (2,2) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_2_2 : lxor 2 2 = 0 := by decide
+
+-- The nim-sum 2 ⊕ 3 = 1 — entry (2,3) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_2_3 : lxor 2 3 = 1 := by decide
+
+-- The nim-sum 2 ⊕ 4 = 6 — entry (2,4) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_2_4 : lxor 2 4 = 6 := by decide
+
+-- The nim-sum 2 ⊕ 5 = 7 — entry (2,5) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_2_5 : lxor 2 5 = 7 := by decide
+
+-- The nim-sum 2 ⊕ 6 = 4 — entry (2,6) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_2_6 : lxor 2 6 = 4 := by decide
+
+-- The nim-sum 2 ⊕ 7 = 5 — entry (2,7) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_2_7 : lxor 2 7 = 5 := by decide
+
+-- The nim-sum 2 ⊕ 8 = 10 — entry (2,8) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_2_8 : lxor 2 8 = 10 := by decide
+
+-- The nim-sum 3 ⊕ 0 = 3 — entry (3,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_3_0 : lxor 3 0 = 3 := by decide
+
+-- The nim-sum 3 ⊕ 1 = 2 — entry (3,1) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_3_1 : lxor 3 1 = 2 := by decide
+
+-- The nim-sum 3 ⊕ 2 = 1 — entry (3,2) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_3_2 : lxor 3 2 = 1 := by decide
+
+-- The nim-sum 3 ⊕ 3 = 0 — entry (3,3) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_3_3 : lxor 3 3 = 0 := by decide
+
+-- The nim-sum 3 ⊕ 4 = 7 — entry (3,4) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_3_4 : lxor 3 4 = 7 := by decide
+
+-- The nim-sum 3 ⊕ 5 = 6 — entry (3,5) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_3_5 : lxor 3 5 = 6 := by decide
+
+-- The nim-sum 3 ⊕ 6 = 5 — entry (3,6) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_3_6 : lxor 3 6 = 5 := by decide
+
+-- The nim-sum 3 ⊕ 7 = 4 — entry (3,7) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_3_7 : lxor 3 7 = 4 := by decide
+
+-- The nim-sum 3 ⊕ 8 = 11 — entry (3,8) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_3_8 : lxor 3 8 = 11 := by decide
+
+-- The nim-sum 4 ⊕ 0 = 4 — entry (4,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_4_0 : lxor 4 0 = 4 := by decide
+
+-- The nim-sum 4 ⊕ 1 = 5 — entry (4,1) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_4_1 : lxor 4 1 = 5 := by decide
+
+-- The nim-sum 4 ⊕ 2 = 6 — entry (4,2) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_4_2 : lxor 4 2 = 6 := by decide
+
+-- The nim-sum 4 ⊕ 3 = 7 — entry (4,3) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_4_3 : lxor 4 3 = 7 := by decide
+
+-- The nim-sum 4 ⊕ 4 = 0 — entry (4,4) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_4_4 : lxor 4 4 = 0 := by decide
+
+-- The nim-sum 4 ⊕ 5 = 1 — entry (4,5) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_4_5 : lxor 4 5 = 1 := by decide
+
+-- The nim-sum 4 ⊕ 6 = 2 — entry (4,6) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_4_6 : lxor 4 6 = 2 := by decide
+
+-- The nim-sum 4 ⊕ 7 = 3 — entry (4,7) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_4_7 : lxor 4 7 = 3 := by decide
+
+-- The nim-sum 4 ⊕ 8 = 12 — entry (4,8) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_4_8 : lxor 4 8 = 12 := by decide
+
+-- The nim-sum 5 ⊕ 0 = 5 — entry (5,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_5_0 : lxor 5 0 = 5 := by decide
+
+-- The nim-sum 5 ⊕ 1 = 4 — entry (5,1) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_5_1 : lxor 5 1 = 4 := by decide
+
+-- The nim-sum 5 ⊕ 2 = 7 — entry (5,2) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_5_2 : lxor 5 2 = 7 := by decide
+
+-- The nim-sum 5 ⊕ 3 = 6 — entry (5,3) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_5_3 : lxor 5 3 = 6 := by decide
+
+-- The nim-sum 5 ⊕ 4 = 1 — entry (5,4) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_5_4 : lxor 5 4 = 1 := by decide
+
+-- The nim-sum 5 ⊕ 5 = 0 — entry (5,5) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_5_5 : lxor 5 5 = 0 := by decide
+
+-- The nim-sum 5 ⊕ 6 = 3 — entry (5,6) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_5_6 : lxor 5 6 = 3 := by decide
+
+-- The nim-sum 5 ⊕ 7 = 2 — entry (5,7) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_5_7 : lxor 5 7 = 2 := by decide
+
+-- The nim-sum 5 ⊕ 8 = 13 — entry (5,8) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_5_8 : lxor 5 8 = 13 := by decide
+
+-- The nim-sum 6 ⊕ 0 = 6 — entry (6,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_6_0 : lxor 6 0 = 6 := by decide
+
+-- The nim-sum 6 ⊕ 1 = 7 — entry (6,1) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_6_1 : lxor 6 1 = 7 := by decide
+
+-- The nim-sum 6 ⊕ 2 = 4 — entry (6,2) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_6_2 : lxor 6 2 = 4 := by decide
+
+-- The nim-sum 6 ⊕ 3 = 5 — entry (6,3) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_6_3 : lxor 6 3 = 5 := by decide
+
+-- The nim-sum 6 ⊕ 4 = 2 — entry (6,4) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_6_4 : lxor 6 4 = 2 := by decide
+
+-- The nim-sum 6 ⊕ 5 = 3 — entry (6,5) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_6_5 : lxor 6 5 = 3 := by decide
+
+-- The nim-sum 6 ⊕ 6 = 0 — entry (6,6) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_6_6 : lxor 6 6 = 0 := by decide
+
+-- The nim-sum 6 ⊕ 7 = 1 — entry (6,7) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_6_7 : lxor 6 7 = 1 := by decide
+
+-- The nim-sum 6 ⊕ 8 = 14 — entry (6,8) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_6_8 : lxor 6 8 = 14 := by decide
+
+-- The nim-sum 7 ⊕ 0 = 7 — entry (7,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_7_0 : lxor 7 0 = 7 := by decide
+
+-- The nim-sum 7 ⊕ 1 = 6 — entry (7,1) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_7_1 : lxor 7 1 = 6 := by decide
+
+-- The nim-sum 7 ⊕ 2 = 5 — entry (7,2) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_7_2 : lxor 7 2 = 5 := by decide
+
+-- The nim-sum 7 ⊕ 3 = 4 — entry (7,3) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_7_3 : lxor 7 3 = 4 := by decide
+
+-- The nim-sum 7 ⊕ 4 = 3 — entry (7,4) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_7_4 : lxor 7 4 = 3 := by decide
+
+-- The nim-sum 7 ⊕ 5 = 2 — entry (7,5) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_7_5 : lxor 7 5 = 2 := by decide
+
+-- The nim-sum 7 ⊕ 6 = 1 — entry (7,6) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_7_6 : lxor 7 6 = 1 := by decide
+
+-- The nim-sum 7 ⊕ 7 = 0 — entry (7,7) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_7_7 : lxor 7 7 = 0 := by decide
+
+-- The nim-sum 7 ⊕ 8 = 15 — entry (7,8) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_7_8 : lxor 7 8 = 15 := by decide
+
+-- The nim-sum 8 ⊕ 0 = 8 — entry (8,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_8_0 : lxor 8 0 = 8 := by decide
+
+-- The nim-sum 8 ⊕ 1 = 9 — entry (8,1) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_8_1 : lxor 8 1 = 9 := by decide
+
+-- The nim-sum 8 ⊕ 2 = 10 — entry (8,2) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_8_2 : lxor 8 2 = 10 := by decide
+
+-- The nim-sum 8 ⊕ 3 = 11 — entry (8,3) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_8_3 : lxor 8 3 = 11 := by decide
+
+-- The nim-sum 8 ⊕ 4 = 12 — entry (8,4) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_8_4 : lxor 8 4 = 12 := by decide
+
+-- The nim-sum 8 ⊕ 5 = 13 — entry (8,5) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_8_5 : lxor 8 5 = 13 := by decide
+
+-- The nim-sum 8 ⊕ 6 = 14 — entry (8,6) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_8_6 : lxor 8 6 = 14 := by decide
+
+-- The nim-sum 8 ⊕ 7 = 15 — entry (8,7) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_8_7 : lxor 8 7 = 15 := by decide
+
+-- The nim-sum 8 ⊕ 8 = 0 — entry (8,8) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0, every element self-inverse), by the axiom-free lxor.
+theorem nimsum_8_8 : lxor 8 8 = 0 := by decide

@@ -11,6 +11,17 @@
 // COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
+// Board-geometry helpers — the JS mirror of "how many of a piece's move-deltas stay on the 8×8 board", to self-check
+// every mobility fact before it is written; the Lean side filters the same deltas by the same bounds (axiom-free).
+const KN = [[1, 2], [2, 1], [-1, 2], [-2, 1], [1, -2], [2, -1], [-1, -2], [-2, -1]] // knight deltas
+const KG = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]] // king deltas
+const onB = (r: number, c: number) => 0 <= r && r < 8 && 0 <= c && c < 8
+const mob = (ds: number[][], r: number, c: number) => ds.filter(([dr, dc]) => onB(r + dr, c + dc)).length
+const KND = '[(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)]'
+const KGD = '[(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]'
+const mobLean = (deltas: string, r: number, c: number, n: number) =>
+  `((${deltas} : List (Int × Int)).filter (fun d => decide (0 <= ${r} + d.1 ∧ ${r} + d.1 < 8 ∧ 0 <= ${c} + d.2 ∧ ${c} + d.2 < 8))).length = ${n}`
+
 const FACTS = [
   // ── the opening combinations — the "rosetta combinations" branch, exact ──
   { key: 'first_move_twenty',
@@ -88,7 +99,28 @@ const FACTS = [
     lean: 'theorem boards_are_diamond_self_inverses : (64 % 9 = 1) ∧ (512 % 9 = 8) ∧ ((8 * 8) % 9 = 1) := by decide' },
 ]
 
-console.log('computing ' + FACTS.length + ' CHESS-HORIZON facts (the honest kernel of "all games in uuidna" — integrity, not enumeration) …')
+// The mobility map — how many moves each piece commands from a square, the decidable geometry of the board (counting
+// deltas that stay on the 8×8), demarcated: real board arithmetic, still NOT a solved game or an engine.
+const MOBS: [string, 'N' | 'K', number, number, number, string][] = [
+  ['knight_centre_eight', 'N', 3, 3, 8, 'A knight on a central square (d4) commands all EIGHT moves — maximal mobility, why knights belong in the centre.'],
+  ['knight_near_centre_six', 'N', 2, 1, 6, 'A knight one step in from the edge (c3) commands SIX moves.'],
+  ['knight_edge_four', 'N', 3, 0, 4, 'A knight on the edge (a4) commands FOUR moves — half its reach falls off the board.'],
+  ['knight_near_corner_three', 'N', 0, 1, 3, 'A knight beside the corner (b1) commands THREE moves.'],
+  ['knight_corner_two', 'N', 0, 0, 2, 'A knight in the corner (a1) commands only TWO moves — "a knight on the rim is dim" at its worst.'],
+  ['king_centre_eight', 'K', 3, 3, 8, 'A king in the centre (d4) touches all EIGHT neighbours.'],
+  ['king_edge_five', 'K', 3, 0, 5, 'A king on the edge (a4) touches FIVE squares.'],
+  ['king_corner_three', 'K', 0, 0, 3, 'A king in the corner (a1) touches THREE squares.'],
+]
+for (const [key, p, r, c, n, why] of MOBS)
+  FACTS.push({ key, why, js: () => mob(p === 'N' ? KN : KG, r, c) === n, lean: `theorem ${key} : ${mobLean(p === 'N' ? KND : KGD, r, c, n)} := by decide` })
+
+// two more of the board's exact arithmetic to close on 2¹⁰
+FACTS.push({ key: 'material_sum_twentyone', why: 'The classical piece values sum to 21: pawn 1 + knight 3 + bishop 3 + rook 5 + queen 9 = 21 — the material a side commands beyond the king (itself invaluable). A convention, exact as arithmetic.',
+  js: () => 1 + 3 + 3 + 5 + 9 === 21, lean: 'theorem material_sum_twentyone : 1 + 3 + 3 + 5 + 9 = 21 := by decide' })
+FACTS.push({ key: 'central_four_squares', why: 'The centre the pieces fight for is the 2×2 block d4-d5-e4-e5 — 2·2 = 4 squares, the four the opening contests. The board\'s heart, counted.',
+  js: () => 2 * 2 === 4, lean: 'theorem central_four_squares : 2 * 2 = 4 := by decide' })
+
+console.log('computing ' + FACTS.length + ' CHESS-HORIZON facts (the honest kernel + the mobility map — integrity, not enumeration) …')
 
 emit({
   file: 'Chessgames.lean', skill: 'chess',

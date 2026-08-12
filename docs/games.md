@@ -23,6 +23,32 @@ is two triangles. This is [`starPolygon`](/mcp#uuidna-pentagram), sealed as [`pe
 
 <StarPlay />
 
+## Nim — the game of heaps <Badge type="tip" text="the two coins, live" />
+
+Set the heaps and read the game off a single **nim-sum** (bitwise XOR — the same operation the axiom-free
+[`lxor`](/theorem/nim_sum_is_xor) seals across the [9×9 nim-addition table](/theorems?skill=nim)). By **Bouton's
+theorem** a zero nim-sum is a P-position (the player to move loses); nonzero is a win, and the exact winning move is
+shown. You **verify** the position with one XOR instead of **recomputing** the game tree — the two coins, in miniature.
+
+<NimPlay />
+
+## Chess mobility — the board's geometry <Badge type="tip" text="click a square" />
+
+Place a knight or king on any square; the reachable squares light up, counting exactly the move-deltas that stay on
+the 8×8 — the [mobility map](/theorems?skill=chess) `Chessgames.lean` seals (a knight commands 8 from the centre, 2
+from a corner). Verified geometry, not a search. **Real board arithmetic, still not a solved game.**
+
+<ChessMobility />
+
+## The audit game — accuracy as a game <Badge type="tip" text="toggle the refuters" />
+
+Toggle each independent **refuter** between cleared and refuted. A claim is **CLEAN** (a P-position) iff *no* refuter
+has a winning move — `survive = ∏(1−rᵢ)` — and **FLAGGED** the moment any refuter refutes. Adding a refuter is
+monotone (never un-flags), so N independent refuters are strictly more accurate — [why an audit is more accurate as a
+game](/theorems?skill=audit), sealed in `AuditGame.lean`.
+
+<AuditPanel />
+
 ## Watch a message become a stream
 
 Type a message and a passphrase, seal it, and watch it become a chain of uuids — the onion carried *as* the stream —
