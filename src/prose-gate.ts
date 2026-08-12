@@ -31,7 +31,11 @@ const redFlag = (u: string): string | null =>
  *  hollow match stripped first — still reads as demarcated; a translated proof-boast flags outright. Backing is the
  *  caller's to apply. This is the pure, testable floor the provenance audit and the self-trial both stand on. */
 export function overreachOf(unit: string): string | null {
-  const cited = deQuote(unit)
+  // NFKC-normalise first, so compatibility/fullwidth homoglyphs ("unbreａkable") fold to their plain form and cannot
+  // slip the lexicon. HONEST LIMIT: NFKC folds compatibility characters, NOT cross-script confusables (a Cyrillic "а"
+  // is a different codepoint); and no lexical gate catches SYNONYM evasion ("impossible to break") or a stray
+  // negation elsewhere in the sentence. The gate is a floor against honest overclaims, not a manipulation-proof wall.
+  const cited = deQuote(unit).normalize('NFKC')
   const m = cited.match(HOLLOW)
   if (m) {
     // Strip ALL hollow matches before testing demarcation, so a second overclaim's negation can't clear the first.
