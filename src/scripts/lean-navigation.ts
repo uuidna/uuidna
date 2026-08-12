@@ -39,4 +39,5 @@ const FACTS = [
 // and quarter bearings, dead reckoning by vector sum. Demarcated: the algebra, not a positioning claim about anyone.
 emit({ file: 'Navigation.lean',
   header: 'NAVIGATION — bounded geometry, demarcated. Straight-line distance is Pythagorean (3-4-5), the compass rose is ℤ/8 (eight 45° headings, 8·45 = 360), the reciprocal bearing is +4 (180°, an involution), a quarter turn is +2 (order 4), and dead reckoning is the vector sum of the legs. HONEST SCOPE: the decidable algebra of classical navigation — not GPS-grade guidance and not a positioning claim about any individual, just the geometry.',
+  skill: 'navigation', // the capability every fact here demonstrates — authored inline (the reverse-bearing fact is an involution too, but its domain, the capability it serves, is navigation)
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })
