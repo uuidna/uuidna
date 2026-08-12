@@ -14,6 +14,10 @@ export type { LeanTheorem }
 // ORTHOGONAL to `principle` (which groups by derivation file). First matching rule wins; anything unmatched is a
 // foundational fact. Nothing is authored here — the skill is read off the name a Lean theorem already carries.
 const SKILL_RULES: readonly [RegExp, string][] = [
+  // The harmony of pairs — the same complementary-pair arithmetic across biology/medicine/chemistry/physics, folded
+  // into the science-pairs cluster. Placed FIRST so keys that also read as involutions land here (the harmony IS the
+  // point): a pair is a reflection through a centre, harmonised across the four fields.
+  [/dna_bases_reflect_through_three|chargaff|redox_conserves|ionic_compound|agonist_antagonist|homeostasis_returns|action_reaction_and_charge|pairs_share_one_centre/, 'science-pairs'],
   [/involut/, 'involution'],
   [/^z9|(^|_)mul9|mod9|_sq_zero|_self_inv|_no_inverse|_mul_(two|three|four|five|six|seven|eight|nine)/, 'z9-ring'],
   [/^z7/, 'z7-rosette'],

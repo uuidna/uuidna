@@ -68,7 +68,7 @@ const GEN = {
   'Discover.lean': 'lean-discover.ts', 'Quantum.lean': 'lean-quantum.ts', 'Clay.lean': 'lean-clay.ts',
   'Infinity.lean': 'lean-infinity.ts', 'Cipher.lean': 'lean-cipher.ts', 'Audit.lean': 'lean-audit.ts',
   'Coins.lean': 'lean-coins.ts', 'Neuro.lean': 'lean-neuro.ts', 'Propulsion.lean': 'lean-propulsion.ts',
-  'Navigation.lean': 'lean-navigation.ts', 'Pentagram.lean': 'lean-pentagram.ts', 'Chess.lean': 'lean-chess.ts', 'Codes.lean': 'lean-codes.ts', 'Tides.lean': 'lean-tides.ts', 'Identifiers.lean': 'lean-identifiers.ts', 'Calendar.lean': 'lean-calendar.ts', 'Typesetting.lean': 'lean-typesetting.ts', 'Editing.lean': 'lean-editing.ts', 'Production.lean': 'lean-production.ts', 'Security.lean': 'lean-security.ts', 'Reasoning.lean': 'lean-reasoning.ts', 'Photography.lean': 'lean-photography.ts', 'Matching.lean': 'lean-matching.ts',
+  'Navigation.lean': 'lean-navigation.ts', 'Pentagram.lean': 'lean-pentagram.ts', 'Chess.lean': 'lean-chess.ts', 'Codes.lean': 'lean-codes.ts', 'Tides.lean': 'lean-tides.ts', 'Identifiers.lean': 'lean-identifiers.ts', 'Calendar.lean': 'lean-calendar.ts', 'Typesetting.lean': 'lean-typesetting.ts', 'Editing.lean': 'lean-editing.ts', 'Production.lean': 'lean-production.ts', 'Security.lean': 'lean-security.ts', 'Reasoning.lean': 'lean-reasoning.ts', 'Photography.lean': 'lean-photography.ts', 'Matching.lean': 'lean-matching.ts', 'Harmony.lean': 'lean-harmony.ts',
 }
 
 // The ROTATION — seven axes weave every theorem to its neighbours; three are cyclic rotations over the ledger,

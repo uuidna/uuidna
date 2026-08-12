@@ -14,7 +14,7 @@ theorems). A `.0` bumps development onward.
 ## Roadmap — toward [1.0.0]
 
 A plan, not a promise. **v1.0.0 aims at 1024 theorems** (2¹⁰ — a clean power-of-two milestone), **all `by decide`,
-sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **837 / 1024 — 187 to go**, across 46 principles.<!-- /LEDGER:TODAY -->
+sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **845 / 1024 — 179 to go**, across 47 principles.<!-- /LEDGER:TODAY -->
 The versions in between are real, gated releases: each `0.1.x` grows the ledger and must pass `npm run next` (proofs +
 prose + accounts + graph + the changelog self-audit) before it ships. And the honest odometer holds — **1.0.0 comes
 only after the `0.1.x` line is actually published on npm** (today only `0.1.0` is), never by minting forward past an
@@ -30,7 +30,7 @@ the chance to reverse-develop itself *now*, while the ledger is still free.
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **837 theorems** across **46 principles**, folded to receipt `3539a44f-dc04-8687-829c-fb9a7e7ca56c`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **845 theorems** across **47 principles**, folded to receipt `bf25bba8-108e-821a-a853-03982c08bcc4`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added
@@ -42,7 +42,10 @@ the chance to reverse-develop itself *now*, while the ledger is still free.
   where the standard *rounds* 1/128→1/125 and √2→f/1.4 for the dial, uuidna keeps the exact power of two, each
   rounding gap proven), and **the matching** (connecting people — the handshake lemma, mutual/symmetric choice, a
   pairing as a fixed-point-free involution, and stable matching bounded by n² proposals; the honest graph theory,
-  *not* a dating service or anyone's data). Each domain measured for its decide-step heartbeat cost (100% coverage).
+  *not* a dating service or anyone's data), and **the harmony of pairs** (the same complementary-pair arithmetic
+  proven across biology, medicine, chemistry and physics — DNA bases, acid/base, agonist/antagonist, action/reaction,
+  cation/anion — then proven to be *one* reflection at different centres, harmonising the science-pairs cluster
+  across the four fields; structure, not a lab claim). Each domain measured for its decide-step heartbeat cost (100% coverage).
 - **Publications (monographs)** — audited-before-published prose per domain at `/publications`, composed by reading
   the sealed theorems; the build refuses a note that overreaches a proof. `uuidna_publish`.
 - **The editor & pattern recognition** — `revise` (editing is re-addressing) and `compare` (similarity derived from
