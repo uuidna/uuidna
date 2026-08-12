@@ -52,14 +52,29 @@ const fits = (probe: string, defs: string, lean: string, N: number): Promise<boo
     })
   })
 
+// The EXACT theorem block from the source file (`theorem <key>` up to the next top-level declaration) — the real,
+// compiling multi-line text, so theorems with inline `-- comments` or multi-line statements (which the single-line
+// reconstruction mangles) still measure. Falls back to the reconstructed t.lean if the block is not found.
+const blockOf = (file: string, key: string, fallback: string): string => {
+  try {
+    const lines = readFileSync(join(ROOT, 'lean', file), 'utf8').split('\n')
+    const start = lines.findIndex((l) => new RegExp('^theorem ' + key + '\\b').test(l))
+    if (start < 0) return fallback
+    let end = start + 1
+    while (end < lines.length && !/^(theorem |def |abbrev |namespace|end )/.test(lines[end])) end++
+    return lines.slice(start, end).join('\n')
+  } catch { return fallback }
+}
+
 // The decide-step cost = the minimum maxHeartbeats at which it still passes (binary search).
 async function costOf(t: (typeof T)[number]): Promise<number> {
   const probe = join(tmpdir(), 'uuidna-hb-' + t.key + '.lean')
   const defs = defPrefix[t.file] || ''
+  const source = blockOf(t.file, t.key, t.lean)
   let hi = 1
-  while (!(await fits(probe, defs, t.lean, hi))) { hi *= 2; if (hi > 4_000_000) return hi }
+  while (!(await fits(probe, defs, source, hi))) { hi *= 2; if (hi > 4_000_000) return hi }
   let lo = half(hi) < 1 ? 1 : half(hi)
-  while (lo < hi) { const mid = half(lo + hi); if (await fits(probe, defs, t.lean, mid)) hi = mid; else lo = mid + 1 }
+  while (lo < hi) { const mid = half(lo + hi); if (await fits(probe, defs, source, mid)) hi = mid; else lo = mid + 1 }
   return lo
 }
 
