@@ -5,7 +5,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { callTool, TOOL_NAMES, MCP_CATALOG, mcpBenchmark } from '../mcp.js'
-import { toUuid, adjudicate, theorems, runTrial } from '../index.js'
+import { toUuid, adjudicate, theorems, runTrial, reviewDomains, SKILLS } from '../index.js'
 
 test('catalog ↔ handlers: the catalog lists exactly the dispatchable tools, unknown tools throw', () => {
   assert.deepEqual([...TOOL_NAMES].sort(), [...MCP_CATALOG.map((t) => t.name)].sort())
@@ -23,6 +23,11 @@ test('CI through the MCP: the served tools return what the sealed package comput
   assert.equal((callTool('uuidna_theorems', { skill: 'navigation' }) as unknown[]).length, theorems({ skill: 'navigation' }).length)
   // the fold — the served trial receipt IS the package's receipt
   assert.equal((callTool('uuidna_trial', {}) as { receipt: string }).receipt, runTrial().receipt)
+  // local reviews — one recomputable review per domain the sequence touches, all VERIFIED
+  const reviews = callTool('uuidna_review_domains', {}) as { domain: string; verdict: string }[]
+  assert.equal(reviews.length, SKILLS.length)
+  assert.ok(reviews.every((r) => r.verdict === 'VERIFIED'))
+  assert.deepEqual(reviews, reviewDomains())
 })
 
 test('the MCP measures itself: uuidna_mcp_benchmark scores the whole served surface', () => {

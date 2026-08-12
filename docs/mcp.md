@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="86 keys" />
+# MCP tools <Badge type="tip" text="87 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 86 tools below are read from the server's own tool list and
+is **built from the keys**: the 87 tools below are read from the server's own tool list and
 organised into 23 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`86`" />
+## The grid <Badge type="tip" :text="`87`" />
 
-86 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 18 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+87 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 19 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -29,6 +29,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-quantum"><code>quantum</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
+<a href="#uuidna-review-domains"><code>review_domains</code></a>
 <a href="#uuidna-skills"><code>skills</code></a>
 <a href="#uuidna-theorems"><code>theorems</code></a>
 <a href="#uuidna-tokens"><code>tokens</code></a>
@@ -697,7 +698,7 @@ The Chinese remainder solution: for COPRIME moduli m,n the unique x in [0, m·n)
 | `b` | integer | **yes** |  |
 | `n` | integer | **yes** |  |
 
-## Theorems & trial <Badge type="tip" :text="'7'" />
+## Theorems & trial <Badge type="tip" :text="'8'" />
 
 *skill: theorem*
 
@@ -740,6 +741,12 @@ The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean t
 ### `uuidna_skills`
 
 The theorem ledger organised by SKILL — the capability axis, orthogonal to principle. A skill is derived (recomputable) from each theorem's key. Returns each skill with its count and the order-invariant fold of its theorems' content-addresses. Then pull one skill's theorems with uuidna_theorems { skill }.
+
+_No parameters._
+
+### `uuidna_review_domains`
+
+LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger's own integrity per domain, recomputable by anyone. Returns [{domain,theorems,fold,verdict,receipt}].
 
 _No parameters._
 

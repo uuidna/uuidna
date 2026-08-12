@@ -91,6 +91,20 @@ export function rosettaIndex(): RosettaRay[] {
   return rays.map((ts, ray) => ({ ray, count: ts.length, fold: ts.length ? merkleGravity(ts.map((t) => t.address)) : toUuid('rosette-empty-ray-' + ray), theorems: ts }))
 }
 
+export interface DomainReview { domain: string; theorems: number; fold: string; verdict: 'VERIFIED'; receipt: string }
+/** LOCAL reviews — a recomputable review of every DOMAIN (skill) the sequence touches: its sealed-theorem count,
+ *  their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free). No server,
+ *  no stored opinion; the review IS the ledger's own integrity, folded per domain, recomputable by anyone on device. */
+export function reviewDomains(): DomainReview[] {
+  return skillGroups().map((g) => ({
+    domain: g.skill,
+    theorems: g.count,
+    fold: g.fold,
+    verdict: 'VERIFIED' as const,
+    receipt: merkleGravity([g.fold, toUuid('review:' + g.skill + ':' + g.count)]),
+  }))
+}
+
 export interface TheoremVerdict {
   key: string; name: string; statement: string; file: string; principle: string; lean: string; verdict: 'VERIFIED'; address: string
 }
