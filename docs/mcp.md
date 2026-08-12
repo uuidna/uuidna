@@ -200,7 +200,7 @@ Bound a failing/overclaiming output to the honest floor, keeping the honest rema
 
 ### `uuidna_adjudicate`
 
-The trial: a recomputable three-way verdict for a statement — REFUTED (gate drains an overclaim), SEALED (gate-clean and admissible), or UNVERIFIED (gate-clean but no receipt). Integrity, not truth.
+The trial: ONE recomputable answer for a statement, and only one of two, all else void — VERIFIED (a decidable test holds, or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; not "false", just not verified). uuidna verifies, it never refutes. Integrity, not truth.
 
 **Parameters**
 
@@ -734,7 +734,7 @@ _No parameters._
 
 ### `uuidna_trial`
 
-Run the whole Lean ledger through the trial: every theorem is SEALED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger's integrity). Returns {count,sealed,refuted,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.
+Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger's integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.
 
 _No parameters._
 
@@ -905,7 +905,7 @@ The FUSION half of the reactor: fold a chosen set of sealed theorems — across 
 
 ### `uuidna_reactor`
 
-The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets a verdict (SEALED / REFUTED — cites a proof not in the ledger / UNVERIFIED — cites none); SEALED cells are kept, and REFUTED and UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would seal their honest kernel. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal is the start of the next fusion. Returns {cells,sealed,recycled,handle,superposition,receipt}. The recycle plan is the honest NEXT, not a proof the recycled claim is true.
+The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets ONE of two verdicts — VERIFIED (a decidable test holds or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; never called false). VERIFIED cells are kept; UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would verify them. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal starts the next fusion. Returns {cells,verified,unverified,handle,superposition,receipt}.
 
 **Parameters**
 
@@ -1024,7 +1024,7 @@ Reveal the sealed theorems a real-world system ALREADY reflects. Describe a syst
 
 ### `uuidna_slim_gate`
 
-The gate of all gates, as slim as it gets: ONLY theorems, no lexicon. Judges a {claim} by ONE recomputable question — do the theorems it cites (/theorem/&lt;key&gt;) actually exist, sealed, in the ledger? SEALED iff it cites a real sealed theorem and no fake; REFUTED iff it cites a theorem NOT in the ledger (a fabricated citation, the one decidably-false case); UNVERIFIED iff it cites none (held open, not refused). Computed from the sealed ledger alone; delete every word-list and it still stands.
+The gate of all gates, as slim as it gets: ONLY theorems, no lexicon. Judges a {claim} by ONE recomputable question — do the theorems it cites (/theorem/&lt;key&gt;) actually exist, sealed, in the ledger? VERIFIED iff it cites a real sealed theorem and none fabricated; UNVERIFIED otherwise (cites none, or cites a proof not in the ledger — which verifies nothing; never "false"). The `fabricated` list is still returned so the publish gate can refuse shipping a note that names a nonexistent proof. Computed from the sealed ledger alone; delete every word-list and it still stands.
 
 **Parameters**
 

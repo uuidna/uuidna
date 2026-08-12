@@ -219,7 +219,7 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: { n: { type: 'number' } }, required: ['n'] },
     run: ({ n }) => digitalRoot(Number(n)) },
   { name: 'uuidna_adjudicate',
-    description: 'The trial: a recomputable three-way verdict for a statement — REFUTED (gate drains an overclaim), SEALED (gate-clean and admissible), or UNVERIFIED (gate-clean but no receipt). Integrity, not truth.',
+    description: 'The trial: ONE recomputable answer for a statement, and only one of two, all else void — VERIFIED (a decidable test holds, or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; not "false", just not verified). uuidna verifies, it never refutes. Integrity, not truth.',
     inputSchema: { type: 'object', properties: { statement: { type: 'string' } }, required: ['statement'] },
     run: ({ statement }) => adjudicate(String(statement)) },
   { name: 'uuidna_prove_verdict',
@@ -332,7 +332,7 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: { keys: { type: 'array', items: { type: 'string' }, description: 'theorem keys from uuidna_theorems, from any domains' } }, required: ['keys'] },
     run: (a) => snapshot(Array.isArray(a?.keys) ? a.keys.map(String) : []) },
   { name: 'uuidna_reactor',
-    description: 'The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets a verdict (SEALED / REFUTED — cites a proof not in the ledger / UNVERIFIED — cites none); SEALED cells are kept, and REFUTED and UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would seal their honest kernel. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal is the start of the next fusion. Returns {cells,sealed,recycled,handle,superposition,receipt}. The recycle plan is the honest NEXT, not a proof the recycled claim is true.',
+    description: 'The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets ONE of two verdicts — VERIFIED (a decidable test holds or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; never called false). VERIFIED cells are kept; UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would verify them. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal starts the next fusion. Returns {cells,verified,unverified,handle,superposition,receipt}.',
     inputSchema: { type: 'object', properties: { claims: { type: 'array', items: { type: 'string' }, description: 'claims or external theories to adjudicate and recycle' } }, required: ['claims'] },
     run: (a) => reactor(Array.isArray(a?.claims) ? a.claims.map(String) : []) },
   { name: 'uuidna_theorem',
@@ -387,7 +387,7 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'a system described by its devices/concepts' } }, required: ['query'] },
     run: (a) => reflects(String(a.query)) },
   { name: 'uuidna_slim_gate',
-    description: 'The gate of all gates, as slim as it gets: ONLY theorems, no lexicon. Judges a {claim} by ONE recomputable question — do the theorems it cites (/theorem/<key>) actually exist, sealed, in the ledger? SEALED iff it cites a real sealed theorem and no fake; REFUTED iff it cites a theorem NOT in the ledger (a fabricated citation, the one decidably-false case); UNVERIFIED iff it cites none (held open, not refused). Computed from the sealed ledger alone; delete every word-list and it still stands.',
+    description: 'The gate of all gates, as slim as it gets: ONLY theorems, no lexicon. Judges a {claim} by ONE recomputable question — do the theorems it cites (/theorem/<key>) actually exist, sealed, in the ledger? VERIFIED iff it cites a real sealed theorem and none fabricated; UNVERIFIED otherwise (cites none, or cites a proof not in the ledger — which verifies nothing; never "false"). The `fabricated` list is still returned so the publish gate can refuse shipping a note that names a nonexistent proof. Computed from the sealed ledger alone; delete every word-list and it still stands.',
     inputSchema: { type: 'object', properties: { claim: { type: 'string' } }, required: ['claim'] },
     run: (a) => slimGate(String(a.claim)) },
   { name: 'uuidna_reason',
@@ -411,7 +411,7 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: { a: { type: 'string' }, b: { type: 'string' } }, required: ['a', 'b'] },
     run: (x) => comparePublications(String(x.a), String(x.b)) },
   { name: 'uuidna_trial',
-    description: 'Run the whole Lean ledger through the trial: every theorem is SEALED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,sealed,refuted,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
+    description: 'Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
     run: () => runTrial() },
   // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the
@@ -464,7 +464,7 @@ type JsonId = string | number | null | undefined
 const INSTRUCTIONS = [
   'uuidna — content-addressed identity, honest by construction. A ledger of Lean theorems (every one proven `by decide`, sorry-free, no Mathlib) folded to ONE recomputable receipt, plus pure-TS crypto and a measured billing model.',
   'Every tool call returns a CHAINED receipt (receipt · seq · referer): you always hold tamper-evident provenance for your command, and the whole session folds to one tip you can recompute yourself. Nothing to trust — everything to recheck.',
-  'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_trial (a three-way REFUTED / SEALED / UNVERIFIED verdict), uuidna_run_ledger (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
+  'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_trial (ONE answer: VERIFIED or UNVERIFIED, all else void), uuidna_run_ledger (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
   'Honest scope, always demarcated: receipts and content-addresses are NON-crypto FNV (integrity/routing, not secrecy, not a binding commitment); secrecy is ChaCha20-Poly1305 only; the quantum tools are EXACT classical simulation (no advantage), not hardware; nothing is infinite or unbreakable. A claim is either linked to a sealed theorem or refused. Integrity, not truth.',
 ].join(' ')
 

@@ -70,40 +70,42 @@ export function snapshot(keys: string[]): Snapshot {
 
 export interface ReactorCell {
   claim: string
-  verdict: 'SEALED' | 'REFUTED' | 'UNVERIFIED'
+  verdict: 'VERIFIED' | 'UNVERIFIED'
   address: string
-  develop: string[]        // for a recycled cell, the new aspects that would seal its honest kernel
+  develop: string[]        // for an unverified cell, the new aspects that would verify its honest kernel
 }
 export interface ReactorRun {
   cells: ReactorCell[]
-  sealed: ReactorCell[]    // kept — the fusion holds
-  recycled: ReactorCell[]  // REFUTED or UNVERIFIED — re-fused: each carries the develop plan (never discarded)
+  verified: ReactorCell[]    // kept — a sealed proof or a decidable test backs it
+  unverified: ReactorCell[]  // recycled — re-fused: each carries the develop plan (never discarded, never called false)
   handle: string
-  superposition: string    // every cell's address folded — the run as one superposition uuid
+  superposition: string      // every cell's address folded — the run as one superposition uuid
   receipt: string
   honest: string
 }
 
-/** reactor(claims[, tests]) → the involutionary refusion run. Each claim is adjudicated (an optional decidable test
- *  by index can SEAL it); SEALED cells are kept, and REFUTED/UNVERIFIED cells are RECYCLED — returned with the
- *  develop plan that names the next aspect to seal, not discarded. The whole run folds to one superposition uuid
- *  (first segment the handle). Nothing is waste: refusal is the start of the next fusion. Recomputable by anyone. */
+/** reactor(claims[, tests]) → the involutionary refusion run. One answer per claim, all else void: VERIFIED (a
+ *  decidable test holds, or it cites a sealed Lean theorem) or UNVERIFIED (everything else). VERIFIED cells are kept;
+ *  UNVERIFIED cells are RECYCLED — returned with the develop plan that names the next aspect to verify, never
+ *  discarded and never called false. The whole run folds to one superposition uuid (first segment the handle).
+ *  Refusal is the start of the next fusion. Recomputable by anyone. */
 export function reactor(claims: string[], tests: (undefined | (() => boolean))[] = []): ReactorRun {
   const cells: ReactorCell[] = claims.map((claim, i) => {
     const v = adjudicate(claim, tests[i])
     return { claim, verdict: v.verdict, address: toUuid(claim), develop: v.develop }
   })
   const superposition = merkleGravity(cells.map((c) => c.address))
-  const sealed = cells.filter((c) => c.verdict === 'SEALED')
-  const recycled = cells.filter((c) => c.verdict !== 'SEALED')
+  const verified = cells.filter((c) => c.verdict === 'VERIFIED')
+  const unverified = cells.filter((c) => c.verdict !== 'VERIFIED')
   return {
-    cells, sealed, recycled,
+    cells, verified, unverified,
     handle: superposition.slice(0, 8),
     superposition,
-    receipt: merkleGravity([superposition, toUuid('reactor:' + sealed.length + '/' + recycled.length)]),
+    receipt: merkleGravity([superposition, toUuid('reactor:' + verified.length + '/' + unverified.length)]),
     honest:
-      'Nothing is discarded: a REFUTED cell (cites a proof that is not sealed) and an UNVERIFIED cell (cites none) ' +
-      'are recycled — each returns with the develop plan naming the aspect that would seal its honest kernel. The ' +
-      'recycle plan is the honest NEXT, not a proof the recycled claim is true. The run folds to one superposition uuid.',
+      'One answer per claim, all else void: VERIFIED (a decidable test holds or a sealed Lean theorem backs it) or ' +
+      'UNVERIFIED (everything else — including a citation to a proof not in the ledger, which verifies nothing). ' +
+      'Nothing is discarded and nothing is called false: every UNVERIFIED cell is recycled with the develop plan ' +
+      'naming the aspect that would verify it. The run folds to one superposition uuid.',
   }
 }

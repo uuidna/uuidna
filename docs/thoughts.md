@@ -33,17 +33,17 @@ than sealing them. They are argued, not proven — and the honest thing is to sa
 
 ## Refuted — it overreached
 
-The trial drained these, and the ledger's own theorems stand against them:
+The trial leaves these **UNVERIFIED** — none carries a proof — and the ledger's own theorems stand beside them:
 
-- "This system is unbreakable and unstoppable" — **REFUTED**. There is no maximum, only bounds.
-- "uuidna produces free energy and becomes a quantum computer" — **REFUTED**. Computation costs energy (Landauer);
+- "This system is unbreakable and unstoppable" — **UNVERIFIED**. It cites no proof; there is no maximum, only bounds.
+- "uuidna produces free energy and becomes a quantum computer" — **UNVERIFIED**. Computation costs energy (Landauer);
   the quantum module is a classical simulation, solved none.
-- "uuidna is fully compliant with all international laws" — an unbacked legal claim; the trial never seals it, and the
+- "uuidna is fully compliant with all international laws" — an unbacked legal claim; the trial never verifies it, and the
   forensics flags it. Legality is a court's, not a fold's.
 
 ---
 
-**Sealed ≠ true** (a content-address proves integrity, not truth); **UNVERIFIED = held open** (bring a proof to move
-it); **REFUTED = overreached** (the remedy is paid in code). That the same three verdicts fall on the maker's own
+**VERIFIED ≠ true** (a content-address proves integrity, not truth); **UNVERIFIED = held open, never called false**
+(bring a proof to move it). uuidna verifies; it never refutes. That the same two answers fall on the maker's own
 thoughts as on anyone else's is the whole discipline. [The trial](/trials) · [Justice, not a court](/justice).
 Integrity, not truth.

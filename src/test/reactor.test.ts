@@ -26,15 +26,15 @@ test('snapshot NAMES an unknown key rather than folding it — drift refused, no
   assert.equal(s.members.length, 1)
 })
 
-test('the reactor recycles — a refused claim returns with its develop plan, never discarded', () => {
+test('the reactor recycles — an unverified claim returns with its develop plan, never discarded', () => {
   const r = reactor([
     'the birth number governs destiny',                    // cites no proof → UNVERIFIED
-    'proven in theorem riemann_is_solved',                 // fabricated citation → REFUTED
-    'two units multiply to a unit',                        // with a decidable test → SEALED
+    'proven in theorem riemann_is_solved',                 // cites a proof not in the ledger → UNVERIFIED
+    'two units multiply to a unit',                        // with a decidable test → VERIFIED
   ], [undefined, undefined, () => (2 * 5) % 9 === 1])
-  assert.equal(r.sealed.length, 1)
-  assert.equal(r.recycled.length, 2)
-  for (const cell of r.recycled) assert.ok(cell.develop.length >= 1, 'every recycled cell carries a develop plan (new aspects)')
+  assert.equal(r.verified.length, 1)
+  assert.equal(r.unverified.length, 2)
+  for (const cell of r.unverified) assert.ok(cell.develop.length >= 1, 'every unverified cell carries a develop plan (new aspects)')
   assert.match(r.superposition, UUID)
   assert.equal(r.handle, r.superposition.slice(0, 8))
   // deterministic — the same claims recompute the same run

@@ -6,9 +6,9 @@
 import { slimGate } from './slimgate.js'
 
 /** overreachOf(unit) → the fabricated theorem key the unit cites, or null. No lexicon: a claim is drained only for
- *  citing a theorem that is not sealed in the ledger; every other claim is revealed (UNVERIFIED or SEALED), never
+ *  citing a theorem that is not sealed in the ledger; every other claim is revealed (VERIFIED or UNVERIFIED), never
  *  word-drained. The pure, recomputable floor the provenance audit and the self-trial now both stand on. */
 export function overreachOf(unit: string): string | null {
   const s = slimGate(unit)
-  return s.verdict === 'REFUTED' ? (s.fabricated[0] ?? null) : null
+  return s.fabricated.length > 0 ? (s.fabricated[0] ?? null) : null
 }

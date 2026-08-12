@@ -42,9 +42,9 @@ test('gate drains a fabricated citation and reveals everything else', () => {
   assert.equal(good.clean, true)
 })
 
-test('trial returns a three-way verdict', () => {
+test('trial returns one answer — VERIFIED or UNVERIFIED, all else void', () => {
   const r = route('POST', '/trial', Q(), { statement: 'quantum supremacy, proven in theorem uuidna_is_a_quantum_computer' }).json as { verdict: string }
-  assert.equal(r.verdict, 'REFUTED') // a fabricated citation is the one decidably-false case
+  assert.equal(r.verdict, 'UNVERIFIED') // a citation to a proof not in the ledger verifies nothing — never called false
 })
 
 test('an unknown route 404s, never crashes', () => {

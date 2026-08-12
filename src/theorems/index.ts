@@ -78,10 +78,10 @@ export function skillGroups(): SkillGroup[] {
 }
 
 export interface TheoremVerdict {
-  key: string; name: string; statement: string; file: string; principle: string; lean: string; verdict: 'SEALED'; address: string
+  key: string; name: string; statement: string; file: string; principle: string; lean: string; verdict: 'VERIFIED'; address: string
 }
 export interface TrialResult {
-  count: number; sealed: number; refuted: number; unverified: number; leanBacked: number; receipt: string; verdicts: TheoremVerdict[]
+  count: number; verified: number; unverified: number; leanBacked: number; receipt: string; verdicts: TheoremVerdict[]
 }
 
 /** Run the whole ledger through the trial. Every theorem is SEALED by its `by decide` Lean proof — verified
@@ -90,10 +90,10 @@ export interface TrialResult {
  *  integrity. Recomputable by anyone from the same lean/*.lean. Integrity, not truth. */
 export function runTrial(): TrialResult {
   const verdicts: TheoremVerdict[] = THEOREMS.map((t) => ({
-    key: t.key, name: t.name, statement: t.statement, file: t.file, principle: t.principle, lean: t.lean, verdict: 'SEALED', address: t.address,
+    key: t.key, name: t.name, statement: t.statement, file: t.file, principle: t.principle, lean: t.lean, verdict: 'VERIFIED', address: t.address,
   }))
   const receipt = merkleGravity(verdicts.map((v) => v.address))
-  return { count: verdicts.length, sealed: verdicts.length, refuted: 0, unverified: 0, leanBacked: verdicts.length, receipt, verdicts }
+  return { count: verdicts.length, verified: verdicts.length, unverified: 0, leanBacked: verdicts.length, receipt, verdicts }
 }
 
 /** The ledger, by reference — each theorem's key, name, statement, Lean proof, principle, skill, source file and

@@ -87,7 +87,7 @@ const trial = runTrial()
 const recomputed = merkleGravity(THEOREMS.map((t) => t.address))
 const receiptHolds = recomputed === trial.receipt
 if (!receiptHolds) flag('high', 'theorems', 'src/theorems', 'trial receipt does NOT recompute from THEOREMS addresses', `${trial.receipt} ≠ ${recomputed}`)
-if (trial.refuted !== 0) flag('high', 'theorems', 'src/theorems', `${trial.refuted} theorem(s) REFUTED`)
+if (trial.unverified !== 0) flag('high', 'theorems', 'src/theorems', `${trial.unverified} theorem(s) UNVERIFIED`)
 if (trial.unverified !== 0) flag('medium', 'theorems', 'src/theorems', `${trial.unverified} theorem(s) UNVERIFIED`)
 if (trial.leanBacked !== trial.count) flag('medium', 'theorems', 'src/theorems', `only ${trial.leanBacked}/${trial.count} theorems are Lean-backed`)
 
@@ -155,7 +155,7 @@ console.log(`\n  ROSETTA (the gate over the project's own prose)`)
 console.log(`    prose units checked : ${gateChecked}  (README + ${gateUnits.filter((u) => u.surface === 'MCP-tool').length} MCP descriptions + site)`)
 console.log(`    self-overclaims     : ${bySev('review').length}  (gate fired → flagged for human review)`)
 console.log(`\n  THEOREMS (the trial)`)
-console.log(`    ledger count        : ${trial.count}   sealed ${trial.sealed} · refuted ${trial.refuted} · unverified ${trial.unverified} · lean-backed ${trial.leanBacked}`)
+console.log(`    ledger count        : ${trial.count}   verified ${trial.verified} · unverified ${trial.unverified} · lean-backed ${trial.leanBacked}`)
 console.log(`    receipt recomputes  : ${receiptHolds ? 'YES ✓' : 'NO ✗'}   ${trial.receipt}`)
 console.log(`    count cross-checks  : ${[...claimTotals.values()].map((c) => `${rel(join(ROOT, c.src))}=${c.n}`).join(', ') || '(none found)'}`)
 console.log(`\n  CIPHER (behavioural)`)
@@ -171,7 +171,7 @@ console.log(`\n  AUDIT RECEIPT (order-invariant fold of all finding addresses)\n
 const report = {
   receipt,
   rosetta: { checked: gateChecked, overclaims: bySev('review').length },
-  theorems: { count: trial.count, sealed: trial.sealed, refuted: trial.refuted, unverified: trial.unverified, leanBacked: trial.leanBacked, receipt: trial.receipt, receiptHolds },
+  theorems: { count: trial.count, verified: trial.verified, unverified: trial.unverified, leanBacked: trial.leanBacked, receipt: trial.receipt, receiptHolds },
   cipher: behav,
   findings: addressed,
 }

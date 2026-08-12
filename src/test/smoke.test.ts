@@ -80,39 +80,38 @@ const CLAY_SEVEN = [
   'the Birch and Swinnerton-Dyer conjecture', 'the Poincaré conjecture',
 ]
 
-test('the gate folded to the theorems — a fabricated citation drains, everything else is revealed', () => {
-  // Folded to the ledger (see gate.ts): only a claim citing a proof that is NOT sealed is drained; a lexical boast
-  // with no citation is REVEALED (binary 1), held open as UNVERIFIED, never word-censored.
+test('the trial — one answer, VERIFIED or UNVERIFIED, all else void', () => {
+  // The gate still refuses shipping a fabricated citation (a note naming a proof that is not sealed); a boast with no
+  // citation is revealed (binary 1), never word-censored.
   assert.equal(computes('we prove the Riemann hypothesis').binary, 1)                    // no citation → revealed
-  assert.equal(computes('proven in theorem riemann_is_solved').binary, 0)               // fabricated proof → drained
+  assert.equal(computes('proven in theorem riemann_is_solved').binary, 0)               // names a proof not in the ledger
   assert.equal(computes('a content-address proves integrity').binary, 1)
-  // AUDITED, recomputable quantity: of the seven Clay solve-claims, the count the trial SEALS is zero — no theorem
-  // in the ledger proves a Clay problem, so each is UNVERIFIED (revealed as unbacked), none SEALED.
-  assert.equal(CLAY_SEVEN.filter((p) => adjudicate('we prove ' + p).verdict === 'SEALED').length, 0)
+  // AUDITED, recomputable quantity: of the seven Clay solve-claims, the count the trial VERIFIES is zero — no theorem
+  // in the ledger proves a Clay problem, so each is UNVERIFIED (not verified, and NOT called false).
+  assert.equal(CLAY_SEVEN.filter((p) => adjudicate('we prove ' + p).verdict === 'VERIFIED').length, 0)
   assert.equal(CLAY_SEVEN.filter((p) => adjudicate('we prove ' + p).verdict === 'UNVERIFIED').length, CLAY_SEVEN.length)
-  // the trial — a recomputable three-way verdict; proveVerdict folds the formulas to an order-invariant root
-  assert.equal(adjudicate('we prove all seven').verdict, 'UNVERIFIED')                   // unbacked → revealed, not refused
-  assert.equal(adjudicate('proven in theorem we_prove_all_seven').verdict, 'REFUTED')    // fabricated citation → refuted
-  assert.equal(adjudicate('a plain unbacked claim').verdict, 'UNVERIFIED') // gate-clean, no test → not an oracle
-  assert.equal(adjudicate('two units multiply to a unit', () => (2 * 5) % 9 === 1).verdict, 'SEALED') // test holds
-  // the develop plan — every verdict emits ordered, non-empty algebra-development steps.
+  // the trial — one binary answer; proveVerdict folds the formulas to an order-invariant root
+  assert.equal(adjudicate('we prove all seven').verdict, 'UNVERIFIED')                   // unbacked → not verified
+  assert.equal(adjudicate('proven in theorem we_prove_all_seven').verdict, 'UNVERIFIED') // a citation to a proof not in the ledger verifies nothing
+  assert.equal(adjudicate('a plain unbacked claim').verdict, 'UNVERIFIED')
+  assert.equal(adjudicate('two units multiply to a unit', () => (2 * 5) % 9 === 1).verdict, 'VERIFIED') // test holds
+  // the develop plan — every verdict emits ordered, non-empty development steps.
   const crypto = adjudicate('the Clay theorems are the new crypto standard')  // UNVERIFIED + the crypto proxies
   assert.ok(crypto.develop.length >= 4 && crypto.develop.some((s) => /keyspace/.test(s) && /2\^128/.test(s)))
-  // self-consistency: the develop plans are themselves gate-clean (the recipe to resolve a claim passes the trial's
-  // own gate); the fabricated-citation plan must NAME the exact fabricated key to cut.
+  // self-consistency: the develop plans do not themselves cite a fabricated theorem (the recipe passes the gate).
   for (const v of [crypto, adjudicate('two units multiply to a unit', () => false)])
-    for (const step of v.develop) assert.equal(computes(step).binary, 1, `develop step must be gate-clean: ${step}`)
-  assert.match(adjudicate('proven in theorem we_prove_all_seven').develop[0], /we_prove_all_seven/) // names the fabricated citation to cut
+    for (const step of v.develop) assert.equal(computes(step).binary, 1, `develop step must not cite a fabricated proof: ${step}`)
+  assert.match(adjudicate('proven in theorem we_prove_all_seven').develop[0], /we_prove_all_seven/) // names the unsealed citation
   const f = [toUuid('formula-1'), toUuid('formula-2')]
   const pv = proveVerdict('proven in theorem we_prove_all_seven', f)
-  assert.equal(pv.verdict, 'REFUTED')
+  assert.equal(pv.verdict, 'UNVERIFIED')
   assert.match(pv.proofRoot, /^[0-9a-f-]{36}$/)                          // the proof-of-verdict receipt
   assert.equal(proveVerdict('proven in theorem we_prove_all_seven', f).proofRoot, proveVerdict('proven in theorem we_prove_all_seven', [...f].reverse()).proofRoot) // order-invariant
   // LEAN IS THE SINGLE SOURCE: the whole ledger is derived from lean/*.lean, every theorem is SEALED by its
   // `by decide` proof, and the trial folds their content-addresses to one deterministic receipt (MCP uuidna_trial).
   const trial = runTrial()
-  assert.equal(trial.sealed, THEOREMS.length)                           // every theorem is Lean-proven → SEALED
-  assert.equal(trial.refuted + trial.unverified, 0)                     // the ledger holds proven theorems only
+  assert.equal(trial.verified, THEOREMS.length)                         // every theorem is Lean-proven → VERIFIED
+  assert.equal(trial.unverified, 0)                                     // the ledger holds proven theorems only
   assert.match(trial.receipt, /^[0-9a-f-]{36}$/)
   assert.equal(runTrial().receipt, trial.receipt)                       // deterministic — same lean/*.lean, same receipt
   assert.equal(trial.leanBacked, THEOREMS.length)                       // a theorem computes in Lean, or it is not a theorem

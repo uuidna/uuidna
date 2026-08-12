@@ -27,7 +27,7 @@ const CLAIMS: { claim: string; test?: () => boolean; note: string }[] = [
 ]
 
 export interface TheoryCell { claim: string; verdict: string; note: string; develop: string[]; address: string }
-export interface TheoriesData { cells: TheoryCell[]; sealed: number; recycled: number; handle: string; superposition: string; receipt: string }
+export interface TheoriesData { cells: TheoryCell[]; verified: number; unverified: number; handle: string; superposition: string; receipt: string }
 declare const data: TheoriesData
 export { data }
 
@@ -38,6 +38,6 @@ export default {
     const cells: TheoryCell[] = run.cells.map((c, i) => ({
       claim: c.claim, verdict: c.verdict, note: CLAIMS[i].note, develop: c.develop, address: c.address,
     }))
-    return { cells, sealed: run.sealed.length, recycled: run.recycled.length, handle: run.handle, superposition: run.superposition, receipt: run.receipt }
+    return { cells, verified: run.verified.length, unverified: run.unverified.length, handle: run.handle, superposition: run.superposition, receipt: run.receipt }
   },
 }

@@ -44,10 +44,10 @@ for (let s = 0; s < ROSETTE; s++) {
   const rotated = roots.map((_, i) => roots[(i + s * (N / ROSETTE | 0)) % N])
   if (merkleGravity(rotated) !== base) invariant = false
 }
-if (trial.refuted !== 0) fails.push(`proofs: ${trial.refuted} theorem(s) not sealed`)
+if (trial.unverified !== 0) fails.push(`proofs: ${trial.unverified} theorem(s) not verified`)
 if (!invariant) fails.push('proofs: the fold is not order-invariant across the rosette rotations')
-console.log(`  ARM 1 · proofs   — ${trial.sealed}/${trial.count} sealed, fold order-invariant across ${ROSETTE} rotations: ${invariant ? 'yes' : 'NO'}`)
-const armProofs = merkleGravity([base, toUuid('sealed:' + trial.sealed), toUuid('invariant:' + invariant)])
+console.log(`  ARM 1 · proofs   — ${trial.verified}/${trial.count} verified, fold order-invariant across ${ROSETTE} rotations: ${invariant ? 'yes' : 'NO'}`)
+const armProofs = merkleGravity([base, toUuid('verified:' + trial.verified), toUuid('invariant:' + invariant)])
 
 // ── ARM 2 · THE PROSE — the self-trial proper. The preceding audit already fed README + every docs page + all MCP
 //    descriptions + every theorem "why" through the provenance gate; here we try the surface it CANNOT see — the

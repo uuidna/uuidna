@@ -1,6 +1,6 @@
 ---
 title: Trials
-description: How the uuidna trial works — every theorem folded order-invariant to one recomputable receipt, and a three-way verdict (REFUTED, SEALED, UNVERIFIED) for any statement. The honesty gate drains overclaims; a receipt recomputes the rest. It can fail, and it hardens from real near-misses.
+description: How the uuidna trial works — every theorem folded order-invariant to one recomputable receipt, and ONE answer for any statement, VERIFIED or UNVERIFIED, all else void. uuidna verifies; it never refutes. It can fail (a note that cites a proof not in the ledger), and a receipt recomputes the rest.
 aside: false
 ---
 
@@ -36,47 +36,48 @@ The fold folds every direction at once — forward, reverse, any pairing — and
 order-invariance the animation shows. The **chain tip** is the other reading: the same addresses folded *sequentially*,
 each link's receipt seeding the next (the referer ratchet). Two honest views of the same sealed set.
 
-## The three verdicts
+## The one answer — VERIFIED or UNVERIFIED, all else void
 
-A trial on a single statement returns one of three, as a function of the statement — not an opinion:
+A trial on a single statement returns **one** answer, and only one of **two** — as a function of the statement, not an opinion:
 
 | verdict | when | meaning |
 | --- | --- | --- |
-| **REFUTED** | the honesty gate drains an overclaim | the statement claims more than it can back — the gate catches the overclaim vocabulary and the claim fails |
-| **SEALED** | gate-clean **and** admissible | the statement holds the honest floor and carries a proof or a recomputable receipt — it is settled |
-| **UNVERIFIED** | gate-clean but no receipt | nothing dishonest, but nothing proven either — an open claim, neither sealed nor refuted |
+| **VERIFIED** | a decidable test recomputes true, **or** it cites a sealed Lean theorem | a `by decide` proof backs it — settled, recomputable by anyone |
+| **UNVERIFIED** | everything else | no test, no sealed citation, a failed test, or a citation to a proof that is **not** in the ledger — which verifies nothing. **Not "false"** — just not verified |
 
-The gate is a pure, multilingual tripwire and the receipt is a content-address, so two people running the same trial
-on the same statement get the same verdict.
+**uuidna verifies; it never refutes.** Calling a claim *false* is an overclaim it cannot decide — absence of proof is
+not proof of falsity — so there is no third verdict. The receipt is a content-address, so two people running the same
+trial on the same statement get the same answer.
 
 ## The charter — what the trial does and does not judge
 
-A public trial carries credibility only if its stance is stated plainly. This is the whole of it, and it is drawn
-from the three verdicts above — no more, no less:
+A public trial carries credibility only if its stance is stated plainly. This is the whole of it, drawn from the two
+answers above — no more, no less:
 
 - **The claim is on trial, never the person, never the idea's worth.** A trial judges *integrity* — does a statement
   earn what it asserts — not merit, taste, or who wrote it. There is no verdict for "unwelcome" and none for "brilliant".
-- **Every idea is heard.** Any statement can be tried. An idea that is honest but unproven is **UNVERIFIED** — held
-  open, never dismissed — and it leaves with an ordered `develop` plan: name the finite structure, write the boolean
-  predicate, supply it. An idea is *not* left at "UNVERIFIED, good luck".
-- **The only "no" is to overreach, and it is a reeducation, not a rejection.** **REFUTED** means one of two exact
-  things: a named overclaim word, or a supplied test that fails by counterexample. Even then the remedy is *"cut the
-  drained phrase, keep the mechanism"* — the claim is sharpened, the thinker is not blamed.
-- **Earned, not granted.** **SEALED** happens only when a recomputable test holds. Respect for an idea is not agreement
-  with it: the gate is a floor, not an oracle — it drains overclaim, not disagreement.
-- **Public and equal.** Every verdict is content-addressed and recomputable by anyone, and the fold is order-invariant:
+- **Every idea is heard, and none is called false.** Any statement can be tried. An idea without a proof is
+  **UNVERIFIED** — held open, never dismissed, never labelled false — and it leaves with an ordered `develop` plan:
+  name the finite structure, write the boolean predicate, supply it. An idea is *not* left at "UNVERIFIED, good luck".
+- **The only distinction is a proof.** **VERIFIED** happens only when a recomputable test holds or a sealed theorem
+  backs it. Respect for an idea is not agreement with it: the trial reports whether a proof stands, not whether the
+  reader likes it.
+- **Nothing is refused — one thing is not shipped.** The trial refuses no idea. The *publish* gate does refuse one
+  thing: shipping a note that cites a proof which does not exist in the ledger (a fabricated citation). That is a
+  quality check on the making, not a verdict that the idea is false — the remedy is *"seal that theorem, or drop the
+  citation and bring a test"*.
+- **Public and equal.** Every answer is content-addressed and recomputable by anyone, and the fold is order-invariant:
   the same receipt for every observer, whatever order they read in. No private verdict, no privileged reader.
 
-**The honest limit — credibility *is* responsibility.** "Every idea heard" is not "every claim granted", and it is not
-a megaphone. Refusing an overclaim is not judging the idea — it is holding the *claim* to what it earns; drop that and a
-pass would mean nothing. And a public, hostable system keeps a floor against genuine harm: respect for learning and
-responsibility point the same way. The trial expects nothing of an idea except that it not claim more than it can show.
+**The honest limit — credibility *is* responsibility.** "Every idea heard" is not "every claim verified". Leaving an
+unbacked claim UNVERIFIED is not judging the idea — it is holding the *claim* to what it earns; drop that and a VERIFIED
+would mean nothing. The trial expects nothing of an idea except that it not claim a proof it does not have.
 
 ## It can fail
 
-The trial is **not rigged to pass**. The provenance gate exits non-zero when it finds a hollow, unlinked claim — the
-opposite of a rubber stamp. A statement that overclaims is REFUTED, and a build that ships an overclaim **fails the
-audit**. That a trial *can* fail is what makes a pass mean anything.
+The trial is **not rigged to pass**. The publish gate exits non-zero when a note cites a proof that is not in the
+ledger — the opposite of a rubber stamp. A build that ships a fabricated citation **fails the audit**. That a trial
+*can* fail is what makes a VERIFIED mean anything.
 
 ## It hardens in real life
 

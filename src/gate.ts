@@ -14,5 +14,5 @@ import { slimGate } from './slimgate.js'
  *  the verdict folds from the sealed set alone, recomputable by anyone. `hit` is the fabricated key, or null. */
 export const computes = (text: string): { binary: 0 | 1; hit: string | null } => {
   const s = slimGate(text)
-  return s.verdict === 'REFUTED' ? { binary: 0, hit: s.fabricated[0] ?? null } : { binary: 1, hit: null }
+  return s.fabricated.length > 0 ? { binary: 0, hit: s.fabricated[0] ?? null } : { binary: 1, hit: null }
 }
