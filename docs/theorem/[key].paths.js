@@ -4,6 +4,16 @@
 // woven to its neighbours in all directions. `params` also feeds per-page Open Graph + uuidna:address meta via
 // transformPageData in config.ts.
 import { theorems, PRINCIPLES, renderTheorem } from '../../dist/index.js'
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
+
+// The decide-step heartbeat cost per theorem — a persisted, on-demand snapshot (npm run heartbeats --all), keyed by
+// CONTENT-ADDRESS so a changed theorem self-invalidates: its address moves, the lookup misses, the page says "not
+// yet measured" rather than showing a stale number. Absent file → every page just omits the measured cost.
+const HB = (() => {
+  try { return JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../../lean/heartbeats.json'), 'utf8')).costs || {} } catch { return {} }
+})()
 
 const blurb = Object.fromEntries(PRINCIPLES.map((p) => [p[1], p[2]]))
 const GH = 'https://github.com/uuidna/uuidna/blob/main/lean/'
@@ -134,6 +144,7 @@ ${t.lean}
 | skill | ${t.skill} |
 | principle | ${t.principle} — ${blurb[t.principle] || ''} |
 | verdict | **SEALED** — its \`by ${t.tactic}\` proof compiles sorry-free (Lean 4.33.0, no Mathlib) |
+| decide-step cost | ${HB[t.address] !== undefined ? `**${HB[t.address]} heartbeats** — the deterministic, machine-independent work \`by ${t.tactic}\` does to verify it (recompute: \`npm run heartbeats ${t.key}\`)` : `not yet measured — run \`npm run heartbeats ${t.key}\``} |
 
 ## Cross-links
 

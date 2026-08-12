@@ -86,6 +86,13 @@ async function main() {
     })
     const ok = costs.filter((c) => c.cost !== null) as { key: string; file: string; cost: number }[]
     const total = ok.reduce((s, c) => s + c.cost, 0)
+    // persist per-theorem costs, keyed by CONTENT-ADDRESS so a changed theorem self-invalidates (its address moves,
+    // the lookup misses, the page shows "not yet measured"). Consumed by the theorem pages; regenerate with --all.
+    const addrOf: Record<string, string> = Object.fromEntries(T.map((t) => [t.key, t.address]))
+    const costMap: Record<string, number> = {}
+    for (const c of ok) costMap[addrOf[c.key]] = c.cost
+    writeFileSync(join(ROOT, 'lean', 'heartbeats.json'), JSON.stringify({ measured: ok.length, total, costs: costMap }) + '\n')
+    console.log('wrote lean/heartbeats.json — ' + ok.length + ' per-theorem decide-step costs, keyed by content-address')
     const byFile: Record<string, number> = {}
     ok.forEach((c) => { byFile[c.file] = (byFile[c.file] || 0) + c.cost })
     const failed = costs.length - ok.length
