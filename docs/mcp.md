@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="75 keys" />
+# MCP tools <Badge type="tip" text="78 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 75 tools below are read from the server's own tool list and
-organised into 15 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 78 tools below are read from the server's own tool list and
+organised into 18 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`75`" />
+## The grid <Badge type="tip" :text="`78`" />
 
-75 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+78 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -86,6 +86,9 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-vocabulary"><code>vocabulary</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
+<a href="#uuidna-legal-facts"><code>legal_facts</code></a>
+<a href="#uuidna-reflects"><code>reflects</code></a>
+<a href="#uuidna-reason"><code>reason</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
 <a href="#uuidna-forensics"><code>forensics</code></a>
 <a href="#uuidna-evidence"><code>evidence</code></a>
@@ -911,6 +914,45 @@ PATTERN RECOGNITION — recognise the pattern two texts share by examining how t
 | --- | --- | --- | --- |
 | `a` | string | **yes** |  |
 | `b` | string | **yes** |  |
+
+## Legal fact base (not an opinion) <Badge type="tip" :text="'1'" />
+
+*skill: legal*
+
+### `uuidna_legal_facts`
+
+The recomputable legal FACT BASE, in chat — explicitly NOT a legal audit, legal advice, or a compliance opinion, and it must not be presented as one. Gathers the legally-relevant facts a qualified attorney/auditor starts FROM: the licence (CC BY-NC-ND 4.0 + its content-address), the copyright/attribution (Tsvetan Rouschev), the ledger's tamper-evident receipt, the compliance STANCE (the project makes no compliance claim and its own forensics refuses a blanket one), and the standards it CITES (not certifies) — folded to one receipt anyone recomputes. The inputs, never the verdict; a real legal audit needs licensed counsel reviewing specific jurisdictions against the actual deployment. uuidna delivers what recomputes; the ruling is a human's.
+
+_No parameters._
+
+## Reflection (systems ↔ theorems) <Badge type="tip" :text="'1'" />
+
+*skill: reflects*
+
+### `uuidna_reflects`
+
+Reveal the sealed theorems a real-world system ALREADY reflects. Describe a system by its devices and concepts (e.g. home security: "keypad code tamper sensor detect alarm zone parity layered defence signature encryption schedule") and it matches those concepts against the ledger, returning the EXISTING `by decide` theorems whose arithmetic the system rests on — folded to one receipt. HONEST: the theorems already exist and were proven for their own domain; this shows the SAME arithmetic recurs — it does NOT claim uuidna is that system, that the theorems were built for it, or that citing them makes the system secure/correct. A resemblance the ledger carries, recomputable by anyone.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `query` | string | **yes** | a system described by its devices/concepts |
+
+## Reasoning (in-house inference) <Badge type="tip" :text="'1'" />
+
+*skill: reason*
+
+### `uuidna_reason`
+
+IN-HOUSE reasoning that USES the sealed rules of inference. Give {facts:[atoms], rules:[{if:[atoms],then:atom}]} and it forward-chains to a fixpoint: whenever every premise of a rule is known it concludes the head by MODUS PONENS (or the hypothetical syllogism for a chain), CITING the sealed theorem at each step. Bounded (cannot loop forever), deterministic, and folds the whole derivation to one receipt anyone rechecks. Honest scope: bounded propositional forward-chaining over the rules you give — NOT a general theorem prover; it derives only what those rules entail, and never claims a conclusion is TRUE, only that it FOLLOWS.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `facts` | array | **yes** |  |
+| `rules` | array | **yes** |  |
 
 ## Forensics & evidence (statements vs receipts) <Badge type="tip" :text="'2'" />
 
