@@ -14,7 +14,7 @@ theorems). A `.0` bumps development onward.
 ## Roadmap — toward [1.0.0]
 
 A plan, not a promise. **v1.0.0 aims at 1024 theorems** (2¹⁰ — a clean power-of-two milestone), **all `by decide`,
-sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **861 / 1024 — 163 to go**, across 49 principles.<!-- /LEDGER:TODAY -->
+sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **869 / 1024 — 155 to go**, across 50 principles.<!-- /LEDGER:TODAY -->
 The versions in between are real, gated releases: each `0.1.x` grows the ledger and must pass `npm run next` (proofs +
 prose + accounts + graph + the changelog self-audit) before it ships. And the honest odometer holds — **1.0.0 comes
 only after the `0.1.x` line is actually published on npm** (today only `0.1.0` is), never by minting forward past an
@@ -30,7 +30,7 @@ the chance to reverse-develop itself *now*, while the ledger is still free.
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **861 theorems** across **49 principles**, folded to receipt `19c73128-2361-8e31-aea8-d1b14389548d`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **869 theorems** across **50 principles**, folded to receipt `40d33da6-b84e-8e6e-a1e9-3703d33e4f6d`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added
@@ -49,7 +49,11 @@ the chance to reverse-develop itself *now*, while the ledger is still free.
   frequency = c, the seven bands in order, the visible window under one octave, and the 300,000 km/s rounding gap;
   spectrum arithmetic, *not* an EMF/health claim), and **the colour wheel** (colour theory — the wheel as ℤ/12,
   complements opposing, the triad and square harmonies as regular polygons, 24-bit true colour; the geometry, *not* a
-  verdict on taste). Each domain measured for its decide-step heartbeat cost (100% coverage).
+  verdict on taste), and **the instrument** (psychology's *arithmetic* only — the Likert midpoint as a reflection
+  fixed point, the Big Five count, Miller's 7±2 span, Hick's bits, the detection table, the Weber–Fechner ladder,
+  Dunbar's rounded layers — the narrowest scope in the ledger: *not* a claim about the mind, emotion, or any
+  diagnosis; every mentalistic claim, sent to the trial, comes back UNVERIFIED). Each domain measured for its
+  decide-step heartbeat cost (100% coverage).
 - **Publications (monographs)** — audited-before-published prose per domain at `/publications`, composed by reading
   the sealed theorems; the build refuses a note that overreaches a proof. `uuidna_publish`.
 - **The editor & pattern recognition** — `revise` (editing is re-addressing) and `compare` (similarity derived from
