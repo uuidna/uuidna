@@ -17,6 +17,7 @@ import {
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   THEOREMS, runTrial, theorems, skillGroups,
+  publications, composePublication,
 } from './index.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { pathToFileURL } from 'node:url'
@@ -326,6 +327,12 @@ const TOOLS: Tool[] = [
     description: 'Read ONE theorem by key: its detailed `by decide` Lean proof, its formal statement, its principle, source file and content-address, and the verdict (SEALED — its Lean proof compiles sorry-free). Keys from uuidna_theorems.',
     inputSchema: { type: 'object', properties: { key: { type: 'string' } }, required: ['key'] },
     run: ({ key }) => { const t = THEOREMS.find((x) => x.key === String(key)); if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)'); return { key: t.key, name: t.name, statement: t.statement, lean: t.lean, principle: t.principle, file: t.file, address: t.address, verdict: 'SEALED', source: 'https://github.com/uuidna/uuidna/blob/main/lean/' + t.file } } },
+  { name: 'uuidna_publish',
+    description: 'Write a PUBLICATION in lean human prose about ONE domain, AUDITED before publishing. Composed by READING that domain\'s sealed theorems and writing only what they settle — every claim links the proof that backs it — then gated by uuidna\'s own honesty audit; an overclaiming note is REFUSED, not shipped. Call with no argument to list every domain\'s publication (slug + count + publishable + receipt), or with `file` (e.g. "Tides.lean", from uuidna_theorems) to get that note\'s full markdown, content-address, member proofs and audit findings. Writing descends from reading; integrity, not truth.',
+    inputSchema: { type: 'object', properties: { file: { type: 'string', description: 'a lean/*.lean file name, e.g. "Codes.lean" — omit to list all publications' } } },
+    run: (a = {}) => a.file
+      ? composePublication(String(a.file))
+      : publications().map((p) => ({ slug: p.slug, file: p.file, title: p.title, theorems: p.count, publishable: p.publishable, receipt: p.receipt, address: p.address, findings: p.findings })) },
   { name: 'uuidna_trial',
     description: 'Run the whole Lean ledger through the trial: every theorem is SEALED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,sealed,refuted,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
@@ -468,6 +475,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^audit_(text|book|translation|movie|record)$/, 'Provenance audit (public text & metadata)', 'books'],
   [/^(sha256|hmac|pbkdf2|chacha20|poly1305|aead_encrypt|aead_decrypt)$/, 'Crypto primitives', 'crypto'],
   [/^(theorems|theorem|trial|skills|render|render_list)$/, 'Theorems & trial', 'theorem'],
+  [/^publish$/, 'Publications (audited prose)', 'publish'],
   [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
   [/^quantum$/, 'Quantum simulation', 'quantum'],
   [/^bill$/, 'Billing & measure', 'billing'],

@@ -65,6 +65,10 @@ export { contractId, contractDomain, sealToContract, openFromContract, sealChain
 export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit } from './books.js'
 export { gcdInt, coprime, starPolygon, fibonacciCycle, rotate, crt } from './cycles.js'
 export { recomputableCost, type CostReport } from './cost.js'
+// publish — write PUBLICATIONS in lean human prose, AUDITED before publishing: a domain note composed by reading
+// its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
+// refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.
+export { composePublication, publications, auditPublication, type Publication, type PubFinding } from './publish.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS

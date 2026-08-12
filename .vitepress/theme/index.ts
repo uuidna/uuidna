@@ -5,7 +5,6 @@ import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
-import NextPage from './NextPage.vue'
 import Reflect from './Reflect.vue'
 import BookReflect from './BookReflect.vue'
 import SearchResults from './SearchResults.vue'
@@ -21,10 +20,11 @@ import './style.css'
 export default {
   extends: DefaultTheme,
   Layout: () => {
-    // Global categorised footer on every page, via the layout-bottom slot.
+    // Global categorised footer on every page, via the layout-bottom slot. The "next" link is VitePress's OWN
+    // native pager (fed by frontmatter prev/next in config.ts — seqNav) — one next button, the local skill, not a
+    // second custom one that duplicated it and confused the page.
     return h(DefaultTheme.Layout, null, {
-      // Every page gets a referrer-aware "next" link (walking the whole site, wrapping) above the global footer.
-      'layout-bottom': () => [h(NextPage), h(SiteFooter)],
+      'layout-bottom': () => [h(SiteFooter)],
     })
   },
   enhanceApp({ app }) {

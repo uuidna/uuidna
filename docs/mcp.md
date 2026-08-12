@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="67 keys" />
+# MCP tools <Badge type="tip" text="68 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 67 tools below are read from the server's own tool list and
-organised into 13 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 68 tools below are read from the server's own tool list and
+organised into 14 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`67`" />
+## The grid <Badge type="tip" :text="`68`" />
 
-67 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+68 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -82,6 +82,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-theorems"><code>theorems</code></a>
 <a href="#uuidna-skills"><code>skills</code></a>
 <a href="#uuidna-theorem"><code>theorem</code></a>
+<a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-trial"><code>trial</code></a>
 <a href="#uuidna-send"><code>send</code></a>
 <a href="#uuidna-receive"><code>receive</code></a>
@@ -848,6 +849,20 @@ The pigeonhole seat bound: a b-bit digest has 2^b distinct seats, so past 2^b in
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `bits` | number | **yes** |  |
+
+## Publications (audited prose) <Badge type="tip" :text="'1'" />
+
+*skill: publish*
+
+### `uuidna_publish`
+
+Write a PUBLICATION in lean human prose about ONE domain, AUDITED before publishing. Composed by READING that domain's sealed theorems and writing only what they settle — every claim links the proof that backs it — then gated by uuidna's own honesty audit; an overclaiming note is REFUSED, not shipped. Call with no argument to list every domain's publication (slug + count + publishable + receipt), or with `file` (e.g. "Tides.lean", from uuidna_theorems) to get that note's full markdown, content-address, member proofs and audit findings. Writing descends from reading; integrity, not truth.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `file` | string | no | a lean/*.lean file name, e.g. "Codes.lean" — omit to list all publications |
 
 ## Quantum simulation <Badge type="tip" :text="'1'" />
 

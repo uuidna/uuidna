@@ -111,6 +111,7 @@ export default defineConfig({
       { text: 'Topics', link: '/topics' },
       { text: 'MCP', link: '/mcp' },
       { text: 'Books', link: '/books' },
+      { text: 'Publications', link: '/publications' },
       { text: 'Guides', link: '/guides' },
       { text: 'Captain', items: [{ text: 'The Contract', link: '/captain/config' }, { text: "The captain's message", link: '/captain/message' }, { text: 'The Navigator', link: '/captain/navigator' }] },
     ],
