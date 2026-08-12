@@ -4,7 +4,7 @@
 // not a theorem. The recomputation-only capabilities (FNV address, gate, crypto) are TOOLS, not theorems.
 //
 // Requires the package to be built first (`npm run build` → dist/). `npm run docs:build` does both in order.
-import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid } from '../dist/index.js'
+import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid, publications } from '../dist/index.js'
 
 export type Theorem = {
   key: string
@@ -23,6 +23,7 @@ export type PrincipleGroup = {
   blurb: string
   count: number
   fold: string
+  guide: string | null   // the /publications/<slug> guide for this cluster (its audited monograph), or null
   theorems: Theorem[]
 }
 
@@ -67,9 +68,12 @@ export default {
     const blurb = Object.fromEntries(PRINCIPLES.map((p: string[]) => [p[1], p[2]])) as Record<string, string>
     const order = PRINCIPLES.map((p: string[]) => p[1]).filter((name: string) => LEDGER.some((t) => t.principle === name))
 
+    // Each cluster's GUIDE is its audited monograph on /publications, matched by the .lean file the theorems share.
+    const guideByFile = Object.fromEntries(publications().map((p) => [p.file, p.slug])) as Record<string, string>
     const groups: PrincipleGroup[] = order.map((name) => {
       const list = LEDGER.filter((t) => t.principle === name)
-      return { name, blurb: blurb[name] || '', count: list.length, fold: merkleGravity(list.map((t) => t.address)), theorems: list }
+      const slug = guideByFile[list[0]?.file]
+      return { name, blurb: blurb[name] || '', count: list.length, fold: merkleGravity(list.map((t) => t.address)), guide: slug ? `/publications/${slug}` : null, theorems: list }
     })
 
     // Discussion topics computed by the theorem skill axis — biggest first, each folded to its own receipt. Public.

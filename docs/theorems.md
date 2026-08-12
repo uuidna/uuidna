@@ -4,27 +4,98 @@ aside: false
 ---
 
 <script setup>
+import { ref, computed } from 'vue'
 import { data } from '../.vitepress/ledger.data'
+
+// The FILTERING SYSTEM — client-side, computed from the same ledger the pages render. Facet by principle (the
+// derivation cluster) and by skill (the capability), narrow by text; every filter recomputes the count and the
+// order-invariant fold of exactly what is shown, so the receipt below the list is a proof of the current view.
+const q = ref('')
+const principle = ref('')     // '' = all
+const skill = ref('')         // '' = all
+const guideByPrinciple = Object.fromEntries(data.groups.map((g) => [g.name, g.guide]))
+
+const shown = computed(() => {
+  const needle = q.value.trim().toLowerCase()
+  return data.theorems.filter((t) =>
+    (!principle.value || t.principle === principle.value) &&
+    (!skill.value || t.skill === skill.value) &&
+    (!needle || (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(needle)))
+})
+// Counts on each facet reflect the OTHER active filters, so a reader sees how many land in each before clicking.
+const principleFacets = computed(() =>
+  data.order.map((name) => ({ name, n: data.theorems.filter((t) => t.principle === name &&
+    (!skill.value || t.skill === skill.value) &&
+    (!q.value.trim() || (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q.value.trim().toLowerCase()))).length })))
+const skillFacets = computed(() =>
+  data.skillGroups.map((g) => g.skill).map((s) => ({ s, n: data.theorems.filter((t) => t.skill === s &&
+    (!principle.value || t.principle === principle.value) &&
+    (!q.value.trim() || (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q.value.trim().toLowerCase()))).length })))
+const activeGuide = computed(() => principle.value ? guideByPrinciple[principle.value] : null)
+const clearAll = () => { q.value = ''; principle.value = ''; skill.value = '' }
 </script>
 
 # Theorems <Badge type="tip" :text="`${data.total} Lean-proven`" />
 
-**The collection of proven Lean theorems** — every one authored in `lean/*.lean`, proven `by decide` (Lean 4.33.0,
-no Mathlib), verified sorry-free by `npm run lean`, and organised by computing principle: the 8×8 core generates,
-then the ring ℤ/9, the rosette ℤ/7, and the derived, discovered and applied layers. Use the search box (top right)
-to filter by any text; open any theorem for its detailed proof. Lean is the single source — the recomputation-only
-capabilities (FNV address, gate, crypto) are **tools**, not theorems.
+**Every proven Lean theorem — filter it, then read its proof.** Each is authored in `lean/*.lean`, proven `by decide`
+(Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`. Filter by **cluster** (the derivation principle) or
+**skill** (the capability), narrow by text, and open any theorem for its proof. Each cluster's **guide** is its audited
+monograph. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.
 
-<section v-for="g in data.groups" :key="g.name" class="psec">
-  <h2>{{ g.name }} <Badge type="tip" :text="String(g.count)" /></h2>
-  <p class="psec-blurb">{{ g.blurb }}</p>
-  <p class="psec-fold">layer fold <code>{{ g.fold }}</code></p>
-  <ul class="tlist">
-    <li v-for="t in g.theorems" :key="t.key">
-      <a :href="`/theorem/${t.key}`">{{ t.name }}</a>
-      <code class="tstmt">{{ t.statement }}</code>
-    </li>
-  </ul>
-</section>
+<div class="filt">
+  <input class="filt-q" v-model="q" placeholder="filter by text — key, statement, description…" />
+  <button v-if="q || principle || skill" class="filt-clear" @click="clearAll">clear ✕</button>
+</div>
+
+<div class="filt-row">
+  <strong class="filt-lbl">cluster</strong>
+  <button class="chip" :class="{ on: !principle }" @click="principle = ''">all</button>
+  <button v-for="f in principleFacets" :key="f.name" class="chip" :class="{ on: principle === f.name, dim: f.n === 0 }" @click="principle = principle === f.name ? '' : f.name">{{ f.name }} <span class="chip-n">{{ f.n }}</span></button>
+</div>
+
+<div class="filt-row">
+  <strong class="filt-lbl">skill</strong>
+  <button class="chip" :class="{ on: !skill }" @click="skill = ''">all</button>
+  <button v-for="f in skillFacets" :key="f.s" class="chip" :class="{ on: skill === f.s, dim: f.n === 0 }" @click="skill = skill === f.s ? '' : f.s">{{ f.s }} <span class="chip-n">{{ f.n }}</span></button>
+</div>
+
+<p class="filt-count">
+  <strong>{{ shown.length }}</strong> of {{ data.total }} shown{{ principle ? ` · cluster ${principle}` : '' }}{{ skill ? ` · skill ${skill}` : '' }}.
+  <a v-if="activeGuide" :href="activeGuide">Read the {{ principle }} guide →</a>
+</p>
+
+<ul class="tlist tlist-flat">
+  <li v-for="t in shown" :key="t.key">
+    <a :href="`/theorem/${t.key}`">{{ t.name }}</a>
+    <code class="tstmt">{{ t.statement }}</code>
+    <span class="tmeta">{{ t.principle }} · {{ t.skill }}</span>
+  </li>
+</ul>
+
+<p v-if="shown.length === 0" class="filt-empty">No theorem matches — <a @click="clearAll">clear the filters</a>.</p>
 
 The whole set folds to one order-invariant receipt: <code>{{ data.trial.receipt }}</code>. Re-verify every proof with `npm run lean`.
+The same theorems grouped by skill are on [/topics](/topics); the cluster guides are the monographs on [/publications](/publications).
+
+<style scoped>
+.filt { display: flex; gap: .5rem; align-items: center; margin: 1rem 0 .5rem; }
+.filt-q { flex: 1; padding: .55rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-1); font-size: .95rem; }
+.filt-clear { padding: .55rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); cursor: pointer; white-space: nowrap; }
+.filt-row { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; margin: .35rem 0; }
+.filt-lbl { flex: 0 0 3.5rem; color: var(--vp-c-text-2); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+.chip { padding: .28rem .6rem; border: 1px solid var(--vp-c-divider); border-radius: 999px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-1); cursor: pointer; font-size: .82rem; line-height: 1.2; transition: all .12s; }
+.chip:hover { border-color: var(--vp-c-brand-1); }
+.chip.on { background: var(--vp-c-brand-1); color: var(--vp-c-bg); border-color: var(--vp-c-brand-1); }
+.chip.dim { opacity: .38; }
+.chip-n { opacity: .7; font-variant-numeric: tabular-nums; font-size: .78em; }
+.chip.on .chip-n { opacity: .85; }
+.filt-count { margin: .8rem 0 .4rem; color: var(--vp-c-text-2); }
+.filt-count a { margin-left: .5rem; font-weight: 600; }
+.tlist-flat { list-style: none; padding: 0; }
+.tlist-flat li { padding: .4rem 0; border-bottom: 1px solid var(--vp-c-divider); }
+.tlist-flat li > a { font-weight: 600; }
+.tstmt { display: inline-block; margin-left: .5rem; font-size: .82em; color: var(--vp-c-text-2); }
+.tmeta { display: block; font-size: .74em; color: var(--vp-c-text-3); margin-top: .1rem; }
+.filt-empty { color: var(--vp-c-text-2); }
+.filt-empty a { cursor: pointer; }
+</style>
