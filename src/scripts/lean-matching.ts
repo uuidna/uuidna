@@ -53,7 +53,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Matching.lean',
+  file: 'Matching.lean', skill: 'matching',
   header: 'THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching. NOT a dating service, NOT anyone\'s data — only the graph theory a matching rests on.',
   defs: NTH_DEF,
   facts: FACTS.map((f) => ({ ...f, name: f.why })),

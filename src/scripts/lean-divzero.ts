@@ -35,7 +35,7 @@ const FACTS = [
 
 // compute → generate → verify, via the shared pipeline (it JS-checks every fact, writes the file + manifest, and
 // compiles it sorry-free with `lean`). Division by zero EXISTS here as the diamond reflection dz(x)=10−x.
-emit({ file: 'DivByZero.lean',
+emit({ file: 'DivByZero.lean', skill: 'reflection',
   header: 'Division by zero in the ℤ/9 vortex EXISTS: it is the diamond reflection dz(x) = 10−x (dz 0 = 0), a finite residue, never ∞.',
   defs: 'def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

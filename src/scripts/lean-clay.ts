@@ -43,6 +43,6 @@ const FACTS = [
 
 console.log('computing ' + FACTS.length + ' CLAY facts on the proven involution (reflected, round-trip = identity, solved none) …')
 
-emit({ file: 'Clay.lean', defs: DEFS,
+emit({ file: 'Clay.lean', skill: 'clay-reflection', defs: DEFS,
   header: 'The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

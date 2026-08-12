@@ -86,7 +86,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Typesetting.lean',
+  file: 'Typesetting.lean', skill: 'typesetting',
   header: 'THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini\'s identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. HONEST SCOPE: the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

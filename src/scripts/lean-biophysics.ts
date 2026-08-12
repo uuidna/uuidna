@@ -82,6 +82,6 @@ const FACTS = [
 
 console.log('computing ' + FACTS.length + ' bio/physics STRUCTURE facts (algebra, not a medical/physical claim) …')
 
-emit({ file: 'BioPhysics.lean', defs: LXOR_DEF,
+emit({ file: 'BioPhysics.lean', skill: 'science-pairs', defs: LXOR_DEF,
   header: 'The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). HONEST SCOPE: the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

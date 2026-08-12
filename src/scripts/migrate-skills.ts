@@ -38,6 +38,29 @@ const MAP: Record<string, [string, string]> = {
   'lean-thermodynamics.ts': ['Thermodynamics.lean', 'thermodynamics'],
   'lean-tides.ts': ['Tides.lean', 'tides'],
   'lean-topography.ts': ['Topography.lean', 'topography'],
+  // batch 3 — the remaining DOMAIN files: the domain IS the primary capability every theorem demonstrates, so a
+  // file-wide skill is the fresh authoring (skillOf had split them to foundational/involution/etc. by mechanism).
+  'lean-navigation.ts': ['Navigation.lean', 'navigation'],
+  'lean-acoustics.ts': ['Acoustics.lean', 'acoustics'],
+  'lean-audit.ts': ['Audit.lean', 'audit'],
+  'lean-biophysics.ts': ['BioPhysics.lean', 'science-pairs'],
+  'lean-chemistry.ts': ['Chemistry.lean', 'chemistry'],
+  'lean-cipher.ts': ['Cipher.lean', 'cipher'],
+  'lean-clay.ts': ['Clay.lean', 'clay-reflection'],
+  'lean-coins.ts': ['Coins.lean', 'coins'],
+  'lean-command.ts': ['Command.lean', 'command'],
+  'lean-divzero.ts': ['DivByZero.lean', 'reflection'],
+  'lean-ephemeris.ts': ['Ephemeris.lean', 'ephemeris'],
+  'lean-glagolitic.ts': ['Glagolitic.lean', 'glagolitic'],
+  'lean-infinity.ts': ['Infinity.lean', 'infinity'],
+  'lean-matching.ts': ['Matching.lean', 'matching'],
+  'lean-molecular.ts': ['Molecular.lean', 'molecular'],
+  'lean-optics.ts': ['Optics.lean', 'optics'],
+  'lean-pentagram.ts': ['Pentagram.lean', 'pentagram'],
+  'lean-production.ts': ['Production.lean', 'music-production'],
+  'lean-quantum.ts': ['Quantum.lean', 'quantum'],
+  'lean-relativity.ts': ['Relativity.lean', 'relativity'],
+  'lean-typesetting.ts': ['Typesetting.lean', 'typesetting'],
 }
 
 let changed = 0

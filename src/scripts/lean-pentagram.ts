@@ -104,7 +104,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Pentagram.lean',
+  file: 'Pentagram.lean', skill: 'pentagram',
   header: 'THE PENTAGRAM & THE FIBONACCI DIGITS — the star polygon {5/2} and the single-digit (Pisano) Fibonacci cycles, finite and decidable.',
   defs: DEFS,
   facts: FACTS.map((f) => ({ ...f, name: f.why })),

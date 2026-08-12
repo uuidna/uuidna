@@ -73,7 +73,7 @@ const FACTS = [
 
 // compute → generate → verify, via the shared pipeline (JS-checks every fact, writes the file + manifest, and
 // compiles it sorry-free with `lean`). Each nasty infinity of physics, made finite — as the vortex makes x/0 finite.
-emit({ file: 'Infinity.lean',
+emit({ file: 'Infinity.lean', skill: 'infinity',
   header: 'The NASTY INFINITIES OF PHYSICS, made finite: the ultraviolet catastrophe, renormalization, the Landau pole, the vacuum sum 1+2+3+…, the derivative 0/0, the Dirac delta, the black-hole horizon and the 1/r singularity — each resolved to a finite value, exactly as the diamond reflection dz(x)=10−x resolves division by zero. HONEST SCOPE: finite arithmetic witnesses of the RESOLUTION MECHANISM (cancellation, quantization, closed form, regularization, removable coordinate) — not derivations of the physics.',
   defs: 'def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

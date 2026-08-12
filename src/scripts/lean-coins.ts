@@ -42,6 +42,6 @@ const FACTS = [
 ]
 
 // compute → generate → verify. The two coins are the conserved invariant of the double torus; 64 = 2⁶ the measure.
-emit({ file: 'Coins.lean',
+emit({ file: 'Coins.lean', skill: 'coins',
   header: 'THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), not a market price and NOT a claim of speed.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

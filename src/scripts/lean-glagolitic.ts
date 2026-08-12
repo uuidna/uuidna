@@ -42,6 +42,6 @@ const FACTS = [
 
 // compute → generate → verify. The Glagolitic numerals and the Pliska rosette's seven-fold — documented arithmetic
 // and geometry, demarcated: the rosette's meaning stays historically debated; only the numbers are sealed.
-emit({ file: 'Glagolitic.lean',
+emit({ file: 'Glagolitic.lean', skill: 'glagolitic',
   header: 'GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. Cyril\'s 9th-century script numbered its letters in order: the units 1–9 (Az…Zemlja), the tens and hundreds, combined additively (500+80+3 = 583), with the teens 11–19 written unit-before-ten. The nine units sum to 45 (digital root 9); the Pliska rosette turns on seven rays — the ℤ/7 the rosette layer seals — whose six residues sum to 21 (digital root 3, the primitive root), and 7 is prime so ℤ/7 is a field. HONEST SCOPE: the documented numeral arithmetic and the seven-fold symmetry; the rosette\'s MEANING (the seven planets, the days, the Dulo dynasty, a sun-sign) is historically DEBATED, not decoded here.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

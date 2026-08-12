@@ -73,6 +73,6 @@ const FACTS = [
 
 // compute → generate → verify, via the shared pipeline (JS-checks every fact, writes the file + manifest, and
 // compiles it sorry-free with `lean`). Crypto ∩ DNA — the shared algebra and its honest limits, demarcated.
-emit({ file: 'Cipher.lean', defs: LXOR_DEF,
+emit({ file: 'Cipher.lean', skill: 'cipher', defs: LXOR_DEF,
   header: 'CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

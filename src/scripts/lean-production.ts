@@ -70,7 +70,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Production.lean',
+  file: 'Production.lean', skill: 'music-production',
   header: 'THE MIX — the studio involutions (reverse, invert, and their fusion) and the counting of pitch, tempo and sample, as decidable arithmetic.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

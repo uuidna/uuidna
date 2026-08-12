@@ -45,7 +45,7 @@ const FACTS = [
 
 // compute → generate → verify. The provenance gate (scripts/provenance.ts) is not just code — its decision logic
 // is these six proofs: it flags only hollow prose, a demarcation or a backing clears it, and exactly one state fires.
-emit({ file: 'Audit.lean',
+emit({ file: 'Audit.lean', skill: 'audit',
   header: 'THE DETECTORS — the provenance audit\'s decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise, never vacuous. The honesty detector, itself a skilled theorem.',
   defs: 'def flag (h d b : Nat) : Nat := h * (1 - d) * (1 - b)',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

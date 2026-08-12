@@ -51,6 +51,6 @@ const FACTS = [
 
 // compute → generate → verify. The reactions domain — mass balance, charge, oxidation states, pH+pOH, Boyle,
 // neutralization, stoichiometry — decidable bookkeeping, demarcated: reaction arithmetic, not thermodynamics.
-emit({ file: 'Chemistry.lean',
+emit({ file: 'Chemistry.lean', skill: 'chemistry',
   header: 'CHEMISTRY — the reactions domain, as decidable arithmetic, demarcated. A balanced equation conserves atoms (Haber N₂+3H₂→2NH₃, methane combustion); a neutral compound conserves charge (Al₂O₃: 2·(+3)+3·(−2)=0); oxidation states sum to the molecular charge; pH + pOH = 14 at 25 °C; Boyle\'s law keeps P·V constant; neutralization pairs H⁺ with OH⁻; and stoichiometry scales linearly. HONEST SCOPE: the arithmetic of reaction bookkeeping — atom/charge counts and exact ratios, not a full thermodynamics or kinetics derivation, distinct from the electron-shell chemistry in BioPhysics.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })
