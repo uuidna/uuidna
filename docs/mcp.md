@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="71 keys" />
+# MCP tools <Badge type="tip" text="73 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 71 tools below are read from the server's own tool list and
-organised into 14 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 73 tools below are read from the server's own tool list and
+organised into 15 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`71`" />
+## The grid <Badge type="tip" :text="`73`" />
 
-71 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+73 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -85,6 +85,8 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-vocabulary"><code>vocabulary</code></a>
+<a href="#uuidna-forensics"><code>forensics</code></a>
+<a href="#uuidna-evidence"><code>evidence</code></a>
 <a href="#uuidna-compare"><code>compare</code></a>
 <a href="#uuidna-trial"><code>trial</code></a>
 <a href="#uuidna-send"><code>send</code></a>
@@ -895,6 +897,31 @@ PATTERN RECOGNITION — recognise the pattern two texts share by examining how t
 | --- | --- | --- | --- |
 | `a` | string | **yes** |  |
 | `b` | string | **yes** |  |
+
+## Forensics & evidence (statements vs receipts) <Badge type="tip" :text="'2'" />
+
+*skill: forensics*
+
+### `uuidna_forensics`
+
+FORENSICS — audit an agent STATEMENT against the RECEIPTS, to catch a FALSE TRIAL (a claim dressed as sealed that the ledger does not back). Recomputes and compares, detecting: a fabricated citation (cites a /theorem/&lt;key&gt; not in the sealed ledger), a false address (a uuid presented as a sealed address that is not one), a drained overclaim (the honesty gate), an unbacked legal claim (says lawful/compliant but carries no receipt — a legal claim must cite the specific content-addressed statement; the receipt proves the claim was made, NEVER that it is legally correct), and an address-mismatch (a {text→address} claim that does not recompute). Every violation is a recomputable fact about the CLAIM, never an accusation of a person. Pass {statement} and optional {claims:[{text,address}]}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `statement` | string | **yes** |  |
+| `claims` | array | no |  |
+
+### `uuidna_evidence`
+
+Deliver the recomputable EVIDENCE bundle for a {statement}, so a court or auditor accepts a uuidna trial by RECOMPUTING it, not trusting it. Assembles: the statement + its content-address, the trial verdict, the forensic audit against the receipts, every cited proof IN FULL (its Lean text, address, source file), the ledger receipt the evidence is bound to, the exact ordered steps to reproduce every number, and one evidenceReceipt folding it all. Anyone re-runs the steps and lands on the same receipt — or the evidence is void. Proves INTEGRITY (the claim was made, the proofs are these, nothing quietly changed), NEVER legal correctness — that is a court's ruling, not a fold. Deterministic and offline.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `statement` | string | **yes** |  |
 
 ## Quantum simulation <Badge type="tip" :text="'1'" />
 

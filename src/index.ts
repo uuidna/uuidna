@@ -4,7 +4,7 @@
 //   before it holds) · a holographic merkle proof (verify the whole from a tiny part, in O(log N)) · a
 //   reversible imprint codec · a client-side harness that reeducates overclaims · a measured billing model.
 //
-// A content-address proves INTEGRITY, not truth. It settles Licensed CC BY-NC 4.0 · Tsvetan Rouschev.
+// A content-address proves INTEGRITY, not truth. It settles Licensed CC BY-NC-ND 4.0 · Tsvetan Rouschev.
 
 export {
   toUuid, cryptoAddress, strictUuidna, merge, coin64, merkleFold, digitalRoot,

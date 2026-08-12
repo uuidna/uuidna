@@ -1,24 +1,26 @@
 ---
 title: License
-description: The canonical uuidna license — CC BY-NC 4.0, free to read, reuse with attribution and non-commercially. Any deployment off uuidna.com is governed by these terms; content-addressed, so a change is a new signature.
+description: The canonical uuidna license — CC BY-NC-ND 4.0, free to read and redistribute with attribution, non-commercially, and without modification. Any deployment off uuidna.com is governed by these terms; content-addressed, so a change is a new signature.
 ---
 
-# License <Badge type="tip" text="CC BY-NC 4.0" />
+# License <Badge type="tip" text="CC BY-NC-ND 4.0" />
 
-> CC BY-NC 4.0 — free to read, reuse with attribution and non-commercially. Canonical at **uuidna.com/license**.
+> CC BY-NC-ND 4.0 — free to read and redistribute with attribution, non-commercially, and without modification. Canonical at **uuidna.com/license**.
 
-This page is the **canonical license** (recorded as receipt `ca0749bc-a9c6-84cc-9947-0643069964bf`, the content-address
+This page is the **canonical license** (recorded as receipt `9ffcda04-5adc-872e-9358-6b831bbd0c0d`, the content-address
 of the line above — recompute it with `uuidna_address`). Author: **Tsvetan Rouschev** (ceccec@psg.bg).
 
 ## The terms
 
 The uuidna content — the theorems, the proofs, the site — is licensed
-[**Creative Commons Attribution-NonCommercial 4.0 International**](https://creativecommons.org/licenses/by-nc/4.0/):
+[**Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International**](https://creativecommons.org/licenses/by-nc-nd/4.0/):
 
 - **Read** — freely, by anyone, for any purpose.
-- **Reuse** — copy, redistribute and adapt, **with attribution** (credit *Tsvetan Rouschev* and link this license) and
-  **non-commercially**. Commercial use is the measured contribution — see [the captain's message](/captain/message).
-- **Reading a public page is not a signed contract.** The license governs **reuse**, not viewing.
+- **Redistribute** — copy and share it **unchanged**, **with attribution** (credit *Tsvetan Rouschev* and link this
+  license) and **non-commercially**. Commercial use is the measured contribution — see [the captain's message](/captain/message).
+- **No derivatives** — you may not distribute a modified version. The published discoveries are a fixed record; a change
+  is a new content-address, not this work — enforced by mathematics, not only by law.
+- **Reading a public page is not a signed contract.** The license governs **redistribution**, not viewing.
 
 ## Canonical and the three domains
 
@@ -71,7 +73,7 @@ The license text is content-addressed. If the terms change, the address changes 
 prior consent does not carry over and a fresh acknowledgment is required. "Did the terms change?" is a `toUuid`
 comparison anyone can recompute, not a promise. See the [Contract](/captain/config#consent-two-kept-separate).
 
-**Powered by uuidna itself.** This license's own receipt (`ca0749bc…`) is minted by the very tool it governs — the
+**Powered by uuidna itself.** This license's own receipt (`9ffcda04…`) is minted by the very tool it governs — the
 contract verifies itself. The brand holds to the same rule: `uuidna_address("uuidna") = fc511532-6e8a-8418-a522-a51b1d46a70c`,
 reproducible by anyone. The whole infrastructure — the default **uuidna.com**, the SaaS subdomains on **uuidna.org**,
 the PaaS on **uuidna.net** — is entangled by this one address: every deployment points back to it, so all copies stay
@@ -80,6 +82,6 @@ binds the reuse, both anchored to the same receipt.
 
 ---
 
-Full legal text: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode) ·
+Full legal text: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode) ·
 source [LICENSE](https://github.com/uuidna/uuidna/blob/main/LICENSE). A theorem computes in Lean, or it is not a theorem;
 a license is content-addressed, or it can be quietly changed.

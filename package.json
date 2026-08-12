@@ -6,7 +6,7 @@
   },
   "description": "Content-addressed identity, honest by construction — mint + mind, holographic merkle proofs, a reversible imprint codec, a reeducating harness, a measured billing model, pure-TypeScript ChaCha20-Poly1305 encryption under a 7d-fold envelope, and an MCP server to fuse it into any harness.",
   "type": "module",
-  "license": "CC-BY-NC-4.0",
+  "license": "CC-BY-NC-ND-4.0",
   "author": "Tsvetan Rouschev <ceccec@psg.bg>",
   "homepage": "https://github.com/uuidna/uuidna",
   "repository": {

@@ -2,7 +2,7 @@
 // toUuid provides INTEGRITY, not secrecy: the same input always mints the same address, for anyone, with no key.
 // FNV-1a is NON-cryptographic by design — public and reproducible, not secret. For adversarial integrity use
 // cryptoAddress (SHA-256), which is collision- and preimage-resistant.
-// Licensed CC BY-NC 4.0 · Attribution: Tsvetan Rouschev (ceccec@psg.bg).
+// Licensed CC BY-NC-ND 4.0 · Attribution: Tsvetan Rouschev (ceccec@psg.bg).
 import { sha256 } from './sha256.js'
 
 const enc = new TextEncoder()

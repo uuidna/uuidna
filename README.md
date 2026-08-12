@@ -2,7 +2,7 @@
 
 **uuidna = uuid ⊕ dna** — identity's DNA. **Content-addressed identity, honest by construction.**
 
-> A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
+> A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
 Every value carries its DNA: a reproducible, keyless content-address. The brand holds itself to the same rule —
 its own name's DNA is `uuidna_address("uuidna") = fc511532-6e8a-8418-a522-a51b1d46a70c`, reproducible by anyone.
@@ -178,5 +178,5 @@ extraction (this is `6.4.7`), so the number tells you which deposit state it is.
 
 ## License
 
-CC BY-NC 4.0 — free for non-commercial use with attribution (Tsvetan Rouschev). Commercial use is billed
+CC BY-NC-ND 4.0 — free for non-commercial, unmodified redistribution with attribution (Tsvetan Rouschev). Commercial use is billed
 on the measured bits saved; the two coins (110 − 108 = 2) are the conserved fair-exchange invariant.

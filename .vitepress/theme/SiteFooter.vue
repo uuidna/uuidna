@@ -8,7 +8,7 @@ const href = (h) => (h.startsWith('/') ? withBase(h) : h)
 const GH = 'https://github.com/uuidna/uuidna'
 // The licence, shown as its content-address on every page — its own recomputable receipt (the fold of the canonical
 // licence line; see /license). Every domain but uuidna.com redirects to /license; here the licence rides as a uuid.
-const licenseUuid = 'ca0749bc-a9c6-84cc-9947-0643069964bf'
+const licenseUuid = '9ffcda04-5adc-872e-9358-6b831bbd0c0d'
 const cols = [
   { title: 'The ledger', links: [
     { text: 'All theorems', href: '/theorems' },
@@ -50,7 +50,7 @@ const cols = [
       </section>
     </div>
     <div class="sf-base">
-      <span><a :href="href('/license')">License <strong>CC BY-NC 4.0</strong></a> · <code class="sf-uuid">{{ licenseUuid }}</code> — Tsvetan Rouschev.</span>
+      <span><a :href="href('/license')">License <strong>CC BY-NC-ND 4.0</strong></a> · <code class="sf-uuid">{{ licenseUuid }}</code> — Tsvetan Rouschev.</span>
       <span>A theorem computes in Lean, or it is not a theorem. <em>Integrity, not truth.</em></span>
     </div>
   </footer>

@@ -26,7 +26,7 @@ Sign it by *behaving* it: back your claims, or let them be flagged. There is no 
 
 ## Consent — two, kept separate
 
-- **The licence.** The content is [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/): free to read, and free to reuse **with attribution, non-commercially**. Any reuse — copy, redistribute, adapt, or commercial use — accepts those terms; the licence is stated on every page. Reading a public page is not a signed contract, but *reuse* is under the licence.
+- **The licence.** The content is [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/): free to read, and free to redistribute **unchanged, with attribution, non-commercially** — no derivatives. Any use — copy, redistribute, or commercial use — accepts those terms; the licence is stated on every page. Reading a public page is not a signed contract, but *redistribution* is under the licence.
 - **Your data.** Nothing is stored without your explicit consent. The [Reflect](#reflect-your-own-data) tool runs entirely in your browser; opt-in storage persists only what you choose, and declining simply limits the features that need it — it never blocks reading.
 - **Rules change → new consent.** If the licence or the data terms change, prior consent does not carry over — you are asked again. Consent is to the terms *as they stand*, and each version has its own content-address, so a change is a new address and a fresh signature.
 
