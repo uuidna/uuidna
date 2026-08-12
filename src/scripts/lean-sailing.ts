@@ -52,6 +52,6 @@ const FACTS = [
 
 // compute → generate → verify. The sailing domain — the no-go zone, points of sail, the beating triangle, VMG,
 // apparent wind, the balanced helm, tacking, precise compounding — decidable geometry and balance, demarcated.
-emit({ file: 'Sailing.lean',
+emit({ file: 'Sailing.lean', skill: 'sailing',
   header: 'SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. A boat cannot sail the ~45° no-go zone either side of the wind (45+45=90); the points of sail fall on multiples of 45° (180/45=4); beating close-hauled makes good distance upwind along a 3-4-5 triangle at a distance penalty (5 > 3); apparent wind exceeds true when close-hauled (5 > 4); a BALANCED helm is a moment equilibrium (8·3 = 6·4) so the boat holds course and the captain rests; two equal tacks cancel leeway (4 + (−4) = 0); and precise tacks compound linearly ([1,2,3] → [3,6,9]). HONEST SCOPE: the arithmetic of sailing geometry and balance — angles, triangles and equilibrium — not a full aero/hydrodynamic derivation.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

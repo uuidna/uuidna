@@ -47,6 +47,6 @@ const FACTS = [
 
 // compute → generate → verify. The fixed references of the sky — 360°, sexagesimal, Kepler's harmonic law, the
 // Metonic cycle, the great year, bounded declination — exact arithmetic, demarcated (some classical approximations).
-emit({ file: 'Astronomy.lean',
+emit({ file: 'Astronomy.lean', skill: 'astronomy',
   header: 'ASTRONOMY — the fixed references of the sky, as decidable arithmetic. The celestial sphere is 360° (15°/hour × 24; the ecliptic 12 signs × 30°), sexagesimal gives 3600 arcseconds per degree, Kepler\'s harmonic law T² = a³ holds in scaled units, the Metonic cycle folds 19 solar years into 235 synodic months (+7 leap months), the classical great year precesses 72 years per degree (25920), and a star\'s declination spans 180° pole to pole. HONEST SCOPE: the decidable arithmetic of positional astronomy — exact ratios and cycles, some (precession) classical approximations, not claims about the cosmos.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

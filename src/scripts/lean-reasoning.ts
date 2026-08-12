@@ -60,7 +60,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Reasoning.lean',
+  file: 'Reasoning.lean', skill: 'reasoning',
   header: 'THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms).',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

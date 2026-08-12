@@ -51,7 +51,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Codes.lean',
+  file: 'Codes.lean', skill: 'codes',
   header: 'THE ERROR-CORRECTING CODES — Hamming(7,4), the perfect-code sphere-packing, distance/correction bounds, and the XOR checksum, decidable.',
   defs: LXOR_DEF,
   facts: FACTS.map((f) => ({ ...f, name: f.why })),

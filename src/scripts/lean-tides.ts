@@ -46,7 +46,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Tides.lean',
+  file: 'Tides.lean', skill: 'tides',
   header: 'THE TIDES — the rule of twelfths, half-tide, the semidiurnal period and spring/neap, as decidable arithmetic.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

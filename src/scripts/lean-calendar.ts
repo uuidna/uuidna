@@ -61,7 +61,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Calendar.lean',
+  file: 'Calendar.lean', skill: 'calendar',
   header: 'THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

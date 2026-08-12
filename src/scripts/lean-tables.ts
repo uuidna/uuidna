@@ -6,7 +6,7 @@
 // and verifies both files compile sorry-free. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
-function build(n: number, label: string, sym: string) {
+function build(n: number, label: string, sym: string, skill: string) {
   const T = []
   for (let a = 0; a < n; a++) for (let b = 0; b < n; b++) {
     T.push({ key: `${sym}mul_${a}_${b}`, stmt: `(${a} * ${b}) % ${n} = ${(a * b) % n}`, name: `${a}·${b} ≡ ${(a * b) % n} (mod ${n})` })
@@ -24,9 +24,9 @@ function build(n: number, label: string, sym: string) {
     T.push({ key: 'z7reflection_center', stmt: '(List.range 7).all (fun d => ((7 - (7 - d) % 7) % 7) == d % 7) ∧ ((List.range 7).filter (fun d => (7 - d) % 7 == d)).length = 1', name: 'the rosette reflection d ↦ 7−d is a self-inverse with a single center (0) — the still point of the seven' })
   }
   const header = `The ${label === 'Ring' ? 'RING ℤ/9 (the vortex)' : 'ROSETTE ℤ/7 (the Pliska group)'} — its full multiplication, addition and power tables. Each right-hand side is COMPUTED; Lean recomputes it.`
-  return emit({ file: label + '.lean', header, facts: T })
+  return emit({ file: label + '.lean', header, facts: T, skill })
 }
 
-const ring = build(9, 'Ring', 'z9')
-const rosette = build(7, 'Rosette', 'z7')
+const ring = build(9, 'Ring', 'z9', 'z9-ring')
+const rosette = build(7, 'Rosette', 'z7', 'z7-rosette')
 console.log('organised by computing principle: Ring ℤ/9 (' + ring + ') + Rosette ℤ/7 (' + rosette + ') = ' + (ring + rosette) + ' theorems.')

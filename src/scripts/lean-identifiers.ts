@@ -45,7 +45,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Identifiers.lean',
+  file: 'Identifiers.lean', skill: 'identifiers',
   header: 'THE IDENTIFIERS — ISBN-10/13 check-digit arithmetic: the mod-11/mod-10 weighted sums and the errors they catch, decidable.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

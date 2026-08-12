@@ -53,7 +53,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Harmony.lean',
+  file: 'Harmony.lean', skill: 'science-pairs',
   header: 'THE HARMONY OF PAIRS — the same complementary-pair arithmetic across biology, medicine, chemistry and physics (DNA bases, acid/base, agonist/antagonist, action/reaction, cation/anion), proven to be ONE reflection at different centres. Structure, NOT a medical/biological/chemical/physical claim.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

@@ -51,6 +51,6 @@ const FACTS = [
 
 // compute → generate → verify. The energy domain — conservation, entropy, heat direction, Carnot, Kelvin, Charles,
 // no perpetual motion, specific heat — decidable arithmetic of the laws, demarcated: not statistical mechanics.
-emit({ file: 'Thermodynamics.lean',
+emit({ file: 'Thermodynamics.lean', skill: 'thermodynamics',
   header: 'THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. The first law conserves energy (ΔU = Q − W: 100 = 60 + 40); the second law forbids entropy from decreasing and sends heat hot → cold; the Carnot efficiency is below 1 (no perfect engine, no perpetual motion); the Kelvin scale floors at absolute zero (0 °C = 273 K); Charles\'s law keeps V/T constant; and specific heat is linear in ΔT. HONEST SCOPE: the arithmetic of the laws — conservation, monotonicity and exact ratios, not a full statistical-mechanics derivation.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

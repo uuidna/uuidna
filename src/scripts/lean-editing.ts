@@ -58,7 +58,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Editing.lean',
+  file: 'Editing.lean', skill: 'editing',
   header: 'THE CUT — timecode as a ring, drop-frame, 4K as four HD, the crossfade and the sync, as decidable arithmetic.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

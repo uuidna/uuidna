@@ -54,7 +54,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Chess.lean',
+  file: 'Chess.lean', skill: 'chess',
   header: 'THE CHESSBOARD — the 8×8 = 64 = 2⁶ board, its two-colouring, and the pieces’ parity and reach, decidable.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

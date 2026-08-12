@@ -9,5 +9,5 @@ const T = []
 for (let a = 1; a <= 8; a++) for (let b = 1; b <= 8; b++) T.push({ key: `mul9_${a}_${b}`, stmt: `(${a} * ${b}) % 9 = ${(a * b) % 9}`, name: `${a}·${b} ≡ ${(a * b) % 9} (mod 9)` })
 console.log('the 8×8 core: ' + T.length + ' non-zero ℤ/9 multiplication theorems (from these the rest computes).')
 
-emit({ file: 'Core.lean', facts: T,
+emit({ file: 'Core.lean', skill: 'z9-ring', facts: T,
   header: "The 8×8 CORE: the multiplication table of ℤ/9's eight non-zero residues {1..8}. From these 64 theorems the rest COMPUTES — units, inverses, self-inverses {1,8}, nilpotents {3,6}, the vortex orbit and the reflection all read off this table." })

@@ -41,7 +41,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Security.lean',
+  file: 'Security.lean', skill: 'security',
   header: 'THE LAYERED DEFENCE — the arithmetic of defence in depth (bits add, space multiplies, no maximum), as decidable facts.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

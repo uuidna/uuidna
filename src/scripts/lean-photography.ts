@@ -53,7 +53,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Photography.lean',
+  file: 'Photography.lean', skill: 'photography',
   header: 'THE EXPOSURE — where the photographic standard ROUNDS (1/125≈1/128, f/1.4≈√2) and uuidna keeps the EXACT powers of two, as decidable arithmetic.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

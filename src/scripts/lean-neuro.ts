@@ -60,6 +60,6 @@ const FACTS = [
 
 // compute → generate → verify. The algebra of the neuron — all-or-none, summation, the net drive, Hebb, the
 // refractory cap — demarcated: the textbook model as decidable arithmetic, not a clinical or personal claim.
-emit({ file: 'Neuro.lean',
+emit({ file: 'Neuro.lean', skill: 'neuro',
   header: 'NEUROSCIENCE — the algebra of the neuron, demarcated. All-or-none firing as a threshold step (fire iff input ≥ threshold): sub-threshold is silent, supra-threshold fires, firing is monotone, two sub-threshold inputs sum to fire (spatial summation), excitatory − inhibitory is the net drive (inhibition cancels), the action potential swings −70 → +40 mV (rest < threshold < peak), Hebbian Δw = pre·post is coincidence detection, and the refractory window caps a second spike. HONEST SCOPE: the decidable ALGEBRA of the textbook model — not clinical, not diagnostic, and not about any individual.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

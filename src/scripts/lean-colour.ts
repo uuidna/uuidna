@@ -52,7 +52,7 @@ const FACTS = [
 ]
 
 emit({
-  file: 'Colour.lean',
+  file: 'Colour.lean', skill: 'colour',
   header: 'THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. The geometry of the wheel, NOT a claim that taste or beauty is objective.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

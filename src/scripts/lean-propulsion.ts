@@ -39,6 +39,6 @@ const FACTS = [
 
 // compute → generate → verify. Propulsion is conserved momentum — bounded, Newtonian, demarcated: no reactionless
 // drive, no infinite g, no FTL. The push is exactly the momentum you throw the other way.
-emit({ file: 'Propulsion.lean',
+emit({ file: 'Propulsion.lean', skill: 'propulsion',
   header: 'PROPULSION — Newtonian and BOUNDED, demarcated. Thrust is momentum conservation (Newton\'s third law): forward momentum balances the ejected exhaust, so a rocket at rest stays at total momentum zero. Thrust REQUIRES reaction mass (zero exhaust → zero thrust: no reactionless/free drive), thrust = ṁ·vₑ, the Δv budget adds across stages, and acceleration a = F/m is FINITE — no infinite g-force. HONEST SCOPE: the decidable algebra of Newtonian rocketry — not a novel drive, not FTL, not infinite g.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })
