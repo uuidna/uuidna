@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 import { readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { theorems, PRINCIPLES, canonicalOrder, type PageNode } from '../dist/index.js'
+import { theorems, PRINCIPLES, canonicalOrder, publications, type PageNode } from '../dist/index.js'
 
 // Lean is the single source. The nav, the sidebar (one collapsed group per computing principle) and the per-theorem
 // SEO meta are all derived here from the same compiled ledger the pages render — nothing is hand-maintained.
@@ -12,6 +12,10 @@ type T = { key: string; name: string; principle: string; statement: string; tact
 const LEDGER = theorems() as T[]
 const order = PRINCIPLES.map((p: string[]) => p[1]).filter((name: string) => LEDGER.some((t) => t.principle === name))
 const blurb = Object.fromEntries(PRINCIPLES.map((p: string[]) => [p[1], p[2]])) as Record<string, string>
+// Monographs (publications) + a key→name map — used to emit schema.org JSON-LD per monograph (LLM/machine-readable,
+// caching the whole sealed note: its theorems as hasPart, the fold receipt, address and abstract).
+const PUBS = publications()
+const NAME = Object.fromEntries(LEDGER.map((t) => [t.key, t.name])) as Record<string, string>
 
 // Sequence neighbours (ledger order) → the OFFICIAL VitePress prev/next doc-footer links, set per page in
 // transformPageData below (https://vitepress.dev/reference/default-theme-prev-next-links). A concise key label
@@ -123,6 +127,24 @@ export default defineConfig({
       ['meta', { property: 'og:url', content: canonical }],
     )
 
+    // Monograph schema.org — a ScholarlyArticle whose parts ARE the sealed theorems, caching the whole note as
+    // machine/LLM-readable JSON-LD: each claim links its proof, and the note's own fold receipt is its identifier.
+    if (p?.slug) {
+      const pub = PUBS.find((x) => x.slug === p.slug)
+      if (pub) {
+        const ld = {
+          '@context': 'https://schema.org', '@type': 'ScholarlyArticle',
+          headline: pub.title, abstract: pub.abstract, identifier: pub.address, url: canonical,
+          isBasedOn: `https://github.com/uuidna/uuidna/blob/main/lean/${pub.file}`,
+          creativeWorkStatus: `Audited (uuidna honesty gate); ${pub.count} proofs fold to receipt ${pub.receipt}`,
+          publisher: { '@type': 'Organization', name: 'uuidna' },
+          isPartOf: { '@type': 'Dataset', name: 'uuidna theorem ledger', url: 'https://uuidna.com/theorems' },
+          hasPart: pub.theorems.map((k) => ({ '@type': 'Claim', name: NAME[k] || k, identifier: k, url: `https://uuidna.com/theorem/${k}` })),
+        }
+        pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, JSON.stringify(ld)])
+      }
+    }
+
     if (!p?.address) return
     // Per-page meta description (Google SEO: unique, descriptive per page) — the theorem's own statement, not the
     // shared site description. VitePress renders pageData.description as the <meta name="description">.
@@ -141,6 +163,45 @@ export default defineConfig({
       ['meta', { property: 'uuidna:skill', content: p.skill || '' }],
       ['meta', { name: 'keywords', content: [p.skill, p.principle].filter(Boolean).join(', ') }],
     )
+  },
+
+  // SPLIT MICRODATA SITEMAPS — grouped by the first path segment (/theorem, /publications, /topics, …). Google's
+  // sitemap standard is the XML VitePress already emits (and reads on-page JSON-LD for rich results); THIS is the
+  // machine/LLM index: one JSON schema.org ItemList per URL section carrying that section's microdata, plus a top
+  // sitemap.json that indexes them. Derived from the same ledger the pages render — nothing hand-listed.
+  async buildEnd(siteConfig) {
+    const { writeFileSync, mkdirSync } = await import('node:fs')
+    const { join } = await import('node:path')
+    const out = siteConfig.outDir
+    const HOST = 'https://uuidna.com'
+    const byTheorem = new Map(LEDGER.map((t) => [`/theorem/${t.key}`, t]))
+    const byPub = new Map(PUBS.map((p) => [`/publications/${p.slug}`, p]))
+    const sections: Record<string, Record<string, unknown>[]> = {}
+    for (const n of ORDER) {
+      const seg = n.route === '/' ? 'root' : (n.route.split('/')[1] || 'root')
+      const t = byTheorem.get(n.route), pub = byPub.get(n.route)
+      const item: Record<string, unknown> = t
+        ? { '@type': 'Claim', url: HOST + n.route, name: t.name, text: t.statement, skill: t.skill, about: t.principle, identifier: t.address }
+        : pub
+        ? { '@type': 'ScholarlyArticle', url: HOST + n.route, name: pub.title, identifier: pub.address, creativeWorkStatus: `${pub.count} proofs → receipt ${pub.receipt}` }
+        : { '@type': 'WebPage', url: HOST + n.route, name: n.text }
+      ;(sections[seg] ??= []).push(item)
+    }
+    mkdirSync(join(out, 'sitemaps'), { recursive: true })
+    const index = Object.entries(sections).map(([seg, list]) => {
+      writeFileSync(join(out, 'sitemaps', seg + '.json'), JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'ItemList', name: `uuidna · /${seg === 'root' ? '' : seg}`,
+        url: `${HOST}/sitemaps/${seg}.json`, numberOfItems: list.length,
+        itemListElement: list.map((item, i) => ({ '@type': 'ListItem', position: i + 1, item })),
+      }))
+      return { section: seg, url: `${HOST}/sitemaps/${seg}.json`, count: list.length }
+    })
+    writeFileSync(join(out, 'sitemap.json'), JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'DataFeed', name: 'uuidna microdata sitemap',
+      description: 'Split per URL section; each is a schema.org ItemList of that section\'s pages with their microdata. Google crawls sitemap.xml + on-page JSON-LD; this JSON feed is the machine/LLM index.',
+      dateModified: undefined, dataFeedElement: index,
+    }, null, 2))
+    console.log(`  ✓ sitemap.json + ${index.length} split section sitemaps (${index.reduce((n, s) => n + s.count, 0)} urls with microdata)`)
   },
 
   themeConfig: {
