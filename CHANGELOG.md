@@ -7,6 +7,22 @@ single-digit odometer; no version is minted forward past an unpublished one.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). A content-address proves integrity, not truth.
 
+## Roadmap — toward [1.0.0]
+
+A plan, not a promise. **v1.0.0 aims at 1024 theorems** (2¹⁰ — a clean power-of-two milestone), **all `by decide`,
+sorry-free, 100% heartbeat-covered**, folded to one receipt. Today: **821 / 1024 — 203 to go**, across 44 principles.
+The versions in between are real, gated releases: each `0.1.x` grows the ledger and must pass `npm run next` (proofs +
+prose + accounts + graph + the changelog self-audit) before it ships. And the honest odometer holds — **1.0.0 comes
+only after the `0.1.x` line is actually published on npm** (today only `0.1.0` is), never by minting forward past an
+unpublished version. The count is the target; the publishes are the path. A milestone is reached by delivering
+theorems, not by moving the number.
+
+**Reversible until published.** npm-publish is the one *irreversible* gate — a published version is immutable forever.
+Everything before it is not: git is a DAG, not a line, so with only `0.1.0` on npm, the whole `0.1.1 → 1.0.0` arc can
+still be refactored, reversed, or **folded all the way back to the genesis `0.0.0`** — the reflection turned on
+development itself. Publishing is the involution's fixed point: after it, a version cannot be un-said. So uuidna keeps
+the chance to reverse-develop itself *now*, while the ledger is still free.
+
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
@@ -77,3 +93,9 @@ During development, `0.2.0`, `0.3.0`, and `0.4.0` appeared on branches (layered 
 **consolidated back into `0.1.1` before any publish** — npm has only `0.1.0`. No version is skipped forward past an
 unpublished one; the tag `v0.1.1` marks the next release, still pending. This messy history is left visible on purpose:
 the changelog records what happened, not a tidied story.
+
+## [0.0.0] — genesis
+
+The origin: the empty fold, the axiom before the first theorem — the chain's genesis seed (`'axiom'`) from which every
+receipt descends. Not a release, a reflection point: `0.0.0` is what the ledger folds back to when reverse-developed,
+the fixed point at the far end of the version axis. Nothing published, nothing owed — the free beginning.
