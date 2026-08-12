@@ -596,28 +596,37 @@ export function callTool(name: string, args: Record<string, unknown> = {}): unkn
 // measured signal instead of taste. The axis is "maximum reusable tools per minimum keys": a tool that needs zero
 // required keys is maximally reusable (composes anywhere); a tool that needs many is a friction point. The benchmark
 // ranks the hardest (most required keys) as the self-development targets to simplify. Recomputable — no opinion.
-export interface ToolUsability { name: string; required: number; params: number; reusable: boolean }
+export interface ToolUsability { name: string; required: number; params: number; reusable: boolean; rating: number }
+// The LOCAL rating: a 1..5 usability score computed ON DEVICE from a tool's required keys — no server, no stored
+// opinion, recomputable by anyone. Zero required keys (maximally reusable) rates 5; each required key costs a star,
+// floored at 1. The rating EMERGES from the metric, it is never authored per tool.
+const rate = (required: number): number => (required >= 4 ? 1 : 5 - required)
 export interface McpBenchmark {
   tools: number
   zeroArgReusable: number    // callable with NO required keys — maximally reusable
   totalRequiredKeys: number
   reusablePerKey: number     // tools ÷ required keys — the "max reusable tools / min keys" density
   avgRequiredKeys: number
-  hardest: ToolUsability[]   // most required keys first — where to simplify next
+  avgRating: number          // the surface's mean usability rating (1..5) — what the MCP currently DELIVERS
+  hardest: ToolUsability[]   // lowest-rated (most required keys) first — where an upgrade delivers the most
+  ratings: ToolUsability[]   // every tool with its computed rating — the local rating system, recomputable
 }
 export function mcpBenchmark(): McpBenchmark {
   const perTool: ToolUsability[] = MCP_CATALOG.map((t) => {
     const required = (t.inputSchema?.required ?? []).length
     const params = Object.keys(t.inputSchema?.properties ?? {}).length
-    return { name: t.name, required, params, reusable: required === 0 }
+    return { name: t.name, required, params, reusable: required === 0, rating: rate(required) }
   })
   const totalRequiredKeys = perTool.reduce((n, t) => n + t.required, 0)
+  const totalRating = perTool.reduce((n, t) => n + t.rating, 0)
   return {
     tools: perTool.length,
     zeroArgReusable: perTool.filter((t) => t.reusable).length,
     totalRequiredKeys,
     reusablePerKey: +(perTool.length / (totalRequiredKeys || 1)).toFixed(3),
     avgRequiredKeys: +(totalRequiredKeys / perTool.length).toFixed(3),
-    hardest: [...perTool].sort((a, b) => b.required - a.required).slice(0, 8),
+    avgRating: +(totalRating / perTool.length).toFixed(3),
+    hardest: [...perTool].sort((a, b) => a.rating - b.rating || b.required - a.required).slice(0, 8),
+    ratings: [...perTool].sort((a, b) => b.rating - a.rating || a.name.localeCompare(b.name)),
   }
 }
