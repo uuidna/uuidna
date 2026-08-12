@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// scripts/provenance — the PROVENANCE AUDIT (a fourth arm of the self-audit). An honest-prose gate: any sentence
-// that leans on a HOLLOW superlative — quantum-secure, unbreakable, infinite(ly), FTL, keyless-secure, production-
-// grade, untraceable … — is flagged REVIEW *unless* it is DEMARCATED (negated: not / never / no / honest /
-// simulation / finite) OR BACKED (it names a SEALED theorem key or carries a /theorem/ link). Prose earns its
-// claim by pointing at a proof, or it is audited until it does. Findings are content-addressed and fold, order-
-// invariantly, to ONE recomputable receipt. It can FAIL (exit 1) — the opposite of a trial rigged to pass.
-// Integrity, not truth.
+// scripts/provenance — the PROVENANCE AUDIT (a fourth arm of the self-audit). PURELY LEDGER-DERIVED: a sentence is
+// flagged only when it CITES A FABRICATED theorem — a /theorem/<key> or sealed-key name that is NOT in the ledger —
+// the one decidably-false thing prose can do. A hollow superlative that cites nothing is REVEALED, not refused: a
+// word-list is VOID here (it is not a theorem, so it carries no authority), so none is used — the ledger is the only
+// authority. A unit that links a sealed proof, or is a theorem's own committed description, is cleared. Findings are
+// content-addressed and fold, order-invariantly, to ONE recomputable receipt. It can FAIL (exit 1) — the opposite of
+// a trial rigged to pass. Integrity, not truth.
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { join, dirname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -13,10 +13,10 @@ import { theorems, merkleFold, toUuid } from '../index.js'
 import { overreachOf } from '../prose-gate.js'
 import { MCP_CATALOG } from '../mcp.js'
 
-// The overreach floor (HOLLOW superlatives + translated proof-boasts, with the demarcation-clearing) lives in ONE
-// tested place now — src/prose-gate.ts — so the audit and the self-trial share the exact same detector. This script
-// adds only the CONTEXT the lexicon cannot know: whether a unit is BACKED (links a proof / names a sealed key) or
-// vouched by a theorem's own proof (backedBy). The lexical call is overreachOf(u); backing is applied below.
+// The floor lives in ONE tested place — src/prose-gate.ts (overreachOf → slimGate) — so the audit and the self-trial
+// share the exact same detector: a unit drains only for citing a FABRICATED theorem, never for a word. This script
+// adds only the CONTEXT the ledger derives: whether a unit is BACKED (links a proof / names a sealed key) or vouched
+// by a theorem's own proof (backedBy). The call is overreachOf(u); backing is applied below.
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const rd = (p: string) => readFileSync(join(ROOT, p), 'utf8')
@@ -75,9 +75,9 @@ const receipt = findings.length ? merkleFold(findings.map((f) => f.address)) : t
 
 console.log('\n  PROVENANCE AUDIT — prose earns its claim by linking a sealed theorem, or it is audited.')
 console.log('    surfaces : README + docs/*.md + ' + MCP_CATALOG.length + ' MCP descriptions + inline docs (theorem "why" + lean/*.lean) + code comments (src/**/*.ts)')
-console.log('    hollow-and-unbacked claims : ' + findings.length)
+console.log('    fabricated-citation claims : ' + findings.length)
 // The remedy is free of money and paid in CODE: back the claim with a sealed theorem, or demarcate it. The flag is
 // on the CLAIM, never on a person — a hollow sentence is cleared by delivering the proof that makes it true.
-for (const f of findings) console.log(`      • [${f.token}] ${f.surface}\n        "${f.unit}"\n        remedy (paid in code, not coin): link a sealed /theorem/<key> that backs it, or demarcate it (not / never / no / simulation / finite)`)
-console.log('    audit receipt : ' + receipt + (findings.length ? '  (FLAGGED — audited until backed by a theorem or demarcated)' : '  (CLEAN — every claim is demarcated or backed by a sealed theorem)'))
+for (const f of findings) console.log(`      • [${f.token}] ${f.surface}\n        "${f.unit}"\n        remedy (paid in code, not coin): cite a /theorem/<key> that IS sealed in the ledger — this one is not`)
+console.log('    audit receipt : ' + receipt + (findings.length ? '  (FLAGGED — a claim cites a fabricated theorem)' : '  (CLEAN — no claim cites a fabricated theorem)'))
 process.exitCode = findings.length ? 1 : 0
