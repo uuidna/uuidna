@@ -251,3 +251,39 @@ code.rcpt {
 }
 .topic-index .topic-chip:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 .topic-index .chip-n { color: var(--vp-c-text-3); font-weight: 400; }
+
+/* ── The double-torus hue in motion ──────────────────────────────────────────────────────────────────────────
+   An animated backdrop: TWO soft lobes (the double torus, genus 2) carrying COMPLEMENTARY hues — the colour-
+   complement involution proven in Colour.lean, so the pairing is structural, not decorative-arbitrary — drifting
+   together through the wheel while the whole figure slowly turns. The theorem/front cards RESONATE: a hue-synced
+   accent that shifts with the backdrop. Subtle, theme-safe, and FROZEN under prefers-reduced-motion. Not a claim —
+   organisation in motion; the hue means nothing, the involution behind it is the sealed part. */
+@property --uuidna-hue { syntax: "<number>"; initial-value: 0; inherits: true; }
+@keyframes uuidna-hue-drift { to { --uuidna-hue: 360; } }
+@keyframes uuidna-torus-spin { from { transform: translate(-50%, -50%) rotate(0); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+:root { animation: uuidna-hue-drift 72s linear infinite; }
+
+body::before {
+  content: "";
+  position: fixed; top: 50%; left: 50%;
+  width: 150vmax; height: 150vmax;
+  transform: translate(-50%, -50%);
+  z-index: -1; pointer-events: none;
+  /* two lobes at complementary hues — the double torus */
+  background:
+    radial-gradient(closest-side, hsl(var(--uuidna-hue) 70% 55% / 0.09), transparent 66%) 34% 46% / 58% 58% no-repeat,
+    radial-gradient(closest-side, hsl(calc(var(--uuidna-hue) + 180) 70% 55% / 0.09), transparent 66%) 66% 54% / 58% 58% no-repeat;
+  animation: uuidna-torus-spin 140s linear infinite;
+  will-change: transform;
+}
+
+/* the front cards resonate with the same hue (subtle accent that drifts in lockstep) */
+.VPFeature, .psec, .tcell, .referer-compass { border-color: hsl(var(--uuidna-hue) 45% 55% / 0.30); transition: border-color 1.2s linear; }
+.VPFeature:hover { box-shadow: 0 0 0 1px hsl(var(--uuidna-hue) 60% 55% / 0.35), 0 10px 34px hsl(var(--uuidna-hue) 50% 50% / 0.14); }
+.topic-index .topic-chip:hover { border-color: hsl(var(--uuidna-hue) 60% 55% / 0.7); color: hsl(var(--uuidna-hue) 55% 50%); }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { animation: none; }
+  body::before { animation: none; }
+}
