@@ -72,6 +72,9 @@ export { composePublication, publications, auditPublication, revisePublication, 
 // site — the ONE navigable graph: every page in a canonical wrapping order (no next-gap, no orphan). The native
 // pager and the release gate both read `next` from this, so the button clicked and the gap hunted are one edge.
 export { canonicalOrder, nextOf, gaps, type PageNode } from './site.js'
+// prose-gate — the honest-prose overreach floor (HOLLOW superlatives + translated proof-boasts, with demarcation
+// clearing), shared by the provenance audit and the self-trial. Extracted so it is tested, not buried in a script.
+export { overreachOf, HOLLOW, DEMARCATED } from './prose-gate.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS
