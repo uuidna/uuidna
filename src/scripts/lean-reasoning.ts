@@ -4,8 +4,8 @@
 // holds, or it does not. This seals the rules a valid argument is built from — modus ponens and tollens, the
 // contrapositive, De Morgan, double negation, excluded middle, the hypothetical and disjunctive syllogisms — so a
 // reasoning step can cite the exact rule it uses, recomputable by anyone. Implication p → q is the boolean (!p || q).
-// HONEST SCOPE: classical propositional logic as decidable truth tables — NOT a theorem prover, NOT predicate logic
-// with quantifiers over infinite domains. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// HONEST SCOPE: classical propositional logic as decidable truth tables — NOT a theorem prover, and NOT the predicate
+// logic whose quantifiers range over unbounded domains. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
 const B = [true, false]
