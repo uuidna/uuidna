@@ -93,6 +93,9 @@ export { beaconAnchor, type Anchor } from './anchor.js'
 // constants — verify uuidna's physics against NIST's authoritative CODATA values, content-addressed. A physical
 // constant uuidna uses is rechecked against the external authority, not self-asserted.
 export { nistConstant, type NistConstant } from './constants.js'
+// cve — fingerprint a CVE's PUBLIC NVD advisory metadata (id, description, CVSS, dates), content-addressed, for the
+// security reflection. Public metadata only, never an exploit; NVD publishes, uuidna fingerprints.
+export { auditCve, type CveAudit } from './cve.js'
 // vocab — a common, computable, translation-ready vocabulary derived from every theorem and its domain: each term
 // self-audited by the honesty gate, content-addressed, folded (in trinities) to ONE receipt — the honest "all is one".
 export { vocabulary, type Term, type Vocabulary } from './vocab.js'
