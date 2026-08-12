@@ -5,7 +5,7 @@
 // not reconcile — a suggestion tested in the trial, not confirmed by a question. Integrity, not truth.
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { theorems, coins, billUuidna, referenceBitsSaved, ADDRESS_BITS } from '../index.js'
+import { theorems, coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, toUuid } from '../index.js'
 import { ROOT } from './lean-gen.js'
 
 const T = theorems()
@@ -38,7 +38,10 @@ check(coins() === 2, `the two coins are conserved: coins() = ${coins()} (= −χ
 const free = billUuidna({ commercial: false, recomputeOps: 100, verifyOps: 1 })
 check(free.free && free.coins === 0, 'non-commercial use is free — 0 coins')
 const bill = billUuidna({ commercial: true, recomputeOps: 100, verifyOps: 1 })
-check(bill.coins === 2 && bill.bitsSaved >= 0, `commercial bills the two coins on a non-negative saving (${bill.bitsSaved} ops saved)`)
+check(bill.coins === 2 && bill.advantage === 99, `commercial bills the two coins on the measured advantage (recompute 100 − verify 1 = ${bill.advantage})`)
+// the bill is complete in its receipt — a skeptic recomputes the terms and lands on the same receipt, or it was altered
+const reBill = toUuid(`bill|commercial=true|advantage=${bill.advantage}|bitsSaved=${bill.bitsSaved}|coins=${bill.coins}`)
+check(reBill === bill.receipt, 'the bill is complete in its receipt — recomputing every term returns the same address (the skeptic rechecks, does not trust)')
 // bill_never_negative, exercised across a grid — matches the sealed theorem, not merely cited
 const nonneg = [0, 1, 2, 3, 4].every((r) => [0, 1, 2, 3, 4].every((v) => billUuidna({ commercial: true, recomputeOps: r, verifyOps: v }).bitsSaved >= 0))
 check(nonneg, 'the bill is never negative across a 5×5 grid (matches sealed bill_never_negative)')
