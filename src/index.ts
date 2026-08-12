@@ -90,6 +90,9 @@ export { priorArt, type PriorArt, type PriorArtExhibit } from './priorart.js'
 // anchor — the external WHEN, verified in-house: fold a NIST Randomness Beacon pulse (signed, timestamped, archived)
 // into a record's address for a re-verifiable NOT-BEFORE bound — the rigorous "Schumann resonance at the time".
 export { beaconAnchor, type Anchor } from './anchor.js'
+// constants — verify uuidna's physics against NIST's authoritative CODATA values, content-addressed. A physical
+// constant uuidna uses is rechecked against the external authority, not self-asserted.
+export { nistConstant, type NistConstant } from './constants.js'
 // vocab — a common, computable, translation-ready vocabulary derived from every theorem and its domain: each term
 // self-audited by the honesty gate, content-addressed, folded (in trinities) to ONE receipt — the honest "all is one".
 export { vocabulary, type Term, type Vocabulary } from './vocab.js'
