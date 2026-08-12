@@ -27,7 +27,7 @@ one bit of one proof — and the receipt moves. Recompute it yourself from this 
 | field | value |
 | --- | --- |
 | theorems folded | {{ data.trial.count }} |
-| sealed (TRUE, proven in Lean) | {{ data.trial.sealed }} |
+| verified (proven in Lean) | {{ data.trial.verified }} |
 | lean-backed | {{ data.trial.leanBacked }} |
 | order-invariant | {{ data.trial.orderInvariant ? 'yes — any pairing folds to the same root' : 'no' }} |
 | sequential chain tip | <code>{{ data.trial.chainTip }}</code> |

@@ -48,7 +48,7 @@ export type LedgerData = {
   trial: {
     receipt: string
     count: number
-    sealed: number
+    verified: number
     leanBacked: number
     orderInvariant: boolean
     chainGenesis: string
@@ -105,7 +105,7 @@ export default {
       trial: {
         receipt: trial.receipt,
         count: trial.count,
-        sealed: trial.sealed,
+        verified: trial.verified,
         leanBacked: trial.leanBacked,
         orderInvariant,
         chainGenesis,
