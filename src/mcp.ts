@@ -17,7 +17,7 @@ import {
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   THEOREMS, runTrial, theorems, skillGroups,
-  publications, composePublication, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects,
+  publications, composePublication, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { legalFacts } from './legal.js'
@@ -377,6 +377,10 @@ const TOOLS: Tool[] = [
     description: 'Reveal the sealed theorems a real-world system ALREADY reflects. Describe a system by its devices and concepts (e.g. home security: "keypad code tamper sensor detect alarm zone parity layered defence signature encryption schedule") and it matches those concepts against the ledger, returning the EXISTING `by decide` theorems whose arithmetic the system rests on — folded to one receipt. HONEST: the theorems already exist and were proven for their own domain; this shows the SAME arithmetic recurs — it does NOT claim uuidna is that system, that the theorems were built for it, or that citing them makes the system secure/correct. A resemblance the ledger carries, recomputable by anyone.',
     inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'a system described by its devices/concepts' } }, required: ['query'] },
     run: (a) => reflects(String(a.query)) },
+  { name: 'uuidna_slim_gate',
+    description: 'The gate of all gates, as slim as it gets: ONLY theorems, no lexicon. Judges a {claim} by ONE recomputable question — do the theorems it cites (/theorem/<key>) actually exist, sealed, in the ledger? SEALED iff it cites a real sealed theorem and no fake; REFUTED iff it cites a theorem NOT in the ledger (a fabricated citation, the one decidably-false case); UNVERIFIED iff it cites none (held open, not refused). Computed from the sealed ledger alone; delete every word-list and it still stands.',
+    inputSchema: { type: 'object', properties: { claim: { type: 'string' } }, required: ['claim'] },
+    run: (a) => slimGate(String(a.claim)) },
   { name: 'uuidna_reason',
     description: 'IN-HOUSE reasoning that USES the sealed rules of inference. Give {facts:[atoms], rules:[{if:[atoms],then:atom}]} and it forward-chains to a fixpoint: whenever every premise of a rule is known it concludes the head by MODUS PONENS (or the hypothetical syllogism for a chain), CITING the sealed theorem at each step. Bounded (cannot loop forever), deterministic, and folds the whole derivation to one receipt anyone rechecks. Honest scope: bounded propositional forward-chaining over the rules you give — NOT a general theorem prover; it derives only what those rules entail, and never claims a conclusion is TRUE, only that it FOLLOWS.',
     inputSchema: { type: 'object', properties: { facts: { type: 'array', items: { type: 'string' } }, rules: { type: 'array', items: { type: 'object', properties: { if: { type: 'array', items: { type: 'string' } }, then: { type: 'string' } } } } }, required: ['facts', 'rules'] },
@@ -545,6 +549,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^anchor$/, 'Timestamp anchor (external, verified in-house)', 'anchor'],
   [/^nist_constant$/, 'External verification (NIST CODATA)', 'nist'],
   [/^reason$/, 'Reasoning (in-house inference)', 'reason'],
+  [/^slim_gate$/, 'The gate of all gates (theorems only)', 'gate'],
   [/^reflects$/, 'Reflection (systems ↔ theorems)', 'reflects'],
   [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
   [/^quantum$/, 'Quantum simulation', 'quantum'],
