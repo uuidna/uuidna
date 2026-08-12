@@ -1,8 +1,10 @@
 name: publish
 
 # Publish @uuidna/uuidna to npm when a single-digit version tag (vX.Y.Z) is pushed (or on manual dispatch).
-# Requires a repo secret NPM_TOKEN (an npm "Automation" token). The COMPLETE audit runs first, as the package's
-# own prepublishOnly gate — a failing audit fails the publish, never production. Integrity, not truth.
+# TOKEN-FREE via OIDC Trusted Publishing (set on npmjs.com → the package's Settings → Trusted Publisher: GitHub
+# Actions, repo uuidna/uuidna, workflow publish.yml). No NPM_TOKEN secret — GitHub's OIDC id-token is exchanged for
+# a short-lived publish credential, so no 2FA-bypassing token is stored anywhere. The COMPLETE audit runs first, as
+# the package's own prepublishOnly gate — a failing audit fails the publish, never production. Integrity, not truth.
 #
 # The audit is SEVEN recomputable dimensions (echoing the ℤ/7 rosette — the honest reading of "3×7 / 777": three
 # sevens, 3×7 = 21, a mnemonic, NOT 777 of anything), each of which can FAIL the deploy:
@@ -25,13 +27,17 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write # npm provenance — public Sigstore supply-chain attestation
+      id-token: write # dual use: OIDC trusted-publishing auth (token-free) + the Sigstore provenance attestation
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'
+
+      # OIDC Trusted Publishing needs npm >= 11.5.1; Node 22 ships ~10.9, so upgrade the CLI before publishing.
+      - name: Upgrade npm for OIDC trusted publishing
+        run: npm install -g npm@latest
 
       - name: Install Lean (elan, toolchain pinned by lean-toolchain)
         run: |
@@ -53,7 +59,6 @@ jobs:
           # Harmonised with millennium-solutions: MAJOR.MINOR.PATCH are single digits (0..9), the vortex odometer.
           echo "$TAG" | grep -Eq '^[0-9]\.[0-9]\.[0-9]$' || { echo "::error::v$TAG breaks the single-digit odometer (each of major.minor.patch must be 0..9)"; exit 1; }
 
-      - name: Publish (public, npm provenance) — prepublishOnly runs the complete audit first
+      # Token-free: OIDC (id-token: write above) is exchanged for the publish credential; no NODE_AUTH_TOKEN.
+      - name: Publish (public, token-free via OIDC, with provenance) — prepublishOnly runs the complete audit first
         run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
