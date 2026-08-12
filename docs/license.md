@@ -22,6 +22,23 @@ The uuidna content — the theorems, the proofs, the site — is licensed
   is a new content-address, not this work — enforced by mathematics, not only by law.
 - **Reading a public page is not a signed contract.** The license governs **redistribution**, not viewing.
 
+## The algebra is free; the making is sealed
+
+The restriction is not there to stop you learning — it is there so a specific creation stays whole. These are two
+different things, and the law already separates them:
+
+- **The algebra is free for all.** A theorem like `2·5 ≡ 1 (mod 9)` is a *fact*, not a creation. Mathematical facts
+  and methods are not copyrightable, and this license claims none of them. You are always free — no permission, no
+  attribution owed — to read a proof, understand it, **re-derive it**, and build **your own** creativity from the same
+  algebra. Inspiration is never restricted. That is the point of publishing the proofs in full.
+- **The making is sealed.** What CC BY-NC-ND covers is the specific human creation *around* the algebra: this exact
+  expression, this arrangement, this record — a design meant to be shared across people, not lifted whole. Copy it
+  unchanged with attribution; be inspired by it without limit; but the fixed record is not yours to alter and pass off
+  as your own. The mathematics belongs to everyone; the *making of this* belongs to its author.
+
+So the license and the openness are not in tension: the ideas are a gift to anyone who wants to think with them, and
+the sealing only holds the particular expression together — free algebra, protected making, one recomputable line.
+
 ## Canonical and the three domains
 
 - **uuidna.com** — the default, canonical home, and this license.
