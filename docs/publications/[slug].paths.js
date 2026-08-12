@@ -24,7 +24,7 @@ export default {
 ---
 
 **Audited before published** · this note passed uuidna's honesty gate at build time — every claim above links the
-proof that seals it. Content-address \`${p.address}\` · proofs fold to receipt \`${p.receipt}\` · ${p.count} sealed theorems.
+proof that seals it. Content-address \`${p.address.slice(0, 8)}\` · proofs fold to receipt \`${p.receipt.slice(0, 8)}\` (the handles; the full uuids are in this page's meta, recomputable) · ${p.count} sealed theorems.
 
 [All publications](/publications) · [All theorems](/theorems) · [How auditing works](/trials)
 `,

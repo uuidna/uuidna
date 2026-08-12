@@ -16,7 +16,7 @@ and its honesty is **self-audited** by the same gate the whole site runs — so 
 
 <p class="voc-fold">
 All <b>{{ data.count }}</b> terms self-audit: <b>{{ data.clean }}</b> clean<span v-if="data.flagged.length">, <b>{{ data.flagged.length }}</b> flagged</span>.
-They fold — in <b>{{ data.trinities }}</b> trinities — to <b>one</b> recomputable receipt: <code>{{ data.receipt }}</code>
+They fold — in <b>{{ data.trinities }}</b> trinities — to <b>one</b> recomputable receipt: <Handle :uuid="data.receipt" />
 </p>
 
 > **All is one — one *receipt*, not a singularity.** What is proven is integrity: every term folds, order-invariant, to
@@ -29,7 +29,7 @@ They fold — in <b>{{ data.trinities }}</b> trinities — to <b>one</b> recompu
   <li v-for="t in data.terms.filter(t => t.kind === 'domain')" :key="t.term">
     <b>{{ t.term }}</b> <Badge type="tip" :text="`${t.theorems}`" />
     <span class="voc-def">{{ t.definition }}</span>
-    <code class="voc-addr">{{ t.address }}</code>
+    <Handle :uuid="t.address" />
   </li>
 </ul>
 
@@ -39,7 +39,7 @@ They fold — in <b>{{ data.trinities }}</b> trinities — to <b>one</b> recompu
   <li v-for="t in data.terms.filter(t => t.kind === 'capability')" :key="t.term">
     <b>{{ t.term }}</b> <Badge type="tip" :text="`${t.theorems}`" />
     <span class="voc-def">{{ t.definition }}</span>
-    <code class="voc-addr">{{ t.address }}</code>
+    <Handle :uuid="t.address" />
   </li>
 </ul>
 

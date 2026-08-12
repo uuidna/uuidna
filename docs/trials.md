@@ -20,7 +20,7 @@ recheck. Run one for a single statement with `uuidna_trial`, or fold the whole l
 Every theorem's content-address, folded **order-invariant** to **one** recomputable receipt. Change one theorem — or
 one bit of one proof — and the receipt moves. Recompute it yourself from this same tree with `npm run lean`.
 
-<p class="rcpt-big"><code>{{ data.trial.receipt }}</code></p>
+<p class="rcpt-big"><Handle :uuid="data.trial.receipt" /></p>
 
 <FoldAnimation :receipt="data.trial.receipt" />
 

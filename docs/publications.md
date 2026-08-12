@@ -24,7 +24,7 @@ This is the automated stream — {{ data.publishable }} notes over {{ data.theor
   <li v-for="p in data.cards" :key="p.slug">
     <a :href="`/publications/${p.slug}`">{{ p.title }}</a>
     <Badge :type="p.publishable ? 'tip' : 'danger'" :text="p.publishable ? `${p.count} proofs · audited` : `refused · ${p.findings} overreach`" />
-    <code class="pub-receipt">{{ p.receipt }}</code>
+    <Handle :uuid="p.receipt" />
   </li>
 </ul>
 

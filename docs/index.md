@@ -31,7 +31,7 @@ import { data } from '../.vitepress/ledger.data'
 
 **{{ data.total }} theorems** across **{{ data.principleCount }} computing principles** — all proven <code>by decide</code> in Lean 4 (no Mathlib), verified sorry-free, and folded to one order-invariant receipt:
 
-<p class="rcpt-big"><code>{{ data.trial.receipt }}</code></p>
+<p class="rcpt-big"><Handle :uuid="data.trial.receipt" /></p>
 
 Lean is the single source: the ledger is derived from `lean/*.lean` and reached here through the package's `theorems()`. Re-verify every proof with `npm run lean`.
 

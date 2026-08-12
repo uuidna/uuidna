@@ -72,8 +72,8 @@ neighbours**: its content-address is one leaf of the ledger's **order-invariant*
 the ${N} starting points and any of the seven rotations — so no theorem can be altered without every neighbour's fold
 reporting it.
 
-- **Local witness** — this theorem folded with its four cyclic neighbours (${link(rot(9)(t))} · ${link(rot(7)(t))} · ${link(rot(1)(t))} · ${link(reflectOf(t))}): \`${witness}\`. Change any one of the five and this witness moves.
-- **Ledger receipt** — all ${N} addresses folded to one: [\`${LEDGER_RECEIPT}\`](/trials). Change **this** theorem and the whole receipt moves.
+- **Local witness** — this theorem folded with its four cyclic neighbours (${link(rot(9)(t))} · ${link(rot(7)(t))} · ${link(rot(1)(t))} · ${link(reflectOf(t))}): \`${witness.slice(0, 8)}\` — the handle; the full folds on the spot. Change any one of the five and this witness moves.
+- **Ledger receipt** — all ${N} addresses folded to one: [\`${LEDGER_RECEIPT.slice(0, 8)}\`](/trials). Change **this** theorem and the whole receipt moves.
 
 Recompute either by folding the content-addresses with \`merkleGravity\` (\`uuidna_run_ledger\` folds the whole ledger). The neighbours make it **tamper-evident**, they do not prove it — proof is Lean's, integrity is the fold's.`
 }
@@ -163,7 +163,7 @@ ${t.lean}
 
 | field | value |
 | --- | --- |
-| content-address | \`${t.address}\` |
+| content-address | \`${t.address.slice(0, 8)}\` — the **handle** (the door \`/${t.address.slice(0, 8)}\`); the full uuid is the machine key, in this page's meta and recomputable from the proof, never shown (it computes on the spot) |
 | skill | [${t.skill}](/topics#skill-${t.skill}) — the capability hub (every theorem sharing it) |
 | principle | ${t.principle} — ${blurb[t.principle] || ''} |
 | verdict | **VERIFIED** — its \`by ${t.tactic}\` proof compiles sorry-free (Lean 4.33.0, no Mathlib) |

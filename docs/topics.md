@@ -21,7 +21,7 @@ Every theorem links to its page, where the full statement, the `by decide` proof
 
 <section v-for="g in data.skillGroups" :key="g.skill" class="psec">
   <h2 :id="'skill-' + g.skill">{{ g.skill }} <Badge type="tip" :text="String(g.count)" /></h2>
-  <p class="psec-fold">topic fold <code>{{ g.fold }}</code></p>
+  <p class="psec-fold">topic fold <Handle :uuid="g.fold" /></p>
   <ul class="tlist">
     <li v-for="t in g.theorems" :key="t.key">
       <a :href="`/theorem/${t.key}`">{{ t.name }}</a>

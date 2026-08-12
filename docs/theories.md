@@ -29,11 +29,10 @@ and **UNVERIFIED** when they are only a claim — that boundary *is* the differe
     <strong>Recycle → the next aspect:</strong>
     <ul><li v-for="(s, j) in c.develop" :key="j">{{ s }}</li></ul>
   </div>
-  <p class="taddr"><code>{{ c.address }}</code></p>
+  <p class="taddr"><Handle :uuid="c.address" /></p>
 </section>
 
-The whole run folds to one superposition uuid — the first segment is the identity handle: <code>{{ data.handle }}</code>
-· full <code>{{ data.superposition }}</code>. Recompute it with `uuidna_reactor` over the same claims, or challenge your
+The whole run folds to one superposition uuid — cite the handle (click to copy the full): <Handle :uuid="data.superposition" />. Recompute it with `uuidna_reactor` over the same claims, or challenge your
 own with the MCP tool. **Integrity, not truth** — the reactor proves a recomputable fold and an honest next, never a
 verdict on belief.
 

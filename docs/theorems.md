@@ -74,7 +74,7 @@ monograph. Lean is the single source; the recomputation-only capabilities (addre
 
 <p v-if="shown.length === 0" class="filt-empty">No theorem matches — <a @click="clearAll">clear the filters</a>.</p>
 
-The whole set folds to one order-invariant receipt: <code>{{ data.trial.receipt }}</code>. Re-verify every proof with `npm run lean`.
+The whole set folds to one order-invariant receipt: <Handle :uuid="data.trial.receipt" />. Re-verify every proof with `npm run lean`.
 The same theorems grouped by skill are on [/topics](/topics); the cluster guides are the monographs on [/publications](/publications).
 
 <style scoped>

@@ -16,6 +16,7 @@ import Chess from './Chess.vue'
 import MessageStream from './MessageStream.vue'
 import TokenMeter from './TokenMeter.vue'
 import CostMeter from './CostMeter.vue'
+import Handle from './Handle.vue'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -64,5 +65,8 @@ export default {
     // HomeGraph — the homepage as a graph: every principle a domain card, each a horizontal slider of its top
     // theorems linking its monograph. Computes from the ledger + the ℤ/9 palette; adding a domain adds a card.
     app.component('HomeGraph', HomeGraph)
+    // Handle — the unified uuid citation: shows the 8-char handle, carries the full uuid (title + click-to-copy).
+    // Used on every page so the "cite the handle, the fold is the whole" rule is one component, not per-page slices.
+    app.component('Handle', Handle)
   }
 } satisfies Theme

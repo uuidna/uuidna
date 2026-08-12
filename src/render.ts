@@ -53,7 +53,11 @@ export function renderTheorem(t: TheoremView, opts: RenderOpts = {}): string {
     + `<p data-slot="card-description" itemprop="description" style="margin:0;color:#6a6a6a;font-size:.82rem">${full}</p>`
     + `</div>`
     + `<div data-slot="card-content">`
-    + `<code itemprop="identifier" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(${hue} 60% 40%);word-break:break-all">${escapeHtml(address)}</code>`
+    // The full content-address is the machine KEY, never shown — carried as microdata identifier (recomputable,
+    // crawlable) and as the uuidna:address meta. What the reader sees is the first-part HANDLE (first 8 hex, the
+    // door /<handle>); the rest of the uuid computes on the spot from the proof. Real uuids compute, they don't display.
+    + `<meta itemprop="identifier" content="${escapeHtml(address)}">`
+    + `<code data-slot="handle" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(${hue} 60% 40%)">${escapeHtml(address.slice(0, 8))}</code>`
     + `</div>`
     + `<div data-slot="card-footer"><small style="color:#9a9a9a">integrity, not truth</small></div>`
     + `</article>`

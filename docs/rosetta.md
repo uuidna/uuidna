@@ -21,7 +21,7 @@ UNVERIFIED. The same discipline the rest of uuidna holds: the number is sealed, 
 
 <section v-for="r in data.rosetta" :key="r.ray" class="psec">
   <h2 :id="'ray-' + r.ray">Ray {{ r.ray }} <Badge type="tip" :text="String(r.count)" /></h2>
-  <p class="psec-fold">ray fold <code>{{ r.fold }}</code></p>
+  <p class="psec-fold">ray fold <Handle :uuid="r.fold" /></p>
   <ul class="tlist">
     <li v-for="t in r.theorems" :key="t.key"><a :href="`/theorem/${t.key}`">{{ t.name }}</a></li>
   </ul>

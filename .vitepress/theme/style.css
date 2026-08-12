@@ -287,3 +287,8 @@ body::before {
   :root { animation: none; }
   body::before { animation: none; }
 }
+
+/* Handle — the unified uuid citation (see Handle.vue): 8-char handle shown, full uuid copyable on click. */
+.uuid-handle { cursor: pointer; user-select: all; border-bottom: 1px dotted var(--vp-c-divider); font-family: var(--vp-font-family-mono); }
+.uuid-handle:hover { color: var(--vp-c-brand-1); border-bottom-color: var(--vp-c-brand-1); }
+.uuid-copied { color: var(--vp-c-green-1); font-weight: 700; }
