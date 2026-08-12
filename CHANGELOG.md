@@ -7,6 +7,10 @@ single-digit odometer; no version is minted forward past an unpublished one.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). A content-address proves integrity, not truth.
 
+**Versioning rule:** a version ending in **`.0`** is a **stable** release; a non-zero patch is **development** toward the
+next `.0`. So `0.1.0` (published) is stable; `0.1.1` is development; `1.0.0` will be the next stable milestone (1024
+theorems). A `.0` bumps development onward.
+
 ## Roadmap — toward [1.0.0]
 
 A plan, not a promise. **v1.0.0 aims at 1024 theorems** (2¹⁰ — a clean power-of-two milestone), **all `by decide`,
