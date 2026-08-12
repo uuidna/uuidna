@@ -4,7 +4,7 @@
 // refused, so the pass is real, not a gate that always says yes). Writing descends from reading; integrity, not truth.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { publications, composePublication, auditPublication } from '../index.js'
+import { publications, composePublication, auditPublication, revisePublication, comparePublications } from '../index.js'
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 
@@ -37,6 +37,31 @@ test('the gate BITES — an overreaching note is refused, so the pass is real', 
   assert.equal(auditPublication(honest).length, 0, 'honest, backed prose passes')
   const findings = auditPublication(boast)
   assert.ok(findings.length >= 1, 'an unbacked overclaim is flagged, not published')
+})
+
+test('editing is re-addressing — a revision re-fingerprints, and an edit that overreaches is refused', () => {
+  const before = 'The tide rises and falls, each claim linking its [proof](/theorem/rule_of_twelfths).'
+  const same = revisePublication(before, before)
+  assert.equal(same.changed, false, 'an identical edit does not change the address')
+  const clean = revisePublication(before, before + ' The rule is a palindrome.')
+  assert.equal(clean.changed, true, 'a real edit moves the address')
+  assert.ok(clean.after !== clean.before && clean.publishable, 'an honest edit re-addresses and stays publishable')
+  // the overclaim must land in an UNBACKED sentence — a proof link would (correctly) clear it
+  const bad = revisePublication(before, before + ' This system is unbreakable.')
+  assert.equal(bad.publishable, false, 'an edit that introduces an unbacked overclaim is refused before publishing')
+  assert.match(bad.edit, UUID, 'the before→after receipt binds the revision')
+})
+
+test('similarity is derived from difference — pattern recognition, inclusion–exclusion exact', () => {
+  const c = comparePublications('the tide rises and falls', 'the tide rises then rises again')
+  assert.equal(c.inclusionExclusion, true, '|A| + |B| − shared = union, exactly — the count is a proof')
+  assert.equal(c.shared + c.onlyA + c.onlyB, c.union, 'the partition covers the union')
+  assert.ok(c.shared >= 1 && c.similarity.den > 0, 'a shared pattern is recognised against the difference')
+  const disjoint = comparePublications('alpha beta', 'gamma delta')
+  assert.equal(disjoint.shared, 0, 'no shared tokens → no pattern')
+  assert.equal(disjoint.similarity.num, 0, 'similarity is zero when nothing is shared')
+  const identical = comparePublications('same words here', 'same words here')
+  assert.equal(identical.similarity.num, identical.similarity.den, 'a text is wholly similar to itself (1/1)')
 })
 
 test('a proof-backed sentence keeps its strong words — backing clears the gate, not censorship', () => {

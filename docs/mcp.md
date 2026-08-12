@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="68 keys" />
+# MCP tools <Badge type="tip" text="70 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 68 tools below are read from the server's own tool list and
+is **built from the keys**: the 70 tools below are read from the server's own tool list and
 organised into 14 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`68`" />
+## The grid <Badge type="tip" :text="`70`" />
 
-68 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+70 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -83,6 +83,8 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-skills"><code>skills</code></a>
 <a href="#uuidna-theorem"><code>theorem</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
+<a href="#uuidna-edit"><code>edit</code></a>
+<a href="#uuidna-compare"><code>compare</code></a>
 <a href="#uuidna-trial"><code>trial</code></a>
 <a href="#uuidna-send"><code>send</code></a>
 <a href="#uuidna-receive"><code>receive</code></a>
@@ -850,7 +852,7 @@ The pigeonhole seat bound: a b-bit digest has 2^b distinct seats, so past 2^b in
 | --- | --- | --- | --- |
 | `bits` | number | **yes** |  |
 
-## Publications (audited prose) <Badge type="tip" :text="'1'" />
+## Publications (audited prose) <Badge type="tip" :text="'3'" />
 
 *skill: publish*
 
@@ -863,6 +865,29 @@ Write a PUBLICATION in lean human prose about ONE domain, AUDITED before publish
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `file` | string | no | a lean/*.lean file name, e.g. "Codes.lean" — omit to list all publications |
+
+### `uuidna_edit`
+
+The EDITOR primitive — audit a draft, or a revision, BEFORE publishing. With `draft` alone: content-address the prose and run uuidna's honesty gate, returning its address and any claim that overreaches a proof (unbacked by a /theorem/ link and undemarcated) — write, see it audited, before it ships. With BOTH `before` and `after`: audit the EDIT — both drafts content-addressed (the change is visible because the address moves), bound by a directional before→after receipt, the after-draft gated. Editing is re-addressing; a revision earns publication the same way a first draft does. Nothing is stored. Integrity, not truth.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `draft` | string | no | prose to audit + content-address before publishing |
+| `before` | string | no | the prose before an edit (pair with `after`) |
+| `after` | string | no | the prose after an edit (pair with `before`) |
+
+### `uuidna_compare`
+
+PATTERN RECOGNITION — recognise the pattern two texts share by examining how they DIFFER. Partitions their word sets into only-A, only-B and shared; the similarity (Jaccard: shared over the union) is DERIVED from that difference, and inclusion–exclusion (|A| + |B| − shared = union) is checked exactly, so the number is a proof, not an estimate. The shared tokens fold to one order-invariant receipt — the recognised pattern. Similarity is only ever measured against difference. Compares vocabulary, NOT meaning; nothing is stored. Integrity, not truth.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `a` | string | **yes** |  |
+| `b` | string | **yes** |  |
 
 ## Quantum simulation <Badge type="tip" :text="'1'" />
 

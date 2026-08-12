@@ -17,7 +17,7 @@ import {
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   THEOREMS, runTrial, theorems, skillGroups,
-  publications, composePublication,
+  publications, composePublication, auditPublication, revisePublication, comparePublications,
 } from './index.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { pathToFileURL } from 'node:url'
@@ -333,6 +333,19 @@ const TOOLS: Tool[] = [
     run: (a = {}) => a.file
       ? composePublication(String(a.file))
       : publications().map((p) => ({ slug: p.slug, file: p.file, title: p.title, theorems: p.count, publishable: p.publishable, receipt: p.receipt, address: p.address, findings: p.findings })) },
+  { name: 'uuidna_edit',
+    description: 'The EDITOR primitive — audit a draft, or a revision, BEFORE publishing. With `draft` alone: content-address the prose and run uuidna\'s honesty gate, returning its address and any claim that overreaches a proof (unbacked by a /theorem/ link and undemarcated) — write, see it audited, before it ships. With BOTH `before` and `after`: audit the EDIT — both drafts content-addressed (the change is visible because the address moves), bound by a directional before→after receipt, the after-draft gated. Editing is re-addressing; a revision earns publication the same way a first draft does. Nothing is stored. Integrity, not truth.',
+    inputSchema: { type: 'object', properties: { draft: { type: 'string', description: 'prose to audit + content-address before publishing' }, before: { type: 'string', description: 'the prose before an edit (pair with `after`)' }, after: { type: 'string', description: 'the prose after an edit (pair with `before`)' } } },
+    run: (a = {}) => {
+      if (a.before !== undefined || a.after !== undefined) return revisePublication(String(a.before ?? ''), String(a.after ?? ''))
+      const draft = String(a.draft ?? '')
+      const findings = auditPublication(draft)
+      return { address: toUuid(draft), publishable: findings.length === 0, findings, chars: draft.length,
+        honest: 'The gate flags any sentence that leans on an overreach token without a proof to back it or a demarcation to clear it. Back it with a sealed /theorem/<key>, or demarcate it (not / never / no / simulation / finite). Audited before published.' } } },
+  { name: 'uuidna_compare',
+    description: 'PATTERN RECOGNITION — recognise the pattern two texts share by examining how they DIFFER. Partitions their word sets into only-A, only-B and shared; the similarity (Jaccard: shared over the union) is DERIVED from that difference, and inclusion–exclusion (|A| + |B| − shared = union) is checked exactly, so the number is a proof, not an estimate. The shared tokens fold to one order-invariant receipt — the recognised pattern. Similarity is only ever measured against difference. Compares vocabulary, NOT meaning; nothing is stored. Integrity, not truth.',
+    inputSchema: { type: 'object', properties: { a: { type: 'string' }, b: { type: 'string' } }, required: ['a', 'b'] },
+    run: (x) => comparePublications(String(x.a), String(x.b)) },
   { name: 'uuidna_trial',
     description: 'Run the whole Lean ledger through the trial: every theorem is SEALED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,sealed,refuted,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
@@ -475,7 +488,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^audit_(text|book|translation|movie|record)$/, 'Provenance audit (public text & metadata)', 'books'],
   [/^(sha256|hmac|pbkdf2|chacha20|poly1305|aead_encrypt|aead_decrypt)$/, 'Crypto primitives', 'crypto'],
   [/^(theorems|theorem|trial|skills|render|render_list)$/, 'Theorems & trial', 'theorem'],
-  [/^publish$/, 'Publications (audited prose)', 'publish'],
+  [/^(publish|edit|compare)$/, 'Publications (audited prose)', 'publish'],
   [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
   [/^quantum$/, 'Quantum simulation', 'quantum'],
   [/^bill$/, 'Billing & measure', 'billing'],

@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **779 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **787 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -119,7 +119,10 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 38. **The calendar** — `lean/Calendar.lean` · **9** theorems
    the Gregorian calendar and the seven-day week as decidable arithmetic — the week IS the rosette ℤ/7 (advance seven days, the day returns: 7 % 7 = 0), so the calendar counts mod 7: a common year of 365 = 52·7 + 1 days shifts a fixed date one weekday (365 % 7 = 1), a leap year two (366 % 7 = 2); the Gregorian rule keeps 97 leap years per 400 (every 4th − centuries + every 400th = 100 − 4 + 1), making 400 years = 146097 days, a whole number of weeks (146097 % 7 = 0), so the calendar repeats EXACTLY every 400 years; the century exception is decided (2000 leap, 1900 not); and the doomsday even months 4/4, 6/6, 8/8, 10/10, 12/12 sit 63 = 9·7 days apart, so they share a weekday — mod-7 congruence, NOT a locale date library
 
-39. **One leap** — `lean/OneLeap.lean` · **1** theorems
+39. **The measures of type** — `lean/Typesetting.lean` · **8** theorems
+   typesetting and bookbinding as decidable arithmetic, the craft beneath the publications — the printer's units close exactly (6 picas of 12 points make the 72-point inch); a folded sheet is a folio (2 leaves, 4 pages), folded again a quarto (8), again an octavo (16), leaves doubling so pages run in powers of two and every bound signature is a multiple of four; the harmonious page is the 3:4 rectangle whose diagonal is a whole 5 (3²+4²=5²); the readable measure is 66 characters, inside the 45–75 a typographer keeps; leading exceeds its type (12 on 14); a ream is 500 sheets (20 quires of 25); and a leaf has a recto (odd) and a verso (even) — the arithmetic of the page, NOT a layout engine or a font renderer
+
+40. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
 ---
