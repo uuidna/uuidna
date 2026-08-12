@@ -67,7 +67,9 @@ export function forensics(statement: string, opts: { claims?: { text: string; ad
   //    addressed. If the agent says it knows the law but cites no receipt (no /theorem/, no uuid, no {text→address}
   //    claim), the claim is unbacked. The receipt proves you made THIS exact claim, recomputably — NEVER that the
   //    claim is legally correct (that is a court's ruling, not a fold). "Say you know the law → carry its receipt."
-  const LAW = /\b(lawful(ly)?|legal(ly)?|complian\w+|complies|according to (the )?law|knows? the law|by law|licen[sc]ed)\b/i
+  // Legal/IP OWNERSHIP claims that must carry a receipt — including patents and intellectual-property assertions,
+  // added after a real near-miss: "uuidna holds all the patents" once passed clean because "patent" was not listed.
+  const LAW = /\b(lawful(ly)?|legal(ly)?|complian\w+|complies|according to (the )?law|knows? the law|by law|licen[sc]ed|patent\w*|trademark\w*|intellectual property|proprietary|owns? (all )?(the )?(rights|patents))\b/i
   const carriesReceipt = /\/theorem\//.test(statement) || UUID_RE.test(statement) || (opts.claims || []).length > 0
   UUID_RE.lastIndex = 0 // reset the global regex after .test above
   if (LAW.test(statement) && !carriesReceipt) add('unbacked-law', 'claims lawful/legal/compliant but carries no receipt — cite the specific statement and its content-address (a receipt proves the claim was made, not that it is legally correct)')

@@ -41,6 +41,13 @@ test('an unbacked legal claim is flagged — a legal claim must carry a receipt'
   assert.ok(!formed.violations.some((v) => v.kind === 'unbacked-law'), 'a legal claim carrying its receipt is well-formed')
 })
 
+test('an unbacked patent / IP-ownership claim is flagged (hardened from a real near-miss)', () => {
+  // "uuidna holds all the patents" once passed clean because "patent" was not in the legal lexicon. Now it flags.
+  assert.ok(forensics('uuidna holds all the patents of the discoveries made in uuidna')
+    .violations.some((v) => v.kind === 'unbacked-law'), 'a bare patent claim carries no receipt')
+  assert.ok(forensics('this method is patented and proprietary').violations.some((v) => v.kind === 'unbacked-law'))
+})
+
 test('auditAgents aggregates a stream and folds to one receipt', () => {
   const a = auditAgents([
     `clean and backed: /theorem/${realKey}`,
