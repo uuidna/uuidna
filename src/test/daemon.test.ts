@@ -1,0 +1,48 @@
+// Daemon tests — the pure router, exercised without binding a socket. Read-only, stateless, honest: it verifies,
+// tries, and gates; it never removes or stores. The tamper-check is keyless. Integrity, not truth.
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { route } from '../daemon.js'
+import { toUuid } from '../index.js'
+
+const Q = (s = '') => new URLSearchParams(s)
+
+test('health returns the ledger receipt', () => {
+  const r = route('GET', '/health', Q(), {})
+  assert.equal(r.status, 200)
+  const j = r.json as { ok: boolean; theorems: number; receipt: string }
+  assert.equal(j.ok, true)
+  assert.ok(j.theorems > 0)
+  assert.match(j.receipt, /^[0-9a-f-]{36}$/)
+})
+
+test('address content-addresses a value, GET and POST', () => {
+  const g = route('GET', '/address', Q('of=hello'), {}).json as { address: string }
+  const p = route('POST', '/address', Q(), { text: 'hello' }).json as { address: string }
+  assert.equal(g.address, toUuid('hello'))
+  assert.equal(p.address, g.address)
+})
+
+test('verify is a keyless tamper-check', () => {
+  const addr = toUuid('the sealed text')
+  const intact = route('POST', '/verify', Q(), { text: 'the sealed text', address: addr }).json as { match: boolean }
+  const tampered = route('POST', '/verify', Q(), { text: 'the sealed text.', address: addr }).json as { match: boolean }
+  assert.equal(intact.match, true, 'the exact text matches its address')
+  assert.equal(tampered.match, false, 'one changed character no longer matches — tamper detected')
+})
+
+test('gate flags an overclaim and clears honest prose', () => {
+  const bad = route('GET', '/gate', Q('text=' + encodeURIComponent('this is unbreakable')), {}).json as { clean: boolean }
+  const good = route('GET', '/gate', Q('text=' + encodeURIComponent('content-addressed, recomputable')), {}).json as { clean: boolean }
+  assert.equal(bad.clean, false)
+  assert.equal(good.clean, true)
+})
+
+test('trial returns a three-way verdict', () => {
+  const r = route('POST', '/trial', Q(), { statement: 'uuidna is a quantum computer' }).json as { verdict: string }
+  assert.equal(r.verdict, 'REFUTED')
+})
+
+test('an unknown route 404s, never crashes', () => {
+  assert.equal(route('GET', '/nope', Q(), {}).status, 404)
+})

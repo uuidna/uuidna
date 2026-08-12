@@ -87,6 +87,7 @@
     "lean:divzero": "node dist/scripts/lean-divzero.js",
     "lean:sequence": "node dist/scripts/lean-sequence.js",
     "mcp": "node dist/mcp.js",
+    "daemon": "npm run build && node dist/daemon.js",
     "prepublishOnly": "npm run audit",
     "lean:biophysics": "node dist/scripts/lean-biophysics.js",
     "lean:discover": "node dist/scripts/lean-discover.js",
