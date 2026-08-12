@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="82 keys" />
+# MCP tools <Badge type="tip" text="83 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 82 tools below are read from the server's own tool list and
-organised into 20 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 83 tools below are read from the server's own tool list and
+organised into 21 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`82`" />
+## The grid <Badge type="tip" :text="`83`" />
 
-82 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+83 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -92,6 +92,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-prior-art"><code>prior_art</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
 <a href="#uuidna-reflects"><code>reflects</code></a>
+<a href="#uuidna-slim-gate"><code>slim_gate</code></a>
 <a href="#uuidna-reason"><code>reason</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
 <a href="#uuidna-forensics"><code>forensics</code></a>
@@ -704,7 +705,7 @@ The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean t
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `principle` | string | no |  |
-| `skill` | string | no | the capability axis: involution, z9-ring, z7-rosette, clay-reflection, reflection, quantum, crypt-salt, science-pairs, vortex, foundational |
+| `skill` | string | no | the capability axis — any skill name from uuidna_skills (the live, recomputable list), never a fixed enum here so it cannot go stale as domains are added |
 | `contains` | string | no |  |
 
 ### `uuidna_skills`
@@ -990,6 +991,20 @@ Reveal the sealed theorems a real-world system ALREADY reflects. Describe a syst
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `query` | string | **yes** | a system described by its devices/concepts |
+
+## The gate of all gates (theorems only) <Badge type="tip" :text="'1'" />
+
+*skill: gate*
+
+### `uuidna_slim_gate`
+
+The gate of all gates, as slim as it gets: ONLY theorems, no lexicon. Judges a {claim} by ONE recomputable question — do the theorems it cites (/theorem/&lt;key&gt;) actually exist, sealed, in the ledger? SEALED iff it cites a real sealed theorem and no fake; REFUTED iff it cites a theorem NOT in the ledger (a fabricated citation, the one decidably-false case); UNVERIFIED iff it cites none (held open, not refused). Computed from the sealed ledger alone; delete every word-list and it still stands.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `claim` | string | **yes** |  |
 
 ## Reasoning (in-house inference) <Badge type="tip" :text="'1'" />
 

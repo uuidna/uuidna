@@ -14,7 +14,7 @@ theorems). A `.0` bumps development onward.
 ## Roadmap — toward [1.0.0]
 
 A plan, not a promise. **v1.0.0 aims at 1024 theorems** (2¹⁰ — a clean power-of-two milestone), **all `by decide`,
-sorry-free, 100% heartbeat-covered**, folded to one receipt. Today: **821 / 1024 — 203 to go**, across 44 principles.
+sorry-free, 100% heartbeat-covered**, folded to one receipt. Today: **829 / 1024 — 195 to go**, across 45 principles.
 The versions in between are real, gated releases: each `0.1.x` grows the ledger and must pass `npm run next` (proofs +
 prose + accounts + graph + the changelog self-audit) before it ships. And the honest odometer holds — **1.0.0 comes
 only after the `0.1.x` line is actually published on npm** (today only `0.1.0` is), never by minting forward past an
@@ -30,14 +30,16 @@ the chance to reverse-develop itself *now*, while the ledger is still free.
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-Ledger: **821 theorems** across **44 principles**, folded to receipt `30933be2-0672-8672-9e68-9cc819836d75`
+Ledger: **829 theorems** across **45 principles**, folded to receipt `4d075839-c82f-8b3e-8743-407fd2d032e5`
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added
-- **Skilled-theorem domains** grown to 806 across 42 principles — including the error-correcting codes, the
+- **Skilled-theorem domains** grown to 829 across 45 principles — including the error-correcting codes, the
   identifiers (ISBN/ISSN check digits), the tides, the chessboard, the calendar (the week as ℤ/7), the measures of
-  type (typesetting), the cut (video editing), and the mix (music production, with the reverse/invert/fused
-  involutions). Each domain measured for its decide-step heartbeat cost (100% coverage).
+  type (typesetting), the cut (video editing), the mix (music production, with the reverse/invert/fused
+  involutions), the rules of inference (reasoning), the bounds (security), and **the exposure** (photography —
+  where the standard *rounds* 1/128→1/125 and √2→f/1.4 for the dial, uuidna keeps the exact power of two, each
+  rounding gap proven). Each domain measured for its decide-step heartbeat cost (100% coverage).
 - **Publications (monographs)** — audited-before-published prose per domain at `/publications`, composed by reading
   the sealed theorems; the build refuses a note that overreaches a proof. `uuidna_publish`.
 - **The editor & pattern recognition** — `revise` (editing is re-addressing) and `compare` (similarity derived from
