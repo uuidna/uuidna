@@ -139,6 +139,23 @@ receipt at [uuidna.com/trials](https://uuidna.com/trials), is indexed by capabil
 [uuidna.com/topics](https://uuidna.com/topics), and onto seven ℤ/7 rays at
 [uuidna.com/rosetta](https://uuidna.com/rosetta). Regenerate + re-verify: `npm run lean`.
 
+### Adding a domain — `npm run reconcile`
+
+Lean is the single source, but the ledger has a **derived layer** that must stay in lockstep with it:
+[`src/theorems/generated.ts`](src/theorems/generated.ts), [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md), `CHANGELOG.md`,
+the MCP catalog `docs/mcp.md`, the decide-step costs `lean/heartbeats.json`, and `audit-citations.json`. The pre-push
+readiness gate `git diff`s **all** of them, so any one left stale blocks the push. Add a domain — a
+`src/scripts/lean-<x>.ts` generator (or a hand-written `.lean`) — then run one command:
+
+```bash
+npm run reconcile                          # regenerate the derived layer, sync heartbeats, commit + push
+npm run reconcile -- "Add the nim domain"  # with your own commit message
+```
+
+It runs `npm run lean` (regenerate + verify every proof), rebuilds the MCP catalog, `--sync`s the heartbeats to 100%
+coverage, refreshes the citation audit, and **aborts if the ledger does not reconcile** (`account.js`) *before* any
+commit. Only then does it commit (skipped if nothing changed) and `git push origin HEAD` through the readiness gate.
+
 ## What it is — and isn't
 
 - **Is:** a content-addressed integrity layer. Same input → same address, reproducible by anyone. A

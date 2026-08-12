@@ -23,7 +23,7 @@ export type PrincipleGroup = {
   blurb: string
   count: number
   fold: string
-  guide: string | null   // the /publications/<slug> guide for this cluster (its audited monograph), or null
+  monograph: string | null   // the /publications/<slug> monograph for this cluster (its audited prose), or null
   theorems: Theorem[]
 }
 
@@ -69,12 +69,12 @@ export default {
     const blurb = Object.fromEntries(PRINCIPLES.map((p: string[]) => [p[1], p[2]])) as Record<string, string>
     const order = PRINCIPLES.map((p: string[]) => p[1]).filter((name: string) => LEDGER.some((t) => t.principle === name))
 
-    // Each cluster's GUIDE is its audited monograph on /publications, matched by the .lean file the theorems share.
-    const guideByFile = Object.fromEntries(publications().map((p) => [p.file, p.slug])) as Record<string, string>
+    // Each cluster's MONOGRAPH is its audited prose on /publications, matched by the .lean file the theorems share.
+    const monographByFile = Object.fromEntries(publications().map((p) => [p.file, p.slug])) as Record<string, string>
     const groups: PrincipleGroup[] = order.map((name) => {
       const list = LEDGER.filter((t) => t.principle === name)
-      const slug = guideByFile[list[0]?.file]
-      return { name, blurb: blurb[name] || '', count: list.length, fold: merkleGravity(list.map((t) => t.address)), guide: slug ? `/publications/${slug}` : null, theorems: list }
+      const slug = monographByFile[list[0]?.file]
+      return { name, blurb: blurb[name] || '', count: list.length, fold: merkleGravity(list.map((t) => t.address)), monograph: slug ? `/publications/${slug}` : null, theorems: list }
     })
 
     // Discussion topics computed by the theorem skill axis — biggest first, each folded to its own receipt. Public.

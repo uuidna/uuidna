@@ -13,7 +13,7 @@ import { data } from '../.vitepress/ledger.data'
 const q = ref('')
 const principle = ref('')     // '' = all
 const skill = ref('')         // '' = all
-const guideByPrinciple = Object.fromEntries(data.groups.map((g) => [g.name, g.guide]))
+const monographByPrinciple = Object.fromEntries(data.groups.map((g) => [g.name, g.monograph]))
 
 const shown = computed(() => {
   const needle = q.value.trim().toLowerCase()
@@ -31,7 +31,7 @@ const skillFacets = computed(() =>
   data.skillGroups.map((g) => g.skill).map((s) => ({ s, n: data.theorems.filter((t) => t.skill === s &&
     (!principle.value || t.principle === principle.value) &&
     (!q.value.trim() || (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q.value.trim().toLowerCase()))).length })))
-const activeGuide = computed(() => principle.value ? guideByPrinciple[principle.value] : null)
+const activeMonograph = computed(() => principle.value ? monographByPrinciple[principle.value] : null)
 const clearAll = () => { q.value = ''; principle.value = ''; skill.value = '' }
 </script>
 
@@ -39,7 +39,7 @@ const clearAll = () => { q.value = ''; principle.value = ''; skill.value = '' }
 
 **Every proven Lean theorem — filter it, then read its proof.** Each is authored in `lean/*.lean`, proven `by decide`
 (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`. Filter by **cluster** (the derivation principle) or
-**skill** (the capability), narrow by text, and open any theorem for its proof. Each cluster's **guide** is its audited
+**skill** (the capability), narrow by text, and open any theorem for its proof. Each cluster's **monograph** is its audited
 monograph. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.
 
 <div class="filt">
@@ -61,7 +61,7 @@ monograph. Lean is the single source; the recomputation-only capabilities (addre
 
 <p class="filt-count">
   <strong>{{ shown.length }}</strong> of {{ data.total }} shown{{ principle ? ` · cluster ${principle}` : '' }}{{ skill ? ` · skill ${skill}` : '' }}.
-  <a v-if="activeGuide" :href="activeGuide">Read the {{ principle }} guide →</a>
+  <a v-if="activeMonograph" :href="activeMonograph">Read the {{ principle }} monograph →</a>
 </p>
 
 <ul class="tlist tlist-flat">
@@ -75,7 +75,7 @@ monograph. Lean is the single source; the recomputation-only capabilities (addre
 <p v-if="shown.length === 0" class="filt-empty">No theorem matches — <a @click="clearAll">clear the filters</a>.</p>
 
 The whole set folds to one order-invariant receipt: <Handle :uuid="data.trial.receipt" />. Re-verify every proof with `npm run lean`.
-The same theorems grouped by skill are on [/topics](/topics); the cluster guides are the monographs on [/publications](/publications).
+The same theorems grouped by skill are on [/topics](/topics); each cluster's monograph is on [/publications](/publications).
 
 <style scoped>
 .filt { display: flex; gap: .5rem; align-items: center; margin: 1rem 0 .5rem; }
