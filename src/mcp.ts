@@ -574,3 +574,15 @@ export const MCP_CATALOG: McpCatalogEntry[] = TOOLS.map((t) => {
   const [category, skill] = categoryOf(t.name)
   return { name: t.name, description: t.description, category, skill, inputSchema: t.inputSchema as ToolSchema }
 })
+
+/** Every tool name the server exposes — the catalog's keys, so a test can iterate the SERVED surface. */
+export const TOOL_NAMES: readonly string[] = TOOLS.map((t) => t.name)
+
+/** callTool — invoke a tool's handler by name: the SAME dispatch the MCP server runs for a `tools/call`. Exposed so
+ *  CI exercises the SERVED interface (not just the functions underneath), and so the catalog can never list a tool
+ *  the handlers don't answer — the CI ↔ MCP no-drift check. Throws on an unknown tool, exactly as the server does. */
+export function callTool(name: string, args: Record<string, unknown> = {}): unknown {
+  const tool = TOOLS.find((t) => t.name === name)
+  if (!tool) throw new Error(`unknown tool: ${name}`)
+  return tool.run(args)
+}
