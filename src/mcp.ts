@@ -17,7 +17,7 @@ import {
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   THEOREMS, runTrial, theorems, skillGroups,
-  publications, composePublication, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason,
+  publications, composePublication, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import type { Sealed, GateOp, QState, Link } from './index.js'
@@ -351,6 +351,10 @@ const TOOLS: Tool[] = [
     description: 'Honest device resource accounting — balance the thermodynamics by MEASURING what is spent, never claiming it is free. Reports CPU time (this process), memory (rss/heap), and the machine\'s load, cores, total/free memory and uptime, all read from Node/OS, content-addressed as a signed reading. States plainly what it does NOT measure (GPU, bandwidth, and the actual joules need platform-specific probes and are not invented). No free energy: this work costs energy, bounded below by Landauer\'s kT·ln2 per bit and far more on a real chip; efficiency is pushed toward that floor, never past it.',
     inputSchema: { type: 'object', properties: {} },
     run: () => resources() },
+  { name: 'uuidna_reflects',
+    description: 'Reveal the sealed theorems a real-world system ALREADY reflects. Describe a system by its devices and concepts (e.g. home security: "keypad code tamper sensor detect alarm zone parity layered defence signature encryption schedule") and it matches those concepts against the ledger, returning the EXISTING `by decide` theorems whose arithmetic the system rests on — folded to one receipt. HONEST: the theorems already exist and were proven for their own domain; this shows the SAME arithmetic recurs — it does NOT claim uuidna is that system, that the theorems were built for it, or that citing them makes the system secure/correct. A resemblance the ledger carries, recomputable by anyone.',
+    inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'a system described by its devices/concepts' } }, required: ['query'] },
+    run: (a) => reflects(String(a.query)) },
   { name: 'uuidna_reason',
     description: 'IN-HOUSE reasoning that USES the sealed rules of inference. Give {facts:[atoms], rules:[{if:[atoms],then:atom}]} and it forward-chains to a fixpoint: whenever every premise of a rule is known it concludes the head by MODUS PONENS (or the hypothetical syllogism for a chain), CITING the sealed theorem at each step. Bounded (cannot loop forever), deterministic, and folds the whole derivation to one receipt anyone rechecks. Honest scope: bounded propositional forward-chaining over the rules you give — NOT a general theorem prover; it derives only what those rules entail, and never claims a conclusion is TRUE, only that it FOLLOWS.',
     inputSchema: { type: 'object', properties: { facts: { type: 'array', items: { type: 'string' } }, rules: { type: 'array', items: { type: 'object', properties: { if: { type: 'array', items: { type: 'string' } }, then: { type: 'string' } } } } }, required: ['facts', 'rules'] },
@@ -516,6 +520,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^(publish|edit|compare|vocabulary)$/, 'Publications (audited prose)', 'publish'],
   [/^(forensics|evidence)$/, 'Forensics & evidence (statements vs receipts)', 'forensics'],
   [/^reason$/, 'Reasoning (in-house inference)', 'reason'],
+  [/^reflects$/, 'Reflection (systems ↔ theorems)', 'reflects'],
   [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
   [/^quantum$/, 'Quantum simulation', 'quantum'],
   [/^bill$/, 'Billing & measure', 'billing'],
