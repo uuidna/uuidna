@@ -58,7 +58,9 @@ const withDerived = (t: LeanTheorem): Theorem => ({
   ...t,
   lean: `theorem ${t.key} : ${t.statement} := by ${t.tactic}`,
   address: toUuid(t.key + ':' + t.statement),
-  skill: skillOf(t.key),
+  // INLINE first: the skill authored in Lean (carried through the manifest → ledger). skillOf(key) is only the
+  // migration fallback for theorems not yet annotated; once every theorem carries an inline skill it is retired.
+  skill: t.skill ?? skillOf(t.key),
 })
 
 /** Every Lean-proven theorem, in computing-principle order. */

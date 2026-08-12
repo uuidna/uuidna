@@ -48,24 +48,29 @@ export interface Fact {
   why?: string
   js?: () => boolean
   defs?: string
+  skill?: string  // the CAPABILITY this fact demonstrates — authored inline (the single source), not derived from the key
 }
 
-// emit's arguments: the target Lean file, its header comment, the facts to prove, and shared Lean defs.
+// emit's arguments: the target Lean file, its header comment, the facts to prove, and shared Lean defs. `skill` is
+// the file-level default capability (most domains are uniform); a Fact's own `skill` overrides it per fact.
 export interface EmitArgs {
   file: string
   header: string
   facts: Fact[]
   defs?: string
+  skill?: string
 }
 
 // One helper, no repetition: JS-check every fact, write lean/<File>.lean + its manifest, verify sorry-free.
-export function emit({ file, header, facts, defs = '' }: EmitArgs): number {
+export function emit({ file, header, facts, defs = '', skill }: EmitArgs): number {
   const fail = facts.filter((f) => f.js && f.js() !== true)
   if (fail.length) { console.log('✗ ' + file + ' — JS check failed: ' + fail.map((f) => f.key).join(', ')); process.exit(1) }
   const body = facts.map((f) => (f.lean ? (f.name ? '-- ' + f.name + '\n' : '') + f.lean : `theorem ${f.key} : ${f.stmt} := by decide`)).join('\n\n')
   const lean = `-- lean/${file} — GENERATED. ${header} Every proof \`by decide\`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n${defs ? defs.trim() + '\n\n' : ''}${body}\n`
   writeFileSync(join(ROOT, 'lean', file), lean)
-  writeFileSync(join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json'), JSON.stringify(facts.map((f) => ({ key: f.key, name: f.name || f.stmt || f.key })), null, 0) + '\n')
+  // The manifest carries {key, name, skill} — the microdata bridge. skill is the inline, authored capability
+  // (a Fact's own skill, else the file-level default); omitted when neither is set, so the ledger falls back.
+  writeFileSync(join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json'), JSON.stringify(facts.map((f) => { const s = f.skill ?? skill; return s ? { key: f.key, name: f.name || f.stmt || f.key, skill: s } : { key: f.key, name: f.name || f.stmt || f.key } }), null, 0) + '\n')
   execSync('lean ' + JSON.stringify(join(ROOT, 'lean', file)), { cwd: ROOT, stdio: 'pipe', maxBuffer: 64 * 1024 * 1024 })
   console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified sorry-free.')
   return facts.length

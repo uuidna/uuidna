@@ -56,5 +56,6 @@ const FACTS = [
 emit({
   file: 'Psychology.lean',
   header: 'THE INSTRUMENT — the ARITHMETIC of psychology\'s instruments and named models (the Likert midpoint, the Big Five count, Miller\'s span, Hick\'s bits, the detection table, the Weber–Fechner ladder, Dunbar\'s rounded layers) and ONLY that. NOT a claim about the mind, behaviour, emotion, personality, or any diagnosis — uuidna is not a clinician.',
+  skill: 'psychology', // every fact in this file demonstrates the same capability — authored inline, the single source
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })
