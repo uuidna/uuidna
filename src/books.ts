@@ -137,6 +137,30 @@ export async function auditBook(id: number | string): Promise<BookAudit> {
   return auditText(b.text, { title: b.title, authors: b.authors, source: b.source })
 }
 
+/** A research-record audit — the provenance fingerprint of an open-access Zenodo record's PUBLIC metadata. */
+export interface RecordAudit extends BookAudit { doi: string }
+
+/** auditZenodo(id) → content-address the PUBLIC metadata of an open-access Zenodo record (title, DOI, creators,
+ *  date) via the Zenodo REST API (developers.zenodo.org, no key) — a recomputable provenance fingerprint of the
+ *  open record. HONEST: it fingerprints the public metadata only, NOT the deposited files or their content; uuidna
+ *  audits text provenance. Anyone re-fetches the same public record and recomputes the same address. */
+export async function auditZenodo(id: number | string): Promise<RecordAudit> {
+  const r = await fetch(`https://zenodo.org/api/records/${encodeURIComponent(String(id))}`)
+  if (!r.ok) throw new Error(`records: Zenodo responded ${r.status} for id ${id}`)
+  const j = (await r.json()) as { doi?: string; metadata?: { title?: string; creators?: { name?: string }[]; publication_date?: string }; links?: { self_html?: string } }
+  const md = j.metadata || {}
+  const creators = (md.creators || []).map((c) => c.name || '').filter(Boolean).join(', ')
+  const meta = `${md.title || ''}\n${j.doi || ''}\n${creators}\n${md.publication_date || ''}`
+  return {
+    ...auditText(meta, { title: md.title || String(id), source: j.links?.self_html || `https://zenodo.org/records/${id}` }),
+    doi: j.doi || '',
+    honest:
+      'Fingerprints the PUBLIC metadata of an open-access Zenodo record (title, DOI, creators, date), content-addressed — ' +
+      'NOT the deposited files or their content, which uuidna does not fetch or reproduce. Anyone re-fetches the same open ' +
+      'record and recomputes the same address; a check digit and a uuid are the same idea at different scales.',
+  }
+}
+
 /** A film audit — the provenance fingerprint of the PUBLIC description of a movie, NOT the film. */
 export interface MovieAudit extends BookAudit { movieDescription: string }
 

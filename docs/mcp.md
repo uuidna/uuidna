@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="66 keys" />
+# MCP tools <Badge type="tip" text="67 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 66 tools below are read from the server's own tool list and
+is **built from the keys**: the 67 tools below are read from the server's own tool list and
 organised into 13 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`66`" />
+## The grid <Badge type="tip" :text="`67`" />
 
-66 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
+67 tools, laid out in rows of 8 — 2⁶ is the bit measure the whole thing is tuned to. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-address"><code>address</code></a>
@@ -49,6 +49,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-audit-book"><code>audit_book</code></a>
 <a href="#uuidna-audit-translation"><code>audit_translation</code></a>
 <a href="#uuidna-audit-movie"><code>audit_movie</code></a>
+<a href="#uuidna-audit-record"><code>audit_record</code></a>
 <a href="#uuidna-coprime"><code>coprime</code></a>
 <a href="#uuidna-pentagram"><code>pentagram</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
@@ -515,7 +516,7 @@ Open a contract-keyed ratchet: verifies your terms address to the tagged [contra
 | `chain` | object | **yes** | the {contract,links} from uuidna_contract_chain |
 | `terms` | string | **yes** |  |
 
-## Provenance audit (public text & metadata) <Badge type="tip" :text="'4'" />
+## Provenance audit (public text & metadata) <Badge type="tip" :text="'5'" />
 
 *skill: books*
 
@@ -564,6 +565,16 @@ Content-address the PUBLIC Wikipedia summary of a film by title (free, no key) �
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `title` | string | **yes** | a film title, e.g. "The Matrix" |
+
+### `uuidna_audit_record`
+
+Fetch an OPEN-ACCESS Zenodo research record by id (via the public Zenodo REST API, developers.zenodo.org, no key) and content-address its PUBLIC metadata — title, DOI, creators, date — to a recomputable provenance fingerprint + structure + honesty gate. HONEST AND BOUNDED: it fingerprints the public metadata only, NOT the deposited files or their content, which uuidna does not fetch or reproduce. A check digit and a uuid are the same idea at different scales. Returns the audit + the DOI.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `recordId` | integer | **yes** | a Zenodo record id, e.g. 1234567 |
 
 ## Rotation & cycles <Badge type="tip" :text="'5'" />
 
