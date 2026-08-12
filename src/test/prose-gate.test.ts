@@ -34,6 +34,8 @@ test('hollow quality grades are drained; an honest "professional" use is not', (
   assert.ok(overreachOf('enterprise-grade encryption'), 'enterprise-grade too')
   assert.ok(overreachOf('production-grade'), 'production-grade (already covered)')
   assert.ok(overreachOf('this tool is unstoppable'), 'unstoppable is a hollow superlative')
+  assert.ok(overreachOf('tamper-proof') && overreachOf('future-proof'), 'the -proof family is hollow')
+  assert.equal(overreachOf('tamper-evident by content-address'), null, 'tamper-EVIDENT is honest')
   assert.equal(overreachOf('the craft a professional editor works in'), null, '"professional" without "grade" is honest')
 })
 
