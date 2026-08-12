@@ -6,6 +6,18 @@
 /** The two coins — the conserved fair-exchange invariant. */
 export function coins(): number { return 110 - 108 }
 
+/** A uuid address is 128 bits — the FIXED budget a value is presented by, whatever its size. */
+export const ADDRESS_BITS = 128
+
+/** referenceBitsSaved(items, payloadBits) → the BITS saved by presenting `items` values by their 128-bit address
+ *  instead of their full payload: items · (payloadBits − 128). The pigeonhole saving — present by reference and any
+ *  number of values fits a fixed budget per item. HONEST: it is 0 when the payload is no larger than an address (a
+ *  tiny value saves nothing by reference), so it never books a saving it did not make. Never negative. */
+export function referenceBitsSaved(items: number, payloadBits: number): number {
+  const per = payloadBits - ADDRESS_BITS
+  return per <= 0 || items <= 0 ? 0 : items * per // max(0, …) by comparison (no Math.*)
+}
+
 export interface UuidnaUsage { commercial: boolean; recomputeOps: number; verifyOps: number }
 
 /** Bill uuidna usage on the MEASURED bits saved (recompute − verify). Public interest is free; commercial

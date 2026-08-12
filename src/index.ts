@@ -37,7 +37,7 @@ export {
   harness, opaque, harnessGain, harness7, reeducate,
 } from './harness.js'
 
-export { coins, billUuidna, type UuidnaUsage } from './billing.js'
+export { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, type UuidnaUsage } from './billing.js'
 
 // quantum — a CLASSICAL, EXACT state-vector simulator, ported from millennium-solutions and completed as the captain
 // computes: on integer positions, no decimal drift. Amplitudes are GAUSSIAN INTEGERS over √(2^scale) — the ring
