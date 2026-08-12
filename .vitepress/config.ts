@@ -1,5 +1,8 @@
 import { defineConfig } from 'vitepress'
-import { theorems, PRINCIPLES } from '../dist/index.js'
+import { readdirSync } from 'node:fs'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { theorems, PRINCIPLES, canonicalOrder, type PageNode } from '../dist/index.js'
 
 // Lean is the single source. The nav, the sidebar (one collapsed group per computing principle) and the per-theorem
 // SEO meta are all derived here from the same compiled ledger the pages render — nothing is hand-maintained.
@@ -17,16 +20,24 @@ const blurb = Object.fromEntries(PRINCIPLES.map((p: string[]) => [p[1], p[2]])) 
 // so a reader clicking the doc-footer "next" covers all N theorems exactly as the sequence discovered them, then
 // closes the loop — no terminal gap. (The per-axis frontiers, where a theorem is genuinely missing, are surfaced
 // separately on the page body as the "invisible next".) Stride 1 is coprime to any N → one full cycle covering all.
-const seqNav: Record<string, { prev: { text: string; link: string }; next: { text: string; link: string } }> = {}
-const NSEQ = LEDGER.length
-LEDGER.forEach((t, i) => {
-  const prev = LEDGER[(i - 1 + NSEQ) % NSEQ]
-  const next = LEDGER[(i + 1) % NSEQ]
-  seqNav[t.key] = {
-    prev: { text: prev.key, link: `/theorem/${prev.key}` },
-    next: { text: next.key, link: `/theorem/${next.key}` },
-  }
-})
+// The ONE navigable graph: every page — sections, theorems, publications — in a canonical wrapping walk, so EVERY
+// page has a native prev/next and there is NO next-gap (the closed cover scripts/next.js verifies). The native
+// pager is fed from this SAME order (below), so the button the reader clicks and the gap the release gate hunts are
+// the one edge. Static section pages are discovered from docs/ (every .md that is not a dynamic-route template) and
+// sorted for determinism; canonicalOrder appends the theorems (ledger order) then the publications.
+const routeOf = (rel: string): string => '/' + rel.replace(/\.md$/, '').replace(/\/index$/, '').replace(/^index$/, '')
+const DOCS = fileURLToPath(new URL('../docs', import.meta.url))
+const walkMd = (dir: string, base = ''): string[] =>
+  readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() ? walkMd(join(dir, e.name), base + e.name + '/')
+    : e.name.endsWith('.md') && !e.name.includes('[') ? [base + e.name] : [])
+const staticPages: PageNode[] = walkMd(DOCS)
+  .map((rel) => ({ route: routeOf(rel), text: routeOf(rel).slice(1) || 'home' }))
+  .sort((a, b) => a.route.localeCompare(b.route))
+const ORDER = canonicalOrder(staticPages) as PageNode[]
+const NW = ORDER.length
+const walkNav = new Map<string, { prev: PageNode; next: PageNode }>()
+ORDER.forEach((n, i) => walkNav.set(n.route, { prev: ORDER[(i - 1 + NW) % NW], next: ORDER[(i + 1) % NW] }))
 
 // One collapsed sidebar group per principle; every proven theorem is a leaf linking to its show page.
 const theoremSidebar = order.map((name) => ({
@@ -75,8 +86,19 @@ export default defineConfig({
     // instead of splitting them as duplicate content. https://vitepress.dev/reference/site-config
     const slug = p?.key
       ? `theorem/${p.key}`
+      : p?.slug
+      ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
     const canonical = `https://uuidna.com/${slug}`
+
+    // The native prev/next pager — ONE button, fed from the canonical walk, on EVERY page (no next-gap). The route
+    // is the theorem/publication dynamic slug or the static page's own path; the walk wraps, so there is always a next.
+    const route = p?.key ? `/theorem/${p.key}` : p?.slug ? `/publications/${p.slug}` : routeOf(pageData.relativePath)
+    const nav = walkNav.get(route)
+    if (nav) {
+      pageData.frontmatter.prev = { text: nav.prev.text, link: nav.prev.route }
+      pageData.frontmatter.next = { text: nav.next.text, link: nav.next.route }
+    }
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(
       ['link', { rel: 'canonical', href: canonical }],
@@ -94,10 +116,6 @@ export default defineConfig({
       ['meta', { property: 'og:description', content: `${p.statement} — proven by ${p.tactic} in Lean 4.` }],
       ['meta', { property: 'uuidna:address', content: p.address }],
     )
-    // Official prev/next doc-footer links (VitePress frontmatter) — the ledger's sequence neighbours.
-    const nav = seqNav[p.key]
-    if (nav?.prev) pageData.frontmatter.prev = nav.prev
-    if (nav?.next) pageData.frontmatter.next = nav.next
   },
 
   themeConfig: {

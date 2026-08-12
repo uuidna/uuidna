@@ -49,6 +49,29 @@ A trial on a single statement returns one of three, as a function of the stateme
 The gate is a pure, multilingual tripwire and the receipt is a content-address, so two people running the same trial
 on the same statement get the same verdict.
 
+## The charter — what the trial does and does not judge
+
+A public trial carries credibility only if its stance is stated plainly. This is the whole of it, and it is drawn
+from the three verdicts above — no more, no less:
+
+- **The claim is on trial, never the person, never the idea's worth.** A trial judges *integrity* — does a statement
+  earn what it asserts — not merit, taste, or who wrote it. There is no verdict for "unwelcome" and none for "brilliant".
+- **Every idea is heard.** Any statement can be tried. An idea that is honest but unproven is **UNVERIFIED** — held
+  open, never dismissed — and it leaves with an ordered `develop` plan: name the finite structure, write the boolean
+  predicate, supply it. An idea is *not* left at "UNVERIFIED, good luck".
+- **The only "no" is to overreach, and it is a reeducation, not a rejection.** **REFUTED** means one of two exact
+  things: a named overclaim word, or a supplied test that fails by counterexample. Even then the remedy is *"cut the
+  drained phrase, keep the mechanism"* — the claim is sharpened, the thinker is not blamed.
+- **Earned, not granted.** **SEALED** happens only when a recomputable test holds. Respect for an idea is not agreement
+  with it: the gate is a floor, not an oracle — it drains overclaim, not disagreement.
+- **Public and equal.** Every verdict is content-addressed and recomputable by anyone, and the fold is order-invariant:
+  the same receipt for every observer, whatever order they read in. No private verdict, no privileged reader.
+
+**The honest limit — credibility *is* responsibility.** "Every idea heard" is not "every claim granted", and it is not
+a megaphone. Refusing an overclaim is not judging the idea — it is holding the *claim* to what it earns; drop that and a
+pass would mean nothing. And a public, hostable system keeps a floor against genuine harm: respect for learning and
+responsibility point the same way. The trial expects nothing of an idea except that it not claim more than it can show.
+
 ## It can fail
 
 The trial is **not rigged to pass**. The provenance gate exits non-zero when it finds a hollow, unlinked claim — the
