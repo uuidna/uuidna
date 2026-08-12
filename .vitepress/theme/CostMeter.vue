@@ -18,6 +18,7 @@ const c = recomputableCost()
     <p class="cm-note">No self-report and no inputs — every number is computed from <code>lean/*.lean</code> itself and
     folds to that receipt, so anyone recomputes the same cost. This is efficiency <strong>proven</strong> (routed to
     the ledger); the meter above is efficiency <strong>measured</strong> (a self-report the page cannot check).</p>
+    <p class="cm-thermo">⚡ <strong>The thermodynamic honesty:</strong> {{ c.thermodynamics.note }}</p>
   </div>
 </template>
 
@@ -32,4 +33,5 @@ const c = recomputableCost()
 .cm-receipt { font-size: .82rem; color: var(--vp-c-text-2); margin: .4rem 0; word-break: break-all; }
 .cm-receipt code { font-size: .88em; }
 .cm-note { font-size: .8rem; color: var(--vp-c-text-2); margin: .8rem 0 0; }
+.cm-thermo { font-size: .78rem; color: var(--vp-c-text-2); margin: .6rem 0 0; padding-top: .6rem; border-top: 1px solid var(--vp-c-divider); }
 </style>

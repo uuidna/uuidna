@@ -145,6 +145,7 @@ ${t.lean}
 | principle | ${t.principle} — ${blurb[t.principle] || ''} |
 | verdict | **SEALED** — its \`by ${t.tactic}\` proof compiles sorry-free (Lean 4.33.0, no Mathlib) |
 | decide-step cost | ${HB[t.address] !== undefined ? `**${HB[t.address]} heartbeats** — the deterministic, machine-independent work \`by ${t.tactic}\` does to verify it (recompute: \`npm run heartbeats ${t.key}\`)` : `not yet measured — run \`npm run heartbeats ${t.key}\``} |
+| real energy cost | machine-independent, so the heartbeat is **not** the energy cost. The physical cost is thermodynamic and device-dependent, bounded below by Landauer — erasing one bit costs at least *kT·ln2* (≈ 2.87×10⁻²¹ J at 300 K), paid as heat by the device. No computation is free; the heartbeat is the abstract work, the device pays the joules. |
 
 ## Cross-links
 
