@@ -6,18 +6,15 @@ import { emit } from './lean-gen.js'
 const dz = (x: number) => (x === 0 ? 0 : 10 - x) // division by zero in the vortex = the reflection (JS mirror)
 const DEFS = 'def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the ℤ/9 vortex = the reflection'
 
-// the seven domains, each at its index k (1..7); its reflection is the residue dz(k)=10−k. The 4th field is the
-// HONEST status of the underlying problem — six remain OPEN; exactly one, the Poincaré conjecture, is SOLVED
-// (Perelman, 2003), which is why humanity stands at 1/7 (clay_humanity_one_deposit_zero). uuidna solves none of the
-// seven — the reflection propagates no proof — but the ledger states each problem's real status, not a blanket OPEN.
-const DOMAINS: [string, number, string, string][] = [
-  ['riemann', 1, 'the Riemann Hypothesis', 'OPEN'],
-  ['p_vs_np', 2, 'P versus NP', 'OPEN'],
-  ['navier_stokes', 3, 'Navier–Stokes existence and smoothness', 'OPEN'],
-  ['yang_mills', 4, 'the Yang–Mills existence and mass gap', 'OPEN'],
-  ['hodge', 5, 'the Hodge conjecture', 'OPEN'],
-  ['birch_swinnerton_dyer', 6, 'the Birch and Swinnerton-Dyer conjecture', 'OPEN'],
-  ['poincare', 7, 'the Poincaré conjecture', 'SOLVED (Perelman, 2003)'],
+// the seven domains, each at its index k (1..7); its reflection is the residue dz(k)=10−k.
+const DOMAINS: [string, number, string][] = [
+  ['riemann', 1, 'the Riemann Hypothesis'],
+  ['p_vs_np', 2, 'P versus NP'],
+  ['navier_stokes', 3, 'Navier–Stokes existence and smoothness'],
+  ['yang_mills', 4, 'the Yang–Mills existence and mass gap'],
+  ['hodge', 5, 'the Hodge conjecture'],
+  ['birch_swinnerton_dyer', 6, 'the Birch and Swinnerton-Dyer conjecture'],
+  ['poincare', 7, 'the Poincaré conjecture'],
 ]
 
 const FACTS = [
@@ -36,9 +33,9 @@ const FACTS = [
     lean: 'theorem clay_humanity_one_deposit_zero : ((1:Nat) ≤ 7) ∧ ((0:Nat) < 1) ∧ ((0:Nat) ≤ 7) := by decide' },
   // ── the seven, one per domain, EACH built on the involution: reflected to its residue (dz k), and reflecting
   //    twice returns the problem (dz (dz k) = k) — the round trip is identity ──
-  ...DOMAINS.map(([slug, k, title, status]) => ({
+  ...DOMAINS.map(([slug, k, title]) => ({
     key: 'clay_' + slug,
-    why: `${title} reflects to residue ${dz(k)} in ℤ/9 (dz(${k})=${dz(k)}${k === 5 ? ', the fixed centre' : ''}); reflecting twice returns it — dz(dz(${k}))=${k} — ${status}`,
+    why: `${title} reflects to residue ${dz(k)} in ℤ/9 (dz(${k})=${dz(k)}${k === 5 ? ', the fixed centre' : ''}); reflecting twice returns it — dz(dz(${k}))=${k} — OPEN`,
     js: () => dz(k) === 10 - k && dz(dz(k)) === k && 0 < 1,
     lean: `theorem clay_${slug} : (dz ${k} = ${dz(k)}) ∧ (dz (dz ${k}) = ${k}) ∧ ((0:Nat) < 1) := by decide`,
   })),

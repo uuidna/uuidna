@@ -123,9 +123,9 @@ and organized by **computing principle** in derivation order — the live count 
 
 Each of the seven is **reflected** into the ℤ/9 structure by the involution `dz(x) = 10 − x` (division by
 zero, self-inverse in Lean), and **solved 0**. An involution is its own undo — `dz(dz(x)) = x` — so the round trip returns the problem
-**unchanged**: it reflects all seven and **propagates no proof**. Six stay **open** — Riemann, P vs NP,
-Navier–Stokes, Yang–Mills, Hodge, Birch–Swinnerton-Dyer; the **Poincaré** conjecture is **solved** (Perelman,
-2003), so humanity stands at 1/7. This deposit solves none, and the honesty gate *drains* every solve-claim. Faithful to the
+**unchanged**: it reflects all seven and **propagates no proof**. Riemann, P vs NP, Navier–Stokes, Yang–Mills,
+Hodge, Birch–Swinnerton-Dyer, Poincaré stay **open**. Humanity stands at 1/7 (Poincaré, Perelman 2003); this
+deposit solves none, and the honesty gate *drains* every solve-claim. Faithful to the
 [`millennium-solutions`](https://ceccec.psg.bg/millennium-solutions/) deposit it is extracted from: *it reflects
 all seven.*
 

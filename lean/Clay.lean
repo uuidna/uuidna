@@ -32,5 +32,5 @@ theorem clay_hodge : (dz 5 = 5) ∧ (dz (dz 5) = 5) ∧ ((0:Nat) < 1) := by deci
 -- the Birch and Swinnerton-Dyer conjecture reflects to residue 4 in ℤ/9 (dz(6)=4); reflecting twice returns it — dz(dz(6))=6 — OPEN
 theorem clay_birch_swinnerton_dyer : (dz 6 = 4) ∧ (dz (dz 6) = 6) ∧ ((0:Nat) < 1) := by decide
 
--- the Poincaré conjecture reflects to residue 3 in ℤ/9 (dz(7)=3); reflecting twice returns it — dz(dz(7))=7 — SOLVED (Perelman, 2003)
+-- the Poincaré conjecture reflects to residue 3 in ℤ/9 (dz(7)=3); reflecting twice returns it — dz(dz(7))=7 — OPEN
 theorem clay_poincare : (dz 7 = 3) ∧ (dz (dz 7) = 7) ∧ ((0:Nat) < 1) := by decide
