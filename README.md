@@ -107,8 +107,9 @@ Private/RBAC messaging builds on this (encrypt to a shared key; a key per role).
 
 ## Formal layer — Lean 4, organized by computing principle
 
-**557 theorems**, all proven `by decide` (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`, and
-organized by **computing principle** in derivation order — see [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md):
+**Every theorem in the ledger**, all proven `by decide` (Lean 4, no Mathlib), verified sorry-free by `npm run lean`,
+and organized by **computing principle** in derivation order — the live count and per-principle totals are derived in
+[`lean/PRINCIPLE.md`](lean/PRINCIPLE.md) (never hardcoded here, so this prose can't drift from the ledger):
 
 1. **The 8×8 core** (`Core.lean`, 64) — the multiplication table of ℤ/9's non-zero residues; the generator.
 2. **The ring ℤ/9** (`Ring.lean`, 234) and **the rosette ℤ/7 / Pliska** (`Rosette.lean`, 145) — the full tables.
@@ -134,8 +135,9 @@ sorry-free and then derives the one ledger ([`src/theorems/generated.ts`](src/th
 package, the MCP tools and the site all consume — nothing is authored elsewhere. The filterable collection of
 proven theorems, each with its detailed `by decide` proof, formal statement and content-address, is at
 [uuidna.com/theorems](https://uuidna.com/theorems) (one show page per theorem); the whole set folds to one
-receipt at [uuidna.com/trial](https://uuidna.com/trial); open propositions are held at
-[uuidna.com/undecided](https://uuidna.com/undecided). Regenerate + re-verify: `npm run lean`.
+receipt at [uuidna.com/trials](https://uuidna.com/trials), is indexed by capability at
+[uuidna.com/topics](https://uuidna.com/topics), and onto seven ℤ/7 rays at
+[uuidna.com/rosetta](https://uuidna.com/rosetta). Regenerate + re-verify: `npm run lean`.
 
 ## What it is — and isn't
 
