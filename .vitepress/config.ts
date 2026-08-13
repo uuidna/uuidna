@@ -209,18 +209,32 @@ export default defineConfig({
     search: { provider: 'local' },
     outline: 'deep',
 
+    // The top nav is CONSOLIDATED to FIVE — the pentagram's five points (the site title links Home, so no sixth).
+    // Each point is a dropdown grouping its related pages, so the crowded ~10-item bar reads as five clusters.
     nav: [
-      { text: 'Home', link: '/' },
-      { text: `Theorems`, link: '/theorems' },
-      { text: 'Topics', link: '/topics' },
-      { text: 'Rosette', link: '/rosetta' },
-      { text: 'MCP', link: '/mcp' },
-      { text: 'Books', link: '/books' },
-      { text: 'Publications', link: '/publications' },
-      { text: 'Vocabulary', link: '/vocabulary' },
-      { text: 'Changelog', link: '/changelog' },
-      { text: 'Guides', link: '/guides' },
-      { text: 'Captain', items: [{ text: 'The Contract', link: '/captain/config' }, { text: "The captain's message", link: '/captain/message' }, { text: 'The Navigator', link: '/captain/navigator' }] },
+      { text: 'Theorems', items: [
+        { text: 'All theorems', link: '/theorems' },
+        { text: 'Topics (by skill)', link: '/topics' },
+        { text: 'Rosette (7 rays)', link: '/rosetta' },
+        { text: 'Vocabulary', link: '/vocabulary' },
+      ] },
+      { text: 'Tools', items: [
+        { text: 'MCP', link: '/mcp' },
+        { text: 'Guides', link: '/guides' },
+      ] },
+      { text: 'Library', items: [
+        { text: 'Books', link: '/books' },
+        { text: 'Publications', link: '/publications' },
+      ] },
+      { text: 'Ledger', items: [
+        { text: 'Trials', link: '/trials' },
+        { text: 'Changelog', link: '/changelog' },
+      ] },
+      { text: 'Captain', items: [
+        { text: 'The Contract', link: '/captain/config' },
+        { text: "The captain's message", link: '/captain/message' },
+        { text: 'The Navigator', link: '/captain/navigator' },
+      ] },
     ],
 
     // ONE sidebar for the whole site (the '/' key matches every route), so no page is left without the graph — the
