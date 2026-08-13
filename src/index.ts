@@ -83,6 +83,10 @@ export { verifyStatement, type StatementVerdict } from './verify-statement.js'
 // honesty; each material is driven to its sealed core (VERIFIED, admitted) or recycled with a develop plan
 // (UNVERIFIED, never admitted, never called honest). uuidna computes the verdict; it does not assert it.
 export { transformUntilVerified, transformOne, type TransformCell, type TransformRun } from './transform.js'
+// holofractal — MAKE every input/output pentagram (single {5/2} stroke) · hologram (whole verifiable from a part) ·
+// fractal (self-similar fold at descending scales) · accounted (two conserved coins + the bits taught), by
+// construction and each property verifiable. holofractalHook stamps any I/O boundary.
+export { pentagramHologramFractal, holofractalHook, type HoloFractal } from './holofractal.js'
 // publish — write PUBLICATIONS in lean human prose, AUDITED before publishing: a domain note composed by reading
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.

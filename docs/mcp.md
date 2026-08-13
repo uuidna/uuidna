@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="102 keys" />
+# MCP tools <Badge type="tip" text="103 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 102 tools below are read from the server's own tool list and
-organised into 28 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 103 tools below are read from the server's own tool list and
+organised into 29 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`102`" />
+## The grid <Badge type="tip" :text="`103`" />
 
-102 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+103 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -67,6 +67,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-gravity"><code>gravity</code></a>
 <a href="#uuidna-harness"><code>harness</code></a>
 <a href="#uuidna-harness7"><code>harness7</code></a>
+<a href="#uuidna-holofractal"><code>holofractal</code></a>
 <a href="#uuidna-imprint"><code>imprint</code></a>
 <a href="#uuidna-involute"><code>involute</code></a>
 <a href="#uuidna-license"><code>license</code></a>
@@ -574,6 +575,20 @@ The automation of "no unverified material stays: transform until verified". Only
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `materials` | array | **yes** | raw claims/theories/overclaims to transform until verified |
+
+## Pentagram · hologram · fractal · accounted (every I/O) <Badge type="tip" :text="'1'" />
+
+*skill: theorem*
+
+### `uuidna_holofractal`
+
+MAKE any input pentagram · hologram · fractal · accounted — by CONSTRUCTION, each property verifiable, so the structure holds by computation not assertion. PENTAGRAM: the address seeds 5 points visited in the star {5/2} stroke [0,2,4,1,3] — one closed stroke (sealed pentagram_single_stroke). HOLOGRAM: the merkle root over the parts, with a proof that verifies ANY part against the whole in O(log N). FRACTAL: the self-similar fold tower — 128-bit uuid → 64-bit coin (its top half) → ℤ/9 digital root, the same fold at descending scales. ACCOUNTED: the two conserved coins (= −χ of the double torus) and the bits taught (verify O(1) vs produce O(N); reference bits saved). All fold to one order-invariant receipt; `verified` is the recomputable conjunction. Returns {input,address,pentagram,hologram,fractal,accounting,receipt,verified}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `input` | string | **yes** | the value to make pentagram·hologram·fractal·accounted |
 
 ## Crypto & streams <Badge type="tip" :text="'8'" />
 
