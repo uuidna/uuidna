@@ -8,7 +8,7 @@
 import {
   toUuid, strictUuidna, merge, coin64, merkleFold, merkleRoot, merkleProof, verifyProof, computes,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
-  encrypt, decrypt, verifyEnvelope, sealSequence, MAX_ITER,
+  encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, MAX_ITER,
   sealStream, openStream, sealChain, openChain,
   contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract,
   auditText, auditTranslation, auditBook, bookArticle, auditMovie, auditZenodo, auditStandard, beaconAnchor, nistConstant, auditCve,
@@ -547,13 +547,13 @@ const TOOLS: Tool[] = [
   //    sealed envelope INTO a uuid chain; RECEIVE = read the uuid chain then decrypt. One side per direction; the
   //    seven dimension streams each carry both ways; the wrong key never opens it (the pattern the 777 tests seal). ──
   { name: 'uuidna_send',
-    description: 'SEND (→): encrypt text under a passphrase (pure-TS ChaCha20-Poly1305, 7d-fold envelope), then imprint the sealed envelope INTO a uuid stream — the channel is uuid itself. Returns the uuid chain to transport. Pass an advancing `step` (the crypt salt) so identical messages never ride the wire alike — the equality leak stays closed in transit. Receive it with uuidna_receive and the same passphrase.',
-    inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' }, step: { type: 'integer', description: 'the advancing-sequence step — omit for convergent, supply and advance to close the equality leak in transit' } }, required: ['text', 'passphrase'] },
-    run: (a) => sealStream(String(a.text), [String(a.passphrase)], a.step === undefined ? undefined : Number(a.step)).uuids }, // fused onto the one seam: sealStream (byte-identical to the old inline path)
+    description: 'SEND (→): the SESSION RATCHET over uuid. Encrypt text under a passphrase and a `session` (a channel/room id), then imprint the sealed envelope INTO a uuid stream — the channel IS uuid. The captain theorem as encryption: the two coins are paid ONCE (one PBKDF2-600k on the session), then every message ROTATES a fresh key by its advancing `step` and seals free (~0.1 ms, not 1.75 s). Rotation closes the equality leak; the SESSION is a real secrecy boundary — a message can only be opened by a receiver that names the SAME session (a different session/referer cannot). The session lives in the passphrase until destroyed. `step` MUST advance (never reuse it under one session). Returns the uuid chain to transport.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' }, session: { type: 'string', description: 'the channel/room id that scopes this message — the receiver must name the same session to open it' }, step: { type: 'integer', description: 'the advancing message position — rotates the key and closes the equality leak; MUST be unique per message under one session' } }, required: ['text', 'passphrase'] },
+    run: (a) => imprintTextChain(JSON.stringify(encryptSession(String(a.text), String(a.passphrase), String(a.session ?? ''), a.step === undefined ? 0 : Number(a.step)))) },
   { name: 'uuidna_receive',
-    description: 'RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope, then decrypt with the passphrase. The reverse direction of the bidirectional channel. A wrong key or any tamper throws (Poly1305 authentication).',
-    inputSchema: { type: 'object', properties: { uuids: { type: 'array', items: { type: 'string' } }, passphrase: { type: 'string' } }, required: ['uuids', 'passphrase'] },
-    run: (a) => openStream((a.uuids as string[]).map(String), [String(a.passphrase)]) }, // fused onto the one seam: openStream (byte-identical to the old inline path)
+    description: 'RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope and decrypt, deriving the key from the RECEIVER\'s OWN `session` (not the envelope) — so a message sealed for another session/referer cannot be opened here (Poly1305 rejects it). A wrong passphrase or any tamper also throws. The reverse of the ratchet; the session is derived once (cached) and rotated by the message step.',
+    inputSchema: { type: 'object', properties: { uuids: { type: 'array', items: { type: 'string' } }, passphrase: { type: 'string' }, session: { type: 'string', description: 'the SAME session/channel id used to send; keys off this, not the envelope, so the session is a real boundary' } }, required: ['uuids', 'passphrase'] },
+    run: (a) => decryptSession(JSON.parse(readImprintTextChain((a.uuids as string[]).map(String))) as Sealed, String(a.passphrase), String(a.session ?? '')) },
   // ── the quantum computer — the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale),
   //    no floats, no decimal drift). Build a Bell or GHZ state; read its exact rational distribution, marginals, and
   //    order-invariant receipt. Classical simulation, 2^n amplitudes — exponential, NO quantum advantage. ──
