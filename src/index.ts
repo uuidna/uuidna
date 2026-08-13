@@ -128,6 +128,11 @@ export { evidence, type Evidence, type ProofExhibit } from './evidence.js'
 // fingerprint — the FUSED ledger fingerprint: the fast tamper-evident FNV receipt AND the collision-resistant SHA-256
 // fold. Raises the cost of an undetected forgery to the SHA-256 collision bound — a ceiling, not a maximum.
 export { ledgerFingerprint, type LedgerFingerprint } from './fingerprint.js'
+// quantum/os — uuidnaOS is NOT an OS you boot and does NOT run/port Alpine's binaries (uuidna never executes). It is a
+// content-addressed PROVENANCE MANIFEST of an EXACT Alpine release: pin the version + arch + PUBLISHED rootfs digest,
+// and VERIFY your actual bytes with uuidna's own pure-TS SHA-256. Port the INTEGRITY, never the runtime. fetchAlpineLatest
+// is the upstream-automation network call at the os/ boundary (the one place non-determinism is honest, not hidden).
+export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineRelease, type RootfsCheck } from './quantum/os/alpine.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS
