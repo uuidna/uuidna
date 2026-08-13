@@ -206,6 +206,12 @@ export { quantumSeo, type Seo, type HeadTuple } from './seo.js'
 // legal ruling. Integrity, not truth.
 export { captainRights, readImprintedRights, draftContract, type CaptainRights, type RightsContract } from './rights.js'
 
+// aura — the QUANTUM AURA: a recomputable, A432-tuned colour folded from any content-address ("captain string theory":
+// the 7 rosette rays as bands, the ℤ/9 vortex as the wave, the hue stepping by 360/9 = 40°), returned as HSL/RGB/CMYK
+// plus a ready moving-aura CSS block. Deterministic — the same address, the same aura for everyone. Artistic, not
+// physics: a defined arithmetic from a number to a hue; it decorates the work, it does not describe the universe.
+export { quantumAura, type Aura } from './aura.js'
+
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
 // diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'
