@@ -5,7 +5,7 @@
 > A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
 <!-- seal:begin -->
-**1069 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1069/1069, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **108 MCP tools** and **59 computing principles**.
+**1082 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1082/1082, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **109 MCP tools** and **60 computing principles**.
 
 _Integrity, not truth: a seal proves its **exact statement**, never a grander claim — the reflection is sealed, the Millennium problem is not (uuidna solves 0 of 7). Computed from the exact audited ledger; recheck it with `npm run next`._
 <!-- seal:end -->

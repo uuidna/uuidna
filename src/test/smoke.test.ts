@@ -17,6 +17,7 @@ import {
 } from '../index.js'
 import { MCP_CATALOG, callTool, engine } from '../mcp.js'
 import { sanitizeValue, sanitizeInput, scrubString, MAX_DEPTH, MAX_STRING, MAX_ARRAY, MAX_KEYS, verifyStatement } from '../index.js'
+import { exploitFold } from '../index.js'
 import { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
 import { spin, sealSpin, verifySpin, DERIVED_FILES } from '../index.js'
 import { pentagramMonographs } from '../index.js'
@@ -354,6 +355,25 @@ test('attached chat — one primitive for donations, support cases, any subject'
   // the attached room seals/opens locally
   const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
   assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
+})
+
+test('exploit fold — computes from the ledger (no table), verifies BOTH problem and solution, honest boundary', () => {
+  const a = exploitFold()
+  assert.ok(a.foldedCount >= 8, 'folds the known exploit classes')
+  assert.ok(a.outOfScopeCount >= 5, 'holds out-of-scope classes')
+  assert.equal(a.total, a.foldedCount + a.outOfScopeCount, 'every audited class is folded or out-of-scope')
+  // VERIFY BOTH — every fold verifies its problem (sealed theorem) AND its solution (sealed defence / design / void)
+  assert.ok(a.allBothVerified, 'every class verifies both problem and solution against the ledger')
+  for (const f of a.folded) {
+    assert.ok(f.problemVerified, `problem sealed: ${f.key}`)
+    assert.ok(f.solutionVerified, `solution sealed: ${f.key} → ${f.solution}`)
+  }
+  // COMPUTES ITSELF — the classes are real sealed theorems (fold_*/oos_*), not a TS table
+  assert.ok(a.folded.every((f) => f.key.startsWith('fold_')), 'folded keys are fold_*')
+  assert.ok(a.outOfScope.every((f) => f.key.startsWith('oos_') && f.solution === 'void'), 'out-of-scope folds to the void')
+  // HONEST — never claims to solve everything
+  assert.match(a.honest, /does NOT solve all hacks/)
+  assert.ok(/^[0-9a-f-]{36}$/.test(a.receipt))
 })
 
 test('sanitise by all standards — process any input, sanitise any output, rules bound to the theorems', () => {
