@@ -1,0 +1,21 @@
+# uuidna — instructions for LLM agents (llm.txt)
+
+> GENERATED from the sealed ledger by scripts/gen-llm — do not hand-edit. Ask the ledger, don't assert: every claim
+> below cites a `by decide` theorem you can re-verify with `uuidna_verify_statement` or `uuidna_theorem`.
+
+## THE RULE — the two captain coins (the conserved cost), the abstract-0 fold, the 64→128 fuse, the 7 dimensions
+
+- **The two captain coins are conserved: `coins() = 2`** — the Euler characteristic −χ of the genus-2 double torus. *Sealed:* `two_coins` (`110 - 108 = 2`).
+- **Division by zero folds to the abstract 0, not ∞.** *Sealed:* `division_by_zero`; it IS the reflection `divZero x = 10 − x` (`div_by_zero_is_the_reflection`).
+- **The measured cost is the two coins: contribute 2 to save up to 64.** *Sealed:* `contribute_two_save_sixtyfour` (`2 * 32 = 64`); the bill is never negative (`bill_never_negative`).
+- **uuidna computes ONLY IF the captain coins are considered** — the conserved save of 64 is reached iff exactly two coins are put in. *Sealed:* `captain_computes_only_with_two_coins` (`(List.range 8).all (fun c => (32 * c == 64) == (c == 2))`). Any other count does not conserve the advantage, so the computation is not admitted.
+- **The fuse:** the **64-bit coin** (`coin64`, the top half) folds into the **128-bit content-address**; the advantage priced on the two coins is recompute `O(N)` − verify `O(1)`.
+- **The dimensions:** one uuid = **128 bits** (2^128 classical values). Folded across the **7 dimensions** (the double torus) it has **2^7 = 128 basis configurations** — a **7-qubit** state space (`by decide`: 2^7 = 128). So "128" is *128 bits* (one uuid) and a *7-qubit / 128-state* fold — **not 128 qubits** (that would be 2^128 amplitudes; `adjudicate` → UNVERIFIED).
+- **HONEST SCOPE:** "quantum" is the **order-invariant receipt of a CLASSICAL state-vector simulator** — 2^n amplitudes, **no quantum advantage, not hardware**. A claim of a real 128-qubit quantum computer DRAINS at the gate. Integrity, not truth.
+
+## Working with uuidna (MCP-first — do not hand-derive what the tools compute)
+
+- **Status in one call:** `uuidna_unify` → {theorems, domains, tools, receipt}. The ledger is **1049 theorems**, all `by decide`, sorry-free, axiom-free, across **57 principles** and **104 MCP tools**.
+- **Verdicts:** VERIFIED iff a claim cites a sealed theorem or a decidable test holds; else UNVERIFIED — never "false". `uuidna_verify_statement` checks a statement against the sealed ledger in O(1).
+- **The Clay boundary:** uuidna solves **0 of the 7** Millennium problems — the *reflection* is sealed, the *problem* is not (Poincaré: Perelman, 2003, not uuidna).
+- **Integrity, not truth:** every value has a content-address; the fold is order-invariant. Nothing here is asserted that a sealed theorem does not settle.

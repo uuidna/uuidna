@@ -12,6 +12,9 @@ theorem sixtyfour_is_two_pow_six : 64 = 2^6 := by decide
 -- "Contribute 2 to save up to 64" — the measured leverage is 32: 2 · 32 = 64. The two coins in, up to 64 bits of recompute saved.
 theorem contribute_two_save_sixtyfour : 2 * 32 = 64 := by decide
 
+-- uuidna computes ONLY IF the captain coins are considered: the conserved save of 64 is reached IFF exactly two coins are put in — 32·c = 64 ⟺ c = 2, for every c. The two coins are necessary, not decorative; with any other count the fold does not conserve its advantage (recompute − verify), so the computation is not admitted.
+theorem captain_computes_only_with_two_coins : (List.range 8).all (fun c => (32 * c == 64) == (c == 2)) := by decide
+
 -- Direct possible outcomes: n qubits give 2ⁿ basis outcomes — [1,2,4,8,16,32,64] for n = 0..6, reaching 64 exactly at the 6-qubit / 64-bit scale. Exponential, counted, not sped up.
 theorem superposition_outcomes_to_64 : ((List.range 7).map (fun n => 2^n)) = [1,2,4,8,16,32,64] := by decide
 

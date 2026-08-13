@@ -20,6 +20,7 @@ run('npm run lean')                                   // generated.ts + PRINCIPL
 run('npm run build')                                  // REBUILD dist from the fresh generated.ts, so the downstream generators (gen-mcp/gen-readme/heartbeats/account) read the CURRENT ledger, not the stale pre-lean dist — else a new domain's theorems are missing from heartbeats and accounting fails at the pre-push gate
 run('node dist/scripts/gen-mcp.js')                   // docs/mcp.md — the MCP catalog, built from the tool keys
 run('node dist/scripts/gen-readme.js')                // README.md seal block — theorem/axiom/tool counts, derived from the ledger
+run('node dist/scripts/gen-llm.js')                   // llm.txt — the agent RULE (captain coins, abstract-0 fold, 64→128, 7 dimensions), generated from the sealed ledger
 run('node dist/scripts/lean-heartbeats.js --sync')    // heartbeats.json — prune stale, measure the new, 100% coverage
 run('node dist/scripts/support.js')                   // support-audit.json + research-leads.json — code reachability, dead → R&D
 run('node dist/scripts/audit-citations.js')           // audit-citations.json — the publication citation audit
