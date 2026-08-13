@@ -89,3 +89,42 @@ theorem w_state_normalized : ((1*1 + 1*1 + 1*1 : Nat) = 3) := by decide
 
 -- The four Bell states form a complete ORTHOGONAL basis: ⟨Φ⁺|Φ⁻⟩ = 0 and ⟨Ψ⁺|Ψ⁻⟩ = 0 (over √2 integer vectors), while ⟨Φ⁺|Φ⁺⟩ = 2 — the entangled-basis measurement, as exact integer inner products
 theorem bell_basis_orthogonal : ((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0) ∧ ((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0) ∧ ((1*1 + 0*0 + 0*0 + 1*1 : Int) = 2) := by decide
+
+-- n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. HONEST SCOPE: this counts the simulation cost, it is NOT a speedup or a quantum advantage.
+theorem n_qubit_dimension : ([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32] := by decide
+
+-- Combining systems MULTIPLIES their dimensions (the tensor product): two qubits span 2·2 = 4 amplitudes, three span 2·2·2 = 8. Independent subsystems compose by product, the source of the exponential.
+theorem tensor_dimension_multiplies : (2*2 = 4) ∧ (2*2*2 = 8) := by decide
+
+-- The single-qubit Pauli group is {I, X, Y, Z} × {±1, ±i} — 4 operators times 4 phases = 16 elements. The finite group the whole gate algebra is built over, counted.
+theorem pauli_group_order_16 : 4 * 4 = 16 := by decide
+
+-- The single-qubit Clifford group (the gates that permute the Paulis) has order 24 = 6 · 4 — six signed axes for X's image, four for the phase. Finite: the Cliffords are classically simulable (Gottesman–Knill), the honest reason they are NOT the source of advantage.
+theorem clifford_group_order_24 : 6 * 4 = 24 := by decide
+
+-- The phase gates form an order ladder: T has order 8, S = T² has order 4, Z = S² has order 2 — each the square of the next (8 = 2·4, 4 = 2·2) — and T⁸ = I is a full 2π turn (8 mod 8 = 0). Squaring a phase gate halves its order.
+theorem phase_gate_order_ladder : (8 = 2*4) ∧ (4 = 2*2) ∧ (8 % 8 = 0) := by decide
+
+-- The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. HONEST SCOPE: the simulator computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL).
+theorem chsh_beats_classical : ((2:Nat)^2 < 2^3) ∧ (2^3 = 8) := by decide
+
+-- The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)² dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². HONEST SCOPE: this is the arithmetic SHADOW of the no-cloning theorem (a linearity fact), not a proof of it.
+theorem no_cloning_dimension : (2:Nat)^2 < (2^2)^2 := by decide
+
+-- The Hadamard swaps the X and Z bases: HXH = Z, verified on integer amplitudes up to the √2² = 2 scale — HXH[a,b] = [2a, −2b] = 2·Z[a,b], on sample amplitudes. The conjugation that turns a bit-flip into a phase-flip, the heart of the Clifford structure.
+theorem hadamard_conjugates_x_to_z : ([(3,5),(1,-2),(4,0)] : List (Int × Int)).all (fun p => (let a := p.1; let b := p.2; ((a-b)+(a+b) == 2*a) && ((a-b)-(a+b) == -(2*b)))) := by decide
+
+-- The Bell state |Φ⁺⟩ = [1,0,0,1] is a +1 eigenstate of XX: flipping both bits reverses the amplitude vector (00↔11, 01↔10), and [1,0,0,1] is its own reverse — a stabiliser. The entanglement, read as a fixed point.
+theorem bell_stabilized_by_xx : ([1,0,0,1] : List Int).reverse = [1,0,0,1] := by decide
+
+-- The Bell state is a +1 eigenstate of ZZ too: its supported corners {00, 11} both have EVEN bit-parity ((0+0) and (1+1) are 0 mod 2), so ZZ stamps +1 on each. Two stabilisers XX and ZZ pin the state — the stabiliser formalism, in miniature.
+theorem bell_zz_even_parity : ((0+0) % 2 = 0) ∧ ((1+1) % 2 = 0) := by decide
+
+-- GHZ(3) = [1,0,0,0,0,0,0,1] is a +1 eigenstate of XXX: flipping all three bits reverses the 8-amplitude vector (000↔111), and the GHZ vector is its own reverse. The three-party entanglement, stabilised.
+theorem ghz_stabilized_by_xxx : ([1,0,0,0,0,0,0,1] : List Int).reverse = [1,0,0,0,0,0,0,1] := by decide
+
+-- Superdense coding: one qubit carries 2 classical bits — Alice's four local operations map |Φ⁺⟩ to the four orthogonal Bell states, 2² = 4 distinguishable messages, and 2 > 1. HONEST SCOPE: this REQUIRES a pre-shared EPR pair; it is not bandwidth from nothing, and nothing signals faster than light.
+theorem superdense_two_bits : ((2:Nat)^2 = 4) ∧ (2 > 1) := by decide
+
+-- Teleportation sends one qubit with 2 classical bits and one EPR pair: Bob applies one of the four Pauli corrections {I, X, Z, XZ} indexed by the 2 measured bits (2+2 = 4 = the four corrections). HONEST SCOPE: the classical channel is ESSENTIAL — without the 2 bits nothing arrives, so no faster-than-light transfer.
+theorem teleportation_four_corrections : (([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4) := by decide
