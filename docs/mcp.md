@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="92 keys" />
+# MCP tools <Badge type="tip" text="93 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 92 tools below are read from the server's own tool list and
+is **built from the keys**: the 93 tools below are read from the server's own tool list and
 organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`92`" />
+## The grid <Badge type="tip" :text="`93`" />
 
-92 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+93 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -53,6 +53,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-book-article"><code>book_article</code></a>
 <a href="#uuidna-coin64"><code>coin64</code></a>
 <a href="#uuidna-contract"><code>contract</code></a>
+<a href="#uuidna-corroborate"><code>corroborate</code></a>
 <a href="#uuidna-diamond"><code>diamond</code></a>
 <a href="#uuidna-digital-root"><code>digital_root</code></a>
 <a href="#uuidna-double-torus"><code>double_torus</code></a>
@@ -653,7 +654,7 @@ Fingerprint a CVE's PUBLIC advisory metadata from NIST's NVD (National Vulnerabi
 | --- | --- | --- | --- |
 | `cveId` | string | **yes** | a CVE id, e.g. CVE-2021-44228 |
 
-## Other <Badge type="tip" :text="'3'" />
+## Other <Badge type="tip" :text="'4'" />
 
 *skill: other*
 
@@ -666,6 +667,16 @@ Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id and write a recomputable
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e.g. 1342 (Pride and Prejudice) |
+
+### `uuidna_corroborate`
+
+Corroborate a claim by AUGMENTING the local binary verdict (adjudicate: VERIFIED if a sealed by-decide theorem backs it, else UNVERIFIED — never "false") with EXTERNAL RESEARCH streamed from a free public API (NIST CODATA, no key). Returns {statement,local,evidence,verdict,receipt}: VERIFIED (a sealed proof), CORROBORATED (unverified locally but attested by a named free source), or UNVERIFIED. HONEST SCOPE: external evidence is a provenance fingerprint of what a public source SAYS — it CORROBORATES, it does NOT prove; only a by-decide theorem seals, and no stream can refute a claim. The evidence folds order-invariantly to the receipt; the responses are DATA, never executed.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `statement` | string | **yes** | the claim to corroborate, e.g. "the speed of light 299792458" |
 
 ### `uuidna_snapshot`
 
