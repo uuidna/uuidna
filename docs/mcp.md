@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="121 keys" />
+# MCP tools <Badge type="tip" text="122 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 121 tools below are read from the server's own tool list and
+is **built from the keys**: the 122 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`121`" />
+## The grid <Badge type="tip" :text="`122`" />
 
-121 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 35 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+122 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 36 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -40,6 +40,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-quantum"><code>quantum</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
 <a href="#uuidna-review-domains"><code>review_domains</code></a>
+<a href="#uuidna-rights"><code>rights</code></a>
 <a href="#uuidna-sanitize"><code>sanitize</code></a>
 <a href="#uuidna-security-audit"><code>security_audit</code></a>
 <a href="#uuidna-selftest"><code>selftest</code></a>
@@ -449,7 +450,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'27'" />
+## Other <Badge type="tip" :text="'28'" />
 
 *skill: other*
 
@@ -629,6 +630,17 @@ _No parameters._
 QUANTUM ANALYTICS over the sealed ledger — descriptive measures anyone RECOMPUTES identically, folded ORDER-INVARIANT to one receipt (the same analytics for every observer, no privileged view). Returns the theorem count, the number of principles, the per-principle DISTRIBUTION (each domain's count + share, largest first), the named LAYERS (hardware → software → os sizes + receipts), the CREDIT tally (historical / contextual / captain-alone), COVERAGE (covered/total/ready), the two COINS, the recomputed COLLISION census (keys/addresses — 0/0 or an intrusion), and the ledger INTEGRITY fingerprint (FNV + SHA-256 + tamper cost). DETERMINISTIC: no clock, no RNG, no telemetry, no user tracking — the inputs are the public ledger alone, so the numbers are the same next year and on every machine. HONEST SCOPE: integrity, not truth — DESCRIPTIVE analytics of what is sealed, NOT predictive statistics, NOT inference, and NOT observation of any person. It measures the ledger, not a user. Returns {theorems,principles,distribution,layers,credits,coverage,coins,collisions,integrity,receipt,honest}.
 
 _No parameters._
+
+### `uuidna_rights`
+
+THE CAPTAIN'S RIGHTS, hard-imprinted — one content-addressed record of the copyright (© Tsvetan Rouschev), the licence (CC BY-NC-ND 4.0 + its address and canonical URL), and the CREDIT LAW (the captain claims by law every solution sealed here that no proving link attributes to a prior source; a linked source is credited instead), with the live credit tally. The rights are REVERSIBLY IMPRINTED: a content-address that recomputes and an imprint-codec uuid chain that decodes back to the exact rights line, so the rights travel WITH the work and any alteration is visible — and they are infused into every page's head + schema.org JSON-LD (license / copyrightHolder / creditText). Pass {contract:true} (optionally {licensee}) to also DRAFT the formal, content-addressed rights contract (its id IS the fold of its exact terms, so a holder proves they hold them unaltered). HONEST SCOPE: FACTUAL rights, tamper-evident and recomputable — NOT a legal ruling, an executed contract, or a compliance claim; the imprint marks the work, a human court enforces the law. Integrity, not truth. Returns the rights record (+ {contract} when requested).
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `contract` | boolean | no | also draft the formal rights contract |
+| `licensee` | string | no | the party the drafted contract is addressed to |
 
 ### `uuidna_seo`
 

@@ -2,8 +2,12 @@ import { defineConfig } from 'vitepress'
 import { readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { theorems, PRINCIPLES, canonicalOrder, publications, type PageNode } from '../dist/index.js'
+import { theorems, PRINCIPLES, canonicalOrder, publications, captainRights, type PageNode } from '../dist/index.js'
 import { infuseQuantumPayload } from './uuidna-quantum.js'
+
+// the captain's rights — hard-imprinted site-wide via the head below, so EVERY page (theorem, publication, static)
+// carries the licence relation, the copyright, and the rights content-address. Computed once from the ledger.
+const RIGHTS = captainRights()
 
 // Lean is the single source. The nav, the sidebar (one collapsed group per computing principle) and the per-theorem
 // SEO meta are all derived here from the same compiled ledger the pages render — nothing is hand-maintained.
@@ -86,6 +90,8 @@ export default defineConfig({
     ['meta', { name: 'robots', content: 'index, follow' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'uuidna' }],
+    // the captain's rights, hard-imprinted on EVERY page (licence relation + copyright + the rights content-address)
+    ...(RIGHTS.head as [string, Record<string, string>][]),
     // PWA — installable, offline-capable. Manifest + theme + icons, and the service worker registered on load.
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
     ['meta', { name: 'theme-color', content: '#0b1020' }],

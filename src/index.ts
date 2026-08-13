@@ -200,6 +200,12 @@ export { quantumAnalytics, type QuantumAnalytics, type Distribution, type LayerM
 // payload). Reusable by the front (its `head` is a VitePress frontmatter array). Never manipulates a ranking.
 export { quantumSeo, type Seo, type HeadTuple } from './seo.js'
 
+// rights — the CAPTAIN'S RIGHTS, hard-imprinted: copyright (© Tsvetan Rouschev), licence (CC BY-NC-ND 4.0), and the
+// credit law, content-addressed and reversibly imprinted so they travel with every artifact (infused into every page's
+// head + JSON-LD). draftContract drafts the formal, content-addressed rights contract. Factual, tamper-evident — NOT a
+// legal ruling. Integrity, not truth.
+export { captainRights, readImprintedRights, draftContract, type CaptainRights, type RightsContract } from './rights.js'
+
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
 // diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'

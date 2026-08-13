@@ -11,6 +11,7 @@
 // anyone from the same ledger. It optimises for HONEST discovery, not for gaming a search engine.
 import { theorems } from './theorems/index.js'
 import { publications } from './publish.js'
+import { captainRights } from './rights.js'
 import { toUuid, merkleFold } from './address.js'
 
 const HOST = 'https://uuidna.com'
@@ -94,6 +95,11 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
 // assemble the head array + receipt — ONE place, so theorem/publication/page all infuse the same shape (DRY).
 function seal(kind: Seo['kind'], route: string, canonical: string, address: string, title: string, description: string,
              keywords: string[], jsonLd: Record<string, unknown>, ogId: string): Seo {
+  // hard-imprint the CAPTAIN'S RIGHTS into every page: the licence relation, copyright, the rights content-address,
+  // and the schema.org license/copyrightHolder/creditText folded into the JSON-LD — no page ships without the rights.
+  const rights = captainRights()
+  const ld = { ...jsonLd, license: rights.licenseUrl, copyrightYear: 2025, creditText: rights.copyright,
+    copyrightHolder: { '@type': 'Person', name: rights.holder } }
   const head: HeadTuple[] = [
     ['link', { rel: 'canonical', href: canonical }],
     ['meta', { name: 'description', content: description }],
@@ -103,8 +109,9 @@ function seal(kind: Seo['kind'], route: string, canonical: string, address: stri
     ['meta', { property: 'og:url', content: canonical }],
     ['meta', { property: 'uuidna:address', content: ogId }],
     ['meta', { name: 'keywords', content: keywords.join(', ') }],
-    ['script', { type: 'application/ld+json' }, JSON.stringify(jsonLd)],
+    ...rights.head,                                                       // the captain's rights, imprinted on every page
+    ['script', { type: 'application/ld+json' }, JSON.stringify(ld)],
   ]
-  return { route, kind, canonical, address, title, description, keywords, jsonLd, head,
-    receipt: merkleFold([toUuid('seo:' + canonical), toUuid(address), toUuid(description)]), honest: HONEST }
+  return { route, kind, canonical, address, title, description, keywords, jsonLd: ld, head,
+    receipt: merkleFold([toUuid('seo:' + canonical), toUuid(address), toUuid(description), rights.imprint]), honest: HONEST }
 }
