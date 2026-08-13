@@ -16,6 +16,7 @@ import {
   THEOREMS, runTrial,
 } from '../index.js'
 import { MCP_CATALOG, callTool, engine } from '../mcp.js'
+import { sanitizeValue, sanitizeInput, scrubString, MAX_DEPTH, MAX_STRING, MAX_ARRAY, MAX_KEYS, verifyStatement } from '../index.js'
 import { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
 import { spin, sealSpin, verifySpin, DERIVED_FILES } from '../index.js'
 import { pentagramMonographs } from '../index.js'
@@ -353,6 +354,33 @@ test('attached chat — one primitive for donations, support cases, any subject'
   // the attached room seals/opens locally
   const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
   assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
+})
+
+test('sanitise by all standards — process any input, sanitise any output, rules bound to the theorems', () => {
+  // PROCESS ANY INPUT — anything non-object becomes {} (no tool is fed a shape it cannot read)
+  assert.deepEqual(sanitizeInput(null), {})
+  assert.deepEqual(sanitizeInput('hi'), {})
+  assert.deepEqual(sanitizeInput([1, 2, 3]), {})
+  // SANITISE OUTPUT by all standards — JSON-safe, acyclic, no poison keys
+  assert.equal(sanitizeValue(NaN), null, 'NaN → null (not JSON)')
+  assert.equal(sanitizeValue(Infinity), null, '∞ → null (not JSON)')
+  assert.equal(sanitizeValue(123n), '123', 'BigInt → string')
+  assert.equal(sanitizeValue(() => {}), undefined, 'function dropped')
+  const circ: Record<string, unknown> = {}; circ.self = circ
+  assert.deepEqual(sanitizeValue(circ), { self: '[Circular]' }, 'cycles broken')
+  assert.deepEqual(sanitizeValue(JSON.parse('{"__proto__":{"x":1},"ok":2}')), { ok: 2 }, 'prototype-pollution keys dropped')
+  // string scrub — control/null and BIDI (Trojan-Source) stripped, legitimate maths unicode preserved
+  assert.equal(scrubString('a b\tc'), 'ab\tc', 'null/control stripped, tab kept')
+  assert.equal(scrubString('safe‮evil'), 'safeevil', 'BIDI override stripped')
+  assert.equal(scrubString('ℤ/9 × ≡ 2⁶'), 'ℤ/9 × ≡ 2⁶', 'maths unicode preserved')
+  // ONE COMMAND — uuidna_sanitize returns the sanitized value + a recomputable receipt
+  const r = callTool('uuidna_sanitize', { value: { a: NaN, __proto__: { bad: 1 }, s: 'x‮y' } }) as { value: unknown; receipt: string }
+  assert.deepEqual(r.value, { a: null, s: 'xy' }, 'one command sanitises by all standards')
+  assert.ok(/^[0-9a-f-]{36}$/.test(r.receipt), 'the sanitised value folds to a receipt')
+  // KEPT IN THE THEOREMS — the code constants equal their sealed values (no drift; the theorem is the source)
+  assert.equal(MAX_DEPTH, 32); assert.equal(verifyStatement('32 = 2^5').verdict, 'VERIFIED', 'MAX_DEPTH sealed')
+  assert.equal(MAX_STRING, 1000000); assert.equal(verifyStatement('1000000 = 10^6').verdict, 'VERIFIED', 'MAX_STRING sealed')
+  assert.equal(MAX_ARRAY, 100000); assert.equal(MAX_KEYS, 100000); assert.equal(verifyStatement('(100000 = 10^5) ∧ (10^5 = 10^5)').verdict, 'VERIFIED', 'array/keys bound sealed')
 })
 
 test('the quantum engine — one input→output surface: any op dispatches, folds to a recomputable receipt, never itself', () => {

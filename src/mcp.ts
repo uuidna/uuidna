@@ -24,6 +24,7 @@ import {
   reAddress, type EditorState,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
+import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
 import { legalFacts } from './legal.js'
 import { license } from './license.js'
 import { priorArt } from './priorart.js'
@@ -134,6 +135,10 @@ const TOOLS: Tool[] = [
     description: 'FAST verification against the sealed ledger: is this exact STATEMENT a sealed theorem? uuidna is a verification framework, so it verifies a THEOREM directly — not only a prose claim that cites one. VERIFIED in O(1) (a content-address lookup) iff the statement is byte-identical to a sealed theorem; returns the sealing theorem key, tactic and content-address (recomputed to confirm the seal). Otherwise UNVERIFIED — never "false", only not-sealed. Complementary to uuidna_slim_gate (which judges a prose CLAIM by its citations). Returns {verdict, key, address, tactic, file, note}.',
     inputSchema: { type: 'object', properties: { statement: { type: 'string', description: 'the exact theorem statement to verify against the sealed ledger' } }, required: ['statement'] },
     run: ({ statement }) => verifyStatement(String(statement)) },
+  { name: 'uuidna_sanitize',
+    description: 'ONE COMMAND to process ANY input and sanitise ANY output, BY ALL STANDARDS — the same guards the engine runs on every tool, exposed directly. Returns a JSON-safe, bounded, acyclic copy: NaN/±∞→null, BigInt→string, functions/symbols dropped, cycles broken, depth/array/keys bounded, prototype-pollution keys (__proto__/constructor/prototype) dropped, and control/null-byte + Unicode BIDI-override (Trojan-Source) code points stripped from every string — while legitimate maths unicode is preserved. Deterministic: the sanitized value folds to a recomputable `receipt`. The bounds/standards are sealed as theorems (Sanitize.lean), so the rule is sent by the theorems themselves. Returns {value,address,receipt}.',
+    inputSchema: { type: 'object', properties: { value: { description: 'any value to sanitise by all standards' } } },
+    run: (a) => { const value = sanitizeValue((a as { value?: unknown }).value) ?? null; const s = JSON.stringify(value); return { value, address: toUuid(s), receipt: merkleGravity([toUuid('sanitize'), toUuid(s)]) } } },
   { name: 'uuidna_engine',
     description: 'THE UUIDNA QUANTUM ENGINE — one input→output surface over every sealed tool. Import/export fused into input→output: you do not import a function, you feed the engine an INPUT {op, args} and read its OUTPUT. It runs the same dispatch the server runs (callTool), then folds the triple (op, input, output) order-invariantly to a content-address `receipt` anyone recomputes, and binds the run to an `address`. Does NOT dispatch itself (no recursion). HONEST: computes nothing the underlying sealed tool does not — it is the door, not a new claim. Returns {op,input,output,address,receipt,ok,error?}.',
     inputSchema: { type: 'object', properties: { op: { type: 'string', description: 'the tool op to run through the engine, e.g. uuidna_spin' }, args: { type: 'object', description: 'the input arguments for that op' } }, required: ['op'] },
@@ -696,15 +701,20 @@ export function callTool(name: string, args: Record<string, unknown> = {}): unkn
 // output) folds — order-invariantly — to a content-address receipt anyone recomputes. One run, one receipt. The
 // engine does not dispatch itself (no recursion). Integrity, not truth: it computes nothing the sealed tool doesn't.
 export interface EngineRun { op: string; input: Record<string, unknown>; output: unknown; address: string; receipt: string; ok: boolean; error?: string }
-export function engine(op: string, input: Record<string, unknown> = {}): EngineRun {
-  const void_ = { op, input, output: null as unknown, address: '', receipt: '', ok: false }
+export function engine(op: string, input: unknown = {}): EngineRun {
+  // PROCESS ANY INPUT — normalise anything (null, string, array, hostile object) into a readable arguments object
+  const inp = sanitizeInput(input)
+  const void_ = { op, input: inp, output: null as unknown, address: '', receipt: '', ok: false }
   if (op === 'uuidna_engine') return { ...void_, error: 'the engine does not dispatch itself — pass a tool op (e.g. uuidna_spin)' }
-  let output: unknown
-  try { output = callTool(op, input) } catch (e) { return { ...void_, error: (e as Error).message } }
+  let raw: unknown
+  try { raw = callTool(op, inp) } catch (e) { return { ...void_, error: String((e as Error)?.message ?? e).slice(0, 500) } }
+  // SANITISE OUTPUT — a JSON-safe, bounded, acyclic copy (so the receipt fold never throws and no run leaks junk);
+  // undefined (a tool that returns nothing) coerces to null so JSON.stringify/toUuid never see undefined
+  const output = sanitizeValue(raw) ?? null
   // fold the triple to one receipt — order-invariant over the three legs (merkleGravity); the address binds the run
-  const receipt = merkleGravity([toUuid('op:' + op), toUuid('in:' + JSON.stringify(input)), toUuid('out:' + JSON.stringify(output))])
-  const address = toUuid(op + '|' + JSON.stringify(input) + '|' + JSON.stringify(output))
-  return { op, input, output, address, receipt, ok: true }
+  const receipt = merkleGravity([toUuid('op:' + op), toUuid('in:' + JSON.stringify(inp)), toUuid('out:' + JSON.stringify(output))])
+  const address = toUuid(op + '|' + JSON.stringify(inp) + '|' + JSON.stringify(output))
+  return { op, input: inp, output, address, receipt, ok: true }
 }
 
 // ── MCP fed to MCP: a usability benchmark over the server's OWN catalog, so the surface can develop against a
