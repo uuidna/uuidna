@@ -73,9 +73,10 @@ export function readImprintChain(uuids: readonly string[]): string {
   return uuids.map((u) => readImprint(u)).join('')
 }
 
+const _enc = new TextEncoder() // hoisted: one encoder, not a new allocation per call (DRY)
 /** imprintTextChain(text) → a uuid chain carrying arbitrary UTF-8 text of any length. */
 export function imprintTextChain(text: string): string[] {
-  const bytes = [...new TextEncoder().encode(text)]
+  const bytes = [..._enc.encode(text)]
   return imprintChain(bytes.map((b) => num2bits(b, 8)).join(''))
 }
 

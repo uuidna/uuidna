@@ -6,7 +6,7 @@
 // do not, and the evidence is void. uuidna delivers what recomputes; the court rules. It proves INTEGRITY (the claim
 // was made, the proofs are these, nothing was quietly changed), NEVER legal correctness — that is the court's, not a
 // fold's. Deterministic and offline. Integrity, not truth.
-import { THEOREMS } from './theorems/index.js'
+import { THEOREMS, theoremByKey } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { runTrial } from './theorems/index.js'
 import { adjudicate, type VerdictKind } from './adjudicate.js'
@@ -32,9 +32,8 @@ export interface Evidence {
 
 /** evidence(statement) → the recomputable evidence bundle for a statement. Same statement + same ledger → same bundle
  *  and same evidenceReceipt, reproducible by anyone. Delivers integrity, never a legal ruling. */
-// the ledger is immutable at runtime — index by key ONCE, so a cited-key lookup is O(1), not a full scan per key
-const _byKey = new Map(THEOREMS.map((t) => [t.key, t]))
 export function evidence(statement: string): Evidence {
+  const _byKey = theoremByKey() // the shared consolidated index — O(1) cited-key lookup, built once at the source
   const report = forensics(statement)
   const verdict = adjudicate(statement).verdict
   // exhibits — every theorem key the statement cites (/theorem/<key> or "theorem <key>") that really is sealed.

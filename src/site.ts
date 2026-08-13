@@ -12,10 +12,15 @@ export interface PageNode { route: string; text: string }
 /** canonicalOrder(staticPages) → every navigable page, ordered and wrapping: the given section pages first (in the
  *  order supplied), then every theorem in ledger order, then every publication. Deterministic and total — the pager
  *  and the gap-check both derive `next` from this, so the walk covers all nodes with no gap. */
+// the theorem+publication tail of the sitemap is INVARIANT (the ledger is immutable at runtime); only the staticPages
+// prefix varies per call. Build the tail ONCE (DRY) — the indices are the sitemap.
+let _tail: PageNode[] | null = null
+const sitemapTail = (): PageNode[] => (_tail ??= [
+  ...theorems().map((x) => ({ route: `/theorem/${x.key}`, text: x.key })),
+  ...publications().map((x) => ({ route: `/publications/${x.slug}`, text: x.title })),
+])
 export function canonicalOrder(staticPages: PageNode[]): PageNode[] {
-  const t: PageNode[] = theorems().map((x) => ({ route: `/theorem/${x.key}`, text: x.key }))
-  const p: PageNode[] = publications().map((x) => ({ route: `/publications/${x.slug}`, text: x.title }))
-  return [...staticPages, ...t, ...p]
+  return [...staticPages, ...sitemapTail()]
 }
 
 /** nextOf(order) → a map route → the next route (wrapping), the closed cover the native pager follows. */

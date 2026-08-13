@@ -130,3 +130,13 @@ export function theorems(opts: { skill?: string } = {}): { key: string; name: st
   const ts = opts.skill ? THEOREMS.filter((t) => t.skill === opts.skill) : THEOREMS
   return ts.map((t) => ({ key: t.key, name: t.name, statement: t.statement, tactic: t.tactic, file: t.file, principle: t.principle, skill: t.skill, lean: t.lean, address: t.address }))
 }
+
+// CONSOLIDATED INDICES over the immutable ledger — built ONCE at the source and reused everywhere, so no module
+// rebuilds its own O(N) map per call. The ledger cannot change at runtime, so these are safe, recomputable singletons.
+let _byKey: Map<string, Theorem> | null = null
+/** theoremByKey() → the ledger indexed by key (O(1) lookup), built once. Replaces per-module `THEOREMS.find`. */
+export const theoremByKey = (): ReadonlyMap<string, Theorem> => (_byKey ??= new Map(THEOREMS.map((t) => [t.key, t])))
+let _countByFile: Map<string, number> | null = null
+/** theoremCountByFile() → count of theorems per lean file (O(1) lookup), built once. Replaces per-file `filter().length`. */
+export const theoremCountByFile = (): ReadonlyMap<string, number> =>
+  (_countByFile ??= THEOREMS.reduce((m, t) => (m.set(t.file, (m.get(t.file) ?? 0) + 1), m), new Map<string, number>()))

@@ -205,9 +205,13 @@ export function comparePublications(a: string, b: string): Comparison {
 /** Every domain's publication, in principle order — the automated stream of audited notes. Each is composed by
  *  reading its sealed theorems and audited before it is returned; `publishable` flags any that overreach (none
  *  should, since every claim links its proof). The caller (build, MCP, audit) decides what to do with a false one. */
+// memoized at the source (DRY): composing + auditing every domain's monograph is expensive, and the ledger is
+// immutable at runtime — so build the publications ONCE and reuse (coverage, site, pentagram-monographs all call it).
+let _pubs: Publication[] | null = null
 export function publications(): Publication[] {
+  if (_pubs) return _pubs
   const files = PRINCIPLES.map((p) => p[0]).filter((f) => THEOREMS.some((t) => t.file === f))
-  return files.map(composePublication)
+  return (_pubs = files.map(composePublication))
 }
 
 /** A COVERAGE gap: a domain the monographs do not cover — the actionable diagnosis that the readiness gate blocks on. */

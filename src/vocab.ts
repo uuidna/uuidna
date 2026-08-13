@@ -10,7 +10,7 @@
 // and folds to one receipt. It maps each domain to the STANDARDS it formalizes or references (RFC 8439, ISBN/ISO
 // 2108, SMPTE, Nyquist–Shannon …) — a citation, NOT a claim of legal, regulatory or standards COMPLIANCE, which no
 // content-address can settle. Efficiency here is MEASURED and recomputable, never "maximum".
-import { theorems, PRINCIPLES, skillGroups } from './theorems/index.js'
+import { theorems, theoremCountByFile, PRINCIPLES, skillGroups } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { overreachOf } from './prose-gate.js'
 
@@ -56,13 +56,13 @@ export interface Vocabulary {
 /** vocabulary() → the common computable vocabulary of uuidna, self-audited and folded to one receipt. Deterministic:
  *  same ledger → same terms, same addresses, same receipt, recomputable by anyone. */
 export function vocabulary(): Vocabulary {
-  const T = theorems()
+  const countByFile = theoremCountByFile() // the shared core index — DRY: count-by-file computed once, not per principle
   // domain terms — one per principle that has theorems, defined by its committed blurb (gate-clean by construction).
-  const files = PRINCIPLES.map((p) => p[0]).filter((f) => T.some((t) => t.file === f))
+  const files = PRINCIPLES.map((p) => p[0]).filter((f) => countByFile.has(f))
   const domainTerms: Term[] = files.map((f) => {
     const definition = blurbByFile[f] || ''
     const term = (titleByFile[f] || f).replace(/^The /, '')
-    return { term, kind: 'domain', definition, theorems: T.filter((t) => t.file === f).length,
+    return { term, kind: 'domain', definition, theorems: countByFile.get(f) ?? 0,
       address: toUuid(term + ':' + definition), audit: overreachOf(definition) }
   })
   // capability terms — one per skill, defined factually from its own theorems (no hand-prose to overreach).

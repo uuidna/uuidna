@@ -8,7 +8,7 @@
 // observer — the public git commit on GitHub (whose push time is recorded by a third party), a Zenodo DOI (dated by
 // Zenodo), or an RFC 3161 timestamp authority. This record proves WHAT / WHO / INTEGRITY / TERMS on its own; for WHEN,
 // it names the external anchor to cite, and fakes nothing. You cannot notarise your own document. Integrity, not truth.
-import { THEOREMS } from './theorems/index.js'
+import { THEOREMS, theoremByKey } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { runTrial } from './theorems/index.js'
 
@@ -32,13 +32,12 @@ export interface PriorArt {
 /** priorArt(keys) → the in-house defensive-publication record for the named theorems. Deterministic and recomputable:
  *  same keys + ledger → same record → same address. Proves WHAT / WHO / INTEGRITY / TERMS in-house; the WHEN is an
  *  external anchor it names. */
-// the ledger is immutable at runtime — index by key ONCE, so a lookup is O(1), not a full scan per key
-const _byKey = new Map(THEOREMS.map((t) => [t.key, t]))
 export function priorArt(keys: readonly string[]): PriorArt {
+  const byKey = theoremByKey() // the shared consolidated index — O(1) lookup, built once at the source
   const exhibits: PriorArtExhibit[] = []
   const missing: string[] = []
   for (const k of keys) {
-    const t = _byKey.get(k)
+    const t = byKey.get(k)
     if (t) exhibits.push({ key: t.key, statement: t.statement, lean: t.lean, address: t.address, file: t.file })
     else missing.push(k)
   }
