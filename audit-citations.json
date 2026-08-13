@@ -1,18 +1,18 @@
 {
-  "key": "4fb28d22-3330-8ee9-af26-cd49a623e3ed",
-  "publications": 55,
-  "sealedTheorems": 1039,
+  "key": "3435c6f1-9919-843a-8ed2-46b830e23e8f",
+  "publications": 56,
+  "sealedTheorems": 1043,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1039,
-    "theorems": 1039,
+    "claims": 1043,
+    "theorems": 1043,
     "bijection": true,
     "digitalRoots": {
-      "claims": 4,
-      "theorems": 4,
-      "publications": 1
+      "claims": 8,
+      "theorems": 8,
+      "publications": 2
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -280,6 +280,13 @@
       "slug": "nim",
       "claims": 93,
       "cited": 93,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "editor",
+      "claims": 4,
+      "cited": 4,
       "uncited": [],
       "fabricated": []
     },
