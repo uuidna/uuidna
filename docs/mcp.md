@@ -4,23 +4,24 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="126 keys" />
+# MCP tools <Badge type="tip" text="128 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 126 tools below are read from the server's own tool list and
+is **built from the keys**: the 128 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`126`" />
+## The grid <Badge type="tip" :text="`128`" />
 
-126 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 39 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+128 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 40 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
 <a href="#uuidna-analytics"><code>analytics</code></a>
+<a href="#uuidna-cloudflare-audit"><code>cloudflare_audit</code></a>
 <a href="#uuidna-conformance"><code>conformance</code></a>
 <a href="#uuidna-cost"><code>cost</code></a>
 <a href="#uuidna-coverage"><code>coverage</code></a>
@@ -104,6 +105,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-render-list"><code>render_list</code></a>
 <a href="#uuidna-report"><code>report</code></a>
 <a href="#uuidna-research"><code>research</code></a>
+<a href="#uuidna-reveal"><code>reveal</code></a>
 <a href="#uuidna-seats"><code>seats</code></a>
 <a href="#uuidna-sha256"><code>sha256</code></a>
 <a href="#uuidna-slim-gate"><code>slim_gate</code></a>
@@ -454,7 +456,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'32'" />
+## Other <Badge type="tip" :text="'34'" />
 
 *skill: other*
 
@@ -747,6 +749,22 @@ Each theorem SCANS its NEIGHBOURS: given a key, return the sealed theorems that 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `key` | string | **yes** |  |
+
+### `uuidna_cloudflare_audit`
+
+AUDIT the Cloudflare Workers bindings for a quantum-secure posture, recomputably. Reflects the committed wrangler.toml: the ASSETS binding (static ./site served read-only — no secret, no crypto target), the TRIALS KV (OPT-IN and commented out — no namespace id committed, consent-gated), the TRIAL_KEY secret (a `wrangler secret`, NEVER in the repo — signs each verdict with HMAC-SHA256), and token-free OIDC publish. QUANTUM POSTURE: symmetric-only (HMAC-SHA256, ChaCha20-Poly1305, PBKDF2-SHA256) — no RSA/ECC, so Shor has no asymmetric target; Grover only halves to a ~128-bit floor. Returns {worker,bindings,secretsInRepo,quantumPosture,clean,receipt,honest}. HONEST SCOPE: audits the COMMITTED CONFIG posture (no secret committed + symmetric crypto), NOT the live edge deployment (the real secret and KV id live at the edge, not the repo) — not a penetration test or a compliance certification. A live audit needs the Cloudflare account.
+
+_No parameters._
+
+### `uuidna_reveal`
+
+THE SURFACING — close the hollow-prose leak by showing the verdict, not the drain-bit. The honesty gate drains only a FABRICATED citation, so a hollow boast ("provably unbreakable, 100% secure") returns holds=1 and READS as OK even though it is unbacked. uuidna_reveal surfaces the explicit three-way verdict slimGate already computes: VERIFIED (cites a sealed proof — backed), DRAINED (cites a proof not in the ledger — the one decidably-false case, refused), or UNVERIFIED (cites no sealed proof — REVEALED as UNBACKED, not verified). Pass {claim}. It uses NO word-list (a lexicon is itself a leaky floor — the ledger tried one and sealed the verdict against it); only the ledger decides. The point: "holds" means "not drained", NEVER "true" — a hollow boast stays UNVERIFIED, never VERIFIED; trust only the stamp, not the absence of a drain. Returns {verdict, binary, cites, fabricated, reveal}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `claim` | string | **yes** |  |
 
 ## Security posture (recomputable) <Badge type="tip" :text="'1'" />
 

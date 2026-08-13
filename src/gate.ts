@@ -16,3 +16,26 @@ export const computes = (text: string): { binary: 0 | 1; hit: string | null } =>
   const s = slimGate(text)
   return s.fabricated.length > 0 ? { binary: 0, hit: s.fabricated[0] ?? null } : { binary: 1, hit: null }
 }
+
+/** The SURFACING — the leak-closer. `computes()` returns binary:1 for BOTH a proof-backed claim and a hollow uncited
+ *  boast, so "holds=1" reads as OK and an overclaim leaks past a reader who checks the drain-bit instead of the stamp.
+ *  `reveal()` surfaces the explicit three-way verdict slimGate already computes, so an uncited boast reads UNVERIFIED
+ *  (unbacked), never a clean pass — no word-list, only the ledger's authority. "Holds" means "not drained", NEVER
+ *  "true"; only VERIFIED (a sealed citation) is backing. */
+export interface Reveal {
+  verdict: 'VERIFIED' | 'UNVERIFIED' | 'DRAINED'
+  binary: 0 | 1          // 0 = drained (a fabricated citation), 1 = stays (VERIFIED or UNVERIFIED)
+  cites: string[]        // the SEALED theorems the claim cites (its backing)
+  fabricated: string[]   // cited proofs NOT in the ledger — the one decidably-false case
+  reveal: string         // what this verdict MEANS, said plainly, so it cannot be mistaken for endorsement
+}
+export function reveal(text: string): Reveal {
+  const s = slimGate(text)
+  const verdict: Reveal['verdict'] = s.fabricated.length > 0 ? 'DRAINED' : s.real.length > 0 ? 'VERIFIED' : 'UNVERIFIED'
+  const msg = verdict === 'DRAINED'
+    ? `DRAINED — cites a proof NOT in the ledger (${s.fabricated.join(', ')}); the one decidably-false case, refused.`
+    : verdict === 'VERIFIED'
+      ? `VERIFIED — backed by sealed proof(s): ${s.real.join(', ')}.`
+      : 'UNVERIFIED — cites no sealed proof. REVEALED as UNBACKED, not verified: cite a /theorem/<key> or read it as an unproven claim. "Holds" here means "not drained", NEVER "true"; a hollow boast stays UNVERIFIED, never VERIFIED — trust only the stamp, not the absence of a drain.'
+  return { verdict, binary: verdict === 'DRAINED' ? 0 : 1, cites: s.real, fabricated: s.fabricated, reveal: msg }
+}
