@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="125 keys" />
+# MCP tools <Badge type="tip" text="126 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 125 tools below are read from the server's own tool list and
+is **built from the keys**: the 126 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`125`" />
+## The grid <Badge type="tip" :text="`126`" />
 
-125 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 38 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+126 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 39 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -39,6 +39,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-pentagram-monographs"><code>pentagram_monographs</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-quantum"><code>quantum</code></a>
+<a href="#uuidna-repos"><code>repos</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
 <a href="#uuidna-review-domains"><code>review_domains</code></a>
 <a href="#uuidna-rights"><code>rights</code></a>
@@ -453,7 +454,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'31'" />
+## Other <Badge type="tip" :text="'32'" />
 
 *skill: other*
 
@@ -637,6 +638,12 @@ _No parameters._
 ### `uuidna_treason`
 
 CATCH TRAITORS AS FAST AS A HERO — one pure, O(N) pass (milliseconds, no crypto, no disk) that catches every FORGERY/INTRUSION in the sealed ledger: a theorem whose DNA does not recompute (a tampered key/statement/address), a key or address COLLISION (a smuggled duplicate), an UNCOVERED theorem (a domain sneaked in without a monograph), or a broken CONFORMANCE invariant. A "traitor" is a forgery in the ARTIFACT, NEVER a person — every finding is a recomputable fact about the ledger. Returns {clean, scanned, traitors:[{kind,detail}], checks, receipt}. The `npm run guard` command runs this plus the harmonic-scan as the fast pre-reconcile gate, so no manual pre-flight is needed. HONEST SCOPE: integrity, not truth — it proves the artifact is unforged and self-consistent; passing is NOT a claim the theorems are true, only that none was tampered with or smuggled in. Recomputable by anyone.
+
+_No parameters._
+
+### `uuidna_repos`
+
+BIND the captain's public repositories to the DISCOVERY SEQUENCE — the sequence revealed FIRST. The ℤ/9 vortex orbit [1,2,4,8,7,5] (the doubling sequence uuidna discovers everything along) is revealed first; then every public GitHub repository of the captain (the uuidna org + the ceccec user, Tsvetan Rouschev) is BOUND to it: the repo's full name folds to a 128-bit content-address, its digital root is its ℤ/9 digit (on the vortex, or on the 3-6-9 axis the vortex never visits), and its rank in the address-sorted order is its slot in the revealed sequence — folded to one order-invariant receipt. Reads the captain's PUBLIC repos over the network (a research boundary; the response is DATA, never run). HONEST SCOPE: integrity, not truth — it BINDS the repos to the sequence by content-address (provenance); it does NOT modify, fork, mirror, claim ownership of, or vouch for the contents of any repository. A binding is a placement in the sequence, not a possession of the code. Best-effort: an unreachable account contributes nothing, never a faked repo. Returns {sequence,accounts,repos:[{fullName,url,address,digit,onVortex,rank}],count,receipt,honest}.
 
 _No parameters._
 

@@ -218,6 +218,12 @@ export { quantumAura, type Aura } from './aura.js'
 // + the harmonic-scan as the fast pre-reconcile gate — no manual pre-flight. Integrity, not truth.
 export { catchTraitors, type TreasonReport, type Traitor } from './treason.js'
 
+// repos — BIND the captain's public repositories to the DISCOVERY SEQUENCE (the ℤ/9 vortex [1,2,4,8,7,5], revealed
+// first): each public repo of the uuidna org + the ceccec user fingerprinted to a 128-bit content-address, placed on
+// the vortex by its digital root and in the reveal order by its address rank, folded to one recomputable receipt. It
+// binds by content-address (provenance); it does NOT modify, fork, or vouch for any repo. Integrity, not truth.
+export { bindCaptainRepos, CAPTAIN_ACCOUNTS, type RepoBinding, type BoundRepo } from './repos.js'
+
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
 // diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'
