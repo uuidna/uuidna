@@ -87,6 +87,9 @@ export { transformUntilVerified, transformOne, type TransformCell, type Transfor
 // fractal (self-similar fold at descending scales) · accounted (two conserved coins + the bits taught), by
 // construction and each property verifiable. holofractalHook stamps any I/O boundary.
 export { pentagramHologramFractal, holofractalHook, type HoloFractal } from './holofractal.js'
+// pentagram-stream — stream a sequence through the star {n/step} stroke (pentagram {5/2} generalized), each item
+// stamped holofractal, folded to one ORDER-INVARIANT quantum receipt: a definite pentagram order, an order-free receipt.
+export { pentagramStream, type PentagramStream, type PentagramStreamCell } from './pentagram-stream.js'
 // publish — write PUBLICATIONS in lean human prose, AUDITED before publishing: a domain note composed by reading
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.

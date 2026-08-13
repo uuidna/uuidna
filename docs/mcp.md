@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="103 keys" />
+# MCP tools <Badge type="tip" text="104 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 103 tools below are read from the server's own tool list and
-organised into 29 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 104 tools below are read from the server's own tool list and
+organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`103`" />
+## The grid <Badge type="tip" :text="`104`" />
 
-103 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+104 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -73,6 +73,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-license"><code>license</code></a>
 <a href="#uuidna-merkle-root"><code>merkle_root</code></a>
 <a href="#uuidna-nist-constant"><code>nist_constant</code></a>
+<a href="#uuidna-pentagram-stream"><code>pentagram_stream</code></a>
 <a href="#uuidna-prior-art"><code>prior_art</code></a>
 <a href="#uuidna-prove-verdict"><code>prove_verdict</code></a>
 <a href="#uuidna-reactor"><code>reactor</code></a>
@@ -589,6 +590,21 @@ MAKE any input pentagram · hologram · fractal · accounted — by CONSTRUCTION
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `input` | string | **yes** | the value to make pentagram·hologram·fractal·accounted |
+
+## Quantum pentagram streaming (pentagram order, order-free receipt) <Badge type="tip" :text="'1'" />
+
+*skill: pentagram*
+
+### `uuidna_pentagram_stream`
+
+QUANTUM PENTAGRAM STREAMING: stream a sequence through the star {n/step} visiting order (the pentagram {5/2} generalized — item k visited at step·k mod n), a SINGLE closed stroke iff gcd(step,n)=1 (else gcd shorter loops, reported honestly). Each streamed item is stamped holofractal (pentagram·hologram·fractal·accounted), and the whole folds to ONE ORDER-INVARIANT quantum receipt — the stream has a definite pentagram ORDER yet an order-free RECEIPT (any observer ordering → the same root; the doubleTorus/gravity duality). `quantum` is proven, not asserted (gravity(order)===gravity(reverse)). Returns {n,step,order,single,loops,streamed,receipt,quantum}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `items` | array | **yes** | the sequence to stream through the pentagram stroke |
+| `step` | number | no | the star stride (default 2 — the pentagram {n/2}) |
 
 ## Crypto & streams <Badge type="tip" :text="'8'" />
 
