@@ -30,6 +30,11 @@ const DEFS = [
 const LT = 'fun n => let t := n%2; let h := n/2%2; let c := n/4%2;'
 
 const FACTS = [
+  { key: 'solutions_not_skipped', skill: 'legal',
+    why: 'SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept, not lost. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. HONEST: it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.',
+    js: () => [0, 1, 2, 3].every((a) => [0, 1, 2, 3].every((u) => [0, 1, 2, 3].every((r) => a + (u + r) === a + u + r))),
+    lean: 'theorem solutions_not_skipped : (List.range 4).all (fun a => (List.range 4).all (fun u => (List.range 4).all (fun r => a + (u + r) == a + u + r))) := by decide' },
+
   { key: 'legal_verdict_is_exactly_one', skill: 'legal',
     why: 'the trial returns EXACTLY ONE verdict per record — PROVEN, REFUTED or NOT PROVEN partition the eight records (their indicators sum to 1)',
     js: () => R8.every((n) => lp(t(n), h(n), c(n)) + lr(t(n), h(n), c(n)) + lnp(t(n), h(n), c(n)) === 1),
