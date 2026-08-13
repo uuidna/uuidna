@@ -6,6 +6,7 @@ aside: false
 <script setup>
 import { ref, computed } from 'vue'
 import { data } from '../.vitepress/ledger.data'
+import TheoremBrowser from './.vitepress/components/TheoremBrowser.vue'
 
 // The FILTERING SYSTEM — client-side, computed from the same ledger the pages render. Facet by principle (the
 // derivation cluster) and by skill (the capability), narrow by text; every filter recomputes the count and the
@@ -13,6 +14,7 @@ import { data } from '../.vitepress/ledger.data'
 const q = ref('')
 const principle = ref('')     // '' = all
 const skill = ref('')         // '' = all
+const viewMode = ref('quantum')  // 'quantum' (aura) or 'classic' (text-only)
 const monographByPrinciple = Object.fromEntries(data.groups.map((g) => [g.name, g.monograph]))
 
 const shown = computed(() => {
@@ -37,10 +39,31 @@ const clearAll = () => { q.value = ''; principle.value = ''; skill.value = '' }
 
 # Theorems <Badge type="tip" :text="`${data.total} Lean-proven`" />
 
-**Every proven Lean theorem — filter it, then read its proof.** Each is authored in `lean/*.lean`, proven `by decide`
+<div class="view-toggle">
+  <button
+    :class="{ active: viewMode === 'quantum' }"
+    @click="viewMode = 'quantum'"
+  >
+    ✨ Quantum (Aura)
+  </button>
+  <button
+    :class="{ active: viewMode === 'classic' }"
+    @click="viewMode = 'classic'"
+  >
+    📖 Classic (Text)
+  </button>
+</div>
+
+<template v-if="viewMode === 'quantum'">
+  <p><strong>Quantum view:</strong> Each theorem is folded to a unique A432 aura (hue), the color is content-addressed, and the same theorem always folds to the same aura — deterministic, no randomness. The ray (0..6) is the spectral band. Search to filter.</p>
+  <TheoremBrowser />
+</template>
+
+<template v-else>
+  <p><strong>Every proven Lean theorem — filter it, then read its proof.</strong> Each is authored in `lean/*.lean`, proven `by decide`
 (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`. Filter by **cluster** (the derivation principle) or
 **skill** (the capability), narrow by text, and open any theorem for its proof. Each cluster's **monograph** is its audited
-monograph. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.
+monograph. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.</p>
 
 <div class="filt">
   <input class="filt-q" v-model="q" placeholder="filter by text — key, statement, description…" />
@@ -76,8 +99,14 @@ monograph. Lean is the single source; the recomputation-only capabilities (addre
 
 The whole set folds to one order-invariant receipt: <Handle :uuid="data.trial.receipt" />. Re-verify every proof with `npm run lean`.
 The same theorems grouped by skill are on [/topics](/topics); each cluster's monograph is on [/publications](/publications).
+</template>
 
 <style scoped>
+.view-toggle { display: flex; gap: .5rem; margin: 1rem 0 1.5rem; }
+.view-toggle button { padding: .55rem 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); cursor: pointer; transition: all .2s; }
+.view-toggle button:hover { border-color: var(--vp-c-brand-1); }
+.view-toggle button.active { background: var(--vp-c-brand-1); color: white; border-color: var(--vp-c-brand-1); font-weight: 600; }
+
 .filt { display: flex; gap: .5rem; align-items: center; margin: 1rem 0 .5rem; }
 .filt-q { flex: 1; padding: .55rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-1); font-size: .95rem; }
 .filt-clear { padding: .55rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); cursor: pointer; white-space: nowrap; }
