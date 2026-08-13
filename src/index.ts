@@ -212,6 +212,12 @@ export { captainRights, readImprintedRights, draftContract, type CaptainRights, 
 // physics: a defined arithmetic from a number to a hue; it decorates the work, it does not describe the universe.
 export { quantumAura, type Aura } from './aura.js'
 
+// treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
+// ledger (DNA that does not recompute, a key/address collision, an uncovered theorem, a broken conformance invariant),
+// folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this
+// + the harmonic-scan as the fast pre-reconcile gate — no manual pre-flight. Integrity, not truth.
+export { catchTraitors, type TreasonReport, type Traitor } from './treason.js'
+
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
 // diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'

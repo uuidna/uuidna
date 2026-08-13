@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="123 keys" />
+# MCP tools <Badge type="tip" text="124 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 123 tools below are read from the server's own tool list and
+is **built from the keys**: the 124 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`123`" />
+## The grid <Badge type="tip" :text="`124`" />
 
-123 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 36 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+124 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 37 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -49,6 +49,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-software"><code>software</code></a>
 <a href="#uuidna-theorems"><code>theorems</code></a>
 <a href="#uuidna-tokens"><code>tokens</code></a>
+<a href="#uuidna-treason"><code>treason</code></a>
 <a href="#uuidna-triad"><code>triad</code></a>
 <a href="#uuidna-trial"><code>trial</code></a>
 <a href="#uuidna-unify"><code>unify</code></a>
@@ -451,7 +452,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'29'" />
+## Other <Badge type="tip" :text="'30'" />
 
 *skill: other*
 
@@ -629,6 +630,12 @@ _No parameters._
 ### `uuidna_analytics`
 
 QUANTUM ANALYTICS over the sealed ledger — descriptive measures anyone RECOMPUTES identically, folded ORDER-INVARIANT to one receipt (the same analytics for every observer, no privileged view). Returns the theorem count, the number of principles, the per-principle DISTRIBUTION (each domain's count + share, largest first), the named LAYERS (hardware → software → os sizes + receipts), the CREDIT tally (historical / contextual / captain-alone), COVERAGE (covered/total/ready), the two COINS, the recomputed COLLISION census (keys/addresses — 0/0 or an intrusion), and the ledger INTEGRITY fingerprint (FNV + SHA-256 + tamper cost). DETERMINISTIC: no clock, no RNG, no telemetry, no user tracking — the inputs are the public ledger alone, so the numbers are the same next year and on every machine. HONEST SCOPE: integrity, not truth — DESCRIPTIVE analytics of what is sealed, NOT predictive statistics, NOT inference, and NOT observation of any person. It measures the ledger, not a user. Returns {theorems,principles,distribution,layers,credits,coverage,coins,collisions,integrity,receipt,honest}.
+
+_No parameters._
+
+### `uuidna_treason`
+
+CATCH TRAITORS AS FAST AS A HERO — one pure, O(N) pass (milliseconds, no crypto, no disk) that catches every FORGERY/INTRUSION in the sealed ledger: a theorem whose DNA does not recompute (a tampered key/statement/address), a key or address COLLISION (a smuggled duplicate), an UNCOVERED theorem (a domain sneaked in without a monograph), or a broken CONFORMANCE invariant. A "traitor" is a forgery in the ARTIFACT, NEVER a person — every finding is a recomputable fact about the ledger. Returns {clean, scanned, traitors:[{kind,detail}], checks, receipt}. The `npm run guard` command runs this plus the harmonic-scan as the fast pre-reconcile gate, so no manual pre-flight is needed. HONEST SCOPE: integrity, not truth — it proves the artifact is unforged and self-consistent; passing is NOT a claim the theorems are true, only that none was tampered with or smuggled in. Recomputable by anyone.
 
 _No parameters._
 
