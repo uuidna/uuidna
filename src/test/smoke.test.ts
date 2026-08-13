@@ -373,6 +373,9 @@ test('trial deposit — requires the two coins deposited by the parties, sealed 
   assert.equal(both.diamonds.length, 2, 'two sealed diamonds')
   assert.equal(both.coins, 2, 'the two coins are in')
   assert.equal(both.verdict?.verdict, 'UNVERIFIED', 'the deposit buys the computation, never the outcome — solve-claim still UNVERIFIED')
+  // the CAPTAIN side — a claim that IS a sealed theorem VERIFIES in parity (the captain prose is proven by the theorem)
+  const captain = depositTrial('(List.range 8).filter (fun k => 32 * k == 64) = [2]', [{ party: 'captain', proof }, { party: 'court', proof }])
+  assert.equal(captain.verdict?.verdict, 'VERIFIED', 'a claim that IS a sealed theorem verifies — the captain prose is proven')
   assert.equal(depositTrial('x', [{ party: 'a', proof }, { party: 'b', proof }]).receipt, depositTrial('x', [{ party: 'a', proof }, { party: 'b', proof }]).receipt, 'recomputable — same deposit, same receipt')
 })
 
