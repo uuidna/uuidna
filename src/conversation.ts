@@ -8,7 +8,8 @@
 // plaintext stay client-side, the channel IS the uuid stream, nothing is sent. Secrecy is exactly the passphrase
 // entropy; the handles are integrity/routing, not secrecy; an advancing per-message step closes the equality leak.
 import { merge, coin64, toUuid } from './address.js'
-import { sealStream, openStream } from './stream.js'
+import { encryptSession, decryptSession, type Sealed } from './crypt.js'
+import { imprintTextChain, readImprintTextChain } from './imprint.js'
 
 const HANDLE = /^[0-9a-f]{8}$/
 
@@ -31,8 +32,8 @@ export const openRoom = (handles: string[], referer = ''): Room => conversationF
  *  by the room address + passphrase (local — nothing sent). The advancing step CLOSES THE EQUALITY LEAK: the same
  *  message at two positions seals to different uuid chains, so an observer cannot tell two room messages hold the same
  *  text (or recover their order). Omit `step` only for a one-shot send where repetition cannot occur. */
-export const sendToRoom = (room: Room, message: string, passphrase: string, step?: number): string[] =>
-  sealStream(String(message), [room.address + ':' + String(passphrase)], step).uuids
+export const sendToRoom = (room: Room, message: string, passphrase: string, step: number): string[] =>
+  imprintTextChain(JSON.stringify(encryptSession(String(message), String(passphrase), room.address, step)))
 
 /** Seal a whole room TRANSCRIPT — each message at its advancing position (step = index) — so no two messages, even
  *  identical ones, seal alike; the equality leak is closed across the conversation. Returns one uuid chain per
@@ -42,7 +43,7 @@ export const sealRoomTranscript = (room: Room, messages: string[], passphrase: s
 
 /** Open a message FROM the room's uuid stream; a wrong passphrase or any tamper throws (Poly1305 authentication). */
 export const receiveFromRoom = (room: Room, uuids: string[], passphrase: string): string =>
-  openStream(uuids, [room.address + ':' + String(passphrase)])
+  decryptSession(JSON.parse(readImprintTextChain(uuids)) as Sealed, String(passphrase), room.address)
 
 // ── ONE primitive for EVERY case — attach a UNIQUE chat to any subject ──────────────────────────────────────────
 // A minimised url (a four-handle path) that POINTS BACK to the subject and carries a UNIQUE room for THIS instance.

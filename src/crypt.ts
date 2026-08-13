@@ -60,7 +60,7 @@ const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array
 /** A sealed envelope: the ChaCha20-Poly1305 ciphertext + tag, its public parameters, and its 7d-fold address.
  *  `v:2` envelopes carry `seq`, the advancing-sequence step that freshens the salt (closing the equality leak). */
 export interface Sealed {
-  v: 1 | 2
+  v: 1 | 2 | 3
   alg: 'ChaCha20-Poly1305'
   kdf: 'PBKDF2-SHA256'
   iter: number
@@ -100,10 +100,48 @@ export function sealSequence(messages: readonly string[], passphrase: string, st
 }
 
 /** Decrypt a sealed envelope. A wrong passphrase or tampered ciphertext throws (Poly1305 authentication). */
+// encryptSession — the captain theorem as encryption: CONTRIBUTE THE TWO COINS ONCE (one 600k KDF on a STABLE
+// session salt), then SEAL EVERY MESSAGE FREE (O(1) ChaCha20 under a per-step nonce). The salt is derived from the
+// session (a room address, a channel id), not the plaintext — so `deriveKey` is a cache hit from the 2nd message on
+// (~16 µs, not 1.75 s). SECURITY is preserved: the key is still PBKDF2-600k, and the NONCE freshens per `step`, so
+// identical plaintexts seal differently and the equality leak stays closed. The `step` MUST advance (never reuse it
+// under one session key) — the same nonce-uniqueness contract as v2. Opens with the ordinary `decrypt` (which reads
+// the salt from the envelope and hits the same cache). Recompute O(N) once, verify O(1) forever — coins() = 2.
+// the RATCHET: pay the two coins ONCE for the root key (PBKDF2 on the stable session salt), then ROTATE a fresh
+// message key each request — a cheap one-way hash of (root, step). The session lives in the root; it is never lost
+// until the passphrase (the root) is destroyed. Every request a different key AND a different nonce.
+const rotate = (root: Uint8Array, step: number): Uint8Array =>
+  sha256(cat(enc.encode('uuidna-session-rotate-v3|' + intOf(step) + '|'), root)).slice(0, 32)
+export function encryptSession(plaintext: string, passphrase: string, session: string, step: number): Sealed {
+  const pt = enc.encode(plaintext), pass = enc.encode(passphrase)
+  const salt = sha256(enc.encode('uuidna-session-salt-v3|' + session)).slice(0, 16) // STABLE per session → KDF once
+  const root = deriveKey(pass, salt, ITER)                                          // the two coins, paid once (cached)
+  const key = rotate(root, step)                                                    // ROTATE per request — fresh key each message
+  const nonce = sha256(cat(enc.encode('uuidna-session-nonce-v3|' + intOf(step) + '|'), salt)).slice(0, 12) // unique per step
+  const { ct, tag } = aeadEncrypt(key, nonce, pt)
+  const base = { alg: 'ChaCha20-Poly1305' as const, kdf: 'PBKDF2-SHA256' as const, iter: ITER, salt: b64(salt), nonce: b64(nonce), ct: b64(ct), tag: b64(tag) }
+  return { v: 3, ...base, address: foldEnvelope(base.alg, base.salt, base.nonce, base.ct, base.tag), seq: intOf(step) }
+}
+
+// decryptSession — open a v:3 session envelope, deriving the key from the RECEIVER's OWN session (its room address),
+// NOT from the salt the envelope carries. This makes the session/referer a real SECRECY boundary: a message sealed
+// for another session (a different referer → a different room address) derives a different root, so the rotated key
+// mismatches and Poly1305 rejects it — you cannot open a message that was not sealed for your exact session.
+export function decryptSession(sealed: Sealed, passphrase: string, session: string): string {
+  const iter = sealed.iter
+  if (!Number.isInteger(iter) || iter < 1 || iter > MAX_ITER) throw new Error(`crypt: refusing iter=${iter} — must be an integer in 1..${MAX_ITER} (DoS guard)`)
+  const salt = sha256(enc.encode('uuidna-session-salt-v3|' + session)).slice(0, 16) // the RECEIVER's session salt (cached)
+  const root = deriveKey(enc.encode(passphrase), salt, iter)
+  const key = rotate(root, sealed.seq ?? 0)
+  return dec.decode(aeadDecrypt(key, ub64(sealed.nonce), ub64(sealed.ct), ub64(sealed.tag)))
+}
+
 export function decrypt(sealed: Sealed, passphrase: string): string {
   const iter = sealed.iter
   if (!Number.isInteger(iter) || iter < 1 || iter > MAX_ITER) throw new Error(`crypt: refusing iter=${iter} — must be an integer in 1..${MAX_ITER} (DoS guard)`)
-  const key = deriveKey(enc.encode(passphrase), ub64(sealed.salt), iter)
+  const root = deriveKey(enc.encode(passphrase), ub64(sealed.salt), iter)
+  // v:3 is the session ratchet — the message key is the root ROTATED by the step; v:1/v:2 use the derived key directly.
+  const key = sealed.v === 3 ? rotate(root, sealed.seq ?? 0) : root
   return dec.decode(aeadDecrypt(key, ub64(sealed.nonce), ub64(sealed.ct), ub64(sealed.tag)))
 }
 

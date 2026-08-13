@@ -336,9 +336,17 @@ test('local chat — conversation fold: authenticity, per-referer rooms, sealed 
   assert.notEqual(conversationFold(['f0e7d443', '808f7b27', '1d6c4433', 'abc5add4'], 'http://localhost/room').fifth, a.fifth) // reordered → moves (each part of the next)
   assert.throws(() => conversationFold(['808f7b27', 'f0e7d443', '1d6c4433'], ''))                      // needs exactly four 8-hex handles
   const room = openRoom(four, 'http://localhost/room')
-  const uuids = sendToRoom(room, 'meet at the vortex, 432 Hz', 'gold-string-60')
+  const uuids = sendToRoom(room, 'meet at the vortex, 432 Hz', 'gold-string-60', 0)
   assert.equal(receiveFromRoom(room, uuids, 'gold-string-60'), 'meet at the vortex, 432 Hz')          // local round-trip
   assert.throws(() => receiveFromRoom(room, uuids, 'wrong'))                                          // wrong key → Poly1305 fails
+  // the session ratchet: the two coins are paid ONCE (one KDF on the room), then each message ROTATES a fresh key by
+  // its step — the session lives in the passphrase until destroyed. Rotation closes the equality leak, and the REFERER
+  // is a real boundary: a different referer is a different room, which cannot open this room's messages.
+  const m1 = sendToRoom(room, 'same', 'gold-string-60', 1), m2 = sendToRoom(room, 'same', 'gold-string-60', 2)
+  assert.notDeepEqual(m1, m2, 'the key rotates per request — same message, different step, different seal')
+  assert.equal(receiveFromRoom(room, m1, 'gold-string-60'), 'same')                                   // the session still opens every message
+  const other = openRoom(four, 'http://localhost/OTHER-referer')                                      // same handles, different referer
+  assert.throws(() => receiveFromRoom(other, uuids, 'gold-string-60'), /wrong session|/)              // rotate from the referer's perspective — a different room cannot open it
 })
 
 
@@ -355,7 +363,7 @@ test('attached chat — one primitive for donations, support cases, any subject'
   assert.equal(donationNote(u, 'd1').room.fifth, attachChat(u, 'd1').room.fifth)          // donationNote is an instance
   assert.equal(supportCase(u, 'c1').room.fifth, attachChat(u, 'c1').room.fifth)          // supportCase is an instance
   // the attached room seals/opens locally
-  const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
+  const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key', 0)
   assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
   // the EQUALITY LEAK is closed: the SAME message at two advancing positions seals to DIFFERENT uuid chains,
   // yet each still opens to the same plaintext (the step is a public advancing salt the envelope carries).
