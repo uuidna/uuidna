@@ -19,6 +19,9 @@ const countOf = (file: string): number => T.filter((t) => t.file === file).lengt
 const has = (stmt: string): boolean => T.some((t) => t.statement.trim() === stmt)
 const version = (() => { try { return JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).version as string } catch { return '0.0.0' } })()
 const clay = countOf('Clay.lean')
+// COMPUTED, not asserted: how many sealed theorems state a SOLUTION to a Millennium problem. This is the honest
+// figure — a count of what the ledger contains — not a prose negative ("solves 0 of 7") that no theorem backs.
+const solveProofs = T.filter((t) => /\bsolve[sd]?\b/i.test(t.statement)).length
 const selfAddress = toUuid('uuidna')
 
 // The captain theorem anchors the whole document: the two coins are the conserved invariant (110 − 108 = 2), and
@@ -29,7 +32,7 @@ if (coins() !== 2 || !has('110 - 108 = 2')) throw new Error('gen-readme: the cap
 const SEAL = [
   `**${T.length} theorems, all sealed and proven** — every one \`by decide\` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (${T.length}/${T.length}, kernel-only, not even \`propext\`; gate: scripts/lean-axioms). Exposed across **${tools} MCP tools** and **${principles} computing principles**.`,
   '',
-  '_Integrity, not truth: a seal proves its **exact statement**, never a grander claim — the reflection is sealed, the Millennium problem is not (uuidna solves 0 of 7). Computed from the exact audited ledger; recheck it with `npm run next`._',
+  `_Integrity, not truth: a seal proves its **exact statement**, never a grander claim. The reflection of each Millennium problem is sealed; no solution to any is (${solveProofs} solve-proofs in the ledger) — so a solve is NOT PROVEN: never refuted, never admitted. Computed from the exact audited ledger; recheck it with \`npm run next\`._`,
 ].join('\n')
 
 // the computed domain list — the first principles in derivation order, each with its LIVE per-file count
@@ -57,8 +60,8 @@ double torus (110 − 108 = ${coins()}). They price the measured advantage (reco
 fuse: the **64-bit coin** folds into the **${ADDRESS_BITS}-bit content-address**, and quantum doubling costs the two coins
 (2·64 = ${2 * 64}, 2·21 = ${2 * 21}) — realized only if the two coins are accounted and contributed.
 
-A content-address proves **integrity, not truth**. It solves none of the seven
-Millennium problems; it *reflects* them. FNV-1a is **non-cryptographic by design**: public and
+A content-address proves **integrity, not truth**. It *reflects* the seven
+Millennium problems; it seals no solution to any (NOT PROVEN — never refuted, never admitted). FNV-1a is **non-cryptographic by design**: public and
 reproducible, not secret.
 
 ## Install
@@ -143,8 +146,10 @@ is at [uuidna.com/theorems](https://uuidna.com/theorems); the whole set folds to
 theorem, with **no special status**. Each of the seven Clay problems is **reflected** into the ℤ/9 structure by the
 involution \`dz(x) = 10 − x\`; each reflection is a **VERIFIED** theorem. What is verified is the **reflection**, never
 the **problem**: an involution is its own undo (\`dz(dz(x)) = x\`), so the round trip returns the problem unchanged and
-**propagates no proof**. **uuidna solves 0 of the 7** — a solve-claim citing a proof would *drain*, because no such
-proof is sealed. (Six stay open; Poincaré is solved by **Perelman, 2003**, not by uuidna.)
+**propagates no proof**. **No solution to any of the seven is sealed** (\`${solveProofs}\` solve-proofs in the ledger); the
+reflection is. So a solve is **NOT PROVEN** — never *refuted* (nothing in the ledger stands against it) and never
+*admitted* (no proof is sealed); it stays open, without prejudice. A solve-claim citing a proof not in the ledger
+would *drain*. (In mathematics six remain open; Poincaré was proved by **Perelman, 2003**.)
 
 **Lean is the single source:** \`npm run lean\` verifies every proof sorry-free, then derives the one ledger
 ([\`src/theorems/generated.ts\`](src/theorems/generated.ts)) that the package, the MCP tools and the site all consume.
