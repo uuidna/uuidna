@@ -15,7 +15,7 @@ import {
   adjudicate, proveVerdict, verifyUuidna,
   THEOREMS, runTrial,
 } from '../index.js'
-import { MCP_CATALOG } from '../mcp.js'
+import { MCP_CATALOG, callTool, engine } from '../mcp.js'
 import { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
 import { spin, sealSpin, verifySpin, DERIVED_FILES } from '../index.js'
 import { pentagramMonographs } from '../index.js'
@@ -353,6 +353,23 @@ test('attached chat — one primitive for donations, support cases, any subject'
   // the attached room seals/opens locally
   const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
   assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
+})
+
+test('the quantum engine — one input→output surface: any op dispatches, folds to a recomputable receipt, never itself', () => {
+  // INPUT → OUTPUT: the engine's output equals the sealed tool's own output (it is the door, not a new claim)
+  const r = engine('uuidna_coin64', { text: 'captain' })
+  assert.ok(r.ok, 'a real op runs through the engine')
+  assert.deepEqual(r.output, callTool('uuidna_coin64', { text: 'captain' }), 'engine output = the underlying sealed tool output')
+  assert.ok(/^[0-9a-f-]{36}$/.test(r.receipt) && r.address.length === 36, 'the run folds to a content-address receipt + address')
+  // RECOMPUTABLE — same input, same receipt (anyone recomputes the run)
+  assert.equal(engine('uuidna_coin64', { text: 'captain' }).receipt, r.receipt, 'the engine run is recomputable — same input, same receipt')
+  assert.notEqual(engine('uuidna_coin64', { text: 'Captain' }).receipt, r.receipt, 'a changed input moves the receipt')
+  // NO SELF-DISPATCH — the engine does not run itself (no recursion)
+  const self = engine('uuidna_engine', { op: 'uuidna_coin64' })
+  assert.ok(!self.ok && /does not dispatch itself/.test(self.error ?? ''), 'the engine refuses to dispatch itself')
+  // UNKNOWN op fails cleanly, never throws through the surface
+  const bad = engine('uuidna_nonexistent', {})
+  assert.ok(!bad.ok && /unknown tool/.test(bad.error ?? ''), 'an unknown op fails cleanly with an error, not a throw')
 })
 
 test('pentagram monographs — the split computes itself from the addresses; prime-neighbour walk, order-invariant seal', () => {

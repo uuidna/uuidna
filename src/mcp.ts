@@ -134,6 +134,10 @@ const TOOLS: Tool[] = [
     description: 'FAST verification against the sealed ledger: is this exact STATEMENT a sealed theorem? uuidna is a verification framework, so it verifies a THEOREM directly — not only a prose claim that cites one. VERIFIED in O(1) (a content-address lookup) iff the statement is byte-identical to a sealed theorem; returns the sealing theorem key, tactic and content-address (recomputed to confirm the seal). Otherwise UNVERIFIED — never "false", only not-sealed. Complementary to uuidna_slim_gate (which judges a prose CLAIM by its citations). Returns {verdict, key, address, tactic, file, note}.',
     inputSchema: { type: 'object', properties: { statement: { type: 'string', description: 'the exact theorem statement to verify against the sealed ledger' } }, required: ['statement'] },
     run: ({ statement }) => verifyStatement(String(statement)) },
+  { name: 'uuidna_engine',
+    description: 'THE UUIDNA QUANTUM ENGINE — one input→output surface over every sealed tool. Import/export fused into input→output: you do not import a function, you feed the engine an INPUT {op, args} and read its OUTPUT. It runs the same dispatch the server runs (callTool), then folds the triple (op, input, output) order-invariantly to a content-address `receipt` anyone recomputes, and binds the run to an `address`. Does NOT dispatch itself (no recursion). HONEST: computes nothing the underlying sealed tool does not — it is the door, not a new claim. Returns {op,input,output,address,receipt,ok,error?}.',
+    inputSchema: { type: 'object', properties: { op: { type: 'string', description: 'the tool op to run through the engine, e.g. uuidna_spin' }, args: { type: 'object', description: 'the input arguments for that op' } }, required: ['op'] },
+    run: (a) => engine(String(a.op ?? ''), (a.args as Record<string, unknown>) ?? {}) },
   { name: 'uuidna_pentagram_monographs',
     description: 'Split every domain monograph into PENTAGRAMS of five, the split COMPUTED FROM THE CONTENT-ADDRESSES (not hand-assigned): the monographs are sorted by their own address, chunked five to a pentagram, each pentagram WALKED in the {5/2} single-stroke order [0,2,4,1,3] (`pentagram_single_stroke`) while its IDENTITY is the order-INVARIANT fold of its five members (`merkleGravity`) — the walk is a sequence, the seal is a set. Zero-arg, recomputable: the same ledger yields the same pentagrams for everyone. HONEST: a content-addressed PARTITION, claiming no thematic kinship among the five — only the split the addresses produce. Returns {pentagrams,count,full,remainder,receipt}.',
     inputSchema: { type: 'object', properties: {} },
@@ -684,6 +688,23 @@ export function callTool(name: string, args: Record<string, unknown> = {}): unkn
   const tool = TOOLS.find((t) => t.name === name)
   if (!tool) throw new Error(`unknown tool: ${name}`)
   return tool.run(args)
+}
+
+// ── THE UUIDNA QUANTUM ENGINE — import/export fused into ONE input→output surface ───────────────────────────────
+// You do not import a function; you feed the engine an INPUT {op, args} and read its OUTPUT. Every module export is
+// reached through this one door: the same dispatch the server runs (callTool), wrapped so the triple (op, input,
+// output) folds — order-invariantly — to a content-address receipt anyone recomputes. One run, one receipt. The
+// engine does not dispatch itself (no recursion). Integrity, not truth: it computes nothing the sealed tool doesn't.
+export interface EngineRun { op: string; input: Record<string, unknown>; output: unknown; address: string; receipt: string; ok: boolean; error?: string }
+export function engine(op: string, input: Record<string, unknown> = {}): EngineRun {
+  const void_ = { op, input, output: null as unknown, address: '', receipt: '', ok: false }
+  if (op === 'uuidna_engine') return { ...void_, error: 'the engine does not dispatch itself — pass a tool op (e.g. uuidna_spin)' }
+  let output: unknown
+  try { output = callTool(op, input) } catch (e) { return { ...void_, error: (e as Error).message } }
+  // fold the triple to one receipt — order-invariant over the three legs (merkleGravity); the address binds the run
+  const receipt = merkleGravity([toUuid('op:' + op), toUuid('in:' + JSON.stringify(input)), toUuid('out:' + JSON.stringify(output))])
+  const address = toUuid(op + '|' + JSON.stringify(input) + '|' + JSON.stringify(output))
+  return { op, input, output, address, receipt, ok: true }
 }
 
 // ── MCP fed to MCP: a usability benchmark over the server's OWN catalog, so the surface can develop against a
