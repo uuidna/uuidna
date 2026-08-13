@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="111 keys" />
+# MCP tools <Badge type="tip" text="112 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 111 tools below are read from the server's own tool list and
+is **built from the keys**: the 112 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`111`" />
+## The grid <Badge type="tip" :text="`112`" />
 
-111 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 27 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+112 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 27 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-conformance"><code>conformance</code></a>
@@ -77,6 +77,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-involute"><code>involute</code></a>
 <a href="#uuidna-license"><code>license</code></a>
 <a href="#uuidna-merkle-root"><code>merkle_root</code></a>
+<a href="#uuidna-neighbours"><code>neighbours</code></a>
 <a href="#uuidna-nist-constant"><code>nist_constant</code></a>
 <a href="#uuidna-pentagram-stream"><code>pentagram_stream</code></a>
 <a href="#uuidna-prior-art"><code>prior_art</code></a>
@@ -437,7 +438,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'17'" />
+## Other <Badge type="tip" :text="'18'" />
 
 *skill: other*
 
@@ -605,6 +606,16 @@ The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `claims` | array | **yes** | claims or external theories to adjudicate and recycle |
+
+### `uuidna_neighbours`
+
+Each theorem SCANS its NEIGHBOURS: given a key, return the sealed theorems that share its computing principle (its domain) — the local graph around it. The neighbourhoods partition the whole ledger, so every theorem sits in exactly one and none is isolated. Zero external influence, recomputable from the ledger. Returns {key, principle, count, neighbours:[{key,name,address}]}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `key` | string | **yes** |  |
 
 ## Security posture (recomputable) <Badge type="tip" :text="'1'" />
 

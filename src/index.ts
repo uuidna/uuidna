@@ -190,4 +190,4 @@ export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle,
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS
 // is the typed, addressed view. runTrial() folds every theorem's content-address to one receipt; theorems() lists
 // them with proof + principle; PRINCIPLES is the derivation order. A theorem computes in Lean, or it is not one.
-export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview } from './theorems/index.js'
+export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview } from './theorems/index.js'
