@@ -29,7 +29,7 @@ const OPS: [string, RegExp][] = [
   ['await', /\bawait\b/],
   ['Promise', /\bnew Promise\b|\bPromise\s*\.\s*(all|allSettled|race|any|resolve|reject)\b/],
   ['timer', /\bset(Timeout|Interval)\s*\(/],
-  ['process', /\bprocess\s*\.\s*\w/],
+  ['process', /(?<![-\w])process\s*\.\s*[a-z]/], // the real global: standalone `process` + a lowercase method (not a `due-process.js` filename or `process. Integrity` prose)
   ['eval', /\beval\s*\(|\bnew Function\s*\(/],
 ]
 // DETERMINISM hard-reject (rule 2) — CALLS only (a trailing `(` or `.now`), so prose like "bans Math.*" or "no Math.*"

@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="128 keys" />
+# MCP tools <Badge type="tip" text="129 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 128 tools below are read from the server's own tool list and
+is **built from the keys**: the 129 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`128`" />
+## The grid <Badge type="tip" :text="`129`" />
 
-128 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 40 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+129 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 41 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -26,6 +26,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-cost"><code>cost</code></a>
 <a href="#uuidna-coverage"><code>coverage</code></a>
 <a href="#uuidna-credits-summary"><code>credits_summary</code></a>
+<a href="#uuidna-due-process"><code>due_process</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
@@ -456,7 +457,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'34'" />
+## Other <Badge type="tip" :text="'35'" />
 
 *skill: other*
 
@@ -749,6 +750,16 @@ Each theorem SCANS its NEIGHBOURS: given a key, return the sealed theorems that 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `key` | string | **yes** |  |
+
+### `uuidna_due_process`
+
+VERIFY ALL BY DUE (recomputable) LEGAL PROCESS — nothing verified by fiat. Every theorem is verified by the same fair trial, and every guarantee that makes the process DUE is itself a sealed lean/Legal.lean theorem: exactly ONE verdict per claim (PROVEN/REFUTED/NOT-PROVEN partition), only the PROVEN admitted (a decidable test holds OR a sealed authority is cited), the NON-JUSTICIABLE never refuted (no test → never REFUTED), REFUTED only on a failed uncited test, remand TOTAL (nothing discarded — routed to the development trial), and the trial computing ONLY with the two coins deposited. Pass {claims:[...]} to put claims on the docket — each is adjudicated by the same process (PROVEN/REFUTED/NOT-PROVEN + a note). Folds to one recomputable docket receipt. HONEST SCOPE: integrity, not truth — this is uuidna's OWN recomputable adjudication whose rules are theorems anyone rechecks; it is NOT a court of law, NOT legal advice, and NOT an enforceable ruling. "Due" means the process is fair and recomputable by its sealed guarantees; the binding ruling stays a human court's. Returns {verifiedAll,guarantees,allGuaranteesSealed,docket,allTheoremsVerified,receipt,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `claims` | array | no | claims to put on the docket, each adjudicated by due process |
 
 ### `uuidna_cloudflare_audit`
 

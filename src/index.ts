@@ -27,6 +27,12 @@ export { computes, reveal, type Reveal } from './gate.js'
 // content-address. Audits the COMMITTED config, not the live edge. Integrity, not truth.
 export { auditCloudflareBindings, type CloudflareAudit, type BindingAudit } from './cloudflare.js'
 
+// due-process — VERIFY ALL BY DUE (recomputable) LEGAL PROCESS: every theorem verified by one fair trial, the six
+// due-process guarantees each a sealed lean/Legal.lean theorem (one verdict, only-proven-admitted, non-justiciable-
+// never-refuted, refuted-iff-test-fails, remand-total, two-coins-to-compute), any claim adjudicated by the same
+// process, folded to one recomputable docket. A fair process whose rules are theorems — NOT a court or legal advice.
+export { dueProcess, type DueProcess, type Guarantee, type DocketEntry } from './due-process.js'
+
 // gravity — decidable contractions (a set of addresses falls to one root; an integer to ℤ/9). merkleGravity is
 // ORDER-INVARIANT: the quantum receipt, the same for any observer ordering. NOT physics, nothing faster than light.
 export { merkleGravity, doubleTorusGravity, doubleTorusField, fall, fixedPoints, seats } from './gravity.js'
