@@ -252,7 +252,10 @@ const TOOLS: Tool[] = [
   { name: 'uuidna_pentagram',
     description: 'The star polygon {n/step}: the stroke visiting (step·k mod n). A SINGLE closed stroke covering all n points iff gcd(step,n)=1, else it splits into gcd shorter loops. Default {5/2} is the pentagram — [0,2,4,1,3], one stroke (sealed: pentagram_single_stroke). Returns {n,step,stroke,single,loops}.',
     inputSchema: { type: 'object', properties: { n: { type: 'integer', description: 'points (default 5)' }, step: { type: 'integer', description: 'stride (default 2 — the pentagram)' } } },
-    run: (a = {}) => starPolygon(a.n === undefined ? 5 : Number(a.n), a.step === undefined ? 2 : Number(a.step)) },
+    run: (a = {}) => { const r = starPolygon(a.n === undefined ? 5 : Number(a.n), a.step === undefined ? 2 : Number(a.step))
+      // lean-backed: verify the computed stroke against the sealed ledger — {5/2} IS pentagram_single_stroke; others are UNVERIFIED (not sealed), honestly
+      const proof = verifyStatement(`(List.range ${r.n}).map (fun k => (${r.step}*k) % ${r.n}) = [${r.stroke.join(',')}]`)
+      return { ...r, proof: proof.verdict === 'VERIFIED' ? { verdict: 'VERIFIED', theorem: proof.key, address: proof.address } : { verdict: 'UNVERIFIED', note: 'this stroke is not a sealed theorem — computed, not sealed' } } } },
   { name: 'uuidna_fibonacci',
     description: 'The single-digit Fibonacci sequence mod m and its Pisano period — the cycle up to the return to the seed (0,1). m=9 → period 24 (the digital-root Fibonacci); m=5 → 20 (pentagram); m=7 → 16 (rosette). Mirrors the sealed fib_single_digit_cycle_24 and siblings. Returns {mod,period,cycle}.',
     inputSchema: { type: 'object', properties: { mod: { type: 'integer', description: 'the modulus (default 9 — the single digit)' } } },
