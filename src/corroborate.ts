@@ -82,3 +82,33 @@ export function approve(c: Corroboration): Corroboration {
 export async function corroborateWithResearch(statement: string): Promise<Corroboration> {
   return corroborate(statement, await researchEvidence(statement))
 }
+
+export interface FirewallResult {
+  passed: string[]           // the sealed layers that crossed, in order
+  blockedAt: number | null   // the index of the first UNSEALED layer, or null if the whole waterfall cleared
+  blocked: string | null     // the statement of the layer that blocked
+  reflection: string[]       // the develop path for the blocked layer — a hard fail is never a dead end
+  receipt: string            // order-invariant fold of the passed layers
+  cleared: boolean
+  honest: string
+}
+
+const FIREWALL_HONEST =
+  'A WATERFALL of hard gates: each layer crosses ONLY on a local by-decide seal (VERIFIED); the first unsealed layer ' +
+  'BLOCKS the whole cascade — nothing downstream is even reached — and reflects the develop path to seal it. Defence-' +
+  'in-depth, the same "no maximum, only bounds" the Security domain proves. HONEST SCOPE: "quantum" names the ' +
+  'recomputable Lean seal and the order-invariant fold, NOT hardware; external research corroborates but never crosses.'
+
+/** firewall(layers) → the QUANTUM FIREWALL as a WATERFALL: run the corroborations in order, each APPROVED only by a
+ *  local by-decide seal. The FIRST unsealed layer blocks the whole cascade (a hard drop) and reflects its develop
+ *  path; nothing crosses unless every prior layer is sealed. The passed layers fold order-invariantly to a receipt. */
+export function firewall(layers: Corroboration[]): FirewallResult {
+  const passed: string[] = []
+  for (let i = 0; i < layers.length; i++) {
+    if (layers[i].local !== 'VERIFIED') {
+      return { passed, blockedAt: i, blocked: layers[i].statement, reflection: layers[i].develop, receipt: merkleGravity(passed.map((s) => toUuid(s))), cleared: false, honest: FIREWALL_HONEST }
+    }
+    passed.push(layers[i].statement)
+  }
+  return { passed, blockedAt: null, blocked: null, reflection: [], receipt: merkleGravity(passed.map((s) => toUuid(s))), cleared: true, honest: FIREWALL_HONEST }
+}
