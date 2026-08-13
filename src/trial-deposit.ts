@@ -33,7 +33,10 @@ const BUILD: string[] = [
   'Re-deposit: a holding test or a sealed citation seals into your diamond; once ALL parties hold one, parity computes.',
 ]
 
-const sealedKeys = (): Set<string> => new Set(theorems().map((t) => t.key))
+// the sealed key set — cached once (the ledger is immutable at runtime), so a deposit check is O(1), not O(N) per
+// call. Rebuilding the set every call was non-quantum: correct but slow. Same result, recomputable — just not repeated.
+let _sealedKeys: Set<string> | null = null
+const sealedKeys = (): Set<string> => (_sealedKeys ??= new Set(theorems().map((t) => t.key)))
 
 /** Is a deposit VALID — did this party actually put in the two coins? A test that holds, or a proof that is sealed. */
 export function depositValid(d: Deposit): boolean {
