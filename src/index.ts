@@ -33,6 +33,9 @@ export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
 export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from './adjudicate.js'
 export { corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement } from './corroborate.js'
 export { domainWave, type DomainWave } from './domain-wave.js'
+// research — deep research pressed/decompressed with the reversible imprint codec, bound to the entangled algebra,
+// with NOVELTY as content-address uniqueness. Does NOT extract MEANING (provenance + structure only; meaning is null).
+export { deepResearch, type DeepResearch } from './research.js'
 
 export {
   type Harnessed, DIMENSIONS,

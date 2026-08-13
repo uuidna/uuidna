@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="98 keys" />
+# MCP tools <Badge type="tip" text="99 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 98 tools below are read from the server's own tool list and
+is **built from the keys**: the 99 tools below are read from the server's own tool list and
 organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`98`" />
+## The grid <Badge type="tip" :text="`99`" />
 
-98 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+99 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -80,6 +80,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-render"><code>render</code></a>
 <a href="#uuidna-render-list"><code>render_list</code></a>
 <a href="#uuidna-report"><code>report</code></a>
+<a href="#uuidna-research"><code>research</code></a>
 <a href="#uuidna-seats"><code>seats</code></a>
 <a href="#uuidna-sha256"><code>sha256</code></a>
 <a href="#uuidna-slim-gate"><code>slim_gate</code></a>
@@ -424,7 +425,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'9'" />
+## Other <Badge type="tip" :text="'10'" />
 
 *skill: other*
 
@@ -501,6 +502,17 @@ The REPORTER'S METHOD (Report.lean) reflected live: file a report of a PROVEN di
 | --- | --- | --- | --- |
 | `draft` | string | **yes** | the report draft (its claims are honesty-gated) |
 | `sources` | array | no | the independent sources (≥ 2 to corroborate) |
+
+### `uuidna_research`
+
+Deep research with the REVERSIBLE imprint codec: PRESS external research (text or a link's content) into a uuid chain and DECOMPRESS it back LOSSLESSLY (the round-trip proves it), bind the pressed pieces to the computable ENTANGLED algebra (the order-invariant fold), and report NOVELTY as content-address uniqueness — a never-seen address is novel CONTENT. HONEST SCOPE: uuidna fingerprints STRUCTURE and NOVELTY, it does NOT extract MEANING — provenance + structure, never hidden meaning; `meaning` is null by design, left to the reader. Returns {address,compressed,losslessRoundTrip,entangledReceipt,novel,meaning}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** | the research text to press, entangle and check for novelty |
+| `seenAddresses` | array | no | known content-addresses; a new one is novel |
 
 ### `uuidna_snapshot`
 
