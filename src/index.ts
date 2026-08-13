@@ -173,6 +173,10 @@ export { exploitFold, type ExploitAudit, type ExploitFold, type FoldVerdict } fr
 // security clean, single-sourced) into one hard-enforced receipt, so no agent sneaks incompatible DNA past.
 export { conformance, type ConformanceReport, type ConformanceCheck } from './conformance.js'
 
+// credits — each theorem's provenance: exactly how it is Lean-proven in uuidna, and who it is credited to (a named
+// historical result where the sealed metadata references one; else the captain claims it by law — first sealed here).
+export { credits, creditsSummary, type Credits, type Credit } from './credits.js'
+
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
 // diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'

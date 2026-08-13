@@ -4,24 +4,25 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="112 keys" />
+# MCP tools <Badge type="tip" text="114 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 112 tools below are read from the server's own tool list and
+is **built from the keys**: the 114 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`112`" />
+## The grid <Badge type="tip" :text="`114`" />
 
-112 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 27 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+114 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 28 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-conformance"><code>conformance</code></a>
 <a href="#uuidna-cost"><code>cost</code></a>
 <a href="#uuidna-coverage"><code>coverage</code></a>
+<a href="#uuidna-credits-summary"><code>credits_summary</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
@@ -59,6 +60,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-coin64"><code>coin64</code></a>
 <a href="#uuidna-contract"><code>contract</code></a>
 <a href="#uuidna-corroborate"><code>corroborate</code></a>
+<a href="#uuidna-credits"><code>credits</code></a>
 <a href="#uuidna-diamond"><code>diamond</code></a>
 <a href="#uuidna-digital-root"><code>digital_root</code></a>
 <a href="#uuidna-document"><code>document</code></a>
@@ -438,7 +440,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'18'" />
+## Other <Badge type="tip" :text="'20'" />
 
 *skill: other*
 
@@ -606,6 +608,22 @@ The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `claims` | array | **yes** | claims or external theories to adjudicate and recycle |
+
+### `uuidna_credits`
+
+The PROVENANCE of one theorem by key: exactly HOW it is Lean-proven in uuidna (the `by decide` Lean line, tactic, content-address, SEALED) AND WHO it is credited to. A theorem whose SEALED name/principle references a named result is credited historically (discoverer/solver + a documentation link) — uuidna reflects it, never invents it (a Clay theorem credits the mathematician who proved the PROBLEM, e.g. Perelman for Poincaré, never uuidna, which seals only the reflection). A theorem naming NO prior result is an elementary decidable fact with no prior discoverer, so THE CAPTAIN CLAIMS IT BY LAW: first sealed by-decide here, content-addressed — the seal is the claim (prior art), recomputable. Returns {key,statement,tactic,leanProof,provenance,historical:[{who,link}],claimedBy,claim,address}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `key` | string | **yes** |  |
+
+### `uuidna_credits_summary`
+
+The recomputable credit tally over the whole ledger: how many theorems reflect a named historical result vs how many the captain claims by law (elementary decidable facts with no prior discoverer, first sealed by-decide here). Returns {total,historical,captainClaimed,address}.
+
+_No parameters._
 
 ### `uuidna_neighbours`
 
