@@ -6,7 +6,7 @@
 // recomputable by anyone (prior art, not an assertion of grandeur). uuidna solves no Millennium problem — a Clay
 // theorem is credited to the mathematician who proved the PROBLEM (Perelman for Poincaré), never to uuidna, which
 // seals only the REFLECTION. Integrity, not truth: the Lean proof is exact; the history is linked, not asserted.
-import { THEOREMS, theoremByKey } from './theorems/index.js'
+import { THEOREMS, theoremByKey, theoremNeighbours } from './theorems/index.js'
 import { toUuid } from './address.js'
 
 // historical results EXPLICITLY named in the sealed theorem metadata → {who, a documentation link}. Only names that
@@ -53,8 +53,10 @@ export interface Credits {
   verdict: 'SEALED'
   leanProof: string            // exactly how it is proven in uuidna — the Lean line, `by decide`
   provenance: string           // how Lean-proven in uuidna, in words (deterministic, recomputable)
-  historical: Credit[]         // named results the SEALED metadata references — discoverer/solver + documentation link
-  claimedBy: 'historical' | 'captain'
+  historical: Credit[]         // DIRECT — named results the theorem's OWN sealed metadata references
+  contextual: Credit[]         // NEIGHBOURING — names its DOMAIN (its neighbours) reference, deeply researched: figures
+                               //   seriously involved in the surrounding theorems whose names may stand next to the captain's
+  claimedBy: 'historical' | 'contextual' | 'captain'
   claim: string                // the credit statement
 }
 
@@ -64,22 +66,32 @@ export interface Credits {
 export function credits(key: string): Credits {
   const t = theoremByKey().get(String(key))
   if (!t) throw new Error('unknown theorem: ' + key)
+  // DIRECT — names in the theorem's OWN sealed metadata
   const hay = t.name + ' ' + t.principle
   const seen = new Set<string>()
   const historical: Credit[] = []
   for (const r of REGISTRY) if (hay.includes(r.pat) && !seen.has(r.who)) { seen.add(r.who); historical.push({ who: r.who, link: r.wiki }) }
+  // CONTEXTUAL — deep research across the NEIGHBOURING domain: names its neighbours reference but it does not itself.
+  const contextual: Credit[] = []
+  for (const n of theoremNeighbours(t.key)) {
+    const nhay = n.name + ' ' + n.principle
+    for (const r of REGISTRY) if (nhay.includes(r.pat) && !seen.has(r.who)) { seen.add(r.who); contextual.push({ who: r.who, link: r.wiki }) }
+  }
   const provenance = `Proven in uuidna by \`${t.tactic}\` (Lean 4, no Mathlib), verified sorry-free and axiom-free; content-addressed to ${t.address} — recompute toUuid("${t.key}:" + statement) and it returns.`
-  const claimedBy: 'historical' | 'captain' = historical.length ? 'historical' : 'captain'
+  const claimedBy: 'historical' | 'contextual' | 'captain' = historical.length ? 'historical' : contextual.length ? 'contextual' : 'captain'
   const claim = historical.length
-    ? `Reflects the result(s) of ${historical.map((h) => h.who).join('; ')} — uuidna seals the decidable reflection, credited to them, never claimed as uuidna's own.`
-    : `No prior result is named. THE CAPTAIN CLAIMS IT BY LAW: this decidable fact was first sealed \`by decide\` in uuidna and content-addressed to ${t.address}. The seal is the claim — prior art, recomputable by anyone, with no prior discoverer to credit.`
-  return { key: t.key, statement: t.statement, tactic: t.tactic, file: t.file, address: t.address, verdict: 'SEALED', leanProof: t.lean, provenance, historical, claimedBy, claim }
+    ? `Reflects the result(s) of ${historical.map((h) => h.who).join('; ')} — uuidna seals the decidable reflection, credited to them, never claimed as uuidna's own.${contextual.length ? ` Its neighbouring domain also involves ${contextual.map((h) => h.who).join('; ')}.` : ''}`
+    : contextual.length
+      ? `No prior result is named in the theorem itself, so THE CAPTAIN CLAIMS IT BY LAW (first sealed \`by decide\` here, content-addressed to ${t.address}) — but a deep read of its neighbouring domain surfaces figures seriously involved whose names may stand next to the captain's: ${contextual.map((h) => h.who).join('; ')}.`
+      : `No prior result is named in the theorem or its neighbourhood. THE CAPTAIN CLAIMS IT BY LAW, alone: first sealed \`by decide\` in uuidna, content-addressed to ${t.address}. The seal is the claim — prior art, recomputable, with no prior discoverer.`
+  return { key: t.key, statement: t.statement, tactic: t.tactic, file: t.file, address: t.address, verdict: 'SEALED', leanProof: t.lean, provenance, historical, contextual, claimedBy, claim }
 }
 
-/** creditsSummary() → the recomputable tally: how many theorems reflect a named historical result, how many the
- *  captain claims by law, folded to one figure anyone recomputes from the ledger. */
-export function creditsSummary(): { total: number; historical: number; captainClaimed: number; address: string } {
-  let historical = 0
-  for (const t of THEOREMS) if (REGISTRY.some((r) => (t.name + ' ' + t.principle).includes(r.pat))) historical++
-  return { total: THEOREMS.length, historical, captainClaimed: THEOREMS.length - historical, address: toUuid(`credits|${THEOREMS.length}|${historical}`) }
+/** creditsSummary() → the recomputable tally: how many theorems reflect a named historical result DIRECTLY, how many
+ *  the captain claims by law but with CONTEXTUAL figures from the neighbouring domain standing next to him, and how
+ *  many the captain claims ALONE. Recomputable from the ledger. */
+export function creditsSummary(): { total: number; historical: number; contextual: number; captainAlone: number; address: string } {
+  let historical = 0, contextual = 0, captainAlone = 0
+  for (const t of THEOREMS) { const c = credits(t.key); if (c.claimedBy === 'historical') historical++; else if (c.claimedBy === 'contextual') contextual++; else captainAlone++ }
+  return { total: THEOREMS.length, historical, contextual, captainAlone, address: toUuid(`credits|${THEOREMS.length}|${historical}|${contextual}`) }
 }

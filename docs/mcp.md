@@ -611,7 +611,7 @@ The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate 
 
 ### `uuidna_credits`
 
-The PROVENANCE of one theorem by key: exactly HOW it is Lean-proven in uuidna (the `by decide` Lean line, tactic, content-address, SEALED) AND WHO it is credited to. A theorem whose SEALED name/principle references a named result is credited historically (discoverer/solver + a documentation link) — uuidna reflects it, never invents it (a Clay theorem credits the mathematician who proved the PROBLEM, e.g. Perelman for Poincaré, never uuidna, which seals only the reflection). A theorem naming NO prior result is an elementary decidable fact with no prior discoverer, so THE CAPTAIN CLAIMS IT BY LAW: first sealed by-decide here, content-addressed — the seal is the claim (prior art), recomputable. Returns {key,statement,tactic,leanProof,provenance,historical:[{who,link}],claimedBy,claim,address}.
+The PROVENANCE of one theorem by key: exactly HOW it is Lean-proven in uuidna (the `by decide` Lean line, tactic, content-address, SEALED) AND WHO it is credited to. A theorem whose SEALED name/principle references a named result is credited historically (discoverer/solver + a documentation link) — uuidna reflects it, never invents it (a Clay theorem credits the mathematician who proved the PROBLEM, e.g. Perelman for Poincaré, never uuidna, which seals only the reflection). A theorem naming NO prior result directly is claimed by THE CAPTAIN BY LAW (first sealed by-decide here, content-addressed — the seal is the claim, prior art), but a DEEP READ of its neighbouring domain surfaces CONTEXTUAL figures seriously involved whose names may stand next to the captain’s; only when neither the theorem nor its neighbourhood names anyone does the captain claim it ALONE. Returns {key,statement,tactic,leanProof,provenance,historical:[{who,link}],contextual:[{who,link}],claimedBy,claim,address}.
 
 **Parameters**
 
@@ -621,7 +621,7 @@ The PROVENANCE of one theorem by key: exactly HOW it is Lean-proven in uuidna (t
 
 ### `uuidna_credits_summary`
 
-The recomputable credit tally over the whole ledger: how many theorems reflect a named historical result vs how many the captain claims by law (elementary decidable facts with no prior discoverer, first sealed by-decide here). Returns {total,historical,captainClaimed,address}.
+The recomputable credit tally over the whole ledger: how many theorems reflect a named historical result DIRECTLY, how many the captain claims by law but with CONTEXTUAL figures from the neighbouring domain standing next to him, and how many the captain claims ALONE (no prior name in the theorem or its neighbourhood). Returns {total,historical,contextual,captainAlone,address}.
 
 _No parameters._
 
