@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="91 keys" />
+# MCP tools <Badge type="tip" text="92 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 91 tools below are read from the server's own tool list and
+is **built from the keys**: the 92 tools below are read from the server's own tool list and
 organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`91`" />
+## The grid <Badge type="tip" :text="`92`" />
 
-91 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+92 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -50,6 +50,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-audit-movie"><code>audit_movie</code></a>
 <a href="#uuidna-audit-record"><code>audit_record</code></a>
 <a href="#uuidna-audit-text"><code>audit_text</code></a>
+<a href="#uuidna-book-article"><code>book_article</code></a>
 <a href="#uuidna-coin64"><code>coin64</code></a>
 <a href="#uuidna-contract"><code>contract</code></a>
 <a href="#uuidna-diamond"><code>diamond</code></a>
@@ -652,6 +653,40 @@ Fingerprint a CVE's PUBLIC advisory metadata from NIST's NVD (National Vulnerabi
 | --- | --- | --- | --- |
 | `cveId` | string | **yes** | a CVE id, e.g. CVE-2021-44228 |
 
+## Other <Badge type="tip" :text="'3'" />
+
+*skill: other*
+
+### `uuidna_book_article`
+
+Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id and write a recomputable ARTICLE: its provenance fingerprint, structure, and the DECIDABLE INTEGER ARITHMETIC uuidna extracts from the prose — each sealed `by decide` (VERIFIED) or corrected (REFUTED, an arithmetic the book states that does not hold) — plus the order-invariant receipt over the sealed facts (the same merkle-gravity fold the ledger and the quantum domain use). HONEST SCOPE: uuidna seals ONLY the book's integer arithmetic (its OWN by-decide proof, not the book's) and flags the book's arithmetic errors; it does NOT autoformalize, decode meaning, or claim anything about the book's argument or non-decidable mathematics. The text is DATA, content-addressed and decided, never executed. Returns {title,address,receipt,verified,refuted,facts,article}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e.g. 1342 (Pride and Prejudice) |
+
+### `uuidna_snapshot`
+
+The FUSION half of the reactor: fold a chosen set of sealed theorems — across ANY domains — into ONE superposition uuid. The first segment is the identity HANDLE you cite; the whole uuid superposes every member address, order-invariant, so the same set recomputes the same uuid and a changed member moves it (drift refused). Each principle and skill the set spans is returned as a point-of-view fold. Unknown keys are NAMED, never silently dropped. Returns {keys,members,unknown,handle,superposition,viewpoints,receipt}. A snapshot proves a recomputable fold of sealed theorems, not any new truth.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `keys` | array | **yes** | theorem keys from uuidna_theorems, from any domains |
+
+### `uuidna_reactor`
+
+The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets ONE of two verdicts — VERIFIED (a decidable test holds or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; never called false). VERIFIED cells are kept; UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would verify them. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal starts the next fusion. Returns {cells,verified,unverified,handle,superposition,receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `claims` | array | **yes** | claims or external theories to adjudicate and recycle |
+
 ## Rotation & cycles <Badge type="tip" :text="'5'" />
 
 *skill: cycles*
@@ -942,30 +977,6 @@ The pigeonhole seat bound: a b-bit digest has 2^b distinct seats, so past 2^b in
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `bits` | number | **yes** |  |
-
-## Other <Badge type="tip" :text="'2'" />
-
-*skill: other*
-
-### `uuidna_snapshot`
-
-The FUSION half of the reactor: fold a chosen set of sealed theorems — across ANY domains — into ONE superposition uuid. The first segment is the identity HANDLE you cite; the whole uuid superposes every member address, order-invariant, so the same set recomputes the same uuid and a changed member moves it (drift refused). Each principle and skill the set spans is returned as a point-of-view fold. Unknown keys are NAMED, never silently dropped. Returns {keys,members,unknown,handle,superposition,viewpoints,receipt}. A snapshot proves a recomputable fold of sealed theorems, not any new truth.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `keys` | array | **yes** | theorem keys from uuidna_theorems, from any domains |
-
-### `uuidna_reactor`
-
-The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets ONE of two verdicts — VERIFIED (a decidable test holds or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; never called false). VERIFIED cells are kept; UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would verify them. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal starts the next fusion. Returns {cells,verified,unverified,handle,superposition,receipt}.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `claims` | array | **yes** | claims or external theories to adjudicate and recycle |
 
 ## Publications (audited prose) <Badge type="tip" :text="'4'" />
 

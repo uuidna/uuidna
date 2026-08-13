@@ -17,6 +17,7 @@
 //    trip uuidna's overclaim tripwire.
 import { toUuid, digitalRoot } from './address.js'
 import { merkleRoot } from './merkle.js'
+import { merkleGravity } from './gravity.js'
 import { computes } from './gate.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
 
@@ -71,6 +72,78 @@ export function auditText(text: string, meta: { title?: string; authors?: string
       'not a meaning. "Decode" is provenance + structure, never decryption or hidden meaning. The gate is tuned to ' +
       "uuidna's own overclaim vocabulary, so passing says nothing about the book — only that its prose does not trip it.",
   }
+}
+
+/** A decidable arithmetic claim EXTRACTED from a text — the ONLY fragment of a book uuidna can independently seal.
+ *  `asserted` is what the prose says; `actual` is what the arithmetic computes; `lean` is uuidna's OWN by-decide
+ *  theorem for the true value. VERIFIED when the book's arithmetic holds, REFUTED when uuidna's decide disagrees. */
+export interface ExtractedFact {
+  claim: string
+  asserted: number
+  actual: number
+  lean: string
+  verdict: 'VERIFIED' | 'REFUTED'
+  address: string
+}
+
+const EXTRACT_OPS: Record<string, [(a: number, b: number) => number, string]> = {
+  '*': [(a, b) => a * b, '*'], '×': [(a, b) => a * b, '*'], x: [(a, b) => a * b, '*'], times: [(a, b) => a * b, '*'],
+  '+': [(a, b) => a + b, '+'], plus: [(a, b) => a + b, '+'],
+}
+
+/** extractDecidable(text) → the DECIDABLE INTEGER ARITHMETIC the text asserts, each independently sealed by decide
+ *  (VERIFIED) or corrected (REFUTED — the book's sum is wrong). HONEST SCOPE: integer arithmetic ONLY — the sliver
+ *  of a book that computes; this does NOT autoformalize the book's meaning, argument, or non-decidable mathematics,
+ *  and the proofs are uuidna's own, not the book's. A theorem computes in Lean, or it is not a theorem. */
+export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
+  const out: ExtractedFact[] = []
+  const seen = new Set<string>()
+  // integer  a  (× | * | x | times | + | plus)  b  (= | is | equals | makes)  c
+  const re = /\b(\d{1,4})\s*(×|\*|x|times|\+|plus)\s*(\d{1,4})\s*(?:=|is|equals|makes)\s*(\d{1,7})\b/gi
+  for (const m of text.matchAll(re)) {
+    const op = EXTRACT_OPS[m[2].toLowerCase()]
+    if (!op) continue
+    const a = Number(m[1]), b = Number(m[3]), asserted = Number(m[4])
+    const actual = op[0](a, b)
+    const lean = `theorem book_fact : ${a} ${op[1]} ${b} = ${actual} := by decide`
+    if (seen.has(lean)) continue
+    seen.add(lean)
+    out.push({ claim: m[0].replace(/\s+/g, ' ').trim(), asserted, actual, lean, verdict: actual === asserted ? 'VERIFIED' : 'REFUTED', address: toUuid(lean) })
+    if (out.length >= limit) break
+  }
+  return out
+}
+
+/** composeBookArticle(audit, facts) → an AUDITED article about a public-domain text: its provenance fingerprint, its
+ *  structure, and the decidable arithmetic uuidna sealed (or refuted) from it, each backed by a by-decide proof.
+ *  HONEST SCOPE: the article claims ONLY the provenance and the decidable integer arithmetic — never the book's
+ *  meaning, argument, or non-decidable mathematics; the proofs are uuidna's, not the book's. */
+export function composeBookArticle(audit: BookAudit, facts: ExtractedFact[]): { markdown: string; address: string; receipt: string } {
+  const v = facts.filter((f) => f.verdict === 'VERIFIED').length
+  const r = facts.filter((f) => f.verdict === 'REFUTED').length
+  // the order-invariant receipt over the sealed facts — the SAME merkle-gravity fold the ledger and the quantum
+  // domain (bell_no_signaling, the folded memory-store receipt) use: recompute it in any order and it returns.
+  const receipt = merkleGravity(facts.map((f) => f.address))
+  const md =
+    `# ${audit.title || 'A public-domain text'}\n\n` +
+    `> a recomputable article — provenance, structure, and the decidable arithmetic uuidna sealed from the text\n\n` +
+    `This text content-addresses to \`${audit.address}\` (${audit.chapters} chapters, ${audit.words} words, ℤ/9 gravity ${audit.gravity}); the address proves exact-copy, the chapterRoot \`${audit.chapterRoot}\` proves any chapter belongs. uuidna scanned its prose for INTEGER ARITHMETIC — the only fragment it can independently decide — and sealed each \`by decide\`: **${v} VERIFIED**, **${r} REFUTED** (an arithmetic the text states that does not hold).\n\n` +
+    `## The decidable arithmetic, each backed by its own proof\n\n` +
+    (facts.length ? facts.map((f) => `- **${f.verdict}** — the text says \`${f.claim}\`${f.verdict === 'REFUTED' ? ` (it is ${f.actual}, not ${f.asserted})` : ''}; uuidna seals \`${f.lean}\` · \`${f.address}\``).join('\n') : '_No integer arithmetic found to decide._') +
+    `\n\n## Provenance\n\nThe ${facts.length} sealed facts fold order-invariantly to receipt \`${receipt}\` — the same merkle-gravity fold the ledger and the quantum domain use, recomputable by anyone in any order. The article itself content-addresses to a uuid, so any edit is visible.\n\n## Honest scope\n\nThis article claims ONLY the provenance fingerprint and the decidable integer arithmetic above — each a uuidna \`by decide\` theorem, NOT the book's own proof. It says NOTHING about the book's argument, meaning, or any non-decidable mathematics: a theorem computes in Lean, or it is not a theorem. Public-domain work, for the public interest.\n`
+  return { markdown: md, address: toUuid(md), receipt }
+}
+
+/** bookArticle(gutenbergId) → fetch a public-domain book, extract its decidable arithmetic, and return the AUDITED
+ *  article + the order-invariant receipt over the sealed facts. The one network call; the fetched text is DATA to be
+ *  content-addressed and decided, never executed. HONEST SCOPE: seals only the book's integer arithmetic, never its
+ *  meaning or argument. */
+export async function bookArticle(id: number | string): Promise<{ title: string; address: string; receipt: string; verified: number; refuted: number; facts: ExtractedFact[]; article: string }> {
+  const b = await fetchGutenberg(id)
+  const audit = auditText(b.text, { title: b.title, authors: b.authors, source: b.source })
+  const facts = extractDecidable(b.text)
+  const { markdown, receipt } = composeBookArticle(audit, facts)
+  return { title: b.title, address: audit.address, receipt, verified: facts.filter((f) => f.verdict === 'VERIFIED').length, refuted: facts.filter((f) => f.verdict === 'REFUTED').length, facts, article: markdown }
 }
 
 /** A translation audited as a source↔translation PAIR — each text's own audit, bound by a directional provenance
