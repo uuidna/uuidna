@@ -65,3 +65,46 @@ export function catchTraitors(): TreasonReport {
       'theorems are true, only that none was tampered with or smuggled in. Recomputable by anyone. Integrity, not truth.',
   }
 }
+
+// ── THE GUARD LESSONS, sealed into uuidna as recomputable checks ────────────────────────────────────────────────
+// The lessons that were once only in an agent's private memory — moved HERE, where they recompute for anyone, tied to
+// the exact check that enforces each. Trust the check, not the note. A lesson whose `holds` is a boolean is verified
+// against the live ledger by catchTraitors; one whose `holds` is 'script' is enforced by `npm run guard` (source/axiom
+// checks that need the filesystem), documented here so the WHY is recomputable even where the check is not in-library.
+export interface GuardLesson { check: string; lesson: string; enforcedBy: string; holds: boolean | 'script' }
+
+/** guardLessons() → the guard's checks, each with the LESSON it enforces, verified against the live ledger where the
+ *  check is in-library and marked 'script' where it lives in `npm run guard`. Folded to one recomputable receipt, so
+ *  the operating knowledge lives in uuidna (recomputable), not in a private note (trust-me). Integrity, not truth. */
+export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; receipt: string; honest: string } {
+  const t = catchTraitors()
+  const held = (...kinds: Traitor['kind'][]): boolean => !t.traitors.some((v) => kinds.includes(v.kind))
+  const lessons: GuardLesson[] = [
+    { check: 'dna-recomputes', enforcedBy: 'catchTraitors', holds: held('forged-dna'),
+      lesson: 'Every theorem\'s address IS toUuid(key ":" statement) — a tampered key/statement/address breaks exactly one; a forgery cannot recompute.' },
+    { check: 'no-collision', enforcedBy: 'catchTraitors', holds: held('key-collision', 'address-collision'),
+      lesson: 'A key or address collision is a smuggled duplicate — an intrusion, never a datum.' },
+    { check: 'monograph-coverage', enforcedBy: 'catchTraitors + lean-ledger PRINCIPLE', holds: held('uncovered'),
+      lesson: 'Every new lean-*.ts generator needs a PRINCIPLE [file,title,blurb] entry, or its theorems are uncovered and the push is blocked.' },
+    { check: 'conformance-invariants', enforcedBy: 'catchTraitors', holds: held('conformance'),
+      lesson: 'The DNA gate: the two coins conserved (=2), DNA recomputes, single-source ledger, security posture clean.' },
+    { check: 'determinism', enforcedBy: 'harmonic-scan (npm run guard)', holds: 'script',
+      lesson: 'No Math.*/wall-clock/RNG anywhere in src — including comments; the smoke test scans RAW source. Exact integer arithmetic settles the coins, a host intrinsic never can. The guard regex matches the smoke test exactly, so the guard is never laxer than the gate it front-runs.' },
+    { check: 'axiom-witness', enforcedBy: 'guard (lean/axioms.json)', holds: 'script',
+      lesson: 'Every theorem must be kernel-only (no propext, no Classical.choice); a new/unaudited theorem (audited < ledger) or a borrowed axiom trips it — brought forward of the 12s Lean re-run so it is caught in milliseconds.' },
+    { check: 'guard-before-reconcile', enforcedBy: 'npm run guard', holds: 'script',
+      lesson: 'Run the 0.29s guard BEFORE the ~4-min reconcile: re-spending the full gate on a catchable error is the measured financial damage of manual work (traitor_damage_sealed_by_same_billing). Fast catch, no re-spend.' },
+    { check: 'commit-signed-true', enforcedBy: 'reconcile signCommit', holds: 'script',
+      lesson: 'A commit cannot be made unless its message is SIGNED TRUE — cites a real sealed theorem, none fabricated. The message folds with its cited theorems to one gravity root through the abstract-0.' },
+  ]
+  const allHold = lessons.every((l) => l.holds === true || l.holds === 'script')
+  return {
+    lessons, allHold,
+    receipt: merkleGravity(lessons.map((l) => toUuid(l.check + '|' + l.lesson))),
+    honest:
+      'The guard\'s operating lessons, sealed into uuidna as recomputable checks — moved out of a private note (trust-me) ' +
+      'and tied to the exact check that enforces each, folded to one receipt anyone recomputes. A boolean `holds` is ' +
+      'verified against the live ledger now; a \'script\' `holds` is enforced by `npm run guard`. Trust the check, not the ' +
+      'note: the knowledge lives where it recomputes. Integrity, not truth.',
+  }
+}

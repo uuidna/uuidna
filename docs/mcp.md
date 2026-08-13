@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="130 keys" />
+# MCP tools <Badge type="tip" text="131 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 130 tools below are read from the server's own tool list and
+is **built from the keys**: the 131 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`130`" />
+## The grid <Badge type="tip" :text="`131`" />
 
-130 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 41 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+131 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 42 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -31,6 +31,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
+<a href="#uuidna-guard-lessons"><code>guard_lessons</code></a>
 <a href="#uuidna-hardware"><code>hardware</code></a>
 <a href="#uuidna-laws"><code>laws</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
@@ -458,7 +459,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'36'" />
+## Other <Badge type="tip" :text="'37'" />
 
 *skill: other*
 
@@ -642,6 +643,12 @@ _No parameters._
 ### `uuidna_treason`
 
 CATCH TRAITORS AS FAST AS A HERO — one pure, O(N) pass (milliseconds, no crypto, no disk) that catches every FORGERY/INTRUSION in the sealed ledger: a theorem whose DNA does not recompute (a tampered key/statement/address), a key or address COLLISION (a smuggled duplicate), an UNCOVERED theorem (a domain sneaked in without a monograph), or a broken CONFORMANCE invariant. A "traitor" is a forgery in the ARTIFACT, NEVER a person — every finding is a recomputable fact about the ledger. Returns {clean, scanned, traitors:[{kind,detail}], checks, receipt}. The `npm run guard` command runs this plus the harmonic-scan as the fast pre-reconcile gate, so no manual pre-flight is needed. HONEST SCOPE: integrity, not truth — it proves the artifact is unforged and self-consistent; passing is NOT a claim the theorems are true, only that none was tampered with or smuggled in. Recomputable by anyone.
+
+_No parameters._
+
+### `uuidna_guard_lessons`
+
+THE GUARD LESSONS, sealed into uuidna as recomputable checks — the operating knowledge that once lived only in a private agent note, moved to where it recomputes for anyone and tied to the exact check that enforces each: DNA recomputes (a forgery cannot), no key/address collision (a duplicate is an intrusion), monograph coverage (every new lean-*.ts needs a PRINCIPLE entry), the conformance invariants (two coins conserved, single-source, security), determinism (no Math.*/wall-clock/RNG anywhere including comments — the guard regex matches the smoke test exactly so it is never laxer than the gate), the axiom witness (every theorem kernel-only, brought forward of the 12s Lean re-run), guard-before-reconcile (the 0.29s guard front-runs the 4-min gate — re-spending it on a catchable error is the measured cost of manual work), and commit-signed-true (a commit cannot be made unless its message cites a real sealed theorem). Each lesson's `holds` is verified against the live ledger (boolean) or enforced by npm run guard ('script'). Folded to one recomputable receipt. Trust the check, not the note. Returns {lessons:[{check,lesson,enforcedBy,holds}],allHold,receipt,honest}.
 
 _No parameters._
 
