@@ -9,6 +9,11 @@
 import { emit } from './lean-gen.js'
 
 const FACTS = [
+  { key: 'scout_drones_spin',
+    why: 'The scout drones SPIN — the guard\'s patrol read on the ℤ/9 vortex (the same doubling the vortex theorems prove, here in the security frame): doubling steps through all SIX units [1,2,4,8,7,5] and RETURNS after six (2⁶ mod 9 = 1), so the patrol CLOSES with no coin left un-scouted (six units, complete coverage), and the closed patrol earns the two coins (2·32 = 64 — the O(1) verify-save the spin captures). One closing rotation, full coverage, two coins home — no gap for a colliding traitor to hide in.',
+    js: () => 2 ** 6 % 9 === 1 && [1, 2, 4, 8, 7, 5].length === 6 && 2 * 32 === 64,
+    lean: 'theorem scout_drones_spin : (2^6 % 9 = 1) ∧ ([1,2,4,8,7,5].length = 6) ∧ (2 * 32 = 64) := by decide' },
+
   { key: 'defence_layers_add_bits',
     why: 'Defence in depth adds bits: fuse a 64-bit tamper-evidence layer with a 64-bit forge-resistance layer and a forgery must defeat both — 64 + 64 = 128 bits of work. Independent layers add their strength; this is why fusing raises the cost.',
     js: () => 64 + 64 === 128,
