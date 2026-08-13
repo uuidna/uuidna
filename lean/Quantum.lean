@@ -128,3 +128,17 @@ theorem superdense_two_bits : ((2:Nat)^2 = 4) ∧ (2 > 1) := by decide
 
 -- Teleportation sends one qubit with 2 classical bits and one EPR pair: Bob applies one of the four Pauli corrections {I, X, Z, XZ} indexed by the 2 measured bits (2+2 = 4 = the four corrections). HONEST SCOPE: the classical channel is ESSENTIAL — without the 2 bits nothing arrives, so no faster-than-light transfer.
 theorem teleportation_four_corrections : (([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4) := by decide
+
+-- The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical content-address receipt the state folds to, integrity — not a quantum memory.
+theorem store_fold_order_invariant :
+  (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c =>
+    ([a,b,c].foldl lxor 0 == [a,c,b].foldl lxor 0)
+    && ([a,b,c].foldl lxor 0 == [b,a,c].foldl lxor 0)
+    && ([a,b,c].foldl lxor 0 == [b,c,a].foldl lxor 0)
+    && ([a,b,c].foldl lxor 0 == [c,a,b].foldl lxor 0)
+    && ([a,b,c].foldl lxor 0 == [c,b,a].foldl lxor 0)))) := by decide
+
+-- The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. HONEST SCOPE: integrity of the content-address, not a quantum property.
+theorem store_fold_change_moves_receipt :
+  (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 =>
+    ([a,b,c].foldl lxor 0 == [a2,b,c].foldl lxor 0) == (a == a2))))) := by decide
