@@ -79,6 +79,10 @@ export { securityAudit, KNOWN_DEV_DEPS, DEFENCE_THEOREMS, type SecurityCheck, ty
 // verify-statement — the FAST verification path: a statement byte-identical to a sealed theorem VERIFIES in O(1)
 // (a content-address lookup), returning the sealing theorem. The framework verifies a THEOREM, not only a citation.
 export { verifyStatement, type StatementVerdict } from './verify-statement.js'
+// transform — the automation of "no unverified material stays: transform until verified". Only VERIFICATION is
+// honesty; each material is driven to its sealed core (VERIFIED, admitted) or recycled with a develop plan
+// (UNVERIFIED, never admitted, never called honest). uuidna computes the verdict; it does not assert it.
+export { transformUntilVerified, transformOne, type TransformCell, type TransformRun } from './transform.js'
 // publish — write PUBLICATIONS in lean human prose, AUDITED before publishing: a domain note composed by reading
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.

@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="100 keys" />
+# MCP tools <Badge type="tip" text="102 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 100 tools below are read from the server's own tool list and
-organised into 26 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 102 tools below are read from the server's own tool list and
+organised into 28 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`100`" />
+## The grid <Badge type="tip" :text="`102`" />
 
-100 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+102 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -88,8 +88,10 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-snapshot"><code>snapshot</code></a>
 <a href="#uuidna-strict"><code>strict</code></a>
 <a href="#uuidna-theorem"><code>theorem</code></a>
+<a href="#uuidna-transform"><code>transform</code></a>
 <a href="#uuidna-verify"><code>verify</code></a>
 <a href="#uuidna-verify-envelope"><code>verify_envelope</code></a>
+<a href="#uuidna-verify-statement"><code>verify_statement</code></a>
 <a href="#uuidna-audit-translation"><code>audit_translation</code></a>
 <a href="#uuidna-compare"><code>compare</code></a>
 <a href="#uuidna-contract-chain"><code>contract_chain</code></a>
@@ -544,6 +546,34 @@ The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate 
 The RECOMPUTABLE security posture computed from what the package SHIPS (package.json + the sealed ledger + the honesty gate), folded to an order-invariant receipt anyone rechecks — NOT a scanner and NOT a pentest. It verifies the supply-chain surface (zero runtime dependencies, dev-deps bounded to a known set), the defence-in-depth theorems sealed (layers add bits, a key bit doubles the space, the birthday bound halves the exponent, verify is cheaper than forge, no maximum only bounds), collision resistance by pigeonhole (seats_pigeonhole), and that the honesty gate BITES a fabricated theorem citation. HONEST SCOPE: the repo-tree scans (no committed secret across tracked files, the KAT suite present) and the CI gates run in the source tree, NOT here — this is the posture provable from the package itself. Returns {checks, passed, failed, receipt}.
 
 _No parameters._
+
+## Fast verification (statement → sealed theorem) <Badge type="tip" :text="'1'" />
+
+*skill: theorem*
+
+### `uuidna_verify_statement`
+
+FAST verification against the sealed ledger: is this exact STATEMENT a sealed theorem? uuidna is a verification framework, so it verifies a THEOREM directly — not only a prose claim that cites one. VERIFIED in O(1) (a content-address lookup) iff the statement is byte-identical to a sealed theorem; returns the sealing theorem key, tactic and content-address (recomputed to confirm the seal). Otherwise UNVERIFIED — never "false", only not-sealed. Complementary to uuidna_slim_gate (which judges a prose CLAIM by its citations). Returns {verdict, key, address, tactic, file, note}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `statement` | string | **yes** | the exact theorem statement to verify against the sealed ledger |
+
+## Transform until verified (no unverified material stays) <Badge type="tip" :text="'1'" />
+
+*skill: theorem*
+
+### `uuidna_transform`
+
+The automation of "no unverified material stays: transform until verified". Only VERIFICATION is honesty — a "honest/bounded" label with no proof is itself an unverified claim, so this ADMITS only what verifies. Each material is driven to a terminal: VERIFIED (it IS, or transforms to, a SEALED fact — content-address recomputed to confirm; admitted) or UNVERIFIED (no sealed core reached — recycled with a develop plan, NEVER admitted, never called honest, never called false). The transform cannot manufacture truth: an overclaim to SOLVE a problem transforms to its sealed REFLECTION (dz(dz k)=k), which verifies, while the solve-claim is never admitted (uuidna solves none). Folds to one receipt. Returns {cells,verified,unverified,receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `materials` | array | **yes** | raw claims/theories/overclaims to transform until verified |
 
 ## Crypto & streams <Badge type="tip" :text="'8'" />
 
