@@ -209,3 +209,32 @@ export function publications(): Publication[] {
   const files = PRINCIPLES.map((p) => p[0]).filter((f) => THEOREMS.some((t) => t.file === f))
   return files.map(composePublication)
 }
+
+/** A COVERAGE gap: a domain the monographs do not cover — the actionable diagnosis that the readiness gate blocks on. */
+export interface Coverage {
+  total: number                 // theorems in the ledger
+  covered: number               // theorems shown in some monograph
+  uncovered: string[]           // theorem KEYS in no monograph — each one blocks the push (next.ts ARM 4)
+  uncoveredFiles: string[]      // ledger FILES with no publication — the ROOT fix: author a PRINCIPLE [file,title,blurb]
+  ready: boolean                // true iff nothing is uncovered — the gate's coverage arm passes
+  receipt: string               // the order-invariant fold of the coverage state, recomputable by anyone from the ledger
+}
+
+/** COVERAGE — is every sealed theorem shown in a monograph? The manual diagnosis (which domain no note covers, the gap
+ *  the pre-push gate blocks on) as ONE pure, recomputable call: an agent adding a domain runs this instead of tracing
+ *  the gate by hand. A theorem is COVERED iff its key appears in some publication; a FILE is uncovered iff it carries
+ *  theorems but has no publication (the root cause — it needs a PRINCIPLE [file,title,blurb] entry in lean-ledger). The
+ *  member facts fold, order-invariantly, to one receipt anyone recomputes from the same ledger. Integrity, not truth. */
+export function coverage(): Coverage {
+  const inMonograph = new Set(publications().flatMap((p) => p.theorems))
+  const pubFiles = new Set(publications().map((p) => p.file))
+  const uncovered = THEOREMS.filter((t) => !inMonograph.has(t.key)).map((t) => t.key)
+  const uncoveredFiles = [...new Set(THEOREMS.map((t) => t.file))].filter((f) => !pubFiles.has(f)).sort()
+  return {
+    total: THEOREMS.length,
+    covered: THEOREMS.length - uncovered.length,
+    uncovered, uncoveredFiles,
+    ready: uncovered.length === 0,
+    receipt: merkleFold([toUuid('coverage:' + THEOREMS.length + ':' + (THEOREMS.length - uncovered.length)), ...uncovered.map((k) => toUuid('uncovered:' + k))]),
+  }
+}

@@ -4,22 +4,23 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="90 keys" />
+# MCP tools <Badge type="tip" text="91 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 90 tools below are read from the server's own tool list and
+is **built from the keys**: the 91 tools below are read from the server's own tool list and
 organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`90`" />
+## The grid <Badge type="tip" :text="`91`" />
 
-90 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 22 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+91 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
+<a href="#uuidna-coverage"><code>coverage</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
@@ -711,7 +712,7 @@ The Chinese remainder solution: for COPRIME moduli m,n the unique x in [0, m·n)
 | `b` | integer | **yes** |  |
 | `n` | integer | **yes** |  |
 
-## Theorems & trial <Badge type="tip" :text="'8'" />
+## Theorems & trial <Badge type="tip" :text="'9'" />
 
 *skill: theorem*
 
@@ -760,6 +761,12 @@ _No parameters._
 ### `uuidna_review_domains`
 
 LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger's own integrity per domain, recomputable by anyone. Returns [{domain,theorems,fold,verdict,receipt}].
+
+_No parameters._
+
+### `uuidna_coverage`
+
+COVERAGE — is every sealed theorem shown in a monograph? The readiness diagnosis the pre-push gate blocks on, as ONE zero-arg recomputable call: an agent adding a domain runs this instead of tracing the gate by hand. Returns {total,covered,uncovered,uncoveredFiles,ready,receipt} — uncovered lists the theorem KEYS in no monograph (each blocks the push), uncoveredFiles the ledger FILES with no publication (the ROOT fix: author a PRINCIPLE [file,title,blurb] in lean-ledger). ready is true iff nothing is uncovered; the coverage state folds order-invariantly to receipt, recomputable by anyone. Integrity, not truth.
 
 _No parameters._
 

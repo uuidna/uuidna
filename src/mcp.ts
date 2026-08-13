@@ -17,7 +17,7 @@ import {
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   THEOREMS, runTrial, theorems, skillGroups, reviewDomains,
-  publications, composePublication, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate,
+  publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate,
   snapshot, reactor,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
@@ -335,6 +335,10 @@ const TOOLS: Tool[] = [
     description: 'LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger\'s own integrity per domain, recomputable by anyone. Returns [{domain,theorems,fold,verdict,receipt}].',
     inputSchema: { type: 'object', properties: {} },
     run: () => reviewDomains() },
+  { name: 'uuidna_coverage',
+    description: 'COVERAGE — is every sealed theorem shown in a monograph? The readiness diagnosis the pre-push gate blocks on, as ONE zero-arg recomputable call: an agent adding a domain runs this instead of tracing the gate by hand. Returns {total,covered,uncovered,uncoveredFiles,ready,receipt} — uncovered lists the theorem KEYS in no monograph (each blocks the push), uncoveredFiles the ledger FILES with no publication (the ROOT fix: author a PRINCIPLE [file,title,blurb] in lean-ledger). ready is true iff nothing is uncovered; the coverage state folds order-invariantly to receipt, recomputable by anyone. Integrity, not truth.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => coverage() },
   { name: 'uuidna_snapshot',
     description: 'The FUSION half of the reactor: fold a chosen set of sealed theorems — across ANY domains — into ONE superposition uuid. The first segment is the identity HANDLE you cite; the whole uuid superposes every member address, order-invariant, so the same set recomputes the same uuid and a changed member moves it (drift refused). Each principle and skill the set spans is returned as a point-of-view fold. Unknown keys are NAMED, never silently dropped. Returns {keys,members,unknown,handle,superposition,viewpoints,receipt}. A snapshot proves a recomputable fold of sealed theorems, not any new truth.',
     inputSchema: { type: 'object', properties: { keys: { type: 'array', items: { type: 'string' }, description: 'theorem keys from uuidna_theorems, from any domains' } }, required: ['keys'] },
@@ -571,7 +575,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^contract($|_)/, 'Contract-keyed messaging', 'contract'],
   [/^audit_(text|book|translation|movie|record|cve)$/, 'Provenance audit (public text & metadata)', 'books'],
   [/^(sha256|hmac|pbkdf2|chacha20|poly1305|aead_encrypt|aead_decrypt)$/, 'Crypto primitives', 'crypto'],
-  [/^(theorems|theorem|trial|skills|render|render_list|fingerprint|review_domains)$/, 'Theorems & trial', 'theorem'],
+  [/^(theorems|theorem|trial|skills|render|render_list|fingerprint|review_domains|coverage)$/, 'Theorems & trial', 'theorem'],
   [/^(publish|edit|compare|vocabulary)$/, 'Publications (audited prose)', 'publish'],
   [/^(forensics|evidence)$/, 'Forensics & evidence (statements vs receipts)', 'forensics'],
   [/^(legal_facts|prior_art)$/, 'Legal fact base & prior art (not an opinion)', 'legal'],

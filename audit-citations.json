@@ -1,6 +1,6 @@
 {
-  "key": "7366434e-eef8-84b1-9520-b6b6be71c3ed",
-  "publications": 56,
+  "key": "4fb28d22-3330-8ee9-af26-cd49a623e3ed",
+  "publications": 55,
   "sealedTheorems": 1039,
   "fabricated": 0,
   "uncited": 0,
@@ -12,7 +12,7 @@
     "digitalRoots": {
       "claims": 4,
       "theorems": 4,
-      "publications": 2
+      "publications": 1
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -82,8 +82,8 @@
     },
     {
       "slug": "quantum",
-      "claims": 40,
-      "cited": 40,
+      "claims": 42,
+      "cited": 42,
       "uncited": [],
       "fabricated": []
     },
@@ -280,13 +280,6 @@
       "slug": "nim",
       "claims": 93,
       "cited": 93,
-      "uncited": [],
-      "fabricated": []
-    },
-    {
-      "slug": "memory-store",
-      "claims": 2,
-      "cited": 2,
       "uncited": [],
       "fabricated": []
     },

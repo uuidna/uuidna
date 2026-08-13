@@ -69,7 +69,7 @@ export { securityAudit, KNOWN_DEV_DEPS, DEFENCE_THEOREMS, type SecurityCheck, ty
 // publish — write PUBLICATIONS in lean human prose, AUDITED before publishing: a domain note composed by reading
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.
-export { composePublication, publications, auditPublication, revisePublication, comparePublications, type Publication, type PubFinding, type Revision, type Comparison } from './publish.js'
+export { composePublication, publications, coverage, auditPublication, revisePublication, comparePublications, type Publication, type PubFinding, type Revision, type Comparison, type Coverage } from './publish.js'
 // site — the ONE navigable graph: every page in a canonical wrapping order (no next-gap, no orphan). The native
 // pager and the release gate both read `next` from this, so the button clicked and the gap hunted are one edge.
 export { canonicalOrder, nextOf, gaps, type PageNode } from './site.js'
