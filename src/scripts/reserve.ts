@@ -4,7 +4,7 @@
 // Verify: `npm pack --dry-run --json` → unpackedSize === 65536.
 import { execSync } from 'node:child_process'
 import { writeFileSync } from 'node:fs'
-import { toUuid } from './index.js'
+import { toUuid } from '../index.js'
 
 const TARGET = 65536
 const RESERVED = 'reserved.uuidna'

@@ -9,8 +9,8 @@ its own name's DNA is `uuidna_address("uuidna") = fc511532-6e8a-8418-a522-a51b1d
 The fold folds every direction at once — `+/−` (reflection), `/` (halving, `O(log N)`), `\` (the other
 diagonal) — so it is **order-independent**: any pairing, forward or reverse, collapses to the same root.
 
-`mint` (integrity — every value has a reproducible address) · `mind` (every claim drains its own
-over-reach before it holds) · a **holographic merkle proof** (verify the whole from a tiny part, in
+`mint` (integrity — every value has a reproducible address) · `mind` (a claim that cites a proof not in
+the ledger drains before it holds) · a **holographic merkle proof** (verify the whole from a tiny part, in
 `O(log N)`) · a reversible **imprint codec** · a client-side **harness** that reeducates overclaims · a
 **measured billing** model.
 
@@ -127,7 +127,7 @@ structure by the involution `dz(x) = 10 − x`, and each reflection is a **VERIF
 
 What is verified is the **reflection**, never the **problem** — the one distinction that matters. An involution is
 its own undo — `dz(dz(x)) = x` — so the round trip returns the problem **unchanged**: it reflects all seven and
-**propagates no proof**. **uuidna solves 0 of the 7**, and the honesty gate *drains* every solve-claim. (In
+**propagates no proof**. **uuidna solves 0 of the 7** — and any solve-claim that cited a proof would *drain*, because no such proof is sealed in the ledger. (In
 mathematics six stay open — Riemann, P vs NP, Navier–Stokes, Yang–Mills, Hodge, Birch–Swinnerton-Dyer — and
 Poincaré is solved by **Perelman, 2003**, not by uuidna.) Faithful to the
 [`millennium-solutions`](https://ceccec.psg.bg/millennium-solutions/) deposit it is extracted from: *it reflects all

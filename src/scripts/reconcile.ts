@@ -19,6 +19,7 @@ console.log('reconcile — regenerating the derived layer to match the Lean sour
 run('npm run lean')                                   // generated.ts + PRINCIPLE.md + CHANGELOG — verifies every proof
 run('node dist/scripts/gen-mcp.js')                   // docs/mcp.md — the MCP catalog, built from the tool keys
 run('node dist/scripts/lean-heartbeats.js --sync')    // heartbeats.json — prune stale, measure the new, 100% coverage
+run('node dist/scripts/support.js')                   // support-audit.json + research-leads.json — code reachability, dead → R&D
 run('node dist/scripts/audit-citations.js')           // audit-citations.json — the publication citation audit
 run('node dist/scripts/account.js')                   // ABORTS here (non-zero) if the ledger does NOT reconcile
 

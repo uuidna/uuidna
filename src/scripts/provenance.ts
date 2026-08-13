@@ -38,9 +38,10 @@ const findings: Finding[] = []
 const scan = (surface: string, text: string, backedBy?: string): void => {
   for (const u of units(text)) {
     // If this unit is vouched by a theorem's own proof (backedBy) or BACKED (links a proof / names a sealed key),
-    // it is cleared — a proof, not a negation word, is what disputes a claim. Otherwise ask the shared lexical
-    // floor: overreachOf handles de-quoting, the HOLLOW+demarcation test (all hollow tokens stripped first, so a
-    // second overclaim's stray "no" cannot clear a first), and the translation-aware proof-boast detector.
+    // it is cleared — a proof, not a negation word, is what disputes a claim. Otherwise ask overreachOf, which now
+    // delegates ENTIRELY to slimGate (no lexicon): a unit drains ONLY when it cites a theorem key — via /theorem/<key>
+    // or `theorem <key_shaped_token>` — that is not sealed in the ledger (a fabricated citation). An uncited claim
+    // does not drain; this is an INTEGRITY floor (every cited proof must exist), not a truth or boast detector.
     if (backedBy || backed(u)) continue
     const token = overreachOf(u)
     if (token) findings.push({ surface, unit: u.length > 160 ? u.slice(0, 157) + '…' : u, token, address: toUuid(surface + '|' + u) })

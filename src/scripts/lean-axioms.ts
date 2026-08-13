@@ -13,7 +13,7 @@
 //   npm run axioms --check   → audit only; do not rewrite the receipt (CI diff guard)
 // Integrity, not truth.
 import { execFile } from 'node:child_process'
-import { writeFileSync, readFileSync } from 'node:fs'
+import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { theorems } from '../index.js'
@@ -31,6 +31,17 @@ const addrOf: Record<string, string> = Object.fromEntries(T.map((t) => [t.key, t
 // one `lean` run answers for every theorem in the file — ~40 runs for the whole ledger, not one per theorem.
 const byFile: Record<string, string[]> = {}
 for (const t of T) (byFile[t.file] ||= []).push(t.key)
+
+// ROBUSTNESS — build the NEXT state in one pass even across a DELETION. The ledger (the compiled generated.js this
+// reads) can momentarily list a file a deletion already removed from disk (a domain folded into another, before a
+// rebuild refreshes generated.js). Skip-and-warn instead of ENOENT, so a deletion reconciles in one pass the way an
+// addition does — the stale reference is corrected at the next lean-ledger regen. An ADDITION was always one-pass
+// (the stale ledger just lists fewer files); this closes the gap for the delete direction too.
+for (const f of Object.keys(byFile))
+  if (!existsSync(join(ROOT, 'lean', f))) {
+    console.warn(`  ⚠ lean-axioms: ${byFile[f].length} theorem(s) still list ${f}, but it is not on disk — skipping (a stale ledger reference; the next regen corrects it).`)
+    delete byFile[f]
+  }
 
 // Parse `#print axioms` stanzas from a run's output. Lean emits, per query, either
 //   'name' does not depend on any axioms
