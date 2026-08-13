@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="105 keys" />
+# MCP tools <Badge type="tip" text="106 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 105 tools below are read from the server's own tool list and
+is **built from the keys**: the 106 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`105`" />
+## The grid <Badge type="tip" :text="`106`" />
 
-105 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+106 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 24 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -27,6 +27,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
 <a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
 <a href="#uuidna-pentagram"><code>pentagram</code></a>
+<a href="#uuidna-pentagram-monographs"><code>pentagram_monographs</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-quantum"><code>quantum</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
@@ -431,7 +432,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'11'" />
+## Other <Badge type="tip" :text="'12'" />
 
 *skill: other*
 
@@ -447,6 +448,12 @@ Issue the recomputable LICENCE RECORD for a licensee and a usage: bind the CC-BY
 | `commercial` | boolean | no |  |
 | `recomputeOps` | number | no |  |
 | `verifyOps` | number | no |  |
+
+### `uuidna_pentagram_monographs`
+
+Split every domain monograph into PENTAGRAMS of five, the split COMPUTED FROM THE CONTENT-ADDRESSES (not hand-assigned): the monographs are sorted by their own address, chunked five to a pentagram, each pentagram WALKED in the {5/2} single-stroke order [0,2,4,1,3] (`pentagram_single_stroke`) while its IDENTITY is the order-INVARIANT fold of its five members (`merkleGravity`) — the walk is a sequence, the seal is a set. Zero-arg, recomputable: the same ledger yields the same pentagrams for everyone. HONEST: a content-addressed PARTITION, claiming no thematic kinship among the five — only the split the addresses produce. Returns {pentagrams,count,full,remainder,receipt}.
+
+_No parameters._
 
 ### `uuidna_spin`
 

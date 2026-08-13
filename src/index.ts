@@ -156,6 +156,10 @@ export { ledgerFingerprint, type LedgerFingerprint } from './fingerprint.js'
 // spin — "spin the bits and get the coins": fold a derived file's bytes into its content-address coin, verify O(1)
 // (a fixed point of its seal) rather than re-deriving O(N); drift (a moved coin) is hard-rejected as non-quantum.
 export { spin, sealSpin, verifySpin, DERIVED_FILES, type SpinManifest, type SpinDrift } from './spin.js'
+
+// pentagram-monographs — split the monographs into pentagrams of five, the split COMPUTED from the content-addresses
+// (walked in {5/2} order, sealed order-invariantly) — no authored grouping, a surprise of the addresses.
+export { pentagramMonographs, type Pentagram, type PentagramPoint, type PentagramMonographs } from './pentagram-monographs.js'
 // quantum/os — uuidnaOS is NOT an OS you boot and does NOT run/port Alpine's binaries (uuidna never executes). It is a
 // content-addressed PROVENANCE MANIFEST of an EXACT Alpine release: pin the version + arch + PUBLISHED rootfs digest,
 // and VERIFY your actual bytes with uuidna's own pure-TS SHA-256. Port the INTEGRITY, never the runtime. fetchAlpineLatest

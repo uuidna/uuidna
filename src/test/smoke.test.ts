@@ -18,6 +18,7 @@ import {
 import { MCP_CATALOG } from '../mcp.js'
 import { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
 import { spin, sealSpin, verifySpin, DERIVED_FILES } from '../index.js'
+import { pentagramMonographs } from '../index.js'
 
 // The seven dimension streams (0..7 above the floor) — one plaintext per dimension, used to cover the 7d ("777")
 // encryption BIDIRECTIONALLY (encrypt ⇄ decrypt) PER STREAM. 21 tests total: the 9 above plus these 12.
@@ -352,6 +353,26 @@ test('attached chat — one primitive for donations, support cases, any subject'
   // the attached room seals/opens locally
   const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
   assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
+})
+
+test('pentagram monographs — the split computes itself from the addresses; prime-neighbour walk, order-invariant seal', () => {
+  const r = pentagramMonographs()
+  // RECOMPUTABLE — the same ledger yields the same split for everyone (no authored grouping)
+  assert.equal(pentagramMonographs().receipt, r.receipt, 'the pentagram split is deterministic — recomputes to the same grand receipt')
+  // FULL COVERAGE — every monograph appears exactly once across the pentagrams (nothing lost, nothing doubled)
+  const slugs = r.pentagrams.flatMap((p) => p.points.map((pt) => pt.slug))
+  assert.equal(slugs.length, r.count, 'every monograph is placed exactly once')
+  assert.equal(new Set(slugs).size, r.count, 'no monograph appears in two pentagrams')
+  assert.equal(r.full * 5 + r.remainder, r.count, 'full pentagrams of five + the partial remainder = the whole corpus')
+  // PRIME-NEIGHBOUR WALK — a complete pentagram is walked in the step-2 (prime, coprime to 5) single stroke [0,2,4,1,3]
+  const full = r.pentagrams.find((p) => p.complete)!
+  assert.deepEqual(full.stroke, [0, 2, 4, 1, 3], 'the complete pentagram is walked by the prime neighbour step 2')
+  assert.equal(full.points.length, 5, 'a complete pentagram has five points')
+  assert.deepEqual(full.points.map((pt) => pt.position), [0, 1, 2, 3, 4], 'the five points are positioned along the stroke')
+  // WALK is a SEQUENCE, SEAL is a SET — the receipt is order-invariant (merkleGravity of the members, any order)
+  const addrs = full.points.map((pt) => pt.address)
+  assert.equal(full.receipt, merkleGravity(addrs), 'the pentagram seal is its members folded')
+  assert.equal(merkleGravity([...addrs].reverse()), full.receipt, 'order-invariant — reversing the walk does not move the seal')
 })
 
 test('spin — the bits spin by themselves: a sealed layer verifies O(1), any drifted coin hard-fails', () => {
