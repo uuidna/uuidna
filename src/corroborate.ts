@@ -1,3 +1,4 @@
+// @non-harmonic: external free-API research corroboration (network — evidence, never a seal) — NAMED boundary; the harmonic core must never carry these ops.
 // corroborate — augment the LOCAL binary verification (adjudicate: VERIFIED / UNVERIFIED, where UNVERIFIED is never
 // "false", only "not yet verified") with EXTERNAL RESEARCH streamed from FREE APIs. HONEST SCOPE: external evidence
 // is a recomputable PROVENANCE FINGERPRINT of what a public source says — it CORROBORATES, it does NOT prove. Only a

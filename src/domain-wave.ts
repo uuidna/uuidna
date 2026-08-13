@@ -1,3 +1,4 @@
+// @non-harmonic: external free-API research wave (network — evidence, never a seal) — NAMED boundary; the harmonic core must never carry these ops.
 // domain-wave — for ONE domain (principle/skill), run BOTH waves: the LOCAL development audit (its theorems fold
 // order-invariantly to a receipt and are sealed by decide — the approval) AND the EXTERNAL free-research wave
 // (corroborate the domain's topic against a free public API — evidence, never a seal). HONEST SCOPE: the LOCAL wave

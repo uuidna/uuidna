@@ -1,3 +1,4 @@
+// @non-harmonic: CVE lookup via a free public API (network) — NAMED boundary; the harmonic core must never carry these ops.
 // cve — audit a CVE's PUBLIC advisory metadata from NIST's National Vulnerability Database (NVD,
 // services.nvd.nist.gov, no key for low rate). Content-addresses the id, English description, CVSS severity and
 // dates — a recomputable provenance fingerprint of the public advisory, for the security reflection (the theorems a

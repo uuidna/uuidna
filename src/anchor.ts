@@ -1,3 +1,4 @@
+// @non-harmonic: reaches a free public beacon/timestamp API (network — non-recomputable by nature) — NAMED boundary; the harmonic core must never carry these ops.
 // anchor — the external WHEN for an in-house record, done rigorously. A timestamp you sign yourself is worthless for
 // priority; this folds an INDEPENDENT, unpredictable, third-party-SIGNED value — a NIST Randomness Beacon pulse (a
 // 512-bit value published and signed every 60 seconds, archived permanently) — into a record's address. Because the

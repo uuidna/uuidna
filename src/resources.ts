@@ -1,3 +1,4 @@
+// @non-harmonic: node process/os resource accounting (reads process/os — measured, not sealed) — NAMED boundary; the harmonic core must never carry these ops.
 // resources — honest resource accounting for the device uuidna runs on. You can only BALANCE what you MEASURE, so
 // this meters what is actually measurable from Node — CPU time, memory, load, the machine's cores and free memory —
 // content-addresses the reading, and states plainly what it does NOT and CANNOT measure here (GPU, bandwidth, and

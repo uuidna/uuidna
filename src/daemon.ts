@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: node process host (reads process — infra, not the recomputable core) — NAMED boundary; the harmonic core must never carry these ops.
 // daemon — uuidna as a long-running LOCAL service: a verifier and a gate any process on the machine can query over
 // HTTP. Zero-dependency (Node's built-in http), bound to 127.0.0.1 ONLY (never 0.0.0.0 — loopback, not the network),
 // READ-ONLY, and STATELESS: it stores nothing, logs no request bodies, keeps no device data (privacy by default,

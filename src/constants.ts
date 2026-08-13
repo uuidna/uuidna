@@ -1,3 +1,4 @@
+// @non-harmonic: fetches NIST constants from a free public API (network) — NAMED boundary; the harmonic core must never carry these ops.
 // constants — verify uuidna's physics against NIST's AUTHORITATIVE CODATA values, content-addressed. Fetches the
 // official NIST fundamental-constants table (physics.nist.gov, the recognised reference) and finds a constant by
 // name, returning its value, uncertainty, unit and a content-address — so a physical constant uuidna uses (the speed
