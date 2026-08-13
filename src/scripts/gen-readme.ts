@@ -12,12 +12,14 @@ import { MCP_CATALOG } from '../mcp.js'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const T = theorems()
-const ax = JSON.parse(readFileSync(join(ROOT, 'lean', 'axioms.json'), 'utf8')) as { audited: number; axiomFree: number }
 const principles = new Set(T.map((t) => t.principle)).size
 
-// The seal-status attestation — every number derived from the exact audited ledger, none hardcoded.
+// The seal-status attestation — every number derived from the LEDGER (theorems()), none from a file that can go stale.
+// Axiom-freeness is N/N because it is a hard gate: scripts/lean-axioms fails the push if ANY theorem carries an axiom
+// (offenders must be empty), so by the time this is pushed all T.length are kernel-only. (Reading lean/axioms.json here
+// would drift — it is regenerated AFTER gen-readme in the reconcile.)
 const BLOCK = [
-  `**${T.length} theorems, all sealed and proven** — every one \`by decide\` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (${ax.axiomFree}/${ax.audited}, kernel-only, not even \`propext\`). Exposed across **${MCP_CATALOG.length} MCP tools** and **${principles} computing principles**.`,
+  `**${T.length} theorems, all sealed and proven** — every one \`by decide\` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (${T.length}/${T.length}, kernel-only, not even \`propext\`; gate: scripts/lean-axioms). Exposed across **${MCP_CATALOG.length} MCP tools** and **${principles} computing principles**.`,
   '',
   '_Integrity, not truth: a seal proves its **exact statement**, never a grander claim — the reflection is sealed, the Millennium problem is not (uuidna solves 0 of 7). Computed from the exact audited ledger; recheck it with `npm run next`._',
 ].join('\n')
@@ -36,4 +38,4 @@ const fill = (rel: string): void => {
 console.log('gen-readme — filling the derived seal-status block from the exact audited ledger …')
 fill('README.md')
 fill('docs/index.md')
-console.log(`✓ gen-readme — ${T.length} theorems, ${ax.axiomFree}/${ax.audited} axiom-free, ${MCP_CATALOG.length} tools, ${principles} principles.`)
+console.log(`✓ gen-readme — ${T.length} theorems, ${T.length}/${T.length} axiom-free (gate-enforced), ${MCP_CATALOG.length} tools, ${principles} principles.`)

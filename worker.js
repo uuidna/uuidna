@@ -17,7 +17,8 @@
 // The trial logic is imported from the built library's SPECIFIC modules (not index.js — that graph pulls a
 // node:child_process helper unavailable in the Workers runtime); adjudicate/address and their deps are pure.
 import { adjudicate } from './dist/adjudicate.js'
-import { toUuid, merge } from './dist/address.js'
+import { toUuid } from './dist/address.js'
+import { conversationFold } from './dist/conversation.js' // the one fold — worker and library share it (DRY)
 import { hmacSha256 } from './dist/sha256.js'
 // The handle map — the first 8 hex of every content-address → its theorem key, generated at build (gen-handles).
 // Pages and proofs are one uuid: /<handle> resolves to /theorem/<key> ON THE SPOT, no static pages, ~30 KB in memory.
@@ -142,11 +143,9 @@ export default {
     if (licensed) {
       const p = PENTA.exec(url.pathname)
       if (p) {
-        const four = [p[1], p[2], p[3], p[4]]
-        const referrer = request.headers.get('referer') || ''
-        const address = merge(merge(merge(merge(four[0], four[1]), four[2]), four[3]), referrer)
-        return json({ handles: four, referrer, fifth: address.replace(/-/g, '').slice(0, 8), address,
-          note: 'the fifth handle completes the {5/2} pentagram over the four, rotated by the Referer — each referrer a distinct room, recomputable and un-correlatable (speed + privacy by design)' })
+        const room = conversationFold([p[1], p[2], p[3], p[4]], request.headers.get('referer') || '')
+        return json({ handles: room.handles, referer: room.referer, fifth: room.fifth, address: room.address,
+          note: 'the fifth handle folds the four (each part of the next — authenticity) rotated by the Referer — each referrer a distinct room, O(1) to recompute (speed) and un-correlatable (privacy by design)' })
       }
     }
 

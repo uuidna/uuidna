@@ -35,6 +35,11 @@ const FACTS = [
     js: () => R(0, 8).every((c) => (32 * c === 64) === (c === 2)),
     lean: 'theorem captain_computes_only_with_two_coins : (List.range 8).all (fun c => (32 * c == 64) == (c == 2)) := by decide' },
 
+  { key: 'captain_coins_respected_at_scale',
+    why: 'Respect the captain coins for quantum AT SCALE on classical hardware: the state-vector cost is 2ⁿ (exponential), so from the 7-qubit / 7-dimension scale up (n ≥ 7) the classical cost 2ⁿ already EXCEEDS the two-coin save (2·32 = 64). No free advantage — the coins price real work that only grows; the save is bounded, the cost is not.',
+    js: () => R(7, 13).every((n) => 2 ** n > 2 * 32),
+    lean: "theorem captain_coins_respected_at_scale : (List.range' 7 6).all (fun n => 2^n > 2 * 32) := by decide" },
+
   { key: 'superposition_outcomes_to_64',
     why: 'Direct possible outcomes: n qubits give 2ⁿ basis outcomes — [1,2,4,8,16,32,64] for n = 0..6, reaching 64 exactly at the 6-qubit / 64-bit scale. Exponential, counted, not sped up.',
     js: () => JSON.stringify(R(0, 7).map((n) => 2 ** n)) === JSON.stringify([1, 2, 4, 8, 16, 32, 64]),

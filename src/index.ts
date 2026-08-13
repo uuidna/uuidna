@@ -91,6 +91,10 @@ export { pentagramHologramFractal, holofractalHook, type HoloFractal } from './h
 // pentagram-stream — stream a sequence through the star {n/step} stroke (pentagram {5/2} generalized), each item
 // stamped holofractal, folded to one ORDER-INVARIANT quantum receipt: a definite pentagram order, an order-free receipt.
 export { pentagramStream, type PentagramStream, type PentagramStreamCell } from './pentagram-stream.js'
+// conversation — local chat as code: the CONVERSATION FOLD binds four handles into a fifth (the room key), each handle
+// part of the next (authenticity), rotated by the referer (per-room isolation); the room key then keys the encrypted
+// uuid-stream channel. Local-first — keys and plaintext stay client-side.
+export { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase, type Room, type AttachedChat } from './conversation.js'
 // publish — write PUBLICATIONS in lean human prose, AUDITED before publishing: a domain note composed by reading
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.

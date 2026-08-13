@@ -16,6 +16,7 @@ import {
   THEOREMS, runTrial,
 } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
+import { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
 
 // The seven dimension streams (0..7 above the floor) — one plaintext per dimension, used to cover the 7d ("777")
 // encryption BIDIRECTIONALLY (encrypt ⇄ decrypt) PER STREAM. 21 tests total: the 9 above plus these 12.
@@ -314,4 +315,40 @@ test('prose aligns to the theorems — no hardcoded count drifts from the live l
   for (const m of readme.matchAll(/\*\*([0-9]+) computing principles\*\*/g)) if (Number(m[1]) !== principles) drift.push(`seal principles: README ${m[1]} ≠ ledger ${principles}`)
   for (const m of readme.matchAll(/\(([0-9]+)\/([0-9]+), kernel-only/g)) if (m[1] !== m[2] || Number(m[2]) !== THEOREMS.length) drift.push(`seal axiom-free: README ${m[1]}/${m[2]} ≠ ${THEOREMS.length}/${THEOREMS.length}`)
   assert.deepEqual(drift, [], 'hardcoded counts must align to the theorems (derive, do not hardcode — a drifting constant is a crack): ' + drift.join('; '))
+})
+
+// Local chat as CODE — the conversation fold binds four handles into a fifth (the room key): each handle is part of
+// the next (authenticity — a changed/reordered handle moves the fifth), per-referer (each referrer a distinct room),
+// and the room seals/opens locally (nothing sent; a wrong key fails Poly1305). Not a demo — the worker uses this fold.
+test('local chat — conversation fold: authenticity, per-referer rooms, sealed round-trip', () => {
+  const four = ['808f7b27', 'f0e7d443', '1d6c4433', 'abc5add4']
+  const a = conversationFold(four, 'http://localhost/room')
+  assert.match(a.fifth, /^[0-9a-f]{8}$/)
+  assert.equal(conversationFold(four, 'http://localhost/room').fifth, a.fifth)                         // deterministic
+  assert.notEqual(conversationFold(four, 'http://other/room').fifth, a.fifth)                          // per-referer: distinct room
+  assert.notEqual(conversationFold(['ffffffff', 'f0e7d443', '1d6c4433', 'abc5add4'], 'http://localhost/room').fifth, a.fifth) // changed handle → moves
+  assert.notEqual(conversationFold(['f0e7d443', '808f7b27', '1d6c4433', 'abc5add4'], 'http://localhost/room').fifth, a.fifth) // reordered → moves (each part of the next)
+  assert.throws(() => conversationFold(['808f7b27', 'f0e7d443', '1d6c4433'], ''))                      // needs exactly four 8-hex handles
+  const room = openRoom(four, 'http://localhost/room')
+  const uuids = sendToRoom(room, 'meet at the vortex, 432 Hz', 'gold-string-60')
+  assert.equal(receiveFromRoom(room, uuids, 'gold-string-60'), 'meet at the vortex, 432 Hz')          // local round-trip
+  assert.throws(() => receiveFromRoom(room, uuids, 'wrong'))                                          // wrong key → Poly1305 fails
+})
+
+
+// uuidna chat handles ALL cases via one primitive (attachChat): a minimised url pointing back to the subject with a
+// UNIQUE room per instance. Donations and support cases are instances — each subject+id gets its own authenticated room.
+test('attached chat — one primitive for donations, support cases, any subject', () => {
+  const u = 'https://uuidna.com/give'
+  const a = attachChat(u, 'donation-42')
+  assert.match(a.minimised, /^\/[0-9a-f]{8}\/[0-9a-f]{8}\/[0-9a-f]{8}\/[0-9a-f]{8}$/)   // a four-handle minimised url
+  assert.match(a.room.fifth, /^[0-9a-f]{8}$/)                                              // its unique room key
+  assert.equal(attachChat(u, 'donation-42').room.fifth, a.room.fifth)                     // deterministic per (subject,id)
+  assert.notEqual(attachChat(u, 'donation-43').room.fifth, a.room.fifth)                  // a different donation → a different room
+  assert.notEqual(attachChat('https://uuidna.com/other', 'donation-42').room.fifth, a.room.fifth) // different subject → different room
+  assert.equal(donationNote(u, 'd1').room.fifth, attachChat(u, 'd1').room.fifth)          // donationNote is an instance
+  assert.equal(supportCase(u, 'c1').room.fifth, attachChat(u, 'c1').room.fifth)          // supportCase is an instance
+  // the attached room seals/opens locally
+  const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
+  assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
 })

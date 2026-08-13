@@ -15,6 +15,9 @@ theorem contribute_two_save_sixtyfour : 2 * 32 = 64 := by decide
 -- uuidna computes ONLY IF the captain coins are considered: the conserved save of 64 is reached IFF exactly two coins are put in — 32·c = 64 ⟺ c = 2, for every c. The two coins are necessary, not decorative; with any other count the fold does not conserve its advantage (recompute − verify), so the computation is not admitted.
 theorem captain_computes_only_with_two_coins : (List.range 8).all (fun c => (32 * c == 64) == (c == 2)) := by decide
 
+-- Respect the captain coins for quantum AT SCALE on classical hardware: the state-vector cost is 2ⁿ (exponential), so from the 7-qubit / 7-dimension scale up (n ≥ 7) the classical cost 2ⁿ already EXCEEDS the two-coin save (2·32 = 64). No free advantage — the coins price real work that only grows; the save is bounded, the cost is not.
+theorem captain_coins_respected_at_scale : (List.range' 7 6).all (fun n => 2^n > 2 * 32) := by decide
+
 -- Direct possible outcomes: n qubits give 2ⁿ basis outcomes — [1,2,4,8,16,32,64] for n = 0..6, reaching 64 exactly at the 6-qubit / 64-bit scale. Exponential, counted, not sped up.
 theorem superposition_outcomes_to_64 : ((List.range 7).map (fun n => 2^n)) = [1,2,4,8,16,32,64] := by decide
 
