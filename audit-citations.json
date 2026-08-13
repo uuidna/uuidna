@@ -1,18 +1,18 @@
 {
-  "key": "e4968a07-eb72-8395-9dee-b9595739bfc5",
-  "publications": 60,
-  "sealedTheorems": 1086,
+  "key": "532b384f-fb23-8b51-96c8-3bfe68efa6bc",
+  "publications": 63,
+  "sealedTheorems": 1120,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1086,
-    "theorems": 1086,
+    "claims": 1120,
+    "theorems": 1120,
     "bijection": true,
     "digitalRoots": {
-      "claims": 6,
-      "theorems": 6,
-      "publications": 6
+      "claims": 4,
+      "theorems": 4,
+      "publications": 9
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -131,8 +131,29 @@
     },
     {
       "slug": "coins",
-      "claims": 8,
-      "cited": 8,
+      "claims": 10,
+      "cited": 10,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hardware",
+      "claims": 14,
+      "cited": 14,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "software",
+      "claims": 11,
+      "cited": 11,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "os",
+      "claims": 7,
+      "cited": 7,
       "uncited": [],
       "fabricated": []
     },

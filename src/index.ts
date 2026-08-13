@@ -181,6 +181,13 @@ export { credits, creditsSummary, type Credits, type Credit } from './credits.js
 // enforces it), not asserted in prose. Generate-from-Lean, any-manual-fails, honesty-demonstrated, coins conserved.
 export { laws, type Law, type Laws } from './laws.js'
 
+// layers — the NAMED LAYERS of the stack (hardware → software → os), ONE builder (DRY): each reads its skill's sealed
+// lean/*.lean theorems and folds them to one receipt, the sealed statement its own spec. Hardware = the combinational-
+// logic identities a netlist is verified against; software = the program-correctness laws an implementation is verified
+// against; os = the exact-copy facts a deployment is verified against (runtime enforced by alpine/driver provenance,
+// portAllAlpine). Each a 128-bit particle. Integrity, not truth, not execution — a sealed spec, never a chip/program/OS.
+export { hardwareLayer, softwareLayer, osLayer, namedLayer, type NamedLayer, type LayerPart } from './layers.js'
+
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
 // diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'

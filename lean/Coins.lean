@@ -1,4 +1,4 @@
--- lean/Coins.lean — GENERATED. THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), not a market price and NOT a claim of speed. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Coins.lean — GENERATED. THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate.
 theorem two_coins : 110 - 108 = 2 := by decide
@@ -23,3 +23,9 @@ theorem superposition_outcomes_to_64 : ((List.range 7).map (fun n => 2^n)) = [1,
 
 -- The measured saving is never negative: when verify meets or exceeds recompute (v ≥ r), the bill is 0 — Nat subtraction already clamps, so the honest schedule never charges below zero.
 theorem bill_never_negative : (List.range 8).all (fun r => (List.range 8).all (fun v => (if r < v then 0 else r - v) == r - v)) := by decide
+
+-- One coin is one qubit: a two-state basis — 2¹ = 2 outcomes, the coin's two faces (|0⟩ and |1⟩). Classical two-state accounting in the state-vector simulator, NOT a physical qubit.
+theorem coin_is_one_qubit : (2:Nat)^1 = 2 := by decide
+
+-- The two captain coins DELIVER two qubits at a COST of 128 bits: coins() = 2 → two qubits spanning 2² = 4 basis states, carried by one 128-bit uuid = two 64-bit coins (128 = 2·64 = 2⁷). Two coins in, a 2-qubit address out, priced at 128 bits — the 64→128 fuse, counted, not sped up. Classical accounting, not a physical 2-qubit device.
+theorem captain_coins_deliver_two_qubits_at_128_bits : ((2:Nat)^2 = 4) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide

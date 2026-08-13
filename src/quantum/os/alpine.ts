@@ -87,3 +87,41 @@ export async function fetchAlpineLatest(arch = 'x86_64', branch = 'latest-stable
     return null  // a mirror may be unreachable — the automation is best-effort and NEVER fabricates a digest
   }
 }
+
+// The OFFICIAL Alpine architectures — the full port matrix. Every current release publishes a minirootfs for each of
+// these. Naming them is the "all" in "port all Alpine": the integrity of the whole matrix, not one arch.
+export const ALPINE_ARCHES = ['x86_64', 'x86', 'aarch64', 'armhf', 'armv7', 'ppc64le', 's390x', 'riscv64'] as const
+
+/** The whole ported matrix: every official arch's provenance for one branch, folded to ONE catalog receipt. */
+export interface AlpineCatalog {
+  branch: string
+  arches: readonly string[]     // the arches ASKED for (the full official matrix)
+  releases: AlpineRelease[]     // the ones PINNED (a down mirror drops out; never faked)
+  ported: number                // how many arches resolved to a published, verifiable digest
+  requested: number             // how many arches were asked (ALPINE_ARCHES.length)
+  receipt: string               // order-invariant fold of every pinned release's address — the whole port, one address
+  honest: string
+}
+
+/** portAllAlpine(branch) → PORT ALL ALPINE: pin every official architecture's minirootfs for the branch, each by its
+ *  PUBLISHED digest (fetched at this boundary, never fabricated), folded to one catalog receipt. This ports the
+ *  INTEGRITY of the whole Alpine matrix — the exact upstream bytes of every arch, content-addressed and re-verifiable —
+ *  NOT the runtime: nothing is booted, linked, or executed. Best-effort and honest: an unreachable arch simply drops
+ *  from `releases` (ported < requested), it is never guessed. Recompute against the same published releases. */
+export async function portAllAlpine(branch = 'latest-stable'): Promise<AlpineCatalog> {
+  const settled = await Promise.all(ALPINE_ARCHES.map((a) => fetchAlpineLatest(a, branch)))
+  const releases = settled.filter((r): r is AlpineRelease => r !== null).sort((a, b) => (a.arch < b.arch ? -1 : 1))
+  return {
+    branch,
+    arches: ALPINE_ARCHES,
+    releases,
+    ported: releases.length,
+    requested: ALPINE_ARCHES.length,
+    receipt: releases.length ? merkleGravity(releases.map((r) => toUuid(r.address))) : toUuid('alpine-catalog-empty|' + branch),
+    honest:
+      'Port ALL Alpine = port the INTEGRITY of the whole arch matrix: every official architecture\'s minirootfs pinned ' +
+      'by its PUBLISHED SHA-256 (fetched here, never faked), folded to one recomputable catalog receipt. uuidna does ' +
+      'NOT boot, link, or execute any of it — the exact bytes of every arch are NAMED and CHECKABLE, never run. A down ' +
+      'mirror drops that arch (ported < requested); no digest is ever guessed. Integrity, not execution.',
+  }
+}
