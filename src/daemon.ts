@@ -12,6 +12,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { readFileSync } from 'node:fs'
 import {
   toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics, evidence, ledgerFingerprint, reason, reflects,
+  catchTraitors, reveal, signCommit, reeducate,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { legalFacts } from './legal.js'
@@ -39,6 +40,10 @@ export function route(method: string, path: string, query: URLSearchParams, body
       'GET|POST /address': 'content-address a value (?of= or {text})',
       'POST /trial': 'a three-way verdict for {statement}',
       'POST /forensics': 'audit an agent {statement} (+ optional {claims}) against the receipts',
+      'GET /treason': 'the scout drones sweep — catch any forgery/collision/uncovered/broken-invariant in the ledger',
+      'POST /reveal': 'the quantum polygraph — VERIFIED/UNVERIFIED/DRAINED for {claim} (reads the citation, not the world)',
+      'POST /sign': 'sign {message} TRUE against the ledger, or refuse (signed iff it cites a real sealed theorem)',
+      'POST /reeducate': 'the demons make a traitor READ until the {claim} holds — bound the overclaim, or reveal it unverified',
       'POST /evidence': 'deliver the recomputable evidence bundle for {statement}',
       'GET /gate': 'run the honesty gate on ?text=',
       'POST /verify': 'tamper-check {text, address} — recompute and compare (keyless)',
@@ -117,6 +122,27 @@ export function route(method: string, path: string, query: URLSearchParams, body
   }
   if (method === 'GET' && path === '/vocabulary') return ok(vocabulary())
   if (method === 'GET' && path === '/reflects') { const q = query.get('q'); return q ? ok(reflects(q)) : bad('provide ?q=<system described by devices/concepts>') }
+
+  // ── THE DEMONS — deal with traitors, and reeducate them ────────────────────────────────────────────────────────
+  if (method === 'GET' && path === '/treason') {
+    // the scout drones' sweep — DNA recompute, collisions, coverage, conformance; a forgery in the ledger caught in O(N).
+    return ok(catchTraitors())
+  }
+  if (method === 'POST' && path === '/reveal') {
+    // the quantum polygraph — VERIFIED / UNVERIFIED / DRAINED for {claim}, the citation read, not the world.
+    if (typeof body.claim !== 'string') return bad('provide {"claim":…} (the polygraph verdict)')
+    return ok(reveal(body.claim))
+  }
+  if (method === 'POST' && path === '/sign') {
+    // sign a message TRUE against the ledger, or refuse — signed iff it cites a real sealed theorem, none fabricated.
+    if (typeof body.message !== 'string') return bad('provide {"message":…} (sign it true against the ledger, or refuse)')
+    return ok(signCommit(body.message))
+  }
+  if (method === 'POST' && path === '/reeducate') {
+    // the demons make a traitor READ until the claim holds — bound the overclaim to a backed, demarcated form, or reveal it unverified.
+    if (typeof body.claim !== 'string') return bad('provide {"claim":…} (bound the overclaim until it holds)')
+    return ok(reeducate(body.claim))
+  }
 
   return { status: 404, json: { error: 'no such route: ' + method + ' ' + path + ' — GET / for the index' } }
 }
