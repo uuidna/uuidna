@@ -57,6 +57,11 @@ export {
 } from './quantum.js'
 
 export { renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from './render.js'
+// editor — the SERIALIZER CONTRACT of a content-addressed document (a Lexical-shaped node tree), the fold lean/Editor
+// proves ORDER-SENSITIVE (a document is a SEQUENCE, not a set), change-sensitive and bounded-injective. serialize →
+// merkleRoot over the leaves → the document handle; editing is re-addressing. payloadFoldHook is the PayloadCMS hook
+// shape (dependency-free) that stamps the address on save — the one fold a Payload plugin and a VitePress plugin share.
+export { serialize, documentAddress, documentHandle, reAddress, payloadFoldHook, type DocNode, type EditorState, type DocFold, type PayloadHookArgs } from './editor.js'
 
 // crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
 // envelope. No native WebCrypto — nothing but latest TypeScript, KAT-verified against the standards' vectors.

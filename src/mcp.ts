@@ -20,6 +20,7 @@ import {
   THEOREMS, runTrial, theorems, skillGroups, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate,
   snapshot, reactor,
+  reAddress, type EditorState,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { legalFacts } from './legal.js'
@@ -369,6 +370,10 @@ const TOOLS: Tool[] = [
     description: 'LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger\'s own integrity per domain, recomputable by anyone. Returns [{domain,theorems,fold,verdict,receipt}].',
     inputSchema: { type: 'object', properties: {} },
     run: () => reviewDomains() },
+  { name: 'uuidna_document',
+    description: 'The DOCUMENT FOLD — content-address a Lexical-shaped document (a node tree, EditorState.toJSON() shape). The SERVE projection of the serializer contract lean/Editor.lean proves: a document is a SEQUENCE, so the fold is ORDER-SENSITIVE (reordering a node moves the address — the opposite of a set), change-sensitive, and bounded-injective. serialize → merkleRoot over the leaves → the handle you cite; editing is re-addressing. Returns {handle,address,nodes}. The SAME fold a PayloadCMS save-hook and a VitePress render read — one contract, both frameworks. Integrity, not truth: it proves WHICH document, not that its content is correct.',
+    inputSchema: { type: 'object', properties: { state: { type: 'object', description: 'a Lexical EditorState: { root: { type, children, … } }' } }, required: ['state'] },
+    run: (a) => reAddress(a.state as EditorState) },
   { name: 'uuidna_coverage',
     description: 'COVERAGE — is every sealed theorem shown in a monograph? The readiness diagnosis the pre-push gate blocks on, as ONE zero-arg recomputable call: an agent adding a domain runs this instead of tracing the gate by hand. Returns {total,covered,uncovered,uncoveredFiles,ready,receipt} — uncovered lists the theorem KEYS in no monograph (each blocks the push), uncoveredFiles the ledger FILES with no publication (the ROOT fix: author a PRINCIPLE [file,title,blurb] in lean-ledger). ready is true iff nothing is uncovered; the coverage state folds order-invariantly to receipt, recomputable by anyone. Integrity, not truth.',
     inputSchema: { type: 'object', properties: {} },
@@ -609,7 +614,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^contract($|_)/, 'Contract-keyed messaging', 'contract'],
   [/^audit_(text|book|translation|movie|record|cve)$/, 'Provenance audit (public text & metadata)', 'books'],
   [/^(sha256|hmac|pbkdf2|chacha20|poly1305|aead_encrypt|aead_decrypt)$/, 'Crypto primitives', 'crypto'],
-  [/^(theorems|theorem|trial|skills|render|render_list|fingerprint|review_domains|coverage)$/, 'Theorems & trial', 'theorem'],
+  [/^(theorems|theorem|trial|skills|render|render_list|fingerprint|review_domains|coverage|document)$/, 'Theorems & trial', 'theorem'],
   [/^(publish|edit|compare|vocabulary)$/, 'Publications (audited prose)', 'publish'],
   [/^(forensics|evidence)$/, 'Forensics & evidence (statements vs receipts)', 'forensics'],
   [/^(legal_facts|prior_art)$/, 'Legal fact base & prior art (not an opinion)', 'legal'],

@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="99 keys" />
+# MCP tools <Badge type="tip" text="100 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 99 tools below are read from the server's own tool list and
+is **built from the keys**: the 100 tools below are read from the server's own tool list and
 organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`99`" />
+## The grid <Badge type="tip" :text="`100`" />
 
-99 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+100 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -57,6 +57,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-corroborate"><code>corroborate</code></a>
 <a href="#uuidna-diamond"><code>diamond</code></a>
 <a href="#uuidna-digital-root"><code>digital_root</code></a>
+<a href="#uuidna-document"><code>document</code></a>
 <a href="#uuidna-domain-wave"><code>domain_wave</code></a>
 <a href="#uuidna-double-torus"><code>double_torus</code></a>
 <a href="#uuidna-entangle"><code>entangle</code></a>
@@ -829,7 +830,7 @@ The Chinese remainder solution: for COPRIME moduli m,n the unique x in [0, m·n)
 | `b` | integer | **yes** |  |
 | `n` | integer | **yes** |  |
 
-## Theorems & trial <Badge type="tip" :text="'9'" />
+## Theorems & trial <Badge type="tip" :text="'10'" />
 
 *skill: theorem*
 
@@ -880,6 +881,16 @@ _No parameters._
 LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger's own integrity per domain, recomputable by anyone. Returns [{domain,theorems,fold,verdict,receipt}].
 
 _No parameters._
+
+### `uuidna_document`
+
+The DOCUMENT FOLD — content-address a Lexical-shaped document (a node tree, EditorState.toJSON() shape). The SERVE projection of the serializer contract lean/Editor.lean proves: a document is a SEQUENCE, so the fold is ORDER-SENSITIVE (reordering a node moves the address — the opposite of a set), change-sensitive, and bounded-injective. serialize → merkleRoot over the leaves → the handle you cite; editing is re-addressing. Returns {handle,address,nodes}. The SAME fold a PayloadCMS save-hook and a VitePress render read — one contract, both frameworks. Integrity, not truth: it proves WHICH document, not that its content is correct.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `state` | object | **yes** | a Lexical EditorState: { root: { type, children, … } } |
 
 ### `uuidna_coverage`
 
