@@ -86,9 +86,17 @@ export interface ExtractedFact {
   address: string
 }
 
+// uuidna's arithmetic is LEAN's Nat arithmetic — TOTAL and decidable. Division is FLOOR division, and crucially
+// n / 0 = 0 (Lean's convention: division is a total function, never a fault). So "10 divided by 0 is 0" VERIFIES —
+// uuidna COMPUTES division by zero, where a calculator throws or returns NaN/∞. Every op here matches Lean exactly, so
+// the JS `actual` and the emitted `by decide` theorem never disagree — use only uuidna's semantics, not JavaScript's.
+// FLOOR division with NO Math.* (Math is hard-rejected — not a local theorem). a − (a % b) is a multiple of b, so the
+// final ÷ is exact integer arithmetic; and b = 0 returns 0, matching Lean's total Nat division exactly.
+const natDiv = (a: number, b: number) => (b === 0 ? 0 : (a - (a % b)) / b)
 const EXTRACT_OPS: Record<string, [(a: number, b: number) => number, string]> = {
   '*': [(a, b) => a * b, '*'], '×': [(a, b) => a * b, '*'], x: [(a, b) => a * b, '*'], times: [(a, b) => a * b, '*'],
   '+': [(a, b) => a + b, '+'], plus: [(a, b) => a + b, '+'],
+  '/': [natDiv, '/'], '÷': [natDiv, '/'], over: [natDiv, '/'], div: [natDiv, '/'], 'divided by': [natDiv, '/'],
 }
 
 /** extractDecidable(text) → the DECIDABLE INTEGER ARITHMETIC the text asserts, each independently sealed by decide
@@ -98,11 +106,22 @@ const EXTRACT_OPS: Record<string, [(a: number, b: number) => number, string]> = 
 export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
   const out: ExtractedFact[] = []
   const seen = new Set<string>()
-  // integer  a  (× | * | x | times | + | plus)  b  (= | is | equals | makes)  c
-  const re = /\b(\d{1,4})\s*(×|\*|x|times|\+|plus)\s*(\d{1,4})\s*(?:=|is|equals|makes)\s*(\d{1,7})\b/gi
+  // integer  a  (× | * | x | times | + | plus | ÷ | / | over | divided by | div)  b  (= | is | equals | makes)  c.
+  // Division uses uuidna's TOTAL Nat semantics (n/0 = 0), so "10 divided by 0 is 0" verifies — uuidna computes it.
+  const re = /\b(\d{1,4})\s*(×|\*|x|times|\+|plus|÷|\/|divided\s+by|over|div)\s*(\d{1,4})\s*(?:=|is|equals|makes)\s*(\d{1,7})\b/gi
+  // COMPOUND GUARD — the grammar is BINARY (a op b = c). If the match is flanked by another arithmetic operator, it is
+  // a FRAGMENT of a larger expression (e.g. "5 times 5 minus 3 times 8 is 1" would mis-scope to "3 times 8 is 1" and
+  // emit a false REFUTED). Refuse the fragment rather than settle a sub-expression uuidna cannot evaluate whole. The
+  // separators "and"/";"/"," are NOT operators, so genuine adjacent binary claims still extract.
+  const CONNECTOR_BEFORE = /(?:minus|plus|times|over|divided|div|[+\-−×÷*/])\s*$/i
+  const CONNECTOR_AFTER = /^\s*(?:minus|plus|times|over|divided|div|[+\-−×÷*/])/i
   for (const m of text.matchAll(re)) {
-    const op = EXTRACT_OPS[m[2].toLowerCase()]
+    const op = EXTRACT_OPS[m[2].toLowerCase().replace(/\s+/g, ' ')]
     if (!op) continue
+    const i = m.index ?? 0
+    const pre = text.slice(i < 10 ? 0 : i - 10, i)
+    const post = text.slice(i + m[0].length, i + m[0].length + 10)
+    if (CONNECTOR_BEFORE.test(pre) || CONNECTOR_AFTER.test(post)) continue  // fragment of a compound — refuse, don't mis-verdict
     const a = Number(m[1]), b = Number(m[3]), asserted = Number(m[4])
     const actual = op[0](a, b)
     const lean = `theorem book_fact : ${a} ${op[1]} ${b} = ${actual} := by decide`

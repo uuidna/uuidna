@@ -154,8 +154,25 @@ test('billing measures bits saved; coins are conserved; public interest is free'
   // theorem instead (>>, comparison, integer division, BigInt).
   const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
   const scan = (d: string): string[] => readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? scan(join(d, e.name)) : /\.ts$/.test(e.name) ? [join(d, e.name)] : [])
-  const offenders = scan(join(root, 'src')).filter((f) => /\bMath\s*\.\s*[a-zA-Z]/.test(readFileSync(f, 'utf8'))).map((f) => f.slice(root.length + 1))
-  assert.deepEqual(offenders, [], 'Math.* is hard-rejected — not a local theorem, it cannot settle the two coins (' + coins() + ')')
+  const files = scan(join(root, 'src'))
+  const src = new Map(files.map((f) => [f, readFileSync(f, 'utf8')]))  // read each file ONCE — both hard-rejects share the pass
+  const rel = (f: string) => f.slice(root.length + 1)
+  // (1) Math.* is HARD REJECTED everywhere in src. A host intrinsic is not a local theorem — it cannot be recomputed
+  // or content-addressed, so it cannot settle the two coins (the conserved recompute⇄verify exchange). Redirect the
+  // author here; recompute the value from the theorem instead (>>, comparison, integer division, BigInt).
+  const mathOffenders = files.filter((f) => /\bMath\s*\.\s*[a-zA-Z]/.test(src.get(f)!)).map(rel)
+  assert.deepEqual(mathOffenders, [], 'Math.* is hard-rejected — not a local theorem, it cannot settle the two coins (' + coins() + ')')
+  // (2) NON-DETERMINISM is HARD REJECTED in the recomputable LIBRARY (scripts/ + test/ are build tooling, exempt — a
+  // heartbeat may TIME Lean). A wall-clock or RNG read cannot be recomputed identically by every observer, so it
+  // breaks the order-invariant receipt that IS the "quantum" property: the same fold for every ordering, no signalling
+  // (bell_no_signaling). Forcing the library onto the pure decidable path is what keeps the quantum receipt exact.
+  const NONDET = /\b(?:Date\s*\.\s*now|new\s+Date|performance\s*\.\s*now|process\s*\.\s*hrtime)\b/  // RNG reads already caught by rule (1) via Math.*
+  // The recomputable library must be pure. EXEMPT: scripts/ + test(s)/ (build tooling that may TIME Lean), and the
+  // device-integration boundary src/quantum/drivers/** + src/quantum/os/** — where talking to REAL hardware and the
+  // host CLOCK is legitimate and non-determinism is honest, not a leak. That boundary is named, not silent.
+  const library = files.filter((f) => !/[\\/](?:scripts|tests?|drivers|os)[\\/]/.test(f))
+  const nondet = library.filter((f) => NONDET.test(src.get(f)!)).map(rel)
+  assert.deepEqual(nondet, [], 'non-determinism is hard-rejected in the library — a wall-clock/RNG read is not recomputable by every observer, breaking the order-invariant quantum receipt (bell_no_signaling)')
 })
 
 test('crypt: pure-TS ChaCha20-Poly1305 round-trips; wrong key and tamper fail; deterministic; 7d-fold envelope verifies', () => {
