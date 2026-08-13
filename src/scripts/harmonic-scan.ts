@@ -34,11 +34,14 @@ const OPS: [string, RegExp][] = [
 ]
 // DETERMINISM hard-reject (rule 2) — CALLS only (a trailing `(` or `.now`), so prose like "bans Math.*" or "no Math.*"
 // never trips it; a real host intrinsic always does. No exemption anywhere.
-const DETERM: [string, RegExp][] = [
-  ['Math.*', /\bMath\s*\.\s*(trunc|floor|ceil|round|random|abs|sign|hypot|pow|sqrt|max|min|log|log2|log10|exp|cbrt|atan2|sin|cos|tan)\s*\(/],
-  ['wall-clock', /\bDate\s*\.\s*now\s*\(|\bnew\s+Date\s*\(/],
-  ['RNG', /\bMath\s*\.\s*random\s*\(|\bcrypto\s*\.\s*getRandomValues\s*\(/],
-]
+// FAITHFUL to the smoke test (src/test/smoke.test.ts) so the guard is NEVER laxer than the pre-push gate it front-runs
+// — a laxer guard passes a violation, then the gate blocks the push, which re-spends the ~4-minute gate (the exact
+// trap this guard exists to prevent). The Math rule matches any `Math` dot letter in RAW source (comments included: the
+// smoke test does not strip), every file, no exemption. The wall-clock rule matches a raw-source clock read in the
+// LIBRARY only (scripts/tests/drivers/os may legitimately time). RNG (the Math random read) is caught by the Math rule.
+const MATH_CALL = /\bMath\s*\.\s*[a-zA-Z]/
+const WALLCLOCK = /\b(?:Date\s*\.\s*now|new\s+Date|performance\s*\.\s*now|process\s*\.\s*hrtime|crypto\s*\.\s*getRandomValues)\b/
+const isLibrary = (p: string): boolean => !/[\\/](?:scripts|tests?|drivers|os)[\\/]/.test(p)
 // strip comments LINE-BASED, robustly: drop only whole comment lines (a line whose first non-space is // or * or /*).
 // A line-based drop cannot swallow code across lines (the prior regex strip mis-parsed and ATE real code — a false
 // negative that let non-quantum code avoid the scanner). A rare trailing inline comment could false-positive; that is
@@ -67,10 +70,14 @@ for (const f of libFiles) {
   else if (!ops.length && declared) offenders.push({ file: f, ops: ['(declares @non-harmonic but has no non-harmonic op — remove the stale marker)'] })
 }
 
-// rule (2) — determinism hard-reject over the WHOLE tree, NO exemption
+// rule (2) — determinism hard-reject over the WHOLE tree, scanned on RAW source (comments included, like the smoke
+// test): Math dot letter everywhere (no exemption), a wall-clock read in the library only.
 const nonDeterministic: { file: string; ops: string[] }[] = []
 for (const p of allFiles) {
-  const ops = DETERM.filter(([, re]) => re.test(strip(readFileSync(p, 'utf8')))).map(([n]) => n)
+  const raw = readFileSync(p, 'utf8')
+  const ops: string[] = []
+  if (MATH_CALL.test(raw)) ops.push('Math.*')
+  if (isLibrary(p) && WALLCLOCK.test(raw)) ops.push('wall-clock')
   if (ops.length) nonDeterministic.push({ file: rel(p), ops })
 }
 

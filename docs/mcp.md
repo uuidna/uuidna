@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="124 keys" />
+# MCP tools <Badge type="tip" text="125 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 124 tools below are read from the server's own tool list and
+is **built from the keys**: the 125 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`124`" />
+## The grid <Badge type="tip" :text="`125`" />
 
-124 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 37 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+125 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 38 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -34,6 +34,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
 <a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
 <a href="#uuidna-os"><code>os</code></a>
+<a href="#uuidna-package"><code>package</code></a>
 <a href="#uuidna-pentagram"><code>pentagram</code></a>
 <a href="#uuidna-pentagram-monographs"><code>pentagram_monographs</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
@@ -452,7 +453,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'30'" />
+## Other <Badge type="tip" :text="'31'" />
 
 *skill: other*
 
@@ -699,6 +700,20 @@ PORT ALL ALPINE — automate the OS-provenance port across the WHOLE official ar
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `branch` | string | no | Alpine branch, e.g. "latest-stable" (default) or "edge" |
+
+### `uuidna_package`
+
+EACH ALPINE PACKAGE BECOMES uuidna/&lt;package&gt; — a content-addressed provenance identity of the exact published release (name, version, arch, repo, branch, PUBLISHED checksum) folded to a 128-bit address that recomputes for anyone holding the same apk index. At the os/ boundary it reads Alpine's PUBLISHED APKINDEX (the response is DATA, never run), gunzips it with the platform DecompressionStream (pure-TS, no node:zlib), untars it, and mints each package. Pass {name} (+ optional {arch}, {repo:"main"|"community"}, {branch}) for ONE package's uuidna/&lt;name&gt; identity; pass {infuse:true} for the whole index minted and folded to one catalog receipt (count + receipt + a sample — the receipt proves all are infused without dumping thousands); no argument returns the namespace description (no fetch). Automate updates/upgrades: re-read and the identities move with the published versions. HONEST SCOPE: integrity, not execution — uuidna does NOT install, link, run, fork, or mirror a package; it FINGERPRINTS the upstream metadata so a deployment can prove which exact packages it rests on. Best-effort: a down mirror yields an empty catalog, never a faked checksum.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `name` | string | no | an Alpine package name, e.g. "curl" |
+| `infuse` | boolean | no | mint the WHOLE index and fold to one catalog receipt |
+| `arch` | string | no | default x86_64 |
+| `repo` | string | no | "main" (default) or "community" |
+| `branch` | string | no | default "latest-stable" |
 
 ### `uuidna_credits`
 
