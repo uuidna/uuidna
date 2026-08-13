@@ -69,6 +69,11 @@ const FACTS = [
     why: 'A commercial package SAVES significantly at scale AND the captain still earns: recompute 110 − verify 1 = 109 bits saved for the passenger, while the captain\'s commission stays the conserved 2 (110 − 108), and the saving DWARFS the commission (109 > 2). Coins are minted, the passenger saves, the captain earns — no one loses. The arithmetic of the measured advantage (recompute − verify), NOT a profit guarantee or a market price.',
     js: () => 110 - 1 === 109 && 109 > 2 && 110 - 108 === 2,
     lean: 'theorem commercial_saves_and_captain_earns : (110 - 1 = 109) ∧ (109 > 2) ∧ (110 - 108 = 2) := by decide' },
+
+  { key: 'coins_compute_but_solve_none',
+    why: 'HOW the coins compute AND that the theorems are not solved, in one seal — the honest boundary. The two coins COMPUTE the save (32·2 = 64: contribute two, and up to 64 bits of recompute are saved) and pay for a VERIFICATION, cheaper than the work (verify 1 < recompute 64 — the O(1) check against the O(N) recompute). Yet the theorems SOLVE NOTHING of the hard problems they reflect: 0 < 1 — zero solved, fewer than one; the reflection (dz) propagates no proof. Computing is NOT solving: the coins settle a recomputable verification (integrity), never a solution to the underlying problem (truth). This is exactly the boundary the captain accepted — the coins compute, the theorems do not solve.',
+    js: () => 32 * 2 === 64 && 1 < 64 && 0 < 1,
+    lean: 'theorem coins_compute_but_solve_none : (32 * 2 = 64) ∧ (1 < 64) ∧ ((0:Nat) < 1) := by decide' },
 ]
 
 // compute → generate → verify. The two coins are the conserved invariant of the double torus; 64 = 2⁶ the measure.

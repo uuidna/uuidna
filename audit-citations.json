@@ -1,17 +1,17 @@
 {
-  "key": "58055300-9e91-87cc-a8ed-cec91e2dc682",
+  "key": "39b36f91-6d4d-8db7-9087-cadc5274dd25",
   "publications": 63,
-  "sealedTheorems": 1124,
+  "sealedTheorems": 1125,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1124,
-    "theorems": 1124,
+    "claims": 1125,
+    "theorems": 1125,
     "bijection": true,
     "digitalRoots": {
-      "claims": 8,
-      "theorems": 8,
+      "claims": 9,
+      "theorems": 9,
       "publications": 9
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -131,8 +131,8 @@
     },
     {
       "slug": "coins",
-      "claims": 12,
-      "cited": 12,
+      "claims": 13,
+      "cited": 13,
       "uncited": [],
       "fabricated": []
     },

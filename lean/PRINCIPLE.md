@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1124 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1125 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -53,7 +53,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 16. **The audit game** — `lean/AuditGame.lean` · **11** theorems
    why an audit is more ACCURATE framed as a game, sealed by decide — a finding is FLAGGED iff some independent refuter has a winning move (the OR), a claim is CLEAN iff none does (a P-position, the same Nim/Bouton decidability as a zero nim-sum), the verdict is exactly one of the two (survive + flag = 1), and N independent refuters are strictly more accurate: adding a refuter is monotone (never un-flags), a 3-vote panel confirms on a majority (4 of the 8 profiles), and a unanimous acquittal is the product of clears ∏(1−rᵢ); the honesty gate drains only the hollow-and-unbacked citation (1 of 4 states, echoing the detectors); and the game is finite (2ⁿ outcomes) so its value is decidable. HONEST SCOPE: the DECISION is decidable but the COVERAGE is not — the refutation lexicon is incomplete, so an audit raises the cost of a false claim surviving, never zeroing it. A floor, not a wall — the same bound Security proves
 
-17. **The two coins & the 64** — `lean/Coins.lean` · **12** theorems
+17. **The two coins & the 64** — `lean/Coins.lean` · **13** theorems
    the honest billing/measure algebra — the two coins are the conserved fair-exchange invariant (110−108 = 2 = −χ of the double torus, genus 2), 64 = 2⁶ is the bit measure, contribute 2 to save up to 64 (leverage 32), n qubits give 2ⁿ direct outcomes reaching 64 at n=6, and the measured saving never goes negative — a measured unit of work saved, not a price and not a claim of speed
 
 18. **The hardware-verifiable binary algebra** — `lean/Hardware.lean` · **14** theorems

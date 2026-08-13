@@ -5,11 +5,14 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity, not truth.
 import { execSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { catchTraitors } from '../treason.js'
+import { theorems } from '../index.js'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
+const ROOT = join(HERE, '../..')
 let failed = false
 
 // 1) the ledger sweep — pure, O(N), milliseconds
@@ -21,6 +24,19 @@ if (t.clean) {
   console.error(`✗ guard — ${t.traitors.length} TRAITOR(S) caught in the ledger:`)
   for (const v of t.traitors) console.error(`    [${v.kind}] ${v.detail}`)
 }
+
+// 1b) the AXIOM WITNESS — bring the guard FORWARD of the slow gate: a clever traitor sealing a NON-KERNEL theorem
+// (borrowing propext/Classical.choice) or a NEW theorem not yet audited slips the structural checks and only trips
+// the 12s Lean re-run. lean/axioms.json is the derived witness {audited, axiomFree, offenders}; verifying it COVERS
+// every current theorem and is fully axiom-free catches that class in milliseconds — no Lean re-run.
+try {
+  const ax = JSON.parse(readFileSync(join(ROOT, 'lean', 'axioms.json'), 'utf8')) as { audited: number; axiomFree: number; offenders?: string[] }
+  const N = theorems().length
+  const offenders = ax.offenders ?? []
+  if (ax.audited < N) { failed = true; console.error(`✗ guard — AXIOM WITNESS STALE: ${ax.audited}/${N} theorems audited (a new theorem lacks a kernel-only witness) — run \`npm run axioms\``) }
+  else if (ax.axiomFree < ax.audited || offenders.length) { failed = true; console.error(`✗ guard — NON-KERNEL theorem: ${ax.axiomFree}/${ax.audited} axiom-free${offenders.length ? '; offenders: ' + offenders.join(', ') : ''} — the ledger borrows an axiom`) }
+  else console.log(`✓ guard — axiom witness: ${ax.axiomFree}/${ax.audited} theorems kernel-only (no propext, no Classical.choice), covering all ${N}`)
+} catch { failed = true; console.error('✗ guard — no lean/axioms.json witness — run `npm run axioms` (the ledger has no kernel-only proof witness)') }
 
 // 2) the source sweep — the tightened harmonic-scan (non-quantum + determinism hard-reject), fast
 try {
