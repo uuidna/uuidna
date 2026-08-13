@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="97 keys" />
+# MCP tools <Badge type="tip" text="98 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 97 tools below are read from the server's own tool list and
+is **built from the keys**: the 98 tools below are read from the server's own tool list and
 organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`97`" />
+## The grid <Badge type="tip" :text="`98`" />
 
-97 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+98 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -79,6 +79,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-reflects"><code>reflects</code></a>
 <a href="#uuidna-render"><code>render</code></a>
 <a href="#uuidna-render-list"><code>render_list</code></a>
+<a href="#uuidna-report"><code>report</code></a>
 <a href="#uuidna-seats"><code>seats</code></a>
 <a href="#uuidna-sha256"><code>sha256</code></a>
 <a href="#uuidna-slim-gate"><code>slim_gate</code></a>
@@ -423,7 +424,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'8'" />
+## Other <Badge type="tip" :text="'9'" />
 
 *skill: other*
 
@@ -489,6 +490,17 @@ ENTANGLE a set of audit claims into ONE receipt: the order-invariant fold of eac
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `claims` | array | **yes** | the claims to entangle |
+
+### `uuidna_report`
+
+The REPORTER'S METHOD (Report.lean) reflected live: file a report of a PROVEN discovery and it PUBLISHES only when AUDITED (the honesty gate clears — no sentence cites a fabricated theorem) AND CORROBORATED (≥ 2 independent sources), the AND sealed as publish_gate_is_conjunction. HONEST SCOPE: uuidna does NOT verify world events — no by-decide settles whether something happened out there; the reporter reports uuidna's OWN proven discoveries. Completeness (the 5 W's + 1 H) and the trinity edit are HUMAN passes, not decided here. Returns {audited,corroborated,publishable,findings,receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `draft` | string | **yes** | the report draft (its claims are honesty-gated) |
+| `sources` | array | no | the independent sources (≥ 2 to corroborate) |
 
 ### `uuidna_snapshot`
 

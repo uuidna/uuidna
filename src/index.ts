@@ -72,6 +72,9 @@ export { securityAudit, KNOWN_DEV_DEPS, DEFENCE_THEOREMS, type SecurityCheck, ty
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.
 export { composePublication, publications, coverage, auditPublication, revisePublication, comparePublications, type Publication, type PubFinding, type Revision, type Comparison, type Coverage } from './publish.js'
+// reporter — the REPORTER'S METHOD (Report.lean) reflected live: a report of a proven discovery publishes only when
+// AUDITED (honesty gate clears) AND CORROBORATED (≥2 sources). Does NOT verify world events; reports proven discoveries.
+export { fileReport, type FiledReport } from './reporter.js'
 // site — the ONE navigable graph: every page in a canonical wrapping order (no next-gap, no orphan). The native
 // pager and the release gate both read `next` from this, so the button clicked and the gap hunted are one edge.
 export { canonicalOrder, nextOf, gaps, type PageNode } from './site.js'
