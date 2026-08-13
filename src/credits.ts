@@ -18,6 +18,9 @@ const REGISTRY: { pat: string; who: string; wiki: string }[] = [
   { pat: 'Poincar', who: 'Henri Poincaré', wiki: 'https://en.wikipedia.org/wiki/Poincar%C3%A9_conjecture' },
   { pat: 'Riemann', who: 'Bernhard Riemann', wiki: 'https://en.wikipedia.org/wiki/Riemann_hypothesis' },
   { pat: 'Pliska', who: 'the Pliska rosette (First Bulgarian Empire, 9th c.)', wiki: 'https://en.wikipedia.org/wiki/Pliska_rosette' },
+  { pat: 'Glagol', who: 'Saints Cyril and Methodius (creators of the Glagolitic alphabet, 9th c.)', wiki: 'https://en.wikipedia.org/wiki/Glagolitic_script' },
+  { pat: 'Cyril', who: 'Saint Cyril (Constantine the Philosopher)', wiki: 'https://en.wikipedia.org/wiki/Saints_Cyril_and_Methodius' },
+  { pat: 'Method', who: 'Saint Methodius', wiki: 'https://en.wikipedia.org/wiki/Saints_Cyril_and_Methodius' },
   { pat: 'Pythagor', who: 'Pythagoras', wiki: 'https://en.wikipedia.org/wiki/Pythagorean_theorem' },
   { pat: 'Bell', who: 'John Stewart Bell (Bell inequalities)', wiki: 'https://en.wikipedia.org/wiki/Bell%27s_theorem' },
   { pat: 'GHZ', who: 'Greenberger–Horne–Zeilinger', wiki: 'https://en.wikipedia.org/wiki/Greenberger%E2%80%93Horne%E2%80%93Zeilinger_state' },
@@ -63,7 +66,9 @@ export interface Credits {
 /** credits(key) → who a theorem is credited to and exactly how it is Lean-proven in uuidna. Names in the theorem's
  *  own SEALED metadata are credited historically (with a link); if none, the captain claims it by law (first sealed
  *  by-decide here, content-addressed — the seal is the claim). Recomputable; uuidna reflects history, never invents it. */
+const _cache = new Map<string, Credits>() // the ledger is immutable at runtime — credit each theorem ONCE, then reuse
 export function credits(key: string): Credits {
+  const cached = _cache.get(String(key)); if (cached) return cached
   const t = theoremByKey().get(String(key))
   if (!t) throw new Error('unknown theorem: ' + key)
   // DIRECT — names in the theorem's OWN sealed metadata
@@ -84,14 +89,18 @@ export function credits(key: string): Credits {
     : contextual.length
       ? `No prior result is named in the theorem itself, so THE CAPTAIN CLAIMS IT BY LAW (first sealed \`by decide\` here, content-addressed to ${t.address}) — but a deep read of its neighbouring domain surfaces figures seriously involved whose names may stand next to the captain's: ${contextual.map((h) => h.who).join('; ')}.`
       : `No prior result is named in the theorem or its neighbourhood. THE CAPTAIN CLAIMS IT BY LAW, alone: first sealed \`by decide\` in uuidna, content-addressed to ${t.address}. The seal is the claim — prior art, recomputable, with no prior discoverer.`
-  return { key: t.key, statement: t.statement, tactic: t.tactic, file: t.file, address: t.address, verdict: 'SEALED', leanProof: t.lean, provenance, historical, contextual, claimedBy, claim }
+  const result: Credits = { key: t.key, statement: t.statement, tactic: t.tactic, file: t.file, address: t.address, verdict: 'SEALED', leanProof: t.lean, provenance, historical, contextual, claimedBy, claim }
+  _cache.set(t.key, result)
+  return result
 }
 
 /** creditsSummary() → the recomputable tally: how many theorems reflect a named historical result DIRECTLY, how many
  *  the captain claims by law but with CONTEXTUAL figures from the neighbouring domain standing next to him, and how
  *  many the captain claims ALONE. Recomputable from the ledger. */
+let _summary: { total: number; historical: number; contextual: number; captainAlone: number; address: string } | null = null
 export function creditsSummary(): { total: number; historical: number; contextual: number; captainAlone: number; address: string } {
+  if (_summary) return _summary // computed once — the ledger does not change at runtime
   let historical = 0, contextual = 0, captainAlone = 0
   for (const t of THEOREMS) { const c = credits(t.key); if (c.claimedBy === 'historical') historical++; else if (c.claimedBy === 'contextual') contextual++; else captainAlone++ }
-  return { total: THEOREMS.length, historical, contextual, captainAlone, address: toUuid(`credits|${THEOREMS.length}|${historical}|${contextual}`) }
+  return (_summary = { total: THEOREMS.length, historical, contextual, captainAlone, address: toUuid(`credits|${THEOREMS.length}|${historical}|${contextual}`) })
 }
