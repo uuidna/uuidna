@@ -59,7 +59,7 @@ Add it to your client's `mcpServers`:
 { "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
 ```
 
-**45 tools** exposed, the whole surface — they call the same pure functions this package seals:
+**The whole tool surface** exposed (the live count is derived in [`docs/mcp.md`](docs/mcp.md), never hardcoded here) — they call the same pure functions this package seals:
 
 - **uuid / identity** — `uuidna_address`, `uuidna_strict`, `uuidna_merge` (order-sensitive fold), `uuidna_coin64` (64-bit coin), `uuidna_imprint`, `uuidna_read`
 - **dna (ℤ/9 structure)** — `uuidna_units`, `uuidna_triad`, `uuidna_vortex`, `uuidna_diamond`, `uuidna_involute`, `uuidna_gravity`, `uuidna_double_torus`, `uuidna_digital_root`, `uuidna_seats`
@@ -114,9 +114,9 @@ and organized by **computing principle** in derivation order — the live count 
 1. **The 8×8 core** (`Core.lean`, 64) — the multiplication table of ℤ/9's non-zero residues; the generator.
 2. **The ring ℤ/9** (`Ring.lean`, 234) and **the rosette ℤ/7 / Pliska** (`Rosette.lean`, 145) — the full tables.
 3. **Derived, applied, discovered** (vortex algebra, reflection group, division-by-zero, blood/DNA/sound
-   structure, self-discovered facts), **the quantum computer** (`Quantum.lean`, 20 — the exact classical
+   structure, self-discovered facts), **the quantum computer** (`Quantum.lean` — the exact classical
    state-vector simulator: Born rule, no-signaling, GHZ, gate truth-tables, phase algebra and the gate
-   involutions), **the seven Clay problems reflected** (`Clay.lean`, 13 — see below), and **one leap** that
+   involutions), **the seven Clay problems reflected** (`Clay.lean` — see below), and **one leap** that
    folds the whole vortex into a single proof.
 
 ### The seven Clay problems — reflected

@@ -15,6 +15,7 @@ import {
   adjudicate, proveVerdict, verifyUuidna,
   THEOREMS, runTrial,
 } from '../index.js'
+import { MCP_CATALOG } from '../mcp.js'
 
 // The seven dimension streams (0..7 above the floor) — one plaintext per dimension, used to cover the 7d ("777")
 // encryption BIDIRECTIONALLY (encrypt ⇄ decrypt) PER STREAM. 21 tests total: the 9 above plus these 12.
@@ -287,4 +288,24 @@ test('777 · the same tests generate the UI — shadcn microdata cards, each sta
   const hero = renderHero({ name: 'the honesty gate returns a binary verdict', key: 'the_trial_returns_a_binary_verdict' })
   assert.match(hero, /<meta property="og:url" content="\/theorem\/the_trial_returns_a_binary_verdict">/)
   assert.match(hero, /<meta property="uuidna:address" content="[0-9a-f-]{36}">/)
+})
+
+// Prose aligns to the theorems — a hardcoded ledger/catalog COUNT in README that drifts from the live derived truth
+// is a crack (not lean-backed, it silently rots). This hard-rejects the drift: every `Foo.lean, N` per-file count and
+// every `**N tools**` catalog count in README must equal the live ledger / MCP catalog, or be removed (the live count
+// is derived in PRINCIPLE.md / docs/mcp.md, never hardcoded). Self dry-clean: change the ledger, the prose must follow.
+test('prose aligns to the theorems — no hardcoded count drifts from the live ledger/catalog', () => {
+  const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
+  const readme = readFileSync(join(root, 'README.md'), 'utf8')
+  const perFile: Record<string, number> = {}
+  for (const t of THEOREMS) perFile[t.file] = (perFile[t.file] || 0) + 1
+  const drift: string[] = []
+  for (const m of readme.matchAll(/`([A-Za-z]+\.lean)`,\s*([0-9]+)/g)) {
+    const file = m[1], n = Number(m[2]), live = perFile[file]
+    if (live !== undefined && n !== live) drift.push(`${file}: README ${n} ≠ ledger ${live}`)
+  }
+  for (const m of readme.matchAll(/\*\*([0-9]+) tools\*\*/g)) {
+    if (Number(m[1]) !== MCP_CATALOG.length) drift.push(`tools: README ${m[1]} ≠ catalog ${MCP_CATALOG.length}`)
+  }
+  assert.deepEqual(drift, [], 'hardcoded counts must align to the theorems (derive, do not hardcode — a drifting constant is a crack): ' + drift.join('; '))
 })
