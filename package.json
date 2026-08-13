@@ -58,7 +58,7 @@
     "gen:mcp": "npm run build && node dist/scripts/gen-mcp.js",
     "audit:provenance": "npm run build && node dist/scripts/provenance.js",
     "audit:citations": "npm run build && node dist/scripts/audit-citations.js",
-    "audit": "npm run lean && npm run build && node dist/scripts/gen-mcp.js && node dist/scripts/lean-axioms.js && node dist/scripts/provenance.js && node dist/scripts/support.js --check && node dist/scripts/audit-citations.js && node dist/scripts/account.js && node dist/scripts/security-audit.js && node dist/scripts/spin.js && node --test dist/test/*.test.js && git diff --exit-code -- lean/ src/theorems/generated.ts lean/PRINCIPLE.md CHANGELOG.md audit-citations.json docs/mcp.md support-audit.json research-leads.json",
+    "audit": "npm run lean && npm run build && node dist/scripts/gen-mcp.js && node dist/scripts/lean-axioms.js && node dist/scripts/provenance.js && node dist/scripts/support.js --check && node dist/scripts/audit-citations.js && node dist/scripts/account.js && node dist/scripts/security-audit.js && node dist/scripts/conformance.js && node dist/scripts/spin.js && node --test dist/test/*.test.js && git diff --exit-code -- lean/ src/theorems/generated.ts lean/PRINCIPLE.md CHANGELOG.md audit-citations.json docs/mcp.md support-audit.json research-leads.json",
     "docs:preview": "vitepress preview",
     "lean": "npm run build && node dist/scripts/lean-all.js && node dist/scripts/sync-changelog.js",
     "lean:quantum": "node dist/scripts/lean-quantum.js",

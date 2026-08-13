@@ -18,6 +18,7 @@ import {
 import { MCP_CATALOG, callTool, engine } from '../mcp.js'
 import { sanitizeValue, sanitizeInput, scrubString, MAX_DEPTH, MAX_STRING, MAX_ARRAY, MAX_KEYS, verifyStatement } from '../index.js'
 import { exploitFold } from '../index.js'
+import { conformance } from '../index.js'
 import { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
 import { spin, sealSpin, verifySpin, DERIVED_FILES } from '../index.js'
 import { pentagramMonographs } from '../index.js'
@@ -355,6 +356,17 @@ test('attached chat — one primitive for donations, support cases, any subject'
   // the attached room seals/opens locally
   const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
   assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
+})
+
+test('conformance — the commit DNA gate: coins conserved, every theorem address recomputes, security clean', () => {
+  const r = conformance()
+  assert.ok(r.conforms, 'the ledger conforms — no incompatible DNA')
+  assert.equal(r.failed, 0)
+  assert.ok(r.checks.some((c) => c.id === 'captain-coins-conserved' && c.pass), 'captain coins conserved')
+  assert.ok(r.checks.some((c) => c.id === 'ledger-dna-recomputes' && c.pass), 'every theorem address recomputes')
+  assert.ok(r.checks.some((c) => c.id === 'security-posture-clean' && c.pass), 'security posture clean')
+  assert.ok(/^[0-9a-f-]{36}$/.test(r.receipt), 'folds to a recomputable receipt')
+  assert.equal(conformance().receipt, r.receipt, 'recomputable — same ledger, same receipt')
 })
 
 test('exploit fold — computes from the ledger (no table), verifies BOTH problem and solution, honest boundary', () => {

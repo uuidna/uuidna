@@ -4,21 +4,22 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="109 keys" />
+# MCP tools <Badge type="tip" text="110 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 109 tools below are read from the server's own tool list and
+is **built from the keys**: the 110 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`109`" />
+## The grid <Badge type="tip" :text="`110`" />
 
-109 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 26 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+110 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 27 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
+<a href="#uuidna-conformance"><code>conformance</code></a>
 <a href="#uuidna-cost"><code>cost</code></a>
 <a href="#uuidna-coverage"><code>coverage</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
@@ -435,7 +436,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'15'" />
+## Other <Badge type="tip" :text="'16'" />
 
 *skill: other*
 
@@ -451,6 +452,12 @@ Issue the recomputable LICENCE RECORD for a licensee and a usage: bind the CC-BY
 | `commercial` | boolean | no |  |
 | `recomputeOps` | number | no |  |
 | `verifyOps` | number | no |  |
+
+### `uuidna_conformance`
+
+The COMMIT DNA GATE — fold uuidna's core invariants into ONE recomputable check so no agent sneaks incompatible DNA into the ledger: the captain coins are conserved (coins()=2), EVERY theorem's content-address recomputes (a forged/tampered theorem is caught), the ledger is single-sourced from lean/*.lean, and the security posture is clean (zero runtime deps, defences + collision-resistance sealed, honesty gate bites, Clay solves none). `conforms` is true iff every check passes; folds to one receipt anyone recomputes. Enforced in the pre-push wave — a non-conforming commit is blocked. Returns {checks,conforms,passed,failed,receipt}.
+
+_No parameters._
 
 ### `uuidna_exploit_fold`
 

@@ -168,6 +168,10 @@ export { sanitizeValue, sanitizeInput, scrubString, MAX_DEPTH, MAX_STRING, MAX_A
 // exploit-fold — the exploit audit that COMPUTES ITSELF from the sealed 'exploits' theorems (no table), verifying
 // BOTH problem and solution; folded classes emerge as solutions, out-of-scope classes recycle to the void.
 export { exploitFold, type ExploitAudit, type ExploitFold, type FoldVerdict } from './exploit-fold.js'
+
+// conformance — the COMMIT DNA GATE: fold the core invariants (coins conserved, every theorem address recomputes,
+// security clean, single-sourced) into one hard-enforced receipt, so no agent sneaks incompatible DNA past.
+export { conformance, type ConformanceReport, type ConformanceCheck } from './conformance.js'
 // quantum/os — uuidnaOS is NOT an OS you boot and does NOT run/port Alpine's binaries (uuidna never executes). It is a
 // content-addressed PROVENANCE MANIFEST of an EXACT Alpine release: pin the version + arch + PUBLISHED rootfs digest,
 // and VERIFY your actual bytes with uuidna's own pure-TS SHA-256. Port the INTEGRITY, never the runtime. fetchAlpineLatest
