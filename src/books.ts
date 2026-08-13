@@ -258,3 +258,33 @@ export async function auditMovie(title: string): Promise<MovieAudit> {
       'reproduce. A movie is video; uuidna audits text provenance only. There is no hidden meaning being decoded.',
   }
 }
+
+/** A standards/law audit — the recomputable FLOOR of a compliance audit, NOT the ruling. */
+export interface StandardAudit extends BookAudit { standard: string; checks: ExtractedFact[]; factBase: string; ruling: string }
+
+/** auditStandard(name) → the recomputable FLOOR of a standards/law audit: content-address the PUBLIC Wikipedia
+ *  description of a standard or law (CC BY-SA, free, no key), decode its structure, and extract the DECIDABLE checks
+ *  it states — each sealed or refuted `by decide`. HONEST SCOPE: this is the FLOOR a human auditor STARTS from — the
+ *  provenance fingerprint and the decidable checks — NOT a compliance / legal RULING, which requires a licensed
+ *  auditor or counsel reviewing the specific jurisdiction, edition and deployment. uuidna delivers what recomputes
+ *  and leaves the ruling to humans; the "free" is a free public API + LOCAL by-decide checks. The text is DATA,
+ *  content-addressed, never executed. */
+export async function auditStandard(name: string): Promise<StandardAudit> {
+  const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(name)}`)
+  if (!r.ok) throw new Error(`standards: Wikipedia summary responded ${r.status} for "${name}"`)
+  const j = (await r.json()) as { title?: string; description?: string; extract?: string; content_urls?: { desktop?: { page?: string } } }
+  const source = j.content_urls?.desktop?.page || ''
+  const text = j.extract || ''
+  return {
+    ...auditText(text, { title: j.title || name, source }),
+    standard: j.title || name,
+    checks: extractDecidable(text),
+    factBase:
+      'The recomputable FLOOR of a standards audit: the provenance fingerprint of the standard\'s public description, its ' +
+      'structure, and the DECIDABLE arithmetic checks in it (each sealed or refuted by decide) — what a human auditor STARTS from.',
+    ruling:
+      'NOT provided. A standards / compliance / legal audit RULING requires a human auditor or licensed counsel reviewing the ' +
+      'specific jurisdiction, edition and deployment. uuidna cannot and does not rule; it delivers the floor — the fingerprint ' +
+      'and the decidable checks — and leaves the ruling to humans. Integrity, not truth.',
+  }
+}

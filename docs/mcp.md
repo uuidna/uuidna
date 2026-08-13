@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="94 keys" />
+# MCP tools <Badge type="tip" text="95 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 94 tools below are read from the server's own tool list and
+is **built from the keys**: the 95 tools below are read from the server's own tool list and
 organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`94`" />
+## The grid <Badge type="tip" :text="`95`" />
 
-94 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+95 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -49,6 +49,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-audit-cve"><code>audit_cve</code></a>
 <a href="#uuidna-audit-movie"><code>audit_movie</code></a>
 <a href="#uuidna-audit-record"><code>audit_record</code></a>
+<a href="#uuidna-audit-standard"><code>audit_standard</code></a>
 <a href="#uuidna-audit-text"><code>audit_text</code></a>
 <a href="#uuidna-book-article"><code>book_article</code></a>
 <a href="#uuidna-coin64"><code>coin64</code></a>
@@ -420,7 +421,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'5'" />
+## Other <Badge type="tip" :text="'6'" />
 
 *skill: other*
 
@@ -446,6 +447,16 @@ Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id and write a recomputable
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e.g. 1342 (Pride and Prejudice) |
+
+### `uuidna_audit_standard`
+
+The recomputable FLOOR of a standards / law audit: content-address the PUBLIC Wikipedia description of a standard or law (CC BY-SA, free, no key), decode its structure, and extract the DECIDABLE checks it states — each sealed or refuted `by decide` LOCALLY (the "free" is a free public API + local decidable checks). HONEST SCOPE: this is the FLOOR a human auditor STARTS from — a provenance fingerprint + decidable checks — NOT a compliance / legal RULING, which requires a licensed auditor or counsel reviewing the specific jurisdiction, edition and deployment. uuidna delivers what recomputes and leaves the ruling to humans. The text is DATA, never executed. Returns {standard,address,checks,factBase,ruling}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `name` | string | **yes** | a standard or law, e.g. "General Data Protection Regulation" or "ISO 27001" |
 
 ### `uuidna_corroborate`
 

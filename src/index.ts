@@ -63,7 +63,7 @@ export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './cha
 // as a chain of uuids. Self-communicating uuids: the message channel IS the uuid stream, secrecy from crypt only.
 export { sealStream, openStream, sealMessages, openMessages, sealChain, openChain, MAX_LAYERS, GENESIS, type Stream, type Link } from './stream.js'
 export { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract, type ContractSealed, type ContractChain } from './contract.js'
-export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, extractDecidable, composeBookArticle, bookArticle, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type ExtractedFact } from './books.js'
+export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, composeBookArticle, bookArticle, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact } from './books.js'
 export { gcdInt, coprime, starPolygon, fibonacciCycle, rotate, crt } from './cycles.js'
 export { recomputableCost, THERMODYNAMICS, type CostReport } from './cost.js'
 export { securityAudit, KNOWN_DEV_DEPS, DEFENCE_THEOREMS, type SecurityCheck, type SecurityAuditReport } from './security-audit.js'
