@@ -5,7 +5,7 @@
 // development trial, never discarded). LOCAL-FIRST: the parties, their tests and proofs stay client-side; nothing is
 // sent, no payment — the "coins" are the conserved fair-exchange invariant (110 − 108 = 2), not money. Integrity,
 // not truth: the deposit buys a COMPUTATION, never a verdict — a deposited claim can still come back UNVERIFIED.
-import { adjudicate, type Verdict } from './adjudicate.js'
+import { type Verdict } from './adjudicate.js'
 import { theorems } from './theorems/index.js'
 import { verifyStatement } from './verify-statement.js'
 import { coins } from './billing.js'
@@ -69,15 +69,20 @@ export function depositTrial(claim: string, deposits: Deposit[]): DepositedTrial
       note: `REMANDED — no parity: ${diamonds.length}/${deposits.length} parties sealed a diamond. Only diamonds sealed AND used by ALL parties compute (trial_computes_only_with_two_coins); a one-sided deposit does not. Who lacks a diamond BUILDS one (see toBuild) and re-deposits. Settles to the development trial by itself — nothing discarded.`,
       receipt: receiptOf('remanded:no-parity') }
   }
-  // PARITY holds — every party's diamond is sealed and used; the trial computes and SETTLES BY ITSELF. A claim that
-  // IS a sealed theorem (byte-identical, O(1) ledger lookup) verifies DIRECTLY — the captain's prose is proven by the
-  // captain theorem. Otherwise use a party's holding test if deposited, else adjudicate the claim. The deposit buys
-  // the computation, never the outcome.
-  const test = deposits.find((d) => typeof d.test === 'function' && depositValid({ party: '', test: d.test }))?.test
+  // PARITY holds — the trial computes the verdict AT ONCE, BY THEOREMS ONLY: a single O(1) content-address lookup of
+  // the claim against the sealed ledger (verifyStatement). VERIFIED iff the claim IS a sealed by-decide theorem
+  // (byte-identical, address recomputed); else UNVERIFIED. No adjudicate, no prose gate, no lexicon — the verdict is a
+  // pure function of the sealed theorems. The deposit buys the computation; the theorems alone decide the outcome.
   const sealed = verifyStatement(String(claim))
-  const verdict: Verdict = sealed.verdict === 'VERIFIED'
-    ? { statement: String(claim), verdict: 'VERIFIED', receipt: sealed.address ?? toUuid(String(claim)), note: `the claim IS a sealed theorem (${sealed.key}) — proven, VERIFIED`, develop: [] }
-    : adjudicate(String(claim), test)
+  const verdict: Verdict = {
+    statement: String(claim),
+    verdict: sealed.verdict,
+    receipt: sealed.address ?? toUuid(String(claim)),
+    note: sealed.verdict === 'VERIFIED'
+      ? `VERIFIED — the claim IS a sealed theorem (${sealed.key}); computed at once by the ledger, theorems only`
+      : `UNVERIFIED — not a sealed theorem; computed at once by the ledger, theorems only (no proof to cite)`,
+    develop: sealed.verdict === 'VERIFIED' ? [] : BUILD,
+  }
   return { ...base, deposited: true, parity: true, coins: coins(), verdict, remanded: false,
     note: `parity — all ${deposits.length} parties sealed a diamond; the trial computed the verdict ${verdict.verdict} and settled by itself (the deposit buys the computation, never the outcome)`,
     receipt: receiptOf('computed:' + verdict.verdict) }
