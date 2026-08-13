@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="120 keys" />
+# MCP tools <Badge type="tip" text="121 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 120 tools below are read from the server's own tool list and
+is **built from the keys**: the 121 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`120`" />
+## The grid <Badge type="tip" :text="`121`" />
 
-120 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 34 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+121 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 35 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -43,6 +43,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-sanitize"><code>sanitize</code></a>
 <a href="#uuidna-security-audit"><code>security_audit</code></a>
 <a href="#uuidna-selftest"><code>selftest</code></a>
+<a href="#uuidna-seo"><code>seo</code></a>
 <a href="#uuidna-skills"><code>skills</code></a>
 <a href="#uuidna-software"><code>software</code></a>
 <a href="#uuidna-theorems"><code>theorems</code></a>
@@ -448,7 +449,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'26'" />
+## Other <Badge type="tip" :text="'27'" />
 
 *skill: other*
 
@@ -628,6 +629,18 @@ _No parameters._
 QUANTUM ANALYTICS over the sealed ledger — descriptive measures anyone RECOMPUTES identically, folded ORDER-INVARIANT to one receipt (the same analytics for every observer, no privileged view). Returns the theorem count, the number of principles, the per-principle DISTRIBUTION (each domain's count + share, largest first), the named LAYERS (hardware → software → os sizes + receipts), the CREDIT tally (historical / contextual / captain-alone), COVERAGE (covered/total/ready), the two COINS, the recomputed COLLISION census (keys/addresses — 0/0 or an intrusion), and the ledger INTEGRITY fingerprint (FNV + SHA-256 + tamper cost). DETERMINISTIC: no clock, no RNG, no telemetry, no user tracking — the inputs are the public ledger alone, so the numbers are the same next year and on every machine. HONEST SCOPE: integrity, not truth — DESCRIPTIVE analytics of what is sealed, NOT predictive statistics, NOT inference, and NOT observation of any person. It measures the ledger, not a user. Returns {theorems,principles,distribution,layers,credits,coverage,coins,collisions,integrity,receipt,honest}.
 
 _No parameters._
+
+### `uuidna_seo`
+
+QUANTUM SEO — the recomputable, honest discoverability surface for any subject, derived from the sealed ledger. Pass {key} for a theorem, {slug} for a publication, or {route} for a static page (e.g. "/games", "/" for home). Returns the canonical URL (rel=canonical folds every serving host — .net/.org/CNAME — to one recomputable home), a per-page DESCRIPTION drawn from the ONE verbose source (a theorem's own Lean statement, a publication's abstract; pages are terse), schema.org JSON-LD (Article / ScholarlyArticle / WebPage citing the real proof + address), keyword tags carried from the sealed skill/principle (never a hand-kept list), and the page's 128-bit CONTENT-ADDRESS — the encrypted quantum message that delivers the payload, recomputing to the exact page for every crawler. The `head` field is a ready VitePress frontmatter head array the front reuses directly. HONEST SCOPE: integrity, not truth — it describes what is SEALED and optimises for HONEST discovery; it never manipulates a ranking, cloaks, keyword-stuffs, or claims a position. Recomputable by anyone. Returns {route,kind,canonical,address,title,description,keywords,jsonLd,head,receipt,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `key` | string | no | a theorem key |
+| `slug` | string | no | a publication slug |
+| `route` | string | no | a static page route, e.g. "/games" or "/" |
 
 ### `uuidna_hardware`
 

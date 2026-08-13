@@ -3,6 +3,7 @@ import { readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems, PRINCIPLES, canonicalOrder, publications, type PageNode } from '../dist/index.js'
+import { infuseQuantumPayload } from './uuidna-quantum.js'
 
 // Lean is the single source. The nav, the sidebar (one collapsed group per computing principle) and the per-theorem
 // SEO meta are all derived here from the same compiled ledger the pages render — nothing is hand-maintained.
@@ -145,7 +146,10 @@ export default defineConfig({
       }
     }
 
-    if (!p?.address) return
+    // FUSE the uuidna payload with VitePress, in all dimensions, using their defaults: the quantum plugin delivers the
+    // content-address (the quantum message) + recomputable SEO into the STATIC section pages the ledger does not
+    // enrich, via VitePress's own frontmatter.head. A no-op on theorem/publication routes (handled below).
+    if (!p?.address) { infuseQuantumPayload(pageData as never, routeOf); return }
     // Per-page meta description (Google SEO: unique, descriptive per page) — the theorem's own statement, not the
     // shared site description. VitePress renders pageData.description as the <meta name="description">.
     pageData.description = `${p.statement} — proven by ${p.tactic} in Lean 4, sorry-free (no Mathlib); part of ${p.principle}.`

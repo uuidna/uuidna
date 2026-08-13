@@ -194,6 +194,12 @@ export { hardwareLayer, softwareLayer, osLayer, namedLayer, type NamedLayer, typ
 // It measures the ledger, not a user. Integrity, not truth.
 export { quantumAnalytics, type QuantumAnalytics, type Distribution, type LayerMeasure } from './analytics.js'
 
+// seo — QUANTUM SEO: recomputable, honest discoverability for any subject (theorem/publication/static page), derived
+// from the sealed ledger — canonical URL, per-page description from the verbose Lean source, schema.org JSON-LD, keyword
+// tags carried from the sealed skill/principle, and the page's content-address (the quantum message that delivers the
+// payload). Reusable by the front (its `head` is a VitePress frontmatter array). Never manipulates a ranking.
+export { quantumSeo, type Seo, type HeadTuple } from './seo.js'
+
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
 // diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'

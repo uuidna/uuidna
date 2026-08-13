@@ -11,7 +11,7 @@ Full legal moves, castling, en passant, pawn promotion, and check / checkmate / 
 hot-seat, on one board. It runs entirely client-side, so it works **offline** once the [PWA](/) has cached it, and
 nothing you play is ever sent or stored.
 
-<Chess />
+<ClientOnly><Chess /></ClientOnly>
 
 Online (networked) play would use the same real-time backend as the [trial CRUD](/trials); this page is the complete
 **offline** game. Back to all [games](/games).
