@@ -32,11 +32,13 @@ export interface PriorArt {
 /** priorArt(keys) → the in-house defensive-publication record for the named theorems. Deterministic and recomputable:
  *  same keys + ledger → same record → same address. Proves WHAT / WHO / INTEGRITY / TERMS in-house; the WHEN is an
  *  external anchor it names. */
+// the ledger is immutable at runtime — index by key ONCE, so a lookup is O(1), not a full scan per key
+const _byKey = new Map(THEOREMS.map((t) => [t.key, t]))
 export function priorArt(keys: readonly string[]): PriorArt {
   const exhibits: PriorArtExhibit[] = []
   const missing: string[] = []
   for (const k of keys) {
-    const t = THEOREMS.find((x) => x.key === k)
+    const t = _byKey.get(k)
     if (t) exhibits.push({ key: t.key, statement: t.statement, lean: t.lean, address: t.address, file: t.file })
     else missing.push(k)
   }

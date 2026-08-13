@@ -22,9 +22,12 @@ const OPS: [string, RegExp][] = [
   ['process', /\bprocess\s*\.\s*\w/],
   ['eval', /\beval\s*\(|\bnew Function\s*\(/],
 ]
-const strip = (s: string): string => s
-  .replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/\/\/[^\n]*/g, ' ')
-  .replace(/'(?:[^'\\]|\\.)*'/g, "''").replace(/"(?:[^"\\]|\\.)*"/g, '""').replace(/`(?:[^`\\]|\\.)*`/g, '``')
+// strip comments LINE-BASED, robustly: drop only whole comment lines (a line whose first non-space is // or * or /*).
+// The prior regex strip mis-parsed a stray quote / block marker and ATE real code (books.ts `await fetch(`,
+// mcp.ts `process.`), passing non-harmonic modules as clean — a false negative that let non-quantum code avoid the
+// scanner. A line-based drop cannot swallow code across lines. A rare trailing inline comment could false-positive;
+// that is the SAFE direction (a security scanner over-reports, never under-reports) and is cleared by @non-harmonic.
+const strip = (s: string): string => s.split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l)).join('\n')
 
 const files = readdirSync(SRC).filter((f) => f.endsWith('.ts'))
 const named: string[] = []

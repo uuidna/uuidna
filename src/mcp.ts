@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: the MCP stdio server reads process.stdin / writes process.stdout and awaits Promise-returning tool handlers (node I/O host) — NAMED boundary; the harmonic core (the pure tools it dispatches) must never carry these ops.
 // uuidna MCP server — fuse uuidna into any harness (Claude, Cursor, any MCP client).
 // THE RULE (for agents): the two captain coins (coins()=2 = −χ of the double torus), the abstract-0 fold (÷0=0), and the 64-bit→128-bit fuse — one uuid = 128 BITS, folded across 7 dimensions = 2^7 = 128 states (a 7-qubit fold, classical, not 128 qubits). Canonical, theorem-cited: see llm.txt.
 // Zero runtime deps: a minimal JSON-RPC 2.0 server over stdio, calling the same pure functions the build seals.
@@ -532,11 +533,11 @@ const TOOLS: Tool[] = [
   { name: 'uuidna_send',
     description: 'SEND (→): encrypt text under a passphrase (pure-TS ChaCha20-Poly1305, 7d-fold envelope), then imprint the sealed envelope INTO a uuid stream — the channel is uuid itself. Returns the uuid chain to transport. Pass an advancing `step` (the crypt salt) so identical messages never ride the wire alike — the equality leak stays closed in transit. Receive it with uuidna_receive and the same passphrase.',
     inputSchema: { type: 'object', properties: { text: { type: 'string' }, passphrase: { type: 'string' }, step: { type: 'integer', description: 'the advancing-sequence step — omit for convergent, supply and advance to close the equality leak in transit' } }, required: ['text', 'passphrase'] },
-    run: (a) => imprintTextChain(JSON.stringify(encrypt(String(a.text), String(a.passphrase), a.step === undefined ? undefined : Number(a.step)))) },
+    run: (a) => sealStream(String(a.text), [String(a.passphrase)], a.step === undefined ? undefined : Number(a.step)).uuids }, // fused onto the one seam: sealStream (byte-identical to the old inline path)
   { name: 'uuidna_receive',
     description: 'RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope, then decrypt with the passphrase. The reverse direction of the bidirectional channel. A wrong key or any tamper throws (Poly1305 authentication).',
     inputSchema: { type: 'object', properties: { uuids: { type: 'array', items: { type: 'string' } }, passphrase: { type: 'string' } }, required: ['uuids', 'passphrase'] },
-    run: (a) => decrypt(JSON.parse(readImprintTextChain((a.uuids as string[]).map(String))) as Sealed, String(a.passphrase)) },
+    run: (a) => openStream((a.uuids as string[]).map(String), [String(a.passphrase)]) }, // fused onto the one seam: openStream (byte-identical to the old inline path)
   // ── the quantum computer — the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale),
   //    no floats, no decimal drift). Build a Bell or GHZ state; read its exact rational distribution, marginals, and
   //    order-invariant receipt. Classical simulation, 2^n amplitudes — exponential, NO quantum advantage. ──

@@ -34,11 +34,17 @@ export interface Reflection {
  *  bit). Every theorem rung by any concept is kept — the field is whole, everything resonates — but each carries how
  *  STRONGLY it rings: the summed specificity of the words that hit it, so rare words ring loud and stopwords ring
  *  silent. The dynamics are the ranking. Deterministic: same query + ledger → same reflection (and same receipt). */
+// the ledger is immutable at runtime — build the theorem list AND its lowercased haystack ONCE (paired, same order),
+// so a reflection query does not re-map and re-lowercase the whole ledger every call.
+let _T: ReturnType<typeof theorems> | null = null, _hays: string[] | null = null
+const _corpus = (): { T: NonNullable<typeof _T>; hays: string[] } => {
+  if (_T === null) { _T = theorems(); _hays = _T.map((t) => (t.key + ' ' + t.name + ' ' + t.skill + ' ' + t.principle).toLowerCase()) }
+  return { T: _T, hays: _hays as string[] }
+}
 export function reflects(query: string): Reflection {
   const concepts = [...new Set(query.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length >= 3))]
-  const T = theorems()
+  const { T, hays } = _corpus()
   const N = T.length
-  const hays = T.map((t) => (t.key + ' ' + t.name + ' ' + t.skill + ' ' + t.principle).toLowerCase())
   // First pass — each concept's REACH (how many theorems it rings) fixes its specificity WEIGHT = N − reach: a word
   // that rings the whole ledger (a stopword) is silent (weight → 0); a word that rings a handful is loud.
   const reach = new Map<string, number>()

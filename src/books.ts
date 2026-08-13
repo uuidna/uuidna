@@ -1,3 +1,4 @@
+// @non-harmonic: fetches public-domain text/metadata from free public APIs (Gutendex/Zenodo/Wikipedia) via fetch (network — non-recomputable) — NAMED boundary; the harmonic core must never carry these ops.
 // books — audit and structurally decode PUBLIC-DOMAIN books. The audit (auditText) is PURE and offline: it
 // content-addresses the exact text (a provenance fingerprint — proof you hold that exact edition, recomputable by
 // anyone), merkle-folds its chapters (so any chapter can be proven to belong to the whole), gives the ℤ/9

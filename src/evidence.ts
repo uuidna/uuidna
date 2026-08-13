@@ -32,6 +32,8 @@ export interface Evidence {
 
 /** evidence(statement) → the recomputable evidence bundle for a statement. Same statement + same ledger → same bundle
  *  and same evidenceReceipt, reproducible by anyone. Delivers integrity, never a legal ruling. */
+// the ledger is immutable at runtime — index by key ONCE, so a cited-key lookup is O(1), not a full scan per key
+const _byKey = new Map(THEOREMS.map((t) => [t.key, t]))
 export function evidence(statement: string): Evidence {
   const report = forensics(statement)
   const verdict = adjudicate(statement).verdict
@@ -42,7 +44,7 @@ export function evidence(statement: string): Evidence {
   const exhibits: ProofExhibit[] = []
   const citedButMissing: string[] = []
   for (const k of cited) {
-    const t = THEOREMS.find((x) => x.key === k)
+    const t = _byKey.get(k)
     if (t) exhibits.push({ key: t.key, statement: t.statement, lean: t.lean, tactic: t.tactic, file: t.file, address: t.address, source: GH + t.file })
     else citedButMissing.push(k)
   }
