@@ -307,5 +307,11 @@ test('prose aligns to the theorems — no hardcoded count drifts from the live l
   for (const m of readme.matchAll(/\*\*([0-9]+) tools\*\*/g)) {
     if (Number(m[1]) !== MCP_CATALOG.length) drift.push(`tools: README ${m[1]} ≠ catalog ${MCP_CATALOG.length}`)
   }
+  // the derived seal block (gen-readme) — its counts must equal the live ledger/catalog/principles, or it drifted
+  const principles = new Set(THEOREMS.map((t) => t.principle)).size
+  for (const m of readme.matchAll(/\*\*([0-9]+) theorems, all sealed/g)) if (Number(m[1]) !== THEOREMS.length) drift.push(`seal theorems: README ${m[1]} ≠ ledger ${THEOREMS.length}`)
+  for (const m of readme.matchAll(/\*\*([0-9]+) MCP tools\*\*/g)) if (Number(m[1]) !== MCP_CATALOG.length) drift.push(`seal tools: README ${m[1]} ≠ catalog ${MCP_CATALOG.length}`)
+  for (const m of readme.matchAll(/\*\*([0-9]+) computing principles\*\*/g)) if (Number(m[1]) !== principles) drift.push(`seal principles: README ${m[1]} ≠ ledger ${principles}`)
+  for (const m of readme.matchAll(/\(([0-9]+)\/([0-9]+), kernel-only/g)) if (m[1] !== m[2] || Number(m[2]) !== THEOREMS.length) drift.push(`seal axiom-free: README ${m[1]}/${m[2]} ≠ ${THEOREMS.length}/${THEOREMS.length}`)
   assert.deepEqual(drift, [], 'hardcoded counts must align to the theorems (derive, do not hardcode — a drifting constant is a crack): ' + drift.join('; '))
 })

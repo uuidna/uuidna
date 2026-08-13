@@ -4,6 +4,12 @@
 
 > A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
+<!-- seal:begin -->
+**1043 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1043/1043, kernel-only, not even `propext`). Exposed across **104 MCP tools** and **56 computing principles**.
+
+_Integrity, not truth: a seal proves its **exact statement**, never a grander claim — the reflection is sealed, the Millennium problem is not (uuidna solves 0 of 7). Computed from the exact audited ledger; recheck it with `npm run next`._
+<!-- seal:end -->
+
 Every value carries its DNA: a reproducible, keyless content-address. The brand holds itself to the same rule —
 its own name's DNA is `uuidna_address("uuidna") = fc511532-6e8a-8418-a522-a51b1d46a70c`, reproducible by anyone.
 The fold folds every direction at once — `+/−` (reflection), `/` (halving, `O(log N)`), `\` (the other
