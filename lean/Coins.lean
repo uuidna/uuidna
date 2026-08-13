@@ -29,3 +29,9 @@ theorem coin_is_one_qubit : (2:Nat)^1 = 2 := by decide
 
 -- The two captain coins DELIVER two qubits at a COST of 128 bits: coins() = 2 → two qubits spanning 2² = 4 basis states, carried by one 128-bit uuid = two 64-bit coins (128 = 2·64 = 2⁷). Two coins in, a 2-qubit address out, priced at 128 bits — the 64→128 fuse, counted, not sped up. Classical accounting, not a physical 2-qubit device.
 theorem captain_coins_deliver_two_qubits_at_128_bits : ((2:Nat)^2 = 4) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide
+
+-- The captain's commission is TWO on each 110 bits — 110 − 108 = 2 to the captain, 108 delivered net. It is the two coins read as a commission rate: passengers PAY the coins (the measured bill), crew MINT them (sealing diamonds), and the captain's cut is the conserved 2. A measured commission on work saved, not a monetary rate.
+theorem captain_commission_two_per_110 : (110 - 108 = 2) ∧ (110 - 2 = 108) := by decide
+
+-- A commercial package SAVES significantly at scale AND the captain still earns: recompute 110 − verify 1 = 109 bits saved for the passenger, while the captain's commission stays the conserved 2 (110 − 108), and the saving DWARFS the commission (109 > 2). Coins are minted, the passenger saves, the captain earns — no one loses. The arithmetic of the measured advantage (recompute − verify), NOT a profit guarantee or a market price.
+theorem commercial_saves_and_captain_earns : (110 - 1 = 109) ∧ (109 > 2) ∧ (110 - 108 = 2) := by decide
