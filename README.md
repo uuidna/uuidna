@@ -5,7 +5,7 @@
 > A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
 <!-- seal:begin -->
-**1131 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1131/1131, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **130 MCP tools** and **63 computing principles**.
+**1132 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1132/1132, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **130 MCP tools** and **63 computing principles**.
 
 _Integrity, not truth: a seal proves its **exact statement**, never a grander claim. The reflection of each Millennium problem is sealed; no solution to any is (0 solve-proofs in the ledger) — so a solve is NOT PROVEN: never refuted, never admitted. Computed from the exact audited ledger; recheck it with `npm run next`._
 <!-- seal:end -->
@@ -91,7 +91,7 @@ passphrase entropy — measured, not asserted; the FNV content-address stays non
 
 ## Formal layer — Lean 4, organized by computing principle
 
-**Every theorem in the ledger** (**1131** across **63** principles), all proven `by decide` (Lean 4,
+**Every theorem in the ledger** (**1132** across **63** principles), all proven `by decide` (Lean 4,
 no Mathlib), verified sorry-free by `npm run lean`, organized by **computing principle** in derivation order — the live
 count and every per-principle total are derived in [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md), never hand-typed:
 
@@ -100,7 +100,7 @@ count and every per-principle total are derived in [`lean/PRINCIPLE.md`](lean/PR
 3. **The rosette ℤ/7** (`Rosette.lean`, 148) — the Pliska group: its full multiplication, addition and power tables
 4. **The vortex algebra** (`Uuidna.lean`, 15) — units, orbit, involution, gravity, division by zero, light — the foundational facts
 5. **Ported from millennium-solutions** (`Vortex.lean`, 16) — the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)
-6. **The sequence & reflection group** (`Sequence.lean`, 19) — the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt
+6. **The sequence & reflection group** (`Sequence.lean`, 20) — the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt
 
 …and 57 more principles (physics, games, arts, language, security, the exploit folds), each a verified
 monograph. The full, filterable collection — each theorem with its `by decide` proof, statement and content-address —

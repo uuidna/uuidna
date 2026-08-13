@@ -16,6 +16,11 @@ const carries = (d: number, nx: number) => (isUnit(d) ? nx === m9(d * 2) : d ===
 const seams = TOUR.filter((d, i) => !carries(d, TOUR[(i + 1) % TOUR.length])).length
 
 const FACTS = [
+  { key: 'seal_ten',
+    why: 'SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling — each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check catches.)',
+    js: () => { const s = [0, 1, 2, 4, 8, 7, 5, 3, 6, 9]; const dz = (x: number): number => (x === 0 ? 0 : 10 - x); return s.length === 10 && [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].every((d) => s.includes(d)) && JSON.stringify([1, 2, 4, 8, 7, 5].map((x) => (x * 2) % 9)) === JSON.stringify([2, 4, 8, 7, 5, 1]) && JSON.stringify(s.map(dz)) === JSON.stringify([0, 9, 8, 6, 2, 3, 5, 7, 4, 1]) },
+    lean: 'theorem seal_ten : ([0,1,2,4,8,7,5,3,6,9].length = 10) ∧ ((List.range 10).all (fun d => [0,1,2,4,8,7,5,3,6,9].contains d)) ∧ ([1,2,4,8,7,5].map (fun x => (x*2)%9) = [2,4,8,7,5,1]) ∧ ([0,1,2,4,8,7,5,3,6,9].map (fun x => if x == 0 then 0 else 10 - x) = [0,9,8,6,2,3,5,7,4,1]) := by decide' },
+
   { key: 'mirror_congruence', why: 'the mirror m(d)=10−d equals 1−d (mod 9) — a reflection through the origin+1',
     js: () => [1, 2, 3, 4, 5, 6, 7, 8, 9].every((d) => m9(10 - d) === m9(1 - d)),
     lean: "theorem mirror_congruence : (List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9) := by decide" },
