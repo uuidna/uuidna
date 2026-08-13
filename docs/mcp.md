@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="104 keys" />
+# MCP tools <Badge type="tip" text="105 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 104 tools below are read from the server's own tool list and
+is **built from the keys**: the 105 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`104`" />
+## The grid <Badge type="tip" :text="`105`" />
 
-104 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+105 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -88,6 +88,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-sha256"><code>sha256</code></a>
 <a href="#uuidna-slim-gate"><code>slim_gate</code></a>
 <a href="#uuidna-snapshot"><code>snapshot</code></a>
+<a href="#uuidna-spin"><code>spin</code></a>
 <a href="#uuidna-strict"><code>strict</code></a>
 <a href="#uuidna-theorem"><code>theorem</code></a>
 <a href="#uuidna-transform"><code>transform</code></a>
@@ -430,7 +431,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'10'" />
+## Other <Badge type="tip" :text="'11'" />
 
 *skill: other*
 
@@ -446,6 +447,16 @@ Issue the recomputable LICENCE RECORD for a licensee and a usage: bind the CC-BY
 | `commercial` | boolean | no |  |
 | `recomputeOps` | number | no |  |
 | `verifyOps` | number | no |  |
+
+### `uuidna_spin`
+
+"Spin the bits and get the coins" — fold any content into its content-address and take the top-64 COIN (coin64). This is the O(1) primitive under the derived-layer gate: a derived file is a FIXED POINT when its re-spun coin equals its sealed coin (verify O(1), `verify_cheaper_than_forge`), and a moved coin is non-quantum DRIFT that the gate hard-rejects. Once sealed, the bits spin by themselves — the gate re-spins each derived file with no manual step. HONEST: the FNV/coin address is non-cryptographic integrity (routing/fixed-point detection), not secrecy. Returns {address, coin}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `content` | string | **yes** | the bytes to spin into a content-address coin |
 
 ### `uuidna_book_article`
 

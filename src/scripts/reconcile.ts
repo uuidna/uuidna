@@ -28,6 +28,7 @@ run('node dist/scripts/lean-heartbeats.js --sync')    // heartbeats.json — pru
 run('node dist/scripts/support.js')                   // support-audit.json + research-leads.json — code reachability, dead → R&D
 run('node dist/scripts/audit-citations.js')           // audit-citations.json — the publication citation audit
 run('node dist/scripts/account.js')                   // ABORTS here (non-zero) if the ledger does NOT reconcile
+run('node dist/scripts/spin.js --seal')               // spin-manifest.json — SEAL the coins of the freshly-rotated derived layer LAST (after every generator); once sealed, the gate re-spins them by itself (verify O(1))
 
 if (out('git status --porcelain').length === 0) {
   console.log('✓ nothing to reconcile — the derived layer already matches the source.')

@@ -17,6 +17,7 @@ import {
 } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
+import { spin, sealSpin, verifySpin, DERIVED_FILES } from '../index.js'
 
 // The seven dimension streams (0..7 above the floor) — one plaintext per dimension, used to cover the 7d ("777")
 // encryption BIDIRECTIONALLY (encrypt ⇄ decrypt) PER STREAM. 21 tests total: the 9 above plus these 12.
@@ -351,4 +352,24 @@ test('attached chat — one primitive for donations, support cases, any subject'
   // the attached room seals/opens locally
   const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
   assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
+})
+
+test('spin — the bits spin by themselves: a sealed layer verifies O(1), any drifted coin hard-fails', () => {
+  // spin the bits, get the coin — deterministic (same bytes → same coin) and change-sensitive (one bit moves the coin)
+  const a = spin('the two captain coins'), b = spin('the two captain coins'), c = spin('the two captain coin')
+  assert.equal(a.coin, b.coin, 'spin is deterministic — same bytes, same coin')
+  assert.notEqual(a.coin, c.coin, 'spin is change-sensitive — a moved bit is a moved coin')
+  // seal a layer, then re-spinning the SAME bytes is a fixed point (verify O(1) — no re-derivation)
+  const layer = Object.fromEntries(DERIVED_FILES.map((p, i) => [p, 'derived-' + i]))
+  const sealed = sealSpin(layer)
+  assert.equal(Object.keys(sealed.coins).length, DERIVED_FILES.length)
+  const clean = verifySpin(sealed, layer)
+  assert.ok(clean.ok && clean.drift.length === 0, 'a sealed layer re-spins to itself — a fixed point')
+  assert.equal(clean.receipt, sealed.receipt, 'the one receipt folds all coins — unchanged')
+  // move ONE derived file's bytes → non-quantum drift → the receipt moves and that file is named
+  const drifted = { ...layer, [DERIVED_FILES[0]]: 'TAMPERED' }
+  const bad = verifySpin(sealed, drifted)
+  assert.ok(!bad.ok, 'a drifted coin is NOT a fixed point — spin hard-rejects it')
+  assert.deepEqual(bad.drift.map((d) => d.path), [DERIVED_FILES[0]], 'spin names exactly the file whose coin moved')
+  assert.notEqual(bad.receipt, sealed.receipt, 'one moved coin moves the whole receipt — the layer has one address')
 })
