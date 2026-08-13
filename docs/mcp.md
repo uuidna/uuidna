@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="129 keys" />
+# MCP tools <Badge type="tip" text="130 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 129 tools below are read from the server's own tool list and
+is **built from the keys**: the 130 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`129`" />
+## The grid <Badge type="tip" :text="`130`" />
 
-129 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 41 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+130 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 41 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -109,6 +109,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-reveal"><code>reveal</code></a>
 <a href="#uuidna-seats"><code>seats</code></a>
 <a href="#uuidna-sha256"><code>sha256</code></a>
+<a href="#uuidna-sign"><code>sign</code></a>
 <a href="#uuidna-slim-gate"><code>slim_gate</code></a>
 <a href="#uuidna-snapshot"><code>snapshot</code></a>
 <a href="#uuidna-spin"><code>spin</code></a>
@@ -457,7 +458,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'35'" />
+## Other <Badge type="tip" :text="'36'" />
 
 *skill: other*
 
@@ -766,6 +767,16 @@ VERIFY ALL BY DUE (recomputable) LEGAL PROCESS — nothing verified by fiat. Eve
 AUDIT the Cloudflare Workers bindings for a quantum-secure posture, recomputably. Reflects the committed wrangler.toml: the ASSETS binding (static ./site served read-only — no secret, no crypto target), the TRIALS KV (OPT-IN and commented out — no namespace id committed, consent-gated), the TRIAL_KEY secret (a `wrangler secret`, NEVER in the repo — signs each verdict with HMAC-SHA256), and token-free OIDC publish. QUANTUM POSTURE: symmetric-only (HMAC-SHA256, ChaCha20-Poly1305, PBKDF2-SHA256) — no RSA/ECC, so Shor has no asymmetric target; Grover only halves to a ~128-bit floor. Returns {worker,bindings,secretsInRepo,quantumPosture,clean,receipt,honest}. HONEST SCOPE: audits the COMMITTED CONFIG posture (no secret committed + symmetric crypto), NOT the live edge deployment (the real secret and KV id live at the edge, not the repo) — not a penetration test or a compliance certification. A live audit needs the Cloudflare account.
 
 _No parameters._
+
+### `uuidna_sign`
+
+SIGN a commit message (or any statement) as TRUE — or refuse. A message is SIGNED-TRUE iff, checked against the sealed ledger, it CITES a real sealed theorem (a /theorem/&lt;key&gt; or "theorem &lt;key&gt;") and NONE fabricated (slimGate VERIFIED). The signature is the message content-address FOLDED with its cited theorems through merkleGravity — one gravity root, order-invariant, through the abstract-0 (÷0=0): "folding to 1 through 0". A message citing a proof NOT in the ledger is REFUSED; one citing no theorem is UNSIGNED; one citing a real sealed theorem is SIGNED. The reconcile can FAIL unless the commit is signed-true, so an overclaiming message cannot be committed AS TRUTH. HONEST SCOPE: "signed-true" means BACKED by a sealed proof it names — NOT that the claim is true; it signs the CITATION, not the world. No word-list, no forced count. Returns {signed,verdict,address,cited,citedCount,fabricated,fold,reason,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `message` | string | **yes** |  |
 
 ### `uuidna_reveal`
 

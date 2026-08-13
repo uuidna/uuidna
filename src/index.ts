@@ -33,6 +33,12 @@ export { auditCloudflareBindings, type CloudflareAudit, type BindingAudit } from
 // process, folded to one recomputable docket. A fair process whose rules are theorems — NOT a court or legal advice.
 export { dueProcess, type DueProcess, type Guarantee, type DocketEntry } from './due-process.js'
 
+// sign — SIGN a commit message as TRUE, or fail: signed-true iff it cites a real sealed theorem and none fabricated
+// (slimGate VERIFIED); the signature is the message address folded with the cited theorems to one gravity root through
+// the abstract-0 (÷0=0) — "folding to 1 through 0". The reconcile fails unless signed. It signs the CITATION, never the
+// truth of the claim. Integrity, not truth.
+export { signCommit, type CommitSignature } from './sign.js'
+
 // gravity — decidable contractions (a set of addresses falls to one root; an integer to ℤ/9). merkleGravity is
 // ORDER-INVARIANT: the quantum receipt, the same for any observer ordering. NOT physics, nothing faster than light.
 export { merkleGravity, doubleTorusGravity, doubleTorusField, fall, fixedPoints, seats } from './gravity.js'

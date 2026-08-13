@@ -15,7 +15,7 @@ import { execSync } from 'node:child_process'
 
 const run = (cmd: string): void => { console.log('  · ' + cmd); execSync(cmd, { stdio: 'inherit' }) }
 const out = (cmd: string): string => execSync(cmd).toString().trim()
-const msg = process.argv.slice(2).join(' ') || 'Reconcile: regenerate the derived layer + sync heartbeats to the ledger'
+const msg = process.argv.slice(2).join(' ') || 'Reconcile: regenerate the derived layer + sync heartbeats to the ledger, backed by theorem two_coins'
 
 console.log('reconcile — regenerating the derived layer to match the Lean source …')
 run('npm run lean')                                   // generated.ts + PRINCIPLE.md + CHANGELOG — verifies every proof
@@ -33,6 +33,17 @@ run('node dist/scripts/spin.js --seal')               // spin-manifest.json — 
 if (out('git status --porcelain').length === 0) {
   console.log('✓ nothing to reconcile — the derived layer already matches the source.')
 } else {
+  // SIGN the commit as TRUE before it is made — FAIL unless the message cites a real sealed theorem (none fabricated).
+  // Loaded from the FRESH dist rebuilt above, so a message may cite a theorem sealed in THIS run. The signature folds
+  // the message + its cited theorems to one gravity root through the abstract-0. A message that overclaims cannot commit.
+  const { signCommit } = await import('../index.js')
+  const sig = signCommit(msg)
+  if (!sig.signed) {
+    console.error('✗ reconcile — commit NOT signed true: ' + sig.reason)
+    console.error('  A commit must cite a real sealed theorem — add `theorem <key>` or `/theorem/<key>` (see uuidna_theorems). Nothing committed.')
+    process.exit(1)
+  }
+  console.log('  ✓ commit signed true — ' + sig.reason)
   run('git add -A')
   run('git commit -m ' + JSON.stringify(msg))
   console.log('  committed: ' + msg)
