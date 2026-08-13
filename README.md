@@ -5,7 +5,7 @@
 > A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
 <!-- seal:begin -->
-**1082 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1082/1082, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **109 MCP tools** and **60 computing principles**.
+**1085 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1085/1085, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **109 MCP tools** and **60 computing principles**.
 
 _Integrity, not truth: a seal proves its **exact statement**, never a grander claim — the reflection is sealed, the Millennium problem is not (uuidna solves 0 of 7). Computed from the exact audited ledger; recheck it with `npm run next`._
 <!-- seal:end -->
@@ -118,7 +118,7 @@ and organized by **computing principle** in derivation order — the live count 
 [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md) (never hardcoded here, so this prose can't drift from the ledger):
 
 1. **The 8×8 core** (`Core.lean`, 64) — the multiplication table of ℤ/9's non-zero residues; the generator.
-2. **The ring ℤ/9** (`Ring.lean`, 234) and **the rosette ℤ/7 / Pliska** (`Rosette.lean`, 145) — the full tables.
+2. **The ring ℤ/9** (`Ring.lean`, 234) and **the rosette ℤ/7 / Pliska** (`Rosette.lean`, 148) — the full tables.
 3. **Derived, applied, discovered** (vortex algebra, reflection group, division-by-zero, blood/DNA/sound
    structure, self-discovered facts), **the quantum computer** (`Quantum.lean` — the exact classical
    state-vector simulator: Born rule, no-signaling, GHZ, gate truth-tables, phase algebra and the gate

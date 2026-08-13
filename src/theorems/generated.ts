@@ -4,7 +4,7 @@
 
 export interface LeanTheorem { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill?: string }
 
-/** The 1082 Lean-proven theorems, in computing-principle order. */
+/** The 1085 Lean-proven theorems, in computing-principle order. */
 export const LEAN_LEDGER: readonly LeanTheorem[] = [
   { key: "mul9_1_1", name: "1·1 ≡ 1 (mod 9)", statement: "(1 * 1) % 9 = 1", tactic: "decide", file: "Core.lean", principle: "The 8×8 core", skill: "z9-ring" },
   { key: "mul9_1_2", name: "1·2 ≡ 2 (mod 9)", statement: "(1 * 2) % 9 = 2", tactic: "decide", file: "Core.lean", principle: "The 8×8 core", skill: "z9-ring" },
@@ -449,6 +449,9 @@ export const LEAN_LEDGER: readonly LeanTheorem[] = [
   { key: "z7units_sum_21", name: "the six rosette units {1..6} sum to 21 = 3·7 — the rosette closes on the trinity", statement: "(1 + 2 + 3 + 4 + 5 + 6) = 21", tactic: "decide", file: "Rosette.lean", principle: "The rosette ℤ/7", skill: "z7-rosette" },
   { key: "z7fermat", name: "Fermat on the rosette: every non-zero ray to the sixth is 1 (mod 7) — the six-fold closes", statement: "(List.range 7).all (fun a => a % 7 == 0 || (a ^ 6) % 7 == 1)", tactic: "decide", file: "Rosette.lean", principle: "The rosette ℤ/7", skill: "z7-rosette" },
   { key: "z7reflection_center", name: "the rosette reflection d ↦ 7−d is a self-inverse with a single center (0) — the still point of the seven", statement: "(List.range 7).all (fun d => ((7 - (7 - d) % 7) % 7) == d % 7) ∧ ((List.range 7).filter (fun d => (7 - d) % 7 == d)).length = 1", tactic: "decide", file: "Rosette.lean", principle: "The rosette ℤ/7", skill: "z7-rosette" },
+  { key: "rosette_pairs_twentyone", name: "the 21 ROSETTE: C(7,2) = 7·6/2 = 21 — the undirected pairs of the seven rays, the edges of the 7-star (the 21-test two-coins guard)", statement: "(7 * 6) / 2 = 21", tactic: "decide", file: "Rosette.lean", principle: "The rosette ℤ/7", skill: "z7-rosette" },
+  { key: "rosette_quantum_fortytwo", name: "the 42 QUANTUM rosette: made order-sensitive — each pair a DIRECTED merge edge (a↔b becomes a→b and b→a) — the 21 doubles to 7·6 = 42 directed pairs", statement: "7 * 6 = 42", tactic: "decide", file: "Rosette.lean", principle: "The rosette ℤ/7", skill: "z7-rosette" },
+  { key: "rosette_quantum_doubling_is_two_coins", name: "QUANTUM DOUBLING IS THE TWO CAPTAIN COINS contributed: the factor 2 (= 110−108, −χ of the double torus) takes the 21 rosette to the 42 quantum rosette AND the 64-bit coin to the 128-bit address — the doubling holds only if the two coins are accounted and contributed", statement: "(2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2)", tactic: "decide", file: "Rosette.lean", principle: "The rosette ℤ/7", skill: "z7-rosette" },
   { key: "units_z9", name: "the units of ℤ/9 (the residues with an inverse) are exactly {1,2,4,5,7,8} — computed by search", statement: "(List.range 9).filter (fun d => (List.range 9).any (fun e => (d * e) % 9 == 1)) = [1,2,4,5,7,8]", tactic: "decide", file: "Uuidna.lean", principle: "The vortex algebra", skill: "vortex" },
   { key: "vortex_orbit", name: "the doubling orbit 1→2→4→8→7→5 with 5·2 ≡ 1 — the ⟨2⟩ vortex closing on the units", statement: "[1, (1*2)%9, (2*2)%9, (4*2)%9, (8*2)%9, (7*2)%9] = [1,2,4,8,7,5] ∧ (5*2) % 9 = 1", tactic: "decide", file: "Uuidna.lean", principle: "The vortex algebra", skill: "vortex" },
   { key: "mod9_arithmetic", name: "ℤ/9 arithmetic: 2·5, 4·7, 8·8 ≡ 1 (inverse pairs), 3²≡6²≡0 (nilpotents), 3 has no inverse", statement: "(2*5)%9 = 1 ∧ (4*7)%9 = 1 ∧ (8*8)%9 = 1 ∧ (3*3)%9 = 0 ∧ (6*6)%9 = 0 ∧ (List.range 9).all (fun x => (3*x)%9 != 1)", tactic: "decide", file: "Uuidna.lean", principle: "The vortex algebra", skill: "z9-ring" },

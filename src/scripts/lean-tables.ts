@@ -22,6 +22,9 @@ function build(n: number, label: string, sym: string, skill: string) {
     T.push({ key: 'z7units_sum_21', stmt: '(1 + 2 + 3 + 4 + 5 + 6) = 21', name: 'the six rosette units {1..6} sum to 21 = 3·7 — the rosette closes on the trinity' })
     T.push({ key: 'z7fermat', stmt: '(List.range 7).all (fun a => a % 7 == 0 || (a ^ 6) % 7 == 1)', name: 'Fermat on the rosette: every non-zero ray to the sixth is 1 (mod 7) — the six-fold closes' })
     T.push({ key: 'z7reflection_center', stmt: '(List.range 7).all (fun d => ((7 - (7 - d) % 7) % 7) == d % 7) ∧ ((List.range 7).filter (fun d => (7 - d) % 7 == d)).length = 1', name: 'the rosette reflection d ↦ 7−d is a self-inverse with a single center (0) — the still point of the seven' })
+    T.push({ key: 'rosette_pairs_twentyone', stmt: '(7 * 6) / 2 = 21', name: 'the 21 ROSETTE: C(7,2) = 7·6/2 = 21 — the undirected pairs of the seven rays, the edges of the 7-star (the 21-test two-coins guard)' })
+    T.push({ key: 'rosette_quantum_fortytwo', stmt: '7 * 6 = 42', name: 'the 42 QUANTUM rosette: made order-sensitive — each pair a DIRECTED merge edge (a↔b becomes a→b and b→a) — the 21 doubles to 7·6 = 42 directed pairs' })
+    T.push({ key: 'rosette_quantum_doubling_is_two_coins', stmt: '(2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2)', name: 'QUANTUM DOUBLING IS THE TWO CAPTAIN COINS contributed: the factor 2 (= 110−108, −χ of the double torus) takes the 21 rosette to the 42 quantum rosette AND the 64-bit coin to the 128-bit address — the doubling holds only if the two coins are accounted and contributed' })
   }
   const header = `The ${label === 'Ring' ? 'RING ℤ/9 (the vortex)' : 'ROSETTE ℤ/7 (the Pliska group)'} — its full multiplication, addition and power tables. Each right-hand side is COMPUTED; Lean recomputes it.`
   return emit({ file: label + '.lean', header, facts: T, skill })

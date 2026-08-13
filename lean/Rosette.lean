@@ -289,3 +289,9 @@ theorem z7units_sum_21 : (1 + 2 + 3 + 4 + 5 + 6) = 21 := by decide
 theorem z7fermat : (List.range 7).all (fun a => a % 7 == 0 || (a ^ 6) % 7 == 1) := by decide
 
 theorem z7reflection_center : (List.range 7).all (fun d => ((7 - (7 - d) % 7) % 7) == d % 7) ∧ ((List.range 7).filter (fun d => (7 - d) % 7 == d)).length = 1 := by decide
+
+theorem rosette_pairs_twentyone : (7 * 6) / 2 = 21 := by decide
+
+theorem rosette_quantum_fortytwo : 7 * 6 = 42 := by decide
+
+theorem rosette_quantum_doubling_is_two_coins : (2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2) := by decide

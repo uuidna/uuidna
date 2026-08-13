@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1082 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1085 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -11,7 +11,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 2. **The ring ℤ/9** — `lean/Ring.lean` · **234** theorems
    the vortex ring: its full multiplication, addition and power tables
 
-3. **The rosette ℤ/7** — `lean/Rosette.lean` · **145** theorems
+3. **The rosette ℤ/7** — `lean/Rosette.lean` · **148** theorems
    the Pliska group: its full multiplication, addition and power tables
 
 4. **The vortex algebra** — `lean/Uuidna.lean` · **15** theorems
