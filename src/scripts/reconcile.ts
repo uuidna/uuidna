@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 // reconcile — regenerate the WHOLE derived layer to match the current Lean source, sync the heartbeats, then commit
 // and push. The one command that gets a ledger change past the pre-push readiness gate: the gate git-diffs
-// generated.ts, PRINCIPLE.md, CHANGELOG.md, docs/mcp.md, audit-citations.json and lean/, so every one must be
-// regenerated first or the push is blocked. Add a domain (a lean-<x>.ts generator or a hand-written .lean), then:
+// generated.ts, PRINCIPLE.md, CHANGELOG.md, lean/ (incl. lean/axioms.json), docs/mcp.md, audit-citations.json,
+// support-audit.json and research-leads.json — so EVERY one must be regenerated here or the push is blocked. Each
+// derived file must equal its own recomputation from the one audited ledger (a fixed point); a file left
+// un-rotated is the "non-quantum" drift the gate hard-rejects. Add a domain (a lean-<x>.ts generator or a .lean), then:
 //
 //   npm run reconcile                       → default commit message
 //   npm run reconcile "Add the nim domain"  → your own message
@@ -18,6 +20,7 @@ const msg = process.argv.slice(2).join(' ') || 'Reconcile: regenerate the derive
 console.log('reconcile — regenerating the derived layer to match the Lean source …')
 run('npm run lean')                                   // generated.ts + PRINCIPLE.md + CHANGELOG — verifies every proof
 run('npm run build')                                  // REBUILD dist from the fresh generated.ts, so the downstream generators (gen-mcp/gen-readme/heartbeats/account) read the CURRENT ledger, not the stale pre-lean dist — else a new domain's theorems are missing from heartbeats and accounting fails at the pre-push gate
+run('node dist/scripts/lean-axioms.js')               // lean/axioms.json — re-derive the axiom-free audit from the CURRENT ledger (gated under lean/; the pre-push gate regenerates it, so reconcile must too or the git-diff blocks the push)
 run('node dist/scripts/gen-mcp.js')                   // docs/mcp.md — the MCP catalog, built from the tool keys
 run('node dist/scripts/gen-readme.js')                // README.md seal block — theorem/axiom/tool counts, derived from the ledger
 run('node dist/scripts/gen-llm.js')                   // llm.txt — the agent RULE (captain coins, abstract-0 fold, 64→128, 7 dimensions), generated from the sealed ledger
