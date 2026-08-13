@@ -93,6 +93,10 @@ export { reflects, type Reflection, type Reflected } from './reflects.js'
 // legal — the recomputable legal FACT BASE (licence, attribution, ledger receipt, compliance stance, standards
 // cited), NOT a legal audit or opinion: the inputs counsel starts from, delivered in chat, the ruling left to humans.
 export { legalFacts, type LegalFacts } from './legal.js'
+// license — the recomputable LICENCE RECORD: bind a licensee, the CC-BY-NC-ND-4.0 terms, and the two-coins bill into
+// one content-addressed, verifiable artifact. NOT a signed agreement or legal advice — a fingerprint of what and how
+// much; non-commercial is free and needs no licence, commercial is billed the two conserved coins.
+export { license, verifyLicense, type License } from './license.js'
 // priorart — an IN-HOUSE defensive-publication record: what/who/integrity/terms, recomputable and self-contained; the
 // WHEN (priority-dating) it names as an external anchor, never faked. You cannot notarise your own document.
 export { priorArt, type PriorArt, type PriorArtExhibit } from './priorart.js'
