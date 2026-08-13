@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1085 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1086 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -38,7 +38,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 11. **The seven reflected** — `lean/Clay.lean` · **11** theorems
    the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none
 
-12. **The legal vocabulary** — `lean/Legal.lean` · **5** theorems
+12. **The legal vocabulary** — `lean/Legal.lean` · **6** theorems
    the trial's legal terms as decidable facts — PROVEN (admitted, stays), REFUTED (a recomputable contradiction), NOT PROVEN (dismissed without prejudice), REMAND (to development trial): only the proven is admitted, every non-proven is remanded (nothing discarded), and the non-justiciable is never refuted (you cannot refute what has no decidable test)
 
 13. **The physics infinities, made finite** — `lean/Infinity.lean` · **9** theorems

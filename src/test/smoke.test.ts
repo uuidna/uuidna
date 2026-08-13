@@ -19,6 +19,7 @@ import { MCP_CATALOG, callTool, engine } from '../mcp.js'
 import { sanitizeValue, sanitizeInput, scrubString, MAX_DEPTH, MAX_STRING, MAX_ARRAY, MAX_KEYS, verifyStatement } from '../index.js'
 import { exploitFold } from '../index.js'
 import { conformance } from '../index.js'
+import { depositTrial } from '../index.js'
 import { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
 import { spin, sealSpin, verifySpin, DERIVED_FILES } from '../index.js'
 import { pentagramMonographs } from '../index.js'
@@ -356,6 +357,23 @@ test('attached chat — one primitive for donations, support cases, any subject'
   // the attached room seals/opens locally
   const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
   assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
+})
+
+test('trial deposit — requires the two coins deposited by the parties, sealed diamonds, computes in parity, builds the lacking', () => {
+  const proof = 'two_coins' // a sealed theorem key = a valid two-coin deposit
+  // NO parity — one party deposits a sealed diamond, the other lacks one → REMANDED, and the lacker gets the build recipe
+  const oneSided = depositTrial('uuidna solves the Riemann Hypothesis', [{ party: 'plaintiff', proof }, { party: 'defendant' }])
+  assert.ok(oneSided.remanded && !oneSided.parity, 'a one-sided deposit does not compute — no parity')
+  assert.equal(oneSided.diamonds.length, 1, 'only the valid deposit sealed a diamond')
+  assert.equal(oneSided.verdict, null, 'no verdict without parity')
+  assert.ok(oneSided.toBuild.some((b) => b.party === 'defendant' && b.build.length >= 3), 'who lacks a diamond gets the recipe to build one')
+  // PARITY — both parties deposit valid sealed diamonds → computes and settles by itself (verdict may still be UNVERIFIED)
+  const both = depositTrial('uuidna solves the Riemann Hypothesis', [{ party: 'plaintiff', proof }, { party: 'defendant', proof }])
+  assert.ok(both.parity && both.deposited && !both.remanded, 'parity — all parties sealed a diamond, the trial computes')
+  assert.equal(both.diamonds.length, 2, 'two sealed diamonds')
+  assert.equal(both.coins, 2, 'the two coins are in')
+  assert.equal(both.verdict?.verdict, 'UNVERIFIED', 'the deposit buys the computation, never the outcome — solve-claim still UNVERIFIED')
+  assert.equal(depositTrial('x', [{ party: 'a', proof }, { party: 'b', proof }]).receipt, depositTrial('x', [{ party: 'a', proof }, { party: 'b', proof }]).receipt, 'recomputable — same deposit, same receipt')
 })
 
 test('conformance — the commit DNA gate: coins conserved, every theorem address recomputes, security clean', () => {

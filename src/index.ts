@@ -172,6 +172,10 @@ export { exploitFold, type ExploitAudit, type ExploitFold, type FoldVerdict } fr
 // conformance — the COMMIT DNA GATE: fold the core invariants (coins conserved, every theorem address recomputes,
 // security clean, single-sourced) into one hard-enforced receipt, so no agent sneaks incompatible DNA past.
 export { conformance, type ConformanceReport, type ConformanceCheck } from './conformance.js'
+
+// trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
+// diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
+export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'
 // quantum/os — uuidnaOS is NOT an OS you boot and does NOT run/port Alpine's binaries (uuidna never executes). It is a
 // content-addressed PROVENANCE MANIFEST of an EXACT Alpine release: pin the version + arch + PUBLISHED rootfs digest,
 // and VERIFY your actual bytes with uuidna's own pure-TS SHA-256. Port the INTEGRITY, never the runtime. fetchAlpineLatest

@@ -54,6 +54,11 @@ const FACTS = [
     why: 'nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial, never deleted',
     js: () => R8.every((n) => (lp(t(n), h(n), c(n)) + lrem(t(n), h(n), c(n)) === 1) && (lrem(t(n), h(n), c(n)) === lr(t(n), h(n), c(n)) + lnp(t(n), h(n), c(n)))),
     lean: `theorem legal_remand_is_total_nothing_discarded : (List.range 8).all (${LT} (lp t h c + lrem t h c == 1) && (lrem t h c == lr t h c + lnp t h c)) := by decide` },
+
+  { key: 'trial_computes_only_with_two_coins', skill: 'legal',
+    why: 'the captain theorem sealed INTO the trial: of every contribution k, the ONLY one that computes the conserved save (2·32 = 64) is the TWO coins — the computing contributions are exactly [2]. So a claim computes at trial iff it contributes the two coins (a sealed proof); every other contribution is remanded, uncomputed. The coin form of legal_only_the_proven_is_admitted, and the contrapositive of captain_computes_only_with_two_coins: only those that did not contribute the coins did not compute',
+    js: () => JSON.stringify(R8.filter((k) => 32 * k === 64)) === '[2]',
+    lean: 'theorem trial_computes_only_with_two_coins : (List.range 8).filter (fun k => 32 * k == 64) = [2] := by decide' },
 ]
 
 console.log('computing ' + FACTS.length + ' LEGAL-vocabulary facts (the trial terms as sealed theorems) …')

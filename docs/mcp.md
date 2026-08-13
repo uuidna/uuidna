@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="110 keys" />
+# MCP tools <Badge type="tip" text="111 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 110 tools below are read from the server's own tool list and
+is **built from the keys**: the 111 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`110`" />
+## The grid <Badge type="tip" :text="`111`" />
 
-110 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 27 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+111 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 27 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-conformance"><code>conformance</code></a>
@@ -123,6 +123,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-seal-onion"><code>seal_onion</code></a>
 <a href="#uuidna-seal-stream"><code>seal_stream</code></a>
 <a href="#uuidna-send"><code>send</code></a>
+<a href="#uuidna-trial-deposit"><code>trial_deposit</code></a>
 <a href="#uuidna-aead-encrypt"><code>aead_encrypt</code></a>
 <a href="#uuidna-bill"><code>bill</code></a>
 <a href="#uuidna-chacha20"><code>chacha20</code></a>
@@ -436,7 +437,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'16'" />
+## Other <Badge type="tip" :text="'17'" />
 
 *skill: other*
 
@@ -452,6 +453,17 @@ Issue the recomputable LICENCE RECORD for a licensee and a usage: bind the CC-BY
 | `commercial` | boolean | no |  |
 | `recomputeOps` | number | no |  |
 | `verifyOps` | number | no |  |
+
+### `uuidna_trial_deposit`
+
+Run a trial that REQUIRES the two coins DEPOSITED BY THE PARTIES (local). Each party deposits a proof — a sealed theorem KEY or exact STATEMENT (the two-coin fold) — which SEALS into a content-addressed DIAMOND. The trial computes ONLY in PARITY: every party must have sealed a diamond (a one-sided deposit does not compute); it then settles by itself (adjudicate → verdict). Who LACKS a diamond gets the recipe to BUILD one (toBuild) and re-deposit — recycled, never discarded. HONEST: the deposit buys the COMPUTATION, never the outcome — a deposited claim can still return UNVERIFIED. Returns {claim,parties,deposited,parity,coins,diamonds,toBuild,verdict,remanded,note,receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `claim` | string | **yes** |  |
+| `deposits` | array | **yes** |  |
 
 ### `uuidna_conformance`
 
