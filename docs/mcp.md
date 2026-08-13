@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="114 keys" />
+# MCP tools <Badge type="tip" text="115 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 114 tools below are read from the server's own tool list and
+is **built from the keys**: the 115 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`114`" />
+## The grid <Badge type="tip" :text="`115`" />
 
-114 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 28 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+115 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 29 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-conformance"><code>conformance</code></a>
@@ -27,6 +27,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
+<a href="#uuidna-laws"><code>laws</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
 <a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
 <a href="#uuidna-pentagram"><code>pentagram</code></a>
@@ -440,7 +441,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'20'" />
+## Other <Badge type="tip" :text="'21'" />
 
 *skill: other*
 
@@ -608,6 +609,12 @@ The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `claims` | array | **yes** | claims or external theories to adjudicate and recycle |
+
+### `uuidna_laws`
+
+uuidna's standing INVARIANTS, IN uuidna and each DEMONSTRATED, not asserted: every law states what holds AND recomputes its `holds` from the actual gate that enforces it (generate-all-from-Lean → single-source + git-diff; any-manual-fails → every theorem address recomputes, red on tamper; honesty-demonstrated → a fabricated theorem citation drains; the two captain coins conserved; zero runtime deps + clean security). A law with holds:false is a red gate, not an opinion. Folds to one recomputable receipt. Returns {laws:[{law,enforcedBy,holds,detail}],allHold,receipt}.
+
+_No parameters._
 
 ### `uuidna_credits`
 

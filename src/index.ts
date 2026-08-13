@@ -177,6 +177,10 @@ export { conformance, type ConformanceReport, type ConformanceCheck } from './co
 // historical result where the sealed metadata references one; else the captain claims it by law — first sealed here).
 export { credits, creditsSummary, type Credits, type Credit } from './credits.js'
 
+// laws — uuidna's standing invariants IN uuidna, each DEMONSTRATED (its `holds` recomputed from the gate that
+// enforces it), not asserted in prose. Generate-from-Lean, any-manual-fails, honesty-demonstrated, coins conserved.
+export { laws, type Law, type Laws } from './laws.js'
+
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
 // diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'
