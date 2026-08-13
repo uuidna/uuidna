@@ -94,7 +94,7 @@ export { pentagramStream, type PentagramStream, type PentagramStreamCell } from 
 // conversation — local chat as code: the CONVERSATION FOLD binds four handles into a fifth (the room key), each handle
 // part of the next (authenticity), rotated by the referer (per-room isolation); the room key then keys the encrypted
 // uuid-stream channel. Local-first — keys and plaintext stay client-side.
-export { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase, type Room, type AttachedChat } from './conversation.js'
+export { conversationFold, openRoom, sendToRoom, sealRoomTranscript, receiveFromRoom, attachChat, donationNote, supportCase, type Room, type AttachedChat } from './conversation.js'
 // publish — write PUBLICATIONS in lean human prose, AUDITED before publishing: a domain note composed by reading
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.

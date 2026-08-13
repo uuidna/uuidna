@@ -1,10 +1,12 @@
 // conversation — local chat as recomputable CODE (not a demo). A CONVERSATION FOLD binds four message handles into a
-// FIFTH — the room key — with each handle FOLDED FROM the one before (order-sensitive `merge`, the directed edge), so
-// each handle is PART OF the next: a dropped, reordered, or forged handle yields a different fifth — authenticity by
-// construction (routes and messaging self-authenticate). The fold is rotated by the room's referer, so each referer
-// gets a distinct, un-correlatable room. That room key then keys the encrypted uuid-stream channel (sealStream /
-// openStream, pure-TS ChaCha20-Poly1305) — LOCAL-FIRST: keys and plaintext stay client-side, the channel IS the uuid
-// stream, nothing is sent. Secrecy is exactly the passphrase entropy; the handles are integrity/routing, not secrecy.
+// room ADDRESS (128-bit) whose first 8 hex is the FIFTH handle — the public room identifier (the {5/2} close-point,
+// used for routing/display) — with each handle FOLDED FROM the one before (order-sensitive `merge`, the directed
+// edge), so each handle is PART OF the next: a dropped, reordered, or forged handle yields a different address —
+// authenticity by construction (routes and messaging self-authenticate). The fold is rotated by the room's referer,
+// so each referer gets a distinct, un-correlatable room. The FULL address (of which the fifth is the head) then keys
+// the encrypted uuid-stream channel (sealStream / openStream, pure-TS ChaCha20-Poly1305) — LOCAL-FIRST: keys and
+// plaintext stay client-side, the channel IS the uuid stream, nothing is sent. Secrecy is exactly the passphrase
+// entropy; the handles are integrity/routing, not secrecy; an advancing per-message step closes the equality leak.
 import { merge, coin64, toUuid } from './address.js'
 import { sealStream, openStream } from './stream.js'
 
@@ -25,9 +27,18 @@ export function conversationFold(handles: string[], referer = ''): Room {
 /** Open a local chat room from four handles (+ the referer). The room key is its fifth-handle address. */
 export const openRoom = (handles: string[], referer = ''): Room => conversationFold(handles, referer)
 
-/** Seal a message INTO the room's uuid stream, keyed by the room address + passphrase (local — nothing sent). */
-export const sendToRoom = (room: Room, message: string, passphrase: string): string[] =>
-  sealStream(String(message), [room.address + ':' + String(passphrase)]).uuids
+/** Seal a message INTO the room's uuid stream at an advancing POSITION `step` (its index in the conversation), keyed
+ *  by the room address + passphrase (local — nothing sent). The advancing step CLOSES THE EQUALITY LEAK: the same
+ *  message at two positions seals to different uuid chains, so an observer cannot tell two room messages hold the same
+ *  text (or recover their order). Omit `step` only for a one-shot send where repetition cannot occur. */
+export const sendToRoom = (room: Room, message: string, passphrase: string, step?: number): string[] =>
+  sealStream(String(message), [room.address + ':' + String(passphrase)], step).uuids
+
+/** Seal a whole room TRANSCRIPT — each message at its advancing position (step = index) — so no two messages, even
+ *  identical ones, seal alike; the equality leak is closed across the conversation. Returns one uuid chain per
+ *  message, in order. Local: keys and plaintext stay client-side. */
+export const sealRoomTranscript = (room: Room, messages: string[], passphrase: string): string[][] =>
+  messages.map((m, i) => sendToRoom(room, String(m), passphrase, i))
 
 /** Open a message FROM the room's uuid stream; a wrong passphrase or any tamper throws (Poly1305 authentication). */
 export const receiveFromRoom = (room: Room, uuids: string[], passphrase: string): string =>

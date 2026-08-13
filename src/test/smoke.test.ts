@@ -20,7 +20,7 @@ import { sanitizeValue, sanitizeInput, scrubString, MAX_DEPTH, MAX_STRING, MAX_A
 import { exploitFold } from '../index.js'
 import { conformance } from '../index.js'
 import { depositTrial } from '../index.js'
-import { conversationFold, openRoom, sendToRoom, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
+import { conversationFold, openRoom, sendToRoom, sealRoomTranscript, receiveFromRoom, attachChat, donationNote, supportCase } from '../index.js'
 import { spin, sealSpin, verifySpin, DERIVED_FILES } from '../index.js'
 import { pentagramMonographs } from '../index.js'
 
@@ -357,6 +357,18 @@ test('attached chat — one primitive for donations, support cases, any subject'
   // the attached room seals/opens locally
   const uuids = sendToRoom(a.room, 'thank you for donation 42', 'room-key')
   assert.equal(receiveFromRoom(a.room, uuids, 'room-key'), 'thank you for donation 42')
+  // the EQUALITY LEAK is closed: the SAME message at two advancing positions seals to DIFFERENT uuid chains,
+  // yet each still opens to the same plaintext (the step is a public advancing salt the envelope carries).
+  const s3 = sendToRoom(a.room, 'hi', 'room-key', 3)
+  const s7 = sendToRoom(a.room, 'hi', 'room-key', 7)
+  assert.notDeepEqual(s3, s7, 'identical messages at different steps must NOT seal alike — equality leak closed')
+  assert.equal(receiveFromRoom(a.room, s3, 'room-key'), 'hi')
+  assert.equal(receiveFromRoom(a.room, s7, 'room-key'), 'hi')
+  // a whole transcript: even repeated identical messages all seal differently (advancing step = index)
+  const chains = sealRoomTranscript(a.room, ['hi', 'hi', 'hi'], 'room-key')
+  const roots = chains.map((c) => c.join(','))
+  assert.equal(new Set(roots).size, 3, 'three identical transcript messages seal to three distinct chains')
+  assert.deepEqual(chains.map((c) => receiveFromRoom(a.room, c, 'room-key')), ['hi', 'hi', 'hi'])
 })
 
 test('trial deposit — requires the two coins deposited by the parties, sealed diamonds, computes in parity, builds the lacking', () => {
