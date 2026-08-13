@@ -121,13 +121,17 @@ and organized by **computing principle** in derivation order — the live count 
 
 ### The seven Clay problems — reflected
 
-Each of the seven is **reflected** into the ℤ/9 structure by the involution `dz(x) = 10 − x` (division by
-zero, self-inverse in Lean), and **solved 0**. An involution is its own undo — `dz(dz(x)) = x` — so the round trip returns the problem
-**unchanged**: it reflects all seven and **propagates no proof**. Six stay **open** — Riemann, P vs NP,
-Navier–Stokes, Yang–Mills, Hodge, Birch–Swinnerton-Dyer; the **Poincaré** conjecture is **solved** (Perelman,
-2003), so humanity stands at 1/7. This deposit solves none, and the honesty gate *drains* every solve-claim. Faithful to the
-[`millennium-solutions`](https://ceccec.psg.bg/millennium-solutions/) deposit it is extracted from: *it reflects
-all seven.*
+`Clay.lean` is **one verified monograph among the 55** — its theorems pass the *same* `by decide` seal as every
+theorem in the ledger, with **no special status**. Each of the seven Clay problems is **reflected** into the ℤ/9
+structure by the involution `dz(x) = 10 − x`, and each reflection is a **VERIFIED** theorem, exactly like the rest.
+
+What is verified is the **reflection**, never the **problem** — the one distinction that matters. An involution is
+its own undo — `dz(dz(x)) = x` — so the round trip returns the problem **unchanged**: it reflects all seven and
+**propagates no proof**. **uuidna solves 0 of the 7**, and the honesty gate *drains* every solve-claim. (In
+mathematics six stay open — Riemann, P vs NP, Navier–Stokes, Yang–Mills, Hodge, Birch–Swinnerton-Dyer — and
+Poincaré is solved by **Perelman, 2003**, not by uuidna.) Faithful to the
+[`millennium-solutions`](https://ceccec.psg.bg/millennium-solutions/) deposit it is extracted from: *it reflects all
+seven, and solves none.*
 
 A **theorem computes in Lean, or it is not a theorem** — the recomputation-only capabilities (FNV address,
 gate, crypto) are *tools*, not theorems. **Lean is the single source:** `npm run lean` verifies every proof
