@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="96 keys" />
+# MCP tools <Badge type="tip" text="97 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 96 tools below are read from the server's own tool list and
+is **built from the keys**: the 97 tools below are read from the server's own tool list and
 organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`96`" />
+## The grid <Badge type="tip" :text="`97`" />
 
-96 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+97 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -59,6 +59,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-digital-root"><code>digital_root</code></a>
 <a href="#uuidna-domain-wave"><code>domain_wave</code></a>
 <a href="#uuidna-double-torus"><code>double_torus</code></a>
+<a href="#uuidna-entangle"><code>entangle</code></a>
 <a href="#uuidna-evidence"><code>evidence</code></a>
 <a href="#uuidna-forensics"><code>forensics</code></a>
 <a href="#uuidna-gate"><code>gate</code></a>
@@ -422,7 +423,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'7'" />
+## Other <Badge type="tip" :text="'8'" />
 
 *skill: other*
 
@@ -478,6 +479,16 @@ Run BOTH waves for a domain (a principle title or a skill): the LOCAL developmen
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `domain` | string | **yes** | a principle title or skill, e.g. "The spectrum" or "quantum" |
+
+### `uuidna_entangle`
+
+ENTANGLE a set of audit claims into ONE receipt: the order-invariant fold of each claim AND its verdict, so verifying the whole verifies every part and altering ANY member moves the receipt (the binding collapses, visibly). The receipt is the SAME for any ordering (bell_no_signaling). HONEST SCOPE: the merkle / no-signaling binding — the structural analogue of entanglement — NOT quantum hardware; nothing signals, no correlation is causal, and only members SEALED by decide truly bind (external evidence never entangles). Returns {members,verified,receipt,entangled}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `claims` | array | **yes** | the claims to entangle |
 
 ### `uuidna_snapshot`
 

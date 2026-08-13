@@ -112,3 +112,28 @@ export function firewall(layers: Corroboration[]): FirewallResult {
   }
   return { passed, blockedAt: null, blocked: null, reflection: [], receipt: merkleGravity(passed.map((s) => toUuid(s))), cleared: true, honest: FIREWALL_HONEST }
 }
+
+export interface Entanglement {
+  members: string[]     // the entangled claims, in the order given (the receipt does not depend on it)
+  verified: number      // how many members are sealed by decide — only sealed members truly bind
+  receipt: string       // the ENTANGLED receipt — the order-invariant fold of (statement | verdict) for every member
+  entangled: boolean    // ≥2 members bound into one shared receipt
+  honest: string
+}
+
+const ENTANGLE_HONEST =
+  'A set of claims ENTANGLED into ONE receipt: verifying the whole verifies every part, and altering ANY member — its ' +
+  'statement OR its verdict — moves the receipt, so the binding collapses VISIBLY (change-sensitive, like the memory-' +
+  'store receipt). The receipt is the SAME for any observer ordering (order-invariant, bell_no_signaling). HONEST ' +
+  'SCOPE: the merkle / no-signaling binding — the structural analogue of entanglement — NOT quantum hardware; nothing ' +
+  'signals, no correlation is causal, and only members SEALED by decide truly bind (external evidence never entangles).'
+
+/** entangle(corroborations) → bind a set of audit claims into ONE entangled receipt (the order-invariant fold of
+ *  each member's statement AND verdict). The whole is verified from any part; any altered member breaks the shared
+ *  receipt. The audit-scale analogue of an entangled state: correlated fate, change-sensitive, order-invariant. */
+export function entangle(corroborations: Corroboration[]): Entanglement {
+  const members = corroborations.map((c) => c.statement)
+  const receipt = merkleGravity(corroborations.map((c) => toUuid(c.statement + '|' + c.verdict)))
+  const verified = corroborations.filter((c) => c.local === 'VERIFIED').length
+  return { members, verified, receipt, entangled: corroborations.length >= 2, honest: ENTANGLE_HONEST }
+}
