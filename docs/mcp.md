@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="95 keys" />
+# MCP tools <Badge type="tip" text="96 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 95 tools below are read from the server's own tool list and
+is **built from the keys**: the 96 tools below are read from the server's own tool list and
 organised into 26 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`95`" />
+## The grid <Badge type="tip" :text="`96`" />
 
-95 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+96 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 23 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -57,6 +57,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-corroborate"><code>corroborate</code></a>
 <a href="#uuidna-diamond"><code>diamond</code></a>
 <a href="#uuidna-digital-root"><code>digital_root</code></a>
+<a href="#uuidna-domain-wave"><code>domain_wave</code></a>
 <a href="#uuidna-double-torus"><code>double_torus</code></a>
 <a href="#uuidna-evidence"><code>evidence</code></a>
 <a href="#uuidna-forensics"><code>forensics</code></a>
@@ -421,7 +422,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'6'" />
+## Other <Badge type="tip" :text="'7'" />
 
 *skill: other*
 
@@ -467,6 +468,16 @@ Corroborate a claim by AUGMENTING the local binary verdict (adjudicate: VERIFIED
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `statement` | string | **yes** | the claim to corroborate, e.g. "the speed of light 299792458" |
+
+### `uuidna_domain_wave`
+
+Run BOTH waves for a domain (a principle title or a skill): the LOCAL development wave — its theorems fold ORDER-INVARIANTLY to a receipt and are sealed by decide (the approval) — and the EXTERNAL free-research wave (corroborate the domain's topic against a free public API, evidence not proof). HONEST SCOPE: only the LOCAL by-decide seal APPROVES; external research only CORROBORATES, and for a pure-arithmetic domain (ℤ/9, ℤ/7) a physics-constants stream honestly returns NO evidence — correct, not a failure. Returns {domain,local:{theorems,fold,orderInvariant},external:{verdict,evidence,receipt}}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `domain` | string | **yes** | a principle title or skill, e.g. "The spectrum" or "quantum" |
 
 ### `uuidna_snapshot`
 

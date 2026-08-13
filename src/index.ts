@@ -32,6 +32,7 @@ export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
 // receipts through the order-invariant gravity to one proof-of-verdict root. Integrity, not truth.
 export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from './adjudicate.js'
 export { corroborate, approve, firewall, researchEvidence, corroborateWithResearch, type ResearchEvidence, type Corroboration, type FirewallResult } from './corroborate.js'
+export { domainWave, type DomainWave } from './domain-wave.js'
 
 export {
   type Harnessed, DIMENSIONS,
