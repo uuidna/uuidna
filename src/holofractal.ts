@@ -42,7 +42,8 @@ export function pentagramHologramFractal(input: string): HoloFractal {
   // HOLOGRAM — merkle root over the input's parts; a deterministic sample part verifies against the whole
   const leaves = s.length ? [...s] : ['∅']
   const root = merkleRoot(leaves)
-  const sampleIndex = leaves.length > 1 ? Math.floor(leaves.length / 2) : 0   // deterministic (no randomness)
+  // deterministic middle index — FLOOR(n/2) with NO Math.* (hard-rejected, not a local theorem): (n − n%2)/2
+  const sampleIndex = leaves.length > 1 ? (leaves.length - (leaves.length % 2)) / 2 : 0
   const proof = merkleProof(leaves, sampleIndex)
   const proofVerifies = verifyProof(leaves[sampleIndex], proof, root)
   const hologram = { root, leaves: leaves.length, sampleIndex, proofVerifies }
