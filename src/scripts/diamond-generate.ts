@@ -23,7 +23,21 @@ interface PrincipleMetadata {
   metaphysicalQuestion: string
 }
 
-const PRINCIPLES: Record<string, PrincipleMetadata> = {
+// Load comprehensive metadata from diamond-extend
+function loadPrinciples(): Record<string, PrincipleMetadata> {
+  try {
+    const metadataFile = join(process.cwd(), 'src/scripts/domain-metadata.ts')
+    const content = readFileSync(metadataFile, 'utf8')
+    const match = content.match(/export const DOMAIN_METADATA = ({[\s\S]*})\n/)
+    if (match) {
+      const jsonStr = match[1]
+      return JSON.parse(jsonStr)
+    }
+  } catch (e) {
+    console.warn('Could not load extended metadata:', e instanceof Error ? e.message : String(e))
+  }
+  // Fallback to minimal hardcoded set
+  return {
   'Thermodynamics.lean': {
     file: 'Thermodynamics.lean',
     title: 'Thermodynamics — Energy & Entropy',
@@ -128,6 +142,7 @@ const PRINCIPLES: Record<string, PrincipleMetadata> = {
     theoremCount: 10,
     metaphysicalQuestion: 'Can you navigate if you cannot see? What does "lost" mean?',
   },
+  }
 }
 
 function generateTrinityArticle(meta: PrincipleMetadata): string {
@@ -193,6 +208,10 @@ Each theorem proven \`by decide\` — recompute it yourself.
 function main() {
   const ROOT = join(process.cwd())
   const DOCS = join(ROOT, 'docs')
+
+  // Load comprehensive metadata (extended or fallback to hardcoded)
+  const PRINCIPLES = loadPrinciples()
+  console.log(`✓ Loaded metadata for ${Object.keys(PRINCIPLES).length} principles`)
 
   // Create domain directories
   const domains = ['science', 'games', 'arts', 'audits', 'strategies']
