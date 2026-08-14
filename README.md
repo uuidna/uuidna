@@ -15,12 +15,11 @@ _Integrity, not truth: a seal proves its **exact statement**, never a grander cl
 Every value carries its DNA: a reproducible, keyless content-address. The brand holds itself to the same rule —
 its own name's DNA is `uuidna_address("uuidna") = fc511532-6e8a-8418-a522-a51b1d46a70c`, reproducible by anyone.
 The fold folds every direction at once — `+/−` (reflection), `/` (halving, `O(log N)`), `\` (the other
-diagonal) — so it is **order-independent**: any pairing, forward or reverse, collapses to the same root.
+diagonal) — so it is **order-independent**: any pairing, forward or reverse, collapses to the same root (`store_fold_order_invariant`).
 
 **The captain coins.** `coins() = 2` — the two conserved coins, the Euler characteristic −χ of the genus-2
 double torus (110 − 108 = 2). They price the measured advantage (recompute `O(N)` − verify `O(1)`) and gate the
-fuse: the **64-bit coin** folds into the **128-bit content-address**, and quantum doubling costs the two coins
-(2·64 = 128, 2·21 = 42) — realized only if the two coins are accounted and contributed.
+fuse: the **64-bit coin** folds into the **128-bit content-address**, and quantum doubling costs the two coins (2·64 = 128, 2·21 = 42; `rosette_quantum_doubling_is_two_coins`) — realized only if the two coins are accounted and contributed.
 
 A content-address proves **integrity, not truth**. It *reflects* the seven
 Millennium problems; it seals no solution to any (NOT PROVEN — never refuted, never admitted). FNV-1a is **non-cryptographic by design**: public and

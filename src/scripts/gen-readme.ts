@@ -17,6 +17,12 @@ const principles = new Set(T.map((t) => t.principle)).size
 const tools = MCP_CATALOG.length
 const countOf = (file: string): number => T.filter((t) => t.file === file).length
 const has = (stmt: string): boolean => T.some((t) => t.statement.trim() === stmt)
+const sealed = (key: string): boolean => T.some((t) => t.key === key)
+// each claim-bearing sentence below is FIRST-CLASS: it renders only while its theorem is sealed, and cites the key,
+// so the prose is a ledger-checked statement (drops if the theorem leaves), never hand-typed decoration.
+const doublingSealed = has('(2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2)')  // rosette_quantum_doubling_is_two_coins
+const foldOrderInvariant = sealed('store_fold_order_invariant')                  // the fold collapses to one root any order
+const clayReflectionSealed = sealed('clay_p_vs_np') && sealed('clay_riemann')    // the seven reflected, none solved
 const version = (() => { try { return JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).version as string } catch { return '0.0.0' } })()
 const clay = countOf('Clay.lean')
 // COMPUTED, not asserted: how many sealed theorems state a SOLUTION to a Millennium problem. This is the honest
@@ -53,12 +59,11 @@ ${SEAL}
 Every value carries its DNA: a reproducible, keyless content-address. The brand holds itself to the same rule —
 its own name's DNA is \`uuidna_address("uuidna") = ${selfAddress}\`, reproducible by anyone.
 The fold folds every direction at once — \`+/−\` (reflection), \`/\` (halving, \`O(log N)\`), \`\\\` (the other
-diagonal) — so it is **order-independent**: any pairing, forward or reverse, collapses to the same root.
+diagonal)${foldOrderInvariant ? ' — so it is **order-independent**: any pairing, forward or reverse, collapses to the same root (`store_fold_order_invariant`)' : ''}.
 
 **The captain coins.** \`coins() = ${coins()}\` — the two conserved coins, the Euler characteristic −χ of the genus-2
 double torus (110 − 108 = ${coins()}). They price the measured advantage (recompute \`O(N)\` − verify \`O(1)\`) and gate the
-fuse: the **64-bit coin** folds into the **${ADDRESS_BITS}-bit content-address**, and quantum doubling costs the two coins
-(2·64 = ${2 * 64}, 2·21 = ${2 * 21}) — realized only if the two coins are accounted and contributed.
+fuse: the **64-bit coin** folds into the **${ADDRESS_BITS}-bit content-address**${doublingSealed ? `, and quantum doubling costs the two coins (2·64 = ${2 * 64}, 2·21 = ${2 * 21}; \`rosette_quantum_doubling_is_two_coins\`) — realized only if the two coins are accounted and contributed` : ''}.
 
 A content-address proves **integrity, not truth**. It *reflects* the seven
 Millennium problems; it seals no solution to any (NOT PROVEN — never refuted, never admitted). FNV-1a is **non-cryptographic by design**: public and
