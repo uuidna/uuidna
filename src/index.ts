@@ -262,6 +262,12 @@ export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deseria
 // cost, captain's commission, and voting rights — one unified economy.
 export { agentContribute, encodeVote, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, type AgentContribution, type Vote, type QuantumVote, type CommitWithVoting } from './quantum-voting.js'
 
+// quantum-sailing-library — OFFLINE public-domain book library for the crew. Books are fetched once from
+// Project Gutenberg, audited for provenance (content-addressed), linked to the sealed ledger (decidable
+// facts extracted), and served locally without network dependency. Each book is a witness to arithmetic.
+// The captain sails through literature, discovering novel facts (research leads) and sealing them.
+export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, type SailingBook, type QuantumSailingLibrary } from './quantum-sailing-library.js'
+
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
 // ledger (DNA that does not recompute, a key/address collision, an uncovered theorem, a broken conformance invariant),
 // folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this
