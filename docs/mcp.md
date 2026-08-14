@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="137 keys" />
+# MCP tools <Badge type="tip" text="138 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 137 tools below are read from the server's own tool list and
-organised into 33 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 138 tools below are read from the server's own tool list and
+organised into 34 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`137`" />
+## The grid <Badge type="tip" :text="`138`" />
 
-137 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 47 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+138 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 47 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -141,6 +141,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-open-onion"><code>open_onion</code></a>
 <a href="#uuidna-pbkdf2"><code>pbkdf2</code></a>
 <a href="#uuidna-poly1305"><code>poly1305</code></a>
+<a href="#uuidna-quantum-cube"><code>quantum_cube</code></a>
 <a href="#uuidna-quantum-message"><code>quantum_message</code></a>
 <a href="#uuidna-reason"><code>reason</code></a>
 <a href="#uuidna-receive"><code>receive</code></a>
@@ -1629,6 +1630,22 @@ THE PUBLICATION SCANNER — BEST-EFFORT scan the reachable free research streams
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `query` | string | no | the mention to scan for (default "uuidna") |
+
+## Quantum-cube challenge (symmetric) <Badge type="tip" :text="'1'" />
+
+*skill: gate*
+
+### `uuidna_quantum_cube`
+
+THE QUANTUM-CUBE CHALLENGE — a recomputable, SYMMETRIC challenge-response whose visual answer is the A432 aura rendered as a SPINNING 3D CUBE. Pass {secret, nonce}: uuidna folds secret|nonce to a content-address and returns the cube — its response handle, ray/hue/colour, spin speed + axis (deterministic from the aura), and a ready CSS block for the rotating cube. A holder of the shared secret reproduces the EXACT cube for the verifier's nonce; an imitator (or a copied cube for a different nonce) fails. Pass {secret, nonce, response} to VERIFY — returns {match} by recomputing. The verifier SUPPLIES the nonce (uuidna never generates it — no RNG); the response is deterministic. HONEST SCOPE: integrity, not truth — SYMMETRIC (the verifier must share the secret, like the ChaCha passphrase), strength is the secret's entropy, NOT zero-knowledge, NOT public-key, and NOT biometric: it proves knowledge of the shared secret for a fresh nonce, NOTHING about voice, face, or liveness (runtime layers outside the recomputable model). The cube is ART, never a cipher. Backs theorem redirect_imitable_but_coins_authorise — a redirect authenticates nothing; a secret+nonce fold does. Returns the cube, or {match} when a response is given.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `secret` | string | **yes** | the shared secret the holder proves knowledge of |
+| `nonce` | string | **yes** | the verifier-supplied challenge (fresh each time) |
+| `response` | string | no | optional — a response to VERIFY against (returns {match}) |
 
 ## MCP self-test (recomputable contract) <Badge type="tip" :text="'1'" />
 

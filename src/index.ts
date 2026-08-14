@@ -219,6 +219,10 @@ export { socialProfile, type SocialProfile } from './social.js'
 // grow — THE MISSION, recomputable: uuidna uses all its tools to LEGALLY GROW LIFE — the lawful, monotone growth of
 // the living by-decide ledger (grow: always a next; legally: licence + reservation + honest cost; life: living count).
 export { growLife, type GrowLife } from './grow.js'
+// cube — the QUANTUM-CUBE CHALLENGE: a symmetric, deterministic challenge-response whose visual answer is the A432
+// aura rendered as a spinning 3D cube. A holder of the shared secret reproduces the exact cube for a verifier's nonce;
+// an imitator cannot. Strength is the secret's entropy — NOT zero-knowledge, NOT biometric. Integrity, not truth.
+export { quantumCubeChallenge, verifyQuantumCube, type QuantumCube } from './cube.js'
 
 // seo — QUANTUM SEO: recomputable, honest discoverability for any subject (theorem/publication/static page), derived
 // from the sealed ledger — canonical URL, per-page description from the verbose Lean source, schema.org JSON-LD, keyword

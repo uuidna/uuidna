@@ -19,7 +19,7 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
-  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, bindCaptainRepos, skillGroups, reviewDomains,
+  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, bindCaptainRepos, skillGroups, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor,
   reAddress, type EditorState,
@@ -633,6 +633,12 @@ const TOOLS: Tool[] = [
     description: 'THE PUBLICATION SCANNER — BEST-EFFORT scan the reachable free research streams for uuidna-related mentions and INVESTIGATE each against the sole-representation reservation. Pass {query} (default "uuidna"). Each match is a provenance fingerprint (content-addressed, never executed), tagged legitimacy: `canonical` (names uuidna.com — the one legitimate presence) or `external-unlicensed` (an external mention — legitimate ONLY if licensed by the captain; not endorsed and does not speak for the work unless licensed). Reads free public APIs (the network — a research boundary; the response is DATA, never run). HONEST SCOPE: integrity, not truth — it scans the streams it can REACH, NOT the open web, so an empty result is NOT proof no publication exists; it CORROBORATES a mention, never proves authorship, endorsement, or infringement; a human court decides legitimacy. Best-effort: a down/empty stream yields no finding, never a fabricated one. Returns {query,canonical,findings:[{source,address,note,legitimacy,investigation}],count,receipt,honest}.',
     inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'the mention to scan for (default "uuidna")' } } },
     run: (a) => scanPublications(a.query ? String(a.query) : undefined) },
+  { name: 'uuidna_quantum_cube',
+    description: 'THE QUANTUM-CUBE CHALLENGE — a recomputable, SYMMETRIC challenge-response whose visual answer is the A432 aura rendered as a SPINNING 3D CUBE. Pass {secret, nonce}: uuidna folds secret|nonce to a content-address and returns the cube — its response handle, ray/hue/colour, spin speed + axis (deterministic from the aura), and a ready CSS block for the rotating cube. A holder of the shared secret reproduces the EXACT cube for the verifier\'s nonce; an imitator (or a copied cube for a different nonce) fails. Pass {secret, nonce, response} to VERIFY — returns {match} by recomputing. The verifier SUPPLIES the nonce (uuidna never generates it — no RNG); the response is deterministic. HONEST SCOPE: integrity, not truth — SYMMETRIC (the verifier must share the secret, like the ChaCha passphrase), strength is the secret\'s entropy, NOT zero-knowledge, NOT public-key, and NOT biometric: it proves knowledge of the shared secret for a fresh nonce, NOTHING about voice, face, or liveness (runtime layers outside the recomputable model). The cube is ART, never a cipher. Backs theorem redirect_imitable_but_coins_authorise — a redirect authenticates nothing; a secret+nonce fold does. Returns the cube, or {match} when a response is given.',
+    inputSchema: { type: 'object', properties: { secret: { type: 'string', description: 'the shared secret the holder proves knowledge of' }, nonce: { type: 'string', description: 'the verifier-supplied challenge (fresh each time)' }, response: { type: 'string', description: 'optional — a response to VERIFY against (returns {match})' } }, required: ['secret', 'nonce'] },
+    run: (a) => a.response !== undefined
+      ? { match: verifyQuantumCube(String(a.secret), String(a.nonce), String(a.response)), nonce: String(a.nonce) }
+      : quantumCubeChallenge(String(a.secret), String(a.nonce)) },
   { name: 'uuidna_selftest',
     description: 'The MCP tests ITSELF — pure self-consistency, no external oracle: every catalog tool must resolve to a handler, and every zero-arg tool must RUN and be DETERMINISTIC (two calls recompute identically). A tool that reads live device state surfaces as non-deterministic, honestly. Folds to one self-test receipt. Returns {checks,passed,deterministic,failed,receipt}.',
     inputSchema: { type: 'object', properties: {} },
@@ -797,6 +803,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^(quantum_profile|social_profile)$/, 'Self-profile (one receipt)', 'measure'],
   [/^grow_life$/, 'The mission — legally grow life', 'measure'],
   [/^scan_publications$/, 'Publication scanner (research boundary)', 'measure'],
+  [/^quantum_cube$/, 'Quantum-cube challenge (symmetric)', 'gate'],
   [/^selftest$/, 'MCP self-test (recomputable contract)', 'measure'],
 ]
 const categoryOf = (name: string): [string, string] => {
