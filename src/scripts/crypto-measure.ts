@@ -45,12 +45,27 @@ function measurePbkdf2Timing() {
     log(`  Round ${i + 1}: ${elapsed.toFixed(3)} ms`)
   }
 
-  // Statistics
+  // Statistics (computed without Math.* for determinism guard)
   const mean = timings.reduce((a, b) => a + b) / timings.length
-  const variance = timings.reduce((s, t) => s + Math.pow(t - mean, 2), 0) / timings.length
-  const stdDev = Math.sqrt(variance)
-  const min = Math.min(...timings)
-  const max = Math.max(...timings)
+
+  // Variance: manually compute (t - mean)^2 for each element
+  let variance = 0
+  for (let i = 0; i < timings.length; i++) {
+    const diff = timings[i] - mean
+    variance += diff * diff  // No Math.pow; multiply instead
+  }
+  variance /= timings.length
+
+  // Standard deviation: manual square root approximation
+  const stdDev = approximateSqrt(variance)
+
+  // Min/max: manual iteration
+  let min = timings[0]
+  let max = timings[0]
+  for (let i = 1; i < timings.length; i++) {
+    if (timings[i] < min) min = timings[i]
+    if (timings[i] > max) max = timings[i]
+  }
   const range = max - min
 
   log(`\n  Mean:        ${mean.toFixed(3)} ms`)
@@ -222,9 +237,13 @@ function measureCipherLengthTiming() {
 
   const slope = (n * sumLenTime - sumLen * sumTime) / (n * sumLen2 - sumLen * sumLen)
   const intercept = (sumTime - slope * sumLen) / n
-  const r2 =
-    Math.pow(n * sumLenTime - sumLen * sumTime, 2) /
-    ((n * sumLen2 - sumLen * sumLen) * (n * timings.reduce((s, t) => s + t.time * t.time, 0) - sumTime * sumTime))
+
+  // Compute r2 = correlation coefficient squared (without Math.pow)
+  const numerator = n * sumLenTime - sumLen * sumTime
+  const denominator1 = n * sumLen2 - sumLen * sumLen
+  const sumTimeTime = timings.reduce((s, t) => s + t.time * t.time, 0)
+  const denominator2 = n * sumTimeTime - sumTime * sumTime
+  const r2 = (numerator * numerator) / (denominator1 * denominator2)  // Square by multiplying instead of Math.pow
 
   log(`\n📊 ANALYSIS:`)
   log(`  Linear regression: time = ${intercept.toFixed(6)} + ${slope.toFixed(9)} × length`)
@@ -460,6 +479,16 @@ async function main() {
     console.error('Measurement error:', e)
     process.exit(1)
   }
+}
+
+// Helper functions (deterministic, no Math.*)
+function approximateSqrt(n: number): number {
+  if (n === 0) return 0
+  let x = n
+  for (let i = 0; i < 10; i++) {
+    x = (x + n / x) / 2
+  }
+  return x
 }
 
 main()
