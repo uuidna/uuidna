@@ -46,9 +46,9 @@ const domainLines = PRINCIPLES.slice(0, 6).map((p, i) => `${i + 1}. **${p[1]}** 
 
 const README = `# uuidna
 
-**uuidna = uuid ⊕ dna** — identity's DNA. **Content-addressed identity, honest by construction.**
+**uuidna = uuid ⊕ dna** — content-addressed identity. **${T.length} sealed theorems, verified by computation.**
 
-> A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets${has('(432 = 2^4 * 3^3) ∧ (432 = 16 * 27)') ? ', **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³)' : ''}, honest by construction. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
+> Identity verified by Lean 4 theorem proof (\`by decide\`, no axioms). Proven theorems prove integrity, not truth. Non-cryptographic FNV-1a content-address, keyless and reproducible. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
 <!-- seal:begin -->
 ${SEAL}
@@ -110,13 +110,13 @@ Add it to your client's \`mcpServers\`:
 **All ${tools} tools** are exposed (the live catalog is derived in [\`docs/mcp.md\`](docs/mcp.md), never hardcoded) — each
 calls the same pure functions this package seals: content-address and merge, holographic merkle proof, the ℤ/9
 structure, pure-TS crypto (ChaCha20-Poly1305, KAT-verified), the bidirectional uuid channel, the honesty gate and
-trial, the classical quantum state-vector simulator, the **engine** (one input→output surface) and **sanitise** (by
+trial, a state-vector simulator (classical computation on 64-bit hardware, not quantum hardware), the **engine** (one input→output surface) and **sanitise** (by
 all standards), the **exploit fold** (problem and solution verified), and measured billing. Integrity, not truth.
 
-## Encryption (layered — real secrecy)
+## Encryption (ChaCha20-Poly1305)
 
-Secrecy is **ChaCha20-Poly1305** (RFC 8439) in **pure TypeScript** — no native WebCrypto — keyed by pure-TS
-**PBKDF2-SHA-256** (600k); the uuidna **7d fold** content-addresses the sealed envelope for public integrity.
+**ChaCha20-Poly1305** (RFC 8439) in **pure TypeScript** — no native WebCrypto — keyed by pure-TS
+**PBKDF2-SHA-256** (600k). Secrecy depends on passphrase entropy. The uuidna **7d fold** content-addresses the sealed envelope for public integrity verification (no key needed).
 KAT-verified against the standards' own vectors. Deterministic (convergent): same input → same seal.
 
 \`\`\`js
