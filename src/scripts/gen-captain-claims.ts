@@ -33,7 +33,15 @@ const categories: Omit<ClaimCategory, 'theorems' | 'address'>[] = [
     description: 'Lean-verified computational algebra (ℤ/9, ℤ/7, ring, rosette)',
     filters: (t) =>
       t.tactic === 'decide' &&
-      /ring|rosette|core|algebra|vortex|sequence|glagolitic|neuron|binary|software|os-integrity/i.test(t.principle),
+      (t.principle === 'The 8×8 core' ||
+        t.principle === 'The ring ℤ/9' ||
+        t.principle === 'The Glagolitic numerals & Pliska rosette' ||
+        t.principle === 'The vortex algebra' ||
+        t.principle === 'The sequence & reflection group' ||
+        t.principle === 'The hardware-verifiable binary algebra' ||
+        t.principle === 'The software-verifiable algebra' ||
+        t.principle === 'The OS-integrity algebra' ||
+        t.principle === 'The algebra of the neuron'),
   },
   {
     category: 'Security',
@@ -86,7 +94,7 @@ const categories: Omit<ClaimCategory, 'theorems' | 'address'>[] = [
   },
 ]
 
-// Build claims
+// Build claims — capture ALL theorems matching the filter
 const claims: ClaimCategory[] = []
 let totalClaimed = 0
 
@@ -94,7 +102,9 @@ console.log('DISCOVERED CLAIM CATEGORIES:')
 console.log('─────────────────────────────\n')
 
 for (const cat of categories) {
-  const filtered = T.filter(cat.filters)
+  // Match by principle NAME exactly (not partial matching)
+  // This catches ALL theorems with that principle, including generated ones
+  const filtered = T.filter(t => t.tactic === 'decide' && cat.filters(t))
   const theoremKeys = filtered.map(t => t.key)
 
   if (theoremKeys.length > 0) {

@@ -2,14 +2,14 @@
   "generated": "2026-08-14",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 826,
+  "total_claimed": 678,
   "categories": 8,
   "categories_list": [
     {
       "category": "Algebra",
       "description": "Lean-verified computational algebra (ℤ/9, ℤ/7, ring, rosette)",
-      "theorems": 525,
-      "address": "5787ff41-209b-81c0-b9d3-e9414cf8ef86",
+      "theorems": 377,
+      "address": "d56b56cd-81bf-83e5-b711-120b17c47263",
       "all_by_decide": true
     },
     {
@@ -62,7 +62,7 @@
       "all_by_decide": true
     }
   ],
-  "claim_receipt": "630cb1ff-44bc-8e8d-bd97-9a3d6bdc7eb1",
+  "claim_receipt": "1385efea-4507-8d13-83f0-97729b6654af",
   "honest_scope": {
     "proves": [
       "These theorems are Lean-verified (by decide)",

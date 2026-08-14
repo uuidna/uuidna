@@ -3,9 +3,9 @@
 **Generated:** 2026-08-14
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 826 theorems
+**Total claimed:** 678 theorems
 **Categories:** 8
-**Claim receipt:** `630cb1ff-44bc-8e8d-bd97-9a3d6bdc7eb1`
+**Claim receipt:** `1385efea-4507-8d13-83f0-97729b6654af`
 
 ---
 
@@ -15,9 +15,9 @@
 
 Lean-verified computational algebra (ℤ/9, ℤ/7, ring, rosette)
 
-- **Theorems:** 525
+- **Theorems:** 377
 - **Verified:** ✓ all by decide
-- **Address:** `5787ff41-209b-81c0-b9d3-e9414cf8ef86`
+- **Address:** `d56b56cd-81bf-83e5-b711-120b17c47263`
 
 ### Security
 
