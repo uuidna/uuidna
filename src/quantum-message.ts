@@ -44,7 +44,7 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
 
   // Encode the theorem's identity (key + address) into qubit basis labels
   const keyBits = Array.from(toUuid(theoremKey)).map((c, i) => i % 2 ? c.charCodeAt(0) % 2 : 0)
-  const qubits = Math.min(keyBits.length, 16)  // cap at 16 qubits (65k states, tractable)
+  const qubits = keyBits.length < 16 ? keyBits.length : 16  // cap at 16 qubits (65k states, tractable)
 
   // Quantum state: start in |0…0⟩
   let state = ket0(qubits)

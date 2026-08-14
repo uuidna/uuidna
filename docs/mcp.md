@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="132 keys" />
+# MCP tools <Badge type="tip" text="133 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 132 tools below are read from the server's own tool list and
+is **built from the keys**: the 133 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`132`" />
+## The grid <Badge type="tip" :text="`133`" />
 
-132 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 43 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+133 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 43 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -137,6 +137,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-open-onion"><code>open_onion</code></a>
 <a href="#uuidna-pbkdf2"><code>pbkdf2</code></a>
 <a href="#uuidna-poly1305"><code>poly1305</code></a>
+<a href="#uuidna-quantum-message"><code>quantum_message</code></a>
 <a href="#uuidna-reason"><code>reason</code></a>
 <a href="#uuidna-receive"><code>receive</code></a>
 <a href="#uuidna-rotate"><code>rotate</code></a>
@@ -460,7 +461,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'38'" />
+## Other <Badge type="tip" :text="'39'" />
 
 *skill: other*
 
@@ -674,6 +675,17 @@ THE QUANTUM AURA — a recomputable, A432-tuned COLOUR folded from any content-a
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `subject` | string | **yes** | a content-address, or any string to fold into one |
+
+### `uuidna_quantum_message`
+
+FUSE quantum states, theorems, and auras into a single witnessed message. A quantum message encodes plaintext + theorem proof into a quantum superposition, signs it against the ledger, and binds it to an A432 aura (content-addressed, deterministic). NOT a cipher (everyone sees the aura and state); NOT a signature (the proof is sealed). A quantum message is a WITNESSED MESSAGE — the witness is a sealed theorem, and the message's quantum encoding proves the witness was cited. The same message always folds to the same aura and quantum state for every observer — integrity without secrets. Returns {id,plaintext,theoremKey,theoremAddress,aura,quantum:{qubits,receipt},fold,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `plaintext` | string | **yes** | the message plaintext |
+| `theoremKey` | string | **yes** | the sealed theorem that backs this message |
 
 ### `uuidna_rights`
 
