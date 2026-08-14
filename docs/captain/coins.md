@@ -40,7 +40,7 @@ the honest billing/measure algebra — the two coins are the conserved fair-exch
 
 ## Read the Sealed Proof
 
-[`Coins.lean`](../../lean/Coins.lean)
+[`Coins.lean`](../lean/Coins.lean)
 
 Each theorem proven `by decide` — recompute it yourself.
 
