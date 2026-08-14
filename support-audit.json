@@ -1,7 +1,9 @@
 {
-  "modules": 198,
+  "modules": 199,
   "roots": 114,
   "supported": 198,
-  "dead": [],
-  "receipt": "eb93c32e-8bce-891a-b519-fdf07ba59e5f"
+  "dead": [
+    "src/quantum-sailing-cross-book.ts"
+  ],
+  "receipt": "2831fa1f-e384-8208-bc8b-f6d32603f88d"
 }

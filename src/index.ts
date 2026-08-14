@@ -274,6 +274,13 @@ export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumS
 // Weather facts are either sealed-match (already a theorem) or novel (research leads awaiting sealing).
 export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, type WeatherFact, type QuantumSailingWeatherCorrelation } from './quantum-sailing-weather.js'
 
+// quantum-sailing-cross-book — CROSS-BOOK CORRELATION: the captain reads across the library and finds theorems that
+// RESONATE only when two or more books are read together. Each book links decidable facts in isolation; read together,
+// facts from book A resonate with facts from book B, creating insights sealed in theorems. Pure correlation: all logic
+// deterministic and recomputable; network fetches (if needed) are application-layer. Shared theorems cite sealed proofs;
+// novel patterns are research leads awaiting ledger entry. Integrity, not truth.
+export { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type BookPair, type CrossBookResonance, type CrossBookCluster } from './quantum-sailing-cross-book.js'
+
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
 // ledger (DNA that does not recompute, a key/address collision, an uncovered theorem, a broken conformance invariant),
 // folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this

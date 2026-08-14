@@ -19,7 +19,7 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
-  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, skillGroups, reviewDomains,
+  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, skillGroups, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
@@ -272,6 +272,21 @@ const TOOLS: Tool[] = [
         return serializeWeatherCorrelation(corr)
       }
       return { error: 'invalid action' }
+    } },
+  { name: 'uuidna_quantum_sailing_cross_book',
+    description: 'CROSS-BOOK CORRELATION — the captain reads across the library and finds theorems that RESONATE only when two or more books are read together. Pass {action:"correlate", books:[{id,text,facts}]} to find shared theorems and decidable facts that appear in multiple books. Pass {action:"cluster"} to GROUP theorems by their citations across books — which sealed theorems appear in multiple books? PURE correlation: all logic deterministic and recomputable; network (if fetching books) is application-layer. Shared theorems cite sealed proofs; novel patterns are research leads. Returns {pairs,resonances,ledgerCited,novel,receipt} or {count,clusters}.',
+    inputSchema: { type: 'object', properties: { action: { type: 'string', enum: ['correlate', 'cluster'], description: 'correlate across books or cluster by theorem' }, books: { type: 'array', items: { type: 'object', properties: { id: { type: 'integer' }, text: { type: 'string' }, facts: { type: 'array', items: { type: 'string' } } } }, description: 'books to correlate (required for "correlate" action): {id, text, facts}' } } },
+    run: (a) => {
+      if (a.action === 'correlate' && a.books) {
+        const books = (a.books as any[]).map(b => ({ id: Number(b.id), text: String(b.text), facts: (b.facts as string[]) || [] }))
+        const corr = correlateAcrossBooks(books)
+        return serializeCrossBookCorrelation(corr)
+      } else if (a.action === 'cluster' && a.books) {
+        const books = (a.books as any[]).map(b => ({ id: Number(b.id), text: String(b.text), facts: (b.facts as string[]) || [] }))
+        const clusters = clusterByTheorem(books)
+        return serializeClusters(clusters)
+      }
+      return { error: 'invalid action or missing books' }
     } },
   { name: 'uuidna_audit_standard',
     description: 'The recomputable FLOOR of a standards / law audit: content-address the PUBLIC Wikipedia description of a standard or law (CC BY-SA, free, no key), decode its structure, and extract the DECIDABLE checks it states — each sealed or refuted `by decide` LOCALLY (the "free" is a free public API + local decidable checks). HONEST SCOPE: this is the FLOOR a human auditor STARTS from — a provenance fingerprint + decidable checks — NOT a compliance / legal RULING, which requires a licensed auditor or counsel reviewing the specific jurisdiction, edition and deployment. uuidna delivers what recomputes and leaves the ruling to humans. The text is DATA, never executed. Returns {standard,address,checks,factBase,ruling}.',
