@@ -210,6 +210,12 @@ export { hardwareLayer, softwareLayer, osLayer, namedLayer, type NamedLayer, typ
 // fingerprint), folded ORDER-INVARIANT to one receipt — the same analytics for every observer, no clock/RNG/telemetry.
 // It measures the ledger, not a user. Integrity, not truth.
 export { quantumAnalytics, type QuantumAnalytics, type Distribution, type LayerMeasure } from './analytics.js'
+// profile / social — uuidna's own content-addressed self-portrait (quantumProfile: identity+aura, proofs+kernel-only
+// witness, symmetric-only quantum-crypto posture, coins, integrity, rights) and its public shareable card
+// (socialProfile: handle, ledger-computed bio, aura colour, canonical links, credit). Both composed from sealed facts,
+// folded to one receipt, deterministic and offline. Integrity, not truth.
+export { quantumProfile, type QuantumProfile } from './profile.js'
+export { socialProfile, type SocialProfile } from './social.js'
 
 // seo — QUANTUM SEO: recomputable, honest discoverability for any subject (theorem/publication/static page), derived
 // from the sealed ledger — canonical URL, per-page description from the verbose Lean source, schema.org JSON-LD, keyword
