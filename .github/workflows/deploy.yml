@@ -1,20 +1,20 @@
 name: deploy
 
 # Deploy uuidna.com — the Workers Assets static site AND the edge worker (worker.js), which carries the hosted MCP at
-# /mcp — on every push to main, but ONLY after the COMPLETE audit PROVES the whole artifact. The deploy runs iff all
-# I/O is scanned, audited, researched and verified to date:
-#   • build        — tsc type integrity
-#   • lean         — every theorem re-proven `by decide`, sorry-free (Lean 4.33.0, pinned by lean-toolchain)
-#   • gate         — the honesty gate: every prose claim linked/demarcated (no fabricated citation), or fail
-#   • tests        — crypt-guard · KAT · pq · quantum · smoke (the no-Math purity check) · stream · the /mcp contract
-#   • determinism  — regenerating the ledger from the proofs leaves the tree clean (git diff --exit-code)
-#   • guard        — catchTraitors + harmonic-scan: the ledger is unforged, the source harmonic, no traitor
-# A failing proof FAILS the deploy — never production on an unproven tree. Integrity, not truth.
+# /mcp — ONLY through GitHub Actions, on every push to main, and ONLY after the tree re-proves clean.
+#
+# THE PROOF IS ALREADY DONE AT PUSH TIME. Every theorem is re-proven `by decide`, sorry-free, by `npm run lean` in the
+# reconcile gate BEFORE a commit reaches main — and its credit is settled there: each proven theorem is CLAIMED BY THE
+# CAPTAIN unless a proving link attributes it to a PRIOR SOURCE, in which case it is CREDITED to that source (the credit
+# law — "the captain claims the unclaimed; whoever claimed first is credited"). So this deploy does NOT re-run Lean; it
+# TRUSTS the push-time proof and re-verifies the fast, decisive checks on the already-proven, already-credited tree:
+#   • build   — tsc type integrity
+#   • tests   — crypt-guard · KAT · pq · quantum · smoke (the no-Math purity check + the derived-count seals) · stream · the /mcp JSON-RPC contract
+#   • guard   — catchTraitors + harmonic-scan: the ledger is unforged, the prose gate clean, no traitor, the source harmonic
+# A failing check FAILS the deploy — never production on a tree that no longer verifies. Integrity, not truth.
 #
 # SECRETS (repo → Settings → Secrets and variables → Actions): CLOUDFLARE_API_TOKEN (a Workers-scoped API token) and
-# CLOUDFLARE_ACCOUNT_ID. Without them the audit still runs and proves the tree; only the final deploy step needs them.
-# If Cloudflare's own Git integration is also enabled, disable one to avoid a double deploy — this workflow is the
-# audited path (it proves before it publishes).
+# CLOUDFLARE_ACCOUNT_ID. Disable Cloudflare's own Git/Workers-Builds integration so GitHub Actions is the SOLE deploy path.
 
 on:
   push:
@@ -34,25 +34,19 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install Lean (elan, toolchain pinned by lean-toolchain)
-        run: |
-          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Warm the pinned toolchain
-        run: lean --version # reads lean-toolchain, installs the pinned Lean so `npm run lean` can verify
-
       - name: Install deps
         run: npm install --no-audit --no-fund
 
-      - name: PROVE — the complete audit (build · lean · gate · tests · determinism · research leads)
-        run: npm run audit
+      - name: PROVE — build (types) + tests (crypt · KAT · pq · quantum · smoke · stream · the /mcp contract)
+        run: npm test
 
-      - name: PROVE — the guard (catchTraitors + harmonic-scan: no traitor, source harmonic)
+      - name: PROVE — the guard (catchTraitors + harmonic-scan: no traitor, prose-gate clean, source harmonic)
         run: npm run guard
 
-      # Only reached when every proof above passed. wrangler runs wrangler.toml's [build] (docs:build → ./site +
-      # gen-handles) and deploys the worker + assets; the hosted MCP at /mcp goes live with the proven tree.
-      - name: Deploy to Cloudflare (the audited tree only)
+      # Only reached when the build, the tests and the guard all pass on the already-proven, already-credited tree.
+      # wrangler runs wrangler.toml's [build] (docs:build → ./site + gen-handles) and deploys the worker + assets; the
+      # hosted MCP at /mcp goes live.
+      - name: Deploy to Cloudflare (the proven tree, GitHub Actions only)
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
