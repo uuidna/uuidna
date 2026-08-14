@@ -5,7 +5,7 @@
 > A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
 <!-- seal:begin -->
-**1137 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1137/1137, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **139 MCP tools** and **63 computing principles**.
+**1137 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1137/1137, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **141 MCP tools** and **63 computing principles**.
 
 _Integrity, not truth: a seal proves its **exact statement**, never a grander claim. The reflection of each Millennium problem is sealed; no solution to any is (0 solve-proofs in the ledger) — so a solve is NOT PROVEN: never refuted, never admitted. Computed from the exact audited ledger; recheck it with `npm run next`._
 <!-- seal:end -->
@@ -63,7 +63,7 @@ Add it to your client's `mcpServers`:
 { "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
 ```
 
-**All 139 tools** are exposed (the live catalog is derived in [`docs/mcp.md`](docs/mcp.md), never hardcoded) — each
+**All 141 tools** are exposed (the live catalog is derived in [`docs/mcp.md`](docs/mcp.md), never hardcoded) — each
 calls the same pure functions this package seals: content-address and merge, holographic merkle proof, the ℤ/9
 structure, pure-TS crypto (ChaCha20-Poly1305, KAT-verified), the bidirectional uuid channel, the honesty gate and
 trial, the classical quantum state-vector simulator, the **engine** (one input→output surface) and **sanitise** (by

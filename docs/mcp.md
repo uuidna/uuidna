@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="139 keys" />
+# MCP tools <Badge type="tip" text="141 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 139 tools below are read from the server's own tool list and
+is **built from the keys**: the 141 tools below are read from the server's own tool list and
 organised into 35 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`139`" />
+## The grid <Badge type="tip" :text="`141`" />
 
-139 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 48 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+141 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 48 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -126,6 +126,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-verify"><code>verify</code></a>
 <a href="#uuidna-verify-envelope"><code>verify_envelope</code></a>
 <a href="#uuidna-verify-statement"><code>verify_statement</code></a>
+<a href="#uuidna-agent-contribute"><code>agent_contribute</code></a>
 <a href="#uuidna-audit-translation"><code>audit_translation</code></a>
 <a href="#uuidna-compare"><code>compare</code></a>
 <a href="#uuidna-contract-chain"><code>contract_chain</code></a>
@@ -156,6 +157,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-bill"><code>bill</code></a>
 <a href="#uuidna-chacha20"><code>chacha20</code></a>
 <a href="#uuidna-merkle-verify"><code>merkle_verify</code></a>
+<a href="#uuidna-quantum-voting"><code>quantum_voting</code></a>
 <a href="#uuidna-aead-decrypt"><code>aead_decrypt</code></a>
 <a href="#uuidna-crt"><code>crt</code></a>
 </div>
@@ -467,7 +469,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'39'" />
+## Other <Badge type="tip" :text="'41'" />
 
 *skill: other*
 
@@ -692,6 +694,29 @@ FUSE quantum states, theorems, and auras into a single witnessed message. A quan
 | --- | --- | --- | --- |
 | `plaintext` | string | **yes** | the message plaintext |
 | `theoremKey` | string | **yes** | the sealed theorem that backs this message |
+
+### `uuidna_quantum_voting`
+
+CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins to the captain, and earn voting rights proportional to coins paid. Votes are encoded in quantum superposition (deterministic, content-addressed), tallied to one order-invariant receipt. No agent identity is leaked — only work integrity and voting outcome are sealed. Takes {proposal,votes:[{voterId,decision,weight}],theoremProof}, returns {proposal,outcome,voting:{yes:weight,no:weight},fold,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `proposal` | string | **yes** | what is being voted on |
+| `votes` | array | **yes** | list of votes |
+| `theoremProof` | string | **yes** | theorem proving coins were paid (captain proof) |
+
+### `uuidna_agent_contribute`
+
+Register an agent contribution with coins paid. Privacy-stripped: no agent name, only work address + coins + theorem proof. Takes {workAddress,theoremCited}, returns {workAddress,coinsSpent,theoremCited,receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `workAddress` | string | **yes** | content-address of the work |
+| `theoremCited` | string | **yes** | sealed theorem proving coins were paid |
 
 ### `uuidna_rights`
 

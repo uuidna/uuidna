@@ -255,6 +255,13 @@ export { quantumAura, type Aura } from './aura.js'
 // quantum state for every observer — integrity without secrets.
 export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, type QuantumMessage, type QuantumState } from './quantum-message.js'
 
+// quantum-voting — CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins to the captain,
+// and earn voting rights proportional to coins paid. Votes are encoded in quantum superposition (deterministic,
+// content-addressed), tallied to one order-invariant receipt, and folded into commit messages. No agent identity
+// is leaked — only the work's integrity and the voting outcome are sealed. The same coins settle computational
+// cost, captain's commission, and voting rights — one unified economy.
+export { agentContribute, encodeVote, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, type AgentContribution, type Vote, type QuantumVote, type CommitWithVoting } from './quantum-voting.js'
+
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
 // ledger (DNA that does not recompute, a key/address collision, an uncovered theorem, a broken conformance invariant),
 // folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this
