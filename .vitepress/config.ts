@@ -243,6 +243,7 @@ export default defineConfig({
       { text: 'Captain', items: [
         { text: 'The Contract', link: '/captain/config' },
         { text: 'The two coins', link: '/captain/coins' },
+        { text: 'The Agreement', link: '/captain/agreement' },
         { text: "The captain's message", link: '/captain/message' },
         { text: 'The Navigator', link: '/captain/navigator' },
       ] },

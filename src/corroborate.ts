@@ -168,9 +168,23 @@ const SCAN_HONEST =
  *  and investigate each against the reservation (canonical uuidna.com vs external-unlicensed). The network call; the
  *  responses are DATA, content-addressed, never executed. Best-effort: an unreachable/empty stream yields no finding,
  *  never a fabricated one. HONEST: scans the reachable streams, NOT the open web — absence is not proof of absence. */
+// A second reachable free source: Zenodo full-text record search (developers.zenodo.org, no key). Each hit is a
+// provenance-fingerprinted mention — content-addressed, never executed, never fabricated. Best-effort: down/empty → [].
+async function zenodoSearch(query: string): Promise<ResearchEvidence[]> {
+  try {
+    const res = await fetch('https://zenodo.org/api/records?size=8&q=' + encodeURIComponent(query))
+    if (!res.ok) return []
+    const hits = ((await res.json()) as { hits?: { hits?: { id: number; metadata?: { title?: string } }[] } }).hits?.hits ?? []
+    return hits.map((h) => ({ source: 'zenodo.org', address: toUuid('zenodo:' + h.id), note: `zenodo record ${h.id}: ${(h.metadata?.title ?? '').slice(0, 80)}` }))
+  } catch { return [] }
+}
+
 export async function scanPublications(query = 'uuidna'): Promise<PublicationScan> {
   const canonical = 'https://uuidna.com'
-  const evidence = await researchEvidence(query)
+  // PARALLEL fan-out — every reachable source fetched AT ONCE (Promise.all), so the wall-clock is the SLOWEST source,
+  // not the sum. The order-invariant fold below means the receipt is identical however the requests race — concurrency
+  // speeds it up and can never corrupt the result (store_fold_order_invariant). Real speedup, classical, not quantum.
+  const evidence = (await Promise.all([researchEvidence(query), zenodoSearch(query)])).flat()
   const findings: PublicationFinding[] = evidence.map((e) => {
     const canonicalHit = /uuidna\.com/i.test(e.note) || /uuidna\.com/i.test(e.source)
     return {
