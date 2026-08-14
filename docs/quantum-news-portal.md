@@ -34,9 +34,13 @@ No recomputable system can catch narrative gaps. That is the boundary where huma
 
 ## Build the Portal
 
-Add articles, extract facts, and audit them right here. The portal reads from your local sealed ledger — no network, no external trust. Every extraction and audit is reproducible by anyone.
+Extract facts, and audit them, through uuidna's own tools — no network, no external trust. Every extraction and audit is reproducible by anyone:
 
-<QuantumNewsPortal />
+- **Extract + link** decidable facts from an article with `uuidna_link_book` (or `linkBookFacts`): each fact is `sealed-match` (already a theorem), `novel` (verified, not yet sealed), or `refuted` (false arithmetic).
+- **Audit** a claim through the court with `uuidna_trial` / `adjudicate`: VERIFIED · UNVERIFIED · REFUTED.
+- **Judge** the narrative gap — a true statement wrapped in a false story — which no recomputable gate can catch; that stays with human judgment (coin-backed voting).
+
+These run locally (`npx @uuidna/uuidna`) and, once deployed, at [uuidna.com/mcp](/mcp).
 
 ## Coin-Backed Sealing
 
