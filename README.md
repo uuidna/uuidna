@@ -7,6 +7,8 @@
 <!-- seal:begin -->
 **1195 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1195/1195, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **154 MCP tools** and **66 computing principles**.
 
+**Trinity: The three founding theorems** — [two_coins](https://uuidna.com/theorems?q=two_coins), [two_coins_is_double_torus](https://uuidna.com/theorems?q=two_coins_is_double_torus), [captain_computes_only_with_two_coins](https://uuidna.com/theorems?q=captain_computes). The conserved fair-exchange invariant (110 − 108 = 2) as the topology of the double torus, and the computational gating it provides.
+
 _Integrity, not truth: a seal proves its **exact statement**, never a grander claim. The reflection of each Millennium problem is sealed; no solution to any is (0 solve-proofs in the ledger) — so a solve is NOT PROVEN: never refuted, never admitted. Computed from the exact audited ledger; recheck it with `npm run next`._
 <!-- seal:end -->
 
