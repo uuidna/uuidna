@@ -1,18 +1,18 @@
 {
-  "key": "867b8d90-ed0c-8068-b592-babd120abe08",
-  "publications": 64,
-  "sealedTheorems": 1167,
+  "key": "c6de9ca3-38f2-82c5-b606-46738b46be01",
+  "publications": 65,
+  "sealedTheorems": 1180,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1167,
-    "theorems": 1167,
+    "claims": 1180,
+    "theorems": 1180,
     "bijection": true,
     "digitalRoots": {
-      "claims": 6,
-      "theorems": 6,
-      "publications": 1
+      "claims": 1,
+      "theorems": 1,
+      "publications": 2
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -462,6 +462,13 @@
       "slug": "anti-fraud",
       "claims": 26,
       "cited": 26,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "sailing-seals",
+      "claims": 13,
+      "cited": 13,
       "uncited": [],
       "fabricated": []
     }

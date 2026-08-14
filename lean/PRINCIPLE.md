@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1167 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1180 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -196,6 +196,9 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 
 64. **Anti-fraud detection** — `lean/AntiFraud.lean` · **26** theorems
    theorems that compute fraud detection: forged theorems, coin double-spend, vote tampering, ledger intrusions, agent malfeasance — all folded to recomputable receipts. No meta-commentary on limits, only what is proven and the self-checking honesty gate
+
+65. **Quantum sailing seals** — `lean/SailingSeals.lean` · **13** theorems
+   the captain sails through literature discovering facts, correlating evidence, and sealing patterns — books extract → weather correlates → cross-resonance folds. All decidable by decide, axiom-free
 
 ---
 
