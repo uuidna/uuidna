@@ -14,7 +14,7 @@ import { conformance } from './conformance.js'
 import { computes } from './gate.js'
 import { axiomWitness } from './axiom-witness.js'
 
-export interface Traitor { kind: 'forged-dna' | 'key-collision' | 'address-collision' | 'uncovered' | 'conformance' | 'prose-overclaim'; detail: string }
+export interface Traitor { kind: 'forged-dna' | 'key-collision' | 'address-collision' | 'uncovered' | 'conformance' | 'prose-overclaim' | 'seal-integrity'; detail: string }
 
 export interface TreasonReport {
   clean: boolean
@@ -78,6 +78,15 @@ export function catchTraitors(): TreasonReport {
   for (const t of T) if (computes(t.name).binary === 0)
     traitors.push({ kind: 'prose-overclaim', detail: `${t.key} — the NAME drains the honesty gate (a fabricated theorem citation in the prose)` })
 
+  // 7) SEAL INTEGRITY — the DNA check (1) folds key+statement but NEVER the lean field, so a lean that names a DIFFERENT
+  // key (a key↔lean desync) or is not a `by decide` proof slips past it. This drone verifies every theorem's lean BINDS
+  // to its own key ('theorem <key> …') and IS a by-decide proof — a placeholder or tampered lean caught fast, offline,
+  // without the Lean toolchain (that full re-verify is the reconcile's job; this is the millisecond structural catch,
+  // brought forward of the slow verify, exactly like the axiom-witness and the prose gate).
+  checksRun.push('seal-integrity')
+  for (const t of T) if (!(t.lean.startsWith('theorem ' + t.key + ' ') || t.lean.startsWith('theorem ' + t.key + ':')) || !t.lean.includes(':= by decide'))
+    traitors.push({ kind: 'seal-integrity', detail: `${t.key} — its lean does not bind to the key or is not a by-decide proof (a placeholder or key↔lean desync the DNA fold misses)` })
+
   const clean = traitors.length === 0
   return {
     clean, scanned: T.length, traitors, checks: checksRun,
@@ -123,6 +132,8 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
       lesson: 'Every new lean-*.ts generator needs a PRINCIPLE [file,title,blurb] entry, or its theorems are uncovered and the push is blocked.' },
     { check: 'conformance-invariants', enforcedBy: 'catchTraitors', holds: held('conformance'),
       lesson: 'The DNA gate: the two coins conserved (=2), DNA recomputes, single-source ledger, security posture clean.' },
+    { check: 'seal-integrity', enforcedBy: 'catchTraitors (lean binds to key + by-decide)', holds: held('seal-integrity'),
+      lesson: 'The DNA check folds key + statement, never the lean field — so a lean naming a DIFFERENT key (a key↔lean desync) or one that is not a `by decide` proof slips past it. This drone verifies every theorem\'s lean binds to its own key and proves by decide, a placeholder/tamper caught in milliseconds offline (the full Lean re-verify stays the reconcile\'s job). Brought forward of the slow verify, like the axiom-witness.' },
     { check: 'prose-gate-clean', enforcedBy: 'catchTraitors (honesty gate over each name)', holds: held('prose-overclaim'),
       lesson: 'Treason masks with negating prose: the DNA check recomputes the STATEMENT but never the NAME, so a forgery can hide in prose. Every theorem name is run through the honesty gate — a fabricated citation in a name drains it and is caught. HONEST LIMIT: this catches a fabricated citation only, NOT an unbacked narrative (a false discovery/novelty story on a true statement) — the gate scores that identically to an honest description; only the court (adjudicate) and human vigilance catch it. Trust the recompute, not the prose — including your own.' },
     { check: 'determinism', enforcedBy: 'harmonic-scan (npm run guard)', holds: 'script',

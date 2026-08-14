@@ -131,7 +131,7 @@ const armLegal = merkleGravity([toUuid('claims:' + legalClaimsAudited), toUuid('
 // ── ARM 6 · QUANTUM SCOPE — honest boundaries verified. uuidna CLAIMS quantum capabilities (quantum operations work),
 //    but implemented classically (2^n simulation), not hardware. No quantum ADVANTAGE claimed (Clifford-simulable).
 //    "Honest by construction" backed by integrity/soundness theorems. Verification speedup IS measured in trials.
-const quantumCapabilitiesClaimed = T.some((t) => /quantum|bell|ghz|pauli|clifford/.test(t.key))  // 42 quantum theorems sealed
+const quantumCapabilitiesClaimed = all.some((t: any) => /quantum|bell|ghz|pauli|clifford/.test(t.key))  // 42 quantum theorems sealed
 const classicalImplementationProven = all.some((t) => t.key === 'clifford_group_order_24')   // Clifford group classically simulable
 const honestBoundaryProven = all.some((t) => t.key === 'honesty_gate_one_drain')       // Honesty gate proven
 const verificationSpeedupMeasured = true  // trials measure: verify O(1), recompute O(N) — speedup proven, measured
@@ -142,7 +142,7 @@ if (!classicalImplementationProven) fails.push(`quantum: classical implementatio
 if (!honestBoundaryProven) fails.push(`quantum: honesty gate theorem missing (honesty_gate_one_drain)`)
 if (!noQuantumAdvantageOverClassical) fails.push(`quantum: quantum advantage claimed — violates honest scope`)
 console.log(`  ARM 6 · quantum  — capabilities claimed: ${quantumCapabilitiesClaimed ? 'yes' : 'NO'} (42 theorems); classical proven: ${classicalImplementationProven ? 'yes' : 'NO'}; honest boundary: ${honestBoundaryProven ? 'yes' : 'NO'}; no advantage claimed: ${noQuantumAdvantageOverClassical ? 'yes' : 'NO'}`)
-const armQuantum = merkleGravity([toUuid('classical:' + quantumSimulatorProven), toUuid('honest:' + honestBoundaryProven), toUuid('noquantumspeedup:' + noQuantumSpeedupClaimed), toUuid('verified:' + verificationSpeedupMeasured)])
+const armQuantum = merkleGravity([toUuid('capabilities:' + quantumCapabilitiesClaimed), toUuid('classical:' + classicalImplementationProven), toUuid('honest:' + honestBoundaryProven), toUuid('verified:' + verificationSpeedupMeasured)])
 
 // ── ARM 7 · PROSE EVIDENCE — every claim in README/homepage linked to backing theorems (docs/prose-evidence.md).
 //    Automated via gen-prose-evidence.ts. If a theorem leaves the ledger, its proof vanishes. Live document.
