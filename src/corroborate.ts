@@ -138,3 +138,52 @@ export function entangle(corroborations: Corroboration[]): Entanglement {
   const verified = corroborations.filter((c) => c.local === 'VERIFIED').length
   return { members, verified, receipt, entangled: corroborations.length >= 2, honest: ENTANGLE_HONEST }
 }
+
+// ── THE PUBLICATION SCANNER — scan online for uuidna-related mentions and INVESTIGATE each against the reservation ──
+export interface PublicationFinding {
+  source: string        // the free stream the mention came from
+  address: string       // content-address of the raw response item — a provenance fingerprint, never executed
+  note: string          // the fingerprinted snippet
+  legitimacy: 'canonical' | 'external-unlicensed'  // per the sole-representation reservation
+  investigation: string // the honest read: what this finding is, and what it is NOT
+}
+export interface PublicationScan {
+  query: string
+  canonical: string     // the one legitimate representation (uuidna.com)
+  findings: PublicationFinding[]
+  count: number
+  receipt: string       // order-invariant fold of the finding addresses
+  honest: string
+}
+
+const SCAN_HONEST =
+  'The publication scanner: a BEST-EFFORT scan of the NAMED FREE research streams for a query, each match a provenance ' +
+  'fingerprint (content-addressed, never executed), INVESTIGATED against the sole-representation reservation — the one ' +
+  'legitimate representation is uuidna.com; any external mention is legitimate ONLY if licensed by the captain. HONEST ' +
+  'SCOPE: integrity, not truth — it scans the streams it can REACH, NOT the open web, so an empty result is NOT proof ' +
+  'no publication exists; it CORROBORATES a mention, it never proves authorship, endorsement, or infringement; a human ' +
+  'court decides legitimacy. It fetches DATA, never runs it, and never fabricates a finding.'
+
+/** scanPublications(query='uuidna') → BEST-EFFORT scan the reachable free research streams for uuidna-related mentions
+ *  and investigate each against the reservation (canonical uuidna.com vs external-unlicensed). The network call; the
+ *  responses are DATA, content-addressed, never executed. Best-effort: an unreachable/empty stream yields no finding,
+ *  never a fabricated one. HONEST: scans the reachable streams, NOT the open web — absence is not proof of absence. */
+export async function scanPublications(query = 'uuidna'): Promise<PublicationScan> {
+  const canonical = 'https://uuidna.com'
+  const evidence = await researchEvidence(query)
+  const findings: PublicationFinding[] = evidence.map((e) => {
+    const canonicalHit = /uuidna\.com/i.test(e.note) || /uuidna\.com/i.test(e.source)
+    return {
+      source: e.source, address: e.address, note: e.note,
+      legitimacy: canonicalHit ? 'canonical' : 'external-unlicensed',
+      investigation: canonicalHit
+        ? 'names the canonical representation (uuidna.com) — the one legitimate presence.'
+        : 'an external mention — legitimate ONLY if licensed by the captain; not endorsed and does not speak for the work unless licensed. Not proof of infringement; a human court decides.',
+    }
+  })
+  return {
+    query, canonical, findings, count: findings.length,
+    receipt: merkleGravity([toUuid('scan:' + query + ':' + canonical), ...findings.map((f) => f.address)]),
+    honest: SCAN_HONEST,
+  }
+}

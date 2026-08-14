@@ -49,7 +49,7 @@ export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
 // the trial — a recomputable three-way verdict (REFUTED/SEALED/UNVERIFIED); proveVerdict folds the formula
 // receipts through the order-invariant gravity to one proof-of-verdict root. Integrity, not truth.
 export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from './adjudicate.js'
-export { corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement } from './corroborate.js'
+export { corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from './corroborate.js'
 export { domainWave, type DomainWave } from './domain-wave.js'
 // research — deep research pressed/decompressed with the reversible imprint codec, bound to the entangled algebra,
 // with NOVELTY as content-address uniqueness. Does NOT extract MEANING (provenance + structure only; meaning is null).
@@ -216,6 +216,9 @@ export { quantumAnalytics, type QuantumAnalytics, type Distribution, type LayerM
 // folded to one receipt, deterministic and offline. Integrity, not truth.
 export { quantumProfile, type QuantumProfile } from './profile.js'
 export { socialProfile, type SocialProfile } from './social.js'
+// grow — THE MISSION, recomputable: uuidna uses all its tools to LEGALLY GROW LIFE — the lawful, monotone growth of
+// the living by-decide ledger (grow: always a next; legally: licence + reservation + honest cost; life: living count).
+export { growLife, type GrowLife } from './grow.js'
 
 // seo — QUANTUM SEO: recomputable, honest discoverability for any subject (theorem/publication/static page), derived
 // from the sealed ledger — canonical URL, per-page description from the verbose Lean source, schema.org JSON-LD, keyword
