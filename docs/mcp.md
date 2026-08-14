@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="138 keys" />
+# MCP tools <Badge type="tip" text="139 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 138 tools below are read from the server's own tool list and
-organised into 34 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 139 tools below are read from the server's own tool list and
+organised into 35 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`138`" />
+## The grid <Badge type="tip" :text="`139`" />
 
-138 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 47 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+139 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 48 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -35,6 +35,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-grow-life"><code>grow_life</code></a>
 <a href="#uuidna-guard-lessons"><code>guard_lessons</code></a>
 <a href="#uuidna-hardware"><code>hardware</code></a>
+<a href="#uuidna-image-provenance"><code>image_provenance</code></a>
 <a href="#uuidna-laws"><code>laws</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
 <a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
@@ -1646,6 +1647,22 @@ THE QUANTUM-CUBE CHALLENGE — a recomputable, SYMMETRIC challenge-response whos
 | `secret` | string | **yes** | the shared secret the holder proves knowledge of |
 | `nonce` | string | **yes** | the verifier-supplied challenge (fresh each time) |
 | `response` | string | no | optional — a response to VERIFY against (returns {match}) |
+
+## Byte-level image provenance <Badge type="tip" :text="'1'" />
+
+*skill: gate*
+
+### `uuidna_image_provenance`
+
+BYTE-LEVEL IMAGE (and any-file) PROVENANCE — content-address the EXACT bytes so any alteration is visible. Pass the bytes as {hex} or {base64}: returns the byte length, the container FORMAT read from the magic bytes (png/jpeg/gif/webp/bmp/tiff/pdf/unknown), the SHA-256 of the exact bytes (the authoritative exact-copy + tamper-evidence fingerprint), and a uuidna handle over it. Pass {sha256} alongside to VERIFY — returns {match} by recomputing (a tamper, any changed byte, moves the hash and fails). DETERMINISTIC and OFFLINE. HONEST SCOPE: integrity, not truth — it proves EXACT-COPY and TAMPER-EVIDENCE of the BYTES, and provably NOT content authenticity: it says NOTHING about whether an image is a genuine photograph, where/when it was taken, whether it depicts the poles (or anything), or whether its content was manipulated before these bytes. A match proves byte-identity; it NEVER proves a truthful record of the world — content authenticity is non-justiciable from bytes (theorem provenance_integrity_not_content_truth). Returns {bytes,format,sha256,handle,honest}, or {match} when a sha256 is given.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `hex` | string | no | the file bytes as a hex string |
+| `base64` | string | no | the file bytes as base64 (alternative to hex) |
+| `sha256` | string | no | optional — a SHA-256 hex to VERIFY the bytes against (returns {match}) |
 
 ## MCP self-test (recomputable contract) <Badge type="tip" :text="'1'" />
 

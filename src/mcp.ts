@@ -19,7 +19,7 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
-  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, bindCaptainRepos, skillGroups, reviewDomains,
+  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, skillGroups, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor,
   reAddress, type EditorState,
@@ -56,6 +56,7 @@ const utf8 = (s: unknown): Uint8Array => te.encode(String(s))
 const hex = (u: Uint8Array): string => Array.from(u, (b) => b.toString(16).padStart(2, '0')).join('')
 const unhex = (s: unknown): Uint8Array => { const h = String(s).replace(/\s+/g, ''); if (h.length % 2 || /[^0-9a-fA-F]/.test(h)) throw new Error('expected hex'); const u = new Uint8Array(h.length / 2); for (let i = 0; i < u.length; i++) u[i] = parseInt(h.slice(i * 2, i * 2 + 2), 16); return u }
 const need = (u: Uint8Array, n: number, what: string): Uint8Array => { if (u.length !== n) throw new Error(what + ' must be ' + n + ' bytes (' + n * 2 + ' hex chars), got ' + u.length); return u }
+const unb64 = (s: unknown): Uint8Array => { const bin = atob(String(s)); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u }
 
 const TOOLS: Tool[] = [
   { name: 'uuidna_address',
@@ -639,6 +640,13 @@ const TOOLS: Tool[] = [
     run: (a) => a.response !== undefined
       ? { match: verifyQuantumCube(String(a.secret), String(a.nonce), String(a.response)), nonce: String(a.nonce) }
       : quantumCubeChallenge(String(a.secret), String(a.nonce)) },
+  { name: 'uuidna_image_provenance',
+    description: 'BYTE-LEVEL IMAGE (and any-file) PROVENANCE — content-address the EXACT bytes so any alteration is visible. Pass the bytes as {hex} or {base64}: returns the byte length, the container FORMAT read from the magic bytes (png/jpeg/gif/webp/bmp/tiff/pdf/unknown), the SHA-256 of the exact bytes (the authoritative exact-copy + tamper-evidence fingerprint), and a uuidna handle over it. Pass {sha256} alongside to VERIFY — returns {match} by recomputing (a tamper, any changed byte, moves the hash and fails). DETERMINISTIC and OFFLINE. HONEST SCOPE: integrity, not truth — it proves EXACT-COPY and TAMPER-EVIDENCE of the BYTES, and provably NOT content authenticity: it says NOTHING about whether an image is a genuine photograph, where/when it was taken, whether it depicts the poles (or anything), or whether its content was manipulated before these bytes. A match proves byte-identity; it NEVER proves a truthful record of the world — content authenticity is non-justiciable from bytes (theorem provenance_integrity_not_content_truth). Returns {bytes,format,sha256,handle,honest}, or {match} when a sha256 is given.',
+    inputSchema: { type: 'object', properties: { hex: { type: 'string', description: 'the file bytes as a hex string' }, base64: { type: 'string', description: 'the file bytes as base64 (alternative to hex)' }, sha256: { type: 'string', description: 'optional — a SHA-256 hex to VERIFY the bytes against (returns {match})' } } },
+    run: (a) => {
+      const bytes = a.hex !== undefined ? unhex(a.hex) : a.base64 !== undefined ? unb64(a.base64) : new Uint8Array()
+      return a.sha256 !== undefined ? { match: verifyImageProvenance(bytes, String(a.sha256)), bytes: bytes.length } : imageProvenance(bytes)
+    } },
   { name: 'uuidna_selftest',
     description: 'The MCP tests ITSELF — pure self-consistency, no external oracle: every catalog tool must resolve to a handler, and every zero-arg tool must RUN and be DETERMINISTIC (two calls recompute identically). A tool that reads live device state surfaces as non-deterministic, honestly. Folds to one self-test receipt. Returns {checks,passed,deterministic,failed,receipt}.',
     inputSchema: { type: 'object', properties: {} },
@@ -804,6 +812,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^grow_life$/, 'The mission — legally grow life', 'measure'],
   [/^scan_publications$/, 'Publication scanner (research boundary)', 'measure'],
   [/^quantum_cube$/, 'Quantum-cube challenge (symmetric)', 'gate'],
+  [/^image_provenance$/, 'Byte-level image provenance', 'gate'],
   [/^selftest$/, 'MCP self-test (recomputable contract)', 'measure'],
 ]
 const categoryOf = (name: string): [string, string] => {

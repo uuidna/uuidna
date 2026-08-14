@@ -223,6 +223,11 @@ export { growLife, type GrowLife } from './grow.js'
 // aura rendered as a spinning 3D cube. A holder of the shared secret reproduces the exact cube for a verifier's nonce;
 // an imitator cannot. Strength is the secret's entropy — NOT zero-knowledge, NOT biometric. Integrity, not truth.
 export { quantumCubeChallenge, verifyQuantumCube, type QuantumCube } from './cube.js'
+// provenance — BYTE-LEVEL image/file provenance: the SHA-256 of the exact bytes (exact-copy + tamper-evidence) + a
+// uuidna handle + the container format from the magic bytes. Proves byte-identity, NEVER content authenticity — a
+// match proves two files are byte-identical, not that an image is a truthful record of the world (theorem
+// provenance_integrity_not_content_truth). Deterministic and offline.
+export { imageProvenance, verifyImageProvenance, type ImageProvenance } from './provenance.js'
 
 // seo — QUANTUM SEO: recomputable, honest discoverability for any subject (theorem/publication/static page), derived
 // from the sealed ledger — canonical URL, per-page description from the verbose Lean source, schema.org JSON-LD, keyword
