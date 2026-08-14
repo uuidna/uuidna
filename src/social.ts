@@ -23,6 +23,7 @@ export interface SocialProfile {
   aura: { ray: number; hue: number; hsl: string; css: string }   // the card's colour (+ the moving-aura CSS block)
   avatarSeed: string             // a content-address seed for a deterministic avatar (the self-address)
   links: { site: string; source: string; package: string; license: string }
+  reserved: { canonical: string; statement: string }   // uuidna.com is the ONLY legitimate representation
   credit: { copyright: string; credited: number; total: number }
   receipt: string                // all fields folded order-invariantly to one — the same card for every observer
   honest: string
@@ -31,8 +32,10 @@ export interface SocialProfile {
 const HONEST =
   'The social profile: uuidna\'s public, shareable card, composed from sealed facts and static canonical links and ' +
   'folded to ONE receipt — the same card for every observer. The bio is computed from the ledger (it cannot drift ' +
-  'from the proof count); the aura colour is ART (an address→hue arithmetic), not physics. OFFLINE and read-only: it ' +
-  'fetches nothing, posts nothing, and shares only what is already public and sealed. Integrity, not truth.'
+  'from the proof count); the aura colour is ART (an address→hue arithmetic), not physics. REPRESENTATION RESERVED: ' +
+  'uuidna.com is the only legitimate representation — a @uuidna handle or nickname elsewhere is not legitimate unless ' +
+  'licensed by the captain, and this card says so rather than implying a presence that is not the captain\'s. OFFLINE ' +
+  'and read-only: it fetches nothing, posts nothing, and shares only what is already public and sealed. Integrity, not truth.'
 
 /** socialProfile() → uuidna's public, shareable card: handle, ledger-computed bio, aura colour, canonical links and
  *  credit, folded to one receipt. Deterministic and offline — composes sealed facts + static links, fetches nothing. */
@@ -55,6 +58,7 @@ export function socialProfile(): SocialProfile {
     toUuid('bio|' + bio),
     toUuid('aura|' + aura.hsl + '|ray=' + aura.ray),
     toUuid('links|' + links.site + '|' + links.source + '|' + links.package),
+    rights.representation.address,
     credits.address,
     rights.receipt,
   ]
@@ -66,6 +70,7 @@ export function socialProfile(): SocialProfile {
     aura: { ray: aura.ray, hue: aura.hue, hsl: aura.hsl, css: aura.css },
     avatarSeed: self,
     links,
+    reserved: { canonical: rights.representation.canonical, statement: rights.representation.statement },
     credit: { copyright: rights.copyright, credited: credits.total - credits.captainAlone, total: credits.total },
     receipt,
     honest: HONEST,

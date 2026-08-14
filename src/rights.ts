@@ -26,6 +26,7 @@ export interface CaptainRights {
   licenseUrl: string
   licenseAddress: string     // content-address of the exact canonical licence terms
   creditLaw: string          // the captain claims by law what no proving link attributes
+  representation: { canonical: string; statement: string; address: string }  // the sole-representation reservation
   credited: { toSource: number; captainWithNames: number; captainAlone: number }  // the live credit tally
   line: string               // the one canonical rights line — what the imprint encodes
   imprint: string            // content-address of the rights line — recompute it or a term changed
@@ -51,9 +52,16 @@ export function captainRights(): CaptainRights {
     'The captain claims by law every solution sealed here that no proving link attributes to a prior source: the seal ' +
     'is the claim (first sealed `by decide`, content-addressed), prior art and recomputable. A solution whose trial ' +
     'evidence links a proving source is credited to that source instead — never claimed as the captain\'s own.'
+  // the SOLE-REPRESENTATION reservation: uuidna.com is the one legitimate representation; any presence elsewhere —
+  // social-media handles, usernames, nicknames — is not legitimate unless licensed in writing by the captain.
+  const CANONICAL = 'https://uuidna.com'
+  const reservation =
+    `uuidna is represented by ${CANONICAL} ONLY. No presence elsewhere — including social-media handles, usernames, ` +
+    'and nicknames — is a legitimate representation of uuidna unless licensed in writing by the captain; an unlicensed ' +
+    'handle or profile bearing the uuidna name is not endorsed and does not speak for the work.'
   const line =
     `© ${YEAR} ${holder}. Licensed ${lf.license.spdx} (${licenseName}) — attribution, non-commercial, no derivatives; ` +
-    `canonical at ${licenseUrl}. Credit law: ${creditLaw}`
+    `canonical at ${licenseUrl}. Credit law: ${creditLaw} Representation: ${reservation}`
   const imprint = toUuid(line)
   const imprintChain = imprintTextChain(line)                            // reversible — decodes back to `line`
 
@@ -64,20 +72,25 @@ export function captainRights(): CaptainRights {
     ['meta', { name: 'license', content: lf.license.spdx }],
     ['meta', { name: 'copyright', content: `© ${YEAR} ${holder}` }],
     ['meta', { property: 'uuidna:rights', content: imprint }],
+    ['meta', { property: 'uuidna:canonical', content: CANONICAL }],
+    ['link', { rel: 'canonical', href: CANONICAL }],
   ]
 
   _cache = {
     copyright: `© ${YEAR} ${holder}`, holder,
     license: lf.license.spdx, licenseName, licenseUrl, licenseAddress: lf.license.address,
     creditLaw,
+    representation: { canonical: CANONICAL, statement: reservation, address: toUuid('representation:' + reservation) },
     credited: { toSource: cs.historical, captainWithNames: cs.contextual, captainAlone: cs.captainAlone },
     line, imprint, imprintChain, head,
-    receipt: merkleFold([toUuid('rights-line:' + imprint), toUuid('license:' + lf.license.address), toUuid('credit:' + cs.address)]),
+    receipt: merkleFold([toUuid('rights-line:' + imprint), toUuid('license:' + lf.license.address), toUuid('credit:' + cs.address), toUuid('representation:' + reservation)]),
     honest:
       'The captain\'s rights, hard-imprinted: the real copyright (© ' + holder + '), the real licence (' + lf.license.spdx +
-      '), and uuidna\'s credit law, content-addressed and reversibly imprinted so they travel with the work and any ' +
-      'alteration is visible. FACTUAL rights, tamper-evident and recomputable — NOT a legal ruling or a compliance ' +
-      'claim; the imprint marks the work, a human court enforces the law. Integrity, not truth.',
+      '), uuidna\'s credit law, and the SOLE-REPRESENTATION reservation (uuidna.com only; no legitimate presence ' +
+      'elsewhere — handles or nicknames — unless licensed), content-addressed and reversibly imprinted so they travel ' +
+      'with the work and any alteration is visible. FACTUAL rights, tamper-evident and recomputable — NOT a legal ' +
+      'ruling, a trademark registration, or a claim to own every use of the name; the imprint marks the reservation, a ' +
+      'human court enforces the law. Integrity, not truth.',
   }
   return _cache
 }
@@ -119,9 +132,11 @@ export function draftContract(licensee = 'the recipient'): RightsContract {
     '',
     `2. CREDIT LAW. ${r.creditLaw}`,
     '',
-    '3. INTEGRITY. These terms are content-addressed: their id is the fold of this exact text. Any alteration moves the id, so a holder PROVES they hold the unaltered terms by re-addressing them. Integrity, not truth — the address proves the terms are unaltered; it does not adjudicate them.',
+    '3. REPRESENTATION RESERVED. ' + r.representation.statement,
     '',
-    '4. NO WARRANTY; NOT LEGAL ADVICE. The Work is provided "as is". This DRAFT is a recomputable fact base, NOT an executed contract, legal advice, or a compliance opinion. It binds no one until reviewed by qualified counsel and signed by the parties. A content-address cannot settle a legal question; a human court enforces the law.',
+    '4. INTEGRITY. These terms are content-addressed: their id is the fold of this exact text. Any alteration moves the id, so a holder PROVES they hold the unaltered terms by re-addressing them. Integrity, not truth — the address proves the terms are unaltered; it does not adjudicate them.',
+    '',
+    '5. NO WARRANTY; NOT LEGAL ADVICE. The Work is provided "as is". This DRAFT is a recomputable fact base, NOT an executed contract, legal advice, or a compliance opinion. It binds no one until reviewed by qualified counsel and signed by the parties. A content-address cannot settle a legal question; a human court enforces the law.',
   ].join('\n')
   const contractId = toUuid(terms)
   return {
