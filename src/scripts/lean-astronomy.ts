@@ -24,26 +24,25 @@ const FACTS = [
     js: () => 60 * 60 === 3600,
     lean: 'theorem sexagesimal_arcseconds : 60 * 60 = 3600 := by decide' },
 
-  // ── DISCOVERED via the book→ledger linkage (uuidna_link_book) and fused in: the arithmetic of navigation, each fact
-  // NOVEL (verified by decide, not previously sealed) — the captain's independent-research discoveries, credited to the
-  // nautical/astronomical domain the linkage found them in. ──
+  // ── the decidable arithmetic of positional navigation — the sea-mile grid, exact ratios (not discoveries; plain
+  // navigation measure, at home beside the sky's fixed references above). ──
   { key: 'arcminutes_equator_to_pole',
-    why: 'One arcminute of latitude is one nautical mile, and the equator-to-pole span is 90° — so 90 × 60 = 5400 arcminutes (5400 nautical miles) from the equator to the pole. Discovered by the book→ledger linkage as a NOVEL navigation fact and fused into the ledger.',
+    why: 'One arcminute of latitude is one nautical mile, and the equator-to-pole span is 90° — so 90 × 60 = 5400 arcminutes (5400 nautical miles) from the equator to the pole.',
     js: () => 90 * 60 === 5400,
     lean: 'theorem arcminutes_equator_to_pole : 90 * 60 = 5400 := by decide' },
 
   { key: 'arcminutes_pole_to_pole',
-    why: 'The meridian span from pole to pole is 180° of latitude, so 180 × 60 = 10800 arcminutes (10800 nautical miles) along a meridian from one pole to the other. Discovered by the book→ledger linkage as a NOVEL navigation fact and fused into the ledger.',
+    why: 'The meridian span from pole to pole is 180° of latitude, so 180 × 60 = 10800 arcminutes (10800 nautical miles) along a meridian from one pole to the other.',
     js: () => 180 * 60 === 10800,
     lean: 'theorem arcminutes_pole_to_pole : 180 * 60 = 10800 := by decide' },
 
   { key: 'arcminutes_full_circle',
-    why: 'A great circle is 360°, and one arcminute of arc is one nautical mile, so 360 × 60 = 21600 arcminutes — the earth\'s circumference is 21600 nautical miles to the arcminute. Discovered by the book→ledger linkage as a NOVEL navigation fact and fused into the ledger.',
+    why: 'A great circle is 360°, and one arcminute of arc is one nautical mile, so 360 × 60 = 21600 arcminutes — a great circle of the earth measures 21600 nautical miles to the arcminute.',
     js: () => 360 * 60 === 21600,
     lean: 'theorem arcminutes_full_circle : 360 * 60 = 21600 := by decide' },
 
   { key: 'longitude_four_minutes_per_degree',
-    why: 'The earth turns 15° of longitude per hour (360° in 24 h), so each degree of longitude is four minutes of time — 15 × 4 = 60, the sixty minutes of an hour shared out one degree at a time. Discovered by the book→ledger linkage as a NOVEL navigation fact and fused into the ledger.',
+    why: 'The earth turns 15° of longitude per hour (360° in 24 h), so each degree of longitude is four minutes of time — 15 × 4 = 60, the sixty minutes of an hour shared out one degree at a time.',
     js: () => 15 * 4 === 60,
     lean: 'theorem longitude_four_minutes_per_degree : 15 * 4 = 60 := by decide' },
 
