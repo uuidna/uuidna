@@ -43,10 +43,10 @@ console.log('🎮 ENTANGLEMENT-GAMES — Discover theorem relationships through 
 // Load theorems from sealed ledger
 console.log('Step 1: Loading sealed theorem ledger...')
 const theoremContent = readFileSync(SRC_THEOREMS, 'utf8')
-const theoremMatch = theoremContent.match(/export const THEOREMS:\s*Theorem\[\]\s*=\s*\[([\s\S]*?)\n\]/)
+const theoremMatch = theoremContent.match(/export const LEAN_LEDGER:[\s\S]*?\[([\s\S]*?)\n\]/)
 
 if (!theoremMatch) {
-  console.error('Could not find THEOREMS in generated.ts')
+  console.error('Could not find LEAN_LEDGER in generated.ts')
   process.exit(1)
 }
 
@@ -54,7 +54,7 @@ const theorems = new Map<string, Theorem>()
 const lines = theoremMatch[1].split('\n')
 
 for (const line of lines) {
-  const match = line.match(/{\s*key:\s*"([^"]+)",\s*name:\s*"([^"]+)",\s*statement:\s*"([^"]*)",\s*file:\s*"([^"]+)",\s*principle:\s*"([^"]+)"/)
+  const match = line.match(/{\s*key:\s*"([^"]+)",\s*name:\s*"([^"]+)",\s*statement:\s*"([^"]*)",\s*[^}]*file:\s*"([^"]+)",\s*principle:\s*"([^"]+)"/)
   if (match) {
     const [, key, name, statement, file, principle] = match
     theorems.set(key, { key, name, statement, file, principle })

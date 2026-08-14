@@ -1,0 +1,29 @@
+{
+  "title": "Entanglement Games — Discover Theorem Relationships",
+  "description": "Play games to explore how sealed theorems are entangled and connected",
+  "boards": [
+    {
+      "name": "Entanglement Chase",
+      "description": "Navigate the theorem graph: maximize connections in minimum moves",
+      "theorem_count": 50,
+      "move_count": 120946,
+      "win_condition": "Reach all entangled theorems in fewest moves"
+    },
+    {
+      "name": "Proof Bridge",
+      "description": "Find the shortest theorem chain connecting two domains",
+      "theorem_count": 50,
+      "move_count": 120946,
+      "win_condition": "Connect two theorems with minimal intermediate steps"
+    },
+    {
+      "name": "Entanglement Unravel",
+      "description": "Test which theorem connections are real vs. spurious",
+      "theorem_count": 50,
+      "move_count": 120946,
+      "win_condition": "Identify true theorem relationships"
+    }
+  ],
+  "total_games": 3,
+  "research_leads_generated": 120946
+}

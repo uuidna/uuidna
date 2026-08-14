@@ -1,0 +1,229 @@
+{
+  "timestamp": "2026-08-14T05:40:36.902Z",
+  "theorem_count": 1169,
+  "entanglement_clusters": 1169,
+  "game_boards": 3,
+  "research_leads": 120946,
+  "leads": [
+    {
+      "id": "lead_0",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_1_2",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 1·2 ≡ 2 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_1_2"
+      ]
+    },
+    {
+      "id": "lead_1",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_1_3",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 1·3 ≡ 3 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_1_3"
+      ]
+    },
+    {
+      "id": "lead_2",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_1_4",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 1·4 ≡ 4 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_1_4"
+      ]
+    },
+    {
+      "id": "lead_3",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_1_5",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 1·5 ≡ 5 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_1_5"
+      ]
+    },
+    {
+      "id": "lead_4",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_1_6",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 1·6 ≡ 6 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_1_6"
+      ]
+    },
+    {
+      "id": "lead_5",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_1_7",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 1·7 ≡ 7 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_1_7"
+      ]
+    },
+    {
+      "id": "lead_6",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_1_8",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 1·8 ≡ 8 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_1_8"
+      ]
+    },
+    {
+      "id": "lead_7",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_2_1",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 2·1 ≡ 2 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_2_1"
+      ]
+    },
+    {
+      "id": "lead_8",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_2_2",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 2·2 ≡ 4 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_2_2"
+      ]
+    },
+    {
+      "id": "lead_9",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_2_3",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 2·3 ≡ 6 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_2_3"
+      ]
+    },
+    {
+      "id": "lead_10",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_2_4",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 2·4 ≡ 8 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_2_4"
+      ]
+    },
+    {
+      "id": "lead_11",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_2_5",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 2·5 ≡ 1 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_2_5"
+      ]
+    },
+    {
+      "id": "lead_12",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_2_6",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 2·6 ≡ 3 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_2_6"
+      ]
+    },
+    {
+      "id": "lead_13",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_2_7",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 2·7 ≡ 5 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_2_7"
+      ]
+    },
+    {
+      "id": "lead_14",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_2_8",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 2·8 ≡ 7 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_2_8"
+      ]
+    },
+    {
+      "id": "lead_15",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_3_1",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 3·1 ≡ 3 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_3_1"
+      ]
+    },
+    {
+      "id": "lead_16",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_3_2",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 3·2 ≡ 6 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_3_2"
+      ]
+    },
+    {
+      "id": "lead_17",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_3_3",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 3·3 ≡ 0 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_3_3"
+      ]
+    },
+    {
+      "id": "lead_18",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_3_4",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 3·4 ≡ 3 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_3_4"
+      ]
+    },
+    {
+      "id": "lead_19",
+      "theorem_from": "mul9_1_1",
+      "theorem_to": "mul9_3_5",
+      "relation": "applies_to",
+      "question": "How does 1·1 ≡ 1 (mod 9) applies_to 3·5 ≡ 6 (mod 9)?",
+      "game_sequence": [
+        "mul9_1_1",
+        "mul9_3_5"
+      ]
+    }
+  ]
+}
