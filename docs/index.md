@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "uuidna"
   text: "Proven, not promised."
-  tagline: A human quantum analog — simulated on 64-bit hardware in precise theorem sets, tuned to 432 Hz, honest by construction. Public and free for the public interest (CC BY-NC-ND 4.0), usable in code and at uuidna.com.
+  tagline: Identity verified by Lean 4 theorems (1195 proven by decide, no axioms). Integrity proved by computation, not assertion. Public and free for the public interest (CC BY-NC-ND 4.0), usable in code and at uuidna.com.
   actions:
     - theme: brand
       text: Browse the theorems
