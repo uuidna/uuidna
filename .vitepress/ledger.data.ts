@@ -4,7 +4,7 @@
 // not a theorem. The recomputation-only capabilities (FNV address, gate, crypto) are TOOLS, not theorems.
 //
 // Requires the package to be built first (`npm run build` → dist/). `npm run docs:build` does both in order.
-import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid, publications, rosettaIndex } from '../dist/index.js'
+import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid, publications, rosettaIndex, quantumAura } from '../dist/index.js'
 
 export type Theorem = {
   key: string
@@ -16,6 +16,7 @@ export type Theorem = {
   skill: string
   lean: string
   address: string
+  aura: { hsl: string; ray: number }   // the A432 quantum aura folded from the address at build time (deterministic)
 }
 
 export type PrincipleGroup = {
@@ -64,7 +65,12 @@ export default {
   // Rebuild the ledger whenever the compiled package changes.
   watch: ['../dist/index.js'],
   load(): LedgerData {
-    const LEDGER = theorems() as Theorem[]
+    // The aura is content-addressed and deterministic, so it folds HERE, at build time — no client-side recompute.
+    // Only hsl + ray ship (the full Aura carries a per-address CSS block; 1132 of those would bloat the page data).
+    const LEDGER: Theorem[] = theorems().map((t) => {
+      const a = quantumAura(t.address)
+      return { ...t, aura: { hsl: a.hsl, ray: a.ray } }
+    })
     const trial = runTrial()
     const blurb = Object.fromEntries(PRINCIPLES.map((p: string[]) => [p[1], p[2]])) as Record<string, string>
     const order = PRINCIPLES.map((p: string[]) => p[1]).filter((name: string) => LEDGER.some((t) => t.principle === name))

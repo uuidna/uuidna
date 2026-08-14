@@ -6,7 +6,6 @@ aside: false
 <script setup>
 import { ref, computed } from 'vue'
 import { data } from '../.vitepress/ledger.data'
-import TheoremBrowser from './.vitepress/components/TheoremBrowser.vue'
 
 // The FILTERING SYSTEM — client-side, computed from the same ledger the pages render. Facet by principle (the
 // derivation cluster) and by skill (the capability), narrow by text; every filter recomputes the count and the
@@ -14,7 +13,7 @@ import TheoremBrowser from './.vitepress/components/TheoremBrowser.vue'
 const q = ref('')
 const principle = ref('')     // '' = all
 const skill = ref('')         // '' = all
-const viewMode = ref('quantum')  // 'quantum' (aura) or 'classic' (text-only)
+const aura = ref(true)        // decorate each theorem with its A432 aura (build-time folded, content-addressed)
 const monographByPrinciple = Object.fromEntries(data.groups.map((g) => [g.name, g.monograph]))
 
 const shown = computed(() => {
@@ -39,34 +38,16 @@ const clearAll = () => { q.value = ''; principle.value = ''; skill.value = '' }
 
 # Theorems <Badge type="tip" :text="`${data.total} Lean-proven`" />
 
-<div class="view-toggle">
-  <button
-    :class="{ active: viewMode === 'quantum' }"
-    @click="viewMode = 'quantum'"
-  >
-    ✨ Quantum (Aura)
-  </button>
-  <button
-    :class="{ active: viewMode === 'classic' }"
-    @click="viewMode = 'classic'"
-  >
-    📖 Classic (Text)
-  </button>
-</div>
-
-<template v-if="viewMode === 'quantum'">
-  <p><strong>Quantum view:</strong> Each theorem is folded to a unique A432 aura (hue), the color is content-addressed, and the same theorem always folds to the same aura — deterministic, no randomness. The ray (0..6) is the spectral band. Search to filter.</p>
-  <TheoremBrowser />
-</template>
-
-<template v-else>
-  <p><strong>Every proven Lean theorem — filter it, then read its proof.</strong> Each is authored in `lean/*.lean`, proven `by decide`
+**Every proven Lean theorem — filter it, then read its proof.** Each is authored in `lean/*.lean`, proven `by decide`
 (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`. Filter by **cluster** (the derivation principle) or
 **skill** (the capability), narrow by text, and open any theorem for its proof. Each cluster's **monograph** is its audited
-monograph. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.</p>
+monograph. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.
+Each theorem's **aura** is its content-address folded to an A432 hue at build time — deterministic, the same theorem
+always glows the same colour; the badge digit is its ℤ/7 rosette ray. Artistic decoration, not physics.
 
 <div class="filt">
   <input class="filt-q" v-model="q" placeholder="filter by text — key, statement, description…" />
+  <button class="filt-aura" :class="{ on: aura }" @click="aura = !aura">✨ aura</button>
   <button v-if="q || principle || skill" class="filt-clear" @click="clearAll">clear ✕</button>
 </div>
 
@@ -87,8 +68,9 @@ monograph. Lean is the single source; the recomputation-only capabilities (addre
   <a v-if="activeMonograph" :href="activeMonograph">Read the {{ principle }} monograph →</a>
 </p>
 
-<ul class="tlist tlist-flat">
-  <li v-for="t in shown" :key="t.key">
+<ul class="tlist tlist-flat" :class="{ 'tlist-aura': aura }">
+  <li v-for="t in shown" :key="t.key" :style="aura ? { borderLeftColor: t.aura.hsl } : null">
+    <span v-if="aura" class="tray" :style="{ backgroundColor: t.aura.hsl }" :title="`ray ${t.aura.ray} · ${t.aura.hsl}`">{{ t.aura.ray }}</span>
     <a :href="`/theorem/${t.key}`">{{ t.name }}</a>
     <code class="tstmt">{{ t.statement }}</code>
     <span class="tmeta">{{ t.principle }} · {{ t.skill }}</span>
@@ -99,17 +81,13 @@ monograph. Lean is the single source; the recomputation-only capabilities (addre
 
 The whole set folds to one order-invariant receipt: <Handle :uuid="data.trial.receipt" />. Re-verify every proof with `npm run lean`.
 The same theorems grouped by skill are on [/topics](/topics); each cluster's monograph is on [/publications](/publications).
-</template>
 
 <style scoped>
-.view-toggle { display: flex; gap: .5rem; margin: 1rem 0 1.5rem; }
-.view-toggle button { padding: .55rem 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); cursor: pointer; transition: all .2s; }
-.view-toggle button:hover { border-color: var(--vp-c-brand-1); }
-.view-toggle button.active { background: var(--vp-c-brand-1); color: white; border-color: var(--vp-c-brand-1); font-weight: 600; }
-
 .filt { display: flex; gap: .5rem; align-items: center; margin: 1rem 0 .5rem; }
 .filt-q { flex: 1; padding: .55rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-1); font-size: .95rem; }
 .filt-clear { padding: .55rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); cursor: pointer; white-space: nowrap; }
+.filt-aura { padding: .55rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); cursor: pointer; white-space: nowrap; opacity: .55; }
+.filt-aura.on { opacity: 1; border-color: var(--vp-c-brand-1); color: var(--vp-c-text-1); }
 .filt-row { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; margin: .35rem 0; }
 .filt-lbl { flex: 0 0 3.5rem; color: var(--vp-c-text-2); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
 .chip { padding: .28rem .6rem; border: 1px solid var(--vp-c-divider); border-radius: 999px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-1); cursor: pointer; font-size: .82rem; line-height: 1.2; transition: all .12s; }
@@ -122,6 +100,8 @@ The same theorems grouped by skill are on [/topics](/topics); each cluster's mon
 .filt-count a { margin-left: .5rem; font-weight: 600; }
 .tlist-flat { list-style: none; padding: 0; }
 .tlist-flat li { padding: .4rem 0; border-bottom: 1px solid var(--vp-c-divider); }
+.tlist-aura li { border-left: 4px solid transparent; padding-left: .6rem; }
+.tray { display: inline-flex; align-items: center; justify-content: center; width: 1.35rem; height: 1.35rem; border-radius: 50%; margin-right: .45rem; color: white; font-size: .72rem; font-weight: 700; vertical-align: middle; }
 .tlist-flat li > a { font-weight: 600; }
 .tstmt { display: inline-block; margin-left: .5rem; font-size: .82em; color: var(--vp-c-text-2); }
 .tmeta { display: block; font-size: .74em; color: var(--vp-c-text-3); margin-top: .1rem; }
