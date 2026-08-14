@@ -65,7 +65,18 @@ const zenodoSource: ResearchSource = async (query) => {
   } catch { return [] }
 }
 
-const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource]
+// A third reachable free source: Crossref, the canonical DOI registry (api.crossref.org, no key; ?mailto for the
+// polite pool). Each hit is a provenance-fingerprinted publication mention — content-addressed, never executed.
+const crossrefSource: ResearchSource = async (query) => {
+  try {
+    const res = await fetch('https://api.crossref.org/works?rows=8&mailto=ceccec@psg.bg&query=' + encodeURIComponent(query))
+    if (!res.ok) return []
+    const items = ((await res.json()) as { message?: { items?: { DOI?: string; title?: string[] }[] } }).message?.items ?? []
+    return items.map((it) => ({ source: 'crossref.org', address: toUuid('crossref:' + (it.DOI ?? '')), note: `DOI ${it.DOI ?? ''}: ${(it.title?.[0] ?? '').slice(0, 80)}` }))
+  } catch { return [] }
+}
+
+const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource]
 
 /** researchEvidence(query) → external research from the free API STREAMS, FANNED OUT IN PARALLEL (Promise.all over
  *  RESEARCH_SOURCES): the wall-clock is the slowest source, not the sum, and every match is a provenance-fingerprinted

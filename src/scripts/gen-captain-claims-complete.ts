@@ -65,7 +65,6 @@ const principleCategories: Record<string, string> = {
   'Tides': 'Science',
   'Navigation': 'Science',
   'Ephemeris': 'Science',
-  'Acoustics': 'Science',
   'Optics': 'Science',
   'Propulsion': 'Science',
 
