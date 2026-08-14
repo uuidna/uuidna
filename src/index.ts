@@ -229,6 +229,14 @@ export { captainRights, readImprintedRights, draftContract, type CaptainRights, 
 // physics: a defined arithmetic from a number to a hue; it decorates the work, it does not describe the universe.
 export { quantumAura, type Aura } from './aura.js'
 
+// quantum-message — FUSE quantum states, theorems, and auras into a single message identity. A quantum message
+// encodes plaintext + theorem proof into a quantum superposition, signs it against the ledger, and binds it to an
+// A432 aura (content-addressed, deterministic). Not a cipher (everyone sees the aura and state); not a signature
+// (the proof is sealed). A quantum message is a WITNESSED message — the witness is a sealed theorem, and the
+// message's quantum encoding proves the witness was cited. The same message always folds to the same aura and
+// quantum state for every observer — integrity without secrets.
+export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, type QuantumMessage, type QuantumState } from './quantum-message.js'
+
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
 // ledger (DNA that does not recompute, a key/address collision, an uncovered theorem, a broken conformance invariant),
 // folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this

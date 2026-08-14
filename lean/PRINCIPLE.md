@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1132 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1133 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -182,7 +182,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 59. **The matching** — `lean/Matching.lean` · **8** theorems
    connecting people as decidable arithmetic — the HONEST kernel of "social dating / connecting people", stated with its scope: uuidna is a theorem ledger and a content-addresser, it does NOT run a dating service, hold anyone's profile, or match real people; matching real humans means personal data, consent and safety obligations that live OUTSIDE these theorems (see /privacy). What IS sealed is only the graph theory a matching rests on: the handshake lemma (every edge touches two, so the degree sum is even and the edges are half of it), the count of possible introductions among n people (n(n−1)/2, ten among five), a perfect matching needs an EVEN number of people (six pair, five leave one out) and splits them in half, a mutual match is SYMMETRIC (both must choose — a one-sided choice is not a match), a pairing is a fixed-point-free involution (each partnered with exactly one other, no self-pairing), and — the honest ceiling — stable matching (Gale–Shapley) halts in AT MOST n² proposals, BOUNDED not free, the same "no maximum, only bounds" the security layer proves — the arithmetic of connection, NOT a matchmaking product or anyone's data
 
-60. **The rules of inference** — `lean/Reasoning.lean` · **13** theorems
+60. **The rules of inference** — `lean/Reasoning.lean` · **14** theorems
    reasoning itself as decidable arithmetic — every classical inference rule is a boolean tautology over a finite truth table, so each is proven by decide: modus ponens (from p and p→q, q) and modus tollens (from ¬q and p→q, ¬p), the contrapositive (p→q equals ¬q→¬p), De Morgan for and/or, double negation (¬¬p = p), the excluded middle (p ∨ ¬p), and the hypothetical and disjunctive syllogisms — implication p→q being the boolean !p ∨ q, checked on every assignment. The rules a valid argument is built from, sealed so a reasoning step can cite the exact rule it uses — classical propositional logic as decidable truth tables, NOT a theorem prover or predicate logic over infinite domains
 
 61. **The layered defence** — `lean/Security.lean` · **7** theorems
