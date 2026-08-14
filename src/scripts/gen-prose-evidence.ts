@@ -15,7 +15,7 @@ interface EvidenceEntry {
   address: string
 }
 
-const evidence: EvidenceEntry[] = [
+const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
   {
     claim: 'human quantum analog',
     prose: 'A human quantum analog — simulated on 64-bit hardware in precise theorem sets',
@@ -49,7 +49,7 @@ const evidence: EvidenceEntry[] = [
 ]
 
 // Add addresses to each evidence entry
-const ledger = evidence.map((e) => ({
+const ledger: EvidenceEntry[] = evidenceData.map((e) => ({
   ...e,
   address: toUuid(`evidence:${e.claim}`)
 }))
