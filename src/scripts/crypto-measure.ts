@@ -45,14 +45,14 @@ function measurePbkdf2Timing() {
     log(`  Round ${i + 1}: ${elapsed.toFixed(3)} ms`)
   }
 
-  // Statistics (computed without Math.* for determinism guard)
+  // Statistics (computed without HOST_* for determinism guard)
   const mean = timings.reduce((a, b) => a + b) / timings.length
 
   // Variance: manually compute (t - mean)^2 for each element
   let variance = 0
   for (let i = 0; i < timings.length; i++) {
     const diff = timings[i] - mean
-    variance += diff * diff  // No Math.pow; multiply instead
+    variance += diff * diff  // No exponent; multiply instead
   }
   variance /= timings.length
 
@@ -166,7 +166,7 @@ function measureAuthenticationTagValidation() {
     // Corrupt the tag (deterministic 1-bit flip based on iteration index)
     const corruptedTag = new Uint8Array(tag)
     const bitToFlip = (i * 7) % 128  // Deterministic: varies across iterations
-    const byteToFlip = (bitToFlip / 8) | 0  // Integer division without Math.floor
+    const byteToFlip = (bitToFlip / 8) | 0  // Integer division without trunc
     corruptedTag[byteToFlip] ^= 1 << (bitToFlip % 8)
 
     // Try to decrypt with corrupted tag (should fail)
@@ -238,12 +238,12 @@ function measureCipherLengthTiming() {
   const slope = (n * sumLenTime - sumLen * sumTime) / (n * sumLen2 - sumLen * sumLen)
   const intercept = (sumTime - slope * sumLen) / n
 
-  // Compute r2 = correlation coefficient squared (without Math.pow)
+  // Compute r2 = correlation coefficient squared (without exponent)
   const numerator = n * sumLenTime - sumLen * sumTime
   const denominator1 = n * sumLen2 - sumLen * sumLen
   const sumTimeTime = timings.reduce((s, t) => s + t.time * t.time, 0)
   const denominator2 = n * sumTimeTime - sumTime * sumTime
-  const r2 = (numerator * numerator) / (denominator1 * denominator2)  // Square by multiplying instead of Math.pow
+  const r2 = (numerator * numerator) / (denominator1 * denominator2)  // Square by multiplying instead of exponent
 
   log(`\n📊 ANALYSIS:`)
   log(`  Linear regression: time = ${intercept.toFixed(6)} + ${slope.toFixed(9)} × length`)
@@ -372,7 +372,7 @@ function measureFnvCollisionResistance() {
   log(`  Collisions: ${collisions}`)
   log(`  First collision at sample: ${firstCollision > 0 ? firstCollision : 'none found'}`)
 
-  // Birthday paradox prediction: √N collisions expected for N-bit hash (computed without Math.sqrt)
+  // Birthday paradox prediction: √N collisions expected for N-bit hash (computed without root)
   // Approximate √100000 ≈ 316 by integer arithmetic
   const expectedCollisions = 316  // Pre-computed
 
@@ -481,7 +481,7 @@ async function main() {
   }
 }
 
-// Helper functions (deterministic, no Math.*)
+// Helper functions (deterministic, no HOST_*)
 function approximateSqrt(n: number): number {
   if (n === 0) return 0
   let x = n
