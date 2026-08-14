@@ -5,7 +5,7 @@
 > A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets, **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
 <!-- seal:begin -->
-**1137 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1137/1137, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **143 MCP tools** and **63 computing principles**.
+**1167 theorems, all sealed and proven** — every one `by decide` (Lean 4, no Mathlib), verified sorry-free and **axiom-free** (1167/1167, kernel-only, not even `propext`; gate: scripts/lean-axioms). Exposed across **152 MCP tools** and **64 computing principles**.
 
 _Integrity, not truth: a seal proves its **exact statement**, never a grander claim. The reflection of each Millennium problem is sealed; no solution to any is (0 solve-proofs in the ledger) — so a solve is NOT PROVEN: never refuted, never admitted. Computed from the exact audited ledger; recheck it with `npm run next`._
 <!-- seal:end -->
@@ -63,7 +63,7 @@ Add it to your client's `mcpServers`:
 { "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
 ```
 
-**All 143 tools** are exposed (the live catalog is derived in [`docs/mcp.md`](docs/mcp.md), never hardcoded) — each
+**All 152 tools** are exposed (the live catalog is derived in [`docs/mcp.md`](docs/mcp.md), never hardcoded) — each
 calls the same pure functions this package seals: content-address and merge, holographic merkle proof, the ℤ/9
 structure, pure-TS crypto (ChaCha20-Poly1305, KAT-verified), the bidirectional uuid channel, the honesty gate and
 trial, the classical quantum state-vector simulator, the **engine** (one input→output surface) and **sanitise** (by
@@ -90,7 +90,7 @@ passphrase entropy — measured, not asserted; the FNV content-address stays non
 
 ## Formal layer — Lean 4, organized by computing principle
 
-**Every theorem in the ledger** (**1137** across **63** principles), all proven `by decide` (Lean 4,
+**Every theorem in the ledger** (**1167** across **64** principles), all proven `by decide` (Lean 4,
 no Mathlib), verified sorry-free by `npm run lean`, organized by **computing principle** in derivation order — the live
 count and every per-principle total are derived in [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md), never hand-typed:
 
@@ -101,7 +101,7 @@ count and every per-principle total are derived in [`lean/PRINCIPLE.md`](lean/PR
 5. **Ported from millennium-solutions** (`Vortex.lean`, 16) — the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)
 6. **The sequence & reflection group** (`Sequence.lean`, 20) — the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt
 
-…and 57 more principles (physics, games, arts, language, security, the exploit folds), each a verified
+…and 58 more principles (physics, games, arts, language, security, the exploit folds), each a verified
 monograph. The full, filterable collection — each theorem with its `by decide` proof, statement and content-address —
 is at [uuidna.com/theorems](https://uuidna.com/theorems); the whole set folds to one receipt at
 [uuidna.com/trials](https://uuidna.com/trials).

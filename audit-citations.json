@@ -1,18 +1,18 @@
 {
-  "key": "c6a5dfeb-c8d7-8d76-95ac-9116e0e57a1f",
-  "publications": 63,
-  "sealedTheorems": 1137,
+  "key": "d951d6a1-c248-85b1-a07b-5409719bebf5",
+  "publications": 64,
+  "sealedTheorems": 1167,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1137,
-    "theorems": 1137,
+    "claims": 1167,
+    "theorems": 1167,
     "bijection": true,
     "digitalRoots": {
-      "claims": 3,
-      "theorems": 3,
-      "publications": 9
+      "claims": 6,
+      "theorems": 6,
+      "publications": 1
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -215,8 +215,8 @@
     },
     {
       "slug": "astronomy",
-      "claims": 7,
-      "cited": 7,
+      "claims": 11,
+      "cited": 11,
       "uncited": [],
       "fabricated": []
     },
@@ -455,6 +455,13 @@
       "slug": "one-leap",
       "claims": 1,
       "cited": 1,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "anti-fraud",
+      "claims": 26,
+      "cited": 26,
       "uncited": [],
       "fabricated": []
     }

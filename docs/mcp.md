@@ -4,23 +4,25 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="143 keys" />
+# MCP tools <Badge type="tip" text="152 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 143 tools below are read from the server's own tool list and
+is **built from the keys**: the 152 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`143`" />
+## The grid <Badge type="tip" :text="`152`" />
 
-143 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 49 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+152 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 53 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
 <a href="#uuidna-analytics"><code>analytics</code></a>
+<a href="#uuidna-audit-ledger-fingerprint"><code>audit_ledger_fingerprint</code></a>
+<a href="#uuidna-audit-ledger-intrusions"><code>audit_ledger_intrusions</code></a>
 <a href="#uuidna-axiom-witness"><code>axiom_witness</code></a>
 <a href="#uuidna-cloudflare-audit"><code>cloudflare_audit</code></a>
 <a href="#uuidna-conformance"><code>conformance</code></a>
@@ -32,6 +34,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
+<a href="#uuidna-full-anti-fraud-audit"><code>full_anti_fraud_audit</code></a>
 <a href="#uuidna-grow-life"><code>grow_life</code></a>
 <a href="#uuidna-guard-lessons"><code>guard_lessons</code></a>
 <a href="#uuidna-hardware"><code>hardware</code></a>
@@ -47,6 +50,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-quantum"><code>quantum</code></a>
 <a href="#uuidna-quantum-profile"><code>quantum_profile</code></a>
 <a href="#uuidna-quantum-sailing-library"><code>quantum_sailing_library</code></a>
+<a href="#uuidna-quantum-sailing-weather"><code>quantum_sailing_weather</code></a>
 <a href="#uuidna-repos"><code>repos</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
 <a href="#uuidna-review-domains"><code>review_domains</code></a>
@@ -83,6 +87,8 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-contract"><code>contract</code></a>
 <a href="#uuidna-corroborate"><code>corroborate</code></a>
 <a href="#uuidna-credits"><code>credits</code></a>
+<a href="#uuidna-detect-double-spends"><code>detect_double_spends</code></a>
+<a href="#uuidna-detect-forgery"><code>detect_forgery</code></a>
 <a href="#uuidna-diamond"><code>diamond</code></a>
 <a href="#uuidna-digital-root"><code>digital_root</code></a>
 <a href="#uuidna-document"><code>document</code></a>
@@ -129,7 +135,9 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-verify-envelope"><code>verify_envelope</code></a>
 <a href="#uuidna-verify-statement"><code>verify_statement</code></a>
 <a href="#uuidna-agent-contribute"><code>agent_contribute</code></a>
+<a href="#uuidna-audit-coin-claim"><code>audit_coin_claim</code></a>
 <a href="#uuidna-audit-translation"><code>audit_translation</code></a>
+<a href="#uuidna-audit-voting"><code>audit_voting</code></a>
 <a href="#uuidna-compare"><code>compare</code></a>
 <a href="#uuidna-contract-chain"><code>contract_chain</code></a>
 <a href="#uuidna-contract-open"><code>contract_open</code></a>
@@ -156,6 +164,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-send"><code>send</code></a>
 <a href="#uuidna-trial-deposit"><code>trial_deposit</code></a>
 <a href="#uuidna-aead-encrypt"><code>aead_encrypt</code></a>
+<a href="#uuidna-audit-agent-statement"><code>audit_agent_statement</code></a>
 <a href="#uuidna-bill"><code>bill</code></a>
 <a href="#uuidna-chacha20"><code>chacha20</code></a>
 <a href="#uuidna-merkle-verify"><code>merkle_verify</code></a>
@@ -471,7 +480,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'42'" />
+## Other <Badge type="tip" :text="'51'" />
 
 *skill: other*
 
@@ -567,6 +576,17 @@ THE QUANTUM SAILING LIBRARY — an OFFLINE, public-domain book collection (Proje
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `bookIds` | array | no | Project Gutenberg ebook ids to fetch (optional; uses cache if not provided) |
+
+### `uuidna_quantum_sailing_weather`
+
+DISCOVER and CORRELATE weather data to sealed theorems. Pass {action:"discover"} to list public APIs (NOAA, Open-Meteo, no keys required). Pass {action:"correlate", facts:[{source,measurement,value,unit}]} to LINK weather facts to the ledger — sealed-match (already a theorem) vs. novel (research lead). PURE correlation: no network calls, only checks. Pass {action:"simulate"} for deterministic test data (same seed → same weather). Returns {correlated,novel,receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `action` | string | no | discover APIs, correlate facts, or simulate test data |
+| `facts` | array | no | weather facts to correlate (required for "correlate" action) |
 
 ### `uuidna_audit_standard`
 
@@ -856,6 +876,84 @@ THE SURFACING — close the hollow-prose leak by showing the verdict, not the dr
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `claim` | string | **yes** |  |
+
+### `uuidna_detect_forgery`
+
+Detect if a cited theorem is FORGED by checking the sealed ledger. Returns {theoremKey, cited, addressMatches, sealedAddress, citedAddress, receipt} — a RECOMPUTABLE fact (not cited = forged), never an accusation. HONEST: a fabricated citation is caught; the cost to forge is sealed as theorem traitor_damage_sealed_by_same_billing.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `theoremKey` | string | **yes** | the theorem key to verify |
+| `citedAddress` | string | no | optional expected address (if provided, address mismatch is fraud) |
+
+### `uuidna_audit_coin_claim`
+
+Audit a coin cost claim against the sealed theorem: claimed vs. recomputed coins. Returns {claimed, recomputed, match, theorem, address, receipt} — RECOMPUTABLE: every theorem encodes its coin cost, so a mismatch is a fact, never an opinion.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `theoremKey` | string | **yes** |  |
+| `claimedCoins` | number | **yes** |  |
+
+### `uuidna_detect_double_spends`
+
+DETECT COIN DOUBLE-SPEND: audit contributions to find if the same coin-backing theorem is claimed by &gt;1 agent. Returns {contributions, byTheorem, doubleSpendsFound, receipt} — a recomputable FACT about the claimed coins, never fraud accusations (only facts).
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `contributions` | array | **yes** | the list of agent contributions |
+
+### `uuidna_audit_voting`
+
+Audit voting tally for tampering: each vote's weight must match coins paid; tally is order-invariant. Returns {proposal, votes, fraud, receiptAll} — RECOMPUTABLE: weight mismatches, receipt collisions, and other fraud are FACTS, folded to one receipt.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `proposal` | string | **yes** |  |
+| `votes` | array | **yes** |  |
+| `expectedReceiptAll` | string | no | optional: if provided, receipt mismatch is detected |
+
+### `uuidna_audit_ledger_intrusions`
+
+Run the FULL TREASON SWEEP: catch traitors (forged DNA), broken conformance (coins/theorems/security), and agent violations (fabricated citations, overclaims). Returns {traitors, conformance, agentForensics, allClear, receipt} — ONE recomputable fraud audit.
+
+_No parameters._
+
+### `uuidna_audit_ledger_fingerprint`
+
+Verify ledger hash integrity: FNV (fast routing) and SHA-256 (collision-resistant) folds should match sealed values. Returns {fingerprint, match, receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `expectedFingerprint` | string | no | optional: if provided, fingerprint mismatch is detected |
+
+### `uuidna_audit_agent_statement`
+
+Forensic audit of an agent's statement: detect fabricated theorem citations, overclaims, unverified theorems. Returns {agent, statement, forgeries, violations, receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `agent` | string | **yes** |  |
+| `statement` | string | **yes** |  |
+| `citedTheorems` | array | **yes** |  |
+
+### `uuidna_full_anti_fraud_audit`
+
+ONE COMMAND — the COMPLETE FRAUD AUDIT: traitors, coin violations, voting tampering, ledger intrusions, agent malfeasance. All folded to ONE recomputable receipt. Returns {intrusions, ledgerFingerprint, fraudDetected, receipt, honest}.
+
+_No parameters._
 
 ## Security posture (recomputable) <Badge type="tip" :text="'1'" />
 
