@@ -21,6 +21,7 @@ import { merkleRoot } from './merkle.js'
 import { merkleGravity } from './gravity.js'
 import { computes } from './gate.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
+import { theorems } from './theorems/index.js'
 
 /** The recomputable audit of a text: a provenance fingerprint, a structural decode, and an honesty-gate verdict. */
 export interface BookAudit {
@@ -94,9 +95,13 @@ export interface ExtractedFact {
 // FLOOR division with NO Math.* (Math is hard-rejected — not a local theorem). a − (a % b) is a multiple of b, so the
 // final ÷ is exact integer arithmetic; and b = 0 returns 0, matching Lean's total Nat division exactly.
 const natDiv = (a: number, b: number) => (b === 0 ? 0 : (a - (a % b)) / b)
+// Nat subtraction is TRUNCATED (a − b = 0 when b > a), matching Lean's total Nat.sub exactly — so "108 minus 110 is 0"
+// verifies where a calculator gives −2. uuidna computes the total semantics; the emitted `by decide` agrees.
+const natSub = (a: number, b: number) => (a > b ? a - b : 0)
 const EXTRACT_OPS: Record<string, [(a: number, b: number) => number, string]> = {
   '*': [(a, b) => a * b, '*'], '×': [(a, b) => a * b, '*'], x: [(a, b) => a * b, '*'], times: [(a, b) => a * b, '*'],
   '+': [(a, b) => a + b, '+'], plus: [(a, b) => a + b, '+'],
+  '-': [natSub, '-'], '−': [natSub, '-'], minus: [natSub, '-'], less: [natSub, '-'],
   '/': [natDiv, '/'], '÷': [natDiv, '/'], over: [natDiv, '/'], div: [natDiv, '/'], 'divided by': [natDiv, '/'],
 }
 
@@ -107,9 +112,10 @@ const EXTRACT_OPS: Record<string, [(a: number, b: number) => number, string]> = 
 export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
   const out: ExtractedFact[] = []
   const seen = new Set<string>()
-  // integer  a  (× | * | x | times | + | plus | ÷ | / | over | divided by | div)  b  (= | is | equals | makes)  c.
-  // Division uses uuidna's TOTAL Nat semantics (n/0 = 0), so "10 divided by 0 is 0" verifies — uuidna computes it.
-  const re = /\b(\d{1,4})\s*(×|\*|x|times|\+|plus|÷|\/|divided\s+by|over|div)\s*(\d{1,4})\s*(?:=|is|equals|makes)\s*(\d{1,7})\b/gi
+  // integer  a  (× | * | x | times | + | plus | − | - | minus | less | ÷ | / | over | divided by | div)  b  (= | is |
+  // equals | makes)  c. Subtraction and division use uuidna's TOTAL Nat semantics (a − b = 0 when b > a; n / 0 = 0), so
+  // "108 minus 110 is 0" and "10 divided by 0 is 0" both verify — uuidna computes the total forms.
+  const re = /\b(\d{1,4})\s*(×|\*|x|times|\+|plus|−|-|minus|less|÷|\/|divided\s+by|over|div)\s*(\d{1,4})\s*(?:=|is|equals|makes)\s*(\d{1,7})\b/gi
   // COMPOUND GUARD — the grammar is BINARY (a op b = c). If the match is flanked by another arithmetic operator, it is
   // a FRAGMENT of a larger expression (e.g. "5 times 5 minus 3 times 8 is 1" would mis-scope to "3 times 8 is 1" and
   // emit a false REFUTED). Refuse the fragment rather than settle a sub-expression uuidna cannot evaluate whole. The
@@ -132,6 +138,63 @@ export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
     if (out.length >= limit) break
   }
   return out
+}
+
+// ── BOOK → SEALED-LEDGER LINKAGE — the independent, closed-door process that links each revealed book fact to the
+// sealed ledger and surfaces NOVELTY (the captain's process for independent research and discovery for humanity) ──
+export interface BookTheoremLink {
+  claim: string          // the book's phrase, as written
+  lean: string           // the by-decide statement uuidna extracted
+  verdict: 'VERIFIED' | 'REFUTED'
+  linkedTheorem: string | null   // the sealed ledger theorem key whose statement contains this fact, or null
+  status: 'sealed-match' | 'novel' | 'refuted'   // already in the ledger · verified but NEW (a discovery) · false arithmetic
+  address: string
+}
+export interface BookLedgerLinkage {
+  facts: BookTheoremLink[]
+  sealed: number         // matched a theorem already in the ledger
+  novel: number          // VERIFIED by decide but NOT yet in the ledger — discoveries, candidate research leads
+  refuted: number        // the text's arithmetic that does not hold (a forger's number)
+  novelLeans: string[]   // the by-decide statements of the novel facts — ready to seal into the ledger
+  receipt: string        // order-invariant, independent, recomputable docket receipt
+  honest: string
+}
+
+const LINK_HONEST =
+  'The book→ledger linkage: an INDEPENDENT, CLOSED-DOOR, recomputable process — it links each decidable arithmetic ' +
+  'fact a text asserts to the SEALED ledger (sealed-match), flags a VERIFIED fact NOT yet in the ledger as NOVEL (a ' +
+  'discovery — a candidate research lead for humanity), and marks false arithmetic REFUTED. Independent: no authority ' +
+  'decides it, anyone recomputes from the public ledger; closed-door: purely recomputable, no network, no external ' +
+  'trust. HONEST SCOPE: integrity, not truth — it links DECIDABLE ARITHMETIC only (a sliver of a book), NOT the book\'s ' +
+  'meaning; a NOVEL fact is a CANDIDATE a human seals by decide, discovered here, never auto-admitted. A theorem ' +
+  'computes in Lean, or it is not a theorem.'
+
+// the sealed statement, whitespace-normalised, so "2 * 2 = 4" (as extracted) matches a ledger statement written "2*2=4".
+const normStmt = (s: string): string => s.replace(/\s+/g, '')
+
+/** linkBookFacts(text) → the independent closed-door docket: extract every decidable fact the text asserts (now
+ *  including subtraction), then LINK each to the sealed ledger — sealed-match (already a theorem), NOVEL (verified but
+ *  not yet sealed — a discovery for humanity), or REFUTED (false). Folds to one recomputable receipt. No network, no
+ *  authority — anyone recomputes it. Integrity, not truth; a novel fact is a candidate to seal, never auto-admitted. */
+export function linkBookFacts(text: string, limit = 100): BookLedgerLinkage {
+  const facts = extractDecidable(text, limit)
+  const ledger = theorems().map((t) => ({ key: t.key, norm: normStmt(t.statement) }))
+  const links: BookTheoremLink[] = facts.map((f) => {
+    const core = normStmt(f.lean.replace(/^theorem\s+\w+\s*:\s*/, '').replace(/\s*:=\s*by\s+decide\s*$/, ''))  // "110-108=2"
+    const hit = f.verdict === 'VERIFIED' ? ledger.find((t) => t.norm.includes(core)) : undefined
+    const status: BookTheoremLink['status'] = f.verdict === 'REFUTED' ? 'refuted' : hit ? 'sealed-match' : 'novel'
+    return { claim: f.claim, lean: f.lean, verdict: f.verdict, linkedTheorem: hit ? hit.key : null, status, address: f.address }
+  })
+  const novelLeans = links.filter((l) => l.status === 'novel').map((l) => l.lean)
+  return {
+    facts: links,
+    sealed: links.filter((l) => l.status === 'sealed-match').length,
+    novel: novelLeans.length,
+    refuted: links.filter((l) => l.status === 'refuted').length,
+    novelLeans,
+    receipt: merkleGravity(links.map((l) => toUuid(l.status + '|' + l.lean))),
+    honest: LINK_HONEST,
+  }
 }
 
 /** composeBookArticle(audit, facts) → an AUDITED article about a public-domain text: its provenance fingerprint, its

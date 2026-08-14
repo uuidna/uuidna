@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="141 keys" />
+# MCP tools <Badge type="tip" text="142 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 141 tools below are read from the server's own tool list and
-organised into 35 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 142 tools below are read from the server's own tool list and
+organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`141`" />
+## The grid <Badge type="tip" :text="`142`" />
 
-141 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 48 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+142 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 48 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -99,6 +99,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-imprint"><code>imprint</code></a>
 <a href="#uuidna-involute"><code>involute</code></a>
 <a href="#uuidna-license"><code>license</code></a>
+<a href="#uuidna-link-book"><code>link_book</code></a>
 <a href="#uuidna-merkle-root"><code>merkle_root</code></a>
 <a href="#uuidna-neighbours"><code>neighbours</code></a>
 <a href="#uuidna-nist-constant"><code>nist_constant</code></a>
@@ -1136,6 +1137,20 @@ Fingerprint a CVE's PUBLIC advisory metadata from NIST's NVD (National Vulnerabi
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `cveId` | string | **yes** | a CVE id, e.g. CVE-2021-44228 |
+
+## Book → sealed-ledger linkage <Badge type="tip" :text="'1'" />
+
+*skill: measure*
+
+### `uuidna_link_book`
+
+BOOK → SEALED-LEDGER LINKAGE — the captain's INDEPENDENT, CLOSED-DOOR legal process for independent research and discovering NOVELTY for humanity. Pass {text}: uuidna extracts every DECIDABLE integer-arithmetic fact the text asserts (now including SUBTRACTION, total Nat: a−b=0 when b&gt;a) and LINKS each to the sealed ledger — `sealed-match` (already a theorem, cites its key), `novel` (VERIFIED `by decide` but NOT yet in the ledger — a DISCOVERY, a candidate research lead), or `refuted` (false arithmetic, a forger's number). Returns the docket with the novel facts' ready-to-seal `by decide` statements, folded to one order-invariant, recomputable receipt. INDEPENDENT: no authority decides it, anyone recomputes from the public ledger; CLOSED-DOOR: purely recomputable, no network, no external trust. HONEST SCOPE: integrity, not truth — it links DECIDABLE ARITHMETIC only (a sliver of a book), NOT its meaning; a NOVEL fact is a CANDIDATE a human seals, discovered here, never auto-admitted. Returns {facts:[{claim,lean,verdict,linkedTheorem,status,address}],sealed,novel,refuted,novelLeans,receipt,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** | the text to mine and link (a passage, a chapter, a claim) |
 
 ## Rotation & cycles <Badge type="tip" :text="'5'" />
 

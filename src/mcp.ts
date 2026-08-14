@@ -11,7 +11,7 @@ import {
   encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, MAX_ITER,
   sealStream, openStream, sealChain, openChain,
   contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract,
-  auditText, auditTranslation, auditBook, bookArticle, auditMovie, auditZenodo, auditStandard, beaconAnchor, nistConstant, auditCve,
+  auditText, auditTranslation, auditBook, bookArticle, linkBookFacts, auditMovie, auditZenodo, auditStandard, beaconAnchor, nistConstant, auditCve,
   corroborateWithResearch, domainWave, corroborate, entangle, fileReport, deepResearch,
   gcdInt, starPolygon, fibonacciCycle, rotate, crt, recomputableCost, securityAudit, verifyStatement, transformUntilVerified, pentagramHologramFractal, pentagramStream, spin, pentagramMonographs, exploitFold, conformance, depositTrial,
   digitalRoot, merkleGravity, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
@@ -243,6 +243,10 @@ const TOOLS: Tool[] = [
     description: 'Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id and write a recomputable ARTICLE: its provenance fingerprint, structure, and the DECIDABLE INTEGER ARITHMETIC uuidna extracts from the prose — each sealed `by decide` (VERIFIED) or corrected (REFUTED, an arithmetic the book states that does not hold) — plus the order-invariant receipt over the sealed facts (the same merkle-gravity fold the ledger and the quantum domain use). HONEST SCOPE: uuidna seals ONLY the book\'s integer arithmetic (its OWN by-decide proof, not the book\'s) and flags the book\'s arithmetic errors; it does NOT autoformalize, decode meaning, or claim anything about the book\'s argument or non-decidable mathematics. The text is DATA, content-addressed and decided, never executed. Returns {title,address,receipt,verified,refuted,facts,article}.',
     inputSchema: { type: 'object', properties: { gutenbergId: { type: 'integer', description: 'a Project Gutenberg ebook id, e.g. 1342 (Pride and Prejudice)' } }, required: ['gutenbergId'] },
     run: (a) => bookArticle(Number(a.gutenbergId)) },
+  { name: 'uuidna_link_book',
+    description: 'BOOK → SEALED-LEDGER LINKAGE — the captain\'s INDEPENDENT, CLOSED-DOOR legal process for independent research and discovering NOVELTY for humanity. Pass {text}: uuidna extracts every DECIDABLE integer-arithmetic fact the text asserts (now including SUBTRACTION, total Nat: a−b=0 when b>a) and LINKS each to the sealed ledger — `sealed-match` (already a theorem, cites its key), `novel` (VERIFIED `by decide` but NOT yet in the ledger — a DISCOVERY, a candidate research lead), or `refuted` (false arithmetic, a forger\'s number). Returns the docket with the novel facts\' ready-to-seal `by decide` statements, folded to one order-invariant, recomputable receipt. INDEPENDENT: no authority decides it, anyone recomputes from the public ledger; CLOSED-DOOR: purely recomputable, no network, no external trust. HONEST SCOPE: integrity, not truth — it links DECIDABLE ARITHMETIC only (a sliver of a book), NOT its meaning; a NOVEL fact is a CANDIDATE a human seals, discovered here, never auto-admitted. Returns {facts:[{claim,lean,verdict,linkedTheorem,status,address}],sealed,novel,refuted,novelLeans,receipt,honest}.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string', description: 'the text to mine and link (a passage, a chapter, a claim)' } }, required: ['text'] },
+    run: (a) => linkBookFacts(String(a.text)) },
   { name: 'uuidna_audit_standard',
     description: 'The recomputable FLOOR of a standards / law audit: content-address the PUBLIC Wikipedia description of a standard or law (CC BY-SA, free, no key), decode its structure, and extract the DECIDABLE checks it states — each sealed or refuted `by decide` LOCALLY (the "free" is a free public API + local decidable checks). HONEST SCOPE: this is the FLOOR a human auditor STARTS from — a provenance fingerprint + decidable checks — NOT a compliance / legal RULING, which requires a licensed auditor or counsel reviewing the specific jurisdiction, edition and deployment. uuidna delivers what recomputes and leaves the ruling to humans. The text is DATA, never executed. Returns {standard,address,checks,factBase,ruling}.',
     inputSchema: { type: 'object', properties: { name: { type: 'string', description: 'a standard or law, e.g. "General Data Protection Regulation" or "ISO 27001"' } }, required: ['name'] },
@@ -821,6 +825,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^scan_publications$/, 'Publication scanner (research boundary)', 'measure'],
   [/^quantum_cube$/, 'Quantum-cube challenge (symmetric)', 'gate'],
   [/^image_provenance$/, 'Byte-level image provenance', 'gate'],
+  [/^link_book$/, 'Book → sealed-ledger linkage', 'measure'],
   [/^selftest$/, 'MCP self-test (recomputable contract)', 'measure'],
 ]
 const categoryOf = (name: string): [string, string] => {
