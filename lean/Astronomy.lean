@@ -9,16 +9,16 @@ theorem zodiac_ecliptic_360 : 12 * 30 = 360 := by decide
 -- Sexagesimal (Babylonian base-60) measure: 60 arcminutes to a degree and 60 arcseconds to an arcminute give 3600 arcseconds per degree — 60 × 60 = 3600.
 theorem sexagesimal_arcseconds : 60 * 60 = 3600 := by decide
 
--- One arcminute of latitude is one nautical mile, and the equator-to-pole span is 90° — so 90 × 60 = 5400 arcminutes (5400 nautical miles) from the equator to the pole. Discovered by the book→ledger linkage as a NOVEL navigation fact and fused into the ledger.
+-- One arcminute of latitude is one nautical mile, and the equator-to-pole span is 90° — so 90 × 60 = 5400 arcminutes (5400 nautical miles) from the equator to the pole.
 theorem arcminutes_equator_to_pole : 90 * 60 = 5400 := by decide
 
--- The meridian span from pole to pole is 180° of latitude, so 180 × 60 = 10800 arcminutes (10800 nautical miles) along a meridian from one pole to the other. Discovered by the book→ledger linkage as a NOVEL navigation fact and fused into the ledger.
+-- The meridian span from pole to pole is 180° of latitude, so 180 × 60 = 10800 arcminutes (10800 nautical miles) along a meridian from one pole to the other.
 theorem arcminutes_pole_to_pole : 180 * 60 = 10800 := by decide
 
--- A great circle is 360°, and one arcminute of arc is one nautical mile, so 360 × 60 = 21600 arcminutes — the earth's circumference is 21600 nautical miles to the arcminute. Discovered by the book→ledger linkage as a NOVEL navigation fact and fused into the ledger.
+-- A great circle is 360°, and one arcminute of arc is one nautical mile, so 360 × 60 = 21600 arcminutes — a great circle of the earth measures 21600 nautical miles to the arcminute.
 theorem arcminutes_full_circle : 360 * 60 = 21600 := by decide
 
--- The earth turns 15° of longitude per hour (360° in 24 h), so each degree of longitude is four minutes of time — 15 × 4 = 60, the sixty minutes of an hour shared out one degree at a time. Discovered by the book→ledger linkage as a NOVEL navigation fact and fused into the ledger.
+-- The earth turns 15° of longitude per hour (360° in 24 h), so each degree of longitude is four minutes of time — 15 × 4 = 60, the sixty minutes of an hour shared out one degree at a time.
 theorem longitude_four_minutes_per_degree : 15 * 4 = 60 := by decide
 
 -- Kepler's third (harmonic) law, T² = a³, holds exactly in scaled units — the orbits (a,T) = (1,1), (4,8), (9,27) each satisfy T² = a³, the period squared equals the semi-major axis cubed.
