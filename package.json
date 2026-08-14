@@ -55,7 +55,7 @@
     "test": "npm run build && node --test dist/test/*.test.js dist/quantum/tests/*.test.js",
     "site": "npm run docs:build",
     "docs:dev": "npm run build && vitepress dev",
-    "docs:build": "npm run build && node dist/scripts/gen-mcp.js && vitepress build",
+    "docs:build": "npm run build && node dist/scripts/gen-mcp.js && vitepress build && node dist/scripts/copy-lean-to-site.js",
     "gen:mcp": "npm run build && node dist/scripts/gen-mcp.js",
     "audit:provenance": "npm run build && node dist/scripts/provenance.js",
     "audit:citations": "npm run build && node dist/scripts/audit-citations.js",
