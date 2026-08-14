@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="152 keys" />
+# MCP tools <Badge type="tip" text="153 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 152 tools below are read from the server's own tool list and
+is **built from the keys**: the 153 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`152`" />
+## The grid <Badge type="tip" :text="`153`" />
 
-152 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 53 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+153 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 54 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -49,6 +49,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-quantum"><code>quantum</code></a>
 <a href="#uuidna-quantum-profile"><code>quantum_profile</code></a>
+<a href="#uuidna-quantum-sailing-cross-book"><code>quantum_sailing_cross_book</code></a>
 <a href="#uuidna-quantum-sailing-library"><code>quantum_sailing_library</code></a>
 <a href="#uuidna-quantum-sailing-weather"><code>quantum_sailing_weather</code></a>
 <a href="#uuidna-repos"><code>repos</code></a>
@@ -480,7 +481,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'51'" />
+## Other <Badge type="tip" :text="'52'" />
 
 *skill: other*
 
@@ -587,6 +588,17 @@ DISCOVER and CORRELATE weather data to sealed theorems. Pass {action:"discover"}
 | --- | --- | --- | --- |
 | `action` | string | no | discover APIs, correlate facts, or simulate test data |
 | `facts` | array | no | weather facts to correlate (required for "correlate" action) |
+
+### `uuidna_quantum_sailing_cross_book`
+
+CROSS-BOOK CORRELATION — the captain reads across the library and finds theorems that RESONATE only when two or more books are read together. Pass {action:"correlate", books:[{id,text,facts}]} to find shared theorems and decidable facts that appear in multiple books. Pass {action:"cluster"} to GROUP theorems by their citations across books — which sealed theorems appear in multiple books? PURE correlation: all logic deterministic and recomputable; network (if fetching books) is application-layer. Shared theorems cite sealed proofs; novel patterns are research leads. Returns {pairs,resonances,ledgerCited,novel,receipt} or {count,clusters}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `action` | string | no | correlate across books or cluster by theorem |
+| `books` | array | no | books to correlate (required for "correlate" action): {id, text, facts} |
 
 ### `uuidna_audit_standard`
 

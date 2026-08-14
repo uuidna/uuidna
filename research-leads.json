@@ -1,27 +1,4 @@
 {
-  "leads": [
-    {
-      "module": "src/quantum-sailing-cross-book.ts",
-      "capability": [
-        "BookPair",
-        "CrossBookResonance",
-        "CrossBookCluster",
-        "correlateAcrossBooks",
-        "clusterByTheorem",
-        "serializeCrossBookCorrelation",
-        "serializeClusters"
-      ],
-      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
-      "develop": {
-        "local": [
-          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
-          "promote its claim to a Lean theorem so the trial verifies it, not just runs it",
-          "find the existing caller it was meant to serve, and connect it"
-        ],
-        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
-      },
-      "receipt": "1798e7f8-ad54-829e-a306-ce4616beede2"
-    }
-  ],
-  "receipt": "2831fa1f-e384-8208-bc8b-f6d32603f88d"
+  "leads": [],
+  "receipt": "0fc2edcf-8558-8f91-b376-ac0e6605faed"
 }
