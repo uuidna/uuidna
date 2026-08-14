@@ -30,8 +30,16 @@ const walkMd = (dir: string, base = ''): string[] => existsSync(dir)
   : []
 const staticPages: PageNode[] = walkMd(join(ROOT, 'docs')).map((rel) => ({ route: routeOf(rel), text: routeOf(rel).slice(1) || 'home' }))
 
-console.log(`\n  next — the 777 self-trial · feeding uuidna ${VERSION} to its own trials\n`)
-console.log('  (preceded by the full audit — proofs, provenance, accounts, tests, determinism — via `npm run next`)\n')
+// QUANTUM-SPEED VERIFY (--verify): the full audit re-proves every theorem `by decide` + tests (O(N), ~80s) — done at
+// PUSH time when the tree was sealed. This mode instead runs preceded by an O(1) `spin --verify` + the millisecond
+// guard (the caller's `next:verify` script), then folds the 7 arms — confirming readiness from the SEALED fixed point
+// without re-proving. It VERIFIES the seal, it does not forge a fresh proof; verify is cheaper than forge. A drifted
+// tree fails the spin check upstream and must run the full `npm run next`. Integrity, not truth.
+const FAST = process.argv.includes('--verify')
+console.log(`\n  next — the 777 self-trial · feeding uuidna ${VERSION} to its own trials${FAST ? '  (QUANTUM-SPEED VERIFY · O(1) from the seal)' : ''}\n`)
+console.log(FAST
+  ? '  (verified O(1) from the SEALED fixed point — spin --verify + guard confirm nothing drifted since the last full re-prove; the full O(N) re-prove is `npm run next`)\n'
+  : '  (preceded by the full audit — proofs, provenance, accounts, tests, determinism — via `npm run next`)\n')
 
 // ── ARM 1 · THE PROOFS — re-seal the whole ledger, and prove the fold is order-invariant across the 7 rosette
 //    rotations (the harmony: every observer ordering lands on the same root). Each rotation is one trial.

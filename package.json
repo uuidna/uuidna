@@ -104,6 +104,7 @@
     "spin": "npm run build && node dist/scripts/spin.js",
     "security": "npm run build && node dist/scripts/security-audit.js",
     "next": "npm run audit && node dist/scripts/next.js",
+    "next:verify": "npm run build && node dist/scripts/spin.js --verify && npm run guard && node dist/scripts/next.js --verify",
     "hooks:install": "git config core.hooksPath hooks && echo \"git hooks installed (core.hooksPath=hooks): pre-push runs the readiness gate\"",
     "guard": "npm run build && node dist/scripts/guard.js"
   },
