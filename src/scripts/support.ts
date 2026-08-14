@@ -44,8 +44,20 @@ const isRoot = (f: string): boolean =>
   f === 'src/index.ts' || f.startsWith('src/scripts/') || /\.test\.ts$/.test(f) || /(^|\/)tests?\//.test(f)
 const roots = all.filter(isRoot)
 
-const reached = new Set<string>(roots)
-const stack = [...roots]
+// worker.js is the Cloudflare EDGE ENTRY POINT — a real root that lives at the repo root and imports the COMPILED
+// dist/*.js of the src modules it serves in production (adjudicate, address, mcp-http, analytics-handler, …). It is
+// consumed exactly like index.ts consumes the public API, so its imports are supported. Map each ./dist/X.js back to
+// src/X.ts (the audit scans src, not dist) and seed the closure with them, so a worker-only module is not "dead".
+const workerReached = ((): string[] => {
+  const wf = 'worker.js'
+  if (!existsSync(join(ROOT, wf))) return []
+  const text = readFileSync(join(ROOT, wf), 'utf8')
+  const specs = [...text.matchAll(/(?:from|import)\s*\(?\s*['"](\.\/dist\/[^'"]+)\.js['"]/g)].map((m) => m[1])
+  return [...new Set(specs.map((s) => join('src', s.replace(/^\.\/dist\//, '') + '.ts')).filter((c) => existsSync(join(ROOT, c))))]
+})()
+
+const reached = new Set<string>([...roots, ...workerReached])
+const stack = [...roots, ...workerReached]
 while (stack.length) {
   const f = stack.pop() as string
   for (const dep of edges.get(f) || []) if (!reached.has(dep)) { reached.add(dep); stack.push(dep) }
