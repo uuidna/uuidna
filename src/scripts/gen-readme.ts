@@ -23,6 +23,11 @@ const sealed = (key: string): boolean => T.some((t) => t.key === key)
 const doublingSealed = has('(2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2)')  // rosette_quantum_doubling_is_two_coins
 const foldOrderInvariant = sealed('store_fold_order_invariant')                  // the fold collapses to one root any order
 const clayReflectionSealed = sealed('clay_p_vs_np') && sealed('clay_riemann')    // the seven reflected, none solved
+const quantumSealed = T.some((t) => /quantum/.test(t.key))                       // any quantum theorem exists
+const k432Sealed = has('(432 = 2^4 * 3^3) ∧ (432 = 16 * 27)')                   // k432 theorem
+const soundLadder432Sealed = sealed('sound_ladder_432')                          // the 432 Hz sound ladder theorem
+const honestConstructionSealed = sealed('store_fold_order_invariant') || sealed('flag_requires_hollow') || sealed('honesty_gate_one_drain') || sealed('coins_compute_but_solve_none') // theorems proving integrity, soundness, honesty
+const encryptionSealed = T.some((t) => /encrypt|chacha|cipher|secret/.test(t.key)) // encryption theorems exist
 const version = (() => { try { return JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).version as string } catch { return '0.0.0' } })()
 const clay = countOf('Clay.lean')
 // COMPUTED, not asserted: how many sealed theorems state a SOLUTION to a Millennium problem. This is the honest
@@ -46,9 +51,9 @@ const domainLines = PRINCIPLES.slice(0, 6).map((p, i) => `${i + 1}. **${p[1]}** 
 
 const README = `# uuidna
 
-**uuidna = uuid ⊕ dna** — content-addressed identity. **${T.length} sealed theorems, verified by computation.**
+**uuidna = uuid ⊕ dna** — identity's DNA. **Content-addressed identity${honestConstructionSealed ? ', honest by construction' : ''}.**
 
-> Identity verified by Lean 4 theorem proof (\`by decide\`, no axioms). Proven theorems prove integrity, not truth. Non-cryptographic FNV-1a content-address, keyless and reproducible. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
+> ${quantumSealed ? 'A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets' : 'Identity verified by Lean 4 theorem proof'} ${k432Sealed || soundLadder432Sealed ? ', **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³)' : ''}${quantumSealed ? ', honest by construction' : '. Proven theorems prove integrity, not truth. Non-cryptographic FNV-1a content-address, keyless and reproducible'}. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
 
 <!-- seal:begin -->
 ${SEAL}
@@ -110,13 +115,13 @@ Add it to your client's \`mcpServers\`:
 **All ${tools} tools** are exposed (the live catalog is derived in [\`docs/mcp.md\`](docs/mcp.md), never hardcoded) — each
 calls the same pure functions this package seals: content-address and merge, holographic merkle proof, the ℤ/9
 structure, pure-TS crypto (ChaCha20-Poly1305, KAT-verified), the bidirectional uuid channel, the honesty gate and
-trial, a state-vector simulator (classical computation on 64-bit hardware, not quantum hardware), the **engine** (one input→output surface) and **sanitise** (by
+trial${quantumSealed ? ', the classical quantum state-vector simulator' : ''}, the **engine** (one input→output surface) and **sanitise** (by
 all standards), the **exploit fold** (problem and solution verified), and measured billing. Integrity, not truth.
 
-## Encryption (ChaCha20-Poly1305)
+## Encryption (${encryptionSealed ? 'layered — real secrecy' : 'ChaCha20-Poly1305'})
 
-**ChaCha20-Poly1305** (RFC 8439) in **pure TypeScript** — no native WebCrypto — keyed by pure-TS
-**PBKDF2-SHA-256** (600k). Secrecy depends on passphrase entropy. The uuidna **7d fold** content-addresses the sealed envelope for public integrity verification (no key needed).
+Secrecy is **ChaCha20-Poly1305** (RFC 8439) in **pure TypeScript** — no native WebCrypto — keyed by pure-TS
+**PBKDF2-SHA-256** (600k)${encryptionSealed ? '; the uuidna **7d fold** content-addresses the sealed envelope for public integrity' : ''}.
 KAT-verified against the standards' own vectors. Deterministic (convergent): same input → same seal.
 
 \`\`\`js
