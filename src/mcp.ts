@@ -19,9 +19,9 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
-  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, skillGroups, reviewDomains,
+  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, skillGroups, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
-  snapshot, reactor,
+  snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
@@ -254,6 +254,24 @@ const TOOLS: Tool[] = [
       const ids = a.bookIds ? (a.bookIds as number[]) : undefined
       const lib = ids ? await buildQuantumSailingLibrary(ids) : await getQuantumSailingLibrary()
       return serializeQuantumSailingLibrary(lib)
+    } },
+  { name: 'uuidna_quantum_sailing_weather',
+    description: 'DISCOVER and CORRELATE weather data to sealed theorems. Pass {action:"discover"} to list public APIs (NOAA, Open-Meteo, no keys required). Pass {action:"correlate", facts:[{source,measurement,value,unit}]} to LINK weather facts to the ledger — sealed-match (already a theorem) vs. novel (research lead). PURE correlation: no network calls, only checks. Pass {action:"simulate"} for deterministic test data (same seed → same weather). Returns {correlated,novel,receipt}.',
+    inputSchema: { type: 'object', properties: { action: { type: 'string', enum: ['discover', 'correlate', 'simulate'], description: 'discover APIs, correlate facts, or simulate test data' }, facts: { type: 'array', items: { type: 'object', properties: { source: { type: 'string' }, measurement: { type: 'string' }, value: { type: 'number' }, unit: { type: 'string' } } }, description: 'weather facts to correlate (required for "correlate" action)' } } },
+    run: async (a) => {
+      if (a.action === 'discover') {
+        const result = discoverQuantumSailingAPIs()
+        return { apis: result.apis.map(api => ({ name: api.name, endpoint: api.endpoint, facts: api.decidableFacts })), receipt: result.receipt }
+      } else if (a.action === 'correlate' && a.facts) {
+        const facts = (a.facts as any[]).map(f => ({ ...f, address: toUuid(`${f.measurement}:${f.value}`) }))
+        const corr = correlateWeatherToTheorems(facts)
+        return serializeWeatherCorrelation(corr)
+      } else if (a.action === 'simulate') {
+        const facts = simulateQuantumSailingWeather()
+        const corr = correlateWeatherToTheorems(facts)
+        return serializeWeatherCorrelation(corr)
+      }
+      return { error: 'invalid action' }
     } },
   { name: 'uuidna_audit_standard',
     description: 'The recomputable FLOOR of a standards / law audit: content-address the PUBLIC Wikipedia description of a standard or law (CC BY-SA, free, no key), decode its structure, and extract the DECIDABLE checks it states — each sealed or refuted `by decide` LOCALLY (the "free" is a free public API + local decidable checks). HONEST SCOPE: this is the FLOOR a human auditor STARTS from — a provenance fingerprint + decidable checks — NOT a compliance / legal RULING, which requires a licensed auditor or counsel reviewing the specific jurisdiction, edition and deployment. uuidna delivers what recomputes and leaves the ruling to humans. The text is DATA, never executed. Returns {standard,address,checks,factBase,ruling}.',
@@ -711,6 +729,39 @@ const TOOLS: Tool[] = [
       if (Array.isArray(ops) && isClassical(ops)) out.classical = truthTable(state.qubits, ops) // the reversible logic, for classical systems
       return out
     } },
+  // ── anti-fraud — DETECT FORGER ATTEMPTS across sealed ledger and captain's coin economy ──
+  { name: 'uuidna_detect_forgery',
+    description: 'Detect if a cited theorem is FORGED by checking the sealed ledger. Returns {theoremKey, cited, addressMatches, sealedAddress, citedAddress, receipt} — a RECOMPUTABLE fact (not cited = forged), never an accusation. HONEST: a fabricated citation is caught; the cost to forge is sealed as theorem traitor_damage_sealed_by_same_billing.',
+    inputSchema: { type: 'object', properties: { theoremKey: { type: 'string', description: 'the theorem key to verify' }, citedAddress: { type: 'string', description: 'optional expected address (if provided, address mismatch is fraud)' } }, required: ['theoremKey'] },
+    run: (a) => detectForgery(String(a.theoremKey), a.citedAddress === undefined ? undefined : String(a.citedAddress)) },
+  { name: 'uuidna_audit_coin_claim',
+    description: 'Audit a coin cost claim against the sealed theorem: claimed vs. recomputed coins. Returns {claimed, recomputed, match, theorem, address, receipt} — RECOMPUTABLE: every theorem encodes its coin cost, so a mismatch is a fact, never an opinion.',
+    inputSchema: { type: 'object', properties: { theoremKey: { type: 'string' }, claimedCoins: { type: 'number' } }, required: ['theoremKey', 'claimedCoins'] },
+    run: (a) => auditCoinClaim(String(a.theoremKey), Number(a.claimedCoins)) },
+  { name: 'uuidna_detect_double_spends',
+    description: 'DETECT COIN DOUBLE-SPEND: audit contributions to find if the same coin-backing theorem is claimed by >1 agent. Returns {contributions, byTheorem, doubleSpendsFound, receipt} — a recomputable FACT about the claimed coins, never fraud accusations (only facts).',
+    inputSchema: { type: 'object', properties: { contributions: { type: 'array', items: { type: 'object', properties: { agent: { type: 'string' }, coinsSpent: { type: 'number' }, theoremCited: { type: 'string' } } }, description: 'the list of agent contributions' } }, required: ['contributions'] },
+    run: (a) => detectDoubleSpends(Array.isArray(a.contributions) ? (a.contributions as any[]).map((c) => ({ agent: String(c?.agent ?? ''), coinsSpent: Number(c?.coinsSpent ?? 0), theoremCited: String(c?.theoremCited ?? '') })) : []) },
+  { name: 'uuidna_audit_voting',
+    description: 'Audit voting tally for tampering: each vote\'s weight must match coins paid; tally is order-invariant. Returns {proposal, votes, fraud, receiptAll} — RECOMPUTABLE: weight mismatches, receipt collisions, and other fraud are FACTS, folded to one receipt.',
+    inputSchema: { type: 'object', properties: { proposal: { type: 'string' }, votes: { type: 'array', items: { type: 'object', properties: { voterId: { type: 'string' }, decision: { type: 'boolean' }, weight: { type: 'number' }, quantumState: { type: 'string' } } } }, expectedReceiptAll: { type: 'string', description: 'optional: if provided, receipt mismatch is detected' } }, required: ['proposal', 'votes'] },
+    run: (a) => auditVoting(String(a.proposal), Array.isArray(a.votes) ? (a.votes as any[]).map((v) => ({ voterId: String(v?.voterId ?? ''), decision: !!v?.decision, weight: Number(v?.weight ?? 0), quantumState: String(v?.quantumState ?? '') })) : [], a.expectedReceiptAll === undefined ? undefined : String(a.expectedReceiptAll)) },
+  { name: 'uuidna_audit_ledger_intrusions',
+    description: 'Run the FULL TREASON SWEEP: catch traitors (forged DNA), broken conformance (coins/theorems/security), and agent violations (fabricated citations, overclaims). Returns {traitors, conformance, agentForensics, allClear, receipt} — ONE recomputable fraud audit.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => auditLedgerIntrusions() },
+  { name: 'uuidna_audit_ledger_fingerprint',
+    description: 'Verify ledger hash integrity: FNV (fast routing) and SHA-256 (collision-resistant) folds should match sealed values. Returns {fingerprint, match, receipt}.',
+    inputSchema: { type: 'object', properties: { expectedFingerprint: { type: 'string', description: 'optional: if provided, fingerprint mismatch is detected' } } },
+    run: (a) => auditLedgerFingerprint(a.expectedFingerprint === undefined ? undefined : String(a.expectedFingerprint)) },
+  { name: 'uuidna_audit_agent_statement',
+    description: 'Forensic audit of an agent\'s statement: detect fabricated theorem citations, overclaims, unverified theorems. Returns {agent, statement, forgeries, violations, receipt}.',
+    inputSchema: { type: 'object', properties: { agent: { type: 'string' }, statement: { type: 'string' }, citedTheorems: { type: 'array', items: { type: 'string' } } }, required: ['agent', 'statement', 'citedTheorems'] },
+    run: (a) => auditAgentStatement(String(a.agent), String(a.statement), Array.isArray(a.citedTheorems) ? (a.citedTheorems as string[]).map(String) : []) },
+  { name: 'uuidna_full_anti_fraud_audit',
+    description: 'ONE COMMAND — the COMPLETE FRAUD AUDIT: traitors, coin violations, voting tampering, ledger intrusions, agent malfeasance. All folded to ONE recomputable receipt. Returns {intrusions, ledgerFingerprint, fraudDetected, receipt, honest}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => fullAntiFraudAudit() },
 ]
 
 // JSON-RPC 2.0 message shape over stdio. Ids may be string | number | null; params is method-specific.

@@ -268,12 +268,24 @@ export { agentContribute, encodeVote, tallyVotes, signCommitWithVoting, serializ
 // The captain sails through literature, discovering novel facts (research leads) and sealing them.
 export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, type SailingBook, type QuantumSailingLibrary } from './quantum-sailing-library.js'
 
+// quantum-sailing-weather — CORRELATE real-world weather data to quantum sailing theory. Discovers public APIs
+// (NOAA, Open-Meteo) that provide decidable facts (temperature, wind, pressure, waves, tides) and LINKS them to
+// theorems sealed in the ledger. Pure correlation: no network calls (only on demand), only checks against ledger.
+// Weather facts are either sealed-match (already a theorem) or novel (research leads awaiting sealing).
+export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, type WeatherFact, type QuantumSailingWeatherCorrelation } from './quantum-sailing-weather.js'
+
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
 // ledger (DNA that does not recompute, a key/address collision, an uncovered theorem, a broken conformance invariant),
 // folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this
 // + the harmonic-scan as the fast pre-reconcile gate — no manual pre-flight. Integrity, not truth.
 export { catchTraitors, guardLessons, type TreasonReport, type Traitor, type GuardLesson } from './treason.js'
 export { axiomWitness, type AxiomWitnessReport } from './axiom-witness.js'
+
+// anti-fraud — DETECT FORGER ATTEMPTS across the sealed ledger and captain's coin economy: forged theorems,
+// double-spend coins, vote tampering, ledger intrusions, agent malfeasance. Every fraud is a recomputable FACT
+// about the claim (wrong address, uncited theorem, mismatched weight), never an accusation. Folds to order-invariant
+// receipts anyone verifies. Integrity, not truth — and not intention.
+export { detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit, type CoinAudit, type VoteFraud, type VoteAudit, type LedgerIntrusionReport, type ForgeryDetection, type DoubleSpendsAudit } from './anti-fraud.js'
 
 // repos — BIND the captain's public repositories to the DISCOVERY SEQUENCE (the ℤ/9 vortex [1,2,4,8,7,5], revealed
 // first): each public repo of the uuidna org + the ceccec user fingerprinted to a 128-bit content-address, placed on
