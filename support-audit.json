@@ -1,9 +1,7 @@
 {
   "modules": 204,
-  "roots": 115,
-  "supported": 203,
-  "dead": [
-    "src/mcp-http.ts"
-  ],
-  "receipt": "5260c045-727a-8558-bb75-526fecacb058"
+  "roots": 116,
+  "supported": 204,
+  "dead": [],
+  "receipt": "a57c8675-4185-8fb1-8896-7ac6ec8e334a"
 }
