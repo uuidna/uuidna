@@ -1,7 +1,9 @@
 {
-  "modules": 219,
+  "modules": 220,
   "roots": 130,
   "supported": 219,
-  "dead": [],
-  "receipt": "ee5a7cf8-6888-892f-b5dc-2a807eb654cc"
+  "dead": [
+    "src/analytics-handler.ts"
+  ],
+  "receipt": "746e5d20-c0ae-8a25-b83f-5f5deaca3780"
 }
