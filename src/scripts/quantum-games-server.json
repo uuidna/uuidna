@@ -1,0 +1,241 @@
+{
+  "name": "Quantum Entanglement Games",
+  "version": "1.0.0",
+  "description": "Play to verify theorem relationships. Each game tests a research lead.",
+  "total_leads": 20,
+  "games_generated": 20,
+  "games": [
+    {
+      "id": "qgame_0",
+      "lead_id": "lead_0",
+      "title": "Theorem Entanglement Proof #0",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_1_2",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 1·2 ≡ 2 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_1_2 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_1_2 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_1",
+      "lead_id": "lead_1",
+      "title": "Theorem Entanglement Proof #1",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_1_3",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 1·3 ≡ 3 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_1_3 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_1_3 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_2",
+      "lead_id": "lead_2",
+      "title": "Theorem Entanglement Proof #2",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_1_4",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 1·4 ≡ 4 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_1_4 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_1_4 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_3",
+      "lead_id": "lead_3",
+      "title": "Theorem Entanglement Proof #3",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_1_5",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 1·5 ≡ 5 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_1_5 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_1_5 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_4",
+      "lead_id": "lead_4",
+      "title": "Theorem Entanglement Proof #4",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_1_6",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 1·6 ≡ 6 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_1_6 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_1_6 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_5",
+      "lead_id": "lead_5",
+      "title": "Theorem Entanglement Proof #5",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_1_7",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 1·7 ≡ 7 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_1_7 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_1_7 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_6",
+      "lead_id": "lead_6",
+      "title": "Theorem Entanglement Proof #6",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_1_8",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 1·8 ≡ 8 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_1_8 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_1_8 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_7",
+      "lead_id": "lead_7",
+      "title": "Theorem Entanglement Proof #7",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_2_1",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 2·1 ≡ 2 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_2_1 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_2_1 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_8",
+      "lead_id": "lead_8",
+      "title": "Theorem Entanglement Proof #8",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_2_2",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 2·2 ≡ 4 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_2_2 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_2_2 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_9",
+      "lead_id": "lead_9",
+      "title": "Theorem Entanglement Proof #9",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_2_3",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 2·3 ≡ 6 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_2_3 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_2_3 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_10",
+      "lead_id": "lead_10",
+      "title": "Theorem Entanglement Proof #10",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_2_4",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 2·4 ≡ 8 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_2_4 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_2_4 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_11",
+      "lead_id": "lead_11",
+      "title": "Theorem Entanglement Proof #11",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_2_5",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 2·5 ≡ 1 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_2_5 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_2_5 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_12",
+      "lead_id": "lead_12",
+      "title": "Theorem Entanglement Proof #12",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_2_6",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 2·6 ≡ 3 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_2_6 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_2_6 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_13",
+      "lead_id": "lead_13",
+      "title": "Theorem Entanglement Proof #13",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_2_7",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 2·7 ≡ 5 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_2_7 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_2_7 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_14",
+      "lead_id": "lead_14",
+      "title": "Theorem Entanglement Proof #14",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_2_8",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 2·8 ≡ 7 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_2_8 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_2_8 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_15",
+      "lead_id": "lead_15",
+      "title": "Theorem Entanglement Proof #15",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_3_1",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 3·1 ≡ 3 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_3_1 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_3_1 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_16",
+      "lead_id": "lead_16",
+      "title": "Theorem Entanglement Proof #16",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_3_2",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 3·2 ≡ 6 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_3_2 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_3_2 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_17",
+      "lead_id": "lead_17",
+      "title": "Theorem Entanglement Proof #17",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_3_3",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 3·3 ≡ 0 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_3_3 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_3_3 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_18",
+      "lead_id": "lead_18",
+      "title": "Theorem Entanglement Proof #18",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_3_4",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 3·4 ≡ 3 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_3_4 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_3_4 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    },
+    {
+      "id": "qgame_19",
+      "lead_id": "lead_19",
+      "title": "Theorem Entanglement Proof #19",
+      "description": "Test the hypothesized relationship: mul9_1_1 applies_to mul9_3_5",
+      "hypothesis": "How does 1·1 ≡ 1 (mod 9) applies_to 3·5 ≡ 6 (mod 9)?",
+      "challenge": "Navigate from mul9_1_1 to mul9_3_5 using only applies_to moves. If you succeed, the entanglement is real.",
+      "verify_condition": "Reach mul9_3_5 in ≤ 7 moves using verified edges only",
+      "reward": 1,
+      "timeout": 4
+    }
+  ],
+  "verification_model": {
+    "success": "Player reaches target theorem using only valid edges → entanglement sealed",
+    "failure": "Player cannot reach target → entanglement marked spurious",
+    "timeout": "Player exceeds move limit → entanglement remains open (inconclusive)"
+  },
+  "coin_model": {
+    "per_verification": 1,
+    "per_refutation": 1,
+    "per_inconclusive": 0,
+    "total_potential": 20
+  },
+  "honest_scope": "Games test structural hypotheses only (does A connect to B?), not theorem validity. Sealed theorems remain sealed regardless of game outcome. Games explore the entanglement graph."
+}
