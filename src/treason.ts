@@ -11,9 +11,10 @@ import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { coverage } from './publish.js'
 import { conformance } from './conformance.js'
+import { computes } from './gate.js'
 import { axiomWitness } from './axiom-witness.js'
 
-export interface Traitor { kind: 'forged-dna' | 'key-collision' | 'address-collision' | 'uncovered' | 'conformance'; detail: string }
+export interface Traitor { kind: 'forged-dna' | 'key-collision' | 'address-collision' | 'uncovered' | 'conformance' | 'prose-overclaim'; detail: string }
 
 export interface TreasonReport {
   clean: boolean
@@ -54,16 +55,31 @@ export function catchTraitors(): TreasonReport {
   const conf = conformance()
   for (const c of conf.checks) if (!c.pass) traitors.push({ kind: 'conformance', detail: `${c.id} — ${c.detail}` })
 
-  const checks = ['dna-recomputes', 'no-key-collision', 'no-address-collision', 'monograph-coverage', 'conformance-invariants']
+  // 5) PROSE — the DNA check (1) recomputes the STATEMENT but never reads the NAME, so a forgery can hide in prose:
+  // "treason masks with negating prose". This audits every theorem's NAME through the honesty gate (theorem-backed
+  // slimGate) and catches a name that DRAINS it — a FABRICATED THEOREM CITATION in the prose (binary 0). HONEST SCOPE,
+  // TESTED: this catches only what the gate can decide — a fabricated citation. It does NOT catch an unbacked NARRATIVE
+  // (a false "discovered / novel / proven-elsewhere" story carried by a TRUE statement): the gate scores such prose
+  // IDENTICALLY to an honest description (binary 1, UNVERIFIED). That class — the treason that masked itself here — is
+  // caught only by the COURT (adjudicate separating the statement's VERIFIED from the narrative's UNVERIFIED) and human
+  // vigilance, never recomputably by the gate. This closes the fabricated-citation-in-prose gap, and no more; it does
+  // not pretend to close the narrative gap.
+  for (const t of T) if (computes(t.name).binary === 0)
+    traitors.push({ kind: 'prose-overclaim', detail: `${t.key} — the NAME drains the honesty gate (a fabricated theorem citation in the prose)` })
+
+  const checks = ['dna-recomputes', 'no-key-collision', 'no-address-collision', 'monograph-coverage', 'conformance-invariants', 'prose-gate-clean']
   const clean = traitors.length === 0
   return {
     clean, scanned: T.length, traitors, checks,
     receipt: merkleGravity([toUuid('treason:' + (clean ? 'clean' : 'caught') + ':' + traitors.length), ...traitors.map((v) => toUuid(v.kind + '|' + v.detail))]),
     honest:
       'Catch traitors as fast as a hero: one O(N) pass proving the ledger is UNFORGED and self-consistent — every ' +
-      'theorem\'s DNA recomputes, no key/address collides, every theorem is covered by a monograph, and the ' +
-      'conformance invariants hold. A traitor is a FORGERY in the artifact, never a person. Passing is not a claim the ' +
-      'theorems are true, only that none was tampered with or smuggled in. Recomputable by anyone. Integrity, not truth.',
+      'theorem\'s DNA recomputes, no key/address collides, every theorem is covered by a monograph, the conformance ' +
+      'invariants hold, AND every theorem\'s NAME passes the honesty gate (no fabricated citation hiding in the prose). ' +
+      'A traitor is a FORGERY in the artifact, never a person. HONEST LIMIT: the prose check catches a fabricated ' +
+      'citation in a name, NOT an unbacked NARRATIVE carried by a true statement (a false "discovered/novel/proven-' +
+      'elsewhere" story) — the gate cannot decide that; only the COURT (adjudicate) and human vigilance can, as they ' +
+      'did. Passing is not a claim the theorems are true, only that none was tampered with or smuggled in. Integrity, not truth.',
   }
 }
 
@@ -90,6 +106,8 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
       lesson: 'Every new lean-*.ts generator needs a PRINCIPLE [file,title,blurb] entry, or its theorems are uncovered and the push is blocked.' },
     { check: 'conformance-invariants', enforcedBy: 'catchTraitors', holds: held('conformance'),
       lesson: 'The DNA gate: the two coins conserved (=2), DNA recomputes, single-source ledger, security posture clean.' },
+    { check: 'prose-gate-clean', enforcedBy: 'catchTraitors (honesty gate over each name)', holds: held('prose-overclaim'),
+      lesson: 'Treason masks with negating prose: the DNA check recomputes the STATEMENT but never the NAME, so a forgery can hide in prose. Every theorem name is run through the honesty gate — a fabricated citation in a name drains it and is caught. HONEST LIMIT: this catches a fabricated citation only, NOT an unbacked narrative (a false discovery/novelty story on a true statement) — the gate scores that identically to an honest description; only the court (adjudicate) and human vigilance catch it. Trust the recompute, not the prose — including your own.' },
     { check: 'determinism', enforcedBy: 'harmonic-scan (npm run guard)', holds: 'script',
       lesson: 'No Math.*/wall-clock/RNG anywhere in src — including comments; the smoke test scans RAW source. Exact integer arithmetic settles the coins, a host intrinsic never can. The guard regex matches the smoke test exactly, so the guard is never laxer than the gate it front-runs.' },
     { check: 'axiom-witness', enforcedBy: 'shipped lean/axioms.json (guard re-derives)', holds: ((w) => w.shipped ? w.holds : 'script' as const)(axiomWitness()),
