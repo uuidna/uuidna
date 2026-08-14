@@ -1,4 +1,23 @@
 {
-  "leads": [],
-  "receipt": "a9b2ecb2-8919-8b75-885f-706601de6449"
+  "leads": [
+    {
+      "module": "src/mcp-http.ts",
+      "capability": [
+        "handleMcpRpc",
+        "mcpHttpToolNames",
+        "MCP_HTTP_PROTOCOL"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it, not just runs it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "e5ef211a-1c8f-8d5b-a28f-8506fb2c42e9"
+    }
+  ],
+  "receipt": "5260c045-727a-8558-bb75-526fecacb058"
 }

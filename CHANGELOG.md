@@ -30,7 +30,7 @@ the chance to reverse-develop itself *now*, while the ledger is still free.
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **1195 theorems** across **66 principles**, folded to receipt `aa95faf4-01f1-80e8-8f52-2df7069094a5`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **1195 theorems** across **66 principles**, folded to receipt `4c36993a-fa58-8273-90cc-9614489ba267`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added

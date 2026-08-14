@@ -90,7 +90,7 @@ passphrase entropy — measured, not asserted; the FNV content-address stays non
 
 ## Formal layer — Lean 4, organized by computing principle
 
-**Every theorem in the ledger** (**1180** across **65** principles), all proven `by decide` (Lean 4,
+**Every theorem in the ledger** (**1195** across **66** principles), all proven `by decide` (Lean 4,
 no Mathlib), verified sorry-free by `npm run lean`, organized by **computing principle** in derivation order — the live
 count and every per-principle total are derived in [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md), never hand-typed:
 
@@ -101,7 +101,7 @@ count and every per-principle total are derived in [`lean/PRINCIPLE.md`](lean/PR
 5. **Ported from millennium-solutions** (`Vortex.lean`, 16) — the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)
 6. **The sequence & reflection group** (`Sequence.lean`, 20) — the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt
 
-…and 59 more principles (physics, games, arts, language, security, the exploit folds), each a verified
+…and 60 more principles (physics, games, arts, language, security, the exploit folds), each a verified
 monograph. The full, filterable collection — each theorem with its `by decide` proof, statement and content-address —
 is at [uuidna.com/theorems](https://uuidna.com/theorems); the whole set folds to one receipt at
 [uuidna.com/trials](https://uuidna.com/trials).

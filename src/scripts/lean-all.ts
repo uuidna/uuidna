@@ -30,7 +30,7 @@ const generators = readdirSync(SCRIPTS).filter((f) => /^lean-.*\.js$/.test(f) &&
 for (const g of generators) run('node ' + JSON.stringify(join(SCRIPTS, g)))
 
 // 2) hand-authored proofs (no generator writes them) — verified directly with `lean`.
-const HAND_WRITTEN = ['Uuidna.lean', 'Vortex.lean', 'OneLeap.lean', 'AntiFraud.lean', 'SailingSeals.lean'].filter((f) => existsSync(join(LEAN, f)))
+const HAND_WRITTEN = ['Uuidna.lean', 'Vortex.lean', 'OneLeap.lean', 'AntiFraud.lean', 'SailingSeals.lean', 'DisputedTopics.lean'].filter((f) => existsSync(join(LEAN, f)))
 for (const f of HAND_WRITTEN) run('lean ' + JSON.stringify(join(LEAN, f)))
 
 // 3) regenerate the single derived ledger (src/theorems/generated.ts + lean/PRINCIPLE.md) from all lean/*.lean.

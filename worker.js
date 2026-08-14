@@ -20,6 +20,9 @@ import { adjudicate } from './dist/adjudicate.js'
 import { toUuid } from './dist/address.js'
 import { conversationFold } from './dist/conversation.js' // the one fold — worker and library share it (DRY)
 import { hmacSha256 } from './dist/sha256.js'
+// The HOSTED MCP over HTTP (JSON-RPC 2.0, the MCP Streamable-HTTP transport) at /mcp — the Workers-safe, pure,
+// recomputable tool subset. Imports a SPECIFIC pure module (never index.js — that pulls node:child_process).
+import { handleMcpRpc, mcpHttpToolNames, MCP_HTTP_PROTOCOL } from './dist/mcp-http.js'
 // The handle map — the first 8 hex of every content-address → its theorem key, generated at build (gen-handles).
 // Pages and proofs are one uuid: /<handle> resolves to /theorem/<key> ON THE SPOT, no static pages, ~30 KB in memory.
 import HANDLES from './handles.js'
@@ -127,6 +130,27 @@ export default {
     if (licensed && (url.pathname === '/trials' || url.pathname.startsWith('/trials/'))) {
       const res = await handleTrials(request, url, env)
       if (res) return res
+    }
+
+    // THE HOSTED MCP — Model Context Protocol over HTTP (JSON-RPC 2.0, the Streamable-HTTP transport) at /mcp, first-
+    // party/licensed hosts only. POST a JSON-RPC message (or a batch); a notification is answered 202 with no body.
+    // Stateless and READ-ONLY: it computes the Workers-safe tool subset from the ledger, it cannot write or deploy.
+    // GET /mcp returns a small discovery page (the protocol version + the tool names). Connect a client to
+    // https://uuidna.com/mcp (Streamable HTTP).
+    if (licensed && url.pathname === '/mcp') {
+      if (request.method === 'GET')
+        return json({ server: 'uuidna', transport: 'streamable-http (JSON-RPC 2.0)', protocolVersion: MCP_HTTP_PROTOCOL, endpoint: `${url.origin}/mcp`, tools: mcpHttpToolNames(),
+          note: 'POST a JSON-RPC message here (initialize · tools/list · tools/call · ping). Read-only, stateless, the Workers-safe subset of the full `npx @uuidna/uuidna` stdio catalog. Integrity, not truth.' })
+      if (request.method !== 'POST')
+        return json({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'POST a JSON-RPC message to /mcp (or GET for discovery)' } }, 405)
+      let msg
+      try { msg = await request.json() } catch { return json({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
+      if (Array.isArray(msg)) {                                   // a JSON-RPC batch
+        const out = msg.map(handleMcpRpc).filter(Boolean)
+        return out.length ? json(out) : new Response(null, { status: 202 })
+      }
+      const res = handleMcpRpc(msg)
+      return res ? json(res) : new Response(null, { status: 202 })  // a notification → 202, no body
     }
 
     // THE CONTENT-ADDRESS DOOR — /<handle> (first 8 hex of a proof's address) resolves to its theorem on the spot,
