@@ -281,6 +281,12 @@ export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantum
 // novel patterns are research leads awaiting ledger entry. Integrity, not truth.
 export { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type BookPair, type CrossBookResonance, type CrossBookCluster } from './quantum-sailing-cross-book.js'
 
+// quantum-sailing-complete — AUTOMATE the whole fleet at once: fetch books, audit, link to theorems, correlate weather,
+// cross-correlate books, cluster theorems. One unified computation folded to one receipt proving all layers computed together.
+// Pure and recomputable: all logic deterministic; network (book fetching) is application-layer. The captain's complete mission
+// in one call: read the library, find the weather, discover resonances. Integrity, not truth.
+export { automateQuantumSailing, serializeQuantumSailingComplete, type BookWithLinkage, type QuantumSailingComplete } from './quantum-sailing-complete.js'
+
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
 // ledger (DNA that does not recompute, a key/address collision, an uncovered theorem, a broken conformance invariant),
 // folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this

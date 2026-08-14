@@ -19,7 +19,7 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
-  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, skillGroups, reviewDomains,
+  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, skillGroups, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
@@ -287,6 +287,14 @@ const TOOLS: Tool[] = [
         return serializeClusters(clusters)
       }
       return { error: 'invalid action or missing books' }
+    } },
+  { name: 'uuidna_quantum_sailing_complete',
+    description: 'AUTOMATE the whole fleet at once — CAPTAIN\'S COMPLETE MISSION: fetch Project Gutenberg books, audit each for provenance, extract and link decidable facts to sealed theorems, simulate and correlate weather, cross-correlate all books to find shared theorems and resonances, cluster theorems by book citation. One unified computation folded to one unified receipt proving all layers computed together. Pass {bookIds} (array of Project Gutenberg ebook ids, e.g. [2701, 26, 4300] for Moby Dick, Robinson Crusoe, Treasure Island). Network (fetching books) is application-layer; all correlation logic is PURE, recomputable, deterministic. Returns {summary, books, weather, crossBook, theoremClusters, unifiedReceipt}.',
+    inputSchema: { type: 'object', properties: { bookIds: { type: 'array', items: { type: 'integer' }, description: 'Project Gutenberg ebook ids to fetch and correlate (default [2701, 26, 4300] if not provided)' } } },
+    run: async (a) => {
+      const ids = a.bookIds ? (a.bookIds as number[]) : [2701, 26, 4300]
+      const result = await automateQuantumSailing(ids)
+      return serializeQuantumSailingComplete(result)
     } },
   { name: 'uuidna_audit_standard',
     description: 'The recomputable FLOOR of a standards / law audit: content-address the PUBLIC Wikipedia description of a standard or law (CC BY-SA, free, no key), decode its structure, and extract the DECIDABLE checks it states — each sealed or refuted `by decide` LOCALLY (the "free" is a free public API + local decidable checks). HONEST SCOPE: this is the FLOOR a human auditor STARTS from — a provenance fingerprint + decidable checks — NOT a compliance / legal RULING, which requires a licensed auditor or counsel reviewing the specific jurisdiction, edition and deployment. uuidna delivers what recomputes and leaves the ruling to humans. The text is DATA, never executed. Returns {standard,address,checks,factBase,ruling}.',
