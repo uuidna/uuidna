@@ -200,6 +200,9 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 65. **Quantum sailing seals** — `lean/SailingSeals.lean` · **13** theorems
    the captain sails through literature discovering facts, correlating evidence, and sealing patterns — books extract → weather correlates → cross-resonance folds. All decidable by decide, axiom-free
 
+66. **The honest court** — `lean/DisputedTopics.lean` · **15** theorems
+   theorems proving the boundary between what is provable (sealed), open (unverified but real), overclaimed (contradicts ledger), and narrative gap (true statement, false story) — reading contested books on politics, medicine, climate, history, economics and auditing facts through anti-fraud. Honesty gate: extraction is decidable, auditing is decidable, but narrative gaps require human judgment
+
 ---
 
 Rendered as schema.org microdata cards at [uuidna.com/theorems](https://uuidna.com/theorems), folded to one recomputable receipt.

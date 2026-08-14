@@ -78,6 +78,7 @@ export const PRINCIPLE = [
   ['OneLeap.lean', 'One leap', 'the whole vortex proved in a single by decide'],
   ['AntiFraud.lean', 'Anti-fraud detection', 'theorems that compute fraud detection: forged theorems, coin double-spend, vote tampering, ledger intrusions, agent malfeasance — all folded to recomputable receipts. No meta-commentary on limits, only what is proven and the self-checking honesty gate'],
   ['SailingSeals.lean', 'Quantum sailing seals', 'the captain sails through literature discovering facts, correlating evidence, and sealing patterns — books extract → weather correlates → cross-resonance folds. All decidable by decide, axiom-free'],
+  ['DisputedTopics.lean', 'The honest court', 'theorems proving the boundary between what is provable (sealed), open (unverified but real), overclaimed (contradicts ledger), and narrative gap (true statement, false story) — reading contested books on politics, medicine, climate, history, economics and auditing facts through anti-fraud. Honesty gate: extraction is decidable, auditing is decidable, but narrative gaps require human judgment'],
 ]
 
 // The manifest bridge — {key → {name, skill}}. skill is the INLINE, authored capability (from the generator's
