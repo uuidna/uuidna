@@ -4,23 +4,24 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="131 keys" />
+# MCP tools <Badge type="tip" text="132 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 131 tools below are read from the server's own tool list and
+is **built from the keys**: the 132 tools below are read from the server's own tool list and
 organised into 30 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`131`" />
+## The grid <Badge type="tip" :text="`132`" />
 
-131 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 42 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+132 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 43 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
 <a href="#uuidna-analytics"><code>analytics</code></a>
+<a href="#uuidna-axiom-witness"><code>axiom_witness</code></a>
 <a href="#uuidna-cloudflare-audit"><code>cloudflare_audit</code></a>
 <a href="#uuidna-conformance"><code>conformance</code></a>
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -459,7 +460,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'37'" />
+## Other <Badge type="tip" :text="'38'" />
 
 *skill: other*
 
@@ -648,7 +649,13 @@ _No parameters._
 
 ### `uuidna_guard_lessons`
 
-THE GUARD LESSONS, sealed into uuidna as recomputable checks — the operating knowledge that once lived only in a private agent note, moved to where it recomputes for anyone and tied to the exact check that enforces each: DNA recomputes (a forgery cannot), no key/address collision (a duplicate is an intrusion), monograph coverage (every new lean-*.ts needs a PRINCIPLE entry), the conformance invariants (two coins conserved, single-source, security), determinism (no Math.*/wall-clock/RNG anywhere including comments — the guard regex matches the smoke test exactly so it is never laxer than the gate), the axiom witness (every theorem kernel-only, brought forward of the 12s Lean re-run), guard-before-reconcile (the 0.29s guard front-runs the 4-min gate — re-spending it on a catchable error is the measured cost of manual work), and commit-signed-true (a commit cannot be made unless its message cites a real sealed theorem). Each lesson's `holds` is verified against the live ledger (boolean) or enforced by npm run guard ('script'). Folded to one recomputable receipt. Trust the check, not the note. Returns {lessons:[{check,lesson,enforcedBy,holds}],allHold,receipt,honest}.
+THE GUARD LESSONS, sealed into uuidna as recomputable checks — the operating knowledge that once lived only in a private agent note, moved to where it recomputes for anyone and tied to the exact check that enforces each: DNA recomputes (a forgery cannot), no key/address collision (a duplicate is an intrusion), monograph coverage (every new lean-*.ts needs a PRINCIPLE entry), the conformance invariants (two coins conserved, single-source, security), determinism (no Math.*/wall-clock/RNG anywhere including comments — the guard regex matches the smoke test exactly so it is never laxer than the gate), the axiom witness (every theorem kernel-only — the receipt SHIPS with the package as lean/axioms.json, so it recomputes OFFLINE against the live ledger), guard-before-reconcile (the 0.29s guard front-runs the 4-min gate — re-spending it on a catchable error is the measured cost of manual work), and commit-signed-true (a commit cannot be made unless its message cites a real sealed theorem). Each lesson's `holds` is verified live (boolean — against the ledger, or against the shipped kernel-only receipt) or enforced by npm run guard ('script', for checks needing the repo tree). Folded to one recomputable receipt. Trust the check, not the note. Returns {lessons:[{check,lesson,enforcedBy,holds}],allHold,receipt,honest}.
+
+_No parameters._
+
+### `uuidna_axiom_witness`
+
+THE KERNEL-ONLY WITNESS, verified OFFLINE — the axiom audit receipt (lean/axioms.json, written by the Lean toolchain's `#print axioms` sweep) SHIPS with the package beside dist, so the "no borrowed axiom" claim recomputes WITHOUT the repo or the toolchain: the audit must cover the whole live ledger (audited = ledger — a new, unaudited theorem trips it), every theorem must be kernel-only (no propext, no Classical.choice, no sorryAx, no Lean.ofReduceBool), and no offender may be listed — an offender is the SPY the witness catches (the captain's claim "all axioms are replaceable, the uncovered are spies" demarcated to its backed form: this ledger borrows ZERO axioms, so no axiom is load-bearing here; not a claim about mathematics at large). This is a repo-only check moved INTO the shipped package — offline independence, the knowledge living where it recomputes. HONEST SCOPE: integrity, not truth — it verifies the SEALED receipt against the live ledger count; re-DERIVING the receipt still needs the Lean toolchain (`npm run axioms`, the guard, CI). shipped:false means no receipt is beside dist (defer to the guard). Returns {shipped,holds,audited,axiomFree,ledger,offenders,receipt,honest}.
 
 _No parameters._
 
@@ -801,7 +808,7 @@ THE SURFACING — close the hollow-prose leak by showing the verdict, not the dr
 
 ### `uuidna_security_audit`
 
-The RECOMPUTABLE security posture computed from what the package SHIPS (package.json + the sealed ledger + the honesty gate), folded to an order-invariant receipt anyone rechecks — NOT a scanner and NOT a pentest. It verifies the supply-chain surface (zero runtime dependencies, dev-deps bounded to a known set), the defence-in-depth theorems sealed (layers add bits, a key bit doubles the space, the birthday bound halves the exponent, verify is cheaper than forge, no maximum only bounds), collision resistance by pigeonhole (seats_pigeonhole), and that the honesty gate BITES a fabricated theorem citation. HONEST SCOPE: the repo-tree scans (no committed secret across tracked files, the KAT suite present) and the CI gates run in the source tree, NOT here — this is the posture provable from the package itself. Returns {checks, passed, failed, receipt}.
+The RECOMPUTABLE security posture computed from what the package SHIPS (package.json + the sealed ledger + the honesty gate), folded to an order-invariant receipt anyone rechecks — NOT a scanner and NOT a pentest. It verifies the supply-chain surface (zero runtime dependencies, dev-deps bounded to a known set), the defence-in-depth theorems sealed (layers add bits, a key bit doubles the space, the birthday bound halves the exponent, verify is cheaper than forge, no maximum only bounds), collision resistance by pigeonhole (seats_pigeonhole), that the honesty gate BITES a fabricated theorem citation, and that the KERNEL-ONLY WITNESS ships (lean/axioms.json beside dist covers the live ledger — the no-borrowed-axiom claim recomputes offline). HONEST SCOPE: the repo-tree scans (no committed secret across tracked files, the KAT suite present) and the CI gates run in the source tree, NOT here — this is the posture provable from the package itself. Returns {checks, passed, failed, receipt}.
 
 _No parameters._
 

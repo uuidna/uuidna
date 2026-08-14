@@ -11,6 +11,7 @@ import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { coverage } from './publish.js'
 import { conformance } from './conformance.js'
+import { axiomWitness } from './axiom-witness.js'
 
 export interface Traitor { kind: 'forged-dna' | 'key-collision' | 'address-collision' | 'uncovered' | 'conformance'; detail: string }
 
@@ -69,8 +70,9 @@ export function catchTraitors(): TreasonReport {
 // ── THE GUARD LESSONS, sealed into uuidna as recomputable checks ────────────────────────────────────────────────
 // The lessons that were once only in an agent's private memory — moved HERE, where they recompute for anyone, tied to
 // the exact check that enforces each. Trust the check, not the note. A lesson whose `holds` is a boolean is verified
-// against the live ledger by catchTraitors; one whose `holds` is 'script' is enforced by `npm run guard` (source/axiom
-// checks that need the filesystem), documented here so the WHY is recomputable even where the check is not in-library.
+// live — against the ledger by catchTraitors, or against the SHIPPED kernel-only receipt by axiomWitness (offline);
+// one whose `holds` is 'script' is enforced by `npm run guard` (source checks that need the repo tree), documented
+// here so the WHY is recomputable even where the check is not in-library.
 export interface GuardLesson { check: string; lesson: string; enforcedBy: string; holds: boolean | 'script' }
 
 /** guardLessons() → the guard's checks, each with the LESSON it enforces, verified against the live ledger where the
@@ -90,8 +92,8 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
       lesson: 'The DNA gate: the two coins conserved (=2), DNA recomputes, single-source ledger, security posture clean.' },
     { check: 'determinism', enforcedBy: 'harmonic-scan (npm run guard)', holds: 'script',
       lesson: 'No Math.*/wall-clock/RNG anywhere in src — including comments; the smoke test scans RAW source. Exact integer arithmetic settles the coins, a host intrinsic never can. The guard regex matches the smoke test exactly, so the guard is never laxer than the gate it front-runs.' },
-    { check: 'axiom-witness', enforcedBy: 'guard (lean/axioms.json)', holds: 'script',
-      lesson: 'Every theorem must be kernel-only (no propext, no Classical.choice); a new/unaudited theorem (audited < ledger) or a borrowed axiom trips it — brought forward of the 12s Lean re-run so it is caught in milliseconds.' },
+    { check: 'axiom-witness', enforcedBy: 'shipped lean/axioms.json (guard re-derives)', holds: ((w) => w.shipped ? w.holds : 'script' as const)(axiomWitness()),
+      lesson: 'Every theorem must be kernel-only (no propext, no Classical.choice); a new/unaudited theorem (audited < ledger) or a borrowed axiom trips it. The receipt SHIPS with the package, so this recomputes OFFLINE against the live ledger; re-deriving it needs the Lean toolchain (guard/CI).' },
     { check: 'guard-before-reconcile', enforcedBy: 'npm run guard', holds: 'script',
       lesson: 'Run the 0.29s guard BEFORE the ~4-min reconcile: re-spending the full gate on a catchable error is the measured financial damage of manual work (traitor_damage_sealed_by_same_billing). Fast catch, no re-spend.' },
     { check: 'commit-signed-true', enforcedBy: 'reconcile signCommit', holds: 'script',

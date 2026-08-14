@@ -43,7 +43,8 @@
     "dist",
     "README.md",
     "LICENSE",
-    "reserved.uuidna"
+    "reserved.uuidna",
+    "lean/axioms.json"
   ],
   "sideEffects": false,
   "engines": {

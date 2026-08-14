@@ -12,6 +12,7 @@ import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { computes } from './gate.js'
 import { adjudicate } from './adjudicate.js'
+import { axiomWitness } from './axiom-witness.js'
 
 export interface SecurityCheck { id: string; ok: boolean; detail: string; address: string }
 export interface SecurityAuditReport { checks: SecurityCheck[]; passed: boolean; failed: string[]; receipt: string }
@@ -57,6 +58,9 @@ export function securityAudit(): SecurityAuditReport {
   const clayStmts = CLAY_KEYS.map((k) => T.find((t) => t.key === k)?.statement ?? '')
   const claySealsReflectionOnly = clayStmts.length === CLAY_KEYS.length &&
     clayStmts.every((s) => /dz \(dz \d\)/.test(s) && !/solv|verif|prov/i.test(s))
+  // the kernel-only witness SHIPS with the package (lean/axioms.json beside dist), so the no-borrowed-axiom claim
+  // recomputes offline against the live ledger — a repo-only check moved into the shipped posture.
+  const witness = axiomWitness()
 
   const checks: SecurityCheck[] = [
     mk('zero-runtime-deps', runtimeDeps.length === 0,
@@ -73,6 +77,10 @@ export function securityAudit(): SecurityAuditReport {
       `uuidna verifies 0 of the 7 Clay problems (${claySolvedCount} solve-claims adjudicate VERIFIED — must be 0): what is sealed is the reflection dz(dz k)=k, never the problem`),
     mk('clay-seals-only-the-reflection', claySealsReflectionOnly,
       'each of the seven Clay theorems seals ONLY the reflection round-trip (dz k = …, dz (dz k) = k) — no clay theorem asserts the problem is solved/verified/proven'),
+    mk('kernel-only-witness-shipped', witness.shipped && witness.holds,
+      witness.shipped
+        ? `the shipped lean/axioms.json covers the live ledger (${witness.audited}/${witness.ledger} audited, ${witness.axiomFree} kernel-only, ${Object.keys(witness.offenders).length} offenders) — the no-borrowed-axiom claim recomputes OFFLINE`
+        : 'lean/axioms.json is NOT beside dist — the kernel-only claim cannot recompute offline; re-derive it with `npm run axioms` (Lean toolchain)'),
   ]
   const failed = checks.filter((c) => !c.ok).map((c) => c.id)
   return { checks, passed: failed.length === 0, failed, receipt: merkleGravity(checks.map((c) => c.address)) }

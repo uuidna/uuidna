@@ -234,6 +234,7 @@ export { quantumAura, type Aura } from './aura.js'
 // folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this
 // + the harmonic-scan as the fast pre-reconcile gate — no manual pre-flight. Integrity, not truth.
 export { catchTraitors, guardLessons, type TreasonReport, type Traitor, type GuardLesson } from './treason.js'
+export { axiomWitness, type AxiomWitnessReport } from './axiom-witness.js'
 
 // repos — BIND the captain's public repositories to the DISCOVERY SEQUENCE (the ℤ/9 vortex [1,2,4,8,7,5], revealed
 // first): each public repo of the uuidna org + the ceccec user fingerprinted to a 128-bit content-address, placed on
