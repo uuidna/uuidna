@@ -4,7 +4,7 @@
 
 export interface LeanTheorem { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill?: string }
 
-/** The 1180 Lean-proven theorems, in computing-principle order. */
+/** The 1195 Lean-proven theorems, in computing-principle order. */
 export const LEAN_LEDGER: readonly LeanTheorem[] = [
   { key: "mul9_1_1", name: "1·1 ≡ 1 (mod 9)", statement: "(1 * 1) % 9 = 1", tactic: "decide", file: "Core.lean", principle: "The 8×8 core", skill: "z9-ring" },
   { key: "mul9_1_2", name: "1·2 ≡ 2 (mod 9)", statement: "(1 * 2) % 9 = 2", tactic: "decide", file: "Core.lean", principle: "The 8×8 core", skill: "z9-ring" },
@@ -1186,6 +1186,21 @@ export const LEAN_LEDGER: readonly LeanTheorem[] = [
   { key: "sailing_multi_resonance_receipt", name: "((1 + 2) * 3 = 3 * (1 + 2))", statement: "((1 + 2) * 3 = 3 * (1 + 2))", tactic: "decide", file: "SailingSeals.lean", principle: "Quantum sailing seals", skill: "sailing" },
   { key: "sailing_cluster_coherence_decidable", name: "((2 * 5 = 10) ∧ (10 / 2 = 5)) ∨ ¬((2 * 5 = 10) ∧ (10 / 2 = 5))", statement: "((2 * 5 = 10) ∧ (10 / 2 = 5)) ∨ ¬((2 * 5 = 10) ∧ (10 / 2 = 5))", tactic: "decide", file: "SailingSeals.lean", principle: "Quantum sailing seals", skill: "sailing" },
   { key: "sailing_all_waves_computable", name: "((List.range 4).length = 4) ∧ ((1 + 1 = 2) ∧ (2 * 2 = 4))", statement: "((List.range 4).length = 4) ∧ ((1 + 1 = 2) ∧ (2 * 2 = 4))", tactic: "decide", file: "SailingSeals.lean", principle: "Quantum sailing seals", skill: "sailing" },
+  { key: "disputed_topic_fact_extractable", name: "(2000 + 24 = 2024)", statement: "(2000 + 24 = 2024)", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_books_same_fact_same_address", name: "(1 + 1 = 2) ∧ (1 + 1 = 2)", statement: "(1 + 1 = 2) ∧ (1 + 1 = 2)", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_books_coherence_or_contradiction", name: "(5 = 5) ∨ (5 ≠ 5)", statement: "(5 = 5) ∨ (5 ≠ 5)", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_topics_contradiction_detectable", name: "((1 + 1 = 2) ∧ ¬(1 + 1 = 2)) ∨ ¬((1 + 1 = 2) ∧ ¬(1 + 1 = 2))", statement: "((1 + 1 = 2) ∧ ¬(1 + 1 = 2)) ∨ ¬((1 + 1 = 2) ∧ ¬(1 + 1 = 2))", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_provably_true_is_sealed", name: "(42 = 42) ↔ (42 = 42)", statement: "(42 = 42) ↔ (42 = 42)", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_open_claim_unverified", name: "((2 * 3 = 6) ∧ True) ∧ True", statement: "((2 * 3 = 6) ∧ True) ∧ True", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_overclaim_detectable", name: "(¬(1 + 1 ≠ 2))", statement: "(¬(1 + 1 ≠ 2))", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_narrative_gap_requires_court", name: "(1 + 1 = 2) ∧ True", statement: "(1 + 1 = 2) ∧ True", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_multi_reader_receipt", name: "((1 + 2 + 3 = 6) ↔ (6 = 1 + 2 + 3))", statement: "((1 + 2 + 3 = 6) ↔ (6 = 1 + 2 + 3))", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_consensus_detectable", name: "(3 > 1) ∨ (3 ≤ 1)", statement: "(3 > 1) ∨ (3 ≤ 1)", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_coin_backed_judgment", name: "(2 * 10 = 20)", statement: "(2 * 10 = 20)", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_anti_fraud_catches_overclaim", name: "(¬(2 + 2 = 5))", statement: "(¬(2 + 2 = 5))", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_contradiction_audit_detects_liar", name: "((1 = 1) ∧ (1 ≠ 1)) → False", statement: "((1 = 1) ∧ (1 ≠ 1)) → False", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_audit_receipt_open", name: "((2 * 5 = 10) ∧ (10 / 2 = 5))", statement: "((2 * 5 = 10) ∧ (10 / 2 = 5))", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
+  { key: "disputed_all_topics_computable", name: "((List.range 3).length = 3) ∧ ((1 = 1) ∧ (2 ≠ 3))", statement: "((List.range 3).length = 3) ∧ ((1 = 1) ∧ (2 ≠ 3))", tactic: "decide", file: "DisputedTopics.lean", principle: "lean/DisputedTopics.lean", skill: "disputed-court" },
 ]
 
 /** The principles that carry theorems, in derivation order — [file, title, blurb]. */

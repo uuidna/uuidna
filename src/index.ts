@@ -268,6 +268,15 @@ export { agentContribute, encodeVote, tallyVotes, signCommitWithVoting, serializ
 // The captain sails through literature, discovering novel facts (research leads) and sealing them.
 export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, type SailingBook, type QuantumSailingLibrary } from './quantum-sailing-library.js'
 
+// quantum-news-portal — THE HONEST NEWS ENGINE: read articles on disputed topics (politics, medicine,
+// climate, history, economics) → extract decidable facts (dates, numbers, logical claims) → audit through
+// anti-fraud MCP (provable | open | overclaimed | narrative gap) → coin-backed reader judgment. Every
+// extraction and audit is recomputable; narrative gaps (true statement, false story) stay with the court.
+export { extractFactsFromArticle, auditFactAgainstLedger, buildNewsPortal, renderPortalSummary, tallyJudgmentVotes, shouldSealFact, type NewsArticle, type NewsExtractedFact, type FactJudgment, type NewsPortal, type JudgmentVote } from './quantum-news-portal.js'
+
+// domain-specific news portals: politics, medicine, climate, history, economics
+export { buildPoliticsPortal, extractPoliticsFacts, buildMedicinePortal, extractMedicineFacts, buildClimatePortal, extractClimateFacts, buildHistoryPortal, extractHistoryFacts, buildEconomicsPortal, extractEconomicsFacts, processMultiDomainJudgment, type PoliticsArticle, type MedicineArticle, type ClimateArticle, type HistoryArticle, type EconomicsArticle } from './news-domains.js'
+
 // quantum-sailing-weather — CORRELATE real-world weather data to quantum sailing theory. Discovers public APIs
 // (NOAA, Open-Meteo) that provide decidable facts (temperature, wind, pressure, waves, tides) and LINKS them to
 // theorems sealed in the ledger. Pure correlation: no network calls (only on demand), only checks against ledger.
