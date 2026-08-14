@@ -23,6 +23,8 @@ import { hmacSha256 } from './dist/sha256.js'
 // The HOSTED MCP over HTTP (JSON-RPC 2.0, the MCP Streamable-HTTP transport) at /mcp — the Workers-safe, pure,
 // recomputable tool subset. Imports a SPECIFIC pure module (never index.js — that pulls node:child_process).
 import { handleMcpRpc, mcpHttpToolNames, MCP_HTTP_PROTOCOL } from './dist/mcp-http.js'
+// The LIVE ANALYTICS dashboard at /analytics — real metrics from Cloudflare, AWS, GCP, Azure APIs
+import { handleAnalytics } from './dist/analytics-handler.js'
 // The handle map — the first 8 hex of every content-address → its theorem key, generated at build (gen-handles).
 // Pages and proofs are one uuid: /<handle> resolves to /theorem/<key> ON THE SPOT, no static pages, ~30 KB in memory.
 import HANDLES from './handles.js'
@@ -130,6 +132,13 @@ export default {
     if (licensed && (url.pathname === '/trials' || url.pathname.startsWith('/trials/'))) {
       const res = await handleTrials(request, url, env)
       if (res) return res
+    }
+
+    // THE LIVE ANALYTICS DASHBOARD at /analytics — real-time metrics from Cloudflare and cloud provider APIs.
+    // First-party and licensed hosts only. Fetches live data from Cloudflare Analytics Engine, AWS CloudWatch,
+    // GCP Cloud Monitoring, Azure Monitor. Shows grouped metrics and dynamic comparison dashboard.
+    if (licensed && url.pathname === '/analytics') {
+      return await handleAnalytics(request, env)
     }
 
     // THE HOSTED MCP — Model Context Protocol over HTTP (JSON-RPC 2.0, the Streamable-HTTP transport) at /mcp, first-

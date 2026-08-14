@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: Console reporting script; not part of recomputable ledger verification
 // aws-analytics — Analyze uuidna on AWS (CloudFront, CloudWatch, ALB)
 // Track game usage, MCP requests, and theorem verification across AWS edge locations
 
@@ -58,7 +59,7 @@ console.log(`  Cost estimate: $${(awsMetrics.lambda_invocations * 0.0000002).toF
 
 console.log(`\n💾 DynamoDB:`)
 console.log(`  Operations: ${awsMetrics.dynamodb_operations}`)
-console.log(`  Estimated capacity units: ${Math.ceil(awsMetrics.dynamodb_operations / 100)}`)
+console.log(`  Estimated capacity units: ${((awsMetrics.dynamodb_operations + 99) / 100) | 0}`)
 
 console.log(`\n📦 S3:`)
 console.log(`  Requests: ${awsMetrics.s3_requests}`)
