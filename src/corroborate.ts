@@ -43,21 +43,36 @@ export function corroborate(statement: string, evidence: ResearchEvidence[] = []
   return { statement, local, evidence, verdict, receipt, develop: adj.develop, honest: HONEST }
 }
 
-/** researchEvidence(query) → external research from FREE API STREAMS (currently NIST CODATA, no key), each match a
- *  provenance-fingerprinted Evidence item. The network call; the responses are DATA — content-addressed, never
- *  executed. Best-effort: a down or empty stream yields no evidence, never a fabricated one. */
-export async function researchEvidence(query: string): Promise<ResearchEvidence[]> {
-  const out: ResearchEvidence[] = []
+// THE RESEARCH SOURCES — the ONE registry of reachable free API streams, each a best-effort fetch returning provenance-
+// fingerprinted evidence and NEVER a fabricated one. researchEvidence fans them ALL out in parallel, so the concurrency
+// lives in ONE place: every consumer (corroborateWithResearch, scanPublications) gets every source at once, and adding a
+// source is a single line here — the parallel speedup is DRY, never re-implemented per caller.
+type ResearchSource = (query: string) => Promise<ResearchEvidence[]>
+
+const nistSource: ResearchSource = async (query) => {
   try {
     const nist = await nistConstant(query)
-    for (const m of nist.matches.slice(0, 8)) {
-      const note = JSON.stringify(m).replace(/[{}"]/g, '').slice(0, 100)
-      out.push({ source: nist.source, address: toUuid(JSON.stringify(m)), note })
-    }
-  } catch {
-    /* a free API may be unreachable — corroboration is best-effort and NEVER fabricates evidence */
-  }
-  return out
+    return nist.matches.slice(0, 8).map((m) => ({ source: nist.source, address: toUuid(JSON.stringify(m)), note: JSON.stringify(m).replace(/[{}"]/g, '').slice(0, 100) }))
+  } catch { return [] } // a free API may be unreachable — best-effort, NEVER fabricates evidence
+}
+
+const zenodoSource: ResearchSource = async (query) => {
+  try {
+    const res = await fetch('https://zenodo.org/api/records?size=8&q=' + encodeURIComponent(query))
+    if (!res.ok) return []
+    const hits = ((await res.json()) as { hits?: { hits?: { id: number; metadata?: { title?: string } }[] } }).hits?.hits ?? []
+    return hits.map((h) => ({ source: 'zenodo.org', address: toUuid('zenodo:' + h.id), note: `zenodo record ${h.id}: ${(h.metadata?.title ?? '').slice(0, 80)}` }))
+  } catch { return [] }
+}
+
+const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource]
+
+/** researchEvidence(query) → external research from the free API STREAMS, FANNED OUT IN PARALLEL (Promise.all over
+ *  RESEARCH_SOURCES): the wall-clock is the slowest source, not the sum, and every match is a provenance-fingerprinted
+ *  Evidence item. The responses are DATA — content-addressed, never executed. Best-effort: a down/empty stream yields
+ *  no evidence, never a fabricated one. The one parallel fan-out every research consumer shares (DRY). */
+export async function researchEvidence(query: string): Promise<ResearchEvidence[]> {
+  return (await Promise.all(RESEARCH_SOURCES.map((s) => s(query)))).flat()
 }
 
 /** approve(c) → the HARD gate: ONLY a local by-decide seal (the "quantum" verification — a proof that COMPUTES)
@@ -168,23 +183,12 @@ const SCAN_HONEST =
  *  and investigate each against the reservation (canonical uuidna.com vs external-unlicensed). The network call; the
  *  responses are DATA, content-addressed, never executed. Best-effort: an unreachable/empty stream yields no finding,
  *  never a fabricated one. HONEST: scans the reachable streams, NOT the open web — absence is not proof of absence. */
-// A second reachable free source: Zenodo full-text record search (developers.zenodo.org, no key). Each hit is a
-// provenance-fingerprinted mention — content-addressed, never executed, never fabricated. Best-effort: down/empty → [].
-async function zenodoSearch(query: string): Promise<ResearchEvidence[]> {
-  try {
-    const res = await fetch('https://zenodo.org/api/records?size=8&q=' + encodeURIComponent(query))
-    if (!res.ok) return []
-    const hits = ((await res.json()) as { hits?: { hits?: { id: number; metadata?: { title?: string } }[] } }).hits?.hits ?? []
-    return hits.map((h) => ({ source: 'zenodo.org', address: toUuid('zenodo:' + h.id), note: `zenodo record ${h.id}: ${(h.metadata?.title ?? '').slice(0, 80)}` }))
-  } catch { return [] }
-}
-
 export async function scanPublications(query = 'uuidna'): Promise<PublicationScan> {
   const canonical = 'https://uuidna.com'
-  // PARALLEL fan-out — every reachable source fetched AT ONCE (Promise.all), so the wall-clock is the SLOWEST source,
-  // not the sum. The order-invariant fold below means the receipt is identical however the requests race — concurrency
-  // speeds it up and can never corrupt the result (store_fold_order_invariant). Real speedup, classical, not quantum.
-  const evidence = (await Promise.all([researchEvidence(query), zenodoSearch(query)])).flat()
+  // researchEvidence is the ONE parallel fan-out over every reachable source (NIST + Zenodo + …) — so the scan gets the
+  // concurrency for free, no per-caller Promise.all. The order-invariant fold below means the receipt is identical
+  // however the sources race — concurrency speeds it up and can never corrupt the result (store_fold_order_invariant).
+  const evidence = await researchEvidence(query)
   const findings: PublicationFinding[] = evidence.map((e) => {
     const canonicalHit = /uuidna\.com/i.test(e.note) || /uuidna\.com/i.test(e.source)
     return {
