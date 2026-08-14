@@ -32,26 +32,36 @@ export interface TreasonReport {
 export function catchTraitors(): TreasonReport {
   const T = theorems()
   const traitors: Traitor[] = []
+  const checksRun: string[] = []
 
   // 1) DNA — every theorem's address IS toUuid(key ":" statement); a tampered key/statement/address breaks exactly one.
+  checksRun.push('dna-recomputes')
   for (const t of T) if (toUuid(t.key + ':' + t.statement) !== t.address)
     traitors.push({ kind: 'forged-dna', detail: `${t.key} — address does not recompute from (key:statement); a tamper or forgery` })
 
   // 2) COLLISIONS — a key or an address collision is a smuggled duplicate, not a datum.
-  const seenKeys = new Set<string>(), seenAddr = new Map<string, string>()
+  checksRun.push('no-key-collision')
+  const seenKeys = new Set<string>()
   for (const t of T) {
     if (seenKeys.has(t.key)) traitors.push({ kind: 'key-collision', detail: `${t.key} — duplicate key (a collision would be an intrusion)` })
     seenKeys.add(t.key)
+  }
+
+  checksRun.push('no-address-collision')
+  const seenAddr = new Map<string, string>()
+  for (const t of T) {
     const prior = seenAddr.get(t.address)
     if (prior && prior !== t.key) traitors.push({ kind: 'address-collision', detail: `${t.key} collides at ${t.address} with ${prior}` })
     seenAddr.set(t.address, t.key)
   }
 
   // 3) COVERAGE — a theorem shown in no monograph is a domain sneaked in without a PRINCIPLE (uncovered).
+  checksRun.push('monograph-coverage')
   const cov = coverage()
   for (const key of cov.uncovered) traitors.push({ kind: 'uncovered', detail: `${key} — shown in no monograph (author a PRINCIPLE for its file)` })
 
   // 4) CONFORMANCE — the DNA gate's standing invariants (coins conserved, DNA recomputes, single-source, security).
+  checksRun.push('conformance-invariants')
   const conf = conformance()
   for (const c of conf.checks) if (!c.pass) traitors.push({ kind: 'conformance', detail: `${c.id} — ${c.detail}` })
 
@@ -64,14 +74,21 @@ export function catchTraitors(): TreasonReport {
   // caught only by the COURT (adjudicate separating the statement's VERIFIED from the narrative's UNVERIFIED) and human
   // vigilance, never recomputably by the gate. This closes the fabricated-citation-in-prose gap, and no more; it does
   // not pretend to close the narrative gap.
+  checksRun.push('prose-gate-clean')
   for (const t of T) if (computes(t.name).binary === 0)
     traitors.push({ kind: 'prose-overclaim', detail: `${t.key} — the NAME drains the honesty gate (a fabricated theorem citation in the prose)` })
 
-  const checks = ['dna-recomputes', 'no-key-collision', 'no-address-collision', 'monograph-coverage', 'conformance-invariants', 'prose-gate-clean']
   const clean = traitors.length === 0
   return {
-    clean, scanned: T.length, traitors, checks,
-    receipt: merkleGravity([toUuid('treason:' + (clean ? 'clean' : 'caught') + ':' + traitors.length), ...traitors.map((v) => toUuid(v.kind + '|' + v.detail))]),
+    clean, scanned: T.length, traitors, checks: checksRun,
+    receipt: merkleGravity([
+      toUuid('treason:' + (clean ? 'clean' : 'caught')),
+      toUuid('scanned:' + T.length),
+      toUuid('checks:' + checksRun.length),
+      toUuid('traitors:' + traitors.length),
+      ...checksRun.map((c) => toUuid('check:' + c)),
+      ...traitors.map((v) => toUuid(v.kind + '|' + v.detail)),
+    ]),
     honest:
       'Catch traitors as fast as a hero: one O(N) pass proving the ledger is UNFORGED and self-consistent — every ' +
       'theorem\'s DNA recomputes, no key/address collides, every theorem is covered by a monograph, the conformance ' +
