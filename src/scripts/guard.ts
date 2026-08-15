@@ -46,5 +46,14 @@ try {
   console.error('✗ guard — harmonic-scan caught a non-quantum / non-deterministic sneak (see above)')
 }
 
+// 3) the SPLIT sweep — the packages/* surfaces are COMPUTED from src/index.ts (gen-packages); a hand edit to a
+// package surface is drift and fails here exactly like a hand edit to the ledger. Milliseconds — a few file reads.
+try {
+  execSync('node ' + JSON.stringify(join(HERE, 'gen-packages.js')) + ' --verify', { stdio: 'inherit' })
+} catch {
+  failed = true
+  console.error('✗ guard — a package surface drifts from the computed split (run `npm run gen:packages`)')
+}
+
 if (failed) { console.error('\n✗ guard — traitors caught; fix before reconcile.'); process.exit(1) }
 console.log('✓ guard — no traitors: the ledger is unforged and the source is harmonic. Safe to reconcile.')

@@ -1,0 +1,51 @@
+{
+  "name": "@uuidna/edge",
+  "version": "0.1.0",
+  "description": "The deployment surface of uuidna: the Cloudflare bindings audit, the one navigable site graph (canonical order, no next-gap, no orphan), quantum SEO, the theorem renderers, the content-addressed document serializer, and the profile/social cards.",
+  "type": "module",
+  "license": "CC-BY-NC-ND-4.0",
+  "author": "Tsvetan Rouschev <ceccec@psg.bg>",
+  "homepage": "https://github.com/uuidna/uuidna/tree/main/packages/edge",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uuidna/uuidna.git",
+    "directory": "packages/edge"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test ../../dist/test/editor.test.js ../../dist/test/typography-audit.test.js"
+  },
+  "dependencies": {
+    "@uuidna/uuidna": "file:../.."
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "edge",
+    "site-graph",
+    "seo",
+    "render",
+    "serializer",
+    "recomputable"
+  ]
+}

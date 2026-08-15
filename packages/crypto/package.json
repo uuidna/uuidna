@@ -1,0 +1,54 @@
+{
+  "name": "@uuidna/crypto",
+  "version": "0.1.0",
+  "description": "The crypto surface of uuidna: pure-TS SHA-256/HMAC/PBKDF2, ChaCha20-Poly1305 (RFC 8439, KAT-verified), the 7d-fold envelope, onion-sealed uuid streams, contract seals, and the quantum-cube challenge.",
+  "type": "module",
+  "license": "CC-BY-NC-ND-4.0",
+  "author": "Tsvetan Rouschev <ceccec@psg.bg>",
+  "homepage": "https://github.com/uuidna/uuidna/tree/main/packages/crypto",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uuidna/uuidna.git",
+    "directory": "packages/crypto"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test ../../dist/test/kat.test.js ../../dist/test/crypt-guard.test.js ../../dist/test/stream.test.js ../../dist/test/contract.test.js",
+    "measure": "npm run crypto:measure --prefix ../.."
+  },
+  "dependencies": {
+    "@uuidna/uuidna": "file:../.."
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "crypto",
+    "chacha20-poly1305",
+    "sha256",
+    "hmac",
+    "pbkdf2",
+    "aead",
+    "encryption",
+    "onion",
+    "kat",
+    "recomputable"
+  ]
+}

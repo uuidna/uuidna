@@ -1,0 +1,53 @@
+{
+  "name": "@uuidna/ledger",
+  "version": "0.1.0",
+  "description": "The sealed theorem ledger and every gate that stands on it: content-addresses, merkle proofs, the honesty gates (slimGate), the trial, commit signing, anti-fraud, forensics, conformance, treason, the ledger fingerprint, laws, credits, and the billing coins.",
+  "type": "module",
+  "license": "CC-BY-NC-ND-4.0",
+  "author": "Tsvetan Rouschev <ceccec@psg.bg>",
+  "homepage": "https://github.com/uuidna/uuidna/tree/main/packages/ledger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uuidna/uuidna.git",
+    "directory": "packages/ledger"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test ../../dist/test/laws.test.js ../../dist/test/credits.test.js ../../dist/test/forensics.test.js ../../dist/test/evidence.test.js ../../dist/test/recompute.test.js"
+  },
+  "dependencies": {
+    "@uuidna/uuidna": "file:../.."
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "theorem-ledger",
+    "lean4",
+    "content-address",
+    "merkle-proof",
+    "honesty-gate",
+    "adjudicate",
+    "anti-fraud",
+    "forensics",
+    "conformance",
+    "recomputable"
+  ]
+}

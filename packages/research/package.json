@@ -1,0 +1,54 @@
+{
+  "name": "@uuidna/research",
+  "version": "0.1.0",
+  "description": "Recomputable research: deep research through the imprint codec, corroboration, book/movie/record/standard audits, gated publications, the reporter's method, prior art, the NIST beacon anchor, CODATA constants, CVE fingerprints, the vocabulary, transform-until-verified, and the reasoner.",
+  "type": "module",
+  "license": "CC-BY-NC-ND-4.0",
+  "author": "Tsvetan Rouschev <ceccec@psg.bg>",
+  "homepage": "https://github.com/uuidna/uuidna/tree/main/packages/research",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uuidna/uuidna.git",
+    "directory": "packages/research"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test ../../dist/test/books.test.js ../../dist/test/publish.test.js ../../dist/test/reason.test.js",
+    "gen:claims": "npm run gen:captain-claims --prefix ../..",
+    "seal:audit": "npm run seal:claims --prefix ../.."
+  },
+  "dependencies": {
+    "@uuidna/uuidna": "file:../.."
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "research",
+    "captain-claims",
+    "corroboration",
+    "publications",
+    "prior-art",
+    "nist-beacon",
+    "codata",
+    "honest-scope",
+    "recomputable"
+  ]
+}

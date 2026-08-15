@@ -1,0 +1,53 @@
+{
+  "name": "@uuidna/quantum",
+  "version": "0.1.0",
+  "description": "The classical, exact quantum surface of uuidna: the Gaussian-integer state-vector simulator (honestly bounded), quantum messages/voting/receipts, the sailing fleet, the news portals, gravity contractions, the diamond involution, holofractal and pentagram folds, the A432 aura, quantum analytics, and the uuidnaOS provenance boundary.",
+  "type": "module",
+  "license": "CC-BY-NC-ND-4.0",
+  "author": "Tsvetan Rouschev <ceccec@psg.bg>",
+  "homepage": "https://github.com/uuidna/uuidna/tree/main/packages/quantum",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uuidna/uuidna.git",
+    "directory": "packages/quantum"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test ../../dist/test/quantum.test.js ../../dist/test/quantum-news-portal.test.js ../../dist/quantum/tests/*.test.js"
+  },
+  "dependencies": {
+    "@uuidna/uuidna": "file:../.."
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "quantum",
+    "state-vector",
+    "clifford",
+    "gaussian-integer",
+    "exact-arithmetic",
+    "quantum-message",
+    "quantum-voting",
+    "provenance",
+    "alpine",
+    "recomputable"
+  ]
+}

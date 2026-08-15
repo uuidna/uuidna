@@ -34,8 +34,15 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./mcp": {
+      "types": "./dist/mcp.d.ts",
+      "import": "./dist/mcp.js"
     }
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "bin": {
     "uuidna-mcp": "./dist/mcp.js"
   },
@@ -109,6 +116,9 @@
     "next:verify": "npm run build && node dist/scripts/spin.js --verify && npm run guard && node dist/scripts/next.js --verify",
     "hooks:install": "git config core.hooksPath hooks && echo \"git hooks installed (core.hooksPath=hooks): pre-push runs the readiness gate\"",
     "guard": "npm run build && node dist/scripts/guard.js",
+    "gen:packages": "npm run build && node dist/scripts/gen-packages.js",
+    "build:packages": "npm run build && npm run build --workspaces",
+    "test:packages": "npm run build:packages && npm run test --workspaces",
     "crypto:measure": "npm run build && node dist/scripts/crypto-measure.js"
   },
   "devDependencies": {

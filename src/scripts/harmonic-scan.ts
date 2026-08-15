@@ -57,6 +57,13 @@ const rel = (p: string): string => p.slice(SRC.length + 1)
 
 const libFiles = readdirSync(SRC).filter((f) => f.endsWith('.ts'))   // top-level library modules (rule 1)
 const allFiles = walk(SRC)                                           // the whole tree (rule 2)
+// the split packages (packages/*/src) are published library surface too — rule (2) covers them with the same
+// hard-reject, no exemption. Only each package's src/ is walked (never dist/ or node_modules/), and a missing
+// packages/ tree scans as empty, so the scanner runs unchanged on a checkout without the workspace.
+const PKGS = join(SRC, '..', 'packages')
+const pkgFiles: string[] = (() => {
+  try { return readdirSync(PKGS).flatMap((d) => { try { return walk(join(PKGS, d, 'src')) } catch { return [] } }) } catch { return [] }
+})()
 const named: string[] = []
 const offenders: { file: string; ops: string[] }[] = []
 
@@ -73,15 +80,19 @@ for (const f of libFiles) {
 // rule (2) — determinism hard-reject over the WHOLE tree, scanned on RAW source (comments included, like the smoke
 // test): Math dot letter everywhere (no exemption), a wall-clock read in the library only.
 const nonDeterministic: { file: string; ops: string[] }[] = []
-for (const p of allFiles) {
+const scanned: readonly (readonly [string, string])[] = [
+  ...allFiles.map((p) => [p, rel(p)] as const),
+  ...pkgFiles.map((p) => [p, 'packages' + p.slice(PKGS.length)] as const),
+]
+for (const [p, name] of scanned) {
   const raw = readFileSync(p, 'utf8')
   const ops: string[] = []
   if (MATH_CALL.test(raw)) ops.push('Math.*')
   if (isLibrary(p) && WALLCLOCK.test(raw)) ops.push('wall-clock')
-  if (ops.length) nonDeterministic.push({ file: rel(p), ops })
+  if (ops.length) nonDeterministic.push({ file: name, ops })
 }
 
-console.log(`harmonic-scan — ${libFiles.length} library modules (rule 1) + ${allFiles.length} files determinism-scanned (rule 2); ${named.length} NAMED non-harmonic boundary:`)
+console.log(`harmonic-scan — ${libFiles.length} library modules (rule 1) + ${scanned.length} files determinism-scanned (rule 2, src + packages/*/src); ${named.length} NAMED non-harmonic boundary:`)
 for (const n of named) console.log('  · ' + n)
 
 let failed = false

@@ -1,0 +1,54 @@
+{
+  "name": "@uuidna/mcp",
+  "version": "0.1.0",
+  "description": "The uuidna MCP server as its own package: the uuidna-mcp stdio bin (re-served from the root dist) plus the I/O boundary it stands on — the sanitizers and the reeducating harness.",
+  "type": "module",
+  "license": "CC-BY-NC-ND-4.0",
+  "author": "Tsvetan Rouschev <ceccec@psg.bg>",
+  "homepage": "https://github.com/uuidna/uuidna/tree/main/packages/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uuidna/uuidna.git",
+    "directory": "packages/mcp"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "uuidna-mcp": "./bin.js"
+  },
+  "files": [
+    "dist",
+    "bin.js",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test ../../dist/test/mcp.test.js ../../dist/test/mcp-http.test.js ../../dist/test/mcp-coverage.test.js",
+    "mcp": "node bin.js"
+  },
+  "dependencies": {
+    "@uuidna/uuidna": "file:../.."
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "stdio",
+    "server",
+    "sanitize",
+    "harness",
+    "recomputable"
+  ]
+}
