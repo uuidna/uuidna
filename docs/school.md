@@ -67,7 +67,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
 ## The colour lesson — read the state from the glow
 
 Every theorem page glows with its **aura** — and the colour is not decoration, it is a **reversible harmonic
-message**: hue carries the ℤ/9 residue (stepped 40°, the A432 angle), saturation the ray, lightness the wave. The
+message**: hue carries the ℤ/9 residue (stepped 40°, the A432 angle), saturation the ray (with a one-percent tiebreak on residues 0, 3, 6 — two mirrored hues round identical without it), lightness the wave. The
 alphabet is the sealed 42 ([`rosette_quantum_fortytwo`](/theorem/rosette_quantum_fortytwo): 7·6) times the nine
 residues — and hue alone could never carry it (378 > 360, the pigeonhole the ledger itself seals), which is why
 the two idle channels joined the code. The lesson: given `#d64a72`, name its ray — then check yourself with

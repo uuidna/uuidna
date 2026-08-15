@@ -293,7 +293,30 @@ function fold() {
   // address order — the ledger's own film, frame list = the playlist), and the lessons (the school page's
   // curriculum: headings + sealed anchors, ORDER-SENSITIVE — a lesson plan is a sequence). Taught and sealed
   // are the same objects; change any of them and the one receipt moves.
-  const alphabet = h16(auraAlphabet().map((e) => e.rgb).join(''))
+  // THE MISSING QUANTUM, CREATED: the alphabet must be TOTAL — 378 states, 378 distinct colours, or decode has a
+  // mute state and the fold objects. And THE COMPLETION REPORT, computed not authored: every comparable feature
+  // paired with the check that proves it — a feature enters only with its proof, so "nothing uncovered remains"
+  // is verified by construction and sealed in the receipt.
+  const alpha = auraAlphabet()
+  if (new Set(alpha.map((e) => e.rgb)).size !== alpha.length) {
+    console.error(`✗ one-receipt fold — the aura alphabet collides (${new Set(alpha.map((e) => e.rgb)).size}/${alpha.length} distinct): a state went mute — retune the channels in src/aura.ts until all 378 speak`)
+    process.exit(1)
+  }
+  const REPORT: [string, string][] = [
+    ['site-default-layout', 'vitepress dead-links (build fails) + prose path-claims'],
+    ['served-assets', 'copy-lean-to-site html scan'],
+    ['legal-record', 'legal 1-6 consistency + 8 completeness (nine elements)'],
+    ['deposits-diplomas', 'legal 7 recompute + 9 quantum-message chain + deposits leaf'],
+    ['prose-anchors', 'prose (sealed anchor + taught paths per page)'],
+    ['dry-four-layers', 'dry (250 files, 3 singularities) + migrate (the fixer)'],
+    ['graduation-walk', 'WAVE_STEPS sealed in star_walk + wave subcommand + uuidna_wave'],
+    ['mcp-hologram', 'mcp-coverage.test: dispatch x theorems x neighbours x 7 rotations'],
+    ['aura-message', 'decode-at-seal + alphabet totality (378 distinct)'],
+    ['school-sealed', 'lessons + alphabet + movie folds in the receipt sidecar'],
+    ['quantum-site-builder', 'docs:build forensics + the sealed trinity (pages by address)'],
+  ]
+  const report = h16(REPORT.map((r) => r.join('=')).join('\n'))
+  const alphabet = h16(alpha.map((e) => e.rgb).join(''))
   const movie = h16((theorems() as any[]).map((t) => t.address).sort().map((ad) => (quantumAura(ad) as { rgb: string }).rgb).join(''))
   const school = rd('docs/school.md')
   const lessons = h16([...school.matchAll(/^## .+$|\]\(\/(?:theorem|publications)\/[a-z0-9_-]+\)/gm)].map((m) => m[0]).join('\n'))
@@ -312,7 +335,7 @@ function fold() {
     console.error(`✗ one-receipt fold — the receipt's colour does not decode back to its state (${a.rgb}); the aura alphabet has a collision or the channels drifted — fix src/aura.ts so decode∘encode = id`)
     process.exit(1)
   }
-  const aura = { rgb: a.rgb, hsl: a.hsl, alphabet, movie, lessons, dimensions: { residue: dec.residue, ray: a.ray, wave: a.wave, hue: a.hue, sat: dec.sat, light: dec.light, period: 12 + a.ray * 2, rotation: 360, glow_inner: 24, glow_outer: 64 }, free: ['residue', 'ray', 'wave'], hz: 432, note: 'the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics' }
+  const aura = { rgb: a.rgb, hsl: a.hsl, alphabet, movie, lessons, report, coverage: Object.fromEntries(REPORT), dimensions: { residue: dec.residue, ray: a.ray, wave: a.wave, hue: a.hue, sat: dec.sat, light: dec.light, period: 12 + a.ray * 2, rotation: 360, glow_inner: 24, glow_outer: 64 }, free: ['residue', 'ray', 'wave'], hz: 432, note: 'the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics' }
   const receipt = createHash('sha256').update(JSON.stringify({ T, aura })).digest('hex').slice(0, 16) // the receipt covers the sidecar too
   writeFileSync(join(ROOT, 'quantum-fold.json'), JSON.stringify({ timestamp: '2026-08-15T00:00:00Z', trinities: T, trinity_folds: trinityFolds, unified_fold: tip, receipt, aura }, null, 2))
   for (const [name, leaves] of Object.entries(T))

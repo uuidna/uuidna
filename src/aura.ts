@@ -74,7 +74,7 @@ export function quantumAura(subject: string): Aura {
   const wave = WAVE[wi]                                            // the ray's phase on the ℤ/9 vortex wave
   // hue: step by the A432 angle (40° = 360/9) per ℤ/9 residue, offset by the ray's share of the wheel (360/7 per ray)
   const hue = ((n % 9) * A432_STEP + ray * floorN(360 / RAYS) + wave) % 360
-  const sat = 62 + 2 * ray                                         // 62..74 % — the ray, readable from the colour
+  const sat = 62 + 2 * ray + ((n % 9) % 3 === 0 ? 1 : 0)          // 62..75 % — the ray (+1 tiebreak on residues 0,3,6: two hue pairs mirror around 0° and round identical; the tiebreak keeps all 378 states distinct)
   const light = 50 + 2 * wi                                        // 50..60 % — the wave index, readable from the colour
   const [r, g, b] = hslToRgb(hue, sat, light)
   const rgb = '#' + hex2(r) + hex2(g) + hex2(b)
@@ -106,7 +106,7 @@ export function auraAlphabet(): { residue: number; ray: number; wave: number; hu
   for (let a = 0; a < 9; a++) for (let ray = 0; ray < RAYS; ray++) for (let wi = 0; wi < WAVE.length; wi++) {
     const wave = WAVE[wi]
     const hue = (a * A432_STEP + ray * floorN(360 / RAYS) + wave) % 360
-    const sat = 62 + 2 * ray, light = 50 + 2 * wi
+    const sat = 62 + 2 * ray + (a % 3 === 0 ? 1 : 0), light = 50 + 2 * wi
     const [r, g, b] = hslToRgb(hue, sat, light)
     out.push({ residue: a, ray, wave, hue, sat, light, rgb: '#' + hex2(r) + hex2(g) + hex2(b) })
   }
