@@ -71,7 +71,9 @@ Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claud
 is **built from the keys**: the ${MCP_CATALOG.length} tools below are read from the server's own tool list and
 organised into ${order.length} categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
-"Returns …", that is the shape it yields.
+"Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
+page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
+\`https://uuidna.com/mcp\` — one address, the page for people, the protocol for machines.
 
 ## The grid <Badge type="tip" :text="\`${MCP_CATALOG.length}\`" />
 

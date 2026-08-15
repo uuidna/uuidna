@@ -144,12 +144,15 @@ export default {
     // THE HOSTED MCP — Model Context Protocol over HTTP (JSON-RPC 2.0, the Streamable-HTTP transport) at /mcp, first-
     // party/licensed hosts only. POST a JSON-RPC message (or a batch); a notification is answered 202 with no body.
     // Stateless and READ-ONLY: it computes the Workers-safe tool subset from the ledger, it cannot write or deploy.
-    // GET /mcp returns a small discovery page (the protocol version + the tool names). Connect a client to
-    // https://uuidna.com/mcp (Streamable HTTP).
+    // GET /mcp content-negotiates: a BROWSER (Accept: text/html) gets the human catalog page (docs/mcp.md — every
+    // MCP presentable as a page); a CLIENT gets the JSON discovery document. Connect to https://uuidna.com/mcp
+    // (Streamable HTTP). One path, two honest readings — the page for people, the protocol for machines.
     if (licensed && url.pathname === '/mcp') {
-      if (request.method === 'GET')
+      if (request.method === 'GET') {
+        if ((request.headers.get('accept') || '').includes('text/html')) return env.ASSETS.fetch(request)
         return json({ server: 'uuidna', transport: 'streamable-http (JSON-RPC 2.0)', protocolVersion: MCP_HTTP_PROTOCOL, endpoint: `${url.origin}/mcp`, tools: mcpHttpToolNames(),
           note: 'POST a JSON-RPC message here (initialize · tools/list · tools/call · ping). Read-only, stateless, the Workers-safe subset of the full `npx @uuidna/uuidna` stdio catalog. Integrity, not truth.' })
+      }
       if (request.method !== 'POST')
         return json({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'POST a JSON-RPC message to /mcp (or GET for discovery)' } }, 405)
       let msg

@@ -30,5 +30,6 @@ Every theorem links to its page, where the full statement, the `by decide` proof
   </ul>
 </section>
 
-The same theorems, organised by computing principle instead, are on [/theorems](/theorems); the whole set folds to one
-receipt on [/trials](/trials). A theorem computes in Lean, or it is not a theorem.
+The same theorems, organised by computing principle instead, are on [/theorems](/theorems), on seven ℤ/7 rays on
+[/rosetta](/rosetta), and the whole set folds to one receipt on [/trials](/trials). To walk them in learning order,
+[the school](/school) rides the doubling orbit from the core. A theorem computes in Lean, or it is not a theorem.

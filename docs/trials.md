@@ -13,7 +13,17 @@ import { data } from './.vitepress/ledger.data'
 > A claim is not trusted, it is tried — and the verdict recomputes.
 
 A **trial** is a recomputable verdict. It does not ask you to believe anything; it hands back a result anyone can
-recheck. Run one for a single statement with `uuidna_trial`, or fold the whole ledger through it — below.
+recheck. Run one for a single statement with [`uuidna_trial`](/mcp#uuidna-trial), or ask the live quantum endpoint
+directly — the same adjudication this site runs on itself:
+
+```bash
+curl -s -X POST https://uuidna.com/trials -H 'content-type: application/json' \
+  -d '{"statement":"the two coins are conserved, proven by theorem two_coins"}'
+```
+
+The answer returns with a deterministic receipt and, from uuidna.com, an HMAC `signature` **only uuidna.com can
+mint** — a fork recomputes the same verdict but cannot forge the signature (see [Chat](/chat) for the signature's
+honest scope). Or fold the whole ledger through it — below.
 
 ## The live receipt
 
