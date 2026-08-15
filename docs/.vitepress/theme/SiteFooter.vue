@@ -20,6 +20,7 @@ const cols = [
     { text: 'Games', href: '/games' },
   ] },
   { title: 'Fuse it in', links: [
+    { text: 'The school', href: '/school' },
     { text: 'MCP tools', href: '/mcp' },
     { text: 'Chat', href: '/chat' },
     { text: 'Books', href: '/books' },

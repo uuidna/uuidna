@@ -82,7 +82,8 @@ Exponential Multiplier: ✓ ACTIVE
 Read the [guides](./guides.md) to understand the system, then explore the [MCP tools](./mcp.md) and [the tests](./tests.md).
 
 ### For Students
-Start with the [books](./books.md) and learn by building real systems that seal theorems to the ledger.
+Enroll in [the school](./school.md) — the ledger by skill is the curriculum, the trials are the exams — and learn by
+building real systems that seal theorems to the ledger.
 
 ### For Researchers
 Browse the [publications](./publications.md) and the [topics](./topics.md) discovered by independent audits, and contribute theorems to solve them.

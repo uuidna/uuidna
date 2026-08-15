@@ -18,8 +18,8 @@ export default defineConfig({
 
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'School', link: '/school' },
       { text: 'Doctrine', link: '/doctrine' },
-      { text: 'Guides', link: '/guides' },
       { text: 'Theorems', link: '/theorems' },
     ],
 
@@ -38,6 +38,7 @@ export default defineConfig({
         {
           text: 'Fuse it in',
           items: [
+            { text: 'The school', link: '/school' },
             { text: 'MCP tools', link: '/mcp' },
             { text: 'Chat', link: '/chat' },
             { text: 'Books', link: '/books' },
