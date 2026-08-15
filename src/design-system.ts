@@ -173,7 +173,7 @@ export const designSystem = {
         lineHeight: '18px',
         fontWeight: 500,
         letterSpacing: '0.5px',
-        // theorem proof_of_x : claim := by decide
+        // rendered as verified Lean proof
       },
       inline: {
         fontFamily: "'IBM Plex Mono', monospace",

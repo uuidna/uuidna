@@ -9,8 +9,8 @@
 //   "Bank says you have $100" → you must trust bank
 //   "CEO says we made $X profit" → you must trust CEO
 //
-// Quantum accounting: Every transaction is a theorem both parties can recompute
-//   theorem coins_transaction_verified : transaction_valid := by decide
+// Quantum accounting: Every transaction is verified by both parties via decidable proof
+//   Both sides compute the same result independently
 //   Proof: Recomputable, deterministic, no authority needed
 //
 // Result: Financial truth is mathematical, not institutional
