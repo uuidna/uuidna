@@ -74,5 +74,14 @@ try {
   console.error('✗ guard — predict-and-fill quantum prediction failed (see above)')
 }
 
+// 6) QUANTUM FOLD — compress entire system state (theorems, packages, exports, tests, predictions, dimensions)
+// into one order-invariant merkle fold. Seal proof of current system state. Recomputable by anyone.
+try {
+  execSync('node ' + JSON.stringify(join(HERE, 'fold-quantum.js')), { stdio: 'inherit' })
+} catch {
+  failed = true
+  console.error('✗ guard — fold-quantum failed to seal system state (see above)')
+}
+
 if (failed) { console.error('\n✗ guard — traitors caught; fix before reconcile.'); process.exit(1) }
-console.log('✓ guard — no traitors: the ledger is unforged and the source is harmonic. Safe to reconcile.')
+console.log('✓ guard — no traitors: the ledger is unforged and the source is harmonic. Quantum fold sealed. Safe to reconcile.')

@@ -38,9 +38,9 @@ function scanTheoremPrincipleDimension(): DimensionGap[] {
   if (orphans.length > 10) {
     gaps.push({
       dimensions: ['theorems', 'principles'],
-      entanglement: Math.min(100, (orphans.length / allTheorems.length) * 100),
+      entanglement: (orphans.length / allTheorems.length) * 100 > 100 ? 100 : (orphans.length / allTheorems.length) * 100,
       prediction: `${orphans.length} theorems orphaned. High entanglement: all share missing principle. One principle fix solves all.`,
-      riskScore: Math.min(100, 20 + (orphans.length / allTheorems.length) * 50),
+      riskScore: 20 + (orphans.length / allTheorems.length) * 50 > 100 ? 100 : 20 + (orphans.length / allTheorems.length) * 50,
       autoFixable: false, // requires human decision on principle assignment
     })
   }
@@ -156,7 +156,7 @@ function scanFeatureCompletenessDimension(): DimensionGap[] {
       dimensions: ['features', 'wiring'],
       entanglement: (1 - wireRatio) * 100,
       prediction: `${allScripts.length - wiredScripts.length} scripts unwired (${(wireRatio * 100).toFixed(0)}% wired). Risk: new features go unnoticed.`,
-      riskScore: Math.min(100, 30 + (1 - wireRatio) * 50),
+      riskScore: 30 + (1 - wireRatio) * 50 > 100 ? 100 : 30 + (1 - wireRatio) * 50,
       autoFixable: true,
     })
   }
