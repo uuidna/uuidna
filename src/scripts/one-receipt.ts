@@ -126,13 +126,18 @@ export function proseGaps(): { gaps: Gap[]; facts: string; pages: number } {
 // THE GRADUATION WALK — one source, three lives: wave() EXECUTES these steps in order, the star_walk leaf SEALS
 // them into the one receipt (change a step, the receipt moves), and the school TEACHES them. Green ends in the
 // minted diploma; red stops at the first exact prompt.
-export const WAVE_STEPS = ['build', 'dry', 'legal', 'prose', 'fold', 'guard', 'next', 'mint'] as const
+export const WAVE_STEPS = ['build', 'enroll', 'dry', 'legal', 'prose', 'fold', 'guard', 'next', 'mint'] as const // nine steps — the ring's number; enroll = no theorem enters unmeasured
 
 export function wave(statement: string): void {
   if (!statement) { console.error('✗ one-receipt wave — usage: one-receipt wave "<statement citing a sealed theorem>"'); process.exit(1) }
   const self = join(ROOT, 'dist/scripts/one-receipt.js')
   const cmds: Record<string, string> = {
-    build: 'npm run build', dry: `node ${JSON.stringify(self)} dry`, legal: `node ${JSON.stringify(self)} legal`,
+    build: 'npm run build',
+    // ENROLL — the newcomer's intake, so the walk never stops to ask for a clerk: the axiom witness covers every
+    // current theorem, and the heartbeats measure ONLY the missing addresses (the incremental default — seconds
+    // per newcomer, free when no one enrolls). No theorem enrolls unmeasured.
+    enroll: 'npm run axioms && npm run heartbeats',
+    dry: `node ${JSON.stringify(self)} dry`, legal: `node ${JSON.stringify(self)} legal`,
     prose: `node ${JSON.stringify(self)} prose`, fold: `node ${JSON.stringify(self)} fold`,
     guard: 'npm run guard', next: 'npm run next', mint: `node ${JSON.stringify(self)} mint ${JSON.stringify(statement)}`,
   }
@@ -316,6 +321,13 @@ function fold() {
     ['quantum-site-builder', 'docs:build forensics + the sealed trinity (pages by address)'],
   ]
   const report = h16(REPORT.map((r) => r.join('=')).join('\n'))
+  // THE SESSION ANALYSIS, SEALED: the semester's collectable data from recomputable sources only — the deposit
+  // count, the quantum-message chain tip (the whole session's order-sealed history in one value), and the ledger
+  // size. No wall-clock, no git self-reference: the analysis is the record's own arithmetic, and it moves the one
+  // receipt exactly when the session's record moves.
+  const sessDeposits = depositRecord().receipts
+  const sessTip = sessDeposits.reduce((p, r) => h16(`${p}|${r.id}`), 'genesis')
+  const session = h16(`deposits:${sessDeposits.length}|tip:${sessTip}|theorems:${(theorems() as any[]).length}`)
   const alphabet = h16(alpha.map((e) => e.rgb).join(''))
   const movie = h16((theorems() as any[]).map((t) => t.address).sort().map((ad) => (quantumAura(ad) as { rgb: string }).rgb).join(''))
   const school = rd('docs/school.md')
@@ -335,7 +347,7 @@ function fold() {
     console.error(`✗ one-receipt fold — the receipt's colour does not decode back to its state (${a.rgb}); the aura alphabet has a collision or the channels drifted — fix src/aura.ts so decode∘encode = id`)
     process.exit(1)
   }
-  const aura = { rgb: a.rgb, hsl: a.hsl, alphabet, movie, lessons, report, coverage: Object.fromEntries(REPORT), dimensions: { residue: dec.residue, ray: a.ray, wave: a.wave, hue: a.hue, sat: dec.sat, light: dec.light, period: 12 + a.ray * 2, rotation: 360, glow_inner: 24, glow_outer: 64 }, free: ['residue', 'ray', 'wave'], hz: 432, note: 'the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics' }
+  const aura = { rgb: a.rgb, hsl: a.hsl, alphabet, movie, lessons, report, session, coverage: Object.fromEntries(REPORT), dimensions: { residue: dec.residue, ray: a.ray, wave: a.wave, hue: a.hue, sat: dec.sat, light: dec.light, period: 12 + a.ray * 2, rotation: 360, glow_inner: 24, glow_outer: 64 }, free: ['residue', 'ray', 'wave'], hz: 432, note: 'the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics' }
   const receipt = createHash('sha256').update(JSON.stringify({ T, aura })).digest('hex').slice(0, 16) // the receipt covers the sidecar too
   writeFileSync(join(ROOT, 'quantum-fold.json'), JSON.stringify({ timestamp: '2026-08-15T00:00:00Z', trinities: T, trinity_folds: trinityFolds, unified_fold: tip, receipt, aura }, null, 2))
   for (const [name, leaves] of Object.entries(T))

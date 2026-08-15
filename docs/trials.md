@@ -102,13 +102,13 @@ all MCP descriptions, every theorem "why", the Lean headers, and the source comm
   is *true*. The trial tells you a statement is honest and recomputable, or that it overclaims; never that the world agrees.
 - **Not a judgement of people.** A trial adjudicates a **statement**, and its remedy is paid in code (link a sealed
   theorem, or demarcate the claim), never in blame.
-- **Not a manipulation-proof filter — and honest about it.** The honesty gate is a **hardcoded, incomplete word
-  lexicon** — the *one* place uuidna hardcodes, and so its weakest, most compromised part. It is a **heuristic floor**
-  that catches careless overclaims (it caught many while this project was built), not a wall against a determined one:
-  synonyms, cross-script homoglyphs and paraphrase evade it *by construction*, because "is this sentence dishonest?"
-  is not decidable arithmetic and cannot compute from the sequence. uuidna's integrity does **not** rest on the gate.
-  It rests on the **recomputable proofs and receipts** — which *are* computed, complete over their domain, and
-  recheckable by anyone. **Trust the recomputation, not the word-list.**
+- **Not a manipulation-proof filter — and honest about it.** There is **no word-list any more**: the old hardcoded
+  lexicon — once the one place uuidna hardcoded — was removed, and the gate's whole vocabulary is now **the ledger
+  itself**. A claim is drained only for the one decidably-false utterance: **citing a theorem that is not sealed**.
+  Everything else — synonyms, paraphrase, cross-script phrasing — passes through *undrained but unverified*,
+  because "is this sentence dishonest?" is not decidable arithmetic and the gate does not pretend otherwise.
+  uuidna's integrity rests on the **recomputable proofs and receipts** — computed, complete over their domain,
+  recheckable by anyone. **Trust the recomputation; the word-list no longer exists to be trusted.**
 
 The theorems are on [Theorems](/theorems) (by principle) and [Topics](/topics) (by skill); the [Tests](/tests) and the
 tools on [MCP](/mcp) are the other readings of the same discipline. A theorem computes in Lean, or it is not a theorem —
