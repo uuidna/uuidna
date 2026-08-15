@@ -13,13 +13,14 @@ import { merkleGravity } from './gravity.js'
 import { computes } from './gate.js'
 import { adjudicate } from './adjudicate.js'
 import { axiomWitness } from './axiom-witness.js'
+import { rdRoot } from './boundary.js'
 
 export interface SecurityCheck { id: string; ok: boolean; detail: string; address: string }
 export interface SecurityAuditReport { checks: SecurityCheck[]; passed: boolean; failed: string[]; receipt: string }
 
 // dist/security-audit.js → ROOT is one up; package.json ships beside dist in the installed package and in the repo.
 const readPkg = (): { dependencies?: Record<string, string>; devDependencies?: Record<string, string> } =>
-  JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json'), 'utf8'))
+  JSON.parse(rdRoot('package.json'))
 
 // the ONLY dev dependencies uuidna is allowed to carry — a new one is a supply-chain change the audit must surface.
 export const KNOWN_DEV_DEPS = ['@types/node', 'typescript', 'vitepress', 'wrangler'] as const

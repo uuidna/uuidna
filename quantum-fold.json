@@ -17,30 +17,30 @@
       "dimensions": "e202a51b77775621"
     },
     "record": {
-      "legal": "e4e1a5416b7a819c",
+      "legal": "7c47e35a8147c3a5",
       "prose": "5d086ad6694ebcbd",
-      "deposits": "5696b94eee639c6b"
+      "deposits": "7d377c88f20c9078"
     },
     "walks": {
       "star_walk": "53cde2cb35816739",
-      "rosette_receipts": "933303b50b4227b0a21de87efe186c50",
-      "rosette_audit": "50a6107a4f1047a3"
+      "rosette_receipts": "b38193926b140bbad855c037cc080ea1",
+      "rosette_audit": "e4a04001ba2508c7"
     }
   },
   "trinity_folds": {
     "sealed": "5a23dbf2377e2c709e9862d033c0e810",
     "served": "2b647b91288e9d49b38857eeda1f92e9",
     "proven": "759b1b0185785d8c618d27d7998bae37",
-    "record": "d1ea6b174e7cfe1e0a9a79028a28ea2a",
-    "walks": "dbbf07545849de02ad4af53c1ebc7b7e"
+    "record": "99b2dd9e964015b7864bdd93b6086fb6",
+    "walks": "5eb128fd76150825667ed68bd548a9ea"
   },
-  "unified_fold": "0672545403c1e82b",
-  "receipt": "bb65d53d839c49e3",
+  "unified_fold": "e1eaf5b128d861db",
+  "receipt": "8e157f1feb95fbf2",
   "aura": {
-    "ray": 5,
-    "wave": 8,
-    "hue": 23,
-    "hsl": "hsl(23, 68%, 56%)",
+    "ray": 0,
+    "wave": 5,
+    "hue": 325,
+    "hsl": "hsl(325, 68%, 56%)",
     "hz": 432,
     "note": "decoration, not physics — sealed arithmetic, imagined vibration"
   }

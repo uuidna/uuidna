@@ -134,13 +134,25 @@ export function migrate(): void {
 // exact fix, so the boilerplate class that once spanned 25 files can never regrow. Fold the finder, forever. ──
 export function dryGaps(): { gaps: Gap[]; scripts: number } {
   const gaps: Gap[] = []
-  const files = readdirSync(join(ROOT, 'src/scripts')).filter((f) => f.endsWith('.ts') && f !== 'api.ts')
-  for (const f of files) {
-    const src = rd(`src/scripts/${f}`)
+  // the WHOLE tree: scripts + the library + the generated package surfaces. Exactly TWO exemptions — the two
+  // declared singularities (scripts/api.ts, src/boundary.ts): each layer has ONE named place, nothing else may.
+  const SINGULARITIES = new Set(['src/scripts/api.ts', 'src/boundary.ts'])
+  const dirs = ['src/scripts', 'src', 'src/quantum', 'src/theorems', ...readdirSync(join(ROOT, 'packages')).map((d) => `packages/${d}/src`)]
+  const files: string[] = []
+  for (const d of dirs) {
+    if (!existsSync(join(ROOT, d))) continue
+    for (const f of readdirSync(join(ROOT, d)).filter((x) => x.endsWith('.ts'))) {
+      const rel = `${d}/${f}`
+      if (!SINGULARITIES.has(rel)) files.push(rel)
+    }
+  }
+  for (const rel of files) {
+    const src = rd(rel)
+    const f = rel
     if (/dirname\(fileURLToPath\(import\.meta\.url\)\)/.test(src))
-      gaps.push({ what: `src/scripts/${f}: re-declares HERE/ROOT boilerplate instead of importing the api`, fix: `edit src/scripts/${f}: delete the dirname(fileURLToPath(…)) declaration(s) and import { HERE, ROOT } from './api.js'` })
+      gaps.push({ what: `${f}: re-declares HERE/ROOT boilerplate instead of importing its layer's singularity`, fix: `edit ${f}: delete the dirname(fileURLToPath(…)) declaration(s) and import from './api.js' (a script) or './boundary.js' (a library module)` })
     if (/^const rd = \(p: string\) =>/m.test(src))
-      gaps.push({ what: `src/scripts/${f}: re-declares rd() instead of importing the api`, fix: `edit src/scripts/${f}: delete the local rd declaration and import { rd } from './api.js'` })
+      gaps.push({ what: `${f}: re-declares rd() instead of importing its layer's singularity`, fix: `edit ${f}: delete the local rd declaration and import { rd } from './api.js' (a script) or { rdRoot } from './boundary.js' (a library module)` })
   }
   return { gaps, scripts: files.length }
 }

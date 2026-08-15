@@ -13,6 +13,7 @@ import { dirname, join } from 'node:path'
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
+import { rdRoot } from './boundary.js'
 
 export interface AxiomWitnessReport {
   shipped: boolean                       // lean/axioms.json found beside dist (in the package or the repo)
@@ -40,7 +41,7 @@ export function axiomWitness(): AxiomWitnessReport {
   const ledger = theorems().length
   let audited = 0, axiomFree = 0, offenders: Record<string, string[]> = {}, shipped = false
   try {
-    const raw = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'lean', 'axioms.json'), 'utf8')) as
+    const raw = JSON.parse(rdRoot('lean/axioms.json')) as
       { audited?: number; axiomFree?: number; offenders?: Record<string, string[]> }
     audited = raw.audited ?? 0
     axiomFree = raw.axiomFree ?? 0
