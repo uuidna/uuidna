@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "Captain Coins"
+  name: "uuidna"
   text: "Mathematics replaces money"
   tagline: Proof replaces authority. Theorems replace corruption.
   actions:

@@ -1,20 +1,20 @@
-// .vitepress/config.ts — Captain Coins VitePress Configuration
+// docs/.vitepress/config.ts — uuidna VitePress Configuration
 // Beautiful documentation site built from markdown
 
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Captain Coins',
+  title: 'uuidna',
   description: 'Mathematics replaces money. Proof replaces authority. Theorems replace corruption.',
 
   head: [
-    ['meta', { name: 'og:title', content: 'Captain Coins' }],
+    ['meta', { name: 'og:title', content: 'uuidna' }],
     ['meta', { name: 'og:description', content: 'A mathematically-proven economic system' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
   ],
 
   themeConfig: {
-    siteTitle: '🪙 Captain Coins',
+    siteTitle: '🪙 uuidna',
 
     nav: [
       { text: 'Home', link: '/' },
@@ -60,7 +60,7 @@ export default defineConfig({
 
     footer: {
       message: '🪙 Mathematics replaces money. Proof replaces authority. Theorems replace corruption.',
-      copyright: 'Captain Coins — All theorems sealed to ledger',
+      copyright: 'uuidna — All theorems sealed to ledger',
     },
 
     search: {
