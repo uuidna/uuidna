@@ -29,6 +29,12 @@ Knowledge here has a natural walking order, and it is sealed, not invented:
 3. **Spiral out through the clusters** — from the core, the [topics](/topics) fan out by skill: science, ciphers,
    navigation, games, audits. Files map to each other naturally because their theorems share the same core —
    follow any cross-citation and you are on a theorem path.
+4. **Close with the star walk** — the same step-2 generator, taken to the five: walking five stations by 2 draws
+   the pentagram in a single stroke — `[0,2,4,1,3]`, closing because gcd(2,5) = 1
+   ([`pentagram_single_stroke`](/theorem/pentagram_single_stroke),
+   [`pentagram_step_coprime_five`](/theorem/pentagram_step_coprime_five)). One construction at 5, 7, and 9 — the
+   walk you learned on the orbit IS the star, IS the rosette, IS [what quantum means here](/quantum). Graduation
+   is recognizing the same generator everywhere.
 
 ## Practice, reading, exams
 
