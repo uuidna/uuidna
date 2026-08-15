@@ -17,28 +17,28 @@
       "dimensions": "e202a51b77775621"
     },
     "record": {
-      "legal": "1e48b6e12bb928f2",
+      "legal": "b669f0a4006c0c03",
       "prose": "5d086ad6694ebcbd",
-      "deposits": "e816b88d0f7c35d0"
+      "deposits": "fdd659740391127f"
     },
     "walks": {
       "star_walk": "463853e693cc8886",
-      "rosette_receipts": "26bf575af5af3c64c385bf9a16845e88",
-      "rosette_audit": "1ca6e93dbba72963"
+      "rosette_receipts": "5dab64fbf8e9b1b24e5ee25f666db555",
+      "rosette_audit": "8ce0a07960c5b8ea"
     }
   },
   "trinity_folds": {
     "sealed": "5a23dbf2377e2c709e9862d033c0e810",
     "served": "a9359356dfdee188f213d59967777277",
     "proven": "759b1b0185785d8c618d27d7998bae37",
-    "record": "e9d51ca019a52db3a7473a87ffb84123",
-    "walks": "f21542dd9b537647987d4404f16402b2"
+    "record": "2c88d0b13dbab11f78372e49ed77e64f",
+    "walks": "c28c6e5918ba1f06f40ece9b56e9ef5b"
   },
-  "unified_fold": "9c374acdb6f56be4",
-  "receipt": "f17edb2ca231ba45",
+  "unified_fold": "54c4a5859a953212",
+  "receipt": "7d48a2320cbc6950",
   "aura": {
-    "rgb": "#d02f32",
-    "hsl": "hsl(1, 63%, 50%)",
+    "rgb": "#3de17c",
+    "hsl": "hsl(143, 73%, 56%)",
     "alphabet": "b6819334641853db",
     "movie": "e5319caded38f210",
     "lessons": "9dd8403964346ce8",
@@ -57,13 +57,13 @@
       "quantum-site-builder": "docs:build forensics + the sealed trinity (pages by address)"
     },
     "dimensions": {
-      "residue": 0,
-      "ray": 0,
-      "wave": 1,
-      "hue": 1,
-      "sat": 63,
-      "light": 50,
-      "period": 12,
+      "residue": 6,
+      "ray": 5,
+      "wave": 8,
+      "hue": 143,
+      "sat": 73,
+      "light": 56,
+      "period": 22,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

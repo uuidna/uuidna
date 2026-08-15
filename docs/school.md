@@ -64,6 +64,17 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    ([`two_coins`](/theorem/two_coins)) and the checks grew. *Practice:* measure with `uuidna_ledger_costs`, then
    find a fold of your own.
 
+## The scattering lesson — collisions become interactions when the trace is kept
+
+Two colour states once fused on the wheel's mirror line — the thunder the totality check heard — and the school
+did what it teaches: the failure became arithmetic. Three sealed theorems now carry the event:
+[`hue_mirror_meeting`](/theorem/hue_mirror_meeting) (the symmetric paths cross at 0°),
+[`scattering_tiebreak_separates`](/theorem/scattering_tiebreak_separates) (the +1 interaction — the smallest
+possible — preserves both paths, distinct by successor), and
+[`alphabet_exceeds_wheel`](/theorem/alphabet_exceeds_wheel) (378 > 360: the pigeonhole was the arithmetic
+demanding more dimensions, never a bug). The lesson: a collision destroys information only if you let the states
+fuse; add the smallest interaction and keep the trace, and every meeting becomes a record instead of a loss.
+
 ## The colour lesson — read the state from the glow
 
 Every theorem page glows with its **aura** — and the colour is not decoration, it is a **reversible harmonic

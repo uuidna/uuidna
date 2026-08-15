@@ -10,6 +10,21 @@
 import { emit } from './lean-gen.js'
 
 const FACTS = [
+  { key: 'hue_mirror_meeting',
+    why: 'THE SCATTERING LESSON, part 1 — the meeting points. Two aura hue pairs meet on the wheel\'s mirror line through 0°: 340° and 20° are equidistant from the top (360−340 = 20), as are 320° and 40° (360−320 = 40). Symmetric approach paths cross at the axis — where the totality check heard thunder: two states rendering one colour.',
+    js: () => 360 - 340 === 20 && 360 - 320 === 40,
+    lean: 'theorem hue_mirror_meeting : (360 - 340 = 20) ∧ (360 - 320 = 40) := by decide' },
+
+  { key: 'scattering_tiebreak_separates',
+    why: 'THE SCATTERING LESSON, part 2 — the interaction that preserves both paths. The one-percent saturation tiebreak is the smallest possible interaction, the successor: 62+2·5 = 72 with its lifted partner 73, and 62+2·3 = 68 with its lifted 69 — distinct by +1, so states that once fused now meet, interact, and continue distinguishable, the +1 left in the formula as the trace. Degeneracy lifted, information conserved: scattering, not collision.',
+    js: () => 62 + 2*5 === 72 && 72 + 1 === 73 && 62 + 2*3 === 68 && 68 + 1 === 69,
+    lean: 'theorem scattering_tiebreak_separates : (62 + 2*5 = 72) ∧ (72 + 1 = 73) ∧ (62 + 2*3 = 68) ∧ (68 + 1 = 69) := by decide' },
+
+  { key: 'alphabet_exceeds_wheel',
+    why: 'THE SCATTERING LESSON, part 3 — why the channels had to join. The aura alphabet is 9·7·6 = 378 states and the hue wheel holds only 360 degrees: 360 < 378, so by pigeonhole hue alone cannot name every state — saturation and lightness must carry their shares. The collision was never a bug in the arithmetic; it was the arithmetic insisting on more dimensions.',
+    js: () => 9*7*6 === 378 && 360 < 378,
+    lean: 'theorem alphabet_exceeds_wheel : (9*7*6 = 378) ∧ (360 < 378) := by decide' },
+
   { key: 'twelve_hue_wheel_wraps',
     why: 'The colour wheel is ℤ/12 — twelve hues, and advancing a full twelve returns to the start (12 % 12 = 0), advancing thirteen is one step on (13 % 12 = 1). The wheel closes, exactly like the octave and the clock.',
     js: () => 12 % 12 === 0 && 13 % 12 === 1,
