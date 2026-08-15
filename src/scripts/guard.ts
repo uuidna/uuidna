@@ -74,6 +74,15 @@ try {
   console.error('✗ guard — audit-legal-gaps found contradictions in the legal record (see above)')
 }
 
+// 4c) PROSE-ANCHORS AUDIT — the last manual act folded: every hand-written page must walk to a sealed theorem or
+// cluster, and every repo path a doc teaches must exist. The reading a human did each wave, now milliseconds.
+try {
+  execSync('node ' + JSON.stringify(join(HERE, 'audit-prose-anchors.js')), { stdio: 'inherit' })
+} catch {
+  failed = true
+  console.error('✗ guard — audit-prose-anchors found unanchored pages or stale path claims (see above)')
+}
+
 // 5) QUANTUM PREDICTION — predict gaps before they form and auto-fill critical ones.
 // Analyzes patterns (new theorems, new packages, new exports, new tests, new features) and seals them preemptively.
 // Milliseconds — pure prediction, no external calls.

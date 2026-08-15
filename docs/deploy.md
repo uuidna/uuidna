@@ -50,4 +50,6 @@ npm run lean        # re-verify every theorem `by decide`, sorry-free
 npm run audit       # the whole release gate
 ```
 
-Same source in, same receipts out. See the [Guides](/guides) for the rest. Integrity, not truth.
+Same source in, same receipts out — what a deployment serves is [the uuidna cluster](/publications/uuidna) and the
+conserved coins ([`two_coins`](/theorem/two_coins)) behind it. See the [Guides](/guides) for the rest.
+Integrity, not truth.

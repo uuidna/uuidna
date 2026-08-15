@@ -9,7 +9,9 @@ description: A complete, correct chess — full legal moves, castling, en passan
 
 Full legal moves, castling, en passant, pawn promotion, and check / checkmate / stalemate detection. Two players,
 hot-seat, on one board. It runs entirely client-side, so it works **offline** once the [PWA](/) has cached it, and
-nothing you play is ever sent or stored.
+nothing you play is ever sent or stored. The sealed side is one click away:
+[the chess cluster](/publications/chess) and [the chess-horizon monograph](/publications/chessgames) — the board
+arithmetic and the honest mobility kernel, proven `by decide`.
 
 <ClientOnly><Chess /></ClientOnly>
 

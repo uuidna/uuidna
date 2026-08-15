@@ -2,6 +2,10 @@
 // Beautiful documentation site built from markdown
 
 import { defineConfig } from 'vitepress'
+import { infuseQuantumPayload } from './uuidna-quantum.js'
+
+// relativePath → clean route (cleanUrls): 'guides.md' → '/guides', 'index.md' → '/'
+const routeOf = (rel: string): string => '/' + rel.replace(/\.md$/, '').replace(/\/index$/, '').replace(/^index$/, '')
 
 export default defineConfig({
   title: 'uuidna',
@@ -101,4 +105,30 @@ export default defineConfig({
   // shipped and get their own forensic: copy-lean-to-site scans every built HTML page and FAILS if any /lean or
   // /seeds reference lacks a served file. Two forensics, zero ignores, zero blind spots.
   cleanUrls: true,
+
+  // Learned from the site-config reference (vitepress.dev/reference/site-config), defaults kept elsewhere:
+  // the sitemap makes every page discoverable at the canonical host; lastUpdated reads each page's timestamp
+  // from git — measured, not typed.
+  sitemap: { hostname: 'https://uuidna.com' },
+  lastUpdated: true,
+
+  // FUSE the uuidna payload with VitePress (re-wired 2026-08-15 — the plugin had been orphaned by an earlier
+  // config rewrite; no page is a dead node to a crawler):
+  //   • Canonical → uuidna.com on EVERY page, whichever host serves it (.net PaaS, a [contract-uuid].uuidna.org
+  //     SaaS subdomain, a commercial CNAME) — crawlers fold the copies to the one recomputable home.
+  //   • Static pages get the quantum payload (content-address + recomputable SEO) from uuidna-quantum.ts.
+  //   • Dynamic theorem pages get their own Lean statement as the unique meta description.
+  transformPageData(pageData) {
+    const p = pageData.params as { address?: string; key?: string; slug?: string; statement?: string; tactic?: string; principle?: string } | undefined
+    const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
+      : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
+    const canonical = `https://uuidna.com/${slug}`
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(
+      ['link', { rel: 'canonical', href: canonical }],
+      ['meta', { property: 'og:url', content: canonical }],
+    )
+    if (!p?.address) { infuseQuantumPayload(pageData as never, routeOf); return }
+    if (p.statement) pageData.description = `${p.statement} — proven by ${p.tactic} in Lean 4, sorry-free (no Mathlib); part of ${p.principle}.`
+  },
 })

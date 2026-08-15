@@ -6,7 +6,7 @@ description: "The Rosetta–Glagolitic research programme folded to one page: sy
 # The Glagolitic hypothesis <Badge type="warning" text="research programme — folded from two essays" />
 
 > **Honest scope.** This is a **research hypothesis**, not a sealed result. The sealed part is small and precise:
-> the ledger's Glagolitic theorems ([the Glagolitic numerals & Pliska rosette cluster](/topics)) prove decidable
+> [the Glagolitic cluster](/publications/glagolitic) and [the rosette cluster](/publications/rosette) prove decidable
 > numeral and geometric facts. Everything beyond those citations is conjecture under investigation, stated as such.
 > The full essays are archived — permanently — in the [Zenodo record](https://zenodo.org/records/21787144) and in
 > git history; this page is the honest summary.
