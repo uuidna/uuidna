@@ -85,7 +85,7 @@ export const designSystem = {
         lineHeight: '60px',
         fontWeight: 700,
         letterSpacing: '-1.5px',
-        // Rendered as: theorem proof_of_x : claim := by decide
+        // Rendered as: theorems verified by Lean kernel
       },
       lg: {
         fontSize: '36px',
@@ -240,7 +240,7 @@ export const designSystem = {
       lineNumbers: true,
       syntaxHighlight: {
         keyword: 'primary.600',      // theorem, def, ∀
-        identifier: 'neutral.900',   // proof_of_x, claim
+        identifier: 'neutral.900',   // theorem_name, proposition
         operator: 'secondary.500',   // :=, →, ∧
         comment: 'neutral.400',      // -- comment
         string: 'tertiary.600',      // "string"
