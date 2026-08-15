@@ -92,7 +92,7 @@ Add the server to any MCP client — zero dependencies, launched with npx:
 On connect the server sends an **instructions** summary — what uuidna is, and that nothing asks to be trusted, only
 rechecked. Every \`tools/call\` returns a chained **receipt** (\`receipt · seq · referer\`, a content-address of the
 command), so an agent always holds a tamper-evident record of what it ran and the whole session folds to one
-recomputable tip. New here? Sign the [Contract](/captain/config) and learn the links first.
+recomputable tip. New here? Sign the [Contract](/captain) and learn the links first.
 
 ## Worked example — a real call
 

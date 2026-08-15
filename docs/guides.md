@@ -17,7 +17,7 @@ Add the server to any MCP client — zero dependencies, launched with npx:
 
 On connect the server sends an **instructions** summary, and every tool call returns a chained **receipt** (`receipt ·
 seq · referer`) — a content-address of the command — so an agent always holds a tamper-evident record of what it ran.
-Browse the full surface on the [MCP tools](/mcp) page; new here, start at the [Contract](/captain/config).
+Browse the full surface on the [MCP tools](/mcp) page; new here, start at the [Contract](/captain).
 
 ## Audit a public-domain book
 

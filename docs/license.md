@@ -17,7 +17,7 @@ The uuidna content — the theorems, the proofs, the site — is licensed
 
 - **Read** — freely, by anyone, for any purpose.
 - **Redistribute** — copy and share it **unchanged**, **with attribution** (credit *Tsvetan Rouschev* and link this
-  license) and **non-commercially**. Commercial use is the measured contribution — see [the captain's message](/captain/message).
+  license) and **non-commercially**. Commercial use is the measured contribution — see [the captain's message](/captain).
 - **No derivatives** — you may not distribute a modified version. The published discoveries are a fixed record; a change
   is a new content-address, not this work — enforced by mathematics, not only by law.
 - **Reading a public page is not a signed contract.** The license governs **redistribution**, not viewing.
@@ -44,7 +44,7 @@ the sealing only holds the particular expression together — free algebra, prot
 - **uuidna.com** — the default, canonical home, and this license.
 - **[contract-uuid].uuidna.org** — **SaaS**: each deployment's subdomain IS its contract's content-address (a UUID) — the domain itself names the exact terms it runs under, recomputable by anyone.
 - **uuidna.net** — **PaaS**: the platform the whole thing runs on.
-- **Commercial** — a commercial deployment may **CNAME its own domain** to its `[contract-uuid].uuidna.org` subdomain. Commercial use is the measured contribution (the two coins — see [the captain's message](/captain/message)); it still carries the attribution and this license link.
+- **Commercial** — a commercial deployment may **CNAME its own domain** to its `[contract-uuid].uuidna.org` subdomain. Commercial use is the measured contribution (the two coins — see [the captain's message](/captain)); it still carries the attribution and this license link.
 
 **Any deployment** — a `[contract-uuid].uuidna.org` subdomain, the `.net` platform, a fork, a mirror, or any other domain
 — is governed by these terms and must carry the attribution and a link back to this canonical license at
@@ -88,7 +88,7 @@ the public terms. Integrity, not truth.
 
 The license text is content-addressed. If the terms change, the address changes — a new address is a new license, so
 prior consent does not carry over and a fresh acknowledgment is required. "Did the terms change?" is a `toUuid`
-comparison anyone can recompute, not a promise. See the [Contract](/captain/config#consent-two-kept-separate).
+comparison anyone can recompute, not a promise. See the [Contract](/captain#consent-and-licence).
 
 **Powered by uuidna itself.** This license's own receipt (`9ffcda04…`) is minted by the very tool it governs — the
 contract verifies itself. The brand holds to the same rule: `uuidna_address("uuidna") = fc511532-6e8a-8418-a522-a51b1d46a70c`,

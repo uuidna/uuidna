@@ -63,4 +63,4 @@ recomputing on every keystroke. Nothing is sent, stored, or tracked:
 - **Provenance + structure**, never decryption or hidden meaning or numerology.
 - The **gravity** digit is a mod-9 checksum of the length — a fingerprint digit, not a message.
 - uuidna proves **exact-copy, belonging, and pairing** — not literary merit, and not translation accuracy.
-- Public-domain works only; **free for the public interest**. See the [MCP tools](/mcp) and the [Contract](/captain/config).
+- Public-domain works only; **free for the public interest**. See the [MCP tools](/mcp) and the [Contract](/captain).

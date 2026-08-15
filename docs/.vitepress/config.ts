@@ -18,37 +18,46 @@ export default defineConfig({
 
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Doctrine', link: '/doctrine' },
       { text: 'Guides', link: '/guides' },
-      { text: 'Docs', link: '/legal-quantum-framework' },
       { text: 'Theorems', link: '/theorems' },
     ],
 
+    // The captain's four groups — the ONE categorization, same as the site footer (SiteFooter.vue).
     sidebar: {
       '/': [
         {
-          text: 'Getting Started',
+          text: 'The ledger',
           items: [
-            { text: 'Home', link: '/' },
-            { text: 'Guides', link: '/guides' },
+            { text: 'All theorems', link: '/theorems' },
+            { text: 'Topics (by skill)', link: '/topics' },
+            { text: 'The trials', link: '/trials' },
+            { text: 'Games', link: '/games' },
+          ],
+        },
+        {
+          text: 'Fuse it in',
+          items: [
+            { text: 'MCP tools', link: '/mcp' },
             { text: 'Chat', link: '/chat' },
+            { text: 'Books', link: '/books' },
+            { text: 'Guides', link: '/guides' },
           ],
         },
         {
-          text: 'Documentation',
+          text: 'The captain',
           items: [
-            { text: 'Legal Framework', link: '/legal-quantum-framework' },
-            { text: 'Economics Proof', link: '/no-money-needed-proof' },
-            { text: 'Corruption Proof', link: '/corruption-proof-society' },
-            { text: 'What We Replace', link: '/uuidna-replaces-detailed' },
+            { text: "The captain's coins", link: '/captain' },
+            { text: 'The doctrine', link: '/doctrine' },
           ],
         },
         {
-          text: 'Reference',
+          text: 'Verify it yourself',
           items: [
-            { text: 'Theorems', link: '/theorems' },
-            { text: 'Topics', link: '/topics' },
             { text: 'The tests', link: '/tests' },
+            { text: 'Analytics', link: '/analytics' },
             { text: 'Deploy', link: '/deploy' },
+            { text: 'Changelog', link: '/changelog' },
           ],
         },
       ],

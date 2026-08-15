@@ -39,4 +39,4 @@ A machine can settle whether a claim is backed and recomputable; whether to *act
 never a fold's. The flag is always on the claim, never on the person. That is what "integrity, not truth" means in
 practice: uuidna hands a human something they can check for themselves, and leaves the deciding to them.
 
-[The trial charter](/trials) · [License](/license) · [The contract & consent](/captain/config)
+[The trial charter](/trials) · [License](/license) · [The contract & consent](/captain)

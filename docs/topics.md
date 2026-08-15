@@ -12,7 +12,7 @@ import { data } from './.vitepress/ledger.data'
 **The discussion topics, computed by the theorem skill axis** — mined from the theorem keys, not hand-authored.
 Each topic gathers every theorem that carries that skill, folded (order-invariant) to its own receipt. This view is
 **public and stripped of sensitive data by construction**: the trial holds only `by decide` theorems and their
-content-addresses — nothing secret is ever in it (see [The Navigator](/captain/navigator) and the security posture).
+content-addresses — nothing secret is ever in it (see [The Navigator](/captain#the-navigators-charter) and the security posture).
 Every theorem links to its page, where the full statement, the `by decide` proof and the source are displayed.
 
 <nav class="topic-index">

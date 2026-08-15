@@ -28,8 +28,8 @@ const cols = [
     { text: 'GitHub repository', href: GH },
   ] },
   { title: 'The captain', links: [
-    { text: "The captain's message", href: '/captain/message' },
-    { text: 'The Navigator', href: '/captain/navigator' },
+    { text: "The captain's coins", href: '/captain' },
+    { text: 'The doctrine', href: '/doctrine' },
   ] },
   { title: 'Verify it yourself', links: [
     { text: 'The tests', href: '/tests' },

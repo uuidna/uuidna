@@ -165,9 +165,7 @@ theorem dual_verification_prevents_fraud :
 ### For Developers
 
 1. **Read the docs:**
-   - [Legal Framework](docs/legal-quantum-framework.md) — Binding agreements as theorems
-   - [No Money Needed Proof](docs/no-money-needed-proof.md) — Math of fair exchange
-   - [Corruption Proof Society](docs/corruption-proof-society.md) — Why corruption becomes impossible
+   - [The doctrine](docs/doctrine.md) — the agreement, the no-money exchange, the corruption-proof properties, folded to one page
 
 2. **Understand the theorems:**
    ```bash
@@ -296,11 +294,8 @@ Each cycle:
 
 ## Key Documents
 
-- [HOME.md](docs/HOME.md) — Complete vision and overview
-- [Legal Framework](docs/legal-quantum-framework.md) — Binding agreements as theorems
-- [No Money Needed](docs/no-money-needed-proof.md) — Economic proof
-- [Corruption Proof](docs/corruption-proof-society.md) — Why corruption is impossible
-- [What We Replace](docs/uuidna-replaces-detailed.md) — 11 professions eliminated
+- [The doctrine](docs/doctrine.md) — the agreement, no-money exchange, corruption-proof properties, and what theorems replace — one page
+- [The Captain's Agreement](docs/captain/agreement.md) — the five sealed terms, formal and recomputable
 
 ---
 
