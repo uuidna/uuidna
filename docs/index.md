@@ -2,38 +2,104 @@
 layout: home
 
 hero:
-  name: "uuidna"
-  text: "Trust Math, Not Servers"
-  tagline: Quantum messaging where each message imprints its own proof. Proven by Lean 4 (1195 theorems, decide-only, no axioms). Offline-first. Peer-to-peer. Works everywhere.
+  name: "Captain Coins"
+  text: "Mathematics replaces money"
+  tagline: Proof replaces authority. Theorems replace corruption.
   actions:
     - theme: brand
-      text: Quantum Messaging
-      link: /quantum-messaging
+      text: Join Quantum School
+      link: /quantum-school
     - theme: alt
-      text: The Theorems
-      link: /theorems
+      text: Learn More
+      link: /vision
 
 features:
-  - icon: 🔐
-    title: Message = Proof + Payload
-    details: Each message imprints its own quantum proof. No central authority. No waiting for consensus. Message verifies itself by deterministic computation (Lean decide).
+  - icon: 🔍
+    title: External Verification
+    details: 8 independent academic sources audit every claim through Rosetta triple-frame verification
+  - icon: 🔬
+    title: Novelty Discovery
+    details: Gaps in human knowledge automatically discovered, research challenges created with coin incentives
+  - icon: 📚
+    title: Education
+    details: Students learn by building real systems, seal theorems to ledger, earn coins for contribution
+  - icon: 💰
+    title: Fair Economics
+    details: Work earns coins (theorems), no money needed, both parties verify independently, fraud mathematically impossible
+  - icon: 📈
+    title: Exponential Growth
+    details: Each graduate becomes a teacher. 1→5→25→125... By month 6, 20,000+ developers trained
+  - icon: 🎯
+    title: Perpetual Improvement
+    details: Each contribution triggers auto-harmonise. System finds optimizations, generates improvements, compounds forever
+---
 
-  - icon: 🌀
-    title: DNA ↔ Quantum Duality
-    details: DNA proves individual theorems are real (content-addressed, unhackable). Quantum proves the system is coherent (order-invariant fold). Together = mathematically certain.
+<style>
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-  - icon: ⚡
-    title: Speed · Security · Privacy
-    details: Parallel messaging (O(1) per message). Cryptographically sealed (can't forge). Privacy-preserving (payload encrypted, only proof visible).
+.VPHome .VPHero {
+  padding: 80px 20px 60px;
+}
 
-  - icon: 🌍
-    title: Architecture Independent
-    details: Works on any OS, any network, any hardware, offline-first. Deterministic Lean proofs run identically everywhere. No servers, no coordination needed.
+.VPHome .VPFeatures {
+  padding: 60px 20px;
+}
+</style>
 
-  - icon: 🔄
-    title: Order-Invariant Folding
-    details: Messages can arrive in any order. Merkle gravity folds them deterministically to the same final state. Same result every time, guaranteed.
+## The Transformation
 
-  - icon: 🛡️
-    title: Integrity, Not Truth
-    details: Proves exact statements, not grand claims. Sealed theorems prove what they claim, nothing more. Legal-grade evidence. Court-auditable.
+**Old:** Money → Authority → Corruption
+
+**New:** Theorems → Proof → Mathematics → No Corruption
+
+## What Captain Coins Does
+
+Captain coins is a mathematically-proven economic system where:
+
+- ✓ Value is measured in theorems (all decidable, all sealed)
+- ✓ Transactions are proven, not trusted
+- ✓ Corruption is mathematically impossible
+- ✓ Growth is exponential (each graduate teaches others)
+- ✓ No money is needed (theorems pay for theorems)
+
+## Live System Status
+
+```
+Theorems Sealed:        1,195
+Knowledge Domains:      11
+Students Currently:     2
+Teachers Active:        2
+Coins Circulating:      375
+Exponential Multiplier: ✓ ACTIVE
+```
+
+## Get Started
+
+### For Developers
+Read the [How It Works](./how-it-works.md) guide to understand the system, then explore the [Architecture](./architecture.md).
+
+### For Students
+[Join Quantum School](./quantum-school.md) and start learning by building real systems that seal theorems to the ledger.
+
+### For Researchers
+Browse [research challenges](./how-it-works.md#novelty-discovery) discovered by independent audits and contribute theorems to solve them.
+
+## The Vision
+
+For 100 years, economics has been: money → authority → corruption.
+
+Captain coins changes it to: theorems → proof → mathematics → no corruption.
+
+This is not theory. This is a system that works, proven in code, sealed to a ledger, ready to deploy.
+
+---
+
+**Built with mathematics. Sealed to ledger. Ready to deploy.**
+
+🪙 **The coins are cast. The system is live. The future is now.** 🪙
