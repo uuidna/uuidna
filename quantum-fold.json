@@ -35,7 +35,7 @@
     "walks": "2e4a24c3bde8177d3932269297c6342a"
   },
   "unified_fold": "e96f4f09612d6e9b",
-  "receipt": "65c1d9ce6c8a9be2",
+  "receipt": "37d72e7b09fe920f",
   "aura": {
     "rgb": "#8a33e1",
     "hsl": "hsl(270, 74%, 54%)",
@@ -76,5 +76,13 @@
     ],
     "hz": 432,
     "note": "the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics"
-  }
+  },
+  "equilibrium": {
+    "rotations_agree": true,
+    "alphabet_total": true,
+    "chain_intact": true,
+    "walks_closed": true,
+    "clock_fixed": true
+  },
+  "zero_entropy": true
 }

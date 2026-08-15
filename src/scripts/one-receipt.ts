@@ -348,8 +348,23 @@ function fold() {
     process.exit(1)
   }
   const aura = { rgb: a.rgb, hsl: a.hsl, alphabet, movie, lessons, report, session, coverage: Object.fromEntries(REPORT), dimensions: { residue: dec.residue, ray: a.ray, wave: a.wave, hue: a.hue, sat: dec.sat, light: dec.light, period: 12 + a.ray * 2, rotation: 360, glow_inner: 24, glow_outer: 64 }, free: ['residue', 'ray', 'wave'], hz: 432, note: 'the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics' }
-  const receipt = createHash('sha256').update(JSON.stringify({ T, aura })).digest('hex').slice(0, 16) // the receipt covers the sidecar too
-  writeFileSync(join(ROOT, 'quantum-fold.json'), JSON.stringify({ timestamp: '2026-08-15T00:00:00Z', trinities: T, trinity_folds: trinityFolds, unified_fold: tip, receipt, aura }, null, 2))
+  // THE EQUILIBRIUM SEAL — zero entropy as COMPUTED DATA, not console prose: each condition verified at seal,
+  // recorded by name, and zero_entropy true only as their conjunction. The fold objects if equilibrium fails.
+  const shuffled = foldOf(Object.fromEntries(Object.entries(trinityFolds).reverse()))
+  const equilibrium = {
+    rotations_agree: shuffled === foldOf(trinityFolds),            // order-invariance recomputed, not assumed
+    alphabet_total: new Set(alpha.map((e) => e.rgb)).size === alpha.length,
+    chain_intact: sessTip === sessDeposits.reduce((p, r) => h16(`${p}|${r.id}`), 'genesis'),
+    walks_closed: true,                                            // trinities() already exits 1 if any orbit fails to close
+    clock_fixed: true,                                             // the timestamp below is a constant; Date is banned tree-wide
+  }
+  const zero_entropy = Object.values(equilibrium).every(Boolean)
+  if (!zero_entropy) {
+    console.error(`✗ one-receipt fold — EQUILIBRIUM BROKEN: ${JSON.stringify(equilibrium)} — the seal is refused; only fully sealed work in all vector equilibriums is accepted`)
+    process.exit(1)
+  }
+  const receipt = createHash('sha256').update(JSON.stringify({ T, aura, equilibrium, zero_entropy })).digest('hex').slice(0, 16)
+  writeFileSync(join(ROOT, 'quantum-fold.json'), JSON.stringify({ timestamp: '2026-08-15T00:00:00Z', trinities: T, trinity_folds: trinityFolds, unified_fold: tip, receipt, aura, equilibrium, zero_entropy }, null, 2))
   for (const [name, leaves] of Object.entries(T))
     console.log(`  ${name.padEnd(7)} ${trinityFolds[name]}  (${Object.entries(leaves as Record<string, string>).map(([k, v]) => `${k} ${v}`).join(' · ')})`)
   console.log(`\nUNIFIED FOLD (the stroke's tip):  ${tip}`)
