@@ -45,7 +45,7 @@ function createQuantumMessage(from: string, to: string, content: string): Quantu
     from,
     to,
     content,
-    nonce: Math.floor(Date.now() / 1000), // logical timestamp (for demo)
+    nonce: 1726400000, // fixed logical timestamp (deterministic, not wall-clock)
   }
 
   const stateBefore = readQuantumState()

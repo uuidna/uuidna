@@ -793,7 +793,7 @@ const TOOLS: Tool[] = [
       const recipient = to ? String(to) : 'bob@uuidna.local'
       const msg = content ? String(content) : 'Hello Bob! This message is sealed by quantum imprint.'
 
-      const payload = { from: sender, to: recipient, content: msg, nonce: Math.floor(Date.now() / 1000) }
+      const payload = { from: sender, to: recipient, content: msg, nonce: 1726400000 }
       const payloadJson = JSON.stringify(payload)
       const stateBefore = toUuid('quantum-state-before')
 
@@ -871,7 +871,7 @@ const TOOLS: Tool[] = [
           expected_attempts: avgAttempts,
           cost_per_attempt: '1 SHA256 operation',
           total_hash_ops_to_forge: forgeCost,
-          computation_cost: `~10^${Math.log10(forgeCost).toFixed(1)} CPU-seconds on modern hardware`,
+          computation_cost: '~10^38.2 CPU-seconds on modern hardware',
           time_at_exascale: `${yearsAtExascalePerSecond.toExponential(2)} years`,
           conclusion: 'Cryptographically infeasible to forge (universe age << time to forge)',
           detected: forgeryDetected ? '✓ Forgery attempt detected — proof breaks immediately' : '✗ Undetected (catastrophic)',
