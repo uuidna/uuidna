@@ -5,7 +5,7 @@
 
 ## Play
 
-- **[Chess](/games/chess)** — complete and correct: full legal moves, castling, en passant, promotion, check and
+- **[Chess](/chess)** — complete and correct: full legal moves, castling, en passant, promotion, check and
   checkmate. Two players, hot-seat, entirely in your browser, offline-capable. The sealed side:
   [the chess cluster](/publications/chess) and [the chess-horizon monograph](/publications/chessgames).
 

@@ -65,16 +65,20 @@ Captain coins is a mathematically-proven economic system where:
 - ✓ Growth is exponential (each graduate teaches others)
 - ✓ No money is needed (theorems pay for theorems)
 
-## Live System Status
+## Live system status — computed, not typed
 
-```
-Theorems Sealed:        1,195
-Knowledge Domains:      11
-Students Currently:     2
-Teachers Active:        2
-Coins Circulating:      375
-Exponential Multiplier: ✓ ACTIVE
-```
+<script setup>
+import { data } from './.vitepress/ledger.data'
+</script>
+
+| | |
+| --- | --- |
+| **Theorems sealed** | {{ data.total }} — every one `by decide`, recomputed each build from the ledger |
+| **Clusters** | {{ data.groups.length }} — each with its audited [monograph](/publications) |
+| **Skills** | {{ data.skillGroups.length }} — the [topics](/topics) axis, mined from the keys |
+| **Coins conserved** | 2 — [`two_coins`](/theorem/two_coins), 110 − 108 = −χ of the double torus |
+
+These numbers are read from the sealed ledger at build time — the page cannot say more than the ledger proves.
 
 ## Get Started
 
