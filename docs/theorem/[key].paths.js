@@ -78,7 +78,18 @@ reporting it.
 Recompute either by folding the content-addresses with \`merkleGravity\` (\`uuidna_run_ledger\` folds the whole ledger). The neighbours make it **tamper-evident**, they do not prove it — proof is Lean's, integrity is the fold's.`
 }
 
-const link = (t) => (t ? `[${t.name}](/theorem/${t.key})` : '—')
+// PROSE → MARKDOWN-SAFE inline text. Theorem names are full prose sentences computed from Lean — they carry
+// markdown specials (| * _ [ ] < > `) that break links and tables, and braces Vue would try to interpolate. Escape
+// at the COMPOSITION seam only: params/frontmatter keep the raw values (transformPageData escapes its own meta).
+const mdSafe = (v) => String(v).replace(/[\\`*_[\]<>|]/g, (c) => '\\' + c).replace(/{/g, '&#123;').replace(/}/g, '&#125;')
+// the SHORT title — the pre-em-dash head (the same head the card renderer shows); links carry the TITLE, never the
+// whole sentence: the prose lives once on the theorem's own page, not in every neighbour's compass.
+const titleOf = (t) => {
+  const head = (t.name.split('—')[0]).trim() || t.key
+  const short = head.length <= 80 ? head : (head.slice(0, 80).includes(' ') ? head.slice(0, 80).slice(0, head.slice(0, 80).lastIndexOf(' ')) : head.slice(0, 80)) + '…'
+  return mdSafe(short)
+}
+const link = (t) => (t ? `[${titleOf(t)}](/theorem/${t.key})` : '—')
 const compass = (label, target, [prev, next]) =>
   `- **${label} · ${target}:** ${prev ? '← ' + link(prev) : '—'} · ${next ? link(next) + ' →' : '—'}`
 
@@ -143,7 +154,9 @@ export default {
         tactic: t.tactic,
         address: t.address,
       },
-      content: `# ${t.name}
+      content: `# ${titleOf(t)}
+
+> ${mdSafe(t.name)}
 
 ${cardOf(t)}
 
@@ -165,7 +178,7 @@ ${t.lean}
 | --- | --- |
 | content-address | \`${t.address.slice(0, 8)}\` — the **handle** (the door \`/${t.address.slice(0, 8)}\`); the full uuid is the machine key, in this page's meta and recomputable from the proof, never shown (it computes on the spot) |
 | skill | [${t.skill}](/topics#skill-${t.skill}) — the capability hub (every theorem sharing it) |
-| principle | ${t.principle} — ${blurb[t.principle] || ''} |
+| principle | ${mdSafe(t.principle)} — ${mdSafe(blurb[t.principle] || '')} |
 | verdict | **VERIFIED** — its \`by ${t.tactic}\` proof compiles sorry-free (Lean 4.33.0, no Mathlib) |
 | decide-step cost | ${HB[t.address] !== undefined ? `**${HB[t.address]} heartbeats** — the deterministic, machine-independent work \`by ${t.tactic}\` does to verify it (recompute: \`npm run heartbeats ${t.key}\`)` : `not yet measured — run \`npm run heartbeats ${t.key}\``} |
 | real energy cost | machine-independent, so the heartbeat is **not** the energy cost. The physical cost is thermodynamic and device-dependent, bounded below by Landauer — erasing one bit costs at least *kT·ln2* (≈ 2.87×10⁻²¹ J at 300 K), paid as heat by the device. No computation is free; the heartbeat is the abstract work, the device pays the joules. |

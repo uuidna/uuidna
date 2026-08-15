@@ -3,9 +3,9 @@
 **Generated:** 2026-08-15
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 678 theorems
+**Total claimed:** 695 theorems
 **Categories:** 8
-**Claim receipt:** `1385efea-4507-8d13-83f0-97729b6654af`
+**Claim receipt:** `567e0e32-744f-82f9-b4d1-70e9dfad1739`
 
 ---
 
@@ -15,25 +15,25 @@
 
 Lean-verified computational algebra (ℤ/9, ℤ/7, ring, rosette)
 
-- **Theorems:** 377
+- **Theorems:** 383
 - **Verified:** ✓ all by decide
-- **Address:** `d56b56cd-81bf-83e5-b711-120b17c47263`
+- **Address:** `875c1b84-fb01-8777-b1d8-ad75f263fabc`
 
 ### Security
 
 Axiom-free verified security: gate, integrity, collision, defences
 
-- **Theorems:** 44
+- **Theorems:** 48
 - **Verified:** ✓ all by decide
-- **Address:** `f0695fd4-2c7e-8935-9fde-b5caf03326cb`
+- **Address:** `eb735d4a-5bac-8c94-af7a-da5889db4ebf`
 
 ### Quantum
 
 Classical quantum simulation: state-vector, clifford, bell, ghz, pauli
 
-- **Theorems:** 55
+- **Theorems:** 56
 - **Verified:** ✓ all by decide
-- **Address:** `422ffb71-db09-8eab-b6a8-fb3561100d72`
+- **Address:** `c4cf24a2-b5ee-81a3-b0e7-f9382ff80870`
 
 ### Games
 
@@ -63,9 +63,9 @@ Language & representation: glagolitic, editing, typesetting, reporting
 
 Millennium problems (reflected, not solved)
 
-- **Theorems:** 36
+- **Theorems:** 42
 - **Verified:** ✓ all by decide
-- **Address:** `8ed404fa-a920-8c53-a4e6-108f4a3c10f0`
+- **Address:** `b9fb242a-03f5-8003-b9ae-fa8326263f39`
 
 ### Structure
 

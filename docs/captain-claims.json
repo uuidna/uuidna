@@ -2,28 +2,28 @@
   "generated": "2026-08-15",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 678,
+  "total_claimed": 695,
   "categories": 8,
   "categories_list": [
     {
       "category": "Algebra",
       "description": "Lean-verified computational algebra (ℤ/9, ℤ/7, ring, rosette)",
-      "theorems": 377,
-      "address": "d56b56cd-81bf-83e5-b711-120b17c47263",
+      "theorems": 383,
+      "address": "875c1b84-fb01-8777-b1d8-ad75f263fabc",
       "all_by_decide": true
     },
     {
       "category": "Security",
       "description": "Axiom-free verified security: gate, integrity, collision, defences",
-      "theorems": 44,
-      "address": "f0695fd4-2c7e-8935-9fde-b5caf03326cb",
+      "theorems": 48,
+      "address": "eb735d4a-5bac-8c94-af7a-da5889db4ebf",
       "all_by_decide": true
     },
     {
       "category": "Quantum",
       "description": "Classical quantum simulation: state-vector, clifford, bell, ghz, pauli",
-      "theorems": 55,
-      "address": "422ffb71-db09-8eab-b6a8-fb3561100d72",
+      "theorems": 56,
+      "address": "c4cf24a2-b5ee-81a3-b0e7-f9382ff80870",
       "all_by_decide": true
     },
     {
@@ -50,8 +50,8 @@
     {
       "category": "Clay Problems",
       "description": "Millennium problems (reflected, not solved)",
-      "theorems": 36,
-      "address": "8ed404fa-a920-8c53-a4e6-108f4a3c10f0",
+      "theorems": 42,
+      "address": "b9fb242a-03f5-8003-b9ae-fa8326263f39",
       "all_by_decide": true
     },
     {
@@ -62,7 +62,7 @@
       "all_by_decide": true
     }
   ],
-  "claim_receipt": "1385efea-4507-8d13-83f0-97729b6654af",
+  "claim_receipt": "567e0e32-744f-82f9-b4d1-70e9dfad1739",
   "honest_scope": {
     "proves": [
       "These theorems are Lean-verified (by decide)",
