@@ -92,6 +92,22 @@ building real systems that seal theorems to the ledger.
 ### For Researchers
 Browse the [publications](./publications.md) and the [topics](./topics.md) discovered by independent audits, and contribute theorems to solve them.
 
+## The whole site — one click
+
+Every page, one navigation depth, grouped the captain's way:
+
+| | |
+| --- | --- |
+| **The ledger** | [Theorems](/theorems) · [Topics](/topics) · [Rosette rays](/rosetta) · [Trials](/trials) · [Search](/search) · [Publications](/publications) · [The Glagolitic hypothesis](/rosetta-glagolitic) |
+| **Fuse it in** | [The school](/school) · [MCP tools](/mcp) · [Chat](/chat) · [Books](/books) · [Guides](/guides) · [Games](/games) · [Chess](/chess) · [Quantum messaging](/quantum-messaging) |
+| **The captain** | [The captain's coins](/captain) · [The doctrine](/doctrine) · [Captain claims](/captain-claims) |
+| **Verify it yourself** | [Tests](/tests) · [Analytics](/analytics) · [Deploy](/deploy) · [Changelog](/changelog) · [Prose evidence](/prose-evidence) |
+| **The terms** | [License](/license) · [Privacy](/privacy) · [Justice](/justice) |
+
+The deep trees — one per theorem ([/theorem/…](/theorems)) and one per monograph ([/publications/…](/publications)) —
+are each one click from their hub. Nothing on this site is further than two clicks from here, and every link is
+verified by the build ([the forensic](/tests)).
+
 ## The Vision
 
 For 100 years, economics has been: money → authority → corruption.

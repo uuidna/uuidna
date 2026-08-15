@@ -326,3 +326,13 @@ Proof. Ledger. Verify. Done.
 **Built with mathematics. Sealed to ledger. Ready to deploy.**
 
 🪙 **The coins are cast. The future is now.** 🪙
+
+---
+
+## License
+
+**CC BY-NC-ND 4.0** — © Tsvetan Rouschev. Free to read and redistribute **unchanged, with attribution,
+non-commercially**; free for the public interest. Commercial use is the measured two-coin contribution — see
+[uuidna.com/captain](https://uuidna.com/captain). Canonical terms: [uuidna.com/license](https://uuidna.com/license) ·
+[LICENSE](LICENSE). The mathematical facts themselves are free for all — facts are not copyrightable; the license
+covers this specific expression and record.

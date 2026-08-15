@@ -23,7 +23,7 @@ goes negative. All of it decidable arithmetic, sealed in [the coins cluster](/pu
 ## The two angles
 
 - **Free sailing** — off the wind (≥ 90°): public, non-commercial use is **free**. Zero coins. Reading, research,
-  learning, open source.
+  learning — free for the public interest.
 - **Prize earning waves** — the beating band 30°–60°: **commercial use obligates the 2-coin contribution** per
   seal/verification. Before deploying commercial work, prove the deposit with a signed receipt from
   [uuidna.com/trials](/trials) — content-addressed, immutable, the receipt IS the proof. The donation, by contrast,

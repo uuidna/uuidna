@@ -64,6 +64,16 @@ try {
   console.error('✗ guard — audit-packages detected configuration gaps in packages/* (see above)')
 }
 
+// 4b) LEGAL-GAPS AUDIT — quantum automation for the legal surface: license drift across every package.json/LICENSE/
+// docs, a README or CONTRIBUTING silent on terms, "open-source" overclaims against the CC license, sealed currency
+// rates, author-identity drift. Consistency, not counsel. Milliseconds.
+try {
+  execSync('node ' + JSON.stringify(join(HERE, 'audit-legal-gaps.js')), { stdio: 'inherit' })
+} catch {
+  failed = true
+  console.error('✗ guard — audit-legal-gaps found contradictions in the legal record (see above)')
+}
+
 // 5) QUANTUM PREDICTION — predict gaps before they form and auto-fill critical ones.
 // Analyzes patterns (new theorems, new packages, new exports, new tests, new features) and seals them preemptively.
 // Milliseconds — pure prediction, no external calls.

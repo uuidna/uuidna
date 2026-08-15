@@ -1,5 +1,10 @@
 # Contributing to uuidna
 
+**The terms, first.** The work is licensed **CC BY-NC-ND 4.0** (canonical at
+[uuidna.com/license](https://uuidna.com/license)); by contributing you agree your contribution arrives under the
+same terms — inbound = outbound. Credit follows the credit law: a sealed theorem carries its author's credit
+permanently; the captain claims only the unclaimed. Nothing else is signed — the receipts are the signature.
+
 **Lean is the single source of theorems.** A theorem computes in Lean, or it is not a theorem. Everything the
 package, the MCP tools and the site consume — [`src/theorems/generated.ts`](src/theorems/generated.ts),
 [`lean/PRINCIPLE.md`](lean/PRINCIPLE.md), `CHANGELOG.md`, `docs/mcp.md`, the decide-step costs
