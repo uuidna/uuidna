@@ -44,7 +44,7 @@ jobs:
         run: npm run guard
 
       # Only reached when the build, the tests and the guard all pass on the already-proven, already-credited tree.
-      # wrangler runs wrangler.toml's [build] (docs:build → ./site + gen-handles) and deploys the worker + assets; the
+      # wrangler runs wrangler.toml's [build] (docs:build → ./src/diamonds/docs + gen-handles) and deploys the worker + assets; the
       # hosted MCP at /mcp goes live.
       - name: Deploy to Cloudflare (the proven tree, GitHub Actions only)
         uses: cloudflare/wrangler-action@v3

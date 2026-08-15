@@ -10,7 +10,7 @@ compatibility_date = "2026-08-01"
 main = "worker.js"
 
 [build]
-# docs:build produces ./site; gen-handles writes ./handles.js (the first8→key map worker.js imports) — both BEFORE
+# docs:build produces ./src/diamonds/docs (the VitePress outDir, incl. /lean proofs); gen-handles writes ./handles.js (the first8→key map worker.js imports) — both BEFORE
 # wrangler bundles the worker, so the on-the-spot /<handle> resolver has its map and the assets are ready to serve.
 command = "npm run docs:build && node dist/scripts/gen-handles.js"
 

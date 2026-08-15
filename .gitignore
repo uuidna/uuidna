@@ -6,3 +6,5 @@ dist/
 .vitepress/dist/
 site/
 handles.js
+.DS_Store
+.wrangler/

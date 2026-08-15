@@ -174,7 +174,7 @@ function scanDeploymentReadinessDimension(): DimensionGap[] {
       existsSync(join(ROOT, 'packages', pkg, 'dist', 'index.js')),
     ),
     tests: existsSync(join(ROOT, 'dist', 'test')),
-    site: existsSync(join(ROOT, 'site', 'index.html')),
+    site: existsSync(join(ROOT, 'src', 'diamonds', 'docs', 'hashmap.json')), // the served assets tree (VitePress outDir + the worker's resolver map)
   }
 
   const readyCount = Object.values(checks).filter(Boolean).length
