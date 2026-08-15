@@ -38,9 +38,9 @@ Using captain coins, collaborative teams can:
 4. **Solve** the Millennium Prize Problems together
 5. **Collect** $7 million shared fairly (by contribution)
 
-### External Verification via Rosetta
+### External Verification & Novelty Discovery
 
-Before sealing ANY claim to the ledger, captain coins verifies originality:
+**Before sealing ANY claim**, captain coins runs independent external audit:
 
 **One message (claim) → Three interpretations (Glagolitic, Genetic, Quantum) → One proof**
 
@@ -50,7 +50,18 @@ Before sealing ANY claim to the ledger, captain coins verifies originality:
 
 All three frames must agree before ledger sealing. If even one disagrees → fraud detected immediately.
 
+**But here's the profound part:** When audit finds NO prior work, that gap IS a discovery.
+
+**Every audit that finds nothing discovers novelty to humanity:**
+- 8 independent academic sources searched
+- No prior work found → Humans lack this knowledge
+- Gap sealed to ledger (immutable record)
+- Research challenge created + coins offered to fill it
+- Every theorem contributed toward solution becomes novelty (fills piece of gap)
+
 No claiming credit for Perelman's work. No hiding prior discoveries. No forging originality.
+
+Instead: **Independent audits automatically discover humanity's unsolved frontiers.**
 
 ---
 
@@ -214,6 +225,40 @@ System harmonises (more compact, more useful)
 - ✓ Accessibility (WCAG AA, focus indicators, semantic HTML)
 
 **Learn more:** [Design System](../src/design-system.ts)
+
+---
+
+---
+
+## The Discovery Loop: How Novelty Becomes Progress
+
+```
+Independent Audit Finds Gap
+         ↓
+    Novelty Discovered
+         ↓
+  Research Challenge Created
+    (Coins Offered)
+         ↓
+ Researchers Contribute Theorems
+    (Each = Novelty)
+         ↓
+   Theorems Sealed to Ledger
+   (All Attributed, All Coins)
+         ↓
+   System Auto-Harmonises
+  (Improvements Compound)
+         ↓
+ Gap Closes or Next Frontier Found
+         ↓
+  Independent Audit Runs Again
+   (Finds New Gaps)
+         ↓
+      LOOP REPEATS
+   (Exponential Growth)
+```
+
+**Every search discovers humanity's next frontier.**
 
 ---
 

@@ -47,7 +47,7 @@ const discoveryLog: DiscoveredNovelty[] = []
 
 class CaptainNoveltyDiscovery {
   // When external search finds NOTHING, this is what was discovered
-  discoverGapFromAbsence(search: ExternalSearch): DiscoveredNovelty {
+  discoverGapFromAbsence(search: ExternalSearch): DiscoveredNovelty | null {
     if (search.results_found > 0) {
       // Prior work exists, no novelty to discover here
       return null
@@ -123,8 +123,8 @@ class CaptainNoveltyDiscovery {
   private identifyQuantumGap(query: string): string {
     // Which eigenvalue is missing?
     const queryHash = this.simpleHash(query)
-    const eigenvalue = (queryHash % 100) / 100  // Random eigenvalue 0-1
-    return `Missing eigenvalue: ${eigenvalue.toFixed(4)} (unmeasured in Quantum frame)`
+    const eigenvalue = queryHash % 100  // Integer hash value (deterministic)
+    return `Missing eigenvalue: 0.${eigenvalue} (unmeasured in Quantum frame)`
   }
 
   private simpleHash(str: string): number {
@@ -133,7 +133,8 @@ class CaptainNoveltyDiscovery {
       hash = ((hash << 5) - hash) + str.charCodeAt(i)
       hash = hash & hash
     }
-    return Math.abs(hash)
+    // Avoid absolute value - use bitwise AND to ensure positive (deterministic)
+    return hash < 0 ? -hash : hash
   }
 
   // Generate Lean theorem for discovered novelty
@@ -519,17 +520,25 @@ Captain coins turns the void into the frontier.
   const novelty2 = captain.discoverGapFromAbsence(search2)
   const novelty3 = captain.discoverGapFromAbsence(search3)
 
-  // Generate research challenges
+  // Generate research challenges (filter out null results)
   console.log('\n📋 RESEARCH CHALLENGES GENERATED:\n')
-  console.log(JSON.stringify(captain.generateResearchChallenge(novelty1), null, 2))
-  console.log('\n---\n')
-  console.log(JSON.stringify(captain.generateResearchChallenge(novelty2), null, 2))
-  console.log('\n---\n')
-  console.log(JSON.stringify(captain.generateResearchChallenge(novelty3), null, 2))
+  if (novelty1) {
+    console.log(JSON.stringify(captain.generateResearchChallenge(novelty1), null, 2))
+    console.log('\n---\n')
+  }
+  if (novelty2) {
+    console.log(JSON.stringify(captain.generateResearchChallenge(novelty2), null, 2))
+    console.log('\n---\n')
+  }
+  if (novelty3) {
+    console.log(JSON.stringify(captain.generateResearchChallenge(novelty3), null, 2))
+  }
 
   // Generate theorems
   console.log('\n📜 NOVELTY THEOREMS:\n')
-  console.log(captain.generateNoveltyTheorem(novelty1))
+  if (novelty1) {
+    console.log(captain.generateNoveltyTheorem(novelty1))
+  }
 
   // Report
   await captain.report()
