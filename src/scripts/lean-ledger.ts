@@ -7,8 +7,8 @@ import { writeFileSync, readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { LeanTheorem } from '../theorems/generated.js'
+import { ROOT } from './api.js'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const LEAN_DIR = join(ROOT, 'lean')
 
 // the computing-principle order — the derivation order the whole layer is organised by

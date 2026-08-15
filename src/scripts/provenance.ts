@@ -12,14 +12,13 @@ import { fileURLToPath } from 'node:url'
 import { theorems, merkleFold, toUuid } from '../index.js'
 import { overreachOf } from '../prose-gate.js'
 import { MCP_CATALOG } from '../mcp.js'
+import { ROOT, rd } from './api.js'
 
 // The floor lives in ONE tested place — src/prose-gate.ts (overreachOf → slimGate) — so the audit and the self-trial
 // share the exact same detector: a unit drains only for citing a FABRICATED theorem, never for a word. This script
 // adds only the CONTEXT the ledger derives: whether a unit is BACKED (links a proof / names a sealed key) or vouched
 // by a theorem's own proof (backedBy). The call is overreachOf(u); backing is applied below.
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
-const rd = (p: string) => readFileSync(join(ROOT, p), 'utf8')
 
 const sealedKeys = theorems().map((t) => t.key)
 // BACKED — the unit carries a /theorem/ link or names a sealed theorem key (specific underscored identifiers).

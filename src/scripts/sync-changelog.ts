@@ -9,6 +9,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import { runTrial, THEOREMS, PRINCIPLES } from '../index.js'
+import { ROOT } from './api.js'
 
 const TARGET = 1024 // the v1.0.0 milestone (2^10) — the one stated goal, a named constant, not a magic number
 const count = THEOREMS.length
@@ -19,7 +20,7 @@ const remaining = TARGET - count
 const TODAY = `Today: **${count} / ${TARGET} — ${remaining} to go**, across ${principles} principles.`
 const CURRENT = `Ledger: **${count} theorems** across **${principles} principles**, folded to receipt \`${receipt}\``
 
-const path = join(dirname(fileURLToPath(import.meta.url)), '../../CHANGELOG.md')
+const path = join(ROOT, 'CHANGELOG.md')
 const before = readFileSync(path, 'utf8')
 // Replace only the marked regions — the surrounding prose is untouched.
 const stamp = (src: string, tag: string, body: string): string => {

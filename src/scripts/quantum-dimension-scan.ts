@@ -7,9 +7,7 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems, PRINCIPLES } from '../index.js'
-
-const HERE = dirname(fileURLToPath(import.meta.url))
-const ROOT = join(HERE, '../..')
+import { HERE, ROOT } from './api.js'
 
 interface DimensionGap {
   dimensions: string[] // which dimensions affected (e.g., ["theorems", "principles"])

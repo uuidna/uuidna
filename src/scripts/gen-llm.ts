@@ -9,8 +9,8 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems, coins, ADDRESS_BITS } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
+import { ROOT } from './api.js'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const T = theorems()
 const stmt = (k: string): string => T.find((t) => t.key === k)?.statement ?? '(missing — reconcile)'
 const principles = new Set(T.map((t) => t.principle)).size

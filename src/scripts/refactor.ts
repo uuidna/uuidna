@@ -10,8 +10,9 @@ import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { toUuid, digitalRoot } from '../index.js'
+import { ROOT } from './api.js'
 
-const SRC = join(dirname(fileURLToPath(import.meta.url)), '../../src')
+const SRC = join(ROOT, 'src')
 const apply = process.argv.includes('--apply')
 
 // the top-level LIBRARY modules — flat src/*.ts, excluding the barrel and the non-module dirs (scripts/test/quantum/

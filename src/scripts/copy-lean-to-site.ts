@@ -11,7 +11,6 @@ import { readdirSync, mkdirSync, copyFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const LEAN = join(ROOT, 'lean')
 const SEEDS = join(ROOT, 'src', 'lean')
 // the VitePress outDir — the DEFAULT (<srcDir>/.vitepress/dist); keep in lock-step with `vitepress build docs`
@@ -47,6 +46,7 @@ if (existsSync(SEEDS)) {
 // HTML page for /lean and /seeds references and FAIL the build if any referenced file was not served. Together
 // the two checks leave zero blind spots — no link ships unverified.
 import { readFileSync, statSync } from 'node:fs'
+import { HERE, ROOT } from './api.js'
 const htmlFiles: string[] = []
 const walk = (dir: string) => {
   for (const e of readdirSync(dir)) {

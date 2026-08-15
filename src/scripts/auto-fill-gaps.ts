@@ -5,9 +5,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-
-const HERE = dirname(fileURLToPath(import.meta.url))
-const ROOT = join(HERE, '../..')
+import { HERE, ROOT } from './api.js'
 
 function autoFillUnwiredScripts() {
   const packageJsonPath = join(ROOT, 'package.json')

@@ -15,8 +15,8 @@ import { writeFileSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { publications, theorems, merkleFold, toUuid, digitalRoot } from '../index.js'
+import { ROOT } from './api.js'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const OUT = join(ROOT, 'audit-citations.json')
 
 const sealed = new Set(theorems().map((t) => t.key))

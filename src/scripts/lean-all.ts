@@ -9,8 +9,8 @@ import { readdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { MAXBUF } from './lean-gen.js'
+import { ROOT } from './api.js'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const SCRIPTS = join(ROOT, 'dist', 'scripts')
 const LEAN = join(ROOT, 'lean')
 // Each step streams its own output (stdio:'inherit'); on failure, replace Node's raw status-object dump with a clean

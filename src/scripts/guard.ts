@@ -10,9 +10,8 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { catchTraitors } from '../treason.js'
 import { theorems } from '../index.js'
+import { HERE, ROOT } from './api.js'
 
-const HERE = dirname(fileURLToPath(import.meta.url))
-const ROOT = join(HERE, '../..')
 let failed = false
 
 // 1) the ledger sweep — pure, O(N), milliseconds

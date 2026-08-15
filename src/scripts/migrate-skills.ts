@@ -10,8 +10,9 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { HERE } from './api.js'
 
-const SCRIPTS = dirname(fileURLToPath(import.meta.url)).replace(/\/dist\//, '/src/') // author into src/, not dist/
+const SCRIPTS = HERE.replace(/\/dist\//, '/src/') // author into src/, not dist/
 
 // Each UNIFORM generator → the ONE capability every fact in its file demonstrates. Domain files that skillOf could
 // not classify (they fell to 'foundational' by default) get their true domain skill here — authored, not defaulted.

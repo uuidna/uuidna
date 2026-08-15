@@ -8,8 +8,8 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { DERIVED_FILES, sealSpin, verifySpin, type SpinManifest } from '../spin.js'
+import { ROOT } from './api.js'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 // At repo ROOT (with the other derived-layer artifacts: audit-citations.json, support-audit.json, research-leads.json)
 // — NOT under lean/, where the `*-manifest.json` glob belongs to lean-ledger's theorem-name manifests (a different shape).
 const MANIFEST = join(ROOT, 'spin-manifest.json')

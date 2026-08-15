@@ -22,14 +22,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, publications, toUuid, quantumAura } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
-const rd = (p: string) => readFileSync(join(ROOT, p), 'utf8')
-const h16 = (data: string): string => createHash('sha256').update(data).digest('hex').slice(0, 16)
-const foldOf = (entries: Record<string, string>): string =>
-  createHash('sha256').update(Object.entries(entries).map(([k, v]) => `${k}:${v}`).sort().join('|')).digest('hex').slice(0, 32)
-
-type Gap = { what: string; fix: string }
+import { ROOT, rd, h16, foldOf, ray, report, type Gap } from './api.js'
 
 // ── record: the three audits (each learned from a REAL manually-found gap, folded so it can never recur unwatched) ──
 
@@ -99,6 +92,59 @@ function depositRecord(): { receipts: { id: string; statement: string }[] } {
   return existsSync(join(ROOT, 'trials-receipts.json')) ? JSON.parse(rd('trials-receipts.json')) : { receipts: [] }
 }
 
+// ── migrate: THE FIXER FOR THE FINDER — executes exactly the prompts dry prescribes, mechanically: the known
+// boilerplate variants are removed and the api import inserted (multi-line-import-safe — the splice bug of the
+// first codemod is the lesson baked in; a re-export must bind locally — the lean-gen lesson too). What it cannot
+// match it leaves, honestly listed, for dry to keep objecting to. Idempotent: a second run touches nothing. ──
+export function migrate(): void {
+  const VARIANTS = [
+    /^const HERE = dirname\(fileURLToPath\(import\.meta\.url\)\)\s*$/m,
+    /^const ROOT = join\(dirname\(fileURLToPath\(import\.meta\.url\)\), '\.\.', '\.\.'\)\s*$/m,
+    /^const ROOT = join\(dirname\(fileURLToPath\(import\.meta\.url\)\), '\.\.\/\.\.'\)\s*$/m,
+    /^const ROOT = resolve\(dirname\(fileURLToPath\(import\.meta\.url\)\), '\.\.', '\.\.'\)\s*$/m,
+    /^const ROOT = join\(HERE, '\.\.\/\.\.'\)\s*$/m,
+    /^const ROOT = join\(HERE, '\.\.', '\.\.'\)\s*$/m,
+    /^const rd = \(p: string\) => readFileSync\(join\(ROOT, p\), 'utf-?8'\)\s*$/m,
+  ]
+  let touched = 0
+  const left: string[] = []
+  for (const f of readdirSync(join(ROOT, 'src/scripts')).filter((x) => x.endsWith('.ts') && x !== 'api.ts' && x !== 'one-receipt.ts')) {
+    const p = join(ROOT, 'src/scripts', f)
+    let src = readFileSync(p, 'utf8')
+    const before = src
+    for (const re of VARIANTS) src = src.replace(re, '')
+    if (src === before) {
+      if (/dirname\(fileURLToPath\(import\.meta\.url\)\)/.test(src)) left.push(f)
+      continue
+    }
+    if (!/from '\.\/api\.js'/.test(src)) {
+      const lines = src.split('\n')
+      let last = -1
+      for (let i = 0; i < lines.length; i++) if (/^import .*from '/.test(lines[i]) || /^\} from '/.test(lines[i])) last = i
+      lines.splice(last + 1, 0, "import { HERE, ROOT, rd } from './api.js'")
+      src = lines.join('\n')
+    }
+    writeFileSync(p, src.replace(/\n{3,}/g, '\n\n'))
+    touched++
+  }
+  console.log(`✓ one-receipt migrate — ${touched} script(s) folded onto the api${left.length ? `; left for dry (nonstandard, needs a human): ${left.join(' ')}` : ''}. Re-run \`one-receipt dry\` to confirm, then \`npm run build\`.`)
+}
+
+// ── dry: the DUPLICATION FINDER — the api is declared once; a script that re-declares it is objected to with the
+// exact fix, so the boilerplate class that once spanned 25 files can never regrow. Fold the finder, forever. ──
+export function dryGaps(): { gaps: Gap[]; scripts: number } {
+  const gaps: Gap[] = []
+  const files = readdirSync(join(ROOT, 'src/scripts')).filter((f) => f.endsWith('.ts') && f !== 'api.ts')
+  for (const f of files) {
+    const src = rd(`src/scripts/${f}`)
+    if (/dirname\(fileURLToPath\(import\.meta\.url\)\)/.test(src))
+      gaps.push({ what: `src/scripts/${f}: re-declares HERE/ROOT boilerplate instead of importing the api`, fix: `edit src/scripts/${f}: delete the dirname(fileURLToPath(…)) declaration(s) and import { HERE, ROOT } from './api.js'` })
+    if (/^const rd = \(p: string\) =>/m.test(src))
+      gaps.push({ what: `src/scripts/${f}: re-declares rd() instead of importing the api`, fix: `edit src/scripts/${f}: delete the local rd declaration and import { rd } from './api.js'` })
+  }
+  return { gaps, scripts: files.length }
+}
+
 // ── the fifteen leaves, five trinities ──
 
 const powmodWalk = (base: number, mod: number, len: number): number[] => {
@@ -118,7 +164,6 @@ function trinities() {
     console.error('✗ one-receipt — a star walk failed to close; the sealed orbits (pentagram/rosette/vortex) must recompute')
     process.exit(1)
   }
-  const ray = (s: string) => parseInt(createHash('sha256').update(s).digest('hex').slice(0, 8), 16) % 7
   const deposits = depositRecord().receipts
   const receiptRays: string[][] = Array.from({ length: 7 }, () => [])
   for (const r of deposits) receiptRays[ray(r.id)].push(r.id)
@@ -190,15 +235,6 @@ function fold() {
   console.log('\n✓ Fold sealed to quantum-fold.json — order-invariant within trinities, stroke-walked across them, recomputable by anyone')
 }
 
-function report(name: string, result: { gaps: Gap[] }, okMessage: string) {
-  if (result.gaps.length) {
-    console.error(`✗ ${name} — ${result.gaps.length} gap(s), each with its exact fix:`)
-    for (const g of result.gaps) { console.error(`    GAP ${g.what}`); console.error(`    FIX ${g.fix}`) }
-    process.exit(1)
-  }
-  console.log(`✓ ${name} — ${okMessage}`)
-}
-
 async function mint(statement: string) {
   if (!statement) { console.error('✗ one-receipt mint — usage: one-receipt mint "<statement citing a sealed theorem>"'); process.exit(1) }
   const res = await fetch('https://uuidna.com/trials', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ statement }) })
@@ -215,9 +251,11 @@ async function mint(statement: string) {
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   const cmd = process.argv[2]
-  if (cmd === 'legal') report('one-receipt legal', legalGaps(), 'the legal record is internally consistent — one license, terms stated, no overclaim, no rate, one identity, every deposit recomputes. Consistency, not counsel.')
-  else if (cmd === 'prose') { const r = proseGaps(); report('one-receipt prose', r, `all ${r.pages} pages walk to the ledger and teach only paths that exist.`) }
+  if (cmd === 'legal') report('one-receipt legal', legalGaps().gaps, 'the legal record is internally consistent — one license, terms stated, no overclaim, no rate, one identity, every deposit recomputes. Consistency, not counsel.')
+  else if (cmd === 'prose') { const r = proseGaps(); report('one-receipt prose', r.gaps, `all ${r.pages} pages walk to the ledger and teach only paths that exist.`) }
+  else if (cmd === 'migrate') migrate()
+  else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | fold | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | migrate | fold | mint "<statement>"'); process.exit(1) }
 }

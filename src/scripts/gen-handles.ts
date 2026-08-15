@@ -9,8 +9,8 @@ import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems } from '../index.js'
+import { ROOT } from './api.js'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const T = theorems()
 const map: Record<string, string> = {}
 for (const t of T) map[t.address.slice(0, 8)] = t.key

@@ -10,8 +10,8 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems } from '../theorems/index.js'
 import { buildLeanPageSeed, toPayloadDocs } from '../payload-seed.js'
+import { ROOT } from './api.js'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const LEAN = join(ROOT, 'lean')
 const OUT = join(ROOT, 'src', 'lean', 'payload-sync.json')
 

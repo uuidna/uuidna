@@ -8,9 +8,7 @@ import { readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems } from '../index.js'
-
-const HERE = dirname(fileURLToPath(import.meta.url))
-const ROOT = join(HERE, '../..')
+import { HERE, ROOT } from './api.js'
 
 interface QuantumMessage {
   id: string

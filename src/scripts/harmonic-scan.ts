@@ -19,9 +19,10 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { ROOT } from './api.js'
 
 // scan the SOURCE tree, not dist (dist has .d.ts stubs with no bodies). From dist/scripts/ that is ../../src.
-const SRC = join(dirname(fileURLToPath(import.meta.url)), '../../src')
+const SRC = join(ROOT, 'src')
 // non-harmonic OPERATIONS (rule 1) — real calls, not export names (fetchAlpineLatest is fine; fetch( is not)
 const OPS: [string, RegExp][] = [
   ['fetch', /\bfetch\s*\(/],

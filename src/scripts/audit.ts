@@ -21,9 +21,8 @@ import {
   toUuid, merkleGravity,
   encrypt, decrypt, sealSequence, verifyEnvelope,
 } from '../index.js'
+import { ROOT, rd } from './api.js'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
-const rd = (p: string) => readFileSync(join(ROOT, p), 'utf8')
 const rel = (p: string) => relative(ROOT, p)
 const MAX_UNIT = 2000 // cap each prose unit — computes()'s per-match scan is superlinear; bound the input (no DoS)
 

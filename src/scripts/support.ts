@@ -10,8 +10,8 @@ import { join, dirname, resolve, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { merkleFold } from '../address.js'
 import { toUuid } from '../address.js'
+import { ROOT } from './api.js'
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const SRC = join(ROOT, 'src')
 
 // Every .ts under src/ (the modules under audit), as repo-relative paths.

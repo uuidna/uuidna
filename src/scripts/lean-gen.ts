@@ -8,7 +8,8 @@ import { execSync } from 'node:child_process'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
+import { ROOT } from './api.js'
+export { ROOT }
 export const m9 = (n: number): number => ((n % 9) + 9) % 9
 // One shared exec buffer for every `lean` shell-out across the pipeline (generators, the audit, the heartbeat probe)
 // — a Lean file's stdout/stderr never approaches this, but a single constant keeps the cap consistent, not guessed

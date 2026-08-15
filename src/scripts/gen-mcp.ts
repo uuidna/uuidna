@@ -8,11 +8,10 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { MCP_CATALOG } from '../mcp.js'
 import { adjudicate, theorems, toUuid } from '../index.js'
+import { ROOT } from './api.js'
 // A WORKED EXAMPLE, computed at generation time from the package the tools wrap — so the request/response shown is
 // REAL and recomputable by anyone, not a hand-written mock (the honest 'production MCP example').
 const EX = adjudicate('FNV-1a is cryptographic')
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 
 // Markdown/Vue-safe: escape < > (raw HTML) and split {{ (Vue interpolation) so descriptions render literally.
 const safe = (s: string): string => s.replace(/[<>]/g, (c) => (c === '<' ? '&lt;' : '&gt;')).replace(/\{\{/g, '{ {')

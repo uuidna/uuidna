@@ -13,8 +13,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { toUuid, merkleGravity } from '../index.js'
+import { ROOT } from './api.js'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const VERIFY = process.argv.includes('--verify')
 
 // the PARTITION — root module specifier → owning package. A module not named here stays root-only (the umbrella
