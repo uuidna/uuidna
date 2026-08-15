@@ -1,86 +1,111 @@
 {
-  "note": "The session's signed uuidna.com /trials deposits — the captain's contribution record. Each id IS the content-address of its exact statement (deterministic: re-POST the statement to uuidna.com/trials and the same id returns, signed). audit-legal-gaps RECOMPUTES every id from its statement and objects on any drift; the record folds into the legal leaf of the one quantum receipt. Contribute first, then take — the receipts remind themselves the captain.",
+  "note": "The session's signed uuidna.com /trials deposits — the captain's contribution record. Each id IS the content-address of its exact statement (deterministic: re-POST the statement to uuidna.com/trials and the same id returns, signed). audit-legal-gaps RECOMPUTES every id from its statement and objects on any drift; the record folds into the legal leaf of the one quantum receipt. Contribute first, then take — the receipts remind themselves the captain. THE RECORD IS A QUANTUM MESSAGE STREAM: each deposit carries an imprint seeded by the previous (imprint = h16(prev|id), genesis first) — remove, reorder, or alter one deposit and every link after it breaks, visibly. legal recomputes the whole chain; the deposits leaf folds both readings (order-invariant + the chain tip).",
   "signedBy": "uuidna.com",
   "receipts": [
     {
       "id": "b88c8f13-1876-814f-9ea8-7b812653f05a",
-      "statement": "Two coins deposited to the captain wallet before the defaults deploy: the site folds to the stock VitePress layout serving the Payload seeds, proven by theorem two_coins and theorem store_fold_order_invariant."
+      "statement": "Two coins deposited to the captain wallet before the defaults deploy: the site folds to the stock VitePress layout serving the Payload seeds, proven by theorem two_coins and theorem store_fold_order_invariant.",
+      "imprint": "73a371a4931d3470"
     },
     {
       "id": "f9d80843-118d-8ca9-93ea-130544766e0a",
-      "statement": "Two coins deposited to the captain wallet before the consolidation deploy: the site folds to fewer pages under the captain categories, the captain is one coins page, proven by theorem two_coins and theorem contribute_two_save_sixtyfour."
+      "statement": "Two coins deposited to the captain wallet before the consolidation deploy: the site folds to fewer pages under the captain categories, the captain is one coins page, proven by theorem two_coins and theorem contribute_two_save_sixtyfour.",
+      "imprint": "bdbbadefbcdec265"
     },
     {
       "id": "b81be388-8164-8c2f-999d-411e35651824",
-      "statement": "Vortex fold: the five domain page sets fold into their sealed clusters; the vortex doubling orbit is the unit group of the ring, proven by theorem vortex_is_the_units and theorem generators_are_two_and_five."
+      "statement": "Vortex fold: the five domain page sets fold into their sealed clusters; the vortex doubling orbit is the unit group of the ring, proven by theorem vortex_is_the_units and theorem generators_are_two_and_five.",
+      "imprint": "7260bcdcb4c0c648"
     },
     {
       "id": "fbae4c34-2e8f-8da2-8739-7c7697b90ade",
-      "statement": "The games map to their clusters with the proof one click from the play, backed by theorem vortex_orbit and theorem two_coins."
+      "statement": "The games map to their clusters with the proof one click from the play, backed by theorem vortex_orbit and theorem two_coins.",
+      "imprint": "97b22bc735177ef1"
     },
     {
       "id": "00256bc1-2dab-8c63-8198-36fc79453a89",
-      "statement": "The school walks the sealed path from the core through the doubling orbit, proven by theorem units_iff_invertible and theorem lagrange_units."
+      "statement": "The school walks the sealed path from the core through the doubling orbit, proven by theorem units_iff_invertible and theorem lagrange_units.",
+      "imprint": "5a3969fa423943aa"
     },
     {
       "id": "2a8ff5fc-69cd-8408-8f4e-f87b1c1e2618",
-      "statement": "The guides, books, chat and publications pages anchor to their sealed clusters the same way, backed by theorem two_coins and theorem store_fold_order_invariant."
+      "statement": "The guides, books, chat and publications pages anchor to their sealed clusters the same way, backed by theorem two_coins and theorem store_fold_order_invariant.",
+      "imprint": "ccf94830d02a8447"
     },
     {
       "id": "a390242e-030e-83ca-8ed9-382da2fc15e1",
-      "statement": "The verify pages standardise to school quality: every metric exact, every path anchored to its sealed cluster, proven by theorem two_coins and theorem exactly_one_flag."
+      "statement": "The verify pages standardise to school quality: every metric exact, every path anchored to its sealed cluster, proven by theorem two_coins and theorem exactly_one_flag.",
+      "imprint": "163838248611b7a3"
     },
     {
       "id": "ed6d0b24-e834-8918-8309-83907bfe9998",
-      "statement": "Justice, license, privacy, search and rosetta anchor to their MCP presentations and sealed clusters at school quality, proven by theorem exactly_one_flag and theorem two_coins."
+      "statement": "Justice, license, privacy, search and rosetta anchor to their MCP presentations and sealed clusters at school quality, proven by theorem exactly_one_flag and theorem two_coins.",
+      "imprint": "f576e87f96f7b5f8"
     },
     {
       "id": "79ac126d-591f-82e7-a2c9-211da39c0bd0",
-      "statement": "The ledger pages vortex: trials presents its live endpoint, topics and theorems link every reading including the school path, and one /mcp address serves the page to people and the protocol to machines, backed by theorem two_coins and theorem exactly_one_flag."
+      "statement": "The ledger pages vortex: trials presents its live endpoint, topics and theorems link every reading including the school path, and one /mcp address serves the page to people and the protocol to machines, backed by theorem two_coins and theorem exactly_one_flag.",
+      "imprint": "5951ef34f1205e8f"
     },
     {
       "id": "7ac81012-0a92-88ed-8b0c-59de3464e739",
-      "statement": "The legal record is audited by quantum automation with each gap an exact computational prompt, and the site flattens to one navigation depth with a homepage map computed from the ledger, backed by theorem two_coins and theorem exactly_one_flag."
+      "statement": "The legal record is audited by quantum automation with each gap an exact computational prompt, and the site flattens to one navigation depth with a homepage map computed from the ledger, backed by theorem two_coins and theorem exactly_one_flag.",
+      "imprint": "8a7fd5cc3ab45298"
     },
     {
       "id": "cb263ee3-592e-8c09-935b-8b28572a20d7",
-      "statement": "The voluntary donation route is published with honest scope: off-ledger money buys no verdict and no licence; the on-ledger contribution stays the receipted two coins, proven by theorem two_coins."
+      "statement": "The voluntary donation route is published with honest scope: off-ledger money buys no verdict and no licence; the on-ledger contribution stays the receipted two coins, proven by theorem two_coins.",
+      "imprint": "b0f7ff6211be214b"
     },
     {
       "id": "7321322f-025a-83a0-abfe-c51beda78a83",
-      "statement": "The manual reading is folded to guard-speed checks: every page walks to a sealed anchor, every taught path exists, the quantum SEO payload rides every page with its canonical, proven by theorem two_coins and theorem exactly_one_flag."
+      "statement": "The manual reading is folded to guard-speed checks: every page walks to a sealed anchor, every taught path exists, the quantum SEO payload rides every page with its canonical, proven by theorem two_coins and theorem exactly_one_flag.",
+      "imprint": "ea912c987bc37d64"
     },
     {
       "id": "ee344c73-bf7b-883a-8b5a-802d52de4696",
-      "statement": "The audits fold into one guard receipt of nine components — the ring closed, contribution generating forward and verification home, proven by theorem generators_are_two_and_five and theorem order_of_five_is_six and theorem two_coins."
+      "statement": "The audits fold into one guard receipt of nine components — the ring closed, contribution generating forward and verification home, proven by theorem generators_are_two_and_five and theorem order_of_five_is_six and theorem two_coins.",
+      "imprint": "a97cd5b6b6c76364"
     },
     {
       "id": "eb2013de-8176-864b-9a8b-596345d82b77",
-      "statement": "The trials receipts fold into the one quantum receipt as the captain's deposit record, minted and recorded in one act, objected to until nothing remains but the outcome, proven by theorem two_coins and theorem generators_are_two_and_five."
+      "statement": "The trials receipts fold into the one quantum receipt as the captain's deposit record, minted and recorded in one act, objected to until nothing remains but the outcome, proven by theorem two_coins and theorem generators_are_two_and_five.",
+      "imprint": "5589c8c6d1414d8f"
     },
     {
       "id": "9465b031-eae0-8b3d-8a13-ec25e918d9ab",
-      "statement": "Quantum in uuidna is the exact walk of a generator on a unit ring, the pentagram is the step-two single stroke on the five, every convex form carries the sphere's two which is the coins' two, and the fold reads as pentagram stroke and two rosettes, proven by theorem pentagram_single_stroke and theorem euler_two_is_the_two_coins and theorem platonic_euler_characteristic_is_two and theorem two_coins."
+      "statement": "Quantum in uuidna is the exact walk of a generator on a unit ring, the pentagram is the step-two single stroke on the five, every convex form carries the sphere's two which is the coins' two, and the fold reads as pentagram stroke and two rosettes, proven by theorem pentagram_single_stroke and theorem euler_two_is_the_two_coins and theorem platonic_euler_characteristic_is_two and theorem two_coins.",
+      "imprint": "bb41151271ef7d6a"
     },
     {
       "id": "e8fabf09-4e7f-812e-8c69-300c995cf7f2",
-      "statement": "The four receipt scripts fold to one singularity api of pentagram trinities — fifteen leaves, five points of three, the stroke as the unified walk, the receipt wearing its A432 aura as declared decoration, proven by theorem pentagram_single_stroke and theorem two_coins and theorem vortex_orbit."
+      "statement": "The four receipt scripts fold to one singularity api of pentagram trinities — fifteen leaves, five points of three, the stroke as the unified walk, the receipt wearing its A432 aura as declared decoration, proven by theorem pentagram_single_stroke and theorem two_coins and theorem vortex_orbit.",
+      "imprint": "73b7c4f7923bd52d"
     },
     {
       "id": "a8dc5815-f4be-8747-b7ce-0b1a754be02b",
-      "statement": "The codemods fold into the singularity as one-receipt migrate — the finder objects, the fixer executes its exact prompts, the loop closes inside one api, proven by theorem two_coins and theorem exactly_one_flag and theorem pentagram_single_stroke."
+      "statement": "The codemods fold into the singularity as one-receipt migrate — the finder objects, the fixer executes its exact prompts, the loop closes inside one api, proven by theorem two_coins and theorem exactly_one_flag and theorem pentagram_single_stroke.",
+      "imprint": "4d3aa20d61a9271d"
     },
     {
       "id": "2d6e4d9d-eda4-8235-b9d5-fa8ea899cab9",
-      "statement": "The library's boundary folds to one named module, the packages are verified already-folded by construction, and the dry finder covers the whole tree with exactly two declared singularities, proven by theorem two_coins and theorem exactly_one_flag."
+      "statement": "The library's boundary folds to one named module, the packages are verified already-folded by construction, and the dry finder covers the whole tree with exactly two declared singularities, proven by theorem two_coins and theorem exactly_one_flag.",
+      "imprint": "39284b221e640dcb"
     },
     {
       "id": "d6ec5e06-74fb-80a0-b726-220bb1d2d4dc",
-      "statement": "The test layer folds onto its own singularity keeping the node:test defaults, the smoke scan resolves the tree through the one boundary, and the dry finder covers scripts, library, packages and tests with three declared singularities, proven by theorem two_coins and theorem exactly_one_flag."
+      "statement": "The test layer folds onto its own singularity keeping the node:test defaults, the smoke scan resolves the tree through the one boundary, and the dry finder covers scripts, library, packages and tests with three declared singularities, proven by theorem two_coins and theorem exactly_one_flag.",
+      "imprint": "91f36e0afd7e0159"
     },
     {
       "id": "82ced3a9-89b1-8fb5-8ad4-0ca59f22f110",
-      "statement": "The wave is the graduation walk, sealed into the one receipt, taught by the school, callable as the uuidna_wave tool, and the diploma it mints is a deposit in the captain record, proven by theorem pentagram_single_stroke and theorem two_coins."
+      "statement": "The wave is the graduation walk, sealed into the one receipt, taught by the school, callable as the uuidna_wave tool, and the diploma it mints is a deposit in the captain record, proven by theorem pentagram_single_stroke and theorem two_coins.",
+      "imprint": "4361edfc31efad73"
+    },
+    {
+      "id": "e25598d4-e3cf-8b8f-9ab7-20b19fca77a3",
+      "statement": "The trials record rides quantum messaging as an imprint chain from genesis to tip, the legal audit verifies completeness of the terms-record element by element, and the doctrine maps every element to where it lives, proven by theorem exactly_one_flag and theorem two_coins and theorem store_fold_order_invariant.",
+      "imprint": "b14cfc8d1d633e14"
     }
   ]
 }

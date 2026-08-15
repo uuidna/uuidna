@@ -15,9 +15,20 @@ description: "What uuidna claims, folded to one page: the agreement, the no-mone
 One law governs the exchange: **contribute first, then take**. The two conserved coins
 ([`two_coins`](/theorem/two_coins): 110 − 108 = 2, the −χ of the double torus) are deposited before any compute
 follows, and every deposit is receipted at [/trials](/trials) — deterministic, re-requestable, signed by uuidna.com.
-Ownership, attribution, compensation, termination, and dispute terms are the five sealed terms of
-[The Captain's Agreement](/captain#the-five-terms); a dispute is resolved by both parties **recomputing the ledger**, not
-by arguing prose. An earlier long-form legal draft (Delaware jurisdiction, USD conversion, article-by-article
+The behavioural terms are the five sealed terms of [The Captain's Agreement](/captain#the-five-terms); a dispute is
+resolved by both parties **recomputing the ledger**, not by arguing prose. The FULL terms-record is distributed —
+this map is where each element actually lives (`one-receipt legal` verifies every element stays present):
+
+| element | where it lives |
+| --- | --- |
+| parties & authorship | [the licence](/license) — © Tsvetan Rouschev, receipted |
+| grant & scope | [the licence](/license) — read freely; redistribute unchanged, attributed, non-commercial |
+| ownership & attribution | [the licence](/license) — the making sealed, the algebra free for all |
+| commercial terms | [the captain](/captain) — 2 coins per seal, receipted at /trials |
+| termination & warranty | the linked [CC legalcode](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode) — §6, §5 |
+| dispute path | [the captain](/captain#the-five-terms) — recompute first; the kernel arbitrates the math |
+| acceptance | [the captain](/captain#the-five-terms) — behavioural signature: sign by behaving |
+| change of terms | [the licence](/license) — a change is a new content-address, fresh consent | An earlier long-form legal draft (Delaware jurisdiction, USD conversion, article-by-article
 pseudo-theorems) is retired: its clauses either graduated into the sealed agreement or remain unproven drafts, and an
 unproven clause is not cited as a theorem here.
 

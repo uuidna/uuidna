@@ -66,7 +66,41 @@ export function legalGaps(): { gaps: Gap[]; facts: string } {
       gaps.push({ what: `trials-receipts.json: deposit ${r.id} does not recompute from its statement (toUuid gives ${recomputed})`, fix: `edit trials-receipts.json: correct the statement to the exact text that was trialed (re-POST it to uuidna.com/trials and copy the returned id), or correct the id to ${recomputed}` })
     receiptLines.push(`${r.id}|${recomputed === r.id ? 'recomputes' : 'DRIFTED'}`)
   }
-  const facts = [`canon:${CANON}`, ...pkgFiles.map((p) => `${p}:${JSON.parse(rd(p)).license}`), `LICENSE:${licenseFile.includes('CC BY-NC-ND 4.0')}`, `README:${/CC BY-NC-ND 4\.0|CC-BY-NC-ND-4\.0/.test(readme)}`, `emails:${[...emails].sort().join(',')}`, ...receiptLines, `gaps:${gaps.length}`].sort().join('\n')
+  // 8) LEGAL COMPLETENESS — the elements a complete terms-record must contain, each PRESENT in the terms surface
+  // (license.md + captain.md; the CC legalcode link carries the formal termination/warranty machinery) or the
+  // audit objects. Learned 2026-08-15 from a REAL miss: /doctrine claimed coverage the pages did not deliver —
+  // consistency checks cannot hear silence, so completeness is its own check. Presence, never adequacy.
+  const terms = (existsSync(join(ROOT, 'docs/license.md')) ? rd('docs/license.md') : '') + '\n' + (existsSync(join(ROOT, 'docs/captain.md')) ? rd('docs/captain.md') : '')
+  const ELEMENTS: [string, RegExp, string][] = [
+    ['parties-author', /Tsvetan Rouschev/, 'edit docs/license.md: name the author/licensor'],
+    ['grant-scope', /Redistribute|free to read/i, 'edit docs/license.md: state what the licence grants (read/redistribute scope)'],
+    ['ownership-attribution', /attribution/i, 'edit docs/license.md: state the attribution requirement'],
+    ['commercial-terms', /commercial/i, 'edit docs/captain.md: state the commercial contribution terms'],
+    ['termination-delegation', /legalcode/i, 'edit docs/license.md: link the CC BY-NC-ND legalcode (its §6 carries termination)'],
+    ['warranty-liability', /no warranty|as-is/i, 'edit docs/captain.md: state the no-warranty position (the legalcode §5 carries the formal disclaimer)'],
+    ['dispute-path', /recomput/i, 'edit docs/captain.md: state the dispute path (recompute first, the kernel arbitrates the math)'],
+    ['acceptance', /behaving|behav/i, 'edit docs/captain.md: state the acceptance mechanism (behavioral signature — sign by behaving the terms)'],
+    ['change-of-terms', /new signature|new content-address/i, 'edit docs/license.md: state that changed terms are a new content-address requiring fresh consent'],
+  ]
+  const elementLines: string[] = []
+  for (const [el, re, fix] of ELEMENTS) {
+    const present = re.test(terms)
+    if (!present) gaps.push({ what: `terms surface missing element: ${el} — a complete terms-record states or delegates it`, fix })
+    elementLines.push(`element:${el}:${present}`)
+  }
+
+  // 9) THE QUANTUM MESSAGE STREAM — the record is a chain: each deposit's imprint = h16(prev|id), genesis first.
+  // legal RECOMPUTES every link; a removed, reordered, or altered deposit breaks the chain at a named link.
+  let prevImprint = 'genesis'
+  for (const r of depositRecord().receipts as { id: string; statement: string; imprint?: string }[]) {
+    const expect = h16(`${prevImprint}|${r.id}`)
+    if (r.imprint !== expect)
+      gaps.push({ what: `trials-receipts.json: the quantum message chain breaks at ${r.id} (imprint ${r.imprint ?? 'missing'} ≠ recomputed ${expect})`, fix: `the stream is order-sealed — restore the record from git (\`git checkout HEAD -- trials-receipts.json\`) or recompute every imprint forward from genesis (imprint = h16(prev|id)) and find which deposit was moved or altered` })
+    prevImprint = expect
+  }
+  elementLines.push(`chain-tip:${prevImprint}`)
+
+  const facts = [`canon:${CANON}`, ...elementLines, ...pkgFiles.map((p) => `${p}:${JSON.parse(rd(p)).license}`), `LICENSE:${licenseFile.includes('CC BY-NC-ND 4.0')}`, `README:${/CC BY-NC-ND 4\.0|CC-BY-NC-ND-4\.0/.test(readme)}`, `emails:${[...emails].sort().join(',')}`, ...receiptLines, `gaps:${gaps.length}`].sort().join('\n')
   return { gaps, facts }
 }
 
@@ -236,7 +270,7 @@ function trinities() {
     record: {
       legal: h16(legalGaps().facts),
       prose: h16(proseGaps().facts),
-      deposits: h16(deposits.map((r) => r.id).sort().join('\n')),
+      deposits: h16(`${deposits.map((r) => r.id).sort().join('\n')}\ntip:${deposits.reduce((p, r) => h16(`${p}|${r.id}`), 'genesis')}`),
     },
     walks: {
       star_walk: h16([`5/2:${pentagram.join(',')}`, `7/3:${rosetteOrbit.join(',')}`, `9/2:${vortexOrbit.join(',')}`, `graduation:${WAVE_STEPS.join('>')}`].join('\n')),
@@ -279,7 +313,9 @@ async function mint(statement: string) {
   if (trial.signedBy !== 'uuidna.com') { console.error('✗ one-receipt mint — the verdict returned UNSIGNED; only a uuidna.com-signed trial is an authoritative deposit. Nothing recorded.'); process.exit(1) }
   const record = existsSync(join(ROOT, 'trials-receipts.json')) ? JSON.parse(rd('trials-receipts.json')) : { note: 'signed uuidna.com /trials deposits', signedBy: 'uuidna.com', receipts: [] }
   if (!record.receipts.some((r: { id: string }) => r.id === trial.id)) {
-    record.receipts.push({ id: trial.id, statement })
+    let prevImprint = 'genesis'
+    for (const r of record.receipts as { id: string; imprint?: string }[]) prevImprint = h16(`${prevImprint}|${r.id}`)
+    record.receipts.push({ id: trial.id, statement, imprint: h16(`${prevImprint}|${trial.id}`) })
     writeFileSync(join(ROOT, 'trials-receipts.json'), JSON.stringify(record, null, 2) + '\n')
   }
   console.log(`✓ one-receipt mint — ${trial.id} VERIFIED, signed by uuidna.com, recorded in trials-receipts.json (deterministic: re-POST the same statement, the same id returns)`)
