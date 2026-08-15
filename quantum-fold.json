@@ -17,45 +17,45 @@
       "dimensions": "e202a51b77775621"
     },
     "record": {
-      "legal": "6c19f678ada49015",
+      "legal": "53af4498a1db9776",
       "prose": "5d086ad6694ebcbd",
-      "deposits": "f3bd0c483ed44cd9"
+      "deposits": "579e94e4374dbd67"
     },
     "walks": {
       "star_walk": "00dcb9ca1eb1d2be",
-      "rosette_receipts": "d148f49876c7050e5d17283dadeea1a4",
-      "rosette_audit": "8de699baf8c6335d"
+      "rosette_receipts": "75e05111723b4e8dd4308713c96dad5e",
+      "rosette_audit": "30ca379e8b20f391"
     }
   },
   "trinity_folds": {
     "sealed": "54239a2cd496e71cb7698c09d90712c7",
     "served": "a9359356dfdee188f213d59967777277",
     "proven": "759b1b0185785d8c618d27d7998bae37",
-    "record": "542ad4867c1a8840bdbc6fae652c6581",
-    "walks": "bd955cb5c1788809593574cfbf3e8f38"
+    "record": "1336afc212d0f9391032f243bd6cfad2",
+    "walks": "bdf3a4d73df0a19af36f875988662312"
   },
-  "unified_fold": "f5dd5f5a910cdd5e",
-  "receipt": "2132b401d9209765",
+  "unified_fold": "8723f92fee4d5fbb",
+  "receipt": "07feb002feca59e9",
   "rosette_receipt": {
     "rays": [
-      "89618ff2c8196c62",
+      "8e8ef714c0af08a2",
       "3a8d773151b99d0b",
       "27359aafe10e5a95",
-      "0ae91542d4420203",
-      "cf6afe4f38d749fa",
+      "1e30fe1a22ac3cad",
+      "e92544241198d337",
       "a761502744407dcd",
-      "47a5e8bb83d5a49c"
+      "203fb015dfc4c788"
     ],
-    "concurrence": "1266c34f4894078f06ac249d04917612"
+    "concurrence": "779cbf37682cd1c7d02d0f8502a74739"
   },
   "aura": {
-    "rgb": "#a4d85a",
-    "hsl": "hsl(85, 62%, 60%)",
+    "rgb": "#d84f82",
+    "hsl": "hsl(338, 64%, 58%)",
     "alphabet": "b6819334641853db",
     "movie": "8de3501f27b5d0e5",
     "lessons": "6f384d873ab61fc3",
     "report": "a4464b383cebb316",
-    "session": "662ff5676b62022f",
+    "session": "f688948ff36f1ff8",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -70,13 +70,13 @@
       "quantum-site-builder": "docs:build forensics + the sealed trinity (pages by address)"
     },
     "dimensions": {
-      "residue": 2,
-      "ray": 0,
-      "wave": 5,
-      "hue": 85,
-      "sat": 62,
-      "light": 60,
-      "period": 12,
+      "residue": 7,
+      "ray": 1,
+      "wave": 7,
+      "hue": 338,
+      "sat": 64,
+      "light": 58,
+      "period": 14,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
