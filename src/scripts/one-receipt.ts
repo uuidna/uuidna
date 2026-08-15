@@ -229,6 +229,33 @@ export function microGaps(): { gaps: Gap[]; pages: number; claims: number } {
   return { gaps, pages, claims }
 }
 
+// ── coherent: THE MIXED-DIST FINDER — the reconcile race, folded. The wrapper's crash class was never a race in
+// one process: interleaved writers on the shared working tree leave a MIXED dist (scripts newer than index), and a
+// spawned generator dies on a missing export mid-chain. This probe detects exactly that class in milliseconds:
+// every named `import {…} from '…/index.js'` across dist must resolve against dist/index.js's real exports. ──
+export async function coherentGaps(): Promise<Gap[]> {
+  const gaps: Gap[] = []
+  const dist = join(ROOT, 'dist')
+  if (!existsSync(join(dist, 'index.js'))) return [{ what: 'dist/index.js missing — no build to probe', fix: 'npm run build' }]
+  const have = new Set(Object.keys(await import(join(dist, 'index.js'))))
+  const walk = (d: string) => {
+    for (const e of readdirSync(d, { withFileTypes: true })) {
+      const p = join(d, e.name)
+      if (e.isDirectory()) { walk(p); continue }
+      if (!e.name.endsWith('.js')) continue
+      const js = readFileSync(p, 'utf8')
+      for (const m of js.matchAll(/^import\s*\{([^}]*)\}\s*from\s*['"][^'"]*\/index\.js['"]/gm))
+        for (const raw of m[1].split(',')) {
+          const name = raw.split(' as ')[0].trim()
+          if (name && !have.has(name))
+            gaps.push({ what: `${p.slice(dist.length + 1)} imports "${name}" — absent from dist/index.js: the dist is MIXED (interleaved writers on the shared tree)`, fix: 'rm -rf dist && npm run build — one clean emit; then rerun. Never diagnose further: the class is known and the cure is total' })
+        }
+    }
+  }
+  walk(dist)
+  return gaps
+}
+
 // ── seal: THE DRAIN, PROMOTED — the autoseal shell folded into the api: drain any dirty tree or unpushed commit
 // (fold → guard → commit → push, reconcile-retry) until clean and synced. The captain's cron, now a subcommand. ──
 export function seal(): void {
@@ -464,10 +491,11 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'prose') { const r = proseGaps(); report('one-receipt prose', r.gaps, `all ${r.pages} pages walk to the ledger and teach only paths that exist.`) }
   else if (cmd === 'migrate') migrate()
   else if (cmd === 'seal') seal()
+  else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))
   else if (cmd === 'micro') { const r = microGaps(); report('one-receipt micro', r.gaps, `${r.pages} JSON-LD blocks, ${r.claims} structured claims — every identifier a real address, every cited part a sealed theorem.`) }
   else if (cmd === 'wave') wave(process.argv[3]?.trim() || '')
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | coherent | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }
