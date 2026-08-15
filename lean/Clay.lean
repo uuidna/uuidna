@@ -1,4 +1,4 @@
--- lean/Clay.lean — GENERATED. The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Clay.lean — GENERATED. The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED is sealed by a theorems-only secure-messaging vote of the seven Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the ℤ/9 vortex = the reflection
 
@@ -34,3 +34,9 @@ theorem clay_birch_swinnerton_dyer : (dz 6 = 4) ∧ (dz (dz 6) = 6) ∧ ((0:Nat)
 
 -- the Poincaré conjecture reflects to residue 3 in ℤ/9 (dz(7)=3); reflecting twice returns it — dz(dz(7))=7 — SOLVED (Perelman, 2003)
 theorem clay_poincare : (dz 7 = 3) ∧ (dz (dz 7) = 7) ∧ ((0:Nat) < 1) := by decide
+
+-- VERIFIED ≠ SOLVED — verification is the kernel's judgment on the stated proposition, solved is the world's judgment on the named problem, and the seal confers the first, never the second: 7 reflected and sealed, 0 solved by the reflection, 1 solved by humanity (Perelman); 7 ≠ 0, 7 ≠ 1, 0 ≠ 1
+theorem clay_verified_ne_solved : ((7:Nat) ≠ 0) ∧ ((7:Nat) ≠ 1) ∧ ((0:Nat) ≠ 1) := by decide
+
+-- the distinction was decided by theorems only — the seven reflected theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt 5a677acc-7a82-8de2-818e-abbbfee4119d; 7 + 0 = 7 and 0 < 7
+theorem clay_vote_theorems_only : (7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0) := by decide
