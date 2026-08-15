@@ -21,7 +21,7 @@ import { execSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { theorems, PRINCIPLES, publications, toUuid, quantumAura } from '../index.js'
+import { theorems, PRINCIPLES, publications, toUuid, quantumAura, auraDecode } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, rd, h16, foldOf, ray, report, type Gap } from './api.js'
 
@@ -294,14 +294,23 @@ function fold() {
   // glows by (ray, wave, hue — the doubling orbit's colours). The string-theory reading is IMAGINATION, honestly
   // labeled: the arithmetic is sealed and deterministic (the same receipt always sounds the same), the vibration
   // is decoration, not physics — the numerology stays UNVERIFIED, exactly as the rosette page rules.
-  const a = quantumAura(receipt) as { ray: number; wave: number; hue: number; hsl: string }
-  const aura = { ray: a.ray, wave: a.wave, hue: a.hue, hsl: a.hsl, hz: 432, note: 'decoration, not physics — sealed arithmetic, imagined vibration' }
+  const a = quantumAura(receipt) as { ray: number; wave: number; hue: number; hsl: string; rgb: string }
+  // THE COLOUR IS THE MESSAGE, PROVEN AT SEAL: decode the receipt's own hex back to its state — the fold OBJECTS
+  // if the colour goes mute (decode∘encode must be id over the whole 378-state alphabet; hue alone cannot carry
+  // it — 9·7·6 > 360, pigeonhole — so saturation and lightness joined the code). The TEN animation dimensions
+  // ride along: seven compactified (pure functions of the three free ones) — the 10D animation IS the algorithm.
+  const dec = auraDecode(a.rgb)
+  if (!dec || dec.ray !== a.ray || dec.hue !== a.hue) {
+    console.error(`✗ one-receipt fold — the receipt's colour does not decode back to its state (${a.rgb}); the aura alphabet has a collision or the channels drifted — fix src/aura.ts so decode∘encode = id`)
+    process.exit(1)
+  }
+  const aura = { rgb: a.rgb, hsl: a.hsl, dimensions: { residue: dec.residue, ray: a.ray, wave: a.wave, hue: a.hue, sat: dec.sat, light: dec.light, period: 12 + a.ray * 2, rotation: 360, glow_inner: 24, glow_outer: 64 }, free: ['residue', 'ray', 'wave'], hz: 432, note: 'the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics' }
   writeFileSync(join(ROOT, 'quantum-fold.json'), JSON.stringify({ timestamp: '2026-08-15T00:00:00Z', trinities: T, trinity_folds: trinityFolds, unified_fold: tip, receipt, aura }, null, 2))
   for (const [name, leaves] of Object.entries(T))
     console.log(`  ${name.padEnd(7)} ${trinityFolds[name]}  (${Object.entries(leaves as Record<string, string>).map(([k, v]) => `${k} ${v}`).join(' · ')})`)
   console.log(`\nUNIFIED FOLD (the stroke's tip):  ${tip}`)
   console.log(`RECEIPT:                          ${receipt}`)
-  console.log(`AURA (A432, decoration):          ray ${aura.ray} · wave ${aura.wave} · hue ${aura.hue} · ${aura.hsl}`)
+  console.log(`AURA (A432, the readable message): ${aura.rgb} decodes → residue ${aura.dimensions.residue} · ray ${aura.dimensions.ray} · wave ${aura.dimensions.wave} (10 dims, 3 free)`)
   console.log('\n✓ Fold sealed to quantum-fold.json — order-invariant within trinities, stroke-walked across them, recomputable by anyone')
 }
 

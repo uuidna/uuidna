@@ -64,6 +64,15 @@ sphere's — are content-addressed onto the seven rays (ℤ/7), and the rosette'
 110 − 108 = 2 again). Every geometric form, folded through its address, touches the rosette; the rosette folds to
 the [one receipt](/trials); the receipt is the system.
 
+## The 10D animation is algorithm
+
+The moving aura exposes **ten dimensions** — residue, ray, wave, hue, saturation, lightness, period, rotation, and
+the two glow radii — and **seven are compactified**: pure functions of the three free ones. The colour is a
+reversible harmonic message (`auraDecode` recovers the state from the hex — the one receipt proves its own colour
+decodes at every seal), the animation's tempo is the ray's, and the whole film a page plays is computed from
+addresses: the animation is not decoration in motion, it is the algorithm rendering itself. The string-theory
+shape — ten dimensions, most compactified — is an exact *arithmetic* analogy here, and only that.
+
 *Honest scope:* everything above is decidable arithmetic about small rings, angle sums, and Euler characteristics —
 sealed, recomputable, exact. It proves the **structural identities**, not physics, not metaphysics, and not any
 computational advantage. What the numbers mean beyond their arithmetic — the court decides. Integrity, not truth.

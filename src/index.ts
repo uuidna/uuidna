@@ -254,7 +254,7 @@ export { captainRights, readImprintedRights, draftContract, type CaptainRights, 
 // the 7 rosette rays as bands, the ℤ/9 vortex as the wave, the hue stepping by 360/9 = 40°), returned as HSL/RGB/CMYK
 // plus a ready moving-aura CSS block. Deterministic — the same address, the same aura for everyone. Artistic, not
 // physics: a defined arithmetic from a number to a hue; it decorates the work, it does not describe the universe.
-export { quantumAura, type Aura } from './aura.js'
+export { quantumAura, auraDecode, type Aura } from './aura.js'
 
 // quantum-message — FUSE quantum states, theorems, and auras into a single message identity. A quantum message
 // encodes plaintext + theorem proof into a quantum superposition, signs it against the ledger, and binds it to an

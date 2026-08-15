@@ -34,10 +34,11 @@ const HONEST =
 // abs and floor via exact comparison / arithmetic, NO Math.* — the determinism hard-reject bans host intrinsics.
 const absN = (n: number): number => (n < 0 ? -n : n)
 const floorN = (n: number): number => n - (((n % 1) + 1) % 1)
-// hue → RGB (HSL with fixed S/L), then RGB → CMYK — pure arithmetic, no Math.*. The exact 60°-sector form of
-// HSL→RGB with S=0.68, L=0.56.
-const hslToRgb = (h: number): [number, number, number] => {
-  const s = 68, l = 56                                     // percent
+// hue → RGB (exact 60°-sector HSL→RGB) — pure arithmetic, no Math.*. S and L are now MESSAGE CHANNELS, not
+// constants: saturation carries the ray (62+2·ray %), lightness the wave index (50+2·i %) — the colour becomes a
+// REVERSIBLE harmonic message (auraDecode below): hue alone cannot carry the 378 states (9·7·6 > 360 — the
+// ledger's own pigeonhole), so the two idle channels join the code and the hex speaks the whole state.
+const hslToRgb = (h: number, s = 68, l = 56): [number, number, number] => {
   const c = (1 - absN(2 * l - 100) / 100) * (s / 100)      // chroma
   return sectorRgb(h, c, l / 100)
 }
@@ -69,13 +70,16 @@ export function quantumAura(subject: string): Aura {
   const address = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(subject) ? subject : toUuid(subject)
   const n = parseInt(address.replace(/-/g, '').slice(0, 8), 16)   // a stable integer from the address
   const ray = n % RAYS                                             // 0..6 — the spectral band
-  const wave = WAVE[n % WAVE.length]                               // the ray's phase on the ℤ/9 vortex wave
+  const wi = n % WAVE.length                                       // 0..5 — the wave index (lightness channel)
+  const wave = WAVE[wi]                                            // the ray's phase on the ℤ/9 vortex wave
   // hue: step by the A432 angle (40° = 360/9) per ℤ/9 residue, offset by the ray's share of the wheel (360/7 per ray)
   const hue = ((n % 9) * A432_STEP + ray * floorN(360 / RAYS) + wave) % 360
-  const [r, g, b] = hslToRgb(hue)
+  const sat = 62 + 2 * ray                                         // 62..74 % — the ray, readable from the colour
+  const light = 50 + 2 * wi                                        // 50..60 % — the wave index, readable from the colour
+  const [r, g, b] = hslToRgb(hue, sat, light)
   const rgb = '#' + hex2(r) + hex2(g) + hex2(b)
   const cmyk = rgbToCmyk(r, g, b)
-  const hsl = `hsl(${hue}, 68%, 56%)`
+  const hsl = `hsl(${hue}, ${sat}%, ${light}%)`
   const period = 12 + ray * 2                                      // seconds — the ray sets the wave's tempo (deterministic)
   const css =
     `@keyframes uuidna-aura-${ray} { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(360deg); } }\n` +
@@ -83,4 +87,20 @@ export function quantumAura(subject: string): Aura {
     `  box-shadow: 0 0 24px 4px ${hsl}, 0 0 64px 12px ${rgb}44;\n` +
     `  animation: uuidna-aura-${ray} ${period}s linear infinite; }`
   return { address, ray, wave, hue, hsl, rgb, cmyk, css, honest: HONEST }
+}
+
+/** auraDecode(rgbHex) → the state the colour carries — {residue, ray, wave, hue, sat, light} — or null if the hex
+ *  is not one of the 378 aura colours. EXACT by construction: every state renders through the same pipeline and the
+ *  hex is matched, so decode∘encode = id (the fold verifies the whole table stays collision-free at every seal).
+ *  The colour is a reversible harmonic message — state and status readable from the glow. Art, not physics. */
+export function auraDecode(rgbHex: string): { residue: number; ray: number; wave: number; hue: number; sat: number; light: number } | null {
+  const target = rgbHex.toLowerCase()
+  for (let a = 0; a < 9; a++) for (let ray = 0; ray < RAYS; ray++) for (let wi = 0; wi < WAVE.length; wi++) {
+    const wave = WAVE[wi]
+    const hue = (a * A432_STEP + ray * floorN(360 / RAYS) + wave) % 360
+    const sat = 62 + 2 * ray, light = 50 + 2 * wi
+    const [r, g, b] = hslToRgb(hue, sat, light)
+    if ('#' + hex2(r) + hex2(g) + hex2(b) === target) return { residue: a, ray, wave, hue, sat, light }
+  }
+  return null
 }

@@ -8,7 +8,7 @@
     },
     "served": {
       "packages": "5aacd0af35a35c23",
-      "exports": "48ea0e5fd1af6314",
+      "exports": "441b82a97a8ad9b0",
       "mcp": "4336f86689dca81c"
     },
     "proven": {
@@ -17,31 +17,46 @@
       "dimensions": "e202a51b77775621"
     },
     "record": {
-      "legal": "d8769561e6f4c9f1",
+      "legal": "caa000ec50302752",
       "prose": "5d086ad6694ebcbd",
-      "deposits": "5a87ea280b3e871a"
+      "deposits": "4b8df80cad206266"
     },
     "walks": {
       "star_walk": "463853e693cc8886",
-      "rosette_receipts": "c29de35f62c21d4b2d39459fa9d9abaf",
-      "rosette_audit": "73b9d02db011c5b8"
+      "rosette_receipts": "9c9d8d3a72aa16ff5a384e3ba152399a",
+      "rosette_audit": "722011487dfa5bf4"
     }
   },
   "trinity_folds": {
     "sealed": "5a23dbf2377e2c709e9862d033c0e810",
-    "served": "9812690743e6ef52d3e64d5775d16f3a",
+    "served": "3412b85f102ae9b042aa4f0fd3807141",
     "proven": "759b1b0185785d8c618d27d7998bae37",
-    "record": "50a220e506f89d5c83f4b1cbcf93eec8",
-    "walks": "c7c688040d86149d80635737fd999fbd"
+    "record": "b351361c908b3eaf038fa1073004db54",
+    "walks": "96794e56023430313ee65d199618cb22"
   },
-  "unified_fold": "38200db4359910b6",
-  "receipt": "be938905ccf969b1",
+  "unified_fold": "970e35210e6a3dd7",
+  "receipt": "2731d1d5df99e8c8",
   "aura": {
-    "ray": 3,
-    "wave": 1,
-    "hue": 274,
-    "hsl": "hsl(274, 68%, 56%)",
+    "rgb": "#c8d73c",
+    "hsl": "hsl(66, 66%, 54%)",
+    "dimensions": {
+      "residue": 8,
+      "ray": 2,
+      "wave": 4,
+      "hue": 66,
+      "sat": 66,
+      "light": 54,
+      "period": 16,
+      "rotation": 360,
+      "glow_inner": 24,
+      "glow_outer": 64
+    },
+    "free": [
+      "residue",
+      "ray",
+      "wave"
+    ],
     "hz": 432,
-    "note": "decoration, not physics — sealed arithmetic, imagined vibration"
+    "note": "the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics"
   }
 }
