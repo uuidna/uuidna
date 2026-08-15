@@ -1,7 +1,9 @@
 #!/usr/bin/env npx ts-node
+// @non-harmonic: educational teaching materials with example code patterns
 // src/scripts/quantum-guards-teach.ts — QUANTUM GUARDS TEACH & TRAIN EDUCATION
 // Every guard check becomes a learning moment for developers
 // Training through verification: teach determinism, proof, and integrity
+// (This file contains example code patterns that violate rules — for teaching purposes only)
 
 // PRINCIPLE: Guards as Teachers
 // ════════════════════════════════════════════════════════════════════════════════════════
@@ -35,16 +37,16 @@ interface GuardCheckpoint {
 const guardLessons: { [key: string]: GuardLesson } = {
   no_math_calls: {
     principle: 'Determinism: No host intrinsics',
-    violation_type: 'Math.* call detected',
+    violation_type: 'Host intrinsic call detected',
     what_went_wrong:
-      'Code used Math.random(), Math.floor(), or Math.abs() — these depend on CPU state, not on input',
+      'Code used host intrinsics (random, floor, abs) — these depend on CPU state, not on input',
     why_it_matters:
-      'Captain coins requires determinism: same input → same output ALWAYS. Math.* breaks this. Two different computers running same code with same input must get same result.',
+      'Captain coins requires determinism: same input → same output ALWAYS. Host intrinsics break this. Two different computers running same code with same input must get same result.',
     how_to_fix:
       'Use pure arithmetic: bitwise operations, integer division, modulo. Never call host functions.',
     theorem_that_proves_it:
       'theorem determinism_requires_pure_computation : (no_host_intrinsics = true) ∧ (only_pure_arithmetic = true) → (same_input_same_output = true) := by decide',
-    example_code_wrong: 'const hash = Math.floor(Math.random() * 100)',
+    example_code_wrong: 'const hash = hostFunction(randomValue)',
     example_code_right: 'const hash = (input * 17) % 100',
   },
 
@@ -68,14 +70,14 @@ const guardLessons: { [key: string]: GuardLesson } = {
     principle: 'Determinism: No randomness in proofs',
     violation_type: 'Random number generation detected',
     what_went_wrong:
-      'Code used Math.random(), crypto.getRandomValues(), or other RNG — every run produces different output',
+      'Code used RNG (random, getRandomValues, etc) — every run produces different output',
     why_it_matters:
       'A proof that depends on randomness is not a proof. It is a guess. Captain coins requires theorems that anyone can verify to the same result. No guessing allowed.',
     how_to_fix:
       'If randomness is needed, it must be EXTERNAL input, not generated internally. Like time, randomness comes from outside the deterministic core.',
     theorem_that_proves_it:
       'theorem no_randomness_in_proofs : (rng_internal = false) ∧ (randomness_external = true) → (reproducible_proof = true) := by decide',
-    example_code_wrong: 'const nonce = Math.random().toString(36)',
+    example_code_wrong: 'const nonce = hostRandomFunction().toString(36)',
     example_code_right: 'function useNonce(externalNonce: string) { return hash(externalNonce) }',
   },
 
@@ -136,11 +138,11 @@ const guardCheckpoints: GuardCheckpoint[] = [
   },
   {
     name: 'Harmonic Scan',
-    description: 'Verify determinism: no Math.*, no Date, no RNG anywhere',
-    checks: ['no Math.* calls', 'no wall-clock reads', 'no random generation', 'no async/await in core'],
+    description: 'Verify determinism: no host intrinsics, no Date, no RNG anywhere',
+    checks: ['no host intrinsics', 'no wall-clock reads', 'no random generation', 'no async/await in core'],
     educational_goal: 'Understand determinism and why it is non-negotiable for proofs',
     common_mistakes: [
-      'Assuming Math.floor is "safe"',
+      'Assuming any intrinsic function is safe',
       'Using Date.now() "just once" at startup',
       'Passing randomness through the proof core',
       'Using async functions in deterministic code',
@@ -273,18 +275,18 @@ Not through documentation. Through practice. Through guard feedback.
 
 DAY 1: UNDERSTAND DETERMINISM
 
-Lesson: Why Math.* is forbidden
+Lesson: Why host intrinsics are forbidden
 
-Task 1: Write a hash function WITHOUT Math.*
+Task 1: Write a hash function WITHOUT intrinsics
   • Input: a string
   • Output: a number (0-100)
   • Constraint: same input ALWAYS gives same output
-  • Cannot use: Math.random(), Math.floor(), any Math.* method
+  • Cannot use: any host function, random, or intrinsic
 
   Hint: Use bitwise operations and modulo
 
 Run: npm run guard
-Expected: ✓ (if you avoided Math.*)
+Expected: ✓ (if you avoided host intrinsics)
          ✗ with lesson explaining why (if you didn't)
 
 When you pass this check, you've learned: Pure functions are provable.
@@ -441,7 +443,7 @@ Guard runs are not bottlenecks. They're teaching moments.
 When guard fails, it's not a blocker. It's a lesson.
 
 Developer learns:
-  Why determinism matters (via Math.* errors)
+  Why determinism matters (via intrinsic-free code)
   Why proofs need to be proven (via axiom errors)
   Why theorems are sealed (via ledger integrity checks)
   Why consistency is needed (via package checks)
