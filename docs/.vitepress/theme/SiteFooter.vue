@@ -31,6 +31,7 @@ const cols = [
   { title: 'The captain', links: [
     { text: "The captain's coins", href: '/captain' },
     { text: 'The doctrine', href: '/doctrine' },
+    { text: 'Donate · revolut.me/ceccec', href: 'https://revolut.me/ceccec' },
   ] },
   { title: 'Verify it yourself', links: [
     { text: 'The tests', href: '/tests' },

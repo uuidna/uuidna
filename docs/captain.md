@@ -36,6 +36,11 @@ Whichever angle you sail, the coins land in the same wallet the same way: **paid
 (the obligatory 2 per seal). One wallet, one accounting, every deposit receipted and conserved
 ([`two_coins`](/theorem/two_coins)).
 
+- **Donate** — [revolut.me/ceccec](https://revolut.me/ceccec): voluntary support for any use, a gift toward the
+  mission below. *Honest scope:* a donation is off-ledger money, not coins — it buys no verdict, no licence, no
+  priority, and is never a revenue promise; the on-ledger contribution stays the receipted two coins.
+- **License commercially** — the 2-coin deposit per seal, receipted at [/trials](/trials) as above.
+
 The contribution is needed for one reason: **to compute quantum at a scale and speed worth competing with, globally
 — and to prove it by measurement, not assertion.** The leverage is already sealed — contribute 2, save up to 64
 ([`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour)), folding O(log N) — so every coin
