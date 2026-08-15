@@ -4,7 +4,7 @@
 // Pure and offline. Integrity, not truth.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed } from '../index.js'
+import { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs } from '../index.js'
 
 const CONTENTS = 'theorem two_coins : 2 = 2 := by decide\n'
 
@@ -46,4 +46,19 @@ test('the seed is a stamped, verifiable nested page: parent + one nested child p
   assert.equal(pages.length, 1, 'one nested child page per theorem')
   assert.equal(verifySeed(seed, 'Coins', CONTENTS), true, 'folder name and document address both recompute')
   assert.equal(verifySeed(seed, 'Coins', CONTENTS + 'x'), false, 'a tampered source no longer verifies this version')
+})
+
+test('payload sync speaks only the standard shapes: pages, nested-docs parent, drafts _status, lexical content', () => {
+  const entries = [{ key: 'two_coins', name: 'the two coins', statement: '2 = 2', lean: CONTENTS.trim() }]
+  const docs = toPayloadDocs(buildLeanPageSeed('Coins', CONTENTS, entries, true))
+  assert.equal(docs.length, 2, 'one parent page + one nested child per theorem')
+  const [parent, child] = docs
+  assert.equal(parent.parent, null, 'the lean file is a root page')
+  assert.equal(parent._status, 'published', 'usable maps to the drafts plugin published state')
+  assert.equal(child.parent, parent.slug, 'the theorem is nested under its file — the nested-docs relation')
+  assert.equal(child.slug, 'theorem-two_coins')
+  assert.equal(child.content.root.type, 'root', 'the content field is the lexical editor-state shape')
+  assert.equal(parent.uuidnaVersion, child.uuidnaVersion, 'one version uuid rides every doc — idempotent upsert by equality')
+  const draft = toPayloadDocs(buildLeanPageSeed('Draft1', 'x', [], false))
+  assert.equal(draft[0]._status, 'draft', 'a lean file with nothing sealed syncs as a draft, never published')
 })

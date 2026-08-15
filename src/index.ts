@@ -88,7 +88,7 @@ export { serialize, documentAddress, documentHandle, reAddress, payloadFoldHook,
 // src/lean/<uuid>, the uuid a reversible IMPRINT of (status ∥ stem ∥ content) — a changed file mints a new
 // immutable version folder, and readSeed reverse-engineers status/stem/content OUT of the folder name, so
 // filtering and indexing cost nothing: the listing IS the index. Integrity, not truth.
-export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, type SeedStatus, type SeedIdentity, type LeanPageSeed } from './payload-seed.js'
+export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs, type SeedStatus, type SeedIdentity, type LeanPageSeed, type PayloadDoc } from './payload-seed.js'
 
 // crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
 // envelope. No native WebCrypto — nothing but latest TypeScript, KAT-verified against the standards' vectors.

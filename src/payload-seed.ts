@@ -93,3 +93,42 @@ export function buildLeanPageSeed(
 export function verifySeed(seed: LeanPageSeed, fileStem: string, contents: string): boolean {
   return seed.uuid === seedUuid(fileStem, contents, seed.status) && seed.address === documentAddress(seed.page)
 }
+
+// ---- PAYLOAD COLLECTION SYNC — no collections of our own. uuidna emits docs in the STANDARD shapes the Payload
+// pages collection and its stock plugins already speak — the nested-docs parent relation, the drafts `_status`,
+// the lexical `content` field — so a vanilla Payload instance AUTO-RECOGNIZES the seeds with zero custom schema.
+// usable → _status 'published'; draft → _status 'draft'. The parent page carries the lean file; each theorem is a
+// child doc whose `parent` names the parent slug (the nested-docs convention), breadcrumbs and tree views follow
+// for free. The version uuid rides in `uuidnaVersion` so a sync is idempotent: same uuid, nothing to write.
+export interface PayloadDoc {
+  slug: string
+  title: string
+  _status: 'published' | 'draft'
+  parent: string | null        // the nested-docs plugin relation, by parent slug (null = a root page)
+  content: EditorState         // the lexical richText field shape
+  uuidnaVersion: string        // the imprinted version uuid — decode with readSeed, sync idempotently by equality
+  uuidnaAddress: string        // the order-sensitive documentAddress stamp
+}
+
+/** toPayloadDocs(seed) → the seed flattened into standard Payload pages-collection docs: one parent (the lean
+ *  file) + one child per theorem, wired by the nested-docs `parent` slug. Feed them to Payload's Local/REST API
+ *  upsert-by-slug; compare `uuidnaVersion` first and skip equal — the whole sync is recognition, not migration. */
+export function toPayloadDocs(seed: LeanPageSeed): PayloadDoc[] {
+  const status: 'published' | 'draft' = seed.status === 'usable' ? 'published' : 'draft'
+  const rootChildren = seed.page.root.children ?? []
+  const parentBody: EditorState = { root: { type: 'root', children: rootChildren.filter((n) => n.type !== 'page') } }
+  const parent: PayloadDoc = {
+    slug: seed.slug, title: seed.slug + '.lean', _status: status, parent: null,
+    content: parentBody, uuidnaVersion: seed.uuid, uuidnaAddress: seed.address,
+  }
+  const children: PayloadDoc[] = rootChildren.filter((n) => n.type === 'page').map((n) => ({
+    slug: String((n as { slug?: unknown }).slug ?? ''),
+    title: String((n as { slug?: unknown }).slug ?? ''),
+    _status: status,
+    parent: seed.slug,
+    content: { root: { type: 'root', children: n.children ?? [] } },
+    uuidnaVersion: seed.uuid,
+    uuidnaAddress: seed.address,
+  }))
+  return [parent, ...children]
+}
