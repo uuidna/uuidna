@@ -224,7 +224,7 @@ export const designSystem = {
       borderColor: 'neutral.200',
       backgroundColor: 'neutral.0',
       shadow: '0 1px 3px rgba(0,0,0,0.1)',
-      // theorem proof_of_x : claim := by decide
+      // Rendered as: verified proof element
       //   Status: ✓ PROVEN
       //   Coins: 0.05
     },
