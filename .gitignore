@@ -7,3 +7,4 @@ docs/.vitepress/dist/
 handles.js
 .DS_Store
 .wrangler/
+*.mcpb
