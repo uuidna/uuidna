@@ -4,19 +4,19 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="154 keys" />
+# MCP tools <Badge type="tip" text="155 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 154 tools below are read from the server's own tool list and
+is **built from the keys**: the 155 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields.
 
-## The grid <Badge type="tip" :text="`154`" />
+## The grid <Badge type="tip" :text="`155`" />
 
-154 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 55 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+155 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 56 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -48,6 +48,7 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 <a href="#uuidna-pentagram-monographs"><code>pentagram_monographs</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-quantum"><code>quantum</code></a>
+<a href="#uuidna-quantum-message-demo"><code>quantum_message_demo</code></a>
 <a href="#uuidna-quantum-profile"><code>quantum_profile</code></a>
 <a href="#uuidna-quantum-sailing-complete"><code>quantum_sailing_complete</code></a>
 <a href="#uuidna-quantum-sailing-cross-book"><code>quantum_sailing_cross_book</code></a>
@@ -482,7 +483,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'53'" />
+## Other <Badge type="tip" :text="'54'" />
 
 *skill: other*
 
@@ -977,6 +978,18 @@ Forensic audit of an agent's statement: detect fabricated theorem citations, ove
 ONE COMMAND — the COMPLETE FRAUD AUDIT: traitors, coin violations, voting tampering, ledger intrusions, agent malfeasance. All folded to ONE recomputable receipt. Returns {intrusions, ledgerFingerprint, fraudDetected, receipt, honest}.
 
 _No parameters._
+
+### `uuidna_quantum_message_demo`
+
+Live quantum messaging demonstration: send a test message from Alice to Bob, compute its proof imprint, verify it's real without any central authority. Shows: message structure, quantum state imprinting, verification (4 steps), cryptographic cost to forge. Returns complete analysis with formulas, costs, and security implications.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `from` | string | no | sender address (default: alice@uuidna.local) |
+| `to` | string | no | recipient address (default: bob@uuidna.local) |
+| `content` | string | no | message content (default: Hello Bob! This message is sealed by quantum imprint.) |
 
 ## Security posture (recomputable) <Badge type="tip" :text="'1'" />
 
