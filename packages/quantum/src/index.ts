@@ -20,7 +20,7 @@ export { pentagramStream, type PentagramStream, type PentagramStreamCell } from 
 export { pentagramMonographs, type Pentagram, type PentagramPoint, type PentagramMonographs } from '@uuidna/uuidna'
 export { quantumAnalytics, type QuantumAnalytics, type Distribution, type LayerMeasure } from '@uuidna/uuidna'
 export { quantumAura, type Aura } from '@uuidna/uuidna'
-export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, type QuantumMessage, type QuantumState } from '@uuidna/uuidna'
+export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, sealMessage, openMessage, type QuantumMessage, type QuantumState, type SealedQuantumMessage } from '@uuidna/uuidna'
 export { agentContribute, encodeVote, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, type AgentContribution, type Vote, type QuantumVote, type CommitWithVoting } from '@uuidna/uuidna'
 export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, type SailingBook, type QuantumSailingLibrary } from '@uuidna/uuidna'
 export { extractFactsFromArticle, auditFactAgainstLedger, buildNewsPortal, renderPortalSummary, tallyJudgmentVotes, shouldSealFact, type NewsArticle, type NewsExtractedFact, type FactJudgment, type NewsPortal, type JudgmentVote } from '@uuidna/uuidna'

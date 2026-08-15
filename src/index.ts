@@ -255,7 +255,7 @@ export { quantumAura, type Aura } from './aura.js'
 // (the proof is sealed). A quantum message is a WITNESSED message — the witness is a sealed theorem, and the
 // message's quantum encoding proves the witness was cited. The same message always folds to the same aura and
 // quantum state for every observer — integrity without secrets.
-export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, type QuantumMessage, type QuantumState } from './quantum/message.js'
+export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, sealMessage, openMessage, type QuantumMessage, type QuantumState, type SealedQuantumMessage } from './quantum/message.js'
 
 // quantum-voting — CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins to the captain,
 // and earn voting rights proportional to coins paid. Votes are encoded in quantum superposition (deterministic,

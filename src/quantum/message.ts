@@ -6,11 +6,18 @@
 // Not a cipher (everyone sees the aura, the state, and can rebuild it); not a signature (the
 // proof is sealed, not cryptographic). A quantum message is a **witnessed message** — the witness
 // is a sealed theorem, and the message's quantum encoding is the proof that the witness was cited.
+//
+// sealMessage/openMessage COMPLETE the crypto↔quantum fusion: secrecy from the ChaCha20-Poly1305 envelope
+// (crypt.ts, symmetric-only — no Shor target, Grover only halves the 256-bit key to a ~128-bit floor), the
+// witness from the sealed theorem — quantum-encoded over the CIPHERTEXT envelope's address, never the
+// plaintext, so anyone verifies the witness and the envelope's integrity while only the key holder reads.
+// The quantum encoding adds NO secrecy and NO quantum channel — not QKD, no quantum advantage claimed.
 
 import { theorems, toUuid } from '../index.js'
 import { quantumAura, type Aura } from '../aura.js'
 import { ket0, hadamard, pauliX, pauliZ, label, fraction, type QState } from './index.js'
 import { merkleGravity } from '../gravity.js'
+import { encrypt, decrypt, verifyEnvelope, type Sealed } from '../crypt.js'
 
 export interface QuantumMessage {
   id: string                  // content-address: toUuid(plaintext + theorem_key)
@@ -144,4 +151,43 @@ export function deserializeMessage(data: {
   theoremKey: string
 }): QuantumMessage {
   return encodeMessage(data.plaintext, data.theoremKey)
+}
+
+/** A SEALED quantum message — the crypto↔quantum fusion. The envelope carries the secrecy (ChaCha20-Poly1305);
+ *  the quantum witness is encoded over the envelope's 7d-fold ADDRESS (the ciphertext identity), never the
+ *  plaintext — so the witness and the envelope's integrity verify publicly while the plaintext stays sealed. */
+export interface SealedQuantumMessage {
+  sealed: Sealed              // the ChaCha20-Poly1305 envelope — secrecy from crypt alone
+  witness: QuantumMessage     // encodeMessage(sealed.address, theoremKey) — witnesses the ciphertext, not the plaintext
+  fold: string                // merkleGravity of (envelope address, witness fold) — one identity for the fusion
+  honest: string
+}
+
+const SEALED_HONEST =
+  'Secrecy comes from ChaCha20-Poly1305 alone (symmetric-only: no Shor target; Grover only halves the 256-bit key ' +
+  'to a ~128-bit floor). The quantum encoding adds NO secrecy and NO quantum channel — it is the recomputable ' +
+  'WITNESS that a sealed theorem was cited, bound to the ciphertext envelope’s address so it verifies without ' +
+  'revealing the plaintext. Not QKD, no quantum advantage. Integrity and secrecy composed, each from its own proofs.'
+
+/** sealMessage(plaintext, passphrase, theoremKey, step?) → a sealed quantum message: encrypt first (convergent, or
+ *  pass an advancing `step` to close the equality leak), then quantum-witness the ENVELOPE. Deterministic for the
+ *  same inputs; a theoremKey not sealed in the ledger throws (a fabricated witness never seals a message). */
+export function sealMessage(plaintext: string, passphrase: string, theoremKey: string, step?: number): SealedQuantumMessage {
+  const sealed = encrypt(plaintext, passphrase, step)
+  const witness = encodeMessage(sealed.address, theoremKey)
+  return { sealed, witness, fold: merkleGravity([sealed.address, witness.fold]), honest: SEALED_HONEST }
+}
+
+/** openMessage(message, passphrase) → the plaintext, ONLY if the whole fusion verifies: the envelope's address
+ *  recomputes (tamper-evident), the witness binds exactly that address, the witness itself verifies against the
+ *  ledger, and Poly1305 authenticates the decrypt (a wrong key or tampered ciphertext throws). Refuses to open a
+ *  message whose witness fails — an unverified witness drains the claim before the key is even tried. */
+export function openMessage(message: SealedQuantumMessage, passphrase: string): { plaintext: string; theoremKey: string; reason: string } {
+  if (!verifyEnvelope(message.sealed)) throw new Error('sealed quantum message: the envelope address does not recompute (tampered or forged envelope)')
+  if (message.witness.plaintext !== message.sealed.address) throw new Error('sealed quantum message: the witness does not bind this envelope (witness/ciphertext mismatch)')
+  const w = verifyMessage(message.witness)
+  if (!w.valid) throw new Error('sealed quantum message: the witness fails — ' + w.reason)
+  if (merkleGravity([message.sealed.address, message.witness.fold]) !== message.fold) throw new Error('sealed quantum message: the fusion fold does not recompute')
+  const plaintext = decrypt(message.sealed, passphrase)
+  return { plaintext, theoremKey: message.witness.theoremKey, reason: 'opened — envelope integral, witness sealed, Poly1305 authenticated' }
 }
