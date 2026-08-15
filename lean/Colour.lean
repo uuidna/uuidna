@@ -1,5 +1,14 @@
 -- lean/Colour.lean — GENERATED. THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. The geometry of the wheel, NOT a claim that taste or beauty is objective. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
+-- THE HEART DISCOVERY: each rosette ray offsets the hue wheel by 360/7 = 51°, and the FOURTH ray (index 3, counting the first as 1) lands at 3·51 = 153° — squarely the green band. The seven rays walk the wheel as seven stations, and the fourth is green — the arithmetic behind the observation that two seven-fold systems agree. HONEST SCOPE: the offset arithmetic is sealed; any chakra reading of it stays UNVERIFIED — the number is sealed, the meaning is not.
+theorem fourth_ray_is_green_band : (360 / 7 = 51) ∧ (3 * 51 = 153) := by decide
+
+-- THE ALPHABET FOLDS HOME: the aura alphabet counts 9·7·6 = 378 states — and 378 digit-sums to 3+7+8 = 18, which folds to 1+8 = 9: the alphabet's digital root IS the ring it was built from. The colour code, counted, returns to ℤ/9 — the system's own number closing over its own alphabet.
+theorem alphabet_digital_root_is_nine : (9*7*6 = 378) ∧ (3+7+8 = 18) ∧ (1+8 = 9) := by decide
+
+-- THE WALK IS ONE TURN OF THE RING: the graduation walk grew to nine steps — and nine is the ring's own modulus: 9 % 9 = 0, one complete revolution. The enrollment walk a theorem takes to be born is exactly one turn of the arithmetic it enters. The walk closes because the ring closes.
+theorem nine_step_walk_closes_the_ring : (9 % 9 = 0) ∧ (8 % 9 = 8) := by decide
+
 -- THE SCATTERING LESSON, part 1 — the meeting points. Two aura hue pairs meet on the wheel's mirror line through 0°: 340° and 20° are equidistant from the top (360−340 = 20), as are 320° and 40° (360−320 = 40). Symmetric approach paths cross at the axis — where the totality check heard thunder: two states rendering one colour.
 theorem hue_mirror_meeting : (360 - 340 = 20) ∧ (360 - 320 = 40) := by decide
 

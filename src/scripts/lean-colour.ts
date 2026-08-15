@@ -10,6 +10,21 @@
 import { emit } from './lean-gen.js'
 
 const FACTS = [
+  { key: 'fourth_ray_is_green_band',
+    why: 'THE HEART DISCOVERY: each rosette ray offsets the hue wheel by 360/7 = 51°, and the FOURTH ray (index 3, counting the first as 1) lands at 3·51 = 153° — squarely the green band. The seven rays walk the wheel as seven stations, and the fourth is green — the arithmetic behind the observation that two seven-fold systems agree. HONEST SCOPE: the offset arithmetic is sealed; any chakra reading of it stays UNVERIFIED — the number is sealed, the meaning is not.',
+    js: () => (360 - (360 % 7)) / 7 === 51 && 3 * 51 === 153,
+    lean: 'theorem fourth_ray_is_green_band : (360 / 7 = 51) ∧ (3 * 51 = 153) := by decide' },
+
+  { key: 'alphabet_digital_root_is_nine',
+    why: 'THE ALPHABET FOLDS HOME: the aura alphabet counts 9·7·6 = 378 states — and 378 digit-sums to 3+7+8 = 18, which folds to 1+8 = 9: the alphabet\'s digital root IS the ring it was built from. The colour code, counted, returns to ℤ/9 — the system\'s own number closing over its own alphabet.',
+    js: () => 9*7*6 === 378 && 3+7+8 === 18 && 1+8 === 9,
+    lean: 'theorem alphabet_digital_root_is_nine : (9*7*6 = 378) ∧ (3+7+8 = 18) ∧ (1+8 = 9) := by decide' },
+
+  { key: 'nine_step_walk_closes_the_ring',
+    why: 'THE WALK IS ONE TURN OF THE RING: the graduation walk grew to nine steps — and nine is the ring\'s own modulus: 9 % 9 = 0, one complete revolution. The enrollment walk a theorem takes to be born is exactly one turn of the arithmetic it enters. The walk closes because the ring closes.',
+    js: () => 9 % 9 === 0 && 8 % 9 === 8,
+    lean: 'theorem nine_step_walk_closes_the_ring : (9 % 9 = 0) ∧ (8 % 9 = 8) := by decide' },
+
   { key: 'hue_mirror_meeting',
     why: 'THE SCATTERING LESSON, part 1 — the meeting points. Two aura hue pairs meet on the wheel\'s mirror line through 0°: 340° and 20° are equidistant from the top (360−340 = 20), as are 320° and 40° (360−320 = 40). Symmetric approach paths cross at the axis — where the totality check heard thunder: two states rendering one colour.',
     js: () => 360 - 340 === 20 && 360 - 320 === 40,

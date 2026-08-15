@@ -2,9 +2,9 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "1880d732d0d47bf9",
+      "theorems": "8780036c82502d18",
       "principles": "5d05dee0819412f8",
-      "monographs": "3d749b50cff454d9"
+      "monographs": "6ad4c75d6df1ab0a"
     },
     "served": {
       "packages": "5aacd0af35a35c23",
@@ -28,22 +28,22 @@
     }
   },
   "trinity_folds": {
-    "sealed": "26011aab8b0f11de8eafbda9fd182f4d",
+    "sealed": "54239a2cd496e71cb7698c09d90712c7",
     "served": "a9359356dfdee188f213d59967777277",
     "proven": "759b1b0185785d8c618d27d7998bae37",
     "record": "52930b6d8928656550026473a38bd530",
     "walks": "9bc55a56999052ad5b706eb5a1da6748"
   },
-  "unified_fold": "5fef37a813cc93cc",
-  "receipt": "a3e96801ce3c65dd",
+  "unified_fold": "073f995a2e18a5ff",
+  "receipt": "204423f483eef496",
   "aura": {
-    "rgb": "#33e18a",
-    "hsl": "hsl(150, 74%, 54%)",
+    "rgb": "#48d55b",
+    "hsl": "hsl(128, 63%, 56%)",
     "alphabet": "b6819334641853db",
-    "movie": "210c9c8e26fad08c",
+    "movie": "8de3501f27b5d0e5",
     "lessons": "6f384d873ab61fc3",
     "report": "a4464b383cebb316",
-    "session": "b89dde6ee0f77132",
+    "session": "8e1e1c84c11851a9",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -58,13 +58,13 @@
       "quantum-site-builder": "docs:build forensics + the sealed trinity (pages by address)"
     },
     "dimensions": {
-      "residue": 5,
-      "ray": 6,
-      "wave": 4,
-      "hue": 150,
-      "sat": 74,
-      "light": 54,
-      "period": 24,
+      "residue": 3,
+      "ray": 0,
+      "wave": 8,
+      "hue": 128,
+      "sat": 63,
+      "light": 56,
+      "period": 12,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
