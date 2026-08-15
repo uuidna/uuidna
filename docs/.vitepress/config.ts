@@ -36,6 +36,7 @@ export default defineConfig({
             { text: 'All theorems', link: '/theorems' },
             { text: 'Topics (by skill)', link: '/topics' },
             { text: 'The trials', link: '/trials' },
+            { text: 'What quantum means', link: '/quantum' },
             { text: 'Games', link: '/games' },
           ],
         },

@@ -18,10 +18,15 @@
       "dimensions": "e202a51b77775621"
     },
     "record": {
-      "legal": "187c54eec8ba706b",
-      "prose": "2004486bf6587de3"
+      "legal": "c071fa4042cdc128",
+      "prose": "5d086ad6694ebcbd"
     }
   },
-  "unified_fold": "6d97cd984e7fc6406db7390324050b0c",
-  "receipt": "a242ff432dde462a"
+  "readings": {
+    "pentagram_stroke": "5628ad8490a7bcc1",
+    "rosette_receipts": "0bff6daf5ce72862cd7295012edded5d",
+    "rosette_audit": "bf2bec5ff23fba7c"
+  },
+  "unified_fold": "37d23d79c1f1ceae1905f803c1e2587b",
+  "receipt": "8851c1fbf5d35851"
 }

@@ -30,6 +30,11 @@ interface QuantumFold {
     watch: FoldPair    // predictions · dimensions
     record: FoldPair   // legal · prose (the audits' verified facts)
   }
+  readings: {
+    pentagram_stroke: string   // the five dimensions walked by 2 in the sealed single stroke [0,2,4,1,3] — a ratchet
+    rosette_receipts: string   // the content receipts on seven rays (ℤ/7), each ray folded, seven folds to one
+    rosette_audit: string      // the audit facts on seven rays, folded RECURSIVELY down to the two-coin base
+  }
   unified_fold: string
   receipt: string
 }
@@ -141,14 +146,52 @@ function main() {
   )
   const unifiedFold = orderInvariantFold(pairFolds)
 
+  // THE PENTAGRAM STROKE — the five dimensions walked by 2 in the sealed single stroke [0,2,4,1,3]
+  // (pentagram_single_stroke; it closes because gcd(2,5)=1, pentagram_step_coprime_five). A sequential ratchet —
+  // each link seeds the next — the star drawn through the fold. The order-invariant root above proves ANY walk
+  // lands the same; the stroke is the OTHER honest reading: one canonical path, direction-sensitive.
+  const names = Object.keys(dimensions).sort()
+  const stroke = Array.from({ length: 5 }, (_, k) => (2 * k) % 5) // [0,2,4,1,3]
+  let strokeTip = 'genesis'
+  for (const i of stroke) strokeTip = hashComponent(`${strokeTip}|${names[i]}:${pairFolds[names[i]]}`)
+
+  // ONE ROSETTE FOR THE CONTENT RECEIPTS — the deposits (trials-receipts.json) distributed onto the seven rays
+  // (ℤ/7, ray = address mod 7, the same partition as /rosetta), each ray folded, the seven ray-folds to one root.
+  const ray = (s: string) => parseInt(createHash('sha256').update(s).digest('hex').slice(0, 8), 16) % 7
+  const receiptIds: string[] = existsSync(join(ROOT, 'trials-receipts.json'))
+    ? JSON.parse(readFileSync(join(ROOT, 'trials-receipts.json'), 'utf-8')).receipts.map((r: { id: string }) => r.id)
+    : []
+  const receiptRays: string[][] = Array.from({ length: 7 }, () => [])
+  for (const id of receiptIds) receiptRays[ray(id)].push(id)
+  const rosetteReceipts = orderInvariantFold(
+    Object.fromEntries(receiptRays.map((ids, i) => [`ray${i}`, hashComponent(ids.sort().join('\n'))])),
+  )
+
+  // ANOTHER ROSETTE FOR THE CONTENT AUDIT, RECURSIVELY TO THE COINS — the audits' fact lines on seven rays, then
+  // the ray-folds folded PAIRWISE recursively until TWO remain: the recursion's base is the two coins, and the
+  // final fold of the two IS the root (contribute 2, the pair closes — two_coins; the halving walk is 5's).
+  const auditLines = `${legalGaps().facts}\n${proseGaps().facts}`.split('\n')
+  const auditRays: string[][] = Array.from({ length: 7 }, () => [])
+  for (const line of auditLines) auditRays[ray(line)].push(line)
+  let level = auditRays.map((lines, i) => hashComponent(`ray${i}|${lines.sort().join('\n')}`)).sort()
+  while (level.length > 2) {
+    const next: string[] = []
+    for (let i = 0; i < level.length; i += 2) next.push(hashComponent(level.slice(i, i + 2).join('|')))
+    level = next.sort()
+  }
+  const rosetteAudit = hashComponent(`coins:2|${level.join('|')}`)
+
+  const readings = { pentagram_stroke: strokeTip, rosette_receipts: rosetteReceipts, rosette_audit: rosetteAudit }
+
   const receipt = createHash('sha256')
-    .update(JSON.stringify(dimensions))
+    .update(JSON.stringify({ dimensions, readings }))
     .digest('hex')
     .slice(0, 16)
 
   const result: QuantumFold = {
     timestamp: '2026-08-15T00:00:00Z', // fixed: deterministic, not wall-clock
     dimensions,
+    readings,
     unified_fold: unifiedFold,
     receipt,
   }
@@ -161,6 +204,11 @@ function main() {
     const leaves = Object.entries(pair).map(([k, v]) => `${k} ${v}`).join(' · ')
     console.log(`  ${name.padEnd(7)} ${pairFolds[name]}  (${leaves})`)
   }
+  console.log()
+  console.log('READINGS (the same sealed set, three honest walks):')
+  console.log(`  pentagram stroke:  ${strokeTip}  (the five walked by 2 — [0,2,4,1,3], single stroke)`)
+  console.log(`  rosette receipts:  ${rosetteReceipts}  (${receiptIds.length} deposits on 7 rays)`)
+  console.log(`  rosette audit:     ${rosetteAudit}  (${auditLines.length} fact lines, recursively to the coins)`)
   console.log()
   console.log(`UNIFIED FOLD:  ${unifiedFold}`)
   console.log(`RECEIPT:       ${receipt}`)

@@ -98,7 +98,7 @@ Every page, one navigation depth, grouped the captain's way:
 
 | | |
 | --- | --- |
-| **The ledger** | [Theorems](/theorems) · [Topics](/topics) · [Rosette rays](/rosetta) · [Trials](/trials) · [Search](/search) · [Publications](/publications) · [The Glagolitic hypothesis](/rosetta-glagolitic) |
+| **The ledger** | [Theorems](/theorems) · [Topics](/topics) · [Rosette rays](/rosetta) · [Trials](/trials) · [Search](/search) · [Publications](/publications) · [What quantum means](/quantum) · [The Glagolitic hypothesis](/rosetta-glagolitic) |
 | **Fuse it in** | [The school](/school) · [MCP tools](/mcp) · [Chat](/chat) · [Books](/books) · [Guides](/guides) · [Games](/games) · [Chess](/chess) · [Quantum messaging](/quantum-messaging) |
 | **The captain** | [The captain's coins](/captain) · [The doctrine](/doctrine) · [Captain claims](/captain-claims) |
 | **Verify it yourself** | [Tests](/tests) · [Analytics](/analytics) · [Deploy](/deploy) · [Changelog](/changelog) · [Prose evidence](/prose-evidence) |
