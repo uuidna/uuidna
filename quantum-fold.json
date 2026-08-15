@@ -35,7 +35,7 @@
     "walks": "bdf3a4d73df0a19af36f875988662312"
   },
   "unified_fold": "8723f92fee4d5fbb",
-  "receipt": "07feb002feca59e9",
+  "receipt": "1cb19f8f55a20f14",
   "rosette_receipt": {
     "rays": [
       "8e8ef714c0af08a2",
@@ -54,7 +54,7 @@
     "alphabet": "b6819334641853db",
     "movie": "8de3501f27b5d0e5",
     "lessons": "6f384d873ab61fc3",
-    "report": "a4464b383cebb316",
+    "report": "940001b6ff9bd2fc",
     "session": "f688948ff36f1ff8",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
@@ -67,7 +67,8 @@
       "mcp-hologram": "mcp-coverage.test: dispatch x theorems x neighbours x 7 rotations",
       "aura-message": "decode-at-seal + alphabet totality (378 distinct)",
       "school-sealed": "lessons + alphabet + movie folds in the receipt sidecar",
-      "quantum-site-builder": "docs:build forensics + the sealed trinity (pages by address)"
+      "quantum-site-builder": "docs:build forensics + the sealed trinity (pages by address)",
+      "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
       "residue": 7,
