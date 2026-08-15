@@ -91,7 +91,7 @@ export default defineConfig({
     },
   },
 
-  outDir: './site',
+  outDir: './src/diamonds/docs',
 
   cleanUrls: true,
 })
