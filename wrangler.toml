@@ -1,8 +1,7 @@
 # uuidna.com — a static site served by Cloudflare Workers Assets.
-# `wrangler deploy` runs the [build] command below to GENERATE ./site (VitePress → outDir 'site'), then serves it.
-# The site dir is gitignored and not in the repo, so the build MUST run here — `npm run build` alone is only `tsc`
-# and never produces ./site (that was the "assets.directory does not exist" deploy failure). docs:build does tsc +
-# the MCP catalog + `vitepress build` → ./site.
+# `wrangler deploy` runs the [build] command below to GENERATE ./src/diamonds/docs (VitePress → outDir), then serves it.
+# The diamond dir is generated, so the build MUST run here — `npm run build` alone is only `tsc`.
+# docs:build does tsc + MCP catalog + `vitepress build` → ./src/diamonds/docs (the diamond structure).
 name = "uuidna"
 compatibility_date = "2026-08-01"
 # The edge worker enforces the license domain rule: uuidna.com licenses itself and auto-licenses the first-party
@@ -27,9 +26,9 @@ command = "npm run docs:build && node dist/scripts/gen-handles.js"
 # cannot forge the signature). Until the secret is set, trials return unsigned (valid by recomputation only).
 
 [assets]
-directory = "./site"
+directory = "./src/diamonds/docs"
 binding = "ASSETS" # worker.js delegates the serve path to env.ASSETS.fetch
 run_worker_first = true # intercept EVERY request by Host first (even asset hits), then serve or redirect
-# clean URLs: /captain/message resolves to ./site/captain/message/index.html
+# clean URLs: /captain/message resolves to ./src/diamonds/docs/captain/message/index.html (diamond structure)
 html_handling = "auto-trailing-slash"
 not_found_handling = "404-page"

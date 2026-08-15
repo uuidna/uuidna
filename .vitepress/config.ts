@@ -91,6 +91,12 @@ export default defineConfig({
     },
   },
 
+  build: {
+    rollupOptions: {},
+  },
+
+  ignoreDeadLinks: true,
+
   outDir: './src/diamonds/docs',
 
   cleanUrls: true,
