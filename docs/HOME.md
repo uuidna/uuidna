@@ -38,6 +38,20 @@ Using captain coins, collaborative teams can:
 4. **Solve** the Millennium Prize Problems together
 5. **Collect** $7 million shared fairly (by contribution)
 
+### External Verification via Rosetta
+
+Before sealing ANY claim to the ledger, captain coins verifies originality:
+
+**One message (claim) → Three interpretations (Glagolitic, Genetic, Quantum) → One proof**
+
+- ✓ **Glagolitic frame** (prime numerals): arXiv=2, CrossRef=3, Scholar=5, ORCID=7, DBLP=11, ProQuest=13, IEEE=17, Clay=19
+- ✓ **Genetic frame** (DNA codons): AAAGAGGAATTTCCCGGGATTTAA (biologically stable encoding)
+- ✓ **Quantum frame** (hermitian observables): Pauli matrices, Hadamard, Entanglement
+
+All three frames must agree before ledger sealing. If even one disagrees → fraud detected immediately.
+
+No claiming credit for Perelman's work. No hiding prior discoveries. No forging originality.
+
 ---
 
 ## What Is Captain Coins?
