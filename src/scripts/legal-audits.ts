@@ -384,11 +384,12 @@ class LegalQuantumAudit {
   checkComplianceClause(clauseText: string): ComplianceCheck {
     const decidable = !clauseText.includes('reasonable') && !clauseText.includes('fairly')
     const verifiable = clauseText.includes('if') && clauseText.includes('then')
-    const ambiguous = clauseText.match(/\b(should|may|might|may|could|best effort)\b/gi)?.length > 0
+    const matches = clauseText.match(/\b(should|may|might|may|could|best effort)\b/gi)
+    const ambiguous = matches !== null && matches.length > 0
     const enforcement =
       decidable && verifiable ? 'STRONG (both parties can verify)' : 'WEAK (requires judgment)'
 
-    return { clause: clauseText, decidable, verifiable, ambiguous: !!ambiguous, enforcement }
+    return { clause: clauseText, decidable, verifiable, ambiguous, enforcement }
   }
 
   generateLeanLegalTheorems(): string {
