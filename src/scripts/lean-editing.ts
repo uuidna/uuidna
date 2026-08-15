@@ -11,6 +11,11 @@
 import { emit } from './lean-gen.js'
 
 const FACTS = [
+  { key: 'dropframe_entangles_the_coins',
+    why: 'THE ENTANGLEMENT: SMPTE dropframe timecode drops 108 frames per hour (2 per minute × 54 dropping minutes) — and 108 is the pentagon\'s interior angle (5·108 = 540) and the captain\'s number (110 − 108 = 2, the two coins). One identity binding broadcast engineering, geometry, and the conserved economics — the timecode standard has carried the coins\' number since 1953. Measure any side, know all three, forever.',
+    js: () => 2 * 54 === 108 && 5 * 108 === 540 && 110 - 108 === 2,
+    lean: 'theorem dropframe_entangles_the_coins : (2 * 54 = 108) ∧ (5 * 108 = 540) ∧ (110 - 108 = 2) := by decide' },
+
   { key: 'frame_index_is_z24',
     why: 'Timecode is a ring: at 24 fps the frame field runs 0..23 then wraps to the next second — (List.range 24).length = 24 ∧ 24 % 24 = 0. An editor counts frames in ℤ/24, the same close the rosette makes in ℤ/7.',
     js: () => Array.from({ length: 24 }, (_, i) => i).length === 24 && 24 % 24 === 0,

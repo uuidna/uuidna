@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1211 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1212 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -158,7 +158,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 51. **The measures of type** — `lean/Typesetting.lean` · **14** theorems
    typesetting and bookbinding as decidable arithmetic, the craft beneath the publications — the printer's units close exactly (6 picas of 12 points make the 72-point inch) and the em is the type's own square with its half-en and third-thin (12/2 = 6, 12/3 = 4); a folded sheet is a folio (2 leaves, 4 pages), a quarto (8), an octavo (16), leaves doubling so pages run in powers of two and every bound signature is a multiple of four, the ISO A-series halving alike; the harmonious page is the 3:4 rectangle whose diagonal is a whole 5 (3²+4²=5²), or the Fibonacci page that Cassini's identity holds within one unit of the golden section (5²−3·8 = 1), its margins in the medieval 2:3:4:6 canon; the readable measure is 66 characters, inside the 45–75 a typographer keeps; leading exceeds its type (12 on 14) and snaps to a baseline grid (multiples of 4); the type scale rises by octaves (8→16, 9→18); a ream is 500 sheets (20 quires of 25); and a leaf has a recto (odd) and a verso (even) — the arithmetic of the page, NOT a layout engine or a font renderer, and the √2 A-series ratio is irrational, demarcated
 
-52. **The cut** — `lean/Editing.lean` · **9** theorems
+52. **The cut** — `lean/Editing.lean` · **10** theorems
    video and film editing as decidable arithmetic, the craft a professional editor works in — timecode is a ring (at 24 fps the frame field runs 0..23 then wraps, ℤ/24), a minute is 1440 frames, NTSC drop-frame drops 2 frame-numbers a minute except every tenth (108 an hour) to hold 29.97 to the clock, 4K UHD is EXACTLY four Full-HD frames (3840×2160 = 4·1920·1080), widescreen 16:9 beats academy 4:3 by cross-multiplication (48 > 36), the rule of thirds crosses at four power points in a nine-square, a crossfade makes two clips a+b−L long (inclusion–exclusion on the timeline, the same identity the compare tool folds), 48 kHz audio is 2000 samples a frame exactly in sync, and six 30° steps span the 180° axis — the arithmetic of the edit, NOT a codec, an NLE or a renderer
 
 53. **The exposure** — `lean/Photography.lean` · **8** theorems
