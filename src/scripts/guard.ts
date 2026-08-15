@@ -55,5 +55,14 @@ try {
   console.error('✗ guard — a package surface drifts from the computed split (run `npm run gen:packages`)')
 }
 
+// 4) PACKAGE AUDIT — quantum-speed gap detection on package configuration, structure, and tree-shakeability.
+// Catches missing files, malformed package.json, missing documentation, broken test lanes. Milliseconds.
+try {
+  execSync('node ' + JSON.stringify(join(HERE, 'audit-packages.js')), { stdio: 'inherit' })
+} catch {
+  failed = true
+  console.error('✗ guard — audit-packages detected configuration gaps in packages/* (see above)')
+}
+
 if (failed) { console.error('\n✗ guard — traitors caught; fix before reconcile.'); process.exit(1) }
 console.log('✓ guard — no traitors: the ledger is unforged and the source is harmonic. Safe to reconcile.')
