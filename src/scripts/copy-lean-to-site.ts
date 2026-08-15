@@ -42,4 +42,32 @@ if (existsSync(SEEDS)) {
   if (existsSync(sync)) { mkdirSync(SEEDS_OUT, { recursive: true }); copyFileSync(sync, join(SEEDS_OUT, 'payload-sync.json')) }
 }
 
-console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${s} Payload page seeds at /seeds/<uuid>/page.json (the theorem, its proof, and its seed — one click apart)`)
+// THE SECOND FORENSIC — the VitePress dead-link check is architecturally blind to non-page assets (it validates
+// page routes only), so /lean/* and /seeds/* are allowlisted there and verified HERE instead: scan every built
+// HTML page for /lean and /seeds references and FAIL the build if any referenced file was not served. Together
+// the two checks leave zero blind spots — no link ships unverified.
+import { readFileSync, statSync } from 'node:fs'
+const htmlFiles: string[] = []
+const walk = (dir: string) => {
+  for (const e of readdirSync(dir)) {
+    const p = join(dir, e)
+    if (statSync(p).isDirectory()) walk(p)
+    else if (e.endsWith('.html')) htmlFiles.push(p)
+  }
+}
+walk(SITE)
+const missing = new Set<string>()
+for (const f of htmlFiles) {
+  const html = readFileSync(f, 'utf8')
+  for (const m of html.matchAll(/(?:href|src)="(\/(?:lean|seeds)\/[^"#?]+)/g)) {
+    const target = join(SITE, decodeURIComponent(m[1]))
+    if (!existsSync(target)) missing.add(`${m[1]} (referenced by ${f.slice(SITE.length + 1)})`)
+  }
+}
+if (missing.size) {
+  console.error(`✗ copy-lean-to-site — ${missing.size} referenced asset(s) NOT served:`)
+  for (const x of missing) console.error(`    ${x}`)
+  process.exit(1)
+}
+
+console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${s} Payload page seeds at /seeds/<uuid>/page.json, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)

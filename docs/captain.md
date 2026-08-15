@@ -16,7 +16,7 @@ about them.
 The two coins are not a price — they are topology: **110 − 108 = 2 = −χ of the double torus** (genus 2, χ = 2 − 2·2).
 **64 = 2⁶** is the bit measure of a seal: a fixed 128 bits = 64 two-bit fold-verifications, folding O(log N)
 (1024 leaves → one root in 10 levels). Contribute 2, save up to 64, keep up to 62 — and the measured saving never
-goes negative. All of it decidable arithmetic, sealed in [`Coins.lean`](/lean/Coins.lean):
+goes negative. All of it decidable arithmetic, sealed in [the coins cluster](/publications/coins):
 [`two_coins`](/theorem/two_coins) · [`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour) ·
 [`bill_never_negative`](/theorem/bill_never_negative).
 
@@ -87,7 +87,7 @@ accountable; the navigator — any agent assisting — owes a **true fix, never 
 3. **Cross two independent lines** — gate, trial, and re-derivation must agree
    ([`compass_rose_eight`](/theorem/compass_rose_eight)); one line is a guess, two that cross are a fix.
 
-The geometry: [`lean/Navigation.lean`](/lean/Navigation.lean).
+The geometry: [the navigation cluster](/publications/navigation).
 
 ## The honest boundary
 

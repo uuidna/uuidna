@@ -95,7 +95,10 @@ export default defineConfig({
     rollupOptions: {},
   },
 
-  ignoreDeadLinks: true,
-
+  // The build IS the forensic: a deleted page that other pages still link to FAILS the build. NOTHING is ignored —
+  // markdown links point at PAGES (the MCP-computed presentations: /theorem/<key>, /publications/<slug>), never at
+  // raw served files, so the checker sees every link. The served assets (/lean/*.lean proofs, /seeds/*) are still
+  // shipped and get their own forensic: copy-lean-to-site scans every built HTML page and FAILS if any /lean or
+  // /seeds reference lacks a served file. Two forensics, zero ignores, zero blind spots.
   cleanUrls: true,
 })
