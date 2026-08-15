@@ -34,7 +34,8 @@ sent:
 <MessageStream />
 
 For real confidentiality between two parties, key it with a **private contract** — only contract-holders decrypt, and
-a changed contract fails authentication (see [Contract-keyed messaging](/mcp#uuidna-contract-seal) and the
+a changed contract fails authentication (see [Contract-keyed messaging](/mcp#uuidna-contract-seal), the
+[cipher cluster](/publications/cipher) that seals the strategy, and the
 [license](/license#what-the-license-can-and-cannot-lock)). Honest scope: secrecy is exactly the secrecy of the key;
 sealing under a *public* contract binds a message to the terms but hides nothing.
 

@@ -17,7 +17,8 @@ Every audit — of a fetched book, of pasted text, of a translation — has thre
 1. **Provenance fingerprint.** The content-address of the exact text — proof you hold *that* edition, byte for byte,
    recomputable by anyone. Plus a **chapter merkle root**, so any single chapter can be proven to belong to the whole.
 2. **Structural decode.** Chapters, characters, words, lines; the ℤ/9 **digital-root gravity** of the length (a
-   recomputable checksum digit — *not* a meaning); and a reversible-imprint round-trip. Structure, not interpretation.
+   recomputable checksum digit — *not* a meaning, sealed in [the ring cluster](/publications/ring) and
+   [the core](/publications/core)); and a reversible-imprint round-trip. Structure, not interpretation.
 3. **Honesty-gate pass.** The prose is run through the same gate that audits uuidna's own claims. Honest caveat: the
    gate is tuned to uuidna's overclaim vocabulary, so on ordinary literature it says nothing about the work — and it
    **shows its hit**, so a spurious match (say, "next generation" in Austen) is visible as the false positive it is.

@@ -40,7 +40,9 @@ The domain **is** the contract's address, and the contract text is the key:
   holders of the terms decrypt (`uuidna_contract_open`). `uuidna_contract_chain` seals a whole stream as a ratchet.
 
 Honest scope: confidentiality is exactly the secrecy of the terms — a **public** contract gives none (a fixed pad is
-public, not secret); a **private** contract gives real ChaCha20-Poly1305 secrecy. See [the license](/license#what-the-license-can-and-cannot-lock).
+public, not secret); a **private** contract gives real ChaCha20-Poly1305 secrecy. The sealed side:
+[the cipher](/publications/cipher) and [codes](/publications/codes) clusters. See
+[the license](/license#what-the-license-can-and-cannot-lock).
 
 ## Verify every theorem yourself
 

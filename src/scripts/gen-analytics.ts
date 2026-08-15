@@ -32,12 +32,14 @@ interface Analytics {
 // Build analytics from the ledger
 const analytics: Analytics = {
   theorems_total: T.length,
-  theorems_axiom_free: T.filter(t => t.tactic === 'decide').length,
+  // startsWith, not ===: a tactic may carry an annotation suffix ("decide -- a τ-pair off the line") and still be
+  // by decide — the exact-match undercounted 1205/1208 while printing 100%, an arithmetic dishonesty the school bans.
+  theorems_axiom_free: T.filter(t => t.tactic.startsWith('decide')).length,
   principles: new Set(T.map(t => t.principle)).size,
   publications: 66, // from gen-readme
   skills: new Set(T.map(t => t.skill).filter(Boolean)).size,
   mcp_tools: 154,
-  confidence: (T.filter(t => t.tactic === 'decide').length / T.length) * 100,
+  confidence: (T.filter(t => t.tactic.startsWith('decide')).length / T.length) * 100,
   security_checks: 10,
   supported_modules: 223,
   determinism_clean: 100, // no Math.*/Date/RNG in core 86 modules

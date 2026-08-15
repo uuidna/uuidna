@@ -12,7 +12,7 @@
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
 | **Theorems proven** | 1208 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 1205/1208 (100%) | Kernel-only proofs, recomputable offline |
+| **Axiom-free** | 1208/1208 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 66 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 62 | Capability axes across the ledger |
 | **Verification cost** | ~1ms | O(1) seal check via spin --verify |
@@ -85,7 +85,7 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 
 ```
 Total theorems:       1208
-Axiom-free (decide):  1205 (99.8%)
+Axiom-free (decide):  1208 (100.0%)
 Principles:           66 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities
