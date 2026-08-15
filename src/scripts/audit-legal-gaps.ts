@@ -21,13 +21,17 @@
 // compliance, and a green run means "no contradiction found", never "lawful". Counsel judges; this recomputes.
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const rd = (p: string) => readFileSync(join(ROOT, p), 'utf8')
+
 // Every gap is a PRECISE COMPUTATIONAL PROMPT: what drifted, and the exact edit or command that closes it —
 // an agent (or a human) executes the fix verbatim, no interpretation step between the finding and the doing.
-const gaps: { what: string; fix: string }[] = []
+// Exported PURE — fold-quantum imports this so the legal surface is a dimension of the ONE guard receipt: any
+// change to the checked legal facts moves the unified fold. Execution happens only when run directly (below).
+export function legalGaps(): { gaps: { what: string; fix: string }[]; facts: string } {
+  const gaps: { what: string; fix: string }[] = []
 
 // 1) LICENSE DRIFT — one SPDX id across the whole record.
 const CANON = 'CC-BY-NC-ND-4.0'
@@ -72,9 +76,24 @@ for (const p of ['LICENSE', 'docs/license.md', 'README.md', 'package.json']) {
 if (emails.size > 1)
   gaps.push({ what: `author email drifts across the record: ${[...emails].join(' vs ')}`, fix: 'pick the canonical address (the LICENSE one) and update every other occurrence to match — one identity, everywhere' })
 
-if (gaps.length) {
-  console.error(`✗ audit-legal-gaps — ${gaps.length} legal-surface gap(s), each with its exact fix:`)
-  for (const g of gaps) { console.error(`    GAP ${g.what}`); console.error(`    FIX ${g.fix}`) }
-  process.exit(1)
+  // the FACTS the audit stood on, serialized order-invariantly — the legal dimension of the one guard receipt.
+  const facts = [
+    `canon:${CANON}`,
+    ...pkgFiles.map((p) => `${p}:${JSON.parse(rd(p)).license}`),
+    `LICENSE:${licenseFile.includes('CC BY-NC-ND 4.0')}`,
+    `README:${/CC BY-NC-ND 4\.0|CC-BY-NC-ND-4\.0/.test(readme)}`,
+    `emails:${[...emails].sort().join(',')}`,
+    `gaps:${gaps.length}`,
+  ].sort().join('\n')
+  return { gaps, facts }
 }
-console.log(`✓ audit-legal-gaps — the legal record is internally consistent: one license (${CANON}) across ${pkgFiles.length + 2} files, README + CONTRIBUTING state the terms, no open-source overclaim, no currency rate, one author identity. Consistency, not counsel.`)
+
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  const { gaps } = legalGaps()
+  if (gaps.length) {
+    console.error(`✗ audit-legal-gaps — ${gaps.length} legal-surface gap(s), each with its exact fix:`)
+    for (const g of gaps) { console.error(`    GAP ${g.what}`); console.error(`    FIX ${g.fix}`) }
+    process.exit(1)
+  }
+  console.log(`✓ audit-legal-gaps — the legal record is internally consistent: one license across the record, README + CONTRIBUTING state the terms, no open-source overclaim, no currency rate, one author identity. Consistency, not counsel.`)
+}

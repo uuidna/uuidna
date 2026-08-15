@@ -8,6 +8,8 @@ import { readdirSync, readFileSync, writeFileSync, existsSync, statSync } from '
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems, PRINCIPLES } from '../index.js'
+import { legalGaps } from './audit-legal-gaps.js'
+import { proseGaps } from './audit-prose-anchors.js'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(HERE, '../..')
@@ -22,6 +24,8 @@ interface QuantumFold {
     tests: string
     predictions: string
     dimensions: string
+    legal: string
+    prose: string
   }
   unified_fold: string
   receipt: string
@@ -121,6 +125,12 @@ function main() {
   const testsFold = foldTests()
   const predictionsFold = foldPredictions()
   const dimensionsFold = foldDimensions()
+  // The audits fold IN, not alongside: their verified FACTS are dimensions of the one receipt, so any legal or
+  // prose drift moves the unified fold itself. NINE components — the fold closes on the ring ℤ/9, whose unit
+  // group the vortex walks: 2 generates forward (contribute), 5 = 2⁻¹ generates home (verify) — 2·5 ≡ 1 (mod 9),
+  // sealed in generators_are_two_and_five and order_of_five_is_six. Prove once forward, verify forever backward.
+  const legalFold = hashComponent(legalGaps().facts)
+  const proseFold = hashComponent(proseGaps().facts)
 
   const components = {
     theorems: theoremsFold,
@@ -130,6 +140,8 @@ function main() {
     tests: testsFold,
     predictions: predictionsFold,
     dimensions: dimensionsFold,
+    legal: legalFold,
+    prose: proseFold,
   }
 
   // Unified fold: order-invariant merkle gravity
@@ -160,6 +172,8 @@ function main() {
   console.log(`  Tests:       ${testsFold}`)
   console.log(`  Predictions: ${predictionsFold}`)
   console.log(`  Dimensions:  ${dimensionsFold}`)
+  console.log(`  Legal:       ${legalFold}`)
+  console.log(`  Prose:       ${proseFold}`)
   console.log()
   console.log(`UNIFIED FOLD:  ${unifiedFold}`)
   console.log(`RECEIPT:       ${receipt}`)
