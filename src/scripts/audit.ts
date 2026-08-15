@@ -60,8 +60,8 @@ const gateUnits = []
   }
 }
 
-// The VitePress-built site pages (outDir ./src/diamonds/docs) — strip tags to visible text, split to sentences.
-for (const page of ['src/diamonds/docs/index.html', 'src/diamonds/docs/theorems/index.html']) {
+// The VitePress-built site pages (the default outDir docs/.vitepress/dist) — strip tags to visible text, split to sentences.
+for (const page of ['docs/.vitepress/dist/index.html', 'docs/.vitepress/dist/theorems/index.html']) {
   let html
   try { html = rd(page) } catch { continue }
   const visible = html

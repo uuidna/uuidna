@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "site-preview",
+      "name": "docs-preview",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["vitepress", "preview", "--port", "4173"],
+      "runtimeArgs": ["vitepress", "preview", "docs", "--port", "4173"],
       "port": 4173
     }
   ]

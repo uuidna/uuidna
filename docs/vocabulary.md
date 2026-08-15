@@ -4,7 +4,7 @@ aside: false
 ---
 
 <script setup>
-import { data } from '../.vitepress/vocabulary.data'
+import { data } from './.vitepress/vocabulary.data'
 </script>
 
 # Vocabulary <Badge type="tip" :text="`${data.count} terms`" />

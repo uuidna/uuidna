@@ -1,9 +1,9 @@
 node_modules/
 dist/
 *.tgz
-.vitepress/cache/
-.vitepress/.temp/
-.vitepress/dist/
+docs/.vitepress/cache/
+docs/.vitepress/.temp/
+docs/.vitepress/dist/
 site/
 handles.js
 .DS_Store

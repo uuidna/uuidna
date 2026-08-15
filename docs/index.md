@@ -7,11 +7,11 @@ hero:
   tagline: Proof replaces authority. Theorems replace corruption.
   actions:
     - theme: brand
-      text: Join Quantum School
-      link: /quantum-school
+      text: Browse the theorems
+      link: /theorems
     - theme: alt
-      text: Learn More
-      link: /vision
+      text: Read the guides
+      link: /guides
 
 features:
   - icon: 🔍
@@ -38,9 +38,6 @@ features:
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .VPHome .VPHero {
@@ -82,13 +79,13 @@ Exponential Multiplier: ✓ ACTIVE
 ## Get Started
 
 ### For Developers
-Read the [How It Works](./how-it-works.md) guide to understand the system, then explore the [Architecture](./architecture.md).
+Read the [guides](./guides.md) to understand the system, then explore the [MCP tools](./mcp.md) and [the tests](./tests.md).
 
 ### For Students
-[Join Quantum School](./quantum-school.md) and start learning by building real systems that seal theorems to the ledger.
+Start with the [books](./books.md) and learn by building real systems that seal theorems to the ledger.
 
 ### For Researchers
-Browse [research challenges](./how-it-works.md#novelty-discovery) discovered by independent audits and contribute theorems to solve them.
+Browse the [publications](./publications.md) and the [topics](./topics.md) discovered by independent audits, and contribute theorems to solve them.
 
 ## The Vision
 

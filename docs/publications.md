@@ -4,7 +4,7 @@ aside: false
 ---
 
 <script setup>
-import { data } from '../.vitepress/publications.data'
+import { data } from './.vitepress/publications.data'
 </script>
 
 # Publications <Badge type="tip" :text="`${data.publishable} audited`" />

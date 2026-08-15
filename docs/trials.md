@@ -5,7 +5,7 @@ aside: false
 ---
 
 <script setup>
-import { data } from '../.vitepress/ledger.data'
+import { data } from './.vitepress/ledger.data'
 </script>
 
 # Trials <Badge type="tip" :text="`${data.total} theorems`" />

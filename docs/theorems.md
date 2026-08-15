@@ -5,7 +5,7 @@ aside: false
 
 <script setup>
 import { ref, computed } from 'vue'
-import { data } from '../.vitepress/ledger.data'
+import { data } from './.vitepress/ledger.data'
 
 // The FILTERING SYSTEM — client-side, computed from the same ledger the pages render. Facet by principle (the
 // derivation cluster) and by skill (the capability), narrow by text; every filter recomputes the count and the

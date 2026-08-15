@@ -5,7 +5,7 @@ aside: false
 ---
 
 <script setup>
-import { data } from '../.vitepress/ledger.data'
+import { data } from './.vitepress/ledger.data'
 </script>
 
 # The rosette index <Badge type="tip" :text="`7 rays · ${data.total} theorems`" />

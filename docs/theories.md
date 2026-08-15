@@ -5,7 +5,7 @@ aside: false
 ---
 
 <script setup>
-import { data } from '../.vitepress/theories.data'
+import { data } from './.vitepress/theories.data'
 const cls = (v) => v === 'VERIFIED' ? 'v-verified' : 'v-unverified'
 </script>
 

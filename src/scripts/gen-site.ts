@@ -17,7 +17,7 @@ import { readFileSync } from 'fs'
   // Build VitePress site
   console.log('  ✓ Building VitePress documentation...')
   try {
-    execSync('npx vitepress build', { stdio: 'inherit' })
+    execSync('npx vitepress build docs', { stdio: 'inherit' })
   } catch (e) {
     console.error('  ✗ VitePress build failed')
     console.error('  Install with: npm install -D vitepress')
@@ -26,12 +26,12 @@ import { readFileSync } from 'fs'
 
   console.log('\n✦ DIAMOND DOCUMENTATION COMPLETE ✦\n')
   console.log('Generated:')
-  console.log('  • src/diamonds/docs/   (VitePress site in diamond)')
+  console.log('  • docs/.vitepress/dist/ (VitePress site, default outDir)')
   console.log('  • README.md            (Project documentation)')
-  console.log('  • .vitepress/config.ts (VitePress configuration)\n')
+  console.log('  • docs/.vitepress/config.ts (VitePress configuration)\n')
   console.log('Diamond site is part of 1024 reproducible artistic outputs.')
   console.log('\nDeploy with:')
-  console.log('  1. npm run docs:build  # Build site to src/diamonds/docs/')
-  console.log('  2. cp -r src/diamonds/docs/* /var/www/uuidna.com/')
+  console.log('  1. npm run docs:build  # Build site to docs/.vitepress/dist/')
+  console.log('  2. cp -r docs/.vitepress/dist/* /var/www/uuidna.com/')
   console.log('  3. curl uuidna.com/    # Verify live')
 })()
