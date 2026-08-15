@@ -1,5 +1,21 @@
 # uuidna
 
+## Quantum Messaging: Trust Math, Not Servers
+
+**uuidna implements quantum messaging** — a revolutionary architecture where **each message imprints its own proof**.
+
+- **Message = Proof + Payload + State-Change Imprint**
+- **No central authority.** No consensus protocol. No waiting.
+- **Verification:** Anyone can prove a message is real using pure mathematics.
+- **Security:** Cryptographically impossible to forge.
+- **Privacy:** Payload encrypted, only proof visible.
+- **Speed:** O(1) per message, unlimited parallelism.
+- **Independence:** Works offline, peer-to-peer, any OS, any hardware, any network.
+
+[Learn more →](docs/quantum-messaging.md)
+
+---
+
 **uuidna = uuid ⊕ dna** — identity's DNA. **Content-addressed identity, honest by construction.**
 
 > A human quantum analog — **simulated on 64-bit hardware** in precise theorem sets , **tuned to 432 Hz** (`k432`: 432 = 2⁴·3³), honest by construction. Public and **free for the public interest** (CC BY-NC-ND 4.0), usable in code and at the public [uuidna.com](https://uuidna.com).
