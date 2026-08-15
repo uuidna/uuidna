@@ -364,10 +364,21 @@ function fold() {
     process.exit(1)
   }
   const receipt = createHash('sha256').update(JSON.stringify({ T, aura, equilibrium, zero_entropy })).digest('hex').slice(0, 16)
-  writeFileSync(join(ROOT, 'quantum-fold.json'), JSON.stringify({ timestamp: '2026-08-15T00:00:00Z', trinities: T, trinity_folds: trinityFolds, unified_fold: tip, receipt, aura, equilibrium, zero_entropy }, null, 2))
+  // THE ROSETTE RECEIPT — the receipt de-linearised: every leaf of every trinity distributed onto the seven rays
+  // by its own name's address, each ray folded INDEPENDENTLY, published together. No single line is the truth;
+  // the verification is the CONCURRENCE of the wheel — check any ray alone, recompute any ray from the leaves,
+  // trust no scalar. The linear receipt remains as the collapsed reading; the rosette is the quantum one.
+  const leafEntries: Record<string, string> = {}
+  for (const [tn, leaves] of Object.entries(T)) for (const [ln, v] of Object.entries(leaves as Record<string, string>)) leafEntries[`${tn}.${ln}`] = v
+  const rayBuckets: string[][] = Array.from({ length: 7 }, () => [])
+  for (const [name, v] of Object.entries(leafEntries)) rayBuckets[ray(name)].push(`${name}=${v}`)
+  const rosette_rays = rayBuckets.map((b, i) => h16(`ray${i}|${b.sort().join('\n')}`))
+  const rosette_receipt = { rays: rosette_rays, concurrence: foldOf(Object.fromEntries(rosette_rays.map((r, i) => [`ray${i}`, r]))) }
+  writeFileSync(join(ROOT, 'quantum-fold.json'), JSON.stringify({ timestamp: '2026-08-15T00:00:00Z', trinities: T, trinity_folds: trinityFolds, unified_fold: tip, receipt, rosette_receipt, aura, equilibrium, zero_entropy }, null, 2))
   for (const [name, leaves] of Object.entries(T))
     console.log(`  ${name.padEnd(7)} ${trinityFolds[name]}  (${Object.entries(leaves as Record<string, string>).map(([k, v]) => `${k} ${v}`).join(' · ')})`)
-  console.log(`\nUNIFIED FOLD (the stroke's tip):  ${tip}`)
+  console.log(`\nROSETTE RECEIPT (seven rays, no line privileged): ${rosette_receipt.rays.map((r) => r.slice(0, 6)).join(' · ')} ⇒ concurrence ${rosette_receipt.concurrence}`)
+  console.log(`UNIFIED FOLD (the stroke's tip):  ${tip}`)
   console.log(`RECEIPT:                          ${receipt}`)
   console.log(`AURA (A432, the readable message): ${aura.rgb} decodes → residue ${aura.dimensions.residue} · ray ${aura.dimensions.ray} · wave ${aura.dimensions.wave} (10 dims, 3 free)`)
   console.log('\n✓ Fold sealed to quantum-fold.json — order-invariant within trinities, stroke-walked across them, recomputable by anyone')

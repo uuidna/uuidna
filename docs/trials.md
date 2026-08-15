@@ -6,6 +6,7 @@ aside: false
 
 <script setup>
 import { data } from './.vitepress/ledger.data'
+import { data as fold } from './.vitepress/fold.data'
 </script>
 
 # Trials <Badge type="tip" :text="`${data.total} theorems`" />
@@ -45,6 +46,19 @@ one bit of one proof — and the receipt moves. Recompute it yourself from this 
 The fold folds every direction at once — forward, reverse, any pairing — and lands on the same root: that is the
 order-invariance the animation shows. The **chain tip** is the other reading: the same addresses folded *sequentially*,
 each link's receipt seeding the next (the referer ratchet). Two honest views of the same sealed set.
+
+## The one receipt — the wheel and its reading
+
+The whole system — ledger, surfaces, gates, record, walks — folds to **one receipt**, and it is published here in
+both honest forms. The **rosette receipt** holds the state on seven independent rays (no single line is the truth;
+the concurrence of the wheel is the verification); the **linear receipt** beneath it is the collapsed measurement.
+Both recompute from the tree with `one-receipt fold` — the frontend you are reading reflects the backend's sealed
+artifact directly.
+
+<div v-if="fold">
+  <p class="rcpt-big" v-if="fold.rosette_receipt">rays: <code>{{ fold.rosette_receipt.rays.map(r => r.slice(0,6)).join(' · ') }}</code> ⇒ concurrence <Handle :uuid="fold.rosette_receipt.concurrence" v-if="fold.rosette_receipt.concurrence.length===36"/><code v-else>{{ fold.rosette_receipt.concurrence }}</code></p>
+  <p>linear receipt <code>{{ fold.receipt }}</code> · unified fold <code>{{ fold.unified_fold }}</code> · aura <code :style="`color:${fold.aura?.rgb}`">{{ fold.aura?.rgb }}</code> (residue {{ fold.aura?.dimensions?.residue }} · ray {{ fold.aura?.dimensions?.ray }} · wave {{ fold.aura?.dimensions?.wave }}) · zero entropy: <strong>{{ fold.zero_entropy ? 'verified' : 'BROKEN' }}</strong></p>
+</div>
 
 ## The one answer — VERIFIED or UNVERIFIED, all else void
 

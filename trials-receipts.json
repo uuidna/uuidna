@@ -146,6 +146,11 @@
       "id": "ef5d9d4c-656e-8b32-87de-3259523beb7c",
       "statement": "The coins unlock the qubits — a coin spans one qubit and two coins deliver two qubits at the address width, so every deposit's 128-bit receipt is the register the payment purchases, proven by theorem coin_is_one_qubit and theorem captain_coins_deliver_two_qubits_at_128_bits and theorem two_coins",
       "imprint": "9e11417d574ddb86"
+    },
+    {
+      "id": "131b1ca2-58a2-8088-997d-25682803b8a6",
+      "statement": "The one receipt is linear — a single collapsed measurement — and not quantum yet: the next receipt is rosette-shaped, the state folded independently onto seven rays with verification as their agreement, truth held in the code and not in one line, proven by theorem rosette_orbit and theorem rosette_pairs_twentyone and theorem store_fold_order_invariant",
+      "imprint": "f31fc9678c3cc79e"
     }
   ]
 }
