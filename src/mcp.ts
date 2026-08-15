@@ -25,6 +25,8 @@ import {
   reAddress, type EditorState,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
+import { spawnSync } from 'node:child_process' // uuidna_wave orchestration — local stdio only, never the Workers subset (worker imports mcp-http.js)
+import { ROOT as LIB_ROOT } from './boundary.js'
 import { portAllAlpine } from './os/alpine.js' // os/ boundary — LIVE upstream read (named non-determinism), not via the deterministic index
 import { infuseAlpinePackages, alpinePackage } from './os/packages.js' // os/ boundary — each Alpine package → uuidna/<name>
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
@@ -667,6 +669,15 @@ const TOOLS: Tool[] = [
     description: 'PATTERN RECOGNITION — recognise the pattern two texts share by examining how they DIFFER. Partitions their word sets into only-A, only-B and shared; the similarity (Jaccard: shared over the union) is DERIVED from that difference, and inclusion–exclusion (|A| + |B| − shared = union) is checked exactly, so the number is a proof, not an estimate. The shared tokens fold to one order-invariant receipt — the recognised pattern. Similarity is only ever measured against difference. Compares vocabulary, NOT meaning; nothing is stored. Integrity, not truth.',
     inputSchema: { type: 'object', properties: { a: { type: 'string' }, b: { type: 'string' } }, required: ['a', 'b'] },
     run: (x) => comparePublications(String(x.a), String(x.b)) },
+  { name: 'uuidna_wave',
+    description: 'THE GRADUATION WALK as one call — runs the release wave (build → dry → legal → prose → fold → guard → next → mint) via one-receipt, the same walk the school teaches and the one receipt seals. LOCAL ONLY (spawns npm in the repo tree — orchestration, not pure compute; absent from the hosted Workers subset by construction). Green ends with the statement minted as a signed uuidna.com deposit — the diploma; red returns the first failing step with its exact GAP+FIX prompt. HONEST: the wave verifies and mints, it never judges the worth of the theorem — the credit law and the court do. Returns {passed, step, tail}.',
+    inputSchema: { type: 'object', properties: { statement: { type: 'string', description: 'the deposit statement — must cite a sealed theorem ("proven by theorem <key>")' } }, required: ['statement'] },
+    run: (x) => {
+      const r = spawnSync('node', ['dist/scripts/one-receipt.js', 'wave', String(x.statement)], { cwd: LIB_ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
+      const out = `${r.stdout || ''}${r.stderr || ''}`
+      const failed = out.match(/the walk stopped at "([a-z]+)"/)
+      return { passed: r.status === 0, step: failed ? failed[1] : 'closed', tail: out.split('\n').slice(-25).join('\n') } },
+  },
   { name: 'uuidna_trial',
     description: 'Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },

@@ -4,21 +4,21 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="155 keys" />
+# MCP tools <Badge type="tip" text="156 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 155 tools below are read from the server's own tool list and
+is **built from the keys**: the 156 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
 `https://uuidna.com/mcp` — one address, the page for people, the protocol for machines.
 
-## The grid <Badge type="tip" :text="`155`" />
+## The grid <Badge type="tip" :text="`156`" />
 
-155 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 56 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+156 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 56 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -139,6 +139,7 @@ page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the l
 <a href="#uuidna-verify"><code>verify</code></a>
 <a href="#uuidna-verify-envelope"><code>verify_envelope</code></a>
 <a href="#uuidna-verify-statement"><code>verify_statement</code></a>
+<a href="#uuidna-wave"><code>wave</code></a>
 <a href="#uuidna-agent-contribute"><code>agent_contribute</code></a>
 <a href="#uuidna-audit-coin-claim"><code>audit_coin_claim</code></a>
 <a href="#uuidna-audit-translation"><code>audit_translation</code></a>
@@ -485,7 +486,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'54'" />
+## Other <Badge type="tip" :text="'55'" />
 
 *skill: other*
 
@@ -902,6 +903,16 @@ THE SURFACING — close the hollow-prose leak by showing the verdict, not the dr
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `claim` | string | **yes** |  |
+
+### `uuidna_wave`
+
+THE GRADUATION WALK as one call — runs the release wave (build → dry → legal → prose → fold → guard → next → mint) via one-receipt, the same walk the school teaches and the one receipt seals. LOCAL ONLY (spawns npm in the repo tree — orchestration, not pure compute; absent from the hosted Workers subset by construction). Green ends with the statement minted as a signed uuidna.com deposit — the diploma; red returns the first failing step with its exact GAP+FIX prompt. HONEST: the wave verifies and mints, it never judges the worth of the theorem — the credit law and the court do. Returns {passed, step, tail}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `statement` | string | **yes** | the deposit statement — must cite a sealed theorem ("proven by theorem &lt;key&gt;") |
 
 ### `uuidna_detect_forgery`
 

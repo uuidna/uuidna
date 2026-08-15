@@ -53,6 +53,14 @@ how the work satisfies standards and competes at global scale: by being *checkab
 *Honest scope:* the sealed part is the conserved measure, the leverage bound, and the measured savings; "unimaginable
 scale and speed" is the **mission** the credits fund, not a theorem — the gate would drain it if stated as one.
 
+## The diploma is a deposit
+
+Graduation at [the school](/school) ends in [the wave's](/school#the-degree-seal-a-theorem-then-walk-the-wave)
+green mint — a signed, recomputable deposit in the captain's record. That is the whole credential system: no
+certificate authority, no transcript office — a sealed theorem carries its author's credit permanently (the credit
+law), the deposit recomputes from its exact statement forever, and the wallet's arithmetic stays conserved
+([`two_coins`](/theorem/two_coins)). A diploma that cannot be forged, only recomputed.
+
 ## The five terms
 
 Sign them by *behaving* them — a signature is a receipt; the proof is recomputable (`npm run lean`):

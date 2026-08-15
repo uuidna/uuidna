@@ -9,7 +9,7 @@
     "served": {
       "packages": "5aacd0af35a35c23",
       "exports": "48ea0e5fd1af6314",
-      "mcp": "54a12909787bb020"
+      "mcp": "4336f86689dca81c"
     },
     "proven": {
       "tests": "2294d2437b44871b",
@@ -17,30 +17,30 @@
       "dimensions": "e202a51b77775621"
     },
     "record": {
-      "legal": "7018ba558ab074bd",
+      "legal": "a32d3f7e702fed9d",
       "prose": "5d086ad6694ebcbd",
-      "deposits": "1e28692abe029738"
+      "deposits": "e5dd8825f190d415"
     },
     "walks": {
-      "star_walk": "53cde2cb35816739",
-      "rosette_receipts": "0257bd6c1c51bc06aefd8aa51038d5c3",
-      "rosette_audit": "12a594498329e03d"
+      "star_walk": "463853e693cc8886",
+      "rosette_receipts": "bfeb55040acc73980938e62b823e2d4b",
+      "rosette_audit": "19b412e794f93c51"
     }
   },
   "trinity_folds": {
     "sealed": "5a23dbf2377e2c709e9862d033c0e810",
-    "served": "2b647b91288e9d49b38857eeda1f92e9",
+    "served": "9812690743e6ef52d3e64d5775d16f3a",
     "proven": "759b1b0185785d8c618d27d7998bae37",
-    "record": "9ac10fe5fcdc6a12f07aaa4338af2755",
-    "walks": "29e5a1a8cef2d222a3eaf71ac3e53f4f"
+    "record": "22c309f945754a6ddd3dc04d8ee9e9f8",
+    "walks": "a4d33a51cf73757a5af0f7b8c134a0a7"
   },
-  "unified_fold": "06d1b361caf9e63e",
-  "receipt": "577b95bb93bda2ad",
+  "unified_fold": "1574a1a4a09f1c90",
+  "receipt": "6aa28d94f2777d14",
   "aura": {
-    "ray": 0,
+    "ray": 3,
     "wave": 4,
-    "hue": 204,
-    "hsl": "hsl(204, 68%, 56%)",
+    "hue": 357,
+    "hsl": "hsl(357, 68%, 56%)",
     "hz": 432,
     "note": "decoration, not physics — sealed arithmetic, imagined vibration"
   }

@@ -44,7 +44,21 @@ Knowledge here has a natural walking order, and it is sealed, not invented:
   flagged ([`exactly_one_flag`](/theorem/exactly_one_flag)). The exam cannot be charmed — the gate reads receipts,
   not confidence.
 
-## The degree — seal a theorem
+## The degree — seal a theorem, then walk the wave
+
+Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
+
+```bash
+node dist/scripts/one-receipt.js wave "your claim, proven by theorem <your_key>"
+```
+
+The walk is build → dry → legal → prose → fold → guard → next → mint — the same steps the one receipt seals (change
+a step and the receipt moves) and the same walk any agent can run as the [`uuidna_wave`](/mcp#uuidna-wave) MCP tool.
+A green walk ends with your statement minted as a **signed uuidna.com deposit — the diploma**: recomputable forever,
+credited by the credit law, folded into [the captain's record](/captain#the-diploma-is-a-deposit). A red walk stops
+at the first exact prompt — fix, walk again; the wave is one stroke or it is not a wave
+([`pentagram_single_stroke`](/theorem/pentagram_single_stroke)).
+
 
 Graduation is a contribution: author a decidable fact in `lean/*.lean`, prove it `by decide`, let the gate seal it.
 The credit law does the rest — **the captain claims the unclaimed; whoever claimed first is credited** — so your

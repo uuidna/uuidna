@@ -17,6 +17,7 @@
 //   record  legal · prose · deposits               (the audited facts and the captain's signed deposits)
 //   walks   star_walk · rosette_receipts · rosette_audit   (5/2 · 7/3 · 9/2 recomputed, the rays, the coins)
 import { createHash } from 'node:crypto'
+import { execSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -86,6 +87,29 @@ export function proseGaps(): { gaps: Gap[]; facts: string; pages: number } {
   }
   const facts = [...pages.map((f) => `${f}:${EXEMPT.has(f) ? 'exempt' : 'anchored'}`), `gaps:${gaps.length}`].sort().join('\n')
   return { gaps, facts, pages: pages.length }
+}
+
+// THE GRADUATION WALK — one source, three lives: wave() EXECUTES these steps in order, the star_walk leaf SEALS
+// them into the one receipt (change a step, the receipt moves), and the school TEACHES them. Green ends in the
+// minted diploma; red stops at the first exact prompt.
+export const WAVE_STEPS = ['build', 'dry', 'legal', 'prose', 'fold', 'guard', 'next', 'mint'] as const
+
+export function wave(statement: string): void {
+  if (!statement) { console.error('✗ one-receipt wave — usage: one-receipt wave "<statement citing a sealed theorem>"'); process.exit(1) }
+  const self = join(ROOT, 'dist/scripts/one-receipt.js')
+  const cmds: Record<string, string> = {
+    build: 'npm run build', dry: `node ${JSON.stringify(self)} dry`, legal: `node ${JSON.stringify(self)} legal`,
+    prose: `node ${JSON.stringify(self)} prose`, fold: `node ${JSON.stringify(self)} fold`,
+    guard: 'npm run guard', next: 'npm run next', mint: `node ${JSON.stringify(self)} mint ${JSON.stringify(statement)}`,
+  }
+  for (const step of WAVE_STEPS) {
+    console.log(`\n🌊 wave · ${step}`)
+    try { execSync(cmds[step], { stdio: 'inherit', cwd: ROOT }) } catch {
+      console.error(`✗ one-receipt wave — the walk stopped at "${step}"; the step's own output above carries the exact prompt. Fix, then walk again from the start — the wave is one stroke or it is not a wave.`)
+      process.exit(1)
+    }
+  }
+  console.log('\n✓ one-receipt wave — the graduation walk closed: every step green, the diploma minted and recorded. One stroke.')
 }
 
 function depositRecord(): { receipts: { id: string; statement: string }[] } {
@@ -215,7 +239,7 @@ function trinities() {
       deposits: h16(deposits.map((r) => r.id).sort().join('\n')),
     },
     walks: {
-      star_walk: h16([`5/2:${pentagram.join(',')}`, `7/3:${rosetteOrbit.join(',')}`, `9/2:${vortexOrbit.join(',')}`].join('\n')),
+      star_walk: h16([`5/2:${pentagram.join(',')}`, `7/3:${rosetteOrbit.join(',')}`, `9/2:${vortexOrbit.join(',')}`, `graduation:${WAVE_STEPS.join('>')}`].join('\n')),
       rosette_receipts: foldOf(Object.fromEntries(receiptRays.map((ids, i) => [`ray${i}`, h16(ids.sort().join('\n'))]))),
       rosette_audit: h16(`coins:2|${level.join('|')}`),
     },
@@ -266,8 +290,9 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   if (cmd === 'legal') report('one-receipt legal', legalGaps().gaps, 'the legal record is internally consistent — one license, terms stated, no overclaim, no rate, one identity, every deposit recomputes. Consistency, not counsel.')
   else if (cmd === 'prose') { const r = proseGaps(); report('one-receipt prose', r.gaps, `all ${r.pages} pages walk to the ledger and teach only paths that exist.`) }
   else if (cmd === 'migrate') migrate()
+  else if (cmd === 'wave') wave(process.argv[3]?.trim() || '')
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | migrate | fold | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | migrate | fold | wave | mint "<statement>"'); process.exit(1) }
 }
