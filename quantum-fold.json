@@ -22,7 +22,7 @@
       "deposits": "fdd659740391127f"
     },
     "walks": {
-      "star_walk": "463853e693cc8886",
+      "star_walk": "00dcb9ca1eb1d2be",
       "rosette_receipts": "5dab64fbf8e9b1b24e5ee25f666db555",
       "rosette_audit": "8ce0a07960c5b8ea"
     }
@@ -32,17 +32,18 @@
     "served": "a9359356dfdee188f213d59967777277",
     "proven": "759b1b0185785d8c618d27d7998bae37",
     "record": "2c88d0b13dbab11f78372e49ed77e64f",
-    "walks": "c28c6e5918ba1f06f40ece9b56e9ef5b"
+    "walks": "b01225d13da0f2134acc7365adabbfe8"
   },
-  "unified_fold": "fcfed766928b3050",
-  "receipt": "4f2a1e1c8dd43f6c",
+  "unified_fold": "8ef3b3d99cd13888",
+  "receipt": "5da5d418f38200ea",
   "aura": {
-    "rgb": "#d84f82",
-    "hsl": "hsl(338, 64%, 58%)",
+    "rgb": "#7c3de1",
+    "hsl": "hsl(263, 73%, 56%)",
     "alphabet": "b6819334641853db",
     "movie": "8609152d0e715aa5",
     "lessons": "af907b1bb5eb6b2e",
     "report": "a4464b383cebb316",
+    "session": "40d5301773a6338b",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -57,13 +58,13 @@
       "quantum-site-builder": "docs:build forensics + the sealed trinity (pages by address)"
     },
     "dimensions": {
-      "residue": 7,
-      "ray": 1,
-      "wave": 7,
-      "hue": 338,
-      "sat": 64,
-      "light": 58,
-      "period": 14,
+      "residue": 0,
+      "ray": 5,
+      "wave": 8,
+      "hue": 263,
+      "sat": 73,
+      "light": 56,
+      "period": 22,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
