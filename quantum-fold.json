@@ -17,33 +17,33 @@
       "dimensions": "e202a51b77775621"
     },
     "record": {
-      "legal": "90f1614ce07d6e49",
+      "legal": "d14faa5f8b59fee8",
       "prose": "5d086ad6694ebcbd",
-      "deposits": "6786ba77e7b08865"
+      "deposits": "60fe0cf2e17a013c"
     },
     "walks": {
       "star_walk": "00dcb9ca1eb1d2be",
-      "rosette_receipts": "78ff2b49e6e202accbc39436d7016b24",
-      "rosette_audit": "a6cd9db7cfd71a79"
+      "rosette_receipts": "c474a17bc81c4b688b04e911d1fd7094",
+      "rosette_audit": "814b4986e3c7459d"
     }
   },
   "trinity_folds": {
     "sealed": "44abc9c1d428222fe8cb43818fed2c85",
     "served": "a9359356dfdee188f213d59967777277",
     "proven": "759b1b0185785d8c618d27d7998bae37",
-    "record": "c3ffe4303494a09a1a9c470c06c1fbfd",
-    "walks": "2e4a24c3bde8177d3932269297c6342a"
+    "record": "3af9615efc7dd943352f736fdf533ac2",
+    "walks": "2ef32a57d268ae0076f4a3956d04860e"
   },
-  "unified_fold": "e96f4f09612d6e9b",
-  "receipt": "37d72e7b09fe920f",
+  "unified_fold": "7601badb82a08758",
+  "receipt": "739f8acc65a1cf00",
   "aura": {
-    "rgb": "#8a33e1",
-    "hsl": "hsl(270, 74%, 54%)",
+    "rgb": "#d24198",
+    "hsl": "hsl(324, 62%, 54%)",
     "alphabet": "b6819334641853db",
     "movie": "8609152d0e715aa5",
-    "lessons": "af907b1bb5eb6b2e",
+    "lessons": "6f384d873ab61fc3",
     "report": "a4464b383cebb316",
-    "session": "445f8b78f7cf0713",
+    "session": "92df958e151b4499",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -59,12 +59,12 @@
     },
     "dimensions": {
       "residue": 8,
-      "ray": 6,
+      "ray": 0,
       "wave": 4,
-      "hue": 270,
-      "sat": 74,
+      "hue": 324,
+      "sat": 62,
       "light": 54,
-      "period": 24,
+      "period": 12,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

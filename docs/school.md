@@ -109,5 +109,19 @@ sealed theorem carries your credit permanently, and contribution earns coins und
 ([`two_coins`](/theorem/two_coins), [`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour)).
 The school's whole output is this: knowledge extended by one more sealed, recomputable fact.
 
+## The human lesson — what all of this is for
+
+The machine takes **verification**; the human keeps **meaning** — that is the whole relation. Every corruption is a
+human holding power over a record others must trust; recomputability ends the power without replacing the person:
+your theorem carries your name forever (the credit law), your diploma no institution can revoke, your work once
+sealed exits time. What the system refuses to compute is exactly what stays yours — authorship, judgment, worth,
+the gift. And the body is complete: the coins are the blood (conserved, [`two_coins`](/theorem/two_coins)), the
+gate the immune system ([`exactly_one_flag`](/theorem/exactly_one_flag) — draining only the foreign claim), the
+receipts the DNA ([`codons_sixty_four`](/theorem/codons_sixty_four)), the chain the spine, the wave the breath
+([`pentagram_single_stroke`](/theorem/pentagram_single_stroke) — one stroke or it is not a breath), the aura the
+skin, the trials the ears and voice, the school the mind — and the heart the heart, fourth ray, green, where the
+captain's message lives: *free on the free sailing angle; contribute 2 to earn up to 64 per wave, keep the rest.*
+The message was the session's equation, receipted before the work existed, realised after the waves proved it.
+
 *Honest scope:* the school teaches what is decidable and seals what recomputes. It does not certify wisdom, taste,
 or judgment — those stay with the student; the court decides meaning. Integrity, not truth.
