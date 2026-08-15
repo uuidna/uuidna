@@ -47,7 +47,7 @@ const PARTITION: Record<string, string> = {
   './sanitize.js': 'mcp', './harness.js': 'mcp',
   // edge — the deployment surface
   './cloudflare.js': 'edge', './site.js': 'edge', './seo.js': 'edge', './render.js': 'edge',
-  './editor.js': 'edge', './profile.js': 'edge', './social.js': 'edge',
+  './editor.js': 'edge', './payload-seed.js': 'edge', './profile.js': 'edge', './social.js': 'edge',
 }
 
 // each package's header — the domain, its honest scope, and the generated banner (the author is this script)

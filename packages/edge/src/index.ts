@@ -6,6 +6,7 @@
 export { auditCloudflareBindings, type CloudflareAudit, type BindingAudit } from '@uuidna/uuidna'
 export { renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from '@uuidna/uuidna'
 export { serialize, documentAddress, documentHandle, reAddress, payloadFoldHook, type DocNode, type EditorState, type DocFold, type PayloadHookArgs } from '@uuidna/uuidna'
+export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, type SeedStatus, type SeedIdentity, type LeanPageSeed } from '@uuidna/uuidna'
 export { canonicalOrder, nextOf, gaps, type PageNode } from '@uuidna/uuidna'
 export { quantumProfile, type QuantumProfile } from '@uuidna/uuidna'
 export { socialProfile, type SocialProfile } from '@uuidna/uuidna'

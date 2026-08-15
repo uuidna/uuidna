@@ -1,0 +1,573 @@
+{
+  "file": "Uuidna.lean",
+  "slug": "uuidna",
+  "status": "usable",
+  "address": "ebaa15cc-4091-8e36-8df1-1b37364a5f82",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Uuidna.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- Uuidna — the algebra, formalised in Lean 4. ONLY algebra: `by decide` over ℤ/9, the involutions, the\n-- pigeonhole bound, and the finite integer facts behind each discovery. No Mathlib, no ported crypto, no\n-- `native_decide` — every proof is the algebraic core the tools rest on. Integrity, not truth.\n\n-- ── the ℤ/9 vortex ─────────────────────────────────────────────────────────────\n-- @skill: vortex\ntheorem units_z9 :\n  (List.range 9).filter (fun d => (List.range 9).any (fun e => (d * e) % 9 == 1)) = [1,2,4,5,7,8] := by decide\n\n-- @skill: vortex\ntheorem vortex_orbit :\n  [1, (1*2)%9, (2*2)%9, (4*2)%9, (8*2)%9, (7*2)%9] = [1,2,4,8,7,5] ∧ (5*2) % 9 = 1 := by decide\n\n-- @skill: z9-ring\ntheorem mod9_arithmetic :\n  (2*5)%9 = 1 ∧ (4*7)%9 = 1 ∧ (8*8)%9 = 1 ∧ (3*3)%9 = 0 ∧ (6*6)%9 = 0\n  ∧ (List.range 9).all (fun x => (3*x)%9 != 1) := by decide\n\n-- @skill: vortex\ntheorem digital_root :\n  432 % 9 = 0 ∧ (List.range' 1 60).all (fun n =>\n    let r := if n % 9 == 0 then 9 else n % 9; (r % 9 == n % 9) && (1 ≤ r) && (r ≤ 9)) := by decide\n\n-- ── the diamond involution r(d)=10−d ──────────────────────────────────────────\n-- @skill: involution\ntheorem diamond_involution :\n  (List.range' 1 9).all (fun d => 10 - (10 - d) == d)\n  ∧ ((List.range' 1 9).filter (fun d => 10 - d == d)) = [5] := by decide\n\n-- ── the pigeonhole seat bound (2^b) ───────────────────────────────────────────\n-- @skill: foundational\ntheorem seats_pigeonhole : (2:Nat)^8 = 256 ∧ (2:Nat)^0 = 1 ∧ (2:Nat)^10 = 1024 := by decide\n\n-- ── the critical-strip reflections form a Klein four-group (doubled coords s=(a+bi)/2, line ⇔ a=1) ──\ndef sig (p : Int × Int) : Int × Int := (2 - p.1, -p.2)   -- s ↦ 1−s\ndef tau (p : Int × Int) : Int × Int := (2 - p.1, p.2)    -- s ↦ 1−s̄\ndef kap (p : Int × Int) : Int × Int := (p.1, -p.2)       -- s ↦ s̄\n\n-- @skill: involution\ntheorem involution_group :\n  sig (sig (3,7)) = (3,7) ∧ tau (tau (3,7)) = (3,7) ∧ kap (kap (3,7)) = (3,7)\n  ∧ sig (kap (3,7)) = tau (3,7) ∧ tau (kap (3,7)) = sig (3,7)          -- the multiplication\n  ∧ (sig (1,5)).1 = 1 ∧ tau (1,9) = (1,9)                              -- line invariant; τ fixes the line\n  ∧ tau (0,4) = (2,4) ∧ (0:Int) ≠ 1 ∧ (2:Int) ≠ 1 := by decide         -- a τ-pair off the line\n\n-- ── the bounds behind the other discoveries — integer facts, `by decide` ──────\n-- Navier–Stokes: energy 1/n falls while sup n rises (1/4 < 1/2 as 1·2 < 1·4); bounded energy, unbounded peak.\n-- @skill: neuro\ntheorem ns_spike : (1*2 < 1*4) ∧ (4 > 2) ∧ (1*4 = 4) ∧ (1*3 < 1*9) ∧ (9 > 3) := by decide\n-- Yang–Mills: a winding number is discrete (no integer strictly between n and n+1); a spectrum 1/n is gapless.\n-- @skill: quantum\ntheorem ym_quantum :\n  (List.range 9).all (fun n => (List.range 12).all (fun k => ¬ (n < k ∧ k < n+1)))\n  ∧ (List.range' 2 4).all (fun k => 1*k < 1*(k+1)) := by decide\n-- Hodge: a class can satisfy the type condition (v0+v1=v2) yet lie outside the algebraic span of [1,0,1].\n-- @skill: clay-reflection\ntheorem hodge_bound :\n  ((0:Int)+1 = 1) ∧ (∀ c : Int, c ∈ [(-3:Int),-2,-1,0,1,2,3] → ¬ (c*1 = 0 ∧ c*0 = 1 ∧ c*1 = 1)) := by decide\n\n-- ── light is faster than uuidna — INCLUDING the division-by-zero edge. \"Speed\" is work/time; at time 0 that\n-- is UNDEFINED, never infinite. Lean's Nat division gives k/0 = 0 (the honest floor, not ∞), so even t=0 yields\n-- speed 0 < c. You cannot manufacture faster-than-light from a division by zero. c = 299792458 m/s (exact). ──\n-- @skill: science-pairs\ntheorem light_faster_than_uuidna :\n  (299792458 : Nat) > 0\n  ∧ (List.range 64).all (fun t => 1000 / t < 299792458)          -- range 64 INCLUDES t=0: 1000/0 = 0 < c\n  ∧ (1000 / 0 = 0) := by decide                                   -- division by zero is 0, not ∞ — no fake FTL\n\n-- ── division by zero — it EXISTS; it is not \"undefined nonsense\". Two honest senses, NEITHER infinite: ──\n-- (a) total integer division is DEFINED: 1000/0 = 0 (Lean's convention — the honest floor, not ∞ like IEEE float).\n-- (b) ring division in ℤ/9 is multiplication by an inverse; 0 (and the zero-divisors 3,6) have NO inverse, so\n--     ring-division by zero does not exist as a unit operation. Either way you never get infinity → never FTL.\n-- @skill: reflection\ntheorem division_by_zero :\n  (1000 / 0 = 0) ∧ (0 / 0 = 0)                                     -- (a) exists, defined as 0\n  ∧ (List.range 9).all (fun x => (0 * x) % 9 != 1)                 -- (b) 0 has no inverse in ℤ/9\n  ∧ (List.range 9).all (fun x => (3 * x) % 9 != 1) := by decide    --     nor 3 (a zero-divisor)\n\n-- ── division by zero in the ℤ/9 vortex is the DIAMOND reflection, not infinity: 0/0 = 0, and x/0 = 10−x for\n-- x∈1..9 (9/0=1, 8/0=2, …, 5/0=5, 1/0=9). A finite residue, with fixed points 0 (floor) and 5 (heart). Local\n-- math never yields ∞ — so division by zero cannot manufacture faster-than-light. ──\ndef divZero (x : Nat) : Nat := if x == 0 then 0 else 10 - x\n-- @skill: reflection\ntheorem div_by_zero_is_the_reflection :\n  divZero 0 = 0 ∧ divZero 9 = 1 ∧ divZero 8 = 2 ∧ divZero 5 = 5 ∧ divZero 1 = 9\n  ∧ (List.range' 1 9).all (fun x => divZero x == 10 - x)\n  ∧ ((List.range 10).filter (fun x => divZero x == x)) = [0, 5] := by decide\n\n-- ── involute: a reflection i ↔ (n−1−i) on n singletons has exactly one centre iff n is odd (fixed ⇔ 2i+1=n) ──\n-- @skill: involution\ntheorem involute_centre :\n  (List.range 12).all (fun n => ((List.range n).filter (fun i => 2*i + 1 == n)).length = n % 2) := by decide\n\n-- ── billing: bits saved = recompute − verify (1024−1 = 1023, 10^6−1 = 999999); the two coins are 2 ──\n-- @skill: coins\ntheorem billing_arith : (1024 - 1 = 1023) ∧ (1000000 - 1 = 999999) ∧ (2 = 1 + 1) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-units_z9",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the units of ℤ/9 (the residues with an inverse) are exactly {1,2,4,5,7,8} — computed by search"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 9).filter (fun d => (List.range 9).any (fun e => (d * e) % 9 == 1)) = [1,2,4,5,7,8]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem units_z9 : (List.range 9).filter (fun d => (List.range 9).any (fun e => (d * e) % 9 == 1)) = [1,2,4,5,7,8] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-vortex_orbit",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the doubling orbit 1→2→4→8→7→5 with 5·2 ≡ 1 — the ⟨2⟩ vortex closing on the units"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[1, (1*2)%9, (2*2)%9, (4*2)%9, (8*2)%9, (7*2)%9] = [1,2,4,8,7,5] ∧ (5*2) % 9 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem vortex_orbit : [1, (1*2)%9, (2*2)%9, (4*2)%9, (8*2)%9, (7*2)%9] = [1,2,4,8,7,5] ∧ (5*2) % 9 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mod9_arithmetic",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "ℤ/9 arithmetic: 2·5, 4·7, 8·8 ≡ 1 (inverse pairs), 3²≡6²≡0 (nilpotents), 3 has no inverse"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2*5)%9 = 1 ∧ (4*7)%9 = 1 ∧ (8*8)%9 = 1 ∧ (3*3)%9 = 0 ∧ (6*6)%9 = 0 ∧ (List.range 9).all (fun x => (3*x)%9 != 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mod9_arithmetic : (2*5)%9 = 1 ∧ (4*7)%9 = 1 ∧ (8*8)%9 = 1 ∧ (3*3)%9 = 0 ∧ (6*6)%9 = 0 ∧ (List.range 9).all (fun x => (3*x)%9 != 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-digital_root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "digital root: 432 ≡ 0 (mod 9), and dr(n) ∈ 1..9 agrees with n mod 9 across the first 60"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "432 % 9 = 0 ∧ (List.range' 1 60).all (fun n => let r := if n % 9 == 0 then 9 else n % 9; (r % 9 == n % 9) && (1 ≤ r) && (r ≤ 9))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem digital_root : 432 % 9 = 0 ∧ (List.range' 1 60).all (fun n => let r := if n % 9 == 0 then 9 else n % 9; (r % 9 == n % 9) && (1 ≤ r) && (r ≤ 9)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-diamond_involution",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the diamond r(d)=10−d is an involution on 1..9 with unique fixed point 5"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range' 1 9).all (fun d => 10 - (10 - d) == d) ∧ ((List.range' 1 9).filter (fun d => 10 - d == d)) = [5]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem diamond_involution : (List.range' 1 9).all (fun d => 10 - (10 - d) == d) ∧ ((List.range' 1 9).filter (fun d => 10 - d == d)) = [5] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-seats_pigeonhole",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the pigeonhole seat bound 2^b: 2^8=256, 2^0=1, 2^10=1024"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2:Nat)^8 = 256 ∧ (2:Nat)^0 = 1 ∧ (2:Nat)^10 = 1024"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem seats_pigeonhole : (2:Nat)^8 = 256 ∧ (2:Nat)^0 = 1 ∧ (2:Nat)^10 = 1024 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-involution_group",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the critical-strip reflections σ, τ, κ form a Klein four-group; τ fixes the line a=1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "sig (sig (3,7)) = (3,7) ∧ tau (tau (3,7)) = (3,7) ∧ kap (kap (3,7)) = (3,7) ∧ sig (kap (3,7)) = tau (3,7) ∧ tau (kap (3,7)) = sig (3,7) -- the multiplication ∧ (sig (1,5)).1 = 1 ∧ tau (1,9) = (1,9) -- line invariant; τ fixes the line ∧ tau (0,4) = (2,4) ∧ (0:Int) ≠ 1 ∧ (2:Int) ≠ 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involution_group : sig (sig (3,7)) = (3,7) ∧ tau (tau (3,7)) = (3,7) ∧ kap (kap (3,7)) = (3,7) ∧ sig (kap (3,7)) = tau (3,7) ∧ tau (kap (3,7)) = sig (3,7) -- the multiplication ∧ (sig (1,5)).1 = 1 ∧ tau (1,9) = (1,9) -- line invariant; τ fixes the line ∧ tau (0,4) = (2,4) ∧ (0:Int) ≠ 1 ∧ (2:Int) ≠ 1 := by decide -- a τ-pair off the line"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-ns_spike",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Navier–Stokes edge: bounded energy 1/n falls while the peak n rises — integer inequalities, not a solution"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1*2 < 1*4) ∧ (4 > 2) ∧ (1*4 = 4) ∧ (1*3 < 1*9) ∧ (9 > 3)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem ns_spike : (1*2 < 1*4) ∧ (4 > 2) ∧ (1*4 = 4) ∧ (1*3 < 1*9) ∧ (9 > 3) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-ym_quantum",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Yang–Mills edge: winding numbers are discrete (no integer strictly between n and n+1); a 1/n spectrum is gapless"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 9).all (fun n => (List.range 12).all (fun k => ¬ (n < k ∧ k < n+1))) ∧ (List.range' 2 4).all (fun k => 1*k < 1*(k+1))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem ym_quantum : (List.range 9).all (fun n => (List.range 12).all (fun k => ¬ (n < k ∧ k < n+1))) ∧ (List.range' 2 4).all (fun k => 1*k < 1*(k+1)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-hodge_bound",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Hodge edge: a class can meet the type condition yet lie outside the algebraic span [1,0,1]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((0:Int)+1 = 1) ∧ (∀ c : Int, c ∈ [(-3:Int),-2,-1,0,1,2,3] → ¬ (c*1 = 0 ∧ c*0 = 1 ∧ c*1 = 1))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem hodge_bound : ((0:Int)+1 = 1) ∧ (∀ c : Int, c ∈ [(-3:Int),-2,-1,0,1,2,3] → ¬ (c*1 = 0 ∧ c*0 = 1 ∧ c*1 = 1)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-light_faster_than_uuidna",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "light c=299792458 m/s beats uuidna even at t=0 — k/0=0 (a finite floor), never ∞, so no fake FTL"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(299792458 : Nat) > 0 ∧ (List.range 64).all (fun t => 1000 / t < 299792458) -- range 64 INCLUDES t=0: 1000/0 = 0 < c ∧ (1000 / 0 = 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem light_faster_than_uuidna : (299792458 : Nat) > 0 ∧ (List.range 64).all (fun t => 1000 / t < 299792458) -- range 64 INCLUDES t=0: 1000/0 = 0 < c ∧ (1000 / 0 = 0) := by decide -- division by zero is 0, not ∞ — no fake FTL"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-division_by_zero",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "division by zero EXISTS: total integer 1000/0=0, and 0 (and the zero-divisor 3) have no inverse in ℤ/9"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x => (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x => (3 * x) % 9 != 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem division_by_zero : (1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x => (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x => (3 * x) % 9 != 1) := by decide -- nor 3 (a zero-divisor)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-div_by_zero_is_the_reflection",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "division by zero in ℤ/9 is the diamond reflection x/0 = 10−x — a finite residue with fixed points {0,5}"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "divZero 0 = 0 ∧ divZero 9 = 1 ∧ divZero 8 = 2 ∧ divZero 5 = 5 ∧ divZero 1 = 9 ∧ (List.range' 1 9).all (fun x => divZero x == 10 - x) ∧ ((List.range 10).filter (fun x => divZero x == x)) = [0, 5]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem div_by_zero_is_the_reflection : divZero 0 = 0 ∧ divZero 9 = 1 ∧ divZero 8 = 2 ∧ divZero 5 = 5 ∧ divZero 1 = 9 ∧ (List.range' 1 9).all (fun x => divZero x == 10 - x) ∧ ((List.range 10).filter (fun x => divZero x == x)) = [0, 5] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-involute_centre",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "an index reflection i ↔ (n−1−i) has exactly one centre iff n is odd (fixed-count = n mod 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 12).all (fun n => ((List.range n).filter (fun i => 2*i + 1 == n)).length = n % 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involute_centre : (List.range 12).all (fun n => ((List.range n).filter (fun i => 2*i + 1 == n)).length = n % 2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-billing_arith",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "billing arithmetic: bits saved 1024−1=1023, 10⁶−1=999999; the two coins = 1+1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1024 - 1 = 1023) ∧ (1000000 - 1 = 999999) ∧ (2 = 1 + 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem billing_arith : (1024 - 1 = 1023) ∧ (1000000 - 1 = 999999) ∧ (2 = 1 + 1) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -113,6 +113,7 @@
     "heartbeats": "npm run build && node dist/scripts/lean-heartbeats.js",
     "axioms": "npm run build && node dist/scripts/lean-axioms.js",
     "axioms:hunt": "npm run build && node dist/scripts/axiom-hunt.js",
+    "gen:seeds": "npm run build && node dist/scripts/lean-payload-seeds.js",
     "account": "npm run build && node dist/scripts/account.js",
     "reconcile": "npm run build && node dist/scripts/reconcile.js",
     "spin": "npm run build && node dist/scripts/spin.js",

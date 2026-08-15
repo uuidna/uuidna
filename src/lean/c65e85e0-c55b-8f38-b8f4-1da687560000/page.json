@@ -1,0 +1,609 @@
+{
+  "file": "Vortex.lean",
+  "slug": "vortex",
+  "status": "usable",
+  "address": "db12a581-23eb-80f5-a051-024a043825a9",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Vortex.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Vortex.lean — the honest ℤ/9 & ℤ/7 vortex theorems, PORTED from millennium-solutions' Vortex.lean into\n-- plain Lean 4 (Nat, `by decide` — NO Mathlib, so verifiable with a single `lean` call). Same facts, Mathlib-free.\n-- The vacuous α²=1 \"theorems\" are NOT ported — they are tautologies (). Integrity, not truth.\n\n-- ℤ/9 : nilpotents, inverses, the doubling circuit and its order\n-- @skill: z9-ring\ntheorem three_sq_zero : (3*3) % 9 = 0 := by decide\n-- @skill: z9-ring\ntheorem six_sq_zero : (6*6) % 9 = 0 := by decide\n-- @skill: z9-ring\ntheorem three_no_inverse : (List.range 9).all (fun x => (3*x) % 9 != 1) := by decide\n-- @skill: z9-ring\ntheorem two_mul_five : (2*5) % 9 = 1 := by decide\n-- @skill: z9-ring\ntheorem four_mul_seven : (4*7) % 9 = 1 := by decide\n-- @skill: z9-ring\ntheorem eight_self_inv : (8*8) % 9 = 1 := by decide\n-- @skill: vortex\ntheorem doubling_circuit : (List.range 6).map (fun k => (2^k) % 9) = [1, 2, 4, 8, 7, 5] := by decide\n-- @skill: vortex\ntheorem two_order_six : (2^6) % 9 = 1 := by decide\n\n-- reflection: 10−d is an involution\n-- @skill: involution\ntheorem tens_complement_involutive : (List.range 11).all (fun d => 10 - (10 - d) == d) := by decide\n\n-- ℤ/7 rosette ≅ C₆\n-- @skill: z7-rosette\ntheorem rosette_pow_six : (3^6) % 7 = 1 := by decide\n-- @skill: z7-rosette\ntheorem rosette_orbit : (List.range 6).map (fun k => (3^(k+1)) % 7) = [3, 2, 6, 4, 5, 1] := by decide\n\n-- 432 and the doubling digit-sum\n-- @skill: foundational\ntheorem k432 : (432 = 2^4 * 3^3) ∧ (432 = 16 * 27) := by decide\n-- @skill: vortex\ntheorem doubling_digit_sum : 1 + 2 + 4 + 8 + 7 + 5 = 27 := by decide\n\n-- nuclear shell-model magic numbers (the cap sums)\ndef caps : List Nat := [2, 4, 2, 6, 2, 4, 8, 4, 6, 2, 10, 8, 6, 4, 2, 12, 10, 8, 6, 4, 2, 14]\n-- @skill: coins\ntheorem magic_numbers :\n  (caps.take 1).sum = 2 ∧ (caps.take 3).sum = 8 ∧ (caps.take 6).sum = 20 ∧ (caps.take 7).sum = 28\n  ∧ (caps.take 11).sum = 50 ∧ (caps.take 16).sum = 82 ∧ (caps.take 22).sum = 126 := by decide\n\n-- proton fit is exact arithmetic (108·17 = 1836), honestly NOT the measured ratio (1836.1527…)\n-- @skill: science-pairs\ntheorem proton_fit : 108 * 17 = 1836 := by decide\n\n-- the self-sealing vortex-fraction product = 1, ported as exact integer cross-multiplication (num = den = 5040)\n-- @skill: foundational\ntheorem self_seal : (1*1*1*8*7*5*1*2*9) = (2*2*2*7*5*3*2*3) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-three_sq_zero",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "3² ≡ 0 (mod 9) — 3 is nilpotent"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(3*3) % 9 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem three_sq_zero : (3*3) % 9 = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-six_sq_zero",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "6² ≡ 0 (mod 9) — 6 is nilpotent"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(6*6) % 9 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem six_sq_zero : (6*6) % 9 = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-three_no_inverse",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "3 has no inverse mod 9 — a zero-divisor, not a unit"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 9).all (fun x => (3*x) % 9 != 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem three_no_inverse : (List.range 9).all (fun x => (3*x) % 9 != 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-two_mul_five",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2·5 ≡ 1 (mod 9) — 2 and 5 are inverse units"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2*5) % 9 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem two_mul_five : (2*5) % 9 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-four_mul_seven",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "4·7 ≡ 1 (mod 9) — 4 and 7 are inverse units"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(4*7) % 9 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem four_mul_seven : (4*7) % 9 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-eight_self_inv",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "8·8 ≡ 1 (mod 9) — 8 is self-inverse"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(8*8) % 9 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem eight_self_inv : (8*8) % 9 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-doubling_circuit",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the doubling circuit 2^k mod 9 = [1,2,4,8,7,5]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 6).map (fun k => (2^k) % 9) = [1, 2, 4, 8, 7, 5]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem doubling_circuit : (List.range 6).map (fun k => (2^k) % 9) = [1, 2, 4, 8, 7, 5] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-two_order_six",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2 has order 6 mod 9: 2⁶ ≡ 1 — the vortex closes"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2^6) % 9 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem two_order_six : (2^6) % 9 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-tens_complement_involutive",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the ten's-complement 10−d is an involution on the digits 0..10"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 11).all (fun d => 10 - (10 - d) == d)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem tens_complement_involutive : (List.range 11).all (fun d => 10 - (10 - d) == d) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-rosette_pow_six",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "3⁶ ≡ 1 (mod 7) — the rosette (ℤ/7)* has order 6 ≅ C₆"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(3^6) % 7 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem rosette_pow_six : (3^6) % 7 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-rosette_orbit",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the ℤ/7 rosette orbit 3^(k+1) mod 7 = [3,2,6,4,5,1]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 6).map (fun k => (3^(k+1)) % 7) = [3, 2, 6, 4, 5, 1]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem rosette_orbit : (List.range 6).map (fun k => (3^(k+1)) % 7) = [3, 2, 6, 4, 5, 1] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-k432",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "432 = 2⁴·3³ = 16·27"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(432 = 2^4 * 3^3) ∧ (432 = 16 * 27)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem k432 : (432 = 2^4 * 3^3) ∧ (432 = 16 * 27) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-doubling_digit_sum",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the doubling circuit's digit sum 1+2+4+8+7+5 = 27 = 3³"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "1 + 2 + 4 + 8 + 7 + 5 = 27"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem doubling_digit_sum : 1 + 2 + 4 + 8 + 7 + 5 = 27 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-magic_numbers",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the nuclear shell-model magic numbers 2,8,20,28,50,82,126 as cumulative shell-cap sums"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(caps.take 1).sum = 2 ∧ (caps.take 3).sum = 8 ∧ (caps.take 6).sum = 20 ∧ (caps.take 7).sum = 28 ∧ (caps.take 11).sum = 50 ∧ (caps.take 16).sum = 82 ∧ (caps.take 22).sum = 126"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem magic_numbers : (caps.take 1).sum = 2 ∧ (caps.take 3).sum = 8 ∧ (caps.take 6).sum = 20 ∧ (caps.take 7).sum = 28 ∧ (caps.take 11).sum = 50 ∧ (caps.take 16).sum = 82 ∧ (caps.take 22).sum = 126 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-proton_fit",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the exact integer proton fit 108·17 = 1836 — honestly NOT the measured ratio 1836.1527…, so curve-fitting"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "108 * 17 = 1836"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem proton_fit : 108 * 17 = 1836 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-self_seal",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the self-sealing vortex-fraction product = 1, as exact cross-multiplication (5040 = 5040)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1*1*1*8*7*5*1*2*9) = (2*2*2*7*5*3*2*3)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem self_seal : (1*1*1*8*7*5*1*2*9) = (2*2*2*7*5*3*2*3) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

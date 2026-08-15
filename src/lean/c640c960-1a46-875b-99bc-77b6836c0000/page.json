@@ -1,0 +1,609 @@
+{
+  "file": "BioPhysics.lean",
+  "slug": "biophysics",
+  "status": "usable",
+  "address": "2551e520-e672-8503-8b94-5a5e1123863c",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "BioPhysics.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/BioPhysics.lean — GENERATED. The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). HONEST SCOPE: the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded\n-- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it\n-- is NOT kernel-only. This structural recursion over an 8-bit fuel (covers 0..255, wider than any xor the ledger\n-- takes) folds the SAME value with NO axiom; scripts/lean-axioms proves it. `lxor a b` = a XOR b.\ndef lxorAux : Nat → Nat → Nat → Nat\n  | 0, _, _ => 0\n  | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)\ndef lxor (a b : Nat) : Nat := lxorAux 8 a b\n\n-- the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative, each self-inverse (order ≤ 2)\ntheorem abo_klein_four : (List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == lxor b a)) && (lxor a a == 0)) := by decide\n\n-- with the Rh ± bit the blood system is (ℤ/2)³ — exactly 2³ = 8 blood types (A±,B±,AB±,O±)\ntheorem blood_types_eight : (2:Nat)^3 = 8 := by decide\n\n-- DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs\ntheorem dna_base_pairing_involution : (List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b)) := by decide\n\n-- a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons\ntheorem codons_sixty_four : (4:Nat)^3 = 64 := by decide\n\n-- the d/9 sound ladder on the 432 Hz anchor: f_d = 48·d, with the anchor exact at f_9 = 432\ntheorem sound_ladder_432 : ((List.range' 1 9).map (fun d => 48 * d) = [48,96,144,192,240,288,336,384,432]) ∧ (48 * 9 = 432) := by decide\n\n-- the octave is the vortex doubling: 48·{1,2,4,8} = {48,96,192,384}, each twice the last — octave equivalence\ntheorem octave_doubling : [48, 96, 192, 384] = [48, 48*2, 96*2, 192*2] := by decide\n\n-- electron shells hold 2n² each — [2,8,18,32] for n=1..4 (2 spin states × n² orbitals); the shape of the periodic table is a count\ntheorem electron_shells_2n2 : (List.range' 1 4).map (fun n => 2 * n * n) = [2, 8, 18, 32] := by decide\n\n-- the subshells s,p,d,f hold 4l+2 = [2,6,10,14] for l=0..3 — (2l+1) orbitals × 2 spins\ntheorem subshell_capacities_4l2 : (List.range 4).map (fun l => 4 * l + 2) = [2, 6, 10, 14] := by decide\n\n-- the circle of fifths: stacking fifths (+7 mod 12) visits ALL twelve pitch classes — 7 is coprime to 12, so ×7 permutes ℤ/12\ntheorem circle_of_fifths : (List.range 12).all (fun t => (List.range 12).any (fun k => (7 * k) % 12 == t)) := by decide\n\n-- the tritone (+6 mod 12) is a fixed-point-free involution — the octave splits exactly in half, each note its own tritone-of-tritone\ntheorem tritone_involution : (List.range 12).all (fun p => ((p + 6) % 12 + 6) % 12 == p && (p + 6) % 12 != p) := by decide\n\n-- the pH scale reflects: pH ↦ 14−pH is an involution on 0..14 with a SINGLE fixed point 7 (neutral) — the acid/base mirror, echoing the vortex centre\ntheorem ph_reflection_seven : ((List.range 15).all (fun p => 14 - (14 - p) == p)) ∧ ((List.range 15).filter (fun p => 14 - p == p)) = [7] := by decide\n\n-- every acid/base conjugate pair sums to 14: pH + pOH = 14 across the whole scale\ntheorem ph_conjugate_sum_14 : (List.range 15).all (fun p => p + (14 - p) == 14) := by decide\n\n-- the monohybrid cross gives 3:1 — of the four allele pairings only (a,a) is recessive; dominance is a logical OR\ntheorem punnett_three_to_one : (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 1 || p.2 == 1)).length = 3) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 0 && p.2 == 0)).length = 1) := by decide\n\n-- allele order is irrelevant: the swap (a,b)↦(b,a) is an involution — the 2 homozygotes {AA,aa} are fixed and Aa↔aA swap, so 4 ordered pairings are 3 genotypes\ntheorem heterozygote_symmetry : (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == p.2)).length = 2) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 != p.2)).length = 2) := by decide\n\n-- the complement on the 6-hue wheel (+3 mod 6) is a fixed-point-free involution: red↔cyan, green↔magenta, blue↔yellow — each pair mutually complementary\ntheorem colour_complement_involution : (List.range 6).all (fun h => ((h + 3) % 6 + 3) % 6 == h && (h + 3) % 6 != h) := by decide\n\n-- the wheel is a 3+3 parity partition: the primaries {0,2,4} (even slots) alternate with the secondaries {1,3,5} (odd slots)\ntheorem primary_secondary_split : ((List.range 6).filter (fun h => h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h => h % 2 == 1) = [1, 3, 5]) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-abo_klein_four",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative, each self-inverse (order ≤ 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == lxor b a)) && (lxor a a == 0))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem abo_klein_four : (List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == lxor b a)) && (lxor a a == 0)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-blood_types_eight",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "with the Rh ± bit the blood system is (ℤ/2)³ — exactly 2³ = 8 blood types (A±,B±,AB±,O±)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2:Nat)^3 = 8"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem blood_types_eight : (2:Nat)^3 = 8 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-dna_base_pairing_involution",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem dna_base_pairing_involution : (List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-codons_sixty_four",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(4:Nat)^3 = 64"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem codons_sixty_four : (4:Nat)^3 = 64 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-sound_ladder_432",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the d/9 sound ladder on the 432 Hz anchor: f_d = 48·d, with the anchor exact at f_9 = 432"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range' 1 9).map (fun d => 48 * d) = [48,96,144,192,240,288,336,384,432]) ∧ (48 * 9 = 432)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem sound_ladder_432 : ((List.range' 1 9).map (fun d => 48 * d) = [48,96,144,192,240,288,336,384,432]) ∧ (48 * 9 = 432) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-octave_doubling",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the octave is the vortex doubling: 48·{1,2,4,8} = {48,96,192,384}, each twice the last — octave equivalence"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[48, 96, 192, 384] = [48, 48*2, 96*2, 192*2]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem octave_doubling : [48, 96, 192, 384] = [48, 48*2, 96*2, 192*2] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-electron_shells_2n2",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "electron shells hold 2n² each — [2,8,18,32] for n=1..4 (2 spin states × n² orbitals); the shape of the periodic table is a count"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range' 1 4).map (fun n => 2 * n * n) = [2, 8, 18, 32]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem electron_shells_2n2 : (List.range' 1 4).map (fun n => 2 * n * n) = [2, 8, 18, 32] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-subshell_capacities_4l2",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the subshells s,p,d,f hold 4l+2 = [2,6,10,14] for l=0..3 — (2l+1) orbitals × 2 spins"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 4).map (fun l => 4 * l + 2) = [2, 6, 10, 14]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem subshell_capacities_4l2 : (List.range 4).map (fun l => 4 * l + 2) = [2, 6, 10, 14] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-circle_of_fifths",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the circle of fifths: stacking fifths (+7 mod 12) visits ALL twelve pitch classes — 7 is coprime to 12, so ×7 permutes ℤ/12"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 12).all (fun t => (List.range 12).any (fun k => (7 * k) % 12 == t))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem circle_of_fifths : (List.range 12).all (fun t => (List.range 12).any (fun k => (7 * k) % 12 == t)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-tritone_involution",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the tritone (+6 mod 12) is a fixed-point-free involution — the octave splits exactly in half, each note its own tritone-of-tritone"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 12).all (fun p => ((p + 6) % 12 + 6) % 12 == p && (p + 6) % 12 != p)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem tritone_involution : (List.range 12).all (fun p => ((p + 6) % 12 + 6) % 12 == p && (p + 6) % 12 != p) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-ph_reflection_seven",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the pH scale reflects: pH ↦ 14−pH is an involution on 0..14 with a SINGLE fixed point 7 (neutral) — the acid/base mirror, echoing the vortex centre"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 15).all (fun p => 14 - (14 - p) == p)) ∧ ((List.range 15).filter (fun p => 14 - p == p)) = [7]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem ph_reflection_seven : ((List.range 15).all (fun p => 14 - (14 - p) == p)) ∧ ((List.range 15).filter (fun p => 14 - p == p)) = [7] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-ph_conjugate_sum_14",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "every acid/base conjugate pair sums to 14: pH + pOH = 14 across the whole scale"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 15).all (fun p => p + (14 - p) == 14)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem ph_conjugate_sum_14 : (List.range 15).all (fun p => p + (14 - p) == 14) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-punnett_three_to_one",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the monohybrid cross gives 3:1 — of the four allele pairings only (a,a) is recessive; dominance is a logical OR"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 1 || p.2 == 1)).length = 3) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 0 && p.2 == 0)).length = 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem punnett_three_to_one : (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 1 || p.2 == 1)).length = 3) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 0 && p.2 == 0)).length = 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-heterozygote_symmetry",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "allele order is irrelevant: the swap (a,b)↦(b,a) is an involution — the 2 homozygotes {AA,aa} are fixed and Aa↔aA swap, so 4 ordered pairings are 3 genotypes"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == p.2)).length = 2) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 != p.2)).length = 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem heterozygote_symmetry : (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == p.2)).length = 2) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 != p.2)).length = 2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-colour_complement_involution",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the complement on the 6-hue wheel (+3 mod 6) is a fixed-point-free involution: red↔cyan, green↔magenta, blue↔yellow — each pair mutually complementary"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 6).all (fun h => ((h + 3) % 6 + 3) % 6 == h && (h + 3) % 6 != h)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem colour_complement_involution : (List.range 6).all (fun h => ((h + 3) % 6 + 3) % 6 == h && (h + 3) % 6 != h) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-primary_secondary_split",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the wheel is a 3+3 parity partition: the primaries {0,2,4} (even slots) alternate with the secondaries {1,3,5} (odd slots)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 6).filter (fun h => h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h => h % 2 == 1) = [1, 3, 5])"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem primary_secondary_split : ((List.range 6).filter (fun h => h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h => h % 2 == 1) = [1, 3, 5]) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
