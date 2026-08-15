@@ -8,6 +8,13 @@
 - **[Chess](/chess)** — complete and correct: full legal moves, castling, en passant, promotion, check and
   checkmate. Two players, hot-seat, entirely in your browser, offline-capable. The sealed side:
   [the chess cluster](/publications/chess) and [the chess-horizon monograph](/publications/chessgames).
+- **The star walk** — draw a star in one stroke, below: pick n points and a step s; the stroke closes in one pass
+  exactly when gcd(s, n) = 1. The pentagram is the case n = 5, s = 2 — the doubling generator's walk
+  ([`pentagram_single_stroke`](/theorem/pentagram_single_stroke),
+  [the pentagram cluster](/publications/pentagram)) — the same walk [the school](/school) teaches and
+  [the fold](/quantum) rides.
+
+<ClientOnly><StarPlay /></ClientOnly>
 
 ## The clusters — proofs behind the play
 

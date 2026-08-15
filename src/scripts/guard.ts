@@ -68,7 +68,7 @@ try {
 // docs, a README or CONTRIBUTING silent on terms, "open-source" overclaims against the CC license, sealed currency
 // rates, author-identity drift. Consistency, not counsel. Milliseconds.
 try {
-  execSync('node ' + JSON.stringify(join(HERE, 'audit-legal-gaps.js')), { stdio: 'inherit' })
+  execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' legal', { stdio: 'inherit' })
 } catch {
   failed = true
   console.error('✗ guard — audit-legal-gaps found contradictions in the legal record (see above)')
@@ -77,7 +77,7 @@ try {
 // 4c) PROSE-ANCHORS AUDIT — the last manual act folded: every hand-written page must walk to a sealed theorem or
 // cluster, and every repo path a doc teaches must exist. The reading a human did each wave, now milliseconds.
 try {
-  execSync('node ' + JSON.stringify(join(HERE, 'audit-prose-anchors.js')), { stdio: 'inherit' })
+  execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' prose', { stdio: 'inherit' })
 } catch {
   failed = true
   console.error('✗ guard — audit-prose-anchors found unanchored pages or stale path claims (see above)')
@@ -96,7 +96,7 @@ try {
 // 6) QUANTUM FOLD — compress entire system state (theorems, packages, exports, tests, predictions, dimensions)
 // into one order-invariant merkle fold. Seal proof of current system state. Recomputable by anyone.
 try {
-  execSync('node ' + JSON.stringify(join(HERE, 'fold-quantum.js')), { stdio: 'inherit' })
+  execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' fold', { stdio: 'inherit' })
 } catch {
   failed = true
   console.error('✗ guard — fold-quantum failed to seal system state (see above)')
