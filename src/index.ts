@@ -22,6 +22,8 @@ export { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 
 export { computes, reveal, type Reveal } from './gate.js'
 
+export { designSystem } from './design-system.js'
+
 // cloudflare — audit the Cloudflare Workers bindings for a quantum-secure posture (no secret committed; symmetric-only
 // crypto — HMAC-SHA256 / ChaCha20-Poly1305, no Shor target, Grover only halves to a 128-bit floor), folded to one
 // content-address. Audits the COMMITTED config, not the live edge. Integrity, not truth.
