@@ -1,16 +1,27 @@
 {
   "timestamp": "2026-08-15T00:00:00Z",
-  "components": {
-    "theorems": "84862e4f37f1fae5",
-    "principles": "5d05dee0819412f8",
-    "packages": "5aacd0af35a35c23",
-    "exports": "48ea0e5fd1af6314",
-    "tests": "2294d2437b44871b",
-    "predictions": "5e4221eef32e68ab",
-    "dimensions": "e202a51b77775621",
-    "legal": "6c5dee774519bd59",
-    "prose": "2004486bf6587de3"
+  "dimensions": {
+    "sealed": {
+      "theorems": "a13606f6213e49eb",
+      "principles": "2a4ffc2e7ada21e2"
+    },
+    "served": {
+      "packages": "5aacd0af35a35c23",
+      "exports": "48ea0e5fd1af6314"
+    },
+    "tools": {
+      "mcp": "54a12909787bb020",
+      "tests": "2294d2437b44871b"
+    },
+    "watch": {
+      "predictions": "5e4221eef32e68ab",
+      "dimensions": "e202a51b77775621"
+    },
+    "record": {
+      "legal": "187c54eec8ba706b",
+      "prose": "2004486bf6587de3"
+    }
   },
-  "unified_fold": "6bd8a6f3271890e966d3f607d54fb362",
-  "receipt": "40f077fb43bdad72"
+  "unified_fold": "6d97cd984e7fc6406db7390324050b0c",
+  "receipt": "a242ff432dde462a"
 }

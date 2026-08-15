@@ -22,6 +22,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { toUuid } from '../index.js'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const rd = (p: string) => readFileSync(join(ROOT, p), 'utf8')
@@ -76,6 +77,24 @@ for (const p of ['LICENSE', 'docs/license.md', 'README.md', 'package.json']) {
 if (emails.size > 1)
   gaps.push({ what: `author email drifts across the record: ${[...emails].join(' vs ')}`, fix: 'pick the canonical address (the LICENSE one) and update every other occurrence to match — one identity, everywhere' })
 
+  // 7) THE TRIALS DEPOSITS — the captain's contribution record (trials-receipts.json). Every receipt id must
+  // RECOMPUTE from its exact statement (the trial is deterministic: id = toUuid(statement)); the audit OBJECTS to
+  // any drifted or fabricated deposit with the exact fix, until there is nothing to object but to accept the
+  // outcome — the receipts reminding themselves the captain: contribute first, then take.
+  const receiptLines: string[] = []
+  if (existsSync(join(ROOT, 'trials-receipts.json'))) {
+    const record = JSON.parse(rd('trials-receipts.json')) as { receipts: { id: string; statement: string }[] }
+    for (const r of record.receipts) {
+      const recomputed = toUuid(r.statement)
+      if (recomputed !== r.id)
+        gaps.push({
+          what: `trials-receipts.json: deposit ${r.id} does not recompute from its statement (toUuid gives ${recomputed})`,
+          fix: `edit trials-receipts.json: correct the statement to the exact text that was trialed (re-POST it to uuidna.com/trials and copy the returned id), or correct the id to ${recomputed}`,
+        })
+      receiptLines.push(`${r.id}|${recomputed === r.id ? 'recomputes' : 'DRIFTED'}`)
+    }
+  }
+
   // the FACTS the audit stood on, serialized order-invariantly — the legal dimension of the one guard receipt.
   const facts = [
     `canon:${CANON}`,
@@ -83,6 +102,7 @@ if (emails.size > 1)
     `LICENSE:${licenseFile.includes('CC BY-NC-ND 4.0')}`,
     `README:${/CC BY-NC-ND 4\.0|CC-BY-NC-ND-4\.0/.test(readme)}`,
     `emails:${[...emails].sort().join(',')}`,
+    ...receiptLines,
     `gaps:${gaps.length}`,
   ].sort().join('\n')
   return { gaps, facts }
