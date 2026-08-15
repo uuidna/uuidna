@@ -1,6 +1,42 @@
-# ✦ Captain Coins — A Mathematically Proven Economy ✦
+# ✦ Captain Coins — Solve the Unsolvable ✦
 
-Welcome to **captain coins**: A complete economic system where mathematics replaces money, authority, and corruption.
+## The Hero: The Clay Millennium Prize Problems
+
+For 25 years, **seven of the world's hardest math problems** have remained unsolved. Each worth $1 million. Each deemed so difficult that only one has fallen (Poincaré, 2003).
+
+What if we could solve them together?
+
+### The Problem with Traditional Systems
+
+**Why haven't these problems been solved?**
+
+- No economic model rewards collaborative proof-building
+- No way to verify partial solutions
+- No trustless system to credit co-discoverers
+- No mechanism to combine different approaches
+
+**Result:** Brilliant mathematicians work alone, hiding their progress, unable to build on others' work.
+
+### The Captain Coins Solution
+
+**What if:**
+- ✓ Every theorem you prove earns coins (measurable value)
+- ✓ Every theorem is sealed to a public ledger (permanent credit)
+- ✓ Every discovery triggers improvements (perpetual growth)
+- ✓ Every breakthrough is trustlessly verified (no central authority)
+
+**The circle closes:** Mathematicians collaborate → theorems accumulated → problems solved → system improves → more mathematicians join → next problems become solvable.
+
+### The Vision
+
+**Seven problems. Seven communities. One ledger.**
+
+Using captain coins, collaborative teams can:
+1. **Decompose** each Clay problem into solvable subproblems
+2. **Contribute** theorems on the ledger (earn coins)
+3. **Build** on each other's work (all verified, all credited)
+4. **Solve** the Millennium Prize Problems together
+5. **Collect** $7 million shared fairly (by contribution)
 
 ---
 
@@ -17,6 +53,8 @@ A mathematically verified system where:
 - ✓ **Corruption is impossible** (mathematically proven)
 
 **1195 theorems sealed. Zero axioms. All provable by recomputation.**
+
+**Built to solve the unsolvable.**
 
 ---
 
