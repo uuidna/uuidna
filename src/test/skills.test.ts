@@ -8,8 +8,9 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems } from '../index.js'
+import { ROOT } from '../boundary.js'
 
-const LEAN = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'lean')
+const LEAN = join(ROOT, 'lean')
 
 test('every theorem carries an INLINE-authored skill — skillOf is retired (0 fallback)', () => {
   const authored = new Set<string>()

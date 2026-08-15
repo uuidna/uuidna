@@ -4,8 +4,8 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract, toUuid } from '../index.js'
+import { UUID } from './api.js'
 
-const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 const TERMS = 'CC-COMMERCIAL — deployment #7, secret between uuidna and the licensee, do not share'
 
 test('the domain IS the contract address (contractId = uuidna_address of the terms)', () => {

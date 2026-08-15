@@ -4,10 +4,10 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { encrypt, decrypt, cryptoAddress, toUuid, sha256, pbkdf2Sha256, type Sealed } from '../index.js'
+import { hex } from './api.js'
 
 const enc = new TextEncoder()
-const toh = (u: Uint8Array): string => [...u].map((b) => b.toString(16).padStart(2, '0')).join('')
-
+const toh = hex
 test('cryptoAddress is the first 128 bits of SHA-256("uuidna:"+seed), v8-formatted (anchored to the sha256 KAT)', () => {
   const seed = 'abc'
   const a = cryptoAddress(seed)

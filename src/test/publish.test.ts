@@ -5,8 +5,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { publications, composePublication, auditPublication, revisePublication, comparePublications } from '../index.js'
-
-const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
+import { UUID } from './api.js'
 
 test('the whole stream is publishable — every note passes its own audit before publishing', () => {
   const P = publications()

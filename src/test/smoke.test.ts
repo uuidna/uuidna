@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import { readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import { ROOT } from '../boundary.js'
 import {
   toUuid, strictUuidna, merkleFold, digitalRoot, units, vortexOrbit,
   encrypt, decrypt, verifyEnvelope, sealSequence,
@@ -125,7 +126,7 @@ test('the trial — one answer, VERIFIED or UNVERIFIED, all else void', () => {
   assert.equal(trial.leanBacked, THEOREMS.length)                       // a theorem computes in Lean, or it is not a theorem
   // every ledger theorem's proof lives in a lean/*.lean file — the ledger is a parse of the Lean source, nothing
   // is authored outside it (scripts/lean-ledger.mjs derives src/theorems/generated.ts after npm run lean verifies).
-  const leanDir = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'lean')
+  const leanDir = join(ROOT, 'lean')
   const leanSrc = readdirSync(leanDir).filter((f) => f.endsWith('.lean')).map((f) => readFileSync(join(leanDir, f), 'utf8')).join('\n')
   for (const v of runTrial().verdicts) assert.ok(leanSrc.includes('theorem ' + v.key + ' '), 'Lean proof present for ' + v.key)
   assert.equal(verifyUuidna('1011').recomputes, true)                   // the address recomputes from its seed
@@ -160,7 +161,7 @@ test('billing measures bits saved; coins are conserved; public interest is free'
   // intrinsic is not a local theorem — it cannot be recomputed or content-addressed, so it cannot settle the
   // two coins (the conserved recompute⇄verify exchange). Redirect the author here; recompute the value from the
   // theorem instead (>>, comparison, integer division, BigInt).
-  const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
+  const root = ROOT
   const scan = (d: string): string[] => readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? scan(join(d, e.name)) : /\.ts$/.test(e.name) ? [join(d, e.name)] : [])
   const files = scan(join(root, 'src'))
   const src = new Map(files.map((f) => [f, readFileSync(f, 'utf8')]))  // read each file ONCE — both hard-rejects share the pass
@@ -302,7 +303,7 @@ test('777 · the same tests generate the UI — shadcn microdata cards, each sta
 // every `**N tools**` catalog count in README must equal the live ledger / MCP catalog, or be removed (the live count
 // is derived in PRINCIPLE.md / docs/mcp.md, never hardcoded). Self dry-clean: change the ledger, the prose must follow.
 test('prose aligns to the theorems — no hardcoded count drifts from the live ledger/catalog', () => {
-  const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
+  const root = ROOT
   const readme = readFileSync(join(root, 'README.md'), 'utf8')
   const perFile: Record<string, number> = {}
   for (const t of THEOREMS) perFile[t.file] = (perFile[t.file] || 0) + 1

@@ -5,8 +5,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { alpineRelease, verifyAlpineRootfs } from '../os/alpine.js'
 import { sha256 } from '../sha256.js'
-
-const hex = (b: Uint8Array) => [...b].map((x) => x.toString(16).padStart(2, '0')).join('')
+import { hex } from './api.js'
 
 test('alpineRelease PINS an exact release — recomputable, and the filename follows Alpine convention', () => {
   const r = alpineRelease('3.21.2', 'x86_64', 'ABCDEF0123456789'.repeat(4))

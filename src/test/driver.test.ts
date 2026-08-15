@@ -5,8 +5,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { driverBundle, verifyDriverBundle } from '../drivers/driver.js'
 import { sha256 } from '../sha256.js'
-
-const hex = (b: Uint8Array) => [...b].map((x) => x.toString(16).padStart(2, '0')).join('')
+import { hex } from './api.js'
 
 test('driverBundle PINS an exact netboot bundle — recomputable, Alpine filename convention', () => {
   const d = driverBundle('3.24.1', 'x86_64', 'ABC0'.repeat(16))

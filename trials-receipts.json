@@ -73,6 +73,10 @@
     {
       "id": "2d6e4d9d-eda4-8235-b9d5-fa8ea899cab9",
       "statement": "The library's boundary folds to one named module, the packages are verified already-folded by construction, and the dry finder covers the whole tree with exactly two declared singularities, proven by theorem two_coins and theorem exactly_one_flag."
+    },
+    {
+      "id": "d6ec5e06-74fb-80a0-b726-220bb1d2d4dc",
+      "statement": "The test layer folds onto its own singularity keeping the node:test defaults, the smoke scan resolves the tree through the one boundary, and the dry finder covers scripts, library, packages and tests with three declared singularities, proven by theorem two_coins and theorem exactly_one_flag."
     }
   ]
 }

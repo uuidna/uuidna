@@ -6,8 +6,9 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { sha256, hmacSha256, pbkdf2Sha256, chachaBlock, chacha20, poly1305, aeadEncrypt, aeadDecrypt } from '../index.js'
+import { hex } from './api.js'
 
-const toh = (u: Uint8Array): string => [...u].map((b) => b.toString(16).padStart(2, '0')).join('')
+const toh = hex
 const hx = (h: string): Uint8Array => new Uint8Array((h.match(/../g) || []).map((x) => parseInt(x, 16)))
 const en = (s: string): Uint8Array => new TextEncoder().encode(s)
 const kat = (name: string, got: Uint8Array, want: string) => test(name, () => assert.equal(toh(got), want))

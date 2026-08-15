@@ -4,8 +4,8 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { auditText, auditTranslation, toUuid, digitalRoot, merkleRoot } from '../index.js'
+import { UUID } from './api.js'
 
-const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 const BOOK = `The Project
 
 CHAPTER I

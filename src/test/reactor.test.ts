@@ -5,8 +5,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { snapshot, reactor, theorems } from '../index.js'
-
-const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
+import { UUID } from './api.js'
 
 test('snapshot fuses sealed theorems across domains to one recomputable superposition', () => {
   const keys = ['diamond_involution', 'week_is_z7', 'true_colour_is_24_bit', 'seven_bands_in_order']
