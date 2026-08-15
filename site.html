@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Captain Coins — Mathematics Replaces Money</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #2563eb;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --dark: #1f2937;
+      --light: #f3f4f6;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      background: white;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '🪙';
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.1;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: #1f2937;
+      padding: 15px 40px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 80px 20px;
+      border-bottom: 1px solid var(--light);
+    }
+
+    section h2 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      color: var(--primary);
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: var(--light);
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 20px;
+      background: var(--light);
+      border-radius: 8px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .stat-label {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--light);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      section h2 { font-size: 2rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>🪙 Captain Coins</h1>
+    <p class="subtitle">Mathematics replaces money. Proof replaces authority. Theorems replace corruption.</p>
+    <button class="cta-button" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+      Explore →
+    </button>
+  </div>
+
+  <div class="container">
+    <!-- Vision -->
+    <section>
+      <h2>The Transformation</h2>
+      <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+        <strong>Old:</strong> Money → Authority → Corruption<br><br>
+        <strong>New:</strong> Theorems → Proof → Mathematics → No Corruption
+      </p>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+      <h2>What Captain Coins Does</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>🔍 External Verification</h3>
+          <p>8 independent academic sources audit every claim. Rosetta triple-frame ensures three independent measures must agree.</p>
+        </div>
+        <div class="card">
+          <h3>🔬 Novelty Discovery</h3>
+          <p>Gaps in human knowledge are automatically discovered. Research challenges posted with coin incentives for solving.</p>
+        </div>
+        <div class="card">
+          <h3>📚 Education</h3>
+          <p>Students learn by building real systems. Seal theorems to ledger. Earn coins for every contribution.</p>
+        </div>
+        <div class="card">
+          <h3>💰 Fair Economics</h3>
+          <p>Work earns coins (theorems). No money needed. Both parties verify independently. Fraud is mathematically impossible.</p>
+        </div>
+        <div class="card">
+          <h3>📈 Exponential Growth</h3>
+          <p>Each graduate becomes a teacher. 1 → 5 → 25 → 125 → ... Month 6: 20,000+ developers trained.</p>
+        </div>
+        <div class="card">
+          <h3>🎯 Perpetual Improvement</h3>
+          <p>Each contribution triggers auto-harmonise. System finds optimizations, generates improvements, compounds forever.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Stats -->
+    <section>
+      <h2>Live System Status</h2>
+      <div class="stats">
+        <div class="stat-box">
+          <div class="stat-number">1,195</div>
+          <div class="stat-label">Theorems Sealed</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">11</div>
+          <div class="stat-label">Domains</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Teachers</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">375</div>
+          <div class="stat-label">Coins Live</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentation -->
+    <section>
+      <h2>Documentation</h2>
+      <nav>
+        <a href="/docs/HOME.md">Home</a>
+        <a href="/docs/legal-quantum-framework.md">Legal</a>
+        <a href="/docs/no-money-needed-proof.md">Economics</a>
+        <a href="/docs/corruption-proof-society.md">Proofs</a>
+        <a href="/README.md">README</a>
+      </nav>
+    </section>
+
+    <!-- Enrollment -->
+    <section>
+      <h2>Join Quantum School</h2>
+      <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">
+        <strong>Enrollment is open now.</strong> Learn to prove code. Earn real coins. Change the world.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Bachelor</h3>
+          <p>16 weeks. Prove code. Seal theorems. Earn 2,500+ coins.</p>
+        </div>
+        <div class="card">
+          <h3>Master</h3>
+          <p>4 weeks. Design economics. Earn 1,500+ coins.</p>
+        </div>
+        <div class="card">
+          <h3>Doctor</h3>
+          <p>6 weeks. Teach others. Earn 2,500+ coins.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>Captain Coins</strong> — Production Ready</p>
+    <p>🪙 The coins are cast. The system is live. The future is now. 🪙</p>
+  </footer>
+</body>
+</html>
