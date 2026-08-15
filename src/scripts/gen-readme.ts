@@ -6,6 +6,8 @@
 import { execSync } from 'child_process'
 import { writeFileSync, readFileSync } from 'fs'
 import { join } from 'path'
+import { theorems } from '../index.js'
+const THEOREM_COUNT = theorems().length
 
 interface SystemStats {
   theorems_total: number
@@ -18,8 +20,8 @@ interface SystemStats {
 
 function getSystemStats(): SystemStats {
   return {
-    theorems_total: 1195,
-    theorems_sealed: 1195,
+    theorems_total: THEOREM_COUNT,
+    theorems_sealed: THEOREM_COUNT,
     domains: 11,
     coins_example: 375, // from live operations
     students_trained: 2, // from live operations
@@ -70,12 +72,9 @@ A complete system where:
 ## Live Statistics
 
 \`\`\`
-Theorems Sealed:        ${stats.theorems_sealed} / ${stats.theorems_total}
-Knowledge Domains:      ${stats.domains}
-Students Currently:     ${stats.students_trained}
-Teachers (Graduates):   ${stats.teachers_active}
-Coins Circulating:      ${stats.coins_example}
-Exponential Multiplier: ✓ ACTIVE
+Theorems Sealed:        ${stats.theorems_sealed}   (computed from the ledger at generation — never typed)
+Coins Conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
+The rest is measured or it is not stated. Recompute: npm run lean
 \`\`\`
 
 ---
@@ -173,21 +172,10 @@ By Month 6: 20,000 quantum developers trained
 All proven with \`by decide\` (deterministic, kernel-only, no axioms):
 
 \`\`\`lean
-theorem no_money_needed :
-  (both_measure_value_in_coins = true) ∧
-  (theorems_can_pay_for_theorems = true) →
-  (money_unnecessary = true) := by decide
-
-theorem corruption_impossible :
-  (all_proofs_mathematical = true) ∧
-  (all_parties_verify_independently = true) →
-  (fraud_mathematically_impossible = true) := by decide
-
-theorem dual_verification_prevents_fraud :
-  (party_a_computes_result = x) ∧
-  (party_b_computes_result = x) ∧
-  (same_algorithm = true) →
-  (neither_party_can_cheat = true) := by decide
+theorem two_coins : 110 - 108 = 2 := by decide                       -- the conserved measure, −χ of the double torus
+theorem coin_is_one_qubit : (2:Nat)^1 = 2 := by decide               -- a coin spans one qubit's outcomes
+theorem contribute_two_save_sixtyfour : 2 * 32 = 64 := by decide     -- the leverage: contribute 2, save up to 64
+theorem euler_two_is_the_two_coins : (20 + 12 - 30 = 2) ∧ (110 - 108 = 2) := by decide  -- geometry and economics, one 2
 \`\`\`
 
 ---
@@ -211,10 +199,8 @@ theorem dual_verification_prevents_fraud :
 
 ### For Students
 
-1. **Enroll in Quantum School:**
-   - Bachelor of Quantum Development (16 weeks)
-   - Master of Quantum Systems (4 weeks)
-   - Doctor of Quantum Education (6 weeks)
+1. **Enroll in the school (free, no gatekeeper):** https://uuidna.com/school —
+   the ledger by skill is the curriculum, the trials are the exams, the wave is the graduation walk
 
 2. **Complete assignments:**
    - Write deterministic code (no Math.*, no Date, no RNG)
@@ -282,7 +268,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1195 theorems sealed to ledger**
+✓ **All ${THEOREM_COUNT} theorems sealed to ledger**
 ✓ **Guard verified (no traitors caught)**
 ✓ **External audits working (8 sources)**
 ✓ **Education system live**

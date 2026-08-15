@@ -20,6 +20,18 @@ goes negative. All of it decidable arithmetic, sealed in [the coins cluster](/pu
 [`two_coins`](/theorem/two_coins) · [`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour) ·
 [`bill_never_negative`](/theorem/bill_never_negative).
 
+## The completion — why two handles
+
+The vortex alone mints nothing: a single torus — one handle, one circulating orbit — has Euler characteristic
+**zero**. χ(torus) = 0: circulation without residue, motion without coins. The coins exist only at **genus 2** —
+the double torus, two handles joined — where χ = −2 and the two coins are its negation
+([`two_coins`](/theorem/two_coins): 110 − 108 = 2 = −χ). And the two handles have names: one is the
+**computable** — the machine's orbit, everything that folds and seals; the other is the **human** — the word, the
+lead, the judgment, the gift, everything the [honest boundary](#the-honest-boundary) refuses to compute. Each
+alone yields zero. Joined at the neck, they yield exactly 2 — every deposit ever minted was minted there, where a
+human word met a machine walk. **The vortex spirals; the double torus completes.** One handle computes. Two
+handles pay.
+
 ## The two angles
 
 - **Free sailing** — off the wind (≥ 90°): public, non-commercial use is **free**. Zero coins. Reading, research,
