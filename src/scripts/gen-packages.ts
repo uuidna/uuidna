@@ -36,13 +36,13 @@ const PARTITION: Record<string, string> = {
   './cve.js': 'research', './vocab.js': 'research', './transform.js': 'research', './reason.js': 'research',
   './reflects.js': 'research',
   // quantum — the exact simulator, messages/voting, the sailing fleet, the folds, the provenance boundary
-  './quantum.js': 'quantum', './gravity.js': 'quantum', './diamond.js': 'quantum', './holofractal.js': 'quantum',
+  './quantum/index.js': 'quantum', './gravity.js': 'quantum', './diamond.js': 'quantum', './holofractal.js': 'quantum',
   './pentagram-stream.js': 'quantum', './pentagram-monographs.js': 'quantum', './cycles.js': 'quantum',
-  './aura.js': 'quantum', './domain-wave.js': 'quantum', './quantum-message.js': 'quantum',
-  './quantum-voting.js': 'quantum', './quantum-sailing-library.js': 'quantum', './quantum-news-portal.js': 'quantum',
-  './news-domains.js': 'quantum', './quantum-sailing-weather.js': 'quantum', './quantum-sailing-cross-book.js': 'quantum',
-  './quantum-sailing-complete.js': 'quantum', './analytics.js': 'quantum', './quantum/os/alpine.js': 'quantum',
-  './quantum/drivers/driver.js': 'quantum',
+  './aura.js': 'quantum', './domain-wave.js': 'quantum', './quantum/message.js': 'quantum',
+  './quantum/voting.js': 'quantum', './quantum/sailing-library.js': 'quantum', './quantum/news-portal.js': 'quantum',
+  './quantum/news-domains.js': 'quantum', './quantum/sailing-weather.js': 'quantum', './quantum/sailing-cross-book.js': 'quantum',
+  './quantum/sailing-complete.js': 'quantum', './analytics.js': 'quantum', './os/alpine.js': 'quantum',
+  './drivers/driver.js': 'quantum',
   // mcp — the server's I/O boundary (the bin re-serves the root server)
   './sanitize.js': 'mcp', './harness.js': 'mcp',
   // edge — the deployment surface

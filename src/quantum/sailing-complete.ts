@@ -2,9 +2,9 @@
 // quantum-sailing-complete — AUTOMATE the whole fleet: fetch books (network), audit, link, correlate weather, cross-correlate books, cluster theorems — one unified computation that folds to one receipt.
 // The captain's complete mission: read the library, find the weather, discover the resonances. Network-bound fetch; pure and recomputable correlation.
 
-import { theorems, toUuid, merkleGravity, auditBook, linkBookFacts, type BookAudit, type BookLedgerLinkage } from './index.js'
-import { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type CrossBookResonance, type CrossBookCluster } from './quantum-sailing-cross-book.js'
-import { correlateWeatherToTheorems, simulateQuantumSailingWeather, type QuantumSailingWeatherCorrelation, type WeatherFact } from './quantum-sailing-weather.js'
+import { theorems, toUuid, merkleGravity, auditBook, linkBookFacts, type BookAudit, type BookLedgerLinkage } from '../index.js'
+import { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type CrossBookResonance, type CrossBookCluster } from './sailing-cross-book.js'
+import { correlateWeatherToTheorems, simulateQuantumSailingWeather, type QuantumSailingWeatherCorrelation, type WeatherFact } from './sailing-weather.js'
 
 export interface BookWithLinkage {
   gutenbergId: number

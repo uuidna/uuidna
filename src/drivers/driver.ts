@@ -7,9 +7,9 @@
 // exactly which driver bundle it rests on, recomputable by anyone. Port the INTEGRITY of the drivers, never the
 // runtime — the modules are NAMED and CHECKED, never inserted. fetchDriverLatest is the upstream automation, a pure
 // fetch + text parse at this boundary — the one place a LIVE "latest" read is honest, not hidden. Integrity, not execution.
-import { toUuid } from '../../address.js'
-import { merkleGravity } from '../../gravity.js'
-import { sha256 } from '../../sha256.js'
+import { toUuid } from '../address.js'
+import { merkleGravity } from '../gravity.js'
+import { sha256 } from '../sha256.js'
 
 /** An exact driver bundle (kernel + modloop = the kernel modules), pinned as a recomputable provenance record. */
 export interface DriverBundle {
@@ -69,7 +69,7 @@ export function verifyDriverBundle(bytes: Uint8Array, bundle: DriverBundle): Dri
  *  metadata over the network (Node's built-in fetch, pure TS — the response is DATA, never executed), select the
  *  NETBOOT flavor (kernel + modloop = the drivers), and PIN its exact version + published SHA-256. Tracks upstream so a
  *  driver bundle's provenance stays current AND verifiable. Non-deterministic by design (it depends on what upstream
- *  calls "latest" now) — which is why it lives at src/quantum/drivers/**. Best-effort: a down mirror yields null, NEVER
+ *  calls "latest" now) — which is why it lives at src/drivers/**. Best-effort: a down mirror yields null, NEVER
  *  a faked digest. */
 export async function fetchDriverLatest(arch = 'x86_64', branch = 'latest-stable'): Promise<DriverBundle | null> {
   try {

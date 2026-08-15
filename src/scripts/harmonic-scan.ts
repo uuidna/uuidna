@@ -48,15 +48,17 @@ const isLibrary = (p: string): boolean => !/[\\/](?:scripts|tests?|drivers|os)[\
 // the SAFE direction (a security scanner over-reports, never under-reports) and is cleared by @non-harmonic / a newline.
 const strip = (s: string): string => s.split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l)).join('\n')
 
-// walk the WHOLE src tree for rule (2); rule (1) applies to the top-level library modules only.
+// walk the WHOLE src tree for rule (2); rule (1) applies to every LIBRARY module — any src/**.ts outside the named
+// orchestrator/boundary dirs (scripts, tests, drivers, os), nested or flat, so moving a module into a subdirectory
+// (e.g. src/quantum/) never silently removes it from the non-harmonic gate.
 const walk = (dir: string): string[] => readdirSync(dir).flatMap((e) => {
   const p = join(dir, e)
   return statSync(p).isDirectory() ? walk(p) : (p.endsWith('.ts') ? [p] : [])
 })
 const rel = (p: string): string => p.slice(SRC.length + 1)
 
-const libFiles = readdirSync(SRC).filter((f) => f.endsWith('.ts'))   // top-level library modules (rule 1)
 const allFiles = walk(SRC)                                           // the whole tree (rule 2)
+const libFiles = allFiles.filter((p) => isLibrary(p))                // every library module, nested or flat (rule 1)
 // the split packages (packages/*/src) are published library surface too — rule (2) covers them with the same
 // hard-reject, no exemption. Only each package's src/ is walked (never dist/ or node_modules/), and a missing
 // packages/ tree scans as empty, so the scanner runs unchanged on a checkout without the workspace.
@@ -69,12 +71,13 @@ const offenders: { file: string; ops: string[] }[] = []
 
 // rule (1) — non-harmonic ops in the library core, @non-harmonic-gated
 for (const f of libFiles) {
-  const stripped = strip(readFileSync(join(SRC, f), 'utf8'))
-  const declared = /@non-harmonic/.test(readFileSync(join(SRC, f), 'utf8'))
+  const raw = readFileSync(f, 'utf8')
+  const stripped = strip(raw)
+  const declared = /@non-harmonic/.test(raw)
   const ops = OPS.filter(([, re]) => re.test(stripped)).map(([n]) => n)
-  if (ops.length && declared) named.push(`${f} (${ops.join(', ')})`)
-  else if (ops.length && !declared) offenders.push({ file: f, ops })
-  else if (!ops.length && declared) offenders.push({ file: f, ops: ['(declares @non-harmonic but has no non-harmonic op — remove the stale marker)'] })
+  if (ops.length && declared) named.push(`${rel(f)} (${ops.join(', ')})`)
+  else if (ops.length && !declared) offenders.push({ file: rel(f), ops })
+  else if (!ops.length && declared) offenders.push({ file: rel(f), ops: ['(declares @non-harmonic but has no non-harmonic op — remove the stale marker)'] })
 }
 
 // rule (2) — determinism hard-reject over the WHOLE tree, scanned on RAW source (comments included, like the smoke

@@ -78,4 +78,4 @@ export const osLayer = (): NamedLayer => namedLayer('os', 'lean/Os.lean',
   'decide`, axiom-free, and a 128-bit particle. The sealed STATEMENT is the specification; the runtime verifier (Alpine ' +
   '+ driver provenance, portAllAlpine for the whole arch matrix) enforces it against real bytes. uuidna seals the ' +
   'integrity spec; it does NOT boot, link, or run an operating system. A sealed spec, not an OS.',
-  ['src/quantum/os', 'src/quantum/drivers'])
+  ['src/os', 'src/drivers'])

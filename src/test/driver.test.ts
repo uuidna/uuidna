@@ -4,7 +4,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { driverBundle, verifyDriverBundle } from '../drivers/driver.js'
-import { sha256 } from '../../sha256.js'
+import { sha256 } from '../sha256.js'
 
 const hex = (b: Uint8Array) => [...b].map((x) => x.toString(16).padStart(2, '0')).join('')
 

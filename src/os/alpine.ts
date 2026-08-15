@@ -4,12 +4,12 @@
 // rootfs SHA-256, folds them to one recomputable receipt, and VERIFIES your actual rootfs bytes with uuidna's OWN
 // pure-TS SHA-256 (use only uuidna, never the host). So a deployment can PROVE it rests on exactly this upstream base,
 // recomputable by anyone holding the same release. "Port exact Alpine" here means PORT THE INTEGRITY, not the runtime —
-// the exact bytes are NAMED and CHECKED, never run. This file lives at src/quantum/os/**, the ONE place non-determinism
+// the exact bytes are NAMED and CHECKED, never run. This file lives at src/os/**, the ONE place non-determinism
 // is honest: reading upstream's LIVE "latest" is a wall-clock-dependent act, declared here, not hidden from the gate.
 // Integrity, not execution.
-import { toUuid } from '../../address.js'
-import { merkleGravity } from '../../gravity.js'
-import { sha256 } from '../../sha256.js'
+import { toUuid } from '../address.js'
+import { merkleGravity } from '../gravity.js'
+import { sha256 } from '../sha256.js'
 
 /** An exact Alpine release, pinned as a recomputable provenance record — never a running system. */
 export interface AlpineRelease {

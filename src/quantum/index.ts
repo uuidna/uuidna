@@ -12,8 +12,8 @@
 // (permutations, Gaussian-integer phases, and H); a non-Clifford √-phase applied to only part of a superposition
 // (T = diag(1, e^{iπ/4}), controlled-H, arbitrary rotations) needs per-branch scaling and is the honest boundary —
 // out of this exact representation, by construction. The paradox COMPUTES as simulation, not as hardware.
-import { gcdBigInt, toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { gcdBigInt, toUuid } from '../address.js'
+import { merkleGravity } from '../gravity.js'
 
 // ── Gaussian-integer amplitudes: (re + im·i), exact, BigInt ───────────────────────────────────────────────────
 /** A Gaussian-integer amplitude coefficient re + im·i (the true amplitude is this over √(2^scale)). */

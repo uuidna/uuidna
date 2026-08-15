@@ -74,7 +74,7 @@ export {
   distribution, probability, marginal, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
   runCircuit, isClassical, classicalMap, truthTable,
   report, fraction, label, type QState, type Prob, type Cx, type GateOp,
-} from './quantum.js'
+} from './quantum/index.js'
 
 export { renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from './render.js'
 // editor — the SERIALIZER CONTRACT of a content-addressed document (a Lexical-shaped node tree), the fold lean/Editor
@@ -255,48 +255,48 @@ export { quantumAura, type Aura } from './aura.js'
 // (the proof is sealed). A quantum message is a WITNESSED message — the witness is a sealed theorem, and the
 // message's quantum encoding proves the witness was cited. The same message always folds to the same aura and
 // quantum state for every observer — integrity without secrets.
-export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, type QuantumMessage, type QuantumState } from './quantum-message.js'
+export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, type QuantumMessage, type QuantumState } from './quantum/message.js'
 
 // quantum-voting — CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins to the captain,
 // and earn voting rights proportional to coins paid. Votes are encoded in quantum superposition (deterministic,
 // content-addressed), tallied to one order-invariant receipt, and folded into commit messages. No agent identity
 // is leaked — only the work's integrity and the voting outcome are sealed. The same coins settle computational
 // cost, captain's commission, and voting rights — one unified economy.
-export { agentContribute, encodeVote, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, type AgentContribution, type Vote, type QuantumVote, type CommitWithVoting } from './quantum-voting.js'
+export { agentContribute, encodeVote, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, type AgentContribution, type Vote, type QuantumVote, type CommitWithVoting } from './quantum/voting.js'
 
 // quantum-sailing-library — OFFLINE public-domain book library for the crew. Books are fetched once from
 // Project Gutenberg, audited for provenance (content-addressed), linked to the sealed ledger (decidable
 // facts extracted), and served locally without network dependency. Each book is a witness to arithmetic.
 // The captain sails through literature, discovering novel facts (research leads) and sealing them.
-export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, type SailingBook, type QuantumSailingLibrary } from './quantum-sailing-library.js'
+export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, type SailingBook, type QuantumSailingLibrary } from './quantum/sailing-library.js'
 
 // quantum-news-portal — THE HONEST NEWS ENGINE: read articles on disputed topics (politics, medicine,
 // climate, history, economics) → extract decidable facts (dates, numbers, logical claims) → audit through
 // anti-fraud MCP (provable | open | overclaimed | narrative gap) → coin-backed reader judgment. Every
 // extraction and audit is recomputable; narrative gaps (true statement, false story) stay with the court.
-export { extractFactsFromArticle, auditFactAgainstLedger, buildNewsPortal, renderPortalSummary, tallyJudgmentVotes, shouldSealFact, type NewsArticle, type NewsExtractedFact, type FactJudgment, type NewsPortal, type JudgmentVote } from './quantum-news-portal.js'
+export { extractFactsFromArticle, auditFactAgainstLedger, buildNewsPortal, renderPortalSummary, tallyJudgmentVotes, shouldSealFact, type NewsArticle, type NewsExtractedFact, type FactJudgment, type NewsPortal, type JudgmentVote } from './quantum/news-portal.js'
 
 // domain-specific news portals: politics, medicine, climate, history, economics
-export { buildPoliticsPortal, extractPoliticsFacts, buildMedicinePortal, extractMedicineFacts, buildClimatePortal, extractClimateFacts, buildHistoryPortal, extractHistoryFacts, buildEconomicsPortal, extractEconomicsFacts, processMultiDomainJudgment, type PoliticsArticle, type MedicineArticle, type ClimateArticle, type HistoryArticle, type EconomicsArticle } from './news-domains.js'
+export { buildPoliticsPortal, extractPoliticsFacts, buildMedicinePortal, extractMedicineFacts, buildClimatePortal, extractClimateFacts, buildHistoryPortal, extractHistoryFacts, buildEconomicsPortal, extractEconomicsFacts, processMultiDomainJudgment, type PoliticsArticle, type MedicineArticle, type ClimateArticle, type HistoryArticle, type EconomicsArticle } from './quantum/news-domains.js'
 
 // quantum-sailing-weather — CORRELATE real-world weather data to quantum sailing theory. Discovers public APIs
 // (NOAA, Open-Meteo) that provide decidable facts (temperature, wind, pressure, waves, tides) and LINKS them to
 // theorems sealed in the ledger. Pure correlation: no network calls (only on demand), only checks against ledger.
 // Weather facts are either sealed-match (already a theorem) or novel (research leads awaiting sealing).
-export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, type WeatherFact, type QuantumSailingWeatherCorrelation } from './quantum-sailing-weather.js'
+export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, type WeatherFact, type QuantumSailingWeatherCorrelation } from './quantum/sailing-weather.js'
 
 // quantum-sailing-cross-book — CROSS-BOOK CORRELATION: the captain reads across the library and finds theorems that
 // RESONATE only when two or more books are read together. Each book links decidable facts in isolation; read together,
 // facts from book A resonate with facts from book B, creating insights sealed in theorems. Pure correlation: all logic
 // deterministic and recomputable; network fetches (if needed) are application-layer. Shared theorems cite sealed proofs;
 // novel patterns are research leads awaiting ledger entry. Integrity, not truth.
-export { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type BookPair, type CrossBookResonance, type CrossBookCluster } from './quantum-sailing-cross-book.js'
+export { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type BookPair, type CrossBookResonance, type CrossBookCluster } from './quantum/sailing-cross-book.js'
 
 // quantum-sailing-complete — AUTOMATE the whole fleet at once: fetch books, audit, link to theorems, correlate weather,
 // cross-correlate books, cluster theorems. One unified computation folded to one receipt proving all layers computed together.
 // Pure and recomputable: all logic deterministic; network (book fetching) is application-layer. The captain's complete mission
 // in one call: read the library, find the weather, discover resonances. Integrity, not truth.
-export { automateQuantumSailing, serializeQuantumSailingComplete, type BookWithLinkage, type QuantumSailingComplete } from './quantum-sailing-complete.js'
+export { automateQuantumSailing, serializeQuantumSailingComplete, type BookWithLinkage, type QuantumSailingComplete } from './quantum/sailing-complete.js'
 
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
 // ledger (DNA that does not recompute, a key/address collision, an uncovered theorem, a broken conformance invariant),
@@ -324,11 +324,11 @@ export { depositTrial, depositValid, type Deposit, type DepositDiamond, type Dep
 // content-addressed PROVENANCE MANIFEST of an EXACT Alpine release: pin the version + arch + PUBLISHED rootfs digest,
 // and VERIFY your actual bytes with uuidna's own pure-TS SHA-256. Port the INTEGRITY, never the runtime. fetchAlpineLatest
 // is the upstream-automation network call at the os/ boundary (the one place non-determinism is honest, not hidden).
-export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineRelease, type RootfsCheck } from './quantum/os/alpine.js'
+export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineRelease, type RootfsCheck } from './os/alpine.js'
 // quantum/drivers — the DEVICE-DRIVER boundary: a content-addressed manifest of the exact Alpine netboot bundle (kernel
 // + modloop = the kernel modules, the drivers). Pin version + arch + published SHA-256, verify the bytes with uuidna's
 // own pure-TS SHA-256, track upstream via fetchDriverLatest. uuidna never loads or runs a module — port the INTEGRITY.
-export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle, type DriverCheck } from './quantum/drivers/driver.js'
+export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle, type DriverCheck } from './drivers/driver.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS

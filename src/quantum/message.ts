@@ -7,10 +7,10 @@
 // proof is sealed, not cryptographic). A quantum message is a **witnessed message** — the witness
 // is a sealed theorem, and the message's quantum encoding is the proof that the witness was cited.
 
-import { theorems, toUuid } from './index.js'
-import { quantumAura, type Aura } from './aura.js'
-import { ket0, hadamard, pauliX, pauliZ, label, fraction, type QState } from './quantum.js'
-import { merkleGravity } from './gravity.js'
+import { theorems, toUuid } from '../index.js'
+import { quantumAura, type Aura } from '../aura.js'
+import { ket0, hadamard, pauliX, pauliZ, label, fraction, type QState } from './index.js'
+import { merkleGravity } from '../gravity.js'
 
 export interface QuantumMessage {
   id: string                  // content-address: toUuid(plaintext + theorem_key)
