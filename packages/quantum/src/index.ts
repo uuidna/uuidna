@@ -19,7 +19,7 @@ export { pentagramHologramFractal, holofractalHook, type HoloFractal } from '@uu
 export { pentagramStream, type PentagramStream, type PentagramStreamCell } from '@uuidna/uuidna'
 export { pentagramMonographs, type Pentagram, type PentagramPoint, type PentagramMonographs } from '@uuidna/uuidna'
 export { quantumAnalytics, type QuantumAnalytics, type Distribution, type LayerMeasure } from '@uuidna/uuidna'
-export { quantumAura, auraDecode, type Aura } from '@uuidna/uuidna'
+export { quantumAura, auraDecode, auraAlphabet, type Aura } from '@uuidna/uuidna'
 export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, sealMessage, openMessage, type QuantumMessage, type QuantumState, type SealedQuantumMessage } from '@uuidna/uuidna'
 export { agentContribute, encodeVote, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, type AgentContribution, type Vote, type QuantumVote, type CommitWithVoting } from '@uuidna/uuidna'
 export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, type SailingBook, type QuantumSailingLibrary } from '@uuidna/uuidna'

@@ -44,6 +44,26 @@ Knowledge here has a natural walking order, and it is sealed, not invented:
   flagged ([`exactly_one_flag`](/theorem/exactly_one_flag)). The exam cannot be charmed — the gate reads receipts,
   not confidence.
 
+## The session lessons — a real semester's transcript
+
+Every lesson below was learned the hard way in ONE session (2026-08-15→16), failed honestly, and folded into a
+check — the transcript is [the deposit record](/trials) itself, and each practice is a real command:
+
+1. **Fold the finder** — a finding fixed by hand recurs; folded into a check it never does. *Practice:* run
+   `one-receipt dry`, then re-declare `ROOT` anywhere and read the objection's exact fix.
+2. **One stroke** — piecewise verification re-pays the gate each visit; the wave pays once
+   ([`pentagram_single_stroke`](/theorem/pentagram_single_stroke)). *Practice:* `one-receipt wave "…"`.
+3. **The gate objects in both directions** — an unearned boundary marker is refused as firmly as a missing one;
+   overclaiming honesty is still overclaiming ([`exactly_one_flag`](/theorem/exactly_one_flag)). *Practice:* mark
+   a pure module `@non-harmonic` and let the scan teach you.
+4. **Never edit mid-gate** — a torn tree fails honestly; the schedule is part of the correctness. *Practice:*
+   find the TS1005 in a reconcile log and name the race.
+5. **Ask the theorems first** — the pentagram chain sat sealed before the question was asked. *Practice:* query
+   the ledger before asserting anything.
+6. **Minimum bytes, max coins** — one session deleted ~67,000 lines while the coins held at 2 per superposition
+   ([`two_coins`](/theorem/two_coins)) and the checks grew. *Practice:* measure with `uuidna_ledger_costs`, then
+   find a fold of your own.
+
 ## The colour lesson — read the state from the glow
 
 Every theorem page glows with its **aura** — and the colour is not decoration, it is a **reversible harmonic

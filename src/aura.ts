@@ -95,12 +95,20 @@ export function quantumAura(subject: string): Aura {
  *  The colour is a reversible harmonic message — state and status readable from the glow. Art, not physics. */
 export function auraDecode(rgbHex: string): { residue: number; ray: number; wave: number; hue: number; sat: number; light: number } | null {
   const target = rgbHex.toLowerCase()
+  for (const e of auraAlphabet()) if (e.rgb === target) return { residue: e.residue, ray: e.ray, wave: e.wave, hue: e.hue, sat: e.sat, light: e.light }
+  return null
+}
+
+/** the COMPLETE aura alphabet — all 378 states (9 residues × 7 rays × 6 waves) rendered through the one pipeline,
+ *  in state order. The colour lesson's table and auraDecode's source; the one receipt seals its fold. */
+export function auraAlphabet(): { residue: number; ray: number; wave: number; hue: number; sat: number; light: number; rgb: string }[] {
+  const out: { residue: number; ray: number; wave: number; hue: number; sat: number; light: number; rgb: string }[] = []
   for (let a = 0; a < 9; a++) for (let ray = 0; ray < RAYS; ray++) for (let wi = 0; wi < WAVE.length; wi++) {
     const wave = WAVE[wi]
     const hue = (a * A432_STEP + ray * floorN(360 / RAYS) + wave) % 360
     const sat = 62 + 2 * ray, light = 50 + 2 * wi
     const [r, g, b] = hslToRgb(hue, sat, light)
-    if ('#' + hex2(r) + hex2(g) + hex2(b) === target) return { residue: a, ray, wave, hue, sat, light }
+    out.push({ residue: a, ray, wave, hue, sat, light, rgb: '#' + hex2(r) + hex2(g) + hex2(b) })
   }
-  return null
+  return out
 }

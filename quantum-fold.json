@@ -8,7 +8,7 @@
     },
     "served": {
       "packages": "5aacd0af35a35c23",
-      "exports": "441b82a97a8ad9b0",
+      "exports": "7b437ccd27489412",
       "mcp": "4336f86689dca81c"
     },
     "proven": {
@@ -17,36 +17,39 @@
       "dimensions": "e202a51b77775621"
     },
     "record": {
-      "legal": "caa000ec50302752",
+      "legal": "1e48b6e12bb928f2",
       "prose": "5d086ad6694ebcbd",
-      "deposits": "4b8df80cad206266"
+      "deposits": "e816b88d0f7c35d0"
     },
     "walks": {
       "star_walk": "463853e693cc8886",
-      "rosette_receipts": "9c9d8d3a72aa16ff5a384e3ba152399a",
-      "rosette_audit": "722011487dfa5bf4"
+      "rosette_receipts": "26bf575af5af3c64c385bf9a16845e88",
+      "rosette_audit": "1ca6e93dbba72963"
     }
   },
   "trinity_folds": {
     "sealed": "5a23dbf2377e2c709e9862d033c0e810",
-    "served": "3412b85f102ae9b042aa4f0fd3807141",
+    "served": "a9359356dfdee188f213d59967777277",
     "proven": "759b1b0185785d8c618d27d7998bae37",
-    "record": "b351361c908b3eaf038fa1073004db54",
-    "walks": "96794e56023430313ee65d199618cb22"
+    "record": "e9d51ca019a52db3a7473a87ffb84123",
+    "walks": "f21542dd9b537647987d4404f16402b2"
   },
-  "unified_fold": "970e35210e6a3dd7",
-  "receipt": "2731d1d5df99e8c8",
+  "unified_fold": "9c374acdb6f56be4",
+  "receipt": "048c678861461255",
   "aura": {
-    "rgb": "#c8d73c",
-    "hsl": "hsl(66, 66%, 54%)",
+    "rgb": "#cf3033",
+    "hsl": "hsl(1, 62%, 50%)",
+    "alphabet": "6361e616aa58f874",
+    "movie": "7d2f7c7ff686ae1f",
+    "lessons": "9dd8403964346ce8",
     "dimensions": {
-      "residue": 8,
-      "ray": 2,
-      "wave": 4,
-      "hue": 66,
-      "sat": 66,
-      "light": 54,
-      "period": 16,
+      "residue": 0,
+      "ray": 0,
+      "wave": 1,
+      "hue": 1,
+      "sat": 62,
+      "light": 50,
+      "period": 12,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
