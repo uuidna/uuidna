@@ -15,23 +15,25 @@ recheck rather than on trust or authority.
 - **Anyone can recheck.** Every verdict, receipt, and fact base is a content-address anyone recomputes from the same
   source. No one has to *believe* uuidna; they *verify* it. That protects against a false claim from any side.
 - **The flag is on the claim, never the person.** The [trial](/trials) adjudicates a *statement's* integrity — is it
-  backed, does it recompute — not a person's guilt. Due process in spirit: no accusation, no dossier.
+  backed, does it recompute ([`exactly_one_flag`](/theorem/exactly_one_flag): the detector fires on exactly the
+  hollow case) — not a person's guilt. Due process in spirit: no accusation, no dossier.
 - **Nothing hidden, nothing altered.** Content-addressing is tamper-evident: any change moves the receipt. A record
   cannot be quietly edited to frame or to exonerate.
-- **A false trial cannot survive recomputation.** [Forensics](/mcp) audits a statement against the receipts — a
-  fabricated citation, a false address, an unbacked legal claim are exposed by rechecking, not by opinion.
-- **Priority and authorship are provable.** An in-house [prior-art record](/mcp) plus an external, signed timestamp
-  anchor (NIST Beacon) establish *what* was published and *when*, re-verifiable by anyone.
+- **A false trial cannot survive recomputation.** [Forensics](/mcp#uuidna-forensics) audits a statement against the
+  receipts — a fabricated citation, a false address, an unbacked legal claim are exposed by rechecking, not by opinion.
+- **Priority and authorship are provable.** An in-house [prior-art record](/mcp#uuidna-prior-art) plus an external,
+  signed timestamp anchor (NIST Beacon, [`uuidna_anchor`](/mcp#uuidna-anchor)) establish *what* was published and
+  *when*, re-verifiable by anyone.
 
 ## The tools (all recomputable, all in-house except the anchors)
 
 | tool | what it delivers |
 | --- | --- |
-| `uuidna_legal_facts` | the recomputable legal **fact base** (licence, attribution, ledger receipt, standards cited) — inputs an audit starts from, **not an opinion** |
-| `uuidna_prior_art` | an in-house **defensive-publication** manifest: what/who/integrity/terms, folded to one address |
-| `uuidna_anchor` | the external **when** — a signed NIST Beacon pulse folded in, a re-verifiable *not-before* bound |
-| `uuidna_forensics` | audit an agent **statement against the receipts** — false trials exposed |
-| `uuidna_evidence` | a recomputable **evidence bundle** a court recomputes rather than trusts |
+| [`uuidna_legal_facts`](/mcp#uuidna-legal-facts) | the recomputable legal **fact base** (licence, attribution, ledger receipt, standards cited) — inputs an audit starts from, **not an opinion** |
+| [`uuidna_prior_art`](/mcp#uuidna-prior-art) | an in-house **defensive-publication** manifest: what/who/integrity/terms, folded to one address |
+| [`uuidna_anchor`](/mcp#uuidna-anchor) | the external **when** — a signed NIST Beacon pulse folded in, a re-verifiable *not-before* bound |
+| [`uuidna_forensics`](/mcp#uuidna-forensics) | audit an agent **statement against the receipts** — false trials exposed |
+| [`uuidna_evidence`](/mcp#uuidna-evidence) | a recomputable **evidence bundle** a court recomputes rather than trusts |
 
 ## What it does **not** do
 

@@ -25,7 +25,8 @@ is the honest account: the properties are real and checkable; the compliance is 
 - **This is privacy by *design*, not certified compliance.** uuidna does **not** claim that all privacy laws are met,
   and it is **not** a statement that any specific regulation — GDPR, CCPA, or another — is satisfied. Compliance is a
   matter for counsel and audit, and a content-address cannot certify it. uuidna's own honesty gate **refuses** the
-  claim "all privacy laws are met" as unbacked — the same gate it holds every other claim to.
+  claim "all privacy laws are met" as unbacked ([`exactly_one_flag`](/theorem/exactly_one_flag)) — the same gate it
+  holds every other claim to.
 - **The design aligns with the *spirit*, not a certificate.** Data minimisation, consent, and transparency are the
   principles above; alignment in spirit is not a legal guarantee, and this page does not pretend it is.
 - **You run it, you own the obligations.** If you deploy or embed uuidna, the privacy obligations of *your* deployment

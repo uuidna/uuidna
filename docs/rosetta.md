@@ -28,4 +28,5 @@ UNVERIFIED. The same discipline the rest of uuidna holds: the number is sealed, 
 </section>
 
 The same theorems organised by computing principle are on [/theorems](/theorems), by skill on [/topics](/topics), and
-folded whole on [/trials](/trials). A theorem computes in Lean, or it is not a theorem.
+folded whole on [/trials](/trials). The ℤ/7 geometry itself is sealed in
+[the rosette cluster](/publications/rosette). A theorem computes in Lean, or it is not a theorem.
