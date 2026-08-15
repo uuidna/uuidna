@@ -26,10 +26,10 @@ const PARTITION: Record<string, string> = {
   // ledger — the sealed theorems and every gate standing on them
   './address.js': 'ledger', './merkle.js': 'ledger', './gate.js': 'ledger', './prose-gate.js': 'ledger',
   './slimgate.js': 'ledger', './adjudicate.js': 'ledger', './sign.js': 'ledger', './due-process.js': 'ledger',
-  './verify-statement.js': 'ledger', './fingerprint.js': 'ledger', './laws.js': 'ledger', './credits.js': 'ledger',
+  './verify-statement.js': 'ledger', './fingerprint.js': 'ledger', './laws.js': 'ledger', './captain/credits.js': 'ledger',
   './conformance.js': 'ledger', './treason.js': 'ledger', './axiom-witness.js': 'ledger', './anti-fraud.js': 'ledger',
-  './forensics.js': 'ledger', './evidence.js': 'ledger', './trial-deposit.js': 'ledger', './security-audit.js': 'ledger',
-  './billing.js': 'ledger', './theorems/index.js': 'ledger',
+  './forensics.js': 'ledger', './evidence.js': 'ledger', './captain/trial-deposit.js': 'ledger', './security-audit.js': 'ledger',
+  './captain/billing.js': 'ledger', './theorems/index.js': 'ledger',
   // research — recomputable research, corroboration, publications, external anchors
   './research.js': 'research', './corroborate.js': 'research', './books.js': 'research', './publish.js': 'research',
   './reporter.js': 'research', './priorart.js': 'research', './anchor.js': 'research', './constants.js': 'research',

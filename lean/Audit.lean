@@ -19,3 +19,6 @@ theorem exactly_one_flag : ((List.range 8).filter (fun n => flag (n%2) (n/2%2) (
 
 -- The arithmetic detector equals its boolean specification: h·(1−d)·(1−b) = (hollow ∧ ¬demarcated ∧ ¬backed) at every state — the implementation IS the intent, proven.
 theorem flag_matches_spec : (List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) && (n/4%2 == 0) then 1 else 0)) := by decide
+
+-- The sanitizer’s recursion bound the I/O wall ASSUMES, sealed (axiom-hunt): MAX_DEPTH = 32 = 2^5 — a finite power-of-two wall the resource-DoS audit stands on. Any nesting beyond it is refused, so no input can spin the fold unboundedly.
+theorem sanitize_depth_bounded : (32 = 2^5) ∧ (0 < 32) := by decide

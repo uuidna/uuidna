@@ -6,7 +6,7 @@
 // billed the two CONSERVED coins (110 − 108 = 2) on the measured advantage (recompute − verify). verifyLicense
 // recomputes the address, so any altered term or bill is visible. A content-address proves integrity, not truth.
 import { toUuid } from './address.js'
-import { billUuidna, type UuidnaUsage } from './billing.js'
+import { billUuidna, type UuidnaUsage } from './captain/billing.js'
 import { legalFacts } from './legal.js'
 
 export interface License {

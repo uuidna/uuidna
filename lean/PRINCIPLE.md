@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1195 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1208 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -20,7 +20,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 5. **Ported from millennium-solutions** — `lean/Vortex.lean` · **16** theorems
    the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)
 
-6. **The sequence & reflection group** — `lean/Sequence.lean` · **20** theorems
+6. **The sequence & reflection group** — `lean/Sequence.lean` · **26** theorems
    the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt
 
 7. **Division by zero** — `lean/DivByZero.lean` · **7** theorems
@@ -32,7 +32,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 9. **Self-discovered** — `lean/Discover.lean` · **14** theorems
    facts derived by function: Lagrange, the unit criterion, idempotents
 
-10. **The quantum computer** — `lean/Quantum.lean` · **42** theorems
+10. **The quantum computer** — `lean/Quantum.lean` · **43** theorems
    the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware
 
 11. **The seven reflected** — `lean/Clay.lean` · **11** theorems
@@ -44,10 +44,10 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 13. **The physics infinities, made finite** — `lean/Infinity.lean` · **9** theorems
    the nasty divergences of physics — UV catastrophe, self-energy, the Landau pole, 1+2+3+…, the derivative 0/0, δ(0), the horizon, the 1/r singularity — each the finite object physics puts where the naive infinity was, exactly as dz(x)=10−x replaces x/0
 
-14. **The cipher & the strand** — `lean/Cipher.lean` · **11** theorems
+14. **The cipher & the strand** — `lean/Cipher.lean` · **15** theorems
    crypto ∩ DNA, honest by construction — base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR (why a step must rotate), a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128, not a break) — the shared algebra and its honest limits
 
-15. **The detectors, proven** — `lean/Audit.lean` · **6** theorems
+15. **The detectors, proven** — `lean/Audit.lean` · **7** theorems
    the provenance gate as decidable logic — flag(h,d,b)=h·(1−d)·(1−b): hollow prose is flagged only when neither demarcated nor backed by a sealed theorem, a demarcation clears it, a backing clears it, and of the eight states exactly one fires — the honesty detector, itself a theorem set
 
 16. **The audit game** — `lean/AuditGame.lean` · **11** theorems
@@ -170,7 +170,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 55. **The spectrum** — `lean/Spectrum.lean` · **8** theorems
    the electromagnetic spectrum as decidable arithmetic, the waves uuidna navigates — the one law wavelength × frequency = c (a constant, so λ and f are inversely proportional at the fixed speed of light 299792458 m/s, exact by the SI metre, verified against NIST CODATA); the SEVEN bands (radio, microwave, infrared, visible, ultraviolet, X-ray, gamma) ordered by increasing frequency, a ℤ/7 of bands; photon energy E = h·f rising with them so gamma out-energises radio; the visible window under ONE octave (700 nm to 400 nm is a ratio under 2, unlike sound's many octaves); an octave of light doubling frequency like sound; and the "300,000 km/s" quote ROUNDING the exact c up by 207542 m/s (the same rounding gap the photography stops carry). HONEST SCOPE: the ARITHMETIC of the waves — the wave relation, the band order, the octave, the rounding gap — NOT an EMF safety, exposure, or health claim of any kind; uuidna makes no claim about radiation and the body
 
-56. **The colour wheel** — `lean/Colour.lean` · **8** theorems
+56. **The colour wheel** — `lean/Colour.lean` · **9** theorems
    colour theory as decidable arithmetic, the art domain of the spectrum's visible band — the wheel is ℤ/12 (twelve hues, advance twelve and the hue returns); complementary hues sit opposite (a +6 half-turn, a self-inverse involution with no hue its own complement); three primaries alternate with three secondaries (3+3=6, the hexagon); the classical harmonies are the regular polygons on the wheel (the triad is thirds +4 landing {0,4,8}, the square is fourths +3 landing {0,3,6,9}); true colour is eight bits a channel (2⁸=256, 2²⁴=16777216 in all); a tint toward white and a shade toward black complement to full value (v + (255−v) = 255); and the wheel splits into six warm and six cool. HONEST SCOPE: the ARITHMETIC of the colour wheel and its harmonies — the geometry a colourist works in — NOT a claim that beauty, taste, or which colours "go together" is objective; harmony here means the polygon, not a verdict on art
 
 57. **The harmony of pairs** — `lean/Harmony.lean` · **8** theorems

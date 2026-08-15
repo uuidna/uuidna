@@ -33,7 +33,7 @@ export { auditCloudflareBindings, type CloudflareAudit, type BindingAudit } from
 // due-process guarantees each a sealed lean/Legal.lean theorem (one verdict, only-proven-admitted, non-justiciable-
 // never-refuted, refuted-iff-test-fails, remand-total, two-coins-to-compute), any claim adjudicated by the same
 // process, folded to one recomputable docket. A fair process whose rules are theorems — NOT a court or legal advice.
-export { dueProcess, type DueProcess, type Guarantee, type DocketEntry } from './due-process.js'
+export { dueProcess, courtProcedure, fileSealed, verifyFiling, type DueProcess, type Guarantee, type DocketEntry, type CourtStage, type CourtProcedure } from './due-process.js'
 
 // sign — SIGN a commit message as TRUE, or fail: signed-true iff it cites a real sealed theorem and none fabricated
 // (slimGate VERIFIED); the signature is the message address folded with the cited theorems to one gravity root through
@@ -62,7 +62,9 @@ export {
   harness, opaque, harnessGain, harness7, reeducate,
 } from './harness.js'
 
-export { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, type UuidnaUsage } from './billing.js'
+// captain/ — the captain's own section: the coins (billing + the valuation law: one coin per direction per boundary),
+// the rights, the credit law, the repo bindings, and the trial deposit — consolidated where the captain lives.
+export { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, boundariesOf, theoremCoins, ledgerCoins, type UuidnaUsage, type TheoremCoins, type LedgerCoins } from './captain/billing.js'
 
 // quantum — a CLASSICAL, EXACT state-vector simulator, ported from millennium-solutions and completed as the captain
 // computes: on integer positions, no decimal drift. Amplitudes are GAUSSIAN INTEGERS over √(2^scale) — the ring
@@ -194,7 +196,7 @@ export { conformance, type ConformanceReport, type ConformanceCheck } from './co
 
 // credits — each theorem's provenance: exactly how it is Lean-proven in uuidna, and who it is credited to (a named
 // historical result where the sealed metadata references one; else the captain claims it by law — first sealed here).
-export { credits, creditsSummary, type Credits, type Credit } from './credits.js'
+export { credits, creditsSummary, type Credits, type Credit } from './captain/credits.js'
 
 // laws — uuidna's standing invariants IN uuidna, each DEMONSTRATED (its `holds` recomputed from the gate that
 // enforces it), not asserted in prose. Generate-from-Lean, any-manual-fails, honesty-demonstrated, coins conserved.
@@ -241,7 +243,7 @@ export { quantumSeo, type Seo, type HeadTuple } from './seo.js'
 // credit law, content-addressed and reversibly imprinted so they travel with every artifact (infused into every page's
 // head + JSON-LD). draftContract drafts the formal, content-addressed rights contract. Factual, tamper-evident — NOT a
 // legal ruling. Integrity, not truth.
-export { captainRights, readImprintedRights, draftContract, type CaptainRights, type RightsContract } from './rights.js'
+export { captainRights, readImprintedRights, draftContract, type CaptainRights, type RightsContract } from './captain/rights.js'
 
 // aura — the QUANTUM AURA: a recomputable, A432-tuned colour folded from any content-address ("captain string theory":
 // the 7 rosette rays as bands, the ℤ/9 vortex as the wave, the hue stepping by 360/9 = 40°), returned as HSL/RGB/CMYK
@@ -315,11 +317,11 @@ export { detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLe
 // first): each public repo of the uuidna org + the ceccec user fingerprinted to a 128-bit content-address, placed on
 // the vortex by its digital root and in the reveal order by its address rank, folded to one recomputable receipt. It
 // binds by content-address (provenance); it does NOT modify, fork, or vouch for any repo. Integrity, not truth.
-export { bindCaptainRepos, CAPTAIN_ACCOUNTS, type RepoBinding, type BoundRepo } from './repos.js'
+export { bindCaptainRepos, CAPTAIN_ACCOUNTS, type RepoBinding, type BoundRepo } from './captain/repos.js'
 
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
 // diamonds sealed AND used by ALL parties compute IN PARITY, settling by itself; who lacks a diamond builds one.
-export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './trial-deposit.js'
+export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './captain/trial-deposit.js'
 // quantum/os — uuidnaOS is NOT an OS you boot and does NOT run/port Alpine's binaries (uuidna never executes). It is a
 // content-addressed PROVENANCE MANIFEST of an EXACT Alpine release: pin the version + arch + PUBLISHED rootfs digest,
 // and VERIFY your actual bytes with uuidna's own pure-TS SHA-256. Port the INTEGRITY, never the runtime. fetchAlpineLatest

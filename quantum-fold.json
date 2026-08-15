@@ -1,14 +1,14 @@
 {
   "timestamp": "2026-08-15T00:00:00Z",
   "components": {
-    "theorems": "0b8aaba23902b2a0",
+    "theorems": "84862e4f37f1fae5",
     "principles": "5d05dee0819412f8",
     "packages": "5aacd0af35a35c23",
-    "exports": "1d24740c997d13fb",
-    "tests": "fedbcce5e4a43355",
+    "exports": "110690cfb45ed991",
+    "tests": "2ebd1f0adc7e561a",
     "predictions": "5e4221eef32e68ab",
     "dimensions": "e202a51b77775621"
   },
-  "unified_fold": "f228b7d651a8726f90bfe84b86884ff6",
-  "receipt": "fc36f3dfa99a258b"
+  "unified_fold": "6c5b1d376cf6c98c8bc16233ed61a779",
+  "receipt": "8a0acc2adfdc37f6"
 }

@@ -10,11 +10,11 @@
 // recomputable, NOT a legal ruling or a compliance claim (legalFacts disclaims that). A content-address proves the
 // terms are unaltered; it does not adjudicate them. The imprint marks the work; it does not enforce the law — that is
 // a human court's.
-import { legalFacts } from './legal.js'
+import { legalFacts } from '../legal.js'
 import { creditsSummary } from './credits.js'
-import { toUuid, merkleFold } from './address.js'
-import { imprintTextChain, readImprintTextChain } from './imprint.js'
-import type { HeadTuple } from './seo.js'
+import { toUuid, merkleFold } from '../address.js'
+import { imprintTextChain, readImprintTextChain } from '../imprint.js'
+import type { HeadTuple } from '../seo.js'
 
 const YEAR = '2025' // the copyright year is a fixed datum, not a wall-clock read (determinism: no Date)
 

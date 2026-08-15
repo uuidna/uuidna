@@ -13,7 +13,7 @@ import { toUuid, coin64, digitalRoot } from './address.js'
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { starPolygon } from './cycles.js'
 import { merkleGravity } from './gravity.js'
-import { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS } from './billing.js'
+import { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS } from './captain/billing.js'
 
 export interface HoloFractal {
   input: string

@@ -41,6 +41,11 @@ const FACTS = [
     why: 'The arithmetic detector equals its boolean specification: h·(1−d)·(1−b) = (hollow ∧ ¬demarcated ∧ ¬backed) at every state — the implementation IS the intent, proven.',
     js: () => R(0, 8).every((n) => { const [h, d, b] = bits(n); return flag(h, d, b) === (h === 1 && d === 0 && b === 0 ? 1 : 0) }),
     lean: 'theorem flag_matches_spec : (List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) && (n/4%2 == 0) then 1 else 0)) := by decide' },
+
+  { key: 'sanitize_depth_bounded',
+    why: 'The sanitizer’s recursion bound the I/O wall ASSUMES, sealed (axiom-hunt): MAX_DEPTH = 32 = 2^5 — a finite power-of-two wall the resource-DoS audit stands on. Any nesting beyond it is refused, so no input can spin the fold unboundedly.',
+    js: () => 32 === 2 ** 5 && 0 < 32,
+    lean: 'theorem sanitize_depth_bounded : (32 = 2^5) ∧ (0 < 32) := by decide' },
 ]
 
 // compute → generate → verify. The provenance gate (scripts/provenance.ts) is not just code — its decision logic

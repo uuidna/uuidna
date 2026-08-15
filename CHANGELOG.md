@@ -14,7 +14,7 @@ theorems). A `.0` bumps development onward.
 ## Roadmap — toward [1.0.0]
 
 A plan, not a promise. **v1.0.0 aims at 1024 theorems** (2¹⁰ — a clean power-of-two milestone), **all `by decide`,
-sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **1195 / 1024 — -171 to go**, across 66 principles.<!-- /LEDGER:TODAY -->
+sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **1201 / 1024 — -177 to go**, across 66 principles.<!-- /LEDGER:TODAY -->
 The versions in between are real, gated releases: each `0.1.x` grows the ledger and must pass `npm run next` (proofs +
 prose + accounts + graph + the changelog self-audit) before it ships. And the honest odometer holds — **1.0.0 comes
 only after the `0.1.x` line is actually published on npm** (today only `0.1.0` is), never by minting forward past an
@@ -30,7 +30,7 @@ the chance to reverse-develop itself *now*, while the ledger is still free.
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **1195 theorems** across **66 principles**, folded to receipt `4c36993a-fa58-8273-90cc-9614489ba267`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **1201 theorems** across **66 principles**, folded to receipt `be66ed9b-cce2-8935-82ee-05905b25da60`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added

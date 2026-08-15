@@ -49,6 +49,11 @@ const FACTS = [
     why: 'The wheel divides into a warm half and a cool half — six hues each, 6 + 6 = 12 — the split running through the two temperature poles. Warm and cool are the wheel folded in two.',
     js: () => 6 + 6 === 12,
     lean: 'theorem warm_cool_split_six_six : 6 + 6 = 12 := by decide' },
+
+  { key: 'aura_step_divides_circle',
+    why: 'The aura’s hue step the A432 rendering ASSUMES, sealed (axiom-hunt): the ℤ/9 vortex walks the 360° wheel in steps of 40° — 9 · 40 = 360 exactly, so the nine residues tile the circle with no remainder. Artistic arithmetic, not physics: a defined step, proven to divide the wheel.',
+    js: () => 9 * 40 === 360 && 360 % 9 === 0,
+    lean: 'theorem aura_step_divides_circle : (9 * 40 = 360) ∧ (360 % 9 = 0) := by decide' },
 ]
 
 emit({

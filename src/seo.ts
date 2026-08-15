@@ -11,7 +11,7 @@
 // anyone from the same ledger. It optimises for HONEST discovery, not for gaming a search engine.
 import { theorems } from './theorems/index.js'
 import { publications } from './publish.js'
-import { captainRights } from './rights.js'
+import { captainRights } from './captain/rights.js'
 import { toUuid, merkleFold } from './address.js'
 
 const HOST = 'https://uuidna.com'

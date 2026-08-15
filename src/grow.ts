@@ -12,7 +12,7 @@ import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { theorems } from './theorems/index.js'
 import { legalFacts } from './legal.js'
-import { captainRights } from './rights.js'
+import { captainRights } from './captain/rights.js'
 import { securityAudit } from './security-audit.js'
 import { axiomWitness } from './axiom-witness.js'
 

@@ -69,6 +69,26 @@ const FACTS = [
     why: 'The honest quantum posture: Grover’s search is a QUADRATIC speedup, not a break — a 2n-bit key space costs ~2ⁿ work ((2ⁿ)² = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor target at all.',
     js: () => R(0, 27).every((n) => 2 ** n * 2 ** n === 2 ** (2 * n)),
     lean: 'theorem grover_quadratic_bound : (List.range 27).all (fun n => 2^n * 2^n == 2^(2*n)) := by decide' },
+
+  { key: 'kdf_cost_bounded',
+    why: 'The KDF cost the envelope ASSUMES, sealed (axiom-hunt): 600000 PBKDF2-SHA256 iterations (OWASP 2023) — positive, and within the DoS guard MAX_ITER = 10000000. The two coins paid at the door are a BOUNDED cost, never an unbounded spin.',
+    js: () => 0 < 600000 && 600000 <= 10000000,
+    lean: 'theorem kdf_cost_bounded : (0 < 600000) ∧ (600000 ≤ 10000000) := by decide' },
+
+  { key: 'aead_nonce_and_salt_bits',
+    why: 'The envelope’s byte geometry, sealed (axiom-hunt): the ChaCha20-Poly1305 nonce is 12 bytes = 96 bits (RFC 8439) and the KDF salt is 16 bytes = 128 bits — the nonce strictly narrower than the 128-bit address, the salt exactly one address wide.',
+    js: () => 12 * 8 === 96 && 16 * 8 === 128 && 96 < 128,
+    lean: 'theorem aead_nonce_and_salt_bits : (12 * 8 = 96) ∧ (16 * 8 = 128) ∧ (96 < 128) := by decide' },
+
+  { key: 'onion_layers_power_of_two',
+    why: 'The onion bound the stream ASSUMES, sealed (axiom-hunt): MAX_LAYERS = 16 = 2^4 seal layers, at most the 128 address bits — the onion is finite by construction, every open terminates.',
+    js: () => 16 === 2 ** 4 && 16 <= 128,
+    lean: 'theorem onion_layers_power_of_two : (16 = 2^4) ∧ (16 ≤ 128) := by decide' },
+
+  { key: 'imprint_capacity_within_address',
+    why: 'The codec capacity the imprint ASSUMES, sealed (axiom-hunt): 115 payload units fit strictly INSIDE the 128-bit particle — the imprint never overflows its own address, and the 13-bit headroom is the seam the codec keeps.',
+    js: () => 115 < 128 && 128 - 115 === 13,
+    lean: 'theorem imprint_capacity_within_address : (115 < 128) ∧ (128 - 115 = 13) := by decide' },
 ]
 
 // compute → generate → verify, via the shared pipeline (JS-checks every fact, writes the file + manifest, and

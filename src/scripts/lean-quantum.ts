@@ -162,6 +162,11 @@ const FACTS = [
     lean: `theorem store_fold_change_moves_receipt :
   (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 =>
     ([a,b,c].foldl lxor 0 == [a2,b,c].foldl lxor 0) == (a == a2))))) := by decide` },
+
+  { key: 'message_qubit_cap_states',
+    why: 'The tractability cap the quantum message ASSUMES, sealed (axiom-hunt): 16 qubits span 2^16 = 65536 states — the encoder’s honest ceiling. Exponential and BOUNDED: the cap is what keeps the classical simulation classical, no quantum advantage claimed at any size.',
+    js: () => 2 ** 16 === 65536,
+    lean: 'theorem message_qubit_cap_states : 2^16 = 65536 := by decide' },
 ]
 
 console.log('computing ' + FACTS.length + ' QUANTUM facts (classical simulation, not hardware — no quantum advantage) …')

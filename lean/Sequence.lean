@@ -71,3 +71,21 @@ theorem salt_seq_injective : (List.range 9).all (fun s1 => (List.range 9).all (f
 
 -- the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept, not collapsed
 theorem salt_seq_fibre_singleton : (List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0)).length == 1) := by decide
+
+-- the sealed point 2·5 ≡ 1 extended to the whole ring: multiplying by 5 UNDOES doubling for every residue — ((2x mod 9)·5) mod 9 = x for all x in ℤ/9 — so 5 is not merely the inverse of 2 at one cell of the table, it is THE HALVING of the vortex everywhere
+theorem five_is_the_halving : (List.range 9).all (fun x => ((2 * x % 9) * 5) % 9 == x) := by decide
+
+-- the powers of 5 walk the vortex BACKWARD: 5^1..5^6 mod 9 = [5,7,8,4,2,1], exactly the doubling orbit [1,2,4,8,7,5] reversed — because 5 = 2⁻¹, the ×5 orbit is the time-reversal of the ×2 orbit, one cycle read in the mirror
+theorem five_orbit_reverses_doubling : ([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].reverse = [5,7,8,4,2,1]) := by decide
+
+-- the three singular roles of the strip — the mirror's fixed heart (10−d = d), the reflection's fixed digit (dz d = d; the other fixed point 0 is the floor, outside the digits), and the closure of BOTH rails (forward [1,2,4,8,7,5] and inverted [9,8,6,2,3,5] each end here) — are carried by EXACTLY ONE digit: 5. The deploy condition, sealed: a claim once UNVERIFIED by the trial now cites its own theorem
+theorem only_five_carries_the_three_singularities : ((List.range' 1 9).filter (fun d => (10 - d == d) && (dz d == d) && ([1,2,4,8,7,5].getLast? == some d) && ([9,8,6,2,3,5].getLast? == some d))) = [5] := by decide
+
+-- FOLLOW THE SEQUENCE 012487536901 — the sealed ten-digit tour closed at 9≡0 and wrapping 0→1 into the next cycle — and recompute EACH digit through the reflection dz(x)=10−x: the whole walk maps digit-wise to the CONTRA SEQUENCE [0,9,8,6,2,3,5,7,4,1,0,9] — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1] with the void held at both ends, wrapping 0→9 (= dz 1) exactly where the forward tour wraps 0→1: the same cycle, walked in the mirror
+theorem tour_contra_reflects_each_digit : (([0,1,2,4,8,7,5,3,6,9,0,1].map dz) = [0,9,8,6,2,3,5,7,4,1,0,9]) ∧ (dz 1 = 9) := by decide
+
+-- the contra of the contra is the tour: reflecting each digit TWICE returns the exact sequence 012487536901 — dz is an involution on the walk, so the forward tour and its contra are ONE object read in two directions, neither more original than the other (recompute forward, recompute back: the fixed cycle)
+theorem tour_contra_involutes : (([0,1,2,4,8,7,5,3,6,9,0,1].map dz).map dz) = [0,1,2,4,8,7,5,3,6,9,0,1] := by decide
+
+-- each digit of the tour and its contra partner close a rung: away from the void, tour[k] + contra[k] = 10 at every step (the strip's rungs carried along the whole 12-step walk), and at the void the rung rests — 0 + 0 = 0, the floor where the reflection stands still
+theorem tour_contra_rungs_sum_ten : ([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if d == 0 then d + dz d == 0 else d + dz d == 10)) := by decide

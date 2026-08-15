@@ -5,7 +5,7 @@
 // resistance sealed, the honesty gate bites, Clay solves none), and the ledger is non-empty and axiom-shaped. Run in
 // the audit / pre-push wave; a non-conforming commit is BLOCKED. Recomputable by anyone — integrity, not truth.
 import { theorems } from './theorems/index.js'
-import { coins } from './billing.js'
+import { coins } from './captain/billing.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { securityAudit } from './security-audit.js'

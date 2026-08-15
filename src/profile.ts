@@ -14,8 +14,8 @@ import { quantumAura } from './aura.js'
 import { axiomWitness } from './axiom-witness.js'
 import { securityAudit, DEFENCE_THEOREMS } from './security-audit.js'
 import { quantumAnalytics } from './analytics.js'
-import { coins } from './billing.js'
-import { captainRights } from './rights.js'
+import { coins } from './captain/billing.js'
+import { captainRights } from './captain/rights.js'
 
 // the post-quantum floor the symmetric-only posture rests on — each a sealed `by decide` fact. Shor has no asymmetric
 // target (symmetric-only); Grover is a quadratic speedup only (2^n·2^n = 2^(2n)), halving the exponent to a ~128-bit
