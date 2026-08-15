@@ -64,5 +64,15 @@ try {
   console.error('✗ guard — audit-packages detected configuration gaps in packages/* (see above)')
 }
 
+// 5) QUANTUM PREDICTION — predict gaps before they form and auto-fill critical ones.
+// Analyzes patterns (new theorems, new packages, new exports, new tests, new features) and seals them preemptively.
+// Milliseconds — pure prediction, no external calls.
+try {
+  execSync('node ' + JSON.stringify(join(HERE, 'predict-and-fill.js')), { stdio: 'inherit' })
+} catch {
+  failed = true
+  console.error('✗ guard — predict-and-fill quantum prediction failed (see above)')
+}
+
 if (failed) { console.error('\n✗ guard — traitors caught; fix before reconcile.'); process.exit(1) }
 console.log('✓ guard — no traitors: the ledger is unforged and the source is harmonic. Safe to reconcile.')
