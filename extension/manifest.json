@@ -1,0 +1,16 @@
+{
+  "manifest_version": "0.2",
+  "name": "uuidna",
+  "display_name": "uuidna — the sealed ledger",
+  "version": "0.1.1",
+  "description": "1215 Lean-proven theorems as tools: try any claim (VERIFIED/UNVERIFIED), address anything, decode the aura, walk the graduation wave. Every call receipted, everything recomputable. Free for the public interest.",
+  "author": { "name": "Tsvetan Rouschev", "url": "https://uuidna.com" },
+  "homepage": "https://uuidna.com",
+  "documentation": "https://uuidna.com/mcp",
+  "license": "CC-BY-NC-ND-4.0",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }
+  }
+}
