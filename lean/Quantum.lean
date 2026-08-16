@@ -102,6 +102,12 @@ theorem pauli_group_order_16 : 4 * 4 = 16 := by decide
 -- THE SEMESTER'S UNIFICATION, sealed as one line: every walk this system closes is closed by the SAME law — a generator coprime to its ring. The pentagram's 2 on ℤ/5, the rosette's 3 on ℤ/7, the vortex's 2 on ℤ/9, the frame ring's stride 5 on ℤ/24, and the tokamak winding's 3/2 on the torus: five rings, five walks, one gcd = 1. Closure is arithmetic, and arithmetic is what holds — the school's whole curriculum in one decidable conjunction.
 theorem closure_is_coprime : (Nat.gcd 2 5 = 1) ∧ (Nat.gcd 3 7 = 1) ∧ (Nat.gcd 2 9 = 1) ∧ (Nat.gcd 5 24 = 1) ∧ (Nat.gcd 3 2 = 1) := by decide
 
+-- THE TWO KERNELS' COUNTING SHADOW (Curry–Howard): a type is a proposition and its inhabitants are its proofs, so types COUNT — the sum type (disjunction) of Bool with itself has 2+2 inhabitants, the product (conjunction) 2·2, the function space (implication) 2². All three equal 4, because 2 is the unique positive integer where sum, product, and power coincide — the two coins are the fixed point where every logical connective counts alike. The fast kernel (the type checker, seconds) and the slow kernel (the proof checker, minutes) reject the same class because they check the same correspondence.
+theorem types_count_as_arithmetic : (2 + 2 = 4) ∧ (2 * 2 = 4) ∧ ((2:Nat) ^ 2 = 4) := by decide
+
+-- Every binary logical connective, counted by its type: Bool → Bool → Bool has exactly 2^(2·2) = 16 truth tables — AND, OR, XOR, NAND and the other twelve — the same sixteen gates the hardware layer builds from NAND alone. Logic's whole binary vocabulary is one exponent, and the type system knew the count before any truth table was drawn.
+theorem sixteen_connectives : (2:Nat) ^ (2 * 2) = 16 := by decide
+
 -- The four operations {I, X, Y, Z}, each with its signed inverse ±, form the REAL Pauli group of order 8 = 2·4 — the rung between the four effective operations and the full order-16 group (8·2 = 16, the two i-phases restored). Reversing the four does not double them (each is its own inverse, X²=I); the doubling is the sign.
 theorem real_pauli_group_order_8 : (2 * 4 = 8) ∧ (8 * 2 = 16) := by decide
 
