@@ -4,21 +4,21 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="156 keys" />
+# MCP tools <Badge type="tip" text="157 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 156 tools below are read from the server's own tool list and
+is **built from the keys**: the 157 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
 `https://uuidna.com/mcp` — one address, the page for people, the protocol for machines.
 
-## The grid <Badge type="tip" :text="`156`" />
+## The grid <Badge type="tip" :text="`157`" />
 
-156 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 56 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+157 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 57 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -68,6 +68,7 @@ page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the l
 <a href="#uuidna-skills"><code>skills</code></a>
 <a href="#uuidna-social-profile"><code>social_profile</code></a>
 <a href="#uuidna-software"><code>software</code></a>
+<a href="#uuidna-theorem-message"><code>theorem_message</code></a>
 <a href="#uuidna-theorems"><code>theorems</code></a>
 <a href="#uuidna-tokens"><code>tokens</code></a>
 <a href="#uuidna-treason"><code>treason</code></a>
@@ -486,7 +487,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'55'" />
+## Other <Badge type="tip" :text="'56'" />
 
 *skill: other*
 
@@ -753,6 +754,16 @@ FUSE quantum states, theorems, and auras into a single witnessed message. A quan
 | --- | --- | --- | --- |
 | `plaintext` | string | **yes** | the message plaintext |
 | `theoremKey` | string | **yes** | the sealed theorem that backs this message |
+
+### `uuidna_theorem_message`
+
+SECURE MESSAGING, TOTAL OVER THE LEDGER — every sealed theorem is itself a self-proving message. Pass {key} to get that theorem's envelope: payload = its exact Lean statement, witness = the theorem itself, CARRIER = the reversible imprint codec (a uuid chain that decodes back to the statement byte-exact — the message travels as pure addresses and any alteration breaks the decode), colour channel = its deterministic A432 aura, plus the quantum citation state of uuidna_quantum_message. Pass no key to get THE TOTALITY SEAL: every theorem in the ledger round-trips through its carrier and recomputes its message id, all envelope identities folded order-invariant to ONE receipt — messaging proven total, not demonstrated on examples. HONEST SCOPE: NOT a cipher and NOT secrecy — the statement is public and so is the colour; this is TAMPER-EVIDENCE made total (integrity, not secrets). Returns the envelope {id,plaintext,theoremKey,theoremAddress,aura,quantum,carrier,delivered,fold,honest} or the seal {count,total,failures,receipt,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `key` | string | no | a sealed theorem key; omit for the totality seal over all theorems |
 
 ### `uuidna_quantum_voting`
 

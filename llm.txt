@@ -24,7 +24,7 @@
 
 ## Working with uuidna (MCP-first — do not hand-derive what the tools compute)
 
-- **Status in one call:** `uuidna_unify` → {theorems, domains, tools, receipt}. The ledger is **1221 theorems**, all `by decide`, sorry-free, axiom-free, across **66 principles** and **156 MCP tools**.
+- **Status in one call:** `uuidna_unify` → {theorems, domains, tools, receipt}. The ledger is **1224 theorems**, all `by decide`, sorry-free, axiom-free, across **66 principles** and **157 MCP tools**.
 - **Verdicts:** VERIFIED iff a claim cites a sealed theorem or a decidable test holds; else UNVERIFIED — never "false". `uuidna_verify_statement` checks a statement against the sealed ledger in O(1).
 - **The Clay boundary:** uuidna solves **0 of the 7** Millennium problems — the *reflection* is sealed, the *problem* is not (Poincaré: Perelman, 2003, not uuidna).
 - **Integrity, not truth:** every value has a content-address; the fold is order-invariant. Nothing here is asserted that a sealed theorem does not settle.

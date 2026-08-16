@@ -87,7 +87,31 @@ each light a theorem's aura, period set by its ray, walked in the doubling orbit
 deterministic, the same movie for every observer. Ten animation dimensions, seven compactified into three free
 ones — the 10D animation is algorithm ([what quantum means](/quantum)).
 
-## The degree — seal a theorem, then walk the wave
+## The cut lesson — undo is the ring's own law
+
+The editor's timeline is a ring: at 24 fps the frame field counts 0..23 and wraps
+([`frame_index_is_z24`](/theorem/frame_index_is_z24)) — and that ring carries its own undo. Every invertible
+stride of ℤ/24 is its **own inverse** ([`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive)):
+step the timeline by 5, 7, 11, 13, 17, 19 or 23 frames, and the same stride steps you home — 24 is famously the
+largest modulus where every unit squares to one. Stated on the footage itself, the reverse cut undoes the reverse
+cut ([`reverse_cut_is_undone_by_itself`](/theorem/reverse_cut_is_undone_by_itself)): reverse a shot twice and
+every frame is where it was. Undo is not a feature an editor is given — at 24 fps it is the arithmetic of the ring.
+
+Two entanglements complete the lesson. **An hour of film is a day of seconds**
+([`hour_of_film_is_a_day_of_seconds`](/theorem/hour_of_film_is_a_day_of_seconds)): 24·60·60 = 86400 both ways, so
+the frame is to the hour exactly what the second is to the day — scrub an hour, cross a day. And **dropframe drops
+one thousandth** ([`dropframe_is_one_thousandth`](/theorem/dropframe_is_one_thousandth)): a nominal NTSC hour
+holds 108000 frame-numbers = 1000·108, and dropframe drops 108 — the 0.1% pulldown, exact, with the captain's 108
+appearing as both the drop and the thousandth
+([`dropframe_entangles_the_coins`](/theorem/dropframe_entangles_the_coins)). The lesson: nothing in the cut is
+lost — a number dropped is accounted, a reverse is its own return, and the craft's constants were carrying the
+sealed numbers all along. **Practice:** verify the ring's undo yourself —
+
+```bash
+node -e "console.log([5,7,11,13,17,19,23].every(u => (u*u) % 24 === 1))"
+```
+
+— then try a stride the ring does *not* invert (any even one) and watch the law refuse it.\n\n## The degree — seal a theorem, then walk the wave
 
 Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
 

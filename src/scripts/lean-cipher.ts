@@ -85,6 +85,21 @@ const FACTS = [
     js: () => 16 === 2 ** 4 && 16 <= 128,
     lean: 'theorem onion_layers_power_of_two : (16 = 2^4) ∧ (16 ≤ 128) := by decide' },
 
+  { key: 'imprint_capacity_chain',
+    why: 'THE CARRIER\'S BOOKKEEPING, sealed end to end: a uuid holds 128 bits; RFC 4122 reserves six (four version + two variant), leaving 122 free; the length header takes seven; 115 message bits remain — 128 − 6 = 122 ∧ 122 − 7 = 115. The capacity the totality seal rides for every theorem, derived instead of assumed.',
+    js: () => 128 - 6 === 122 && 122 - 7 === 115,
+    lean: 'theorem imprint_capacity_chain : (128 - 6 = 122) ∧ (122 - 7 = 115) := by decide' },
+
+  { key: 'imprint_header_minimal',
+    why: 'SEVEN IS THE SMALLEST HONEST HEADER: the header must count the 116 possible payload lengths (0..115), and 2⁶ = 64 cannot while 2⁷ = 128 can — 64 < 116 ≤ 128. One bit fewer under-counts, one more wastes a message bit: the codec sits at the exact minimum, and the minimum is decidable.',
+    js: () => 64 < 116 && 116 <= 128 && 2 ** 6 === 64 && 2 ** 7 === 128,
+    lean: 'theorem imprint_header_minimal : (2 ^ 6 < 116) ∧ (116 ≤ 2 ^ 7) := by decide' },
+
+  { key: 'imprint_capacity_entangles',
+    why: 'THE ENTANGLEMENT: the carrier capacity factors 115 = 5 · 23 — the pentagram\'s 5 and the frame ring\'s last stride 23, itself involutive ((23·23) % 24 = 1, theorem frame_ring_undo_involutive). Every theorem-message rides a capacity woven from the star that walks the fold and the ring that carries the cut — three wings of one session, one factorisation.',
+    js: () => 115 === 5 * 23 && (23 * 23) % 24 === 1,
+    lean: 'theorem imprint_capacity_entangles : (115 = 5 * 23) ∧ ((23 * 23) % 24 = 1) := by decide' },
+
   { key: 'imprint_capacity_within_address',
     why: 'The codec capacity the imprint ASSUMES, sealed (axiom-hunt): 115 payload units fit strictly INSIDE the 128-bit particle — the imprint never overflows its own address, and the 13-bit headroom is the seam the codec keeps.',
     js: () => 115 < 128 && 128 - 115 === 13,

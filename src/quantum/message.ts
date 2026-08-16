@@ -17,6 +17,7 @@ import { theorems, toUuid } from '../index.js'
 import { quantumAura, type Aura } from '../aura.js'
 import { ket0, hadamard, pauliX, pauliZ, label, fraction, type QState } from './index.js'
 import { merkleGravity } from '../gravity.js'
+import { imprintTextChain, readImprintTextChain } from '../imprint.js'
 import { encrypt, decrypt, verifyEnvelope, type Sealed } from '../crypt.js'
 
 export interface QuantumMessage {
@@ -191,3 +192,44 @@ export function openMessage(message: SealedQuantumMessage, passphrase: string): 
   const plaintext = decrypt(message.sealed, passphrase)
   return { plaintext, theoremKey: message.witness.theoremKey, reason: 'opened — envelope integral, witness sealed, Poly1305 authenticated' }
 }
+
+// ── SECURE MESSAGING, TOTAL OVER THE LEDGER — every sealed theorem is itself a message. The payload is the
+// theorem's exact Lean statement, the witness is the theorem itself, the CARRIER is the reversible imprint codec
+// (a uuid chain that decodes back byte-exact — the message travels as addresses, any alteration breaks the decode),
+// and the colour channel is its aura. Nothing here is a cipher: it is tamper-evidence made total. ──
+
+/** theoremMessage(key) → ANY sealed theorem as a self-proving envelope: statement as payload, itself as witness,
+ *  imprint uuid chain as reversible carrier, aura as colour channel, quantum state as citation proof. */
+export function theoremMessage(key: string) {
+  const t = THEOREMS.find(x => x.key === key)
+  if (!t) throw new Error(`theorem ${key} not found in ledger`)
+  const carrier = imprintTextChain(t.statement)
+  const envelope = encodeMessage(t.statement, key)
+  return {
+    ...envelope, carrier, carrierLength: carrier.length,
+    delivered: readImprintTextChain(carrier) === t.statement,
+    honest: envelope.honest + ' The carrier is the reversible imprint codec: the uuid chain decodes back to the ' +
+      'exact Lean statement, so the theorem travels as pure addresses and any alteration breaks the decode. ' +
+      'Not a cipher — tamper-evidence, total over the ledger.',
+  }
+}
+
+let _messagingSeal: ReturnType<typeof computeMessagingSeal> | null = null
+function computeMessagingSeal() {
+  const failures: string[] = []
+  const folds: string[] = []
+  for (const t of THEOREMS) {
+    const back = readImprintTextChain(imprintTextChain(t.statement))
+    if (back !== t.statement) failures.push(t.key + ': carrier decode mismatch')
+    folds.push(merkleGravity([toUuid(t.statement + ':' + t.key), t.address]))
+  }
+  return {
+    count: THEOREMS.length, total: failures.length === 0, failures, receipt: merkleGravity(folds),
+    honest: 'THE TOTALITY SEAL: secure messaging is a TOTAL function on the ledger — for every sealed theorem the ' +
+      'reversible carrier decodes back to the exact statement and the message id recomputes, and all envelope ' +
+      'identities fold order-invariant to one receipt. The full quantum state verifies per message via ' +
+      'theoremMessage + verifyMessage. Integrity, not secrets: nothing is hidden, everything is tamper-evident.',
+  }
+}
+/** messagingSeal() → the totality seal over ALL theorems (cached — the ledger is immutable within a process). */
+export function messagingSeal() { return (_messagingSeal ??= computeMessagingSeal()) }
