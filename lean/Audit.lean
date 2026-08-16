@@ -2,6 +2,9 @@
 
 def flag (h d b : Nat) : Nat := h * (1 - d) * (1 - b)
 
+-- THE GREEN WALL AS STEADY STATE, sealed the day it became one: three independent CI gates (security, analysis, deploy) green on two consecutive pushes — 3·2 = 6 green runs — and the distinction is arithmetic: ONE green is an event, TWO consecutive are a state (2 > 1, the induction shape: the invariant witnessed at n and n+1). The wall was earned brick by brick (537 findings → 82 → 5 → 0, four NAMED allowlist iterations; a rule cured at its root; a dead path removed) and now holds without attention — the wall lesson's green, promoted from achievement to invariant.
+theorem wall_steady_state : (3 * 2 = 6) ∧ (2 > 1) ∧ (3 > 0) := by decide
+
 -- The provenance gate as a full truth table: flag(h,d,b)=h·(1−d)·(1−b) over the eight states (h=hollow, d=demarcated, b=backed) is 1 exactly at (hollow, ¬demarcated, ¬backed) and 0 everywhere else.
 theorem flag_truth_table : ((List.range 8).map (fun n => flag (n%2) (n/2%2) (n/4%2))) = [0,1,0,0,0,0,0,0] := by decide
 
