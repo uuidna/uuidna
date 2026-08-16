@@ -5,6 +5,8 @@
 // broken. This copies lean/*.lean into <outDir>/lean/ AFTER the VitePress build, so every proof link resolves.
 // It ALSO serves the PayloadCMS page seeds (src/lean/<uuid>/page.json, the imprint-named append-only versions) at
 // /seeds/<uuid>/page.json — the seed folder stays the ONE source (DRY); the build serves it, nothing duplicates it.
+// It ALSO serves the repo-root llm.txt (the canonical agent entry point src/index.ts cites) at /llm.txt AND at
+// /llms.txt (the emerging llms-txt standard path) — same DRY rule: the root file is the one source, the build serves it.
 // Idempotent; runs in docs:build (and thus in the Cloudflare deploy build). Integrity, not truth — it serves the
 // source, it proves nothing new.
 import { readdirSync, mkdirSync, copyFileSync, existsSync } from 'node:fs'
@@ -41,6 +43,17 @@ if (existsSync(SEEDS)) {
   if (existsSync(sync)) { mkdirSync(SEEDS_OUT, { recursive: true }); copyFileSync(sync, join(SEEDS_OUT, 'payload-sync.json')) }
 }
 
+// llm.txt — src/index.ts names it the canonical reference for agents, so a 404 there is a dead pointer in the
+// source's own front door. Served at BOTH /llm.txt (the cited path) and /llms.txt (the llms-txt standard path
+// agents probe first). Missing source FAILS the build — the pointer must never ship dead.
+const LLM = join(ROOT, 'llm.txt')
+if (!existsSync(LLM)) {
+  console.error('✗ copy-lean-to-site — ./llm.txt missing: src/index.ts cites it as canonical; restore it (the build refuses to ship the dead pointer)')
+  process.exit(1)
+}
+copyFileSync(LLM, join(SITE, 'llm.txt'))
+copyFileSync(LLM, join(SITE, 'llms.txt'))
+
 // THE SECOND FORENSIC — the VitePress dead-link check is architecturally blind to non-page assets (it validates
 // page routes only), so /lean/* and /seeds/* are allowlisted there and verified HERE instead: scan every built
 // HTML page for /lean and /seeds references and FAIL the build if any referenced file was not served. Together
@@ -70,4 +83,4 @@ if (missing.size) {
   process.exit(1)
 }
 
-console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${s} Payload page seeds at /seeds/<uuid>/page.json, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)
+console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)
