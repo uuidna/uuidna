@@ -2,14 +2,14 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "fa61b189394125c8",
+      "theorems": "7762fe3645a30c71",
       "principles": "9f7e554cb84108c5",
-      "monographs": "67f41111ae0b3b89"
+      "monographs": "bea37890fe221bea"
     },
     "served": {
       "packages": "5aacd0af35a35c23",
       "exports": "7b437ccd27489412",
-      "mcp": "8f7827665117fec2"
+      "mcp": "3d365f44eb999594"
     },
     "proven": {
       "tests": "2294d2437b44871b",
@@ -28,34 +28,34 @@
     }
   },
   "trinity_folds": {
-    "sealed": "0378b47460eb9bc586b56ef37abc0b38",
-    "served": "a0f617a1284b6697e9c26ddcf978eabf",
+    "sealed": "499f990f71a75108e478a9dac7fd6346",
+    "served": "87cbb9c9f2fce2eba34387e7106c4b2a",
     "proven": "759b1b0185785d8c618d27d7998bae37",
     "record": "1336afc212d0f9391032f243bd6cfad2",
     "walks": "bdf3a4d73df0a19af36f875988662312"
   },
-  "unified_fold": "641d3f2ef17f532a",
-  "receipt": "66e43fbf85616a73",
+  "unified_fold": "9dd13149cfef13f2",
+  "receipt": "e3815ac4b1a5cdc5",
   "rosette_receipt": {
     "rays": [
-      "cc818fe18606a4fb",
+      "77bf43adfe63c5a8",
       "3a8d773151b99d0b",
-      "df72d5a3421c0293",
+      "73878ca6fd63e729",
       "1e30fe1a22ac3cad",
       "a7f0e840135882e5",
       "a761502744407dcd",
-      "b342ef954d8b5a67"
+      "342f4fd198ca6df4"
     ],
-    "concurrence": "6ad492432b4765119c29a44a1be89f23"
+    "concurrence": "02ffdd91e1854694c4f619cdab3d1859"
   },
   "aura": {
-    "rgb": "#c652e0",
-    "hsl": "hsl(289, 70%, 60%)",
+    "rgb": "#81e250",
+    "hsl": "hsl(100, 72%, 60%)",
     "alphabet": "b6819334641853db",
-    "movie": "17da102ad3b513ca",
-    "lessons": "d65085bbe83edc5c",
+    "movie": "2ac599dcd86aa492",
+    "lessons": "12c869a56f61cff1",
     "report": "940001b6ff9bd2fc",
-    "session": "155cfa59637085f0",
+    "session": "b546244963d562eb",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 2,
-      "ray": 4,
+      "residue": 5,
+      "ray": 5,
       "wave": 5,
-      "hue": 289,
-      "sat": 70,
+      "hue": 100,
+      "sat": 72,
       "light": 60,
-      "period": 20,
+      "period": 22,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
