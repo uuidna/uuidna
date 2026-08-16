@@ -62,3 +62,29 @@ jobs:
       # Token-free: OIDC (id-token: write above) is exchanged for the publish credential; no NODE_AUTH_TOKEN.
       - name: Publish (public, token-free via OIDC, with provenance) — prepublishOnly runs the complete audit first
         run: npm publish --provenance --access public
+
+  # The desktop extension ships itself: pack extension/ (one manifest — the standards-compression) into
+  # uuidna.mcpb and attach it to the release, so every tag carries the one-click carrier of the receipted tools.
+  extension:
+    runs-on: ubuntu-latest
+    needs: publish
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Pack the desktop extension
+        run: |
+          npx -y @anthropic-ai/mcpb pack extension/
+          mv extension.mcpb uuidna.mcpb
+          shasum -a 256 uuidna.mcpb
+      - name: Attach to the release
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 || gh release create "$GITHUB_REF_NAME" --generate-notes
+          gh release upload "$GITHUB_REF_NAME" uuidna.mcpb --clobber
+
