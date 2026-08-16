@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["vitepress", "preview", "docs", "--port", "4173"],
       "port": 4173
+    },
+    {
+      "name": "docs-dev-5199",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vitepress", "dev", "docs", "--port", "5199"],
+      "port": 5199
     }
   ]
 }

@@ -6,6 +6,7 @@ aside: false
 <script setup>
 import { ref, computed } from 'vue'
 import { data } from './.vitepress/ledger.data'
+import { dims } from './.vitepress/theme/dimensions'
 
 // The FILTERING SYSTEM — client-side, computed from the same ledger the pages render. Facet by principle (the
 // derivation cluster) and by skill (the capability), narrow by text; every filter recomputes the count and the
@@ -13,7 +14,9 @@ import { data } from './.vitepress/ledger.data'
 const q = ref('')
 const principle = ref('')     // '' = all
 const skill = ref('')         // '' = all
-const aura = ref(true)        // decorate each theorem with its A432 aura (build-time folded, content-addressed)
+// aura is a shared DIMENSION (see theme/dimensions.ts) — this button and the ◈ dimensions control are the same
+// toggle, one source of truth, persisted in this browser only.
+const aura = computed({ get: () => dims.aura, set: (v) => { dims.aura = v } })
 const monographByPrinciple = Object.fromEntries(data.groups.map((g) => [g.name, g.monograph]))
 
 const shown = computed(() => {

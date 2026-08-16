@@ -20,6 +20,8 @@ import Handle from './Handle.vue'
 import NimPlay from './NimPlay.vue'
 import ChessMobility from './ChessMobility.vue'
 import AuditPanel from './AuditPanel.vue'
+import Dimensions from './Dimensions.vue'
+import { loadDimensions } from './dimensions'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -31,14 +33,19 @@ export default {
     // second custom one that duplicated it and confused the page.
     // LinkAuditor rides the layout-bottom slot so it mounts on EVERY page and re-audits on each route change — the
     // UI follows any link and audits its destination from the referrer-only perspective, automatically, by default.
+    // Dimensions rides the same slot — the involution control on every page: fold the reading experience to its
+    // simple pole and back, each dimension user-configurable, held in localStorage, applied as data-dim-* on the
+    // root so CSS folds even the generated theorem pages.
     return h(DefaultTheme.Layout, null, {
-      'layout-bottom': () => [h(SiteFooter), h(LinkAuditor)],
+      'layout-bottom': () => [h(SiteFooter), h(LinkAuditor), h(Dimensions)],
     })
   },
   enhanceApp({ app }) {
     // No hardcoded palette — the accent colours COMPUTE from the ℤ/9 sequence (5 → green, the heart), injected as
     // CSS custom properties on the document root so components read --seq-* instead of hex literals.
     applySequence()
+    // The reading dimensions load once per visit (no-op during SSR) and re-apply on every preference change.
+    loadDimensions()
     // Global — the theorem pages embed <RefererCompass /> to show a path-aware backlink (referer tracked client-side).
     app.component('RefererCompass', RefererCompass)
     // The 7d fold, animated — seven addresses fold to one receipt (self-contained SVG/CSS).

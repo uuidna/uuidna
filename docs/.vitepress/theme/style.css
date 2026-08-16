@@ -292,3 +292,29 @@ body::before {
 .uuid-handle { cursor: pointer; user-select: all; border-bottom: 1px dotted var(--vp-c-divider); font-family: var(--vp-font-family-mono); }
 .uuid-handle:hover { color: var(--vp-c-brand-1); border-bottom-color: var(--vp-c-brand-1); }
 .uuid-copied { color: var(--vp-c-green-1); font-weight: 700; }
+
+/* ─── the dimension folds (see dimensions.ts / Dimensions.vue) ────────────────────────────────────────────────
+   Each data-dim-* attribute on the root is one dimension at its pole; CSS does the folding so EVERY page —
+   including the 1200+ generated theorem pages — obeys the visitor's preference without regeneration. The fold
+   is an involution: removing the attribute (or flipping it back) restores the page exactly. */
+
+/* aura → plain: the A432 glow retracts — no rays, no coloured rails; the words remain. */
+:root[data-dim-aura="simple"] .tray { display: none; }
+:root[data-dim-aura="simple"] .tlist-aura li { border-left-color: transparent !important; }
+
+/* formulas → named: list entries show the theorem's name only; the statement waits on its own page. */
+:root[data-dim-formulas="simple"] .tstmt { display: none; }
+
+/* meta → bare: the principle · skill weave folds away from lists. */
+:root[data-dim-meta="simple"] .tmeta { display: none; }
+
+/* density → compact: the same content, less air. */
+:root[data-dim-density="simple"] .tlist-flat li { padding: 0.18rem 0; }
+:root[data-dim-density="simple"] .chip { padding: 0.14rem 0.45rem; font-size: 0.76rem; }
+:root[data-dim-density="simple"] .vp-doc p { margin: 8px 0; }
+
+/* motion → still: everything stands; the theorems hold without moving. */
+:root[data-dim-motion="simple"] *, :root[data-dim-motion="simple"] *::before, :root[data-dim-motion="simple"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
