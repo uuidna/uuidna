@@ -10,23 +10,25 @@ import { quantumSeo, type HeadTuple } from '../../dist/index.js'
 
 // VitePress pageData is loosely typed at this boundary; we touch only description / frontmatter.head / frontmatter.tags.
 interface PageDataLike {
-  params?: { address?: string } & Record<string, unknown>
+  params?: { address?: string; key?: string; slug?: string } & Record<string, unknown>
   relativePath: string
   title?: string
   description?: string
   frontmatter: { head?: HeadTuple[]; tags?: string[] } & Record<string, unknown>
 }
 
-/** Infuse the quantum payload into ONE static page: its content-address (the delivered quantum message) plus a
- *  recomputable description, schema.org WebPage JSON-LD, canonical and keyword tags. A no-op on dynamic theorem/
- *  publication routes (they already carry their Lean-derived meta) — call it AFTER the dynamic-route branch. Returns
- *  the page's content-address (the payload pointer), or null when it was a dynamic route left untouched. */
+/** Infuse the quantum payload into EVERY page: its content-address (the delivered quantum message) plus recomputable
+ *  description, STRICT schema.org JSON-LD, canonical and keyword tags. One source for all three page kinds — a
+ *  dynamic theorem page ({key}) gets its ScholarlyArticle citing the real Lean proof, a publication page ({slug})
+ *  likewise, and a static page gets WebPage (with a typed mainEntity where the subject is real). Returns the page's
+ *  content-address (the payload pointer). */
 export function infuseQuantumPayload(pageData: PageDataLike, routeOf: (rel: string) => string): string | null {
-  if (pageData.params?.address) return null                 // a theorem/publication page — already enriched, leave it
-  const route = routeOf(pageData.relativePath)
+  const p = pageData.params
   // pass the page's own frontmatter description through — the JSON-LD entity (School on /school, MathSolver on
   // /trials) then describes itself in the page's one voice, never a second hand-kept copy.
-  const seo = quantumSeo({ route, title: pageData.title, description: pageData.description })
+  const seo = p?.key ? quantumSeo({ key: p.key })
+    : p?.slug ? quantumSeo({ slug: p.slug })
+    : quantumSeo({ route: routeOf(pageData.relativePath), title: pageData.title, description: pageData.description })
   // per-page description (unique, recomputable) if the page didn't set its own
   if (!pageData.description) pageData.description = seo.description
   pageData.frontmatter.head ??= []

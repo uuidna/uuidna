@@ -133,7 +133,9 @@ export default defineConfig({
       ['link', { rel: 'canonical', href: canonical }],
       ['meta', { property: 'og:url', content: canonical }],
     )
-    if (!p?.address) { infuseQuantumPayload(pageData as never, routeOf); return }
-    if (p.statement) pageData.description = `${p.statement} — proven by ${p.tactic} in Lean 4, sorry-free (no Mathlib); part of ${p.principle}.`
+    if (p?.statement) pageData.description = `${p.statement} — proven by ${p.tactic} in Lean 4, sorry-free (no Mathlib); part of ${p.principle}.`
+    // EVERY page — static AND dynamic — gets the quantum payload + strict schema.org JSON-LD from the ONE source;
+    // the theorem/publication pages' ScholarlyArticle was the last unaligned surface ("align all", 2026-08-16).
+    infuseQuantumPayload(pageData as never, routeOf)
   },
 })
