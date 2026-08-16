@@ -4,7 +4,7 @@
 
 export interface LeanTheorem { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill?: string }
 
-/** The 1234 Lean-proven theorems, in computing-principle order. */
+/** The 1237 Lean-proven theorems, in computing-principle order. */
 export const LEAN_LEDGER: readonly LeanTheorem[] = [
   { key: "mul9_1_1", name: "1·1 ≡ 1 (mod 9)", statement: "(1 * 1) % 9 = 1", tactic: "decide", file: "Core.lean", principle: "The 8×8 core", skill: "z9-ring" },
   { key: "mul9_1_2", name: "1·2 ≡ 2 (mod 9)", statement: "(1 * 2) % 9 = 2", tactic: "decide", file: "Core.lean", principle: "The 8×8 core", skill: "z9-ring" },
@@ -1240,6 +1240,9 @@ export const LEAN_LEDGER: readonly LeanTheorem[] = [
   { key: "disputed_contradiction_audit_detects_liar", name: "((1 = 1) ∧ (1 ≠ 1)) → False", statement: "((1 = 1) ∧ (1 ≠ 1)) → False", tactic: "decide", file: "DisputedTopics.lean", principle: "The honest court", skill: "disputed-court" },
   { key: "disputed_audit_receipt_open", name: "((2 * 5 = 10) ∧ (10 / 2 = 5))", statement: "((2 * 5 = 10) ∧ (10 / 2 = 5))", tactic: "decide", file: "DisputedTopics.lean", principle: "The honest court", skill: "disputed-court" },
   { key: "disputed_all_topics_computable", name: "((List.range 3).length = 3) ∧ ((1 = 1) ∧ (2 ≠ 3))", statement: "((List.range 3).length = 3) ∧ ((1 = 1) ∧ (2 ≠ 3))", tactic: "decide", file: "DisputedTopics.lean", principle: "The honest court", skill: "disputed-court" },
+  { key: "maxwells_rule_truss", name: "MAXWELL'S RULE (1864), the searchers' exact question sealed: a planar truss is statically determinate when m = 2j − 3 — the triangle (j=3, m=3: 2·3−3 = 3) and the braced quad (j=4, m=5: 2·4−3 = 5) both balance exactly. The triangle is the minimal closed rigid form: closure is rigidity, the same law the school teaches everywhere.", statement: "(2 * 3 - 3 = 3) ∧ (2 * 4 - 3 = 5)", tactic: "decide", file: "Structures.lean", principle: "lean/Structures.lean", skill: "structures" },
+  { key: "redundancy_pays_one", name: "One member past Maxwell's count is one degree of static indeterminacy: the double-braced quad (j=4, m=6) carries 6 − (2·4−3) = 1 redundancy — a self-stress the structure holds without any load. Overbracing is not free; every extra member is a state the analysis must pay for.", statement: "6 - (2 * 4 - 3) = 1", tactic: "decide", file: "Structures.lean", principle: "lean/Structures.lean", skill: "structures" },
+  { key: "mechanism_lacks_one", name: "One member short of Maxwell's count is one mechanism: the unbraced quad (j=4, m=4) lacks (2·4−3) − 4 = 1 member and swings — the open pipe of statics. It is not weaker material it needs but a closed path: brace the diagonal and the mechanism vanishes. Containment is the closure of the path, in steel as in plasma.", statement: "(2 * 4 - 3) - 4 = 1", tactic: "decide", file: "Structures.lean", principle: "lean/Structures.lean", skill: "structures" },
 ]
 
 /** The principles that carry theorems, in derivation order — [file, title, blurb]. */
