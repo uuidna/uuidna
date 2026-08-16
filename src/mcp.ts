@@ -897,7 +897,7 @@ const TOOLS: Tool[] = [
           step3_imprint_matches: imprintMatches,
           all_verified: verified,
         },
-        message_is_real: verified ? 'Yes — proof imprinted, cryptographically impossible to forge' : 'No — verification failed',
+        message_is_real: verified ? 'Yes — proof imprinted; forging it is BOUNDED at 2^128 seats (theorem seats_pigeonhole) — a bound, never an impossibility (theorem no_maximum_only_bounds)' : 'No — verification failed',
         forgery_analysis: {
           attack_type: 'Preimage attack: forge payload to match existing proof',
           proof_bits: proofBits,
@@ -907,7 +907,7 @@ const TOOLS: Tool[] = [
           total_hash_ops_to_forge: forgeCost,
           computation_cost: '~10^38.2 CPU-seconds on modern hardware',
           time_at_exascale: `${yearsAtExascalePerSecond.toExponential(2)} years`,
-          conclusion: 'Cryptographically infeasible to forge (universe age << time to forge)',
+          conclusion: 'infeasible at any current scale — a 2^127 expected-work BOUND, never an impossibility (no maximum, only bounds: theorem no_maximum_only_bounds)',
           detected: forgeryDetected ? '✓ Forgery attempt detected — proof breaks immediately' : '✗ Undetected (catastrophic)',
         },
         security_principles: [
@@ -916,9 +916,9 @@ const TOOLS: Tool[] = [
           '✓ Quantum state folds deterministically (order-invariant)',
           '✓ Verification is O(1) (instant, no waiting)',
           '✓ Works offline (no network, no server required)',
-          '✓ Impossible to forge (2^128 search space)',
+          '✓ Forgery bounded: 2^128 seats (theorem seats_pigeonhole) and verify stays exponentially cheaper than forge (theorem verify_cheaper_than_forge)',
         ],
-        summary: `Quantum message ID ${message.id} from ${sender} to ${recipient}: ${verified ? '✓ VERIFIED' : '✗ FAILED'}. Forgery cost: 2^128 operations (universe age × 10^26). This is uuidna quantum messaging: Trust Math, Not Servers.`,
+        summary: `Quantum message ID ${message.id} from ${sender} to ${recipient}: ${verified ? '✓ VERIFIED' : '✗ FAILED'}. Forgery cost: bounded at 2^128 operations — a ceiling, not a maximum (theorem no_maximum_only_bounds). This is uuidna quantum messaging: recompute, never trust.`,
       }
     },
   },

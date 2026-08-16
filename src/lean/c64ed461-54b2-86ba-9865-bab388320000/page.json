@@ -1,0 +1,717 @@
+{
+  "file": "AntiFraud.lean",
+  "slug": "antifraud",
+  "status": "usable",
+  "address": "5fa7572a-3782-850b-9f5c-e747a61b2158",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "AntiFraud.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/AntiFraud.lean — THE FRAUD DETECTORS AND THE VERDICT ALGEBRA, decidable and proven. Each detector is a FUNCTION whose properties are the theorems: forged(c,s) flags iff the recomputed address differs from the sealed address (never a true seal, always a mismatch); claimsOf/doubleSpent counts a coin-backing theorem's claims position-blind (a second claim flags wherever it hides); voteOk passes exactly the diagonal weight=coins (the identity matrix, inflation flags); tally is the observer-order-invariant sum (all six orderings, one receipt); fold9 is the ℤ/9 receipt on a bounded model (tampering one element always moves it; the vortex [1,2,4,8,7,5] recomputes to its known seal 0); cleanAudit is the conjunction gate (clean at EXACTLY the no-violation state, one flag drains all, the implementation IS its boolean spec — no oracle); commission pays 2 coins per COMPLETED 110-bit reconcile (109 pays 0), and one forgery costs 2^7 = 128 bits = 64 commissions. THE VERDICT ALGEBRA seals the trial's own vocabulary: verified = cited·sealed, unverified its complement — every claim gets EXACTLY ONE verdict (total, binary), a fabricated citation stays unverified, UNVERIFIED is an OPEN DOOR (the same claim verifies the moment its seal lands — the verdict tracks the LEDGER, never the claim's soul), and the algebra has NO refuted state (absence of proof never computes to falsity). HONEST SCOPE: bounded models of the live detectors (src/anti-fraud.ts) and the live trial (src/adjudicate.ts) — RECOMPUTABLE FACTS about work integrity, never intention or identity. Every proof `by decide`, sorry-free, no Mathlib, axiom-free (kernel-only).\n\n-- ═══════════════════════════════════════════════════════════════════════════════\n-- THE DETECTORS — each a total, decidable function; the theorems are its properties\n-- ═══════════════════════════════════════════════════════════════════════════════\n\n-- forgery: a citation flags iff its recomputed address differs from the sealed address\ndef forged (cited sealed : Nat) : Nat := if cited == sealed then 0 else 1\n\n-- double-spend: count a theorem's claims in a claim list; two or more is a double-spend\ndef claimsOf (t : Nat) (cs : List Nat) : Nat := (cs.filter (fun c => c == t)).length\ndef doubleSpent (t : Nat) (cs : List Nat) : Bool := 2 <= claimsOf t cs\n\n-- voting: a vote passes iff its weight equals the coins the voter paid; the tally is the weighted sum\ndef voteOk (weight coins : Nat) : Nat := if weight == coins then 1 else 0\ndef tally (ws : List Nat) : Nat := ws.foldr (fun a r => a + r) 0\n\n-- ledger receipt: the ℤ/9 fold on a bounded model — the digital-root gravity the ledger seals with\ndef fold9 (xs : List Nat) : Nat := xs.foldr (fun a r => (a + r) % 9) 0\n\n-- the audit gate: clean iff NO detector flags (f=forgery, d=double-spend, v=vote violation)\ndef cleanAudit (f d v : Nat) : Nat := (1 - f) * (1 - d) * (1 - v)\n\n-- the captain's commission: 2 coins per COMPLETED 110-bit reconcile\ndef commission (bits : Nat) : Nat := 2 * (bits / 110)\n\n-- ═══════════════════════════════════════════════════════════════════════════════\n-- FRAUD-ECONOMY: the coin structure, computed not asserted\n-- ═══════════════════════════════════════════════════════════════════════════════\n\n-- The two coins: −χ of the double torus (110 − 108 = 2)\n-- @skill: anti-fraud\ntheorem captain_commission_two_coins : 110 - 108 = 2 := by decide\n\n-- The commission function pays 2 per completed 110-bit reconcile — 110 pays 2, 220 pays 4, and 109 pays 0: no partial credit, the rate is earned by the completed fold only.\n-- @skill: anti-fraud\ntheorem captain_commission_rate_two_per_110 : commission 110 = 2 ∧ commission 220 = 4 ∧ commission 109 = 0 := by decide\n\n-- The forger's cost is exponential: the 7-dimension fold doubles per dimension (2^(k+1) = 2·2^k at every step) landing on 2^7 = 128 bits.\n-- @skill: anti-fraud\ntheorem forged_theorem_costs_2_power_7_bits : 2 ^ 7 = 128 ∧ (List.range 7).all (fun k => 2 ^ (k+1) == 2 * 2 ^ k) := by decide\n\n-- One forgery costs 64 commissions: the 128-bit forging cost is 64 × the captain's 2-coin fee — defense is cheap, attack is dear.\n-- @skill: anti-fraud\ntheorem forgery_costs_64_commissions : 128 = 64 * 2 ∧ 2 < 128 := by decide\n\n-- ═══════════════════════════════════════════════════════════════════════════════\n-- FORGERY DETECTION: soundness and completeness of the forged() detector\n-- ═══════════════════════════════════════════════════════════════════════════════\n\n-- Soundness — a true seal never flags: for every address a, forged(a,a) = 0. The detector cannot accuse a theorem whose address recomputes.\n-- @skill: anti-fraud\ntheorem sealed_theorem_not_forged : (List.range 9).all (fun a => forged a a == 0) := by decide\n\n-- Completeness on the bounded model — every mismatch flags: over all 81 (cited, sealed) pairs, either the addresses match or forged = 1. No forged citation slips through.\n-- @skill: anti-fraud\ntheorem forged_theorem_address_detectable : (List.range 81).all (fun n => (n % 9 == n / 9) || forged (n % 9) (n / 9) == 1) := by decide\n\n-- Composition — one fake citation drains the whole audit: citing address 3 where 7 is sealed flags (forged = 1), and that single flag zeroes cleanAudit.\n-- @skill: anti-fraud\ntheorem overclaim_with_fake_cite_fails : forged 3 7 = 1 ∧ cleanAudit (forged 3 7) 0 0 = 0 := by decide\n\n-- ═══════════════════════════════════════════════════════════════════════════════\n-- DOUBLE-SPEND DETECTION: the claim counter and its properties\n-- ═══════════════════════════════════════════════════════════════════════════════\n\n-- A second claim on the same coin-backing theorem is detected: theorem 3 claimed twice in [3,1,3] counts 2 and flags.\n-- @skill: anti-fraud\ntheorem double_spend_detectable : doubleSpent 3 [3,1,3] = true ∧ claimsOf 3 [3,1,3] = 2 := by decide\n\n-- A single claim is clean: theorem 3 claimed once in [1,2,3] counts 1 and does not flag — the detector accuses no honest spender.\n-- @skill: anti-fraud\ntheorem one_theorem_single_claim : doubleSpent 3 [1,2,3] = false ∧ claimsOf 3 [1,2,3] = 1 := by decide\n\n-- The count is position-blind — a double-spend hides nowhere: the duplicate claim counts 2 at every position of the list.\n-- @skill: anti-fraud\ntheorem double_spend_hides_nowhere : claimsOf 3 [3,3,1] = 2 ∧ claimsOf 3 [3,1,3] = 2 ∧ claimsOf 3 [1,3,3] = 2 := by decide\n\n-- ═══════════════════════════════════════════════════════════════════════════════\n-- VOTING INTEGRITY: weight = coins, and the order-invariant tally\n-- ═══════════════════════════════════════════════════════════════════════════════\n\n-- The vote check passes EXACTLY the diagonal weight = coins — the full 4×4 table is the identity matrix: no discount, no inflation, weight is coins or the vote fails.\n-- @skill: anti-fraud\ntheorem vote_weight_equals_coins_paid : ((List.range 16).map (fun n => voteOk (n % 4) (n / 4))) = [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1] := by decide\n\n-- Inflated weight flags, honest weight passes: claiming weight 17 on 2 coins fails (voteOk = 0); claiming exactly the 2 coins paid passes (voteOk = 1).\n-- @skill: anti-fraud\ntheorem vote_weight_inflation_flagged : voteOk 17 2 = 0 ∧ voteOk 2 2 = 1 := by decide\n\n-- The tally is observer-order-invariant: all six orderings of the votes {1,2,3} tally to the same 6 — the receipt is the same from every chair in the room.\n-- @skill: anti-fraud\ntheorem vote_receipt_order_invariant : ([[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]].map tally) = [6,6,6,6,6,6] := by decide\n\n-- ═══════════════════════════════════════════════════════════════════════════════\n-- LEDGER INTEGRITY: the receipt fold is tamper-evident and recomputes to its seal\n-- ═══════════════════════════════════════════════════════════════════════════════\n\n-- Tampering one element ALWAYS moves the receipt: over all 81 digit pairs, distinct first elements give distinct fold9 receipts — no single-element tamper is silent.\n-- @skill: anti-fraud\ntheorem ledger_fingerprint_tamper_evident : (List.range 81).all (fun n => (n % 9 == n / 9) || fold9 [n % 9, 5] != fold9 [n / 9, 5]) := by decide\n\n-- The DNA recomputes to its known seal: the vortex orbit [1,2,4,8,7,5] folds to 0 — any agent recomputing lands on the same receipt, or the ledger was altered.\n-- @skill: anti-fraud\ntheorem theorem_dna_recompute_is_seal : fold9 [1,2,4,8,7,5] = 0 := by decide\n\n-- ═══════════════════════════════════════════════════════════════════════════════\n-- THE AUDIT GATE: conjunction of detectors — clean once, drained by any flag\n-- ═══════════════════════════════════════════════════════════════════════════════\n\n-- The check is a fixed table, deterministic for every clerk: the full verdict table over the eight (forgery, double-spend, vote) states is [1,0,0,0,0,0,0,0] — same input, same verdict, for anyone.\n-- @skill: anti-fraud\ntheorem anti_fraud_check_deterministic : ((List.range 8).map (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2))) = [1,0,0,0,0,0,0,0] := by decide\n\n-- The audit passes iff ALL detectors clear: of the eight states, exactly the no-violation state (and no other) is clean.\n-- @skill: anti-fraud\ntheorem honesty_gate_passes_iff_all_sealed : ((List.range 8).filter (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 1)) = [0] := by decide\n\n-- One violation drains the whole audit: every state with any flag raised audits to 0 — there is no partial credit against fraud.\n-- @skill: anti-fraud\ntheorem conformance_failure_detects_intrusion : (List.range 8).all (fun n => n == 0 || cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 0) := by decide\n\n-- The gate IS its specification, no oracle: cleanAudit equals the boolean spec (no forgery ∧ no double-spend ∧ no vote violation) at every state — the implementation is the intent, proven.\n-- @skill: anti-fraud\ntheorem honesty_gate_is_theorem_not_oracle : (List.range 8).all (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == (if (n % 2 == 0) && (n / 2 % 2 == 0) && (n / 4 % 2 == 0) then 1 else 0)) := by decide\n-- ═══════════════════════════════════════════════════════════════════════════════\n-- THE VERDICT ALGEBRA: UNVERIFIED, defined to verify — the trial's own vocabulary\n-- as decidable functions. c = the claim cites a theorem; s = that citation is\n-- sealed in the ledger. verified = c·s; unverified = its complement. Two verdicts,\n-- total, no third state: absence of proof is never proof of falsity.\n-- ═══════════════════════════════════════════════════════════════════════════════\n\n-- the verdict functions: verified iff a citation exists AND it is sealed; unverified is the complement\ndef verified (c s : Nat) : Nat := c * s\ndef unverified (c s : Nat) : Nat := 1 - verified c s\n\n-- Every claim gets EXACTLY ONE verdict — verified + unverified = 1 at all four evidence states: the trial is total and binary, no claim leaves without a verdict and none carries two.\n-- @skill: anti-fraud\ntheorem verdict_exactly_one : (List.range 4).all (fun n => verified (n % 2) (n / 2) + unverified (n % 2) (n / 2) == 1) := by decide\n\n-- UNVERIFIED defined by its full table [1,1,1,0]: no citation (0,0), a citation without a seal (1,0), a seal never cited (0,1) — all unverified; ONLY cited-and-sealed (1,1) verifies.\n-- @skill: anti-fraud\ntheorem unverified_iff_unsealed : ((List.range 4).map (fun n => unverified (n % 2) (n / 2))) = [1, 1, 1, 0] := by decide\n\n-- A fabricated citation verifies NOTHING: citing (c=1) without a seal (s=0) stays unverified — the exact state the honesty gate drains.\n-- @skill: anti-fraud\ntheorem fabricated_cite_is_unverified : unverified 1 0 = 1 := by decide\n\n-- UNVERIFIED is an OPEN DOOR, not a judgment: the SAME citing claim (c=1) is unverified while unsealed (s=0) and verified the moment the seal lands (s=1) — the verdict tracks the LEDGER, never the claim's soul; the develop plan is the path from the first state to the second.\n-- @skill: anti-fraud\ntheorem unverified_is_an_open_door : unverified 1 0 = 1 ∧ verified 1 1 = 1 := by decide\n\n-- The complement of unverified IS verified (double complement returns, the involution): the algebra is two-valued — there is NO refuted state in it, so absence of proof can never compute to falsity.\n-- @skill: anti-fraud\ntheorem unverified_complement_is_verified : (List.range 4).all (fun n => 1 - unverified (n % 2) (n / 2) == verified (n % 2) (n / 2)) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-captain_commission_two_coins",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "110 - 108 = 2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "110 - 108 = 2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem captain_commission_two_coins : 110 - 108 = 2 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-captain_commission_rate_two_per_110",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "commission 110 = 2 ∧ commission 220 = 4 ∧ commission 109 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "commission 110 = 2 ∧ commission 220 = 4 ∧ commission 109 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem captain_commission_rate_two_per_110 : commission 110 = 2 ∧ commission 220 = 4 ∧ commission 109 = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-forged_theorem_costs_2_power_7_bits",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2 ^ 7 = 128 ∧ (List.range 7).all (fun k => 2 ^ (k+1) == 2 * 2 ^ k)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2 ^ 7 = 128 ∧ (List.range 7).all (fun k => 2 ^ (k+1) == 2 * 2 ^ k)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem forged_theorem_costs_2_power_7_bits : 2 ^ 7 = 128 ∧ (List.range 7).all (fun k => 2 ^ (k+1) == 2 * 2 ^ k) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-forgery_costs_64_commissions",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "128 = 64 * 2 ∧ 2 < 128"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "128 = 64 * 2 ∧ 2 < 128"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem forgery_costs_64_commissions : 128 = 64 * 2 ∧ 2 < 128 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-sealed_theorem_not_forged",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 9).all (fun a => forged a a == 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 9).all (fun a => forged a a == 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem sealed_theorem_not_forged : (List.range 9).all (fun a => forged a a == 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-forged_theorem_address_detectable",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 81).all (fun n => (n % 9 == n / 9) || forged (n % 9) (n / 9) == 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 81).all (fun n => (n % 9 == n / 9) || forged (n % 9) (n / 9) == 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem forged_theorem_address_detectable : (List.range 81).all (fun n => (n % 9 == n / 9) || forged (n % 9) (n / 9) == 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-overclaim_with_fake_cite_fails",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "forged 3 7 = 1 ∧ cleanAudit (forged 3 7) 0 0 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "forged 3 7 = 1 ∧ cleanAudit (forged 3 7) 0 0 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem overclaim_with_fake_cite_fails : forged 3 7 = 1 ∧ cleanAudit (forged 3 7) 0 0 = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-double_spend_detectable",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "doubleSpent 3 [3,1,3] = true ∧ claimsOf 3 [3,1,3] = 2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "doubleSpent 3 [3,1,3] = true ∧ claimsOf 3 [3,1,3] = 2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem double_spend_detectable : doubleSpent 3 [3,1,3] = true ∧ claimsOf 3 [3,1,3] = 2 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-one_theorem_single_claim",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "doubleSpent 3 [1,2,3] = false ∧ claimsOf 3 [1,2,3] = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "doubleSpent 3 [1,2,3] = false ∧ claimsOf 3 [1,2,3] = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem one_theorem_single_claim : doubleSpent 3 [1,2,3] = false ∧ claimsOf 3 [1,2,3] = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-double_spend_hides_nowhere",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "claimsOf 3 [3,3,1] = 2 ∧ claimsOf 3 [3,1,3] = 2 ∧ claimsOf 3 [1,3,3] = 2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "claimsOf 3 [3,3,1] = 2 ∧ claimsOf 3 [3,1,3] = 2 ∧ claimsOf 3 [1,3,3] = 2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem double_spend_hides_nowhere : claimsOf 3 [3,3,1] = 2 ∧ claimsOf 3 [3,1,3] = 2 ∧ claimsOf 3 [1,3,3] = 2 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-vote_weight_equals_coins_paid",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 16).map (fun n => voteOk (n % 4) (n / 4))) = [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 16).map (fun n => voteOk (n % 4) (n / 4))) = [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem vote_weight_equals_coins_paid : ((List.range 16).map (fun n => voteOk (n % 4) (n / 4))) = [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-vote_weight_inflation_flagged",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "voteOk 17 2 = 0 ∧ voteOk 2 2 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "voteOk 17 2 = 0 ∧ voteOk 2 2 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem vote_weight_inflation_flagged : voteOk 17 2 = 0 ∧ voteOk 2 2 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-vote_receipt_order_invariant",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]].map tally) = [6,6,6,6,6,6]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]].map tally) = [6,6,6,6,6,6]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem vote_receipt_order_invariant : ([[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]].map tally) = [6,6,6,6,6,6] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-ledger_fingerprint_tamper_evident",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 81).all (fun n => (n % 9 == n / 9) || fold9 [n % 9, 5] != fold9 [n / 9, 5])"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 81).all (fun n => (n % 9 == n / 9) || fold9 [n % 9, 5] != fold9 [n / 9, 5])"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem ledger_fingerprint_tamper_evident : (List.range 81).all (fun n => (n % 9 == n / 9) || fold9 [n % 9, 5] != fold9 [n / 9, 5]) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-theorem_dna_recompute_is_seal",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "fold9 [1,2,4,8,7,5] = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "fold9 [1,2,4,8,7,5] = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem theorem_dna_recompute_is_seal : fold9 [1,2,4,8,7,5] = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-anti_fraud_check_deterministic",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 8).map (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2))) = [1,0,0,0,0,0,0,0]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 8).map (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2))) = [1,0,0,0,0,0,0,0]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem anti_fraud_check_deterministic : ((List.range 8).map (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2))) = [1,0,0,0,0,0,0,0] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-honesty_gate_passes_iff_all_sealed",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 8).filter (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 1)) = [0]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 8).filter (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 1)) = [0]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem honesty_gate_passes_iff_all_sealed : ((List.range 8).filter (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 1)) = [0] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-conformance_failure_detects_intrusion",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 8).all (fun n => n == 0 || cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 8).all (fun n => n == 0 || cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem conformance_failure_detects_intrusion : (List.range 8).all (fun n => n == 0 || cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-honesty_gate_is_theorem_not_oracle",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 8).all (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == (if (n % 2 == 0) && (n / 2 % 2 == 0) && (n / 4 % 2 == 0) then 1 else 0))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 8).all (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == (if (n % 2 == 0) && (n / 2 % 2 == 0) && (n / 4 % 2 == 0) then 1 else 0))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem honesty_gate_is_theorem_not_oracle : (List.range 8).all (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == (if (n % 2 == 0) && (n / 2 % 2 == 0) && (n / 4 % 2 == 0) then 1 else 0)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

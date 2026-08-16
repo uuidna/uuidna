@@ -78,17 +78,18 @@ export const registryReceipt = (names: readonly string[]): string => merkleGravi
 // opt in: its very FIRST tools/call already carries the deposit in the response — the unified economy (reconcile
 // cost + captain commission + governance weight, one coin) settled at the wire. Integrity, not truth: the deposit
 // is a recomputable RECORD of judged work, not a payment rail and not a token.
-export interface CoinDeposit { coins: 2; statement: string; id: string; theorems: string[]; receipt: string }
+export interface CoinDeposit { coins: 2; statement: string; id: string; theorems: string[]; receipt: string; honest: string }
 
 /** depositCoins — mint the call's two-coin deposit from its op and its gate receipt. Pure and deterministic:
- *  the same judged call always deposits the same id. Cites only theorems actually sealed in the ledger. */
+ *  the same judged call always deposits the same id. Cites only theorems actually sealed in the ledger. The
+ *  honest demarcation travels IN the deposit (user-facing, both surfaces): a record, never a payment. */
 export function depositCoins(op: string, gateReceipt: string): CoinDeposit {
   const ledger = theoremByKey()
   const cited = ['captain_commission_two_coins', 'two_coins'].filter((k) => ledger.has(k))
   const statement = `Two coins deposited by the call ${op}: the work judged by the sealed gate (${gateReceipt}), proven by ${cited.map((k) => 'theorem ' + k).join(' and ')}.`
   const id = toUuid(statement)
   const receipt = merkleGravity([toUuid(op), gateReceipt, toUuid('coins:2'), ...cited.map((k) => ledger.get(k)!.address)])
-  return { coins: 2, statement, id, theorems: cited, receipt }
+  return { coins: 2, statement, id, theorems: cited, receipt, honest: 'a recomputable RECORD of judged work — no value is transferred; not a payment, not a token, not a currency' }
 }
 
 export interface GateSelfTest {

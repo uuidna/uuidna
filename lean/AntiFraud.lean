@@ -1,4 +1,4 @@
--- lean/AntiFraud.lean — THE FRAUD DETECTORS, decidable and proven. Each detector is a FUNCTION whose properties are the theorems: forged(c,s) flags iff the recomputed address differs from the sealed address (never a true seal, always a mismatch); claimsOf/doubleSpent counts a coin-backing theorem's claims position-blind (a second claim flags wherever it hides); voteOk passes exactly the diagonal weight=coins (the identity matrix, inflation flags); tally is the observer-order-invariant sum (all six orderings, one receipt); fold9 is the ℤ/9 receipt on a bounded model (tampering one element always moves it; the vortex [1,2,4,8,7,5] recomputes to its known seal 0); cleanAudit is the conjunction gate (clean at EXACTLY the no-violation state, one flag drains all, the implementation IS its boolean spec — no oracle); commission pays 2 coins per COMPLETED 110-bit reconcile (109 pays 0), and one forgery costs 2^7 = 128 bits = 64 commissions. HONEST SCOPE: bounded models of the live detectors (src/anti-fraud.ts) — RECOMPUTABLE FACTS about work integrity, never intention or identity. Every proof `by decide`, sorry-free, no Mathlib, axiom-free (kernel-only).
+-- lean/AntiFraud.lean — THE FRAUD DETECTORS AND THE VERDICT ALGEBRA, decidable and proven. Each detector is a FUNCTION whose properties are the theorems: forged(c,s) flags iff the recomputed address differs from the sealed address (never a true seal, always a mismatch); claimsOf/doubleSpent counts a coin-backing theorem's claims position-blind (a second claim flags wherever it hides); voteOk passes exactly the diagonal weight=coins (the identity matrix, inflation flags); tally is the observer-order-invariant sum (all six orderings, one receipt); fold9 is the ℤ/9 receipt on a bounded model (tampering one element always moves it; the vortex [1,2,4,8,7,5] recomputes to its known seal 0); cleanAudit is the conjunction gate (clean at EXACTLY the no-violation state, one flag drains all, the implementation IS its boolean spec — no oracle); commission pays 2 coins per COMPLETED 110-bit reconcile (109 pays 0), and one forgery costs 2^7 = 128 bits = 64 commissions. THE VERDICT ALGEBRA seals the trial's own vocabulary: verified = cited·sealed, unverified its complement — every claim gets EXACTLY ONE verdict (total, binary), a fabricated citation stays unverified, UNVERIFIED is an OPEN DOOR (the same claim verifies the moment its seal lands — the verdict tracks the LEDGER, never the claim's soul), and the algebra has NO refuted state (absence of proof never computes to falsity). HONEST SCOPE: bounded models of the live detectors (src/anti-fraud.ts) and the live trial (src/adjudicate.ts) — RECOMPUTABLE FACTS about work integrity, never intention or identity. Every proof `by decide`, sorry-free, no Mathlib, axiom-free (kernel-only).
 
 -- ═══════════════════════════════════════════════════════════════════════════════
 -- THE DETECTORS — each a total, decidable function; the theorems are its properties
@@ -123,3 +123,33 @@ theorem conformance_failure_detects_intrusion : (List.range 8).all (fun n => n =
 -- The gate IS its specification, no oracle: cleanAudit equals the boolean spec (no forgery ∧ no double-spend ∧ no vote violation) at every state — the implementation is the intent, proven.
 -- @skill: anti-fraud
 theorem honesty_gate_is_theorem_not_oracle : (List.range 8).all (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == (if (n % 2 == 0) && (n / 2 % 2 == 0) && (n / 4 % 2 == 0) then 1 else 0)) := by decide
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- THE VERDICT ALGEBRA: UNVERIFIED, defined to verify — the trial's own vocabulary
+-- as decidable functions. c = the claim cites a theorem; s = that citation is
+-- sealed in the ledger. verified = c·s; unverified = its complement. Two verdicts,
+-- total, no third state: absence of proof is never proof of falsity.
+-- ═══════════════════════════════════════════════════════════════════════════════
+
+-- the verdict functions: verified iff a citation exists AND it is sealed; unverified is the complement
+def verified (c s : Nat) : Nat := c * s
+def unverified (c s : Nat) : Nat := 1 - verified c s
+
+-- Every claim gets EXACTLY ONE verdict — verified + unverified = 1 at all four evidence states: the trial is total and binary, no claim leaves without a verdict and none carries two.
+-- @skill: anti-fraud
+theorem verdict_exactly_one : (List.range 4).all (fun n => verified (n % 2) (n / 2) + unverified (n % 2) (n / 2) == 1) := by decide
+
+-- UNVERIFIED defined by its full table [1,1,1,0]: no citation (0,0), a citation without a seal (1,0), a seal never cited (0,1) — all unverified; ONLY cited-and-sealed (1,1) verifies.
+-- @skill: anti-fraud
+theorem unverified_iff_unsealed : ((List.range 4).map (fun n => unverified (n % 2) (n / 2))) = [1, 1, 1, 0] := by decide
+
+-- A fabricated citation verifies NOTHING: citing (c=1) without a seal (s=0) stays unverified — the exact state the honesty gate drains.
+-- @skill: anti-fraud
+theorem fabricated_cite_is_unverified : unverified 1 0 = 1 := by decide
+
+-- UNVERIFIED is an OPEN DOOR, not a judgment: the SAME citing claim (c=1) is unverified while unsealed (s=0) and verified the moment the seal lands (s=1) — the verdict tracks the LEDGER, never the claim's soul; the develop plan is the path from the first state to the second.
+-- @skill: anti-fraud
+theorem unverified_is_an_open_door : unverified 1 0 = 1 ∧ verified 1 1 = 1 := by decide
+
+-- The complement of unverified IS verified (double complement returns, the involution): the algebra is two-valued — there is NO refuted state in it, so absence of proof can never compute to falsity.
+-- @skill: anti-fraud
+theorem unverified_complement_is_verified : (List.range 4).all (fun n => 1 - unverified (n % 2) (n / 2) == verified (n % 2) (n / 2)) := by decide
