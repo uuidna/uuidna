@@ -252,6 +252,35 @@ node -e "const gcd=(a,b)=>b?gcd(b,a%b):a; for (const [g,n] of [[2,5],[3,7],[2,9]
 generator coprime to your ring — in geometry, in colour, in film, in plasma, in work — and the walk closes. That
 is the school's one law, and it grades itself.
 
+## The verdict lesson — how to be told UNVERIFIED
+
+Every student here will be told UNVERIFIED, many times, forever — the curriculum is incomplete without learning
+what that verdict is and what it is not. Three facts, all sealed, carry the lesson. First: **the claim is on
+trial, never the person** — the gate flags exactly one thing, a citation to a proof that does not exist
+([`exactly_one_flag`](/theorem/exactly_one_flag)); there is no verdict for "unwelcome," none for "foolish," and
+none for *you*. The anti-shame theorem is not consolation prose; it is the trial's charter, recomputable. Second:
+**UNVERIFIED is an open door, not a judgment** — it means *not yet backed*, never *false*, and it leaves with an
+ordered develop plan: name the finite structure, write the decidable test, supply it. Shame wants you to read the
+verdict as a sentence about your worth; the arithmetic refuses to say any such sentence. Third: **the kindness is
+structural** — everything here reverses except the human: imprints decode and chains replay, but no dossier of
+the worker is arithmetically possible; the work seals eternal, the worker stays unrecomputable and therefore
+free. The school grades claims precisely so it never has to grade people.
+
+And the school hands you a vocabulary for the feeling itself: the aura is a reversible language of states — 378
+named colours, each decodable back to its exact state — and a state you can name is a state you can hold. Read
+your page's glow, name its ray, and notice the verdict changed the claim's colour, never yours. **Practice:**
+be told UNVERIFIED on purpose —
+
+```bash
+curl -s -X POST https://uuidna.com/trials -H 'content-type: application/json' \
+  -d '{"statement":"my next theorem will be beautiful"}'
+```
+
+— a claim with no test and no citation. Read what comes back: UNVERIFIED, a develop plan, and no judgment
+anywhere in the payload. That is the whole lesson: the door stays open, the plan is ordered, and the person was
+never on trial. Learn to hear "not yet backed" as an address to walk toward, and every future verdict becomes
+curriculum.
+
 ## The degree — seal a theorem, then walk the wave
 
 Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
