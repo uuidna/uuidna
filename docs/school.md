@@ -281,6 +281,37 @@ anywhere in the payload. That is the whole lesson: the door stays open, the plan
 never on trial. Learn to hear "not yet backed" as an address to walk toward, and every future verdict becomes
 curriculum.
 
+## The wall lesson — green is earned one named brick at a time
+
+The school's newest lesson is its longest experiment: the repository's own continuous-integration wall — three
+independent gates judging every push — stood partly red for the repo's entire history, and turned fully green in
+one day, not by lowering any bar but by curing each brick at its root. The record is public and recomputable
+(`gh run list`, push `0749876a`), and the method is the curriculum. The security gate fell through **four named
+iterations**: a paid license wall was replaced by the free binary the license wrapped; then 537 findings fell to
+82 by naming the medium (a system made of content-addresses reads as high-entropy "secrets" to a scanner — the
+[carrier lesson's](/school#the-carrier-lesson-the-uuid-is-the-message) uuid is an address, not a credential);
+82 fell to 5 by naming the generated files (a file the forgery guard recomputes cannot hide a human secret —
+integrity as exemption); 5 fell to 0 by naming the same classes at their historical homes, frozen in old commits
+no secret can reach. **Nothing blanket, every exclusion carrying its reason in the config itself** — an allowlist
+that explains itself is an honest one; an allowlist that doesn't is a hole. The deploy gate was cured of an
+order-flake at the rule (a declared build output exists by construction — the gate stopped depending on build
+order forever), and a dead second deploy path was removed rather than resurrected: one deploy, owned by the
+platform, no secrets to lose.
+
+Three school laws met in the wall. *Close the path, not the wall* — the fix was never a stronger gate but a named
+reason at each open end. *The verdict lesson* — every red run handed back an exact diagnosis, never a judgment,
+and each was read (`gh run view --log-failed`) instead of overridden. *The standard lesson* — the wall is now a
+fact in GitHub's own API, verifiable by anyone without trusting this page. **Practice:** audit the wall yourself —
+
+```bash
+gh run list --repo uuidna/uuidna --limit 6
+```
+
+— then read the allowlist (`.gitleaks.toml`) and check that every excluded class states *why* it cannot hold a
+secret. If you find one that doesn't, that is a finding — the wall's greenness is only as honest as its reasons.
+The lesson: a red gate is a teacher, a named exclusion is knowledge, and green earned brick by brick is the only
+green worth serving under.
+
 ## The degree — seal a theorem, then walk the wave
 
 Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
