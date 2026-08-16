@@ -103,8 +103,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 || gh release create "$GITHUB_REF_NAME" --generate-notes
-          gh release upload "$GITHUB_REF_NAME" uuidna.mcpb --clobber
+          # Immutable releases (GitHub 2025+): assets cannot be uploaded AFTER creation — the release must be
+          # BORN carrying its asset. Create-with-asset when missing; when it already exists, uploading may 422
+          # on an immutable release — report, never fail the pipeline over the carrier of an already-shipped tag.
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" uuidna.mcpb --clobber || echo "::warning::release is immutable — uuidna.mcpb not attached (repack anytime: npx @anthropic-ai/mcpb pack extension/)"
+          else
+            gh release create "$GITHUB_REF_NAME" --generate-notes uuidna.mcpb
+          fi
 
   # The archive of record: every audit-passing release is deposited to Zenodo by API (ZENODO_ACCESS_TOKEN secret) —
   # a NEW VERSION of the standing record when the token owns it, a fresh deposition otherwise. Metadata is the
