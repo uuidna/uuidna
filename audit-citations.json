@@ -1,18 +1,18 @@
 {
-  "key": "fbbb3578-84c8-827c-9cba-ca033fbc29b6",
-  "publications": 68,
-  "sealedTheorems": 1274,
+  "key": "b1359348-861a-83dd-a64e-8a9c7a68b460",
+  "publications": 69,
+  "sealedTheorems": 1283,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1274,
-    "theorems": 1274,
+    "claims": 1283,
+    "theorems": 1283,
     "bijection": true,
     "digitalRoots": {
       "claims": 5,
       "theorems": 5,
-      "publications": 5
+      "publications": 6
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -385,6 +385,13 @@
       "slug": "editing",
       "claims": 14,
       "cited": 14,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "optimisation",
+      "claims": 9,
+      "cited": 9,
       "uncited": [],
       "fabricated": []
     },
