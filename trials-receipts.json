@@ -166,6 +166,11 @@
       "id": "4b1b4e15-5bfb-8c4f-95ab-a00b94fe772c",
       "statement": "Two coins deposited to the captain wallet before the gated-MCP deploy: the edge and the stdio surface serve one conjunction gate, every tools/call judged and its verdict carried in the response, proven by theorem anti_fraud_check_deterministic and theorem two_coins.",
       "imprint": "e24f4d77a9973887"
+    },
+    {
+      "id": "444bde41-8cc2-8620-b66e-ede62be6e357",
+      "statement": "The collision law seals by the seven's second vote, outcome receipt c47533dd-152a-8637-a223-6352d7656138 — a claim colliding with sealed status DNA never verifies, whatever it cites, and all fifteen laundering probes recompute refused at every generation — proven by theorem clay_collision_law and theorem clay_launder_refused and theorem clay_law_vote_theorems_only",
+      "imprint": "562b30795c3da47c"
     }
   ]
 }
