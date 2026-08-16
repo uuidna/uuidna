@@ -16,6 +16,32 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
 `https://uuidna.com/mcp` — one address, the page for people, the protocol for machines.
 
+## The gate <Badge type="tip" text="every call judged" />
+
+**No result leaves this surface unjudged.** Every `tools/call` — stdio and the hosted `https://uuidna.com/mcp`
+alike — passes the sealed conjunction gate **cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v)**: **f** the input sanitized
+unchanged, **d** the output sanitized unchanged, **v** no fabricated theorem citation. The verdict travels IN the
+response (`_meta.gate` plus a visible gate line); one violation drains it, with the violating bits **named** — a
+diagnosis, never a silent pass. This page's own generation was judged; the line below is REAL, computed when the
+page was built:
+
+```
+gate CLEAN f0 d0 v0 · e2c0629d-1195-823b-885a-c4f7d4a7e25c
+```
+
+The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
+**[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
+1 clean state, 7 drained), and the 159-tool registry folds to its
+order-invariant identity `082de2b2-5be1-8ada-ba83-dc06163f4e4e` (the hosted subset serves the same gate over its own registry).
+Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
+
+Recompute the proof against production yourself:
+
+```bash
+curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
+```
+
 ## The grid <Badge type="tip" :text="`159`" />
 
 159 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 59 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.

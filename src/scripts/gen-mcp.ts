@@ -8,10 +8,17 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { MCP_CATALOG } from '../mcp.js'
 import { adjudicate, theorems, toUuid } from '../index.js'
+import { gateVerdict, gateSelfTest } from '../gate-engine.js'
 import { ROOT } from './api.js'
 // A WORKED EXAMPLE, computed at generation time from the package the tools wrap — so the request/response shown is
 // REAL and recomputable by anyone, not a hand-written mock (the honest 'production MCP example').
 const EX = adjudicate('FNV-1a is cryptographic')
+// THE GATE, computed at generation time from the real gate engine — the page shows people the SAME verdict the
+// protocol shows machines: a real gate line (this page's own generation, judged), the eight-state table proven
+// against the sealed spec, and the registry identity. Deterministic, so the committed page never drifts.
+const GATE = gateSelfTest(MCP_CATALOG.map((t) => t.name))
+const GRUN = gateVerdict('uuidna_gate_status', {}, GATE)
+const GLINE = `gate ${GRUN.gate.clean ? 'CLEAN' : 'DRAINED'} f${GRUN.gate.input} d${GRUN.gate.output} v${GRUN.gate.honesty} · ${GRUN.gate.receipt}`
 
 // Markdown/Vue-safe: escape < > (raw HTML) and split {{ (Vue interpolation) so descriptions render literally.
 const safe = (s: string): string => s.replace(/[<>]/g, (c) => (c === '<' ? '&lt;' : '&gt;')).replace(/\{\{/g, '{ {')
@@ -73,6 +80,32 @@ lockstep with the code. Each tool lists its **parameters** (name · type · requ
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
 \`https://uuidna.com/mcp\` — one address, the page for people, the protocol for machines.
+
+## The gate <Badge type="tip" text="every call judged" />
+
+**No result leaves this surface unjudged.** Every \`tools/call\` — stdio and the hosted \`https://uuidna.com/mcp\`
+alike — passes the sealed conjunction gate **cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v)**: **f** the input sanitized
+unchanged, **d** the output sanitized unchanged, **v** no fabricated theorem citation. The verdict travels IN the
+response (\`_meta.gate\` plus a visible gate line); one violation drains it, with the violating bits **named** — a
+diagnosis, never a silent pass. This page's own generation was judged; the line below is REAL, computed when the
+page was built:
+
+\`\`\`
+${GLINE}
+\`\`\`
+
+The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
+**[${GATE.table.join(',')}]** — the sealed table (matchesSealedSpec: **${GATE.matchesSealedSpec}**;
+${GATE.cleanStates} clean state, ${GATE.drainedStates} drained), and the ${GATE.tools}-tool registry folds to its
+order-invariant identity \`${GATE.registry}\` (the hosted subset serves the same gate over its own registry).
+Standing on: ${GATE.cites.map((k) => `[\`${k}\`](/theorem/${k})`).join(' · ')}.
+
+Recompute the proof against production yourself:
+
+\`\`\`bash
+curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \\
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
+\`\`\`
 
 ## The grid <Badge type="tip" :text="\`${MCP_CATALOG.length}\`" />
 
