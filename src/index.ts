@@ -258,7 +258,8 @@ export { quantumAura, auraDecode, auraAlphabet, type Aura } from './aura.js'
 
 // quantum-message — FUSE quantum states, theorems, and auras into a single message identity. A quantum message
 // encodes plaintext + theorem proof into a quantum superposition, signs it against the ledger, and binds it to an
-// A432 aura (content-addressed, deterministic). Not a cipher (everyone sees the aura and state); not a signature
+// A432 aura (content-addressed, deterministic). Not a cipher — the cipher is the sealed ChaCha20-Poly1305 layer
+// (src/crypt.ts), rotating per step — (everyone sees the aura and state); not a signature
 // (the proof is sealed). A quantum message is a WITNESSED message — the witness is a sealed theorem, and the
 // message's quantum encoding proves the witness was cited. The same message always folds to the same aura and
 // quantum state for every observer — integrity without secrets.

@@ -206,6 +206,7 @@ export function pipeGaps(): Gap[] {
     if (!existsSync(p)) return
     const lines = readFileSync(p, 'utf8').split('\n')
     lines.forEach((line, i) => {
+      if (line.trimStart().startsWith('|')) return // a markdown table row's cell border is not a pipe
       if (GATE.test(line))
         gaps.push({ what: `${rel}:${i + 1} pipes a gate — its exit code is the pipe's, not the gate's`, fix: 'capture the exit raw: `gate > log 2>&1; echo EXIT=$?` and read the log after — never let a gate flow into a pipe' })
     })

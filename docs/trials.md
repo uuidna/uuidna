@@ -57,6 +57,7 @@ artifact directly.
 
 <div v-if="fold">
   <p class="rcpt-big" v-if="fold.rosette_receipt">rays: <code>{{ fold.rosette_receipt.rays.map(r => r.slice(0,6)).join(' · ') }}</code> ⇒ concurrence <Handle :uuid="fold.rosette_receipt.concurrence" v-if="fold.rosette_receipt.concurrence.length===36"/><code v-else>{{ fold.rosette_receipt.concurrence }}</code></p>
+  <p class="eq" v-if="fold.equilibrium">the six conditions of the seal, computed: <span v-for="(v,k) in fold.equilibrium" :key="k"><code :style="v ? 'color:var(--vp-c-green-1,#3c9a5f)' : 'color:var(--vp-c-danger-1,#c00)'">{{ k }}</code>&nbsp;</span>⇒ every condition true or nothing seals — the equilibrium IS the verdict, folded into the receipt's own address.</p>
   <p>linear receipt <code>{{ fold.receipt }}</code> · unified fold <code>{{ fold.unified_fold }}</code> · aura <code :style="`color:${fold.aura?.rgb}`">{{ fold.aura?.rgb }}</code> (residue {{ fold.aura?.dimensions?.residue }} · ray {{ fold.aura?.dimensions?.ray }} · wave {{ fold.aura?.dimensions?.wave }}) · zero entropy: <strong>{{ fold.zero_entropy ? 'verified' : 'BROKEN' }}</strong></p>
 </div>
 

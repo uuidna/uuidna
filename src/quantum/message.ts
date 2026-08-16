@@ -3,7 +3,8 @@
 // the ledger, and binds it to an A432 aura (content-addressed, deterministic). The same message
 // always folds to the same aura and quantum state for every observer — integrity without secrets.
 //
-// Not a cipher (everyone sees the aura, the state, and can rebuild it); not a signature (the
+// Not a cipher — the cipher is the sealed ChaCha20-Poly1305 layer (../crypt.ts), rotating per step —
+// (everyone sees the aura, the state, and can rebuild it); not a signature (the
 // proof is sealed, not cryptographic). A quantum message is a **witnessed message** — the witness
 // is a sealed theorem, and the message's quantum encoding is the proof that the witness was cited.
 //
@@ -83,7 +84,7 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
   return {
     id, plaintext, theoremKey, theoremAddress: t.address, aura, quantum, fold,
     honest:
-      'A quantum message is NOT a cipher or signature — it is a WITNESSED message. The plaintext is public ' +
+      'A quantum message is NOT a cipher or signature (the cipher is the sealed ChaCha20-Poly1305 layer) — it is a WITNESSED message. The plaintext is public ' +
       '(everyone sees it), the aura is deterministic (same message → same color for all observers), and the quantum ' +
       'state proves the theorem was cited (the basis encodes the theorem key, Hadamard guarantees superposition, ' +
       'and the receipt is tamper-evident). Integrity, not secrets — and when secrecy IS wanted, sealMessage carries ' +
@@ -211,7 +212,7 @@ export function theoremMessage(key: string) {
     delivered: readImprintTextChain(carrier) === t.statement,
     honest: envelope.honest + ' The carrier is the reversible imprint codec: the uuid chain decodes back to the ' +
       'exact Lean statement, so the theorem travels as pure addresses and any alteration breaks the decode. ' +
-      'Not a cipher — tamper-evidence, total over the ledger.',
+      'Not a cipher (secrecy, when wanted, is sealMessage — the rotating ChaCha20-Poly1305 layer) — tamper-evidence, total over the ledger.',
   }
 }
 

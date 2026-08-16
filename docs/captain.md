@@ -32,6 +32,14 @@ alone yields zero. Joined at the neck, they yield exactly 2 — every deposit ev
 human word met a machine walk. **The vortex spirals; the double torus completes.** One handle computes. Two
 handles pay.
 
+And the completion gained its containment reading the day plasma taught it
+([`torus_closes_the_pipe`](/theorem/torus_closes_the_pipe),
+[`containment_is_genus_one`](/theorem/containment_is_genus_one)): χ = 0 is not merely the genus that mints
+nothing — it is the genus that **contains**. Glue a pipe's two open ends and the boundary vanishes; the closed
+path holds what no wall could. So the wallet's genus-2 surface reads as a containment vessel with one paying
+handle: the coins circulate on the handle that holds and mint on the handle that pays — containment and payment,
+one handle apart.
+
 ## The two angles
 
 - **Free sailing** — off the wind (≥ 90°): public, non-commercial use is **free**. Zero coins. Reading, research,
