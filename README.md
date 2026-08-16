@@ -38,7 +38,7 @@ A complete system where:
 ## Live Statistics
 
 ```
-Theorems Sealed:        1231   (computed from the ledger at generation — never typed)
+Theorems Sealed:        1232   (computed from the ledger at generation — never typed)
 Coins Conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
@@ -234,7 +234,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1231 theorems sealed to ledger**
+✓ **All 1232 theorems sealed to ledger**
 ✓ **Guard verified (no traitors caught)**
 ✓ **External audits working (8 sources)**
 ✓ **Education system live**

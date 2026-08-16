@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1231 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1232 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -32,7 +32,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 9. **Self-discovered** — `lean/Discover.lean` · **14** theorems
    facts derived by function: Lagrange, the unit criterion, idempotents
 
-10. **The quantum computer** — `lean/Quantum.lean` · **45** theorems
+10. **The quantum computer** — `lean/Quantum.lean` · **46** theorems
    the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware
 
 11. **The seven reflected** — `lean/Clay.lean` · **13** theorems

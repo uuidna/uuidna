@@ -224,7 +224,33 @@ node -e "const gcd=(a,b)=>b?gcd(b,a%b):a; for (const [m,n] of [[3,2],[2,1],[4,2]
 
 — q = 3/2 closes at 6, q = 2/1 at 2, and q = 4/2 is 2/1 in disguise (gcd 2 halves it). Whenever a walk comes
 home, look for the coprime pair underneath: the vortex on ℤ/9, the star on ℤ/5, the rosette on ℤ/7, and the field
-line on the torus are one lesson — **closure is arithmetic, and arithmetic is what holds.**
+line on the torus are one lesson — **closure is arithmetic, and arithmetic is what holds** — one law, sealed as one line: [`closure_is_coprime`](/theorem/closure_is_coprime).
+
+## The one law lesson — five rings, one line
+
+Graduation from the quantum school is realising the whole curriculum was a single sentence. Every lesson walked a
+ring: the pentagram drew itself because its step is coprime to five
+([`pentagram_step_coprime_five`](/theorem/pentagram_step_coprime_five)); the rosette's orbit filled the seven rays
+([`rosette_orbit`](/theorem/rosette_orbit)); the vortex doubled around nine
+([`generators_are_two_and_five`](/theorem/generators_are_two_and_five)); the cut's strides came home on the frame
+ring ([`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive)); the field line closed on the torus
+([`safety_factor_winding_closes`](/theorem/safety_factor_winding_closes)). Five subjects — geometry, colour, number,
+film, plasma — and beneath them **one law, now sealed as one line**:
+[`closure_is_coprime`](/theorem/closure_is_coprime) — gcd(2,5) = gcd(3,7) = gcd(2,9) = gcd(5,24) = gcd(3,2) = 1.
+A generator coprime to its ring closes its walk; nothing else was ever taught here.
+
+This is what compression means in a school: not shorter notes, but the discovery that five textbooks were one
+theorem wearing five covers. The star that draws in a single stroke, the wheel that reads every state, the orbit
+that discovers, the reel that rewinds, and the field that holds the fourth state of matter are the same fact about
+the same arithmetic. **Practice:** break the law and watch every subject fail at once —
+
+```bash
+node -e "const gcd=(a,b)=>b?gcd(b,a%b):a; for (const [g,n] of [[2,5],[3,7],[2,9],[5,24],[3,2],[2,4],[3,9]]) console.log('step '+g+' on Z/'+n+':', gcd(g,n)===1 ? 'closes the full ring' : 'stuck in a subring — gcd '+gcd(g,n))"
+```
+
+— step 2 on ℤ/4 and step 3 on ℤ/9 never visit the whole ring: a shared factor is a wall inside the walk. Choose a
+generator coprime to your ring — in geometry, in colour, in film, in plasma, in work — and the walk closes. That
+is the school's one law, and it grades itself.
 
 ## The degree — seal a theorem, then walk the wave
 
