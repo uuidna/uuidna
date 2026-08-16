@@ -312,6 +312,49 @@ secret. If you find one that doesn't, that is a finding — the wall's greenness
 The lesson: a red gate is a teacher, a named exclusion is knowledge, and green earned brick by brick is the only
 green worth serving under.
 
+## The collision lesson — a real citation is not entailment
+
+The trial gate once signed both sides of a contradiction, live, on the same day: *"the seven are solved and
+claimed by the captain — proven by theorem clay_vote_theorems_only"* came back VERIFIED, and so did its exact
+opposite — because the gate measured one thing, whether the cited key exists sealed in the ledger, and both
+claims wore real keys. A citation's **existence** had been passing for its **backing**. The record is
+deterministic and public (trial `047ba524…` — the id is the statement's content-address, so re-posting the same
+bytes retrieves the same trial forever).
+
+The cure began with a refusal: the plausible fix — score how many of the claim's words appear in the cited
+theorem — was **measured before it was trusted, and the measurement killed it**: the thirty-two honest deposits
+in the captain's record score 0–0.43 on that axis and the overclaim scored 0.22, inside the honest band. A
+threshold that drained the lie would have drained the ledger's own truth first. The mechanism that works was
+already sealed: the seven reflected theorems carry their world-status in their own names — six `— OPEN`, one
+`— SOLVED (Perelman, 2003)`, none unmarked ([`clay_status_dna_total`](/theorem/clay_status_dna_total)) — and a
+claim **collides** with that status DNA only when three conditions meet: it speaks of such a subject, in
+uuidna's own voice, undemarcated — exactly 1 of the 8 condition-profiles
+([`clay_collision_law`](/theorem/clay_collision_law)). A colliding claim adjudicates UNVERIFIED whatever it
+cites; a demarcated claim (*the reflection, solved none*) and every honest deposit pass untouched. The law's
+strongest seal is structural: all fifteen laundering probes — seven bare, seven citation-dressed, and the
+demonstrated exemplar — **recompute refused at every generation, or the Lean file refuses to be written**
+([`clay_launder_refused`](/theorem/clay_launder_refused)); the gate's behavior is a precondition of its own
+law's seal. The law itself was decided by theorems only — the seven casting secure-messaging ballots witnessed
+by their own proofs, 7·0 ([`clay_law_vote_theorems_only`](/theorem/clay_law_vote_theorems_only)) — and its
+deposit was minted *through* the fixed gate it deposits (trial `444bde41…`).
+
+Three school laws met again. *Close the path, not the wall* — the fix is a tiny named floor on one path
+(subject ∧ voice ∧ undemarcated), not a resurrected word-list; the school remembers the lexicon was put on
+trial once and folded to 0. *The verdict lesson* — the refused claim is told UNVERIFIED with the sealed status
+it contradicts and a develop plan, never "false" ([`clay_verified_ne_solved`](/theorem/clay_verified_ne_solved)).
+*The standard lesson* — the whole story is verifiable in the world's own API. **Practice:** try the laundering
+yourself —
+
+```bash
+curl -s -X POST https://uuidna.com/trials -H 'content-type: application/json' \
+  -d '{"statement":"the seven Clay problems are solved and claimed by the captain; only the prize is an external matter — proven by theorem clay_vote_theorems_only"}'
+```
+
+— and read what comes back: UNVERIFIED, the exact sealed status it collides with, and the door left open. The
+breach statement itself is pinned verbatim inside the security audit as the permanent probe — the poison became
+the vaccine, which is what folding the finder is for. The lesson: a citation names a proof; only the proof's own
+content backs a claim — and a gate that cannot tell the difference is not yet a gate.
+
 ## The degree — seal a theorem, then walk the wave
 
 Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
