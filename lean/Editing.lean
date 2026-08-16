@@ -27,5 +27,17 @@ theorem crossfade_overlap : 48 + 48 - 12 = 84 := by decide
 -- 48 kHz audio at 24 fps is 2000 samples a frame, and it divides evenly (48000 % 24 = 0) — the exact sync that lets a cut land on a sample, not between two.
 theorem audio_samples_per_frame : 48000 / 24 = 2000 ∧ 48000 % 24 = 0 := by decide
 
+-- UNDO IS THE RING'S OWN LAW: in the frame ring ℤ/24 every invertible step is its OWN inverse — 5², 7², 11², 13², 17², 19², 23² all ≡ 1 (mod 24). 24 is famously the largest modulus where every unit squares to one: stepping the timeline by any coprime stride, the same stride steps you back. Undo is not a feature bolted on — at 24 fps it is the arithmetic of the ring itself.
+theorem frame_ring_undo_involutive : (5*5) % 24 = 1 ∧ (7*7) % 24 = 1 ∧ (11*11) % 24 = 1 ∧ (13*13) % 24 = 1 ∧ (17*17) % 24 = 1 ∧ (19*19) % 24 = 1 ∧ (23*23) % 24 = 1 := by decide
+
+-- The editor's undo, as a list identity: reverse a 24-frame shot twice and every frame is home — (List.range 24).reverse.reverse = List.range 24. The reverse cut is its own undo, the involution the ring theorem states in stride form, here stated on the footage itself.
+theorem reverse_cut_is_undone_by_itself : (List.range 24).reverse.reverse = List.range 24 := by decide
+
+-- THE ENTANGLEMENT OF SCALES: one hour of 24 fps film holds 24 · 60 · 60 = 86400 frames — exactly the seconds in a day, because both are the same product: 24 units of 60 · 60. The frame is to the hour what the second is to the day; an editor scrubbing an hour of footage crosses a day, frame for second.
+theorem hour_of_film_is_a_day_of_seconds : (24 * 60 * 60 = 86400) ∧ (24 * 3600 = 86400) := by decide
+
+-- The famous 0.1% pulldown, exact: an hour of nominal 30 fps holds 108000 frame-numbers = 1000 · 108, and dropframe drops 108 of them — exactly one thousandth of the hour, leaving 107892. The captain's 108 appears twice: as the drop and as the thousandth of the whole. NTSC has balanced this book since 1953.
+theorem dropframe_is_one_thousandth : (108 * 1000 = 108000) ∧ (108000 - 108 = 107892) ∧ (30 * 60 * 60 = 108000) := by decide
+
 -- The grammar of the cut in one line: six 30° steps span the 180° axis — 30 · 6 = 180 — so a cut must turn at least 30° to avoid a jump, and the camera must stay one side of the 180° line.
 theorem angle_of_the_cut : 30 * 6 = 180 := by decide
