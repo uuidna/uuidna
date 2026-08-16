@@ -111,7 +111,38 @@ sealed numbers all along. **Practice:** verify the ring's undo yourself —
 node -e "console.log([5,7,11,13,17,19,23].every(u => (u*u) % 24 === 1))"
 ```
 
-— then try a stride the ring does *not* invert (any even one) and watch the law refuse it.\n\n## The degree — seal a theorem, then walk the wave
+— then try a stride the ring does *not* invert (any even one) and watch the law refuse it.\n\n## The carrier lesson — the uuid IS the message
+
+Three kinds of uuid live here, and telling them apart is the lesson. The **content-address** is a projection:
+`toUuid` folds any text to 128 bits, many texts to each address, so reversing it is not hard — it is *meaningless*;
+the information is gone. The **sealed envelope** hides content behind the rotating ChaCha20-Poly1305 layer, so
+reversing it means recovering a key at one bounded KDF derive per guess
+([`kdf_cost_bounded`](/theorem/kdf_cost_bounded)), with quantum search merely halving the exponent
+([`grover_quadratic_bound`](/theorem/grover_quadratic_bound)). The **carrier** is neither: `imprint` never hashes
+and never loses a bit — it *places* your message's bits into the uuid's free positions and `readImprint` picks
+them back out. A bijection with its exact inverse, which is why decoding takes microseconds: there is no search,
+no key, nothing to break — the uuid does not hide the message, the uuid **is** the message, shaped to travel
+anywhere an id travels.
+
+The carrier's bookkeeping is sealed end to end: 128 bits minus RFC 4122's six reserved minus the seven-bit length
+header leaves 115 payload bits ([`imprint_capacity_chain`](/theorem/imprint_capacity_chain)), and seven is the
+*smallest* honest header — six bits cannot count the 116 possible lengths
+([`imprint_header_minimal`](/theorem/imprint_header_minimal)). Longer messages chain at 115 bits per uuid, so the
+one thing the transport cannot hide is how many carriers it needed
+([`transport_leaks_length`](/theorem/transport_leaks_length)). And the capacity carries an entanglement: 115 = 5·23,
+the pentagram's five times the frame ring's involutive stride
+([`imprint_capacity_entangles`](/theorem/imprint_capacity_entangles)) — the star, the cut, and the carrier in one
+factorisation. **Practice:** send yourself a message as pure addresses —
+
+```bash
+node -e "import('./dist/imprint.js').then(m => { const c = m.imprintTextChain('the uuid is the message'); console.log(c.join('\n')); console.log(m.readImprintTextChain(c)) })"
+```
+
+— then change one hex digit of one carrier and decode again: the alteration is visible immediately. That is the
+whole posture ([`one-receipt re`](/trials)): reversal at wire speed where reversal is the design, bounded cost
+where secrecy is, and prose forbidden from blurring the two.
+
+## The degree — seal a theorem, then walk the wave
 
 Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
 
