@@ -22,6 +22,10 @@
     "paper on trial",
     "verification infrastructure"
   ],
+  "communities": [
+    { "identifier": "verification" },
+    { "identifier": "open-source-toolkit" }
+  ],
   "related_identifiers": [
     { "identifier": "https://github.com/uuidna/uuidna", "relation": "isSupplementTo", "resource_type": "software" },
     { "identifier": "https://www.npmjs.com/package/@uuidna/uuidna", "relation": "isIdenticalTo", "resource_type": "software" },
