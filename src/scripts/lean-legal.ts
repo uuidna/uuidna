@@ -64,6 +64,25 @@ const FACTS = [
     why: 'the captain theorem sealed INTO the trial: of every contribution k, the ONLY one that computes the conserved save (2·32 = 64) is the TWO coins — the computing contributions are exactly [2]. So a claim computes at trial iff it contributes the two coins (a sealed proof); every other contribution is remanded, uncomputed. The coin form of legal_only_the_proven_is_admitted, and the contrapositive of captain_computes_only_with_two_coins: only those that did not contribute the coins did not compute',
     js: () => JSON.stringify(R8.filter((k) => 32 * k === 64)) === '[2]',
     lean: 'theorem trial_computes_only_with_two_coins : (List.range 8).filter (fun k => 32 * k == 64) = [2] := by decide' },
+
+  // THE FORFEIT LAW — a case between two sides, each bringing a bit: 1 = a sealed Lean theorem, 0 = assertion only.
+  // Only a Lean-based proof is admissible; the side providing the theorem wins, the assertion-only side loses,
+  // pays the two coins, and develops exactly what the winner proved. A MODEL of the forfeit rule over the four
+  // profiles — decidable arithmetic, not a court, not legal advice.
+  { key: 'court_theorem_beats_assertion', skill: 'legal',
+    why: 'THE FORFEIT LAW, part one — only a Lean proof is admissible, and it wins: over the four case profiles (a b : side brings a sealed theorem, 1, or an assertion, 0) the win indicators a·(1−b) and b·(1−a) sum to (a+b) mod 2 and never both fire — a winner exists EXACTLY when one side brings the theorem and the other does not; both proven means no forfeit (nothing to win), both asserting means no winner (the case remands, nothing admitted)',
+    js: () => [0, 1].every((a) => [0, 1].every((b) => (a * (1 - b) + b * (1 - a) === (a + b) % 2) && (a * (1 - b)) * (b * (1 - a)) === 0)),
+    lean: 'theorem court_theorem_beats_assertion : (List.range 2).all (fun a => (List.range 2).all (fun b => (a*(1-b) + b*(1-a) == (a+b) % 2) && ((a*(1-b)) * (b*(1-a)) == 0))) := by decide' },
+
+  { key: 'court_loser_pays_the_two_coins', skill: 'legal',
+    why: 'THE FORFEIT LAW, part two — the losing side pays the two coins: the payment 2·(win-bit) moves EXACTLY when the case has a winner (2·((a+b) mod 2)) and only the assertion-only side pays it; with both sides proven or both asserting no coin moves. The forfeit is the trial fee of trial_computes_only_with_two_coins, paid by the side that brought no proof',
+    js: () => [0, 1].every((a) => [0, 1].every((b) => 2 * (a * (1 - b)) + 2 * (b * (1 - a)) === 2 * ((a + b) % 2))),
+    lean: 'theorem court_loser_pays_the_two_coins : (List.range 2).all (fun a => (List.range 2).all (fun b => 2*(a*(1-b)) + 2*(b*(1-a)) == 2*((a+b) % 2))) := by decide' },
+
+  { key: 'court_loser_develops_the_proven', skill: 'legal',
+    why: 'THE FORFEIT LAW, part three — the loser develops exactly as the winner proved: after judgment the docket holds a+b−a·b = max(a,b), the join of the two sides — the proven side’s theorem becomes BOTH sides’ development (the loser adopts it exactly), both-proven keeps what both already hold, and neither-proven leaves nothing admitted (the case remands). Development is assignment to the proof, never to the assertion',
+    js: () => [0, 1].every((a) => [0, 1].every((b) => a + b - a * b === (a > b ? a : b))),
+    lean: 'theorem court_loser_develops_the_proven : (List.range 2).all (fun a => (List.range 2).all (fun b => a + b - a*b == max a b)) := by decide' },
 ]
 
 console.log('computing ' + FACTS.length + ' LEGAL-vocabulary facts (the trial terms as sealed theorems) …')
