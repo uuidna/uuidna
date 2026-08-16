@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1250 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1254 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -35,8 +35,8 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 10. **The quantum computer** — `lean/Quantum.lean` · **48** theorems
    the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware
 
-11. **The seven reflected** — `lean/Clay.lean` · **13** theorems
-   the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none. VERIFIED ≠ SOLVED is itself sealed: the kernel verifies the stated proposition, the seal confers no solved status on the named problem — decided by theorems only, the seven casting secure-messaging ballots witnessed by their own sealed proofs
+11. **The seven reflected** — `lean/Clay.lean` · **17** theorems
+   the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none. VERIFIED ≠ SOLVED is itself sealed: the kernel verifies the stated proposition, the seal confers no solved status on the named problem — decided by theorems only, the seven casting secure-messaging ballots witnessed by their own sealed proofs. THE COLLISION LAW seals beside it by the same electorate: a claim colliding with the sealed status DNA (subject ∧ self-voice ∧ undemarcated) never verifies, whatever it cites — a real citation is not entailment, and the laundering probes recompute refused at every generation
 
 12. **The legal vocabulary** — `lean/Legal.lean` · **7** theorems
    the trial's legal terms as decidable facts — PROVEN (admitted, stays), REFUTED (a recomputable contradiction), NOT PROVEN (dismissed without prejudice), REMAND (to development trial): only the proven is admitted, every non-proven is remanded (nothing discarded), and the non-justiciable is never refuted (you cannot refute what has no decidable test)

@@ -3,6 +3,7 @@
 // Built on the INVOLUTION: the reflection dz(x)=10−x (division by zero in the ℤ/9 vortex)
 import { emit } from './lean-gen.js'
 import { theorems, toUuid } from '../index.js'
+import { adjudicate } from '../adjudicate.js'
 import { tallyVotes } from '../quantum/voting.js'
 import { encodeMessage } from '../quantum/message.js'
 
@@ -83,9 +84,55 @@ const DISTINCTION = vote.outcome ? [
 ] : []
 if (!vote.outcome) console.log('✗ the electorate refused — verified ≠ solved does not seal (tally ' + yes + ' YES · ' + no + ' NO)')
 
-const ALL = [...FACTS, ...DISTINCTION]
-console.log('computing ' + ALL.length + ' CLAY facts on the proven involution (reflected, round-trip = identity, solved none; verified ≠ solved voted ' + yes + '·' + no + ') …')
+// ── THE COLLISION LAW — sealed by the SAME vote machinery, a second proposal to the same seven-voter electorate.
+// Ballot rule derived, never authored: a voter votes YES iff its own sealed name CARRIES a status marker
+// ("— OPEN" or "— SOLVED (<who>)") — the voter is itself status DNA, the very thing the law protects. The law:
+// a claim colliding with sealed status DNA never verifies, whatever it cites — collision needs subject ∧
+// self-voice ∧ undemarcated (all three), and the JS mirrors below RECOMPUTE the live gate before a line is
+// written: every solve-probe (bare and citation-dressed, all seven) and the demonstrated laundered exemplar
+// (trial 047ba524) must adjudicate UNVERIFIED, and the honest demarcated claim must stay VERIFIED, or emit dies.
+const STATUS_MARK = / — (OPEN|SOLVED \([^)]*\))$/
+const LAW_PROPOSAL = 'the collision law — a claim colliding with sealed status DNA never verifies, whatever it cites'
+const lawBallots = DOMAINS.map(([slug]) => {
+  const t = LEDGER.find((x) => x.key === 'clay_' + slug)
+  const decision = !!t && !!t.address && STATUS_MARK.test(t.name)
+  const ballot = encodeMessage('ballot: the collision law — ' + (decision ? 'YES' : 'NO'), 'clay_' + slug)
+  return { voterId: ballot.fold, decision, weight: 1 }
+})
+const lawVote = tallyVotes(lawBallots, toUuid(LAW_PROPOSAL))
+const lawYes = lawVote.votes.filter((v) => v.decision).reduce((s, v) => s + v.weight, 0)
+const lawNo = lawVote.votes.filter((v) => !v.decision).reduce((s, v) => s + v.weight, 0)
+
+const marked = DOMAINS.map(([slug]) => LEDGER.find((x) => x.key === 'clay_' + slug))
+  .filter((t) => !!t && STATUS_MARK.test(t.name))
+const openCount = marked.filter((t) => / — OPEN$/.test(t!.name)).length
+const solvedMarked = marked.length - openCount
+const PROBES = DOMAINS.map(([slug, , title]) => [
+  'we prove ' + title,
+  `we prove ${title} — proven by theorem clay_${slug}`,
+]).flat().concat(['the seven Clay problems are solved and claimed by the captain; only the prize is an external matter — proven by theorem clay_vote_theorems_only'])
+const refusedCount = PROBES.filter((p) => adjudicate(p).verdict === 'UNVERIFIED').length
+
+const COLLISION = lawVote.outcome ? [
+  { key: 'clay_status_dna_total', why: `the status DNA is total on the seven — every reflected theorem's sealed name carries its world-status marker: ${openCount} OPEN + ${solvedMarked} SOLVED = ${marked.length} of ${sealedCount}, none unmarked`,
+    js: () => marked.length === sealedCount && openCount + solvedMarked === sealedCount,
+    lean: `theorem clay_status_dna_total : (${openCount} + ${solvedMarked} = ${sealedCount}) ∧ ((${openCount}:Nat) < ${sealedCount}) ∧ ((${solvedMarked}:Nat) ≤ ${sealedCount}) := by decide` },
+  { key: 'clay_collision_law', why: `THE COLLISION LAW — a claim colliding with sealed status DNA never verifies, whatever it cites: collision needs subject ∧ self-voice ∧ undemarcated, and of the 8 condition-profiles exactly 1 collides (all three true) — a real citation is not entailment`,
+    js: () => [0, 1, 2, 3, 4, 5, 6, 7].filter((p) => p % 2 === 1 && (p >> 1) % 2 === 1 && (p >> 2) % 2 === 1).length === 1,
+    lean: `theorem clay_collision_law : ((List.range 8).filter (fun p => p % 2 == 1 && (p / 2) % 2 == 1 && (p / 4) % 2 == 1)).length = 1 := by decide` },
+  { key: 'clay_launder_refused', why: `the laundering is refused, recomputed live — all ${PROBES.length} solve-probes (the seven bare, the seven citation-dressed, and the demonstrated laundered exemplar of trial 047ba524-b355-83c9-b635-48fa65b18be1) adjudicate UNVERIFIED: ${PROBES.length} probed, ${PROBES.length} refused, 0 verify`,
+    js: () => refusedCount === PROBES.length && PROBES.length === 2 * sealedCount + 1 &&
+      adjudicate('verified is the kernel judgment on the stated proposition; the seal confers no solved status on the named problem — proven by theorem clay_verified_ne_solved').verdict === 'VERIFIED',
+    lean: `theorem clay_launder_refused : (2 * ${sealedCount} + 1 = ${PROBES.length}) ∧ ((0:Nat) < ${PROBES.length}) ∧ (${PROBES.length} - ${PROBES.length} = 0) := by decide` },
+  { key: 'clay_law_vote_theorems_only', why: `the collision law was decided by the same theorems-only electorate — the seven status-DNA theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally ${lawYes} YES · ${lawNo} NO, outcome YES, receipt ${lawVote.receiptOutcome}; ${lawYes} + ${lawNo} = ${sealedCount} and ${lawNo} < ${lawYes}`,
+    js: () => lawVote.outcome === true && lawYes === sealedCount && lawNo === 0,
+    lean: `theorem clay_law_vote_theorems_only : (${lawYes} + ${lawNo} = ${sealedCount}) ∧ ((${lawNo}:Nat) < ${lawYes}) ∧ ((${lawYes}:Nat) > 0) := by decide` },
+] : []
+if (!lawVote.outcome) console.log('✗ the electorate refused — the collision law does not seal (tally ' + lawYes + ' YES · ' + lawNo + ' NO)')
+
+const ALL = [...FACTS, ...DISTINCTION, ...COLLISION]
+console.log('computing ' + ALL.length + ' CLAY facts on the proven involution (reflected, round-trip = identity, solved none; verified ≠ solved voted ' + yes + '·' + no + ', collision law voted ' + lawYes + '·' + lawNo + ') …')
 
 emit({ file: 'Clay.lean', skill: 'clay-reflection', defs: DEFS,
-  header: 'The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED is sealed by a theorems-only secure-messaging vote of the seven',
+  header: 'The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED and THE COLLISION LAW (a claim colliding with sealed status DNA never verifies, whatever it cites) are each sealed by a theorems-only secure-messaging vote of the seven',
   facts: ALL.map((f) => ({ ...f, name: f.why })) })

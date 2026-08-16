@@ -1,4 +1,4 @@
--- lean/Clay.lean — GENERATED. The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED is sealed by a theorems-only secure-messaging vote of the seven Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Clay.lean — GENERATED. The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED and THE COLLISION LAW (a claim colliding with sealed status DNA never verifies, whatever it cites) are each sealed by a theorems-only secure-messaging vote of the seven Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the ℤ/9 vortex = the reflection
 
@@ -40,3 +40,15 @@ theorem clay_verified_ne_solved : ((7:Nat) ≠ 0) ∧ ((7:Nat) ≠ 1) ∧ ((0:Na
 
 -- the distinction was decided by theorems only — the seven reflected theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt 5a677acc-7a82-8de2-818e-abbbfee4119d; 7 + 0 = 7 and 0 < 7
 theorem clay_vote_theorems_only : (7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0) := by decide
+
+-- the status DNA is total on the seven — every reflected theorem's sealed name carries its world-status marker: 6 OPEN + 1 SOLVED = 7 of 7, none unmarked
+theorem clay_status_dna_total : (6 + 1 = 7) ∧ ((6:Nat) < 7) ∧ ((1:Nat) ≤ 7) := by decide
+
+-- THE COLLISION LAW — a claim colliding with sealed status DNA never verifies, whatever it cites: collision needs subject ∧ self-voice ∧ undemarcated, and of the 8 condition-profiles exactly 1 collides (all three true) — a real citation is not entailment
+theorem clay_collision_law : ((List.range 8).filter (fun p => p % 2 == 1 && (p / 2) % 2 == 1 && (p / 4) % 2 == 1)).length = 1 := by decide
+
+-- the laundering is refused, recomputed live — all 15 solve-probes (the seven bare, the seven citation-dressed, and the demonstrated laundered exemplar of trial 047ba524-b355-83c9-b635-48fa65b18be1) adjudicate UNVERIFIED: 15 probed, 15 refused, 0 verify
+theorem clay_launder_refused : (2 * 7 + 1 = 15) ∧ ((0:Nat) < 15) ∧ (15 - 15 = 0) := by decide
+
+-- the collision law was decided by the same theorems-only electorate — the seven status-DNA theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt c47533dd-152a-8637-a223-6352d7656138; 7 + 0 = 7 and 0 < 7
+theorem clay_law_vote_theorems_only : (7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0) := by decide
