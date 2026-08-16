@@ -193,6 +193,25 @@ export function migrate(): void {
   console.log(`✓ one-receipt migrate — ${touched} script(s) folded onto the api${left.length ? `; left for dry (nonstandard, needs a human): ${left.join(' ')}` : ''}. Re-run \`one-receipt dry\` to confirm, then \`npm run build\`.`)
 }
 
+// ── re: THE REVERSE-ENGINEERING POSTURE — the two-layer trial, folded as its decidable half. Layer 1 (the
+// imprint transport) REVERSES BY DESIGN: the uuid IS the message — 115 payload bits placed into the 122 free bit
+// positions (128 minus RFC 4122's six, minus the 7-bit length header), so "reverse engineering" is picking the
+// bits back out: a bijection with an exact inverse, no search, no key, microseconds. Layer 2 (the sealed layer)
+// reverses ONLY by key recovery: one full KDF derive per passphrase guess, Grover merely halving the exponent.
+// The posture is decidable; the per-guess TIMING is measurement and stays at the heartbeats boundary. ──
+export async function reGaps(): Promise<Gap[]> {
+  const gaps: Gap[] = []
+  const { roundTrips, imprintTextChain, readImprintTextChain, CAPACITY } = await import(join(ROOT, 'dist/imprint.js'))
+  const { ITER, MAX_ITER } = await import(join(ROOT, 'dist/crypt.js'))
+  if (CAPACITY !== 128 - 6 - 7) gaps.push({ what: `transport capacity ${CAPACITY} ≠ 115 = 128−6−7`, fix: 'the codec drifted from theorem imprint_capacity_chain — restore the derivation in src/imprint.ts' })
+  if (!roundTrips('10110011101')) gaps.push({ what: 'transport round-trip broken — readImprint(imprint(m)) ≠ m', fix: 'the bijection is the design; repair src/imprint.ts until roundTrips holds for every message ≤ 115 bits' })
+  const probe = 'reverse me'
+  if (readImprintTextChain(imprintTextChain(probe)) !== probe) gaps.push({ what: 'text chain round-trip broken', fix: 'imprintTextChain/readImprintTextChain must invert exactly — repair the chunking in src/imprint.ts' })
+  if (!(0 < ITER && ITER <= MAX_ITER)) gaps.push({ what: `KDF work factor ${ITER} outside (0, ${MAX_ITER}]`, fix: 'theorem kdf_cost_bounded seals 0 < 600000 ≤ 10000000 — restore ITER/MAX_ITER in src/crypt.ts' })
+  gaps.push(...absenceGaps())
+  return gaps
+}
+
 // ── the ABSENCE-CLAIM LAW — an absence claim must carry the presence pointer. The system DOES encrypt (the
 // ChaCha20-Poly1305 sealed layer, KAT-verified, its salt-key-nonce derivation rotating with every advancing step —
 // salt_seq_injective); so any prose saying "not encryption / not a cipher / no secrecy" about a keyless component
@@ -516,6 +535,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'prose') { const r = proseGaps(); report('one-receipt prose', r.gaps, `all ${r.pages} pages walk to the ledger and teach only paths that exist.`) }
   else if (cmd === 'migrate') migrate()
   else if (cmd === 'seal') seal()
+  else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
   else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))
   else if (cmd === 'micro') { const r = microGaps(); report('one-receipt micro', r.gaps, `${r.pages} JSON-LD blocks, ${r.claims} structured claims — every identifier a real address, every cited part a sealed theorem.`) }
@@ -523,5 +543,5 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | coherent | absence | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | coherent | absence | re | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }
