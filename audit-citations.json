@@ -1,17 +1,17 @@
 {
-  "key": "1dbf80a1-cb21-8032-bf20-e22f14c31111",
+  "key": "76802b61-772b-81a2-9db4-06e44e66b7c5",
   "publications": 66,
-  "sealedTheorems": 1226,
+  "sealedTheorems": 1229,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1226,
-    "theorems": 1226,
+    "claims": 1229,
+    "theorems": 1229,
     "bijection": true,
     "digitalRoots": {
-      "claims": 2,
-      "theorems": 2,
+      "claims": 5,
+      "theorems": 5,
       "publications": 3
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -264,8 +264,8 @@
     },
     {
       "slug": "electromagnetism",
-      "claims": 8,
-      "cited": 8,
+      "claims": 11,
+      "cited": 11,
       "uncited": [],
       "fabricated": []
     },
