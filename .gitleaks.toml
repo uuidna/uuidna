@@ -21,6 +21,11 @@ paths = [
   '''support-audit\.json''',
   '''research-leads\.json''',
   '''^docs/''',
+  # historical build output in old commits (the pre-defaults layout): bundler temp and the dead site dir —
+  # generated artifacts frozen in history, unreachable by any secret
+  '''^\.vitepress/''',
+  '''^site/''',
+  '''^src/diamonds/docs/''',
   '''^lean/''',
   '''^src/lean/''',
   '''^src/diamonds/''',
