@@ -22,7 +22,14 @@ const surfaces: string[] = []
 const readme = join(ROOT, 'README.md')
 if (existsSync(readme)) surfaces.push(readme)
 const DOCS = join(ROOT, 'docs')
-for (const f of readdirSync(DOCS).sort()) if (f.endsWith('.md')) surfaces.push(join(DOCS, f))
+// one level deep: the top-level pages AND the computed sub-wings (docs/articles/ — the desk tries its own
+// writing), skipping the VitePress internals (.vitepress) and served templates
+for (const f of readdirSync(DOCS, { withFileTypes: true })) {
+  if (f.isFile() && f.name.endsWith('.md')) surfaces.push(join(DOCS, f.name))
+  else if (f.isDirectory() && !f.name.startsWith('.') && f.name !== 'theorem' && f.name !== 'publications')
+    for (const g of readdirSync(join(DOCS, f.name)).sort()) if (g.endsWith('.md')) surfaces.push(join(DOCS, f.name, g))
+}
+surfaces.sort()
 
 const usable: UsableCombination[] = []
 let tried = 0, unverified = 0, drained = 0

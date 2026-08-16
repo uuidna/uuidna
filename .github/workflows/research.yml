@@ -1,0 +1,50 @@
+# THE RESEARCH DESK, RESIDENT — the quantum search at full scale, sessionless. Once a day the desk asks every
+# research source (NIST, Zenodo, CrossRef — in parallel per wing) about EVERY wing of the ledger, holds each
+# finding at trial beside the wing's sealed theorems, and each trial RETURNS A PUBLICATION: a computed page of
+# content-addressed findings, verdicts, sealed backing, and novelty leads. The editorial desk then edits the
+# returns (write → verify: provenance, citations, prose receipt, legal receipt, the trials — a DRAINED verdict
+# refuses the drain), the guard folds, and the publications push with the repo's own token. The corroboration
+# law holds throughout: external evidence corroborates, only a Lean seal approves. The computing handle is this
+# cron; the paying handle — which leads to pursue — stays human by the two-handle law.
+name: research
+on:
+  schedule:
+    - cron: '7 7 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: research-desk
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  desk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+      - name: SEARCH — quantum scale, every wing, every source, each finding at trial
+        run: npm run search:trial:all
+      - name: EDIT — the full editorial desk over everything, including what the search just returned
+        run: npm run editorial
+      - name: GUARD — the fold accepts, or nothing publishes
+        run: npm run guard
+      - name: PUBLISH — the trials' returns push as publications (the site deploys on push)
+        run: |
+          git config user.name "uuidna-research"
+          git config user.email "research@uuidna.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add docs/articles prose-trials.json quantum-fold.json
+            git commit -m "Research desk: the quantum search swept every wing, each finding held at trial, and each trial returned its publication — findings content-addressed, verdicts computed, novelty leads remanded, sessionless. External evidence corroborates; only a Lean seal approves. Backed by theorem two_coins and theorem legal_only_the_proven_is_admitted"
+            git pull --rebase --autostash || true
+            git push
+            echo "the trials' returns are published"
+          else
+            echo "quiet — the search returned nothing new; the desk holds"
+          fi

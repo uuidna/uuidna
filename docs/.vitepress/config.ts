@@ -40,6 +40,7 @@ export default defineConfig({
             { text: 'What quantum means', link: '/quantum' },
             { text: 'Quantum Cryptography (course)', link: '/quantum-cryptography' },
             { text: 'News (computed)', link: '/news' },
+            { text: 'Articles (computed)', link: '/articles/' },
             { text: 'Games', link: '/games' },
           ],
         },

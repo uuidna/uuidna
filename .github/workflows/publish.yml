@@ -23,8 +23,26 @@ on:
   workflow_dispatch:
 
 jobs:
+  # THE EDITORIAL DESK — every editorial skill and procedure runs BEFORE any publication, automatically: the
+  # provenance audit (no fabricated citation on any prose surface), the citation ledger, the prose receipt, the
+  # legal receipt, and the prose trials (every paragraph through reveal(); a single DRAINED verdict refuses the
+  # release). One npm script (`npm run editorial`) so the same desk sits locally and here — nothing publishes
+  # unedited. Integrity, not truth: the desk verifies citations and scope, it does not decide what is true.
+  editorial:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+      - name: The editorial desk — all editorial skills and procedures, or no publication
+        run: npm run editorial
+
   publish:
     runs-on: ubuntu-latest
+    needs: editorial
     permissions:
       contents: read
       id-token: write # dual use: OIDC trusted-publishing auth (token-free) + the Sigstore provenance attestation
@@ -87,4 +105,74 @@ jobs:
         run: |
           gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 || gh release create "$GITHUB_REF_NAME" --generate-notes
           gh release upload "$GITHUB_REF_NAME" uuidna.mcpb --clobber
+
+  # The archive of record: every audit-passing release is deposited to Zenodo by API (ZENODO_ACCESS_TOKEN secret) —
+  # a NEW VERSION of the standing record when the token owns it, a fresh deposition otherwise. Metadata is the
+  # committed .zenodo.json (the single source — the description carries the era's verified discoveries and their
+  # honest scope); the file is the tag's own source tarball. Gated on `publish`: only what the seven-dimension
+  # audit certifies reaches the permanent DOI. Integrity, not truth — the DOI dates the WHAT, Zenodo dates the WHEN.
+  zenodo:
+    runs-on: ubuntu-latest
+    needs: publish
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deposit the release to Zenodo (new version of the standing record, else fresh)
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_ACCESS_TOKEN }}
+          CONCEPT_RECORD: "21787144"
+        run: |
+          set -euo pipefail
+          test -n "$ZENODO_TOKEN" || { echo "::error::ZENODO_ACCESS_TOKEN secret is empty"; exit 1; }
+          # THE LICENSE LAW: the archive carries the SAME license as uuidna itself — package.json and .zenodo.json
+          # must agree (case-insensitively) or the deposit refuses. One licence, every surface.
+          PKG_LIC=$(node -p "require('./package.json').license" | tr '[:upper:]' '[:lower:]')
+          ZEN_LIC=$(jq -r '.license' .zenodo.json | tr '[:upper:]' '[:lower:]')
+          test "$PKG_LIC" = "$ZEN_LIC" || { echo "::error::license drift — package.json '$PKG_LIC' != .zenodo.json '$ZEN_LIC'"; exit 1; }
+          echo "license identity holds: $PKG_LIC"
+
+          # ZENODO STANDARDS CONFORMANCE — the deposit meets Zenodo's metadata requirements BEFORE the API is
+          # called, each requirement asserted by name (their controlled vocabularies, their required fields), so
+          # a violation fails here with its reason, never as an opaque 400 from the server. Terms of use hold by
+          # construction: own work, openly licensed, no personal data beyond the author's own attribution.
+          jq -e '.title | type == "string" and length > 0' .zenodo.json > /dev/null || { echo "::error::zenodo: title required"; exit 1; }
+          jq -e '.description | type == "string" and length >= 3' .zenodo.json > /dev/null || { echo "::error::zenodo: description required (min 3 chars)"; exit 1; }
+          jq -e '.creators | type == "array" and length > 0 and all(.[]; .name | type == "string" and length > 0)' .zenodo.json > /dev/null || { echo "::error::zenodo: creators[].name required"; exit 1; }
+          jq -e '.upload_type as $t | ["publication","poster","presentation","dataset","image","video","software","lesson","physicalobject","other"] | index($t)' .zenodo.json > /dev/null || { echo "::error::zenodo: upload_type not in the controlled vocabulary"; exit 1; }
+          jq -e '.access_right as $a | ["open","embargoed","restricted","closed"] | index($a)' .zenodo.json > /dev/null || { echo "::error::zenodo: access_right not in the controlled vocabulary"; exit 1; }
+          jq -e 'if .access_right == "open" then (.license | type == "string" and length > 0) else true end' .zenodo.json > /dev/null || { echo "::error::zenodo: open access requires a license id"; exit 1; }
+          jq -e '(.related_identifiers // []) | all(.[]; (.relation as $r | ["isCitedBy","cites","isSupplementTo","isSupplementedBy","isContinuedBy","continues","isDescribedBy","describes","hasMetadata","isMetadataFor","isNewVersionOf","isPreviousVersionOf","isPartOf","hasPart","isReferencedBy","references","isDocumentedBy","documents","isCompiledBy","compiles","isVariantFormOf","isOriginalFormof","isIdenticalTo","isAlternateIdentifier","isReviewedBy","reviews","isDerivedFrom","isSourceOf","requires","isRequiredBy","isObsoletedBy","obsoletes"] | index($r)) and (.identifier | type == "string" and length > 0))' .zenodo.json > /dev/null || { echo "::error::zenodo: related_identifiers must use Zenodo relation vocabulary with non-empty identifiers"; exit 1; }
+          echo "zenodo metadata conformance holds: every required field present, every vocabulary respected"
+          AUTH="Authorization: Bearer $ZENODO_TOKEN"
+          TARBALL="uuidna-$GITHUB_REF_NAME.tar.gz"
+          git archive --format=tar.gz -o "$TARBALL" "$GITHUB_REF_NAME"
+          shasum -a 256 "$TARBALL"
+
+          # Try a NEW VERSION of the standing record; fall back to a FRESH deposition if the token does not own it.
+          DRAFT=$(curl -sf -X POST -H "$AUTH" "https://zenodo.org/api/deposit/depositions/$CONCEPT_RECORD/actions/newversion" | jq -r '.links.latest_draft // empty' || true)
+          if [ -n "$DRAFT" ]; then
+            DEP=$(curl -sf -H "$AUTH" "$DRAFT")
+            echo "versioning the standing record → draft $(echo "$DEP" | jq -r '.id')"
+            # a new version inherits the old files — clear them so the archive is exactly this tag
+            for FID in $(echo "$DEP" | jq -r '.files[]?.id'); do
+              curl -sf -X DELETE -H "$AUTH" "$(echo "$DEP" | jq -r '.links.self')/files/$FID" || true
+            done
+          else
+            echo "token does not own record $CONCEPT_RECORD — creating a fresh deposition"
+            DEP=$(curl -sf -X POST -H "$AUTH" -H "Content-Type: application/json" -d '{}' "https://zenodo.org/api/deposit/depositions")
+            DRAFT=$(echo "$DEP" | jq -r '.links.self')
+            DEP=$(curl -sf -H "$AUTH" "$DRAFT")
+          fi
+          SELF=$(echo "$DEP" | jq -r '.links.self')
+          BUCKET=$(echo "$DEP" | jq -r '.links.bucket')
+
+          # metadata: the committed .zenodo.json, wrapped, stamped with this tag as the version
+          jq --arg v "${GITHUB_REF_NAME#v}" '{metadata: (. + {version: $v})}' .zenodo.json > meta.json
+          curl -sf -X PUT -H "$AUTH" -H "Content-Type: application/json" -d @meta.json "$SELF" > /dev/null
+
+          curl -sf -H "$AUTH" --upload-file "$TARBALL" "$BUCKET/$TARBALL" > /dev/null
+          PUB=$(curl -sf -X POST -H "$AUTH" "$SELF/actions/publish")
+          DOI=$(echo "$PUB" | jq -r '.doi // .metadata.prereserve_doi.doi // "unknown"')
+          echo "::notice::Zenodo published — DOI $DOI"
+          echo "ZENODO_DOI=$DOI" >> "$GITHUB_ENV"
 
