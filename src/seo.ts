@@ -27,7 +27,8 @@ export interface Seo {
   title: string
   description: string        // per-page, drawn from the verbose Lean source where there is one
   keywords: string[]         // the sealed skill/principle (theorem) or the section (page) — never a hand-kept list
-  jsonLd: Record<string, unknown>  // schema.org — ScholarlyArticle (publication), Article (theorem), WebPage (page)
+  jsonLd: Record<string, unknown>  // schema.org — ScholarlyArticle (publication), Article (theorem), WebPage (page;
+                                   // /school carries a School mainEntity, /trials a MathSolver with the live endpoint)
   head: HeadTuple[]          // the frontmatter `head` array to infuse — canonical, og, uuidna:address, keywords, JSON-LD
   receipt: string            // fold of (canonical, address, description) — recomputable
   honest: string
@@ -41,10 +42,31 @@ const HONEST =
 
 const clean = (r: string): string => r.replace(/^\/+/, '').replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '').replace(/\/$/, '')
 
+// MAIN ENTITIES — static pages whose SUBJECT is a richer schema.org entity than the page itself. The page stays a
+// WebPage (license/copyrightHolder sit on CreativeWork); mainEntity names what the page is ABOUT, and its
+// url/identifier/description are computed at call time from the same page surface — only the type-specific facts live
+// here. Two entities, both honest to what already runs:
+//   • /school — https://schema.org/School: the ledger is the faculty, the Lean kernel grades, there is no tuition.
+//   • /trials — https://schema.org/MathSolver: solves the subset it really solves — decidable claims citing sealed
+//     theorems, VERIFIED or UNVERIFIED — via the LIVE endpoint (POST uuidna.com/trials), the same adjudication the
+//     site runs on itself. The SolveMathAction target is that real EntryPoint, never an invented template.
+const MAIN_ENTITY: Record<string, Record<string, unknown>> = {
+  '/school': { '@type': 'School', name: 'The quantum school' },
+  '/trials': {
+    '@type': 'MathSolver', name: 'The trials',
+    mathExpression: 'a decidable claim over the sealed ledger — e.g. "the two coins are conserved, proven by theorem two_coins"',
+    potentialAction: {
+      '@type': 'SolveMathAction', name: 'Run a trial — the verdict recomputes',
+      target: { '@type': 'EntryPoint', urlTemplate: `${HOST}/trials`, httpMethod: 'POST', contentType: 'application/json' },
+    },
+  },
+}
+
 /** quantumSeo(subject) → the recomputable SEO surface for a theorem (by key), a publication (by slug), or any static
  *  page (by route). Derived from the ledger; the content-address is the quantum-message pointer. Reusable by the front
- *  (its `head` is a VitePress frontmatter head array) and queryable through the MCP. */
-export function quantumSeo(subject: { key?: string; slug?: string; route?: string; title?: string }): Seo {
+ *  (its `head` is a VitePress frontmatter head array) and queryable through the MCP. A static page may pass its own
+ *  frontmatter `description` — one source, the page's — otherwise the terse recomputable default is used. */
+export function quantumSeo(subject: { key?: string; slug?: string; route?: string; title?: string; description?: string }): Seo {
   // ── a THEOREM ──────────────────────────────────────────────────────────────────────────────────────────────
   if (subject.key) {
     const t = theorems().find((x) => x.key === subject.key)
@@ -82,12 +104,14 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
   const address = toUuid('uuidna-page:' + canonical)           // the page's content-address — the quantum message
   const section = (clean(subject.route ?? '').split('/')[0] || 'home')
   const title = subject.title || 'uuidna'
-  const description = `${title} — part of uuidna: content-addressed identity, honest by construction; every claim links a sealed Lean proof. Integrity, not truth.`
+  const description = subject.description || `${title} — part of uuidna: content-addressed identity, honest by construction; every claim links a sealed Lean proof. Integrity, not truth.`
   const keywords = ['uuidna', section, 'content-address', 'lean', 'honest']
+  const entity = MAIN_ENTITY[route]
   const jsonLd = {
     '@context': 'https://schema.org', '@type': 'WebPage', name: title, url: canonical, identifier: address,
     isPartOf: { '@type': 'WebSite', name: 'uuidna', url: HOST },
     publisher: { '@type': 'Organization', name: 'uuidna' },
+    ...(entity ? { mainEntity: { ...entity, url: canonical, identifier: address, description } } : {}),
   }
   return seal('page', route, canonical, address, title, description, keywords, jsonLd, address)
 }

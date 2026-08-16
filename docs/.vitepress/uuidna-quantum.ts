@@ -24,7 +24,9 @@ interface PageDataLike {
 export function infuseQuantumPayload(pageData: PageDataLike, routeOf: (rel: string) => string): string | null {
   if (pageData.params?.address) return null                 // a theorem/publication page — already enriched, leave it
   const route = routeOf(pageData.relativePath)
-  const seo = quantumSeo({ route, title: pageData.title })
+  // pass the page's own frontmatter description through — the JSON-LD entity (School on /school, MathSolver on
+  // /trials) then describes itself in the page's one voice, never a second hand-kept copy.
+  const seo = quantumSeo({ route, title: pageData.title, description: pageData.description })
   // per-page description (unique, recomputable) if the page didn't set its own
   if (!pageData.description) pageData.description = seo.description
   pageData.frontmatter.head ??= []
