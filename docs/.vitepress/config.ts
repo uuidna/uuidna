@@ -8,6 +8,11 @@ import { infuseQuantumPayload } from './uuidna-quantum.js'
 const routeOf = (rel: string): string => '/' + rel.replace(/\.md$/, '').replace(/\/index$/, '').replace(/^index$/, '')
 
 export default defineConfig({
+  // /lean/*.lean files are copied INTO the built site AFTER `vitepress build` (copy-lean-to-site.js), so at
+  // check time these links are "dead" by construction — and alive in production. The REAL gate for them is
+  // copy-lean-to-site's own forensic scan, which FAILS the build if any /lean link in the built HTML is broken
+  // (it runs after the copy, so it sees the truth). Exempt ONLY that class; every other dead link still fails.
+  ignoreDeadLinks: [/^\/lean\//],
   title: 'uuidna',
   description: 'Mathematics replaces money. Proof replaces authority. Theorems replace corruption.',
 
