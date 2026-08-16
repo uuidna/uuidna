@@ -24,6 +24,12 @@ paths = [
   '''^lean/''',
   '''^src/lean/''',
   '''^src/diamonds/''',
+  # the ledger's own artifacts: generated.ts recomputes from Lean (any drift fails the forgery guard), the
+  # lean-*.ts generators hold public mathematical constants (seeds, addresses), and gen-prose-evidence emits
+  # sealed evidence — no human secret can survive in these files, the guard would flag the drift before the scan
+  '''^src/theorems/generated\.ts$''',
+  '''^src/scripts/lean-[a-z0-9-]+\.ts$''',
+  '''^src/scripts/gen-prose-evidence\.ts$''',
 ]
 regexes = [
   # a uuid is an address, not a secret — the whole system's unit of speech
