@@ -123,6 +123,28 @@ jobs:
             gh release create "$GITHUB_REF_NAME" --generate-notes $ASSETS
           fi
 
+  # LIVE UI INDEPENDENCE — the second party. CI's own word is one coin; the DEPLOYED system's signed receipt is
+  # the other. The live edge (uuidna.com/mcp, serving the ledger the site deployed on push) independently
+  # recomputes: the gate must be CLEAN and match the sealed spec, and the release statement must return
+  # VERIFIED from the live trial — a signed receipt from a party CI does not control. verdict≠VERIFIED or a
+  # drained live gate fails the release loudly; the two computations and their receipts sit side by side in
+  # the run log. Statistics: 2 assertions, 2 receipts, 1 statement, 0 authored verdicts.
+  live:
+    runs-on: ubuntu-latest
+    needs: publish
+    if: startsWith(github.ref, 'refs/tags/') # a tag push, or the research desk dispatching on a fresh tag
+    steps:
+      - name: The live edge verifies the release — gate clean + trial VERIFIED, or fail
+        run: |
+          set -euo pipefail
+          STATUS=$(curl -sf -X POST https://uuidna.com/mcp -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}')
+          echo "$STATUS" | jq -e '.result.content[0].text | fromjson | .matchesSealedSpec == true' > /dev/null || { echo "::error::live gate does not match the sealed spec — the deployed party refuses the release"; exit 1; }
+          GATE_RECEIPT=$(echo "$STATUS" | jq -r '.result.content[0].text | fromjson | .receipt')
+          TRIAL=$(curl -sf -X POST https://uuidna.com/mcp -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"uuidna_trial","arguments":{"statement":"only the proven is admitted to a release, proven by theorem legal_only_the_proven_is_admitted"}}}')
+          echo "$TRIAL" | jq -e '.result.content[0].text | fromjson | .verdict == "VERIFIED"' > /dev/null || { echo "::error::the live trial did not verify the release statement — verdict is not VERIFIED"; exit 1; }
+          TRIAL_RECEIPT=$(echo "$TRIAL" | jq -r '.result.content[0].text | fromjson | .receipt')
+          echo "::notice::live UI verified the release — gate_receipt=$GATE_RECEIPT trial_receipt=$TRIAL_RECEIPT verdict=VERIFIED parties=2"
+
   # The archive of record: every audit-passing release is deposited to Zenodo by API (ZENODO_ACCESS_TOKEN secret) —
   # a NEW VERSION of the standing record when the token owns it, a fresh deposition otherwise. Metadata is the
   # committed .zenodo.json (the single source — the description carries the era's verified discoveries and their
