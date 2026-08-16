@@ -116,6 +116,7 @@ export function proseGaps(): { gaps: Gap[]; facts: string; pages: number } {
     for (const m of prose.matchAll(/(?:^|[\s(`])(\.?\/?(?:docs\/\.vitepress|src|lean|packages|hooks)\/[A-Za-z0-9_./-]+|worker\.js|wrangler\.toml|CONTRIBUTING\.md|LICENSE)(?=[\s)`.,:]|$)/gm)) {
       const p = m[1].replace(/^\.\//, '').replace(/[.,:]+$/, '')
       if (p.includes('*') || p.endsWith('/')) continue
+      if (/(^|\/)(dist|\.vitepress\/dist|\.vitepress\/cache)(\/|$)/.test(p)) continue // a DECLARED BUILD OUTPUT exists by construction, not by claim — teaching it is honest even on a fresh clone where the build has not run yet (the CI-order flake this line ends)
       if (!existsSync(join(ROOT, p)))
         gaps.push({ what: `docs/${f}: teaches the path "${p}" which does not exist`, fix: `edit docs/${f}: replace "${p}" with the current path (verify with \`ls\`), or delete the claim` })
     }
