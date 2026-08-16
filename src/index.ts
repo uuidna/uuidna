@@ -30,6 +30,11 @@ export { designSystem } from './design-system.js'
 // EU's own ledger). One implementation for the scripts, the MCP tools, and the CI automation.
 export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, type Article, type EditorialState, type PublicationStatus, type SearchTrial, type ViesResult, type LedgerSearch } from './editorial.js'
 
+// optimise — THE EXACT LINEAR OPTIMISER: small integer LPs by TOTAL enumeration (every candidate checked,
+// nothing sampled), the optimum exact with a recomputable receipt; the search space is the qubit basis made
+// literal and the exponential walk is the honest cost. Backed by the Optimisation.lean wing. Not a solver at scale.
+export { optimiseLinear, type LinearProgram, type LinearOptimum } from './optimise.js'
+
 // cloudflare — audit the Cloudflare Workers bindings for a quantum-secure posture (no secret committed; symmetric-only
 // crypto — HMAC-SHA256 / ChaCha20-Poly1305, no Shor target, Grover only halves to a 128-bit floor), folded to one
 // content-address. Audits the COMMITTED config, not the live edge. Integrity, not truth.

@@ -23,7 +23,7 @@ import {
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
-  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger,
+  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, optimiseLinear,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { spawnSync } from 'node:child_process' // uuidna_wave orchestration — local stdio only, never the Workers subset (worker imports mcp-http.js)
@@ -702,6 +702,10 @@ const TOOLS: Tool[] = [
     description: 'Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
     run: () => runTrial() },
+  { name: 'uuidna_optimise',
+    description: 'THE EXACT LINEAR OPTIMISER — maximise c·x subject to A·x ≤ b over integer lattice points 0..bound per variable, by TOTAL enumeration: every candidate checked, nothing sampled, the optimum exact with a recomputable receipt. The search space is the qubit basis made literal (theorem optimisation_space_is_qubit_dimension) and the exponential walk is the honest cost — capped, never hidden; Grover would only halve the exponent (theorem grover_halves_the_search_exponent). Strong duality holds exact on the sealed instance (theorem lp_strong_duality_instance). Returns {optimum,argmax,candidates,feasible,receipt,honest}. NOT a solver at scale, NOT an NP claim.',
+    inputSchema: { type: 'object', properties: { c: { type: 'array', items: { type: 'number' }, description: 'objective coefficients (1–4 variables)' }, A: { type: 'array', items: { type: 'array', items: { type: 'number' } }, description: 'constraint rows: A[i]·x ≤ b[i]' }, b: { type: 'array', items: { type: 'number' } }, bound: { type: 'integer', description: 'each variable ranges 0..bound (default 16, max 64)' } }, required: ['c', 'A', 'b'] },
+    run: (a: Record<string, unknown>) => optimiseLinear({ c: a.c as number[], A: a.A as number[][], b: a.b as number[], bound: a.bound as number | undefined }) },
   { name: 'uuidna_search',
     description: 'THE FUSED SEARCH — the ONE search function every surface runs (this server, the edge /mcp, and the site\'s search page in your browser): filter the sealed ledger by text, fold the matched keys to ONE receipt. Two independent parties running the same query MUST return the same receipt — dual-party verification applied to search; a differing receipt exposes a diverged ledger. Returns {q,count,total,receipt,matches}.',
     inputSchema: { type: 'object', properties: { q: { type: 'string', description: 'the text to search — key, name, statement, principle, skill' } }, required: ['q'] },
