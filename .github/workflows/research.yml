@@ -112,6 +112,23 @@ jobs:
       # the gate is cheap to run twice and a burned slot is forever).
       - name: CERTIFY before the tick — the complete audit, or no tag
         run: npm run audit
+      # THE SILENCE LAW (the captain's, 2026-08-17): no release until ALL is lean green — nothing of uuidna's
+      # own ships unproven. Lean green silences all: a theorem that computes needs no defense, and what is not
+      # yet proven does not enter the release's voice at all. CERTIFY above already re-proved every theorem
+      # through the kernel (an actual `sorry` cannot reach this line); here the law is asserted BY NAME on the
+      # freshly re-derived axiom audit, so a release that would rest on anything but the kernel refuses itself.
+      # Honest scope stays what it is: a NOT-PROVEN marker demarcating ANOTHER party's open question is the
+      # honesty the gate enforces, never a red state of ours — the law binds uuidna's own ledger to green.
+      - name: LEAN GREEN silences all — every theorem kernel-verified, axiom-free, or no release
+        run: |
+          set -euo pipefail
+          AUDITED=$(jq -r '.audited' lean/axioms.json)
+          FREE=$(jq -r '.axiomFree' lean/axioms.json)
+          OFFENDERS=$(jq -r '.offenders | length' lean/axioms.json)
+          test "$AUDITED" -gt 0 || { echo "::error::lean green broken: empty axiom audit — nothing to certify"; exit 1; }
+          test "$AUDITED" = "$FREE" || { echo "::error::lean green broken: only $FREE of $AUDITED theorems are axiom-free — no release while anything rests on an axiom"; exit 1; }
+          test "$OFFENDERS" = "0" || { echo "::error::lean green broken: $OFFENDERS offender(s) in the axiom audit — no release"; exit 1; }
+          echo "lean green holds: $AUDITED/$AUDITED kernel-verified, axiom-free, sorry-free — the silence law is satisfied, the tick may proceed"
       - name: TICK — one step of the odometer, the commit, the tag
         id: tick
         run: |

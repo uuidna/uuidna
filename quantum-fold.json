@@ -17,45 +17,45 @@
       "dimensions": "e202a51b77775621"
     },
     "record": {
-      "legal": "68eecd681090af45",
+      "legal": "e934fa226bd178c4",
       "prose": "250eb2a5100dafb8",
-      "deposits": "3a0d56cd73aa5446"
+      "deposits": "22d0031523359f9f"
     },
     "walks": {
       "star_walk": "00dcb9ca1eb1d2be",
-      "rosette_receipts": "5de60857b7a52640c0b7e4bbde9d610f",
-      "rosette_audit": "48b4dc07c170ddea"
+      "rosette_receipts": "4d988bc7c4e58bc0740e49ccc3cf30f4",
+      "rosette_audit": "7e43f74ffd672ff5"
     }
   },
   "trinity_folds": {
     "sealed": "1d452c0421b302e45b9faa78d11fa196",
     "served": "516df9d7af1a2b74fca8cdf0d82917c1",
     "proven": "27d8931519580f4962c2dbf3d88566be",
-    "record": "34cf6d033be424b7074e0553bed55c4b",
-    "walks": "2839029b350208566b555045b4a9317c"
+    "record": "7063fc770d8197959b73124e045b9796",
+    "walks": "7076c96a82ca57006ec593b4233c6dc7"
   },
-  "unified_fold": "4b41a508fd131a8a",
-  "receipt": "39e93c3fcfa35046",
+  "unified_fold": "508f9ed34c5bb14f",
+  "receipt": "39cbdab66ea9ab98",
   "rosette_receipt": {
     "rays": [
-      "3a27bd845495dbd3",
+      "7523393fe2e89fe6",
       "3a8d773151b99d0b",
       "b7f84151b4162b5b",
-      "a1b364494c0a9230",
-      "73c9e6bdd50fe4f3",
+      "a20454282e566346",
+      "08b5bc54f0f2c2a9",
       "a761502744407dcd",
-      "071fe5e86a42b4fb"
+      "2c2c29f1c99ae2c8"
     ],
-    "concurrence": "1e7d0b349953fd4a46223258baf7cdb9"
+    "concurrence": "310c97d3d3f7079174a71f4285e19a7a"
   },
   "aura": {
-    "rgb": "#bb38dc",
-    "hsl": "hsl(288, 70%, 54%)",
+    "rgb": "#2fd032",
+    "hsl": "hsl(121, 63%, 50%)",
     "alphabet": "b6819334641853db",
     "movie": "8c3bcf1d71085add",
     "lessons": "c3ab863ed410bd4a",
     "report": "940001b6ff9bd2fc",
-    "session": "69c92f0de3b085c4",
+    "session": "10cd4e9b55a3f9ae",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 2,
-      "ray": 4,
-      "wave": 4,
-      "hue": 288,
-      "sat": 70,
-      "light": 54,
-      "period": 20,
+      "residue": 3,
+      "ray": 0,
+      "wave": 1,
+      "hue": 121,
+      "sat": 63,
+      "light": 50,
+      "period": 12,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
