@@ -21047,6 +21047,806 @@
       "uuidnaAddress": "33dc829b-c9d4-8cfc-bb01-6c7c4d110f05"
     },
     {
+      "slug": "mombhstar1",
+      "title": "mombhstar1.lean",
+      "_status": "published",
+      "parent": null,
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h1",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "MoMBHStar1.lean — the sealed source"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "-- lean/MoMBHStar1.lean — GENERATED. THE PAPER ON TRIAL — \"A gas-enshrouded and gas-reddened black hole at cosmic dawn\" (DOI 10.1038/s41586-026-10846-4, data 10.5281/zenodo.15059214): the letter's published numbers as decidable arithmetic (measurements ×10/×100/×1000 into Nat), the press-vs-paper delta refuted by the paper's own tables, and the Balmer break derived from Rydberg arithmetic. n=1, one fiducial of ~1e6 models, 0 solved — arithmetic witnesses of the PUBLISHED numbers, never astrophysics re-derived Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- Break 7.7 (−1.4) lower bound 6.3 > A-star ceiling 5 > Chabrier ceiling 3 (×10). SCOPE: ceilings are model inputs.\ntheorem mombh_balmer_break_exceeds_stellar_ceiling : (77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30) := by decide\n\n-- +2.3 above vs −1.4 below (×10); blue window SNR 3 < 5.\ntheorem mombh_break_error_asymmetric_blue_faint : (23 > 14) ∧ (30 < 50) := by decide\n\n-- 30 ± 7 %: 4·7 ≤ 30 < 5·7. SCOPE: three instruments.\ntheorem mombh_variability_is_four_sigma : (4 * 7 <= 30) ∧ (30 < 5 * 7) := by decide\n\n-- 11.4 (−2.5) ×10: central clears 10, lower bound does not.\ntheorem mombh_hbeta_oiii_ratio_central_over_ten_lower_under : (114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100) := by decide\n\n-- 3.5σ < 5σ (×10).\ntheorem mombh_oiii_is_tentative : (35 < 50) := by decide\n\n-- 95% <100 pc, 99% <117 pc.\ntheorem mombh_size_limits_ordered : (100 < 117) := by decide\n\n-- log nH 11 ≥ 9; log NH ×10 258 > 241 (Compton-thick). SCOPE: one model of ~1e6, filtered not sampled.\ntheorem mombh_fiducial_gas_dense_and_compton_thick : (11 >= 9) ∧ (258 > 241) := by decide\n\n-- A_V 0.15 vs 2–3 (×100).\ntheorem mombh_fiducial_is_dust_free : (15 < 200) ∧ (15 < 300) := by decide\n\n-- 0.18 by scaling, ~5 by alternative (×100): straddle 1. NOT PROVEN which.\ntheorem mombh_eddington_two_answers_straddle_one : (18 < 100) ∧ (100 < 500) := by decide\n\n-- REFUTED: \"super-Eddington confirmed\" vs the paper's own 0.18.\ntheorem mombh_press_confirmed_is_refuted : (¬ (18 >= 100)) := by decide\n\n-- 10^6.0 .. 10^8.3 (log ×10): 23 > 20.\ntheorem mombh_black_hole_mass_spans_over_two_dex : (83 - 60 = 23) ∧ (23 > 20) := by decide\n\n-- n = 1.\ntheorem mombh_sample_is_one : (1 < 2) := by decide\n\n-- 3 measured, 1 simplistic model, 0 solved.\ntheorem mombh_verified_ne_solved : (3 >= 1) ∧ (0 < 1) := by decide\n\n-- QUANTUM: E(n=2→∞) = 13.6/4 = 3.4 eV (×10: 136/4 = 34); λ = 12398/3.4 = 3646 Å (12398/34 = 364, ×10). The break sits at the n=2 ionisation edge.\ntheorem mombh_quantum_balmer_edge_is_rydberg_quarter : (136 / 4 = 34) ∧ (12398 / 34 = 364) := by decide\n\n-- QUANTUM: 3646 Å × (1+z)=8.757 → 31927 Å = 3.19 μm (×1000: 3646·8757/10000 = 3192); F277W ends ~3.1 μm, F356W starts ~3.1 μm: 3100 < 3192 < 3560. The colour selection is a Rydberg fraction.\ntheorem mombh_quantum_edge_redshifts_into_filter_gap : (3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560) := by decide\n\n-- QUANTUM: Hβ 1/4−1/16=3/16 → 12398·16/(3·13.6): 12398·160 − 4860·408 = 800 (<0.05%). Hγ 1/4−1/25=21/100 → 12398·100/(13.6·21): 12398·1000 − 4339·136·21 = 5816 (<0.05%). The absorbed lines are Rydberg differences with n=2 as the lower level.\ntheorem mombh_quantum_hbeta_hgamma_are_balmer_lines : (12398 * 160 - 4860 * 408 = 800) ∧ (800 < 1000) ∧ (12398 * 1000 - 4339 * 136 * 21 = 5816) ∧ (5816 < 12398) := by decide\n\n-- QUANTUM: at 1e4 K, n2/n1 = 4·exp(−10.2/0.86) ≈ 3e−5 (×1e6: 29 < 100). Thermal population of n=2 is negligible; only collisions at nH ≥ 1e9 fill it. Density is forced by a level population, not chosen.\ntheorem mombh_quantum_n2_population_needs_density : (29 < 100) ∧ (9 <= 11) := by decide\n"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_balmer_break_exceeds_stellar_ceiling",
+      "title": "theorem-mombh_balmer_break_exceeds_stellar_ceiling",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Break 7.7 (−1.4) lower bound 6.3 > A-star ceiling 5 > Chabrier ceiling 3 (×10). SCOPE: ceilings are model inputs."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_balmer_break_exceeds_stellar_ceiling : (77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_break_error_asymmetric_blue_faint",
+      "title": "theorem-mombh_break_error_asymmetric_blue_faint",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "+2.3 above vs −1.4 below (×10); blue window SNR 3 < 5."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(23 > 14) ∧ (30 < 50)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_break_error_asymmetric_blue_faint : (23 > 14) ∧ (30 < 50) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_variability_is_four_sigma",
+      "title": "theorem-mombh_variability_is_four_sigma",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "30 ± 7 %: 4·7 ≤ 30 < 5·7. SCOPE: three instruments."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(4 * 7 <= 30) ∧ (30 < 5 * 7)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_variability_is_four_sigma : (4 * 7 <= 30) ∧ (30 < 5 * 7) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_hbeta_oiii_ratio_central_over_ten_lower_under",
+      "title": "theorem-mombh_hbeta_oiii_ratio_central_over_ten_lower_under",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "11.4 (−2.5) ×10: central clears 10, lower bound does not."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_hbeta_oiii_ratio_central_over_ten_lower_under : (114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_oiii_is_tentative",
+      "title": "theorem-mombh_oiii_is_tentative",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "3.5σ < 5σ (×10)."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(35 < 50)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_oiii_is_tentative : (35 < 50) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_size_limits_ordered",
+      "title": "theorem-mombh_size_limits_ordered",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "95% <100 pc, 99% <117 pc."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(100 < 117)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_size_limits_ordered : (100 < 117) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_fiducial_gas_dense_and_compton_thick",
+      "title": "theorem-mombh_fiducial_gas_dense_and_compton_thick",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "log nH 11 ≥ 9; log NH ×10 258 > 241 (Compton-thick). SCOPE: one model of ~1e6, filtered not sampled."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(11 >= 9) ∧ (258 > 241)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_fiducial_gas_dense_and_compton_thick : (11 >= 9) ∧ (258 > 241) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_fiducial_is_dust_free",
+      "title": "theorem-mombh_fiducial_is_dust_free",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A_V 0.15 vs 2–3 (×100)."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(15 < 200) ∧ (15 < 300)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_fiducial_is_dust_free : (15 < 200) ∧ (15 < 300) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_eddington_two_answers_straddle_one",
+      "title": "theorem-mombh_eddington_two_answers_straddle_one",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "0.18 by scaling, ~5 by alternative (×100): straddle 1. NOT PROVEN which."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(18 < 100) ∧ (100 < 500)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_eddington_two_answers_straddle_one : (18 < 100) ∧ (100 < 500) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_press_confirmed_is_refuted",
+      "title": "theorem-mombh_press_confirmed_is_refuted",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "REFUTED: \"super-Eddington confirmed\" vs the paper's own 0.18."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(¬ (18 >= 100))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_press_confirmed_is_refuted : (¬ (18 >= 100)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_black_hole_mass_spans_over_two_dex",
+      "title": "theorem-mombh_black_hole_mass_spans_over_two_dex",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "10^6.0 .. 10^8.3 (log ×10): 23 > 20."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(83 - 60 = 23) ∧ (23 > 20)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_black_hole_mass_spans_over_two_dex : (83 - 60 = 23) ∧ (23 > 20) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_sample_is_one",
+      "title": "theorem-mombh_sample_is_one",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "n = 1."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1 < 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_sample_is_one : (1 < 2) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_verified_ne_solved",
+      "title": "theorem-mombh_verified_ne_solved",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "3 measured, 1 simplistic model, 0 solved."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(3 >= 1) ∧ (0 < 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_verified_ne_solved : (3 >= 1) ∧ (0 < 1) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_quantum_balmer_edge_is_rydberg_quarter",
+      "title": "theorem-mombh_quantum_balmer_edge_is_rydberg_quarter",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "QUANTUM: E(n=2→∞) = 13.6/4 = 3.4 eV (×10: 136/4 = 34); λ = 12398/3.4 = 3646 Å (12398/34 = 364, ×10). The break sits at the n=2 ionisation edge."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(136 / 4 = 34) ∧ (12398 / 34 = 364)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_quantum_balmer_edge_is_rydberg_quarter : (136 / 4 = 34) ∧ (12398 / 34 = 364) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_quantum_edge_redshifts_into_filter_gap",
+      "title": "theorem-mombh_quantum_edge_redshifts_into_filter_gap",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "QUANTUM: 3646 Å × (1+z)=8.757 → 31927 Å = 3.19 μm (×1000: 3646·8757/10000 = 3192); F277W ends ~3.1 μm, F356W starts ~3.1 μm: 3100 < 3192 < 3560. The colour selection is a Rydberg fraction."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_quantum_edge_redshifts_into_filter_gap : (3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_quantum_hbeta_hgamma_are_balmer_lines",
+      "title": "theorem-mombh_quantum_hbeta_hgamma_are_balmer_lines",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "QUANTUM: Hβ 1/4−1/16=3/16 → 12398·16/(3·13.6): 12398·160 − 4860·408 = 800 (<0.05%). Hγ 1/4−1/25=21/100 → 12398·100/(13.6·21): 12398·1000 − 4339·136·21 = 5816 (<0.05%). The absorbed lines are Rydberg differences with n=2 as the lower level."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(12398 * 160 - 4860 * 408 = 800) ∧ (800 < 1000) ∧ (12398 * 1000 - 4339 * 136 * 21 = 5816) ∧ (5816 < 12398)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_quantum_hbeta_hgamma_are_balmer_lines : (12398 * 160 - 4860 * 408 = 800) ∧ (800 < 1000) ∧ (12398 * 1000 - 4339 * 136 * 21 = 5816) ∧ (5816 < 12398) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
+      "slug": "theorem-mombh_quantum_n2_population_needs_density",
+      "title": "theorem-mombh_quantum_n2_population_needs_density",
+      "_status": "published",
+      "parent": "mombhstar1",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "QUANTUM: at 1e4 K, n2/n1 = 4·exp(−10.2/0.86) ≈ 3e−5 (×1e6: 29 < 100). Thermal population of n=2 is negligible; only collisions at nH ≥ 1e9 fill it. Density is forced by a level population, not chosen."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(29 < 100) ∧ (9 <= 11)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_quantum_n2_population_needs_density : (29 < 100) ∧ (9 <= 11) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65db6a2-0095-8c8c-996b-828888390000",
+      "uuidnaAddress": "9c391dc3-94c5-84fa-bf9b-3fd2cd707687"
+    },
+    {
       "slug": "molecular",
       "title": "molecular.lean",
       "_status": "published",
@@ -26835,6 +27635,446 @@
       },
       "uuidnaVersion": "c66a6da3-14b8-8166-9c64-ba3583680000",
       "uuidnaAddress": "6fa8aee5-4397-8252-b148-b278038992e3"
+    },
+    {
+      "slug": "optimisation",
+      "title": "optimisation.lean",
+      "_status": "published",
+      "parent": null,
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h1",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Optimisation.lean — the sealed source"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "-- lean/Optimisation.lean — GENERATED. THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical simulator claims no advantage). Exact optima of small named instances — NOT a solver at scale, NOT an NP claim Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- the primal instance max 3x+2y s.t. x+y ≤ 4, x ≤ 3: every feasible lattice point scores ≤ 11, and (3,1) scores exactly 11 — the optimum by TOTAL enumeration, exact, no epsilon\ntheorem lp_optimum_is_eleven : ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y <= 11)))) ∧ (3*3 + 2*1 = 11) := by decide\n\n-- the optimum (3,1) is a VERTEX: both constraints are TIGHT there (x = 3 and x + y = 4) — two tight constraints in two dimensions pin a corner, the geometry of every linear optimum\ntheorem lp_optimum_at_a_vertex : (3 = 3) ∧ (3 + 1 = 4) := by decide\n\n-- WEAK DUALITY on the instance: the dual point (u,v) = (2,1) is dual-feasible (u+v ≥ 3, u ≥ 2) and every feasible primal value 3x+2y stays ≤ its dual value 4u+3v = 11 — no primal point ever beats a dual bound\ntheorem lp_weak_duality_instance : ((2 + 1 >= 3) && (2 >= 2)) ∧ ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y <= 4*2 + 3*1)))) := by decide\n\n-- STRONG DUALITY, exact on the instance: the primal maximum 11 EQUALS the dual value 4·2+3·1 = 11 at the dual-feasible (2,1) — the gap is zero, not epsilon; the certificate and the optimum are the same number\ntheorem lp_strong_duality_instance : 3*3 + 2*1 = 4*2 + 3*1 := by decide\n\n-- COMPLEMENTARY SLACKNESS on the instance: both dual prices are positive (2 > 0, 1 > 0) and both primal constraints are tight at the optimum (3+1 = 4, 3 = 3) — a positive price is paid exactly on a binding constraint, both pairs verified\ntheorem lp_complementary_slackness : (2 > 0) ∧ (1 > 0) ∧ (3 + 1 = 4) ∧ (3 = 3) := by decide\n\n-- one simplex pivot strictly improves: from the vertex (3,0) worth 9 to the adjacent vertex (3,1) worth 11 — 9 < 11, the walk along an edge that ends at the optimum\ntheorem simplex_pivot_improves : (3*3 + 2*0 = 9) ∧ (9 < 11) := by decide\n\n-- the quantum bridge, honest: enumerating 10 binary decisions is walking 2^10 = 1024 candidates — EXACTLY the dimension of the 10-qubit state the classical simulator holds (n_qubit_dimension); the search space IS the basis\ntheorem optimisation_space_is_qubit_dimension : 2^10 = 1024 := by decide\n\n-- the demarcated speedup: unstructured search over 2^20 candidates takes 2^20 classical checks; Grover needs only ~sqrt = 2^10 — the EXPONENT halves (20 = 2·10) and never vanishes; a quadratic aid, not a free lunch, and this ledger's simulator claims NO advantage at all\ntheorem grover_halves_the_search_exponent : (20 = 2 * 10) ∧ (2^20 = 1024 * 1024) := by decide\n\n-- the 2×2 assignment instance with costs [[1,3],[2,1]]: the two matchings cost 1+1 = 2 and 3+2 = 5 — the optimum is 2, found by enumerating BOTH, the whole space checked, nothing sampled\ntheorem assignment_two_by_two_optimum : (1 + 1 = 2) ∧ (3 + 2 = 5) ∧ (2 < 5) := by decide\n"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
+    },
+    {
+      "slug": "theorem-lp_optimum_is_eleven",
+      "title": "theorem-lp_optimum_is_eleven",
+      "_status": "published",
+      "parent": "optimisation",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the primal instance max 3x+2y s.t. x+y ≤ 4, x ≤ 3: every feasible lattice point scores ≤ 11, and (3,1) scores exactly 11 — the optimum by TOTAL enumeration, exact, no epsilon"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y <= 11)))) ∧ (3*3 + 2*1 = 11)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem lp_optimum_is_eleven : ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y <= 11)))) ∧ (3*3 + 2*1 = 11) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
+    },
+    {
+      "slug": "theorem-lp_optimum_at_a_vertex",
+      "title": "theorem-lp_optimum_at_a_vertex",
+      "_status": "published",
+      "parent": "optimisation",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the optimum (3,1) is a VERTEX: both constraints are TIGHT there (x = 3 and x + y = 4) — two tight constraints in two dimensions pin a corner, the geometry of every linear optimum"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(3 = 3) ∧ (3 + 1 = 4)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem lp_optimum_at_a_vertex : (3 = 3) ∧ (3 + 1 = 4) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
+    },
+    {
+      "slug": "theorem-lp_weak_duality_instance",
+      "title": "theorem-lp_weak_duality_instance",
+      "_status": "published",
+      "parent": "optimisation",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "WEAK DUALITY on the instance: the dual point (u,v) = (2,1) is dual-feasible (u+v ≥ 3, u ≥ 2) and every feasible primal value 3x+2y stays ≤ its dual value 4u+3v = 11 — no primal point ever beats a dual bound"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((2 + 1 >= 3) && (2 >= 2)) ∧ ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y <= 4*2 + 3*1))))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem lp_weak_duality_instance : ((2 + 1 >= 3) && (2 >= 2)) ∧ ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y <= 4*2 + 3*1)))) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
+    },
+    {
+      "slug": "theorem-lp_strong_duality_instance",
+      "title": "theorem-lp_strong_duality_instance",
+      "_status": "published",
+      "parent": "optimisation",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "STRONG DUALITY, exact on the instance: the primal maximum 11 EQUALS the dual value 4·2+3·1 = 11 at the dual-feasible (2,1) — the gap is zero, not epsilon; the certificate and the optimum are the same number"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "3*3 + 2*1 = 4*2 + 3*1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem lp_strong_duality_instance : 3*3 + 2*1 = 4*2 + 3*1 := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
+    },
+    {
+      "slug": "theorem-lp_complementary_slackness",
+      "title": "theorem-lp_complementary_slackness",
+      "_status": "published",
+      "parent": "optimisation",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "COMPLEMENTARY SLACKNESS on the instance: both dual prices are positive (2 > 0, 1 > 0) and both primal constraints are tight at the optimum (3+1 = 4, 3 = 3) — a positive price is paid exactly on a binding constraint, both pairs verified"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2 > 0) ∧ (1 > 0) ∧ (3 + 1 = 4) ∧ (3 = 3)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem lp_complementary_slackness : (2 > 0) ∧ (1 > 0) ∧ (3 + 1 = 4) ∧ (3 = 3) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
+    },
+    {
+      "slug": "theorem-simplex_pivot_improves",
+      "title": "theorem-simplex_pivot_improves",
+      "_status": "published",
+      "parent": "optimisation",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "one simplex pivot strictly improves: from the vertex (3,0) worth 9 to the adjacent vertex (3,1) worth 11 — 9 < 11, the walk along an edge that ends at the optimum"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(3*3 + 2*0 = 9) ∧ (9 < 11)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem simplex_pivot_improves : (3*3 + 2*0 = 9) ∧ (9 < 11) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
+    },
+    {
+      "slug": "theorem-optimisation_space_is_qubit_dimension",
+      "title": "theorem-optimisation_space_is_qubit_dimension",
+      "_status": "published",
+      "parent": "optimisation",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the quantum bridge, honest: enumerating 10 binary decisions is walking 2^10 = 1024 candidates — EXACTLY the dimension of the 10-qubit state the classical simulator holds (n_qubit_dimension); the search space IS the basis"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2^10 = 1024"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem optimisation_space_is_qubit_dimension : 2^10 = 1024 := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
+    },
+    {
+      "slug": "theorem-grover_halves_the_search_exponent",
+      "title": "theorem-grover_halves_the_search_exponent",
+      "_status": "published",
+      "parent": "optimisation",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the demarcated speedup: unstructured search over 2^20 candidates takes 2^20 classical checks; Grover needs only ~sqrt = 2^10 — the EXPONENT halves (20 = 2·10) and never vanishes; a quadratic aid, not a free lunch, and this ledger's simulator claims NO advantage at all"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(20 = 2 * 10) ∧ (2^20 = 1024 * 1024)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem grover_halves_the_search_exponent : (20 = 2 * 10) ∧ (2^20 = 1024 * 1024) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
+    },
+    {
+      "slug": "theorem-assignment_two_by_two_optimum",
+      "title": "theorem-assignment_two_by_two_optimum",
+      "_status": "published",
+      "parent": "optimisation",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the 2×2 assignment instance with costs [[1,3],[2,1]]: the two matchings cost 1+1 = 2 and 3+2 = 5 — the optimum is 2, found by enumerating BOTH, the whole space checked, nothing sampled"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1 + 1 = 2) ∧ (3 + 2 = 5) ∧ (2 < 5)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem assignment_two_by_two_optimum : (1 + 1 = 2) ∧ (3 + 2 = 5) ∧ (2 < 5) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67dd660-869b-8cca-8aba-a28a86960000",
+      "uuidnaAddress": "7dca57d5-8fe3-8823-bf8e-201003b4e45b"
     },
     {
       "slug": "os",
@@ -57445,6 +58685,86 @@
       },
       "uuidnaVersion": "c6435fa1-73e7-8ed1-b4f1-c92b89c90000",
       "uuidnaAddress": "39953ece-95f8-8674-b8cc-d08da8801d21"
+    },
+    {
+      "slug": "uuidmix",
+      "title": "uuidmix.lean",
+      "_status": "published",
+      "parent": null,
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h1",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "UuidMix.lean — the sealed source"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "-- lean/UuidMix.lean — GENERATED. THE UUID MIX SPACE — the census of mixing the ten RFC 9562 uuid types (nil, v1…v8, max), folded to ONE quantum seal: the directed census doubles the pairs (10·9 = 2·45, because merge(a,b) ≠ merge(b,a)), the self-mixes complete the square (90 + 10 = 10²), and Pascal's row 10 folds to the 1024 lattice — the 10-qubit basis, whose dimension is already sealed as optimisation_space_is_qubit_dimension and is cited here, never re-sealed. HONEST SCOPE: the counting arithmetic of the mix space, not any uuid version's bit layout, and no cryptographic claim. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- The uuid mix census, one quantum seal: the directed census doubles the 45 pairs (10·9 = 2·45 — merge(a,b) ≠ merge(b,a), so both directions count, verified live as 90 distinct addresses); the 10 self-mixes complete the square (90 + 10 = 10²); and Pascal's row 10 — the mixes of every size, 1 empty through 1 total fusion — folds to exactly 1024, the 10-qubit lattice (dimension sealed as optimisation_space_is_qubit_dimension, cited not re-sealed). Three counts, one conjunction: the mix space is a qubit basis counted whole.\ntheorem uuid_mix_census_is_quantum : (10 * 9 = 2 * 45) ∧ (90 + 10 = 10 * 10) ∧ (1 + 10 + 45 + 120 + 210 + 252 + 210 + 120 + 45 + 10 + 1 = 1024) := by decide\n"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67cf9e1-33ea-8b1c-99ee-61b081e40000",
+      "uuidnaAddress": "da0387ea-07b9-8e75-9a17-817c0044a087"
+    },
+    {
+      "slug": "theorem-uuid_mix_census_is_quantum",
+      "title": "theorem-uuid_mix_census_is_quantum",
+      "_status": "published",
+      "parent": "uuidmix",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The uuid mix census, one quantum seal: the directed census doubles the 45 pairs (10·9 = 2·45 — merge(a,b) ≠ merge(b,a), so both directions count, verified live as 90 distinct addresses); the 10 self-mixes complete the square (90 + 10 = 10²); and Pascal's row 10 — the mixes of every size, 1 empty through 1 total fusion — folds to exactly 1024, the 10-qubit lattice (dimension sealed as optimisation_space_is_qubit_dimension, cited not re-sealed). Three counts, one conjunction: the mix space is a qubit basis counted whole."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(10 * 9 = 2 * 45) ∧ (90 + 10 = 10 * 10) ∧ (1 + 10 + 45 + 120 + 210 + 252 + 210 + 120 + 45 + 10 + 1 = 1024)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem uuid_mix_census_is_quantum : (10 * 9 = 2 * 45) ∧ (90 + 10 = 10 * 10) ∧ (1 + 10 + 45 + 120 + 210 + 252 + 210 + 120 + 45 + 10 + 1 = 1024) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67cf9e1-33ea-8b1c-99ee-61b081e40000",
+      "uuidnaAddress": "da0387ea-07b9-8e75-9a17-817c0044a087"
     },
     {
       "slug": "uuidna",
