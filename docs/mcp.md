@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="159 keys" />
+# MCP tools <Badge type="tip" text="164 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 159 tools below are read from the server's own tool list and
+is **built from the keys**: the 164 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · e2c0629d-1195-823b-885a-c4f7d4a7e25c
+gate CLEAN f0 d0 v0 · e35eeeaa-3aa0-8c0d-90fa-6abba20f9c74
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 159-tool registry folds to its
-order-invariant identity `082de2b2-5be1-8ada-ba83-dc06163f4e4e` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 164-tool registry folds to its
+order-invariant identity `6d3253a3-afa4-87e3-9da6-a0d36e989dac` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`159`" />
+## The grid <Badge type="tip" :text="`164`" />
 
-159 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 59 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+164 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 61 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -66,6 +66,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-dictionary"><code>dictionary</code></a>
 <a href="#uuidna-due-process"><code>due_process</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
+<a href="#uuidna-editorial"><code>editorial</code></a>
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
@@ -82,6 +83,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-package"><code>package</code></a>
 <a href="#uuidna-pentagram"><code>pentagram</code></a>
 <a href="#uuidna-pentagram-monographs"><code>pentagram_monographs</code></a>
+<a href="#uuidna-publication"><code>publication</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-quantum"><code>quantum</code></a>
 <a href="#uuidna-quantum-message-demo"><code>quantum_message_demo</code></a>
@@ -115,6 +117,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-address"><code>address</code></a>
 <a href="#uuidna-adjudicate"><code>adjudicate</code></a>
 <a href="#uuidna-anchor"><code>anchor</code></a>
+<a href="#uuidna-article"><code>article</code></a>
 <a href="#uuidna-audit-book"><code>audit_book</code></a>
 <a href="#uuidna-audit-cve"><code>audit_cve</code></a>
 <a href="#uuidna-audit-movie"><code>audit_movie</code></a>
@@ -162,6 +165,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-report"><code>report</code></a>
 <a href="#uuidna-research"><code>research</code></a>
 <a href="#uuidna-reveal"><code>reveal</code></a>
+<a href="#uuidna-search-trial"><code>search_trial</code></a>
 <a href="#uuidna-seats"><code>seats</code></a>
 <a href="#uuidna-sha256"><code>sha256</code></a>
 <a href="#uuidna-sign"><code>sign</code></a>
@@ -204,6 +208,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-seal-stream"><code>seal_stream</code></a>
 <a href="#uuidna-send"><code>send</code></a>
 <a href="#uuidna-trial-deposit"><code>trial_deposit</code></a>
+<a href="#uuidna-vies"><code>vies</code></a>
 <a href="#uuidna-aead-encrypt"><code>aead_encrypt</code></a>
 <a href="#uuidna-audit-agent-statement"><code>audit_agent_statement</code></a>
 <a href="#uuidna-bill"><code>bill</code></a>
@@ -527,7 +532,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'57'" />
+## Other <Badge type="tip" :text="'62'" />
 
 *skill: other*
 
@@ -974,6 +979,49 @@ THE GRADUATION WALK as one call — runs the release wave (build → dry → leg
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `statement` | string | **yes** | the deposit statement — must cite a sealed theorem ("proven by theorem &lt;key&gt;") |
+
+### `uuidna_article`
+
+THE DESK WRITES — the computed article for one wing of the ledger (writing is computing, never authoring): headline from the principle, one claim per theorem, every claim born citing its sealed /theorem page. Returns {file,slug,title,count,claims:[{key,name,statement,cite}]}. Recomputable from the same ledger.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `file` | string | **yes** | the wing, e.g. "Legal.lean" or "MoMBHStar1.lean" |
+
+### `uuidna_editorial`
+
+THE DESK'S CENSUS — the prose-trial state of every prose surface (README + docs, including the desk's own computed articles): paragraphs tried through reveal(), the usable prose↔theorem combinations (VERIFIED), the honest unverified count, the drained count (fabricated citations — must be zero), and the fold receipt. Derived, never authored. Returns {surfaces,paragraphs_tried,usable,unverified,drained,receipt}.
+
+_No parameters._
+
+### `uuidna_publication`
+
+THE PUBLICATION'S LAWS as one query — the same gates the release pipeline enforces: the license law (the archive carries uuidna's own license — package.json and .zenodo.json must agree), Zenodo standards conformance (required fields + controlled vocabularies), and the communities every release requests. Returns {version,license,licenseLawHolds,zenodoConformance,communities,conforms}.
+
+_No parameters._
+
+### `uuidna_search_trial`
+
+ONLINE — THE SEARCH ON TRIAL for one wing: every research source (NIST, Zenodo, CrossRef) queried in parallel about the wing's principle; each finding content-addressed and tried — ALONE it stays UNVERIFIED (external evidence, never approval), held BESIDE the wing's sealed backing the combination VERIFIES. Only a Lean seal approves. Returns {file,principle,sealed,findings,usable,receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `file` | string | **yes** | the wing, e.g. "Quantum.lean" |
+
+### `uuidna_vies`
+
+ONLINE — verify an EU VAT number against VIES, the EU's own register (ask the register, don't assert): returns {countryCode,vatNumber,valid,name,address,requestDate}. A register lookup for entity verification — the same ask-the-ledger law applied to legal identity; NOT tax advice.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `countryCode` | string | **yes** | 2-letter member state code, e.g. "BG" |
+| `vatNumber` | string | **yes** | the VAT number without the country prefix |
 
 ### `uuidna_detect_forgery`
 

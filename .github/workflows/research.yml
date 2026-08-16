@@ -42,6 +42,16 @@ jobs:
         run: npm run editorial
       - name: GUARD — the fold accepts, or nothing publishes
         run: npm run guard
+      - name: THE DESK'S LAWS BY QUERY — the same library the MCP serves, asked directly (MCP-first automation)
+        run: |
+          node -e "
+          import('./dist/index.js').then((u) => {
+            const e = u.editorialState()
+            if (e.drained !== 0) { console.error('editorial law broken: ' + e.drained + ' drained'); process.exit(1) }
+            const p = u.publicationStatus()
+            if (!p.licenseLawHolds || !p.conforms) { console.error('publication law broken'); process.exit(1) }
+            console.log('laws hold by query: usable=' + e.usable + ' drained=0 · v' + p.version + ' license-law+conformance ✓')
+          })"
       - name: PUBLISH — the trials' returns push as publications (the site deploys on push)
         id: publish
         run: |
