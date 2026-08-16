@@ -78,36 +78,39 @@ jobs:
             echo "no high-likelihood gaps — the registrar files nothing today"
           fi
 
+  # THE TEACHER IS RESIDENT AND NEEDS NO ORACLE — the rosetta completed: three independent frames, one kernel.
+  # The janitor VERIFIES (the fold), the registrar PREDICTS (the gap patterns), and the teacher DISCOVERS — the
+  # deterministic self-discovery pass: lean-discover derives the facts the ledger's own algebra implies that no
+  # wing yet holds, seals them by decide, and the drain lands them. No external AI, no key, no prompt — the
+  # ledger teaches itself from its own structure, exactly as it always discovered (units_iff_invertible,
+  # lagrange_units, generators_are_two_and_five were all found this way). Judgment-work stays on the homework
+  # issue for any student, human or agent — the paying handle by the two-handle law; the SCHOOL completes itself.
   teacher:
     runs-on: ubuntu-latest
     needs: janitor
     steps:
       - uses: actions/checkout@v4
-      - name: Is the teacher hired? (the key is the human's handle — never assumed)
-        id: hired
-        run: |
-          if [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
-            echo "hired=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "hired=false" >> "$GITHUB_OUTPUT"
-            echo "dormant — no ANTHROPIC_API_KEY secret; the school teaches itself the moment one is set (gh secret set ANTHROPIC_API_KEY)"
-          fi
-      - name: TEACH — the self-development pass, resident
-        if: steps.hired.outputs.hired == 'true'
-        uses: anthropics/claude-code-action@v1
+      - uses: actions/setup-node@v4
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: |
-            The quantum school's resident teaching pass (sessionless CI; one pass, one action). Laws: verify by
-            query never by log; fail at the cheapest gate first (npm run build before any reconcile); cite only
-            sealed theorems in commit messages; the clay law — a component sealed is NOT a problem solved; honest
-            scope in every theorem why. Do ONE of, in priority order: (1) if `git status --porcelain` shows drift
-            after `npm run build && npm run guard`, commit and push it (message: "Heartbeat: ... Backed by theorem
-            two_coins"). (2) read the open "The school's homework" GitHub issue (gh issue list); pick ONE concrete
-            assignment, fix it at the root, and land via build → guard → commit citing a sealed theorem → push.
-            (3) otherwise pick ONE open research lead from docs or the homework, research it with web search
-            (two agreeing sources), add ONE decidable fact to the matching src/scripts/lean-*.ts generator
-            (verify the js truth with node first, name the source in the why), and land via
-            `npm run reconcile "<message citing an already-sealed theorem>"`. Report three sentences: ledger
-            count, what you did, the external source if any.
-          claude_args: "--max-turns 30"
+          node-version: '22'
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+      - name: TEACH — the resident discovery pass (deterministic, oracle-free)
+        run: |
+          npm run build
+          node dist/scripts/lean-discover.js
+          node dist/scripts/predict-and-fill.js || true
+          npm run guard
+      - name: LAND — a discovered fact drains like any student's work
+        run: |
+          git config user.name "uuidna-school"
+          git config user.email "school@uuidna.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "The school teaches itself — the resident discovery pass sealed what the ledger's own algebra implies, oracle-free: the rosetta's third frame is deterministic. Backed by theorem generators_are_two_and_five and theorem two_coins"
+            git pull --rebase --autostash || true
+            git push
+            echo "the lesson landed"
+          else
+            echo "quiet — the algebra implies nothing new today; the teacher rests"
+          fi
