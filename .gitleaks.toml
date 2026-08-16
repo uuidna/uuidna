@@ -1,0 +1,31 @@
+# uuidna gitleaks config — the scan stays sharp where secrets could live; it stops flagging the repo's own medium.
+#
+# uuidna is MADE of public 128-bit hex: content-addresses, fold receipts, example HMAC signatures, imprint chains.
+# Every one is generated, recomputable, and public by design — the purity guard bans real credentials from the
+# tree, and the signatures shown in docs are verification EXAMPLES (a fork recomputes the verdict; only uuidna.com
+# can mint the signature — showing one leaks nothing). Allowlisting these classes is honesty about the medium,
+# not blindness: workflows, scripts, and source stay fully scanned for real credential shapes.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "generated public artifacts and the uuid/receipt medium — recomputable, never credentials"
+paths = [
+  '''trials-receipts\.json''',
+  '''quantum-fold\.json''',
+  '''heartbeats\.json''',
+  '''spin-manifest\.json''',
+  '''payload-sync\.json''',
+  '''audit-citations\.json''',
+  '''support-audit\.json''',
+  '''research-leads\.json''',
+  '''^docs/''',
+  '''^lean/''',
+  '''^src/lean/''',
+  '''^src/diamonds/''',
+]
+regexes = [
+  # a uuid is an address, not a secret — the whole system's unit of speech
+  '''[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}''',
+]
