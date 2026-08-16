@@ -49,6 +49,14 @@
     "encryption",
     "onion",
     "kat",
-    "recomputable"
+    "recomputable",
+    "js-sha256",
+    "crypto-js alternative",
+    "zero-dependency",
+    "kat-verified",
+    "fips-180-4",
+    "rfc-8439",
+    "verified-crypto",
+    "theorem-backed"
   ]
 }

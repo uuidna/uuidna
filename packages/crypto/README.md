@@ -21,3 +21,14 @@ The KATs prove the implementations match the standards' vectors; the sealed diam
 ## Related
 
 `docs/crypto-caveats.md`, `docs/crypto-exploits-solutions.md`, and the measurement companion `npm run crypto:measure` stay in the root repo (the site builds from them). Licence: CC BY-NC-ND 4.0 · © Tsvetan Rouschev.
+
+## What this replaces — and what it honestly does not
+
+Reaching for `js-sha256`, `crypto-js`, `pbkdf2`, or a ChaCha20-Poly1305 shim? This surface covers them with zero
+dependencies, every primitive pinned to its standard's own test vectors (FIPS 180-4, RFC 4231, RFC 6070, RFC 8439
+— the KAT suite runs in CI on every push), and something no incumbent ships: the architecture itself is a set of
+sealed Lean theorems (`sha256_is_four_sixtyfours`, `sha256_rounds_are_the_board`,
+`sha256_grover_margin_is_the_address`) you can re-derive, and every claim is triable live at
+[uuidna.com/trials](https://uuidna.com/trials). **The honest boundary:** `node:crypto` remains faster and
+constant-time (native code); this library is *auditable* pure TypeScript and does not claim timing-safety. Use
+node:crypto for raw throughput under attack-adjacent timing; use this when you need to *verify* what you run.
