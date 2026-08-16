@@ -50,5 +50,20 @@ if (out('git status --porcelain').length === 0) {
   run('git commit -m ' + JSON.stringify(msg))
   console.log('  committed: ' + msg)
 }
-run('git push origin HEAD')                            // the pre-push readiness gate re-verifies; passes if reconciled
-console.log('✓ reconciled and pushed.')
+// RECONCILED-MEANS-SYNCED (gap 32, paid 2026-08-17): the old bare push could die with a raw Node trace — or
+// worse, the wrapper exit 0 with the commit stranded local. Now the push failure is CAUGHT and named (the
+// gate's verdict is already on screen above it), and success is not claimed but VERIFIED: after the push,
+// origin is fetched and the ahead-count must be exactly 0 — reconciled means synced, or the run fails loudly.
+try {
+  run('git push origin HEAD')                          // the pre-push readiness gate re-verifies; passes if reconciled
+} catch {
+  console.error('✗ reconcile — push REJECTED (the gate\'s verdict is printed above). The commit is LOCAL; fix the denial, then push — nothing is synced.')
+  process.exit(1)
+}
+run('git fetch origin')
+const ahead = out('git rev-list --count origin/main..HEAD')
+if (ahead !== '0') {
+  console.error(`✗ reconcile — NOT SYNCED: ${ahead} commit(s) still ahead of origin/main after the push. Reconciled-means-synced; failing loudly instead of exiting 0 unsynced.`)
+  process.exit(1)
+}
+console.log('✓ reconciled and pushed — verified synced with origin (0 ahead).')
