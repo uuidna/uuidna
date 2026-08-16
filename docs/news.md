@@ -12,7 +12,9 @@ import { data } from './.vitepress/news.data'
 
 > A newsroom where every bulletin carries its receipt: releases name the ledger they shipped, deposits arrive
 > signed from the [trials](/trials) wire, standing investigations run as [the guard's finders](/tests), and the
-> approval layer is the legal gate itself — honest scope on every claim, no person ever on trial. Nothing on this
+> approval layer is the legal gate itself — honest scope on every claim, no person ever on trial
+> ([`exactly_one_flag`](/theorem/exactly_one_flag)): a report ships only audited and corroborated
+> ([`publish_gate_is_conjunction`](/theorem/publish_gate_is_conjunction)). Nothing on this
 > page is written by hand; it is read from the sealed artifacts at build, or it does not appear.
 
 ## The wire — newest signed deposits
