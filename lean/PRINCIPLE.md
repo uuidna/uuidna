@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1283 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1284 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -211,6 +211,9 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 
 69. **The honest court** — `lean/DisputedTopics.lean` · **15** theorems
    theorems proving the boundary between what is provable (sealed), open (unverified but real), overclaimed (contradicts ledger), and narrative gap (true statement, false story) — reading contested books on politics, medicine, climate, history, economics and auditing facts through anti-fraud. Honesty gate: extraction is decidable, auditing is decidable, but narrative gaps require human judgment
+
+70. **The uuid mix space** — `lean/UuidMix.lean` · **1** theorems
+   the census of mixing the ten RFC 9562 uuid types, one quantum seal: directed doubles the pairs (10·9 = 2·45), self-mixes complete the square (90 + 10 = 10²), and Pascal's row 10 folds to the 1024 qubit lattice — cited to optimisation_space_is_qubit_dimension, never re-sealed
 
 ---
 
