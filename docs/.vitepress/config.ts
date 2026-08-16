@@ -12,8 +12,9 @@ export default defineConfig({
   description: 'Mathematics replaces money. Proof replaces authority. Theorems replace corruption.',
 
   head: [
-    ['meta', { name: 'og:title', content: 'uuidna' }],
-    ['meta', { name: 'og:description', content: 'A mathematically-proven economic system' }],
+    // schema.org/OG strict: Open Graph tags carry `property`, not `name` (RDFa); twitter:card correctly uses `name`.
+    ['meta', { property: 'og:title', content: 'uuidna' }],
+    ['meta', { property: 'og:description', content: 'A mathematically-proven economic system' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
   ],
 

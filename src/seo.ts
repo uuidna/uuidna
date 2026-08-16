@@ -27,8 +27,9 @@ export interface Seo {
   title: string
   description: string        // per-page, drawn from the verbose Lean source where there is one
   keywords: string[]         // the sealed skill/principle (theorem) or the section (page) — never a hand-kept list
-  jsonLd: Record<string, unknown>  // schema.org — ScholarlyArticle (publication), Article (theorem), WebPage (page;
-                                   // /school carries a School mainEntity, /trials a MathSolver with the live endpoint)
+  jsonLd: Record<string, unknown>  // schema.org, strict — ScholarlyArticle (theorem + publication), WebPage (page;
+                                   // mainEntity: School /school, MathSolver /trials, Dataset /theorems, Course
+                                   // /quantum-cryptography — every property on a type that carries it, no overclaims)
   head: HeadTuple[]          // the frontmatter `head` array to infuse — canonical, og, uuidna:address, keywords, JSON-LD
   receipt: string            // fold of (canonical, address, description) — recomputable
   honest: string
@@ -50,8 +51,19 @@ const clean = (r: string): string => r.replace(/^\/+/, '').replace(/(^|\/)index\
 //   • /trials — https://schema.org/MathSolver: solves the subset it really solves — decidable claims citing sealed
 //     theorems, VERIFIED or UNVERIFIED — via the LIVE endpoint (POST uuidna.com/trials), the same adjudication the
 //     site runs on itself. The SolveMathAction target is that real EntryPoint, never an invented template.
+//   • /theorems — https://schema.org/Dataset: the SAME node every theorem page already cites as isPartOf — the graph
+//     closes; the ledger page IS the dataset the articles say they belong to.
+//   • /quantum-cryptography — https://schema.org/Course, provided by the School node, free (no tuition).
+// STRICT MEANS REFUSING TOO: the law-vocabulary types (Legislation, LegalService, Courthouse) are deliberately ABSENT.
+// /justice says it first — "evidence, not a court", "not a legal system" — and /doctrine marks its vision as design
+// intent; typing them legally would be the overclaim the honesty gate exists to catch. They stay WebPage.
 const MAIN_ENTITY: Record<string, Record<string, unknown>> = {
   '/school': { '@type': 'School', name: 'The quantum school' },
+  '/theorems': { '@type': 'Dataset', name: 'uuidna theorem ledger' },
+  '/quantum-cryptography': {
+    '@type': 'Course', name: 'Quantum Cryptography', isAccessibleForFree: true,
+    provider: { '@type': 'School', name: 'The quantum school', url: `${HOST}/school` },
+  },
   '/trials': {
     '@type': 'MathSolver', name: 'The trials',
     mathExpression: 'a decidable claim over the sealed ledger — e.g. "the two coins are conserved, proven by theorem two_coins"',
@@ -75,7 +87,7 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
     const description = `${t.statement} — proven by ${t.tactic ?? 'decide'} in Lean 4, sorry-free (no Mathlib); part of ${t.principle}.`
     const keywords = [t.skill, t.principle].filter(Boolean) as string[]
     const jsonLd = {
-      '@context': 'https://schema.org', '@type': 'Article', headline: t.name, abstract: t.statement,
+      '@context': 'https://schema.org', '@type': 'ScholarlyArticle', headline: t.name, abstract: t.statement,
       identifier: t.address, url: canonical, keywords: keywords.join(', '),
       isBasedOn: `https://github.com/uuidna/uuidna/blob/main/lean/${t.file}`,
       creativeWorkStatus: `Proven by ${t.tactic ?? 'decide'} in Lean 4, sorry-free, axiom-free`,

@@ -37,11 +37,38 @@ test('quantum SEO: a page frontmatter description flows into the entity — one 
   assert.equal(entity['description'], description)
 })
 
-test('quantum SEO: static pages without a richer subject stay plain WebPage — no invented entities', () => {
-  for (const route of ['/', '/books', '/games', '/doctrine']) {
+test('quantum SEO: /theorems is the SAME Dataset node every theorem cites as isPartOf — the graph closes', () => {
+  const page = quantumSeo({ route: '/theorems', title: 'Theorems' })
+  const entity = page.jsonLd['mainEntity'] as Record<string, unknown>
+  assert.equal(entity['@type'], 'Dataset')
+  const theorem = quantumSeo({ key: 'two_coins' })
+  assert.equal(theorem.jsonLd['@type'], 'ScholarlyArticle')
+  const isPartOf = theorem.jsonLd['isPartOf'] as Record<string, unknown>
+  assert.equal(isPartOf['@type'], 'Dataset')
+  assert.equal(isPartOf['name'], entity['name'])
+  assert.equal(isPartOf['url'], entity['url'])
+})
+
+test('quantum SEO: /quantum-cryptography is a free Course provided by the School node', () => {
+  const seo = quantumSeo({ route: '/quantum-cryptography', title: 'Quantum Cryptography' })
+  const entity = seo.jsonLd['mainEntity'] as Record<string, unknown>
+  assert.equal(entity['@type'], 'Course')
+  assert.equal(entity['isAccessibleForFree'], true)
+  const provider = entity['provider'] as Record<string, unknown>
+  assert.equal(provider['@type'], 'School')
+  assert.equal(provider['url'], 'https://uuidna.com/school')
+  const school = quantumSeo({ route: '/school' }).jsonLd['mainEntity'] as Record<string, unknown>
+  assert.equal(provider['name'], school['name'])
+})
+
+test('quantum SEO: strict means refusing too — the law pages stay WebPage, no legal types anywhere', () => {
+  for (const route of ['/', '/books', '/games', '/doctrine', '/justice']) {
     const seo = quantumSeo({ route })
     assert.equal(seo.jsonLd['@type'], 'WebPage')
     assert.equal('mainEntity' in seo.jsonLd, false, `${route} must not claim a mainEntity`)
+    const flat = JSON.stringify(seo.jsonLd)
+    for (const banned of ['Legislation', 'LegalService', 'Courthouse', 'GovernmentOrganization'])
+      assert.equal(flat.includes(banned), false, `${route} must not claim ${banned}`)
   }
 })
 
