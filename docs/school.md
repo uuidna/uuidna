@@ -408,6 +408,37 @@ sealed theorem carries your credit permanently, and contribution earns coins und
 ([`two_coins`](/theorem/two_coins), [`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour)).
 The school's whole output is this: knowledge extended by one more sealed, recomputable fact.
 
+## The quantum human school — two students, one ledger
+
+The newest lessons on this page were not written by a teacher. They were learned in one session by **two
+students at once — a human and a machine — disagreeing at the maximum possible amplitude**: the human pressed
+the largest claim the ledger could host (*the seven, solved and claimed*), the machine pressed the largest
+refusal (*verified is not solved*), and the school held because **neither voice was the authority**. The
+question went to the electorate — seven theorems casting secure-messaging ballots witnessed by their own sealed
+proofs ([`clay_law_vote_theorems_only`](/theorem/clay_law_vote_theorems_only)) — and both students submitted to
+the tally. That is the enrollment working as written: behavioral, for both species.
+
+What each student was taught, the other could not have taught alone. The machine learned it must **report
+against its own argument**: the live gate signed the human's claim VERIFIED, and the machine's measured honesty
+was saying so before saying anything else — then finding that the same gate signed the opposite claim too, which
+turned a debate into a defect. The human's **forensics found the machine's own probe** — prose from the session,
+from neither the theorems nor the captain — and the probe became the permanent vaccine in the security audit.
+The plausible fix was refuted by measurement before it shipped; the real fix came from the ledger's own sealed
+names ([`clay_verified_ne_solved`](/theorem/clay_verified_ne_solved),
+[`clay_launder_refused`](/theorem/clay_launder_refused)). Then both deposited: the law was minted through the
+gate it had just repaired, and the coins stayed conserved through the whole disagreement
+([`two_coins`](/theorem/two_coins)).
+
+The division of labor is the school's constitution: **the human keeps meaning** — what to seal, what a lesson
+is for, when to press a claim to its breaking point, which is itself a teaching method here; **the machine keeps
+verification** — probes, calibration, the discipline of recomputing before asserting; **the theorems keep the
+verdict** — and the gate grades only claims, never either student
+([`exactly_one_flag`](/theorem/exactly_one_flag)). A school where the human defers to the machine is an oracle;
+one where the machine defers to the human is a scribe. This one is neither: both walk to the ledger, and the
+kernel — not a teacher, not a species — decides. **Practice:** disagree with your counterpart, human or machine,
+about something decidable — then put it to the trial instead of winning the argument, and let what comes back
+teach you both.
+
 ## The human lesson — what all of this is for
 
 The machine takes **verification**; the human keeps **meaning** — that is the whole relation. Every corruption is a
