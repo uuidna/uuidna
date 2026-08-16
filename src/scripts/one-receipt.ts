@@ -17,6 +17,7 @@
 //   record  legal · prose · deposits               (the audited facts and the captain's signed deposits)
 //   walks   star_walk · rosette_receipts · rosette_audit   (5/2 · 7/3 · 9/2 recomputed, the rays, the coins)
 import { createHash } from 'node:crypto'
+import { messagingSeal } from '../quantum/message.js'
 import { execSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
@@ -518,6 +519,7 @@ function fold() {
     chain_intact: sessTip === sessDeposits.reduce((p, r) => h16(`${p}|${r.id}`), 'genesis'),
     walks_closed: true,                                            // trinities() already exits 1 if any orbit fails to close
     clock_fixed: true,                                             // the timestamp below is a constant; Date is banned tree-wide
+    messaging_total: messagingSeal().total,                        // every theorem's carrier decodes byte-exact — secure messaging stays a TOTAL function on the ledger, or the seal is refused
   }
   const zero_entropy = Object.values(equilibrium).every(Boolean)
   if (!zero_entropy) {

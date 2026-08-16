@@ -35,7 +35,7 @@
     "walks": "bdf3a4d73df0a19af36f875988662312"
   },
   "unified_fold": "88607d70eb279354",
-  "receipt": "ed285b145f6050bd",
+  "receipt": "741de10a18ff0ca1",
   "rosette_receipt": {
     "rays": [
       "6c032164ca1a912a",
@@ -95,7 +95,8 @@
     "alphabet_total": true,
     "chain_intact": true,
     "walks_closed": true,
-    "clock_fixed": true
+    "clock_fixed": true,
+    "messaging_total": true
   },
   "zero_entropy": true
 }
