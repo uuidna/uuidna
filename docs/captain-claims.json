@@ -1,8 +1,8 @@
 {
-  "generated": "2026-08-15",
+  "generated": "2026-08-16",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 695,
+  "total_claimed": 715,
   "categories": 8,
   "categories_list": [
     {
@@ -15,22 +15,22 @@
     {
       "category": "Security",
       "description": "Axiom-free verified security: gate, integrity, collision, defences",
-      "theorems": 48,
-      "address": "eb735d4a-5bac-8c94-af7a-da5889db4ebf",
+      "theorems": 58,
+      "address": "f79838e1-64cf-86a6-af1a-6f957c43ec41",
       "all_by_decide": true
     },
     {
       "category": "Quantum",
       "description": "Classical quantum simulation: state-vector, clifford, bell, ghz, pauli",
-      "theorems": 56,
-      "address": "c4cf24a2-b5ee-81a3-b0e7-f9382ff80870",
+      "theorems": 61,
+      "address": "b71544bc-478f-818f-973d-762d0c678d58",
       "all_by_decide": true
     },
     {
       "category": "Games",
       "description": "Game theory & strategy: nim, chess, sailing, exploit",
-      "theorems": 69,
-      "address": "64c28f7b-943f-8ba6-a1d3-0544cd02abb6",
+      "theorems": 74,
+      "address": "01e0eeb4-6ea5-8a80-8e0f-8ecdae7362bf",
       "all_by_decide": true
     },
     {
@@ -62,7 +62,7 @@
       "all_by_decide": true
     }
   ],
-  "claim_receipt": "567e0e32-744f-82f9-b4d1-70e9dfad1739",
+  "claim_receipt": "6cd9aa5a-58c5-88e7-ad69-58003d9f63cc",
   "honest_scope": {
     "proves": [
       "These theorems are Lean-verified (by decide)",

@@ -1,11 +1,11 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-08-15
+**Generated:** 2026-08-16
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 695 theorems
+**Total claimed:** 715 theorems
 **Categories:** 8
-**Claim receipt:** `567e0e32-744f-82f9-b4d1-70e9dfad1739`
+**Claim receipt:** `6cd9aa5a-58c5-88e7-ad69-58003d9f63cc`
 
 ---
 
@@ -23,25 +23,25 @@ Lean-verified computational algebra (ℤ/9, ℤ/7, ring, rosette)
 
 Axiom-free verified security: gate, integrity, collision, defences
 
-- **Theorems:** 48
+- **Theorems:** 58
 - **Verified:** ✓ all by decide
-- **Address:** `eb735d4a-5bac-8c94-af7a-da5889db4ebf`
+- **Address:** `f79838e1-64cf-86a6-af1a-6f957c43ec41`
 
 ### Quantum
 
 Classical quantum simulation: state-vector, clifford, bell, ghz, pauli
 
-- **Theorems:** 56
+- **Theorems:** 61
 - **Verified:** ✓ all by decide
-- **Address:** `c4cf24a2-b5ee-81a3-b0e7-f9382ff80870`
+- **Address:** `b71544bc-478f-818f-973d-762d0c678d58`
 
 ### Games
 
 Game theory & strategy: nim, chess, sailing, exploit
 
-- **Theorems:** 69
+- **Theorems:** 74
 - **Verified:** ✓ all by decide
-- **Address:** `64c28f7b-943f-8ba6-a1d3-0544cd02abb6`
+- **Address:** `01e0eeb4-6ea5-8a80-8e0f-8ecdae7362bf`
 
 ### Science
 
