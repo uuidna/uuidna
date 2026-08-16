@@ -23,7 +23,7 @@ import {
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
-  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify,
+  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { spawnSync } from 'node:child_process' // uuidna_wave orchestration — local stdio only, never the Workers subset (worker imports mcp-http.js)
@@ -702,6 +702,10 @@ const TOOLS: Tool[] = [
     description: 'Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
     run: () => runTrial() },
+  { name: 'uuidna_search',
+    description: 'THE FUSED SEARCH — the ONE search function every surface runs (this server, the edge /mcp, and the site\'s search page in your browser): filter the sealed ledger by text, fold the matched keys to ONE receipt. Two independent parties running the same query MUST return the same receipt — dual-party verification applied to search; a differing receipt exposes a diverged ledger. Returns {q,count,total,receipt,matches}.',
+    inputSchema: { type: 'object', properties: { q: { type: 'string', description: 'the text to search — key, name, statement, principle, skill' } }, required: ['q'] },
+    run: (a: Record<string, unknown>) => searchLedger(String(a.q)) },
   { name: 'uuidna_article',
     description: 'THE DESK WRITES — the computed article for one wing of the ledger (writing is computing, never authoring): headline from the principle, one claim per theorem, every claim born citing its sealed /theorem page. Returns {file,slug,title,count,claims:[{key,name,statement,cite}]}. Recomputable from the same ledger.',
     inputSchema: { type: 'object', properties: { file: { type: 'string', description: 'the wing, e.g. "Legal.lean" or "MoMBHStar1.lean"' } }, required: ['file'] },

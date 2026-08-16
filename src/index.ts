@@ -28,7 +28,7 @@ export { designSystem } from './design-system.js'
 // citing its sealed proof), the prose-trial census, the publication's license law + archive conformance as
 // functions, the search-on-trial (online; evidence never approval), and the VIES register lookup (online; the
 // EU's own ledger). One implementation for the scripts, the MCP tools, and the CI automation.
-export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, type Article, type EditorialState, type PublicationStatus, type SearchTrial, type ViesResult } from './editorial.js'
+export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, type Article, type EditorialState, type PublicationStatus, type SearchTrial, type ViesResult, type LedgerSearch } from './editorial.js'
 
 // cloudflare — audit the Cloudflare Workers bindings for a quantum-secure posture (no secret committed; symmetric-only
 // crypto — HMAC-SHA256 / ChaCha20-Poly1305, no Shor target, Grover only halves to a 128-bit floor), folded to one

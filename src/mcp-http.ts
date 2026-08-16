@@ -11,6 +11,7 @@
 // their own honest scope (the aura is art, image provenance is exact-copy not content-truth, the cube is symmetric).
 import { adjudicate } from './adjudicate.js'
 import { reveal } from './gate.js'
+import { searchLedger } from './editorial.js'
 import { toUuid } from './address.js'
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { coins, billUuidna } from './captain/billing.js'
@@ -32,6 +33,9 @@ const unb64 = (s: string): Uint8Array => { const bin = atob(s); const u = new Ui
 
 // The Workers-safe tool set — the recomputable core, each a pure function of its input and the sealed ledger.
 const TOOLS: HttpTool[] = [
+  { name: 'uuidna_search', description: 'THE FUSED SEARCH — the ONE search function every surface runs (the site\'s search page in your browser, the stdio server, and this edge): filter the sealed ledger by {q}, fold the matched keys to ONE receipt. Your browser and this edge running the same query MUST return the same receipt — dual-party verification applied to search; a differing receipt exposes a diverged ledger. Returns {q,count,total,receipt,matches}.',
+    inputSchema: { type: 'object', properties: { q: { type: 'string' } }, required: ['q'] },
+    run: (a) => searchLedger(String(a.q)) },
   { name: 'uuidna_trial', description: 'Run the RECOMPUTABLE TRIAL on a {statement}: the three-way verdict (VERIFIED / REFUTED / UNVERIFIED, where UNVERIFIED is never "false", only not-yet) plus its content-address and order-invariant receipt. The same statement always addresses to the same trial. Integrity, not truth — it adjudicates the CITATION, never the world.',
     inputSchema: { type: 'object', properties: { statement: { type: 'string' } }, required: ['statement'] },
     run: (a) => adjudicate(String(a.statement)) },

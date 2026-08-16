@@ -27,6 +27,29 @@ still be refactored, reversed, or **folded all the way back to the genesis `0.0.
 development itself. Publishing is the involution's fixed point: after it, a version cannot be un-said. So uuidna keeps
 the chance to reverse-develop itself *now*, while the ledger is still free.
 
+## [0.1.2] — unreleased
+
+**Development tick on the unpublished line** (npm still has only `0.1.0`; the patch exists because the release
+pipeline's own gates version what they archive — the Zenodo deposit job names the ledger it ships). What moved
+`0.1.1 → 0.1.2`, each landing gated before it counted:
+
+### Added
+- **The paper on trial** — `lean/MoMBHStar1.lean`, the seventh hand-written proof wing: 17 decidable claims from one
+  Nature letter (DOI 10.1038/s41586-026-10846-4) — the published numbers as Nat arithmetic, the press-vs-paper delta
+  receipted (`mombh_press_confirmed_is_refuted`: "super-Eddington confirmed" against the paper's own 0.18), four
+  quantum facts deriving the Balmer break from Rydberg arithmetic. Honest scope: arithmetic witnesses of published
+  numbers — n = 1, nothing solved, never astrophysics re-derived.
+- **The editorial era** — the desk writes before it edits: `npm run editorial` computes 68 articles from the ledger
+  (one per wing, every claim citing its `/theorem` page), verified through provenance, citations, the prose receipt
+  and the prose trials; the research desk becomes the fourth resident faculty (`research.yml`); the release pipeline
+  gains its gates (editorial before publication, the license law, Zenodo standards conformance).
+- **The strict schema.org surface** — every page kind typed from the one SEO source: `School` on `/school`,
+  `MathSolver` on `/trials` whose `SolveMathAction` targets the real live endpoint, `Dataset` on `/theorems` (the
+  same node every theorem cites as `isPartOf` — the graph closes), `Course` on `/quantum-cryptography`,
+  `ScholarlyArticle` for every theorem and publication page. Strict means refusing too: the law types stay absent —
+  `/justice` is evidence, not a court. The naming audit folded as a finder: every emitted `@type` and property must
+  be vetted vocabulary or the build fails.
+
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.

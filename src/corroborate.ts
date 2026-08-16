@@ -76,7 +76,36 @@ const crossrefSource: ResearchSource = async (query) => {
   } catch { return [] }
 }
 
-const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource]
+// FREE AI-CAPABLE SEARCH, inside the law — two archives with machine intelligence built in and NO key required.
+// Semantic Scholar returns an AI-GENERATED TLDR per paper; OpenAlex returns ML-classified works. Their AI output
+// is EVIDENCE like any other note — content-addressed, quoted, tried at the gate, never executed and never
+// approval (only a Lean seal approves). Quantum secure and fast the same way every source is: parallel fan-out,
+// best-effort, a down archive returns [] — the sweep never fabricates and never stalls.
+const semanticScholarSource: ResearchSource = async (query) => {
+  try {
+    const res = await fetch('https://api.semanticscholar.org/graph/v1/paper/search?limit=8&fields=title,tldr,externalIds&query=' + encodeURIComponent(query))
+    if (!res.ok) return []
+    const papers = ((await res.json()) as { data?: { paperId?: string; title?: string; tldr?: { text?: string } }[] }).data ?? []
+    return papers.map((p) => ({
+      source: 'semanticscholar.org', address: toUuid('s2:' + (p.paperId ?? '')),
+      note: `S2 ${(p.title ?? '').slice(0, 60)}${p.tldr?.text ? ' — AI tldr: ' + p.tldr.text.slice(0, 90) : ''}`,
+    }))
+  } catch { return [] }
+}
+
+const openAlexSource: ResearchSource = async (query) => {
+  try {
+    const res = await fetch('https://api.openalex.org/works?per-page=8&mailto=ceccec@psg.bg&search=' + encodeURIComponent(query))
+    if (!res.ok) return []
+    const works = ((await res.json()) as { results?: { id?: string; display_name?: string; primary_topic?: { display_name?: string } }[] }).results ?? []
+    return works.map((w) => ({
+      source: 'openalex.org', address: toUuid('openalex:' + (w.id ?? '')),
+      note: `OpenAlex ${(w.display_name ?? '').slice(0, 70)}${w.primary_topic?.display_name ? ' [' + w.primary_topic.display_name.slice(0, 30) + ']' : ''}`,
+    }))
+  } catch { return [] }
+}
+
+const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource, semanticScholarSource, openAlexSource]
 
 /** researchEvidence(query) → external research from the free API STREAMS, FANNED OUT IN PARALLEL (Promise.all over
  *  RESEARCH_SOURCES): the wall-clock is the slowest source, not the sum, and every match is a provenance-fingerprinted

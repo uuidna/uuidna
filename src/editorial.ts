@@ -73,6 +73,22 @@ export function publicationStatus(): PublicationStatus {
   }
 }
 
+/** THE FUSED SEARCH — one pure function over the sealed ledger, served identically by the browser page, the
+ *  stdio MCP and the edge MCP: filter by text, fold the matched keys to ONE receipt. Two independent parties
+ *  (your browser, the edge) running the same query MUST compute the same receipt — dual-party verification
+ *  applied to search itself; a differing receipt exposes a diverged ledger instantly. */
+export interface LedgerSearch { q: string; count: number; total: number; receipt: string; matches: Array<{ key: string; name: string; principle: string; skill: string }> }
+export function searchLedger(q: string, limit = 60): LedgerSearch {
+  const T = theorems() as Entry[]
+  const s = q.trim().toLowerCase()
+  const hit = s ? T.filter((t) => `${t.key} ${t.name} ${t.statement} ${t.principle} ${t.skill}`.toLowerCase().includes(s)) : []
+  return {
+    q, count: hit.length, total: T.length,
+    receipt: toUuid(hit.map((t) => t.key).join('\n')),
+    matches: hit.slice(0, limit).map((t) => ({ key: t.key, name: t.name, principle: t.principle, skill: t.skill })),
+  }
+}
+
 /** ONLINE — the search on trial for one wing: findings content-addressed, each verdict computed; evidence, never approval */
 export interface SearchTrial {
   file: string; principle: string; sealed: number
