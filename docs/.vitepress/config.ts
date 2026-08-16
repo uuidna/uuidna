@@ -38,6 +38,7 @@ export default defineConfig({
             { text: 'The trials', link: '/trials' },
             { text: 'What quantum means', link: '/quantum' },
             { text: 'Quantum Cryptography (course)', link: '/quantum-cryptography' },
+            { text: 'News (computed)', link: '/news' },
             { text: 'Games', link: '/games' },
           ],
         },
