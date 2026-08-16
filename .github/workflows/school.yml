@@ -1,0 +1,48 @@
+# THE QUANTUM SCHOOL'S HEARTBEAT — the fusion completed: the self-development drain lives IN the tree, not in any
+# session. Twice an hour (off-minute, per fleet courtesy) the school verifies itself and drains its own derived
+# drift: build (the fast kernel) → guard (every held line, every finder, the fold) → commit and push whatever the
+# regeneration moved. No AI session required, no secrets beyond the repo's own token, nothing to starve or orphan:
+# the computing handle runs itself. The paying handle — the human word, the research lead, the new theorem — stays
+# human by design (the two-handle law: one computes, one pays). A quiet run commits nothing and that is health.
+name: school
+on:
+  schedule:
+    - cron: '13,43 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: school-heartbeat
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+
+      - name: LEAN GREEN — the fast kernel first (types), then the guard (every held line, the fold)
+        run: |
+          npm run build
+          npm run guard
+
+      - name: DRAIN — commit and push the derived drift the regeneration moved (a quiet run is health)
+        run: |
+          git config user.name "uuidna-school"
+          git config user.email "school@uuidna.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "Heartbeat: the school verifies itself and drains the derived drift — gate-clean, sessionless. Backed by theorem two_coins"
+            git push
+            echo "drained and pushed"
+          else
+            echo "quiet — nothing to drain, the tree is a fixed point"
+          fi
