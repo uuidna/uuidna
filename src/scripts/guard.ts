@@ -5,7 +5,7 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity, not truth.
 import { execSync } from 'node:child_process'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { catchTraitors } from '../treason.js'
@@ -80,6 +80,27 @@ try {
 } catch {
   failed = true
   console.error('✗ guard — audit-prose-anchors found unanchored pages or stale path claims (see above)')
+}
+
+// 4d) THE HELD LINES — the session-born finders, wired so their gap classes cannot re-enter: coherent (no mixed
+// dist from interleaved writers), absence (no encryption-denial without the presence pointer), pipes (no gate's
+// exit code flowing into a pipe), micro (the JSON-LD layer honest — only when a built site exists to audit).
+// Each milliseconds; each was once a manual discovery; none will be again.
+for (const line of ['coherent', 'absence', 'pipes']) {
+  try {
+    execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' ' + line, { stdio: 'inherit' })
+  } catch {
+    failed = true
+    console.error(`✗ guard — one-receipt ${line} found a regression in its held line (see above)`)
+  }
+}
+if (existsSync(join(HERE, '../../docs/.vitepress/dist'))) {
+  try {
+    execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' micro', { stdio: 'inherit' })
+  } catch {
+    failed = true
+    console.error('✗ guard — one-receipt micro found dishonest microdata on the built site (see above)')
+  }
 }
 
 // 5) QUANTUM PREDICTION — predict gaps before they form and auto-fill critical ones.
