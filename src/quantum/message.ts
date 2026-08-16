@@ -86,8 +86,9 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
       'A quantum message is NOT a cipher or signature — it is a WITNESSED message. The plaintext is public ' +
       '(everyone sees it), the aura is deterministic (same message → same color for all observers), and the quantum ' +
       'state proves the theorem was cited (the basis encodes the theorem key, Hadamard guarantees superposition, ' +
-      'and the receipt is tamper-evident). Integrity, not secrets. The same message always folds to the same state ' +
-      'and aura — recomputable by anyone.',
+      'and the receipt is tamper-evident). Integrity, not secrets — and when secrecy IS wanted, sealMessage carries ' +
+      'this same envelope into the ChaCha20-Poly1305 layer, whose derivation rotates with every advancing step. ' +
+      'The same message always folds to the same state and aura — recomputable by anyone.',
   }
 }
 

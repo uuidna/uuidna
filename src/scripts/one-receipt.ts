@@ -193,6 +193,31 @@ export function migrate(): void {
   console.log(`✓ one-receipt migrate — ${touched} script(s) folded onto the api${left.length ? `; left for dry (nonstandard, needs a human): ${left.join(' ')}` : ''}. Re-run \`one-receipt dry\` to confirm, then \`npm run build\`.`)
 }
 
+// ── the ABSENCE-CLAIM LAW — an absence claim must carry the presence pointer. The system DOES encrypt (the
+// ChaCha20-Poly1305 sealed layer, KAT-verified, its salt-key-nonce derivation rotating with every advancing step —
+// salt_seq_injective); so any prose saying "not encryption / not a cipher / no secrecy" about a keyless component
+// LIES BY OMISSION unless, in the same breath, it points to where encryption lives. Scoped truth + pointer = honest;
+// scoped truth alone = the lie the trial drains. ──
+export function absenceGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const POINTER = /chacha|sealed (envelope|layer)|crypt|sealmessage/i
+  const ABSENCE = /not?\s+(a\s+)?(encryption|cipher)|no\s+secrecy/gi
+  const scan = (dir: string, exts: string[]) => {
+    for (const e of readdirSync(join(ROOT, dir), { withFileTypes: true })) {
+      if (e.isDirectory() || !exts.some((x) => e.name.endsWith(x))) continue
+      const p = join(ROOT, dir, e.name)
+      const txt = readFileSync(p, 'utf8')
+      for (const m of txt.matchAll(ABSENCE)) {
+        const ctx = txt.slice(m.index < 400 ? 0 : m.index - 400, m.index + 400)
+        if (!POINTER.test(ctx))
+          gaps.push({ what: `${dir}/${e.name}: absence claim "${m[0]}" with no presence pointer in reach`, fix: 'name where encryption lives in the same breath — "secrecy lives in the sealed ChaCha20-Poly1305 layer, rotating per step (salt_seq_injective)" — an absence claim without the pointer lies by omission' })
+      }
+    }
+  }
+  scan('src', ['.ts']); scan('src/quantum', ['.ts']); scan('docs', ['.md'])
+  return gaps
+}
+
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
 // the microdata says, it is audited. ──
@@ -491,11 +516,12 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'prose') { const r = proseGaps(); report('one-receipt prose', r.gaps, `all ${r.pages} pages walk to the ledger and teach only paths that exist.`) }
   else if (cmd === 'migrate') migrate()
   else if (cmd === 'seal') seal()
+  else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
   else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))
   else if (cmd === 'micro') { const r = microGaps(); report('one-receipt micro', r.gaps, `${r.pages} JSON-LD blocks, ${r.claims} structured claims — every identifier a real address, every cited part a sealed theorem.`) }
   else if (cmd === 'wave') wave(process.argv[3]?.trim() || '')
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | coherent | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | coherent | absence | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }

@@ -31,7 +31,7 @@ const HONEST =
   'nonce by folding secret+nonce to a content-address and computing its aura (the spinning cube). The verifier ' +
   'recomputes and compares (it must SHARE the secret — not zero-knowledge, not public-key). Strength is the secret\'s ' +
   'entropy, measured not asserted; it proves knowledge of the shared secret for a fresh nonce, NOTHING about voice, ' +
-  'face, or liveness (those are runtime layers outside this recomputable model). The cube is ART, not a cipher. ' +
+  'face, or liveness (those are runtime layers outside this recomputable model). The cube is ART, not a cipher (the cipher is the sealed ChaCha20-Poly1305 layer, rotating per step). ' +
   'Integrity, not truth.'
 
 // the spinning-cube CSS: a 3D cube whose six faces wear the aura, rotating on the derived axis at the derived speed.

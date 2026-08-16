@@ -402,7 +402,7 @@ The quantum receipt: the order-INVARIANT merkle gravity of a set of addresses �
 
 ### `uuidna_imprint`
 
-Encode text INTO a uuid chain (reversible, ≤115 bits per uuid, chained for longer). A public, reversible encoding — not encryption.
+Encode text INTO a uuid chain (reversible, ≤115 bits per uuid, chained for longer). A public, reversible encoding — not encryption; secrecy lives in the sealed ChaCha20-Poly1305 layer (uuidna_crypt), whose derivation ROTATES with the advancing step (salt_seq_injective).
 
 **Parameters**
 
@@ -746,7 +746,7 @@ THE QUANTUM AURA — a recomputable, A432-tuned COLOUR folded from any content-a
 
 ### `uuidna_quantum_message`
 
-FUSE quantum states, theorems, and auras into a single witnessed message. A quantum message encodes plaintext + theorem proof into a quantum superposition, signs it against the ledger, and binds it to an A432 aura (content-addressed, deterministic). NOT a cipher (everyone sees the aura and state); NOT a signature (the proof is sealed). A quantum message is a WITNESSED MESSAGE — the witness is a sealed theorem, and the message's quantum encoding proves the witness was cited. The same message always folds to the same aura and quantum state for every observer — integrity without secrets. Returns {id,plaintext,theoremKey,theoremAddress,aura,quantum:{qubits,receipt},fold,honest}.
+FUSE quantum states, theorems, and auras into a single witnessed message. A quantum message encodes plaintext + theorem proof into a quantum superposition, signs it against the ledger, and binds it to an A432 aura (content-addressed, deterministic). NOT a cipher (everyone sees the aura and state — secrecy, when wanted, is the sealed ChaCha20-Poly1305 layer whose derivation rotates per step); NOT a signature (the proof is sealed). A quantum message is a WITNESSED MESSAGE — the witness is a sealed theorem, and the message's quantum encoding proves the witness was cited. The same message always folds to the same aura and quantum state for every observer — integrity without secrets. Returns {id,plaintext,theoremKey,theoremAddress,aura,quantum:{qubits,receipt},fold,honest}.
 
 **Parameters**
 
@@ -757,7 +757,7 @@ FUSE quantum states, theorems, and auras into a single witnessed message. A quan
 
 ### `uuidna_theorem_message`
 
-SECURE MESSAGING, TOTAL OVER THE LEDGER — every sealed theorem is itself a self-proving message. Pass {key} to get that theorem's envelope: payload = its exact Lean statement, witness = the theorem itself, CARRIER = the reversible imprint codec (a uuid chain that decodes back to the statement byte-exact — the message travels as pure addresses and any alteration breaks the decode), colour channel = its deterministic A432 aura, plus the quantum citation state of uuidna_quantum_message. Pass no key to get THE TOTALITY SEAL: every theorem in the ledger round-trips through its carrier and recomputes its message id, all envelope identities folded order-invariant to ONE receipt — messaging proven total, not demonstrated on examples. HONEST SCOPE: NOT a cipher and NOT secrecy — the statement is public and so is the colour; this is TAMPER-EVIDENCE made total (integrity, not secrets). Returns the envelope {id,plaintext,theoremKey,theoremAddress,aura,quantum,carrier,delivered,fold,honest} or the seal {count,total,failures,receipt,honest}.
+SECURE MESSAGING, TOTAL OVER THE LEDGER — every sealed theorem is itself a self-proving message. Pass {key} to get that theorem's envelope: payload = its exact Lean statement, witness = the theorem itself, CARRIER = the reversible imprint codec (a uuid chain that decodes back to the statement byte-exact — the message travels as pure addresses and any alteration breaks the decode), colour channel = its deterministic A432 aura, plus the quantum citation state of uuidna_quantum_message. Pass no key to get THE TOTALITY SEAL: every theorem in the ledger round-trips through its carrier and recomputes its message id, all envelope identities folded order-invariant to ONE receipt — messaging proven total, not demonstrated on examples. HONEST SCOPE: NOT a cipher and NOT secrecy — the statement is public and so is the colour; this is TAMPER-EVIDENCE made total (integrity, not secrets). Secrecy, when wanted, is the sealed ChaCha20-Poly1305 layer (sealMessage/uuidna_crypt), whose salt-key-nonce derivation ROTATES with every advancing step — endless rotation, sealed as salt_seq_injective. Returns the envelope {id,plaintext,theoremKey,theoremAddress,aura,quantum,carrier,delivered,fold,honest} or the seal {count,total,failures,receipt,honest}.
 
 **Parameters**
 

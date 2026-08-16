@@ -2,14 +2,14 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "7e3af97790ae6782",
+      "theorems": "ca3c0a7498c09fcb",
       "principles": "9f7e554cb84108c5",
-      "monographs": "12bc5660494d5b22"
+      "monographs": "c54b7a5da0f18ec9"
     },
     "served": {
       "packages": "5aacd0af35a35c23",
       "exports": "7b437ccd27489412",
-      "mcp": "4336f86689dca81c"
+      "mcp": "b76a7f78b53a14b2"
     },
     "proven": {
       "tests": "2294d2437b44871b",
@@ -28,34 +28,34 @@
     }
   },
   "trinity_folds": {
-    "sealed": "b8a4615f513c15e95b032b467231de65",
-    "served": "a9359356dfdee188f213d59967777277",
+    "sealed": "f02746c7b3aa2eeda14e9712d8ee9d8d",
+    "served": "f01ba200e11ac8951a3c900143394436",
     "proven": "759b1b0185785d8c618d27d7998bae37",
     "record": "1336afc212d0f9391032f243bd6cfad2",
     "walks": "bdf3a4d73df0a19af36f875988662312"
   },
-  "unified_fold": "f643b44998dcb7e4",
-  "receipt": "d7ec2734fa78f20f",
+  "unified_fold": "5872355c769f77c6",
+  "receipt": "a7e3da07d23de6c9",
   "rosette_receipt": {
     "rays": [
-      "44f38551aa027cf5",
+      "0509d033b0d93200",
       "3a8d773151b99d0b",
-      "c52265ef1bee572a",
+      "9cea4d096de09925",
       "1e30fe1a22ac3cad",
       "a7f0e840135882e5",
       "a761502744407dcd",
-      "203fb015dfc4c788"
+      "d38339255a24ae33"
     ],
-    "concurrence": "ce39bec7e9442a1e7038887f37e13e85"
+    "concurrence": "d065a29668c228bf10da0c3d89cda658"
   },
   "aura": {
-    "rgb": "#28d78b",
-    "hsl": "hsl(154, 69%, 50%)",
+    "rgb": "#5422dd",
+    "hsl": "hsl(256, 73%, 50%)",
     "alphabet": "b6819334641853db",
-    "movie": "98f519b7d787a9b0",
-    "lessons": "6f384d873ab61fc3",
+    "movie": "838ea771ca07972d",
+    "lessons": "e3b729692bc4c0c2",
     "report": "940001b6ff9bd2fc",
-    "session": "54975c250cb66ec5",
+    "session": "4421a76215c355f0",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -72,12 +72,12 @@
     },
     "dimensions": {
       "residue": 0,
-      "ray": 3,
+      "ray": 5,
       "wave": 1,
-      "hue": 154,
-      "sat": 69,
+      "hue": 256,
+      "sat": 73,
       "light": 50,
-      "period": 18,
+      "period": 22,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

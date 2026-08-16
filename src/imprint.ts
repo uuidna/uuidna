@@ -1,5 +1,7 @@
 // imprint — a REVERSIBLE binary↔uuid codec. NOT reversing the one-way FNV address (that cannot be undone),
-// and NOT encryption (no key, no secrecy). It CONSTRUCTS a uuid whose 128 bits carry a message and reads
+// and NOT encryption (no key, no secrecy) — secrecy lives one layer up, in the sealed ChaCha20-Poly1305 layer
+// (src/crypt.ts), whose whole derivation ROTATES with the advancing step: fresh salt, fresh key, fresh nonce each
+// advance (lean: salt_seq_injective). This codec CONSTRUCTS a uuid whose 128 bits carry a message and reads
 // them back exactly. A uuid holds 128 bits; 6 are reserved (4 version + 2 variant) and 7 hold a length
 // header → up to 115 message bits per uuid. Round-trips exactly for L ≤ CAPACITY.
 
