@@ -4,21 +4,21 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="158 keys" />
+# MCP tools <Badge type="tip" text="159 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 158 tools below are read from the server's own tool list and
+is **built from the keys**: the 159 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
 `https://uuidna.com/mcp` — one address, the page for people, the protocol for machines.
 
-## The grid <Badge type="tip" :text="`158`" />
+## The grid <Badge type="tip" :text="`159`" />
 
-158 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 58 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+159 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 59 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -38,6 +38,7 @@ page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the l
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
 <a href="#uuidna-full-anti-fraud-audit"><code>full_anti_fraud_audit</code></a>
+<a href="#uuidna-gate-status"><code>gate_status</code></a>
 <a href="#uuidna-grow-life"><code>grow_life</code></a>
 <a href="#uuidna-guard-lessons"><code>guard_lessons</code></a>
 <a href="#uuidna-hardware"><code>hardware</code></a>
@@ -275,7 +276,7 @@ The STRICT content-address: normalise the input (so equivalent values converge) 
 | --- | --- | --- | --- |
 | `text` | string | **yes** |  |
 
-## Honesty gate <Badge type="tip" :text="'7'" />
+## Honesty gate <Badge type="tip" :text="'8'" />
 
 *skill: gate*
 
@@ -349,6 +350,12 @@ Audit an output across all seven dimensions at once — seven receipts folded to
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `text` | string | **yes** |  |
+
+### `uuidna_gate_status`
+
+THE GATE PROVES ITSELF, live against the sealed spec: every served tools/call passes the conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — f the input-sanitize bit, d the output-sanitize bit, v the honesty bit (a fabricated theorem citation, slimGate) — and this tool recomputes the eight-state verdict table and REQUIRES it to equal both the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle): clean at exactly the no-violation state (theorem honesty_gate_passes_iff_all_sealed), one flag drains all (theorem conformance_failure_detects_intrusion). The runtime gate cannot drift from the ledger without matchesSealedSpec turning false. Also folds the whole registry to its ORDER-INVARIANT identity receipt (the same for any tool ordering). Returns {table,sealedTable,matchesSealedSpec,cleanStates,drainedStates,tools,registry,cites,receipt}.
+
+_No parameters._
 
 ## Merkle & gravity <Badge type="tip" :text="'4'" />
 

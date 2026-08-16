@@ -30,13 +30,14 @@ import { ROOT as LIB_ROOT } from './boundary.js'
 import { portAllAlpine } from './os/alpine.js' // os/ boundary — LIVE upstream read (named non-determinism), not via the deterministic index
 import { infuseAlpinePackages, alpinePackage } from './os/packages.js' // os/ boundary — each Alpine package → uuidna/<name>
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
+import { gateVerdict, gateSelfTest, registryReceipt, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate
 import { legalFacts } from './legal.js'
 import { license } from './license.js'
 import { priorArt } from './priorart.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { pathToFileURL } from 'node:url'
 
-const VERSION = '6.8.0'
+const VERSION = '6.9.0'
 
 // A tool: JSON-in / JSON-out. Handler args arrive as untrusted JSON, so they enter as Record<string, unknown>
 // and the existing String()/Number()/cast coercions narrow them.
@@ -741,6 +742,10 @@ const TOOLS: Tool[] = [
     description: 'The MCP tests ITSELF — pure self-consistency, no external oracle: every catalog tool must resolve to a handler, and every zero-arg tool must RUN and be DETERMINISTIC (two calls recompute identically). A tool that reads live device state surfaces as non-deterministic, honestly. Folds to one self-test receipt. Returns {checks,passed,deterministic,failed,receipt}.',
     inputSchema: { type: 'object', properties: {} },
     run: () => mcpSelfTest() },
+  { name: 'uuidna_gate_status',
+    description: 'THE GATE PROVES ITSELF, live against the sealed spec: every served tools/call passes the conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — f the input-sanitize bit, d the output-sanitize bit, v the honesty bit (a fabricated theorem citation, slimGate) — and this tool recomputes the eight-state verdict table and REQUIRES it to equal both the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle): clean at exactly the no-violation state (theorem honesty_gate_passes_iff_all_sealed), one flag drains all (theorem conformance_failure_detects_intrusion). The runtime gate cannot drift from the ledger without matchesSealedSpec turning false. Also folds the whole registry to its ORDER-INVARIANT identity receipt (the same for any tool ordering). Returns {table,sealedTable,matchesSealedSpec,cleanStates,drainedStates,tools,registry,cites,receipt}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => gateSelfTest(TOOLS.map((t) => t.name)) },
   // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the
   //    sealed envelope INTO a uuid chain; RECEIVE = read the uuid chain then decrypt. One side per direction; the
   //    seven dimension streams each carry both ways; the wrong key never opens it (the pattern the 777 tests seal). ──
@@ -929,6 +934,7 @@ const INSTRUCTIONS = [
   'Every tool call returns a CHAINED receipt (receipt · seq · referer): you always hold tamper-evident provenance for your command, and the whole session folds to one tip you can recompute yourself. Nothing to trust — everything to recheck.',
   'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_trial (ONE answer: VERIFIED or UNVERIFIED, all else void), uuidna_run_ledger (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
   'Honest scope, always demarcated: receipts and content-addresses are NON-crypto FNV (integrity/routing, not secrecy, not a binding commitment); secrecy is ChaCha20-Poly1305 only; the quantum tools are EXACT classical simulation (no advantage), not hardware; nothing is infinite or unbreakable. A claim is either linked to a sealed theorem or refused. Integrity, not truth.',
+  'EVERY response is GATE-ENFORCED: each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) — input sanitized, output sanitized, no fabricated theorem citation — and carries its verdict (_meta.gate + a visible gate line). One violation drains the verdict, named. Recompute the gate against its sealed spec any time: uuidna_gate_status (theorem anti_fraud_check_deterministic).',
 ].join(' ')
 
 interface RpcParams { protocolVersion?: string; name?: string; arguments?: Record<string, unknown>; [k: string]: unknown }
@@ -970,9 +976,26 @@ function handle(msg: RpcMessage) {
     const t = TOOLS.find((x) => x.name === params?.name)
     if (!t) return err(id, -32602, 'unknown tool: ' + params?.name)
     const args = params?.arguments || {}
+    // THE GATED DISPATCH — the host (this named non-harmonic boundary) awaits the tool, then the PURE gate judges
+    // the settled run: cleanAudit(f,d,v), one flag drains, the verdict travels IN the response (_meta.gate + a
+    // visible verdict line) so an agent realises the enforcement per call, not by reading docs. A drained verdict
+    // ships the SANITIZED output flagged isError with the violating bits named — a diagnosis, never a silent pass.
     return Promise.resolve()
       .then(() => t.run(args))
-      .then((out) => withReceipt(id, receiptFor(t.name, args, out), [{ type: 'text', text: typeof out === 'string' ? out : JSON.stringify(out) }]))
+      .then((out) => {
+        const g = gateVerdict(t.name, args, out)
+        const rec = receiptFor(t.name, args, g.output)
+        const gateLine = `gate ${g.gate.clean ? 'CLEAN' : 'DRAINED'} f${g.gate.input} d${g.gate.output} v${g.gate.honesty} · ${g.gate.receipt}` + (g.gate.fabricated.length ? ' · fabricated: ' + g.gate.fabricated.join(', ') : '')
+        return ok(id, {
+          content: [
+            { type: 'text', text: typeof g.output === 'string' ? g.output : JSON.stringify(g.output) },
+            { type: 'text', text: gateLine },
+            { type: 'text', text: `receipt ${rec.receipt} · seq ${rec.seq} · referer ${rec.referer}` },
+          ],
+          _meta: { ...rec, gate: g.gate },
+          ...(g.gate.clean ? {} : { isError: true }),
+        })
+      })
       .catch((e) => withReceipt(id, receiptFor(t.name, args, { error: e?.message || String(e) }), [{ type: 'text', text: 'error: ' + (e?.message || String(e)) }], true))
   }
   if (id !== undefined) return err(id, -32601, 'method not found: ' + method)
@@ -1028,7 +1051,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^reason$/, 'Reasoning (in-house inference)', 'reason'],
   [/^slim_gate$/, 'The gate of all gates (theorems only)', 'gate'],
   [/^reflects$/, 'Reflection (systems ↔ theorems)', 'reflects'],
-  [/^(gate|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
+  [/^(gate|gate_status|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
   [/^quantum$/, 'Quantum simulation', 'quantum'],
   [/^bill$/, 'Billing & measure', 'billing'],
   [/^(tokens|cost|resources)$/, 'Billing & measure', 'measure'],
