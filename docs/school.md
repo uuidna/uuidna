@@ -195,6 +195,31 @@ node -e "const pipe = 2; console.log('pipe ends', pipe, '| glued', pipe - 2, '| 
 — two ends, zero after closure, χ = 0 held, χ = −2 paid. Whenever something keeps escaping — plasma, an exit
 code, a proof obligation — do not build a thicker wall. Find the open ends and glue them.
 
+## The winding lesson — closure all the way down
+
+The containment lesson taught that the torus holds because the path closes. The winding lesson looks closer: the
+*surface* that holds the plasma is itself woven from closed paths. A tokamak field line winds around the torus
+both ways at once — the safety factor q counts poloidal turns per toroidal turn — and when q is rational the line
+**closes on itself**: at q = 3/2 the turns meet exactly where 2·3 = 3·2 = 6, and gcd(3, 2) = 1 makes six the
+*first* meeting ([`safety_factor_winding_closes`](/theorem/safety_factor_winding_closes)). The same arithmetic
+the school has walked all semester — the pentagram closing because gcd(2, 5) = 1
+([`pentagram_step_coprime_five`](/theorem/pentagram_step_coprime_five)), the frame ring's strides returning
+([`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive)) — is the arithmetic holding a hundred
+million degrees in place: a generator coprime to its ring, walking until it comes home.
+
+And the winding carries a bound: wind too slowly and closure fails catastrophically — the external kink is stable
+only when q exceeds one ([`kink_needs_q_above_one`](/theorem/kink_needs_q_above_one)): q = 2 clears (1 < 2),
+q = 1 sits on the sawtooth edge (¬(1 < 1)). One turn per turn is the edge of confinement. **Practice:** find the
+first meeting yourself —
+
+```bash
+node -e "const gcd=(a,b)=>b?gcd(b,a%b):a; for (const [m,n] of [[3,2],[2,1],[4,2]]) console.log('q='+m+'/'+n, 'gcd', gcd(m,n), '— first closure at', m*n/gcd(m,n), 'turns')"
+```
+
+— q = 3/2 closes at 6, q = 2/1 at 2, and q = 4/2 is 2/1 in disguise (gcd 2 halves it). Whenever a walk comes
+home, look for the coprime pair underneath: the vortex on ℤ/9, the star on ℤ/5, the rosette on ℤ/7, and the field
+line on the torus are one lesson — **closure is arithmetic, and arithmetic is what holds.**
+
 ## The degree — seal a theorem, then walk the wave
 
 Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
