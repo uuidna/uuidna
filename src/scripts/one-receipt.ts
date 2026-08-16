@@ -193,6 +193,31 @@ export function migrate(): void {
   console.log(`✓ one-receipt migrate — ${touched} script(s) folded onto the api${left.length ? `; left for dry (nonstandard, needs a human): ${left.join(' ')}` : ''}. Re-run \`one-receipt dry\` to confirm, then \`npm run build\`.`)
 }
 
+// ── pipes: THE UNMASKED-GATE LAW — a sentinel written by a pipe is not a sentinel. `gate | tail` returns the
+// PIPE's exit code, so a dying gate reports green (bitten twice: grep -c in && chains; a broken build behind
+// `| tail -3` sealing two false WAVED=0). The law: a gate's exit code is captured RAW; no gate invocation may
+// flow into a pipe. This finder holds that line over the repo's own scripts, workflows, and package manifest. ──
+export function pipeGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const GATE = /(npm run (guard|next|lean|reconcile|build|test)|one-receipt\.js \w+)[^|&\n"']*\|(?!\|)/
+  const check = (rel: string) => {
+    const p = join(ROOT, rel)
+    if (!existsSync(p)) return
+    const lines = readFileSync(p, 'utf8').split('\n')
+    lines.forEach((line, i) => {
+      if (GATE.test(line))
+        gaps.push({ what: `${rel}:${i + 1} pipes a gate — its exit code is the pipe's, not the gate's`, fix: 'capture the exit raw: `gate > log 2>&1; echo EXIT=$?` and read the log after — never let a gate flow into a pipe' })
+    })
+  }
+  check('package.json')
+  for (const dir of ['src/scripts', '.github/workflows']) {
+    if (!existsSync(join(ROOT, dir))) continue
+    for (const e of readdirSync(join(ROOT, dir), { withFileTypes: true }))
+      if (!e.isDirectory() && (e.name.endsWith('.ts') || e.name.endsWith('.yml'))) check(dir + '/' + e.name)
+  }
+  return gaps
+}
+
 // ── re: THE REVERSE-ENGINEERING POSTURE — the two-layer trial, folded as its decidable half. Layer 1 (the
 // imprint transport) REVERSES BY DESIGN: the uuid IS the message — 115 payload bits placed into the 122 free bit
 // positions (128 minus RFC 4122's six, minus the 7-bit length header), so "reverse engineering" is picking the
@@ -542,6 +567,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'prose') { const r = proseGaps(); report('one-receipt prose', r.gaps, `all ${r.pages} pages walk to the ledger and teach only paths that exist.`) }
   else if (cmd === 'migrate') migrate()
   else if (cmd === 'seal') seal()
+  else if (cmd === 'pipes') report('one-receipt pipes', pipeGaps(), 'no gate flows into a pipe — every exit code is the gate\'s own.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
   else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))
@@ -550,5 +576,5 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | coherent | absence | re | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | coherent | absence | re | pipes | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }

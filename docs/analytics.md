@@ -2,7 +2,7 @@
 # uuidna — Advantage Metrics
 
 **Generated:** 2026-08-16
-**Data source:** Live ledger (1224 sealed theorems)
+**Data source:** Live ledger (1226 sealed theorems)
 
 ---
 
@@ -11,8 +11,8 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 1224 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 1224/1224 (100%) | Kernel-only proofs, recomputable offline |
+| **Theorems proven** | 1226 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 1226/1226 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 66 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 62 | Capability axes across the ledger |
 | **Verification cost** | ~1ms | O(1) seal check via spin --verify |
@@ -84,8 +84,8 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       1224
-Axiom-free (decide):  1224 (100.0%)
+Total theorems:       1226
+Axiom-free (decide):  1226 (100.0%)
 Principles:           66 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities

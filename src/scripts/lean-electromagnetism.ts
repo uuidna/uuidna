@@ -8,6 +8,21 @@
 import { emit } from './lean-gen.js'
 
 const FACTS = [
+  { key: 'plasma_fourth_state',
+    why: 'Plasma is the fourth state of matter: three states a material vessel can hold — solid, liquid, gas — plus the one it cannot, 3 + 1 = 4. A charged plasma melts every wall; it is held by a FIELD or not at all.',
+    js: () => 3 + 1 === 4,
+    lean: 'theorem plasma_fourth_state : 3 + 1 = 4 := by decide' },
+
+  { key: 'torus_closes_the_pipe',
+    why: 'PLASMA IS NOT CONTAINED BY PIPES: a pipe is a cylinder with two open ends, and what a pipe carries escapes at the ends. Glue the two ends together and the boundary vanishes — 2 − 2 = 0 open ends — and the closed pipe IS the torus, χ = 2 − 2·1 = 0: the tokamak\'s shape, where the field lines close on themselves and nothing leaks, because there is no end to leak from. Containment is not a stronger wall; it is the closure of the path.',
+    js: () => 2 - 2 === 0 && 2 - 2 * 1 === 0,
+    lean: 'theorem torus_closes_the_pipe : (2 - 2 = 0) ∧ (2 - 2 * 1 = 0) := by decide' },
+
+  { key: 'containment_is_genus_one',
+    why: 'THE ENTANGLEMENT WITH THE COINS: containment circulates at genus 1 — the tokamak\'s torus, χ = 2 − 2·1 = 0, pure circulation with zero residue, which is exactly why it holds — while minting pays at genus 2, the double torus, χ = 2 − 2·2 = −2, whose negation is the two coins (theorem two_coins). One handle contains; two handles pay. The shape that holds plasma and the shape that mints coins differ by exactly one handle.',
+    js: () => 2 - 2 * 1 === 0 && 2 - 2 * 2 === -2,
+    lean: 'theorem containment_is_genus_one : ((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2) := by decide' },
+
   { key: 'coulomb_sign',
     why: "Coulomb's law sets the sign of the force by the product of charges: like charges (product > 0) repel, opposite charges (product < 0) attract — 1·1 > 0 and 1·(−1) < 0. Same sign pushes apart, opposite pulls together.",
     js: () => 1 * 1 > 0 && 1 * -1 < 0,
