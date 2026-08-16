@@ -2,6 +2,9 @@
 
 def invB (a : Nat) : Bool := (List.range 9).any (fun e => (a * e) % 9 == 1)   -- a is a unit iff it has an inverse
 
+-- THE BOUNTY BOARD'S FIRST SEAL — the happy ending problem (Erdős–Szekeres, a $500 Erdős prize): the conjectured ES(n) = 2^(n−2) + 1 matches every computer-verified case — ES(4)=5, ES(5)=9, ES(6)=17 (Szekeres–Peters 2006). Sealed: 2²+1=5 ∧ 2³+1=9 ∧ 2⁴+1=17. HONEST SCOPE (the clay law): three cases is NOT the conjecture; the prize needs all n≥7, still OPEN. The decidable component, a receipt that the formula and the verified record agree.
+theorem happy_ending_verified_cases : (2 ^ 2 + 1 = 5) ∧ (2 ^ 3 + 1 = 9) ∧ (2 ^ 4 + 1 = 17) := by decide
+
 -- a is a unit (has an inverse mod 9) IFF gcd(a,9)=1 — the unit criterion, computed both ways
 theorem units_iff_invertible : (List.range 9).all (fun a => (invB a) == (Nat.gcd a 9 == 1)) := by decide
 

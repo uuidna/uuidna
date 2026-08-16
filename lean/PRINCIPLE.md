@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1237 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1250 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -29,7 +29,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 8. **Applied structure — the science pairs** — `lean/BioPhysics.lean` · **16** theorems
    blood, DNA, sound, chemistry, music, acid-base, heredity, colour — the algebra, demarcated
 
-9. **Self-discovered** — `lean/Discover.lean` · **14** theorems
+9. **Self-discovered** — `lean/Discover.lean` · **15** theorems
    facts derived by function: Lagrange, the unit criterion, idempotents
 
 10. **The quantum computer** — `lean/Quantum.lean` · **48** theorems
@@ -44,7 +44,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 13. **The physics infinities, made finite** — `lean/Infinity.lean` · **9** theorems
    the nasty divergences of physics — UV catastrophe, self-energy, the Landau pole, 1+2+3+…, the derivative 0/0, δ(0), the horizon, the 1/r singularity — each the finite object physics puts where the naive infinity was, exactly as dz(x)=10−x replaces x/0
 
-14. **The cipher & the strand** — `lean/Cipher.lean` · **18** theorems
+14. **The cipher & the strand** — `lean/Cipher.lean` · **25** theorems
    crypto ∩ DNA, honest by construction — base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR (why a step must rotate), a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128, not a break) — the shared algebra and its honest limits
 
 15. **The detectors, proven** — `lean/Audit.lean` · **7** theorems
@@ -131,7 +131,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 42. **The pentagram & the Fibonacci digits** — `lean/Pentagram.lean` · **13** theorems
    five-fold symmetry as decidable arithmetic — the pentagram is the star polygon {5/2}: stepping +2 mod 5 is coprime to 5, so it draws in a SINGLE stroke visiting all five points, closing after one full turn, its five point-angles summing to 180°; and the single-digit (mod 9) Fibonacci — the digital root — is periodic, closing into a 24-cycle (its Pisano period), the SAME recurrence read through the pentagram (mod 5, period 20) and the rosette (mod 7, period 16) — one sequence, three moduli, three finite cycles; finite periodic single digits, NOT a claim about the irrational golden ratio the pentagram encodes
 
-43. **The chessboard** — `lean/Chess.lean` · **8** theorems
+43. **The chessboard** — `lean/Chess.lean` · **13** theorems
    chess geometry as decidable arithmetic — the board is 8×8 = 64 = 2⁶ squares in two colours of 32 each ((rank+file) parity); the knight leaps 1+2=3 (odd), so it flips colour every move and a closed tour is even; the rook reaches 7+7=14 on an open board; the bishop preserves colour, forever closed out of half the board; and the queen is rook+bishop, 7+7+7=21 from a corner — board arithmetic and parity, NOT a solved game or an engine
 
 44. **The chess horizon** — `lean/Chessgames.lean` · **24** theorems

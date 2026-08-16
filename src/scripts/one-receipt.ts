@@ -195,6 +195,63 @@ export function migrate(): void {
   console.log(`✓ one-receipt migrate — ${touched} script(s) folded onto the api${left.length ? `; left for dry (nonstandard, needs a human): ${left.join(' ')}` : ''}. Re-run \`one-receipt dry\` to confirm, then \`npm run build\`.`)
 }
 
+// ── seo: THE DISCOVERABILITY AUDIT — the zero-click finding (pages rank 4-9 but titles do not promise the answer)
+// made a checked invariant: every built page must carry a title, a meta description in the click-worthy length band
+// (50-160 chars — Google truncates outside it), a canonical link, and structured data; and no two pages may share a
+// description (the duplicate-content penalty). Honest SEO: describe what is sealed, never cloak or stuff. ──
+export function seoGaps(): { gaps: Gap[]; pages: number } {
+  const gaps: Gap[] = []
+  const dist = join(ROOT, 'docs/.vitepress/dist')
+  if (!existsSync(dist)) return { gaps: [{ what: 'no built site to audit', fix: 'run `npm run docs:build` first' }], pages: 0 }
+  const descriptions = new Map<string, string>()
+  let pages = 0
+  const walk = (d: string) => {
+    for (const e of readdirSync(d, { withFileTypes: true })) {
+      const p = join(d, e.name)
+      if (e.isDirectory()) { walk(p); continue }
+      if (!e.name.endsWith('.html')) continue
+      const html = readFileSync(p, 'utf8')
+      // skip redirect/stub pages (no <h1> content) — only audit real content pages
+      if (!/<h1[ >]/.test(html)) continue
+      pages++
+      const rel = p.slice(dist.length + 1)
+      const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || ''
+      const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || ''
+      if (!title.trim()) gaps.push({ what: `${rel}: no <title>`, fix: 'add a frontmatter title — the search result\'s headline' })
+      if (!desc.trim()) gaps.push({ what: `${rel}: no meta description — the search snippet is empty`, fix: 'add a frontmatter description that promises what the page answers (transformPageData supplies it for dynamic pages)' })
+      else if (desc.length < 50 || desc.length > 160) gaps.push({ what: `${rel}: description ${desc.length} chars — outside the click-worthy band (50-160), Google truncates`, fix: 'rewrite the frontmatter description to 50-160 chars that state the answer the page holds' })
+      if (!/rel="canonical"/.test(html)) gaps.push({ what: `${rel}: no canonical link`, fix: 'transformPageData folds every serving host to one canonical — ensure the page passes through it' })
+      if (!/ld\+json/.test(html)) gaps.push({ what: `${rel}: no structured data (JSON-LD)`, fix: 'infuse schema.org via the quantum SEO layer' })
+      if (desc.trim()) { const prev = descriptions.get(desc); if (prev) gaps.push({ what: `${rel}: shares its description with ${prev} — duplicate-content SEO penalty`, fix: 'give each page a distinct description of its own subject' }); else descriptions.set(desc, rel) }
+    }
+  }
+  walk(dist)
+  return { gaps, pages }
+}
+
+// ── crypto: THE COVERAGE MATRIX — every cryptographic operation is covered in BOTH directions, verified by
+// round-trip, or its irreversibility is named and its forward direction is deterministic. A reversible primitive
+// whose inverse does not invert, or a one-way primitive that is not deterministic, is a gap. "All combinations,
+// all directions" made an executable invariant instead of a claim. ──
+export async function cryptoGaps(): Promise<Gap[]> {
+  const gaps: Gap[] = []
+  const dist = join(ROOT, 'dist')
+  if (!existsSync(join(dist, 'sha256.js'))) return [{ what: 'no built crypto to audit', fix: 'npm run build' }]
+  const enc = new TextEncoder()
+  const sha = await import(join(dist, 'sha256.js'))
+  const im = await import(join(dist, 'imprint.js'))
+  const cr = await import(join(dist, 'crypt.js'))
+  const eq = (a: Uint8Array, b: Uint8Array) => a.length === b.length && a.every((x, i) => x === b[i])
+  // reversible primitives — the inverse must actually invert (both directions)
+  try { const sealed = cr.encrypt('the quick brown fox', 'pass', 7); if (cr.decrypt(sealed, 'pass') !== 'the quick brown fox') gaps.push({ what: 'crypt: decrypt does not invert encrypt', fix: 'the AEAD round-trip is broken — fix src/crypt.ts so decrypt(encrypt(m)) = m' }) } catch (e) { gaps.push({ what: 'crypt: encrypt/decrypt threw — ' + (e as Error).message.slice(0, 40), fix: 'restore the reversible direction in src/crypt.ts' }) }
+  try { const chain = im.imprintTextChain('attack at dawn'); if (im.readImprintTextChain(chain) !== 'attack at dawn') gaps.push({ what: 'imprint: readImprintTextChain does not invert imprintTextChain', fix: 'the carrier codec is not bijective — fix src/imprint.ts' }) } catch (e) { gaps.push({ what: 'imprint: carrier threw — ' + (e as Error).message.slice(0, 40), fix: 'restore the reversible carrier in src/imprint.ts' }) }
+  // one-way primitives — no inverse by design, but the FORWARD direction must be deterministic (same in → same out)
+  try { const a = sha.sha256(enc.encode('abc')), b = sha.sha256(enc.encode('abc')); if (!eq(a, b)) gaps.push({ what: 'sha256: not deterministic', fix: 'a hash must be a pure function — fix src/sha256.js' }) } catch (e) { gaps.push({ what: 'sha256 threw — ' + (e as Error).message.slice(0, 40), fix: 'restore the forward hash' }) }
+  try { const k = enc.encode('key'), a = sha.hmacSha256(k, enc.encode('m')), b = sha.hmacSha256(k, enc.encode('m')); if (!eq(a, b)) gaps.push({ what: 'hmac: not deterministic (verify = recompute is impossible)', fix: 'HMAC must be pure — fix src/sha256.js' }) } catch (e) { gaps.push({ what: 'hmac threw — ' + (e as Error).message.slice(0, 40), fix: 'restore hmac' }) }
+  try { const s = enc.encode('salt'), a = sha.pbkdf2Sha256(enc.encode('pw'), s, 1000, 32), b = sha.pbkdf2Sha256(enc.encode('pw'), s, 1000, 32); if (!eq(a, b)) gaps.push({ what: 'pbkdf2: not deterministic (a decrypt could not re-derive the key)', fix: 'PBKDF2 must be pure — fix src/sha256.js' }) } catch (e) { gaps.push({ what: 'pbkdf2 threw — ' + (e as Error).message.slice(0, 40), fix: 'restore pbkdf2' }) }
+  return gaps
+}
+
 // ── pipes: THE UNMASKED-GATE LAW — a sentinel written by a pipe is not a sentinel. `gate | tail` returns the
 // PIPE's exit code, so a dying gate reports green (bitten twice: grep -c in && chains; a broken build behind
 // `| tail -3` sealing two false WAVED=0). The law: a gate's exit code is captured RAW; no gate invocation may
@@ -571,6 +628,8 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'prose') { const r = proseGaps(); report('one-receipt prose', r.gaps, `all ${r.pages} pages walk to the ledger and teach only paths that exist.`) }
   else if (cmd === 'migrate') migrate()
   else if (cmd === 'seal') seal()
+  else if (cmd === 'seo') { const r = seoGaps(); report('one-receipt seo', r.gaps, `${r.pages} content pages — every one titled, described in the click band, canonical, and structured, no duplicate snippets.`) }
+  else if (cmd === 'crypto') cryptoGaps().then((g) => report('one-receipt crypto', g, 'every cryptographic operation covered in both directions — reversibles invert, one-ways are deterministic.'))
   else if (cmd === 'pipes') report('one-receipt pipes', pipeGaps(), 'no gate flows into a pipe — every exit code is the gate\'s own.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
@@ -580,5 +639,5 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | coherent | absence | re | pipes | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | seo | coherent | absence | re | pipes | crypto | migrate | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }
