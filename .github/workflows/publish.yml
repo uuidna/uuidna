@@ -22,6 +22,11 @@ on:
     tags: ['v*']
   workflow_dispatch:
 
+# One tag publishes at a time — a second calendar tick queues rather than interleaving npm/release/Zenodo writes.
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   # THE EDITORIAL DESK — every editorial skill and procedure runs BEFORE any publication, automatically: the
   # provenance audit (no fabricated citation on any prose surface), the citation ledger, the prose receipt, the
@@ -109,7 +114,13 @@ jobs:
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
             gh release upload "$GITHUB_REF_NAME" uuidna.mcpb --clobber || echo "::warning::release is immutable — uuidna.mcpb not attached (repack anytime: npx @anthropic-ai/mcpb pack extension/)"
           else
-            gh release create "$GITHUB_REF_NAME" --generate-notes uuidna.mcpb
+            # Born carrying the day's news: immutable releases take assets at birth only, so the extension AND
+            # the trials' returns (the findings fold, the prose trials) ship in the create itself when present.
+            ASSETS="uuidna.mcpb"
+            for NEWS in quantum-fold.json prose-trials.json; do
+              test -f "$NEWS" && ASSETS="$ASSETS $NEWS"
+            done
+            gh release create "$GITHUB_REF_NAME" --generate-notes $ASSETS
           fi
 
   # The archive of record: every audit-passing release is deposited to Zenodo by API (ZENODO_ACCESS_TOKEN secret) —
@@ -126,7 +137,8 @@ jobs:
       - name: Deposit the release to Zenodo (new version of the standing record, else fresh)
         env:
           ZENODO_TOKEN: ${{ secrets.ZENODO_ACCESS_TOKEN }}
-          CONCEPT_RECORD: "21787144"
+          CONCEPT_RECORD: "21787144" # the standing record (first version's id — the newversion handle)
+          CONCEPT_CHAIN: "21787143"  # the concept id every published version must land on — the citation trail
         run: |
           set -euo pipefail
           test -n "$ZENODO_TOKEN" || { echo "::error::ZENODO_ACCESS_TOKEN secret is empty"; exit 1; }
@@ -154,21 +166,19 @@ jobs:
           git archive --format=tar.gz -o "$TARBALL" "$GITHUB_REF_NAME"
           shasum -a 256 "$TARBALL"
 
-          # Try a NEW VERSION of the standing record; fall back to a FRESH deposition if the token does not own it.
+          # THE CHAIN LAW: one concept lineage, forever — a new version of the standing record, or NOTHING.
+          # The old fallback ("fresh deposition when the token does not own it") would silently mint a NEW
+          # concept chain: the double-mint class, observed live 2026-08-16 (stray concept 21970356 born beside
+          # the standing 21787143 — a permanent duplicate, unrecallable). A split chain is worse than a missed
+          # deposit: the deposit can be retried, the chain cannot be rejoined. Refused by name.
           DRAFT=$(curl -sf -X POST -H "$AUTH" "https://zenodo.org/api/deposit/depositions/$CONCEPT_RECORD/actions/newversion" | jq -r '.links.latest_draft // empty' || true)
-          if [ -n "$DRAFT" ]; then
-            DEP=$(curl -sf -H "$AUTH" "$DRAFT")
-            echo "versioning the standing record → draft $(echo "$DEP" | jq -r '.id')"
-            # a new version inherits the old files — clear them so the archive is exactly this tag
-            for FID in $(echo "$DEP" | jq -r '.files[]?.id'); do
-              curl -sf -X DELETE -H "$AUTH" "$(echo "$DEP" | jq -r '.links.self')/files/$FID" || true
-            done
-          else
-            echo "token does not own record $CONCEPT_RECORD — creating a fresh deposition"
-            DEP=$(curl -sf -X POST -H "$AUTH" -H "Content-Type: application/json" -d '{}' "https://zenodo.org/api/deposit/depositions")
-            DRAFT=$(echo "$DEP" | jq -r '.links.self')
-            DEP=$(curl -sf -H "$AUTH" "$DRAFT")
-          fi
+          test -n "$DRAFT" || { echo "::error::the token cannot version standing record $CONCEPT_RECORD — refusing a fresh deposition (it would split the concept chain). Fix token ownership and re-run; the chain is the citation trail."; exit 1; }
+          DEP=$(curl -sf -H "$AUTH" "$DRAFT")
+          echo "versioning the standing record → draft $(echo "$DEP" | jq -r '.id')"
+          # a new version inherits the old files — clear them so the archive is exactly this tag
+          for FID in $(echo "$DEP" | jq -r '.files[]?.id'); do
+            curl -sf -X DELETE -H "$AUTH" "$(echo "$DEP" | jq -r '.links.self')/files/$FID" || true
+          done
           SELF=$(echo "$DEP" | jq -r '.links.self')
           BUCKET=$(echo "$DEP" | jq -r '.links.bucket')
 
@@ -181,4 +191,16 @@ jobs:
           DOI=$(echo "$PUB" | jq -r '.doi // .metadata.prereserve_doi.doi // "unknown"')
           echo "::notice::Zenodo published — DOI $DOI"
           echo "ZENODO_DOI=$DOI" >> "$GITHUB_ENV"
+
+          # VERIFY the landing: the published record must sit on the standing concept chain — asserted, not assumed.
+          CONCEPT=$(echo "$PUB" | jq -r '.conceptrecid // empty')
+          test "$CONCEPT" = "$CONCEPT_CHAIN" || { echo "::error::the DOI landed on concept $CONCEPT, not the standing chain $CONCEPT_CHAIN — the chain split despite the law; investigate before the next tick"; exit 1; }
+          echo "chain law holds: $DOI on concept $CONCEPT_CHAIN"
+
+          # THE DOUBLE-MINT FINDER, FOLDED — the query that caught the 2026-08-16 duplicate becomes the guard.
+          # Ask the public API whether any OTHER concept chain now carries a uuidna record; a hit means the
+          # GitHub↔Zenodo sync toggle is still on, and every future release would mint a permanent duplicate.
+          sleep 10
+          STRAYS=$(curl -s "https://zenodo.org/api/records?q=uuidna&size=25" | jq -r --arg c "$CONCEPT_CHAIN" '[.hits.hits[] | select(.metadata.title | startswith("uuidna")) | .conceptrecid | tostring] | unique | map(select(. != $c)) | join(" ")' || true)
+          test -z "$STRAYS" || echo "::warning::stray uuidna concept chain(s) on Zenodo: $STRAYS — turn the GitHub sync off (zenodo.org/account/settings/github) or every release mints an unrecallable duplicate"
 

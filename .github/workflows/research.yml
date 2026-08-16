@@ -96,6 +96,12 @@ jobs:
           git config user.name "uuidna-research"
           git config user.email "research@uuidna.com"
           npm run reconcile
+      # The odometer never returns — so nothing uncertified may burn a slot. v0.1.2, v0.2.0 and v0.4.0 each
+      # spent a version on a tag whose audit then failed; the calendar tags AFTER the complete audit passes,
+      # so every tick it mints is already certified (publish.yml re-runs the same audit as prepublishOnly —
+      # the gate is cheap to run twice and a burned slot is forever).
+      - name: CERTIFY before the tick — the complete audit, or no tag
+        run: npm run audit
       - name: TICK — one step of the odometer, the commit, the tag
         id: tick
         run: |
