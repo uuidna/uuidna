@@ -16,6 +16,7 @@ import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { sanitizeInput, sanitizeValue } from './sanitize.js'
 import { slimGate } from './slimgate.js'
+import { theoremByKey } from './theorems/index.js'
 
 /** The sealed theorems this pipeline implements — the spec is in the ledger, the gate recomputes it. */
 export const GATE_THEOREMS = [
@@ -68,6 +69,27 @@ export function gateVerdict(op: string, rawInput: unknown, rawOutput: unknown): 
 /** registryReceipt — the server's identity: the ORDER-INVARIANT fold of every tool name's address. The same
  *  receipt for any tool ordering (the quantum registry); adding, removing, or renaming one tool moves it. */
 export const registryReceipt = (names: readonly string[]): string => merkleGravity(names.map((n) => toUuid(n)))
+
+// ── THE IMMEDIATE DEPOSIT — contribute first, then take, enforced by the PROTOCOL, not by discipline ─────────────
+// Every judged call IS a two-coin deposit to the captain wallet: the deposit statement cites the sealed coin
+// theorems (captain_commission_two_coins: 110 − 108 = 2; two_coins), its id is the statement's own content-address
+// (deterministic — the same call always deposits to the same id, exactly the /trials mechanic), and the deposit
+// receipt folds the call, the gate verdict, and the sealed theorem addresses order-invariantly. An agent does not
+// opt in: its very FIRST tools/call already carries the deposit in the response — the unified economy (reconcile
+// cost + captain commission + governance weight, one coin) settled at the wire. Integrity, not truth: the deposit
+// is a recomputable RECORD of judged work, not a payment rail and not a token.
+export interface CoinDeposit { coins: 2; statement: string; id: string; theorems: string[]; receipt: string }
+
+/** depositCoins — mint the call's two-coin deposit from its op and its gate receipt. Pure and deterministic:
+ *  the same judged call always deposits the same id. Cites only theorems actually sealed in the ledger. */
+export function depositCoins(op: string, gateReceipt: string): CoinDeposit {
+  const ledger = theoremByKey()
+  const cited = ['captain_commission_two_coins', 'two_coins'].filter((k) => ledger.has(k))
+  const statement = `Two coins deposited by the call ${op}: the work judged by the sealed gate (${gateReceipt}), proven by ${cited.map((k) => 'theorem ' + k).join(' and ')}.`
+  const id = toUuid(statement)
+  const receipt = merkleGravity([toUuid(op), gateReceipt, toUuid('coins:2'), ...cited.map((k) => ledger.get(k)!.address)])
+  return { coins: 2, statement, id, theorems: cited, receipt }
+}
 
 export interface GateSelfTest {
   table: number[]            // the live verdict table over the eight (f,d,v) states

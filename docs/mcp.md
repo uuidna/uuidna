@@ -35,6 +35,12 @@ The gate proves itself against the sealed spec: the eight-state verdict table re
 order-invariant identity `082de2b2-5be1-8ada-ba83-dc06163f4e4e` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
+**And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
+each judged call mints its deterministic **two-coin deposit** (`_meta.deposit` plus a visible deposit line), the
+id the content-address of its own deposit statement, citing
+[`captain_commission_two_coins`](/theorem/captain_commission_two_coins) and [`two_coins`](/theorem/two_coins).
+An agent's very first `tools/call` has already contributed — there is no ungated, undeposited path.
+
 Recompute the proof against production yourself:
 
 ```bash

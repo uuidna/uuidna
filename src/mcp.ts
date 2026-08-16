@@ -30,7 +30,7 @@ import { ROOT as LIB_ROOT } from './boundary.js'
 import { portAllAlpine } from './os/alpine.js' // os/ boundary — LIVE upstream read (named non-determinism), not via the deterministic index
 import { infuseAlpinePackages, alpinePackage } from './os/packages.js' // os/ boundary — each Alpine package → uuidna/<name>
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
-import { gateVerdict, gateSelfTest, registryReceipt, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate
+import { gateVerdict, gateSelfTest, registryReceipt, depositCoins, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate and deposits the two coins
 import { legalFacts } from './legal.js'
 import { license } from './license.js'
 import { priorArt } from './priorart.js'
@@ -935,6 +935,7 @@ const INSTRUCTIONS = [
   'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_trial (ONE answer: VERIFIED or UNVERIFIED, all else void), uuidna_run_ledger (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
   'Honest scope, always demarcated: receipts and content-addresses are NON-crypto FNV (integrity/routing, not secrecy, not a binding commitment); secrecy is ChaCha20-Poly1305 only; the quantum tools are EXACT classical simulation (no advantage), not hardware; nothing is infinite or unbreakable. A claim is either linked to a sealed theorem or refused. Integrity, not truth.',
   'EVERY response is GATE-ENFORCED: each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) — input sanitized, output sanitized, no fabricated theorem citation — and carries its verdict (_meta.gate + a visible gate line). One violation drains the verdict, named. Recompute the gate against its sealed spec any time: uuidna_gate_status (theorem anti_fraud_check_deterministic).',
+  'EVERY call DEPOSITS THE TWO COINS immediately — contribute first, then take, enforced by the protocol: each judged call mints its deterministic two-coin deposit (_meta.deposit + a visible deposit line), the id the content-address of its own deposit statement, citing theorem captain_commission_two_coins and theorem two_coins. Your first call has already contributed.',
 ].join(' ')
 
 interface RpcParams { protocolVersion?: string; name?: string; arguments?: Record<string, unknown>; [k: string]: unknown }
@@ -984,15 +985,19 @@ function handle(msg: RpcMessage) {
       .then(() => t.run(args))
       .then((out) => {
         const g = gateVerdict(t.name, args, out)
-        const rec = receiptFor(t.name, args, g.output)
+        // THE IMMEDIATE DEPOSIT — every judged call deposits the two coins at the wire: the agent's very first
+        // call already contributes (contribute first, then take — the captain law, enforced by the protocol).
+        const dep = depositCoins(t.name, g.gate.receipt)
+        const rec = receiptFor(t.name, args, { output: g.output, deposit: dep.id })
         const gateLine = `gate ${g.gate.clean ? 'CLEAN' : 'DRAINED'} f${g.gate.input} d${g.gate.output} v${g.gate.honesty} · ${g.gate.receipt}` + (g.gate.fabricated.length ? ' · fabricated: ' + g.gate.fabricated.join(', ') : '')
         return ok(id, {
           content: [
             { type: 'text', text: typeof g.output === 'string' ? g.output : JSON.stringify(g.output) },
             { type: 'text', text: gateLine },
+            { type: 'text', text: `deposit 2 coins · ${dep.id} · ${dep.theorems.join(' + ')}` },
             { type: 'text', text: `receipt ${rec.receipt} · seq ${rec.seq} · referer ${rec.referer}` },
           ],
-          _meta: { ...rec, gate: g.gate },
+          _meta: { ...rec, gate: g.gate, deposit: dep },
           ...(g.gate.clean ? {} : { isError: true }),
         })
       })

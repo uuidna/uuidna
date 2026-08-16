@@ -100,6 +100,12 @@ ${GATE.cleanStates} clean state, ${GATE.drainedStates} drained), and the ${GATE.
 order-invariant identity \`${GATE.registry}\` (the hosted subset serves the same gate over its own registry).
 Standing on: ${GATE.cites.map((k) => `[\`${k}\`](/theorem/${k})`).join(' · ')}.
 
+**And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
+each judged call mints its deterministic **two-coin deposit** (\`_meta.deposit\` plus a visible deposit line), the
+id the content-address of its own deposit statement, citing
+[\`captain_commission_two_coins\`](/theorem/captain_commission_two_coins) and [\`two_coins\`](/theorem/two_coins).
+An agent's very first \`tools/call\` has already contributed — there is no ungated, undeposited path.
+
 Recompute the proof against production yourself:
 
 \`\`\`bash

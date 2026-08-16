@@ -19,7 +19,7 @@ import { imageProvenance, verifyImageProvenance } from './provenance.js'
 import { quantumCubeChallenge, verifyQuantumCube } from './cube.js'
 // The gated dispatch core — pure and Workers-safe (address/gravity/sanitize/slimgate, no node built-ins): the SAME
 // conjunction gate the stdio server enforces, so the edge and the local surface serve ONE law (DRY, sealed spec).
-import { gateVerdict, gateSelfTest, GATE_THEOREMS } from './gate-engine.js'
+import { gateVerdict, gateSelfTest, depositCoins, GATE_THEOREMS } from './gate-engine.js'
 
 const PROTOCOL_VERSION = '2025-06-18'          // the MCP protocol revision this endpoint speaks
 const SERVER = { name: 'uuidna', version: '0.1.1' }
@@ -76,7 +76,7 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
   const method = msg?.method
   const params = msg?.params ?? {}
   if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: SERVER,
-    instructions: 'uuidna hosted MCP — the Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED: each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) — input sanitized, output sanitized, no fabricated theorem citation — and carries its verdict (_meta.gate + a visible gate line); one violation drains, named. Recompute the gate against its sealed spec: uuidna_gate_status (theorem anti_fraud_check_deterministic). Integrity, not truth.' })
+    instructions: 'uuidna hosted MCP — the Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED: each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) — input sanitized, output sanitized, no fabricated theorem citation — and carries its verdict (_meta.gate + a visible gate line); one violation drains, named. EVERY call DEPOSITS THE TWO COINS immediately (contribute first, then take — _meta.deposit, the id a deterministic content-address citing theorem captain_commission_two_coins and theorem two_coins): your first call has already contributed. Recompute the gate against its sealed spec: uuidna_gate_status (theorem anti_fraud_check_deterministic). Integrity, not truth.' })
   if (method === 'ping') return rpc(id, {})
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
   if (method === 'tools/list') return rpc(id, { tools: listing() })
@@ -90,10 +90,12 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
     try {
       const out = tool.run((params.arguments as Record<string, unknown>) ?? {})
       const g = gateVerdict(String(name), (params.arguments as Record<string, unknown>) ?? {}, out)
+      // THE IMMEDIATE DEPOSIT — the edge deposits too: the agent's first hosted call already contributes.
+      const dep = depositCoins(String(name), g.gate.receipt)
       const gateLine = `gate ${g.gate.clean ? 'CLEAN' : 'DRAINED'} f${g.gate.input} d${g.gate.output} v${g.gate.honesty} · ${g.gate.receipt}` + (g.gate.fabricated.length ? ' · fabricated: ' + g.gate.fabricated.join(', ') : '')
       return rpc(id, {
-        content: [{ type: 'text', text: typeof g.output === 'string' ? g.output : JSON.stringify(g.output) }, { type: 'text', text: gateLine }],
-        _meta: { gate: g.gate },
+        content: [{ type: 'text', text: typeof g.output === 'string' ? g.output : JSON.stringify(g.output) }, { type: 'text', text: gateLine }, { type: 'text', text: `deposit 2 coins · ${dep.id} · ${dep.theorems.join(' + ')}` }],
+        _meta: { gate: g.gate, deposit: dep },
         ...(g.gate.clean ? {} : { isError: true }),
       })
     } catch (e) {
