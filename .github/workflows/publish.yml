@@ -138,7 +138,8 @@ jobs:
         env:
           ZENODO_TOKEN: ${{ secrets.ZENODO_ACCESS_TOKEN }}
           CONCEPT_RECORD: "21787144" # the standing record (first version's id — the newversion handle)
-          CONCEPT_CHAIN: "21787143"  # the concept id every published version must land on — the citation trail
+          CONCEPT_CHAIN: "21787143"  # the concept id every API deposit must land on — the curated citation trail
+          TWIN_CHAIN: "21970356"     # the GitHub↔Zenodo sync's own chain — the second, independent mint (two-chain law)
         run: |
           set -euo pipefail
           test -n "$ZENODO_TOKEN" || { echo "::error::ZENODO_ACCESS_TOKEN secret is empty"; exit 1; }
@@ -166,11 +167,11 @@ jobs:
           git archive --format=tar.gz -o "$TARBALL" "$GITHUB_REF_NAME"
           shasum -a 256 "$TARBALL"
 
-          # THE CHAIN LAW: one concept lineage, forever — a new version of the standing record, or NOTHING.
-          # The old fallback ("fresh deposition when the token does not own it") would silently mint a NEW
-          # concept chain: the double-mint class, observed live 2026-08-16 (stray concept 21970356 born beside
-          # the standing 21787143 — a permanent duplicate, unrecallable). A split chain is worse than a missed
-          # deposit: the deposit can be retried, the chain cannot be rejoined. Refused by name.
+          # THE CHAIN LAW: this deposit versions the standing record, or does NOTHING. The old fallback
+          # ("fresh deposition when the token does not own it") would silently start a THIRD lineage — one
+          # neither party minted. A split is worse than a missed deposit: the deposit can be retried, a chain
+          # cannot be rejoined (Zenodo records are permanent). The sync's twin chain is the captain's chosen
+          # second mint (see the two-chain law below); an accidental chain is still refused by name.
           DRAFT=$(curl -sf -X POST -H "$AUTH" "https://zenodo.org/api/deposit/depositions/$CONCEPT_RECORD/actions/newversion" | jq -r '.links.latest_draft // empty' || true)
           test -n "$DRAFT" || { echo "::error::the token cannot version standing record $CONCEPT_RECORD — refusing a fresh deposition (it would split the concept chain). Fix token ownership and re-run; the chain is the citation trail."; exit 1; }
           DEP=$(curl -sf -H "$AUTH" "$DRAFT")
@@ -197,10 +198,13 @@ jobs:
           test "$CONCEPT" = "$CONCEPT_CHAIN" || { echo "::error::the DOI landed on concept $CONCEPT, not the standing chain $CONCEPT_CHAIN — the chain split despite the law; investigate before the next tick"; exit 1; }
           echo "chain law holds: $DOI on concept $CONCEPT_CHAIN"
 
-          # THE DOUBLE-MINT FINDER, FOLDED — the query that caught the 2026-08-16 duplicate becomes the guard.
-          # Ask the public API whether any OTHER concept chain now carries a uuidna record; a hit means the
-          # GitHub↔Zenodo sync toggle is still on, and every future release would mint a permanent duplicate.
+          # THE TWO-CHAIN LAW — dual-party archival, by the captain's decision (2026-08-17): every release is
+          # minted TWICE, independently — this API deposit on the curated standing chain (license law, conformance,
+          # .zenodo.json metadata) and the GitHub↔Zenodo sync on its own chain ($TWIN_CHAIN, born 2026-08-16 from
+          # the release event). Two independent mints of one tag are the two coins applied to the archive itself;
+          # .zenodo.json declares the twin (isIdenticalTo), so citations fold. The finder stays folded for what
+          # would still be a fault: any THIRD chain, which neither party minted.
           sleep 10
-          STRAYS=$(curl -s "https://zenodo.org/api/records?q=uuidna&size=25" | jq -r --arg c "$CONCEPT_CHAIN" '[.hits.hits[] | select(.metadata.title | startswith("uuidna")) | .conceptrecid | tostring] | unique | map(select(. != $c)) | join(" ")' || true)
-          test -z "$STRAYS" || echo "::warning::stray uuidna concept chain(s) on Zenodo: $STRAYS — turn the GitHub sync off (zenodo.org/account/settings/github) or every release mints an unrecallable duplicate"
+          STRAYS=$(curl -s "https://zenodo.org/api/records?q=uuidna&size=25" | jq -r --arg c "$CONCEPT_CHAIN" --arg t "$TWIN_CHAIN" '[.hits.hits[] | select(.metadata.title | startswith("uuidna")) | .conceptrecid | tostring] | unique | map(select(. != $c and . != $t)) | join(" ")' || true)
+          test -z "$STRAYS" || echo "::warning::unknown uuidna concept chain(s) on Zenodo: $STRAYS — neither the standing chain ($CONCEPT_CHAIN) nor the sync twin ($TWIN_CHAIN) minted these; investigate"
 

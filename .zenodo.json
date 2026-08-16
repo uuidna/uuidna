@@ -31,6 +31,7 @@
     { "identifier": "https://www.npmjs.com/package/@uuidna/uuidna", "relation": "isIdenticalTo", "resource_type": "software" },
     { "identifier": "https://uuidna.com", "relation": "isDocumentedBy", "resource_type": "publication-softwaredocumentation" },
     { "identifier": "10.5281/zenodo.21787144", "relation": "references", "resource_type": "publication" },
-    { "identifier": "10.1038/s41586-026-10846-4", "relation": "references", "resource_type": "publication-article" }
+    { "identifier": "10.1038/s41586-026-10846-4", "relation": "references", "resource_type": "publication-article" },
+    { "identifier": "10.5281/zenodo.21970356", "relation": "isIdenticalTo", "resource_type": "software" }
   ]
 }
