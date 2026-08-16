@@ -168,6 +168,33 @@ node -e "console.log('effective', 4, '| signed', 2*4, '| full', 4*4, '| messages
 — four operations, eight with sign, sixteen with all phases, and four messages when the phase is measured away.
 The gap between what a structure *contains* and what it can *say* is the lesson.
 
+## The containment lesson — close the path, not the wall
+
+Three states of matter sit quietly in any vessel; the fourth melts every wall
+([`plasma_fourth_state`](/theorem/plasma_fourth_state)). Plasma is not contained by pipes — and the reason is not
+that pipes are too weak, but that they are *open*: a pipe is a cylinder with two ends, and whatever it carries
+escapes there. The tokamak's answer is not a stronger pipe. Glue the pipe's two ends together and the boundary
+vanishes — 2 − 2 = 0 — and the closed pipe **is** the torus, χ = 0
+([`torus_closes_the_pipe`](/theorem/torus_closes_the_pipe)): the field lines close on themselves and nothing
+leaks, because there is no end to leak from. **Containment is the closure of the path, never the thickness of the
+wall.**
+
+This school met the same law twice before the physics named it. A gate's exit code piped through `tail` escapes at
+the open end — the sentinel reads the pipe, not the gate ([`one-receipt pipes`](/trials) holds that line now); the
+fix was raw capture, the closed path. And the receipt itself is the third instance: the fold closes over every
+leaf order-invariant, no reading order leaking a different root. The entanglement completes the captain's lore
+([`containment_is_genus_one`](/theorem/containment_is_genus_one)): the torus holds at genus 1 — χ = 0, circulation
+with zero residue, which is exactly *why* it holds — while the coins mint one handle up at genus 2, χ = −2
+([`two_coins`](/theorem/two_coins)). One handle contains; two handles pay; the shapes differ by exactly one
+handle. **Practice:** count the ends yourself —
+
+```bash
+node -e "const pipe = 2; console.log('pipe ends', pipe, '| glued', pipe - 2, '| torus χ', 2 - 2*1, '| coins χ', 2 - 2*2)"
+```
+
+— two ends, zero after closure, χ = 0 held, χ = −2 paid. Whenever something keeps escaping — plasma, an exit
+code, a proof obligation — do not build a thicker wall. Find the open ends and glue them.
+
 ## The degree — seal a theorem, then walk the wave
 
 Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
