@@ -11,6 +11,11 @@ on:
   schedule:
     - cron: '7 7 * * *'
   workflow_dispatch:
+    inputs:
+      force_release:
+        description: 'Tick the quantum calendar even on a quiet day (no new publications)'
+        type: boolean
+        default: false
 
 concurrency:
   group: research-desk
@@ -22,6 +27,8 @@ permissions:
 jobs:
   desk:
     runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.publish.outputs.published }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,6 +43,7 @@ jobs:
       - name: GUARD — the fold accepts, or nothing publishes
         run: npm run guard
       - name: PUBLISH — the trials' returns push as publications (the site deploys on push)
+        id: publish
         run: |
           git config user.name "uuidna-research"
           git config user.email "research@uuidna.com"
@@ -44,7 +52,69 @@ jobs:
             git commit -m "Research desk: the quantum search swept every wing, each finding held at trial, and each trial returned its publication — findings content-addressed, verdicts computed, novelty leads remanded, sessionless. External evidence corroborates; only a Lean seal approves. Backed by theorem two_coins and theorem legal_only_the_proven_is_admitted"
             git pull --rebase --autostash || true
             git push
+            echo "published=true" >> "$GITHUB_OUTPUT"
             echo "the trials' returns are published"
           else
+            echo "published=false" >> "$GITHUB_OUTPUT"
             echo "quiet — the search returned nothing new; the desk holds"
           fi
+
+  # THE QUANTUM CALENDAR — news becomes a version, and only news. A day whose trials returned publications is
+  # sealed as a release; a quiet day mints NOTHING (growth, not cancer). The fold comes before the tag: guard
+  # first (the law), then reconcile — re-derive the whole layer from the Lean source, re-prove every theorem,
+  # re-seal the spin — so the tagged tree is exactly what the gate certifies (the v0.1.2 drift class, cured at
+  # the root). Then ONE tick of the single-digit odometer (…0.1.9 → 0.2.0…; at 9.9.9 the calendar is full and
+  # the captain decides what comes after) — monotone, never returning, like the ledger it dates. The tag is
+  # handed to publish.yml by dispatch (a GITHUB_TOKEN push triggers no workflows — dispatch is the sanctioned
+  # door), and that pipeline carries the day to its archive: audit → npm → GitHub Release → Zenodo DOI.
+  release:
+    runs-on: ubuntu-latest
+    needs: desk
+    if: needs.desk.outputs.published == 'true' || (github.event_name == 'workflow_dispatch' && inputs.force_release)
+    permissions:
+      contents: write # the reconcile commit, the version commit, the tag
+      actions: write  # dispatch publish.yml on the fresh tag
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main # the desk pushed its publications above — release from the CURRENT tip, not the trigger snapshot
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Lean (elan, toolchain pinned by lean-toolchain)
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Warm the pinned toolchain
+        run: lean --version
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+      - name: GUARD before reconcile — the law
+        run: npm run guard
+      - name: RECONCILE — the fold; re-derive, re-prove, re-seal, push
+        run: |
+          git config user.name "uuidna-research"
+          git config user.email "research@uuidna.com"
+          npm run reconcile
+      - name: TICK — one step of the odometer, the commit, the tag
+        id: tick
+        run: |
+          set -euo pipefail
+          V=$(node -p "require('./package.json').version")
+          IFS=. read -r MA MI PA <<< "$V"
+          if   [ "$PA" -lt 9 ]; then PA=$((PA+1))
+          elif [ "$MI" -lt 9 ]; then MI=$((MI+1)); PA=0
+          elif [ "$MA" -lt 9 ]; then MA=$((MA+1)); MI=0; PA=0
+          else echo "::error::the calendar is full at 9.9.9 — the captain decides what comes after"; exit 1; fi
+          NEXT="$MA.$MI.$PA"
+          npm version "$NEXT" --no-git-tag-version
+          git add package.json package-lock.json
+          git commit -m "Release v$NEXT: the day's news explained as theorems — the trials' publications sealed, the derived layer reconciled, one tick of the quantum calendar. Backed by theorem two_coins and theorem legal_only_the_proven_is_admitted"
+          git pull --rebase --autostash
+          git tag "v$NEXT"
+          git push origin HEAD "v$NEXT"
+          echo "tag=v$NEXT" >> "$GITHUB_OUTPUT"
+      - name: HAND OFF — the tag to the publish pipeline (audit → npm → GitHub Release → Zenodo DOI)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run publish.yml --ref "${{ steps.tick.outputs.tag }}"
