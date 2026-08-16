@@ -5,12 +5,54 @@
 //                so "not verified" is the whole of the negative. Absence of proof is not proof of falsity.
 // Integrity, not truth. Everything content-addressed.
 import { slimGate } from './slimgate.js'
+import { THEOREMS } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { imprint, readImprint } from './imprint.js'
 
 export type VerdictKind = 'VERIFIED' | 'UNVERIFIED'
 export interface Verdict { statement: string; verdict: VerdictKind; receipt: string; note: string; develop: string[] }
+
+// ── THE STATUS-DNA COLLISION CHECK — a real citation must not launder a claim the ledger's own sealed names refuse.
+// The ledger seals STATUS DNA: a theorem name ending in "— OPEN" or "— SOLVED (<who>)" records the named problem's
+// world-status (never conferred by the seal — theorem clay_verified_ne_solved). A claim COLLIDES when it (1) speaks
+// of such a subject (matched by the theorem's own key tokens — theorems-only, no authored subject list), (2) asserts
+// a solve/claim by uuidna's own voice (we/our/captain/uuidna — the one confined lexical floor here, documented as a
+// floor, not a wall), and (3) is not demarcated (not/never/no/none/reflect… — the honest-scope words). A colliding
+// claim adjudicates UNVERIFIED even when its citation is real: the cited seal exists, but the ledger's sealed status
+// contradicts the claim, and a signed VERIFIED on both sides of a contradiction is what this check retires.
+const STATUS_RE = / — (OPEN|SOLVED \([^)]*\))$/
+const SELF_VOICE = /\b(we|our|captain|uuidna)\b/i
+const SOLVE_VERB = /\b(solv(?:e|es|ed|ing)?|claim(?:s|ed)?|prov(?:e|es|ed|en)|resolved?)\b/i
+const DEMARCATED = /\b(not|never|no|none|nothing|unsolved|open|reflect\w*|simulation|finite|bounded)\b/i
+
+export interface StatusCollision { key: string; status: string; subject: string }
+
+/** statusCollisions(claim) → every sealed status-DNA theorem the claim contradicts (empty = no collision).
+ *  Subjects derive from the sealed keys themselves (key tokens past the file prefix, ≥4 chars, plus the shared
+ *  prefix as the cluster's family name) — recomputable from the ledger alone, no authored subject list. */
+export function statusCollisions(claim: string): StatusCollision[] {
+  // strip citation clauses first — a key like clay_verified_ne_solved must not read as a subject mention
+  const text = claim.replace(/\/theorem\/[a-z0-9_]+/gi, ' ').replace(/\btheorem\s+[a-z][a-z0-9_]{3,}/gi, ' ')
+  if (!SELF_VOICE.test(text) || !SOLVE_VERB.test(text) || DEMARCATED.test(text)) return []
+  // normalize: strip diacritics (Poincaré → poincare, matching the ascii key convention) and versus → vs (p_vs_np)
+  const lower = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\bversus\b/g, 'vs')
+  const out: StatusCollision[] = []
+  for (const t of THEOREMS) {
+    const m = t.name.match(STATUS_RE)
+    if (!m) continue
+    const parts = t.key.split('_')
+    const family = parts[0]                                   // the cluster name, from the key itself (e.g. "clay")
+    const subject = parts.slice(1)
+    const long = subject.filter((w) => w.length >= 4).concat(family.length >= 4 ? [family] : [])
+    // a short-token subject (p_vs_np) matches only when EVERY key token appears as a whole word — substring
+    // inclusion on 1–3 letter tokens would collide with ordinary prose
+    const shortAll = subject.length > 0 && subject.some((w) => w.length < 4) &&
+      subject.every((w) => new RegExp(`\\b${w}\\b`).test(lower))
+    if (long.some((w) => lower.includes(w)) || shortAll) out.push({ key: t.key, status: m[1], subject: subject.join(' ') })
+  }
+  return out
+}
 
 // The develop plan — exact, ordered algebra-development steps that move a verdict toward resolution, so a claim
 // is not left at "UNVERIFIED, good luck". Deterministic and gate-clean by construction (the trial's own
@@ -52,6 +94,18 @@ export function adjudicate(statement: string, decidableTest?: () => boolean): Ve
   const slim = slimGate(statement)
   const receipt = toUuid(statement)
   let verdict: VerdictKind, note: string
+  const collisions = statusCollisions(statement)
+  if (collisions.length) {
+    // a status-DNA collision refuses the verdict on EVERY path: a real citation (or even a true decidable test
+    // about the reflection) must not launder a solve-claim the sealed names refuse. UNVERIFIED, never "false".
+    const c = collisions[0]
+    verdict = 'UNVERIFIED'
+    note = `contradicts the ledger's sealed status DNA: ${c.key} seals "— ${c.status}" for ${c.subject} — a solve-claim in uuidna's own voice never verifies (the seal confers verification, never solved status: theorem clay_verified_ne_solved)`
+    return { statement, verdict, receipt, note, develop: [
+      `The sealed record for ${c.subject} is "${c.status}" — state that status, or demarcate the claim (the reflection, not the problem), and try again.`,
+      'What is claimable here is the sealed reflection theorem itself, credited by the claim law (credits()) — never the named problem.',
+    ] }
+  }
   if (decidableTest) {
     let holds = false
     try { holds = decidableTest() === true } catch { holds = false }

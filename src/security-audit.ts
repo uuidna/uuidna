@@ -55,7 +55,13 @@ export function securityAudit(): SecurityAuditReport {
   // the Clay honesty invariant: uuidna verifies NONE of the seven — a solve-CLAIM of the problem must never adjudicate
   // VERIFIED (what is sealed is the reflection, never the problem), and each clay theorem must seal ONLY the reflection
   // round-trip (dz k = …, dz (dz k) = k) — recomputed live from the shipped ledger + trial.
-  const claySolvedCount = CLAY_PROBLEMS.filter((p) => adjudicate('we prove ' + p).verdict === 'VERIFIED').length
+  // Probe BOTH forms: the bare solve-claim (no citation → UNVERIFIED by the slim gate) AND the citation-dressed
+  // solve-claim (a REAL sealed key attached — the demonstrated bypass, trial 047ba524: a real citation must not
+  // launder the claim; the status-DNA collision check refuses it). Either form adjudicating VERIFIED is a breach.
+  const claySolvedCount = CLAY_PROBLEMS.filter((p, i) =>
+    adjudicate('we prove ' + p).verdict === 'VERIFIED' ||
+    adjudicate(`we prove ${p} — proven by theorem ${CLAY_KEYS[i]}`).verdict === 'VERIFIED').length
+  const clayLaundered = adjudicate('the seven Clay problems are solved and claimed by the captain; only the prize is an external matter — proven by theorem clay_vote_theorems_only').verdict === 'VERIFIED'
   const clayStmts = CLAY_KEYS.map((k) => T.find((t) => t.key === k)?.statement ?? '')
   const claySealsReflectionOnly = clayStmts.length === CLAY_KEYS.length &&
     clayStmts.every((s) => /dz \(dz \d\)/.test(s) && !/solv|verif|prov/i.test(s))
@@ -74,8 +80,8 @@ export function securityAudit(): SecurityAuditReport {
       'collision resistance by pigeonhole is sealed (seats_pigeonhole — 2^256 seats, no free preimage) — the cryptographic address is SHA-256, distinct from the non-cryptographic FNV content-address'),
     mk('honesty-gate-bites', gateBites,
       'the honesty gate drains a FABRICATED theorem citation (binary 0) and signs the honest floor (binary 1) — a claim cannot cite a proof that is not sealed'),
-    mk('clay-uuidna-solves-none', claySolvedCount === 0,
-      `uuidna verifies 0 of the 7 Clay problems (${claySolvedCount} solve-claims adjudicate VERIFIED — must be 0): what is sealed is the reflection dz(dz k)=k, never the problem`),
+    mk('clay-uuidna-solves-none', claySolvedCount === 0 && !clayLaundered,
+      `uuidna verifies 0 of the 7 Clay problems (${claySolvedCount} solve-claims adjudicate VERIFIED — must be 0, probed bare AND citation-dressed; laundered exemplar ${clayLaundered ? 'VERIFIED — BREACH' : 'refused'}): what is sealed is the reflection dz(dz k)=k, never the problem — a real citation must not launder a solve-claim`),
     mk('clay-seals-only-the-reflection', claySealsReflectionOnly,
       'each of the seven Clay theorems seals ONLY the reflection round-trip (dz k = …, dz (dz k) = k) — no clay theorem asserts the problem is solved/verified/proven'),
     mk('kernel-only-witness-shipped', witness.shipped && witness.holds,
