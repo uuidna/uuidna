@@ -50,6 +50,7 @@ export default defineConfig({
             { text: 'Chat', link: '/chat' },
             { text: 'Books', link: '/books' },
             { text: 'Guides', link: '/guides' },
+            { text: 'Reading dimensions ◈', link: '/dimensions' },
           ],
         },
         {

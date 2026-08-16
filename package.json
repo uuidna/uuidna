@@ -129,7 +129,8 @@
     "gen:packages": "npm run build && node dist/scripts/gen-packages.js",
     "build:packages": "npm run build && npm run build --workspaces",
     "test:packages": "npm run build:packages && npm run test --workspaces",
-    "crypto:measure": "npm run build && node dist/scripts/crypto-measure.js"
+    "crypto:measure": "npm run build && node dist/scripts/crypto-measure.js",
+    "derive:prose": "npm run build && node dist/scripts/derive-prose-trials.js"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",

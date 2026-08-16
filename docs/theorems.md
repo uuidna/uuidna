@@ -36,6 +36,10 @@ const skillFacets = computed(() =>
     (!principle.value || t.principle === principle.value) &&
     (!q.value.trim() || (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q.value.trim().toLowerCase()))).length })))
 const activeMonograph = computed(() => principle.value ? monographByPrinciple[principle.value] : null)
+// the rail shows the USABLE combinations of the filtered list — only clusters a click can still reach (n > 0);
+// the active cluster always stays visible (its own way back). Clear the filter and the rest return: an involution,
+// nothing destroyed.
+const usableClusters = computed(() => principleFacets.value.filter((f) => f.n > 0 || principle.value === f.name))
 const clearAll = () => { q.value = ''; principle.value = ''; skill.value = '' }
 </script>
 
@@ -55,11 +59,8 @@ set in learning order, [the school](/school) rides the doubling orbit out from [
   <button v-if="q || principle || skill" class="filt-clear" @click="clearAll">clear ✕</button>
 </div>
 
-<div class="filt-row">
-  <strong class="filt-lbl">cluster</strong>
-  <button class="chip" :class="{ on: !principle }" @click="principle = ''">all</button>
-  <button v-for="f in principleFacets" :key="f.name" class="chip" :class="{ on: principle === f.name, dim: f.n === 0 }" @click="principle = principle === f.name ? '' : f.name">{{ f.name }} <span class="chip-n">{{ f.n }}</span></button>
-</div>
+<div class="tpage">
+<div class="tmain">
 
 <div class="filt-row">
   <strong class="filt-lbl">skill</strong>
@@ -83,10 +84,32 @@ set in learning order, [the school](/school) rides the doubling orbit out from [
 
 <p v-if="shown.length === 0" class="filt-empty">No theorem matches — <a @click="clearAll">clear the filters</a>.</p>
 
+</div>
+
+<aside class="trail" aria-label="clusters">
+  <strong class="trail-lbl">cluster · {{ usableClusters.length }} usable</strong>
+  <button class="chip" :class="{ on: !principle }" @click="principle = ''">all <span class="chip-n">{{ data.total }}</span></button>
+  <button v-for="f in usableClusters" :key="f.name" class="chip" :class="{ on: principle === f.name }" @click="principle = principle === f.name ? '' : f.name">{{ f.name }} <span class="chip-n">{{ f.n }}</span></button>
+</aside>
+
+</div>
+
 The whole set folds to one order-invariant receipt: <Handle :uuid="data.trial.receipt" />. Re-verify every proof with `npm run lean`.
 The same theorems grouped by skill are on [/topics](/topics); each cluster's monograph is on [/publications](/publications).
 
 <style scoped>
+/* the cluster facet is the RIGHT RAIL — the 60+ derivation chips stand aside as a sticky vertical index,
+   the theorem list keeps the middle. Below 1100px the rail folds back above the list (chips wrap). */
+.tpage { display: grid; grid-template-columns: minmax(0, 1fr) 15.5rem; gap: 1.6rem; align-items: start; }
+.trail { position: sticky; top: calc(var(--vp-nav-height) + 1.2rem); display: flex; flex-direction: column; align-items: stretch; gap: .3rem; max-height: calc(100vh - var(--vp-nav-height) - 2.4rem); overflow-y: auto; padding: .2rem .2rem .8rem; }
+.trail .chip { text-align: left; }
+.trail-lbl { color: var(--vp-c-text-2); font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; padding: .1rem .2rem; }
+@media (max-width: 1100px) {
+  .tpage { display: block; }
+  .trail { position: static; flex-direction: row; flex-wrap: wrap; align-items: center; max-height: none; overflow: visible; margin: .35rem 0; }
+  .trail .chip { text-align: center; }
+  .trail-lbl { flex: 0 0 3.5rem; }
+}
 .filt { display: flex; gap: .5rem; align-items: center; margin: 1rem 0 .5rem; }
 .filt-q { flex: 1; padding: .55rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-1); font-size: .95rem; }
 .filt-clear { padding: .55rem .8rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); cursor: pointer; white-space: nowrap; }

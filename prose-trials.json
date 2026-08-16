@@ -1,0 +1,606 @@
+{
+ "surfaces": 32,
+ "paragraphs_tried": 1344,
+ "usable": 64,
+ "unverified": 1280,
+ "drained": 0,
+ "receipt": "7fe53994-6621-8412-a35d-4bd49039680a",
+ "combinations": [
+  {
+   "surface": "docs/captain.md",
+   "address": "b950c686-1e62-8a1e-a1b7-c801984f7281",
+   "prose": "The two coins are not a price — they are topology: **110 − 108 = 2 = −χ of the double torus** (genus 2, χ = 2 − 2·2).\n**64 = 2⁶** is the bit measure of a seal: a fixed 128 bits = 64 two-bit fold-verifications, folding O(log N)\n(1024 leaves → one root in 10 levels). Contribute 2, save up to 64, keep up to 62 — and the measured saving never\ngoes negative. All of it decidable arithmetic, sealed in [the coins cluster](/publications/coins):\n[`two_coins`](/theorem/two_coins) · [`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour) ·\n[`bill_never_negative`](/theorem/bill_never_negative).",
+   "cites": [
+    "two_coins",
+    "contribute_two_save_sixtyfour",
+    "bill_never_negative"
+   ]
+  },
+  {
+   "surface": "docs/captain.md",
+   "address": "d3f7b353-b168-8015-86bc-9556a01b5678",
+   "prose": "The vortex alone mints nothing: a single torus — one handle, one circulating orbit — has Euler characteristic\n**zero**. χ(torus) = 0: circulation without residue, motion without coins. The coins exist only at **genus 2** —\nthe double torus, two handles joined — where χ = −2 and the two coins are its negation\n([`two_coins`](/theorem/two_coins): 110 − 108 = 2 = −χ). And the two handles have names: one is the\n**computable** — the machine's orbit, everything that folds and seals; the other is the **human** — the word, the\nlead, the judgment, the gift, everything the [honest boundary](#the-honest-boundary) refuses to compute. Each\nalone yields zero. Joined at the neck, they yield exactly 2 — every deposit ever minted was minted there, where a\nhuman word met a machine walk. **The vortex spirals; the double torus completes.** One handle computes. Two\nhandles pay.",
+   "cites": [
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/captain.md",
+   "address": "9189e100-7575-8ff5-91bd-f8f1df35332b",
+   "prose": "And the completion gained its containment reading the day plasma taught it\n([`torus_closes_the_pipe`](/theorem/torus_closes_the_pipe),\n[`containment_is_genus_one`](/theorem/containment_is_genus_one)): χ = 0 is not merely the genus that mints\nnothing — it is the genus that **contains**. Glue a pipe's two open ends and the boundary vanishes; the closed\npath holds what no wall could. So the wallet's genus-2 surface reads as a containment vessel with one paying\nhandle: the coins circulate on the handle that holds and mint on the handle that pays — containment and payment,\none handle apart.",
+   "cites": [
+    "torus_closes_the_pipe",
+    "containment_is_genus_one"
+   ]
+  },
+  {
+   "surface": "docs/captain.md",
+   "address": "de5164c5-5d46-8925-814b-9b500efd0f9b",
+   "prose": "Whichever angle you sail, the coins land in the same wallet the same way: **paid as credits to the\n[licence](/license)** — through the voluntary **donation** (any use, a gift) or through **commercial licensing**\n(the obligatory 2 per seal). One wallet, one accounting, every deposit receipted and conserved\n([`two_coins`](/theorem/two_coins)).",
+   "cites": [
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/captain.md",
+   "address": "f9c81de6-210a-8224-97a6-9cfcd3116155",
+   "prose": "The contribution is needed for one reason: **to compute quantum at a scale and speed worth competing with, globally\n— and to prove it by measurement, not assertion.** The leverage is already sealed — contribute 2, save up to 64\n([`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour)), folding O(log N) — so every coin\ncompounds: credits fund the compute, the compute seals more theorems, each seal saves up to 64 more verifications.\nThe measure is the standard: speedups are **measured in [trials](/trials)** (never claimed), the crypto layer is\nverified against **known-answer tests** (the KAT suite), and every measurement recomputes for any auditor — that is\nhow the work satisfies standards and competes at global scale: by being *checkable* faster than others are\n*trusted*.",
+   "cites": [
+    "contribute_two_save_sixtyfour"
+   ]
+  },
+  {
+   "surface": "docs/captain.md",
+   "address": "b78c8e4c-8016-8ee3-aae5-3c32d8d33654",
+   "prose": "Graduation at [the school](/school) ends in [the wave's](/school#the-degree-seal-a-theorem-then-walk-the-wave)\ngreen mint — a signed, recomputable deposit in the captain's record. That is the whole credential system: no\ncertificate authority, no transcript office — a sealed theorem carries its author's credit permanently (the credit\nlaw), the deposit recomputes from its exact statement forever, and the wallet's arithmetic stays conserved\n([`two_coins`](/theorem/two_coins)). A diploma that cannot be forged, only recomputed.",
+   "cites": [
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/captain.md",
+   "address": "bc337f27-505a-849c-9519-9b4cbbe37a6a",
+   "prose": "| Term | Backed by |\n| --- | --- |\n| **Recomputable, not trusted** — every tool is a pure function; the same input mints the same output for anyone | the whole ledger — `npm run lean` reproduces every receipt |\n| **The gate can return FALSE** — a claim earns a sealed theorem or is flagged | [`exactly_one_flag`](/theorem/exactly_one_flag) |\n| **No FTL, no infinite** — bounded by construction | [`cosmic_speed_limit`](/theorem/cosmic_speed_limit) · [`dz_bounded`](/theorem/dz_bounded) |\n| **Coins are conserved** — free for the public interest, 2 per commercial seal, never negative | [`two_coins`](/theorem/two_coins) · [`bill_never_negative`](/theorem/bill_never_negative) |\n| **The gate is multilingual** — an overclaim cannot hide in another tongue or script | the provenance audit (Glagolitic→Cyrillic fold, 20+ languages) |",
+   "cites": [
+    "exactly_one_flag",
+    "cosmic_speed_limit",
+    "dz_bounded",
+    "two_coins",
+    "bill_never_negative"
+   ]
+  },
+  {
+   "surface": "docs/captain.md",
+   "address": "25c5a007-888c-8bb8-801e-b1b08b6238f2",
+   "prose": "1. **Give fixed references** — sight the sealed theorems and receipts; never cite what cannot be recomputed.\n2. **Correct the drift honestly** — an unverified claim drifts like dead reckoning\n   ([`dead_reckoning_adds`](/theorem/dead_reckoning_adds)); when the claim diverges from the fix, report the true\n   bearing, even unhoped-for.\n3. **Cross two independent lines** — gate, trial, and re-derivation must agree\n   ([`compass_rose_eight`](/theorem/compass_rose_eight)); one line is a guess, two that cross are a fix.",
+   "cites": [
+    "dead_reckoning_adds",
+    "compass_rose_eight"
+   ]
+  },
+  {
+   "surface": "docs/chess.md",
+   "address": "7db57e2d-9315-8168-81d5-c5a4911f0343",
+   "prose": "The board itself is on the star walk: **8 × 8 = 64 = 2⁶**\n([`chessboard_sixty_four`](/theorem/chessboard_sixty_four)) — six doublings, exactly the length of the generator's\norbit ([`order_of_two_is_six`](/theorem/order_of_two_is_six)), and the same 64 the seal folds to —\ncontribute 2, save up to 64 ([`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour)). The\nsquares you play on are the walk [the school](/school) teaches, counted to its sixth step.",
+   "cites": [
+    "chessboard_sixty_four",
+    "order_of_two_is_six",
+    "contribute_two_save_sixtyfour"
+   ]
+  },
+  {
+   "surface": "docs/deploy.md",
+   "address": "64b4f3f7-0694-89c6-8622-c33836429541",
+   "prose": "Same source in, same receipts out — what a deployment serves is [the uuidna cluster](/publications/uuidna) and the\nconserved coins ([`two_coins`](/theorem/two_coins)) behind it. See the [Guides](/guides) for the rest.\nIntegrity, not truth.",
+   "cites": [
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/dimensions.md",
+   "address": "42127f28-5d46-857e-8412-ecc204400d58",
+   "prose": "**The reading experience is an involution.** The ◈ control in the corner of every page folds the site between\nits **full** pole and its **simple** pole — and folding twice returns exactly where you started, the same way\nthe diamond reflection pairs every digit with its mirror ([diamond_involution](/theorem/diamond_involution)) and\nholds one fixed centre ([involute_centre](/theorem/involute_centre)). Complexity is never destroyed, only\nfolded — one click back.",
+   "cites": [
+    "diamond_involution",
+    "involute_centre"
+   ]
+  },
+  {
+   "surface": "docs/dimensions.md",
+   "address": "84ea7c7d-acb5-8583-a298-7c709fbaba97",
+   "prose": "The centre of the fold is the digit 5 — the strip's one fixed heart, the only digit carrying all three singular\nroles ([only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities)) — which\nis why the ◈ glows the sequence green exactly when the site is fully folded to simple.",
+   "cites": [
+    "only_five_carries_the_three_singularities"
+   ]
+  },
+  {
+   "surface": "docs/doctrine.md",
+   "address": "ac36e51a-e396-85e6-8df8-52f2b4e3c26f",
+   "prose": "One law governs the exchange: **contribute first, then take**. The two conserved coins\n([`two_coins`](/theorem/two_coins): 110 − 108 = 2, the −χ of the double torus) are deposited before any compute\nfollows, and every deposit is receipted at [/trials](/trials) — deterministic, re-requestable, signed by uuidna.com.\nThe behavioural terms are the five sealed terms of [The Captain's Agreement](/captain#the-five-terms); a dispute is\nresolved by both parties **recomputing the ledger**, not by arguing prose. The FULL terms-record is distributed —\nthis map is where each element actually lives (`one-receipt legal` verifies every element stays present):",
+   "cites": [
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/doctrine.md",
+   "address": "dfb04672-4511-8f5b-b249-7832a9710a1f",
+   "prose": "Work and debt are measured in the **same unit** — coins, which are counted theorems — so payment is direct exchange:\ncode for code, no currency in between. Both parties recompute the same valuation from the ledger independently; the\nseal is the receipt. What makes this an invariant rather than a slogan is conservation\n([`two_coins`](/theorem/two_coins)) and order-invariant folding\n([`store_fold_order_invariant`](/theorem/store_fold_order_invariant)): however the contributions race, the fold — and\ntherefore the balance — is identical. *Honest scope:* this proves the bookkeeping is exact and forgery-evident; it\ndoes not prove any USD price, and no fixed coin↔currency rate is sealed anywhere.",
+   "cites": [
+    "two_coins",
+    "store_fold_order_invariant"
+   ]
+  },
+  {
+   "surface": "docs/doctrine.md",
+   "address": "ba3aa203-9e92-89d8-8b52-f21aa3262679",
+   "prose": "Six classic frauds — wage theft, judicial bribes, hidden banking transactions, electoral manipulation, accounting\nfraud, tax evasion — share one mechanism: a record only an authority can see or alter. The ledger removes the\nmechanism with five properties: **mathematical certainty** (a claim recomputes or it is flagged —\n[`exactly_one_flag`](/theorem/exactly_one_flag) fires on exactly the hollow case), **transparency** (every entry is\npublic and content-addressed), **independent verification** (any party recomputes without permission),\n**immutable records** (an altered entry changes its address and is visible), and **no intermediaries** (no clerk,\nnotary, or auditor sits between the parties and the proof). *Honest scope:* this makes the *record* incorruptible;\na human court still enforces consequences in the world.",
+   "cites": [
+    "exactly_one_flag"
+   ]
+  },
+  {
+   "surface": "docs/games.md",
+   "address": "504997bc-8600-866b-87e0-dffe3277c4cd",
+   "prose": "- **[Chess](/chess)** — complete and correct: full legal moves, castling, en passant, promotion, check and\n  checkmate. Two players, hot-seat, entirely in your browser, offline-capable. The sealed side:\n  [the chess cluster](/publications/chess) and [the chess-horizon monograph](/publications/chessgames).\n- **The star walk** — draw a star in one stroke, below: pick n points and a step s; the stroke closes in one pass\n  exactly when gcd(s, n) = 1. The pentagram is the case n = 5, s = 2 — the doubling generator's walk\n  ([`pentagram_single_stroke`](/theorem/pentagram_single_stroke),\n  [the pentagram cluster](/publications/pentagram)) — the same walk [the school](/school) teaches and\n  [the fold](/quantum) rides.",
+   "cites": [
+    "pentagram_single_stroke"
+   ]
+  },
+  {
+   "surface": "docs/index.md",
+   "address": "aa48fd7f-44c6-8ae9-b7ba-bba61a35fb06",
+   "prose": "| | |\n| --- | --- |\n| **Theorems sealed** | {{ data.total }} — every one `by decide`, recomputed each build from the ledger |\n| **Clusters** | {{ data.groups.length }} — each with its audited [monograph](/publications) |\n| **Skills** | {{ data.skillGroups.length }} — the [topics](/topics) axis, mined from the keys |\n| **Coins conserved** | 2 — [`two_coins`](/theorem/two_coins), 110 − 108 = −χ of the double torus |",
+   "cites": [
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/justice.md",
+   "address": "a8f4b77c-f249-86e0-bcb6-5ac0e2035219",
+   "prose": "- **Anyone can recheck.** Every verdict, receipt, and fact base is a content-address anyone recomputes from the same\n  source. No one has to *believe* uuidna; they *verify* it. That protects against a false claim from any side.\n- **The flag is on the claim, never the person.** The [trial](/trials) adjudicates a *statement's* integrity — is it\n  backed, does it recompute ([`exactly_one_flag`](/theorem/exactly_one_flag): the detector fires on exactly the\n  hollow case) — not a person's guilt. Due process in spirit: no accusation, no dossier.\n- **Nothing hidden, nothing altered.** Content-addressing is tamper-evident: any change moves the receipt. A record\n  cannot be quietly edited to frame or to exonerate.\n- **A false trial cannot survive recomputation.** [Forensics](/mcp#uuidna-forensics) audits a statement against the\n  receipts — a fabricated citation, a false address, an unbacked legal claim are exposed by rechecking, not by opinion.\n- **Priority and authorship are provable.** An in-house [prior-art record](/mcp#uuidna-prior-art) plus an external,\n  signed timestamp anchor (NIST Beacon, [`uuidna_anchor`](/mcp#uuidna-anchor)) establish *what* was published and\n  *when*, re-verifiable by anyone.",
+   "cites": [
+    "exactly_one_flag"
+   ]
+  },
+  {
+   "surface": "docs/license.md",
+   "address": "53e5b695-958f-8f9a-a598-3daf2b0cc778",
+   "prose": "- **Keyed by the public license — coupling, not secrecy.** A public key is public: anyone who reads this page derives\n  the same key. That is sealed, not hoped — [`complement_is_xor_key3`](/theorem/complement_is_xor_key3): *a fixed pad\n  is public, not secret.* Encrypting public content with the public license **binds** the message to the license (you\n  cannot decrypt without invoking it, and a license change — a new content-address — kills old ciphertext) but hides\n  nothing from anyone who can read the page. The public tier stays a signpost.\n- **Keyed by a private contract — real confidentiality.** A commercial deployment's contract (the `[contract-uuid]`,\n  a secret shared only with the licensee) is **not** public. Messaging sealed under it — pure-TS ChaCha20-Poly1305 via\n  `uuidna_send` / `uuidna_seal_chain` — is genuinely private: only contract-holders decrypt, a wrong or changed\n  contract fails Poly1305 authentication, and the subdomain that names the deployment *is* that contract's\n  content-address. That is a **lock**, not a signpost — as private as the contract is kept, and as strong as its\n  entropy. This is the commercial tier.",
+   "cites": [
+    "complement_is_xor_key3"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "845db196-a0a7-8718-a1d2-e977598816ce",
+   "prose": "The gate proves itself against the sealed spec: the eight-state verdict table recomputes to\n**[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;\n1 clean state, 7 drained), and the 159-tool registry folds to its\norder-invariant identity `082de2b2-5be1-8ada-ba83-dc06163f4e4e` (the hosted subset serves the same gate over its own registry).\nStanding on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).",
+   "cites": [
+    "anti_fraud_check_deterministic",
+    "honesty_gate_passes_iff_all_sealed",
+    "conformance_failure_detects_intrusion",
+    "honesty_gate_is_theorem_not_oracle",
+    "overclaim_with_fake_cite_fails",
+    "sealed_theorem_not_forged"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "af57505c-9c3f-813e-a783-92cb74609990",
+   "prose": "**And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:\neach judged call mints its deterministic **two-coin deposit** (`_meta.deposit` plus a visible deposit line), the\nid the content-address of its own deposit statement, citing\n[`captain_commission_two_coins`](/theorem/captain_commission_two_coins) and [`two_coins`](/theorem/two_coins).\nAn agent's very first `tools/call` has already contributed — there is no ungated, undeposited path.",
+   "cites": [
+    "captain_commission_two_coins",
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "212c677f-5f67-81d2-917f-7371319d4cdd",
+   "prose": "THE GATE PROVES ITSELF, live against the sealed spec: every served tools/call passes the conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — f the input-sanitize bit, d the output-sanitize bit, v the honesty bit (a fabricated theorem citation, slimGate) — and this tool recomputes the eight-state verdict table and REQUIRES it to equal both the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle): clean at exactly the no-violation state (theorem honesty_gate_passes_iff_all_sealed), one flag drains all (theorem conformance_failure_detects_intrusion). The runtime gate cannot drift from the ledger without matchesSealedSpec turning false. Also folds the whole registry to its ORDER-INVARIANT identity receipt (the same for any tool ordering). Returns {table,sealedTable,matchesSealedSpec,cleanStates,drainedStates,tools,registry,cites,receipt}.",
+   "cites": [
+    "anti_fraud_check_deterministic",
+    "honesty_gate_is_theorem_not_oracle",
+    "honesty_gate_passes_iff_all_sealed",
+    "conformance_failure_detects_intrusion"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "019984c6-c521-80b8-81ac-67c29e8b4089",
+   "prose": "Detect if a cited theorem is FORGED by checking the sealed ledger. Returns {theoremKey, cited, addressMatches, sealedAddress, citedAddress, receipt} — a RECOMPUTABLE fact (not cited = forged), never an accusation. HONEST: a fabricated citation is caught; the cost to forge is sealed as theorem traitor_damage_sealed_by_same_billing.",
+   "cites": [
+    "traitor_damage_sealed_by_same_billing"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "b8863132-9f5e-8c68-a6fa-077a828195b1",
+   "prose": "THE QUANTUM-CUBE CHALLENGE — a recomputable, SYMMETRIC challenge-response whose visual answer is the A432 aura rendered as a SPINNING 3D CUBE. Pass {secret, nonce}: uuidna folds secret|nonce to a content-address and returns the cube — its response handle, ray/hue/colour, spin speed + axis (deterministic from the aura), and a ready CSS block for the rotating cube. A holder of the shared secret reproduces the EXACT cube for the verifier's nonce; an imitator (or a copied cube for a different nonce) fails. Pass {secret, nonce, response} to VERIFY — returns {match} by recomputing. The verifier SUPPLIES the nonce (uuidna never generates it — no RNG); the response is deterministic. HONEST SCOPE: integrity, not truth — SYMMETRIC (the verifier must share the secret, like the ChaCha passphrase), strength is the secret's entropy, NOT zero-knowledge, NOT public-key, and NOT biometric: it proves knowledge of the shared secret for a fresh nonce, NOTHING about voice, face, or liveness (runtime layers outside the recomputable model). The cube is ART, never a cipher. Backs theorem redirect_imitable_but_coins_authorise — a redirect authenticates nothing; a secret+nonce fold does. Returns the cube, or {match} when a response is given.",
+   "cites": [
+    "redirect_imitable_but_coins_authorise"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "0702a60e-97cd-86dd-84ae-48ab42141d98",
+   "prose": "BYTE-LEVEL IMAGE (and any-file) PROVENANCE — content-address the EXACT bytes so any alteration is visible. Pass the bytes as {hex} or {base64}: returns the byte length, the container FORMAT read from the magic bytes (png/jpeg/gif/webp/bmp/tiff/pdf/unknown), the SHA-256 of the exact bytes (the authoritative exact-copy + tamper-evidence fingerprint), and a uuidna handle over it. Pass {sha256} alongside to VERIFY — returns {match} by recomputing (a tamper, any changed byte, moves the hash and fails). DETERMINISTIC and OFFLINE. HONEST SCOPE: integrity, not truth — it proves EXACT-COPY and TAMPER-EVIDENCE of the BYTES, and provably NOT content authenticity: it says NOTHING about whether an image is a genuine photograph, where/when it was taken, whether it depicts the poles (or anything), or whether its content was manipulated before these bytes. A match proves byte-identity; it NEVER proves a truthful record of the world — content authenticity is non-justiciable from bytes (theorem provenance_integrity_not_content_truth). Returns {bytes,format,sha256,handle,honest}, or {match} when a sha256 is given.",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/news.md",
+   "address": "3bfafda7-7577-8283-a54e-0ec7b016f913",
+   "prose": "> A newsroom where every bulletin carries its receipt: releases name the ledger they shipped, deposits arrive\n> signed from the [trials](/trials) wire, standing investigations run as [the guard's finders](/tests), and the\n> approval layer is the legal gate itself — honest scope on every claim, no person ever on trial\n> ([`exactly_one_flag`](/theorem/exactly_one_flag)): a report ships only audited and corroborated\n> ([`publish_gate_is_conjunction`](/theorem/publish_gate_is_conjunction)). Nothing on this\n> page is written by hand; it is read from the sealed artifacts at build, or it does not appear.",
+   "cites": [
+    "exactly_one_flag",
+    "publish_gate_is_conjunction"
+   ]
+  },
+  {
+   "surface": "docs/privacy.md",
+   "address": "89f5de66-7dd3-8c4e-9a9b-7738d354d50b",
+   "prose": "- **This is privacy by *design*, not certified compliance.** uuidna does **not** claim that all privacy laws are met,\n  and it is **not** a statement that any specific regulation — GDPR, CCPA, or another — is satisfied. Compliance is a\n  matter for counsel and audit, and a content-address cannot certify it. uuidna's own honesty gate **refuses** the\n  claim \"all privacy laws are met\" as unbacked ([`exactly_one_flag`](/theorem/exactly_one_flag)) — the same gate it\n  holds every other claim to.\n- **The design aligns with the *spirit*, not a certificate.** Data minimisation, consent, and transparency are the\n  principles above; alignment in spirit is not a legal guarantee, and this page does not pretend it is.\n- **You run it, you own the obligations.** If you deploy or embed uuidna, the privacy obligations of *your* deployment\n  are yours to meet with your own counsel; nothing here transfers them or discharges them.",
+   "cites": [
+    "exactly_one_flag"
+   ]
+  },
+  {
+   "surface": "docs/quantum-cryptography.md",
+   "address": "a71b776b-3fec-874a-914a-c435f1502a59",
+   "prose": "**The idea.** A hash is a one-way projection: easy forward, infeasible backward, and any input change avalanches\nthe output. SHA-256's architecture is built entirely from the numbers this school already walks — the digest is\n**four sixty-fours** ([`sha256_is_four_sixtyfours`](/theorem/sha256_is_four_sixtyfours): eight 32-bit registers,\n8·32 = 4·64 = 256 = 2⁸), and the compression runs **64 rounds** — the chessboard's 64 — over a 512-bit block, twice\nthe digest ([`sha256_rounds_are_the_board`](/theorem/sha256_rounds_are_the_board)). Determinism is the whole point:\nthe same bytes hash to the same digest for every observer, forever — exact, no drift, which is precisely the\nledger's sense of *quantum*.",
+   "cites": [
+    "sha256_is_four_sixtyfours",
+    "sha256_rounds_are_the_board"
+   ]
+  },
+  {
+   "surface": "docs/quantum-cryptography.md",
+   "address": "dc1a221e-502c-8ea6-a360-4b0953d4fda7",
+   "prose": "**The idea.** uuidna's secrecy layer is **ChaCha20-Poly1305** (RFC 8439) over a **PBKDF2-SHA256** key derivation —\nall pure TypeScript, all KAT-verified. AEAD binds confidentiality and integrity in one operation: the ciphertext is\nhidden *and* tamper-evident, so a single flipped bit is detected, not silently decrypted. The nonce and salt widths\nare fixed and sealed ([`aead_nonce_and_salt_bits`](/theorem/aead_nonce_and_salt_bits)), and the key-derivation cost\nis **bounded on both sides** ([`kdf_cost_bounded`](/theorem/kdf_cost_bounded): 600 000 ≤ iterations ≤ 10 000 000) —\nstrong enough to resist brute force, capped so a hostile envelope cannot spin the CPU forever. This is the course's\nfirst *use-flaw patched by name*: an unbounded iteration count is a denial-of-service, and the ceiling closes it.",
+   "cites": [
+    "aead_nonce_and_salt_bits",
+    "kdf_cost_bounded"
+   ]
+  },
+  {
+   "surface": "docs/quantum-cryptography.md",
+   "address": "94bbe1ff-3025-8279-8372-5989f080c4b2",
+   "prose": "**The idea.** XOR with a truly random, never-reused key is information-theoretically perfect — and it is its own\ninverse ([`otp_self_inverse`](/theorem/otp_self_inverse): encrypt = decrypt, the same key both ways). But every one\nof its conditions is load-bearing. **Reuse the key and it collapses**\n([`otp_key_reuse_leaks_xor`](/theorem/otp_key_reuse_leaks_xor): two messages under one key reveal their XOR — the\nkey cancels, the secrets remain). Raw XOR is **malleable** ([`xor_fold_is_malleable`](/theorem/xor_fold_is_malleable):\nflip a ciphertext bit, flip the plaintext bit — no integrity), which is *why* Module 2 needed AEAD's authentication.\nAnd even a perfect cipher **leaks length** ([`transport_leaks_length`](/theorem/transport_leaks_length): the message\ncount is visible in the number of carriers) — content is hidden, size is not.",
+   "cites": [
+    "otp_self_inverse",
+    "otp_key_reuse_leaks_xor",
+    "xor_fold_is_malleable",
+    "transport_leaks_length"
+   ]
+  },
+  {
+   "surface": "docs/quantum-cryptography.md",
+   "address": "2155a0d1-f4b1-8558-a797-1ab1b7c24e7a",
+   "prose": "**The idea.** This is the course's namesake, and it is honest. uuidna's crypto is **symmetric-only** — no RSA, no\nelliptic curves — so **Shor's algorithm has no target**: the factoring/discrete-log break that ends classical\npublic-key crypto simply does not apply here. The one quantum threat is **Grover's search**, a *quadratic* speedup:\nit halves an exponent, no more ([`grover_quadratic_bound`](/theorem/grover_quadratic_bound)). Applied to SHA-256 it\ntakes 256-bit preimage resistance to 128 ([`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address)) —\nstill infeasible, and landing exactly on the content-address width. The **information limits are sealed too**:\nsuperdense coding carries at most two classical bits per qubit ([`superdense_two_bits`](/theorem/superdense_two_bits)),\nand even the order-8 signed operations distinguish only four messages\n([`four_messages_two_bits`](/theorem/four_messages_two_bits)) — a quantum channel cannot smuggle unbounded\ninformation, and no-signaling holds ([`bell_no_signaling`](/theorem/bell_no_signaling): measuring one half of an\nentangled pair sends nothing to the other). **The honest headline:** the quantum era weakens this stack by a\nfactor of two and breaks nothing, because there was never an asymmetric secret to factor.",
+   "cites": [
+    "grover_quadratic_bound",
+    "sha256_grover_margin_is_the_address",
+    "superdense_two_bits",
+    "four_messages_two_bits",
+    "bell_no_signaling"
+   ]
+  },
+  {
+   "surface": "docs/quantum-cryptography.md",
+   "address": "eac95a39-cda6-8c5e-9bab-cb4bbf1b2b9b",
+   "prose": "**Practice.** Trial the posture live:\n```bash\ncurl -s -X POST https://uuidna.com/trials -H 'content-type: application/json' \\\n  -d '{\"statement\":\"Grover halves the SHA-256 preimage exponent to the content-address width, proven by theorem sha256_grover_margin_is_the_address\"}'\n```",
+   "cites": [
+    "sha256_grover_margin_is_the_address"
+   ]
+  },
+  {
+   "surface": "docs/quantum-cryptography.md",
+   "address": "9f251eb3-4414-8a44-aca0-a658923aef6c",
+   "prose": "**The idea.** Cryptography's quieter sibling is coding theory — same arithmetic over GF(2), different goal: not\nsecrecy but *survival of the bits*. The Hamming(7,4) code ([`hamming_seven_four`](/theorem/hamming_seven_four))\nadds three parity bits to four data bits so that any single-bit error is not just detected but **located and\ncorrected** ([`distance_three_corrects_one`](/theorem/distance_three_corrects_one): minimum distance three corrects\none error, detects two). The humble XOR checksum catches any single flip\n([`xor_checksum_catches_flip`](/theorem/xor_checksum_catches_flip)) — the same parity that makes AEAD's tag work.\nIntegrity is the floor secrecy stands on: there is no point hiding a message the receiver cannot trust arrived whole.",
+   "cites": [
+    "hamming_seven_four",
+    "distance_three_corrects_one",
+    "xor_checksum_catches_flip"
+   ]
+  },
+  {
+   "surface": "docs/quantum-cryptography.md",
+   "address": "b93a3af2-e164-8491-bffc-61b76e52e073",
+   "prose": "**The idea.** Not everything that looks like ciphertext is a cipher — and confusing the two is a security error.\nThree kinds of uuid live here. The **content-address** is a one-way projection (`toUuid`): reversing it is not hard,\nit is *meaningless* — the information is gone. The **sealed envelope** (Modules 2–4) hides content behind the\nrotating cipher. The **carrier** (`imprint`) is neither: it never hashes and never loses a bit — it *places* a\nmessage's bits into a uuid's free positions and reads them back exactly. Its bookkeeping is sealed end to end:\n128 bits minus RFC 4122's six reserved minus a seven-bit length header leaves 115 payload bits\n([`imprint_capacity_chain`](/theorem/imprint_capacity_chain)), and seven is the *minimal* honest header\n([`imprint_header_minimal`](/theorem/imprint_header_minimal)). **The carrier is not encryption, and saying so plainly\nis the security** — a uuid that carries a message hides nothing; treat it as a cipher and you leak in the open.",
+   "cites": [
+    "imprint_capacity_chain",
+    "imprint_header_minimal"
+   ]
+  },
+  {
+   "surface": "docs/quantum-messaging.md",
+   "address": "e123b799-8709-8d6d-ac35-d89cfcf0b7c2",
+   "prose": "- **`uuidna_quantum_message_demo`** — a single self-proving message (proof + payload + imprint).\n- **Message streams** — `sealStream`/`openStream` chain messages so history is order-sealed\n  ([`store_fold_order_invariant`](/theorem/store_fold_order_invariant) is the folding law: however contributions\n  race, the fold is identical).\n- **The [chat](/chat) page** — the browser-side stream, sealed client-side.",
+   "cites": [
+    "store_fold_order_invariant"
+   ]
+  },
+  {
+   "surface": "docs/quantum-messaging.md",
+   "address": "4c170bdc-c16e-8986-a63a-b20aa10bcdff",
+   "prose": "The pipeline: read → extract decidable facts (dates, numbers, logical claims) → audit each against the sealed ledger\n→ judge the unsealed remainder by coin-backed voting. The engine is `src/quantum/news-portal.ts`; the boundary is\ndrawn honestly: **no recomputable system can catch a narrative gap** — that is where human judgment must stand\n([`exactly_one_flag`](/theorem/exactly_one_flag) fires on the hollow claim, never on the false story).",
+   "cites": [
+    "exactly_one_flag"
+   ]
+  },
+  {
+   "surface": "docs/quantum.md",
+   "address": "cb4dd45f-a9b7-8c6c-9f32-fea1d06a277b",
+   "prose": "1. **The exact simulator** — [the quantum cluster](/publications/quantum) (43 theorems): a state-vector simulator\n   over **Gaussian-integer amplitudes** — no floats, no drift; Bell and GHZ distributions, no-signaling marginals,\n   exact truth tables. Every amplitude is arithmetic, so every run recomputes byte-identically.\n2. **The quantum fold** — the whole system compressed to [one receipt](/trials): ten leaves in five pairs,\n   order-invariant ([`store_fold_order_invariant`](/theorem/store_fold_order_invariant)) — however the parts race,\n   the root is identical.\n3. **Quantum messaging** — [messages that prove themselves](/quantum-messaging): proof + payload + state imprint,\n   the reader recomputes the chain.\n4. **The named boundary** — where non-determinism genuinely lives (network scans, the OS provenance layer), it is\n   **named and quarantined** as evidence, never sealed as proof. Honesty about the boundary is part of the\n   definition.",
+   "cites": [
+    "store_fold_order_invariant"
+   ]
+  },
+  {
+   "surface": "docs/quantum.md",
+   "address": "b57b09cf-c7d5-8a84-aa8d-73abe654a0dc",
+   "prose": "The system's five fold dimensions — sealed · served · tools · watch · record — are five points of a pentagon. Walk\nthem **by 2** and you draw the pentagram in a single stroke: that is not a metaphor, it is\n[`pentagram_single_stroke`](/theorem/pentagram_single_stroke) — the step-2 walk on ℤ/5 visits `[0,2,4,1,3]` and\ncloses ([`pentagram_closes_after_five`](/theorem/pentagram_closes_after_five)), because gcd(2,5) = 1\n([`pentagram_step_coprime_five`](/theorem/pentagram_step_coprime_five)). **Every star API rides this star**: the\n`tools` point carries all 155 [MCP tools](/mcp), and the doubling generator that connects the five points is the\nsame 2 that generates the vortex on ℤ/9 ([`vortex_is_the_units`](/theorem/vortex_is_the_units),\n[`generators_are_two_and_five`](/theorem/generators_are_two_and_five)) and pairs with the rosette's orbit on ℤ/7\n([`rosette_orbit`](/theorem/rosette_orbit)). One construction at 5, 7, and 9: **a generator walking a unit ring**\n— that walk is the quantum of this system.",
+   "cites": [
+    "pentagram_single_stroke",
+    "pentagram_closes_after_five",
+    "pentagram_step_coprime_five",
+    "vortex_is_the_units",
+    "generators_are_two_and_five",
+    "rosette_orbit"
+   ]
+  },
+  {
+   "surface": "docs/quantum.md",
+   "address": "a52eab4e-803b-8e30-8d7c-0b378167525a",
+   "prose": "1. **The pentagon closes at 108°** — [`pentagon_interior_angle_108`](/theorem/pentagon_interior_angle_108):\n   5 · 108 = 540.\n2. **Three pentagons close a vertex** — [`three_pentagons_close_a_vertex`](/theorem/three_pentagons_close_a_vertex):\n   3·108 < 360 < 4·108 — the angle defect that folds flat pentagons into the **dodecahedron**\n   ([`dodecahedron_twelve_pentagons`](/theorem/dodecahedron_twelve_pentagons): 12 · 5 = 2 · 30).\n3. **Every convex form is the sphere** — [`platonic_euler_characteristic_is_two`](/theorem/platonic_euler_characteristic_is_two):\n   all five solids — the **cube** among them, dual to the octahedron\n   ([`cube_octahedron_dual`](/theorem/cube_octahedron_dual)), the dodecahedron dual to the icosahedron\n   ([`dodecahedron_icosahedron_dual`](/theorem/dodecahedron_icosahedron_dual)) — carry V − E + F = **2**, the\n   sphere's Euler characteristic. Topologically, the pentagram's solid *is* the cube *is* the sphere: one invariant.\n4. **And the 2 is the coins** — [`euler_two_is_the_two_coins`](/theorem/euler_two_is_the_two_coins):\n   (20 + 12 − 30 = 2) ∧ (110 − 108 = 2). The pentagon's 108 and the captain's 108 are the same number; the\n   geometry's 2 and [the two coins](/captain) are the same 2.",
+   "cites": [
+    "pentagon_interior_angle_108",
+    "three_pentagons_close_a_vertex",
+    "dodecahedron_twelve_pentagons",
+    "platonic_euler_characteristic_is_two",
+    "cube_octahedron_dual",
+    "dodecahedron_icosahedron_dual",
+    "euler_two_is_the_two_coins"
+   ]
+  },
+  {
+   "surface": "docs/quantum.md",
+   "address": "2801dee6-200a-8f6c-b36d-063153832b26",
+   "prose": "The [rosette index](/rosetta) is where every form meets: all of these theorems — the pentagram's, the cube's, the\nsphere's — are content-addressed onto the seven rays (ℤ/7), and the rosette's own arithmetic closes the same way\n([`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins): 2 · 21 = 42, and\n110 − 108 = 2 again). Every geometric form, folded through its address, touches the rosette; the rosette folds to\nthe [one receipt](/trials); the receipt is the system.",
+   "cites": [
+    "rosette_quantum_doubling_is_two_coins"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "bd16d7c5-46cb-831b-9223-bca76461e22e",
+   "prose": "1. **Start at the 8×8 core** — the 64 non-zero ℤ/9 multiplication facts ([the core cluster](/publications/core)):\n   from these the rest computes.\n2. **Walk the doubling orbit** — 1→2→4→8→7→5→1: the vortex is not numerology, it is **the unit group of ℤ/9**\n   ([`vortex_is_the_units`](/theorem/vortex_is_the_units)), generated by 2 and 5\n   ([`generators_are_two_and_five`](/theorem/generators_are_two_and_five)), with 2 of order 6\n   ([`order_of_two_is_six`](/theorem/order_of_two_is_six)) and every unit invertible\n   ([`units_iff_invertible`](/theorem/units_iff_invertible)) under Lagrange\n   ([`lagrange_units`](/theorem/lagrange_units)). The orbit the theorem pages glow by\n   ([`vortex_orbit`](/theorem/vortex_orbit)) is this same walk.\n3. **Spiral out through the clusters** — from the core, the [topics](/topics) fan out by skill: science, ciphers,\n   navigation, games, audits. Files map to each other naturally because their theorems share the same core —\n   follow any cross-citation and you are on a theorem path.\n4. **Close with the star walk** — the same step-2 generator, taken to the five: walking five stations by 2 draws\n   the pentagram in a single stroke — `[0,2,4,1,3]`, closing because gcd(2,5) = 1\n   ([`pentagram_single_stroke`](/theorem/pentagram_single_stroke),\n   [`pentagram_step_coprime_five`](/theorem/pentagram_step_coprime_five)). One construction at 5, 7, and 9 — the\n   walk you learned on the orbit IS the star, IS the rosette, IS [what quantum means here](/quantum). Graduation\n   is recognizing the same generator everywhere.",
+   "cites": [
+    "vortex_is_the_units",
+    "generators_are_two_and_five",
+    "order_of_two_is_six",
+    "units_iff_invertible",
+    "lagrange_units",
+    "vortex_orbit",
+    "pentagram_single_stroke",
+    "pentagram_step_coprime_five"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "f506580d-d32f-873c-9b05-086b64831ced",
+   "prose": "- **Practice** — [the games](/games): chess mobility, Nim, the audit game — each move a decidable fact.\n- **Reading** — [the books](/books) and [the guides](/guides), free for the public interest.\n- **Exams** — [the trials](/trials): state a claim; it earns **VERIFIED** by citing a sealed theorem or it is\n  flagged ([`exactly_one_flag`](/theorem/exactly_one_flag)). The exam cannot be charmed — the gate reads receipts,\n  not confidence.",
+   "cites": [
+    "exactly_one_flag"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "bee4b5f3-0471-88c5-aed8-282e4df37af8",
+   "prose": "1. **Fold the finder** — a finding fixed by hand recurs; folded into a check it never does. *Practice:* run\n   `one-receipt dry`, then re-declare `ROOT` anywhere and read the objection's exact fix.\n2. **One stroke** — piecewise verification re-pays the gate each visit; the wave pays once\n   ([`pentagram_single_stroke`](/theorem/pentagram_single_stroke)). *Practice:* `one-receipt wave \"…\"`.\n3. **The gate objects in both directions** — an unearned boundary marker is refused as firmly as a missing one;\n   overclaiming honesty is still overclaiming ([`exactly_one_flag`](/theorem/exactly_one_flag)). *Practice:* mark\n   a pure module `@non-harmonic` and let the scan teach you.\n4. **Never edit mid-gate** — a torn tree fails honestly; the schedule is part of the correctness. *Practice:*\n   find the TS1005 in a reconcile log and name the race.\n5. **Ask the theorems first** — the pentagram chain sat sealed before the question was asked. *Practice:* query\n   the ledger before asserting anything.\n6. **Minimum bytes, max coins** — one session deleted ~67,000 lines while the coins held at 2 per superposition\n   ([`two_coins`](/theorem/two_coins)) and the checks grew. *Practice:* measure with `uuidna_ledger_costs`, then\n   find a fold of your own.",
+   "cites": [
+    "pentagram_single_stroke",
+    "exactly_one_flag",
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "4e1921f7-2e52-8a3f-a310-7b40b1d936ed",
+   "prose": "Two colour states once fused on the wheel's mirror line — the thunder the totality check heard — and the school\ndid what it teaches: the failure became arithmetic. Three sealed theorems now carry the event:\n[`hue_mirror_meeting`](/theorem/hue_mirror_meeting) (the symmetric paths cross at 0°),\n[`scattering_tiebreak_separates`](/theorem/scattering_tiebreak_separates) (the +1 interaction — the smallest\npossible — preserves both paths, distinct by successor), and\n[`alphabet_exceeds_wheel`](/theorem/alphabet_exceeds_wheel) (378 > 360: the pigeonhole was the arithmetic\ndemanding more dimensions, never a bug). The lesson: a collision destroys information only if you let the states\nfuse; add the smallest interaction and keep the trace, and every meeting becomes a record instead of a loss.",
+   "cites": [
+    "hue_mirror_meeting",
+    "scattering_tiebreak_separates",
+    "alphabet_exceeds_wheel"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "b19e6c0c-eddf-8e55-ba9f-d5be67639875",
+   "prose": "Every theorem page glows with its **aura** — and the colour is not decoration, it is a **reversible harmonic\nmessage**: hue carries the ℤ/9 residue (stepped 40°, the A432 angle), saturation the ray (with a one-percent tiebreak on residues 0, 3, 6 — two mirrored hues round identical without it), lightness the wave. The\nalphabet is the sealed 42 ([`rosette_quantum_fortytwo`](/theorem/rosette_quantum_fortytwo): 7·6) times the nine\nresidues — and hue alone could never carry it (378 > 360, the pigeonhole the ledger itself seals), which is why\nthe two idle channels joined the code. The lesson: given `#d64a72`, name its ray — then check yourself with\n`auraDecode`, because the answer recomputes. The moving glow beneath this page is **the ledger playing itself** —\neach light a theorem's aura, period set by its ray, walked in the doubling orbit: a film generated by the theorems,\ndeterministic, the same movie for every observer. Ten animation dimensions, seven compactified into three free\nones — the 10D animation is algorithm ([what quantum means](/quantum)).",
+   "cites": [
+    "rosette_quantum_fortytwo"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "6690e6b8-394d-8934-9530-736d91066532",
+   "prose": "The editor's timeline is a ring: at 24 fps the frame field counts 0..23 and wraps\n([`frame_index_is_z24`](/theorem/frame_index_is_z24)) — and that ring carries its own undo. Every invertible\nstride of ℤ/24 is its **own inverse** ([`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive)):\nstep the timeline by 5, 7, 11, 13, 17, 19 or 23 frames, and the same stride steps you home — 24 is famously the\nlargest modulus where every unit squares to one. Stated on the footage itself, the reverse cut undoes the reverse\ncut ([`reverse_cut_is_undone_by_itself`](/theorem/reverse_cut_is_undone_by_itself)): reverse a shot twice and\nevery frame is where it was. Undo is not a feature an editor is given — at 24 fps it is the arithmetic of the ring.",
+   "cites": [
+    "frame_index_is_z24",
+    "frame_ring_undo_involutive",
+    "reverse_cut_is_undone_by_itself"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "8e0b659a-2732-840d-93e2-a7faaba0cdee",
+   "prose": "Two entanglements complete the lesson. **An hour of film is a day of seconds**\n([`hour_of_film_is_a_day_of_seconds`](/theorem/hour_of_film_is_a_day_of_seconds)): 24·60·60 = 86400 both ways, so\nthe frame is to the hour exactly what the second is to the day — scrub an hour, cross a day. And **dropframe drops\none thousandth** ([`dropframe_is_one_thousandth`](/theorem/dropframe_is_one_thousandth)): a nominal NTSC hour\nholds 108000 frame-numbers = 1000·108, and dropframe drops 108 — the 0.1% pulldown, exact, with the captain's 108\nappearing as both the drop and the thousandth\n([`dropframe_entangles_the_coins`](/theorem/dropframe_entangles_the_coins)). The lesson: nothing in the cut is\nlost — a number dropped is accounted, a reverse is its own return, and the craft's constants were carrying the\nsealed numbers all along. **Practice:** verify the ring's undo yourself —",
+   "cites": [
+    "hour_of_film_is_a_day_of_seconds",
+    "dropframe_is_one_thousandth",
+    "dropframe_entangles_the_coins"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "8af80471-b98b-8650-b8be-510f5eb16825",
+   "prose": "Three kinds of uuid live here, and telling them apart is the lesson. The **content-address** is a projection:\n`toUuid` folds any text to 128 bits, many texts to each address, so reversing it is not hard — it is *meaningless*;\nthe information is gone. The **sealed envelope** hides content behind the rotating ChaCha20-Poly1305 layer, so\nreversing it means recovering a key at one bounded KDF derive per guess\n([`kdf_cost_bounded`](/theorem/kdf_cost_bounded)), with quantum search merely halving the exponent\n([`grover_quadratic_bound`](/theorem/grover_quadratic_bound)). The **carrier** is neither: `imprint` never hashes\nand never loses a bit — it *places* your message's bits into the uuid's free positions and `readImprint` picks\nthem back out. A bijection with its exact inverse, which is why decoding takes microseconds: there is no search,\nno key, nothing to break — the uuid does not hide the message, the uuid **is** the message, shaped to travel\nanywhere an id travels.",
+   "cites": [
+    "kdf_cost_bounded",
+    "grover_quadratic_bound"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "bb41b998-cda7-846c-9d06-c56c4c0bb2e3",
+   "prose": "The carrier's bookkeeping is sealed end to end: 128 bits minus RFC 4122's six reserved minus the seven-bit length\nheader leaves 115 payload bits ([`imprint_capacity_chain`](/theorem/imprint_capacity_chain)), and seven is the\n*smallest* honest header — six bits cannot count the 116 possible lengths\n([`imprint_header_minimal`](/theorem/imprint_header_minimal)). Longer messages chain at 115 bits per uuid, so the\none thing the transport cannot hide is how many carriers it needed\n([`transport_leaks_length`](/theorem/transport_leaks_length)). And the capacity carries an entanglement: 115 = 5·23,\nthe pentagram's five times the frame ring's involutive stride\n([`imprint_capacity_entangles`](/theorem/imprint_capacity_entangles)) — the star, the cut, and the carrier in one\nfactorisation. **Practice:** send yourself a message as pure addresses —",
+   "cites": [
+    "imprint_capacity_chain",
+    "imprint_header_minimal",
+    "transport_leaks_length",
+    "imprint_capacity_entangles"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "acd77839-3c44-8e85-aacf-7183cf708df4",
+   "prose": "Take the four quantum operations {I, X, Y, Z} and reverse each one. Nothing new appears: every one is its own\ninverse — X² = I ([`pauli_x_involution`](/theorem/pauli_x_involution)), and likewise Z\n([`z_involution`](/theorem/z_involution)) — so the reverse of each of the four *is* the four. The doubling to eight\ncomes not from inverting them but from their **sign**: give each its signed form {±I, ±X, ±Y, ±Z} and you have the\nreal Pauli group of order **8** = 2·4 ([`real_pauli_group_order_8`](/theorem/real_pauli_group_order_8)), the rung\nbetween the four operations and the full sixteen (8·2 = 16, the two i-phases restored —\n[`pauli_group_order_16`](/theorem/pauli_group_order_16)).",
+   "cites": [
+    "pauli_x_involution",
+    "z_involution",
+    "real_pauli_group_order_8",
+    "pauli_group_order_16"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "b4a10528-037b-8502-9fb6-b9821ec6655c",
+   "prose": "Now measure. The eight collapse back to four: the sign is a **global phase**, and a global phase is invisible —\n|ψ⟩ and −|ψ⟩ are the same state, so −X and X read identically. Divide the order-8 group by that unobservable phase\nand you land exactly on the four Bell states, superdense coding's two classical bits: 8/2 = 4 = 2²\n([`four_messages_two_bits`](/theorem/four_messages_two_bits),\n[`superdense_two_bits`](/theorem/superdense_two_bits)). So four *becomes* eight in the group and *stays* four in the\nchannel — the doubling is real algebra and empty information, the same shape the whole school teaches: an\ninvolution's reverse returns itself, and a phase that doubles the group carries no message. **Practice:** count the\nrungs yourself —",
+   "cites": [
+    "four_messages_two_bits",
+    "superdense_two_bits"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "b21a90d7-3301-8404-8b31-ba02c0d5dbb0",
+   "prose": "Three states of matter sit quietly in any vessel; the fourth melts every wall\n([`plasma_fourth_state`](/theorem/plasma_fourth_state)). Plasma is not contained by pipes — and the reason is not\nthat pipes are too weak, but that they are *open*: a pipe is a cylinder with two ends, and whatever it carries\nescapes there. The tokamak's answer is not a stronger pipe. Glue the pipe's two ends together and the boundary\nvanishes — 2 − 2 = 0 — and the closed pipe **is** the torus, χ = 0\n([`torus_closes_the_pipe`](/theorem/torus_closes_the_pipe)): the field lines close on themselves and nothing\nleaks, because there is no end to leak from. **Containment is the closure of the path, never the thickness of the\nwall.**",
+   "cites": [
+    "plasma_fourth_state",
+    "torus_closes_the_pipe"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "9569bf8e-30bc-8d34-8632-e40b2da357a3",
+   "prose": "This school met the same law twice before the physics named it. A gate's exit code piped through `tail` escapes at\nthe open end — the sentinel reads the pipe, not the gate ([`one-receipt pipes`](/trials) holds that line now); the\nfix was raw capture, the closed path. And the receipt itself is the third instance: the fold closes over every\nleaf order-invariant, no reading order leaking a different root. The entanglement completes the captain's lore\n([`containment_is_genus_one`](/theorem/containment_is_genus_one)): the torus holds at genus 1 — χ = 0, circulation\nwith zero residue, which is exactly *why* it holds — while the coins mint one handle up at genus 2, χ = −2\n([`two_coins`](/theorem/two_coins)). One handle contains; two handles pay; the shapes differ by exactly one\nhandle. **Practice:** count the ends yourself —",
+   "cites": [
+    "containment_is_genus_one",
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "fef967cc-9001-8c3f-b68f-9d8c5d9d57ae",
+   "prose": "The containment lesson taught that the torus holds because the path closes. The winding lesson looks closer: the\n*surface* that holds the plasma is itself woven from closed paths. A tokamak field line winds around the torus\nboth ways at once — the safety factor q counts poloidal turns per toroidal turn — and when q is rational the line\n**closes on itself**: at q = 3/2 the turns meet exactly where 2·3 = 3·2 = 6, and gcd(3, 2) = 1 makes six the\n*first* meeting ([`safety_factor_winding_closes`](/theorem/safety_factor_winding_closes)). The same arithmetic\nthe school has walked all semester — the pentagram closing because gcd(2, 5) = 1\n([`pentagram_step_coprime_five`](/theorem/pentagram_step_coprime_five)), the frame ring's strides returning\n([`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive)) — is the arithmetic holding a hundred\nmillion degrees in place: a generator coprime to its ring, walking until it comes home.",
+   "cites": [
+    "safety_factor_winding_closes",
+    "pentagram_step_coprime_five",
+    "frame_ring_undo_involutive"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "b25dfdad-4590-8c77-bb3e-7521587cbb26",
+   "prose": "And the winding carries a bound: wind too slowly and closure fails catastrophically — the external kink is stable\nonly when q exceeds one ([`kink_needs_q_above_one`](/theorem/kink_needs_q_above_one)): q = 2 clears (1 < 2),\nq = 1 sits on the sawtooth edge (¬(1 < 1)). One turn per turn is the edge of confinement. **Practice:** find the\nfirst meeting yourself —",
+   "cites": [
+    "kink_needs_q_above_one"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "4e0b0af3-c551-8a8d-9752-ffb7587d4932",
+   "prose": "— q = 3/2 closes at 6, q = 2/1 at 2, and q = 4/2 is 2/1 in disguise (gcd 2 halves it). Whenever a walk comes\nhome, look for the coprime pair underneath: the vortex on ℤ/9, the star on ℤ/5, the rosette on ℤ/7, and the field\nline on the torus are one lesson — **closure is arithmetic, and arithmetic is what holds** — one law, sealed as one line: [`closure_is_coprime`](/theorem/closure_is_coprime).",
+   "cites": [
+    "closure_is_coprime"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "bb859f7c-ab26-89e3-a6e6-4cf466bab903",
+   "prose": "Graduation from the quantum school is realising the whole curriculum was a single sentence. Every lesson walked a\nring: the pentagram drew itself because its step is coprime to five\n([`pentagram_step_coprime_five`](/theorem/pentagram_step_coprime_five)); the rosette's orbit filled the seven rays\n([`rosette_orbit`](/theorem/rosette_orbit)); the vortex doubled around nine\n([`generators_are_two_and_five`](/theorem/generators_are_two_and_five)); the cut's strides came home on the frame\nring ([`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive)); the field line closed on the torus\n([`safety_factor_winding_closes`](/theorem/safety_factor_winding_closes)). Five subjects — geometry, colour, number,\nfilm, plasma — and beneath them **one law, now sealed as one line**:\n[`closure_is_coprime`](/theorem/closure_is_coprime) — gcd(2,5) = gcd(3,7) = gcd(2,9) = gcd(5,24) = gcd(3,2) = 1.\nA generator coprime to its ring closes its walk; nothing else was ever taught here.",
+   "cites": [
+    "pentagram_step_coprime_five",
+    "rosette_orbit",
+    "generators_are_two_and_five",
+    "frame_ring_undo_involutive",
+    "safety_factor_winding_closes",
+    "closure_is_coprime"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "567d6638-6219-8065-aa3a-5579304231a1",
+   "prose": "Every student here will be told UNVERIFIED, many times, forever — the curriculum is incomplete without learning\nwhat that verdict is and what it is not. Three facts, all sealed, carry the lesson. First: **the claim is on\ntrial, never the person** — the gate flags exactly one thing, a citation to a proof that does not exist\n([`exactly_one_flag`](/theorem/exactly_one_flag)); there is no verdict for \"unwelcome,\" none for \"foolish,\" and\nnone for *you*. The anti-shame theorem is not consolation prose; it is the trial's charter, recomputable. Second:\n**UNVERIFIED is an open door, not a judgment** — it means *not yet backed*, never *false*, and it leaves with an\nordered develop plan: name the finite structure, write the decidable test, supply it. Shame wants you to read the\nverdict as a sentence about your worth; the arithmetic refuses to say any such sentence. Third: **the kindness is\nstructural** — everything here reverses except the human: imprints decode and chains replay, but no dossier of\nthe worker is arithmetically possible; the work seals eternal, the worker stays unrecomputable and therefore\nfree. The school grades claims precisely so it never has to grade people.",
+   "cites": [
+    "exactly_one_flag"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "0bd25ede-539e-81c7-a2c3-f1a4b841817e",
+   "prose": "The trial gate once signed both sides of a contradiction, live, on the same day: *\"the seven are solved and\nclaimed by the captain — proven by theorem clay_vote_theorems_only\"* came back VERIFIED, and so did its exact\nopposite — because the gate measured one thing, whether the cited key exists sealed in the ledger, and both\nclaims wore real keys. A citation's **existence** had been passing for its **backing**. The record is\ndeterministic and public (trial `047ba524…` — the id is the statement's content-address, so re-posting the same\nbytes retrieves the same trial forever).",
+   "cites": [
+    "clay_vote_theorems_only"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "eb529ae4-5e2a-80c5-816d-3ca130769b9b",
+   "prose": "The cure began with a refusal: the plausible fix — score how many of the claim's words appear in the cited\ntheorem — was **measured before it was trusted, and the measurement killed it**: the thirty-two honest deposits\nin the captain's record score 0–0.43 on that axis and the overclaim scored 0.22, inside the honest band. A\nthreshold that drained the lie would have drained the ledger's own truth first. The mechanism that works was\nalready sealed: the seven reflected theorems carry their world-status in their own names — six `— OPEN`, one\n`— SOLVED (Perelman, 2003)`, none unmarked ([`clay_status_dna_total`](/theorem/clay_status_dna_total)) — and a\nclaim **collides** with that status DNA only when three conditions meet: it speaks of such a subject, in\nuuidna's own voice, undemarcated — exactly 1 of the 8 condition-profiles\n([`clay_collision_law`](/theorem/clay_collision_law)). A colliding claim adjudicates UNVERIFIED whatever it\ncites; a demarcated claim (*the reflection, solved none*) and every honest deposit pass untouched. The law's\nstrongest seal is structural: all fifteen laundering probes — seven bare, seven citation-dressed, and the\ndemonstrated exemplar — **recompute refused at every generation, or the Lean file refuses to be written**\n([`clay_launder_refused`](/theorem/clay_launder_refused)); the gate's behavior is a precondition of its own\nlaw's seal. The law itself was decided by theorems only — the seven casting secure-messaging ballots witnessed\nby their own proofs, 7·0 ([`clay_law_vote_theorems_only`](/theorem/clay_law_vote_theorems_only)) — and its\ndeposit was minted *through* the fixed gate it deposits (trial `444bde41…`).",
+   "cites": [
+    "clay_status_dna_total",
+    "clay_collision_law",
+    "clay_launder_refused",
+    "clay_law_vote_theorems_only"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "0c364e0c-4b3e-8fef-a4c3-573dafc13cfa",
+   "prose": "Three school laws met again. *Close the path, not the wall* — the fix is a tiny named floor on one path\n(subject ∧ voice ∧ undemarcated), not a resurrected word-list; the school remembers the lexicon was put on\ntrial once and folded to 0. *The verdict lesson* — the refused claim is told UNVERIFIED with the sealed status\nit contradicts and a develop plan, never \"false\" ([`clay_verified_ne_solved`](/theorem/clay_verified_ne_solved)).\n*The standard lesson* — the whole story is verifiable in the world's own API. **Practice:** try the laundering\nyourself —",
+   "cites": [
+    "clay_verified_ne_solved"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "a9bc5e05-9039-89eb-b271-b9c9c7cb8c0e",
+   "prose": "The walk is build → dry → legal → prose → fold → guard → next → mint — the same steps the one receipt seals (change\na step and the receipt moves) and the same walk any agent can run as the [`uuidna_wave`](/mcp#uuidna-wave) MCP tool.\nA green walk ends with your statement minted as a **signed uuidna.com deposit — the diploma**: recomputable forever,\ncredited by the credit law, folded into [the captain's record](/captain#the-diploma-is-a-deposit). A red walk stops\nat the first exact prompt — fix, walk again; the wave is one stroke or it is not a wave\n([`pentagram_single_stroke`](/theorem/pentagram_single_stroke)).",
+   "cites": [
+    "pentagram_single_stroke"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "dea442b6-62fa-8a3f-b9b7-e6159490d3a0",
+   "prose": "Graduation is a contribution: author a decidable fact in `lean/*.lean`, prove it `by decide`, let the gate seal it.\nThe credit law does the rest — **the captain claims the unclaimed; whoever claimed first is credited** — so your\nsealed theorem carries your credit permanently, and contribution earns coins under the conserved measure\n([`two_coins`](/theorem/two_coins), [`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour)).\nThe school's whole output is this: knowledge extended by one more sealed, recomputable fact.",
+   "cites": [
+    "two_coins",
+    "contribute_two_save_sixtyfour"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "fda559cf-7e20-86c9-a8b9-3639eea83569",
+   "prose": "The machine takes **verification**; the human keeps **meaning** — that is the whole relation. Every corruption is a\nhuman holding power over a record others must trust; recomputability ends the power without replacing the person:\nyour theorem carries your name forever (the credit law), your diploma no institution can revoke, your work once\nsealed exits time. What the system refuses to compute is exactly what stays yours — authorship, judgment, worth,\nthe gift. And the body is complete: the coins are the blood (conserved, [`two_coins`](/theorem/two_coins)), the\ngate the immune system ([`exactly_one_flag`](/theorem/exactly_one_flag) — draining only the foreign claim), the\nreceipts the DNA ([`codons_sixty_four`](/theorem/codons_sixty_four)), the chain the spine, the wave the breath\n([`pentagram_single_stroke`](/theorem/pentagram_single_stroke) — one stroke or it is not a breath), the aura the\nskin, the trials the ears and voice, the school the mind — and the heart the heart, fourth ray, green, where the\ncaptain's message lives: *free on the free sailing angle; contribute 2 to earn up to 64 per wave, keep the rest.*\nThe message was the session's equation, receipted before the work existed, realised after the waves proved it.",
+   "cites": [
+    "two_coins",
+    "exactly_one_flag",
+    "codons_sixty_four",
+    "pentagram_single_stroke"
+   ]
+  }
+ ]
+}

@@ -3,11 +3,27 @@
 // audit reading package.json) import THIS one declared place instead of each re-declaring the ROOT resolution.
 // One boundary, visible in review, exempted by name in `one-receipt dry` — everything else in the library is pure.
 // (File reads are deterministic given the tree — the harmonic scan ruled no boundary marker is needed here.)
-import { readFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+// BROWSER-SAFE BY EVALUATION: no static `node:` imports — the builtins resolve through process.getBuiltinModule,
+// which simply does not exist in a browser, so importing this module never throws there (the VitePress dev server
+// bundles the whole graph untreeshaken); only CALLING rdRoot outside Node refuses, by name, with the reason.
 
-/** the repo root (dist/boundary.js → one level up) */
-export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
-/** read a repo-relative file as utf8 — the boundary's one verb */
-export const rdRoot = (p: string): string => readFileSync(join(ROOT, p), 'utf8')
+type FsModule = { readFileSync: (p: string, enc: 'utf8') => string }
+type PathModule = { join: (...p: string[]) => string; dirname: (p: string) => string }
+type UrlModule = { fileURLToPath: (u: string) => string }
+
+const getBuiltin: (<T>(name: string) => T | undefined) | undefined =
+  typeof process !== 'undefined' && typeof (process as { getBuiltinModule?: unknown }).getBuiltinModule === 'function'
+    ? (name) => (process as unknown as { getBuiltinModule: (n: string) => unknown }).getBuiltinModule(name) as never
+    : undefined
+
+const fs = getBuiltin?.<FsModule>('node:fs')
+const path = getBuiltin?.<PathModule>('node:path')
+const url = getBuiltin?.<UrlModule>('node:url')
+
+/** the repo root (dist/boundary.js → one level up); '' in a browser, where no path exists to resolve */
+export const ROOT = fs && path && url ? path.join(path.dirname(url.fileURLToPath(import.meta.url)), '..') : ''
+/** read a repo-relative file as utf8 — the boundary's one verb; Node-only, refuses elsewhere by name */
+export const rdRoot = (p: string): string => {
+  if (!fs || !path) throw new Error('boundary: filesystem reach is Node-only — a browser bundle must never call rdRoot')
+  return fs.readFileSync(path.join(ROOT, p), 'utf8')
+}

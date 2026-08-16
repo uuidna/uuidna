@@ -429,7 +429,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-captain_commission_two_coins",
@@ -474,7 +474,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-captain_commission_rate_two_per_110",
@@ -519,7 +519,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-forged_theorem_costs_2_power_7_bits",
@@ -564,7 +564,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-forgery_costs_64_commissions",
@@ -609,7 +609,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-sealed_theorem_not_forged",
@@ -654,7 +654,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-forged_theorem_address_detectable",
@@ -699,7 +699,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-overclaim_with_fake_cite_fails",
@@ -744,7 +744,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-double_spend_detectable",
@@ -789,7 +789,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-one_theorem_single_claim",
@@ -834,7 +834,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-double_spend_hides_nowhere",
@@ -879,7 +879,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-vote_weight_equals_coins_paid",
@@ -924,7 +924,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-vote_weight_inflation_flagged",
@@ -969,7 +969,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-vote_receipt_order_invariant",
@@ -1014,7 +1014,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-ledger_fingerprint_tamper_evident",
@@ -1059,7 +1059,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-theorem_dna_recompute_is_seal",
@@ -1104,7 +1104,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-anti_fraud_check_deterministic",
@@ -1149,7 +1149,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-honesty_gate_passes_iff_all_sealed",
@@ -1194,7 +1194,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-conformance_failure_detects_intrusion",
@@ -1239,7 +1239,7 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "theorem-honesty_gate_is_theorem_not_oracle",
@@ -1284,7 +1284,232 @@
         }
       },
       "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
-      "uuidnaAddress": "5fa7572a-3782-850b-9f5c-e747a61b2158"
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
+    },
+    {
+      "slug": "theorem-verdict_exactly_one",
+      "title": "theorem-verdict_exactly_one",
+      "_status": "published",
+      "parent": "antifraud",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 4).all (fun n => verified (n % 2) (n / 2) + unverified (n % 2) (n / 2) == 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 4).all (fun n => verified (n % 2) (n / 2) + unverified (n % 2) (n / 2) == 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem verdict_exactly_one : (List.range 4).all (fun n => verified (n % 2) (n / 2) + unverified (n % 2) (n / 2) == 1) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
+    },
+    {
+      "slug": "theorem-unverified_iff_unsealed",
+      "title": "theorem-unverified_iff_unsealed",
+      "_status": "published",
+      "parent": "antifraud",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 4).map (fun n => unverified (n % 2) (n / 2))) = [1, 1, 1, 0]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 4).map (fun n => unverified (n % 2) (n / 2))) = [1, 1, 1, 0]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem unverified_iff_unsealed : ((List.range 4).map (fun n => unverified (n % 2) (n / 2))) = [1, 1, 1, 0] := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
+    },
+    {
+      "slug": "theorem-fabricated_cite_is_unverified",
+      "title": "theorem-fabricated_cite_is_unverified",
+      "_status": "published",
+      "parent": "antifraud",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "unverified 1 0 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "unverified 1 0 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fabricated_cite_is_unverified : unverified 1 0 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
+    },
+    {
+      "slug": "theorem-unverified_is_an_open_door",
+      "title": "theorem-unverified_is_an_open_door",
+      "_status": "published",
+      "parent": "antifraud",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "unverified 1 0 = 1 ∧ verified 1 1 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "unverified 1 0 = 1 ∧ verified 1 1 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem unverified_is_an_open_door : unverified 1 0 = 1 ∧ verified 1 1 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
+    },
+    {
+      "slug": "theorem-unverified_complement_is_verified",
+      "title": "theorem-unverified_complement_is_verified",
+      "_status": "published",
+      "parent": "antifraud",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 4).all (fun n => 1 - unverified (n % 2) (n / 2) == verified (n % 2) (n / 2))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 4).all (fun n => 1 - unverified (n % 2) (n / 2) == verified (n % 2) (n / 2))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem unverified_complement_is_verified : (List.range 4).all (fun n => 1 - unverified (n % 2) (n / 2) == verified (n % 2) (n / 2)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c64ed461-54b2-86ba-9865-bab388320000",
+      "uuidnaAddress": "e204a38b-2eb1-8de6-9732-660e39dd2a74"
     },
     {
       "slug": "astronomy",

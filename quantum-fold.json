@@ -18,39 +18,39 @@
     },
     "record": {
       "legal": "68eecd681090af45",
-      "prose": "a12333ffee64b5ea",
+      "prose": "250eb2a5100dafb8",
       "deposits": "3a0d56cd73aa5446"
     },
     "walks": {
       "star_walk": "00dcb9ca1eb1d2be",
       "rosette_receipts": "5de60857b7a52640c0b7e4bbde9d610f",
-      "rosette_audit": "1943f936587b86e1"
+      "rosette_audit": "48b4dc07c170ddea"
     }
   },
   "trinity_folds": {
     "sealed": "bdf622d8a5f1bfe20f53e9554ef0bd83",
     "served": "72d0e3a6fd0105e21aa8d234c26d74e4",
     "proven": "1a414d61508d44832fd6e01a4c9576c7",
-    "record": "0dc1afda0f01d02cd9a15010e336a8bb",
-    "walks": "8b83c1ae7189f0447187b60e4d514275"
+    "record": "34cf6d033be424b7074e0553bed55c4b",
+    "walks": "2839029b350208566b555045b4a9317c"
   },
-  "unified_fold": "41d866b7c5d9df6c",
-  "receipt": "7608e8ea85596f98",
+  "unified_fold": "a0fb5ef1649aa1ce",
+  "receipt": "20b886b30ca11887",
   "rosette_receipt": {
     "rays": [
       "52d2da2ed811df61",
       "3a8d773151b99d0b",
-      "5760032a23790a4a",
+      "2df745fc18e27fa4",
       "a1b364494c0a9230",
-      "44559cad2fd8e6af",
+      "3a8e213bd626b697",
       "a761502744407dcd",
       "471b0085eec8c657"
     ],
-    "concurrence": "0b0a52ca3a9b6ba19f040a2ef477e340"
+    "concurrence": "0cd72ee9d3926f411560001c4931767f"
   },
   "aura": {
-    "rgb": "#22dd54",
-    "hsl": "hsl(136, 73%, 50%)",
+    "rgb": "#a4d85a",
+    "hsl": "hsl(85, 62%, 60%)",
     "alphabet": "b6819334641853db",
     "movie": "27f9c79a816659fe",
     "lessons": "2c9ab81e954da7bc",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 6,
-      "ray": 5,
-      "wave": 1,
-      "hue": 136,
-      "sat": 73,
-      "light": 50,
-      "period": 22,
+      "residue": 2,
+      "ray": 0,
+      "wave": 5,
+      "hue": 85,
+      "sat": 62,
+      "light": 60,
+      "period": 12,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
