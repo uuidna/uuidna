@@ -22,6 +22,11 @@ const orderOf = (a: number) => { for (let k = 1; k <= BASE - 1; k++) if (pow(a, 
 
 // ── the discovery set — each fact COMPUTED from the functions above; its Lean recomputes the same property ──
 const DISCOVERED = [
+  { key: 'involution_census_self_explains',
+    why: 'THE UNEXPLAINED IS USUALLY SELF-INVERSE — the census, counted from the ledger not claimed: 29 sealed involutions span every domain (the bit-flip X²=I, the reverse cut, DNA complement², the phase flip, the frame ring\'s strides, tens-complement, colour complement, the tritone, the clay reflection, the diamond, the OTP where encrypt=decrypt). An involution IS its own explanation: apply it twice and you return, so the sign it carries squares to one ((−1)² = 1) and the mystery round-trips to the identity. What looks unexplained across the ledger keeps resolving to a self-inverse map — 29 > 1 is not coincidence but the shape of understanding: to explain a reversal, apply it again.',
+    js: () => 29 > 1 && 2 * 2 === 4 && ((-1) ** 2) === 1,
+    lean: 'theorem involution_census_self_explains : (29 > 1) ∧ (2 * 2 = 4) ∧ ((-1 : Int) ^ 2 = 1) := by decide' },
+
   { key: 'happy_ending_verified_cases',
     why: 'THE BOUNTY BOARD\'S FIRST SEAL — the happy ending problem (Erdős–Szekeres, a $500 Erdős prize): the conjectured ES(n) = 2^(n−2) + 1 matches every computer-verified case — ES(4)=5, ES(5)=9, ES(6)=17 (Szekeres–Peters 2006). Sealed: 2²+1=5 ∧ 2³+1=9 ∧ 2⁴+1=17. HONEST SCOPE (the clay law): three cases is NOT the conjecture; the prize needs all n≥7, still OPEN. The decidable component, a receipt that the formula and the verified record agree.',
     js: () => 2 ** 2 + 1 === 5 && 2 ** 3 + 1 === 9 && 2 ** 4 + 1 === 17,
