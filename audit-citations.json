@@ -1,17 +1,17 @@
 {
-  "key": "24ae45b7-50fd-80b4-a408-2a1e894b5a36",
+  "key": "1dbf80a1-cb21-8032-bf20-e22f14c31111",
   "publications": 66,
-  "sealedTheorems": 1224,
+  "sealedTheorems": 1226,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1224,
-    "theorems": 1224,
+    "claims": 1226,
+    "theorems": 1226,
     "bijection": true,
     "digitalRoots": {
-      "claims": 9,
-      "theorems": 9,
+      "claims": 2,
+      "theorems": 2,
       "publications": 3
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -82,8 +82,8 @@
     },
     {
       "slug": "quantum",
-      "claims": 43,
-      "cited": 43,
+      "claims": 45,
+      "cited": 45,
       "uncited": [],
       "fabricated": []
     },

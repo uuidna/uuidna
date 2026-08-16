@@ -304,6 +304,13 @@ export async function coherentGaps(): Promise<Gap[]> {
 // (fold → guard → commit → push, reconcile-retry) until clean and synced. The captain's cron, now a subcommand. ──
 export function seal(): void {
   for (let round = 1; round <= 6; round++) {
+    // THE GATE-WAIT, folded — the piece every hand-written watcher kept re-implementing: never interleave
+    // writers on the shared tree (the mixed-dist hazard). Wait for any running reconcile before touching it.
+    for (let w = 0; w < 90; w++) {
+      const gates = execSync('ps aux | grep "[r]econcile.js" | wc -l', { cwd: ROOT }).toString().trim()
+      if (gates === '0') break
+      execSync('sleep 10', { cwd: ROOT })
+    }
     const dirty = execSync('git status --porcelain', { cwd: ROOT }).toString().trim()
     let ahead = '0'
     try { execSync('git fetch origin main -q', { cwd: ROOT }); ahead = execSync('git rev-list origin/main..HEAD --count', { cwd: ROOT }).toString().trim() } catch { /* offline: seal locally */ }

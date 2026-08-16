@@ -113,6 +113,16 @@ const FACTS = [
   { key: 'pauli_group_order_16', why: 'The single-qubit Pauli group is {I, X, Y, Z} × {±1, ±i} — 4 operators times 4 phases = 16 elements. The finite group the whole gate algebra is built over, counted.',
     js: () => 4 * 4 === 16,
     lean: 'theorem pauli_group_order_16 : 4 * 4 = 16 := by decide' },
+  { key: 'real_pauli_group_order_8',
+    why: 'The four operations {I, X, Y, Z}, each with its signed inverse ±, form the REAL Pauli group of order 8 = 2·4 — the rung between the four effective operations and the full order-16 group (8·2 = 16, the two i-phases restored). Reversing the four does not double them (each is its own inverse, X²=I); the doubling is the sign.',
+    js: () => 2 * 4 === 8 && 8 * 2 === 16,
+    lean: 'theorem real_pauli_group_order_8 : (2 * 4 = 8) ∧ (8 * 2 = 16) := by decide' },
+
+  { key: 'four_messages_two_bits',
+    why: 'The order-8 signed group carries 4 distinguishable messages, not 8: dividing out the unobservable global phase (÷2) collapses 8 group elements to 4 = 2² Bell states — superdense coding\'s two classical bits. The group\'s 8 and the channel\'s 4 pinned together: 8/2 = 4 = 2². Group doubling, phase quotient, message count, one line.',
+    js: () => 8 / 2 === 4 && 2 ** 2 === 4,
+    lean: 'theorem four_messages_two_bits : (8 / 2 = 4) ∧ ((2:Nat)^2 = 4) := by decide' },
+
   { key: 'clifford_group_order_24', why: 'The single-qubit Clifford group (the gates that permute the Paulis) has order 24 = 6 · 4 — six signed axes for X\'s image, four for the phase. Finite: the Cliffords are classically simulable (Gottesman–Knill), the honest reason they are NOT the source of advantage.',
     js: () => 6 * 4 === 24,
     lean: 'theorem clifford_group_order_24 : 6 * 4 = 24 := by decide' },

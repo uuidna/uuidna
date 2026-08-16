@@ -142,6 +142,32 @@ node -e "import('./dist/imprint.js').then(m => { const c = m.imprintTextChain('t
 whole posture ([`one-receipt re`](/trials)): reversal at wire speed where reversal is the design, bounded cost
 where secrecy is, and prose forbidden from blurring the two.
 
+## The phase lesson — when four becomes eight and stays four
+
+Take the four quantum operations {I, X, Y, Z} and reverse each one. Nothing new appears: every one is its own
+inverse — X² = I ([`pauli_x_involution`](/theorem/pauli_x_involution)), and likewise Z
+([`z_involution`](/theorem/z_involution)) — so the reverse of each of the four *is* the four. The doubling to eight
+comes not from inverting them but from their **sign**: give each its signed form {±I, ±X, ±Y, ±Z} and you have the
+real Pauli group of order **8** = 2·4 ([`real_pauli_group_order_8`](/theorem/real_pauli_group_order_8)), the rung
+between the four operations and the full sixteen (8·2 = 16, the two i-phases restored —
+[`pauli_group_order_16`](/theorem/pauli_group_order_16)).
+
+Now measure. The eight collapse back to four: the sign is a **global phase**, and a global phase is invisible —
+|ψ⟩ and −|ψ⟩ are the same state, so −X and X read identically. Divide the order-8 group by that unobservable phase
+and you land exactly on the four Bell states, superdense coding's two classical bits: 8/2 = 4 = 2²
+([`four_messages_two_bits`](/theorem/four_messages_two_bits),
+[`superdense_two_bits`](/theorem/superdense_two_bits)). So four *becomes* eight in the group and *stays* four in the
+channel — the doubling is real algebra and empty information, the same shape the whole school teaches: an
+involution's reverse returns itself, and a phase that doubles the group carries no message. **Practice:** count the
+rungs yourself —
+
+```bash
+node -e "console.log('effective', 4, '| signed', 2*4, '| full', 4*4, '| messages', (2*4)/2)"
+```
+
+— four operations, eight with sign, sixteen with all phases, and four messages when the phase is measured away.
+The gap between what a structure *contains* and what it can *say* is the lesson.
+
 ## The degree — seal a theorem, then walk the wave
 
 Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
