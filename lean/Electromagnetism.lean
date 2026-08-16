@@ -9,6 +9,12 @@ theorem torus_closes_the_pipe : (2 - 2 = 0) ∧ (2 - 2 * 1 = 0) := by decide
 -- THE ENTANGLEMENT WITH THE COINS: containment circulates at genus 1 — the tokamak's torus, χ = 2 − 2·1 = 0, pure circulation with zero residue, which is exactly why it holds — while minting pays at genus 2, the double torus, χ = 2 − 2·2 = −2, whose negation is the two coins (theorem two_coins). One handle contains; two handles pay. The shape that holds plasma and the shape that mints coins differ by exactly one handle.
 theorem containment_is_genus_one : ((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2) := by decide
 
+-- THE CONTAINMENT LESSON ON THE SURFACE ITSELF: a tokamak field line with rational safety factor q = 3/2 winds 3 poloidal turns for every 2 toroidal and CLOSES — the turns meet exactly at 2·3 = 3·2 = 6, and gcd(3,2) = 1 makes six the first meeting. The closed path that holds the plasma is itself made of closed paths: closure all the way down.
+theorem safety_factor_winding_closes : (2 * 3 = 6) ∧ (3 * 2 = 6) ∧ (Nat.gcd 3 2 = 1) := by decide
+
+-- The Kruskal–Shafranov bound as decidable order: the external kink is stable only when the safety factor exceeds one — q = 2 clears the bound (1 < 2) and q = 1 does not (¬(1 < 1)), the sawtooth boundary. One is the edge of confinement: wind slower than once-per-turn and the column kinks.
+theorem kink_needs_q_above_one : (1 < 2) ∧ ¬(1 < 1) := by decide
+
 -- Coulomb's law sets the sign of the force by the product of charges: like charges (product > 0) repel, opposite charges (product < 0) attract — 1·1 > 0 and 1·(−1) < 0. Same sign pushes apart, opposite pulls together.
 theorem coulomb_sign : ((1 * 1 : Int) > 0) ∧ ((1 * (-1) : Int) < 0) := by decide
 

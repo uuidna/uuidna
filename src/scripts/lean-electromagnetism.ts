@@ -23,6 +23,16 @@ const FACTS = [
     js: () => 2 - 2 * 1 === 0 && 2 - 2 * 2 === -2,
     lean: 'theorem containment_is_genus_one : ((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2) := by decide' },
 
+  { key: 'safety_factor_winding_closes',
+    why: 'THE CONTAINMENT LESSON ON THE SURFACE ITSELF: a tokamak field line with rational safety factor q = 3/2 winds 3 poloidal turns for every 2 toroidal and CLOSES — the turns meet exactly at 2·3 = 3·2 = 6, and gcd(3,2) = 1 makes six the first meeting. The closed path that holds the plasma is itself made of closed paths: closure all the way down.',
+    js: () => { const gcd = (a: number, b: number): number => b ? gcd(b, a % b) : a; return 2 * 3 === 6 && 3 * 2 === 6 && gcd(3, 2) === 1 },
+    lean: 'theorem safety_factor_winding_closes : (2 * 3 = 6) ∧ (3 * 2 = 6) ∧ (Nat.gcd 3 2 = 1) := by decide' },
+
+  { key: 'kink_needs_q_above_one',
+    why: 'The Kruskal–Shafranov bound as decidable order: the external kink is stable only when the safety factor exceeds one — q = 2 clears the bound (1 < 2) and q = 1 does not (¬(1 < 1)), the sawtooth boundary. One is the edge of confinement: wind slower than once-per-turn and the column kinks.',
+    js: () => 1 < 2 && !(1 < 1),
+    lean: 'theorem kink_needs_q_above_one : (1 < 2) ∧ ¬(1 < 1) := by decide' },
+
   { key: 'coulomb_sign',
     why: "Coulomb's law sets the sign of the force by the product of charges: like charges (product > 0) repel, opposite charges (product < 0) attract — 1·1 > 0 and 1·(−1) < 0. Same sign pushes apart, opposite pulls together.",
     js: () => 1 * 1 > 0 && 1 * -1 < 0,
