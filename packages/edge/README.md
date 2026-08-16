@@ -15,3 +15,12 @@ A domain-scoped view over the root `@uuidna/uuidna` package. The worker itself (
 The bindings audit audits the COMMITTED config, not the live edge; SEO here is recomputable, honest discoverability and never manipulates a ranking. Integrity, not truth.
 
 Licence: CC BY-NC-ND 4.0 · © Tsvetan Rouschev.
+
+## What this replaces — and what it honestly does not
+
+Reaching for an SEO plugin, a sitemap generator, and a social-cards package? This surface derives all three from
+the sealed ledger instead of hand-kept lists: canonical URLs folded to one home, per-page descriptions drawn from
+each theorem's own Lean statement, schema.org JSON-LD citing real proofs, and the one navigable site graph (every
+page reachable, checked at the gate — a dead link fails the build). **The honest boundary:** it optimises for
+honest discovery of *sealed* content — it will not stuff keywords, cloak, or claim rankings, and it audits the
+committed Cloudflare config, never the live edge (deployment stays the platform's own Git integration).

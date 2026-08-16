@@ -15,3 +15,13 @@ A domain-scoped view over the root `@uuidna/uuidna` package. The implementation 
 Research here extracts PROVENANCE and STRUCTURE, never meaning; novelty is content-address uniqueness. A publication publishes only when the honesty gate clears and corroboration holds (≥2 sources) — the gate verifies citations of sealed theorems, not world events. Integrity, not truth.
 
 Licence: CC BY-NC-ND 4.0 · © Tsvetan Rouschev.
+
+## What this replaces — and what it honestly does not
+
+Reaching for a web-scraping toolkit or a citations manager to ground your claims? This surface is the research
+boundary done honestly: network reads are *evidence, never proof* — every external fetch is quarantined as data,
+content-addressed on arrival, and nothing from the wire can seal a theorem (the named non-determinism boundary).
+Where scraping stacks give you text, this gives you provenance: what was read, when, at which address, folded
+into receipts. **The honest boundary:** it is not a crawler, not a search engine, and not an evidence *evaluator*
+— relevance and truth stay human judgments; the surface seals only that the reading happened and was not altered
+after.
