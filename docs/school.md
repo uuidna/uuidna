@@ -259,7 +259,13 @@ what that verdict is and what it is not. Three facts, all sealed, carry the less
 trial, never the person** — the gate flags exactly one thing, a citation to a proof that does not exist
 ([`exactly_one_flag`](/theorem/exactly_one_flag)); there is no verdict for "unwelcome," none for "foolish," and
 none for *you*. The anti-shame theorem is not consolation prose; it is the trial's charter, recomputable. Second:
-**UNVERIFIED is an open door, not a judgment** — it means *not yet backed*, never *false*, and it leaves with an
+**UNVERIFIED is an open door, not a judgment** — and since this semester that sentence is itself a theorem, not
+prose: the same citing claim verifies the moment its seal lands
+([`unverified_is_an_open_door`](/theorem/unverified_is_an_open_door)) — the verdict tracks the *ledger*, never
+the claim's soul; every claim gets exactly one verdict, total and binary
+([`verdict_exactly_one`](/theorem/verdict_exactly_one)); and the algebra carries **no refuted state at all**
+([`unverified_complement_is_verified`](/theorem/unverified_complement_is_verified)) — absence of proof cannot
+even *compute* to falsity. It means *not yet backed*, never *false*, and it leaves with an
 ordered develop plan: name the finite structure, write the decidable test, supply it. Shame wants you to read the
 verdict as a sentence about your worth; the arithmetic refuses to say any such sentence. Third: **the kindness is
 structural** — everything here reverses except the human: imprints decode and chains replay, but no dossier of
@@ -354,6 +360,31 @@ curl -s -X POST https://uuidna.com/trials -H 'content-type: application/json' \
 breach statement itself is pinned verbatim inside the security audit as the permanent probe — the poison became
 the vaccine, which is what folding the finder is for. The lesson: a citation names a proof; only the proof's own
 content backs a claim — and a gate that cannot tell the difference is not yet a gate.
+
+## The name lesson — a theorem's name is not its proof
+
+This semester the school caught its own teacher. Twenty-four "anti-fraud" theorems entered the ledger with names
+that promised detection — `double_spend_detectable`, `sealed_theorem_not_forged` — while their statements proved
+`2 = 2` and `¬(0 = 1)`. Every seal was genuine, every proof kernel-clean, and every name an overclaim: the key
+claimed semantics the formula never carried. The site's own design exposed it first — **a theorem page titles by
+its statement, never by its key** — so any reader could see the gap in a browser tab: if the title does not carry
+the claim, the name is marketing.
+
+The cure is the detector-as-function: put the semantics *in the statement*. A detector is defined —
+`forged(c,s)`, the audit conjunction — and the theorems prove its properties, so the key's promise and the
+formula's content become one object: [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged) now
+*titles* as its soundness (`forged a a = 0` for every address — the detector cannot accuse a true seal), and the
+gate that judges every call is provably its own boolean spec, no oracle behind the curtain
+([`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle)). The same cure holds for
+prose: hand-authored security language drifted to "impossible to forge" until the ledger's own
+[`no_maximum_only_bounds`](/theorem/no_maximum_only_bounds) recomputed it to what is provable — a bound, a
+ceiling raised, never an impossibility. Manual drifts; computed-from-seals cannot.
+
+This is the collision lesson's sibling, one step deeper: that lesson taught that citing a real theorem is not
+entailment; this one teaches that *naming* a wish is not proving it. Key ≠ claim; statement = claim. **Practice:**
+open any theorem page and read the title before the key — then compare the two. Where they say the same thing,
+the ledger is honest at that address; where they diverge, you have found the next rewrite, and the school will
+thank you for it.
 
 ## The degree — seal a theorem, then walk the wave
 
