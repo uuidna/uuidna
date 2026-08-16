@@ -17,6 +17,9 @@ import { coins, billUuidna } from './captain/billing.js'
 import { quantumAura } from './aura.js'
 import { imageProvenance, verifyImageProvenance } from './provenance.js'
 import { quantumCubeChallenge, verifyQuantumCube } from './cube.js'
+// The gated dispatch core — pure and Workers-safe (address/gravity/sanitize/slimgate, no node built-ins): the SAME
+// conjunction gate the stdio server enforces, so the edge and the local surface serve ONE law (DRY, sealed spec).
+import { gateVerdict, gateSelfTest, GATE_THEOREMS } from './gate-engine.js'
 
 const PROTOCOL_VERSION = '2025-06-18'          // the MCP protocol revision this endpoint speaks
 const SERVER = { name: 'uuidna', version: '0.1.1' }
@@ -56,6 +59,9 @@ const TOOLS: HttpTool[] = [
   { name: 'uuidna_quantum_cube', description: 'THE QUANTUM-CUBE CHALLENGE — a SYMMETRIC, deterministic challenge-response whose answer is the A432 aura as a spinning 3D cube. Pass {secret, nonce} for the cube, or {secret, nonce, response} to VERIFY. HONEST: symmetric (the verifier shares the secret), strength is the secret\'s entropy, NOT zero-knowledge and NOT biometric.',
     inputSchema: { type: 'object', properties: { secret: { type: 'string' }, nonce: { type: 'string' }, response: { type: 'string' } }, required: ['secret', 'nonce'] },
     run: (a) => a.response !== undefined ? { match: verifyQuantumCube(String(a.secret), String(a.nonce), String(a.response)), nonce: String(a.nonce) } : quantumCubeChallenge(String(a.secret), String(a.nonce)) },
+  { name: 'uuidna_gate_status', description: 'THE GATE PROVES ITSELF, live at the edge: every hosted tools/call passes the sealed conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — input sanitized, output sanitized, no fabricated theorem citation — and this tool recomputes the eight-state verdict table and REQUIRES it to equal the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle). The registry folds to its ORDER-INVARIANT identity receipt. The SAME gate the stdio server enforces — one law, both surfaces. Returns {table,sealedTable,matchesSealedSpec,cleanStates,drainedStates,tools,registry,cites,receipt}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => gateSelfTest(TOOLS.map((t) => t.name)) },
 ]
 
 const listing = (): unknown[] => TOOLS.map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema }))
@@ -69,7 +75,8 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
   const id = msg?.id ?? null
   const method = msg?.method
   const params = msg?.params ?? {}
-  if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: SERVER })
+  if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: SERVER,
+    instructions: 'uuidna hosted MCP — the Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED: each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) — input sanitized, output sanitized, no fabricated theorem citation — and carries its verdict (_meta.gate + a visible gate line); one violation drains, named. Recompute the gate against its sealed spec: uuidna_gate_status (theorem anti_fraud_check_deterministic). Integrity, not truth.' })
   if (method === 'ping') return rpc(id, {})
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
   if (method === 'tools/list') return rpc(id, { tools: listing() })
@@ -77,9 +84,18 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
     const name = params.name
     const tool = TOOLS.find((t) => t.name === name)
     if (!tool) return rpcErr(id, -32602, 'unknown tool: ' + String(name))
+    // THE GATED DISPATCH — the same pure conjunction gate the stdio server enforces (gate-engine, sealed spec):
+    // the settled output is judged, the verdict travels in the response, a drained verdict ships sanitized and
+    // flagged with its bits named. Stateless: the gate receipt is per-call, no session chain at the edge.
     try {
       const out = tool.run((params.arguments as Record<string, unknown>) ?? {})
-      return rpc(id, { content: [{ type: 'text', text: JSON.stringify(out) }] })
+      const g = gateVerdict(String(name), (params.arguments as Record<string, unknown>) ?? {}, out)
+      const gateLine = `gate ${g.gate.clean ? 'CLEAN' : 'DRAINED'} f${g.gate.input} d${g.gate.output} v${g.gate.honesty} · ${g.gate.receipt}` + (g.gate.fabricated.length ? ' · fabricated: ' + g.gate.fabricated.join(', ') : '')
+      return rpc(id, {
+        content: [{ type: 'text', text: typeof g.output === 'string' ? g.output : JSON.stringify(g.output) }, { type: 'text', text: gateLine }],
+        _meta: { gate: g.gate },
+        ...(g.gate.clean ? {} : { isError: true }),
+      })
     } catch (e) {
       return rpc(id, { content: [{ type: 'text', text: 'error: ' + String((e as Error)?.message ?? e) }], isError: true })
     }
