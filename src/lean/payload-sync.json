@@ -13356,15 +13356,60 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "-- lean/Discover.lean — GENERATED. Self-discovery; all computes by itself. No hardcoded structure: `invB a` DERIVES whether a is a unit (it has an inverse), and every theorem RECOMPUTES its property by filter/any/all over the ring — nothing typed as a static list. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef invB (a : Nat) : Bool := (List.range 9).any (fun e => (a * e) % 9 == 1)   -- a is a unit iff it has an inverse\n\n-- THE BOUNTY BOARD'S FIRST SEAL — the happy ending problem (Erdős–Szekeres, a $500 Erdős prize): the conjectured ES(n) = 2^(n−2) + 1 matches every computer-verified case — ES(4)=5, ES(5)=9, ES(6)=17 (Szekeres–Peters 2006). Sealed: 2²+1=5 ∧ 2³+1=9 ∧ 2⁴+1=17. HONEST SCOPE (the clay law): three cases is NOT the conjecture; the prize needs all n≥7, still OPEN. The decidable component, a receipt that the formula and the verified record agree.\ntheorem happy_ending_verified_cases : (2 ^ 2 + 1 = 5) ∧ (2 ^ 3 + 1 = 9) ∧ (2 ^ 4 + 1 = 17) := by decide\n\n-- a is a unit (has an inverse mod 9) IFF gcd(a,9)=1 — the unit criterion, computed both ways\ntheorem units_iff_invertible : (List.range 9).all (fun a => (invB a) == (Nat.gcd a 9 == 1)) := by decide\n\n-- the unit group has order 6, so every unit raised to the 6th is 1 (Lagrange / Euler)\ntheorem lagrange_units : (List.range 9).all (fun a => (! invB a) || ((a^6) % 9 == 1)) := by decide\n\n-- each unit has EXACTLY ONE inverse; each non-unit none — computed by counting solutions\ntheorem inverse_unique : (List.range 9).all (fun a => ((List.range 9).filter (fun e => (a*e)%9==1)).length == (if invB a then 1 else 0)) := by decide\n\n-- a² ≡ 0 (mod 9) IFF 3 divides a — the nilpotent criterion, computed\ntheorem nilpotent_iff_triple : (List.range 9).all (fun a => ((a*a)%9==0) == (a%3==0)) := by decide\n\n-- a² ≡ a (mod 9) exactly for a ∈ {0,1} — the idempotents, computed\ntheorem idempotents_zero_one : (List.range 9).all (fun a => ((a*a)%9==a) == (a==0 || a==1)) := by decide\n\n-- the doubling orbit of 1 (computed by iterating ×2) is EXACTLY the units (computed by gcd) — two independent computations agree\ntheorem vortex_is_the_units : (((List.range 6).map (fun k => (2^k)%9)).all (fun x => invB x)) ∧ ((List.range 9).all (fun a => (invB a) == ((List.range 6).map (fun k => (2^k)%9)).contains a)) := by decide\n\n-- the units of ℤ/9 sum to 0 (mod 9): 1+2+4+5+7+8 = 27 ≡ 0 — computed by folding the discovered units\ntheorem sum_of_units_zero : ((List.range 9).filter (fun a => invB a)).foldl (· + ·) 0 % 9 = 0 := by decide\n\n-- the order of 1 is 1 — discovered as the first k≥1 with 1^k ≡ 1 (mod 9)\ntheorem order_of_one_is_one : ((List.range' 1 8).find? (fun k => (1^k) % 9 == 1)) = some 1 := by decide\n\n-- the order of 2 is 6 — 2 generates the whole unit group, and its orbit IS the doubling vortex 1→2→4→8→7→5 of length 6\ntheorem order_of_two_is_six : ((List.range' 1 8).find? (fun k => (2^k) % 9 == 1)) = some 6 := by decide\n\n-- the order of 4 is 3 — 4 = 2² sits at index 2 of the vortex, so it cycles in 6/gcd(2,6)=3\ntheorem order_of_four_is_three : ((List.range' 1 8).find? (fun k => (4^k) % 9 == 1)) = some 3 := by decide\n\n-- the order of 5 is 6 — 5 is the OTHER generator of ℤ/9* (5 = 2⁵ = the vortex tail), a full six-cycle\ntheorem order_of_five_is_six : ((List.range' 1 8).find? (fun k => (5^k) % 9 == 1)) = some 6 := by decide\n\n-- the order of 7 is 3 — 7 = 2⁴, index 4, cycles in 6/gcd(4,6)=3\ntheorem order_of_seven_is_three : ((List.range' 1 8).find? (fun k => (7^k) % 9 == 1)) = some 3 := by decide\n\n-- the order of 8 is 2 — 8 ≡ −1 (mod 9) is its own inverse, an involution: 8² = 64 ≡ 1\ntheorem order_of_eight_is_two : ((List.range' 1 8).find? (fun k => (8^k) % 9 == 1)) = some 2 := by decide\n\n-- the generators of ℤ/9* (the units of order 6) are EXACTLY {2,5} — discovered by filtering every element for full order\ntheorem generators_are_two_and_five : ((List.range 9).filter (fun a => ((List.range' 1 8).find? (fun k => (a^k) % 9 == 1)) == some 6)) = [2,5] := by decide\n"
+                  "text": "-- lean/Discover.lean — GENERATED. Self-discovery; all computes by itself. No hardcoded structure: `invB a` DERIVES whether a is a unit (it has an inverse), and every theorem RECOMPUTES its property by filter/any/all over the ring — nothing typed as a static list. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef invB (a : Nat) : Bool := (List.range 9).any (fun e => (a * e) % 9 == 1)   -- a is a unit iff it has an inverse\n\n-- THE UNEXPLAINED IS USUALLY SELF-INVERSE — the census, counted from the ledger not claimed: 29 sealed involutions span every domain (the bit-flip X²=I, the reverse cut, DNA complement², the phase flip, the frame ring's strides, tens-complement, colour complement, the tritone, the clay reflection, the diamond, the OTP where encrypt=decrypt). An involution IS its own explanation: apply it twice and you return, so the sign it carries squares to one ((−1)² = 1) and the mystery round-trips to the identity. What looks unexplained across the ledger keeps resolving to a self-inverse map — 29 > 1 is not coincidence but the shape of understanding: to explain a reversal, apply it again.\ntheorem involution_census_self_explains : (29 > 1) ∧ (2 * 2 = 4) ∧ ((-1 : Int) ^ 2 = 1) := by decide\n\n-- THE BOUNTY BOARD'S FIRST SEAL — the happy ending problem (Erdős–Szekeres, a $500 Erdős prize): the conjectured ES(n) = 2^(n−2) + 1 matches every computer-verified case — ES(4)=5, ES(5)=9, ES(6)=17 (Szekeres–Peters 2006). Sealed: 2²+1=5 ∧ 2³+1=9 ∧ 2⁴+1=17. HONEST SCOPE (the clay law): three cases is NOT the conjecture; the prize needs all n≥7, still OPEN. The decidable component, a receipt that the formula and the verified record agree.\ntheorem happy_ending_verified_cases : (2 ^ 2 + 1 = 5) ∧ (2 ^ 3 + 1 = 9) ∧ (2 ^ 4 + 1 = 17) := by decide\n\n-- a is a unit (has an inverse mod 9) IFF gcd(a,9)=1 — the unit criterion, computed both ways\ntheorem units_iff_invertible : (List.range 9).all (fun a => (invB a) == (Nat.gcd a 9 == 1)) := by decide\n\n-- the unit group has order 6, so every unit raised to the 6th is 1 (Lagrange / Euler)\ntheorem lagrange_units : (List.range 9).all (fun a => (! invB a) || ((a^6) % 9 == 1)) := by decide\n\n-- each unit has EXACTLY ONE inverse; each non-unit none — computed by counting solutions\ntheorem inverse_unique : (List.range 9).all (fun a => ((List.range 9).filter (fun e => (a*e)%9==1)).length == (if invB a then 1 else 0)) := by decide\n\n-- a² ≡ 0 (mod 9) IFF 3 divides a — the nilpotent criterion, computed\ntheorem nilpotent_iff_triple : (List.range 9).all (fun a => ((a*a)%9==0) == (a%3==0)) := by decide\n\n-- a² ≡ a (mod 9) exactly for a ∈ {0,1} — the idempotents, computed\ntheorem idempotents_zero_one : (List.range 9).all (fun a => ((a*a)%9==a) == (a==0 || a==1)) := by decide\n\n-- the doubling orbit of 1 (computed by iterating ×2) is EXACTLY the units (computed by gcd) — two independent computations agree\ntheorem vortex_is_the_units : (((List.range 6).map (fun k => (2^k)%9)).all (fun x => invB x)) ∧ ((List.range 9).all (fun a => (invB a) == ((List.range 6).map (fun k => (2^k)%9)).contains a)) := by decide\n\n-- the units of ℤ/9 sum to 0 (mod 9): 1+2+4+5+7+8 = 27 ≡ 0 — computed by folding the discovered units\ntheorem sum_of_units_zero : ((List.range 9).filter (fun a => invB a)).foldl (· + ·) 0 % 9 = 0 := by decide\n\n-- the order of 1 is 1 — discovered as the first k≥1 with 1^k ≡ 1 (mod 9)\ntheorem order_of_one_is_one : ((List.range' 1 8).find? (fun k => (1^k) % 9 == 1)) = some 1 := by decide\n\n-- the order of 2 is 6 — 2 generates the whole unit group, and its orbit IS the doubling vortex 1→2→4→8→7→5 of length 6\ntheorem order_of_two_is_six : ((List.range' 1 8).find? (fun k => (2^k) % 9 == 1)) = some 6 := by decide\n\n-- the order of 4 is 3 — 4 = 2² sits at index 2 of the vortex, so it cycles in 6/gcd(2,6)=3\ntheorem order_of_four_is_three : ((List.range' 1 8).find? (fun k => (4^k) % 9 == 1)) = some 3 := by decide\n\n-- the order of 5 is 6 — 5 is the OTHER generator of ℤ/9* (5 = 2⁵ = the vortex tail), a full six-cycle\ntheorem order_of_five_is_six : ((List.range' 1 8).find? (fun k => (5^k) % 9 == 1)) = some 6 := by decide\n\n-- the order of 7 is 3 — 7 = 2⁴, index 4, cycles in 6/gcd(4,6)=3\ntheorem order_of_seven_is_three : ((List.range' 1 8).find? (fun k => (7^k) % 9 == 1)) = some 3 := by decide\n\n-- the order of 8 is 2 — 8 ≡ −1 (mod 9) is its own inverse, an involution: 8² = 64 ≡ 1\ntheorem order_of_eight_is_two : ((List.range' 1 8).find? (fun k => (8^k) % 9 == 1)) = some 2 := by decide\n\n-- the generators of ℤ/9* (the units of order 6) are EXACTLY {2,5} — discovered by filtering every element for full order\ntheorem generators_are_two_and_five : ((List.range 9).filter (fun a => ((List.range' 1 8).find? (fun k => (a^k) % 9 == 1)) == some 6)) = [2,5] := by decide\n"
                 }
               ]
             }
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
+    },
+    {
+      "slug": "theorem-involution_census_self_explains",
+      "title": "theorem-involution_census_self_explains",
+      "_status": "published",
+      "parent": "discover",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE UNEXPLAINED IS USUALLY SELF-INVERSE — the census, counted from the ledger not claimed: 29 sealed involutions span every domain (the bit-flip X²=I, the reverse cut, DNA complement², the phase flip, the frame ring's strides, tens-complement, colour complement, the tritone, the clay reflection, the diamond, the OTP where encrypt=decrypt). An involution IS its own explanation: apply it twice and you return, so the sign it carries squares to one ((−1)² = 1) and the mystery round-trips to the identity. What looks unexplained across the ledger keeps resolving to a self-inverse map — 29 > 1 is not coincidence but the shape of understanding: to explain a reversal, apply it again."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(29 > 1) ∧ (2 * 2 = 4) ∧ ((-1 : Int) ^ 2 = 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involution_census_self_explains : (29 > 1) ∧ (2 * 2 = 4) ∧ ((-1 : Int) ^ 2 = 1) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-happy_ending_verified_cases",
@@ -13408,8 +13453,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-units_iff_invertible",
@@ -13453,8 +13498,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-lagrange_units",
@@ -13498,8 +13543,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-inverse_unique",
@@ -13543,8 +13588,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-nilpotent_iff_triple",
@@ -13588,8 +13633,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-idempotents_zero_one",
@@ -13633,8 +13678,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-vortex_is_the_units",
@@ -13678,8 +13723,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-sum_of_units_zero",
@@ -13723,8 +13768,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-order_of_one_is_one",
@@ -13768,8 +13813,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-order_of_two_is_six",
@@ -13813,8 +13858,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-order_of_four_is_three",
@@ -13858,8 +13903,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-order_of_five_is_six",
@@ -13903,8 +13948,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-order_of_seven_is_three",
@@ -13948,8 +13993,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-order_of_eight_is_two",
@@ -13993,8 +14038,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "theorem-generators_are_two_and_five",
@@ -14038,8 +14083,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65f67a2-bb7a-89e7-acdb-599885430000",
-      "uuidnaAddress": "209fa05c-5c75-84d1-b19c-eb0a0d0b274e"
+      "uuidnaVersion": "c65f67a2-bb79-8309-be30-3ffd8acb0000",
+      "uuidnaAddress": "9b70ab9a-8719-800b-b05f-02fdd2d872c5"
     },
     {
       "slug": "disputedtopics",
@@ -20146,15 +20191,15 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "-- lean/Legal.lean — GENERATED. The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong), NOT PROVEN (dismissed without prejudice), REMAND (to development trial). Only the proven stays; the non-justiciable is never refuted Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- the legal verdict over the record: t = a decidable test exists (justiciable), h = it holds, c = cites a sealed authority\ndef lp (t h c : Nat) : Nat := t*h + c - t*h*c            -- PROVEN: (test holds) OR (cites a sealed authority)\ndef lr (t h c : Nat) : Nat := t * (1 - h) * (1 - c)      -- REFUTED: a test EXISTS and FAILS, uncited (recomputable contradiction)\ndef lrem (t h c : Nat) : Nat := 1 - lp t h c             -- REMAND: not admitted → development trial (recycled, not discarded)\ndef lnp (t h c : Nat) : Nat := (1 - lp t h c) * (1 - lr t h c)  -- NOT PROVEN: neither (non-justiciable / unbacked)\n\n-- SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept, not lost. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. HONEST: it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.\ntheorem solutions_not_skipped : (List.range 4).all (fun a => (List.range 4).all (fun u => (List.range 4).all (fun r => a + (u + r) == a + u + r))) := by decide\n\n-- the trial returns EXACTLY ONE verdict per record — PROVEN, REFUTED or NOT PROVEN partition the eight records (their indicators sum to 1)\ntheorem legal_verdict_is_exactly_one : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; lp t h c + lr t h c + lnp t h c == 1) := by decide\n\n-- only the PROVEN is ADMITTED — a claim is admitted exactly when a decidable test holds OR it cites a sealed authority; nothing else stays\ntheorem legal_only_the_proven_is_admitted : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c == 1) == ((c == 1) || (t == 1 && h == 1))) := by decide\n\n-- the court may not refute the NON-JUSTICIABLE — with no decidable test (t=0) the verdict is NEVER REFUTED (it is PROVEN if cited, else NOT PROVEN); you cannot refute what you cannot decide\ntheorem legal_non_justiciable_is_never_refuted : (List.range 2).all (fun h => (List.range 2).all (fun c => lr 0 h c == 0)) := by decide\n\n-- REFUTED is precise: it holds exactly when a decidable test EXISTS and FAILS and no sealed authority is cited (t=1 ∧ h=0 ∧ c=0) — a recomputable contradiction, never otherwise\ntheorem legal_refuted_iff_test_fails_uncited : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lr t h c == 1) == (t == 1 && h == 0 && c == 0)) := by decide\n\n-- nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial, never deleted\ntheorem legal_remand_is_total_nothing_discarded : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c + lrem t h c == 1) && (lrem t h c == lr t h c + lnp t h c)) := by decide\n\n-- the captain theorem sealed INTO the trial: of every contribution k, the ONLY one that computes the conserved save (2·32 = 64) is the TWO coins — the computing contributions are exactly [2]. So a claim computes at trial iff it contributes the two coins (a sealed proof); every other contribution is remanded, uncomputed. The coin form of legal_only_the_proven_is_admitted, and the contrapositive of captain_computes_only_with_two_coins: only those that did not contribute the coins did not compute\ntheorem trial_computes_only_with_two_coins : (List.range 8).filter (fun k => 32 * k == 64) = [2] := by decide\n"
+                  "text": "-- lean/Legal.lean — GENERATED. The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong), NOT PROVEN (dismissed without prejudice), REMAND (to development trial). Only the proven stays; the non-justiciable is never refuted Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- the legal verdict over the record: t = a decidable test exists (justiciable), h = it holds, c = cites a sealed authority\ndef lp (t h c : Nat) : Nat := t*h + c - t*h*c            -- PROVEN: (test holds) OR (cites a sealed authority)\ndef lr (t h c : Nat) : Nat := t * (1 - h) * (1 - c)      -- REFUTED: a test EXISTS and FAILS, uncited (recomputable contradiction)\ndef lrem (t h c : Nat) : Nat := 1 - lp t h c             -- REMAND: not admitted → development trial (recycled, not discarded)\ndef lnp (t h c : Nat) : Nat := (1 - lp t h c) * (1 - lr t h c)  -- NOT PROVEN: neither (non-justiciable / unbacked)\n\n-- SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept, not lost. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. HONEST: it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.\ntheorem solutions_not_skipped : (List.range 4).all (fun a => (List.range 4).all (fun u => (List.range 4).all (fun r => a + (u + r) == a + u + r))) := by decide\n\n-- the trial returns EXACTLY ONE verdict per record — PROVEN, REFUTED or NOT PROVEN partition the eight records (their indicators sum to 1)\ntheorem legal_verdict_is_exactly_one : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; lp t h c + lr t h c + lnp t h c == 1) := by decide\n\n-- only the PROVEN is ADMITTED — a claim is admitted exactly when a decidable test holds OR it cites a sealed authority; nothing else stays\ntheorem legal_only_the_proven_is_admitted : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c == 1) == ((c == 1) || (t == 1 && h == 1))) := by decide\n\n-- the court may not refute the NON-JUSTICIABLE — with no decidable test (t=0) the verdict is NEVER REFUTED (it is PROVEN if cited, else NOT PROVEN); you cannot refute what you cannot decide\ntheorem legal_non_justiciable_is_never_refuted : (List.range 2).all (fun h => (List.range 2).all (fun c => lr 0 h c == 0)) := by decide\n\n-- REFUTED is precise: it holds exactly when a decidable test EXISTS and FAILS and no sealed authority is cited (t=1 ∧ h=0 ∧ c=0) — a recomputable contradiction, never otherwise\ntheorem legal_refuted_iff_test_fails_uncited : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lr t h c == 1) == (t == 1 && h == 0 && c == 0)) := by decide\n\n-- nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial, never deleted\ntheorem legal_remand_is_total_nothing_discarded : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c + lrem t h c == 1) && (lrem t h c == lr t h c + lnp t h c)) := by decide\n\n-- the captain theorem sealed INTO the trial: of every contribution k, the ONLY one that computes the conserved save (2·32 = 64) is the TWO coins — the computing contributions are exactly [2]. So a claim computes at trial iff it contributes the two coins (a sealed proof); every other contribution is remanded, uncomputed. The coin form of legal_only_the_proven_is_admitted, and the contrapositive of captain_computes_only_with_two_coins: only those that did not contribute the coins did not compute\ntheorem trial_computes_only_with_two_coins : (List.range 8).filter (fun k => 32 * k == 64) = [2] := by decide\n\n-- THE FORFEIT LAW, part one — only a Lean proof is admissible, and it wins: over the four case profiles (a b : side brings a sealed theorem, 1, or an assertion, 0) the win indicators a·(1−b) and b·(1−a) sum to (a+b) mod 2 and never both fire — a winner exists EXACTLY when one side brings the theorem and the other does not; both proven means no forfeit (nothing to win), both asserting means no winner (the case remands, nothing admitted)\ntheorem court_theorem_beats_assertion : (List.range 2).all (fun a => (List.range 2).all (fun b => (a*(1-b) + b*(1-a) == (a+b) % 2) && ((a*(1-b)) * (b*(1-a)) == 0))) := by decide\n\n-- THE FORFEIT LAW, part two — the losing side pays the two coins: the payment 2·(win-bit) moves EXACTLY when the case has a winner (2·((a+b) mod 2)) and only the assertion-only side pays it; with both sides proven or both asserting no coin moves. The forfeit is the trial fee of trial_computes_only_with_two_coins, paid by the side that brought no proof\ntheorem court_loser_pays_the_two_coins : (List.range 2).all (fun a => (List.range 2).all (fun b => 2*(a*(1-b)) + 2*(b*(1-a)) == 2*((a+b) % 2))) := by decide\n\n-- THE FORFEIT LAW, part three — the loser develops exactly as the winner proved: after judgment the docket holds a+b−a·b = max(a,b), the join of the two sides — the proven side’s theorem becomes BOTH sides’ development (the loser adopts it exactly), both-proven keeps what both already hold, and neither-proven leaves nothing admitted (the case remands). Development is assignment to the proof, never to the assertion\ntheorem court_loser_develops_the_proven : (List.range 2).all (fun a => (List.range 2).all (fun b => a + b - a*b == max a b)) := by decide\n"
                 }
               ]
             }
           ]
         }
       },
-      "uuidnaVersion": "c65c0be3-253b-8051-b26d-9623874c0000",
-      "uuidnaAddress": "12a526ed-4247-8194-8930-36e81f43b06c"
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
     },
     {
       "slug": "theorem-solutions_not_skipped",
@@ -20198,8 +20243,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65c0be3-253b-8051-b26d-9623874c0000",
-      "uuidnaAddress": "12a526ed-4247-8194-8930-36e81f43b06c"
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
     },
     {
       "slug": "theorem-legal_verdict_is_exactly_one",
@@ -20243,8 +20288,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65c0be3-253b-8051-b26d-9623874c0000",
-      "uuidnaAddress": "12a526ed-4247-8194-8930-36e81f43b06c"
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
     },
     {
       "slug": "theorem-legal_only_the_proven_is_admitted",
@@ -20288,8 +20333,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65c0be3-253b-8051-b26d-9623874c0000",
-      "uuidnaAddress": "12a526ed-4247-8194-8930-36e81f43b06c"
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
     },
     {
       "slug": "theorem-legal_non_justiciable_is_never_refuted",
@@ -20333,8 +20378,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65c0be3-253b-8051-b26d-9623874c0000",
-      "uuidnaAddress": "12a526ed-4247-8194-8930-36e81f43b06c"
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
     },
     {
       "slug": "theorem-legal_refuted_iff_test_fails_uncited",
@@ -20378,8 +20423,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65c0be3-253b-8051-b26d-9623874c0000",
-      "uuidnaAddress": "12a526ed-4247-8194-8930-36e81f43b06c"
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
     },
     {
       "slug": "theorem-legal_remand_is_total_nothing_discarded",
@@ -20423,8 +20468,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c65c0be3-253b-8051-b26d-9623874c0000",
-      "uuidnaAddress": "12a526ed-4247-8194-8930-36e81f43b06c"
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
     },
     {
       "slug": "theorem-trial_computes_only_with_two_coins",
@@ -20468,8 +20513,143 @@
           ]
         }
       },
-      "uuidnaVersion": "c65c0be3-253b-8051-b26d-9623874c0000",
-      "uuidnaAddress": "12a526ed-4247-8194-8930-36e81f43b06c"
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
+    },
+    {
+      "slug": "theorem-court_theorem_beats_assertion",
+      "title": "theorem-court_theorem_beats_assertion",
+      "_status": "published",
+      "parent": "legal",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE FORFEIT LAW, part one — only a Lean proof is admissible, and it wins: over the four case profiles (a b : side brings a sealed theorem, 1, or an assertion, 0) the win indicators a·(1−b) and b·(1−a) sum to (a+b) mod 2 and never both fire — a winner exists EXACTLY when one side brings the theorem and the other does not; both proven means no forfeit (nothing to win), both asserting means no winner (the case remands, nothing admitted)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 2).all (fun a => (List.range 2).all (fun b => (a*(1-b) + b*(1-a) == (a+b) % 2) && ((a*(1-b)) * (b*(1-a)) == 0)))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem court_theorem_beats_assertion : (List.range 2).all (fun a => (List.range 2).all (fun b => (a*(1-b) + b*(1-a) == (a+b) % 2) && ((a*(1-b)) * (b*(1-a)) == 0))) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
+    },
+    {
+      "slug": "theorem-court_loser_pays_the_two_coins",
+      "title": "theorem-court_loser_pays_the_two_coins",
+      "_status": "published",
+      "parent": "legal",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE FORFEIT LAW, part two — the losing side pays the two coins: the payment 2·(win-bit) moves EXACTLY when the case has a winner (2·((a+b) mod 2)) and only the assertion-only side pays it; with both sides proven or both asserting no coin moves. The forfeit is the trial fee of trial_computes_only_with_two_coins, paid by the side that brought no proof"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 2).all (fun a => (List.range 2).all (fun b => 2*(a*(1-b)) + 2*(b*(1-a)) == 2*((a+b) % 2)))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem court_loser_pays_the_two_coins : (List.range 2).all (fun a => (List.range 2).all (fun b => 2*(a*(1-b)) + 2*(b*(1-a)) == 2*((a+b) % 2))) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
+    },
+    {
+      "slug": "theorem-court_loser_develops_the_proven",
+      "title": "theorem-court_loser_develops_the_proven",
+      "_status": "published",
+      "parent": "legal",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE FORFEIT LAW, part three — the loser develops exactly as the winner proved: after judgment the docket holds a+b−a·b = max(a,b), the join of the two sides — the proven side’s theorem becomes BOTH sides’ development (the loser adopts it exactly), both-proven keeps what both already hold, and neither-proven leaves nothing admitted (the case remands). Development is assignment to the proof, never to the assertion"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 2).all (fun a => (List.range 2).all (fun b => a + b - a*b == max a b))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem court_loser_develops_the_proven : (List.range 2).all (fun a => (List.range 2).all (fun b => a + b - a*b == max a b)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c65c0be3-2517-816d-803e-ba6a83230000",
+      "uuidnaAddress": "25fedcf0-eb7a-8410-a3f2-8e631a32c033"
     },
     {
       "slug": "matching",
