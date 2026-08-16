@@ -4,21 +4,21 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="157 keys" />
+# MCP tools <Badge type="tip" text="158 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 157 tools below are read from the server's own tool list and
+is **built from the keys**: the 158 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
 `https://uuidna.com/mcp` — one address, the page for people, the protocol for machines.
 
-## The grid <Badge type="tip" :text="`157`" />
+## The grid <Badge type="tip" :text="`158`" />
 
-157 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 57 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+158 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 58 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -31,6 +31,7 @@ page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the l
 <a href="#uuidna-cost"><code>cost</code></a>
 <a href="#uuidna-coverage"><code>coverage</code></a>
 <a href="#uuidna-credits-summary"><code>credits_summary</code></a>
+<a href="#uuidna-dictionary"><code>dictionary</code></a>
 <a href="#uuidna-due-process"><code>due_process</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
@@ -487,7 +488,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'56'" />
+## Other <Badge type="tip" :text="'57'" />
 
 *skill: other*
 
@@ -764,6 +765,16 @@ SECURE MESSAGING, TOTAL OVER THE LEDGER — every sealed theorem is itself a sel
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `key` | string | no | a sealed theorem key; omit for the totality seal over all theorems |
+
+### `uuidna_dictionary`
+
+THE QUANTUM DICTIONARY — the lexicon COMPUTED from the ledger, never authored: every sealed theorem key is a term, its exact Lean statement is the definition, its 128-bit content-address is the entry id, and the definition travels on the reversible imprint carrier (a uuid chain that decodes back byte-exact — uuidna_theorem_message). Pass {word} to look a term up: every sealed key containing the word returns as an entry {term,definition,address,carrier_length}; pass nothing for the lexicon itself {terms,skills,principles} counted from the ledger. The gate's whole vocabulary IS this dictionary — there is no word-list to trust, only sealed terms to recompute. HONEST SCOPE: a dictionary of THIS ledger's sealed vocabulary, not of any natural language; a term absent here is not a word that does not exist, only a fact not yet sealed. Integrity, not truth. Returns entries or {terms,skills,principles,receipt}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `word` | string | no | a word or fragment to look up across the sealed vocabulary; omit for the lexicon summary |
 
 ### `uuidna_quantum_voting`
 
