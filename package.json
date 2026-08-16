@@ -133,7 +133,8 @@
     "derive:prose": "npm run build && node dist/scripts/derive-prose-trials.js",
     "editorial": "npm run build && node dist/scripts/gen-articles.js && node dist/scripts/provenance.js && node dist/scripts/audit-citations.js && node dist/scripts/one-receipt.js prose && node dist/scripts/one-receipt.js legal && node dist/scripts/derive-prose-trials.js",
     "search:trial": "npm run build && node dist/scripts/quantum-search-trial.js",
-    "search:trial:all": "npm run build && node dist/scripts/quantum-search-trial.js --all"
+    "search:trial:all": "npm run build && node dist/scripts/quantum-search-trial.js --all",
+    "mcp:drive": "npm run build && node dist/scripts/mcp-drive.js"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",

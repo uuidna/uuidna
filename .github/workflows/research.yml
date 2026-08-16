@@ -42,6 +42,8 @@ jobs:
         run: npm run editorial
       - name: GUARD — the fold accepts, or nothing publishes
         run: npm run guard
+      - name: DRIVE — the served MCP recomputes its receipts over its own wire (90 directed mixes, 3 folds, self conforms)
+        run: npm run mcp:drive
       - name: THE DESK'S LAWS BY QUERY — the same library the MCP serves, asked directly (MCP-first automation)
         run: |
           node -e "
