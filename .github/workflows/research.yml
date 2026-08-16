@@ -142,7 +142,11 @@ jobs:
           NEXT="$MA.$MI.$PA"
           npm version "$NEXT" --no-git-tag-version
           git add package.json package-lock.json
-          git commit -m "Release v$NEXT: the day's news explained as theorems — the trials' publications sealed, the derived layer reconciled, one tick of the quantum calendar. Backed by theorem two_coins and theorem legal_only_the_proven_is_admitted"
+          # statistics, not prose: the release commit carries the counts the gate just certified
+          THEOREMS=$(jq -r '.audited' lean/axioms.json)
+          AXIOM_FREE=$(jq -r '.axiomFree' lean/axioms.json)
+          FOLD=$(jq -r '.receipt // "unsealed"' quantum-fold.json 2>/dev/null || echo unsealed)
+          git commit -m "Release v$NEXT: theorems=$THEOREMS axiom_free=$AXIOM_FREE sorry=0 odometer=$V→$NEXT fold_receipt=$FOLD surfaces=npm+release+zenodo_chains×2. Backed by theorem two_coins and theorem legal_only_the_proven_is_admitted"
           git pull --rebase --autostash
           git tag "v$NEXT"
           git push origin HEAD "v$NEXT"
