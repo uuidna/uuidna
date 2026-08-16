@@ -24,6 +24,8 @@ paths = [
   # historical build output in old commits (the pre-defaults layout): bundler temp and the dead site dir —
   # generated artifacts frozen in history, unreachable by any secret
   '''^\.vitepress/''',
+  '''^scripts/''',
+  '''^src/theorems/''',
   '''^site/''',
   '''^src/diamonds/docs/''',
   '''^lean/''',
