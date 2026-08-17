@@ -44,7 +44,7 @@ function predictTheoremGaps(): PredictedGap[] {
     gaps.push({
       pattern: 'axiom-leak',
       likelihood: 'high',
-      location: 'lean/theorems/generated.ts',
+      location: 'src/theorems/generated.ts',
       prediction: `${withAxioms.length} theorems use axioms. Pattern: next proof likely to reuse same axioms. Preemptively convert to decide-only.`,
       autoFillAction: {
         file: 'lean/axioms.json',

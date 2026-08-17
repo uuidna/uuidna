@@ -13,7 +13,7 @@
 // Every finding is content-addressed; the addresses fold, ORDER-INVARIANTLY, to ONE recomputable audit receipt.
 // Recomputable by anyone from this same tree. Integrity, not truth.
 
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
@@ -21,6 +21,7 @@ import {
   toUuid, merkleGravity,
   encrypt, decrypt, sealSequence, verifyEnvelope,
 } from '../index.js'
+import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, rd } from './api.js'
 
 const rel = (p: string) => relative(ROOT, p)
@@ -50,17 +51,26 @@ const gateUnits = []
   flush()
 }
 
-// The 44 MCP tool descriptions (+ param descriptions) — the public tool surface's words.
-{
-  const src = rd('mcp.mjs')
-  for (const m of src.matchAll(/description:\s*(['"`])((?:\\.|(?!\1).)*)\1/g)) {
-    const text = m[2].replace(/\\n/g, ' ').replace(/\\'/g, "'").trim()
-    if (text) gateUnits.push({ surface: 'MCP-tool', file: 'mcp.mjs', text })
-  }
+// The MCP tool descriptions (+ their parameter descriptions) — the public tool surface's own words, read from the
+// SERVED CATALOG rather than from a file. This block used to read a root-level 'mcp.mjs' that no longer exists, so
+// it threw ENOENT and killed the whole audit before any arm ran — unnoticed, because audit.js is wired into no npm
+// script. Deriving from the catalog cannot drift: the surface audited is the surface served, and the count is never
+// typed (it was commented as "the 44 MCP tool descriptions" while the catalog served 170).
+for (const t of MCP_CATALOG) {
+  if (t.description) gateUnits.push({ surface: 'MCP-tool', file: 'src/mcp.ts', text: t.description })
+  const props = (t.inputSchema as { properties?: Record<string, { description?: string }> } | undefined)?.properties ?? {}
+  for (const v of Object.values(props)) if (v?.description) gateUnits.push({ surface: 'MCP-param', file: 'src/mcp.ts', text: v.description })
 }
 
-// The VitePress-built site pages (the default outDir docs/.vitepress/dist) — strip tags to visible text, split to sentences.
-for (const page of ['docs/.vitepress/dist/index.html', 'docs/.vitepress/dist/theorems/index.html']) {
+// The VitePress-built site pages (the default outDir docs/.vitepress/dist) — strip tags to visible text, split to
+// sentences. The page list is DISCOVERED, never hardcoded: it used to name two pages, and one of them
+// ('theorems/index.html') stopped existing when cleanUrls started emitting 'theorems.html' — so the audit silently
+// covered half of what it claimed, for as long as nobody looked. A path is not a property; read the directory.
+const builtRoot = join(ROOT, 'docs', '.vitepress', 'dist')
+const builtPages = existsSync(builtRoot)
+  ? readdirSync(builtRoot).filter((f) => f.endsWith('.html')).sort().map((f) => join('docs/.vitepress/dist', f))
+  : []                                        // the dist is gitignored — absent means "site not built", not a failure
+for (const page of builtPages) {
   let html
   try { html = rd(page) } catch { continue }
   const visible = html
