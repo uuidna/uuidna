@@ -2,7 +2,7 @@
 # uuidna — Advantage Metrics
 
 **Generated:** 2026-08-17
-**Data source:** Live ledger (1290 sealed theorems)
+**Data source:** Live ledger (1294 sealed theorems)
 
 ---
 
@@ -11,10 +11,10 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 1290 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 1290/1290 (100%) | Kernel-only proofs, recomputable offline |
-| **Principles** | 70 | Mathematical domains (ring, rosette, quantum, etc.) |
-| **Skills** | 66 | Capability axes across the ledger |
+| **Theorems proven** | 1294 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 1294/1294 (100%) | Kernel-only proofs, recomputable offline |
+| **Principles** | 71 | Mathematical domains (ring, rosette, quantum, etc.) |
+| **Skills** | 67 | Capability axes across the ledger |
 | **Verification cost** | ~1ms | O(1) seal check via spin --verify |
 | **Proof cost** | ~80000ms | O(N) full re-proof via npm run next |
 | **Verification speedup** | 80x | Proof must run once; verify runs every push |
@@ -84,9 +84,9 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       1290
-Axiom-free (decide):  1290 (100.0%)
-Principles:           70 domains
+Total theorems:       1294
+Axiom-free (decide):  1294 (100.0%)
+Principles:           71 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities
 Security checks:      10 automated

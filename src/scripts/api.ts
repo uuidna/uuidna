@@ -3,6 +3,7 @@
 // from — standardisation and DRY use of one api, so a script is only its own logic. The `one-receipt dry` finder
 // objects (GAP + exact FIX) to any script that re-declares what lives here — the duplication class cannot regrow.
 import { createHash } from 'node:crypto'
+import { execSync } from 'node:child_process'
 import { readFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -22,6 +23,29 @@ export const foldOf = (entries: Record<string, string>): string =>
   createHash('sha256').update(Object.entries(entries).map(([k, v]) => `${k}:${v}`).sort().join('|')).digest('hex').slice(0, 32)
 /** the ℤ/7 ray of a string — the same partition as /rosetta */
 export const ray = (s: string): number => parseInt(createHash('sha256').update(s).digest('hex').slice(0, 8), 16) % 7
+
+/** The result of a teed child step: whether it passed, and the tail of what it said. */
+export type StepResult = { ok: boolean; out: string; tail: string }
+/** the last n lines of output — what a retry or a cure must quote to be worth printing */
+export const lastLines = (s: string, n = 20): string => s.trimEnd().split('\n').slice(-n).join('\n')
+/** Run a child step with its output TEED: stderr merged, passed through to this process's stdout so the caller's own
+ *  log holds the child's words, and kept so a failure can be matched against a cure and quoted. Declared HERE because
+ *  both the seal and the develop pass need it, and a retry loop that discards its child's output costs more than the
+ *  failure it retries (learned 2026-08-17: six seal rounds produced a seven-line log while throwing away the real
+ *  objection each time). */
+export function teeStep(label: string, cmd: string, cwd: string = ROOT): StepResult {
+  process.stdout.write(`\n── ${label} ──\n`)
+  try {
+    const out = execSync(`${cmd} 2>&1`, { cwd, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+    process.stdout.write(out)
+    return { ok: true, out, tail: lastLines(out) }
+  } catch (e) {
+    const err = e as { stdout?: string; stderr?: string; message?: string }
+    const out = `${err.stdout ?? ''}${err.stderr ?? ''}`.trim() || String(err.message ?? e)
+    process.stdout.write(out + '\n')
+    return { ok: false, out, tail: lastLines(out) }
+  }
+}
 
 export type Gap = { what: string; fix: string }
 /** the GAP+FIX reporter — every audit finding is an exact computational prompt; exits 1 on any gap */
