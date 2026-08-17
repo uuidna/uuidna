@@ -24,7 +24,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, publications, toUuid, quantumAura, auraDecode, auraAlphabet } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
-import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, type Gap } from './api.js'
+import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, type Gap } from './api.js'
 
 // ── record: the three audits (each learned from a REAL manually-found gap, folded so it can never recur unwatched) ──
 
@@ -502,7 +502,10 @@ export function seal(): void {
       step('fold', 'node ' + JSON.stringify(join(ROOT, 'dist/scripts/one-receipt.js')) + ' fold')  // objects → guard catches
       const guard = step('guard', 'npm run guard')
       if (!guard.ok) { lastFailure = `guard:\n${guard.tail}`; step('build', 'npm run build') }
-      step('add', 'git add -A')
+      // stage the drain's OWN paths, never -A: a sibling session's in-flight source edit must not land inside a
+      // seal commit whose message describes the seal's work (four times in one day it did).
+      const st = stageDerived(ROOT)
+      if (st.leftForHumans.length) console.log('· seal — left for a human (not staged, not swept): ' + st.leftForHumans.join(', '))
       step('commit', 'git commit -m "Seal: the landing folds and passes on — gate-clean, unattended. Backed by theorem two_coins"')
     }
     const push = step('push', 'git push origin main')

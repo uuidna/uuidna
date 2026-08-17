@@ -12,6 +12,7 @@
 // Nothing is committed if the reconcile leaves the tree unchanged (the derived layer already matched). account.js
 // fails loudly if the ledger does not reconcile, aborting before any commit/push. Integrity, not truth.
 import { execSync } from 'node:child_process'
+import { ROOT, stageDerived } from './api.js'
 
 const run = (cmd: string): void => { console.log('  · ' + cmd); execSync(cmd, { stdio: 'inherit' }) }
 const out = (cmd: string): string => execSync(cmd).toString().trim()
@@ -46,7 +47,9 @@ if (out('git status --porcelain').length === 0) {
     process.exit(1)
   }
   console.log('  ✓ commit signed true — ' + sig.reason)
-  run('git add -A')
+  // explicit paths, never -A — the drain commits what IT regenerated; anything else belongs to whoever wrote it
+  const staged = stageDerived(ROOT)
+  if (staged.leftForHumans.length) console.log('· reconcile — left for a human (not staged, not swept): ' + staged.leftForHumans.join(', '))
   run('git commit -m ' + JSON.stringify(msg))
   console.log('  committed: ' + msg)
 }

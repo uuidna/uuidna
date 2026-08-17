@@ -47,6 +47,34 @@ export function teeStep(label: string, cmd: string, cwd: string = ROOT): StepRes
   }
 }
 
+/** THE DRAIN'S OWN PATHS — every artifact the unattended drain REGENERATES, and nothing else. The seal and reconcile
+ *  used `git add -A`, which on a shared tree sweeps a sibling session's in-flight SOURCE edits into a commit whose
+ *  message describes something else: four times in one day work landed under a title about unrelated work, and in this
+ *  repo a commit message is a signed artifact that must cite a sealed theorem, so the record has to mean what it says.
+ *  Staging explicit paths keeps the drain to what it computed. Anything else left dirty is somebody's work: the drain
+ *  NAMES it and leaves it alone (see stageDerived). Add a path here only if a generator writes it. */
+export const DRAIN_PATHS: readonly string[] = [
+  // the declared derived layer (mirrors src/spin.ts DERIVED_FILES — spin seals exactly these)
+  'src/theorems/generated.ts', 'lean/PRINCIPLE.md', 'CHANGELOG.md', 'lean/axioms.json',
+  'docs/mcp.md', 'audit-citations.json', 'support-audit.json', 'research-leads.json',
+  // the other computed artifacts the drain writes: the fold, the seal manifest, the measured costs, the page seeds
+  'quantum-fold.json', 'spin-manifest.json', 'lean/heartbeats.json', 'lean/proof-cache.json',
+  'prose-trials.json', 'docs/captain-claims.json', 'src/lean',
+]
+
+/** Stage ONLY the drain's own paths, then report what was left for a human. Returns the untouched paths so a caller
+ *  can print them: a sibling's edit is neither swept into the drain's commit nor silently ignored — it is named. */
+export function stageDerived(cwd: string = ROOT): { staged: number; leftForHumans: string[] } {
+  const existing = DRAIN_PATHS.filter((p) => existsSync(join(cwd, p)))
+  if (existing.length) execSync(`git add -- ${existing.map((p) => JSON.stringify(p)).join(' ')}`, { cwd })
+  const staged = execSync('git diff --cached --name-only', { cwd, encoding: 'utf8' }).trim().split('\n').filter(Boolean).length
+  const leftForHumans = execSync('git status --porcelain', { cwd, encoding: 'utf8' })
+    .split('\n').filter(Boolean)
+    .filter((l) => !l.startsWith('M  ') && !l.startsWith('A  ') && !l.startsWith('D  '))   // not already staged
+    .map((l) => l.slice(3).trim())
+  return { staged, leftForHumans }
+}
+
 export type Gap = { what: string; fix: string }
 /** the GAP+FIX reporter — every audit finding is an exact computational prompt; exits 1 on any gap */
 export function report(name: string, gaps: Gap[], okMessage: string): void {
