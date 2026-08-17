@@ -102,7 +102,11 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   const leanPath = join(ROOT, 'lean', file)
   const address = toUuid(lean)
   const cache = readProofCache()
-  if (cache[file] === address && existsSync(leanPath) && existsSync(manifestPath) && !process.env.UUIDNA_PROVE_ALL) {
+  // The skip is only sound if the file ON DISK is the text the cache describes. Existence is not enough: a run
+  // that wrote the file and then FAILED verification leaves a different text behind with the cache unmoved, so a
+  // later correct run would match the cache, skip the write, and leave the bad file standing. Compare content.
+  const onDisk = existsSync(leanPath) ? readFileSync(leanPath, 'utf8') : ''
+  if (cache[file] === address && onDisk === lean && existsSync(manifestPath) && !process.env.UUIDNA_PROVE_ALL) {
     console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified by receipt (unchanged at ' + address.slice(0, 8) + '; the kernel signed this exact text — UUIDNA_PROVE_ALL=1 re-proves)')
     return facts.length
   }

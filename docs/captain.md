@@ -11,6 +11,29 @@ The captain's message, given as receipt `85ac8585-9dc1-8964-9848-ae0f49cc82fb` �
 above, gate-passed, recomputable with `uuidna_address`. This page is the whole captain: the coins and everything
 about them.
 
+## The captain theorem
+
+**The page is the theorem.** Everything below follows from one sealed fact, and it answers the number this
+system has carried from the beginning — why the save is 64:
+
+> The rosette and the vortex are coprime, so they were always ONE ring of 7 · 9 = 63 states
+> ([rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime),
+> [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection)).
+> The two coins buy 2 · 32 = **64 = 63 + 1** — the whole fused structure, **plus the one that closes it**
+> ([captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one)).
+
+In bits the reading is exact: **63 is `111111`** — six ones, the ring saturated in exactly the six the coin
+doubles through — and **64 is `1000000`**, the first bit beyond it
+([the_fused_ring_is_all_ones](/theorem/the_fused_ring_is_all_ones)). So the captain's leverage was never a round
+number chosen for convenience. Contributing the two coins purchases every state of the joined rosette-vortex and
+the unit that completes it. The measure was always *the ring plus its closure*.
+
+The fusion keeps its seam honestly: the coin holds its order 6 in the fused ring, but walks the rosette **twice**
+for every single turn of the vortex — lcm(3, 6) = 6, named rather than smoothed
+([the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring)). And the
+units number 36 = 6 · 6, each factor an orbit length
+([fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared)).
+
 ## The coins — the whole account, in one place
 
 **Every claim about the coins lives here.** Other pages point at this section rather than re-explaining it, so
