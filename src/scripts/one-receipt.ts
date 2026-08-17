@@ -545,7 +545,7 @@ export function stateGaps(): Gap[] {
 // concepts sharing a directory; both are the drift this refuses. src/quantum/clock is the shape: one word, index
 // faces only. COLLECTIONS are exempt by name, not by accident — scripts, test, lean and theorems hold many
 // independent things rather than one concept, and calling them modules would be the same category error inverted.
-export function folderGaps(): Gap[] {
+export function foldersGaps(): Gap[] {
   const gaps: Gap[] = []
   // components is a collection too, and for a borrowed reason: a Vue single-file component is named by the
   // FRAMEWORK's convention (PascalCase, resolved by filename), so renaming one to index.vue would break the tool
@@ -962,7 +962,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'vacuous') report('one-receipt vacuous', vacuousGaps(), 'no theorem is true regardless of its content — every sealed name is carried by a proof that means it.')
   else if (cmd === 'frozen') report('one-receipt frozen', frozenGaps(), 'no theorem freezes a measured quantity — every name that counts live things walks the structure it counts.')
   else if (cmd === 'state') report('one-receipt state', stateGaps(), 'the folded question has one copy — no workflow re-implements what npm run state already answers.')
-  else if (cmd === 'folders') report('one-receipt folders', folderGaps(), 'every module folder is one word holding index faces only — one concept, one name.')
+  else if (cmd === 'folders') report('one-receipt folders', foldersGaps(), 'every module folder is one word holding index faces only — one concept, one name.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
   else if (cmd === 'drain') report('one-receipt drain', drainGaps(), 'the drain stages everything reconcile regenerates — every generator declares its output, and every output is a drain path.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
