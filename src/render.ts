@@ -99,6 +99,7 @@ export function renderList(theorems: readonly TheoremView[], opts: RenderOpts = 
 // anything the arithmetic does not already prove, and it claims nothing about what the motion depicts.
 export interface HeroAnimation {
   svg: string
+  lead: string                      // the dimension that leads — resolved, so an unknown request is visible
   sequence: readonly number[]      // the doubling orbit walked
   dimensions: readonly string[]    // the seven rosetta rays
   durations: readonly string[]     // the sealed tempi, in orbit order
@@ -126,17 +127,30 @@ export function heroAnimation(
       `<animate attributeName="r" values="9;13;9" dur="${beat(i)}" repeatCount="indefinite"/></circle>` +
       `<text x="100" y="34" text-anchor="middle" font-size="10" fill="#0b0b0b" transform="rotate(${-turn} 100 30)">${v}</text></g>`
   }
-  const ray = (d: string, i: number): string =>
-    `<line x1="100" y1="100" x2="100" y2="58" stroke="${hue(i + 1)}" stroke-width="1" opacity=".35"` +
-    ` transform="rotate(${(i * 360) / dims.length} 100 100)"><animate attributeName="opacity" values=".15;.5;.15"` +
-    ` dur="${beat(i)}" repeatCount="indefinite"/></line>`
+  // THE LEAD RAY IS THE SELECTED DIMENSION. `dimension` used to be accepted, folded into the address, and then
+  // ignored by the geometry — a parameter that changes nothing is the quiet dishonesty this repo spent the day
+  // removing, so it now does what its name says: the chosen dimension turns to the top, burns bright and long, and
+  // the other six dim behind it. An unrecognised value falls back to the first dimension and SAYS SO in the return
+  // (`lead`), rather than silently drawing something the caller did not ask for.
+  const found = (dims as readonly string[]).indexOf(dimension)
+  const lead = found < 0 ? 0 : found
+  const ray = (d: string, i: number): string => {
+    const leads = i === lead
+    // every ray turns by its distance FROM the lead, so the selected dimension always points up
+    const turn = (((i - lead + dims.length) % dims.length) * 360) / dims.length
+    return `<line x1="100" y1="100" x2="100" y2="${leads ? 40 : 58}" stroke="${hue(i + 1)}"` +
+      ` stroke-width="${leads ? 3 : 1}" opacity="${leads ? '.95' : '.12'}"` +
+      ` transform="rotate(${turn} 100 100)"><animate attributeName="opacity"` +
+      ` values="${leads ? '.7;1;.7' : '.08;.18;.08'}" dur="${beat(i)}" repeatCount="indefinite"/></line>` +
+      (leads ? `<text x="100" y="32" text-anchor="middle" font-size="9" fill="${hue(i + 1)}">${d}</text>` : '')
+  }
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img"` +
     ` aria-label="the doubling orbit ${orbit.join('→')} across ${dims.length} dimensions">` +
     `<title>${key} — the orbit walks ${orbit.join('→')}→${orbit[0]}, seven dimensions, tempi ${tempoKeys.map((k) => durs[k]).join(' ')}</title>` +
     dims.map(ray).join('') + orbit.map(node).join('') +
     `<circle cx="100" cy="100" r="4" fill="${hue(5)}"/></svg>`   // 5 — the fixed point of the diamond involution
   return {
-    svg, sequence: orbit, dimensions: dims,
+    svg, lead: dims[lead], sequence: orbit, dimensions: dims,
     durations: tempoKeys.map((k) => durs[k]),
     address: toUuid(`hero:${key}|${dimension}|${rung}|${tempo}|${base}|${orbit.join(',')}`),
     honest: 'A deterministic SVG computed from sealed constants: the path is the ℤ/9 doubling orbit, the hues are the ' +
