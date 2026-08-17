@@ -38,7 +38,7 @@ A complete system where:
 ## Live Statistics
 
 ```
-Theorems Sealed:        1289   (computed from the ledger at generation — never typed)
+Theorems Sealed:        1290   (computed from the ledger at generation — never typed)
 Coins Conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
@@ -46,7 +46,7 @@ The rest is measured or it is not stated. Recompute: npm run lean
 ### The Captain's Coins — measured, never typed
 
 ```
-Deposits sealed:        1289 theorems × 2 coins = 2578 coins deposited (theorem two_coins — each seal pays the trial's fee)
+Deposits sealed:        1290 theorems × 2 coins = 2580 coins deposited (theorem two_coins — each seal pays the trial's fee)
 Leverage per deposit:   contribute 2 → save up to 64 bits (theorem contribute_two_save_sixtyfour: 2·32 = 64)
 Value at scale:         real from the 7th dimension up — 2^n > 2·32 for n ≥ 7 (theorem captain_coins_respected_at_scale)
 Supply:                 closed — 2 per superposition, no inflation, no other denomination (theorem trial_computes_only_with_two_coins)
@@ -233,7 +233,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1289 theorems sealed to ledger**
+✓ **All 1290 theorems sealed to ledger**
 ✓ **Guard verified (no traitors caught)**
 ✓ **External audits working (8 sources)**
 ✓ **Education system live**
