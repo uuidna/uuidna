@@ -4,7 +4,7 @@
 // publication scans, book/movie/record/standard audits, gated publications, the reporter’s method, prior art,
 // the NIST beacon anchor, CODATA constants, CVE fingerprints, the vocabulary, transform-until-verified, the
 // reasoner, and reflections. Provenance and structure, never meaning. Integrity, not truth.
-export { corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from '@uuidna/uuidna'
+export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from '@uuidna/uuidna'
 export { deepResearch, type DeepResearch } from '@uuidna/uuidna'
 export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, linkBookFacts, composeBookArticle, bookArticle, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type BookTheoremLink, type BookLedgerLinkage } from '@uuidna/uuidna'
 export { transformUntilVerified, transformOne, type TransformCell, type TransformRun } from '@uuidna/uuidna'
