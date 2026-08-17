@@ -31,9 +31,13 @@ if (t.clean) {
 // the 12s Lean re-run. lean/axioms.json is the derived witness {audited, axiomFree, offenders}; verifying it COVERS
 // every current theorem and is fully axiom-free catches that class in milliseconds — no Lean re-run.
 try {
-  const ax = JSON.parse(readFileSync(join(ROOT, 'lean', 'axioms.json'), 'utf8')) as { audited: number; axiomFree: number; offenders?: string[] }
+  // offenders is a MAP (address → the axioms it borrows) written by lean-axioms, never a list. Typed as string[]
+  // here, `offenders.length` was ALWAYS undefined — so this check's offender arm never fired, and its error path
+  // would have called .join() on an object and thrown instead of naming the traitor. The count comparison below
+  // still caught the class (axiomFree = audited − offender keys), but a condition that cannot fire is not a check.
+  const ax = JSON.parse(readFileSync(join(ROOT, 'lean', 'axioms.json'), 'utf8')) as { audited: number; axiomFree: number; offenders?: Record<string, string[]> }
   const N = theorems().length
-  const offenders = ax.offenders ?? []
+  const offenders = Object.keys(ax.offenders ?? {})
   if (ax.audited < N) { failed = true; console.error(`✗ guard — AXIOM WITNESS STALE: ${ax.audited}/${N} theorems audited (a new theorem lacks a kernel-only witness) — run \`npm run axioms\``) }
   else if (ax.axiomFree < ax.audited || offenders.length) { failed = true; console.error(`✗ guard — NON-KERNEL theorem: ${ax.axiomFree}/${ax.audited} axiom-free${offenders.length ? '; offenders: ' + offenders.join(', ') : ''} — the ledger borrows an axiom`) }
   else console.log(`✓ guard — axiom witness: ${ax.axiomFree}/${ax.audited} theorems kernel-only (no propext, no Classical.choice), covering all ${N}`)

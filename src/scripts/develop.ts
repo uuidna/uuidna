@@ -27,6 +27,9 @@ const CURES: Cure[] = [
   { name: 'derived layer drift (spin)', when: /NON-QUANTUM DRIFT|Spin hard-rejects drift/,
     cmd: 'npm run reconcile',
     because: 'the derived files moved since the last seal; only reconcile re-derives from the ledger AND re-seals — regenerating a named file leaves the seal stale' },
+  { name: 'changelog section missing', when: /CHANGELOG\.md does not mention version/,
+    cmd: 'node dist/scripts/gen-changelog-section.js',
+    because: 'the calendar ticks the odometer on its own, so the FACTS of a version (counts, receipts, the odometer step, the surfaces) are emitted from the ledger; the narrative is still never generated — the section says the meaning is owed, and a human completing it is finishing the entry, not correcting it' },
   { name: 'axiom witness stale', when: /AXIOM WITNESS STALE|kernel-only-witness-shipped/,
     cmd: 'npm run axioms',
     because: 'a new theorem has no kernel-only witness yet; the audit regenerates them in one probe per file' },
@@ -46,8 +49,8 @@ const CURES: Cure[] = [
 
 /** Objections that are deliberately NOT cured here — each needs a human, and saying so is the honest answer. */
 const NO_CURE: { when: RegExp; why: string }[] = [
-  { when: /CHANGELOG\.md does not mention version/,
-    why: 'a release note is a human voice: write the entry naming what actually moved, then run this again' },
+  // (the changelog-missing-version class moved OUT of NO_CURE on 2026-08-17 — see CURES: the calendar now emits a
+  // factual section, and only the MEANING is still owed to a human. A statistic is not a story.)
   { when: /overclaim|fabricated|does not compute/,
     why: 'the honesty gate refused a claim — fix the claim at its source; a pass that silences this would be the fraud it exists to catch' },
 ]

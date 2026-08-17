@@ -166,7 +166,8 @@
     "quantum:rosetta-apis": "npm run build && node dist/scripts/quantum-rosetta-apis.js",
     "quantum:school": "npm run build && node dist/scripts/quantum-school.js",
     "refactor": "npm run build && node dist/scripts/refactor.js",
-    "reserve": "npm run build && node dist/scripts/reserve.js"
+    "reserve": "npm run build && node dist/scripts/reserve.js",
+    "changelog:section": "npm run build && node dist/scripts/gen-changelog-section.js"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",

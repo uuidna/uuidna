@@ -143,7 +143,13 @@ jobs:
           else echo "::error::the calendar is full at 9.9.9 — the captain decides what comes after"; exit 1; fi
           NEXT="$MA.$MI.$PA"
           npm version "$NEXT" --no-git-tag-version
-          git add package.json package-lock.json
+          # THE CALENDAR WRITES FACTS, NEVER MEANING (the captain's decision, 2026-08-17). `npm run next` refuses a
+          # version whose CHANGELOG entry is missing, so an autonomous tick froze the tree until a human wrote prose
+          # — twice in one session. The emitted section carries only what the ledger computes (counts, receipts, the
+          # odometer step, the surfaces) and says plainly that the meaning is owed, so a human completing it later is
+          # finishing the entry, not correcting it. Release PROSE is still never generated; a statistic is not a story.
+          node dist/scripts/gen-changelog-section.js
+          git add package.json package-lock.json CHANGELOG.md
           # statistics, not prose: the release commit carries the counts the gate just certified
           THEOREMS=$(jq -r '.audited' lean/axioms.json)
           AXIOM_FREE=$(jq -r '.axiomFree' lean/axioms.json)
