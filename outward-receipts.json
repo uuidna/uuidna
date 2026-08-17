@@ -1,0 +1,14 @@
+{
+  "law": "Each entry is the content-address of one external answer. A later run VERIFIES the address instead of re-reading the world (verify_beats_recompute_by_magnitudes); only a moved address costs attention. Unreachable keeps the last receipt — the boundary is allowed to be down.",
+  "probes": 8,
+  "receipts": {
+    "nist-beacon": "d3d4784e-8ebf-89ee-9c8c-ccfac6399ca2",
+    "codata-constant": "43c99587-70c7-8e92-be43-c04b0c51c7cc",
+    "nvd-cve": "831b9324-2750-80b0-9510-f7af551f666d",
+    "vies-vat": "0696a557-14ce-8b3b-b35e-87fe549cc845",
+    "literature": "16082d48-0632-8724-a9b2-f8871b9cfcc4",
+    "github-repos": "0d74cf71-0140-8498-9cb8-e4cd7370e0ec",
+    "publications": "d8572725-2b40-8c47-9636-266d030e77d2",
+    "gutenberg": "2a2927f6-cec2-8674-8e67-817f17f2702c"
+  }
+}

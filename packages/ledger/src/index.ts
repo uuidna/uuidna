@@ -11,7 +11,7 @@ export {
 } from '@uuidna/uuidna'
 export { merkleRoot, merkleProof, verifyProof } from '@uuidna/uuidna'
 export { computes, reveal, type Reveal } from '@uuidna/uuidna'
-export { dueProcess, courtProcedure, fileSealed, verifyFiling, type DueProcess, type Guarantee, type DocketEntry, type CourtStage, type CourtProcedure } from '@uuidna/uuidna'
+export { dueProcess, courtProcedure, fileSealed, verifyFiling, tryClaim, type OneTrial, type DueProcess, type Guarantee, type DocketEntry, type CourtStage, type CourtProcedure } from '@uuidna/uuidna'
 export { signCommit, type CommitSignature } from '@uuidna/uuidna'
 export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from '@uuidna/uuidna'
 export { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, boundariesOf, theoremCoins, ledgerCoins, type UuidnaUsage, type TheoremCoins, type LedgerCoins } from '@uuidna/uuidna'

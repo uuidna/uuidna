@@ -56,7 +56,7 @@ export { auditCloudflareBindings, type CloudflareAudit, type BindingAudit } from
 // due-process guarantees each a sealed lean/Legal.lean theorem (one verdict, only-proven-admitted, non-justiciable-
 // never-refuted, refuted-iff-test-fails, remand-total, two-coins-to-compute), any claim adjudicated by the same
 // process, folded to one recomputable docket. A fair process whose rules are theorems — NOT a court or legal advice.
-export { dueProcess, courtProcedure, fileSealed, verifyFiling, type DueProcess, type Guarantee, type DocketEntry, type CourtStage, type CourtProcedure } from './due-process.js'
+export { dueProcess, courtProcedure, fileSealed, verifyFiling, tryClaim, type OneTrial, type DueProcess, type Guarantee, type DocketEntry, type CourtStage, type CourtProcedure } from './due-process.js'
 
 // sign — SIGN a commit message as TRUE, or fail: signed-true iff it cites a real sealed theorem and none fabricated
 // (slimGate VERIFIED); the signature is the message address folded with the cited theorems to one gravity root through

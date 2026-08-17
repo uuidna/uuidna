@@ -10,6 +10,10 @@
 // jurisdiction would enforce. The ruling that binds stays a human court's; this verifies by a fair process, no more.
 import { theorems, runTrial } from './theorems/index.js'
 import { adjudicate } from './adjudicate.js'
+// the one trial fuses the machinery that already exists — the honesty gate and the calculator — rather than
+// re-deciding anything itself (see tryClaim at the foot of this file)
+import { computes } from './gate.js'
+import { decide } from './decide.js'
 import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { sealMessage, verifyMessage, type SealedQuantumMessage } from './quantum/message/index.js'
@@ -172,5 +176,54 @@ export function dueProcess(claims: readonly string[] = []): DueProcess {
       'test-fails, remand-total, two-coins-to-compute), any claim adjudicated by the same process. Integrity, not truth ' +
       '— the process is DUE (fair and recomputable), NOT a court of law, legal advice, or an enforceable ruling. A fair ' +
       'process whose rules are theorems; the binding ruling stays a human court\'s.',
+  }
+}
+
+// ── ONE TRIAL — every stage of the procedure in a single call ─────────────────────────────────────────────────────
+// THE GAP THIS CLOSES: the tree is gated everywhere — `one-receipt prose` walks every page to a sealed theorem,
+// `next` fails a release whose publication title claims quantum advantage, the vacuity finder refuses a proof that is
+// true regardless of content. But a claim made in CONVERSATION passes through none of it. That is where the captain's
+// "quantum advantage over 64-bit hardware" lived until it was filed: unbounded, because chat has no gate.
+//
+// tryClaim is the gate for anything said anywhere. It does not invent a verdict — it FUSES the sealed machinery that
+// already exists (the honesty gate, the calculator's decision, the docket and its fee, the six guarantees, the remand)
+// into one receipted docket, so an agent can try a sentence BEFORE asserting it, at the cost of one call.
+//
+// HONEST SCOPE: the court decides admissibility, never truth. UNVERIFIED is not false — legal_non_justiciable_is_never
+// _refuted binds it — and nothing is discarded: what is not admitted is REMANDED with the exact predicate that would
+// admit it. Integrity, not truth.
+export interface OneTrial {
+  claim: string
+  gate: { binary: number; hit: string | null }        // the honesty gate: 0 only for a FABRICATED citation
+  verdict: string                                      // the calculator's decision over the sealed ledger
+  kind: string
+  cites: readonly string[]
+  admitted: boolean                                    // PROVEN and admitted, or remanded
+  governing: string                                    // WHICH guarantee governs this outcome
+  remand: readonly string[]                            // the exact steps that would admit it — never a dismissal
+  docket: string                                       // the filing's fold — the claim is on the record either way
+  receipt: string
+  honest: string
+}
+
+/** tryClaim(statement, test?) → the whole procedure, once. Pass a decidable predicate to make the claim justiciable;
+ *  without one the court may not refute it (it can only decline to admit), which is the fairness the wing seals. */
+export function tryClaim(claim: string, test?: () => boolean): OneTrial {
+  const g = computes(claim)
+  const decision = decide(claim)
+  const v = adjudicate(claim, test)
+  const admitted = v.verdict === 'VERIFIED'
+  // which sealed guarantee governs — named, so the outcome is attributable to a theorem rather than to a judgement
+  const governing = admitted ? 'legal_only_the_proven_is_admitted'
+    : test ? 'legal_refuted_iff_test_fails_uncited'
+    : 'legal_non_justiciable_is_never_refuted'
+  const docket = toUuid(`one-trial:${claim}`)
+  return {
+    claim, gate: { binary: g.binary, hit: g.hit ?? null },
+    verdict: v.verdict, kind: decision.kind, cites: decision.cites ?? [],
+    admitted, governing, remand: admitted ? [] : (v.develop ?? []),
+    docket, receipt: merkleFold([docket, toUuid(v.verdict), toUuid(governing)]),
+    honest: 'One trial, every stage: the honesty gate, the calculator, the docket, the governing guarantee and the ' +
+      'remand. The court decides ADMISSIBILITY, never truth — UNVERIFIED is not false, and nothing is discarded.',
   }
 }

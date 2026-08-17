@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="174 keys" />
+# MCP tools <Badge type="tip" text="175 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 174 tools below are read from the server's own tool list and
+is **built from the keys**: the 175 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · a380bacc-47ab-878a-8274-b32e85bd69ab
+gate CLEAN f0 d0 v0 · 7abab097-07be-8576-a71d-22b15035dd18
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 174-tool registry folds to its
-order-invariant identity `e75b1958-b564-8aeb-9999-3148d86073c6` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 175-tool registry folds to its
+order-invariant identity `17f42a7a-504c-86b8-b908-0dc1d0e7e884` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`174`" />
+## The grid <Badge type="tip" :text="`175`" />
 
-174 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 67 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+175 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 67 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -184,6 +184,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-strict"><code>strict</code></a>
 <a href="#uuidna-theorem"><code>theorem</code></a>
 <a href="#uuidna-transform"><code>transform</code></a>
+<a href="#uuidna-try"><code>try</code></a>
 <a href="#uuidna-verify"><code>verify</code></a>
 <a href="#uuidna-verify-envelope"><code>verify_envelope</code></a>
 <a href="#uuidna-verify-statement"><code>verify_statement</code></a>
@@ -542,7 +543,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'72'" />
+## Other <Badge type="tip" :text="'73'" />
 
 *skill: other*
 
@@ -889,6 +890,16 @@ THE HERO ANIMATION — the sequence and the dimensions as one deterministic SVG,
 | `rung` | number | no | the sequence rung the colour starts on |
 | `tempo` | number | no | the sealed tempo in ms |
 | `base` | string | no | URL base for the proof link |
+
+### `uuidna_try`
+
+ONE TRIAL — every stage of the sealed procedure in a single call, for a claim made ANYWHERE, including in conversation. The tree is gated everywhere (prose walks to a theorem, a release fails on a publication claiming quantum advantage, the vacuity finder refuses a proof true regardless of content) but a claim made in CHAT passes through none of it — which is exactly where an unproven claim can live unbounded. This gates it: the honesty gate (binary 0 ONLY for a fabricated citation), the calculator verdict over the sealed ledger, the docket, the GOVERNING guarantee named by key, and the remand. Pass {claim}; the verdict is UNVERIFIED unless a sealed theorem is cited or a decidable test holds. HONEST SCOPE: the court decides ADMISSIBILITY, never truth — UNVERIFIED IS NOT FALSE (legal_non_justiciable_is_never_refuted binds it: with no decidable test the court MAY NOT refute), and nothing is discarded — what is not admitted is REMANDED with the exact steps that would admit it. Returns {claim,gate,verdict,kind,cites,admitted,governing,remand,docket,receipt,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `claim` | string | **yes** | the statement to try, exactly as it would be asserted |
 
 ### `uuidna_oeapi`
 
