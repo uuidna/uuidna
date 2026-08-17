@@ -123,8 +123,10 @@ export function heroAnimation(
   // six nodes on the ring, placed by their ORBIT INDEX (not by angle chosen for looks): step k sits at k/6 of the turn
   const node = (v: number, i: number): string => {
     const turn = (i * 60)                                          // 360/6 — the orbit has six steps, so the ring does
-    return `<g transform="rotate(${turn} 100 100)"><circle cx="100" cy="30" r="9" fill="${hue(v)}">` +
-      `<animate attributeName="r" values="9;13;9" dur="${beat(i)}" repeatCount="indefinite"/></circle>` +
+    // NO CHOSEN AMPLITUDE: the base radius is the orbit's own length and each rung pulses by ITS OWN VALUE, so the
+    // node for 8 swells most and the node for 1 least — the motion's size IS the number it depicts.
+    return `<g transform="rotate(${turn} 100 100)"><circle cx="100" cy="30" r="${orbit.length}" fill="${hue(v)}">` +
+      `<animate attributeName="r" values="${orbit.length};${orbit.length + v};${orbit.length}" dur="${beat(i)}" repeatCount="indefinite"/></circle>` +
       `<text x="100" y="34" text-anchor="middle" font-size="10" fill="#0b0b0b" transform="rotate(${-turn} 100 30)">${v}</text></g>`
   }
   // THE LEAD RAY IS THE SELECTED DIMENSION. `dimension` used to be accepted, folded into the address, and then
@@ -138,10 +140,14 @@ export function heroAnimation(
     const leads = i === lead
     // every ray turns by its distance FROM the lead, so the selected dimension always points up
     const turn = (((i - lead + dims.length) % dims.length) * 360) / dims.length
+    // the dimmed rays share ONE WHOLE attention equally — 1/7 each — and breathe between that share and twice it;
+    // the lead holds what the six leave (1 − 1/7) and burns to one. Both derived from the dimension count.
+    const share = 1 / dims.length
+    const dim = share.toFixed(3), dim2 = (share * 2).toFixed(3), held = (1 - share).toFixed(3)
     return `<line x1="100" y1="100" x2="100" y2="${leads ? 54 : 64}" stroke="${hue(i + 1)}"` +
-      ` stroke-width="${leads ? 3 : 1}" opacity="${leads ? '.95' : '.12'}"` +
+      ` stroke-width="${leads ? 3 : 1}" opacity="${leads ? '1' : dim}"` +
       ` transform="rotate(${turn} 100 100)"><animate attributeName="opacity"` +
-      ` values="${leads ? '.7;1;.7' : '.08;.18;.08'}" dur="${beat(i)}" repeatCount="indefinite"/></line>` +
+      ` values="${leads ? `${held};1;${held}` : `${dim};${dim2};${dim}`}" dur="${beat(i)}" repeatCount="indefinite"/></line>` +
       (leads ? `<text x="100" y="50" text-anchor="middle" font-size="8" fill="${hue(i + 1)}">${d}</text>` : '')
   }
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img"` +

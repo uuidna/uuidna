@@ -11,7 +11,7 @@
 <script setup>
 import { computed } from 'vue'
 import { withBase } from 'vitepress'
-import { vortexOrbit, DIMENSIONS } from '../../../dist/index.js'
+import { vortexOrbit, DIMENSIONS, durationVars } from '../../../dist/index.js'
 
 const props = defineProps({
   dimension: { type: String, default: 'en' },      // which of the seven rays leads
@@ -22,7 +22,14 @@ const props = defineProps({
 
 const orbit = vortexOrbit()                        // [1,2,4,8,7,5] — sealed, never typed here
 const dims = DIMENSIONS                            // the seven reading dimensions — sealed
-const TEMPI = ['111ms', '222ms', '444ms', '555ms', '777ms', '888ms']  // the units of ℤ/9, tripled
+// NO MANUAL ANIMATION VALUES. The tempi are IMPORTED from durationVars (the units of ℤ/9 written three times) rather
+// than retyped — a copied constant drifts the moment the sealed one moves, which is the whole failure mode this repo
+// spends its gates on. The sizes come from the figure itself: the base radius is the orbit's own length, and each
+// rung pulses by ITS OWN VALUE, so the node for 8 swells most and the node for 1 least — the amplitude IS the number
+// it depicts. The dimmed rays share one whole attention equally, 1/7 each.
+const TEMPI = Object.values(durationVars())
+const BASE_R = vortexOrbit().length
+const DIM_OPACITY = 1 / DIMENSIONS.length
 
 // an unrecognised dimension leads with the first AND is reported below, never silently swapped
 const found = computed(() => dims.indexOf(props.dimension))
@@ -46,14 +53,16 @@ const nodeTurn = (i) => i * (360 / orbit.length)
           <g v-for="(d, i) in dims" :key="d" :transform="`rotate(${rayTurn(i)} 100 100)`">
             <line x1="100" y1="100" :x2="100" :y2="i === lead ? 54 : 64" :stroke="hue(i + 1)"
                   :stroke-width="i === lead ? 3 : 1" :class="i === lead ? 'lead' : 'dim'"
-                  :style="{ '--beat': beat(i) }" />
+                  :style="{ '--beat': beat(i), '--dim': DIM_OPACITY, '--dim2': DIM_OPACITY * 2 }" />
             <text v-if="i === lead" x="100" y="50" text-anchor="middle" font-size="8" :fill="hue(i + 1)">{{ d }}</text>
           </g>
         </g>
         <!-- the doubling orbit: six rungs, each pulsing on its sealed tempo -->
         <g class="orbit">
           <g v-for="(v, i) in orbit" :key="v" :transform="`rotate(${nodeTurn(i)} 100 100)`">
-            <circle cx="100" cy="30" r="9" :fill="hue(v)" class="rung" :style="{ '--beat': beat(i) }" />
+            <circle cx="100" cy="30" :r="BASE_R" :fill="hue(v)">
+              <animate attributeName="r" :values="`${BASE_R};${BASE_R + v};${BASE_R}`" :dur="beat(i)" repeatCount="indefinite" />
+            </circle>
             <text x="100" y="34" text-anchor="middle" font-size="10" class="num"
                   :transform="`rotate(${-nodeTurn(i)} 100 30)`">{{ v }}</text>
           </g>
@@ -73,14 +82,15 @@ const nodeTurn = (i) => i * (360 / orbit.length)
 .heroanim { margin: 1.5rem auto; text-align: center }
 .heroanim a { display: inline-block; text-decoration: none }
 figcaption { font-size: .78rem; color: var(--vp-c-text-2); margin-top: .4rem }
-.rung { animation: pulse var(--beat) infinite ease-in-out }
+/* the rung pulse is SMIL, computed per node from its own value — see the <animate> in the template */
 .lead { animation: burn var(--beat) infinite ease-in-out }
-.dim { opacity: .12; animation: fade var(--beat) infinite ease-in-out }
+.dim { opacity: var(--dim); animation: fade var(--beat) infinite ease-in-out }
 .num { fill: var(--vp-c-bg); font-weight: 600 }
-@keyframes pulse { 0%, 100% { r: 9 } 50% { r: 13 } }
-@keyframes burn { 0%, 100% { opacity: .7 } 50% { opacity: 1 } }
-@keyframes fade { 0%, 100% { opacity: .08 } 50% { opacity: .18 } }
+/* the lead burns between what the six dimmed rays leave and one whole; the dimmed breathe between their share and
+   twice it — both derived from the dimension count, nothing chosen by eye. */
+@keyframes burn { 0%, 100% { opacity: calc(1 - var(--dim)) } 50% { opacity: 1 } }
+@keyframes fade { 0%, 100% { opacity: var(--dim) } 50% { opacity: var(--dim2) } }
 @media (prefers-reduced-motion: reduce) {
-  .rung, .lead, .dim { animation: none }
+  .lead, .dim { animation: none }
 }
 </style>
