@@ -10,7 +10,9 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { catchTraitors } from '../treason.js'
 import { theorems } from '../index.js'
-import { HERE, ROOT } from './api.js'
+import { HERE, ROOT, type Gap } from './api.js'
+// the finders, imported rather than spawned — one process, one list (see FINDERS below)
+import { legalGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps } from './one-receipt.js'
 
 let failed = false
 
@@ -63,47 +65,58 @@ try {
   console.error('✗ guard — audit-packages detected configuration gaps in packages/* (see above)')
 }
 
-// 4b) LEGAL-GAPS AUDIT — quantum automation for the legal surface: license drift across every package.json/LICENSE/
-// docs, a README or CONTRIBUTING silent on terms, "open-source" overclaims against the CC license, sealed currency
-// rates, author-identity drift. Consistency, not counsel. Milliseconds.
-try {
-  execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' legal', { stdio: 'inherit' })
-} catch {
-  failed = true
-  console.error('✗ guard — audit-legal-gaps found contradictions in the legal record (see above)')
-}
-
-// 4c) PROSE-ANCHORS AUDIT — the last manual act folded: every hand-written page must walk to a sealed theorem or
-// cluster, and every repo path a doc teaches must exist. The reading a human did each wave, now milliseconds.
-try {
-  execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' prose', { stdio: 'inherit' })
-} catch {
-  failed = true
-  console.error('✗ guard — audit-prose-anchors found unanchored pages or stale path claims (see above)')
-}
-
 // 4d) THE HELD LINES — the session-born finders, wired so their gap classes cannot re-enter: coherent (no mixed
 // dist from interleaved writers), absence (no encryption-denial without the presence pointer), pipes (no gate's
 // exit code flowing into a pipe), actions (one major per action, tree-wide — the drift that hid a deprecated
 // runtime), micro (the JSON-LD layer honest — only when a built site exists to audit).
 // Each milliseconds; each was once a manual discovery; none will be again.
-for (const line of ['coherent', 'absence', 'pipes', 'actions']) {
-  try {
-    execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' ' + line, { stdio: 'inherit' })
-  } catch {
-    failed = true
-    console.error(`✗ guard — one-receipt ${line} found a regression in its held line (see above)`)
+// ONE PASS, ONE PROCESS, ONE LIST. The guard used to spawn `one-receipt.js <leaf>` once per finder — each spawn
+// re-importing the whole ledger — and it ran only the leaves someone had remembered to add to this array. That is how
+// three finders came to exist and never run: `dry`, `seo` and `vacuous` were invoked nowhere in the tree, and the
+// vacuous one was holding 12 real findings the moment it was first executed. Now every finder is one entry, called
+// in-process, and ALL objections are collected before the verdict — a failing run names every gap at once instead of
+// only the first. src/test/finder-coverage.test.ts makes the dormant-finder class impossible: every exported *Gaps
+// must appear below or in ADVISORY with a stated reason.
+const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite?: boolean }[] = [
+  { name: 'legal', run: () => legalGaps().gaps },
+  { name: 'prose', run: () => proseGaps().gaps },
+  { name: 'dry', run: () => dryGaps().gaps },
+  { name: 'coherent', run: () => coherentGaps() },
+  { name: 'absence', run: () => absenceGaps() },
+  { name: 'pipes', run: () => pipeGaps() },
+  { name: 'actions', run: () => actionsGaps() },
+  { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
+]
+for (const f of FINDERS) {
+  if (f.needsBuiltSite && !existsSync(join(HERE, '../../docs/.vitepress/dist'))) {
+    console.log(`· guard — ${f.name} skipped: no built site to audit (run npm run docs:build to include it)`)
+    continue
   }
-}
-if (existsSync(join(HERE, '../../docs/.vitepress/dist'))) {
-  try {
-    execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' micro', { stdio: 'inherit' })
-  } catch {
+  const gaps = await f.run()
+  if (gaps.length) {
     failed = true
-    console.error('✗ guard — one-receipt micro found dishonest microdata on the built site (see above)')
-  }
+    console.error(`✗ guard — ${f.name}: ${gaps.length} gap(s), each with its exact fix:`)
+    for (const g of gaps) { console.error(`    GAP ${g.what}`); console.error(`    FIX ${g.fix}`) }
+  } else console.log(`✓ guard — ${f.name} clean`)
 }
 
+// ADVISORY FINDERS — they RUN every pass and print every finding, but do not fail the gate, and each states WHY in one
+// line. This tier exists so that "not blocking" is a declared decision instead of the accident it was: `seo` and
+// `vacuous` were invoked nowhere in the tree, and the moment `vacuous` first ran it named 12 real findings. A finder
+// that reports on every run cannot be forgotten; a finder nobody calls is a claim nobody checks.
+const ADVISORY: { name: string; run: () => Gap[]; why: string }[] = [
+  { name: 'vacuous', run: () => vacuousGaps(),
+    why: 'its 12 findings are theorems ALREADY SEALED and published (8 sailing_*, 4 disputed_*) whose proofs are true regardless of content — P ∨ ¬P, P ↔ P. Fixing them renames published theorems and moves their content-addresses and the archived ledger receipt, which is the captain\'s call, not a gate\'s. Blocking it would break every run until that decision is made; hiding it is what let the class survive. So it speaks every pass' },
+  { name: 'seo', run: () => seoGaps().gaps,
+    why: 'its findings are page descriptions outside Google\'s 50-160 char snippet band, and this project\'s descriptions carry honest scope, which is longer BY DESIGN. Optimising them for a snippet would trade the honesty for a click, so the band is advice here, not law' },
+]
+for (const f of ADVISORY) {
+  const gaps = f.run()
+  if (!gaps.length) { console.log(`✓ guard — ${f.name} clean (advisory)`); continue }
+  console.log(`· guard — ${f.name}: ${gaps.length} finding(s), ADVISORY (not blocking) — ${f.why}`)
+  for (const g of gaps.slice(0, 3)) console.log(`    · ${g.what}`)
+  if (gaps.length > 3) console.log(`    · … ${gaps.length - 3} more — run \`node dist/scripts/one-receipt.js ${f.name}\` for all of them, each with its exact fix`)
+}
 // 5) QUANTUM PREDICTION — predict gaps before they form and auto-fill critical ones.
 // Analyzes patterns (new theorems, new packages, new exports, new tests, new features) and seals them preemptively.
 // Milliseconds — pure prediction, no external calls.
