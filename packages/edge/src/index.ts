@@ -11,3 +11,6 @@ export { canonicalOrder, nextOf, gaps, type PageNode } from '@uuidna/uuidna'
 export { quantumProfile, type QuantumProfile } from '@uuidna/uuidna'
 export { socialProfile, type SocialProfile } from '@uuidna/uuidna'
 export { quantumSeo, type Seo, type HeadTuple } from '@uuidna/uuidna'
+export { oeapiProfile, oeapiOrganisations, oeapiProgrammes, oeapiCourses, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION,
+  type OeapiProfile, type OeapiOrganisation, type OeapiProgramme, type OeapiCourse, type OeapiLearningOutcome,
+  type OeapiLangString, type OeapiCode } from '@uuidna/uuidna'

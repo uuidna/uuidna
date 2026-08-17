@@ -46,7 +46,7 @@ const PARTITION: Record<string, string> = {
   // mcp — the server's I/O boundary (the bin re-serves the root server)
   './sanitize.js': 'mcp', './harness.js': 'mcp',
   // edge — the deployment surface
-  './cloudflare.js': 'edge', './site.js': 'edge', './seo.js': 'edge', './render.js': 'edge',
+  './cloudflare.js': 'edge', './site.js': 'edge', './seo.js': 'edge', './oeapi.js': 'edge', './render.js': 'edge',
   './editor.js': 'edge', './payload-seed.js': 'edge', './profile.js': 'edge', './social.js': 'edge',
 }
 

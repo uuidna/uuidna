@@ -263,6 +263,9 @@ export { imageProvenance, verifyImageProvenance, type ImageProvenance } from './
 // tags carried from the sealed skill/principle, and the page's content-address (the quantum message that delivers the
 // payload). Reusable by the front (its `head` is a VitePress frontmatter array). Never manipulates a ranking.
 export { quantumSeo, type Seo, type HeadTuple } from './seo.js'
+export { oeapiProfile, oeapiOrganisations, oeapiProgrammes, oeapiCourses, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION,
+  type OeapiProfile, type OeapiOrganisation, type OeapiProgramme, type OeapiCourse, type OeapiLearningOutcome,
+  type OeapiLangString, type OeapiCode } from './oeapi.js'
 
 // rights — the CAPTAIN'S RIGHTS, hard-imprinted: copyright (© Tsvetan Rouschev), licence (CC BY-NC-ND 4.0), and the
 // credit law, content-addressed and reversibly imprinted so they travel with every artifact (infused into every page's

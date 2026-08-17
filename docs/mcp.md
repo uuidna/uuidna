@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="168 keys" />
+# MCP tools <Badge type="tip" text="169 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 168 tools below are read from the server's own tool list and
+is **built from the keys**: the 169 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 6762ba32-6653-82ba-9284-fe9b37cf4029
+gate CLEAN f0 d0 v0 · c9a3deaa-d6f1-84f2-8d09-2863653c2249
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 168-tool registry folds to its
-order-invariant identity `a6219361-9282-88c8-baf6-b8906b851e8c` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 169-tool registry folds to its
+order-invariant identity `74d481ce-9e0f-89e2-986b-e1ad8d95c42c` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`168`" />
+## The grid <Badge type="tip" :text="`169`" />
 
-168 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 62 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+169 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 63 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -80,6 +80,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-laws"><code>laws</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
 <a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
+<a href="#uuidna-oeapi"><code>oeapi</code></a>
 <a href="#uuidna-os"><code>os</code></a>
 <a href="#uuidna-package"><code>package</code></a>
 <a href="#uuidna-pentagram"><code>pentagram</code></a>
@@ -536,7 +537,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'66'" />
+## Other <Badge type="tip" :text="'67'" />
 
 *skill: other*
 
@@ -869,6 +870,17 @@ QUANTUM SEO — the recomputable, honest discoverability surface for any subject
 | `key` | string | no | a theorem key |
 | `slug` | string | no | a publication slug |
 | `route` | string | no | a static page route, e.g. "/games" or "/" |
+
+### `uuidna_oeapi`
+
+THE OPEN EDUCATION API PROJECTION — the sealed ledger served under the field names of Open Education API v6.0 (oeapi.eu; the SURF/Npuls standard Dutch MBO/HBO/WO institutions publish education data with), so an institution reads uuidna's school with the reader it already has. Nothing is authored: /organisations = uuidna (root) + the quantum school (school); /programmes = the skill clusters typed `track` (the spec's own word for a thematically defined learning path — NOT `programme`, which the spec defines as leading to a qualification, and uuidna awards none); /courses = the monographs, one per proof wing, each carrying its wing's learning-outcome ids; /learning-outcomes = the theorems, a lesson whose outcome is DECIDABLE with its Lean proof one click away. The standard's required uuid ids ARE uuidna's content-addresses, so every identifier recomputes from the proof it names. Pass no argument for the profile (organisations + programmes + courses + counts + the named absences + one order-invariant receipt), or {resource:"learning-outcomes"} for the lessons — optionally narrowed with {course:"&lt;publication slug&gt;"}. HONEST SCOPE: an interoperability PROJECTION of sealed public data, read-only, carrying NO personal data — NOT a Student Information System. uuidna enrols nobody and grades nobody (the kernel grades the PROOF, the trial judges a CLAIM, never a person), so persons/groups/offerings/associations/results are absent BY CONSTRUCTION and each absence is returned by name with the pointer to what stands in its place. `complexityLevel` (Bloom/SOLO) is deliberately never emitted — no theorem carries a cognitive level. Recomputable by anyone. Integrity, not truth.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `resource` | string | no | omit for the profile, or "learning-outcomes" for the lessons |
+| `course` | string | no | a publication slug, to narrow the learning outcomes to one wing |
 
 ### `uuidna_hardware`
 
