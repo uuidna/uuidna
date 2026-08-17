@@ -2,6 +2,7 @@
 // Beautiful documentation site built from markdown
 
 import { defineConfig } from 'vitepress'
+import { SITE, urlOf } from '../../src/site/index.js'
 import { infuseQuantumPayload } from './uuidna-quantum.js'
 
 // relativePath → clean route (cleanUrls): 'guides.md' → '/guides', 'index.md' → '/'
@@ -13,12 +14,12 @@ export default defineConfig({
   // copy-lean-to-site's own forensic scan, which FAILS the build if any /lean link in the built HTML is broken
   // (it runs after the copy, so it sees the truth). Exempt ONLY that class; every other dead link still fails.
   ignoreDeadLinks: [/^\/lean\//],
-  title: 'uuidna',
-  description: 'Mathematics replaces money. Proof replaces authority. Theorems replace corruption.',
+  title: SITE.name,
+  description: SITE.description,
 
   head: [
     // schema.org/OG strict: Open Graph tags carry `property`, not `name` (RDFa); twitter:card correctly uses `name`.
-    ['meta', { property: 'og:title', content: 'uuidna' }],
+    ['meta', { property: 'og:title', content: SITE.name }],
     ['meta', { property: 'og:description', content: 'A mathematically-proven economic system' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
   ],
@@ -84,7 +85,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: '🪙 Mathematics replaces money. Proof replaces authority. Theorems replace corruption.',
+      message: '🪙 ' + SITE.description,
       copyright: 'uuidna — All theorems sealed to ledger',
     },
 
@@ -120,7 +121,7 @@ export default defineConfig({
   // Learned from the site-config reference (vitepress.dev/reference/site-config), defaults kept elsewhere:
   // the sitemap makes every page discoverable at the canonical host; lastUpdated reads each page's timestamp
   // from git — measured, not typed.
-  sitemap: { hostname: 'https://uuidna.com' },
+  sitemap: { hostname: SITE.origin },
   lastUpdated: true,
 
   // FUSE the uuidna payload with VitePress (re-wired 2026-08-15 — the plugin had been orphaned by an earlier
@@ -133,7 +134,7 @@ export default defineConfig({
     const p = pageData.params as { address?: string; key?: string; slug?: string; statement?: string; tactic?: string; principle?: string } | undefined
     const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
-    const canonical = `https://uuidna.com/${slug}`
+    const canonical = urlOf(slug)   // the ONE origin — a third hardcoded copy lived here until 2026-08-18
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(
       ['link', { rel: 'canonical', href: canonical }],

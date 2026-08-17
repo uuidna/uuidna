@@ -10,6 +10,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems } from '../theorems/index.js'
 import { buildLeanPageSeed, toPayloadDocs } from '../payload-seed.js'
+import { PAYLOAD } from '../site/index.js'
 import { ROOT } from './api.js'
 
 const LEAN = join(ROOT, 'lean')
@@ -30,7 +31,7 @@ const docs = readdirSync(LEAN).filter((f) => f.endsWith('.lean')).flatMap((f) =>
 })
 
 const parents = docs.filter((d) => d.parent === null).length
-const published = docs.filter((d) => d._status === 'published').length
-writeFileSync(OUT, JSON.stringify({ collection: 'pages', docs }, null, 2) + '\n')
+const published = docs.filter((d) => d._status === PAYLOAD.statuses.published).length
+writeFileSync(OUT, JSON.stringify({ collection: PAYLOAD.collection, docs }, null, 2) + '\n')
 console.log(`✓ payload-sync — ${docs.length} docs (${parents} parents, ${docs.length - parents} nested children; ${published} published, ${docs.length - published} draft) → src/seeds/payload-sync.json`)
 console.log('  standard shapes only: pages collection · nested-docs parent · drafts _status · lexical content — a vanilla Payload auto-recognizes; upsert by slug, skip when uuidnaVersion is equal.')
