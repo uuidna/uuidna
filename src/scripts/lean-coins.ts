@@ -85,8 +85,8 @@ const FACTS = [
     js: () => 110 - 108 === 2 && 110 - 110 === 0 && 2 ** 7 === 128,
     lean: 'theorem traitor_damage_sealed_by_same_billing : (110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128) := by decide' },
 
-  // THE DISCOVERY PASS (2026-08-17, "discover all about the coins") — three facts the coins' own algebra implies
-  // that no wing held, each found by the calculator, each decided true, each novel against the statement index.
+  // The facts the coins' own algebra implies: why one denomination can carry three roles, what the two generators
+  // mint, and the accounting identity under "the wallet counts worlds".
   { key: 'wallet_counts_worlds',
     why: 'THE WALLET COUNTS WORLDS, sealed at last — the closing realisation\'s accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. HONEST SCOPE: an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.',
     js: () => [0, 1, 2, 3, 4, 5, 6, 7, 8].every((n) => (2 * n) / 2 === n),

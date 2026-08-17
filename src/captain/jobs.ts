@@ -1,11 +1,7 @@
-// captain/jobs — THE TWELVE JOBS OF THE COINS, REMEMBERED IN CODE. The catalog the chat discovered ("what else
-// do the coins do?") made permanent the only way this repository trusts memory: as data whose every claim
-// carries its citations, with a SELF-TRIAL built in — coinsJobs() runs each job through the gate on every read,
-// so the catalog cannot drift from the ledger it describes; a vanished theorem would break the catalog's own
-// verdict, loudly. Job 11 ("the wallet counts worlds") was the one UNVERIFIED claim when the author was fed his
-// own prose — now sealed as wallet_counts_worlds, the twelve go twelve for twelve. Discovered the same day:
-// the coins' number is the unique point where addition, multiplication and exponentiation agree
-// (coins_unique_operation_agreement) — why one denomination serves fee, leverage and qubit at once.
+// captain/jobs — THE TWELVE JOBS OF THE COINS as data whose every claim carries its citations, with a SELF-TRIAL
+// built in: coinsJobs() runs each job through the gate on every read, so the catalog cannot drift from the ledger
+// it describes — a vanished theorem breaks the catalog's own verdict rather than passing silently.
+
 import { reveal } from '../gate.js'
 import { toUuid } from '../address.js'
 

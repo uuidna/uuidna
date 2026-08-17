@@ -4,14 +4,10 @@
 // `npm run lean`, and it is generated, verified sorry-free, and folded into the receipt. Best cost per theorem —
 // write the facts, nothing else. Order does not matter for correctness (the derivation order is the PRINCIPLE
 // metadata, not the run order). Integrity, not truth.
-// THE DELTA GATE, arm (c): ONE PROCESS — generators execute by dynamic import (one node startup, one shared
-// module graph, instead of ~65 spawns paying startup each), and the hand-written proofs ride the same receipt
-// cache as the generated wings (a byte-identical file's prior kernel signature stands; a changed file always
-// re-proves). MEASURED, corrected on a quiet tree (the first warm readings were polluted by a concurrent seal —
-// the honest number is BETTER than the one first committed): full ledger 146.8s before the delta gate → 37.9s
-// with arm (a) → 16.3s here, all 70 wings by receipt. The FULL landing chain (lean → axioms → heartbeats --sync
-// → guard) is 30.9s end to end, against lead 15's target of under two minutes. Measure before optimising, and
-// report the measurement even when it says the next optimisation is not worth building.
+// THE DELTA GATE: generators execute by dynamic import in ONE process (a spawn per generator would pay node
+// startup each), and the hand-written proofs ride the same receipt cache as the generated wings — a
+// byte-identical file's prior kernel signature stands, a changed file always re-proves, and UUIDNA_PROVE_ALL=1
+// forces every spawn. A stale cache can only cause extra proving, never a false pass.
 import { execSync } from 'node:child_process'
 import { readdirSync, existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'

@@ -12,14 +12,11 @@ import { toUuid } from '../address.js'
 import { ROOT } from './api.js'
 export { ROOT }
 
-// THE DELTA GATE (lead 15, sealed by verify_beats_recompute_by_magnitudes) — the gate proves only what MOVED.
-// lean/proof-cache.json maps each generated file to the content-address of the last text the KERNEL ITSELF
-// verified; when a regeneration produces byte-identical content (same address), the spawn is skipped and the
-// wing is VERIFIED BY RECEIPT — the kernel's prior signature on this exact text, recomputable by anyone from
-// the address. A changed wing's address moves, so it always re-proves; a stale cache can only cause EXTRA
-// proving, never a false pass. UUIDNA_PROVE_ALL=1 forces every spawn (the full recalibration door, like
-// heartbeats --all). Measured motive: the pre-delta `npm run lean` paid ~60 kernel spawns per run to re-prove
-// unchanged wings; the delta pays only the diff.
+// THE DELTA GATE — the gate proves only what MOVED (verify_beats_recompute_by_magnitudes). lean/proof-cache.json
+// maps each generated file to the content-address of the last text the KERNEL ITSELF verified; byte-identical
+// content carries that prior signature, recomputable by anyone from the address, so the spawn is skipped. A
+// changed wing's address moves and always re-proves; a stale cache can only cause EXTRA proving, never a false
+// pass. UUIDNA_PROVE_ALL=1 forces every spawn (the full recalibration door, like heartbeats --all).
 const CACHE_PATH = join(ROOT, 'lean', 'proof-cache.json')
 export const readProofCache = (): Record<string, string> => {
   try { return existsSync(CACHE_PATH) ? JSON.parse(readFileSync(CACHE_PATH, 'utf8')) : {} } catch { return {} }
