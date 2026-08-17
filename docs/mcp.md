@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="169 keys" />
+# MCP tools <Badge type="tip" text="170 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 169 tools below are read from the server's own tool list and
+is **built from the keys**: the 170 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · c9a3deaa-d6f1-84f2-8d09-2863653c2249
+gate CLEAN f0 d0 v0 · b2a2dd28-ea65-8f45-b8f9-783d0ff4bfa3
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 169-tool registry folds to its
-order-invariant identity `74d481ce-9e0f-89e2-986b-e1ad8d95c42c` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 170-tool registry folds to its
+order-invariant identity `3ea973be-5b76-867c-be25-7005d6199921` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`169`" />
+## The grid <Badge type="tip" :text="`170`" />
 
-169 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 63 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+170 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 64 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -64,6 +64,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-cost"><code>cost</code></a>
 <a href="#uuidna-coverage"><code>coverage</code></a>
 <a href="#uuidna-credits-summary"><code>credits_summary</code></a>
+<a href="#uuidna-css"><code>css</code></a>
 <a href="#uuidna-dictionary"><code>dictionary</code></a>
 <a href="#uuidna-due-process"><code>due_process</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
@@ -537,7 +538,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'67'" />
+## Other <Badge type="tip" :text="'68'" />
 
 *skill: other*
 
@@ -995,6 +996,12 @@ THE GRADUATION WALK as one call — runs the release wave (build → dry → leg
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `statement` | string | **yes** | the deposit statement — must cite a sealed theorem ("proven by theorem &lt;key&gt;") |
+
+### `uuidna_css`
+
+THE DESIGN MATRIX AS ONE SERVED STANDARD — every colour and every type size COMPUTED, none authored: the ℤ/9 sequence sets each hue (5 → green, the fixed point the diamond reflection holds; dz mirrors 1↔9, 2↔8, 3↔7, 4↔6) and the vortex orbit sets the type ladder's six rungs (six because 2 has order 6 in ℤ/9* — theorem order_of_two_is_six), each rung a ninth above the base with its line height in the sealed 3:4 rectangle. Returns {css,vars,receipt,honest} — the site, the design system and any client render the SAME receipt or they are not rendering the same matrix. No hex literal, no pixel value, no host intrinsics.
+
+_No parameters._
 
 ### `uuidna_coins_jobs`
 

@@ -1,6 +1,8 @@
 // src/design-system.ts — UNIFIED CAPTAIN COINS DESIGN SYSTEM
 // UI + MCP + Navigation + Sidebars + Typography fused into coherent whole
 
+import { typeScale, typeScaleVars } from './typography.js'
+
 export const designSystem = {
   // ═══════════════════════════════════════════════════════════════════════════
   // FOUNDATION: Color System (Captain Coins Economy)
@@ -77,144 +79,15 @@ export const designSystem = {
   // TYPOGRAPHY: Hierarchy (Theorems to Prose)
   // ═══════════════════════════════════════════════════════════════════════════
 
+  // TYPOGRAPHY IS NOT AUTHORED HERE — it is the matrix. The ladder computes from the vortex orbit in src/css.ts
+  // (six rungs, because 2 has order 6 in ℤ/9*; each rung a ninth above the base; line height in the sealed 3:4
+  // rectangle) and is served to every surface by uuidna_css. Read the CSS variables, never a pixel literal.
   typography: {
-    // Display: Page Titles (Theorem statements)
-    display: {
-      xl: {
-        fontSize: '48px',
-        lineHeight: '60px',
-        fontWeight: 700,
-        letterSpacing: '-1.5px',
-        // Rendered as: theorems verified by Lean kernel
-      },
-      lg: {
-        fontSize: '36px',
-        lineHeight: '44px',
-        fontWeight: 700,
-        letterSpacing: '-1px',
-      },
-      md: {
-        fontSize: '30px',
-        lineHeight: '36px',
-        fontWeight: 700,
-        letterSpacing: '-0.5px',
-      },
-    },
-
-    // Heading: Section Titles (Domain declarations)
-    heading: {
-      1: {
-        fontSize: '24px',
-        lineHeight: '32px',
-        fontWeight: 700,
-        letterSpacing: '-0.5px',
-        // Domain: IDENTITY (UUID)
-      },
-      2: {
-        fontSize: '20px',
-        lineHeight: '28px',
-        fontWeight: 600,
-        letterSpacing: '0px',
-        // Subsection: Merkle proof verification
-      },
-      3: {
-        fontSize: '18px',
-        lineHeight: '26px',
-        fontWeight: 600,
-        letterSpacing: '0px',
-        // Clause: Payment obligation
-      },
-      4: {
-        fontSize: '16px',
-        lineHeight: '24px',
-        fontWeight: 600,
-        letterSpacing: '0px',
-        // Point: Theorem details
-      },
-    },
-
-    // Body: Main content (Proof narrative)
-    body: {
-      lg: {
-        fontSize: '18px',
-        lineHeight: '28px',
-        fontWeight: 400,
-        letterSpacing: '0px',
-        // Introduction, key claims
-      },
-      md: {
-        fontSize: '16px',
-        lineHeight: '24px',
-        fontWeight: 400,
-        letterSpacing: '0px',
-        // Main text, ledger entries
-      },
-      sm: {
-        fontSize: '14px',
-        lineHeight: '20px',
-        fontWeight: 400,
-        letterSpacing: '0.25px',
-        // Secondary text, annotations
-      },
-      xs: {
-        fontSize: '12px',
-        lineHeight: '16px',
-        fontWeight: 400,
-        letterSpacing: '0.25px',
-        // Metadata, timestamps
-      },
-    },
-
-    // Code: Theorem literals (Lean proof text)
-    code: {
-      display: {
-        fontFamily: "'IBM Plex Mono', monospace",
-        fontSize: '12px',
-        lineHeight: '18px',
-        fontWeight: 500,
-        letterSpacing: '0.5px',
-        // rendered as verified Lean proof
-      },
-      inline: {
-        fontFamily: "'IBM Plex Mono', monospace",
-        fontSize: '13px',
-        lineHeight: '20px',
-        fontWeight: 500,
-        letterSpacing: '0.25px',
-        // coin_value = 0.229
-      },
-    },
-
-    // Label: UI labels (Navigation, buttons)
-    label: {
-      lg: {
-        fontSize: '16px',
-        lineHeight: '24px',
-        fontWeight: 600,
-        letterSpacing: '0.25px',
-        // Button: "Verify Proof"
-      },
-      md: {
-        fontSize: '14px',
-        lineHeight: '20px',
-        fontWeight: 600,
-        letterSpacing: '0.25px',
-        // Label: "Theorem Status"
-      },
-      sm: {
-        fontSize: '12px',
-        lineHeight: '16px',
-        fontWeight: 600,
-        letterSpacing: '0.25px',
-        // Badge: "PROVEN"
-      },
-    },
+    scale: typeScale(),            // [{digit, size, lineHeight}] — the six rungs, computed
+    vars: typeScaleVars(),         // --type-<digit> / --type-lh-<digit>, the served names
+    weights: { regular: 400, bold: 700 },
+    mono: 'var(--vp-font-family-mono)',
   },
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  // COMPONENTS: UI Building Blocks (Theorem to Interface)
-  // ═══════════════════════════════════════════════════════════════════════════
-
   components: {
     // Theorem Card: Display a single theorem
     theoremCard: {
@@ -252,7 +125,7 @@ export const designSystem = {
       padding: '12px 16px',
       borderRadius: '8px',
       gap: '8px',
-      fontSize: 'body.md.fontSize',
+      fontSize: '1rem'          // the base itself: 9/9 — the ladder ascends from it,
       fontWeight: '500',
       transitionDuration: '200ms',
       states: {
@@ -296,7 +169,7 @@ export const designSystem = {
     badge: {
       padding: '4px 12px',
       borderRadius: '999px',
-      fontSize: 'label.sm.fontSize',
+      fontSize: 'var(--type-1)' // the first rung of the computed ladder,
       fontWeight: 'label.sm.fontWeight',
       display: 'inline-flex',
       alignItems: 'center',
@@ -324,7 +197,7 @@ export const designSystem = {
     button: {
       padding: '12px 24px',
       borderRadius: '8px',
-      fontSize: 'label.md.fontSize',
+      fontSize: 'var(--type-2)' // the second rung of the computed ladder,
       fontWeight: 'label.md.fontWeight',
       border: 'none',
       cursor: 'pointer',

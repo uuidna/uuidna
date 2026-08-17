@@ -13,6 +13,7 @@ import { adjudicate } from './adjudicate.js'
 import { reveal } from './gate.js'
 import { searchLedger } from './editorial.js'
 import { decide } from './decide.js'
+import { matrixCss } from './css.js'
 import { toUuid } from './address.js'
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { coins, billUuidna } from './captain/billing.js'
@@ -34,6 +35,9 @@ const unb64 = (s: string): Uint8Array => { const bin = atob(s); const u = new Ui
 
 // The Workers-safe tool set — the recomputable core, each a pure function of its input and the sealed ledger.
 const TOOLS: HttpTool[] = [
+  { name: 'uuidna_css', description: 'THE DESIGN MATRIX AS ONE SERVED STANDARD, at the edge — every colour and type size computed from the ℤ/9 sequence and the vortex orbit (six rungs: 2 has order 6 in ℤ/9*), none authored. Returns {css,vars,receipt,honest}: render the same receipt or you are rendering a different matrix.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => matrixCss() },
   { name: 'uuidna_decide', description: 'THE QUANTUM CALCULATOR at the edge, founded on division by zero — ANY {input} folds to one lean-green shape {verdict,cites,receipt}: a sealed statement is recognized and cited (the kernel decided it already); fresh arithmetic is decided TOTALLY under Lean\'s Nat semantics (x/0 = 0, well-defined — DivByZero.lean; exact BigInt; bounded grammar, never eval) — TRUE is VERIFIED_BY_DECIDE, FALSE is REFUTED; a bare expression computes its exact value; prose goes to the gate, language-blind. The twelfth tool: the compact core.',
     inputSchema: { type: 'object', properties: { input: { type: 'string' } }, required: ['input'] },
     run: (a) => decide(String(a.input)) },
