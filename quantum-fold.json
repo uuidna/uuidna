@@ -8,8 +8,8 @@
     },
     "served": {
       "packages": "5aacd0af35a35c23",
-      "exports": "571def02be242bf3",
-      "mcp": "820545d37fb63451"
+      "exports": "75353b8f1b4cc78c",
+      "mcp": "0aa67d1595880523"
     },
     "proven": {
       "tests": "9863bb1bdb0ec01b",
@@ -29,28 +29,28 @@
   },
   "trinity_folds": {
     "sealed": "6be049c87657e662b778b9c59e0c871e",
-    "served": "2e3043102e16864ddc3d54f3bd598ec0",
+    "served": "bb8deef1c298c8f8efde4ad5a03abc3c",
     "proven": "f83dafc31fa208e33d2949e1de811590",
     "record": "7063fc770d8197959b73124e045b9796",
     "walks": "7076c96a82ca57006ec593b4233c6dc7"
   },
-  "unified_fold": "b333d1e16a25ed36",
-  "receipt": "0a664b2397eb0881",
+  "unified_fold": "afba3f5fd5460d26",
+  "receipt": "60ec3caf0e8083f9",
   "rosette_receipt": {
     "rays": [
       "89d82fe57b9e7b2b",
       "3a8d773151b99d0b",
       "e51e3d48f773287e",
       "a20454282e566346",
-      "34c95af0e32ff12c",
+      "1ffd31dc8074ebcf",
       "a761502744407dcd",
-      "3c22236589879c86"
+      "742d97f10a5f47ee"
     ],
-    "concurrence": "0949e63419b0c24df17c33bab7b24977"
+    "concurrence": "1c76c32dd1983d1cc21e32a2369e2179"
   },
   "aura": {
-    "rgb": "#d3367d",
-    "hsl": "hsl(333, 64%, 52%)",
+    "rgb": "#2a4edf",
+    "hsl": "hsl(228, 74%, 52%)",
     "alphabet": "b6819334641853db",
     "movie": "122bce3eaa2506dd",
     "lessons": "d00cc2fecec3cc67",
@@ -72,12 +72,12 @@
     },
     "dimensions": {
       "residue": 7,
-      "ray": 1,
+      "ray": 6,
       "wave": 2,
-      "hue": 333,
-      "sat": 64,
+      "hue": 228,
+      "sat": 74,
       "light": 52,
-      "period": 14,
+      "period": 24,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

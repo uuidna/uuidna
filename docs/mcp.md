@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="171 keys" />
+# MCP tools <Badge type="tip" text="173 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 171 tools below are read from the server's own tool list and
+is **built from the keys**: the 173 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · cea2793b-1f50-8f7a-95cd-46efe3e83aba
+gate CLEAN f0 d0 v0 · b4aac916-7d6a-83e3-9964-63c9d2ff7e5b
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 171-tool registry folds to its
-order-invariant identity `e2fbe35a-6ef9-854e-ace0-6f8d5b5fe192` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 173-tool registry folds to its
+order-invariant identity `0843d476-c7a4-8939-a0fc-56512fc5e68e` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`171`" />
+## The grid <Badge type="tip" :text="`173`" />
 
-171 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 65 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+173 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 66 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -79,6 +79,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-hardware"><code>hardware</code></a>
 <a href="#uuidna-image-provenance"><code>image_provenance</code></a>
 <a href="#uuidna-laws"><code>laws</code></a>
+<a href="#uuidna-lean-index"><code>lean_index</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
 <a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
 <a href="#uuidna-oeapi"><code>oeapi</code></a>
@@ -130,6 +131,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-audit-text"><code>audit_text</code></a>
 <a href="#uuidna-aura"><code>aura</code></a>
 <a href="#uuidna-book-article"><code>book_article</code></a>
+<a href="#uuidna-by-lean"><code>by_lean</code></a>
 <a href="#uuidna-coin64"><code>coin64</code></a>
 <a href="#uuidna-contract"><code>contract</code></a>
 <a href="#uuidna-corroborate"><code>corroborate</code></a>
@@ -539,7 +541,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'69'" />
+## Other <Badge type="tip" :text="'71'" />
 
 *skill: other*
 
@@ -1001,6 +1003,22 @@ THE GRADUATION WALK as one call — runs the release wave (build → dry → leg
 ### `uuidna_css`
 
 THE DESIGN MATRIX AS ONE SERVED STANDARD — every colour and every type size COMPUTED, none authored: the ℤ/9 sequence sets each hue (5 → green, the fixed point the diamond reflection holds; dz mirrors 1↔9, 2↔8, 3↔7, 4↔6) and the vortex orbit sets the type ladder's six rungs (six because 2 has order 6 in ℤ/9* — theorem order_of_two_is_six), each rung a ninth above the base with its line height in the sealed 3:4 rectangle. Returns {css,vars,receipt,honest} — the site, the design system and any client render the SAME receipt or they are not rendering the same matrix. No hex literal, no pixel value, no host intrinsics.
+
+_No parameters._
+
+### `uuidna_by_lean`
+
+RESOLVE A THEOREM BY ITS LEAN IDENTITY — theorems are uniquely indexed by their LEAN uuid (the address of the statement, never of the key), and every other surface uses them from here. Pass {query} as the lean uuid, ANY key that wears it, or the statement text itself; returns {leanUuid,statement,keys,files,entries} — the one proposition and every name it goes by. Two entries proving the same thing resolve to ONE identity however they are named or filed.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `query` | string | **yes** | a lean uuid, a theorem key, or the statement text |
+
+### `uuidna_lean_index`
+
+THE LEDGER INDEXED BY LEAN — one entry per DISTINCT proposition, each with its lean uuid and every key and file that wears it. This is the honest index: uniqueness comes from the Lean, so the count here is the theorem count, while the entry count includes re-namings. Returns the full index.
 
 _No parameters._
 

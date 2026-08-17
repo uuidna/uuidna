@@ -23,7 +23,7 @@ import {
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
-  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, optimiseLinear, decide, coinsJobs, matrixCss,
+  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { spawnSync } from 'node:child_process' // uuidna_wave orchestration — local stdio only, never the Workers subset (worker imports mcp-http.js)
@@ -712,6 +712,14 @@ const TOOLS: Tool[] = [
     description: 'THE DESIGN MATRIX AS ONE SERVED STANDARD — every colour and every type size COMPUTED, none authored: the ℤ/9 sequence sets each hue (5 → green, the fixed point the diamond reflection holds; dz mirrors 1↔9, 2↔8, 3↔7, 4↔6) and the vortex orbit sets the type ladder\'s six rungs (six because 2 has order 6 in ℤ/9* — theorem order_of_two_is_six), each rung a ninth above the base with its line height in the sealed 3:4 rectangle. Returns {css,vars,receipt,honest} — the site, the design system and any client render the SAME receipt or they are not rendering the same matrix. No hex literal, no pixel value, no host intrinsics.',
     inputSchema: { type: 'object', properties: {} },
     run: () => matrixCss() },
+  { name: 'uuidna_by_lean',
+    description: 'RESOLVE A THEOREM BY ITS LEAN IDENTITY — theorems are uniquely indexed by their LEAN uuid (the address of the statement, never of the key), and every other surface uses them from here. Pass {query} as the lean uuid, ANY key that wears it, or the statement text itself; returns {leanUuid,statement,keys,files,entries} — the one proposition and every name it goes by. Two entries proving the same thing resolve to ONE identity however they are named or filed.',
+    inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'a lean uuid, a theorem key, or the statement text' } }, required: ['query'] },
+    run: (a: Record<string, unknown>) => byLean(String(a.query)) ?? { found: false, honest: 'no theorem in the ledger carries that lean identity, key, or statement' } },
+  { name: 'uuidna_lean_index',
+    description: 'THE LEDGER INDEXED BY LEAN — one entry per DISTINCT proposition, each with its lean uuid and every key and file that wears it. This is the honest index: uniqueness comes from the Lean, so the count here is the theorem count, while the entry count includes re-namings. Returns the full index.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => { const i = leanIndex(); return { propositions: i.length, entries: i.reduce((s, e) => s + e.entries, 0), index: i.slice(0, 200) } } },
   { name: 'uuidna_statement_census',
     description: 'UNIQUENESS COMES FROM LEAN, NOT FROM THE NAME — the ledger counts ENTRIES, but a theorem IS its statement, so two entries proving the same proposition under different keys are one theorem wearing two names. Returns {entries,distinct,renamings,groups}: the claimed count, the count Lean actually holds, the difference, and every group named with its keys and files. Normalisation is narrow (whitespace, redundant parens, (n : Nat) ascriptions) — it catches re-namings of the same text and never claims two different proofs are one.',
     inputSchema: { type: 'object', properties: {} },

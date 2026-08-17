@@ -49,6 +49,40 @@ export interface StatementCensus {
 }
 const normStatement = (s: string): string =>
   s.replace(/\s+/g, '').replace(/\((\d+)\s*:\s*Nat\)/g, '$1').replace(/[()]/g, '')
+
+/** THE LEAN UUID — a theorem's identity is its Lean, so the identity is the address of the STATEMENT, never of
+ *  the key. Two entries proving the same proposition share one lean uuid however they are named or wherever
+ *  they are filed; the wings then USE the theorem from that identity rather than owning a copy of it. Additive
+ *  by design: the per-entry address stays exactly as published (every citation, receipt and DOI'd record keeps
+ *  resolving), and this is the identity beneath them. */
+export function leanUuid(statement: string): string {
+  return toUuid('lean:' + normStatement(statement))
+}
+
+export interface LeanIdentity { leanUuid: string; statement: string; keys: string[]; files: string[]; entries: number }
+
+/** the ledger indexed BY LEAN — one entry per distinct proposition, with every name that wears it */
+export function leanIndex(): LeanIdentity[] {
+  const T = theorems() as Array<Entry & { statement: string }>
+  const by = new Map<string, LeanIdentity>()
+  for (const t of T) {
+    const id = leanUuid(t.statement)
+    const cur = by.get(id)
+    if (cur) { cur.keys.push(t.key); if (!cur.files.includes(t.file)) cur.files.push(t.file); cur.entries++ }
+    else by.set(id, { leanUuid: id, statement: t.statement, keys: [t.key], files: [t.file], entries: 1 })
+  }
+  return [...by.values()]
+}
+
+/** resolve a theorem BY ITS LEAN IDENTITY — the uuid, or any name that wears it, or the statement itself */
+export function byLean(query: string): LeanIdentity | null {
+  const q = query.trim()
+  const idx = leanIndex()
+  return idx.find((e) => e.leanUuid === q)
+    ?? idx.find((e) => e.keys.includes(q))
+    ?? idx.find((e) => normStatement(e.statement) === normStatement(q))
+    ?? null
+}
 export function statementCensus(): StatementCensus {
   const T = theorems() as Array<Entry & { statement: string }>
   const by = new Map<string, Array<Entry & { statement: string }>>()
