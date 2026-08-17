@@ -1,5 +1,6 @@
 {
  "Acoustics.lean": "23a535d0-b284-8418-aa37-829a5300cd52",
+ "AntiFraud.lean": "c9ae9865-bab3-8832-b07c-14887d5da1ef",
  "Astronomy.lean": "1bccee70-18b3-88f5-bf07-d7c7bb88a251",
  "Audit.lean": "b1fd8146-09ee-842a-a083-f76de82bbb4e",
  "AuditGame.lean": "58c69f53-98b9-89e5-bf14-5d152bc1cebc",
@@ -16,6 +17,7 @@
  "Command.lean": "81821b6c-f7a6-8cc7-9ef1-20818f3ace8f",
  "Core.lean": "a1b4279f-4903-8418-8e4e-5cb52738d688",
  "Discover.lean": "e4c27e30-3ffd-8acb-a9ea-80733f9991cd",
+ "DisputedTopics.lean": "f468cb7b-7cd7-8ca7-8845-ecf8013efeef",
  "DivByZero.lean": "bcdfd538-4402-8090-b2a8-270eeca367d4",
  "Diving.lean": "5fd6440a-c100-83e3-adff-a94e89474865",
  "Editing.lean": "db99e884-98ba-87fe-9050-f0942895ed0c",
@@ -35,6 +37,7 @@
  "Navigation.lean": "cc4c1402-3a13-848a-a267-4e3381662d70",
  "Neuro.lean": "ab45e141-3253-8a66-9886-12433a5a5143",
  "Nim.lean": "dc9d9075-fe9a-842e-a0bf-08c20b8e7fbf",
+ "OneLeap.lean": "cd8cced0-b138-80fa-abfc-50e01c352bb2",
  "Optics.lean": "e0599c64-ba35-8368-a253-7b187fd86c5c",
  "Optimisation.lean": "6f328aba-a28a-8696-a7c7-289085d5a313",
  "Os.lean": "ee9fb91f-4284-81b3-8b99-c95c2730904a",
@@ -50,6 +53,7 @@
  "Ring.lean": "fb176e7b-29d2-8e09-8acd-3a1c6f5e5850",
  "Rosette.lean": "f855d1ad-07e7-86e0-96a1-c9de928a819a",
  "Sailing.lean": "0e44cc95-c0e9-8280-9045-e7c9f9541f07",
+ "SailingSeals.lean": "7644da66-a5ad-87ff-939e-058f63013f64",
  "Sanitize.lean": "28f75100-24f2-8164-b64a-853cd032d1bc",
  "Security.lean": "775e3f6e-4658-8d68-8c89-2a69b4d145d8",
  "Sequence.lean": "85e42163-ab90-8caa-a913-fc3e4e6db375",
@@ -62,5 +66,7 @@
  "Tides.lean": "cfa7524c-6e23-874d-93b6-3eb06920daff",
  "Topography.lean": "5a8ed40e-e7e5-8502-aef6-f6abdf748fcf",
  "Typesetting.lean": "9fb474f1-c92b-89c9-bad9-c58f2d42dd41",
- "UuidMix.lean": "aac719ee-61b0-81e4-a16e-190feefcf6c2"
+ "UuidMix.lean": "aac719ee-61b0-81e4-a16e-190feefcf6c2",
+ "Uuidna.lean": "4646c90d-b9bd-84c3-b5f5-be053d786830",
+ "Vortex.lean": "6fce38f4-1da6-8756-9517-f586322b0c0b"
 }

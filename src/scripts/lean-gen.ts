@@ -21,10 +21,10 @@ export { ROOT }
 // heartbeats --all). Measured motive: the pre-delta `npm run lean` paid ~60 kernel spawns per run to re-prove
 // unchanged wings; the delta pays only the diff.
 const CACHE_PATH = join(ROOT, 'lean', 'proof-cache.json')
-const readProofCache = (): Record<string, string> => {
+export const readProofCache = (): Record<string, string> => {
   try { return existsSync(CACHE_PATH) ? JSON.parse(readFileSync(CACHE_PATH, 'utf8')) : {} } catch { return {} }
 }
-const writeProofCache = (c: Record<string, string>): void => {
+export const writeProofCache = (c: Record<string, string>): void => {
   const sorted: Record<string, string> = {}
   for (const k of Object.keys(c).sort()) sorted[k] = c[k]!
   writeFileSync(CACHE_PATH, JSON.stringify(sorted, null, 1) + '\n')
