@@ -64,6 +64,9 @@ export const DRAIN_PATHS: readonly string[] = [
   // then committed with nothing added. Named by `one-receipt drain`, which holds this list against
   // RECONCILE_OUTPUTS from both sides.
   'README.md', 'llm.txt', 'docs/analytics.md',
+  // every wing's manifest — lean-gen writes one per generated wing, so `npm run lean` rewrites them on every
+  // reconcile and nothing staged them; a glob, because the set grows with the ledger and a fixed list would rot.
+  'lean/*-manifest.json',
 ]
 
 /** What each generator in the reconcile chain WRITES — declared, because the write targets are computed through
@@ -91,7 +94,9 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
 /** Stage ONLY the drain's own paths, then report what was left for a human. Returns the untouched paths so a caller
  *  can print them: a sibling's edit is neither swept into the drain's commit nor silently ignored — it is named. */
 export function stageDerived(cwd: string = ROOT): { staged: number; leftForHumans: string[] } {
-  const existing = DRAIN_PATHS.filter((p) => existsSync(join(cwd, p)))
+  // a pathspec with a glob is handed to git as-is — existsSync cannot answer for a pattern, and the set it
+  // matches (one manifest per wing) grows with the ledger, so listing them by name would rot on the next wing.
+  const existing = DRAIN_PATHS.filter((p) => p.includes('*') || existsSync(join(cwd, p)))
   if (existing.length) execSync(`git add -- ${existing.map((p) => JSON.stringify(p)).join(' ')}`, { cwd })
   const staged = execSync('git diff --cached --name-only', { cwd, encoding: 'utf8' }).trim().split('\n').filter(Boolean).length
   const leftForHumans = execSync('git status --porcelain', { cwd, encoding: 'utf8' })
