@@ -2,7 +2,7 @@
   "generated": "2026-08-17",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 723,
+  "total_claimed": 724,
   "categories": 8,
   "categories_list": [
     {
@@ -401,7 +401,7 @@
     {
       "category": "Security",
       "description": "Axiom-free verified security: gate, integrity, collision, defences",
-      "theorems": 59,
+      "theorems": 60,
       "keys": [
         "dna_complement_involution",
         "dna_complement_fixed_point_free",
@@ -412,6 +412,7 @@
         "transport_leaks_length",
         "codons_four_cubed",
         "uuidna_is_dna_times_the_two_coins",
+        "octave_codon_address",
         "translation_is_lossy",
         "affine_is_permutation",
         "grover_quadratic_bound",
@@ -463,7 +464,7 @@
         "verify_cheaper_than_forge",
         "no_maximum_only_bounds"
       ],
-      "address": "87e57cc4-d106-87c8-b009-049c679c7d04",
+      "address": "e937324a-c192-8471-bcaf-847be9a68f6f",
       "all_by_decide": true
     },
     {
@@ -801,7 +802,7 @@
       "all_by_decide": true
     }
   ],
-  "claim_receipt": "162d85f3-f028-88fe-a4b9-d5176c7cee21",
+  "claim_receipt": "920e4295-6e4e-8889-9a38-5849401d91ef",
   "honest_scope": {
     "proves": [
       "These theorems are Lean-verified (by decide)",

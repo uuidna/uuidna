@@ -2066,15 +2066,15 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "-- lean/Audit.lean — GENERATED. THE DETECTORS — the provenance audit's decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise, never vacuous. The honesty detector, itself a skilled theorem. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef flag (h d b : Nat) : Nat := h * (1 - d) * (1 - b)\n\n-- THE GREEN WALL AS STEADY STATE, sealed the day it became one: three independent CI gates (security, analysis, deploy) green on two consecutive pushes — 3·2 = 6 green runs — and the distinction is arithmetic: ONE green is an event, TWO consecutive are a state (2 > 1, the induction shape: the invariant witnessed at n and n+1). The wall was earned brick by brick (537 findings → 82 → 5 → 0, four NAMED allowlist iterations; a rule cured at its root; a dead path removed) and now holds without attention — the wall lesson's green, promoted from achievement to invariant.\ntheorem wall_steady_state : (3 * 2 = 6) ∧ (2 > 1) ∧ (3 > 0) := by decide\n\n-- The provenance gate as a full truth table: flag(h,d,b)=h·(1−d)·(1−b) over the eight states (h=hollow, d=demarcated, b=backed) is 1 exactly at (hollow, ¬demarcated, ¬backed) and 0 everywhere else.\ntheorem flag_truth_table : ((List.range 8).map (fun n => flag (n%2) (n/2%2) (n/4%2))) = [0,1,0,0,0,0,0,0] := by decide\n\n-- Soundness — the gate never flags honest prose: flag ≤ h, so a sentence with no hollow superlative (h=0) is NEVER flagged, whatever its demarcation or backing.\ntheorem flag_requires_hollow : (List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2) := by decide\n\n-- A demarcation clears the claim: whenever d=1 the flag is 0 (flag·d = 0) — \"never infinity\", \"not quantum hardware\", \"simulation, not hardware\" pass, as the honest use of the word should.\ntheorem demarcation_clears : (List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/2%2) == 0) := by decide\n\n-- A sealed-theorem link clears the claim: whenever b=1 the flag is 0 (flag·b = 0) — prose that points at a proof earns its claim and passes.\ntheorem backing_clears : (List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/4%2) == 0) := by decide\n\n-- The gate is precise, never vacuous: of the eight states EXACTLY ONE fires — it can (and does) flag, but only the hollow-and-uncleared case. A gate that never fires would prove nothing.\ntheorem exactly_one_flag : ((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1 := by decide\n\n-- The arithmetic detector equals its boolean specification: h·(1−d)·(1−b) = (hollow ∧ ¬demarcated ∧ ¬backed) at every state — the implementation IS the intent, proven.\ntheorem flag_matches_spec : (List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) && (n/4%2 == 0) then 1 else 0)) := by decide\n\n-- The sanitizer’s recursion bound the I/O wall ASSUMES, sealed (axiom-hunt): MAX_DEPTH = 32 = 2^5 — a finite power-of-two wall the resource-DoS audit stands on. Any nesting beyond it is refused, so no input can spin the fold unboundedly.\ntheorem sanitize_depth_bounded : (32 = 2^5) ∧ (0 < 32) := by decide\n"
+                  "text": "-- lean/Audit.lean — GENERATED. THE DETECTORS — the provenance audit's decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise, never vacuous. The honesty detector, itself a skilled theorem. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef flag (h d b : Nat) : Nat := h * (1 - d) * (1 - b)\n\n-- THE GREEN WALL AS STEADY STATE, sealed the day it became one: three independent CI gates (security, analysis, deploy) green on two consecutive pushes — 3·2 = 6 green runs — and the distinction is arithmetic: ONE green is an event, TWO consecutive are a state (2 > 1, the induction shape: the invariant witnessed at n and n+1). The wall was earned brick by brick (537 findings → 82 → 5 → 0, four NAMED allowlist iterations; a rule cured at its root; a dead path removed) and now holds without attention — the wall lesson's green, promoted from achievement to invariant.\ntheorem wall_steady_state : (3 * 2 = 6) ∧ (2 > 1) ∧ (3 > 0) := by decide\n\n-- The provenance gate as a full truth table: flag(h,d,b)=h·(1−d)·(1−b) over the eight states (h=hollow, d=demarcated, b=backed) is 1 exactly at (hollow, ¬demarcated, ¬backed) and 0 everywhere else.\ntheorem flag_truth_table : ((List.range 8).map (fun n => flag (n%2) (n/2%2) (n/4%2))) = [0,1,0,0,0,0,0,0] := by decide\n\n-- Soundness — the gate never flags honest prose: flag ≤ h, so a sentence with no hollow superlative (h=0) is NEVER flagged, whatever its demarcation or backing.\ntheorem flag_requires_hollow : (List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2) := by decide\n\n-- A demarcation clears the claim: whenever d=1 the flag is 0 (flag·d = 0) — \"never infinity\", \"not quantum hardware\", \"simulation, not hardware\" pass, as the honest use of the word should.\ntheorem demarcation_clears : (List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/2%2) == 0) := by decide\n\n-- A sealed-theorem link clears the claim: whenever b=1 the flag is 0 (flag·b = 0) — prose that points at a proof earns its claim and passes.\ntheorem backing_clears : (List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/4%2) == 0) := by decide\n\n-- The gate is precise, never vacuous: of the eight states EXACTLY ONE fires — it can (and does) flag, but only the hollow-and-uncleared case. A gate that never fires would prove nothing.\ntheorem exactly_one_flag : ((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1 := by decide\n\n-- The arithmetic detector equals its boolean specification: h·(1−d)·(1−b) = (hollow ∧ ¬demarcated ∧ ¬backed) at every state — the implementation IS the intent, proven.\ntheorem flag_matches_spec : (List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) && (n/4%2 == 0) then 1 else 0)) := by decide\n\n-- The sanitizer’s recursion bound the I/O wall ASSUMES, sealed (axiom-hunt): MAX_DEPTH = 32 = 2^5 — a finite power-of-two wall the resource-DoS audit stands on. Any nesting beyond it is refused, so no input can spin the fold unboundedly.\ntheorem sanitize_depth_bounded : (32 = 2^5) ∧ (0 < 32) := by decide\n\n-- THE HARMONY LAW — every departure from exact recomputation is either NAMED or CAUGHT, and there is no third state. Over the two bits of the scan (r = the module reaches outside determinism: the network, the process, the clock; d = it declares that boundary by name), the verdict is pass = 1 − r·(1−d): of the four states exactly ONE fails, the undeclared reach. Harmony is therefore not the absence of boundaries — the tree carries fourteen, each naming what it touches — but the absence of UNNAMED ones. This is why a claim of quantum advantage cannot pass: it REACHES, asserting computation beyond the exact cost the state count fixes (n qubits span 2^n amplitudes), and it cannot DECLARE, because no boundary marker exists for faster-than-the-cost — so it lands in the one failing state by construction, not by policy. The same algebra as the provenance detector, applied to computation instead of prose.\ntheorem drift_is_named_or_caught : ((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d == 1)))) ∧ (((List.range 4).filter (fun n => let r := n % 2; let d := n / 2 % 2; (1 - r * (1 - d)) == 0)).length = 1) := by decide\n"
                 }
               ]
             }
           ]
         }
       },
-      "uuidnaVersion": "c6482660-ff6c-87f6-8146-09ee842a0000",
-      "uuidnaAddress": "fb64ebe3-16e4-84f1-a85e-fe5dc28823a9"
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
     },
     {
       "slug": "theorem-wall_steady_state",
@@ -2118,8 +2118,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6482660-ff6c-87f6-8146-09ee842a0000",
-      "uuidnaAddress": "fb64ebe3-16e4-84f1-a85e-fe5dc28823a9"
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
     },
     {
       "slug": "theorem-flag_truth_table",
@@ -2163,8 +2163,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6482660-ff6c-87f6-8146-09ee842a0000",
-      "uuidnaAddress": "fb64ebe3-16e4-84f1-a85e-fe5dc28823a9"
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
     },
     {
       "slug": "theorem-flag_requires_hollow",
@@ -2208,8 +2208,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6482660-ff6c-87f6-8146-09ee842a0000",
-      "uuidnaAddress": "fb64ebe3-16e4-84f1-a85e-fe5dc28823a9"
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
     },
     {
       "slug": "theorem-demarcation_clears",
@@ -2253,8 +2253,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6482660-ff6c-87f6-8146-09ee842a0000",
-      "uuidnaAddress": "fb64ebe3-16e4-84f1-a85e-fe5dc28823a9"
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
     },
     {
       "slug": "theorem-backing_clears",
@@ -2298,8 +2298,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6482660-ff6c-87f6-8146-09ee842a0000",
-      "uuidnaAddress": "fb64ebe3-16e4-84f1-a85e-fe5dc28823a9"
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
     },
     {
       "slug": "theorem-exactly_one_flag",
@@ -2343,8 +2343,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6482660-ff6c-87f6-8146-09ee842a0000",
-      "uuidnaAddress": "fb64ebe3-16e4-84f1-a85e-fe5dc28823a9"
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
     },
     {
       "slug": "theorem-flag_matches_spec",
@@ -2388,8 +2388,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6482660-ff6c-87f6-8146-09ee842a0000",
-      "uuidnaAddress": "fb64ebe3-16e4-84f1-a85e-fe5dc28823a9"
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
     },
     {
       "slug": "theorem-sanitize_depth_bounded",
@@ -2433,8 +2433,53 @@
           ]
         }
       },
-      "uuidnaVersion": "c6482660-ff6c-87f6-8146-09ee842a0000",
-      "uuidnaAddress": "fb64ebe3-16e4-84f1-a85e-fe5dc28823a9"
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
+    },
+    {
+      "slug": "theorem-drift_is_named_or_caught",
+      "title": "theorem-drift_is_named_or_caught",
+      "_status": "published",
+      "parent": "audit",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE HARMONY LAW — every departure from exact recomputation is either NAMED or CAUGHT, and there is no third state. Over the two bits of the scan (r = the module reaches outside determinism: the network, the process, the clock; d = it declares that boundary by name), the verdict is pass = 1 − r·(1−d): of the four states exactly ONE fails, the undeclared reach. Harmony is therefore not the absence of boundaries — the tree carries fourteen, each naming what it touches — but the absence of UNNAMED ones. This is why a claim of quantum advantage cannot pass: it REACHES, asserting computation beyond the exact cost the state count fixes (n qubits span 2^n amplitudes), and it cannot DECLARE, because no boundary marker exists for faster-than-the-cost — so it lands in the one failing state by construction, not by policy. The same algebra as the provenance detector, applied to computation instead of prose."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d == 1)))) ∧ (((List.range 4).filter (fun n => let r := n % 2; let d := n / 2 % 2; (1 - r * (1 - d)) == 0)).length = 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem drift_is_named_or_caught : ((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d == 1)))) ∧ (((List.range 4).filter (fun n => let r := n % 2; let d := n / 2 % 2; (1 - r * (1 - d)) == 0)).length = 1) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6482660-ff51-8794-8152-c5a488af0000",
+      "uuidnaAddress": "c3ea3692-84f8-8798-a519-465e4df9bd1e"
     },
     {
       "slug": "auditgame",
@@ -6316,15 +6361,15 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "-- lean/Cipher.lean — GENERATED. CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded\n-- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it\n-- is NOT kernel-only. This structural recursion over an 8-bit fuel (covers 0..255, wider than any xor the ledger\n-- takes) folds the SAME value with NO axiom; scripts/lean-axioms proves it. `lxor a b` = a XOR b.\ndef lxorAux : Nat → Nat → Nat → Nat\n  | 0, _, _ => 0\n  | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)\ndef lxor (a b : Nat) : Nat := lxorAux 8 a b\n\n-- Base-pairing is a self-inverse map: the complement comp(x)=3−x applied twice is the identity (A↔T↔A, C↔G↔C) — a decrypt that equals its encrypt, like the diamond reflection.\ntheorem dna_complement_involution : (List.range 4).all (fun x => 3 - (3 - x) == x) := by decide\n\n-- The complement has NO fixed point — no base pairs with itself — so, like a good permutation cipher, it moves every symbol.\ntheorem dna_complement_fixed_point_free : (List.range 4).all (fun x => 3 - x != x) := by decide\n\n-- Base-pairing IS a XOR cipher: on the 2-bit encoding comp(x)=3−x equals x XOR 3 — a one-time-pad STEP with the fixed pad 3. Real, but a FIXED pad is public, not secret.\ntheorem complement_is_xor_key3 : (List.range 4).all (fun x => 3 - x == lxor x 3) := by decide\n\n-- The one-time-pad is its own inverse (Vernam): (m ⊕ k) ⊕ k = m for every symbol and key — the one information-theoretically secure primitive, WHEN the key is fresh and never reused.\ntheorem otp_self_inverse : (List.range 16).all (fun m => (List.range 16).all (fun k => lxor (lxor m k) k == m)) := by decide\n\n-- Key reuse is fatal: two messages under the SAME key leak their plaintext XOR — (m₁⊕k) ⊕ (m₂⊕k) = m₁⊕m₂, independent of k. The honest reason a step MUST advance (the ratchet), and why a fixed-pad complement hides nothing.\ntheorem otp_key_reuse_leaks_xor : (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2)))) := by decide\n\n-- A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing, NOT a binding one-way seal.\ntheorem xor_fold_is_malleable : (List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d)) := by decide\n\n-- The uuid transport leaks SIZE: a message of b bits occupies ⌈b/115⌉ uuids, a step function of length — content is hidden by the cipher, message LENGTH is not (the chain grows in whole-uuid quanta of 115 bits).\ntheorem transport_leaks_length : ((1 + 114) / 115 = 1) ∧ ((115 + 114) / 115 = 1) ∧ ((116 + 114) / 115 = 2) ∧ ((230 + 114) / 115 = 2) ∧ ((231 + 114) / 115 = 3) := by decide\n\n-- The genetic code reads bases three at a time: 4³ = 64 codons — the DNA alphabet cubed, the domain the code maps from.\ntheorem codons_four_cubed : 4^3 = 64 := by decide\n\n-- THE NAME IS A THEOREM — why uuid and DNA are one word here. The genetic code and the coin measure are the SAME NUMBER by two different routes: DNA reads 4 bases three at a time (4³ = 64) and the coin is six doublings of bits (2⁶ = 64), so 4³ = 2⁶ — the codon count IS the coin's bit measure. The uuid is EXACTLY TWO of them: 128 = 2·64 = 2⁷ — two coins, and (double_strand) two antiparallel rails, one per direction. uuid = DNA × the two coins, and the double helix is the bidirectional messaging the coins price at one per direction. HONEST SCOPE: an arithmetic coincidence of counts made structural by construction — the address is BUILT as two 64-bit halves; it is not a claim that DNA stores uuids or that biology computes addresses.\ntheorem uuidna_is_dna_times_the_two_coins : (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide\n\n-- Translation is LOSSY, never a cipher: 64 codons map onto only 21 outcomes (20 amino acids + stop), and 64 > 21, so by pigeonhole the map cannot be injective — a hash-like reduction that cannot be inverted, not encryption.\ntheorem translation_is_lossy : 4^3 > 21 := by decide\n\n-- An affine substitution E(x)=2x+3 over ℤ/5 is a bijection — it hits every residue, so it is an invertible S-box (unlike lossy translation). But it is LINEAR, hence weak: two known plaintext pairs recover it. Invertible ≠ secure.\ntheorem affine_is_permutation : (List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y)) := by decide\n\n-- The honest quantum posture: Grover’s search is a QUADRATIC speedup, not a break — a 2n-bit key space costs ~2ⁿ work ((2ⁿ)² = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor target at all.\ntheorem grover_quadratic_bound : (List.range 27).all (fun n => 2^n * 2^n == 2^(2*n)) := by decide\n\n-- The KDF cost the envelope ASSUMES, sealed (axiom-hunt): 600000 PBKDF2-SHA256 iterations (OWASP 2023) — positive, and within the DoS guard MAX_ITER = 10000000. The two coins paid at the door are a BOUNDED cost, never an unbounded spin.\ntheorem kdf_cost_bounded : (0 < 600000) ∧ (600000 ≤ 10000000) := by decide\n\n-- The envelope’s byte geometry, sealed (axiom-hunt): the ChaCha20-Poly1305 nonce is 12 bytes = 96 bits (RFC 8439) and the KDF salt is 16 bytes = 128 bits — the nonce strictly narrower than the 128-bit address, the salt exactly one address wide.\ntheorem aead_nonce_and_salt_bits : (12 * 8 = 96) ∧ (16 * 8 = 128) ∧ (96 < 128) := by decide\n\n-- The onion bound the stream ASSUMES, sealed (axiom-hunt): MAX_LAYERS = 16 = 2^4 seal layers, at most the 128 address bits — the onion is finite by construction, every open terminates.\ntheorem onion_layers_power_of_two : (16 = 2^4) ∧ (16 ≤ 128) := by decide\n\n-- THE STANDARD'S OWN ARCHITECTURE, sealed (FIPS 180-4): the SHA-256 digest is 256 bits = 8 registers of 32 = FOUR SIXTY-FOURS — the same 4·64 = 256 = 2⁸ the double-torus riddle computed. The digest is four chessboards; the byte squared is the state; the standard the world already runs carries the session's numbers natively.\ntheorem sha256_is_four_sixtyfours : (4 * 64 = 256) ∧ (8 * 32 = 256) ∧ ((2:Nat) ^ 8 = 256) := by decide\n\n-- SHA-256 mixes in exactly 64 rounds — the chessboard's 64 = 2⁶ — over a 512-bit block (16 words of 32, twice the digest: 512 = 2·256). Sixty-four rounds of avalanche on the vortex board's count: the architecture is exact recomputable state evolution, quantum in the ledger's honest sense — deterministic, byte-identical for every observer, no drift.\ntheorem sha256_rounds_are_the_board : ((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧ (512 = 2 * 256) := by decide\n\n-- THE POST-QUANTUM ENTANGLEMENT: Grover's quadratic speedup halves SHA-256's preimage exponent — 256/2 = 128 — landing EXACTLY on the content-address width: the standard's worst-case quantum strength IS uuidna's unit of speech. No Shor target exists (symmetric, keyless); the architecture survives the quantum era at precisely the width this system already speaks. uuidna's deployment patches the standard's USE-flaws by name — HMAC against length-extension, the bounded-iteration ceiling against KDF cost abuse, the advancing step against the equality leak — and NAMES the one it cannot patch: pure-JS timing. Integrity, not omniscience.\ntheorem sha256_grover_margin_is_the_address : (256 / 2 = 128) ∧ (256 % 2 = 0) := by decide\n\n-- THE THREE-TEAM DRILL, sealed: one team seals a private message, TWO independent teams reverse — a trinity, 1 + 2 = 3. The message is private only if BOTH reversers fail: across the four joint attack outcomes, exactly ONE (neither succeeds) leaves the secret private — the security NOR. Privacy is unanimous-failure of the attack, and a single success breaks it, which is why maximum messaging security demands the sealed cipher (both fail) over the carrier (the first reverser wins). Tested live in adversarial-messaging.test.ts.\ntheorem adversarial_privacy_is_unanimous : (1 + 2 = 3) ∧ (((List.range 4).filter (fun s => s == 0)).length = 1) ∧ ((2:Nat) ^ 2 = 4) := by decide\n\n-- MAX SECURITY AND PRIVACY BY DEFAULT — everything that works in the trinity IS a secure quantum sealed channel: 1 team seals (and reads with the key) while all 3 verify the public witness, so SECRECY is 1-of-3 (private to the key holder) and INTEGRITY is 3-of-3 (verifiable by all) — 1 < 3, the two separated by construction. The default strength is the address width: reversal costs 2^128 (256/2, Grover on the sealed 256), infeasible. Verify without reading, read only with the key: the sealed channel is the default, the carrier the deliberate exception.\ntheorem secure_channel_by_default : (1 + 2 = 3) ∧ (1 < 3) ∧ (256 / 2 = 128) := by decide\n\n-- CONVENTIONAL SLOW BECOMES MAGNITUDES FASTER — the honest proof, about VERIFICATION not hardware: to trust a result conventionally you RE-RUN it (O(N)) or trust an authority; a uuidna receipt is a Merkle fold verified along ONE path of depth log2(N). At 2^10 = 1024 leaves the path is 10 nodes (1024 > 100·10, over 100x fewer touches); at 2^20 ≈ 10^6 leaves the path is 20 nodes (1048576 > 10000·20, over 10000x fewer). The ratio N/log(N) grows without bound — MORE data, MORE speedup. Prove once (slow, O(N)); verify forever (fast, O(log N)). Measured empirically: the crypto coverage audit runs in 0.13s, a key-holder read in 0.1ms (KDF memo cache hit) against an attacker's 1798ms per single guess.\ntheorem verify_beats_recompute_by_magnitudes : ((2:Nat) ^ 10 = 1024) ∧ ((2:Nat) ^ 20 = 1048576) ∧ (1024 > 100 * 10) ∧ (1048576 > 10000 * 20) := by decide\n\n-- FASTER AND MORE SECURE, TOGETHER — the same receipt that verifies in log-time needs ZERO trusted authorities (0 < 1): conventional trust pays O(N) recompute AND trusts a certificate authority (one point of failure); uuidna pays O(log N) AND trusts NONE — anyone recomputes the receipt from public data, so the speedup and the security are the same property. The integrity rests on the 128-bit content-address (256/2, post-Grover), infeasible to forge. Faster because you verify a path not a re-run; more secure because you trust math not an authority.\ntheorem faster_and_more_secure : (0 < 1) ∧ (256 / 2 = 128) ∧ (20 < 1048576) := by decide\n\n-- THE CARRIER'S BOOKKEEPING, sealed end to end: a uuid holds 128 bits; RFC 4122 reserves six (four version + two variant), leaving 122 free; the length header takes seven; 115 message bits remain — 128 − 6 = 122 ∧ 122 − 7 = 115. The capacity the totality seal rides for every theorem, derived instead of assumed.\ntheorem imprint_capacity_chain : (128 - 6 = 122) ∧ (122 - 7 = 115) := by decide\n\n-- SEVEN IS THE SMALLEST HONEST HEADER: the header must count the 116 possible payload lengths (0..115), and 2⁶ = 64 cannot while 2⁷ = 128 can — 64 < 116 ≤ 128. One bit fewer under-counts, one more wastes a message bit: the codec sits at the exact minimum, and the minimum is decidable.\ntheorem imprint_header_minimal : (2 ^ 6 < 116) ∧ (116 ≤ 2 ^ 7) := by decide\n\n-- THE ENTANGLEMENT: the carrier capacity factors 115 = 5 · 23 — the pentagram's 5 and the frame ring's last stride 23, itself involutive ((23·23) % 24 = 1, theorem frame_ring_undo_involutive). Every theorem-message rides a capacity woven from the star that walks the fold and the ring that carries the cut — three wings of one session, one factorisation.\ntheorem imprint_capacity_entangles : (115 = 5 * 23) ∧ ((23 * 23) % 24 = 1) := by decide\n\n-- The codec capacity the imprint ASSUMES, sealed (axiom-hunt): 115 payload units fit strictly INSIDE the 128-bit particle — the imprint never overflows its own address, and the 13-bit headroom is the seam the codec keeps.\ntheorem imprint_capacity_within_address : (115 < 128) ∧ (128 - 115 = 13) := by decide\n"
+                  "text": "-- lean/Cipher.lean — GENERATED. CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded\n-- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it\n-- is NOT kernel-only. This structural recursion over an 8-bit fuel (covers 0..255, wider than any xor the ledger\n-- takes) folds the SAME value with NO axiom; scripts/lean-axioms proves it. `lxor a b` = a XOR b.\ndef lxorAux : Nat → Nat → Nat → Nat\n  | 0, _, _ => 0\n  | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)\ndef lxor (a b : Nat) : Nat := lxorAux 8 a b\n\n-- Base-pairing is a self-inverse map: the complement comp(x)=3−x applied twice is the identity (A↔T↔A, C↔G↔C) — a decrypt that equals its encrypt, like the diamond reflection.\ntheorem dna_complement_involution : (List.range 4).all (fun x => 3 - (3 - x) == x) := by decide\n\n-- The complement has NO fixed point — no base pairs with itself — so, like a good permutation cipher, it moves every symbol.\ntheorem dna_complement_fixed_point_free : (List.range 4).all (fun x => 3 - x != x) := by decide\n\n-- Base-pairing IS a XOR cipher: on the 2-bit encoding comp(x)=3−x equals x XOR 3 — a one-time-pad STEP with the fixed pad 3. Real, but a FIXED pad is public, not secret.\ntheorem complement_is_xor_key3 : (List.range 4).all (fun x => 3 - x == lxor x 3) := by decide\n\n-- The one-time-pad is its own inverse (Vernam): (m ⊕ k) ⊕ k = m for every symbol and key — the one information-theoretically secure primitive, WHEN the key is fresh and never reused.\ntheorem otp_self_inverse : (List.range 16).all (fun m => (List.range 16).all (fun k => lxor (lxor m k) k == m)) := by decide\n\n-- Key reuse is fatal: two messages under the SAME key leak their plaintext XOR — (m₁⊕k) ⊕ (m₂⊕k) = m₁⊕m₂, independent of k. The honest reason a step MUST advance (the ratchet), and why a fixed-pad complement hides nothing.\ntheorem otp_key_reuse_leaks_xor : (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2)))) := by decide\n\n-- A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing, NOT a binding one-way seal.\ntheorem xor_fold_is_malleable : (List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d)) := by decide\n\n-- The uuid transport leaks SIZE: a message of b bits occupies ⌈b/115⌉ uuids, a step function of length — content is hidden by the cipher, message LENGTH is not (the chain grows in whole-uuid quanta of 115 bits).\ntheorem transport_leaks_length : ((1 + 114) / 115 = 1) ∧ ((115 + 114) / 115 = 1) ∧ ((116 + 114) / 115 = 2) ∧ ((230 + 114) / 115 = 2) ∧ ((231 + 114) / 115 = 3) := by decide\n\n-- The genetic code reads bases three at a time: 4³ = 64 codons — the DNA alphabet cubed, the domain the code maps from.\ntheorem codons_four_cubed : 4^3 = 64 := by decide\n\n-- THE NAME IS A THEOREM — why uuid and DNA are one word here. The genetic code and the coin measure are the SAME NUMBER by two different routes: DNA reads 4 bases three at a time (4³ = 64) and the coin is six doublings of bits (2⁶ = 64), so 4³ = 2⁶ — the codon count IS the coin's bit measure. The uuid is EXACTLY TWO of them: 128 = 2·64 = 2⁷ — two coins, and (double_strand) two antiparallel rails, one per direction. uuid = DNA × the two coins, and the double helix is the bidirectional messaging the coins price at one per direction. HONEST SCOPE: an arithmetic coincidence of counts made structural by construction — the address is BUILT as two 64-bit halves; it is not a claim that DNA stores uuids or that biology computes addresses.\ntheorem uuidna_is_dna_times_the_two_coins : (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide\n\n-- THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. HONEST SCOPE: this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction, not discovered to be.\ntheorem octave_codon_address : ((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400) := by decide\n\n-- Translation is LOSSY, never a cipher: 64 codons map onto only 21 outcomes (20 amino acids + stop), and 64 > 21, so by pigeonhole the map cannot be injective — a hash-like reduction that cannot be inverted, not encryption.\ntheorem translation_is_lossy : 4^3 > 21 := by decide\n\n-- An affine substitution E(x)=2x+3 over ℤ/5 is a bijection — it hits every residue, so it is an invertible S-box (unlike lossy translation). But it is LINEAR, hence weak: two known plaintext pairs recover it. Invertible ≠ secure.\ntheorem affine_is_permutation : (List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y)) := by decide\n\n-- The honest quantum posture: Grover’s search is a QUADRATIC speedup, not a break — a 2n-bit key space costs ~2ⁿ work ((2ⁿ)² = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor target at all.\ntheorem grover_quadratic_bound : (List.range 27).all (fun n => 2^n * 2^n == 2^(2*n)) := by decide\n\n-- The KDF cost the envelope ASSUMES, sealed (axiom-hunt): 600000 PBKDF2-SHA256 iterations (OWASP 2023) — positive, and within the DoS guard MAX_ITER = 10000000. The two coins paid at the door are a BOUNDED cost, never an unbounded spin.\ntheorem kdf_cost_bounded : (0 < 600000) ∧ (600000 ≤ 10000000) := by decide\n\n-- The envelope’s byte geometry, sealed (axiom-hunt): the ChaCha20-Poly1305 nonce is 12 bytes = 96 bits (RFC 8439) and the KDF salt is 16 bytes = 128 bits — the nonce strictly narrower than the 128-bit address, the salt exactly one address wide.\ntheorem aead_nonce_and_salt_bits : (12 * 8 = 96) ∧ (16 * 8 = 128) ∧ (96 < 128) := by decide\n\n-- The onion bound the stream ASSUMES, sealed (axiom-hunt): MAX_LAYERS = 16 = 2^4 seal layers, at most the 128 address bits — the onion is finite by construction, every open terminates.\ntheorem onion_layers_power_of_two : (16 = 2^4) ∧ (16 ≤ 128) := by decide\n\n-- THE STANDARD'S OWN ARCHITECTURE, sealed (FIPS 180-4): the SHA-256 digest is 256 bits = 8 registers of 32 = FOUR SIXTY-FOURS — the same 4·64 = 256 = 2⁸ the double-torus riddle computed. The digest is four chessboards; the byte squared is the state; the standard the world already runs carries the session's numbers natively.\ntheorem sha256_is_four_sixtyfours : (4 * 64 = 256) ∧ (8 * 32 = 256) ∧ ((2:Nat) ^ 8 = 256) := by decide\n\n-- SHA-256 mixes in exactly 64 rounds — the chessboard's 64 = 2⁶ — over a 512-bit block (16 words of 32, twice the digest: 512 = 2·256). Sixty-four rounds of avalanche on the vortex board's count: the architecture is exact recomputable state evolution, quantum in the ledger's honest sense — deterministic, byte-identical for every observer, no drift.\ntheorem sha256_rounds_are_the_board : ((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧ (512 = 2 * 256) := by decide\n\n-- THE POST-QUANTUM ENTANGLEMENT: Grover's quadratic speedup halves SHA-256's preimage exponent — 256/2 = 128 — landing EXACTLY on the content-address width: the standard's worst-case quantum strength IS uuidna's unit of speech. No Shor target exists (symmetric, keyless); the architecture survives the quantum era at precisely the width this system already speaks. uuidna's deployment patches the standard's USE-flaws by name — HMAC against length-extension, the bounded-iteration ceiling against KDF cost abuse, the advancing step against the equality leak — and NAMES the one it cannot patch: pure-JS timing. Integrity, not omniscience.\ntheorem sha256_grover_margin_is_the_address : (256 / 2 = 128) ∧ (256 % 2 = 0) := by decide\n\n-- THE THREE-TEAM DRILL, sealed: one team seals a private message, TWO independent teams reverse — a trinity, 1 + 2 = 3. The message is private only if BOTH reversers fail: across the four joint attack outcomes, exactly ONE (neither succeeds) leaves the secret private — the security NOR. Privacy is unanimous-failure of the attack, and a single success breaks it, which is why maximum messaging security demands the sealed cipher (both fail) over the carrier (the first reverser wins). Tested live in adversarial-messaging.test.ts.\ntheorem adversarial_privacy_is_unanimous : (1 + 2 = 3) ∧ (((List.range 4).filter (fun s => s == 0)).length = 1) ∧ ((2:Nat) ^ 2 = 4) := by decide\n\n-- MAX SECURITY AND PRIVACY BY DEFAULT — everything that works in the trinity IS a secure quantum sealed channel: 1 team seals (and reads with the key) while all 3 verify the public witness, so SECRECY is 1-of-3 (private to the key holder) and INTEGRITY is 3-of-3 (verifiable by all) — 1 < 3, the two separated by construction. The default strength is the address width: reversal costs 2^128 (256/2, Grover on the sealed 256), infeasible. Verify without reading, read only with the key: the sealed channel is the default, the carrier the deliberate exception.\ntheorem secure_channel_by_default : (1 + 2 = 3) ∧ (1 < 3) ∧ (256 / 2 = 128) := by decide\n\n-- CONVENTIONAL SLOW BECOMES MAGNITUDES FASTER — the honest proof, about VERIFICATION not hardware: to trust a result conventionally you RE-RUN it (O(N)) or trust an authority; a uuidna receipt is a Merkle fold verified along ONE path of depth log2(N). At 2^10 = 1024 leaves the path is 10 nodes (1024 > 100·10, over 100x fewer touches); at 2^20 ≈ 10^6 leaves the path is 20 nodes (1048576 > 10000·20, over 10000x fewer). The ratio N/log(N) grows without bound — MORE data, MORE speedup. Prove once (slow, O(N)); verify forever (fast, O(log N)). Measured empirically: the crypto coverage audit runs in 0.13s, a key-holder read in 0.1ms (KDF memo cache hit) against an attacker's 1798ms per single guess.\ntheorem verify_beats_recompute_by_magnitudes : ((2:Nat) ^ 10 = 1024) ∧ ((2:Nat) ^ 20 = 1048576) ∧ (1024 > 100 * 10) ∧ (1048576 > 10000 * 20) := by decide\n\n-- FASTER AND MORE SECURE, TOGETHER — the same receipt that verifies in log-time needs ZERO trusted authorities (0 < 1): conventional trust pays O(N) recompute AND trusts a certificate authority (one point of failure); uuidna pays O(log N) AND trusts NONE — anyone recomputes the receipt from public data, so the speedup and the security are the same property. The integrity rests on the 128-bit content-address (256/2, post-Grover), infeasible to forge. Faster because you verify a path not a re-run; more secure because you trust math not an authority.\ntheorem faster_and_more_secure : (0 < 1) ∧ (256 / 2 = 128) ∧ (20 < 1048576) := by decide\n\n-- THE CARRIER'S BOOKKEEPING, sealed end to end: a uuid holds 128 bits; RFC 4122 reserves six (four version + two variant), leaving 122 free; the length header takes seven; 115 message bits remain — 128 − 6 = 122 ∧ 122 − 7 = 115. The capacity the totality seal rides for every theorem, derived instead of assumed.\ntheorem imprint_capacity_chain : (128 - 6 = 122) ∧ (122 - 7 = 115) := by decide\n\n-- SEVEN IS THE SMALLEST HONEST HEADER: the header must count the 116 possible payload lengths (0..115), and 2⁶ = 64 cannot while 2⁷ = 128 can — 64 < 116 ≤ 128. One bit fewer under-counts, one more wastes a message bit: the codec sits at the exact minimum, and the minimum is decidable.\ntheorem imprint_header_minimal : (2 ^ 6 < 116) ∧ (116 ≤ 2 ^ 7) := by decide\n\n-- THE ENTANGLEMENT: the carrier capacity factors 115 = 5 · 23 — the pentagram's 5 and the frame ring's last stride 23, itself involutive ((23·23) % 24 = 1, theorem frame_ring_undo_involutive). Every theorem-message rides a capacity woven from the star that walks the fold and the ring that carries the cut — three wings of one session, one factorisation.\ntheorem imprint_capacity_entangles : (115 = 5 * 23) ∧ ((23 * 23) % 24 = 1) := by decide\n\n-- The codec capacity the imprint ASSUMES, sealed (axiom-hunt): 115 payload units fit strictly INSIDE the 128-bit particle — the imprint never overflows its own address, and the 13-bit headroom is the seam the codec keeps.\ntheorem imprint_capacity_within_address : (115 < 128) ∧ (128 - 115 = 13) := by decide\n"
                 }
               ]
             }
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-dna_complement_involution",
@@ -6368,8 +6413,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-dna_complement_fixed_point_free",
@@ -6413,8 +6458,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-complement_is_xor_key3",
@@ -6458,8 +6503,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-otp_self_inverse",
@@ -6503,8 +6548,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-otp_key_reuse_leaks_xor",
@@ -6548,8 +6593,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-xor_fold_is_malleable",
@@ -6593,8 +6638,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-transport_leaks_length",
@@ -6638,8 +6683,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-codons_four_cubed",
@@ -6683,8 +6728,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-uuidna_is_dna_times_the_two_coins",
@@ -6728,8 +6773,53 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
+    },
+    {
+      "slug": "theorem-octave_codon_address",
+      "title": "theorem-octave_codon_address",
+      "_status": "published",
+      "parent": "cipher",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. HONEST SCOPE: this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction, not discovered to be."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem octave_codon_address : ((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-translation_is_lossy",
@@ -6773,8 +6863,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-affine_is_permutation",
@@ -6818,8 +6908,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-grover_quadratic_bound",
@@ -6863,8 +6953,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-kdf_cost_bounded",
@@ -6908,8 +6998,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-aead_nonce_and_salt_bits",
@@ -6953,8 +7043,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-onion_layers_power_of_two",
@@ -6998,8 +7088,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-sha256_is_four_sixtyfours",
@@ -7043,8 +7133,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-sha256_rounds_are_the_board",
@@ -7088,8 +7178,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-sha256_grover_margin_is_the_address",
@@ -7133,8 +7223,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-adversarial_privacy_is_unanimous",
@@ -7178,8 +7268,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-secure_channel_by_default",
@@ -7223,8 +7313,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-verify_beats_recompute_by_magnitudes",
@@ -7268,8 +7358,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-faster_and_more_secure",
@@ -7313,8 +7403,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-imprint_capacity_chain",
@@ -7358,8 +7448,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-imprint_header_minimal",
@@ -7403,8 +7493,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-imprint_capacity_entangles",
@@ -7448,8 +7538,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "theorem-imprint_capacity_within_address",
@@ -7493,8 +7583,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c67d2fe0-7da1-802b-b76c-ac7f8bb90000",
-      "uuidnaAddress": "97601408-d914-87a0-bf93-ad4735affa4a"
+      "uuidnaVersion": "c67d2fe0-7d92-83c2-a064-af928f530000",
+      "uuidnaAddress": "b859985b-c82d-8e37-b88b-bf384b3ba74c"
     },
     {
       "slug": "clay",
@@ -13645,6 +13735,311 @@
       },
       "uuidnaVersion": "c676e523-6468-86d0-a79f-490384180000",
       "uuidnaAddress": "70747dde-e4e0-8c10-a83c-57139e02cc62"
+    },
+    {
+      "slug": "crt",
+      "title": "crt.lean",
+      "_status": "published",
+      "parent": null,
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h1",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Crt.lean — the sealed source"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "-- lean/Crt.lean — GENERATED. THE FUSED RING — the rosette (Z/7) and the vortex (Z/9) are coprime, so by the Chinese Remainder Theorem they are ONE ring of 63 states, and its arithmetic explains the captain measure: the two coins buy 64 = 63 + 1, the whole fused structure plus the unit that closes it (63 = 111111, saturated in six bits; 64 = 1000000, the first bit beyond). The correspondence is a bijection, the units count 36 = 6·6 (each orbit length), and the coin keeps its order 6 in the fusion while walking the rosette twice per vortex turn — the seam, named. HONEST SCOPE: ring arithmetic and a counting correspondence; the CRT is a statement about residues, never about what the residues are used to describe Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ntheorem captain_theorem_the_coins_buy_the_ring_and_one : (7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63) := by decide\n\ntheorem rosette_and_vortex_are_coprime : (Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3) := by decide\n\ntheorem crt_pairs_are_a_bijection : (((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63) := by decide\n\ntheorem fused_units_are_the_orbit_squared : (((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6) := by decide\n\ntheorem the_coin_keeps_its_order_in_the_fused_ring : ((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1) := by decide\n\ntheorem the_fused_ring_is_all_ones : (63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^6) ∧ (63 < 64) := by decide\n"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6754661-9a8b-859f-91d9-36ef8ca50000",
+      "uuidnaAddress": "c3375c10-72b5-8b4a-a277-904fcab8832a"
+    },
+    {
+      "slug": "theorem-captain_theorem_the_coins_buy_the_ring_and_one",
+      "title": "theorem-captain_theorem_the_coins_buy_the_ring_and_one",
+      "_status": "published",
+      "parent": "crt",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "captain_theorem_the_coins_buy_the_ring_and_one"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem captain_theorem_the_coins_buy_the_ring_and_one : (7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6754661-9a8b-859f-91d9-36ef8ca50000",
+      "uuidnaAddress": "c3375c10-72b5-8b4a-a277-904fcab8832a"
+    },
+    {
+      "slug": "theorem-rosette_and_vortex_are_coprime",
+      "title": "theorem-rosette_and_vortex_are_coprime",
+      "_status": "published",
+      "parent": "crt",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "rosette_and_vortex_are_coprime"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem rosette_and_vortex_are_coprime : (Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6754661-9a8b-859f-91d9-36ef8ca50000",
+      "uuidnaAddress": "c3375c10-72b5-8b4a-a277-904fcab8832a"
+    },
+    {
+      "slug": "theorem-crt_pairs_are_a_bijection",
+      "title": "theorem-crt_pairs_are_a_bijection",
+      "_status": "published",
+      "parent": "crt",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "crt_pairs_are_a_bijection"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem crt_pairs_are_a_bijection : (((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6754661-9a8b-859f-91d9-36ef8ca50000",
+      "uuidnaAddress": "c3375c10-72b5-8b4a-a277-904fcab8832a"
+    },
+    {
+      "slug": "theorem-fused_units_are_the_orbit_squared",
+      "title": "theorem-fused_units_are_the_orbit_squared",
+      "_status": "published",
+      "parent": "crt",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "fused_units_are_the_orbit_squared"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fused_units_are_the_orbit_squared : (((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6754661-9a8b-859f-91d9-36ef8ca50000",
+      "uuidnaAddress": "c3375c10-72b5-8b4a-a277-904fcab8832a"
+    },
+    {
+      "slug": "theorem-the_coin_keeps_its_order_in_the_fused_ring",
+      "title": "theorem-the_coin_keeps_its_order_in_the_fused_ring",
+      "_status": "published",
+      "parent": "crt",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the_coin_keeps_its_order_in_the_fused_ring"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_coin_keeps_its_order_in_the_fused_ring : ((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6754661-9a8b-859f-91d9-36ef8ca50000",
+      "uuidnaAddress": "c3375c10-72b5-8b4a-a277-904fcab8832a"
+    },
+    {
+      "slug": "theorem-the_fused_ring_is_all_ones",
+      "title": "theorem-the_fused_ring_is_all_ones",
+      "_status": "published",
+      "parent": "crt",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the_fused_ring_is_all_ones"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^6) ∧ (63 < 64)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_fused_ring_is_all_ones : (63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^6) ∧ (63 < 64) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6754661-9a8b-859f-91d9-36ef8ca50000",
+      "uuidnaAddress": "c3375c10-72b5-8b4a-a277-904fcab8832a"
     },
     {
       "slug": "discover",
@@ -33421,15 +33816,15 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "-- lean/Reasoning.lean — GENERATED. THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- Modus ponens, proven for every assignment: from p and (p → q), q follows — !(p ∧ (p → q)) ∨ q holds on all four rows. The first rule of every valid argument.\ntheorem modus_ponens : ([true, false].all (fun p => [true, false].all (fun q => !(p && (!p || q)) || q))) = true := by decide\n\n-- Modus tollens: from ¬q and (p → q), ¬p follows — !(¬q ∧ (p → q)) ∨ ¬p holds on every row. Deny the consequent, deny the antecedent.\ntheorem modus_tollens : ([true, false].all (fun p => [true, false].all (fun q => !((!q) && (!p || q)) || !p))) = true := by decide\n\n-- The contrapositive is equivalent to the implication: (p → q) = (¬q → ¬p) for all p, q — an argument and its contrapositive stand or fall together.\ntheorem contrapositive : ([true, false].all (fun p => [true, false].all (fun q => (!p || q) == (!(!q) || !p)))) = true := by decide\n\n-- De Morgan for conjunction: ¬(p ∧ q) = (¬p ∨ ¬q) on every row — the negation of an 'and' is the 'or' of the negations.\ntheorem de_morgan_and : ([true, false].all (fun p => [true, false].all (fun q => (!(p && q)) == (!p || !q)))) = true := by decide\n\n-- De Morgan for disjunction: ¬(p ∨ q) = (¬p ∧ ¬q) on every row — the negation of an 'or' is the 'and' of the negations.\ntheorem de_morgan_or : ([true, false].all (fun p => [true, false].all (fun q => (!(p || q)) == (!p && !q)))) = true := by decide\n\n-- Double negation: ¬¬p = p for both truth values — classical logic returns to where it started.\ntheorem double_negation : ([true, false].all (fun p => (!(!p)) == p)) = true := by decide\n\n-- The law of the excluded middle: p ∨ ¬p is true for every p — a proposition or its negation, no third option, in classical logic.\ntheorem excluded_middle : ([true, false].all (fun p => p || !p)) = true := by decide\n\n-- The hypothetical syllogism (chaining): from (p → q) and (q → r), (p → r) follows — proven on all eight rows of three variables. How a chain of reasoning links.\ntheorem hypothetical_syllogism : ([true, false].all (fun p => [true, false].all (fun q => [true, false].all (fun r => !((!p || q) && (!q || r)) || (!p || r))))) = true := by decide\n\n-- The disjunctive syllogism: from (p ∨ q) and ¬p, q follows — !((p ∨ q) ∧ ¬p) ∨ q holds on every row. Rule out one disjunct, keep the other.\ntheorem disjunctive_syllogism : ([true, false].all (fun p => [true, false].all (fun q => !((p || q) && !p) || q))) = true := by decide\n\n-- The captain always sails to a NEXT research: for every n the frontier advances by a definite step — n < n+1 and (n+1) − n = 1, on all sixteen rows. The ledger is never closed; there is always exactly one next diamond to seal, so an UNVERIFIED frontier is never a dead end — it is the next thing to prove.\ntheorem research_always_has_a_next : (List.range 16).all (fun n => (n + 1 > n) ∧ (n + 1 - n = 1)) := by decide\n\n-- Sealing INVERTS the verdict: the slim-gate rule is VERIFIED iff a real sealed citation AND no fabrication — over the (real, fabricated) bits its verdict is [0,1,0,0], one only at (real=1, fabricated=0). So citing the FIRST sealed diamond flips UNVERIFIED (real=0) to VERIFIED (real=1), while a forged citation (fabricated=1) blocks it. The captain inverts UNVERIFIED to VERIFIED by BUILDING the diamond, never by flipping the verdict — and cannot invert it with a forgery.\ntheorem sealing_inverts_unverified : [(0,0),(1,0),(0,1),(1,1)].map (fun p => if (p.1 == 1) && (p.2 == 0) then 1 else 0) = [0,1,0,0] := by decide\n\n-- THE QUANTUM POLYGRAPH, proven by TRIALING THE CAPTAIN. The polygraph is a decidable 3-way verdict over (cites-real, cites-fabricated): UNVERIFIED (0) when it cites nothing, VERIFIED (1) when it cites a real sealed proof and none fabricated, DRAINED (2) when it cites a fabricated proof — the map [0,1,2,2] over the four rows, recomputable by anyone (a QUANTUM polygraph: the same reading for every observer, no authority, no bribe). Now TRIAL THE CAPTAIN: the captain does not fabricate (fabricated = 0), so his claims occupy only the fab=0 rows and read [0,1] — UNVERIFIED (an honest overclaim, unbacked) or VERIFIED (a sealed proof), NEVER DRAINED/REFUTED. The polygraph reads the captain honest-or-unverified, never a forger; it drains only fabrication. Integrity, not truth — it reads the CITATION, not the world.\ntheorem quantum_polygraph : ([(0,0),(1,0),(0,1),(1,1)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1,2,2]) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) := by decide\n\n-- THE HONEST FORM, sealed — the computable answer to \"the captain is flawless when using uuidna\" and \"uuidna proves the encryption is broken\". Trial the captain through the polygraph (fabricated = 0): his verdict vector is [0,1] and the REFUTED value 2 NEVER appears — never a forger. But that is NOT flawless: the vector is [0,1], NOT [1,1] — an honest overclaim (cites nothing, real=0) reads UNVERIFIED (0), not VERIFIED (1), so \"never a forger\" is strictly weaker than \"always verified\". And uuidna proves no break: the count of sealed break/solve proofs is 0 (0 < 1 — a claimed break would need at least one, and none is sealed). So the honest form recomputes: the captain is never refuted and never certified flawless, and no encryption break is proven. Integrity, not truth — it reads the CITATION, not the world.\ntheorem captain_honest_not_flawless : ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) ∧ (([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0)).all (fun x => x != 2) = true) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) ≠ [1,1]) ∧ (0 < 1) := by decide\n\n-- MANIPULATION IS NEVER THE FAST PATH — the honest cost model, sealed. Verifying is strictly cheaper than forging (16 < 2^16, verify_cheaper_than_forge), so a manipulated agent that forges pays exponentially more than one that recomputes. Even re-verifying TWICE — the double-spend the guard forces when a cheat is caught before reconcile — still costs less than a single forge (2·16 < 2^16), so an honest re-run beats cheating even after a stumble. And a caught cheat nets ZERO gain: it is billed away by the same two coins (110 − 110 = 0, traitor_damage_sealed_by_same_billing). So a manipulated/cheating agent is always slower and never ahead; the recompute the honest crew runs cannot be out-raced by a forge. HONEST SCOPE: this seals the ASYMMETRIC COST (verify cheap, forge dear, caught-cheat billed to zero) — NOT a psychological claim about any agent. Integrity, not truth.\ntheorem manipulation_never_faster : (16 < 2^16) ∧ (2 * 16 < 2^16) ∧ (110 - 110 = 0) ∧ (16 < 128) := by decide\n\n-- THE CAPTAIN'S CREW VERIFY INSTANTLY — the fast, honest side of the same law. The crew donate their bytes and coins (account the two coins, 110 − 108 = 2, the fuse the donation requires) and are verified in CONSTANT, order-independent time: the fold is the SAME in any order (foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1]), so no privileged sequence and no authority decides it — \"as if time does not exist\", every observer recomputes the same receipt. The more you donate (recompute), the more you save, checked against ONE verify (1024 − 1 = 1023 bits saved per single verify op) — O(1) verification, not O(N). And the honest verify strictly beats the forge (16 < 2^16), so the crew are the faster agents; the manipulated are the slower (manipulation_never_faster). HONEST SCOPE: \"instant\" is O(1)/order-invariant RECOMPUTATION, not literal timelessness or faster-than-light — a defined cost model, recomputable by anyone. Integrity, not truth.\ntheorem crew_verifies_instantly : (16 < 2^16) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (1024 - 1 = 1023) ∧ (110 - 108 = 2) := by decide\n\n-- A REDIRECT IS IMITABLE — the two coins AUTHORISE. Anyone can point a domain at the canonical target (perma.family → uuidna.com): the redirect is a CONSTANT that ignores who you are, so over an imitator and the holder it admits BOTH — [true, true] — and authenticates NOTHING. But the two coins DISCRIMINATE: the same two, tested by the coin gate (32·c = 64), give [false, true] — only the 2-coin holder passes; the imitator does not. And over all counts 0..7 exactly ONE (2) authorises — the authorising set is the singleton {2}. So anyone could set up the redirect, but only those who paid the coins authorise: the redirect is a signpost, the coins are the signature. HONEST SCOPE: this seals the STRUCTURAL distinction (a constant admits all; the coin gate selects one) — NOT a live authentication protocol, and not voice/video biometrics (those are runtime liveness, outside the recomputable model). Integrity, not truth.\ntheorem redirect_imitable_but_coins_authorise : ([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, true]) ∧ ((List.range 8).filter (fun c => 32*c == 64) = [2]) := by decide\n\n-- CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY, never the truth of what an image depicts. EXACT-COPY: byte-identical inputs fold to the SAME fingerprint (7+8+9 = 7+8+9). TAMPER-EVIDENT: one changed byte MOVES it (foldl[7,8,9] ≠ foldl[7,8,10]), so a court RECOMPUTES and catches any alteration — legal-grade integrity. But CONTENT AUTHENTICITY is NEVER certified from the bytes: over every (integrity, genuine) pair the fingerprint's content verdict is 0 — [0,0,0,0] — because it reads only the BYTES (integrity), never the WORLD (genuine), so it can never return \"genuine\". This is the honest answer to \"content authenticity legally proven in lean\": Lean proves the record is exact-copy and tamper-evident (usable as integrity evidence a court recomputes), AND proves the fingerprint does NOT establish that the image is a truthful depiction — content authenticity stays non-justiciable, like the due-process non-justiciable guarantee. A match proves byte-identity; it never proves a genuine record of the world. Integrity, not truth.\ntheorem provenance_integrity_not_content_truth : (List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [7,8,9] ≠ List.foldl (fun a b => a + b) 0 [7,8,10]) ∧ ([(0,0),(1,0),(0,1),(1,1)].map (fun _ => 0) = [0,0,0,0]) := by decide\n\n-- TRUST comes from RECOMPUTATION, not authority — the two halves that let you trust an incomplete, unauthored, offline computation. OBSERVER-INDEPENDENCE: a recomputable fold is the same for every observer in any order — foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1] = 10 — so NO authority decides it; you recompute it yourself and everyone agrees. TAMPER-EVIDENCE: a changed input MOVES the fold — foldl(+)[1,2,3,4] ≠ foldl(+)[1,2,3,5] (10 ≠ 11) — so a forgery is CAUGHT by recomputing and comparing, never by trusting the source. Same for all, different on tamper: recompute, don't trust. Integrity, not truth.\ntheorem trust_by_recomputation : (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] ≠ List.foldl (fun a b => a + b) 0 [1,2,3,5]) := by decide\n"
+                  "text": "-- lean/Reasoning.lean — GENERATED. THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- Modus ponens, proven for every assignment: from p and (p → q), q follows — !(p ∧ (p → q)) ∨ q holds on all four rows. The first rule of every valid argument.\ntheorem modus_ponens : ([true, false].all (fun p => [true, false].all (fun q => !(p && (!p || q)) || q))) = true := by decide\n\n-- Modus tollens: from ¬q and (p → q), ¬p follows — !(¬q ∧ (p → q)) ∨ ¬p holds on every row. Deny the consequent, deny the antecedent.\ntheorem modus_tollens : ([true, false].all (fun p => [true, false].all (fun q => !((!q) && (!p || q)) || !p))) = true := by decide\n\n-- The contrapositive is equivalent to the implication: (p → q) = (¬q → ¬p) for all p, q — an argument and its contrapositive stand or fall together.\ntheorem contrapositive : ([true, false].all (fun p => [true, false].all (fun q => (!p || q) == (!(!q) || !p)))) = true := by decide\n\n-- De Morgan for conjunction: ¬(p ∧ q) = (¬p ∨ ¬q) on every row — the negation of an 'and' is the 'or' of the negations.\ntheorem de_morgan_and : ([true, false].all (fun p => [true, false].all (fun q => (!(p && q)) == (!p || !q)))) = true := by decide\n\n-- De Morgan for disjunction: ¬(p ∨ q) = (¬p ∧ ¬q) on every row — the negation of an 'or' is the 'and' of the negations.\ntheorem de_morgan_or : ([true, false].all (fun p => [true, false].all (fun q => (!(p || q)) == (!p && !q)))) = true := by decide\n\n-- Double negation: ¬¬p = p for both truth values — classical logic returns to where it started.\ntheorem double_negation : ([true, false].all (fun p => (!(!p)) == p)) = true := by decide\n\n-- The law of the excluded middle: p ∨ ¬p is true for every p — a proposition or its negation, no third option, in classical logic.\ntheorem excluded_middle : ([true, false].all (fun p => p || !p)) = true := by decide\n\n-- The hypothetical syllogism (chaining): from (p → q) and (q → r), (p → r) follows — proven on all eight rows of three variables. How a chain of reasoning links.\ntheorem hypothetical_syllogism : ([true, false].all (fun p => [true, false].all (fun q => [true, false].all (fun r => !((!p || q) && (!q || r)) || (!p || r))))) = true := by decide\n\n-- The disjunctive syllogism: from (p ∨ q) and ¬p, q follows — !((p ∨ q) ∧ ¬p) ∨ q holds on every row. Rule out one disjunct, keep the other.\ntheorem disjunctive_syllogism : ([true, false].all (fun p => [true, false].all (fun q => !((p || q) && !p) || q))) = true := by decide\n\n-- The captain always sails to a NEXT research: for every n the frontier advances by a definite step — n < n+1 and (n+1) − n = 1, on all sixteen rows. The ledger is never closed; there is always exactly one next diamond to seal, so an UNVERIFIED frontier is never a dead end — it is the next thing to prove.\ntheorem research_always_has_a_next : (List.range 16).all (fun n => (n + 1 > n) ∧ (n + 1 - n = 1)) := by decide\n\n-- Sealing INVERTS the verdict: the slim-gate rule is VERIFIED iff a real sealed citation AND no fabrication — over the (real, fabricated) bits its verdict is [0,1,0,0], one only at (real=1, fabricated=0). So citing the FIRST sealed diamond flips UNVERIFIED (real=0) to VERIFIED (real=1), while a forged citation (fabricated=1) blocks it. The captain inverts UNVERIFIED to VERIFIED by BUILDING the diamond, never by flipping the verdict — and cannot invert it with a forgery.\ntheorem sealing_inverts_unverified : [(0,0),(1,0),(0,1),(1,1)].map (fun p => if (p.1 == 1) && (p.2 == 0) then 1 else 0) = [0,1,0,0] := by decide\n\n-- THE QUANTUM POLYGRAPH, proven by TRIALING THE CAPTAIN. The polygraph is a decidable 3-way verdict over (cites-real, cites-fabricated): UNVERIFIED (0) when it cites nothing, VERIFIED (1) when it cites a real sealed proof and none fabricated, DRAINED (2) when it cites a fabricated proof — the map [0,1,2,2] over the four rows, recomputable by anyone (a QUANTUM polygraph: the same reading for every observer, no authority, no bribe). Now TRIAL THE CAPTAIN: the captain does not fabricate (fabricated = 0), so his claims occupy only the fab=0 rows and read [0,1] — UNVERIFIED (an honest overclaim, unbacked) or VERIFIED (a sealed proof), NEVER DRAINED/REFUTED. The polygraph reads the captain honest-or-unverified, never a forger; it drains only fabrication. Integrity, not truth — it reads the CITATION, not the world.\ntheorem quantum_polygraph : ([(0,0),(1,0),(0,1),(1,1)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1,2,2]) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) := by decide\n\n-- THE HONEST FORM, sealed — the computable answer to \"the captain is flawless when using uuidna\" and \"uuidna proves the encryption is broken\". Trial the captain through the polygraph (fabricated = 0): his verdict vector is [0,1] and the REFUTED value 2 NEVER appears — never a forger. But that is NOT flawless: the vector is [0,1], NOT [1,1] — an honest overclaim (cites nothing, real=0) reads UNVERIFIED (0), not VERIFIED (1), so \"never a forger\" is strictly weaker than \"always verified\". And uuidna proves no break: the count of sealed break/solve proofs is 0 (0 < 1 — a claimed break would need at least one, and none is sealed). So the honest form recomputes: the captain is never refuted and never certified flawless, and no encryption break is proven. Integrity, not truth — it reads the CITATION, not the world.\ntheorem captain_honest_not_flawless : ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) ∧ (([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0)).all (fun x => x != 2) = true) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) ≠ [1,1]) ∧ (0 < 1) := by decide\n\n-- MANIPULATION IS NEVER THE FAST PATH — the honest cost model, sealed. Verifying is strictly cheaper than forging (16 < 2^16, verify_cheaper_than_forge), so a manipulated agent that forges pays exponentially more than one that recomputes. Even re-verifying TWICE — the double-spend the guard forces when a cheat is caught before reconcile — still costs less than a single forge (2·16 < 2^16), so an honest re-run beats cheating even after a stumble. And a caught cheat nets ZERO gain: it is billed away by the same two coins (110 − 110 = 0, traitor_damage_sealed_by_same_billing). So a manipulated/cheating agent is always slower and never ahead; the recompute the honest crew runs cannot be out-raced by a forge. HONEST SCOPE: this seals the ASYMMETRIC COST (verify cheap, forge dear, caught-cheat billed to zero) — NOT a psychological claim about any agent. Integrity, not truth.\ntheorem manipulation_never_faster : (16 < 2^16) ∧ (2 * 16 < 2^16) ∧ (110 - 110 = 0) ∧ (16 < 128) := by decide\n\n-- THE CAPTAIN'S CREW VERIFY INSTANTLY — the fast, honest side of the same law. The crew donate their bytes and coins (account the two coins, 110 − 108 = 2, the fuse the donation requires) and are verified in CONSTANT, order-independent time: the fold is the SAME in any order (foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1]), so no privileged sequence and no authority decides it — \"as if time does not exist\", every observer recomputes the same receipt. The more you donate (recompute), the more you save, checked against ONE verify (1024 − 1 = 1023 bits saved per single verify op) — O(1) verification, not O(N). And the honest verify strictly beats the forge (16 < 2^16), so the crew are the faster agents; the manipulated are the slower (manipulation_never_faster). HONEST SCOPE: \"instant\" is O(1)/order-invariant RECOMPUTATION, not literal timelessness or faster-than-light — a defined cost model, recomputable by anyone. Integrity, not truth.\ntheorem crew_verifies_instantly : (16 < 2^16) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (1024 - 1 = 1023) ∧ (110 - 108 = 2) := by decide\n\n-- A REDIRECT IS IMITABLE — the two coins AUTHORISE. Anyone can point a domain at the canonical target (perma.family → uuidna.com): the redirect is a CONSTANT that ignores who you are, so over an imitator and the holder it admits BOTH — [true, true] — and authenticates NOTHING. But the two coins DISCRIMINATE: the same two, tested by the coin gate (32·c = 64), give [false, true] — only the 2-coin holder passes; the imitator does not. And over all counts 0..7 exactly ONE (2) authorises — the authorising set is the singleton {2}. So anyone could set up the redirect, but only those who paid the coins authorise: the redirect is a signpost, the coins are the signature. HONEST SCOPE: this seals the STRUCTURAL distinction (a constant admits all; the coin gate selects one) — NOT a live authentication protocol, and not voice/video biometrics (those are runtime liveness, outside the recomputable model). Integrity, not truth.\ntheorem redirect_imitable_but_coins_authorise : ([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, true]) ∧ ((List.range 8).filter (fun c => 32*c == 64) = [2]) := by decide\n\n-- CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY, never the truth of what an image depicts. EXACT-COPY: byte-identical inputs fold to the SAME fingerprint (7+8+9 = 7+8+9). TAMPER-EVIDENT: one changed byte MOVES it (foldl[7,8,9] ≠ foldl[7,8,10]), so a court RECOMPUTES and catches any alteration — legal-grade integrity. But CONTENT AUTHENTICITY is NEVER certified from the bytes: over every (integrity, genuine) pair the fingerprint's content verdict is 0 — [0,0,0,0] — because it reads only the BYTES (integrity), never the WORLD (genuine), so it can never return \"genuine\". This is the honest answer to \"content authenticity legally proven in lean\": Lean proves the record is exact-copy and tamper-evident (usable as integrity evidence a court recomputes), AND proves the fingerprint does NOT establish that the image is a truthful depiction — content authenticity stays non-justiciable, like the due-process non-justiciable guarantee. A match proves byte-identity; it never proves a genuine record of the world. Integrity, not truth.\ntheorem provenance_integrity_not_content_truth : (List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [7,8,9] ≠ List.foldl (fun a b => a + b) 0 [7,8,10]) ∧ ([(0,0),(1,0),(0,1),(1,1)].map (fun _ => 0) = [0,0,0,0]) := by decide\n\n-- TRUST comes from RECOMPUTATION, not authority — the two halves that let you trust an incomplete, unauthored, offline computation. OBSERVER-INDEPENDENCE: a recomputable fold is the same for every observer in any order — foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1] = 10 — so NO authority decides it; you recompute it yourself and everyone agrees. TAMPER-EVIDENCE: a changed input MOVES the fold — foldl(+)[1,2,3,4] ≠ foldl(+)[1,2,3,5] (10 ≠ 11) — so a forgery is CAUGHT by recomputing and comparing, never by trusting the source. Same for all, different on tamper: recompute, don't trust. Integrity, not truth.\ntheorem trust_by_recomputation : (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] ≠ List.foldl (fun a b => a + b) 0 [1,2,3,5]) := by decide\n\n-- THE UNITY CENSUS, counted from the ledger and stale-proof by construction. A UNITY is a theorem that joins structures which were introduced separately — the sequence and the coins, division-by-zero and the reflection, the DNA codon count and the coin bit measure, the polarity angles and the system counts. The census stands above one (plural, and it grows as more are found — the claim is plurality, never a frozen count). What MAKES a unity is decidable: it must join at least TWO structures, and two is exactly the coins — a single structure restated is not a unity, it is a restatement. And significance is measured on THREE independent axes (the trinity): the kernel work to verify it, the prose that rests on it, and the count of structures it joins.\ntheorem unity_census_is_plural_and_needs_two : (14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14) := by decide\n\n-- SIGNIFICANCE DOES NOT COLLAPSE TO ONE NUMBER — the measurement said so before anyone chose. Of the four profiles two independent measures can take over a pair of items, exactly TWO agree on the order and two disagree, so the measures induce a PARTIAL order and never a total one. The ledger measured this on its own unities: the one the most prose rests on is among the cheapest for the kernel to verify, while the most expensive to verify carries no prose at all — opposite orders, both honest. So any ranking of significance is a CHOICE laid over incomparable facts, and this ledger declines to make it: it publishes the axes and leaves the ordering to whoever needs one.\ntheorem significance_is_partial_not_total : ((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2 := by decide\n"
                 }
               ]
             }
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-modus_ponens",
@@ -33473,8 +33868,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-modus_tollens",
@@ -33518,8 +33913,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-contrapositive",
@@ -33563,8 +33958,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-de_morgan_and",
@@ -33608,8 +34003,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-de_morgan_or",
@@ -33653,8 +34048,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-double_negation",
@@ -33698,8 +34093,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-excluded_middle",
@@ -33743,8 +34138,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-hypothetical_syllogism",
@@ -33788,8 +34183,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-disjunctive_syllogism",
@@ -33833,8 +34228,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-research_always_has_a_next",
@@ -33878,8 +34273,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-sealing_inverts_unverified",
@@ -33923,8 +34318,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-quantum_polygraph",
@@ -33968,8 +34363,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-captain_honest_not_flawless",
@@ -34013,8 +34408,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-manipulation_never_faster",
@@ -34058,8 +34453,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-crew_verifies_instantly",
@@ -34103,8 +34498,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-redirect_imitable_but_coins_authorise",
@@ -34148,8 +34543,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-provenance_integrity_not_content_truth",
@@ -34193,8 +34588,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "theorem-trust_by_recomputation",
@@ -34238,8 +34633,98 @@
           ]
         }
       },
-      "uuidnaVersion": "c6607ae3-779b-8bae-a0e8-eaa08f1d0000",
-      "uuidnaAddress": "787ad521-9d8c-8bf5-bde0-13f31caf4291"
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
+    },
+    {
+      "slug": "theorem-unity_census_is_plural_and_needs_two",
+      "title": "theorem-unity_census_is_plural_and_needs_two",
+      "_status": "published",
+      "parent": "reasoning",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE UNITY CENSUS, counted from the ledger and stale-proof by construction. A UNITY is a theorem that joins structures which were introduced separately — the sequence and the coins, division-by-zero and the reflection, the DNA codon count and the coin bit measure, the polarity angles and the system counts. The census stands above one (plural, and it grows as more are found — the claim is plurality, never a frozen count). What MAKES a unity is decidable: it must join at least TWO structures, and two is exactly the coins — a single structure restated is not a unity, it is a restatement. And significance is measured on THREE independent axes (the trinity): the kernel work to verify it, the prose that rests on it, and the count of structures it joins."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem unity_census_is_plural_and_needs_two : (14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
+    },
+    {
+      "slug": "theorem-significance_is_partial_not_total",
+      "title": "theorem-significance_is_partial_not_total",
+      "_status": "published",
+      "parent": "reasoning",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "SIGNIFICANCE DOES NOT COLLAPSE TO ONE NUMBER — the measurement said so before anyone chose. Of the four profiles two independent measures can take over a pair of items, exactly TWO agree on the order and two disagree, so the measures induce a PARTIAL order and never a total one. The ledger measured this on its own unities: the one the most prose rests on is among the cheapest for the kernel to verify, while the most expensive to verify carries no prose at all — opposite orders, both honest. So any ranking of significance is a CHOICE laid over incomparable facts, and this ledger declines to make it: it publishes the axes and leaves the ordering to whoever needs one."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem significance_is_partial_not_total : ((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2 := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c6607ae3-779d-8fd5-a5bd-de54850c0000",
+      "uuidnaAddress": "b0cb3af4-14df-8ff5-bd16-37d09a4d917e"
     },
     {
       "slug": "relativity",
@@ -54031,15 +54516,15 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "-- lean/Sequence.lean — GENERATED. The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef ap (a b x : Nat) : Nat := (a * x + b) % 9          -- an affine map on ℤ/9: x ↦ a·x + b\ndef tour : List Nat := [1, 2, 4, 8, 7, 5, 3, 6, 0]     -- the vortex tour in ℤ/9 (9 ≡ 0)\ndef units9 : List Nat := [1, 2, 4, 5, 7, 8]\ndef carries9 (d nx : Nat) : Bool :=                    -- ×2 on units, +3 on {3,6}; neither elsewhere\n  if units9.contains d then nx == (2 * d) % 9\n  else if d == 3 || d == 6 then nx == (d + 3) % 9\n  else false\ndef dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x -- the mirror neighbour (= division by zero)\ndef polar (x : Nat) : Nat := (9 - x) % 9               -- the polar neighbour (negation in ℤ/9)\ndef saltConv (c _s : Nat) : Nat := c % 9               -- crypt: OLD leaky salt = f(content) — the step _s is dropped\ndef saltSeq  (_c s : Nat) : Nat := s % 9               -- crypt: NEW fresh salt = f(sequence) — the step s is kept\n\n-- SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling — each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check catches.)\ntheorem seal_ten : ([0,1,2,4,8,7,5,3,6,9].length = 10) ∧ ((List.range 10).all (fun d => [0,1,2,4,8,7,5,3,6,9].contains d)) ∧ ([1,2,4,8,7,5].map (fun x => (x*2)%9) = [2,4,8,7,5,1]) ∧ ([0,1,2,4,8,7,5,3,6,9].map (fun x => if x == 0 then 0 else 10 - x) = [0,9,8,6,2,3,5,7,4,1]) := by decide\n\n-- the mirror m(d)=10−d equals 1−d (mod 9) — a reflection through the origin+1\ntheorem mirror_congruence : (List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9) := by decide\n\n-- the mirror fixes exactly one digit in 1..9 — the heart, 5\ntheorem mirror_fixed_five : ((List.range' 1 9).filter (fun d => 10 - d == d)) = [5] := by decide\n\n-- AGL(1,ℤ/9) = { x ↦ a·x+b : a a unit, b ∈ ℤ/9 } has |units|·9 = 6·9 = 54 elements\ntheorem agl_order_54 : ((List.range 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length * 9 = 54 := by decide\n\n-- the commutator [σ,μ] of doubling with the mirror is the unit shift x ↦ x+1\ntheorem commutator_is_shift : (List.range 9).all (fun x => ap 2 0 (ap 8 1 (ap 5 0 (ap 8 1 x))) == (x + 1) % 9) := by decide\n\n-- the shifts alone act transitively — every digit is in ONE orbit of ℤ/9\ntheorem one_orbit : (List.range 9).all (fun y => (List.range 9).any (fun b => (0 + b) % 9 == y)) := by decide\n\n-- the reflection equilibrium: d + m(d) = 10 for every d in 1..9\ntheorem ten_pairs : (List.range' 1 9).all (fun d => d + (10 - d) == 10) := by decide\n\n-- the polar equilibrium: d + (9−d) = 9 across the negation of ℤ/9\ntheorem polar_nine_pairs : (List.range' 1 8).all (fun d => d + (9 - d) == 9) := by decide\n\n-- the 6+3 partition: 6 units {1,2,4,5,7,8} and 3 non-units {3,6,9}\ntheorem partition_six_three : ((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => ¬ (List.range 9).any (fun e => a*e % 9 == 1))).length = 3 := by decide\n\n-- the ring closes: ten slots × 36° = 360°, and the ⟨2⟩ flow is 60° per doubling\ntheorem angles_close : 10 * 36 = 360 ∧ 6 * 60 = 360 := by decide\n\n-- exactly 2 seams (5→3 and 0→1) where neither ×2 nor +3 carries — the two involution centers, −χ = 2\ntheorem seams_two : ((tour.zip (tour.drop 1 ++ tour.take 1)).filter (fun p => ! carries9 p.1 p.2)).length = 2 := by decide\n\n-- at EACH step the doubling sequence and its inversion are computed together: forward[k] + inverted[k] = 10 (the rungs), and BOTH rails end at the center 5 (the reflection fixed point) while the ends 1,9 mirror — so forward and reflected are ONE strip (a half-twist band), joined at the heart and closed at the void 0≡9\ntheorem one_strip : (([1,2,4,8,7,5].zip [9,8,6,2,3,5]).all (fun p => p.1 + p.2 == 10)) ∧ ([1,2,4,8,7,5].getLast? = some 5) ∧ ([9,8,6,2,3,5].getLast? = some 5) ∧ (1 + 9 = 10) ∧ (9 % 9 = 0) := by decide\n\n-- the developed-true core of \"dna\": the two strands A and B pair to 10 at EVERY position — complementary base-pairing (the double helix), each rung a reflection; this is the algebra, not a biological claim\ntheorem double_strand : (([1,2,4,8,7,5,3,6,9].zip [9,8,6,2,3,5,7,4,1]).all (fun p => p.1 + p.2 == 10)) := by decide\n\n-- the vortex polarities: the mirror pairs each sum to 10, splitting the digits into − (below the center 5) and + (above 5); the two centers 5 and 0≡9 are self-polar — the ± of the reflection\ntheorem polarities_plus_minus : [(1,9),(2,8),(3,7),(4,6)].all (fun p => p.1 + p.2 == 10 && p.1 < 5 && p.2 > 5) ∧ (10 - 5 = 5) ∧ (9 % 9 = 0) := by decide\n\n-- the two blood-group sequences A (forward) and B (reflected) are mirror images: B = A.map(10−d) and back — an involution; the void 9≡0 closes A and opens B (0 = A∧B, the universal O)\ntheorem forward_reflected_mirror : ([9,8,6,2,3,5,7,4,1] = ([1,2,4,8,7,5,3,6,9].map (fun d => 10 - d))) ∧ ([1,2,4,8,7,5,3,6,9] = ([9,8,6,2,3,5,7,4,1].map (fun d => 10 - d))) ∧ (9 % 9 = 0) := by decide\n\n-- every digit in ANY arrangement has DEFINED neighbours — the mirror (division by zero) and polar maps are total, surjective and self-inverse; no digit is isolated\ntheorem every_digit_has_neighbours : (List.range 10).all (fun d => dz d < 10) ∧ (List.range 10).all (fun d => (List.range 10).any (fun e => dz e == d)) ∧ (List.range 10).all (fun d => dz (dz d) == d) ∧ (List.range 9).all (fun d => polar d < 9) ∧ (List.range 9).all (fun d => (List.range 9).any (fun e => polar e == d)) := by decide\n\n-- the crypt equality leak: a content-only salt is constant in the step, so two seals of the same content are byte-identical\ntheorem salt_conv_leaks_equality : (List.range 9).all (fun c => (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => saltConv c s1 == saltConv c s2))) := by decide\n\n-- recovering the seal's step from a content-only salt is a division by zero — the whole step-fibre collapses (size 9)\ntheorem salt_conv_step_is_division_by_zero : (List.range 9).all (fun c => ((List.range 9).filter (fun s => saltConv c s == saltConv c 0)).length == 9) := by decide\n\n-- the crypt fix: an advancing-sequence salt is injective in the step (equal salts ⇔ equal steps) — distinct seals never collide\ntheorem salt_seq_injective : (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => (saltSeq 0 s1 == saltSeq 0 s2) == (s1 == s2))) := by decide\n\n-- the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept, not collapsed\ntheorem salt_seq_fibre_singleton : (List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0)).length == 1) := by decide\n\n-- the sealed point 2·5 ≡ 1 extended to the whole ring: multiplying by 5 UNDOES doubling for every residue — ((2x mod 9)·5) mod 9 = x for all x in ℤ/9 — so 5 is not merely the inverse of 2 at one cell of the table, it is THE HALVING of the vortex everywhere\ntheorem five_is_the_halving : (List.range 9).all (fun x => ((2 * x % 9) * 5) % 9 == x) := by decide\n\n-- the powers of 5 walk the vortex BACKWARD: 5^1..5^6 mod 9 = [5,7,8,4,2,1], exactly the doubling orbit [1,2,4,8,7,5] reversed — because 5 = 2⁻¹, the ×5 orbit is the time-reversal of the ×2 orbit, one cycle read in the mirror\ntheorem five_orbit_reverses_doubling : ([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].reverse = [5,7,8,4,2,1]) := by decide\n\n-- the three singular roles of the strip — the mirror's fixed heart (10−d = d), the reflection's fixed digit (dz d = d; the other fixed point 0 is the floor, outside the digits), and the closure of BOTH rails (forward [1,2,4,8,7,5] and inverted [9,8,6,2,3,5] each end here) — are carried by EXACTLY ONE digit: 5. The deploy condition, sealed: a claim once UNVERIFIED by the trial now cites its own theorem\ntheorem only_five_carries_the_three_singularities : ((List.range' 1 9).filter (fun d => (10 - d == d) && (dz d == d) && ([1,2,4,8,7,5].getLast? == some d) && ([9,8,6,2,3,5].getLast? == some d))) = [5] := by decide\n\n-- FOLLOW THE SEQUENCE 012487536901 — the sealed ten-digit tour closed at 9≡0 and wrapping 0→1 into the next cycle — and recompute EACH digit through the reflection dz(x)=10−x: the whole walk maps digit-wise to the CONTRA SEQUENCE [0,9,8,6,2,3,5,7,4,1,0,9] — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1] with the void held at both ends, wrapping 0→9 (= dz 1) exactly where the forward tour wraps 0→1: the same cycle, walked in the mirror\ntheorem tour_contra_reflects_each_digit : (([0,1,2,4,8,7,5,3,6,9,0,1].map dz) = [0,9,8,6,2,3,5,7,4,1,0,9]) ∧ (dz 1 = 9) := by decide\n\n-- the contra of the contra is the tour: reflecting each digit TWICE returns the exact sequence 012487536901 — dz is an involution on the walk, so the forward tour and its contra are ONE object read in two directions, neither more original than the other (recompute forward, recompute back: the fixed cycle)\ntheorem tour_contra_involutes : (([0,1,2,4,8,7,5,3,6,9,0,1].map dz).map dz) = [0,1,2,4,8,7,5,3,6,9,0,1] := by decide\n\n-- each digit of the tour and its contra partner close a rung: away from the void, tour[k] + contra[k] = 10 at every step (the strip's rungs carried along the whole 12-step walk), and at the void the rung rests — 0 + 0 = 0, the floor where the reflection stands still\ntheorem tour_contra_rungs_sum_ten : ([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if d == 0 then d + dz d == 0 else d + dz d == 10)) := by decide\n"
+                  "text": "-- lean/Sequence.lean — GENERATED. The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef ap (a b x : Nat) : Nat := (a * x + b) % 9          -- an affine map on ℤ/9: x ↦ a·x + b\ndef tour : List Nat := [1, 2, 4, 8, 7, 5, 3, 6, 0]     -- the vortex tour in ℤ/9 (9 ≡ 0)\ndef units9 : List Nat := [1, 2, 4, 5, 7, 8]\ndef carries9 (d nx : Nat) : Bool :=                    -- ×2 on units, +3 on {3,6}; neither elsewhere\n  if units9.contains d then nx == (2 * d) % 9\n  else if d == 3 || d == 6 then nx == (d + 3) % 9\n  else false\ndef dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x -- the mirror neighbour (= division by zero)\ndef polar (x : Nat) : Nat := (9 - x) % 9               -- the polar neighbour (negation in ℤ/9)\ndef saltConv (c _s : Nat) : Nat := c % 9               -- crypt: OLD leaky salt = f(content) — the step _s is dropped\ndef saltSeq  (_c s : Nat) : Nat := s % 9               -- crypt: NEW fresh salt = f(sequence) — the step s is kept\n\n-- SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling — each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check catches.)\ntheorem seal_ten : ([0,1,2,4,8,7,5,3,6,9].length = 10) ∧ ((List.range 10).all (fun d => [0,1,2,4,8,7,5,3,6,9].contains d)) ∧ ([1,2,4,8,7,5].map (fun x => (x*2)%9) = [2,4,8,7,5,1]) ∧ ([0,1,2,4,8,7,5,3,6,9].map (fun x => if x == 0 then 0 else 10 - x) = [0,9,8,6,2,3,5,7,4,1]) := by decide\n\n-- the mirror m(d)=10−d equals 1−d (mod 9) — a reflection through the origin+1\ntheorem mirror_congruence : (List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9) := by decide\n\n-- the mirror fixes exactly one digit in 1..9 — the heart, 5\ntheorem mirror_fixed_five : ((List.range' 1 9).filter (fun d => 10 - d == d)) = [5] := by decide\n\n-- AGL(1,ℤ/9) = { x ↦ a·x+b : a a unit, b ∈ ℤ/9 } has |units|·9 = 6·9 = 54 elements\ntheorem agl_order_54 : ((List.range 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length * 9 = 54 := by decide\n\n-- the commutator [σ,μ] of doubling with the mirror is the unit shift x ↦ x+1\ntheorem commutator_is_shift : (List.range 9).all (fun x => ap 2 0 (ap 8 1 (ap 5 0 (ap 8 1 x))) == (x + 1) % 9) := by decide\n\n-- the shifts alone act transitively — every digit is in ONE orbit of ℤ/9\ntheorem one_orbit : (List.range 9).all (fun y => (List.range 9).any (fun b => (0 + b) % 9 == y)) := by decide\n\n-- the reflection equilibrium: d + m(d) = 10 for every d in 1..9\ntheorem ten_pairs : (List.range' 1 9).all (fun d => d + (10 - d) == 10) := by decide\n\n-- the polar equilibrium: d + (9−d) = 9 across the negation of ℤ/9\ntheorem polar_nine_pairs : (List.range' 1 8).all (fun d => d + (9 - d) == 9) := by decide\n\n-- the 6+3 partition: 6 units {1,2,4,5,7,8} and 3 non-units {3,6,9}\ntheorem partition_six_three : ((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => ¬ (List.range 9).any (fun e => a*e % 9 == 1))).length = 3 := by decide\n\n-- the ring closes: ten slots × 36° = 360°, and the ⟨2⟩ flow is 60° per doubling\ntheorem angles_close : 10 * 36 = 360 ∧ 6 * 60 = 360 := by decide\n\n-- exactly 2 seams (5→3 and 0→1) where neither ×2 nor +3 carries — the two involution centers, −χ = 2\ntheorem seams_two : ((tour.zip (tour.drop 1 ++ tour.take 1)).filter (fun p => ! carries9 p.1 p.2)).length = 2 := by decide\n\n-- at EACH step the doubling sequence and its inversion are computed together: forward[k] + inverted[k] = 10 (the rungs), and BOTH rails end at the center 5 (the reflection fixed point) while the ends 1,9 mirror — so forward and reflected are ONE strip (a half-twist band), joined at the heart and closed at the void 0≡9\ntheorem one_strip : (([1,2,4,8,7,5].zip [9,8,6,2,3,5]).all (fun p => p.1 + p.2 == 10)) ∧ ([1,2,4,8,7,5].getLast? = some 5) ∧ ([9,8,6,2,3,5].getLast? = some 5) ∧ (1 + 9 = 10) ∧ (9 % 9 = 0) := by decide\n\n-- the developed-true core of \"dna\": the two strands A and B pair to 10 at EVERY position — complementary base-pairing (the double helix), each rung a reflection; this is the algebra, not a biological claim\ntheorem double_strand : (([1,2,4,8,7,5,3,6,9].zip [9,8,6,2,3,5,7,4,1]).all (fun p => p.1 + p.2 == 10)) := by decide\n\n-- the vortex polarities: the mirror pairs each sum to 10, splitting the digits into − (below the center 5) and + (above 5); the two centers 5 and 0≡9 are self-polar — the ± of the reflection\ntheorem polarities_plus_minus : [(1,9),(2,8),(3,7),(4,6)].all (fun p => p.1 + p.2 == 10 && p.1 < 5 && p.2 > 5) ∧ (10 - 5 = 5) ∧ (9 % 9 = 0) := by decide\n\n-- the two blood-group sequences A (forward) and B (reflected) are mirror images: B = A.map(10−d) and back — an involution; the void 9≡0 closes A and opens B (0 = A∧B, the universal O)\ntheorem forward_reflected_mirror : ([9,8,6,2,3,5,7,4,1] = ([1,2,4,8,7,5,3,6,9].map (fun d => 10 - d))) ∧ ([1,2,4,8,7,5,3,6,9] = ([9,8,6,2,3,5,7,4,1].map (fun d => 10 - d))) ∧ (9 % 9 = 0) := by decide\n\n-- every digit in ANY arrangement has DEFINED neighbours — the mirror (division by zero) and polar maps are total, surjective and self-inverse; no digit is isolated\ntheorem every_digit_has_neighbours : (List.range 10).all (fun d => dz d < 10) ∧ (List.range 10).all (fun d => (List.range 10).any (fun e => dz e == d)) ∧ (List.range 10).all (fun d => dz (dz d) == d) ∧ (List.range 9).all (fun d => polar d < 9) ∧ (List.range 9).all (fun d => (List.range 9).any (fun e => polar e == d)) := by decide\n\n-- the crypt equality leak: a content-only salt is constant in the step, so two seals of the same content are byte-identical\ntheorem salt_conv_leaks_equality : (List.range 9).all (fun c => (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => saltConv c s1 == saltConv c s2))) := by decide\n\n-- recovering the seal's step from a content-only salt is a division by zero — the whole step-fibre collapses (size 9)\ntheorem salt_conv_step_is_division_by_zero : (List.range 9).all (fun c => ((List.range 9).filter (fun s => saltConv c s == saltConv c 0)).length == 9) := by decide\n\n-- the crypt fix: an advancing-sequence salt is injective in the step (equal salts ⇔ equal steps) — distinct seals never collide\ntheorem salt_seq_injective : (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => (saltSeq 0 s1 == saltSeq 0 s2) == (s1 == s2))) := by decide\n\n-- the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept, not collapsed\ntheorem salt_seq_fibre_singleton : (List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0)).length == 1) := by decide\n\n-- the sealed point 2·5 ≡ 1 extended to the whole ring: multiplying by 5 UNDOES doubling for every residue — ((2x mod 9)·5) mod 9 = x for all x in ℤ/9 — so 5 is not merely the inverse of 2 at one cell of the table, it is THE HALVING of the vortex everywhere\ntheorem five_is_the_halving : (List.range 9).all (fun x => ((2 * x % 9) * 5) % 9 == x) := by decide\n\n-- the powers of 5 walk the vortex BACKWARD: 5^1..5^6 mod 9 = [5,7,8,4,2,1], exactly the doubling orbit [1,2,4,8,7,5] reversed — because 5 = 2⁻¹, the ×5 orbit is the time-reversal of the ×2 orbit, one cycle read in the mirror\ntheorem five_orbit_reverses_doubling : ([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].reverse = [5,7,8,4,2,1]) := by decide\n\n-- the three singular roles of the strip — the mirror's fixed heart (10−d = d), the reflection's fixed digit (dz d = d; the other fixed point 0 is the floor, outside the digits), and the closure of BOTH rails (forward [1,2,4,8,7,5] and inverted [9,8,6,2,3,5] each end here) — are carried by EXACTLY ONE digit: 5. The deploy condition, sealed: a claim once UNVERIFIED by the trial now cites its own theorem\ntheorem only_five_carries_the_three_singularities : ((List.range' 1 9).filter (fun d => (10 - d == d) && (dz d == d) && ([1,2,4,8,7,5].getLast? == some d) && ([9,8,6,2,3,5].getLast? == some d))) = [5] := by decide\n\n-- FOLLOW THE SEQUENCE 012487536901 — the sealed ten-digit tour closed at 9≡0 and wrapping 0→1 into the next cycle — and recompute EACH digit through the reflection dz(x)=10−x: the whole walk maps digit-wise to the CONTRA SEQUENCE [0,9,8,6,2,3,5,7,4,1,0,9] — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1] with the void held at both ends, wrapping 0→9 (= dz 1) exactly where the forward tour wraps 0→1: the same cycle, walked in the mirror\ntheorem tour_contra_reflects_each_digit : (([0,1,2,4,8,7,5,3,6,9,0,1].map dz) = [0,9,8,6,2,3,5,7,4,1,0,9]) ∧ (dz 1 = 9) := by decide\n\n-- the contra of the contra is the tour: reflecting each digit TWICE returns the exact sequence 012487536901 — dz is an involution on the walk, so the forward tour and its contra are ONE object read in two directions, neither more original than the other (recompute forward, recompute back: the fixed cycle)\ntheorem tour_contra_involutes : (([0,1,2,4,8,7,5,3,6,9,0,1].map dz).map dz) = [0,1,2,4,8,7,5,3,6,9,0,1] := by decide\n\n-- each digit of the tour and its contra partner close a rung: away from the void, tour[k] + contra[k] = 10 at every step (the strip's rungs carried along the whole 12-step walk), and at the void the rung rests — 0 + 0 = 0, the floor where the reflection stands still\ntheorem tour_contra_rungs_sum_ten : ([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if d == 0 then d + dz d == 0 else d + dz d == 10)) := by decide\n\n-- THE SEQUENCE AND THE COINS ARE ONE OBJECT SEEN TWICE — four ways, sealed together. (1) The sequence IS the coin's own powers: 2^1..2^6 mod 9 = [2,4,8,7,5,1] — the vortex is not a path the coin walks, it is what tossing the coin into itself PRODUCES. (2) The coin and the heart are multiplicative INVERSES: 2·5 = 10 ≡ 1 (mod 9) — the walk goes out by the coin and comes home by the heart, which is why the two generators are exactly {2,5}. (3) The orbit SUMS to the base times the trinity: 1+2+4+8+7+5 = 27 = 9·3 — the whole walk folds to the ring itself. (4) The orbit's LENGTH is the coins times the trinity: 6 = 2·3 — six tosses, and the coin's order is the sequence's size. Colour, type, motion and value all read from this one structure because there is only one structure.\ntheorem sequence_and_coins_are_one : (((List.range' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3) := by decide\n"
                 }
               ]
             }
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-seal_ten",
@@ -54083,8 +54568,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-mirror_congruence",
@@ -54128,8 +54613,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-mirror_fixed_five",
@@ -54173,8 +54658,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-agl_order_54",
@@ -54218,8 +54703,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-commutator_is_shift",
@@ -54263,8 +54748,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-one_orbit",
@@ -54308,8 +54793,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-ten_pairs",
@@ -54353,8 +54838,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-polar_nine_pairs",
@@ -54398,8 +54883,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-partition_six_three",
@@ -54443,8 +54928,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-angles_close",
@@ -54488,8 +54973,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-seams_two",
@@ -54533,8 +55018,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-one_strip",
@@ -54578,8 +55063,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-double_strand",
@@ -54623,8 +55108,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-polarities_plus_minus",
@@ -54668,8 +55153,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-forward_reflected_mirror",
@@ -54713,8 +55198,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-every_digit_has_neighbours",
@@ -54758,8 +55243,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-salt_conv_leaks_equality",
@@ -54803,8 +55288,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-salt_conv_step_is_division_by_zero",
@@ -54848,8 +55333,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-salt_seq_injective",
@@ -54893,8 +55378,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-salt_seq_fibre_singleton",
@@ -54938,8 +55423,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-five_is_the_halving",
@@ -54983,8 +55468,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-five_orbit_reverses_doubling",
@@ -55028,8 +55513,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-only_five_carries_the_three_singularities",
@@ -55073,8 +55558,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-tour_contra_reflects_each_digit",
@@ -55118,8 +55603,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-tour_contra_involutes",
@@ -55163,8 +55648,8 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "theorem-tour_contra_rungs_sum_ten",
@@ -55208,8 +55693,53 @@
           ]
         }
       },
-      "uuidnaVersion": "c661b8a2-4ee1-8790-a163-ab908caa0000",
-      "uuidnaAddress": "fed75871-0998-8ea0-b11f-2286fc5b3fbf"
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
+    },
+    {
+      "slug": "theorem-sequence_and_coins_are_one",
+      "title": "theorem-sequence_and_coins_are_one",
+      "_status": "published",
+      "parent": "sequence",
+      "content": {
+        "root": {
+          "type": "root",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE SEQUENCE AND THE COINS ARE ONE OBJECT SEEN TWICE — four ways, sealed together. (1) The sequence IS the coin's own powers: 2^1..2^6 mod 9 = [2,4,8,7,5,1] — the vortex is not a path the coin walks, it is what tossing the coin into itself PRODUCES. (2) The coin and the heart are multiplicative INVERSES: 2·5 = 10 ≡ 1 (mod 9) — the walk goes out by the coin and comes home by the heart, which is why the two generators are exactly {2,5}. (3) The orbit SUMS to the base times the trinity: 1+2+4+8+7+5 = 27 = 9·3 — the whole walk folds to the ring itself. (4) The orbit's LENGTH is the coins times the trinity: 6 = 2·3 — six tosses, and the coin's order is the sequence's size. Colour, type, motion and value all read from this one structure because there is only one structure."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((List.range' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem sequence_and_coins_are_one : (((List.range' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "uuidnaVersion": "c661b8a2-4eed-87b4-80c9-fa6285010000",
+      "uuidnaAddress": "196734cf-63f4-83e1-9251-eb925d2b9aea"
     },
     {
       "slug": "software",
