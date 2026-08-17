@@ -1,17 +1,17 @@
 {
-  "key": "e266ded0-bbea-81e1-a5db-b152ba8732e9",
+  "key": "c73501c7-31a4-8bc6-be2d-c0a250f40334",
   "publications": 72,
-  "sealedTheorems": 1309,
+  "sealedTheorems": 1306,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1309,
-    "theorems": 1309,
+    "claims": 1306,
+    "theorems": 1306,
     "bijection": true,
     "digitalRoots": {
-      "claims": 4,
-      "theorems": 4,
+      "claims": 1,
+      "theorems": 1,
       "publications": 9
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -89,8 +89,8 @@
     },
     {
       "slug": "clay",
-      "claims": 17,
-      "cited": 17,
+      "claims": 14,
+      "cited": 14,
       "uncited": [],
       "fabricated": []
     },
