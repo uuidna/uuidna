@@ -36,13 +36,18 @@ test('SHA-256 conforms to its published vectors (FIPS 180-4 and the widely-publi
   ])
 })
 
-test('HMAC-SHA256 conforms to RFC 4231', () => {
+test('HMAC-SHA256 conforms to RFC 4231 — all seven cases, truncation included', () => {
   vectors([
     ['case 1', hmacSha256(new Uint8Array(20).fill(0x0b), en('Hi There')), 'b0344c61d8db38535ca8afceaf0bf12b881dc200c9833da726e9376c2e32cff7'],
     ['case 2 (Jefe)', hmacSha256(en('Jefe'), en('what do ya want for nothing?')), '5bdcc146bf60754e6a042426089575c75a003f089d2739839dec58b964ec3843'],
     ['case 3', hmacSha256(new Uint8Array(20).fill(0xaa), new Uint8Array(50).fill(0xdd)), '773ea91e36800e46854db8ebd09181a72959098b3ef8c122d9635514ced565fe'],
     ['case 4', hmacSha256(hx('0102030405060708090a0b0c0d0e0f10111213141516171819'), new Uint8Array(50).fill(0xcd)), '82558a389a443c0ea4cc819899f2083a85f0faa3e578f8077a2e3ff46729665b'],
+    // case 5 is HMAC-SHA-256-*128*: the standard's own truncation case, asserted on the first 16 bytes. uuidna's
+    // hmacSha256 returns the full 32 and never truncates for you — a caller that needs RFC-5 output slices it, as here.
+    ['case 5 (truncated to 128 bits)', hmacSha256(new Uint8Array(20).fill(0x0c), en('Test With Truncation')).slice(0, 16), 'a3b6167473100ee06e0c796c2955552b'],
     ['case 6 (key > block)', hmacSha256(new Uint8Array(131).fill(0xaa), en('Test Using Larger Than Block-Size Key - Hash Key First')), '60e431591ee0b67f0d8a26aacbf5b77f8e0bc6213728c5140546040f0ee37f54'],
+    // case 7 — key AND data both larger than the block: the key is hashed first, and the 152-byte message spans blocks
+    ['case 7 (key and data > block)', hmacSha256(new Uint8Array(131).fill(0xaa), en('This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.')), '9b09ffa71b942fcb27635fbcd5b0e944bfdc63644f0713938a7f51535c3a35e2'],
   ])
 })
 

@@ -45,6 +45,7 @@ for (const rel of tracked) {
 const KAT_ANCHORS: [string, string][] = [
   ['FIPS 180-4 SHA-256 "abc"', 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'],
   ['RFC 4231 HMAC case 2 (Jefe)', '5bdcc146bf60754e6a042426089575c75a003f089d2739839dec58b964ec3843'],
+  ['RFC 4231 HMAC case 7 (key and data > block)', '9b09ffa71b942fcb27635fbcd5b0e944bfdc63644f0713938a7f51535c3a35e2'],
   ['RFC 8018 PBKDF2 c=4096', 'c5e478d59288c841aa530db6845c4c8d962893a001ce4e11a4963873aa98134a'],
   ['RFC 8439 ChaCha20 §2.4.2', '6e2e359a2568f98041ba0728dd0d6981'],
   ['RFC 8439 Poly1305 §2.5.2', 'a8061dc1305136c6c22b8baf0c0127a9'],

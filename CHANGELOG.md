@@ -27,6 +27,65 @@ still be refactored, reversed, or **folded all the way back to the genesis `0.0.
 development itself. Publishing is the involution's fixed point: after it, a version cannot be un-said. So uuidna keeps
 the chance to reverse-develop itself *now*, while the ledger is still free.
 
+## [0.1.3] — unreleased
+
+**The gates got faster by getting more honest.** This tick is almost entirely gate work, and it has one theme: four
+separate checks asserted a **name** where they meant a **property**, and every one of them was silently passing or
+silently skipping. A gate that fails is safe; a gate that quietly covers less than it claims is the dangerous shape.
+
+### Fixed
+- **The MCP schema is enforced at the one door.** 72 of the 106 tools that declare required arguments never checked
+  for them, so a missing argument arrived as the literal string `"undefined"` and the tool answered confidently.
+  `callTool` now validates each tool's own declared `required` list, so all 170 inherit it. The worst case was
+  `uuidna_wave`, which spawns the release walk: the gate's dispatch probe — which exists only to prove a tool *name*
+  resolves — was executing a full graduation wave, **169.3s of the probe's 174.8s**. Probe now 0.53s, `mcp-coverage`
+  108.8s → 0.57s, and the correctness bug is the same fix as the speed one.
+- **The "KAT-verified" claim is backed by vectors, not a filename.** The security audit asserted
+  `existsSync('src/test/kat.test.ts')` — a rename broke it and an *empty* file of that name would have satisfied it.
+  It now searches the tests for seven of the standards' own published outputs, values no implementation can produce
+  without conforming; verified in both directions (all seven found, a one-digit mutation not).
+- **The built-site audit discovers its pages.** It read a hardcoded two-page list whose second entry stopped existing
+  when `cleanUrls` began emitting `theorems.html`, so it skipped that page silently. Worse, the same file read a
+  root-level `mcp.mjs` that no longer exists — ENOENT killed the entire audit before any arm ran, unseen because
+  `audit.js` was wired to no npm script. It now derives from the directory and from the served `MCP_CATALOG`
+  (which was commented "the 44 MCP tool descriptions" while the catalog served 170). Revived: 5775 prose units.
+- **The unwired-scripts detector tested a name too**, and so was noisy and blind at once: `audit.ts` counted as wired
+  because a script *named* `audit` exists, while every `lean-*` generator was flagged because no npm key spells
+  `lean-chess`. It now asks whether anything invokes the file — npm bodies, CI workflows, sibling scripts and the
+  tracked git hooks — knowing that an imported module is a library and that **discovery is wiring** (the globs are
+  read from the invoker sources, never hardcoded). Predictive gaps 125 → 8; 31 genuinely unwired scripts wired.
+- **The seal tees its children.** Every step ran with `stdio: 'ignore'`, so six rounds could report nothing but "the
+  wrapper crashed, retrying" into a seven-line log while discarding the real objection each time. Steps now merge
+  stderr, pass output through, and quote the failing step by name. `--seal` also asserts **reconciled-means-synced**.
+
+### Added
+- **The development pass** (`npm run develop`) — walks build → guard → account → spin and, when a gate objects with a
+  cure it has been taught (stale axiom witness, missing heartbeats, a regenerable surface, a drifted seal), applies it
+  and walks again; bounded at six rounds; exits non-zero only when an objection has **no** taught cure. It refuses two
+  cures on purpose: a changelog release note (a human voice — this entry is one) and an honesty-gate objection. The
+  school's janitor cron runs it, so an unattended run heals instead of failing.
+- **The martial arts wing** (`lean/MartialArts.lean`, 4 theorems) — sealed as arithmetic after **refusing the 15 it was
+  written as**: `center_of_gravity_stability` had been proven by `1 = 1`, Newton's third law by `1 + 1 = 2`,
+  conservation of momentum by `2 * 3 = 6`. Every line true, not one proving its own name. What survives earns the
+  wing: `complement_fixes_the_half` seals that `c(x) = w − x` fixes exactly the half at three scales — `90 − 45 = 45`,
+  `100 − 50 = 50`, and `10 − 5 = 5`, which *is* the ledger's own diamond involution and its fixed point 5.
+- **The OEAPI projection** (`uuidna_oeapi`) — the ledger under Open Education API v6.0 field names, so an institution
+  reads the school with the reader it already has: the skill clusters as `track` (never `programme`, which the spec
+  defines as leading to a qualification uuidna does not award), the monographs as courses, the theorems as learning
+  outcomes. The standard requires uuid identifiers and the content-addresses already are them.
+- **RFC 4231 cases 5 and 7** — the two HMAC vectors the suite never tested: the standard's own truncation case
+  (HMAC-SHA-256-128) and the case where key *and* data both exceed the block. All seven cases now assert.
+- **Two finders folded**, so these classes cannot return: `gate-paths.test.ts` (every literal path a gate names must
+  resolve, root-level reads included — the first version of that finder missed `mcp.mjs` precisely because it required
+  a `/`) and `mcp-schema.test.ts` (every declared-required argument is refused when missing).
+
+### Changed
+- **The crypto tests fold to 21** across six processes, from 50 declarations. `encrypt` is synchronous and costs
+  ~1.8s per distinct (passphrase, salt) pair at PBKDF2 ITER=600,000, so the waste was a dozen tests re-sealing the
+  same corpus; each file now seals once at module scope. **The work factor is untouched** — trading key-derivation
+  strength for a faster gate would be trading away the thing under test. Suite: 245 tests/77.6s → 195/35s. All 32
+  published vectors verified preserved.
+
 ## [0.1.2] — unreleased
 
 **Development tick on the unpublished line** (npm still has only `0.1.0`; the patch exists because the release
