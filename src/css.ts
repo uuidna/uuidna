@@ -38,40 +38,56 @@ export function durationVars(): Record<string, string> {
   return vars
 }
 
-/** THE EFFECTS — superposition, collapse, entanglement: named for what the arithmetic does, never for physics */
+/** THE EFFECTS — every value DERIVED, none chosen: the dz involution picks the pairs, the two coins set the
+ *  weights and the half turn, the vortex sets the durations, the trinity sets the layers. Named for what the
+ *  arithmetic does, never for physics. */
 export function matrixEffects(): string {
+  const C = coins()                                   // 2 — the conserved measure (two_coins)
+  const halfTurn = fdiv(360, C)                       // 180deg — a turn divided by the coins (the involution)
+  const weight = milli(1, C)                          // 0.500 — each of C equal states (coin_is_one_qubit)
+  const mid = fdiv(100, C)                            // 50% — the keyframe midpoint, the same halving
+  const rungs = [...new Set(vortexOrbit())].sort((a, b) => a - b)
+  // the dz mirror pairs (d, 10−d) with d below its mirror — the involution chooses them, not an author
+  const pairs: Array<[number, number]> = []
+  for (let d = 1; d <= BASE; d++) { const m = 10 - d; if (d < m && m <= BASE) pairs.push([d, m]) }
+
+  const superposed = pairs.map(([a, b]) => `.q-superposition-${a}::before { background: var(--seq-${a}); }
+.q-superposition-${a}::after  { background: var(--seq-${b}); }`).join('\n')
+  const ladder = rungs.map((d) => `.q-rung-${d} { transition-duration: var(--dur-${d}); }`).join('\n')
+
   return `
-/* q-superposition — TWO STATES HELD AT ONCE: a digit and its dz-mirror (10−d) layered, neither collapsed. The
-   crossfade runs on OPACITY alone, so the compositor carries it without layout or paint. */
+/* THE SPEED LAW (engineering, not arithmetic — named as such): every effect below animates ONLY \`transform\`
+   and \`opacity\`, the two properties a compositor runs without returning to layout or paint. Nothing here
+   animates a property that forces the pipeline, and every timing function is linear — no invented curve. */
+
+/* q-superposition — C = ${C} STATES HELD AT ONCE, each at weight 1/${C} = ${weight}: a digit and its dz-mirror
+   (10−d) layered. One rule per mirror pair; the involution chose the pairs, not an author. */
 .q-superposition { position: relative; isolation: isolate; }
 .q-superposition::before,
 .q-superposition::after {
   content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
-  transition: opacity var(--dur-4) linear;
+  opacity: ${weight};
+  transition: opacity var(--dur-${rungs[Math.min(2, rungs.length - 1)] ?? rungs[0]}) linear;
   will-change: opacity;
 }
-.q-superposition::before { background: var(--seq-4); opacity: .5; }
-.q-superposition::after  { background: var(--seq-6); opacity: .5; }
+${superposed}
 
-/* q-collapse — THE MEASUREMENT: on hover or focus the superposition resolves to ONE state. Opacity only. */
+/* q-collapse — THE MEASUREMENT: hover or focus resolves the superposition to ONE state (weight 1, the other 0).
+   Opacity only, so the collapse costs the compositor and nothing else. */
 .q-superposition:hover::before, .q-superposition:focus-within::before { opacity: 1; }
 .q-superposition:hover::after,  .q-superposition:focus-within::after  { opacity: 0; }
 
-/* q-entangled — two elements carrying the same digit read the SAME computed hue: no animation, no message
-   passed, and no correlation beyond sharing one source. The address announces; nothing signals. */
-.q-entangled { border-inline-start: 2px solid var(--seq-center); }
+/* q-entangled — elements carrying the same digit read the SAME computed hue: no animation, no message passed,
+   no correlation beyond sharing one source. The address announces; nothing signals. Width = the coins. */
+.q-entangled { border-inline-start: ${C}px solid var(--seq-center); }
 
-/* q-fold — the involution, visible: the element turns and returns, self-inverse. TRANSFORM only. */
-@keyframes q-fold { 50% { transform: rotateY(180deg); } }
-.q-fold { animation: q-fold var(--dur-8) ease-in-out; transform-style: preserve-3d; will-change: transform; }
+/* q-fold — the involution made visible: a turn of 360/${C} = ${halfTurn}deg at the ${mid}% midpoint, and back.
+   Applied twice it is the identity, which is the whole claim. TRANSFORM only. */
+@keyframes q-fold { ${mid}% { transform: rotateY(${halfTurn}deg); } }
+.q-fold { animation: q-fold var(--dur-${rungs[rungs.length - 1]}) linear; transform-style: preserve-3d; will-change: transform; }
 
-/* q-rung — the type ladder as motion: each rung its own duration, the vortex read as time. */
-.q-rung-1 { transition-duration: var(--dur-1); }
-.q-rung-2 { transition-duration: var(--dur-2); }
-.q-rung-4 { transition-duration: var(--dur-4); }
-.q-rung-5 { transition-duration: var(--dur-5); }
-.q-rung-7 { transition-duration: var(--dur-7); }
-.q-rung-8 { transition-duration: var(--dur-8); }
+/* q-rung — the type ladder read as time: each rung carries its own duration from the vortex. */
+${ladder}
 
 /* THE HUMAN CLAUSE — the reader's own setting outranks every effect above, and so does the site's ◈ fold. */
 @media (prefers-reduced-motion: reduce) {
