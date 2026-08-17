@@ -21,15 +21,16 @@ the hard gate of the corroboration law.
 | `0d4a1ff2` | zenodo.org | zenodo record 2613490: Using Windows Server 2012-based storage solutions for small and medium size busi | UNVERIFIED | VERIFIED |
 | `55195a86` | zenodo.org | zenodo record 7064491: The Influence of Human Resource Management Practices on Employees Intention to E | UNVERIFIED | VERIFIED |
 | `72640191` | zenodo.org | zenodo record 4247156: IMPLEMENTATION OF THE METHOD OF IMAGE TRANSFORMATIONS FOR MINIMIZING THE SHEFFER | UNVERIFIED | VERIFIED |
-| `53440167` | zenodo.org | zenodo record 6957570: Significance of first flight take-off delays: A case study of a low-cost hub in  | UNVERIFIED | VERIFIED |
+| `3e2b9895` | zenodo.org | zenodo record 14979384: A Simple binary analysis of the Collatz Conjecture | UNVERIFIED | VERIFIED |
 | `d3de5f76` | crossref.org | DOI 10.36227/techrxiv.177223066.62993533/v1: V-PUF: An Ephemeral-Key Decentralized Architecture for Verifiable Hardware Authe | UNVERIFIED | VERIFIED |
 | `4f9117d7` | crossref.org | DOI 10.52202/079017-3030: Optimistic Verifiable Training by Controlling Hardware Nondeterminism | UNVERIFIED | VERIFIED |
 | `dac7fddc` | crossref.org | DOI 10.46586/tches.v2022.i4.163-187: Fast Large-Integer Extended GCD Algorithm and Hardware Design for Verifiable Del | UNVERIFIED | VERIFIED |
 | `d798c9d1` | crossref.org | DOI 10.23919/date48585.2020.9116342: Verifiable Security Templates for Hardware | UNVERIFIED | VERIFIED |
 | `e96b8122` | crossref.org | DOI 10.1109/iccd.1988.25772: Verifiable and executable theories of design for synthesizing correct hardware | UNVERIFIED | VERIFIED |
 | `7027fc90` | crossref.org | DOI 10.1016/0165-6074(86)90091-8: SMAX - A CONLAN member language for verifiable hardware descriptions | UNVERIFIED | VERIFIED |
+| `edf72385` | crossref.org | DOI 10.17760/d20699019: Hardware/software co-design and compiler techniques for efficient hardware
+      | UNVERIFIED | VERIFIED |
 | `6b22d60c` | crossref.org | DOI 10.1109/etfa.2008.4638584: Hardware acceleration for verifiable, adaptive real-time communication | UNVERIFIED | VERIFIED |
-| `c293c1f6` | crossref.org | DOI 10.1145/2611399.2611406: Verifiable Computing: Secure Code Execution Despite Untrusted Software and Hardw | UNVERIFIED | VERIFIED |
 | `4055812e` | openalex.org | OpenAlex Geppetto: Versatile Verifiable Computation [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
 | `3dd25566` | openalex.org | OpenAlex Full Accounting for Verifiable Outsourcing [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
 | `8dfe70c9` | openalex.org | OpenAlex Algebraic approaches to nondeterminism—an overview [Logic, Reasoning, and Knowledg] | UNVERIFIED | VERIFIED |
@@ -39,7 +40,7 @@ the hard gate of the corroboration law.
 | `2a4d891d` | openalex.org | OpenAlex Cryptanalysis of Algebraic Verifiable Delay Functions [Coding theory and cryptography] | UNVERIFIED | VERIFIED |
 | `acbd5915` | openalex.org | OpenAlex Introduction to differential power analysis [Cryptographic Implementations ] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `0fc53b22`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `5bb378ce`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

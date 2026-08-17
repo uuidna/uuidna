@@ -26,8 +26,8 @@ the hard gate of the corroboration law.
 | `cc003e3e` | crossref.org | DOI 10.3403/30128110u: Information technology. Unique identifiers | UNVERIFIED | VERIFIED |
 | `40523bbe` | crossref.org | DOI 10.3403/30128110: Information technology. Unique identifiers | UNVERIFIED | VERIFIED |
 | `ecbaae5a` | crossref.org | DOI 10.3403/30166532: Information technology. Automatic identification and data capture techniques. Da | UNVERIFIED | VERIFIED |
-| `997502ea` | crossref.org | DOI 10.3403/02097448u: Information technology � Automatic identification and data capture techniques �  | UNVERIFIED | VERIFIED |
 | `0162f819` | crossref.org | DOI 10.3403/02097448: Information technology. Automatic identification and data capture techniques. Da | UNVERIFIED | VERIFIED |
+| `997502ea` | crossref.org | DOI 10.3403/02097448u: Information technology � Automatic identification and data capture techniques �  | UNVERIFIED | VERIFIED |
 | `547ee855` | crossref.org | DOI 10.3403/02016085: Information technology. EAN/UCC application identifiers and fact data identifier | UNVERIFIED | VERIFIED |
 | `37eac8fa` | crossref.org | DOI 10.3403/30435753: Information technology � Automatic identification and data capture techniques �  | UNVERIFIED | VERIFIED |
 | `05415f93` | openalex.org | OpenAlex Techniques to Identify Themes [Computational and Text Analysi] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `27b6dd2c` | openalex.org | OpenAlex Regression Diagnostics -- Identifying Influential Data and Sources of  [Advanced Statistical Methods a] | UNVERIFIED | VERIFIED |
 | `f29a0897` | openalex.org | OpenAlex <scp>micro</scp>‐<scp>checker</scp>: software for identifying and corr [Genetic diversity and populati] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5d4a3103`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `5c355dc6`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

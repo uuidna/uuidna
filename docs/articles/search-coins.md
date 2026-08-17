@@ -14,14 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `faac9007` | zenodo.org | zenodo record 16127563: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
-| `90872bd3` | zenodo.org | zenodo record 16619826: Remarks on Prof. Huxley's proposed Classification of Birds | UNVERIFIED | VERIFIED |
-| `5e01e793` | zenodo.org | zenodo record 16708881: Proceedings of the Asiatic Society | UNVERIFIED | VERIFIED |
-| `5d1090ab` | zenodo.org | zenodo record 16079348: Literary Intelligence | UNVERIFIED | VERIFIED |
-| `62d265e1` | zenodo.org | zenodo record 16708924: Proceedings of the Asiatic Society of Bengal, for August, 1856 | UNVERIFIED | VERIFIED |
-| `c60f3de3` | zenodo.org | zenodo record 16057972: Literary Intelligence, and Correspondence | UNVERIFIED | VERIFIED |
-| `3cb8efe0` | zenodo.org | zenodo record 16140509: Proceedings of the Asiatic Society | UNVERIFIED | VERIFIED |
-| `f2646d1c` | zenodo.org | zenodo record 16188930: Proceedings of the Asiatic Society | UNVERIFIED | VERIFIED |
+| `b12d635e` | zenodo.org | zenodo record 16347833: XLVI.—Remarks on the correct Generic Name of the Linnets | UNVERIFIED | VERIFIED |
+| `ff85bdd2` | zenodo.org | zenodo record 16140513: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
+| `ed45ef35` | zenodo.org | zenodo record 16018623: Inscription on the Muqbura at Hailan | UNVERIFIED | VERIFIED |
+| `e3f7bb91` | zenodo.org | zenodo record 16439572: Abstract of the Results of the Hourly Meteorological Observations Taken at the S | UNVERIFIED | VERIFIED |
+| `eef1ceea` | zenodo.org | zenodo record 16138401: Proceedings of the Asiatic Society of Bengal, for May, 1863 | UNVERIFIED | VERIFIED |
+| `1f546fe0` | zenodo.org | zenodo record 16007331: Meteorological Remarks and Tables Commencing 1st May, 1854, at the Residency, Lu | UNVERIFIED | VERIFIED |
+| `97590f3e` | zenodo.org | zenodo record 16007001: Meteorological Observations | UNVERIFIED | VERIFIED |
+| `5fd9e067` | zenodo.org | zenodo record 16205342: Proceedings of the Asiatic Society of Bengal, for March, 1858 | UNVERIFIED | VERIFIED |
 | `de176129` | crossref.org | DOI 10.1163/9789004226425_004: A Typology of Herod’s Coins | UNVERIFIED | VERIFIED |
 | `77bacc2c` | crossref.org | DOI 10.1111/j.1600-0471.1995.tb00076.x: Two South Arabian coins from Mleiha | UNVERIFIED | VERIFIED |
 | `a0adcfca` | crossref.org | DOI 10.1093/nq/s7-vi.135.64c: Leather coins | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `a2a28886` | openalex.org | OpenAlex The coin model of privilege and critical allyship: implications for he [Obesity and Health Practices] | UNVERIFIED | VERIFIED |
 | `04da909f` | openalex.org | OpenAlex Adipo-Myokines: Two Sides of the Same Coin—Mediators of Inflammation a [Adipose Tissue and Metabolism] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `23ede72b`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `3a63f67a`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -18,15 +18,15 @@ the hard gate of the corroboration law.
 | `bfc17907` | zenodo.org | zenodo record 10477159: Kendo Headgear Concussion Safety Evaluation | UNVERIFIED | VERIFIED |
 | `e0ffefa2` | zenodo.org | zenodo record 10553550: A Dual-Discriminator GAN for Sleep EEG Signal Synthesis | UNVERIFIED | VERIFIED |
 | `2befc789` | zenodo.org | zenodo record 14727213: Host specificity of herbivorous insects promotes negative species–genetic divers | UNVERIFIED | VERIFIED |
-| `dfce7e58` | zenodo.org | zenodo record 2211265: Applied Science in the Navy | UNVERIFIED | VERIFIED |
 | `4660ad27` | zenodo.org | zenodo record 2659337: Interactive Design Exploration in Early Design Phase | UNVERIFIED | VERIFIED |
-| `6386a221` | zenodo.org | zenodo record 6321977: Controlling the interfacial reactions and environment of rare-earth ions in thin | UNVERIFIED | VERIFIED |
+| `dfce7e58` | zenodo.org | zenodo record 2211265: Applied Science in the Navy | UNVERIFIED | VERIFIED |
 | `185a5a93` | zenodo.org | zenodo record 10032046: ESTUDIO DE MATERIALES NANOPOROSOS COMO CONTENEDORES DE COMPUESTOS BIOACTIVOS PAR | UNVERIFIED | VERIFIED |
+| `6386a221` | zenodo.org | zenodo record 6321977: Controlling the interfacial reactions and environment of rare-earth ions in thin | UNVERIFIED | VERIFIED |
 | `73a577b4` | crossref.org | DOI 10.1016/s0169-4332(01)00021-6: The electronic structure and location of H pairs in bcc Fe edge dislocation | UNVERIFIED | VERIFIED |
 | `a2d08408` | crossref.org | DOI 10.1016/s0169-4332(01)00990-4: The electronic structure and bonding of H pairs at Σ=5 BCC Fe grain boundary | UNVERIFIED | VERIFIED |
 | `edb1f32d` | crossref.org | DOI 10.2210/pdb2o83/pdb: The Structure of Tandem GA RNA Pairs When Flanking Pairs are isoG-isoC Pairs | UNVERIFIED | VERIFIED |
-| `49bc2496` | crossref.org | DOI 10.1016/b978-0-408-70318-5.50026-1: ION PAIRS: RELAXATION PROCESSES AND STRUCTURE | UNVERIFIED | VERIFIED |
 | `4f821871` | crossref.org | DOI 10.2210/pdb2o81/pdb: The Structure of Tandem GA RNA Pairs When Flanking Pairs are isoG-isoC Pairs | UNVERIFIED | VERIFIED |
+| `49bc2496` | crossref.org | DOI 10.1016/b978-0-408-70318-5.50026-1: ION PAIRS: RELAXATION PROCESSES AND STRUCTURE | UNVERIFIED | VERIFIED |
 | `afc2576c` | crossref.org | DOI 10.1021/jp068732m.s001: Stacking Effects on Local Structure in RNA: Changes in the Structure of Tandem G | UNVERIFIED | VERIFIED |
 | `0fe8f198` | crossref.org | DOI 10.1016/s0169-4332(01)00467-6: A comparative study of the electronic structure of H pairs near a/2 and a[0 1 0] | UNVERIFIED | VERIFIED |
 | `f957cf58` | crossref.org | DOI 10.1016/j.amc.2019.124583: Developable surface pencil pairs with special pairs as common asymptotes | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `ceeeabeb` | openalex.org | OpenAlex Fitting Linear Mixed-Effects Models Using <b>lme4</b> [Data Analysis with R] | UNVERIFIED | VERIFIED |
 | `f22d8add` | openalex.org | OpenAlex <i>REFMAC</i>5 for the refinement of macromolecular crystal structures [Enzyme Structure and Function] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5c57b681`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `1f4b574a`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

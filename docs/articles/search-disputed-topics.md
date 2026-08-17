@@ -17,8 +17,8 @@ the hard gate of the corroboration law.
 | `b8554a29` | zenodo.org | zenodo record 7465400: Improving the Reform of Ukraine's Court System Based on the European experience | UNVERIFIED | VERIFIED |
 | `6c9d02e9` | zenodo.org | zenodo record 4775009: РЕПУТАЦІЯ СУДДІВ ЯК ПЕРЕДУМОВА ФОРМУВАННЯ ПОВАГИ І ДОВІРИ ДО СУДУ В УКРАЇНІ | UNVERIFIED | VERIFIED |
 | `3816ff03` | zenodo.org | zenodo record 15697143: A SURVEY OF BIG DATA ANALYTICS | UNVERIFIED | VERIFIED |
-| `58caf199` | zenodo.org | zenodo record 3229058: The Court of Justice Practice as a Source of the EU Law | UNVERIFIED | VERIFIED |
 | `7fdf57e6` | zenodo.org | zenodo record 6963787: COMPULSORY ATTENDANCE AS A TYPE OF PROCEDURAL  COERCIVE MEASURE | UNVERIFIED | VERIFIED |
+| `58caf199` | zenodo.org | zenodo record 3229058: The Court of Justice Practice as a Source of the EU Law | UNVERIFIED | VERIFIED |
 | `54faeb95` | zenodo.org | zenodo record 14277551: Public Debt and Economic Growth in Tanzania: An Empirical Investigation | UNVERIFIED | VERIFIED |
 | `8f5af1e4` | zenodo.org | zenodo record 3607948: Updating the Content of the Category of "Public Administration": Notes for Scien | UNVERIFIED | VERIFIED |
 | `ed4efc67` | zenodo.org | zenodo record 6573511: ПОРІВНЯЛЬНО-ПРАВОВА ХАРАКТЕРИСТИКА ПОРЯДКУ ВИКОНАННЯ РІШЕНЬ КОНСТИТУЦІЙНИХ СУДІВ | UNVERIFIED | VERIFIED |
@@ -30,14 +30,6 @@ the hard gate of the corroboration law.
 | `e9a4a29b` | crossref.org | DOI 10.3724/sp.j.1146.2010.00731: Honest-Sender Commitment and Honest-Receiver Commitment | UNVERIFIED | VERIFIED |
 | `aa365fc0` | crossref.org | DOI 10.7551/mitpress/8022.003.0003: Honest Signals | UNVERIFIED | VERIFIED |
 | `e16da57f` | crossref.org | DOI 10.3998/mpub.12207107.cmp.91: But It’s Honest Work | UNVERIFIED | VERIFIED |
-| `d433de04` | semanticscholar.org | S2 Ames, The Seventh Amendment, and the Honest Belief Trap Taut | UNVERIFIED | VERIFIED |
-| `61e5e08c` | semanticscholar.org | S2 Honest Lawyer at the Royal Court: Chrétien-Guillaume de Lamo | UNVERIFIED | VERIFIED |
-| `72b21146` | semanticscholar.org | S2 Section 48 orders in the Court of Protection: undermining au | UNVERIFIED | VERIFIED |
-| `49e66c89` | semanticscholar.org | S2 Out ‘plumb’: High Court of England and Wales considers the h | UNVERIFIED | VERIFIED |
-| `b831d34e` | semanticscholar.org | S2 ‘That Sty for Fattening Lawyers In \| On the Bones of Honest  | UNVERIFIED | VERIFIED |
-| `819d7e52` | semanticscholar.org | S2 The Supreme Court Is About to Get a Lot Less Honest About It | UNVERIFIED | VERIFIED |
-| `4f27fb3e` | semanticscholar.org | S2 'I understand people can relapse, but you have to be honest' | UNVERIFIED | VERIFIED |
-| `42335285` | semanticscholar.org | S2 Disputes Over General Election Results Based on Judicial Act | UNVERIFIED | VERIFIED |
 | `afca2c19` | openalex.org | OpenAlex Unpacking the Court [Legal Education and Practice I] | UNVERIFIED | VERIFIED |
 | `26ddbaee` | openalex.org | OpenAlex An Honest Chance: Perspectives on Drug Courts Findings From Drug Court [Criminal Justice and Correctio] | UNVERIFIED | VERIFIED |
 | `f00513d5` | openalex.org | OpenAlex State-building : governance and world order in the twenty-first centur [Global Peace and Security Dyna] | UNVERIFIED | VERIFIED |
@@ -47,7 +39,7 @@ the hard gate of the corroboration law.
 | `7f0dc888` | openalex.org | OpenAlex Climate change litigation: A review of research on courts and litigant [Environmental law and policy] | UNVERIFIED | VERIFIED |
 | `e7a7fc39` | openalex.org | OpenAlex Open Courts: How Cameras in Courts Help Keep the System Honest [Law in Society and Culture] | UNVERIFIED | VERIFIED |
 
-**32 findings · 32 usable search-trial combinations · receipt `d3d331b8`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `c264e672`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

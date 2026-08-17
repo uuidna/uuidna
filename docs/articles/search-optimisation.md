@@ -15,10 +15,10 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `be8e31eb` | zenodo.org | zenodo record 4620307: SÍNDROME DE BURNOUT EM ENFERMEIROS DE UNIDADE DE TERAPIA INTENSIVA | UNVERIFIED | VERIFIED |
+| `b472061d` | zenodo.org | zenodo record 4620318: AS ESTRATÉGIAS INTERPESSOAIS UTILIZADAS EM PACIENTES PORTADORES DE  PSICOPATIA | UNVERIFIED | VERIFIED |
 | `5c628a9b` | zenodo.org | zenodo record 37743: Optimum non linear document restoration through linear greyscale operators | UNVERIFIED | VERIFIED |
 | `c849ef2b` | zenodo.org | zenodo record 54270: Optimum non linear document restoration through linear greyscale operators | UNVERIFIED | VERIFIED |
 | `2a3f2b6c` | zenodo.org | zenodo record 3592436: ADOLESCENTE GRÁVIDA COM ALTERAÇÃO PSICOSSOCIAL VULNERÁVEL SOB A ÓTICA DA EQUIPE  | UNVERIFIED | VERIFIED |
-| `b472061d` | zenodo.org | zenodo record 4620318: AS ESTRATÉGIAS INTERPESSOAIS UTILIZADAS EM PACIENTES PORTADORES DE  PSICOPATIA | UNVERIFIED | VERIFIED |
 | `85bb5db2` | zenodo.org | zenodo record 4620320: A  ATUAÇÃO DO ENFERMEIRO NA RESSUSCITAÇÃO CARDIOPULMONAR PEDIÁTRICA | UNVERIFIED | VERIFIED |
 | `032466ca` | zenodo.org | zenodo record 7527492: Bayesian models' outputs for: A new method to explicitly estimate the shift of o | UNVERIFIED | VERIFIED |
 | `cb3177b0` | zenodo.org | zenodo record 14676551: Optimum enterprise combination of selected food crops and broiler production sys | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `0a481442` | openalex.org | OpenAlex Optimal Detection of Changepoints With a Linear Computational Cost [Algorithms and Data Compressio] | UNVERIFIED | VERIFIED |
 | `1aa0de6f` | openalex.org | OpenAlex A New Approach to Linear Filtering and Prediction Problems [Target Tracking and Data Fusio] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `b97812fb`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `eaf84811`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

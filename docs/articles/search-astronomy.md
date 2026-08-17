@@ -18,10 +18,10 @@ the hard gate of the corroboration law.
 | `8b77b878` | zenodo.org | zenodo record 1757943: The Distances of the Fixed Stars | UNVERIFIED | VERIFIED |
 | `6057422b` | zenodo.org | zenodo record 2203024: The Real Motions of the Fixed Stars | UNVERIFIED | VERIFIED |
 | `9579837f` | zenodo.org | zenodo record 18763056: H2 SilverSTARS: Pilot Plant Demonstration at SunLine Transit Agency | UNVERIFIED | VERIFIED |
-| `5d9d08b4` | zenodo.org | zenodo record 19943427: MANFAAT MANAJEMEN KEPEMIMPINAN GEREJA TERHADAP TINGKAT KEHADIRAN PEMUDA DALAM IB | UNVERIFIED | VERIFIED |
 | `6aacf69b` | zenodo.org | zenodo record 1553921: On the Proper Motions of the Fixed Stars | UNVERIFIED | VERIFIED |
+| `5d9d08b4` | zenodo.org | zenodo record 19943427: MANFAAT MANAJEMEN KEPEMIMPINAN GEREJA TERHADAP TINGKAT KEHADIRAN PEMUDA DALAM IB | UNVERIFIED | VERIFIED |
 | `5638b70b` | zenodo.org | zenodo record 19007594: ANALYSIS OF PHRASEOLOGICAL UNITS IN THE WORKS OF JOHN GREEN | UNVERIFIED | VERIFIED |
-| `a113da72` | zenodo.org | zenodo record 19229963: KAJIAN TERHADAP TRADISI MOHATU SUKU SALUAN DI DESA SIMPANG II DARI PERSPEKTIF TE | UNVERIFIED | VERIFIED |
+| `84b83c1f` | zenodo.org | zenodo record 6814924: Both the Sun And the Earth Are Fixed Stars | UNVERIFIED | VERIFIED |
 | `5883cc26` | crossref.org | DOI 10.1163/1574-9347_bnp_e411930: Fixed stars | UNVERIFIED | VERIFIED |
 | `2fab4b09` | crossref.org | DOI 10.2307/j.ctt9qh6pj.9: Fixed Stars | UNVERIFIED | VERIFIED |
 | `511efdcf` | crossref.org | DOI 10.1007/978-94-009-4692-7_2: The ‘Fixed’ Stars and the ‘Wandering’ Planets | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `2bbdf006` | openalex.org | OpenAlex XII. On the spectra of some of the fixed stars [History and Developments in As] | UNVERIFIED | VERIFIED |
 | `babc9737` | openalex.org | OpenAlex XIII. On the spectra of some of the nebulæ. A supplement to the paper  [History and Developments in As] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `fd1d042d`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `b5735c73`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

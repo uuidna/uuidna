@@ -29,7 +29,7 @@ the hard gate of the corroboration law.
 | `afafc9d2` | crossref.org | DOI 10.32657/10356/50472: Finite-difference time-domain methods for anisotropic media with total-field/sca | UNVERIFIED | VERIFIED |
 | `320ad4f3` | crossref.org | DOI 10.1117/3.1002803.ch32: Modal Domain Sensor Theory | UNVERIFIED | VERIFIED |
 | `f74ddb52` | crossref.org | DOI 10.55417/fr.2022022: A Domain-Based and Reactive COLAV Method with a Partially COLREGs-Compliant Doma | UNVERIFIED | VERIFIED |
-| `5d5d3c18` | crossref.org | DOI 10.1117/3.1002803.ch76: Optical Frequency Domain Reflectometry | UNVERIFIED | VERIFIED |
+| `4ccb0139` | crossref.org | DOI 10.1117/3.1002803.ch33: Modal Domain Vibration Sensor | UNVERIFIED | VERIFIED |
 | `f78c33c9` | openalex.org | OpenAlex Field Dependence of the Intrinsic Domain Magnetization of a Ferromagne [Magnetic properties of thin fi] | UNVERIFIED | VERIFIED |
 | `dd216a53` | openalex.org | OpenAlex The emerging field of signal processing on graphs: Extending high-dime [Complex Network Analysis Techn] | UNVERIFIED | VERIFIED |
 | `61ee97a1` | openalex.org | OpenAlex Absorbing Boundary Conditions for the Finite-Difference Approximation  [Electromagnetic Simulation and] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `4a021e02` | openalex.org | OpenAlex Large electric-field-induced strain in ferroelectric crystals by point [Ferroelectric and Piezoelectri] | UNVERIFIED | VERIFIED |
 | `ad99ceb5` | openalex.org | OpenAlex Photon-Assisted Electric Field Domains and Multiphoton-Assisted Tunnel [Semiconductor Quantum Structur] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `6a6dc5d0`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `1c652a01`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

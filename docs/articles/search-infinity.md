@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `a8689838` | zenodo.org | zenodo record 7758114: Muongraphy sonification (IP2I) | UNVERIFIED | VERIFIED |
-| `b91da52f` | zenodo.org | zenodo record 16989116: Problems with String Theory in Quantum Gravity | UNVERIFIED | VERIFIED |
-| `b889b96c` | zenodo.org | zenodo record 20612784: THE ELECTRON RADIUS Point-Particle Infinities vs. Finite Topological Knots | UNVERIFIED | VERIFIED |
-| `4a117cf2` | zenodo.org | zenodo record 21072183: Plan for stakeholder engagement | UNVERIFIED | VERIFIED |
-| `b2e543f7` | zenodo.org | zenodo record 7794586: Reaching for the Infinities - A strategic plan for French Nuclear, Particle and  | UNVERIFIED | VERIFIED |
-| `57915b63` | zenodo.org | zenodo record 20598880: EXACT DERIVATION OF TOPOLOGICAL CASIMIR TENSION IN A DISCRETE HYDRODYNAMIC VACUU | UNVERIFIED | VERIFIED |
-| `503cce33` | zenodo.org | zenodo record 3784691: Micromechanical model of cross-over fiber bridging | UNVERIFIED | VERIFIED |
-| `bce97688` | zenodo.org | zenodo record 15912275: Stakeholder Engagement Plan | UNVERIFIED | VERIFIED |
 | `ae2123fa` | crossref.org | DOI 10.5040/9781350115323.ch-s18: Infinities in the Finite, Infinities Beyond Any Finite. Proof of Scott’s Theorem | UNVERIFIED | VERIFIED |
 | `fb7eb5d1` | crossref.org | DOI 10.1103/physics.4.s176: Wrestling with Infinities | UNVERIFIED | VERIFIED |
 | `e896d28b` | crossref.org | DOI 10.1007/978-1-4471-0751-4_14: Infinitely Many Infinities | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `767950ff` | openalex.org | OpenAlex FIRE-2 simulations: physics versus numerics in galaxy formation [Galaxies: Formation, Evolution] | UNVERIFIED | VERIFIED |
 | `c2de8429` | openalex.org | OpenAlex Conformal collider physics: energy and charge correlations [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `7588c1dd`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `f166f3be`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

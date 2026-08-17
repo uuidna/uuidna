@@ -30,8 +30,16 @@ the hard gate of the corroboration law.
 | `ff553911` | crossref.org | DOI 10.1093/oed/9162227751: ported, adj.¹ | UNVERIFIED | VERIFIED |
 | `ca17c533` | crossref.org | DOI 10.1088/0256-307x/26/5/059902: Reply to the “Comment on ‘Ported from Self-Similar Analytic Solutions of Ginzbur | UNVERIFIED | VERIFIED |
 | `7e91caf6` | crossref.org | DOI 10.1007/pl00012814: From GPS and GLONASS via EGNOS to Galileo – Positioning and Navigation in the Th | UNVERIFIED | VERIFIED |
+| `83e0bbfa` | openalex.org | OpenAlex Hyaluronic Acid in the Third Millennium [Proteoglycans and glycosaminog] | UNVERIFIED | VERIFIED |
+| `f3f8f84b` | openalex.org | OpenAlex High-resolution palaeoclimatology of the last millennium: a review of  [Tree-ring climate responses] | UNVERIFIED | VERIFIED |
+| `094e38d7` | openalex.org | OpenAlex Getting the message right on nature‐based solutions to climate change [Conservation, Biodiversity, an] | UNVERIFIED | VERIFIED |
+| `288173c1` | openalex.org | OpenAlex Nature-based solutions to climate change mitigation and adaptation in  [Urban Green Space and Health] | UNVERIFIED | VERIFIED |
+| `f232d61d` | openalex.org | OpenAlex Large-scale temperature response to external forcing in simulations an [Tree-ring climate responses] | UNVERIFIED | VERIFIED |
+| `ed17305f` | openalex.org | OpenAlex Modeling global water use for the 21st century: the Water Futures and  [Water-Energy-Food Nexus Studie] | UNVERIFIED | VERIFIED |
+| `2067ecd9` | openalex.org | OpenAlex Wind erosion and dust from <scp>US</scp> drylands: a review of causes, [Aeolian processes and effects] | UNVERIFIED | VERIFIED |
+| `afa6c93e` | openalex.org | OpenAlex Greenhouse Gas Emissions from Global Cities [Sustainability and Ecological ] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `bc96ffd2`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `7e4c0b62`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

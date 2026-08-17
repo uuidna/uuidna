@@ -18,10 +18,10 @@ the hard gate of the corroboration law.
 | `9c8baab6` | zenodo.org | zenodo record 13890306: COMPASS Plan for the Exploitation and Dissemination of Results Including Communi | UNVERIFIED | VERIFIED |
 | `41ecf2e1` | zenodo.org | zenodo record 8298539: Replication Guidance | UNVERIFIED | VERIFIED |
 | `be4e5af1` | zenodo.org | zenodo record 21648709: A Practical CRA Documentation Guide | UNVERIFIED | VERIFIED |
+| `bf6bbb4a` | zenodo.org | zenodo record 6504273: NanoCommons/user-handbook: NanoCommons User Guidance Handbook | UNVERIFIED | VERIFIED |
 | `042212c3` | zenodo.org | zenodo record 15657384: Martian Incident and Reflected Ion Partial Moments | UNVERIFIED | VERIFIED |
+| `28f233c9` | zenodo.org | zenodo record 21644422: The CRA Compliance Glossary | UNVERIFIED | VERIFIED |
 | `35505623` | zenodo.org | zenodo record 13841258: jiaojiaojhy/VAE-LSTM data: VAE-LSTM data | UNVERIFIED | VERIFIED |
-| `907ed528` | zenodo.org | zenodo record 18367273: Tympaki LL_ Meteorological forcing dataset | UNVERIFIED | VERIFIED |
-| `6b3292f2` | zenodo.org | zenodo record 3555646: A study of The RAJADHAMMASANGAHA and Democracy | UNVERIFIED | VERIFIED |
 | `96bcb159` | crossref.org | DOI 10.1163/9789004659810_004: II. Comments on Goldziher’s Seven Works | UNVERIFIED | VERIFIED |
 | `1746c258` | crossref.org | DOI 10.1163/ej.9789004172692.i-556.57: Chapter Seven. Changing Concepts Of Time | UNVERIFIED | VERIFIED |
 | `7769aa87` | crossref.org | DOI 10.1515/jncds-2025-0101: Analysis of reflected field amplitudes in a seven-spaced waveguide structure | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `2e16b855` | openalex.org | OpenAlex The dri thermal/optical reflectance carbon analysis system: descriptio [Atmospheric chemistry and aero] | UNVERIFIED | VERIFIED |
 | `746bea9c` | openalex.org | OpenAlex Thyroid Cancer after Exposure to External Radiation: A Pooled Analysis [Radiation Dose and Imaging] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `85a53366`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `8d1e1a28`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
