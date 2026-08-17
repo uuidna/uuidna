@@ -1,6 +1,6 @@
 name: publish
 
-# Publish @uuidna/uuidna to npm when a v0.[integer].[orbit digit] tag is pushed (or on manual dispatch).
+# Publish @uuidna/uuidna to npm when a v0.[integer].[digit] tag is pushed (or on manual dispatch).
 # TOKEN-FREE via OIDC Trusted Publishing (set on npmjs.com → the package's Settings → Trusted Publisher: GitHub
 # Actions, repo uuidna/uuidna, workflow publish.yml). No NPM_TOKEN secret — GitHub's OIDC id-token is exchanged for
 # a short-lived publish credential, so no 2FA-bypassing token is stored anywhere. The COMPLETE audit runs first, as
@@ -13,7 +13,7 @@ name: publish
 #   3. provenance       — the honesty gate: every prose claim linked/demarcated (claims:0), or fail
 #   4. tests            — crypt-guard · KAT · pq · quantum · smoke (incl. the no-Math purity check) · stream
 #   5. determinism      — regenerating the ledger from the proofs leaves the tree clean (git diff --exit-code)
-#   6. version guards   — tag == package.json version, and the odometer v0.[integer].[the vortex orbit]
+#   6. version guards   — tag == package.json version, and the odometer v0.[integer].[digit] (the v0 lock)
 #   7. npm provenance   — the published tarball carries a signed Sigstore attestation (--provenance, id-token)
 # Dimensions 1–5 are `npm run audit` (also the local prepublishOnly gate); 6–7 are added here for the deploy.
 
@@ -90,7 +90,7 @@ jobs:
           # locked at 0 (a major tick is the captain's statement about maturity, never a pipeline's), MINOR an
           # unbounded integer (the calendar never fills), PATCH one digit (ten patches roll a minor). Nothing
           # outside that shape publishes: not to npm, not to the release, not to the archive.
-          echo "$TAG" | grep -Eq '^0\.[0-9]+\.[124578]$' || { echo "::error::v$TAG breaks the odometer v0.[integer].[the sequence] — major must be 0 (the v0 lock), minor any integer, and the patch must be a digit OF THE VORTEX ORBIT 1,2,4,8,7,5 (a unit of Z/9 — never 0, 3, 6 or 9)"; exit 1; }
+          echo "$TAG" | grep -Eq '^0\.[0-9]+\.[0-9]$' || { echo "::error::v$TAG breaks the odometer v0.[integer].[digit] — major must be 0 (the v0 lock), minor any integer, patch one digit 0..9 stepping linearly"; exit 1; }
 
       # Token-free: OIDC (id-token: write above) is exchanged for the publish credential; no NODE_AUTH_TOKEN.
       - name: Publish (public, token-free via OIDC, with provenance) — prepublishOnly runs the complete audit first

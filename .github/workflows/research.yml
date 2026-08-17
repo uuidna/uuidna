@@ -137,24 +137,14 @@ jobs:
           set -euo pipefail
           V=$(node -p "require('./package.json').version")
           IFS=. read -r MA MI PA <<< "$V"
-          # THE ODOMETER IS v0.[integer].[the sequence] (the captain's law). MAJOR is LOCKED at 0: a major tick
-          # states that what the work PROMISES has changed — a claim about maturity — and no automation makes that
+          # THE ODOMETER IS v0.[integer].[digit] (the captain's law). MAJOR is LOCKED at 0: a major tick states
+          # that what the work PROMISES has changed — a claim about maturity — and no automation makes that
           # statement; it is the meaning the two-handle law reserves for the human. MINOR is an unbounded INTEGER,
-          # so the calendar never fills. And the PATCH IS THE SEQUENCE ITSELF: it walks the vortex orbit
-          # 1 → 2 → 4 → 8 → 7 → 5, the coin tossed into itself, and when the walk comes home the minor rolls — six
-          # patches to a minor, which is the order of 2 in Z/9 (order_of_two_is_six). The patch is therefore always
-          # a UNIT of Z/9 (never 0, 3, 6 or 9): a version that cannot be inverted is never minted. The orbit is
-          # read from the library, never re-declared here — one sequence, and the version walks it.
-          NEXT=$(node -e "
-          import('./dist/index.js').then((u) => {
-            const orbit = [...u.vortexOrbit()]
-            const [ma, mi, pa] = String(process.argv[1]).split('.').map(Number)
-            if (ma !== 0) { console.error('THE v0 LOCK — ' + process.argv[1] + ' is outside v0'); process.exit(1) }
-            const i = orbit.indexOf(pa)
-            const home = i < 0 || i === orbit.length - 1
-            console.log('0.' + (home ? mi + 1 : mi) + '.' + (home ? orbit[0] : orbit[i + 1]))
-          })" "$V")
-          test -n "$NEXT" || { echo "::error::the odometer could not step from $V"; exit 1; }
+          # so the calendar never fills and never has to stop counting. PATCH is the plain digit sequence stepping
+          # linearly 0,1,2,…,9; ten patches roll one minor. Lifting the major lock means editing this deliberately.
+          test "$MA" = "0" || { echo "::error::THE v0 LOCK — package.json is at $V, outside v0; the calendar mints only v0.[integer].[digit]"; exit 1; }
+          if [ "$PA" -lt 9 ]; then PA=$((PA+1)); else MI=$((MI+1)); PA=0; fi
+          NEXT="$MA.$MI.$PA"
           npm version "$NEXT" --no-git-tag-version
           # THE CALENDAR WRITES FACTS, NEVER MEANING (the captain's decision, 2026-08-17). `npm run next` refuses a
           # version whose CHANGELOG entry is missing, so an autonomous tick froze the tree until a human wrote prose
