@@ -482,6 +482,41 @@ export function absenceGaps(): Gap[] {
   return gaps
 }
 
+// ── blocks: THE TWO SHAPES MUST NEVER DISAGREE. "Each theorem is a block" (the captain, 2026-08-18) — uuidna
+// emits the same seed tree TWICE: payload-sync.json (one page per theorem, nested-docs children, a lexical
+// `content` field — Payload's DEFAULT) and payload-sync-blocks.json (one page per WING, a `layout` array of one
+// `theorem` block per theorem — the shape Payload's OWN production site, payloadcms/website, actually speaks).
+// Same source, same per-theorem address (documentAddress of that theorem's lexical root), two envelopes. This
+// checks the invariant that makes "two envelopes" honest rather than "two sources of truth": every theorem's
+// address must AGREE across both files, and every block address must be DISTINCT — the exact class that once
+// collapsed 235 theorems onto one wing address, now guarded on both shapes at once.
+// SKIPS (returns clean, not gap) if either file is absent — these are optional exports (`npm run payload:sync`),
+// not part of every reconcile, so guard does not force-generate them; when they exist, they must agree.
+export function blocksGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const richPath = join(ROOT, 'src', 'seeds', 'payload-sync.json')
+  const blocksPath = join(ROOT, 'src', 'seeds', 'payload-sync-blocks.json')
+  if (!existsSync(richPath) || !existsSync(blocksPath)) return gaps
+  const rich = JSON.parse(readFileSync(richPath, 'utf8')) as { docs: { slug: string; parent: string | null; uuidnaAddress: string }[] }
+  const blocksFile = JSON.parse(readFileSync(blocksPath, 'utf8')) as { docs: { layout: { slug: string; uuidnaAddress: string }[] }[] }
+  const blocks = blocksFile.docs.flatMap((d) => d.layout)
+
+  const seen = new Map<string, string>()
+  for (const b of blocks) {
+    const prior = seen.get(b.uuidnaAddress)
+    if (prior) gaps.push({ what: `payload-sync-blocks.json: "${prior}" and "${b.slug}" share address ${b.uuidnaAddress} — the wing-address collision class, back in the blocks shape`, fix: 'each block must be addressed from its OWN content (documentAddress of its lexical root), never a shared or wing-level address — see toPayloadBlocksDoc in src/payload-seed.ts' })
+    seen.set(b.uuidnaAddress, b.slug)
+  }
+
+  const richBySlug = new Map(rich.docs.filter((d) => d.parent !== null).map((d) => [d.slug, d.uuidnaAddress]))
+  for (const b of blocks) {
+    const richAddr = richBySlug.get(b.slug)
+    if (richAddr && richAddr !== b.uuidnaAddress)
+      gaps.push({ what: `"${b.slug}" has address ${richAddr} in payload-sync.json but ${b.uuidnaAddress} in payload-sync-blocks.json — the two envelopes disagree about one theorem's identity`, fix: 'both emitters must call documentAddress on the SAME lexical root for a given theorem; regenerate both with `npm run payload:sync` after checking toPayloadDocs and toPayloadBlocksDoc compute identically' })
+  }
+  return gaps
+}
+
 // ── frozen: A FACT MUST COMPUTE IN AT LEAST ONE DIMENSION. Its first draft read only the ledger and convicted two
 // innocents: clay_launder_refused and clay_status_dna_total look like closed arithmetic (`15 - 15 = 0`) but their
 // generators compute LIVE — refusedCount runs adjudicate() over all fifteen probes, and emit() hard-exits when a
@@ -536,6 +571,28 @@ export function stateGaps(): Gap[] {
       gaps.push({ what: `.github/workflows/${e.name} re-implements ${what}, which \`npm run state\` already folds`, fix: 'replace the hand-written check with `npm run state -- --assert` — one command for the operator and the workflow, so the answer cannot drift between them; if this workflow genuinely needs the raw value, take it from the state receipt rather than recomputing it' })
     }
   }
+
+  // THE FOLD ITSELF MUST STAY WHOLE — state.ts's own finders array is a SECOND list of guard's blocking finder
+  // names, and it drifted the day `folders` and `blocks` landed in the guard without landing here: state reported
+  // nine finders while ten were actually gating the push. A fold that quietly omits members is worse than no fold,
+  // because it reads as complete. Compares guard's blocking `{ name: 'x', run: ... }` entries against state.ts's
+  // own `['x', xGaps()...]` array — both read fresh from source, never assumed.
+  // SELF-EXEMPT, by name and reason, not by accident — the same discipline finder-coverage.test.ts's ON_DEMAND
+  // uses. 'state' cannot report on itself (state.ts calling stateGaps() to build state.ts is not a check, it is
+  // a loop). 'micro' needs a built site (needsBuiltSite in guard.ts) and state.ts never builds one, so it would
+  // either always read clean-by-absence or force a site build on every `npm run state` call — the wrong cost for
+  // a command whose whole point is to be cheap enough to ask before anything.
+  const STATE_EXEMPT = new Set(['state', 'micro'])
+  const guardSrc = readFileSync(join(ROOT, 'src', 'scripts', 'guard.ts'), 'utf8')
+  const stateSrc = readFileSync(join(ROOT, 'src', 'scripts', 'state.ts'), 'utf8')
+  // ONLY the blocking array — guard.ts's ADVISORY tier (e.g. 'seo') uses the identical `{ name: 'x', run: ...`
+  // shape but is deliberately non-blocking, so it is not part of what state.ts's fold owes.
+  const findersBlock = guardSrc.slice(guardSrc.indexOf('const FINDERS'), guardSrc.indexOf('const ADVISORY'))
+  const guardNames = new Set([...findersBlock.matchAll(/\{ name: '([a-z]+)', run:/g)].map((m) => m[1]).filter((n) => !STATE_EXEMPT.has(n)))
+  // `(await coherentGaps()).length` — the invocation may be wrapped in (await …), not just called bare
+  const stateNames = new Set([...stateSrc.matchAll(/\['([a-z]+)',\s*\(?(?:await )?\w+Gaps\(/g)].map((m) => m[1]))
+  for (const n of guardNames) if (!stateNames.has(n)) gaps.push({ what: `guard.ts blocks on '${n}' but state.ts's finders array does not report it — the fold is incomplete`, fix: `add ['${n}', ${n}Gaps().length] (or the shape its guard.ts entry uses — .gaps.length, or await if async) to the finders array in src/scripts/state.ts` })
+  for (const n of stateNames) if (!guardNames.has(n) && !STATE_EXEMPT.has(n)) gaps.push({ what: `state.ts reports '${n}' but guard.ts does not block on it — the fold names a finder that is not actually gating`, fix: `either wire '${n}' into guard.ts's blocking FINDERS, or remove it from state.ts's finders array` })
   return gaps
 }
 
@@ -965,6 +1022,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'actions') report('one-receipt actions', actionsGaps(), 'every action pins one major, tree-wide — no workflow silently trails the rest onto a deprecated runtime.')
   else if (cmd === 'vacuous') report('one-receipt vacuous', vacuousGaps(), 'no theorem is true regardless of its content — every sealed name is carried by a proof that means it.')
   else if (cmd === 'frozen') report('one-receipt frozen', frozenGaps(), 'no theorem freezes a measured quantity — every name that counts live things walks the structure it counts.')
+  else if (cmd === 'blocks') report('one-receipt blocks', blocksGaps(), 'the two Payload shapes never disagree — every theorem addresses the same across richText docs and layout blocks.')
   else if (cmd === 'state') report('one-receipt state', stateGaps(), 'the folded question has one copy — no workflow re-implements what npm run state already answers.')
   else if (cmd === 'folders') report('one-receipt folders', foldersGaps(), 'every module folder is one word holding index faces only — one concept, one name.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')

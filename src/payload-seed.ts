@@ -98,6 +98,12 @@ export function verifySeed(seed: LeanPageSeed, fileStem: string, contents: strin
 // ---- PAYLOAD COLLECTION SYNC — no collections of our own. uuidna emits docs in the STANDARD shapes the Payload
 // pages collection and its stock plugins already speak — the nested-docs parent relation, the drafts `_status`,
 // the lexical `content` field — so a vanilla Payload instance AUTO-RECOGNIZES the seeds with zero custom schema.
+// HONEST SCOPE, checked against Payload's OWN production site (github.com/payloadcms/website, 2026-08-18):
+// "vanilla" here means a richText/lexical `content` field — payloadcms/website itself does NOT use one. Its
+// Pages collection renders a `layout` BLOCKS array (callout/cta/content/…), so this doc shape would sit
+// unrendered there. toPayloadBlocksDoc BELOW is that second shape — EACH THEOREM IS A BLOCK, one page per
+// wing. Nested-docs (breadcrumbs: true) and the pages/_status shapes generalize; only the body field's shape
+// does not, which is why there are two emitters rather than one adapter bolted onto this one.
 // usable → _status 'published'; draft → _status 'draft'. The parent page carries the lean file; each theorem is a
 // child doc whose `parent` names the parent slug (the nested-docs convention), breadcrumbs and tree views follow
 // for free. The version uuid rides in `uuidnaVersion` so a sync is idempotent: same uuid, nothing to write.
@@ -137,4 +143,50 @@ export function toPayloadDocs(seed: LeanPageSeed): PayloadDoc[] {
     uuidnaAddress: documentAddress({ root: { type: 'root', children: n.children ?? [] } } as EditorState),
   }))
   return [parent, ...children]
+}
+
+// ---- THE BLOCKS ADAPTER — the captain's correction (2026-08-18): "each theorem is a block." payloadcms/website's
+// own Pages collection has no lexical `content` field; it renders a `layout` BLOCKS array (callout/cta/content/…).
+// toPayloadDocs' one-page-per-theorem shape auto-recognizes on a richText receiver but sits unrendered on a
+// blocks receiver — not because the DATA is wrong, but because the SHAPE is wrong: many docs vs. one doc, many
+// blocks. This is the second shape, not a replacement: one page PER WING, its `layout` holding one block PER
+// THEOREM, each block carrying the theorem's own lexical content and its own address — the same per-theorem
+// identity toPayloadDocs now stamps, just folded into blocks instead of spread across sibling documents.
+export interface PayloadBlock {
+  blockType: 'theorem'
+  slug: string
+  title: string
+  content: EditorState          // the theorem's own lexical root — unchanged data, a different envelope
+  uuidnaAddress: string         // per-block identity: the same fix that ended the 72-address collision in toPayloadDocs
+}
+
+export interface PayloadBlocksDoc {
+  slug: string
+  title: string
+  _status: 'published' | 'draft'
+  layout: PayloadBlock[]        // one entry per theorem — the wing IS its blocks, not a parent with children
+  uuidnaVersion: string
+  uuidnaAddress: string         // the wing's own address (documentAddress of the whole seed), distinct from every block's
+}
+
+/** toPayloadBlocksDoc(seed) → ONE page per wing, its theorems folded into `layout` as blocks instead of spread
+ *  into sibling child docs. Feed to a blocks-based Pages collection (payloadcms/website's own shape); a
+ *  richText-based receiver should use toPayloadDocs instead — the data is identical, only the envelope differs. */
+export function toPayloadBlocksDoc(seed: LeanPageSeed): PayloadBlocksDoc {
+  const status: 'published' | 'draft' = seed.status === 'usable' ? PAYLOAD.statuses.published : PAYLOAD.statuses.draft
+  const rootChildren = seed.page.root.children ?? []
+  const layout: PayloadBlock[] = rootChildren.filter((n) => n.type === 'page').map((n) => {
+    const content: EditorState = { root: { type: 'root', children: n.children ?? [] } }
+    return {
+      blockType: 'theorem',
+      slug: String((n as { slug?: unknown }).slug ?? ''),
+      title: String((n as { slug?: unknown }).slug ?? ''),
+      content,
+      uuidnaAddress: documentAddress(content),   // per-theorem, never the wing's — the same law toPayloadDocs pays
+    }
+  })
+  return {
+    slug: seed.slug, title: seed.slug + '.lean', _status: status,
+    layout, uuidnaVersion: seed.uuid, uuidnaAddress: seed.address,
+  }
 }

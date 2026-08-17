@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps } from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps } from './one-receipt.js'
 
 let failed = false
 
@@ -132,6 +132,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // one word, one name, many faces — a module folder holds index.* only; the 17-module migration that satisfied
   // this landed with the finder unwired, and the dormant-finder test caught it before the law could rot.
   { name: 'folders', run: () => foldersGaps() },
+  // the two Payload emissions must never disagree — richText docs and layout blocks address the same
+  // theorem identically, or the "same data, two envelopes" claim from 2026-08-18 ("each theorem is a
+  // block") is false. Skips clean when the optional exports have not been generated yet.
+  { name: 'blocks', run: () => blocksGaps() },
   // the drain stages what reconcile regenerates — declared in RECONCILE_OUTPUTS, held against DRAIN_PATHS from both
   // sides, so a generator added to the chain without a declaration fails here instead of dying mid-run on git.
   { name: 'drain', run: () => drainGaps() },
