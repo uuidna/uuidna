@@ -125,7 +125,9 @@ export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './cha
 // as a chain of uuids. Self-communicating uuids: the message channel IS the uuid stream, secrecy from crypt only.
 export { sealStream, openStream, sealMessages, openMessages, sealChain, openChain, MAX_LAYERS, GENESIS, type Stream, type Link } from './stream.js'
 export { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract, type ContractSealed, type ContractChain } from './contract.js'
-export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, linkBookFacts, composeBookArticle, bookArticle, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type BookTheoremLink, type BookLedgerLinkage } from './books.js'
+export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, linkBookFacts, composeBookArticle, bookArticle, bookContents, readChapter, readBook, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type BookTheoremLink, type BookLedgerLinkage, type ChapterRead } from './books.js'
+// the 432 grid — every projected ray × every ledger wing, named, addressed, folded to one root
+export { PROJECTED, GRID_SEATS, wings, wingSlug, wingRoot, seatName, grid, gridSeat, gridRoot, gridGaps, gridReport, type Seat, type GridGap } from './grid.js'
 export { gcdInt, coprime, starPolygon, fibonacciCycle, rotate, crt } from './cycles.js'
 export { recomputableCost, THERMODYNAMICS, type CostReport } from './cost.js'
 export { securityAudit, KNOWN_DEV_DEPS, DEFENCE_THEOREMS, type SecurityCheck, type SecurityAuditReport } from './security-audit.js'

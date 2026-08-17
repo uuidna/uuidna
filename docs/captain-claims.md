@@ -117,8 +117,8 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1220 (1308 entries, 88 re-namings — a theorem is its Lean, not its name) |
-| prose paragraphs tried | 3801 — 1750 usable, 2051 held open, 0 drained |
+| sealed propositions | 1222 (1307 entries, 85 re-namings — a theorem is its Lean, not its name) |
+| prose paragraphs tried | 3805 — 1782 usable, 2023 held open, 0 drained |
 
 **The claim is of ROOM, never of truth** — the same scope the superposition claim carries. Every item in the
 docket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's
@@ -135,7 +135,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states
 (the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1308 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1307 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM, never of truth** — a claimed superposition is claimed capacity; its collapse still

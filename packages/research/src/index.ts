@@ -6,7 +6,7 @@
 // reasoner, and reflections. Provenance and structure, never meaning. Integrity, not truth.
 export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from '@uuidna/uuidna'
 export { deepResearch, type DeepResearch } from '@uuidna/uuidna'
-export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, linkBookFacts, composeBookArticle, bookArticle, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type BookTheoremLink, type BookLedgerLinkage } from '@uuidna/uuidna'
+export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, linkBookFacts, composeBookArticle, bookArticle, bookContents, readChapter, readBook, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type BookTheoremLink, type BookLedgerLinkage, type ChapterRead } from '@uuidna/uuidna'
 export { transformUntilVerified, transformOne, type TransformCell, type TransformRun } from '@uuidna/uuidna'
 export { composePublication, publications, coverage, auditPublication, revisePublication, comparePublications, type Publication, type PubFinding, type Revision, type Comparison, type Coverage } from '@uuidna/uuidna'
 export { fileReport, type FiledReport } from '@uuidna/uuidna'

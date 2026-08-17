@@ -11,7 +11,7 @@
 import { execSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { theorems, statementCensus, editorialState, publicationStatus } from '../index.js'
+import { theorems, statementCensus, editorialState, publicationStatus, gridGaps } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, foldOf } from './api.js'
 import { legalGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, drainGaps, frozenGaps, foldersGaps, blocksGaps, wordsGaps, countsGaps } from './one-receipt.js'
@@ -33,6 +33,7 @@ const finders: [string, number][] = [
   ['negation', negationGaps().length], ['drain', drainGaps().length], ['frozen', frozenGaps().length],
   ['folders', foldersGaps().length], ['blocks', blocksGaps().length],
   ['words', wordsGaps().length], ['counts', countsGaps().length],
+  ['grid', gridGaps().length],
 ]
 const dirtyFinders = finders.filter(([, n]) => n > 0)
 

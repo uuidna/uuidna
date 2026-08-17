@@ -9,7 +9,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { catchTraitors } from '../treason.js'
-import { theorems, statementCensus } from '../index.js'
+import { theorems, statementCensus, gridGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
 import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps } from './one-receipt.js'
@@ -136,6 +136,12 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // theorem identically, or the "same data, two envelopes" claim from 2026-08-18 ("each theorem is a
   // block") is false. Skips clean when the optional exports have not been generated yet.
   { name: 'blocks', run: () => blocksGaps() },
+  // THE 432 GRID IS A LIVE GATE, NOT A FROZEN NUMBER. Its width falls out of two structures that can both move: the
+  // six projected rays (the seventh, 'en', is the source the wings are written in, so it holds no seat) and the 72
+  // wings the ledger carries. 6·w keeps digital root 9 only when w ≡ 0 (mod 3), so a SINGLE new wing would silently
+  // turn 432 into 438 and break the harmony that made the number natural. This finder makes that impossible to do
+  // quietly: add wings three at a time, or the guard names the drift and the fix.
+  { name: 'grid', run: () => gridGaps() },
   // the drain stages what reconcile regenerates — declared in RECONCILE_OUTPUTS, held against DRAIN_PATHS from both
   // sides, so a generator added to the chain without a declaration fails here instead of dying mid-run on git.
   { name: 'drain', run: () => drainGaps() },

@@ -17,7 +17,7 @@
 //    pass (find nothing). That is expected — it says nothing about the book's merit, only that its prose does not
 //    trip uuidna's overclaim tripwire.
 import { toUuid, digitalRoot } from './address.js'
-import { merkleRoot } from './merkle.js'
+import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { merkleGravity } from './gravity.js'
 import { computes } from './gate.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
@@ -370,4 +370,88 @@ export async function auditStandard(name: string): Promise<StandardAudit> {
       'specific jurisdiction, edition and deployment. uuidna cannot and does not rule; it delivers the floor — the fingerprint ' +
       'and the decidable checks — and leaves the ruling to humans. Integrity, not truth.',
   }
+}
+
+// ─── THE UNLOCK: books that can be READ, not only measured ──────────────────────────────────────────────────────
+// EVERY SURFACE ABOVE MEASURES A BOOK AND DISCARDS THE TEXT. auditText splits the chapters, addresses each one,
+// folds them into chapterRoot — and then returns `chapters: number`. The COUNT survives; the chapters do not. So
+// uuidna could prove you held an exact edition and could never show you a page of it. That fails the one law every
+// surface here answers to: the ledger exists FOR a person, and a library nobody may read is a catalogue.
+//
+// The unlock needs no new machinery, only the missing return. merkleProof/verifyProof already prove a leaf belongs
+// to a root, so a chapter is handed over WITH its inclusion proof: you read the page, and you verify it is the page
+// that book actually contains. That is strictly MORE than an ordinary reader gets — a plain text file can be
+// altered silently, while a chapter carrying its proof cannot: change one character and `belongs` goes false.
+//
+// HONEST SCOPE: this returns the book's own words, unmodified, public-domain. It is READING, never interpretation —
+// uuidna proves WHICH text you hold, never what it means. Integrity, not truth.
+
+export interface ChapterRead {
+  index: number
+  chapters: number
+  title?: string
+  authors?: string[]
+  source?: string
+  /** the chapter's own words — the unlock */
+  text: string
+  /** this chapter's leaf address, and the book's root it is proven against */
+  address: string
+  chapterRoot: string
+  proof: { sibling: string; left: boolean }[]
+  /** the inclusion proof verified locally — false means the text was altered */
+  belongs: boolean
+  chars: number
+  words: number
+  honest: string
+}
+
+/** The table of contents — every chapter, its heading and size, so a reader can choose one. Pure and offline. */
+export function bookContents(text: string, meta: { title?: string; authors?: string[]; source?: string } = {}):
+  { title?: string; authors?: string[]; chapters: { index: number; heading: string; chars: number; words: number; address: string }[]; chapterRoot: string } {
+  const parts = splitChapters(text)
+  return {
+    ...meta,
+    chapters: parts.map((c, index) => ({
+      index,
+      // the chapter's own first non-empty line is its heading — the book's word, never ours
+      heading: (c.split('\n').find((l) => l.trim()) ?? '').trim().slice(0, 120),
+      chars: c.length,
+      words: c.trim() ? c.trim().split(/\s+/).length : 0,
+      address: toUuid(c),
+    })),
+    chapterRoot: merkleRoot(parts.map((c) => toUuid(c))),
+  }
+}
+
+/** readChapter(text, index) → the chapter's WORDS plus the proof they belong to this book. Pure and offline. */
+export function readChapter(text: string, index: number, meta: { title?: string; authors?: string[]; source?: string } = {}): ChapterRead {
+  const parts = splitChapters(text)
+  const leaves = parts.map((c) => toUuid(c))
+  // clamp into range without Math.* (the determinism law admits no exception, not even here)
+  const i = index < 0 ? 0 : index >= parts.length ? parts.length - 1 : index
+  const chapter = parts[i] ?? ''
+  const chapterRoot = merkleRoot(leaves)
+  const proof = merkleProof(leaves, i)
+  return {
+    ...meta,
+    index: i,
+    chapters: parts.length,
+    text: chapter,
+    address: leaves[i] ?? toUuid(''),
+    chapterRoot,
+    proof,
+    belongs: verifyProof(leaves[i] ?? toUuid(''), proof, chapterRoot),
+    chars: chapter.length,
+    words: chapter.trim() ? chapter.trim().split(/\s+/).length : 0,
+    honest:
+      'The book\'s own words, public-domain and unmodified, with the inclusion proof that they belong to this exact ' +
+      'edition — recompute `belongs` yourself and a single altered character fails it. Reading, never interpretation: ' +
+      'uuidna proves WHICH text you hold, never what it means. Integrity, not truth.',
+  }
+}
+
+/** readBook(id, index) → fetch a public-domain Gutenberg book and READ one chapter of it, proof attached. */
+export async function readBook(id: number | string, index = 0): Promise<ChapterRead> {
+  const b = await fetchGutenberg(id)
+  return readChapter(b.text, index, { title: b.title, authors: b.authors, source: b.source })
 }
