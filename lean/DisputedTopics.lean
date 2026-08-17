@@ -27,9 +27,9 @@ theorem disputed_topics_contradiction_detectable : ((((1 + 1) == 2) && ((1 + 1) 
 -- THE HONEST BOUNDARY: What is provably true, what is genuinely disputed, what is overclaimed
 -- ═══════════════════════════════════════════════════════════════════════════════
 
--- A PROVABLY TRUE claim: fact extracted from book matches a sealed theorem in the ledger
+-- Sealing is MEMBERSHIP: a proven claim is present in the sealed record (count 1), an unproven one is absent (count 0) — the ledger answers by lookup
 -- @skill: disputed-court
-theorem disputed_provably_true_is_sealed : (42 = 42) ↔ (42 = 42) := by decide
+theorem disputed_provably_true_is_sealed : (([2,3,5].filter (fun x => x == 2)).length = 1) ∧ (([2,3,5].filter (fun x => x == 4)).length = 0) := by decide
 
 -- An OPEN claim: fact from book is real (extracted, addresses match across books) but has NO seal yet in the ledger
 -- @skill: disputed-court

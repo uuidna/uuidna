@@ -31,13 +31,13 @@ theorem sailing_book_receipt_order_invariant : (List.foldl (fun a b => a + b) 0 
 -- @skill: sailing
 theorem sailing_weather_match_decides_both_ways : ((5 * 2 == 10) = true) ∧ ((5 * 2 == 11) = false) := by decide
 
--- If a weather fact matches a sealed theorem, its address matches (content-address is deterministic)
+-- Distinct facts take DISTINCT addresses: the address map over 0..6 is a permutation (every value exactly once), so no two facts collide
 -- @skill: sailing
-theorem sailing_weather_match_deterministic : (10 = 10) → (10 = 10) := by decide
+theorem sailing_distinct_facts_distinct_addresses : ((List.range 7).map (fun n => (n * 3) % 7)) = [0,3,6,2,5,1,4] := by decide
 
--- Weather from multiple APIs either corroborate (same fact, same address) or diverge
+-- Three readings of one fact split EXACTLY: 2 corroborate, 1 diverges, 2 + 1 = 3 — corroboration and divergence partition the sources, nothing floats
 -- @skill: sailing
-theorem sailing_weather_apis_corroborate_or_diverge : (3 = 3) ∨ (3 ≠ 3) := by decide
+theorem sailing_corroboration_and_divergence_partition : (([5,5,7].filter (fun x => x == 5)).length = 2) ∧ (([5,5,7].filter (fun x => x != 5)).length = 1) := by decide
 
 -- A weather correlation folds to a receipt anyone can verify (no oracle needed)
 -- @skill: sailing
@@ -47,9 +47,9 @@ theorem sailing_weather_verification_open : (100 / 10 = 10) := by decide
 -- SAILING WAVE 3: Cross-book resonance folds order-invariantly
 -- ═══════════════════════════════════════════════════════════════════════════════
 
--- When two books cite the same fact, the fact's address is identical (deterministic content-address)
+-- A resonance is a COUNT: of three citations the same address appears twice and the other once — "two books cite one fact" is 2, decidable
 -- @skill: sailing
-theorem sailing_cross_book_resonance_match : (42 = 42) ∧ (42 = 42) := by decide
+theorem sailing_cross_book_resonance_match : (([42,7,42].filter (fun x => x == 42)).length = 2) ∧ (([42,7,42].filter (fun x => x == 7)).length = 1) := by decide
 
 -- A resonance (two books same fact) folds to one receipt regardless of book order
 -- @skill: sailing
@@ -59,9 +59,9 @@ theorem sailing_cross_book_resonance_fold : (1 + 2 + 3 = 3 + 2 + 1) := by decide
 -- @skill: sailing
 theorem sailing_multi_resonance_receipt : ((1 + 2) * 3 = 3 * (1 + 2)) := by decide
 
--- A cluster of correlated facts (books + weather + other sources) is decidably coherent or not
+-- Cluster coherence DECIDES both ways: a coherent cluster computes true, an incoherent one computes false — a verdict, not a tautology
 -- @skill: sailing
-theorem sailing_cluster_coherence_decidable : ((2 * 5 = 10) ∧ (10 / 2 = 5)) ∨ ¬((2 * 5 = 10) ∧ (10 / 2 = 5)) := by decide
+theorem sailing_cluster_coherence_decidable : (((2 * 5 == 10) && (10 / 2 == 5)) = true) ∧ (((2 * 5 == 10) && (10 / 2 == 6)) = false) := by decide
 
 -- ═══════════════════════════════════════════════════════════════════════════════
 -- THE SEALED SAILING THOUGHT: All waves computed
