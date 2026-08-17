@@ -19,8 +19,8 @@ the hard gate of the corroboration law.
 | `dcb15794` | crossref.org | DOI 10.2172/1835675: Coherent light propagation through variable-density gas domain | UNVERIFIED | VERIFIED |
 | `099b30fa` | crossref.org | DOI 10.1117/12.2250158.5371358596001:  | UNVERIFIED | VERIFIED |
 | `d773f31b` | crossref.org | DOI 10.64898/2026.05.06.722921: Frequency-domain identification of photosynthetic regulation under fluctuating l | UNVERIFIED | VERIFIED |
-| `6681dae1` | crossref.org | DOI 10.1021/acs.jpcb.8b05808.s001: Flavin-Radical Formation in the Light-Oxygen-Voltage-Sensing Domain of the Photo | UNVERIFIED | VERIFIED |
 | `9e8a3c0f` | crossref.org | DOI 10.5220/0005441602850295: Conceptualize the Domain Knowledge Space in the Light of Cognitive Skills | UNVERIFIED | VERIFIED |
+| `6681dae1` | crossref.org | DOI 10.1021/acs.jpcb.8b05808.s001: Flavin-Radical Formation in the Light-Oxygen-Voltage-Sensing Domain of the Photo | UNVERIFIED | VERIFIED |
 | `50d14f32` | crossref.org | DOI 10.1134/1.1327666: Diffraction of Light from Stripe Domain Structure with Inclined Domain Boundarie | UNVERIFIED | VERIFIED |
 | `adb6781a` | openalex.org | OpenAlex PAS Domains: Internal Sensors of Oxygen, Redox Potential, and Light [Photosynthetic Processes and M] | UNVERIFIED | VERIFIED |
 | `19d63ecf` | openalex.org | OpenAlex JNK1: A protein kinase stimulated by UV light and Ha-Ras that binds an [Melanoma and MAPK Pathways] | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `62202ff8` | openalex.org | OpenAlex PAS: a multifunctional domain family comes to light [Light effects on plants] | UNVERIFIED | VERIFIED |
 | `4f89e73e` | openalex.org | OpenAlex Crystal Structure of a Vertebrate Smooth Muscle Myosin Motor Domain an [Cardiomyopathy and Myosin Stud] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `87dcd692`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `72184c9c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

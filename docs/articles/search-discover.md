@@ -28,8 +28,8 @@ the hard gate of the corroboration law.
 | `965e3684` | crossref.org | DOI 10.3102/2101375: Expansive Learning as a Catalyst for Cultural Competency Action Discovered Throu | UNVERIFIED | VERIFIED |
 | `19b428e6` | crossref.org | DOI 10.30965/9789004398030_003: Boccaccio as Homer: A Recently Discovered Self-portrait and the ‘modern’ Canon | UNVERIFIED | VERIFIED |
 | `ecddb019` | crossref.org | DOI 10.64628/aai.69vnjf3nv: Space radiation can damage satellites − my team discovered that a next-generatio | UNVERIFIED | VERIFIED |
-| `a577da2b` | crossref.org | DOI 10.26434/chemrxiv-2022-q6pqt-v2: Multiple Routes to Bicontinuous Cubic Liquid Crystal Phases Discovered by High-T | UNVERIFIED | VERIFIED |
 | `98dd6d3b` | crossref.org | DOI 10.26434/chemrxiv-2022-q6pqt: Multiple Routes to Bicontinuous Cubic Liquid Crystal Phases Discovered by High-T | UNVERIFIED | VERIFIED |
+| `a577da2b` | crossref.org | DOI 10.26434/chemrxiv-2022-q6pqt-v2: Multiple Routes to Bicontinuous Cubic Liquid Crystal Phases Discovered by High-T | UNVERIFIED | VERIFIED |
 | `e5334c62` | openalex.org | OpenAlex Culture and the self: Implications for cognition, emotion, and motivat [Cultural Differences and Value] | UNVERIFIED | VERIFIED |
 | `99470886` | openalex.org | OpenAlex Discovering Statistics Using Ibm Spss Statistics [Online and Blended Learning] | UNVERIFIED | VERIFIED |
 | `035fc1a9` | openalex.org | OpenAlex The self-organizing map [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `fa2c450e` | openalex.org | OpenAlex Self-organizing neural network that discovers surfaces in random-dot s [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 | `6bdc8156` | openalex.org | OpenAlex Helpseeking for self-discovered breast symptoms. Implications for earl [Global Cancer Incidence and Sc] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `8d6e1f3c`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `44da42f2`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

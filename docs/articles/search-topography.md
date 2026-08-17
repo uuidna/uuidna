@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `640437e3` | zenodo.org | zenodo record 16970139: Erratum to: MOrphOlOgical and mOlecular evidence OF the Occurrence OF Artibeus a | UNVERIFIED | VERIFIED |
-| `4fb148c5` | zenodo.org | zenodo record 1326385: The 4th Newsletter of the Patient Empowerment through Predictive Personalised De | UNVERIFIED | VERIFIED |
-| `1d64b2b3` | zenodo.org | zenodo record 16285606: The commercial exploitation of the freshwater pearl mussel, Margaritifera margar | UNVERIFIED | VERIFIED |
-| `0db76dba` | zenodo.org | zenodo record 16643208: The corrosion of shells in cabinets | UNVERIFIED | VERIFIED |
-| `c7505772` | zenodo.org | zenodo record 16254409: Snail Shells under Starling Roosts | UNVERIFIED | VERIFIED |
-| `70093711` | zenodo.org | zenodo record 3250964: SURAT KETERANGAN TANAH: ANTARA REALITAS DAN PENGAKUAN | UNVERIFIED | VERIFIED |
-| `58211676` | zenodo.org | zenodo record 17525851: (Poor) accounting for God: the tracking and monitoring of cash flows in the Cust | UNVERIFIED | VERIFIED |
-| `1c11f16c` | zenodo.org | zenodo record 8333406: Legal Status of the Land of the Sultanate Special Region of Yogyakarta | UNVERIFIED | VERIFIED |
 | `29586b02` | crossref.org | DOI 10.1093/oed/2916598532: lea-land \| lay-land, n. | UNVERIFIED | VERIFIED |
 | `2ccdbcb6` | crossref.org | DOI 10.4324/9781003596202-5: Governing the Lay Land | UNVERIFIED | VERIFIED |
 | `d5848159` | crossref.org | DOI 10.5149/northcarolina/9781469635248.003.0002: The Lay of the Land | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `c9551e5d` | openalex.org | OpenAlex Researching Identity in Mathematics Education: The Lay of the Land [Mathematics Education and Teac] | UNVERIFIED | VERIFIED |
 | `0059876d` | openalex.org | OpenAlex Imperial Leather: Race, Gender and Sexuality in the Colonial Contest [African history and culture st] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `539552dc`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `0e3cc31f`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

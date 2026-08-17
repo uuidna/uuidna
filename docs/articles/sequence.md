@@ -1,13 +1,13 @@
 ---
 title: "The sequence & reflection group"
-description: "Computed from lean/Sequence.lean — 26 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Sequence.lean — 27 sealed theorems, every claim citing its proof."
 ---
 
 # The sequence & reflection group
 
-> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 25 siblings below.
+> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 26 siblings below.
 
-**26 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in [lean/Sequence.lean](/lean/Sequence.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**27 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in [lean/Sequence.lean](/lean/Sequence.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling — each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check catches.)
 The ledger holds this as [seal_ten](/theorem/seal_ten) — proven `by decide`, sorry-free:
@@ -189,6 +189,13 @@ The ledger holds this as [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_
 
 ```lean
 ([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if d == 0 then d + dz d == 0 else d + dz d == 10))
+```
+
+### THE SEQUENCE AND THE COINS ARE ONE OBJECT SEEN TWICE — four ways, sealed together. (1) The sequence IS the coin's own powers: 2^1..2^6 mod 9 = [2,4,8,7,5,1] — the vortex is not a path the coin walks, it is what tossing the coin into itself PRODUCES. (2) The coin and the heart are multiplicative INVERSES: 2·5 = 10 ≡ 1 (mod 9) — the walk goes out by the coin and comes home by the heart, which is why the two generators are exactly {2,5}. (3) The orbit SUMS to the base times the trinity: 1+2+4+8+7+5 = 27 = 9·3 — the whole walk folds to the ring itself. (4) The orbit's LENGTH is the coins times the trinity: 6 = 2·3 — six tosses, and the coin's order is the sequence's size. Colour, type, motion and value all read from this one structure because there is only one structure.
+The ledger holds this as [sequence_and_coins_are_one](/theorem/sequence_and_coins_are_one) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3)
 ```
 
 

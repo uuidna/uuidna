@@ -20,8 +20,8 @@ the hard gate of the corroboration law.
 | `980fa2b0` | crossref.org | DOI 10.3726/978-3-653-00659-9/5: Chapter 3: Vocabulary Use Across Different Legal Genres 53 | UNVERIFIED | VERIFIED |
 | `5705b78f` | crossref.org | DOI 10.3998/mpub.223607: Strategies for Legal Case Reading and Vocabulary Development | UNVERIFIED | VERIFIED |
 | `c8ca62b6` | crossref.org | DOI 10.2139/ssrn.4465023: Specifics of Teaching Vocabulary of a Legal English Course | UNVERIFIED | VERIFIED |
-| `1fbe9504` | crossref.org | DOI 10.2307/j.ctvr33c9g.6: Hegel’s Vocabulary | UNVERIFIED | VERIFIED |
 | `239035b8` | crossref.org | DOI 10.2139/ssrn.5296201: CULTURAL ASPECTS OF LEGAL TRANSLATION VOCABULARY IN A CHILDREN'S CARTOON | UNVERIFIED | VERIFIED |
+| `1fbe9504` | crossref.org | DOI 10.2307/j.ctvr33c9g.6: Hegel’s Vocabulary | UNVERIFIED | VERIFIED |
 | `5f46a82c` | openalex.org | OpenAlex Legal Vocabulary [Legal Language and Interpretat] | UNVERIFIED | VERIFIED |
 | `44f259f5` | openalex.org | OpenAlex Identifying spoken technical legal vocabulary in a law school classroo [Translation Studies and Practi] | UNVERIFIED | VERIFIED |
 | `e2eea8a0` | openalex.org | OpenAlex Legal vocabulary in Early English translations of the Bible: a study o [Hermeneutics and Narrative Ide] | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `d50579dd` | openalex.org | OpenAlex Legal vocabulary and the indexer [Artificial Intelligence in Law] | UNVERIFIED | VERIFIED |
 | `28b039c7` | openalex.org | OpenAlex Defining and Describing What We Do: Doctrinal Legal Research [Legal Education and Practice I] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `a3cb0272`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `f6a9ae9c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

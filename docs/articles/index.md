@@ -12,7 +12,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The sound domain](/articles/acoustics) | 8 |
 | [Anti-fraud detection](/articles/anti-fraud) | 24 |
 | [The fixed stars](/articles/astronomy) | 11 |
-| [The detectors, proven](/articles/audit) | 8 |
+| [The detectors, proven](/articles/audit) | 9 |
 | [The audit game](/articles/audit-game) | 11 |
 | [Applied structure — the science pairs](/articles/bio-physics) | 16 |
 | [The calendar](/articles/calendar) | 9 |
@@ -23,9 +23,10 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The seven reflected](/articles/clay) | 17 |
 | [The error-correcting codes](/articles/codes) | 8 |
 | [The two coins & the 64](/articles/coins) | 19 |
-| [The colour wheel](/articles/colour) | 15 |
+| [The colour wheel](/articles/colour) | 17 |
 | [Command authentication](/articles/command) | 7 |
 | [The 8×8 core](/articles/core) | 64 |
+| [The fused ring](/articles/crt) | 6 |
 | [Self-discovered](/articles/discover) | 16 |
 | [The honest court](/articles/disputed-topics) | 15 |
 | [Division by zero](/articles/div-by-zero) | 8 |
@@ -58,7 +59,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [Propulsion — Newtonian & bounded](/articles/propulsion) | 5 |
 | [The instrument](/articles/psychology) | 8 |
 | [The quantum computer](/articles/quantum) | 49 |
-| [The rules of inference](/articles/reasoning) | 18 |
+| [The rules of inference](/articles/reasoning) | 20 |
 | [The spacetime domain](/articles/relativity) | 8 |
 | [The report](/articles/report) | 8 |
 | [The ring ℤ/9](/articles/ring) | 234 |
@@ -67,7 +68,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [Quantum sailing seals](/articles/sailing-seals) | 13 |
 | [The sanitise standards](/articles/sanitize) | 7 |
 | [The layered defence](/articles/security) | 7 |
-| [The sequence & reflection group](/articles/sequence) | 26 |
+| [The sequence & reflection group](/articles/sequence) | 27 |
 | [The software-verifiable algebra](/articles/software) | 11 |
 | [The Platonic solids in every dimension](/articles/solids) | 12 |
 | [The spectrum](/articles/spectrum) | 8 |
@@ -103,6 +104,7 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-colour](/articles/search-colour)
 - [search-command](/articles/search-command)
 - [search-core](/articles/search-core)
+- [search-crt](/articles/search-crt)
 - [search-discover](/articles/search-discover)
 - [search-disputed-topics](/articles/search-disputed-topics)
 - [search-div-by-zero](/articles/search-div-by-zero)

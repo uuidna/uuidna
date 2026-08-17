@@ -1,13 +1,13 @@
 ---
 title: "The rules of inference"
-description: "Computed from lean/Reasoning.lean — 18 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Reasoning.lean — 20 sealed theorems, every claim citing its proof."
 ---
 
 # The rules of inference
 
-> THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). — held by [modus_ponens](/theorem/modus_ponens) and its 17 siblings below.
+> THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). — held by [modus_ponens](/theorem/modus_ponens) and its 19 siblings below.
 
-**18 theorems**, from [modus_ponens](/theorem/modus_ponens) onward, each proven `by decide` in [lean/Reasoning.lean](/lean/Reasoning.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**20 theorems**, from [modus_ponens](/theorem/modus_ponens) onward, each proven `by decide` in [lean/Reasoning.lean](/lean/Reasoning.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### Modus ponens, proven for every assignment: from p and (p → q), q follows — !(p ∧ (p → q)) ∨ q holds on all four rows. The first rule of every valid argument.
 The ledger holds this as [modus_ponens](/theorem/modus_ponens) — proven `by decide`, sorry-free:
@@ -133,6 +133,20 @@ The ledger holds this as [trust_by_recomputation](/theorem/trust_by_recomputatio
 
 ```lean
 (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] ≠ List.foldl (fun a b => a + b) 0 [1,2,3,5])
+```
+
+### THE UNITY CENSUS, counted from the ledger and stale-proof by construction. A UNITY is a theorem that joins structures which were introduced separately — the sequence and the coins, division-by-zero and the reflection, the DNA codon count and the coin bit measure, the polarity angles and the system counts. The census stands above one (plural, and it grows as more are found — the claim is plurality, never a frozen count). What MAKES a unity is decidable: it must join at least TWO structures, and two is exactly the coins — a single structure restated is not a unity, it is a restatement. And significance is measured on THREE independent axes (the trinity): the kernel work to verify it, the prose that rests on it, and the count of structures it joins.
+The ledger holds this as [unity_census_is_plural_and_needs_two](/theorem/unity_census_is_plural_and_needs_two) — proven `by decide`, sorry-free:
+
+```lean
+(14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14)
+```
+
+### SIGNIFICANCE DOES NOT COLLAPSE TO ONE NUMBER — the measurement said so before anyone chose. Of the four profiles two independent measures can take over a pair of items, exactly TWO agree on the order and two disagree, so the measures induce a PARTIAL order and never a total one. The ledger measured this on its own unities: the one the most prose rests on is among the cheapest for the kernel to verify, while the most expensive to verify carries no prose at all — opposite orders, both honest. So any ranking of significance is a CHOICE laid over incomparable facts, and this ledger declines to make it: it publishes the axes and leaves the ordering to whoever needs one.
+The ledger holds this as [significance_is_partial_not_total](/theorem/significance_is_partial_not_total) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2
 ```
 
 

@@ -19,9 +19,9 @@ the hard gate of the corroboration law.
 | `bb8c5c7d` | crossref.org | DOI 10.1787/816802266378: Figure 2.1.Tax mix | UNVERIFIED | VERIFIED |
 | `60ff3247` | crossref.org | DOI 10.4324/9781003500995-1: What is a Good Mix? | UNVERIFIED | VERIFIED |
 | `5fd71112` | crossref.org | DOI 10.1787/888933283050: Graphique 1.5. Mix énergétique et mix électrique par produit | UNVERIFIED | VERIFIED |
-| `0bf85213` | crossref.org | DOI 10.1016/b978-0-240-81485-8.00012-4: Mix Automation | UNVERIFIED | VERIFIED |
 | `63e1df85` | crossref.org | DOI 10.4414/saez.2015.90302: Mix&amp;Remix | UNVERIFIED | VERIFIED |
-| `a5dd99ac` | crossref.org | DOI 10.22441/jurnal_mix: MIX JURNAL ILMIAH MANAJEMEN | UNVERIFIED | VERIFIED |
+| `0bf85213` | crossref.org | DOI 10.1016/b978-0-240-81485-8.00012-4: Mix Automation | UNVERIFIED | VERIFIED |
+| `18456f1f` | crossref.org | DOI 10.4414/saez.2015.90301: Mix&amp;Remix | UNVERIFIED | VERIFIED |
 | `4b16aa66` | openalex.org | OpenAlex A new mixing of Hartree–Fock and local density-functional theories [Advanced Chemical Physics Stud] | UNVERIFIED | VERIFIED |
 | `83c6e9b5` | openalex.org | OpenAlex Assortative Mixing in Networks [Complex Network Analysis Techn] | UNVERIFIED | VERIFIED |
 | `2f40c75e` | openalex.org | OpenAlex Mixing Qualitative and Quantitative Methods: Triangulation in Action [Cognitive and psychological co] | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `e4b6cacb` | openalex.org | OpenAlex Isopycnal Mixing in Ocean Circulation Models [Oceanographic and Atmospheric ] | UNVERIFIED | VERIFIED |
 | `86d7f223` | openalex.org | OpenAlex Oceanic vertical mixing: A review and a model with a nonlocal boundary [Climate variability and models] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `602a8401`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `897a3e8e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

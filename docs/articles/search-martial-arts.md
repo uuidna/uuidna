@@ -19,8 +19,8 @@ the hard gate of the corroboration law.
 | `3641ac60` | crossref.org | DOI 10.1016/s0031-9406(05)66653-9: Measurement of Foot Progression Angle Through Stance | UNVERIFIED | VERIFIED |
 | `4af83d27` | crossref.org | DOI 10.5040/9781350890350: Stance and Grip Stance | UNVERIFIED | VERIFIED |
 | `0a00e32e` | crossref.org | DOI 10.5103/kjsb.2006.16.3.085: Analysis of Lower Limb Joint Angle and Rotation Angle of Tennis Forehand Stroke  | UNVERIFIED | VERIFIED |
-| `c5812153` | crossref.org | DOI 10.2139/ssrn.5011183: Effects of Knee Joint Flexion Angle on Lower Limb Muscle Force, Knee Joint Conta | UNVERIFIED | VERIFIED |
 | `05429424` | crossref.org | DOI 10.1589/rika.26.269: The Various Patterns of Knee Angle in the Stance Phase | UNVERIFIED | VERIFIED |
+| `c5812153` | crossref.org | DOI 10.2139/ssrn.5011183: Effects of Knee Joint Flexion Angle on Lower Limb Muscle Force, Knee Joint Conta | UNVERIFIED | VERIFIED |
 | `7b864478` | crossref.org | DOI 10.1787/888933729705: Fiscal stance and fiscal stance: Brazil | UNVERIFIED | VERIFIED |
 | `ffacda05` | openalex.org | OpenAlex Lower limb alignment and foot angle are related to stance phase knee a [Total Knee Arthroplasty Outcom] | UNVERIFIED | VERIFIED |
 | `25ce0e46` | openalex.org | OpenAlex Unified theory regarding A/P and M/L balance in quiet stance [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `5cbd7f0b` | openalex.org | OpenAlex The Simplest Walking Model: Stability, Complexity, and Scaling [Robotic Locomotion and Control] | UNVERIFIED | VERIFIED |
 | `270185bd` | openalex.org | OpenAlex How to squat? Effects of various stance widths, foot placement angles  [Lower Extremity Biomechanics a] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `0be3ae30`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `6efb28e7`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

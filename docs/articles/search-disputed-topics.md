@@ -27,8 +27,8 @@ the hard gate of the corroboration law.
 | `11749c8f` | crossref.org | DOI 10.2139/ssrn.3829840: ‘That Sty for Fattening Lawyers In \| On the Bones of Honest Men’: The Palace Cou | UNVERIFIED | VERIFIED |
 | `5ee74e71` | crossref.org | DOI 10.1136/bmj.314.7083.832a: Opinions given by medical experts in court are honest and objective | UNVERIFIED | VERIFIED |
 | `9f0908a6` | crossref.org | DOI 10.5040/9781408167007.00000029: Honest | UNVERIFIED | VERIFIED |
-| `e9a4a29b` | crossref.org | DOI 10.3724/sp.j.1146.2010.00731: Honest-Sender Commitment and Honest-Receiver Commitment | UNVERIFIED | VERIFIED |
 | `aa365fc0` | crossref.org | DOI 10.7551/mitpress/8022.003.0003: Honest Signals | UNVERIFIED | VERIFIED |
+| `e9a4a29b` | crossref.org | DOI 10.3724/sp.j.1146.2010.00731: Honest-Sender Commitment and Honest-Receiver Commitment | UNVERIFIED | VERIFIED |
 | `e16da57f` | crossref.org | DOI 10.3998/mpub.12207107.cmp.91: But It’s Honest Work | UNVERIFIED | VERIFIED |
 | `afca2c19` | openalex.org | OpenAlex Unpacking the Court [Legal Education and Practice I] | UNVERIFIED | VERIFIED |
 | `26ddbaee` | openalex.org | OpenAlex An Honest Chance: Perspectives on Drug Courts Findings From Drug Court [Criminal Justice and Correctio] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `7f0dc888` | openalex.org | OpenAlex Climate change litigation: A review of research on courts and litigant [Environmental law and policy] | UNVERIFIED | VERIFIED |
 | `e7a7fc39` | openalex.org | OpenAlex Open Courts: How Cameras in Courts Help Keep the System Honest [Law in Society and Culture] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `c264e672`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `c85b8e6a`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

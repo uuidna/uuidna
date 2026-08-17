@@ -1,10 +1,10 @@
 {
- "surfaces": 175,
- "paragraphs_tried": 3771,
- "usable": 1734,
- "unverified": 2037,
+ "surfaces": 177,
+ "paragraphs_tried": 3801,
+ "usable": 1750,
+ "unverified": 2051,
  "drained": 0,
- "receipt": "adcd3b57-2bc7-8636-b096-889285390380",
+ "receipt": "1b7e21f1-e1ca-8faf-b3dc-6823f9a146ed",
  "develop": [
   {
    "surface": "docs/articles/search-div-by-zero.md",
@@ -607,16 +607,16 @@
   },
   {
    "surface": "docs/articles/audit.md",
-   "address": "574c4636-78db-89a1-8b90-d9a1bb3a7f4e",
-   "prose": "> THE DETECTORS — the provenance audit's decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise, never vacuous. The honesty detector, itself a skilled theorem. — held by [wall_steady_state](/theorem/wall_steady_state) and its 7 siblings below.",
+   "address": "6bb19c62-1059-83e4-9f93-37ed32ea6c88",
+   "prose": "> THE DETECTORS — the provenance audit's decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise, never vacuous. The honesty detector, itself a skilled theorem. — held by [wall_steady_state](/theorem/wall_steady_state) and its 8 siblings below.",
    "cites": [
     "wall_steady_state"
    ]
   },
   {
    "surface": "docs/articles/audit.md",
-   "address": "7fe9cee8-4007-8ae4-9937-2e02d794e9d9",
-   "prose": "**8 theorems**, from [wall_steady_state](/theorem/wall_steady_state) onward, each proven `by decide` in [lean/Audit.lean](/lean/Audit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
+   "address": "b2c71701-a26b-82f7-9376-15fdb115bac8",
+   "prose": "**9 theorems**, from [wall_steady_state](/theorem/wall_steady_state) onward, each proven `by decide` in [lean/Audit.lean](/lean/Audit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
    "cites": [
     "wall_steady_state"
    ]
@@ -683,6 +683,14 @@
    "prose": "### The sanitizer’s recursion bound the I/O wall ASSUMES, sealed (axiom-hunt): MAX_DEPTH = 32 = 2^5 — a finite power-of-two wall the resource-DoS audit stands on. Any nesting beyond it is refused, so no input can spin the fold unboundedly.\nThe ledger holds this as [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) — proven `by decide`, sorry-free:",
    "cites": [
     "sanitize_depth_bounded"
+   ]
+  },
+  {
+   "surface": "docs/articles/audit.md",
+   "address": "eda793af-8fc5-8744-837a-b089ba09676e",
+   "prose": "### THE HARMONY LAW — every departure from exact recomputation is either NAMED or CAUGHT, and there is no third state. Over the two bits of the scan (r = the module reaches outside determinism: the network, the process, the clock; d = it declares that boundary by name), the verdict is pass = 1 − r·(1−d): of the four states exactly ONE fails, the undeclared reach. Harmony is therefore not the absence of boundaries — the tree carries fourteen, each naming what it touches — but the absence of UNNAMED ones. This is why a claim of quantum advantage cannot pass: it REACHES, asserting computation beyond the exact cost the state count fixes (n qubits span 2^n amplitudes), and it cannot DECLARE, because no boundary marker exists for faster-than-the-cost — so it lands in the one failing state by construction, not by policy. The same algebra as the provenance detector, applied to computation instead of prose.\nThe ledger holds this as [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) — proven `by decide`, sorry-free:",
+   "cites": [
+    "drift_is_named_or_caught"
    ]
   },
   {
@@ -1992,16 +2000,16 @@
   },
   {
    "surface": "docs/articles/colour.md",
-   "address": "54cd7a78-ccf0-8de0-a28f-d2d9b1767d7e",
-   "prose": "> THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. The geometry of the wheel, NOT a claim that taste or beauty is objective. — held by [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) and its 14 siblings below.",
+   "address": "85e150b9-fe88-8383-a6a5-1b94aa69c7c3",
+   "prose": "> THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. The geometry of the wheel, NOT a claim that taste or beauty is objective. — held by [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) and its 16 siblings below.",
    "cites": [
     "fourth_ray_is_green_band"
    ]
   },
   {
    "surface": "docs/articles/colour.md",
-   "address": "54c11a0a-3f5e-8024-b6b4-192c9735e144",
-   "prose": "**15 theorems**, from [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) onward, each proven `by decide` in [lean/Colour.lean](/lean/Colour.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
+   "address": "4d0a40be-aee3-8b0a-ad10-e602f8c8c8cb",
+   "prose": "**17 theorems**, from [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) onward, each proven `by decide` in [lean/Colour.lean](/lean/Colour.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
    "cites": [
     "fourth_ray_is_green_band"
    ]
@@ -2124,6 +2132,22 @@
    "prose": "### The aura’s hue step the A432 rendering ASSUMES, sealed (axiom-hunt): the ℤ/9 vortex walks the 360° wheel in steps of 40° — 9 · 40 = 360 exactly, so the nine residues tile the circle with no remainder. Artistic arithmetic, not physics: a defined step, proven to divide the wheel.\nThe ledger holds this as [aura_step_divides_circle](/theorem/aura_step_divides_circle) — proven `by decide`, sorry-free:",
    "cites": [
     "aura_step_divides_circle"
+   ]
+  },
+  {
+   "surface": "docs/articles/colour.md",
+   "address": "40758843-f09a-8dce-b1e8-6e51b2fc2283",
+   "prose": "### THE POLARITY ANGLES ARE NOT CHOSEN — each is 360 divided by a count the system already holds: 360/9 = 40° is the A432 digit step (BASE), 360/6 = 60° is the colour sector AND the vortex orbit's length (2 has order 6 in ℤ/9*), 360/4 = 90° is QUADRATURE — the four basis states the two coins deliver (2² = 4) — and 360/3 = 120° is the trinity, which is also two sectors (2·60), the anchor the palette hangs the heart on. Four angles, four counts, no aesthetics.\nThe ledger holds this as [polarity_angles_are_the_system_counts](/theorem/polarity_angles_are_the_system_counts) — proven `by decide`, sorry-free:",
+   "cites": [
+    "polarity_angles_are_the_system_counts"
+   ]
+  },
+  {
+   "surface": "docs/articles/colour.md",
+   "address": "e752a1f0-23fb-896c-9e83-af35073b3a49",
+   "prose": "### THE HONEST BOUNDARY BETWEEN THE TWO INVOLUTIONS — the dz mirror (d ↦ 10−d, an involution on DIGITS) is not the colour complement (h ↦ h+180°, an involution on HUES), because no whole number of A432 steps reaches a half turn: 180 % 40 = 20 ≠ 0, and 4·40 = 160 < 180 < 200 = 5·40 — the complement of any digit's hue falls strictly BETWEEN two digits. The 9-lattice and the 6-lattice meet only at multiples of their common 120°. Two involutions, one wheel, and they do not coincide — stated rather than smoothed over.\nThe ledger holds this as [no_digit_is_an_exact_complement](/theorem/no_digit_is_an_exact_complement) — proven `by decide`, sorry-free:",
+   "cites": [
+    "no_digit_is_an_exact_complement"
    ]
   },
   {
@@ -2732,6 +2756,70 @@
    "prose": "### 8·8 ≡ 1 (mod 9)\nThe ledger holds this as [mul9_8_8](/theorem/mul9_8_8) — proven `by decide`, sorry-free:",
    "cites": [
     "mul9_8_8"
+   ]
+  },
+  {
+   "surface": "docs/articles/crt.md",
+   "address": "d60697ae-91b8-8412-b888-0fa998486eaf",
+   "prose": "> THE FUSED RING — the rosette (Z/7) and the vortex (Z/9) are coprime, so by the Chinese Remainder Theorem they are ONE ring of 63 states, and its arithmetic explains the captain measure: the two coins buy 64 = 63 + 1, the whole fused structure plus the unit that closes it (63 = 111111, saturated in six bits; 64 = 1000000, the first bit beyond). The correspondence is a bijection, the units count 36 = 6·6 (each orbit length), and the coin keeps its order 6 in the fusion while walking the rosette twice per vortex turn — the seam, named. HONEST SCOPE: ring arithmetic and a counting correspondence; the CRT is a statement about residues, never about what the residues are used to describe — held by [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) and its 5 siblings below.",
+   "cites": [
+    "captain_theorem_the_coins_buy_the_ring_and_one"
+   ]
+  },
+  {
+   "surface": "docs/articles/crt.md",
+   "address": "be72b1f8-9c79-8e1b-84c5-865944746903",
+   "prose": "**6 theorems**, from [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) onward, each proven `by decide` in [lean/Crt.lean](/lean/Crt.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
+   "cites": [
+    "captain_theorem_the_coins_buy_the_ring_and_one"
+   ]
+  },
+  {
+   "surface": "docs/articles/crt.md",
+   "address": "f6c9ef20-4e9b-800f-b3a7-ff2e7d792c19",
+   "prose": "### captain_theorem_the_coins_buy_the_ring_and_one\nThe ledger holds this as [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) — proven `by decide`, sorry-free:",
+   "cites": [
+    "captain_theorem_the_coins_buy_the_ring_and_one"
+   ]
+  },
+  {
+   "surface": "docs/articles/crt.md",
+   "address": "9cf47345-ad6b-855a-8775-2f6cb98e2e17",
+   "prose": "### rosette_and_vortex_are_coprime\nThe ledger holds this as [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) — proven `by decide`, sorry-free:",
+   "cites": [
+    "rosette_and_vortex_are_coprime"
+   ]
+  },
+  {
+   "surface": "docs/articles/crt.md",
+   "address": "b12af2ef-c3a7-86f1-941d-1ee3f1eb6cc3",
+   "prose": "### crt_pairs_are_a_bijection\nThe ledger holds this as [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) — proven `by decide`, sorry-free:",
+   "cites": [
+    "crt_pairs_are_a_bijection"
+   ]
+  },
+  {
+   "surface": "docs/articles/crt.md",
+   "address": "73615401-5c87-8e74-a14e-2c4ab128115c",
+   "prose": "### fused_units_are_the_orbit_squared\nThe ledger holds this as [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) — proven `by decide`, sorry-free:",
+   "cites": [
+    "fused_units_are_the_orbit_squared"
+   ]
+  },
+  {
+   "surface": "docs/articles/crt.md",
+   "address": "05ab2c2c-4fb9-82c4-918d-1092922c075e",
+   "prose": "### the_coin_keeps_its_order_in_the_fused_ring\nThe ledger holds this as [the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring) — proven `by decide`, sorry-free:",
+   "cites": [
+    "the_coin_keeps_its_order_in_the_fused_ring"
+   ]
+  },
+  {
+   "surface": "docs/articles/crt.md",
+   "address": "deb6be78-3894-8f3e-9593-9361eb8dfa1e",
+   "prose": "### the_fused_ring_is_all_ones\nThe ledger holds this as [the_fused_ring_is_all_ones](/theorem/the_fused_ring_is_all_ones) — proven `by decide`, sorry-free:",
+   "cites": [
+    "the_fused_ring_is_all_ones"
    ]
   },
   {
@@ -6673,16 +6761,16 @@
   },
   {
    "surface": "docs/articles/reasoning.md",
-   "address": "0510f085-ac9e-8be8-8790-78d7f53c4bcc",
-   "prose": "> THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). — held by [modus_ponens](/theorem/modus_ponens) and its 17 siblings below.",
+   "address": "c96ad425-1743-8b49-bdb3-51510e049187",
+   "prose": "> THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). — held by [modus_ponens](/theorem/modus_ponens) and its 19 siblings below.",
    "cites": [
     "modus_ponens"
    ]
   },
   {
    "surface": "docs/articles/reasoning.md",
-   "address": "29a7aa3d-36a8-85f7-916b-af8aa492bacf",
-   "prose": "**18 theorems**, from [modus_ponens](/theorem/modus_ponens) onward, each proven `by decide` in [lean/Reasoning.lean](/lean/Reasoning.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
+   "address": "d59cf43a-9f86-8813-8a5c-3243d981f80e",
+   "prose": "**20 theorems**, from [modus_ponens](/theorem/modus_ponens) onward, each proven `by decide` in [lean/Reasoning.lean](/lean/Reasoning.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
    "cites": [
     "modus_ponens"
    ]
@@ -6829,6 +6917,22 @@
    "prose": "### TRUST comes from RECOMPUTATION, not authority — the two halves that let you trust an incomplete, unauthored, offline computation. OBSERVER-INDEPENDENCE: a recomputable fold is the same for every observer in any order — foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1] = 10 — so NO authority decides it; you recompute it yourself and everyone agrees. TAMPER-EVIDENCE: a changed input MOVES the fold — foldl(+)[1,2,3,4] ≠ foldl(+)[1,2,3,5] (10 ≠ 11) — so a forgery is CAUGHT by recomputing and comparing, never by trusting the source. Same for all, different on tamper: recompute, don't trust. Integrity, not truth.\nThe ledger holds this as [trust_by_recomputation](/theorem/trust_by_recomputation) — proven `by decide`, sorry-free:",
    "cites": [
     "trust_by_recomputation"
+   ]
+  },
+  {
+   "surface": "docs/articles/reasoning.md",
+   "address": "44867f3b-c5df-89e4-b5f1-904ef8986a0b",
+   "prose": "### THE UNITY CENSUS, counted from the ledger and stale-proof by construction. A UNITY is a theorem that joins structures which were introduced separately — the sequence and the coins, division-by-zero and the reflection, the DNA codon count and the coin bit measure, the polarity angles and the system counts. The census stands above one (plural, and it grows as more are found — the claim is plurality, never a frozen count). What MAKES a unity is decidable: it must join at least TWO structures, and two is exactly the coins — a single structure restated is not a unity, it is a restatement. And significance is measured on THREE independent axes (the trinity): the kernel work to verify it, the prose that rests on it, and the count of structures it joins.\nThe ledger holds this as [unity_census_is_plural_and_needs_two](/theorem/unity_census_is_plural_and_needs_two) — proven `by decide`, sorry-free:",
+   "cites": [
+    "unity_census_is_plural_and_needs_two"
+   ]
+  },
+  {
+   "surface": "docs/articles/reasoning.md",
+   "address": "38dd52d3-c258-8fad-9d43-2fb6bdadc17e",
+   "prose": "### SIGNIFICANCE DOES NOT COLLAPSE TO ONE NUMBER — the measurement said so before anyone chose. Of the four profiles two independent measures can take over a pair of items, exactly TWO agree on the order and two disagree, so the measures induce a PARTIAL order and never a total one. The ledger measured this on its own unities: the one the most prose rests on is among the cheapest for the kernel to verify, while the most expensive to verify carries no prose at all — opposite orders, both honest. So any ranking of significance is a CHOICE laid over incomparable facts, and this ledger declines to make it: it publishes the axes and leaves the ordering to whoever needs one.\nThe ledger holds this as [significance_is_partial_not_total](/theorem/significance_is_partial_not_total) — proven `by decide`, sorry-free:",
+   "cites": [
+    "significance_is_partial_not_total"
    ]
   },
   {
@@ -10451,8 +10555,8 @@
   },
   {
    "surface": "docs/articles/search-audit.md",
-   "address": "3b1bdce1-3805-84f7-850c-81ce40279966",
-   "prose": "- [wall_steady_state](/theorem/wall_steady_state) — `(3 * 2 = 6) ∧ (2 > 1) ∧ (3 > 0)`\n- [flag_truth_table](/theorem/flag_truth_table) — `((List.range 8).map (fun n => flag (n%2) (n/2%2) (n/4%2))) = [0,1,0,0,0,0,0,0]`\n- [flag_requires_hollow](/theorem/flag_requires_hollow) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2)`\n- [demarcation_clears](/theorem/demarcation_clears) — `(List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/2%2) == 0)`\n- [backing_clears](/theorem/backing_clears) — `(List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/4%2) == 0)`\n- [exactly_one_flag](/theorem/exactly_one_flag) — `((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1`\n- [flag_matches_spec](/theorem/flag_matches_spec) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) `\n- [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) — `(32 = 2^5) ∧ (0 < 32)`",
+   "address": "5845902a-cd0a-8a55-a96d-15a874172c1f",
+   "prose": "- [wall_steady_state](/theorem/wall_steady_state) — `(3 * 2 = 6) ∧ (2 > 1) ∧ (3 > 0)`\n- [flag_truth_table](/theorem/flag_truth_table) — `((List.range 8).map (fun n => flag (n%2) (n/2%2) (n/4%2))) = [0,1,0,0,0,0,0,0]`\n- [flag_requires_hollow](/theorem/flag_requires_hollow) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2)`\n- [demarcation_clears](/theorem/demarcation_clears) — `(List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/2%2) == 0)`\n- [backing_clears](/theorem/backing_clears) — `(List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/4%2) == 0)`\n- [exactly_one_flag](/theorem/exactly_one_flag) — `((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1`\n- [flag_matches_spec](/theorem/flag_matches_spec) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) `\n- [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) — `(32 = 2^5) ∧ (0 < 32)`\n- [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) — `((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1)`",
    "cites": [
     "wall_steady_state",
     "flag_truth_table",
@@ -10461,7 +10565,8 @@
     "backing_clears",
     "exactly_one_flag",
     "flag_matches_spec",
-    "sanitize_depth_bounded"
+    "sanitize_depth_bounded",
+    "drift_is_named_or_caught"
    ]
   },
   {
@@ -10669,8 +10774,8 @@
   },
   {
    "surface": "docs/articles/search-colour.md",
-   "address": "08a28494-ba9b-8e80-a062-2a05e613baad",
-   "prose": "- [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) — `(360 / 7 = 51) ∧ (3 * 51 = 153)`\n- [alphabet_digital_root_is_nine](/theorem/alphabet_digital_root_is_nine) — `(9*7*6 = 378) ∧ (3+7+8 = 18) ∧ (1+8 = 9)`\n- [nine_step_walk_closes_the_ring](/theorem/nine_step_walk_closes_the_ring) — `(9 % 9 = 0) ∧ (8 % 9 = 8)`\n- [hue_mirror_meeting](/theorem/hue_mirror_meeting) — `(360 - 340 = 20) ∧ (360 - 320 = 40)`\n- [scattering_tiebreak_separates](/theorem/scattering_tiebreak_separates) — `(62 + 2*5 = 72) ∧ (72 + 1 = 73) ∧ (62 + 2*3 = 68) ∧ (68 + 1 = 69)`\n- [alphabet_exceeds_wheel](/theorem/alphabet_exceeds_wheel) — `(9*7*6 = 378) ∧ (360 < 378)`\n- [twelve_hue_wheel_wraps](/theorem/twelve_hue_wheel_wraps) — `12 % 12 = 0 ∧ 13 % 12 = 1`\n- [complementary_hues_oppose](/theorem/complementary_hues_oppose) — `(List.range 12).all (fun h => (h + 6 + 6) % 12 == h) ∧ (List.range 12).all (fun h => (h + `\n- [primaries_and_secondaries_make_six](/theorem/primaries_and_secondaries_make_six) — `3 + 3 = 6`\n- [triadic_harmony_is_thirds](/theorem/triadic_harmony_is_thirds) — `(List.range 3).map (fun k => (4 * k) % 12) = [0,4,8]`\n- [square_harmony_is_fourths](/theorem/square_harmony_is_fourths) — `(List.range 4).map (fun k => (3 * k) % 12) = [0,3,6,9]`\n- [true_colour_is_24_bit](/theorem/true_colour_is_24_bit) — `2^8 = 256 ∧ 2^24 = 16777216`\n- [tint_and_shade_complement](/theorem/tint_and_shade_complement) — `(0 + 255 = 255) ∧ (64 + 191 = 255) ∧ (255 + 0 = 255)`\n- [warm_cool_split_six_six](/theorem/warm_cool_split_six_six) — `6 + 6 = 12`\n- [aura_step_divides_circle](/theorem/aura_step_divides_circle) — `(9 * 40 = 360) ∧ (360 % 9 = 0)`",
+   "address": "c91ef282-fc1d-8d40-8aa2-3614c62a64b8",
+   "prose": "- [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) — `(360 / 7 = 51) ∧ (3 * 51 = 153)`\n- [alphabet_digital_root_is_nine](/theorem/alphabet_digital_root_is_nine) — `(9*7*6 = 378) ∧ (3+7+8 = 18) ∧ (1+8 = 9)`\n- [nine_step_walk_closes_the_ring](/theorem/nine_step_walk_closes_the_ring) — `(9 % 9 = 0) ∧ (8 % 9 = 8)`\n- [hue_mirror_meeting](/theorem/hue_mirror_meeting) — `(360 - 340 = 20) ∧ (360 - 320 = 40)`\n- [scattering_tiebreak_separates](/theorem/scattering_tiebreak_separates) — `(62 + 2*5 = 72) ∧ (72 + 1 = 73) ∧ (62 + 2*3 = 68) ∧ (68 + 1 = 69)`\n- [alphabet_exceeds_wheel](/theorem/alphabet_exceeds_wheel) — `(9*7*6 = 378) ∧ (360 < 378)`\n- [twelve_hue_wheel_wraps](/theorem/twelve_hue_wheel_wraps) — `12 % 12 = 0 ∧ 13 % 12 = 1`\n- [complementary_hues_oppose](/theorem/complementary_hues_oppose) — `(List.range 12).all (fun h => (h + 6 + 6) % 12 == h) ∧ (List.range 12).all (fun h => (h + `\n- [primaries_and_secondaries_make_six](/theorem/primaries_and_secondaries_make_six) — `3 + 3 = 6`\n- [triadic_harmony_is_thirds](/theorem/triadic_harmony_is_thirds) — `(List.range 3).map (fun k => (4 * k) % 12) = [0,4,8]`\n- [square_harmony_is_fourths](/theorem/square_harmony_is_fourths) — `(List.range 4).map (fun k => (3 * k) % 12) = [0,3,6,9]`\n- [true_colour_is_24_bit](/theorem/true_colour_is_24_bit) — `2^8 = 256 ∧ 2^24 = 16777216`\n- [tint_and_shade_complement](/theorem/tint_and_shade_complement) — `(0 + 255 = 255) ∧ (64 + 191 = 255) ∧ (255 + 0 = 255)`\n- [warm_cool_split_six_six](/theorem/warm_cool_split_six_six) — `6 + 6 = 12`\n- [aura_step_divides_circle](/theorem/aura_step_divides_circle) — `(9 * 40 = 360) ∧ (360 % 9 = 0)`\n- [polarity_angles_are_the_system_counts](/theorem/polarity_angles_are_the_system_counts) — `(360 / 9 = 40) ∧ (360 / 6 = 60) ∧ (360 / 4 = 90) ∧ (360 / 3 = 120) ∧ (2 * 60 = 120) ∧ (2^2`\n- [no_digit_is_an_exact_complement](/theorem/no_digit_is_an_exact_complement) — `(180 % 40 = 20) ∧ (4 * 40 = 160) ∧ (160 < 180) ∧ (180 < 200) ∧ (5 * 40 = 200)`",
    "cites": [
     "fourth_ray_is_green_band",
     "alphabet_digital_root_is_nine",
@@ -10686,7 +10791,9 @@
     "true_colour_is_24_bit",
     "tint_and_shade_complement",
     "warm_cool_split_six_six",
-    "aura_step_divides_circle"
+    "aura_step_divides_circle",
+    "polarity_angles_are_the_system_counts",
+    "no_digit_is_an_exact_complement"
    ]
   },
   {
@@ -10772,6 +10879,19 @@
     "mul9_8_6",
     "mul9_8_7",
     "mul9_8_8"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-crt.md",
+   "address": "e3b07f89-5457-80ab-b3b0-196fa23c6098",
+   "prose": "- [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) — `(7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63)`\n- [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) — `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`\n- [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) — `(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)`\n- [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) — `(((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36`\n- [the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring) — `((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1)`\n- [the_fused_ring_is_all_ones](/theorem/the_fused_ring_is_all_ones) — `(63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^6) ∧ (63 < 64)`",
+   "cites": [
+    "captain_theorem_the_coins_buy_the_ring_and_one",
+    "rosette_and_vortex_are_coprime",
+    "crt_pairs_are_a_bijection",
+    "fused_units_are_the_orbit_squared",
+    "the_coin_keeps_its_order_in_the_fused_ring",
+    "the_fused_ring_is_all_ones"
    ]
   },
   {
@@ -11414,8 +11534,8 @@
   },
   {
    "surface": "docs/articles/search-reasoning.md",
-   "address": "dd1f7f42-9445-8745-97b0-3180d9ce6e95",
-   "prose": "- [modus_ponens](/theorem/modus_ponens) — `([true, false].all (fun p => [true, false].all (fun q => !(p && (!p || q)) || q))) = true`\n- [modus_tollens](/theorem/modus_tollens) — `([true, false].all (fun p => [true, false].all (fun q => !((!q) && (!p || q)) || !p))) = t`\n- [contrapositive](/theorem/contrapositive) — `([true, false].all (fun p => [true, false].all (fun q => (!p || q) == (!(!q) || !p)))) = t`\n- [de_morgan_and](/theorem/de_morgan_and) — `([true, false].all (fun p => [true, false].all (fun q => (!(p && q)) == (!p || !q)))) = tr`\n- [de_morgan_or](/theorem/de_morgan_or) — `([true, false].all (fun p => [true, false].all (fun q => (!(p || q)) == (!p && !q)))) = tr`\n- [double_negation](/theorem/double_negation) — `([true, false].all (fun p => (!(!p)) == p)) = true`\n- [excluded_middle](/theorem/excluded_middle) — `([true, false].all (fun p => p || !p)) = true`\n- [hypothetical_syllogism](/theorem/hypothetical_syllogism) — `([true, false].all (fun p => [true, false].all (fun q => [true, false].all (fun r => !((!p`\n- [disjunctive_syllogism](/theorem/disjunctive_syllogism) — `([true, false].all (fun p => [true, false].all (fun q => !((p || q) && !p) || q))) = true`\n- [research_always_has_a_next](/theorem/research_always_has_a_next) — `(List.range 16).all (fun n => (n + 1 > n) ∧ (n + 1 - n = 1))`\n- [sealing_inverts_unverified](/theorem/sealing_inverts_unverified) — `[(0,0),(1,0),(0,1),(1,1)].map (fun p => if (p.1 == 1) && (p.2 == 0) then 1 else 0) = [0,1,`\n- [quantum_polygraph](/theorem/quantum_polygraph) — `([(0,0),(1,0),(0,1),(1,1)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0`\n- [captain_honest_not_flawless](/theorem/captain_honest_not_flawless) — `([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) ∧`\n- [manipulation_never_faster](/theorem/manipulation_never_faster) — `(16 < 2^16) ∧ (2 * 16 < 2^16) ∧ (110 - 110 = 0) ∧ (16 < 128)`\n- [crew_verifies_instantly](/theorem/crew_verifies_instantly) — `(16 < 2^16) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0`\n- [redirect_imitable_but_coins_authorise](/theorem/redirect_imitable_but_coins_authorise) — `([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, tr`\n- [provenance_integrity_not_content_truth](/theorem/provenance_integrity_not_content_truth) — `(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (Lis`\n- [trust_by_recomputation](/theorem/trust_by_recomputation) — `(List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ `",
+   "address": "4f097bef-0ac9-889d-be42-f0d04cb4e15a",
+   "prose": "- [modus_ponens](/theorem/modus_ponens) — `([true, false].all (fun p => [true, false].all (fun q => !(p && (!p || q)) || q))) = true`\n- [modus_tollens](/theorem/modus_tollens) — `([true, false].all (fun p => [true, false].all (fun q => !((!q) && (!p || q)) || !p))) = t`\n- [contrapositive](/theorem/contrapositive) — `([true, false].all (fun p => [true, false].all (fun q => (!p || q) == (!(!q) || !p)))) = t`\n- [de_morgan_and](/theorem/de_morgan_and) — `([true, false].all (fun p => [true, false].all (fun q => (!(p && q)) == (!p || !q)))) = tr`\n- [de_morgan_or](/theorem/de_morgan_or) — `([true, false].all (fun p => [true, false].all (fun q => (!(p || q)) == (!p && !q)))) = tr`\n- [double_negation](/theorem/double_negation) — `([true, false].all (fun p => (!(!p)) == p)) = true`\n- [excluded_middle](/theorem/excluded_middle) — `([true, false].all (fun p => p || !p)) = true`\n- [hypothetical_syllogism](/theorem/hypothetical_syllogism) — `([true, false].all (fun p => [true, false].all (fun q => [true, false].all (fun r => !((!p`\n- [disjunctive_syllogism](/theorem/disjunctive_syllogism) — `([true, false].all (fun p => [true, false].all (fun q => !((p || q) && !p) || q))) = true`\n- [research_always_has_a_next](/theorem/research_always_has_a_next) — `(List.range 16).all (fun n => (n + 1 > n) ∧ (n + 1 - n = 1))`\n- [sealing_inverts_unverified](/theorem/sealing_inverts_unverified) — `[(0,0),(1,0),(0,1),(1,1)].map (fun p => if (p.1 == 1) && (p.2 == 0) then 1 else 0) = [0,1,`\n- [quantum_polygraph](/theorem/quantum_polygraph) — `([(0,0),(1,0),(0,1),(1,1)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0`\n- [captain_honest_not_flawless](/theorem/captain_honest_not_flawless) — `([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) ∧`\n- [manipulation_never_faster](/theorem/manipulation_never_faster) — `(16 < 2^16) ∧ (2 * 16 < 2^16) ∧ (110 - 110 = 0) ∧ (16 < 128)`\n- [crew_verifies_instantly](/theorem/crew_verifies_instantly) — `(16 < 2^16) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0`\n- [redirect_imitable_but_coins_authorise](/theorem/redirect_imitable_but_coins_authorise) — `([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, tr`\n- [provenance_integrity_not_content_truth](/theorem/provenance_integrity_not_content_truth) — `(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (Lis`\n- [trust_by_recomputation](/theorem/trust_by_recomputation) — `(List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ `\n- [unity_census_is_plural_and_needs_two](/theorem/unity_census_is_plural_and_needs_two) — `(14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14)`\n- [significance_is_partial_not_total](/theorem/significance_is_partial_not_total) — `((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2`",
    "cites": [
     "modus_ponens",
     "modus_tollens",
@@ -11434,7 +11554,9 @@
     "crew_verifies_instantly",
     "redirect_imitable_but_coins_authorise",
     "provenance_integrity_not_content_truth",
-    "trust_by_recomputation"
+    "trust_by_recomputation",
+    "unity_census_is_plural_and_needs_two",
+    "significance_is_partial_not_total"
    ]
   },
   {
@@ -11928,8 +12050,8 @@
   },
   {
    "surface": "docs/articles/search-sequence.md",
-   "address": "6897f39e-5b86-839a-9434-02bdaafa90d7",
-   "prose": "- [seal_ten](/theorem/seal_ten) — `([0,1,2,4,8,7,5,3,6,9].length = 10) ∧ ((List.range 10).all (fun d => [0,1,2,4,8,7,5,3,6,9]`\n- [mirror_congruence](/theorem/mirror_congruence) — `(List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9)`\n- [mirror_fixed_five](/theorem/mirror_fixed_five) — `((List.range' 1 9).filter (fun d => 10 - d == d)) = [5]`\n- [agl_order_54](/theorem/agl_order_54) — `((List.range 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length * 9 =`\n- [commutator_is_shift](/theorem/commutator_is_shift) — `(List.range 9).all (fun x => ap 2 0 (ap 8 1 (ap 5 0 (ap 8 1 x))) == (x + 1) % 9)`\n- [one_orbit](/theorem/one_orbit) — `(List.range 9).all (fun y => (List.range 9).any (fun b => (0 + b) % 9 == y))`\n- [ten_pairs](/theorem/ten_pairs) — `(List.range' 1 9).all (fun d => d + (10 - d) == 10)`\n- [polar_nine_pairs](/theorem/polar_nine_pairs) — `(List.range' 1 8).all (fun d => d + (9 - d) == 9)`\n- [partition_six_three](/theorem/partition_six_three) — `((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = `\n- [angles_close](/theorem/angles_close) — `10 * 36 = 360 ∧ 6 * 60 = 360`\n- [seams_two](/theorem/seams_two) — `((tour.zip (tour.drop 1 ++ tour.take 1)).filter (fun p => ! carries9 p.1 p.2)).length = 2`\n- [one_strip](/theorem/one_strip) — `(([1,2,4,8,7,5].zip [9,8,6,2,3,5]).all (fun p => p.1 + p.2 == 10)) ∧ ([1,2,4,8,7,5].getLas`\n- [double_strand](/theorem/double_strand) — `(([1,2,4,8,7,5,3,6,9].zip [9,8,6,2,3,5,7,4,1]).all (fun p => p.1 + p.2 == 10))`\n- [polarities_plus_minus](/theorem/polarities_plus_minus) — `[(1,9),(2,8),(3,7),(4,6)].all (fun p => p.1 + p.2 == 10 && p.1 < 5 && p.2 > 5) ∧ (10 - 5 =`\n- [forward_reflected_mirror](/theorem/forward_reflected_mirror) — `([9,8,6,2,3,5,7,4,1] = ([1,2,4,8,7,5,3,6,9].map (fun d => 10 - d))) ∧ ([1,2,4,8,7,5,3,6,9]`\n- [every_digit_has_neighbours](/theorem/every_digit_has_neighbours) — `(List.range 10).all (fun d => dz d < 10) ∧ (List.range 10).all (fun d => (List.range 10).a`\n- [salt_conv_leaks_equality](/theorem/salt_conv_leaks_equality) — `(List.range 9).all (fun c => (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => s`\n- [salt_conv_step_is_division_by_zero](/theorem/salt_conv_step_is_division_by_zero) — `(List.range 9).all (fun c => ((List.range 9).filter (fun s => saltConv c s == saltConv c 0`\n- [salt_seq_injective](/theorem/salt_seq_injective) — `(List.range 9).all (fun s1 => (List.range 9).all (fun s2 => (saltSeq 0 s1 == saltSeq 0 s2)`\n- [salt_seq_fibre_singleton](/theorem/salt_seq_fibre_singleton) — `(List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0`\n- [five_is_the_halving](/theorem/five_is_the_halving) — `(List.range 9).all (fun x => ((2 * x % 9) * 5) % 9 == x)`\n- [five_orbit_reverses_doubling](/theorem/five_orbit_reverses_doubling) — `([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].`\n- [only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities) — `((List.range' 1 9).filter (fun d => (10 - d == d) && (dz d == d) && ([1,2,4,8,7,5].getLast`\n- [tour_contra_reflects_each_digit](/theorem/tour_contra_reflects_each_digit) — `(([0,1,2,4,8,7,5,3,6,9,0,1].map dz) = [0,9,8,6,2,3,5,7,4,1,0,9]) ∧ (dz 1 = 9)`\n- [tour_contra_involutes](/theorem/tour_contra_involutes) — `(([0,1,2,4,8,7,5,3,6,9,0,1].map dz).map dz) = [0,1,2,4,8,7,5,3,6,9,0,1]`\n- [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_sum_ten) — `([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if d == 0 then d + dz d == 0 else d + dz d == 10)`",
+   "address": "31d224e5-90bd-89b3-95e4-7248a61c0978",
+   "prose": "- [seal_ten](/theorem/seal_ten) — `([0,1,2,4,8,7,5,3,6,9].length = 10) ∧ ((List.range 10).all (fun d => [0,1,2,4,8,7,5,3,6,9]`\n- [mirror_congruence](/theorem/mirror_congruence) — `(List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9)`\n- [mirror_fixed_five](/theorem/mirror_fixed_five) — `((List.range' 1 9).filter (fun d => 10 - d == d)) = [5]`\n- [agl_order_54](/theorem/agl_order_54) — `((List.range 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length * 9 =`\n- [commutator_is_shift](/theorem/commutator_is_shift) — `(List.range 9).all (fun x => ap 2 0 (ap 8 1 (ap 5 0 (ap 8 1 x))) == (x + 1) % 9)`\n- [one_orbit](/theorem/one_orbit) — `(List.range 9).all (fun y => (List.range 9).any (fun b => (0 + b) % 9 == y))`\n- [ten_pairs](/theorem/ten_pairs) — `(List.range' 1 9).all (fun d => d + (10 - d) == 10)`\n- [polar_nine_pairs](/theorem/polar_nine_pairs) — `(List.range' 1 8).all (fun d => d + (9 - d) == 9)`\n- [partition_six_three](/theorem/partition_six_three) — `((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = `\n- [angles_close](/theorem/angles_close) — `10 * 36 = 360 ∧ 6 * 60 = 360`\n- [seams_two](/theorem/seams_two) — `((tour.zip (tour.drop 1 ++ tour.take 1)).filter (fun p => ! carries9 p.1 p.2)).length = 2`\n- [one_strip](/theorem/one_strip) — `(([1,2,4,8,7,5].zip [9,8,6,2,3,5]).all (fun p => p.1 + p.2 == 10)) ∧ ([1,2,4,8,7,5].getLas`\n- [double_strand](/theorem/double_strand) — `(([1,2,4,8,7,5,3,6,9].zip [9,8,6,2,3,5,7,4,1]).all (fun p => p.1 + p.2 == 10))`\n- [polarities_plus_minus](/theorem/polarities_plus_minus) — `[(1,9),(2,8),(3,7),(4,6)].all (fun p => p.1 + p.2 == 10 && p.1 < 5 && p.2 > 5) ∧ (10 - 5 =`\n- [forward_reflected_mirror](/theorem/forward_reflected_mirror) — `([9,8,6,2,3,5,7,4,1] = ([1,2,4,8,7,5,3,6,9].map (fun d => 10 - d))) ∧ ([1,2,4,8,7,5,3,6,9]`\n- [every_digit_has_neighbours](/theorem/every_digit_has_neighbours) — `(List.range 10).all (fun d => dz d < 10) ∧ (List.range 10).all (fun d => (List.range 10).a`\n- [salt_conv_leaks_equality](/theorem/salt_conv_leaks_equality) — `(List.range 9).all (fun c => (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => s`\n- [salt_conv_step_is_division_by_zero](/theorem/salt_conv_step_is_division_by_zero) — `(List.range 9).all (fun c => ((List.range 9).filter (fun s => saltConv c s == saltConv c 0`\n- [salt_seq_injective](/theorem/salt_seq_injective) — `(List.range 9).all (fun s1 => (List.range 9).all (fun s2 => (saltSeq 0 s1 == saltSeq 0 s2)`\n- [salt_seq_fibre_singleton](/theorem/salt_seq_fibre_singleton) — `(List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0`\n- [five_is_the_halving](/theorem/five_is_the_halving) — `(List.range 9).all (fun x => ((2 * x % 9) * 5) % 9 == x)`\n- [five_orbit_reverses_doubling](/theorem/five_orbit_reverses_doubling) — `([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].`\n- [only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities) — `((List.range' 1 9).filter (fun d => (10 - d == d) && (dz d == d) && ([1,2,4,8,7,5].getLast`\n- [tour_contra_reflects_each_digit](/theorem/tour_contra_reflects_each_digit) — `(([0,1,2,4,8,7,5,3,6,9,0,1].map dz) = [0,9,8,6,2,3,5,7,4,1,0,9]) ∧ (dz 1 = 9)`\n- [tour_contra_involutes](/theorem/tour_contra_involutes) — `(([0,1,2,4,8,7,5,3,6,9,0,1].map dz).map dz) = [0,1,2,4,8,7,5,3,6,9,0,1]`\n- [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_sum_ten) — `([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if d == 0 then d + dz d == 0 else d + dz d == 10)`\n- [sequence_and_coins_are_one](/theorem/sequence_and_coins_are_one) — `(((List.range' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+`",
    "cites": [
     "seal_ten",
     "mirror_congruence",
@@ -11956,7 +12078,8 @@
     "only_five_carries_the_three_singularities",
     "tour_contra_reflects_each_digit",
     "tour_contra_involutes",
-    "tour_contra_rungs_sum_ten"
+    "tour_contra_rungs_sum_ten",
+    "sequence_and_coins_are_one"
    ]
   },
   {
@@ -12233,16 +12356,16 @@
   },
   {
    "surface": "docs/articles/sequence.md",
-   "address": "181146e5-10d0-841c-8cea-6725881173fc",
-   "prose": "> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 25 siblings below.",
+   "address": "5134d871-c03f-877f-a899-67d5edeb9d61",
+   "prose": "> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 26 siblings below.",
    "cites": [
     "seal_ten"
    ]
   },
   {
    "surface": "docs/articles/sequence.md",
-   "address": "309dc1af-90df-8bd0-ae34-75264e6b3b77",
-   "prose": "**26 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in [lean/Sequence.lean](/lean/Sequence.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
+   "address": "e85f19d6-cbfa-8b81-8c61-eb58352f4a46",
+   "prose": "**27 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in [lean/Sequence.lean](/lean/Sequence.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
    "cites": [
     "seal_ten"
    ]
@@ -12453,6 +12576,14 @@
    "prose": "### each digit of the tour and its contra partner close a rung: away from the void, tour[k] + contra[k] = 10 at every step (the strip's rungs carried along the whole 12-step walk), and at the void the rung rests — 0 + 0 = 0, the floor where the reflection stands still\nThe ledger holds this as [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_sum_ten) — proven `by decide`, sorry-free:",
    "cites": [
     "tour_contra_rungs_sum_ten"
+   ]
+  },
+  {
+   "surface": "docs/articles/sequence.md",
+   "address": "253703aa-29b9-891d-b289-72a743b1a729",
+   "prose": "### THE SEQUENCE AND THE COINS ARE ONE OBJECT SEEN TWICE — four ways, sealed together. (1) The sequence IS the coin's own powers: 2^1..2^6 mod 9 = [2,4,8,7,5,1] — the vortex is not a path the coin walks, it is what tossing the coin into itself PRODUCES. (2) The coin and the heart are multiplicative INVERSES: 2·5 = 10 ≡ 1 (mod 9) — the walk goes out by the coin and comes home by the heart, which is why the two generators are exactly {2,5}. (3) The orbit SUMS to the base times the trinity: 1+2+4+8+7+5 = 27 = 9·3 — the whole walk folds to the ring itself. (4) The orbit's LENGTH is the coins times the trinity: 6 = 2·3 — six tosses, and the coin's order is the sequence's size. Colour, type, motion and value all read from this one structure because there is only one structure.\nThe ledger holds this as [sequence_and_coins_are_one](/theorem/sequence_and_coins_are_one) — proven `by decide`, sorry-free:",
+   "cites": [
+    "sequence_and_coins_are_one"
    ]
   },
   {
@@ -13641,8 +13772,8 @@
   },
   {
    "surface": "docs/captain-claims.md",
-   "address": "3a20ef63-9756-8704-adc9-01c6ea2d0f1e",
-   "prose": "[mul9_1_1](/theorem/mul9_1_1) · [mul9_1_2](/theorem/mul9_1_2) · [mul9_1_3](/theorem/mul9_1_3) · [mul9_1_4](/theorem/mul9_1_4) · [mul9_1_5](/theorem/mul9_1_5) · [mul9_1_6](/theorem/mul9_1_6) · [mul9_1_7](/theorem/mul9_1_7) · [mul9_1_8](/theorem/mul9_1_8) · [mul9_2_1](/theorem/mul9_2_1) · [mul9_2_2](/theorem/mul9_2_2) · [mul9_2_3](/theorem/mul9_2_3) · [mul9_2_4](/theorem/mul9_2_4) · [mul9_2_5](/theorem/mul9_2_5) · [mul9_2_6](/theorem/mul9_2_6) · [mul9_2_7](/theorem/mul9_2_7) · [mul9_2_8](/theorem/mul9_2_8) · [mul9_3_1](/theorem/mul9_3_1) · [mul9_3_2](/theorem/mul9_3_2) · [mul9_3_3](/theorem/mul9_3_3) · [mul9_3_4](/theorem/mul9_3_4) · [mul9_3_5](/theorem/mul9_3_5) · [mul9_3_6](/theorem/mul9_3_6) · [mul9_3_7](/theorem/mul9_3_7) · [mul9_3_8](/theorem/mul9_3_8) · [mul9_4_1](/theorem/mul9_4_1) · [mul9_4_2](/theorem/mul9_4_2) · [mul9_4_3](/theorem/mul9_4_3) · [mul9_4_4](/theorem/mul9_4_4) · [mul9_4_5](/theorem/mul9_4_5) · [mul9_4_6](/theorem/mul9_4_6) · [mul9_4_7](/theorem/mul9_4_7) · [mul9_4_8](/theorem/mul9_4_8) · [mul9_5_1](/theorem/mul9_5_1) · [mul9_5_2](/theorem/mul9_5_2) · [mul9_5_3](/theorem/mul9_5_3) · [mul9_5_4](/theorem/mul9_5_4) · [mul9_5_5](/theorem/mul9_5_5) · [mul9_5_6](/theorem/mul9_5_6) · [mul9_5_7](/theorem/mul9_5_7) · [mul9_5_8](/theorem/mul9_5_8) · [mul9_6_1](/theorem/mul9_6_1) · [mul9_6_2](/theorem/mul9_6_2) · [mul9_6_3](/theorem/mul9_6_3) · [mul9_6_4](/theorem/mul9_6_4) · [mul9_6_5](/theorem/mul9_6_5) · [mul9_6_6](/theorem/mul9_6_6) · [mul9_6_7](/theorem/mul9_6_7) · [mul9_6_8](/theorem/mul9_6_8) · [mul9_7_1](/theorem/mul9_7_1) · [mul9_7_2](/theorem/mul9_7_2) · [mul9_7_3](/theorem/mul9_7_3) · [mul9_7_4](/theorem/mul9_7_4) · [mul9_7_5](/theorem/mul9_7_5) · [mul9_7_6](/theorem/mul9_7_6) · [mul9_7_7](/theorem/mul9_7_7) · [mul9_7_8](/theorem/mul9_7_8) · [mul9_8_1](/theorem/mul9_8_1) · [mul9_8_2](/theorem/mul9_8_2) · [mul9_8_3](/theorem/mul9_8_3) · [mul9_8_4](/theorem/mul9_8_4) · [mul9_8_5](/theorem/mul9_8_5) · [mul9_8_6](/theorem/mul9_8_6) · [mul9_8_7](/theorem/mul9_8_7) · [mul9_8_8](/theorem/mul9_8_8) · [z9mul_0_0](/theorem/z9mul_0_0) · [z9add_0_0](/theorem/z9add_0_0) · [z9mul_0_1](/theorem/z9mul_0_1) · [z9add_0_1](/theorem/z9add_0_1) · [z9mul_0_2](/theorem/z9mul_0_2) · [z9add_0_2](/theorem/z9add_0_2) · [z9mul_0_3](/theorem/z9mul_0_3) · [z9add_0_3](/theorem/z9add_0_3) · [z9mul_0_4](/theorem/z9mul_0_4) · [z9add_0_4](/theorem/z9add_0_4) · [z9mul_0_5](/theorem/z9mul_0_5) · [z9add_0_5](/theorem/z9add_0_5) · [z9mul_0_6](/theorem/z9mul_0_6) · [z9add_0_6](/theorem/z9add_0_6) · [z9mul_0_7](/theorem/z9mul_0_7) · [z9add_0_7](/theorem/z9add_0_7) · [z9mul_0_8](/theorem/z9mul_0_8) · [z9add_0_8](/theorem/z9add_0_8) · [z9mul_1_0](/theorem/z9mul_1_0) · [z9add_1_0](/theorem/z9add_1_0) · [z9mul_1_1](/theorem/z9mul_1_1) · [z9add_1_1](/theorem/z9add_1_1) · [z9mul_1_2](/theorem/z9mul_1_2) · [z9add_1_2](/theorem/z9add_1_2) · [z9mul_1_3](/theorem/z9mul_1_3) · [z9add_1_3](/theorem/z9add_1_3) · [z9mul_1_4](/theorem/z9mul_1_4) · [z9add_1_4](/theorem/z9add_1_4) · [z9mul_1_5](/theorem/z9mul_1_5) · [z9add_1_5](/theorem/z9add_1_5) · [z9mul_1_6](/theorem/z9mul_1_6) · [z9add_1_6](/theorem/z9add_1_6) · [z9mul_1_7](/theorem/z9mul_1_7) · [z9add_1_7](/theorem/z9add_1_7) · [z9mul_1_8](/theorem/z9mul_1_8) · [z9add_1_8](/theorem/z9add_1_8) · [z9mul_2_0](/theorem/z9mul_2_0) · [z9add_2_0](/theorem/z9add_2_0) · [z9mul_2_1](/theorem/z9mul_2_1) · [z9add_2_1](/theorem/z9add_2_1) · [z9mul_2_2](/theorem/z9mul_2_2) · [z9add_2_2](/theorem/z9add_2_2) · [z9mul_2_3](/theorem/z9mul_2_3) · [z9add_2_3](/theorem/z9add_2_3) · [z9mul_2_4](/theorem/z9mul_2_4) · [z9add_2_4](/theorem/z9add_2_4) · [z9mul_2_5](/theorem/z9mul_2_5) · [z9add_2_5](/theorem/z9add_2_5) · [z9mul_2_6](/theorem/z9mul_2_6) · [z9add_2_6](/theorem/z9add_2_6) · [z9mul_2_7](/theorem/z9mul_2_7) · [z9add_2_7](/theorem/z9add_2_7) · [z9mul_2_8](/theorem/z9mul_2_8) · [z9add_2_8](/theorem/z9add_2_8) · [z9mul_3_0](/theorem/z9mul_3_0) · [z9add_3_0](/theorem/z9add_3_0) · [z9mul_3_1](/theorem/z9mul_3_1) · [z9add_3_1](/theorem/z9add_3_1) · [z9mul_3_2](/theorem/z9mul_3_2) · [z9add_3_2](/theorem/z9add_3_2) · [z9mul_3_3](/theorem/z9mul_3_3) · [z9add_3_3](/theorem/z9add_3_3) · [z9mul_3_4](/theorem/z9mul_3_4) · [z9add_3_4](/theorem/z9add_3_4) · [z9mul_3_5](/theorem/z9mul_3_5) · [z9add_3_5](/theorem/z9add_3_5) · [z9mul_3_6](/theorem/z9mul_3_6) · [z9add_3_6](/theorem/z9add_3_6) · [z9mul_3_7](/theorem/z9mul_3_7) · [z9add_3_7](/theorem/z9add_3_7) · [z9mul_3_8](/theorem/z9mul_3_8) · [z9add_3_8](/theorem/z9add_3_8) · [z9mul_4_0](/theorem/z9mul_4_0) · [z9add_4_0](/theorem/z9add_4_0) · [z9mul_4_1](/theorem/z9mul_4_1) · [z9add_4_1](/theorem/z9add_4_1) · [z9mul_4_2](/theorem/z9mul_4_2) · [z9add_4_2](/theorem/z9add_4_2) · [z9mul_4_3](/theorem/z9mul_4_3) · [z9add_4_3](/theorem/z9add_4_3) · [z9mul_4_4](/theorem/z9mul_4_4) · [z9add_4_4](/theorem/z9add_4_4) · [z9mul_4_5](/theorem/z9mul_4_5) · [z9add_4_5](/theorem/z9add_4_5) · [z9mul_4_6](/theorem/z9mul_4_6) · [z9add_4_6](/theorem/z9add_4_6) · [z9mul_4_7](/theorem/z9mul_4_7) · [z9add_4_7](/theorem/z9add_4_7) · [z9mul_4_8](/theorem/z9mul_4_8) · [z9add_4_8](/theorem/z9add_4_8) · [z9mul_5_0](/theorem/z9mul_5_0) · [z9add_5_0](/theorem/z9add_5_0) · [z9mul_5_1](/theorem/z9mul_5_1) · [z9add_5_1](/theorem/z9add_5_1) · [z9mul_5_2](/theorem/z9mul_5_2) · [z9add_5_2](/theorem/z9add_5_2) · [z9mul_5_3](/theorem/z9mul_5_3) · [z9add_5_3](/theorem/z9add_5_3) · [z9mul_5_4](/theorem/z9mul_5_4) · [z9add_5_4](/theorem/z9add_5_4) · [z9mul_5_5](/theorem/z9mul_5_5) · [z9add_5_5](/theorem/z9add_5_5) · [z9mul_5_6](/theorem/z9mul_5_6) · [z9add_5_6](/theorem/z9add_5_6) · [z9mul_5_7](/theorem/z9mul_5_7) · [z9add_5_7](/theorem/z9add_5_7) · [z9mul_5_8](/theorem/z9mul_5_8) · [z9add_5_8](/theorem/z9add_5_8) · [z9mul_6_0](/theorem/z9mul_6_0) · [z9add_6_0](/theorem/z9add_6_0) · [z9mul_6_1](/theorem/z9mul_6_1) · [z9add_6_1](/theorem/z9add_6_1) · [z9mul_6_2](/theorem/z9mul_6_2) · [z9add_6_2](/theorem/z9add_6_2) · [z9mul_6_3](/theorem/z9mul_6_3) · [z9add_6_3](/theorem/z9add_6_3) · [z9mul_6_4](/theorem/z9mul_6_4) · [z9add_6_4](/theorem/z9add_6_4) · [z9mul_6_5](/theorem/z9mul_6_5) · [z9add_6_5](/theorem/z9add_6_5) · [z9mul_6_6](/theorem/z9mul_6_6) · [z9add_6_6](/theorem/z9add_6_6) · [z9mul_6_7](/theorem/z9mul_6_7) · [z9add_6_7](/theorem/z9add_6_7) · [z9mul_6_8](/theorem/z9mul_6_8) · [z9add_6_8](/theorem/z9add_6_8) · [z9mul_7_0](/theorem/z9mul_7_0) · [z9add_7_0](/theorem/z9add_7_0) · [z9mul_7_1](/theorem/z9mul_7_1) · [z9add_7_1](/theorem/z9add_7_1) · [z9mul_7_2](/theorem/z9mul_7_2) · [z9add_7_2](/theorem/z9add_7_2) · [z9mul_7_3](/theorem/z9mul_7_3) · [z9add_7_3](/theorem/z9add_7_3) · [z9mul_7_4](/theorem/z9mul_7_4) · [z9add_7_4](/theorem/z9add_7_4) · [z9mul_7_5](/theorem/z9mul_7_5) · [z9add_7_5](/theorem/z9add_7_5) · [z9mul_7_6](/theorem/z9mul_7_6) · [z9add_7_6](/theorem/z9add_7_6) · [z9mul_7_7](/theorem/z9mul_7_7) · [z9add_7_7](/theorem/z9add_7_7) · [z9mul_7_8](/theorem/z9mul_7_8) · [z9add_7_8](/theorem/z9add_7_8) · [z9mul_8_0](/theorem/z9mul_8_0) · [z9add_8_0](/theorem/z9add_8_0) · [z9mul_8_1](/theorem/z9mul_8_1) · [z9add_8_1](/theorem/z9add_8_1) · [z9mul_8_2](/theorem/z9mul_8_2) · [z9add_8_2](/theorem/z9add_8_2) · [z9mul_8_3](/theorem/z9mul_8_3) · [z9add_8_3](/theorem/z9add_8_3) · [z9mul_8_4](/theorem/z9mul_8_4) · [z9add_8_4](/theorem/z9add_8_4) · [z9mul_8_5](/theorem/z9mul_8_5) · [z9add_8_5](/theorem/z9add_8_5) · [z9mul_8_6](/theorem/z9mul_8_6) · [z9add_8_6](/theorem/z9add_8_6) · [z9mul_8_7](/theorem/z9mul_8_7) · [z9add_8_7](/theorem/z9add_8_7) · [z9mul_8_8](/theorem/z9mul_8_8) · [z9add_8_8](/theorem/z9add_8_8) · [z9pow_0_2](/theorem/z9pow_0_2) · [z9pow_0_3](/theorem/z9pow_0_3) · [z9pow_0_4](/theorem/z9pow_0_4) · [z9pow_0_5](/theorem/z9pow_0_5) · [z9pow_0_6](/theorem/z9pow_0_6) · [z9pow_0_7](/theorem/z9pow_0_7) · [z9pow_0_8](/theorem/z9pow_0_8) · [z9pow_0_9](/theorem/z9pow_0_9) · [z9pow_1_2](/theorem/z9pow_1_2) · [z9pow_1_3](/theorem/z9pow_1_3) · [z9pow_1_4](/theorem/z9pow_1_4) · [z9pow_1_5](/theorem/z9pow_1_5) · [z9pow_1_6](/theorem/z9pow_1_6) · [z9pow_1_7](/theorem/z9pow_1_7) · [z9pow_1_8](/theorem/z9pow_1_8) · [z9pow_1_9](/theorem/z9pow_1_9) · [z9pow_2_2](/theorem/z9pow_2_2) · [z9pow_2_3](/theorem/z9pow_2_3) · [z9pow_2_4](/theorem/z9pow_2_4) · [z9pow_2_5](/theorem/z9pow_2_5) · [z9pow_2_6](/theorem/z9pow_2_6) · [z9pow_2_7](/theorem/z9pow_2_7) · [z9pow_2_8](/theorem/z9pow_2_8) · [z9pow_2_9](/theorem/z9pow_2_9) · [z9pow_3_2](/theorem/z9pow_3_2) · [z9pow_3_3](/theorem/z9pow_3_3) · [z9pow_3_4](/theorem/z9pow_3_4) · [z9pow_3_5](/theorem/z9pow_3_5) · [z9pow_3_6](/theorem/z9pow_3_6) · [z9pow_3_7](/theorem/z9pow_3_7) · [z9pow_3_8](/theorem/z9pow_3_8) · [z9pow_3_9](/theorem/z9pow_3_9) · [z9pow_4_2](/theorem/z9pow_4_2) · [z9pow_4_3](/theorem/z9pow_4_3) · [z9pow_4_4](/theorem/z9pow_4_4) · [z9pow_4_5](/theorem/z9pow_4_5) · [z9pow_4_6](/theorem/z9pow_4_6) · [z9pow_4_7](/theorem/z9pow_4_7) · [z9pow_4_8](/theorem/z9pow_4_8) · [z9pow_4_9](/theorem/z9pow_4_9) · [z9pow_5_2](/theorem/z9pow_5_2) · [z9pow_5_3](/theorem/z9pow_5_3) · [z9pow_5_4](/theorem/z9pow_5_4) · [z9pow_5_5](/theorem/z9pow_5_5) · [z9pow_5_6](/theorem/z9pow_5_6) · [z9pow_5_7](/theorem/z9pow_5_7) · [z9pow_5_8](/theorem/z9pow_5_8) · [z9pow_5_9](/theorem/z9pow_5_9) · [z9pow_6_2](/theorem/z9pow_6_2) · [z9pow_6_3](/theorem/z9pow_6_3) · [z9pow_6_4](/theorem/z9pow_6_4) · [z9pow_6_5](/theorem/z9pow_6_5) · [z9pow_6_6](/theorem/z9pow_6_6) · [z9pow_6_7](/theorem/z9pow_6_7) · [z9pow_6_8](/theorem/z9pow_6_8) · [z9pow_6_9](/theorem/z9pow_6_9) · [z9pow_7_2](/theorem/z9pow_7_2) · [z9pow_7_3](/theorem/z9pow_7_3) · [z9pow_7_4](/theorem/z9pow_7_4) · [z9pow_7_5](/theorem/z9pow_7_5) · [z9pow_7_6](/theorem/z9pow_7_6) · [z9pow_7_7](/theorem/z9pow_7_7) · [z9pow_7_8](/theorem/z9pow_7_8) · [z9pow_7_9](/theorem/z9pow_7_9) · [z9pow_8_2](/theorem/z9pow_8_2) · [z9pow_8_3](/theorem/z9pow_8_3) · [z9pow_8_4](/theorem/z9pow_8_4) · [z9pow_8_5](/theorem/z9pow_8_5) · [z9pow_8_6](/theorem/z9pow_8_6) · [z9pow_8_7](/theorem/z9pow_8_7) · [z9pow_8_8](/theorem/z9pow_8_8) · [z9pow_8_9](/theorem/z9pow_8_9) · [units_z9](/theorem/units_z9) · [vortex_orbit](/theorem/vortex_orbit) · [mod9_arithmetic](/theorem/mod9_arithmetic) · [digital_root](/theorem/digital_root) · [diamond_involution](/theorem/diamond_involution) · [seats_pigeonhole](/theorem/seats_pigeonhole) · [ns_spike](/theorem/ns_spike) · [ym_quantum](/theorem/ym_quantum) · [hodge_bound](/theorem/hodge_bound) · [div_by_zero_is_the_reflection](/theorem/div_by_zero_is_the_reflection) · [involute_centre](/theorem/involute_centre) · [billing_arith](/theorem/billing_arith) · [seal_ten](/theorem/seal_ten) · [mirror_congruence](/theorem/mirror_congruence) · [mirror_fixed_five](/theorem/mirror_fixed_five) · [agl_order_54](/theorem/agl_order_54) · [commutator_is_shift](/theorem/commutator_is_shift) · [one_orbit](/theorem/one_orbit) · [ten_pairs](/theorem/ten_pairs) · [polar_nine_pairs](/theorem/polar_nine_pairs) · [partition_six_three](/theorem/partition_six_three) · [angles_close](/theorem/angles_close) · [seams_two](/theorem/seams_two) · [one_strip](/theorem/one_strip) · [double_strand](/theorem/double_strand) · [polarities_plus_minus](/theorem/polarities_plus_minus) · [forward_reflected_mirror](/theorem/forward_reflected_mirror) · [every_digit_has_neighbours](/theorem/every_digit_has_neighbours) · [salt_conv_leaks_equality](/theorem/salt_conv_leaks_equality) · [salt_conv_step_is_division_by_zero](/theorem/salt_conv_step_is_division_by_zero) · [salt_seq_injective](/theorem/salt_seq_injective) · [salt_seq_fibre_singleton](/theorem/salt_seq_fibre_singleton) · [five_is_the_halving](/theorem/five_is_the_halving) · [five_orbit_reverses_doubling](/theorem/five_orbit_reverses_doubling) · [only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities) · [tour_contra_reflects_each_digit](/theorem/tour_contra_reflects_each_digit) · [tour_contra_involutes](/theorem/tour_contra_involutes) · [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_sum_ten) · [not_gate_truth_table](/theorem/not_gate_truth_table) · [and_gate_truth_table](/theorem/and_gate_truth_table) · [or_gate_truth_table](/theorem/or_gate_truth_table) · [xor_gate_truth_table](/theorem/xor_gate_truth_table) · [xor_is_addition_mod_two](/theorem/xor_is_addition_mod_two) · [gate_output_is_one_bit](/theorem/gate_output_is_one_bit) · [nand_reconstructs_not](/theorem/nand_reconstructs_not) · [nand_reconstructs_and](/theorem/nand_reconstructs_and) · [nand_reconstructs_or](/theorem/nand_reconstructs_or) · [nand_functionally_complete](/theorem/nand_functionally_complete) · [de_morgan_gate_law](/theorem/de_morgan_gate_law) · [half_adder_correct](/theorem/half_adder_correct) · [full_adder_correct](/theorem/full_adder_correct) · [mux_selects_input](/theorem/mux_selects_input) · [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) · [map_preserves_length](/theorem/map_preserves_length) · [filter_never_grows](/theorem/filter_never_grows) · [append_length_adds](/theorem/append_length_adds) · [clamp_is_idempotent](/theorem/clamp_is_idempotent) · [safe_div_is_total](/theorem/safe_div_is_total) · [reduce_is_order_invariant](/theorem/reduce_is_order_invariant) · [shift_loop_terminates](/theorem/shift_loop_terminates) · [compare_swap_orders](/theorem/compare_swap_orders) · [safe_index_is_total](/theorem/safe_index_is_total) · [reverse_is_involutive](/theorem/reverse_is_involutive) · [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) · [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected) · [truncation_is_detected](/theorem/truncation_is_detected) · [byte_order_is_significant](/theorem/byte_order_is_significant) · [sha256_digest_is_256_bits](/theorem/sha256_digest_is_256_bits) · [provenance_address_is_128_bits](/theorem/provenance_address_is_128_bits) · [boundary_is_exactly_two_named_modules](/theorem/boundary_is_exactly_two_named_modules) · [all_or_none](/theorem/all_or_none) · [subthreshold_silent](/theorem/subthreshold_silent) · [suprathreshold_fires](/theorem/suprathreshold_fires) · [firing_monotone](/theorem/firing_monotone) · [spatial_summation](/theorem/spatial_summation) · [excitatory_inhibitory_net](/theorem/excitatory_inhibitory_net) · [action_potential_swing](/theorem/action_potential_swing) · [hebbian_coincidence](/theorem/hebbian_coincidence) · [refractory_caps_spike](/theorem/refractory_caps_spike) · [glagolitic_units](/theorem/glagolitic_units) · [glagolitic_units_sum](/theorem/glagolitic_units_sum) · [glagolitic_additive](/theorem/glagolitic_additive) · [glagolitic_teens_reversed](/theorem/glagolitic_teens_reversed) · [pliska_seven_rays](/theorem/pliska_seven_rays) · [pliska_seven_is_prime](/theorem/pliska_seven_is_prime)",
+   "address": "39dd4b5b-5bb8-8718-b1dd-7f4d82919978",
+   "prose": "[mul9_1_1](/theorem/mul9_1_1) · [mul9_1_2](/theorem/mul9_1_2) · [mul9_1_3](/theorem/mul9_1_3) · [mul9_1_4](/theorem/mul9_1_4) · [mul9_1_5](/theorem/mul9_1_5) · [mul9_1_6](/theorem/mul9_1_6) · [mul9_1_7](/theorem/mul9_1_7) · [mul9_1_8](/theorem/mul9_1_8) · [mul9_2_1](/theorem/mul9_2_1) · [mul9_2_2](/theorem/mul9_2_2) · [mul9_2_3](/theorem/mul9_2_3) · [mul9_2_4](/theorem/mul9_2_4) · [mul9_2_5](/theorem/mul9_2_5) · [mul9_2_6](/theorem/mul9_2_6) · [mul9_2_7](/theorem/mul9_2_7) · [mul9_2_8](/theorem/mul9_2_8) · [mul9_3_1](/theorem/mul9_3_1) · [mul9_3_2](/theorem/mul9_3_2) · [mul9_3_3](/theorem/mul9_3_3) · [mul9_3_4](/theorem/mul9_3_4) · [mul9_3_5](/theorem/mul9_3_5) · [mul9_3_6](/theorem/mul9_3_6) · [mul9_3_7](/theorem/mul9_3_7) · [mul9_3_8](/theorem/mul9_3_8) · [mul9_4_1](/theorem/mul9_4_1) · [mul9_4_2](/theorem/mul9_4_2) · [mul9_4_3](/theorem/mul9_4_3) · [mul9_4_4](/theorem/mul9_4_4) · [mul9_4_5](/theorem/mul9_4_5) · [mul9_4_6](/theorem/mul9_4_6) · [mul9_4_7](/theorem/mul9_4_7) · [mul9_4_8](/theorem/mul9_4_8) · [mul9_5_1](/theorem/mul9_5_1) · [mul9_5_2](/theorem/mul9_5_2) · [mul9_5_3](/theorem/mul9_5_3) · [mul9_5_4](/theorem/mul9_5_4) · [mul9_5_5](/theorem/mul9_5_5) · [mul9_5_6](/theorem/mul9_5_6) · [mul9_5_7](/theorem/mul9_5_7) · [mul9_5_8](/theorem/mul9_5_8) · [mul9_6_1](/theorem/mul9_6_1) · [mul9_6_2](/theorem/mul9_6_2) · [mul9_6_3](/theorem/mul9_6_3) · [mul9_6_4](/theorem/mul9_6_4) · [mul9_6_5](/theorem/mul9_6_5) · [mul9_6_6](/theorem/mul9_6_6) · [mul9_6_7](/theorem/mul9_6_7) · [mul9_6_8](/theorem/mul9_6_8) · [mul9_7_1](/theorem/mul9_7_1) · [mul9_7_2](/theorem/mul9_7_2) · [mul9_7_3](/theorem/mul9_7_3) · [mul9_7_4](/theorem/mul9_7_4) · [mul9_7_5](/theorem/mul9_7_5) · [mul9_7_6](/theorem/mul9_7_6) · [mul9_7_7](/theorem/mul9_7_7) · [mul9_7_8](/theorem/mul9_7_8) · [mul9_8_1](/theorem/mul9_8_1) · [mul9_8_2](/theorem/mul9_8_2) · [mul9_8_3](/theorem/mul9_8_3) · [mul9_8_4](/theorem/mul9_8_4) · [mul9_8_5](/theorem/mul9_8_5) · [mul9_8_6](/theorem/mul9_8_6) · [mul9_8_7](/theorem/mul9_8_7) · [mul9_8_8](/theorem/mul9_8_8) · [z9mul_0_0](/theorem/z9mul_0_0) · [z9add_0_0](/theorem/z9add_0_0) · [z9mul_0_1](/theorem/z9mul_0_1) · [z9add_0_1](/theorem/z9add_0_1) · [z9mul_0_2](/theorem/z9mul_0_2) · [z9add_0_2](/theorem/z9add_0_2) · [z9mul_0_3](/theorem/z9mul_0_3) · [z9add_0_3](/theorem/z9add_0_3) · [z9mul_0_4](/theorem/z9mul_0_4) · [z9add_0_4](/theorem/z9add_0_4) · [z9mul_0_5](/theorem/z9mul_0_5) · [z9add_0_5](/theorem/z9add_0_5) · [z9mul_0_6](/theorem/z9mul_0_6) · [z9add_0_6](/theorem/z9add_0_6) · [z9mul_0_7](/theorem/z9mul_0_7) · [z9add_0_7](/theorem/z9add_0_7) · [z9mul_0_8](/theorem/z9mul_0_8) · [z9add_0_8](/theorem/z9add_0_8) · [z9mul_1_0](/theorem/z9mul_1_0) · [z9add_1_0](/theorem/z9add_1_0) · [z9mul_1_1](/theorem/z9mul_1_1) · [z9add_1_1](/theorem/z9add_1_1) · [z9mul_1_2](/theorem/z9mul_1_2) · [z9add_1_2](/theorem/z9add_1_2) · [z9mul_1_3](/theorem/z9mul_1_3) · [z9add_1_3](/theorem/z9add_1_3) · [z9mul_1_4](/theorem/z9mul_1_4) · [z9add_1_4](/theorem/z9add_1_4) · [z9mul_1_5](/theorem/z9mul_1_5) · [z9add_1_5](/theorem/z9add_1_5) · [z9mul_1_6](/theorem/z9mul_1_6) · [z9add_1_6](/theorem/z9add_1_6) · [z9mul_1_7](/theorem/z9mul_1_7) · [z9add_1_7](/theorem/z9add_1_7) · [z9mul_1_8](/theorem/z9mul_1_8) · [z9add_1_8](/theorem/z9add_1_8) · [z9mul_2_0](/theorem/z9mul_2_0) · [z9add_2_0](/theorem/z9add_2_0) · [z9mul_2_1](/theorem/z9mul_2_1) · [z9add_2_1](/theorem/z9add_2_1) · [z9mul_2_2](/theorem/z9mul_2_2) · [z9add_2_2](/theorem/z9add_2_2) · [z9mul_2_3](/theorem/z9mul_2_3) · [z9add_2_3](/theorem/z9add_2_3) · [z9mul_2_4](/theorem/z9mul_2_4) · [z9add_2_4](/theorem/z9add_2_4) · [z9mul_2_5](/theorem/z9mul_2_5) · [z9add_2_5](/theorem/z9add_2_5) · [z9mul_2_6](/theorem/z9mul_2_6) · [z9add_2_6](/theorem/z9add_2_6) · [z9mul_2_7](/theorem/z9mul_2_7) · [z9add_2_7](/theorem/z9add_2_7) · [z9mul_2_8](/theorem/z9mul_2_8) · [z9add_2_8](/theorem/z9add_2_8) · [z9mul_3_0](/theorem/z9mul_3_0) · [z9add_3_0](/theorem/z9add_3_0) · [z9mul_3_1](/theorem/z9mul_3_1) · [z9add_3_1](/theorem/z9add_3_1) · [z9mul_3_2](/theorem/z9mul_3_2) · [z9add_3_2](/theorem/z9add_3_2) · [z9mul_3_3](/theorem/z9mul_3_3) · [z9add_3_3](/theorem/z9add_3_3) · [z9mul_3_4](/theorem/z9mul_3_4) · [z9add_3_4](/theorem/z9add_3_4) · [z9mul_3_5](/theorem/z9mul_3_5) · [z9add_3_5](/theorem/z9add_3_5) · [z9mul_3_6](/theorem/z9mul_3_6) · [z9add_3_6](/theorem/z9add_3_6) · [z9mul_3_7](/theorem/z9mul_3_7) · [z9add_3_7](/theorem/z9add_3_7) · [z9mul_3_8](/theorem/z9mul_3_8) · [z9add_3_8](/theorem/z9add_3_8) · [z9mul_4_0](/theorem/z9mul_4_0) · [z9add_4_0](/theorem/z9add_4_0) · [z9mul_4_1](/theorem/z9mul_4_1) · [z9add_4_1](/theorem/z9add_4_1) · [z9mul_4_2](/theorem/z9mul_4_2) · [z9add_4_2](/theorem/z9add_4_2) · [z9mul_4_3](/theorem/z9mul_4_3) · [z9add_4_3](/theorem/z9add_4_3) · [z9mul_4_4](/theorem/z9mul_4_4) · [z9add_4_4](/theorem/z9add_4_4) · [z9mul_4_5](/theorem/z9mul_4_5) · [z9add_4_5](/theorem/z9add_4_5) · [z9mul_4_6](/theorem/z9mul_4_6) · [z9add_4_6](/theorem/z9add_4_6) · [z9mul_4_7](/theorem/z9mul_4_7) · [z9add_4_7](/theorem/z9add_4_7) · [z9mul_4_8](/theorem/z9mul_4_8) · [z9add_4_8](/theorem/z9add_4_8) · [z9mul_5_0](/theorem/z9mul_5_0) · [z9add_5_0](/theorem/z9add_5_0) · [z9mul_5_1](/theorem/z9mul_5_1) · [z9add_5_1](/theorem/z9add_5_1) · [z9mul_5_2](/theorem/z9mul_5_2) · [z9add_5_2](/theorem/z9add_5_2) · [z9mul_5_3](/theorem/z9mul_5_3) · [z9add_5_3](/theorem/z9add_5_3) · [z9mul_5_4](/theorem/z9mul_5_4) · [z9add_5_4](/theorem/z9add_5_4) · [z9mul_5_5](/theorem/z9mul_5_5) · [z9add_5_5](/theorem/z9add_5_5) · [z9mul_5_6](/theorem/z9mul_5_6) · [z9add_5_6](/theorem/z9add_5_6) · [z9mul_5_7](/theorem/z9mul_5_7) · [z9add_5_7](/theorem/z9add_5_7) · [z9mul_5_8](/theorem/z9mul_5_8) · [z9add_5_8](/theorem/z9add_5_8) · [z9mul_6_0](/theorem/z9mul_6_0) · [z9add_6_0](/theorem/z9add_6_0) · [z9mul_6_1](/theorem/z9mul_6_1) · [z9add_6_1](/theorem/z9add_6_1) · [z9mul_6_2](/theorem/z9mul_6_2) · [z9add_6_2](/theorem/z9add_6_2) · [z9mul_6_3](/theorem/z9mul_6_3) · [z9add_6_3](/theorem/z9add_6_3) · [z9mul_6_4](/theorem/z9mul_6_4) · [z9add_6_4](/theorem/z9add_6_4) · [z9mul_6_5](/theorem/z9mul_6_5) · [z9add_6_5](/theorem/z9add_6_5) · [z9mul_6_6](/theorem/z9mul_6_6) · [z9add_6_6](/theorem/z9add_6_6) · [z9mul_6_7](/theorem/z9mul_6_7) · [z9add_6_7](/theorem/z9add_6_7) · [z9mul_6_8](/theorem/z9mul_6_8) · [z9add_6_8](/theorem/z9add_6_8) · [z9mul_7_0](/theorem/z9mul_7_0) · [z9add_7_0](/theorem/z9add_7_0) · [z9mul_7_1](/theorem/z9mul_7_1) · [z9add_7_1](/theorem/z9add_7_1) · [z9mul_7_2](/theorem/z9mul_7_2) · [z9add_7_2](/theorem/z9add_7_2) · [z9mul_7_3](/theorem/z9mul_7_3) · [z9add_7_3](/theorem/z9add_7_3) · [z9mul_7_4](/theorem/z9mul_7_4) · [z9add_7_4](/theorem/z9add_7_4) · [z9mul_7_5](/theorem/z9mul_7_5) · [z9add_7_5](/theorem/z9add_7_5) · [z9mul_7_6](/theorem/z9mul_7_6) · [z9add_7_6](/theorem/z9add_7_6) · [z9mul_7_7](/theorem/z9mul_7_7) · [z9add_7_7](/theorem/z9add_7_7) · [z9mul_7_8](/theorem/z9mul_7_8) · [z9add_7_8](/theorem/z9add_7_8) · [z9mul_8_0](/theorem/z9mul_8_0) · [z9add_8_0](/theorem/z9add_8_0) · [z9mul_8_1](/theorem/z9mul_8_1) · [z9add_8_1](/theorem/z9add_8_1) · [z9mul_8_2](/theorem/z9mul_8_2) · [z9add_8_2](/theorem/z9add_8_2) · [z9mul_8_3](/theorem/z9mul_8_3) · [z9add_8_3](/theorem/z9add_8_3) · [z9mul_8_4](/theorem/z9mul_8_4) · [z9add_8_4](/theorem/z9add_8_4) · [z9mul_8_5](/theorem/z9mul_8_5) · [z9add_8_5](/theorem/z9add_8_5) · [z9mul_8_6](/theorem/z9mul_8_6) · [z9add_8_6](/theorem/z9add_8_6) · [z9mul_8_7](/theorem/z9mul_8_7) · [z9add_8_7](/theorem/z9add_8_7) · [z9mul_8_8](/theorem/z9mul_8_8) · [z9add_8_8](/theorem/z9add_8_8) · [z9pow_0_2](/theorem/z9pow_0_2) · [z9pow_0_3](/theorem/z9pow_0_3) · [z9pow_0_4](/theorem/z9pow_0_4) · [z9pow_0_5](/theorem/z9pow_0_5) · [z9pow_0_6](/theorem/z9pow_0_6) · [z9pow_0_7](/theorem/z9pow_0_7) · [z9pow_0_8](/theorem/z9pow_0_8) · [z9pow_0_9](/theorem/z9pow_0_9) · [z9pow_1_2](/theorem/z9pow_1_2) · [z9pow_1_3](/theorem/z9pow_1_3) · [z9pow_1_4](/theorem/z9pow_1_4) · [z9pow_1_5](/theorem/z9pow_1_5) · [z9pow_1_6](/theorem/z9pow_1_6) · [z9pow_1_7](/theorem/z9pow_1_7) · [z9pow_1_8](/theorem/z9pow_1_8) · [z9pow_1_9](/theorem/z9pow_1_9) · [z9pow_2_2](/theorem/z9pow_2_2) · [z9pow_2_3](/theorem/z9pow_2_3) · [z9pow_2_4](/theorem/z9pow_2_4) · [z9pow_2_5](/theorem/z9pow_2_5) · [z9pow_2_6](/theorem/z9pow_2_6) · [z9pow_2_7](/theorem/z9pow_2_7) · [z9pow_2_8](/theorem/z9pow_2_8) · [z9pow_2_9](/theorem/z9pow_2_9) · [z9pow_3_2](/theorem/z9pow_3_2) · [z9pow_3_3](/theorem/z9pow_3_3) · [z9pow_3_4](/theorem/z9pow_3_4) · [z9pow_3_5](/theorem/z9pow_3_5) · [z9pow_3_6](/theorem/z9pow_3_6) · [z9pow_3_7](/theorem/z9pow_3_7) · [z9pow_3_8](/theorem/z9pow_3_8) · [z9pow_3_9](/theorem/z9pow_3_9) · [z9pow_4_2](/theorem/z9pow_4_2) · [z9pow_4_3](/theorem/z9pow_4_3) · [z9pow_4_4](/theorem/z9pow_4_4) · [z9pow_4_5](/theorem/z9pow_4_5) · [z9pow_4_6](/theorem/z9pow_4_6) · [z9pow_4_7](/theorem/z9pow_4_7) · [z9pow_4_8](/theorem/z9pow_4_8) · [z9pow_4_9](/theorem/z9pow_4_9) · [z9pow_5_2](/theorem/z9pow_5_2) · [z9pow_5_3](/theorem/z9pow_5_3) · [z9pow_5_4](/theorem/z9pow_5_4) · [z9pow_5_5](/theorem/z9pow_5_5) · [z9pow_5_6](/theorem/z9pow_5_6) · [z9pow_5_7](/theorem/z9pow_5_7) · [z9pow_5_8](/theorem/z9pow_5_8) · [z9pow_5_9](/theorem/z9pow_5_9) · [z9pow_6_2](/theorem/z9pow_6_2) · [z9pow_6_3](/theorem/z9pow_6_3) · [z9pow_6_4](/theorem/z9pow_6_4) · [z9pow_6_5](/theorem/z9pow_6_5) · [z9pow_6_6](/theorem/z9pow_6_6) · [z9pow_6_7](/theorem/z9pow_6_7) · [z9pow_6_8](/theorem/z9pow_6_8) · [z9pow_6_9](/theorem/z9pow_6_9) · [z9pow_7_2](/theorem/z9pow_7_2) · [z9pow_7_3](/theorem/z9pow_7_3) · [z9pow_7_4](/theorem/z9pow_7_4) · [z9pow_7_5](/theorem/z9pow_7_5) · [z9pow_7_6](/theorem/z9pow_7_6) · [z9pow_7_7](/theorem/z9pow_7_7) · [z9pow_7_8](/theorem/z9pow_7_8) · [z9pow_7_9](/theorem/z9pow_7_9) · [z9pow_8_2](/theorem/z9pow_8_2) · [z9pow_8_3](/theorem/z9pow_8_3) · [z9pow_8_4](/theorem/z9pow_8_4) · [z9pow_8_5](/theorem/z9pow_8_5) · [z9pow_8_6](/theorem/z9pow_8_6) · [z9pow_8_7](/theorem/z9pow_8_7) · [z9pow_8_8](/theorem/z9pow_8_8) · [z9pow_8_9](/theorem/z9pow_8_9) · [units_z9](/theorem/units_z9) · [vortex_orbit](/theorem/vortex_orbit) · [mod9_arithmetic](/theorem/mod9_arithmetic) · [digital_root](/theorem/digital_root) · [diamond_involution](/theorem/diamond_involution) · [seats_pigeonhole](/theorem/seats_pigeonhole) · [ns_spike](/theorem/ns_spike) · [ym_quantum](/theorem/ym_quantum) · [hodge_bound](/theorem/hodge_bound) · [div_by_zero_is_the_reflection](/theorem/div_by_zero_is_the_reflection) · [involute_centre](/theorem/involute_centre) · [billing_arith](/theorem/billing_arith) · [seal_ten](/theorem/seal_ten) · [mirror_congruence](/theorem/mirror_congruence) · [mirror_fixed_five](/theorem/mirror_fixed_five) · [agl_order_54](/theorem/agl_order_54) · [commutator_is_shift](/theorem/commutator_is_shift) · [one_orbit](/theorem/one_orbit) · [ten_pairs](/theorem/ten_pairs) · [polar_nine_pairs](/theorem/polar_nine_pairs) · [partition_six_three](/theorem/partition_six_three) · [angles_close](/theorem/angles_close) · [seams_two](/theorem/seams_two) · [one_strip](/theorem/one_strip) · [double_strand](/theorem/double_strand) · [polarities_plus_minus](/theorem/polarities_plus_minus) · [forward_reflected_mirror](/theorem/forward_reflected_mirror) · [every_digit_has_neighbours](/theorem/every_digit_has_neighbours) · [salt_conv_leaks_equality](/theorem/salt_conv_leaks_equality) · [salt_conv_step_is_division_by_zero](/theorem/salt_conv_step_is_division_by_zero) · [salt_seq_injective](/theorem/salt_seq_injective) · [salt_seq_fibre_singleton](/theorem/salt_seq_fibre_singleton) · [five_is_the_halving](/theorem/five_is_the_halving) · [five_orbit_reverses_doubling](/theorem/five_orbit_reverses_doubling) · [only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities) · [tour_contra_reflects_each_digit](/theorem/tour_contra_reflects_each_digit) · [tour_contra_involutes](/theorem/tour_contra_involutes) · [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_sum_ten) · [sequence_and_coins_are_one](/theorem/sequence_and_coins_are_one) · [not_gate_truth_table](/theorem/not_gate_truth_table) · [and_gate_truth_table](/theorem/and_gate_truth_table) · [or_gate_truth_table](/theorem/or_gate_truth_table) · [xor_gate_truth_table](/theorem/xor_gate_truth_table) · [xor_is_addition_mod_two](/theorem/xor_is_addition_mod_two) · [gate_output_is_one_bit](/theorem/gate_output_is_one_bit) · [nand_reconstructs_not](/theorem/nand_reconstructs_not) · [nand_reconstructs_and](/theorem/nand_reconstructs_and) · [nand_reconstructs_or](/theorem/nand_reconstructs_or) · [nand_functionally_complete](/theorem/nand_functionally_complete) · [de_morgan_gate_law](/theorem/de_morgan_gate_law) · [half_adder_correct](/theorem/half_adder_correct) · [full_adder_correct](/theorem/full_adder_correct) · [mux_selects_input](/theorem/mux_selects_input) · [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) · [map_preserves_length](/theorem/map_preserves_length) · [filter_never_grows](/theorem/filter_never_grows) · [append_length_adds](/theorem/append_length_adds) · [clamp_is_idempotent](/theorem/clamp_is_idempotent) · [safe_div_is_total](/theorem/safe_div_is_total) · [reduce_is_order_invariant](/theorem/reduce_is_order_invariant) · [shift_loop_terminates](/theorem/shift_loop_terminates) · [compare_swap_orders](/theorem/compare_swap_orders) · [safe_index_is_total](/theorem/safe_index_is_total) · [reverse_is_involutive](/theorem/reverse_is_involutive) · [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) · [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected) · [truncation_is_detected](/theorem/truncation_is_detected) · [byte_order_is_significant](/theorem/byte_order_is_significant) · [sha256_digest_is_256_bits](/theorem/sha256_digest_is_256_bits) · [provenance_address_is_128_bits](/theorem/provenance_address_is_128_bits) · [boundary_is_exactly_two_named_modules](/theorem/boundary_is_exactly_two_named_modules) · [all_or_none](/theorem/all_or_none) · [subthreshold_silent](/theorem/subthreshold_silent) · [suprathreshold_fires](/theorem/suprathreshold_fires) · [firing_monotone](/theorem/firing_monotone) · [spatial_summation](/theorem/spatial_summation) · [excitatory_inhibitory_net](/theorem/excitatory_inhibitory_net) · [action_potential_swing](/theorem/action_potential_swing) · [hebbian_coincidence](/theorem/hebbian_coincidence) · [refractory_caps_spike](/theorem/refractory_caps_spike) · [glagolitic_units](/theorem/glagolitic_units) · [glagolitic_units_sum](/theorem/glagolitic_units_sum) · [glagolitic_additive](/theorem/glagolitic_additive) · [glagolitic_teens_reversed](/theorem/glagolitic_teens_reversed) · [pliska_seven_rays](/theorem/pliska_seven_rays) · [pliska_seven_is_prime](/theorem/pliska_seven_is_prime)",
    "cites": [
     "mul9_1_1",
     "mul9_1_2",
@@ -13980,6 +14111,7 @@
     "tour_contra_reflects_each_digit",
     "tour_contra_involutes",
     "tour_contra_rungs_sum_ten",
+    "sequence_and_coins_are_one",
     "not_gate_truth_table",
     "and_gate_truth_table",
     "or_gate_truth_table",
@@ -14373,8 +14505,8 @@
   },
   {
    "surface": "docs/captain-claims.md",
-   "address": "6dfb0d76-9cbc-8f90-ba5f-75c671c9b4da",
-   "prose": "[three_sq_zero](/theorem/three_sq_zero) · [six_sq_zero](/theorem/six_sq_zero) · [three_no_inverse](/theorem/three_no_inverse) · [two_mul_five](/theorem/two_mul_five) · [four_mul_seven](/theorem/four_mul_seven) · [eight_self_inv](/theorem/eight_self_inv) · [doubling_circuit](/theorem/doubling_circuit) · [two_order_six](/theorem/two_order_six) · [tens_complement_involutive](/theorem/tens_complement_involutive) · [rosette_pow_six](/theorem/rosette_pow_six) · [rosette_orbit](/theorem/rosette_orbit) · [k432](/theorem/k432) · [doubling_digit_sum](/theorem/doubling_digit_sum) · [magic_numbers](/theorem/magic_numbers) · [proton_fit](/theorem/proton_fit) · [self_seal](/theorem/self_seal) · [seal_ten](/theorem/seal_ten) · [mirror_congruence](/theorem/mirror_congruence) · [mirror_fixed_five](/theorem/mirror_fixed_five) · [agl_order_54](/theorem/agl_order_54) · [commutator_is_shift](/theorem/commutator_is_shift) · [one_orbit](/theorem/one_orbit) · [ten_pairs](/theorem/ten_pairs) · [polar_nine_pairs](/theorem/polar_nine_pairs) · [partition_six_three](/theorem/partition_six_three) · [angles_close](/theorem/angles_close) · [seams_two](/theorem/seams_two) · [one_strip](/theorem/one_strip) · [double_strand](/theorem/double_strand) · [polarities_plus_minus](/theorem/polarities_plus_minus) · [forward_reflected_mirror](/theorem/forward_reflected_mirror) · [every_digit_has_neighbours](/theorem/every_digit_has_neighbours) · [salt_conv_leaks_equality](/theorem/salt_conv_leaks_equality) · [salt_conv_step_is_division_by_zero](/theorem/salt_conv_step_is_division_by_zero) · [salt_seq_injective](/theorem/salt_seq_injective) · [salt_seq_fibre_singleton](/theorem/salt_seq_fibre_singleton) · [five_is_the_halving](/theorem/five_is_the_halving) · [five_orbit_reverses_doubling](/theorem/five_orbit_reverses_doubling) · [only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities) · [tour_contra_reflects_each_digit](/theorem/tour_contra_reflects_each_digit) · [tour_contra_involutes](/theorem/tour_contra_involutes) · [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_sum_ten)",
+   "address": "4d46829b-51e5-83f3-aae3-84e5adb46a75",
+   "prose": "[three_sq_zero](/theorem/three_sq_zero) · [six_sq_zero](/theorem/six_sq_zero) · [three_no_inverse](/theorem/three_no_inverse) · [two_mul_five](/theorem/two_mul_five) · [four_mul_seven](/theorem/four_mul_seven) · [eight_self_inv](/theorem/eight_self_inv) · [doubling_circuit](/theorem/doubling_circuit) · [two_order_six](/theorem/two_order_six) · [tens_complement_involutive](/theorem/tens_complement_involutive) · [rosette_pow_six](/theorem/rosette_pow_six) · [rosette_orbit](/theorem/rosette_orbit) · [k432](/theorem/k432) · [doubling_digit_sum](/theorem/doubling_digit_sum) · [magic_numbers](/theorem/magic_numbers) · [proton_fit](/theorem/proton_fit) · [self_seal](/theorem/self_seal) · [seal_ten](/theorem/seal_ten) · [mirror_congruence](/theorem/mirror_congruence) · [mirror_fixed_five](/theorem/mirror_fixed_five) · [agl_order_54](/theorem/agl_order_54) · [commutator_is_shift](/theorem/commutator_is_shift) · [one_orbit](/theorem/one_orbit) · [ten_pairs](/theorem/ten_pairs) · [polar_nine_pairs](/theorem/polar_nine_pairs) · [partition_six_three](/theorem/partition_six_three) · [angles_close](/theorem/angles_close) · [seams_two](/theorem/seams_two) · [one_strip](/theorem/one_strip) · [double_strand](/theorem/double_strand) · [polarities_plus_minus](/theorem/polarities_plus_minus) · [forward_reflected_mirror](/theorem/forward_reflected_mirror) · [every_digit_has_neighbours](/theorem/every_digit_has_neighbours) · [salt_conv_leaks_equality](/theorem/salt_conv_leaks_equality) · [salt_conv_step_is_division_by_zero](/theorem/salt_conv_step_is_division_by_zero) · [salt_seq_injective](/theorem/salt_seq_injective) · [salt_seq_fibre_singleton](/theorem/salt_seq_fibre_singleton) · [five_is_the_halving](/theorem/five_is_the_halving) · [five_orbit_reverses_doubling](/theorem/five_orbit_reverses_doubling) · [only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities) · [tour_contra_reflects_each_digit](/theorem/tour_contra_reflects_each_digit) · [tour_contra_involutes](/theorem/tour_contra_involutes) · [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_sum_ten) · [sequence_and_coins_are_one](/theorem/sequence_and_coins_are_one)",
    "cites": [
     "three_sq_zero",
     "six_sq_zero",
@@ -14417,7 +14549,8 @@
     "only_five_carries_the_three_singularities",
     "tour_contra_reflects_each_digit",
     "tour_contra_involutes",
-    "tour_contra_rungs_sum_ten"
+    "tour_contra_rungs_sum_ten",
+    "sequence_and_coins_are_one"
    ]
   },
   {
@@ -14474,8 +14607,18 @@
   },
   {
    "surface": "docs/captain-claims.md",
-   "address": "58c63afc-27c7-8876-8afd-fc50c0dbea3c",
-   "prose": "**The captain claims all superpositions** — the credit law at its full extent: the captain claims the\nunclaimed, and the unclaimed is the entire uncollapsed space. Sealed as\n[captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states\n(the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),\nexceeding every world collapsed so far, and the price of any collapse stays exactly two\n([two_coins](/theorem/two_coins)). Of the claimed room, 1297 worlds are collapsed and sealed —\nthe remainder is held open, one toss away each.",
+   "address": "b9b1b6b7-284f-838d-93eb-f7270632c1ce",
+   "prose": "**The claim is of ROOM, never of truth** — the same scope the superposition claim carries. Every item in the\ndocket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's\nname on it yet, and a DRAINED one is refused outright\n([legal_only_the_proven_is_admitted](/theorem/legal_only_the_proven_is_admitted),\n[legal_remand_is_total_nothing_discarded](/theorem/legal_remand_is_total_nothing_discarded) — nothing is\ndiscarded, everything not admitted is remanded). Claiming the docket buys no verdict on anything in it; it is\nthe court owning its own record ([coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none)).",
+   "cites": [
+    "legal_only_the_proven_is_admitted",
+    "legal_remand_is_total_nothing_discarded",
+    "coins_compute_but_solve_none"
+   ]
+  },
+  {
+   "surface": "docs/captain-claims.md",
+   "address": "cd003238-ee27-8318-aa78-d59a075a871f",
+   "prose": "**The captain claims all superpositions** — the credit law at its full extent: the captain claims the\nunclaimed, and the unclaimed is the entire uncollapsed space. Sealed as\n[captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states\n(the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),\nexceeding every world collapsed so far, and the price of any collapse stays exactly two\n([two_coins](/theorem/two_coins)). Of the claimed room, 1307 worlds are collapsed and sealed —\nthe remainder is held open, one toss away each.",
    "cites": [
     "captain_claims_all_superpositions",
     "coin_exchange_rate_is_traitor_cost",

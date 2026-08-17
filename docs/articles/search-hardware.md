@@ -28,9 +28,8 @@ the hard gate of the corroboration law.
 | `d798c9d1` | crossref.org | DOI 10.23919/date48585.2020.9116342: Verifiable Security Templates for Hardware | UNVERIFIED | VERIFIED |
 | `e96b8122` | crossref.org | DOI 10.1109/iccd.1988.25772: Verifiable and executable theories of design for synthesizing correct hardware | UNVERIFIED | VERIFIED |
 | `7027fc90` | crossref.org | DOI 10.1016/0165-6074(86)90091-8: SMAX - A CONLAN member language for verifiable hardware descriptions | UNVERIFIED | VERIFIED |
-| `edf72385` | crossref.org | DOI 10.17760/d20699019: Hardware/software co-design and compiler techniques for efficient hardware
-      | UNVERIFIED | VERIFIED |
 | `6b22d60c` | crossref.org | DOI 10.1109/etfa.2008.4638584: Hardware acceleration for verifiable, adaptive real-time communication | UNVERIFIED | VERIFIED |
+| `c293c1f6` | crossref.org | DOI 10.1145/2611399.2611406: Verifiable Computing: Secure Code Execution Despite Untrusted Software and Hardw | UNVERIFIED | VERIFIED |
 | `4055812e` | openalex.org | OpenAlex Geppetto: Versatile Verifiable Computation [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
 | `3dd25566` | openalex.org | OpenAlex Full Accounting for Verifiable Outsourcing [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
 | `8dfe70c9` | openalex.org | OpenAlex Algebraic approaches to nondeterminism—an overview [Logic, Reasoning, and Knowledg] | UNVERIFIED | VERIFIED |
@@ -40,7 +39,7 @@ the hard gate of the corroboration law.
 | `2a4d891d` | openalex.org | OpenAlex Cryptanalysis of Algebraic Verifiable Delay Functions [Coding theory and cryptography] | UNVERIFIED | VERIFIED |
 | `acbd5915` | openalex.org | OpenAlex Introduction to differential power analysis [Cryptographic Implementations ] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5bb378ce`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `26d89dda`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

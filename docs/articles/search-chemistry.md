@@ -27,8 +27,8 @@ the hard gate of the corroboration law.
 | `2640ef10` | crossref.org | DOI 10.1021/acs.jpcb.3c07988.s001: Elementary Reactions in the Functional Triads of the Blue-Light Photoreceptor BL | UNVERIFIED | VERIFIED |
 | `c3b32486` | crossref.org | DOI 10.12681/eadd/59592: Systematic studies of heavy-ion reactions in the Fermi energy domain for the pro | UNVERIFIED | VERIFIED |
 | `dc341453` | crossref.org | DOI 10.1021/jacs.3c03086.s002: Quinone Catalysis Modulates Proton Transfer Reactions in the Membrane Domain of  | UNVERIFIED | VERIFIED |
-| `d32e9532` | crossref.org | DOI 10.1021/jacs.3c03086.s005: Quinone Catalysis Modulates Proton Transfer Reactions in the Membrane Domain of  | UNVERIFIED | VERIFIED |
 | `0a1dc395` | crossref.org | DOI 10.1021/jacs.3c03086.s006: Quinone Catalysis Modulates Proton Transfer Reactions in the Membrane Domain of  | UNVERIFIED | VERIFIED |
+| `d32e9532` | crossref.org | DOI 10.1021/jacs.3c03086.s005: Quinone Catalysis Modulates Proton Transfer Reactions in the Membrane Domain of  | UNVERIFIED | VERIFIED |
 | `b31c83b6` | crossref.org | DOI 10.1021/jacs.3c03086.s004: Quinone Catalysis Modulates Proton Transfer Reactions in the Membrane Domain of  | UNVERIFIED | VERIFIED |
 | `c3e98a7d` | openalex.org | OpenAlex Cloning immunoglobulin variable domains for expression by the polymera [Monoclonal and Polyclonal Anti] | UNVERIFIED | VERIFIED |
 | `b493193a` | openalex.org | OpenAlex Swinging Arms and Swinging Domains in Multifunctional Enzymes: Catalyt [Biochemical and Molecular Rese] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `a35cfaa4` | openalex.org | OpenAlex Similarity searching in the Organic reaction domain [Phosphorus compounds and react] | UNVERIFIED | VERIFIED |
 | `28ca626c` | openalex.org | OpenAlex Palladium‐Catalyzed Cross‐Coupling Reactions in Total Synthesis [Catalytic Cross-Coupling React] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `181ff893`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `936cb10d`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `a2526ec6` | zenodo.org | zenodo record 3269507: A Practical Route Reconstruction Method for Wi-Fi Mesh Networks In Disaster Situ | UNVERIFIED | VERIFIED |
-| `011f08fa` | zenodo.org | zenodo record 11028898: Superluminal Dark Spacetime Domain | UNVERIFIED | VERIFIED |
-| `d9d487a6` | zenodo.org | zenodo record 3781643: Faster, easier and safer access to microdata | UNVERIFIED | VERIFIED |
-| `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
-| `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
-| `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
-| `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
-| `f0e5407e` | zenodo.org | zenodo record 16035072: Integrating Open Access Information into the Library Discovery System | UNVERIFIED | VERIFIED |
 | `045ad1f6` | crossref.org | DOI 10.2139/ssrn.4802140: Superluminal Dark Spacetime Domain | UNVERIFIED | VERIFIED |
 | `cedd834f` | crossref.org | DOI 10.1007/bfb0104596: Domain walls and spacetime-filling branes | UNVERIFIED | VERIFIED |
 | `a7648a2a` | crossref.org | DOI 10.1103/physrevd.48.4604: Covariant perturbations of domain walls in curved spacetime | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `2d922366` | openalex.org | OpenAlex The Motion of Point Particles in Curved Spacetime [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 | `32e9c79e` | openalex.org | OpenAlex Covariant perturbations of domain walls in curved spacetime [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `1904d679`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `4ea8e647`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

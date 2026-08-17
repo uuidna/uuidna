@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The colour wheel
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The colour wheel* — the wing sealed in [lean/Colour.lean](/lean/Colour.lean) with **15 theorems**. Each
+asked in parallel about *The colour wheel* — the wing sealed in [lean/Colour.lean](/lean/Colour.lean) with **17 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -58,6 +58,8 @@ The sealed backing this trial held the findings beside:
 - [tint_and_shade_complement](/theorem/tint_and_shade_complement) — `(0 + 255 = 255) ∧ (64 + 191 = 255) ∧ (255 + 0 = 255)`
 - [warm_cool_split_six_six](/theorem/warm_cool_split_six_six) — `6 + 6 = 12`
 - [aura_step_divides_circle](/theorem/aura_step_divides_circle) — `(9 * 40 = 360) ∧ (360 % 9 = 0)`
+- [polarity_angles_are_the_system_counts](/theorem/polarity_angles_are_the_system_counts) — `(360 / 9 = 40) ∧ (360 / 6 = 60) ∧ (360 / 4 = 90) ∧ (360 / 3 = 120) ∧ (2 * 60 = 120) ∧ (2^2`
+- [no_digit_is_an_exact_complement](/theorem/no_digit_is_an_exact_complement) — `(180 % 40 = 20) ∧ (4 * 40 = 160) ∧ (160 < 180) ∧ (180 < 200) ∧ (5 * 40 = 200)`
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not

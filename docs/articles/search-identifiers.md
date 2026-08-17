@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `599c1bee` | zenodo.org | zenodo record 17105974: Rethinking the Evaluation of Microservice RCA with a Fault Propagation-Aware Ben | UNVERIFIED | VERIFIED |
-| `4011303a` | zenodo.org | zenodo record 2624128: Vad är PIDar? en kort introduktion | UNVERIFIED | VERIFIED |
-| `d7a6d352` | zenodo.org | zenodo record 15360626: ARK - A persistent identifier solution for online edition of the "Bulgarian Neur | UNVERIFIED | VERIFIED |
-| `97be5ade` | zenodo.org | zenodo record 17662525: Natural Science Identifiers & CETAF Stable Identifiers | UNVERIFIED | VERIFIED |
-| `22a1d7d6` | zenodo.org | zenodo record 19068510: Persistent Identifiers | UNVERIFIED | VERIFIED |
-| `11792772` | zenodo.org | zenodo record 15655624: Persistent Identifiers | UNVERIFIED | VERIFIED |
-| `3c92a1e0` | zenodo.org | zenodo record 2654644: Identifiers & Relationships | UNVERIFIED | VERIFIED |
-| `8ea4f3a4` | zenodo.org | zenodo record 4477074: Identifiers at the Smithsonian Institution | UNVERIFIED | VERIFIED |
 | `99a9152e` | crossref.org | DOI 10.3403/30143238: Information technology. Unique identifiers | UNVERIFIED | VERIFIED |
 | `cc003e3e` | crossref.org | DOI 10.3403/30128110u: Information technology. Unique identifiers | UNVERIFIED | VERIFIED |
 | `40523bbe` | crossref.org | DOI 10.3403/30128110: Information technology. Unique identifiers | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `27b6dd2c` | openalex.org | OpenAlex Regression Diagnostics -- Identifying Influential Data and Sources of  [Advanced Statistical Methods a] | UNVERIFIED | VERIFIED |
 | `f29a0897` | openalex.org | OpenAlex <scp>micro</scp>‐<scp>checker</scp>: software for identifying and corr [Genetic diversity and populati] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5c355dc6`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `131f7aba`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

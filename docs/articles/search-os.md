@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `0d4a1ff2` | zenodo.org | zenodo record 2613490: Using Windows Server 2012-based storage solutions for small and medium size busi | UNVERIFIED | VERIFIED |
-| `67d4b5c8` | zenodo.org | zenodo record 2613471: Using Linux-based storage solutions for small and medium size business resources | UNVERIFIED | VERIFIED |
-| `6bb3b880` | zenodo.org | zenodo record 13382558: Understanding Media's Role in Public Perception: Discrepancies in Sentiment Duri | UNVERIFIED | VERIFIED |
-| `763b6cf5` | zenodo.org | zenodo record 2613392: Provisioning and managing VM's in a multi-vendor private cloud environment | UNVERIFIED | VERIFIED |
-| `e38c89db` | zenodo.org | zenodo record 20555421: COcyber White Paper - Unlocking cybersecurity potential in civil and defence dom | UNVERIFIED | VERIFIED |
-| `70503e42` | zenodo.org | zenodo record 8397792: ADAPTIVE EDUCATIONAL APPROACHES IN HIGHER EDUCATION INSTITUTIONS OF EUROPEAN (CI | UNVERIFIED | VERIFIED |
-| `bb4ffbf9` | zenodo.org | zenodo record 4657072: Contour elevations across Manchester, UK | UNVERIFIED | VERIFIED |
-| `388c3457` | zenodo.org | zenodo record 4657100: Mastermap Topography of Manchester, UK | UNVERIFIED | VERIFIED |
 | `b638270e` | crossref.org | DOI 10.1017/9781108784863.028: Matrix Algebra | UNVERIFIED | VERIFIED |
 | `143a85fb` | crossref.org | DOI 10.1115/ipc2006-10159: An External Corrosion Direct Assessment Module for a Pipeline Integrity Manageme | UNVERIFIED | VERIFIED |
 | `bdf609d5` | crossref.org | DOI 10.1147/sj.133.0230: Operating system integrity in OS/VS2 | UNVERIFIED | VERIFIED |
@@ -30,6 +22,8 @@ the hard gate of the corroboration law.
 | `b22ab0ec` | crossref.org | DOI 10.1007/978-0-387-35396-8_6: Algebra for Databases with Explicit Markings of Damaged Data | UNVERIFIED | VERIFIED |
 | `5f145186` | crossref.org | DOI 10.3390/electronics10172068: A Hardware Platform for Ensuring OS Kernel Integrity on RISC-V | UNVERIFIED | VERIFIED |
 | `eaad569e` | crossref.org | DOI 10.1109/test.2008.4700649: Jitter and Signal Integrity Verification for Synchronous and Asynchronous I/Os a | UNVERIFIED | VERIFIED |
+| `0339d509` | semanticscholar.org | S2 Convergence of SART + OS + TV iterative reconstruction algor — AI tldr: The performance of the SART+OS+TV depends on parameter selection, which also implies that  | UNVERIFIED | VERIFIED |
+| `b200d27d` | semanticscholar.org | S2 A note on function algebras on disks. | UNVERIFIED | VERIFIED |
 | `555a9d44` | openalex.org | OpenAlex Extending the database relational model to capture more meaning [Advanced Database Systems and ] | UNVERIFIED | VERIFIED |
 | `127bfdad` | openalex.org | OpenAlex System R [Data Quality and Management] | UNVERIFIED | VERIFIED |
 | `a85ec835` | openalex.org | OpenAlex Software for the frontiers of quantum chemistry: An overview of develo [Computational Drug Discovery M] | UNVERIFIED | VERIFIED |
@@ -39,7 +33,7 @@ the hard gate of the corroboration law.
 | `fcdc6986` | openalex.org | OpenAlex Blockchain-Based Cloud Data Integrity Verification Scheme with High Ef [Cloud Data Security Solutions] | UNVERIFIED | VERIFIED |
 | `cad29974` | openalex.org | OpenAlex Integrity Audit of Shared Cloud Data with Identity Tracking [Cloud Data Security Solutions] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5c278cf8`** (fold of every finding's address — recompute by re-running the search).
+**18 findings · 18 usable search-trial combinations · receipt `d28075ab`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

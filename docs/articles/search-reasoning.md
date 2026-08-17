@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The rules of inference
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The rules of inference* — the wing sealed in [lean/Reasoning.lean](/lean/Reasoning.lean) with **18 theorems**. Each
+asked in parallel about *The rules of inference* — the wing sealed in [lean/Reasoning.lean](/lean/Reasoning.lean) with **20 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `c3b33306` | zenodo.org | zenodo record 8141323: Optimization of fuzzy rules using neural network to control mobile robot in non- | UNVERIFIED | VERIFIED |
-| `6b3292f2` | zenodo.org | zenodo record 3555646: A study of The RAJADHAMMASANGAHA and Democracy | UNVERIFIED | VERIFIED |
-| `1d70ce99` | zenodo.org | zenodo record 17928472: THEORETICAL AND METHODOLOGICAL ISSUES OF AMENDMENT OF THE CONSTITUTION OF UKRAIN | UNVERIFIED | VERIFIED |
-| `4b01a217` | zenodo.org | zenodo record 3555628: Legal Prohibition on Nuclear Weapons in Southeast Asia | UNVERIFIED | VERIFIED |
-| `63929d15` | zenodo.org | zenodo record 15873003: Experimenting automatic generation of energy renovation scenarios with ontology  | UNVERIFIED | VERIFIED |
-| `876115d1` | zenodo.org | zenodo record 19657139: Max-Flow Min-Cut Guided Reasoning Optimization for Large Reasoning Models | UNVERIFIED | VERIFIED |
-| `d9507b8f` | zenodo.org | zenodo record 14083209: PM_098511_E_Pastrana | UNVERIFIED | VERIFIED |
-| `c5d4117a` | zenodo.org | zenodo record 2613907: Application of the Spatial Data Mining Methodology and Gamification for the Opti | UNVERIFIED | VERIFIED |
 | `5ae9e0a9` | crossref.org | DOI 10.7717/peerj-cs.3164/table-12: Table 12: Fuzzy inference system rules. | UNVERIFIED | VERIFIED |
 | `12858644` | crossref.org | DOI 10.7717/peerj-cs.700/table-6: Table 6: Fuzzy inference system rules. | UNVERIFIED | VERIFIED |
 | `4f634902` | crossref.org | DOI 10.1016/s0049-237x(97)80006-7: Chapter 4 Bases for inference rules | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `0f80665c` | openalex.org | OpenAlex Comparing machine learning and rule-based inferencing for semantic enr [BIM and Construction Integrati] | UNVERIFIED | VERIFIED |
 | `e1a21d6f` | openalex.org | OpenAlex The Justification of Inductive Rules of Inference [Philosophy and History of Scie] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `0904bb18`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `e3c84943`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -61,6 +53,8 @@ The sealed backing this trial held the findings beside:
 - [redirect_imitable_but_coins_authorise](/theorem/redirect_imitable_but_coins_authorise) — `([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, tr`
 - [provenance_integrity_not_content_truth](/theorem/provenance_integrity_not_content_truth) — `(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (Lis`
 - [trust_by_recomputation](/theorem/trust_by_recomputation) — `(List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ `
+- [unity_census_is_plural_and_needs_two](/theorem/unity_census_is_plural_and_needs_two) — `(14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14)`
+- [significance_is_partial_not_total](/theorem/significance_is_partial_not_total) — `((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2`
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not

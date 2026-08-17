@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The detectors, proven
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The detectors, proven* — the wing sealed in [lean/Audit.lean](/lean/Audit.lean) with **8 theorems**. Each
+asked in parallel about *The detectors, proven* — the wing sealed in [lean/Audit.lean](/lean/Audit.lean) with **9 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -51,6 +51,7 @@ The sealed backing this trial held the findings beside:
 - [exactly_one_flag](/theorem/exactly_one_flag) — `((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1`
 - [flag_matches_spec](/theorem/flag_matches_spec) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) `
 - [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) — `(32 = 2^5) ∧ (0 < 32)`
+- [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) — `((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1)`
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not
