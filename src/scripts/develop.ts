@@ -19,7 +19,14 @@ import { execSync } from 'node:child_process'
 /** An objection this pass can cure: its signature in the gate's own output, and the deterministic command that fixes it. */
 type Cure = { name: string; when: RegExp; cmd: string; because: string }
 
+// ORDER IS LOAD-BEARING — most specific first, because the first match wins. Learned on this pass's very first real
+// run: a spin objection NAMES the files that moved, so a filename cure (regenerate support-audit.json) matched before
+// the spin cure (reconcile, which re-derives AND re-seals) and "cured" the wrong thing twice; the run converged only
+// because the guard happens to re-seal the fold. A drift of the SEAL is never cured by regenerating one of its files.
 const CURES: Cure[] = [
+  { name: 'derived layer drift (spin)', when: /NON-QUANTUM DRIFT|Spin hard-rejects drift/,
+    cmd: 'npm run reconcile',
+    because: 'the derived files moved since the last seal; only reconcile re-derives from the ledger AND re-seals — regenerating a named file leaves the seal stale' },
   { name: 'axiom witness stale', when: /AXIOM WITNESS STALE|kernel-only-witness-shipped/,
     cmd: 'npm run axioms',
     because: 'a new theorem has no kernel-only witness yet; the audit regenerates them in one probe per file' },
@@ -35,9 +42,6 @@ const CURES: Cure[] = [
   { name: 'package surface drift', when: /packages? (?:receipt|surface)|gen:packages/,
     cmd: 'node dist/scripts/gen-packages.js',
     because: 'the six package surfaces are generated from src/index.ts; the guard hard-rejects drift' },
-  { name: 'derived layer drift (spin)', when: /NON-QUANTUM DRIFT|Spin hard-rejects drift/,
-    cmd: 'npm run reconcile',
-    because: 'the derived files moved since the last seal; reconcile re-derives from the ledger and re-seals' },
 ]
 
 /** Objections that are deliberately NOT cured here — each needs a human, and saying so is the honest answer. */
@@ -58,6 +62,9 @@ const WALK: { label: string; cmd: string }[] = [
 
 const MAX_ROUNDS = 6
 const applied: string[] = []
+/** A CURE THAT DOES NOT CURE IS A BROKEN CURE — if the same cure meets the same objection twice, stop and say so
+ *  rather than spending rounds. Without this the pass can loop plausibly and even exit 0 for the wrong reason. */
+let lastAttempt = ''
 
 for (let round = 1; round <= MAX_ROUNDS; round++) {
   let objection: { label: string; out: string } | null = null
@@ -95,6 +102,14 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
     console.error('    FIX add the objection\'s signature + its deterministic command to CURES in src/scripts/develop.ts')
     process.exit(1)
   }
+  const attempt = `${cure.name}::${objection.label}`
+  if (attempt === lastAttempt) {
+    console.error(`\n✗ develop — the cure for "${cure.name}" did not cure it: the "${objection.label}" gate objects the same way twice.`)
+    console.error(`    GAP ${objection.out.trimEnd().split('\n').slice(-8).join('\n         ')}`)
+    console.error(`    FIX either the signature matches the wrong cure (order CURES most-specific-first) or the cure is incomplete`)
+    process.exit(1)
+  }
+  lastAttempt = attempt
   console.log(`\n→ develop — cure for "${cure.name}": ${cure.cmd}\n  (${cure.because})`)
   const fix = teeStep(`develop · cure · ${cure.name}`, cure.cmd)
   applied.push(cure.name)
