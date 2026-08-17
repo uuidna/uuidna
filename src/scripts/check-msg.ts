@@ -23,8 +23,16 @@ const msg = readFileSync(path, 'utf8').replace(/^#.*$/gm, '').trim() // drop git
 // enclosed text is not a runnable command. It runs BEFORE the use/mention exemption below, because integrity is not
 // an honesty question: a truncated message is damaged whatever it happens to talk about.
 const damage: string[] = []
+// USE vs MENTION, the same law the honesty exemption below rests on: a message that QUOTES damage in order to record
+// it is not itself damaged. This check rejected its own landing commit for exactly that reason — the message quoted
+// the phrase "via a new  leaf" as the specimen, and a scan of raw text cannot tell the evidence from the crime. So
+// quoted spans are removed before the whitespace scan; the real case that prompted all this was unquoted prose.
+// the placeholder is a WORD, not a space: replacing a quoted span with ' ' manufactures the doubled space this scan
+// looks for (the surrounding spaces survive on both sides), which turned one false positive into four. Substituting a
+// token keeps the spacing of the sentence exactly as the author wrote it.
+const mentioned = (l: string): string => l.replace(/"[^"]*"/g, 'Q').replace(/`[^`]*`/g, 'Q').replace(/'[^']{2,}'/g, 'Q')
 const prose = msg.split('\n').filter((l) => !/^\s*[|\-*+#>]/.test(l) && !/^\s{2,}/.test(l))  // skip tables/lists/indented blocks
-const collapsed = prose.flatMap((l) => l.match(/\w  +\w/g) ?? [])
+const collapsed = prose.map(mentioned).flatMap((l) => l.match(/\w  +\w/g) ?? [])
 if (collapsed.length) damage.push(`vanished text: ${collapsed.length} gap(s) of doubled space between words, e.g. "${collapsed[0]}"`)
 if ((msg.match(/`/g) ?? []).length % 2 === 1) damage.push('an odd number of backticks — one is unclosed, or its pair was consumed by the shell')
 if (/\(\s*\)/.test(msg) || /""/.test(msg)) damage.push('an empty delimiter — whatever stood between it is gone')
