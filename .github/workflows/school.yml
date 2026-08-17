@@ -40,8 +40,12 @@ jobs:
         run: |
           git config user.name "uuidna-school"
           git config user.email "school@uuidna.com"
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
+          # EXPLICIT PATHS, NEVER -A. `one-receipt stage` stages only what the drain itself regenerates (DRAIN_PATHS)
+          # and PRINTS anything else as left-for-a-human. With -A this job committed whatever happened to be in the
+          # tree under a message describing the heartbeat — and a commit message here is a signed artifact that must
+          # cite a sealed theorem, so it has to mean what it says.
+          node dist/scripts/one-receipt.js stage
+          if [ -n "$(git diff --cached --name-only)" ]; then
             git commit -m "Heartbeat: the school verifies itself and drains the derived drift — gate-clean, sessionless. Backed by theorem two_coins"
             git push
             echo "drained and pushed"
@@ -107,8 +111,11 @@ jobs:
         run: |
           git config user.name "uuidna-school"
           git config user.email "school@uuidna.com"
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
+          # EXPLICIT PATHS, NEVER -A: the discovery pass writes lean/Discover.lean, and the drain owns the derived
+          # layer that follows from it. Anything else in the tree belongs to whoever wrote it.
+          git add -- lean/Discover.lean 2>/dev/null || true
+          node dist/scripts/one-receipt.js stage
+          if [ -n "$(git diff --cached --name-only)" ]; then
             git commit -m "The school teaches itself — the resident discovery pass sealed what the ledger's own algebra implies, oracle-free: the rosetta's third frame is deterministic. Backed by theorem generators_are_two_and_five and theorem two_coins"
             git pull --rebase --autostash || true
             git push
