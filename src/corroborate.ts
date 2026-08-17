@@ -106,6 +106,8 @@ const openAlexSource: ResearchSource = async (query) => {
 }
 
 const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource, semanticScholarSource, openAlexSource]
+/** the sources BY NAME — so any surface states how many are actually wired, never a remembered number */
+export const RESEARCH_SOURCE_NAMES: readonly string[] = ['nist.gov', 'zenodo.org', 'crossref.org', 'semanticscholar.org', 'openalex.org']
 
 /** researchEvidence(query) → external research from the free API STREAMS, FANNED OUT IN PARALLEL (Promise.all over
  *  RESEARCH_SOURCES): the wall-clock is the slowest source, not the sum, and every match is a provenance-fingerprinted

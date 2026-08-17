@@ -60,6 +60,23 @@ const WALK: { label: string; cmd: string }[] = [
   { label: 'spin --verify', cmd: 'node dist/scripts/spin.js --verify' },
 ]
 
+/** The tree's identity right now — HEAD plus the dirty set. If this moves mid-round, another writer is landing. */
+const treeState = (): string => {
+  try {
+    return execSync('git rev-parse HEAD && git status --porcelain', { cwd: ROOT, encoding: 'utf8' })
+  } catch { return '' }
+}
+/** Wait for another gate to finish before touching the shared tree — the mixed-dist hazard, which the seal already
+ *  guards against and this pass did not. Bounded: 30 probes × 10s. */
+const waitForQuiet = (): void => {
+  for (let i = 0; i < 30; i++) {
+    const busy = execSync('ps aux | grep -E "[r]econcile\\.js|[l]ean-all\\.js" | wc -l', { cwd: ROOT, encoding: 'utf8' }).trim()
+    if (busy === '0') return
+    if (i === 0) console.log('· develop — another gate is running on this tree; waiting for quiescence (never edit mid-gate)')
+    execSync('sleep 10', { cwd: ROOT })
+  }
+}
+
 const MAX_ROUNDS = 6
 const applied: string[] = []
 /** A CURE THAT DOES NOT CURE IS A BROKEN CURE — if the same cure meets the same objection twice, stop and say so
@@ -67,6 +84,8 @@ const applied: string[] = []
 let lastAttempt = ''
 
 for (let round = 1; round <= MAX_ROUNDS; round++) {
+  waitForQuiet()
+  const stateAtRoundStart = treeState()
   let objection: { label: string; out: string } | null = null
   for (const step of WALK) {
     const r = teeStep(`develop · round ${round} · ${step.label}`, step.cmd)
@@ -114,7 +133,16 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
   const fix = teeStep(`develop · cure · ${cure.name}`, cure.cmd)
   applied.push(cure.name)
   if (!fix.ok) {
-    console.error(`✗ develop — the cure for "${cure.name}" itself failed; that is a real break, not drift.`)
+    // A CONCURRENT WRITER IS NOT A BREAK — the third category, learned when this pass first met one: another session
+    // was mid-landing a theorem, so generated.ts moved under the reconcile's own push and the cure "failed" for a
+    // reason that was nobody's fault and fixes itself. Distinguish by asking whether the tree moved during the round.
+    if (treeState() !== stateAtRoundStart) {
+      console.log(`· develop — the tree moved during round ${round} (another session is landing); waiting and walking again`)
+      applied.pop()
+      lastAttempt = ''
+      continue
+    }
+    console.error(`✗ develop — the cure for "${cure.name}" itself failed on a tree that did not move; that is a real break, not drift.`)
     process.exit(1)
   }
 }
