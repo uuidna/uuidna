@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1306 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1307 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -167,7 +167,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 54. **The cut** — `lean/Editing.lean` · **14** theorems
    video and film editing as decidable arithmetic, the craft a professional editor works in — timecode is a ring (at 24 fps the frame field runs 0..23 then wraps, ℤ/24), a minute is 1440 frames, NTSC drop-frame drops 2 frame-numbers a minute except every tenth (108 an hour) to hold 29.97 to the clock, 4K UHD is EXACTLY four Full-HD frames (3840×2160 = 4·1920·1080), widescreen 16:9 beats academy 4:3 by cross-multiplication (48 > 36), the rule of thirds crosses at four power points in a nine-square, a crossfade makes two clips a+b−L long (inclusion–exclusion on the timeline, the same identity the compare tool folds), 48 kHz audio is 2000 samples a frame exactly in sync, and six 30° steps span the 180° axis — the arithmetic of the edit, NOT a codec, an NLE or a renderer
 
-55. **The fused ring** — `lean/Crt.lean` · **7** theorems
+55. **The fused ring** — `lean/Crt.lean` · **8** theorems
    the rosette and the vortex as ONE ring — Z/7 and Z/9 are coprime, so by the Chinese Remainder Theorem they were always Z/63, and its arithmetic explains a number the ledger carried without justifying: WHY the captain save is 64. The fused ring holds 7·9 = 63 states, the two coins buy 2·32 = 64, and the difference is the unit that closes it — in bits, 63 is 111111 (saturated in the six the coin doubles through) and 64 is 1000000, the first bit beyond. The correspondence x to (x mod 7, x mod 9) is a bijection on all 63; the units number 36 = 6·6, each factor an orbit length; and the coin keeps its order 6 in the fusion while walking the rosette TWICE per vortex turn — lcm(3,6) = 6, the seam named rather than smoothed. HONEST SCOPE: ring arithmetic and a counting correspondence — the CRT is a statement about residues, never about what the residues are used to describe
 
 56. **The linear optimum** — `lean/Optimisation.lean` · **9** theorems
