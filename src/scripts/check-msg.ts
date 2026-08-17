@@ -6,8 +6,8 @@
 // naming a refuted overclaim, or stating a true fact like π's non-terminating decimal — necessarily NAMES those words
 // without asserting them, so a message about the gate/honesty machinery is cleared. It inherits the gate's limits
 // (lexical, use/mention imperfect); it is a floor, not a wall. Integrity, not truth.
-import { readFileSync } from 'node:fs'
-import { overreachOf } from '../index.js'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { overreachOf, signCommit } from '../index.js'
 
 const path = process.argv[2]
 if (!path) { console.error('check-msg: no commit message file given'); process.exit(2) }
@@ -51,10 +51,37 @@ if (damage.length) {
   process.exit(1)
 }
 
+// ── THE RECEIPT TRAILER — a signed record carries its own seal ────────────────────────────────────────────────────
+// The commit message was the last prose surface in the pipeline shipping unsealed: every other claim in this repo
+// recomputes, while the git log rested on the author's word. Every ACCEPTED message now leaves carrying
+// `Trial-Receipt: <fold>` — signCommit's gravity root over the message's own address folded with the addresses of
+// the sealed theorems it cites. Recomputable by anyone, and that is the whole point: strip the trailer, run
+// signCommit on what remains, and the fold returns — or the record was edited after it was signed.
+// IDEMPOTENT: an existing trailer is stripped before signing, so amend and rebase RE-seal instead of stacking.
+// REFUSES a fabricated citation outright — a commit cannot be signed true on a proof the ledger does not seal.
+// WARNS, never blocks, when a message cites nothing: the citation law is already enforced where commits are made
+// (reconcile signs its own, and practice cites everywhere), and a hook that blocked every uncited commit would halt
+// a shared tree mid-flight on a decision this fix does not own.
+const sealAndExit = (): never => {
+  const body = msg.replace(/^Trial-Receipt:.*$/gm, '').trimEnd()
+  const sig = signCommit(body)
+  if (sig.fabricated.length) {
+    console.error('✗ check-msg — REFUSED, the citation is not in the ledger: ' + sig.reason)
+    process.exit(1)
+  }
+  if (!sig.signed) {
+    console.error('· check-msg — no Trial-Receipt trailer written: ' + sig.reason)
+    process.exit(0)
+  }
+  writeFileSync(path, body + '\n\nTrial-Receipt: ' + sig.fold + '\n')
+  console.log(`✓ check-msg — sealed: Trial-Receipt ${sig.fold}, backed by ${sig.cited.join(', ')} (recompute: strip the trailer, signCommit the rest)`)
+  process.exit(0)
+}
+
 // use/mention exclusion: a message ABOUT the gate/honesty machinery (or a true irrationality fact) names the words
 // without claiming them — cleared, exactly as the provenance audit excludes the gate files that name their lexicon.
 const META = /\b(gate|harden\w*|lexicon|overclaim\w*|drain\w*|demarcat\w*|refut\w*|hollow|honesty|provenance|irrational)\b/i
-if (META.test(msg)) process.exit(0)
+if (META.test(msg)) sealAndExit()
 
 const units = msg.split(/(?<=[.!?])\s+|\n+/).map((s) => s.trim()).filter((s) => s.length > 3)
 const hits = units.map((u) => ({ u, o: overreachOf(u) })).filter((x) => x.o)
@@ -64,4 +91,4 @@ if (hits.length) {
   console.error('  Fix: reword to the honest claim, quote the overclaim, cite a /theorem/<key>, or (for gate-work) name the gate.')
   process.exit(1)
 }
-process.exit(0)
+sealAndExit()
