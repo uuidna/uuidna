@@ -20,8 +20,8 @@ the hard gate of the corroboration law.
 | `419c6600` | crossref.org | DOI 10.1080/00150517.1963.12431543: On the Periodicity of the Last Digits of the Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `8417c715` | crossref.org | DOI 10.1080/00150517.1973.12430803: On the Periodicity of the Terminal Digits in Fibonacci Sequences | UNVERIFIED | VERIFIED |
 | `4e0c21b6` | crossref.org | DOI 10.1080/00150517.1981.12430099: Initial Digits in Number Theory | UNVERIFIED | VERIFIED |
-| `323ea1fb` | crossref.org | DOI 10.1080/00150517.1976.12430582: Some Remarks on Initial Digits | UNVERIFIED | VERIFIED |
 | `bc95d9dd` | crossref.org | DOI 10.1080/00150517.1964.12431492: Further Comments on the Periodicity of the Digits of the Fibonacci Sequence | UNVERIFIED | VERIFIED |
+| `0e808e67` | crossref.org | DOI 10.1080/00150517.1995.12429122: Some Probabilistic Aspects of the Terminal Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `872ec405` | openalex.org | OpenAlex Golden ratio in science, as random sequence source, its computation an [Advanced Mathematical Theories] | UNVERIFIED | VERIFIED |
 | `86cc60f1` | openalex.org | OpenAlex Fascinating Characteristics and Applications of the Fibonacci Sequence [Advanced Mathematical Theories] | UNVERIFIED | VERIFIED |
 | `7a447d27` | openalex.org | OpenAlex The Relation of Golden Ratio, Mathematics and Aesthetics [Architecture and Cultural Infl] | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `336fa520` | openalex.org | OpenAlex The Fibonacci Association: Memories and Reflections 1962–2024 [Advanced Mathematical Theories] | UNVERIFIED | VERIFIED |
 | `9962d97d` | openalex.org | OpenAlex The BFP (Benford-Fibonacci-Perez) method validates the consistency of  [Benford’s Law and Fraud Detect] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `bd6a78d0`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `f1a99380`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

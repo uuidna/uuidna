@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `f6f5ff60` | crossref.org | DOI 10.1016/0896-6273(94)90433-2: Neuron reviewers | UNVERIFIED | VERIFIED |
 | `dc23c14f` | crossref.org | DOI 10.1016/0896-6273(88)90159-6: Neuron reviewers | UNVERIFIED | VERIFIED |
 | `311ff3df` | crossref.org | DOI 10.1016/s0896-6273(03)00812-2: Neuron Reviewer | UNVERIFIED | VERIFIED |
-| `a6016cb5` | crossref.org | DOI 10.1016/0896-6273(92)90080-w: Neuron reviewers | UNVERIFIED | VERIFIED |
+| `544f2c0d` | crossref.org | DOI 10.1016/0896-6273(90)90351-f: Neuron reviewers | UNVERIFIED | VERIFIED |
 | `f10b2399` | openalex.org | OpenAlex The Variable Discharge of Cortical Neurons: Implications for Connectiv [Neural dynamics and brain func] | UNVERIFIED | VERIFIED |
 | `93e9ae84` | openalex.org | OpenAlex Lattice algebra approach to single-neuron computation [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 | `7885cdc7` | openalex.org | OpenAlex The Algebraic Mind: Integrating Connectionism and Cognitive Science [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `2e402279` | openalex.org | OpenAlex Neuronal activity in the vestibular nuclei of the alert monkey during  [Visual perception and processi] | UNVERIFIED | VERIFIED |
 | `847e42e1` | openalex.org | OpenAlex On Clifford neurons and Clifford multi-layer perceptrons [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `ef21df37`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `40e9db02`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

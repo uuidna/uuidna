@@ -15,8 +15,8 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `c9fa8a3c` | zenodo.org | zenodo record 19423742: Printed Refolding Guidance System for Multi-Panel Folded Documents | UNVERIFIED | VERIFIED |
-| `c1a0bfad` | zenodo.org | zenodo record 7244312: Sustainability of OSS Projects (the Experience of LibreOffice) | UNVERIFIED | VERIFIED |
 | `fdfe7cf4` | zenodo.org | zenodo record 5713734: Digital Sovereignty | UNVERIFIED | VERIFIED |
+| `c1a0bfad` | zenodo.org | zenodo record 7244312: Sustainability of OSS Projects (the Experience of LibreOffice) | UNVERIFIED | VERIFIED |
 | `5dc14833` | zenodo.org | zenodo record 5832573: Analysis and Development of a Methodological Approach to Structuring the List of | UNVERIFIED | VERIFIED |
 | `daa7aa4f` | zenodo.org | zenodo record 5734220: Documentology at the Stage of Advanced Science: Essence of the Unit of Documenta | UNVERIFIED | VERIFIED |
 | `a0809efc` | zenodo.org | zenodo record 20637852: Family Φ-R V2.0: Complete Nine-Sibling Roster — A Recursive Fold Operator Across | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `82219568` | openalex.org | OpenAlex The impact of the endoplasmic reticulum protein-folding environment on [Endoplasmic Reticulum Stress a] | UNVERIFIED | VERIFIED |
 | `9e31a010` | openalex.org | OpenAlex Reappraisal of European guidelines on hypertension management: a Europ [Blood Pressure and Hypertensio] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `ef409884`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `a9344dcb`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

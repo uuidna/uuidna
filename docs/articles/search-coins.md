@@ -15,12 +15,12 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `b12d635e` | zenodo.org | zenodo record 16347833: XLVI.—Remarks on the correct Generic Name of the Linnets | UNVERIFIED | VERIFIED |
-| `ff85bdd2` | zenodo.org | zenodo record 16140513: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
-| `ed45ef35` | zenodo.org | zenodo record 16018623: Inscription on the Muqbura at Hailan | UNVERIFIED | VERIFIED |
-| `e3f7bb91` | zenodo.org | zenodo record 16439572: Abstract of the Results of the Hourly Meteorological Observations Taken at the S | UNVERIFIED | VERIFIED |
-| `eef1ceea` | zenodo.org | zenodo record 16138401: Proceedings of the Asiatic Society of Bengal, for May, 1863 | UNVERIFIED | VERIFIED |
+| `03ab983e` | zenodo.org | zenodo record 16498934: Bibliographical Notice | UNVERIFIED | VERIFIED |
+| `2ea56611` | zenodo.org | zenodo record 16205338: Proceedings of the Asiatic Society of Bengal for June, 1849 | UNVERIFIED | VERIFIED |
+| `aca25193` | zenodo.org | zenodo record 16201061: Proceedings of the Asiatic Society | UNVERIFIED | VERIFIED |
 | `1f546fe0` | zenodo.org | zenodo record 16007331: Meteorological Remarks and Tables Commencing 1st May, 1854, at the Residency, Lu | UNVERIFIED | VERIFIED |
-| `97590f3e` | zenodo.org | zenodo record 16007001: Meteorological Observations | UNVERIFIED | VERIFIED |
+| `fe441d7b` | zenodo.org | zenodo record 1673116: Bildung amikroskopischer Goldkeime durch Bestrahlung von Goldsalzlösungen mit ul | UNVERIFIED | VERIFIED |
+| `ff85bdd2` | zenodo.org | zenodo record 16140513: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
 | `5fd9e067` | zenodo.org | zenodo record 16205342: Proceedings of the Asiatic Society of Bengal, for March, 1858 | UNVERIFIED | VERIFIED |
 | `de176129` | crossref.org | DOI 10.1163/9789004226425_004: A Typology of Herod’s Coins | UNVERIFIED | VERIFIED |
 | `77bacc2c` | crossref.org | DOI 10.1111/j.1600-0471.1995.tb00076.x: Two South Arabian coins from Mleiha | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `a2a28886` | openalex.org | OpenAlex The coin model of privilege and critical allyship: implications for he [Obesity and Health Practices] | UNVERIFIED | VERIFIED |
 | `04da909f` | openalex.org | OpenAlex Adipo-Myokines: Two Sides of the Same Coin—Mediators of Inflammation a [Adipose Tissue and Metabolism] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `3a63f67a`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `dfaa8e82`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

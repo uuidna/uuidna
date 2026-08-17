@@ -15,8 +15,8 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `05d46cba` | crossref.org | DOI 10.1017/9781108903547.007: Polish Groups of Bounded Geometry | UNVERIFIED | VERIFIED |
-| `eed7af6a` | crossref.org | DOI 10.1007/978-3-642-11060-3_4: Holomorphic and Harmonic Functions on Bounded Symmetric Domains | UNVERIFIED | VERIFIED |
 | `52944fe3` | crossref.org | DOI 10.1007/978-3-642-11060-3: Geometry of Homogeneous Bounded Domains | UNVERIFIED | VERIFIED |
+| `eed7af6a` | crossref.org | DOI 10.1007/978-3-642-11060-3_4: Holomorphic and Harmonic Functions on Bounded Symmetric Domains | UNVERIFIED | VERIFIED |
 | `0eaff178` | crossref.org | DOI 10.2139/ssrn.6294341: A tropical geometry for bounded biochemical state spaces | UNVERIFIED | VERIFIED |
 | `5f265ce3` | crossref.org | DOI 10.1016/j.comgeo.2007.09.002: Iterated snap rounding with bounded drift | UNVERIFIED | VERIFIED |
 | `1a065a74` | crossref.org | DOI 10.1007/978-3-0348-9102-8_2: Collapsed Riemannian Manifolds with Bounded Diameter and Bounded Covering Geomet | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `0fd14d2b` | openalex.org | OpenAlex Features and development of <i>Coot</i> [Enzyme Structure and Function] | UNVERIFIED | VERIFIED |
 | `9c6179c6` | openalex.org | OpenAlex Reflections on geometry and navigation [Memory and Neural Mechanisms] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `db824c95`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `8ee3a3d1`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

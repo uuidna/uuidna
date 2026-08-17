@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The cipher & the strand
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The cipher & the strand* — the wing sealed in [lean/Cipher.lean](/lean/Cipher.lean) with **26 theorems**. Each
+asked in parallel about *The cipher & the strand* — the wing sealed in [lean/Cipher.lean](/lean/Cipher.lean) with **27 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -15,21 +15,21 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `b12d635e` | zenodo.org | zenodo record 16347833: XLVI.—Remarks on the correct Generic Name of the Linnets | UNVERIFIED | VERIFIED |
-| `ff85bdd2` | zenodo.org | zenodo record 16140513: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
-| `ed45ef35` | zenodo.org | zenodo record 16018623: Inscription on the Muqbura at Hailan | UNVERIFIED | VERIFIED |
-| `e3f7bb91` | zenodo.org | zenodo record 16439572: Abstract of the Results of the Hourly Meteorological Observations Taken at the S | UNVERIFIED | VERIFIED |
-| `eef1ceea` | zenodo.org | zenodo record 16138401: Proceedings of the Asiatic Society of Bengal, for May, 1863 | UNVERIFIED | VERIFIED |
+| `03ab983e` | zenodo.org | zenodo record 16498934: Bibliographical Notice | UNVERIFIED | VERIFIED |
+| `2ea56611` | zenodo.org | zenodo record 16205338: Proceedings of the Asiatic Society of Bengal for June, 1849 | UNVERIFIED | VERIFIED |
+| `aca25193` | zenodo.org | zenodo record 16201061: Proceedings of the Asiatic Society | UNVERIFIED | VERIFIED |
 | `1f546fe0` | zenodo.org | zenodo record 16007331: Meteorological Remarks and Tables Commencing 1st May, 1854, at the Residency, Lu | UNVERIFIED | VERIFIED |
-| `97590f3e` | zenodo.org | zenodo record 16007001: Meteorological Observations | UNVERIFIED | VERIFIED |
+| `fe441d7b` | zenodo.org | zenodo record 1673116: Bildung amikroskopischer Goldkeime durch Bestrahlung von Goldsalzlösungen mit ul | UNVERIFIED | VERIFIED |
+| `ff85bdd2` | zenodo.org | zenodo record 16140513: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
 | `5fd9e067` | zenodo.org | zenodo record 16205342: Proceedings of the Asiatic Society of Bengal, for March, 1858 | UNVERIFIED | VERIFIED |
 | `5704ff8a` | crossref.org | DOI 10.18178/ijmlc.2019.9.3.801: A Complex Transformation of Monoalphabetic Cipher to Polyalphabetic Cipher: (Vig | UNVERIFIED | VERIFIED |
 | `82443aa6` | crossref.org | DOI 10.1117/12.2237570.5178981884001:  | UNVERIFIED | VERIFIED |
 | `5020ba9c` | crossref.org | DOI 10.36341/rabit.v11i1.7490: EVALUASI PERFORMA ALGORITMA HILL CIPHER DAN AFFINE CIPHER PADA PENGAMANAN DATA P | UNVERIFIED | VERIFIED |
 | `c8b439a6` | crossref.org | DOI 10.35940/ijeat.a1107.1291s419: A Novel Stream Cipher for Multimedia Security A Novel Stream Cipher for Multimed | UNVERIFIED | VERIFIED |
 | `f0a85fd0` | crossref.org | DOI 10.1201/b11310-18: Stream Cipher HC-128 | UNVERIFIED | VERIFIED |
-| `c53b2527` | crossref.org | DOI 10.24843/mite.2018.v17i01.p08: Efektivitas Pesan Teks Dengan Cipher Substitusi, Vigenere Cipher, dan Cipher Tra | UNVERIFIED | VERIFIED |
 | `3376c2ad` | crossref.org | DOI 10.14710/jmasif.10.2.31495: Kriptografi Citra Digital Menggunakan Algoritma Hill Cipher Dan Affine Cipher Be | UNVERIFIED | VERIFIED |
-| `0dc4d482` | crossref.org | DOI 10.19184/mims.v21i2.26978: KOMBINASI CAESAR CIPHER DAN REVERSE CIPHER BERDASARKAN CIPHER BLOCK CHAINING | UNVERIFIED | VERIFIED |
+| `c53b2527` | crossref.org | DOI 10.24843/mite.2018.v17i01.p08: Efektivitas Pesan Teks Dengan Cipher Substitusi, Vigenere Cipher, dan Cipher Tra | UNVERIFIED | VERIFIED |
+| `ab7ddca7` | crossref.org | DOI 10.1007/springerreference_10001: cipher | UNVERIFIED | VERIFIED |
 | `98a58988` | openalex.org | OpenAlex Targeting DNA Double-Strand Breaks with TAL Effector Nucleases [CRISPR and Genetic Engineering] | UNVERIFIED | VERIFIED |
 | `cf9cf6bc` | openalex.org | OpenAlex Repair of Strand Breaks by Homologous Recombination [Concrete Corrosion and Durabil] | UNVERIFIED | VERIFIED |
 | `7f4cd970` | openalex.org | OpenAlex Breaking DES using a molecular computer [Chemical Synthesis and Analysi] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `76c0fb9c` | openalex.org | OpenAlex Genome Engineering With Zinc-Finger Nucleases [CRISPR and Genetic Engineering] | UNVERIFIED | VERIFIED |
 | `d0eeea84` | openalex.org | OpenAlex A DNA sticker algorithm for bit-substitution in a block cipher [DNA and Biological Computing] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `32fd3e02`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `9dcf076c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -52,6 +52,7 @@ The sealed backing this trial held the findings beside:
 - [transport_leaks_length](/theorem/transport_leaks_length) — `((1 + 114) / 115 = 1) ∧ ((115 + 114) / 115 = 1) ∧ ((116 + 114) / 115 = 2) ∧ ((230 + 114) /`
 - [codons_four_cubed](/theorem/codons_four_cubed) — `4^3 = 64`
 - [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) — `(4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)`
+- [octave_codon_address](/theorem/octave_codon_address) — `((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400`
 - [translation_is_lossy](/theorem/translation_is_lossy) — `4^3 > 21`
 - [affine_is_permutation](/theorem/affine_is_permutation) — `(List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y))`
 - [grover_quadratic_bound](/theorem/grover_quadratic_bound) — `(List.range 27).all (fun n => 2^n * 2^n == 2^(2*n))`

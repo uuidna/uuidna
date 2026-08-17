@@ -14,6 +14,22 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `ad0e1f31` | crossref.org | DOI 10.4324/9780203996706-25: Saving the social bond and recovering the public domain | UNVERIFIED | VERIFIED |
+| `eb9341fb` | crossref.org | DOI 10.1201/b14676-12: - Time Domain Analysis | UNVERIFIED | VERIFIED |
+| `620c6a06` | crossref.org | DOI 10.1201/b14676-13: - Frequency Domain Analysis | UNVERIFIED | VERIFIED |
+| `9448b33d` | crossref.org | DOI 10.2172/902338: 3D Vectorial Time Domain Computational Integrated Photonics | UNVERIFIED | VERIFIED |
+| `97b321a6` | crossref.org | DOI 10.1063/1.1834711: Frequency domain analysis of ultrasonic velocity: An alternative bond effect cor | UNVERIFIED | VERIFIED |
+| `1bdb5bfe` | crossref.org | DOI 10.2139/ssrn.911158: Bond Repudiation, Tax Codes, the Appropriations Process and Restitution Post-Emi | UNVERIFIED | VERIFIED |
+| `4f72d7e7` | crossref.org | DOI 10.1021/jacs.9b06977.s001: Lipid Acyl Chain cis Double Bond Position Modulates Membrane Domain Registration | UNVERIFIED | VERIFIED |
+| `3aaf5a0b` | crossref.org | DOI 10.1021/acs.biochem.1c00132.s001: PEGylation Increases the Strength of a Nearby NH Hydrogen Bond in the WW Domain | UNVERIFIED | VERIFIED |
+| `acbd9750` | semanticscholar.org | S2 Reactive Power Compensation in Distribution Systems Through  — AI tldr: The distribution static compensator model based on the bond graph (BG) domain is presented | UNVERIFIED | VERIFIED |
+| `bab2d6dc` | semanticscholar.org | S2 BOND: BERT-Assisted Open-Domain Named Entity Recognition wit — AI tldr: A new computational framework -- BOND, which leverages the power of pre-trained language m | UNVERIFIED | VERIFIED |
+| `c4ee6918` | semanticscholar.org | S2 The C-terminal actin-binding domain of talin forms an asymme — AI tldr: It is shown that ABS3 binds actin strongly only when subjected to mechanical forces compar | UNVERIFIED | VERIFIED |
+| `fe91b51d` | semanticscholar.org | S2 Depside Bond Formation by the Starter-Unit Acyltransferase D — AI tldr: A polyketide synthase from the fungus Aspergillus duricaulis is discovered and it is deter | UNVERIFIED | VERIFIED |
+| `c13068c1` | semanticscholar.org | S2 Lipid Acyl Chain cis Double Bond Position Modulates Membrane — AI tldr: It is revealed that lipid acyl chain cis double-bond position can regulate the inter-leafl | UNVERIFIED | VERIFIED |
+| `9ddffe10` | semanticscholar.org | S2 Tracking Photoinduced Au-Au Bond Formation through Transient — AI tldr: Femtosecond time-domain Raman tracking of ultrafast structural dynamics of the [Au(CN)2-]  | UNVERIFIED | VERIFIED |
+| `b1153359` | semanticscholar.org | S2 C-S bond cleavage by a polyketide synthase domain | UNVERIFIED | VERIFIED |
+| `72abc9b9` | semanticscholar.org | S2 Enhanced production of a single domain antibody with an engi — AI tldr: This work tested the hypothesis that decreasing the isoelectric point of single domain ant | UNVERIFIED | VERIFIED |
 | `bac3b836` | openalex.org | OpenAlex An Intrinsic Bond-Centered Electronic Glass with Unidirectional Domain [Physics of Superconductivity a] | UNVERIFIED | VERIFIED |
 | `fbe9df21` | openalex.org | OpenAlex Observation of topological hydrogen-bonding domains in physical hydrog [Hydrogels: synthesis, properti] | UNVERIFIED | VERIFIED |
 | `0066115b` | openalex.org | OpenAlex A new strategy for methylated DNA detection based on photoelectrochemi [Advanced biosensing and bioana] | UNVERIFIED | VERIFIED |
@@ -23,7 +39,7 @@ the hard gate of the corroboration law.
 | `fdec72cf` | openalex.org | OpenAlex Peptide tag forming a rapid covalent bond to a protein, through engine [Biochemical and Structural Cha] | UNVERIFIED | VERIFIED |
 | `e63a5fbb` | openalex.org | OpenAlex Activating mutations in the extracellular domain of the fibroblast gro [Craniofacial Disorders and Tre] | UNVERIFIED | VERIFIED |
 
-**8 findings · 8 usable search-trial combinations · receipt `93a819c6`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `c6c0e949`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -18,10 +18,10 @@ the hard gate of the corroboration law.
 | `e190ed32` | zenodo.org | zenodo record 14887998: Raw data of Mix_et_al_2025 | UNVERIFIED | VERIFIED |
 | `7621d52f` | zenodo.org | zenodo record 21530345: Danieliao/MiX: MiX | UNVERIFIED | VERIFIED |
 | `35772306` | zenodo.org | zenodo record 2087599: Orthostatic Albdminuria: | UNVERIFIED | VERIFIED |
-| `ee3e2082` | zenodo.org | zenodo record 16658878: The Genus Taphrina. II: A List of Valid Species | UNVERIFIED | VERIFIED |
 | `ff14fcac` | zenodo.org | zenodo record 2499901: Unterscheidung von Benzin und Benzol | UNVERIFIED | VERIFIED |
+| `ee3e2082` | zenodo.org | zenodo record 16658878: The Genus Taphrina. II: A List of Valid Species | UNVERIFIED | VERIFIED |
 | `fa097cd5` | zenodo.org | zenodo record 4286559: Performance analysis with Vampir | UNVERIFIED | VERIFIED |
-| `4eed86e5` | zenodo.org | zenodo record 15905829: A monograph of the genus Taphrina | UNVERIFIED | VERIFIED |
+| `33eb5b4e` | zenodo.org | zenodo record 16658746: The Genus Taphrina. I: An Annotated Bibliography | UNVERIFIED | VERIFIED |
 | `8cb7d2d1` | crossref.org | DOI 10.1107/s0108768102019663/de0020sup1.cif:  | UNVERIFIED | VERIFIED |
 | `1ecfe3eb` | crossref.org | DOI 10.1107/s0108768101019346/ta0008sup1.cif:  | UNVERIFIED | VERIFIED |
 | `bb8c5c7d` | crossref.org | DOI 10.1787/816802266378: Figure 2.1.Tax mix | UNVERIFIED | VERIFIED |
@@ -29,15 +29,7 @@ the hard gate of the corroboration law.
 | `5fd71112` | crossref.org | DOI 10.1787/888933283050: Graphique 1.5. Mix énergétique et mix électrique par produit | UNVERIFIED | VERIFIED |
 | `63e1df85` | crossref.org | DOI 10.4414/saez.2015.90302: Mix&amp;Remix | UNVERIFIED | VERIFIED |
 | `0bf85213` | crossref.org | DOI 10.1016/b978-0-240-81485-8.00012-4: Mix Automation | UNVERIFIED | VERIFIED |
-| `a5dd99ac` | crossref.org | DOI 10.22441/jurnal_mix: MIX JURNAL ILMIAH MANAJEMEN | UNVERIFIED | VERIFIED |
-| `c27ebe16` | semanticscholar.org | S2 Social media: The new hybrid element of the promotion mix | UNVERIFIED | VERIFIED |
-| `2a9f1fcc` | semanticscholar.org | S2 An examination of selected marketing mix elements and brand  | UNVERIFIED | VERIFIED |
-| `22fe05c7` | semanticscholar.org | S2 Towards an Optimal Renewable Energy Mix for the European Uni | UNVERIFIED | VERIFIED |
-| `aa01ec3f` | semanticscholar.org | S2 Comparison of ReCiPe 2016, ILCD 2011, CML-IA baseline and IM | UNVERIFIED | VERIFIED |
-| `7ba8761c` | semanticscholar.org | S2 Investigating and optimizing the mix proportion of pumping w | UNVERIFIED | VERIFIED |
-| `ca57499b` | semanticscholar.org | S2 MIX: a mosaic Asian anthropogenic emission inventory under t | UNVERIFIED | VERIFIED |
-| `beb062ee` | semanticscholar.org | S2 MicroRNAs in body fluids—the mix of hormones and biomarkers — AI tldr: The role of fluid-expressedmiRNAs as reliable cancer biomarkers and treatment-response pre | UNVERIFIED | VERIFIED |
-| `4b8481a1` | semanticscholar.org | S2 Mix design concepts for 3D printable concrete: A review | UNVERIFIED | VERIFIED |
+| `18456f1f` | crossref.org | DOI 10.4414/saez.2015.90301: Mix&amp;Remix | UNVERIFIED | VERIFIED |
 | `4b16aa66` | openalex.org | OpenAlex A new mixing of Hartree–Fock and local density-functional theories [Advanced Chemical Physics Stud] | UNVERIFIED | VERIFIED |
 | `83c6e9b5` | openalex.org | OpenAlex Assortative Mixing in Networks [Complex Network Analysis Techn] | UNVERIFIED | VERIFIED |
 | `2f40c75e` | openalex.org | OpenAlex Mixing Qualitative and Quantitative Methods: Triangulation in Action [Cognitive and psychological co] | UNVERIFIED | VERIFIED |
@@ -47,7 +39,7 @@ the hard gate of the corroboration law.
 | `e4b6cacb` | openalex.org | OpenAlex Isopycnal Mixing in Ocean Circulation Models [Oceanographic and Atmospheric ] | UNVERIFIED | VERIFIED |
 | `86d7f223` | openalex.org | OpenAlex Oceanic vertical mixing: A review and a model with a nonlocal boundary [Climate variability and models] | UNVERIFIED | VERIFIED |
 
-**32 findings · 32 usable search-trial combinations · receipt `6ff815c3`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `89e507d5`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

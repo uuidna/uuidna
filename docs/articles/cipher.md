@@ -1,13 +1,13 @@
 ---
 title: "The cipher & the strand"
-description: "Computed from lean/Cipher.lean — 26 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Cipher.lean — 27 sealed theorems, every claim citing its proof."
 ---
 
 # The cipher & the strand
 
-> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. — held by [dna_complement_involution](/theorem/dna_complement_involution) and its 25 siblings below.
+> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. — held by [dna_complement_involution](/theorem/dna_complement_involution) and its 26 siblings below.
 
-**26 theorems**, from [dna_complement_involution](/theorem/dna_complement_involution) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**27 theorems**, from [dna_complement_involution](/theorem/dna_complement_involution) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### Base-pairing is a self-inverse map: the complement comp(x)=3−x applied twice is the identity (A↔T↔A, C↔G↔C) — a decrypt that equals its encrypt, like the diamond reflection.
 The ledger holds this as [dna_complement_involution](/theorem/dna_complement_involution) — proven `by decide`, sorry-free:
@@ -70,6 +70,13 @@ The ledger holds this as [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_
 
 ```lean
 (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)
+```
+
+### THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. HONEST SCOPE: this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction, not discovered to be.
+The ledger holds this as [octave_codon_address](/theorem/octave_codon_address) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400)
 ```
 
 ### Translation is LOSSY, never a cipher: 64 codons map onto only 21 outcomes (20 amino acids + stop), and 64 > 21, so by pigeonhole the map cannot be injective — a hash-like reduction that cannot be inverted, not encryption.

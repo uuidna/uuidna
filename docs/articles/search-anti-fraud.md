@@ -30,14 +30,6 @@ the hard gate of the corroboration law.
 | `6a5ce004` | crossref.org | DOI 10.5220/0013911700004919: Machine Learning Anti-Fraud Detection Model for Internet Loans | UNVERIFIED | VERIFIED |
 | `7f213b0d` | crossref.org | DOI 10.70764/gdpu-fr.2025.1(1)-04: Forensic Auditing in Fraud Detection and Prevention: Integration of Technology,  | UNVERIFIED | VERIFIED |
 | `5259fd5a` | crossref.org | DOI 10.1007/s10791-025-09549-7: Dynamic quantification anti-fraud machine learning model for real-time transacti | UNVERIFIED | VERIFIED |
-| `729e5183` | semanticscholar.org | S2 Dynamic quantification anti-fraud machine learning model for — AI tldr: A novel anti-fraud model that combines multiple F-Beta features linearly, employs a DML (D | UNVERIFIED | VERIFIED |
-| `aa471c71` | semanticscholar.org | S2 Anti-Fraud Detection System Based on Microwave Spectral Sign | UNVERIFIED | VERIFIED |
-| `3c835478` | semanticscholar.org | S2 Forensic Auditing in Fraud Detection and Prevention: Integra — AI tldr: The findings suggest that fraud in the banking and corporate sectors is becoming increasin | UNVERIFIED | VERIFIED |
-| `c94eacc5` | semanticscholar.org | S2 Machine Learning Anti-Fraud Detection Model for Internet Loa — AI tldr: A machine learning-based system that detects and prevents fraud in loan applications in th | UNVERIFIED | VERIFIED |
-| `70ab37de` | semanticscholar.org | S2 Creating a credit card anti-fraud detection sytem using mach — AI tldr: In order to enhance the performance of the machine learning models, new features were crea | UNVERIFIED | VERIFIED |
-| `c3e2c576` | semanticscholar.org | S2 A semi-supervised Anti-Fraud model based on integrated XGBoo — AI tldr: This work presents a semi-supervised outlier score-based Anti-Fraud model to identify the  | UNVERIFIED | VERIFIED |
-| `4afd390e` | semanticscholar.org | S2 Design of a NLP-empowered finance fraud awareness model: the — AI tldr: Statistics of the comparison between Word2vec, ELMO, BERT, and DistilBERT on the five-stro | UNVERIFIED | VERIFIED |
-| `0edb3354` | semanticscholar.org | S2 Anti Fraud Detection Model Using Deep Learning Approach | UNVERIFIED | VERIFIED |
 | `9a4947e0` | openalex.org | OpenAlex Deep Learning Anomaly Detection as Support Fraud Investigation in Braz [Crime, Illicit Activities, and] | UNVERIFIED | VERIFIED |
 | `a8713e89` | openalex.org | OpenAlex Design of a NLP-empowered finance fraud awareness model: the anti-frau [Spam and Phishing Detection] | UNVERIFIED | VERIFIED |
 | `374cbfdb` | openalex.org | OpenAlex Financial Fraud: A Review of Anomaly Detection Techniques and Recent A [Imbalanced Data Classification] | UNVERIFIED | VERIFIED |
@@ -47,7 +39,7 @@ the hard gate of the corroboration law.
 | `24df711b` | openalex.org | OpenAlex Anti Fraud Detection Model Using Deep Learning Approach [Imbalanced Data Classification] | UNVERIFIED | VERIFIED |
 | `47ac8473` | openalex.org | OpenAlex Anti‐money laundering and financial fraud detection: A systematic lite [Crime, Illicit Activities, and] | UNVERIFIED | VERIFIED |
 
-**32 findings · 32 usable search-trial combinations · receipt `69dfb16d`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `e7ddae24`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

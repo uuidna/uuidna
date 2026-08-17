@@ -19,14 +19,14 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The reactions domain](/articles/chemistry) | 8 |
 | [The chessboard](/articles/chess) | 13 |
 | [The chess horizon](/articles/chessgames) | 24 |
-| [The cipher & the strand](/articles/cipher) | 26 |
-| [The seven reflected](/articles/clay) | 17 |
+| [The cipher & the strand](/articles/cipher) | 27 |
+| [The seven reflected](/articles/clay) | 14 |
 | [The error-correcting codes](/articles/codes) | 8 |
 | [The two coins & the 64](/articles/coins) | 19 |
 | [The colour wheel](/articles/colour) | 17 |
 | [Command authentication](/articles/command) | 7 |
 | [The 8×8 core](/articles/core) | 64 |
-| [The fused ring](/articles/crt) | 6 |
+| [The fused ring](/articles/crt) | 7 |
 | [Self-discovered](/articles/discover) | 16 |
 | [The honest court](/articles/disputed-topics) | 15 |
 | [Division by zero](/articles/div-by-zero) | 8 |

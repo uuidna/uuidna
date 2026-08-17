@@ -18,10 +18,10 @@ the hard gate of the corroboration law.
 | `443f0ee6` | zenodo.org | zenodo record 10812725: RIMES, complete | UNVERIFIED | VERIFIED |
 | `833dbf97` | zenodo.org | zenodo record 21271035: The CMONOC GPS coordinate time series | UNVERIFIED | VERIFIED |
 | `680d0989` | zenodo.org | zenodo record 6652361: GO8p0 NEMO configuration with z~ modifications | UNVERIFIED | VERIFIED |
-| `fbf988a6` | zenodo.org | zenodo record 15121869: Challenges and Opportunities of Self Employment in the Contemporary Labour Marke | UNVERIFIED | VERIFIED |
 | `24944078` | zenodo.org | zenodo record 5732307: The Physics of Spontaneous Emission and Quantum Mechanical Decay | UNVERIFIED | VERIFIED |
+| `fbf988a6` | zenodo.org | zenodo record 15121869: Challenges and Opportunities of Self Employment in the Contemporary Labour Marke | UNVERIFIED | VERIFIED |
 | `c96d8029` | zenodo.org | zenodo record 10805048: ICDAR 2011 - French Handwriting Recognition Competition - Line snippets | UNVERIFIED | VERIFIED |
-| `fbf045f9` | zenodo.org | zenodo record 14499561: Standardized lunar coordinate system – overview | UNVERIFIED | VERIFIED |
+| `cce0d778` | zenodo.org | zenodo record 21483179: A comparative MRI-based study of ResNet-152 and novel deep learning approaches f | UNVERIFIED | VERIFIED |
 | `8159ac27` | crossref.org | DOI 10.1007/978-3-540-72715-6_2: Coordinate and Time Systems | UNVERIFIED | VERIFIED |
 | `40013f95` | crossref.org | DOI 10.7717/peerj.8435/fig-5: Figure 5: Principal Coordinate ordination plots by sampling time. | UNVERIFIED | VERIFIED |
 | `64fe759e` | crossref.org | DOI 10.21236/ad0615034: TIME AND COORDINATE SYSTEM STUDIES | UNVERIFIED | VERIFIED |
@@ -29,7 +29,7 @@ the hard gate of the corroboration law.
 | `4e555414` | crossref.org | DOI 10.1515/9780691267050-003: 1 Coordinate Time | UNVERIFIED | VERIFIED |
 | `e8b5076b` | crossref.org | DOI 10.1088/1674-4527/17/8/88: Relativistic time transfer for a Mars lander: from Areocentric Coordinate Time t | UNVERIFIED | VERIFIED |
 | `1c2d1ae9` | crossref.org | DOI 10.1007/978-3-642-41714-6_201526: time coordinate | UNVERIFIED | VERIFIED |
-| `76f9e374` | crossref.org | DOI 10.31234/osf.io/rgv5c: Coordinate-Based Meta-Analyses of the Time Perception Network | UNVERIFIED | VERIFIED |
+| `70eebf01` | crossref.org | DOI 10.2139/ssrn.4678336: Signed Coordinate Invariance and its Holomorphic Regularization,  the Time Probl | UNVERIFIED | VERIFIED |
 | `46a02352` | openalex.org | OpenAlex Fixed-time coordinated tracking for second-order multi-agent systems w [Distributed Control Multi-Agen] | UNVERIFIED | VERIFIED |
 | `b7ff3b58` | openalex.org | OpenAlex Noise in GPS coordinate time series [GNSS positioning and interfere] | UNVERIFIED | VERIFIED |
 | `c788e509` | openalex.org | OpenAlex Distributed discrete-time coordinated tracking with a time-varying ref [Distributed Control Multi-Agen] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `8fcdcbc9` | openalex.org | OpenAlex Observer Time as a Coordinate in Relativistic Spherical Hydrodynamics [Relativity and Gravitational T] | UNVERIFIED | VERIFIED |
 | `a31e5682` | openalex.org | OpenAlex Real-Time Coordinated Scheduling for ADNs With Soft Open Points and Ch [Microgrid Control and Optimiza] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `08359b59`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `7dbd65fb`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

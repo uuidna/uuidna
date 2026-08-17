@@ -17,8 +17,8 @@ the hard gate of the corroboration law.
 | `0af980d8` | crossref.org | DOI 10.1093/oso/9780195113679.003.0014: Tree Pattern Matching | UNVERIFIED | VERIFIED |
 | `790e72c4` | crossref.org | DOI 10.1093/oso/9780195113679.003.0012: Two Dimensional Matching | UNVERIFIED | VERIFIED |
 | `ece96141` | crossref.org | DOI 10.1007/s10751-026-02574-y: Cryogenics in the Dalian Advanced Light Source SRF Module Test Facility | UNVERIFIED | VERIFIED |
-| `2860163b` | crossref.org | DOI 10.1007/978-3-8348-9791-6_13: G3 Name Matching und Identity Matching | UNVERIFIED | VERIFIED |
 | `fd07f027` | crossref.org | DOI 10.1007/978-3-540-49612-0_6: Matching strategies | UNVERIFIED | VERIFIED |
+| `2860163b` | crossref.org | DOI 10.1007/978-3-8348-9791-6_13: G3 Name Matching und Identity Matching | UNVERIFIED | VERIFIED |
 | `60ac3aa0` | crossref.org | DOI 10.1007/978-3-8348-2095-2_12: Name Matching and Identity Matching | UNVERIFIED | VERIFIED |
 | `29e14757` | crossref.org | DOI 10.1007/978-3-540-49612-0_3: The matching problem | UNVERIFIED | VERIFIED |
 | `86938977` | crossref.org | DOI 10.1007/978-3-540-49612-0_8: Evaluation of matching systems | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `7c968ed4` | openalex.org | OpenAlex Matching As An Econometric Evaluation Estimator [Statistical Methods and Infere] | UNVERIFIED | VERIFIED |
 | `afcb46ca` | openalex.org | OpenAlex Stereo Processing by Semiglobal Matching and Mutual Information [Advanced Vision and Imaging] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `474b66f3`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `9e783fa1`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
