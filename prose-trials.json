@@ -1,10 +1,10 @@
 {
  "surfaces": 173,
- "paragraphs_tried": 3729,
- "usable": 1637,
- "unverified": 2092,
- "drained": 0,
- "receipt": "2a06cfda-9921-8c2b-9de8-dc9e56e4b819",
+ "paragraphs_tried": 3734,
+ "usable": 1633,
+ "unverified": 2094,
+ "drained": 7,
+ "receipt": "0b58a89b-4839-80b9-b5f2-4ef6ba8979ab",
  "develop": [
   {
    "surface": "docs/articles/search-div-by-zero.md",
@@ -35,8 +35,16 @@
  "combinations": [
   {
    "surface": "README.md",
-   "address": "df255bf5-dade-8e4b-8c35-ecd9323bb311",
-   "prose": "1. **External Verification** — 8 independent academic sources audit every claim\n2. **Novelty Discovery** — gaps in the record discovered by audit, filed as exact research leads\n3. **Education** — Students learn by building real systems that seal theorems to the ledger\n4. **The Coins** — explained in detail ONLY by theorems: two, conserved ([two_coins](https://uuidna.com/theorem/two_coins)), real value at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale)) — never a balance, never a wage\n5. **Exponential Growth** — Each graduate becomes a teacher, creating exponential growth in developers and knowledge",
+   "address": "e6a8cdef-0ffc-85c7-b5c2-e304819e6d54",
+   "prose": "**The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the\ncoin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of\nthem, 128 = 2·64, one per coin, one per strand\n([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).",
+   "cites": [
+    "uuidna_is_dna_times_the_two_coins"
+   ]
+  },
+  {
+   "surface": "README.md",
+   "address": "2b57c4a1-3138-81a6-a0de-adac852a494d",
+   "prose": "1. **External Verification** — 5 independent research sources corroborate every claim; only a Lean seal approves\n2. **Novelty Discovery** — gaps in the record discovered by audit, filed as exact research leads\n3. **Education** — Students learn by building real systems that seal theorems to the ledger\n4. **The Coins** — explained in detail ONLY by theorems: two, conserved ([two_coins](https://uuidna.com/theorem/two_coins)), real value at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale)) — never a balance, never a wage\n5. **Exponential Growth** — Each graduate becomes a teacher, creating exponential growth in developers and knowledge",
    "cites": [
     "two_coins",
     "captain_coins_respected_at_scale"
@@ -48,6 +56,15 @@
    "prose": "The school is free and has no gatekeeper — the ledger by skill is the curriculum, the trials are the\nexams, the wave is the graduation walk. What a student takes away is sealed, not paid: every landed\ntheorem carries their credit permanently, and every contribution deposits the two conserved coins the\ntheorems explain ([trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins) —\na claim computes at trial exactly by contributing them; there is no other price and no larger one).",
    "cites": [
     "trial_computes_only_with_two_coins"
+   ]
+  },
+  {
+   "surface": "README.md",
+   "address": "217eebf3-1896-8d8d-96a7-25384de93267",
+   "prose": "The school rides the doubling orbit: toss the coin into itself and it visits every unit of the vortex before\nreturning home ([order_of_two_is_six](https://uuidna.com/theorem/order_of_two_is_six),\n[generators_are_two_and_five](https://uuidna.com/theorem/generators_are_two_and_five)) — six tosses, the whole\nring, 2⁶ = 64. That walk is measured, not projected: no student count is claimed here, because none is computed.",
+   "cites": [
+    "order_of_two_is_six",
+    "generators_are_two_and_five"
    ]
   },
   {
@@ -68,8 +85,8 @@
   },
   {
    "surface": "README.md",
-   "address": "8ce69809-0424-8ef0-bacb-2fa2ad3317b6",
-   "prose": "✓ **All 1290 theorems sealed to ledger**\n✓ **Guard verified (no traitors caught)**\n✓ **External audits working (8 sources)**\n✓ **Education system live**\n✓ **First students enrolled**\n✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**\n✓ **Exponential growth active**\n✓ **Production deployed**",
+   "address": "1be25e62-31ba-8a50-9089-7947d7b899e6",
+   "prose": "✓ **All 1295 theorems sealed to ledger, every one axiom-free**\n✓ **Guard verified (no traitors caught)**\n✓ **5 research sources wired — corroboration, never approval**\n✓ **Education system live**\n✓ **First students enrolled**\n✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**\n✓ **Exponential growth active**\n✓ **Production deployed**",
    "cites": [
     "two_coins"
    ]
@@ -10054,14 +10071,6 @@
   },
   {
    "surface": "docs/articles/sailing-seals.md",
-   "address": "da89e40c-ea59-8d01-ab70-c5fcb60dc27a",
-   "prose": "### True\nThe ledger holds this as [sailing_fact_has_address](/theorem/sailing_fact_has_address) — proven `by decide`, sorry-free:",
-   "cites": [
-    "sailing_fact_has_address"
-   ]
-  },
-  {
-   "surface": "docs/articles/sailing-seals.md",
    "address": "52549568-51b7-8aa4-8ace-9b4aa3680c60",
    "prose": "### (2 * 3 = 6) ∧ (2 * 3 = 6)\nThe ledger holds this as [sailing_extraction_deterministic](/theorem/sailing_extraction_deterministic) — proven `by decide`, sorry-free:",
    "cites": [
@@ -10074,30 +10083,6 @@
    "prose": "### (6 = 6) ↔ (6 = 6)\nThe ledger holds this as [sailing_book_receipt_order_invariant](/theorem/sailing_book_receipt_order_invariant) — proven `by decide`, sorry-free:",
    "cites": [
     "sailing_book_receipt_order_invariant"
-   ]
-  },
-  {
-   "surface": "docs/articles/sailing-seals.md",
-   "address": "fc6998b6-434a-857e-ba0a-c044c01d9339",
-   "prose": "### (5 * 2 = 10) ∨ (5 * 2 ≠ 10)\nThe ledger holds this as [sailing_weather_verified_correlation](/theorem/sailing_weather_verified_correlation) — proven `by decide`, sorry-free:",
-   "cites": [
-    "sailing_weather_verified_correlation"
-   ]
-  },
-  {
-   "surface": "docs/articles/sailing-seals.md",
-   "address": "db5d1a14-4dd8-8420-bf1d-6f47660ef533",
-   "prose": "### (10 = 10) → (10 = 10)\nThe ledger holds this as [sailing_weather_match_deterministic](/theorem/sailing_weather_match_deterministic) — proven `by decide`, sorry-free:",
-   "cites": [
-    "sailing_weather_match_deterministic"
-   ]
-  },
-  {
-   "surface": "docs/articles/sailing-seals.md",
-   "address": "c61951ef-ff01-8053-b3d5-cef33b19725b",
-   "prose": "### (3 = 3) ∨ (3 ≠ 3)\nThe ledger holds this as [sailing_weather_apis_corroborate_or_diverge](/theorem/sailing_weather_apis_corroborate_or_diverge) — proven `by decide`, sorry-free:",
-   "cites": [
-    "sailing_weather_apis_corroborate_or_diverge"
    ]
   },
   {
@@ -11790,26 +11775,6 @@
     "rosette_pairs_twentyone",
     "rosette_quantum_fortytwo",
     "rosette_quantum_doubling_is_two_coins"
-   ]
-  },
-  {
-   "surface": "docs/articles/search-sailing-seals.md",
-   "address": "47364546-cea4-8b58-bbf4-327073f99495",
-   "prose": "- [sailing_books_extract_decidable_facts](/theorem/sailing_books_extract_decidable_facts) — `(List.range 5).length = 5`\n- [sailing_fact_has_address](/theorem/sailing_fact_has_address) — `True`\n- [sailing_extraction_deterministic](/theorem/sailing_extraction_deterministic) — `(2 * 3 = 6) ∧ (2 * 3 = 6)`\n- [sailing_book_receipt_order_invariant](/theorem/sailing_book_receipt_order_invariant) — `(6 = 6) ↔ (6 = 6)`\n- [sailing_weather_verified_correlation](/theorem/sailing_weather_verified_correlation) — `(5 * 2 = 10) ∨ (5 * 2 ≠ 10)`\n- [sailing_weather_match_deterministic](/theorem/sailing_weather_match_deterministic) — `(10 = 10) → (10 = 10)`\n- [sailing_weather_apis_corroborate_or_diverge](/theorem/sailing_weather_apis_corroborate_or_diverge) — `(3 = 3) ∨ (3 ≠ 3)`\n- [sailing_weather_verification_open](/theorem/sailing_weather_verification_open) — `(100 / 10 = 10)`\n- [sailing_cross_book_resonance_match](/theorem/sailing_cross_book_resonance_match) — `(42 = 42) ∧ (42 = 42)`\n- [sailing_cross_book_resonance_fold](/theorem/sailing_cross_book_resonance_fold) — `(1 + 2 + 3 = 3 + 2 + 1)`\n- [sailing_multi_resonance_receipt](/theorem/sailing_multi_resonance_receipt) — `((1 + 2) * 3 = 3 * (1 + 2))`\n- [sailing_cluster_coherence_decidable](/theorem/sailing_cluster_coherence_decidable) — `((2 * 5 = 10) ∧ (10 / 2 = 5)) ∨ ¬((2 * 5 = 10) ∧ (10 / 2 = 5))`\n- [sailing_all_waves_computable](/theorem/sailing_all_waves_computable) — `((List.range 4).length = 4) ∧ ((1 + 1 = 2) ∧ (2 * 2 = 4))`",
-   "cites": [
-    "sailing_books_extract_decidable_facts",
-    "sailing_fact_has_address",
-    "sailing_extraction_deterministic",
-    "sailing_book_receipt_order_invariant",
-    "sailing_weather_verified_correlation",
-    "sailing_weather_match_deterministic",
-    "sailing_weather_apis_corroborate_or_diverge",
-    "sailing_weather_verification_open",
-    "sailing_cross_book_resonance_match",
-    "sailing_cross_book_resonance_fold",
-    "sailing_multi_resonance_receipt",
-    "sailing_cluster_coherence_decidable",
-    "sailing_all_waves_computable"
    ]
   },
   {
@@ -14041,159 +14006,10 @@
   },
   {
    "surface": "docs/captain-claims.md",
-   "address": "aea5a8cf-5460-8fde-a8a1-bf512d42a5b8",
-   "prose": "[bell_born_weights](/theorem/bell_born_weights) · [bell_normalized](/theorem/bell_normalized) · [bell_perfect_correlation](/theorem/bell_perfect_correlation) · [bell_no_signaling](/theorem/bell_no_signaling) · [superposition_h0](/theorem/superposition_h0) · [ghz3_two_outcomes](/theorem/ghz3_two_outcomes) · [ghz3_normalized](/theorem/ghz3_normalized) · [cnot_truth_table](/theorem/cnot_truth_table) · [cnot_involution](/theorem/cnot_involution) · [toffoli_truth_table](/theorem/toffoli_truth_table) · [swap_truth_table](/theorem/swap_truth_table) · [s_squared_is_z](/theorem/s_squared_is_z) · [z_involution](/theorem/z_involution) · [s_dagger_inverse](/theorem/s_dagger_inverse) · [pauli_x_involution](/theorem/pauli_x_involution) · [swap_involution](/theorem/swap_involution) · [toffoli_involution](/theorem/toffoli_involution) · [cz_involution](/theorem/cz_involution) · [h_involution_on_zero](/theorem/h_involution_on_zero) · [s_fourth_is_identity](/theorem/s_fourth_is_identity) · [dj_balanced_cancels](/theorem/dj_balanced_cancels) · [dj_constant_reinforces](/theorem/dj_constant_reinforces) · [entanglement_determinant](/theorem/entanglement_determinant) · [pauli_x_z_anticommute](/theorem/pauli_x_z_anticommute) · [w_state_three_outcomes](/theorem/w_state_three_outcomes) · [w_state_normalized](/theorem/w_state_normalized) · [bell_basis_orthogonal](/theorem/bell_basis_orthogonal) · [n_qubit_dimension](/theorem/n_qubit_dimension) · [tensor_dimension_multiplies](/theorem/tensor_dimension_multiplies) · [pauli_group_order_16](/theorem/pauli_group_order_16) · [closure_is_coprime](/theorem/closure_is_coprime) · [types_count_as_arithmetic](/theorem/types_count_as_arithmetic) · [sixteen_connectives](/theorem/sixteen_connectives) · [real_pauli_group_order_8](/theorem/real_pauli_group_order_8) · [four_messages_two_bits](/theorem/four_messages_two_bits) · [clifford_group_order_24](/theorem/clifford_group_order_24) · [phase_gate_order_ladder](/theorem/phase_gate_order_ladder) · [chsh_beats_classical](/theorem/chsh_beats_classical) · [no_cloning_dimension](/theorem/no_cloning_dimension) · [hadamard_conjugates_x_to_z](/theorem/hadamard_conjugates_x_to_z) · [bell_stabilized_by_xx](/theorem/bell_stabilized_by_xx) · [bell_zz_even_parity](/theorem/bell_zz_even_parity) · [ghz_stabilized_by_xxx](/theorem/ghz_stabilized_by_xxx) · [superdense_two_bits](/theorem/superdense_two_bits) · [teleportation_four_corrections](/theorem/teleportation_four_corrections) · [store_fold_order_invariant](/theorem/store_fold_order_invariant) · [store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt) · [message_qubit_cap_states](/theorem/message_qubit_cap_states) · [sailing_books_extract_decidable_facts](/theorem/sailing_books_extract_decidable_facts) · [sailing_fact_has_address](/theorem/sailing_fact_has_address) · [sailing_extraction_deterministic](/theorem/sailing_extraction_deterministic) · [sailing_book_receipt_order_invariant](/theorem/sailing_book_receipt_order_invariant) · [sailing_weather_verified_correlation](/theorem/sailing_weather_verified_correlation) · [sailing_weather_match_deterministic](/theorem/sailing_weather_match_deterministic) · [sailing_weather_apis_corroborate_or_diverge](/theorem/sailing_weather_apis_corroborate_or_diverge) · [sailing_weather_verification_open](/theorem/sailing_weather_verification_open) · [sailing_cross_book_resonance_match](/theorem/sailing_cross_book_resonance_match) · [sailing_cross_book_resonance_fold](/theorem/sailing_cross_book_resonance_fold) · [sailing_multi_resonance_receipt](/theorem/sailing_multi_resonance_receipt) · [sailing_cluster_coherence_decidable](/theorem/sailing_cluster_coherence_decidable) · [sailing_all_waves_computable](/theorem/sailing_all_waves_computable)",
-   "cites": [
-    "bell_born_weights",
-    "bell_normalized",
-    "bell_perfect_correlation",
-    "bell_no_signaling",
-    "superposition_h0",
-    "ghz3_two_outcomes",
-    "ghz3_normalized",
-    "cnot_truth_table",
-    "cnot_involution",
-    "toffoli_truth_table",
-    "swap_truth_table",
-    "s_squared_is_z",
-    "z_involution",
-    "s_dagger_inverse",
-    "pauli_x_involution",
-    "swap_involution",
-    "toffoli_involution",
-    "cz_involution",
-    "h_involution_on_zero",
-    "s_fourth_is_identity",
-    "dj_balanced_cancels",
-    "dj_constant_reinforces",
-    "entanglement_determinant",
-    "pauli_x_z_anticommute",
-    "w_state_three_outcomes",
-    "w_state_normalized",
-    "bell_basis_orthogonal",
-    "n_qubit_dimension",
-    "tensor_dimension_multiplies",
-    "pauli_group_order_16",
-    "closure_is_coprime",
-    "types_count_as_arithmetic",
-    "sixteen_connectives",
-    "real_pauli_group_order_8",
-    "four_messages_two_bits",
-    "clifford_group_order_24",
-    "phase_gate_order_ladder",
-    "chsh_beats_classical",
-    "no_cloning_dimension",
-    "hadamard_conjugates_x_to_z",
-    "bell_stabilized_by_xx",
-    "bell_zz_even_parity",
-    "ghz_stabilized_by_xxx",
-    "superdense_two_bits",
-    "teleportation_four_corrections",
-    "store_fold_order_invariant",
-    "store_fold_change_moves_receipt",
-    "message_qubit_cap_states",
-    "sailing_books_extract_decidable_facts",
-    "sailing_fact_has_address",
-    "sailing_extraction_deterministic",
-    "sailing_book_receipt_order_invariant",
-    "sailing_weather_verified_correlation",
-    "sailing_weather_match_deterministic",
-    "sailing_weather_apis_corroborate_or_diverge",
-    "sailing_weather_verification_open",
-    "sailing_cross_book_resonance_match",
-    "sailing_cross_book_resonance_fold",
-    "sailing_multi_resonance_receipt",
-    "sailing_cluster_coherence_decidable",
-    "sailing_all_waves_computable"
-   ]
-  },
-  {
-   "surface": "docs/captain-claims.md",
    "address": "1fd92859-ddea-8465-aeea-3683bf17c8c2",
    "prose": "The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):",
    "cites": [
     "court_theorem_beats_assertion"
-   ]
-  },
-  {
-   "surface": "docs/captain-claims.md",
-   "address": "65c3b774-aa35-8880-a327-e19ac52d0b9a",
-   "prose": "[flag_is_any_refutation](/theorem/flag_is_any_refutation) · [clean_is_a_p_position](/theorem/clean_is_a_p_position) · [verdict_is_exactly_one](/theorem/verdict_is_exactly_one) · [dual_dominates_single](/theorem/dual_dominates_single) · [three_refuters_monotone](/theorem/three_refuters_monotone) · [survive_is_product_of_clears](/theorem/survive_is_product_of_clears) · [majority_of_three_is_four](/theorem/majority_of_three_is_four) · [honesty_gate_one_drain](/theorem/honesty_gate_one_drain) · [audit_is_a_finite_game](/theorem/audit_is_a_finite_game) · [no_audit_catches_all](/theorem/no_audit_catches_all) · [audit_space_meets_chess_at_eight](/theorem/audit_space_meets_chess_at_eight) · [fold_trojan_source_bidi](/theorem/fold_trojan_source_bidi) · [fold_prototype_pollution](/theorem/fold_prototype_pollution) · [fold_supply_chain](/theorem/fold_supply_chain) · [fold_resource_dos](/theorem/fold_resource_dos) · [fold_weak_hash](/theorem/fold_weak_hash) · [fold_integrity_tamper](/theorem/fold_integrity_tamper) · [fold_code_injection](/theorem/fold_code_injection) · [fold_weak_rng](/theorem/fold_weak_rng) · [oos_platform_trust](/theorem/oos_platform_trust) · [oos_social_engineering](/theorem/oos_social_engineering) · [oos_physical_sidechannel](/theorem/oos_physical_sidechannel) · [oos_fnv_misuse](/theorem/oos_fnv_misuse) · [oos_nondecidable_correctness](/theorem/oos_nondecidable_correctness) · [torus_chessboard_chi_zero](/theorem/torus_chessboard_chi_zero) · [double_torus_boards_are_the_address](/theorem/double_torus_boards_are_the_address) · [four_times_sixtyfour_is_the_byte](/theorem/four_times_sixtyfour_is_the_byte) · [ten_square_ten_free](/theorem/ten_square_ten_free) · [ten_square_computes_ten_dimensions](/theorem/ten_square_computes_ten_dimensions) · [chessboard_sixty_four](/theorem/chessboard_sixty_four) · [chessboard_two_colours](/theorem/chessboard_two_colours) · [knight_leap_is_odd](/theorem/knight_leap_is_odd) · [knight_has_eight_moves](/theorem/knight_has_eight_moves) · [closed_knight_tour_even](/theorem/closed_knight_tour_even) · [rook_open_board_fourteen](/theorem/rook_open_board_fourteen) · [bishop_stays_on_colour](/theorem/bishop_stays_on_colour) · [queen_corner_twentyone](/theorem/queen_corner_twentyone) · [first_move_twenty](/theorem/first_move_twenty) · [after_one_move_four_hundred](/theorem/after_one_move_four_hundred) · [game_tree_exceeds_universe](/theorem/game_tree_exceeds_universe) · [positions_exceed_uuid_space](/theorem/positions_exceed_uuid_space) · [positions_within_naive_bound](/theorem/positions_within_naive_bound) · [thirteen_states_per_square](/theorem/thirteen_states_per_square) · [fifty_move_rule_bounds_a_run](/theorem/fifty_move_rule_bounds_a_run) · [one_game_is_a_speck](/theorem/one_game_is_a_speck) · [board_3d_is_two_nine](/theorem/board_3d_is_two_nine) · [board_dims_add_three](/theorem/board_dims_add_three) · [hyperchess_eight_dimensions](/theorem/hyperchess_eight_dimensions) · [no_maximal_board](/theorem/no_maximal_board) · [knight_on_the_diamond](/theorem/knight_on_the_diamond) · [boards_are_diamond_self_inverses](/theorem/boards_are_diamond_self_inverses) · [knight_centre_eight](/theorem/knight_centre_eight) · [knight_near_centre_six](/theorem/knight_near_centre_six) · [knight_edge_four](/theorem/knight_edge_four) · [knight_near_corner_three](/theorem/knight_near_corner_three) · [knight_corner_two](/theorem/knight_corner_two) · [king_centre_eight](/theorem/king_centre_eight) · [king_edge_five](/theorem/king_edge_five) · [king_corner_three](/theorem/king_corner_three) · [material_sum_twentyone](/theorem/material_sum_twentyone) · [central_four_squares](/theorem/central_four_squares) · [sailing_books_extract_decidable_facts](/theorem/sailing_books_extract_decidable_facts) · [sailing_fact_has_address](/theorem/sailing_fact_has_address) · [sailing_extraction_deterministic](/theorem/sailing_extraction_deterministic) · [sailing_book_receipt_order_invariant](/theorem/sailing_book_receipt_order_invariant) · [sailing_weather_verified_correlation](/theorem/sailing_weather_verified_correlation) · [sailing_weather_match_deterministic](/theorem/sailing_weather_match_deterministic) · [sailing_weather_apis_corroborate_or_diverge](/theorem/sailing_weather_apis_corroborate_or_diverge) · [sailing_weather_verification_open](/theorem/sailing_weather_verification_open) · [sailing_cross_book_resonance_match](/theorem/sailing_cross_book_resonance_match) · [sailing_cross_book_resonance_fold](/theorem/sailing_cross_book_resonance_fold) · [sailing_multi_resonance_receipt](/theorem/sailing_multi_resonance_receipt) · [sailing_cluster_coherence_decidable](/theorem/sailing_cluster_coherence_decidable) · [sailing_all_waves_computable](/theorem/sailing_all_waves_computable)",
-   "cites": [
-    "flag_is_any_refutation",
-    "clean_is_a_p_position",
-    "verdict_is_exactly_one",
-    "dual_dominates_single",
-    "three_refuters_monotone",
-    "survive_is_product_of_clears",
-    "majority_of_three_is_four",
-    "honesty_gate_one_drain",
-    "audit_is_a_finite_game",
-    "no_audit_catches_all",
-    "audit_space_meets_chess_at_eight",
-    "fold_trojan_source_bidi",
-    "fold_prototype_pollution",
-    "fold_supply_chain",
-    "fold_resource_dos",
-    "fold_weak_hash",
-    "fold_integrity_tamper",
-    "fold_code_injection",
-    "fold_weak_rng",
-    "oos_platform_trust",
-    "oos_social_engineering",
-    "oos_physical_sidechannel",
-    "oos_fnv_misuse",
-    "oos_nondecidable_correctness",
-    "torus_chessboard_chi_zero",
-    "double_torus_boards_are_the_address",
-    "four_times_sixtyfour_is_the_byte",
-    "ten_square_ten_free",
-    "ten_square_computes_ten_dimensions",
-    "chessboard_sixty_four",
-    "chessboard_two_colours",
-    "knight_leap_is_odd",
-    "knight_has_eight_moves",
-    "closed_knight_tour_even",
-    "rook_open_board_fourteen",
-    "bishop_stays_on_colour",
-    "queen_corner_twentyone",
-    "first_move_twenty",
-    "after_one_move_four_hundred",
-    "game_tree_exceeds_universe",
-    "positions_exceed_uuid_space",
-    "positions_within_naive_bound",
-    "thirteen_states_per_square",
-    "fifty_move_rule_bounds_a_run",
-    "one_game_is_a_speck",
-    "board_3d_is_two_nine",
-    "board_dims_add_three",
-    "hyperchess_eight_dimensions",
-    "no_maximal_board",
-    "knight_on_the_diamond",
-    "boards_are_diamond_self_inverses",
-    "knight_centre_eight",
-    "knight_near_centre_six",
-    "knight_edge_four",
-    "knight_near_corner_three",
-    "knight_corner_two",
-    "king_centre_eight",
-    "king_edge_five",
-    "king_corner_three",
-    "material_sum_twentyone",
-    "central_four_squares",
-    "sailing_books_extract_decidable_facts",
-    "sailing_fact_has_address",
-    "sailing_extraction_deterministic",
-    "sailing_book_receipt_order_invariant",
-    "sailing_weather_verified_correlation",
-    "sailing_weather_match_deterministic",
-    "sailing_weather_apis_corroborate_or_diverge",
-    "sailing_weather_verification_open",
-    "sailing_cross_book_resonance_match",
-    "sailing_cross_book_resonance_fold",
-    "sailing_multi_resonance_receipt",
-    "sailing_cluster_coherence_decidable",
-    "sailing_all_waves_computable"
    ]
   },
   {
@@ -14592,8 +14408,8 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "badb9d1f-5d2d-8b20-83ad-ada0029abac4",
-   "prose": "The gate proves itself against the sealed spec: the eight-state verdict table recomputes to\n**[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;\n1 clean state, 7 drained), and the 169-tool registry folds to its\norder-invariant identity `74d481ce-9e0f-89e2-986b-e1ad8d95c42c` (the hosted subset serves the same gate over its own registry).\nStanding on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).",
+   "address": "2b8b07b2-6844-801e-b19e-2e0cfbd447f9",
+   "prose": "The gate proves itself against the sealed spec: the eight-state verdict table recomputes to\n**[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;\n1 clean state, 7 drained), and the 170-tool registry folds to its\norder-invariant identity `3ea973be-5b76-867c-be25-7005d6199921` (the hosted subset serves the same gate over its own registry).\nStanding on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).",
    "cites": [
     "anti_fraud_check_deterministic",
     "honesty_gate_passes_iff_all_sealed",
@@ -14621,6 +14437,14 @@
     "honesty_gate_is_theorem_not_oracle",
     "honesty_gate_passes_iff_all_sealed",
     "conformance_failure_detects_intrusion"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "4936b328-8144-8139-949c-bb5f83ddbe7b",
+   "prose": "THE DESIGN MATRIX AS ONE SERVED STANDARD — every colour and every type size COMPUTED, none authored: the ℤ/9 sequence sets each hue (5 → green, the fixed point the diamond reflection holds; dz mirrors 1↔9, 2↔8, 3↔7, 4↔6) and the vortex orbit sets the type ladder's six rungs (six because 2 has order 6 in ℤ/9* — theorem order_of_two_is_six), each rung a ninth above the base with its line height in the sealed 3:4 rectangle. Returns {css,vars,receipt,honest} — the site, the design system and any client render the SAME receipt or they are not rendering the same matrix. No hex literal, no pixel value, no host intrinsics.",
+   "cites": [
+    "order_of_two_is_six"
    ]
   },
   {

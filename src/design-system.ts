@@ -125,7 +125,7 @@ export const designSystem = {
       padding: '12px 16px',
       borderRadius: '8px',
       gap: '8px',
-      fontSize: '1rem'          // the base itself: 9/9 — the ladder ascends from it,
+      fontSize: '1rem', // the base itself: 9/9 — the ladder ascends from it,
       fontWeight: '500',
       transitionDuration: '200ms',
       states: {
@@ -169,7 +169,7 @@ export const designSystem = {
     badge: {
       padding: '4px 12px',
       borderRadius: '999px',
-      fontSize: 'var(--type-1)' // the first rung of the computed ladder,
+      fontSize: 'var(--type-1)', // the first rung of the computed ladder,
       fontWeight: 'label.sm.fontWeight',
       display: 'inline-flex',
       alignItems: 'center',
@@ -197,7 +197,7 @@ export const designSystem = {
     button: {
       padding: '12px 24px',
       borderRadius: '8px',
-      fontSize: 'var(--type-2)' // the second rung of the computed ladder,
+      fontSize: 'var(--type-2)', // the second rung of the computed ladder,
       fontWeight: 'label.md.fontWeight',
       border: 'none',
       cursor: 'pointer',
