@@ -27,6 +27,44 @@ still be refactored, reversed, or **folded all the way back to the genesis `0.0.
 development itself. Publishing is the involution's fixed point: after it, a version cannot be un-said. So uuidna keeps
 the chance to reverse-develop itself *now*, while the ledger is still free.
 
+## [0.1.4] — unreleased
+
+**The kernel checks the proposition; nothing checked that the proposition meant its name.** This tick closes that
+gap and then pays for the runtime it runs on. `by decide` will certify `True`, `x = x`, `P ∧ P`, `P ↔ P` and
+`P ∨ ¬P` all day — every one true regardless of content, so a grand name can sit above a proof that establishes
+nothing. Twelve theorems were living in exactly that shape.
+
+### Fixed
+- **Twelve vacuous theorems, rewritten to prove their own names.** Eight in `SailingSeals.lean`, four in
+  `DisputedTopics.lean`. `sailing_fact_has_address` was literally `True`; it now proves the address width it
+  always meant (`32 * 4 = 128 ∧ 32 + 4 = 36`). `sailing_weather_verified_correlation` was `(5*2=10) ∨ (5*2≠10)`
+  — excluded middle — and is now `sailing_weather_match_decides_both_ways`: the matcher answers **true** on a
+  match and **false** on a mismatch. `disputed_topics_contradiction_detectable` now asserts the detector fires
+  (false on 2-vs-3) *and* stays quiet (true on 2-vs-2). Each rewrite can now fail if the thing it names breaks;
+  the old ones would have survived any implementation at all. Ledger held at **1294 → 1295**: rewritten, never
+  dropped, all axiom-free.
+- **The vacuity finder blocks, after being advisory.** `one-receipt vacuous` was in the advisory tier with a
+  stated reason — fixing published theorems was the captain's call, not a gate's. The call was made, so it moved
+  into the blocking finders: no theorem may again be true regardless of its content.
+- **`reconcile` cannot exit 0 unsynced.** Its push failure is caught and named instead of dying on a raw Node
+  trace, and success is *verified* — `origin/main..HEAD` must be exactly 0, or the run fails loudly. Reconciled
+  means synced. (Observed three times in one day before the fix; caught a real race on its first run after.)
+
+### Changed
+- **Node 26 everywhere, actions on v7.** GitHub deprecated the Node 20 action runtime; `actions/checkout`,
+  `setup-node` and `upload-artifact` moved v4 → v7 across all six workflows, and every `node-version` pin moved
+  to 26 — which also ends a split nobody had noticed, where CI gated on 22 while the deploy built on 24.
+  `engines.node` moved `>=18` → `>=22` across all seven manifests, so the declared floor stops naming runtimes
+  that are past end-of-life.
+- **The OIDC npm floor is asserted, not reinstalled.** Node 26 ships npm 11.19, above trusted publishing's
+  11.5.1, so the per-publish `npm install -g npm@latest` is gone; the requirement is now a one-line check that
+  fails by name if a future runtime regresses below it.
+
+### Added
+- **Two drift finders, both deterministic.** `one-receipt actions` holds one major per action *and* one
+  `node-version`, tree-wide — the drift class that hid the deprecated runtime. Neither asks the network what
+  "latest" is; they only require the tree to agree with itself, which is recomputable from source alone.
+
 ## [0.1.3] — unreleased
 
 **The gates got faster by getting more honest.** This tick is almost entirely gate work, and it has one theme: four
