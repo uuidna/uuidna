@@ -278,6 +278,33 @@ export function pipeGaps(): Gap[] {
   return gaps
 }
 
+// ── actions: THE ONE-MAJOR LAW — a repo pins each action at ONE major, tree-wide. Version drift is silent by
+// nature: on 2026-08-17 codeql.yml already ran actions/checkout@v7 while five other workflows sat on @v4, and
+// nothing said so until GitHub itself warned that the v4 line's Node 20 runtime was deprecated. The finder is
+// DETERMINISTIC by construction — it asks no network what "latest" is (that question belongs to the research
+// desk, which already reaches outward); it asks only that the tree agree with itself, which is recomputable
+// from the source alone. A newer major anywhere is the signal: the rest of the tree is behind it. ──
+export function actionsGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const dir = join(ROOT, '.github/workflows')
+  if (!existsSync(dir)) return gaps
+  const seen = new Map<string, { major: number; where: string }[]>()
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    if (e.isDirectory() || !e.name.endsWith('.yml')) continue
+    readFileSync(join(dir, e.name), 'utf8').split('\n').forEach((line, i) => {
+      if (line.trimStart().startsWith('#')) return // a commented example pins nothing
+      const m = /^\s*-?\s*uses:\s*([\w-]+\/[\w/-]+)@v(\d+)/.exec(line)
+      if (m) (seen.get(m[1]) ?? seen.set(m[1], []).get(m[1])!).push({ major: Number(m[2]), where: `${e.name}:${i + 1}` })
+    })
+  }
+  for (const [action, uses] of seen) {
+    const newest = uses.reduce((hi, u) => (u.major > hi ? u.major : hi), 0) // a plain fold — the determinism law admits no Math.*
+    for (const u of uses.filter((u) => u.major < newest))
+      gaps.push({ what: `${u.where} pins ${action}@v${u.major} while the tree already runs @v${newest} — version drift, the class that hides a deprecated runtime`, fix: `bump it to ${action}@v${newest} (one major, tree-wide), or move the whole tree down deliberately` })
+  }
+  return gaps
+}
+
 // ── re: THE REVERSE-ENGINEERING POSTURE — the two-layer trial, folded as its decidable half. Layer 1 (the
 // imprint transport) REVERSES BY DESIGN: the uuid IS the message — 115 payload bits placed into the 122 free bit
 // positions (128 minus RFC 4122's six, minus the 7-bit length header), so "reverse engineering" is picking the
@@ -667,6 +694,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'seo') { const r = seoGaps(); report('one-receipt seo', r.gaps, `${r.pages} content pages — every one titled, described in the click band, canonical, and structured, no duplicate snippets.`) }
   else if (cmd === 'crypto') cryptoGaps().then((g) => report('one-receipt crypto', g, 'every cryptographic operation covered in both directions — reversibles invert, one-ways are deterministic.'))
   else if (cmd === 'pipes') report('one-receipt pipes', pipeGaps(), 'no gate flows into a pipe — every exit code is the gate\'s own.')
+  else if (cmd === 'actions') report('one-receipt actions', actionsGaps(), 'every action pins one major, tree-wide — no workflow silently trails the rest onto a deprecated runtime.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
   else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))

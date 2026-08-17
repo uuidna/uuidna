@@ -84,9 +84,10 @@ try {
 
 // 4d) THE HELD LINES — the session-born finders, wired so their gap classes cannot re-enter: coherent (no mixed
 // dist from interleaved writers), absence (no encryption-denial without the presence pointer), pipes (no gate's
-// exit code flowing into a pipe), micro (the JSON-LD layer honest — only when a built site exists to audit).
+// exit code flowing into a pipe), actions (one major per action, tree-wide — the drift that hid a deprecated
+// runtime), micro (the JSON-LD layer honest — only when a built site exists to audit).
 // Each milliseconds; each was once a manual discovery; none will be again.
-for (const line of ['coherent', 'absence', 'pipes']) {
+for (const line of ['coherent', 'absence', 'pipes', 'actions']) {
   try {
     execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' ' + line, { stdio: 'inherit' })
   } catch {
