@@ -90,6 +90,11 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: main # the desk pushed its publications above — release from the CURRENT tip, not the trigger snapshot
+          # FULL HISTORY AND TAGS, or the calendar cannot count its own step. checkout is shallow by default (one
+          # commit, no tags), so `git rev-list v<prev>..HEAD` had nothing to walk and the emitted section reported
+          # `commits since v0.1.5: unknown` — twice, on v0.1.6 and v0.1.7. A statistic that says "unknown" is honest
+          # but useless, and this one is only unknown because the checkout threw the history away before asking.
+          fetch-depth: 0
       - uses: actions/setup-node@v7
         with:
           node-version: '26'
