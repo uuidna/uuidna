@@ -217,7 +217,24 @@ jobs:
           curl -sf -X PUT -H "$AUTH" -H "Content-Type: application/json" -d @meta.json "$SELF" > /dev/null
 
           curl -sf -H "$AUTH" --upload-file "$TARBALL" "$BUCKET/$TARBALL" > /dev/null
-          PUB=$(curl -sf -X POST -H "$AUTH" "$SELF/actions/publish")
+
+          # THE OUTCOME DECIDES, NOT THE REPORT. `curl -sf` aborts on any HTTP error — and Zenodo's publish is slow
+          # enough to answer 5xx while COMPLETING server-side. Measured 2026-08-17 on v0.1.4: the record published
+          # with its tarball (10.5281/zenodo.21978435) and the job still died `exit 22`, 57s after opening the draft,
+          # before the DOI notice, the chain check and the community request — a green archive reported as a failure,
+          # and every step after it skipped. So the publish is asked, then the RESULT IS VERIFIED against the API:
+          # a non-2xx is not a verdict until the record itself says the deposit did not land.
+          CODE=$(curl -s -o /tmp/pub.json -w '%{http_code}' -X POST -H "$AUTH" "$SELF/actions/publish" || echo 000)
+          PUB=$(cat /tmp/pub.json)
+          case "$CODE" in
+            20*) ;;
+            *)   echo "::warning::publish returned HTTP $CODE — re-reading the deposition to see what actually landed"
+                 sleep 15
+                 PUB=$(curl -sf -H "$AUTH" "$SELF" || echo '{}')
+                 test "$(echo "$PUB" | jq -r '.state // empty')" = "done" || {
+                   echo "::error::Zenodo publish failed (HTTP $CODE) and the deposition is not published: $(head -c 300 /tmp/pub.json)"; exit 1; }
+                 echo "the deposit DID land despite HTTP $CODE — continuing on the record, not the report" ;;
+          esac
           DOI=$(echo "$PUB" | jq -r '.doi // .metadata.prereserve_doi.doi // "unknown"')
           echo "::notice::Zenodo published — DOI $DOI"
           echo "ZENODO_DOI=$DOI" >> "$GITHUB_ENV"
