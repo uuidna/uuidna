@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `f7bc6bdd` | zenodo.org | zenodo record 16233009: Inertia as Temporal Resistance: A Chronos Field Interpretation | UNVERIFIED | VERIFIED |
 | `b9cb277b` | zenodo.org | zenodo record 996187: The Newtonian Potential and the Demagnetizing Factors of the General Ellipsoid | UNVERIFIED | VERIFIED |
 | `353a20a5` | zenodo.org | zenodo record 19475398: A Low-Force, Early-Intervention Playbook for Asteroid Deflection: Integrating Pr | UNVERIFIED | VERIFIED |
-| `100f2af7` | zenodo.org | zenodo record 14609541: Electric propulsion platform - GIESEPP MP project | UNVERIFIED | VERIFIED |
+| `bc543ba4` | zenodo.org | zenodo record 2536892: Fingerprinting the ship propulsion system: low hanging fruit or mission impossib | UNVERIFIED | VERIFIED |
 | `fb7c6d24` | crossref.org | DOI 10.21203/rs.3.rs-1814504/v1: Heat and Mass Transfer Analysis in MHD Peristaltic Flow of Newtonian and Non-New | UNVERIFIED | VERIFIED |
 | `89fad6aa` | crossref.org | DOI 10.1016/j.jnnfm.2013.05.006: Waving transport and propulsion in a generalized Newtonian fluid | UNVERIFIED | VERIFIED |
 | `bc1fe699` | crossref.org | DOI 10.47363/jpsos/2023(5)209: Propulsion Systems PNN (Non-Newtonian Propulsion) | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `22af6aed` | openalex.org | OpenAlex Transcritical diffuse-interface hydrodynamics of propellants in high-p [Combustion and flame dynamics] | UNVERIFIED | VERIFIED |
 | `6784e2af` | openalex.org | OpenAlex Metachronal propulsion of a magnetised particle-fluid suspension in a  [Nanofluid Flow and Heat Transf] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `1b270eab`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `a00cafa6`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -17,8 +17,8 @@ the hard gate of the corroboration law.
 | `b8554a29` | zenodo.org | zenodo record 7465400: Improving the Reform of Ukraine's Court System Based on the European experience | UNVERIFIED | VERIFIED |
 | `6c9d02e9` | zenodo.org | zenodo record 4775009: РЕПУТАЦІЯ СУДДІВ ЯК ПЕРЕДУМОВА ФОРМУВАННЯ ПОВАГИ І ДОВІРИ ДО СУДУ В УКРАЇНІ | UNVERIFIED | VERIFIED |
 | `3816ff03` | zenodo.org | zenodo record 15697143: A SURVEY OF BIG DATA ANALYTICS | UNVERIFIED | VERIFIED |
-| `7fdf57e6` | zenodo.org | zenodo record 6963787: COMPULSORY ATTENDANCE AS A TYPE OF PROCEDURAL  COERCIVE MEASURE | UNVERIFIED | VERIFIED |
 | `58caf199` | zenodo.org | zenodo record 3229058: The Court of Justice Practice as a Source of the EU Law | UNVERIFIED | VERIFIED |
+| `7fdf57e6` | zenodo.org | zenodo record 6963787: COMPULSORY ATTENDANCE AS A TYPE OF PROCEDURAL  COERCIVE MEASURE | UNVERIFIED | VERIFIED |
 | `54faeb95` | zenodo.org | zenodo record 14277551: Public Debt and Economic Growth in Tanzania: An Empirical Investigation | UNVERIFIED | VERIFIED |
 | `8f5af1e4` | zenodo.org | zenodo record 3607948: Updating the Content of the Category of "Public Administration": Notes for Scien | UNVERIFIED | VERIFIED |
 | `ed4efc67` | zenodo.org | zenodo record 6573511: ПОРІВНЯЛЬНО-ПРАВОВА ХАРАКТЕРИСТИКА ПОРЯДКУ ВИКОНАННЯ РІШЕНЬ КОНСТИТУЦІЙНИХ СУДІВ | UNVERIFIED | VERIFIED |
@@ -30,6 +30,14 @@ the hard gate of the corroboration law.
 | `e9a4a29b` | crossref.org | DOI 10.3724/sp.j.1146.2010.00731: Honest-Sender Commitment and Honest-Receiver Commitment | UNVERIFIED | VERIFIED |
 | `aa365fc0` | crossref.org | DOI 10.7551/mitpress/8022.003.0003: Honest Signals | UNVERIFIED | VERIFIED |
 | `e16da57f` | crossref.org | DOI 10.3998/mpub.12207107.cmp.91: But It’s Honest Work | UNVERIFIED | VERIFIED |
+| `d433de04` | semanticscholar.org | S2 Ames, The Seventh Amendment, and the Honest Belief Trap Taut | UNVERIFIED | VERIFIED |
+| `61e5e08c` | semanticscholar.org | S2 Honest Lawyer at the Royal Court: Chrétien-Guillaume de Lamo | UNVERIFIED | VERIFIED |
+| `72b21146` | semanticscholar.org | S2 Section 48 orders in the Court of Protection: undermining au | UNVERIFIED | VERIFIED |
+| `49e66c89` | semanticscholar.org | S2 Out ‘plumb’: High Court of England and Wales considers the h | UNVERIFIED | VERIFIED |
+| `b831d34e` | semanticscholar.org | S2 ‘That Sty for Fattening Lawyers In \| On the Bones of Honest  | UNVERIFIED | VERIFIED |
+| `819d7e52` | semanticscholar.org | S2 The Supreme Court Is About to Get a Lot Less Honest About It | UNVERIFIED | VERIFIED |
+| `4f27fb3e` | semanticscholar.org | S2 'I understand people can relapse, but you have to be honest' | UNVERIFIED | VERIFIED |
+| `42335285` | semanticscholar.org | S2 Disputes Over General Election Results Based on Judicial Act | UNVERIFIED | VERIFIED |
 | `afca2c19` | openalex.org | OpenAlex Unpacking the Court [Legal Education and Practice I] | UNVERIFIED | VERIFIED |
 | `26ddbaee` | openalex.org | OpenAlex An Honest Chance: Perspectives on Drug Courts Findings From Drug Court [Criminal Justice and Correctio] | UNVERIFIED | VERIFIED |
 | `f00513d5` | openalex.org | OpenAlex State-building : governance and world order in the twenty-first centur [Global Peace and Security Dyna] | UNVERIFIED | VERIFIED |
@@ -39,15 +47,15 @@ the hard gate of the corroboration law.
 | `7f0dc888` | openalex.org | OpenAlex Climate change litigation: A review of research on courts and litigant [Environmental law and policy] | UNVERIFIED | VERIFIED |
 | `e7a7fc39` | openalex.org | OpenAlex Open Courts: How Cameras in Courts Help Keep the System Honest [Law in Society and Culture] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `c264e672`** (fold of every finding's address — recompute by re-running the search).
+**32 findings · 32 usable search-trial combinations · receipt `d3d331b8`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
 - [disputed_topic_fact_extractable](/theorem/disputed_topic_fact_extractable) — `(2000 + 24 = 2024)`
-- [disputed_books_same_fact_same_address](/theorem/disputed_books_same_fact_same_address) — `(1 + 1 = 2) ∧ (1 + 1 = 2)`
-- [disputed_books_coherence_or_contradiction](/theorem/disputed_books_coherence_or_contradiction) — `(5 = 5) ∨ (5 ≠ 5)`
-- [disputed_topics_contradiction_detectable](/theorem/disputed_topics_contradiction_detectable) — `((1 + 1 = 2) ∧ ¬(1 + 1 = 2)) ∨ ¬((1 + 1 = 2) ∧ ¬(1 + 1 = 2))`
-- [disputed_provably_true_is_sealed](/theorem/disputed_provably_true_is_sealed) — `(42 = 42) ↔ (42 = 42)`
+- [disputed_books_same_fact_same_address](/theorem/disputed_books_same_fact_same_address) — `(((1 + 1) == 2) = true) ∧ (((1 + 1) == 3) = false)`
+- [disputed_books_coherence_or_contradiction](/theorem/disputed_books_coherence_or_contradiction) — `(([5,5,6].filter (fun x => x == 5)).length = 2) ∧ (([5,5,6].filter (fun x => x != 5)).leng`
+- [disputed_topics_contradiction_detectable](/theorem/disputed_topics_contradiction_detectable) — `((((1 + 1) == 2) && ((1 + 1) == 3)) = false) ∧ ((((1 + 1) == 2) && ((1 + 1) == 2)) = true)`
+- [disputed_provably_true_is_sealed](/theorem/disputed_provably_true_is_sealed) — `(([2,3,5].filter (fun x => x == 2)).length = 1) ∧ (([2,3,5].filter (fun x => x == 4)).leng`
 - [disputed_open_claim_unverified](/theorem/disputed_open_claim_unverified) — `((2 * 3 = 6) ∧ True) ∧ True`
 - [disputed_overclaim_detectable](/theorem/disputed_overclaim_detectable) — `(¬(1 + 1 ≠ 2))`
 - [disputed_narrative_gap_requires_court](/theorem/disputed_narrative_gap_requires_court) — `(1 + 1 = 2) ∧ True`

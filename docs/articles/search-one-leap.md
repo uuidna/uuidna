@@ -26,8 +26,8 @@ the hard gate of the corroboration law.
 | `5473655e` | crossref.org | DOI 10.2139/ssrn.1421876: Google’s Ad Preference Manager: One Small Step for Google, One Giant Leap for Pr | UNVERIFIED | VERIFIED |
 | `9d879ac2` | crossref.org | DOI 10.1371/journal.pone.0296529: Multidimensional evaluation of the early emergence of executive function and dev | UNVERIFIED | VERIFIED |
 | `f256bb6f` | crossref.org | DOI 10.4337/9781800882928.00009: The One Belt One Road (OBOR) initiative: A global "great leap forward" or a "gre | UNVERIFIED | VERIFIED |
-| `b34141e3` | crossref.org | DOI 10.1017/cbo9780511585043.004: One giant leap for mankind | UNVERIFIED | VERIFIED |
 | `57e4c210` | crossref.org | DOI 10.3386/w31758: One Giant Leap: Emancipation and Aggregate Economic Gains | UNVERIFIED | VERIFIED |
+| `b34141e3` | crossref.org | DOI 10.1017/cbo9780511585043.004: One giant leap for mankind | UNVERIFIED | VERIFIED |
 | `120c4e1a` | crossref.org | DOI 10.2139/ssrn.4600653: One Giant Leap: Emancipation and Aggregate Economic Gains | UNVERIFIED | VERIFIED |
 | `a5f57071` | crossref.org | DOI 10.1001/jama.2011.852: One Giant Leap | UNVERIFIED | VERIFIED |
 | `ef249f7d` | openalex.org | OpenAlex LEAP [Security in Wireless Sensor Ne] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `2f007a96` | openalex.org | OpenAlex Genome sequencing in microfabricated high-density picolitre reactors [Bacteriophages and microbial i] | UNVERIFIED | VERIFIED |
 | `3c4c49d6` | openalex.org | OpenAlex LEAP [Security in Wireless Sensor Ne] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `fcd17457`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `205c53b4`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

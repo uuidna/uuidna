@@ -27,17 +27,9 @@ the hard gate of the corroboration law.
 | `900ed8c5` | crossref.org | DOI 10.1007/978-3-642-01216-7_45: Geometry Algebra Neuron Based on Biomimetic Pattern Recognition | UNVERIFIED | VERIFIED |
 | `f6f5ff60` | crossref.org | DOI 10.1016/0896-6273(94)90433-2: Neuron reviewers | UNVERIFIED | VERIFIED |
 | `7b78a0ca` | crossref.org | DOI 10.7717/peerj-cs.3184/fig-2: Figure 2: Representation of neuron models: (A) artificial neuron. (B) spiking ne | UNVERIFIED | VERIFIED |
-| `311ff3df` | crossref.org | DOI 10.1016/s0896-6273(03)00812-2: Neuron Reviewer | UNVERIFIED | VERIFIED |
 | `dc23c14f` | crossref.org | DOI 10.1016/0896-6273(88)90159-6: Neuron reviewers | UNVERIFIED | VERIFIED |
+| `311ff3df` | crossref.org | DOI 10.1016/s0896-6273(03)00812-2: Neuron Reviewer | UNVERIFIED | VERIFIED |
 | `a6016cb5` | crossref.org | DOI 10.1016/0896-6273(92)90080-w: Neuron reviewers | UNVERIFIED | VERIFIED |
-| `a53258ad` | semanticscholar.org | S2 Path-space algebra for constructing an average neuronal atla | UNVERIFIED | VERIFIED |
-| `038fc9c0` | semanticscholar.org | S2 Theta neuron subject to delayed feedback: a prototypical mod | UNVERIFIED | VERIFIED |
-| `15ba9ea8` | semanticscholar.org | S2 The Algebra of Neural Response Vectors — AI tldr: The concept of a neural response vector is developed as a mathematical descriptor which wi | UNVERIFIED | VERIFIED |
-| `2f755dfd` | semanticscholar.org | S2 Some remarks on the Boolean algebra of nervous nets in mathe — AI tldr: A nervous network is constructed which illustrates some aspects of the perception of numbe | UNVERIFIED | VERIFIED |
-| `981f6347` | semanticscholar.org | S2 14-3-3 Protein, Neuron-Specific Enolase, and S-100 Protein i — AI tldr: It appears that there is no additional advantage at the moment to include NSE and/or S-100 | UNVERIFIED | VERIFIED |
-| `f7132500` | semanticscholar.org | S2 Combinatorial algebra for second-quantized Quantum Theory | UNVERIFIED | VERIFIED |
-| `92b5d780` | semanticscholar.org | S2 Multi-Point Detection of the Powerful Gamma Ray Burst GRB221 | UNVERIFIED | VERIFIED |
-| `6bacf3ec` | semanticscholar.org | S2 Resting-State Connectivity Biomarkers of Cognitive Performan — AI tldr: A support vector machine classifier is used to demonstrate that functional connectivity al | UNVERIFIED | VERIFIED |
 | `f10b2399` | openalex.org | OpenAlex The Variable Discharge of Cortical Neurons: Implications for Connectiv [Neural dynamics and brain func] | UNVERIFIED | VERIFIED |
 | `93e9ae84` | openalex.org | OpenAlex Lattice algebra approach to single-neuron computation [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 | `7885cdc7` | openalex.org | OpenAlex The Algebraic Mind: Integrating Connectionism and Cognitive Science [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
@@ -47,7 +39,7 @@ the hard gate of the corroboration law.
 | `2e402279` | openalex.org | OpenAlex Neuronal activity in the vestibular nuclei of the alert monkey during  [Visual perception and processi] | UNVERIFIED | VERIFIED |
 | `847e42e1` | openalex.org | OpenAlex On Clifford neurons and Clifford multi-layer perceptrons [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 
-**32 findings · 32 usable search-trial combinations · receipt `ddd15484`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `08aca07b`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

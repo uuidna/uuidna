@@ -19,8 +19,8 @@ the hard gate of the corroboration law.
 | `c849ef2b` | zenodo.org | zenodo record 54270: Optimum non linear document restoration through linear greyscale operators | UNVERIFIED | VERIFIED |
 | `2a3f2b6c` | zenodo.org | zenodo record 3592436: ADOLESCENTE GRÁVIDA COM ALTERAÇÃO PSICOSSOCIAL VULNERÁVEL SOB A ÓTICA DA EQUIPE  | UNVERIFIED | VERIFIED |
 | `b472061d` | zenodo.org | zenodo record 4620318: AS ESTRATÉGIAS INTERPESSOAIS UTILIZADAS EM PACIENTES PORTADORES DE  PSICOPATIA | UNVERIFIED | VERIFIED |
-| `032466ca` | zenodo.org | zenodo record 7527492: Bayesian models' outputs for: A new method to explicitly estimate the shift of o | UNVERIFIED | VERIFIED |
 | `85bb5db2` | zenodo.org | zenodo record 4620320: A  ATUAÇÃO DO ENFERMEIRO NA RESSUSCITAÇÃO CARDIOPULMONAR PEDIÁTRICA | UNVERIFIED | VERIFIED |
+| `032466ca` | zenodo.org | zenodo record 7527492: Bayesian models' outputs for: A new method to explicitly estimate the shift of o | UNVERIFIED | VERIFIED |
 | `cb3177b0` | zenodo.org | zenodo record 14676551: Optimum enterprise combination of selected food crops and broiler production sys | UNVERIFIED | VERIFIED |
 | `cbb5b9a2` | crossref.org | DOI 10.1007/978-3-0348-6980-5_1: Optimum Design using Linear Programming | UNVERIFIED | VERIFIED |
 | `cf1b709e` | crossref.org | DOI 10.1016/b978-012064155-0/50006-9: Linear Programming Methods for Optimum Design | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `0a481442` | openalex.org | OpenAlex Optimal Detection of Changepoints With a Linear Computational Cost [Algorithms and Data Compressio] | UNVERIFIED | VERIFIED |
 | `1aa0de6f` | openalex.org | OpenAlex A New Approach to Linear Filtering and Prediction Problems [Target Tracking and Data Fusio] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `612c7264`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `b97812fb`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -1,10 +1,10 @@
 {
- "surfaces": 174,
- "paragraphs_tried": 3744,
- "usable": 1647,
- "unverified": 2097,
+ "surfaces": 175,
+ "paragraphs_tried": 3753,
+ "usable": 1648,
+ "unverified": 2105,
  "drained": 0,
- "receipt": "10320a7d-d65f-8c7d-9431-20d25914f277",
+ "receipt": "eae83d53-d290-8ffc-88b0-1576aef54c33",
  "develop": [
   {
    "surface": "docs/articles/search-div-by-zero.md",
@@ -10585,8 +10585,8 @@
   },
   {
    "surface": "docs/articles/search-cipher.md",
-   "address": "9f77f66e-d0a7-809e-8ce2-72e2addba9ab",
-   "prose": "- [dna_complement_involution](/theorem/dna_complement_involution) — `(List.range 4).all (fun x => 3 - (3 - x) == x)`\n- [dna_complement_fixed_point_free](/theorem/dna_complement_fixed_point_free) — `(List.range 4).all (fun x => 3 - x != x)`\n- [complement_is_xor_key3](/theorem/complement_is_xor_key3) — `(List.range 4).all (fun x => 3 - x == lxor x 3)`\n- [otp_self_inverse](/theorem/otp_self_inverse) — `(List.range 16).all (fun m => (List.range 16).all (fun k => lxor (lxor m k) k == m))`\n- [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_xor) — `(List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (`\n- [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) — `(List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d))`\n- [transport_leaks_length](/theorem/transport_leaks_length) — `((1 + 114) / 115 = 1) ∧ ((115 + 114) / 115 = 1) ∧ ((116 + 114) / 115 = 2) ∧ ((230 + 114) /`\n- [codons_four_cubed](/theorem/codons_four_cubed) — `4^3 = 64`\n- [translation_is_lossy](/theorem/translation_is_lossy) — `4^3 > 21`\n- [affine_is_permutation](/theorem/affine_is_permutation) — `(List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y))`\n- [grover_quadratic_bound](/theorem/grover_quadratic_bound) — `(List.range 27).all (fun n => 2^n * 2^n == 2^(2*n))`\n- [kdf_cost_bounded](/theorem/kdf_cost_bounded) — `(0 < 600000) ∧ (600000 ≤ 10000000)`\n- [aead_nonce_and_salt_bits](/theorem/aead_nonce_and_salt_bits) — `(12 * 8 = 96) ∧ (16 * 8 = 128) ∧ (96 < 128)`\n- [onion_layers_power_of_two](/theorem/onion_layers_power_of_two) — `(16 = 2^4) ∧ (16 ≤ 128)`\n- [sha256_is_four_sixtyfours](/theorem/sha256_is_four_sixtyfours) — `(4 * 64 = 256) ∧ (8 * 32 = 256) ∧ ((2:Nat) ^ 8 = 256)`\n- [sha256_rounds_are_the_board](/theorem/sha256_rounds_are_the_board) — `((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧ (512 = 2 * 256)`\n- [sha256_grover_margin_is_the_address](/theorem/sha256_grover_margin_is_the_address) — `(256 / 2 = 128) ∧ (256 % 2 = 0)`\n- [adversarial_privacy_is_unanimous](/theorem/adversarial_privacy_is_unanimous) — `(1 + 2 = 3) ∧ (((List.range 4).filter (fun s => s == 0)).length = 1) ∧ ((2:Nat) ^ 2 = 4)`\n- [secure_channel_by_default](/theorem/secure_channel_by_default) — `(1 + 2 = 3) ∧ (1 < 3) ∧ (256 / 2 = 128)`\n- [verify_beats_recompute_by_magnitudes](/theorem/verify_beats_recompute_by_magnitudes) — `((2:Nat) ^ 10 = 1024) ∧ ((2:Nat) ^ 20 = 1048576) ∧ (1024 > 100 * 10) ∧ (1048576 > 10000 * `\n- [faster_and_more_secure](/theorem/faster_and_more_secure) — `(0 < 1) ∧ (256 / 2 = 128) ∧ (20 < 1048576)`\n- [imprint_capacity_chain](/theorem/imprint_capacity_chain) — `(128 - 6 = 122) ∧ (122 - 7 = 115)`\n- [imprint_header_minimal](/theorem/imprint_header_minimal) — `(2 ^ 6 < 116) ∧ (116 ≤ 2 ^ 7)`\n- [imprint_capacity_entangles](/theorem/imprint_capacity_entangles) — `(115 = 5 * 23) ∧ ((23 * 23) % 24 = 1)`\n- [imprint_capacity_within_address](/theorem/imprint_capacity_within_address) — `(115 < 128) ∧ (128 - 115 = 13)`",
+   "address": "091a57f2-0946-8d76-a40a-37d39f582b10",
+   "prose": "- [dna_complement_involution](/theorem/dna_complement_involution) — `(List.range 4).all (fun x => 3 - (3 - x) == x)`\n- [dna_complement_fixed_point_free](/theorem/dna_complement_fixed_point_free) — `(List.range 4).all (fun x => 3 - x != x)`\n- [complement_is_xor_key3](/theorem/complement_is_xor_key3) — `(List.range 4).all (fun x => 3 - x == lxor x 3)`\n- [otp_self_inverse](/theorem/otp_self_inverse) — `(List.range 16).all (fun m => (List.range 16).all (fun k => lxor (lxor m k) k == m))`\n- [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_xor) — `(List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (`\n- [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) — `(List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d))`\n- [transport_leaks_length](/theorem/transport_leaks_length) — `((1 + 114) / 115 = 1) ∧ ((115 + 114) / 115 = 1) ∧ ((116 + 114) / 115 = 2) ∧ ((230 + 114) /`\n- [codons_four_cubed](/theorem/codons_four_cubed) — `4^3 = 64`\n- [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) — `(4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)`\n- [translation_is_lossy](/theorem/translation_is_lossy) — `4^3 > 21`\n- [affine_is_permutation](/theorem/affine_is_permutation) — `(List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y))`\n- [grover_quadratic_bound](/theorem/grover_quadratic_bound) — `(List.range 27).all (fun n => 2^n * 2^n == 2^(2*n))`\n- [kdf_cost_bounded](/theorem/kdf_cost_bounded) — `(0 < 600000) ∧ (600000 ≤ 10000000)`\n- [aead_nonce_and_salt_bits](/theorem/aead_nonce_and_salt_bits) — `(12 * 8 = 96) ∧ (16 * 8 = 128) ∧ (96 < 128)`\n- [onion_layers_power_of_two](/theorem/onion_layers_power_of_two) — `(16 = 2^4) ∧ (16 ≤ 128)`\n- [sha256_is_four_sixtyfours](/theorem/sha256_is_four_sixtyfours) — `(4 * 64 = 256) ∧ (8 * 32 = 256) ∧ ((2:Nat) ^ 8 = 256)`\n- [sha256_rounds_are_the_board](/theorem/sha256_rounds_are_the_board) — `((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧ (512 = 2 * 256)`\n- [sha256_grover_margin_is_the_address](/theorem/sha256_grover_margin_is_the_address) — `(256 / 2 = 128) ∧ (256 % 2 = 0)`\n- [adversarial_privacy_is_unanimous](/theorem/adversarial_privacy_is_unanimous) — `(1 + 2 = 3) ∧ (((List.range 4).filter (fun s => s == 0)).length = 1) ∧ ((2:Nat) ^ 2 = 4)`\n- [secure_channel_by_default](/theorem/secure_channel_by_default) — `(1 + 2 = 3) ∧ (1 < 3) ∧ (256 / 2 = 128)`\n- [verify_beats_recompute_by_magnitudes](/theorem/verify_beats_recompute_by_magnitudes) — `((2:Nat) ^ 10 = 1024) ∧ ((2:Nat) ^ 20 = 1048576) ∧ (1024 > 100 * 10) ∧ (1048576 > 10000 * `\n- [faster_and_more_secure](/theorem/faster_and_more_secure) — `(0 < 1) ∧ (256 / 2 = 128) ∧ (20 < 1048576)`\n- [imprint_capacity_chain](/theorem/imprint_capacity_chain) — `(128 - 6 = 122) ∧ (122 - 7 = 115)`\n- [imprint_header_minimal](/theorem/imprint_header_minimal) — `(2 ^ 6 < 116) ∧ (116 ≤ 2 ^ 7)`\n- [imprint_capacity_entangles](/theorem/imprint_capacity_entangles) — `(115 = 5 * 23) ∧ ((23 * 23) % 24 = 1)`\n- [imprint_capacity_within_address](/theorem/imprint_capacity_within_address) — `(115 < 128) ∧ (128 - 115 = 13)`",
    "cites": [
     "dna_complement_involution",
     "dna_complement_fixed_point_free",
@@ -10596,6 +10596,7 @@
     "xor_fold_is_malleable",
     "transport_leaks_length",
     "codons_four_cubed",
+    "uuidna_is_dna_times_the_two_coins",
     "translation_is_lossy",
     "affine_is_permutation",
     "grover_quadratic_bound",
@@ -10812,8 +10813,8 @@
   },
   {
    "surface": "docs/articles/search-disputed-topics.md",
-   "address": "828a9a5d-f955-8d36-9893-cc68af7fe35d",
-   "prose": "- [disputed_topic_fact_extractable](/theorem/disputed_topic_fact_extractable) — `(2000 + 24 = 2024)`\n- [disputed_books_same_fact_same_address](/theorem/disputed_books_same_fact_same_address) — `(1 + 1 = 2) ∧ (1 + 1 = 2)`\n- [disputed_books_coherence_or_contradiction](/theorem/disputed_books_coherence_or_contradiction) — `(5 = 5) ∨ (5 ≠ 5)`\n- [disputed_topics_contradiction_detectable](/theorem/disputed_topics_contradiction_detectable) — `((1 + 1 = 2) ∧ ¬(1 + 1 = 2)) ∨ ¬((1 + 1 = 2) ∧ ¬(1 + 1 = 2))`\n- [disputed_provably_true_is_sealed](/theorem/disputed_provably_true_is_sealed) — `(42 = 42) ↔ (42 = 42)`\n- [disputed_open_claim_unverified](/theorem/disputed_open_claim_unverified) — `((2 * 3 = 6) ∧ True) ∧ True`\n- [disputed_overclaim_detectable](/theorem/disputed_overclaim_detectable) — `(¬(1 + 1 ≠ 2))`\n- [disputed_narrative_gap_requires_court](/theorem/disputed_narrative_gap_requires_court) — `(1 + 1 = 2) ∧ True`\n- [disputed_multi_reader_receipt](/theorem/disputed_multi_reader_receipt) — `((1 + 2 + 3 = 6) ↔ (6 = 1 + 2 + 3))`\n- [disputed_consensus_detectable](/theorem/disputed_consensus_detectable) — `(3 > 1) ∨ (3 ≤ 1)`\n- [disputed_coin_backed_judgment](/theorem/disputed_coin_backed_judgment) — `(2 * 10 = 20)`\n- [disputed_anti_fraud_catches_overclaim](/theorem/disputed_anti_fraud_catches_overclaim) — `(¬(2 + 2 = 5))`\n- [disputed_contradiction_audit_detects_liar](/theorem/disputed_contradiction_audit_detects_liar) — `((1 = 1) ∧ (1 ≠ 1)) → False`\n- [disputed_audit_receipt_open](/theorem/disputed_audit_receipt_open) — `((2 * 5 = 10) ∧ (10 / 2 = 5))`\n- [disputed_all_topics_computable](/theorem/disputed_all_topics_computable) — `((List.range 3).length = 3) ∧ ((1 = 1) ∧ (2 ≠ 3))`",
+   "address": "4eb03aee-a7e8-814b-92d7-906817bd915b",
+   "prose": "- [disputed_topic_fact_extractable](/theorem/disputed_topic_fact_extractable) — `(2000 + 24 = 2024)`\n- [disputed_books_same_fact_same_address](/theorem/disputed_books_same_fact_same_address) — `(((1 + 1) == 2) = true) ∧ (((1 + 1) == 3) = false)`\n- [disputed_books_coherence_or_contradiction](/theorem/disputed_books_coherence_or_contradiction) — `(([5,5,6].filter (fun x => x == 5)).length = 2) ∧ (([5,5,6].filter (fun x => x != 5)).leng`\n- [disputed_topics_contradiction_detectable](/theorem/disputed_topics_contradiction_detectable) — `((((1 + 1) == 2) && ((1 + 1) == 3)) = false) ∧ ((((1 + 1) == 2) && ((1 + 1) == 2)) = true)`\n- [disputed_provably_true_is_sealed](/theorem/disputed_provably_true_is_sealed) — `(([2,3,5].filter (fun x => x == 2)).length = 1) ∧ (([2,3,5].filter (fun x => x == 4)).leng`\n- [disputed_open_claim_unverified](/theorem/disputed_open_claim_unverified) — `((2 * 3 = 6) ∧ True) ∧ True`\n- [disputed_overclaim_detectable](/theorem/disputed_overclaim_detectable) — `(¬(1 + 1 ≠ 2))`\n- [disputed_narrative_gap_requires_court](/theorem/disputed_narrative_gap_requires_court) — `(1 + 1 = 2) ∧ True`\n- [disputed_multi_reader_receipt](/theorem/disputed_multi_reader_receipt) — `((1 + 2 + 3 = 6) ↔ (6 = 1 + 2 + 3))`\n- [disputed_consensus_detectable](/theorem/disputed_consensus_detectable) — `(3 > 1) ∨ (3 ≤ 1)`\n- [disputed_coin_backed_judgment](/theorem/disputed_coin_backed_judgment) — `(2 * 10 = 20)`\n- [disputed_anti_fraud_catches_overclaim](/theorem/disputed_anti_fraud_catches_overclaim) — `(¬(2 + 2 = 5))`\n- [disputed_contradiction_audit_detects_liar](/theorem/disputed_contradiction_audit_detects_liar) — `((1 = 1) ∧ (1 ≠ 1)) → False`\n- [disputed_audit_receipt_open](/theorem/disputed_audit_receipt_open) — `((2 * 5 = 10) ∧ (10 / 2 = 5))`\n- [disputed_all_topics_computable](/theorem/disputed_all_topics_computable) — `((List.range 3).length = 3) ∧ ((1 = 1) ∧ (2 ≠ 3))`",
    "cites": [
     "disputed_topic_fact_extractable",
     "disputed_books_same_fact_same_address",
@@ -11042,6 +11043,17 @@
     "court_theorem_beats_assertion",
     "court_loser_pays_the_two_coins",
     "court_loser_develops_the_proven"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-martial-arts.md",
+   "address": "6eac01cd-6832-89c3-8fd3-af9237170265",
+   "prose": "- [complement_fixes_the_half](/theorem/complement_fixes_the_half) — `(90 - 45 = 45) ∧ (100 - 50 = 50) ∧ (10 - 5 = 5)`\n- [supplement_completes_the_straight](/theorem/supplement_completes_the_straight) — `(30 + 150 = 180) ∧ (30 < 150)`\n- [chain_joints_are_links_minus_one](/theorem/chain_joints_are_links_minus_one) — `5 - 1 = 4`\n- [lever_ratio_is_exact_division](/theorem/lever_ratio_is_exact_division) — `(8 / 4 = 2) ∧ (2 * 4 = 8)`",
+   "cites": [
+    "complement_fixes_the_half",
+    "supplement_completes_the_straight",
+    "chain_joints_are_links_minus_one",
+    "lever_ratio_is_exact_division"
    ]
   },
   {

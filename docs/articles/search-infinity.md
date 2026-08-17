@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `b2e543f7` | zenodo.org | zenodo record 7794586: Reaching for the Infinities - A strategic plan for French Nuclear, Particle and  | UNVERIFIED | VERIFIED |
 | `57915b63` | zenodo.org | zenodo record 20598880: EXACT DERIVATION OF TOPOLOGICAL CASIMIR TENSION IN A DISCRETE HYDRODYNAMIC VACUU | UNVERIFIED | VERIFIED |
 | `503cce33` | zenodo.org | zenodo record 3784691: Micromechanical model of cross-over fiber bridging | UNVERIFIED | VERIFIED |
-| `0b76b1a6` | zenodo.org | zenodo record 15910713: Plan on communication and dissemination of results and their exploitation | UNVERIFIED | VERIFIED |
+| `bce97688` | zenodo.org | zenodo record 15912275: Stakeholder Engagement Plan | UNVERIFIED | VERIFIED |
 | `ae2123fa` | crossref.org | DOI 10.5040/9781350115323.ch-s18: Infinities in the Finite, Infinities Beyond Any Finite. Proof of Scott’s Theorem | UNVERIFIED | VERIFIED |
 | `fb7eb5d1` | crossref.org | DOI 10.1103/physics.4.s176: Wrestling with Infinities | UNVERIFIED | VERIFIED |
 | `e896d28b` | crossref.org | DOI 10.1007/978-1-4471-0751-4_14: Infinitely Many Infinities | UNVERIFIED | VERIFIED |
@@ -30,14 +30,6 @@ the hard gate of the corroboration law.
 | `12f41cdd` | crossref.org | DOI 10.2139/ssrn.4197868: Mass Time, Mass System, Electrical Charge Time (Infinities in Physics) | UNVERIFIED | VERIFIED |
 | `04e3e41b` | crossref.org | DOI 10.1016/0550-3213(86)90046-5: Non-perturbative infinities | UNVERIFIED | VERIFIED |
 | `832221df` | crossref.org | DOI 10.2139/ssrn.3943889: ‘Fuzzy Time’, Not Probabilistic Time! (Infinities in Physics) | UNVERIFIED | VERIFIED |
-| `5f9f9f40` | semanticscholar.org | S2 PERFECT INFINITIES AND FINITE APPROXIMATION | UNVERIFIED | VERIFIED |
-| `3fda9ed9` | semanticscholar.org | S2 New calculation techniques and precision physics in high ene | UNVERIFIED | VERIFIED |
-| `655f6ea9` | semanticscholar.org | S2 Diamonds in the bulk and large-N scaling in AdS/CFT | UNVERIFIED | VERIFIED |
-| `d8479875` | semanticscholar.org | S2 Divined Explanations: The Theological and Philosophical Cont | UNVERIFIED | VERIFIED |
-| `ff9cbd0b` | semanticscholar.org | S2 Surface wrinkling of a film coated to a graded substrate | UNVERIFIED | VERIFIED |
-| `5b57dbcc` | semanticscholar.org | S2 Supersonic flow past finite-length bodies in dispersive hydr | UNVERIFIED | VERIFIED |
-| `bca6890c` | semanticscholar.org | S2 Quantum Chaos at Finite Temperature - a New Approach via the | UNVERIFIED | VERIFIED |
-| `38561f02` | semanticscholar.org | S2 Undecidable long-term behavior in classical physics: foundat | UNVERIFIED | VERIFIED |
 | `1f6bbe47` | openalex.org | OpenAlex Physics-informed machine learning [Model Reduction and Neural Net] | UNVERIFIED | VERIFIED |
 | `bfa096bd` | openalex.org | OpenAlex DOUBLE-TIME GREEN FUNCTIONS IN STATISTICAL PHYSICS [Theoretical and Computational ] | UNVERIFIED | VERIFIED |
 | `7a7fc291` | openalex.org | OpenAlex The physics and chemistry of the Schottky barrier height [Semiconductor materials and in] | UNVERIFIED | VERIFIED |
@@ -47,7 +39,7 @@ the hard gate of the corroboration law.
 | `767950ff` | openalex.org | OpenAlex FIRE-2 simulations: physics versus numerics in galaxy formation [Galaxies: Formation, Evolution] | UNVERIFIED | VERIFIED |
 | `c2de8429` | openalex.org | OpenAlex Conformal collider physics: energy and charge correlations [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 
-**32 findings · 32 usable search-trial combinations · receipt `0cdfce4f`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `7588c1dd`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

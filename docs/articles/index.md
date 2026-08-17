@@ -118,6 +118,7 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-identifiers](/articles/search-identifiers)
 - [search-infinity](/articles/search-infinity)
 - [search-legal](/articles/search-legal)
+- [search-martial-arts](/articles/search-martial-arts)
 - [search-matching](/articles/search-matching)
 - [search-mo-mbhstar1](/articles/search-mo-mbhstar1)
 - [search-molecular](/articles/search-molecular)

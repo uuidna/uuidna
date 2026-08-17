@@ -17,11 +17,19 @@ the hard gate of the corroboration law.
 | `bd2ec0e7` | crossref.org | DOI 10.5040/9781350976702: Ring Shout | UNVERIFIED | VERIFIED |
 | `1135b887` | crossref.org | DOI 10.7717/peerj.12491/fig-2: Figure 2: Logo of the highly conserved amino acids with metal-ligands in flax RI | UNVERIFIED | VERIFIED |
 | `0f7ce877` | crossref.org | DOI 10.1093/oed/7976927049: ring-a-ring, n. | UNVERIFIED | VERIFIED |
-| `1399a346` | crossref.org | DOI 10.1021/acs.joc.7b00203.s001: Using Ring Strain to Control 4-Electrocyclization Reactions: Torquoselectivity i | UNVERIFIED | VERIFIED |
 | `d8ec58a4` | crossref.org | DOI 10.1007/978-3-642-22647-2_100608: Ring-on-Disk / Ring-on-Ring Testing | UNVERIFIED | VERIFIED |
+| `1399a346` | crossref.org | DOI 10.1021/acs.joc.7b00203.s001: Using Ring Strain to Control 4-Electrocyclization Reactions: Torquoselectivity i | UNVERIFIED | VERIFIED |
 | `2c6088de` | crossref.org | DOI 10.1119/1.1888094: Ring, Ring, Ring…(A4) | UNVERIFIED | VERIFIED |
 | `b108c1ca` | crossref.org | DOI 10.1021/ma048665z.s001: Effective Interaction Parameters of Star/Star, Ring/Ring, and Ring/Linear Chemic | UNVERIFIED | VERIFIED |
 | `67eb60e0` | crossref.org | DOI 10.1093/gmo/9781561592630.article.j380800: Ring | UNVERIFIED | VERIFIED |
+| `0f28e914` | semanticscholar.org | S2 3 1 D ec 2 01 4 Self-dual codes and quadratic residue codes  — AI tldr: A new definitions of the Gray weight and the Gray map for linear codes over Z9+uZ9 with u  | UNVERIFIED | VERIFIED |
+| `77867fe2` | semanticscholar.org | S2 Direct inhibition of (Z)-9 desaturation of (E)-11-tetradecen — AI tldr: The C-16 cyclopropene fatty acids may inhibit the (Z)-9 desaturation enzyme by themselves, | UNVERIFIED | VERIFIED |
+| `be4a1970` | semanticscholar.org | S2 Further results on Hilbert’s Tenth Problem | UNVERIFIED | VERIFIED |
+| `91ef5fc8` | semanticscholar.org | S2 Identification, synthesis and mass spectrometry of a macroli — AI tldr: The mass spectra of the synthesized macrolides as well as their rearranged isomers obtaine | UNVERIFIED | VERIFIED |
+| `14dae508` | semanticscholar.org | S2 Lee weights of cyclic self-dual codes over Galois rings of c — AI tldr: The minimum Lee weights of cyclic self-dual codes over a Galois ring G R of length p k are | UNVERIFIED | VERIFIED |
+| `6d474c00` | semanticscholar.org | S2 Novel conformationally constrained tropane analogues by 6-en — AI tldr: The results of this study further demonstrate the possibility of tuning the selectivity of | UNVERIFIED | VERIFIED |
+| `ecc48a3b` | semanticscholar.org | S2 Simultaneous biodegradation of creosote-polycyclic aromatic  — AI tldr: These results contribute to the general knowledge of the biochemical processes that determ | UNVERIFIED | VERIFIED |
+| `21838b90` | semanticscholar.org | S2 Synthesis of tropane-based σ1 receptor antagonists with anti — AI tldr: The piperidine ring of eliprodil was replaced by the bicyclic tropane system and an exocyc | UNVERIFIED | VERIFIED |
 | `a382ff7d` | openalex.org | OpenAlex Efficient signature generation by smart cards [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
 | `e7ac9a9f` | openalex.org | OpenAlex Modules of finite length over their endomorphism rings [Algebraic structures and combi] | UNVERIFIED | VERIFIED |
 | `980bf23d` | openalex.org | OpenAlex Growth in $\mathrm{SL}_3(ℤ/pℤ)$ [Advanced Topology and Set Theo] | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `f90fea8a` | openalex.org | OpenAlex Heterotic ℤ<sub>6–II</sub>MSSM orbifolds in blowup [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 | `af1ca68f` | openalex.org | OpenAlex Chevalley groups over polynomial rings [Advanced Differential Equation] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `f373f171`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `10d0717e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `73c7af54` | zenodo.org | zenodo record 822078: The Existence of Quantum Computer | UNVERIFIED | VERIFIED |
 | `c7d6dc8a` | zenodo.org | zenodo record 839139: THE POWER OF QUANTUM COMPUTER AND ITS LIMITATIONS | UNVERIFIED | VERIFIED |
 | `b66b2057` | zenodo.org | zenodo record 10051347: STATE OF THE ART OF QUANTUM COMPUTING: OVERVIEW | UNVERIFIED | VERIFIED |
-| `172b2639` | zenodo.org | zenodo record 19400449: An Extensible Quantum Network Simulator Built on ns-3: Q2NS Design and Evaluatio | UNVERIFIED | VERIFIED |
+| `12676f2f` | zenodo.org | zenodo record 15708603: The Universe As A Quantum Computer | UNVERIFIED | VERIFIED |
 | `fdd07f87` | crossref.org | DOI 10.1007/1-4020-7895-1_3: Quantum Computer Programming | UNVERIFIED | VERIFIED |
 | `03123e8b` | crossref.org | DOI 10.1007/978-0-387-36791-0_2: Quantum Computer Simulation | UNVERIFIED | VERIFIED |
 | `a5d2021d` | crossref.org | DOI 10.1007/978-0-387-36791-0_3: Quantum Computer Programming | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `fc453492` | openalex.org | OpenAlex Polynomial-Time Algorithms for Prime Factorization and Discrete Logari [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
 | `41c9f893` | openalex.org | OpenAlex Architecture for a large-scale ion-trap quantum computer [Quantum Information and Crypto] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `536bbbed`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `69d78716`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

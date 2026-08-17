@@ -26,8 +26,8 @@ the hard gate of the corroboration law.
 | `16972ad9` | crossref.org | DOI 10.3998/gabii.1.249: Stratigraphic Unit 249 | UNVERIFIED | VERIFIED |
 | `15e0480d` | crossref.org | DOI 10.5749/minnesota/9780816695843.003.0002: To Cut or Not to Cut | UNVERIFIED | VERIFIED |
 | `99378662` | crossref.org | DOI 10.3998/gabii.1.237: Stratigraphic Unit 237 | UNVERIFIED | VERIFIED |
-| `ded53cc8` | crossref.org | DOI 10.1007/springerreference_72436: Maximum Cut Problem, MAX-CUT | UNVERIFIED | VERIFIED |
 | `a526537f` | crossref.org | DOI 10.7758/9781610448765.11: Tax Cut versus Tax Cut | UNVERIFIED | VERIFIED |
+| `ded53cc8` | crossref.org | DOI 10.1007/springerreference_72436: Maximum Cut Problem, MAX-CUT | UNVERIFIED | VERIFIED |
 | `f0faa8d9` | crossref.org | DOI 10.3998/gabii.1.198: Stratigraphic Unit 198 | UNVERIFIED | VERIFIED |
 | `bc4f3cca` | crossref.org | DOI 10.3998/gabii.1.1290: Stratigraphic Unit 1290 | UNVERIFIED | VERIFIED |
 | `f858c476` | openalex.org | OpenAlex Normalized cuts and image segmentation [Medical Image Segmentation Tec] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `701c84c9` | openalex.org | OpenAlex Extended international (<scp>IOTF</scp>) body mass index cut‐offs for  [Obesity, Physical Activity, Di] | UNVERIFIED | VERIFIED |
 | `5f13281c` | openalex.org | OpenAlex Body mass index cut offs to define thinness in children and adolescent [Obesity, Physical Activity, Di] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `64a82fe7`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `ef7e535a`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -29,7 +29,7 @@ the hard gate of the corroboration law.
 | `221343d3` | crossref.org | DOI 10.1093/gao/9781884446054.article.t013157: Calendar | UNVERIFIED | VERIFIED |
 | `21870b01` | crossref.org | DOI 10.2307/j.ctvh1dj98.16: Between Crucifixion and Calendar Reform: | UNVERIFIED | VERIFIED |
 | `ad970004` | crossref.org | DOI 10.1109/mpul.2017.2736620: Calendar [Calendar] | UNVERIFIED | VERIFIED |
-| `5f561b58` | crossref.org | DOI 10.1163/1874-6772_seg_a55_1984: Calendar. Intercalations in the Roman calendar, 191-46 B.C. | UNVERIFIED | VERIFIED |
+| `d6247979` | crossref.org | DOI 10.2139/ssrn.5285467: Wandering Calendar and Julian Calendar, Egypt and Rome | UNVERIFIED | VERIFIED |
 | `ce093cf2` | openalex.org | OpenAlex The melatonin rhythm: both a clock and a calendar [Circadian rhythm and melatonin] | UNVERIFIED | VERIFIED |
 | `4c4eaed5` | openalex.org | OpenAlex Caesar's Calendar [Historical and Architectural S] | UNVERIFIED | VERIFIED |
 | `187fe1f2` | openalex.org | OpenAlex Calendar Aging of Lithium-Ion Batteries [Advancements in Battery Materi] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `40174380` | openalex.org | OpenAlex Hidden Rhythms: Schedules and Calendars in Social Life [Globalization and Cultural Ide] | UNVERIFIED | VERIFIED |
 | `93c58005` | openalex.org | OpenAlex An accelerated calendar and cycle life study of Li-ion cells [Advanced Battery Technologies ] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `fd1848ff`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `937aac08`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

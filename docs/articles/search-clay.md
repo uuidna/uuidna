@@ -20,8 +20,8 @@ the hard gate of the corroboration law.
 | `be4e5af1` | zenodo.org | zenodo record 21648709: A Practical CRA Documentation Guide | UNVERIFIED | VERIFIED |
 | `042212c3` | zenodo.org | zenodo record 15657384: Martian Incident and Reflected Ion Partial Moments | UNVERIFIED | VERIFIED |
 | `35505623` | zenodo.org | zenodo record 13841258: jiaojiaojhy/VAE-LSTM data: VAE-LSTM data | UNVERIFIED | VERIFIED |
-| `bf6bbb4a` | zenodo.org | zenodo record 6504273: NanoCommons/user-handbook: NanoCommons User Guidance Handbook | UNVERIFIED | VERIFIED |
-| `28f233c9` | zenodo.org | zenodo record 21644422: The CRA Compliance Glossary | UNVERIFIED | VERIFIED |
+| `907ed528` | zenodo.org | zenodo record 18367273: Tympaki LL_ Meteorological forcing dataset | UNVERIFIED | VERIFIED |
+| `6b3292f2` | zenodo.org | zenodo record 3555646: A study of The RAJADHAMMASANGAHA and Democracy | UNVERIFIED | VERIFIED |
 | `96bcb159` | crossref.org | DOI 10.1163/9789004659810_004: II. Comments on Goldziher’s Seven Works | UNVERIFIED | VERIFIED |
 | `1746c258` | crossref.org | DOI 10.1163/ej.9789004172692.i-556.57: Chapter Seven. Changing Concepts Of Time | UNVERIFIED | VERIFIED |
 | `7769aa87` | crossref.org | DOI 10.1515/jncds-2025-0101: Analysis of reflected field amplitudes in a seven-spaced waveguide structure | UNVERIFIED | VERIFIED |
@@ -29,7 +29,7 @@ the hard gate of the corroboration law.
 | `4971e374` | crossref.org | DOI 10.3389/fnana.2022.1070035: Cell numbers in the reflected blade of CA3 and their relation to other hippocamp | UNVERIFIED | VERIFIED |
 | `404acb99` | crossref.org | DOI 10.1007/springerreference_23236: reflected ray | UNVERIFIED | VERIFIED |
 | `5e75815c` | crossref.org | DOI 10.3998/mpub.12734862.cmp.73666810t: Photograph of a rainbow reflected in water | UNVERIFIED | VERIFIED |
-| `112379d7` | crossref.org | DOI 10.1007/springerreference_23235: reflected code | UNVERIFIED | VERIFIED |
+| `d99ddbb0` | crossref.org | DOI 10.1007/s00334-015-0552-9: Seven Millennia of human impact as reflected in a high resolution pollen profile | UNVERIFIED | VERIFIED |
 | `bfc3c67a` | openalex.org | OpenAlex Genome-wide association study of 14,000 cases of seven common diseases [Genetic Associations and Epide] | UNVERIFIED | VERIFIED |
 | `d1640996` | openalex.org | OpenAlex Toward the future of psychiatric diagnosis: the seven pillars of RDoC [Mental Health and Psychiatry] | UNVERIFIED | VERIFIED |
 | `267ae5fc` | openalex.org | OpenAlex miRDeep2 accurately identifies known and hundreds of novel microRNA ge [MicroRNA in disease regulation] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `2e16b855` | openalex.org | OpenAlex The dri thermal/optical reflectance carbon analysis system: descriptio [Atmospheric chemistry and aero] | UNVERIFIED | VERIFIED |
 | `746bea9c` | openalex.org | OpenAlex Thyroid Cancer after Exposure to External Radiation: A Pooled Analysis [Radiation Dose and Imaging] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `57e475e3`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `85a53366`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

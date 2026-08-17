@@ -17,8 +17,8 @@ the hard gate of the corroboration law.
 | `0a545bb4` | zenodo.org | zenodo record 8410352: A robust vehicle detection model for LiDAR sensor using simulation data and tran | UNVERIFIED | VERIFIED |
 | `6927d3a0` | zenodo.org | zenodo record 15086240: The Recursive Vortex Algebra V and Magnetic Monopoles | UNVERIFIED | VERIFIED |
 | `f0041e74` | zenodo.org | zenodo record 1721140: Storm Waves of Cyclones | UNVERIFIED | VERIFIED |
-| `eb8f33f6` | zenodo.org | zenodo record 18840570: SINGLE-MODE VORTEX AS AN ELEMENTARY VORTEX GEOMETRIC STRUC-TURE OF AN IDEAL FLUI | UNVERIFIED | VERIFIED |
 | `cd24872e` | zenodo.org | zenodo record 8051925: DIY-Concert Ensemble Vortex- Works by Rama Gottfried, Alessandro Perini and Davi | UNVERIFIED | VERIFIED |
+| `eb8f33f6` | zenodo.org | zenodo record 18840570: SINGLE-MODE VORTEX AS AN ELEMENTARY VORTEX GEOMETRIC STRUC-TURE OF AN IDEAL FLUI | UNVERIFIED | VERIFIED |
 | `0d4a1ff2` | zenodo.org | zenodo record 2613490: Using Windows Server 2012-based storage solutions for small and medium size busi | UNVERIFIED | VERIFIED |
 | `3dc36950` | zenodo.org | zenodo record 21897002: THE TOPOLOGICAL ARCHITECTURE OF A VORTON LATTICE VACUUM Emergent Elasticity, Bor | UNVERIFIED | VERIFIED |
 | `67d4b5c8` | zenodo.org | zenodo record 2613471: Using Linux-based storage solutions for small and medium size business resources | UNVERIFIED | VERIFIED |
@@ -30,16 +30,8 @@ the hard gate of the corroboration law.
 | `25f4cf14` | crossref.org | DOI 10.1201/b20911-8: - Interactions Vortex-Vortex, Vortex-Defect and Vortex-Spin | UNVERIFIED | VERIFIED |
 | `4a877056` | crossref.org | DOI 10.28989/vortex.v1i1:  | UNVERIFIED | VERIFIED |
 | `b5823929` | crossref.org | DOI 10.28989/vortex.v2i2:  | UNVERIFIED | VERIFIED |
-| `3fb96419` | openalex.org | OpenAlex Vortex algebra by multiply cascaded four-wave mixing of femtosecond op [Advanced Fiber Laser Technolog] | UNVERIFIED | VERIFIED |
-| `2d3c205e` | openalex.org | OpenAlex Algebraic bright and vortex solitons in defocusing media [Nonlinear Waves and Solitons] | UNVERIFIED | VERIFIED |
-| `654b279d` | openalex.org | OpenAlex Isolated optical vortex knots [Orbital Angular Momentum in Op] | UNVERIFIED | VERIFIED |
-| `d57eb686` | openalex.org | OpenAlex Algebraic vortex liquid theory of a quantum antiferromagnet on the kag [Advanced Condensed Matter Phys] | UNVERIFIED | VERIFIED |
-| `fae5252a` | openalex.org | OpenAlex Synthesis and Dynamic Switching of Surface Plasmon Vortices with Plasm [Plasmonic and Surface Plasmon ] | UNVERIFIED | VERIFIED |
-| `4414db5f` | openalex.org | OpenAlex Algebraic bright and vortex solitons in self-defocusing media with spa [Nonlinear Photonic Systems] | UNVERIFIED | VERIFIED |
-| `6dd0d709` | openalex.org | OpenAlex Soliton algebra by vortex-beam splitting [Advanced Fiber Laser Technolog] | UNVERIFIED | VERIFIED |
-| `bdd5adbb` | openalex.org | OpenAlex Contributions to Vortex Particle Methods for the Computation of Three- [Fluid Dynamics Simulations and] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `64a3d4d5`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `b88f2147`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

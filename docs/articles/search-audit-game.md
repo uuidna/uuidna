@@ -14,13 +14,13 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `210763b0` | zenodo.org | zenodo record 21593230: Localisation Archive | UNVERIFIED | VERIFIED |
 | `63a11000` | zenodo.org | zenodo record 21592878: Open your Kit; Walkthrough Slideshow | UNVERIFIED | VERIFIED |
 | `4abf72a2` | zenodo.org | zenodo record 21593738: Facilitation Archive | UNVERIFIED | VERIFIED |
+| `210763b0` | zenodo.org | zenodo record 21593230: Localisation Archive | UNVERIFIED | VERIFIED |
 | `b6bc3040` | zenodo.org | zenodo record 21590598: Master Portfolio Record | UNVERIFIED | VERIFIED |
+| `8198bb9f` | zenodo.org | zenodo record 8118290: Micro-Credential Course of Audit Expectation Gap: Blaming Game, Fix the Audit Mi | UNVERIFIED | VERIFIED |
 | `8e9e0123` | zenodo.org | zenodo record 4763231: ENERGY SAVING IN COMPRESSOR DEVICES IN WASTEWATER TREATMENT FACILITIES | UNVERIFIED | VERIFIED |
 | `b29d544a` | zenodo.org | zenodo record 12791093: Micro-Credential Course of Audit Expectation Gap: Blaming Game, Fix the Audit Mi | UNVERIFIED | VERIFIED |
-| `8198bb9f` | zenodo.org | zenodo record 8118290: Micro-Credential Course of Audit Expectation Gap: Blaming Game, Fix the Audit Mi | UNVERIFIED | VERIFIED |
 | `2cb21036` | zenodo.org | zenodo record 17111801: Internal audit als witte zwaan | UNVERIFIED | VERIFIED |
 | `091e1591` | crossref.org | DOI 10.2139/ssrn.1531073: A Comparative Game Analysis on Limited Auditor Liability, Audit Quality, Audit R | UNVERIFIED | VERIFIED |
 | `e3c2cad1` | crossref.org | DOI 10.1016/s0960-2593(96)90049-x: Ungame banishes game playing | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `aa792358` | openalex.org | OpenAlex Joint Audit, Game Theory, and Impairment-Testing Disclosures [Auditing, Earnings Management,] | UNVERIFIED | VERIFIED |
 | `9461d29d` | openalex.org | OpenAlex Financial Statement Audits,a Game of Chicken? [Auditing, Earnings Management,] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `08b6dcc8`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `c99a853e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

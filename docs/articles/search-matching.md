@@ -19,9 +19,9 @@ the hard gate of the corroboration law.
 | `553e5ffe` | zenodo.org | zenodo record 20089436: Cost-Aware Evaluation of Large Language Models for Ambiguous Product Entity Matc | UNVERIFIED | VERIFIED |
 | `c5c93728` | zenodo.org | zenodo record 21704078: Flow Matching with von Mises-Fisher Posteriors: An Irreducibility Theorem | UNVERIFIED | VERIFIED |
 | `5ef7d002` | zenodo.org | zenodo record 7497305: HOROSCOPE MATCHING IS BETTER THAN 10 STARS MATCHING IN MARRIAGE MATCHING | UNVERIFIED | VERIFIED |
-| `748be65a` | zenodo.org | zenodo record 1243175: DominikVogel/matching-ids: First release of the matching IDs R-script | UNVERIFIED | VERIFIED |
 | `f352fc4d` | zenodo.org | zenodo record 7182820: ATEPP: A Dataset of Automatically Transcribed Expressive Piano Performance | UNVERIFIED | VERIFIED |
-| `58375ad5` | zenodo.org | zenodo record 7130091: Everything you wish you didn't have to know about metadata matching | UNVERIFIED | VERIFIED |
+| `748be65a` | zenodo.org | zenodo record 1243175: DominikVogel/matching-ids: First release of the matching IDs R-script | UNVERIFIED | VERIFIED |
+| `7c78c605` | zenodo.org | zenodo record 4562155: Solving the Catalogue Cross-Match Problem in the Era of LSST: The Effect of Unre | UNVERIFIED | VERIFIED |
 | `0af980d8` | crossref.org | DOI 10.1093/oso/9780195113679.003.0014: Tree Pattern Matching | UNVERIFIED | VERIFIED |
 | `790e72c4` | crossref.org | DOI 10.1093/oso/9780195113679.003.0012: Two Dimensional Matching | UNVERIFIED | VERIFIED |
 | `ece96141` | crossref.org | DOI 10.1007/s10751-026-02574-y: Cryogenics in the Dalian Advanced Light Source SRF Module Test Facility | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `7c968ed4` | openalex.org | OpenAlex Matching As An Econometric Evaluation Estimator [Statistical Methods and Infere] | UNVERIFIED | VERIFIED |
 | `afcb46ca` | openalex.org | OpenAlex Stereo Processing by Semiglobal Matching and Mutual Information [Advanced Vision and Imaging] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `9933f3a6`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `71e7f409`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -19,9 +19,9 @@ the hard gate of the corroboration law.
 | `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
 | `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
 | `7c4fb2ec` | zenodo.org | zenodo record 7439214: EI STFC Power of Light animation - introducing Big Questions and Diamond Light S | UNVERIFIED | VERIFIED |
+| `f0e5407e` | zenodo.org | zenodo record 16035072: Integrating Open Access Information into the Library Discovery System | UNVERIFIED | VERIFIED |
 | `3c3a523b` | zenodo.org | zenodo record 8161027: A Search Tool for Aggregated Information on Open Access | UNVERIFIED | VERIFIED |
 | `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
-| `f0e5407e` | zenodo.org | zenodo record 16035072: Integrating Open Access Information into the Library Discovery System | UNVERIFIED | VERIFIED |
 | `12b87b6d` | crossref.org | DOI 10.2210/pdb6i25/pdb: Flavin Analogue Sheds Light on Light-Oxygen-Voltage Domain Mechanism | UNVERIFIED | VERIFIED |
 | `d64bc395` | crossref.org | DOI 10.1117/12.2322964.5836075548001:  | UNVERIFIED | VERIFIED |
 | `dcb15794` | crossref.org | DOI 10.2172/1835675: Coherent light propagation through variable-density gas domain | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `62202ff8` | openalex.org | OpenAlex PAS: a multifunctional domain family comes to light [Light effects on plants] | UNVERIFIED | VERIFIED |
 | `4f89e73e` | openalex.org | OpenAlex Crystal Structure of a Vertebrate Smooth Muscle Myosin Motor Domain an [Cardiomyopathy and Myosin Stud] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `6f787460`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `7ad607cd`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

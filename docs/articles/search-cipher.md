@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The cipher & the strand
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The cipher & the strand* — the wing sealed in [lean/Cipher.lean](/lean/Cipher.lean) with **25 theorems**. Each
+asked in parallel about *The cipher & the strand* — the wing sealed in [lean/Cipher.lean](/lean/Cipher.lean) with **26 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -51,6 +51,7 @@ The sealed backing this trial held the findings beside:
 - [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) — `(List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d))`
 - [transport_leaks_length](/theorem/transport_leaks_length) — `((1 + 114) / 115 = 1) ∧ ((115 + 114) / 115 = 1) ∧ ((116 + 114) / 115 = 2) ∧ ((230 + 114) /`
 - [codons_four_cubed](/theorem/codons_four_cubed) — `4^3 = 64`
+- [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) — `(4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)`
 - [translation_is_lossy](/theorem/translation_is_lossy) — `4^3 > 21`
 - [affine_is_permutation](/theorem/affine_is_permutation) — `(List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y))`
 - [grover_quadratic_bound](/theorem/grover_quadratic_bound) — `(List.range 27).all (fun n => 2^n * 2^n == 2^(2*n))`
