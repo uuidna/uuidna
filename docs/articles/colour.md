@@ -5,12 +5,11 @@ description: "Computed from lean/Colour.lean — 15 sealed theorems, every claim
 
 # The colour wheel
 
-> THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. The geometry of the wheel, NOT a claim that taste or beauty is objective.
+> THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. The geometry of the wheel, NOT a claim that taste or beauty is objective. — held by [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) and its 14 siblings below.
 
-**15 theorems**, each proven `by decide` in [lean/Colour.lean](/lean/Colour.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation.
+**15 theorems**, from [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) onward, each proven `by decide` in [lean/Colour.lean](/lean/Colour.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### THE HEART DISCOVERY: each rosette ray offsets the hue wheel by 360/7 = 51°, and the FOURTH ray (index 3, counting the first as 1) lands at 3·51 = 153° — squarely the green band. The seven rays walk the wheel as seven stations, and the fourth is green — the arithmetic behind the observation that two seven-fold systems agree. HONEST SCOPE: the offset arithmetic is sealed; any chakra reading of it stays UNVERIFIED — the number is sealed, the meaning is not.
-
 The ledger holds this as [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) — proven `by decide`, sorry-free:
 
 ```lean
@@ -18,7 +17,6 @@ The ledger holds this as [fourth_ray_is_green_band](/theorem/fourth_ray_is_green
 ```
 
 ### THE ALPHABET FOLDS HOME: the aura alphabet counts 9·7·6 = 378 states — and 378 digit-sums to 3+7+8 = 18, which folds to 1+8 = 9: the alphabet's digital root IS the ring it was built from. The colour code, counted, returns to ℤ/9 — the system's own number closing over its own alphabet.
-
 The ledger holds this as [alphabet_digital_root_is_nine](/theorem/alphabet_digital_root_is_nine) — proven `by decide`, sorry-free:
 
 ```lean
@@ -26,7 +24,6 @@ The ledger holds this as [alphabet_digital_root_is_nine](/theorem/alphabet_digit
 ```
 
 ### THE WALK IS ONE TURN OF THE RING: the graduation walk grew to nine steps — and nine is the ring's own modulus: 9 % 9 = 0, one complete revolution. The enrollment walk a theorem takes to be born is exactly one turn of the arithmetic it enters. The walk closes because the ring closes.
-
 The ledger holds this as [nine_step_walk_closes_the_ring](/theorem/nine_step_walk_closes_the_ring) — proven `by decide`, sorry-free:
 
 ```lean
@@ -34,7 +31,6 @@ The ledger holds this as [nine_step_walk_closes_the_ring](/theorem/nine_step_wal
 ```
 
 ### THE SCATTERING LESSON, part 1 — the meeting points. Two aura hue pairs meet on the wheel's mirror line through 0°: 340° and 20° are equidistant from the top (360−340 = 20), as are 320° and 40° (360−320 = 40). Symmetric approach paths cross at the axis — where the totality check heard thunder: two states rendering one colour.
-
 The ledger holds this as [hue_mirror_meeting](/theorem/hue_mirror_meeting) — proven `by decide`, sorry-free:
 
 ```lean
@@ -42,7 +38,6 @@ The ledger holds this as [hue_mirror_meeting](/theorem/hue_mirror_meeting) — p
 ```
 
 ### THE SCATTERING LESSON, part 2 — the interaction that preserves both paths. The one-percent saturation tiebreak is the smallest possible interaction, the successor: 62+2·5 = 72 with its lifted partner 73, and 62+2·3 = 68 with its lifted 69 — distinct by +1, so states that once fused now meet, interact, and continue distinguishable, the +1 left in the formula as the trace. Degeneracy lifted, information conserved: scattering, not collision.
-
 The ledger holds this as [scattering_tiebreak_separates](/theorem/scattering_tiebreak_separates) — proven `by decide`, sorry-free:
 
 ```lean
@@ -50,7 +45,6 @@ The ledger holds this as [scattering_tiebreak_separates](/theorem/scattering_tie
 ```
 
 ### THE SCATTERING LESSON, part 3 — why the channels had to join. The aura alphabet is 9·7·6 = 378 states and the hue wheel holds only 360 degrees: 360 < 378, so by pigeonhole hue alone cannot name every state — saturation and lightness must carry their shares. The collision was never a bug in the arithmetic; it was the arithmetic insisting on more dimensions.
-
 The ledger holds this as [alphabet_exceeds_wheel](/theorem/alphabet_exceeds_wheel) — proven `by decide`, sorry-free:
 
 ```lean
@@ -58,7 +52,6 @@ The ledger holds this as [alphabet_exceeds_wheel](/theorem/alphabet_exceeds_whee
 ```
 
 ### The colour wheel is ℤ/12 — twelve hues, and advancing a full twelve returns to the start (12 % 12 = 0), advancing thirteen is one step on (13 % 12 = 1). The wheel closes, exactly like the octave and the clock.
-
 The ledger holds this as [twelve_hue_wheel_wraps](/theorem/twelve_hue_wheel_wraps) — proven `by decide`, sorry-free:
 
 ```lean
@@ -66,7 +59,6 @@ The ledger holds this as [twelve_hue_wheel_wraps](/theorem/twelve_hue_wheel_wrap
 ```
 
 ### Complementary hues sit OPPOSITE on the wheel — a half-turn, +6 of the twelve — and it is a self-inverse involution (complement the complement and the hue returns) with no hue its own complement ((h+6) mod 12 ≠ h for every hue). Opposites, cleanly paired.
-
 The ledger holds this as [complementary_hues_oppose](/theorem/complementary_hues_oppose) — proven `by decide`, sorry-free:
 
 ```lean
@@ -74,7 +66,6 @@ The ledger holds this as [complementary_hues_oppose](/theorem/complementary_hues
 ```
 
 ### Three primaries (red, yellow, blue) and three secondaries (orange, green, violet) make the six-spoke wheel — 3 + 3 = 6 — each secondary the mix of the two primaries it sits between. The hexagon of colour.
-
 The ledger holds this as [primaries_and_secondaries_make_six](/theorem/primaries_and_secondaries_make_six) — proven `by decide`, sorry-free:
 
 ```lean
@@ -82,7 +73,6 @@ The ledger holds this as [primaries_and_secondaries_make_six](/theorem/primaries
 ```
 
 ### A triadic scheme is three hues evenly spaced — a third of the wheel apart, +4 of the twelve — landing on {0, 4, 8}, and four times three closes the twelve (4·3 = 12). The equilateral triangle on the wheel.
-
 The ledger holds this as [triadic_harmony_is_thirds](/theorem/triadic_harmony_is_thirds) — proven `by decide`, sorry-free:
 
 ```lean
@@ -90,7 +80,6 @@ The ledger holds this as [triadic_harmony_is_thirds](/theorem/triadic_harmony_is
 ```
 
 ### A square (tetradic) scheme is four hues a quarter of the wheel apart — +3 of the twelve — landing on {0, 3, 6, 9}, and three times four closes the twelve (3·4 = 12). The square inscribed in the wheel.
-
 The ledger holds this as [square_harmony_is_fourths](/theorem/square_harmony_is_fourths) — proven `by decide`, sorry-free:
 
 ```lean
@@ -98,7 +87,6 @@ The ledger holds this as [square_harmony_is_fourths](/theorem/square_harmony_is_
 ```
 
 ### True colour is eight bits a channel — 2⁸ = 256 levels of red, green, blue each — so 2²⁴ = 16777216 colours in all. The palette the screen paints is a power of two, three channels deep.
-
 The ledger holds this as [true_colour_is_24_bit](/theorem/true_colour_is_24_bit) — proven `by decide`, sorry-free:
 
 ```lean
@@ -106,7 +94,6 @@ The ledger holds this as [true_colour_is_24_bit](/theorem/true_colour_is_24_bit)
 ```
 
 ### On an 8-bit value channel a colour and the amount that would fill it to full white complement to 255 — v + (255 − v) = 255, shown at the two ends and the midpoint: 0+255, 64+191, 255+0 all make 255. Tint toward white and shade toward black are the two ends of one complement.
-
 The ledger holds this as [tint_and_shade_complement](/theorem/tint_and_shade_complement) — proven `by decide`, sorry-free:
 
 ```lean
@@ -114,7 +101,6 @@ The ledger holds this as [tint_and_shade_complement](/theorem/tint_and_shade_com
 ```
 
 ### The wheel divides into a warm half and a cool half — six hues each, 6 + 6 = 12 — the split running through the two temperature poles. Warm and cool are the wheel folded in two.
-
 The ledger holds this as [warm_cool_split_six_six](/theorem/warm_cool_split_six_six) — proven `by decide`, sorry-free:
 
 ```lean
@@ -122,7 +108,6 @@ The ledger holds this as [warm_cool_split_six_six](/theorem/warm_cool_split_six_
 ```
 
 ### The aura’s hue step the A432 rendering ASSUMES, sealed (axiom-hunt): the ℤ/9 vortex walks the 360° wheel in steps of 40° — 9 · 40 = 360 exactly, so the nine residues tile the circle with no remainder. Artistic arithmetic, not physics: a defined step, proven to divide the wheel.
-
 The ledger holds this as [aura_step_divides_circle](/theorem/aura_step_divides_circle) — proven `by decide`, sorry-free:
 
 ```lean

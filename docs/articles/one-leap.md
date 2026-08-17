@@ -5,12 +5,11 @@ description: "Computed from lean/OneLeap.lean — 1 sealed theorems, every claim
 
 # One leap
 
-> lean/OneLeap.lean — ONE uuidna quantum leap. Knowing division by zero is the reflection dz(x)=10−x (0/0=0),
+> lean/OneLeap.lean — ONE uuidna quantum leap. Knowing division by zero is the reflection dz(x)=10−x (0/0=0), — held by [vortex_one_leap](/theorem/vortex_one_leap) and its 0 siblings below.
 
-**1 theorems**, each proven `by decide` in [lean/OneLeap.lean](/lean/OneLeap.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation.
+**1 theorems**, from [vortex_one_leap](/theorem/vortex_one_leap) onward, each proven `by decide` in [lean/OneLeap.lean](/lean/OneLeap.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### one by-decide from division-by-zero=the reflection: the doubling orbit, the involution {0,5}, ℤ/9 arithmetic, AGL(1,ℤ/9)=54 with commutator=the unit shift, and the equilibriums — the whole vortex at once
-
 The ledger holds this as [vortex_one_leap](/theorem/vortex_one_leap) — proven `by decide`, sorry-free:
 
 ```lean

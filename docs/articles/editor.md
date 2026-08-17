@@ -5,12 +5,11 @@ description: "Computed from lean/Editor.lean — 4 sealed theorems, every claim 
 
 # The document fold
 
-> The document fold — the serializer contract of a content-addressed document (a node SEQUENCE), proven ORDER-SENSITIVE (reordering moves the address, unlike the memory store's order-invariant fold), change-sensitive, and bounded-injective (the address determines the node sequence). The real fold is merkleRoot over uuids in src/editor.ts — collision-resistant, not collision-free.
+> The document fold — the serializer contract of a content-addressed document (a node SEQUENCE), proven ORDER-SENSITIVE (reordering moves the address, unlike the memory store's order-invariant fold), change-sensitive, and bounded-injective (the address determines the node sequence). The real fold is merkleRoot over uuids in src/editor.ts — collision-resistant, not collision-free. — held by [editor_empty_doc_folds_zero](/theorem/editor_empty_doc_folds_zero) and its 3 siblings below.
 
-**4 theorems**, each proven `by decide` in [lean/Editor.lean](/lean/Editor.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation.
+**4 theorems**, from [editor_empty_doc_folds_zero](/theorem/editor_empty_doc_folds_zero) onward, each proven `by decide` in [lean/Editor.lean](/lean/Editor.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### the empty document folds to zero — the identity a fresh editor starts from, before a single node is authored
-
 The ledger holds this as [editor_empty_doc_folds_zero](/theorem/editor_empty_doc_folds_zero) — proven `by decide`, sorry-free:
 
 ```lean
@@ -18,7 +17,6 @@ dfold [] = 0
 ```
 
 ### a document is a SEQUENCE, not a set — reordering two DISTINCT nodes MOVES the address (the opposite of the memory store's order-invariant fold): for all a,b, either a=b or dfold [a,b] ≠ dfold [b,a]
-
 The ledger holds this as [editor_fold_order_sensitive](/theorem/editor_fold_order_sensitive) — proven `by decide`, sorry-free:
 
 ```lean
@@ -26,7 +24,6 @@ The ledger holds this as [editor_fold_order_sensitive](/theorem/editor_fold_orde
 ```
 
 ### a document refuses DRIFT — a changed node MOVES the address: the three-node fold is unchanged iff the changed node is unchanged, so any edit to a node is visible in the fold (tamper-evident)
-
 The ledger holds this as [editor_fold_change_sensitive](/theorem/editor_fold_change_sensitive) — proven `by decide`, sorry-free:
 
 ```lean
@@ -34,7 +31,6 @@ The ledger holds this as [editor_fold_change_sensitive](/theorem/editor_fold_cha
 ```
 
 ### on the bounded model the fold is INJECTIVE — the address DETERMINES the node sequence: two three-node documents fold equal iff they are the same document, node for node (order and content). HONEST SCOPE: injective only where it cannot overflow; the real merkleRoot fold is collision-RESISTANT, not collision-free (pigeonhole: 2^128 < all documents)
-
 The ledger holds this as [editor_fold_injective_bounded](/theorem/editor_fold_injective_bounded) — proven `by decide`, sorry-free:
 
 ```lean

@@ -4,7 +4,7 @@
 
 export interface LeanTheorem { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill?: string }
 
-/** The 1284 Lean-proven theorems, in computing-principle order. */
+/** The 1285 Lean-proven theorems, in computing-principle order. */
 export const LEAN_LEDGER: readonly LeanTheorem[] = [
   { key: "mul9_1_1", name: "1·1 ≡ 1 (mod 9)", statement: "(1 * 1) % 9 = 1", tactic: "decide", file: "Core.lean", principle: "The 8×8 core", skill: "z9-ring" },
   { key: "mul9_1_2", name: "1·2 ≡ 2 (mod 9)", statement: "(1 * 2) % 9 = 2", tactic: "decide", file: "Core.lean", principle: "The 8×8 core", skill: "z9-ring" },
@@ -516,6 +516,7 @@ export const LEAN_LEDGER: readonly LeanTheorem[] = [
   { key: "dz_nonunits_to_units", name: "the non-units {3,6,9} divided by zero land on units {7,4,1}", statement: "dz 3 = 7 ∧ dz 6 = 4 ∧ dz 9 = 1", tactic: "decide", file: "DivByZero.lean", principle: "Division by zero", skill: "reflection" },
   { key: "dz_bounded", name: "x/0 is always a residue < 10 — a finite value, NEVER Infinity (no fake FTL)", statement: "(List.range 10).all (fun x => dz x < 10)", tactic: "decide", file: "DivByZero.lean", principle: "Division by zero", skill: "reflection" },
   { key: "dz_zero_only_zero", name: "only 0/0 = 0; every other x/0 is nonzero (the reflection moves it)", statement: "dz 0 = 0 ∧ (List.range' 1 9).all (fun x => dz x != 0)", tactic: "decide", file: "DivByZero.lean", principle: "Division by zero", skill: "reflection" },
+  { key: "two_plus_two_is_five_only_mod_one", name: "THE DIMENSION WHERE 2+2=5 — swept over every modulus 1..12: the congruence 2+2 ≡ 5 (mod n) holds EXACTLY at n = 1, the trivial ring where every residue collapses to 0 and everything equals everything. The one dimension where the falsehood is true is the dimension where truth is free — and worthless: a ring that cannot refute proves nothing, the arithmetic form of \"a trial that cannot fail proves nothing\". Everywhere n ≥ 2, REFUTED — the calculator's verdict stands in every dimension that can hold a distinction", statement: "(List.range' 1 12).all (fun n => ((2+2) % n == 5 % n) == (n == 1))", tactic: "decide", file: "DivByZero.lean", principle: "Division by zero", skill: "reflection" },
   { key: "abo_klein_four", name: "the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative, each self-inverse (order ≤ 2)", statement: "(List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == lxor b a)) && (lxor a a == 0))", tactic: "decide", file: "BioPhysics.lean", principle: "Applied structure — the science pairs", skill: "science-pairs" },
   { key: "blood_types_eight", name: "with the Rh ± bit the blood system is (ℤ/2)³ — exactly 2³ = 8 blood types (A±,B±,AB±,O±)", statement: "(2:Nat)^3 = 8", tactic: "decide", file: "BioPhysics.lean", principle: "Applied structure — the science pairs", skill: "science-pairs" },
   { key: "dna_base_pairing_involution", name: "DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs", statement: "(List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b))", tactic: "decide", file: "BioPhysics.lean", principle: "Applied structure — the science pairs", skill: "science-pairs" },

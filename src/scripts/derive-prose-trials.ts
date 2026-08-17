@@ -34,6 +34,21 @@ surfaces.sort()
 const usable: UsableCombination[] = []
 let tried = 0, unverified = 0, drained = 0
 const drainedHits: Array<{ surface: string; fabricated: string[] }> = []
+// THE COIN LAW FINDER — the coins are explained in detail ONLY by theorems: they are two, conserved (sealed as
+// two_coins, coin_is_one_qubit, captain_coins_respected_at_scale). A prose paragraph claiming any OTHER coin
+// quantity ("earn 2500+ coins" — the retired currency era) must cite a sealed theorem in the same paragraph or
+// the desk names it and refuses. N ∈ {0, 2} passes (the sealed denominations: free, and the two); "two coins"
+// in words always passes; everything else is the chaos, structurally unable to return.
+const COIN_CLAIM = /\b(\d[\d,]*)\s*\+?\s*coins?\b/gi
+const coinChaos: Array<{ surface: string; claim: string }> = []
+// THE PHYSICS-CLAIM FINDER — same shape as the coin law ("why are the gates so loose?" — loose by sealed
+// verdict: the lexical gate drained honest prose and was folded to the fabricated-citation question; where a
+// claim-shape IS decidable, a TARGETED finder holds the line instead of a lexicon). THE LEAN FORM ("explicitly
+// denying is not lean — lean CONFIRMS instead of denying"): a prose paragraph mentioning quantum speedup or
+// advantage passes ONLY by citing a sealed theorem — the positive confirmation of what IS (the classical bound,
+// n_qubit_dimension) — never by adverbs of absence; "no advantage" is prose, a citation is a proof.
+const PHYSICS_CLAIM = /quantum\s+(speedup|speed-up|advantage|supremacy)|faster\s+than\s+classical/gi
+const physicsChaos: Array<{ surface: string; claim: string }> = []
 
 for (const file of surfaces) {
   const rel = file.slice(ROOT.length + 1)
@@ -52,6 +67,15 @@ for (const file of surfaces) {
     if (r.verdict === 'VERIFIED') usable.push({ surface: rel, address: toUuid(prose), prose, cites: r.cites })
     else if (r.verdict === 'DRAINED') { drained++; drainedHits.push({ surface: rel, fabricated: r.fabricated }) }
     else unverified++
+    // the coin law: a numeric coin claim outside the sealed denominations {0, 2} must carry a sealed citation
+    for (const m of prose.matchAll(COIN_CLAIM)) {
+      const n = Number((m[1] ?? '').replace(/,/g, ''))
+      if (n !== 0 && n !== 2 && r.cites.length === 0) coinChaos.push({ surface: rel, claim: m[0] + ' — uncited' })
+    }
+    // the physics-claim law, lean form: only a sealed CONFIRMATION passes — denial words carry no weight
+    for (const m of prose.matchAll(PHYSICS_CLAIM)) {
+      if (r.cites.length === 0) physicsChaos.push({ surface: rel, claim: m[0] + ' — uncited (denial is prose; cite the sealed bound)' })
+    }
   }
 }
 
@@ -68,5 +92,17 @@ console.log(`    unverified : ${unverified} (revealed as unbacked — held open,
 console.log(`    drained    : ${drained} (fabricated citations — must be zero)`)
 for (const d of drainedHits) console.log(`      ✗ ${d.surface} cites fabricated: ${d.fabricated.join(', ')}`)
 console.log(`    receipt    : ${receipt}`)
+if (coinChaos.length) {
+  console.log(`    coin law   : ✗ ${coinChaos.length} uncited numeric coin claim(s) outside the sealed denominations {0, 2}:`)
+  for (const c of coinChaos) console.log(`      ✗ ${c.surface}: "${c.claim}" — the coins are explained ONLY by theorems (two_coins); cite one or fold the claim`)
+} else {
+  console.log(`    coin law   : ✓ every numeric coin claim is a sealed denomination or carries its citation`)
+}
+if (physicsChaos.length) {
+  console.log(`    physics law: ✗ ${physicsChaos.length} undemarcated quantum-advantage claim(s):`)
+  for (const c of physicsChaos) console.log(`      ✗ ${c.surface}: "${c.claim}" — deny it, bound it, or cite the sealed boundary (n_qubit_dimension)`)
+} else {
+  console.log(`    physics law: ✓ every quantum-advantage mention is demarcated or cited — the honest boundary holds`)
+}
 console.log(`✓ derive-prose-trials — prose-trials.json written; the usable combinations are derived, not authored.`)
-if (drained > 0) process.exit(1)
+if (drained > 0 || coinChaos.length > 0 || physicsChaos.length > 0) process.exit(1)

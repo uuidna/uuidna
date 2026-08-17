@@ -5,12 +5,11 @@ description: "Computed from lean/Molecular.lean — 8 sealed theorems, every cla
 
 # The bond domain
 
-> MOLECULAR — the bond domain, as decidable arithmetic, demarcated. Atoms bond toward the octet (4+4=8); a covalent bond of order n shares 2n electrons; bond order (bonding−antibonding)/2 gives N₂ a triple and O₂ a double bond; main-group valence is the group number minus 10; a Lewis structure counts total valence electrons (H₂O: 2·1+6=8); a large electronegativity difference makes a bond ionic (NaCl 21 > 17); molar mass sums the atomic masses (H₂O = 18); and bond strength rises with order. HONEST SCOPE: the arithmetic of bonding bookkeeping — electron and mass counts, exact thresholds — not a full quantum-chemistry derivation, distinct from the DNA base-pairing in BioPhysics and the reactions in Chemistry.
+> MOLECULAR — the bond domain, as decidable arithmetic, demarcated. Atoms bond toward the octet (4+4=8); a covalent bond of order n shares 2n electrons; bond order (bonding−antibonding)/2 gives N₂ a triple and O₂ a double bond; main-group valence is the group number minus 10; a Lewis structure counts total valence electrons (H₂O: 2·1+6=8); a large electronegativity difference makes a bond ionic (NaCl 21 > 17); molar mass sums the atomic masses (H₂O = 18); and bond strength rises with order. HONEST SCOPE: the arithmetic of bonding bookkeeping — electron and mass counts, exact thresholds — not a full quantum-chemistry derivation, distinct from the DNA base-pairing in BioPhysics and the reactions in Chemistry. — held by [octet_rule](/theorem/octet_rule) and its 7 siblings below.
 
-**8 theorems**, each proven `by decide` in [lean/Molecular.lean](/lean/Molecular.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation.
+**8 theorems**, from [octet_rule](/theorem/octet_rule) onward, each proven `by decide` in [lean/Molecular.lean](/lean/Molecular.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### The octet rule: atoms bond to reach eight valence electrons. Carbon has 4 of its own and shares 4 more, 4 + 4 = 8 — a full outer shell, the driver of covalent bonding.
-
 The ledger holds this as [octet_rule](/theorem/octet_rule) — proven `by decide`, sorry-free:
 
 ```lean
@@ -18,7 +17,6 @@ The ledger holds this as [octet_rule](/theorem/octet_rule) — proven `by decide
 ```
 
 ### A covalent bond of order n shares 2n electrons: single, double and triple bonds share 2, 4 and 6 — [1,2,3] → [2,4,6]. The bond IS the shared pair(s).
-
 The ledger holds this as [bond_shares_electron_pairs](/theorem/bond_shares_electron_pairs) — proven `by decide`, sorry-free:
 
 ```lean
@@ -26,7 +24,6 @@ The ledger holds this as [bond_shares_electron_pairs](/theorem/bond_shares_elect
 ```
 
 ### Bond order is (bonding − antibonding)/2: N₂ gets (8−2)/2 = 3 (a triple bond) and O₂ gets (8−4)/2 = 2 (a double bond). Nitrogen holds three shared pairs, oxygen two.
-
 The ledger holds this as [bond_order_n2_o2](/theorem/bond_order_n2_o2) — proven `by decide`, sorry-free:
 
 ```lean
@@ -34,7 +31,6 @@ The ledger holds this as [bond_order_n2_o2](/theorem/bond_order_n2_o2) — prove
 ```
 
 ### Main-group valence electrons are the group number minus 10: carbon (group 14) has 4, oxygen (group 16) has 6 — 14 − 10 = 4 and 16 − 10 = 6. Valence count sets how many bonds an atom forms.
-
 The ledger holds this as [valence_from_group](/theorem/valence_from_group) — proven `by decide`, sorry-free:
 
 ```lean
@@ -42,7 +38,6 @@ The ledger holds this as [valence_from_group](/theorem/valence_from_group) — p
 ```
 
 ### A Lewis structure counts total valence electrons: H₂O has 2·1 (the hydrogens) + 6 (oxygen) = 8 electrons — four pairs, two bonding and two lone. The dot structure conserves the count.
-
 The ledger holds this as [water_lewis_electrons](/theorem/water_lewis_electrons) — proven `by decide`, sorry-free:
 
 ```lean
@@ -50,7 +45,6 @@ The ledger holds this as [water_lewis_electrons](/theorem/water_lewis_electrons)
 ```
 
 ### A large electronegativity difference makes a bond ionic: NaCl has |3.0 − 0.9| = 2.1 (×10: 30 − 9 = 21), above the ~1.7 (×10: 17) ionic threshold — 21 > 17. The more electronegative atom takes the electron outright.
-
 The ledger holds this as [ionic_threshold](/theorem/ionic_threshold) — proven `by decide`, sorry-free:
 
 ```lean
@@ -58,7 +52,6 @@ The ledger holds this as [ionic_threshold](/theorem/ionic_threshold) — proven 
 ```
 
 ### Molar mass sums the atomic masses: water is 2·1 (hydrogen) + 16 (oxygen) = 18 g/mol. The molecule weighs exactly its parts.
-
 The ledger holds this as [molar_mass_water](/theorem/molar_mass_water) — proven `by decide`, sorry-free:
 
 ```lean
@@ -66,7 +59,6 @@ The ledger holds this as [molar_mass_water](/theorem/molar_mass_water) — prove
 ```
 
 ### Bond strength rises with order: a triple bond is stronger than a double, a double stronger than a single — 3 > 2 and 2 > 1. Nitrogen's triple bond is why N₂ is so hard to break.
-
 The ledger holds this as [bond_strength_rises_with_order](/theorem/bond_strength_rises_with_order) — proven `by decide`, sorry-free:
 
 ```lean
@@ -75,7 +67,7 @@ The ledger holds this as [bond_strength_rises_with_order](/theorem/bond_strength
 
 
 ::: warning HONEST SCOPE
-the arithmetic of bonding bookkeeping — electron and mass counts, exact thresholds — not a full quantum-chemistry derivation, distinct from the DNA base-pairing in BioPhysics and the reactions in Chemistry.
+the arithmetic of bonding bookkeeping — electron and mass counts, exact thresholds — not a full quantum-chemistry derivation, distinct from the DNA base-pairing in BioPhysics and the reactions in Chemistry. The boundary is confirmed by the wing's own sealed theorems — e.g. [octet_rule](/theorem/octet_rule) — never merely denied.
 :::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

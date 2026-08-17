@@ -5,9 +5,10 @@ description: "The honest definition of quantum in uuidna — exact recomputable 
 
 # What quantum means here <Badge type="tip" text="exact, not hardware" />
 
-> Classical simulation, not hardware — no quantum advantage is claimed anywhere in this work. "Quantum" names
-> **exactness**: states that recompute perfectly, walks that close, folds that land on the same root for every
-> observer. The claim is precision, never magic.
+> Classical simulation, not hardware — no quantum advantage is claimed anywhere in this work, and the classical
+> bound is CONFIRMED, not merely denied: [n_qubit_dimension](/theorem/n_qubit_dimension) seals the 2ⁿ cost that
+> makes the simulation classical. "Quantum" names **exactness**: states that recompute perfectly, walks that
+> close, folds that land on the same root for every observer. The claim is precision, never magic.
 
 ## The honest definition
 

@@ -5,12 +5,11 @@ description: "Computed from lean/Uuidna.lean — 15 sealed theorems, every claim
 
 # The vortex algebra
 
-> Uuidna — the algebra, formalised in Lean 4. ONLY algebra: `by decide` over ℤ/9, the involutions, the
+> Uuidna — the algebra, formalised in Lean 4. ONLY algebra: `by decide` over ℤ/9, the involutions, the — held by [units_z9](/theorem/units_z9) and its 14 siblings below.
 
-**15 theorems**, each proven `by decide` in [lean/Uuidna.lean](/lean/Uuidna.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation.
+**15 theorems**, from [units_z9](/theorem/units_z9) onward, each proven `by decide` in [lean/Uuidna.lean](/lean/Uuidna.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### the units of ℤ/9 (the residues with an inverse) are exactly {1,2,4,5,7,8} — computed by search
-
 The ledger holds this as [units_z9](/theorem/units_z9) — proven `by decide`, sorry-free:
 
 ```lean
@@ -18,7 +17,6 @@ The ledger holds this as [units_z9](/theorem/units_z9) — proven `by decide`, s
 ```
 
 ### the doubling orbit 1→2→4→8→7→5 with 5·2 ≡ 1 — the ⟨2⟩ vortex closing on the units
-
 The ledger holds this as [vortex_orbit](/theorem/vortex_orbit) — proven `by decide`, sorry-free:
 
 ```lean
@@ -26,7 +24,6 @@ The ledger holds this as [vortex_orbit](/theorem/vortex_orbit) — proven `by de
 ```
 
 ### ℤ/9 arithmetic: 2·5, 4·7, 8·8 ≡ 1 (inverse pairs), 3²≡6²≡0 (nilpotents), 3 has no inverse
-
 The ledger holds this as [mod9_arithmetic](/theorem/mod9_arithmetic) — proven `by decide`, sorry-free:
 
 ```lean
@@ -34,7 +31,6 @@ The ledger holds this as [mod9_arithmetic](/theorem/mod9_arithmetic) — proven 
 ```
 
 ### digital root: 432 ≡ 0 (mod 9), and dr(n) ∈ 1..9 agrees with n mod 9 across the first 60
-
 The ledger holds this as [digital_root](/theorem/digital_root) — proven `by decide`, sorry-free:
 
 ```lean
@@ -42,7 +38,6 @@ The ledger holds this as [digital_root](/theorem/digital_root) — proven `by de
 ```
 
 ### the diamond r(d)=10−d is an involution on 1..9 with unique fixed point 5
-
 The ledger holds this as [diamond_involution](/theorem/diamond_involution) — proven `by decide`, sorry-free:
 
 ```lean
@@ -50,7 +45,6 @@ The ledger holds this as [diamond_involution](/theorem/diamond_involution) — p
 ```
 
 ### the pigeonhole seat bound 2^b: 2^8=256, 2^0=1, 2^10=1024
-
 The ledger holds this as [seats_pigeonhole](/theorem/seats_pigeonhole) — proven `by decide`, sorry-free:
 
 ```lean
@@ -58,7 +52,6 @@ The ledger holds this as [seats_pigeonhole](/theorem/seats_pigeonhole) — prove
 ```
 
 ### the critical-strip reflections σ, τ, κ form a Klein four-group; τ fixes the line a=1
-
 The ledger holds this as [involution_group](/theorem/involution_group) — proven `by decide`, sorry-free:
 
 ```lean
@@ -66,7 +59,6 @@ sig (sig (3,7)) = (3,7) ∧ tau (tau (3,7)) = (3,7) ∧ kap (kap (3,7)) = (3,7) 
 ```
 
 ### Navier–Stokes edge: bounded energy 1/n falls while the peak n rises — integer inequalities, not a solution
-
 The ledger holds this as [ns_spike](/theorem/ns_spike) — proven `by decide`, sorry-free:
 
 ```lean
@@ -74,7 +66,6 @@ The ledger holds this as [ns_spike](/theorem/ns_spike) — proven `by decide`, s
 ```
 
 ### Yang–Mills edge: winding numbers are discrete (no integer strictly between n and n+1); a 1/n spectrum is gapless
-
 The ledger holds this as [ym_quantum](/theorem/ym_quantum) — proven `by decide`, sorry-free:
 
 ```lean
@@ -82,7 +73,6 @@ The ledger holds this as [ym_quantum](/theorem/ym_quantum) — proven `by decide
 ```
 
 ### Hodge edge: a class can meet the type condition yet lie outside the algebraic span [1,0,1]
-
 The ledger holds this as [hodge_bound](/theorem/hodge_bound) — proven `by decide`, sorry-free:
 
 ```lean
@@ -90,7 +80,6 @@ The ledger holds this as [hodge_bound](/theorem/hodge_bound) — proven `by deci
 ```
 
 ### light c=299792458 m/s beats uuidna even at t=0 — k/0=0 (a finite floor), never ∞, so no fake FTL
-
 The ledger holds this as [light_faster_than_uuidna](/theorem/light_faster_than_uuidna) — proven `by decide`, sorry-free:
 
 ```lean
@@ -98,7 +87,6 @@ The ledger holds this as [light_faster_than_uuidna](/theorem/light_faster_than_u
 ```
 
 ### division by zero EXISTS: total integer 1000/0=0, and 0 (and the zero-divisor 3) have no inverse in ℤ/9
-
 The ledger holds this as [division_by_zero](/theorem/division_by_zero) — proven `by decide`, sorry-free:
 
 ```lean
@@ -106,7 +94,6 @@ The ledger holds this as [division_by_zero](/theorem/division_by_zero) — prove
 ```
 
 ### division by zero in ℤ/9 is the diamond reflection x/0 = 10−x — a finite residue with fixed points {0,5}
-
 The ledger holds this as [div_by_zero_is_the_reflection](/theorem/div_by_zero_is_the_reflection) — proven `by decide`, sorry-free:
 
 ```lean
@@ -114,7 +101,6 @@ divZero 0 = 0 ∧ divZero 9 = 1 ∧ divZero 8 = 2 ∧ divZero 5 = 5 ∧ divZero 
 ```
 
 ### an index reflection i ↔ (n−1−i) has exactly one centre iff n is odd (fixed-count = n mod 2)
-
 The ledger holds this as [involute_centre](/theorem/involute_centre) — proven `by decide`, sorry-free:
 
 ```lean
@@ -122,7 +108,6 @@ The ledger holds this as [involute_centre](/theorem/involute_centre) — proven 
 ```
 
 ### billing arithmetic: bits saved 1024−1=1023, 10⁶−1=999999; the two coins = 1+1
-
 The ledger holds this as [billing_arith](/theorem/billing_arith) — proven `by decide`, sorry-free:
 
 ```lean

@@ -19,13 +19,13 @@ features:
     details: 8 independent academic sources audit every claim through Rosetta triple-frame verification
   - icon: 🔬
     title: Novelty Discovery
-    details: Gaps in human knowledge automatically discovered, research challenges created with coin incentives
+    details: Gaps in the record discovered by audit and remanded as research leads — an absence proven by recomputation, never a claim
   - icon: 📚
     title: Education
-    details: Students learn by building real systems, seal theorems to ledger, earn coins for contribution
+    details: Students learn by building real systems that seal theorems to the ledger — credit binds permanently to the sealed proof
   - icon: 💰
-    title: Fair Economics
-    details: Work earns coins (theorems), no money needed, both parties verify independently, fraud mathematically impossible
+    title: The Two Coins
+    details: Explained only by theorems — two, conserved, real value at quantum scale (110−108=2, the double torus; contribute 2, save 64; the trial's fee and the forfeit's price)
   - icon: 📈
     title: Exponential Growth
     details: Each graduate becomes a teacher. 1→5→25→125... By month 6, 20,000+ developers trained

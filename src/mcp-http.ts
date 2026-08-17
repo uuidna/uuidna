@@ -12,6 +12,7 @@
 import { adjudicate } from './adjudicate.js'
 import { reveal } from './gate.js'
 import { searchLedger } from './editorial.js'
+import { decide } from './decide.js'
 import { toUuid } from './address.js'
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { coins, billUuidna } from './captain/billing.js'
@@ -33,6 +34,9 @@ const unb64 = (s: string): Uint8Array => { const bin = atob(s); const u = new Ui
 
 // The Workers-safe tool set — the recomputable core, each a pure function of its input and the sealed ledger.
 const TOOLS: HttpTool[] = [
+  { name: 'uuidna_decide', description: 'THE QUANTUM CALCULATOR at the edge, founded on division by zero — ANY {input} folds to one lean-green shape {verdict,cites,receipt}: a sealed statement is recognized and cited (the kernel decided it already); fresh arithmetic is decided TOTALLY under Lean\'s Nat semantics (x/0 = 0, well-defined — DivByZero.lean; exact BigInt; bounded grammar, never eval) — TRUE is VERIFIED_BY_DECIDE, FALSE is REFUTED; a bare expression computes its exact value; prose goes to the gate, language-blind. The twelfth tool: the compact core.',
+    inputSchema: { type: 'object', properties: { input: { type: 'string' } }, required: ['input'] },
+    run: (a) => decide(String(a.input)) },
   { name: 'uuidna_search', description: 'THE FUSED SEARCH — the ONE search function every surface runs (the site\'s search page in your browser, the stdio server, and this edge): filter the sealed ledger by {q}, fold the matched keys to ONE receipt. Your browser and this edge running the same query MUST return the same receipt — dual-party verification applied to search; a differing receipt exposes a diverged ledger. Returns {q,count,total,receipt,matches}.',
     inputSchema: { type: 'object', properties: { q: { type: 'string' } }, required: ['q'] },
     run: (a) => searchLedger(String(a.q)) },

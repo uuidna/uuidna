@@ -69,7 +69,7 @@ ${ledger
 
 **Backing theorems (${e.backing.length}):**
 
-${e.backing.map((t) => `- **${t.key}** — "${t.name}"\n  - File: ${t.file}\n  - Statement: \`${t.statement.substring(0, 120)}...\``).join('\n')}
+${e.backing.map((t) => `- **[${t.key}](/theorem/${t.key})** — "${t.name}"\n  - File: ${t.file}\n  - Statement: \`${t.statement.substring(0, 120)}...\``).join('\n')}
 `
   )
   .join('\n')}

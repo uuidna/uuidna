@@ -5,12 +5,11 @@ description: "Computed from lean/Report.lean — 8 sealed theorems, every claim 
 
 # The report
 
-> THE REPORT — the reporter's METHOD as decidable arithmetic: the six questions, a chronological timeline, corroboration by two reputable sources, trinity editing, full-quorum publication, the inverted pyramid, and the VERIFIED/UNVERIFIED verdict on every claim. The discipline of reporting PROVEN discoveries, NOT a claim uuidna verifies world events.
+> THE REPORT — the reporter's METHOD as decidable arithmetic: the six questions, a chronological timeline, corroboration by two reputable sources, trinity editing, full-quorum publication, the inverted pyramid, and the VERIFIED/UNVERIFIED verdict on every claim. The discipline of reporting PROVEN discoveries, NOT a claim uuidna verifies world events. — held by [five_ws_and_one_h](/theorem/five_ws_and_one_h) and its 7 siblings below.
 
-**8 theorems**, each proven `by decide` in [lean/Report.lean](/lean/Report.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation.
+**8 theorems**, from [five_ws_and_one_h](/theorem/five_ws_and_one_h) onward, each proven `by decide` in [lean/Report.lean](/lean/Report.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### A complete report answers SIX questions — who, what, when, where, why, and how: the five W's plus the one H, 5 + 1 = 6. Miss one and the story has a hole a reader can fall through.
-
 The ledger holds this as [five_ws_and_one_h](/theorem/five_ws_and_one_h) — proven `by decide`, sorry-free:
 
 ```lean
@@ -18,7 +17,6 @@ The ledger holds this as [five_ws_and_one_h](/theorem/five_ws_and_one_h) — pro
 ```
 
 ### A confirmed timeline is ORDERED in time — the events run 0,1,2,3,4,5, strictly ascending, each after the last. Diving deep means confirming the sequence, not just the facts: a reordered timeline is a different, unconfirmed story.
-
 The ledger holds this as [timeline_is_chronological](/theorem/timeline_is_chronological) — proven `by decide`, sorry-free:
 
 ```lean
@@ -26,7 +24,6 @@ The ledger holds this as [timeline_is_chronological](/theorem/timeline_is_chrono
 ```
 
 ### A fact needs TWO independent reputable sources — one source is uncorroborated (1 < 2), and a second that agrees lifts it over the bar. A single source is a lead, not yet a report.
-
 The ledger holds this as [corroboration_needs_two](/theorem/corroboration_needs_two) — proven `by decide`, sorry-free:
 
 ```lean
@@ -34,7 +31,6 @@ The ledger holds this as [corroboration_needs_two](/theorem/corroboration_needs_
 ```
 
 ### Trinity editing is THREE independent passes — reporter, editor, and a third check — 1 + 1 + 1 = 3, the same trinity the ledger folds in. One writer's certainty is not an edit; three eyes catch what one misses.
-
 The ledger holds this as [trinity_edit_is_three](/theorem/trinity_edit_is_three) — proven `by decide`, sorry-free:
 
 ```lean
@@ -42,7 +38,6 @@ The ledger holds this as [trinity_edit_is_three](/theorem/trinity_edit_is_three)
 ```
 
 ### Full quorum on a trinity is unanimity — all three agree (2 + 1 = 3) — and even a majority is two against one (2 > 1). Publication waits for the quorum; a split is a story still being reported.
-
 The ledger holds this as [full_quorum_of_three](/theorem/full_quorum_of_three) — proven `by decide`, sorry-free:
 
 ```lean
@@ -50,7 +45,6 @@ The ledger holds this as [full_quorum_of_three](/theorem/full_quorum_of_three) �
 ```
 
 ### A report ships only when verified AND trinity-audited AND quorate — the AND of the three, so any one failing blocks it: (true∧true∧true) publishes, (true∧true∧false) does not. The same audit-before-publish uuidna runs on its own notes.
-
 The ledger holds this as [publish_gate_is_conjunction](/theorem/publish_gate_is_conjunction) — proven `by decide`, sorry-free:
 
 ```lean
@@ -58,7 +52,6 @@ The ledger holds this as [publish_gate_is_conjunction](/theorem/publish_gate_is_
 ```
 
 ### The inverted pyramid puts the most vital fact first and descends — importance 5,4,3,2,1 — so a reader who stops early still has the heart of it, and an editor can cut from the bottom without losing the lede.
-
 The ledger holds this as [inverted_pyramid_descends](/theorem/inverted_pyramid_descends) — proven `by decide`, sorry-free:
 
 ```lean
@@ -66,7 +59,6 @@ The ledger holds this as [inverted_pyramid_descends](/theorem/inverted_pyramid_d
 ```
 
 ### Every claim in the report carries one of TWO honest verdicts — VERIFIED (it cites a checkable source or proof) or UNVERIFIED (held open) — the same binary uuidna's trial gives: an unverified claim is never asserted as fact and never called false, it is reported AS unverified, or held until a source confirms it.
-
 The ledger holds this as [a_claim_is_verified_or_unverified](/theorem/a_claim_is_verified_or_unverified) — proven `by decide`, sorry-free:
 
 ```lean

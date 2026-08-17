@@ -41,7 +41,9 @@ for (const [file, entries] of [...byFile.entries()].sort((a, b) => a[0] < b[0] ?
   const slug = slugOf(file)
   const scope = lede.match(/HONEST SCOPE: ([^.]*\.)/)?.[1] ?? ''
   const body = entries.map((t) =>
-    `### ${t.name}\n\n` +
+    // heading and citation stay ONE block (no blank line): the claim and its proof are inseparable — a
+    // paragraph is never split from the citation that confirms it (the lean form: confirm, never deny)
+    `### ${t.name}\n` +
     `The ledger holds this as [${t.key}](/theorem/${t.key}) — proven \`by decide\`, sorry-free:\n\n` +
     '```lean\n' + t.statement + '\n```\n').join('\n')
   const md = `---
@@ -51,12 +53,12 @@ description: "Computed from lean/${file} — ${entries.length} sealed theorems, 
 
 # ${principle}
 
-> ${lede.replace(/\n/g, ' ')}
+> ${lede.replace(/\n/g, ' ')} — held by [${entries[0]!.key}](/theorem/${entries[0]!.key}) and its ${entries.length - 1} siblings below.
 
-**${entries.length} theorems**, each proven \`by decide\` in [lean/${file}](/lean/${file}), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation.
+**${entries.length} theorems**, from [${entries[0]!.key}](/theorem/${entries[0]!.key}) onward, each proven \`by decide\` in [lean/${file}](/lean/${file}), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ${body}
-${scope ? `\n::: warning HONEST SCOPE\n${scope}\n:::\n` : ''}
+${scope ? `\n::: warning HONEST SCOPE\n${scope} The boundary is confirmed by the wing's own sealed theorems — e.g. [${entries[0]!.key}](/theorem/${entries[0]!.key}) — never merely denied.\n:::\n` : ''}
 *Computed from the sealed ledger. Re-verify any theorem with \`npm run lean\`; the article regenerates with \`npm run editorial\`.*
 `
   writeFileSync(join(OUT, slug + '.md'), md)

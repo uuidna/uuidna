@@ -5,12 +5,11 @@ description: "Computed from lean/Navigation.lean — 5 sealed theorems, every cl
 
 # Navigation — bounded geometry
 
-> NAVIGATION — bounded geometry, demarcated. Straight-line distance is Pythagorean (3-4-5), the compass rose is ℤ/8 (eight 45° headings, 8·45 = 360), the reciprocal bearing is +4 (180°, an involution), a quarter turn is +2 (order 4), and dead reckoning is the vector sum of the legs. HONEST SCOPE: the decidable algebra of classical navigation — not GPS-grade guidance and not a positioning claim about any individual, just the geometry.
+> NAVIGATION — bounded geometry, demarcated. Straight-line distance is Pythagorean (3-4-5), the compass rose is ℤ/8 (eight 45° headings, 8·45 = 360), the reciprocal bearing is +4 (180°, an involution), a quarter turn is +2 (order 4), and dead reckoning is the vector sum of the legs. HONEST SCOPE: the decidable algebra of classical navigation — not GPS-grade guidance and not a positioning claim about any individual, just the geometry. — held by [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) and its 4 siblings below.
 
-**5 theorems**, each proven `by decide` in [lean/Navigation.lean](/lean/Navigation.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation.
+**5 theorems**, from [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) onward, each proven `by decide` in [lean/Navigation.lean](/lean/Navigation.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### Straight-line distance is Pythagorean: the range over a 3-east, 4-north leg is 5 — 3² + 4² = 5². The oldest fix in navigation, exact.
-
 The ledger holds this as [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) — proven `by decide`, sorry-free:
 
 ```lean
@@ -18,7 +17,6 @@ The ledger holds this as [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) — pro
 ```
 
 ### The compass rose is ℤ/8: eight principal headings, 45° apart — 8 · 45 = 360. The heading group is the same eight-fold ring the vortex turns on.
-
 The ledger holds this as [compass_rose_eight](/theorem/compass_rose_eight) — proven `by decide`, sorry-free:
 
 ```lean
@@ -26,7 +24,6 @@ The ledger holds this as [compass_rose_eight](/theorem/compass_rose_eight) — p
 ```
 
 ### The reciprocal (back) bearing is +4 on the ℤ/8 rose — 180° — and applying it twice returns the heading: (d + 4 + 4) mod 8 = d. Reverse of reverse is the original course; a reflection, like dz.
-
 The ledger holds this as [reverse_bearing_involution](/theorem/reverse_bearing_involution) — proven `by decide`, sorry-free:
 
 ```lean
@@ -34,7 +31,6 @@ The ledger holds this as [reverse_bearing_involution](/theorem/reverse_bearing_i
 ```
 
 ### A 90° turn is +2 on the ℤ/8 rose, and four of them box the compass back to the start: (d + 2·4) mod 8 = d — the quarter turn has order 4.
-
 The ledger holds this as [quarter_turn_order_four](/theorem/quarter_turn_order_four) — proven `by decide`, sorry-free:
 
 ```lean
@@ -42,7 +38,6 @@ The ledger holds this as [quarter_turn_order_four](/theorem/quarter_turn_order_f
 ```
 
 ### Dead reckoning is the vector sum of the legs: 4 east, 3 east, 2 west nets 4 + 3 − 2 = 5 east. Position is the running sum of displacements, exactly.
-
 The ledger holds this as [dead_reckoning_adds](/theorem/dead_reckoning_adds) — proven `by decide`, sorry-free:
 
 ```lean
@@ -51,7 +46,7 @@ The ledger holds this as [dead_reckoning_adds](/theorem/dead_reckoning_adds) —
 
 
 ::: warning HONEST SCOPE
-the decidable algebra of classical navigation — not GPS-grade guidance and not a positioning claim about any individual, just the geometry.
+the decidable algebra of classical navigation — not GPS-grade guidance and not a positioning claim about any individual, just the geometry. The boundary is confirmed by the wing's own sealed theorems — e.g. [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) — never merely denied.
 :::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -5,12 +5,11 @@ description: "Computed from lean/Core.lean — 64 sealed theorems, every claim c
 
 # The 8×8 core
 
-> The 8×8 CORE: the multiplication table of ℤ/9's eight non-zero residues {1..8}. From these 64 theorems the rest COMPUTES — units, inverses, self-inverses {1,8}, nilpotents {3,6}, the vortex orbit and the reflection all read off this table.
+> The 8×8 CORE: the multiplication table of ℤ/9's eight non-zero residues {1..8}. From these 64 theorems the rest COMPUTES — units, inverses, self-inverses {1,8}, nilpotents {3,6}, the vortex orbit and the reflection all read off this table. — held by [mul9_1_1](/theorem/mul9_1_1) and its 63 siblings below.
 
-**64 theorems**, each proven `by decide` in [lean/Core.lean](/lean/Core.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation.
+**64 theorems**, from [mul9_1_1](/theorem/mul9_1_1) onward, each proven `by decide` in [lean/Core.lean](/lean/Core.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### 1·1 ≡ 1 (mod 9)
-
 The ledger holds this as [mul9_1_1](/theorem/mul9_1_1) — proven `by decide`, sorry-free:
 
 ```lean
@@ -18,7 +17,6 @@ The ledger holds this as [mul9_1_1](/theorem/mul9_1_1) — proven `by decide`, s
 ```
 
 ### 1·2 ≡ 2 (mod 9)
-
 The ledger holds this as [mul9_1_2](/theorem/mul9_1_2) — proven `by decide`, sorry-free:
 
 ```lean
@@ -26,7 +24,6 @@ The ledger holds this as [mul9_1_2](/theorem/mul9_1_2) — proven `by decide`, s
 ```
 
 ### 1·3 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_1_3](/theorem/mul9_1_3) — proven `by decide`, sorry-free:
 
 ```lean
@@ -34,7 +31,6 @@ The ledger holds this as [mul9_1_3](/theorem/mul9_1_3) — proven `by decide`, s
 ```
 
 ### 1·4 ≡ 4 (mod 9)
-
 The ledger holds this as [mul9_1_4](/theorem/mul9_1_4) — proven `by decide`, sorry-free:
 
 ```lean
@@ -42,7 +38,6 @@ The ledger holds this as [mul9_1_4](/theorem/mul9_1_4) — proven `by decide`, s
 ```
 
 ### 1·5 ≡ 5 (mod 9)
-
 The ledger holds this as [mul9_1_5](/theorem/mul9_1_5) — proven `by decide`, sorry-free:
 
 ```lean
@@ -50,7 +45,6 @@ The ledger holds this as [mul9_1_5](/theorem/mul9_1_5) — proven `by decide`, s
 ```
 
 ### 1·6 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_1_6](/theorem/mul9_1_6) — proven `by decide`, sorry-free:
 
 ```lean
@@ -58,7 +52,6 @@ The ledger holds this as [mul9_1_6](/theorem/mul9_1_6) — proven `by decide`, s
 ```
 
 ### 1·7 ≡ 7 (mod 9)
-
 The ledger holds this as [mul9_1_7](/theorem/mul9_1_7) — proven `by decide`, sorry-free:
 
 ```lean
@@ -66,7 +59,6 @@ The ledger holds this as [mul9_1_7](/theorem/mul9_1_7) — proven `by decide`, s
 ```
 
 ### 1·8 ≡ 8 (mod 9)
-
 The ledger holds this as [mul9_1_8](/theorem/mul9_1_8) — proven `by decide`, sorry-free:
 
 ```lean
@@ -74,7 +66,6 @@ The ledger holds this as [mul9_1_8](/theorem/mul9_1_8) — proven `by decide`, s
 ```
 
 ### 2·1 ≡ 2 (mod 9)
-
 The ledger holds this as [mul9_2_1](/theorem/mul9_2_1) — proven `by decide`, sorry-free:
 
 ```lean
@@ -82,7 +73,6 @@ The ledger holds this as [mul9_2_1](/theorem/mul9_2_1) — proven `by decide`, s
 ```
 
 ### 2·2 ≡ 4 (mod 9)
-
 The ledger holds this as [mul9_2_2](/theorem/mul9_2_2) — proven `by decide`, sorry-free:
 
 ```lean
@@ -90,7 +80,6 @@ The ledger holds this as [mul9_2_2](/theorem/mul9_2_2) — proven `by decide`, s
 ```
 
 ### 2·3 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_2_3](/theorem/mul9_2_3) — proven `by decide`, sorry-free:
 
 ```lean
@@ -98,7 +87,6 @@ The ledger holds this as [mul9_2_3](/theorem/mul9_2_3) — proven `by decide`, s
 ```
 
 ### 2·4 ≡ 8 (mod 9)
-
 The ledger holds this as [mul9_2_4](/theorem/mul9_2_4) — proven `by decide`, sorry-free:
 
 ```lean
@@ -106,7 +94,6 @@ The ledger holds this as [mul9_2_4](/theorem/mul9_2_4) — proven `by decide`, s
 ```
 
 ### 2·5 ≡ 1 (mod 9)
-
 The ledger holds this as [mul9_2_5](/theorem/mul9_2_5) — proven `by decide`, sorry-free:
 
 ```lean
@@ -114,7 +101,6 @@ The ledger holds this as [mul9_2_5](/theorem/mul9_2_5) — proven `by decide`, s
 ```
 
 ### 2·6 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_2_6](/theorem/mul9_2_6) — proven `by decide`, sorry-free:
 
 ```lean
@@ -122,7 +108,6 @@ The ledger holds this as [mul9_2_6](/theorem/mul9_2_6) — proven `by decide`, s
 ```
 
 ### 2·7 ≡ 5 (mod 9)
-
 The ledger holds this as [mul9_2_7](/theorem/mul9_2_7) — proven `by decide`, sorry-free:
 
 ```lean
@@ -130,7 +115,6 @@ The ledger holds this as [mul9_2_7](/theorem/mul9_2_7) — proven `by decide`, s
 ```
 
 ### 2·8 ≡ 7 (mod 9)
-
 The ledger holds this as [mul9_2_8](/theorem/mul9_2_8) — proven `by decide`, sorry-free:
 
 ```lean
@@ -138,7 +122,6 @@ The ledger holds this as [mul9_2_8](/theorem/mul9_2_8) — proven `by decide`, s
 ```
 
 ### 3·1 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_3_1](/theorem/mul9_3_1) — proven `by decide`, sorry-free:
 
 ```lean
@@ -146,7 +129,6 @@ The ledger holds this as [mul9_3_1](/theorem/mul9_3_1) — proven `by decide`, s
 ```
 
 ### 3·2 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_3_2](/theorem/mul9_3_2) — proven `by decide`, sorry-free:
 
 ```lean
@@ -154,7 +136,6 @@ The ledger holds this as [mul9_3_2](/theorem/mul9_3_2) — proven `by decide`, s
 ```
 
 ### 3·3 ≡ 0 (mod 9)
-
 The ledger holds this as [mul9_3_3](/theorem/mul9_3_3) — proven `by decide`, sorry-free:
 
 ```lean
@@ -162,7 +143,6 @@ The ledger holds this as [mul9_3_3](/theorem/mul9_3_3) — proven `by decide`, s
 ```
 
 ### 3·4 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_3_4](/theorem/mul9_3_4) — proven `by decide`, sorry-free:
 
 ```lean
@@ -170,7 +150,6 @@ The ledger holds this as [mul9_3_4](/theorem/mul9_3_4) — proven `by decide`, s
 ```
 
 ### 3·5 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_3_5](/theorem/mul9_3_5) — proven `by decide`, sorry-free:
 
 ```lean
@@ -178,7 +157,6 @@ The ledger holds this as [mul9_3_5](/theorem/mul9_3_5) — proven `by decide`, s
 ```
 
 ### 3·6 ≡ 0 (mod 9)
-
 The ledger holds this as [mul9_3_6](/theorem/mul9_3_6) — proven `by decide`, sorry-free:
 
 ```lean
@@ -186,7 +164,6 @@ The ledger holds this as [mul9_3_6](/theorem/mul9_3_6) — proven `by decide`, s
 ```
 
 ### 3·7 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_3_7](/theorem/mul9_3_7) — proven `by decide`, sorry-free:
 
 ```lean
@@ -194,7 +171,6 @@ The ledger holds this as [mul9_3_7](/theorem/mul9_3_7) — proven `by decide`, s
 ```
 
 ### 3·8 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_3_8](/theorem/mul9_3_8) — proven `by decide`, sorry-free:
 
 ```lean
@@ -202,7 +178,6 @@ The ledger holds this as [mul9_3_8](/theorem/mul9_3_8) — proven `by decide`, s
 ```
 
 ### 4·1 ≡ 4 (mod 9)
-
 The ledger holds this as [mul9_4_1](/theorem/mul9_4_1) — proven `by decide`, sorry-free:
 
 ```lean
@@ -210,7 +185,6 @@ The ledger holds this as [mul9_4_1](/theorem/mul9_4_1) — proven `by decide`, s
 ```
 
 ### 4·2 ≡ 8 (mod 9)
-
 The ledger holds this as [mul9_4_2](/theorem/mul9_4_2) — proven `by decide`, sorry-free:
 
 ```lean
@@ -218,7 +192,6 @@ The ledger holds this as [mul9_4_2](/theorem/mul9_4_2) — proven `by decide`, s
 ```
 
 ### 4·3 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_4_3](/theorem/mul9_4_3) — proven `by decide`, sorry-free:
 
 ```lean
@@ -226,7 +199,6 @@ The ledger holds this as [mul9_4_3](/theorem/mul9_4_3) — proven `by decide`, s
 ```
 
 ### 4·4 ≡ 7 (mod 9)
-
 The ledger holds this as [mul9_4_4](/theorem/mul9_4_4) — proven `by decide`, sorry-free:
 
 ```lean
@@ -234,7 +206,6 @@ The ledger holds this as [mul9_4_4](/theorem/mul9_4_4) — proven `by decide`, s
 ```
 
 ### 4·5 ≡ 2 (mod 9)
-
 The ledger holds this as [mul9_4_5](/theorem/mul9_4_5) — proven `by decide`, sorry-free:
 
 ```lean
@@ -242,7 +213,6 @@ The ledger holds this as [mul9_4_5](/theorem/mul9_4_5) — proven `by decide`, s
 ```
 
 ### 4·6 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_4_6](/theorem/mul9_4_6) — proven `by decide`, sorry-free:
 
 ```lean
@@ -250,7 +220,6 @@ The ledger holds this as [mul9_4_6](/theorem/mul9_4_6) — proven `by decide`, s
 ```
 
 ### 4·7 ≡ 1 (mod 9)
-
 The ledger holds this as [mul9_4_7](/theorem/mul9_4_7) — proven `by decide`, sorry-free:
 
 ```lean
@@ -258,7 +227,6 @@ The ledger holds this as [mul9_4_7](/theorem/mul9_4_7) — proven `by decide`, s
 ```
 
 ### 4·8 ≡ 5 (mod 9)
-
 The ledger holds this as [mul9_4_8](/theorem/mul9_4_8) — proven `by decide`, sorry-free:
 
 ```lean
@@ -266,7 +234,6 @@ The ledger holds this as [mul9_4_8](/theorem/mul9_4_8) — proven `by decide`, s
 ```
 
 ### 5·1 ≡ 5 (mod 9)
-
 The ledger holds this as [mul9_5_1](/theorem/mul9_5_1) — proven `by decide`, sorry-free:
 
 ```lean
@@ -274,7 +241,6 @@ The ledger holds this as [mul9_5_1](/theorem/mul9_5_1) — proven `by decide`, s
 ```
 
 ### 5·2 ≡ 1 (mod 9)
-
 The ledger holds this as [mul9_5_2](/theorem/mul9_5_2) — proven `by decide`, sorry-free:
 
 ```lean
@@ -282,7 +248,6 @@ The ledger holds this as [mul9_5_2](/theorem/mul9_5_2) — proven `by decide`, s
 ```
 
 ### 5·3 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_5_3](/theorem/mul9_5_3) — proven `by decide`, sorry-free:
 
 ```lean
@@ -290,7 +255,6 @@ The ledger holds this as [mul9_5_3](/theorem/mul9_5_3) — proven `by decide`, s
 ```
 
 ### 5·4 ≡ 2 (mod 9)
-
 The ledger holds this as [mul9_5_4](/theorem/mul9_5_4) — proven `by decide`, sorry-free:
 
 ```lean
@@ -298,7 +262,6 @@ The ledger holds this as [mul9_5_4](/theorem/mul9_5_4) — proven `by decide`, s
 ```
 
 ### 5·5 ≡ 7 (mod 9)
-
 The ledger holds this as [mul9_5_5](/theorem/mul9_5_5) — proven `by decide`, sorry-free:
 
 ```lean
@@ -306,7 +269,6 @@ The ledger holds this as [mul9_5_5](/theorem/mul9_5_5) — proven `by decide`, s
 ```
 
 ### 5·6 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_5_6](/theorem/mul9_5_6) — proven `by decide`, sorry-free:
 
 ```lean
@@ -314,7 +276,6 @@ The ledger holds this as [mul9_5_6](/theorem/mul9_5_6) — proven `by decide`, s
 ```
 
 ### 5·7 ≡ 8 (mod 9)
-
 The ledger holds this as [mul9_5_7](/theorem/mul9_5_7) — proven `by decide`, sorry-free:
 
 ```lean
@@ -322,7 +283,6 @@ The ledger holds this as [mul9_5_7](/theorem/mul9_5_7) — proven `by decide`, s
 ```
 
 ### 5·8 ≡ 4 (mod 9)
-
 The ledger holds this as [mul9_5_8](/theorem/mul9_5_8) — proven `by decide`, sorry-free:
 
 ```lean
@@ -330,7 +290,6 @@ The ledger holds this as [mul9_5_8](/theorem/mul9_5_8) — proven `by decide`, s
 ```
 
 ### 6·1 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_6_1](/theorem/mul9_6_1) — proven `by decide`, sorry-free:
 
 ```lean
@@ -338,7 +297,6 @@ The ledger holds this as [mul9_6_1](/theorem/mul9_6_1) — proven `by decide`, s
 ```
 
 ### 6·2 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_6_2](/theorem/mul9_6_2) — proven `by decide`, sorry-free:
 
 ```lean
@@ -346,7 +304,6 @@ The ledger holds this as [mul9_6_2](/theorem/mul9_6_2) — proven `by decide`, s
 ```
 
 ### 6·3 ≡ 0 (mod 9)
-
 The ledger holds this as [mul9_6_3](/theorem/mul9_6_3) — proven `by decide`, sorry-free:
 
 ```lean
@@ -354,7 +311,6 @@ The ledger holds this as [mul9_6_3](/theorem/mul9_6_3) — proven `by decide`, s
 ```
 
 ### 6·4 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_6_4](/theorem/mul9_6_4) — proven `by decide`, sorry-free:
 
 ```lean
@@ -362,7 +318,6 @@ The ledger holds this as [mul9_6_4](/theorem/mul9_6_4) — proven `by decide`, s
 ```
 
 ### 6·5 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_6_5](/theorem/mul9_6_5) — proven `by decide`, sorry-free:
 
 ```lean
@@ -370,7 +325,6 @@ The ledger holds this as [mul9_6_5](/theorem/mul9_6_5) — proven `by decide`, s
 ```
 
 ### 6·6 ≡ 0 (mod 9)
-
 The ledger holds this as [mul9_6_6](/theorem/mul9_6_6) — proven `by decide`, sorry-free:
 
 ```lean
@@ -378,7 +332,6 @@ The ledger holds this as [mul9_6_6](/theorem/mul9_6_6) — proven `by decide`, s
 ```
 
 ### 6·7 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_6_7](/theorem/mul9_6_7) — proven `by decide`, sorry-free:
 
 ```lean
@@ -386,7 +339,6 @@ The ledger holds this as [mul9_6_7](/theorem/mul9_6_7) — proven `by decide`, s
 ```
 
 ### 6·8 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_6_8](/theorem/mul9_6_8) — proven `by decide`, sorry-free:
 
 ```lean
@@ -394,7 +346,6 @@ The ledger holds this as [mul9_6_8](/theorem/mul9_6_8) — proven `by decide`, s
 ```
 
 ### 7·1 ≡ 7 (mod 9)
-
 The ledger holds this as [mul9_7_1](/theorem/mul9_7_1) — proven `by decide`, sorry-free:
 
 ```lean
@@ -402,7 +353,6 @@ The ledger holds this as [mul9_7_1](/theorem/mul9_7_1) — proven `by decide`, s
 ```
 
 ### 7·2 ≡ 5 (mod 9)
-
 The ledger holds this as [mul9_7_2](/theorem/mul9_7_2) — proven `by decide`, sorry-free:
 
 ```lean
@@ -410,7 +360,6 @@ The ledger holds this as [mul9_7_2](/theorem/mul9_7_2) — proven `by decide`, s
 ```
 
 ### 7·3 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_7_3](/theorem/mul9_7_3) — proven `by decide`, sorry-free:
 
 ```lean
@@ -418,7 +367,6 @@ The ledger holds this as [mul9_7_3](/theorem/mul9_7_3) — proven `by decide`, s
 ```
 
 ### 7·4 ≡ 1 (mod 9)
-
 The ledger holds this as [mul9_7_4](/theorem/mul9_7_4) — proven `by decide`, sorry-free:
 
 ```lean
@@ -426,7 +374,6 @@ The ledger holds this as [mul9_7_4](/theorem/mul9_7_4) — proven `by decide`, s
 ```
 
 ### 7·5 ≡ 8 (mod 9)
-
 The ledger holds this as [mul9_7_5](/theorem/mul9_7_5) — proven `by decide`, sorry-free:
 
 ```lean
@@ -434,7 +381,6 @@ The ledger holds this as [mul9_7_5](/theorem/mul9_7_5) — proven `by decide`, s
 ```
 
 ### 7·6 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_7_6](/theorem/mul9_7_6) — proven `by decide`, sorry-free:
 
 ```lean
@@ -442,7 +388,6 @@ The ledger holds this as [mul9_7_6](/theorem/mul9_7_6) — proven `by decide`, s
 ```
 
 ### 7·7 ≡ 4 (mod 9)
-
 The ledger holds this as [mul9_7_7](/theorem/mul9_7_7) — proven `by decide`, sorry-free:
 
 ```lean
@@ -450,7 +395,6 @@ The ledger holds this as [mul9_7_7](/theorem/mul9_7_7) — proven `by decide`, s
 ```
 
 ### 7·8 ≡ 2 (mod 9)
-
 The ledger holds this as [mul9_7_8](/theorem/mul9_7_8) — proven `by decide`, sorry-free:
 
 ```lean
@@ -458,7 +402,6 @@ The ledger holds this as [mul9_7_8](/theorem/mul9_7_8) — proven `by decide`, s
 ```
 
 ### 8·1 ≡ 8 (mod 9)
-
 The ledger holds this as [mul9_8_1](/theorem/mul9_8_1) — proven `by decide`, sorry-free:
 
 ```lean
@@ -466,7 +409,6 @@ The ledger holds this as [mul9_8_1](/theorem/mul9_8_1) — proven `by decide`, s
 ```
 
 ### 8·2 ≡ 7 (mod 9)
-
 The ledger holds this as [mul9_8_2](/theorem/mul9_8_2) — proven `by decide`, sorry-free:
 
 ```lean
@@ -474,7 +416,6 @@ The ledger holds this as [mul9_8_2](/theorem/mul9_8_2) — proven `by decide`, s
 ```
 
 ### 8·3 ≡ 6 (mod 9)
-
 The ledger holds this as [mul9_8_3](/theorem/mul9_8_3) — proven `by decide`, sorry-free:
 
 ```lean
@@ -482,7 +423,6 @@ The ledger holds this as [mul9_8_3](/theorem/mul9_8_3) — proven `by decide`, s
 ```
 
 ### 8·4 ≡ 5 (mod 9)
-
 The ledger holds this as [mul9_8_4](/theorem/mul9_8_4) — proven `by decide`, sorry-free:
 
 ```lean
@@ -490,7 +430,6 @@ The ledger holds this as [mul9_8_4](/theorem/mul9_8_4) — proven `by decide`, s
 ```
 
 ### 8·5 ≡ 4 (mod 9)
-
 The ledger holds this as [mul9_8_5](/theorem/mul9_8_5) — proven `by decide`, sorry-free:
 
 ```lean
@@ -498,7 +437,6 @@ The ledger holds this as [mul9_8_5](/theorem/mul9_8_5) — proven `by decide`, s
 ```
 
 ### 8·6 ≡ 3 (mod 9)
-
 The ledger holds this as [mul9_8_6](/theorem/mul9_8_6) — proven `by decide`, sorry-free:
 
 ```lean
@@ -506,7 +444,6 @@ The ledger holds this as [mul9_8_6](/theorem/mul9_8_6) — proven `by decide`, s
 ```
 
 ### 8·7 ≡ 2 (mod 9)
-
 The ledger holds this as [mul9_8_7](/theorem/mul9_8_7) — proven `by decide`, sorry-free:
 
 ```lean
@@ -514,7 +451,6 @@ The ledger holds this as [mul9_8_7](/theorem/mul9_8_7) — proven `by decide`, s
 ```
 
 ### 8·8 ≡ 1 (mod 9)
-
 The ledger holds this as [mul9_8_8](/theorem/mul9_8_8) — proven `by decide`, sorry-free:
 
 ```lean

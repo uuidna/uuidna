@@ -35,6 +35,12 @@ export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVeri
 // literal and the exponential walk is the honest cost. Backed by the Optimisation.lean wing. Not a solver at scale.
 export { optimiseLinear, type LinearProgram, type LinearOptimum } from './optimise.js'
 
+// decide — THE QUANTUM CALCULATOR, founded on division by zero (x/0 = 0, well-defined in Lean, sealed in
+// DivByZero.lean): ANY input folds to one lean-green shape {verdict, cites, receipt} — a sealed statement is
+// recognized and cited, fresh arithmetic is decided totally (TRUE and FALSE at last wear different verdicts:
+// VERIFIED_BY_DECIDE vs REFUTED), a bare expression computes its exact value, and prose goes to the gate.
+export { decide, type Decision } from './decide.js'
+
 // cloudflare — audit the Cloudflare Workers bindings for a quantum-secure posture (no secret committed; symmetric-only
 // crypto — HMAC-SHA256 / ChaCha20-Poly1305, no Shor target, Grover only halves to a 128-bit floor), folded to one
 // content-address. Audits the COMMITTED config, not the live edge. Integrity, not truth.

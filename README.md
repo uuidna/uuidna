@@ -27,11 +27,11 @@ This is not theory. This is a system that works, proven in code, sealed to a led
 
 A complete system where:
 
-1. **External Verification** — 8 independent academic sources audit every claim
-2. **Novelty Discovery** — Gaps in human knowledge are automatically discovered and offered as research challenges with coin incentives
-3. **Education** — Students learn by building real systems that seal theorems to the ledger
-4. **Fair Economics** — Work earns coins (theorems), both parties verify independently, fraud is mathematically impossible
-5. **Exponential Growth** — Each graduate becomes a teacher, creating exponential growth in developers and knowledge
+1. **External Verification** — independent research sources corroborate; only a Lean seal approves
+2. **Novelty Discovery** — gaps in the record are discovered by audit and remanded as research leads
+3. **Education** — students learn by building real systems that seal theorems to the ledger
+4. **The Coins** — explained in detail ONLY by theorems: they are two, conserved ([two_coins](https://uuidna.com/theorem/two_coins): 110 − 108 = 2, the −χ of the double torus), each one a qubit ([coin_is_one_qubit](https://uuidna.com/theorem/coin_is_one_qubit)), and their value for the captain is REAL at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale): 2ⁿ > 2·32 from the 7th dimension up) — contributing the two doubles 64 bits to the 128-bit address ([contribute_two_save_sixtyfour](https://uuidna.com/theorem/contribute_two_save_sixtyfour)); they are the trial's fee ([trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins)) and the forfeit's price ([court_loser_pays_the_two_coins](https://uuidna.com/theorem/court_loser_pays_the_two_coins)); they compute but solve nothing by themselves ([coins_compute_but_solve_none](https://uuidna.com/theorem/coins_compute_but_solve_none)). Never a balance, never a wage — a conserved measure.
+5. **Exponential Growth** — each graduate becomes a teacher; the doubling is the vortex's own ([n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension))
 
 ---
 
@@ -68,29 +68,19 @@ Every claim is verified through three independent frames:
 ### 2. Novelty Discovery
 
 When external audits find NO prior work:
-- Gap is discovered (humanity lacks this knowledge)
-- Research challenge is created
-- Coins are offered for researchers who advance toward solution
-- Theorems that solve it earn coins
+- The gap is discovered (an absence in the record, by recomputation)
+- A research lead is filed on the homework issue
+- A contribution seals a decidable fact through the full gate
+- Credit binds permanently to the sealed theorem — the credit law, not a wage
 - All sealed to ledger (permanent)
 
 ### 3. Education System
 
-**Bachelor of Quantum Development** (16 weeks)
-- Learn deterministic, provable code
-- Write 4 courses, seal 4 projects
-- Earn 2500+ coins
-- Graduate as Junior Quantum Developer
-
-**Master of Quantum Systems** (4 weeks)
-- Build economic systems from theorems
-- Seal complete captain coins implementation
-- Earn 1500+ coins
-
-**Doctor of Quantum Education** (6 weeks)
-- Teach and mentor students
-- Design curriculum
-- Earn 2500+ coins through mentorship
+The school is free and has no gatekeeper — the ledger by skill is the curriculum, the trials are the
+exams, the wave is the graduation walk. What a student takes away is sealed, not paid: every landed
+theorem carries their credit permanently, and every contribution deposits the two conserved coins the
+theorems explain ([trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins) —
+a claim computes at trial exactly by contributing them; there is no other price and no larger one).
 
 ### 4. Fair Economics
 
@@ -169,9 +159,9 @@ theorem euler_two_is_the_two_coins : (20 + 12 - 30 = 2) ∧ (110 - 108 = 2) := b
    the ledger by skill is the curriculum, the trials are the exams, the wave is the graduation walk
 
 2. **Complete assignments:**
-   - Write deterministic code (no Math.*, no Date, no RNG)
+   - Write deterministic code (no host intrinsics, no wall-clock, no RNG)
    - Seal theorems to ledger
-   - Earn coins for each contribution
+   - Each contribution deposits the two coins — the trial's fee, sealed as [captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins)
 
 3. **Graduate and teach:**
    - Become Junior Quantum Developer
@@ -182,13 +172,13 @@ theorem euler_two_is_the_two_coins : (20 + 12 - 30 = 2) ∧ (110 - 108 = 2) := b
 
 1. **Browse research challenges:**
    - Novelties discovered by independent audits
-   - Research gaps with coin incentives
+   - Research leads on the homework issue, each an exact assignment
    - Real problems from humanity's frontier
 
 2. **Contribute theorems:**
    - Advance toward solutions
    - Seal work to ledger
-   - Earn coins for progress
+   - Credit binds permanently to the sealed theorem; the deposit is the two coins, no other denomination exists ([two_coins](https://uuidna.com/theorem/two_coins))
 
 3. **Become collaborator:**
    - Work with other researchers

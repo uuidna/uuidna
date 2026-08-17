@@ -23,7 +23,7 @@ import {
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
-  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, optimiseLinear,
+  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, optimiseLinear, decide,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { spawnSync } from 'node:child_process' // uuidna_wave orchestration — local stdio only, never the Workers subset (worker imports mcp-http.js)
@@ -168,7 +168,7 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: {} },
     run: () => pentagramMonographs() },
   { name: 'uuidna_spin',
-    description: '"Spin the bits and get the coins" — fold any content into its content-address and take the top-64 COIN (coin64). This is the O(1) primitive under the derived-layer gate: a derived file is a FIXED POINT when its re-spun coin equals its sealed coin (verify O(1), `verify_cheaper_than_forge`), and a moved coin is non-quantum DRIFT that the gate hard-rejects. Once sealed, the bits spin by themselves — the gate re-spins each derived file with no manual step. HONEST: the FNV/coin address is non-cryptographic integrity (routing/fixed-point detection), not secrecy. Returns {address, coin}.',
+    description: '"Spin the bits and get the coins" — fold any content into its content-address and take the coin64 (its top 64 bits). This is the O(1) primitive under the derived-layer gate: a derived file is a FIXED POINT when its re-spun coin equals its sealed coin (verify O(1), `verify_cheaper_than_forge`), and a moved coin is non-quantum DRIFT that the gate hard-rejects. Once sealed, the bits spin by themselves — the gate re-spins each derived file with no manual step. HONEST: the FNV/coin address is non-cryptographic integrity (routing/fixed-point detection), not secrecy. Returns {address, coin}.',
     inputSchema: { type: 'object', properties: { content: { type: 'string', description: 'the bytes to spin into a content-address coin' } }, required: ['content'] },
     run: ({ content }) => spin(String(content)) },
   { name: 'uuidna_transform',
@@ -702,6 +702,10 @@ const TOOLS: Tool[] = [
     description: 'Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
     run: () => runTrial() },
+  { name: 'uuidna_decide',
+    description: 'THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any format folds to one lean-green shape {verdict,cites,receipt}: a statement matching a SEALED theorem verbatim is VERIFIED by the kernel\'s prior decision and cited; fresh arithmetic is DECIDED totally by a bounded grammar (never eval) under Lean\'s own Nat semantics — x/0 = 0 is well-defined (DivByZero.lean), subtraction floors at 0, every step exact BigInt — TRUE returns VERIFIED_BY_DECIDE and FALSE returns REFUTED (truth and falsehood at last wear different verdicts); a bare expression computes its exact value; anything else is prose and goes to the gate, language-blind. The same input always folds to the same receipt. Integrity, not truth — decided about its arithmetic, never about the world.',
+    inputSchema: { type: 'object', properties: { input: { type: 'string', description: 'anything: "2+2=4", "(110 - 108 = 2)", "7/0", a Lean statement, a claim in any language' } }, required: ['input'] },
+    run: (a: Record<string, unknown>) => decide(String(a.input)) },
   { name: 'uuidna_optimise',
     description: 'THE EXACT LINEAR OPTIMISER — maximise c·x subject to A·x ≤ b over integer lattice points 0..bound per variable, by TOTAL enumeration: every candidate checked, nothing sampled, the optimum exact with a recomputable receipt. The search space is the qubit basis made literal (theorem optimisation_space_is_qubit_dimension) and the exponential walk is the honest cost — capped, never hidden; Grover would only halve the exponent (theorem grover_halves_the_search_exponent). Strong duality holds exact on the sealed instance (theorem lp_strong_duality_instance). Returns {optimum,argmax,candidates,feasible,receipt,honest}. NOT a solver at scale, NOT an NP claim.',
     inputSchema: { type: 'object', properties: { c: { type: 'array', items: { type: 'number' }, description: 'objective coefficients (1–4 variables)' }, A: { type: 'array', items: { type: 'array', items: { type: 'number' } }, description: 'constraint rows: A[i]·x ≤ b[i]' }, b: { type: 'array', items: { type: 'number' } }, bound: { type: 'integer', description: 'each variable ranges 0..bound (default 16, max 64)' } }, required: ['c', 'A', 'b'] },
@@ -790,7 +794,7 @@ const TOOLS: Tool[] = [
   //    no floats, no decimal drift). Build a Bell or GHZ state; read its exact rational distribution, marginals, and
   //    order-invariant receipt. Classical simulation, 2^n amplitudes — exponential, NO quantum advantage. ──
   { name: 'uuidna_quantum',
-    description: 'Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale) — no floats, no decimal drift). Either a named `circuit` (bell/ghz) OR an arbitrary `ops` circuit in OpenQASM/Qiskit gate names (h, x, y, z, s, sdg, cx, cz, swap, ccx, ccz) — so any system that speaks quantum circuits interops. Returns the EXACT rational distribution, per-qubit marginals (the no-signaling check), the order-invariant receipt, and — for an H-free circuit — the CLASSICAL truth table (the reversible logic the gates compute, usable directly by classical systems; Toffoli/ccx is universal). HONEST: classical simulation — 2^n amplitudes, EXPONENTIAL, NO quantum advantage, NOT quantum hardware.',
+    description: 'Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale) — no floats, no decimal drift). Either a named `circuit` (bell/ghz) OR an arbitrary `ops` circuit in OpenQASM/Qiskit gate names (h, x, y, z, s, sdg, cx, cz, swap, ccx, ccz) — so any system that speaks quantum circuits interops. Returns the EXACT rational distribution, per-qubit marginals (the no-signaling check), the order-invariant receipt, and — for an H-free circuit — the CLASSICAL truth table (the reversible logic the gates compute, usable directly by classical systems; Toffoli/ccx is universal). HONEST: classical simulation — 2^n amplitudes, EXPONENTIAL, the classical bound CONFIRMED by theorem n_qubit_dimension; NOT quantum hardware.',
     inputSchema: { type: 'object', properties: { circuit: { type: 'string', enum: ['bell', 'ghz'], description: 'bell (2 qubits) or ghz (n qubits); ignored if ops is given' }, qubits: { type: 'number', description: 'qubit count, 1..12 (ghz default 3; required for ops)' }, ops: { type: 'array', description: 'OpenQASM circuit: [{gate, qubits:[...]}] with gate ∈ h,x,y,z,s,sdg,cx,cz,swap,ccx,ccz', items: { type: 'object', properties: { gate: { type: 'string' }, qubits: { type: 'array', items: { type: 'number' } } }, required: ['gate', 'qubits'] } } } },
     run: (a = {}) => {
       let state: QState, meta: { circuit: string; gates?: number }
@@ -811,7 +815,7 @@ const TOOLS: Tool[] = [
       const outcomes: Record<string, string> = {}
       distribution(state).forEach((p, i) => { const f = fraction(p); if (f !== '0') outcomes[label(i, state.qubits)] = f })
       const marginals = Array.from({ length: state.qubits }, (_, q) => ({ qubit: q, p0: fraction(marginal(state, q, 0)), p1: fraction(marginal(state, q, 1)) }))
-      const out: Record<string, unknown> = { ...meta, qubits: state.qubits, outcomes, marginals, receipt: receiptOf(state), honest: 'classical state-vector simulation — 2^n amplitudes, exponential, no quantum advantage, not quantum hardware' }
+      const out: Record<string, unknown> = { ...meta, qubits: state.qubits, outcomes, marginals, receipt: receiptOf(state), honest: 'classical state-vector simulation — 2^n amplitudes, exponential, the classical bound CONFIRMED by theorem n_qubit_dimension; not quantum hardware' }
       if (Array.isArray(ops) && isClassical(ops)) out.classical = truthTable(state.qubits, ops) // the reversible logic, for classical systems
       return out
     } },

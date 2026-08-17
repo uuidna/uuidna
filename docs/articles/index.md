@@ -28,7 +28,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The 8×8 core](/articles/core) | 64 |
 | [Self-discovered](/articles/discover) | 16 |
 | [The honest court](/articles/disputed-topics) | 15 |
-| [Division by zero](/articles/div-by-zero) | 7 |
+| [Division by zero](/articles/div-by-zero) | 8 |
 | [Diving — trimix gas laws](/articles/diving) | 8 |
 | [The cut](/articles/editing) | 14 |
 | [The document fold](/articles/editor) | 4 |
@@ -49,6 +49,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The heaps](/articles/nim) | 93 |
 | [One leap](/articles/one-leap) | 1 |
 | [The light domain](/articles/optics) | 8 |
+| [The linear optimum](/articles/optimisation) | 9 |
 | [The OS-integrity algebra](/articles/os) | 7 |
 | [The pentagram & the Fibonacci digits](/articles/pentagram) | 13 |
 | [The exposure](/articles/photography) | 8 |
@@ -75,6 +76,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The tides](/articles/tides) | 7 |
 | [The lay of the land](/articles/topography) | 13 |
 | [The measures of type](/articles/typesetting) | 14 |
+| [The uuid mix space](/articles/uuid-mix) | 1 |
 | [The vortex algebra](/articles/uuidna) | 15 |
 | [Ported from millennium-solutions](/articles/vortex) | 16 |
 

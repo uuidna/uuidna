@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="166 keys" />
+# MCP tools <Badge type="tip" text="167 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 166 tools below are read from the server's own tool list and
+is **built from the keys**: the 167 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · d8dcf775-8186-84c9-aa67-758fe37ce907
+gate CLEAN f0 d0 v0 · 5e55caf4-ac29-87f3-a5e9-3d79d02c6ae7
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 166-tool registry folds to its
-order-invariant identity `a98c5f78-04b7-8de7-90cd-c69d97a31104` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 167-tool registry folds to its
+order-invariant identity `3beb7a17-1a4f-89ce-ab85-3750bfaeea7e` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`166`" />
+## The grid <Badge type="tip" :text="`167`" />
 
-166 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 61 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+167 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 61 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -130,6 +130,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-contract"><code>contract</code></a>
 <a href="#uuidna-corroborate"><code>corroborate</code></a>
 <a href="#uuidna-credits"><code>credits</code></a>
+<a href="#uuidna-decide"><code>decide</code></a>
 <a href="#uuidna-detect-double-spends"><code>detect_double_spends</code></a>
 <a href="#uuidna-detect-forgery"><code>detect_forgery</code></a>
 <a href="#uuidna-diamond"><code>diamond</code></a>
@@ -534,7 +535,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'64'" />
+## Other <Badge type="tip" :text="'65'" />
 
 *skill: other*
 
@@ -603,7 +604,7 @@ _No parameters._
 
 ### `uuidna_spin`
 
-"Spin the bits and get the coins" — fold any content into its content-address and take the top-64 COIN (coin64). This is the O(1) primitive under the derived-layer gate: a derived file is a FIXED POINT when its re-spun coin equals its sealed coin (verify O(1), `verify_cheaper_than_forge`), and a moved coin is non-quantum DRIFT that the gate hard-rejects. Once sealed, the bits spin by themselves — the gate re-spins each derived file with no manual step. HONEST: the FNV/coin address is non-cryptographic integrity (routing/fixed-point detection), not secrecy. Returns {address, coin}.
+"Spin the bits and get the coins" — fold any content into its content-address and take the coin64 (its top 64 bits). This is the O(1) primitive under the derived-layer gate: a derived file is a FIXED POINT when its re-spun coin equals its sealed coin (verify O(1), `verify_cheaper_than_forge`), and a moved coin is non-quantum DRIFT that the gate hard-rejects. Once sealed, the bits spin by themselves — the gate re-spins each derived file with no manual step. HONEST: the FNV/coin address is non-cryptographic integrity (routing/fixed-point detection), not secrecy. Returns {address, coin}.
 
 **Parameters**
 
@@ -981,6 +982,16 @@ THE GRADUATION WALK as one call — runs the release wave (build → dry → leg
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `statement` | string | **yes** | the deposit statement — must cite a sealed theorem ("proven by theorem &lt;key&gt;") |
+
+### `uuidna_decide`
+
+THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any format folds to one lean-green shape {verdict,cites,receipt}: a statement matching a SEALED theorem verbatim is VERIFIED by the kernel's prior decision and cited; fresh arithmetic is DECIDED totally by a bounded grammar (never eval) under Lean's own Nat semantics — x/0 = 0 is well-defined (DivByZero.lean), subtraction floors at 0, every step exact BigInt — TRUE returns VERIFIED_BY_DECIDE and FALSE returns REFUTED (truth and falsehood at last wear different verdicts); a bare expression computes its exact value; anything else is prose and goes to the gate, language-blind. The same input always folds to the same receipt. Integrity, not truth — decided about its arithmetic, never about the world.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `input` | string | **yes** | anything: "2+2=4", "(110 - 108 = 2)", "7/0", a Lean statement, a claim in any language |
 
 ### `uuidna_optimise`
 
@@ -2012,7 +2023,7 @@ _No parameters._
 
 ### `uuidna_quantum`
 
-Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale) — no floats, no decimal drift). Either a named `circuit` (bell/ghz) OR an arbitrary `ops` circuit in OpenQASM/Qiskit gate names (h, x, y, z, s, sdg, cx, cz, swap, ccx, ccz) — so any system that speaks quantum circuits interops. Returns the EXACT rational distribution, per-qubit marginals (the no-signaling check), the order-invariant receipt, and — for an H-free circuit — the CLASSICAL truth table (the reversible logic the gates compute, usable directly by classical systems; Toffoli/ccx is universal). HONEST: classical simulation — 2^n amplitudes, EXPONENTIAL, NO quantum advantage, NOT quantum hardware.
+Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale) — no floats, no decimal drift). Either a named `circuit` (bell/ghz) OR an arbitrary `ops` circuit in OpenQASM/Qiskit gate names (h, x, y, z, s, sdg, cx, cz, swap, ccx, ccz) — so any system that speaks quantum circuits interops. Returns the EXACT rational distribution, per-qubit marginals (the no-signaling check), the order-invariant receipt, and — for an H-free circuit — the CLASSICAL truth table (the reversible logic the gates compute, usable directly by classical systems; Toffoli/ccx is universal). HONEST: classical simulation — 2^n amplitudes, EXPONENTIAL, the classical bound CONFIRMED by theorem n_qubit_dimension; NOT quantum hardware.
 
 **Parameters**
 
