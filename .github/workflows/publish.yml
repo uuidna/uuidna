@@ -13,7 +13,7 @@ name: publish
 #   3. provenance       — the honesty gate: every prose claim linked/demarcated (claims:0), or fail
 #   4. tests            — crypt-guard · KAT · pq · quantum · smoke (incl. the no-Math purity check) · stream
 #   5. determinism      — regenerating the ledger from the proofs leaves the tree clean (git diff --exit-code)
-#   6. version guards   — tag == package.json version, and the odometer v0.[integer].[the sequence 0124875369]
+#   6. version guards   — tag == package.json version, and the odometer v0.[integer].[digit], monotone for npm
 #   7. npm provenance   — the published tarball carries a signed Sigstore attestation (--provenance, id-token)
 # Dimensions 1–5 are `npm run audit` (also the local prepublishOnly gate); 6–7 are added here for the deploy.
 
@@ -90,7 +90,7 @@ jobs:
           # locked at 0 (a major tick is the captain's statement about maturity, never a pipeline's), MINOR an
           # unbounded integer (the calendar never fills), PATCH one digit (ten patches roll a minor). Nothing
           # outside that shape publishes: not to npm, not to the release, not to the archive.
-          echo "$TAG" | grep -Eq '^0\.[0-9]+\.[0-9]$' || { echo "::error::v$TAG breaks the odometer v0.[integer].[digit] — major must be 0 (the v0 lock), minor any integer, patch one digit, stepping linearly through the sequence 0124875369"; exit 1; }
+          echo "$TAG" | grep -Eq '^0\.[0-9]+\.[0-9]$' || { echo "::error::v$TAG breaks the odometer v0.[integer].[digit] — major must be 0 (the v0 lock), minor any integer, patch one digit 0..9 stepping linearly — npm orders by semver, so the version must increase"; exit 1; }
 
       # Token-free: OIDC (id-token: write above) is exchanged for the publish credential; no NODE_AUTH_TOKEN.
       - name: Publish (public, token-free via OIDC, with provenance) — prepublishOnly runs the complete audit first

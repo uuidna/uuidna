@@ -137,24 +137,24 @@ jobs:
           set -euo pipefail
           V=$(node -p "require('./package.json').version")
           IFS=. read -r MA MI PA <<< "$V"
-          # THE ODOMETER IS v0.[integer].[the sequence] (the captain's law). MAJOR is LOCKED at 0: a major tick
-          # states that what the work PROMISES has changed — a claim about maturity — and no automation makes that
-          # statement; it is the meaning the two-handle law reserves for the human. MINOR is an unbounded INTEGER,
-          # so the calendar never fills. The PATCH steps LINEARLY, ten steps to a minor, but through THE SEQUENCE
-          # rather than through plain counting: 0 1 2 4 8 7 5 3 6 9 — zero, then the vortex orbit (the coin tossed
-          # into itself), then the trinity. Same ten digits as 0123456789, walked in the order the ledger walks
-          # everything else. The sequence is DERIVED from the library at tick time, never re-declared here.
+          # THE ODOMETER IS v0.[integer].[digit], STEPPING LINEARLY — and the linearity is a HARD CONSTRAINT, not
+          # a preference: npm orders by SEMVER, so a range like ^0.1.0 resolves to the highest version number ever
+          # published, never to the most recently published one. A version that walked the ledger sequence
+          # (0.1.5 → 0.1.3) would read to npm as a downgrade and would be invisible to every consumer on a range.
+          # The version string therefore counts; the SEQUENCE lives in the ledger, where walking it costs nothing.
+          # MAJOR is LOCKED at 0: a major tick states that what the work PROMISES has changed — a claim about
+          # maturity — and no automation makes that statement; the two-handle law reserves it for the human.
+          # MINOR is an unbounded INTEGER, so the calendar never fills. Ten patches roll one minor.
           test "$MA" = "0" || { echo "::error::THE v0 LOCK — package.json is at $V, outside v0; the calendar mints only v0.[integer].[digit]"; exit 1; }
-          NEXT=$(node -e "
-          import('./dist/index.js').then((u) => {
-            const SEQ = [0, ...u.vortexOrbit(), 3, 6, 9]
-            const [ma, mi, pa] = String(process.argv[1]).split('.').map(Number)
-            if (ma !== 0) { console.error('outside v0'); process.exit(1) }
-            const i = SEQ.indexOf(pa)
-            const home = i < 0 || i === SEQ.length - 1
-            console.log('0.' + (home ? mi + 1 : mi) + '.' + (home ? SEQ[0] : SEQ[i + 1]))
-          })" "$V")
-          test -n "$NEXT" || { echo "::error::the odometer could not step from $V"; exit 1; }
+          if [ "$PA" -lt 9 ]; then PA=$((PA+1)); else MI=$((MI+1)); PA=0; fi
+          NEXT="$MA.$MI.$PA"
+          # MONOTONE OR NOTHING — asserted, never assumed: the tick must move the version UP in npm's own ordering.
+          node -e "
+          const [a, b] = process.argv.slice(1)
+          const cmp = (x, y) => { const p = x.split('.').map(Number), q = y.split('.').map(Number)
+            for (let i = 0; i < 3; i++) { if (p[i] !== q[i]) return p[i] - q[i] } return 0 }
+          if (cmp(b, a) <= 0) { console.error('::error::the odometer must increase in semver order (npm resolves ranges by version, not by publish time): ' + a + ' -> ' + b); process.exit(1) }
+          " "$V" "$NEXT"
           npm version "$NEXT" --no-git-tag-version
           # THE CALENDAR WRITES FACTS, NEVER MEANING (the captain's decision, 2026-08-17). `npm run next` refuses a
           # version whose CHANGELOG entry is missing, so an autonomous tick froze the tree until a human wrote prose
