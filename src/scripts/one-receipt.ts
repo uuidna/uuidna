@@ -446,6 +446,33 @@ export function absenceGaps(): Gap[] {
   return gaps
 }
 
+// ── frozen: A FACT MUST COMPUTE IN AT LEAST ONE DIMENSION. Its first draft read only the ledger and convicted two
+// innocents: clay_launder_refused and clay_status_dna_total look like closed arithmetic (`15 - 15 = 0`) but their
+// generators compute LIVE — refusedCount runs adjudicate() over all fifteen probes, and emit() hard-exits when a
+// mirror returns false, so one probe verifying blocks the wing from regenerating at all. The Lean there is a frozen
+// WITNESS of a live check, not a substitute for one. So the finder now reads BOTH halves from the generator: a fact
+// is flagged only when its Lean statement AND its js mirror are both closed constants — nothing walked, nothing
+// measured, no path from the name to a computation in either dimension. That is the real class, and it is small.
+export function frozenGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const walks = (s: string): boolean => /\[[^\]]*,|nth |List\.|\bfun\b|=>|range|filter|map|foldl|\ball\b|\bany\b|length|≠|!==|\.some|\.every|adjudicate|runTrial|theorems\(/.test(s)
+  const measured = /_(refused|probed|cases|total|covered|audited|counted|scanned|checked)\b/i
+  for (const f of readdirSync(join(ROOT, 'src/scripts')).filter((n) => n.startsWith('lean-') && n.endsWith('.ts'))) {
+    const src = readFileSync(join(ROOT, 'src/scripts', f), 'utf8')
+    // each authored fact: its key, its js mirror line, and its lean line — read from the generator, the one source
+    for (const m of src.matchAll(/key: '([a-z0-9_]+)'[\s\S]{0,900}?(?=\n  \{ key: |\n\])/g)) {
+      const [block, key] = [m[0], m[1]]
+      if (!measured.test(key)) continue
+      const js = /js: \(\) =>([^\n]*)/.exec(block)?.[1] ?? ''
+      const lean = /lean: [`'"]theorem [a-z0-9_]+ :([^\n]*)/.exec(block)?.[1] ?? ''
+      if (!lean) continue
+      if (walks(js) || walks(lean)) continue
+      gaps.push({ what: `${f}: ${key} computes in NO dimension — its Lean (\`${lean.trim().slice(0, 48)}…\`) and its js mirror are both closed constants, while its name claims a measured quantity`, fix: 'make one half compute: have the js mirror measure the live quantity (as lean-clay does with adjudicate() over its probes, which emit() hard-fails on), or have the Lean walk the structure it names. A name that counts live things must be falsifiable by them' })
+    }
+  }
+  return gaps
+}
+
 // ── negation: NO LEAN LEAD IS LOST IN PROSE, EVEN NEGATING. The absence law above holds one case (a cipher denied
 // must name where encryption lives); this is that law at full width. Every honest boundary this project states —
 // "not a solver", "solves none", "NOT PROVEN", "never a chip", "not truth" — is a CLAIM ABOUT WHAT IS PROVEN, and a
@@ -833,6 +860,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'pipes') report('one-receipt pipes', pipeGaps(), 'no gate flows into a pipe — every exit code is the gate\'s own.')
   else if (cmd === 'actions') report('one-receipt actions', actionsGaps(), 'every action pins one major, tree-wide — no workflow silently trails the rest onto a deprecated runtime.')
   else if (cmd === 'vacuous') report('one-receipt vacuous', vacuousGaps(), 'no theorem is true regardless of its content — every sealed name is carried by a proof that means it.')
+  else if (cmd === 'frozen') report('one-receipt frozen', frozenGaps(), 'no theorem freezes a measured quantity — every name that counts live things walks the structure it counts.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
   else if (cmd === 'drain') report('one-receipt drain', drainGaps(), 'the drain stages everything reconcile regenerates — every generator declares its output, and every output is a drain path.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))

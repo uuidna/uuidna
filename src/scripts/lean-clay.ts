@@ -116,14 +116,14 @@ const refusedCount = PROBES.filter((p) => adjudicate(p).verdict === 'UNVERIFIED'
 const COLLISION = lawVote.outcome ? [
   { key: 'clay_status_dna_total', why: `the status DNA is total on the seven — every reflected theorem's sealed name carries its world-status marker: ${openCount} OPEN + ${solvedMarked} SOLVED = ${marked.length} of ${sealedCount}, none unmarked`,
     js: () => marked.length === sealedCount && openCount + solvedMarked === sealedCount,
-    lean: `theorem clay_status_dna_total : (${openCount} + ${solvedMarked} = ${sealedCount}) ∧ ((${openCount}:Nat) < ${sealedCount}) ∧ ((${solvedMarked}:Nat) ≤ ${sealedCount}) := by decide` },
+    lean: `theorem clay_status_dna_total : ((${JSON.stringify(marked.map((t) => (/ — OPEN$/.test(t!.name) ? 0 : 1)))} : List Nat).length = ${sealedCount}) ∧ ((${JSON.stringify(marked.map((t) => (/ — OPEN$/.test(t!.name) ? 0 : 1)))} : List Nat).filter (fun s => s == 1)).length = ${solvedMarked} := by decide` },
   { key: 'clay_collision_law', why: `THE COLLISION LAW — a claim colliding with sealed status DNA never verifies, whatever it cites: collision needs subject ∧ self-voice ∧ undemarcated, and of the 8 condition-profiles exactly 1 collides (all three true) — a real citation is not entailment`,
     js: () => [0, 1, 2, 3, 4, 5, 6, 7].filter((p) => p % 2 === 1 && (p >> 1) % 2 === 1 && (p >> 2) % 2 === 1).length === 1,
     lean: `theorem clay_collision_law : ((List.range 8).filter (fun p => p % 2 == 1 && (p / 2) % 2 == 1 && (p / 4) % 2 == 1)).length = 1 := by decide` },
   { key: 'clay_launder_refused', why: `the laundering is refused, recomputed live — all ${PROBES.length} solve-probes (the seven bare, the seven citation-dressed, and the demonstrated laundered exemplar of trial 047ba524-b355-83c9-b635-48fa65b18be1) adjudicate UNVERIFIED: ${PROBES.length} probed, ${PROBES.length} refused, 0 verify`,
     js: () => refusedCount === PROBES.length && PROBES.length === 2 * sealedCount + 1 &&
       adjudicate('verified is the kernel judgment on the stated proposition; the seal confers no solved status on the named problem — proven by theorem clay_verified_ne_solved').verdict === 'VERIFIED',
-    lean: `theorem clay_launder_refused : (2 * ${sealedCount} + 1 = ${PROBES.length}) ∧ ((0:Nat) < ${PROBES.length}) ∧ (${PROBES.length} - ${PROBES.length} = 0) := by decide` },
+    lean: `theorem clay_launder_refused : ((${JSON.stringify(PROBES.map((p) => (adjudicate(p).verdict === 'UNVERIFIED' ? 0 : 1)))} : List Nat).length = ${PROBES.length}) ∧ ((${JSON.stringify(PROBES.map((p) => (adjudicate(p).verdict === 'UNVERIFIED' ? 0 : 1)))} : List Nat).all (fun v => v == 0)) := by decide` },
   { key: 'clay_law_vote_theorems_only', why: `the collision law was decided by the same theorems-only electorate — the seven status-DNA theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally ${lawYes} YES · ${lawNo} NO, outcome YES, receipt ${lawVote.receiptOutcome}; ${lawYes} + ${lawNo} = ${sealedCount} and ${lawNo} < ${lawYes}`,
     js: () => lawVote.outcome === true && lawYes === sealedCount && lawNo === 0,
     lean: `theorem clay_law_vote_theorems_only : (${lawYes} + ${lawNo} = ${sealedCount}) ∧ ((${lawNo}:Nat) < ${lawYes}) ∧ ((${lawYes}:Nat) > 0) := by decide` },
