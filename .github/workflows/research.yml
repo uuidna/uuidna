@@ -171,7 +171,12 @@ jobs:
           # odometer step, the surfaces) and says plainly that the meaning is owed, so a human completing it later is
           # finishing the entry, not correcting it. Release PROSE is still never generated; a statistic is not a story.
           node dist/scripts/gen-changelog-section.js
-          git add package.json package-lock.json CHANGELOG.md
+          # RE-SEAL: CHANGELOG.md is a SEALED derived file, and this write lands AFTER reconcile's spin --seal — so
+          # the tag carried a changelog whose coin no longer matched its seal, and publish's own audit rejected the
+          # release with NON-QUANTUM DRIFT (measured on v0.1.6: editorial passed, publish died at spin --verify,
+          # and live/zenodo/extension never ran). Whatever writes a sealed file re-spins it before committing.
+          node dist/scripts/spin.js --seal
+          git add package.json package-lock.json CHANGELOG.md spin-manifest.json
           # statistics, not prose: the release commit carries the counts the gate just certified
           THEOREMS=$(jq -r '.audited' lean/axioms.json)
           AXIOM_FREE=$(jq -r '.axiomFree' lean/axioms.json)
