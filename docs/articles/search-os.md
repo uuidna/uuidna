@@ -22,8 +22,6 @@ the hard gate of the corroboration law.
 | `b22ab0ec` | crossref.org | DOI 10.1007/978-0-387-35396-8_6: Algebra for Databases with Explicit Markings of Damaged Data | UNVERIFIED | VERIFIED |
 | `5f145186` | crossref.org | DOI 10.3390/electronics10172068: A Hardware Platform for Ensuring OS Kernel Integrity on RISC-V | UNVERIFIED | VERIFIED |
 | `eaad569e` | crossref.org | DOI 10.1109/test.2008.4700649: Jitter and Signal Integrity Verification for Synchronous and Asynchronous I/Os a | UNVERIFIED | VERIFIED |
-| `0339d509` | semanticscholar.org | S2 Convergence of SART + OS + TV iterative reconstruction algor — AI tldr: The performance of the SART+OS+TV depends on parameter selection, which also implies that  | UNVERIFIED | VERIFIED |
-| `b200d27d` | semanticscholar.org | S2 A note on function algebras on disks. | UNVERIFIED | VERIFIED |
 | `555a9d44` | openalex.org | OpenAlex Extending the database relational model to capture more meaning [Advanced Database Systems and ] | UNVERIFIED | VERIFIED |
 | `127bfdad` | openalex.org | OpenAlex System R [Data Quality and Management] | UNVERIFIED | VERIFIED |
 | `a85ec835` | openalex.org | OpenAlex Software for the frontiers of quantum chemistry: An overview of develo [Computational Drug Discovery M] | UNVERIFIED | VERIFIED |
@@ -33,7 +31,7 @@ the hard gate of the corroboration law.
 | `fcdc6986` | openalex.org | OpenAlex Blockchain-Based Cloud Data Integrity Verification Scheme with High Ef [Cloud Data Security Solutions] | UNVERIFIED | VERIFIED |
 | `cad29974` | openalex.org | OpenAlex Integrity Audit of Shared Cloud Data with Identity Tracking [Cloud Data Security Solutions] | UNVERIFIED | VERIFIED |
 
-**18 findings · 18 usable search-trial combinations · receipt `d28075ab`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `beb9f1e6`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

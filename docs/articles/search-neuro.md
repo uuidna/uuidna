@@ -17,10 +17,10 @@ the hard gate of the corroboration law.
 | `649c70a3` | crossref.org | DOI 10.4028/www.scientific.net/amr.187.319: Geometric Algebra Neuron for SAR Automation Target Recognition | UNVERIFIED | VERIFIED |
 | `7db9b261` | crossref.org | DOI 10.1109/tnn.2003.809427: Lattice algebra approach to single-neuron computation | UNVERIFIED | VERIFIED |
 | `900ed8c5` | crossref.org | DOI 10.1007/978-3-642-01216-7_45: Geometry Algebra Neuron Based on Biomimetic Pattern Recognition | UNVERIFIED | VERIFIED |
-| `f6f5ff60` | crossref.org | DOI 10.1016/0896-6273(94)90433-2: Neuron reviewers | UNVERIFIED | VERIFIED |
 | `7b78a0ca` | crossref.org | DOI 10.7717/peerj-cs.3184/fig-2: Figure 2: Representation of neuron models: (A) artificial neuron. (B) spiking ne | UNVERIFIED | VERIFIED |
-| `311ff3df` | crossref.org | DOI 10.1016/s0896-6273(03)00812-2: Neuron Reviewer | UNVERIFIED | VERIFIED |
+| `f6f5ff60` | crossref.org | DOI 10.1016/0896-6273(94)90433-2: Neuron reviewers | UNVERIFIED | VERIFIED |
 | `dc23c14f` | crossref.org | DOI 10.1016/0896-6273(88)90159-6: Neuron reviewers | UNVERIFIED | VERIFIED |
+| `311ff3df` | crossref.org | DOI 10.1016/s0896-6273(03)00812-2: Neuron Reviewer | UNVERIFIED | VERIFIED |
 | `a6016cb5` | crossref.org | DOI 10.1016/0896-6273(92)90080-w: Neuron reviewers | UNVERIFIED | VERIFIED |
 | `f10b2399` | openalex.org | OpenAlex The Variable Discharge of Cortical Neurons: Implications for Connectiv [Neural dynamics and brain func] | UNVERIFIED | VERIFIED |
 | `93e9ae84` | openalex.org | OpenAlex Lattice algebra approach to single-neuron computation [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `2e402279` | openalex.org | OpenAlex Neuronal activity in the vestibular nuclei of the alert monkey during  [Visual perception and processi] | UNVERIFIED | VERIFIED |
 | `847e42e1` | openalex.org | OpenAlex On Clifford neurons and Clifford multi-layer perceptrons [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `def4428d`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `ef21df37`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
