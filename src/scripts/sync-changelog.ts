@@ -8,17 +8,25 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { runTrial, THEOREMS, PRINCIPLES } from '../index.js'
+import { runTrial, THEOREMS, PRINCIPLES, statementCensus } from '../index.js'
 import { ROOT } from './api.js'
 
 const TARGET = 1024 // the v1.0.0 milestone (2^10) — the one stated goal, a named constant, not a magic number
 const count = THEOREMS.length
 const principles = new Set(THEOREMS.map((t) => t.principle)).size
 const receipt = runTrial().receipt
-const remaining = TARGET - count
 
-const TODAY = `Today: **${count} / ${TARGET} — ${remaining} to go**, across ${principles} principles.`
-const CURRENT = `Ledger: **${count} theorems** across **${principles} principles**, folded to receipt \`${receipt}\``
+// BOTH NUMBERS, ALWAYS — a theorem is its LEAN, not its name. The ledger holds more KEYS than distinct propositions
+// because some statements are deliberately sealed in two wings (the ℤ/9 table lives in Core and in Ring, 64 of the
+// overlap), and every surface that printed only the key count was quietly using the larger of two true numbers. The
+// milestone is measured on the DISTINCT count, because that is what a skeptic recomputing the ledger would find.
+const census = statementCensus()
+const distinct = census.distinct
+const renamings = census.renamings
+const remaining = TARGET - distinct
+
+const TODAY = `Today: **${distinct} distinct / ${TARGET} — ${remaining} to go** (${count} keys, ${renamings} deliberate re-namings), across ${principles} principles.`
+const CURRENT = `Ledger: **${distinct} distinct propositions** under **${count} keys** (${renamings} re-namings — a statement sealed in two wings is one theorem with two names) across **${principles} principles**, folded to receipt \`${receipt}\``
 
 const path = join(ROOT, 'CHANGELOG.md')
 const before = readFileSync(path, 'utf8')

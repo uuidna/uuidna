@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps } from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps } from './one-receipt.js'
 
 let failed = false
 
@@ -114,6 +114,9 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // backlog in lean/key-entropy.json and may only shrink — so the entropy stops growing without moving 313
   // published content-addresses in one stroke.
   { name: 'words', run: () => wordsGaps() },
+  // BOTH LEDGER SIZES, LIVE: keys and distinct propositions, on every surface that states either. Caught a stale
+  // 1274 in .zenodo.json — a count published into the archive on every release.
+  { name: 'counts', run: () => countsGaps() },
   // BLOCKING from birth, by the captain's law "all not lean green fails": a boundary stated bare drops the lead —
   // the reader is told what the work is not and never handed the sealed thing that fixes the bound. It was written
   // advisory with 56 open findings; all 56 were paid in the same landing (the recurring "integrity, not truth"

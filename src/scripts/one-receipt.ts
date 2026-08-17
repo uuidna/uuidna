@@ -22,7 +22,7 @@ import { execSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { theorems, PRINCIPLES, publications, toUuid, quantumAura, auraDecode, auraAlphabet } from '../index.js'
+import { theorems, PRINCIPLES, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, type Gap } from './api.js'
 
@@ -335,6 +335,42 @@ export function actionsGaps(): Gap[] {
  *  ledger receipt and the published archive — so they are recorded in lean/key-entropy.json as an explicit backlog
  *  that may only SHRINK (src/test/key-entropy.test.ts enforces that it never grows). Anything NEW fails hard here.
  *  That is how the class stops growing today without moving 313 published addresses in one stroke. */
+/** BOTH NUMBERS OR NEITHER — a theorem is its LEAN, not its name, so the ledger has two true sizes: the number of
+ *  KEYS and the number of DISTINCT propositions. They differ because some statements are deliberately sealed in two
+ *  wings (the ℤ/9 table in Core and in Ring accounts for 64 of the overlap). A surface that prints only the key count
+ *  is quietly choosing the larger of two true numbers, and a surface carrying a count from an older ledger is simply
+ *  wrong — .zenodo.json was publishing 1274 into the archive while the ledger held 1307 keys over 1222 distinct.
+ *
+ *  This holds every declared surface to the LIVE census: every theorem count it states must be one the census
+ *  currently reports, and a surface naming the key count must name the distinct count beside it. */
+export function countsGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const census = statementCensus()
+  const keys = theorems().length
+  const TARGET = 1024                       // the stated v1.0.0 milestone — a goal, not a measurement
+  const allowed = new Set([String(keys), String(census.distinct), String(census.renamings), String(TARGET)])
+  const SURFACES = ['README.md', 'CHANGELOG.md', '.zenodo.json']
+  for (const s of SURFACES) {
+    if (!existsSync(join(ROOT, s))) continue
+    const text = rd(s)
+    // every number this surface presents AS a theorem count
+    const stated = [...text.matchAll(/(\d{3,5})\s*(?:sealed\s+|distinct\s+)?theorems?\b/gi)].map((m) => m[1])
+      .concat([...text.matchAll(/theorems?"?\s*[:=]\s*\**(\d{3,5})/gi)].map((m) => m[1]))
+    for (const n of [...new Set(stated)]) {
+      if (!allowed.has(n)) gaps.push({
+        what: `${s}: states ${n} theorems, which the live census does not report (${keys} keys, ${census.distinct} distinct)`,
+        fix: `regenerate the surface from the ledger so the number cannot go stale — ${s === '.zenodo.json' ? 'the archive description is deposited on every release, so a stale count is published' : 'run the generator that writes it'}`,
+      })
+    }
+    // a surface that names the key count must name the distinct count too, or it presents the larger of two truths
+    if (stated.includes(String(keys)) && !text.includes(String(census.distinct))) gaps.push({
+      what: `${s}: names the ${keys} keys without the ${census.distinct} distinct propositions — the larger of two true numbers, alone`,
+      fix: `state both, with the reason: "${census.distinct} distinct propositions under ${keys} keys (${census.renamings} deliberate re-namings)"`,
+    })
+  }
+  return gaps
+}
+
 export function wordsGaps(): Gap[] {
   const FILLER = new Set(['is', 'are', 'was', 'be', 'the', 'a', 'an', 'of', 'by', 'to', 'in', 'on', 'for', 'with', 'its', 'it', 'that', 'then', 'into', 'from', 'as', 'at', 'and', 'or', 'only', 'ever'])
   const content = (k: string): string[] => k.replace(/^uuidna_/, '').split('_').filter((x) => x && !FILLER.has(x))
@@ -901,8 +937,9 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'wave') wave(process.argv[3]?.trim() || '')
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'stage') { const r = stageDerived(ROOT); console.log('✓ one-receipt stage — ' + r.staged + ' derived path(s) staged' + (r.leftForHumans.length ? '; left for a human (not staged, not swept): ' + r.leftForHumans.join(', ') : '; nothing else pending')) }
+  else if (cmd === 'counts') report('one-receipt counts', countsGaps(), 'every surface states both ledger sizes, and both are live')
   else if (cmd === 'words') report('one-receipt words', wordsGaps(), 'every theorem key carries its fact in three content words or is in the recorded backlog')
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | counts | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }

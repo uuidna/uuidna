@@ -1,4 +1,4 @@
-# uuidna — 1307 theorems, 2 coins, one receipt
+# uuidna — 1222 distinct theorems under 1307 keys, 2 coins, one receipt
 
 `2dfbbb06-e599-8c5e-a0df-aa0d140cae5b`
 
