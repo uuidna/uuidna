@@ -30,8 +30,8 @@ jobs:
     outputs:
       published: ${{ steps.publish.outputs.published }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Install deps
@@ -87,10 +87,10 @@ jobs:
       contents: write # the reconcile commit, the version commit, the tag
       actions: write  # dispatch publish.yml on the fresh tag
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main # the desk pushed its publications above — release from the CURRENT tip, not the trigger snapshot
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Install Lean (elan, toolchain pinned by lean-toolchain)

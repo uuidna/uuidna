@@ -227,6 +227,10 @@ function predictFeatureGaps(): PredictedGap[] {
     join(ROOT, 'package.json'),
     ...(existsSync(join(ROOT, '.github', 'workflows'))
       ? readdirSync(join(ROOT, '.github', 'workflows')).map((f) => join(ROOT, '.github', 'workflows', f)) : []),
+    // the tracked git hooks (core.hooksPath = hooks) are a real invoker: hooks/commit-msg runs check-msg.js, so
+    // omitting this directory reported a script as unwired that a hook has been running on every commit.
+    ...(existsSync(join(ROOT, 'hooks'))
+      ? readdirSync(join(ROOT, 'hooks')).map((f) => join(ROOT, 'hooks', f)) : []),
     ...scriptFiles.map((f) => join(scriptsDir, f)),
     ...readdirSync(join(ROOT, 'src')).filter((f) => f.endsWith('.ts')).map((f) => join(ROOT, 'src', f)),
   ]

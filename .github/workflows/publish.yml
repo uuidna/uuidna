@@ -36,8 +36,8 @@ jobs:
   editorial:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Install deps
@@ -52,8 +52,8 @@ jobs:
       contents: read
       id-token: write # dual use: OIDC trusted-publishing auth (token-free) + the Sigstore provenance attestation
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'
@@ -94,8 +94,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Pack the desktop extension
@@ -155,7 +155,7 @@ jobs:
     needs: publish
     if: startsWith(github.ref, 'refs/tags/') # a tag push, or the research desk dispatching on a fresh tag
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Deposit the release to Zenodo (new version of the standing record, else fresh)
         env:
           ZENODO_TOKEN: ${{ secrets.ZENODO_ACCESS_TOKEN }}
