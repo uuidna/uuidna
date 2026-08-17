@@ -82,6 +82,9 @@ export {
 // captain/ — the captain's own section: the coins (billing + the valuation law: one coin per direction per boundary),
 // the rights, the credit law, the repo bindings, and the trial deposit — consolidated where the captain lives.
 export { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, boundariesOf, theoremCoins, ledgerCoins, type UuidnaUsage, type TheoremCoins, type LedgerCoins } from './captain/billing.js'
+// captain/jobs — the twelve jobs of the coins, remembered in code: a catalog whose every claim carries its
+// citations and TRIES ITSELF on every read (a vanished theorem breaks the catalog's own verdict, loudly).
+export { coinsJobs, type CoinJob, type CoinJobsReport } from './captain/jobs.js'
 
 // quantum — a CLASSICAL, EXACT state-vector simulator, ported from millennium-solutions and completed as the captain
 // computes: on integer positions, no decimal drift. Amplitudes are GAUSSIAN INTEGERS over √(2^scale) — the ring

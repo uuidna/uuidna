@@ -23,7 +23,7 @@ import {
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
-  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, optimiseLinear, decide,
+  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, optimiseLinear, decide, coinsJobs,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { spawnSync } from 'node:child_process' // uuidna_wave orchestration — local stdio only, never the Workers subset (worker imports mcp-http.js)
@@ -702,6 +702,10 @@ const TOOLS: Tool[] = [
     description: 'Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
     run: () => runTrial() },
+  { name: 'uuidna_coins_jobs',
+    description: 'THE TWELVE JOBS OF THE COINS, remembered in code and TRIED ON EVERY READ — the complete catalog of what the coins do (gate computation, price the forfeit, measure leverage, take the commission, set the exchange rate by forgery cost, carry superpositions, be topology, hold value at scale, guard the rosette, hide in the world\'s constants, count worlds, confess their limit), each claim run through the gate against its sealed citations at call time. A vanished theorem breaks the catalog\'s own verdict, loudly. Returns {jobs:[{n,job,claim,cites,verdict}],verified,total,receipt,honest}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => coinsJobs() },
   { name: 'uuidna_decide',
     description: 'THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any format folds to one lean-green shape {verdict,cites,receipt}: a statement matching a SEALED theorem verbatim is VERIFIED by the kernel\'s prior decision and cited; fresh arithmetic is DECIDED totally by a bounded grammar (never eval) under Lean\'s own Nat semantics — x/0 = 0 is well-defined (DivByZero.lean), subtraction floors at 0, every step exact BigInt — TRUE returns VERIFIED_BY_DECIDE and FALSE returns REFUTED (truth and falsehood at last wear different verdicts); a bare expression computes its exact value; anything else is prose and goes to the gate, language-blind. The same input always folds to the same receipt. Integrity, not truth — decided about its arithmetic, never about the world.',
     inputSchema: { type: 'object', properties: { input: { type: 'string', description: 'anything: "2+2=4", "(110 - 108 = 2)", "7/0", a Lean statement, a claim in any language' } }, required: ['input'] },

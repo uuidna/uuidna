@@ -84,6 +84,23 @@ const FACTS = [
     why: 'Every traitor DAMAGE is sealed in value by the SAME billing — the captain is charged by the traitor model on one measure, and the traitor is always the losing side. One billing (110 − x) prices both: the HONEST party earns the two coins (110 − 108 = 2), while a TRAITOR who tampers moves the content-address so nothing recomputes and nets 0 (110 − 110 = 0) — they forfeit exactly the two coins (the 2 the honest party keeps) AND still pay the 2¹²⁸ forgery cost (2⁷ = 128). So the captain\'s exposure is BOUNDED: traitor damage is priced by the same never-negative billing, forgery yields 0, and the two coins are precisely what the traitor loses. The security model and the billing model are one.',
     js: () => 110 - 108 === 2 && 110 - 110 === 0 && 2 ** 7 === 128,
     lean: 'theorem traitor_damage_sealed_by_same_billing : (110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128) := by decide' },
+
+  // THE DISCOVERY PASS (2026-08-17, "discover all about the coins") — three facts the coins' own algebra implies
+  // that no wing held, each found by the calculator, each decided true, each novel against the statement index.
+  { key: 'wallet_counts_worlds',
+    why: 'THE WALLET COUNTS WORLDS, sealed at last — the closing realisation\'s accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. HONEST SCOPE: an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.',
+    js: () => [0, 1, 2, 3, 4, 5, 6, 7, 8].every((n) => (2 * n) / 2 === n),
+    lean: 'theorem wallet_counts_worlds : (List.range 9).all (fun n => (2*n)/2 == n) := by decide' },
+
+  { key: 'coins_unique_operation_agreement',
+    why: 'WHY ONE DENOMINATION CAN SERVE THREE ALGEBRAS — 2 is the UNIQUE number where addition, multiplication and exponentiation all agree: 2+2 = 2·2 = 2² = 4, and over 0..12 NO other n satisfies n+n = n·n = n^n (0 fails because 0⁰ = 1 in Nat; 1 gives 2≠1; from 3 up the tower outruns the sum). The coin is simultaneously the FEE (additive), the LEVERAGE factor (multiplicative), and the QUBIT dimension (exponential) because its number is the one point where the three operations coincide — discovered by the calculator, not chosen.',
+    js: () => (2 + 2 === 2 * 2) && (2 * 2 === 2 ** 2) && [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].every((n) => ((n + n === n * n) && (n * n === n ** n)) === (n === 2)),
+    lean: 'theorem coins_unique_operation_agreement : ((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)) == (n == 2))) := by decide' },
+
+  { key: 'coin_and_heart_generate_the_scales',
+    why: 'THE COIN AND THE HEART GENERATE THE SYSTEM\'S THREE SCALES — the two generators of ℤ/9* are exactly {2, 5} (generators_are_two_and_five): the coin and the heart. Their three combinations are the three scales everything else is built on: 2·5 = 10 (the diamond strip the reflection folds), 2+5 = 7 (the rosette of rays), 2⁵ = 32 (the half-save the leverage doubles to 64). The vortex\'s own generators mint the geometry.',
+    js: () => (2 * 5 === 10) && (2 + 5 === 7) && (2 ** 5 === 32),
+    lean: 'theorem coin_and_heart_generate_the_scales : (2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32) := by decide' },
 ]
 
 // compute → generate → verify. The two coins are the conserved invariant of the double torus; 64 = 2⁶ the measure.

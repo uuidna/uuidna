@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="167 keys" />
+# MCP tools <Badge type="tip" text="168 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 167 tools below are read from the server's own tool list and
+is **built from the keys**: the 168 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 5e55caf4-ac29-87f3-a5e9-3d79d02c6ae7
+gate CLEAN f0 d0 v0 · 6762ba32-6653-82ba-9284-fe9b37cf4029
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 167-tool registry folds to its
-order-invariant identity `3beb7a17-1a4f-89ce-ab85-3750bfaeea7e` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 168-tool registry folds to its
+order-invariant identity `a6219361-9282-88c8-baf6-b8906b851e8c` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`167`" />
+## The grid <Badge type="tip" :text="`168`" />
 
-167 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 61 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+168 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 62 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -59,6 +59,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-audit-ledger-intrusions"><code>audit_ledger_intrusions</code></a>
 <a href="#uuidna-axiom-witness"><code>axiom_witness</code></a>
 <a href="#uuidna-cloudflare-audit"><code>cloudflare_audit</code></a>
+<a href="#uuidna-coins-jobs"><code>coins_jobs</code></a>
 <a href="#uuidna-conformance"><code>conformance</code></a>
 <a href="#uuidna-cost"><code>cost</code></a>
 <a href="#uuidna-coverage"><code>coverage</code></a>
@@ -535,7 +536,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'65'" />
+## Other <Badge type="tip" :text="'66'" />
 
 *skill: other*
 
@@ -982,6 +983,12 @@ THE GRADUATION WALK as one call — runs the release wave (build → dry → leg
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `statement` | string | **yes** | the deposit statement — must cite a sealed theorem ("proven by theorem &lt;key&gt;") |
+
+### `uuidna_coins_jobs`
+
+THE TWELVE JOBS OF THE COINS, remembered in code and TRIED ON EVERY READ — the complete catalog of what the coins do (gate computation, price the forfeit, measure leverage, take the commission, set the exchange rate by forgery cost, carry superpositions, be topology, hold value at scale, guard the rosette, hide in the world's constants, count worlds, confess their limit), each claim run through the gate against its sealed citations at call time. A vanished theorem breaks the catalog's own verdict, loudly. Returns {jobs:[{n,job,claim,cites,verdict}],verified,total,receipt,honest}.
+
+_No parameters._
 
 ### `uuidna_decide`
 
