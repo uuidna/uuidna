@@ -319,6 +319,62 @@ export function actionsGaps(): Gap[] {
   return gaps
 }
 
+// ── vacuous: THE NAME-IS-NOT-THE-PROOF LAW, made arithmetic. A statement true REGARDLESS OF ITS CONTENT —
+// True, x = x, P ∧ P, P ↔ P, P → P, P ∨ ¬P — proves nothing about the name above it, and a grand name over a
+// vacuous proof is the one thing this ledger must never contain (the martial-arts wing was rewritten for
+// exactly this, 2026-08-17). `by decide` will happily certify every one of them: the kernel checks the
+// proposition, never whether the proposition means what its key says. This finder is that missing half.
+// EXEMPT: the declared `oos_` scope markers, whose whole purpose is to be void — a named boundary, not a claim.
+export function vacuousGaps(): Gap[] {
+  // strip outer parens ONLY when the first '(' closes at the last ')' — a greedy strip mangles "(A) ∨ (B)"
+  // into "A) ∨ (B" and makes the detector miss what it exists to catch (measured: 1 found instead of 12)
+  const norm = (s: string): string => {
+    let t = s.trim().replace(/\s+/g, ' ')
+    for (;;) {
+      if (!(t.startsWith('(') && t.endsWith(')'))) return t
+      let d = 0
+      for (let i = 0; i < t.length; i++) {
+        if (t[i] === '(') d++
+        else if (t[i] === ')') { d--; if (d === 0 && i !== t.length - 1) return t }
+      }
+      t = t.slice(1, -1).trim()
+    }
+  }
+  const strip = (s: string): string => norm(norm(s).replace(/\s*:\s*(Nat|Int|Prop)\b/g, ''))
+  const split = (s: string, op: string): [string, string] | null => {
+    let d = 0
+    for (let i = 0; i < s.length; i++) {
+      if (s[i] === '(') d++
+      else if (s[i] === ')') d--
+      else if (d === 0 && s.startsWith(op, i)) return [s.slice(0, i), s.slice(i + op.length)]
+    }
+    return null
+  }
+  const why = (raw: string): string | null => {
+    const s = strip(raw)
+    if (s === 'True') return 'True — proves nothing at all'
+    for (const op of ['↔', '→', '∨', '∧', '=']) {
+      const parts = split(s, op)
+      if (!parts) continue
+      const [l, r] = [strip(parts[0]), strip(parts[1])]
+      if (op === '∨') {
+        if (strip(r.replace(/^¬\s*/, '')) === l) return 'P ∨ ¬P — excluded middle, true for ANY P'
+        if (l.includes('=') && r.includes('≠') && r.replace('≠', '=') === l) return 'P ∨ ¬P via ≠ — excluded middle, true for ANY P'
+        continue
+      }
+      if (l === r) return op === '=' ? 'x = x — reflexivity, true for ANY x' : `P ${op} P — a tautology, true for ANY P`
+    }
+    return null
+  }
+  const gaps: Gap[] = []
+  for (const t of theorems()) {
+    if (t.key.startsWith('oos_')) continue // declared out-of-scope markers: void ON PURPOSE, and say so by name
+    const w = why(t.statement)
+    if (w) gaps.push({ what: `${t.file}: theorem ${t.key} is VACUOUS — \`${t.statement}\` is ${w}`, fix: `rewrite it to prove its own name in arithmetic, or drop the claim and rename it for what it actually proves (the martial-arts standard); if it is a deliberate scope marker, rename it oos_*` })
+  }
+  return gaps
+}
+
 // ── re: THE REVERSE-ENGINEERING POSTURE — the two-layer trial, folded as its decidable half. Layer 1 (the
 // imprint transport) REVERSES BY DESIGN: the uuid IS the message — 115 payload bits placed into the 122 free bit
 // positions (128 minus RFC 4122's six, minus the 7-bit length header), so "reverse engineering" is picking the
@@ -686,6 +742,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'crypto') cryptoGaps().then((g) => report('one-receipt crypto', g, 'every cryptographic operation covered in both directions — reversibles invert, one-ways are deterministic.'))
   else if (cmd === 'pipes') report('one-receipt pipes', pipeGaps(), 'no gate flows into a pipe — every exit code is the gate\'s own.')
   else if (cmd === 'actions') report('one-receipt actions', actionsGaps(), 'every action pins one major, tree-wide — no workflow silently trails the rest onto a deprecated runtime.')
+  else if (cmd === 'vacuous') report('one-receipt vacuous', vacuousGaps(), 'no theorem is true regardless of its content — every sealed name is carried by a proof that means it.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
   else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))
