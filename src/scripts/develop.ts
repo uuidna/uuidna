@@ -91,6 +91,14 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
     const r = teeStep(`develop · round ${round} · ${step.label}`, step.cmd)
     if (!r.ok) { objection = { label: step.label, out: r.out }; break }
   }
+  // A TORN TREE IS NOT AN OBJECTION — the concurrent-writer test belongs on the WALK too, not only on the cures. Met
+  // the second time this pass ran: another session was mid-edit on gen-readme.ts (naming THEOREM_COUNT before defining
+  // it), so `build` failed with a TS error that was nobody's bug and was gone minutes later. Reporting that as "no
+  // taught cure" sends a human to debug a file that was simply half-written at the moment we read it.
+  if (objection && treeState() !== stateAtRoundStart) {
+    console.log(`· develop — the "${objection.label}" gate failed while the tree was moving (another session is landing); waiting and walking again`)
+    continue
+  }
   if (!objection) {
     console.log(`\n✓ develop — the gate is clean${applied.length ? ` after ${applied.length} cure(s): ${applied.join(', ')}` : ' (nothing to heal)'}`)
     if (process.argv.includes('--seal')) {
