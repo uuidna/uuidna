@@ -88,6 +88,10 @@ jobs:
           test "$TAG" = "$PKG" || { echo "::error::tag v$TAG != package.json $PKG"; exit 1; }
           # Harmonised with millennium-solutions: MAJOR.MINOR.PATCH are single digits (0..9), the vortex odometer.
           echo "$TAG" | grep -Eq '^[0-9]\.[0-9]\.[0-9]$' || { echo "::error::v$TAG breaks the single-digit odometer (each of major.minor.patch must be 0..9)"; exit 1; }
+          # THE v0 LOCK — the same law the calendar's tick holds, enforced here too, because a tag can be pushed by
+          # hand. Nothing outside v0 publishes: not to npm, not to the release, not to the archive. A MAJOR tick
+          # states that the work has changed what it promises, and only the captain says that.
+          echo "$TAG" | grep -Eq '^0\.' || { echo "::error::THE v0 LOCK — v$TAG is outside v0. The pipeline publishes only v0.*.*; leaving v0 is the captain's deliberate act, not a tag's."; exit 1; }
 
       # Token-free: OIDC (id-token: write above) is exchanged for the publish credential; no NODE_AUTH_TOKEN.
       - name: Publish (public, token-free via OIDC, with provenance) — prepublishOnly runs the complete audit first

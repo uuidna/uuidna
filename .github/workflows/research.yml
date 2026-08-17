@@ -137,10 +137,14 @@ jobs:
           set -euo pipefail
           V=$(node -p "require('./package.json').version")
           IFS=. read -r MA MI PA <<< "$V"
+          # THE v0 LOCK (the captain's, 2026-08-17): the calendar lives in v0 and may never leave it. A MAJOR tick
+          # is a statement about MATURITY, and no automation gets to make that statement — v1 is a human decision
+          # about what the work now promises, which is exactly the kind of meaning the two-handle law reserves.
+          # So the odometer runs 0.0.0 … 0.9.9 and stops; lifting the lock means editing this step deliberately.
+          test "$MA" = "0" || { echo "::error::THE v0 LOCK — package.json is at $V, outside v0; the calendar mints only v0.*.*"; exit 1; }
           if   [ "$PA" -lt 9 ]; then PA=$((PA+1))
           elif [ "$MI" -lt 9 ]; then MI=$((MI+1)); PA=0
-          elif [ "$MA" -lt 9 ]; then MA=$((MA+1)); MI=0; PA=0
-          else echo "::error::the calendar is full at 9.9.9 — the captain decides what comes after"; exit 1; fi
+          else echo "::error::THE v0 LOCK — the calendar is full at 0.9.9. The next tick would be 1.0.0, which leaves v0: that is the captain's decision about what the work promises, never the calendar's. Lift the lock deliberately, or keep sealing without minting."; exit 1; fi
           NEXT="$MA.$MI.$PA"
           npm version "$NEXT" --no-git-tag-version
           # THE CALENDAR WRITES FACTS, NEVER MEANING (the captain's decision, 2026-08-17). `npm run next` refuses a
