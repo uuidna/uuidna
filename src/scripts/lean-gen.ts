@@ -3,13 +3,32 @@
 // emit(): it checks every fact holds in JS, writes lean/<File>.lean and lean/<file>-manifest.json (the microdata
 // bridge — {key,name} per theorem), and shells out to `lean` to verify the file compiles sorry-free. One helper,
 // no repetition. Integrity, not truth.
-import { writeFileSync } from 'node:fs'
+import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { toUuid } from '../address.js'
 
 import { ROOT } from './api.js'
 export { ROOT }
+
+// THE DELTA GATE (lead 15, sealed by verify_beats_recompute_by_magnitudes) — the gate proves only what MOVED.
+// lean/proof-cache.json maps each generated file to the content-address of the last text the KERNEL ITSELF
+// verified; when a regeneration produces byte-identical content (same address), the spawn is skipped and the
+// wing is VERIFIED BY RECEIPT — the kernel's prior signature on this exact text, recomputable by anyone from
+// the address. A changed wing's address moves, so it always re-proves; a stale cache can only cause EXTRA
+// proving, never a false pass. UUIDNA_PROVE_ALL=1 forces every spawn (the full recalibration door, like
+// heartbeats --all). Measured motive: the pre-delta `npm run lean` paid ~60 kernel spawns per run to re-prove
+// unchanged wings; the delta pays only the diff.
+const CACHE_PATH = join(ROOT, 'lean', 'proof-cache.json')
+const readProofCache = (): Record<string, string> => {
+  try { return existsSync(CACHE_PATH) ? JSON.parse(readFileSync(CACHE_PATH, 'utf8')) : {} } catch { return {} }
+}
+const writeProofCache = (c: Record<string, string>): void => {
+  const sorted: Record<string, string> = {}
+  for (const k of Object.keys(c).sort()) sorted[k] = c[k]!
+  writeFileSync(CACHE_PATH, JSON.stringify(sorted, null, 1) + '\n')
+}
 export const m9 = (n: number): number => ((n % 9) + 9) % 9
 // One shared exec buffer for every `lean` shell-out across the pipeline (generators, the audit, the heartbeat probe)
 // — a Lean file's stdout/stderr never approaches this, but a single constant keeps the cap consistent, not guessed
@@ -76,6 +95,13 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   // The manifest carries {key, name, skill} — the microdata bridge. skill is the inline, authored capability
   // (a Fact's own skill, else the file-level default); omitted when neither is set, so the ledger falls back.
   writeFileSync(join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json'), JSON.stringify(facts.map((f) => { const s = f.skill ?? skill; return s ? { key: f.key, name: f.name || f.stmt || f.key, skill: s } : { key: f.key, name: f.name || f.stmt || f.key } }), null, 0) + '\n')
+  // the delta gate: byte-identical content = the kernel's prior signature stands — verify by receipt, skip the spawn
+  const address = toUuid(lean)
+  const cache = readProofCache()
+  if (cache[file] === address && !process.env.UUIDNA_PROVE_ALL) {
+    console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified by receipt (unchanged at ' + address.slice(0, 8) + '; the kernel signed this exact text — UUIDNA_PROVE_ALL=1 re-proves)')
+    return facts.length
+  }
   try {
     execSync('lean ' + JSON.stringify(join(ROOT, 'lean', file)), { cwd: ROOT, stdio: 'pipe', maxBuffer: MAXBUF })
   } catch (e) {
@@ -86,6 +112,8 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
     console.error('✗ lean/' + file + ' — Lean verification FAILED:\n' + (diag || String(e)))
     process.exit(1)
   }
-  console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified sorry-free.')
+  cache[file] = address
+  writeProofCache(cache)
+  console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified sorry-free (receipt ' + address.slice(0, 8) + ' cached — the next unchanged run verifies free).')
   return facts.length
 }
