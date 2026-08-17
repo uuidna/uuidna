@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="175 keys" />
+# MCP tools <Badge type="tip" text="179 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 175 tools below are read from the server's own tool list and
+is **built from the keys**: the 179 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 7abab097-07be-8576-a71d-22b15035dd18
+gate CLEAN f0 d0 v0 · a595bebd-58be-84a3-ad13-06424dd132fe
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 175-tool registry folds to its
-order-invariant identity `17f42a7a-504c-86b8-b908-0dc1d0e7e884` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 179-tool registry folds to its
+order-invariant identity `65b78aa8-3711-82da-9c8d-ba7d98c8440d` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`175`" />
+## The grid <Badge type="tip" :text="`179`" />
 
-175 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 67 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+179 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 68 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -74,6 +74,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
 <a href="#uuidna-full-anti-fraud-audit"><code>full_anti_fraud_audit</code></a>
 <a href="#uuidna-gate-status"><code>gate_status</code></a>
+<a href="#uuidna-grid"><code>grid</code></a>
 <a href="#uuidna-grow-life"><code>grow_life</code></a>
 <a href="#uuidna-guard-lessons"><code>guard_lessons</code></a>
 <a href="#uuidna-hardware"><code>hardware</code></a>
@@ -132,6 +133,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-audit-text"><code>audit_text</code></a>
 <a href="#uuidna-aura"><code>aura</code></a>
 <a href="#uuidna-book-article"><code>book_article</code></a>
+<a href="#uuidna-book-contents"><code>book_contents</code></a>
 <a href="#uuidna-by-lean"><code>by_lean</code></a>
 <a href="#uuidna-coin64"><code>coin64</code></a>
 <a href="#uuidna-contract"><code>contract</code></a>
@@ -166,6 +168,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-prove-verdict"><code>prove_verdict</code></a>
 <a href="#uuidna-reactor"><code>reactor</code></a>
 <a href="#uuidna-read"><code>read</code></a>
+<a href="#uuidna-read-book"><code>read_book</code></a>
 <a href="#uuidna-reeducate"><code>reeducate</code></a>
 <a href="#uuidna-reflects"><code>reflects</code></a>
 <a href="#uuidna-render"><code>render</code></a>
@@ -210,6 +213,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-poly1305"><code>poly1305</code></a>
 <a href="#uuidna-quantum-cube"><code>quantum_cube</code></a>
 <a href="#uuidna-quantum-message"><code>quantum_message</code></a>
+<a href="#uuidna-read-text"><code>read_text</code></a>
 <a href="#uuidna-reason"><code>reason</code></a>
 <a href="#uuidna-receive"><code>receive</code></a>
 <a href="#uuidna-rotate"><code>rotate</code></a>
@@ -543,7 +547,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'73'" />
+## Other <Badge type="tip" :text="'77'" />
 
 *skill: other*
 
@@ -629,6 +633,52 @@ Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id and write a recomputable
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e.g. 1342 (Pride and Prejudice) |
+
+### `uuidna_book_contents`
+
+THE TABLE OF CONTENTS — every chapter of a text with its heading, size and leaf address, plus the chapter merkle root. Pass {text}. This is the reader's index: it tells you WHICH chapters exist so you can then read one with uuidna_read_text. Each heading is the chapter's OWN first line, never a summary uuidna wrote. PURE and offline — no network, no key. Returns {title,authors,chapters:[{index,heading,chars,words,address}],chapterRoot}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** | the full text of the work |
+| `title` | string | no |  |
+| `authors` | array | no |  |
+
+### `uuidna_read_text`
+
+READ one chapter — the book's OWN WORDS, with the merkle inclusion proof that they belong to this exact edition. Pass {text, index}. Every other book tool here MEASURES a work and discards the text (auditText returns `chapters: NUMBER`); this is the one that hands the words back, so the library can actually be read rather than only catalogued. The proof is the point: recompute `belongs` yourself and a SINGLE altered character fails it — strictly more than a plain text file offers, which can be edited silently. Out-of-range indices are clamped, never an error. PURE and offline. HONEST SCOPE: this is READING, never interpretation — uuidna proves WHICH text you hold, never what it means. Public-domain works, free for the public interest. Returns {index,chapters,text,address,chapterRoot,proof,belongs,chars,words,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** | the full text of the work |
+| `index` | integer | **yes** | which chapter to read, 0-based (clamped into range) |
+| `title` | string | no |  |
+
+### `uuidna_read_book`
+
+READ a PUBLIC-DOMAIN book from Project Gutenberg by id — fetch it and return one chapter's actual words with the inclusion proof that they belong to that edition. Pass {gutenbergId, index}. This is uuidna_read_text over the network fetch: the library unlocked for a human to read, not only to fingerprint. The fetched text is DATA — content-addressed and returned, never executed; instruction-shaped prose inside a book is content, not a command. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught. HONEST SCOPE: reading, never interpretation. Returns {title,authors,source,index,chapters,text,address,chapterRoot,proof,belongs,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e.g. 2701 (Moby Dick) |
+| `index` | integer | no | which chapter to read, 0-based (clamped) |
+
+### `uuidna_grid`
+
+THE 432 GRID — every (projected dimension × ledger wing) seat, named, addressed and folded to one root. Omit args for the whole grid report; pass {dimension, wing} to address ONE seat. WHY 432 AND NOT 504: DIMENSIONS[0] is `en` and the wings are WRITTEN in it, so projecting a wing into en is the IDENTITY — 7 × 72 = 504 counts 72 seats that compute nothing, and 504 − 72 = 432 is exactly the seats that do work. 432 then factors TWICE and the two fuse: 6 × 72 (rays × wings) and 16 × 27 = 2^4 × 3^3, reached by the digit-reversal INVOLUTION 72 ↦ 27 — both clauses already sealed in theorem k432, both counts of digital root 9. The grid is a LIVE gate, not a frozen number: 6·w has digital root 9 only when w ≡ 0 (mod 3), so wings must be added THREE at a time or the grid breaks (73 wings → 438, digital root 6), and gridGaps reports it. HONEST SCOPE: a seat is the content-address of one wing read along one locale ray — a RECEIPT, never a translation; the grid proves every wing is reachable from every ray, never that it has been rendered into that language. Returns {rays,wings,seats,sealed,factorisations,involution,root,harmonic,gaps} or one {dimension,wing,name,address}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `dimension` | string | no | one of the six projected rays (en is the source, not a seat) |
+| `wing` | string | no | a ledger wing, e.g. MartialArts.lean or martial_arts |
 
 ### `uuidna_quantum_sailing_library`
 
