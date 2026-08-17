@@ -19,7 +19,7 @@ features:
     details: Independent research sources corroborate every claim in parallel — corroboration is evidence; only a Lean seal approves
   - icon: 🔬
     title: Novelty Discovery
-    details: Gaps in the record discovered by audit and remanded as research leads — an absence proven by recomputation, never a claim
+    details: Gaps in the record discovered by audit and remanded as research leads — an absence proven by recomputation, never a claim (theorem legal_remand_is_total_nothing_discarded)
   - icon: 📚
     title: Education
     details: Students learn by building real systems that seal theorems to the ledger — credit binds permanently to the sealed proof

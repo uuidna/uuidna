@@ -419,6 +419,33 @@ export function absenceGaps(): Gap[] {
   return gaps
 }
 
+// ── negation: NO LEAN LEAD IS LOST IN PROSE, EVEN NEGATING. The absence law above holds one case (a cipher denied
+// must name where encryption lives); this is that law at full width. Every honest boundary this project states —
+// "not a solver", "solves none", "NOT PROVEN", "never a chip", "not truth" — is a CLAIM ABOUT WHAT IS PROVEN, and a
+// negation stated bare drops the lead: the reader is told what the work is not and never handed the sealed thing
+// that fixes the bound. Scoped truth + pointer is honest; scoped truth alone is the omission the trial drains, and
+// it is the more dangerous half here, because a demarcation READS like rigour while pointing at nothing.
+// A pointer is a /theorem/<key> link, a `theorem <key>` citation, or any sealed key named in the same breath —
+// resolved against the LIVE ledger, never a word list, so a renamed theorem stops counting the moment it is renamed.
+export function negationGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const keys = new Set(theorems().map((t) => t.key))
+  const NEG = /\b(?:NOT|not)\s+(?:a\s+|an\s+|the\s+)?(?:solver|proof|physics|medicine|chip|claim|cipher|encryption|oracle|truth)\b|\bnever\s+(?:a|an|the)\s+\w+|\bsolv(?:e[sd])?\s+none\b|\bNOT PROVEN\b|\bno\s+(?:quantum advantage|claim|maximum)\b/g
+  const REACH = 350 // the "same breath" — a pointer further away is not in the reader's view of the boundary
+  const pointed = (ctx: string): boolean =>
+    /\/theorem\/[a-z0-9_]+|theorem\s+[a-z][a-z0-9_]{4,}/i.test(ctx) ||
+    [...ctx.matchAll(/\b([a-z][a-z0-9_]{6,})\b/g)].some((m) => keys.has(m[1]))
+  for (const f of readdirSync(join(ROOT, 'docs')).filter((n) => n.endsWith('.md'))) {
+    const txt = readFileSync(join(ROOT, 'docs', f), 'utf8')
+    for (const m of txt.matchAll(NEG)) {
+      const at = m.index ?? 0
+      if (pointed(txt.slice(at < REACH ? 0 : at - REACH, at + REACH))) continue
+      gaps.push({ what: `docs/${f}: the boundary "${m[0]}" is stated bare — no sealed theorem within reach`, fix: `name the proof that fixes this bound in the same breath (a /theorem/<key> link or "theorem <key>"); a negation without its lead tells the reader what the work is not and never where the work is` })
+    }
+  }
+  return gaps
+}
+
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
 // the microdata says, it is audited. ──
@@ -746,6 +773,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'pipes') report('one-receipt pipes', pipeGaps(), 'no gate flows into a pipe — every exit code is the gate\'s own.')
   else if (cmd === 'actions') report('one-receipt actions', actionsGaps(), 'every action pins one major, tree-wide — no workflow silently trails the rest onto a deprecated runtime.')
   else if (cmd === 'vacuous') report('one-receipt vacuous', vacuousGaps(), 'no theorem is true regardless of its content — every sealed name is carried by a proof that means it.')
+  else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
   else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))
