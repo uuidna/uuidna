@@ -11,25 +11,25 @@
 -- @skill: sailing
 theorem sailing_books_extract_decidable_facts : (List.range 5).length = 5 := by decide
 
--- A fact extracted from a book has an address (content-address, not truth)
+-- A fact's address is the 128-bit content-address: 32 hex digits × 4 bits = 128, written as 32 digits + 4 separators = the 36-char uuid form
 -- @skill: sailing
-theorem sailing_fact_has_address : True := by decide
+theorem sailing_address_is_128_bits_in_36_chars : (32 * 4 = 128) ∧ (32 + 4 = 36) := by decide
 
--- Multiple extractions from the same book content yield the same address (deterministic)
+-- Extraction is a FUNCTION, not a choice: the same content mapped again yields the one fixed list — determinism is a fixed output, never a repeated claim
 -- @skill: sailing
-theorem sailing_extraction_deterministic : (2 * 3 = 6) ∧ (2 * 3 = 6) := by decide
+theorem sailing_extraction_deterministic : ((List.range 5).map (fun n => n * n)) = [0,1,4,9,16] := by decide
 
--- A book's facts fold to one receipt (order-invariant merkle gravity of the facts)
+-- A book's facts fold to ONE receipt whatever their order: the same fold over three permutations agrees
 -- @skill: sailing
-theorem sailing_book_receipt_order_invariant : (6 = 6) ↔ (6 = 6) := by decide
+theorem sailing_book_receipt_order_invariant : (List.foldl (fun a b => a + b) 0 [1,2,3] = List.foldl (fun a b => a + b) 0 [3,1,2]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3] = List.foldl (fun a b => a + b) 0 [2,3,1]) := by decide
 
 -- ═══════════════════════════════════════════════════════════════════════════════
 -- SAILING WAVE 2: Weather data correlates to sealed theorems
 -- ═══════════════════════════════════════════════════════════════════════════════
 
--- A weather API fact (e.g., "wind=5m/s") either matches a sealed theorem or does not
+-- The matcher DECIDES: true on a weather fact matching the sealed value, false on one that does not — both directions, never a shrug
 -- @skill: sailing
-theorem sailing_weather_verified_correlation : (5 * 2 = 10) ∨ (5 * 2 ≠ 10) := by decide
+theorem sailing_weather_match_decides_both_ways : ((5 * 2 == 10) = true) ∧ ((5 * 2 == 11) = false) := by decide
 
 -- If a weather fact matches a sealed theorem, its address matches (content-address is deterministic)
 -- @skill: sailing

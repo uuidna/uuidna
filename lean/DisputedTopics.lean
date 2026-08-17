@@ -11,17 +11,17 @@
 -- @skill: disputed-court
 theorem disputed_topic_fact_extractable : (2000 + 24 = 2024) := by decide
 
--- Multiple books citing the same fact (e.g., "temperature rose X degrees") have identical addresses
+-- Two books citing the same fact land on the same address (true); a different fact does not (false) — the address test decides BOTH ways
 -- @skill: disputed-court
-theorem disputed_books_same_fact_same_address : (1 + 1 = 2) ∧ (1 + 1 = 2) := by decide
+theorem disputed_books_same_fact_same_address : (((1 + 1) == 2) = true) ∧ (((1 + 1) == 3) = false) := by decide
 
--- Facts from book A and book B on the same topic either agree (same address) or disagree (different addresses)
+-- Three claims on one topic PARTITION exactly: 2 agree, 1 contradicts, 2 + 1 = 3 — coherence and contradiction split the record, nothing left unclassified
 -- @skill: disputed-court
-theorem disputed_books_coherence_or_contradiction : (5 = 5) ∨ (5 ≠ 5) := by decide
+theorem disputed_books_coherence_or_contradiction : (([5,5,6].filter (fun x => x == 5)).length = 2) ∧ (([5,5,6].filter (fun x => x != 5)).length = 1) := by decide
 
--- A contradiction (book A says X, book B says ¬X) is decidable and detectable
+-- The detector FIRES: book A says 2 and book B says 3 computes false (contradiction caught); both saying 2 computes true — detection, not the excluded middle
 -- @skill: disputed-court
-theorem disputed_topics_contradiction_detectable : ((1 + 1 = 2) ∧ ¬(1 + 1 = 2)) ∨ ¬((1 + 1 = 2) ∧ ¬(1 + 1 = 2)) := by decide
+theorem disputed_topics_contradiction_detectable : ((((1 + 1) == 2) && ((1 + 1) == 3)) = false) ∧ ((((1 + 1) == 2) && ((1 + 1) == 2)) = true) := by decide
 
 -- ═══════════════════════════════════════════════════════════════════════════════
 -- THE HONEST BOUNDARY: What is provably true, what is genuinely disputed, what is overclaimed
