@@ -9,7 +9,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { catchTraitors } from '../treason.js'
-import { theorems } from '../index.js'
+import { theorems, statementCensus } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
 import { legalGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps } from './one-receipt.js'
@@ -42,6 +42,21 @@ try {
   else if (ax.axiomFree < ax.audited || offenders.length) { failed = true; console.error(`✗ guard — NON-KERNEL theorem: ${ax.axiomFree}/${ax.audited} axiom-free${offenders.length ? '; offenders: ' + offenders.join(', ') : ''} — the ledger borrows an axiom`) }
   else console.log(`✓ guard — axiom witness: ${ax.axiomFree}/${ax.audited} theorems kernel-only (no propext, no Classical.choice), covering all ${N}`)
 } catch { failed = true; console.error('✗ guard — no lean/axioms.json witness — run `npm run axioms` (the ledger has no kernel-only proof witness)') }
+
+// 1b) UNIQUENESS COMES FROM LEAN, NOT FROM THE NAME — a theorem is its statement, so two entries proving the same
+// proposition under different keys are one theorem wearing two names. The guard REPORTS both counts (so no surface
+// can quietly print the larger one) and NAMES every re-naming group. It does not fail on the standing ones — the
+// ℤ/9 table lives deliberately in both the core and the ring wing — but it makes the difference impossible to
+// overlook, and a NEW re-naming arrives named, at guard speed, instead of inflating the count in silence.
+{
+  const c = statementCensus()
+  if (c.renamings === 0) console.log(`✓ guard — uniqueness: all ${c.entries} entries are distinct statements (a theorem is its Lean, not its name)`)
+  else {
+    console.log(`  guard — uniqueness: ${c.entries} entries, ${c.distinct} DISTINCT statements, ${c.renamings} re-namings across ${c.groups.length} groups (a theorem is its Lean, not its name):`)
+    for (const g of c.groups.slice(0, 5)) console.log(`    · ${g.keys.join(' ≡ ')}  [${g.files.join(', ')}]`)
+    if (c.groups.length > 5) console.log(`    · … ${c.groups.length - 5} more groups — the full census: uuidna_statement_census`)
+  }
+}
 
 // 2) the source sweep — the tightened harmonic-scan (non-quantum + determinism hard-reject), fast
 try {

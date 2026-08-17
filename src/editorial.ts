@@ -36,6 +36,35 @@ export function articleFor(file: string): Article {
   }
 }
 
+/** UNIQUENESS COMES FROM LEAN, NOT FROM THE NAME — the ledger counts ENTRIES, but a theorem is its statement:
+ *  two entries proving the same proposition under different keys are one theorem wearing two names. This census
+ *  reports both numbers so no surface can quietly print the larger one, and names every group so a new re-naming
+ *  cannot enter silently. Normalisation is deliberately narrow (whitespace, redundant parens, `(n : Nat)` type
+ *  ascriptions): it catches re-namings of the SAME text, never claims two different proofs are the same. */
+export interface StatementCensus {
+  entries: number
+  distinct: number
+  renamings: number
+  groups: Array<{ statement: string; keys: string[]; files: string[] }>
+}
+const normStatement = (s: string): string =>
+  s.replace(/\s+/g, '').replace(/\((\d+)\s*:\s*Nat\)/g, '$1').replace(/[()]/g, '')
+export function statementCensus(): StatementCensus {
+  const T = theorems() as Array<Entry & { statement: string }>
+  const by = new Map<string, Array<Entry & { statement: string }>>()
+  for (const t of T) {
+    const k = normStatement(t.statement)
+    const g = by.get(k)
+    if (g) g.push(t); else by.set(k, [t])
+  }
+  const groups = [...by.values()].filter((g) => g.length > 1).map((g) => ({
+    statement: g[0]!.statement,
+    keys: g.map((t) => t.key),
+    files: [...new Set(g.map((t) => t.file))],
+  }))
+  return { entries: T.length, distinct: by.size, renamings: T.length - by.size, groups }
+}
+
 /** the desk's census — the committed prose-trials artifact (derived, never authored); repo-reads via the boundary */
 export interface EditorialState { surfaces: number; paragraphs_tried: number; usable: number; unverified: number; drained: number; receipt: string }
 export function editorialState(): EditorialState {

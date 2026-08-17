@@ -34,7 +34,7 @@ export { typeScale, typeScaleVars, applyTypeScale, type TypeRung } from './typog
 // citing its sealed proof), the prose-trial census, the publication's license law + archive conformance as
 // functions, the search-on-trial (online; evidence never approval), and the VIES register lookup (online; the
 // EU's own ledger). One implementation for the scripts, the MCP tools, and the CI automation.
-export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, type Article, type EditorialState, type PublicationStatus, type SearchTrial, type ViesResult, type LedgerSearch } from './editorial.js'
+export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, type StatementCensus, type Article, type EditorialState, type PublicationStatus, type SearchTrial, type ViesResult, type LedgerSearch } from './editorial.js'
 
 // optimise — THE EXACT LINEAR OPTIMISER: small integer LPs by TOTAL enumeration (every candidate checked,
 // nothing sampled), the optimum exact with a recomputable receipt; the search space is the qubit basis made

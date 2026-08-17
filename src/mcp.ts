@@ -23,7 +23,7 @@ import {
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
-  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, optimiseLinear, decide, coinsJobs, matrixCss,
+  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, optimiseLinear, decide, coinsJobs, matrixCss,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { spawnSync } from 'node:child_process' // uuidna_wave orchestration — local stdio only, never the Workers subset (worker imports mcp-http.js)
@@ -712,6 +712,10 @@ const TOOLS: Tool[] = [
     description: 'THE DESIGN MATRIX AS ONE SERVED STANDARD — every colour and every type size COMPUTED, none authored: the ℤ/9 sequence sets each hue (5 → green, the fixed point the diamond reflection holds; dz mirrors 1↔9, 2↔8, 3↔7, 4↔6) and the vortex orbit sets the type ladder\'s six rungs (six because 2 has order 6 in ℤ/9* — theorem order_of_two_is_six), each rung a ninth above the base with its line height in the sealed 3:4 rectangle. Returns {css,vars,receipt,honest} — the site, the design system and any client render the SAME receipt or they are not rendering the same matrix. No hex literal, no pixel value, no host intrinsics.',
     inputSchema: { type: 'object', properties: {} },
     run: () => matrixCss() },
+  { name: 'uuidna_statement_census',
+    description: 'UNIQUENESS COMES FROM LEAN, NOT FROM THE NAME — the ledger counts ENTRIES, but a theorem IS its statement, so two entries proving the same proposition under different keys are one theorem wearing two names. Returns {entries,distinct,renamings,groups}: the claimed count, the count Lean actually holds, the difference, and every group named with its keys and files. Normalisation is narrow (whitespace, redundant parens, (n : Nat) ascriptions) — it catches re-namings of the same text and never claims two different proofs are one.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => { const c = statementCensus(); return { ...c, groups: c.groups.slice(0, 40) } } },
   { name: 'uuidna_coins_jobs',
     description: 'THE TWELVE JOBS OF THE COINS, remembered in code and TRIED ON EVERY READ — the complete catalog of what the coins do (gate computation, price the forfeit, measure leverage, take the commission, set the exchange rate by forgery cost, carry superpositions, be topology, hold value at scale, guard the rosette, hide in the world\'s constants, count worlds, confess their limit), each claim run through the gate against its sealed citations at call time. A vanished theorem breaks the catalog\'s own verdict, loudly. Returns {jobs:[{n,job,claim,cites,verdict}],verified,total,receipt,honest}.',
     inputSchema: { type: 'object', properties: {} },
