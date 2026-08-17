@@ -104,7 +104,7 @@ export {
   report, fraction, label, type QState, type Prob, type Cx, type GateOp,
 } from './quantum/index.js'
 
-export { heroAnimation, type HeroAnimation, renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from './render.js'
+export { heroAnimation, readHero, type HeroAnimation, renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from './render.js'
 // editor — the SERIALIZER CONTRACT of a content-addressed document (a Lexical-shaped node tree), the fold lean/Editor
 // proves ORDER-SENSITIVE (a document is a SEQUENCE, not a set), change-sensitive and bounded-injective. serialize →
 // merkleRoot over the leaves → the document handle; editing is re-addressing. payloadFoldHook is the PayloadCMS hook

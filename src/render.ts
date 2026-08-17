@@ -7,6 +7,8 @@
 import { toUuid, vortexOrbit } from './address.js'
 import { DIMENSIONS } from './harness.js'
 import { sequenceVars, durationVars } from './css.js'
+// the ledger, for the address a hero carries — aliased because renderList already binds the name `theorems`
+import { theorems as ledger } from './theorems/index.js'
 
 export interface TheoremView { name: string; address?: string; key?: string }
 export interface RenderOpts { base?: string } // site base for proof links; '' → served at root (/theorem/<key>)
@@ -118,14 +120,28 @@ export function heroAnimation(
   const seq = sequenceVars()                                      // rung → hue, sealed
   const durs = durationVars()                                     // the units of ℤ/9, tripled, sealed
   const tempoKeys = Object.keys(durs)
+  // ── THE THEOREM SPEAKS THROUGH THE MOTION ────────────────────────────────────────────────────────────────────
+  // Until now every theorem animated identically: the figure showed the shared LAW and said nothing about WHICH
+  // theorem it announced. Now each node carries one hex digit of the theorem's own content-address, encoded in the
+  // two things a viewer can actually see — WHICH sealed tempo it beats on and WHICH sequence rung it wears.
+  //
+  // The channel is exact, and the ledger already proves why: a hex digit is 0..15, the tempi number 6 and the
+  // sequence 9, and lcm(6, 9) = 18 > 16 — so (digit mod 6, digit mod 9) determines the digit UNIQUELY by the
+  // LCM BOUND — 18 = 2·9 is the two coins on the ring, and 18 − 16 = 2 is the coins again as headroom (residues_identify_digit; NOT the Chinese Remainder Theorem, which would need 6 and 9 coprime, and rosette_and_vortex_are_coprime seals gcd(9,6) = 3). Six nodes therefore transmit six digits, and readHero() recovers them
+  // from the rendered SVG alone. HONEST SCOPE: it carries the ADDRESS, which is identity, never the meaning — the
+  // motion tells you which theorem is speaking, not what it says.
+  const hex = (ledger().find((t) => t.key === key)?.address ?? toUuid(key)).replace(/-/g, '')
+  const digit = (i: number): number => parseInt(hex[i % hex.length], 16)
   const hue = (n: number): string => seq[`--seq-${((n + rung - 1) % 9) + 1}`] ?? seq['--seq-1']
-  const beat = (i: number): string => durs[tempoKeys[i % tempoKeys.length]] ?? `${tempo}ms`
+  // the node's tempo and colour are its digit's two residues — the pair that recovers the digit
+  const beat = (i: number): string => durs[tempoKeys[digit(i) % tempoKeys.length]] ?? `${tempo}ms`
+  const nodeHue = (i: number): string => seq[`--seq-${(digit(i) % 9) + 1}`] ?? seq['--seq-1']
   // six nodes on the ring, placed by their ORBIT INDEX (not by angle chosen for looks): step k sits at k/6 of the turn
   const node = (v: number, i: number): string => {
     const turn = (i * 60)                                          // 360/6 — the orbit has six steps, so the ring does
     // NO CHOSEN AMPLITUDE: the base radius is the orbit's own length and each rung pulses by ITS OWN VALUE, so the
     // node for 8 swells most and the node for 1 least — the motion's size IS the number it depicts.
-    return `<g transform="rotate(${turn} 100 100)"><circle cx="100" cy="30" r="${orbit.length}" fill="${hue(v)}">` +
+    return `<g transform="rotate(${turn} 100 100)"><circle cx="100" cy="30" r="${orbit.length}" fill="${nodeHue(i)}" data-seq="${digit(i) % 9}">` +
       `<animate attributeName="r" values="${orbit.length};${orbit.length + v};${orbit.length}" dur="${beat(i)}" repeatCount="indefinite"/></circle>` +
       `<text x="100" y="34" text-anchor="middle" font-size="10" fill="#0b0b0b" transform="rotate(${-turn} 100 30)">${v}</text></g>`
   }
@@ -162,4 +178,33 @@ export function heroAnimation(
     honest: 'A deterministic SVG computed from sealed constants: the path is the ℤ/9 doubling orbit, the hues are the ' +
       'sequence, the tempi are the units of ℤ/9 written three times. It VISUALISES arithmetic and proves nothing further.',
   }
+}
+
+/** readHero(svg) → the hex digits the animation is carrying, recovered from the rendered SVG alone.
+ *
+ *  THE READ-BACK IS THE POINT. An animation that merely looks derived is decoration; one whose source can be
+ *  RECOVERED is a channel. Each node shows two visible residues — the sealed tempo it beats on (mod 6) and the
+ *  sequence rung it wears (mod 9) — and because lcm(6, 9) = 18 exceeds the 16 values a hex digit can take, the pair
+ *  determines the digit uniquely by the lcm bound — a number is fixed modulo 18 = 2·9, the two coins on the ring, and a hex digit sits 2 below that (residues_identify_digit). NOT the Chinese Remainder Theorem: 6 and 9 are not coprime. Nothing is guessed and nothing is
+ *  approximate: either the residues agree on a digit under 16 or the read fails loudly.
+ *
+ *  HONEST SCOPE: it recovers the leading digits of the theorem's content-address — its IDENTITY, never its meaning.
+ *  Six nodes carry six digits; that is a pointer to the proof, not the proof. */
+export function readHero(svg: string): { digits: string; carried: number; complete: boolean } {
+  const durs = durationVars()
+  const tempoKeys = Object.keys(durs)
+  const order = tempoKeys.map((k) => durs[k])                       // the sealed tempi, in their sealed order
+  const nodes = [...svg.matchAll(/data-seq="(\d+)"[^]*?dur="([^"]+)"/g)]
+  const digits: string[] = []
+  for (const [, seqRes, dur] of nodes) {
+    const modNine = Number(seqRes)
+    const modSix = order.indexOf(dur)
+    if (modSix < 0) break                                           // a tempo not in the sealed set — not our channel
+    // the unique value below the common multiple 18 agreeing with both residues — the two coins on the ring — and a hex digit is 2 below it (residues_identify_digit)
+    let found = -1
+    for (let n = 0; n < 18; n++) if (n % tempoKeys.length === modSix && n % 9 === modNine) { found = n; break }
+    if (found < 0 || found > 15) break
+    digits.push(found.toString(16))
+  }
+  return { digits: digits.join(''), carried: digits.length, complete: digits.length === vortexOrbit().length }
 }

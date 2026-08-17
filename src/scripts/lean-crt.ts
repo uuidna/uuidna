@@ -23,6 +23,12 @@ const FACTS = [
     js: () => coprime(7, 9) && !coprime(7, 14) && !coprime(9, 6),
     lean: 'theorem rosette_and_vortex_are_coprime : (Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3) := by decide' },
 
+  { key: 'residues_identify_digit', skill: 'crt',
+    why: 'THE HERO CHANNEL IS EXACT, AND THE MARGIN IS THE TWO COINS. A theorem\'s animation transmits one hex digit per node in the two residues a viewer can see — which of the SIX sealed tempi it beats on and which of the NINE sequence rungs it wears — and readHero recovers the digit from that pair. Why it is exact, stated precisely rather than fashionably: 6 and 9 are NOT coprime (rosette_and_vortex_are_coprime seals gcd(9,6) = 3), so this is NOT the Chinese Remainder Theorem, which would require them to be. It is the LCM BOUND. A number is fixed modulo the common multiple 18, and 18 is not an arbitrary ceiling: 18 = 2 · 9 is THE TWO COINS ON THE RING (two_coins, the ring being ℤ/9), and the headroom over a hex digit is 18 − 16 = 2 — the two coins again. The channel is readable because the coins leave exactly that much room, and no more: widen the alphabet by three and the same theorem fails loudly. Proven by exhaustion over every pair of digits, so it cannot silently become lossy.',
+    js: () => range(16).every((a) => range(16).every((b) => !(a % 6 === b % 6 && a % 9 === b % 9) || a === b))
+      && 2 * 9 === 18 && 18 % 6 === 0 && 18 % 9 === 0 && 18 - 16 === 2,
+    lean: 'theorem residues_identify_digit : ((List.range 16).all (fun a => (List.range 16).all (fun b => (!((a % 6 == b % 6) && (a % 9 == b % 9))) || (a == b)))) ∧ (2 * 9 = 18) ∧ (18 % 6 = 0) ∧ (18 % 9 = 0) ∧ (18 - 16 = 2) := by decide' },
+
   { key: 'crt_pairs_are_a_bijection', skill: 'crt',
     why: 'THE CORRESPONDENCE IS EXACT — every residue mod 63 carries a unique pair (mod 7, mod 9), and all 63 pairs are distinct: the map x ↦ (x % 7, x % 9) is injective on 0..62, so it is a bijection onto the 7·9 pairs. Nothing in the fused ring is lost or doubled; a state of the rosette and a state of the vortex name exactly one state of the whole.',
     js: () => { const seen = new Set(range(63).map((x) => (x % 7) * 9 + (x % 9))); return seen.size === 63 },

@@ -4,6 +4,8 @@ theorem captain_theorem_the_coins_buy_the_ring_and_one : (7 * 9 = 63) ∧ (2 * 3
 
 theorem rosette_and_vortex_are_coprime : (Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3) := by decide
 
+theorem residues_identify_digit : ((List.range 16).all (fun a => (List.range 16).all (fun b => (!((a % 6 == b % 6) && (a % 9 == b % 9))) || (a == b)))) ∧ (2 * 9 = 18) ∧ (18 % 6 = 0) ∧ (18 % 9 = 0) ∧ (18 - 16 = 2) := by decide
+
 theorem crt_pairs_are_a_bijection : (((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63) := by decide
 
 theorem fused_units_are_the_orbit_squared : (((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6) := by decide

@@ -11,7 +11,7 @@
 <script setup>
 import { computed } from 'vue'
 import { withBase } from 'vitepress'
-import { vortexOrbit, DIMENSIONS, durationVars } from '../../../dist/index.js'
+import { vortexOrbit, DIMENSIONS, durationVars, theorems, toUuid } from '../../../dist/index.js'
 
 const props = defineProps({
   dimension: { type: String, default: 'en' },      // which of the seven rays leads
@@ -37,7 +37,14 @@ const lead = computed(() => (found.value < 0 ? 0 : found.value))
 const leadName = computed(() => dims[lead.value])
 const proof = computed(() => withBase(`/theorem/${props.theorem}`))
 const hue = (n) => `var(--seq-${((n + props.rung - 1) % 9) + 1}, var(--vp-c-brand-1))`
-const beat = (i) => TEMPI[i % TEMPI.length]
+// THE THEOREM SPEAKS THROUGH THE MOTION: each node carries one hex digit of the theorem's own content-address,
+// encoded in the two things a viewer sees — which sealed tempo it beats on (mod 6) and which rung it wears (mod 9).
+// the common multiple 18 = 2·9 is the two coins on the ring, and 18 − 16 = 2 is the coins as headroom, so the pair
+// fixes the digit uniquely (residues_identify_digit — the lcm bound, NOT the CRT: gcd(9,6) = 3 is sealed).
+const hex = computed(() => ((theorems().find((t) => t.key === props.theorem) || {}).address || toUuid(props.theorem)).replace(/-/g, ''))
+const digit = (i) => parseInt(hex.value[i % hex.value.length], 16)
+const beat = (i) => TEMPI[digit(i) % TEMPI.length]
+const nodeHue = (i) => `var(--seq-${(digit(i) % 9) + 1}, var(--vp-c-brand-1))`
 // every ray turns by its distance FROM the lead, so selecting a dimension rotates the whole figure
 const rayTurn = (i) => ((i - lead.value + dims.length) % dims.length) * (360 / dims.length)
 const nodeTurn = (i) => i * (360 / orbit.length)
@@ -60,7 +67,7 @@ const nodeTurn = (i) => i * (360 / orbit.length)
         <!-- the doubling orbit: six rungs, each pulsing on its sealed tempo -->
         <g class="orbit">
           <g v-for="(v, i) in orbit" :key="v" :transform="`rotate(${nodeTurn(i)} 100 100)`">
-            <circle cx="100" cy="30" :r="BASE_R" :fill="hue(v)">
+            <circle cx="100" cy="30" :r="BASE_R" :fill="nodeHue(i)" :data-seq="digit(i) % 9">
               <animate attributeName="r" :values="`${BASE_R};${BASE_R + v};${BASE_R}`" :dur="beat(i)" repeatCount="indefinite" />
             </circle>
             <text x="100" y="34" text-anchor="middle" font-size="10" class="num"
