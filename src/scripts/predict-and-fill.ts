@@ -217,9 +217,43 @@ function predictFeatureGaps(): PredictedGap[] {
   const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'))
   const npmScripts = Object.keys(packageJson.scripts || {})
 
+  // A script is WIRED when something actually INVOKES it — `dist/scripts/<name>.js` in an npm script body, a CI
+  // workflow, or another script that spawns it. The previous check asked whether any npm script KEY contained the
+  // filename as a substring: a NAME, not a property. `audit.ts` passed it because a script named "audit" exists —
+  // and that script never runs dist/scripts/audit.js. It was unwired AND dead (ENOENT on a stale root-level read)
+  // for as long as nobody looked, which is exactly the gap this detector exists to prevent. (The old expression also
+  // nested a second `.some` over the same keys array, rescanning it for no effect.)
+  const invokerFiles = [
+    join(ROOT, 'package.json'),
+    ...(existsSync(join(ROOT, '.github', 'workflows'))
+      ? readdirSync(join(ROOT, '.github', 'workflows')).map((f) => join(ROOT, '.github', 'workflows', f)) : []),
+    ...scriptFiles.map((f) => join(scriptsDir, f)),
+    ...readdirSync(join(ROOT, 'src')).filter((f) => f.endsWith('.ts')).map((f) => join(ROOT, 'src', f)),
+  ]
+  // COMMENTS ARE NOT WIRING. Stripped before searching, because a mention in prose is not an invocation — the first
+  // version of this fix proved it the hard way: the comment above, which names dist/scripts/audit.js while explaining
+  // the bug, made audit.ts look wired and hid the very case it describes.
+  const stripComments = (s: string): string => s.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/(^|\s)\/\/[^\n]*/g, ' ')
+  const invocationText = (self: string): string => invokerFiles
+    .filter((p) => p !== self)                       // a script re-spawning itself is not what wires it
+    .map((p) => { try { return stripComments(readFileSync(p, 'utf-8')) } catch { return '' } })
+    .join('\n')
+
+  // DISCOVERY IS WIRING TOO. lean-all deliberately auto-discovers `dist/scripts/lean-*.js` so a new domain needs no
+  // package.json entry, and half this repo's generators are wired that way. Rather than hardcode that one pattern
+  // (the sin this whole sweep is about), the filename globs are READ from the invoker sources: any regex literal that
+  // matches `<something>.js` is applied to the candidate, so a future `/^gen-.*\.js$/` discovery works unchanged.
+  const discoveryGlobs = (text: string): RegExp[] => [...text.matchAll(/\/(\^[^/\n]{1,80}\\\.js\$?)\//g)]
+    .flatMap((m) => { try { return [new RegExp(m[1])] } catch { return [] } })
+
   for (const file of scriptFiles) {
     const scriptName = file.replace('.ts', '')
-    const isWired = npmScripts.some((s) => s.includes(scriptName) || npmScripts.some((v) => v.includes(scriptName)))
+    const others = invocationText(join(scriptsDir, file))
+    // A file another module IMPORTS is a shared library (scripts/api.ts is the declared one), not a script anybody
+    // runs — reachability for those is support.ts's dead-module scan. Only files nothing imports must be INVOKED.
+    if (others.includes(`from './${scriptName}.js'`) || others.includes(`from './scripts/${scriptName}.js'`)) continue
+    const isWired = others.includes(`dist/scripts/${scriptName}.js`)
+      || discoveryGlobs(others).some((re) => re.test(`${scriptName}.js`))
     if (!isWired && !scriptName.startsWith('_')) {
       gaps.push({
         pattern: 'unwired-script',
