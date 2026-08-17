@@ -27,7 +27,7 @@ export { designSystem } from './design-system.js'
 // css / typography — THE ONE DESIGN MATRIX, computed not authored: the ℤ/9 sequence sets every hue (5 → green,
 // the fixed point) and the vortex orbit sets every rung of the type ladder (six rungs — the order of 2 in ℤ/9*).
 // Served identically to the site, the design system and any MCP client, with a receipt that proves they agree.
-export { matrixCss, matrixVars, sequenceVars, type MatrixCss } from './css.js'
+export { matrixCss, matrixVars, matrixEffects, matrixBackground, sequenceVars, durationVars, type MatrixCss } from './css.js'
 export { typeScale, typeScaleVars, applyTypeScale, type TypeRung } from './typography.js'
 
 // editorial — THE DESK AS A LIBRARY: articles computed from the ledger (writing is computing — every claim born

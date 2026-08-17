@@ -1,13 +1,13 @@
 ---
 title: "The cipher & the strand"
-description: "Computed from lean/Cipher.lean — 25 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Cipher.lean — 26 sealed theorems, every claim citing its proof."
 ---
 
 # The cipher & the strand
 
-> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. — held by [dna_complement_involution](/theorem/dna_complement_involution) and its 24 siblings below.
+> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. — held by [dna_complement_involution](/theorem/dna_complement_involution) and its 25 siblings below.
 
-**25 theorems**, from [dna_complement_involution](/theorem/dna_complement_involution) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**26 theorems**, from [dna_complement_involution](/theorem/dna_complement_involution) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### Base-pairing is a self-inverse map: the complement comp(x)=3−x applied twice is the identity (A↔T↔A, C↔G↔C) — a decrypt that equals its encrypt, like the diamond reflection.
 The ledger holds this as [dna_complement_involution](/theorem/dna_complement_involution) — proven `by decide`, sorry-free:
@@ -63,6 +63,13 @@ The ledger holds this as [codons_four_cubed](/theorem/codons_four_cubed) — pro
 
 ```lean
 4^3 = 64
+```
+
+### THE NAME IS A THEOREM — why uuid and DNA are one word here. The genetic code and the coin measure are the SAME NUMBER by two different routes: DNA reads 4 bases three at a time (4³ = 64) and the coin is six doublings of bits (2⁶ = 64), so 4³ = 2⁶ — the codon count IS the coin's bit measure. The uuid is EXACTLY TWO of them: 128 = 2·64 = 2⁷ — two coins, and (double_strand) two antiparallel rails, one per direction. uuid = DNA × the two coins, and the double helix is the bidirectional messaging the coins price at one per direction. HONEST SCOPE: an arithmetic coincidence of counts made structural by construction — the address is BUILT as two 64-bit halves; it is not a claim that DNA stores uuids or that biology computes addresses.
+The ledger holds this as [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) — proven `by decide`, sorry-free:
+
+```lean
+(4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)
 ```
 
 ### Translation is LOSSY, never a cipher: 64 codons map onto only 21 outcomes (20 amino acids + stop), and 64 > 21, so by pigeonhole the map cannot be injective — a hash-like reduction that cannot be inverted, not encryption.

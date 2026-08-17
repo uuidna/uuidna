@@ -19,7 +19,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The reactions domain](/articles/chemistry) | 8 |
 | [The chessboard](/articles/chess) | 13 |
 | [The chess horizon](/articles/chessgames) | 24 |
-| [The cipher & the strand](/articles/cipher) | 25 |
+| [The cipher & the strand](/articles/cipher) | 26 |
 | [The seven reflected](/articles/clay) | 17 |
 | [The error-correcting codes](/articles/codes) | 8 |
 | [The two coins & the 64](/articles/coins) | 19 |
@@ -41,6 +41,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The identifiers](/articles/identifiers) | 6 |
 | [The physics infinities, made finite](/articles/infinity) | 9 |
 | [The legal vocabulary](/articles/legal) | 10 |
+| [The stance and the angle](/articles/martial-arts) | 4 |
 | [The matching](/articles/matching) | 8 |
 | [The paper on trial](/articles/mo-mbhstar1) | 17 |
 | [The bond domain](/articles/molecular) | 8 |

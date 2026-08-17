@@ -16,32 +16,32 @@ The ledger holds this as [disputed_topic_fact_extractable](/theorem/disputed_top
 (2000 + 24 = 2024)
 ```
 
-### (1 + 1 = 2) ∧ (1 + 1 = 2)
+### (((1 + 1) == 2) = true) ∧ (((1 + 1) == 3) = false)
 The ledger holds this as [disputed_books_same_fact_same_address](/theorem/disputed_books_same_fact_same_address) — proven `by decide`, sorry-free:
 
 ```lean
-(1 + 1 = 2) ∧ (1 + 1 = 2)
+(((1 + 1) == 2) = true) ∧ (((1 + 1) == 3) = false)
 ```
 
-### (5 = 5) ∨ (5 ≠ 5)
+### (([5,5,6].filter (fun x => x == 5)).length = 2) ∧ (([5,5,6].filter (fun x => x != 5)).length = 1)
 The ledger holds this as [disputed_books_coherence_or_contradiction](/theorem/disputed_books_coherence_or_contradiction) — proven `by decide`, sorry-free:
 
 ```lean
-(5 = 5) ∨ (5 ≠ 5)
+(([5,5,6].filter (fun x => x == 5)).length = 2) ∧ (([5,5,6].filter (fun x => x != 5)).length = 1)
 ```
 
-### ((1 + 1 = 2) ∧ ¬(1 + 1 = 2)) ∨ ¬((1 + 1 = 2) ∧ ¬(1 + 1 = 2))
+### ((((1 + 1) == 2) && ((1 + 1) == 3)) = false) ∧ ((((1 + 1) == 2) && ((1 + 1) == 2)) = true)
 The ledger holds this as [disputed_topics_contradiction_detectable](/theorem/disputed_topics_contradiction_detectable) — proven `by decide`, sorry-free:
 
 ```lean
-((1 + 1 = 2) ∧ ¬(1 + 1 = 2)) ∨ ¬((1 + 1 = 2) ∧ ¬(1 + 1 = 2))
+((((1 + 1) == 2) && ((1 + 1) == 3)) = false) ∧ ((((1 + 1) == 2) && ((1 + 1) == 2)) = true)
 ```
 
-### (42 = 42) ↔ (42 = 42)
+### (([2,3,5].filter (fun x => x == 2)).length = 1) ∧ (([2,3,5].filter (fun x => x == 4)).length = 0)
 The ledger holds this as [disputed_provably_true_is_sealed](/theorem/disputed_provably_true_is_sealed) — proven `by decide`, sorry-free:
 
 ```lean
-(42 = 42) ↔ (42 = 42)
+(([2,3,5].filter (fun x => x == 2)).length = 1) ∧ (([2,3,5].filter (fun x => x == 4)).length = 0)
 ```
 
 ### ((2 * 3 = 6) ∧ True) ∧ True

@@ -13,7 +13,7 @@
 // question). Usage:
 //   node dist/scripts/develop.js          → heal the tree until the gate is clean, then stop (default; nothing pushed)
 //   node dist/scripts/develop.js --seal   → then hand to `one-receipt seal`, and ASSERT the result is actually synced
-import { teeStep, ROOT } from './api.js'
+import { teeStep, ROOT, h16 } from './api.js'
 import { execSync } from 'node:child_process'
 
 /** An objection this pass can cure: its signature in the gate's own output, and the deterministic command that fixes it. */
@@ -63,7 +63,14 @@ const WALK: { label: string; cmd: string }[] = [
 /** The tree's identity right now — HEAD plus the dirty set. If this moves mid-round, another writer is landing. */
 const treeState = (): string => {
   try {
-    return execSync('git rev-parse HEAD && git status --porcelain', { cwd: ROOT, encoding: 'utf8' })
+    const head = execSync('git rev-parse HEAD', { cwd: ROOT, encoding: 'utf8' }).trim()
+    const status = execSync('git status --porcelain', { cwd: ROOT, encoding: 'utf8' })
+    // THE CONTENT, not just the file list. The first version of this folded only HEAD + the porcelain status, and it
+    // would have MISSED the very case it was written for: while another session edited src/css.ts repeatedly, the
+    // status line stayed ` M src/css.ts` through every save — identical string, different file. A name is not the
+    // thing again, one layer deeper. Folding the diff makes the identity mean what it claims.
+    const diff = execSync('git diff HEAD', { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+    return `${head}|${h16(status)}|${h16(diff)}`
   } catch { return '' }
 }
 /** Wait for another gate to finish before touching the shared tree — the mixed-dist hazard, which the seal already
@@ -102,15 +109,30 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
   if (!objection) {
     console.log(`\n✓ develop — the gate is clean${applied.length ? ` after ${applied.length} cure(s): ${applied.join(', ')}` : ' (nothing to heal)'}`)
     if (process.argv.includes('--seal')) {
-      const sealed = teeStep('develop · seal', 'node dist/scripts/one-receipt.js seal')
-      // RECONCILED MEANS SYNCED, or this fails loudly: the seal has exited 0 while unsynced before, which is how a
-      // "successful" unattended run left three commits sitting on the local branch.
-      const ahead = execSync('git rev-list origin/main..HEAD --count', { cwd: ROOT, encoding: 'utf8' }).trim()
-      if (!sealed.ok || ahead !== '0') {
-        console.error(`✗ develop — the seal did not sync (${ahead} commit(s) still local). Read the teed steps above.`)
+      // The seal gets the SAME three-way reading the walk and the cures have: synced, denied, or blocked by another
+      // writer. A TORN TREE AT PUSH TIME IS NOT A DENIAL — the pre-push hook builds the WORKING tree, so a sibling
+      // session's half-written file fails the gate for a reason that is nobody's bug and fixes itself. Three pushes
+      // were blocked exactly that way in one hour (`THEOREM_COUNT` undefined in gen-readme.ts, then `vortexOrbit`
+      // and `fdiv` in css.ts); every error was gone minutes later. One retry after quiescence, then report honestly.
+      for (let attempt = 1; attempt <= 2; attempt++) {
+        const before = treeState()
+        const sealed = teeStep(`develop · seal${attempt > 1 ? ` (attempt ${attempt}, after quiescence)` : ''}`, 'node dist/scripts/one-receipt.js seal')
+        // RECONCILED MEANS SYNCED, or this fails loudly: the seal has exited 0 while unsynced before, which is how a
+        // "successful" unattended run left commits sitting on the local branch.
+        const ahead = execSync('git rev-list origin/main..HEAD --count', { cwd: ROOT, encoding: 'utf8' }).trim()
+        if (sealed.ok && ahead === '0') { console.log('✓ develop — sealed and synced'); process.exit(0) }
+        const moved = treeState() !== before
+        const tornBuild = /error TS\d+/.test(sealed.out)
+        if (attempt === 1 && (moved || tornBuild)) {
+          console.log(`· develop — the seal was blocked while the tree was moving${tornBuild ? ' (a half-written source failed the pre-push build)' : ''}; waiting for quiescence and sealing once more`)
+          waitForQuiet()
+          continue
+        }
+        console.error(`✗ develop — NOT SYNCED: ${ahead} commit(s) still local.`)
+        if (moved || tornBuild) console.error('    Cause: another session is landing on this tree — this is NOT a denial of your work. Run again when it is quiet; nothing is lost, the commits are here.')
+        else console.error('    Cause: the gate stated an objection. Read the teed steps above — it named what to fix.')
         process.exit(1)
       }
-      console.log('✓ develop — sealed and synced')
     }
     process.exit(0)
   }

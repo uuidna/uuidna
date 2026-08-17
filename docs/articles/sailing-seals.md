@@ -16,46 +16,46 @@ The ledger holds this as [sailing_books_extract_decidable_facts](/theorem/sailin
 (List.range 5).length = 5
 ```
 
-### True
-The ledger holds this as [sailing_fact_has_address](/theorem/sailing_fact_has_address) — proven `by decide`, sorry-free:
+### (32 * 4 = 128) ∧ (32 + 4 = 36)
+The ledger holds this as [sailing_address_is_128_bits_in_36_chars](/theorem/sailing_address_is_128_bits_in_36_chars) — proven `by decide`, sorry-free:
 
 ```lean
-True
+(32 * 4 = 128) ∧ (32 + 4 = 36)
 ```
 
-### (2 * 3 = 6) ∧ (2 * 3 = 6)
+### ((List.range 5).map (fun n => n * n)) = [0,1,4,9,16]
 The ledger holds this as [sailing_extraction_deterministic](/theorem/sailing_extraction_deterministic) — proven `by decide`, sorry-free:
 
 ```lean
-(2 * 3 = 6) ∧ (2 * 3 = 6)
+((List.range 5).map (fun n => n * n)) = [0,1,4,9,16]
 ```
 
-### (6 = 6) ↔ (6 = 6)
+### (List.foldl (fun a b => a + b) 0 [1,2,3] = List.foldl (fun a b => a + b) 0 [3,1,2]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3] = List.foldl (fun a b => a + b) 0 [2,3,1])
 The ledger holds this as [sailing_book_receipt_order_invariant](/theorem/sailing_book_receipt_order_invariant) — proven `by decide`, sorry-free:
 
 ```lean
-(6 = 6) ↔ (6 = 6)
+(List.foldl (fun a b => a + b) 0 [1,2,3] = List.foldl (fun a b => a + b) 0 [3,1,2]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3] = List.foldl (fun a b => a + b) 0 [2,3,1])
 ```
 
-### (5 * 2 = 10) ∨ (5 * 2 ≠ 10)
-The ledger holds this as [sailing_weather_verified_correlation](/theorem/sailing_weather_verified_correlation) — proven `by decide`, sorry-free:
+### ((5 * 2 == 10) = true) ∧ ((5 * 2 == 11) = false)
+The ledger holds this as [sailing_weather_match_decides_both_ways](/theorem/sailing_weather_match_decides_both_ways) — proven `by decide`, sorry-free:
 
 ```lean
-(5 * 2 = 10) ∨ (5 * 2 ≠ 10)
+((5 * 2 == 10) = true) ∧ ((5 * 2 == 11) = false)
 ```
 
-### (10 = 10) → (10 = 10)
-The ledger holds this as [sailing_weather_match_deterministic](/theorem/sailing_weather_match_deterministic) — proven `by decide`, sorry-free:
+### ((List.range 7).map (fun n => (n * 3) % 7)) = [0,3,6,2,5,1,4]
+The ledger holds this as [sailing_distinct_facts_distinct_addresses](/theorem/sailing_distinct_facts_distinct_addresses) — proven `by decide`, sorry-free:
 
 ```lean
-(10 = 10) → (10 = 10)
+((List.range 7).map (fun n => (n * 3) % 7)) = [0,3,6,2,5,1,4]
 ```
 
-### (3 = 3) ∨ (3 ≠ 3)
-The ledger holds this as [sailing_weather_apis_corroborate_or_diverge](/theorem/sailing_weather_apis_corroborate_or_diverge) — proven `by decide`, sorry-free:
+### (([5,5,7].filter (fun x => x == 5)).length = 2) ∧ (([5,5,7].filter (fun x => x != 5)).length = 1)
+The ledger holds this as [sailing_corroboration_and_divergence_partition](/theorem/sailing_corroboration_and_divergence_partition) — proven `by decide`, sorry-free:
 
 ```lean
-(3 = 3) ∨ (3 ≠ 3)
+(([5,5,7].filter (fun x => x == 5)).length = 2) ∧ (([5,5,7].filter (fun x => x != 5)).length = 1)
 ```
 
 ### (100 / 10 = 10)
@@ -65,11 +65,11 @@ The ledger holds this as [sailing_weather_verification_open](/theorem/sailing_we
 (100 / 10 = 10)
 ```
 
-### (42 = 42) ∧ (42 = 42)
+### (([42,7,42].filter (fun x => x == 42)).length = 2) ∧ (([42,7,42].filter (fun x => x == 7)).length = 1)
 The ledger holds this as [sailing_cross_book_resonance_match](/theorem/sailing_cross_book_resonance_match) — proven `by decide`, sorry-free:
 
 ```lean
-(42 = 42) ∧ (42 = 42)
+(([42,7,42].filter (fun x => x == 42)).length = 2) ∧ (([42,7,42].filter (fun x => x == 7)).length = 1)
 ```
 
 ### (1 + 2 + 3 = 3 + 2 + 1)
@@ -86,11 +86,11 @@ The ledger holds this as [sailing_multi_resonance_receipt](/theorem/sailing_mult
 ((1 + 2) * 3 = 3 * (1 + 2))
 ```
 
-### ((2 * 5 = 10) ∧ (10 / 2 = 5)) ∨ ¬((2 * 5 = 10) ∧ (10 / 2 = 5))
+### (((2 * 5 == 10) && (10 / 2 == 5)) = true) ∧ (((2 * 5 == 10) && (10 / 2 == 6)) = false)
 The ledger holds this as [sailing_cluster_coherence_decidable](/theorem/sailing_cluster_coherence_decidable) — proven `by decide`, sorry-free:
 
 ```lean
-((2 * 5 = 10) ∧ (10 / 2 = 5)) ∨ ¬((2 * 5 = 10) ∧ (10 / 2 = 5))
+(((2 * 5 == 10) && (10 / 2 == 5)) = true) ∧ (((2 * 5 == 10) && (10 / 2 == 6)) = false)
 ```
 
 ### ((List.range 4).length = 4) ∧ ((1 + 1 = 2) ∧ (2 * 2 = 4))

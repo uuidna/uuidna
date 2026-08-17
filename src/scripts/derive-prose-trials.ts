@@ -8,7 +8,7 @@
 // Deterministic: file order, paragraph order, no wall-clock, no RNG; the receipt is the fold of the output.
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { reveal, toUuid, decide } from '../index.js'
+import { reveal, toUuid, decide, theorems } from '../index.js'
 import { ROOT } from './api.js'
 
 interface UsableCombination {
@@ -55,6 +55,12 @@ const physicsChaos: Array<{ surface: string; claim: string }> = []
 // the census: the homework the prose writes for itself. Admission stays with the paying handle, as ever.
 const ARITH_FRAG = /\d[\d,]*(?:\s*[+\-*/%^]\s*\d[\d,]*)+\s*(?:=|==|<=|>=|<|>)\s*\d[\d,]*/g
 const develop: Array<{ surface: string; fragment: string; receipt: string }> = []
+// THE CITATION-LINK LAW — a /theorem/<key> link is a citation, and a citation to a key the ledger no longer
+// seals is a dead pointer that only a full site build would find. The desk verifies every link against the
+// LIVE key set instead: deterministic, no AI, and it names the stale generator with its exact refresh command.
+const SEALED_KEYS = new Set((theorems() as Array<{ key: string }>).map((t) => t.key))
+const THEOREM_LINK = /\/theorem\/([A-Za-z0-9_]+)/g // keys carry capitals (air_ppO2_…) — a lowercase-only class truncates and false-flags
+const deadLinks: Array<{ surface: string; key: string }> = []
 
 for (const file of surfaces) {
   const rel = file.slice(ROOT.length + 1)
@@ -81,6 +87,8 @@ for (const file of surfaces) {
           develop.push({ surface: rel, fragment: m[0].trim(), receipt: d.receipt })
       }
     }
+    // the link law: EVERY paragraph's theorem links, verified or not, must resolve to a key the ledger still seals
+    for (const m of prose.matchAll(THEOREM_LINK)) if (!SEALED_KEYS.has(m[1]!)) deadLinks.push({ surface: rel, key: m[1]! })
     // the coin law: a numeric coin claim outside the sealed denominations {0, 2} must carry a sealed citation
     for (const m of prose.matchAll(COIN_CLAIM)) {
       const n = Number((m[1] ?? '').replace(/,/g, ''))
@@ -112,6 +120,13 @@ if (coinChaos.length) {
 } else {
   console.log(`    coin law   : ✓ every numeric coin claim is a sealed denomination or carries its citation`)
 }
+if (deadLinks.length) {
+  const uniq = [...new Map(deadLinks.map((d) => [d.surface + d.key, d])).values()]
+  console.log(`    link law   : ✗ ${uniq.length} citation(s) point at keys the ledger no longer seals:`)
+  for (const d of uniq.slice(0, 8)) console.log(`      ✗ ${d.surface}: /theorem/${d.key} — regenerate that surface (npm run editorial), or the key left the ledger and the prose must follow`)
+} else {
+  console.log(`    link law   : ✓ every /theorem/ citation resolves to a sealed key`)
+}
 if (develop.length) {
   console.log(`    develop    : ${develop.length} internal novelty candidate(s) — decidable facts our prose asserts that the ledger does not yet hold (the homework the prose writes for itself):`)
   for (const d of develop.slice(0, 10)) console.log(`      • ${d.surface}: \`${d.fragment}\` (receipt ${d.receipt.slice(0, 8)})`)
@@ -126,4 +141,4 @@ if (physicsChaos.length) {
   console.log(`    physics law: ✓ every quantum-advantage mention is demarcated or cited — the honest boundary holds`)
 }
 console.log(`✓ derive-prose-trials — prose-trials.json written; the usable combinations are derived, not authored.`)
-if (drained > 0 || coinChaos.length > 0 || physicsChaos.length > 0) process.exit(1)
+if (drained > 0 || coinChaos.length > 0 || physicsChaos.length > 0 || deadLinks.length > 0) process.exit(1)

@@ -2,7 +2,7 @@
   "generated": "2026-08-17",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 718,
+  "total_claimed": 721,
   "categories": 8,
   "categories_list": [
     {
@@ -400,7 +400,7 @@
     {
       "category": "Security",
       "description": "Axiom-free verified security: gate, integrity, collision, defences",
-      "theorems": 58,
+      "theorems": 59,
       "keys": [
         "dna_complement_involution",
         "dna_complement_fixed_point_free",
@@ -410,6 +410,7 @@
         "xor_fold_is_malleable",
         "transport_leaks_length",
         "codons_four_cubed",
+        "uuidna_is_dna_times_the_two_coins",
         "translation_is_lossy",
         "affine_is_permutation",
         "grover_quadratic_bound",
@@ -461,13 +462,13 @@
         "verify_cheaper_than_forge",
         "no_maximum_only_bounds"
       ],
-      "address": "f79838e1-64cf-86a6-af1a-6f957c43ec41",
+      "address": "87e57cc4-d106-87c8-b009-049c679c7d04",
       "all_by_decide": true
     },
     {
       "category": "Quantum",
       "description": "Classical quantum simulation: state-vector, clifford, bell, ghz, pauli",
-      "theorems": 61,
+      "theorems": 62,
       "keys": [
         "bell_born_weights",
         "bell_normalized",
@@ -517,13 +518,14 @@
         "store_fold_order_invariant",
         "store_fold_change_moves_receipt",
         "message_qubit_cap_states",
+        "all_signaling_duality",
         "sailing_books_extract_decidable_facts",
-        "sailing_fact_has_address",
+        "sailing_address_is_128_bits_in_36_chars",
         "sailing_extraction_deterministic",
         "sailing_book_receipt_order_invariant",
-        "sailing_weather_verified_correlation",
-        "sailing_weather_match_deterministic",
-        "sailing_weather_apis_corroborate_or_diverge",
+        "sailing_weather_match_decides_both_ways",
+        "sailing_distinct_facts_distinct_addresses",
+        "sailing_corroboration_and_divergence_partition",
         "sailing_weather_verification_open",
         "sailing_cross_book_resonance_match",
         "sailing_cross_book_resonance_fold",
@@ -531,7 +533,7 @@
         "sailing_cluster_coherence_decidable",
         "sailing_all_waves_computable"
       ],
-      "address": "b71544bc-478f-818f-973d-762d0c678d58",
+      "address": "0448efaf-b542-8de8-856e-9d056073e1f4",
       "all_by_decide": true
     },
     {
@@ -601,12 +603,12 @@
         "material_sum_twentyone",
         "central_four_squares",
         "sailing_books_extract_decidable_facts",
-        "sailing_fact_has_address",
+        "sailing_address_is_128_bits_in_36_chars",
         "sailing_extraction_deterministic",
         "sailing_book_receipt_order_invariant",
-        "sailing_weather_verified_correlation",
-        "sailing_weather_match_deterministic",
-        "sailing_weather_apis_corroborate_or_diverge",
+        "sailing_weather_match_decides_both_ways",
+        "sailing_distinct_facts_distinct_addresses",
+        "sailing_corroboration_and_divergence_partition",
         "sailing_weather_verification_open",
         "sailing_cross_book_resonance_match",
         "sailing_cross_book_resonance_fold",
@@ -753,7 +755,7 @@
     {
       "category": "Structure",
       "description": "Foundational structure: coins, matching, reasoning, proof",
-      "theorems": 36,
+      "theorems": 37,
       "keys": [
         "two_coins",
         "two_coins_is_double_torus",
@@ -772,6 +774,7 @@
         "traitor_damage_sealed_by_same_billing",
         "wallet_counts_worlds",
         "coins_unique_operation_agreement",
+        "captain_claims_all_superpositions",
         "coin_and_heart_generate_the_scales",
         "momentum_conserved",
         "no_reactionless_thrust",
@@ -792,11 +795,11 @@
         "pairing_is_fixedpoint_free_involution",
         "mutual_match_is_symmetric"
       ],
-      "address": "27b86444-e506-8cf9-8558-7445a26ab6e3",
+      "address": "693535de-8b46-8474-b9b5-ebc48642894b",
       "all_by_decide": true
     }
   ],
-  "claim_receipt": "155bef14-d00b-8171-beba-0bd6ef469323",
+  "claim_receipt": "03b9568b-b8c9-8477-a7b4-614b16752235",
   "honest_scope": {
     "proves": [
       "These theorems are Lean-verified (by decide)",

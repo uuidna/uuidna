@@ -4,24 +4,38 @@
 // site, the design system and any MCP client read ONE standard that cannot drift between them. Emitted as CSS
 // custom properties under `:root`, folded to a receipt: two surfaces rendering the same matrix compute the same
 // receipt, or they are not the same matrix. Exact integer arithmetic; no host intrinsics, no wall-clock.
-import { toUuid } from './address.js'
+import { toUuid, vortexOrbit, digitalRoot, BASE, TRINITY, A432_STEP } from './address.js'
+import { DIAMOND_FIXED } from './diamond.js'
 import { typeScaleVars } from './typography.js'
+import { coins } from './captain/billing.js'
 
-/** the palette: hue = 120 + (d−5)·30, so 5 → green (the fixed point), 1 → red, 9 → blue; dz(d) mirrors across it */
+const fdiv = (a: number, b: number): number => (a - (a % b)) / b
+const milli = (num: number, den: number): string => {
+  const m = fdiv(num * 1000, den)
+  const whole = fdiv(m, 1000)
+  return whole + '.' + String(m - whole * 1000 + 1000).slice(1)
+}
+
+/** the palette — ONE hue law with the aura: the A432 step (360/9 = 40° per digit), saturation the trinity's
+ *  complement ((9−3)/9), lightness the diamond's fixed point over the base (5/9 — the heart as a fraction).
+ *  Nothing chosen: every number is a constant the ledger already exports. */
 export function sequenceVars(): Record<string, string> {
-  const hue = (d: number) => 120 + (d - 5) * 30
+  const HEART = DIAMOND_FIXED[0] ?? 5                       // 5 — the fixed point of dz(x) = 10−x
+  const sat = fdiv((BASE - TRINITY) * 100, BASE)            // (9−3)/9 → 66%
+  const light = fdiv(HEART * 100, BASE)                     // 5/9 → 55%
+  const hue = (d: number) => (d * A432_STEP) % 360          // the A432 angle, the aura's own law
   const vars: Record<string, string> = {}
-  for (let d = 1; d <= 9; d++) vars['--seq-' + d] = 'hsl(' + hue(d) + ' 60% 55%)'
-  vars['--seq-center'] = 'hsl(' + hue(5) + ' 60% 45%)' // 5 — green, the heart
-  vars['--seq-light'] = 'hsl(' + hue(5) + ' 32% 82%)'
-  vars['--seq-dark'] = 'hsl(' + hue(5) + ' 30% 50%)'
-  vars['--seq-last'] = 'hsl(' + hue(4) + ' 45% 70%)' // the dz-mirror of 6
+  for (let d = 1; d <= BASE; d++) vars['--seq-' + d] = 'hsl(' + hue(d) + ' ' + sat + '% ' + light + '%)'
+  vars['--seq-center'] = 'hsl(' + hue(HEART) + ' ' + sat + '% ' + fdiv(light * (BASE - 1), BASE) + '%)'
+  vars['--seq-light'] = 'hsl(' + hue(HEART) + ' ' + fdiv(sat, 2) + '% ' + fdiv(light * 3, 2) + '%)'
+  vars['--seq-dark'] = 'hsl(' + hue(HEART) + ' ' + sat + '% ' + fdiv(light * 2, 3) + '%)'
+  vars['--seq-last'] = 'hsl(' + hue(BASE - HEART) + ' ' + sat + '% ' + fdiv(light * 5, 4) + '%)'
   return vars
 }
 
 /** every variable of the matrix — colour and type in one map, the whole standard */
 export function matrixVars(): Record<string, string> {
-  return { ...sequenceVars(), ...typeScaleVars() }
+  return { ...sequenceVars(), ...typeScaleVars(), ...durationVars() }
 }
 
 // THE DURATION LADDER — the same vortex, read as time: the orbit digit d gives d/9 of a second (111ms, 222ms,
@@ -67,7 +81,7 @@ export function matrixEffects(): string {
 .q-superposition::after {
   content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
   opacity: ${weight};
-  transition: opacity var(--dur-${rungs[Math.min(2, rungs.length - 1)] ?? rungs[0]}) linear;
+  transition: opacity var(--dur-${rungs[2] ?? rungs[0]}) linear;
   will-change: opacity;
 }
 ${superposed}
@@ -99,6 +113,34 @@ ${ladder}
 `
 }
 
+/** THE BACKGROUND IS THE LEDGER, COMPUTING LIVE — the field is folded from the ledger's own receipt and count,
+ *  so it is not decoration applied to the theorems but the theorems rendered: the hue is the receipt's digital
+ *  root stepped by A432, the lobes sit on the vortex digits, the drift takes one second per orbit digit, and
+ *  the whole field re-derives the moment a theorem lands and moves the receipt. Artistic, and exact. */
+export function matrixBackground(receipt: string, theorems: number): string {
+  const root = digitalRoot(theorems)                    // the ledger's own digit — moves as the ledger grows
+  const seed = digitalRoot(Number(BigInt('0x' + toUuid(receipt).replace(/-/g, '').slice(0, 8))))
+  const hue = (seed * A432_STEP) % 360                  // the same A432 law as every other hue
+  const mirror = (10 - seed) % BASE
+  const rungs = [...new Set(vortexOrbit())].sort((a, b) => a - b)
+  const drift = rungs[rungs.length - 1] * BASE          // seconds: the last rung, one turn per orbit digit
+  const opacity = milli(1, BASE * TRINITY)              // 1/27 — the trinity of the base, a whisper
+  return `
+/* the field: folded from receipt ${receipt.slice(0, 8)} over ${theorems} sealed theorems — it moves when they do */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(closest-side, hsl(${hue} 70% 55% / ${opacity}), transparent ${100 - BASE * TRINITY}%) ${root * BASE}% ${mirror * BASE}% / ${BASE * TRINITY * 2}% ${BASE * TRINITY * 2}% no-repeat,
+    radial-gradient(closest-side, hsl(${(hue + 180) % 360} 70% 55% / ${opacity}), transparent ${100 - BASE * TRINITY}%) ${100 - root * BASE}% ${100 - mirror * BASE}% / ${BASE * TRINITY * 2}% ${BASE * TRINITY * 2}% no-repeat;
+  animation: q-drift ${drift}s linear infinite;
+  will-change: transform;
+}
+@keyframes q-drift { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
+:root[data-dim-motion="simple"] body::before { animation: none; }
+`
+}
+
 export interface MatrixCss { css: string; vars: number; receipt: string; honest: string }
 
 /** the matrix as a stylesheet — the served standard, with the receipt that proves two surfaces share it */
@@ -106,7 +148,7 @@ export function matrixCss(): MatrixCss {
   const vars = matrixVars()
   const keys = Object.keys(vars).sort()
   const body = keys.map((k) => '  ' + k + ': ' + vars[k] + ';').join('\n')
-  const css = ':root {\n' + body + '\n}\n'
+  const css = ':root {\n' + body + '\n}\n' + matrixEffects()
   return {
     css,
     vars: keys.length,
