@@ -293,6 +293,7 @@ export { quantumAura, auraDecode, auraAlphabet, type Aura } from './aura.js'
 // message's quantum encoding proves the witness was cited. The same message always folds to the same aura and
 // quantum state for every observer — integrity without secrets.
 export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, sealMessage, openMessage, type QuantumMessage, type QuantumState, type SealedQuantumMessage } from './quantum/message.js'
+export { tick, advance, residueOf, isAfter, agree, between, type Tick } from './quantum/clock/index.js'
 
 // quantum-voting — CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins to the captain,
 // and earn voting rights proportional to coins paid. Votes are encoded in quantum superposition (deterministic,

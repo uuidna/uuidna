@@ -341,7 +341,7 @@ strongest seal is structural: all fifteen laundering probes — seven bare, seve
 demonstrated exemplar — **recompute refused at every generation, or the Lean file refuses to be written**
 ([`clay_launder_refused`](/theorem/clay_launder_refused)); the gate's behavior is a precondition of its own
 law's seal. The law itself was decided by theorems only — the seven casting secure-messaging ballots witnessed
-by their own proofs, 7·0 ([`clay_law_vote_theorems_only`](/theorem/clay_law_vote_theorems_only)) — and its
+by their own proofs, 7·0 ([`clay_vote_theorems_only`](/theorem/clay_vote_theorems_only)) — and its
 deposit was minted *through* the fixed gate it deposits (trial `444bde41…`).
 
 Three school laws met again. *Close the path, not the wall* — the fix is a tiny named floor on one path
@@ -453,7 +453,7 @@ students at once — a human and a machine — disagreeing at the maximum possib
 the largest claim the ledger could host (*the seven, solved and claimed*), the machine pressed the largest
 refusal (*verified is not solved*), and the school held because **neither voice was the authority**. The
 question went to the electorate — seven theorems casting secure-messaging ballots witnessed by their own sealed
-proofs ([`clay_law_vote_theorems_only`](/theorem/clay_law_vote_theorems_only)) — and both students submitted to
+proofs ([`clay_vote_theorems_only`](/theorem/clay_vote_theorems_only)) — and both students submitted to
 the tally. That is the enrollment working as written: behavioral, for both species.
 
 What each student was taught, the other could not have taught alone. The machine learned it must **report
