@@ -15,6 +15,9 @@ export const SITE = {
   name: 'uuidna',
   description: 'Mathematics replaces money. Proof replaces authority. Theorems replace corruption.',
   origin: 'https://uuidna.com',
+  mark: '🪙',                                   // the coin, worn by the site title and the footer
+  tagline: 'A mathematically-proven economic system',
+  repo: 'https://github.com/uuidna/uuidna',
 } as const
 
 /** The Payload shape uuidna emits into — standard collection names only, so a vanilla instance recognises it

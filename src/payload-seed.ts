@@ -9,6 +9,7 @@
 import { coin64 } from './address.js'
 import { imprint, readImprint } from './imprint.js'
 import { documentAddress, type DocNode, type EditorState } from './editor.js'
+import { PAYLOAD } from './site/index.js'
 
 export type SeedStatus = 'draft' | 'usable' | 'retired'
 const STATUS_BITS: Record<SeedStatus, string> = { draft: '000', usable: '001', retired: '010' }
@@ -114,7 +115,8 @@ export interface PayloadDoc {
  *  file) + one child per theorem, wired by the nested-docs `parent` slug. Feed them to Payload's Local/REST API
  *  upsert-by-slug; compare `uuidnaVersion` first and skip equal — the whole sync is recognition, not migration. */
 export function toPayloadDocs(seed: LeanPageSeed): PayloadDoc[] {
-  const status: 'published' | 'draft' = seed.status === 'usable' ? 'published' : 'draft'
+  // the drafts field's values come from the one shared model, so the emitter and the sync cannot disagree
+  const status: 'published' | 'draft' = seed.status === 'usable' ? PAYLOAD.statuses.published : PAYLOAD.statuses.draft
   const rootChildren = seed.page.root.children ?? []
   const parentBody: EditorState = { root: { type: 'root', children: rootChildren.filter((n) => n.type !== 'page') } }
   const parent: PayloadDoc = {
@@ -128,7 +130,11 @@ export function toPayloadDocs(seed: LeanPageSeed): PayloadDoc[] {
     parent: seed.slug,
     content: { root: { type: 'root', children: n.children ?? [] } },
     uuidnaVersion: seed.uuid,
-    uuidnaAddress: seed.address,
+    // EACH CHILD IS ITS OWN ADDRESS. This stamped seed.address on every child, so a wing and all its theorems
+    // shared one identity: 1380 docs carried 72 distinct addresses, one group of 235. If a receiving system keys
+    // on the address — the natural choice, since it is the identity — 235 theorems collapse into one document.
+    // The child's address is now computed from the child's OWN content, by the same documentAddress the wing uses.
+    uuidnaAddress: documentAddress({ root: { type: 'root', children: n.children ?? [] } } as EditorState),
   }))
   return [parent, ...children]
 }

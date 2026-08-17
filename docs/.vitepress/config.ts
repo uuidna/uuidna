@@ -20,12 +20,12 @@ export default defineConfig({
   head: [
     // schema.org/OG strict: Open Graph tags carry `property`, not `name` (RDFa); twitter:card correctly uses `name`.
     ['meta', { property: 'og:title', content: SITE.name }],
-    ['meta', { property: 'og:description', content: 'A mathematically-proven economic system' }],
+    ['meta', { property: 'og:description', content: SITE.tagline }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
   ],
 
   themeConfig: {
-    siteTitle: '🪙 uuidna',
+    siteTitle: SITE.mark + ' ' + SITE.name,
 
     nav: [
       { text: 'Home', link: '/' },
@@ -81,11 +81,11 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/uuidna/uuidna' },
+      { icon: 'github', link: SITE.repo },
     ],
 
     footer: {
-      message: '🪙 ' + SITE.description,
+      message: SITE.mark + ' ' + SITE.description,
       copyright: 'uuidna — All theorems sealed to ledger',
     },
 
