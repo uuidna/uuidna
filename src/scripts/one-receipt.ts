@@ -24,7 +24,7 @@ import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
-import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, type Gap } from './api.js'
+import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, type Gap } from './api.js'
 
 // ── record: the three audits (each learned from a REAL manually-found gap, folded so it can never recur unwatched) ──
 
@@ -666,17 +666,28 @@ export function negationGaps(): Gap[] {
 // a drain path. Adding a generator to reconcile without declaring it fails here, at guard speed, before a run dies.
 export function drainGaps(): Gap[] {
   const gaps: Gap[] = []
-  const src = readFileSync(join(ROOT, 'src/scripts/reconcile.ts'), 'utf8')
-  const invoked = [...new Set([...src.matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
-  for (const g of invoked)
-    if (!(g in RECONCILE_OUTPUTS))
-      gaps.push({ what: `reconcile invokes ${g} but RECONCILE_OUTPUTS does not declare what it writes`, fix: `add '${g}': ['<the path(s) it writes>'] to RECONCILE_OUTPUTS in src/scripts/api.ts — an empty array if it only reports; an undeclared generator regenerates files nothing stages` })
-  for (const [g, outs] of Object.entries(RECONCILE_OUTPUTS)) {
-    if (!invoked.includes(g)) gaps.push({ what: `RECONCILE_OUTPUTS declares ${g}, which reconcile no longer invokes`, fix: `remove '${g}' from RECONCILE_OUTPUTS in src/scripts/api.ts — a declaration for a generator nothing runs is a claim about work that does not happen` })
-    for (const out of outs)
-      if (!DRAIN_PATHS.some((p) => out === p || out.startsWith(p + '/')))
-        gaps.push({ what: `${g} writes ${out}, which the drain does not stage (absent from DRAIN_PATHS)`, fix: `add '${out}' to DRAIN_PATHS in src/scripts/api.ts — reconcile rewrites it every run, so unstaged it either blocks the push as drift or leaves the run committing nothing` })
+  const checkChain = (chainName: string, invoked: string[], declared: Readonly<Record<string, readonly string[]>>): void => {
+    for (const g of invoked)
+      if (!(g in declared))
+        gaps.push({ what: `${chainName} invokes ${g} but its output map does not declare what it writes`, fix: `add '${g}': ['<the path(s) it writes>'] to the declaration in src/scripts/api.ts — an empty array if it only reports` })
+    for (const [g, outs] of Object.entries(declared)) {
+      if (!invoked.includes(g)) gaps.push({ what: `the ${chainName} declaration names ${g}, which ${chainName} no longer invokes`, fix: `remove '${g}' from its declaration in src/scripts/api.ts — a declaration for a generator nothing runs is a claim about work that does not happen` })
+      for (const out of outs)
+        if (!DRAIN_PATHS.some((p) => out === p || out.startsWith(p + '/')))
+          gaps.push({ what: `${g} (${chainName}) writes ${out}, which the drain does not stage (absent from DRAIN_PATHS)`, fix: `add '${out}' to DRAIN_PATHS in src/scripts/api.ts — ${chainName} rewrites it every run, so unstaged it drifts dirty until a human notices` })
+    }
   }
+  const reconcileSrc = readFileSync(join(ROOT, 'src/scripts/reconcile.ts'), 'utf8')
+  const reconcileInvoked = [...new Set([...reconcileSrc.matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
+  checkChain('reconcile', reconcileInvoked, RECONCILE_OUTPUTS)
+
+  // THE SAME LAW, THE OTHER CHAIN — `docs:build` regenerates tracked files too (gen-captain-claims' two outputs,
+  // one declared and one not, drifted docs/captain-claims.md dirty for most of a session before this existed).
+  // Read from package.json's OWN script string, not reconcile.ts, so a change to docs:build's chain is caught the
+  // same way a change to reconcile's chain is.
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  const docsBuildInvoked = [...new Set([...(pkg.scripts['docs:build'] ?? '').matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
+  checkChain('docs:build', docsBuildInvoked, DOCS_BUILD_OUTPUTS)
   // .gitattributes is GENERATED from this same list, so the derived layer is unmergeable everywhere it is derived.
   // A path that gains a generator but not the mark comes back as a hand-resolved merge conflict — the manual work
   // this whole finder exists to end (measured: spin-manifest.json conflicted four times in one session).

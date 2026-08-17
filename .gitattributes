@@ -21,3 +21,4 @@ README.md merge=derived
 llm.txt merge=derived
 docs/analytics.md merge=derived
 lean/*-manifest.json merge=derived
+docs/captain-claims.md merge=derived

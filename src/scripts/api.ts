@@ -67,6 +67,9 @@ export const DRAIN_PATHS: readonly string[] = [
   // every wing's manifest — lean-gen writes one per generated wing, so `npm run lean` rewrites them on every
   // reconcile and nothing staged them; a glob, because the set grows with the ledger and a fixed list would rot.
   'lean/*-manifest.json',
+  // gen-captain-claims' OTHER output — docs/captain-claims.json was declared 2026-08-17, its .md sibling was not,
+  // and drifted dirty every docs:build for most of a session before one-receipt drain's docs:build check named it.
+  'docs/captain-claims.md',
 ]
 
 /** What each generator in the reconcile chain WRITES — declared, because the write targets are computed through
@@ -89,6 +92,21 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'spin': ['spin-manifest.json'],
   'account': [],       // reports only — aborts the run when the ledger does not reconcile, writes nothing
   'one-receipt': [],   // invoked as the `coherent` probe here; the finders report, they do not write
+}
+
+/** The SAME declaration, for the OTHER chain that regenerates tracked derived files: `docs:build`. Found
+ *  2026-08-18 — gen-captain-claims writes BOTH docs/captain-claims.json (a drain path since 2026-08-17) AND
+ *  docs/captain-claims.md, and only the .json sibling was ever declared. The .md file drifted dirty every time
+ *  docs:build ran, indistinguishable at a glance from a hand edit, and sat uncommitted for most of a session.
+ *  `one-receipt drain` checks this map against package.json's own "docs:build" script string, the same way it
+ *  checks RECONCILE_OUTPUTS against reconcile.ts's source — two chains, one law: every generator's output is
+ *  declared, or the file it writes is nobody's to stage. */
+export const DOCS_BUILD_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
+  'gen-mcp': ['docs/mcp.md'],
+  'gen-captain-claims': ['docs/captain-claims.json', 'docs/captain-claims.md'],
+  'lean-payload-seeds': ['src/seeds'],   // the whole directory is one drain path — see stageDerived
+  'payload-sync': ['src/seeds'],
+  'copy-lean-to-site': [],   // writes into docs/.vitepress/dist, which is gitignored — nothing to drain
 }
 
 /** Stage ONLY the drain's own paths, then report what was left for a human. Returns the untouched paths so a caller
