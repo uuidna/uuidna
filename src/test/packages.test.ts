@@ -3,7 +3,7 @@
 // <name> id. Pure and offline — mints fixed sample records, no network — so the test is a diamond, not a live probe.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { uuidnaPackage } from '../os/packages.js'
+import { uuidnaPackage } from '../os/packages/index.js'
 import { merkleGravity } from '../index.js'
 
 // a fixed sample of the shape Alpine's APKINDEX yields (name, version, published C: checksum)

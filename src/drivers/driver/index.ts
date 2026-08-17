@@ -7,9 +7,9 @@
 // exactly which driver bundle it rests on, recomputable by anyone. Port the INTEGRITY of the drivers, never the
 // runtime — the modules are NAMED and CHECKED, never inserted. fetchDriverLatest is the upstream automation, a pure
 // fetch + text parse at this boundary — the one place a LIVE "latest" read is honest, not hidden. Integrity, not execution.
-import { toUuid } from '../address.js'
-import { merkleGravity } from '../gravity.js'
-import { sha256 } from '../sha256.js'
+import { toUuid } from '../../address.js'
+import { merkleGravity } from '../../gravity.js'
+import { sha256 } from '../../sha256.js'
 
 /** An exact driver bundle (kernel + modloop = the kernel modules), pinned as a recomputable provenance record. */
 export interface DriverBundle {

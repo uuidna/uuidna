@@ -1,7 +1,7 @@
 // quantum-sailing-cross-book — CROSS-BOOK CORRELATION: the captain reads across the library and finds theorems that emerge only when two or more books are read together.
 // When read in isolation, each book links decidable facts (numbers, arithmetic, patterns). When read together, facts RESONATE — a theorem cited in book A resonates with a fact in book B, creating NEW sealed insights. Pure and recomputable: all correlation logic is deterministic; network fetches (if needed) are application-layer responsibilities.
 
-import { theorems, toUuid, merkleGravity } from '../index.js'
+import { theorems, toUuid, merkleGravity } from '../../../../index.js'
 
 export interface BookPair {
   book1Id: number

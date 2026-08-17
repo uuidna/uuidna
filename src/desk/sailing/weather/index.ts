@@ -4,7 +4,7 @@
 // knows the weather by recomputation. Pure and recomputable: all functions are deterministic; network fetches
 // (if needed) are application-layer responsibilities, not part of the core correlation logic.
 
-import { theorems, toUuid, merkleGravity } from '../index.js'
+import { theorems, toUuid, merkleGravity } from '../../../index.js'
 
 export interface WeatherFact {
   source: string        // API source (OpenWeatherMap terms of service, NOAA, etc.)

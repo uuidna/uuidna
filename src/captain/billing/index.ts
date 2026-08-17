@@ -4,7 +4,7 @@
 // of a genus-2 surface); the advantage is the measured quantity they are priced on, never a market rate. And the
 // whole bill is COMPLETE IN ITS OWN RECEIPT — a content-address of every term, so a bill is recomputed and
 // checked, never trusted. A measure of work saved, not a market price — integrity, not truth.
-import { toUuid } from '../address.js'
+import { toUuid } from '../../address.js'
 
 /** The two coins — the conserved fair-exchange invariant. */
 export function coins(): number { return 110 - 108 }

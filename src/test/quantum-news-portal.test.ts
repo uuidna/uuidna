@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { buildNewsPortal, extractFactsFromArticle, auditFactAgainstLedger, renderPortalSummary } from '../quantum/news-portal.js'
-import { buildPoliticsPortal } from '../quantum/news-domains.js'
+import { buildNewsPortal, extractFactsFromArticle, auditFactAgainstLedger, renderPortalSummary } from '../desk/news/portal/index.js'
+import { buildPoliticsPortal } from '../desk/news/domains/index.js'
 
 test('quantum-news-portal: extracts facts from articles', () => {
   const article = {

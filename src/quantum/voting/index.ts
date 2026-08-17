@@ -6,8 +6,8 @@
 // Coins pay for: (1) computational cost of reconcile, (2) captain's commission, (3) voting rights in governance.
 // The same coins settle all three — one unified economy.
 
-import { theorems, toUuid, merkleGravity } from '../index.js'
-import { ket0, hadamard, pauliX, pauliZ, cnot, cz, label, fraction, type QState } from './index.js'
+import { theorems, toUuid, merkleGravity } from '../../index.js'
+import { ket0, hadamard, pauliX, pauliZ, cnot, cz, label, fraction, type QState } from '../index.js'
 
 export interface AgentContribution {
   workAddress: string       // content-address of the work (code, docs, theorems)

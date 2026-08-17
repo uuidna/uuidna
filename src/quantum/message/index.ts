@@ -14,12 +14,12 @@
 // plaintext, so anyone verifies the witness and the envelope's integrity while only the key holder reads.
 // The quantum encoding adds NO secrecy and NO quantum channel — not QKD, no quantum advantage claimed.
 
-import { theorems, toUuid } from '../index.js'
-import { quantumAura, type Aura } from '../aura.js'
-import { ket0, hadamard, pauliX, pauliZ, label, fraction, type QState } from './index.js'
-import { merkleGravity } from '../gravity.js'
-import { imprintTextChain, readImprintTextChain } from '../imprint.js'
-import { encrypt, decrypt, verifyEnvelope, type Sealed } from '../crypt.js'
+import { theorems, toUuid } from '../../index.js'
+import { quantumAura, type Aura } from '../../aura.js'
+import { ket0, hadamard, pauliX, pauliZ, label, fraction, type QState } from '../index.js'
+import { merkleGravity } from '../../gravity.js'
+import { imprintTextChain, readImprintTextChain } from '../../imprint.js'
+import { encrypt, decrypt, verifyEnvelope, type Sealed } from '../../crypt.js'
 
 export interface QuantumMessage {
   id: string                  // content-address: toUuid(plaintext + theorem_key)

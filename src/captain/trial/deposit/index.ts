@@ -5,12 +5,12 @@
 // development trial, never discarded). LOCAL-FIRST: the parties, their tests and proofs stay client-side; nothing is
 // sent, no payment — the "coins" are the conserved fair-exchange invariant (110 − 108 = 2), not money. Integrity,
 // not truth: the deposit buys a COMPUTATION, never a verdict — a deposited claim can still come back UNVERIFIED.
-import { type Verdict } from '../adjudicate.js'
-import { theorems } from '../theorems/index.js'
-import { verifyStatement } from '../verify-statement.js'
-import { coins } from './billing.js'
-import { toUuid } from '../address.js'
-import { merkleGravity } from '../gravity.js'
+import { type Verdict } from '../../../adjudicate.js'
+import { theorems } from '../../../theorems/index.js'
+import { verifyStatement } from '../../../verify-statement.js'
+import { coins } from '../../billing/index.js'
+import { toUuid } from '../../../address.js'
+import { merkleGravity } from '../../../gravity.js'
 
 /** A party's deposit of the coins: a decidable TEST that must hold, or a citation to a SEALED theorem (key or exact
  *  statement). Either is a real contribution — the two-coin fold. A bare assertion with neither is not a deposit. */

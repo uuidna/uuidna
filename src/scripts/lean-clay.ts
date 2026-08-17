@@ -4,8 +4,8 @@
 import { emit } from './lean-gen.js'
 import { theorems, toUuid } from '../index.js'
 import { adjudicate } from '../adjudicate.js'
-import { tallyVotes } from '../quantum/voting.js'
-import { encodeMessage } from '../quantum/message.js'
+import { tallyVotes } from '../quantum/voting/index.js'
+import { encodeMessage } from '../quantum/message/index.js'
 
 const dz = (x: number) => (x === 0 ? 0 : 10 - x) // division by zero in the vortex = the reflection (JS mirror)
 const DEFS = 'def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the ℤ/9 vortex = the reflection'

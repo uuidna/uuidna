@@ -45,6 +45,6 @@ The same gate reads the news. Facts extracted from articles on contested topics 
 | **Narrative gap** | the fact is true, the story around it is false — only the court (human, coin-backed) decides |
 
 The pipeline: read → extract decidable facts (dates, numbers, logical claims) → audit each against the sealed ledger
-→ judge the unsealed remainder by coin-backed voting. The engine is `src/quantum/news-portal.ts`; the boundary is
+→ judge the unsealed remainder by coin-backed voting. The engine is `src/desk/news/portal/index.ts`; the boundary is
 drawn honestly: **no recomputable system can catch a narrative gap** — that is where human judgment must stand
 ([`exactly_one_flag`](/theorem/exactly_one_flag) fires on the hollow claim, never on the false story).

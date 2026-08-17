@@ -7,9 +7,9 @@
 // the exact bytes are NAMED and CHECKED, never run. This file lives at src/os/**, the ONE place non-determinism
 // is honest: reading upstream's LIVE "latest" is a wall-clock-dependent act, declared here, not hidden from the gate.
 // Integrity, not execution.
-import { toUuid } from '../address.js'
-import { merkleGravity } from '../gravity.js'
-import { sha256 } from '../sha256.js'
+import { toUuid } from '../../address.js'
+import { merkleGravity } from '../../gravity.js'
+import { sha256 } from '../../sha256.js'
 
 /** An exact Alpine release, pinned as a recomputable provenance record — never a running system. */
 export interface AlpineRelease {

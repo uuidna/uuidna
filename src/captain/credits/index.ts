@@ -6,8 +6,8 @@
 // recomputable by anyone (prior art, not an assertion of grandeur). uuidna solves no Millennium problem — a Clay
 // theorem is credited to the mathematician who proved the PROBLEM (Perelman for Poincaré), never to uuidna, which
 // seals only the REFLECTION. Integrity, not truth: the Lean proof is exact; the history is linked, not asserted.
-import { THEOREMS, theoremByKey, theoremNeighbours } from '../theorems/index.js'
-import { toUuid } from '../address.js'
+import { THEOREMS, theoremByKey, theoremNeighbours } from '../../theorems/index.js'
+import { toUuid } from '../../address.js'
 
 // historical results EXPLICITLY named in the sealed theorem metadata → {who, a documentation link}. Only names that
 // actually occur are listed; a name here credits ONLY the theorems whose own sealed name references it.

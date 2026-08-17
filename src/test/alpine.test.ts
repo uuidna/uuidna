@@ -3,7 +3,7 @@
 // execution (there is nothing to execute). Integrity, not truth.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { alpineRelease, verifyAlpineRootfs } from '../os/alpine.js'
+import { alpineRelease, verifyAlpineRootfs } from '../os/alpine/index.js'
 import { sha256 } from '../sha256.js'
 import { hex } from './api.js'
 

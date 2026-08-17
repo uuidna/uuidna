@@ -1,8 +1,8 @@
 // news-domains — Domain-specific portal implementations
 // Each domain has its own fact-extraction patterns and sealing rules
 
-import { NewsArticle, NewsPortal, FactJudgment, JudgmentVote } from './news-portal.js'
-import { buildNewsPortal, renderPortalSummary, tallyJudgmentVotes, shouldSealFact } from './news-portal.js'
+import { NewsArticle, NewsPortal, FactJudgment, JudgmentVote } from '../portal/index.js'
+import { buildNewsPortal, renderPortalSummary, tallyJudgmentVotes, shouldSealFact } from '../portal/index.js'
 
 // POLITICS PORTAL
 export interface PoliticsArticle extends NewsArticle {

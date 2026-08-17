@@ -9,8 +9,8 @@
 // HONEST SCOPE: integrity, not execution. uuidna/<package> is a provenance identity, not a fork, a mirror, or a
 // runnable package; it names the upstream bytes, it does not host or modify them. Best-effort: a down mirror yields an
 // empty catalog, never a faked checksum.
-import { toUuid } from '../address.js'
-import { merkleGravity } from '../gravity.js'
+import { toUuid } from '../../address.js'
+import { merkleGravity } from '../../gravity.js'
 
 const CDN = 'https://dl-cdn.alpinelinux.org/alpine'
 

@@ -12,7 +12,7 @@ import { theorems, runTrial } from './theorems/index.js'
 import { adjudicate } from './adjudicate.js'
 import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity.js'
-import { sealMessage, verifyMessage, type SealedQuantumMessage } from './quantum/message.js'
+import { sealMessage, verifyMessage, type SealedQuantumMessage } from './quantum/message/index.js'
 import { verifyEnvelope } from './crypt.js'
 
 // the six sealed guarantees that make the process DUE — each a lean/Legal.lean theorem, with the right it secures.

@@ -11,8 +11,8 @@ import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { runTrial } from './theorems/index.js'
 import { quantumAura } from './aura.js'
-import { creditsSummary } from './captain/credits.js'
-import { captainRights } from './captain/rights.js'
+import { creditsSummary } from './captain/credits/index.js'
+import { captainRights } from './captain/rights/index.js'
 
 const HOST = 'https://uuidna.com'
 

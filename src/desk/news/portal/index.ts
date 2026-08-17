@@ -2,7 +2,7 @@
 // Read articles on disputed topics → extract decidable facts → audit through anti-fraud MCP
 // → coin-backed judgment → display: provable | open | overclaimed | narrative gap
 
-import { toUuid, theorems } from '../index.js'
+import { toUuid, theorems } from '../../../index.js'
 
 export interface NewsArticle {
   title: string

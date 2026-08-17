@@ -4,8 +4,8 @@
 // network dependency. The captain sails through literature, mining decidable facts and discovering novel research
 // leads. Each book is a witness to arithmetic. The fetch is the ONLY non-harmonic operation; audit + linkage are pure.
 
-import { auditBook, linkBookFacts, type BookAudit, type BookLedgerLinkage } from '../index.js'
-import { merkleGravity, toUuid } from '../index.js'
+import { auditBook, linkBookFacts, type BookAudit, type BookLedgerLinkage } from '../../../index.js'
+import { merkleGravity, toUuid } from '../../../index.js'
 
 export interface SailingBook {
   gutenbergId: number

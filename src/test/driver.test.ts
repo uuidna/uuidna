@@ -3,7 +3,7 @@
 // or runs a module — these tests exercise integrity only (there is nothing to execute). Integrity, not truth.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { driverBundle, verifyDriverBundle } from '../drivers/driver.js'
+import { driverBundle, verifyDriverBundle } from '../drivers/driver/index.js'
 import { sha256 } from '../sha256.js'
 import { hex } from './api.js'
 

@@ -2,8 +2,8 @@
 // built in: coinsJobs() runs each job through the gate on every read, so the catalog cannot drift from the ledger
 // it describes — a vanished theorem breaks the catalog's own verdict rather than passing silently.
 
-import { reveal } from '../gate.js'
-import { toUuid } from '../address.js'
+import { reveal } from '../../gate.js'
+import { toUuid } from '../../address.js'
 
 export interface CoinJob { n: number; job: string; claim: string; cites: string[] }
 export interface CoinJobsReport {

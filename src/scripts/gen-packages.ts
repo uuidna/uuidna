@@ -26,10 +26,10 @@ const PARTITION: Record<string, string> = {
   // ledger — the sealed theorems and every gate standing on them
   './address.js': 'ledger', './merkle.js': 'ledger', './gate.js': 'ledger', './prose-gate.js': 'ledger',
   './slimgate.js': 'ledger', './adjudicate.js': 'ledger', './sign.js': 'ledger', './due-process.js': 'ledger',
-  './verify-statement.js': 'ledger', './fingerprint.js': 'ledger', './laws.js': 'ledger', './captain/credits.js': 'ledger',
+  './verify-statement.js': 'ledger', './fingerprint.js': 'ledger', './laws.js': 'ledger', './captain/credits/index.js': 'ledger',
   './conformance.js': 'ledger', './treason.js': 'ledger', './axiom-witness.js': 'ledger', './anti-fraud.js': 'ledger',
-  './forensics.js': 'ledger', './evidence.js': 'ledger', './captain/trial-deposit.js': 'ledger', './security-audit.js': 'ledger',
-  './captain/billing.js': 'ledger', './theorems/index.js': 'ledger',
+  './forensics.js': 'ledger', './evidence.js': 'ledger', './captain/trial/deposit/index.js': 'ledger', './security-audit.js': 'ledger',
+  './captain/billing/index.js': 'ledger', './theorems/index.js': 'ledger',
   // research — recomputable research, corroboration, publications, external anchors
   './research.js': 'research', './corroborate.js': 'research', './books.js': 'research', './publish.js': 'research',
   './reporter.js': 'research', './priorart.js': 'research', './anchor.js': 'research', './constants.js': 'research',
@@ -38,11 +38,11 @@ const PARTITION: Record<string, string> = {
   // quantum — the exact simulator, messages/voting, the sailing fleet, the folds, the provenance boundary
   './quantum/index.js': 'quantum', './gravity.js': 'quantum', './diamond.js': 'quantum', './holofractal.js': 'quantum',
   './pentagram-stream.js': 'quantum', './pentagram-monographs.js': 'quantum', './cycles.js': 'quantum',
-  './aura.js': 'quantum', './domain-wave.js': 'quantum', './quantum/message.js': 'quantum',
-  './quantum/voting.js': 'quantum', './quantum/sailing-library.js': 'quantum', './quantum/news-portal.js': 'quantum',
-  './quantum/news-domains.js': 'quantum', './quantum/sailing-weather.js': 'quantum', './quantum/sailing-cross-book.js': 'quantum',
-  './quantum/sailing-complete.js': 'quantum', './analytics.js': 'quantum', './os/alpine.js': 'quantum',
-  './drivers/driver.js': 'quantum',
+  './aura.js': 'quantum', './domain-wave.js': 'quantum', './quantum/message/index.js': 'quantum',
+  './quantum/voting/index.js': 'quantum', './desk/sailing/library/index.js': 'quantum', './desk/news/portal/index.js': 'quantum',
+  './desk/news/domains/index.js': 'quantum', './desk/sailing/weather/index.js': 'quantum', './desk/sailing/cross/book/index.js': 'quantum',
+  './desk/sailing/complete/index.js': 'quantum', './analytics.js': 'quantum', './os/alpine/index.js': 'quantum',
+  './drivers/driver/index.js': 'quantum',
   // mcp — the server's I/O boundary (the bin re-serves the root server)
   './sanitize.js': 'mcp', './harness.js': 'mcp',
   // edge — the deployment surface

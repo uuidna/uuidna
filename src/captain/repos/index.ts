@@ -11,8 +11,8 @@
 // (provenance) — it fingerprints them and places them in the recomputable sequence. It does NOT modify, fork, mirror,
 // claim ownership of, or vouch for the contents of any repository. A binding is a placement in the sequence, not a
 // possession of the code. Best-effort: an unreachable account contributes nothing, never a faked repo.
-import { toUuid, digitalRoot, vortexOrbit } from '../address.js'
-import { merkleGravity } from '../gravity.js'
+import { toUuid, digitalRoot, vortexOrbit } from '../../address.js'
+import { merkleGravity } from '../../gravity.js'
 
 // the captain's public GitHub accounts — the org and the user behind uuidna (Tsvetan Rouschev / ceccec).
 export const CAPTAIN_ACCOUNTS: readonly { kind: 'org' | 'user'; who: string }[] = [

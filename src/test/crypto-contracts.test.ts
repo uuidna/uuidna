@@ -8,7 +8,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract,
   toUuid, encrypt, decrypt, imprintTextChain, readImprintTextChain, verifyEnvelope } from '../index.js'
-import { sealMessage, openMessage, verifyMessage, serializeMessage } from '../quantum/message.js'
+import { sealMessage, openMessage, verifyMessage, serializeMessage } from '../quantum/message/index.js'
 import { UUID } from './api.js'
 
 const TERMS = 'CC-COMMERCIAL — deployment #7, secret between uuidna and the licensee, do not share'

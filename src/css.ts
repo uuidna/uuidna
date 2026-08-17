@@ -7,7 +7,7 @@
 import { toUuid, vortexOrbit, digitalRoot, BASE, TRINITY, A432_STEP } from './address.js'
 import { DIAMOND_FIXED } from './diamond.js'
 import { typeScaleVars } from './typography.js'
-import { coins } from './captain/billing.js'
+import { coins } from './captain/billing/index.js'
 
 const fdiv = (a: number, b: number): number => (a - (a % b)) / b
 const milli = (num: number, den: number): string => {

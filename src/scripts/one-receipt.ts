@@ -17,10 +17,10 @@
 //   record  legal · prose · deposits               (the audited facts and the captain's signed deposits)
 //   walks   star_walk · rosette_receipts · rosette_audit   (5/2 · 7/3 · 9/2 recomputed, the rays, the coins)
 import { createHash } from 'node:crypto'
-import { messagingSeal } from '../quantum/message.js'
+import { messagingSeal } from '../quantum/message/index.js'
 import { execSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
-import { join, dirname } from 'node:path'
+import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
@@ -539,6 +539,35 @@ export function stateGaps(): Gap[] {
   return gaps
 }
 
+// ── folders: ONE WORD, ONE NAME, MANY FACES. A module folder is a single concept, so it carries `index.*` files and
+// nothing else — index.ts is what it does, index.md is what it means, and a further extension is a further face of
+// the same thing. A second NAMED file inside it is a second name for one concept, and a hyphenated folder is two
+// concepts sharing a directory; both are the drift this refuses. src/quantum/clock is the shape: one word, index
+// faces only. COLLECTIONS are exempt by name, not by accident — scripts, test, lean and theorems hold many
+// independent things rather than one concept, and calling them modules would be the same category error inverted.
+export function folderGaps(): Gap[] {
+  const gaps: Gap[] = []
+  // components is a collection too, and for a borrowed reason: a Vue single-file component is named by the
+  // FRAMEWORK's convention (PascalCase, resolved by filename), so renaming one to index.vue would break the tool
+  // that reads it. A rule that fights another system's naming is a rule about us, not about the code.
+  const COLLECTIONS = new Set(['scripts', 'test', 'tests', 'lean', 'theorems', 'components'])
+  const walk = (dir: string, rel: string): void => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      if (!e.isDirectory()) continue
+      const r = rel ? rel + '/' + e.name : e.name
+      if (COLLECTIONS.has(e.name)) continue
+      if (!/^[a-z]+$/.test(e.name))
+        gaps.push({ what: `src/${r} is not ONE WORD — a hyphenated folder is two concepts sharing a directory`, fix: `nest it: src/${r.replace(/-/g, '/')}/index.ts, so each word names a folder and the leaf holds the faces` })
+      const files = readdirSync(join(dir, e.name), { withFileTypes: true }).filter((f) => !f.isDirectory()).map((f) => f.name)
+      for (const f of files.filter((n) => !/^index\./.test(n)))
+        gaps.push({ what: `src/${r}/${f} is a NAMED file in a module folder — one concept, one name, and the extension names the face`, fix: `move it to src/${r}/${f.replace(/\.[^.]+$/, '').replace(/-/g, '/')}/index${f.slice(f.lastIndexOf('.'))} and re-export from src/${r}/index.ts` })
+      walk(join(dir, e.name), r)
+    }
+  }
+  walk(join(ROOT, 'src'), '')
+  return gaps
+}
+
 // ── negation: NO LEAN LEAD IS LOST IN PROSE, EVEN NEGATING. The absence law above holds one case (a cipher denied
 // must name where encryption lives); this is that law at full width. Every honest boundary this project states —
 // "not a solver", "solves none", "NOT PROVEN", "never a chip", "not truth" — is a CLAIM ABOUT WHAT IS PROVEN, and a
@@ -650,7 +679,12 @@ export async function coherentGaps(): Promise<Gap[]> {
       if (e.isDirectory()) { walk(p); continue }
       if (!e.name.endsWith('.js')) continue
       const js = readFileSync(p, 'utf8')
-      for (const m of js.matchAll(/^import\s*\{([^}]*)\}\s*from\s*['"][^'"]*\/index\.js['"]/gm))
+      // THE ROOT BARREL, NOT ANY BARREL. This matched every `…/index.js`, which meant exactly one file until the
+      // 2026-08-18 migration gave every module its own index face — after which it compared module-local imports
+      // against the root's exports and reported five phantom breaks. It now RESOLVES the specifier and keeps only
+      // the imports that actually target dist/index.js.
+      for (const m of js.matchAll(/^import\s*\{([^}]*)\}\s*from\s*['"]([^'"]*\/index\.js)['"]/gm))
+        if (resolve(dirname(p), m[2]) !== join(dist, 'index.js')) continue; else
         for (const raw of m[1].split(',')) {
           const name = raw.split(' as ')[0].trim()
           if (name && !have.has(name))
@@ -928,6 +962,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'vacuous') report('one-receipt vacuous', vacuousGaps(), 'no theorem is true regardless of its content — every sealed name is carried by a proof that means it.')
   else if (cmd === 'frozen') report('one-receipt frozen', frozenGaps(), 'no theorem freezes a measured quantity — every name that counts live things walks the structure it counts.')
   else if (cmd === 'state') report('one-receipt state', stateGaps(), 'the folded question has one copy — no workflow re-implements what npm run state already answers.')
+  else if (cmd === 'folders') report('one-receipt folders', folderGaps(), 'every module folder is one word holding index faces only — one concept, one name.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
   else if (cmd === 'drain') report('one-receipt drain', drainGaps(), 'the drain stages everything reconcile regenerates — every generator declares its output, and every output is a drain path.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
