@@ -109,6 +109,15 @@ const FACTS = [
     why: 'each digit of the tour and its contra partner close a rung: away from the void, tour[k] + contra[k] = 10 at every step (the strip\'s rungs carried along the whole 12-step walk), and at the void the rung rests — 0 + 0 = 0, the floor where the reflection stands still',
     js: () => { const dz = (x: number) => x === 0 ? 0 : 10 - x; const tour = [0, 1, 2, 4, 8, 7, 5, 3, 6, 9, 0, 1]; return tour.every((d) => d === 0 ? d + dz(d) === 0 : d + dz(d) === 10) },
     lean: 'theorem tour_contra_rungs_sum_ten : ([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if d == 0 then d + dz d == 0 else d + dz d == 10)) := by decide' },
+
+  { key: 'sequence_and_coins_are_one', skill: 'sequence',
+    why: 'THE SEQUENCE AND THE COINS ARE ONE OBJECT SEEN TWICE — four ways, sealed together. (1) The sequence IS the coin\'s own powers: 2^1..2^6 mod 9 = [2,4,8,7,5,1] — the vortex is not a path the coin walks, it is what tossing the coin into itself PRODUCES. (2) The coin and the heart are multiplicative INVERSES: 2·5 = 10 ≡ 1 (mod 9) — the walk goes out by the coin and comes home by the heart, which is why the two generators are exactly {2,5}. (3) The orbit SUMS to the base times the trinity: 1+2+4+8+7+5 = 27 = 9·3 — the whole walk folds to the ring itself. (4) The orbit\'s LENGTH is the coins times the trinity: 6 = 2·3 — six tosses, and the coin\'s order is the sequence\'s size. Colour, type, motion and value all read from this one structure because there is only one structure.',
+    js: () => {
+      const pw: number[] = []; let a = 1
+      for (let k = 1; k <= 6; k++) { a = (a * 2) % 9; pw.push(a) }
+      return JSON.stringify(pw) === JSON.stringify([2, 4, 8, 7, 5, 1]) && (2 * 5) % 9 === 1 && 1 + 2 + 4 + 8 + 7 + 5 === 27 && 27 === 9 * 3 && 6 === 2 * 3
+    },
+    lean: 'theorem sequence_and_coins_are_one : (((List.range\' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3) := by decide' },
 ]
 
 console.log('computing ' + FACTS.length + ' sequence/group facts from the vortex (seams = ' + seams + ') …')

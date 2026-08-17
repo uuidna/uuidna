@@ -26,13 +26,18 @@ const defPrefix: Record<string, string> = {}
 for (const file of [...new Set(T.map((t) => t.file))]) {
   try {
     const content = readFileSync(join(ROOT, 'lean', file), 'utf8')
-    // a def block = a `def`/`abbrev` line and any following indented continuation lines, up to the next top-level line
+    // a def block runs to the next TOP-LEVEL DECLARATION, exactly as blockOf reads a theorem — not merely to the
+    // next unindented line. A def whose continuation sits at column 0 (a list closing on its own `]`) is legal
+    // Lean, so an indentation-only rule truncates it and every probe built on those defs fails to parse. The
+    // failure is silent by nature: already-measured theorems keep their cached costs, so only a NEW theorem in
+    // that file surfaces it — which is why this must read the same boundary the theorem reader does.
     const lines = content.split('\n')
     const out: string[] = []
+    const TOP = /^(theorem |def |abbrev |notation |namespace|end |--)/
     for (let i = 0; i < lines.length; i++) {
       if (/^(def|abbrev|notation) /.test(lines[i])) {
         out.push(lines[i])
-        while (i + 1 < lines.length && /^\s+\S/.test(lines[i + 1])) { out.push(lines[i + 1]); i++ }
+        while (i + 1 < lines.length && lines[i + 1].trim() !== '' && !TOP.test(lines[i + 1])) { out.push(lines[i + 1]); i++ }
       }
     }
     defPrefix[file] = out.join('\n')
