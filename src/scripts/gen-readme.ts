@@ -275,9 +275,9 @@ All systems are:
 
 ## Production Status
 
-✓ **All ${THEOREM_COUNT} theorems sealed to ledger**
+✓ **All ${stats.theorems} theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
-✓ **External audits working (8 sources)**
+✓ **${stats.sources} research sources wired — corroboration, never approval**
 ✓ **Education system live**
 ✓ **First students enrolled**
 ✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**

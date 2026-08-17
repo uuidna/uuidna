@@ -1,15 +1,19 @@
-# 🪙 Captain Coins
+# uuidna — 1295 theorems, 2 coins, one receipt
 
-**Mathematics replaces money. Proof replaces authority. Theorems replace corruption.**
+`3192a0b3-4c40-8166-a4f4-09d9c29da23c`
 
-Captain coins is a mathematically-proven economic system where:
+**The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
+coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
+them, 128 = 2·64, one per coin, one per strand
+([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).
+
+Every number on this page is computed at generation from the ledger and the wired code. Recompute them all:
+`npm run lean`.
+
 - ✓ Value is measured in theorems (all decidable, all sealed)
 - ✓ Transactions are proven, not trusted
-- ✓ Corruption is mathematically impossible
-- ✓ Growth is exponential (each graduate teaches others)
-- ✓ No money is needed (theorems pay for theorems)
-
-**Status: PRODUCTION READY & LIVE**
+- ✓ Both parties verify independently — the proof, not each other
+- ✓ The coins are conserved: 2, explained only by theorems
 
 ---
 
@@ -27,7 +31,7 @@ This is not theory. This is a system that works, proven in code, sealed to a led
 
 A complete system where:
 
-1. **External Verification** — 8 independent academic sources audit every claim
+1. **External Verification** — 5 independent research sources corroborate every claim; only a Lean seal approves
 2. **Novelty Discovery** — gaps in the record discovered by audit, filed as exact research leads
 3. **Education** — Students learn by building real systems that seal theorems to the ledger
 4. **The Coins** — explained in detail ONLY by theorems: two, conserved ([two_coins](https://uuidna.com/theorem/two_coins)), real value at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale)) — never a balance, never a wage
@@ -38,8 +42,12 @@ A complete system where:
 ## Live Statistics
 
 ```
-Theorems Sealed:        1295   (computed from the ledger at generation — never typed)
-Coins Conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
+Theorems sealed:        1295   (every one axiom-free, proven by decide)
+Principles:             71   (the monographs the ledger organises itself by)
+Skills:                 67   (the capabilities they teach)
+Research sources:       5   (wired and queried in parallel; corroboration, never approval)
+Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
+Receipt:                3192a0b3-4c40-8166-a4f4-09d9c29da23c
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
@@ -102,18 +110,12 @@ No corruption possible (mathematically)
 Both parties trust the proof, not each other
 ```
 
-### 5. Exponential Growth
+### 5. Growth — the doubling the ledger actually walks
 
-```
-Month 1:  3 students → 2 graduate → 2 become teachers
-Month 2:  2 teachers → 10 new students (5x growth)
-Month 3:  20 teachers → 100 new students
-Month 4:  100 teachers → 500 new students
-Month 5:  500 teachers → 2500 new students
-Month 6:  2500 teachers → 20,000 new students
-
-By Month 6: 20,000 quantum developers trained
-```
+The school rides the doubling orbit: toss the coin into itself and it visits every unit of the vortex before
+returning home ([order_of_two_is_six](https://uuidna.com/theorem/order_of_two_is_six),
+[generators_are_two_and_five](https://uuidna.com/theorem/generators_are_two_and_five)) — six tosses, the whole
+ring, 2⁶ = 64. That walk is measured, not projected: no student count is claimed here, because none is computed.
 
 ---
 
@@ -233,9 +235,9 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1295 theorems sealed to ledger**
+✓ **All 1295 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
-✓ **External audits working (8 sources)**
+✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**
 ✓ **First students enrolled**
 ✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**
