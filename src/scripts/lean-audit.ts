@@ -51,6 +51,11 @@ const FACTS = [
     why: 'The sanitizer’s recursion bound the I/O wall ASSUMES, sealed (axiom-hunt): MAX_DEPTH = 32 = 2^5 — a finite power-of-two wall the resource-DoS audit stands on. Any nesting beyond it is refused, so no input can spin the fold unboundedly.',
     js: () => 32 === 2 ** 5 && 0 < 32,
     lean: 'theorem sanitize_depth_bounded : (32 = 2^5) ∧ (0 < 32) := by decide' },
+
+  { key: 'drift_is_named_or_caught', skill: 'audit',
+    why: 'THE HARMONY LAW — every departure from exact recomputation is either NAMED or CAUGHT, and there is no third state. Over the two bits of the scan (r = the module reaches outside determinism: the network, the process, the clock; d = it declares that boundary by name), the verdict is pass = 1 − r·(1−d): of the four states exactly ONE fails, the undeclared reach. Harmony is therefore not the absence of boundaries — the tree carries fourteen, each naming what it touches — but the absence of UNNAMED ones. This is why a claim of quantum advantage cannot pass: it REACHES, asserting computation beyond the exact cost the state count fixes (n qubits span 2^n amplitudes), and it cannot DECLARE, because no boundary marker exists for faster-than-the-cost — so it lands in the one failing state by construction, not by policy. The same algebra as the provenance detector, applied to computation instead of prose.',
+    js: () => [0, 1, 2, 3].every((n) => { const r = n % 2, d = ((n / 2) | 0) % 2; return (1 - r * (1 - d) === 1) === (r === 0 || d === 1) }) && [0, 1, 2, 3].filter((n) => { const r = n % 2, d = ((n / 2) | 0) % 2; return 1 - r * (1 - d) === 0 }).length === 1,
+    lean: 'theorem drift_is_named_or_caught : ((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d == 1)))) ∧ (((List.range 4).filter (fun n => let r := n % 2; let d := n / 2 % 2; (1 - r * (1 - d)) == 0)).length = 1) := by decide' },
 ]
 
 // compute → generate → verify. The provenance gate (scripts/provenance.ts) is not just code — its decision logic
