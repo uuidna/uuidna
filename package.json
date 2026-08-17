@@ -153,7 +153,7 @@
     "gen:prose-evidence": "npm run build && node dist/scripts/gen-prose-evidence.js",
     "gen:site": "npm run build && node dist/scripts/gen-site.js",
     "legal:accounting": "npm run build && node dist/scripts/legal-quantum-accounting.js",
-    "martial-arts": "npm run build && node dist/scripts/martial-arts-theorems.js",
+    "lean:martial-arts": "npm run build && node dist/scripts/lean-martial-arts.js",
     "migrate:skills": "npm run build && node dist/scripts/migrate-skills.js",
     "quantum:external-fusion": "npm run build && node dist/scripts/quantum-external-fusion.js",
     "quantum:games-from-leads": "npm run build && node dist/scripts/quantum-games-from-leads.js",
