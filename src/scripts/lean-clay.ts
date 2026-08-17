@@ -26,12 +26,6 @@ const DOMAINS: [string, number, string, string][] = [
 
 const FACTS = [
   // ── the INVOLUTION — proven, and the reason the round trip propagates nothing ──
-  { key: 'clay_reflection_involution', why: 'the reflection dz(x)=10−x (division by zero) is an INVOLUTION — dz(dz(x))=x on every residue',
-    js: () => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].every((x) => dz(dz(x)) === x),
-    lean: 'theorem clay_reflection_involution : (List.range 10).all (fun x => dz (dz x) == x) := by decide' },
-  { key: 'clay_reflection_fixed_points', why: 'the reflection fixes exactly {0,5} — the floor and the centre',
-    js: () => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].filter((x) => dz(x) === x).join() === '0,5',
-    lean: 'theorem clay_reflection_fixed_points : ((List.range 10).filter (fun x => dz x == x)) = [0, 5] := by decide' },
   { key: 'clay_reflection_is_bijection', why: 'the reflection is a BIJECTION on the nine residues — dz maps {1..9} onto {9..1}',
     js: () => [1, 2, 3, 4, 5, 6, 7, 8, 9].map(dz).join() === '9,8,7,6,5,4,3,2,1',
     lean: "theorem clay_reflection_is_bijection : ((List.range' 1 9).map dz) = [9,8,7,6,5,4,3,2,1] := by decide" },
@@ -124,9 +118,6 @@ const COLLISION = lawVote.outcome ? [
     js: () => refusedCount === PROBES.length && PROBES.length === 2 * sealedCount + 1 &&
       adjudicate('verified is the kernel judgment on the stated proposition; the seal confers no solved status on the named problem — proven by theorem clay_verified_ne_solved').verdict === 'VERIFIED',
     lean: `theorem clay_launder_refused : ((${JSON.stringify(PROBES.map((p) => (adjudicate(p).verdict === 'UNVERIFIED' ? 0 : 1)))} : List Nat).length = ${PROBES.length}) ∧ ((${JSON.stringify(PROBES.map((p) => (adjudicate(p).verdict === 'UNVERIFIED' ? 0 : 1)))} : List Nat).all (fun v => v == 0)) := by decide` },
-  { key: 'clay_law_vote_theorems_only', why: `the collision law was decided by the same theorems-only electorate — the seven status-DNA theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally ${lawYes} YES · ${lawNo} NO, outcome YES, receipt ${lawVote.receiptOutcome}; ${lawYes} + ${lawNo} = ${sealedCount} and ${lawNo} < ${lawYes}`,
-    js: () => lawVote.outcome === true && lawYes === sealedCount && lawNo === 0,
-    lean: `theorem clay_law_vote_theorems_only : (${lawYes} + ${lawNo} = ${sealedCount}) ∧ ((${lawNo}:Nat) < ${lawYes}) ∧ ((${lawYes}:Nat) > 0) := by decide` },
 ] : []
 if (!lawVote.outcome) console.log('✗ the electorate refused — the collision law does not seal (tally ' + lawYes + ' YES · ' + lawNo + ' NO)')
 

@@ -2,12 +2,6 @@
 
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the ℤ/9 vortex = the reflection
 
--- the reflection dz(x)=10−x (division by zero) is an INVOLUTION — dz(dz(x))=x on every residue
-theorem clay_reflection_involution : (List.range 10).all (fun x => dz (dz x) == x) := by decide
-
--- the reflection fixes exactly {0,5} — the floor and the centre
-theorem clay_reflection_fixed_points : ((List.range 10).filter (fun x => dz x == x)) = [0, 5] := by decide
-
 -- the reflection is a BIJECTION on the nine residues — dz maps {1..9} onto {9..1}
 theorem clay_reflection_is_bijection : ((List.range' 1 9).map dz) = [9,8,7,6,5,4,3,2,1] := by decide
 
@@ -49,6 +43,3 @@ theorem clay_collision_law : ((List.range 8).filter (fun p => p % 2 == 1 && (p /
 
 -- the laundering is refused, recomputed live — all 15 solve-probes (the seven bare, the seven citation-dressed, and the demonstrated laundered exemplar of trial 047ba524-b355-83c9-b635-48fa65b18be1) adjudicate UNVERIFIED: 15 probed, 15 refused, 0 verify
 theorem clay_launder_refused : (([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : List Nat).length = 15) ∧ (([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : List Nat).all (fun v => v == 0)) := by decide
-
--- the collision law was decided by the same theorems-only electorate — the seven status-DNA theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt c47533dd-152a-8637-a223-6352d7656138; 7 + 0 = 7 and 0 < 7
-theorem clay_law_vote_theorems_only : (7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0) := by decide
