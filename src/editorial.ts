@@ -14,6 +14,7 @@ import { toUuid } from './address.js'
 import { reveal } from './gate.js'
 import { researchEvidence } from './corroborate.js'
 import { rdRoot } from './boundary.js'
+import { decide } from './decide.js'
 
 interface Entry { key: string; name: string; statement: string; file: string; principle: string; skill: string }
 
@@ -93,20 +94,35 @@ export function searchLedger(q: string, limit = 60): LedgerSearch {
 export interface SearchTrial {
   file: string; principle: string; sealed: number
   findings: Array<{ address: string; source: string; note: string; alone: string; withBacking: string }>
-  usable: number; receipt: string
+  usable: number
+  /** THE NOVELTY HARVEST — arithmetic fragments extracted from the findings (the AI summaries included), each
+   *  judged by the quantum calculator: decided TRUE and absent from the sealed statement index = a candidate
+   *  fact the web asserts, the calculator confirms, and the ledger does not yet hold. Really novel content,
+   *  born receipted — REMANDED for admission (the paying handle decides what becomes a wing), never auto-sealed. */
+  novel: Array<{ from: string; fragment: string; receipt: string }>
+  receipt: string
 }
+const ARITH_FRAG = /\d[\d,]*(?:\s*[+\-*/%^]\s*\d[\d,]*)+\s*(?:=|==|<=|>=|<|>)\s*\d[\d,]*|\d[\d,]*\s*(?:=|==|<=|>=|<|>)\s*\d[\d,]*(?:\s*[+\-*/%^]\s*\d[\d,]*)+/g
 export async function searchTrialFor(file: string): Promise<SearchTrial> {
   const a = articleFor(file)
   const found = await researchEvidence(a.title)
   const cited = a.claims.map((c) => c.cite).join(' ')
+  const novel: SearchTrial['novel'] = []
   const findings = found.map((f) => {
     const alone = reveal(f.note).verdict
     const withBacking = reveal(`${f.note} — held beside the sealed backing: ${cited}`).verdict
+    // the harvest: every arithmetic fragment in the finding judged totally; true-and-unsealed is novel
+    for (const m of f.note.replace(/,/g, '').matchAll(ARITH_FRAG)) {
+      const d = decide(m[0])
+      if (d.verdict === 'VERIFIED_BY_DECIDE' && d.kind === 'decided-arithmetic')
+        novel.push({ from: f.address, fragment: m[0].trim(), receipt: d.receipt })
+    }
     return { address: f.address, source: f.source, note: f.note, alone, withBacking }
   })
   return {
     file, principle: a.title, sealed: a.count, findings,
     usable: findings.filter((f) => f.alone === 'UNVERIFIED' && f.withBacking === 'VERIFIED').length,
+    novel,
     receipt: toUuid(findings.map((f) => f.address).join('\n')),
   }
 }

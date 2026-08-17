@@ -11,7 +11,7 @@
 // given the same responses: ledger order, content-addresses, no wall-clock, no RNG.
 import { writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { theorems, toUuid, researchEvidence, reveal } from '../index.js'
+import { theorems, searchTrialFor } from '../index.js'
 import { ROOT } from './api.js'
 
 interface Entry { key: string; name: string; statement: string; file: string; principle: string; skill: string }
@@ -31,31 +31,22 @@ const slugOf = (file: string): string => 'search-' + file.replace('.lean', '').r
 for (const wing of wings) {
   const entries = T.filter((t) => t.file === wing)
   if (!entries.length) { console.error('✗ quantum-search-trial — no theorems in ledger for wing ' + wing); process.exit(1) }
-  const principle = entries[0]!.principle
-  console.log(`quantum search — every source in parallel for "${principle}" (${wing}, ${entries.length} sealed theorems) …`)
-  let findings
+  console.log(`quantum search — every source in parallel for "${entries[0]!.principle}" (${wing}, ${entries.length} sealed theorems) …`)
+  // ONE implementation: the library's searchTrialFor (the same function the MCP serves as uuidna_search_trial)
+  // finds, tries, and harvests; this script only RENDERS the trial's return as its publication.
+  let s
   try {
-    findings = await researchEvidence(principle)
+    s = await searchTrialFor(wing)
   } catch (e) {
     // a down archive must not kill the sweep — the wing is skipped BY NAME and the cron's next turn retries it
     console.error(`  ⚠ sources unreachable for ${wing} (${String(e).slice(0, 80)}) — skipped, next run retries`)
     failed++
     continue
   }
-  const cited = entries.map((e) => `/theorem/${e.key}`).join(' ')
-
-  const rows: string[] = []
-  let leads = 0
-  for (const f of findings) {
-    // the finding ALONE at trial: external prose cites no sealed proof — the honest verdict is UNVERIFIED
-    // (evidence, not approval); a DRAINED here would mean the external record fabricates one of OUR citations.
-    const alone = reveal(f.note).verdict
-    // the COMBINATION at trial: the finding held beside the wing's sealed backing — the pairing the desk can print.
-    const paired = reveal(`${f.note} — held beside the sealed backing: ${cited}`).verdict
-    if (alone === 'UNVERIFIED' && paired === 'VERIFIED') leads++
-    rows.push(`| \`${f.address.slice(0, 8)}\` | ${f.source} | ${f.note.replace(/\|/g, '\\|')} | ${alone} | ${paired} |`)
-  }
-  const receipt = toUuid(findings.map((f) => f.address).join('\n'))
+  const { principle, findings, receipt } = s
+  const leads = s.usable
+  const rows = findings.map((f) =>
+    `| \`${f.address.slice(0, 8)}\` | ${f.source} | ${f.note.replace(/\|/g, '\\|')} | ${f.alone} | ${f.withBacking} |`)
 
   const md = `---
 title: "The search on trial: ${principle.replace(/"/g, "'")}"
@@ -77,7 +68,14 @@ ${rows.length ? rows.join('\n') : '| — | — | the sources returned no records
 
 **${findings.length} findings · ${leads} usable search-trial combinations · receipt \`${receipt.slice(0, 8)}\`** (fold of every finding's address — recompute by re-running the search).
 
-The sealed backing this trial held the findings beside:
+${s.novel.length ? `## The novelty harvest
+
+**${s.novel.length} candidate fact(s)** the web asserts, the calculator confirms (decided TRUE by total arithmetic —
+division by zero is the reflection, never a crash), and the sealed ledger does not yet hold. Each is REMANDED for
+admission — the paying handle decides what becomes a wing; the cron never seals judgment.
+
+${s.novel.map((n) => `- \`${n.fragment}\` — from finding \`${n.from.slice(0, 8)}\`, decision receipt \`${n.receipt.slice(0, 8)}\``).join('\n')}
+` : ''}The sealed backing this trial held the findings beside:
 
 ${entries.map((e) => `- [${e.key}](/theorem/${e.key}) — \`${e.statement.slice(0, 90)}\``).join('\n')}
 

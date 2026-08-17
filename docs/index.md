@@ -65,6 +65,17 @@ Captain coins is a mathematically-proven economic system where:
 - ✓ Growth is exponential (each graduate teaches others)
 - ✓ No money is needed (theorems pay for theorems)
 
+## The captain's coins — computed in your browser
+
+The coins' analytics recompute live from the bundled ledger — measured on your machine, never typed by anyone.
+The measure itself is sealed: [two_coins](/theorem/two_coins) (110−108 = 2, the −χ of the double torus),
+[contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour) (the leverage: contribute 2, save up to 64),
+and [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) (real value from the 7th dimension up).
+
+<CostMeter />
+
+<BillCalc />
+
 ## Live system status — computed, not typed
 
 <script setup>

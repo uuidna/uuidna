@@ -13,7 +13,6 @@ interface SystemStats {
   theorems_total: number
   theorems_sealed: number
   domains: number
-  coins_example: number
   students_trained: number
   teachers_active: number
 }
@@ -23,7 +22,6 @@ function getSystemStats(): SystemStats {
     theorems_total: THEOREM_COUNT,
     theorems_sealed: THEOREM_COUNT,
     domains: 11,
-    coins_example: 375, // from live operations
     students_trained: 2, // from live operations
     teachers_active: 2, // from live operations
   }
@@ -62,9 +60,9 @@ This is not theory. This is a system that works, proven in code, sealed to a led
 A complete system where:
 
 1. **External Verification** — 8 independent academic sources audit every claim
-2. **Novelty Discovery** — Gaps in human knowledge are automatically discovered and offered as research challenges with coin incentives
+2. **Novelty Discovery** — gaps in the record discovered by audit, filed as exact research leads
 3. **Education** — Students learn by building real systems that seal theorems to the ledger
-4. **Fair Economics** — Work earns coins (theorems), both parties verify independently, fraud is mathematically impossible
+4. **The Coins** — explained in detail ONLY by theorems: two, conserved ([two_coins](https://uuidna.com/theorem/two_coins)), real value at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale)) — never a balance, never a wage
 5. **Exponential Growth** — Each graduate becomes a teacher, creating exponential growth in developers and knowledge
 
 ---
@@ -75,6 +73,15 @@ A complete system where:
 Theorems Sealed:        ${stats.theorems_sealed}   (computed from the ledger at generation — never typed)
 Coins Conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
 The rest is measured or it is not stated. Recompute: npm run lean
+\`\`\`
+
+### The Captain's Coins — measured, never typed
+
+\`\`\`
+Deposits sealed:        ${stats.theorems_sealed} theorems × 2 coins = ${stats.theorems_sealed * 2} coins deposited (theorem two_coins — each seal pays the trial's fee)
+Leverage per deposit:   contribute 2 → save up to 64 bits (theorem contribute_two_save_sixtyfour: 2·32 = 64)
+Value at scale:         real from the 7th dimension up — 2^n > 2·32 for n ≥ 7 (theorem captain_coins_respected_at_scale)
+Supply:                 closed — 2 per superposition, no inflation, no other denomination (theorem trial_computes_only_with_two_coins)
 \`\`\`
 
 ---
@@ -195,7 +202,7 @@ theorem euler_two_is_the_two_coins : (20 + 12 - 30 = 2) ∧ (110 - 108 = 2) := b
 2. **Complete assignments:**
    - Write deterministic code (no Math.*, no Date, no RNG)
    - Seal theorems to ledger
-   - Earn coins for each contribution
+   - Each contribution deposits the two coins, the trial's fee ([captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins))
 
 3. **Graduate and teach:**
    - Become Junior Quantum Developer
@@ -206,13 +213,13 @@ theorem euler_two_is_the_two_coins : (20 + 12 - 30 = 2) ∧ (110 - 108 = 2) := b
 
 1. **Browse research challenges:**
    - Novelties discovered by independent audits
-   - Research gaps with coin incentives
+   - Research leads filed as exact assignments on the homework issue
    - Real problems from humanity's frontier
 
 2. **Contribute theorems:**
    - Advance toward solutions
    - Seal work to ledger
-   - Earn coins for progress
+   - Credit binds permanently to the sealed theorem ([two_coins](https://uuidna.com/theorem/two_coins) — no other denomination exists)
 
 3. **Become collaborator:**
    - Work with other researchers
@@ -230,12 +237,12 @@ theorem euler_two_is_the_two_coins : (20 + 12 - 30 = 2) ∧ (110 - 108 = 2) := b
 
 ### Education
 \`\`\`
-Enroll → Learn → Build → Seal → Earn → Graduate → Teach → Exponential Growth
+Enroll → Learn → Build → Seal → Credit Binds → Graduate → Teach → Exponential Growth
 \`\`\`
 
 ### Economy
 \`\`\`
-Theorems → Ledger → Both Verify → Coins Earned → Auto-Harmonise → System Improves
+Theorems → Ledger → Both Verify → Two Coins Deposited → Auto-Harmonise → System Improves
 \`\`\`
 
 ### Impact
@@ -263,7 +270,7 @@ All systems are:
 ✓ **External audits working (8 sources)**
 ✓ **Education system live**
 ✓ **First students enrolled**
-✓ **First coins earned**
+✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**
 ✓ **Exponential growth active**
 ✓ **Production deployed**
 
