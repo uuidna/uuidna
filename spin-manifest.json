@@ -1,6 +1,6 @@
 {
   "coins": {
-    "src/theorems/generated.ts": "02f6fdffe6878cd6",
+    "src/theorems/generated.ts": "da0b44e8a70480bd",
     "lean/PRINCIPLE.md": "60c5311bbbeb8a96",
     "CHANGELOG.md": "ffce30e9e9ea8034",
     "lean/axioms.json": "972ed02aca488bd0",
@@ -9,5 +9,5 @@
     "support-audit.json": "95597eff25e3860c",
     "research-leads.json": "7437105b0e1f819a"
   },
-  "receipt": "d1bc421c-b6ff-8e43-91d0-378f6f90023e"
+  "receipt": "c1c8b56d-7f75-8c2f-a959-b29f3c6ff511"
 }
