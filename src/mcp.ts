@@ -1129,9 +1129,20 @@ export const TOOL_NAMES: readonly string[] = TOOLS.map((t) => t.name)
 /** callTool — invoke a tool's handler by name: the SAME dispatch the MCP server runs for a `tools/call`. Exposed so
  *  CI exercises the SERVED interface (not just the functions underneath), and so the catalog can never list a tool
  *  the handlers don't answer — the CI ↔ MCP no-drift check. Throws on an unknown tool, exactly as the server does. */
+/** THE SCHEMA IS THE CONTRACT, ENFORCED AT THE ONE DOOR — a tool that DECLARES an argument required is not run
+ *  without it. Folded here rather than into 106 tool bodies, so every tool inherits the check and no new tool can
+ *  forget it (src/test/mcp-schema.test.ts is the finder over the whole catalog). Before this, a missing required arg
+ *  reached the body as `String(undefined)` and the tool computed over the literal text "undefined" — a wrong answer
+ *  returned confidently, and for the orchestration tools an entire release walk spawned from an empty call. Refusing
+ *  is both the correct answer and the cheap one. */
 export function callTool(name: string, args: Record<string, unknown> = {}): unknown {
   const tool = TOOLS.find((t) => t.name === name)
   if (!tool) throw new Error(`unknown tool: ${name}`)
+  const required = (tool.inputSchema as { required?: unknown })?.required
+  if (Array.isArray(required)) {
+    const missing = required.filter((k) => args[String(k)] === undefined)
+    if (missing.length) throw new Error(`${name}: missing required argument${missing.length > 1 ? 's' : ''}: ${missing.join(', ')} (the tool's own schema declares ${missing.length > 1 ? 'them' : 'it'} required — nothing was computed)`)
+  }
   return tool.run(args)
 }
 
