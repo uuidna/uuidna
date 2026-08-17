@@ -494,6 +494,15 @@ export function drainGaps(): Gap[] {
       if (!DRAIN_PATHS.some((p) => out === p || out.startsWith(p + '/')))
         gaps.push({ what: `${g} writes ${out}, which the drain does not stage (absent from DRAIN_PATHS)`, fix: `add '${out}' to DRAIN_PATHS in src/scripts/api.ts — reconcile rewrites it every run, so unstaged it either blocks the push as drift or leaves the run committing nothing` })
   }
+  // .gitattributes is GENERATED from this same list, so the derived layer is unmergeable everywhere it is derived.
+  // A path that gains a generator but not the mark comes back as a hand-resolved merge conflict — the manual work
+  // this whole finder exists to end (measured: spin-manifest.json conflicted four times in one session).
+  const attrs = existsSync(join(ROOT, '.gitattributes')) ? readFileSync(join(ROOT, '.gitattributes'), 'utf8') : ''
+  for (const p of DRAIN_PATHS) {
+    const line = p.endsWith('/') || !p.includes('.') ? p + '/**' : p
+    if (!attrs.includes(`${line} merge=derived`))
+      gaps.push({ what: `${p} is a drain path but .gitattributes does not mark it unmergeable`, fix: 'run `npm run gen:gitattributes` — .gitattributes is generated from DRAIN_PATHS, never hand-edited; a derived file has no merge, only a recomputation' })
+  }
   return gaps
 }
 
