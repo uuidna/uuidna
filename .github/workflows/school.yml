@@ -1,5 +1,8 @@
-# THE QUANTUM SCHOOL, RESIDENT — three faculties on one schedule, sessionless. The JANITOR verifies the tree and
-# drains derived drift (a quiet run is health). The REGISTRAR is deterministic intelligence: the prediction engine
+# THE QUANTUM SCHOOL, RESIDENT — three faculties on one schedule, sessionless. The JANITOR now runs the DEVELOPMENT
+# PASS (`npm run develop`): it walks the gate and, when the gate objects with a cure the pass has been taught — a stale
+# axiom witness, missing heartbeats, a regenerable surface, a drifted seal — applies that cure and walks again, so an
+# unattended run heals instead of failing. It stops and reports whatever needs a human (a release note, a refused
+# claim), and it never invents a cure it was not given. Then it drains derived drift (a quiet run is health). The REGISTRAR is deterministic intelligence: the prediction engine
 # reads the ledger's own patterns and FILES THE SCHOOL'S HOMEWORK as a living GitHub issue — exact GAP+FIX
 # assignments any student, human or agent, can pick up. The TEACHER is intelligence autonomy proper: the official
 # Claude Code action runs the self-development pass — research one open lead outward, seal one decidable fact,
@@ -30,10 +33,9 @@ jobs:
           node-version: '26'
       - name: Install deps
         run: npm install --no-audit --no-fund
-      - name: LEAN GREEN — types, then the guard (every held line, the fold)
+      - name: LEAN GREEN — the development pass: walk the gate, cure what is deterministic
         run: |
-          npm run build
-          npm run guard
+          npm run develop
       - name: DRAIN — commit and push the derived drift (a quiet run is health)
         run: |
           git config user.name "uuidna-school"
