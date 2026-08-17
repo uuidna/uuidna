@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version: '26'
       - name: Install deps
         run: npm install --no-audit --no-fund
       - name: The editorial desk — all editorial skills and procedures, or no publication
@@ -55,7 +55,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version: '26'
           registry-url: 'https://registry.npmjs.org'
 
       # OIDC Trusted Publishing needs npm >= 11.5.1; Node 22 ships ~10.9, so upgrade the CLI before publishing.
@@ -97,7 +97,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version: '26'
       - name: Pack the desktop extension
         run: |
           npx -y @anthropic-ai/mcpb pack extension/
