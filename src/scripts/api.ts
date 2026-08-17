@@ -3,7 +3,7 @@
 // from — standardisation and DRY use of one api, so a script is only its own logic. The `one-receipt dry` finder
 // objects (GAP + exact FIX) to any script that re-declares what lives here — the duplication class cannot regrow.
 import { createHash } from 'node:crypto'
-import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -13,12 +13,8 @@ export const HERE = dirname(fileURLToPath(import.meta.url))
 export const ROOT = join(HERE, '..', '..')
 /** read a repo-relative file as utf8 */
 export const rd = (p: string): string => readFileSync(join(ROOT, p), 'utf8')
-/** write a repo-relative file */
-export const wr = (p: string, s: string): void => writeFileSync(join(ROOT, p), s)
 /** does a repo-relative path exist */
 export const has = (p: string): boolean => existsSync(join(ROOT, p))
-/** read a repo-relative JSON file */
-export const jread = <T = unknown>(p: string): T => JSON.parse(rd(p)) as T
 /** the 16-hex component fold */
 export const h16 = (data: string): string => createHash('sha256').update(data).digest('hex').slice(0, 16)
 /** the 32-hex order-invariant fold over named components */
