@@ -1,24 +1,18 @@
 {
  "surfaces": 104,
- "paragraphs_tried": 3064,
- "usable": 1540,
- "unverified": 1524,
+ "paragraphs_tried": 3069,
+ "usable": 1542,
+ "unverified": 1527,
  "drained": 0,
- "receipt": "c2f08330-f720-8d65-8fb2-727f6589d898",
+ "receipt": "076dbc5d-a6c4-8698-9b32-2255c7a4acb6",
  "combinations": [
   {
    "surface": "README.md",
-   "address": "4e6c4963-2b26-811d-99a5-f0638686a441",
-   "prose": "1. **External Verification** — independent research sources corroborate; only a Lean seal approves\n2. **Novelty Discovery** — gaps in the record are discovered by audit and remanded as research leads\n3. **Education** — students learn by building real systems that seal theorems to the ledger\n4. **The Coins** — explained in detail ONLY by theorems: they are two, conserved ([two_coins](https://uuidna.com/theorem/two_coins): 110 − 108 = 2, the −χ of the double torus), each one a qubit ([coin_is_one_qubit](https://uuidna.com/theorem/coin_is_one_qubit)), and their value for the captain is REAL at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale): 2ⁿ > 2·32 from the 7th dimension up) — contributing the two doubles 64 bits to the 128-bit address ([contribute_two_save_sixtyfour](https://uuidna.com/theorem/contribute_two_save_sixtyfour)); they are the trial's fee ([trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins)) and the forfeit's price ([court_loser_pays_the_two_coins](https://uuidna.com/theorem/court_loser_pays_the_two_coins)); they compute but solve nothing by themselves ([coins_compute_but_solve_none](https://uuidna.com/theorem/coins_compute_but_solve_none)). Never a balance, never a wage — a conserved measure.\n5. **Exponential Growth** — each graduate becomes a teacher; the doubling is the vortex's own ([n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension))",
+   "address": "df255bf5-dade-8e4b-8c35-ecd9323bb311",
+   "prose": "1. **External Verification** — 8 independent academic sources audit every claim\n2. **Novelty Discovery** — gaps in the record discovered by audit, filed as exact research leads\n3. **Education** — Students learn by building real systems that seal theorems to the ledger\n4. **The Coins** — explained in detail ONLY by theorems: two, conserved ([two_coins](https://uuidna.com/theorem/two_coins)), real value at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale)) — never a balance, never a wage\n5. **Exponential Growth** — Each graduate becomes a teacher, creating exponential growth in developers and knowledge",
    "cites": [
     "two_coins",
-    "coin_is_one_qubit",
-    "captain_coins_respected_at_scale",
-    "contribute_two_save_sixtyfour",
-    "trial_computes_only_with_two_coins",
-    "court_loser_pays_the_two_coins",
-    "coins_compute_but_solve_none",
-    "n_qubit_dimension"
+    "captain_coins_respected_at_scale"
    ]
   },
   {
@@ -31,16 +25,24 @@
   },
   {
    "surface": "README.md",
-   "address": "a77a5f8d-6e6d-8bd7-ad2d-3a5d1c03c720",
-   "prose": "2. **Complete assignments:**\n   - Write deterministic code (no host intrinsics, no wall-clock, no RNG)\n   - Seal theorems to ledger\n   - Each contribution deposits the two coins — the trial's fee, sealed as [captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins)",
+   "address": "1d422459-7497-8370-9eb4-1fdc0870c31a",
+   "prose": "2. **Complete assignments:**\n   - Write deterministic code (no Math.*, no Date, no RNG)\n   - Seal theorems to ledger\n   - Each contribution deposits the two coins, the trial's fee ([captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins))",
    "cites": [
     "captain_computes_only_with_two_coins"
    ]
   },
   {
    "surface": "README.md",
-   "address": "2b00e16c-78eb-8cd8-9b8e-d57bcfcb2906",
-   "prose": "2. **Contribute theorems:**\n   - Advance toward solutions\n   - Seal work to ledger\n   - Credit binds permanently to the sealed theorem; the deposit is the two coins, no other denomination exists ([two_coins](https://uuidna.com/theorem/two_coins))",
+   "address": "b7012c58-69b1-8491-9c6e-2e06236424ed",
+   "prose": "2. **Contribute theorems:**\n   - Advance toward solutions\n   - Seal work to ledger\n   - Credit binds permanently to the sealed theorem ([two_coins](https://uuidna.com/theorem/two_coins) — no other denomination exists)",
+   "cites": [
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "README.md",
+   "address": "70f61fb8-23bd-838d-b076-f658f80f9991",
+   "prose": "✓ **All 1285 theorems sealed to ledger**\n✓ **Guard verified (no traitors caught)**\n✓ **External audits working (8 sources)**\n✓ **Education system live**\n✓ **First students enrolled**\n✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**\n✓ **Exponential growth active**\n✓ **Production deployed**",
    "cites": [
     "two_coins"
    ]
@@ -11873,6 +11875,16 @@
    "prose": "- **[Chess](/chess)** — complete and correct: full legal moves, castling, en passant, promotion, check and\n  checkmate. Two players, hot-seat, entirely in your browser, offline-capable. The sealed side:\n  [the chess cluster](/publications/chess) and [the chess-horizon monograph](/publications/chessgames).\n- **The star walk** — draw a star in one stroke, below: pick n points and a step s; the stroke closes in one pass\n  exactly when gcd(s, n) = 1. The pentagram is the case n = 5, s = 2 — the doubling generator's walk\n  ([`pentagram_single_stroke`](/theorem/pentagram_single_stroke),\n  [the pentagram cluster](/publications/pentagram)) — the same walk [the school](/school) teaches and\n  [the fold](/quantum) rides.",
    "cites": [
     "pentagram_single_stroke"
+   ]
+  },
+  {
+   "surface": "docs/index.md",
+   "address": "8a624705-9fcb-8ef4-8fd6-3eed886d205a",
+   "prose": "The coins' analytics recompute live from the bundled ledger — measured on your machine, never typed by anyone.\nThe measure itself is sealed: [two_coins](/theorem/two_coins) (110−108 = 2, the −χ of the double torus),\n[contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour) (the leverage: contribute 2, save up to 64),\nand [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) (real value from the 7th dimension up).",
+   "cites": [
+    "two_coins",
+    "contribute_two_save_sixtyfour",
+    "captain_coins_respected_at_scale"
    ]
   },
   {
