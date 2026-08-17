@@ -387,7 +387,31 @@ export async function coherentGaps(): Promise<Gap[]> {
 
 // ── seal: THE DRAIN, PROMOTED — the autoseal shell folded into the api: drain any dirty tree or unpushed commit
 // (fold → guard → commit → push, reconcile-retry) until clean and synced. The captain's cron, now a subcommand. ──
+/** the last n lines of a child's output — what a retry message must carry to be worth printing */
+const lastLines = (s: string, n = 20): string => s.trimEnd().split('\n').slice(-n).join('\n')
+
+/** Run one seal step with its output TEED: merged (2>&1), passed through to this process's stdout so the seal's own
+ *  log holds the child's words, AND kept so a failure can quote its tail. Every step here used to run with
+ *  `stdio: 'ignore'`, which is why six rounds could print nothing but "the wrapper crashed, retrying" into a
+ *  seven-line log — the real objection (a security-audit denial, a spin drift) was thrown away each time and only
+ *  reappeared when someone ran `git push` by hand. A retry loop that hides why it is retrying costs more than the
+ *  failure it retries. */
+function step(label: string, cmd: string): { ok: boolean; tail: string } {
+  process.stdout.write(`\n── seal · ${label} ──\n`)
+  try {
+    const out = execSync(`${cmd} 2>&1`, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+    process.stdout.write(out)
+    return { ok: true, tail: lastLines(out) }
+  } catch (e) {
+    const err = e as { stdout?: string; stderr?: string; message?: string }
+    const out = `${err.stdout ?? ''}${err.stderr ?? ''}`.trim() || String(err.message ?? e)
+    process.stdout.write(out + '\n')
+    return { ok: false, tail: lastLines(out) }
+  }
+}
+
 export function seal(): void {
+  let lastFailure = ''
   for (let round = 1; round <= 6; round++) {
     // THE GATE-WAIT, folded — the piece every hand-written watcher kept re-implementing: never interleave
     // writers on the shared tree (the mixed-dist hazard). Wait for any running reconcile before touching it.
@@ -401,15 +425,22 @@ export function seal(): void {
     try { execSync('git fetch origin main -q', { cwd: ROOT }); ahead = execSync('git rev-list origin/main..HEAD --count', { cwd: ROOT }).toString().trim() } catch { /* offline: seal locally */ }
     if (!dirty && ahead === '0') { console.log('✓ one-receipt seal — clean and synced'); return }
     if (dirty) {
-      try { execSync('node ' + JSON.stringify(join(ROOT, 'dist/scripts/one-receipt.js')) + ' fold', { cwd: ROOT, stdio: 'ignore' }) } catch { /* fold objects → guard catches */ }
-      try { execSync('npm run guard', { cwd: ROOT, stdio: 'ignore' }) } catch { execSync('npm run build', { cwd: ROOT, stdio: 'ignore' }) }
-      execSync('git add -A', { cwd: ROOT })
-      try { execSync('git commit -m "Seal: the landing folds and passes on — gate-clean, unattended. Backed by theorem two_coins"', { cwd: ROOT, stdio: 'ignore' }) } catch { /* nothing staged */ }
+      step('fold', 'node ' + JSON.stringify(join(ROOT, 'dist/scripts/one-receipt.js')) + ' fold')  // objects → guard catches
+      const guard = step('guard', 'npm run guard')
+      if (!guard.ok) { lastFailure = `guard:\n${guard.tail}`; step('build', 'npm run build') }
+      step('add', 'git add -A')
+      step('commit', 'git commit -m "Seal: the landing folds and passes on — gate-clean, unattended. Backed by theorem two_coins"')
     }
-    try { execSync('git push origin main', { cwd: ROOT, stdio: 'ignore' }); console.log(`✓ one-receipt seal — pushed (round ${round})`); continue } catch { /* the gate objected */ }
-    try { execSync('npm run reconcile', { cwd: ROOT, stdio: 'ignore' }); console.log(`✓ one-receipt seal — reconciled (round ${round})`) } catch { console.log(`… seal round ${round}: the wrapper crashed, retrying`) }
+    const push = step('push', 'git push origin main')
+    if (push.ok) { console.log(`✓ one-receipt seal — pushed (round ${round})`); continue }
+    lastFailure = `push:\n${push.tail}`
+    const rec = step('reconcile', 'npm run reconcile')
+    if (rec.ok) { console.log(`✓ one-receipt seal — reconciled (round ${round})`); continue }
+    lastFailure = `reconcile:\n${rec.tail}`
+    console.log(`… seal round ${round}: reconcile failed — its last lines:\n${rec.tail}\n`)
   }
-  console.error('✗ one-receipt seal — six rounds spent, still unsealed; walk the wave by hand and read the gate')
+  console.error('✗ one-receipt seal — six rounds spent, still unsealed. The last failure was ' + (lastFailure || '(none captured)'))
+  console.error('  Every step above is teed in full: read the gate\'s own objection, fix it, and seal again.')
   process.exit(1)
 }
 
