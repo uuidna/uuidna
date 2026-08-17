@@ -481,7 +481,7 @@ export function negationGaps(): Gap[] {
 // Write targets are computed through variables in the generators, so this checks the DECLARATION (RECONCILE_OUTPUTS)
 // from both sides: every generator the chain invokes must declare what it writes, and every declared output must be
 // a drain path. Adding a generator to reconcile without declaring it fails here, at guard speed, before a run dies.
-export function drainCoverageGaps(): Gap[] {
+export function drainGaps(): Gap[] {
   const gaps: Gap[] = []
   const src = readFileSync(join(ROOT, 'src/scripts/reconcile.ts'), 'utf8')
   const invoked = [...new Set([...src.matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
@@ -825,7 +825,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'actions') report('one-receipt actions', actionsGaps(), 'every action pins one major, tree-wide — no workflow silently trails the rest onto a deprecated runtime.')
   else if (cmd === 'vacuous') report('one-receipt vacuous', vacuousGaps(), 'no theorem is true regardless of its content — every sealed name is carried by a proof that means it.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
-  else if (cmd === 'drain-coverage') report('one-receipt drain-coverage', drainCoverageGaps(), 'the drain stages everything reconcile regenerates — every generator declares its output, and every output is a drain path.')
+  else if (cmd === 'drain') report('one-receipt drain', drainGaps(), 'the drain stages everything reconcile regenerates — every generator declares its output, and every output is a drain path.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
   else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))

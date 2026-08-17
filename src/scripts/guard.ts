@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, drainCoverageGaps } from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, drainGaps } from './one-receipt.js'
 
 let failed = false
 
@@ -122,7 +122,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'negation', run: () => negationGaps() },
   // the drain stages what reconcile regenerates — declared in RECONCILE_OUTPUTS, held against DRAIN_PATHS from both
   // sides, so a generator added to the chain without a declaration fails here instead of dying mid-run on git.
-  { name: 'drain-coverage', run: () => drainCoverageGaps() },
+  { name: 'drain', run: () => drainGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {
