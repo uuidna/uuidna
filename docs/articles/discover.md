@@ -20,7 +20,7 @@ The ledger holds this as [involution_census_self_explains](/theorem/involution_c
 The ledger holds this as [happy_ending_verified_cases](/theorem/happy_ending_verified_cases) — proven `by decide`, sorry-free:
 
 ```lean
-(2 ^ 2 + 1 = 5) ∧ (2 ^ 3 + 1 = 9) ∧ (2 ^ 4 + 1 = 17)
+((List.range' 4 3).map (fun n => 2 ^ (n - 2) + 1)) = [5, 9, 17]
 ```
 
 ### a is a unit (has an inverse mod 9) IFF gcd(a,9)=1 — the unit criterion, computed both ways

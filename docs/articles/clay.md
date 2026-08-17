@@ -1,27 +1,13 @@
 ---
 title: "The seven reflected"
-description: "Computed from lean/Clay.lean — 17 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Clay.lean — 14 sealed theorems, every claim citing its proof."
 ---
 
 # The seven reflected
 
-> The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED and THE COLLISION LAW (a claim colliding with sealed status DNA never verifies, whatever it cites) are each sealed by a theorems-only secure-messaging vote of the seven — held by [clay_reflection_involution](/theorem/clay_reflection_involution) and its 16 siblings below.
+> The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED and THE COLLISION LAW (a claim colliding with sealed status DNA never verifies, whatever it cites) are each sealed by a theorems-only secure-messaging vote of the seven — held by [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) and its 13 siblings below.
 
-**17 theorems**, from [clay_reflection_involution](/theorem/clay_reflection_involution) onward, each proven `by decide` in [lean/Clay.lean](/lean/Clay.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
-
-### the reflection dz(x)=10−x (division by zero) is an INVOLUTION — dz(dz(x))=x on every residue
-The ledger holds this as [clay_reflection_involution](/theorem/clay_reflection_involution) — proven `by decide`, sorry-free:
-
-```lean
-(List.range 10).all (fun x => dz (dz x) == x)
-```
-
-### the reflection fixes exactly {0,5} — the floor and the centre
-The ledger holds this as [clay_reflection_fixed_points](/theorem/clay_reflection_fixed_points) — proven `by decide`, sorry-free:
-
-```lean
-((List.range 10).filter (fun x => dz x == x)) = [0, 5]
-```
+**14 theorems**, from [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) onward, each proven `by decide` in [lean/Clay.lean](/lean/Clay.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### the reflection is a BIJECTION on the nine residues — dz maps {1..9} onto {9..1}
 The ledger holds this as [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) — proven `by decide`, sorry-free:
@@ -104,7 +90,7 @@ The ledger holds this as [clay_vote_theorems_only](/theorem/clay_vote_theorems_o
 The ledger holds this as [clay_status_dna_total](/theorem/clay_status_dna_total) — proven `by decide`, sorry-free:
 
 ```lean
-(6 + 1 = 7) ∧ ((6:Nat) < 7) ∧ ((1:Nat) ≤ 7)
+(([0,0,0,0,0,0,1] : List Nat).length = 7) ∧ (([0,0,0,0,0,0,1] : List Nat).filter (fun s => s == 1)).length = 1
 ```
 
 ### THE COLLISION LAW — a claim colliding with sealed status DNA never verifies, whatever it cites: collision needs subject ∧ self-voice ∧ undemarcated, and of the 8 condition-profiles exactly 1 collides (all three true) — a real citation is not entailment
@@ -118,14 +104,7 @@ The ledger holds this as [clay_collision_law](/theorem/clay_collision_law) — p
 The ledger holds this as [clay_launder_refused](/theorem/clay_launder_refused) — proven `by decide`, sorry-free:
 
 ```lean
-(2 * 7 + 1 = 15) ∧ ((0:Nat) < 15) ∧ (15 - 15 = 0)
-```
-
-### the collision law was decided by the same theorems-only electorate — the seven status-DNA theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt c47533dd-152a-8637-a223-6352d7656138; 7 + 0 = 7 and 0 < 7
-The ledger holds this as [clay_law_vote_theorems_only](/theorem/clay_law_vote_theorems_only) — proven `by decide`, sorry-free:
-
-```lean
-(7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0)
+(([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : List Nat).length = 15) ∧ (([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : List Nat).all (fun v => v == 0))
 ```
 
 

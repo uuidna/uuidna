@@ -16,8 +16,8 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `5ae9e0a9` | crossref.org | DOI 10.7717/peerj-cs.3164/table-12: Table 12: Fuzzy inference system rules. | UNVERIFIED | VERIFIED |
 | `12858644` | crossref.org | DOI 10.7717/peerj-cs.700/table-6: Table 6: Fuzzy inference system rules. | UNVERIFIED | VERIFIED |
-| `4f634902` | crossref.org | DOI 10.1016/s0049-237x(97)80006-7: Chapter 4 Bases for inference rules | UNVERIFIED | VERIFIED |
 | `aa2b4cf9` | crossref.org | DOI 10.7717/peerj-cs.3164/supp-1: Supplemental Information 1: Fuzzy Inference System Rules. | UNVERIFIED | VERIFIED |
+| `4f634902` | crossref.org | DOI 10.1016/s0049-237x(97)80006-7: Chapter 4 Bases for inference rules | UNVERIFIED | VERIFIED |
 | `8272a4e5` | crossref.org | DOI 10.1007/1-4020-5045-3_9: Inference Rules | UNVERIFIED | VERIFIED |
 | `5f7eeead` | crossref.org | DOI 10.7717/peerj-cs.700/supp-2: Supplemental Information 2: Fuzzy Inference System rules. | UNVERIFIED | VERIFIED |
 | `4db5360d` | crossref.org | DOI 10.1016/b978-0-12-374854-6.00016-8: Probability Rules | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `0f80665c` | openalex.org | OpenAlex Comparing machine learning and rule-based inferencing for semantic enr [BIM and Construction Integrati] | UNVERIFIED | VERIFIED |
 | `e1a21d6f` | openalex.org | OpenAlex The Justification of Inductive Rules of Inference [Philosophy and History of Scie] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `e3c84943`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `c26da89a`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

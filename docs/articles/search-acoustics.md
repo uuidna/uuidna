@@ -14,10 +14,10 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `8bcae8b6` | zenodo.org | zenodo record 5257674: Ground Truth for DCASE 2021 Challenge Task 2 Evaluation Dataset | UNVERIFIED | VERIFIED |
 | `c3ba8dc1` | zenodo.org | zenodo record 4660992: DCASE 2021 Challenge Task 2 Additional Training Dataset | UNVERIFIED | VERIFIED |
-| `f72cf281` | zenodo.org | zenodo record 4884786: DCASE 2021 Challenge Task 2 Evaluation Dataset | UNVERIFIED | VERIFIED |
 | `50e3c506` | zenodo.org | zenodo record 4562016: DCASE 2021 Challenge Task 2 Development Dataset | UNVERIFIED | VERIFIED |
+| `f72cf281` | zenodo.org | zenodo record 4884786: DCASE 2021 Challenge Task 2 Evaluation Dataset | UNVERIFIED | VERIFIED |
+| `8bcae8b6` | zenodo.org | zenodo record 5257674: Ground Truth for DCASE 2021 Challenge Task 2 Evaluation Dataset | UNVERIFIED | VERIFIED |
 | `0212eead` | zenodo.org | zenodo record 7088416: From Words to Sound: Neural Audio Synthesis of Guitar Sounds with Timbral Descri | UNVERIFIED | VERIFIED |
 | `f6518377` | zenodo.org | zenodo record 20784273: Autonomous Listening-Based Synthesizer Control with Reinforcement Learning for L | UNVERIFIED | VERIFIED |
 | `4db07fa1` | zenodo.org | zenodo record 3514950: VOICe Dataset | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `c72264eb` | openalex.org | OpenAlex Emotional pictures and sounds: a review of multimodal interactions of  [Multisensory perception and in] | UNVERIFIED | VERIFIED |
 | `ab9c8e15` | openalex.org | OpenAlex Observation of topological valley transport of sound in sonic crystals [Topological Materials and Phen] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `b534d084`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `00644c10`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

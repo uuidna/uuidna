@@ -14,8 +14,8 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `e6631e5e` | zenodo.org | zenodo record 14904140: Price Premium Acceptance for Organic Food: A Behavioral Economics Analysis of Co | UNVERIFIED | VERIFIED |
 | `ddd8cbb5` | zenodo.org | zenodo record 7955181: The Counting Functions of Prime Pairs | UNVERIFIED | VERIFIED |
+| `e6631e5e` | zenodo.org | zenodo record 14904140: Price Premium Acceptance for Organic Food: A Behavioral Economics Analysis of Co | UNVERIFIED | VERIFIED |
 | `6386a221` | zenodo.org | zenodo record 6321977: Controlling the interfacial reactions and environment of rare-earth ions in thin | UNVERIFIED | VERIFIED |
 | `ad855ca5` | zenodo.org | zenodo record 6498981: Data of paper Controlling the interfacial reactions and environment of rare-eart | UNVERIFIED | VERIFIED |
 | `e691c409` | zenodo.org | zenodo record 10807121: Trends in Fintech Application in the Insurance Sector in Vietnam | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `75d18bc2` | openalex.org | OpenAlex Acoustic aspects of vowel harmony in French [Phonetics and Phonology Resear] | UNVERIFIED | VERIFIED |
 | `da3350d5` | openalex.org | OpenAlex Associative Harmony, Tonal Pairing, and Middleground Structure in Schu [Musicology and Musical Analysi] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `be870294`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `1e693db8`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

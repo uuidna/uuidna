@@ -17,10 +17,10 @@ the hard gate of the corroboration law.
 | `bd2ec0e7` | crossref.org | DOI 10.5040/9781350976702: Ring Shout | UNVERIFIED | VERIFIED |
 | `1135b887` | crossref.org | DOI 10.7717/peerj.12491/fig-2: Figure 2: Logo of the highly conserved amino acids with metal-ligands in flax RI | UNVERIFIED | VERIFIED |
 | `0f7ce877` | crossref.org | DOI 10.1093/oed/7976927049: ring-a-ring, n. | UNVERIFIED | VERIFIED |
-| `d8ec58a4` | crossref.org | DOI 10.1007/978-3-642-22647-2_100608: Ring-on-Disk / Ring-on-Ring Testing | UNVERIFIED | VERIFIED |
 | `1399a346` | crossref.org | DOI 10.1021/acs.joc.7b00203.s001: Using Ring Strain to Control 4-Electrocyclization Reactions: Torquoselectivity i | UNVERIFIED | VERIFIED |
-| `2c6088de` | crossref.org | DOI 10.1119/1.1888094: Ring, Ring, Ring…(A4) | UNVERIFIED | VERIFIED |
+| `d8ec58a4` | crossref.org | DOI 10.1007/978-3-642-22647-2_100608: Ring-on-Disk / Ring-on-Ring Testing | UNVERIFIED | VERIFIED |
 | `b108c1ca` | crossref.org | DOI 10.1021/ma048665z.s001: Effective Interaction Parameters of Star/Star, Ring/Ring, and Ring/Linear Chemic | UNVERIFIED | VERIFIED |
+| `2c6088de` | crossref.org | DOI 10.1119/1.1888094: Ring, Ring, Ring…(A4) | UNVERIFIED | VERIFIED |
 | `67eb60e0` | crossref.org | DOI 10.1093/gmo/9781561592630.article.j380800: Ring | UNVERIFIED | VERIFIED |
 | `a382ff7d` | openalex.org | OpenAlex Efficient signature generation by smart cards [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
 | `e7ac9a9f` | openalex.org | OpenAlex Modules of finite length over their endomorphism rings [Algebraic structures and combi] | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `f90fea8a` | openalex.org | OpenAlex Heterotic ℤ<sub>6–II</sub>MSSM orbifolds in blowup [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 | `af1ca68f` | openalex.org | OpenAlex Chevalley groups over polynomial rings [Advanced Differential Equation] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `04d27fd3`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `b61b1da8`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

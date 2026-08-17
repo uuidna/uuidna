@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The fused ring
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The fused ring* — the wing sealed in [lean/Crt.lean](/lean/Crt.lean) with **6 theorems**. Each
+asked in parallel about *The fused ring* — the wing sealed in [lean/Crt.lean](/lean/Crt.lean) with **7 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -45,6 +45,7 @@ The sealed backing this trial held the findings beside:
 
 - [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) — `(7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63)`
 - [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) — `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`
+- [residues_identify_digit](/theorem/residues_identify_digit) — `((List.range 16).all (fun a => (List.range 16).all (fun b => (!((a % 6 == b % 6) && (a % 9`
 - [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) — `(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)`
 - [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) — `(((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36`
 - [the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring) — `((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1)`

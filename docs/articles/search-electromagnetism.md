@@ -14,14 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
 | `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
+| `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
 | `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
 | `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
-| `f0e5407e` | zenodo.org | zenodo record 16035072: Integrating Open Access Information into the Library Discovery System | UNVERIFIED | VERIFIED |
+| `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `452aceea` | zenodo.org | zenodo record 14128032: PM_063833_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `3c3a523b` | zenodo.org | zenodo record 8161027: A Search Tool for Aggregated Information on Open Access | UNVERIFIED | VERIFIED |
-| `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
-| `c040a2c7` | zenodo.org | zenodo record 920098: Figure 32 from: Renner M, Devos N, Patino J, Brown E, Orme A, Elgy M, Wilson T,  | UNVERIFIED | VERIFIED |
 | `a14e54d0` | crossref.org | DOI 10.1117/12.3079234.826bcd05-395b-f011-a9aa-005056914f1c:  | UNVERIFIED | VERIFIED |
 | `67e21894` | crossref.org | DOI 10.1117/12.3042172.cb7e5fc4-9443-ef11-a9a2-005056914f1c:  | UNVERIFIED | VERIFIED |
 | `c4e936e9` | crossref.org | DOI 10.1049/sbew514e_ch12: Total field/scattered field formulation | UNVERIFIED | VERIFIED |
@@ -29,7 +29,7 @@ the hard gate of the corroboration law.
 | `afafc9d2` | crossref.org | DOI 10.32657/10356/50472: Finite-difference time-domain methods for anisotropic media with total-field/sca | UNVERIFIED | VERIFIED |
 | `f74ddb52` | crossref.org | DOI 10.55417/fr.2022022: A Domain-Based and Reactive COLAV Method with a Partially COLREGs-Compliant Doma | UNVERIFIED | VERIFIED |
 | `320ad4f3` | crossref.org | DOI 10.1117/3.1002803.ch32: Modal Domain Sensor Theory | UNVERIFIED | VERIFIED |
-| `4ccb0139` | crossref.org | DOI 10.1117/3.1002803.ch33: Modal Domain Vibration Sensor | UNVERIFIED | VERIFIED |
+| `5d5d3c18` | crossref.org | DOI 10.1117/3.1002803.ch76: Optical Frequency Domain Reflectometry | UNVERIFIED | VERIFIED |
 | `f78c33c9` | openalex.org | OpenAlex Field Dependence of the Intrinsic Domain Magnetization of a Ferromagne [Magnetic properties of thin fi] | UNVERIFIED | VERIFIED |
 | `dd216a53` | openalex.org | OpenAlex The emerging field of signal processing on graphs: Extending high-dime [Complex Network Analysis Techn] | UNVERIFIED | VERIFIED |
 | `61ee97a1` | openalex.org | OpenAlex Absorbing Boundary Conditions for the Finite-Difference Approximation  [Electromagnetic Simulation and] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `4a021e02` | openalex.org | OpenAlex Large electric-field-induced strain in ferroelectric crystals by point [Ferroelectric and Piezoelectri] | UNVERIFIED | VERIFIED |
 | `ad99ceb5` | openalex.org | OpenAlex Photon-Assisted Electric Field Domains and Multiphoton-Assisted Tunnel [Semiconductor Quantum Structur] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `70b85726`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `4e159858`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

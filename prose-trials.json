@@ -1,10 +1,10 @@
 {
  "surfaces": 177,
- "paragraphs_tried": 3801,
- "usable": 1783,
- "unverified": 2018,
+ "paragraphs_tried": 3805,
+ "usable": 1782,
+ "unverified": 2023,
  "drained": 0,
- "receipt": "779be295-5e66-8f8d-9341-cee419d234b7",
+ "receipt": "cf68ba9d-dfc8-88d2-851e-97f967168b5f",
  "develop": [
   {
    "surface": "docs/articles/search-div-by-zero.md",
@@ -71,8 +71,8 @@
   },
   {
    "surface": "README.md",
-   "address": "61fc9650-43cc-8d5b-ac04-9d507578fb67",
-   "prose": "✓ **All 1307 theorems sealed to ledger, every one axiom-free**\n✓ **Guard verified (no traitors caught)**\n✓ **5 research sources wired — corroboration, never approval**\n✓ **Education system live**\n✓ **First students enrolled**\n✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**\n✓ **Exponential growth active**\n✓ **Production deployed**",
+   "address": "89a89420-a92b-8a72-a9c6-f5e4b5df50c4",
+   "prose": "✓ **All 1306 theorems sealed to ledger, every one axiom-free**\n✓ **Guard verified (no traitors caught)**\n✓ **5 research sources wired — corroboration, never approval**\n✓ **Education system live**\n✓ **First students enrolled**\n✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**\n✓ **Exponential growth active**\n✓ **Production deployed**",
    "cites": [
     "two_coins"
    ]
@@ -1359,16 +1359,16 @@
   },
   {
    "surface": "docs/articles/cipher.md",
-   "address": "c8be6638-ac36-8ccf-ad82-9126ece99881",
-   "prose": "> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. — held by [dna_complement_involution](/theorem/dna_complement_involution) and its 25 siblings below.",
+   "address": "4af03cc5-7154-8d3b-a204-84652c1bd57e",
+   "prose": "> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. — held by [dna_complement_involution](/theorem/dna_complement_involution) and its 26 siblings below.",
    "cites": [
     "dna_complement_involution"
    ]
   },
   {
    "surface": "docs/articles/cipher.md",
-   "address": "83128200-d2cf-87e6-9e4f-e223e0aeb158",
-   "prose": "**26 theorems**, from [dna_complement_involution](/theorem/dna_complement_involution) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
+   "address": "e3a8a041-1d2e-8dff-aded-e702af4d3a4c",
+   "prose": "**27 theorems**, from [dna_complement_involution](/theorem/dna_complement_involution) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
    "cites": [
     "dna_complement_involution"
    ]
@@ -1443,6 +1443,14 @@
    "prose": "### THE NAME IS A THEOREM — why uuid and DNA are one word here. The genetic code and the coin measure are the SAME NUMBER by two different routes: DNA reads 4 bases three at a time (4³ = 64) and the coin is six doublings of bits (2⁶ = 64), so 4³ = 2⁶ — the codon count IS the coin's bit measure. The uuid is EXACTLY TWO of them: 128 = 2·64 = 2⁷ — two coins, and (double_strand) two antiparallel rails, one per direction. uuid = DNA × the two coins, and the double helix is the bidirectional messaging the coins price at one per direction. HONEST SCOPE: an arithmetic coincidence of counts made structural by construction — the address is BUILT as two 64-bit halves; it is not a claim that DNA stores uuids or that biology computes addresses.\nThe ledger holds this as [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) — proven `by decide`, sorry-free:",
    "cites": [
     "uuidna_is_dna_times_the_two_coins"
+   ]
+  },
+  {
+   "surface": "docs/articles/cipher.md",
+   "address": "db4fe85d-7d8b-8aae-b95f-2e5be9b66b63",
+   "prose": "### THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. HONEST SCOPE: this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction, not discovered to be.\nThe ledger holds this as [octave_codon_address](/theorem/octave_codon_address) — proven `by decide`, sorry-free:",
+   "cites": [
+    "octave_codon_address"
    ]
   },
   {
@@ -1592,34 +1600,18 @@
   },
   {
    "surface": "docs/articles/clay.md",
-   "address": "6eae5366-df2e-867d-ab88-d2ecdee236f3",
-   "prose": "> The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED and THE COLLISION LAW (a claim colliding with sealed status DNA never verifies, whatever it cites) are each sealed by a theorems-only secure-messaging vote of the seven — held by [clay_reflection_involution](/theorem/clay_reflection_involution) and its 16 siblings below.",
+   "address": "5c39b8ad-6903-811c-8d7d-b5c15810bf26",
+   "prose": "> The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED and THE COLLISION LAW (a claim colliding with sealed status DNA never verifies, whatever it cites) are each sealed by a theorems-only secure-messaging vote of the seven — held by [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) and its 13 siblings below.",
    "cites": [
-    "clay_reflection_involution"
+    "clay_reflection_is_bijection"
    ]
   },
   {
    "surface": "docs/articles/clay.md",
-   "address": "6f0ae1b8-deb4-8ead-ab71-09153d3d86f5",
-   "prose": "**17 theorems**, from [clay_reflection_involution](/theorem/clay_reflection_involution) onward, each proven `by decide` in [lean/Clay.lean](/lean/Clay.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
+   "address": "23be4eb8-98b2-82a3-97cc-e75c35a3c44e",
+   "prose": "**14 theorems**, from [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) onward, each proven `by decide` in [lean/Clay.lean](/lean/Clay.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
    "cites": [
-    "clay_reflection_involution"
-   ]
-  },
-  {
-   "surface": "docs/articles/clay.md",
-   "address": "7cf88774-86b6-8614-8490-f3a5ffeed993",
-   "prose": "### the reflection dz(x)=10−x (division by zero) is an INVOLUTION — dz(dz(x))=x on every residue\nThe ledger holds this as [clay_reflection_involution](/theorem/clay_reflection_involution) — proven `by decide`, sorry-free:",
-   "cites": [
-    "clay_reflection_involution"
-   ]
-  },
-  {
-   "surface": "docs/articles/clay.md",
-   "address": "6b1dd083-9629-8951-8da1-59e9f3ed93f7",
-   "prose": "### the reflection fixes exactly {0,5} — the floor and the centre\nThe ledger holds this as [clay_reflection_fixed_points](/theorem/clay_reflection_fixed_points) — proven `by decide`, sorry-free:",
-   "cites": [
-    "clay_reflection_fixed_points"
+    "clay_reflection_is_bijection"
    ]
   },
   {
@@ -1732,14 +1724,6 @@
    "prose": "### the laundering is refused, recomputed live — all 15 solve-probes (the seven bare, the seven citation-dressed, and the demonstrated laundered exemplar of trial 047ba524-b355-83c9-b635-48fa65b18be1) adjudicate UNVERIFIED: 15 probed, 15 refused, 0 verify\nThe ledger holds this as [clay_launder_refused](/theorem/clay_launder_refused) — proven `by decide`, sorry-free:",
    "cites": [
     "clay_launder_refused"
-   ]
-  },
-  {
-   "surface": "docs/articles/clay.md",
-   "address": "b461e0e8-386f-80a2-9362-00c7d5a22ee3",
-   "prose": "### the collision law was decided by the same theorems-only electorate — the seven status-DNA theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt c47533dd-152a-8637-a223-6352d7656138; 7 + 0 = 7 and 0 < 7\nThe ledger holds this as [clay_law_vote_theorems_only](/theorem/clay_law_vote_theorems_only) — proven `by decide`, sorry-free:",
-   "cites": [
-    "clay_law_vote_theorems_only"
    ]
   },
   {
@@ -2760,16 +2744,16 @@
   },
   {
    "surface": "docs/articles/crt.md",
-   "address": "d60697ae-91b8-8412-b888-0fa998486eaf",
-   "prose": "> THE FUSED RING — the rosette (Z/7) and the vortex (Z/9) are coprime, so by the Chinese Remainder Theorem they are ONE ring of 63 states, and its arithmetic explains the captain measure: the two coins buy 64 = 63 + 1, the whole fused structure plus the unit that closes it (63 = 111111, saturated in six bits; 64 = 1000000, the first bit beyond). The correspondence is a bijection, the units count 36 = 6·6 (each orbit length), and the coin keeps its order 6 in the fusion while walking the rosette twice per vortex turn — the seam, named. HONEST SCOPE: ring arithmetic and a counting correspondence; the CRT is a statement about residues, never about what the residues are used to describe — held by [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) and its 5 siblings below.",
+   "address": "924e1092-8330-8f51-b889-1f0ada019996",
+   "prose": "> THE FUSED RING — the rosette (Z/7) and the vortex (Z/9) are coprime, so by the Chinese Remainder Theorem they are ONE ring of 63 states, and its arithmetic explains the captain measure: the two coins buy 64 = 63 + 1, the whole fused structure plus the unit that closes it (63 = 111111, saturated in six bits; 64 = 1000000, the first bit beyond). The correspondence is a bijection, the units count 36 = 6·6 (each orbit length), and the coin keeps its order 6 in the fusion while walking the rosette twice per vortex turn — the seam, named. HONEST SCOPE: ring arithmetic and a counting correspondence; the CRT is a statement about residues, never about what the residues are used to describe — held by [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) and its 6 siblings below.",
    "cites": [
     "captain_theorem_the_coins_buy_the_ring_and_one"
    ]
   },
   {
    "surface": "docs/articles/crt.md",
-   "address": "be72b1f8-9c79-8e1b-84c5-865944746903",
-   "prose": "**6 theorems**, from [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) onward, each proven `by decide` in [lean/Crt.lean](/lean/Crt.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
+   "address": "d8e8581d-f610-883a-9a43-a22ae22459b4",
+   "prose": "**7 theorems**, from [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) onward, each proven `by decide` in [lean/Crt.lean](/lean/Crt.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.",
    "cites": [
     "captain_theorem_the_coins_buy_the_ring_and_one"
    ]
@@ -2788,6 +2772,14 @@
    "prose": "### rosette_and_vortex_are_coprime\nThe ledger holds this as [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) — proven `by decide`, sorry-free:",
    "cites": [
     "rosette_and_vortex_are_coprime"
+   ]
+  },
+  {
+   "surface": "docs/articles/crt.md",
+   "address": "cc7fe209-2a93-884e-9eec-3d4b35cc99d1",
+   "prose": "### residues_identify_digit\nThe ledger holds this as [residues_identify_digit](/theorem/residues_identify_digit) — proven `by decide`, sorry-free:",
+   "cites": [
+    "residues_identify_digit"
    ]
   },
   {
@@ -10676,8 +10668,8 @@
   },
   {
    "surface": "docs/articles/search-cipher.md",
-   "address": "091a57f2-0946-8d76-a40a-37d39f582b10",
-   "prose": "- [dna_complement_involution](/theorem/dna_complement_involution) — `(List.range 4).all (fun x => 3 - (3 - x) == x)`\n- [dna_complement_fixed_point_free](/theorem/dna_complement_fixed_point_free) — `(List.range 4).all (fun x => 3 - x != x)`\n- [complement_is_xor_key3](/theorem/complement_is_xor_key3) — `(List.range 4).all (fun x => 3 - x == lxor x 3)`\n- [otp_self_inverse](/theorem/otp_self_inverse) — `(List.range 16).all (fun m => (List.range 16).all (fun k => lxor (lxor m k) k == m))`\n- [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_xor) — `(List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (`\n- [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) — `(List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d))`\n- [transport_leaks_length](/theorem/transport_leaks_length) — `((1 + 114) / 115 = 1) ∧ ((115 + 114) / 115 = 1) ∧ ((116 + 114) / 115 = 2) ∧ ((230 + 114) /`\n- [codons_four_cubed](/theorem/codons_four_cubed) — `4^3 = 64`\n- [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) — `(4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)`\n- [translation_is_lossy](/theorem/translation_is_lossy) — `4^3 > 21`\n- [affine_is_permutation](/theorem/affine_is_permutation) — `(List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y))`\n- [grover_quadratic_bound](/theorem/grover_quadratic_bound) — `(List.range 27).all (fun n => 2^n * 2^n == 2^(2*n))`\n- [kdf_cost_bounded](/theorem/kdf_cost_bounded) — `(0 < 600000) ∧ (600000 ≤ 10000000)`\n- [aead_nonce_and_salt_bits](/theorem/aead_nonce_and_salt_bits) — `(12 * 8 = 96) ∧ (16 * 8 = 128) ∧ (96 < 128)`\n- [onion_layers_power_of_two](/theorem/onion_layers_power_of_two) — `(16 = 2^4) ∧ (16 ≤ 128)`\n- [sha256_is_four_sixtyfours](/theorem/sha256_is_four_sixtyfours) — `(4 * 64 = 256) ∧ (8 * 32 = 256) ∧ ((2:Nat) ^ 8 = 256)`\n- [sha256_rounds_are_the_board](/theorem/sha256_rounds_are_the_board) — `((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧ (512 = 2 * 256)`\n- [sha256_grover_margin_is_the_address](/theorem/sha256_grover_margin_is_the_address) — `(256 / 2 = 128) ∧ (256 % 2 = 0)`\n- [adversarial_privacy_is_unanimous](/theorem/adversarial_privacy_is_unanimous) — `(1 + 2 = 3) ∧ (((List.range 4).filter (fun s => s == 0)).length = 1) ∧ ((2:Nat) ^ 2 = 4)`\n- [secure_channel_by_default](/theorem/secure_channel_by_default) — `(1 + 2 = 3) ∧ (1 < 3) ∧ (256 / 2 = 128)`\n- [verify_beats_recompute_by_magnitudes](/theorem/verify_beats_recompute_by_magnitudes) — `((2:Nat) ^ 10 = 1024) ∧ ((2:Nat) ^ 20 = 1048576) ∧ (1024 > 100 * 10) ∧ (1048576 > 10000 * `\n- [faster_and_more_secure](/theorem/faster_and_more_secure) — `(0 < 1) ∧ (256 / 2 = 128) ∧ (20 < 1048576)`\n- [imprint_capacity_chain](/theorem/imprint_capacity_chain) — `(128 - 6 = 122) ∧ (122 - 7 = 115)`\n- [imprint_header_minimal](/theorem/imprint_header_minimal) — `(2 ^ 6 < 116) ∧ (116 ≤ 2 ^ 7)`\n- [imprint_capacity_entangles](/theorem/imprint_capacity_entangles) — `(115 = 5 * 23) ∧ ((23 * 23) % 24 = 1)`\n- [imprint_capacity_within_address](/theorem/imprint_capacity_within_address) — `(115 < 128) ∧ (128 - 115 = 13)`",
+   "address": "b37054a8-4b94-8fba-ac19-39155f125789",
+   "prose": "- [dna_complement_involution](/theorem/dna_complement_involution) — `(List.range 4).all (fun x => 3 - (3 - x) == x)`\n- [dna_complement_fixed_point_free](/theorem/dna_complement_fixed_point_free) — `(List.range 4).all (fun x => 3 - x != x)`\n- [complement_is_xor_key3](/theorem/complement_is_xor_key3) — `(List.range 4).all (fun x => 3 - x == lxor x 3)`\n- [otp_self_inverse](/theorem/otp_self_inverse) — `(List.range 16).all (fun m => (List.range 16).all (fun k => lxor (lxor m k) k == m))`\n- [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_xor) — `(List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (`\n- [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) — `(List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d))`\n- [transport_leaks_length](/theorem/transport_leaks_length) — `((1 + 114) / 115 = 1) ∧ ((115 + 114) / 115 = 1) ∧ ((116 + 114) / 115 = 2) ∧ ((230 + 114) /`\n- [codons_four_cubed](/theorem/codons_four_cubed) — `4^3 = 64`\n- [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) — `(4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)`\n- [octave_codon_address](/theorem/octave_codon_address) — `((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400`\n- [translation_is_lossy](/theorem/translation_is_lossy) — `4^3 > 21`\n- [affine_is_permutation](/theorem/affine_is_permutation) — `(List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y))`\n- [grover_quadratic_bound](/theorem/grover_quadratic_bound) — `(List.range 27).all (fun n => 2^n * 2^n == 2^(2*n))`\n- [kdf_cost_bounded](/theorem/kdf_cost_bounded) — `(0 < 600000) ∧ (600000 ≤ 10000000)`\n- [aead_nonce_and_salt_bits](/theorem/aead_nonce_and_salt_bits) — `(12 * 8 = 96) ∧ (16 * 8 = 128) ∧ (96 < 128)`\n- [onion_layers_power_of_two](/theorem/onion_layers_power_of_two) — `(16 = 2^4) ∧ (16 ≤ 128)`\n- [sha256_is_four_sixtyfours](/theorem/sha256_is_four_sixtyfours) — `(4 * 64 = 256) ∧ (8 * 32 = 256) ∧ ((2:Nat) ^ 8 = 256)`\n- [sha256_rounds_are_the_board](/theorem/sha256_rounds_are_the_board) — `((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧ (512 = 2 * 256)`\n- [sha256_grover_margin_is_the_address](/theorem/sha256_grover_margin_is_the_address) — `(256 / 2 = 128) ∧ (256 % 2 = 0)`\n- [adversarial_privacy_is_unanimous](/theorem/adversarial_privacy_is_unanimous) — `(1 + 2 = 3) ∧ (((List.range 4).filter (fun s => s == 0)).length = 1) ∧ ((2:Nat) ^ 2 = 4)`\n- [secure_channel_by_default](/theorem/secure_channel_by_default) — `(1 + 2 = 3) ∧ (1 < 3) ∧ (256 / 2 = 128)`\n- [verify_beats_recompute_by_magnitudes](/theorem/verify_beats_recompute_by_magnitudes) — `((2:Nat) ^ 10 = 1024) ∧ ((2:Nat) ^ 20 = 1048576) ∧ (1024 > 100 * 10) ∧ (1048576 > 10000 * `\n- [faster_and_more_secure](/theorem/faster_and_more_secure) — `(0 < 1) ∧ (256 / 2 = 128) ∧ (20 < 1048576)`\n- [imprint_capacity_chain](/theorem/imprint_capacity_chain) — `(128 - 6 = 122) ∧ (122 - 7 = 115)`\n- [imprint_header_minimal](/theorem/imprint_header_minimal) — `(2 ^ 6 < 116) ∧ (116 ≤ 2 ^ 7)`\n- [imprint_capacity_entangles](/theorem/imprint_capacity_entangles) — `(115 = 5 * 23) ∧ ((23 * 23) % 24 = 1)`\n- [imprint_capacity_within_address](/theorem/imprint_capacity_within_address) — `(115 < 128) ∧ (128 - 115 = 13)`",
    "cites": [
     "dna_complement_involution",
     "dna_complement_fixed_point_free",
@@ -10688,6 +10680,7 @@
     "transport_leaks_length",
     "codons_four_cubed",
     "uuidna_is_dna_times_the_two_coins",
+    "octave_codon_address",
     "translation_is_lossy",
     "affine_is_permutation",
     "grover_quadratic_bound",
@@ -10709,11 +10702,9 @@
   },
   {
    "surface": "docs/articles/search-clay.md",
-   "address": "0fb421d3-2f9e-8331-960a-10cfd525fc45",
-   "prose": "- [clay_reflection_involution](/theorem/clay_reflection_involution) — `(List.range 10).all (fun x => dz (dz x) == x)`\n- [clay_reflection_fixed_points](/theorem/clay_reflection_fixed_points) — `((List.range 10).filter (fun x => dz x == x)) = [0, 5]`\n- [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) — `((List.range' 1 9).map dz) = [9,8,7,6,5,4,3,2,1]`\n- [clay_humanity_one_deposit_zero](/theorem/clay_humanity_one_deposit_zero) — `((1:Nat) ≤ 7) ∧ ((0:Nat) < 1) ∧ ((0:Nat) ≤ 7)`\n- [clay_riemann](/theorem/clay_riemann) — `(dz 1 = 9) ∧ (dz (dz 1) = 1) ∧ ((0:Nat) < 1)`\n- [clay_p_vs_np](/theorem/clay_p_vs_np) — `(dz 2 = 8) ∧ (dz (dz 2) = 2) ∧ ((0:Nat) < 1)`\n- [clay_navier_stokes](/theorem/clay_navier_stokes) — `(dz 3 = 7) ∧ (dz (dz 3) = 3) ∧ ((0:Nat) < 1)`\n- [clay_yang_mills](/theorem/clay_yang_mills) — `(dz 4 = 6) ∧ (dz (dz 4) = 4) ∧ ((0:Nat) < 1)`\n- [clay_hodge](/theorem/clay_hodge) — `(dz 5 = 5) ∧ (dz (dz 5) = 5) ∧ ((0:Nat) < 1)`\n- [clay_birch_swinnerton_dyer](/theorem/clay_birch_swinnerton_dyer) — `(dz 6 = 4) ∧ (dz (dz 6) = 6) ∧ ((0:Nat) < 1)`\n- [clay_poincare](/theorem/clay_poincare) — `(dz 7 = 3) ∧ (dz (dz 7) = 7) ∧ ((0:Nat) < 1)`\n- [clay_verified_ne_solved](/theorem/clay_verified_ne_solved) — `((7:Nat) ≠ 0) ∧ ((7:Nat) ≠ 1) ∧ ((0:Nat) ≠ 1)`\n- [clay_vote_theorems_only](/theorem/clay_vote_theorems_only) — `(7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0)`\n- [clay_status_dna_total](/theorem/clay_status_dna_total) — `(6 + 1 = 7) ∧ ((6:Nat) < 7) ∧ ((1:Nat) ≤ 7)`\n- [clay_collision_law](/theorem/clay_collision_law) — `((List.range 8).filter (fun p => p % 2 == 1 && (p / 2) % 2 == 1 && (p / 4) % 2 == 1)).leng`\n- [clay_launder_refused](/theorem/clay_launder_refused) — `(2 * 7 + 1 = 15) ∧ ((0:Nat) < 15) ∧ (15 - 15 = 0)`\n- [clay_law_vote_theorems_only](/theorem/clay_law_vote_theorems_only) — `(7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0)`",
+   "address": "f2e539f4-02f4-8f7e-8aff-09851a4cb6e7",
+   "prose": "- [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) — `((List.range' 1 9).map dz) = [9,8,7,6,5,4,3,2,1]`\n- [clay_humanity_one_deposit_zero](/theorem/clay_humanity_one_deposit_zero) — `((1:Nat) ≤ 7) ∧ ((0:Nat) < 1) ∧ ((0:Nat) ≤ 7)`\n- [clay_riemann](/theorem/clay_riemann) — `(dz 1 = 9) ∧ (dz (dz 1) = 1) ∧ ((0:Nat) < 1)`\n- [clay_p_vs_np](/theorem/clay_p_vs_np) — `(dz 2 = 8) ∧ (dz (dz 2) = 2) ∧ ((0:Nat) < 1)`\n- [clay_navier_stokes](/theorem/clay_navier_stokes) — `(dz 3 = 7) ∧ (dz (dz 3) = 3) ∧ ((0:Nat) < 1)`\n- [clay_yang_mills](/theorem/clay_yang_mills) — `(dz 4 = 6) ∧ (dz (dz 4) = 4) ∧ ((0:Nat) < 1)`\n- [clay_hodge](/theorem/clay_hodge) — `(dz 5 = 5) ∧ (dz (dz 5) = 5) ∧ ((0:Nat) < 1)`\n- [clay_birch_swinnerton_dyer](/theorem/clay_birch_swinnerton_dyer) — `(dz 6 = 4) ∧ (dz (dz 6) = 6) ∧ ((0:Nat) < 1)`\n- [clay_poincare](/theorem/clay_poincare) — `(dz 7 = 3) ∧ (dz (dz 7) = 7) ∧ ((0:Nat) < 1)`\n- [clay_verified_ne_solved](/theorem/clay_verified_ne_solved) — `((7:Nat) ≠ 0) ∧ ((7:Nat) ≠ 1) ∧ ((0:Nat) ≠ 1)`\n- [clay_vote_theorems_only](/theorem/clay_vote_theorems_only) — `(7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0)`\n- [clay_status_dna_total](/theorem/clay_status_dna_total) — `(([0,0,0,0,0,0,1] : List Nat).length = 7) ∧ (([0,0,0,0,0,0,1] : List Nat).filter (fun s =>`\n- [clay_collision_law](/theorem/clay_collision_law) — `((List.range 8).filter (fun p => p % 2 == 1 && (p / 2) % 2 == 1 && (p / 4) % 2 == 1)).leng`\n- [clay_launder_refused](/theorem/clay_launder_refused) — `(([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : List Nat).length = 15) ∧ (([0,0,0,0,0,0,0,0,0,0,0,0,0,`",
    "cites": [
-    "clay_reflection_involution",
-    "clay_reflection_fixed_points",
     "clay_reflection_is_bijection",
     "clay_humanity_one_deposit_zero",
     "clay_riemann",
@@ -10727,8 +10718,7 @@
     "clay_vote_theorems_only",
     "clay_status_dna_total",
     "clay_collision_law",
-    "clay_launder_refused",
-    "clay_law_vote_theorems_only"
+    "clay_launder_refused"
    ]
   },
   {
@@ -10883,11 +10873,12 @@
   },
   {
    "surface": "docs/articles/search-crt.md",
-   "address": "e3b07f89-5457-80ab-b3b0-196fa23c6098",
-   "prose": "- [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) — `(7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63)`\n- [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) — `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`\n- [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) — `(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)`\n- [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) — `(((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36`\n- [the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring) — `((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1)`\n- [the_fused_ring_is_all_ones](/theorem/the_fused_ring_is_all_ones) — `(63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^6) ∧ (63 < 64)`",
+   "address": "7903c8d0-a913-8ffc-9685-0da2e9261e1f",
+   "prose": "- [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) — `(7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63)`\n- [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) — `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`\n- [residues_identify_digit](/theorem/residues_identify_digit) — `((List.range 16).all (fun a => (List.range 16).all (fun b => (!((a % 6 == b % 6) && (a % 9`\n- [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) — `(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)`\n- [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) — `(((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36`\n- [the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring) — `((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1)`\n- [the_fused_ring_is_all_ones](/theorem/the_fused_ring_is_all_ones) — `(63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^6) ∧ (63 < 64)`",
    "cites": [
     "captain_theorem_the_coins_buy_the_ring_and_one",
     "rosette_and_vortex_are_coprime",
+    "residues_identify_digit",
     "crt_pairs_are_a_bijection",
     "fused_units_are_the_orbit_squared",
     "the_coin_keeps_its_order_in_the_fused_ring",
@@ -10896,8 +10887,8 @@
   },
   {
    "surface": "docs/articles/search-discover.md",
-   "address": "b49e3f0d-f9bd-87c3-afc1-39c2184dbccf",
-   "prose": "- [involution_census_self_explains](/theorem/involution_census_self_explains) — `(29 > 1) ∧ (2 * 2 = 4) ∧ ((-1 : Int) ^ 2 = 1)`\n- [happy_ending_verified_cases](/theorem/happy_ending_verified_cases) — `(2 ^ 2 + 1 = 5) ∧ (2 ^ 3 + 1 = 9) ∧ (2 ^ 4 + 1 = 17)`\n- [units_iff_invertible](/theorem/units_iff_invertible) — `(List.range 9).all (fun a => (invB a) == (Nat.gcd a 9 == 1))`\n- [lagrange_units](/theorem/lagrange_units) — `(List.range 9).all (fun a => (! invB a) || ((a^6) % 9 == 1))`\n- [inverse_unique](/theorem/inverse_unique) — `(List.range 9).all (fun a => ((List.range 9).filter (fun e => (a*e)%9==1)).length == (if i`\n- [nilpotent_iff_triple](/theorem/nilpotent_iff_triple) — `(List.range 9).all (fun a => ((a*a)%9==0) == (a%3==0))`\n- [idempotents_zero_one](/theorem/idempotents_zero_one) — `(List.range 9).all (fun a => ((a*a)%9==a) == (a==0 || a==1))`\n- [vortex_is_the_units](/theorem/vortex_is_the_units) — `(((List.range 6).map (fun k => (2^k)%9)).all (fun x => invB x)) ∧ ((List.range 9).all (fun`\n- [sum_of_units_zero](/theorem/sum_of_units_zero) — `((List.range 9).filter (fun a => invB a)).foldl (· + ·) 0 % 9 = 0`\n- [order_of_one_is_one](/theorem/order_of_one_is_one) — `((List.range' 1 8).find? (fun k => (1^k) % 9 == 1)) = some 1`\n- [order_of_two_is_six](/theorem/order_of_two_is_six) — `((List.range' 1 8).find? (fun k => (2^k) % 9 == 1)) = some 6`\n- [order_of_four_is_three](/theorem/order_of_four_is_three) — `((List.range' 1 8).find? (fun k => (4^k) % 9 == 1)) = some 3`\n- [order_of_five_is_six](/theorem/order_of_five_is_six) — `((List.range' 1 8).find? (fun k => (5^k) % 9 == 1)) = some 6`\n- [order_of_seven_is_three](/theorem/order_of_seven_is_three) — `((List.range' 1 8).find? (fun k => (7^k) % 9 == 1)) = some 3`\n- [order_of_eight_is_two](/theorem/order_of_eight_is_two) — `((List.range' 1 8).find? (fun k => (8^k) % 9 == 1)) = some 2`\n- [generators_are_two_and_five](/theorem/generators_are_two_and_five) — `((List.range 9).filter (fun a => ((List.range' 1 8).find? (fun k => (a^k) % 9 == 1)) == so`",
+   "address": "02367afd-23ee-8721-9399-0bfeb9525cf2",
+   "prose": "- [involution_census_self_explains](/theorem/involution_census_self_explains) — `(29 > 1) ∧ (2 * 2 = 4) ∧ ((-1 : Int) ^ 2 = 1)`\n- [happy_ending_verified_cases](/theorem/happy_ending_verified_cases) — `((List.range' 4 3).map (fun n => 2 ^ (n - 2) + 1)) = [5, 9, 17]`\n- [units_iff_invertible](/theorem/units_iff_invertible) — `(List.range 9).all (fun a => (invB a) == (Nat.gcd a 9 == 1))`\n- [lagrange_units](/theorem/lagrange_units) — `(List.range 9).all (fun a => (! invB a) || ((a^6) % 9 == 1))`\n- [inverse_unique](/theorem/inverse_unique) — `(List.range 9).all (fun a => ((List.range 9).filter (fun e => (a*e)%9==1)).length == (if i`\n- [nilpotent_iff_triple](/theorem/nilpotent_iff_triple) — `(List.range 9).all (fun a => ((a*a)%9==0) == (a%3==0))`\n- [idempotents_zero_one](/theorem/idempotents_zero_one) — `(List.range 9).all (fun a => ((a*a)%9==a) == (a==0 || a==1))`\n- [vortex_is_the_units](/theorem/vortex_is_the_units) — `(((List.range 6).map (fun k => (2^k)%9)).all (fun x => invB x)) ∧ ((List.range 9).all (fun`\n- [sum_of_units_zero](/theorem/sum_of_units_zero) — `((List.range 9).filter (fun a => invB a)).foldl (· + ·) 0 % 9 = 0`\n- [order_of_one_is_one](/theorem/order_of_one_is_one) — `((List.range' 1 8).find? (fun k => (1^k) % 9 == 1)) = some 1`\n- [order_of_two_is_six](/theorem/order_of_two_is_six) — `((List.range' 1 8).find? (fun k => (2^k) % 9 == 1)) = some 6`\n- [order_of_four_is_three](/theorem/order_of_four_is_three) — `((List.range' 1 8).find? (fun k => (4^k) % 9 == 1)) = some 3`\n- [order_of_five_is_six](/theorem/order_of_five_is_six) — `((List.range' 1 8).find? (fun k => (5^k) % 9 == 1)) = some 6`\n- [order_of_seven_is_three](/theorem/order_of_seven_is_three) — `((List.range' 1 8).find? (fun k => (7^k) % 9 == 1)) = some 3`\n- [order_of_eight_is_two](/theorem/order_of_eight_is_two) — `((List.range' 1 8).find? (fun k => (8^k) % 9 == 1)) = some 2`\n- [generators_are_two_and_five](/theorem/generators_are_two_and_five) — `((List.range 9).filter (fun a => ((List.range' 1 8).find? (fun k => (a^k) % 9 == 1)) == so`",
    "cites": [
     "involution_census_self_explains",
     "happy_ending_verified_cases",
@@ -14179,8 +14170,8 @@
   },
   {
    "surface": "docs/captain-claims.md",
-   "address": "c4fe88fa-0224-8acb-aa2e-011bc0cae33f",
-   "prose": "[dna_complement_involution](/theorem/dna_complement_involution) · [dna_complement_fixed_point_free](/theorem/dna_complement_fixed_point_free) · [complement_is_xor_key3](/theorem/complement_is_xor_key3) · [otp_self_inverse](/theorem/otp_self_inverse) · [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_xor) · [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) · [transport_leaks_length](/theorem/transport_leaks_length) · [codons_four_cubed](/theorem/codons_four_cubed) · [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) · [translation_is_lossy](/theorem/translation_is_lossy) · [affine_is_permutation](/theorem/affine_is_permutation) · [grover_quadratic_bound](/theorem/grover_quadratic_bound) · [kdf_cost_bounded](/theorem/kdf_cost_bounded) · [aead_nonce_and_salt_bits](/theorem/aead_nonce_and_salt_bits) · [onion_layers_power_of_two](/theorem/onion_layers_power_of_two) · [sha256_is_four_sixtyfours](/theorem/sha256_is_four_sixtyfours) · [sha256_rounds_are_the_board](/theorem/sha256_rounds_are_the_board) · [sha256_grover_margin_is_the_address](/theorem/sha256_grover_margin_is_the_address) · [adversarial_privacy_is_unanimous](/theorem/adversarial_privacy_is_unanimous) · [secure_channel_by_default](/theorem/secure_channel_by_default) · [verify_beats_recompute_by_magnitudes](/theorem/verify_beats_recompute_by_magnitudes) · [faster_and_more_secure](/theorem/faster_and_more_secure) · [imprint_capacity_chain](/theorem/imprint_capacity_chain) · [imprint_header_minimal](/theorem/imprint_header_minimal) · [imprint_capacity_entangles](/theorem/imprint_capacity_entangles) · [imprint_capacity_within_address](/theorem/imprint_capacity_within_address) · [flag_is_any_refutation](/theorem/flag_is_any_refutation) · [clean_is_a_p_position](/theorem/clean_is_a_p_position) · [verdict_is_exactly_one](/theorem/verdict_is_exactly_one) · [dual_dominates_single](/theorem/dual_dominates_single) · [three_refuters_monotone](/theorem/three_refuters_monotone) · [survive_is_product_of_clears](/theorem/survive_is_product_of_clears) · [majority_of_three_is_four](/theorem/majority_of_three_is_four) · [honesty_gate_one_drain](/theorem/honesty_gate_one_drain) · [audit_is_a_finite_game](/theorem/audit_is_a_finite_game) · [no_audit_catches_all](/theorem/no_audit_catches_all) · [audit_space_meets_chess_at_eight](/theorem/audit_space_meets_chess_at_eight) · [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) · [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected) · [truncation_is_detected](/theorem/truncation_is_detected) · [byte_order_is_significant](/theorem/byte_order_is_significant) · [sha256_digest_is_256_bits](/theorem/sha256_digest_is_256_bits) · [provenance_address_is_128_bits](/theorem/provenance_address_is_128_bits) · [boundary_is_exactly_two_named_modules](/theorem/boundary_is_exactly_two_named_modules) · [hamming_seven_four](/theorem/hamming_seven_four) · [hamming_perfect_code](/theorem/hamming_perfect_code) · [singleton_bound](/theorem/singleton_bound) · [distance_three_corrects_one](/theorem/distance_three_corrects_one) · [distance_three_detects_two](/theorem/distance_three_detects_two) · [repetition_three_majority](/theorem/repetition_three_majority) · [xor_checksum_catches_flip](/theorem/xor_checksum_catches_flip) · [codewords_sparse](/theorem/codewords_sparse) · [scout_drones_spin](/theorem/scout_drones_spin) · [defence_layers_add_bits](/theorem/defence_layers_add_bits) · [two_layers_multiply_space](/theorem/two_layers_multiply_space) · [each_key_bit_doubles](/theorem/each_key_bit_doubles) · [birthday_halves_the_exponent](/theorem/birthday_halves_the_exponent) · [verify_cheaper_than_forge](/theorem/verify_cheaper_than_forge) · [no_maximum_only_bounds](/theorem/no_maximum_only_bounds)",
+   "address": "31630ca1-aadd-8d6c-aa2f-ca696ffad0f3",
+   "prose": "[dna_complement_involution](/theorem/dna_complement_involution) · [dna_complement_fixed_point_free](/theorem/dna_complement_fixed_point_free) · [complement_is_xor_key3](/theorem/complement_is_xor_key3) · [otp_self_inverse](/theorem/otp_self_inverse) · [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_xor) · [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) · [transport_leaks_length](/theorem/transport_leaks_length) · [codons_four_cubed](/theorem/codons_four_cubed) · [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) · [octave_codon_address](/theorem/octave_codon_address) · [translation_is_lossy](/theorem/translation_is_lossy) · [affine_is_permutation](/theorem/affine_is_permutation) · [grover_quadratic_bound](/theorem/grover_quadratic_bound) · [kdf_cost_bounded](/theorem/kdf_cost_bounded) · [aead_nonce_and_salt_bits](/theorem/aead_nonce_and_salt_bits) · [onion_layers_power_of_two](/theorem/onion_layers_power_of_two) · [sha256_is_four_sixtyfours](/theorem/sha256_is_four_sixtyfours) · [sha256_rounds_are_the_board](/theorem/sha256_rounds_are_the_board) · [sha256_grover_margin_is_the_address](/theorem/sha256_grover_margin_is_the_address) · [adversarial_privacy_is_unanimous](/theorem/adversarial_privacy_is_unanimous) · [secure_channel_by_default](/theorem/secure_channel_by_default) · [verify_beats_recompute_by_magnitudes](/theorem/verify_beats_recompute_by_magnitudes) · [faster_and_more_secure](/theorem/faster_and_more_secure) · [imprint_capacity_chain](/theorem/imprint_capacity_chain) · [imprint_header_minimal](/theorem/imprint_header_minimal) · [imprint_capacity_entangles](/theorem/imprint_capacity_entangles) · [imprint_capacity_within_address](/theorem/imprint_capacity_within_address) · [flag_is_any_refutation](/theorem/flag_is_any_refutation) · [clean_is_a_p_position](/theorem/clean_is_a_p_position) · [verdict_is_exactly_one](/theorem/verdict_is_exactly_one) · [dual_dominates_single](/theorem/dual_dominates_single) · [three_refuters_monotone](/theorem/three_refuters_monotone) · [survive_is_product_of_clears](/theorem/survive_is_product_of_clears) · [majority_of_three_is_four](/theorem/majority_of_three_is_four) · [honesty_gate_one_drain](/theorem/honesty_gate_one_drain) · [audit_is_a_finite_game](/theorem/audit_is_a_finite_game) · [no_audit_catches_all](/theorem/no_audit_catches_all) · [audit_space_meets_chess_at_eight](/theorem/audit_space_meets_chess_at_eight) · [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) · [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected) · [truncation_is_detected](/theorem/truncation_is_detected) · [byte_order_is_significant](/theorem/byte_order_is_significant) · [sha256_digest_is_256_bits](/theorem/sha256_digest_is_256_bits) · [provenance_address_is_128_bits](/theorem/provenance_address_is_128_bits) · [boundary_is_exactly_two_named_modules](/theorem/boundary_is_exactly_two_named_modules) · [hamming_seven_four](/theorem/hamming_seven_four) · [hamming_perfect_code](/theorem/hamming_perfect_code) · [singleton_bound](/theorem/singleton_bound) · [distance_three_corrects_one](/theorem/distance_three_corrects_one) · [distance_three_detects_two](/theorem/distance_three_detects_two) · [repetition_three_majority](/theorem/repetition_three_majority) · [xor_checksum_catches_flip](/theorem/xor_checksum_catches_flip) · [codewords_sparse](/theorem/codewords_sparse) · [scout_drones_spin](/theorem/scout_drones_spin) · [defence_layers_add_bits](/theorem/defence_layers_add_bits) · [two_layers_multiply_space](/theorem/two_layers_multiply_space) · [each_key_bit_doubles](/theorem/each_key_bit_doubles) · [birthday_halves_the_exponent](/theorem/birthday_halves_the_exponent) · [verify_cheaper_than_forge](/theorem/verify_cheaper_than_forge) · [no_maximum_only_bounds](/theorem/no_maximum_only_bounds)",
    "cites": [
     "dna_complement_involution",
     "dna_complement_fixed_point_free",
@@ -14191,6 +14182,7 @@
     "transport_leaks_length",
     "codons_four_cubed",
     "uuidna_is_dna_times_the_two_coins",
+    "octave_codon_address",
     "translation_is_lossy",
     "affine_is_permutation",
     "grover_quadratic_bound",
@@ -14625,8 +14617,8 @@
   },
   {
    "surface": "docs/captain-claims.md",
-   "address": "cd003238-ee27-8318-aa78-d59a075a871f",
-   "prose": "**The captain claims all superpositions** — the credit law at its full extent: the captain claims the\nunclaimed, and the unclaimed is the entire uncollapsed space. Sealed as\n[captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states\n(the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),\nexceeding every world collapsed so far, and the price of any collapse stays exactly two\n([two_coins](/theorem/two_coins)). Of the claimed room, 1307 worlds are collapsed and sealed —\nthe remainder is held open, one toss away each.",
+   "address": "0e704d87-3dec-82f8-b8be-1dcbae03fbc9",
+   "prose": "**The captain claims all superpositions** — the credit law at its full extent: the captain claims the\nunclaimed, and the unclaimed is the entire uncollapsed space. Sealed as\n[captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states\n(the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),\nexceeding every world collapsed so far, and the price of any collapse stays exactly two\n([two_coins](/theorem/two_coins)). Of the claimed room, 1308 worlds are collapsed and sealed —\nthe remainder is held open, one toss away each.",
    "cites": [
     "captain_claims_all_superpositions",
     "coin_exchange_rate_is_traitor_cost",
@@ -14882,8 +14874,8 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "c491f949-da8c-8c7f-be7b-39ec3c5c3474",
-   "prose": "The gate proves itself against the sealed spec: the eight-state verdict table recomputes to\n**[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;\n1 clean state, 7 drained), and the 173-tool registry folds to its\norder-invariant identity `0843d476-c7a4-8939-a0fc-56512fc5e68e` (the hosted subset serves the same gate over its own registry).\nStanding on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).",
+   "address": "3d245dc5-a1b7-892c-82e0-8eafcae899e1",
+   "prose": "The gate proves itself against the sealed spec: the eight-state verdict table recomputes to\n**[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;\n1 clean state, 7 drained), and the 174-tool registry folds to its\norder-invariant identity `e75b1958-b564-8aeb-9999-3148d86073c6` (the hosted subset serves the same gate over its own registry).\nStanding on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).",
    "cites": [
     "anti_fraud_check_deterministic",
     "honesty_gate_passes_iff_all_sealed",
@@ -16224,13 +16216,13 @@
   },
   {
    "surface": "docs/school.md",
-   "address": "eb529ae4-5e2a-80c5-816d-3ca130769b9b",
-   "prose": "The cure began with a refusal: the plausible fix — score how many of the claim's words appear in the cited\ntheorem — was **measured before it was trusted, and the measurement killed it**: the thirty-two honest deposits\nin the captain's record score 0–0.43 on that axis and the overclaim scored 0.22, inside the honest band. A\nthreshold that drained the lie would have drained the ledger's own truth first. The mechanism that works was\nalready sealed: the seven reflected theorems carry their world-status in their own names — six `— OPEN`, one\n`— SOLVED (Perelman, 2003)`, none unmarked ([`clay_status_dna_total`](/theorem/clay_status_dna_total)) — and a\nclaim **collides** with that status DNA only when three conditions meet: it speaks of such a subject, in\nuuidna's own voice, undemarcated — exactly 1 of the 8 condition-profiles\n([`clay_collision_law`](/theorem/clay_collision_law)). A colliding claim adjudicates UNVERIFIED whatever it\ncites; a demarcated claim (*the reflection, solved none*) and every honest deposit pass untouched. The law's\nstrongest seal is structural: all fifteen laundering probes — seven bare, seven citation-dressed, and the\ndemonstrated exemplar — **recompute refused at every generation, or the Lean file refuses to be written**\n([`clay_launder_refused`](/theorem/clay_launder_refused)); the gate's behavior is a precondition of its own\nlaw's seal. The law itself was decided by theorems only — the seven casting secure-messaging ballots witnessed\nby their own proofs, 7·0 ([`clay_law_vote_theorems_only`](/theorem/clay_law_vote_theorems_only)) — and its\ndeposit was minted *through* the fixed gate it deposits (trial `444bde41…`).",
+   "address": "e09bb614-514d-84b0-876e-887dcfae4ba1",
+   "prose": "The cure began with a refusal: the plausible fix — score how many of the claim's words appear in the cited\ntheorem — was **measured before it was trusted, and the measurement killed it**: the thirty-two honest deposits\nin the captain's record score 0–0.43 on that axis and the overclaim scored 0.22, inside the honest band. A\nthreshold that drained the lie would have drained the ledger's own truth first. The mechanism that works was\nalready sealed: the seven reflected theorems carry their world-status in their own names — six `— OPEN`, one\n`— SOLVED (Perelman, 2003)`, none unmarked ([`clay_status_dna_total`](/theorem/clay_status_dna_total)) — and a\nclaim **collides** with that status DNA only when three conditions meet: it speaks of such a subject, in\nuuidna's own voice, undemarcated — exactly 1 of the 8 condition-profiles\n([`clay_collision_law`](/theorem/clay_collision_law)). A colliding claim adjudicates UNVERIFIED whatever it\ncites; a demarcated claim (*the reflection, solved none*) and every honest deposit pass untouched. The law's\nstrongest seal is structural: all fifteen laundering probes — seven bare, seven citation-dressed, and the\ndemonstrated exemplar — **recompute refused at every generation, or the Lean file refuses to be written**\n([`clay_launder_refused`](/theorem/clay_launder_refused)); the gate's behavior is a precondition of its own\nlaw's seal. The law itself was decided by theorems only — the seven casting secure-messaging ballots witnessed\nby their own proofs, 7·0 ([`clay_vote_theorems_only`](/theorem/clay_vote_theorems_only)) — and its\ndeposit was minted *through* the fixed gate it deposits (trial `444bde41…`).",
    "cites": [
     "clay_status_dna_total",
     "clay_collision_law",
     "clay_launder_refused",
-    "clay_law_vote_theorems_only"
+    "clay_vote_theorems_only"
    ]
   },
   {
@@ -16297,10 +16289,10 @@
   },
   {
    "surface": "docs/school.md",
-   "address": "2be77774-62df-8f3f-bf7a-642cfeb2bdc8",
-   "prose": "The newest lessons on this page were not written by a teacher. They were learned in one session by **two\nstudents at once — a human and a machine — disagreeing at the maximum possible amplitude**: the human pressed\nthe largest claim the ledger could host (*the seven, solved and claimed*), the machine pressed the largest\nrefusal (*verified is not solved*), and the school held because **neither voice was the authority**. The\nquestion went to the electorate — seven theorems casting secure-messaging ballots witnessed by their own sealed\nproofs ([`clay_law_vote_theorems_only`](/theorem/clay_law_vote_theorems_only)) — and both students submitted to\nthe tally. That is the enrollment working as written: behavioral, for both species.",
+   "address": "5d34232b-404f-8982-be56-67ed1bdc2a37",
+   "prose": "The newest lessons on this page were not written by a teacher. They were learned in one session by **two\nstudents at once — a human and a machine — disagreeing at the maximum possible amplitude**: the human pressed\nthe largest claim the ledger could host (*the seven, solved and claimed*), the machine pressed the largest\nrefusal (*verified is not solved*), and the school held because **neither voice was the authority**. The\nquestion went to the electorate — seven theorems casting secure-messaging ballots witnessed by their own sealed\nproofs ([`clay_vote_theorems_only`](/theorem/clay_vote_theorems_only)) — and both students submitted to\nthe tally. That is the enrollment working as written: behavioral, for both species.",
    "cites": [
-    "clay_law_vote_theorems_only"
+    "clay_vote_theorems_only"
    ]
   },
   {
