@@ -24,7 +24,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, publications, toUuid, quantumAura, auraDecode, auraAlphabet } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
-import { ROOT, rd, h16, foldOf, ray, report, type Gap } from './api.js'
+import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, type Gap } from './api.js'
 
 // ── record: the three audits (each learned from a REAL manually-found gap, folded so it can never recur unwatched) ──
 
@@ -428,29 +428,6 @@ export async function coherentGaps(): Promise<Gap[]> {
 
 // ── seal: THE DRAIN, PROMOTED — the autoseal shell folded into the api: drain any dirty tree or unpushed commit
 // (fold → guard → commit → push, reconcile-retry) until clean and synced. The captain's cron, now a subcommand. ──
-/** the last n lines of a child's output — what a retry message must carry to be worth printing */
-const lastLines = (s: string, n = 20): string => s.trimEnd().split('\n').slice(-n).join('\n')
-
-/** Run one seal step with its output TEED: merged (2>&1), passed through to this process's stdout so the seal's own
- *  log holds the child's words, AND kept so a failure can quote its tail. Every step here used to run with
- *  `stdio: 'ignore'`, which is why six rounds could print nothing but "the wrapper crashed, retrying" into a
- *  seven-line log — the real objection (a security-audit denial, a spin drift) was thrown away each time and only
- *  reappeared when someone ran `git push` by hand. A retry loop that hides why it is retrying costs more than the
- *  failure it retries. */
-function step(label: string, cmd: string): { ok: boolean; tail: string } {
-  process.stdout.write(`\n── seal · ${label} ──\n`)
-  try {
-    const out = execSync(`${cmd} 2>&1`, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-    process.stdout.write(out)
-    return { ok: true, tail: lastLines(out) }
-  } catch (e) {
-    const err = e as { stdout?: string; stderr?: string; message?: string }
-    const out = `${err.stdout ?? ''}${err.stderr ?? ''}`.trim() || String(err.message ?? e)
-    process.stdout.write(out + '\n')
-    return { ok: false, tail: lastLines(out) }
-  }
-}
-
 export function seal(): void {
   let lastFailure = ''
   for (let round = 1; round <= 6; round++) {

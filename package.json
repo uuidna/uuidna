@@ -125,6 +125,7 @@
     "next": "npm run audit && node dist/scripts/next.js",
     "next:verify": "npm run build && node dist/scripts/spin.js --verify && npm run guard && node dist/scripts/next.js --verify",
     "hooks:install": "git config core.hooksPath hooks && echo \"git hooks installed (core.hooksPath=hooks): pre-push runs the readiness gate\"",
+    "develop": "npm run build && node dist/scripts/develop.js",
     "guard": "npm run build && node dist/scripts/guard.js",
     "gen:packages": "npm run build && node dist/scripts/gen-packages.js",
     "build:packages": "npm run build && npm run build --workspaces",
