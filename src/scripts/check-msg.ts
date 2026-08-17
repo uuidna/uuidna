@@ -35,7 +35,14 @@ const prose = msg.split('\n').filter((l) => !/^\s*[|\-*+#>]/.test(l) && !/^\s{2,
 const collapsed = prose.map(mentioned).flatMap((l) => l.match(/\w  +\w/g) ?? [])
 if (collapsed.length) damage.push(`vanished text: ${collapsed.length} gap(s) of doubled space between words, e.g. "${collapsed[0]}"`)
 if ((msg.match(/`/g) ?? []).length % 2 === 1) damage.push('an odd number of backticks — one is unclosed, or its pair was consumed by the shell')
-if (/\(\s*\)/.test(msg) || /""/.test(msg)) damage.push('an empty delimiter — whatever stood between it is gone')
+// A CALL IS NOT A CRATER. This rule flagged every `()` alike, so a message that merely NAMED a zero-argument call
+// was rejected as damaged — measured 2026-08-17 on a message describing `.join()` on an object, which was blocked
+// and then landed under an unrelated seal because the drain carried the files while the message was refused. That
+// is the precise harm the gate exists to prevent (a signed record separated from its work), caused by the gate.
+// Damage is an empty delimiter where TEXT used to stand, so it counts only when nothing call-like precedes it:
+// `( )` alone or after a space, never `name()`. Mentions are stripped first, by the same use/mention law as above.
+const scrubbed = mentioned(msg)
+if (/(?:^|[^\w.])\(\s*\)/.test(scrubbed) || /""/.test(scrubbed)) damage.push('an empty delimiter — whatever stood between it is gone')
 if (damage.length) {
   console.error('✗ check-msg — the MESSAGE ITSELF arrived damaged; a signed record must be whole:')
   for (const d of damage) console.error('  • ' + d)
