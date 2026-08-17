@@ -58,9 +58,16 @@ jobs:
           node-version: '26'
           registry-url: 'https://registry.npmjs.org'
 
-      # OIDC Trusted Publishing needs npm >= 11.5.1; Node 22 ships ~10.9, so upgrade the CLI before publishing.
-      - name: Upgrade npm for OIDC trusted publishing
-        run: npm install -g npm@latest
+      # OIDC Trusted Publishing needs npm >= 11.5.1. Node 22 shipped npm 10.9 and had to reinstall the CLI on
+      # every publish; Node 26 ships 11.19, so the requirement is met by the pinned runtime and the reinstall is
+      # pure recompute. Verify O(1) instead — the requirement stays ASSERTED BY NAME (a future runtime that
+      # regressed below it fails here with its reason, never as an opaque auth error at publish time).
+      - name: npm meets the OIDC floor (>= 11.5.1) — asserted, not reinstalled
+        run: |
+          set -euo pipefail
+          NPM=$(npm --version)
+          node -e 'const [a,b,c]=process.argv[1].split(".").map(Number);const ok=a>11||(a===11&&(b>5||(b===5&&c>=1)));if(!ok){console.error(`::error::npm ${process.argv[1]} is below the OIDC trusted-publishing floor 11.5.1 — pin a newer node-version or reinstall the CLI`);process.exit(1)}' "$NPM"
+          echo "npm $NPM meets the OIDC floor 11.5.1"
 
       - name: Install Lean (elan, toolchain pinned by lean-toolchain)
         run: |

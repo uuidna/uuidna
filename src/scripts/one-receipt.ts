@@ -302,6 +302,20 @@ export function actionsGaps(): Gap[] {
     for (const u of uses.filter((u) => u.major < newest))
       gaps.push({ what: `${u.where} pins ${action}@v${u.major} while the tree already runs @v${newest} — version drift, the class that hides a deprecated runtime`, fix: `bump it to ${action}@v${newest} (one major, tree-wide), or move the whole tree down deliberately` })
   }
+  // The SAME law over the runtime itself: one node-version, tree-wide. A workflow left behind on an older major
+  // gates the work on a runtime nothing else uses — how 22 sat under a deploy already building on 24, unseen.
+  const nodes: { major: number; where: string }[] = []
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    if (e.isDirectory() || !e.name.endsWith('.yml')) continue
+    readFileSync(join(dir, e.name), 'utf8').split('\n').forEach((line, i) => {
+      if (line.trimStart().startsWith('#')) return
+      const m = /^\s*node-version:\s*'?(\d+)/.exec(line)
+      if (m) nodes.push({ major: Number(m[1]), where: `${e.name}:${i + 1}` })
+    })
+  }
+  const newestNode = nodes.reduce((hi, n) => (n.major > hi ? n.major : hi), 0)
+  for (const n of nodes.filter((n) => n.major < newestNode))
+    gaps.push({ what: `${n.where} gates on node ${n.major} while the tree already runs ${newestNode} — the runtime the work is proven on must be one`, fix: `set node-version: '${newestNode}' here, or move every workflow down together` })
   return gaps
 }
 
