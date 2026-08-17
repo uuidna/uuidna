@@ -27,6 +27,30 @@ still be refactored, reversed, or **folded all the way back to the genesis `0.0.
 development itself. Publishing is the involution's fixed point: after it, a version cannot be un-said. So uuidna keeps
 the chance to reverse-develop itself *now*, while the ledger is still free.
 
+## [0.1.5] — unreleased
+
+**A declaration is not a mechanism, and a failed report is not a failed outcome.** Two beliefs about the archive
+turned out to be untested, and both were measured this tick rather than argued.
+
+### Fixed
+- **The Zenodo deposit trusts the record, not the connection.** `curl -sf` aborts on any HTTP error, and Zenodo's
+  publish is slow enough to answer 5xx *while completing server-side*. On v0.1.4 the record published with its
+  tarball (`10.5281/zenodo.21978435`) and the job still died `exit 22` — skipping the DOI notice, the chain-law
+  check and the community request, reporting a green archive as a failure. The publish now captures the code and
+  re-reads the deposition: `state=done` means it landed and the run continues; anything else fails with the code
+  and body.
+- **A minted version can no longer be stranded by an outage.** GitHub answered `503 No server is currently
+  available` twice in one hour — once killing the calendar's HAND OFF (tag pushed, publish never dispatched) and
+  once killing the release creation (v0.1.5 reached npm and both archives with no GitHub Release). Both calls now
+  retry five times with backoff and, if the door stays shut, print the exact hand-carry command instead of a bare
+  exit. The odometer never returns, so nothing else would have retried them.
+
+### Changed
+- **The archive joins one community, automatically.** `.zenodo.json` declares `uuidna` alone, and the deposit now
+  files an explicit inclusion request against the published record. The `communities` field by itself creates a
+  request that waits — which is why every record still reads `communities: none`: the requests are **open in the
+  curator queue**, not lost. Membership is a human accept; requesting it is not, and no one opens the upload form.
+
 ## [0.1.4] — unreleased
 
 **The kernel checks the proposition; nothing checked that the proposition meant its name.** This tick closes that

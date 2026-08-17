@@ -2,12 +2,12 @@
   "coins": {
     "src/theorems/generated.ts": "14937dc2e45d8218",
     "lean/PRINCIPLE.md": "16b2edcb9b3a84fb",
-    "CHANGELOG.md": "2b96a9b180ed89b8",
+    "CHANGELOG.md": "856590e5f68485c2",
     "lean/axioms.json": "4d08f325178389c3",
     "docs/mcp.md": "e9f4224805bd854b",
     "audit-citations.json": "674faa189bb0821e",
     "support-audit.json": "05470599b4b788c8",
     "research-leads.json": "4f0b577245488195"
   },
-  "receipt": "42aaf2f5-07bc-8331-8d5b-5718c1dc2702"
+  "receipt": "a2719a3b-61d8-8e7e-a09d-dfb2068f7b7b"
 }
