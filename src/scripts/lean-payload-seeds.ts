@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // lean-payload-seeds — CONVERT the Lean sources into computable PayloadCMS nested page seeds, versioned by content:
-// each lean/*.lean becomes src/lean/<uuid>/page.json, where the uuid is the reversible imprint of
+// each lean/*.lean becomes src/seeds/<uuid>/page.json, where the uuid is the reversible imprint of
 // (status ∥ stem ∥ content). A changed Lean file mints a NEW folder (append-only versions, never overwritten);
 // an unchanged file finds its folder already sealed and skips. The closing demo REVERSE-ENGINEERS the whole tree
 // from the folder NAMES alone — zero file reads — proving the no-cost filtering/indexing claim on the spot.
@@ -12,7 +12,7 @@ import { buildLeanPageSeed, readSeed, filterSeeds } from '../payload-seed.js'
 import { ROOT } from './api.js'
 
 const LEAN = join(ROOT, 'lean')
-const OUT = join(ROOT, 'src', 'lean')
+const OUT = join(ROOT, 'src', 'seeds')
 
 const byFile = new Map<string, { key: string; name: string; statement: string; lean: string }[]>()
 for (const t of theorems()) {

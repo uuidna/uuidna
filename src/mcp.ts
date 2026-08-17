@@ -1151,7 +1151,7 @@ export const TOOL_NAMES: readonly string[] = TOOLS.map((t) => t.name)
  *  the handlers don't answer — the CI ↔ MCP no-drift check. Throws on an unknown tool, exactly as the server does. */
 /** THE SCHEMA IS THE CONTRACT, ENFORCED AT THE ONE DOOR — a tool that DECLARES an argument required is not run
  *  without it. Folded here rather than into 106 tool bodies, so every tool inherits the check and no new tool can
- *  forget it (src/test/mcp-schema.test.ts is the finder over the whole catalog). Before this, a missing required arg
+ *  forget it (src/tests/mcp-schema.test.ts is the finder over the whole catalog). Before this, a missing required arg
  *  reached the body as `String(undefined)` and the tool computed over the literal text "undefined" — a wrong answer
  *  returned confidently, and for the orchestration tools an entire release walk spawned from an empty call. Refusing
  *  is both the correct answer and the cheap one. */

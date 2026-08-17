@@ -333,7 +333,7 @@ export function actionsGaps(): Gap[] {
  *
  *  A RATCHET, NOT A BIG BANG: 313 keys predate this law, and renaming a theorem moves its content-address, the
  *  ledger receipt and the published archive — so they are recorded in lean/key-entropy.json as an explicit backlog
- *  that may only SHRINK (src/test/key-entropy.test.ts enforces that it never grows). Anything NEW fails hard here.
+ *  that may only SHRINK (src/tests/key-entropy.test.ts enforces that it never grows). Anything NEW fails hard here.
  *  That is how the class stops growing today without moving 313 published addresses in one stroke. */
 /** BOTH NUMBERS OR NEITHER — a theorem is its LEAN, not its name, so the ledger has two true sizes: the number of
  *  KEYS and the number of DISTINCT propositions. They differ because some statements are deliberately sealed in two
@@ -547,21 +547,25 @@ export function stateGaps(): Gap[] {
 // independent things rather than one concept, and calling them modules would be the same category error inverted.
 export function foldersGaps(): Gap[] {
   const gaps: Gap[] = []
-  // components is a collection too, and for a borrowed reason: a Vue single-file component is named by the
-  // FRAMEWORK's convention (PascalCase, resolved by filename), so renaming one to index.vue would break the tool
-  // that reads it. A rule that fights another system's naming is a rule about us, not about the code.
-  const COLLECTIONS = new Set(['scripts', 'test', 'tests', 'lean', 'theorems', 'components'])
+  // SINGULAR = MODEL, PLURAL = COLLECTION — the captain's law, 2026-08-18. The exemption is DERIVED from the name
+  // rather than kept in a list I have to remember to update: a singular folder is one concept and carries index
+  // faces only; a plural folder is many independent things and its members are named. `clock` is a model, so it
+  // holds index.ts and index.md; `scripts` is a collection, so it holds a hundred named files and that is correct.
+  const isCollection = (name: string): boolean => /s$/.test(name)
   const walk = (dir: string, rel: string): void => {
     for (const e of readdirSync(dir, { withFileTypes: true })) {
       if (!e.isDirectory()) continue
       const r = rel ? rel + '/' + e.name : e.name
-      if (COLLECTIONS.has(e.name)) continue
-      if (!/^[a-z]+$/.test(e.name))
-        gaps.push({ what: `src/${r} is not ONE WORD — a hyphenated folder is two concepts sharing a directory`, fix: `nest it: src/${r.replace(/-/g, '/')}/index.ts, so each word names a folder and the leaf holds the faces` })
       const files = readdirSync(join(dir, e.name), { withFileTypes: true }).filter((f) => !f.isDirectory()).map((f) => f.name)
-      for (const f of files.filter((n) => !/^index\./.test(n)))
-        gaps.push({ what: `src/${r}/${f} is a NAMED file in a module folder — one concept, one name, and the extension names the face`, fix: `move it to src/${r}/${f.replace(/\.[^.]+$/, '').replace(/-/g, '/')}/index${f.slice(f.lastIndexOf('.'))} and re-export from src/${r}/index.ts` })
-      walk(join(dir, e.name), r)
+      if (!isCollection(e.name)) {
+        if (!/^[a-z]+$/.test(e.name))
+          gaps.push({ what: `src/${r} is not ONE WORD — a hyphenated folder is two concepts sharing a directory`, fix: `nest it: src/${r.replace(/-/g, '/')}/index.ts, so each word names a folder and the leaf holds the faces` })
+        for (const f of files.filter((n) => !/^index\./.test(n)))
+          gaps.push({ what: `src/${r} is SINGULAR (a model) but holds the named file ${f} — one concept, one name, and the extension names the face`, fix: `move it to src/${r}/${f.replace(/\.[^.]+$/, '').replace(/-/g, '/')}/index${f.slice(f.lastIndexOf('.'))} and re-export from src/${r}/index.ts — or rename the folder plural if it is genuinely a collection` })
+      }
+      // A COLLECTION'S MEMBERS ARE ITS OWN BUSINESS — do not descend. src/seeds holds ninety content-addressed
+      // page seeds whose names are uuids by construction; judging them as models would demand a uuid be one word.
+      if (!isCollection(e.name)) walk(join(dir, e.name), r)
     }
   }
   walk(join(ROOT, 'src'), '')
@@ -741,7 +745,7 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
   const gaps: Gap[] = []
   // the WHOLE tree: scripts + the library + the generated package surfaces. Exactly TWO exemptions — the two
   // declared singularities (scripts/api.ts, src/boundary.ts): each layer has ONE named place, nothing else may.
-  const SINGULARITIES = new Set(['src/scripts/api.ts', 'src/boundary.ts', 'src/test/api.ts'])
+  const SINGULARITIES = new Set(['src/scripts/api.ts', 'src/boundary.ts', 'src/tests/api.ts'])
   const dirs = ['src/scripts', 'src', 'src/quantum', 'src/theorems', 'src/test', ...readdirSync(join(ROOT, 'packages')).map((d) => `packages/${d}/src`)]
   const files: string[] = []
   for (const d of dirs) {

@@ -1,5 +1,5 @@
 // OEAPI tests — THE FIELD AUDIT: the Open Education API projection is vetted field-by-field against the v6.0 spec's
-// own vocabulary, the same law src/test/seo.test.ts holds over schema.org names. The vocabulary below is transcribed
+// own vocabulary, the same law src/tests/seo.test.ts holds over schema.org names. The vocabulary below is transcribed
 // from https://github.com/open-education-api/specification/blob/main/oeapi.json (info.version 6.0) — add a field to
 // src/oeapi.ts that the spec does not define and this audit fails, which is how it caught `link` on LearningOutcome
 // (the spec has no such field; the proof URL belongs in `ext`) before it ever shipped. Integrity, not truth.

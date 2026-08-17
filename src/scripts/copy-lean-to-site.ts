@@ -3,7 +3,7 @@
 // `by decide` source), but VitePress builds only markdown into its outDir (docs/.vitepress/dist — the default), so
 // /lean/*.lean would 404 on the deployed site — the theorem and its proof were one click apart, and the click was
 // broken. This copies lean/*.lean into <outDir>/lean/ AFTER the VitePress build, so every proof link resolves.
-// It ALSO serves the PayloadCMS page seeds (src/lean/<uuid>/page.json, the imprint-named append-only versions) at
+// It ALSO serves the PayloadCMS page seeds (src/seeds/<uuid>/page.json, the imprint-named append-only versions) at
 // /seeds/<uuid>/page.json — the seed folder stays the ONE source (DRY); the build serves it, nothing duplicates it.
 // It ALSO serves the repo-root llm.txt (the canonical agent entry point src/index.ts cites) at /llm.txt AND at
 // /llms.txt (the emerging llms-txt standard path) — same DRY rule: the root file is the one source, the build serves it.

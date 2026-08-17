@@ -38,7 +38,7 @@ for (const rel of tracked) {
   const text = buf.toString('utf8')
   for (const [name, re] of SECRET_PATTERNS) if (re.test(text)) hits.push({ file: rel, pattern: name })
 }
-// THE KAT CLAIM IS BACKED BY VECTORS, NOT BY A FILENAME. This check used to assert that src/test/kat.test.ts exists
+// THE KAT CLAIM IS BACKED BY VECTORS, NOT BY A FILENAME. This check used to assert that src/tests/kat.test.ts exists
 // — a hardcoded path, which a legitimate refactor breaks and an EMPTY file with the right name would satisfy. What
 // actually backs "KAT-verified" is that the standards' own published outputs are asserted somewhere in the tests, so
 // that is what is counted: each anchor below is a vector no implementation can produce without conforming.

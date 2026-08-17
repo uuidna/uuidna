@@ -111,7 +111,7 @@ export { heroAnimation, readHero, type HeroAnimation, renderTheorem, renderList,
 // shape (dependency-free) that stamps the address on save — the one fold a Payload plugin and a VitePress plugin share.
 export { serialize, documentAddress, documentHandle, reAddress, payloadFoldHook, type DocNode, type EditorState, type DocFold, type PayloadHookArgs } from './editor.js'
 // payload-seed — LEAN AS COMPUTABLE PAYLOADCMS SEEDS: each lean/*.lean converts to a nested page seed under
-// src/lean/<uuid>, the uuid a reversible IMPRINT of (status ∥ stem ∥ content) — a changed file mints a new
+// src/seeds/<uuid>, the uuid a reversible IMPRINT of (status ∥ stem ∥ content) — a changed file mints a new
 // immutable version folder, and readSeed reverse-engineers status/stem/content OUT of the folder name, so
 // filtering and indexing cost nothing: the listing IS the index. Integrity, not truth.
 export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs, type SeedStatus, type SeedIdentity, type LeanPageSeed, type PayloadDoc } from './payload-seed.js'

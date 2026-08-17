@@ -1,7 +1,7 @@
 // payload-seed — LEAN AS COMPUTABLE PAYLOADCMS SEEDS, versioned by content-address, indexed by REVERSE ENGINEERING.
-// Each lean/*.lean file converts to a nested PayloadCMS page seed under src/lean/<uuid>/, where the uuid is NOT a
+// Each lean/*.lean file converts to a nested PayloadCMS page seed under src/seeds/<uuid>/, where the uuid is NOT a
 // random id: it is a reversible IMPRINT of (status ∥ file-stem fingerprint ∥ content fingerprint). Any change to the
-// Lean source moves the content fingerprint, so a new VERSION appears as a new src/lean/<uuid> folder — versions are
+// Lean source moves the content fingerprint, so a new VERSION appears as a new src/seeds/<uuid> folder — versions are
 // immutable, append-only, exactly like diamonds. And because the status travels IN the uuid, filtering and indexing
 // cost NOTHING: readSeed(dirname) recovers (status, stem, content) with zero file reads and zero index — the folder
 // listing IS the index, reverse-engineered from the names. Integrity, not truth: the seed carries provenance and
@@ -49,7 +49,7 @@ export function belongsTo(uuid: string, fileStem: string): boolean {
 }
 
 export interface LeanPageSeed {
-  uuid: string                 // the imprinted version id — the folder name under src/lean/
+  uuid: string                 // the imprinted version id — the folder name under src/seeds/
   slug: string                 // the payload page slug (the lean file stem, lowercased)
   status: SeedStatus
   address: string              // documentAddress of the nested page tree — the editor-contract stamp

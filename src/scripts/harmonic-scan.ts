@@ -35,7 +35,7 @@ const OPS: [string, RegExp][] = [
 ]
 // DETERMINISM hard-reject (rule 2) — CALLS only (a trailing `(` or `.now`), so prose like "bans Math.*" or "no Math.*"
 // never trips it; a real host intrinsic always does. No exemption anywhere.
-// FAITHFUL to the smoke test (src/test/smoke.test.ts) so the guard is NEVER laxer than the pre-push gate it front-runs
+// FAITHFUL to the smoke test (src/tests/smoke.test.ts) so the guard is NEVER laxer than the pre-push gate it front-runs
 // — a laxer guard passes a violation, then the gate blocks the push, which re-spends the ~4-minute gate (the exact
 // trap this guard exists to prevent). The Math rule matches any `Math` dot letter in RAW source (comments included: the
 // smoke test does not strip), every file, no exemption. The wall-clock rule matches a raw-source clock read in the

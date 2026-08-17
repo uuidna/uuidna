@@ -94,7 +94,7 @@ try {
 // three finders came to exist and never run: `dry`, `seo` and `vacuous` were invoked nowhere in the tree, and the
 // vacuous one was holding 12 real findings the moment it was first executed. Now every finder is one entry, called
 // in-process, and ALL objections are collected before the verdict — a failing run names every gap at once instead of
-// only the first. src/test/finder-coverage.test.ts makes the dormant-finder class impossible: every exported *Gaps
+// only the first. src/tests/finder-coverage.test.ts makes the dormant-finder class impossible: every exported *Gaps
 // must appear below or in ADVISORY with a stated reason.
 const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite?: boolean }[] = [
   { name: 'legal', run: () => legalGaps().gaps },

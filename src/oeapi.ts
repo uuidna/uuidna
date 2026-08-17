@@ -26,7 +26,7 @@ import { publications } from './publish.js'
 import { toUuid, merkleFold } from './address.js'
 
 const HOST = 'https://uuidna.com'
-/** the exact spec this projection's field names are vetted against (src/test/oeapi.test.ts is the finder) */
+/** the exact spec this projection's field names are vetted against (src/tests/oeapi.test.ts is the finder) */
 export const OEAPI_SPEC = 'https://github.com/open-education-api/specification/blob/main/oeapi.json'
 export const OEAPI_VERSION = '6.0'
 const LANGUAGE = 'en-GB'                    // the LanguageTypedString tag (spec pattern: language[-REGION])
