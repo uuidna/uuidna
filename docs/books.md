@@ -52,7 +52,7 @@ faithful. Semantic fidelity is human judgement; provenance is what recomputes.
 
 A book you write is audited the same way: content-address each chapter, fold them to the **chapter root**. Every
 revision re-addresses, so a change is never silent — authorship and integrity are recomputable, edit by edit. uuidna
-proves the text is exactly what it is; it does not judge whether the writing is good. Integrity, not truth.
+proves the text is exactly what it is; it does not judge whether the writing is good. Integrity, not truth (theorem provenance_integrity_not_content_truth).
 
 Write below and the audit **reflects back live, in your browser** — the same offline `auditText` the MCP tool runs,
 recomputing on every keystroke. Nothing is sent, stored, or tracked:

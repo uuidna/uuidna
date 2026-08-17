@@ -39,4 +39,4 @@ import { data } from './.vitepress/news.data'
 
 *The investigations desk: [the trials charter](/trials#the-charter-what-the-trial-does-and-does-not-judge) — the
 claim on trial, never the person. The archive: [the changelog](/changelog), self-auditing. The education desk:
-[the quantum school](/school). Integrity, not truth.*
+[the quantum school](/school). Integrity, not truth (theorem provenance_integrity_not_content_truth).*

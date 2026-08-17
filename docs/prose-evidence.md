@@ -94,9 +94,9 @@
   - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b]....`
 
 
-## integrity, not truth
+## integrity, not truth (theorem provenance_integrity_not_content_truth)
 
-**Prose:** "Integrity, not truth: a seal proves its exact statement, never a grander claim"
+**Prose:** "Integrity, not truth (theorem provenance_integrity_not_content_truth): a seal proves its exact statement, never a grander claim"
 
 **Address:** `235990ab-4f92-872c-8a3d-8b821230579f`
 
@@ -111,7 +111,7 @@
 - **[fold_integrity_tamper](/theorem/fold_integrity_tamper)** — "Insufficient integrity check (CWE-345): content-addressing plus a merkle proof makes any tamper move the tag — evident, not silent — cites tamper_changes_tag. [solution:tamper_changes_tag]"
   - File: Exploits.lean
   - Statement: `3 * 5 * 23 = 345...`
-- **[provenance_integrity_not_content_truth](/theorem/provenance_integrity_not_content_truth)** — "CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY, never the truth of what an image depicts. EXACT-COPY: byte-identical inputs fold to the SAME fingerprint (7+8+9 = 7+8+9). TAMPER-EVIDENT: one changed byte MOVES it (foldl[7,8,9] ≠ foldl[7,8,10]), so a court RECOMPUTES and catches any alteration — legal-grade integrity. But CONTENT AUTHENTICITY is NEVER certified from the bytes: over every (integrity, genuine) pair the fingerprint's content verdict is 0 — [0,0,0,0] — because it reads only the BYTES (integrity), never the WORLD (genuine), so it can never return "genuine". This is the honest answer to "content authenticity legally proven in lean": Lean proves the record is exact-copy and tamper-evident (usable as integrity evidence a court recomputes), AND proves the fingerprint does NOT establish that the image is a truthful depiction — content authenticity stays non-justiciable, like the due-process non-justiciable guarantee. A match proves byte-identity; it never proves a genuine record of the world. Integrity, not truth."
+- **[provenance_integrity_not_content_truth](/theorem/provenance_integrity_not_content_truth)** — "CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY, never the truth of what an image depicts. EXACT-COPY: byte-identical inputs fold to the SAME fingerprint (7+8+9 = 7+8+9). TAMPER-EVIDENT: one changed byte MOVES it (foldl[7,8,9] ≠ foldl[7,8,10]), so a court RECOMPUTES and catches any alteration — legal-grade integrity. But CONTENT AUTHENTICITY is NEVER certified from the bytes: over every (integrity, genuine) pair the fingerprint's content verdict is 0 — [0,0,0,0] — because it reads only the BYTES (integrity), never the WORLD (genuine — theorem provenance_integrity_not_content_truth), so it can never return "genuine". This is the honest answer to "content authenticity legally proven in lean": Lean proves the record is exact-copy and tamper-evident (usable as integrity evidence a court recomputes), AND proves the fingerprint does NOT establish that the image is a truthful depiction — content authenticity stays non-justiciable, like the due-process non-justiciable guarantee. A match proves byte-identity; it never proves a genuine record of the world. Integrity, not truth (theorem provenance_integrity_not_content_truth)."
   - File: Reasoning.lean
   - Statement: `(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [...`
 

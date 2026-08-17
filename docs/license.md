@@ -82,7 +82,7 @@ honest half is the powerful one. **Secrecy is exactly the secrecy of the key:**
   entropy. This is the commercial tier.
 
 So "encrypt with the license" gates access only when the license is a **secret** (the private contract), never with
-the public terms. Integrity, not truth.
+the public terms. Integrity, not truth (theorem provenance_integrity_not_content_truth).
 
 ## Change is a new signature
 

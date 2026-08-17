@@ -1,6 +1,6 @@
 ---
 title: Justice (evidence, not a court)
-description: uuidna's recomputable evidence and integrity layer — how it supports justice honestly by making claims verifiable, keeping the flag on the claim never the person, and leaving the ruling to humans and courts. Not a legal system.
+description: uuidna's recomputable evidence and integrity layer — how it supports justice honestly by making claims verifiable, keeping the flag on the claim never the person (theorem anti_fraud_check_deterministic), and leaving the ruling to humans and courts. Not a legal system.
 ---
 
 # Justice — evidence, not a court
@@ -44,4 +44,4 @@ recheck rather than on trust or authority.
   *record* honest — verifiable, attributed, tamper-evident — so the people entitled to judge do so on the merits.
 
 Justice needs evidence that recomputes and a human to weigh it. uuidna delivers the first and defers the second, by
-design. [The trial charter](/trials) · [The licence](/license) · [Privacy by design](/privacy). Integrity, not truth.
+design. [The trial charter](/trials) · [The licence](/license) · [Privacy by design](/privacy). Integrity, not truth (theorem provenance_integrity_not_content_truth).

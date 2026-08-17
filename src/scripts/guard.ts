@@ -110,6 +110,12 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // theorem may again be true regardless of its content. `by decide` checks the proposition; this checks that
   // the proposition means its key.
   { name: 'vacuous', run: () => vacuousGaps() },
+  // BLOCKING from birth, by the captain's law "all not lean green fails": a boundary stated bare drops the lead —
+  // the reader is told what the work is not and never handed the sealed thing that fixes the bound. It was written
+  // advisory with 56 open findings; all 56 were paid in the same landing (the recurring "integrity, not truth"
+  // cited at its source in src/mcp.ts so the generated catalog inherits it, then each remaining boundary given the
+  // proof that actually fixes it), so it enters the gate green and stays that way.
+  { name: 'negation', run: () => negationGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {
@@ -130,8 +136,6 @@ for (const f of FINDERS) {
 // `vacuous` were invoked nowhere in the tree, and the moment `vacuous` first ran it named 12 real findings. A finder
 // that reports on every run cannot be forgotten; a finder nobody calls is a claim nobody checks.
 const ADVISORY: { name: string; run: () => Gap[]; why: string }[] = [
-  { name: 'negation', run: () => negationGaps(),
-    why: 'the absence law at full width — a boundary stated bare ("not a solver", "solves none", "NOT PROVEN") drops the lead, telling the reader what the work is not and never where the work is. Its 56 findings are AUTHORED PROSE across the published docs, and choosing which sealed theorem fixes each bound is judgment, not derivation, so blocking on it would halt the daily calendar on a decision no gate can make. It speaks every pass instead — the class cannot hide, and each fix is one citation' },
   { name: 'seo', run: () => seoGaps().gaps,
     why: 'its findings are page descriptions outside Google\'s 50-160 char snippet band, and this project\'s descriptions carry honest scope, which is longer BY DESIGN. Optimising them for a snippet would trade the honesty for a click, so the band is advice here, not law' },
 ]

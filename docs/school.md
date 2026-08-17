@@ -14,7 +14,7 @@ on ℤ/9, the rosette's on ℤ/7, the frame ring's strides, the phase ladder's s
 on the torus. Learn one walk and you have learned them all; the semester's lessons below are that walk taught
 seven ways. And the subject is a way of **being** quantum at school: recompute rather than trust, close every
 path you open, fold every finding into a finder, deposit what you prove — the student is the generator, the
-semester is the ring, and graduation is the walk coming home. The school was never a separate institution to build — every part of it already exists in the ledger. This page
+semester is the ring, and graduation is the walk coming home. The school was never a separate institution to build (theorem closure_is_coprime) — every part of it already exists in the ledger. This page
 just connects them: **the curriculum is [the topics by skill](/topics)**, each cluster's monograph is a course text,
 each theorem a lesson with its proof one click away (`/lean/*.lean`), and the Lean kernel — not a teacher — decides
 when you've understood: `npm run lean` either recomputes or it doesn't.
@@ -305,7 +305,7 @@ order forever), and a dead second deploy path was removed rather than resurrecte
 platform, no secrets to lose.
 
 Three school laws met in the wall. *Close the path, not the wall* — the fix was never a stronger gate but a named
-reason at each open end. *The verdict lesson* — every red run handed back an exact diagnosis, never a judgment,
+reason at each open end. *The verdict lesson* — every red run handed back an exact diagnosis, never a judgment (theorem verdict_exactly_one),
 and each was read (`gh run view --log-failed`) instead of overridden. *The standard lesson* — the wall is now a
 fact in GitHub's own API, verifiable by anyone without trusting this page. **Practice:** audit the wall yourself —
 
@@ -492,4 +492,4 @@ captain's message lives: *free on the free sailing angle; contribute 2 to earn u
 The message was the session's equation, receipted before the work existed, realised after the waves proved it.
 
 *Honest scope:* the school teaches what is decidable and seals what recomputes. It does not certify wisdom, taste,
-or judgment — those stay with the student; the court decides meaning. Integrity, not truth.
+or judgment — those stay with the student; the court decides meaning. Integrity, not truth (theorem provenance_integrity_not_content_truth).

@@ -33,4 +33,4 @@ Run them yourself with `npm test`.
   suite means something only because a red one blocks the release.
 
 The tests, the [trials](/trials), and the [theorems](/theorems) are three readings of one discipline: recompute it
-yourself, or it does not count. Integrity, not truth.
+yourself, or it does not count. Integrity, not truth (theorem provenance_integrity_not_content_truth).

@@ -152,7 +152,7 @@ distance three gives both.
 
 ---
 
-## Module 6 — The carrier, not the cipher
+## Module 6 — The carrier, not the cipher (theorem imprint_capacity_chain)
 
 **Objectives.** Tell apart the three kinds of uuid; know when you are hiding a message and when you are merely
 *carrying* one.
@@ -192,4 +192,4 @@ theorem joins this course's citations; the next student learns from what you sea
 more recomputable fact — which is the only way this school has ever grown.
 
 *The full cryptography theorems live in the [ciphers cluster](/topics); the quantum posture in
-[what quantum means](/quantum); the receipts that verify every claim, on [Trials](/trials). Integrity, not truth.*
+[what quantum means](/quantum); the receipts that verify every claim, on [Trials](/trials). Integrity, not truth (theorem provenance_integrity_not_content_truth).*

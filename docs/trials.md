@@ -71,7 +71,7 @@ A trial on a single statement returns **one** answer, and only one of **two** �
 | **UNVERIFIED** | everything else | no test, no sealed citation, a failed test, or a citation to a proof that is **not** in the ledger — which verifies nothing. **Not "false"** — just not verified |
 
 **uuidna verifies; it never refutes.** Calling a claim *false* is an overclaim it cannot decide — absence of proof is
-not proof of falsity — so there is no third verdict. The receipt is a content-address, so two people running the same
+not proof of falsity — so there is no third verdict (theorem verdict_exactly_one). The receipt is a content-address, so two people running the same
 trial on the same statement get the same answer.
 
 ## The charter — what the trial does and does not judge
@@ -79,7 +79,7 @@ trial on the same statement get the same answer.
 A public trial carries credibility only if its stance is stated plainly. This is the whole of it, drawn from the two
 answers above — no more, no less:
 
-- **The claim is on trial, never the person, never the idea's worth.** A trial judges *integrity* — does a statement
+- **The claim is on trial, never the person, never the idea's worth** (theorem anti_fraud_check_deterministic). A trial judges *integrity* — does a statement
   earn what it asserts — not merit, taste, or who wrote it. There is no verdict for "unwelcome" and none for "brilliant".
 - **Every idea is heard, and none is called false.** Any statement can be tried. An idea without a proof is
   **UNVERIFIED** — held open, never dismissed, never labelled false — and it leaves with an ordered `develop` plan:
@@ -96,7 +96,7 @@ answers above — no more, no less:
 
 **The honest limit — credibility *is* responsibility.** "Every idea heard" is not "every claim verified". Leaving an
 unbacked claim UNVERIFIED is not judging the idea — it is holding the *claim* to what it earns; drop that and a VERIFIED
-would mean nothing. The trial expects nothing of an idea except that it not claim a proof it does not have.
+would mean nothing. The trial expects nothing of an idea except that it not claim a proof it does not have (theorem overclaim_with_fake_cite_fails).
 
 ## It can fail
 

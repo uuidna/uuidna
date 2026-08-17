@@ -15,4 +15,4 @@ the top bar.
 <SearchResults />
 
 The theorems are also browsable by [principle](/theorems) and by [skill](/topics); each result links to its proof
-page with the full `by decide` Lean proof and its content-address. Integrity, not truth.
+page with the full `by decide` Lean proof and its content-address. Integrity, not truth (theorem provenance_integrity_not_content_truth).

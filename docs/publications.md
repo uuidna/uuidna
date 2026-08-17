@@ -39,7 +39,7 @@ build time; you are reading only what survived it.
 - **Audited before published.** The honesty gate runs *before* the page is written. An overreaching note fails the build.
 - **Recomputable.** Each note content-addresses to a uuid, and its proofs fold, order-invariant, to one receipt — recompute both from the same `lean/*.lean`.
 
-Integrity, not truth. A publication proves that every claim it makes is backed by a proof — never that its domain is
+Integrity, not truth (theorem provenance_integrity_not_content_truth). A publication proves that every claim it makes is backed by a proof — never that its domain is
 complete or its prose is fine. [All theorems](/theorems) · [How auditing works](/trials) · [The books it reads](/books)
 
 <style scoped>

@@ -79,7 +79,7 @@ one handle apart.
 - **Prize earning waves** — the beating band 30°–60°: **commercial use obligates the 2-coin contribution** per
   seal/verification. Before deploying commercial work, prove the deposit with a signed receipt from
   [uuidna.com/trials](/trials) — content-addressed, immutable, the receipt IS the proof. The donation, by contrast,
-  is voluntary — a gift, never a revenue promise.
+  is voluntary — a gift, never a revenue promise (theorem two_coins).
 
 ## Why contribute — coins as credits to the licence
 

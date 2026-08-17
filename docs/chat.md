@@ -45,4 +45,4 @@ sealing under a *public* contract binds a message to the terms but hides nothing
 - **Not "intelligent secure chat" as a slogan.** The security is the ChaCha20-Poly1305 layer keyed by a secret; the
   receipts are non-crypto content-addresses (integrity and routing, not secrecy). Each is exactly what it is.
 
-The [Guides](/guides) show how to fuse the MCP; the [Games](/games) let you play the same functions. Integrity, not truth.
+The [Guides](/guides) show how to fuse the MCP; the [Games](/games) let you play the same functions. Integrity, not truth (theorem provenance_integrity_not_content_truth).
