@@ -8,7 +8,8 @@
 // - Science (acoustics, astronomy, physics, chemistry, biology)
 // - Language (glagolitic, editing, typesetting, reporting)
 
-import { theorems, coins, toUuid, merkleGravity } from '../index.js'
+import { readFileSync as __rd } from 'node:fs'
+import { statementCensus, theorems, coins, toUuid, merkleGravity } from '../index.js'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -212,6 +213,24 @@ ${c.keys.map((k: string) => `[${k}](/theorem/${k})`).join(' · ')}
   .join('\n')}
 
 ---
+
+## The docket — the captain claims ALL in trial
+
+The claim is not over the theorems alone. Everything that passes through the trial is claimed, and the count is
+computed, never typed:
+
+| in trial | count |
+|---|---|
+| sealed propositions | ${(() => { const c = statementCensus(); return c.distinct + ' (' + c.entries + ' entries, ' + c.renamings + ' re-namings — a theorem is its Lean, not its name)' })()} |
+| prose paragraphs tried | ${(() => { try { const t = JSON.parse(__rd('prose-trials.json','utf8')); return t.paragraphs_tried + ' — ' + t.usable + ' usable, ' + t.unverified + ' held open, ' + t.drained + ' drained' } catch { return 'not yet measured' } })()} |
+
+**The claim is of ROOM, never of truth** — the same scope the superposition claim carries. Every item in the
+docket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's
+name on it yet, and a DRAINED one is refused outright
+([legal_only_the_proven_is_admitted](/theorem/legal_only_the_proven_is_admitted),
+[legal_remand_is_total_nothing_discarded](/theorem/legal_remand_is_total_nothing_discarded) — nothing is
+discarded, everything not admitted is remanded). Claiming the docket buys no verdict on anything in it; it is
+the court owning its own record ([coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none)).
 
 ## The Superposition Claim
 
