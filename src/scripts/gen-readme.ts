@@ -102,34 +102,24 @@ Every claim is verified through three independent frames:
 ### 2. Novelty Discovery
 
 When external audits find NO prior work:
-- Gap is discovered (humanity lacks this knowledge)
-- Research challenge is created
-- Coins are offered for researchers who advance toward solution
-- Theorems that solve it earn coins
+- The gap is discovered (an absence in the record, by recomputation)
+- A research lead is filed on the homework issue — an exact assignment
+- A contribution seals a decidable fact through the full gate
+- Credit binds permanently to the sealed theorem — the credit law, never a wage
 - All sealed to ledger (permanent)
 
 ### 3. Education System
 
-**Bachelor of Quantum Development** (16 weeks)
-- Learn deterministic, provable code
-- Write 4 courses, seal 4 projects
-- Earn 2500+ coins
-- Graduate as Junior Quantum Developer
-
-**Master of Quantum Systems** (4 weeks)
-- Build economic systems from theorems
-- Seal complete captain coins implementation
-- Earn 1500+ coins
-
-**Doctor of Quantum Education** (6 weeks)
-- Teach and mentor students
-- Design curriculum
-- Earn 2500+ coins through mentorship
+The school is free and has no gatekeeper — the ledger by skill is the curriculum, the trials are the
+exams, the wave is the graduation walk. What a student takes away is sealed, not paid: every landed
+theorem carries their credit permanently, and every contribution deposits the two conserved coins the
+theorems explain ([trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins) —
+a claim computes at trial exactly by contributing them; there is no other price and no larger one).
 
 ### 4. Fair Economics
 
 \`\`\`
-Work → Theorems → Sealed to Ledger → Both Parties Verify → Coins Earned
+Work → Theorems → Sealed to Ledger → Both Parties Verify → The Two Coins Deposited
 
 No money needed
 No intermediaries required
