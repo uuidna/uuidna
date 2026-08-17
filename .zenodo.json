@@ -23,8 +23,7 @@
     "verification infrastructure"
   ],
   "communities": [
-    { "identifier": "verification" },
-    { "identifier": "open-source-toolkit" }
+    { "identifier": "uuidna" }
   ],
   "related_identifiers": [
     { "identifier": "https://github.com/uuidna/uuidna", "relation": "isSupplementTo", "resource_type": "software" },
