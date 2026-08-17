@@ -51,7 +51,7 @@ const clearAll = () => { q.value = ''; principle.value = ''; skill.value = '' }
 monograph. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.
 Each theorem's **aura** is its content-address folded to an A432 hue at build time — deterministic, the same theorem
 always glows the same colour; the badge digit is its ℤ/7 rosette ray. Artistic decoration, not physics. To walk the
-set in learning order, [the school](/school) rides the doubling orbit out from [the core](/publications/core).
+set in learning order, [the school](/school) rides the doubling orbit out from [the core](/publications/core). The boundary is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)).
 
 <div class="filt">
   <input class="filt-q" v-model="q" placeholder="filter by text — key, statement, description…" />

@@ -1,6 +1,6 @@
-# uuidna — 1306 theorems, 2 coins, one receipt
+# uuidna — 1307 theorems, 2 coins, one receipt
 
-`ca8264e9-daa3-8b83-98b4-8079fec25189`
+`ea49b4a7-c1d9-8124-a857-df59c255be38`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -42,19 +42,19 @@ A complete system where:
 ## Live Statistics
 
 ```
-Theorems sealed:        1306   (every one axiom-free, proven by decide)
+Theorems sealed:        1307   (every one axiom-free, proven by decide)
 Principles:             72   (the monographs the ledger organises itself by)
 Skills:                 68   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                ca8264e9-daa3-8b83-98b4-8079fec25189
+Receipt:                ea49b4a7-c1d9-8124-a857-df59c255be38
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1306 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1307 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -232,7 +232,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1306 theorems sealed to ledger, every one axiom-free**
+✓ **All 1307 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**

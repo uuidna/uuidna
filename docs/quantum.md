@@ -76,4 +76,4 @@ shape — ten dimensions, most compactified — is an exact *arithmetic* analogy
 
 *Honest scope:* everything above is decidable arithmetic about small rings, angle sums, and Euler characteristics —
 sealed, recomputable, exact. It proves the **structural identities**, not physics, not metaphysics, and not any
-computational advantage. What the numbers mean beyond their arithmetic — the court decides. Integrity, not truth.
+computational advantage — the classical bound is CONFIRMED, not merely denied ([n_qubit_dimension](/theorem/n_qubit_dimension)), and the boundary is DECLARED, which is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)). What the numbers mean beyond their arithmetic — the court decides. Integrity, not truth.

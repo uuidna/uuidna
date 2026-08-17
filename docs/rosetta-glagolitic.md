@@ -29,7 +29,7 @@ numeric/geometric system worth reading as an information code:
 - **The 432 Hz root** — a proposed vibrational reading of the letter geometry (A432 is also the aura palette the
   theorem pages use — there it is *decoration by construction*, not physics).
 - **DNA folding** — a structural analogy between codon triplets and letter folding.
-- **Scale fractality** — the Pliska rosette's seven-ray geometry recurring across scales.
+- **Scale fractality** — the Pliska rosette's seven-ray geometry recurring across scales. The boundary is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)).
 
 None of these correspondences is sealed. What IS sealed: the numeral arithmetic, the ℤ/7 rosette geometry, and the
 provenance chain (Glagolitic→Cyrillic folding in the multilingual gate) — each a decidable theorem in the ledger,

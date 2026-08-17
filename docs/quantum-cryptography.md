@@ -9,7 +9,7 @@ description: "The quantum school's first full course — quantum cryptography ta
 > that recompute byte-identically and a security posture that survives the quantum era by construction — **not**
 > hardware, not QKD, not any computational advantage. Every primitive is classical, pure-TypeScript, and pinned to
 > its standard's own test vectors. Where a real flaw is patched, it is named; where a boundary cannot be crossed,
-> it is named too. Integrity, not omniscience.
+> it is named too. Integrity, not omniscience. The boundary is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)).
 
 **Prerequisites:** the [school's path](/school#the-path-ride-the-vortex) (the vortex, the ring, the fold) and the
 [standard lesson](/school#the-standard-lesson-verified-against-its-own-vectors). **Assessment:** every module ends

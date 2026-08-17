@@ -6,7 +6,7 @@ description: "Messages that prove themselves, the shipped demonstrations, and th
 # Quantum messaging <Badge type="tip" text="folded from three pages" />
 
 > **Honest scope.** "Quantum" here names the state-imprint construction, not quantum hardware: classical SHA-256
-> chains, recomputable by anyone. The security claim is preimage cost, not physics.
+> chains, recomputable by anyone. The security claim is preimage cost, not physics. The boundary is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)).
 
 ## A message that proves itself
 
