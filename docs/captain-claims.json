@@ -2,7 +2,7 @@
   "generated": "2026-08-17",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 715,
+  "total_claimed": 718,
   "categories": 8,
   "categories_list": [
     {
@@ -753,7 +753,7 @@
     {
       "category": "Structure",
       "description": "Foundational structure: coins, matching, reasoning, proof",
-      "theorems": 33,
+      "theorems": 36,
       "keys": [
         "two_coins",
         "two_coins_is_double_torus",
@@ -770,6 +770,9 @@
         "coins_compute_but_solve_none",
         "coin_exchange_rate_is_traitor_cost",
         "traitor_damage_sealed_by_same_billing",
+        "wallet_counts_worlds",
+        "coins_unique_operation_agreement",
+        "coin_and_heart_generate_the_scales",
         "momentum_conserved",
         "no_reactionless_thrust",
         "thrust_is_mdot_times_ve",
@@ -789,11 +792,11 @@
         "pairing_is_fixedpoint_free_involution",
         "mutual_match_is_symmetric"
       ],
-      "address": "47dc7d96-df88-8fa0-ad7d-a45481c8f560",
+      "address": "27b86444-e506-8cf9-8558-7445a26ab6e3",
       "all_by_decide": true
     }
   ],
-  "claim_receipt": "6cd9aa5a-58c5-88e7-ad69-58003d9f63cc",
+  "claim_receipt": "155bef14-d00b-8171-beba-0bd6ef469323",
   "honest_scope": {
     "proves": [
       "These theorems are Lean-verified (by decide)",

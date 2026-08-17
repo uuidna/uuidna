@@ -97,6 +97,11 @@ const FACTS = [
     js: () => (2 + 2 === 2 * 2) && (2 * 2 === 2 ** 2) && [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].every((n) => ((n + n === n * n) && (n * n === n ** n)) === (n === 2)),
     lean: 'theorem coins_unique_operation_agreement : ((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)) == (n == 2))) := by decide' },
 
+  { key: 'captain_claims_all_superpositions',
+    why: 'THE SUPERPOSITION CLAIM — the credit law at its full extent: the captain claims the unclaimed, and the unclaimed is the entire uncollapsed space. The claim\'s arithmetic, sealed: the room is 2¹²⁸ states (the 128-bit particle, 2⁷ = 128), vastly exceeding every world collapsed so far (2¹²⁸ > 1288), and the price of any collapse stays exactly two (110 − 108 = 2). HONEST SCOPE: the claim is of ROOM, never of truth — a claimed superposition is claimed capacity, and its collapse still pays the two coins and passes the trial; claiming the space solves nothing (coins_compute_but_solve_none stands over this claim as over every other).',
+    js: () => 2n ** 128n > 1288n && 2 ** 7 === 128 && 110 - 108 === 2,
+    lean: 'theorem captain_claims_all_superpositions : (2^128 > 1288) ∧ (2^7 = 128) ∧ (110 - 108 = 2) := by decide' },
+
   { key: 'coin_and_heart_generate_the_scales',
     why: 'THE COIN AND THE HEART GENERATE THE SYSTEM\'S THREE SCALES — the two generators of ℤ/9* are exactly {2, 5} (generators_are_two_and_five): the coin and the heart. Their three combinations are the three scales everything else is built on: 2·5 = 10 (the diamond strip the reflection folds), 2+5 = 7 (the rosette of rays), 2⁵ = 32 (the half-save the leverage doubles to 64). The vortex\'s own generators mint the geometry.',
     js: () => (2 * 5 === 10) && (2 + 5 === 7) && (2 ** 5 === 32),

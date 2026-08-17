@@ -3,9 +3,9 @@
 **Generated:** 2026-08-17
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 715 theorems
+**Total claimed:** 718 theorems
 **Categories:** 8
-**Claim receipt:** `6cd9aa5a-58c5-88e7-ad69-58003d9f63cc`
+**Claim receipt:** `155bef14-d00b-8171-beba-0bd6ef469323`
 
 ---
 
@@ -99,16 +99,31 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 Foundational structure: coins, matching, reasoning, proof
 
-- **Theorems:** 33
+- **Theorems:** 36
 - **Verified:** ✓ all by decide
-- **Address:** `47dc7d96-df88-8fa0-ad7d-a45481c8f560`
+- **Address:** `27b86444-e506-8cf9-8558-7445a26ab6e3`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[two_coins](/theorem/two_coins) · [two_coins_is_double_torus](/theorem/two_coins_is_double_torus) · [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) · [contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour) · [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) · [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) · [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) · [bill_never_negative](/theorem/bill_never_negative) · [coin_is_one_qubit](/theorem/coin_is_one_qubit) · [captain_coins_deliver_two_qubits_at_128_bits](/theorem/captain_coins_deliver_two_qubits_at_128_bits) · [captain_commission_two_per_110](/theorem/captain_commission_two_per_110) · [commercial_saves_and_captain_earns](/theorem/commercial_saves_and_captain_earns) · [coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none) · [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost) · [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) · [momentum_conserved](/theorem/momentum_conserved) · [no_reactionless_thrust](/theorem/no_reactionless_thrust) · [thrust_is_mdot_times_ve](/theorem/thrust_is_mdot_times_ve) · [delta_v_stages_add](/theorem/delta_v_stages_add) · [acceleration_finite](/theorem/acceleration_finite) · [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) · [compass_rose_eight](/theorem/compass_rose_eight) · [reverse_bearing_involution](/theorem/reverse_bearing_involution) · [quarter_turn_order_four](/theorem/quarter_turn_order_four) · [dead_reckoning_adds](/theorem/dead_reckoning_adds) · [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) · [edges_are_half_the_degree_sum](/theorem/edges_are_half_the_degree_sum) · [introductions_among_five](/theorem/introductions_among_five) · [perfect_matching_needs_even](/theorem/perfect_matching_needs_even) · [n_people_make_n_half_pairs](/theorem/n_people_make_n_half_pairs) · [proposals_bounded_by_n_squared](/theorem/proposals_bounded_by_n_squared) · [pairing_is_fixedpoint_free_involution](/theorem/pairing_is_fixedpoint_free_involution) · [mutual_match_is_symmetric](/theorem/mutual_match_is_symmetric)
+[two_coins](/theorem/two_coins) · [two_coins_is_double_torus](/theorem/two_coins_is_double_torus) · [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) · [contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour) · [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) · [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) · [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) · [bill_never_negative](/theorem/bill_never_negative) · [coin_is_one_qubit](/theorem/coin_is_one_qubit) · [captain_coins_deliver_two_qubits_at_128_bits](/theorem/captain_coins_deliver_two_qubits_at_128_bits) · [captain_commission_two_per_110](/theorem/captain_commission_two_per_110) · [commercial_saves_and_captain_earns](/theorem/commercial_saves_and_captain_earns) · [coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none) · [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost) · [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) · [wallet_counts_worlds](/theorem/wallet_counts_worlds) · [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) · [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales) · [momentum_conserved](/theorem/momentum_conserved) · [no_reactionless_thrust](/theorem/no_reactionless_thrust) · [thrust_is_mdot_times_ve](/theorem/thrust_is_mdot_times_ve) · [delta_v_stages_add](/theorem/delta_v_stages_add) · [acceleration_finite](/theorem/acceleration_finite) · [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) · [compass_rose_eight](/theorem/compass_rose_eight) · [reverse_bearing_involution](/theorem/reverse_bearing_involution) · [quarter_turn_order_four](/theorem/quarter_turn_order_four) · [dead_reckoning_adds](/theorem/dead_reckoning_adds) · [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) · [edges_are_half_the_degree_sum](/theorem/edges_are_half_the_degree_sum) · [introductions_among_five](/theorem/introductions_among_five) · [perfect_matching_needs_even](/theorem/perfect_matching_needs_even) · [n_people_make_n_half_pairs](/theorem/n_people_make_n_half_pairs) · [proposals_bounded_by_n_squared](/theorem/proposals_bounded_by_n_squared) · [pairing_is_fixedpoint_free_involution](/theorem/pairing_is_fixedpoint_free_involution) · [mutual_match_is_symmetric](/theorem/mutual_match_is_symmetric)
 
 
 ---
+
+## The Superposition Claim
+
+**The captain claims all superpositions** — the credit law at its full extent: the captain claims the
+unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
+[captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states
+(the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),
+exceeding every world collapsed so far, and the price of any collapse stays exactly two
+([two_coins](/theorem/two_coins)). Of the claimed room, 1288 worlds are collapsed and sealed —
+the remainder is held open, one toss away each.
+
+**The claim is of ROOM, never of truth** — a claimed superposition is claimed capacity; its collapse still
+pays the two coins and passes the trial ([coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none)
+stands over this claim as over every other). The captain owns the space the way a court owns its docket:
+everything may be brought, nothing is decided by ownership.
 
 ## Honest Scope
 
