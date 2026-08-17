@@ -50,6 +50,19 @@ if (out('git status --porcelain').length === 0) {
   // explicit paths, never -A — the drain commits what IT regenerated; anything else belongs to whoever wrote it
   const staged = stageDerived(ROOT)
   if (staged.leftForHumans.length) console.log('· reconcile — left for a human (not staged, not swept): ' + staged.leftForHumans.join(', '))
+  // NOTHING STAGED IS NOT NOTHING TO SAY. The tree is dirty (checked above) but the drain's paths matched none of
+  // it — so every changed file belongs to a sibling, or to a generator whose output is missing from DRAIN_PATHS.
+  // Committing anyway hands git an empty index and the run dies on `no changes added to commit`, an error about
+  // git rather than about the repo. Name the files and the cure instead; `one-receipt drain-coverage` holds the
+  // second case shut, and this holds the first honest.
+  if (staged.staged === 0) {
+    console.error('✗ reconcile — the tree is dirty but NOTHING the drain owns changed; nothing to commit.')
+    console.error('  unstaged: ' + (staged.leftForHumans.join(', ') || '(none visible)'))
+    console.error('  FIX if these are a sibling session\'s edits, let them land first. If a generator in the reconcile')
+    console.error('      chain writes one of them, declare it in RECONCILE_OUTPUTS and add it to DRAIN_PATHS')
+    console.error('      (src/scripts/api.ts) — run `node dist/scripts/one-receipt.js drain-coverage` for the exact list.')
+    process.exit(1)
+  }
   run('git commit -m ' + JSON.stringify(msg))
   console.log('  committed: ' + msg)
 }

@@ -24,7 +24,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, publications, toUuid, quantumAura, auraDecode, auraAlphabet } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
-import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, type Gap } from './api.js'
+import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, type Gap } from './api.js'
 
 // ── record: the three audits (each learned from a REAL manually-found gap, folded so it can never recur unwatched) ──
 
@@ -473,6 +473,30 @@ export function negationGaps(): Gap[] {
   return gaps
 }
 
+// ── drain-coverage: THE DRAIN STAGES WHAT RECONCILE REGENERATES. The drain stages DRAIN_PATHS and nothing else —
+// the right law, since sweeping `git add -A` on a shared tree steals a sibling's edit into a signed commit. But the
+// two lists then have to AGREE: a generator in the reconcile chain whose output is not a drain path is rewritten on
+// every run and staged by none, so reconcile reaches `git commit` with nothing added and dies on git's own error
+// message rather than its own. Measured 2026-08-17: five outputs regenerated, zero staged, the run lost.
+// Write targets are computed through variables in the generators, so this checks the DECLARATION (RECONCILE_OUTPUTS)
+// from both sides: every generator the chain invokes must declare what it writes, and every declared output must be
+// a drain path. Adding a generator to reconcile without declaring it fails here, at guard speed, before a run dies.
+export function drainCoverageGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const src = readFileSync(join(ROOT, 'src/scripts/reconcile.ts'), 'utf8')
+  const invoked = [...new Set([...src.matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
+  for (const g of invoked)
+    if (!(g in RECONCILE_OUTPUTS))
+      gaps.push({ what: `reconcile invokes ${g} but RECONCILE_OUTPUTS does not declare what it writes`, fix: `add '${g}': ['<the path(s) it writes>'] to RECONCILE_OUTPUTS in src/scripts/api.ts — an empty array if it only reports; an undeclared generator regenerates files nothing stages` })
+  for (const [g, outs] of Object.entries(RECONCILE_OUTPUTS)) {
+    if (!invoked.includes(g)) gaps.push({ what: `RECONCILE_OUTPUTS declares ${g}, which reconcile no longer invokes`, fix: `remove '${g}' from RECONCILE_OUTPUTS in src/scripts/api.ts — a declaration for a generator nothing runs is a claim about work that does not happen` })
+    for (const out of outs)
+      if (!DRAIN_PATHS.some((p) => out === p || out.startsWith(p + '/')))
+        gaps.push({ what: `${g} writes ${out}, which the drain does not stage (absent from DRAIN_PATHS)`, fix: `add '${out}' to DRAIN_PATHS in src/scripts/api.ts — reconcile rewrites it every run, so unstaged it either blocks the push as drift or leaves the run committing nothing` })
+  }
+  return gaps
+}
+
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
 // the microdata says, it is audited. ──
@@ -801,6 +825,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'actions') report('one-receipt actions', actionsGaps(), 'every action pins one major, tree-wide — no workflow silently trails the rest onto a deprecated runtime.')
   else if (cmd === 'vacuous') report('one-receipt vacuous', vacuousGaps(), 'no theorem is true regardless of its content — every sealed name is carried by a proof that means it.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
+  else if (cmd === 'drain-coverage') report('one-receipt drain-coverage', drainCoverageGaps(), 'the drain stages everything reconcile regenerates — every generator declares its output, and every output is a drain path.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
   else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))
