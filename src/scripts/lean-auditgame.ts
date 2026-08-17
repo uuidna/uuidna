@@ -9,9 +9,9 @@
 // SCOPE: the game's DECISION is decidable, but its COVERAGE is not — the refutation lexicon is incomplete, so an
 // audit RAISES the cost of a false claim surviving, it does NOT reduce it to zero. A floor, not a wall — the same
 // honest bound Security proves. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
-import { emit } from './lean-gen.js'
+import { emit, range } from './lean-gen.js'
 
-const R2 = [0, 1] // a refuter's verdict: 1 = found a winning refutation (claim false), 0 = failed to refute
+const R2 = range(2) // a refuter's verdict: 1 = found a winning refutation (claim false), 0 = failed to refute
 const bit = (n: number, k: number) => (n >> k) % 2
 
 const FACTS = [

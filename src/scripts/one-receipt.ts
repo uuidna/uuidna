@@ -436,6 +436,11 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
       gaps.push({ what: `${f}: re-declares HERE/ROOT boilerplate instead of importing its layer's singularity`, fix: `edit ${f}: delete the dirname(fileURLToPath(…)) declaration(s) and import from './api.js' (a script) or './boundary.js' (a library module)` })
     if (/^const rd = \(p: string\) =>/m.test(src))
       gaps.push({ what: `${f}: re-declares rd() instead of importing its layer's singularity`, fix: `edit ${f}: delete the local rd declaration and import { rd } from './api.js' (a script) or { rdRoot } from './boundary.js' (a library module)` })
+    // the generators' own boilerplate class: a range walk re-declared as a literal (const R8 = [0,1,…,7]) instead
+    // of the ONE shared range() in lean-gen. Same law as HERE/ROOT and rd(), applied one layer in.
+    const rangeDecl = /^const R\d+ = \[/m.exec(src)
+    if (rangeDecl)
+      gaps.push({ what: `${f}: re-declares a range literal (${rangeDecl[0].trim()}…) instead of the shared range()`, fix: `edit ${f}: delete the R<n> literal and import { range } from './lean-gen.js', then use range(n)` })
   }
   return { gaps, scripts: files.length }
 }

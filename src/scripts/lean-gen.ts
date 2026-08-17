@@ -30,6 +30,10 @@ export const writeProofCache = (c: Record<string, string>): void => {
   writeFileSync(CACHE_PATH, JSON.stringify(sorted, null, 1) + '\n')
 }
 export const m9 = (n: number): number => ((n % 9) + 9) % 9
+// range — THE ONE range walk every generator's js mirror shares. `(List.range n).all (…)` is the commonest shape
+// in the ledger, and its JS twin was being re-declared per generator as `const R8 = [0,1,…,7]`; declared once here,
+// the boilerplate cannot regrow (one-receipt dry objects to any re-declaration, with the exact fix).
+export const range = (n: number): number[] => Array.from({ length: n }, (_, i) => i)
 // One shared exec buffer for every `lean` shell-out across the pipeline (generators, the audit, the heartbeat probe)
 // — a Lean file's stdout/stderr never approaches this, but a single constant keeps the cap consistent, not guessed
 // per call site.
@@ -91,17 +95,22 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   if (fail.length) { console.log('✗ ' + file + ' — JS check failed: ' + fail.map((f) => f.key).join(', ')); process.exit(1) }
   const body = facts.map((f) => (f.lean ? (f.name ? '-- ' + f.name + '\n' : '') + f.lean : `theorem ${f.key} : ${f.stmt} := by decide`)).join('\n\n')
   const lean = `-- lean/${file} — GENERATED. ${header} Every proof \`by decide\`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n${defs ? defs.trim() + '\n\n' : ''}${body}\n`
-  writeFileSync(join(ROOT, 'lean', file), lean)
   // The manifest carries {key, name, skill} — the microdata bridge. skill is the inline, authored capability
   // (a Fact's own skill, else the file-level default); omitted when neither is set, so the ledger falls back.
-  writeFileSync(join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json'), JSON.stringify(facts.map((f) => { const s = f.skill ?? skill; return s ? { key: f.key, name: f.name || f.stmt || f.key, skill: s } : { key: f.key, name: f.name || f.stmt || f.key } }), null, 0) + '\n')
-  // the delta gate: byte-identical content = the kernel's prior signature stands — verify by receipt, skip the spawn
+  const manifestPath = join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json')
+  const manifest = JSON.stringify(facts.map((f) => { const s = f.skill ?? skill; return s ? { key: f.key, name: f.name || f.stmt || f.key, skill: s } : { key: f.key, name: f.name || f.stmt || f.key } }), null, 0) + '\n'
+  // THE DELTA GATE, decided BEFORE any write: byte-identical content means the kernel's prior signature stands,
+  // so an unchanged wing costs neither the spawn NOR the two file writes — the whole step is verify-by-receipt.
+  // (Both files must exist: a deleted artifact must be rewritten even when the address matches.)
+  const leanPath = join(ROOT, 'lean', file)
   const address = toUuid(lean)
   const cache = readProofCache()
-  if (cache[file] === address && !process.env.UUIDNA_PROVE_ALL) {
+  if (cache[file] === address && existsSync(leanPath) && existsSync(manifestPath) && !process.env.UUIDNA_PROVE_ALL) {
     console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified by receipt (unchanged at ' + address.slice(0, 8) + '; the kernel signed this exact text — UUIDNA_PROVE_ALL=1 re-proves)')
     return facts.length
   }
+  writeFileSync(leanPath, lean)
+  writeFileSync(manifestPath, manifest)
   try {
     execSync('lean ' + JSON.stringify(join(ROOT, 'lean', file)), { cwd: ROOT, stdio: 'pipe', maxBuffer: MAXBUF })
   } catch (e) {

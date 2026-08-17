@@ -3,10 +3,10 @@
 // diamond reflection dz(x) = 10−x (dz(0)=0), a finite residue, never Infinity. This script COMPUTES each fact
 // from the local definition (self-proving in JS), GENERATES a `by decide` Lean theorem for it, writes
 // lean/DivByZero.lean, and VERIFIES it compiles sorry-free with `lean`. Compute → generate → verify.
-import { emit } from './lean-gen.js'
+import { emit, range } from './lean-gen.js'
 
 const dz = (x: number) => (x === 0 ? 0 : 10 - x) // division by zero in the vortex = the diamond reflection
-const R10 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+const R10 = range(10)
 
 // each fact: computed in JS (must hold), paired with the Lean theorem `by decide` that proves the same.
 const FACTS = [

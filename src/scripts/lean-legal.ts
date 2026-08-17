@@ -9,13 +9,13 @@
 // The doctrine, sealed: only the PROVEN is ADMITTED; every non-PROVEN is REMANDED (nothing discarded); and the
 // NON-JUSTICIABLE is NEVER REFUTED — the one line the court may not cross (you cannot refute what has no decidable
 // test; it stays NOT PROVEN). Booleans as 0/1 arithmetic (and=·, or=a+b−ab, not=1−a) — axiom-free, no Math.*. Integrity, not truth.
-import { emit } from './lean-gen.js'
+import { emit, range } from './lean-gen.js'
 
 const lp = (t: number, h: number, c: number) => t * h + c - t * h * c        // PROVEN
 const lr = (t: number, h: number, c: number) => t * (1 - h) * (1 - c)        // REFUTED
 const lrem = (t: number, h: number, c: number) => 1 - lp(t, h, c)            // REMAND
 const lnp = (t: number, h: number, c: number) => (1 - lp(t, h, c)) * (1 - lr(t, h, c)) // NOT PROVEN
-const R8 = [0, 1, 2, 3, 4, 5, 6, 7]
+const R8 = range(8)
 const t = (n: number) => n % 2, h = (n: number) => (n / 2 | 0) % 2, c = (n: number) => (n / 4 | 0) % 2
 
 const DEFS = [

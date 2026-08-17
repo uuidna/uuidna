@@ -4,11 +4,11 @@
 // it compiles sorry-free with `lean`. The mirror m(d)=10−d (≡1−d mod 9, fixed at 5); doubling σ and the mirror
 // generate AGL(1,ℤ/9) of order 54, acting in ONE orbit; the commutator [σ,μ] is the unit shift x↦x+1. Nothing
 // typed twice — every cell derived. Integrity, not truth.
-import { emit } from './lean-gen.js'
+import { emit, range } from './lean-gen.js'
 
 const m9 = (n: number) => ((n % 9) + 9) % 9
 const UNITS = [1, 2, 4, 5, 7, 8]
-const R10 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+const R10 = range(10)
 const isUnit = (d: number) => UNITS.includes(m9(d))
 // the tour in ℤ/9 (9 ≡ 0): units by doubling 1→2→4→8→7→5, non-units by +3 (3→6→0, since 9≡0), then wrap 0→1.
 const TOUR = [1, 2, 4, 8, 7, 5, 3, 6, 0]
