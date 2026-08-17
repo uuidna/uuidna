@@ -15,13 +15,13 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `0f8e1954` | zenodo.org | zenodo record 4963761: The Return From Shot Oblivion (Based on the Materials of Serhii Zhyhalko Trial) | UNVERIFIED | VERIFIED |
-| `de2058e7` | zenodo.org | zenodo record 7056927: Post-hoc subgroup analysis of infants with late cerebral ultrasound in SafeBoosC | UNVERIFIED | VERIFIED |
 | `252f1a96` | zenodo.org | zenodo record 7058392: Best-worst / Worst-best sensitivity analyses of explorative outcomes in SafeBoos | UNVERIFIED | VERIFIED |
 | `7ae471d1` | zenodo.org | zenodo record 7058338: Modification of the definition of bronchopulmonary dysplasia in SafeBoosC-III | UNVERIFIED | VERIFIED |
+| `de2058e7` | zenodo.org | zenodo record 7056927: Post-hoc subgroup analysis of infants with late cerebral ultrasound in SafeBoosC | UNVERIFIED | VERIFIED |
 | `0e3943f4` | zenodo.org | zenodo record 11106279: Trial | UNVERIFIED | VERIFIED |
-| `dadbe53f` | zenodo.org | zenodo record 7047593: Last central data monitoring report SafeBoosC-III | UNVERIFIED | VERIFIED |
 | `296ff2e2` | zenodo.org | zenodo record 7024707: Blinding procedure and assessment of severe brain injury in the SafeBoosC-III tr | UNVERIFIED | VERIFIED |
-| `a947869c` | zenodo.org | zenodo record 7070288: SOP diagnosis and classification of brain injury in SafeBoosC-III | UNVERIFIED | VERIFIED |
+| `1eabb8ad` | zenodo.org | zenodo record 7058325: SOP blinding procedure for cerebral ultrasound readings | UNVERIFIED | VERIFIED |
+| `dadbe53f` | zenodo.org | zenodo record 7047593: Last central data monitoring report SafeBoosC-III | UNVERIFIED | VERIFIED |
 | `0217768d` | crossref.org | DOI 10.1163/2210-7975_hrd-9827-2014008: Background paper: Pre-trial detention | UNVERIFIED | VERIFIED |
 | `86734224` | crossref.org | DOI 10.2139/ssrn.1532812: Trial Paper Submission 1 | UNVERIFIED | VERIFIED |
 | `2b80574c` | crossref.org | DOI 10.4135/9781529777338: The Methods: Clinical Trial Phases | UNVERIFIED | VERIFIED |
@@ -30,8 +30,16 @@ the hard gate of the corroboration law.
 | `e8561462` | crossref.org | DOI 10.4271/861787: Aerospace Information Report 1939 Trial Application | UNVERIFIED | VERIFIED |
 | `88582757` | crossref.org | DOI 10.4271/2000-01-0735: USCAR U.S. Field Trial for Automotive Polymers Recycling: Interim Findings | UNVERIFIED | VERIFIED |
 | `b0fe3689` | crossref.org | DOI 10.4324/9781315775432-5: PAPER | UNVERIFIED | VERIFIED |
+| `7c1e8f4d` | openalex.org | OpenAlex Meta-analysis in clinical trials [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
+| `7f698b03` | openalex.org | OpenAlex The Cochrane Collaboration's tool for assessing risk of bias in random [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
+| `db539e65` | openalex.org | OpenAlex Applying extracellular vesicles based therapeutics in clinical trials  [Extracellular vesicles in dise] | UNVERIFIED | VERIFIED |
+| `21cd4132` | openalex.org | OpenAlex RoB 2: a revised tool for assessing risk of bias in randomised trials [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
+| `54faf3c0` | openalex.org | OpenAlex SPIRIT 2013 explanation and elaboration: guidance for protocols of cli [Health Systems, Economic Evalu] | UNVERIFIED | VERIFIED |
+| `14faa39d` | openalex.org | OpenAlex Adherence to a Smartphone Application for Weight Loss Compared to Webs [Mobile Health and mHealth Appl] | UNVERIFIED | VERIFIED |
+| `b69c28e4` | openalex.org | OpenAlex CONSORT 2010 Statement: updated guidelines for reporting parallel grou [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
+| `9b7e4186` | openalex.org | OpenAlex The World Health Organization quality of life assessment (WHOQOL): Pos [Health Systems, Economic Evalu] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `6d1cee63`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `afaf279c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

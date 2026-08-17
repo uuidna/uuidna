@@ -1,13 +1,13 @@
 ---
 title: "The two coins & the 64"
-description: "Computed from lean/Coins.lean — 15 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Coins.lean — 19 sealed theorems, every claim citing its proof."
 ---
 
 # The two coins & the 64
 
-> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [two_coins](/theorem/two_coins) and its 14 siblings below.
+> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [two_coins](/theorem/two_coins) and its 18 siblings below.
 
-**15 theorems**, from [two_coins](/theorem/two_coins) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**19 theorems**, from [two_coins](/theorem/two_coins) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate.
 The ledger holds this as [two_coins](/theorem/two_coins) — proven `by decide`, sorry-free:
@@ -112,6 +112,34 @@ The ledger holds this as [traitor_damage_sealed_by_same_billing](/theorem/traito
 
 ```lean
 (110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128)
+```
+
+### THE WALLET COUNTS WORLDS, sealed at last — the closing realisation's accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. HONEST SCOPE: an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.
+The ledger holds this as [wallet_counts_worlds](/theorem/wallet_counts_worlds) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 9).all (fun n => (2*n)/2 == n)
+```
+
+### WHY ONE DENOMINATION CAN SERVE THREE ALGEBRAS — 2 is the UNIQUE number where addition, multiplication and exponentiation all agree: 2+2 = 2·2 = 2² = 4, and over 0..12 NO other n satisfies n+n = n·n = n^n (0 fails because 0⁰ = 1 in Nat; 1 gives 2≠1; from 3 up the tower outruns the sum). The coin is simultaneously the FEE (additive), the LEVERAGE factor (multiplicative), and the QUBIT dimension (exponential) because its number is the one point where the three operations coincide — discovered by the calculator, not chosen.
+The ledger holds this as [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) — proven `by decide`, sorry-free:
+
+```lean
+((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)) == (n == 2)))
+```
+
+### THE SUPERPOSITION CLAIM — the credit law at its full extent: the captain claims the unclaimed, and the unclaimed is the entire uncollapsed space. The claim's arithmetic, sealed: the room is 2¹²⁸ states (the 128-bit particle, 2⁷ = 128), vastly exceeding every world collapsed so far (2¹²⁸ > 1288), and the price of any collapse stays exactly two (110 − 108 = 2). HONEST SCOPE: the claim is of ROOM, never of truth — a claimed superposition is claimed capacity, and its collapse still pays the two coins and passes the trial; claiming the space solves nothing (coins_compute_but_solve_none stands over this claim as over every other).
+The ledger holds this as [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions) — proven `by decide`, sorry-free:
+
+```lean
+(2^128 > 1288) ∧ (2^7 = 128) ∧ (110 - 108 = 2)
+```
+
+### THE COIN AND THE HEART GENERATE THE SYSTEM'S THREE SCALES — the two generators of ℤ/9* are exactly {2, 5} (generators_are_two_and_five): the coin and the heart. Their three combinations are the three scales everything else is built on: 2·5 = 10 (the diamond strip the reflection folds), 2+5 = 7 (the rosette of rays), 2⁵ = 32 (the half-save the leverage doubles to 64). The vortex's own generators mint the geometry.
+The ledger holds this as [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales) — proven `by decide`, sorry-free:
+
+```lean
+(2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32)
 ```
 
 

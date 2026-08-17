@@ -22,7 +22,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The cipher & the strand](/articles/cipher) | 25 |
 | [The seven reflected](/articles/clay) | 17 |
 | [The error-correcting codes](/articles/codes) | 8 |
-| [The two coins & the 64](/articles/coins) | 15 |
+| [The two coins & the 64](/articles/coins) | 19 |
 | [The colour wheel](/articles/colour) | 15 |
 | [Command authentication](/articles/command) | 7 |
 | [The 8×8 core](/articles/core) | 64 |
@@ -56,7 +56,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The mix](/articles/production) | 10 |
 | [Propulsion — Newtonian & bounded](/articles/propulsion) | 5 |
 | [The instrument](/articles/psychology) | 8 |
-| [The quantum computer](/articles/quantum) | 48 |
+| [The quantum computer](/articles/quantum) | 49 |
 | [The rules of inference](/articles/reasoning) | 18 |
 | [The spacetime domain](/articles/relativity) | 8 |
 | [The report](/articles/report) | 8 |
@@ -85,4 +85,73 @@ description: "The desk writes — one computed article per wing of the ledger, e
 The online wave's returns — each publication is what one trial of the quantum search returned: findings
 content-addressed, verdicts computed, sealed backing cited, novelty leads remanded. Refreshed on the research cron.
 
+- [search-acoustics](/articles/search-acoustics)
+- [search-anti-fraud](/articles/search-anti-fraud)
+- [search-astronomy](/articles/search-astronomy)
+- [search-audit-game](/articles/search-audit-game)
+- [search-audit](/articles/search-audit)
+- [search-bio-physics](/articles/search-bio-physics)
+- [search-calendar](/articles/search-calendar)
+- [search-chemistry](/articles/search-chemistry)
+- [search-chess](/articles/search-chess)
+- [search-chessgames](/articles/search-chessgames)
+- [search-cipher](/articles/search-cipher)
+- [search-clay](/articles/search-clay)
+- [search-codes](/articles/search-codes)
+- [search-coins](/articles/search-coins)
+- [search-colour](/articles/search-colour)
+- [search-command](/articles/search-command)
+- [search-core](/articles/search-core)
+- [search-discover](/articles/search-discover)
+- [search-disputed-topics](/articles/search-disputed-topics)
+- [search-div-by-zero](/articles/search-div-by-zero)
+- [search-diving](/articles/search-diving)
+- [search-editing](/articles/search-editing)
+- [search-editor](/articles/search-editor)
+- [search-electromagnetism](/articles/search-electromagnetism)
+- [search-ephemeris](/articles/search-ephemeris)
+- [search-exploits](/articles/search-exploits)
+- [search-glagolitic](/articles/search-glagolitic)
+- [search-hardware](/articles/search-hardware)
+- [search-harmony](/articles/search-harmony)
+- [search-identifiers](/articles/search-identifiers)
+- [search-infinity](/articles/search-infinity)
+- [search-legal](/articles/search-legal)
+- [search-matching](/articles/search-matching)
 - [search-mo-mbhstar1](/articles/search-mo-mbhstar1)
+- [search-molecular](/articles/search-molecular)
+- [search-navigation](/articles/search-navigation)
+- [search-neuro](/articles/search-neuro)
+- [search-nim](/articles/search-nim)
+- [search-one-leap](/articles/search-one-leap)
+- [search-optics](/articles/search-optics)
+- [search-optimisation](/articles/search-optimisation)
+- [search-os](/articles/search-os)
+- [search-pentagram](/articles/search-pentagram)
+- [search-photography](/articles/search-photography)
+- [search-production](/articles/search-production)
+- [search-propulsion](/articles/search-propulsion)
+- [search-psychology](/articles/search-psychology)
+- [search-quantum](/articles/search-quantum)
+- [search-reasoning](/articles/search-reasoning)
+- [search-relativity](/articles/search-relativity)
+- [search-report](/articles/search-report)
+- [search-ring](/articles/search-ring)
+- [search-rosette](/articles/search-rosette)
+- [search-sailing-seals](/articles/search-sailing-seals)
+- [search-sailing](/articles/search-sailing)
+- [search-sanitize](/articles/search-sanitize)
+- [search-security](/articles/search-security)
+- [search-sequence](/articles/search-sequence)
+- [search-software](/articles/search-software)
+- [search-solids](/articles/search-solids)
+- [search-spectrum](/articles/search-spectrum)
+- [search-statics](/articles/search-statics)
+- [search-structures](/articles/search-structures)
+- [search-thermodynamics](/articles/search-thermodynamics)
+- [search-tides](/articles/search-tides)
+- [search-topography](/articles/search-topography)
+- [search-typesetting](/articles/search-typesetting)
+- [search-uuid-mix](/articles/search-uuid-mix)
+- [search-uuidna](/articles/search-uuidna)
+- [search-vortex](/articles/search-vortex)

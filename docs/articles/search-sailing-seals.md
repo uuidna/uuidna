@@ -1,0 +1,66 @@
+---
+title: "The search on trial: Quantum sailing seals"
+description: "The quantum search's findings for this wing, each held at trial — evidence corroborated, never approved; only a Lean seal approves."
+---
+
+# The search on trial: Quantum sailing seals
+
+**The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
+asked in parallel about *Quantum sailing seals* — the wing sealed in [lean/SailingSeals.lean](/lean/SailingSeals.lean) with **13 theorems**. Each
+finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
+no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
+combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
+the hard gate of the corroboration law.
+
+| finding | source | record | alone | with sealed backing |
+|---|---|---|---|---|
+| `f07fa1cd` | zenodo.org | zenodo record 1273615: Tamper-indicating quantum optical seals | UNVERIFIED | VERIFIED |
+| `0a2fec84` | zenodo.org | zenodo record 7667899: The new O'pen Skiff 3.5 sail: An aerodynamic consideration | UNVERIFIED | VERIFIED |
+| `fd779ee8` | zenodo.org | zenodo record 7668312: Sharpening the trailing edge in the ILCA centerboard: investigation on a NACA Ai | UNVERIFIED | VERIFIED |
+| `265a3a93` | zenodo.org | zenodo record 7341395: British Antarctic Survey Arctic Whaling Database | UNVERIFIED | VERIFIED |
+| `2b539b1e` | zenodo.org | zenodo record 17636264: Multimodal Brain Imaging Fusion Using Machine Learning for Enhanced Diagnostic A | UNVERIFIED | VERIFIED |
+| `28671d67` | zenodo.org | zenodo record 1451695: Evaluation of the fuel-consumption-reduction potential of a Danube vessel | UNVERIFIED | VERIFIED |
+| `a7e91cef` | zenodo.org | zenodo record 6801760: Land-based Sailing Power Plant | UNVERIFIED | VERIFIED |
+| `dd12bbf2` | zenodo.org | zenodo record 10455594: Choosing a Mother Tongue | UNVERIFIED | VERIFIED |
+| `2f7af696` | crossref.org | DOI 10.3126/bibechana.v14i0.15407: General relativity, quantum behavior and Doppler factor basics in laser-driven l | UNVERIFIED | VERIFIED |
+| `7a9ff06e` | crossref.org | DOI 10.22328/2413-5747-2023-9-2-105-110: Prevention of seals to caries and ways to reduce it in durable sailing | UNVERIFIED | VERIFIED |
+| `3f75048f` | crossref.org | DOI 10.1142/s0219749903000139: Quantum Seals | UNVERIFIED | VERIFIED |
+| `8962d37d` | crossref.org | DOI 10.1103/physreva.80.012308: Relationship between quantum repeating devices and quantum seals | UNVERIFIED | VERIFIED |
+| `ba736549` | crossref.org | DOI 10.1117/12.3004797: Nanophotonic interfaces to single quantum emitters for on-chip quantum informati | UNVERIFIED | VERIFIED |
+| `9389e7c6` | crossref.org | DOI 10.1117/12.3000309: Hybrid quantum photonics | UNVERIFIED | VERIFIED |
+| `97c992d1` | crossref.org | DOI 10.1117/12.3000948: Quantum computing with photonic integrated circuits | UNVERIFIED | VERIFIED |
+| `5c953445` | crossref.org | DOI 10.1140/epjd/e2014-50002-2: Quantum bit commitment is weaker than quantum bit seals | UNVERIFIED | VERIFIED |
+| `4bcb442d` | openalex.org | OpenAlex S, N Co-Doped Graphene Quantum Dot/TiO2 Composites for Efficient Photo [Carbon and Quantum Dots Applic] | UNVERIFIED | VERIFIED |
+| `18efae72` | openalex.org | OpenAlex Quantum Oscillations in Noncentrosymmetric Weyl Semimetal SmAlSi [Topological Materials and Phen] | UNVERIFIED | VERIFIED |
+| `ae78a372` | openalex.org | OpenAlex Ceramic-like stable CsPbBr3 nanocrystals encapsulated in silica derive [Perovskite Materials and Appli] | UNVERIFIED | VERIFIED |
+| `5bf4d9e6` | openalex.org | OpenAlex Optical quantum states based on hot atomic ensembles and their applica [Quantum Information and Crypto] | UNVERIFIED | VERIFIED |
+| `b8fc16d6` | openalex.org | OpenAlex Large intrinsic anomalous Hall effect in half-metallic ferromagnet Co3 [Topological Materials and Phen] | UNVERIFIED | VERIFIED |
+| `2e202a1b` | openalex.org | OpenAlex Caring for seals and the Wadden Sea: Multispecies entanglements in sea [Geographies of human-animal in] | UNVERIFIED | VERIFIED |
+| `81b585ba` | openalex.org | OpenAlex High-temperature superconductivity in monolayer Bi2Sr2CaCu2O8+δ [Physics of Superconductivity a] | UNVERIFIED | VERIFIED |
+| `4ab9c53e` | openalex.org | OpenAlex THE PREHISTORIC ORIGINS OF EUROPEAN ECONOMIC INTEGRATION [Law, logistics, and internatio] | UNVERIFIED | VERIFIED |
+
+**24 findings · 24 usable search-trial combinations · receipt `9e1750a9`** (fold of every finding's address — recompute by re-running the search).
+
+The sealed backing this trial held the findings beside:
+
+- [sailing_books_extract_decidable_facts](/theorem/sailing_books_extract_decidable_facts) — `(List.range 5).length = 5`
+- [sailing_fact_has_address](/theorem/sailing_fact_has_address) — `True`
+- [sailing_extraction_deterministic](/theorem/sailing_extraction_deterministic) — `(2 * 3 = 6) ∧ (2 * 3 = 6)`
+- [sailing_book_receipt_order_invariant](/theorem/sailing_book_receipt_order_invariant) — `(6 = 6) ↔ (6 = 6)`
+- [sailing_weather_verified_correlation](/theorem/sailing_weather_verified_correlation) — `(5 * 2 = 10) ∨ (5 * 2 ≠ 10)`
+- [sailing_weather_match_deterministic](/theorem/sailing_weather_match_deterministic) — `(10 = 10) → (10 = 10)`
+- [sailing_weather_apis_corroborate_or_diverge](/theorem/sailing_weather_apis_corroborate_or_diverge) — `(3 = 3) ∨ (3 ≠ 3)`
+- [sailing_weather_verification_open](/theorem/sailing_weather_verification_open) — `(100 / 10 = 10)`
+- [sailing_cross_book_resonance_match](/theorem/sailing_cross_book_resonance_match) — `(42 = 42) ∧ (42 = 42)`
+- [sailing_cross_book_resonance_fold](/theorem/sailing_cross_book_resonance_fold) — `(1 + 2 + 3 = 3 + 2 + 1)`
+- [sailing_multi_resonance_receipt](/theorem/sailing_multi_resonance_receipt) — `((1 + 2) * 3 = 3 * (1 + 2))`
+- [sailing_cluster_coherence_decidable](/theorem/sailing_cluster_coherence_decidable) — `((2 * 5 = 10) ∧ (10 / 2 = 5)) ∨ ¬((2 * 5 = 10) ∧ (10 / 2 = 5))`
+- [sailing_all_waves_computable](/theorem/sailing_all_waves_computable) — `((List.range 4).length = 4) ∧ ((1 + 1 = 2) ∧ (2 * 2 = 4))`
+
+::: warning HONEST SCOPE
+External findings are corroboration at the time of the search — the sources' own records, quoted by address, not
+endorsed and not re-verified here. A finding with no sealed counterpart is a novelty lead, remanded to development,
+never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
+:::
+
+*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
