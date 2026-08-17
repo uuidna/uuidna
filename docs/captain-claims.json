@@ -2,13 +2,13 @@
   "generated": "2026-08-17",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 721,
+  "total_claimed": 723,
   "categories": 8,
   "categories_list": [
     {
       "category": "Algebra",
       "description": "Lean-verified computational algebra (ℤ/9, ℤ/7, ring, rosette)",
-      "theorems": 383,
+      "theorems": 384,
       "keys": [
         "mul9_1_1",
         "mul9_1_2",
@@ -346,6 +346,7 @@
         "tour_contra_reflects_each_digit",
         "tour_contra_involutes",
         "tour_contra_rungs_sum_ten",
+        "sequence_and_coins_are_one",
         "not_gate_truth_table",
         "and_gate_truth_table",
         "or_gate_truth_table",
@@ -394,7 +395,7 @@
         "pliska_seven_rays",
         "pliska_seven_is_prime"
       ],
-      "address": "875c1b84-fb01-8777-b1d8-ad75f263fabc",
+      "address": "444b4786-fcb8-8c8e-90ce-41f1679d16ed",
       "all_by_decide": true
     },
     {
@@ -704,7 +705,7 @@
     {
       "category": "Clay Problems",
       "description": "Millennium problems (reflected, not solved)",
-      "theorems": 42,
+      "theorems": 43,
       "keys": [
         "three_sq_zero",
         "six_sq_zero",
@@ -747,9 +748,10 @@
         "only_five_carries_the_three_singularities",
         "tour_contra_reflects_each_digit",
         "tour_contra_involutes",
-        "tour_contra_rungs_sum_ten"
+        "tour_contra_rungs_sum_ten",
+        "sequence_and_coins_are_one"
       ],
-      "address": "b9fb242a-03f5-8003-b9ae-fa8326263f39",
+      "address": "286cfc44-cce1-824a-97e7-d4fad263c77e",
       "all_by_decide": true
     },
     {
@@ -799,7 +801,7 @@
       "all_by_decide": true
     }
   ],
-  "claim_receipt": "03b9568b-b8c9-8477-a7b4-614b16752235",
+  "claim_receipt": "162d85f3-f028-88fe-a4b9-d5176c7cee21",
   "honest_scope": {
     "proves": [
       "These theorems are Lean-verified (by decide)",
