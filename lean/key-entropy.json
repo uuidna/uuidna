@@ -1,7 +1,7 @@
 {
-  "law": "A theorem key carries its fact in THREE content words; more is entropy. New keys FAIL HARD. This list is the backlog that predates the law — it may only SHRINK, never grow (src/test/key-entropy.test.ts enforces that).",
+  "law": "A theorem key carries its fact in THREE content words; more is entropy. New keys FAIL HARD. This list is the backlog that predates the law \u2014 it may only SHRINK, never grow (src/test/key-entropy.test.ts enforces that).",
   "limit": 3,
-  "backlog": 313,
+  "backlog": 311,
   "keys": [
     "action_reaction_and_charge_cancel",
     "aead_nonce_and_salt_bits",
@@ -40,9 +40,7 @@
     "chain_joints_are_links_minus_one",
     "clay_birch_swinnerton_dyer",
     "clay_humanity_one_deposit_zero",
-    "clay_law_vote_theorems_only",
     "clay_p_vs_np",
-    "clay_reflection_fixed_points",
     "clay_status_dna_total",
     "clay_verified_ne_solved",
     "clifford_group_order_24",
