@@ -118,6 +118,7 @@ const FACTS = [
       return JSON.stringify(pw) === JSON.stringify([2, 4, 8, 7, 5, 1]) && (2 * 5) % 9 === 1 && 1 + 2 + 4 + 8 + 7 + 5 === 27 && 27 === 9 * 3 && 6 === 2 * 3
     },
     lean: 'theorem sequence_and_coins_are_one : (((List.range\' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3) := by decide' },
+
 ]
 
 console.log('computing ' + FACTS.length + ' sequence/group facts from the vortex (seams = ' + seams + ') …')

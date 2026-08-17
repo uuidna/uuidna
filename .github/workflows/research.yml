@@ -155,6 +155,15 @@ jobs:
             for (let i = 0; i < 3; i++) { if (p[i] !== q[i]) return p[i] - q[i] } return 0 }
           if (cmp(b, a) <= 0) { console.error('::error::the odometer must increase in semver order (npm resolves ranges by version, not by publish time): ' + a + ' -> ' + b); process.exit(1) }
           " "$V" "$NEXT"
+          # THE MAP — the version COUNTS (monotone, because npm resolves ranges by version number) and the count
+          # INDEXES the sequence 0,1,2,4,8,7,5,3,6,9. Nothing is lost either way: the two orders are the same ten
+          # digits, so the map is a permutation (theorem seal_ten) and a version is always readable in the walk.
+          SEQ_DIGIT=$(node -e "
+          import('./dist/index.js').then((u) => {
+            const SEQ = [0, ...u.vortexOrbit(), 3, 6, 9]
+            console.log(SEQ[Number(String(process.argv[1]).split('.')[2])])
+          })" "$NEXT")
+          echo "the odometer steps to $NEXT — step $(echo "$NEXT" | cut -d. -f3) of the sequence, which is digit $SEQ_DIGIT"
           npm version "$NEXT" --no-git-tag-version
           # THE CALENDAR WRITES FACTS, NEVER MEANING (the captain's decision, 2026-08-17). `npm run next` refuses a
           # version whose CHANGELOG entry is missing, so an autonomous tick froze the tree until a human wrote prose
