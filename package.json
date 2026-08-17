@@ -169,7 +169,8 @@
     "reserve": "npm run build && node dist/scripts/reserve.js",
     "changelog:section": "npm run build && node dist/scripts/gen-changelog-section.js",
     "gen:gitattributes": "npm run build && node dist/scripts/gen-gitattributes.js",
-    "setup:git": "git config core.hooksPath hooks && git config merge.derived.driver \"true\" && git config merge.derived.name \"derived layer — keep one side; reconcile recomputes the truth\" && echo \"✓ git configured: hooks + the derived merge driver\""
+    "setup:git": "git config core.hooksPath hooks && git config merge.derived.driver \"true\" && git config merge.derived.name \"derived layer — keep one side; reconcile recomputes the truth\" && echo \"✓ git configured: hooks + the derived merge driver\"",
+    "state": "npm run build && node dist/scripts/state.js"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
