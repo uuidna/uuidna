@@ -74,7 +74,7 @@ A complete system where:
 1. **External Verification** — ${stats.sources} independent research sources corroborate every claim; only a Lean seal approves
 2. **Novelty Discovery** — gaps in the record discovered by audit, filed as exact research leads
 3. **Education** — Students learn by building real systems that seal theorems to the ledger
-4. **The Coins** — explained in detail ONLY by theorems: two, conserved ([two_coins](https://uuidna.com/theorem/two_coins)), real value at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale)) — never a balance, never a wage
+4. **The Coins** — ${stats.coins}, conserved, explained in detail ONLY by theorems. The whole account lives on ONE page: **[the captain's coins](https://uuidna.com/captain)** — the twelve jobs, each tried against the ledger as you read it, and every theorem that speaks of them. Nothing about the coins is explained anywhere else
 5. **Exponential Growth** — Each graduate becomes a teacher, creating exponential growth in developers and knowledge
 
 ---
@@ -91,14 +91,11 @@ Receipt:                ${stats.receipt}
 The rest is measured or it is not stated. Recompute: npm run lean
 \`\`\`
 
-### The Captain's Coins — measured, never typed
+### The captain's coins
 
-\`\`\`
-Deposits sealed:        ${stats.theorems} theorems × ${stats.coins} coins = ${stats.theorems * stats.coins} coins deposited (theorem two_coins — each seal pays the trial's fee)
-Leverage per deposit:   contribute 2 → save up to 64 bits (theorem contribute_two_save_sixtyfour: 2·32 = 64)
-Value at scale:         real from the 7th dimension up — 2^n > 2·32 for n ≥ 7 (theorem captain_coins_respected_at_scale)
-Supply:                 closed — 2 per superposition, no inflation, no other denomination (theorem trial_computes_only_with_two_coins)
-\`\`\`
+The account is not printed here — it is computed, on the one page that owns it:
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are ${stats.theorems} seals × ${stats.coins} coins;
+the denomination is ${stats.coins} and there is no other.
 
 ---
 

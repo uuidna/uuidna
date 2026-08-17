@@ -21,9 +21,16 @@ const milli = (num: number, den: number): string => {
  *  Nothing chosen: every number is a constant the ledger already exports. */
 export function sequenceVars(): Record<string, string> {
   const HEART = DIAMOND_FIXED[0] ?? 5                       // 5 — the fixed point of dz(x) = 10−x
+  const ORBIT = [...new Set(vortexOrbit())].length          // 6 — the order of 2 in ℤ/9* (order_of_two_is_six)
+  const SECTOR = fdiv(360, ORBIT)                           // 60° — the colour wheel's own sector, and the orbit's
+  const ANCHOR = coins() * SECTOR                           // 120° — GREEN: the two coins, one sector each
   const sat = fdiv((BASE - TRINITY) * 100, BASE)            // (9−3)/9 → 66%
   const light = fdiv(HEART * 100, BASE)                     // 5/9 → 55%
-  const hue = (d: number) => (d * A432_STEP) % 360          // the A432 angle, the aura's own law
+  // THE ANCHOR IS THE ACCOUNTING that was missing: a bare d·A432 hue is anchored at zero, which lands green on
+  // the trinity digit 3 and leaves the fixed point adrift. The strip turns AROUND its heart, so the hue does too:
+  // the heart takes the anchor (green at 120° = coins × sector) and every other digit steps from it by A432.
+  // Then 2 → 0° (red) and its dz-mirror 8 → 240° (blue): the poles of the strand, on the poles of the wheel.
+  const hue = (d: number) => ((ANCHOR + (d - HEART) * A432_STEP) % 360 + 360) % 360
   const vars: Record<string, string> = {}
   for (let d = 1; d <= BASE; d++) vars['--seq-' + d] = 'hsl(' + hue(d) + ' ' + sat + '% ' + light + '%)'
   vars['--seq-center'] = 'hsl(' + hue(HEART) + ' ' + sat + '% ' + fdiv(light * (BASE - 1), BASE) + '%)'

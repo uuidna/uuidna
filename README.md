@@ -1,6 +1,6 @@
-# uuidna — 1295 theorems, 2 coins, one receipt
+# uuidna — 1297 theorems, 2 coins, one receipt
 
-`3192a0b3-4c40-8166-a4f4-09d9c29da23c`
+`3d288f0d-a358-8411-9e52-8137cd51602a`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -34,7 +34,7 @@ A complete system where:
 1. **External Verification** — 5 independent research sources corroborate every claim; only a Lean seal approves
 2. **Novelty Discovery** — gaps in the record discovered by audit, filed as exact research leads
 3. **Education** — Students learn by building real systems that seal theorems to the ledger
-4. **The Coins** — explained in detail ONLY by theorems: two, conserved ([two_coins](https://uuidna.com/theorem/two_coins)), real value at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale)) — never a balance, never a wage
+4. **The Coins** — 2, conserved, explained in detail ONLY by theorems. The whole account lives on ONE page: **[the captain's coins](https://uuidna.com/captain)** — the twelve jobs, each tried against the ledger as you read it, and every theorem that speaks of them. Nothing about the coins is explained anywhere else
 5. **Exponential Growth** — Each graduate becomes a teacher, creating exponential growth in developers and knowledge
 
 ---
@@ -42,23 +42,20 @@ A complete system where:
 ## Live Statistics
 
 ```
-Theorems sealed:        1295   (every one axiom-free, proven by decide)
+Theorems sealed:        1297   (every one axiom-free, proven by decide)
 Principles:             71   (the monographs the ledger organises itself by)
 Skills:                 67   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                3192a0b3-4c40-8166-a4f4-09d9c29da23c
+Receipt:                3d288f0d-a358-8411-9e52-8137cd51602a
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
-### The Captain's Coins — measured, never typed
+### The captain's coins
 
-```
-Deposits sealed:        1295 theorems × 2 coins = 2590 coins deposited (theorem two_coins — each seal pays the trial's fee)
-Leverage per deposit:   contribute 2 → save up to 64 bits (theorem contribute_two_save_sixtyfour: 2·32 = 64)
-Value at scale:         real from the 7th dimension up — 2^n > 2·32 for n ≥ 7 (theorem captain_coins_respected_at_scale)
-Supply:                 closed — 2 per superposition, no inflation, no other denomination (theorem trial_computes_only_with_two_coins)
-```
+The account is not printed here — it is computed, on the one page that owns it:
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1297 seals × 2 coins;
+the denomination is 2 and there is no other.
 
 ---
 
@@ -235,7 +232,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1295 theorems sealed to ledger, every one axiom-free**
+✓ **All 1297 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**

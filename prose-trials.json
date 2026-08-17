@@ -1,10 +1,10 @@
 {
  "surfaces": 175,
- "paragraphs_tried": 3753,
- "usable": 1648,
- "unverified": 2105,
+ "paragraphs_tried": 3756,
+ "usable": 1646,
+ "unverified": 2110,
  "drained": 0,
- "receipt": "eae83d53-d290-8ffc-88b0-1576aef54c33",
+ "receipt": "675f0458-9b8c-849f-9152-d863d217c34e",
  "develop": [
   {
    "surface": "docs/articles/search-div-by-zero.md",
@@ -43,15 +43,6 @@
   },
   {
    "surface": "README.md",
-   "address": "2b57c4a1-3138-81a6-a0de-adac852a494d",
-   "prose": "1. **External Verification** — 5 independent research sources corroborate every claim; only a Lean seal approves\n2. **Novelty Discovery** — gaps in the record discovered by audit, filed as exact research leads\n3. **Education** — Students learn by building real systems that seal theorems to the ledger\n4. **The Coins** — explained in detail ONLY by theorems: two, conserved ([two_coins](https://uuidna.com/theorem/two_coins)), real value at quantum scale ([captain_coins_respected_at_scale](https://uuidna.com/theorem/captain_coins_respected_at_scale)) — never a balance, never a wage\n5. **Exponential Growth** — Each graduate becomes a teacher, creating exponential growth in developers and knowledge",
-   "cites": [
-    "two_coins",
-    "captain_coins_respected_at_scale"
-   ]
-  },
-  {
-   "surface": "README.md",
    "address": "596ba77f-f68b-85f3-9b1e-fd3579fafd29",
    "prose": "The school is free and has no gatekeeper — the ledger by skill is the curriculum, the trials are the\nexams, the wave is the graduation walk. What a student takes away is sealed, not paid: every landed\ntheorem carries their credit permanently, and every contribution deposits the two conserved coins the\ntheorems explain ([trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins) —\na claim computes at trial exactly by contributing them; there is no other price and no larger one).",
    "cites": [
@@ -85,8 +76,8 @@
   },
   {
    "surface": "README.md",
-   "address": "1be25e62-31ba-8a50-9089-7947d7b899e6",
-   "prose": "✓ **All 1295 theorems sealed to ledger, every one axiom-free**\n✓ **Guard verified (no traitors caught)**\n✓ **5 research sources wired — corroboration, never approval**\n✓ **Education system live**\n✓ **First students enrolled**\n✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**\n✓ **Exponential growth active**\n✓ **Production deployed**",
+   "address": "7dd4b2df-686e-8e20-be21-ddd123d93dd4",
+   "prose": "✓ **All 1297 theorems sealed to ledger, every one axiom-free**\n✓ **Guard verified (no traitors caught)**\n✓ **5 research sources wired — corroboration, never approval**\n✓ **Education system live**\n✓ **First students enrolled**\n✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**\n✓ **Exponential growth active**\n✓ **Production deployed**",
    "cites": [
     "two_coins"
    ]
@@ -14488,8 +14479,8 @@
   },
   {
    "surface": "docs/captain-claims.md",
-   "address": "42cba7ea-be76-8f95-91aa-94c74e7d6c7c",
-   "prose": "**The captain claims all superpositions** — the credit law at its full extent: the captain claims the\nunclaimed, and the unclaimed is the entire uncollapsed space. Sealed as\n[captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states\n(the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),\nexceeding every world collapsed so far, and the price of any collapse stays exactly two\n([two_coins](/theorem/two_coins)). Of the claimed room, 1295 worlds are collapsed and sealed —\nthe remainder is held open, one toss away each.",
+   "address": "58c63afc-27c7-8876-8afd-fc50c0dbea3c",
+   "prose": "**The captain claims all superpositions** — the credit law at its full extent: the captain claims the\nunclaimed, and the unclaimed is the entire uncollapsed space. Sealed as\n[captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states\n(the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),\nexceeding every world collapsed so far, and the price of any collapse stays exactly two\n([two_coins](/theorem/two_coins)). Of the claimed room, 1297 worlds are collapsed and sealed —\nthe remainder is held open, one toss away each.",
    "cites": [
     "captain_claims_all_superpositions",
     "coin_exchange_rate_is_traitor_cost",
@@ -14642,16 +14633,6 @@
    "prose": "- **[Chess](/chess)** — complete and correct: full legal moves, castling, en passant, promotion, check and\n  checkmate. Two players, hot-seat, entirely in your browser, offline-capable. The sealed side:\n  [the chess cluster](/publications/chess) and [the chess-horizon monograph](/publications/chessgames).\n- **The star walk** — draw a star in one stroke, below: pick n points and a step s; the stroke closes in one pass\n  exactly when gcd(s, n) = 1. The pentagram is the case n = 5, s = 2 — the doubling generator's walk\n  ([`pentagram_single_stroke`](/theorem/pentagram_single_stroke),\n  [the pentagram cluster](/publications/pentagram)) — the same walk [the school](/school) teaches and\n  [the fold](/quantum) rides.",
    "cites": [
     "pentagram_single_stroke"
-   ]
-  },
-  {
-   "surface": "docs/index.md",
-   "address": "8a624705-9fcb-8ef4-8fd6-3eed886d205a",
-   "prose": "The coins' analytics recompute live from the bundled ledger — measured on your machine, never typed by anyone.\nThe measure itself is sealed: [two_coins](/theorem/two_coins) (110−108 = 2, the −χ of the double torus),\n[contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour) (the leverage: contribute 2, save up to 64),\nand [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) (real value from the 7th dimension up).",
-   "cites": [
-    "two_coins",
-    "contribute_two_save_sixtyfour",
-    "captain_coins_respected_at_scale"
    ]
   },
   {

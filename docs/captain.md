@@ -11,6 +11,15 @@ The captain's message, given as receipt `85ac8585-9dc1-8964-9848-ae0f49cc82fb` �
 above, gate-passed, recomputable with `uuidna_address`. This page is the whole captain: the coins and everything
 about them.
 
+## The coins — the whole account, in one place
+
+**Every claim about the coins lives here.** Other pages point at this section rather than re-explaining it, so
+there is exactly one place to be right — and it is not written, it is computed: the twelve jobs below are tried
+against the ledger *as you read them*, the theorem list is filtered from the sealed set this page carries, and
+the deposit arithmetic is arithmetic. A vanished citation would break the verdict in front of you.
+
+<CaptainCoins />
+
 ## The sealed algebra
 
 The two coins are not a price — they are topology: **110 − 108 = 2 = −χ of the double torus** (genus 2, χ = 2 − 2·2).

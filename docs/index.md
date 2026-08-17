@@ -16,7 +16,7 @@ hero:
 features:
   - icon: 🔍
     title: External Verification
-    details: 8 independent academic sources audit every claim through Rosetta triple-frame verification
+    details: Independent research sources corroborate every claim in parallel — corroboration is evidence; only a Lean seal approves
   - icon: 🔬
     title: Novelty Discovery
     details: Gaps in the record discovered by audit and remanded as research leads — an absence proven by recomputation, never a claim
@@ -25,13 +25,13 @@ features:
     details: Students learn by building real systems that seal theorems to the ledger — credit binds permanently to the sealed proof
   - icon: 💰
     title: The Two Coins
-    details: Explained only by theorems — two, conserved, real value at quantum scale (110−108=2, the double torus; contribute 2, save 64; the trial's fee and the forfeit's price)
+    details: Two, conserved, explained only by theorems — the whole account on one page, /captain, tried against the ledger as you read it
   - icon: 📈
     title: Exponential Growth
-    details: Each graduate becomes a teacher. 1→5→25→125... By month 6, 20,000+ developers trained
+    details: The school rides the doubling orbit — six tosses of the coin visit every unit and return home (2⁶ = 64), a walk that is measured, never projected
   - icon: 🎯
     title: Perpetual Improvement
-    details: Each contribution triggers auto-harmonise. System finds optimizations, generates improvements, compounds forever
+    details: Four resident faculties keep the watch — the janitor drains, the registrar predicts, the teacher discovers, the research desk tries the world; all deterministic, none needing a key
 ---
 
 <style>
@@ -65,16 +65,13 @@ Captain coins is a mathematically-proven economic system where:
 - ✓ Growth is exponential (each graduate teaches others)
 - ✓ No money is needed (theorems pay for theorems)
 
-## The captain's coins — computed in your browser
+## The captain's coins
 
-The coins' analytics recompute live from the bundled ledger — measured on your machine, never typed by anyone.
-The measure itself is sealed: [two_coins](/theorem/two_coins) (110−108 = 2, the −χ of the double torus),
-[contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour) (the leverage: contribute 2, save up to 64),
-and [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) (real value from the 7th dimension up).
+Two, conserved, and explained only by theorems — the **whole account lives on one page**:
+**[the captain's coins](/captain)**, where the twelve jobs are tried against the ledger as you read them.
+Nothing about the coins is explained anywhere else, so there is one place to be right.
 
 <CostMeter />
-
-<BillCalc />
 
 ## Live system status — computed, not typed
 

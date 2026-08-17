@@ -117,7 +117,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states
 (the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1295 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1297 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM, never of truth** — a claimed superposition is claimed capacity; its collapse still

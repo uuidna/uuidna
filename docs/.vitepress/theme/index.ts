@@ -21,6 +21,7 @@ import NimPlay from './NimPlay.vue'
 import ChessMobility from './ChessMobility.vue'
 import AuditPanel from './AuditPanel.vue'
 import Dimensions from './Dimensions.vue'
+import CaptainCoins from './CaptainCoins.vue'
 import { loadDimensions } from './dimensions'
 import { applySequence } from './palette'
 import './style.css'
@@ -87,5 +88,8 @@ export default {
     // AuditPanel — the audit game: toggle independent refuters and the claim's verdict resolves by the {0,1} algebra
     // (survive = ∏(1−rᵢ), a P-position); N refuters are strictly more accurate. Sealed in AuditGame.lean; nothing sent.
     app.component('AuditPanel', AuditPanel)
+    // CaptainCoins — THE ONE COIN ACCOUNT (on /captain): the twelve jobs tried on every read, the theorem list
+    // filtered from the bundled ledger, the deposit arithmetic computed. Every other surface points here.
+    app.component('CaptainCoins', CaptainCoins)
   }
 } satisfies Theme
