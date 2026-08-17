@@ -22,6 +22,14 @@ the hard gate of the corroboration law.
 | `52cc5690` | crossref.org | DOI 10.1163/ej.9789004201545.i-224.7: Lay Of The Land | UNVERIFIED | VERIFIED |
 | `4c792e96` | crossref.org | DOI 10.14321/j.ctv310vq63.23: The Lay of the Land | UNVERIFIED | VERIFIED |
 | `12ef3663` | crossref.org | DOI 10.1093/oso/9780190863289.003.0013: The Lay of the Land | UNVERIFIED | VERIFIED |
+| `140e7316` | semanticscholar.org | S2 The lay of the land | UNVERIFIED | VERIFIED |
+| `1d490696` | semanticscholar.org | S2 The Lay of the Land | UNVERIFIED | VERIFIED |
+| `961de46c` | semanticscholar.org | S2 The lay of the land | UNVERIFIED | VERIFIED |
+| `47978104` | semanticscholar.org | S2 The Lay of the Land: | UNVERIFIED | VERIFIED |
+| `648e79a6` | semanticscholar.org | S2 The Lay of the Land | UNVERIFIED | VERIFIED |
+| `8f59f472` | semanticscholar.org | S2 The Lay of the Land | UNVERIFIED | VERIFIED |
+| `0e0127b9` | semanticscholar.org | S2 The Lay of the Land | UNVERIFIED | VERIFIED |
+| `4511956e` | semanticscholar.org | S2 The Lay of the Land | UNVERIFIED | VERIFIED |
 | `79860eab` | openalex.org | OpenAlex An overview of clinical research: the lay of the land [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
 | `eb13c72e` | openalex.org | OpenAlex The Lay of the Land: Metaphor as Experience and History in American Li [Themes in Literature Analysis] | UNVERIFIED | VERIFIED |
 | `f4ce1fa4` | openalex.org | OpenAlex The Lay of the Land: Metaphor as Experience and History in American Li [Themes in Literature Analysis] | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `c9551e5d` | openalex.org | OpenAlex Researching Identity in Mathematics Education: The Lay of the Land [Mathematics Education and Teac] | UNVERIFIED | VERIFIED |
 | `0059876d` | openalex.org | OpenAlex Imperial Leather: Race, Gender and Sexuality in the Colonial Contest [African history and culture st] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `0e3cc31f`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `f5951060`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

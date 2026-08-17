@@ -1,10 +1,10 @@
 {
  "surfaces": 177,
  "paragraphs_tried": 3801,
- "usable": 1750,
- "unverified": 2051,
+ "usable": 1783,
+ "unverified": 2018,
  "drained": 0,
- "receipt": "1b7e21f1-e1ca-8faf-b3dc-6823f9a146ed",
+ "receipt": "779be295-5e66-8f8d-9341-cee419d234b7",
  "develop": [
   {
    "surface": "docs/articles/search-div-by-zero.md",
@@ -13763,6 +13763,14 @@
    ]
   },
   {
+   "surface": "docs/books.md",
+   "address": "b6378acf-e383-8005-921b-08bc45382ad1",
+   "prose": "A book you write is audited the same way: content-address each chapter, fold them to the **chapter root**. Every\nrevision re-addresses, so a change is never silent — authorship and integrity are recomputable, edit by edit. uuidna\nproves the text is exactly what it is; it does not judge whether the writing is good. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
    "surface": "docs/captain-claims.md",
    "address": "1fd92859-ddea-8465-aeea-3683bf17c8c2",
    "prose": "The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):",
@@ -14689,6 +14697,14 @@
   },
   {
    "surface": "docs/captain.md",
+   "address": "5a05425a-9c3d-8742-a04a-537cdf697e71",
+   "prose": "- **Free sailing** — off the wind (≥ 90°): public, non-commercial use is **free**. Zero coins. Reading, research,\n  learning — free for the public interest.\n- **Prize earning waves** — the beating band 30°–60°: **commercial use obligates the 2-coin contribution** per\n  seal/verification. Before deploying commercial work, prove the deposit with a signed receipt from\n  [uuidna.com/trials](/trials) — content-addressed, immutable, the receipt IS the proof. The donation, by contrast,\n  is voluntary — a gift, never a revenue promise (theorem two_coins).",
+   "cites": [
+    "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/captain.md",
    "address": "de5164c5-5d46-8925-814b-9b500efd0f9b",
    "prose": "Whichever angle you sail, the coins land in the same wallet the same way: **paid as credits to the\n[licence](/license)** — through the voluntary **donation** (any use, a gift) or through **commercial licensing**\n(the obligatory 2 per seal). One wallet, one accounting, every deposit receipted and conserved\n([`two_coins`](/theorem/two_coins)).",
    "cites": [
@@ -14730,6 +14746,14 @@
    "cites": [
     "dead_reckoning_adds",
     "compass_rose_eight"
+   ]
+  },
+  {
+   "surface": "docs/chat.md",
+   "address": "72be14ac-5cdc-8682-aa27-822ac33f083f",
+   "prose": "The [Guides](/guides) show how to fuse the MCP; the [Games](/games) let you play the same functions. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
    ]
   },
   {
@@ -14802,10 +14826,26 @@
   },
   {
    "surface": "docs/index.md",
+   "address": "7de93a23-05d6-8892-9801-e6aa359a82f8",
+   "prose": "features:\n  - icon: 🔍\n    title: External Verification\n    details: Independent research sources corroborate every claim in parallel — corroboration is evidence; only a Lean seal approves\n  - icon: 🔬\n    title: Novelty Discovery\n    details: Gaps in the record discovered by audit and remanded as research leads — an absence proven by recomputation, never a claim (theorem legal_remand_is_total_nothing_discarded)\n  - icon: 📚\n    title: Education\n    details: Students learn by building real systems that seal theorems to the ledger — credit binds permanently to the sealed proof\n  - icon: 💰\n    title: The Two Coins\n    details: Two, conserved, explained only by theorems — the whole account on one page, /captain, tried against the ledger as you read it\n  - icon: 📈\n    title: Exponential Growth\n    details: The school rides the doubling orbit — six tosses of the coin visit every unit and return home (2⁶ = 64), a walk that is measured, never projected\n  - icon: 🎯\n    title: Perpetual Improvement\n    details: Four resident faculties keep the watch — the janitor drains, the registrar predicts, the teacher discovers, the research desk tries the world; all deterministic, none needing a key\n---",
+   "cites": [
+    "legal_remand_is_total_nothing_discarded"
+   ]
+  },
+  {
+   "surface": "docs/index.md",
    "address": "aa48fd7f-44c6-8ae9-b7ba-bba61a35fb06",
    "prose": "| | |\n| --- | --- |\n| **Theorems sealed** | {{ data.total }} — every one `by decide`, recomputed each build from the ledger |\n| **Clusters** | {{ data.groups.length }} — each with its audited [monograph](/publications) |\n| **Skills** | {{ data.skillGroups.length }} — the [topics](/topics) axis, mined from the keys |\n| **Coins conserved** | 2 — [`two_coins`](/theorem/two_coins), 110 − 108 = −χ of the double torus |",
    "cites": [
     "two_coins"
+   ]
+  },
+  {
+   "surface": "docs/justice.md",
+   "address": "42bebd4f-22f0-84fc-9c9b-78c67f54a964",
+   "prose": "---\ntitle: Justice (evidence, not a court)\ndescription: uuidna's recomputable evidence and integrity layer — how it supports justice honestly by making claims verifiable, keeping the flag on the claim never the person (theorem anti_fraud_check_deterministic), and leaving the ruling to humans and courts. Not a legal system.\n---",
+   "cites": [
+    "anti_fraud_check_deterministic"
    ]
   },
   {
@@ -14817,11 +14857,27 @@
    ]
   },
   {
+   "surface": "docs/justice.md",
+   "address": "9694ac6a-12b5-83e9-9044-0500088cd5ac",
+   "prose": "Justice needs evidence that recomputes and a human to weigh it. uuidna delivers the first and defers the second, by\ndesign. [The trial charter](/trials) · [The licence](/license) · [Privacy by design](/privacy). Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
    "surface": "docs/license.md",
    "address": "53e5b695-958f-8f9a-a598-3daf2b0cc778",
    "prose": "- **Keyed by the public license — coupling, not secrecy.** A public key is public: anyone who reads this page derives\n  the same key. That is sealed, not hoped — [`complement_is_xor_key3`](/theorem/complement_is_xor_key3): *a fixed pad\n  is public, not secret.* Encrypting public content with the public license **binds** the message to the license (you\n  cannot decrypt without invoking it, and a license change — a new content-address — kills old ciphertext) but hides\n  nothing from anyone who can read the page. The public tier stays a signpost.\n- **Keyed by a private contract — real confidentiality.** A commercial deployment's contract (the `[contract-uuid]`,\n  a secret shared only with the licensee) is **not** public. Messaging sealed under it — pure-TS ChaCha20-Poly1305 via\n  `uuidna_send` / `uuidna_seal_chain` — is genuinely private: only contract-holders decrypt, a wrong or changed\n  contract fails Poly1305 authentication, and the subdomain that names the deployment *is* that contract's\n  content-address. That is a **lock**, not a signpost — as private as the contract is kept, and as strong as its\n  entropy. This is the commercial tier.",
    "cites": [
     "complement_is_xor_key3"
+   ]
+  },
+  {
+   "surface": "docs/license.md",
+   "address": "51b82788-13b7-8547-9df9-17479d1c097b",
+   "prose": "So \"encrypt with the license\" gates access only when the license is a **secret** (the private contract), never with\nthe public terms. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
    ]
   },
   {
@@ -14864,6 +14920,22 @@
   },
   {
    "surface": "docs/mcp.md",
+   "address": "b73566bd-204c-86ef-8852-dbe6cc52578c",
+   "prose": "The trial: ONE recomputable answer for a statement, and only one of two, all else void — VERIFIED (a decidable test holds, or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; not \"false\", just not verified). uuidna verifies, it never refutes. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "1ae08ea3-7738-8aa1-ab2d-1ea95cd0fd03",
+   "prose": "The self-verdict: recompute uuidna's own claims from a seed and return the recomputable UuidnaVerdict (integrity, not truth (theorem provenance_integrity_not_content_truth)).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
    "address": "8862ad88-76a2-8177-b1fe-628f00f03cee",
    "prose": "Make any output auditable: wrap it with its content-address and honesty-gate verdict. Returns {output,address,auditable,...}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
@@ -14879,6 +14951,14 @@
     "honesty_gate_is_theorem_not_oracle",
     "honesty_gate_passes_iff_all_sealed",
     "conformance_failure_detects_intrusion"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "c2001ac8-e128-8210-b21a-489ee0ff9b2a",
+   "prose": "The quantum receipt: the order-INVARIANT merkle gravity of a set of addresses — every observer ordering falls to the SAME root. NOT physics (theorem provenance_integrity_not_content_truth); a content-addressed fixed point.",
+   "cites": [
+    "provenance_integrity_not_content_truth"
    ]
   },
   {
@@ -14987,9 +15067,10 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "c398436f-7dc0-8c4d-bd8e-76777c4a749d",
-   "prose": "Run BOTH waves for a domain (a principle title or a skill): the LOCAL development wave — its theorems fold ORDER-INVARIANTLY to a receipt and are sealed by decide (the approval) — and the EXTERNAL free-research wave (corroborate the domain's topic against a free public API, evidence not proof). HONEST SCOPE: only the LOCAL by-decide seal APPROVES; external research only CORROBORATES, and for a pure-arithmetic domain (ℤ/9, ℤ/7) a physics-constants stream honestly returns NO evidence — correct, not a failure. Returns {domain,local:{theorems,fold,orderInvariant},external:{verdict,evidence,receipt}}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "5a35ce0f-d4ab-8956-90f6-c11654c2239b",
+   "prose": "Run BOTH waves for a domain (a principle title or a skill): the LOCAL development wave — its theorems fold ORDER-INVARIANTLY to a receipt and are sealed by decide (the approval) — and the EXTERNAL free-research wave (corroborate the domain's topic against a free public API, evidence not proof — only a Lean seal approves, theorem legal_only_the_proven_is_admitted). HONEST SCOPE: only the LOCAL by-decide seal APPROVES; external research only CORROBORATES, and for a pure-arithmetic domain (ℤ/9, ℤ/7) a physics-constants stream honestly returns NO evidence — correct, not a failure. Returns {domain,local:{theorems,fold,orderInvariant},external:{verdict,evidence,receipt}}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "legal_only_the_proven_is_admitted",
     "drift_is_named_or_caught"
    ]
   },
@@ -15035,17 +15116,19 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "40c38fe7-06bf-8a2d-90cd-c8fbe536bebc",
-   "prose": "QUANTUM ANALYTICS over the sealed ledger — descriptive measures anyone RECOMPUTES identically, folded ORDER-INVARIANT to one receipt (the same analytics for every observer, no privileged view). Returns the theorem count, the number of principles, the per-principle DISTRIBUTION (each domain's count + share, largest first), the named LAYERS (hardware → software → os sizes + receipts), the CREDIT tally (historical / contextual / captain-alone), COVERAGE (covered/total/ready), the two COINS, the recomputed COLLISION census (keys/addresses — 0/0 or an intrusion), and the ledger INTEGRITY fingerprint (FNV + SHA-256 + tamper cost). DETERMINISTIC: no clock, no RNG, no telemetry, no user tracking — the inputs are the public ledger alone, so the numbers are the same next year and on every machine. HONEST SCOPE: integrity, not truth — DESCRIPTIVE analytics of what is sealed, NOT predictive statistics, NOT inference, and NOT observation of any person. It measures the ledger, not a user. Returns {theorems,principles,distribution,layers,credits,coverage,coins,collisions,integrity,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "8077aece-84ad-8efd-9f82-b9fede7ad103",
+   "prose": "QUANTUM ANALYTICS over the sealed ledger — descriptive measures anyone RECOMPUTES identically, folded ORDER-INVARIANT to one receipt (the same analytics for every observer, no privileged view). Returns the theorem count, the number of principles, the per-principle DISTRIBUTION (each domain's count + share, largest first), the named LAYERS (hardware → software → os sizes + receipts), the CREDIT tally (historical / contextual / captain-alone), COVERAGE (covered/total/ready), the two COINS, the recomputed COLLISION census (keys/addresses — 0/0 or an intrusion), and the ledger INTEGRITY fingerprint (FNV + SHA-256 + tamper cost). DETERMINISTIC: no clock, no RNG, no telemetry, no user tracking — the inputs are the public ledger alone, so the numbers are the same next year and on every machine. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — DESCRIPTIVE analytics of what is sealed, NOT predictive statistics, NOT inference, and NOT observation of any person. It measures the ledger, not a user. Returns {theorems,principles,distribution,layers,credits,coverage,coins,collisions,integrity,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "57620995-7496-8fb4-88dd-323e49ec06a2",
-   "prose": "CATCH TRAITORS AS FAST AS A HERO — one pure, O(N) pass (milliseconds, no crypto, no disk) that catches every FORGERY/INTRUSION in the sealed ledger: a theorem whose DNA does not recompute (a tampered key/statement/address), a key or address COLLISION (a smuggled duplicate), an UNCOVERED theorem (a domain sneaked in without a monograph), a broken CONFORMANCE invariant, OR a PROSE-OVERCLAIM — the DNA check recomputes the STATEMENT but never the NAME, so this also runs every theorem's name through the honesty gate and catches a name that DRAINS it (a fabricated theorem citation hiding in the prose). A \"traitor\" is a forgery in the ARTIFACT, NEVER a person — every finding is a recomputable fact about the ledger. Returns {clean, scanned, traitors:[{kind,detail}], checks, receipt}. The `npm run guard` command runs this plus the harmonic-scan as the fast pre-reconcile gate, so no manual pre-flight is needed. HONEST SCOPE: integrity, not truth — it proves the artifact is unforged and self-consistent; passing is NOT a claim the theorems are true. The prose check catches a fabricated CITATION only, NOT an unbacked NARRATIVE carried by a true statement (a false \"discovered/novel/proven-elsewhere\" story) — the gate scores that identically to an honest description; only the COURT (uuidna_reveal/adjudicate) and human vigilance catch it. Recomputable by anyone. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "ad609c82-c760-8c52-be3e-9c383bd65d19",
+   "prose": "CATCH TRAITORS AS FAST AS A HERO — one pure, O(N) pass (milliseconds, no crypto, no disk) that catches every FORGERY/INTRUSION in the sealed ledger: a theorem whose DNA does not recompute (a tampered key/statement/address), a key or address COLLISION (a smuggled duplicate), an UNCOVERED theorem (a domain sneaked in without a monograph), a broken CONFORMANCE invariant, OR a PROSE-OVERCLAIM — the DNA check recomputes the STATEMENT but never the NAME, so this also runs every theorem's name through the honesty gate and catches a name that DRAINS it (a fabricated theorem citation hiding in the prose). A \"traitor\" is a forgery in the ARTIFACT, NEVER a person — every finding is a recomputable fact about the ledger. Returns {clean, scanned, traitors:[{kind,detail}], checks, receipt}. The `npm run guard` command runs this plus the harmonic-scan as the fast pre-reconcile gate, so no manual pre-flight is needed. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — it proves the artifact is unforged and self-consistent; passing is NOT a claim the theorems are true. The prose check catches a fabricated CITATION only, NOT an unbacked NARRATIVE carried by a true statement (a false \"discovered/novel/proven-elsewhere\" story) — the gate scores that identically to an honest description; only the COURT (uuidna_reveal/adjudicate) and human vigilance catch it. Recomputable by anyone. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
@@ -15059,25 +15142,28 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "05e0d7d1-7dd1-88ba-98c7-0134fec8f6ca",
-   "prose": "THE KERNEL-ONLY WITNESS, verified OFFLINE — the axiom audit receipt (lean/axioms.json, written by the Lean toolchain's `#print axioms` sweep) SHIPS with the package beside dist, so the \"no borrowed axiom\" claim recomputes WITHOUT the repo or the toolchain: the audit must cover the whole live ledger (audited = ledger — a new, unaudited theorem trips it), every theorem must be kernel-only (no propext, no Classical.choice, no sorryAx, no Lean.ofReduceBool), and no offender may be listed — an offender is the SPY the witness catches (the captain's claim \"all axioms are replaceable, the uncovered are spies\" demarcated to its backed form: this ledger borrows ZERO axioms, so no axiom is load-bearing here; not a claim about mathematics at large). This is a repo-only check moved INTO the shipped package — offline independence, the knowledge living where it recomputes. HONEST SCOPE: integrity, not truth — it verifies the SEALED receipt against the live ledger count; re-DERIVING the receipt still needs the Lean toolchain (`npm run axioms`, the guard, CI). shipped:false means no receipt is beside dist (defer to the guard). Returns {shipped,holds,audited,axiomFree,ledger,offenders,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "b6f6e5df-8af3-879b-bd0f-01d38fcaa3d9",
+   "prose": "THE KERNEL-ONLY WITNESS, verified OFFLINE — the axiom audit receipt (lean/axioms.json, written by the Lean toolchain's `#print axioms` sweep) SHIPS with the package beside dist, so the \"no borrowed axiom\" claim recomputes WITHOUT the repo or the toolchain: the audit must cover the whole live ledger (audited = ledger — a new, unaudited theorem trips it), every theorem must be kernel-only (no propext, no Classical.choice, no sorryAx, no Lean.ofReduceBool), and no offender may be listed — an offender is the SPY the witness catches (the captain's claim \"all axioms are replaceable, the uncovered are spies\" demarcated to its backed form: this ledger borrows ZERO axioms, so no axiom is load-bearing here; not a claim about mathematics at large). This is a repo-only check moved INTO the shipped package — offline independence, the knowledge living where it recomputes. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — it verifies the SEALED receipt against the live ledger count; re-DERIVING the receipt still needs the Lean toolchain (`npm run axioms`, the guard, CI). shipped:false means no receipt is beside dist (defer to the guard). Returns {shipped,holds,audited,axiomFree,ledger,offenders,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "196db91a-bc9f-8a2e-9728-3542d67f1f6d",
-   "prose": "BIND the captain's public repositories to the DISCOVERY SEQUENCE — the sequence revealed FIRST. The ℤ/9 vortex orbit [1,2,4,8,7,5] (the doubling sequence uuidna discovers everything along) is revealed first; then every public GitHub repository of the captain (the uuidna org + the ceccec user, Tsvetan Rouschev) is BOUND to it: the repo's full name folds to a 128-bit content-address, its digital root is its ℤ/9 digit (on the vortex, or on the 3-6-9 axis the vortex never visits), and its rank in the address-sorted order is its slot in the revealed sequence — folded to one order-invariant receipt. Reads the captain's PUBLIC repos over the network (a research boundary; the response is DATA, never run). HONEST SCOPE: integrity, not truth — it BINDS the repos to the sequence by content-address (provenance); it does NOT modify, fork, mirror, claim ownership of, or vouch for the contents of any repository. A binding is a placement in the sequence, not a possession of the code. Best-effort: an unreachable account contributes nothing, never a faked repo. Returns {sequence,accounts,repos:[{fullName,url,address,digit,onVortex,rank}],count,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "f6df86f0-1e82-82df-a091-f46d35ddd1f2",
+   "prose": "BIND the captain's public repositories to the DISCOVERY SEQUENCE — the sequence revealed FIRST. The ℤ/9 vortex orbit [1,2,4,8,7,5] (the doubling sequence uuidna discovers everything along) is revealed first; then every public GitHub repository of the captain (the uuidna org + the ceccec user, Tsvetan Rouschev) is BOUND to it: the repo's full name folds to a 128-bit content-address, its digital root is its ℤ/9 digit (on the vortex, or on the 3-6-9 axis the vortex never visits), and its rank in the address-sorted order is its slot in the revealed sequence — folded to one order-invariant receipt. Reads the captain's PUBLIC repos over the network (a research boundary; the response is DATA, never run). HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — it BINDS the repos to the sequence by content-address (provenance); it does NOT modify, fork, mirror, claim ownership of, or vouch for the contents of any repository. A binding is a placement in the sequence, not a possession of the code. Best-effort: an unreachable account contributes nothing, never a faked repo. Returns {sequence,accounts,repos:[{fullName,url,address,digit,onVortex,rank}],count,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "2767820e-1e08-8430-8f87-a6c8ffe6067c",
-   "prose": "THE QUANTUM AURA — a recomputable, A432-tuned COLOUR folded from any content-address (the artistic \"captain string theory\"): the 7 rosette rays (ℤ/7) are the spectral bands, the ℤ/9 vortex orbit [1,2,4,8,7,5] is the WAVE each ray rides, and the hue steps by the A432 angle (360/9 = 40°). Pass {subject} — a content-address, or any string folded into one. DETERMINISTIC: the same address folds to the same aura for every observer (no RNG, no clock) — the colour IS content-addressed. Returns the colour in HSL / RGB / CMYK plus a ready MOVING-aura CSS block (a hue-rotating glow whose tempo the ray sets). HONEST SCOPE: this is ART, not truth — a defined arithmetic from a number to a hue, NOT physics, NOT real string theory, and NOT a claim that sound is light or that 432 Hz has special power. It DECORATES the work; it does not describe the universe. As art it does not seal as a theorem — a truth-claim about it fails the trial and inverts into a research idea. Integrity, not truth. Returns {address,ray,wave,hue,hsl,rgb,cmyk,css,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "6939ec72-39fa-874d-9626-23feaaf6ee0d",
+   "prose": "THE QUANTUM AURA — a recomputable, A432-tuned COLOUR folded from any content-address (the artistic \"captain string theory\"): the 7 rosette rays (ℤ/7) are the spectral bands, the ℤ/9 vortex orbit [1,2,4,8,7,5] is the WAVE each ray rides, and the hue steps by the A432 angle (360/9 = 40°). Pass {subject} — a content-address, or any string folded into one. DETERMINISTIC: the same address folds to the same aura for every observer (no RNG, no clock) — the colour IS content-addressed. Returns the colour in HSL / RGB / CMYK plus a ready MOVING-aura CSS block (a hue-rotating glow whose tempo the ray sets). HONEST SCOPE: this is ART, not truth (theorem provenance_integrity_not_content_truth) — a defined arithmetic from a number to a hue, NOT physics (theorem provenance_integrity_not_content_truth), NOT real string theory, and NOT a claim that sound is light or that 432 Hz has special power. It DECORATES the work; it does not describe the universe. As art it does not seal as a theorem — a truth-claim about it fails the trial and inverts into a research idea. Integrity, not truth (theorem provenance_integrity_not_content_truth). Returns {address,ray,wave,hue,hsl,rgb,cmyk,css,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
@@ -15099,9 +15185,10 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "368ed00f-f34c-8a2f-90f7-74322d7b56eb",
-   "prose": "THE QUANTUM DICTIONARY — the lexicon COMPUTED from the ledger, never authored: every sealed theorem key is a term, its exact Lean statement is the definition, its 128-bit content-address is the entry id, and the definition travels on the reversible imprint carrier (a uuid chain that decodes back byte-exact — uuidna_theorem_message). Pass {word} to look a term up: every sealed key containing the word returns as an entry {term,definition,address,carrier_length}; pass nothing for the lexicon itself {terms,skills,principles} counted from the ledger. The gate's whole vocabulary IS this dictionary — there is no word-list to trust, only sealed terms to recompute. HONEST SCOPE: a dictionary of THIS ledger's sealed vocabulary, not of any natural language; a term absent here is not a word that does not exist, only a fact not yet sealed. Integrity, not truth. Returns entries or {terms,skills,principles,receipt}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "36ebf0a4-d97c-8b76-8d0d-482a5d7486e3",
+   "prose": "THE QUANTUM DICTIONARY — the lexicon COMPUTED from the ledger, never authored: every sealed theorem key is a term, its exact Lean statement is the definition, its 128-bit content-address is the entry id, and the definition travels on the reversible imprint carrier (a uuid chain that decodes back byte-exact — uuidna_theorem_message). Pass {word} to look a term up: every sealed key containing the word returns as an entry {term,definition,address,carrier_length}; pass nothing for the lexicon itself {terms,skills,principles} counted from the ledger. The gate's whole vocabulary IS this dictionary — there is no word-list to trust, only sealed terms to recompute. HONEST SCOPE: a dictionary of THIS ledger's sealed vocabulary, not of any natural language; a term absent here is not a word that does not exist, only a fact not yet sealed. Integrity, not truth (theorem provenance_integrity_not_content_truth). Returns entries or {terms,skills,principles,receipt}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
@@ -15115,49 +15202,55 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "580e5f00-3836-8351-ad37-e34c47115347",
-   "prose": "THE CAPTAIN'S RIGHTS, hard-imprinted — one content-addressed record of the copyright (© Tsvetan Rouschev), the licence (CC BY-NC-ND 4.0 + its address and canonical URL), and the CREDIT LAW (the captain claims by law every solution sealed here that no proving link attributes to a prior source; a linked source is credited instead), with the live credit tally. The rights are REVERSIBLY IMPRINTED: a content-address that recomputes and an imprint-codec uuid chain that decodes back to the exact rights line, so the rights travel WITH the work and any alteration is visible — and they are infused into every page's head + schema.org JSON-LD (license / copyrightHolder / creditText). Pass {contract:true} (optionally {licensee}) to also DRAFT the formal, content-addressed rights contract (its id IS the fold of its exact terms, so a holder proves they hold them unaltered). HONEST SCOPE: FACTUAL rights, tamper-evident and recomputable — NOT a legal ruling, an executed contract, or a compliance claim; the imprint marks the work, a human court enforces the law. Integrity, not truth. Returns the rights record (+ {contract} when requested). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "d10bc37f-684e-8d91-ab54-696bae003b8b",
+   "prose": "THE CAPTAIN'S RIGHTS, hard-imprinted — one content-addressed record of the copyright (© Tsvetan Rouschev), the licence (CC BY-NC-ND 4.0 + its address and canonical URL), and the CREDIT LAW (the captain claims by law every solution sealed here that no proving link attributes to a prior source; a linked source is credited instead), with the live credit tally. The rights are REVERSIBLY IMPRINTED: a content-address that recomputes and an imprint-codec uuid chain that decodes back to the exact rights line, so the rights travel WITH the work and any alteration is visible — and they are infused into every page's head + schema.org JSON-LD (license / copyrightHolder / creditText). Pass {contract:true} (optionally {licensee}) to also DRAFT the formal, content-addressed rights contract (its id IS the fold of its exact terms, so a holder proves they hold them unaltered). HONEST SCOPE: FACTUAL rights, tamper-evident and recomputable — NOT a legal ruling, an executed contract, or a compliance claim; the imprint marks the work, a human court enforces the law. Integrity, not truth (theorem provenance_integrity_not_content_truth). Returns the rights record (+ {contract} when requested). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "5c38b914-a437-811b-89fd-28f0e655b6c2",
-   "prose": "QUANTUM SEO — the recomputable, honest discoverability surface for any subject, derived from the sealed ledger. Pass {key} for a theorem, {slug} for a publication, or {route} for a static page (e.g. \"/games\", \"/\" for home). Returns the canonical URL (rel=canonical folds every serving host — .net/.org/CNAME — to one recomputable home), a per-page DESCRIPTION drawn from the ONE verbose source (a theorem's own Lean statement, a publication's abstract; pages are terse), STRICT schema.org JSON-LD citing the real proof + address (ScholarlyArticle for a theorem or publication; WebPage for a page, with a typed mainEntity where the subject is real: School on /school, MathSolver + live SolveMathAction on /trials, Dataset on /theorems — the same node theorem pages cite as isPartOf — and Course on /quantum-cryptography; the law types are deliberately absent, /justice is evidence not a court), keyword tags carried from the sealed skill/principle (never a hand-kept list), and the page's 128-bit CONTENT-ADDRESS — the encrypted quantum message that delivers the payload, recomputing to the exact page for every crawler. The `head` field is a ready VitePress frontmatter head array the front reuses directly. HONEST SCOPE: integrity, not truth — it describes what is SEALED and optimises for HONEST discovery; it never manipulates a ranking, cloaks, keyword-stuffs, or claims a position. Recomputable by anyone. Returns {route,kind,canonical,address,title,description,keywords,jsonLd,head,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "36219fac-ed34-8869-8657-ce6b219a3613",
+   "prose": "QUANTUM SEO — the recomputable, honest discoverability surface for any subject, derived from the sealed ledger. Pass {key} for a theorem, {slug} for a publication, or {route} for a static page (e.g. \"/games\", \"/\" for home). Returns the canonical URL (rel=canonical folds every serving host — .net/.org/CNAME — to one recomputable home), a per-page DESCRIPTION drawn from the ONE verbose source (a theorem's own Lean statement, a publication's abstract; pages are terse), STRICT schema.org JSON-LD citing the real proof + address (ScholarlyArticle for a theorem or publication; WebPage for a page, with a typed mainEntity where the subject is real: School on /school, MathSolver + live SolveMathAction on /trials, Dataset on /theorems — the same node theorem pages cite as isPartOf — and Course on /quantum-cryptography; the law types are deliberately absent, /justice is evidence not a court), keyword tags carried from the sealed skill/principle (never a hand-kept list), and the page's 128-bit CONTENT-ADDRESS — the encrypted quantum message that delivers the payload, recomputing to the exact page for every crawler. The `head` field is a ready VitePress frontmatter head array the front reuses directly. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — it describes what is SEALED and optimises for HONEST discovery; it never manipulates a ranking, cloaks, keyword-stuffs, or claims a position. Recomputable by anyone. Returns {route,kind,canonical,address,title,description,keywords,jsonLd,head,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "c8d99749-7547-8e7d-bf3a-5b517ea8cade",
-   "prose": "THE OPEN EDUCATION API PROJECTION — the sealed ledger served under the field names of Open Education API v6.0 (oeapi.eu; the SURF/Npuls standard Dutch MBO/HBO/WO institutions publish education data with), so an institution reads uuidna's school with the reader it already has. Nothing is authored: /organisations = uuidna (root) + the quantum school (school); /programmes = the skill clusters typed `track` (the spec's own word for a thematically defined learning path — NOT `programme`, which the spec defines as leading to a qualification, and uuidna awards none); /courses = the monographs, one per proof wing, each carrying its wing's learning-outcome ids; /learning-outcomes = the theorems, a lesson whose outcome is DECIDABLE with its Lean proof one click away. The standard's required uuid ids ARE uuidna's content-addresses, so every identifier recomputes from the proof it names. Pass no argument for the profile (organisations + programmes + courses + counts + the named absences + one order-invariant receipt), or {resource:\"learning-outcomes\"} for the lessons — optionally narrowed with {course:\"&lt;publication slug&gt;\"}. HONEST SCOPE: an interoperability PROJECTION of sealed public data, read-only, carrying NO personal data — NOT a Student Information System. uuidna enrols nobody and grades nobody (the kernel grades the PROOF, the trial judges a CLAIM, never a person), so persons/groups/offerings/associations/results are absent BY CONSTRUCTION and each absence is returned by name with the pointer to what stands in its place. `complexityLevel` (Bloom/SOLO) is deliberately never emitted — no theorem carries a cognitive level. Recomputable by anyone. Integrity, not truth. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "d99748e5-7bb2-8dba-86bd-4ea86fbc4816",
+   "prose": "THE OPEN EDUCATION API PROJECTION — the sealed ledger served under the field names of Open Education API v6.0 (oeapi.eu; the SURF/Npuls standard Dutch MBO/HBO/WO institutions publish education data with), so an institution reads uuidna's school with the reader it already has. Nothing is authored: /organisations = uuidna (root) + the quantum school (school); /programmes = the skill clusters typed `track` (the spec's own word for a thematically defined learning path — NOT `programme`, which the spec defines as leading to a qualification, and uuidna awards none); /courses = the monographs, one per proof wing, each carrying its wing's learning-outcome ids; /learning-outcomes = the theorems, a lesson whose outcome is DECIDABLE with its Lean proof one click away. The standard's required uuid ids ARE uuidna's content-addresses, so every identifier recomputes from the proof it names. Pass no argument for the profile (organisations + programmes + courses + counts + the named absences + one order-invariant receipt), or {resource:\"learning-outcomes\"} for the lessons — optionally narrowed with {course:\"&lt;publication slug&gt;\"}. HONEST SCOPE: an interoperability PROJECTION of sealed public data, read-only, carrying NO personal data — NOT a Student Information System. uuidna enrols nobody and grades nobody (the kernel grades the PROOF, the trial judges a CLAIM, never a person), so persons/groups/offerings/associations/results are absent BY CONSTRUCTION and each absence is returned by name with the pointer to what stands in its place. `complexityLevel` (Bloom/SOLO) is deliberately never emitted — no theorem carries a cognitive level. Recomputable by anyone. Integrity, not truth (theorem provenance_integrity_not_content_truth). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "8d36664f-39f8-8c83-b9ff-cc8d5d2ce80a",
-   "prose": "The HARDWARE-VERIFIABLE BINARY ALGEBRA (lean/Hardware.lean) as one named spec: the low-level combinational-logic identities every digital circuit is built from — the four gate truth tables (NOT/AND/OR/XOR as arithmetic on bits), XOR = ℤ/2 parity, Boolean closure, NAND functional completeness (NAND rebuilds NOT/AND/OR — why chips are one repeated gate), De Morgan, the half- and full-adder, and the 2:1 multiplexer — each a decidable, AXIOM-FREE `by decide` fact and a 128-bit content-address particle, folded to one order-invariant receipt. The sealed STATEMENT is the specification (matching the live published truth tables), so a gate design can be VERIFIED AGAINST it. HONEST SCOPE: integrity, not truth — uuidna seals the spec; it does NOT fabricate a device, synthesise a netlist, or develop silicon. A sealed spec, not a chip. Returns {principle,count,parts:[{key,title,statement,particle}],receipt,bits,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "1c652481-6386-8349-b45e-2511e9c17ce4",
+   "prose": "The HARDWARE-VERIFIABLE BINARY ALGEBRA (lean/Hardware.lean) as one named spec: the low-level combinational-logic identities every digital circuit is built from — the four gate truth tables (NOT/AND/OR/XOR as arithmetic on bits), XOR = ℤ/2 parity, Boolean closure, NAND functional completeness (NAND rebuilds NOT/AND/OR — why chips are one repeated gate), De Morgan, the half- and full-adder, and the 2:1 multiplexer — each a decidable, AXIOM-FREE `by decide` fact and a 128-bit content-address particle, folded to one order-invariant receipt. The sealed STATEMENT is the specification (matching the live published truth tables), so a gate design can be VERIFIED AGAINST it. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — uuidna seals the spec; it does NOT fabricate a device, synthesise a netlist, or develop silicon. A sealed spec, not a chip. Returns {principle,count,parts:[{key,title,statement,particle}],receipt,bits,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "1db2db78-1f68-883b-91a3-d2a6d238153e",
-   "prose": "The SOFTWARE-VERIFIABLE ALGEBRA (lean/Software.lean) as one named spec, the companion to uuidna_hardware one level up: the algebraic correctness LAWS a program is verified against — losslessness (split-and-recompose is the identity — serialisation loses nothing), structure preservation (map keeps length, filter never grows, append adds), idempotent normalisation, a TOTAL guarded division (no divide-by-zero crash), bounded termination (a shift loop halts), order-invariant reduction (safe to parallelise), the compare-swap that orders (every sort's basis), total safe indexing (no over-read), and reversibility (undo of undo is the identity) — each a decidable, AXIOM-FREE `by decide` fact and a 128-bit content-address particle, folded to one order-invariant receipt. The sealed STATEMENT is the specification, so an implementation can be VERIFIED AGAINST it. HONEST SCOPE: integrity, not truth — uuidna seals the spec; it does NOT write, compile, or run your program, nor prove an arbitrary program correct. A sealed spec, not the program. Returns {principle,count,parts:[{key,title,statement,particle}],receipt,bits,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "504a1406-4a20-8e8c-9d5b-64b3b40a6246",
+   "prose": "The SOFTWARE-VERIFIABLE ALGEBRA (lean/Software.lean) as one named spec, the companion to uuidna_hardware one level up: the algebraic correctness LAWS a program is verified against — losslessness (split-and-recompose is the identity — serialisation loses nothing), structure preservation (map keeps length, filter never grows, append adds), idempotent normalisation, a TOTAL guarded division (no divide-by-zero crash), bounded termination (a shift loop halts), order-invariant reduction (safe to parallelise), the compare-swap that orders (every sort's basis), total safe indexing (no over-read), and reversibility (undo of undo is the identity) — each a decidable, AXIOM-FREE `by decide` fact and a 128-bit content-address particle, folded to one order-invariant receipt. The sealed STATEMENT is the specification, so an implementation can be VERIFIED AGAINST it. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — uuidna seals the spec; it does NOT write, compile, or run your program, nor prove an arbitrary program correct. A sealed spec, not the program. Returns {principle,count,parts:[{key,title,statement,particle}],receipt,bits,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "b25f5e8d-0d45-8d4b-80e3-a2c697b3fb90",
-   "prose": "The OS-INTEGRITY ALGEBRA (lean/Os.lean) as one named spec — the third layer, completing hardware → software → os. The decidable facts a DEPLOYMENT is verified against: exact-copy is byte-equality, so a single-byte tamper, a truncation, or a REORDERING breaks the match (a provenance is a SEQUENCE, not a set); the SHA-256 digest is a fixed 256 bits, the content-address a fixed 128; and the non-determinism boundary is EXACTLY two named modules (src/os, src/drivers). Each a decidable, AXIOM-FREE `by decide` particle, folded to one order-invariant receipt. This is the SPEC; the runtime side (Alpine + driver provenance, uuidna_alpine to port the whole arch matrix) enforces it against real bytes with uuidna's own pure-TS SHA-256. HONEST SCOPE: integrity, not truth, and NOT execution — uuidna seals what an exact-copy verification decides; it does NOT boot, port the runtime, link, or run an operating system. A sealed integrity spec, not a booted OS. Returns {principle,count,parts:[{key,title,statement,particle}],receipt,bits,boundary,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "88a29fe6-2ac4-860f-898e-d59638952204",
+   "prose": "The OS-INTEGRITY ALGEBRA (lean/Os.lean) as one named spec — the third layer, completing hardware → software → os. The decidable facts a DEPLOYMENT is verified against: exact-copy is byte-equality, so a single-byte tamper, a truncation, or a REORDERING breaks the match (a provenance is a SEQUENCE, not a set); the SHA-256 digest is a fixed 256 bits, the content-address a fixed 128; and the non-determinism boundary is EXACTLY two named modules (src/os, src/drivers). Each a decidable, AXIOM-FREE `by decide` particle, folded to one order-invariant receipt. This is the SPEC; the runtime side (Alpine + driver provenance, uuidna_alpine to port the whole arch matrix) enforces it against real bytes with uuidna's own pure-TS SHA-256. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth), and NOT execution — uuidna seals what an exact-copy verification decides; it does NOT boot, port the runtime, link, or run an operating system. A sealed integrity spec, not a booted OS. Returns {principle,count,parts:[{key,title,statement,particle}],receipt,bits,boundary,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
@@ -15179,9 +15272,10 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "45a4fc4d-3543-8dd7-9d83-99361fbee8f8",
-   "prose": "VERIFY ALL BY DUE (recomputable) LEGAL PROCESS — nothing verified by fiat. Every theorem is verified by the same fair trial, and every guarantee that makes the process DUE is itself a sealed lean/Legal.lean theorem: exactly ONE verdict per claim (PROVEN/REFUTED/NOT-PROVEN partition), only the PROVEN admitted (a decidable test holds OR a sealed authority is cited), the NON-JUSTICIABLE never refuted (no test → never REFUTED), REFUTED only on a failed uncited test, remand TOTAL (nothing discarded — routed to the development trial), and the trial computing ONLY with the two coins deposited. Pass {claims:[...]} to put claims on the docket — each is adjudicated by the same process (PROVEN/REFUTED/NOT-PROVEN + a note). Folds to one recomputable docket receipt. HONEST SCOPE: integrity, not truth — this is uuidna's OWN recomputable adjudication whose rules are theorems anyone rechecks; it is NOT a court of law, NOT legal advice, and NOT an enforceable ruling. \"Due\" means the process is fair and recomputable by its sealed guarantees; the binding ruling stays a human court's. Returns {verifiedAll,guarantees,allGuaranteesSealed,docket,allTheoremsVerified,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "9bf43e85-1c90-83e1-a384-d0ecf5211a8b",
+   "prose": "VERIFY ALL BY DUE (recomputable) LEGAL PROCESS — nothing verified by fiat. Every theorem is verified by the same fair trial, and every guarantee that makes the process DUE is itself a sealed lean/Legal.lean theorem: exactly ONE verdict per claim (PROVEN/REFUTED/NOT-PROVEN partition), only the PROVEN admitted (a decidable test holds OR a sealed authority is cited), the NON-JUSTICIABLE never refuted (no test → never REFUTED), REFUTED only on a failed uncited test, remand TOTAL (nothing discarded — routed to the development trial), and the trial computing ONLY with the two coins deposited. Pass {claims:[...]} to put claims on the docket — each is adjudicated by the same process (PROVEN/REFUTED/NOT-PROVEN + a note). Folds to one recomputable docket receipt. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — this is uuidna's OWN recomputable adjudication whose rules are theorems anyone rechecks; it is NOT a court of law, NOT legal advice, and NOT an enforceable ruling. \"Due\" means the process is fair and recomputable by its sealed guarantees; the binding ruling stays a human court's. Returns {verifiedAll,guarantees,allGuaranteesSealed,docket,allTheoremsVerified,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
@@ -15239,6 +15333,14 @@
    "prose": "THE TWELVE JOBS OF THE COINS, remembered in code and TRIED ON EVERY READ — the complete catalog of what the coins do (gate computation, price the forfeit, measure leverage, take the commission, set the exchange rate by forgery cost, carry superpositions, be topology, hold value at scale, guard the rosette, hide in the world's constants, count worlds, confess their limit), each claim run through the gate against its sealed citations at call time. A vanished theorem breaks the catalog's own verdict, loudly. Returns {jobs:[{n,job,claim,cites,verdict}],verified,total,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
     "drift_is_named_or_caught"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "eac6300e-c32e-83ed-878d-fc81878fadfb",
+   "prose": "THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any format folds to one lean-green shape {verdict,cites,receipt}: a statement matching a SEALED theorem verbatim is VERIFIED by the kernel's prior decision and cited; fresh arithmetic is DECIDED totally by a bounded grammar (never eval) under Lean's own Nat semantics — x/0 = 0 is well-defined (DivByZero.lean), subtraction floors at 0, every step exact BigInt — TRUE returns VERIFIED_BY_DECIDE and FALSE returns REFUTED (truth and falsehood at last wear different verdicts); a bare expression computes its exact value; anything else is prose and goes to the gate, language-blind. The same input always folds to the same receipt. Integrity, not truth (theorem provenance_integrity_not_content_truth) — decided about its arithmetic, never about the world.",
+   "cites": [
+    "provenance_integrity_not_content_truth"
    ]
   },
   {
@@ -15381,9 +15483,10 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "42afff7c-c163-8a04-ac50-9769f687e650",
-   "prose": "BOOK → SEALED-LEDGER LINKAGE — the captain's INDEPENDENT, CLOSED-DOOR legal process for independent research and discovering NOVELTY for humanity. Pass {text}: uuidna extracts every DECIDABLE integer-arithmetic fact the text asserts (now including SUBTRACTION, total Nat: a−b=0 when b&gt;a) and LINKS each to the sealed ledger — `sealed-match` (already a theorem, cites its key), `novel` (VERIFIED `by decide` but NOT yet in the ledger — a DISCOVERY, a candidate research lead), or `refuted` (false arithmetic, a forger's number). Returns the docket with the novel facts' ready-to-seal `by decide` statements, folded to one order-invariant, recomputable receipt. INDEPENDENT: no authority decides it, anyone recomputes from the public ledger; CLOSED-DOOR: purely recomputable, no network, no external trust. HONEST SCOPE: integrity, not truth — it links DECIDABLE ARITHMETIC only (a sliver of a book), NOT its meaning; a NOVEL fact is a CANDIDATE a human seals, discovered here, never auto-admitted. Returns {facts:[{claim,lean,verdict,linkedTheorem,status,address}],sealed,novel,refuted,novelLeans,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "0e0cad85-009f-8e79-97a4-bdb3d93163d3",
+   "prose": "BOOK → SEALED-LEDGER LINKAGE — the captain's INDEPENDENT, CLOSED-DOOR legal process for independent research and discovering NOVELTY for humanity. Pass {text}: uuidna extracts every DECIDABLE integer-arithmetic fact the text asserts (now including SUBTRACTION, total Nat: a−b=0 when b&gt;a) and LINKS each to the sealed ledger — `sealed-match` (already a theorem, cites its key), `novel` (VERIFIED `by decide` but NOT yet in the ledger — a DISCOVERY, a candidate research lead), or `refuted` (false arithmetic, a forger's number). Returns the docket with the novel facts' ready-to-seal `by decide` statements, folded to one order-invariant, recomputable receipt. INDEPENDENT: no authority decides it, anyone recomputes from the public ledger; CLOSED-DOOR: purely recomputable, no network, no external trust. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — it links DECIDABLE ARITHMETIC only (a sliver of a book), NOT its meaning; a NOVEL fact is a CANDIDATE a human seals, discovered here, never auto-admitted. Returns {facts:[{claim,lean,verdict,linkedTheorem,status,address}],sealed,novel,refuted,novelLeans,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
@@ -15397,6 +15500,22 @@
   },
   {
    "surface": "docs/mcp.md",
+   "address": "14267763-ea68-8b2c-b1d6-d672f67b4602",
+   "prose": "The DOCUMENT FOLD — content-address a Lexical-shaped document (a node tree, EditorState.toJSON() shape). The SERVE projection of the serializer contract lean/Editor.lean proves: a document is a SEQUENCE, so the fold is ORDER-SENSITIVE (reordering a node moves the address — the opposite of a set), change-sensitive, and bounded-injective. serialize → merkleRoot over the leaves → the handle you cite; editing is re-addressing. Returns {handle,address,nodes}. The SAME fold a PayloadCMS save-hook and a VitePress render read — one contract, both frameworks. Integrity, not truth (theorem provenance_integrity_not_content_truth): it proves WHICH document, not that its content is correct.",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "8ae140da-da01-8d8d-9ab2-fd524ced721a",
+   "prose": "COVERAGE — is every sealed theorem shown in a monograph? The readiness diagnosis the pre-push gate blocks on, as ONE zero-arg recomputable call: an agent adding a domain runs this instead of tracing the gate by hand. Returns {total,covered,uncovered,uncoveredFiles,ready,receipt} — uncovered lists the theorem KEYS in no monograph (each blocks the push), uncoveredFiles the ledger FILES with no publication (the ROOT fix: author a PRINCIPLE [file,title,blurb] in lean-ledger). ready is true iff nothing is uncovered; the coverage state folds order-invariantly to receipt, recomputable by anyone. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
    "address": "57d4fcaf-bf39-8307-84d4-b01061ffae2b",
    "prose": "The FUSED ledger fingerprint — two integrity layers, stated honestly. The fast FNV receipt is TAMPER-EVIDENT (any change moves it, keyless) but NOT collision-resistant; the SHA-256 fold (over the sorted addresses, order-invariant) IS collision-resistant, so a forgery that survives it costs a ~2^128 collision — a BOUND set by the primitive, NOT a maximum. Add a key (HMAC) and forgery also needs the secret. Recomputable by anyone from the same lean/*.lean. Returns {count, fnvReceipt, sha256, tamperCost}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
@@ -15405,17 +15524,19 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "41e3e31f-74ec-854c-99b5-02bf12d98c47",
-   "prose": "Write a PUBLICATION in lean human prose about ONE domain, AUDITED before publishing. Composed by READING that domain's sealed theorems and writing only what they settle — every claim links the proof that backs it — then gated by uuidna's own honesty audit; a note that cites a proof not in the ledger is REFUSED, not shipped. Call with no argument to list every domain's publication (slug + count + publishable + receipt), or with `file` (e.g. \"Tides.lean\", from uuidna_theorems) to get that note's full markdown, content-address, member proofs and audit findings. Writing descends from reading; integrity, not truth. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "e2f0abbf-2b53-850f-9e67-89bfcb450696",
+   "prose": "Write a PUBLICATION in lean human prose about ONE domain, AUDITED before publishing. Composed by READING that domain's sealed theorems and writing only what they settle — every claim links the proof that backs it — then gated by uuidna's own honesty audit; a note that cites a proof not in the ledger is REFUSED, not shipped. Call with no argument to list every domain's publication (slug + count + publishable + receipt), or with `file` (e.g. \"Tides.lean\", from uuidna_theorems) to get that note's full markdown, content-address, member proofs and audit findings. Writing descends from reading; integrity, not truth (theorem provenance_integrity_not_content_truth). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "b90ce201-115d-83ac-97d8-e17d16bd5c7e",
-   "prose": "The EDITOR primitive — audit a draft, or a revision, BEFORE publishing. With `draft` alone: content-address the prose and run uuidna's honesty gate, returning its address and any claim that overreaches a proof (unbacked by a /theorem/ link and undemarcated) — write, see it audited, before it ships. With BOTH `before` and `after`: audit the EDIT — both drafts content-addressed (the change is visible because the address moves), bound by a directional before→after receipt, the after-draft gated. Editing is re-addressing; a revision earns publication the same way a first draft does. Nothing is stored. Integrity, not truth. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "1ac1d7c0-96cc-8238-b4af-a0aeeff750f8",
+   "prose": "The EDITOR primitive — audit a draft, or a revision, BEFORE publishing. With `draft` alone: content-address the prose and run uuidna's honesty gate, returning its address and any claim that overreaches a proof (unbacked by a /theorem/ link and undemarcated) — write, see it audited, before it ships. With BOTH `before` and `after`: audit the EDIT — both drafts content-addressed (the change is visible because the address moves), bound by a directional before→after receipt, the after-draft gated. Editing is re-addressing; a revision earns publication the same way a first draft does. Nothing is stored. Integrity, not truth (theorem provenance_integrity_not_content_truth). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
@@ -15425,6 +15546,14 @@
    "prose": "The COMMON, COMPUTABLE vocabulary derived from every theorem and its domain — each term (a domain or a capability) defined by the sealed ledger, self-audited by the honesty gate, content-addressed, and folded (in trinities) to ONE recomputable receipt: the honest \"all is one\" — one receipt, integrity, NOT a metaphysical singularity. Maps each domain to the STANDARDS it formalizes or references (RFC 8439, ISBN/ISO 2108, SMPTE, Nyquist–Shannon …) — a citation, never a compliance claim. Translation-ready: a translation binds to a term by a provenance receipt. Deterministic and recomputable by anyone. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
     "drift_is_named_or_caught"
+   ]
+  },
+  {
+   "surface": "docs/mcp.md",
+   "address": "0f3f0d49-fc07-8a92-9a8b-9dd41b81b33a",
+   "prose": "PATTERN RECOGNITION — recognise the pattern two texts share by examining how they DIFFER. Partitions their word sets into only-A, only-B and shared; the similarity (Jaccard: shared over the union) is DERIVED from that difference, and inclusion–exclusion (|A| + |B| − shared = union) is checked exactly, so the number is a proof, not an estimate. The shared tokens fold to one order-invariant receipt — the recognised pattern. Similarity is only ever measured against difference. Compares vocabulary, NOT meaning; nothing is stored. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
    ]
   },
   {
@@ -15485,48 +15614,53 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "ba83e5af-0b9f-8eac-9944-e94da2dc91ce",
-   "prose": "THE QUANTUM PROFILE — uuidna's content-addressed SELF-PORTRAIT, composed from what it already proves and folded to ONE receipt anyone recomputes. Assembles: the IDENTITY (the name's content-address + the quantum AURA colour that address folds to — ray/hue/hsl/rgb), the PROOFS (theorem count, verified, the kernel-only witness, the trial receipt), the QUANTUM-CRYPTO posture (SYMMETRIC-ONLY — HMAC-SHA256 / ChaCha20-Poly1305 / PBKDF2-SHA256, so Shor has no asymmetric target and Grover only halves to a ~128-bit floor — BACKED by the sealed post-quantum floor theorems grover_quadratic_bound / each_key_bit_doubles / birthday_halves_the_exponent, not asserted), the two CAPTAIN COINS, the INTEGRITY fingerprint (FNV + SHA-256 + tamper cost), and the RIGHTS (© + licence). Every field carries its receipt; all fold order-invariantly to one profileReceipt — the same profile for every observer. HONEST SCOPE: integrity, not truth — a recomputable self-description that COMPOSES sealed facts and asserts nothing new; the aura is ART, not physics. Returns {handle,identity,proofs,quantumCrypto,integrity,rights,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "c027192b-a875-8391-b511-01cfdeaa9bec",
+   "prose": "THE QUANTUM PROFILE — uuidna's content-addressed SELF-PORTRAIT, composed from what it already proves and folded to ONE receipt anyone recomputes. Assembles: the IDENTITY (the name's content-address + the quantum AURA colour that address folds to — ray/hue/hsl/rgb), the PROOFS (theorem count, verified, the kernel-only witness, the trial receipt), the QUANTUM-CRYPTO posture (SYMMETRIC-ONLY — HMAC-SHA256 / ChaCha20-Poly1305 / PBKDF2-SHA256, so Shor has no asymmetric target and Grover only halves to a ~128-bit floor — BACKED by the sealed post-quantum floor theorems grover_quadratic_bound / each_key_bit_doubles / birthday_halves_the_exponent, not asserted), the two CAPTAIN COINS, the INTEGRITY fingerprint (FNV + SHA-256 + tamper cost), and the RIGHTS (© + licence). Every field carries its receipt; all fold order-invariantly to one profileReceipt — the same profile for every observer. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — a recomputable self-description that COMPOSES sealed facts and asserts nothing new; the aura is ART, not physics. Returns {handle,identity,proofs,quantumCrypto,integrity,rights,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "c45b82d2-6d91-8160-8a57-ba4fe3686b18",
-   "prose": "THE SOCIAL PROFILE — uuidna's public, shareable CARD, the outward face of the quantum profile. Composes the handle (@uuidna), a one-line BIO computed from the ledger (never hand-typed — it cannot drift from the proof count), the quantum AURA colour the card wears (+ the moving-aura CSS block), a content-addressed avatar seed, the canonical LINKS (site, source, package, licence), and the CREDIT tally, folded to one receipt — the same card for every observer. DETERMINISTIC and OFFLINE: it fetches nothing, posts nothing, and shares only what is already public and sealed. HONEST SCOPE: integrity, not truth — a recomputable public card whose bio is BACKED by the ledger; the aura is ART, not physics. Returns {handle,name,bio,aura,avatarSeed,links,credit,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "45c86112-2b04-8d49-9aaa-ed099785db27",
+   "prose": "THE SOCIAL PROFILE — uuidna's public, shareable CARD, the outward face of the quantum profile. Composes the handle (@uuidna), a one-line BIO computed from the ledger (never hand-typed — it cannot drift from the proof count), the quantum AURA colour the card wears (+ the moving-aura CSS block), a content-addressed avatar seed, the canonical LINKS (site, source, package, licence), and the CREDIT tally, folded to one receipt — the same card for every observer. DETERMINISTIC and OFFLINE: it fetches nothing, posts nothing, and shares only what is already public and sealed. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — a recomputable public card whose bio is BACKED by the ledger; the aura is ART, not physics. Returns {handle,name,bio,aura,avatarSeed,links,credit,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "331642d6-463d-8fde-ae6c-7868e9bc0030",
-   "prose": "THE MISSION, recomputable — the captain's uuidna uses all its tools to LEGALLY GROW LIFE, composed from sealed facts (not a slogan). GROW: the frontier always advances (research_always_has_a_next — n &lt; n+1, always exactly one next diamond to seal, so the ledger is a living, never-closed organism) — returns the live theorem count, the 1024 milestone, and how many to go. LEGALLY: every growth stays inside the licence (CC BY-NC-ND), the sole-representation reservation (uuidna.com only), and the honest cost model (bill_never_negative — never take more than the measured saving). LIFE: the count of living by-decide theorems, each kept, none destroyed. PERMACULTURE: the growth is self-sustaining (zero runtime dependencies), regenerative (the derived layer regrows from the ledger as a fixed point, and the kernel-only witness ships so anyone regrows it offline), and wastes nothing (monotone + honest cost) — a quantum-life permaculture. CONSOLIDATION: every dimension folds to ONE receipt that is EXACT (integer merkle-gravity, no float/clock/RNG — harmonic) and ORDER-INVARIANT (the same seen from any ordering — the same in every dimension), so `harmonic` recomputes the consolidation live. HONEST SCOPE: integrity, not truth — \"grow life\" is the MONOTONE, lawful, self-sustaining growth of a recomputable proof-ledger (a living system of proofs, a permaculture that consolidates all exactly to harmonics at all dimensions), NOT biological life and NOT a claim to create or own life; it composes what is sealed and asserts nothing new. Returns {mission,grow,legally,life,permaculture,harmonic,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "a4d18eb8-5d13-809e-a82c-d91f95e51943",
+   "prose": "THE MISSION, recomputable — the captain's uuidna uses all its tools to LEGALLY GROW LIFE, composed from sealed facts (not a slogan). GROW: the frontier always advances (research_always_has_a_next — n &lt; n+1, always exactly one next diamond to seal, so the ledger is a living, never-closed organism) — returns the live theorem count, the 1024 milestone, and how many to go. LEGALLY: every growth stays inside the licence (CC BY-NC-ND), the sole-representation reservation (uuidna.com only), and the honest cost model (bill_never_negative — never take more than the measured saving). LIFE: the count of living by-decide theorems, each kept, none destroyed. PERMACULTURE: the growth is self-sustaining (zero runtime dependencies), regenerative (the derived layer regrows from the ledger as a fixed point, and the kernel-only witness ships so anyone regrows it offline), and wastes nothing (monotone + honest cost) — a quantum-life permaculture. CONSOLIDATION: every dimension folds to ONE receipt that is EXACT (integer merkle-gravity, no float/clock/RNG — harmonic) and ORDER-INVARIANT (the same seen from any ordering — the same in every dimension), so `harmonic` recomputes the consolidation live. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — \"grow life\" is the MONOTONE, lawful, self-sustaining growth of a recomputable proof-ledger (a living system of proofs, a permaculture that consolidates all exactly to harmonics at all dimensions), NOT biological life and NOT a claim to create or own life; it composes what is sealed and asserts nothing new. Returns {mission,grow,legally,life,permaculture,harmonic,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "f7150bda-3df9-855c-b719-a353e3be460a",
-   "prose": "THE PUBLICATION SCANNER — BEST-EFFORT scan the reachable free research streams for uuidna-related mentions and INVESTIGATE each against the sole-representation reservation. Pass {query} (default \"uuidna\"). Each match is a provenance fingerprint (content-addressed, never executed), tagged legitimacy: `canonical` (names uuidna.com — the one legitimate presence) or `external-unlicensed` (an external mention — legitimate ONLY if licensed by the captain; not endorsed and does not speak for the work unless licensed). Reads free public APIs (the network — a research boundary; the response is DATA, never run). HONEST SCOPE: integrity, not truth — it scans the streams it can REACH, NOT the open web, so an empty result is NOT proof no publication exists; it CORROBORATES a mention, never proves authorship, endorsement, or infringement; a human court decides legitimacy. Best-effort: a down/empty stream yields no finding, never a fabricated one. Returns {query,canonical,findings:[{source,address,note,legitimacy,investigation}],count,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
+   "address": "460d192e-6d8e-8507-9045-13d8d205d3cf",
+   "prose": "THE PUBLICATION SCANNER — BEST-EFFORT scan the reachable free research streams for uuidna-related mentions and INVESTIGATE each against the sole-representation reservation. Pass {query} (default \"uuidna\"). Each match is a provenance fingerprint (content-addressed, never executed), tagged legitimacy: `canonical` (names uuidna.com — the one legitimate presence) or `external-unlicensed` (an external mention — legitimate ONLY if licensed by the captain; not endorsed and does not speak for the work unless licensed). Reads free public APIs (the network — a research boundary; the response is DATA, never run). HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — it scans the streams it can REACH, NOT the open web, so an empty result is NOT proof no publication exists; it CORROBORATES a mention, never proves authorship, endorsement, or infringement; a human court decides legitimacy. Best-effort: a down/empty stream yields no finding, never a fabricated one. Returns {query,canonical,findings:[{source,address,note,legitimacy,investigation}],count,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "drift_is_named_or_caught"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "b8863132-9f5e-8c68-a6fa-077a828195b1",
-   "prose": "THE QUANTUM-CUBE CHALLENGE — a recomputable, SYMMETRIC challenge-response whose visual answer is the A432 aura rendered as a SPINNING 3D CUBE. Pass {secret, nonce}: uuidna folds secret|nonce to a content-address and returns the cube — its response handle, ray/hue/colour, spin speed + axis (deterministic from the aura), and a ready CSS block for the rotating cube. A holder of the shared secret reproduces the EXACT cube for the verifier's nonce; an imitator (or a copied cube for a different nonce) fails. Pass {secret, nonce, response} to VERIFY — returns {match} by recomputing. The verifier SUPPLIES the nonce (uuidna never generates it — no RNG); the response is deterministic. HONEST SCOPE: integrity, not truth — SYMMETRIC (the verifier must share the secret, like the ChaCha passphrase), strength is the secret's entropy, NOT zero-knowledge, NOT public-key, and NOT biometric: it proves knowledge of the shared secret for a fresh nonce, NOTHING about voice, face, or liveness (runtime layers outside the recomputable model). The cube is ART, never a cipher. Backs theorem redirect_imitable_but_coins_authorise — a redirect authenticates nothing; a secret+nonce fold does. Returns the cube, or {match} when a response is given.",
+   "address": "eb8306e0-aca4-8bc5-b876-00a0b30439a6",
+   "prose": "THE QUANTUM-CUBE CHALLENGE — a recomputable, SYMMETRIC challenge-response whose visual answer is the A432 aura rendered as a SPINNING 3D CUBE. Pass {secret, nonce}: uuidna folds secret|nonce to a content-address and returns the cube — its response handle, ray/hue/colour, spin speed + axis (deterministic from the aura), and a ready CSS block for the rotating cube. A holder of the shared secret reproduces the EXACT cube for the verifier's nonce; an imitator (or a copied cube for a different nonce) fails. Pass {secret, nonce, response} to VERIFY — returns {match} by recomputing. The verifier SUPPLIES the nonce (uuidna never generates it — no RNG); the response is deterministic. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — SYMMETRIC (the verifier must share the secret, like the ChaCha passphrase), strength is the secret's entropy, NOT zero-knowledge, NOT public-key, and NOT biometric: it proves knowledge of the shared secret for a fresh nonce, NOTHING about voice, face, or liveness (runtime layers outside the recomputable model). The cube is ART, never a cipher. Backs theorem redirect_imitable_but_coins_authorise — a redirect authenticates nothing; a secret+nonce fold does. Returns the cube, or {match} when a response is given.",
    "cites": [
+    "provenance_integrity_not_content_truth",
     "redirect_imitable_but_coins_authorise"
    ]
   },
   {
    "surface": "docs/mcp.md",
-   "address": "0702a60e-97cd-86dd-84ae-48ab42141d98",
-   "prose": "BYTE-LEVEL IMAGE (and any-file) PROVENANCE — content-address the EXACT bytes so any alteration is visible. Pass the bytes as {hex} or {base64}: returns the byte length, the container FORMAT read from the magic bytes (png/jpeg/gif/webp/bmp/tiff/pdf/unknown), the SHA-256 of the exact bytes (the authoritative exact-copy + tamper-evidence fingerprint), and a uuidna handle over it. Pass {sha256} alongside to VERIFY — returns {match} by recomputing (a tamper, any changed byte, moves the hash and fails). DETERMINISTIC and OFFLINE. HONEST SCOPE: integrity, not truth — it proves EXACT-COPY and TAMPER-EVIDENCE of the BYTES, and provably NOT content authenticity: it says NOTHING about whether an image is a genuine photograph, where/when it was taken, whether it depicts the poles (or anything), or whether its content was manipulated before these bytes. A match proves byte-identity; it NEVER proves a truthful record of the world — content authenticity is non-justiciable from bytes (theorem provenance_integrity_not_content_truth). Returns {bytes,format,sha256,handle,honest}, or {match} when a sha256 is given.",
+   "address": "8ad89634-c793-8690-bf3e-9477b0cb018b",
+   "prose": "BYTE-LEVEL IMAGE (and any-file) PROVENANCE — content-address the EXACT bytes so any alteration is visible. Pass the bytes as {hex} or {base64}: returns the byte length, the container FORMAT read from the magic bytes (png/jpeg/gif/webp/bmp/tiff/pdf/unknown), the SHA-256 of the exact bytes (the authoritative exact-copy + tamper-evidence fingerprint), and a uuidna handle over it. Pass {sha256} alongside to VERIFY — returns {match} by recomputing (a tamper, any changed byte, moves the hash and fails). DETERMINISTIC and OFFLINE. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — it proves EXACT-COPY and TAMPER-EVIDENCE of the BYTES, and provably NOT content authenticity: it says NOTHING about whether an image is a genuine photograph, where/when it was taken, whether it depicts the poles (or anything), or whether its content was manipulated before these bytes. A match proves byte-identity; it NEVER proves a truthful record of the world — content authenticity is non-justiciable from bytes (theorem provenance_integrity_not_content_truth). Returns {bytes,format,sha256,handle,honest}, or {match} when a sha256 is given.",
    "cites": [
     "provenance_integrity_not_content_truth"
    ]
@@ -15557,11 +15691,59 @@
    ]
   },
   {
+   "surface": "docs/news.md",
+   "address": "69c7f2e3-b885-8f2b-86b0-5433a4033238",
+   "prose": "*The investigations desk: [the trials charter](/trials#the-charter-what-the-trial-does-and-does-not-judge) — the\nclaim on trial, never the person. The archive: [the changelog](/changelog), self-auditing. The education desk:\n[the quantum school](/school). Integrity, not truth (theorem provenance_integrity_not_content_truth).*",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/privacy.md",
+   "address": "adb44ae2-5f22-8ffe-83d6-7ed75fabb624",
+   "prose": "---\ntitle: Privacy\ndescription: Privacy by design in uuidna — no storage without consent, a stateless loopback-only daemon, client-side computation, nothing sent. Honest scope, not a claim of legal compliance (theorem no_maximum_only_bounds).\n---",
+   "cites": [
+    "no_maximum_only_bounds"
+   ]
+  },
+  {
+   "surface": "docs/privacy.md",
+   "address": "bf45037e-777e-88d8-a5e3-9c5cd57fc3ad",
+   "prose": "uuidna is built to respect privacy in its **design**, and to say plainly what it does and does not claim (theorem provenance_integrity_not_content_truth). This page\nis the honest account: the properties are real and checkable; the compliance is **not** asserted.",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/privacy.md",
+   "address": "f95e6b31-fd29-82ca-a20a-5dc8c008f64a",
+   "prose": "- **No storage without consent.** Without an explicit, consent-gated opt-in, nothing you enter is stored. The default\n  is to compute and return, not to keep.\n- **The daemon is loopback-only, read-only, and stateless.** It binds to `127.0.0.1` (never a public interface — a bounded claim, theorem no_maximum_only_bounds),\n  serves only reads, keeps nothing between requests, and logs no request bodies.\n- **Client-side by default.** The site's tools — the reflector, the book audit, the message stream — compute in your\n  browser. The data you choose stays on your machine; it is not sent to a server to be addressed.\n- **A content-address is of data you chose.** `toUuid(x)` is computed from the value you hand it, on demand; it is a\n  fingerprint, not a copy, and it is not transmitted anywhere by the act of computing it.\n- **No tracking.** The pages are static; there is no analytics profiling and no advertising identifier riding along.",
+   "cites": [
+    "no_maximum_only_bounds"
+   ]
+  },
+  {
+   "surface": "docs/privacy.md",
+   "address": "e5b8018f-507f-86b7-9009-269d06635464",
+   "prose": "## What uuidna does NOT claim (the bound, theorem no_maximum_only_bounds)",
+   "cites": [
+    "no_maximum_only_bounds"
+   ]
+  },
+  {
    "surface": "docs/privacy.md",
    "address": "89f5de66-7dd3-8c4e-9a9b-7738d354d50b",
    "prose": "- **This is privacy by *design*, not certified compliance.** uuidna does **not** claim that all privacy laws are met,\n  and it is **not** a statement that any specific regulation — GDPR, CCPA, or another — is satisfied. Compliance is a\n  matter for counsel and audit, and a content-address cannot certify it. uuidna's own honesty gate **refuses** the\n  claim \"all privacy laws are met\" as unbacked ([`exactly_one_flag`](/theorem/exactly_one_flag)) — the same gate it\n  holds every other claim to.\n- **The design aligns with the *spirit*, not a certificate.** Data minimisation, consent, and transparency are the\n  principles above; alignment in spirit is not a legal guarantee, and this page does not pretend it is.\n- **You run it, you own the obligations.** If you deploy or embed uuidna, the privacy obligations of *your* deployment\n  are yours to meet with your own counsel; nothing here transfers them or discharges them.",
    "cites": [
     "exactly_one_flag"
+   ]
+  },
+  {
+   "surface": "docs/privacy.md",
+   "address": "4db7a725-49d5-8cf3-9b0a-2bea330eef93",
+   "prose": "The trial is built **for human judgment, not to replace it.** It produces a **recomputable** verdict and a recheckable\n[evidence bundle](/trials) — so a person does not have to *trust* it, they **recompute** it, and then **they** decide.\nA machine can settle whether a claim is backed and recomputable; whether to *act* is a human's, and a court's, ruling —\nnever a fold's. The flag is always on the claim, never on the person. That is what \"integrity, not truth (theorem provenance_integrity_not_content_truth)\" means in\npractice: uuidna hands a human something they can check for themselves, and leaves the deciding to them.",
+   "cites": [
+    "provenance_integrity_not_content_truth"
    ]
   },
   {
@@ -15611,8 +15793,24 @@
   },
   {
    "surface": "docs/prose-evidence.md",
-   "address": "c8ed3f44-3023-80d2-a1c8-b376949c76e6",
-   "prose": "- **[store_fold_order_invariant](/theorem/store_fold_order_invariant)** — \"The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical content-address receipt the state folds to, integrity — not a quantum memory.\"\n  - File: Quantum.lean\n  - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b]....`\n- **[store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt)** — \"The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. HONEST SCOPE: integrity of the content-address, not a quantum property.\"\n  - File: Quantum.lean\n  - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 => ([a...`\n- **[fold_integrity_tamper](/theorem/fold_integrity_tamper)** — \"Insufficient integrity check (CWE-345): content-addressing plus a merkle proof makes any tamper move the tag — evident, not silent — cites tamper_changes_tag. [solution:tamper_changes_tag]\"\n  - File: Exploits.lean\n  - Statement: `3 * 5 * 23 = 345...`\n- **[provenance_integrity_not_content_truth](/theorem/provenance_integrity_not_content_truth)** — \"CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY, never the truth of what an image depicts. EXACT-COPY: byte-identical inputs fold to the SAME fingerprint (7+8+9 = 7+8+9). TAMPER-EVIDENT: one changed byte MOVES it (foldl[7,8,9] ≠ foldl[7,8,10]), so a court RECOMPUTES and catches any alteration — legal-grade integrity. But CONTENT AUTHENTICITY is NEVER certified from the bytes: over every (integrity, genuine) pair the fingerprint's content verdict is 0 — [0,0,0,0] — because it reads only the BYTES (integrity), never the WORLD (genuine), so it can never return \"genuine\". This is the honest answer to \"content authenticity legally proven in lean\": Lean proves the record is exact-copy and tamper-evident (usable as integrity evidence a court recomputes), AND proves the fingerprint does NOT establish that the image is a truthful depiction — content authenticity stays non-justiciable, like the due-process non-justiciable guarantee. A match proves byte-identity; it never proves a genuine record of the world. Integrity, not truth.\"\n  - File: Reasoning.lean\n  - Statement: `(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [...`",
+   "address": "33cdba47-ad5e-882e-98fd-ba866c0a5324",
+   "prose": "## integrity, not truth (theorem provenance_integrity_not_content_truth)",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/prose-evidence.md",
+   "address": "623e685a-0957-8151-87a4-c7261716847d",
+   "prose": "**Prose:** \"Integrity, not truth (theorem provenance_integrity_not_content_truth): a seal proves its exact statement, never a grander claim\"",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/prose-evidence.md",
+   "address": "6d6cd47c-a12d-8e64-97b3-d53dba3602d3",
+   "prose": "- **[store_fold_order_invariant](/theorem/store_fold_order_invariant)** — \"The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical content-address receipt the state folds to, integrity — not a quantum memory.\"\n  - File: Quantum.lean\n  - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b]....`\n- **[store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt)** — \"The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. HONEST SCOPE: integrity of the content-address, not a quantum property.\"\n  - File: Quantum.lean\n  - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 => ([a...`\n- **[fold_integrity_tamper](/theorem/fold_integrity_tamper)** — \"Insufficient integrity check (CWE-345): content-addressing plus a merkle proof makes any tamper move the tag — evident, not silent — cites tamper_changes_tag. [solution:tamper_changes_tag]\"\n  - File: Exploits.lean\n  - Statement: `3 * 5 * 23 = 345...`\n- **[provenance_integrity_not_content_truth](/theorem/provenance_integrity_not_content_truth)** — \"CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY, never the truth of what an image depicts. EXACT-COPY: byte-identical inputs fold to the SAME fingerprint (7+8+9 = 7+8+9). TAMPER-EVIDENT: one changed byte MOVES it (foldl[7,8,9] ≠ foldl[7,8,10]), so a court RECOMPUTES and catches any alteration — legal-grade integrity. But CONTENT AUTHENTICITY is NEVER certified from the bytes: over every (integrity, genuine) pair the fingerprint's content verdict is 0 — [0,0,0,0] — because it reads only the BYTES (integrity), never the WORLD (genuine — theorem provenance_integrity_not_content_truth), so it can never return \"genuine\". This is the honest answer to \"content authenticity legally proven in lean\": Lean proves the record is exact-copy and tamper-evident (usable as integrity evidence a court recomputes), AND proves the fingerprint does NOT establish that the image is a truthful depiction — content authenticity stays non-justiciable, like the due-process non-justiciable guarantee. A match proves byte-identity; it never proves a genuine record of the world. Integrity, not truth (theorem provenance_integrity_not_content_truth).\"\n  - File: Reasoning.lean\n  - Statement: `(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [...`",
    "cites": [
     "store_fold_order_invariant",
     "store_fold_change_moves_receipt",
@@ -15627,6 +15825,14 @@
    "cites": [
     "n_qubit_dimension",
     "clifford_group_order_24"
+   ]
+  },
+  {
+   "surface": "docs/publications.md",
+   "address": "7d19c3f6-a3b9-8cd3-8e75-6923d02299de",
+   "prose": "Integrity, not truth (theorem provenance_integrity_not_content_truth). A publication proves that every claim it makes is backed by a proof — never that its domain is\ncomplete or its prose is fine. [All theorems](/theorems) · [How auditing works](/trials) · [The books it reads](/books)",
+   "cites": [
+    "provenance_integrity_not_content_truth"
    ]
   },
   {
@@ -15698,11 +15904,27 @@
   },
   {
    "surface": "docs/quantum-cryptography.md",
+   "address": "9ee3235b-dea1-8369-a1c1-ccd5029f9870",
+   "prose": "## Module 6 — The carrier, not the cipher (theorem imprint_capacity_chain)",
+   "cites": [
+    "imprint_capacity_chain"
+   ]
+  },
+  {
+   "surface": "docs/quantum-cryptography.md",
    "address": "b93a3af2-e164-8491-bffc-61b76e52e073",
    "prose": "**The idea.** Not everything that looks like ciphertext is a cipher — and confusing the two is a security error.\nThree kinds of uuid live here. The **content-address** is a one-way projection (`toUuid`): reversing it is not hard,\nit is *meaningless* — the information is gone. The **sealed envelope** (Modules 2–4) hides content behind the\nrotating cipher. The **carrier** (`imprint`) is neither: it never hashes and never loses a bit — it *places* a\nmessage's bits into a uuid's free positions and reads them back exactly. Its bookkeeping is sealed end to end:\n128 bits minus RFC 4122's six reserved minus a seven-bit length header leaves 115 payload bits\n([`imprint_capacity_chain`](/theorem/imprint_capacity_chain)), and seven is the *minimal* honest header\n([`imprint_header_minimal`](/theorem/imprint_header_minimal)). **The carrier is not encryption, and saying so plainly\nis the security** — a uuid that carries a message hides nothing; treat it as a cipher and you leak in the open.",
    "cites": [
     "imprint_capacity_chain",
     "imprint_header_minimal"
+   ]
+  },
+  {
+   "surface": "docs/quantum-cryptography.md",
+   "address": "2fd2a915-c319-8be4-8197-1083df6b4bab",
+   "prose": "*The full cryptography theorems live in the [ciphers cluster](/topics); the quantum posture in\n[what quantum means](/quantum); the receipts that verify every claim, on [Trials](/trials). Integrity, not truth (theorem provenance_integrity_not_content_truth).*",
+   "cites": [
+    "provenance_integrity_not_content_truth"
    ]
   },
   {
@@ -15795,6 +16017,14 @@
    "prose": "- **Numerals and primes** — Glagolitic letters carry numeral values; the essays examine prime patterns and a\n  claimed π-related structure in the sequence.\n- **The 432 Hz root** — a proposed vibrational reading of the letter geometry (A432 is also the aura palette the\n  theorem pages use — there it is *decoration by construction*, not physics).\n- **DNA folding** — a structural analogy between codon triplets and letter folding.\n- **Scale fractality** — the Pliska rosette's seven-ray geometry recurring across scales. The boundary is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)).",
    "cites": [
     "drift_is_named_or_caught"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
+   "address": "b32c6c8d-d087-8617-b1e3-2bd21d45e240",
+   "prose": "The school is **quantum** in the ledger's own sense: every lesson here teaches the same object — a generator\nwalking a unit ring until it closes ([what quantum means](/quantum)) — the pentagram's step on ℤ/5, the vortex's\non ℤ/9, the rosette's on ℤ/7, the frame ring's strides, the phase ladder's squarings, the winding's coprime pair\non the torus. Learn one walk and you have learned them all; the semester's lessons below are that walk taught\nseven ways. And the subject is a way of **being** quantum at school: recompute rather than trust, close every\npath you open, fold every finding into a finder, deposit what you prove — the student is the generator, the\nsemester is the ring, and graduation is the walk coming home. The school was never a separate institution to build (theorem closure_is_coprime) — every part of it already exists in the ledger. This page\njust connects them: **the curriculum is [the topics by skill](/topics)**, each cluster's monograph is a course text,\neach theorem a lesson with its proof one click away (`/lean/*.lean`), and the Lean kernel — not a teacher — decides\nwhen you've understood: `npm run lean` either recomputes or it doesn't.",
+   "cites": [
+    "closure_is_coprime"
    ]
   },
   {
@@ -15978,6 +16208,14 @@
   },
   {
    "surface": "docs/school.md",
+   "address": "d52b67df-c8f6-830b-b796-20890fec35bc",
+   "prose": "Three school laws met in the wall. *Close the path, not the wall* — the fix was never a stronger gate but a named\nreason at each open end. *The verdict lesson* — every red run handed back an exact diagnosis, never a judgment (theorem verdict_exactly_one),\nand each was read (`gh run view --log-failed`) instead of overridden. *The standard lesson* — the wall is now a\nfact in GitHub's own API, verifiable by anyone without trusting this page. **Practice:** audit the wall yourself —",
+   "cites": [
+    "verdict_exactly_one"
+   ]
+  },
+  {
+   "surface": "docs/school.md",
    "address": "0bd25ede-539e-81c7-a2c3-f1a4b841817e",
    "prose": "The trial gate once signed both sides of a contradiction, live, on the same day: *\"the seven are solved and\nclaimed by the captain — proven by theorem clay_vote_theorems_only\"* came back VERIFIED, and so did its exact\nopposite — because the gate measured one thing, whether the cited key exists sealed in the ledger, and both\nclaims wore real keys. A citation's **existence** had been passing for its **backing**. The record is\ndeterministic and public (trial `047ba524…` — the id is the statement's content-address, so re-posting the same\nbytes retrieves the same trial forever).",
    "cites": [
@@ -16095,11 +16333,59 @@
    ]
   },
   {
+   "surface": "docs/school.md",
+   "address": "cb08122f-b26a-80c7-a895-eaf9b50b2f5e",
+   "prose": "*Honest scope:* the school teaches what is decidable and seals what recomputes. It does not certify wisdom, taste,\nor judgment — those stay with the student; the court decides meaning. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/search.md",
+   "address": "d7023088-9568-8b49-ac34-f3a8aba66c12",
+   "prose": "The theorems are also browsable by [principle](/theorems) and by [skill](/topics); each result links to its proof\npage with the full `by decide` Lean proof and its content-address. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
+   "surface": "docs/tests.md",
+   "address": "45eafdd7-c8eb-8bb1-b9e3-f38d4406bb7d",
+   "prose": "The tests, the [trials](/trials), and the [theorems](/theorems) are three readings of one discipline: recompute it\nyourself, or it does not count. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "cites": [
+    "provenance_integrity_not_content_truth"
+   ]
+  },
+  {
    "surface": "docs/theorems.md",
    "address": "e9758998-f730-821d-91f3-495050f3d832",
    "prose": "**Every proven Lean theorem — filter it, then read its proof.** Each is authored in `lean/*.lean`, proven `by decide`\n(Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`. Filter by **cluster** (the derivation principle) or\n**skill** (the capability), narrow by text, and open any theorem for its proof. Each cluster's **monograph** is its audited\nmonograph. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.\nEach theorem's **aura** is its content-address folded to an A432 hue at build time — deterministic, the same theorem\nalways glows the same colour; the badge digit is its ℤ/7 rosette ray. Artistic decoration, not physics. To walk the\nset in learning order, [the school](/school) rides the doubling orbit out from [the core](/publications/core). The boundary is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)).",
    "cites": [
     "drift_is_named_or_caught"
+   ]
+  },
+  {
+   "surface": "docs/trials.md",
+   "address": "ccb07be8-9a22-847e-a88d-95663b7959b9",
+   "prose": "**uuidna verifies; it never refutes.** Calling a claim *false* is an overclaim it cannot decide — absence of proof is\nnot proof of falsity — so there is no third verdict (theorem verdict_exactly_one). The receipt is a content-address, so two people running the same\ntrial on the same statement get the same answer.",
+   "cites": [
+    "verdict_exactly_one"
+   ]
+  },
+  {
+   "surface": "docs/trials.md",
+   "address": "b6bcf21f-ec06-8293-b1d2-e1b392d24468",
+   "prose": "- **The claim is on trial, never the person, never the idea's worth** (theorem anti_fraud_check_deterministic). A trial judges *integrity* — does a statement\n  earn what it asserts — not merit, taste, or who wrote it. There is no verdict for \"unwelcome\" and none for \"brilliant\".\n- **Every idea is heard, and none is called false.** Any statement can be tried. An idea without a proof is\n  **UNVERIFIED** — held open, never dismissed, never labelled false — and it leaves with an ordered `develop` plan:\n  name the finite structure, write the boolean predicate, supply it. An idea is *not* left at \"UNVERIFIED, good luck\".\n- **The only distinction is a proof.** **VERIFIED** happens only when a recomputable test holds or a sealed theorem\n  backs it. Respect for an idea is not agreement with it: the trial reports whether a proof stands, not whether the\n  reader likes it.\n- **Nothing is refused — one thing is not shipped.** The trial refuses no idea. The *publish* gate does refuse one\n  thing: shipping a note that cites a proof which does not exist in the ledger (a fabricated citation). That is a\n  quality check on the making, not a verdict that the idea is false — the remedy is *\"seal that theorem, or drop the\n  citation and bring a test\"*.\n- **Public and equal.** Every answer is content-addressed and recomputable by anyone, and the fold is order-invariant:\n  the same receipt for every observer, whatever order they read in. No private verdict, no privileged reader.",
+   "cites": [
+    "anti_fraud_check_deterministic"
+   ]
+  },
+  {
+   "surface": "docs/trials.md",
+   "address": "6a0b307b-4996-87fe-9eb2-326ae64d9790",
+   "prose": "**The honest limit — credibility *is* responsibility.** \"Every idea heard\" is not \"every claim verified\". Leaving an\nunbacked claim UNVERIFIED is not judging the idea — it is holding the *claim* to what it earns; drop that and a VERIFIED\nwould mean nothing. The trial expects nothing of an idea except that it not claim a proof it does not have (theorem overclaim_with_fake_cite_fails).",
+   "cites": [
+    "overclaim_with_fake_cite_fails"
    ]
   }
  ]

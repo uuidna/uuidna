@@ -14,6 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `c5d4b073` | zenodo.org | zenodo record 2563268: Archimedean & Platonic Solids | UNVERIFIED | VERIFIED |
+| `76bdf5ca` | zenodo.org | zenodo record 15722761: Origin Of Platonic Solids | UNVERIFIED | VERIFIED |
+| `e2477d82` | zenodo.org | zenodo record 19916658: YHWh Khem-Mistry & the Platonic Solids | UNVERIFIED | VERIFIED |
+| `dbb7deab` | zenodo.org | zenodo record 7670647: switzel/regular_polytope_vr: Platonic solids article | UNVERIFIED | VERIFIED |
+| `1ef746a0` | zenodo.org | zenodo record 17160751: SYMMETRICALLY SPACED ELECTRICAL RESISTANCES | UNVERIFIED | VERIFIED |
+| `6e37501c` | zenodo.org | zenodo record 4384513: Ancient Dodecahedra | UNVERIFIED | VERIFIED |
+| `2c90f1bb` | zenodo.org | zenodo record 1260141: Self-assembling micrites based on the Platonic solids | UNVERIFIED | VERIFIED |
+| `fd432a22` | zenodo.org | zenodo record 10017345: MULTIFACETED STRUCTURES IN ARCHITECTURE | UNVERIFIED | VERIFIED |
 | `cd4092e9` | crossref.org | DOI 10.3840/07000405: Platonic Solids | UNVERIFIED | VERIFIED |
 | `a21680d3` | crossref.org | DOI 10.3840/000405: Platonic Solids | UNVERIFIED | VERIFIED |
 | `f581c56e` | crossref.org | DOI 10.3840/001806: Rotational Symmetries of Platonic Solids | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `8c93f8cf` | openalex.org | OpenAlex Ordered three-dimensional nanomaterials using DNA-prescribed and valen [Advanced biosensing and bioana] | UNVERIFIED | VERIFIED |
 | `2783a0d0` | openalex.org | OpenAlex Platonic Scattering Cancellation for Bending Waves in a Thin Plate [Metamaterials and Metasurfaces] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `30092fee`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `5dd5a2d1`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

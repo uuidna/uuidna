@@ -27,8 +27,8 @@ the hard gate of the corroboration law.
 | `46246e42` | crossref.org | DOI 10.1055/sos-sd-046-00187: 2,3-Ring-Fused Cyclohexa-1,3-dienes from 3,4-Ring-Fused 1,3,5-Trienes | UNVERIFIED | VERIFIED |
 | `6d87e50f` | crossref.org | DOI 10.1021/acs.joc.6b02419.s001: AcidBase Properties of a Freebase Form of a Quadruply Ring-Fused PorphyrinStepwi | UNVERIFIED | VERIFIED |
 | `8a0a07f3` | crossref.org | DOI 10.1021/acs.joc.6b02419.s002: AcidBase Properties of a Freebase Form of a Quadruply Ring-Fused PorphyrinStepwi | UNVERIFIED | VERIFIED |
-| `c74e71a4` | crossref.org | DOI 10.1515/iupac.70.0020: Numbering | UNVERIFIED | VERIFIED |
 | `298f76ed` | crossref.org | DOI 10.1515/iupac.70.0016: Definitions | UNVERIFIED | VERIFIED |
+| `c74e71a4` | crossref.org | DOI 10.1515/iupac.70.0020: Numbering | UNVERIFIED | VERIFIED |
 | `f56cb358` | crossref.org | DOI 10.1515/iupac.70.0022: Three Components Ortho- and Peri-Fused Together | UNVERIFIED | VERIFIED |
 | `158a18ec` | openalex.org | OpenAlex Single-Junction Organic Solar Cell with over 15% Efficiency Using Fuse [Organic Electronics and Photov] | UNVERIFIED | VERIFIED |
 | `c3a5571f` | openalex.org | OpenAlex A Facile Planar Fused-Ring Electron Acceptor for As-Cast Polymer Solar [Organic Electronics and Photov] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `869df8ae` | openalex.org | OpenAlex Noncovalently fused-ring electron acceptors with near-infrared absorpt [Organic Electronics and Photov] | UNVERIFIED | VERIFIED |
 | `a3ce61e6` | openalex.org | OpenAlex Fused-ring metallabenzenes [Cyclopropane Reaction Mechanis] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `3541478e`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `72a82d84`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
