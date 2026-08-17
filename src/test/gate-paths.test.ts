@@ -55,6 +55,24 @@ test('the finder bites — the historical offenders are exactly what the rule fl
   assert.ok(existsSync(join(ROOT, 'src/test/crypto-primitives.test.ts')), 'the real KAT suite')
 })
 
+test('the drain stages EXPLICIT paths — no unattended commit may sweep a sibling session\'s work with git add -A', () => {
+  // Four times in one day, work landed inside a commit whose message described something else, because the drain
+  // staged everything in a shared tree. A commit message here is a signed artifact that must cite a sealed theorem,
+  // so the record has to mean what it says. Comments are stripped first — searching raw text would trip on the very
+  // comments that explain this rule, which is exactly how the unwired-script detector hid its own case.
+  const strip = (s: string): string => s.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/(^|\s)\/\/[^\n]*/g, ' ').replace(/(^|\s)#[^\n]*/g, ' ')
+  const drains = [
+    join('src', 'scripts', 'one-receipt.ts'), join('src', 'scripts', 'reconcile.ts'), join('src', 'scripts', 'develop.ts'),
+    join('.github', 'workflows', 'school.yml'), join('.github', 'workflows', 'research.yml'),
+  ].filter((f) => existsSync(join(ROOT, f)))
+  const offenders: string[] = []
+  for (const f of drains) {
+    const src = strip(readFileSync(join(ROOT, f), 'utf8'))
+    if (/git\s+add\s+(-A|--all|\.)\b/.test(src)) offenders.push(f)
+  }
+  assert.deepEqual(offenders, [], 'stage the drain\'s own paths (see DRAIN_PATHS / stageDerived in scripts/api.ts)')
+})
+
 test('the built-site audit DISCOVERS its pages — no gate hardcodes a page of the generated site', () => {
   const offenders: string[] = []
   for (const f of gateFiles()) {
