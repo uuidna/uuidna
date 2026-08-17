@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, drainGaps } from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps } from './one-receipt.js'
 
 let failed = false
 
@@ -123,6 +123,9 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // a fact must compute in at least one dimension — the Lean walks its structure, or the js mirror measures the live
   // quantity (emit hard-fails on a false mirror). Both halves closed constants under a name that counts is the gap.
   { name: 'frozen', run: () => frozenGaps() },
+  // the folded question has ONE copy — a workflow re-implementing what npm run state answers is the copy nobody
+  // runs locally, so it drifts in silence. The dry law applied to questions instead of boilerplate.
+  { name: 'state', run: () => stateGaps() },
   // the drain stages what reconcile regenerates — declared in RECONCILE_OUTPUTS, held against DRAIN_PATHS from both
   // sides, so a generator added to the chain without a declaration fails here instead of dying mid-run on git.
   { name: 'drain', run: () => drainGaps() },

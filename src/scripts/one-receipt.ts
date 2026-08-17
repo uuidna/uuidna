@@ -473,6 +473,36 @@ export function frozenGaps(): Gap[] {
   return gaps
 }
 
+// ── state: THE FOLDED QUESTION HAS ONE COPY. `npm run state` folds the laws, the ledger, the sync, the finders and
+// the next command into one receipted answer, and a workflow that re-implements any of it in a shell one-liner is a
+// SECOND copy of a question that already has an answer — the copy that lives in CI is the one nobody runs locally,
+// so it drifts silently and is discovered only when it disagrees. This is the `dry` law applied to questions rather
+// than to boilerplate. Scoped to the workflows on purpose: guard.ts and state.ts legitimately read these sources
+// (one is the gate, one is the fold), and reconcile legitimately runs the generators.
+export function stateGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const FOLDED: [RegExp, string][] = [
+    [/editorialState\(/, 'the editorial drained/usable counts'],
+    [/publicationStatus\(/, 'the license-law and conformance verdicts'],
+    [/rev-list --left-right/, 'the ahead/behind sync'],
+    [/axioms\.json/, 'the axiom witness'],
+  ]
+  const dir = join(ROOT, '.github/workflows')
+  if (!existsSync(dir)) return gaps
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    if (e.isDirectory() || !e.name.endsWith('.yml')) continue
+    // COMMENTS ARE NOT IMPLEMENTATIONS — stripped before the scan, the same lesson the unwired-script detector
+    // learned the hard way: the comment explaining this rule names the very sources it forbids, and a raw-text
+    // scan convicted it. Reproduced here on the first run, on my own comment.
+    const txt = readFileSync(join(dir, e.name), 'utf8').split('\n').filter((l) => !/^\s*#/.test(l)).join('\n')
+    for (const [rx, what] of FOLDED) {
+      if (!rx.test(txt)) continue
+      gaps.push({ what: `.github/workflows/${e.name} re-implements ${what}, which \`npm run state\` already folds`, fix: 'replace the hand-written check with `npm run state -- --assert` — one command for the operator and the workflow, so the answer cannot drift between them; if this workflow genuinely needs the raw value, take it from the state receipt rather than recomputing it' })
+    }
+  }
+  return gaps
+}
+
 // ── negation: NO LEAN LEAD IS LOST IN PROSE, EVEN NEGATING. The absence law above holds one case (a cipher denied
 // must name where encryption lives); this is that law at full width. Every honest boundary this project states —
 // "not a solver", "solves none", "NOT PROVEN", "never a chip", "not truth" — is a CLAIM ABOUT WHAT IS PROVEN, and a
@@ -861,6 +891,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'actions') report('one-receipt actions', actionsGaps(), 'every action pins one major, tree-wide — no workflow silently trails the rest onto a deprecated runtime.')
   else if (cmd === 'vacuous') report('one-receipt vacuous', vacuousGaps(), 'no theorem is true regardless of its content — every sealed name is carried by a proof that means it.')
   else if (cmd === 'frozen') report('one-receipt frozen', frozenGaps(), 'no theorem freezes a measured quantity — every name that counts live things walks the structure it counts.')
+  else if (cmd === 'state') report('one-receipt state', stateGaps(), 'the folded question has one copy — no workflow re-implements what npm run state already answers.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
   else if (cmd === 'drain') report('one-receipt drain', drainGaps(), 'the drain stages everything reconcile regenerates — every generator declares its output, and every output is a drain path.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))

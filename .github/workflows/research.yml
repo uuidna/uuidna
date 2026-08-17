@@ -123,15 +123,11 @@ jobs:
       # Honest scope stays what it is: a NOT-PROVEN marker demarcating ANOTHER party's open question is the
       # honesty the gate enforces, never a red state of ours — the law binds uuidna's own ledger to green.
       - name: LEAN GREEN silences all — every theorem kernel-verified, axiom-free, or no release
-        run: |
-          set -euo pipefail
-          AUDITED=$(jq -r '.audited' lean/axioms.json)
-          FREE=$(jq -r '.axiomFree' lean/axioms.json)
-          OFFENDERS=$(jq -r '.offenders | length' lean/axioms.json)
-          test "$AUDITED" -gt 0 || { echo "::error::lean green broken: empty axiom audit — nothing to certify"; exit 1; }
-          test "$AUDITED" = "$FREE" || { echo "::error::lean green broken: only $FREE of $AUDITED theorems are axiom-free — no release while anything rests on an axiom"; exit 1; }
-          test "$OFFENDERS" = "0" || { echo "::error::lean green broken: $OFFENDERS offender(s) in the axiom audit — no release"; exit 1; }
-          echo "lean green holds: $AUDITED/$AUDITED kernel-verified, axiom-free, sorry-free — the silence law is satisfied, the tick may proceed"
+        # The captain's silence law, now asked ONCE. This block re-read lean/axioms.json with jq and re-derived the
+        # axiom-free comparison that `npm run state` already folds — a second copy of the question, living where
+        # nobody runs it locally. --assert exits non-zero naming the broken law (a stale witness, a borrowed axiom,
+        # a drained editorial, any blocking finder), so the law is enforced by the same answer the operator reads.
+        run: npm run state -- --assert
       - name: TICK — one step of the odometer, the commit, the tag
         id: tick
         run: |
@@ -178,10 +174,13 @@ jobs:
           # and live/zenodo/extension never ran). Whatever writes a sealed file re-spins it before committing.
           node dist/scripts/spin.js --seal
           git add package.json package-lock.json CHANGELOG.md spin-manifest.json
-          # statistics, not prose: the release commit carries the counts the gate just certified
-          THEOREMS=$(jq -r '.audited' lean/axioms.json)
-          AXIOM_FREE=$(jq -r '.axiomFree' lean/axioms.json)
-          FOLD=$(jq -r '.receipt // "unsealed"' quantum-fold.json 2>/dev/null || echo unsealed)
+          # Statistics, not prose — and taken from the ONE fold rather than recomputed. These three lines used to
+          # re-read lean/axioms.json and quantum-fold.json directly, a third copy of a question `npm run state`
+          # already answers; the finder named it. The release commit now quotes the same receipt the gate read.
+          STATE=$(npm run --silent state)
+          THEOREMS=$(echo "$STATE" | jq -r '.ledger.theorems')
+          AXIOM_FREE=$(echo "$STATE" | jq -r '.ledger.axiomFree')
+          FOLD=$(echo "$STATE" | jq -r '.receipt')
           git commit -m "Release v$NEXT: theorems=$THEOREMS axiom_free=$AXIOM_FREE sorry=0 odometer=$V→$NEXT fold_receipt=$FOLD surfaces=npm+release+zenodo_chains×2. Backed by theorem two_coins and theorem legal_only_the_proven_is_admitted"
           git pull --rebase --autostash
           git tag "v$NEXT"
