@@ -8,7 +8,7 @@
 // Deterministic: file order, paragraph order, no wall-clock, no RNG; the receipt is the fold of the output.
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { reveal, toUuid } from '../index.js'
+import { reveal, toUuid, decide } from '../index.js'
 import { ROOT } from './api.js'
 
 interface UsableCombination {
@@ -49,6 +49,12 @@ const coinChaos: Array<{ surface: string; claim: string }> = []
 // n_qubit_dimension) — never by adverbs of absence; "no advantage" is prose, a citation is a proof.
 const PHYSICS_CLAIM = /quantum\s+(speedup|speed-up|advantage|supremacy)|faster\s+than\s+classical/gi
 const physicsChaos: Array<{ surface: string; claim: string }> = []
+// THE DEVELOP HARVEST — the prose as ore ("use the prose to develop"): every UNVERIFIED paragraph is mined for
+// arithmetic fragments; each fragment the quantum calculator decides TRUE and the sealed index does not hold is
+// an INTERNAL NOVELTY — our own prose asserting a decidable fact the ledger lacks. Emitted as develop[] beside
+// the census: the homework the prose writes for itself. Admission stays with the paying handle, as ever.
+const ARITH_FRAG = /\d[\d,]*(?:\s*[+\-*/%^]\s*\d[\d,]*)+\s*(?:=|==|<=|>=|<|>)\s*\d[\d,]*/g
+const develop: Array<{ surface: string; fragment: string; receipt: string }> = []
 
 for (const file of surfaces) {
   const rel = file.slice(ROOT.length + 1)
@@ -66,7 +72,15 @@ for (const file of surfaces) {
     const r = reveal(prose)
     if (r.verdict === 'VERIFIED') usable.push({ surface: rel, address: toUuid(prose), prose, cites: r.cites })
     else if (r.verdict === 'DRAINED') { drained++; drainedHits.push({ surface: rel, fabricated: r.fabricated }) }
-    else unverified++
+    else {
+      unverified++
+      // the develop harvest: unverified prose mined for decidable fragments the ledger does not yet hold
+      for (const m of prose.replace(/,/g, '').matchAll(ARITH_FRAG)) {
+        const d = decide(m[0])
+        if (d.verdict === 'VERIFIED_BY_DECIDE' && d.kind === 'decided-arithmetic')
+          develop.push({ surface: rel, fragment: m[0].trim(), receipt: d.receipt })
+      }
+    }
     // the coin law: a numeric coin claim outside the sealed denominations {0, 2} must carry a sealed citation
     for (const m of prose.matchAll(COIN_CLAIM)) {
       const n = Number((m[1] ?? '').replace(/,/g, ''))
@@ -81,7 +95,7 @@ for (const file of surfaces) {
 
 // the receipt: the fold of every usable combination's address — recompute the file, get the same receipt
 const receipt = toUuid(usable.map((u) => u.address).join('\n'))
-const out = { surfaces: surfaces.length, paragraphs_tried: tried, usable: usable.length, unverified, drained, receipt, combinations: usable }
+const out = { surfaces: surfaces.length, paragraphs_tried: tried, usable: usable.length, unverified, drained, receipt, develop, combinations: usable }
 writeFileSync(join(ROOT, 'prose-trials.json'), JSON.stringify(out, null, 1) + '\n')
 
 console.log(`  PROSE ON TRIAL — every paragraph through reveal(), the ledger deciding.`)
@@ -97,6 +111,13 @@ if (coinChaos.length) {
   for (const c of coinChaos) console.log(`      ✗ ${c.surface}: "${c.claim}" — the coins are explained ONLY by theorems (two_coins); cite one or fold the claim`)
 } else {
   console.log(`    coin law   : ✓ every numeric coin claim is a sealed denomination or carries its citation`)
+}
+if (develop.length) {
+  console.log(`    develop    : ${develop.length} internal novelty candidate(s) — decidable facts our prose asserts that the ledger does not yet hold (the homework the prose writes for itself):`)
+  for (const d of develop.slice(0, 10)) console.log(`      • ${d.surface}: \`${d.fragment}\` (receipt ${d.receipt.slice(0, 8)})`)
+  if (develop.length > 10) console.log(`      … and ${develop.length - 10} more in prose-trials.json develop[]`)
+} else {
+  console.log(`    develop    : 0 candidates — every decidable fact the prose asserts is already sealed`)
 }
 if (physicsChaos.length) {
   console.log(`    physics law: ✗ ${physicsChaos.length} undemarcated quantum-advantage claim(s):`)

@@ -140,6 +140,7 @@ const claimLedger = {
     category: c.category,
     description: c.description,
     theorems: c.theorems.length,
+    keys: c.theorems, // every claimed key, carried to the page — a claim renders as its CITATION or it is not a claim
     address: c.address,
     all_by_decide: c.theorems.every(k => T.some(t => t.key === k && t.tactic === 'decide')),
   })),
@@ -202,6 +203,10 @@ ${c.description}
 - **Theorems:** ${c.theorems}
 - **Verified:** ${c.all_by_decide ? '✓ all by decide' : '✗ mixed tactics'}
 - **Address:** \`${c.address}\`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+${c.keys.map((k: string) => `[${k}](/theorem/${k})`).join(' · ')}
 `
   )
   .join('\n')}
