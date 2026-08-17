@@ -44,16 +44,12 @@ jobs:
         run: npm run guard
       - name: DRIVE — the served MCP recomputes its receipts over its own wire (90 directed mixes, 3 folds, self conforms)
         run: npm run mcp:drive
-      - name: THE DESK'S LAWS BY QUERY — the same library the MCP serves, asked directly (MCP-first automation)
-        run: |
-          node -e "
-          import('./dist/index.js').then((u) => {
-            const e = u.editorialState()
-            if (e.drained !== 0) { console.error('editorial law broken: ' + e.drained + ' drained'); process.exit(1) }
-            const p = u.publicationStatus()
-            if (!p.licenseLawHolds || !p.conforms) { console.error('publication law broken'); process.exit(1) }
-            console.log('laws hold by query: usable=' + e.usable + ' drained=0 · v' + p.version + ' license-law+conformance ✓')
-          })"
+      # ONE CALL, NOT A HAND-WRITTEN QUERY. This step used to be a `node -e` shell one-liner re-implementing the
+      # law checks that `npm run state` already computes — two copies of one question, and the copy in a workflow is
+      # the one nobody runs locally. The operator asking "where am I" and the desk asking "may this publish" now ask
+      # the SAME command, so the answer cannot drift between them, and --assert exits non-zero naming the broken law.
+      - name: STATE — the laws, the ledger, the sync and the finders, asked once (MCP-first automation)
+        run: npm run state -- --assert
       - name: PUBLISH — the trials' returns push as publications (the site deploys on push)
         id: publish
         run: |

@@ -11,7 +11,7 @@
 import { execSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { theorems, statementCensus } from '../index.js'
+import { theorems, statementCensus, editorialState, publicationStatus } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, foldOf } from './api.js'
 import { dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, drainGaps, frozenGaps } from './one-receipt.js'
@@ -43,10 +43,30 @@ const next =
   : ahead > 0 ? 'git push origin main'
   : 'nothing — synced, clean, and green'
 
+// the LAWS the desk used to hand-query in a CI shell with `node -e` — folded here so the same answer serves the
+// operator asking "where am I" and the workflow asking "may this publish", instead of two hand-written copies.
+const ed = editorialState()
+const pub = publicationStatus()
+const broken = [
+  ed.drained > 0 ? `editorial: ${ed.drained} drained` : '',
+  pub.licenseLawHolds ? '' : 'publication: license law broken',
+  pub.conforms ? '' : 'publication: conformance broken',
+  ax.audited < t.length ? `axiom witness stale: ${ax.audited}/${t.length}` : '',
+  Object.keys(ax.offenders ?? {}).length ? 'ledger borrows an axiom' : '',
+  ...dirtyFinders.map(([n, c]) => `${n}: ${c} finding(s)`),
+].filter(Boolean)
+
 const state = {
+  laws: { drained: ed.drained, usable: ed.usable, licenseLawHolds: pub.licenseLawHolds, conforms: pub.conforms, version: pub.version, broken },
   ledger: { theorems: t.length, axiomFree: ax.axiomFree, offenders: Object.keys(ax.offenders ?? {}).length, principles: new Set(t.map((x) => x.principle)).size, tools: MCP_CATALOG.length, distinct: census.distinct, renamings: census.renamings },
   sync: { ahead, behind, dirty: dirty.length },
   finders: Object.fromEntries(finders),
   next,
+}
+// --assert makes it a GATE as well as an answer: CI asks the same question the operator does, and a broken law
+// exits non-zero with its own name rather than a shell one-liner's opaque message.
+if (process.argv.includes('--assert') && broken.length) {
+  console.error('✗ state — ' + broken.length + ' law(s) broken: ' + broken.join('; '))
+  process.exit(1)
 }
 console.log(JSON.stringify({ ...state, receipt: foldOf({ ledger: JSON.stringify(state.ledger), sync: JSON.stringify(state.sync), finders: JSON.stringify(state.finders) }) }, null, 1))
