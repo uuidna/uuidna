@@ -13,6 +13,29 @@ const path = process.argv[2]
 if (!path) { console.error('check-msg: no commit message file given'); process.exit(2) }
 const msg = readFileSync(path, 'utf8').replace(/^#.*$/gm, '').trim() // drop git comment lines
 
+// ── MESSAGE INTEGRITY — checked FIRST, exempt from nothing ────────────────────────────────────────────────────────
+// A commit message here is a SIGNED artifact that must cite a sealed theorem, so it has to arrive WHOLE — and the
+// shell can silently eat part of it. Backticks inside a double-quoted -m argument are COMMAND SUBSTITUTION: the shell
+// RUNS what they enclose and replaces it with the output, so naming a script leaf inside them (2026-08-17) produced
+// "command not found" and left the permanent record reading "via a new  leaf" with the phrase simply gone.
+// Substitution takes the backticks away WITH the content, so the surviving evidence is the COLLAPSED WHITESPACE where
+// the words used to be — that is the signature this catches, plus the unbalanced-backtick case that survives when the
+// enclosed text is not a runnable command. It runs BEFORE the use/mention exemption below, because integrity is not
+// an honesty question: a truncated message is damaged whatever it happens to talk about.
+const damage: string[] = []
+const prose = msg.split('\n').filter((l) => !/^\s*[|\-*+#>]/.test(l) && !/^\s{2,}/.test(l))  // skip tables/lists/indented blocks
+const collapsed = prose.flatMap((l) => l.match(/\w  +\w/g) ?? [])
+if (collapsed.length) damage.push(`vanished text: ${collapsed.length} gap(s) of doubled space between words, e.g. "${collapsed[0]}"`)
+if ((msg.match(/`/g) ?? []).length % 2 === 1) damage.push('an odd number of backticks — one is unclosed, or its pair was consumed by the shell')
+if (/\(\s*\)/.test(msg) || /""/.test(msg)) damage.push('an empty delimiter — whatever stood between it is gone')
+if (damage.length) {
+  console.error('✗ check-msg — the MESSAGE ITSELF arrived damaged; a signed record must be whole:')
+  for (const d of damage) console.error('  • ' + d)
+  console.error('  FIX write the message in single quotes, or escape every backtick: inside a double-quoted argument')
+  console.error('      the shell EXECUTES what backticks enclose and substitutes the result, silently.')
+  process.exit(1)
+}
+
 // use/mention exclusion: a message ABOUT the gate/honesty machinery (or a true irrationality fact) names the words
 // without claiming them — cleared, exactly as the provenance audit excludes the gate files that name their lexicon.
 const META = /\b(gate|harden\w*|lexicon|overclaim\w*|drain\w*|demarcat\w*|refut\w*|hollow|honesty|provenance|irrational)\b/i
