@@ -8,6 +8,9 @@ import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 
 const PACKAGES = ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge']
+// the ONE declared support floor — read from the root manifest, never frozen here (a constant copied into a
+// checker is a second source of truth, and the checker always wins the argument it should have lost)
+const ROOT_ENGINE: string | undefined = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf-8')).engines?.node
 const REQUIRED_FILES = ['package.json', 'tsconfig.json', 'src/index.ts', 'LICENSE', 'README.md']
 const REQUIRED_FIELDS = {
   'package.json': ['name', 'version', 'description', 'type', 'license', 'author', 'homepage', 'repository', 'main', 'types', 'exports', 'engines', 'sideEffects', 'files', 'scripts', 'dependencies', 'devDependencies'],
@@ -55,9 +58,11 @@ function auditPackage(pkg: string): AuditResult {
         result.errors.push(`Invalid @uuidna/uuidna dependency (expected: file:../..)`)
       }
 
-      // Verify engine >= 18
-      if (!pkgJson.engines?.node?.includes('>=18')) {
-        result.errors.push(`Engine must specify node >=18 (got: ${pkgJson.engines?.node})`)
+      // Verify the engine floor MATCHES THE ROOT — the property, not a frozen constant. This check used to
+      // hardcode '>=18', so raising the real floor would have failed the audit that exists to protect it (the
+      // same class as the ledger count frozen at 1195). One declared support floor, seven manifests, no drift.
+      if (pkgJson.engines?.node !== ROOT_ENGINE) {
+        result.errors.push(`engines.node is ${JSON.stringify(pkgJson.engines?.node)} but the root declares ${JSON.stringify(ROOT_ENGINE)} — one support floor, tree-wide`)
       }
 
       // Verify test script exists
