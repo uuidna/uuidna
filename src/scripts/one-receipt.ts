@@ -746,7 +746,7 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
   // the WHOLE tree: scripts + the library + the generated package surfaces. Exactly TWO exemptions — the two
   // declared singularities (scripts/api.ts, src/boundary.ts): each layer has ONE named place, nothing else may.
   const SINGULARITIES = new Set(['src/scripts/api.ts', 'src/boundary.ts', 'src/tests/api.ts'])
-  const dirs = ['src/scripts', 'src', 'src/quantum', 'src/theorems', 'src/test', ...readdirSync(join(ROOT, 'packages')).map((d) => `packages/${d}/src`)]
+  const dirs = ['src/scripts', 'src', 'src/quantum', 'src/theorems', 'src/tests', 'src/site', 'src/desk', ...readdirSync(join(ROOT, 'packages')).map((d) => `packages/${d}/src`)]
   const files: string[] = []
   for (const d of dirs) {
     if (!existsSync(join(ROOT, d))) continue

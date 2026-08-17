@@ -52,7 +52,7 @@ const KAT_ANCHORS: [string, string][] = [
   ['RFC 8439 AEAD §2.8.2 tag', '1ae10b594f09e26a7e902ecbd0600691'],
 ]
 const testSrc = (() => {
-  const dir = join(ROOT, 'src', 'test')
+  const dir = join(ROOT, 'src', 'tests')
   try { return readdirSync(dir).filter((f) => f.endsWith('.ts')).map((f) => readFileSync(join(dir, f), 'utf8')).join('\n') } catch { return '' }
 })()
 const katMissing = KAT_ANCHORS.filter(([, vector]) => !testSrc.includes(vector)).map(([label]) => label)
