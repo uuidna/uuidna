@@ -1,18 +1,18 @@
 {
-  "key": "6e327aff-ba41-8bd3-b5e3-08534643a458",
-  "publications": 70,
-  "sealedTheorems": 1290,
+  "key": "8fa2771d-4aec-8a56-b968-1663ec38ccb8",
+  "publications": 71,
+  "sealedTheorems": 1294,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1290,
-    "theorems": 1290,
+    "claims": 1294,
+    "theorems": 1294,
     "bijection": true,
     "digitalRoots": {
-      "claims": 3,
-      "theorems": 3,
-      "publications": 7
+      "claims": 7,
+      "theorems": 7,
+      "publications": 8
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -378,6 +378,13 @@
       "slug": "structures",
       "claims": 3,
       "cited": 3,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "martial-arts",
+      "claims": 4,
+      "cited": 4,
       "uncited": [],
       "fabricated": []
     },
