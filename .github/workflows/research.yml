@@ -153,7 +153,24 @@ jobs:
           git tag "v$NEXT"
           git push origin HEAD "v$NEXT"
           echo "tag=v$NEXT" >> "$GITHUB_OUTPUT"
+      # The tag is already pushed and the odometer never returns, so a HANDOFF that fails leaves a version minted
+      # and nothing published — the worst state this pipeline can reach. Measured 2026-08-17 on v0.1.5: GitHub's
+      # API answered `HTTP 503: No server is currently available`, the dispatch died on its single attempt, and
+      # the tag sat published-by-nobody until a human noticed. A transient outage is not a decision: retry with
+      # backoff, and if the door is still shut, say exactly which tag is stranded and how to carry it by hand.
       - name: HAND OFF — the tag to the publish pipeline (audit → npm → GitHub Release → Zenodo DOI)
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run publish.yml --ref "${{ steps.tick.outputs.tag }}"
+          TAG: ${{ steps.tick.outputs.tag }}
+        run: |
+          set -uo pipefail
+          for ATTEMPT in 1 2 3 4 5; do
+            if gh workflow run publish.yml --ref "$TAG"; then
+              echo "::notice::handed off $TAG to publish.yml (attempt $ATTEMPT)"
+              exit 0
+            fi
+            echo "::warning::dispatch of $TAG failed (attempt $ATTEMPT/5) — GitHub's API may be transiently down; retrying"
+            sleep $((ATTEMPT * 20))
+          done
+          echo "::error::$TAG is TAGGED BUT UNPUBLISHED — five dispatch attempts failed. The odometer already moved, so nothing will retry it on its own. Carry it by hand: gh workflow run publish.yml --ref $TAG"
+          exit 1

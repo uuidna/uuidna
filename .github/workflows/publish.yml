@@ -127,7 +127,17 @@ jobs:
             for NEWS in quantum-fold.json prose-trials.json; do
               test -f "$NEWS" && ASSETS="$ASSETS $NEWS"
             done
-            gh release create "$GITHUB_REF_NAME" --generate-notes $ASSETS
+            # Retried like the handoff, and for the same reason: measured 2026-08-17 on v0.1.5, GitHub answered
+            # `503 No server is currently available` and the release was simply never born — npm had the version,
+            # both archives had the DOI, and the tag had no Release at all. An outage is not a verdict.
+            for ATTEMPT in 1 2 3 4 5; do
+              gh release create "$GITHUB_REF_NAME" --generate-notes $ASSETS && exit 0
+              echo "::warning::release create failed for $GITHUB_REF_NAME (attempt $ATTEMPT/5) — retrying"
+              sleep $((ATTEMPT * 20))
+              gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 && { echo "::notice::$GITHUB_REF_NAME exists now — another attempt won the race"; exit 0; }
+            done
+            echo "::error::$GITHUB_REF_NAME published to npm and Zenodo but has NO GitHub Release after five attempts — create it by hand: gh release create $GITHUB_REF_NAME --generate-notes $ASSETS"
+            exit 1
           fi
 
   # LIVE UI INDEPENDENCE — the second party. CI's own word is one coin; the DEPLOYED system's signed receipt is
