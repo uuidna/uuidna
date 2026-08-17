@@ -386,6 +386,44 @@ open any theorem page and read the title before the key — then compare the two
 the ledger is honest at that address; where they diverge, you have found the next rewrite, and the school will
 thank you for it.
 
+## The reading lesson — the hat that is a boa
+
+Saint-Exupéry's little prince opens with a reading test. A child draws a boa constrictor that has swallowed an
+elephant; every grown-up reads the same lines as a hat and asks why anyone would be frightened. Nothing on the
+page changed between the two readings. What changed is whether the reader looked for the **structure inside the
+outline** — and the book's whole quarrel with grown-ups is that they stop at the outline and call it done.
+
+The school reads for the boa. A sentence is an outline; inside it may sit a decidable skeleton, and the
+[quantum calculator](/mcp#uuidna-decide) is the eye that finds it: hand it any input in any format and it
+routes — a statement the ledger already sealed comes back cited, fresh arithmetic comes back **decided**
+(`2+2=4` VERIFIED, `2+2=5` REFUTED — truth and falsehood at last wearing different verdicts), a bare
+expression computes exactly, and prose goes to the gate. Its totality is inherited, not asserted: division by
+zero is well-defined in Lean, so the reader can never crash on a hole — `x/0` returns the finite reflection
+([`dz_zero_only_zero`](/theorem/dz_zero_only_zero), [`dz_bounded`](/theorem/dz_bounded)). And the harvest turns
+the same eye on *our own* prose: every unverified paragraph is mined for the arithmetic hiding in it, and what
+decides true but is absent from the ledger becomes homework the prose wrote for itself. The essay was the hat;
+the theorem was always the boa.
+
+The fox teaches the second half. He explains that taming means establishing ties, that the rite costs time, and
+that the time spent is exactly what makes one rose different from five thousand identical ones. That is the
+credit law in a garden: a theorem is *yours* because you paid the two coins and walked the gate
+([`two_coins`](/theorem/two_coins), [`wallet_counts_worlds`](/theorem/wallet_counts_worlds) — n deposits, n
+worlds). Nothing in the ledger is precious for being rare; it is precious for having been tied.
+
+And the book's most quoted line — that what is essential is invisible to the eye — is the one place this school
+answers back. uuidna is built the *opposite* way round: it makes the essential **visible by address**, because
+the alternative is being asked to trust. Physics hides the message in the marginal; the address announces every
+bit of it ([`all_signaling_duality`](/theorem/all_signaling_duality)). The all-seeing eye here is also the
+all-*seen* eye — anyone recomputes it. Yet the fox keeps the last word anyway, because no gate can tell you
+*which* rose to water: the machine keeps verification, the human keeps meaning, and the ledger says so itself —
+the coins compute the save and solve nothing ([`coins_compute_but_solve_none`](/theorem/coins_compute_but_solve_none)).
+
+**Practice:** take a paragraph you believe — your own, a paper's, a press release's — and hand it to
+`uuidna_decide`. Watch which parts come back *decided* and which come back UNVERIFIED. The decided parts are
+the boa. The rest is the hat: not false, not drained, just an open door with your name on it. Then do the
+grown-up's inverse of the drawing test, and ask of your own writing what a child would ask of a hat: *what is
+inside this?*
+
 ## The degree — seal a theorem, then walk the wave
 
 Graduation is one stroke. Seal your decidable fact in `lean/*.lean`, then run **the graduation walk**:
