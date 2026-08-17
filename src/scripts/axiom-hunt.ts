@@ -13,7 +13,7 @@ const CANDIDATES: Candidate[] = [
   { key: 'aead_nonce_and_salt_bits', assumes: 'the nonce is 12 B = 96 bits (RFC 8439), the salt 16 B = 128 bits, nonce strictly inside the address width', where: 'src/crypt.ts', live: () => 12 * 8 === 96 && 16 * 8 === 128 && 96 < ADDRESS_BITS },
   { key: 'onion_layers_power_of_two', assumes: 'MAX_LAYERS = 16 = 2^4, at most the 128 address bits', where: 'src/stream.ts', live: () => MAX_LAYERS === 16 && 16 === 2 ** 4 && MAX_LAYERS <= ADDRESS_BITS },
   { key: 'imprint_capacity_within_address', assumes: 'CAPACITY = 115 < 128 — the imprint fits strictly inside its address, 13 bits of seam', where: 'src/imprint.ts', live: () => CAPACITY === 115 && CAPACITY < ADDRESS_BITS },
-  { key: 'message_qubit_cap_states', assumes: 'the 16-qubit cap spans 2^16 = 65536 states — the tractable ceiling', where: 'src/quantum/message.ts', live: () => 2 ** 16 === 65536 },
+  { key: 'message_qubit_cap_states', assumes: 'the 16-qubit cap spans 2^16 = 65536 states — the tractable ceiling', where: 'src/quantum/message/index.ts', live: () => 2 ** 16 === 65536 },
   { key: 'aura_step_divides_circle', assumes: 'A432_STEP = 40 and 9 · 40 = 360 — the nine residues tile the wheel with no remainder', where: 'src/aura.ts', live: () => A432_STEP === 40 && 9 * A432_STEP === 360 },
   { key: 'sanitize_depth_bounded', assumes: 'MAX_DEPTH = 32 = 2^5 — the finite wall the resource-DoS audit stands on', where: 'src/sanitize.ts', live: () => MAX_DEPTH === 32 && 32 === 2 ** 5 },
 ]
