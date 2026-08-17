@@ -138,11 +138,11 @@ export function heroAnimation(
     const leads = i === lead
     // every ray turns by its distance FROM the lead, so the selected dimension always points up
     const turn = (((i - lead + dims.length) % dims.length) * 360) / dims.length
-    return `<line x1="100" y1="100" x2="100" y2="${leads ? 40 : 58}" stroke="${hue(i + 1)}"` +
+    return `<line x1="100" y1="100" x2="100" y2="${leads ? 54 : 64}" stroke="${hue(i + 1)}"` +
       ` stroke-width="${leads ? 3 : 1}" opacity="${leads ? '.95' : '.12'}"` +
       ` transform="rotate(${turn} 100 100)"><animate attributeName="opacity"` +
       ` values="${leads ? '.7;1;.7' : '.08;.18;.08'}" dur="${beat(i)}" repeatCount="indefinite"/></line>` +
-      (leads ? `<text x="100" y="32" text-anchor="middle" font-size="9" fill="${hue(i + 1)}">${d}</text>` : '')
+      (leads ? `<text x="100" y="50" text-anchor="middle" font-size="8" fill="${hue(i + 1)}">${d}</text>` : '')
   }
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img"` +
     ` aria-label="the doubling orbit ${orbit.join('→')} across ${dims.length} dimensions">` +

@@ -5,6 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
 import LinkAuditor from './LinkAuditor.vue'
 import FoldAnimation from './FoldAnimation.vue'
+import HeroAnimation from './HeroAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
 import HomeGraph from './HomeGraph.vue'
 import Reflect from './Reflect.vue'
@@ -51,6 +52,9 @@ export default {
     app.component('RefererCompass', RefererCompass)
     // The 7d fold, animated — seven addresses fold to one receipt (self-contained SVG/CSS).
     app.component('FoldAnimation', FoldAnimation)
+    // The hero, animated — the sealed doubling orbit across the seven reading dimensions; `dimension` selects
+    // which ray leads and dims the rest. Colours read the --seq-* properties applySequence() sets from ℤ/9.
+    app.component('HeroAnimation', HeroAnimation)
     // Reflect — a client-side content-addresser; the visitor's chosen data reflects to its address in the browser,
     // nothing sent or stored. Privacy by default; opt-in storage is a separate, consent-gated feature.
     app.component('Reflect', Reflect)
