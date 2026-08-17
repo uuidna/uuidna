@@ -68,7 +68,7 @@ export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
 // the trial — a recomputable three-way verdict (REFUTED/SEALED/UNVERIFIED); proveVerdict folds the formula
 // receipts through the order-invariant gravity to one proof-of-verdict root. Integrity, not truth.
 export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from './adjudicate.js'
-export { corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from './corroborate.js'
+export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from './corroborate.js'
 export { domainWave, type DomainWave } from './domain-wave.js'
 // research — deep research pressed/decompressed with the reversible imprint codec, bound to the entangled algebra,
 // with NOVELTY as content-address uniqueness. Does NOT extract MEANING (provenance + structure only; meaning is null).
