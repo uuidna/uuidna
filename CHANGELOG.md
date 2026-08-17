@@ -58,6 +58,17 @@ silently skipping. A gate that fails is safe; a gate that quietly covers less th
   wrapper crashed, retrying" into a seven-line log while discarding the real objection each time. Steps now merge
   stderr, pass output through, and quote the failing step by name. `--seal` also asserts **reconciled-means-synced**.
 
+- **Twelve vacuous theorems, rewritten to prove their own names.** A finder for exactly this class (`one-receipt
+  vacuous`) had been written and was invoked NOWHERE in the tree — not the guard, not a script, not CI. The first time
+  it ran it named 12 sealed, published theorems whose proofs were true regardless of content: `sailing_fact_has_address`
+  was proven by literally `True`, `disputed_provably_true_is_sealed` by `(42 = 42) ↔ (42 = 42)`, others by `P ∧ P` or
+  `P ∨ ¬P`. All 12 now carry proofs that mean their keys — `sailing_extraction_deterministic` computes an actual map
+  against its list, `sailing_book_receipt_order_invariant` folds three real permutations and agrees,
+  `disputed_topics_contradiction_detectable` shows the detector returning **false** on a contradictory pair and
+  **true** on a consistent one. Rewritten, never dropped: the ledger held at 1294, kernel-verified and axiom-free.
+  The finder is now BLOCKING, so no theorem may again be true regardless of its content — `by decide` checks that a
+  proposition holds; this checks that the proposition means its name.
+
 ### Added
 - **The development pass** (`npm run develop`) — walks build → guard → account → spin and, when a gate objects with a
   cure it has been taught (stale axiom witness, missing heartbeats, a regenerable surface, a drifted seal), applies it
