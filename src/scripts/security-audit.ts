@@ -4,7 +4,7 @@
 // folded to ONE order-invariant receipt and printed as a table. Exits non-zero if any check fails — a dimension of
 // `npm run audit`, recomputable by anyone from the same tree. Integrity, not truth.
 import { execSync } from 'node:child_process'
-import { readFileSync, existsSync, statSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { securityAudit, type SecurityCheck } from '../security-audit.js'
 import { toUuid, merkleGravity } from '../index.js'
@@ -38,7 +38,24 @@ for (const rel of tracked) {
   const text = buf.toString('utf8')
   for (const [name, re] of SECRET_PATTERNS) if (re.test(text)) hits.push({ file: rel, pattern: name })
 }
-const katPresent = existsSync(join(ROOT, 'src', 'test', 'kat.test.ts')) || existsSync(join(ROOT, 'dist', 'test', 'kat.test.js'))
+// THE KAT CLAIM IS BACKED BY VECTORS, NOT BY A FILENAME. This check used to assert that src/test/kat.test.ts exists
+// — a hardcoded path, which a legitimate refactor breaks and an EMPTY file with the right name would satisfy. What
+// actually backs "KAT-verified" is that the standards' own published outputs are asserted somewhere in the tests, so
+// that is what is counted: each anchor below is a vector no implementation can produce without conforming.
+const KAT_ANCHORS: [string, string][] = [
+  ['FIPS 180-4 SHA-256 "abc"', 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'],
+  ['RFC 4231 HMAC case 2 (Jefe)', '5bdcc146bf60754e6a042426089575c75a003f089d2739839dec58b964ec3843'],
+  ['RFC 8018 PBKDF2 c=4096', 'c5e478d59288c841aa530db6845c4c8d962893a001ce4e11a4963873aa98134a'],
+  ['RFC 8439 ChaCha20 §2.4.2', '6e2e359a2568f98041ba0728dd0d6981'],
+  ['RFC 8439 Poly1305 §2.5.2', 'a8061dc1305136c6c22b8baf0c0127a9'],
+  ['RFC 8439 AEAD §2.8.2 tag', '1ae10b594f09e26a7e902ecbd0600691'],
+]
+const testSrc = (() => {
+  const dir = join(ROOT, 'src', 'test')
+  try { return readdirSync(dir).filter((f) => f.endsWith('.ts')).map((f) => readFileSync(join(dir, f), 'utf8')).join('\n') } catch { return '' }
+})()
+const katMissing = KAT_ANCHORS.filter(([, vector]) => !testSrc.includes(vector)).map(([label]) => label)
+const katPresent = katMissing.length === 0
 
 const repoChecks: SecurityCheck[] = [
   { id: 'no-committed-secrets', ok: gitOk && hits.length === 0,
@@ -47,9 +64,9 @@ const repoChecks: SecurityCheck[] = [
       : `scanned ${tracked.length} tracked files — no credential pattern (PEM key, AWS/GitHub/Slack/Google/npm token)`,
     address: toUuid(`security|no-committed-secrets|${gitOk && hits.length === 0}|${hits.map((h) => h.file + ':' + h.pattern).join(',')}`) },
   { id: 'crypto-kat-suite-present', ok: katPresent,
-    detail: katPresent ? 'the crypto KAT suite (FIPS 180-4 SHA-256, RFC 4231 HMAC, RFC 8018 PBKDF2, RFC 8439 ChaCha20/Poly1305/AEAD) is wired into the tests'
-      : 'MISSING: src/test/kat.test.ts — the KAT-verified claim would be unbacked',
-    address: toUuid(`security|crypto-kat-suite-present|${katPresent}`) },
+    detail: katPresent ? `the crypto KAT suite is wired into the tests — all ${KAT_ANCHORS.length} standard anchors asserted (FIPS 180-4 SHA-256, RFC 4231 HMAC, RFC 8018 PBKDF2, RFC 8439 ChaCha20/Poly1305/AEAD), located by VECTOR so a rename cannot fake or break the claim`
+      : `MISSING ${katMissing.length} standard vector(s): ${katMissing.join('; ')} — the KAT-verified claim would be unbacked`,
+    address: toUuid(`security|crypto-kat-suite-present|${katPresent}|${katMissing.join(',')}`) },
 ]
 
 const pkg = securityAudit()
