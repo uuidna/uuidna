@@ -325,6 +325,33 @@ export function actionsGaps(): Gap[] {
 // exactly this, 2026-08-17). `by decide` will happily certify every one of them: the kernel checks the
 // proposition, never whether the proposition means what its key says. This finder is that missing half.
 // EXEMPT: the declared `oos_` scope markers, whose whole purpose is to be void — a named boundary, not a claim.
+/** THREE CONTENT WORDS CARRY THE FACT; MORE IS ENTROPY — and entropy fails hard. A key that needs a fourth word is
+ *  usually carrying scaffolding rather than content: `forged_theorem_costs_2_power_7_bits` is `forgery_costs_128`,
+ *  and this session's own `doubling_ladder_spans_octave_codon_address` folded to `octave_codon_address` with nothing
+ *  lost — the three words that survive ARE the fact. Grammatical filler (is/the/of/by/only/…) is not counted, since
+ *  it carries nothing either way.
+ *
+ *  A RATCHET, NOT A BIG BANG: 313 keys predate this law, and renaming a theorem moves its content-address, the
+ *  ledger receipt and the published archive — so they are recorded in lean/key-entropy.json as an explicit backlog
+ *  that may only SHRINK (src/test/key-entropy.test.ts enforces that it never grows). Anything NEW fails hard here.
+ *  That is how the class stops growing today without moving 313 published addresses in one stroke. */
+export function wordsGaps(): Gap[] {
+  const FILLER = new Set(['is', 'are', 'was', 'be', 'the', 'a', 'an', 'of', 'by', 'to', 'in', 'on', 'for', 'with', 'its', 'it', 'that', 'then', 'into', 'from', 'as', 'at', 'and', 'or', 'only', 'ever'])
+  const content = (k: string): string[] => k.replace(/^uuidna_/, '').split('_').filter((x) => x && !FILLER.has(x))
+  let backlog = new Set<string>()
+  try { backlog = new Set((JSON.parse(rd('lean/key-entropy.json')) as { keys: string[] }).keys) } catch { /* no baseline yet: every long key is new */ }
+  const gaps: Gap[] = []
+  for (const t of theorems()) {
+    const c = content(t.key)
+    if (c.length <= 3 || backlog.has(t.key)) continue
+    gaps.push({
+      what: `${t.file}: theorem ${t.key} carries ${c.length} content words (${c.join(' ')}) — the limit is 3`,
+      fix: `rename it to the THREE words that carry the fact and regenerate its wing; the rest is scaffolding (forged_theorem_costs_2_power_7_bits → forgery_costs_128). If it genuinely predates this law, it belongs in lean/key-entropy.json — but that list may only shrink`,
+    })
+  }
+  return gaps
+}
+
 export function vacuousGaps(): Gap[] {
   // strip outer parens ONLY when the first '(' closes at the last ')' — a greedy strip mangles "(A) ∨ (B)"
   // into "A) ∨ (B" and makes the detector miss what it exists to catch (measured: 1 found instead of 12)
@@ -781,7 +808,8 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'wave') wave(process.argv[3]?.trim() || '')
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'stage') { const r = stageDerived(ROOT); console.log('✓ one-receipt stage — ' + r.staged + ' derived path(s) staged' + (r.leftForHumans.length ? '; left for a human (not staged, not swept): ' + r.leftForHumans.join(', ') : '; nothing else pending')) }
+  else if (cmd === 'words') report('one-receipt words', wordsGaps(), 'every theorem key carries its fact in three content words or is in the recorded backlog')
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | seo | coherent | absence | re | pipes | crypto | migrate | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }
