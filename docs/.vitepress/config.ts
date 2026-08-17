@@ -66,6 +66,7 @@ export default defineConfig({
           items: [
             { text: "The captain's coins", link: '/captain' },
             { text: 'The doctrine', link: '/doctrine' },
+            { text: 'Succession', link: '/succession' },
           ],
         },
         {
