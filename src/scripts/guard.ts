@@ -85,6 +85,12 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'absence', run: () => absenceGaps() },
   { name: 'pipes', run: () => pipeGaps() },
   { name: 'actions', run: () => actionsGaps() },
+  // PROMOTED from ADVISORY 2026-08-17: the captain made the call the advisory tier was waiting on ("fix the 12
+  // vacuous theorems"), and all 12 were rewritten to prove their own names — kernel-verified, axiom-free, the
+  // ledger held at 1294 because they were REWRITTEN, not dropped. The class is closed, so it blocks now: no
+  // theorem may again be true regardless of its content. `by decide` checks the proposition; this checks that
+  // the proposition means its key.
+  { name: 'vacuous', run: () => vacuousGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {
@@ -105,8 +111,6 @@ for (const f of FINDERS) {
 // `vacuous` were invoked nowhere in the tree, and the moment `vacuous` first ran it named 12 real findings. A finder
 // that reports on every run cannot be forgotten; a finder nobody calls is a claim nobody checks.
 const ADVISORY: { name: string; run: () => Gap[]; why: string }[] = [
-  { name: 'vacuous', run: () => vacuousGaps(),
-    why: 'its 12 findings are theorems ALREADY SEALED and published (8 sailing_*, 4 disputed_*) whose proofs are true regardless of content — P ∨ ¬P, P ↔ P. Fixing them renames published theorems and moves their content-addresses and the archived ledger receipt, which is the captain\'s call, not a gate\'s. Blocking it would break every run until that decision is made; hiding it is what let the class survive. So it speaks every pass' },
   { name: 'seo', run: () => seoGaps().gaps,
     why: 'its findings are page descriptions outside Google\'s 50-160 char snippet band, and this project\'s descriptions carry honest scope, which is longer BY DESIGN. Optimising them for a snippet would trade the honesty for a click, so the band is advice here, not law' },
 ]
