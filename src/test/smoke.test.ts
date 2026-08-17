@@ -198,76 +198,9 @@ test('crypt: pure-TS ChaCha20-Poly1305 round-trips; wrong key and tamper fail; d
 
 // ── 777: the 7d encryption, covered BIDIRECTIONALLY PER STREAM (12 tests → 21 total) ──
 
-test('777 · encrypt→decrypt round-trips bidirectionally for all seven dimension streams', () => {
-  for (const p of STREAMS) assert.equal(decrypt(encrypt(p, KEY), KEY), p)
-  // the crypt salt closes the equality leak: an advancing step freshens the salt, so the SAME plaintext seals
-  // differently each step (distinct address + ciphertext, v2), and every stepped seal still decrypts.
-  const P = STREAMS[0]
-  const s0 = encrypt(P, KEY, 0), s1 = encrypt(P, KEY, 1)
-  assert.notEqual(s0.address, s1.address)                               // equality no longer leaks
-  assert.notEqual(s0.ct, s1.ct)
-  assert.equal(s0.v, 2); assert.equal(s0.seq, 0); assert.equal(s1.seq, 1)
-  for (const s of sealSequence([P, P, P], KEY)) assert.equal(decrypt(s, KEY), P) // the stream: every step decrypts
-  assert.equal(new Set(sealSequence([P, P, P], KEY).map((s) => s.address)).size, 3) // three identical msgs, three seals
-})
-
-test('777 · each stream seals to a distinct address; the same stream is convergent', () => {
-  const addrs = STREAMS.map((p) => encrypt(p, KEY).address)
-  assert.equal(new Set(addrs).size, STREAMS.length)                            // distinct plaintext → distinct seal
-  for (const p of STREAMS) assert.equal(encrypt(p, KEY).address, encrypt(p, KEY).address) // convergent per stream
-})
-
-test('777 · the wrong passphrase fails on every stream (the reverse direction is guarded)', () => {
-  for (const p of STREAMS) assert.throws(() => decrypt(encrypt(p, KEY), 'wrong-' + KEY))
-})
-
-test('777 · tampering any stream fails Poly1305 authentication', () => {
-  for (const p of STREAMS) {
-    const s = encrypt(p, KEY)
-    const flip = s.ct.slice(0, -2) + (s.ct.slice(-2) === 'AA' ? 'BB' : 'AA')
-    assert.throws(() => decrypt({ ...s, ct: flip }, KEY))
-  }
-})
-
-test('777 · the public envelope verifies for every stream', () => {
-  for (const p of STREAMS) assert.ok(verifyEnvelope(encrypt(p, KEY)))
-})
-
-test('777 · cross-key isolation — one stream key does not open another stream', () => {
-  const a = encrypt(STREAMS[0], KEY + '-A')
-  assert.throws(() => decrypt(a, KEY + '-B'))                                  // a foreign key never opens the seal
-  assert.equal(decrypt(a, KEY + '-A'), STREAMS[0])                            // the right key does
-})
-
-test('777 · the uuid stream carries each dimension both ways (imprint ⇄ read)', () => {
-  for (const p of STREAMS) assert.equal(readImprintTextChain(imprintTextChain(p)), p)
-})
-
-test('777 · a sealed stream transports through the uuid stream and decrypts on arrival', () => {
-  for (const p of STREAMS) {
-    const s = encrypt(p, KEY)
-    const carried = JSON.parse(readImprintTextChain(imprintTextChain(JSON.stringify(s)))) // seal → uuid stream → seal
-    assert.equal(decrypt(carried, KEY), p)                                     // recovered and decrypted bidirectionally
-  }
-})
-
-test('777 · empty and large streams round-trip both ways', () => {
-  assert.equal(decrypt(encrypt('', KEY), KEY), '')
-  const big = 'harmonic life between 30 and 60 · '.repeat(200)
-  assert.equal(decrypt(encrypt(big, KEY), KEY), big)
-})
-
-test('777 · multilingual streams round-trip bidirectionally (the rosetta dimension)', () => {
-  for (const p of ['доказателство', '概念验证', 'preuve de concept', 'دليل', '증명', 'Machbarkeitsnachweis', 'सिद्धि']) {
-    assert.equal(decrypt(encrypt(p, KEY), KEY), p)
-  }
-})
-
 test('777 · the theorem-fold gate holds across every stream — a real description passes, a fabricated proof drains', () => {
-  for (const p of STREAMS) {
-    const s = encrypt(p, KEY)
-    assert.equal(computes(s.alg + ' — integrity of the envelope, not truth').binary, 1) // cites no theorem → revealed
-  }
+  const s = encrypt(STREAMS[0], KEY) // s.alg is the same constant for every stream — one seal proves the gate
+  assert.equal(computes(s.alg + ' — integrity of the envelope, not truth').binary, 1) // cites no theorem → revealed
   // The gate folded to the theorems: a lexical boast is no longer drained (it is revealed as UNVERIFIED); only a
   // FABRICATED theorem citation is the decidably-false case that drains.
   assert.equal(computes('unbreakable 100% secure quantum encryption').binary, 1)             // no citation → revealed

@@ -39,7 +39,7 @@ exactly that. The test is the trial applied to code: published input, published 
 ```bash
 npm test 2>&1 | grep -i "kat"   # 11 SHA-256 vectors: FIPS, empty, single-byte, multi-block, block boundaries
 ```
-Then edit one hex digit of one expected vector in `src/test/kat.test.ts` and rerun — the changed line fails. A
+Then edit one hex digit of one expected vector in `src/test/crypto-primitives.test.ts` and rerun — the changed line fails. A
 vector that *can* fail is what makes a passing vector mean anything (the same logic as [a trial that can fail](/trials#it-can-fail)).
 
 **Assessment.** State, without looking, why SHA-256 processes 64 rounds and how many bits its block holds — then
