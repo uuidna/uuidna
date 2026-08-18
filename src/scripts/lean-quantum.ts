@@ -192,6 +192,20 @@ const FACTS = [
     why: 'The tractability cap the quantum message ASSUMES, sealed (axiom-hunt): 16 qubits span 2^16 = 65536 states — the encoder’s honest ceiling. Exponential and BOUNDED: the cap is what keeps the classical simulation classical, no quantum advantage claimed at any size.',
     js: () => 2 ** 16 === 65536,
     lean: 'theorem message_qubit_cap_states : 2^16 = 65536 := by decide' },
+  { key: 'merkle_fold_order_invariant',
+    why: 'The message receipt folds every leaf through merkleFold, which SORTS before it merges — the honest reason the fold is order-invariant even though merge itself is NOT commutative (merge(a,b) ≠ merge(b,a), by design). Sealed on a representative 3-leaf fold with a deliberately non-commutative pairwise op (f(a,b)=2a+b, so f(1,2)=4 ≠ f(2,1)=5): sorting first (min, mid, max via Nat.min/Nat.max and sum-arithmetic, no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. HONEST SCOPE: one representative instance, the same scope every fold-invariance theorem here uses (store_fold_order_invariant proves the same shape for a commutative XOR fold; this is the harder, non-commutative case merkleFold actually is).',
+    js: () => {
+      const min2 = (a: number, b: number) => a < b ? a : b
+      const max2 = (a: number, b: number) => a > b ? a : b
+      const fold3 = (a: number, b: number, c: number) => {
+        const mn = min2(a, min2(b, c)), mx = max2(a, max2(b, c)), mid = a + b + c - mn - mx
+        return 2 * (2 * mn + mid) + mx
+      }
+      const perms: [number, number, number][] = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+      const results = perms.map(([a, b, c]) => fold3(a, b, c))
+      return results.every((r) => r === results[0])
+    },
+    lean: 'theorem merkle_fold_order_invariant : (let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1)) := by decide' },
 
   { key: 'all_signaling_duality',
     why: 'UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total, never the arrangement (1+0 = 0+1: swap the far side, the near statistics never move; correlation carries no message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal, never by obscurity.',
