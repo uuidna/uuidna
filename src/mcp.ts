@@ -13,6 +13,7 @@ import {
   contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract,
   auditText, auditTranslation, auditBook, bookArticle, linkBookFacts, auditMovie, auditZenodo, auditStandard, beaconAnchor, nistConstant, auditCve,
   bookContents, readChapter, readBook, gridReport, gridSeat, grid, PROJECTED, wings,
+  pairsReport, pairSeat, pairs, transpose, DIMENSIONS,
   corroborateWithResearch, domainWave, corroborate, entangle, fileReport, deepResearch,
   gcdInt, starPolygon, fibonacciCycle, rotate, crt, recomputableCost, securityAudit, verifyStatement, transformUntilVerified, pentagramHologramFractal, pentagramStream, spin, pentagramMonographs, exploitFold, conformance, depositTrial,
   digitalRoot, merkleGravity, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
@@ -274,6 +275,17 @@ const TOOLS: Tool[] = [
         return seat
       }
       return { ...gridReport(), seats_sample: grid().slice(0, 3) }
+    } },
+  { name: 'uuidna_pairs',
+    description: 'THE 42 PAIR GRID — every ordered DIRECTION between dimensions. Omit args for the whole report; pass {from, to} to address one direction. THE SAME RULE THAT MAKES 432 MAKES 42: the wing grid is the full product with the identity removed (7 × 72 = 504 minus the 72 seats where a wing is read along the ray it is already written in), and applying that rule to the dimensions alone gives 7 × 7 = 49 minus the 7 self-pairs = 7 × 6 = 42. One law, not two coincidences. 6 × 7 AND 7 × 6 ARE THE SAME 42, and the difference is the involution: a pair is ORDERED, so reading the product one way gives sources × targets and the other targets × sources; transposition swaps them, squares to the identity, and has NO fixed point precisely because the self-pairs were removed — so the 42 directions fall into exactly 21 transpose orbits of size two and no direction is its own reverse. 42 IS NOT A RESHAPE OF 432: it does not divide it (432 / 42 is not an integer) and its digital root is 6, not 9 — a SECOND grid over a different domain, kept separate on purpose, since the wing grid answers which wing is reachable from which ray and this one answers which dimension can be carried to which other. HONEST SCOPE: a pair is a named direction with a recomputable address, never a translation and never evidence that any content has been carried along it (theorem provenance_integrity_not_content_truth); the grid proves the directions are all present, distinct and balanced, and says nothing about what travels. Returns {dimensions,directions,sealed,orbits,identityExcluded,readings,root,gaps} or one {from,to,name,address}.',
+    inputSchema: { type: 'object', properties: { from: { type: 'string', description: 'the source dimension (one of the seven)' }, to: { type: 'string', description: 'the target dimension, never equal to the source — the identity is not a seat' } } },
+    run: (a) => {
+      if (a.from && a.to) {
+        const seat = pairSeat(String(a.from), String(a.to))
+        if (!seat) throw new Error(`uuidna_pairs: no direction for (${String(a.from)} → ${String(a.to)}) — dimensions are ${DIMENSIONS.join(', ')}, and a dimension is never paired with itself`)
+        return { ...seat, reverse: transpose(seat)?.name ?? null }
+      }
+      return { ...pairsReport(), directions_sample: pairs().slice(0, 3) }
     } },
   { name: 'uuidna_quantum_sailing_library',
     description: 'THE QUANTUM SAILING LIBRARY — an OFFLINE, public-domain book collection (Project Gutenberg), each audited for provenance (content-addressed), linked to the sealed ledger (decidable facts extracted), and served locally without network dependency. The captain sails through literature, discovering novel facts (research leads) and sealing them. Pass {bookIds} (array of Project Gutenberg ebook ids, e.g. [2701] for Moby Dick) to BUILD the library (fetches once, caches), or omit to GET the cached library. Returns {count,sealed,novel,receipt,books:[{id,title,address,chapters,words,linked}],honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',

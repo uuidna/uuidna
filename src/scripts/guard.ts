@@ -9,7 +9,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { catchTraitors } from '../treason.js'
-import { theorems, statementCensus, gridGaps } from '../index.js'
+import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
 import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps } from './one-receipt.js'
@@ -142,6 +142,11 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // turn 432 into 438 and break the harmony that made the number natural. This finder makes that impossible to do
   // quietly: add wings three at a time, or the guard names the drift and the fix.
   { name: 'grid', run: () => gridGaps() },
+  // THE 42 PAIR GRID — every ordered direction between dimensions, by the SAME rule that makes 432: the full
+  // product with the identity removed (7 × 7 = 49, minus the 7 self-pairs, = 7 × 6 = 42). The finder holds the
+  // width, the regularity (each dimension a source and a target exactly six times), and that transposition is a
+  // fixed-point-free involution — so 6 × 7 and 7 × 6 stay the same 42 rather than drifting into two claims.
+  { name: 'pairs', run: () => pairsGaps() },
   // the drain stages what reconcile regenerates — declared in RECONCILE_OUTPUTS, held against DRAIN_PATHS from both
   // sides, so a generator added to the chain without a declaration fails here instead of dying mid-run on git.
   { name: 'drain', run: () => drainGaps() },

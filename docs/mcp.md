@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="179 keys" />
+# MCP tools <Badge type="tip" text="180 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 179 tools below are read from the server's own tool list and
+is **built from the keys**: the 180 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · a595bebd-58be-84a3-ad13-06424dd132fe
+gate CLEAN f0 d0 v0 · a5a2504d-33cb-89c2-ab93-5a1af80ab8e3
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 179-tool registry folds to its
-order-invariant identity `65b78aa8-3711-82da-9c8d-ba7d98c8440d` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 180-tool registry folds to its
+order-invariant identity `24a17c47-3735-8054-98aa-a072782ada8f` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`179`" />
+## The grid <Badge type="tip" :text="`180`" />
 
-179 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 68 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+180 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 69 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -87,6 +87,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-oeapi"><code>oeapi</code></a>
 <a href="#uuidna-os"><code>os</code></a>
 <a href="#uuidna-package"><code>package</code></a>
+<a href="#uuidna-pairs"><code>pairs</code></a>
 <a href="#uuidna-pentagram"><code>pentagram</code></a>
 <a href="#uuidna-pentagram-monographs"><code>pentagram_monographs</code></a>
 <a href="#uuidna-publication"><code>publication</code></a>
@@ -547,7 +548,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'77'" />
+## Other <Badge type="tip" :text="'78'" />
 
 *skill: other*
 
@@ -679,6 +680,17 @@ THE 432 GRID — every (projected dimension × ledger wing) seat, named, address
 | --- | --- | --- | --- |
 | `dimension` | string | no | one of the six projected rays (en is the source, not a seat) |
 | `wing` | string | no | a ledger wing, e.g. MartialArts.lean or martial_arts |
+
+### `uuidna_pairs`
+
+THE 42 PAIR GRID — every ordered DIRECTION between dimensions. Omit args for the whole report; pass {from, to} to address one direction. THE SAME RULE THAT MAKES 432 MAKES 42: the wing grid is the full product with the identity removed (7 × 72 = 504 minus the 72 seats where a wing is read along the ray it is already written in), and applying that rule to the dimensions alone gives 7 × 7 = 49 minus the 7 self-pairs = 7 × 6 = 42. One law, not two coincidences. 6 × 7 AND 7 × 6 ARE THE SAME 42, and the difference is the involution: a pair is ORDERED, so reading the product one way gives sources × targets and the other targets × sources; transposition swaps them, squares to the identity, and has NO fixed point precisely because the self-pairs were removed — so the 42 directions fall into exactly 21 transpose orbits of size two and no direction is its own reverse. 42 IS NOT A RESHAPE OF 432: it does not divide it (432 / 42 is not an integer) and its digital root is 6, not 9 — a SECOND grid over a different domain, kept separate on purpose, since the wing grid answers which wing is reachable from which ray and this one answers which dimension can be carried to which other. HONEST SCOPE: a pair is a named direction with a recomputable address, never a translation and never evidence that any content has been carried along it (theorem provenance_integrity_not_content_truth); the grid proves the directions are all present, distinct and balanced, and says nothing about what travels. Returns {dimensions,directions,sealed,orbits,identityExcluded,readings,root,gaps} or one {from,to,name,address}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `from` | string | no | the source dimension (one of the seven) |
+| `to` | string | no | the target dimension, never equal to the source — the identity is not a seat |
 
 ### `uuidna_quantum_sailing_library`
 

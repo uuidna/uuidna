@@ -78,6 +78,33 @@ grid would be decoration.
 
 Asking for the source ray returns nothing at all — `en` has no seat, because the identity is not a projection.
 
+## The other grid: 42 directions
+
+The same rule that makes 432 makes a second, smaller grid — and it is worth stating as *one* law rather than two
+coincidences. The wing grid is the full product with the identity removed. Apply that to the dimensions alone:
+
+```
+7 × 7 = 49      every ordered pair of dimensions
+  − 7           the self-pairs, where a dimension is paired with itself
+= 7 × 6 = 42    the directions that carry something somewhere else
+```
+
+A pair here is a **direction** — ordered, from one dimension to another — so reading the product one way gives
+sources × targets and the other way targets × sources. **6 × 7 and 7 × 6 are the same 42**, seen from two sides.
+What separates the two sides is transposition, which swaps a direction with its reverse, squares to the identity,
+and has **no fixed point** precisely because the self-pairs were removed. So the 42 directions fall into exactly 21
+orbits of two, and no direction is its own reverse.
+
+<PairGrid />
+
+The empty diagonal is the subtraction. Reflection across it is the involution.
+
+**42 is not a reshape of 432.** It does not divide it — 432 ÷ 42 is not a whole number — and its digital root is 6
+where 432's is 9. The two grids are kept separate on purpose: the wing grid answers *which wing is reachable from
+which ray*, and the pair grid answers *which dimension can be carried to which other*. Folding them into a single
+number would be arithmetic theatre, and the ledger has gates against exactly that
+([`two_coins`](/theorem/two_coins)). Address a direction through `uuidna_pairs`.
+
 ## Honest scope
 
 A seat is **a receipt, never a translation**. It records that a wing is reachable from a ray and that nothing is

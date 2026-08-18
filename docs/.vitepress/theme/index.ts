@@ -24,6 +24,7 @@ import AuditPanel from './AuditPanel.vue'
 import Dimensions from './Dimensions.vue'
 import CaptainCoins from './CaptainCoins.vue'
 import GridLattice from './GridLattice.vue'
+import PairGrid from './PairGrid.vue'
 import { loadDimensions } from './dimensions'
 import { applySequence } from './palette'
 import './style.css'
@@ -60,6 +61,9 @@ export default {
     // between the two shapes 432 admits (6 × 72 by the axes, 16 × 27 by the digit-reversal involution). The toggle
     // rearranges the SAME seats and adds none, which is the page's argument made visible rather than restated.
     app.component('GridLattice', GridLattice)
+    // PairGrid — the 42 directions shown as the 7 × 7 matrix they are cut from, with the diagonal left empty so the
+    // excluded identity is visible rather than asserted, and transposition read as reflection across it.
+    app.component('PairGrid', PairGrid)
     // Reflect — a client-side content-addresser; the visitor's chosen data reflects to its address in the browser,
     // nothing sent or stored. Privacy by default; opt-in storage is a separate, consent-gated feature.
     app.component('Reflect', Reflect)
