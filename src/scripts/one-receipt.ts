@@ -22,7 +22,7 @@ import { execSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { theorems, PRINCIPLES, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
+import { theorems, PRINCIPLES, runTrial, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, type Gap } from './api.js'
 
@@ -349,6 +349,8 @@ export function countsGaps(): Gap[] {
   const keys = theorems().length
   const TARGET = 1024                       // the stated v1.0.0 milestone — a goal, not a measurement
   const allowed = new Set([String(keys), String(census.distinct), String(census.renamings), String(TARGET)])
+  const principles = (PRINCIPLES as unknown[]).length
+  const receipt = runTrial().receipt
   const SURFACES = ['README.md', 'CHANGELOG.md', '.zenodo.json']
   for (const s of SURFACES) {
     if (!existsSync(join(ROOT, s))) continue
@@ -367,6 +369,23 @@ export function countsGaps(): Gap[] {
       what: `${s}: names the ${keys} keys without the ${census.distinct} distinct propositions — the larger of two true numbers, alone`,
       fix: `state both, with the reason: "${census.distinct} distinct propositions under ${keys} keys (${census.renamings} deliberate re-namings)"`,
     })
+    // the theorem count is not the only census number a surface can carry stale. The archive that published 1274
+    // theorems ALSO published 68 principles and a receipt from the same dead era, and a corrected title left both
+    // standing in the sentence below it — so the finder that caught one number must hold every number the census
+    // reports, or the next release deposits the rest of the same staleness into a DOI that cannot be un-said.
+    for (const n of [...new Set([...text.matchAll(/(\d{1,4})\s+principles?\b/gi)].map((m) => m[1])
+      .concat([...text.matchAll(/principles?"?\s*[:=]\s*\**(\d{1,4})/gi)].map((m) => m[1])))]) {
+      if (n !== String(principles)) gaps.push({
+        what: `${s}: states ${n} principles, which the ledger does not report (${principles} live)`,
+        fix: `state ${principles} — the ledger organises itself by PRINCIPLES.length, so the number is read, never chosen`,
+      })
+    }
+    for (const r of [...new Set([...text.matchAll(/\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/g)].map((m) => m[0]))]) {
+      if (r !== receipt) gaps.push({
+        what: `${s}: carries receipt ${r}, which is not the ledger's fold (${receipt})`,
+        fix: `recompute it — runTrial().receipt folds every theorem's address order-invariantly, so a receipt states which ledger was sealed; a stale one names a ledger that no longer exists`,
+      })
+    }
   }
   return gaps
 }
