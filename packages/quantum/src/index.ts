@@ -9,7 +9,7 @@ export { merkleGravity, doubleTorusGravity, doubleTorusField, fall, fixedPoints,
 export { diamond, DIAMOND_FIXED, involute, involutionFixed } from '@uuidna/uuidna'
 export { domainWave, type DomainWave } from '@uuidna/uuidna'
 export {
-  ket0, hadamard, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
+  ket0, hadamard, hadamardX, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
   distribution, probability, marginal, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
   runCircuit, isClassical, classicalMap, truthTable,
   report, fraction, label, type QState, type Prob, type Cx, type GateOp,

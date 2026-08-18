@@ -5,7 +5,7 @@
 // forensics, conformance, treason, the ledger fingerprint, laws, credits, and the billing coins. A claim is
 // judged solely by whether the theorems it cites are sealed here. Integrity, not truth.
 export {
-  toUuid, cryptoAddress, strictUuidna, merge, coin64, merkleFold, digitalRoot,
+  toUuid, cryptoAddress, strictUuidna, merge, coin64, excludeSortedJson, merkleFold, digitalRoot,
   gcd, gcdBigInt, isPrime, modpow,
   TRINITY, BASE, A432_STEP, digits, units, triad, vortexOrbit,
 } from '@uuidna/uuidna'
