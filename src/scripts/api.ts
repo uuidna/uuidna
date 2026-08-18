@@ -67,6 +67,8 @@ export const DRAIN_PATHS: readonly string[] = [
   // the archive's deposited metadata — generated since 2026-08-18, because a hand-written surface that
   // becomes a permanent DOI is the one place a stale number cannot be corrected after the fact.
   '.zenodo.json',
+  // every report and audit, consolidated and computed — the orphan snapshot became an output 2026-08-18
+  'reports.json',
   // every wing's manifest — lean-gen writes one per generated wing, so `npm run lean` rewrites them on every
   // reconcile and nothing staged them; a glob, because the set grows with the ledger and a fixed list would rot.
   'lean/*-manifest.json',
@@ -92,6 +94,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-readme': ['README.md'],
   'gen-llm': ['llm.txt'],
   'gen-zenodo': ['.zenodo.json'],
+  'gen-reports': ['reports.json'],
   'gen-analytics': ['docs/analytics.md'],
   'lean-heartbeats': ['lean/heartbeats.json'],
   'support': ['support-audit.json', 'research-leads.json'],

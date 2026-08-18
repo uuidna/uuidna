@@ -92,6 +92,12 @@ export { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, boundariesOf, theo
 // citations and TRIES ITSELF on every read (a vanished theorem breaks the catalog's own verdict, loudly).
 export { coinsJobs, type CoinJob, type CoinJobsReport } from './captain/jobs/index.js'
 
+// reports — EVERY REPORT AND AUDIT, CONSOLIDATED AND COMPUTED. The theorem accounting, heartbeat coverage,
+// citation audit, support audit, package inventory and deployment readiness in one structure, folded
+// order-invariantly to one receipt. Stored reports go stale silently (reports.json published 1195 theorems for
+// three days with no writer and no reader); a computed one cannot. A section whose artifact is absent says so.
+export { reportAll, type ConsolidatedReports, type ReportSection } from './reports.js'
+
 // quantum — a CLASSICAL, EXACT state-vector simulator, ported from millennium-solutions and completed as the captain
 // computes: on integer positions, no decimal drift. Amplitudes are GAUSSIAN INTEGERS over √(2^scale) — the ring
 // ℤ[i,1/√2] the Clifford gates live in — so the full gate set (X, Y, Z, S, S†, H, CNOT, CZ, SWAP, Toffoli, CCZ)

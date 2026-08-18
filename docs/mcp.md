@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="180 keys" />
+# MCP tools <Badge type="tip" text="181 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 180 tools below are read from the server's own tool list and
+is **built from the keys**: the 181 tools below are read from the server's own tool list and
 organised into 36 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · a5a2504d-33cb-89c2-ab93-5a1af80ab8e3
+gate CLEAN f0 d0 v0 · 57f554f9-e83a-8210-89cf-444187e13010
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 180-tool registry folds to its
-order-invariant identity `24a17c47-3735-8054-98aa-a072782ada8f` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 181-tool registry folds to its
+order-invariant identity `4599b181-e885-8009-9303-4a423fbda386` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`180`" />
+## The grid <Badge type="tip" :text="`181`" />
 
-180 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 69 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+181 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 70 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -99,6 +99,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-quantum-sailing-cross-book"><code>quantum_sailing_cross_book</code></a>
 <a href="#uuidna-quantum-sailing-library"><code>quantum_sailing_library</code></a>
 <a href="#uuidna-quantum-sailing-weather"><code>quantum_sailing_weather</code></a>
+<a href="#uuidna-reports"><code>reports</code></a>
 <a href="#uuidna-repos"><code>repos</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
 <a href="#uuidna-review-domains"><code>review_domains</code></a>
@@ -548,7 +549,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'78'" />
+## Other <Badge type="tip" :text="'79'" />
 
 *skill: other*
 
@@ -819,6 +820,12 @@ The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate 
 ### `uuidna_laws`
 
 uuidna's standing INVARIANTS, IN uuidna and each DEMONSTRATED, not asserted: every law states what holds AND recomputes its `holds` from the actual gate that enforces it (generate-all-from-Lean → single-source + git-diff; any-manual-fails → every theorem address recomputes, red on tamper; honesty-demonstrated → a fabricated theorem citation drains; the two captain coins conserved; zero runtime deps + clean security). A law with holds:false is a red gate, not an opinion. Folds to one recomputable receipt. Returns {laws:[{law,enforcedBy,holds,detail}],allHold,receipt}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
+
+_No parameters._
+
+### `uuidna_reports`
+
+EVERY REPORT AND AUDIT, CONSOLIDATED — theorem accounting (both ledger sizes, principles, skills, the largest and smallest domain, the conserved coins), heartbeat coverage (theorems carrying a measured decide-step cost, and what those steps sum to), the citation audit (publications, fabricated citations, uncited theorems), the support audit (modules reached from the roots, dead code named), the package inventory (the workspaces, read from their own manifests) and deployment readiness (the fold the guard sealed) — each section content-addressed, all folded ORDER-INVARIANT to one receipt, so every observer recomputes the same report with no privileged view. Replaces a stored snapshot: reports.json sat for three days stating a ledger size that no longer existed, with no writer and no reader. A section whose artifact has not been produced reports itself ABSENT rather than guessing. DETERMINISTIC: the sealed ledger and the gate artifacts alone — no clock, no RNG, no telemetry. HONEST SCOPE: descriptive measures of what is sealed and what the gates recorded — integrity, not truth (theorem provenance_integrity_not_content_truth). Returns {sections,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
 
 _No parameters._
 
