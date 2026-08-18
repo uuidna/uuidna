@@ -90,6 +90,18 @@ export function coin64(text: string): string {
   return toUuid(text).replace(/-/g, '').slice(0, 16)
 }
 
+/** Canonical JSON of a plain object with some keys dropped and the rest key-sorted — ready for toUuid().
+ *  Same content (same surviving key/value pairs) always serializes identically regardless of the input
+ *  object's own property order; a changed value, or a changed key set, moves the result. This is an
+ *  ECMAScript-spec guarantee (JSON.stringify with a sorted replacer array), not a Lean-provable claim —
+ *  verified by real tests over real objects, not a small representative instance. */
+export function excludeSortedJson(obj: Record<string, unknown>, excludeKeys: readonly string[]): string {
+  const exclude = new Set(excludeKeys)
+  const rest: Record<string, unknown> = {}
+  for (const key of Object.keys(obj)) if (!exclude.has(key)) rest[key] = obj[key]
+  return JSON.stringify(rest, Object.keys(rest).sort())
+}
+
 /** GCD (bigint) for rational reduction and unit derivation. */
 export function gcdBigInt(a: bigint, b: bigint): bigint {
   return b === 0n ? a : gcdBigInt(b, a % b)
