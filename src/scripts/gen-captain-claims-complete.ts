@@ -1,13 +1,17 @@
 #!/usr/bin/env node
-// gen-captain-claims-complete — Captain claims ALL 1195 theorems
+// gen-captain-claims-complete — the captain claims ALL sealed theorems; the number is read from the census
 // Exhaustive categorization with fallback "Uncategorized" for any remainder
 // Guarantees 100% coverage: every theorem is either claimed or revealed as gap
 
-import { theorems, coins, toUuid, merkleGravity } from '../index.js'
+import { theorems, coins, toUuid, merkleGravity, statementCensus } from '../index.js'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const T = theorems()
+// The count is READ, never written. This generator hardcoded 1195 in its own honest_scope and signature, so the
+// file it produced published a dead number under the captain's name — a claim of total coverage that had not
+// recounted anything since the day it was typed.
+const CENSUS = statementCensus()
 
 interface CompleteClaim {
   category: string
@@ -144,7 +148,7 @@ const completeLedger = {
   claim_receipt: merkleGravity(claims.map(c => toUuid(c.address))),
   honest_scope: {
     proves: [
-      'All 1195 theorems are Lean-verified (by decide)',
+      `All ${CENSUS.distinct} distinct theorems (under ${T.length} keys) are Lean-verified (by decide)`,
       'Every theorem is categorized and accounted for',
       'The captain takes responsibility for all claims',
       'No theorem escapes the audit (100% coverage)',
@@ -157,7 +161,7 @@ const completeLedger = {
     ],
   },
   signature:
-    'By this claim, the captain asserts: "All 1195 theorems are accounted for. They are Lean-verified. No theorem escapes the audit. Verify yourself: npm run lean."',
+    `By this claim, the captain asserts: "All ${CENSUS.distinct} distinct theorems under ${T.length} keys are accounted for. They are Lean-verified. No theorem escapes the audit. Verify yourself: npm run lean."`,
 }
 
 // Write ledger

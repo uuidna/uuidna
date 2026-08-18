@@ -22,7 +22,7 @@ import { execSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { theorems, PRINCIPLES, runTrial, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
+import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, type Gap } from './api.js'
 
@@ -345,46 +345,64 @@ export function actionsGaps(): Gap[] {
  *  currently reports, and a surface naming the key count must name the distinct count beside it. */
 export function countsGaps(): Gap[] {
   const gaps: Gap[] = []
+  const T = theorems()
   const census = statementCensus()
-  const keys = theorems().length
-  const TARGET = 1024                       // the stated v1.0.0 milestone — a goal, not a measurement
-  const allowed = new Set([String(keys), String(census.distinct), String(census.renamings), String(TARGET)])
+  const keys = T.length
   const principles = (PRINCIPLES as unknown[]).length
   const receipt = runTrial().receipt
-  const SURFACES = ['README.md', 'CHANGELOG.md', '.zenodo.json']
-  for (const s of SURFACES) {
-    if (!existsSync(join(ROOT, s))) continue
-    const text = rd(s)
-    // every number this surface presents AS a theorem count
-    const stated = [...text.matchAll(/(\d{3,5})\s*(?:sealed\s+|distinct\s+)?theorems?\b/gi)].map((m) => m[1])
-      .concat([...text.matchAll(/theorems?"?\s*[:=]\s*\**(\d{3,5})/gi)].map((m) => m[1]))
-    for (const n of [...new Set(stated)]) {
-      if (!allowed.has(n)) gaps.push({
-        what: `${s}: states ${n} theorems, which the live census does not report (${keys} keys, ${census.distinct} distinct)`,
-        fix: `regenerate the surface from the ledger so the number cannot go stale — ${s === '.zenodo.json' ? 'the archive description is deposited on every release, so a stale count is published' : 'run the generator that writes it'}`,
-      })
-    }
-    // a surface that names the key count must name the distinct count too, or it presents the larger of two truths
-    if (stated.includes(String(keys)) && !text.includes(String(census.distinct))) gaps.push({
-      what: `${s}: names the ${keys} keys without the ${census.distinct} distinct propositions — the larger of two true numbers, alone`,
+  const TARGET = 1024                       // the stated v1.0.0 milestone — a goal, not a measurement
+  // EVERY count the ledger can honestly report — the census, each wing, each principle group, each skill group.
+  // Derived, because a fixed allow-list would refuse "234 theorems" on the Ring monograph (a true wing count) or
+  // wave through a dead global like 1195 that no longer names anything at all.
+  const groupSizes = (k: 'principle' | 'skill'): number[] =>
+    [...new Set(T.map((t) => t[k]))].map((v) => T.filter((t) => t[k] === v).length)
+  const allowed = new Set([keys, census.distinct, census.renamings, TARGET,
+    ...Object.values(theoremCountByFile()), ...groupSizes('principle'), ...groupSizes('skill')].map(String))
+  // THE SURFACES ARE DISCOVERED, NOT LISTED. The first cut of this finder named three files by hand, which is the
+  // same failure it exists to catch one level up: a fixed list cannot grow with the repo, and every surface it
+  // omits is free to publish a dead number. A surface is now anything TRACKED that makes a census claim — states a
+  // theorem count or a principle count — minus the derived layer, whose numbers recompute on every reconcile and
+  // whose staleness is its generator's fault, not the file's. That exemption is itself read from the declarations
+  // (DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS), never retyped here.
+  const derived = new Set<string>([...DRAIN_PATHS, ...Object.values(RECONCILE_OUTPUTS).flat(), ...Object.values(DOCS_BUILD_OUTPUTS).flat()])
+  const isDerived = (f: string): boolean =>
+    [...derived].some((d) => d.endsWith('*') ? f.startsWith(d.slice(0, -1)) : f === d || f.startsWith(d + '/'))
+  // (?<![0-9a-fx]) — a hex literal beside the word "theorem" is not a count. Measured false positive: the crypto
+  // caveats doc illustrates a collision with `Theorem A: … = 0xabcd1234`, and 1234 was read as a ledger claim.
+  const RX_T = [/(?<![0-9a-fx])(\d{3,5})\s*(?:sealed\s+|distinct\s+)?theorems?\b/gi, /theorems?"?\s*[:=]\s*\**(?<![0-9a-fx])(\d{3,5})/gi]
+  const RX_P = [/(\d{1,4})\s+principles?\b/gi, /principles?"?\s*[:=]\s*\**(\d{1,4})/gi]
+  const stated = (text: string, rx: RegExp[]): string[] =>
+    [...new Set(rx.flatMap((r) => [...text.matchAll(r)].map((m) => m[1])))]
+  let files: string[] = []
+  try { files = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n') } catch { return gaps }
+  for (const f of files) {
+    if (!/\.(md|json|txt|ya?ml)$/.test(f) || f.includes('package-lock') || isDerived(f)) continue
+    let text = ''
+    try { text = rd(f) } catch { continue }
+    const st = stated(text, RX_T), sp = stated(text, RX_P)
+    if (!st.length && !sp.length) continue                       // not a surface that describes the ledger
+    for (const n of st) if (!allowed.has(n)) gaps.push({
+      what: `${f}: states ${n} theorems, which the ledger does not report anywhere (${keys} keys, ${census.distinct} distinct, and no wing or group of that size)`,
+      fix: `generate the number instead of writing it — ${f === '.zenodo.json' ? 'the archive description is deposited on every release, so a stale count is published into a DOI that cannot be un-said' : 'read it from statementCensus()/theoremCountByFile() at generation, so it cannot rot'}`,
+    })
+    for (const n of sp) if (n !== String(principles)) gaps.push({
+      what: `${f}: states ${n} principles, which the ledger does not report (${principles} live)`,
+      fix: `state ${principles} — the ledger organises itself by PRINCIPLES.length, so the number is read, never chosen`,
+    })
+    // a surface naming the key count must name the distinct count beside it, or it presents the larger of two truths
+    if (st.includes(String(keys)) && !text.includes(String(census.distinct))) gaps.push({
+      what: `${f}: names the ${keys} keys without the ${census.distinct} distinct propositions — the larger of two true numbers, alone`,
       fix: `state both, with the reason: "${census.distinct} distinct propositions under ${keys} keys (${census.renamings} deliberate re-namings)"`,
     })
-    // the theorem count is not the only census number a surface can carry stale. The archive that published 1274
-    // theorems ALSO published 68 principles and a receipt from the same dead era, and a corrected title left both
-    // standing in the sentence below it — so the finder that caught one number must hold every number the census
-    // reports, or the next release deposits the rest of the same staleness into a DOI that cannot be un-said.
-    for (const n of [...new Set([...text.matchAll(/(\d{1,4})\s+principles?\b/gi)].map((m) => m[1])
-      .concat([...text.matchAll(/principles?"?\s*[:=]\s*\**(\d{1,4})/gi)].map((m) => m[1])))]) {
-      if (n !== String(principles)) gaps.push({
-        what: `${s}: states ${n} principles, which the ledger does not report (${principles} live)`,
-        fix: `state ${principles} — the ledger organises itself by PRINCIPLES.length, so the number is read, never chosen`,
-      })
-    }
-    for (const r of [...new Set([...text.matchAll(/\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/g)].map((m) => m[0]))]) {
-      if (r !== receipt) gaps.push({
-        what: `${s}: carries receipt ${r}, which is not the ledger's fold (${receipt})`,
-        fix: `recompute it — runTrial().receipt folds every theorem's address order-invariantly, so a receipt states which ledger was sealed; a stale one names a ledger that no longer exists`,
-      })
+    // A uuid is only THE LEDGER'S receipt where it sits in the same sentence as a census claim. Everywhere else a
+    // uuid is a page address or a per-claim seal, and holding those to the fold would be a wall, not a floor.
+    for (const sentence of text.split(/(?<=\.)\s|\n/)) {
+      if (!stated(sentence, RX_T).length && !stated(sentence, RX_P).length) continue
+      for (const r of stated(sentence, [/\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b/g]))
+        if (r !== receipt) gaps.push({
+          what: `${f}: presents receipt ${r} beside a census claim, and it is not the ledger's fold (${receipt})`,
+          fix: 'recompute it — runTrial().receipt folds every theorem address order-invariantly, so a receipt names WHICH ledger was sealed; a stale one names a ledger that no longer exists',
+        })
     }
   }
   return gaps

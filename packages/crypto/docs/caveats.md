@@ -479,7 +479,7 @@ uuidna explicitly **disclaims what it doesn't prove:**
 ```typescript
 honest_scope: {
   proves: [
-    'All 1195 theorems are Lean-verified (by decide)',
+    'All <!--L:distinct:raw-->1222<!--/L--> distinct theorems are Lean-verified (by decide)',
     'Every theorem is categorized and accounted for',
     'The captain takes responsibility for all claims',
   ],
@@ -503,7 +503,7 @@ This is **legally and cryptographically binding:**
 - ✗ Does not mean: The theorems are useful, novel, or applicable
 
 **Theorem: No theorem escapes the audit**
-- ✓ Proven by seal-claims-audit.ts (recounts all 1195)
+- ✓ Proven by seal-claims-audit.ts (recounts all <!--L:distinct:raw-->1222<!--/L-->)
 - ✗ Does not mean: All theorems are mathematically important
 
 **Theorem: The captain holds 2 coins (conserved)**

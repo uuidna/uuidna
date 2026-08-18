@@ -41,8 +41,8 @@ A **captain claim** is a formal assertion that the captain (you, or the authorit
 ```json
 {
   "category": "Algebra",
-  "theorems": 525,
-  "address": "captain:claim:Algebra:525",
+  "theorems": <n>,
+  "address": "captain:claim:Algebra:<n>",
   "receipt": "5d4c62f8-8b2c-...",
   "coins_held": 2,
   "verified": "all by decide"
@@ -141,7 +141,7 @@ A claim **proves** certain things and **does NOT prove** others.
 Every piece of research has a **content address** — a fingerprint that changes if anything changes.
 
 ```
-Address: captain:claim:Algebra:525
+Address: captain:claim:Algebra:<n>  (n = whatever the ledger holds for that domain)
 Receipt:  5d4c62f8-8b2c-a1f9-e7d6-... (SHA-256)
 ```
 
@@ -345,7 +345,7 @@ git push origin main        # Pre-push gate auto-verifies
 1. **Code** → https://github.com/uuidna/uuidna (source)
 2. **Site** → https://uuidna.com (research landing page, captain claims)
 3. **Ledger** → `docs/captain-claims.json` (machine-readable claim ledger)
-4. **Verification** → `docs/analytics.md` (metrics: 1195 theorems, 100% axiom-free, etc.)
+4. **Verification** → `docs/analytics.md` (metrics: <!--L:distinct:raw-->1222<!--/L--> distinct theorems, 100% axiom-free, etc.)
 
 ---
 
@@ -491,7 +491,7 @@ User: "What Lean-verified algebra theorems are available?"
 
 Claude (via MCP):
 1. query_theorems(principle: "algebra", tactic: "decide")
-2. Returns 525 theorems across 8 algebra domains
+2. Returns the ledger's algebra-domain theorems (the count is whatever the ledger holds — recompute, never remember)
 3. Generates receipt (order-invariant Merkle fold)
 4. Verifies receipt is recomputable
 5. Shows captain claims JSON
@@ -499,7 +499,7 @@ Claude (via MCP):
 User: "Can you claim these for my research?"
 
 Claude:
-1. Call claim_theorems(525 theorems, "My Algebra Discovery")
+1. Call claim_theorems(<n> theorems, "My Algebra Discovery")  // n is read from the ledger, never typed
 2. Generates receipt, updates captain-claims.json
 3. Runs seal:claims to verify completeness
 4. Shows honest scope statement
