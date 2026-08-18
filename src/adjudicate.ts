@@ -5,7 +5,7 @@
 //                so "not verified" is the whole of the negative. Absence of proof is not proof of falsity.
 // Integrity, not truth. Everything content-addressed.
 import { slimGate } from './slimgate.js'
-import { THEOREMS } from './theorems/index.js'
+import { THEOREMS, theoremByKey, type LeanTheorem } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { imprint, readImprint } from './imprint.js'
@@ -54,6 +54,58 @@ export function statusCollisions(claim: string): StatusCollision[] {
   return out
 }
 
+// ── THE RELEVANCE PROBE — a real citation is not entailment (found live 2026-08-18: "the moon is made of cheese,
+// proven by theorem two_coins" adjudicated VERIFIED, because slimGate asks only whether the cited theorem EXISTS).
+// This is the decidable FLOOR under that gap, not a semantic entailment checker — entailment is undecidable, and
+// claiming one would be the fraud this gate exists to catch. What IS decidable: whether the claim and its cited
+// theorem share ANY vocabulary at all. A citation about a totally disjoint topic never entails a claim; sharing
+// vocabulary does not PROVE entailment either, but its total absence is a floor no honest citation should need —
+// every real citation used across this ledger's own trials (verify_beats_recompute_by_magnitudes for a claim
+// about recomputation, dz_fixed_points for a claim about the reflection's fixed points) shares real vocabulary
+// with what it backs. A citation that shares NONE downgrades VERIFIED to UNVERIFIED — never a third verdict,
+// never "false": the citation is real, it simply proves nothing about THIS sentence.
+const STOPWORDS = new Set(['the', 'a', 'an', 'is', 'are', 'was', 'be', 'been', 'being', 'of', 'to', 'by', 'in', 'on',
+  'at', 'for', 'with', 'its', 'it', 'this', 'that', 'and', 'or', 'not', 'no', 'has', 'have', 'had', 'as', 'so',
+  'than', 'then', 'from', 'into', 'proven', 'proves', 'proof', 'claim', 'claims', 'theorem', 'statement', 'since'])
+
+/** contentWords(text) → the lowercase words that carry meaning — the citation clause itself is stripped first
+ *  (so a theorem's own key spelled out in the sentence does not trivially "match itself"), then split on
+ *  non-letters and filtered against STOPWORDS. Order-independent, deterministic, no external NLP. */
+function contentWords(text: string): string[] {
+  const stripped = text.replace(/\/theorem\/[a-z0-9_]+/gi, ' ').replace(/\btheorem\s+[a-z][a-z0-9_]{3,}/gi, ' ')
+  return [...stripped.toLowerCase().matchAll(/[a-z]+/g)].map((m) => m[0]).filter((w) => !STOPWORDS.has(w))
+}
+
+/** related(a, b) → a cheap, deterministic stemming proxy — no external library, matching the house discipline of
+ *  no Math.* and no randomness anywhere. Two words are related if identical, if one contains the other (catches
+ *  affixes: "verified" inside "unverified"), or if they share a 6-character prefix (catches suffix drift a plain
+ *  substring test misses: "recompute" and "recomputation" share "recomp" but neither contains the other whole). */
+function related(a: string, b: string): boolean {
+  if (a === b || a.includes(b) || b.includes(a)) return true
+  const n = a.length < b.length ? a.length : b.length
+  return n >= 5 && a.slice(0, 6) === b.slice(0, 6)
+}
+
+/** theoremVocabulary(t) → the theorem's OWN words: its key tokens (always present, always meaningful — the one
+ *  reliable field), plus its `name` gloss ONLY when that gloss looks like English prose rather than a dumped Lean
+ *  statement (many manifests have no authored name, so `name` falls back to the raw statement text, which starts
+ *  with `(`, `List.range`, or a bare digit — never a letter; an authored gloss always starts with a letter). */
+function theoremVocabulary(t: LeanTheorem): string[] {
+  const key = t.key.split('_')
+  const looksEnglish = /^[a-z]/i.test(t.name.trim())
+  return looksEnglish ? [...key, ...contentWords(t.name)] : key
+}
+
+/** relevantCitation(claimWords, key) → does the SEALED theorem named `key` share any vocabulary with the claim?
+ *  Unknown/unsealed keys are handled upstream (slimGate already marks them fabricated); this only judges real
+ *  citations. Returns true (relevant) on any shared word — the floor, not a wall. */
+function relevantCitation(claimWords: string[], key: string): boolean {
+  const t = theoremByKey().get(key)
+  if (!t) return false
+  const vocab = theoremVocabulary(t)
+  return claimWords.some((w) => vocab.some((v) => related(w, v)))
+}
+
 // The develop plan — exact, ordered algebra-development steps that move a verdict toward resolution, so a claim
 // is not left at "UNVERIFIED, good luck". Deterministic and gate-clean by construction (the trial's own
 // instructions pass the trial's own gate). Keyed on the verdict and a light lexical read of the claim's domain.
@@ -61,7 +113,7 @@ const CRYPTO_WORDS = /\b(crypto\w*|cipher|encrypt\w*|secur\w*|hash|key(space|s)?
 const GROUP_WORDS = /\b(group|closure|closed|orbit|involution|permutation|affine|vortex|map)\b/i
 const IDENTITY_WORDS = /\b(equals?|identity|inverse|mod|residue|digital root|z\/9|involution)\b/i
 
-function developPlan(statement: string, verdict: VerdictKind, fabricated: string[]): string[] {
+function developPlan(statement: string, verdict: VerdictKind, fabricated: string[], irrelevant: readonly string[] = []): string[] {
   if (verdict === 'VERIFIED') return [
     'Resolved: a decidable test recomputes true (or a sealed Lean theorem backs it) — verified, admissible.',
     'Fold it in: proveVerdict(statement, [formulaReceipts]) → one order-invariant proof root.',
@@ -69,6 +121,10 @@ function developPlan(statement: string, verdict: VerdictKind, fabricated: string
   ]
   // UNVERIFIED — never "false", only "not yet verified". The develop-until-verified recipe.
   const steps: string[] = []
+  if (irrelevant.length) steps.push(
+    `${irrelevant.join(', ')} ${irrelevant.length === 1 ? 'is' : 'are'} real and sealed, but shares no vocabulary with this claim — a citation must be ABOUT what it backs.`,
+    'Cite a theorem whose own key or gloss actually names the thing this sentence claims, or seal a NEW theorem for it in lean/*.lean if none exists yet.',
+  )
   if (fabricated.length) steps.push(
     `The citation ${JSON.stringify(fabricated[0])} names a theorem that is NOT sealed in the ledger, so it verifies nothing — this is UNVERIFIED, not false.`,
     'Either seal that theorem (author it in lean/*.lean `by decide`, re-run npm run lean) or drop the citation and bring a decidable test.',
@@ -113,14 +169,25 @@ export function adjudicate(statement: string, decidableTest?: () => boolean): Ve
     note = holds ? 'a decidable test recomputes true — verified, admissible'
                  : 'its decidable test does not recompute true — UNVERIFIED (not false: unproven as stated)'
   } else if (slim.verdict === 'VERIFIED') {
-    verdict = 'VERIFIED'; note = 'cites a sealed Lean theorem in the ledger — verified'
+    // THE RELEVANCE FLOOR — a real citation must share SOME vocabulary with the claim it backs, or the sentence
+    // laundered a citation the way "the moon is made of cheese, proven by theorem two_coins" once did (VERIFIED,
+    // live, until this line existed). Checked against every REAL cited key — one relevant hit is enough, since a
+    // claim may legitimately cite several theorems where each supports a different clause.
+    const claimWords = contentWords(statement)
+    const onTopic = slim.real.some((k) => relevantCitation(claimWords, k))
+    if (onTopic) {
+      verdict = 'VERIFIED'; note = 'cites a sealed Lean theorem in the ledger — verified'
+    } else {
+      verdict = 'UNVERIFIED'
+      note = `cites ${slim.real.length === 1 ? 'a real sealed theorem' : slim.real.length + ' real sealed theorems'} (${slim.real.join(', ')}) that share NO vocabulary with the claim — a real citation is not entailment, so this verifies nothing (not false: the citation is honest, it simply proves nothing about THIS sentence)`
+    }
   } else {
     verdict = 'UNVERIFIED'
     note = slim.fabricated.length
       ? 'cites a theorem not sealed in the ledger — verifies nothing, UNVERIFIED (not false)'
       : 'no decidable test and no sealed citation — UNVERIFIED; bring a proof to verify it'
   }
-  return { statement, verdict, receipt, note, develop: developPlan(statement, verdict, slim.fabricated) }
+  return { statement, verdict, receipt, note, develop: developPlan(statement, verdict, slim.fabricated, verdict === 'UNVERIFIED' && slim.verdict === 'VERIFIED' ? slim.real : []) }
 }
 
 // A valid trial folds the FORMULAS, not just the verdict text: the caller supplies the receipts of the decidable

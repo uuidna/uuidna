@@ -20,5 +20,6 @@ src/seeds/** merge=derived
 README.md merge=derived
 llm.txt merge=derived
 docs/analytics.md merge=derived
+.zenodo.json merge=derived
 lean/*-manifest.json merge=derived
 docs/captain-claims.md merge=derived

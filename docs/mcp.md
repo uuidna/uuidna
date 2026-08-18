@@ -355,7 +355,7 @@ Bound a failing/overclaiming output to the honest floor, keeping the honest rema
 
 ### `uuidna_adjudicate`
 
-The trial: ONE recomputable answer for a statement, and only one of two, all else void — VERIFIED (a decidable test holds, or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; not "false", just not verified). uuidna verifies, it never refutes. Integrity, not truth (theorem provenance_integrity_not_content_truth).
+The trial: ONE recomputable answer for a statement, and only one of two, all else void — VERIFIED (a decidable test holds, or it cites a sealed Lean theorem that ALSO shares vocabulary with the claim — a citation is not entailment, so a real theorem cited for an unrelated sentence verifies nothing) or UNVERIFIED (everything else, including a citation to a proof not in the ledger, or a real citation about a different topic). uuidna verifies, it never refutes. Integrity, not truth (theorem provenance_integrity_not_content_truth).
 
 **Parameters**
 
