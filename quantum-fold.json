@@ -2,9 +2,9 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "cdca1ad6e58ad012",
+      "theorems": "fa88ff681ebdf9a9",
       "principles": "9fd3f3733fe126ae",
-      "monographs": "dab0639257c4b0f2"
+      "monographs": "f8b64052b24f432c"
     },
     "served": {
       "packages": "5aacd0af35a35c23",
@@ -28,31 +28,31 @@
     }
   },
   "trinity_folds": {
-    "sealed": "c20f72f0b76a287cb3054ce741713d54",
+    "sealed": "7778f91d13452a5503bb0279bed41de4",
     "served": "74f165c4bfd7ed91a8bae5091758673a",
     "proven": "fa73128c94e37edc765a3a30b4e0ee2f",
     "record": "824d525b27b306bd4fc4e491d658587f",
     "walks": "0f6f09cbe55925585c9043f4b28a6e02"
   },
-  "unified_fold": "bd90691075a900b4",
-  "receipt": "9645f6bd0330b9e4",
+  "unified_fold": "785e114375b72cf2",
+  "receipt": "39bdc650c1e6c439",
   "rosette_receipt": {
     "rays": [
-      "4c59783d1459c1bc",
+      "19d394dce8576612",
       "3a8d773151b99d0b",
-      "81d802b9f37864bd",
+      "92cce10876efabf4",
       "a20454282e566346",
       "4602a1126be12cff",
       "a761502744407dcd",
       "3d984b0a16b6e122"
     ],
-    "concurrence": "e700316dc6b6ba914f9d115f8a5e0fd0"
+    "concurrence": "1a6464fc8e7f13eb21bd1bdab3a28e69"
   },
   "aura": {
-    "rgb": "#c8d73c",
-    "hsl": "hsl(66, 66%, 54%)",
+    "rgb": "#3f89de",
+    "hsl": "hsl(212, 71%, 56%)",
     "alphabet": "b6819334641853db",
-    "movie": "d95d09736db683b6",
+    "movie": "d1077a016963c3ab",
     "lessons": "363c4b858eb5c055",
     "report": "940001b6ff9bd2fc",
     "session": "7d04d2e0d0f40847",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 8,
-      "ray": 2,
-      "wave": 4,
-      "hue": 66,
-      "sat": 66,
-      "light": 54,
-      "period": 16,
+      "residue": 0,
+      "ray": 4,
+      "wave": 8,
+      "hue": 212,
+      "sat": 71,
+      "light": 56,
+      "period": 20,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

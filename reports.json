@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "5de1b5da-ddc0-8084-8460-a5f560056e47"
+        "ledgerReceipt": "e568e82d-faeb-8b1b-9384-db4379647412"
       },
-      "address": "331f6621-08db-83dc-8aa3-7aba870e78ac"
+      "address": "f0e049db-a7a1-81dd-a7f0-cef5b570e77e"
     },
     {
       "title": "Heartbeat coverage",
@@ -25,9 +25,9 @@
         "theoremsMeasured": 1307,
         "ledgerKeys": 1307,
         "unmeasured": 0,
-        "summedDecideSteps": 292979
+        "summedDecideSteps": 293884
       },
-      "address": "dc66b49e-2534-8b17-be92-15f02e7fe7a8"
+      "address": "263571f6-efb5-838d-a656-c62de9d87f79"
     },
     {
       "title": "Citation audit",
@@ -75,6 +75,6 @@
       "address": "366c14ca-2da8-8766-a9c2-035ca82a1f56"
     }
   ],
-  "receipt": "38933bc7-c0c4-8008-afb8-cf52938bf368",
+  "receipt": "8299fffe-7b47-8a08-bc54-5fbe4d13952b",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

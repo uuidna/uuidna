@@ -69,6 +69,8 @@ export const DRAIN_PATHS: readonly string[] = [
   '.zenodo.json',
   // every report and audit, consolidated and computed — the orphan snapshot became an output 2026-08-18
   'reports.json',
+  // every Lean line that more than one key seals — the declared reuse, generated 2026-08-18
+  'lean/statement-index.json',
   // every wing's manifest — lean-gen writes one per generated wing, so `npm run lean` rewrites them on every
   // reconcile and nothing staged them; a glob, because the set grows with the ledger and a fixed list would rot.
   'lean/*-manifest.json',
@@ -95,6 +97,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-llm': ['llm.txt'],
   'gen-zenodo': ['.zenodo.json'],
   'gen-reports': ['reports.json'],
+  'gen-lines': ['lean/statement-index.json'],
   'gen-analytics': ['docs/analytics.md'],
   'lean-heartbeats': ['lean/heartbeats.json'],
   'support': ['support-audit.json', 'research-leads.json'],

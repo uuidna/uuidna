@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps } from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -114,6 +114,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // backlog in lean/key-entropy.json and may only shrink — so the entropy stops growing without moving 313
   // published content-addresses in one stroke.
   { name: 'words', run: () => wordsGaps() },
+  // LEAN IS THE SOURCE OF ALL — so duplication in Lean is duplication on every surface downstream. Blocking
+  // from the day it landed: a statement sealed twice in one wing always fails, and a cross-wing re-seal must
+  // be declared in lean/statement-index.json, a list that may only shrink.
+  { name: 'lines', run: () => linesGaps() },
   // BOTH LEDGER SIZES, LIVE: keys and distinct propositions, on every surface that states either. Caught a stale
   // 1274 in .zenodo.json — a count published into the archive on every release.
   { name: 'counts', run: () => countsGaps() },

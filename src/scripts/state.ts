@@ -14,7 +14,7 @@ import { join } from 'node:path'
 import { theorems, statementCensus, editorialState, publicationStatus, gridGaps, pairsGaps } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, foldOf } from './api.js'
-import { legalGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, drainGaps, frozenGaps, foldersGaps, blocksGaps, wordsGaps, countsGaps } from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, drainGaps, frozenGaps, foldersGaps, blocksGaps, wordsGaps, countsGaps, linesGaps} from './one-receipt.js'
 
 const git = (cmd: string): string => { try { return execSync(`git ${cmd}`, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() } catch { return '' } }
 
@@ -32,7 +32,7 @@ const finders: [string, number][] = [
   ['pipes', pipeGaps().length], ['actions', actionsGaps().length], ['vacuous', vacuousGaps().length],
   ['negation', negationGaps().length], ['drain', drainGaps().length], ['frozen', frozenGaps().length],
   ['folders', foldersGaps().length], ['blocks', blocksGaps().length],
-  ['words', wordsGaps().length], ['counts', countsGaps().length],
+  ['words', wordsGaps().length], ['counts', countsGaps().length], ['lines', linesGaps().length],
   ['grid', gridGaps().length],
   ['pairs', pairsGaps().length],
 ]

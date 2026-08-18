@@ -408,6 +408,49 @@ export function countsGaps(): Gap[] {
   return gaps
 }
 
+/** ── THE LEAN LINE INDEX — each Lean line indexed, and every reuse of it declared.
+ *
+ *  Lean is the source of all of this. Every surface, every report, every article derives from it, so duplication in
+ *  Lean is duplication everywhere downstream — and the census had been discovering it after the fact rather than the
+ *  generator refusing it up front. 85 keys seal a statement some other key already sealed. Most are legitimate: the
+ *  wings verify STANDALONE (no lean file imports another, which is what keeps each one kernel-independent), so the
+ *  ℤ/9 table sealed in Core and again in Ring is a deliberate re-seal, not an accident. That is a real cost paid for
+ *  a real property, and the honest treatment is to NAME it, not to hide it or to break the property chasing zero.
+ *
+ *  What is NOT legitimate is a statement sealed twice inside ONE file, where no independence is bought — measured
+ *  once, in Nim.lean, where a named theorem claiming the Sprague–Grundy law re-proved a single row of the nim table
+ *  the same wing already held. It now walks all 64 pairs and the name is falsifiable by the structure it names.
+ *
+ *  So: the index records every reuse that exists, and this finder holds the ledger to it. A duplicate inside one
+ *  file always fails. A cross-wing reuse fails unless the index already declares it — the list may only SHRINK,
+ *  the same law the key-entropy backlog carries, so the count of duplication cannot quietly grow. */
+export function linesGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const census = statementCensus()
+  let declared: Record<string, string[]> = {}
+  try { declared = (JSON.parse(rd('lean/statement-index.json')) as { reuse: Record<string, string[]> }).reuse } catch { /* no index yet: every reuse is new */ }
+  for (const g of census.groups) {
+    const files = [...new Set(g.files)]
+    if (files.length === 1) {
+      gaps.push({
+        what: `${files[0]}: seals "${g.statement}" TWICE — ${g.keys.join(' and ')} are the same Lean line in the same wing`,
+        fix: 'one of them must state something the other does not, or be withdrawn. Re-sealing inside one file buys no kernel independence — it is the same proof, checked twice, indexed twice, and published twice',
+      })
+      continue
+    }
+    const known = declared[g.statement]
+    if (!known) gaps.push({
+      what: `NEW cross-wing reuse: "${g.statement}" is sealed by ${g.keys.join(', ')} across ${files.join(' + ')}, and lean/statement-index.json does not declare it`,
+      fix: 'if the re-seal is deliberate (a standalone wing may not import another, so a shared fact is re-proven on purpose), run `npm run gen:lines` to declare it; if it is an accident, withdraw the later key. The index may only shrink — a new entry is a decision, never a default',
+    })
+    else if (known.length !== g.keys.length || !g.keys.every((k) => known.includes(k))) gaps.push({
+      what: `reuse of "${g.statement}" changed: declared ${known.join(', ')} but the ledger now seals it as ${g.keys.join(', ')}`,
+      fix: 'run `npm run gen:lines` after confirming the change is intended — a reuse set that drifts silently is the duplication growing under a declaration that no longer describes it',
+    })
+  }
+  return gaps
+}
+
 export function wordsGaps(): Gap[] {
   const FILLER = new Set(['is', 'are', 'was', 'be', 'the', 'a', 'an', 'of', 'by', 'to', 'in', 'on', 'for', 'with', 'its', 'it', 'that', 'then', 'into', 'from', 'as', 'at', 'and', 'or', 'only', 'ever'])
   const content = (k: string): string[] => k.replace(/^uuidna_/, '').split('_').filter((x) => x && !FILLER.has(x))
@@ -1083,8 +1126,9 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'stage') { const r = stageDerived(ROOT); console.log('✓ one-receipt stage — ' + r.staged + ' derived path(s) staged' + (r.leftForHumans.length ? '; left for a human (not staged, not swept): ' + r.leftForHumans.join(', ') : '; nothing else pending')) }
   else if (cmd === 'counts') report('one-receipt counts', countsGaps(), 'every surface states both ledger sizes, and both are live')
+  else if (cmd === 'lines') report('one-receipt lines', linesGaps(), 'every Lean line is indexed — no wing seals a statement twice, and every cross-wing reuse is declared')
   else if (cmd === 'words') report('one-receipt words', wordsGaps(), 'every theorem key carries its fact in three content words or is in the recorded backlog')
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | counts | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | counts | lines | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }
