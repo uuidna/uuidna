@@ -25,9 +25,9 @@
         "theoremsMeasured": 1307,
         "ledgerKeys": 1307,
         "unmeasured": 0,
-        "summedDecideSteps": 293884
+        "summedDecideSteps": 323080
       },
-      "address": "263571f6-efb5-838d-a656-c62de9d87f79"
+      "address": "a679dc3f-476f-80d1-81ab-838043d55c28"
     },
     {
       "title": "Citation audit",
@@ -45,13 +45,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 294,
-        "roots": 189,
-        "supported": 294,
+        "modules": 295,
+        "roots": 190,
+        "supported": 295,
         "dead": 0,
-        "receipt": "4d663924-3930-8363-b710-6fc7984b323a"
+        "receipt": "5f6404c5-6345-814b-ae49-92a0cc0a2bf4"
       },
-      "address": "c76d6137-1b7f-8faf-ab68-2e8fb0870a01"
+      "address": "d671da31-03ae-848e-a129-d75049eabf23"
     },
     {
       "title": "Package inventory",
@@ -69,12 +69,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "9645f6bd0330b9e4",
-        "unifiedFold": "bd90691075a900b4"
+        "foldReceipt": "39bdc650c1e6c439",
+        "unifiedFold": "785e114375b72cf2"
       },
-      "address": "366c14ca-2da8-8766-a9c2-035ca82a1f56"
+      "address": "1a73c855-5f8f-8698-a202-5d6f32c2fa97"
     }
   ],
-  "receipt": "8299fffe-7b47-8a08-bc54-5fbe4d13952b",
+  "receipt": "d925b218-59ea-822d-a52d-fde9f4013ba5",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
