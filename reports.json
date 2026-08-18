@@ -5,17 +5,17 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1222,
+        "distinct": 1223,
         "keys": 1307,
-        "renamings": 85,
+        "renamings": 84,
         "principles": 72,
         "skills": 68,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "2dfbbb06-e599-8c5e-a0df-aa0d140cae5b"
+        "ledgerReceipt": "5de1b5da-ddc0-8084-8460-a5f560056e47"
       },
-      "address": "b5429a85-03a5-8e36-a4db-0f823ff22df7"
+      "address": "331f6621-08db-83dc-8aa3-7aba870e78ac"
     },
     {
       "title": "Heartbeat coverage",
@@ -45,13 +45,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 291,
-        "roots": 187,
-        "supported": 291,
+        "modules": 294,
+        "roots": 189,
+        "supported": 294,
         "dead": 0,
-        "receipt": "0748624d-7d7d-8cf9-951e-6f35356d7d62"
+        "receipt": "4d663924-3930-8363-b710-6fc7984b323a"
       },
-      "address": "3be9846f-00a9-8926-b68a-f8c522fcc4a8"
+      "address": "c76d6137-1b7f-8faf-ab68-2e8fb0870a01"
     },
     {
       "title": "Package inventory",
@@ -75,6 +75,6 @@
       "address": "366c14ca-2da8-8766-a9c2-035ca82a1f56"
     }
   ],
-  "receipt": "15d65e5b-cd12-85cd-abf8-aa4cee0e38a0",
+  "receipt": "38933bc7-c0c4-8008-afb8-cf52938bf368",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
