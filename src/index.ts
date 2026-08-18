@@ -104,7 +104,7 @@ export { reportAll, type ConsolidatedReports, type ReportSection } from './repor
 // runs in BigInt and every probability is an exact rational. Honestly bounded — 2^n amplitudes, EXPONENTIAL, no
 // quantum advantage; non-Clifford √-phase gates (T, controlled-H) need per-branch scaling — the honest boundary.
 export {
-  ket0, hadamard, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
+  ket0, hadamard, hadamardX, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
   distribution, probability, marginal, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
   runCircuit, isClassical, classicalMap, truthTable,
   report, fraction, label, type QState, type Prob, type Cx, type GateOp,

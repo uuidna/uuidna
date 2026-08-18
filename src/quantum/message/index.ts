@@ -16,7 +16,7 @@
 
 import { theorems, toUuid } from '../../index.js'
 import { quantumAura, type Aura } from '../../aura.js'
-import { ket0, hadamard, pauliX, pauliZ, label, fraction, type QState } from '../index.js'
+import { ket0, hadamard, hadamardX, pauliZ, label, fraction, type QState } from '../index.js'
 import { merkleGravity } from '../../gravity.js'
 import { imprintTextChain, readImprintTextChain } from '../../imprint.js'
 import { encrypt, decrypt, verifyEnvelope, type Sealed } from '../../crypt.js'
@@ -64,10 +64,11 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
   // Quantum state: start in |0…0⟩
   let state = ket0(qubits)
 
-  // For each qubit, apply Hadamard (superposition) then controlled-X based on theorem bit
+  // For each qubit, apply Hadamard (superposition) then controlled-X based on theorem bit — fused into one
+  // O(2^n) pass via hadamardX when the bit is set (algebraically identical to hadamard-then-pauliX; see
+  // src/quantum/index.ts), instead of two full state-vector allocations for roughly half the qubits.
   for (let i = 0; i < qubits; i++) {
-    state = hadamard(state, i)
-    if (keyBits[i]) state = pauliX(state, i)
+    state = keyBits[i] ? hadamardX(state, i) : hadamard(state, i)
   }
 
   // The quantum receipt: fold the state's amplitude probabilities

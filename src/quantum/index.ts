@@ -69,6 +69,10 @@ export const phaseS = (s: QState, t: number): QState => on1(s, t, (a, b) => [a, 
 export const phaseSdg = (s: QState, t: number): QState => on1(s, t, (a, b) => [a, cmulnegi(b)])
 /** Hadamard on qubit t — (a, b) → (a+b, a−b); the ONLY gate here that raises the scale (the shared 1/√2). */
 export const hadamard = (s: QState, t: number): QState => on1(s, t, (a, b) => [cadd(a, b), csub(a, b)], 1)
+/** Hadamard THEN Pauli-X on the SAME qubit t, fused into one on1 pass — (a, b) → (a−b, a+b), the same two
+ *  outputs hadamard already computes, just swapped (X is exactly the swap pauliX applies). Algebraically
+ *  identical to `pauliX(hadamard(s, t), t)`, one O(2^n) pass and one allocation instead of two. */
+export const hadamardX = (s: QState, t: number): QState => on1(s, t, (a, b) => [csub(a, b), cadd(a, b)], 1)
 
 // ── controlled / multi-qubit gates — permutations and phases, all exact, scale unchanged ──────────────────────
 const bit = (i: number, q: number): number => (i >> q) & 1
