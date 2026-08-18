@@ -15,6 +15,8 @@ recompute yourself.
 
 Ask for the whole grid, or for one seat, through `uuidna_grid`.
 
+<GridLattice />
+
 ## Why 432 and not 504
 
 There are **seven** dimensions, and seven times seventy-two is 504. So the honest first answer is that 432 is

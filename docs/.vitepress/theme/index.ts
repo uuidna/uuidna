@@ -23,6 +23,7 @@ import ChessMobility from './ChessMobility.vue'
 import AuditPanel from './AuditPanel.vue'
 import Dimensions from './Dimensions.vue'
 import CaptainCoins from './CaptainCoins.vue'
+import GridLattice from './GridLattice.vue'
 import { loadDimensions } from './dimensions'
 import { applySequence } from './palette'
 import './style.css'
@@ -55,6 +56,10 @@ export default {
     // The hero, animated — the sealed doubling orbit across the seven reading dimensions; `dimension` selects
     // which ray leads and dims the rest. Colours read the --seq-* properties applySequence() sets from ℤ/9.
     app.component('HeroAnimation', HeroAnimation)
+    // GridLattice — the 432 grid SHOWN: every seat read from grid(), coloured by its own address, and reflowed
+    // between the two shapes 432 admits (6 × 72 by the axes, 16 × 27 by the digit-reversal involution). The toggle
+    // rearranges the SAME seats and adds none, which is the page's argument made visible rather than restated.
+    app.component('GridLattice', GridLattice)
     // Reflect — a client-side content-addresser; the visitor's chosen data reflects to its address in the browser,
     // nothing sent or stored. Privacy by default; opt-in storage is a separate, consent-gated feature.
     app.component('Reflect', Reflect)
