@@ -33,6 +33,11 @@ export const ITER = 600_000 // PBKDF2-SHA-256 iterations (OWASP 2023)
 // PBKDF2 has no upper bound, so a hostile `iter` (e.g. 1e12) would spin forever (CPU DoS). 10M is ~16× the default
 // and still finite — a legitimate envelope never exceeds it. Recompute-cost is bounded, not unbounded.
 export const MAX_ITER = 10_000_000
+// Sealed by theorem aead_nonce_and_salt_bits (lean/Cipher.lean): 12·8=96 bits (RFC 8439), 16·8=128 bits, 96<128.
+// Named (not the six inline 12s/16s this replaces) so axiom-hunt.ts can bind a LIVE constant instead of a
+// hardcoded tautology, and so the two can never independently drift.
+export const NONCE_BYTES = 12
+export const SALT_BYTES = 16
 
 // truncate toward zero with exact integer arithmetic — no Math.* host intrinsic (the two-coins guard). n - n%1.
 const intOf = (n: number): number => n - (n % 1)
@@ -81,11 +86,11 @@ export function encrypt(plaintext: string, passphrase: string, step?: number): S
   // the crypt salt: content-only (v1) is constant in the step → leaks equality; advancing the SEQUENCE (v2) makes
   // the salt injective in the step, so the same plaintext seals differently as the step advances. Both stay pure.
   const salt = fresh
-    ? sha256(cat(enc.encode('uuidna-crypt-salt-v2|' + intOf(step as number) + '|'), pt)).slice(0, 16)
-    : sha256(cat(enc.encode('uuidna-crypt-salt-v1'), pt)).slice(0, 16)
+    ? sha256(cat(enc.encode('uuidna-crypt-salt-v2|' + intOf(step as number) + '|'), pt)).slice(0, SALT_BYTES)
+    : sha256(cat(enc.encode('uuidna-crypt-salt-v1'), pt)).slice(0, SALT_BYTES)
   const key = deriveKey(pass, salt, ITER)
   // nonce derived from the (unique per plaintext+step) key — pure, deterministic, non-repeating for distinct keys
-  const nonce = sha256(cat(enc.encode('uuidna-crypt-nonce-v1'), key)).slice(0, 12)
+  const nonce = sha256(cat(enc.encode('uuidna-crypt-nonce-v1'), key)).slice(0, NONCE_BYTES)
   const { ct, tag } = aeadEncrypt(key, nonce, pt)
   const base = { alg: 'ChaCha20-Poly1305' as const, kdf: 'PBKDF2-SHA256' as const, iter: ITER, salt: b64(salt), nonce: b64(nonce), ct: b64(ct), tag: b64(tag) }
   const address = foldEnvelope(base.alg, base.salt, base.nonce, base.ct, base.tag)
@@ -114,10 +119,10 @@ const rotate = (root: Uint8Array, step: number): Uint8Array =>
   sha256(cat(enc.encode('uuidna-session-rotate-v3|' + intOf(step) + '|'), root)).slice(0, 32)
 export function encryptSession(plaintext: string, passphrase: string, session: string, step: number): Sealed {
   const pt = enc.encode(plaintext), pass = enc.encode(passphrase)
-  const salt = sha256(enc.encode('uuidna-session-salt-v3|' + session)).slice(0, 16) // STABLE per session → KDF once
+  const salt = sha256(enc.encode('uuidna-session-salt-v3|' + session)).slice(0, SALT_BYTES) // STABLE per session → KDF once
   const root = deriveKey(pass, salt, ITER)                                          // the two coins, paid once (cached)
   const key = rotate(root, step)                                                    // ROTATE per request — fresh key each message
-  const nonce = sha256(cat(enc.encode('uuidna-session-nonce-v3|' + intOf(step) + '|'), salt)).slice(0, 12) // unique per step
+  const nonce = sha256(cat(enc.encode('uuidna-session-nonce-v3|' + intOf(step) + '|'), salt)).slice(0, NONCE_BYTES) // unique per step
   const { ct, tag } = aeadEncrypt(key, nonce, pt)
   const base = { alg: 'ChaCha20-Poly1305' as const, kdf: 'PBKDF2-SHA256' as const, iter: ITER, salt: b64(salt), nonce: b64(nonce), ct: b64(ct), tag: b64(tag) }
   return { v: 3, ...base, address: foldEnvelope(base.alg, base.salt, base.nonce, base.ct, base.tag), seq: intOf(step) }
@@ -130,7 +135,7 @@ export function encryptSession(plaintext: string, passphrase: string, session: s
 export function decryptSession(sealed: Sealed, passphrase: string, session: string): string {
   const iter = sealed.iter
   if (!Number.isInteger(iter) || iter < 1 || iter > MAX_ITER) throw new Error(`crypt: refusing iter=${iter} — must be an integer in 1..${MAX_ITER} (DoS guard)`)
-  const salt = sha256(enc.encode('uuidna-session-salt-v3|' + session)).slice(0, 16) // the RECEIVER's session salt (cached)
+  const salt = sha256(enc.encode('uuidna-session-salt-v3|' + session)).slice(0, SALT_BYTES) // the RECEIVER's session salt (cached)
   const root = deriveKey(enc.encode(passphrase), salt, iter)
   const key = rotate(root, sealed.seq ?? 0)
   return dec.decode(aeadDecrypt(key, ub64(sealed.nonce), ub64(sealed.ct), ub64(sealed.tag)))
