@@ -18,10 +18,10 @@ the hard gate of the corroboration law.
 | `807decf2` | crossref.org | DOI 10.1109/tec.2020.3048389: Identifying DQ-Domain Admittance Models of a 2.3-MVA Commercial Grid-Following I | UNVERIFIED | VERIFIED |
 | `8358e347` | crossref.org | DOI 10.1039/c2ee21327c: The relative importance of domain size, domain purity and domain interfaces to t | UNVERIFIED | VERIFIED |
 | `6330f0c1` | crossref.org | DOI 10.31274/rtd-180815-2147: Domain wall energy densities of ferromagnetic films | UNVERIFIED | VERIFIED |
-| `dc17c97d` | crossref.org | DOI 10.3403/30377849u: Top priority standards development status in the domain of smart energy | UNVERIFIED | VERIFIED |
 | `a986bc72` | crossref.org | DOI 10.5220/0006388605320540: Managing and Controlling Decentralized Corporate Energy Systems - Transferring B | UNVERIFIED | VERIFIED |
 | `fce43dc5` | crossref.org | DOI 10.1007/0-306-47601-0_11: Dissipation and the Thermal Energy Domain | UNVERIFIED | VERIFIED |
-| `30601336` | crossref.org | DOI 10.1117/12.2568658.6181888144001:  | UNVERIFIED | VERIFIED |
+| `dc17c97d` | crossref.org | DOI 10.3403/30377849u: Top priority standards development status in the domain of smart energy | UNVERIFIED | VERIFIED |
+| `68698739` | crossref.org | DOI 10.3403/30377849: Top priority standards development status in the domain of smart energy | UNVERIFIED | VERIFIED |
 | `2f0d20af` | openalex.org | OpenAlex Impact of COVID-19 on the social, economic, environmental and energy d [COVID-19 impact on air quality] | UNVERIFIED | VERIFIED |
 | `5ee738d6` | openalex.org | OpenAlex <i>MossA</i>: a program for analyzing energy-domain Mössbauer spectra  [Crystallography and Radiation ] | UNVERIFIED | VERIFIED |
 | `2e9a50fa` | openalex.org | OpenAlex GROMACS: High performance molecular simulations through multi-level pa [Advanced NMR Techniques and Ap] | UNVERIFIED | VERIFIED |
@@ -31,7 +31,7 @@ the hard gate of the corroboration law.
 | `c392cdc9` | openalex.org | OpenAlex An event generator for the study of nuclear collisions in the Fermi en [Nuclear physics research studi] | UNVERIFIED | VERIFIED |
 | `ba0fc4b7` | openalex.org | OpenAlex CBS domains form energy-sensing modules whose binding of adenosine lig [Ion channel regulation and fun] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `8f405627`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `f9a4be77`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

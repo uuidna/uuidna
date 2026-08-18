@@ -14,14 +14,22 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `e3cb6766` | zenodo.org | zenodo record 6777050: AN ARTISTIC INTERPRETATION OF THE IMAGE OF THE "TEACHER" IN  AMERICAN LITERATURE | UNVERIFIED | VERIFIED |
+| `9154a717` | zenodo.org | zenodo record 5720488: The legal text: constitution, concepts, characteristics | UNVERIFIED | VERIFIED |
+| `4b89ae70` | zenodo.org | zenodo record 15668114: THE ROLE OF ENGLISH IN UNDERSTANDING JURISPRUDENCE AND INTERNATIONAL LAW | UNVERIFIED | VERIFIED |
+| `6d32a296` | zenodo.org | zenodo record 19232599: DETERMINOLOGIZATION OF LEGAL VOCABULARY IN NEWSPAPER DISCOURSE: A LINGUISTIC ANA | UNVERIFIED | VERIFIED |
+| `fea72e5c` | zenodo.org | zenodo record 7510518: NOT KNOWLEDGE OF PROFESSIONAL VOCABULARY IS THE REASON FOR STUDENTS' FAIL | UNVERIFIED | VERIFIED |
+| `13aa0e8a` | zenodo.org | zenodo record 17614601: COMPARISON OF LEXICAL-SEMANTIC UNITS IN ENGLISH AND UZBEK LEGAL DISCOURSE | UNVERIFIED | VERIFIED |
+| `0458e975` | zenodo.org | zenodo record 15665892: COMPREHENSIVE ENGLISH LEGAL TERMINOLOGY: ESSENTIAL TERMS AND THEIR INTERPRETATIO | UNVERIFIED | VERIFIED |
+| `055cd3cc` | zenodo.org | zenodo record 400849: Teaching legal english | UNVERIFIED | VERIFIED |
 | `39fb3e86` | crossref.org | DOI 10.3403/00122960u: General metrology | UNVERIFIED | VERIFIED |
 | `11aa030d` | crossref.org | DOI 10.3403/00122960: General metrology | UNVERIFIED | VERIFIED |
 | `e14f780b` | crossref.org | DOI 10.2139/ssrn.6454203: Derivative Vocabulary of Legal Discourse | UNVERIFIED | VERIFIED |
 | `980fa2b0` | crossref.org | DOI 10.3726/978-3-653-00659-9/5: Chapter 3: Vocabulary Use Across Different Legal Genres 53 | UNVERIFIED | VERIFIED |
-| `5705b78f` | crossref.org | DOI 10.3998/mpub.223607: Strategies for Legal Case Reading and Vocabulary Development | UNVERIFIED | VERIFIED |
 | `c8ca62b6` | crossref.org | DOI 10.2139/ssrn.4465023: Specifics of Teaching Vocabulary of a Legal English Course | UNVERIFIED | VERIFIED |
+| `5705b78f` | crossref.org | DOI 10.3998/mpub.223607: Strategies for Legal Case Reading and Vocabulary Development | UNVERIFIED | VERIFIED |
 | `239035b8` | crossref.org | DOI 10.2139/ssrn.5296201: CULTURAL ASPECTS OF LEGAL TRANSLATION VOCABULARY IN A CHILDREN'S CARTOON | UNVERIFIED | VERIFIED |
-| `1fbe9504` | crossref.org | DOI 10.2307/j.ctvr33c9g.6: Hegel’s Vocabulary | UNVERIFIED | VERIFIED |
+| `a30f9e99` | crossref.org | DOI 10.11126/stanford/9780804750301.003.0002: Hegel's Vocabulary | UNVERIFIED | VERIFIED |
 | `5f46a82c` | openalex.org | OpenAlex Legal Vocabulary [Legal Language and Interpretat] | UNVERIFIED | VERIFIED |
 | `44f259f5` | openalex.org | OpenAlex Identifying spoken technical legal vocabulary in a law school classroo [Translation Studies and Practi] | UNVERIFIED | VERIFIED |
 | `e2eea8a0` | openalex.org | OpenAlex Legal vocabulary in Early English translations of the Bible: a study o [Hermeneutics and Narrative Ide] | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `d50579dd` | openalex.org | OpenAlex Legal vocabulary and the indexer [Artificial Intelligence in Law] | UNVERIFIED | VERIFIED |
 | `28b039c7` | openalex.org | OpenAlex Defining and Describing What We Do: Doctrinal Legal Research [Legal Education and Practice I] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `f6a9ae9c`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `b6c2755a`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

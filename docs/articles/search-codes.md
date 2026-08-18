@@ -16,8 +16,8 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `0516a7aa` | zenodo.org | zenodo record 7019209: Artifacts for the MICRO'55 paper "Revisiting Residue Codes for Modern Memories" | UNVERIFIED | VERIFIED |
 | `d57fc208` | zenodo.org | zenodo record 4873277: Estimating the indivisible error detecting сodes based on an average probability | UNVERIFIED | VERIFIED |
-| `c5f0f7a5` | zenodo.org | zenodo record 3469609: ON THE ERROR-CORRECTING CAPABILITIES OF ITERATIVE ERROR CORRECTION CODES | UNVERIFIED | VERIFIED |
 | `10a036a2` | zenodo.org | zenodo record 6995422: Linear Multisecret-Sharing Schemes and Error-Correcting Codes | UNVERIFIED | VERIFIED |
+| `c5f0f7a5` | zenodo.org | zenodo record 3469609: ON THE ERROR-CORRECTING CAPABILITIES OF ITERATIVE ERROR CORRECTION CODES | UNVERIFIED | VERIFIED |
 | `8db37011` | zenodo.org | zenodo record 7114949: Combining serial and parallel decoding for turbo codes | UNVERIFIED | VERIFIED |
 | `69dd8756` | zenodo.org | zenodo record 4016076: Implementation of Protograph LDPC error correction codes | UNVERIFIED | VERIFIED |
 | `03161dbe` | zenodo.org | zenodo record 8031457: Development of a Shorted Interleaved Reed-Solomon Codes (siRS) for data downlink | UNVERIFIED | VERIFIED |
@@ -28,8 +28,8 @@ the hard gate of the corroboration law.
 | `bbe0c7ee` | crossref.org | DOI 10.1093/oso/9780198596783.003.0004: Error processing for linear codes | UNVERIFIED | VERIFIED |
 | `ac0b934d` | crossref.org | DOI 10.1093/oso/9780198596783.003.0022: Classical Goppa codes: error processing | UNVERIFIED | VERIFIED |
 | `ff89baf8` | crossref.org | DOI 10.1007/bfb0039177: The weight distribution of double-error-correcting goppa codes | UNVERIFIED | VERIFIED |
-| `10ce4e7d` | crossref.org | DOI 10.1007/3-540-44828-4_19: Error Correcting Codes over Algebraic Surfaces | UNVERIFIED | VERIFIED |
 | `c4c9ee07` | crossref.org | DOI 10.1017/cbo9780511807077.015: Convolutional codes | UNVERIFIED | VERIFIED |
+| `761853a5` | crossref.org | DOI 10.1017/cbo9780511807077.005: Cyclic codes | UNVERIFIED | VERIFIED |
 | `8f6eba99` | openalex.org | OpenAlex The Theory of Error-Correcting Codes [Coding theory and cryptography] | UNVERIFIED | VERIFIED |
 | `62c8e6d1` | openalex.org | OpenAlex Error Detecting and Error Correcting Codes [Radiation Effects in Electroni] | UNVERIFIED | VERIFIED |
 | `c2cffa32` | openalex.org | OpenAlex Near Shannon limit error-correcting coding and decoding: Turbo-codes.  [Advanced Wireless Communicatio] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `164993e1` | openalex.org | OpenAlex Near Shannon limit error-correcting coding and decoding : Turbo-codes [Advanced Wireless Communicatio] | UNVERIFIED | VERIFIED |
 | `93c285d9` | openalex.org | OpenAlex Good quantum error-correcting codes exist [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5e8efcf7`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `91078b0b`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

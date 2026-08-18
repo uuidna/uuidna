@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `62a632cd` | zenodo.org | zenodo record 19371952: TI Sigma Millennium Prize Formalizations in Lean 4 (Experimental Framework) | UNVERIFIED | VERIFIED |
-| `20644356` | zenodo.org | zenodo record 3940668: Solutions for three millennium problems. | UNVERIFIED | VERIFIED |
-| `0b898c4d` | zenodo.org | zenodo record 15658242: Well-posed Self-Similarity in Incompressible Standard Flows | UNVERIFIED | VERIFIED |
-| `c6dc527a` | zenodo.org | zenodo record 4128543: Compound Database for eQuilibrator | UNVERIFIED | VERIFIED |
-| `1d7297bd` | zenodo.org | zenodo record 6441913: hip-hola | UNVERIFIED | VERIFIED |
-| `a23a25a3` | zenodo.org | zenodo record 18335740: JCGEExamples.jl - Reference models and examples for JCGE. | UNVERIFIED | VERIFIED |
-| `7963d8f2` | zenodo.org | zenodo record 5052316: AbstractGeek/2018-Odor_source_localization_in_complex_visual_environments_by_fru | UNVERIFIED | VERIFIED |
-| `dabe7da6` | zenodo.org | zenodo record 4774356: Production scheduling considering dynamic electricity price in energy-efficient  | UNVERIFIED | VERIFIED |
 | `cd310d14` | crossref.org | DOI 10.1088/0256-307x/26/5/059901: Comment on “Ported from Self-Similar Analytic Solutions of Ginzburg-Landau Equat | UNVERIFIED | VERIFIED |
 | `64837996` | crossref.org | DOI 10.1201/9781003211259: Observing Our Environment from Space - New Solutions for a New Millennium | UNVERIFIED | VERIFIED |
 | `cbbc913c` | crossref.org | DOI 10.1088/0256-307x/25/3/045: Ported from Self-Similar Analytic Solutions of Ginzburg–Landau Equation with Var | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `2067ecd9` | openalex.org | OpenAlex Wind erosion and dust from <scp>US</scp> drylands: a review of causes, [Aeolian processes and effects] | UNVERIFIED | VERIFIED |
 | `afa6c93e` | openalex.org | OpenAlex Greenhouse Gas Emissions from Global Cities [Sustainability and Ecological ] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `7e4c0b62`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `f0ef9ca6`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

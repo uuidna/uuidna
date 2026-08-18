@@ -14,6 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `6607ce3d` | zenodo.org | zenodo record 7354452: Climate Change and its Impacts: A Global Perspective | UNVERIFIED | VERIFIED |
+| `a19011f6` | zenodo.org | zenodo record 7356457: UK Climate Change Programme - Consultation paper | UNVERIFIED | VERIFIED |
+| `b12d635e` | zenodo.org | zenodo record 16347833: XLVI.—Remarks on the correct Generic Name of the Linnets | UNVERIFIED | VERIFIED |
+| `03ab983e` | zenodo.org | zenodo record 16498934: Bibliographical Notice | UNVERIFIED | VERIFIED |
+| `2ea56611` | zenodo.org | zenodo record 16205338: Proceedings of the Asiatic Society of Bengal for June, 1849 | UNVERIFIED | VERIFIED |
+| `aca25193` | zenodo.org | zenodo record 16201061: Proceedings of the Asiatic Society | UNVERIFIED | VERIFIED |
+| `1f546fe0` | zenodo.org | zenodo record 16007331: Meteorological Remarks and Tables Commencing 1st May, 1854, at the Residency, Lu | UNVERIFIED | VERIFIED |
+| `fe441d7b` | zenodo.org | zenodo record 1673116: Bildung amikroskopischer Goldkeime durch Bestrahlung von Goldsalzlösungen mit ul | UNVERIFIED | VERIFIED |
 | `585d031c` | crossref.org | DOI 10.7717/peerj.21201/fig-3: Figure 3: Mean and standard deviation (shading) time series for control and rese | UNVERIFIED | VERIFIED |
 | `b1bb3ae0` | crossref.org | DOI 10.7717/peerj.21201/fig-1: Figure 1: Mean and standard deviation (shading) time series for control and rese | UNVERIFIED | VERIFIED |
 | `3641ac60` | crossref.org | DOI 10.1016/s0031-9406(05)66653-9: Measurement of Foot Progression Angle Through Stance | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `5cbd7f0b` | openalex.org | OpenAlex The Simplest Walking Model: Stability, Complexity, and Scaling [Robotic Locomotion and Control] | UNVERIFIED | VERIFIED |
 | `270185bd` | openalex.org | OpenAlex How to squat? Effects of various stance widths, foot placement angles  [Lower Extremity Biomechanics a] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `6efb28e7`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `384ca289`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

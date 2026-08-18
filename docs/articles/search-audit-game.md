@@ -15,11 +15,11 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `210763b0` | zenodo.org | zenodo record 21593230: Localisation Archive | UNVERIFIED | VERIFIED |
-| `b6bc3040` | zenodo.org | zenodo record 21590598: Master Portfolio Record | UNVERIFIED | VERIFIED |
 | `4abf72a2` | zenodo.org | zenodo record 21593738: Facilitation Archive | UNVERIFIED | VERIFIED |
 | `63a11000` | zenodo.org | zenodo record 21592878: Open your Kit; Walkthrough Slideshow | UNVERIFIED | VERIFIED |
-| `8e9e0123` | zenodo.org | zenodo record 4763231: ENERGY SAVING IN COMPRESSOR DEVICES IN WASTEWATER TREATMENT FACILITIES | UNVERIFIED | VERIFIED |
+| `b6bc3040` | zenodo.org | zenodo record 21590598: Master Portfolio Record | UNVERIFIED | VERIFIED |
 | `8198bb9f` | zenodo.org | zenodo record 8118290: Micro-Credential Course of Audit Expectation Gap: Blaming Game, Fix the Audit Mi | UNVERIFIED | VERIFIED |
+| `8e9e0123` | zenodo.org | zenodo record 4763231: ENERGY SAVING IN COMPRESSOR DEVICES IN WASTEWATER TREATMENT FACILITIES | UNVERIFIED | VERIFIED |
 | `b29d544a` | zenodo.org | zenodo record 12791093: Micro-Credential Course of Audit Expectation Gap: Blaming Game, Fix the Audit Mi | UNVERIFIED | VERIFIED |
 | `2cb21036` | zenodo.org | zenodo record 17111801: Internal audit als witte zwaan | UNVERIFIED | VERIFIED |
 | `091e1591` | crossref.org | DOI 10.2139/ssrn.1531073: A Comparative Game Analysis on Limited Auditor Liability, Audit Quality, Audit R | UNVERIFIED | VERIFIED |
@@ -27,8 +27,8 @@ the hard gate of the corroboration law.
 | `8af39fe5` | crossref.org | DOI 10.2139/ssrn.3816011: Effects of Joint Audits on Audit Quality and Audit Costs: A Game-Theoretical Exp | UNVERIFIED | VERIFIED |
 | `bceba765` | crossref.org | DOI 10.2139/ssrn.1985541: Joint Audit, Game Theory, and Impairment-Testing Disclosures | UNVERIFIED | VERIFIED |
 | `8c74bbae` | crossref.org | DOI 10.5962/bhl.title.50997: Upland Game Bird Enhancement Program, Department of Fish, Wildlife and Parks : p | UNVERIFIED | VERIFIED |
-| `04a7699d` | crossref.org | DOI 10.5962/bhl.title.45388: Big game drawing system, Department of Fish, Wildlife and Parks : performance au | UNVERIFIED | VERIFIED |
 | `9699b340` | crossref.org | DOI 10.2139/ssrn.993400: Does Audit Tenure Lead to More Fraud? A Game-Theoretic Approach | UNVERIFIED | VERIFIED |
+| `04a7699d` | crossref.org | DOI 10.5962/bhl.title.45388: Big game drawing system, Department of Fish, Wildlife and Parks : performance au | UNVERIFIED | VERIFIED |
 | `e3fdb000` | crossref.org | DOI 10.5962/bhl.title.45712: Big game drawing system, Department of Fish, Wildlife and Parks : performance au | UNVERIFIED | VERIFIED |
 | `63b92706` | openalex.org | OpenAlex The auditing game: A question of ownership and control [Regulation and Compliance Stud] | UNVERIFIED | VERIFIED |
 | `f5ea6cbe` | openalex.org | OpenAlex A review of archival auditing research [Auditing, Earnings Management,] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `aa792358` | openalex.org | OpenAlex Joint Audit, Game Theory, and Impairment-Testing Disclosures [Auditing, Earnings Management,] | UNVERIFIED | VERIFIED |
 | `9461d29d` | openalex.org | OpenAlex Financial Statement Audits,a Game of Chicken? [Auditing, Earnings Management,] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `1287e51b`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `15803e47`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

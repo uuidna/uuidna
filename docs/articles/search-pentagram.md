@@ -14,11 +14,19 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `0526d2f2` | zenodo.org | zenodo record 2574151: Selfie Expressions With Factorial, Fibonacci and Triangular Values | UNVERIFIED | VERIFIED |
+| `2262c400` | zenodo.org | zenodo record 2585599: Factorial-Type Selfie Numbers in Reverse Order of Digits | UNVERIFIED | VERIFIED |
+| `d40321ff` | zenodo.org | zenodo record 3484119: Fibonacci Sequence Type Selfie Numbers with Factorial: Reverse Order of Digits | UNVERIFIED | VERIFIED |
+| `4e0b22ee` | zenodo.org | zenodo record 10972221: Multiple Choice Patterns in Selfie Numbers - I | UNVERIFIED | VERIFIED |
+| `4fe5943c` | zenodo.org | zenodo record 2585586: Factorial-Type Selfie Numbers in Digit's Order | UNVERIFIED | VERIFIED |
+| `764c8e4d` | zenodo.org | zenodo record 2609143: Selfie Numbers: Basic Operations | UNVERIFIED | VERIFIED |
+| `fddfb9d5` | zenodo.org | zenodo record 10633471: Multiple Representations of Selfie Numbers - I | UNVERIFIED | VERIFIED |
+| `d9a8b159` | zenodo.org | zenodo record 7473340: 23 and 2023 in Numbers and Patterns | UNVERIFIED | VERIFIED |
 | `89615944` | crossref.org | DOI 10.1080/00150517.1975.12430623: Distribution of the First Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `756722a2` | crossref.org | DOI 10.1007/978-94-009-4311-7_3: A Property of Unit Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `e8b125ea` | crossref.org | DOI 10.1080/00150517.1996.12429058: On the Sums of Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
-| `419c6600` | crossref.org | DOI 10.1080/00150517.1963.12431543: On the Periodicity of the Last Digits of the Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `8417c715` | crossref.org | DOI 10.1080/00150517.1973.12430803: On the Periodicity of the Terminal Digits in Fibonacci Sequences | UNVERIFIED | VERIFIED |
+| `419c6600` | crossref.org | DOI 10.1080/00150517.1963.12431543: On the Periodicity of the Last Digits of the Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `4e0c21b6` | crossref.org | DOI 10.1080/00150517.1981.12430099: Initial Digits in Number Theory | UNVERIFIED | VERIFIED |
 | `bc95d9dd` | crossref.org | DOI 10.1080/00150517.1964.12431492: Further Comments on the Periodicity of the Digits of the Fibonacci Sequence | UNVERIFIED | VERIFIED |
 | `0e808e67` | crossref.org | DOI 10.1080/00150517.1995.12429122: Some Probabilistic Aspects of the Terminal Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `336fa520` | openalex.org | OpenAlex The Fibonacci Association: Memories and Reflections 1962–2024 [Advanced Mathematical Theories] | UNVERIFIED | VERIFIED |
 | `9962d97d` | openalex.org | OpenAlex The BFP (Benford-Fibonacci-Perez) method validates the consistency of  [Benford’s Law and Fraud Detect] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `f1a99380`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `5ca28c31`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

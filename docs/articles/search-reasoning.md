@@ -14,6 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `c3b33306` | zenodo.org | zenodo record 8141323: Optimization of fuzzy rules using neural network to control mobile robot in non- | UNVERIFIED | VERIFIED |
+| `1d70ce99` | zenodo.org | zenodo record 17928472: THEORETICAL AND METHODOLOGICAL ISSUES OF AMENDMENT OF THE CONSTITUTION OF UKRAIN | UNVERIFIED | VERIFIED |
+| `6b3292f2` | zenodo.org | zenodo record 3555646: A study of The RAJADHAMMASANGAHA and Democracy | UNVERIFIED | VERIFIED |
+| `4b01a217` | zenodo.org | zenodo record 3555628: Legal Prohibition on Nuclear Weapons in Southeast Asia | UNVERIFIED | VERIFIED |
+| `d9507b8f` | zenodo.org | zenodo record 14083209: PM_098511_E_Pastrana | UNVERIFIED | VERIFIED |
+| `63929d15` | zenodo.org | zenodo record 15873003: Experimenting automatic generation of energy renovation scenarios with ontology  | UNVERIFIED | VERIFIED |
+| `876115d1` | zenodo.org | zenodo record 19657139: Max-Flow Min-Cut Guided Reasoning Optimization for Large Reasoning Models | UNVERIFIED | VERIFIED |
+| `c5d4117a` | zenodo.org | zenodo record 2613907: Application of the Spatial Data Mining Methodology and Gamification for the Opti | UNVERIFIED | VERIFIED |
 | `5ae9e0a9` | crossref.org | DOI 10.7717/peerj-cs.3164/table-12: Table 12: Fuzzy inference system rules. | UNVERIFIED | VERIFIED |
 | `12858644` | crossref.org | DOI 10.7717/peerj-cs.700/table-6: Table 6: Fuzzy inference system rules. | UNVERIFIED | VERIFIED |
 | `aa2b4cf9` | crossref.org | DOI 10.7717/peerj-cs.3164/supp-1: Supplemental Information 1: Fuzzy Inference System Rules. | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `0f80665c` | openalex.org | OpenAlex Comparing machine learning and rule-based inferencing for semantic enr [BIM and Construction Integrati] | UNVERIFIED | VERIFIED |
 | `e1a21d6f` | openalex.org | OpenAlex The Justification of Inductive Rules of Inference [Philosophy and History of Scie] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `c26da89a`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `ce5188c7`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

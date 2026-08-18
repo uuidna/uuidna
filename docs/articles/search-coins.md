@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `1f546fe0` | zenodo.org | zenodo record 16007331: Meteorological Remarks and Tables Commencing 1st May, 1854, at the Residency, Lu | UNVERIFIED | VERIFIED |
 | `fe441d7b` | zenodo.org | zenodo record 1673116: Bildung amikroskopischer Goldkeime durch Bestrahlung von Goldsalzlösungen mit ul | UNVERIFIED | VERIFIED |
 | `ff85bdd2` | zenodo.org | zenodo record 16140513: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
-| `5fd9e067` | zenodo.org | zenodo record 16205342: Proceedings of the Asiatic Society of Bengal, for March, 1858 | UNVERIFIED | VERIFIED |
+| `880619f6` | zenodo.org | zenodo record 2452904: Proceedings at Meetings of the Royal Archæological Institute February 5, 1885 | UNVERIFIED | VERIFIED |
 | `de176129` | crossref.org | DOI 10.1163/9789004226425_004: A Typology of Herod’s Coins | UNVERIFIED | VERIFIED |
 | `77bacc2c` | crossref.org | DOI 10.1111/j.1600-0471.1995.tb00076.x: Two South Arabian coins from Mleiha | UNVERIFIED | VERIFIED |
 | `a0adcfca` | crossref.org | DOI 10.1093/nq/s7-vi.135.64c: Leather coins | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `a2a28886` | openalex.org | OpenAlex The coin model of privilege and critical allyship: implications for he [Obesity and Health Practices] | UNVERIFIED | VERIFIED |
 | `04da909f` | openalex.org | OpenAlex Adipo-Myokines: Two Sides of the Same Coin—Mediators of Inflammation a [Adipose Tissue and Metabolism] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `dfaa8e82`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `f5f0e81d`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

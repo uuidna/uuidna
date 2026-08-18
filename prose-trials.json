@@ -4,7 +4,7 @@
  "usable": 1795,
  "unverified": 2071,
  "drained": 0,
- "receipt": "3cf3afce-f7c2-8fb6-94e2-9f227d2fe087",
+ "receipt": "9d0abeb8-b90d-845a-b50a-18a892b525a0",
  "develop": [
   {
    "surface": "docs/articles/search-div-by-zero.md",
@@ -10881,11 +10881,12 @@
   },
   {
    "surface": "docs/articles/search-crt.md",
-   "address": "7903c8d0-a913-8ffc-9685-0da2e9261e1f",
-   "prose": "- [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) — `(7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63)`\n- [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) — `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`\n- [residues_identify_digit](/theorem/residues_identify_digit) — `((List.range 16).all (fun a => (List.range 16).all (fun b => (!((a % 6 == b % 6) && (a % 9`\n- [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) — `(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)`\n- [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) — `(((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36`\n- [the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring) — `((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1)`\n- [the_fused_ring_is_all_ones](/theorem/the_fused_ring_is_all_ones) — `(63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^6) ∧ (63 < 64)`",
+   "address": "b4f84f9d-7595-82aa-ae99-a859fb9802bc",
+   "prose": "- [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) — `(7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63)`\n- [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) — `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`\n- [axes_stride_coprime](/theorem/axes_stride_coprime) — `(3 + 3 + 1 = 7) ∧ (Nat.gcd 7 9 = 1) ∧ (7 * 9 = 63) ∧ (63 = 2^6 - 1) ∧ (Nat.gcd 2 8 = 2)`\n- [residues_identify_digit](/theorem/residues_identify_digit) — `((List.range 16).all (fun a => (List.range 16).all (fun b => (!((a % 6 == b % 6) && (a % 9`\n- [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) — `(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)`\n- [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) — `(((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36`\n- [the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring) — `((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1)`\n- [the_fused_ring_is_all_ones](/theorem/the_fused_ring_is_all_ones) — `(63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^6) ∧ (63 < 64)`",
    "cites": [
     "captain_theorem_the_coins_buy_the_ring_and_one",
     "rosette_and_vortex_are_coprime",
+    "axes_stride_coprime",
     "residues_identify_digit",
     "crt_pairs_are_a_bijection",
     "fused_units_are_the_orbit_squared",

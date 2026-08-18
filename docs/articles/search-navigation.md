@@ -14,9 +14,17 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `cf26be68` | zenodo.org | zenodo record 20137658: V42: Gevrey Regularization and Modular Rigidity of Wasserstein Gradient Flows | UNVERIFIED | VERIFIED |
+| `4878ac1a` | zenodo.org | zenodo record 21944784: Algorithm Space Navigation Geometry | UNVERIFIED | VERIFIED |
+| `8bbc861b` | zenodo.org | zenodo record 7326315: The impact of GNSS multipath errors on ZTD estimates based on PPP | UNVERIFIED | VERIFIED |
+| `1383aeab` | zenodo.org | zenodo record 2671478: Position Estimation of Autonomous Underwater Sensors Using the Virtual Long Base | UNVERIFIED | VERIFIED |
+| `58ca0f21` | zenodo.org | zenodo record 3599259: The Virtual Geometry Model | UNVERIFIED | VERIFIED |
+| `a55c4dca` | zenodo.org | zenodo record 18790882: Data used for the training and evaluation process of the DRL model presented in  | UNVERIFIED | VERIFIED |
+| `0f4aea04` | zenodo.org | zenodo record 1410256: EXPERIMENTAL RESEARCH OF HIGHLY RELIABLE METHODS OF HYDROACOUSTIC COMMUNICATION  | UNVERIFIED | VERIFIED |
+| `990ea639` | zenodo.org | zenodo record 3824605: Current Practices in Research Data Management and Sharing | UNVERIFIED | VERIFIED |
 | `05d46cba` | crossref.org | DOI 10.1017/9781108903547.007: Polish Groups of Bounded Geometry | UNVERIFIED | VERIFIED |
-| `52944fe3` | crossref.org | DOI 10.1007/978-3-642-11060-3: Geometry of Homogeneous Bounded Domains | UNVERIFIED | VERIFIED |
 | `eed7af6a` | crossref.org | DOI 10.1007/978-3-642-11060-3_4: Holomorphic and Harmonic Functions on Bounded Symmetric Domains | UNVERIFIED | VERIFIED |
+| `52944fe3` | crossref.org | DOI 10.1007/978-3-642-11060-3: Geometry of Homogeneous Bounded Domains | UNVERIFIED | VERIFIED |
 | `0eaff178` | crossref.org | DOI 10.2139/ssrn.6294341: A tropical geometry for bounded biochemical state spaces | UNVERIFIED | VERIFIED |
 | `5f265ce3` | crossref.org | DOI 10.1016/j.comgeo.2007.09.002: Iterated snap rounding with bounded drift | UNVERIFIED | VERIFIED |
 | `1a065a74` | crossref.org | DOI 10.1007/978-3-0348-9102-8_2: Collapsed Riemannian Manifolds with Bounded Diameter and Bounded Covering Geomet | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `0fd14d2b` | openalex.org | OpenAlex Features and development of <i>Coot</i> [Enzyme Structure and Function] | UNVERIFIED | VERIFIED |
 | `9c6179c6` | openalex.org | OpenAlex Reflections on geometry and navigation [Memory and Neural Mechanisms] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `8ee3a3d1`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `38a84450`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -14,9 +14,9 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `0fab098a` | zenodo.org | zenodo record 15753702: Additional information on the Jackson's long bodied lynx spider Oxyopes jacksoni | UNVERIFIED | VERIFIED |
 | `473c3027` | zenodo.org | zenodo record 15753474: More information on the jumping spider Mexcala rufa G.W. Peckham & E.G. Peckham, | UNVERIFIED | VERIFIED |
 | `69e9c096` | zenodo.org | zenodo record 15753748: Additional information on the masked crab spider Thomisus blandus Karsch, 1880 f | UNVERIFIED | VERIFIED |
-| `0fab098a` | zenodo.org | zenodo record 15753702: Additional information on the Jackson's long bodied lynx spider Oxyopes jacksoni | UNVERIFIED | VERIFIED |
 | `38d77dc4` | zenodo.org | zenodo record 21144369: pyTMD: Python-based tidal prediction software | UNVERIFIED | VERIFIED |
 | `41afeb71` | zenodo.org | zenodo record 7450215: Two data sets of gravitational field degree-2 order-1 Stokes coefficient | UNVERIFIED | VERIFIED |
 | `2d33be9a` | zenodo.org | zenodo record 2155923: The Tides | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `24ea9714` | openalex.org | OpenAlex TOPEX/POSEIDON tides estimated using a global inverse model [Geophysics and Gravity Measure] | UNVERIFIED | VERIFIED |
 | `f65df608` | openalex.org | OpenAlex Protoplanet Migration by Nebula Tides [Astrophysics and Star Formatio] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `7e323af5`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `24b99332`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

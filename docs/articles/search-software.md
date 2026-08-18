@@ -14,6 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `927b41a7` | zenodo.org | zenodo record 810877: Definite Integration of Parametric Rational Functions: Applying a DITLU | UNVERIFIED | VERIFIED |
+| `0d4a1ff2` | zenodo.org | zenodo record 2613490: Using Windows Server 2012-based storage solutions for small and medium size busi | UNVERIFIED | VERIFIED |
+| `16234bd0` | zenodo.org | zenodo record 18773997: COMPATIBILITY OF ALGEBRAIC AND VISUAL APPROACHES IN SOLVING 3RD AND 4TH ORDER EQ | UNVERIFIED | VERIFIED |
+| `67d4b5c8` | zenodo.org | zenodo record 2613471: Using Linux-based storage solutions for small and medium size business resources | UNVERIFIED | VERIFIED |
+| `6bb3b880` | zenodo.org | zenodo record 13382558: Understanding Media's Role in Public Perception: Discrepancies in Sentiment Duri | UNVERIFIED | VERIFIED |
+| `b0a5101e` | zenodo.org | zenodo record 3996707: Input domain modeling using Grobner bases and Lie-algebraic resolutions and impl | UNVERIFIED | VERIFIED |
+| `763b6cf5` | zenodo.org | zenodo record 2613392: Provisioning and managing VM's in a multi-vendor private cloud environment | UNVERIFIED | VERIFIED |
+| `e38c89db` | zenodo.org | zenodo record 20555421: COcyber White Paper - Unlocking cybersecurity potential in civil and defence dom | UNVERIFIED | VERIFIED |
 | `8522a11d` | crossref.org | DOI 10.1360/jos161606: Publicly Verifiable Zero-Knowledge Watermark Detection | UNVERIFIED | VERIFIED |
 | `e203fdf3` | crossref.org | DOI 10.2172/911281: Software Requirements Specification Verifiable Fuel Cycle Simulation (VISION) Mo | UNVERIFIED | VERIFIED |
 | `614f8e43` | crossref.org | DOI 10.2172/910990: Software Requirements Specification Verifiable Fuel Cycle Simulation (VISION) Mo | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `360870e2` | openalex.org | OpenAlex xJsnark: A Framework for Efficient Verifiable Computation [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
 | `5d3717a1` | openalex.org | OpenAlex Prospects for an engineering discipline of software [Software Engineering Technique] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `33ce85a1`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `19ef9ebf`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -30,14 +30,6 @@ the hard gate of the corroboration law.
 | `03689641` | crossref.org | DOI 10.1109/ises67504.2025.00087: Secure Command Authentication for Drone Control Using ECDSA | UNVERIFIED | VERIFIED |
 | `fd037da0` | crossref.org | DOI 10.1109/vlsi-soc.2017.8203494: Continuous authentication of UAV flight command data using behaviometrics | UNVERIFIED | VERIFIED |
 | `fc2cc50d` | crossref.org | DOI 10.1117/12.2520442: Combination of GMM-UBM and DTW for voice command authentication system | UNVERIFIED | VERIFIED |
-| `48ae35f6` | semanticscholar.org | S2 Secure Command Authentication for Drone Control Using ECDSA | UNVERIFIED | VERIFIED |
-| `fd604d99` | semanticscholar.org | S2 Anti-Spoofing Aided Solutions for Urban Air Mobility: Ground | UNVERIFIED | VERIFIED |
-| `48d9a0e9` | semanticscholar.org | S2 Command Authentication Using Multiagent System for Attacks o | UNVERIFIED | VERIFIED |
-| `824d32d8` | semanticscholar.org | S2 Dual-Chain-Based Dynamic Authentication and Handover Mechani — AI tldr: A mathematically structured dual-chain framework that utilizes a distributed ledger to dec | UNVERIFIED | VERIFIED |
-| `3831fe91` | semanticscholar.org | S2 Securing Substations through Command Authentication Using On | UNVERIFIED | VERIFIED |
-| `64dc4ac5` | semanticscholar.org | S2 On Optimization of Command-Delaying for Advanced Command Aut | UNVERIFIED | VERIFIED |
-| `b53a632a` | semanticscholar.org | S2 Combination of GMM-UBM and DTW for voice command authenticat — AI tldr: A combination of statistical and template based pattern matching to solve the problem of a | UNVERIFIED | VERIFIED |
-| `dc09656c` | semanticscholar.org | S2 Command authentication via faster than real time simulation | UNVERIFIED | VERIFIED |
 | `843dafc8` | openalex.org | OpenAlex Command Authentication Using Multiagent System for Attacks on the Econ [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `3e1d18c7` | openalex.org | OpenAlex Kerberos: an authentication service for computer networks [Advanced Authentication Protoc] | UNVERIFIED | VERIFIED |
 | `5f9ceee0` | openalex.org | OpenAlex Command authentication via faster than real time simulation [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
@@ -47,7 +39,7 @@ the hard gate of the corroboration law.
 | `0819455e` | openalex.org | OpenAlex On Optimization of Command-Delaying for Advanced Command Authenticatio [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `54539ed2` | openalex.org | OpenAlex An Efficient Real-Time Broadcast Authentication Scheme for Command and [Security in Wireless Sensor Ne] | UNVERIFIED | VERIFIED |
 
-**32 findings · 32 usable search-trial combinations · receipt `5dd2afa8`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `824a141b`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

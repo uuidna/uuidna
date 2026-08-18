@@ -14,22 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `0a545bb4` | zenodo.org | zenodo record 8410352: A robust vehicle detection model for LiDAR sensor using simulation data and tran | UNVERIFIED | VERIFIED |
-| `6927d3a0` | zenodo.org | zenodo record 15086240: The Recursive Vortex Algebra V and Magnetic Monopoles | UNVERIFIED | VERIFIED |
-| `f0041e74` | zenodo.org | zenodo record 1721140: Storm Waves of Cyclones | UNVERIFIED | VERIFIED |
-| `cd24872e` | zenodo.org | zenodo record 8051925: DIY-Concert Ensemble Vortex- Works by Rama Gottfried, Alessandro Perini and Davi | UNVERIFIED | VERIFIED |
-| `eb8f33f6` | zenodo.org | zenodo record 18840570: SINGLE-MODE VORTEX AS AN ELEMENTARY VORTEX GEOMETRIC STRUC-TURE OF AN IDEAL FLUI | UNVERIFIED | VERIFIED |
-| `0d4a1ff2` | zenodo.org | zenodo record 2613490: Using Windows Server 2012-based storage solutions for small and medium size busi | UNVERIFIED | VERIFIED |
-| `3dc36950` | zenodo.org | zenodo record 21897002: THE TOPOLOGICAL ARCHITECTURE OF A VORTON LATTICE VACUUM Emergent Elasticity, Bor | UNVERIFIED | VERIFIED |
-| `67d4b5c8` | zenodo.org | zenodo record 2613471: Using Linux-based storage solutions for small and medium size business resources | UNVERIFIED | VERIFIED |
 | `d3de9def` | crossref.org | DOI 10.1103/physrevb.62.14547: String limit of vortex current algebra | UNVERIFIED | VERIFIED |
 | `7adef1a2` | crossref.org | DOI 10.1515/9783111625195-013: 13 Hydrodynamic model of electron vortex fluid in solids | UNVERIFIED | VERIFIED |
-| `2ecbe0c3` | crossref.org | DOI 10.1007/s00006-013-0434-0: Vortex Detection in Vector Fields Using Geometric Algebra | UNVERIFIED | VERIFIED |
 | `ba3312b5` | crossref.org | DOI 10.1364/ol.26.001004: Soliton algebra by vortex-beam splitting | UNVERIFIED | VERIFIED |
+| `2ecbe0c3` | crossref.org | DOI 10.1007/s00006-013-0434-0: Vortex Detection in Vector Fields Using Geometric Algebra | UNVERIFIED | VERIFIED |
 | `62af88e7` | crossref.org | DOI 10.1088/1751-8121/ac0986: On the algebra and groups of incompressible vortex dynamics | UNVERIFIED | VERIFIED |
 | `25f4cf14` | crossref.org | DOI 10.1201/b20911-8: - Interactions Vortex-Vortex, Vortex-Defect and Vortex-Spin | UNVERIFIED | VERIFIED |
 | `4a877056` | crossref.org | DOI 10.28989/vortex.v1i1:  | UNVERIFIED | VERIFIED |
-| `b5823929` | crossref.org | DOI 10.28989/vortex.v2i2:  | UNVERIFIED | VERIFIED |
+| `3bec1fc6` | crossref.org | DOI 10.28989/vortex.v2i1:  | UNVERIFIED | VERIFIED |
 | `3fb96419` | openalex.org | OpenAlex Vortex algebra by multiply cascaded four-wave mixing of femtosecond op [Advanced Fiber Laser Technolog] | UNVERIFIED | VERIFIED |
 | `2d3c205e` | openalex.org | OpenAlex Algebraic bright and vortex solitons in defocusing media [Nonlinear Waves and Solitons] | UNVERIFIED | VERIFIED |
 | `654b279d` | openalex.org | OpenAlex Isolated optical vortex knots [Orbital Angular Momentum in Op] | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `6dd0d709` | openalex.org | OpenAlex Soliton algebra by vortex-beam splitting [Advanced Fiber Laser Technolog] | UNVERIFIED | VERIFIED |
 | `bdd5adbb` | openalex.org | OpenAlex Contributions to Vortex Particle Methods for the Computation of Three- [Fluid Dynamics Simulations and] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `dc7d42d6`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `594aa378`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

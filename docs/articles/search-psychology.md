@@ -14,6 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `ac2f18a6` | zenodo.org | zenodo record 10676704: Inorganic capping layers in RDL technologies: process advantages and reliability | UNVERIFIED | VERIFIED |
+| `9843a43b` | zenodo.org | zenodo record 8200764: Integrated Strain-Sensitive Element of Mechanical Transducer with Low Temperatur | UNVERIFIED | VERIFIED |
+| `3aa1c592` | zenodo.org | zenodo record 14158646: PM_048309_F_Saulieu | UNVERIFIED | VERIFIED |
+| `ac7fe4e3` | zenodo.org | zenodo record 6842573: A Silicon Integrated Transducer with an Extended Operating Temperature Range | UNVERIFIED | VERIFIED |
+| `bb1f3b2a` | zenodo.org | zenodo record 14158668: PM_048327_F_Saulieu | UNVERIFIED | VERIFIED |
+| `f25809c8` | zenodo.org | zenodo record 7959240: Method For Determining The Resonant Frequency Of An Elastic Element Of A Semicon | UNVERIFIED | VERIFIED |
+| `567ac5d4` | zenodo.org | zenodo record 7982076: Research, development and improvement of manufacturing technology of integrated  | UNVERIFIED | VERIFIED |
+| `1fcb6c81` | zenodo.org | zenodo record 6117573: Data for SWATH-based Quantitative Proteomic Analysis of Morus alba L. Leaf under | UNVERIFIED | VERIFIED |
 | `e2b47e1e` | crossref.org | DOI 10.3403/30267269u: Instrument transformers | UNVERIFIED | VERIFIED |
 | `e3c5d8e9` | crossref.org | DOI 10.3403/30267269: Instrument transformers | UNVERIFIED | VERIFIED |
 | `1252fed8` | crossref.org | DOI 10.5089/9781455204366.002.a002: Seventh Review Under the Policy Support Instrument, Request for a New Policy Sup | UNVERIFIED | VERIFIED |
@@ -21,7 +29,7 @@ the hard gate of the corroboration law.
 | `d3731b71` | crossref.org | DOI 10.5089/9781484323380.002.a001: Rwanda: Seventh Review Under the Policy Support Instrument, Request for a Three- | UNVERIFIED | VERIFIED |
 | `9c94625e` | crossref.org | DOI 10.3403/30267602u: Instrument transformers | UNVERIFIED | VERIFIED |
 | `1fc3dccd` | crossref.org | DOI 10.3403/30267602: Instrument transformers | UNVERIFIED | VERIFIED |
-| `8ddf1d70` | crossref.org | DOI 10.1093/omo/9781561592630.013.3000000088: Instrument making | UNVERIFIED | VERIFIED |
+| `718a6fb7` | crossref.org | DOI 10.5089/9781455212835.002.a003: Senegal: Senegal—Sixth Review Under the Policy Support Instrument, Request for a | UNVERIFIED | VERIFIED |
 | `e3ae4a38` | openalex.org | OpenAlex The Pittsburgh sleep quality index: A new instrument for psychiatric p [Sleep and related disorders] | UNVERIFIED | VERIFIED |
 | `42e81e33` | openalex.org | OpenAlex Instrumental Variables Regression with Weak Instruments [Monetary Policy and Economic I] | UNVERIFIED | VERIFIED |
 | `dbfe3902` | openalex.org | OpenAlex The Use of Cronbach’s Alpha When Developing and Reporting Research Ins [Science Education and Pedagogy] | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `bfc586ee` | openalex.org | OpenAlex The European Organization for Research and Treatment of Cancer QLQ-C30 [Cancer survivorship and care] | UNVERIFIED | VERIFIED |
 | `881f248e` | openalex.org | OpenAlex AERONET—A Federated Instrument Network and Data Archive for Aerosol Ch [Atmospheric aerosols and cloud] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `3cd37ed4`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `faea522d`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
