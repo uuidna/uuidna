@@ -41,6 +41,12 @@ export interface QuantumState {
 
 const THEOREMS = theorems()
 
+// Sealed by theorem message_qubit_cap_states (lean/Quantum.lean): 2^16 = 65536 — the encoder's honest ceiling.
+// Exponential state growth (2^n) is what keeps the classical simulation classical; kept as a named export (not
+// an inline literal) so src/tests/quantum-message.test.ts can assert this constant and the theorem's statement
+// never drift apart — a changed cap without a re-sealed theorem fails the audit gate instead of passing silently.
+export const MAX_MESSAGE_QUBITS = 16
+
 /** encodeMessage(plaintext, theoremKey) → a quantum message that fuses the plaintext with a sealed theorem proof.
  *  The message encodes the theorem's "truth" in quantum superposition (Hadamard + controlled-X per theorem bit).
  *  The same plaintext + theorem always folds to the same aura and quantum state (deterministic, content-addressed). */
@@ -53,7 +59,7 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
 
   // Encode the theorem's identity (key + address) into qubit basis labels
   const keyBits = Array.from(toUuid(theoremKey)).map((c, i) => i % 2 ? c.charCodeAt(0) % 2 : 0)
-  const qubits = keyBits.length < 16 ? keyBits.length : 16  // cap at 16 qubits (65k states, tractable)
+  const qubits = keyBits.length < MAX_MESSAGE_QUBITS ? keyBits.length : MAX_MESSAGE_QUBITS
 
   // Quantum state: start in |0…0⟩
   let state = ket0(qubits)
