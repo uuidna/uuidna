@@ -20,8 +20,8 @@ the hard gate of the corroboration law.
 | `3141a638` | zenodo.org | zenodo record 17355761: AI-Powered Anti-Money Laundering (AML) and fraud detection - enhancing financial | UNVERIFIED | VERIFIED |
 | `0b0d2661` | zenodo.org | zenodo record 15656461: Fraud Aware Banking Platform | UNVERIFIED | VERIFIED |
 | `5a5451e9` | zenodo.org | zenodo record 13325910: Comparative Analysis On implementation in fraud detection systems Based on Machi | UNVERIFIED | VERIFIED |
-| `05d8e1a7` | zenodo.org | zenodo record 13855052: IDNet: A Novel Dataset for Identity Document Analysis and Fraud Detection (part  | UNVERIFIED | VERIFIED |
-| `b00f026a` | zenodo.org | zenodo record 13855175: IDNet: A Novel Dataset for Identity Document Analysis and Fraud Detection (part  | UNVERIFIED | VERIFIED |
+| `1f828541` | zenodo.org | zenodo record 7885687: Developing Anti Money Laundering Identification using Machine Learning Technique | UNVERIFIED | VERIFIED |
+| `3cda9b01` | zenodo.org | zenodo record 21355769: A Machine Learning Framework for Credit Card Fraud Detection Using Random Forest | UNVERIFIED | VERIFIED |
 | `a948eeac` | crossref.org | DOI 10.4324/9781315263656-2: Developing an Anti-Fraud Culture | UNVERIFIED | VERIFIED |
 | `0c257444` | crossref.org | DOI 10.2139/ssrn.972557: Fraud and Anti-Fraud: A Theory of Misreporting and Detection | UNVERIFIED | VERIFIED |
 | `fb978e20` | crossref.org | DOI 10.1002/9781119205654.ch8: Advanced Fraud Detection Tools and Techniques | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `24df711b` | openalex.org | OpenAlex Anti Fraud Detection Model Using Deep Learning Approach [Imbalanced Data Classification] | UNVERIFIED | VERIFIED |
 | `47ac8473` | openalex.org | OpenAlex Anti‐money laundering and financial fraud detection: A systematic lite [Crime, Illicit Activities, and] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `31b48d9a`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `e203d02d`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

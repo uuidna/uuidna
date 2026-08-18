@@ -19,9 +19,9 @@ the hard gate of the corroboration law.
 | `3816ff03` | zenodo.org | zenodo record 15697143: A SURVEY OF BIG DATA ANALYTICS | UNVERIFIED | VERIFIED |
 | `58caf199` | zenodo.org | zenodo record 3229058: The Court of Justice Practice as a Source of the EU Law | UNVERIFIED | VERIFIED |
 | `7fdf57e6` | zenodo.org | zenodo record 6963787: COMPULSORY ATTENDANCE AS A TYPE OF PROCEDURAL  COERCIVE MEASURE | UNVERIFIED | VERIFIED |
-| `54faeb95` | zenodo.org | zenodo record 14277551: Public Debt and Economic Growth in Tanzania: An Empirical Investigation | UNVERIFIED | VERIFIED |
 | `ed4efc67` | zenodo.org | zenodo record 6573511: ПОРІВНЯЛЬНО-ПРАВОВА ХАРАКТЕРИСТИКА ПОРЯДКУ ВИКОНАННЯ РІШЕНЬ КОНСТИТУЦІЙНИХ СУДІВ | UNVERIFIED | VERIFIED |
 | `8f5af1e4` | zenodo.org | zenodo record 3607948: Updating the Content of the Category of "Public Administration": Notes for Scien | UNVERIFIED | VERIFIED |
+| `ca10c7da` | zenodo.org | zenodo record 20581838: Bank-Specific and Macroeconomic Determinants of Non-Performing Loans in Tanzania | UNVERIFIED | VERIFIED |
 | `eba74a80` | crossref.org | DOI 10.2139/ssrn.533303: Take it... Or Postpone it? Tax Amnesties as Out-of-Court Deals with Honest Taxpa | UNVERIFIED | VERIFIED |
 | `df1d7f4b` | crossref.org | DOI 10.18254/s207987840026004-3: Honest Lawyer at the Royal Court: Chrétien-Guillaume de Lamoignon de Malesherbes | UNVERIFIED | VERIFIED |
 | `11749c8f` | crossref.org | DOI 10.2139/ssrn.3829840: ‘That Sty for Fattening Lawyers In \| On the Bones of Honest Men’: The Palace Cou | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `7f0dc888` | openalex.org | OpenAlex Climate change litigation: A review of research on courts and litigant [Environmental law and policy] | UNVERIFIED | VERIFIED |
 | `e7a7fc39` | openalex.org | OpenAlex Open Courts: How Cameras in Courts Help Keep the System Honest [Law in Society and Culture] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `44758c52`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `890070d3`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

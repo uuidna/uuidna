@@ -18,9 +18,9 @@ the hard gate of the corroboration law.
 | `5218b66d` | zenodo.org | zenodo record 10333936: Chessboard | UNVERIFIED | VERIFIED |
 | `74d5022c` | zenodo.org | zenodo record 5381198: FIG. 22 in First Systematic Study using the Variability of the Residual Colour P | UNVERIFIED | VERIFIED |
 | `6f6797f5` | zenodo.org | zenodo record 17522629: BMT NING BARQAROR RIVOJLANISH MAQSADLARIDA MARKAZIY OSIYONING ROLI | UNVERIFIED | VERIFIED |
-| `d00e6266` | zenodo.org | zenodo record 5381194: FIG. 21 in First Systematic Study using the Variability of the Residual Colour P | UNVERIFIED | VERIFIED |
 | `916c5066` | zenodo.org | zenodo record 10008041: WORLD POWER CENTERS IN CENTRAL ASIA AND THEIR INFLUENCE ON TURKEY'S FOREIGN STRA | UNVERIFIED | VERIFIED |
-| `735a1b56` | zenodo.org | zenodo record 21679049: Portrait of Federico da Montefeltro | UNVERIFIED | VERIFIED |
+| `d00e6266` | zenodo.org | zenodo record 5381194: FIG. 21 in First Systematic Study using the Variability of the Residual Colour P | UNVERIFIED | VERIFIED |
+| `958f37a7` | zenodo.org | zenodo record 18964759: THE EMERGING NEW WORLD POLITICS: NEW CONTOURS OF 21ST CENTURY GEOPOLITICS | UNVERIFIED | VERIFIED |
 | `1bbfb1c7` | zenodo.org | zenodo record 6475916: The SaltWaterDistortion Dataset | UNVERIFIED | VERIFIED |
 | `7e3c3d0c` | crossref.org | DOI 10.1007/978-3-540-88725-6_4: The Purchasing Chessboard™ | UNVERIFIED | VERIFIED |
 | `c05974cc` | crossref.org | DOI 10.1007/978-3-540-88725-6_3: Using the Purchasing Chessboard™ | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `68d6175a` | openalex.org | OpenAlex The cubic chessboard [Advanced Topics in Algebra] | UNVERIFIED | VERIFIED |
 | `6a558357` | openalex.org | OpenAlex Extended Hartmann test based on the pseudoguiding property of a Hartma [Optical measurement and interf] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `c07d0587`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `ba367d0d`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

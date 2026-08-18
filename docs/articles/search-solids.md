@@ -27,8 +27,8 @@ the hard gate of the corroboration law.
 | `f581c56e` | crossref.org | DOI 10.3840/001806: Rotational Symmetries of Platonic Solids | UNVERIFIED | VERIFIED |
 | `0f862b4e` | crossref.org | DOI 10.3840/07001806: Rotational Symmetries of Platonic Solids | UNVERIFIED | VERIFIED |
 | `e22adac8` | crossref.org | DOI 10.1017/cbo9780511569746.007: The Platonic solids (1–5) | UNVERIFIED | VERIFIED |
-| `6eb7e56a` | crossref.org | DOI 10.1017/cbo9780511569746.009: Commentary on stellations and compounds of the Platonic solids | UNVERIFIED | VERIFIED |
 | `2916b5ec` | crossref.org | DOI 10.1021/acs.nanolett.4c04923.s001: Depletion-Induced Tunable Assembly of Complementary Platonic Solids | UNVERIFIED | VERIFIED |
+| `6eb7e56a` | crossref.org | DOI 10.1017/cbo9780511569746.009: Commentary on stellations and compounds of the Platonic solids | UNVERIFIED | VERIFIED |
 | `61cc92d1` | crossref.org | DOI 10.1007/978-3-642-04833-3_33: The Platonic Solids | UNVERIFIED | VERIFIED |
 | `f346433b` | openalex.org | OpenAlex Tiling Space by Platonic Solids, I [Quasicrystal Structures and Pr] | UNVERIFIED | VERIFIED |
 | `2224eda3` | openalex.org | OpenAlex 3-manifolds from Platonic solids [Geometric and Algebraic Topolo] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `8c93f8cf` | openalex.org | OpenAlex Ordered three-dimensional nanomaterials using DNA-prescribed and valen [Advanced biosensing and bioana] | UNVERIFIED | VERIFIED |
 | `2783a0d0` | openalex.org | OpenAlex Platonic Scattering Cancellation for Bending Waves in a Thin Plate [Metamaterials and Metasurfaces] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `b0adc9fe`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `5dd5a2d1`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

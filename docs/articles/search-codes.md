@@ -16,8 +16,8 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `0516a7aa` | zenodo.org | zenodo record 7019209: Artifacts for the MICRO'55 paper "Revisiting Residue Codes for Modern Memories" | UNVERIFIED | VERIFIED |
 | `d57fc208` | zenodo.org | zenodo record 4873277: Estimating the indivisible error detecting сodes based on an average probability | UNVERIFIED | VERIFIED |
-| `10a036a2` | zenodo.org | zenodo record 6995422: Linear Multisecret-Sharing Schemes and Error-Correcting Codes | UNVERIFIED | VERIFIED |
 | `c5f0f7a5` | zenodo.org | zenodo record 3469609: ON THE ERROR-CORRECTING CAPABILITIES OF ITERATIVE ERROR CORRECTION CODES | UNVERIFIED | VERIFIED |
+| `10a036a2` | zenodo.org | zenodo record 6995422: Linear Multisecret-Sharing Schemes and Error-Correcting Codes | UNVERIFIED | VERIFIED |
 | `8db37011` | zenodo.org | zenodo record 7114949: Combining serial and parallel decoding for turbo codes | UNVERIFIED | VERIFIED |
 | `69dd8756` | zenodo.org | zenodo record 4016076: Implementation of Protograph LDPC error correction codes | UNVERIFIED | VERIFIED |
 | `03161dbe` | zenodo.org | zenodo record 8031457: Development of a Shorted Interleaved Reed-Solomon Codes (siRS) for data downlink | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `164993e1` | openalex.org | OpenAlex Near Shannon limit error-correcting coding and decoding : Turbo-codes [Advanced Wireless Communicatio] | UNVERIFIED | VERIFIED |
 | `93c285d9` | openalex.org | OpenAlex Good quantum error-correcting codes exist [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `91078b0b`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `cd19be33`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

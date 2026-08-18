@@ -30,6 +30,14 @@ the hard gate of the corroboration law.
 | `c74e71a4` | crossref.org | DOI 10.1515/iupac.70.0020: Numbering | UNVERIFIED | VERIFIED |
 | `298f76ed` | crossref.org | DOI 10.1515/iupac.70.0016: Definitions | UNVERIFIED | VERIFIED |
 | `f56cb358` | crossref.org | DOI 10.1515/iupac.70.0022: Three Components Ortho- and Peri-Fused Together | UNVERIFIED | VERIFIED |
+| `fec3907e` | semanticscholar.org | S2 Single-Junction Organic Solar Cell with over 15% Efficiency  | UNVERIFIED | VERIFIED |
+| `a1e5661f` | semanticscholar.org | S2 Low‐Volatility Fused‐Ring Solid Additive Engineering for Syn | UNVERIFIED | VERIFIED |
+| `436e1f72` | semanticscholar.org | S2 Two-Dimensional Semiconducting Covalent Organic Frameworks w | UNVERIFIED | VERIFIED |
+| `7cf9f4b6` | semanticscholar.org | S2 Achieving 19% efficiency in non-fused ring electron acceptor | UNVERIFIED | VERIFIED |
+| `6cf71a45` | semanticscholar.org | S2 Chemoselective N-heterocyclic carbene-catalyzed cross-benzoi — AI tldr: Morpholinone- and piperidinone-derived triazolium salts are shown to catalyze highly chemo | UNVERIFIED | VERIFIED |
+| `27d36c50` | semanticscholar.org | S2 Harnessing the Structure-Performance Relationships in Design | UNVERIFIED | VERIFIED |
+| `e6c77c57` | semanticscholar.org | S2 The principles, design and applications of fused-ring electr | UNVERIFIED | VERIFIED |
+| `f6bc3284` | semanticscholar.org | S2 Fused-Ring Pyrrole-Based Near-Infrared Emissive Organic RTP  — AI tldr: A practical solution to prepare long-wavelength and long-lifetime RTP materials and their  | UNVERIFIED | VERIFIED |
 | `158a18ec` | openalex.org | OpenAlex Single-Junction Organic Solar Cell with over 15% Efficiency Using Fuse [Organic Electronics and Photov] | UNVERIFIED | VERIFIED |
 | `c3a5571f` | openalex.org | OpenAlex A Facile Planar Fused-Ring Electron Acceptor for As-Cast Polymer Solar [Organic Electronics and Photov] | UNVERIFIED | VERIFIED |
 | `a09d9ba8` | openalex.org | OpenAlex π-Conjugated molecules with fused rings for organic field-effect trans [Organic Electronics and Photov] | UNVERIFIED | VERIFIED |
@@ -39,7 +47,7 @@ the hard gate of the corroboration law.
 | `869df8ae` | openalex.org | OpenAlex Noncovalently fused-ring electron acceptors with near-infrared absorpt [Organic Electronics and Photov] | UNVERIFIED | VERIFIED |
 | `a3ce61e6` | openalex.org | OpenAlex Fused-ring metallabenzenes [Cyclopropane Reaction Mechanis] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `46bc0133`** (fold of every finding's address — recompute by re-running the search).
+**32 findings · 32 usable search-trial combinations · receipt `abd5d358`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

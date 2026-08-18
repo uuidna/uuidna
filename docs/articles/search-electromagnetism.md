@@ -14,14 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
 | `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
+| `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
 | `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
 | `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
+| `b626e155` | zenodo.org | zenodo record 3242789: Universal Declaration of Human Rights, Volume 02 | UNVERIFIED | VERIFIED |
 | `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
 | `3c3a523b` | zenodo.org | zenodo record 8161027: A Search Tool for Aggregated Information on Open Access | UNVERIFIED | VERIFIED |
-| `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
-| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `f0e5407e` | zenodo.org | zenodo record 16035072: Integrating Open Access Information into the Library Discovery System | UNVERIFIED | VERIFIED |
 | `a14e54d0` | crossref.org | DOI 10.1117/12.3079234.826bcd05-395b-f011-a9aa-005056914f1c:  | UNVERIFIED | VERIFIED |
 | `67e21894` | crossref.org | DOI 10.1117/12.3042172.cb7e5fc4-9443-ef11-a9a2-005056914f1c:  | UNVERIFIED | VERIFIED |
 | `c4e936e9` | crossref.org | DOI 10.1049/sbew514e_ch12: Total field/scattered field formulation | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `4a021e02` | openalex.org | OpenAlex Large electric-field-induced strain in ferroelectric crystals by point [Ferroelectric and Piezoelectri] | UNVERIFIED | VERIFIED |
 | `ad99ceb5` | openalex.org | OpenAlex Photon-Assisted Electric Field Domains and Multiphoton-Assisted Tunnel [Semiconductor Quantum Structur] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `90acc341`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `39ea6943`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

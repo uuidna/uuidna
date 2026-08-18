@@ -16,8 +16,8 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `f325d9d5` | crossref.org | DOI 10.1079/pwkb.20147801385: Groundnut rosette virus. | UNVERIFIED | VERIFIED |
 | `fd0e891b` | crossref.org | DOI 10.1079/pwkb.20167800878: Virus de la rosette de l'arachide | UNVERIFIED | VERIFIED |
-| `2d00a6c4` | crossref.org | DOI 10.1093/benz/9780199773787.article.b00091793: Idzowski, Rosette | UNVERIFIED | VERIFIED |
 | `0d8fb56b` | crossref.org | DOI 10.1093/benz/9780199773787.article.b00037344: Chicotot, Rosette | UNVERIFIED | VERIFIED |
+| `2d00a6c4` | crossref.org | DOI 10.1093/benz/9780199773787.article.b00091793: Idzowski, Rosette | UNVERIFIED | VERIFIED |
 | `246df382` | crossref.org | DOI 10.1093/gmo/9781561592630.article.o900005: Anday, Rosette | UNVERIFIED | VERIFIED |
 | `637f5dc0` | crossref.org | DOI 10.1079/pwkb.20137804391: Groundnut Rosette Disease | UNVERIFIED | VERIFIED |
 | `e604bcb0` | crossref.org | DOI 10.1093/benz/9780199773787.article.b00020102: Bir, Rosette | UNVERIFIED | VERIFIED |
@@ -26,7 +26,7 @@ the hard gate of the corroboration law.
 | `cfd6e270` | openalex.org | OpenAlex Millennium Solutions - The ℤ/9 Vortex Framework [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
 | `e97b4508` | openalex.org | OpenAlex Design and testing of a low-energy and -carbon prototype structure tha [Structural Analysis and Optimi] | UNVERIFIED | VERIFIED |
 
-**11 findings · 11 usable search-trial combinations · receipt `696524e8`** (fold of every finding's address — recompute by re-running the search).
+**11 findings · 11 usable search-trial combinations · receipt `c2e2714b`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

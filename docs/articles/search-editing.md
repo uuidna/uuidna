@@ -16,10 +16,10 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `f6718a99` | zenodo.org | zenodo record 7821663: Transnational Information Literacy Ecosystem Mapping (TILEM) | UNVERIFIED | VERIFIED |
 | `0fc56dc4` | zenodo.org | zenodo record 13373156: The Influence of Product Quality, Promotion and Location on Consumer Purchasing  | UNVERIFIED | VERIFIED |
+| `885f13b9` | zenodo.org | zenodo record 1000937: SEO-DWARF: Semantic EO Data Web Alert and Retrieval Framework: the Project Overv | UNVERIFIED | VERIFIED |
 | `6cca1b88` | zenodo.org | zenodo record 14046652: D2.1 Digitisation report and pilot's best practice | UNVERIFIED | VERIFIED |
 | `68c4fa30` | zenodo.org | zenodo record 21393371: THE EFFECT OF PRE-DEPARTURE TRAINING ON COMPETENCIES OF INDONESIAN INTERNSHIP PA | UNVERIFIED | VERIFIED |
 | `52bba04f` | zenodo.org | zenodo record 21393144: THE EFFECT OF COMPETENCY AND WORK-LIFE BALANCE ON THE PERFORMANCE OF MILLENNIAL  | UNVERIFIED | VERIFIED |
-| `885f13b9` | zenodo.org | zenodo record 1000937: SEO-DWARF: Semantic EO Data Web Alert and Retrieval Framework: the Project Overv | UNVERIFIED | VERIFIED |
 | `e6b6e196` | zenodo.org | zenodo record 21393262: THE ROLE OF DIGITAL COMPETENCE OF HUMAN RESOURCES OF MSMES IN MEDAN CITY IN IMPR | UNVERIFIED | VERIFIED |
 | `e99e0a68` | zenodo.org | zenodo record 3251749: A low mobile data usage gamification scavenger hunt prototype for engineering st | UNVERIFIED | VERIFIED |
 | `01b90918` | crossref.org | DOI 10.1016/b978-0-12-820039-1.00006-7: Mechanism of cut and cut resistance, factors affecting cut resistance, and devel | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `701c84c9` | openalex.org | OpenAlex Extended international (<scp>IOTF</scp>) body mass index cut‐offs for  [Obesity, Physical Activity, Di] | UNVERIFIED | VERIFIED |
 | `5f13281c` | openalex.org | OpenAlex Body mass index cut offs to define thinness in children and adolescent [Obesity, Physical Activity, Di] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `bde70e05`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `19de4f89`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

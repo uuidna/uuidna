@@ -29,7 +29,15 @@ the hard gate of the corroboration law.
 | `4971e374` | crossref.org | DOI 10.3389/fnana.2022.1070035: Cell numbers in the reflected blade of CA3 and their relation to other hippocamp | UNVERIFIED | VERIFIED |
 | `404acb99` | crossref.org | DOI 10.1007/springerreference_23236: reflected ray | UNVERIFIED | VERIFIED |
 | `d99ddbb0` | crossref.org | DOI 10.1007/s00334-015-0552-9: Seven Millennia of human impact as reflected in a high resolution pollen profile | UNVERIFIED | VERIFIED |
-| `5e75815c` | crossref.org | DOI 10.3998/mpub.12734862.cmp.73666810t: Photograph of a rainbow reflected in water | UNVERIFIED | VERIFIED |
+| `112379d7` | crossref.org | DOI 10.1007/springerreference_23235: reflected code | UNVERIFIED | VERIFIED |
+| `f0e07663` | semanticscholar.org | S2 Discovery of Seven Volcanic Outbursts on Io from an Infrared | UNVERIFIED | VERIFIED |
+| `faabb05e` | semanticscholar.org | S2 Seven steps toward more transparency in statistical practice | UNVERIFIED | VERIFIED |
+| `af2aba5e` | semanticscholar.org | S2 Soil resistance to flowing water erosion of seven typical pl | UNVERIFIED | VERIFIED |
+| `f6a9bf73` | semanticscholar.org | S2 The seven deadly sins of DNA barcoding — AI tldr: An assessment of seven deficiencies that are common in the DNA barcoding literature are pr | UNVERIFIED | VERIFIED |
+| `269d24e2` | semanticscholar.org | S2 A case study of organic micropollutants in a major Swedish w — AI tldr: The addition of fresh granulated active carbon seemed to improve the removal of hydrophobi | UNVERIFIED | VERIFIED |
+| `2920c307` | semanticscholar.org | S2 Extraction, identification, and antioxidant and anticancer t — AI tldr: Both glycosylation of the A ring and the ortho phenolic hydroxyl groups of the B ring were | UNVERIFIED | VERIFIED |
+| `2e412625` | semanticscholar.org | S2 Designing for Embodied Being-in-the-World: Two Cases, Seven  — AI tldr: The framework consists of seven principles, of which three support embodied activity in th | UNVERIFIED | VERIFIED |
+| `bd479aa9` | semanticscholar.org | S2 The spin measurement of the black hole in 4U 1543-47 constra | UNVERIFIED | VERIFIED |
 | `bfc3c67a` | openalex.org | OpenAlex Genome-wide association study of 14,000 cases of seven common diseases [Genetic Associations and Epide] | UNVERIFIED | VERIFIED |
 | `d1640996` | openalex.org | OpenAlex Toward the future of psychiatric diagnosis: the seven pillars of RDoC [Mental Health and Psychiatry] | UNVERIFIED | VERIFIED |
 | `267ae5fc` | openalex.org | OpenAlex miRDeep2 accurately identifies known and hundreds of novel microRNA ge [MicroRNA in disease regulation] | UNVERIFIED | VERIFIED |
@@ -39,7 +47,7 @@ the hard gate of the corroboration law.
 | `2e16b855` | openalex.org | OpenAlex The dri thermal/optical reflectance carbon analysis system: descriptio [Atmospheric chemistry and aero] | UNVERIFIED | VERIFIED |
 | `746bea9c` | openalex.org | OpenAlex Thyroid Cancer after Exposure to External Radiation: A Pooled Analysis [Radiation Dose and Imaging] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `7b20a24a`** (fold of every finding's address — recompute by re-running the search).
+**32 findings · 32 usable search-trial combinations · receipt `f9e6aad9`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

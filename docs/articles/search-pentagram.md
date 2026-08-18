@@ -20,8 +20,8 @@ the hard gate of the corroboration law.
 | `4e0b22ee` | zenodo.org | zenodo record 10972221: Multiple Choice Patterns in Selfie Numbers - I | UNVERIFIED | VERIFIED |
 | `4fe5943c` | zenodo.org | zenodo record 2585586: Factorial-Type Selfie Numbers in Digit's Order | UNVERIFIED | VERIFIED |
 | `764c8e4d` | zenodo.org | zenodo record 2609143: Selfie Numbers: Basic Operations | UNVERIFIED | VERIFIED |
-| `fddfb9d5` | zenodo.org | zenodo record 10633471: Multiple Representations of Selfie Numbers - I | UNVERIFIED | VERIFIED |
 | `d9a8b159` | zenodo.org | zenodo record 7473340: 23 and 2023 in Numbers and Patterns | UNVERIFIED | VERIFIED |
+| `fddfb9d5` | zenodo.org | zenodo record 10633471: Multiple Representations of Selfie Numbers - I | UNVERIFIED | VERIFIED |
 | `89615944` | crossref.org | DOI 10.1080/00150517.1975.12430623: Distribution of the First Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `756722a2` | crossref.org | DOI 10.1007/978-94-009-4311-7_3: A Property of Unit Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `e8b125ea` | crossref.org | DOI 10.1080/00150517.1996.12429058: On the Sums of Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `336fa520` | openalex.org | OpenAlex The Fibonacci Association: Memories and Reflections 1962–2024 [Advanced Mathematical Theories] | UNVERIFIED | VERIFIED |
 | `9962d97d` | openalex.org | OpenAlex The BFP (Benford-Fibonacci-Perez) method validates the consistency of  [Benford’s Law and Fraud Detect] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5ca28c31`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `f35163f2`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -14,6 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `4f137a30` | zenodo.org | zenodo record 1435932: Artificial Software Testing Workload | UNVERIFIED | VERIFIED |
+| `460c3c8f` | zenodo.org | zenodo record 1490744: Generated Software Testing Workload | UNVERIFIED | VERIFIED |
+| `75caf661` | zenodo.org | zenodo record 18184854: Simple UUID Server | UNVERIFIED | VERIFIED |
+| `73c5e121` | zenodo.org | zenodo record 2578234: eschnett/FastArrays.jl: Correct UUID | UNVERIFIED | VERIFIED |
+| `3f37bea7` | zenodo.org | zenodo record 14679920: Evaluation datasets and results of the paper "Efficient Online Computation of Bu | UNVERIFIED | VERIFIED |
+| `ba74749f` | zenodo.org | zenodo record 2537838: Dataset for paper "Sharing emotions at scale: The Vent dataset" | UNVERIFIED | VERIFIED |
+| `baf80769` | zenodo.org | zenodo record 21516070: geospace-code/matlab-stdlib: assign UUID "fd5ea185-e475-4416-af11-1c26cb6212b2" | UNVERIFIED | VERIFIED |
+| `884fac7d` | zenodo.org | zenodo record 2590618: eschnett/LibYAML.jl: Correct package UUID | UNVERIFIED | VERIFIED |
 | `a8e9139c` | crossref.org | DOI 10.1007/springerreference_66029: UUID | UNVERIFIED | VERIFIED |
 | `731e4c32` | crossref.org | DOI 10.17487/rfc6355: Definition of the UUID-Based DHCPv6 Unique Identifier (DUID-UUID) | UNVERIFIED | VERIFIED |
 | `d5694dc8` | crossref.org | DOI 10.1007/978-0-387-39940-9_3923: UUID | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `694fc1bc` | openalex.org | OpenAlex Mineralogy and mixing state of north African mineral dust by online si [Atmospheric chemistry and aero] | UNVERIFIED | VERIFIED |
 | `ba085d8c` | openalex.org | OpenAlex The science case and challenges of space-borne sub-millimeter interfer [Astrophysics and Cosmic Phenom] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `bec16322`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `a2c99a6e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

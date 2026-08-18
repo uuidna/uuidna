@@ -16,8 +16,8 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `09f2c587` | zenodo.org | zenodo record 21947143: Computational Self-Discovered Mathematics (CSDM) | UNVERIFIED | VERIFIED |
 | `fb59cf83` | zenodo.org | zenodo record 21947253: 计算智能宇宙分类学 | UNVERIFIED | VERIFIED |
-| `3a4e0488` | zenodo.org | zenodo record 18720470: The Big Question: Is Mathematics Discovered or Invented? | UNVERIFIED | VERIFIED |
 | `a5a072cd` | zenodo.org | zenodo record 16620515: Emotion Formation through AI's Experience and Socialization Human Ver4 | UNVERIFIED | VERIFIED |
+| `3a4e0488` | zenodo.org | zenodo record 18720470: The Big Question: Is Mathematics Discovered or Invented? | UNVERIFIED | VERIFIED |
 | `cf02b356` | zenodo.org | zenodo record 1640024: Breaches of Confidence and Medical Fees at Assurance Offices. | UNVERIFIED | VERIFIED |
 | `694f44c2` | zenodo.org | zenodo record 1959072: Small-Pox Accompanying Vaccination. | UNVERIFIED | VERIFIED |
 | `a00427af` | zenodo.org | zenodo record 2146140: Medical Fees at Assurance Offices. | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `fa2c450e` | openalex.org | OpenAlex Self-organizing neural network that discovers surfaces in random-dot s [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 | `6bdc8156` | openalex.org | OpenAlex Helpseeking for self-discovered breast symptoms. Implications for earl [Global Cancer Incidence and Sc] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5e6d199c`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `b21849c3`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

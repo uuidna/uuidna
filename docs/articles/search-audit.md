@@ -18,10 +18,10 @@ the hard gate of the corroboration law.
 | `d5a96afc` | zenodo.org | zenodo record 17638064: Studies of the Time Response of Electronic Radon Detectors | UNVERIFIED | VERIFIED |
 | `8ead66a0` | zenodo.org | zenodo record 21759908: TWO-STAGE CLASSIFICATION ARCHITECTURES IN MODERN OBJECT DETECTION: FROM REGION P | UNVERIFIED | VERIFIED |
 | `e2fa2ca2` | zenodo.org | zenodo record 3508070: Building... then crossing bridges in support of open research | UNVERIFIED | VERIFIED |
-| `a69a2116` | zenodo.org | zenodo record 8384083: A dataset of open-source android applications collected from F-droid | UNVERIFIED | VERIFIED |
 | `b6add05f` | zenodo.org | zenodo record 5926112: Thelepus cincinnatus | UNVERIFIED | VERIFIED |
 | `c3f398aa` | zenodo.org | zenodo record 8344603: On-site testing of VOC detectors for Indoor Air Quality assessment | UNVERIFIED | VERIFIED |
 | `b3f8cdc1` | zenodo.org | zenodo record 1078514: Assessing Post-Detection Filters for a Generic Pedestrian Detector in a Tracking | UNVERIFIED | VERIFIED |
+| `a69a2116` | zenodo.org | zenodo record 8384083: A dataset of open-source android applications collected from F-droid | UNVERIFIED | VERIFIED |
 | `25a8a845` | crossref.org | DOI 10.1142/9789812819093_0107: IGNORED DISCOVERY NOW PROVEN CAPABLE OF SAVING MILLIONS OF LIVES FROM PREMATURE  | UNVERIFIED | VERIFIED |
 | `54ea419e` | crossref.org | DOI 10.7591/cornell/9781501750373.003.0001: Introduction | UNVERIFIED | VERIFIED |
 | `d4942777` | crossref.org | DOI 10.53347/rid-161861: amyloid biopsy proven | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `cd21a41c` | openalex.org | OpenAlex A Multi-Modal Distributed Real-Time IoT System for Urban Traffic Contr [Advanced Image and Video Retri] | UNVERIFIED | VERIFIED |
 | `dcd8af4d` | openalex.org | OpenAlex Flat-detector computed tomography (FD-CT) [Advanced X-ray and CT Imaging] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `58afbbb3`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `223fc0e7`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

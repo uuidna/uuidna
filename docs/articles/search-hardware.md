@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `0d4a1ff2` | zenodo.org | zenodo record 2613490: Using Windows Server 2012-based storage solutions for small and medium size busi | UNVERIFIED | VERIFIED |
 | `55195a86` | zenodo.org | zenodo record 7064491: The Influence of Human Resource Management Practices on Employees Intention to E | UNVERIFIED | VERIFIED |
 | `72640191` | zenodo.org | zenodo record 4247156: IMPLEMENTATION OF THE METHOD OF IMAGE TRANSFORMATIONS FOR MINIMIZING THE SHEFFER | UNVERIFIED | VERIFIED |
-| `67d4b5c8` | zenodo.org | zenodo record 2613471: Using Linux-based storage solutions for small and medium size business resources | UNVERIFIED | VERIFIED |
+| `3e2b9895` | zenodo.org | zenodo record 14979384: A Simple binary analysis of the Collatz Conjecture | UNVERIFIED | VERIFIED |
 | `d3de5f76` | crossref.org | DOI 10.36227/techrxiv.177223066.62993533/v1: V-PUF: An Ephemeral-Key Decentralized Architecture for Verifiable Hardware Authe | UNVERIFIED | VERIFIED |
 | `4f9117d7` | crossref.org | DOI 10.52202/079017-3030: Optimistic Verifiable Training by Controlling Hardware Nondeterminism | UNVERIFIED | VERIFIED |
 | `dac7fddc` | crossref.org | DOI 10.46586/tches.v2022.i4.163-187: Fast Large-Integer Extended GCD Algorithm and Hardware Design for Verifiable Del | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `2a4d891d` | openalex.org | OpenAlex Cryptanalysis of Algebraic Verifiable Delay Functions [Coding theory and cryptography] | UNVERIFIED | VERIFIED |
 | `acbd5915` | openalex.org | OpenAlex Introduction to differential power analysis [Cryptographic Implementations ] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `67090e93`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `26d89dda`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
