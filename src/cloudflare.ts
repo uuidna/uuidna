@@ -11,6 +11,7 @@
 // that the committed config leaks no secret and the crypto is post-quantum-appropriate. A real deployment audit needs
 // the edge account. It is not a penetration test, not a compliance certification.
 import { toUuid, merkleFold } from './address.js'
+import { rdRoot } from './boundary.js'
 
 export interface BindingAudit {
   binding: string
@@ -30,25 +31,48 @@ export interface CloudflareAudit {
   honest: string
 }
 
-// the committed wrangler.toml bindings, audited (verified by reading the config: assets serve, KV opt-in/commented,
-// TRIAL_KEY a wrangler secret, token-free OIDC publish).
-const BINDINGS: BindingAudit[] = [
-  { binding: 'ASSETS', kind: 'assets', secretInRepo: false, quantumSecure: true,
-    note: 'Static ./site served read-only via env.ASSETS.fetch; run_worker_first intercepts by Host for the license-domain rule. No secret, no state, no crypto target — nothing for Shor or Grover to attack.' },
-  { binding: 'TRIALS', kind: 'kv', secretInRepo: false, quantumSecure: true,
-    note: 'KV persistence is OPT-IN and COMMENTED OUT — no namespace id committed; enabled only by `wrangler kv namespace create`. Until then the worker computes trials but cannot persist. Consent-gated (POST /trials stores only with explicit consent).' },
-  { binding: 'TRIAL_KEY', kind: 'secret', secretInRepo: false, quantumSecure: true,
-    note: 'A SECRET set at the edge (`wrangler secret put TRIAL_KEY`), NEVER in the repo. Signs each trial verdict with HMAC-SHA256 — SYMMETRIC, so no Shor target; Grover only halves it to a ~128-bit floor. A fork recomputes the verdict but cannot forge the signature.' },
-  { binding: 'publish (CI)', kind: 'route', secretInRepo: false, quantumSecure: true,
-    note: 'npm publish is TOKEN-FREE via OIDC with provenance — no long-lived registry token committed or stored; the audit runs (prepublishOnly) before any publish.' },
-]
+// Strip TOML comments (everything from an unescaped '#' to end of line) and blank lines — enough to tell an
+// ACTIVE line (real config) from a commented-out one (documentation/instructions), which is exactly the
+// distinction that matters here: `# id = "REPLACE..."` is a placeholder; `id = "abc123"` is a committed secret.
+const activeLines = (toml: string): string[] => toml.split('\n').map((l) => l.replace(/#.*/, '').trim()).filter(Boolean)
+
+/** Parse the REAL wrangler.toml (not a hand-typed guess) for the three things that actually matter: does the
+ *  ASSETS binding exist as claimed, is the KV namespace still opt-in/uncommitted, and is TRIAL_KEY ever assigned
+ *  a real value in the file (it must never be — only `wrangler secret put` sets it, at the edge, never here). */
+function parseWranglerToml(toml: string): { assetsBindingPresent: boolean; kvIdCommitted: boolean; trialKeyValueCommitted: boolean } {
+  const active = activeLines(toml)
+  const assetsBindingPresent = active.some((l) => /^binding\s*=\s*"ASSETS"$/.test(l))
+  const kvBlockActive = active.some((l) => l === '[[kv_namespaces]]')
+  const idLine = kvBlockActive ? active.find((l) => /^id\s*=\s*"/.test(l)) : undefined
+  const idValue = idLine?.match(/^id\s*=\s*"([^"]*)"/)?.[1]
+  const kvIdCommitted = !!idValue && idValue !== 'REPLACE_WITH_THE_ID_FROM_wrangler_kv_namespace_create'
+  const trialKeyValueCommitted = active.some((l) => /^TRIAL_KEY\s*=/.test(l))
+  return { assetsBindingPresent, kvIdCommitted, trialKeyValueCommitted }
+}
 
 /** auditCloudflareBindings() → the recomputable audit of the Cloudflare Workers bindings: no secret is committed, and
  *  every binding is post-quantum-appropriate (symmetric or no crypto target). Deterministic; folds to one content-
- *  address. Reflects the committed config posture, NOT the live edge deployment. Integrity, not truth. */
+ *  address. Reflects the committed config posture, NOT the live edge deployment. Integrity, not truth.
+ *  Actually reads wrangler.toml (via boundary.ts's rdRoot) rather than asserting a hand-typed snapshot of it —
+ *  a real KV id or secret pasted into the file moves secretInRepo/clean, it doesn't silently keep reporting clean. */
 export function auditCloudflareBindings(): CloudflareAudit {
+  const parsed = parseWranglerToml(rdRoot('wrangler.toml'))
+  const BINDINGS: BindingAudit[] = [
+    { binding: 'ASSETS', kind: 'assets', secretInRepo: false, quantumSecure: true,
+      note: parsed.assetsBindingPresent
+        ? 'Static ./site served read-only via env.ASSETS.fetch; run_worker_first intercepts by Host for the license-domain rule. No secret, no state, no crypto target — nothing for Shor or Grover to attack.'
+        : 'EXPECTED an ASSETS binding in wrangler.toml but did not find one — the committed config no longer matches what this audit assumes.' },
+    { binding: 'TRIALS', kind: 'kv', secretInRepo: parsed.kvIdCommitted, quantumSecure: true,
+      note: parsed.kvIdCommitted
+        ? 'A REAL KV namespace id is committed in wrangler.toml — this WAS opt-in/commented-out by default; something enabled it. Verify this id is meant to be public before treating this as clean.'
+        : 'KV persistence is OPT-IN and COMMENTED OUT — no namespace id committed; enabled only by `wrangler kv namespace create`. Until then the worker computes trials but cannot persist. Consent-gated (POST /trials stores only with explicit consent).' },
+    { binding: 'TRIAL_KEY', kind: 'secret', secretInRepo: parsed.trialKeyValueCommitted, quantumSecure: true,
+      note: parsed.trialKeyValueCommitted
+        ? 'TRIAL_KEY is assigned a VALUE directly in wrangler.toml — it must be a wrangler secret (`wrangler secret put TRIAL_KEY`), never a committed value. This is a real leak, not the expected posture.'
+        : 'A SECRET set at the edge (`wrangler secret put TRIAL_KEY`), NEVER in the repo. Signs each trial verdict with HMAC-SHA256 — SYMMETRIC, so no Shor target; Grover only halves it to a ~128-bit floor. A fork recomputes the verdict but cannot forge the signature.' },
+  ]
   const secretsInRepo = BINDINGS.filter((b) => b.secretInRepo).length
-  const clean = secretsInRepo === 0 && BINDINGS.every((b) => b.quantumSecure)
+  const clean = secretsInRepo === 0 && parsed.assetsBindingPresent && BINDINGS.every((b) => b.quantumSecure)
   return {
     worker: 'worker.js (uuidna.com edge — license-domain enforcement + trial CRUD)',
     bindings: BINDINGS,

@@ -5,17 +5,17 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1223,
-        "keys": 1307,
+        "distinct": 1224,
+        "keys": 1308,
         "renamings": 84,
         "principles": 72,
         "skills": 68,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "e568e82d-faeb-8b1b-9384-db4379647412"
+        "ledgerReceipt": "bfa01117-cb77-8af5-b605-59aadea2ee42"
       },
-      "address": "f0e049db-a7a1-81dd-a7f0-cef5b570e77e"
+      "address": "8071076a-2fc4-8c5c-b0b6-2fea8c26030d"
     },
     {
       "title": "Heartbeat coverage",
@@ -23,11 +23,11 @@
       "present": true,
       "facts": {
         "theoremsMeasured": 1307,
-        "ledgerKeys": 1307,
-        "unmeasured": 0,
+        "ledgerKeys": 1308,
+        "unmeasured": 1,
         "summedDecideSteps": 323080
       },
-      "address": "a679dc3f-476f-80d1-81ab-838043d55c28"
+      "address": "34c29eac-0d0e-840f-a99d-6dc441f64036"
     },
     {
       "title": "Citation audit",
@@ -75,6 +75,6 @@
       "address": "1a73c855-5f8f-8698-a202-5d6f32c2fa97"
     }
   ],
-  "receipt": "d925b218-59ea-822d-a52d-fde9f4013ba5",
+  "receipt": "5a3a1535-e615-83bb-a94c-63f7263e37d3",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
