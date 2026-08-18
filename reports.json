@@ -59,10 +59,10 @@
       "present": true,
       "facts": {
         "workspaces": 6,
-        "version": "0.2.0",
+        "version": "0.2.1",
         "names": "@uuidna/crypto, @uuidna/edge, @uuidna/ledger, @uuidna/mcp, @uuidna/quantum, @uuidna/research"
       },
-      "address": "5fd5d2f8-b886-8191-9947-cb7b6fcb697c"
+      "address": "ee1b2060-ee9f-887c-99c7-3a7339e37930"
     },
     {
       "title": "Deployment readiness",
@@ -75,6 +75,6 @@
       "address": "1a73c855-5f8f-8698-a202-5d6f32c2fa97"
     }
   ],
-  "receipt": "8fa32c9c-28b3-8dd5-925d-c1485a6213f0",
+  "receipt": "c90c11d9-58bf-83ba-a4b4-77e527249192",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
