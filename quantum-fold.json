@@ -8,8 +8,8 @@
     },
     "served": {
       "packages": "5aacd0af35a35c23",
-      "exports": "30bc2a4a11915644",
-      "mcp": "0cdac8336b05a685"
+      "exports": "a3c61c92469b1b74",
+      "mcp": "66ce536b6802a772"
     },
     "proven": {
       "tests": "0c8f2497f8bf9cbd",
@@ -29,31 +29,31 @@
   },
   "trinity_folds": {
     "sealed": "c20f72f0b76a287cb3054ce741713d54",
-    "served": "129a46be459585d0023778ba57829622",
+    "served": "74f165c4bfd7ed91a8bae5091758673a",
     "proven": "fa73128c94e37edc765a3a30b4e0ee2f",
     "record": "824d525b27b306bd4fc4e491d658587f",
     "walks": "0f6f09cbe55925585c9043f4b28a6e02"
   },
-  "unified_fold": "fcdcc10c579d95fc",
-  "receipt": "517c227c3f8fd7af",
+  "unified_fold": "bd90691075a900b4",
+  "receipt": "9645f6bd0330b9e4",
   "rosette_receipt": {
     "rays": [
       "4c59783d1459c1bc",
       "3a8d773151b99d0b",
       "81d802b9f37864bd",
       "a20454282e566346",
-      "510e36e145dc0791",
+      "4602a1126be12cff",
       "a761502744407dcd",
-      "baf30ed7417bb983"
+      "3d984b0a16b6e122"
     ],
-    "concurrence": "aeafed421f169e5159d3dbfdc5432e96"
+    "concurrence": "e700316dc6b6ba914f9d115f8a5e0fd0"
   },
   "aura": {
-    "rgb": "#e13d7c",
-    "hsl": "hsl(23, 73%, 56%)",
+    "rgb": "#c8d73c",
+    "hsl": "hsl(66, 66%, 54%)",
     "alphabet": "b6819334641853db",
     "movie": "d95d09736db683b6",
-    "lessons": "61cacb387a26dbb1",
+    "lessons": "363c4b858eb5c055",
     "report": "940001b6ff9bd2fc",
     "session": "7d04d2e0d0f40847",
     "coverage": {
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 3,
-      "ray": 5,
-      "wave": 8,
-      "hue": 23,
-      "sat": 73,
-      "light": 56,
-      "period": 22,
+      "residue": 8,
+      "ray": 2,
+      "wave": 4,
+      "hue": 66,
+      "sat": 66,
+      "light": 54,
+      "period": 16,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

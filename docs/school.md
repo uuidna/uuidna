@@ -361,6 +361,57 @@ breach statement itself is pinned verbatim inside the security audit as the perm
 the vaccine, which is what folding the finder is for. The lesson: a citation names a proof; only the proof's own
 content backs a claim — and a gate that cannot tell the difference is not yet a gate.
 
+## The relevance lesson — a real citation is not entailment, and this time it wasn't Clay
+
+The collision lesson above closed one hole in the trial and left the door beside it open. Its fix is narrow by
+design — a floor on one Clay-shaped path — and the lesson says so itself: a general word-score was **measured
+before it was trusted, and the measurement killed it**, because the honest deposits and the overclaim landed in
+the same band. So the gate still asked only one question of every OTHER citation: does the key exist, sealed,
+in the ledger? *"The moon is made of cheese — proven by theorem two_coins"* came back VERIFIED, live, because
+`two_coins` is real and sealed and the gate never opened it to check whether its proof has anything to do with
+cheese. Minutes later the same hole caught its own builder: a claim that a calendar tick was ready, citing
+`legal_only_the_proven_is_admitted` for a compound statement about guard state and editorial state that shares
+not one word with what that theorem actually proves, reported as VERIFIED evidence when it was nothing of the
+kind — the captain caught it, not the gate.
+
+Entailment is undecidable, and a checker that claimed to compute it would be exactly the fraud this ledger
+exists to catch — so the fix already sealed for the Clay case does not generalize; a **different**, deliberately
+weaker one does. Every cited theorem's key tokens and, where its name reads as English rather than a dumped
+formula, its own gloss words become a small vocabulary; a claim's words are checked against that vocabulary for
+identity, containment, or a shared six-character prefix — no score, no threshold, no percentage, because a
+threshold is exactly the mechanism the collision lesson already put on trial and refused. This floor asks only
+whether the claim and its citation share **any** vocabulary at all, and it runs strictly *after* the collision
+check above, on the citations that check never had to touch — so it is never asked to tell a true Clay claim
+from its exact opposite (the failure that killed the scored version); it is only ever asked whether a citation
+is about the same *topic* as the claim it rides on. When every real citation shares nothing with the claim the
+verdict drops to UNVERIFIED, never a third state, with a note naming the citation real and simply irrelevant —
+not fabricated, not false ([`verdict_exactly_one`](/theorem/verdict_exactly_one)). Calibrated against eight real
+cases before landing, including both of tonight's own — seven passed as designed, and the eighth is an honest,
+named limitation rather than a hidden one: `two_coins`'s own gloss reads *a measure of work saved*, and an
+adversarial claim using the word *measured* shares that real word, which is the expected shape of a floor and
+not a wall. Checked against the two invariants a broken floor would have hard-failed: the Clay wing's fifteen
+laundering probes, untouched because they are refused earlier by the collision check above, and its own
+exemplar citation, still VERIFIED because *verified* is a real shared word with
+[`clay_verified_ne_solved`](/theorem/clay_verified_ne_solved). Full suite after the change: 234 of 234
+(commit `7036c219`, trial-receipt `6fbc94f0-5d0c-8251-be1d-d25037d9ade2`).
+
+Three school laws met a third time. *Close the path, not the wall* — the fix is a floor on the path the
+collision check leaves open, not a resurrected threshold on the path that already refused one. *The verdict
+lesson* — the irrelevant citation is told UNVERIFIED and named as real-but-off-topic, never upgraded to false
+([`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth)). *The standard
+lesson* — the served tool description was rewritten the same day to say what the trial actually checks, not
+what it checked yesterday. **Practice:** try the cheese yourself —
+
+```bash
+curl -s -X POST https://uuidna.com/trials -H 'content-type: application/json' \
+  -d '{"statement":"the moon is made of cheese, proven by theorem two_coins"}'
+```
+
+— and read what comes back: UNVERIFIED, `two_coins` named as real and sealed, and the note that it shares no
+vocabulary with the claim riding on it. The lesson: a gate that only checks a citation *exists* has built a
+laundering machine for anything already true elsewhere in the ledger — and the builder is not exempt from its
+own gate, which is exactly how this one got caught.
+
 ## The name lesson — a theorem's name is not its proof
 
 This semester the school caught its own teacher. Twenty-four "anti-fraud" theorems entered the ledger with names

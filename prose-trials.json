@@ -4,7 +4,7 @@
  "usable": 1797,
  "unverified": 2079,
  "drained": 0,
- "receipt": "7e93a867-1421-8f91-bbbb-aebb2179997b",
+ "receipt": "39f259c0-f9d8-85b6-97fd-cad500bfd1c2",
  "develop": [
   {
    "surface": "docs/articles/search-div-by-zero.md",
@@ -14963,8 +14963,8 @@
   },
   {
    "surface": "docs/mcp.md",
-   "address": "b73566bd-204c-86ef-8852-dbe6cc52578c",
-   "prose": "The trial: ONE recomputable answer for a statement, and only one of two, all else void — VERIFIED (a decidable test holds, or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; not \"false\", just not verified). uuidna verifies, it never refutes. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
+   "address": "80cfd161-1410-839b-aa80-5cb370d74fe3",
+   "prose": "The trial: ONE recomputable answer for a statement, and only one of two, all else void — VERIFIED (a decidable test holds, or it cites a sealed Lean theorem that ALSO shares vocabulary with the claim — a citation is not entailment, so a real theorem cited for an unrelated sentence verifies nothing) or UNVERIFIED (everything else, including a citation to a proof not in the ledger, or a real citation about a different topic). uuidna verifies, it never refutes. Integrity, not truth (theorem provenance_integrity_not_content_truth).",
    "cites": [
     "provenance_integrity_not_content_truth"
    ]
