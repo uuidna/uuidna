@@ -31,6 +31,33 @@ export const ROOT = join(HERE, '..', '..')
 // The general rule, from which both follow: EVIDENCE MUST COME FROM SOMEWHERE ELSE. A file is never its own
 // witness, and a check is never satisfied by the sentence describing it.
 
+// ── FALSIFIABILITY — AN AUDIT THAT CANNOT FAIL IS NOT AN AUDIT. The ledger already refuses a THEOREM that is
+// true regardless of its content (vacuousGaps: x = x, P ∨ ¬P). The same disease reaches running code, where it is
+// harder to see because the result is a green boolean rather than a trivial statement. Met 2026-08-19 in
+// domain-wave: its per-wing audit reported `orderInvariant` by comparing a fold against the fold of the reversed
+// input — but merkleFold SORTS its leaves, so the comparison is true for every input. It reported 72/72 across
+// every wing, and the number was unearnable. Checked over 492 permutations across sizes 0..40: never false.
+//
+// THE LAW: every audit ships with the mutation that breaks it. If no input makes the check say no, the check is
+// measuring the shape of its own implementation, not the thing it claims to audit — and it will report success
+// forever, including on the day the thing it guards is broken.
+//
+// This cannot be detected statically in general: knowing how to mutate an input is domain knowledge, not syntax.
+// So it is a discipline with a tool rather than a finder — falsify() below makes the mutation case uniform and
+// cheap enough that omitting it is a choice rather than an oversight. Compare the recompute audit that replaced
+// the vacuous one: an address is toUuid(key + ':' + statement), so tampering with either must break it, and
+// domain-wave.test.ts asserts exactly that.
+
+/** Run a check against its subject AND against mutations that MUST break it. Returns whether the check holds on
+ *  the real subject, and which mutations it FAILED to catch — a falsifiable check catches every one. Pure: no
+ *  assertions, no I/O, so callers assert on the result and the helper stays usable anywhere. */
+export function falsify<T>(subject: T, check: (x: T) => boolean, mutations: readonly ((x: T) => T)[]): { holds: boolean; survived: number[] } {
+  return {
+    holds: check(subject),
+    survived: mutations.map((m, i) => (check(m(subject)) ? i : -1)).filter((i) => i >= 0),
+  }
+}
+
 /** Drop the candidate's own source from a corpus before asking whether anything else refers to it — a file must
  *  never be its own witness. Pass the candidate's filename and the map of every file being scanned. */
 export function selfExcluded(candidate: string, sources: ReadonlyMap<string, string>): string {
