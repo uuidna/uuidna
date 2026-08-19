@@ -1,0 +1,39 @@
+// site-contents — the site's table of contents, held to the same three properties books.ts holds a text's to:
+// an ORDER (index), an ADDRESS per chapter, and a ROOT that folds them. bookContents gives a text exactly that
+// (chapters + chapterRoot); the sidebar had headings and order but no addresses and no root, so nothing could
+// tell whether the contents had silently changed. These tests hold the parity.
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { siteContents, computeSidebar } from '../site.js'
+
+test('site contents is a book: every chapter carries an index, a heading and its own address', () => {
+  const c = siteContents()
+  assert.ok(c.chapters.length > 0, 'a site with no contents is not a book')
+  c.chapters.forEach((ch, i) => {
+    assert.equal(ch.index, i, 'chapters are ORDERED — index is position, not decoration')
+    assert.ok(ch.heading.length > 0)
+    assert.match(ch.address, /^[0-9a-f-]{36}$/)
+    assert.ok(ch.entries > 0, `chapter "${ch.heading}" holds no pages`)
+  })
+})
+
+test('the contents root folds every chapter, and recomputes', () => {
+  const a = siteContents()
+  assert.match(a.contentsRoot, /^[0-9a-f-]{36}$/)
+  assert.deepEqual(siteContents(), a, 'the contents must be deterministic — same tree, same root')
+})
+
+test('chapter addresses are distinct — no two chapters fold alike', () => {
+  const addrs = siteContents().chapters.map((c) => c.address)
+  assert.equal(new Set(addrs).size, addrs.length)
+})
+
+test('the contents covers the whole sidebar — no group is dropped on the way to the book', () => {
+  const groups = computeSidebar()
+  const c = siteContents()
+  assert.equal(c.chapters.length, groups.length)
+  assert.deepEqual(c.chapters.map((x) => x.heading), groups.map((g) => g.text))
+  // and every page the sidebar shows is counted by exactly one chapter
+  const shown = groups.reduce((n, g) => n + g.items.length, 0)
+  assert.equal(c.chapters.reduce((n, ch) => n + ch.entries, 0), shown)
+})

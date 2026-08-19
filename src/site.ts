@@ -6,6 +6,8 @@
 import { theorems, SKILLS } from './theorems/index.js'
 import { publications } from './publish.js'
 import { lsRoot } from './boundary.js'
+import { toUuid } from './address.js'
+import { merkleRoot } from './merkle.js'
 
 /** A page in the graph — its route and a short human label for the pager. */
 export interface PageNode { route: string; text: string }
@@ -66,6 +68,29 @@ const labelOf = (route: string): string => LABELS[route] ??
   route.replace(/^\//, '').replace(/[-/]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 
 export interface SidebarGroup { text: string; items: { text: string; link: string }[] }
+
+/** THE SITE'S CONTENTS, ORGANISED THE WAY A BOOK'S IS. books.ts reads a text into `chapters` — each with an
+ *  index, a heading and its own address — and folds them to a `chapterRoot` that proves any chapter belongs.
+ *  The sidebar had the headings and the order but neither of the other two, so nothing could tell whether the
+ *  table of contents had silently changed. This gives it the same three properties, computed from the same
+ *  live page tree computeSidebar() walks.
+ *  HONEST SCOPE: the STRUCTURE is computed and addressed; the five group NAMES stay authored, because "The
+ *  captain" and "The terms" are editorial groupings that exist nowhere in the ledger — deriving them would mean
+ *  inventing them. Values compute, prose stays authored, exactly as elsewhere. */
+export interface ContentsEntry { index: number; heading: string; link: string; entries: number; address: string }
+export interface SiteContents { title: string; chapters: ContentsEntry[]; contentsRoot: string }
+
+export function siteContents(title = 'uuidna'): SiteContents {
+  const chapters = computeSidebar().map((g, index) => ({
+    index,
+    heading: g.text,
+    link: g.items[0]?.link ?? '/',
+    entries: g.items.length,
+    // a chapter's address folds its heading with every page it holds — a page added, removed or renamed moves it
+    address: toUuid('contents:' + g.text + ':' + g.items.map((i) => i.link).join(',')),
+  }))
+  return { title, chapters, contentsRoot: merkleRoot(chapters.map((c) => toUuid(c.address))) }
+}
 
 /** computeSidebar() → the live VitePress sidebar, computed from the REAL page tree (discoverStaticPages) grouped
  *  by SIDEBAR_CATEGORIES — a page that exists but was never added to a category still appears, under "More",
