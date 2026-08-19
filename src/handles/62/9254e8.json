@@ -1,0 +1,12 @@
+{
+  "handle": "629254e8",
+  "address": "629254e8-09cc-8b18-846f-2b6de66ccb8d",
+  "statement": "3 - 1 = 2",
+  "tactic": "decide",
+  "keys": [
+    "distance_three_detects_two"
+  ],
+  "files": [
+    "Codes.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5c26b79b",
+  "address": "5c26b79b-a108-8282-86a1-0b1c76a65b74",
+  "statement": "2^0 = 1",
+  "tactic": "decide",
+  "keys": [
+    "oos_platform_trust"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

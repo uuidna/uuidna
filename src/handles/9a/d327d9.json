@@ -1,0 +1,12 @@
+{
+  "handle": "9ad327d9",
+  "address": "9ad327d9-1441-8e40-968b-f096f551cbaa",
+  "statement": "12 < 13",
+  "tactic": "decide",
+  "keys": [
+    "length_contraction"
+  ],
+  "files": [
+    "Relativity.lean"
+  ]
+}

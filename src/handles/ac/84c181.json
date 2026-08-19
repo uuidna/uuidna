@@ -1,0 +1,12 @@
+{
+  "handle": "ac84c181",
+  "address": "ac84c181-cfe3-84d1-a99e-72ccf59d0c7a",
+  "statement": "(0 * 4) % 7 = 0",
+  "tactic": "decide",
+  "keys": [
+    "z7mul_0_4"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

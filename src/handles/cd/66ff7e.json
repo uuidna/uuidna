@@ -1,0 +1,12 @@
+{
+  "handle": "cd66ff7e",
+  "address": "cd66ff7e-df17-838d-a720-573cf582b7be",
+  "statement": "3 * 0 = 0",
+  "tactic": "decide",
+  "keys": [
+    "oos_physical_sidechannel"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

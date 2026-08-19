@@ -1,0 +1,12 @@
+{
+  "handle": "3eaa8898",
+  "address": "3eaa8898-fb20-8800-b871-8447d1bfd189",
+  "statement": "30 - 9 > 17",
+  "tactic": "decide",
+  "keys": [
+    "ionic_threshold"
+  ],
+  "files": [
+    "Molecular.lean"
+  ]
+}

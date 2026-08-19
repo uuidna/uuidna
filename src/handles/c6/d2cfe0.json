@@ -1,0 +1,12 @@
+{
+  "handle": "c6d2cfe0",
+  "address": "c6d2cfe0-59a4-8a70-9828-2c5e8cfc2ec7",
+  "statement": "6 * 50 = 3 * 100",
+  "tactic": "decide",
+  "keys": [
+    "inverse_at_fixed_c"
+  ],
+  "files": [
+    "Spectrum.lean"
+  ]
+}

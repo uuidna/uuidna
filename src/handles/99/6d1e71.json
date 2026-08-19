@@ -1,0 +1,12 @@
+{
+  "handle": "996d1e71",
+  "address": "996d1e71-0bdd-8522-918e-833491e10cd7",
+  "statement": "(([0,1,2,4,8,7,5,3,6,9,0,1].map dz).map dz) = [0,1,2,4,8,7,5,3,6,9,0,1]",
+  "tactic": "decide",
+  "keys": [
+    "tour_contra_involutes"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

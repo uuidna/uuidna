@@ -1,0 +1,12 @@
+{
+  "handle": "a27c19df",
+  "address": "a27c19df-9737-8dd7-8e47-48e7d6d4f9d4",
+  "statement": "sig (sig (3,7)) = (3,7) ∧ tau (tau (3,7)) = (3,7) ∧ kap (kap (3,7)) = (3,7) ∧ sig (kap (3,7)) = tau (3,7) ∧ tau (kap (3,7)) = sig (3,7) -- the multiplication ∧ (sig (1,5)).1 = 1 ∧ tau (1,9) = (1,9) -- line invariant; τ fixes the line ∧ tau (0,4) = (2,4) ∧ (0:Int) ≠ 1 ∧ (2:Int) ≠ 1",
+  "tactic": "decide",
+  "keys": [
+    "involution_group"
+  ],
+  "files": [
+    "Uuidna.lean"
+  ]
+}

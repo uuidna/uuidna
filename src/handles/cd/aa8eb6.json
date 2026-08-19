@@ -1,0 +1,12 @@
+{
+  "handle": "cdaa8eb6",
+  "address": "cdaa8eb6-8703-8a12-a51e-dd1cc000aa41",
+  "statement": "3840 * 2160 = 4 * (1920 * 1080)",
+  "tactic": "decide",
+  "keys": [
+    "uhd_is_four_times_hd"
+  ],
+  "files": [
+    "Editing.lean"
+  ]
+}

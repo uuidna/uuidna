@@ -1,0 +1,12 @@
+{
+  "handle": "0244de87",
+  "address": "0244de87-2d6d-869c-b82f-618a3d601dc6",
+  "statement": "14 > 12 ∧ 14 = 12 + 2",
+  "tactic": "decide",
+  "keys": [
+    "leading_exceeds_type"
+  ],
+  "files": [
+    "Typesetting.lean"
+  ]
+}

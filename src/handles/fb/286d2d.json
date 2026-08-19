@@ -1,0 +1,12 @@
+{
+  "handle": "fb286d2d",
+  "address": "fb286d2d-6ffe-8db5-9973-081ce9a9ee02",
+  "statement": "([1,2,3,4] : List Nat) ≠ [1,2,0,4]",
+  "tactic": "decide",
+  "keys": [
+    "single_byte_tamper_is_detected"
+  ],
+  "files": [
+    "Os.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a0cc9da5",
+  "address": "a0cc9da5-ca2b-838c-a9cb-14604f19d9f8",
+  "statement": "3 + 1 = 4",
+  "tactic": "decide",
+  "keys": [
+    "plasma_fourth_state"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

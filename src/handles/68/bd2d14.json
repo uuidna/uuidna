@@ -1,0 +1,12 @@
+{
+  "handle": "68bd2d14",
+  "address": "68bd2d14-952d-81eb-9451-882dc6f47fe6",
+  "statement": "([true, false].all (fun p => [true, false].all (fun q => [true, false].all (fun r => !((!p || q) && (!q || r)) || (!p || r))))) = true",
+  "tactic": "decide",
+  "keys": [
+    "hypothetical_syllogism"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

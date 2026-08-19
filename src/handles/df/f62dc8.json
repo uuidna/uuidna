@@ -1,0 +1,12 @@
+{
+  "handle": "dff62dc8",
+  "address": "dff62dc8-6236-88f9-82c2-8d2df13170ff",
+  "statement": "(List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9)",
+  "tactic": "decide",
+  "keys": [
+    "mirror_congruence"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

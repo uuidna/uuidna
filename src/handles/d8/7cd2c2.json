@@ -1,0 +1,12 @@
+{
+  "handle": "d87cd2c2",
+  "address": "d87cd2c2-1870-8047-b73e-65386dedccc1",
+  "statement": "48 + 48 - 12 = 84",
+  "tactic": "decide",
+  "keys": [
+    "crossfade_overlap"
+  ],
+  "files": [
+    "Editing.lean"
+  ]
+}

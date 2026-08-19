@@ -1,0 +1,12 @@
+{
+  "handle": "d23b0a54",
+  "address": "d23b0a54-7669-82a7-9493-8204ea20167b",
+  "statement": "((List.range 8).filter (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 1)) = [0]",
+  "tactic": "decide",
+  "keys": [
+    "honesty_gate_passes_iff_all_sealed"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

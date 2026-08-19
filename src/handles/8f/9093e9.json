@@ -1,0 +1,12 @@
+{
+  "handle": "8f9093e9",
+  "address": "8f9093e9-2a53-8ca8-944c-96889ada3de7",
+  "statement": "(List.range 9).all (fun x => (if x >= 5 then 1 else 0) <= (if x + 1 >= 5 then 1 else 0))",
+  "tactic": "decide",
+  "keys": [
+    "firing_monotone"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

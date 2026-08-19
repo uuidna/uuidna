@@ -1,0 +1,12 @@
+{
+  "handle": "742e09f8",
+  "address": "742e09f8-b1eb-8b0d-b5cd-59f30b108802",
+  "statement": "(List.range 4).all (fun i => (let m := (i % 2) * (i / 2 % 2); (1 - 2*(m:Int)) * (1 - 2*(m:Int))) == 1)",
+  "tactic": "decide",
+  "keys": [
+    "cz_involution"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1196dd69",
+  "address": "1196dd69-7026-854b-ac70-8344eb98c2e3",
+  "statement": "6 * 4 = 24",
+  "tactic": "decide",
+  "keys": [
+    "clifford_group_order_24"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

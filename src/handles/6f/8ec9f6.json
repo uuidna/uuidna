@@ -1,0 +1,12 @@
+{
+  "handle": "6f8ec9f6",
+  "address": "6f8ec9f6-9a4c-8390-8a48-7a302c6a0dbe",
+  "statement": "500 + 80 + 3 = 583",
+  "tactic": "decide",
+  "keys": [
+    "glagolitic_additive"
+  ],
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

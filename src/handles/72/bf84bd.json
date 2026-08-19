@@ -1,0 +1,12 @@
+{
+  "handle": "72bf84bd",
+  "address": "72bf84bd-c7b6-819c-b15f-1f16b7183964",
+  "statement": "((1 * 1 : Int) > 0) ∧ ((1 * (-1) : Int) < 0)",
+  "tactic": "decide",
+  "keys": [
+    "coulomb_sign"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

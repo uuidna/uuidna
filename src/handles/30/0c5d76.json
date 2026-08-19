@@ -1,0 +1,12 @@
+{
+  "handle": "300c5d76",
+  "address": "300c5d76-3ea1-843f-a7cb-fca17990867d",
+  "statement": "3 * 5 * 23 = 345",
+  "tactic": "decide",
+  "keys": [
+    "fold_integrity_tamper"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

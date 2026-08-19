@@ -1,0 +1,12 @@
+{
+  "handle": "0139c65f",
+  "address": "0139c65f-b413-8394-8014-dfce8de9d588",
+  "statement": "(([42,7,42].filter (fun x => x == 42)).length = 2) ∧ (([42,7,42].filter (fun x => x == 7)).length = 1)",
+  "tactic": "decide",
+  "keys": [
+    "sailing_cross_book_resonance_match"
+  ],
+  "files": [
+    "SailingSeals.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4fc43005",
+  "address": "4fc43005-1181-8959-a042-85d2fa63c34d",
+  "statement": "(8 / 4 = 2) ∧ (2 * 4 = 8)",
+  "tactic": "decide",
+  "keys": [
+    "lever_ratio_is_exact_division"
+  ],
+  "files": [
+    "MartialArts.lean"
+  ]
+}

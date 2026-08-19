@@ -1,0 +1,12 @@
+{
+  "handle": "5da16e9f",
+  "address": "5da16e9f-3c3c-8344-87a9-156c9991bb30",
+  "statement": "(5 + 2) % 9 = 7",
+  "tactic": "decide",
+  "keys": [
+    "z9add_5_2"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

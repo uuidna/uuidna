@@ -1,0 +1,12 @@
+{
+  "handle": "cab1b090",
+  "address": "cab1b090-5f58-8a17-942e-83df2ee891d0",
+  "statement": "(List.range 5).all (fun x => (if x >= 5 then 1 else 0) == 0)",
+  "tactic": "decide",
+  "keys": [
+    "subthreshold_silent"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

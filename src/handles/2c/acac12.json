@@ -1,0 +1,12 @@
+{
+  "handle": "2cacac12",
+  "address": "2cacac12-61be-8c42-b862-3638a05523a8",
+  "statement": "(4 ^ 5) % 9 = 7",
+  "tactic": "decide",
+  "keys": [
+    "z9pow_4_5"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4e448e6a",
+  "address": "4e448e6a-093b-8238-9c72-b33905412766",
+  "statement": "(340 = 170 * 2) ∧ (340 = 340 * 1)",
+  "tactic": "decide",
+  "keys": [
+    "wave_speed_f_lambda"
+  ],
+  "files": [
+    "Acoustics.lean"
+  ]
+}

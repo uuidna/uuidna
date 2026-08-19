@@ -1,0 +1,12 @@
+{
+  "handle": "cb466287",
+  "address": "cb466287-f63d-84df-a772-f3c5a9e017fe",
+  "statement": "(([1,0,0,1] : List Nat).map (fun a => a * a)) = [1,0,0,1]",
+  "tactic": "decide",
+  "keys": [
+    "bell_born_weights"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d60c4e95",
+  "address": "d60c4e95-5ff2-88c7-852a-c39a7febf1c1",
+  "statement": "50 + 50 = 100",
+  "tactic": "decide",
+  "keys": [
+    "beam_reactions"
+  ],
+  "files": [
+    "Statics.lean"
+  ]
+}

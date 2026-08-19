@@ -1,0 +1,12 @@
+{
+  "handle": "852a36b9",
+  "address": "852a36b9-4863-83e2-8a8a-dc8cd500dc69",
+  "statement": "40 * 55 < 40 * 100",
+  "tactic": "decide",
+  "keys": [
+    "helium_reduces_narcosis"
+  ],
+  "files": [
+    "Diving.lean"
+  ]
+}

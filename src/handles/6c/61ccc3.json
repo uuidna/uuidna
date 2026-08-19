@@ -1,0 +1,12 @@
+{
+  "handle": "6c61ccc3",
+  "address": "6c61ccc3-3dc9-8865-9816-7a4c65908997",
+  "statement": "(2*1 + (-2) : Int) = 0",
+  "tactic": "decide",
+  "keys": [
+    "oxidation_states_sum"
+  ],
+  "files": [
+    "Chemistry.lean"
+  ]
+}

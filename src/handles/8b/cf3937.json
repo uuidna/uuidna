@@ -1,0 +1,12 @@
+{
+  "handle": "8bcf3937",
+  "address": "8bcf3937-01e6-831c-a9c2-74a282c344c7",
+  "statement": "12 * 30 = 360",
+  "tactic": "decide",
+  "keys": [
+    "zodiac_ecliptic_360"
+  ],
+  "files": [
+    "Astronomy.lean"
+  ]
+}

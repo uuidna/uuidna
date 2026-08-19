@@ -1,0 +1,12 @@
+{
+  "handle": "b17d0f78",
+  "address": "b17d0f78-e7fd-81fa-8c74-38225fc6e1bc",
+  "statement": "1*0 + 1*10 = 2 * 5",
+  "tactic": "decide",
+  "keys": [
+    "center_of_mass"
+  ],
+  "files": [
+    "Statics.lean"
+  ]
+}

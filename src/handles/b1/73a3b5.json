@@ -1,0 +1,12 @@
+{
+  "handle": "b173a3b5",
+  "address": "b173a3b5-9f64-8ed3-ab20-b2454bb05122",
+  "statement": "3 * (6 + 6) = 6 * 6",
+  "tactic": "decide",
+  "keys": [
+    "parallel_resistance"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1d9235f4",
+  "address": "1d9235f4-2827-8264-8a4c-ff9aefd902cf",
+  "statement": "2*6 = 4*3",
+  "tactic": "decide",
+  "keys": [
+    "boyles_law"
+  ],
+  "files": [
+    "Chemistry.lean"
+  ]
+}

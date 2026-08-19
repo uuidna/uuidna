@@ -1,0 +1,12 @@
+{
+  "handle": "838bf38c",
+  "address": "838bf38c-bb7b-8f39-9df4-6c4e243abf02",
+  "statement": "((8:Nat)^1 < 8^2) ∧ ((8:Nat)^2 < 8^3)",
+  "tactic": "decide",
+  "keys": [
+    "no_maximal_board"
+  ],
+  "files": [
+    "Chessgames.lean"
+  ]
+}

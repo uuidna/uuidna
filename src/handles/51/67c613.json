@@ -1,0 +1,12 @@
+{
+  "handle": "5167c613",
+  "address": "5167c613-8abc-80dd-b67f-d360e3889ac6",
+  "statement": "6 - (2 * 4 - 3) = 1",
+  "tactic": "decide",
+  "keys": [
+    "redundancy_pays_one"
+  ],
+  "files": [
+    "Structures.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d3376401",
+  "address": "d3376401-7241-84dc-a898-51076d617045",
+  "statement": "(3*3 - 5*5 : Int) < 0",
+  "tactic": "decide",
+  "keys": [
+    "causality_forbids_ftl"
+  ],
+  "files": [
+    "Relativity.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "41283f64",
+  "address": "41283f64-503d-8c1a-b610-863c6fefcdcc",
+  "statement": "(List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0)).length == 1)",
+  "tactic": "decide",
+  "keys": [
+    "salt_seq_fibre_singleton"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

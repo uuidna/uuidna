@@ -1,0 +1,12 @@
+{
+  "handle": "712b29bb",
+  "address": "712b29bb-ead0-8d81-b174-e454ebe666d4",
+  "statement": "(List.range 10).all (fun d => dz d < 10) ∧ (List.range 10).all (fun d => (List.range 10).any (fun e => dz e == d)) ∧ (List.range 10).all (fun d => dz (dz d) == d) ∧ (List.range 9).all (fun d => polar d < 9) ∧ (List.range 9).all (fun d => (List.range 9).any (fun e => polar e == d))",
+  "tactic": "decide",
+  "keys": [
+    "every_digit_has_neighbours"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

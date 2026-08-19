@@ -1,0 +1,12 @@
+{
+  "handle": "17fca36a",
+  "address": "17fca36a-739c-8986-b9ea-65c7aa27ce15",
+  "statement": "64 = 2^6",
+  "tactic": "decide",
+  "keys": [
+    "sixtyfour_is_two_pow_six"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

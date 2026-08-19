@@ -1,0 +1,12 @@
+{
+  "handle": "6a97a743",
+  "address": "6a97a743-0368-8a74-a691-56325f16a42b",
+  "statement": "(15 % 9 = 6) ∧ ((6 * 6) % 9 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "nim_max_is_a_diamond_nilpotent"
+  ],
+  "files": [
+    "Nim.lean"
+  ]
+}

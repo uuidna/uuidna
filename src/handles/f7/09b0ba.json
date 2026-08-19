@@ -1,0 +1,12 @@
+{
+  "handle": "f709b0ba",
+  "address": "f709b0ba-fd10-89d4-9720-99b0c4b615a6",
+  "statement": "(List.range 6) = [0,1,2,3,4,5]",
+  "tactic": "decide",
+  "keys": [
+    "timeline_is_chronological"
+  ],
+  "files": [
+    "Report.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0fe1ec02",
+  "address": "0fe1ec02-2bd5-8041-a281-3d46127ffb35",
+  "statement": "commission 110 = 2 ∧ commission 220 = 4 ∧ commission 109 = 0",
+  "tactic": "decide",
+  "keys": [
+    "captain_commission_rate_two_per_110"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

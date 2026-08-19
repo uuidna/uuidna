@@ -1,0 +1,12 @@
+{
+  "handle": "99fedab9",
+  "address": "99fedab9-b2d8-888c-99f1-3169330076f5",
+  "statement": "(1 + 1 = 2) ∧ (3 + 2 = 5) ∧ (2 < 5)",
+  "tactic": "decide",
+  "keys": [
+    "assignment_two_by_two_optimum"
+  ],
+  "files": [
+    "Optimisation.lean"
+  ]
+}

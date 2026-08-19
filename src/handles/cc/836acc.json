@@ -1,0 +1,12 @@
+{
+  "handle": "cc836acc",
+  "address": "cc836acc-f762-842b-aaf0-fd971799eae4",
+  "statement": "[31,29,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 366",
+  "tactic": "decide",
+  "keys": [
+    "months_sum_leap_366"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

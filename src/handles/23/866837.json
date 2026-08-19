@@ -1,0 +1,12 @@
+{
+  "handle": "23866837",
+  "address": "23866837-b6cd-8ec7-ac50-fda9fa6fbe2e",
+  "statement": "2 * 5 = 10",
+  "tactic": "decide",
+  "keys": [
+    "edges_are_half_the_degree_sum"
+  ],
+  "files": [
+    "Matching.lean"
+  ]
+}

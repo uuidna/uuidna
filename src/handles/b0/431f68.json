@@ -1,0 +1,12 @@
+{
+  "handle": "b0431f68",
+  "address": "b0431f68-1892-8867-b9d8-768bc21890fe",
+  "statement": "2 * 3 * 5 * 11 = 330",
+  "tactic": "decide",
+  "keys": [
+    "fold_weak_rng"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

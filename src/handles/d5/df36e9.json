@@ -1,0 +1,12 @@
+{
+  "handle": "d5df36e9",
+  "address": "d5df36e9-0531-8376-91f0-88ad9a066aa6",
+  "statement": "(((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6)",
+  "tactic": "decide",
+  "keys": [
+    "fused_units_are_the_orbit_squared"
+  ],
+  "files": [
+    "Crt.lean"
+  ]
+}

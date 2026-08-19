@@ -1,0 +1,12 @@
+{
+  "handle": "9b84c80a",
+  "address": "9b84c80a-8aff-8051-ad93-6eabbd99f07d",
+  "statement": "((List.range 3).length = 3) ∧ ((1 = 1) ∧ (2 ≠ 3))",
+  "tactic": "decide",
+  "keys": [
+    "disputed_all_topics_computable"
+  ],
+  "files": [
+    "DisputedTopics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "39ea8b5a",
+  "address": "39ea8b5a-014d-8fbb-9475-ece688809ea9",
+  "statement": "(0 * 2) % 9 = 0",
+  "tactic": "decide",
+  "keys": [
+    "z9mul_0_2"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

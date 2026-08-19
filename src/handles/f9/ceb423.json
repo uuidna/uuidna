@@ -1,0 +1,12 @@
+{
+  "handle": "f9ceb423",
+  "address": "f9ceb423-f096-8250-b54d-71682e56fead",
+  "statement": "(List.range 9).all (fun s1 => (List.range 9).all (fun s2 => (saltSeq 0 s1 == saltSeq 0 s2) == (s1 == s2)))",
+  "tactic": "decide",
+  "keys": [
+    "salt_seq_injective"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

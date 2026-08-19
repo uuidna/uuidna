@@ -1,0 +1,12 @@
+{
+  "handle": "b92f0573",
+  "address": "b92f0573-eed6-8106-a994-910433b9fa55",
+  "statement": "((64:Int) - 128 + 64 = 0) ∧ ((2:Int) - 2 * 1 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "torus_chessboard_chi_zero"
+  ],
+  "files": [
+    "Chess.lean"
+  ]
+}

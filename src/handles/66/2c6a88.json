@@ -1,0 +1,12 @@
+{
+  "handle": "662c6a88",
+  "address": "662c6a88-b867-8473-ac04-ae881d36bdb9",
+  "statement": "180 * 60 = 10800",
+  "tactic": "decide",
+  "keys": [
+    "arcminutes_pole_to_pole"
+  ],
+  "files": [
+    "Astronomy.lean"
+  ]
+}

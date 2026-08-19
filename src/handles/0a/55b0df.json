@@ -1,0 +1,12 @@
+{
+  "handle": "0a55b0df",
+  "address": "0a55b0df-3ae0-8f76-a77d-efa9ccd19fff",
+  "statement": "(256 / 2 = 128) ∧ (256 % 2 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "sha256_grover_margin_is_the_address"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

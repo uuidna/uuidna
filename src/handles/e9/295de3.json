@@ -1,0 +1,12 @@
+{
+  "handle": "e9295de3",
+  "address": "e9295de3-9bc6-839d-8fd9-ef45f513c3c1",
+  "statement": "(dz 2 = 8) ∧ (dz (dz 2) = 2) ∧ ((0:Nat) < 1)",
+  "tactic": "decide",
+  "keys": [
+    "clay_p_vs_np"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

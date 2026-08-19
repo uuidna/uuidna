@@ -1,0 +1,12 @@
+{
+  "handle": "aec3e4f1",
+  "address": "aec3e4f1-a0cd-8093-a998-767670ab7486",
+  "statement": "2^7 = 128 ∧ 127 < 128",
+  "tactic": "decide",
+  "keys": [
+    "midi_is_seven_bit"
+  ],
+  "files": [
+    "Production.lean"
+  ]
+}

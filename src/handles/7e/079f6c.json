@@ -1,0 +1,12 @@
+{
+  "handle": "7e079f6c",
+  "address": "7e079f6c-d0b9-818b-968e-cadeb18c1981",
+  "statement": "(List.range 8).all (fun c => (32 * c == 64) == (c == 2))",
+  "tactic": "decide",
+  "keys": [
+    "captain_computes_only_with_two_coins"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

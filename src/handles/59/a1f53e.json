@@ -1,0 +1,12 @@
+{
+  "handle": "59a1f53e",
+  "address": "59a1f53e-cabd-8477-a8b6-08b5f15fe5f3",
+  "statement": "(6 * 5) % 7 = 2",
+  "tactic": "decide",
+  "keys": [
+    "z7mul_6_5"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

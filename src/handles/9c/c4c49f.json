@@ -1,0 +1,12 @@
+{
+  "handle": "9cc4c49f",
+  "address": "9cc4c49f-af8b-86ce-9cb3-5cae7f517eb7",
+  "statement": "(List.range 5).map (fun k => k % 5) = [0,1,2,3,4]",
+  "tactic": "decide",
+  "keys": [
+    "pentagon_single_stroke"
+  ],
+  "files": [
+    "Pentagram.lean"
+  ]
+}

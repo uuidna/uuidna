@@ -1,0 +1,12 @@
+{
+  "handle": "173fa5a2",
+  "address": "173fa5a2-6d3c-83a2-9288-c8ef9300048a",
+  "statement": "2^8 = 256 ∧ 2^24 = 16777216",
+  "tactic": "decide",
+  "keys": [
+    "true_colour_is_24_bit"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

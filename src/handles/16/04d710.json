@@ -1,0 +1,12 @@
+{
+  "handle": "1604d710",
+  "address": "1604d710-f90b-8d6d-bef4-4c3fdadce023",
+  "statement": "(List.range 2).all (fun a => (List.range 2).all (fun b => 2*(a*(1-b)) + 2*(b*(1-a)) == 2*((a+b) % 2)))",
+  "tactic": "decide",
+  "keys": [
+    "court_loser_pays_the_two_coins"
+  ],
+  "files": [
+    "Legal.lean"
+  ]
+}

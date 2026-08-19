@@ -1,0 +1,12 @@
+{
+  "handle": "b98d9060",
+  "address": "b98d9060-35b3-8746-81fb-735aa5223d1b",
+  "statement": "((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40)",
+  "tactic": "decide",
+  "keys": [
+    "action_potential_swing"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

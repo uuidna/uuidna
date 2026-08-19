@@ -1,0 +1,12 @@
+{
+  "handle": "4e2ae0a0",
+  "address": "4e2ae0a0-672a-8ec0-95d5-8cd6eec181c7",
+  "statement": "(1 + 1) % 9 = 2",
+  "tactic": "decide",
+  "keys": [
+    "z9add_1_1"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

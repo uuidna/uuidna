@@ -1,0 +1,12 @@
+{
+  "handle": "4ee32f02",
+  "address": "4ee32f02-b979-862a-9349-71dd637b999b",
+  "statement": "((1*1 + 1*1 : Nat) = 2)",
+  "tactic": "decide",
+  "keys": [
+    "ghz3_normalized"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

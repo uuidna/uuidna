@@ -1,0 +1,12 @@
+{
+  "handle": "8df2a485",
+  "address": "8df2a485-3c6b-8ad8-893b-1d10385984be",
+  "statement": "((List.range' 1 8).find? (fun k => (1^k) % 9 == 1)) = some 1",
+  "tactic": "decide",
+  "keys": [
+    "order_of_one_is_one"
+  ],
+  "files": [
+    "Discover.lean"
+  ]
+}

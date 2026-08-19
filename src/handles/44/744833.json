@@ -1,0 +1,12 @@
+{
+  "handle": "44744833",
+  "address": "44744833-1a47-8eba-812a-0ae3af06a4d5",
+  "statement": "365 % 7 = 1",
+  "tactic": "decide",
+  "keys": [
+    "common_year_shifts_one"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

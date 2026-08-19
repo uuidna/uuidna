@@ -1,0 +1,12 @@
+{
+  "handle": "accf9d92",
+  "address": "accf9d92-d3ba-81c0-88fb-25c5c0cdde1c",
+  "statement": "(110 - 1 = 109) ∧ (109 > 2) ∧ (110 - 108 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "commercial_saves_and_captain_earns"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

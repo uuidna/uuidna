@@ -1,0 +1,12 @@
+{
+  "handle": "bb31c4e3",
+  "address": "bb31c4e3-ec19-8e4b-910b-2aa0229dd75c",
+  "statement": "(List.range' 5 3).all (fun d => (if d = 3 then 5 else if d = 4 then 6 else 3) == 3)",
+  "tactic": "decide",
+  "keys": [
+    "three_regular_polytopes_from_five_up"
+  ],
+  "files": [
+    "Solids.lean"
+  ]
+}

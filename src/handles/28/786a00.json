@@ -1,0 +1,12 @@
+{
+  "handle": "28786a00",
+  "address": "28786a00-1a69-8a62-8f0c-e3bed88293e2",
+  "statement": "(List.range 4).all (fun c => 3 - (3 - c) == c) ∧ (List.range 4).all (fun c => 3 - c != c)",
+  "tactic": "decide",
+  "keys": [
+    "dna_bases_reflect_through_three"
+  ],
+  "files": [
+    "Harmony.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2919073f",
+  "address": "2919073f-bd7c-8963-98f4-77e5f6451750",
+  "statement": "(0 < 600000) ∧ (600000 ≤ 10000000)",
+  "tactic": "decide",
+  "keys": [
+    "kdf_cost_bounded"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

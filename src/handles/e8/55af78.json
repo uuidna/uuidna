@@ -1,0 +1,12 @@
+{
+  "handle": "e855af78",
+  "address": "e855af78-7fd8-85ae-80d7-9ee6a856b219",
+  "statement": "(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)",
+  "tactic": "decide",
+  "keys": [
+    "crt_pairs_are_a_bijection"
+  ],
+  "files": [
+    "Crt.lean"
+  ]
+}

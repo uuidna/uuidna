@@ -1,0 +1,14 @@
+{
+  "handle": "f52979d7",
+  "address": "f52979d7-710a-83ec-ae36-f93ecb1b575a",
+  "statement": "(3 ^ 6) % 7 = 1",
+  "tactic": "decide",
+  "keys": [
+    "rosette_pow_six",
+    "z7pow_3_6"
+  ],
+  "files": [
+    "Rosette.lean",
+    "Vortex.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6ffc74f6",
+  "address": "6ffc74f6-8f1c-802e-bcc3-c6edc1f9326c",
+  "statement": "(List.range 7).all (fun a => a % 7 == 0 || (a ^ 6) % 7 == 1)",
+  "tactic": "decide",
+  "keys": [
+    "z7fermat"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

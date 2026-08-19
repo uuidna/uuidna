@@ -1,0 +1,12 @@
+{
+  "handle": "8d603011",
+  "address": "8d603011-2ed6-8454-8dbe-6e1557d9f710",
+  "statement": "(2*3 + 3*(-2) : Int) = 0",
+  "tactic": "decide",
+  "keys": [
+    "charge_balance_neutral"
+  ],
+  "files": [
+    "Chemistry.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2e5a66ed",
+  "address": "2e5a66ed-9c0d-872f-b7bd-799e4fc6198a",
+  "statement": "24 * 60 * 60 = 86400",
+  "tactic": "decide",
+  "keys": [
+    "seconds_per_day"
+  ],
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

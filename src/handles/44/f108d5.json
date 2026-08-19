@@ -1,0 +1,12 @@
+{
+  "handle": "44f108d5",
+  "address": "44f108d5-769f-896d-a21f-d230a4cfd50e",
+  "statement": "voteOk 17 2 = 0 ∧ voteOk 2 2 = 1",
+  "tactic": "decide",
+  "keys": [
+    "vote_weight_inflation_flagged"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

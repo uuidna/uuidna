@@ -1,0 +1,12 @@
+{
+  "handle": "0a0f4a0d",
+  "address": "0a0f4a0d-9995-88e1-ad87-7bda2b6c7889",
+  "statement": "(List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c + lrem t h c == 1) && (lrem t h c == lr t h c + lnp t h c))",
+  "tactic": "decide",
+  "keys": [
+    "legal_remand_is_total_nothing_discarded"
+  ],
+  "files": [
+    "Legal.lean"
+  ]
+}

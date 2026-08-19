@@ -1,0 +1,12 @@
+{
+  "handle": "eed81093",
+  "address": "eed81093-9d9c-8715-b98d-94e2f870d429",
+  "statement": "([0,1,2,3].map (fun n => (2:Nat)^n)) = [1, 2, 4, 8]",
+  "tactic": "decide",
+  "keys": [
+    "audit_is_a_finite_game"
+  ],
+  "files": [
+    "AuditGame.lean"
+  ]
+}

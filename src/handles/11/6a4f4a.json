@@ -1,0 +1,12 @@
+{
+  "handle": "116a4f4a",
+  "address": "116a4f4a-e25c-8c7b-bcaa-a49c2410a698",
+  "statement": "(2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32)",
+  "tactic": "decide",
+  "keys": [
+    "coin_and_heart_generate_the_scales"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

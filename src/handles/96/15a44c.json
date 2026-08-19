@@ -1,0 +1,12 @@
+{
+  "handle": "9615a44c",
+  "address": "9615a44c-94bf-8447-b67e-56dc100ee08d",
+  "statement": "[4,8,16,32].all (fun p => p % 4 == 0)",
+  "tactic": "decide",
+  "keys": [
+    "signature_multiple_of_four"
+  ],
+  "files": [
+    "Typesetting.lean"
+  ]
+}

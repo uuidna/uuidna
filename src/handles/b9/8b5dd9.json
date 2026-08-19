@@ -1,0 +1,12 @@
+{
+  "handle": "b98b5dd9",
+  "address": "b98b5dd9-ee22-8dbb-9971-eb823f369ae1",
+  "statement": "dz 0 = 0 ∧ (List.range 10).all (fun x => dz x < 10)",
+  "tactic": "decide",
+  "keys": [
+    "newton_singularity_finite"
+  ],
+  "files": [
+    "Infinity.lean"
+  ]
+}

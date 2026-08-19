@@ -1,0 +1,12 @@
+{
+  "handle": "fbcd1919",
+  "address": "fbcd1919-f00a-8cd8-81b1-2aa67bbc5e22",
+  "statement": "(3 ^ 8) % 9 = 0",
+  "tactic": "decide",
+  "keys": [
+    "z9pow_3_8"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

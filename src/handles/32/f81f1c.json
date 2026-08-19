@@ -1,0 +1,12 @@
+{
+  "handle": "32f81f1c",
+  "address": "32f81f1c-4d68-8188-9a1a-320d120ebbd8",
+  "statement": "(10 * 5 = 50) ∧ (10 * 10 = 100) ∧ (50 < 100)",
+  "tactic": "decide",
+  "keys": [
+    "contour_spacing_inverse_gradient"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

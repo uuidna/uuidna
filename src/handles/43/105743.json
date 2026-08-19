@@ -1,0 +1,12 @@
+{
+  "handle": "43105743",
+  "address": "43105743-7665-893d-818a-47709086989c",
+  "statement": "(1 : Int) + (-1) = 0",
+  "tactic": "decide",
+  "keys": [
+    "equivalent_exposure"
+  ],
+  "files": [
+    "Photography.lean"
+  ]
+}

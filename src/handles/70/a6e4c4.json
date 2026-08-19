@@ -1,0 +1,12 @@
+{
+  "handle": "70a6e4c4",
+  "address": "70a6e4c4-f321-8790-9770-e6e2569e078e",
+  "statement": "(List.range' 1 9).all (fun d => d + (10 - d) == 10)",
+  "tactic": "decide",
+  "keys": [
+    "ten_pairs"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c1e966c6",
+  "address": "c1e966c6-5545-8f6d-b551-466b92dc2865",
+  "statement": "6 % 2 = 0 ∧ 5 % 2 = 1",
+  "tactic": "decide",
+  "keys": [
+    "perfect_matching_needs_even"
+  ],
+  "files": [
+    "Matching.lean"
+  ]
+}

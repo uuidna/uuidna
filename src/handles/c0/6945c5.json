@@ -1,0 +1,12 @@
+{
+  "handle": "c06945c5",
+  "address": "c06945c5-2a90-8b6b-9044-7d9a4a34d24f",
+  "statement": "5 = 2 + 3",
+  "tactic": "decide",
+  "keys": [
+    "kirchhoff_current"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

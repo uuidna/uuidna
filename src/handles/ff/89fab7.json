@@ -1,0 +1,12 @@
+{
+  "handle": "ff89fab7",
+  "address": "ff89fab7-8f99-810f-b8e2-fa19e2869183",
+  "statement": "((List.range 4).map (fun n => unverified (n % 2) (n / 2))) = [1, 1, 1, 0]",
+  "tactic": "decide",
+  "keys": [
+    "unverified_iff_unsealed"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

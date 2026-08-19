@@ -1,0 +1,12 @@
+{
+  "handle": "354168d8",
+  "address": "354168d8-a017-81cc-898e-33f9a634dbce",
+  "statement": "18*4 + 45*4 + 37*4 = 100*4",
+  "tactic": "decide",
+  "keys": [
+    "partial_pressures_sum_to_absolute"
+  ],
+  "files": [
+    "Diving.lean"
+  ]
+}

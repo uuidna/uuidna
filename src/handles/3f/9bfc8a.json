@@ -1,0 +1,12 @@
+{
+  "handle": "3f9bfc8a",
+  "address": "3f9bfc8a-6b67-8785-9a0b-c60736aad2d1",
+  "statement": "(360 - 340 = 20) ∧ (360 - 320 = 40)",
+  "tactic": "decide",
+  "keys": [
+    "hue_mirror_meeting"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "39620512",
+  "address": "39620512-f60f-8cb6-9cff-c47386efd74f",
+  "statement": "(dz 6 = 4) ∧ (dz (dz 6) = 6) ∧ ((0:Nat) < 1)",
+  "tactic": "decide",
+  "keys": [
+    "clay_birch_swinnerton_dyer"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

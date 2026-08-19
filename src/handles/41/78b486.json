@@ -1,0 +1,12 @@
+{
+  "handle": "4178b486",
+  "address": "4178b486-3ec0-8b0f-8b1e-4c37d2028add",
+  "statement": "2 * 150 = 300 ∧ 4 * 75 = 300",
+  "tactic": "decide",
+  "keys": [
+    "wave_product_is_constant"
+  ],
+  "files": [
+    "Spectrum.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "afa20fad",
+  "address": "afa20fad-342e-8f46-9265-3a44e9ce2c6f",
+  "statement": "100 * 1 = 20 * 5",
+  "tactic": "decide",
+  "keys": [
+    "mechanical_advantage"
+  ],
+  "files": [
+    "Statics.lean"
+  ]
+}

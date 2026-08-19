@@ -1,0 +1,12 @@
+{
+  "handle": "22377ab4",
+  "address": "22377ab4-aa20-8786-87f4-e4ef2ee78193",
+  "statement": "12 % 12 = 0 ∧ 13 % 12 = 1",
+  "tactic": "decide",
+  "keys": [
+    "twelve_hue_wheel_wraps"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

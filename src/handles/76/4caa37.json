@@ -1,0 +1,12 @@
+{
+  "handle": "764caa37",
+  "address": "764caa37-55d7-89ee-adab-370073b32b15",
+  "statement": "(List.range 9).all (fun a => ((a*a)%9==a) == (a==0 || a==1))",
+  "tactic": "decide",
+  "keys": [
+    "idempotents_zero_one"
+  ],
+  "files": [
+    "Discover.lean"
+  ]
+}

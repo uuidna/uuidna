@@ -1,0 +1,12 @@
+{
+  "handle": "c6a85cca",
+  "address": "c6a85cca-565f-88ce-a144-8000023a9de6",
+  "statement": "3 * 3 + 4 * 4 = 5 * 5",
+  "tactic": "decide",
+  "keys": [
+    "page_diagonal_three_four_five"
+  ],
+  "files": [
+    "Typesetting.lean"
+  ]
+}

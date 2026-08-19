@@ -1,0 +1,12 @@
+{
+  "handle": "8867f00f",
+  "address": "8867f00f-7197-8da0-b53a-50ad9a99bc9e",
+  "statement": "(100 * 3 + 60 * (-5) : Int) = 0",
+  "tactic": "decide",
+  "keys": [
+    "momentum_conserved"
+  ],
+  "files": [
+    "Propulsion.lean"
+  ]
+}

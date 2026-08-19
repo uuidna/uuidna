@@ -1,0 +1,12 @@
+{
+  "handle": "a1e365b0",
+  "address": "a1e365b0-d877-8164-81ad-b064e8f8780c",
+  "statement": "(List.range 2).all (fun a => (List.range 2).all (fun b => (((1-a)*(1-b)) == 1) == (a == 0 && b == 0)))",
+  "tactic": "decide",
+  "keys": [
+    "clean_is_a_p_position"
+  ],
+  "files": [
+    "AuditGame.lean"
+  ]
+}

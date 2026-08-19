@@ -1,0 +1,12 @@
+{
+  "handle": "106c2588",
+  "address": "106c2588-068f-898a-8cfb-57079a59bdf7",
+  "statement": "[(0,0),(0,1),(1,0),(1,1)].all (fun p => (1 - (1 - p.1) * (1 - p.2)) == p.1 + p.2 - p.1 * p.2)",
+  "tactic": "decide",
+  "keys": [
+    "nand_reconstructs_or"
+  ],
+  "files": [
+    "Hardware.lean"
+  ]
+}

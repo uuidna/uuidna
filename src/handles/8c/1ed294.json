@@ -1,0 +1,12 @@
+{
+  "handle": "8c1ed294",
+  "address": "8c1ed294-9ae3-85fe-ad44-16cf09c8d1fa",
+  "statement": "100 < 150",
+  "tactic": "decide",
+  "keys": [
+    "tir_needs_denser_source"
+  ],
+  "files": [
+    "Optics.lean"
+  ]
+}

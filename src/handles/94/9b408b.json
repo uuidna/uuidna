@@ -1,0 +1,12 @@
+{
+  "handle": "949b408b",
+  "address": "949b408b-e81a-8309-8e0a-1bead13f8240",
+  "statement": "(50 - 2 * 20 = 10) ∧ (3 + 7 = 10) ∧ (10 * 10 = 100)",
+  "tactic": "decide",
+  "keys": [
+    "ten_square_computes_ten_dimensions"
+  ],
+  "files": [
+    "Chess.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a818011c",
+  "address": "a818011c-6fca-851d-b091-6b80ef756ac1",
+  "statement": "2^8 * 2^8 = 2^16",
+  "tactic": "decide",
+  "keys": [
+    "two_layers_multiply_space"
+  ],
+  "files": [
+    "Security.lean"
+  ]
+}

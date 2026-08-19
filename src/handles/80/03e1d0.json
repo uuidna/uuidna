@@ -1,0 +1,12 @@
+{
+  "handle": "8003e1d0",
+  "address": "8003e1d0-8b73-80cf-bcd1-22c0629bb6f7",
+  "statement": "(List.range 9).all (fun a => ((List.range 9).filter (fun e => (a*e)%9==1)).length == (if invB a then 1 else 0))",
+  "tactic": "decide",
+  "keys": [
+    "inverse_unique"
+  ],
+  "files": [
+    "Discover.lean"
+  ]
+}

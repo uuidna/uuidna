@@ -1,0 +1,12 @@
+{
+  "handle": "502a70c1",
+  "address": "502a70c1-4805-8ffa-874d-a0152ac3a1d2",
+  "statement": "[31,28,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 365",
+  "tactic": "decide",
+  "keys": [
+    "months_sum_common_365"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

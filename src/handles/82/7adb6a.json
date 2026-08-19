@@ -1,0 +1,12 @@
+{
+  "handle": "827adb6a",
+  "address": "827adb6a-e155-8bbe-b61d-53dbb0702b30",
+  "statement": "(62 + 2*5 = 72) ∧ (72 + 1 = 73) ∧ (62 + 2*3 = 68) ∧ (68 + 1 = 69)",
+  "tactic": "decide",
+  "keys": [
+    "scattering_tiebreak_separates"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

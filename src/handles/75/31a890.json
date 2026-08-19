@@ -1,0 +1,12 @@
+{
+  "handle": "7531a890",
+  "address": "7531a890-29d0-8cb5-970f-e4b038aa9a77",
+  "statement": "(1 + 2 + 3 + 4 + 5 + 6) = 21",
+  "tactic": "decide",
+  "keys": [
+    "z7units_sum_21"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

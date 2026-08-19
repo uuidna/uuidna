@@ -1,0 +1,12 @@
+{
+  "handle": "43aefce0",
+  "address": "43aefce0-1e68-83f9-a355-1e6bcac655af",
+  "statement": "(List.range' 5 5).all (fun x => (if x >= 5 then 1 else 0) == 1)",
+  "tactic": "decide",
+  "keys": [
+    "suprathreshold_fires"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

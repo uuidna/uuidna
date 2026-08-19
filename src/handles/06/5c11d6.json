@@ -1,0 +1,12 @@
+{
+  "handle": "065c11d6",
+  "address": "065c11d6-c1b5-89de-b99a-58798ee92e03",
+  "statement": "((List.range 8).filter (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 >= 2)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "majority_of_three_is_four"
+  ],
+  "files": [
+    "AuditGame.lean"
+  ]
+}

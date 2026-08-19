@@ -1,0 +1,12 @@
+{
+  "handle": "4980722f",
+  "address": "4980722f-4c9e-8414-a96d-1513d9b97720",
+  "statement": "432 % 9 = 0 ∧ (List.range' 1 60).all (fun n => let r := if n % 9 == 0 then 9 else n % 9; (r % 9 == n % 9) && (1 ≤ r) && (r ≤ 9))",
+  "tactic": "decide",
+  "keys": [
+    "digital_root"
+  ],
+  "files": [
+    "Uuidna.lean"
+  ]
+}

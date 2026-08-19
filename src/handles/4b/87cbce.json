@@ -1,0 +1,12 @@
+{
+  "handle": "4b87cbce",
+  "address": "4b87cbce-6e2d-83ab-a2a3-e5460a5e0fcc",
+  "statement": "(0 * 8) % 9 = 0",
+  "tactic": "decide",
+  "keys": [
+    "z9mul_0_8"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

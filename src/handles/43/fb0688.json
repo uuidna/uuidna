@@ -1,0 +1,12 @@
+{
+  "handle": "43fb0688",
+  "address": "43fb0688-b256-88c6-9e1d-0b8d35cbf1ab",
+  "statement": "(25000 / 100 = 250) ∧ (4 * 250 = 1000)",
+  "tactic": "decide",
+  "keys": [
+    "map_scale_one_to_25000"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

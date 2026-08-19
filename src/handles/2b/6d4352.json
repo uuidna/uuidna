@@ -1,0 +1,12 @@
+{
+  "handle": "2b6d4352",
+  "address": "2b6d4352-6135-85f1-82fa-4a5b574b3df0",
+  "statement": "((400 - 300) < 400) ∧ (0 < 300)",
+  "tactic": "decide",
+  "keys": [
+    "carnot_efficiency_below_one"
+  ],
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

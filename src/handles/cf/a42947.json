@@ -1,0 +1,12 @@
+{
+  "handle": "cfa42947",
+  "address": "cfa42947-01fa-87ce-aeed-8bed8128171e",
+  "statement": "299792457 < 299792458",
+  "tactic": "decide",
+  "keys": [
+    "cosmic_speed_limit"
+  ],
+  "files": [
+    "Relativity.lean"
+  ]
+}

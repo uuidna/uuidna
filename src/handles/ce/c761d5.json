@@ -1,0 +1,12 @@
+{
+  "handle": "cec761d5",
+  "address": "cec761d5-9727-8ac1-a141-04c47ed0f6e5",
+  "statement": "(List.range 8).all (fun d => (d + 4 + 4) % 8 == d)",
+  "tactic": "decide",
+  "keys": [
+    "reverse_bearing_involution"
+  ],
+  "files": [
+    "Navigation.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "452387db",
+  "address": "452387db-c50f-8db6-893e-ce489cacda7b",
+  "statement": "(¬ (18 >= 100))",
+  "tactic": "decide",
+  "keys": [
+    "mombh_press_confirmed_is_refuted"
+  ],
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

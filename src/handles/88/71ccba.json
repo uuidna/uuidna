@@ -1,0 +1,14 @@
+{
+  "handle": "8871ccba",
+  "address": "8871ccba-2b71-890e-a8ba-35c02cd83522",
+  "statement": "(7 * 7) % 9 = 4",
+  "tactic": "decide",
+  "keys": [
+    "mul9_7_7",
+    "z9mul_7_7"
+  ],
+  "files": [
+    "Core.lean",
+    "Ring.lean"
+  ]
+}

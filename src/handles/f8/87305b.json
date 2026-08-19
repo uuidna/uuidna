@@ -1,0 +1,12 @@
+{
+  "handle": "f887305b",
+  "address": "f887305b-8c61-833e-b384-aa0ccd92a729",
+  "statement": "(7 * 0) % 9 = 0",
+  "tactic": "decide",
+  "keys": [
+    "z9mul_7_0"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

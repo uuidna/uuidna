@@ -1,0 +1,12 @@
+{
+  "handle": "d0718c52",
+  "address": "d0718c52-2532-8a19-a2ee-6ec4ec0d69d2",
+  "statement": "(((1 + 1) == 2) = true) ∧ (((1 + 1) == 3) = false)",
+  "tactic": "decide",
+  "keys": [
+    "disputed_books_same_fact_same_address"
+  ],
+  "files": [
+    "DisputedTopics.lean"
+  ]
+}

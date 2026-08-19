@@ -1,0 +1,12 @@
+{
+  "handle": "48cd237e",
+  "address": "48cd237e-53eb-88b1-b2b0-744c77e2bf2a",
+  "statement": "(List.range' 7 6).all (fun n => 2^n > 2 * 32)",
+  "tactic": "decide",
+  "keys": [
+    "captain_coins_respected_at_scale"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

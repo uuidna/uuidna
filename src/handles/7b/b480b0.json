@@ -1,0 +1,12 @@
+{
+  "handle": "7bb480b0",
+  "address": "7bb480b0-b160-8f56-a34f-c5bf623d1748",
+  "statement": "1300 + 21 = 1321",
+  "tactic": "decide",
+  "keys": [
+    "fold_prototype_pollution"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

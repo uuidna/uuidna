@@ -1,0 +1,12 @@
+{
+  "handle": "2182f5d9",
+  "address": "2182f5d9-39ea-825a-a3e6-9f727e0fa7de",
+  "statement": "(2*2 = 4) ∧ (2*2*2 = 8)",
+  "tactic": "decide",
+  "keys": [
+    "tensor_dimension_multiplies"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

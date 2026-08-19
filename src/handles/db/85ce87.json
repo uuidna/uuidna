@@ -1,0 +1,12 @@
+{
+  "handle": "db85ce87",
+  "address": "db85ce87-14df-8ea5-97e8-99588928505b",
+  "statement": "(5 = 5) ∧ (3 = 3) ∧ (5 + 3 = 5 + 3)",
+  "tactic": "decide",
+  "keys": [
+    "chargaff_strand_balance"
+  ],
+  "files": [
+    "Harmony.lean"
+  ]
+}

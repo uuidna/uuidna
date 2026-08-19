@@ -1,0 +1,12 @@
+{
+  "handle": "c3948805",
+  "address": "c3948805-4efa-8553-b2b0-db1339192e2a",
+  "statement": "([true, false].all (fun p => [true, false].all (fun q => !((p || q) && !p) || q))) = true",
+  "tactic": "decide",
+  "keys": [
+    "disjunctive_syllogism"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

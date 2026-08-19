@@ -1,0 +1,12 @@
+{
+  "handle": "42951059",
+  "address": "42951059-f2ed-860c-826d-f391e5fe6722",
+  "statement": "745 * 2 = 1490",
+  "tactic": "decide",
+  "keys": [
+    "semidiurnal_period"
+  ],
+  "files": [
+    "Tides.lean"
+  ]
+}

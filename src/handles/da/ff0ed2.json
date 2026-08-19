@@ -1,0 +1,12 @@
+{
+  "handle": "daff0ed2",
+  "address": "daff0ed2-3ca5-8b52-a8c2-000c8dbb36cc",
+  "statement": "((List.range' 1 9).filter (fun d => 10 - d == d)) = [5]",
+  "tactic": "decide",
+  "keys": [
+    "mirror_fixed_five"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

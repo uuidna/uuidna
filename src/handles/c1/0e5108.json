@@ -1,0 +1,12 @@
+{
+  "handle": "c10e5108",
+  "address": "c10e5108-a392-8ddc-a5a9-e0a8c0225698",
+  "statement": "[(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].length = 5",
+  "tactic": "decide",
+  "keys": [
+    "exactly_five_platonic_solids"
+  ],
+  "files": [
+    "Solids.lean"
+  ]
+}

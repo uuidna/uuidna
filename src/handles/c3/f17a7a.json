@@ -1,0 +1,12 @@
+{
+  "handle": "c3f17a7a",
+  "address": "c3f17a7a-a65e-800b-abad-ef40fe8f3714",
+  "statement": "(128 - 6 = 122) ∧ (122 - 7 = 115)",
+  "tactic": "decide",
+  "keys": [
+    "imprint_capacity_chain"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

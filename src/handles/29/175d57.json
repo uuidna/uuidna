@@ -1,0 +1,12 @@
+{
+  "handle": "29175d57",
+  "address": "29175d57-9c7d-8b21-bf57-f7cf0f3756f3",
+  "statement": "(([1,1,0].filter (fun x => x == 1)).length = 2) ∧ (2 * 2 > 3)",
+  "tactic": "decide",
+  "keys": [
+    "repetition_three_majority"
+  ],
+  "files": [
+    "Codes.lean"
+  ]
+}

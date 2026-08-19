@@ -1,0 +1,12 @@
+{
+  "handle": "e0d5b217",
+  "address": "e0d5b217-1804-81f0-ba37-39d58f3a53de",
+  "statement": "20 * 20 = 400",
+  "tactic": "decide",
+  "keys": [
+    "after_one_move_four_hundred"
+  ],
+  "files": [
+    "Chessgames.lean"
+  ]
+}

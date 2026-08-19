@@ -1,0 +1,12 @@
+{
+  "handle": "c05fcd9f",
+  "address": "c05fcd9f-6860-8d4b-9b30-f3de8f34010c",
+  "statement": "(12 / 2 = 6) ∧ (12 / 3 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "em_en_and_thin"
+  ],
+  "files": [
+    "Typesetting.lean"
+  ]
+}

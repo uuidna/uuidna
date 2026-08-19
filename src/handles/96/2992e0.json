@@ -1,0 +1,12 @@
+{
+  "handle": "962992e0",
+  "address": "962992e0-492d-8ec8-bc0e-ecd77f21cd6b",
+  "statement": "108 * 17 = 1836",
+  "tactic": "decide",
+  "keys": [
+    "proton_fit"
+  ],
+  "files": [
+    "Vortex.lean"
+  ]
+}

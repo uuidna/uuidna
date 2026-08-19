@@ -1,0 +1,12 @@
+{
+  "handle": "73cf6e41",
+  "address": "73cf6e41-ae4a-8e64-9faf-3563a3631857",
+  "statement": "(List.range 9).all (fun n => (2*n)/2 == n)",
+  "tactic": "decide",
+  "keys": [
+    "wallet_counts_worlds"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

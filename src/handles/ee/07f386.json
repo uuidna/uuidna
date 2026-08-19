@@ -1,0 +1,12 @@
+{
+  "handle": "ee07f386",
+  "address": "ee07f386-83c2-82a0-a02a-acd11713ad5c",
+  "statement": "([100,133,150,242] : List Nat).all (fun n => 100 <= n)",
+  "tactic": "decide",
+  "keys": [
+    "refractive_index_ge_one"
+  ],
+  "files": [
+    "Optics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6f1cd93b",
+  "address": "6f1cd93b-7cdf-8cbb-9c59-018413d18f94",
+  "statement": "(List.range 16).all (fun n => (n + 1 > n) ∧ (n + 1 - n = 1))",
+  "tactic": "decide",
+  "keys": [
+    "research_always_has_a_next"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b3ad4b76",
+  "address": "b3ad4b76-d647-88c7-9ac0-dfd5ef98831a",
+  "statement": "5 > 4",
+  "tactic": "decide",
+  "keys": [
+    "apparent_wind_exceeds_true"
+  ],
+  "files": [
+    "Sailing.lean"
+  ]
+}

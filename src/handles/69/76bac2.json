@@ -1,0 +1,12 @@
+{
+  "handle": "6976bac2",
+  "address": "6976bac2-c985-8fe6-a5fc-78ae52cc64a8",
+  "statement": "(1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d))))))",
+  "tactic": "decide",
+  "keys": [
+    "all_signaling_duality"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ea297fff",
+  "address": "ea297fff-0956-88ed-b0c0-222d93dbd9dc",
+  "statement": "([1,2,3] : List Nat) ≠ [3,2,1]",
+  "tactic": "decide",
+  "keys": [
+    "byte_order_is_significant"
+  ],
+  "files": [
+    "Os.lean"
+  ]
+}

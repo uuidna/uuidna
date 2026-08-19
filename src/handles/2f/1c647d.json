@@ -1,0 +1,12 @@
+{
+  "handle": "2f1c647d",
+  "address": "2f1c647d-2894-8866-8d4e-99624b52d6a2",
+  "statement": "[0,1].map (fun a => 1 - a) = [1,0]",
+  "tactic": "decide",
+  "keys": [
+    "not_gate_truth_table"
+  ],
+  "files": [
+    "Hardware.lean"
+  ]
+}

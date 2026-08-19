@@ -1,0 +1,12 @@
+{
+  "handle": "93d93d66",
+  "address": "93d93d66-416b-8af5-8468-dacee7e7dd1b",
+  "statement": "(29 > 1) ∧ (2 * 2 = 4) ∧ ((-1 : Int) ^ 2 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "involution_census_self_explains"
+  ],
+  "files": [
+    "Discover.lean"
+  ]
+}

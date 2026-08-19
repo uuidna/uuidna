@@ -1,0 +1,12 @@
+{
+  "handle": "7ff212ce",
+  "address": "7ff212ce-0d9e-8bf4-96c7-d1e7889a0f1d",
+  "statement": "343 < 299792458",
+  "tactic": "decide",
+  "keys": [
+    "sound_slower_than_light"
+  ],
+  "files": [
+    "Acoustics.lean"
+  ]
+}

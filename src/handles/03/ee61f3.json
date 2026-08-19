@@ -1,0 +1,12 @@
+{
+  "handle": "03ee61f3",
+  "address": "03ee61f3-f91e-8a93-bb8e-4d578c4c72e2",
+  "statement": "((List.range 9).filter (fun a => invB a)).foldl (· + ·) 0 % 9 = 0",
+  "tactic": "decide",
+  "keys": [
+    "sum_of_units_zero"
+  ],
+  "files": [
+    "Discover.lean"
+  ]
+}

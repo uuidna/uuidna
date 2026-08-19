@@ -1,0 +1,12 @@
+{
+  "handle": "3100516a",
+  "address": "3100516a-5750-8fb7-80fb-66031301fe73",
+  "statement": "(List.range 8).all (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == (if (n % 2 == 0) && (n / 2 % 2 == 0) && (n / 4 % 2 == 0) then 1 else 0))",
+  "tactic": "decide",
+  "keys": [
+    "honesty_gate_is_theorem_not_oracle"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

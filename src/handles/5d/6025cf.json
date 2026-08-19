@@ -1,0 +1,12 @@
+{
+  "handle": "5d6025cf",
+  "address": "5d6025cf-1d4d-822d-b757-1bf4bb5b39e9",
+  "statement": "(let p := [1,0,3,2]; (List.range 4).all (fun x => nth p (nth p x) == x && nth p x != x)) = true",
+  "tactic": "decide",
+  "keys": [
+    "pairing_is_fixedpoint_free_involution"
+  ],
+  "files": [
+    "Matching.lean"
+  ]
+}

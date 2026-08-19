@@ -1,0 +1,12 @@
+{
+  "handle": "17c1465f",
+  "address": "17c1465f-fb2d-89de-a8e9-f7d8123058e9",
+  "statement": "(2 + 2 = 4) ∧ (2 * 2 = 4) ∧ ((2:Nat) ^ 2 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "types_count_as_arithmetic"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

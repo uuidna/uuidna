@@ -1,0 +1,12 @@
+{
+  "handle": "585f1cb8",
+  "address": "585f1cb8-14b6-8395-ab87-302166180fb4",
+  "statement": "(List.range 9).all (fun x => ((2 * x % 9) * 5) % 9 == x)",
+  "tactic": "decide",
+  "keys": [
+    "five_is_the_halving"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

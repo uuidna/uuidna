@@ -1,0 +1,12 @@
+{
+  "handle": "1520fb9e",
+  "address": "1520fb9e-3fae-8047-82a1-734d443ce68b",
+  "statement": "(([1,2,4,8,7,5].zip [9,8,6,2,3,5]).all (fun p => p.1 + p.2 == 10)) ∧ ([1,2,4,8,7,5].getLast? = some 5) ∧ ([9,8,6,2,3,5].getLast? = some 5) ∧ (1 + 9 = 10) ∧ (9 % 9 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "one_strip"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

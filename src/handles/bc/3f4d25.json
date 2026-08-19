@@ -1,0 +1,12 @@
+{
+  "handle": "bc3f4d25",
+  "address": "bc3f4d25-b37f-81f1-ba76-b20ced2a16e5",
+  "statement": "(List.range 2).all (fun a => (List.range 2).all (fun b => (1 - (1-a)*(1-b)) >= a))",
+  "tactic": "decide",
+  "keys": [
+    "dual_dominates_single"
+  ],
+  "files": [
+    "AuditGame.lean"
+  ]
+}

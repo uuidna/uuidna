@@ -1,0 +1,12 @@
+{
+  "handle": "408b7549",
+  "address": "408b7549-253e-87cd-b548-bf701e650d73",
+  "statement": "16 * 69 = 1104",
+  "tactic": "decide",
+  "keys": [
+    "fold_supply_chain"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "91d3e47a",
+  "address": "91d3e47a-119f-8f49-bf30-b55945fdc1a1",
+  "statement": "(2 * 54 = 108) ∧ (5 * 108 = 540) ∧ (110 - 108 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "dropframe_entangles_the_coins"
+  ],
+  "files": [
+    "Editing.lean"
+  ]
+}

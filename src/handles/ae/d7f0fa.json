@@ -1,0 +1,12 @@
+{
+  "handle": "aed7f0fa",
+  "address": "aed7f0fa-b154-818d-a240-91cc345a638d",
+  "statement": "100 * 2^5 = 3200",
+  "tactic": "decide",
+  "keys": [
+    "iso_full_stops_agree_exactly"
+  ],
+  "files": [
+    "Photography.lean"
+  ]
+}

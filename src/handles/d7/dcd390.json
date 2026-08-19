@@ -1,0 +1,12 @@
+{
+  "handle": "d7dcd390",
+  "address": "d7dcd390-29d8-8c47-8d3d-6445b6e8394d",
+  "statement": "(3 * 365 + 366 = 1461) ∧ (4 * 365 + 1 = 1461)",
+  "tactic": "decide",
+  "keys": [
+    "julian_four_year"
+  ],
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

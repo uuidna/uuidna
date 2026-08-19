@@ -1,0 +1,12 @@
+{
+  "handle": "6b7cebca",
+  "address": "6b7cebca-3e62-823d-b858-1445337fadab",
+  "statement": "(List.range 12).length = 12 ∧ 12 % 12 = 0",
+  "tactic": "decide",
+  "keys": [
+    "chromatic_is_z12"
+  ],
+  "files": [
+    "Production.lean"
+  ]
+}

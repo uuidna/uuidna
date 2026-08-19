@@ -1,0 +1,12 @@
+{
+  "handle": "1a721d87",
+  "address": "1a721d87-1cba-8373-a377-75fd49ea6913",
+  "statement": "(35 < 50)",
+  "tactic": "decide",
+  "keys": [
+    "mombh_oiii_is_tentative"
+  ],
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

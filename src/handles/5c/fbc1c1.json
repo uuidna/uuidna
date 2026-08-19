@@ -1,0 +1,12 @@
+{
+  "handle": "5cfbc1c1",
+  "address": "5cfbc1c1-cf1c-8199-a22c-06d2c5212f2b",
+  "statement": "400 > 300",
+  "tactic": "decide",
+  "keys": [
+    "heat_flows_hot_to_cold"
+  ],
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

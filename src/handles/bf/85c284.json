@@ -1,0 +1,12 @@
+{
+  "handle": "bf85c284",
+  "address": "bf85c284-2dbf-8203-83b7-66e4209cfb83",
+  "statement": "(List.range 27).all (fun n => 2^n * 2^n == 2^(2*n))",
+  "tactic": "decide",
+  "keys": [
+    "grover_quadratic_bound"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

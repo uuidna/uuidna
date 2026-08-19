@@ -1,0 +1,12 @@
+{
+  "handle": "8e2e391e",
+  "address": "8e2e391e-64c4-890d-a6d8-b4dd52de0259",
+  "statement": "(2 * 3 = 6) ∧ (3 * 2 = 6) ∧ (Nat.gcd 3 2 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "safety_factor_winding_closes"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

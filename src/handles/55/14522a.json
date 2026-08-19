@@ -1,0 +1,12 @@
+{
+  "handle": "5514522a",
+  "address": "5514522a-7f13-8fe2-b76c-d87cbcfe4f04",
+  "statement": "([true, false].all (fun p => [true, false].all (fun q => (!p || q) == (!(!q) || !p)))) = true",
+  "tactic": "decide",
+  "keys": [
+    "contrapositive"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

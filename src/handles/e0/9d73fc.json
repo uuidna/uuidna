@@ -1,0 +1,12 @@
+{
+  "handle": "e09d73fc",
+  "address": "e09d73fc-74ee-8588-b964-815204c53aa0",
+  "statement": "(List.range 9).all (fun x => (3*x) % 9 != 1)",
+  "tactic": "decide",
+  "keys": [
+    "three_no_inverse"
+  ],
+  "files": [
+    "Vortex.lean"
+  ]
+}

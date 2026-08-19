@@ -1,0 +1,12 @@
+{
+  "handle": "cb3106db",
+  "address": "cb3106db-ff9a-8446-9bb1-857db5bed96f",
+  "statement": "(1 + 10 = 11) ∧ (9 + 10 = 19)",
+  "tactic": "decide",
+  "keys": [
+    "glagolitic_teens_reversed"
+  ],
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1941032f",
+  "address": "1941032f-abb7-8938-bd2a-11ef4027e557",
+  "statement": "(60 + 60 + 60 = 180) ∧ (90 + 45 + 45 = 180)",
+  "tactic": "decide",
+  "keys": [
+    "triangulation_angles_sum"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "009e4870",
+  "address": "009e4870-6692-8029-b65e-dcc9df011745",
+  "statement": "7 * 6 = 42",
+  "tactic": "decide",
+  "keys": [
+    "rosette_quantum_fortytwo"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c2205d8a",
+  "address": "c2205d8a-fb36-830f-9019-0b23efe94a5a",
+  "statement": "(List.range 4).all (fun x => 3 - (3 - x) == x)",
+  "tactic": "decide",
+  "keys": [
+    "dna_complement_involution"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "53292c31",
+  "address": "53292c31-aaa3-855a-9ab7-1c1a338dee2c",
+  "statement": "(9 % 9 = 0) ∧ (8 % 9 = 8)",
+  "tactic": "decide",
+  "keys": [
+    "nine_step_walk_closes_the_ring"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "48147da6",
+  "address": "48147da6-1b69-86e7-8296-ff75016aac49",
+  "statement": "(3 * 7) % 9 = 3",
+  "tactic": "decide",
+  "keys": [
+    "mul9_3_7",
+    "z9mul_3_7"
+  ],
+  "files": [
+    "Core.lean",
+    "Ring.lean"
+  ]
+}

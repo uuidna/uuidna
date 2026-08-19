@@ -1,0 +1,12 @@
+{
+  "handle": "7c783f71",
+  "address": "7c783f71-b417-87a4-a74f-e9381bf68205",
+  "statement": "(List.range 8).all (fun k => (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (lxor (lxor k m1) (lxor m1 m2)) == (lxor k m2))))",
+  "tactic": "decide",
+  "keys": [
+    "linear_tag_is_forgeable"
+  ],
+  "files": [
+    "Command.lean"
+  ]
+}

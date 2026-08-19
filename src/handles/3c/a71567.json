@@ -1,0 +1,12 @@
+{
+  "handle": "3ca71567",
+  "address": "3ca71567-ddfe-8019-a763-704a84a731d2",
+  "statement": "(List.range' 1 6).map (fun k => (3 ^ k) % 7) = [3, 2, 6, 4, 5, 1]",
+  "tactic": "decide",
+  "keys": [
+    "z7primitive_root_3"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

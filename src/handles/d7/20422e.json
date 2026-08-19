@@ -1,0 +1,12 @@
+{
+  "handle": "d720422e",
+  "address": "d720422e-5a0c-8534-9d93-703e1132767d",
+  "statement": "(([1,2,4,8,7,5,3,6,9].zip [9,8,6,2,3,5,7,4,1]).all (fun p => p.1 + p.2 == 10))",
+  "tactic": "decide",
+  "keys": [
+    "double_strand"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

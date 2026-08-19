@@ -1,0 +1,12 @@
+{
+  "handle": "a8624cc7",
+  "address": "a8624cc7-d991-8ab5-abbc-7fe1a5c8cf61",
+  "statement": "(([1,2,3] : List Nat).map (fun n => 3 * n)) = [3,6,9]",
+  "tactic": "decide",
+  "keys": [
+    "precise_tacks_compound"
+  ],
+  "files": [
+    "Sailing.lean"
+  ]
+}

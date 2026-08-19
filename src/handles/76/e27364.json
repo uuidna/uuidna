@@ -1,0 +1,12 @@
+{
+  "handle": "76e27364",
+  "address": "76e27364-3802-896b-af6a-bf9be21cbece",
+  "statement": "(List.range' 1 30).all (fun N => 2 * (List.range' 1 N).foldl (fun s n => s + n) 0 == N*(N+1))",
+  "tactic": "decide",
+  "keys": [
+    "casimir_triangular"
+  ],
+  "files": [
+    "Infinity.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fa243160",
+  "address": "fa243160-3264-8593-adb5-bb913d75c6ff",
+  "statement": "(80 * 66 = 5280) ∧ (22 * 220 = 4840)",
+  "tactic": "decide",
+  "keys": [
+    "gunters_chain_measures"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

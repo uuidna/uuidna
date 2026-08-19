@@ -1,0 +1,12 @@
+{
+  "handle": "b72f181e",
+  "address": "b72f181e-09c5-880c-8b7d-56fedbb44600",
+  "statement": "(List.range 2).all (fun b => ((-1 : Int))^b == -(((-1 : Int))^(1 - b)))",
+  "tactic": "decide",
+  "keys": [
+    "pauli_x_z_anticommute"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

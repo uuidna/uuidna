@@ -1,0 +1,12 @@
+{
+  "handle": "d7a2e539",
+  "address": "d7a2e539-b6a4-83c2-8e9a-adf0cd4b2d29",
+  "statement": "((([1,1]:List Nat).map (fun a => a*a)) = [1,1]) ∧ ((1+1:Nat) = 2)",
+  "tactic": "decide",
+  "keys": [
+    "superposition_h0"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

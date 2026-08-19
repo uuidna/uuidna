@@ -1,0 +1,12 @@
+{
+  "handle": "915073aa",
+  "address": "915073aa-678f-8f0f-85f3-e618af1b3d2d",
+  "statement": "(List.range 12).all (fun t => (List.range 12).any (fun k => (7 * k) % 12 == t))",
+  "tactic": "decide",
+  "keys": [
+    "circle_of_fifths"
+  ],
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

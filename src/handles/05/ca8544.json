@@ -1,0 +1,12 @@
+{
+  "handle": "05ca8544",
+  "address": "05ca8544-c85a-8bf2-aaf8-295992141597",
+  "statement": "2 * 2 - 2 = 2",
+  "tactic": "decide",
+  "keys": [
+    "two_coins_is_double_torus"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

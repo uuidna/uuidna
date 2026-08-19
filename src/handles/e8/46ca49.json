@@ -1,0 +1,12 @@
+{
+  "handle": "e846ca49",
+  "address": "e846ca49-741c-8ae3-912d-b29bc0c75879",
+  "statement": "(8 / 2 = 4) ∧ ((2:Nat)^2 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "four_messages_two_bits"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

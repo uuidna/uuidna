@@ -1,0 +1,12 @@
+{
+  "handle": "29fe8ba5",
+  "address": "29fe8ba5-dc4b-80f8-a466-5539543bf88d",
+  "statement": "(List.range 9).all (fun c => (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => saltConv c s1 == saltConv c s2)))",
+  "tactic": "decide",
+  "keys": [
+    "salt_conv_leaks_equality"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

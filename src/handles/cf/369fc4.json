@@ -1,0 +1,12 @@
+{
+  "handle": "cf369fc4",
+  "address": "cf369fc4-3676-8a7d-b87b-57107dff1cd8",
+  "statement": "(([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == p.2)).length = 2) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 != p.2)).length = 2)",
+  "tactic": "decide",
+  "keys": [
+    "heterozygote_symmetry"
+  ],
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d2271ae8",
+  "address": "d2271ae8-fb4e-82a5-a005-6b160434b901",
+  "statement": "lxor 7 4 = 3",
+  "tactic": "decide",
+  "keys": [
+    "nimsum_7_4"
+  ],
+  "files": [
+    "Nim.lean"
+  ]
+}

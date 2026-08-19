@@ -1,0 +1,12 @@
+{
+  "handle": "6572d1bb",
+  "address": "6572d1bb-d7ec-8c4e-be0a-6030e3a377a2",
+  "statement": "(3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560)",
+  "tactic": "decide",
+  "keys": [
+    "mombh_quantum_edge_redshifts_into_filter_gap"
+  ],
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

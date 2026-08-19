@@ -1,0 +1,12 @@
+{
+  "handle": "e6fc364f",
+  "address": "e6fc364f-b392-8906-9fab-a23635fe3878",
+  "statement": "(6 + 0) % 7 = 6",
+  "tactic": "decide",
+  "keys": [
+    "z7add_6_0"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

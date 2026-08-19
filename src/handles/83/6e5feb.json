@@ -1,0 +1,12 @@
+{
+  "handle": "836e5feb",
+  "address": "836e5feb-8261-8b79-9a59-40320b57eaf7",
+  "statement": "366 = 365 + 1",
+  "tactic": "decide",
+  "keys": [
+    "sidereal_gains_one_turn"
+  ],
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

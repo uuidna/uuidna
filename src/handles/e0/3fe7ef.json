@@ -1,0 +1,12 @@
+{
+  "handle": "e03fe7ef",
+  "address": "e03fe7ef-f29c-8af9-b883-85eef7a11b7d",
+  "statement": "((List.range 10).map (fun x => x + 1)).length = 10",
+  "tactic": "decide",
+  "keys": [
+    "map_preserves_length"
+  ],
+  "files": [
+    "Software.lean"
+  ]
+}

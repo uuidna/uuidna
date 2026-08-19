@@ -1,0 +1,12 @@
+{
+  "handle": "235d9e06",
+  "address": "235d9e06-1da4-8132-aad5-c6340155770f",
+  "statement": "(1 + 2) % 7 = 3",
+  "tactic": "decide",
+  "keys": [
+    "z7add_1_2"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

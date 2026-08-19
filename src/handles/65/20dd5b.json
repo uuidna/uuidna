@@ -1,0 +1,14 @@
+{
+  "handle": "6520dd5b",
+  "address": "6520dd5b-e135-8ee5-9922-866aa392a9e5",
+  "statement": "(List.range 7).length = 7",
+  "tactic": "decide",
+  "keys": [
+    "visible_seven_colours",
+    "z7rays_seven"
+  ],
+  "files": [
+    "Rosette.lean",
+    "Spectrum.lean"
+  ]
+}

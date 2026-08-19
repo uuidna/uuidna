@@ -1,0 +1,12 @@
+{
+  "handle": "f15c715b",
+  "address": "f15c715b-044c-8fc6-801c-0196a561d806",
+  "statement": "(4 ^ 4) % 7 = 4",
+  "tactic": "decide",
+  "keys": [
+    "z7pow_4_4"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

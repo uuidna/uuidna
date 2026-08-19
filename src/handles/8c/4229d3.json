@@ -1,0 +1,12 @@
+{
+  "handle": "8c4229d3",
+  "address": "8c4229d3-e029-8ed5-9289-2478ecabf6ff",
+  "statement": "(List.range 2).all (fun i => lxor (lxor i 1) 1 == i)",
+  "tactic": "decide",
+  "keys": [
+    "pauli_x_involution"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

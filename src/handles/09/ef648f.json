@@ -1,0 +1,12 @@
+{
+  "handle": "09ef648f",
+  "address": "09ef648f-d09e-8f89-a799-bc43e41aeb0e",
+  "statement": "(0 < 1) ∧ (256 / 2 = 128) ∧ (20 < 1048576)",
+  "tactic": "decide",
+  "keys": [
+    "faster_and_more_secure"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

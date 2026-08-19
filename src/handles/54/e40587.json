@@ -1,0 +1,12 @@
+{
+  "handle": "54e40587",
+  "address": "54e40587-f54f-8052-a28c-96b00be30946",
+  "statement": "2 ^ 7 = 128 ∧ (List.range 7).all (fun k => 2 ^ (k+1) == 2 * 2 ^ k)",
+  "tactic": "decide",
+  "keys": [
+    "forged_theorem_costs_2_power_7_bits"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

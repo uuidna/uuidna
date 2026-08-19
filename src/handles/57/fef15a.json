@@ -1,0 +1,12 @@
+{
+  "handle": "57fef15a",
+  "address": "57fef15a-b3f6-85fb-8478-0d4609c7ffb9",
+  "statement": "(([1,2,3] : List Nat).map (fun k => 2 * k)) = [2,4,6]",
+  "tactic": "decide",
+  "keys": [
+    "stoichiometry_scales"
+  ],
+  "files": [
+    "Chemistry.lean"
+  ]
+}

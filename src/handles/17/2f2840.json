@@ -1,0 +1,12 @@
+{
+  "handle": "172f2840",
+  "address": "172f2840-46e8-81bd-ba8a-2fe3ed667bb9",
+  "statement": "(432 = 2^4 * 3^3) ∧ (432 = 16 * 27)",
+  "tactic": "decide",
+  "keys": [
+    "k432"
+  ],
+  "files": [
+    "Vortex.lean"
+  ]
+}

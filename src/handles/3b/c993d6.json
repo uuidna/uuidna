@@ -1,0 +1,12 @@
+{
+  "handle": "3bc993d6",
+  "address": "3bc993d6-8c28-8aae-a5cb-4a0c81015107",
+  "statement": "(110 - 108 = 2) ∧ (110 - 2 = 108)",
+  "tactic": "decide",
+  "keys": [
+    "captain_commission_two_per_110"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1a32db50",
+  "address": "1a32db50-1fe1-806c-8d2b-6c6ba87c06c0",
+  "statement": "dfold [] = 0",
+  "tactic": "decide",
+  "keys": [
+    "editor_empty_doc_folds_zero"
+  ],
+  "files": [
+    "Editor.lean"
+  ]
+}

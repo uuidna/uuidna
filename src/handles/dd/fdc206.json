@@ -1,0 +1,12 @@
+{
+  "handle": "ddfdc206",
+  "address": "ddfdc206-ce47-8f34-8747-37f67ed0f53c",
+  "statement": "(0 ^ 7) % 7 = 0",
+  "tactic": "decide",
+  "keys": [
+    "z7pow_0_7"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

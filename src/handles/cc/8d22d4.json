@@ -1,0 +1,12 @@
+{
+  "handle": "cc8d22d4",
+  "address": "cc8d22d4-6dd8-8ca3-8ae8-fd9aa9f3347b",
+  "statement": "(10 * 9 = 2 * 45) ∧ (90 + 10 = 10 * 10) ∧ (1 + 10 + 45 + 120 + 210 + 252 + 210 + 120 + 45 + 10 + 1 = 1024)",
+  "tactic": "decide",
+  "keys": [
+    "uuid_mix_census_is_quantum"
+  ],
+  "files": [
+    "UuidMix.lean"
+  ]
+}

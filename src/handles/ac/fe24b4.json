@@ -1,0 +1,12 @@
+{
+  "handle": "acfe24b4",
+  "address": "acfe24b4-da14-8bd4-b0e8-2d904295c4ad",
+  "statement": "(77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30)",
+  "tactic": "decide",
+  "keys": [
+    "mombh_balmer_break_exceeds_stellar_ceiling"
+  ],
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

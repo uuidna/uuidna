@@ -1,0 +1,12 @@
+{
+  "handle": "db0f5147",
+  "address": "db0f5147-953f-83c7-bdf2-d8442e57dc23",
+  "statement": "(let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1))",
+  "tactic": "decide",
+  "keys": [
+    "merkle_sort_invariant"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

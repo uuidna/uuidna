@@ -1,0 +1,12 @@
+{
+  "handle": "20b08d31",
+  "address": "20b08d31-b091-8cf5-ab45-c4854f210765",
+  "statement": "lxor 6 4 = 2",
+  "tactic": "decide",
+  "keys": [
+    "nimsum_6_4"
+  ],
+  "files": [
+    "Nim.lean"
+  ]
+}

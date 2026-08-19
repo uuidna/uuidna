@@ -1,0 +1,12 @@
+{
+  "handle": "a564da9b",
+  "address": "a564da9b-0f73-8b2e-abd6-12e2dfa09f49",
+  "statement": "5 * 4 / 2 = 10",
+  "tactic": "decide",
+  "keys": [
+    "introductions_among_five"
+  ],
+  "files": [
+    "Matching.lean"
+  ]
+}

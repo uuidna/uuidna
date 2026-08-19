@@ -1,0 +1,12 @@
+{
+  "handle": "0d76331c",
+  "address": "0d76331c-fd48-8edd-9d96-e9b93f7ae84d",
+  "statement": "5 + 4 = 9",
+  "tactic": "decide",
+  "keys": [
+    "sanitize_bidi_points_are_nine"
+  ],
+  "files": [
+    "Sanitize.lean"
+  ]
+}

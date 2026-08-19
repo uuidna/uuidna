@@ -1,0 +1,12 @@
+{
+  "handle": "c354b77e",
+  "address": "c354b77e-e0fb-8aa5-804c-16ec82b5461b",
+  "statement": "(List.range' 1 10).all (fun m => 300 / m <= 300)",
+  "tactic": "decide",
+  "keys": [
+    "acceleration_finite"
+  ],
+  "files": [
+    "Propulsion.lean"
+  ]
+}

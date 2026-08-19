@@ -1,0 +1,12 @@
+{
+  "handle": "5a0758a2",
+  "address": "5a0758a2-3a22-8e59-8030-0477768242b0",
+  "statement": "(1024 - 1 = 1023) ∧ (1000000 - 1 = 999999) ∧ (2 = 1 + 1)",
+  "tactic": "decide",
+  "keys": [
+    "billing_arith"
+  ],
+  "files": [
+    "Uuidna.lean"
+  ]
+}

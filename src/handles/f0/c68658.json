@@ -1,0 +1,12 @@
+{
+  "handle": "f0c68658",
+  "address": "f0c68658-f67b-8a1f-9cdf-dcd0a753e754",
+  "statement": "(10 - 6 - 4 : Int) = 0",
+  "tactic": "decide",
+  "keys": [
+    "force_equilibrium"
+  ],
+  "files": [
+    "Statics.lean"
+  ]
+}

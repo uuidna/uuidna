@@ -1,0 +1,14 @@
+{
+  "handle": "e0e13c28",
+  "address": "e0e13c28-46d6-8286-a28a-00567e3e9b3f",
+  "statement": "2 * 2 = 4",
+  "tactic": "decide",
+  "keys": [
+    "central_four_squares",
+    "signal_detection_two_by_two"
+  ],
+  "files": [
+    "Chessgames.lean",
+    "Psychology.lean"
+  ]
+}

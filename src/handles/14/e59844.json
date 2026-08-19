@@ -1,0 +1,12 @@
+{
+  "handle": "14e59844",
+  "address": "14e59844-9e1f-85b7-b2a8-627b0dfb55e4",
+  "statement": "((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧ (512 = 2 * 256)",
+  "tactic": "decide",
+  "keys": [
+    "sha256_rounds_are_the_board"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

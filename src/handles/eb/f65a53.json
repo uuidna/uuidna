@@ -1,0 +1,14 @@
+{
+  "handle": "ebf65a53",
+  "address": "ebf65a53-f4cf-8745-8320-def77efe8f93",
+  "statement": "(3 * 2) % 9 = 6",
+  "tactic": "decide",
+  "keys": [
+    "mul9_3_2",
+    "z9mul_3_2"
+  ],
+  "files": [
+    "Core.lean",
+    "Ring.lean"
+  ]
+}

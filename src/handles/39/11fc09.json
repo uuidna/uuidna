@@ -1,0 +1,12 @@
+{
+  "handle": "3911fc09",
+  "address": "3911fc09-e16d-8568-bc8b-91bd435ecb0c",
+  "statement": "((1 = 1) ∧ (1 ≠ 1)) → False",
+  "tactic": "decide",
+  "keys": [
+    "disputed_contradiction_audit_detects_liar"
+  ],
+  "files": [
+    "DisputedTopics.lean"
+  ]
+}

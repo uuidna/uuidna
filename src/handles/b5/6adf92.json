@@ -1,0 +1,12 @@
+{
+  "handle": "b56adf92",
+  "address": "b56adf92-9a40-8945-b69b-050a1ec213b5",
+  "statement": "100 = 60 + 40",
+  "tactic": "decide",
+  "keys": [
+    "first_law_conservation"
+  ],
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

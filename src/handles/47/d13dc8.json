@@ -1,0 +1,12 @@
+{
+  "handle": "47d13dc8",
+  "address": "47d13dc8-c824-8ec4-804e-efc5f7e8d4a9",
+  "statement": "((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400)",
+  "tactic": "decide",
+  "keys": [
+    "octave_codon_address"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

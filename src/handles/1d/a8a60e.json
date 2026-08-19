@@ -1,0 +1,12 @@
+{
+  "handle": "1da8a60e",
+  "address": "1da8a60e-8286-8a08-bae9-1b910923a44b",
+  "statement": "([true, false].all (fun p => [true, false].all (fun q => !(p && (!p || q)) || q))) = true",
+  "tactic": "decide",
+  "keys": [
+    "modus_ponens"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

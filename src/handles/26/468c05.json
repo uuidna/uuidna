@@ -1,0 +1,12 @@
+{
+  "handle": "26468c05",
+  "address": "26468c05-1775-8a0e-bb71-d287eaf8f3f1",
+  "statement": "Nat.gcd 3 7 = 1",
+  "tactic": "decide",
+  "keys": [
+    "trinity_rosette_coprime"
+  ],
+  "files": [
+    "Pentagram.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "58ae8500",
+  "address": "58ae8500-d71a-8d45-977c-fdef6c0021f1",
+  "statement": "(List.range 8).all (fun a => (List.range 8).all (fun b => (lxor a b == 0) == (a == b)))",
+  "tactic": "decide",
+  "keys": [
+    "grundy_sum_is_xor"
+  ],
+  "files": [
+    "Nim.lean"
+  ]
+}

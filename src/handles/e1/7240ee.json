@@ -1,0 +1,12 @@
+{
+  "handle": "e17240ee",
+  "address": "e17240ee-445b-8bb6-8847-aa92e0a04468",
+  "statement": "(16 < 2^16) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (1024 - 1 = 1023) ∧ (110 - 108 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "crew_verifies_instantly"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

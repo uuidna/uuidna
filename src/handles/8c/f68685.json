@@ -1,0 +1,12 @@
+{
+  "handle": "8cf68685",
+  "address": "8cf68685-2c9e-8527-9884-8e83fe84bbf6",
+  "statement": "(2^7 = 128) ∧ (128 > 2) ∧ (2 * 32 = 64)",
+  "tactic": "decide",
+  "keys": [
+    "coin_exchange_rate_is_traitor_cost"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

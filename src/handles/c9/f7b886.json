@@ -1,0 +1,12 @@
+{
+  "handle": "c9f7b886",
+  "address": "c9f7b886-e812-855a-9e14-5acb52125899",
+  "statement": "[(0,0),(1,0),(0,1),(1,1)].map (fun p => if (p.1 == 1) && (p.2 == 0) then 1 else 0) = [0,1,0,0]",
+  "tactic": "decide",
+  "keys": [
+    "sealing_inverts_unverified"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

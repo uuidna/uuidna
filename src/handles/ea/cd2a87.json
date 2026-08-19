@@ -1,0 +1,12 @@
+{
+  "handle": "eacd2a87",
+  "address": "eacd2a87-5f3f-8d89-8425-f8a98146ff7d",
+  "statement": "4 + 3 = 7 ∧ 2^4 = 16",
+  "tactic": "decide",
+  "keys": [
+    "hamming_seven_four"
+  ],
+  "files": [
+    "Codes.lean"
+  ]
+}

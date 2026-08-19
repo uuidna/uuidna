@@ -1,0 +1,12 @@
+{
+  "handle": "be5da399",
+  "address": "be5da399-cc31-8902-bec8-bbcf94c822e1",
+  "statement": "([10,9,8,7,6,5,4,3,2,1].zip [9,8,7,6,5,4,3,2,1]).all (fun p => p.1 - p.2 == 1)",
+  "tactic": "decide",
+  "keys": [
+    "isbn10_catches_transposition"
+  ],
+  "files": [
+    "Identifiers.lean"
+  ]
+}

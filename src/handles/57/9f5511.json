@@ -1,0 +1,12 @@
+{
+  "handle": "579f5511",
+  "address": "579f5511-5ff0-8024-be91-593de787ae9b",
+  "statement": "[50,100,150,200].all (fun h => h % 50 == 0) ∧ (30 % 50 != 0)",
+  "tactic": "decide",
+  "keys": [
+    "contour_index_every_fifth"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e4ab8fd6",
+  "address": "e4ab8fd6-988e-8668-9b2c-17c8974c8a7e",
+  "statement": "(List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2))))",
+  "tactic": "decide",
+  "keys": [
+    "otp_key_reuse_leaks_xor"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

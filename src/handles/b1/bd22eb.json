@@ -1,0 +1,12 @@
+{
+  "handle": "b1bd22eb",
+  "address": "b1bd22eb-69cb-8c2a-95ae-1ad0b860cc29",
+  "statement": "(2 * 3 - 3 = 3) ∧ (2 * 4 - 3 = 5)",
+  "tactic": "decide",
+  "keys": [
+    "maxwells_rule_truss"
+  ],
+  "files": [
+    "Structures.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4528ebeb",
+  "address": "4528ebeb-b05c-8523-a1a7-b0237e3793b2",
+  "statement": "(List.range 15).all (fun p => p + (14 - p) == 14)",
+  "tactic": "decide",
+  "keys": [
+    "ph_conjugate_sum_14"
+  ],
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

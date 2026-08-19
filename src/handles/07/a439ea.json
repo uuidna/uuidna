@@ -1,0 +1,12 @@
+{
+  "handle": "07a439ea",
+  "address": "07a439ea-bd54-86dc-9e7d-5c668ca9a78a",
+  "statement": "1 + 2 + 3 + 3 + 2 + 1 = 12",
+  "tactic": "decide",
+  "keys": [
+    "rule_of_twelfths"
+  ],
+  "files": [
+    "Tides.lean"
+  ]
+}

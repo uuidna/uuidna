@@ -1,0 +1,12 @@
+{
+  "handle": "f630f977",
+  "address": "f630f977-9114-8cca-9009-70433adece72",
+  "statement": "(List.range 10).map dz = [0, 9, 8, 7, 6, 5, 4, 3, 2, 1]",
+  "tactic": "decide",
+  "keys": [
+    "dz_table"
+  ],
+  "files": [
+    "DivByZero.lean"
+  ]
+}

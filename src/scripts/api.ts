@@ -81,6 +81,9 @@ export const DRAIN_PATHS: readonly string[] = [
   // widened counts finder read its live per-category subtotals as stale globals. A generated file that
   // nothing declares is exempt from nothing and staged by no one.
   'docs/captain-claims-complete.json',
+  // one chunk per DISTINCT proven fact (1224, not 1308 keys) — the reusable-algebra storage layer, generated
+  // 2026-08-19. The whole directory is one drain path, same convention as src/seeds.
+  'src/handles',
 ]
 
 /** What each generator in the reconcile chain WRITES — declared, because the write targets are computed through
@@ -98,6 +101,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-zenodo': ['.zenodo.json'],
   'gen-reports': ['reports.json'],
   'gen-lines': ['lean/statement-index.json'],
+  'gen-handle-chunks': ['src/handles'],
   'gen-analytics': ['docs/analytics.md'],
   'lean-heartbeats': ['lean/heartbeats.json'],
   'support': ['support-audit.json', 'research-leads.json'],

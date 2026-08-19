@@ -1,0 +1,12 @@
+{
+  "handle": "deab5028",
+  "address": "deab5028-3678-8018-8eca-7f275eeeac0e",
+  "statement": "(2000 + 24 = 2024)",
+  "tactic": "decide",
+  "keys": [
+    "disputed_topic_fact_extractable"
+  ],
+  "files": [
+    "DisputedTopics.lean"
+  ]
+}

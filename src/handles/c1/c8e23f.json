@@ -1,0 +1,12 @@
+{
+  "handle": "c1c8e23f",
+  "address": "c1c8e23f-54d0-8e6d-8631-17a8574adf9a",
+  "statement": "(List.range 2).all (fun s => accept s 0 == 0)",
+  "tactic": "decide",
+  "keys": [
+    "bad_signature_rejected"
+  ],
+  "files": [
+    "Command.lean"
+  ]
+}

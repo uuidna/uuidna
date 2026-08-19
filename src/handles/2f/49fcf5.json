@@ -1,0 +1,12 @@
+{
+  "handle": "2f49fcf5",
+  "address": "2f49fcf5-7aa8-8a94-a2bb-20d3fe3155e5",
+  "statement": "2451545 - 2451544 = 1",
+  "tactic": "decide",
+  "keys": [
+    "julian_date_is_a_day_count"
+  ],
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

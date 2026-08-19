@@ -1,0 +1,12 @@
+{
+  "handle": "47589b37",
+  "address": "47589b37-cd01-8ff6-8efe-894d102de77a",
+  "statement": "16 * 8 = 128",
+  "tactic": "decide",
+  "keys": [
+    "provenance_address_is_128_bits"
+  ],
+  "files": [
+    "Os.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "78131a1b",
+  "address": "78131a1b-debc-8434-8506-471d9db9aeb6",
+  "statement": "(1 < 2) ∧ ¬(1 < 1)",
+  "tactic": "decide",
+  "keys": [
+    "kink_needs_q_above_one"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

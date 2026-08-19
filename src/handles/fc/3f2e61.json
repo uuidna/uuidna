@@ -1,0 +1,12 @@
+{
+  "handle": "fc3f2e61",
+  "address": "fc3f2e61-aebe-86bf-a74c-d50b06819967",
+  "statement": "3 + 3 = 6",
+  "tactic": "decide",
+  "keys": [
+    "primaries_and_secondaries_make_six"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

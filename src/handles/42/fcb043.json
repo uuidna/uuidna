@@ -1,0 +1,12 @@
+{
+  "handle": "42fcb043",
+  "address": "42fcb043-94b0-84b4-bdfb-b29dd2406e81",
+  "statement": "([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, true]) ∧ ((List.range 8).filter (fun c => 32*c == 64) = [2])",
+  "tactic": "decide",
+  "keys": [
+    "redirect_imitable_but_coins_authorise"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0effec43",
+  "address": "0effec43-191f-802e-83d0-4c264b6b70cb",
+  "statement": "(([2,0] : List Nat).map (fun a => a / 2)) = [1, 0]",
+  "tactic": "decide",
+  "keys": [
+    "h_involution_on_zero"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

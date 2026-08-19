@@ -1,0 +1,12 @@
+{
+  "handle": "eb6a9516",
+  "address": "eb6a9516-a4d7-8d7f-a165-daa6a949a4f0",
+  "statement": "((0+0) % 2 = 0) ∧ ((1+1) % 2 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "bell_zz_even_parity"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

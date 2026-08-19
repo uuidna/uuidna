@@ -1,0 +1,12 @@
+{
+  "handle": "3ff34c90",
+  "address": "3ff34c90-85b5-804e-b07c-971de16e65a5",
+  "statement": "360 < 365",
+  "tactic": "decide",
+  "keys": [
+    "sun_creeps_under_a_degree"
+  ],
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

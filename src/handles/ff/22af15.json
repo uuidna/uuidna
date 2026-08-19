@@ -1,0 +1,12 @@
+{
+  "handle": "ff22af15",
+  "address": "ff22af15-e08d-84e9-aa17-947133c9b954",
+  "statement": "(8 + 4) % 9 = 3",
+  "tactic": "decide",
+  "keys": [
+    "z9add_8_4"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

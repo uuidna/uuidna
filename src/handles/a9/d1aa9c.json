@@ -1,0 +1,12 @@
+{
+  "handle": "a9d1aa9c",
+  "address": "a9d1aa9c-0498-820d-b6b5-4c013e7796c4",
+  "statement": "((((1 + 1) == 2) && ((1 + 1) == 3)) = false) ∧ ((((1 + 1) == 2) && ((1 + 1) == 2)) = true)",
+  "tactic": "decide",
+  "keys": [
+    "disputed_topics_contradiction_detectable"
+  ],
+  "files": [
+    "DisputedTopics.lean"
+  ]
+}

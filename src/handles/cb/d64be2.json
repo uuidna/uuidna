@@ -1,0 +1,12 @@
+{
+  "handle": "cbd64be2",
+  "address": "cbd64be2-30a0-8ff7-a058-390e49b741e3",
+  "statement": "18 + 45 + 37 = 100",
+  "tactic": "decide",
+  "keys": [
+    "trimix_fractions_sum_100"
+  ],
+  "files": [
+    "Diving.lean"
+  ]
+}

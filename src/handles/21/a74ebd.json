@@ -1,0 +1,12 @@
+{
+  "handle": "21a74ebd",
+  "address": "21a74ebd-641e-8817-960e-e0c791c930d3",
+  "statement": "(2:Nat)^2 < (2^2)^2",
+  "tactic": "decide",
+  "keys": [
+    "no_cloning_dimension"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

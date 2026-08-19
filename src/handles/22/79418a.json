@@ -1,0 +1,12 @@
+{
+  "handle": "2279418a",
+  "address": "2279418a-8230-8c5b-90d0-2a902004daeb",
+  "statement": "(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [7,8,9] ≠ List.foldl (fun a b => a + b) 0 [7,8,10]) ∧ ([(0,0),(1,0),(0,1),(1,1)].map (fun _ => 0) = [0,0,0,0])",
+  "tactic": "decide",
+  "keys": [
+    "provenance_integrity_not_content_truth"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

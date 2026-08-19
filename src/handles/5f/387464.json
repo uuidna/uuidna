@@ -1,0 +1,12 @@
+{
+  "handle": "5f387464",
+  "address": "5f387464-981b-898a-a2e2-d43096dba63b",
+  "statement": "24 * 15 = 360",
+  "tactic": "decide",
+  "keys": [
+    "sky_turns_15_per_hour"
+  ],
+  "files": [
+    "Astronomy.lean"
+  ]
+}

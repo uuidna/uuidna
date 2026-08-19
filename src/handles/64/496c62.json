@@ -1,0 +1,12 @@
+{
+  "handle": "64496c62",
+  "address": "64496c62-169c-8384-a6c9-6953e14342a9",
+  "statement": "(List.range 2).all (fun a => (List.range 2).all (fun b => ((1-a)*(1-b) + (1 - (1-a)*(1-b))) == 1))",
+  "tactic": "decide",
+  "keys": [
+    "verdict_is_exactly_one"
+  ],
+  "files": [
+    "AuditGame.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4203ff37",
+  "address": "4203ff37-3cec-8dcf-8054-2dd9c2381afa",
+  "statement": "(300 * 300 + 400 * 400 = 500 * 500) ∧ (500 > 400)",
+  "tactic": "decide",
+  "keys": [
+    "hillside_three_four_five"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

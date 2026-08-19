@@ -1,0 +1,12 @@
+{
+  "handle": "f0dd887d",
+  "address": "f0dd887d-e7f8-8196-be78-ead0e94b6387",
+  "statement": "7 + 7 + 7 = 21 ∧ 3 * 7 = 21",
+  "tactic": "decide",
+  "keys": [
+    "three_sevens_twentyone"
+  ],
+  "files": [
+    "Pentagram.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0fa30229",
+  "address": "0fa30229-79d2-8a32-bd57-2ec5ca4ec99d",
+  "statement": "(List.range 8).all (fun n => lxor (lxor (n%2) (n/2%2)) (n/4%2) + 2 * ((n%2 + n/2%2 + n/4%2) / 2) == n%2 + n/2%2 + n/4%2)",
+  "tactic": "decide",
+  "keys": [
+    "full_adder_correct"
+  ],
+  "files": [
+    "Hardware.lean"
+  ]
+}

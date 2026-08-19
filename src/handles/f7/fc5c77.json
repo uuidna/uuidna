@@ -1,0 +1,12 @@
+{
+  "handle": "f7fc5c77",
+  "address": "f7fc5c77-8c1f-88e8-9fb3-30b3979ac03a",
+  "statement": "(2 * 2 = 4) ∧ (4 * 64 = 256) ∧ ((2:Nat) ^ 8 = 256)",
+  "tactic": "decide",
+  "keys": [
+    "four_times_sixtyfour_is_the_byte"
+  ],
+  "files": [
+    "Chess.lean"
+  ]
+}

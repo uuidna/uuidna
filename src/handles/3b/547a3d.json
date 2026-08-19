@@ -1,0 +1,12 @@
+{
+  "handle": "3b547a3d",
+  "address": "3b547a3d-3a96-8086-b019-8bd005f46f16",
+  "statement": "((2:Nat)^2 < 2^3) ∧ (2^3 = 8)",
+  "tactic": "decide",
+  "keys": [
+    "chsh_beats_classical"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

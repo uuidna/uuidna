@@ -1,0 +1,12 @@
+{
+  "handle": "65d9ad44",
+  "address": "65d9ad44-5ddf-8be3-b046-36a5315a4863",
+  "statement": "(9 * 40 = 360) ∧ (360 % 9 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "aura_step_divides_circle"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

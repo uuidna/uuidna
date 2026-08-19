@@ -1,0 +1,12 @@
+{
+  "handle": "ae4388db",
+  "address": "ae4388db-afd4-8119-a330-e4111e08c271",
+  "statement": "(List.range 20).all (fun n => let c := if n ≤ 7 then n else 7; (if c ≤ 7 then c else 7) == c)",
+  "tactic": "decide",
+  "keys": [
+    "clamp_is_idempotent"
+  ],
+  "files": [
+    "Software.lean"
+  ]
+}

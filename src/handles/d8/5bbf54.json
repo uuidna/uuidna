@@ -1,0 +1,12 @@
+{
+  "handle": "d85bbf54",
+  "address": "d85bbf54-818d-8dd8-b5a0-2bb876fa91c1",
+  "statement": "((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)",
+  "tactic": "decide",
+  "keys": [
+    "containment_is_genus_one"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

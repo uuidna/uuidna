@@ -1,0 +1,12 @@
+{
+  "handle": "104df073",
+  "address": "104df073-7969-87bc-9a29-446fd392c771",
+  "statement": "(37 + 2) - 2 = 37",
+  "tactic": "decide",
+  "keys": [
+    "homeostasis_returns_to_setpoint"
+  ],
+  "files": [
+    "Harmony.lean"
+  ]
+}

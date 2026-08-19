@@ -1,0 +1,12 @@
+{
+  "handle": "106ea89b",
+  "address": "106ea89b-f079-8d18-aa5a-fcfceabad352",
+  "statement": "[1,2,3,4,5].reverse = [5,4,3,2,1]",
+  "tactic": "decide",
+  "keys": [
+    "inverted_pyramid_descends"
+  ],
+  "files": [
+    "Report.lean"
+  ]
+}

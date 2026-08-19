@@ -1,0 +1,12 @@
+{
+  "handle": "0a37f9a4",
+  "address": "0a37f9a4-2068-897f-b3fb-f09e4f71346b",
+  "statement": "(115 < 128) ∧ (128 - 115 = 13)",
+  "tactic": "decide",
+  "keys": [
+    "imprint_capacity_within_address"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

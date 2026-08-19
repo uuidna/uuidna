@@ -1,0 +1,12 @@
+{
+  "handle": "7c3493f4",
+  "address": "7c3493f4-cceb-8ff5-aa50-4436dac83acc",
+  "statement": "((List.range 8).filter (fun tag => tag == 5)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "only_correct_tag_verifies"
+  ],
+  "files": [
+    "Command.lean"
+  ]
+}

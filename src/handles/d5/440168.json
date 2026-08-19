@@ -1,0 +1,12 @@
+{
+  "handle": "d5440168",
+  "address": "d5440168-871a-8db0-9bc7-d6d5a7d5474a",
+  "statement": "(14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14)",
+  "tactic": "decide",
+  "keys": [
+    "unity_census_is_plural_and_needs_two"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

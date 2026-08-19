@@ -1,0 +1,12 @@
+{
+  "handle": "5ec6ab44",
+  "address": "5ec6ab44-4756-8790-a87c-83de9eb6695c",
+  "statement": "(List.range 8).all (fun n => n == 0 || cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 0)",
+  "tactic": "decide",
+  "keys": [
+    "conformance_failure_detects_intrusion"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

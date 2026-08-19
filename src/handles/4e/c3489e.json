@@ -1,0 +1,12 @@
+{
+  "handle": "4ec3489e",
+  "address": "4ec3489e-b5e6-8b67-a9bf-16be2c19e960",
+  "statement": "lxor (lxor 1 2) 3 = 0",
+  "tactic": "decide",
+  "keys": [
+    "nim_pposition_is_zero"
+  ],
+  "files": [
+    "Nim.lean"
+  ]
+}

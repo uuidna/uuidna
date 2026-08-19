@@ -1,0 +1,12 @@
+{
+  "handle": "df18b9d3",
+  "address": "df18b9d3-4bcb-87f6-b525-e50ce3712858",
+  "statement": "(List.range 40).all (fun L => (L*L + 137) - L*L == 137)",
+  "tactic": "decide",
+  "keys": [
+    "renormalization_residue"
+  ],
+  "files": [
+    "Infinity.lean"
+  ]
+}

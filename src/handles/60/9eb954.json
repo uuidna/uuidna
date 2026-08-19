@@ -1,0 +1,12 @@
+{
+  "handle": "609eb954",
+  "address": "609eb954-85e7-8b84-b5b9-c7cd7422155e",
+  "statement": "([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) ∧ (([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0)).all (fun x => x != 2) = true) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) ≠ [1,1]) ∧ (0 < 1)",
+  "tactic": "decide",
+  "keys": [
+    "captain_honest_not_flawless"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

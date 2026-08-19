@@ -1,0 +1,12 @@
+{
+  "handle": "82dfe25a",
+  "address": "82dfe25a-b103-8941-aff2-ccd2e388a29d",
+  "statement": "19 * 12 + 7 = 235",
+  "tactic": "decide",
+  "keys": [
+    "metonic_cycle"
+  ],
+  "files": [
+    "Astronomy.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "564a80bd",
+  "address": "564a80bd-02af-8014-8a5e-2df0485445e2",
+  "statement": "(List.range 7).length = 7 ∧ (List.range 7) = [0,1,2,3,4,5,6]",
+  "tactic": "decide",
+  "keys": [
+    "seven_bands_in_order"
+  ],
+  "files": [
+    "Spectrum.lean"
+  ]
+}

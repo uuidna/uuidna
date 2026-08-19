@@ -1,0 +1,12 @@
+{
+  "handle": "ce7e8661",
+  "address": "ce7e8661-5748-8882-87a3-846e21b85591",
+  "statement": "(List.range 12).all (fun h => (h + 6 + 6) % 12 == h) ∧ (List.range 12).all (fun h => (h + 6) % 12 != h)",
+  "tactic": "decide",
+  "keys": [
+    "complementary_hues_oppose"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

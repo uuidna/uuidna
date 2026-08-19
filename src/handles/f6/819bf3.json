@@ -1,0 +1,12 @@
+{
+  "handle": "f6819bf3",
+  "address": "f6819bf3-a6c8-8174-842a-7c1daecd6e93",
+  "statement": "3*3 + 2*1 = 4*2 + 3*1",
+  "tactic": "decide",
+  "keys": [
+    "lp_strong_duality_instance"
+  ],
+  "files": [
+    "Optimisation.lean"
+  ]
+}

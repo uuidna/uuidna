@@ -1,0 +1,12 @@
+{
+  "handle": "f8c30cfc",
+  "address": "f8c30cfc-7cac-84ba-b283-def2c958f7bb",
+  "statement": "(2 + 1 = 3) ∧ (2 > 1)",
+  "tactic": "decide",
+  "keys": [
+    "full_quorum_of_three"
+  ],
+  "files": [
+    "Report.lean"
+  ]
+}

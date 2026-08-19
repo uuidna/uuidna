@@ -1,0 +1,12 @@
+{
+  "handle": "fb241258",
+  "address": "fb241258-507a-8616-88aa-274015eb7f45",
+  "statement": "1000000 = 10^6",
+  "tactic": "decide",
+  "keys": [
+    "sanitize_max_string_is_ten_pow_six"
+  ],
+  "files": [
+    "Sanitize.lean"
+  ]
+}

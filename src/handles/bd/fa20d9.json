@@ -1,0 +1,12 @@
+{
+  "handle": "bdfa20d9",
+  "address": "bdfa20d9-df5a-87e4-b341-3a0cdc4cf80c",
+  "statement": "((List.range 4).map (fun i => lxor i (2 * (i % 2)))) = [0,3,2,1]",
+  "tactic": "decide",
+  "keys": [
+    "cnot_truth_table"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

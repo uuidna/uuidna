@@ -1,0 +1,12 @@
+{
+  "handle": "657f636b",
+  "address": "657f636b-1e26-8e2b-bf86-069eba261327",
+  "statement": "([true, false].all (fun p => p || !p)) = true",
+  "tactic": "decide",
+  "keys": [
+    "excluded_middle"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

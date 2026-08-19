@@ -1,0 +1,12 @@
+{
+  "handle": "a4cd67dd",
+  "address": "a4cd67dd-f03c-8c38-b637-8e449c9eb47e",
+  "statement": "8 * 8 = 64 ∧ 64 = 2^6",
+  "tactic": "decide",
+  "keys": [
+    "chessboard_sixty_four"
+  ],
+  "files": [
+    "Chess.lean"
+  ]
+}

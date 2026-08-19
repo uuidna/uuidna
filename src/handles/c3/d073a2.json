@@ -1,0 +1,12 @@
+{
+  "handle": "c3d073a2",
+  "address": "c3d073a2-5424-8930-9514-5f8bdc0e79a6",
+  "statement": "(2:Nat) ^ (2 * 2) = 16",
+  "tactic": "decide",
+  "keys": [
+    "sixteen_connectives"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

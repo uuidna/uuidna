@@ -1,0 +1,12 @@
+{
+  "handle": "e27b057b",
+  "address": "e27b057b-b297-8e97-b7dd-7781b84ba907",
+  "statement": "(List.range 12).all (fun n => ((List.range 12).map (fun k => (k * 7) % 12)).contains n)",
+  "tactic": "decide",
+  "keys": [
+    "fifth_cycles_all_twelve"
+  ],
+  "files": [
+    "Production.lean"
+  ]
+}

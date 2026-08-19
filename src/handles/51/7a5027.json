@@ -1,0 +1,12 @@
+{
+  "handle": "517a5027",
+  "address": "517a5027-503b-873e-8bb3-8da98579fe1a",
+  "statement": "(List.range 81).all (fun n => (n % 9 == n / 9) || forged (n % 9) (n / 9) == 1)",
+  "tactic": "decide",
+  "keys": [
+    "forged_theorem_address_detectable"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

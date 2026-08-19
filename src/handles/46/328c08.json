@@ -1,0 +1,12 @@
+{
+  "handle": "46328c08",
+  "address": "46328c08-372f-82c7-8e56-220c9ab13fd9",
+  "statement": "(dz 3 = 7) ∧ (dz (dz 3) = 3) ∧ ((0:Nat) < 1)",
+  "tactic": "decide",
+  "keys": [
+    "clay_navier_stokes"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

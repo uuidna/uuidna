@@ -1,0 +1,12 @@
+{
+  "handle": "c210ad06",
+  "address": "c210ad06-ad04-819f-813c-452517f424e9",
+  "statement": "(4 + 0) % 9 = 4",
+  "tactic": "decide",
+  "keys": [
+    "z9add_4_0"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "947d1c87",
+  "address": "947d1c87-5865-8b4c-96d2-9f5bc437dd65",
+  "statement": "([1,2,3] : List Nat) ≠ [1,2]",
+  "tactic": "decide",
+  "keys": [
+    "truncation_is_detected"
+  ],
+  "files": [
+    "Os.lean"
+  ]
+}

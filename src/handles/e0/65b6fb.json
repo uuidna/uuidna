@@ -1,0 +1,12 @@
+{
+  "handle": "e065b6fb",
+  "address": "e065b6fb-9de4-8250-91b5-9f0f04564ef0",
+  "statement": "(7 * 6) / 2 = 21",
+  "tactic": "decide",
+  "keys": [
+    "rosette_pairs_twentyone"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

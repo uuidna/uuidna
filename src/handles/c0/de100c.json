@@ -1,0 +1,12 @@
+{
+  "handle": "c0de100c",
+  "address": "c0de100c-b786-8ef3-94e8-c9dac4b560c0",
+  "statement": "[(0,0),(0,1),(1,0),(1,1)].map (fun p => lxor p.1 p.2) = [0,1,1,0]",
+  "tactic": "decide",
+  "keys": [
+    "xor_gate_truth_table"
+  ],
+  "files": [
+    "Hardware.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7449b4d3",
+  "address": "7449b4d3-eb87-87ae-ab9c-c019f80f12ea",
+  "statement": "([(0,0),(1,0),(0,1),(1,1)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1,2,2]) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1])",
+  "tactic": "decide",
+  "keys": [
+    "quantum_polygraph"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

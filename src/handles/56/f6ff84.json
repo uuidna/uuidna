@@ -1,0 +1,12 @@
+{
+  "handle": "56f6ff84",
+  "address": "56f6ff84-2cac-887f-8a12-9de1609b6186",
+  "statement": "(15 / 5) * 60 + (1200 / 600) * 60 = 300",
+  "tactic": "decide",
+  "keys": [
+    "naismith_rule_estimate"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

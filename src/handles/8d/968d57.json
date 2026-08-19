@@ -1,0 +1,12 @@
+{
+  "handle": "8d968d57",
+  "address": "8d968d57-6dd4-8a65-a6a5-a41c7c6e6cdd",
+  "statement": "(((2 * 5 == 10) && (10 / 2 == 5)) = true) ∧ (((2 * 5 == 10) && (10 / 2 == 6)) = false)",
+  "tactic": "decide",
+  "keys": [
+    "sailing_cluster_coherence_decidable"
+  ],
+  "files": [
+    "SailingSeals.lean"
+  ]
+}

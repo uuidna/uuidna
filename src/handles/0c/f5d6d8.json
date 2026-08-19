@@ -1,0 +1,12 @@
+{
+  "handle": "0cf5d6d8",
+  "address": "0cf5d6d8-deb8-8b4f-807d-6321919a3307",
+  "statement": "[0,1,2,3,4,5,6].length = 7 ∧ 7 % 7 = 0",
+  "tactic": "decide",
+  "keys": [
+    "week_is_z7"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

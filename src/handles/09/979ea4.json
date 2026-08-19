@@ -1,0 +1,12 @@
+{
+  "handle": "09979ea4",
+  "address": "09979ea4-aeeb-85b6-ba51-f3accbddf506",
+  "statement": "(List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c == 1) == ((c == 1) || (t == 1 && h == 1)))",
+  "tactic": "decide",
+  "keys": [
+    "legal_only_the_proven_is_admitted"
+  ],
+  "files": [
+    "Legal.lean"
+  ]
+}

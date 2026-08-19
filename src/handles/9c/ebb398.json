@@ -1,0 +1,12 @@
+{
+  "handle": "9cebb398",
+  "address": "9cebb398-7620-81c1-b450-bb00914ae83d",
+  "statement": "8238 - 8234 + 1 = 5",
+  "tactic": "decide",
+  "keys": [
+    "sanitize_bidi_overrides_are_five"
+  ],
+  "files": [
+    "Sanitize.lean"
+  ]
+}

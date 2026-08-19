@@ -1,0 +1,12 @@
+{
+  "handle": "22b43414",
+  "address": "22b43414-45d7-8503-b790-ec7b86807fc5",
+  "statement": "((List.range 5).map (fun n => n * n)) = [0,1,4,9,16]",
+  "tactic": "decide",
+  "keys": [
+    "sailing_extraction_deterministic"
+  ],
+  "files": [
+    "SailingSeals.lean"
+  ]
+}

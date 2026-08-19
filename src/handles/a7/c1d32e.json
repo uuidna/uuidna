@@ -1,0 +1,12 @@
+{
+  "handle": "a7c1d32e",
+  "address": "a7c1d32e-61cd-84ad-a392-f498c6cdf351",
+  "statement": "20^2 = 400",
+  "tactic": "decide",
+  "keys": [
+    "fold_resource_dos"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

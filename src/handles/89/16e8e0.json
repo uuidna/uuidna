@@ -1,0 +1,12 @@
+{
+  "handle": "8916e8e0",
+  "address": "8916e8e0-3c38-8d98-bd70-e3cf8dfd2c3a",
+  "statement": "6 * 2 = 4 * 3",
+  "tactic": "decide",
+  "keys": [
+    "moment_balance"
+  ],
+  "files": [
+    "Statics.lean"
+  ]
+}

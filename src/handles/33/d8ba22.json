@@ -1,0 +1,12 @@
+{
+  "handle": "33d8ba22",
+  "address": "33d8ba22-ef90-8e0e-bfa6-8c886b8d177e",
+  "statement": "((if 3 >= 5 then 1 else 0) = 0) ∧ ((if 3 + 3 >= 5 then 1 else 0) = 1)",
+  "tactic": "decide",
+  "keys": [
+    "spatial_summation"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

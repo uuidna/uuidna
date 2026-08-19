@@ -1,0 +1,12 @@
+{
+  "handle": "48395637",
+  "address": "48395637-a6e6-825d-9a0b-c70d54e3cd82",
+  "statement": "(2 ^ 3) % 7 = 1",
+  "tactic": "decide",
+  "keys": [
+    "z7pow_2_3"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

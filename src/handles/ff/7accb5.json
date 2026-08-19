@@ -1,0 +1,12 @@
+{
+  "handle": "ff7accb5",
+  "address": "ff7accb5-001d-87c0-b15d-70c61e69f2c6",
+  "statement": "((List.range 8).map (fun i => lxor i (4 * ((i % 2) * (i / 2 % 2))))) = [0,1,2,7,4,5,6,3]",
+  "tactic": "decide",
+  "keys": [
+    "toffoli_truth_table"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

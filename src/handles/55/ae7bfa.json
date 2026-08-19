@@ -1,0 +1,14 @@
+{
+  "handle": "55ae7bfa",
+  "address": "55ae7bfa-64e1-8874-acfb-6cb7d1b759c1",
+  "statement": "(List.range 5).length = 5",
+  "tactic": "decide",
+  "keys": [
+    "big_five_factors_pentad",
+    "sailing_books_extract_decidable_facts"
+  ],
+  "files": [
+    "Psychology.lean",
+    "SailingSeals.lean"
+  ]
+}

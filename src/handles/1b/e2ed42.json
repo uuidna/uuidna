@@ -1,0 +1,12 @@
+{
+  "handle": "1be2ed42",
+  "address": "1be2ed42-e06a-8463-94ea-7b5e94a09cff",
+  "statement": "[48, 96, 192, 384] = [48, 48*2, 96*2, 192*2]",
+  "tactic": "decide",
+  "keys": [
+    "octave_doubling"
+  ],
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

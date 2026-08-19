@@ -1,0 +1,12 @@
+{
+  "handle": "2500324b",
+  "address": "2500324b-5044-829e-89f8-ec34ab1f80f5",
+  "statement": "(List.range 13).all (fun k => (List.range (k+1)).foldl (fun s n => s + 2^n) 0 + 1 == 2^(k+1))",
+  "tactic": "decide",
+  "keys": [
+    "zeno_finite_sum"
+  ],
+  "files": [
+    "Infinity.lean"
+  ]
+}

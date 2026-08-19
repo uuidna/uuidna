@@ -1,0 +1,12 @@
+{
+  "handle": "87c94099",
+  "address": "87c94099-9839-855c-aad4-48752e60e0e2",
+  "statement": "(1 + (-1) : Int) = 0",
+  "tactic": "decide",
+  "keys": [
+    "neutralization"
+  ],
+  "files": [
+    "Chemistry.lean"
+  ]
+}

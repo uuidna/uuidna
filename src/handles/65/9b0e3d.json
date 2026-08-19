@@ -1,0 +1,12 @@
+{
+  "handle": "659b0e3d",
+  "address": "659b0e3d-9d56-82f0-b8c3-834b49d2c3ee",
+  "statement": "((List.range' 1 8).find? (fun k => (8^k) % 9 == 1)) = some 2",
+  "tactic": "decide",
+  "keys": [
+    "order_of_eight_is_two"
+  ],
+  "files": [
+    "Discover.lean"
+  ]
+}

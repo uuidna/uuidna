@@ -1,0 +1,12 @@
+{
+  "handle": "cd24a5e6",
+  "address": "cd24a5e6-f86e-8745-8f5d-1b7aff4ab59b",
+  "statement": "(7 * 9 = 63) ∧ (2 * 32 = 64) ∧ (63 + 1 = 64) ∧ (2^6 = 64) ∧ (2^6 - 1 = 63)",
+  "tactic": "decide",
+  "keys": [
+    "captain_theorem_the_coins_buy_the_ring_and_one"
+  ],
+  "files": [
+    "Crt.lean"
+  ]
+}

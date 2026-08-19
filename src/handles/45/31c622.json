@@ -1,0 +1,12 @@
+{
+  "handle": "4531c622",
+  "address": "4531c622-4e8e-84fe-8fa6-94a9512ac270",
+  "statement": "(10^1 = 10) ∧ (10^2 = 100)",
+  "tactic": "decide",
+  "keys": [
+    "decibel_is_logarithmic"
+  ],
+  "files": [
+    "Acoustics.lean"
+  ]
+}

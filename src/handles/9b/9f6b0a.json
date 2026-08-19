@@ -1,0 +1,12 @@
+{
+  "handle": "9b9f6b0a",
+  "address": "9b9f6b0a-b2bb-8abc-8add-629763e022b9",
+  "statement": "(([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 0 + d.1 ∧ 0 + d.1 < 8 ∧ 0 <= 1 + d.2 ∧ 1 + d.2 < 8))).length = 3",
+  "tactic": "decide",
+  "keys": [
+    "knight_near_corner_three"
+  ],
+  "files": [
+    "Chessgames.lean"
+  ]
+}

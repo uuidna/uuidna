@@ -1,0 +1,12 @@
+{
+  "handle": "b10bc01c",
+  "address": "b10bc01c-51ef-8d78-82ec-85e2a2ad029c",
+  "statement": "(3 * 2 = 6) ∧ (2 > 1) ∧ (3 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "wall_steady_state"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

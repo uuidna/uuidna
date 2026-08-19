@@ -1,0 +1,12 @@
+{
+  "handle": "5f73aa7f",
+  "address": "5f73aa7f-637d-87be-a1f2-88bb6c1601b1",
+  "statement": "((1*1 + 1*1 + 1*1 : Nat) = 3)",
+  "tactic": "decide",
+  "keys": [
+    "w_state_normalized"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

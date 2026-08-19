@@ -1,0 +1,12 @@
+{
+  "handle": "985e64c9",
+  "address": "985e64c9-6b8d-89e7-9c34-1e10f628158b",
+  "statement": "(4,6,4).1 = (4,6,4).2.2",
+  "tactic": "decide",
+  "keys": [
+    "tetrahedron_self_dual"
+  ],
+  "files": [
+    "Solids.lean"
+  ]
+}

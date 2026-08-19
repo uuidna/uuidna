@@ -1,0 +1,12 @@
+{
+  "handle": "239b0c1d",
+  "address": "239b0c1d-b59b-8d56-956e-1c71c6df94a2",
+  "statement": "((List.range' 1 8).find? (fun k => (5^k) % 9 == 1)) = some 6",
+  "tactic": "decide",
+  "keys": [
+    "order_of_five_is_six"
+  ],
+  "files": [
+    "Discover.lean"
+  ]
+}

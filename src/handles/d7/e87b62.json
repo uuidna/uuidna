@@ -1,0 +1,14 @@
+{
+  "handle": "d7e87b62",
+  "address": "d7e87b62-54fd-8082-9707-a1b282ed772c",
+  "statement": "7 + 7 = 14",
+  "tactic": "decide",
+  "keys": [
+    "ph_plus_poh_14",
+    "rook_open_board_fourteen"
+  ],
+  "files": [
+    "Chemistry.lean",
+    "Chess.lean"
+  ]
+}

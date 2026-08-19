@@ -1,0 +1,12 @@
+{
+  "handle": "46132611",
+  "address": "46132611-7b33-841a-acae-20d949f5c8f9",
+  "statement": "8297 - 8294 + 1 = 4",
+  "tactic": "decide",
+  "keys": [
+    "sanitize_bidi_isolates_are_four"
+  ],
+  "files": [
+    "Sanitize.lean"
+  ]
+}

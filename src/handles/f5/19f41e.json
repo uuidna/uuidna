@@ -1,0 +1,12 @@
+{
+  "handle": "f519f41e",
+  "address": "f519f41e-e278-84fe-b5ad-f3382d3f81d4",
+  "statement": "(([1,2,3] : List Nat).map (fun m => m * 9)) = [9,18,27]",
+  "tactic": "decide",
+  "keys": [
+    "rest_energy_mc2"
+  ],
+  "files": [
+    "Relativity.lean"
+  ]
+}

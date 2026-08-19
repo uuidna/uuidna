@@ -1,0 +1,12 @@
+{
+  "handle": "b93cc15c",
+  "address": "b93cc15c-90e2-859a-8525-6a96a0ef593f",
+  "statement": "[1,3,5].all (fun n => n % 2 == 1) ∧ [2,4,6].all (fun n => n % 2 == 0)",
+  "tactic": "decide",
+  "keys": [
+    "recto_odd_verso_even"
+  ],
+  "files": [
+    "Typesetting.lean"
+  ]
+}

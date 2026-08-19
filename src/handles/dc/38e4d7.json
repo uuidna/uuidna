@@ -1,0 +1,12 @@
+{
+  "handle": "dc38e4d7",
+  "address": "dc38e4d7-c1cb-8de1-9d8a-00c1822f178a",
+  "statement": "444 - 440 = 4",
+  "tactic": "decide",
+  "keys": [
+    "beat_frequency"
+  ],
+  "files": [
+    "Acoustics.lean"
+  ]
+}

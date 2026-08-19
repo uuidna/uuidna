@@ -1,0 +1,12 @@
+{
+  "handle": "2faea8b0",
+  "address": "2faea8b0-3fc0-8280-98bc-94a81fdc3752",
+  "statement": "((2:Nat)^2 = 4) ∧ (128 = 2 * 64) ∧ (128 = 2^7)",
+  "tactic": "decide",
+  "keys": [
+    "captain_coins_deliver_two_qubits_at_128_bits"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

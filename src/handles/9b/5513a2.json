@@ -1,0 +1,12 @@
+{
+  "handle": "9b5513a2",
+  "address": "9b5513a2-7132-8172-af26-394004284b1e",
+  "statement": "((List.range 7).map (fun n => (n * 3) % 7)) = [0,3,6,2,5,1,4]",
+  "tactic": "decide",
+  "keys": [
+    "sailing_distinct_facts_distinct_addresses"
+  ],
+  "files": [
+    "SailingSeals.lean"
+  ]
+}

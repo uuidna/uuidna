@@ -1,0 +1,12 @@
+{
+  "handle": "a8ccd010",
+  "address": "a8ccd010-4d6c-8c4a-a713-5074d4b36d7a",
+  "statement": "(3 : Int) + (-3) = 0",
+  "tactic": "decide",
+  "keys": [
+    "redox_conserves_electrons"
+  ],
+  "files": [
+    "Harmony.lean"
+  ]
+}

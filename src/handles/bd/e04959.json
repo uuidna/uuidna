@@ -1,0 +1,12 @@
+{
+  "handle": "bde04959",
+  "address": "bde04959-2171-827f-89e0-a8b2fe2963c0",
+  "statement": "(2 - 2 = 0) ∧ (2 - 2 * 1 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "torus_closes_the_pipe"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

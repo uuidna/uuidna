@@ -1,0 +1,12 @@
+{
+  "handle": "04f02777",
+  "address": "04f02777-8ceb-8e08-948b-a26d3ac744aa",
+  "statement": "24 * 60 = 1440",
+  "tactic": "decide",
+  "keys": [
+    "frames_per_minute"
+  ],
+  "files": [
+    "Editing.lean"
+  ]
+}

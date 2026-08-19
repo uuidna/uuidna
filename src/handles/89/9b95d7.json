@@ -1,0 +1,12 @@
+{
+  "handle": "899b95d7",
+  "address": "899b95d7-1fc9-88ba-ad0a-c1eadd7649a5",
+  "statement": "([1,0,0,1] : List Int).reverse = [1,0,0,1]",
+  "tactic": "decide",
+  "keys": [
+    "bell_stabilized_by_xx"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

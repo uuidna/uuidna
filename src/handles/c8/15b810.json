@@ -1,0 +1,16 @@
+{
+  "handle": "c815b810",
+  "address": "c815b810-dfeb-8f75-b51d-412f4a818b07",
+  "statement": "(4 * 7) % 9 = 1",
+  "tactic": "decide",
+  "keys": [
+    "four_mul_seven",
+    "mul9_4_7",
+    "z9mul_4_7"
+  ],
+  "files": [
+    "Core.lean",
+    "Ring.lean",
+    "Vortex.lean"
+  ]
+}

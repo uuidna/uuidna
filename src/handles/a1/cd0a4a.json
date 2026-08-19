@@ -1,0 +1,12 @@
+{
+  "handle": "a1cd0a4a",
+  "address": "a1cd0a4a-3920-85ad-a76a-5375056b2789",
+  "statement": "(List.range 10).all (fun v => 0 * v == 0)",
+  "tactic": "decide",
+  "keys": [
+    "no_reactionless_thrust"
+  ],
+  "files": [
+    "Propulsion.lean"
+  ]
+}

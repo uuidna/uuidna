@@ -1,0 +1,12 @@
+{
+  "handle": "76a30093",
+  "address": "76a30093-da56-8283-b988-8a0e14112aca",
+  "statement": "((3 - 1 : Int) = 2) ∧ ((3 - 3 : Int) = 0)",
+  "tactic": "decide",
+  "keys": [
+    "excitatory_inhibitory_net"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

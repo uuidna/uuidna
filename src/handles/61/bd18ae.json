@@ -1,0 +1,12 @@
+{
+  "handle": "61bd18ae",
+  "address": "61bd18ae-afb7-894c-ba23-cace2d291787",
+  "statement": "(List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lr t h c == 1) == (t == 1 && h == 0 && c == 0))",
+  "tactic": "decide",
+  "keys": [
+    "legal_refuted_iff_test_fails_uncited"
+  ],
+  "files": [
+    "Legal.lean"
+  ]
+}

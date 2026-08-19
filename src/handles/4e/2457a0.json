@@ -1,0 +1,12 @@
+{
+  "handle": "4e2457a0",
+  "address": "4e2457a0-7c0a-8ba5-b9a4-3020d7eb7590",
+  "statement": "((45 + 180) % 360 = 225) ∧ ((200 + 180) % 360 = 20)",
+  "tactic": "decide",
+  "keys": [
+    "back_bearing_mod_360"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7787fec7",
+  "address": "7787fec7-dfdf-8160-a629-244dcc8b50d4",
+  "statement": "(100 / 10 = 10)",
+  "tactic": "decide",
+  "keys": [
+    "sailing_weather_verification_open"
+  ],
+  "files": [
+    "SailingSeals.lean"
+  ]
+}

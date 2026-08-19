@@ -1,0 +1,12 @@
+{
+  "handle": "cfab8e2f",
+  "address": "cfab8e2f-3c00-80d1-8636-f95b185d5f19",
+  "statement": "(List.range 4).all (fun n => ((1 - (n%2) * (n%2)) == (1 - n%2)) ∧ ((1 - (1 - (n%2) * (n/2%2))) == (n%2) * (n/2%2)) ∧ ((1 - (1 - n%2) * (1 - n/2%2)) == (n%2) + (n/2%2) - (n%2) * (n/2%2)))",
+  "tactic": "decide",
+  "keys": [
+    "nand_functionally_complete"
+  ],
+  "files": [
+    "Hardware.lean"
+  ]
+}

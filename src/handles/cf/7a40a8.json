@@ -1,0 +1,12 @@
+{
+  "handle": "cf7a40a8",
+  "address": "cf7a40a8-49a6-8e3c-9868-6f76f40f5420",
+  "statement": "(if (7:Nat) = 3 then 5 else if 7 = 4 then 6 else 3) = 3",
+  "tactic": "decide",
+  "keys": [
+    "seventh_dimension_three_regular_polytopes"
+  ],
+  "files": [
+    "Solids.lean"
+  ]
+}

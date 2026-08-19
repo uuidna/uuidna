@@ -1,0 +1,12 @@
+{
+  "handle": "d95eb19b",
+  "address": "d95eb19b-331e-8f07-b984-2dc2f939573e",
+  "statement": "[94,157,220,283,346].all (fun d => d % 7 == 3)",
+  "tactic": "decide",
+  "keys": [
+    "doomsday_even_months"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8f2dc9f2",
+  "address": "8f2dc9f2-7c75-899c-a3fb-8043ceaa2f1a",
+  "statement": "(List.range 9).all (fun n => (List.range 12).all (fun k => ¬ (n < k ∧ k < n+1))) ∧ (List.range' 2 4).all (fun k => 1*k < 1*(k+1))",
+  "tactic": "decide",
+  "keys": [
+    "ym_quantum"
+  ],
+  "files": [
+    "Uuidna.lean"
+  ]
+}

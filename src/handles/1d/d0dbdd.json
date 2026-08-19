@@ -1,0 +1,12 @@
+{
+  "handle": "1dd0dbdd",
+  "address": "1dd0dbdd-d01a-87c9-b2e0-dcf9de362e66",
+  "statement": "(List.range 11).all (fun d => 10 - (10 - d) == d)",
+  "tactic": "decide",
+  "keys": [
+    "tens_complement_involutive"
+  ],
+  "files": [
+    "Vortex.lean"
+  ]
+}

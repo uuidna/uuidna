@@ -1,0 +1,12 @@
+{
+  "handle": "47fdf793",
+  "address": "47fdf793-17f4-8798-aae4-c6a7ef10948f",
+  "statement": "8 * 3 = 6 * 4",
+  "tactic": "decide",
+  "keys": [
+    "balanced_helm_holds_course"
+  ],
+  "files": [
+    "Sailing.lean"
+  ]
+}

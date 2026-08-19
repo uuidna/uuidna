@@ -1,0 +1,12 @@
+{
+  "handle": "65da77f4",
+  "address": "65da77f4-0205-847f-a759-3529d9ad3b2a",
+  "statement": "(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) && (n/4%2 == 0) then 1 else 0))",
+  "tactic": "decide",
+  "keys": [
+    "flag_matches_spec"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

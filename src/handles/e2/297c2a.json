@@ -1,0 +1,12 @@
+{
+  "handle": "e2297c2a",
+  "address": "e2297c2a-bc2f-8c1c-960f-fcab84337d46",
+  "statement": "(100000 = 10^5) ∧ (10^5 = 10^5)",
+  "tactic": "decide",
+  "keys": [
+    "sanitize_array_and_keys_are_ten_pow_five"
+  ],
+  "files": [
+    "Sanitize.lean"
+  ]
+}

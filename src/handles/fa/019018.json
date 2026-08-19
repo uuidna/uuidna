@@ -1,0 +1,12 @@
+{
+  "handle": "fa019018",
+  "address": "fa019018-5ec8-837b-9baf-327e23ad2ec3",
+  "statement": "(2 * 2) % 7 = 4",
+  "tactic": "decide",
+  "keys": [
+    "z7mul_2_2"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

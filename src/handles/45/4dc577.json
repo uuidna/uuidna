@@ -1,0 +1,14 @@
+{
+  "handle": "454dc577",
+  "address": "454dc577-828d-841c-8e5c-e4247f7a93d7",
+  "statement": "(2:Nat)^3 = 8",
+  "tactic": "decide",
+  "keys": [
+    "blood_types_eight",
+    "hicks_law_three_bits"
+  ],
+  "files": [
+    "BioPhysics.lean",
+    "Psychology.lean"
+  ]
+}

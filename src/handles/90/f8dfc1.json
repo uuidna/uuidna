@@ -1,0 +1,12 @@
+{
+  "handle": "90f8dfc1",
+  "address": "90f8dfc1-c640-80e5-8cc8-553864c27b62",
+  "statement": "(2 : Int) + 2 * (-1) = 0",
+  "tactic": "decide",
+  "keys": [
+    "ionic_compound_is_neutral"
+  ],
+  "files": [
+    "Harmony.lean"
+  ]
+}

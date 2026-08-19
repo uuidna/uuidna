@@ -1,0 +1,14 @@
+{
+  "handle": "1e4fb7fd",
+  "address": "1e4fb7fd-36ae-84cd-ac44-efcd1be4afcb",
+  "statement": "(6 * 7) % 9 = 6",
+  "tactic": "decide",
+  "keys": [
+    "mul9_6_7",
+    "z9mul_6_7"
+  ],
+  "files": [
+    "Core.lean",
+    "Ring.lean"
+  ]
+}

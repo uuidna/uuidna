@@ -1,0 +1,12 @@
+{
+  "handle": "350019ba",
+  "address": "350019ba-a62e-8fcb-86bb-db6b0c604fc5",
+  "statement": "(16 = 8 * 2) ∧ (18 = 9 * 2)",
+  "tactic": "decide",
+  "keys": [
+    "type_scale_octave"
+  ],
+  "files": [
+    "Typesetting.lean"
+  ]
+}

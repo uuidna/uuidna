@@ -1,0 +1,12 @@
+{
+  "handle": "86e1f673",
+  "address": "86e1f673-ecc9-8ef6-8ca3-197eb7aaf266",
+  "statement": "4 + 4 = 8",
+  "tactic": "decide",
+  "keys": [
+    "octet_rule"
+  ],
+  "files": [
+    "Molecular.lean"
+  ]
+}

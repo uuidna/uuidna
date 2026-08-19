@@ -1,0 +1,12 @@
+{
+  "handle": "ccfd4d15",
+  "address": "ccfd4d15-0706-85c3-9c8b-c83cdcf09ae4",
+  "statement": "1085 - 200 = 885",
+  "tactic": "decide",
+  "keys": [
+    "relief_is_max_minus_min"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

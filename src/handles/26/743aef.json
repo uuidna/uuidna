@@ -1,0 +1,12 @@
+{
+  "handle": "26743aef",
+  "address": "26743aef-927e-8e55-a68e-95eb2a80162c",
+  "statement": "([1,3,5,7] : List Nat).all (fun n => n % 2 == 1)",
+  "tactic": "decide",
+  "keys": [
+    "closed_pipe_odd_harmonics"
+  ],
+  "files": [
+    "Acoustics.lean"
+  ]
+}

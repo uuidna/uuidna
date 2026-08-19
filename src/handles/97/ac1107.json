@@ -1,0 +1,12 @@
+{
+  "handle": "97ac1107",
+  "address": "97ac1107-ecd1-8c6c-95b3-227b544f1085",
+  "statement": "(List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (1 - (1-a)*(1-b)*(1-c)) >= (1 - (1-a)*(1-b)))))",
+  "tactic": "decide",
+  "keys": [
+    "three_refuters_monotone"
+  ],
+  "files": [
+    "AuditGame.lean"
+  ]
+}

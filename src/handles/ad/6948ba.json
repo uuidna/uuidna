@@ -1,0 +1,12 @@
+{
+  "handle": "ad6948ba",
+  "address": "ad6948ba-ce4e-8e85-844e-4b9af121717c",
+  "statement": "(6000:Nat) < 10^120",
+  "tactic": "decide",
+  "keys": [
+    "one_game_is_a_speck"
+  ],
+  "files": [
+    "Chessgames.lean"
+  ]
+}

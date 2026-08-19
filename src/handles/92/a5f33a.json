@@ -1,0 +1,12 @@
+{
+  "handle": "92a5f33a",
+  "address": "92a5f33a-9d6a-8a5f-bcab-659b040ecc82",
+  "statement": "(23 > 14) ∧ (30 < 50)",
+  "tactic": "decide",
+  "keys": [
+    "mombh_break_error_asymmetric_blue_faint"
+  ],
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cec81ca4",
+  "address": "cec81ca4-041b-87b9-9919-7a06b64bbdef",
+  "statement": "(2*5) % 5 = 0",
+  "tactic": "decide",
+  "keys": [
+    "pentagram_closes_after_five"
+  ],
+  "files": [
+    "Pentagram.lean"
+  ]
+}

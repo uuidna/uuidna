@@ -1,0 +1,12 @@
+{
+  "handle": "b8c6b8b8",
+  "address": "b8c6b8b8-514b-85d8-b4b3-de72aab535d1",
+  "statement": "(List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; lp t h c + lr t h c + lnp t h c == 1)",
+  "tactic": "decide",
+  "keys": [
+    "legal_verdict_is_exactly_one"
+  ],
+  "files": [
+    "Legal.lean"
+  ]
+}

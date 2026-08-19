@@ -1,0 +1,12 @@
+{
+  "handle": "6687ae1c",
+  "address": "6687ae1c-23bc-8255-ba20-2e04487f5ea5",
+  "statement": "(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)",
+  "tactic": "decide",
+  "keys": [
+    "rosette_and_vortex_are_coprime"
+  ],
+  "files": [
+    "Crt.lean"
+  ]
+}

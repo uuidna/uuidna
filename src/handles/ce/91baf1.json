@@ -1,0 +1,12 @@
+{
+  "handle": "ce91baf1",
+  "address": "ce91baf1-e858-82bb-83ed-e0ccc44c7cc6",
+  "statement": "(List.range 4).map (fun l => 4 * l + 2) = [2, 6, 10, 14]",
+  "tactic": "decide",
+  "keys": [
+    "subshell_capacities_4l2"
+  ],
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

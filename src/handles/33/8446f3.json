@@ -1,0 +1,12 @@
+{
+  "handle": "338446f3",
+  "address": "338446f3-df3e-8067-a79d-eea195356cf4",
+  "statement": "2 * 1 + 16 = 18",
+  "tactic": "decide",
+  "keys": [
+    "molar_mass_water"
+  ],
+  "files": [
+    "Molecular.lean"
+  ]
+}

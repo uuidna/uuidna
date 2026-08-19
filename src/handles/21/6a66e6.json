@@ -1,0 +1,12 @@
+{
+  "handle": "216a66e6",
+  "address": "216a66e6-0cd9-8451-bc4e-daad2282858f",
+  "statement": "((1*1 + 0*0 : Nat) = (0*0 + 1*1))",
+  "tactic": "decide",
+  "keys": [
+    "bell_no_signaling"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

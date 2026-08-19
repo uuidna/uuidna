@@ -1,0 +1,12 @@
+{
+  "handle": "cf9f2919",
+  "address": "cf9f2919-aae1-86a5-85e3-3284b8cc81fe",
+  "statement": "(List.range 4).all (fun x => 3 - x != x)",
+  "tactic": "decide",
+  "keys": [
+    "dna_complement_fixed_point_free"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

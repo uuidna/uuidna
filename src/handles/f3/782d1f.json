@@ -1,0 +1,12 @@
+{
+  "handle": "f3782d1f",
+  "address": "f3782d1f-d559-815e-9c3a-43d59d5d61d6",
+  "statement": "((List.range 10).filter (fun x => x % 2 == 0)).length ≤ 10",
+  "tactic": "decide",
+  "keys": [
+    "filter_never_grows"
+  ],
+  "files": [
+    "Software.lean"
+  ]
+}

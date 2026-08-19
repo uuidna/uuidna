@@ -1,0 +1,12 @@
+{
+  "handle": "30e0ee3d",
+  "address": "30e0ee3d-4360-8aab-a7ce-c70717650d70",
+  "statement": "[0,1].all (fun a => (1 - a * a) == (1 - a))",
+  "tactic": "decide",
+  "keys": [
+    "nand_reconstructs_not"
+  ],
+  "files": [
+    "Hardware.lean"
+  ]
+}

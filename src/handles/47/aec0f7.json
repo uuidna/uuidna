@@ -1,0 +1,12 @@
+{
+  "handle": "47aec0f7",
+  "address": "47aec0f7-2cf6-8b59-b7f6-ebee82bea861",
+  "statement": "48000 / 24 = 2000 ∧ 48000 % 24 = 0",
+  "tactic": "decide",
+  "keys": [
+    "audio_samples_per_frame"
+  ],
+  "files": [
+    "Editing.lean"
+  ]
+}

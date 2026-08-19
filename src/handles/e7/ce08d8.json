@@ -1,0 +1,12 @@
+{
+  "handle": "e7ce08d8",
+  "address": "e7ce08d8-75dc-8b82-a206-8610d3f7158c",
+  "statement": "(List.range 2).all (fun a => (List.range 2).all (fun b => a + b - a*b == max a b))",
+  "tactic": "decide",
+  "keys": [
+    "court_loser_develops_the_proven"
+  ],
+  "files": [
+    "Legal.lean"
+  ]
+}

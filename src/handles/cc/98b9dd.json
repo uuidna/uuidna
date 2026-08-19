@@ -1,0 +1,12 @@
+{
+  "handle": "cc98b9dd",
+  "address": "cc98b9dd-75f0-848d-9ac0-04f4b79e9ce6",
+  "statement": "(2 ^ 9) % 9 = 8",
+  "tactic": "decide",
+  "keys": [
+    "z9pow_2_9"
+  ],
+  "files": [
+    "Ring.lean"
+  ]
+}

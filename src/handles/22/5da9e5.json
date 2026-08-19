@@ -1,0 +1,12 @@
+{
+  "handle": "225da9e5",
+  "address": "225da9e5-33a4-8120-a7a2-6c74680e5be2",
+  "statement": "(List.range 16).all (fun n => n/2/2/2/2 == 0)",
+  "tactic": "decide",
+  "keys": [
+    "shift_loop_terminates"
+  ],
+  "files": [
+    "Software.lean"
+  ]
+}

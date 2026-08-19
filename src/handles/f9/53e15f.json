@@ -1,0 +1,12 @@
+{
+  "handle": "f953e15f",
+  "address": "f953e15f-facd-88f3-a73b-1bb6e5fa4cca",
+  "statement": "(115 = 5 * 23) ∧ ((23 * 23) % 24 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "imprint_capacity_entangles"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

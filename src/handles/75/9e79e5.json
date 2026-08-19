@@ -1,0 +1,12 @@
+{
+  "handle": "759e79e5",
+  "address": "759e79e5-770a-8f9f-870d-e202081225b2",
+  "statement": "(List.range 8).all (fun d => (d + 2*4) % 8 == d)",
+  "tactic": "decide",
+  "keys": [
+    "quarter_turn_order_four"
+  ],
+  "files": [
+    "Navigation.lean"
+  ]
+}

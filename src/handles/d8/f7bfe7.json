@@ -1,0 +1,12 @@
+{
+  "handle": "d8f7bfe7",
+  "address": "d8f7bfe7-c4f4-82da-8c7d-aafef64f36db",
+  "statement": "((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "exactly_one_flag"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

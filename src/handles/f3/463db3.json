@@ -1,0 +1,12 @@
+{
+  "handle": "f3463db3",
+  "address": "f3463db3-8720-8c06-a8e9-67461ed01f92",
+  "statement": "(([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : List Nat).length = 15) ∧ (([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : List Nat).all (fun v => v == 0))",
+  "tactic": "decide",
+  "keys": [
+    "clay_launder_refused"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

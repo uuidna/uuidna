@@ -1,0 +1,12 @@
+{
+  "handle": "de2ad2a1",
+  "address": "de2ad2a1-dc52-847f-850a-24303efd1f55",
+  "statement": "30 / 15 = 2",
+  "tactic": "decide",
+  "keys": [
+    "magnification"
+  ],
+  "files": [
+    "Optics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "aa6c2528",
+  "address": "aa6c2528-d2ab-81f4-bac7-ed698d6f4083",
+  "statement": "(2 > 0) ∧ (1 > 0) ∧ (3 + 1 = 4) ∧ (3 = 3)",
+  "tactic": "decide",
+  "keys": [
+    "lp_complementary_slackness"
+  ],
+  "files": [
+    "Optimisation.lean"
+  ]
+}

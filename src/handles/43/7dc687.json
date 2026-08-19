@@ -1,0 +1,12 @@
+{
+  "handle": "437dc687",
+  "address": "437dc687-fc84-8d11-ae31-23f364c7a1b1",
+  "statement": "(List.range 8).all (fun r => (List.range 8).all (fun v => (if r < v then 0 else r - v) == r - v))",
+  "tactic": "decide",
+  "keys": [
+    "bill_never_negative"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

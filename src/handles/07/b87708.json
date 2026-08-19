@@ -1,0 +1,12 @@
+{
+  "handle": "07b87708",
+  "address": "07b87708-fb50-8ed9-9313-86192e355380",
+  "statement": "(100 / 20 = 5) ∧ (5 * 100 / 100 = 5)",
+  "tactic": "decide",
+  "keys": [
+    "gradient_rise_over_run"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

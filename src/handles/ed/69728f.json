@@ -1,0 +1,12 @@
+{
+  "handle": "ed69728f",
+  "address": "ed69728f-d3b4-843b-80ee-bda84de11c24",
+  "statement": "[(0,0),(0,1),(1,0),(1,1)].all (fun p => (1 - p.1 <= 1) ∧ (p.1 * p.2 <= 1) ∧ (p.1 + p.2 - p.1 * p.2 <= 1) ∧ (lxor p.1 p.2 <= 1))",
+  "tactic": "decide",
+  "keys": [
+    "gate_output_is_one_bit"
+  ],
+  "files": [
+    "Hardware.lean"
+  ]
+}

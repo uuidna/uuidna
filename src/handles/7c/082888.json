@@ -1,0 +1,12 @@
+{
+  "handle": "7c082888",
+  "address": "7c082888-a7fa-8e53-9a11-34136e9bc862",
+  "statement": "(90 - 45 = 45) ∧ (100 - 50 = 50) ∧ (10 - 5 = 5)",
+  "tactic": "decide",
+  "keys": [
+    "complement_fixes_the_half"
+  ],
+  "files": [
+    "MartialArts.lean"
+  ]
+}

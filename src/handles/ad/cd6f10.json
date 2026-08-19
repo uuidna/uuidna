@@ -1,0 +1,12 @@
+{
+  "handle": "adcd6f10",
+  "address": "adcd6f10-ae2e-8012-88f1-313e056bc10b",
+  "statement": "[1,2,3,3,2,1].reverse = [1,2,3,3,2,1]",
+  "tactic": "decide",
+  "keys": [
+    "twelfths_symmetric"
+  ],
+  "files": [
+    "Tides.lean"
+  ]
+}

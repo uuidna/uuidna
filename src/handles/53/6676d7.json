@@ -1,0 +1,12 @@
+{
+  "handle": "536676d7",
+  "address": "536676d7-94e7-8942-8ccc-7dfb728f462f",
+  "statement": "5 * 60 = 300",
+  "tactic": "decide",
+  "keys": [
+    "thrust_is_mdot_times_ve"
+  ],
+  "files": [
+    "Propulsion.lean"
+  ]
+}

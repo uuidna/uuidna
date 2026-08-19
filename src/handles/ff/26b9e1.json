@@ -1,0 +1,12 @@
+{
+  "handle": "ff26b9e1",
+  "address": "ff26b9e1-163b-8f50-b609-66dbbd2c468b",
+  "statement": "21 * 8 > 160",
+  "tactic": "decide",
+  "keys": [
+    "air_oxygen_toxic_deep"
+  ],
+  "files": [
+    "Diving.lean"
+  ]
+}

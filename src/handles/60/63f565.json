@@ -1,0 +1,12 @@
+{
+  "handle": "6063f565",
+  "address": "6063f565-fd0c-8db0-9ab6-2f935f8a5493",
+  "statement": "(List.range 7).map (fun k => (3*k) % 7) = [0,3,6,2,5,1,4]",
+  "tactic": "decide",
+  "keys": [
+    "codon_frame_rotates_rosette"
+  ],
+  "files": [
+    "Pentagram.lean"
+  ]
+}

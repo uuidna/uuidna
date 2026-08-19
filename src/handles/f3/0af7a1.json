@@ -1,0 +1,12 @@
+{
+  "handle": "f30af7a1",
+  "address": "f30af7a1-5129-8ec5-ba08-fe4536d3e0d0",
+  "statement": "[(1,9),(2,8),(3,7),(4,6)].all (fun p => p.1 + p.2 == 10 && p.1 < 5 && p.2 > 5) ∧ (10 - 5 = 5) ∧ (9 % 9 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "polarities_plus_minus"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "24649f2e",
+  "address": "24649f2e-fdbf-8d51-a51f-e20663895664",
+  "statement": "90 * 60 = 5400",
+  "tactic": "decide",
+  "keys": [
+    "arcminutes_equator_to_pole"
+  ],
+  "files": [
+    "Astronomy.lean"
+  ]
+}

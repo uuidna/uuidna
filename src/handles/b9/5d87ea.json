@@ -1,0 +1,12 @@
+{
+  "handle": "b95d87ea",
+  "address": "b95d87ea-4624-8008-8774-f286d46e1887",
+  "statement": "1 + 2 + 3 = 6 ∧ 2 * 6 = 12",
+  "tactic": "decide",
+  "keys": [
+    "half_tide_at_hour_three"
+  ],
+  "files": [
+    "Tides.lean"
+  ]
+}

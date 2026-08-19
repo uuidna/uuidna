@@ -1,0 +1,12 @@
+{
+  "handle": "4a31a336",
+  "address": "4a31a336-0bf5-85c5-8d7e-46039d2ef74e",
+  "statement": "400 * 365 + 97 = 146097 ∧ 146097 % 7 = 0",
+  "tactic": "decide",
+  "keys": [
+    "gregorian_cycle_400_years"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

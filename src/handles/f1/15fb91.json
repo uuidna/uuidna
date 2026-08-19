@@ -1,0 +1,12 @@
+{
+  "handle": "f115fb91",
+  "address": "f115fb91-2af0-8bed-8af8-579362da6324",
+  "statement": "([1,0,0,0,0,0,0,1] : List Int).reverse = [1,0,0,0,0,0,0,1]",
+  "tactic": "decide",
+  "keys": [
+    "ghz_stabilized_by_xxx"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

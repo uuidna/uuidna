@@ -1,0 +1,12 @@
+{
+  "handle": "37024ca3",
+  "address": "37024ca3-c12e-8131-a4a0-287651d646fc",
+  "statement": "(12 * 2 = 24) ∧ (2*2*6 = 24)",
+  "tactic": "decide",
+  "keys": [
+    "electric_power"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

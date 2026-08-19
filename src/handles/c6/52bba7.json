@@ -1,0 +1,12 @@
+{
+  "handle": "c652bba7",
+  "address": "c652bba7-da57-8e26-96e2-f42aeea235f6",
+  "statement": "2^8 < 2^9",
+  "tactic": "decide",
+  "keys": [
+    "no_maximum_only_bounds"
+  ],
+  "files": [
+    "Security.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cae9eb8f",
+  "address": "cae9eb8f-6774-8394-90e8-bf45dfd9f528",
+  "statement": "1 + 3 + 3 + 5 + 9 = 21",
+  "tactic": "decide",
+  "keys": [
+    "material_sum_twentyone"
+  ],
+  "files": [
+    "Chessgames.lean"
+  ]
+}

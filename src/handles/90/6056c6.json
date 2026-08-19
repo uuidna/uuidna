@@ -1,0 +1,12 @@
+{
+  "handle": "906056c6",
+  "address": "906056c6-2ac7-8882-af42-e8389aa320d9",
+  "statement": "(List.range' 1 12).all (fun n => ((2+2) % n == 5 % n) == (n == 1))",
+  "tactic": "decide",
+  "keys": [
+    "two_plus_two_is_five_only_mod_one"
+  ],
+  "files": [
+    "DivByZero.lean"
+  ]
+}

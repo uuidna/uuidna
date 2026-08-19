@@ -1,0 +1,12 @@
+{
+  "handle": "ccfb8bba",
+  "address": "ccfb8bba-2080-8e55-999f-1c6fc683db91",
+  "statement": "(14 - 10 = 4) ∧ (16 - 10 = 6)",
+  "tactic": "decide",
+  "keys": [
+    "valence_from_group"
+  ],
+  "files": [
+    "Molecular.lean"
+  ]
+}

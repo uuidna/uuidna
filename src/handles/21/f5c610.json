@@ -1,0 +1,12 @@
+{
+  "handle": "21f5c610",
+  "address": "21f5c610-b435-8f0c-bcca-3f4761f07fad",
+  "statement": "(List.range 2).all (fun a => (List.range 2).all (fun b => (a * b == 1) == (a == 1 && b == 1)))",
+  "tactic": "decide",
+  "keys": [
+    "hebbian_coincidence"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

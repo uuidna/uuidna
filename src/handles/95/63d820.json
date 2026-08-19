@@ -1,0 +1,12 @@
+{
+  "handle": "9563d820",
+  "address": "9563d820-93c8-8bea-b188-98d8c93c8d04",
+  "statement": "(8 = 2*4) ∧ (4 = 2*2) ∧ (8 % 8 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "phase_gate_order_ladder"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

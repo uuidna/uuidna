@@ -1,0 +1,12 @@
+{
+  "handle": "1071e3d9",
+  "address": "1071e3d9-7929-86b0-ad6d-df7c634cca65",
+  "statement": "([1,2,3] : List Nat) = [1,2,3]",
+  "tactic": "decide",
+  "keys": [
+    "exact_copy_is_byte_equality"
+  ],
+  "files": [
+    "Os.lean"
+  ]
+}

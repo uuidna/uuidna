@@ -1,0 +1,12 @@
+{
+  "handle": "9091306d",
+  "address": "9091306d-65c7-8c20-b7a4-3b9b14162adf",
+  "statement": "(([0,0,0,0,0,0,1] : List Nat).length = 7) ∧ (([0,0,0,0,0,0,1] : List Nat).filter (fun s => s == 1)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "clay_status_dna_total"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

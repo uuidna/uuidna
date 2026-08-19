@@ -1,0 +1,12 @@
+{
+  "handle": "8081dadd",
+  "address": "8081dadd-db25-81be-93eb-3e92e11974a5",
+  "statement": "(1 + 0) % 7 = 1",
+  "tactic": "decide",
+  "keys": [
+    "z7add_1_0"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

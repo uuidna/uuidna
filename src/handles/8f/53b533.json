@@ -1,0 +1,12 @@
+{
+  "handle": "8f53b533",
+  "address": "8f53b533-f8d4-80a7-9774-ca149b7ec5a7",
+  "statement": "(List.foldl (fun a b => a + b) 0 [1,2,3] = List.foldl (fun a b => a + b) 0 [3,1,2]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3] = List.foldl (fun a b => a + b) 0 [2,3,1])",
+  "tactic": "decide",
+  "keys": [
+    "sailing_book_receipt_order_invariant"
+  ],
+  "files": [
+    "SailingSeals.lean"
+  ]
+}

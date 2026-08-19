@@ -1,0 +1,16 @@
+{
+  "handle": "503162e6",
+  "address": "503162e6-4f39-88b2-ac65-e981fec8a08e",
+  "statement": "(8 * 8) % 9 = 1",
+  "tactic": "decide",
+  "keys": [
+    "eight_self_inv",
+    "mul9_8_8",
+    "z9mul_8_8"
+  ],
+  "files": [
+    "Core.lean",
+    "Ring.lean",
+    "Vortex.lean"
+  ]
+}

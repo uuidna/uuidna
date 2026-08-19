@@ -1,0 +1,12 @@
+{
+  "handle": "c99e428a",
+  "address": "c99e428a-775b-8630-819d-33e2f260def4",
+  "statement": "2^10 = 1024",
+  "tactic": "decide",
+  "keys": [
+    "optimisation_space_is_qubit_dimension"
+  ],
+  "files": [
+    "Optimisation.lean"
+  ]
+}

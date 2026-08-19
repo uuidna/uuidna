@@ -1,0 +1,12 @@
+{
+  "handle": "22aa65d0",
+  "address": "22aa65d0-4477-811b-b2bc-301783ce7238",
+  "statement": "(([5,5,7].filter (fun x => x == 5)).length = 2) ∧ (([5,5,7].filter (fun x => x != 5)).length = 1)",
+  "tactic": "decide",
+  "keys": [
+    "sailing_corroboration_and_divergence_partition"
+  ],
+  "files": [
+    "SailingSeals.lean"
+  ]
+}

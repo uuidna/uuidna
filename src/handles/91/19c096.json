@@ -1,0 +1,12 @@
+{
+  "handle": "9119c096",
+  "address": "9119c096-1191-8619-b504-bbe0a2cb81f2",
+  "statement": "(List.range' 1 15).all (fun n => lxor 0 n != 0)",
+  "tactic": "decide",
+  "keys": [
+    "nim_lone_heap_wins"
+  ],
+  "files": [
+    "Nim.lean"
+  ]
+}

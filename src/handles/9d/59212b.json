@@ -1,0 +1,12 @@
+{
+  "handle": "9d59212b",
+  "address": "9d59212b-a79f-8e27-be80-8148f0bcfec8",
+  "statement": "((List.range' 1 8).find? (fun k => (2^k) % 9 == 1)) = some 6",
+  "tactic": "decide",
+  "keys": [
+    "order_of_two_is_six"
+  ],
+  "files": [
+    "Discover.lean"
+  ]
+}

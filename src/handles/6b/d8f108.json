@@ -1,0 +1,12 @@
+{
+  "handle": "6bd8f108",
+  "address": "6bd8f108-1a93-87db-96c4-334356433bfb",
+  "statement": "2^11 = 2 * 2^10",
+  "tactic": "decide",
+  "keys": [
+    "each_key_bit_doubles"
+  ],
+  "files": [
+    "Security.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a402b070",
+  "address": "a402b070-4f0c-8e00-bc26-da4de89b05d7",
+  "statement": "100 / 4 = 25",
+  "tactic": "decide",
+  "keys": [
+    "stress_is_force_over_area"
+  ],
+  "files": [
+    "Statics.lean"
+  ]
+}

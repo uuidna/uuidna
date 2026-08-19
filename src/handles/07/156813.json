@@ -1,0 +1,12 @@
+{
+  "handle": "07156813",
+  "address": "07156813-59e4-8b63-bdb1-45c8b581a09d",
+  "statement": "(2 * 3) % 7 = 6",
+  "tactic": "decide",
+  "keys": [
+    "z7mul_2_3"
+  ],
+  "files": [
+    "Rosette.lean"
+  ]
+}

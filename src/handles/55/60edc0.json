@@ -1,0 +1,12 @@
+{
+  "handle": "5560edc0",
+  "address": "5560edc0-6487-89cf-9674-5698d93fdd85",
+  "statement": "(4 + (-4) : Int) = 0",
+  "tactic": "decide",
+  "keys": [
+    "tacking_cancels_leeway"
+  ],
+  "files": [
+    "Sailing.lean"
+  ]
+}

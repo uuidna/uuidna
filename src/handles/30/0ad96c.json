@@ -1,0 +1,12 @@
+{
+  "handle": "300ad96c",
+  "address": "300ad96c-76c7-8f9f-9f71-f7f0ffcd3b17",
+  "statement": "(caps.take 1).sum = 2 ∧ (caps.take 3).sum = 8 ∧ (caps.take 6).sum = 20 ∧ (caps.take 7).sum = 28 ∧ (caps.take 11).sum = 50 ∧ (caps.take 16).sum = 82 ∧ (caps.take 22).sum = 126",
+  "tactic": "decide",
+  "keys": [
+    "magic_numbers"
+  ],
+  "files": [
+    "Vortex.lean"
+  ]
+}

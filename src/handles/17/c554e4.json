@@ -1,0 +1,12 @@
+{
+  "handle": "17c554e4",
+  "address": "17c554e4-71b8-8d7f-9420-265519fe06de",
+  "statement": "([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].reverse = [5,7,8,4,2,1])",
+  "tactic": "decide",
+  "keys": [
+    "five_orbit_reverses_doubling"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

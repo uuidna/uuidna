@@ -1,0 +1,12 @@
+{
+  "handle": "0bb9458c",
+  "address": "0bb9458c-907e-8965-b10f-ff5d2e45068e",
+  "statement": "((1*1 + 0*0 + 0*0 + 1*1 : Nat) = 2) ∧ ((2:Nat) = 2^1)",
+  "tactic": "decide",
+  "keys": [
+    "bell_normalized"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "db7c648b",
+  "address": "db7c648b-f8fb-8ef2-b52f-dcdf40b2f601",
+  "statement": "lxor 0 6 = 6",
+  "tactic": "decide",
+  "keys": [
+    "nimsum_0_6"
+  ],
+  "files": [
+    "Nim.lean"
+  ]
+}

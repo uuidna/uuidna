@@ -1,0 +1,12 @@
+{
+  "handle": "1ff177b2",
+  "address": "1ff177b2-22d4-80d9-a8e3-4c40ff0c71aa",
+  "statement": "4 * 3 = 3 * 4",
+  "tactic": "decide",
+  "keys": [
+    "snell_law"
+  ],
+  "files": [
+    "Optics.lean"
+  ]
+}

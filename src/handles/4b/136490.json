@@ -1,0 +1,12 @@
+{
+  "handle": "4b136490",
+  "address": "4b136490-3662-8fed-976a-69500121595b",
+  "statement": "(([2,3,5].filter (fun x => x == 2)).length = 1) ∧ (([2,3,5].filter (fun x => x == 4)).length = 0)",
+  "tactic": "decide",
+  "keys": [
+    "disputed_provably_true_is_sealed"
+  ],
+  "files": [
+    "DisputedTopics.lean"
+  ]
+}

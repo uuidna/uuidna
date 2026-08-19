@@ -1,0 +1,14 @@
+{
+  "handle": "d78c071e",
+  "address": "d78c071e-6ee5-8983-84ee-077bac8d3345",
+  "statement": "(2 * 1) % 9 = 2",
+  "tactic": "decide",
+  "keys": [
+    "mul9_2_1",
+    "z9mul_2_1"
+  ],
+  "files": [
+    "Core.lean",
+    "Ring.lean"
+  ]
+}

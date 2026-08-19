@@ -1,0 +1,12 @@
+{
+  "handle": "6ff07782",
+  "address": "6ff07782-bd76-8f2c-ac4c-05cf5240742e",
+  "statement": "2 * 4 = 8",
+  "tactic": "decide",
+  "keys": [
+    "developmental_stages_double"
+  ],
+  "files": [
+    "Psychology.lean"
+  ]
+}

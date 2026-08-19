@@ -1,0 +1,12 @@
+{
+  "handle": "eee49c62",
+  "address": "eee49c62-740b-84b6-ac19-7c0f6765925e",
+  "statement": "(7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0)",
+  "tactic": "decide",
+  "keys": [
+    "clay_vote_theorems_only"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "8bbcfc36",
+  "address": "8bbcfc36-5788-8348-916a-76cb257db473",
+  "statement": "(5 * 8) % 9 = 4",
+  "tactic": "decide",
+  "keys": [
+    "mul9_5_8",
+    "z9mul_5_8"
+  ],
+  "files": [
+    "Core.lean",
+    "Ring.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b104635b",
+  "address": "b104635b-4468-8a84-9ea7-168a4d9694e4",
+  "statement": "(List.range 9).all (fun a => forged a a == 0)",
+  "tactic": "decide",
+  "keys": [
+    "sealed_theorem_not_forged"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

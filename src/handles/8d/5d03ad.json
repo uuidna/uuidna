@@ -1,0 +1,12 @@
+{
+  "handle": "8d5d03ad",
+  "address": "8d5d03ad-dce8-8a03-816a-476ab20ea455",
+  "statement": "20 * 25 = 500",
+  "tactic": "decide",
+  "keys": [
+    "ream_is_five_hundred"
+  ],
+  "files": [
+    "Typesetting.lean"
+  ]
+}

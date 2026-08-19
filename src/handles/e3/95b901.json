@@ -1,0 +1,12 @@
+{
+  "handle": "e395b901",
+  "address": "e395b901-72e5-8da5-b833-d14b9c287d70",
+  "statement": "64 + 64 = 128",
+  "tactic": "decide",
+  "keys": [
+    "defence_layers_add_bits"
+  ],
+  "files": [
+    "Security.lean"
+  ]
+}

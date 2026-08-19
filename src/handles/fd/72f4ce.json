@@ -1,0 +1,12 @@
+{
+  "handle": "fd72f4ce",
+  "address": "fd72f4ce-8543-83e3-a047-24948b6b4ce7",
+  "statement": "2^7 = 128 ∧ 128 - 125 = 3",
+  "tactic": "decide",
+  "keys": [
+    "shutter_125_rounds_128"
+  ],
+  "files": [
+    "Photography.lean"
+  ]
+}

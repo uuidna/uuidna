@@ -1,0 +1,12 @@
+{
+  "handle": "4a1f34ee",
+  "address": "4a1f34ee-3815-88cf-b61d-d2159197bd4a",
+  "statement": "(List.range 6).all (fun h => ((h + 3) % 6 + 3) % 6 == h && (h + 3) % 6 != h)",
+  "tactic": "decide",
+  "keys": [
+    "colour_complement_involution"
+  ],
+  "files": [
+    "BioPhysics.lean"
+  ]
+}
