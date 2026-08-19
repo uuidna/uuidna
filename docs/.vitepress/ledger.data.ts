@@ -74,7 +74,8 @@ export default {
   load(): LedgerData {
     // Both auras are content-addressed and deterministic, so they fold HERE, at build time — no client-side
     // recompute. Only hsl + ray ship per aura (the full Aura carries a per-address CSS block; shipping both in
-    // full for 1308 theorems would bloat the page data past what any consumer here actually reads).
+    // full for EVERY theorem would bloat the page data past what any consumer here actually reads — the count is
+    // deliberately not written here, since a number in a comment is the one place the ledger cannot keep current).
     const LEDGER: Theorem[] = theorems().map((t) => {
       const a = quantumAura(t.address)
       const la = quantumAura(t.lineAddress)
