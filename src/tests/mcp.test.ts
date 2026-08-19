@@ -47,7 +47,15 @@ test('the MCP measures itself: uuidna_mcp_benchmark scores the whole served surf
   const b = callTool('uuidna_mcp_benchmark', {}) as ReturnType<typeof mcpBenchmark>
   assert.equal(b.tools, TOOL_NAMES.length)                 // it benchmarks every served tool, including itself
   assert.ok(b.zeroArgReusable > 0 && b.zeroArgReusable <= b.tools)
-  assert.ok(b.reusablePerKey > 0 && b.avgRequiredKeys >= 0)
+  // WAS `reusablePerKey > 0 && avgRequiredKeys >= 0`, which could not fail: a count over a count is never
+  // negative and the catalog is never empty, so the assertion passed however bad the surface got — verified with
+  // falsify(), which found it survived every mutation including "every tool needs 999 args" and "no tool is
+  // reusable". These bounds CAN fail, and each states a usability claim the surface would actually be breaking:
+  assert.ok(b.avgRequiredKeys < 2, `the served surface averages ${b.avgRequiredKeys} required keys per tool — over two, and it is an API to be studied rather than used`)
+  assert.ok(b.avgRating >= 3, `average usability rating ${b.avgRating} — the scale is 1..5 (5 = zero required keys), so below 3 most tools demand three or more arguments`)
+  assert.ok(b.zeroArgReusable / b.tools > 0.25, `only ${b.zeroArgReusable} of ${b.tools} tools are callable with no arguments — under a quarter, and the surface cannot be explored without reading schemas first`)
+  // and the rating scale is respected: rate() maps required keys to 1..5, so nothing may sit outside it
+  for (const t of b.ratings) assert.ok(t.rating >= 1 && t.rating <= 5, `${t.name} rates ${t.rating}, outside the 1..5 scale`)
   assert.ok(b.hardest.length > 0 && b.hardest[0].required >= b.hardest[b.hardest.length - 1].required)
   assert.deepEqual(b, mcpBenchmark())                       // served result IS the function's — no drift
 })
