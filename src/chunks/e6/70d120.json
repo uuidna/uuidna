@@ -1,0 +1,12 @@
+{
+  "handle": "e670d120",
+  "address": "e670d120-bdb6-8386-ad05-d5145b23c888",
+  "statement": "100000000 * 287097813 < 100000000000000000000000000000000",
+  "tactic": "decide",
+  "keys": [
+    "hardware_above_landauer"
+  ],
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

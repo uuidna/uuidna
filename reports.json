@@ -5,29 +5,29 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1239,
-        "keys": 1323,
+        "distinct": 1242,
+        "keys": 1326,
         "renamings": 84,
         "principles": 72,
         "skills": 68,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "2deb4885-04fa-8c8c-8069-8a69fb6d37b2"
+        "ledgerReceipt": "211c0887-3b53-8a7f-b8fc-51f705f9c46e"
       },
-      "address": "82d8cf0a-0b11-803a-a04b-eb883a5a5b44"
+      "address": "2a134de1-f4d7-82ea-b412-01f5aceecab2"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1323,
-        "ledgerKeys": 1323,
+        "theoremsMeasured": 1326,
+        "ledgerKeys": 1326,
         "unmeasured": 0,
-        "summedDecideSteps": 325195
+        "summedDecideSteps": 325456
       },
-      "address": "9c7dc199-9c93-8538-94a6-4fb1cb39365e"
+      "address": "69fe1a7d-4a0a-8685-b3a7-1ae0703278dd"
     },
     {
       "title": "Citation audit",
@@ -69,12 +69,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "074a98b24fca1b9d",
-        "unifiedFold": "66473f06073c17de"
+        "foldReceipt": "621e5d8bbc24a9a1",
+        "unifiedFold": "6e38bfc6aa59bc84"
       },
-      "address": "8ea58156-e316-82ef-ae1e-8ee3fda3ff93"
+      "address": "9f5d64d2-ee94-8e1b-8658-91ed4bfc8ce4"
     }
   ],
-  "receipt": "01ea6f46-d395-80de-8956-67719d83db0c",
+  "receipt": "823ef765-3eec-8172-ab1e-13b1b632ed9f",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

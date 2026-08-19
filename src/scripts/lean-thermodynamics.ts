@@ -58,7 +58,11 @@ const FACTS = [
   // same wing, forbid exactly that. "Free energy from computation" is refused by the ledger, not by opinion.
   { key: 'landauer_bound_derived',
     why: 'THE FLOOR UNDER EVERY ERASURE, DERIVED FROM AN EXACT CONSTANT. Boltzmann\'s k is exact by SI definition (1.380649×10⁻²³ J/K, fixed in the 2019 redefinition), so at room temperature T = 300 K the thermal quantum is kT = 414194700×10⁻²⁹ J, and Landauer\'s minimum cost of erasing ONE bit is kT·ln2 = 287097813×10⁻²⁹ J ≈ 2.871×10⁻²¹ J. Computed here in exact integers with ln2 as 693147/1000000 — no measurement enters, only the definition and division.',
-    js: () => 1380649 * 300 === 414194700 && Math.floor(414194700 * 693147 / 1000000) === 287097813,
+    // BigInt division, not a library rounding helper: the determinism scan hard-rejects the whole builtin maths
+    // namespace tree-wide (it settles no theorem) — and it reads raw source, so even NAMING that helper in a
+    // comment trips it, which is how this line was first written and caught. BigInt `/` is exactly Lean's Nat
+    // floor division: the same operator, not an approximation of it.
+    js: () => 1380649 * 300 === 414194700 && (414194700n * 693147n) / 1000000n === 287097813n,
     lean: 'theorem landauer_bound_derived : 1380649 * 300 = 414194700 ∧ 414194700 * 693147 / 1000000 = 287097813 := by decide' },
 
   { key: 'reversible_erases_nothing',
@@ -68,7 +72,9 @@ const FACTS = [
 
   { key: 'hardware_above_landauer',
     why: 'REAL SILICON RUNS ABOUT A HUNDRED MILLION TIMES ABOVE THE FLOOR. A switching event in current CMOS dissipates on the order of 10⁻¹² J, against Landauer\'s 2.871×10⁻²¹ J — a ratio near 3.5×10⁸, stated here as the exact integer comparison 100000000 × 287097813 < 100000000000000000000000000000000. So the headroom between real hardware and the physical limit is enormous and real — and it is headroom for EFFICIENCY, which is a smaller bill, not a source of energy.',
-    js: () => 100000000 * 287097813 < 1e32,
+    // BigInt: 100000000 * 287097813 = 2.87e16 overflows MAX_SAFE_INTEGER (9.0e15), so Number arithmetic here
+    // would compare rounded values and agree with Lean by luck rather than by value.
+    js: () => 100000000n * 287097813n < 100000000000000000000000000000000n,
     lean: 'theorem hardware_above_landauer : 100000000 * 287097813 < 100000000000000000000000000000000 := by decide' },
 ]
 
