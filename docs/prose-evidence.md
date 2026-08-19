@@ -3,140 +3,92 @@
 **Every claim in the README and homepage is backed by sealed Lean theorems.** This ledger proves the connection.
 
 
-## human quantum analog
+## the two coins, conserved
 
-**Prose:** "A human quantum analog — simulated on 64-bit hardware in precise theorem sets"
+**Prose:** "The coins are conserved: 2, explained only by theorems"
 
-**Address:** `a5a6147c-8c61-87b7-b8ac-6a0e8b6388ba`
+**Address:** `fd7b1e88-694a-8c00-94b2-99bbfd10c4fe`
 
-**Backing theorems (5):**
+**Backing theorems (1):**
 
-- **[rosette_quantum_fortytwo](/theorem/rosette_quantum_fortytwo)** — "the 42 QUANTUM rosette: made order-sensitive — each pair a DIRECTED merge edge (a↔b becomes a→b and b→a) — the 21 doubles to 7·6 = 42 directed pairs"
-  - File: Rosette.lean
-  - Statement: `7 * 6 = 42...`
-- **[rosette_quantum_doubling_is_two_coins](/theorem/rosette_quantum_doubling_is_two_coins)** — "QUANTUM DOUBLING IS THE TWO CAPTAIN COINS contributed: the factor 2 (= 110−108, −χ of the double torus) takes the 21 rosette to the 42 quantum rosette AND the 64-bit coin to the 128-bit address — the doubling holds only if the two coins are accounted and contributed"
-  - File: Rosette.lean
-  - Statement: `(2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2)...`
-- **[ym_quantum](/theorem/ym_quantum)** — "Yang–Mills edge: winding numbers are discrete (no integer strictly between n and n+1); a 1/n spectrum is gapless"
-  - File: Uuidna.lean
-  - Statement: `(List.range 9).all (fun n => (List.range 12).all (fun k => ¬ (n < k ∧ k < n+1))) ∧ (List.range' 2 4).all (fun k => 1*k <...`
-- **[bell_born_weights](/theorem/bell_born_weights)** — "the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)"
-  - File: Quantum.lean
-  - Statement: `(([1,0,0,1] : List Nat).map (fun a => a * a)) = [1,0,0,1]...`
-- **[bell_normalized](/theorem/bell_normalized)** — "Bell normalization: Σ|amp|² = 1+0+0+1 = 2 = 2¹ (scale 1) — the weights are an exact probability distribution, no floating point"
-  - File: Quantum.lean
-  - Statement: `((1*1 + 0*0 + 0*0 + 1*1 : Nat) = 2) ∧ ((2:Nat) = 2^1)...`
-
-
-## 432 Hz tuned
-
-**Prose:** "tuned to 432 Hz (k432: 432 = 2⁴·3³)"
-
-**Address:** `6ccb81d0-390b-8f4f-b3d1-e584917795e0`
-
-**Backing theorems (2):**
-
-- **[k432](/theorem/k432)** — "432 = 2⁴·3³ = 16·27"
-  - File: Vortex.lean
-  - Statement: `(432 = 2^4 * 3^3) ∧ (432 = 16 * 27)...`
-- **[sound_ladder_432](/theorem/sound_ladder_432)** — "the d/9 sound ladder on the 432 Hz anchor: f_d = 48·d, with the anchor exact at f_9 = 432"
-  - File: BioPhysics.lean
-  - Statement: `((List.range' 1 9).map (fun d => 48 * d) = [48,96,144,192,240,288,336,384,432]) ∧ (48 * 9 = 432)...`
-
-
-## honest by construction
-
-**Prose:** "honest by construction"
-
-**Address:** `3b500950-69a5-807a-94ff-b38fb7b3b242`
-
-**Backing theorems (7):**
-
-- **[store_fold_order_invariant](/theorem/store_fold_order_invariant)** — "The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical content-address receipt the state folds to, integrity — not a quantum memory."
-  - File: Quantum.lean
-  - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b]....`
-- **[store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt)** — "The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. HONEST SCOPE: integrity of the content-address, not a quantum property."
-  - File: Quantum.lean
-  - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 => ([a...`
-- **[flag_requires_hollow](/theorem/flag_requires_hollow)** — "Soundness — the gate never flags honest prose: flag ≤ h, so a sentence with no hollow superlative (h=0) is NEVER flagged, whatever its demarcation or backing."
-  - File: Audit.lean
-  - Statement: `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2)...`
-- **[honesty_gate_one_drain](/theorem/honesty_gate_one_drain)** — "The honesty gate is a game with no bluff: a citation drains iff it is hollow AND unbacked — drain(h,b) = h·(1−b) — and of the 4 states exactly ONE fires (h=1, b=0). A backing clears it, an honest scope clears it; only the empty overclaim drains. The detector, itself decidable (echoing Audit.lean)."
-  - File: AuditGame.lean
-  - Statement: `((List.range 4).filter (fun n => (n / 2) * (1 - n % 2) == 1)).length = 1...`
-- **[coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none)** — "HOW the coins compute AND that the theorems are not solved, in one seal — the honest boundary. The two coins COMPUTE the save (32·2 = 64: contribute two, and up to 64 bits of recompute are saved) and pay for a VERIFICATION, cheaper than the work (verify 1 < recompute 64 — the O(1) check against the O(N) recompute). Yet the theorems SOLVE NOTHING of the hard problems they reflect: 0 < 1 — zero solved, fewer than one; the reflection (dz) propagates no proof. Computing is NOT solving: the coins settle a recomputable verification (integrity), never a solution to the underlying problem (truth). This is exactly the boundary the captain accepted — the coins compute, the theorems do not solve."
+- **[two_coins](/theorem/two_coins)** — "The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate."
   - File: Coins.lean
-  - Statement: `(32 * 2 = 64) ∧ (1 < 64) ∧ ((0:Nat) < 1)...`
-- **[honesty_gate_passes_iff_all_sealed](/theorem/honesty_gate_passes_iff_all_sealed)** — "((List.range 8).filter (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 1)) = [0]"
-  - File: AntiFraud.lean
-  - Statement: `((List.range 8).filter (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == 1)) = [0]...`
-- **[honesty_gate_is_theorem_not_oracle](/theorem/honesty_gate_is_theorem_not_oracle)** — "(List.range 8).all (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == (if (n % 2 == 0) && (n / 2 % 2 == 0) && (n / 4 % 2 == 0) then 1 else 0))"
-  - File: AntiFraud.lean
-  - Statement: `(List.range 8).all (fun n => cleanAudit (n % 2) (n / 2 % 2) (n / 4 % 2) == (if (n % 2 == 0) && (n / 2 % 2 == 0) && (n / ...`
+  - Statement: `110 - 108 = 2...`
 
 
-## content-addressed identity
+## contribute two, save sixty-four
 
-**Prose:** "Content-addressed identity"
+**Prose:** "the leverage: contribute 2, save up to 64"
 
-**Address:** `416ab6fd-2b01-8592-bcbb-763517354166`
+**Address:** `65561265-763d-811c-8d2d-c824f8238c5f`
 
-**Backing theorems (3):**
+**Backing theorems (1):**
 
-- **[self_seal](/theorem/self_seal)** — "the self-sealing vortex-fraction product = 1, as exact cross-multiplication (5040 = 5040)"
-  - File: Vortex.lean
-  - Statement: `(1*1*1*8*7*5*1*2*9) = (2*2*2*7*5*3*2*3)...`
-- **[seal_ten](/theorem/seal_ten)** — "SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling — each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check catches.)"
-  - File: Sequence.lean
-  - Statement: `([0,1,2,4,8,7,5,3,6,9].length = 10) ∧ ((List.range 10).all (fun d => [0,1,2,4,8,7,5,3,6,9].contains d)) ∧ ([1,2,4,8,7,5]...`
-- **[store_fold_order_invariant](/theorem/store_fold_order_invariant)** — "The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical content-address receipt the state folds to, integrity — not a quantum memory."
-  - File: Quantum.lean
-  - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b]....`
+- **[contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour)** — ""Contribute 2 to save up to 64" — the measured leverage is 32: 2 · 32 = 64. The two coins in, up to 64 bits of recompute saved."
+  - File: Coins.lean
+  - Statement: `2 * 32 = 64...`
 
 
-## integrity, not truth (theorem provenance_integrity_not_content_truth)
+## two coins, the double torus
 
-**Prose:** "Integrity, not truth (theorem provenance_integrity_not_content_truth): a seal proves its exact statement, never a grander claim"
+**Prose:** "110 − 108 = −χ of the double torus"
 
-**Address:** `235990ab-4f92-872c-8a3d-8b821230579f`
+**Address:** `39078f7d-c930-87cd-8860-51135b4511cf`
 
-**Backing theorems (4):**
+**Backing theorems (1):**
 
-- **[store_fold_order_invariant](/theorem/store_fold_order_invariant)** — "The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical content-address receipt the state folds to, integrity — not a quantum memory."
-  - File: Quantum.lean
-  - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b]....`
-- **[store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt)** — "The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. HONEST SCOPE: integrity of the content-address, not a quantum property."
-  - File: Quantum.lean
-  - Statement: `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 => ([a...`
-- **[fold_integrity_tamper](/theorem/fold_integrity_tamper)** — "Insufficient integrity check (CWE-345): content-addressing plus a merkle proof makes any tamper move the tag — evident, not silent — cites tamper_changes_tag. [solution:tamper_changes_tag]"
-  - File: Exploits.lean
-  - Statement: `3 * 5 * 23 = 345...`
-- **[provenance_integrity_not_content_truth](/theorem/provenance_integrity_not_content_truth)** — "CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY, never the truth of what an image depicts. EXACT-COPY: byte-identical inputs fold to the SAME fingerprint (7+8+9 = 7+8+9). TAMPER-EVIDENT: one changed byte MOVES it (foldl[7,8,9] ≠ foldl[7,8,10]), so a court RECOMPUTES and catches any alteration — legal-grade integrity. But CONTENT AUTHENTICITY is NEVER certified from the bytes: over every (integrity, genuine) pair the fingerprint's content verdict is 0 — [0,0,0,0] — because it reads only the BYTES (integrity), never the WORLD (genuine — theorem provenance_integrity_not_content_truth), so it can never return "genuine". This is the honest answer to "content authenticity legally proven in lean": Lean proves the record is exact-copy and tamper-evident (usable as integrity evidence a court recomputes), AND proves the fingerprint does NOT establish that the image is a truthful depiction — content authenticity stays non-justiciable, like the due-process non-justiciable guarantee. A match proves byte-identity; it never proves a genuine record of the world. Integrity, not truth (theorem provenance_integrity_not_content_truth)."
-  - File: Reasoning.lean
-  - Statement: `(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [...`
+- **[two_coins](/theorem/two_coins)** — "The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate."
+  - File: Coins.lean
+  - Statement: `110 - 108 = 2...`
 
 
-## classical quantum state-vector simulator
+## the doubling orbit
 
-**Prose:** "the classical quantum state-vector simulator"
+**Prose:** "six tosses of the coin visit every unit and return home (2⁶ = 64)"
 
-**Address:** `18911b52-507a-80fb-afee-ecc2666022ec`
+**Address:** `d2b5d069-1b21-8cec-bcd7-23fcd15c7651`
 
 **Backing theorems (2):**
 
-- **[n_qubit_dimension](/theorem/n_qubit_dimension)** — "n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. HONEST SCOPE: this counts the simulation cost, it is NOT a speedup or a quantum advantage."
-  - File: Quantum.lean
-  - Statement: `([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32]...`
-- **[clifford_group_order_24](/theorem/clifford_group_order_24)** — "The single-qubit Clifford group (the gates that permute the Paulis) has order 24 = 6 · 4 — six signed axes for X's image, four for the phase. Finite: the Cliffords are classically simulable (Gottesman–Knill), the honest reason they are NOT the source of advantage."
-  - File: Quantum.lean
-  - Statement: `6 * 4 = 24...`
+- **[order_of_two_is_six](/theorem/order_of_two_is_six)** — "the order of 2 is 6 — 2 generates the whole unit group, and its orbit IS the doubling vortex 1→2→4→8→7→5 of length 6"
+  - File: Discover.lean
+  - Statement: `((List.range' 1 8).find? (fun k => (2^k) % 9 == 1)) = some 6...`
+- **[generators_are_two_and_five](/theorem/generators_are_two_and_five)** — "the generators of ℤ/9* (the units of order 6) are EXACTLY {2,5} — discovered by filtering every element for full order"
+  - File: Discover.lean
+  - Statement: `((List.range 9).filter (fun a => ((List.range' 1 8).find? (fun k => (a^k) % 9 == 1)) == some 6)) = [2,5]...`
+
+
+## novelty discovery is a proven absence
+
+**Prose:** "an absence proven by recomputation, never a claim (theorem legal_remand_is_total_nothing_discarded)"
+
+**Address:** `03bfba33-020a-8cae-9c9b-2ee5fbd7899c`
+
+**Backing theorems (1):**
+
+- **[legal_remand_is_total_nothing_discarded](/theorem/legal_remand_is_total_nothing_discarded)** — "nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial, never deleted"
+  - File: Legal.lean
+  - Statement: `(List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c + lrem t h c == 1) && (lrem t h c =...`
+
+
+## uuidna is dna times the two coins
+
+**Prose:** "coin measures six doublings of bits (2⁶ = 64) — the same number by two routes"
+
+**Address:** `be8307e5-614d-87d7-8221-e2f84251ad42`
+
+**Backing theorems (1):**
+
+- **[uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins)** — "THE NAME IS A THEOREM — why uuid and DNA are one word here. The genetic code and the coin measure are the SAME NUMBER by two different routes: DNA reads 4 bases three at a time (4³ = 64) and the coin is six doublings of bits (2⁶ = 64), so 4³ = 2⁶ — the codon count IS the coin's bit measure. The uuid is EXACTLY TWO of them: 128 = 2·64 = 2⁷ — two coins, and (double_strand) two antiparallel rails, one per direction. uuid = DNA × the two coins, and the double helix is the bidirectional messaging the coins price at one per direction. HONEST SCOPE: an arithmetic coincidence of counts made structural by construction — the address is BUILT as two 64-bit halves; it is not a claim that DNA stores uuids or that biology computes addresses."
+  - File: Cipher.lean
+  - Statement: `(4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)...`
 
 
 ---
 
 **Summary:**
 - Total claims audited: 6
-- Total backing theorems: 23
+- Total backing theorems: 7
 - Proof method: All `by decide` (no axioms, kernel-only)
 - Integrity: Each claim is content-addressed and verifiable
 

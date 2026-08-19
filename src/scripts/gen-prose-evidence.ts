@@ -15,36 +15,42 @@ interface EvidenceEntry {
   address: string
 }
 
+// Every `prose` string below must be an EXACT, single-line substring of the CURRENT README.md or docs/index.md —
+// next.ts's ARM 7 checks each verbatim, and a rewrite of either surface (gen-readme.ts, docs/index.md) drifts these
+// silently until re-synced here. Regenerating this file does NOT re-derive the quotes (they are hand-picked, not
+// computed) — a drifted quote means the SOURCE prose changed, and the fix is to re-pick a live quote, not to just
+// re-run this generator. (Learned 2026-08-19: the previous quote set named marketing copy — "432 Hz", "honest by
+// construction", "human quantum analog" — that a prior README/homepage rewrite had already dropped entirely.)
 const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
   {
-    claim: 'human quantum analog',
-    prose: 'A human quantum analog — simulated on 64-bit hardware in precise theorem sets',
-    backing: T.filter(t => /quantum|bell|ghz/.test(t.key)).slice(0, 5)
+    claim: 'the two coins, conserved',
+    prose: 'The coins are conserved: 2, explained only by theorems',
+    backing: T.filter(t => t.key === 'two_coins')
   },
   {
-    claim: '432 Hz tuned',
-    prose: 'tuned to 432 Hz (k432: 432 = 2⁴·3³)',
-    backing: T.filter(t => t.key === 'sound_ladder_432' || t.key === 'k432')
+    claim: 'contribute two, save sixty-four',
+    prose: 'the leverage: contribute 2, save up to 64',
+    backing: T.filter(t => t.key === 'contribute_two_save_sixtyfour')
   },
   {
-    claim: 'honest by construction',
-    prose: 'honest by construction',
-    backing: T.filter(t => /store_fold|flag_requires|honesty_gate|coins_compute/.test(t.key))
+    claim: 'two coins, the double torus',
+    prose: '110 − 108 = −χ of the double torus',
+    backing: T.filter(t => t.key === 'two_coins')
   },
   {
-    claim: 'content-addressed identity',
-    prose: 'Content-addressed identity',
-    backing: T.filter(t => /order_invariant|seal|fold/.test(t.key)).slice(0, 3)
+    claim: 'the doubling orbit',
+    prose: 'six tosses of the coin visit every unit and return home (2⁶ = 64)',
+    backing: T.filter(t => t.key === 'order_of_two_is_six' || t.key === 'generators_are_two_and_five')
   },
   {
-    claim: 'integrity, not truth',
-    prose: 'Integrity, not truth: a seal proves its exact statement, never a grander claim',
-    backing: T.filter(t => /store_fold|integrity/.test(t.key) || t.statement.includes('integrity')).slice(0, 4)
+    claim: 'novelty discovery is a proven absence',
+    prose: 'an absence proven by recomputation, never a claim (theorem legal_remand_is_total_nothing_discarded)',
+    backing: T.filter(t => t.key === 'legal_remand_is_total_nothing_discarded')
   },
   {
-    claim: 'classical quantum state-vector simulator',
-    prose: 'the classical quantum state-vector simulator',
-    backing: T.filter(t => t.key === 'clifford_group_order_24' || t.key === 'n_qubit_dimension')
+    claim: 'uuidna is dna times the two coins',
+    prose: 'coin measures six doublings of bits (2⁶ = 64) — the same number by two routes',
+    backing: T.filter(t => t.key === 'uuidna_is_dna_times_the_two_coins')
   }
 ]
 
