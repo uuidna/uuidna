@@ -93,6 +93,16 @@ const FACTS = [
     why: 'the powers of 5 walk the vortex BACKWARD: 5^1..5^6 mod 9 = [5,7,8,4,2,1], exactly the doubling orbit [1,2,4,8,7,5] reversed — because 5 = 2⁻¹, the ×5 orbit is the time-reversal of the ×2 orbit, one cycle read in the mirror',
     js: () => { const pow5 = (k: number) => { let v = 1; for (let i = 0; i < k; i++) v = (v * 5) % 9; return v }; const orbit = [1, 2, 3, 4, 5, 6].map(pow5); const rev = [1, 2, 4, 8, 7, 5].slice().reverse(); return orbit.join(',') === rev.join(',') && orbit.join(',') === '5,7,8,4,2,1' },
     lean: 'theorem five_orbit_reverses_doubling : ([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].reverse = [5,7,8,4,2,1]) := by decide' },
+  // ── THE GENERAL LAW ABOVE five_orbit_reverses_doubling, which is its g=2 instance. Measured across every unit
+  // of ℤ/9 and ℤ/7 before sealing (12/12), after a first parameterisation gave 1/6 by starting the walk at g¹
+  // instead of g⁰ — same cycle, rotated, and the convention is what the sealed instance already uses.
+  // REVERSE IS NOT INVERSE, and this is exactly how they relate: `reverse` acts on the SEQUENCE, `inverse` acts
+  // on the ELEMENT, and reversing the forward walk equals walking by the inverse generator. Three distinct
+  // operations, one identity binding them.
+  { key: 'reverse_walks_inverse', skill: 'sequence',
+    why: 'REVERSING THE WALK IS WALKING BY THE INVERSE. For every unit g of ℤ/9 with inverse h, the forward orbit [g⁰,g¹,…,g⁵] read backwards is exactly the inverse walk [h¹,…,h⁶] — checked for all six units (1↔1, 2↔5, 4↔7, 5↔2, 7↔4, 8↔8), and it holds for ℤ/7 too. So `reverse` and `inverse` are DIFFERENT operations — one reorders a sequence, the other maps an element — and this identity is the bridge between them: time-reversal of a cyclic walk is the walk of the inverse generator. five_orbit_reverses_doubling is the g=2 case of this law.',
+    js: () => { const pw = (b: number, k: number): number => { let v = 1; for (let i = 0; i < k; i++) v = (v * b) % 9; return v }; return ([[1, 1], [2, 5], [4, 7], [5, 2], [7, 4], [8, 8]] as [number, number][]).every(([g, h]) => [0, 1, 2, 3, 4, 5].map((k) => pw(g, k)).reverse().join(',') === [0, 1, 2, 3, 4, 5].map((k) => pw(h, k + 1)).join(',')) },
+    lean: 'theorem reverse_walks_inverse : ([(1,1),(2,5),(4,7),(5,2),(7,4),(8,8)].all (fun p => (((List.range 6).map (fun k => p.1 ^ k % 9)).reverse) == ((List.range 6).map (fun k => p.2 ^ (k+1) % 9)))) = true := by decide' },
   { key: 'only_five_carries_the_three_singularities', skill: 'sequence',
     why: 'the three singular roles of the strip — the mirror\'s fixed heart (10−d = d), the reflection\'s fixed digit (dz d = d; the other fixed point 0 is the floor, outside the digits), and the closure of BOTH rails (forward [1,2,4,8,7,5] and inverted [9,8,6,2,3,5] each end here) — are carried by EXACTLY ONE digit: 5. The deploy condition, sealed: a claim once UNVERIFIED by the trial now cites its own theorem',
     js: () => { const dz = (x: number) => x === 0 ? 0 : 10 - x; const F = [1, 2, 4, 8, 7, 5], I = [9, 8, 6, 2, 3, 5]; const carriers = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter((d) => 10 - d === d && dz(d) === d && F[F.length - 1] === d && I[I.length - 1] === d); return carriers.length === 1 && carriers[0] === 5 },

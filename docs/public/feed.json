@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:871c686e-c08c-8317-a00d-bf75b2cb1769",
+  "@id": "urn:uuid:34c9dce1-015d-83a6-afde-3baf995505f2",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -13961,6 +13961,34 @@
         "abstract": "([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].reverse = [5,7,8,4,2,1])",
         "identifier": "ffd17fe7-6fb1-8211-8fcc-a99bc313d07e",
         "url": "https://uuidna.com/theorem/five_orbit_reverses_doubling",
+        "keywords": "sequence, The sequence & reflection group",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sequence.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:19710f05-4105-81be-b7fe-e6c9aac56925",
+        "@type": "ScholarlyArticle",
+        "headline": "REVERSING THE WALK IS WALKING BY THE INVERSE. For every unit g of ℤ/9 with inverse h, the forward orbit [g⁰,g¹,…,g⁵] read backwards is exactly the inverse walk [h¹,…,h⁶] — checked for all six units (1↔1, 2↔5, 4↔7, 5↔2, 7↔4, 8↔8), and it holds for ℤ/7 too. So `reverse` and `inverse` are DIFFERENT operations — one reorders a sequence, the other maps an element — and this identity is the bridge between them: time-reversal of a cyclic walk is the walk of the inverse generator. five_orbit_reverses_doubling is the g=2 case of this law.",
+        "abstract": "([(1,1),(2,5),(4,7),(5,2),(7,4),(8,8)].all (fun p => (((List.range 6).map (fun k => p.1 ^ k % 9)).reverse) == ((List.range 6).map (fun k => p.2 ^ (k+1) % 9)))) = true",
+        "identifier": "30000da8-d61f-8eeb-8dab-5d9198cd2412",
+        "url": "https://uuidna.com/theorem/reverse_walks_inverse",
         "keywords": "sequence, The sequence & reflection group",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sequence.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

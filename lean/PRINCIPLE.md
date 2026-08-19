@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1322 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1323 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -20,7 +20,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 5. **Ported from millennium-solutions** — `lean/Vortex.lean` · **16** theorems
    the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)
 
-6. **The sequence & reflection group** — `lean/Sequence.lean` · **27** theorems
+6. **The sequence & reflection group** — `lean/Sequence.lean` · **28** theorems
    the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt
 
 7. **Division by zero** — `lean/DivByZero.lean` · **8** theorems

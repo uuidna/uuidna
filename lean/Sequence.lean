@@ -78,6 +78,9 @@ theorem five_is_the_halving : (List.range 9).all (fun x => ((2 * x % 9) * 5) % 9
 -- the powers of 5 walk the vortex BACKWARD: 5^1..5^6 mod 9 = [5,7,8,4,2,1], exactly the doubling orbit [1,2,4,8,7,5] reversed — because 5 = 2⁻¹, the ×5 orbit is the time-reversal of the ×2 orbit, one cycle read in the mirror
 theorem five_orbit_reverses_doubling : ([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].reverse = [5,7,8,4,2,1]) := by decide
 
+-- REVERSING THE WALK IS WALKING BY THE INVERSE. For every unit g of ℤ/9 with inverse h, the forward orbit [g⁰,g¹,…,g⁵] read backwards is exactly the inverse walk [h¹,…,h⁶] — checked for all six units (1↔1, 2↔5, 4↔7, 5↔2, 7↔4, 8↔8), and it holds for ℤ/7 too. So `reverse` and `inverse` are DIFFERENT operations — one reorders a sequence, the other maps an element — and this identity is the bridge between them: time-reversal of a cyclic walk is the walk of the inverse generator. five_orbit_reverses_doubling is the g=2 case of this law.
+theorem reverse_walks_inverse : ([(1,1),(2,5),(4,7),(5,2),(7,4),(8,8)].all (fun p => (((List.range 6).map (fun k => p.1 ^ k % 9)).reverse) == ((List.range 6).map (fun k => p.2 ^ (k+1) % 9)))) = true := by decide
+
 -- the three singular roles of the strip — the mirror's fixed heart (10−d = d), the reflection's fixed digit (dz d = d; the other fixed point 0 is the floor, outside the digits), and the closure of BOTH rails (forward [1,2,4,8,7,5] and inverted [9,8,6,2,3,5] each end here) — are carried by EXACTLY ONE digit: 5. The deploy condition, sealed: a claim once UNVERIFIED by the trial now cites its own theorem
 theorem only_five_carries_the_three_singularities : ((List.range' 1 9).filter (fun d => (10 - d == d) && (dz d == d) && ([1,2,4,8,7,5].getLast? == some d) && ([9,8,6,2,3,5].getLast? == some d))) = [5] := by decide
 
