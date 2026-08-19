@@ -1,7 +1,7 @@
 {
   "name": "@uuidna/mcp",
   "version": "0.1.0",
-  "description": "The uuidna MCP server as its own package: the uuidna-mcp stdio bin (re-served from the root dist) plus the I/O boundary it stands on — the sanitizers and the reeducating harness.",
+  "description": "The uuidna MCP server as its own package: the uuidna-mcp stdio bin (re-served from the root dist) plus the I/O boundary it stands on \u2014 the sanitizers and the reeducating harness.",
   "type": "module",
   "license": "CC-BY-NC-ND-4.0",
   "author": "Tsvetan Rouschev <ceccec@psg.bg>",
@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node --test ../../dist/test/mcp.test.js ../../dist/test/mcp-http.test.js ../../dist/test/mcp-coverage.test.js",
+    "test": "node --test ../../dist/tests/mcp.test.js ../../dist/tests/mcp-http.test.js ../../dist/tests/mcp-coverage.test.js",
     "mcp": "node bin.js"
   },
   "dependencies": {

@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps} from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -163,6 +163,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // the SAME wrong value as the Lean it is checked against and pass emit()'s comparison by luck. Three mirrors
   // needed BigInt in one session (2026-08-19); the third was caught by hand, which is what makes it a finder.
   { name: 'mirror', run: () => mirrorGaps() },
+  // A LANE AIMED AT A PATH THE BUILD NO LONGER WRITES DOES NOT FAIL — IT PASSES, AGAINST STALE OUTPUT. All six
+  // packages ran from dist/test/ for a day after src/test became src/tests; 108 tests stayed green while testing
+  // frozen code. Existence-checked per referenced path, so the class cannot return.
+  { name: 'lanes', run: () => lanesGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {

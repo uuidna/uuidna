@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node --test ../../dist/test/quantum.test.js ../../dist/test/quantum-news-portal.test.js ../../dist/quantum/tests/*.test.js"
+    "test": "node --test ../../dist/tests/quantum.test.js ../../dist/tests/quantum-news-portal.test.js ../../dist/quantum/tests/*.test.js"
   },
   "dependencies": {
     "@uuidna/uuidna": "file:../.."

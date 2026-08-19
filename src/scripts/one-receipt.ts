@@ -870,6 +870,35 @@ export function mirrorGaps(): Gap[] {
   return gaps
 }
 
+// ── lanes: A PACKAGE TEST LANE MUST POINT AT FILES THE BUILD ACTUALLY PRODUCES. Found 2026-08-19: every one of
+// the six workspace packages ran its tests out of `dist/test/`, a directory the build STOPPED producing when
+// src/test was renamed src/tests. The folder survived in dist (gitignored, so never cleaned), its newest file a
+// day stale, and all 108 package tests passed against frozen compiled code — green, and testing nothing current.
+// A lane that names a missing file fails loudly; a lane that names a STALE file passes quietly, which is worse.
+// So the check is existence against the live tree, per referenced path, for every workspace package.
+export function lanesGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const pkgDir = join(ROOT, 'packages')
+  if (!existsSync(pkgDir)) return gaps
+  for (const pkg of readdirSync(pkgDir).sort()) {
+    const manifest = join(pkgDir, pkg, 'package.json')
+    if (!existsSync(manifest)) continue
+    const j = JSON.parse(readFileSync(manifest, 'utf8')) as { name?: string; scripts?: Record<string, string> }
+    const lane = j.scripts?.test
+    if (!lane) { gaps.push({ what: `packages/${pkg} declares no test lane`, fix: `add a "test" script running its own dist tests, or drop the package — an untested surface is shipped on trust` }); continue }
+    for (const ref of lane.match(/(?:\.\.\/)+dist\/[^\s]+/g) ?? []) {
+      if (ref.includes('*')) continue // a glob resolves at run time; node --test reports its own empty match
+      const abs = join(ROOT, ref.replace(/^(?:\.\.\/)+/, ''))
+      if (!existsSync(abs))
+        gaps.push({
+          what: `packages/${pkg} (${j.name ?? pkg}) test lane names ${ref}, which the build does not produce`,
+          fix: `repoint it at the live compiled path (the tests compile from src/tests/ to dist/tests/). A lane aimed at a directory the build no longer writes keeps PASSING against stale output — it does not fail, it silently stops testing.`,
+        })
+    }
+  }
+  return gaps
+}
+
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
 // the microdata says, it is audited. ──

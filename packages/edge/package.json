@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node --test ../../dist/test/editor.test.js ../../dist/test/typography-audit.test.js"
+    "test": "node --test ../../dist/tests/editor.test.js ../../dist/tests/typography-audit.test.js"
   },
   "dependencies": {
     "@uuidna/uuidna": "file:../.."

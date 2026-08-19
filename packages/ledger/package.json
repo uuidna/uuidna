@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node --test ../../dist/test/laws.test.js ../../dist/test/credits.test.js ../../dist/test/forensics.test.js ../../dist/test/evidence.test.js ../../dist/test/recompute.test.js"
+    "test": "node --test ../../dist/tests/laws.test.js ../../dist/tests/credits.test.js ../../dist/tests/forensics.test.js ../../dist/tests/evidence.test.js ../../dist/tests/recompute.test.js"
   },
   "dependencies": {
     "@uuidna/uuidna": "file:../.."
