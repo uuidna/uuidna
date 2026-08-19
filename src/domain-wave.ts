@@ -7,11 +7,17 @@
 // order-invariant fold is the "quantum touch" (bell_no_signaling). Integrity, not truth.
 import { theorems } from './theorems/index.js'
 import { merkleGravity } from './gravity.js'
+import { toUuid } from './address.js'
 import { corroborateWithResearch, type Corroboration } from './corroborate.js'
 
 export interface DomainWave {
   domain: string
-  local: { theorems: number; fold: string; orderInvariant: boolean } // the local development wave — the seal
+  // the local development wave — the seal. `recomputes` is the audit that can FAIL: every address is re-derived
+  // from the theorem's own key and statement and compared, so a forged or edited entry is caught. `orderInvariant`
+  // is kept because it is the receipt property callers rely on, but it is STRUCTURAL, not a finding —
+  // merkleFold sorts its leaves, so it is true for every input (checked over 492 permutations: never false).
+  // Reporting it as though it were an audit is the vacuous class: a check that cannot fail proves nothing.
+  local: { theorems: number; fold: string; orderInvariant: boolean; recomputes: boolean; forged: string[] }
   external: Corroboration // the external free-research wave — evidence, never a seal
   honest: string
 }
@@ -28,7 +34,10 @@ export async function domainWave(domain: string): Promise<DomainWave> {
   const list = theorems().filter((t) => t.principle === domain || t.skill === domain)
   const addrs = list.map((t) => t.address)
   const fold = merkleGravity(addrs)
-  const orderInvariant = fold === merkleGravity([...addrs].reverse())
+  const orderInvariant = fold === merkleGravity([...addrs].reverse())   // structural — see the type
+  // THE REAL AUDIT: an address is toUuid(key + ':' + statement), so it is recomputable from the theorem itself.
+  // Any entry whose stored address does not fall out of its own content has been edited or forged.
+  const forged = list.filter((t) => toUuid(t.key + ':' + t.statement) !== t.address).map((t) => t.key)
   const external = await corroborateWithResearch(domain)
-  return { domain, local: { theorems: list.length, fold, orderInvariant }, external, honest: HONEST }
+  return { domain, local: { theorems: list.length, fold, orderInvariant, recomputes: forged.length === 0, forged }, external, honest: HONEST }
 }
