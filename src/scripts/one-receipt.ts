@@ -983,7 +983,15 @@ export function dormantGaps(): Gap[] {
     if (!existsSync(p)) continue
     for (const f of readdirSync(p)) corpus += ' ' + readFileSync(join(p, f), 'utf8')
   }
-  for (const f of readdirSync(dir).filter((x) => x.endsWith('.ts'))) corpus += ' ' + readFileSync(join(dir, f), 'utf8')
+  // a sibling script naming this one counts as an invocation; the file naming ITSELF does not. Found 2026-08-19:
+  // a script that documents its own usage as `node dist/scripts/<name>.js …` had that comment read
+  // as proof something ran it — so ANY dormant script could exempt itself simply by naming its compiled form.
+  // The corpus is therefore built per-candidate, with the candidate's own source left out. NOTE the compiled name
+  // is written here WITHOUT the literal extension, because this finder reads raw source and would otherwise exempt
+  // whichever file its own explanation names — the same use-versus-mention trap the determinism scan, the sources
+  // finder and the comments finder each sprang today.
+  const siblings = readdirSync(dir).filter((x) => x.endsWith('.ts'))
+  const siblingSrc = new Map(siblings.map((f) => [f, readFileSync(join(dir, f), 'utf8')]))
 
   const listPath = join(ROOT, 'lean', 'dormant-scripts.json')
   const declared: string[] = existsSync(listPath) ? (JSON.parse(readFileSync(listPath, 'utf8')) as { scripts: string[] }).scripts : []
@@ -993,7 +1001,21 @@ export function dormantGaps(): Gap[] {
     // DISCOVERED, not named: lean-all.ts readdirs every lean-*.ts, so a wing runs on every build with no mention
     if (/^lean-/.test(f)) continue
     const base = f.replace(/\.ts$/, '')
-    if (new RegExp(base.replace(/-/g, '[-]') + '\\.js').test(corpus)) continue
+    const others = [...siblingSrc.entries()].filter(([n]) => n !== f).map(([, v]) => v).join(' ')
+    // AN INVOCATION, NOT A MENTION. Matching a bare filename read three kinds of prose as proof something ran:
+    // a path inside a data list, a comment naming a generator, and `rd('src/scripts/…')` — which READS a script's
+    // source rather than running it. So the pattern requires the RUNNER: `node <path>/<name>.js|.ts`, or the
+    // dispatcher form `x -- <name>`. Both extensions count, because node 26 executes TypeScript directly and
+    // publish.yml runs await-live that way so the live job needs no install and no build.
+    // ONE LINE MUST NAME BOTH THE FILE AND A RUNNER. Requiring `node <path>` adjacent to the name was too strict:
+    // guard.ts spawns audit-packages as `execSync('node ' + join(HERE, 'audit-packages.js'))`, where the path is
+    // CONSTRUCTED and the two never touch. Matching the bare name was too loose in the other direction, reading a
+    // path in a data list, a comment naming a generator, and `rd('src/scripts/…')` — which reads a script's source
+    // rather than running it — as invocations. So: the file and a runner word on the same line.
+    const b = base.replace(/-/g, '[-]')
+    const named = new RegExp(b + '\\.(js|ts)\\b')
+    const runner = /\b(node|execSync|spawn(Sync)?|npm run|x\s+--)\b/
+    if ((corpus + '\n' + others).split('\n').some((line) => named.test(line) && runner.test(line))) continue
     live.push(f)
     if (declared.includes(f)) continue
     gaps.push({

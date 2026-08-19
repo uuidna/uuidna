@@ -169,20 +169,23 @@ jobs:
       # @id computed from the tag under test is a verification, not a proxy.
       # Before this, `live` could pass against the PREVIOUS deployment — its two checks (gate spec, trial verdict)
       # hold for any release, so neither could tell one deployment from another.
+      # THE WAIT IS A SCRIPT, NOT SHELL HERE — src/scripts/await-live.ts, covered by src/tests/await-live.test.ts.
+      # It lived inline and no test could reach it; hand-checking found a real hazard, since under `set -euo
+      # pipefail` an unguarded failing curl aborts the step, so a site merely slow to answer would FAIL a release
+      # rather than be retried. The script injects its probe and its sleep, so blocking, never-landing, unreachable
+      # and already-current all run under node --test with no network — including the case a real release cannot
+      # show, because v0.2.4's deploy finished 3m50s before this job started and the retry loop never spun.
+      # It waits on CONTENT: the feed @id content-addresses the whole ledger, so it moves if any theorem moves.
+      # node 26 runs the TypeScript directly, so this job needs the SOURCE and nothing else — no install, no build,
+      # no dist. await-live.ts imports nothing from the package for exactly that reason.
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
       - name: Wait until uuidna.com serves THIS release (feed @id == the tag's own ledger fold)
         run: |
           set -euo pipefail
-          WANT='${{ needs.publish.outputs.feed_id }}'
-          test -n "$WANT" || { echo "::error::publish did not report a feed @id — cannot verify which release is live"; exit 1; }
-          echo "expecting the live feed to carry $WANT"
-          for i in $(seq 1 40); do
-            GOT=$(curl -sf https://uuidna.com/feed.json 2>/dev/null | jq -r '."@id"' || echo '')
-            if [ "$GOT" = "$WANT" ]; then echo "::notice::live site serves this release — feed @id $GOT (after ${i} probe(s))"; exit 0; fi
-            echo "  probe $i: live @id is '${GOT:-unreachable}' — waiting for the deploy"
-            sleep 15
-          done
-          echo "::error::uuidna.com never served this release: after 10 minutes the live feed @id is '${GOT:-unreachable}', not $WANT. The deploy did not land — do not treat the checks below as verifying this release."
-          exit 1
+          node src/scripts/await-live.ts https://uuidna.com/feed.json '${{ needs.publish.outputs.feed_id }}'
 
       - name: The live edge verifies the release — gate clean + trial VERIFIED, or fail
         run: |
