@@ -10,7 +10,7 @@
 // third or fourth level is 100% single-entry directories — decoration, not sharding, and it costs real git/build
 // overhead (empty intermediate dirs, extra readdir/stat calls, more surface for cross-branch tree conflicts) for
 // zero lookup benefit past level one. A handle still reads as four DNA-codon pairs (ab·cd·ef·12) at the DISPLAY
-// layer — src/handles/<ab>/<cdef12>.json keeps that reading without four levels of nearly-empty folders on disk.
+// layer — src/chunks/<ab>/<cdef12>.json keeps that reading without four levels of nearly-empty folders on disk.
 //
 // Each theorem's own per-key record (src/theorems/generated.ts) is unchanged — key+statement is still its own
 // citation identity (address = toUuid(key+':'+statement)), because a key names WHO cites the fact, not the fact
@@ -48,7 +48,7 @@ export function chunkHandleOf(key: string): string | undefined {
   return buildChunks().find((c) => c.keys.includes(key))?.handle
 }
 
-const OUT = join(ROOT, 'src/handles')
+const OUT = join(ROOT, 'src/chunks')
 
 if (process.argv[1] && process.argv[1].endsWith('gen-handle-chunks.js')) {
   console.log('\n╔════════════════════════════════════════════════════════════╗')
@@ -79,5 +79,5 @@ if (process.argv[1] && process.argv[1].endsWith('gen-handle-chunks.js')) {
 
   const shardDirs = readdirSync(OUT).filter((f) => f !== 'index.json')
   console.log(`✓ gen-handle-chunks — ${chunks.length} distinct chunks across ${shardDirs.length} shard(s), 0 collisions`)
-  console.log(`  written to: src/handles/<2-hex>/<6-hex>.json + src/handles/index.json`)
+  console.log(`  written to: src/chunks/<2-hex>/<6-hex>.json + src/chunks/index.json`)
 }
