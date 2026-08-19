@@ -186,6 +186,11 @@ jobs:
         run: |
           set -euo pipefail
           node src/scripts/await-live.ts https://uuidna.com/feed.json '${{ needs.publish.outputs.feed_id }}'
+          # …and the BUILD, which the fold cannot answer: a scripts-only release leaves every theorem untouched,
+          # so the @id is identical and a stale deployment is indistinguishable from a current one. 0.2.5 shipped
+          # in exactly that state — the site published no version at all.
+          # the tag is v0.2.5 while the manifest is 0.2.5 — strip the prefix, or the comparison never matches
+          node src/scripts/await-live.ts https://uuidna.com/feed.json "${GITHUB_REF_NAME#v}" 20 15000 version
 
       - name: The live edge verifies the release — gate clean + trial VERIFIED, or fail
         run: |

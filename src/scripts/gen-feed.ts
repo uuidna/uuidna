@@ -12,8 +12,9 @@
 // markdown page reads (the way captain-claims.json is).
 
 import { theorems, quantumSeo, merkleGravity, toUuid } from '../index.js'
-import { writeFileSync, mkdirSync } from 'node:fs'
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { ROOT } from './api.js'
 
 export interface DataFeed {
   '@context': string
@@ -22,6 +23,7 @@ export interface DataFeed {
   name: string
   description: string
   url: string
+  version: string
   dataFeedElement: { '@type': 'DataFeedItem'; dateCreated: string; item: Record<string, unknown> }[]
 }
 
@@ -38,6 +40,12 @@ export function buildFeed(): DataFeed {
   // Order-invariant fold over every item's own lineAddress — the SAME identity each item's own @id already
   // carries (seo.ts), so the feed's receipt is recomputable from the feed alone, no re-derivation needed.
   const receipt = merkleGravity(T.map((t) => t.lineAddress))
+  // THE RELEASE THIS WAS BUILT FROM. The @id above identifies the LEDGER, which is not the same question: a
+  // release that changes only scripts leaves every theorem untouched, so the fold is identical and a stale
+  // deployment is indistinguishable from a current one. That is exactly what happened at 0.2.5 — the site could
+  // not say which build it was, and the hosted MCP was found advertising a version eleven releases old. schema.org
+  // /version is a real CreativeWork property, so this passes the same vocabulary audit every other field does.
+  const version = (JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }).version
   return {
     '@context': 'https://schema.org',
     '@id': `urn:uuid:${toUuid('feed:' + receipt)}`,
@@ -45,6 +53,7 @@ export function buildFeed(): DataFeed {
     name: 'uuidna theorem ledger feed',
     description: 'Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.',
     url: 'https://uuidna.com/feed.json',
+    version,
     dataFeedElement,
   }
 }

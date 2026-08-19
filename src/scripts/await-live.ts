@@ -14,7 +14,11 @@
 // one function with the probe and the sleep INJECTED, so every path — lands late, never lands, unreachable — is
 // exercised by node --test rather than by someone remembering to try it.
 //
-//   node dist/scripts/await-live.js <url> <want> [maxProbes] [sleepMs]
+//   node dist/scripts/await-live.js <url> <want> [maxProbes] [sleepMs] [field]
+//
+// The field defaults to the feed's @id, which identifies the LEDGER. Pass `version` to ask the other question —
+// which BUILD is deployed — because a release that changes only scripts leaves the fold identical, so the @id
+// alone cannot tell a stale deployment from a current one.
 //
 // Exit 0 when the value is served, 1 when it never is — and the failure names both values and says plainly that
 // later checks must not be read as verifying this release.
@@ -68,13 +72,13 @@ export async function probeJsonField(url: string, field: string): Promise<string
 // `live` job needs no install and no build), while everything else runs the compiled .js. Matching only '.js'
 // made the .ts run a SILENT NO-OP that exited 0 on a wrong value — a verifier that verifies nothing and passes.
 if (process.argv[1] && /await-live\.(js|ts)$/.test(process.argv[1])) {
-  const [url, want, probesArg, sleepArg] = process.argv.slice(2)
-  if (!url || !want) { console.error('await-live — usage: await-live.js <url> <want> [maxProbes] [sleepMs]'); process.exit(1) }
+  const [url, want, probesArg, sleepArg, field] = process.argv.slice(2)
+  if (!url || !want) { console.error('await-live — usage: await-live.js <url> <want> [maxProbes] [sleepMs] [field]'); process.exit(1) }
   const maxProbes = Number(probesArg ?? 40) || 40
   const sleepMs = Number(sleepArg ?? 15000) || 15000
   console.log(`await-live — expecting ${url} to carry ${want}`)
   const out = await awaitValue({
-    probe: () => probeJsonField(url, '@id'),
+    probe: () => probeJsonField(url, field || '@id'),
     want, maxProbes, sleepMs,
     sleep: (ms) => new Promise((r) => setTimeout(r, ms)),
     onProbe: (n, got) => console.log(`  probe ${n}: live value is '${got ?? 'unreachable'}' — waiting for the deploy`),

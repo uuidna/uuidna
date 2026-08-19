@@ -4,6 +4,9 @@
 // second, unchecked exemption for this one file).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from '../boundary.js'
 import { theorems, merkleGravity, toUuid } from '../index.js'
 import { buildFeed } from '../scripts/gen-feed.js'
 import { auditJsonLd } from '../schema-org-vocab.js'
@@ -34,4 +37,15 @@ test('feed: every nested item is vetted schema.org vocabulary — no second, unc
   const failures: string[] = []
   auditJsonLd(feed, 'feed', failures)
   assert.deepEqual(failures, [], 'unvetted schema.org naming in the feed — vet the name or fix the emission')
+})
+
+// ── THE RELEASE, NOT ONLY THE LEDGER. The @id identifies the ledger fold, which cannot answer "which build is
+// deployed": a release that changes only scripts leaves every theorem untouched, so the fold is identical and a
+// stale deployment looks exactly like a current one. That is the state 0.2.5 shipped in — the site published no
+// version at all, and the hosted MCP was found advertising one eleven releases old.
+test('feed: carries the release version, held to package.json', () => {
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }
+  const feed = buildFeed()
+  assert.equal(feed.version, pkg.version, 'the served feed must state the release it was built from')
+  assert.match(feed.version, /^\d+\.\d+\.\d+$/)
 })

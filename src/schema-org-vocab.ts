@@ -49,6 +49,7 @@ export const SCHEMA_ORG_PROPERTIES: Readonly<Record<string, string>> = {
   dataFeedElement: 'https://schema.org/dataFeedElement',
   item: 'https://schema.org/item',
   dateCreated: 'https://schema.org/dateCreated',
+  version: 'https://schema.org/version',
 }
 
 /** auditJsonLd(node, where, failures) → walk a JSON-LD node (or array/tree of them), pushing one failure message
