@@ -115,7 +115,7 @@ onBeforeUnmount(stop)
 .ra-btn {
   display: inline-flex; align-items: center; gap: .35rem; font-size: .82rem; font-weight: 600;
   padding: .35rem .7rem; border-radius: 8px; cursor: pointer;
-  background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider); color: var(--vp-c-text-1);
+  background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-text-2); color: var(--vp-c-text-1);
 }
 .ra-btn:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 .ra-btn:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 2px; }

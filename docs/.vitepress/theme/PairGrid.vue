@@ -94,6 +94,10 @@ td { padding: 2px; }
   cursor: pointer; opacity: .8; transition: opacity .12s, transform .12s, box-shadow .12s;
 }
 .dir:hover, .dir.hot { opacity: 1; transform: scale(1.12); outline: none; }
+/* Tabbing a cell sets `hovered` (the @focus handler), which makes isHot() true, which hits the rule above and
+   removed the outline with no replacement — a keyboard user had NO visible focus indicator across all 56 cells.
+   Same specificity as .dir.hot (one class + one pseudo-class each), so source order alone makes this win. */
+.dir:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 2px; }
 .dir.mirror { opacity: 1; box-shadow: 0 0 0 2px var(--vp-c-text-1); }
 .readout { min-height: 1.6em; margin: .7rem 0 .2rem; font-size: .88rem; }
 .readout .addr { color: var(--vp-c-text-2); margin-left: .45rem; font-family: var(--vp-font-family-mono); }
