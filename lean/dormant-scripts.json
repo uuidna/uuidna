@@ -1,0 +1,43 @@
+{
+  "why": "Scripts that are BUILT and REACHABLE but that no npm script, workflow, hook or sibling ever runs. support-audit cannot see this class: importing a module makes it \"supported\" while nothing exercises what it does \u2014 books.ts sat here for months at 302/302 supported. Declared 2026-08-19; this list MAY ONLY SHRINK. A script leaves it by being wired into a chain, or by being exercised and proven green. EXERCISING IS THE POINT, not excusing: of the first six run, TWO were broken \u2014 quantum-dimension-scan read dist/test, a directory deleted earlier the same day, and seal-claims-audit was holding a real finding (1308 of 1327 KEYS claimed \u2014 1243 distinct propositions under 1327 keys, 84 deliberate re-namings). Both are fixed and removed from this list. The remainder are owed the same treatment.",
+  "count": 33,
+  "exercised_and_fixed": [
+    "seal-claims-audit.ts (now WIRED into the audit chain \u2014 it caught a real gap, so it earns a permanent slot)",
+    "quantum-dimension-scan.ts (fixed and proven green; stays on-demand, declared below)"
+  ],
+  "scripts": [
+    "audit-mcp-native.ts",
+    "audit-prose-entropy.ts",
+    "auto-fill-gaps.ts",
+    "auto-harmonise.ts",
+    "aws-analytics.ts",
+    "azure-analytics.ts",
+    "captain-claim-algebra.ts",
+    "captain-discovers-novelty.ts",
+    "cloudflare-analytics.ts",
+    "crypto-measure.ts",
+    "entanglement-games.ts",
+    "gcp-analytics.ts",
+    "gen-captain-claims-complete.ts",
+    "gen-handles.ts",
+    "gen-prose-evidence.ts",
+    "gen-site.ts",
+    "legal-quantum-accounting.ts",
+    "live-cloud-metrics.ts",
+    "migrate-skills.ts",
+    "multi-cloud-analytics.ts",
+    "outward.ts",
+    "quantum-dimension-scan.ts",
+    "quantum-external-fusion.ts",
+    "quantum-games-from-leads.ts",
+    "quantum-guards-teach.ts",
+    "quantum-launch.ts",
+    "quantum-messaging-demo.ts",
+    "quantum-messaging-hybrid.ts",
+    "quantum-operations-live.ts",
+    "quantum-rosetta-apis.ts",
+    "quantum-school.ts",
+    "refactor.ts",
+    "reserve.ts"
+  ]
+}

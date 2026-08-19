@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, sourcesGaps} from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, sourcesGaps, dormantGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -172,6 +172,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // only SHRINK — new empirical claims must name a standard, an agency, an author-year or a survey. A DATE IS NOT
   // A SOURCE: accepting one is how this finder first passed the very file that motivated it.
   { name: 'sources', run: () => sourcesGaps() },
+  // REACHABLE IS NOT EXERCISED. books.ts sat at 302/302 "supported" while nothing ran its book-reading capability
+  // for months. Of the first six dormant scripts actually EXECUTED, two were broken — one read a directory deleted
+  // the same day, and one was holding a real finding (1308/1327 theorems claimed). Dormant code rots silently.
+  { name: 'dormant', run: () => dormantGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {

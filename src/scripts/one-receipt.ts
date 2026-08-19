@@ -956,6 +956,55 @@ export function sourcesGaps(): Gap[] {
   return gaps
 }
 
+// ── dormant: BUILT, REACHABLE, AND NEVER RUN. support-audit answers "is this module reachable from a root?" and
+// books.ts passed it at 302/302 — imported by index.ts, re-exported on the public surface, entirely dead to every
+// automated pass. Its book-reading capability sat unexercised for months while the research cron searched academic
+// sources beside it. REACHABLE IS NOT EXERCISED, and the gap between the two is where a finished capability sleeps.
+// The class is not new here: guard.ts records that `dry`, `seo` and `vacuous` were "invoked nowhere in the tree,
+// and the vacuous one was holding 12 real findings the moment it was first executed". finder-coverage.test.ts
+// closed that for FINDERS; nothing watched anything else.
+// MEASURING THIS IS THE HARD PART, and three naive attempts were wrong before this one, each in a way worth keeping:
+//   1. name-matching alone reported 108 — wrong, because `npm run x -- <script>` dispatches GENERICALLY, so a
+//      script can be invocable without any chain ever naming it;
+//   2. adding execSync/hook scanning reported 97 — wrong, because lean-all.ts discovers every lean-*.ts by
+//      readdirSync, so 67 wings run on every build while being named nowhere at all;
+//   3. only after modelling BOTH discovery mechanisms does the number hold at 33.
+// A repo that invokes by discovery cannot be audited by grep — which is exactly why nothing caught books.ts.
+export function dormantGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const dir = join(ROOT, 'src/scripts')
+  // the corpus a script can be NAMED in: npm scripts, workflows, git hooks, and any source that spawns it
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  let corpus = Object.values(pkg.scripts).join(' ')
+  for (const d of ['.github/workflows', 'hooks']) {
+    const p = join(ROOT, d)
+    if (!existsSync(p)) continue
+    for (const f of readdirSync(p)) corpus += ' ' + readFileSync(join(p, f), 'utf8')
+  }
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.ts'))) corpus += ' ' + readFileSync(join(dir, f), 'utf8')
+
+  const listPath = join(ROOT, 'lean', 'dormant-scripts.json')
+  const declared: string[] = existsSync(listPath) ? (JSON.parse(readFileSync(listPath, 'utf8')) as { scripts: string[] }).scripts : []
+
+  const live: string[] = []
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.ts') && x !== 'api.ts')) {
+    // DISCOVERED, not named: lean-all.ts readdirs every lean-*.ts, so a wing runs on every build with no mention
+    if (/^lean-/.test(f)) continue
+    const base = f.replace(/\.ts$/, '')
+    if (new RegExp(base.replace(/-/g, '[-]') + '\\.js').test(corpus)) continue
+    live.push(f)
+    if (declared.includes(f)) continue
+    gaps.push({
+      what: `src/scripts/${f} is built but no npm script, workflow, hook or sibling ever runs it — reachable, never exercised`,
+      fix: `wire it into a chain (the audit, a cron, or another script), or declare it in lean/dormant-scripts.json with the reason it stays on-demand. That list MAY ONLY SHRINK. support-audit cannot catch this: importing a module makes it "supported" while nothing exercises what it does.`,
+    })
+  }
+  for (const f of declared)
+    if (!live.includes(f))
+      gaps.push({ what: `lean/dormant-scripts.json still lists ${f}, which is now invoked (or no longer exists)`, fix: `remove '${f}' from lean/dormant-scripts.json — the list may only shrink, and a stale entry excuses a script that no longer needs excusing` })
+  return gaps
+}
+
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
 // the microdata says, it is audited. ──

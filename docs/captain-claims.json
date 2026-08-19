@@ -2,8 +2,8 @@
   "generated": "2026-08-19",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1308,
-  "total_theorems": 1308,
+  "total_claimed": 1327,
+  "total_theorems": 1327,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3000,6 +3000,12 @@
       "principle": "The sequence & reflection group"
     },
     {
+      "key": "reverse_walks_inverse",
+      "lineAddress": "19710f05-4105-81be-b7fe-e6c9aac56925",
+      "address": "30000da8-d61f-8eeb-8dab-5d9198cd2412",
+      "principle": "The sequence & reflection group"
+    },
+    {
       "key": "only_five_carries_the_three_singularities",
       "lineAddress": "4789f009-3289-8450-874d-21df9d119be5",
       "address": "b5b246b2-946c-8520-b4ea-df1bbcdbea89",
@@ -4740,6 +4746,36 @@
       "principle": "The lay of the land"
     },
     {
+      "key": "wgs84_polar_shorter",
+      "lineAddress": "d82f161b-cac8-894b-bac5-1dafb207d9fd",
+      "address": "e5b4ad36-efba-89e8-b2a3-c768cf3c609b",
+      "principle": "The lay of the land"
+    },
+    {
+      "key": "oblate_not_prolate",
+      "lineAddress": "b9251a13-7452-8e7c-8b82-76d9e260f429",
+      "address": "058a9df8-582f-8b2a-8e80-d7b29f91eb81",
+      "principle": "The lay of the land"
+    },
+    {
+      "key": "eratosthenes_fiftieth_circle",
+      "lineAddress": "b4634e28-e31c-8b39-8fc1-15941ac6b7c8",
+      "address": "f9288df2-6898-8c96-82d1-ba87cc4c1532",
+      "principle": "The lay of the land"
+    },
+    {
+      "key": "horizon_distance_finite",
+      "lineAddress": "bb1d60a0-0d34-8576-8588-b5584aa1f75f",
+      "address": "d9e1869c-2dea-8594-81ad-cd509df5d09d",
+      "principle": "The lay of the land"
+    },
+    {
+      "key": "bulge_exceeds_relief",
+      "lineAddress": "3977e939-0572-8d1d-ad18-9db03d586839",
+      "address": "8275446c-d312-8d15-b1c2-fd15885b0b36",
+      "principle": "The lay of the land"
+    },
+    {
       "key": "accept_truth_table",
       "lineAddress": "c37cebf2-3662-84bf-ae43-f7eb8cc48ebb",
       "address": "5d53cea2-72d8-8d09-992d-aced9535f868",
@@ -5088,6 +5124,24 @@
       "principle": "The energy domain"
     },
     {
+      "key": "landauer_bound_derived",
+      "lineAddress": "77737d9d-f202-8a87-81cc-17a5cc9d41d8",
+      "address": "fa581fce-a714-82bf-b738-624422da8ec3",
+      "principle": "The energy domain"
+    },
+    {
+      "key": "reversible_erases_nothing",
+      "lineAddress": "96307759-b000-8a87-96e6-b5346310f632",
+      "address": "ce5b8247-a99c-8782-bac7-7c34b3d4fb00",
+      "principle": "The energy domain"
+    },
+    {
+      "key": "hardware_above_landauer",
+      "lineAddress": "55060b58-dede-8b0f-8295-407f258d4bdf",
+      "address": "48ca318c-fe65-8bed-9834-6081bdbb5e8b",
+      "principle": "The energy domain"
+    },
+    {
       "key": "octet_rule",
       "lineAddress": "8fa63a26-1f94-88d0-84be-637166352756",
       "address": "abb7e3f4-7acd-8e26-8943-d4f95b61f0da",
@@ -5310,6 +5364,12 @@
       "principle": "The points-of-sail domain"
     },
     {
+      "key": "four_points_is_45",
+      "lineAddress": "9b520d45-71e9-8c76-85a6-0413abfbc76d",
+      "address": "e9183ccc-87ea-8c7a-8c27-199caeb1bc73",
+      "principle": "The points-of-sail domain"
+    },
+    {
       "key": "cosmic_speed_limit",
       "lineAddress": "f8a85514-e384-8bd9-bb30-1d5c35afe74b",
       "address": "326fadea-987c-86b7-87ab-6e68f8361c9b",
@@ -5391,6 +5451,30 @@
       "key": "pliska_seven_is_prime",
       "lineAddress": "0591b3be-8943-8afa-8153-5d65bd4ced6c",
       "address": "d7b1b710-3eff-885d-8691-359dfa2da50c",
+      "principle": "The Glagolitic numerals & Pliska rosette"
+    },
+    {
+      "key": "alphabetic_three_ranks",
+      "lineAddress": "431d0224-a312-896e-bdc4-07c6050a1207",
+      "address": "223c358d-cc32-8d64-bc97-9bc7a5f5a3c2",
+      "principle": "The Glagolitic numerals & Pliska rosette"
+    },
+    {
+      "key": "roman_reads_subtractively",
+      "lineAddress": "a1edb74d-787c-8053-99de-204f08edf5a1",
+      "address": "16aa54f4-f0ba-87bb-9e69-bf9359c83326",
+      "principle": "The Glagolitic numerals & Pliska rosette"
+    },
+    {
+      "key": "gematria_ignores_order",
+      "lineAddress": "00125724-88fa-8197-89fa-de338aacec65",
+      "address": "3fa8cc1a-a822-86e2-81a2-487fedd7a0e9",
+      "principle": "The Glagolitic numerals & Pliska rosette"
+    },
+    {
+      "key": "gematria_forces_collisions",
+      "lineAddress": "9e9af4af-4d10-8b0c-820c-4656d5922675",
+      "address": "c6d26f16-6834-86d4-b614-2155cafc73d8",
       "principle": "The Glagolitic numerals & Pliska rosette"
     },
     {
@@ -7428,6 +7512,36 @@
       "principle": "The rules of inference"
     },
     {
+      "key": "untested_stays_unproven",
+      "lineAddress": "71cfa681-c481-857c-9579-6bd203aac32e",
+      "address": "75bba614-e2e7-8dcc-8ed8-5086032bca87",
+      "principle": "The rules of inference"
+    },
+    {
+      "key": "proof_needs_citation",
+      "lineAddress": "98409821-3b1f-8bb9-a782-5004b7da4c01",
+      "address": "08ad7647-cf8b-8e2c-9ad8-e31b8b0b4b68",
+      "principle": "The rules of inference"
+    },
+    {
+      "key": "unproven_not_refuted",
+      "lineAddress": "11ce0708-71b2-84d5-b6c9-3d354be11136",
+      "address": "72a1f375-5de4-89f8-a6ea-fde2f13809cc",
+      "principle": "The rules of inference"
+    },
+    {
+      "key": "absorbed_evidence_idles",
+      "lineAddress": "94e5b470-24ba-8cf3-b1e9-25d5d7795d8b",
+      "address": "72ea1dee-a364-8697-9d69-bab1529b5c99",
+      "principle": "The rules of inference"
+    },
+    {
+      "key": "unfalsifiable_excludes_nothing",
+      "lineAddress": "2539b1cc-5ed7-829a-8db6-8685c1a8ae90",
+      "address": "ade9f87b-14b3-88e2-bbc5-685deadc4eac",
+      "principle": "The rules of inference"
+    },
+    {
       "key": "scout_drones_spin",
       "lineAddress": "34a1d3f2-74d5-8bd2-85c8-38e212f48127",
       "address": "3ba2b836-c745-8462-baed-34e5b938c847",
@@ -7854,7 +7968,7 @@
       "principle": "The uuid mix space"
     }
   ],
-  "claim_receipt": "19062ecd-cc80-8444-85b9-c0c0021f0200",
+  "claim_receipt": "9864dc6f-7785-8fa4-9ee2-c336e1b781ee",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

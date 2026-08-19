@@ -99,7 +99,7 @@ function scanExportPackageDimension(): DimensionGap[] {
 function scanTestLaneDimension(): DimensionGap[] {
   const gaps: DimensionGap[] = []
   const PACKAGES = ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge']
-  const rootDistTests = readdirSync(join(ROOT, 'dist', 'test'), { withFileTypes: true })
+  const rootDistTests = readdirSync(join(ROOT, 'dist', 'tests'), { withFileTypes: true })
     .filter((e) => e.isFile() && e.name.endsWith('.test.js'))
     .map((e) => e.name)
 
@@ -171,7 +171,7 @@ function scanDeploymentReadinessDimension(): DimensionGap[] {
     packages: ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge'].every((pkg) =>
       existsSync(join(ROOT, 'packages', pkg, 'dist', 'index.js')),
     ),
-    tests: existsSync(join(ROOT, 'dist', 'test')),
+    tests: existsSync(join(ROOT, 'dist', 'tests')),
     site: existsSync(join(ROOT, 'docs', '.vitepress', 'dist', 'index.html')), // the served assets tree (the default VitePress outDir)
   }
 
