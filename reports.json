@@ -35,10 +35,10 @@
       "present": true,
       "facts": {
         "publications": 72,
-        "sealedTheorems": 1317,
+        "sealedTheorems": 1318,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "9906e993-8d80-8f72-975e-7b0938f0453e"
+      "address": "1810300c-f6e4-8619-8f95-4f0f6ffafc0f"
     },
     {
       "title": "Support audit",
@@ -75,6 +75,6 @@
       "address": "0f1255c1-6702-8402-b306-83575736b4e6"
     }
   ],
-  "receipt": "1367c52b-6242-88a1-b8d6-55957f9a6c7d",
+  "receipt": "82d5a0d0-fed3-8a06-bd1c-4a8c2e449cae",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
