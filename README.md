@@ -1,6 +1,6 @@
 # uuidna — 1224 distinct theorems under 1308 keys, 2 coins, one receipt
 
-`bfa01117-cb77-8af5-b605-59aadea2ee42`
+`4cdbdcc4-ad14-8d7c-8dd8-4953c9439e4c`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -47,7 +47,7 @@ Principles:             72   (the monographs the ledger organises itself by)
 Skills:                 68   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                bfa01117-cb77-8af5-b605-59aadea2ee42
+Receipt:                4cdbdcc4-ad14-8d7c-8dd8-4953c9439e4c
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
