@@ -144,7 +144,7 @@ export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
  *  Unlike ExtractedFact this is NOT decided: it is a CANDIDATE, carrying the sentence it came from so a human can
  *  judge it. The distinction is the two-handle law — the desk may propose, only the captain disposes. */
 export interface TextClaim {
-  kind: 'unit-equivalence' | 'measurement'
+  kind: 'unit-equivalence' | 'measurement' | 'defining-constant'
   claim: string
   sentence: string
   numbers: number[]
@@ -212,6 +212,16 @@ export function extractClaims(text: string, limit = 200): TextClaim[] {
   // "45 degrees, or four points" — two namings of one quantity, the shape that made four_points_is_45 findable
   for (const m of flat.matchAll(new RegExp('\\b(\\d{1,4})\\s+(' + UNIT + ')\\b[^.]{0,40}?\\bor\\b[^.]{0,30}?\\b([a-z]+|\\d{1,4})\\s+(' + UNIT + ')\\b', 'gi')))
     push('unit-equivalence', m[0], m.index ?? 0, [Number(m[1])], [m[2], m[4]])
+  // "exactly 6 378 137 metres" — a DEFINING constant, the shape that actually seals. Measured 2026-08-19 across
+  // this corpus: 379 leads produced ONE sealable item, while standards produced seven theorems the same day —
+  // WGS 84's semi-major axis and inverse flattening, and the SI Boltzmann constant, are exact BY DEFINITION, so
+  // arithmetic over them is decidable without measuring anything. A narrative number ("three hundred cubits") is
+  // a claim about the world; a defining constant is a convention, and conventions are what `by decide` can hold.
+  for (const m of flat.matchAll(new RegExp('\\b(?:exactly|precisely|by definition|defined (?:as|to be)|shall be exactly)\\s+([\\d,.]+)\\s*(' + UNIT + '|metres?|meters?|joules?|kelvins?|seconds?)\\b', 'gi')))
+    push('defining-constant', m[0], m.index ?? 0, [Number(m[1].replace(/[,\s]/g, ''))], [m[2]])
+  for (const m of flat.matchAll(new RegExp('\\b([\\d,.]+)\\s*(' + UNIT + '|metres?|meters?|joules?|kelvins?|seconds?)\\s+(?:exactly|by definition)\\b', 'gi')))
+    push('defining-constant', m[0], m.index ?? 0, [Number(m[1].replace(/[,\s]/g, ''))], [m[2]])
+
   // "300 cubits" — a stated dimension; the count is the lead, the sentence is its provenance
   for (const m of flat.matchAll(new RegExp('\\b(\\d{1,5})\\s+(' + UNIT + ')\\b', 'gi')))
     push('measurement', m[0], m.index ?? 0, [Number(m[1])], [m[2]])
