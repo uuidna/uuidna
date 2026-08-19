@@ -22,7 +22,7 @@ const LEAN = join(ROOT, 'lean')
 // 1) every generator — dist/scripts/lean-*.js — imported into THIS process (top-level executes on import).
 // A failing generator prints its own cause (emit names the file and the Lean diagnostic) and exits; the
 // try/catch only adds the step name for anything that throws without exiting.
-const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js']) // heartbeats is an on-demand cost probe, not a generator
+const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js', 'lean-one.js']) // heartbeats is an on-demand cost probe, not a generator; lean-one is the single-domain dispatcher, not a domain itself
 const generators = readdirSync(SCRIPTS).filter((f) => /^lean-.*\.js$/.test(f) && !SKIP.has(f)).sort()
 for (const g of generators) {
   try {
