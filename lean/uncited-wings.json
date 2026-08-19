@@ -1,0 +1,30 @@
+{
+  "why": "Wings that assert real-world measured quantities without naming an authority. Grandfathered on 2026-08-19 when the check was written; this list MAY ONLY SHRINK. A wing leaves it by citing its source (a standard, an agency, an author-year, a named survey) in its header or facts. lean-sailing.ts is deliberately ABSENT: it was written the same day the check was, so it is held to the rule rather than exempted from it.",
+  "count": 24,
+  "wings": [
+    "lean-acoustics.ts",
+    "lean-astronomy.ts",
+    "lean-biophysics.ts",
+    "lean-chemistry.ts",
+    "lean-coins.ts",
+    "lean-colour.ts",
+    "lean-diving.ts",
+    "lean-editing.ts",
+    "lean-ephemeris.ts",
+    "lean-heartbeats.ts",
+    "lean-infinity.ts",
+    "lean-martial-arts.ts",
+    "lean-mombhstar.ts",
+    "lean-navigation.ts",
+    "lean-optics.ts",
+    "lean-pentagram.ts",
+    "lean-production.ts",
+    "lean-propulsion.ts",
+    "lean-quantum.ts",
+    "lean-reasoning.ts",
+    "lean-relativity.ts",
+    "lean-sequence.ts",
+    "lean-solids.ts",
+    "lean-statics.ts"
+  ]
+}

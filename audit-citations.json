@@ -1,17 +1,17 @@
 {
-  "key": "78de9764-38a4-80fd-9d6d-89c3b9f848f3",
+  "key": "3aca1323-7858-8bba-96b5-0dc76ae32b8c",
   "publications": 72,
-  "sealedTheorems": 1326,
+  "sealedTheorems": 1327,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1326,
-    "theorems": 1326,
+    "claims": 1327,
+    "theorems": 1327,
     "bijection": true,
     "digitalRoots": {
-      "claims": 3,
-      "theorems": 3,
+      "claims": 4,
+      "theorems": 4,
       "publications": 9
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -278,8 +278,8 @@
     },
     {
       "slug": "sailing",
-      "claims": 8,
-      "cited": 8,
+      "claims": 9,
+      "cited": 9,
       "uncited": [],
       "fabricated": []
     },

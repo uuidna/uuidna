@@ -48,10 +48,22 @@ const FACTS = [
     why: 'Precisely executed orders compound linearly: each well-sailed tack gains the same 3 units upwind, so 1, 2, 3 tacks make good 3, 6, 9 — [1,2,3] → [3,6,9]. The magnitude of precision is that nothing is lost between the legs.',
     js: () => JSON.stringify([1, 2, 3].map((n) => 3 * n)) === JSON.stringify([3, 6, 9]),
     lean: 'theorem precise_tacks_compound : (([1,2,3] : List Nat).map (fun n => 3 * n)) = [3,6,9] := by decide' },
+
+  // ── READ, NOT DERIVED. Two earlier versions of this fact were reasoned out from first principles instead of
+  // looked up, and both were wrong about the pointing angle — corrected twice by the captain, who sails. The rule
+  // that came out of it: a wing asserting a real-world measured quantity must name its authority (sourcesGaps in
+  // one-receipt.ts now enforces it, and this wing was the single file it flagged). So the angle here comes from
+  // the text itself, fetched and content-addressed through this repo's own books.ts pipeline —
+  // fetchGutenberg(45493) → auditText → address fec13c42-2180-8890-83eb-c1e7fbd7300d — and what is sealed is the
+  // arithmetic that Day's two stated units agree, never a derivation of what angle a boat "should" make.
+  { key: 'four_points_is_45',
+    why: 'THE CLOSE-HAULED ANGLE, READ FROM THE SOURCE RATHER THAN DERIVED. Thomas Fleming Day — editor of The Rudder — states it exactly in On Yacht Sailing (The Rudder Publishing Company, 1904): "This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass." His two units agree by arithmetic, and that agreement is what is sealed here: the compass rose carries 32 points over 360°, so four points is 45° exactly — 4 × 360 = 32 × 45 = 1440, an integer identity needing no division and no approximation. It also confirms what this wing already sealed independently as no_go_zone (45 + 45 = 90): the two tacks of a boat working to windward lie a right angle apart. HONEST SCOPE: 45° is Day\'s figure for a good vessel of 1904 under his rig; modern yachts point higher, and this seals the ARITHMETIC of his stated angle, never a claim about what any particular boat can achieve today.',
+    js: () => 4 * 360 === 32 * 45 && 4 * 360 === 1440 && 45 + 45 === 90,
+    lean: 'theorem four_points_is_45 : (4 * 360 = 32 * 45) ∧ (4 * 360 = 1440) ∧ (45 + 45 = 90) := by decide' },
 ]
 
 // compute → generate → verify. The sailing domain — the no-go zone, points of sail, the beating triangle, VMG,
 // apparent wind, the balanced helm, tacking, precise compounding — decidable geometry and balance, demarcated.
 emit({ file: 'Sailing.lean', skill: 'sailing',
-  header: 'SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. A boat cannot sail the ~45° no-go zone either side of the wind (45+45=90); the points of sail fall on multiples of 45° (180/45=4); beating close-hauled makes good distance upwind along a 3-4-5 triangle at a distance penalty (5 > 3); apparent wind exceeds true when close-hauled (5 > 4); a BALANCED helm is a moment equilibrium (8·3 = 6·4) so the boat holds course and the captain rests; two equal tacks cancel leeway (4 + (−4) = 0); and precise tacks compound linearly ([1,2,3] → [3,6,9]). HONEST SCOPE: the arithmetic of sailing geometry and balance — angles, triangles and equilibrium — not a full aero/hydrodynamic derivation.',
+  header: 'SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. A boat cannot sail the ~45° no-go zone either side of the wind (45+45=90); the points of sail fall on multiples of 45° (180/45=4); beating close-hauled makes good distance upwind along a 3-4-5 triangle at a distance penalty (5 > 3); apparent wind exceeds true when close-hauled (5 > 4); a BALANCED helm is a moment equilibrium (8·3 = 6·4) so the boat holds course and the captain rests; two equal tacks cancel leeway (4 + (−4) = 0); and precise tacks compound linearly ([1,2,3] → [3,6,9]). The close-hauled angle is not derived here but READ from the source: Day, Thomas Fleming, On Yacht Sailing (The Rudder Publishing Company, 1904), \"This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass\" — and his two units are held to agree by arithmetic (4 x 360 = 32 x 45). HONEST SCOPE: the arithmetic of sailing geometry and balance — angles, triangles and equilibrium — not a full aero/hydrodynamic derivation, and Day\'s 45 deg is his 1904 figure for a good vessel under his rig, not a claim about what a modern yacht can point.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

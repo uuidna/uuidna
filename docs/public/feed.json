@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:a29743cf-a89f-82d6-84df-b0f8c15821c6",
+  "@id": "urn:uuid:f094f61e-8c8d-8485-b770-431675f3f160",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -24993,6 +24993,34 @@
         "abstract": "(([1,2,3] : List Nat).map (fun n => 3 * n)) = [3,6,9]",
         "identifier": "2fa7e53e-0a17-8830-9a6c-7c86829ac892",
         "url": "https://uuidna.com/theorem/precise_tacks_compound",
+        "keywords": "sailing, The points-of-sail domain",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sailing.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:9b520d45-71e9-8c76-85a6-0413abfbc76d",
+        "@type": "ScholarlyArticle",
+        "headline": "THE CLOSE-HAULED ANGLE, READ FROM THE SOURCE RATHER THAN DERIVED. Thomas Fleming Day — editor of The Rudder — states it exactly in On Yacht Sailing (The Rudder Publishing Company, 1904): \"This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass.\" His two units agree by arithmetic, and that agreement is what is sealed here: the compass rose carries 32 points over 360°, so four points is 45° exactly — 4 × 360 = 32 × 45 = 1440, an integer identity needing no division and no approximation. It also confirms what this wing already sealed independently as no_go_zone (45 + 45 = 90): the two tacks of a boat working to windward lie a right angle apart. HONEST SCOPE: 45° is Day's figure for a good vessel of 1904 under his rig; modern yachts point higher, and this seals the ARITHMETIC of his stated angle, never a claim about what any particular boat can achieve today.",
+        "abstract": "(4 * 360 = 32 * 45) ∧ (4 * 360 = 1440) ∧ (45 + 45 = 90)",
+        "identifier": "e9183ccc-87ea-8c7a-8c27-199caeb1bc73",
+        "url": "https://uuidna.com/theorem/four_points_is_45",
         "keywords": "sailing, The points-of-sail domain",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sailing.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

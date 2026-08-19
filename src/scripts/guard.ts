@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps} from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, sourcesGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -167,6 +167,11 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // packages ran from dist/test/ for a day after src/test became src/tests; 108 tests stayed green while testing
   // frozen code. Existence-checked per referenced path, so the class cannot return.
   { name: 'lanes', run: () => lanesGaps() },
+  // A MEASURED QUANTITY OWES ITS AUTHORITY. Two sailing theorems were sealed from first-principles derivation and
+  // both were wrong; the wing cited nothing. Grandfathered wings live in lean/uncited-wings.json and that list may
+  // only SHRINK — new empirical claims must name a standard, an agency, an author-year or a survey. A DATE IS NOT
+  // A SOURCE: accepting one is how this finder first passed the very file that motivated it.
+  { name: 'sources', run: () => sourcesGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {

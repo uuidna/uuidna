@@ -913,6 +913,49 @@ export function lanesGaps(): Gap[] {
 /** the referenced-test-file floor: measured, may only grow — see lanesGaps */
 const LANE_FLOOR = 21
 
+// ── sources: A WING THAT ASSERTS A REAL-WORLD QUANTITY MUST NAME ITS AUTHORITY. Pure arithmetic needs no source
+// (2 * 2 = 4 answers to the kernel alone), but the moment a wing states a MEASURED quantity — a distance in metres,
+// an angle in degrees, an energy in joules — it is making a claim about the world, and the reader is owed where it
+// came from. Written 2026-08-19 after two sailing theorems were sealed from first-principles derivation and both
+// were wrong: the captain, who sails, corrected the pointing angle twice.
+// TWO DETECTOR BUGS ARE BAKED IN HERE AS FIXED TESTS, because both let the offending file pass:
+//   1. a bare four-digit year was accepted as a source — so the comment "2026-08-19" made an uncited wing look
+//      cited. A DATE IS NOT A SOURCE. Only an authority, an RFC/ISO number, an author-year in parens, or a
+//      named survey counts.
+//   2. `\b` after `°` can never match (a degree sign is not a word character), so every angle in the tree was
+//      invisible to the unit scan. Units that end in punctuation need their own alternation.
+//   3. requiring a year as literally `(1904)` missed the real citation form `(The Rudder Publishing Company, 1904)`
+//      — a false POSITIVE against a properly cited wing. A year CLOSING a parenthetical is the citation shape;
+//      a bare year still is not. Three misses on two files is why this ships with a declared backlog, not as a
+//      verdict on the whole tree.
+// HONEST SCOPE: this is a prose heuristic, not a proof. It was wrong twice on the one file known to violate it,
+// so it is deliberately paired with a DECLARED backlog rather than trusted to judge the whole tree from scratch.
+export function sourcesGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const UNITS = /\b\d[\d,.]*\s*(?:°|deg\b|degrees\b|m\b|km\b|mm\b|kg\b|J\b|K\b|Hz\b|knots\b|nautical\b|volts\b|watts\b)|\bmeasured\b/i
+  const SRC = /\bRFC\s?\d+|\bISO\b\s?\d|\bSI\b|\bWGS\s?84|\bNGA\b|\bIERS\b|\bNOAA\b|\bFIPS\b|\bOWASP\b|\bIAU\b|et al\.|(?:18|19|20)\d{2}\)|\bsurvey\b|\bredefinition\b/
+  const listPath = join(ROOT, 'lean', 'uncited-wings.json')
+  const backlog: string[] = existsSync(listPath) ? (JSON.parse(readFileSync(listPath, 'utf8')) as { wings: string[] }).wings : []
+  const dir = join(ROOT, 'src/scripts')
+  const live: string[] = []
+  for (const f of readdirSync(dir).filter((x) => /^lean-.*\.ts$/.test(x)).sort()) {
+    const s = readFileSync(join(dir, f), 'utf8')
+    if (!UNITS.test(s) || SRC.test(s)) continue
+    live.push(f)
+    if (backlog.includes(f)) continue // grandfathered — owed, not hidden
+    gaps.push({
+      what: `${f} asserts a real-world measured quantity but names no authority for it`,
+      fix: `cite the source in the wing header or the fact's why — a standard (WGS 84, RFC 9562, ISO), an agency (NGA, IERS, NOAA), an author-year in parens, or a named survey. A DATE IS NOT A SOURCE. If the wing is pure arithmetic, say so and drop the measured framing; if it is genuinely empirical and predates this check, it belongs in lean/uncited-wings.json, which may only SHRINK.`,
+    })
+  }
+  // THE LIST MAY ONLY SHRINK — a wing that gained a citation must leave it, or the backlog quietly stops meaning
+  // anything (the same law lean/key-entropy.json is held to).
+  for (const f of backlog)
+    if (!live.includes(f))
+      gaps.push({ what: `lean/uncited-wings.json still lists ${f}, which now cites a source (or no longer claims a measured quantity)`, fix: `remove '${f}' from lean/uncited-wings.json — the backlog may only shrink, and a stale entry grandfathers a wing that no longer needs it` })
+  return gaps
+}
+
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
 // the microdata says, it is audited. ──
