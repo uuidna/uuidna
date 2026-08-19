@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps} from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -154,6 +154,11 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // the drain stages what reconcile regenerates — declared in RECONCILE_OUTPUTS, held against DRAIN_PATHS from both
   // sides, so a generator added to the chain without a declaration fails here instead of dying mid-run on git.
   { name: 'drain', run: () => drainGaps() },
+  // THE DRY LAW REACHES package.json — 57 scripts were one hand-typed shape around a single dist script, and the
+  // family that had already rotted (lean:<domain>, 30 names for 66 domains) proves a typed list cannot track what
+  // exists. `npm run x -- <script>` dispatches from discovery; an entry survives only when CI, a hook, the README
+  // or a docs page calls it by name, and that set is recomputed here rather than declared.
+  { name: 'scripts', run: () => scriptsGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {

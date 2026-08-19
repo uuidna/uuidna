@@ -780,6 +780,53 @@ export function drainGaps(): Gap[] {
   return gaps
 }
 
+// ── scripts: THE DRY LAW, APPLIED TO package.json. ~49 scripts were one identical shape —
+// "<name>": "npm run build && node dist/scripts/<file>.js" — a hand-typed line per script, the same repetition the
+// `dry` finder refuses in source, living in JSON where no finder was looking. It had already rotted in the only way
+// a hand-typed list can: the lean:<domain> family named 30 domains for a ledger carrying 66, so most domains had no
+// entry and nothing said so. `npm run x -- <script>` dispatches all of them from DISCOVERY, so the list cannot lag
+// what exists.
+// A thin wrapper KEEPS its own entry when something OUTSIDE package.json calls it by name — those are contracts with
+// CI, a git hook, or a reader following the README — and that set is COMPUTED here from every such surface at once
+// (workflows + hooks + README + docs/*.md + package.json's own composite scripts), never declared, so a script that
+// gains or loses an external caller changes tier by recomputation rather than by anyone remembering. ──
+export function scriptsGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  // a THIN WRAPPER runs exactly one dist script and nothing else — composites (audit, lean, docs:build) are real
+  // pipelines and stay; `x` itself is the dispatcher, never its own gap.
+  const THIN = /^(?:npm run build && )?node dist\/scripts\/[a-z0-9-]+\.js$/
+  const thin = Object.entries(pkg.scripts).filter(([k, v]) => THIN.test(v.trim()) && k !== 'x')
+  if (!thin.length) return gaps
+
+  // EVERY EXTERNAL SURFACE AT ONCE — a name referenced from any one of them is a contract and keeps its entry.
+  const surfaces: string[] = []
+  const readDir = (rel: string, filter: (f: string) => boolean): void => {
+    const dir = join(ROOT, rel)
+    if (!existsSync(dir)) return
+    for (const f of readdirSync(dir)) if (filter(f)) surfaces.push(readFileSync(join(dir, f), 'utf8'))
+  }
+  readDir('.github/workflows', (f) => f.endsWith('.yml') || f.endsWith('.yaml'))
+  readDir('hooks', () => true)
+  readDir('docs', (f) => f.endsWith('.md'))
+  if (existsSync(join(ROOT, 'README.md'))) surfaces.push(readFileSync(join(ROOT, 'README.md'), 'utf8'))
+  // package.json's OWN composites count as callers: `next` invoking `npm run audit` is a real reference
+  surfaces.push(Object.entries(pkg.scripts).filter(([k]) => !thin.some(([t]) => t === k)).map(([, v]) => v).join('\n'))
+  const haystack = surfaces.join('\n')
+
+  for (const [name, body] of thin) {
+    // `npm run <name>` / `npm run --silent <name>` / `run: npm run <name>` — the word-boundary guard keeps
+    // `npm run audit` from matching `audit:packages`.
+    if (new RegExp(`npm run (?:--silent )?${name.replace(/[:.]/g, '\\$&')}(?![a-z0-9:-])`).test(haystack)) continue
+    const file = /dist\/scripts\/([a-z0-9-]+)\.js/.exec(body)![1]
+    gaps.push({
+      what: `package.json script "${name}" is a thin wrapper around dist/scripts/${file}.js that nothing outside package.json calls`,
+      fix: `remove it and use \`npm run x -- ${file}\` — the dispatcher discovers every script, so a hand-typed entry can only lag what exists (the lean:<domain> family named 30 of 66 domains before it was collapsed). Keep an entry ONLY when CI, a git hook, the README or a docs page calls it by name.`,
+    })
+  }
+  return gaps
+}
+
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
 // the microdata says, it is audited. ──
