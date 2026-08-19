@@ -878,6 +878,7 @@ export function mirrorGaps(): Gap[] {
 // So the check is existence against the live tree, per referenced path, for every workspace package.
 export function lanesGaps(): Gap[] {
   const gaps: Gap[] = []
+  let referenced = 0
   const pkgDir = join(ROOT, 'packages')
   if (!existsSync(pkgDir)) return gaps
   for (const pkg of readdirSync(pkgDir).sort()) {
@@ -894,10 +895,23 @@ export function lanesGaps(): Gap[] {
           what: `packages/${pkg} (${j.name ?? pkg}) test lane names ${ref}, which the build does not produce`,
           fix: `repoint it at the live compiled path (the tests compile from src/tests/ to dist/tests/). A lane aimed at a directory the build no longer writes keeps PASSING against stale output — it does not fail, it silently stops testing.`,
         })
+      else referenced++
     }
   }
+  // THE FLOOR — existence alone does not catch a lane QUIETLY LOSING a file: drop a path from the list and every
+  // remaining test still passes, the suite just gets smaller, and nothing objects. So the count may only GROW.
+  // 21 referenced files carrying 108 tests, measured 2026-08-19 when the lanes were repointed off stale output.
+  // (108 is load-bearing elsewhere in this ledger — 110 − 108 = 2 is two_coins, 5 × 108 = 540 closes the pentagon
+  // — but its appearance HERE is coincidence, and is used only as a fixed reference, never as evidence of a link.)
+  if (referenced < LANE_FLOOR)
+    gaps.push({
+      what: `the workspace test lanes reference ${referenced} files, below the sealed floor of ${LANE_FLOOR}`,
+      fix: `a lane lost a test file: the remaining tests still pass and the suite silently shrinks, so the count may only GROW. Restore the dropped path, or raise LANE_FLOOR deliberately in src/scripts/one-receipt.ts if a file was genuinely retired.`,
+    })
   return gaps
 }
+/** the referenced-test-file floor: measured, may only grow — see lanesGaps */
+const LANE_FLOOR = 21
 
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
