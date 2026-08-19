@@ -38,6 +38,11 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: SEARCH — quantum scale, every wing, every source, each finding at trial
         run: npm run search:trial:all
+      - name: MINE — read the declared public-domain corpus and file every numeric claim it STATES as a candidate
+        # network + deterministic (a number-word table and two regexes, no model), so it runs here in the DAILY
+        # cron rather than in the fast guard — cheap gates stay cheap. It SEALS NOTHING: the two-handle law holds,
+        # the desk proposes and only the captain disposes.
+        run: node dist/scripts/mine-books.js
       - name: EDIT — the full editorial desk over everything, including what the search just returned
         run: npm run editorial
       - name: GUARD — the fold accepts, or nothing publishes

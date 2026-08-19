@@ -26,4 +26,5 @@ lean/statement-index.json merge=derived
 lean/*-manifest.json merge=derived
 docs/captain-claims.md merge=derived
 docs/captain-claims-complete.json merge=derived
+book-leads.json merge=derived
 src/chunks/** merge=derived

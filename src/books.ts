@@ -140,6 +140,91 @@ export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
   return out
 }
 
+/** a NUMERIC CLAIM the text states in its own words — a measurement, a count, or two units named as equal.
+ *  Unlike ExtractedFact this is NOT decided: it is a CANDIDATE, carrying the sentence it came from so a human can
+ *  judge it. The distinction is the two-handle law — the desk may propose, only the captain disposes. */
+export interface TextClaim {
+  kind: 'unit-equivalence' | 'measurement'
+  claim: string
+  sentence: string
+  numbers: number[]
+  units: string[]
+  address: string
+}
+
+// ── ENGLISH NUMBER WORDS — scripture and older treatises SPELL their numbers ("three hundred cubits"), and a
+// digits-only scan reads them as absent. Measured on the KJV: 213 occurrences of "cubits", ZERO in digit form and
+// 186 written out, so the first version of extractClaims found 5 measurements in 4.45 million characters and would
+// have reported sacred texts as empty of numeric content. They are not; the reader was.
+// Deterministic and closed-form — a table and a fold, no model, no network. "score" is included because the KJV
+// uses it as a unit of twenty (threescore = 60, fourscore = 80).
+const NUM_WORD: Record<string, number> = {
+  one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10,
+  eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17,
+  eighteen: 18, nineteen: 19, twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60,
+  seventy: 70, eighty: 80, ninety: 90,
+}
+const NUM_SCALE: Record<string, number> = { hundred: 100, thousand: 1000, score: 20 }
+
+/** wordsToNumber("three hundred") → 300; ("threescore") → 60; ("fifteen") → 15; unparseable → null.
+ *  Folds units and scales the way English composes them, so "two hundred and fifty" reads 250. */
+export function wordsToNumber(phrase: string): number | null {
+  const words = phrase.toLowerCase().replace(/-/g, ' ').replace(/\band\b/g, ' ').split(/\s+/).filter(Boolean)
+  let total = 0, current = 0, saw = false
+  for (const raw of words) {
+    // "threescore"/"fourscore" are one word carrying a multiplier and the scale together
+    const compound = /^(two|three|four|five|six|seven|eight|nine)score$/.exec(raw)
+    if (compound) { total += NUM_WORD[compound[1]]! * 20; saw = true; continue }
+    if (raw in NUM_WORD) { current += NUM_WORD[raw]!; saw = true; continue }
+    if (raw in NUM_SCALE) {
+      const scale = NUM_SCALE[raw]!
+      if (scale === 1000) { total = (total + (current || 1)) * scale; current = 0 } else current = (current || 1) * scale
+      saw = true; continue
+    }
+    return null // an unknown word means this is not a pure number phrase
+  }
+  return saw ? total + current : null
+}
+
+const NUM_PHRASE = '(?:(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|score|twoscore|threescore|fourscore|fivescore|and)[\\s-]+)*(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|score|twoscore|threescore|fourscore|fivescore)'
+
+const UNIT = '(?:degrees?|points?|cubits?|feet|foot|inches|spans?|handbreadths?|knots?|miles?|leagues?|fathoms?|talents?|shekels?|homers?|ephahs?|baths?|hins?|omers?|days?|years?|months?|cubit)'
+
+/** extractClaims(text) → every numeric claim the text STATES, as candidate leads. Two shapes are mined:
+ *  UNIT-EQUIVALENCE ("45 degrees, or four points by compass") — the shape that carries domain knowledge and that
+ *  extractDecidable cannot see, because the text never writes it as arithmetic; and MEASUREMENT ("300 cubits the
+ *  length"), the shape a scripture or a treatise states its dimensions in.
+ *  HONEST SCOPE, and it is the whole point: this reports WHAT A TEXT SAYS, never whether the text is right, and
+ *  never anything about the text's meaning or authority. A verdict is not attempted here — untested_stays_unproven
+ *  governs any claim about the world that carries no decidable test, and a shared number is the expected case by
+ *  pigeonhole (gematria_forces_collisions), never evidence of a connection. Deterministic: no model, no network. */
+export function extractClaims(text: string, limit = 200): TextClaim[] {
+  const out: TextClaim[] = []
+  const seen = new Set<string>()
+  const flat = text.replace(/\s+/g, ' ')
+  const push = (kind: TextClaim['kind'], claim: string, at: number, numbers: number[], units: string[]): void => {
+    const key = kind + '|' + claim.toLowerCase()
+    if (seen.has(key) || out.length >= limit) return
+    seen.add(key)
+    const sentence = flat.slice(at < 120 ? 0 : at - 120, at + 160).trim()
+    out.push({ kind, claim: claim.trim(), sentence, numbers, units, address: toUuid('claim:' + key) })
+  }
+  // "45 degrees, or four points" — two namings of one quantity, the shape that made four_points_is_45 findable
+  for (const m of flat.matchAll(new RegExp('\\b(\\d{1,4})\\s+(' + UNIT + ')\\b[^.]{0,40}?\\bor\\b[^.]{0,30}?\\b([a-z]+|\\d{1,4})\\s+(' + UNIT + ')\\b', 'gi')))
+    push('unit-equivalence', m[0], m.index ?? 0, [Number(m[1])], [m[2], m[4]])
+  // "300 cubits" — a stated dimension; the count is the lead, the sentence is its provenance
+  for (const m of flat.matchAll(new RegExp('\\b(\\d{1,5})\\s+(' + UNIT + ')\\b', 'gi')))
+    push('measurement', m[0], m.index ?? 0, [Number(m[1])], [m[2]])
+  // "three hundred cubits" — the SPELLED form, which is how scripture and older treatises write every number.
+  // Without this the KJV reports 5 measurements in 4.45 million characters; with it, the text is legible.
+  for (const m of flat.matchAll(new RegExp('\\b(' + NUM_PHRASE + ')\\s+(' + UNIT + ')\\b', 'gi'))) {
+    const n = wordsToNumber(m[1])
+    if (n === null || n === 0) continue
+    push('measurement', m[0], m.index ?? 0, [n], [m[2]])
+  }
+  return out
+}
+
 // ── BOOK → SEALED-LEDGER LINKAGE — the independent, closed-door process that links each revealed book fact to the
 // sealed ledger and surfaces NOVELTY (the captain's process for independent research and discovery for humanity) ──
 export interface BookTheoremLink {
