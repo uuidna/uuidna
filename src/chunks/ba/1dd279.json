@@ -1,0 +1,12 @@
+{
+  "handle": "ba1dd279",
+  "address": "ba1dd279-3aab-8b08-b6fd-f1b80348f5e3",
+  "statement": "8849 + 10935 = 19784 ∧ 21385 > 19784",
+  "tactic": "decide",
+  "keys": [
+    "bulge_exceeds_relief"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:4e05e1b4-9155-8e52-8af0-25d09d0dbac9",
+  "@id": "urn:uuid:33054ed8-bacb-827b-8198-72e7ec234bc7",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -22193,6 +22193,34 @@
         "abstract": "5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049",
         "identifier": "d9e1869c-2dea-8594-81ad-cd509df5d09d",
         "url": "https://uuidna.com/theorem/horizon_distance_finite",
+        "keywords": "topography, The lay of the land",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Topography.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:3977e939-0572-8d1d-ad18-9db03d586839",
+        "@type": "ScholarlyArticle",
+        "headline": "ROTATION SHAPES THE EARTH MORE THAN MOUNTAINS DO. Summit to trench — Everest at 8849 m above sea level (the 2020 joint China–Nepal survey, 8848.86 m) and Challenger Deep at 10935 m below it (Greenaway et al. 2021, ±6 m) — the whole topographic range is 19784 m. The equatorial bulge, the difference between the WGS 84 axes, is 21385 m: LARGER, by 1601 m. So the biggest departure from a sphere is not the terrain at all; it is the flattening a spinning body takes. Two measured extremes and one derived constant, compared in integers.",
+        "abstract": "8849 + 10935 = 19784 ∧ 21385 > 19784",
+        "identifier": "8275446c-d312-8d15-b1c2-fd15885b0b36",
+        "url": "https://uuidna.com/theorem/bulge_exceeds_relief",
         "keywords": "topography, The lay of the land",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Topography.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

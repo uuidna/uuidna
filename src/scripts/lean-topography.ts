@@ -107,6 +107,11 @@ const FACTS = [
     why: 'THE HORIZON IS BOUNDED, AND THAT IS THE WHOLE POINT. On a sphere of radius R the distance to the horizon from eye height h satisfies d² ≈ 2Rh — so from 2 m up on R = 6371 km, d² = 25484000 m², bracketed exactly between 5048² and 5049²: about 5.05 km, and it GROWS ONLY AS THE SQUARE ROOT of height. A bounded horizon that scales as √h is the arithmetic signature of a curved surface; on an unbounded flat plane the sightline has no such limit. The bracket is exact integer arithmetic — no square root is taken, so nothing irrational is claimed.',
     js: () => 5048 * 5048 <= 2 * 6371000 * 2 && 2 * 6371000 * 2 < 5049 * 5049,
     lean: 'theorem horizon_distance_finite : 5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049 := by decide' },
+
+  { key: 'bulge_exceeds_relief',
+    why: 'ROTATION SHAPES THE EARTH MORE THAN MOUNTAINS DO. Summit to trench — Everest at 8849 m above sea level (the 2020 joint China–Nepal survey, 8848.86 m) and Challenger Deep at 10935 m below it (Greenaway et al. 2021, ±6 m) — the whole topographic range is 19784 m. The equatorial bulge, the difference between the WGS 84 axes, is 21385 m: LARGER, by 1601 m. So the biggest departure from a sphere is not the terrain at all; it is the flattening a spinning body takes. Two measured extremes and one derived constant, compared in integers.',
+    js: () => 8849 + 10935 === 19784 && 21385 > 19784,
+    lean: 'theorem bulge_exceeds_relief : 8849 + 10935 = 19784 ∧ 21385 > 19784 := by decide' },
 ]
 
 console.log('computing ' + FACTS.length + ' TOPOGRAPHY facts (the arithmetic of the map — not a survey, not a route planner) …')
