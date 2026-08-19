@@ -48,6 +48,13 @@ const CURES: Cure[] = [
   { name: 'gitattributes mark missing', when: /does not mark it unmergeable/,
     cmd: 'node dist/scripts/gen-gitattributes.js',
     because: '.gitattributes is generated from DRAIN_PATHS and never hand-edited; a new derived path has no merge, only a recomputation, so the mark is regenerated rather than written' },
+  // Found 2026-08-19 on the first odometer bump after the check landed: mcp-http.ts states the version the hosted
+  // MCP advertises, it cannot import the manifest (rootDir is src; the module runs at the Workers edge with no
+  // filesystem), and it had drifted eleven releases while nothing compared the two. The test now catches it, which
+  // made every bump fail the gate until someone edited a constant by hand — so the cure closes that loop.
+  { name: 'mcp version stale', when: /advertises [0-9.]+ but package\.json is/,
+    cmd: 'node dist/scripts/sync-mcp-version.js',
+    because: 'the advertised version is written in source because it cannot be imported there; this rewrites it from package.json, so a bump needs no remembered edit' },
   { name: 'support-audit drift', when: /support-audit\.json/,
     cmd: 'node dist/scripts/support.js',
     because: 'a new module changed the reachability count; the audit is derived, so regenerate rather than edit' },

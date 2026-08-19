@@ -45,13 +45,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 310,
-        "roots": 204,
-        "supported": 310,
+        "modules": 311,
+        "roots": 205,
+        "supported": 311,
         "dead": 0,
-        "receipt": "e109a199-174d-87a2-aa1c-a40a8642821f"
+        "receipt": "e9a97ae5-24f2-8f0b-ad7d-ccb7e63efb46"
       },
-      "address": "2bdd9c0d-60ad-8862-b055-fa6a64392696"
+      "address": "f5daea72-1364-87d2-b07f-915e18ee778e"
     },
     {
       "title": "Package inventory",
@@ -59,10 +59,10 @@
       "present": true,
       "facts": {
         "workspaces": 6,
-        "version": "0.2.5",
+        "version": "0.2.6",
         "names": "@uuidna/crypto, @uuidna/edge, @uuidna/ledger, @uuidna/mcp, @uuidna/quantum, @uuidna/research"
       },
-      "address": "ccf21f9b-ec68-8a01-b1eb-855631651eaf"
+      "address": "a7d4cf17-928e-8d06-a0c2-d5a60b212ce8"
     },
     {
       "title": "Deployment readiness",
@@ -75,6 +75,6 @@
       "address": "6acb330d-127d-87b8-a402-4cb60c5c728b"
     }
   ],
-  "receipt": "ba6409d0-6f0d-8119-8d5a-bda530de05cd",
+  "receipt": "eb0e30df-bc13-8442-97d6-cc327222bda8",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
