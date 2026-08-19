@@ -16,8 +16,8 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `09f2c587` | zenodo.org | zenodo record 21947143: Computational Self-Discovered Mathematics (CSDM) | UNVERIFIED | VERIFIED |
 | `fb59cf83` | zenodo.org | zenodo record 21947253: 计算智能宇宙分类学 | UNVERIFIED | VERIFIED |
-| `a5a072cd` | zenodo.org | zenodo record 16620515: Emotion Formation through AI's Experience and Socialization Human Ver4 | UNVERIFIED | VERIFIED |
 | `3a4e0488` | zenodo.org | zenodo record 18720470: The Big Question: Is Mathematics Discovered or Invented? | UNVERIFIED | VERIFIED |
+| `a5a072cd` | zenodo.org | zenodo record 16620515: Emotion Formation through AI's Experience and Socialization Human Ver4 | UNVERIFIED | VERIFIED |
 | `cf02b356` | zenodo.org | zenodo record 1640024: Breaches of Confidence and Medical Fees at Assurance Offices. | UNVERIFIED | VERIFIED |
 | `694f44c2` | zenodo.org | zenodo record 1959072: Small-Pox Accompanying Vaccination. | UNVERIFIED | VERIFIED |
 | `a00427af` | zenodo.org | zenodo record 2146140: Medical Fees at Assurance Offices. | UNVERIFIED | VERIFIED |
@@ -36,10 +36,10 @@ the hard gate of the corroboration law.
 | `563abe2a` | openalex.org | OpenAlex Self-organized formation of topologically correct feature maps [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 | `72a741c5` | openalex.org | OpenAlex Exploring the sequence space for (tri-)peptide self-assembly to design [Supramolecular Self-Assembly i] | UNVERIFIED | VERIFIED |
 | `84b3a1e2` | openalex.org | OpenAlex The Man Who Comes Back through the Door in the Wall: Discovering Truth [Evaluation and Performance Ass] | UNVERIFIED | VERIFIED |
-| `fa2c450e` | openalex.org | OpenAlex Self-organizing neural network that discovers surfaces in random-dot s [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 | `6bdc8156` | openalex.org | OpenAlex Helpseeking for self-discovered breast symptoms. Implications for earl [Global Cancer Incidence and Sc] | UNVERIFIED | VERIFIED |
+| `fa2c450e` | openalex.org | OpenAlex Self-organizing neural network that discovers surfaces in random-dot s [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `b21849c3`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `451a7e63`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

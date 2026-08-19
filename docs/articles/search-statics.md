@@ -19,8 +19,8 @@ the hard gate of the corroboration law.
 | `ff19e5bd` | zenodo.org | zenodo record 5709840: Co-cure joining of epoxy composites with rapidly UV-irradiated PEEK and PPS comp | UNVERIFIED | VERIFIED |
 | `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
 | `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
-| `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
 | `aa02a4a6` | zenodo.org | zenodo record 14217158: Global comparative structural analysis of responses to protein phosphorylation | UNVERIFIED | VERIFIED |
+| `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
 | `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
 | `d216f0de` | crossref.org | DOI 10.1016/0141-0296(88)90036-3: Response of guyed offshore towers to stochastic loads: Time domain vs frequency  | UNVERIFIED | VERIFIED |
 | `16dca460` | crossref.org | DOI 10.1016/j.istruc.2021.05.082: An investigation of bridge influence line identification using time-domain and f | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `1ea26d24` | openalex.org | OpenAlex Bacterial Membranes: Structure, Domains, and Function [Bacterial Genetics and Biotech] | UNVERIFIED | VERIFIED |
 | `723f8651` | openalex.org | OpenAlex Structure of SARS Coronavirus Spike Receptor-Binding Domain Complexed  [SARS-CoV-2 and COVID-19 Resear] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `4d04e278`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `7729f5b5`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

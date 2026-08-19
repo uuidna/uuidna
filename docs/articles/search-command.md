@@ -17,8 +17,8 @@ the hard gate of the corroboration law.
 | `f2fe0517` | zenodo.org | zenodo record 18348666: Before the Thruster Fires: Securing European Space Infrastructure at the Moment  | UNVERIFIED | VERIFIED |
 | `9e2f85ab` | zenodo.org | zenodo record 14599182: njublockchain/web3research-py: v0.0.9 | UNVERIFIED | VERIFIED |
 | `40e47741` | zenodo.org | zenodo record 13942717: njublockchain/web3research-etl: v0.0.1 | UNVERIFIED | VERIFIED |
-| `bb3f0afb` | zenodo.org | zenodo record 11078206: Security and Secrets Management: Integration of Security Tools like Vault and Se | UNVERIFIED | VERIFIED |
 | `ec5f803a` | zenodo.org | zenodo record 3987013: Comparative Study on Outcomes of Medical Management versus Combined Surgical and | UNVERIFIED | VERIFIED |
+| `bb3f0afb` | zenodo.org | zenodo record 11078206: Security and Secrets Management: Integration of Security Tools like Vault and Se | UNVERIFIED | VERIFIED |
 | `0c8b9b68` | zenodo.org | zenodo record 18345701: Systems and Methods for Anti-Coercion Satellite Command Execution Using Authorit | UNVERIFIED | VERIFIED |
 | `51843850` | zenodo.org | zenodo record 18689472: Hardware-Rooted Space Security: Cryptographically Isolated Execution Authority E | UNVERIFIED | VERIFIED |
 | `57ea53f7` | zenodo.org | zenodo record 6363490: Magnetic susceptibility-weighted imaging mapped the migratory route of a paragon | UNVERIFIED | VERIFIED |
@@ -35,11 +35,11 @@ the hard gate of the corroboration law.
 | `5f9ceee0` | openalex.org | OpenAlex Command authentication via faster than real time simulation [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `660706cc` | openalex.org | OpenAlex Securing Substations through Command Authentication Using On-the-fly S [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `d63d7165` | openalex.org | OpenAlex Data Attack Detection and Command Authentication via Cyber-Physical Co [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
-| `817b81b5` | openalex.org | OpenAlex Authentication in distributed systems [Security and Verification in C] | UNVERIFIED | VERIFIED |
 | `0819455e` | openalex.org | OpenAlex On Optimization of Command-Delaying for Advanced Command Authenticatio [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `54539ed2` | openalex.org | OpenAlex An Efficient Real-Time Broadcast Authentication Scheme for Command and [Security in Wireless Sensor Ne] | UNVERIFIED | VERIFIED |
+| `817b81b5` | openalex.org | OpenAlex Authentication in distributed systems [Security and Verification in C] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `8bc98b5a`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `6e174012`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

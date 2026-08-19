@@ -16,19 +16,19 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `b8554a29` | zenodo.org | zenodo record 7465400: Improving the Reform of Ukraine's Court System Based on the European experience | UNVERIFIED | VERIFIED |
 | `6c9d02e9` | zenodo.org | zenodo record 4775009: РЕПУТАЦІЯ СУДДІВ ЯК ПЕРЕДУМОВА ФОРМУВАННЯ ПОВАГИ І ДОВІРИ ДО СУДУ В УКРАЇНІ | UNVERIFIED | VERIFIED |
-| `3816ff03` | zenodo.org | zenodo record 15697143: A SURVEY OF BIG DATA ANALYTICS | UNVERIFIED | VERIFIED |
-| `58caf199` | zenodo.org | zenodo record 3229058: The Court of Justice Practice as a Source of the EU Law | UNVERIFIED | VERIFIED |
 | `7fdf57e6` | zenodo.org | zenodo record 6963787: COMPULSORY ATTENDANCE AS A TYPE OF PROCEDURAL  COERCIVE MEASURE | UNVERIFIED | VERIFIED |
+| `58caf199` | zenodo.org | zenodo record 3229058: The Court of Justice Practice as a Source of the EU Law | UNVERIFIED | VERIFIED |
+| `3816ff03` | zenodo.org | zenodo record 15697143: A SURVEY OF BIG DATA ANALYTICS | UNVERIFIED | VERIFIED |
+| `54faeb95` | zenodo.org | zenodo record 14277551: Public Debt and Economic Growth in Tanzania: An Empirical Investigation | UNVERIFIED | VERIFIED |
 | `ed4efc67` | zenodo.org | zenodo record 6573511: ПОРІВНЯЛЬНО-ПРАВОВА ХАРАКТЕРИСТИКА ПОРЯДКУ ВИКОНАННЯ РІШЕНЬ КОНСТИТУЦІЙНИХ СУДІВ | UNVERIFIED | VERIFIED |
 | `8f5af1e4` | zenodo.org | zenodo record 3607948: Updating the Content of the Category of "Public Administration": Notes for Scien | UNVERIFIED | VERIFIED |
-| `ca10c7da` | zenodo.org | zenodo record 20581838: Bank-Specific and Macroeconomic Determinants of Non-Performing Loans in Tanzania | UNVERIFIED | VERIFIED |
 | `eba74a80` | crossref.org | DOI 10.2139/ssrn.533303: Take it... Or Postpone it? Tax Amnesties as Out-of-Court Deals with Honest Taxpa | UNVERIFIED | VERIFIED |
 | `df1d7f4b` | crossref.org | DOI 10.18254/s207987840026004-3: Honest Lawyer at the Royal Court: Chrétien-Guillaume de Lamoignon de Malesherbes | UNVERIFIED | VERIFIED |
 | `11749c8f` | crossref.org | DOI 10.2139/ssrn.3829840: ‘That Sty for Fattening Lawyers In \| On the Bones of Honest Men’: The Palace Cou | UNVERIFIED | VERIFIED |
 | `5ee74e71` | crossref.org | DOI 10.1136/bmj.314.7083.832a: Opinions given by medical experts in court are honest and objective | UNVERIFIED | VERIFIED |
 | `9f0908a6` | crossref.org | DOI 10.5040/9781408167007.00000029: Honest | UNVERIFIED | VERIFIED |
-| `e9a4a29b` | crossref.org | DOI 10.3724/sp.j.1146.2010.00731: Honest-Sender Commitment and Honest-Receiver Commitment | UNVERIFIED | VERIFIED |
 | `aa365fc0` | crossref.org | DOI 10.7551/mitpress/8022.003.0003: Honest Signals | UNVERIFIED | VERIFIED |
+| `e9a4a29b` | crossref.org | DOI 10.3724/sp.j.1146.2010.00731: Honest-Sender Commitment and Honest-Receiver Commitment | UNVERIFIED | VERIFIED |
 | `e16da57f` | crossref.org | DOI 10.3998/mpub.12207107.cmp.91: But It’s Honest Work | UNVERIFIED | VERIFIED |
 | `afca2c19` | openalex.org | OpenAlex Unpacking the Court [Legal Education and Practice I] | UNVERIFIED | VERIFIED |
 | `26ddbaee` | openalex.org | OpenAlex An Honest Chance: Perspectives on Drug Courts Findings From Drug Court [Criminal Justice and Correctio] | UNVERIFIED | VERIFIED |
@@ -36,10 +36,10 @@ the hard gate of the corroboration law.
 | `14a1c43b` | openalex.org | OpenAlex Forensic Entomology: An Introduction [Forensic Entomology and Dipter] | UNVERIFIED | VERIFIED |
 | `470caa1e` | openalex.org | OpenAlex Courts: the Lex Mundi Project [Law, logistics, and internatio] | UNVERIFIED | VERIFIED |
 | `34ac3daa` | openalex.org | OpenAlex Male-male competition ensures honest signaling of male parental abilit [Animal Behavior and Reproducti] | UNVERIFIED | VERIFIED |
-| `7f0dc888` | openalex.org | OpenAlex Climate change litigation: A review of research on courts and litigant [Environmental law and policy] | UNVERIFIED | VERIFIED |
 | `e7a7fc39` | openalex.org | OpenAlex Open Courts: How Cameras in Courts Help Keep the System Honest [Law in Society and Culture] | UNVERIFIED | VERIFIED |
+| `a057a8de` | openalex.org | OpenAlex Frontiers of illusion: science, technology, and the politics of progre [Space Science and Extraterrest] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `890070d3`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `6139e2d8`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

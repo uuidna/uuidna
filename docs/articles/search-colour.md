@@ -18,9 +18,9 @@ the hard gate of the corroboration law.
 | `d05ed97d` | zenodo.org | zenodo record 17976059: Traction and Energy Indicators of Propellers of Wheeled Mobile Energy Vehicles f | UNVERIFIED | VERIFIED |
 | `ac4427ea` | zenodo.org | zenodo record 10182710: Algorithm outline associated with the 3D full-Stokes calving model in Elmer/Ice  | UNVERIFIED | VERIFIED |
 | `18529c6b` | zenodo.org | zenodo record 18914756: Emergent dynamics from a position-based calving law and the limits of rate-based | UNVERIFIED | VERIFIED |
-| `e9ed9b8b` | zenodo.org | zenodo record 17570649: INSPIRE_T1.4 - INSPIRE_Observational Fieldwork - First version_Dataset 1_2025_04 | UNVERIFIED | VERIFIED |
 | `ab3979e5` | zenodo.org | zenodo record 17726850: Calving laws and where to find them. | UNVERIFIED | VERIFIED |
 | `9990a0bc` | zenodo.org | zenodo record 10182705: StAndrewsGlacio/ElmerIceCalvingModel: 3D Calving Model in Elmer/Ice (v9.0) | UNVERIFIED | VERIFIED |
+| `e9ed9b8b` | zenodo.org | zenodo record 17570649: INSPIRE_T1.4 - INSPIRE_Observational Fieldwork - First version_Dataset 1_2025_04 | UNVERIFIED | VERIFIED |
 | `81a722c2` | zenodo.org | zenodo record 5510854: A colour recognition device for the visually disabled people | UNVERIFIED | VERIFIED |
 | `b55b7f34` | crossref.org | DOI 10.7717/peerj.11180/fig-1: Figure 1: Geneva Emotion Wheel (GEW) to assess colour-emotion associations with  | UNVERIFIED | VERIFIED |
 | `5b48d378` | crossref.org | DOI 10.5040/9781350088733.0048: Colour and the Colour Wheel | UNVERIFIED | VERIFIED |
@@ -30,14 +30,6 @@ the hard gate of the corroboration law.
 | `9bea7584` | crossref.org | DOI 10.5040/9781474293761.0048: Colour Wheel Selections | UNVERIFIED | VERIFIED |
 | `687f8734` | crossref.org | DOI 10.4324/9781003103776-29: The Colour Wheel and Filtration | UNVERIFIED | VERIFIED |
 | `d75cc33f` | crossref.org | DOI 10.18772/12021117151.24: Conclusion: | UNVERIFIED | VERIFIED |
-| `1c5cb5a5` | semanticscholar.org | S2 The Clinical Significance of the Manchester Colour Wheel in  — AI tldr: Overall, MCW augmented with ML offers a promising alternative to questionnaires, and the M | UNVERIFIED | VERIFIED |
-| `8afcf2e1` | semanticscholar.org | S2 The Colour Wheel and Filtration | UNVERIFIED | VERIFIED |
-| `3ed0faf3` | semanticscholar.org | S2 From Experiments to Figuration. Pigment Powders, Newton’s Co | UNVERIFIED | VERIFIED |
-| `baa2cb92` | semanticscholar.org | S2 Optimization Study Analysis of Vegetable Tanning Finishing T | UNVERIFIED | VERIFIED |
-| `10fcdd11` | semanticscholar.org | S2 The Artificial Intelligence Colour Wheel Framework to suppor — AI tldr: It is concluded that meaningful curriculum transformation in CODeL requires more than tech | UNVERIFIED | VERIFIED |
-| `ead93637` | semanticscholar.org | S2 Scrutiny on colour psychology by utilising colour wheel to d — AI tldr: Key colours and their impact on the website design are explored to identify how colour aff | UNVERIFIED | VERIFIED |
-| `3ca1ada7` | semanticscholar.org | S2 A magenta gap in the colour wheel | UNVERIFIED | VERIFIED |
-| `0b7973a1` | semanticscholar.org | S2 A magenta gap in the colour wheel | UNVERIFIED | VERIFIED |
 | `2e135eac` | openalex.org | OpenAlex Bursting paradigms: a colour wheel of practice-research [Artistic and Creative Research] | UNVERIFIED | VERIFIED |
 | `8ead8c90` | openalex.org | OpenAlex A magenta gap in the colour wheel [Experimental and Theoretical P] | UNVERIFIED | VERIFIED |
 | `0fd14d2b` | openalex.org | OpenAlex Features and development of <i>Coot</i> [Enzyme Structure and Function] | UNVERIFIED | VERIFIED |
@@ -47,7 +39,7 @@ the hard gate of the corroboration law.
 | `e648706d` | openalex.org | OpenAlex Bifurcations, harmonics and the four colour wheel model of Drosophila  [Developmental Biology and Gene] | UNVERIFIED | VERIFIED |
 | `fef8f96f` | openalex.org | OpenAlex A high-quality apple genome assembly reveals the association of a retr [Plant Gene Expression Analysis] | UNVERIFIED | VERIFIED |
 
-**32 findings · 32 usable search-trial combinations · receipt `ff6f4d9d`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `438a4c94`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

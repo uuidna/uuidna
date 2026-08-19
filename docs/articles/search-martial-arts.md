@@ -14,6 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `029d08a5` | zenodo.org | zenodo record 16437883: Abstract of Meteorological Observations for the Month of April, 1853 | UNVERIFIED | VERIFIED |
+| `e82bf0af` | zenodo.org | zenodo record 16439540: Abstract of the Meteorological Register | UNVERIFIED | VERIFIED |
+| `4e7321e1` | zenodo.org | zenodo record 16244744: Proceedings of the Asiatic Society of Bengal, for January, 1861 | UNVERIFIED | VERIFIED |
+| `33891b72` | zenodo.org | zenodo record 16140616: Proceedings of the Asiatic Society of Bengal, for September, 1854 | UNVERIFIED | VERIFIED |
+| `1fd09e0f` | zenodo.org | zenodo record 16164042: Notice of Some Counterfeit Bactriun Coins | UNVERIFIED | VERIFIED |
+| `85f12907` | zenodo.org | zenodo record 15888933: A Comparative Essay on the Ancient Geography of India | UNVERIFIED | VERIFIED |
+| `ff2179e3` | zenodo.org | zenodo record 1623682: Remarks on Prof. Huxley's proposed Classification of Birds | UNVERIFIED | VERIFIED |
+| `ed98fe90` | zenodo.org | zenodo record 16448677: Account of Further Intercourse with the Native of the Andaman Islands | UNVERIFIED | VERIFIED |
 | `585d031c` | crossref.org | DOI 10.7717/peerj.21201/fig-3: Figure 3: Mean and standard deviation (shading) time series for control and rese | UNVERIFIED | VERIFIED |
 | `b1bb3ae0` | crossref.org | DOI 10.7717/peerj.21201/fig-1: Figure 1: Mean and standard deviation (shading) time series for control and rese | UNVERIFIED | VERIFIED |
 | `3641ac60` | crossref.org | DOI 10.1016/s0031-9406(05)66653-9: Measurement of Foot Progression Angle Through Stance | UNVERIFIED | VERIFIED |
@@ -22,16 +30,8 @@ the hard gate of the corroboration law.
 | `05429424` | crossref.org | DOI 10.1589/rika.26.269: The Various Patterns of Knee Angle in the Stance Phase | UNVERIFIED | VERIFIED |
 | `c5812153` | crossref.org | DOI 10.2139/ssrn.5011183: Effects of Knee Joint Flexion Angle on Lower Limb Muscle Force, Knee Joint Conta | UNVERIFIED | VERIFIED |
 | `7b864478` | crossref.org | DOI 10.1787/888933729705: Fiscal stance and fiscal stance: Brazil | UNVERIFIED | VERIFIED |
-| `ffacda05` | openalex.org | OpenAlex Lower limb alignment and foot angle are related to stance phase knee a [Total Knee Arthroplasty Outcom] | UNVERIFIED | VERIFIED |
-| `25ce0e46` | openalex.org | OpenAlex Unified theory regarding A/P and M/L balance in quiet stance [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
-| `5d2ec0b4` | openalex.org | OpenAlex Effect of frontal plane tibiofemoral angle on the stress and strain at [Lower Extremity Biomechanics a] | UNVERIFIED | VERIFIED |
-| `1a19ffcd` | openalex.org | OpenAlex Results of proximal tibial osteotomy. The effects of tibiofemoral angl [Total Knee Arthroplasty Outcom] | UNVERIFIED | VERIFIED |
-| `1e411f51` | openalex.org | OpenAlex Stance Width and Angle at Sea: Effects of Sea State and Body Orientati [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
-| `7058900d` | openalex.org | OpenAlex Preferred placement of the feet during quiet stance: development of a  [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
-| `5cbd7f0b` | openalex.org | OpenAlex The Simplest Walking Model: Stability, Complexity, and Scaling [Robotic Locomotion and Control] | UNVERIFIED | VERIFIED |
-| `270185bd` | openalex.org | OpenAlex How to squat? Effects of various stance widths, foot placement angles  [Lower Extremity Biomechanics a] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `6efb28e7`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `05ee12c7`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

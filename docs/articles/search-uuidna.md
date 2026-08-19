@@ -30,14 +30,6 @@ the hard gate of the corroboration law.
 | `25f4cf14` | crossref.org | DOI 10.1201/b20911-8: - Interactions Vortex-Vortex, Vortex-Defect and Vortex-Spin | UNVERIFIED | VERIFIED |
 | `4a877056` | crossref.org | DOI 10.28989/vortex.v1i1:  | UNVERIFIED | VERIFIED |
 | `3bec1fc6` | crossref.org | DOI 10.28989/vortex.v2i1:  | UNVERIFIED | VERIFIED |
-| `82b6f1d9` | semanticscholar.org | S2 1 Classification of the algebra of n vortices on a plane 1 . | UNVERIFIED | VERIFIED |
-| `7b29bdd4` | semanticscholar.org | S2 Vortex algebra by multiply cascaded four-wave mixing of femt — AI tldr: Experiments performed with different vortex pump beams show for the first time the algebra | UNVERIFIED | VERIFIED |
-| `b07663c0` | semanticscholar.org | S2 On the algebra and groups of incompressible vortex dynamics | UNVERIFIED | VERIFIED |
-| `da00c510` | semanticscholar.org | S2 VORTEX SHEETS, BOUSSINESQ EQUATIONS, AND OTHER PROBLEMS IN T | UNVERIFIED | VERIFIED |
-| `4545c654` | semanticscholar.org | S2 On the Hilbert Space of the Chern-Simons Matrix Model, Defor | UNVERIFIED | VERIFIED |
-| `9ecd105e` | semanticscholar.org | S2 Algebra of optical dislocations with plasmonic nanostructure | UNVERIFIED | VERIFIED |
-| `ead5afcc` | semanticscholar.org | S2 Vortex Filaments in Hermitian Reductive Lie Algebras | UNVERIFIED | VERIFIED |
-| `45f2322c` | semanticscholar.org | S2 Vortex Detection in Vector Fields Using Geometric Algebra | UNVERIFIED | VERIFIED |
 | `3fb96419` | openalex.org | OpenAlex Vortex algebra by multiply cascaded four-wave mixing of femtosecond op [Advanced Fiber Laser Technolog] | UNVERIFIED | VERIFIED |
 | `2d3c205e` | openalex.org | OpenAlex Algebraic bright and vortex solitons in defocusing media [Nonlinear Waves and Solitons] | UNVERIFIED | VERIFIED |
 | `654b279d` | openalex.org | OpenAlex Isolated optical vortex knots [Orbital Angular Momentum in Op] | UNVERIFIED | VERIFIED |
@@ -47,7 +39,7 @@ the hard gate of the corroboration law.
 | `6dd0d709` | openalex.org | OpenAlex Soliton algebra by vortex-beam splitting [Advanced Fiber Laser Technolog] | UNVERIFIED | VERIFIED |
 | `bdd5adbb` | openalex.org | OpenAlex Contributions to Vortex Particle Methods for the Computation of Three- [Fluid Dynamics Simulations and] | UNVERIFIED | VERIFIED |
 
-**32 findings · 32 usable search-trial combinations · receipt `0b278a0f`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `6575e106`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

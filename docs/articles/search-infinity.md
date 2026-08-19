@@ -22,16 +22,8 @@ the hard gate of the corroboration law.
 | `12f41cdd` | crossref.org | DOI 10.2139/ssrn.4197868: Mass Time, Mass System, Electrical Charge Time (Infinities in Physics) | UNVERIFIED | VERIFIED |
 | `04e3e41b` | crossref.org | DOI 10.1016/0550-3213(86)90046-5: Non-perturbative infinities | UNVERIFIED | VERIFIED |
 | `832221df` | crossref.org | DOI 10.2139/ssrn.3943889: ‘Fuzzy Time’, Not Probabilistic Time! (Infinities in Physics) | UNVERIFIED | VERIFIED |
-| `1f6bbe47` | openalex.org | OpenAlex Physics-informed machine learning [Model Reduction and Neural Net] | UNVERIFIED | VERIFIED |
-| `bfa096bd` | openalex.org | OpenAlex DOUBLE-TIME GREEN FUNCTIONS IN STATISTICAL PHYSICS [Theoretical and Computational ] | UNVERIFIED | VERIFIED |
-| `7a7fc291` | openalex.org | OpenAlex The physics and chemistry of the Schottky barrier height [Semiconductor materials and in] | UNVERIFIED | VERIFIED |
-| `d5849582` | openalex.org | OpenAlex Cosmology and fundamental physics with the Euclid satellite [Cosmology and Gravitation Theo] | UNVERIFIED | VERIFIED |
-| `250de96b` | openalex.org | OpenAlex Finite-Temperature Field Theory: Principles and Applications [High-Energy Particle Collision] | UNVERIFIED | VERIFIED |
-| `6a5091b9` | openalex.org | OpenAlex Physics of negative refractive index materials [Metamaterials and Metasurfaces] | UNVERIFIED | VERIFIED |
-| `767950ff` | openalex.org | OpenAlex FIRE-2 simulations: physics versus numerics in galaxy formation [Galaxies: Formation, Evolution] | UNVERIFIED | VERIFIED |
-| `c2de8429` | openalex.org | OpenAlex Conformal collider physics: energy and charge correlations [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `f166f3be`** (fold of every finding's address — recompute by re-running the search).
+**8 findings · 8 usable search-trial combinations · receipt `a5f7dc2d`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

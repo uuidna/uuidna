@@ -14,14 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `86acb01d` | zenodo.org | zenodo record 15984171: Literary Intelligence | UNVERIFIED | VERIFIED |
-| `307ce972` | zenodo.org | zenodo record 16188934: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
-| `e228fd90` | zenodo.org | zenodo record 16708885: Proceedings of the Asiatic Society of Bengal for February, 1849 | UNVERIFIED | VERIFIED |
-| `77594816` | zenodo.org | zenodo record 16495918: Catalogue of Mammalia Inhabiting the Malayan Peninsula and Island | UNVERIFIED | VERIFIED |
 | `029d08a5` | zenodo.org | zenodo record 16437883: Abstract of Meteorological Observations for the Month of April, 1853 | UNVERIFIED | VERIFIED |
-| `f553caf3` | zenodo.org | zenodo record 15948964: Errata | UNVERIFIED | VERIFIED |
+| `e82bf0af` | zenodo.org | zenodo record 16439540: Abstract of the Meteorological Register | UNVERIFIED | VERIFIED |
+| `4e7321e1` | zenodo.org | zenodo record 16244744: Proceedings of the Asiatic Society of Bengal, for January, 1861 | UNVERIFIED | VERIFIED |
+| `33891b72` | zenodo.org | zenodo record 16140616: Proceedings of the Asiatic Society of Bengal, for September, 1854 | UNVERIFIED | VERIFIED |
+| `1fd09e0f` | zenodo.org | zenodo record 16164042: Notice of Some Counterfeit Bactriun Coins | UNVERIFIED | VERIFIED |
 | `85f12907` | zenodo.org | zenodo record 15888933: A Comparative Essay on the Ancient Geography of India | UNVERIFIED | VERIFIED |
 | `ff2179e3` | zenodo.org | zenodo record 1623682: Remarks on Prof. Huxley's proposed Classification of Birds | UNVERIFIED | VERIFIED |
+| `ed98fe90` | zenodo.org | zenodo record 16448677: Account of Further Intercourse with the Native of the Andaman Islands | UNVERIFIED | VERIFIED |
 | `de176129` | crossref.org | DOI 10.1163/9789004226425_004: A Typology of Herod’s Coins | UNVERIFIED | VERIFIED |
 | `77bacc2c` | crossref.org | DOI 10.1111/j.1600-0471.1995.tb00076.x: Two South Arabian coins from Mleiha | UNVERIFIED | VERIFIED |
 | `a0adcfca` | crossref.org | DOI 10.1093/nq/s7-vi.135.64c: Leather coins | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `a2a28886` | openalex.org | OpenAlex The coin model of privilege and critical allyship: implications for he [Obesity and Health Practices] | UNVERIFIED | VERIFIED |
 | `04da909f` | openalex.org | OpenAlex Adipo-Myokines: Two Sides of the Same Coin—Mediators of Inflammation a [Adipose Tissue and Metabolism] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `796f2dfd`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `149d3b37`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

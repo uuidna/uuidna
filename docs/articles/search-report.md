@@ -21,14 +21,14 @@ the hard gate of the corroboration law.
 | `784ff9c3` | zenodo.org | zenodo record 8278861: Gravitational lensing in the age of the ILT and SKA-VLBI | UNVERIFIED | VERIFIED |
 | `df8e3701` | zenodo.org | zenodo record 7660504: Burkitt Type Lymphoma in Palatine Tonsil. A report of a case | UNVERIFIED | VERIFIED |
 | `ddab8860` | zenodo.org | zenodo record 12081954: IMPACT OF FINANCIAL TECHNOLOGY ON THE DEVELOPMENT OF DEPOSIT MONEY BANKS IN NIGE | UNVERIFIED | VERIFIED |
-| `01213a17` | zenodo.org | zenodo record 15545755: Technologies and collaboration for sustained Arctic Ocean Observing Systems (AOO | UNVERIFIED | VERIFIED |
+| `e3e067c2` | zenodo.org | zenodo record 1461996: Draft: Research Output Management Policy at IUG | UNVERIFIED | VERIFIED |
 | `c6674077` | crossref.org | DOI 10.53055/icimod.1133: Annual Report 2025 | UNVERIFIED | VERIFIED |
-| `6e2c1bbd` | crossref.org | DOI 10.1097/01253086-200327040-00009: Presidents Report | UNVERIFIED | VERIFIED |
 | `e782bd09` | crossref.org | DOI 10.3133/ofr72394_suppliment: Addendum [to Open-file report 1799][Open-file report 1799 changed to Open-file r | UNVERIFIED | VERIFIED |
 | `19681f07` | crossref.org | DOI 10.1075/veaw.g60.c6.audio.16:  | UNVERIFIED | VERIFIED |
 | `4ba693da` | crossref.org | DOI 10.1097/01253086-199822050-00004: Treasurerʼs Report | UNVERIFIED | VERIFIED |
 | `24e63181` | crossref.org | DOI 10.1097/01253086-200226040-00005: PRESIDENTʼS REPORT | UNVERIFIED | VERIFIED |
 | `3be34f02` | crossref.org | DOI 10.1097/01253086-200024050-00010: Treasurerʼs Report | UNVERIFIED | VERIFIED |
+| `6e2c1bbd` | crossref.org | DOI 10.1097/01253086-200327040-00009: Presidents Report | UNVERIFIED | VERIFIED |
 | `e8de516e` | crossref.org | DOI 10.1097/01253086-199721050-00003: Treasurerʼs Report | UNVERIFIED | VERIFIED |
 | `1e9ff7d5` | openalex.org | OpenAlex The PRISMA 2020 statement: an updated guideline for reporting systemat [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
 | `48aff6d0` | openalex.org | OpenAlex Preferred reporting items for systematic reviews and meta-analyses: th [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `d7af4f42` | openalex.org | OpenAlex Consolidated criteria for reporting qualitative research (COREQ): a 32 [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
 | `e4db3a80` | openalex.org | OpenAlex The Strengthening the Reporting of Observational Studies in Epidemiolo [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `8db17d0c`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `f5cd0a3a`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

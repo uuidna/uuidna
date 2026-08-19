@@ -22,11 +22,16 @@ the hard gate of the corroboration law.
 | `637f5dc0` | crossref.org | DOI 10.1079/pwkb.20137804391: Groundnut Rosette Disease | UNVERIFIED | VERIFIED |
 | `e604bcb0` | crossref.org | DOI 10.1093/benz/9780199773787.article.b00020102: Bir, Rosette | UNVERIFIED | VERIFIED |
 | `666ad874` | crossref.org | DOI 10.1079/pwkb.20127801289: Groundnut rosette disease | UNVERIFIED | VERIFIED |
-| `4e9432d7` | openalex.org | OpenAlex Millennium Solutions - The ℤ/9 Vortex Framework [Quantum Mechanics and Applicat] | UNVERIFIED | VERIFIED |
 | `cfd6e270` | openalex.org | OpenAlex Millennium Solutions - The ℤ/9 Vortex Framework [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
 | `e97b4508` | openalex.org | OpenAlex Design and testing of a low-energy and -carbon prototype structure tha [Structural Analysis and Optimi] | UNVERIFIED | VERIFIED |
+| `5f9cdf93` | openalex.org | OpenAlex Random walk models in the life sciences: including births, deaths and  [Diffusion and Search Dynamics] | UNVERIFIED | VERIFIED |
+| `315a9b97` | openalex.org | OpenAlex Microstructural Analysis of Additive Manufactured Walls of AA5083 and  [Additive Manufacturing and 3D ] | UNVERIFIED | VERIFIED |
+| `73f583a1` | openalex.org | OpenAlex Optimization of a LEO-PNT Constellation: Design Considerations and Ope [Spacecraft Design and Technolo] | UNVERIFIED | VERIFIED |
+| `f2b1624a` | openalex.org | OpenAlex Dependency of high-order harmonics to polarisation properties of many- [Laser-Matter Interactions and ] | UNVERIFIED | VERIFIED |
+| `748d66df` | openalex.org | OpenAlex Integral-Transform Methods in Medical Artificial Intelligence: Theorem [Mathematical Analysis and Tran] | UNVERIFIED | VERIFIED |
+| `ea0a5d8a` | openalex.org | OpenAlex  [Polynomial and algebraic compu] | UNVERIFIED | VERIFIED |
 
-**11 findings · 11 usable search-trial combinations · receipt `c2e2714b`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `40751e5f`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

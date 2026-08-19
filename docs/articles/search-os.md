@@ -19,8 +19,8 @@ the hard gate of the corroboration law.
 | `6bb3b880` | zenodo.org | zenodo record 13382558: Understanding Media's Role in Public Perception: Discrepancies in Sentiment Duri | UNVERIFIED | VERIFIED |
 | `763b6cf5` | zenodo.org | zenodo record 2613392: Provisioning and managing VM's in a multi-vendor private cloud environment | UNVERIFIED | VERIFIED |
 | `e38c89db` | zenodo.org | zenodo record 20555421: COcyber White Paper - Unlocking cybersecurity potential in civil and defence dom | UNVERIFIED | VERIFIED |
-| `bb4ffbf9` | zenodo.org | zenodo record 4657072: Contour elevations across Manchester, UK | UNVERIFIED | VERIFIED |
 | `70503e42` | zenodo.org | zenodo record 8397792: ADAPTIVE EDUCATIONAL APPROACHES IN HIGHER EDUCATION INSTITUTIONS OF EUROPEAN (CI | UNVERIFIED | VERIFIED |
+| `bb4ffbf9` | zenodo.org | zenodo record 4657072: Contour elevations across Manchester, UK | UNVERIFIED | VERIFIED |
 | `77f51745` | zenodo.org | zenodo record 4657085: Manchester landcover | UNVERIFIED | VERIFIED |
 | `b638270e` | crossref.org | DOI 10.1017/9781108784863.028: Matrix Algebra | UNVERIFIED | VERIFIED |
 | `143a85fb` | crossref.org | DOI 10.1115/ipc2006-10159: An External Corrosion Direct Assessment Module for a Pipeline Integrity Manageme | UNVERIFIED | VERIFIED |
@@ -34,12 +34,12 @@ the hard gate of the corroboration law.
 | `127bfdad` | openalex.org | OpenAlex System R [Data Quality and Management] | UNVERIFIED | VERIFIED |
 | `a85ec835` | openalex.org | OpenAlex Software for the frontiers of quantum chemistry: An overview of develo [Computational Drug Discovery M] | UNVERIFIED | VERIFIED |
 | `df2d38f0` | openalex.org | OpenAlex Computing solutions for large general equilibrium models using GEMPACK [Monetary Policy and Economic I] | UNVERIFIED | VERIFIED |
-| `0fded9cf` | openalex.org | OpenAlex Cooperative Application/OS DRAM Fault Recovery [Distributed systems and fault ] | UNVERIFIED | VERIFIED |
 | `5a6ca414` | openalex.org | OpenAlex The design and implementation of INGRES [Advanced Database Systems and ] | UNVERIFIED | VERIFIED |
+| `0fded9cf` | openalex.org | OpenAlex Cooperative Application/OS DRAM Fault Recovery [Distributed systems and fault ] | UNVERIFIED | VERIFIED |
 | `fcdc6986` | openalex.org | OpenAlex Blockchain-Based Cloud Data Integrity Verification Scheme with High Ef [Cloud Data Security Solutions] | UNVERIFIED | VERIFIED |
 | `cad29974` | openalex.org | OpenAlex Integrity Audit of Shared Cloud Data with Identity Tracking [Cloud Data Security Solutions] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `9686ce4a`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `aad812ea`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

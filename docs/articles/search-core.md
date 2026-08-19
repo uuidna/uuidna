@@ -19,9 +19,9 @@ the hard gate of the corroboration law.
 | `2990b632` | zenodo.org | zenodo record 6395026: 74. Cross-Phenotype Analysis of Genome-Wide Data Reveals New Risk Loci Shared Ac | UNVERIFIED | VERIFIED |
 | `b567fae4` | zenodo.org | zenodo record 6403262: 189. Early Diagnostics in Giant Cell Arteritis: Comparing Ultrasound, Positron-E | UNVERIFIED | VERIFIED |
 | `cbf23ae6` | zenodo.org | zenodo record 15321091: The 8 Queens Problem: A Backtracking Approach | UNVERIFIED | VERIFIED |
-| `0b3feff9` | zenodo.org | zenodo record 17386751: "CENTRAL ASIAN FOOD  ENGINEERING AND TECHNOLOGY"  ELEKTRON ILMIY JURNALI | UNVERIFIED | VERIFIED |
-| `eb43e5f9` | zenodo.org | zenodo record 15351434: "CENTRAL ASIAN FOOD  ENGINEERING AND TECHNOLOGY"  ELEKTRON ILMIY JURNALI | UNVERIFIED | VERIFIED |
 | `8bee3300` | zenodo.org | zenodo record 10599760: "CENTRAL ASIAN FOOD ENGINEERING AND TECHNOLOGY"  ELEKTRON ILMIY JURNALI | UNVERIFIED | VERIFIED |
+| `999e5b77` | zenodo.org | zenodo record 14010921: "CENTRAL ASIAN FOOD ENGINEERING AND TECHNOLOGY"  ELEKTRON ILMIY JURNALI | UNVERIFIED | VERIFIED |
+| `71c9b931` | zenodo.org | zenodo record 13897178: "CENTRAL ASIAN FOOD ENGINEERING AND TECHNOLOGY"  ELEKTRON ILMIY JURNALI | UNVERIFIED | VERIFIED |
 | `4ba538cb` | crossref.org | DOI 10.5152/rss.2025.25059: The Effects of 8-Week Core Training on Body Composition and Core Stability in El | UNVERIFIED | VERIFIED |
 | `e96ed39d` | crossref.org | DOI 10.21468/scipostphyscore.8.4:  | UNVERIFIED | VERIFIED |
 | `fc6cfe24` | crossref.org | DOI 10.21468/scipostphyscore.8.2:  | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `b9027411` | openalex.org | OpenAlex Advanced fabrication of metal–organic frameworks: template-directed fo [Metal-Organic Frameworks: Synt] | UNVERIFIED | VERIFIED |
 | `a08452bd` | openalex.org | OpenAlex Facile construction of MoO3@ZIF-8 core-shell nanorods for efficient ph [Advanced Photocatalysis Techni] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `22ce727d`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `bd10ac88`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

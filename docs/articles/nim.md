@@ -65,11 +65,11 @@ The ledger holds this as [nim_winning_move_exists](/theorem/nim_winning_move_exi
 (lxor (lxor 1 2) 4 = 7) ∧ (lxor 7 4 = 3)
 ```
 
-### Sprague–Grundy: the Grundy value of a SUM of independent games is the XOR of their values, and a nim heap of size n has Grundy value n. So two heaps 1 and 2 combine to lxor 1 2 = 3 — every impartial game reduces to a single nim heap.
+### Sprague–Grundy, stated as the LAW rather than one witness of it: for every pair of heaps below 8, the two-heap position is a LOSS for the player to move exactly when the nim-sum is zero, and that happens exactly when the heaps are equal. Proven by exhaustion over all 64 pairs, so the name is falsifiable by the structure it names. It read `lxor 1 2 = 3` until 2026-08-18 — one row of the nim-addition table this same wing already seals as nimsum_1_2, the identical Lean line under a second name, and a general law resting on a single instance. The mirror strategy is the whole proof: equal heaps cancel, so copy every move and take the last stone.
 The ledger holds this as [grundy_sum_is_xor](/theorem/grundy_sum_is_xor) — proven `by decide`, sorry-free:
 
 ```lean
-lxor 1 2 = 3
+(List.range 8).all (fun a => (List.range 8).all (fun b => (lxor a b == 0) == (a == b)))
 ```
 
 ### Four heaps at the distinct powers 1, 2, 4, 8 fold to lxor…= 15 (all bits set, ≠ 0): a WIN, and the maximal nim-sum on those heaps — the bits never collide, so nothing cancels.

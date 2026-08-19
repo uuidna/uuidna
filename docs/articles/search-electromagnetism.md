@@ -18,12 +18,12 @@ the hard gate of the corroboration law.
 | `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
 | `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
 | `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
-| `b626e155` | zenodo.org | zenodo record 3242789: Universal Declaration of Human Rights, Volume 02 | UNVERIFIED | VERIFIED |
-| `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
 | `3c3a523b` | zenodo.org | zenodo record 8161027: A Search Tool for Aggregated Information on Open Access | UNVERIFIED | VERIFIED |
+| `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
 | `f0e5407e` | zenodo.org | zenodo record 16035072: Integrating Open Access Information into the Library Discovery System | UNVERIFIED | VERIFIED |
-| `a14e54d0` | crossref.org | DOI 10.1117/12.3079234.826bcd05-395b-f011-a9aa-005056914f1c:  | UNVERIFIED | VERIFIED |
+| `b626e155` | zenodo.org | zenodo record 3242789: Universal Declaration of Human Rights, Volume 02 | UNVERIFIED | VERIFIED |
 | `67e21894` | crossref.org | DOI 10.1117/12.3042172.cb7e5fc4-9443-ef11-a9a2-005056914f1c:  | UNVERIFIED | VERIFIED |
+| `a14e54d0` | crossref.org | DOI 10.1117/12.3079234.826bcd05-395b-f011-a9aa-005056914f1c:  | UNVERIFIED | VERIFIED |
 | `c4e936e9` | crossref.org | DOI 10.1049/sbew514e_ch12: Total field/scattered field formulation | UNVERIFIED | VERIFIED |
 | `9fc671c7` | crossref.org | DOI 10.1049/sbew514e_ch9: Near-field to far-field transformation | UNVERIFIED | VERIFIED |
 | `afafc9d2` | crossref.org | DOI 10.32657/10356/50472: Finite-difference time-domain methods for anisotropic media with total-field/sca | UNVERIFIED | VERIFIED |
@@ -32,14 +32,14 @@ the hard gate of the corroboration law.
 | `5d5d3c18` | crossref.org | DOI 10.1117/3.1002803.ch76: Optical Frequency Domain Reflectometry | UNVERIFIED | VERIFIED |
 | `f78c33c9` | openalex.org | OpenAlex Field Dependence of the Intrinsic Domain Magnetization of a Ferromagne [Magnetic properties of thin fi] | UNVERIFIED | VERIFIED |
 | `dd216a53` | openalex.org | OpenAlex The emerging field of signal processing on graphs: Extending high-dime [Complex Network Analysis Techn] | UNVERIFIED | VERIFIED |
-| `61ee97a1` | openalex.org | OpenAlex Absorbing Boundary Conditions for the Finite-Difference Approximation  [Electromagnetic Simulation and] | UNVERIFIED | VERIFIED |
 | `d45c6fe5` | openalex.org | OpenAlex Calibration of Strapdown Magnetometers in Magnetic Field Domain [Inertial Sensor and Navigation] | UNVERIFIED | VERIFIED |
+| `61ee97a1` | openalex.org | OpenAlex Absorbing Boundary Conditions for the Finite-Difference Approximation  [Electromagnetic Simulation and] | UNVERIFIED | VERIFIED |
 | `506482cc` | openalex.org | OpenAlex Gravitational field of vacuum domain walls and strings [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 | `bb44d721` | openalex.org | OpenAlex The motion of 180° domain walls in uniform dc magnetic fields [Magnetic Properties and Applic] | UNVERIFIED | VERIFIED |
-| `4a021e02` | openalex.org | OpenAlex Large electric-field-induced strain in ferroelectric crystals by point [Ferroelectric and Piezoelectri] | UNVERIFIED | VERIFIED |
 | `ad99ceb5` | openalex.org | OpenAlex Photon-Assisted Electric Field Domains and Multiphoton-Assisted Tunnel [Semiconductor Quantum Structur] | UNVERIFIED | VERIFIED |
+| `4a021e02` | openalex.org | OpenAlex Large electric-field-induced strain in ferroelectric crystals by point [Ferroelectric and Piezoelectri] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `39ea6943`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `8c0b9537`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

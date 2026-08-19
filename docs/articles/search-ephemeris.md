@@ -26,8 +26,8 @@ the hard gate of the corroboration law.
 | `40013f95` | crossref.org | DOI 10.7717/peerj.8435/fig-5: Figure 5: Principal Coordinate ordination plots by sampling time. | UNVERIFIED | VERIFIED |
 | `64fe759e` | crossref.org | DOI 10.21236/ad0615034: TIME AND COORDINATE SYSTEM STUDIES | UNVERIFIED | VERIFIED |
 | `b3f510e7` | crossref.org | DOI 10.1007/978-3-540-78522-4_2: Coordinate and Time Systems | UNVERIFIED | VERIFIED |
-| `4e555414` | crossref.org | DOI 10.1515/9780691267050-003: 1 Coordinate Time | UNVERIFIED | VERIFIED |
 | `e8b5076b` | crossref.org | DOI 10.1088/1674-4527/17/8/88: Relativistic time transfer for a Mars lander: from Areocentric Coordinate Time t | UNVERIFIED | VERIFIED |
+| `4e555414` | crossref.org | DOI 10.1515/9780691267050-003: 1 Coordinate Time | UNVERIFIED | VERIFIED |
 | `1c2d1ae9` | crossref.org | DOI 10.1007/978-3-642-41714-6_201526: time coordinate | UNVERIFIED | VERIFIED |
 | `76f9e374` | crossref.org | DOI 10.31234/osf.io/rgv5c: Coordinate-Based Meta-Analyses of the Time Perception Network | UNVERIFIED | VERIFIED |
 | `46a02352` | openalex.org | OpenAlex Fixed-time coordinated tracking for second-order multi-agent systems w [Distributed Control Multi-Agen] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `8fcdcbc9` | openalex.org | OpenAlex Observer Time as a Coordinate in Relativistic Spherical Hydrodynamics [Relativity and Gravitational T] | UNVERIFIED | VERIFIED |
 | `a31e5682` | openalex.org | OpenAlex Real-Time Coordinated Scheduling for ADNs With Soft Open Points and Ch [Microgrid Control and Optimiza] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `08359b59`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `b127b897`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

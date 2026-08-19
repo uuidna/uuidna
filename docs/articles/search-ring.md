@@ -24,14 +24,14 @@ the hard gate of the corroboration law.
 | `67eb60e0` | crossref.org | DOI 10.1093/gmo/9781561592630.article.j380800: Ring | UNVERIFIED | VERIFIED |
 | `a382ff7d` | openalex.org | OpenAlex Efficient signature generation by smart cards [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
 | `e7ac9a9f` | openalex.org | OpenAlex Modules of finite length over their endomorphism rings [Algebraic structures and combi] | UNVERIFIED | VERIFIED |
+| `3f8dd3b4` | openalex.org | OpenAlex Quantum unique ergodicity for SL₂(ℤ)\ℍ [Analytic Number Theory Researc] | UNVERIFIED | VERIFIED |
 | `980bf23d` | openalex.org | OpenAlex Growth in $\mathrm{SL}_3(ℤ/pℤ)$ [Advanced Topology and Set Theo] | UNVERIFIED | VERIFIED |
 | `b43216aa` | openalex.org | OpenAlex Iwasawa’s Main Conjecture for elliptic curves over anticyclotomic ℤ<su [Algebraic Geometry and Number ] | UNVERIFIED | VERIFIED |
 | `5f06c311` | openalex.org | OpenAlex Symplectic semifield planes and ℤ₄–linear codes [Coding theory and cryptography] | UNVERIFIED | VERIFIED |
 | `4557d44b` | openalex.org | OpenAlex ℤ[] is Euclidean [Analytic Number Theory Researc] | UNVERIFIED | VERIFIED |
 | `f90fea8a` | openalex.org | OpenAlex Heterotic ℤ<sub>6–II</sub>MSSM orbifolds in blowup [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
-| `af1ca68f` | openalex.org | OpenAlex Chevalley groups over polynomial rings [Advanced Differential Equation] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `b61b1da8`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `450a7d83`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

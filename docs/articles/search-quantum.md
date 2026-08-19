@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The quantum computer
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The quantum computer* — the wing sealed in [lean/Quantum.lean](/lean/Quantum.lean) with **49 theorems**. Each
+asked in parallel about *The quantum computer* — the wing sealed in [lean/Quantum.lean](/lean/Quantum.lean) with **50 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -15,10 +15,10 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `2e1d5253` | zenodo.org | zenodo record 4971743: QUANTUM COMPUTING | UNVERIFIED | VERIFIED |
+| `2b539b1e` | zenodo.org | zenodo record 17636264: Multimodal Brain Imaging Fusion Using Machine Learning for Enhanced Diagnostic A | UNVERIFIED | VERIFIED |
 | `59d9ba34` | zenodo.org | zenodo record 15766134: PERSEPSI MAHASISWA TERHADAP PENGARUH FISIKA DALAM PERKEMBANGAN ILMU KOMPUTER | UNVERIFIED | VERIFIED |
 | `73c7af54` | zenodo.org | zenodo record 822078: The Existence of Quantum Computer | UNVERIFIED | VERIFIED |
 | `11971ca0` | zenodo.org | zenodo record 15150020: Recent Trends of Quantum Mechanics in Computing | UNVERIFIED | VERIFIED |
-| `2b539b1e` | zenodo.org | zenodo record 17636264: Multimodal Brain Imaging Fusion Using Machine Learning for Enhanced Diagnostic A | UNVERIFIED | VERIFIED |
 | `c7d6dc8a` | zenodo.org | zenodo record 839139: THE POWER OF QUANTUM COMPUTER AND ITS LIMITATIONS | UNVERIFIED | VERIFIED |
 | `b66b2057` | zenodo.org | zenodo record 10051347: STATE OF THE ART OF QUANTUM COMPUTING: OVERVIEW | UNVERIFIED | VERIFIED |
 | `172b2639` | zenodo.org | zenodo record 19400449: An Extensible Quantum Network Simulator Built on ns-3: Q2NS Design and Evaluatio | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `fc453492` | openalex.org | OpenAlex Polynomial-Time Algorithms for Prime Factorization and Discrete Logari [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
 | `41c9f893` | openalex.org | OpenAlex Architecture for a large-scale ion-trap quantum computer [Quantum Information and Crypto] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `ad7f100b`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `5c248fc0`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -91,6 +91,7 @@ The sealed backing this trial held the findings beside:
 - [store_fold_order_invariant](/theorem/store_fold_order_invariant) — `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a`
 - [store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt) — `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (Li`
 - [message_qubit_cap_states](/theorem/message_qubit_cap_states) — `2^16 = 65536`
+- [merkle_sort_invariant](/theorem/merkle_sort_invariant) — `(let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a `
 - [all_signaling_duality](/theorem/all_signaling_duality) — `(1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3`
 
 ::: warning HONEST SCOPE

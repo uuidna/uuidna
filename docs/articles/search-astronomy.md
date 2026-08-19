@@ -19,8 +19,8 @@ the hard gate of the corroboration law.
 | `6057422b` | zenodo.org | zenodo record 2203024: The Real Motions of the Fixed Stars | UNVERIFIED | VERIFIED |
 | `9579837f` | zenodo.org | zenodo record 18763056: H2 SilverSTARS: Pilot Plant Demonstration at SunLine Transit Agency | UNVERIFIED | VERIFIED |
 | `6aacf69b` | zenodo.org | zenodo record 1553921: On the Proper Motions of the Fixed Stars | UNVERIFIED | VERIFIED |
-| `5d9d08b4` | zenodo.org | zenodo record 19943427: MANFAAT MANAJEMEN KEPEMIMPINAN GEREJA TERHADAP TINGKAT KEHADIRAN PEMUDA DALAM IB | UNVERIFIED | VERIFIED |
 | `5638b70b` | zenodo.org | zenodo record 19007594: ANALYSIS OF PHRASEOLOGICAL UNITS IN THE WORKS OF JOHN GREEN | UNVERIFIED | VERIFIED |
+| `5d9d08b4` | zenodo.org | zenodo record 19943427: MANFAAT MANAJEMEN KEPEMIMPINAN GEREJA TERHADAP TINGKAT KEHADIRAN PEMUDA DALAM IB | UNVERIFIED | VERIFIED |
 | `84b83c1f` | zenodo.org | zenodo record 6814924: Both the Sun And the Earth Are Fixed Stars | UNVERIFIED | VERIFIED |
 | `5883cc26` | crossref.org | DOI 10.1163/1574-9347_bnp_e411930: Fixed stars | UNVERIFIED | VERIFIED |
 | `2fab4b09` | crossref.org | DOI 10.2307/j.ctt9qh6pj.9: Fixed Stars | UNVERIFIED | VERIFIED |
@@ -30,16 +30,24 @@ the hard gate of the corroboration law.
 | `75d54a1b` | crossref.org | DOI 10.1038/scientificamerican05141921-390: Fixed Stars That Are Not Fixed | UNVERIFIED | VERIFIED |
 | `b4c290b9` | crossref.org | DOI 10.1177/002182869202300209: Book Review: Arabs and the Fixed Stars: The Arabs and the Stars: Texts and Tradi | UNVERIFIED | VERIFIED |
 | `286cd501` | crossref.org | DOI 10.3138/9781442696693-013: Chapter 8. Fixed Stars: Physics and Metaphysics (XXIV–XXVII) | UNVERIFIED | VERIFIED |
+| `d2c82aa1` | semanticscholar.org | S2 On the Means of Discovering the Distance, Magnitude, &c. of  | UNVERIFIED | VERIFIED |
+| `ff5e113e` | semanticscholar.org | S2 The Fixed Stars | UNVERIFIED | VERIFIED |
+| `9c689ba0` | semanticscholar.org | S2 The Investigation of Stars, Star Clusters and Nebulae in 'Ab | UNVERIFIED | VERIFIED |
+| `b7255b62` | semanticscholar.org | S2 XI. On the parallax of the fixed stars | UNVERIFIED | VERIFIED |
+| `de113510` | semanticscholar.org | S2 II. Concerning the distance of the fixed stars | UNVERIFIED | VERIFIED |
+| `2fa37f68` | semanticscholar.org | S2 XIII. On the spectra of some of the nebulœ. A supplement to  | UNVERIFIED | VERIFIED |
+| `c7543461` | semanticscholar.org | S2 XIX. On the parallax of the fixed stars | UNVERIFIED | VERIFIED |
+| `b2e9db38` | semanticscholar.org | S2 XXVII. An inquiry into the probable parallax, and magnitude  | UNVERIFIED | VERIFIED |
 | `2ad749ad` | openalex.org | OpenAlex Synthesis of the Elements in Stars [Astronomical and nuclear scien] | UNVERIFIED | VERIFIED |
 | `e9cf7ed1` | openalex.org | OpenAlex XI. On the parallax of the fixed stars [History and Developments in As] | UNVERIFIED | VERIFIED |
 | `d66d6177` | openalex.org | OpenAlex Seeing stars [Sentiment Analysis and Opinion] | UNVERIFIED | VERIFIED |
 | `35dbb8d0` | openalex.org | OpenAlex III. On the nature and construction of the sun and fixed stars [History and Developments in As] | UNVERIFIED | VERIFIED |
 | `db866926` | openalex.org | OpenAlex VII. On the means of discovering the distance, magnitude, &amp;c. of t [History and Developments in As] | UNVERIFIED | VERIFIED |
-| `3a55f2bd` | openalex.org | OpenAlex Spectral Energy Distributions of T Tauri Stars with Passive Circumstel [Astrophysics and Star Formatio] | UNVERIFIED | VERIFIED |
-| `2bbdf006` | openalex.org | OpenAlex XII. On the spectra of some of the fixed stars [History and Developments in As] | UNVERIFIED | VERIFIED |
 | `babc9737` | openalex.org | OpenAlex XIII. On the spectra of some of the nebulæ. A supplement to the paper  [History and Developments in As] | UNVERIFIED | VERIFIED |
+| `2bbdf006` | openalex.org | OpenAlex XII. On the spectra of some of the fixed stars [History and Developments in As] | UNVERIFIED | VERIFIED |
+| `3a55f2bd` | openalex.org | OpenAlex Spectral Energy Distributions of T Tauri Stars with Passive Circumstel [Astrophysics and Star Formatio] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `b5735c73`** (fold of every finding's address — recompute by re-running the search).
+**32 findings · 32 usable search-trial combinations · receipt `36733f55`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

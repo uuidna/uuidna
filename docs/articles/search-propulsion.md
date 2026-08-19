@@ -14,12 +14,20 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `b474b3d6` | zenodo.org | zenodo record 19430879: FIELD-COUPLED MOTION: INTERPRETING NON-LINEAR TRAJECTORIES IN ELECTROMAGNETICALL | UNVERIFIED | VERIFIED |
+| `c43e0122` | zenodo.org | zenodo record 21908236: Tone Theory and the Alcubierre Drive | UNVERIFIED | VERIFIED |
+| `8d193b7e` | zenodo.org | zenodo record 16748623: Gravitational Inverter: Conceptual Proposal and Theoretical Basis for Inverted G | UNVERIFIED | VERIFIED |
+| `698db220` | zenodo.org | zenodo record 889716: Boundedness vs unboundedness of a noise linked to Tsallis q-statistics: The role | UNVERIFIED | VERIFIED |
+| `f7bc6bdd` | zenodo.org | zenodo record 16233009: Inertia as Temporal Resistance: A Chronos Field Interpretation | UNVERIFIED | VERIFIED |
+| `b9cb277b` | zenodo.org | zenodo record 996187: The Newtonian Potential and the Demagnetizing Factors of the General Ellipsoid | UNVERIFIED | VERIFIED |
+| `353a20a5` | zenodo.org | zenodo record 19475398: A Low-Force, Early-Intervention Playbook for Asteroid Deflection: Integrating Pr | UNVERIFIED | VERIFIED |
+| `2298017c` | zenodo.org | zenodo record 20822649: The Unified Field Scalar-Hydraulic Drive: Metric Engineering via the 95.4 GeV Di | UNVERIFIED | VERIFIED |
 | `fb7c6d24` | crossref.org | DOI 10.21203/rs.3.rs-1814504/v1: Heat and Mass Transfer Analysis in MHD Peristaltic Flow of Newtonian and Non-New | UNVERIFIED | VERIFIED |
 | `89fad6aa` | crossref.org | DOI 10.1016/j.jnnfm.2013.05.006: Waving transport and propulsion in a generalized Newtonian fluid | UNVERIFIED | VERIFIED |
 | `bc1fe699` | crossref.org | DOI 10.47363/jpsos/2023(5)209: Propulsion Systems PNN (Non-Newtonian Propulsion) | UNVERIFIED | VERIFIED |
 | `8cb916b5` | crossref.org | DOI 10.1007/978-3-319-00891-2_5: Attractors for Incompressible Bipolar and Non-Newtonian Flows: Bounded Domains a | UNVERIFIED | VERIFIED |
-| `d94613ef` | crossref.org | DOI 10.1016/s0377-0257(03)00062-4: Analytical solutions for non-isothermal viscoelastic torsional flow in a bounded | UNVERIFIED | VERIFIED |
 | `9864cf6a` | crossref.org | DOI 10.1016/j.jnnfm.2003.10.002: Linear stability of viscoelastic cone–plate flow in a bounded domain | UNVERIFIED | VERIFIED |
+| `d94613ef` | crossref.org | DOI 10.1016/s0377-0257(03)00062-4: Analytical solutions for non-isothermal viscoelastic torsional flow in a bounded | UNVERIFIED | VERIFIED |
 | `30e8568e` | crossref.org | DOI 10.1016/j.jnnfm.2015.07.010: Propulsion of axisymmetric swimmers in viscoelastic liquids by means of torsiona | UNVERIFIED | VERIFIED |
 | `263a1f16` | crossref.org | DOI 10.1016/j.jnnfm.2005.02.003: A numerical study of steady and unsteady viscoelastic flow past bounded cylinder | UNVERIFIED | VERIFIED |
 | `c8d87d8e` | openalex.org | OpenAlex Active Particles in Complex and Crowded Environments [Micro and Nano Robotics] | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `22af6aed` | openalex.org | OpenAlex Transcritical diffuse-interface hydrodynamics of propellants in high-p [Combustion and flame dynamics] | UNVERIFIED | VERIFIED |
 | `6784e2af` | openalex.org | OpenAlex Metachronal propulsion of a magnetised particle-fluid suspension in a  [Nanofluid Flow and Heat Transf] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `210a0ad3`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `32a32a73`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

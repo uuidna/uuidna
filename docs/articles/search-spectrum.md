@@ -17,8 +17,8 @@ the hard gate of the corroboration law.
 | `4f63cbfc` | zenodo.org | zenodo record 5711239: Integrated Service Delivery in Fetal Alcohol Spectrum Disorder (FASD): A Review  | UNVERIFIED | VERIFIED |
 | `583a5b02` | zenodo.org | zenodo record 15758614: Content-update Signaling and Alerting Protocol (CUSAP) | UNVERIFIED | VERIFIED |
 | `b9bcd87b` | zenodo.org | zenodo record 14759468: KINETIC CITIES: VIABILITY OF ADAPTABLE PNP CONTAINER MODULES FOR SMART LIVING | UNVERIFIED | VERIFIED |
-| `caa7fc74` | zenodo.org | zenodo record 20589605: Automated human tracheal morphometrics using deep learning: toward custom trache | UNVERIFIED | VERIFIED |
 | `075160cf` | zenodo.org | zenodo record 17402306: Newton's Laws of Motion | UNVERIFIED | VERIFIED |
+| `caa7fc74` | zenodo.org | zenodo record 20589605: Automated human tracheal morphometrics using deep learning: toward custom trache | UNVERIFIED | VERIFIED |
 | `d22fad72` | zenodo.org | zenodo record 10517335: Data inputs and results from AI-supported title and abstract screening "Lack of  | UNVERIFIED | VERIFIED |
 | `8aae29a3` | zenodo.org | zenodo record 16883017: The Benefits of Cooperative Teaching Applied Through Projects to Improve Learnin | UNVERIFIED | VERIFIED |
 | `695bdbb7` | zenodo.org | zenodo record 18071417: AI in Clinical Neurophysiology:  from IED detection to neuroprognostication. | UNVERIFIED | VERIFIED |
@@ -29,7 +29,7 @@ the hard gate of the corroboration law.
 | `fb0e514b` | crossref.org | DOI 10.53053/yqqf4662: Top conferences of 2023 | UNVERIFIED | VERIFIED |
 | `9b3f8b2f` | crossref.org | DOI 10.53053/sdqu9141: Quotes of the year | UNVERIFIED | VERIFIED |
 | `2b006051` | crossref.org | DOI 10.29173/spectrum101: Editorial Note | UNVERIFIED | VERIFIED |
-| `28c35331` | crossref.org | DOI 10.53053/wcwt6934: Autism diagnosis: A moving target | UNVERIFIED | VERIFIED |
+| `3166c01d` | crossref.org | DOI 10.53053/xwyf1768: 2022: The year in review | UNVERIFIED | VERIFIED |
 | `24d9f59b` | openalex.org | OpenAlex Raman Spectrum of Graphene and Graphene Layers [Graphene research and applicat] | UNVERIFIED | VERIFIED |
 | `741fb3ab` | openalex.org | OpenAlex Raman Spectrum of Graphite [Graphite, nuclear technology, ] | UNVERIFIED | VERIFIED |
 | `2a4d1cbb` | openalex.org | OpenAlex The empirical mode decomposition and the Hilbert spectrum for nonlinea [Time Series Analysis and Forec] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `0556d374` | openalex.org | OpenAlex Spectrum estimation and harmonic analysis [Image and Signal Denoising Met] | UNVERIFIED | VERIFIED |
 | `973d15cb` | openalex.org | OpenAlex Secure spread spectrum watermarking for multimedia [Advanced Steganography and Wat] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `2091375c`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `1defe304`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

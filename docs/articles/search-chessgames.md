@@ -15,13 +15,13 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `5fec1e08` | zenodo.org | zenodo record 17988941: INNOVADE Living Lab 2: Envisioning Digital Democracy Based on Research & Best Pr | UNVERIFIED | VERIFIED |
+| `7fe8ceb7` | zenodo.org | zenodo record 5767528: Chess Dataset - TWIC | UNVERIFIED | VERIFIED |
 | `624ee3f2` | zenodo.org | zenodo record 18327693: INNOVADE Living Labs 3: Matching Citizen and Government Expectations of Digital  | UNVERIFIED | VERIFIED |
 | `bb8797ca` | zenodo.org | zenodo record 21293165: INNOVADE Living Lab 5: Envisioning Future Digital Democracy based on social and  | UNVERIFIED | VERIFIED |
-| `7fe8ceb7` | zenodo.org | zenodo record 5767528: Chess Dataset - TWIC | UNVERIFIED | VERIFIED |
 | `786bf076` | zenodo.org | zenodo record 18922661: D1.2 – Living Lab Methodology | UNVERIFIED | VERIFIED |
 | `b0257af7` | zenodo.org | zenodo record 3458237: Data & Sample Chess | UNVERIFIED | VERIFIED |
-| `84a67a17` | zenodo.org | zenodo record 19608945: INNOVADE Digital Democracy Apps Dataset | UNVERIFIED | VERIFIED |
 | `6bbaee1d` | zenodo.org | zenodo record 21701078: D2.1 – INNOVADE Interdisciplinary Knowledge Base on Digital Democracy | UNVERIFIED | VERIFIED |
+| `84a67a17` | zenodo.org | zenodo record 19608945: INNOVADE Digital Democracy Apps Dataset | UNVERIFIED | VERIFIED |
 | `7147f5cb` | crossref.org | DOI 10.3030/101096524:  | UNVERIFIED | VERIFIED |
 | `f2707473` | crossref.org | DOI 10.3030/101307553:  | UNVERIFIED | VERIFIED |
 | `d11dfba0` | crossref.org | DOI 10.3030/101087529:  | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `2280e1db` | openalex.org | OpenAlex Computers in Chess: Solving Inexact Search Problems [Artificial Intelligence in Gam] | UNVERIFIED | VERIFIED |
 | `48543206` | openalex.org | OpenAlex Training with AI: Evidence from chess computers [Experimental Behavioral Econom] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `2d59bf63`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `9dd8dce1`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

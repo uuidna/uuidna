@@ -1,13 +1,13 @@
 ---
 title: "The quantum computer"
-description: "Computed from lean/Quantum.lean — 49 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Quantum.lean — 50 sealed theorems, every claim citing its proof."
 ---
 
 # The quantum computer
 
-> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. HONEST SCOPE: the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 48 siblings below.
+> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. HONEST SCOPE: the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 49 siblings below.
 
-**49 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**50 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
 The ledger holds this as [bell_born_weights](/theorem/bell_born_weights) — proven `by decide`, sorry-free:
@@ -343,6 +343,13 @@ The ledger holds this as [message_qubit_cap_states](/theorem/message_qubit_cap_s
 
 ```lean
 2^16 = 65536
+```
+
+### The message receipt folds every leaf through merkleFold, which SORTS before it merges — the honest reason the fold is order-invariant even though merge itself is NOT commutative (merge(a,b) ≠ merge(b,a), by design). Sealed on a representative 3-leaf fold with a deliberately non-commutative pairwise op (f(a,b)=2a+b, so f(1,2)=4 ≠ f(2,1)=5): sorting first (min, mid, max via Nat.min/Nat.max and sum-arithmetic, no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. HONEST SCOPE: one representative instance, the same scope every fold-invariance theorem here uses (store_fold_order_invariant proves the same shape for a commutative XOR fold; this is the harder, non-commutative case merkleFold actually is).
+The ledger holds this as [merkle_sort_invariant](/theorem/merkle_sort_invariant) — proven `by decide`, sorry-free:
+
+```lean
+(let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1))
 ```
 
 ### UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total, never the arrangement (1+0 = 0+1: swap the far side, the near statistics never move; correlation carries no message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal, never by obscurity.

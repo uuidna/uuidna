@@ -18,9 +18,9 @@ the hard gate of the corroboration law.
 | `e190ed32` | zenodo.org | zenodo record 14887998: Raw data of Mix_et_al_2025 | UNVERIFIED | VERIFIED |
 | `7621d52f` | zenodo.org | zenodo record 21530345: Danieliao/MiX: MiX | UNVERIFIED | VERIFIED |
 | `35772306` | zenodo.org | zenodo record 2087599: Orthostatic Albdminuria: | UNVERIFIED | VERIFIED |
-| `ee3e2082` | zenodo.org | zenodo record 16658878: The Genus Taphrina. II: A List of Valid Species | UNVERIFIED | VERIFIED |
 | `ff14fcac` | zenodo.org | zenodo record 2499901: Unterscheidung von Benzin und Benzol | UNVERIFIED | VERIFIED |
-| `fa097cd5` | zenodo.org | zenodo record 4286559: Performance analysis with Vampir | UNVERIFIED | VERIFIED |
+| `ee3e2082` | zenodo.org | zenodo record 16658878: The Genus Taphrina. II: A List of Valid Species | UNVERIFIED | VERIFIED |
+| `230cd7e1` | zenodo.org | zenodo record 1600961: Presentation of a Case of Leontiasis Ossea: | UNVERIFIED | VERIFIED |
 | `5bb577fb` | zenodo.org | zenodo record 15966300: Errata in Two Recent Papers on Taphrina | UNVERIFIED | VERIFIED |
 | `8cb7d2d1` | crossref.org | DOI 10.1107/s0108768102019663/de0020sup1.cif:  | UNVERIFIED | VERIFIED |
 | `1ecfe3eb` | crossref.org | DOI 10.1107/s0108768101019346/ta0008sup1.cif:  | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `e4b6cacb` | openalex.org | OpenAlex Isopycnal Mixing in Ocean Circulation Models [Oceanographic and Atmospheric ] | UNVERIFIED | VERIFIED |
 | `86d7f223` | openalex.org | OpenAlex Oceanic vertical mixing: A review and a model with a nonlocal boundary [Climate variability and models] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `0e0cbd9a`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `bce7ccd3`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

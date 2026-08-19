@@ -19,8 +19,8 @@ the hard gate of the corroboration law.
 | `c57c6568` | crossref.org | DOI 10.1007/978-90-481-9884-9_19: Solar Sail Orbits at the Earth-Moon Libration Points | UNVERIFIED | VERIFIED |
 | `6e5f5d27` | crossref.org | DOI 10.1016/j.actaastro.2007.12.021: Solar sail surfing along families of equilibrium points | UNVERIFIED | VERIFIED |
 | `85bf071d` | crossref.org | DOI 10.59332/jbis-079-03-0107: Giant Planet Lagrange Points L2 as Locations for Photon Sail Manufacturing Facil | UNVERIFIED | VERIFIED |
-| `5d391f97` | crossref.org | DOI 10.3390/aerospace10020194: E-Sail Optimal Trajectories to Heliostationary Points | UNVERIFIED | VERIFIED |
 | `402a5945` | crossref.org | DOI 10.1371/journal.ppat.1010760: PGRS domain structures: Doomed to sail the mycomembrane | UNVERIFIED | VERIFIED |
+| `5d391f97` | crossref.org | DOI 10.3390/aerospace10020194: E-Sail Optimal Trajectories to Heliostationary Points | UNVERIFIED | VERIFIED |
 | `edd66324` | crossref.org | DOI 10.1201/9781315376806-4: Points and pounds | UNVERIFIED | VERIFIED |
 | `0f892390` | openalex.org | OpenAlex The SAIL databank: linking multiple health and social care datasets [Data Quality and Management] | UNVERIFIED | VERIFIED |
 | `6493389e` | openalex.org | OpenAlex A Profile of the SAIL Databank on the UK Secure Research Platform [Data Quality and Management] | UNVERIFIED | VERIFIED |
@@ -28,10 +28,10 @@ the hard gate of the corroboration law.
 | `716941bd` | openalex.org | OpenAlex Invariant Manifolds and Orbit Control in the Solar Sail Three-Body Pro [Spacecraft Dynamics and Contro] | UNVERIFIED | VERIFIED |
 | `e5e9fa4f` | openalex.org | OpenAlex Sails trim optimisation using CFD and RBF mesh morphing [Ship Hydrodynamics and Maneuve] | UNVERIFIED | VERIFIED |
 | `19a57b2f` | openalex.org | OpenAlex On the uncertainty of CFD in sail aerodynamics [Ship Hydrodynamics and Maneuve] | UNVERIFIED | VERIFIED |
-| `957ff761` | openalex.org | OpenAlex A Demonstration of Set-Points for Subjective Wellbeing [Psychological Well-being and L] | UNVERIFIED | VERIFIED |
+| `3c6fa4c8` | openalex.org | OpenAlex Technological transitions as evolutionary reconfiguration processes: a [Innovation Diffusion and Forec] | UNVERIFIED | VERIFIED |
 | `a4c3e4f3` | openalex.org | OpenAlex The LIM domain-containing homeo box gene Xlim-1 is expressed specifica [Developmental Biology and Gene] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `36ea9bd2`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `17e00a94`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

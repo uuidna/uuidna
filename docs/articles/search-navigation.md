@@ -27,11 +27,11 @@ the hard gate of the corroboration law.
 | `c25ec4b0` | openalex.org | OpenAlex Zermelo navigation on Riemannian manifolds [Advanced Differential Geometry] | UNVERIFIED | VERIFIED |
 | `8ebaa896` | openalex.org | OpenAlex Understanding Natural Language Commands for Robotic Navigation and Mob [Natural Language Processing Te] | UNVERIFIED | VERIFIED |
 | `cb7dbfbc` | openalex.org | OpenAlex DAMN: a distributed architecture for mobile navigation [Robotic Path Planning Algorith] | UNVERIFIED | VERIFIED |
-| `b694f9a9` | openalex.org | OpenAlex A robust and modular multi-sensor fusion approach applied to MAV navig [Robotics and Sensor-Based Loca] | UNVERIFIED | VERIFIED |
 | `0fd14d2b` | openalex.org | OpenAlex Features and development of <i>Coot</i> [Enzyme Structure and Function] | UNVERIFIED | VERIFIED |
+| `b694f9a9` | openalex.org | OpenAlex A robust and modular multi-sensor fusion approach applied to MAV navig [Robotics and Sensor-Based Loca] | UNVERIFIED | VERIFIED |
 | `9c6179c6` | openalex.org | OpenAlex Reflections on geometry and navigation [Memory and Neural Mechanisms] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `db824c95`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `7dcd85f6`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -14,6 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `1fd62786` | zenodo.org | zenodo record 15353840: HOLLOW VICTORY HEAPS | UNVERIFIED | VERIFIED |
+| `b2ed5afb` | zenodo.org | zenodo record 2432221: LXXXVI. The effect of magnetic fields on resistance .—II | UNVERIFIED | VERIFIED |
+| `0834ccbc` | zenodo.org | zenodo record 1510444: The Magnetostriction and Resistance of Iron and Nickel | UNVERIFIED | VERIFIED |
+| `aaa4ad3c` | zenodo.org | zenodo record 1272735: One micron laser technology advancements at GSFC. | UNVERIFIED | VERIFIED |
+| `8dd89f83` | zenodo.org | zenodo record 16032247: Insect Colonization Of Drilled Tree Holes | UNVERIFIED | VERIFIED |
+| `24db7f1d` | zenodo.org | zenodo record 8337235: On the Periodicity of Genus Sequences of Quaternary Games | UNVERIFIED | VERIFIED |
+| `0ba61af7` | zenodo.org | zenodo record 7759164: Dijkstra's Algorithm using a Fibonacci Heap, Binary Heap and Self-balancing Bina | UNVERIFIED | VERIFIED |
+| `5785aff5` | zenodo.org | zenodo record 8337228: n the Periodicity of Genus Sequences of Quaternary Games | UNVERIFIED | VERIFIED |
 | `061533a7` | crossref.org | DOI 10.1007/978-3-319-63621-4_9: Generalised Heaps as Affine Structures | UNVERIFIED | VERIFIED |
 | `45c5e3d9` | crossref.org | DOI 10.1093/mind/106.424.641: From heaps and gaps to heaps of gluts | UNVERIFIED | VERIFIED |
 | `45c8deb5` | crossref.org | DOI 10.2307/25142732: The Rebel in the House: The Life and Times of A.A. Heaps, MP | UNVERIFIED | VERIFIED |
@@ -21,7 +29,7 @@ the hard gate of the corroboration law.
 | `315ef499` | crossref.org | DOI 10.1007/springerreference_168164: Coal, Coal Mines and Spoil Heaps | UNVERIFIED | VERIFIED |
 | `17456e64` | crossref.org | DOI 10.31951/2658-3518-2022-a-1-1209: Diatoms: life in glass houses | UNVERIFIED | VERIFIED |
 | `3ac55a97` | crossref.org | DOI 10.1007/978-3-319-63621-4_8: Theory of Generalised Heaps and Generalised Groups | UNVERIFIED | VERIFIED |
-| `63365f6b` | crossref.org | DOI 10.1142/s0129626492000453: PARALLEL CONSTRUCTIONS OF HEAPS AND MIN-MAX HEAPS | UNVERIFIED | VERIFIED |
+| `1f82e08a` | crossref.org | DOI 10.1017/cbo9780511800191.006: Heaps | UNVERIFIED | VERIFIED |
 | `0e271734` | openalex.org | OpenAlex Fibonacci heaps and their uses in improved network optimization algori [Advanced Graph Theory Research] | UNVERIFIED | VERIFIED |
 | `977360ec` | openalex.org | OpenAlex NV-Heaps [Vascular Malformations Diagnos] | UNVERIFIED | VERIFIED |
 | `d15e8855` | openalex.org | OpenAlex From heaps and gaps to heaps of gluts [Advanced Algebra and Logic] | UNVERIFIED | VERIFIED |
@@ -31,7 +39,7 @@ the hard gate of the corroboration law.
 | `994905d0` | openalex.org | OpenAlex Relaxed heaps: an alternative to Fibonacci heaps with applications to  [Complexity and Algorithms in G] | UNVERIFIED | VERIFIED |
 | `d3df8856` | openalex.org | OpenAlex An Unconnected Heap of Duties? [Political Philosophy and Ethic] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `9f822840`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `fe3f1772`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -43,7 +51,7 @@ The sealed backing this trial held the findings beside:
 - [nim_sum_associates](/theorem/nim_sum_associates) — `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => lxo`
 - [nim_lone_heap_wins](/theorem/nim_lone_heap_wins) — `(List.range' 1 15).all (fun n => lxor 0 n != 0)`
 - [nim_winning_move_exists](/theorem/nim_winning_move_exists) — `(lxor (lxor 1 2) 4 = 7) ∧ (lxor 7 4 = 3)`
-- [grundy_sum_is_xor](/theorem/grundy_sum_is_xor) — `lxor 1 2 = 3`
+- [grundy_sum_is_xor](/theorem/grundy_sum_is_xor) — `(List.range 8).all (fun a => (List.range 8).all (fun b => (lxor a b == 0) == (a == b)))`
 - [nim_four_powers](/theorem/nim_four_powers) — `lxor (lxor (lxor 1 2) 4) 8 = 15`
 - [nim_misere_differs](/theorem/nim_misere_differs) — `lxor (lxor 1 1) 1 = 1`
 - [nim_max_is_a_diamond_nilpotent](/theorem/nim_max_is_a_diamond_nilpotent) — `(15 % 9 = 6) ∧ ((6 * 6) % 9 = 0)`

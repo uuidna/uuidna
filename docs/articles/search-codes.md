@@ -20,8 +20,8 @@ the hard gate of the corroboration law.
 | `10a036a2` | zenodo.org | zenodo record 6995422: Linear Multisecret-Sharing Schemes and Error-Correcting Codes | UNVERIFIED | VERIFIED |
 | `8db37011` | zenodo.org | zenodo record 7114949: Combining serial and parallel decoding for turbo codes | UNVERIFIED | VERIFIED |
 | `69dd8756` | zenodo.org | zenodo record 4016076: Implementation of Protograph LDPC error correction codes | UNVERIFIED | VERIFIED |
+| `1dd36dd5` | zenodo.org | zenodo record 3484786: New error correcting codes: Non-Binary Turbo Codes (NB-TC) | UNVERIFIED | VERIFIED |
 | `03161dbe` | zenodo.org | zenodo record 8031457: Development of a Shorted Interleaved Reed-Solomon Codes (siRS) for data downlink | UNVERIFIED | VERIFIED |
-| `36ccdf8d` | zenodo.org | zenodo record 5101357: The simplification of computationals in error correction coding | UNVERIFIED | VERIFIED |
 | `f20c35b2` | crossref.org | DOI 10.1007/978-3-642-18997-5_2: Block Error-correcting Codes | UNVERIFIED | VERIFIED |
 | `fab26069` | crossref.org | DOI 10.14711/thesis-b832314: Cartesian authentication codes from error correcting codes | UNVERIFIED | VERIFIED |
 | `c55eecf3` | crossref.org | DOI 10.22215/etd/1998-03947: Hyper-codes, high-performance low-complexity error-correcting codes. | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `164993e1` | openalex.org | OpenAlex Near Shannon limit error-correcting coding and decoding : Turbo-codes [Advanced Wireless Communicatio] | UNVERIFIED | VERIFIED |
 | `93c285d9` | openalex.org | OpenAlex Good quantum error-correcting codes exist [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `cd19be33`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `b7593698`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -18,8 +18,8 @@ the hard gate of the corroboration law.
 | `0d4a1ff2` | zenodo.org | zenodo record 2613490: Using Windows Server 2012-based storage solutions for small and medium size busi | UNVERIFIED | VERIFIED |
 | `16234bd0` | zenodo.org | zenodo record 18773997: COMPATIBILITY OF ALGEBRAIC AND VISUAL APPROACHES IN SOLVING 3RD AND 4TH ORDER EQ | UNVERIFIED | VERIFIED |
 | `67d4b5c8` | zenodo.org | zenodo record 2613471: Using Linux-based storage solutions for small and medium size business resources | UNVERIFIED | VERIFIED |
-| `6bb3b880` | zenodo.org | zenodo record 13382558: Understanding Media's Role in Public Perception: Discrepancies in Sentiment Duri | UNVERIFIED | VERIFIED |
 | `b0a5101e` | zenodo.org | zenodo record 3996707: Input domain modeling using Grobner bases and Lie-algebraic resolutions and impl | UNVERIFIED | VERIFIED |
+| `6bb3b880` | zenodo.org | zenodo record 13382558: Understanding Media's Role in Public Perception: Discrepancies in Sentiment Duri | UNVERIFIED | VERIFIED |
 | `763b6cf5` | zenodo.org | zenodo record 2613392: Provisioning and managing VM's in a multi-vendor private cloud environment | UNVERIFIED | VERIFIED |
 | `e38c89db` | zenodo.org | zenodo record 20555421: COcyber White Paper - Unlocking cybersecurity potential in civil and defence dom | UNVERIFIED | VERIFIED |
 | `8522a11d` | crossref.org | DOI 10.1360/jos161606: Publicly Verifiable Zero-Knowledge Watermark Detection | UNVERIFIED | VERIFIED |
@@ -37,9 +37,9 @@ the hard gate of the corroboration law.
 | `a18a0b4e` | openalex.org | OpenAlex Uses and abuses of EIDORS: an extensible software base for EIT [Electrical and Bioimpedance To] | UNVERIFIED | VERIFIED |
 | `e2b4ac02` | openalex.org | OpenAlex Program Logics for Certified Compilers [Logic, programming, and type s] | UNVERIFIED | VERIFIED |
 | `360870e2` | openalex.org | OpenAlex xJsnark: A Framework for Efficient Verifiable Computation [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
-| `5d3717a1` | openalex.org | OpenAlex Prospects for an engineering discipline of software [Software Engineering Technique] | UNVERIFIED | VERIFIED |
+| `409b8ef6` | openalex.org | OpenAlex Verifiable Delay Functions from Supersingular Isogenies and Pairings [Cryptography and Residue Arith] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `19ef9ebf`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `d44cec22`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

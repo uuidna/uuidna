@@ -16,9 +16,9 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `240f17fb` | zenodo.org | zenodo record 7270363: HISTORY OF THE DIVISION BY ZERO AND DIVISION BY ZERO CALCULUS | UNVERIFIED | VERIFIED |
 | `b6a77d00` | zenodo.org | zenodo record 7270398: Geometry and Division by Zero Calculus | UNVERIFIED | VERIFIED |
+| `65000497` | zenodo.org | zenodo record 3668512: Division by zero | UNVERIFIED | VERIFIED |
 | `0ce1878f` | zenodo.org | zenodo record 4637008: Division by Zero Chart Proposition | UNVERIFIED | VERIFIED |
 | `5e06279a` | zenodo.org | zenodo record 3692416: Division by zero | UNVERIFIED | VERIFIED |
-| `65000497` | zenodo.org | zenodo record 3668512: Division by zero | UNVERIFIED | VERIFIED |
 | `46c64cf1` | zenodo.org | zenodo record 7270427: DIVISION BY ZERO CALCULUS IN ORDINARY DIFFERENTIAL EQUATIONS | UNVERIFIED | VERIFIED |
 | `b318d27e` | zenodo.org | zenodo record 7376468: AN ICONIC CONFIGURATION OF WASAN GEOMETRY WITH 1/0 = 0 | UNVERIFIED | VERIFIED |
 | `0775019f` | zenodo.org | zenodo record 16731439: Symbolic Unification of the Division by Zero: | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `0740ca9a` | openalex.org | OpenAlex Matrices and Division by Zero z/0 = 0 [Mathematics and Applications] | UNVERIFIED | VERIFIED |
 | `3500d1ea` | openalex.org | OpenAlex Zero forcing and minimum mean-square-error equalization for multiuser  [Wireless Communication Network] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `f2b3ff74`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `78788edc`** (fold of every finding's address — recompute by re-running the search).
 
 ## The novelty harvest
 

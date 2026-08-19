@@ -18,10 +18,10 @@ the hard gate of the corroboration law.
 | `8ad09e62` | zenodo.org | zenodo record 221913: Detection of venous gas emboli after repetitive breath-hold dives: case report | UNVERIFIED | VERIFIED |
 | `a433a97a` | zenodo.org | zenodo record 1229940: Can Diving-induced Tissue Nitrogen Supersaturation Increase the Chance of Acoust | UNVERIFIED | VERIFIED |
 | `c6320b4c` | zenodo.org | zenodo record 14934421: Global Charging Oxygen Gas Systems Market 2025 To 2034 | UNVERIFIED | VERIFIED |
-| `914a314d` | zenodo.org | zenodo record 15068564: Dataset and Code for "Predicting Post-Dive Inert Gas Bubble Grades in Non-Decomp | UNVERIFIED | VERIFIED |
 | `b9541b28` | zenodo.org | zenodo record 13907402: Vascular dysfunction following breath-hold diving | UNVERIFIED | VERIFIED |
-| `59f3bc6e` | zenodo.org | zenodo record 6601687: Thorogobius macrolepis Benthic | UNVERIFIED | VERIFIED |
-| `18bf27bb` | zenodo.org | zenodo record 6607084: Photogrammetrie zur Erstellung detaillierter 3D-Modelle von Unterwasserobjekten | UNVERIFIED | VERIFIED |
+| `914a314d` | zenodo.org | zenodo record 15068564: Dataset and Code for "Predicting Post-Dive Inert Gas Bubble Grades in Non-Decomp | UNVERIFIED | VERIFIED |
+| `1423a77b` | zenodo.org | zenodo record 6276569: Photogrammetrie zur Erstellung detaillierter 3D-Modelle von Unterwasserobjekten | UNVERIFIED | VERIFIED |
+| `75ede8fc` | zenodo.org | zenodo record 13161614: Asterocheres serratus Lee, 2024, n. sp. | UNVERIFIED | VERIFIED |
 | `4c3dd1ec` | crossref.org | DOI 10.3750/aip2016.46.1.06: A quantitative sampling method for assessment of deep cryptobenthic ichthyofauna | UNVERIFIED | VERIFIED |
 | `0d1ecbe5` | crossref.org | DOI 10.1007/978-3-642-41714-6_202803: Trimix gas mixture | UNVERIFIED | VERIFIED |
 | `bc8cf398` | crossref.org | DOI 10.2114/jpa.17.249: Experiment of Nitrox Saturation Diving with Trimix Excursion. | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `51a9cdc8` | openalex.org | OpenAlex Pulmonary barotrauma in SCUBA diving-related fatalities: a histologica [Cardiovascular and Diving-Rela] | UNVERIFIED | VERIFIED |
 | `c7b7270e` | openalex.org | OpenAlex The physics of human breathing: flow, timing, volume, and pressure par [Climate Change and Health Impa] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `cb35cbbc`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `50e27497`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

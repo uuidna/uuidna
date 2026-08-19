@@ -20,8 +20,8 @@ the hard gate of the corroboration law.
 | `ad855ca5` | zenodo.org | zenodo record 6498981: Data of paper Controlling the interfacial reactions and environment of rare-eart | UNVERIFIED | VERIFIED |
 | `e691c409` | zenodo.org | zenodo record 10807121: Trends in Fintech Application in the Insurance Sector in Vietnam | UNVERIFIED | VERIFIED |
 | `09a3ce47` | zenodo.org | zenodo record 7142606: Post Harmony and the Role of the Elites in Reconciliation Based On Restorative J | UNVERIFIED | VERIFIED |
-| `62a749dc` | zenodo.org | zenodo record 13912618: Current Status of Logistics Infrastructure Associated with the Development of Vi | UNVERIFIED | VERIFIED |
 | `fd7acd0a` | zenodo.org | zenodo record 5578838: Asymmetries in vowel-pair frequencies and height harmony in Bantu | UNVERIFIED | VERIFIED |
+| `62a749dc` | zenodo.org | zenodo record 13912618: Current Status of Logistics Infrastructure Associated with the Development of Vi | UNVERIFIED | VERIFIED |
 | `0a05316c` | crossref.org | DOI 10.58837/chula.the.2009.1187: Effects of lightness and chroma on colour harmony of colour pairs | UNVERIFIED | VERIFIED |
 | `397aca8a` | crossref.org | DOI 10.1002/col.20457: Experimental determination of laws of color harmony. Part 3: Harmony content of  | UNVERIFIED | VERIFIED |
 | `a7240ebc` | crossref.org | DOI 10.1002/col.20416: Experimental determination of laws of color harmony. Part 2: Harmony content of  | UNVERIFIED | VERIFIED |
@@ -29,17 +29,9 @@ the hard gate of the corroboration law.
 | `aae9ad6b` | crossref.org | DOI 10.14436/oh: Orofacial Harmony | UNVERIFIED | VERIFIED |
 | `178784aa` | crossref.org | DOI 10.1017/cbo9781139105484.016: CHROMATIC HARMONY, OR HARMONY IN THE FREE STYLE | UNVERIFIED | VERIFIED |
 | `28191ea9` | crossref.org | DOI 10.3828/liverpool/9781802078312.003.0001: Introduction | UNVERIFIED | VERIFIED |
-| `8130c3db` | crossref.org | DOI 10.14436/oh.3.1:  | UNVERIFIED | VERIFIED |
-| `70258545` | openalex.org | OpenAlex HARMONY OF VIRGIN OLIVE OIL AND FOOD PAIRING: A METHODOLOGICAL PROPOSA [Sensory Analysis and Statistic] | UNVERIFIED | VERIFIED |
-| `b00750bd` | openalex.org | OpenAlex Aesthetic response to color combinations: preference, harmony, and sim [Color perception and design] | UNVERIFIED | VERIFIED |
-| `55260c6d` | openalex.org | OpenAlex Experimental determination of laws of color harmony. Part 3: Harmony c [Color perception and design] | UNVERIFIED | VERIFIED |
-| `9767589b` | openalex.org | OpenAlex Experimental determination of laws of color harmony. Part 2: Harmony c [Color perception and design] | UNVERIFIED | VERIFIED |
-| `86320bfc` | openalex.org | OpenAlex A colour harmony model for two‐colour combinations [Color perception and design] | UNVERIFIED | VERIFIED |
-| `68ee1703` | openalex.org | OpenAlex Harmony, Dominance and Control [Linguistic Variation and Morph] | UNVERIFIED | VERIFIED |
-| `75d18bc2` | openalex.org | OpenAlex Acoustic aspects of vowel harmony in French [Phonetics and Phonology Resear] | UNVERIFIED | VERIFIED |
-| `da3350d5` | openalex.org | OpenAlex Associative Harmony, Tonal Pairing, and Middleground Structure in Schu [Musicology and Musical Analysi] | UNVERIFIED | VERIFIED |
+| `c0fd274a` | crossref.org | DOI 10.5040/9781350353787.00000002: Blood Harmony | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `356ff4f4`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `a9ac9799`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

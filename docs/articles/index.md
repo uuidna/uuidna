@@ -58,7 +58,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The mix](/articles/production) | 10 |
 | [Propulsion — Newtonian & bounded](/articles/propulsion) | 5 |
 | [The instrument](/articles/psychology) | 8 |
-| [The quantum computer](/articles/quantum) | 49 |
+| [The quantum computer](/articles/quantum) | 50 |
 | [The rules of inference](/articles/reasoning) | 20 |
 | [The spacetime domain](/articles/relativity) | 8 |
 | [The report](/articles/report) | 8 |

@@ -15,18 +15,18 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `c3b33306` | zenodo.org | zenodo record 8141323: Optimization of fuzzy rules using neural network to control mobile robot in non- | UNVERIFIED | VERIFIED |
-| `6b3292f2` | zenodo.org | zenodo record 3555646: A study of The RAJADHAMMASANGAHA and Democracy | UNVERIFIED | VERIFIED |
 | `1d70ce99` | zenodo.org | zenodo record 17928472: THEORETICAL AND METHODOLOGICAL ISSUES OF AMENDMENT OF THE CONSTITUTION OF UKRAIN | UNVERIFIED | VERIFIED |
+| `6b3292f2` | zenodo.org | zenodo record 3555646: A study of The RAJADHAMMASANGAHA and Democracy | UNVERIFIED | VERIFIED |
 | `4b01a217` | zenodo.org | zenodo record 3555628: Legal Prohibition on Nuclear Weapons in Southeast Asia | UNVERIFIED | VERIFIED |
 | `63929d15` | zenodo.org | zenodo record 15873003: Experimenting automatic generation of energy renovation scenarios with ontology  | UNVERIFIED | VERIFIED |
 | `876115d1` | zenodo.org | zenodo record 19657139: Max-Flow Min-Cut Guided Reasoning Optimization for Large Reasoning Models | UNVERIFIED | VERIFIED |
-| `d9507b8f` | zenodo.org | zenodo record 14083209: PM_098511_E_Pastrana | UNVERIFIED | VERIFIED |
+| `cffb29aa` | zenodo.org | zenodo record 19721302: Flow-Cut Aligned Reasoning: A Max-Flow Min-Cut Duality Paradigm for Self-Optimal | UNVERIFIED | VERIFIED |
 | `c5d4117a` | zenodo.org | zenodo record 2613907: Application of the Spatial Data Mining Methodology and Gamification for the Opti | UNVERIFIED | VERIFIED |
 | `5ae9e0a9` | crossref.org | DOI 10.7717/peerj-cs.3164/table-12: Table 12: Fuzzy inference system rules. | UNVERIFIED | VERIFIED |
 | `12858644` | crossref.org | DOI 10.7717/peerj-cs.700/table-6: Table 6: Fuzzy inference system rules. | UNVERIFIED | VERIFIED |
 | `aa2b4cf9` | crossref.org | DOI 10.7717/peerj-cs.3164/supp-1: Supplemental Information 1: Fuzzy Inference System Rules. | UNVERIFIED | VERIFIED |
-| `4f634902` | crossref.org | DOI 10.1016/s0049-237x(97)80006-7: Chapter 4 Bases for inference rules | UNVERIFIED | VERIFIED |
 | `8272a4e5` | crossref.org | DOI 10.1007/1-4020-5045-3_9: Inference Rules | UNVERIFIED | VERIFIED |
+| `4f634902` | crossref.org | DOI 10.1016/s0049-237x(97)80006-7: Chapter 4 Bases for inference rules | UNVERIFIED | VERIFIED |
 | `5f7eeead` | crossref.org | DOI 10.7717/peerj-cs.700/supp-2: Supplemental Information 2: Fuzzy Inference System rules. | UNVERIFIED | VERIFIED |
 | `4db5360d` | crossref.org | DOI 10.1016/b978-0-12-374854-6.00016-8: Probability Rules | UNVERIFIED | VERIFIED |
 | `4006cda1` | crossref.org | DOI 10.2139/ssrn.6422698: Inference Rules Reconsidered&amp;nbsp; | UNVERIFIED | VERIFIED |
@@ -35,11 +35,11 @@ the hard gate of the corroboration law.
 | `12ff8f89` | openalex.org | OpenAlex On Fuzzy Logic I Many‐valued rules of inference [Advanced Algebra and Logic] | UNVERIFIED | VERIFIED |
 | `b6117ac0` | openalex.org | OpenAlex ANFIS: adaptive-network-based fuzzy inference system [Fuzzy Logic and Control System] | UNVERIFIED | VERIFIED |
 | `b5e045e6` | openalex.org | OpenAlex MrBayes 3: Bayesian phylogenetic inference under mixed models [Genomics and Phylogenetic Stud] | UNVERIFIED | VERIFIED |
-| `185950cf` | openalex.org | OpenAlex Discovery of inference rules for question-answering [Topic Modeling] | UNVERIFIED | VERIFIED |
 | `0f80665c` | openalex.org | OpenAlex Comparing machine learning and rule-based inferencing for semantic enr [BIM and Construction Integrati] | UNVERIFIED | VERIFIED |
 | `e1a21d6f` | openalex.org | OpenAlex The Justification of Inductive Rules of Inference [Philosophy and History of Scie] | UNVERIFIED | VERIFIED |
+| `185950cf` | openalex.org | OpenAlex Discovery of inference rules for question-answering [Topic Modeling] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `906ae5eb`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `bb732b9c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

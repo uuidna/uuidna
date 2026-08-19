@@ -14,20 +14,12 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `11e1db91` | zenodo.org | zenodo record 17669867: Energy Domain Datasets | UNVERIFIED | VERIFIED |
-| `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
-| `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
-| `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
-| `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
-| `b626e155` | zenodo.org | zenodo record 3242789: Universal Declaration of Human Rights, Volume 02 | UNVERIFIED | VERIFIED |
-| `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
-| `3c3a523b` | zenodo.org | zenodo record 8161027: A Search Tool for Aggregated Information on Open Access | UNVERIFIED | VERIFIED |
 | `4f0bcf47` | crossref.org | DOI 10.1021/acsami.0c13534.s001: Energy-Efficient Ferroelectric Domain Wall Memory with Controlled Domain Switchi | UNVERIFIED | VERIFIED |
 | `807decf2` | crossref.org | DOI 10.1109/tec.2020.3048389: Identifying DQ-Domain Admittance Models of a 2.3-MVA Commercial Grid-Following I | UNVERIFIED | VERIFIED |
 | `8358e347` | crossref.org | DOI 10.1039/c2ee21327c: The relative importance of domain size, domain purity and domain interfaces to t | UNVERIFIED | VERIFIED |
 | `6330f0c1` | crossref.org | DOI 10.31274/rtd-180815-2147: Domain wall energy densities of ferromagnetic films | UNVERIFIED | VERIFIED |
-| `a986bc72` | crossref.org | DOI 10.5220/0006388605320540: Managing and Controlling Decentralized Corporate Energy Systems - Transferring B | UNVERIFIED | VERIFIED |
 | `fce43dc5` | crossref.org | DOI 10.1007/0-306-47601-0_11: Dissipation and the Thermal Energy Domain | UNVERIFIED | VERIFIED |
+| `a986bc72` | crossref.org | DOI 10.5220/0006388605320540: Managing and Controlling Decentralized Corporate Energy Systems - Transferring B | UNVERIFIED | VERIFIED |
 | `dc17c97d` | crossref.org | DOI 10.3403/30377849u: Top priority standards development status in the domain of smart energy | UNVERIFIED | VERIFIED |
 | `68698739` | crossref.org | DOI 10.3403/30377849: Top priority standards development status in the domain of smart energy | UNVERIFIED | VERIFIED |
 | `2f0d20af` | openalex.org | OpenAlex Impact of COVID-19 on the social, economic, environmental and energy d [COVID-19 impact on air quality] | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `c392cdc9` | openalex.org | OpenAlex An event generator for the study of nuclear collisions in the Fermi en [Nuclear physics research studi] | UNVERIFIED | VERIFIED |
 | `ba0fc4b7` | openalex.org | OpenAlex CBS domains form energy-sensing modules whose binding of adenosine lig [Ion channel regulation and fun] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `1f43462f`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `1430aa31`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
