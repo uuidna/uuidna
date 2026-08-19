@@ -1,0 +1,33 @@
+{
+  "file": "Unfalsifiable.lean",
+  "slug": "unfalsifiable",
+  "status": "draft",
+  "address": "942f1a50-1933-8242-90de-45abf3c79893",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Unfalsifiable.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Unfalsifiable.lean — GENERATED. UNFALSIFIABILITY — the algebra of a claim no evidence can move, and the exactly-one verdict the non-justiciable record reaches. Seals why uuidna can neither prove nor refute an allegation about the world: with no decidable test and no sealed citation the trial returns NOT PROVEN, always. HONEST SCOPE: this wing decides the SHAPE of claims (does evidence do any work?), never the truth of any actual allegation; it adjudicates nothing and names no one. UNVERIFIED means \"not decidable here\", never \"false\". Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- the verdict model of Legal.lean, restated so this wing verifies standalone: t = a decidable test exists,\n-- h = the test holds, c = the claim cites a sealed authority.\ndef up (t h c : Nat) : Nat := t*h + c - t*h*c                    -- PROVEN\ndef ur (t h c : Nat) : Nat := t * (1 - h) * (1 - c)              -- REFUTED\ndef unp (t h c : Nat) : Nat := (1 - up t h c) * (1 - ur t h c)   -- NOT PROVEN\n\n-- THE CONSPIRACY RECORD HAS EXACTLY ONE REACHABLE VERDICT. A conspiracy claim is the record (t=0, c=0): no decidable test exists, and it cites no sealed theorem. For every h, unp 0 h 0 = 1 — NOT PROVEN, always. It is the whole answer to \"can the coins explain any conspiracy\": they cannot, because with no test and no citation the trial has one door and it is not an explanation.\ntheorem untested_uncited_is_not_proven : (List.range 2).all (fun h => unp 0 h 0 == 1) := by decide\n\n-- THE COINS MINT NO EXPLANATION. With no decidable test (t=0), PROVEN reduces to the citation alone: up 0 h c = c, for every h. So nothing about the coins, the trial, or the ledger can carry a claim to PROVEN — only a sealed authority can, and an allegation about the world has none. This is why \"the coins explain any conspiracy\" is refused by the ledger rather than by an opinion.\ntheorem no_test_no_proof_without_citation : (List.range 2).all (fun h => (List.range 2).all (fun c => up 0 h c == c)) := by decide\n\n-- NOT PROVEN IS NOT A FINDING OF FALSEHOOD — the two verdicts never coincide on the non-justiciable record: for every h and c, unp 0 h c + ur 0 h c ≤ 1 and ur 0 h c = 0. A UNVERIFIED stamp on an undecidable claim says the ledger cannot decide it, never that it is false. Publishing such a verdict as evidence about the world inverts its meaning.\ntheorem not_proven_is_not_refuted : (List.range 2).all (fun h => (List.range 2).all (fun c => ur 0 h c == 0 && unp 0 h c + ur 0 h c <= 1)) := by decide\n\n-- THE SIGNATURE OF UNFALSIFIABILITY, DECIDED. A claim confirmed by the evidence AND by its absence is a claim the evidence never touched: ((e → c) ∧ (¬e → c)) = c on every assignment. The evidence variable drops out of the expression entirely — that is what \"no evidence could change my mind\" means as algebra, and it is checkable in four rows.\ntheorem absorbed_evidence_does_no_work : ([true, false].all (fun e => [true, false].all (fun c => ((!e || c) && (e || c)) == c))) = true := by decide\n\n-- A CLAIM THAT FORBIDS NOTHING SAYS NOTHING. Information is what a claim EXCLUDES: over the four (e,c) rows, the always-true claim rules out 0 of them, while a falsifiable one (here e → c) rules out exactly 1. Zero exclusions is zero content — the unfalsifiable claim and the empty claim are the same object, measured.\ntheorem unfalsifiable_excludes_nothing : ((List.range 4).filter (fun n => !true)).length == 0 && ((List.range 4).filter (fun n => !(!(n%2 == 1) || (n/2 == 1)))).length == 1 := by decide\n"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

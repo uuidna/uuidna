@@ -112,6 +112,38 @@ const FACTS = [
     js: () => [0, 1, 2, 3].filter((n) => (n % 2) === ((n / 2) | 0)).length === 2,
     lean: 'theorem significance_is_partial_not_total : ((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2 := by decide' },
 
+  // ── UNFALSIFIABILITY — the decidable half of "conspiracy theories in algebra", and the only half. What is
+  // decidable is the SHAPE of a claim (does evidence do any work on it?), never the truth of any allegation about
+  // the world. Sealed here rather than in a wing of its own because these are rules of inference, and because the
+  // grid law holds the ledger at wings ≡ 0 (mod 3) — a 73rd wing would have turned the sealed 432 into 438.
+  // The occasion: the claim "the coins can explain any conspiracy in a uuidna legal public trial" was put to
+  // uuidna's own gate and came back UNVERIFIED, citing nothing. These seal WHY, in the project's own verdict
+  // algebra (Legal.lean's t = a decidable test exists, h = it holds, c = cites a sealed authority).
+  { key: 'untested_stays_unproven',
+    why: 'THE CONSPIRACY RECORD HAS EXACTLY ONE REACHABLE VERDICT. An allegation about the world is the record (t=0, c=0): no decidable test exists and it cites no sealed theorem. Its NOT PROVEN indicator (1 - PROVEN)(1 - REFUTED) is 1 for every h. That is the whole answer to "can the coins explain any conspiracy" — they cannot, because with no test and no citation the trial has exactly one door, and it is not an explanation.',
+    js: () => [0, 1].every((h) => (1 - (0 * h + 0 - 0 * h * 0)) * (1 - 0 * (1 - h) * (1 - 0)) === 1),
+    lean: 'theorem untested_stays_unproven : (List.range 2).all (fun h => (1 - (0*h + 0 - 0*h*0)) * (1 - 0*(1-h)*(1-0)) == 1) := by decide' },
+
+  { key: 'proof_needs_citation',
+    why: 'THE COINS MINT NO EXPLANATION. With no decidable test (t=0), the PROVEN indicator t·h + c − t·h·c collapses to c alone, for every h. Nothing about the coins, the trial or the ledger can carry a claim to PROVEN — only a sealed authority can, and an allegation about the world has none. The refusal is the ledger\'s arithmetic, not an opinion about the allegation.',
+    js: () => [0, 1].every((h) => [0, 1].every((c) => 0 * h + c - 0 * h * c === c)),
+    lean: 'theorem proof_needs_citation : (List.range 2).all (fun h => (List.range 2).all (fun c => 0*h + c - 0*h*c == c)) := by decide' },
+
+  { key: 'unproven_not_refuted',
+    why: 'NOT PROVEN IS NOT A FINDING OF FALSEHOOD. On the non-justiciable record the REFUTED indicator t·(1−h)·(1−c) is 0 for every h and c — the court cannot refute what it cannot decide. So an UNVERIFIED stamp means "this ledger cannot decide it", NEVER "it is false"; publishing such a verdict as evidence about the world inverts its meaning, and the inversion is what this seals against.',
+    js: () => [0, 1].every((h) => [0, 1].every((c) => 0 * (1 - h) * (1 - c) === 0)),
+    lean: 'theorem unproven_not_refuted : (List.range 2).all (fun h => (List.range 2).all (fun c => 0*(1-h)*(1-c) == 0)) := by decide' },
+
+  { key: 'absorbed_evidence_idles',
+    why: 'THE SIGNATURE OF UNFALSIFIABILITY, DECIDED. A claim confirmed by the evidence AND by its absence is a claim the evidence never touched: ((e → c) ∧ (¬e → c)) = c on all four rows — the evidence variable drops out of the expression entirely. That is what "no evidence could change my mind" is, as algebra, and it is checkable in four rows.',
+    js: () => [true, false].every((e) => [true, false].every((c) => ((!e || c) && (e || c)) === c)),
+    lean: 'theorem absorbed_evidence_idles : ([true, false].all (fun e => [true, false].all (fun c => ((!e || c) && (e || c)) == c))) = true := by decide' },
+
+  { key: 'unfalsifiable_excludes_nothing',
+    why: 'A CLAIM THAT FORBIDS NOTHING SAYS NOTHING. Information is what a claim EXCLUDES: over the four (e,c) rows the always-true claim rules out 0 of them, while the falsifiable e → c rules out exactly 1. Zero exclusions is zero content — measured, not asserted, so the unfalsifiable claim and the empty claim are shown to be one object.',
+    js: () => [0, 1, 2, 3].filter(() => false).length === 0 && [0, 1, 2, 3].filter((n) => (n % 2 === 1) && ((n / 2 | 0) !== 1)).length === 1,
+    lean: 'theorem unfalsifiable_excludes_nothing : ((List.range 4).filter (fun _ => false)).length == 0 && ((List.range 4).filter (fun n => n % 2 == 1 && n / 2 != 1)).length == 1 := by decide' },
+
 ]
 
 emit({

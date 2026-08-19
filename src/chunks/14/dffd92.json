@@ -1,0 +1,12 @@
+{
+  "handle": "14dffd92",
+  "address": "14dffd92-2a34-8f5b-96f2-7e88e7afd5ea",
+  "statement": "(List.range 2).all (fun h => (1 - (0*h + 0 - 0*h*0)) * (1 - 0*(1-h)*(1-0)) == 1)",
+  "tactic": "decide",
+  "keys": [
+    "untested_stays_unproven"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

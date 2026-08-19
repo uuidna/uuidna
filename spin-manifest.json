@@ -1,13 +1,13 @@
 {
   "coins": {
-    "src/theorems/generated.ts": "369f7f98dcfa8f31",
-    "lean/PRINCIPLE.md": "374bdd18f8d38c05",
-    "CHANGELOG.md": "73e7fe3cd7af8e56",
-    "lean/axioms.json": "b723bb0504168dfc",
+    "src/theorems/generated.ts": "82143b6b564e87e2",
+    "lean/PRINCIPLE.md": "2cfb751e4a5a8caa",
+    "CHANGELOG.md": "861aa69f6a7284b3",
+    "lean/axioms.json": "92ae0f13b8f28510",
     "docs/mcp.md": "8ec0398a493c87cc",
-    "audit-citations.json": "60b840a587c38b4e",
+    "audit-citations.json": "fc37c07975978693",
     "support-audit.json": "d02f2f0c432f860c",
     "research-leads.json": "2a8653de94468786"
   },
-  "receipt": "7aa22c51-c854-8efe-9f56-c329db747e2c"
+  "receipt": "85391296-393e-8ef7-9c04-76d9a65ab329"
 }

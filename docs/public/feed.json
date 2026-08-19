@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:c7ff25d8-37d7-8519-b5c3-4ef25af63b62",
+  "@id": "urn:uuid:43d74c41-e46a-89b1-bc18-d4b8b8491239",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -34625,6 +34625,146 @@
         "abstract": "((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2",
         "identifier": "06df1bb6-2532-8864-9268-1fb846bfcf04",
         "url": "https://uuidna.com/theorem/significance_is_partial_not_total",
+        "keywords": "reasoning, The rules of inference",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reasoning.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:71cfa681-c481-857c-9579-6bd203aac32e",
+        "@type": "ScholarlyArticle",
+        "headline": "THE CONSPIRACY RECORD HAS EXACTLY ONE REACHABLE VERDICT. An allegation about the world is the record (t=0, c=0): no decidable test exists and it cites no sealed theorem. Its NOT PROVEN indicator (1 - PROVEN)(1 - REFUTED) is 1 for every h. That is the whole answer to \"can the coins explain any conspiracy\" — they cannot, because with no test and no citation the trial has exactly one door, and it is not an explanation.",
+        "abstract": "(List.range 2).all (fun h => (1 - (0*h + 0 - 0*h*0)) * (1 - 0*(1-h)*(1-0)) == 1)",
+        "identifier": "75bba614-e2e7-8dcc-8ed8-5086032bca87",
+        "url": "https://uuidna.com/theorem/untested_stays_unproven",
+        "keywords": "reasoning, The rules of inference",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reasoning.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:98409821-3b1f-8bb9-a782-5004b7da4c01",
+        "@type": "ScholarlyArticle",
+        "headline": "THE COINS MINT NO EXPLANATION. With no decidable test (t=0), the PROVEN indicator t·h + c − t·h·c collapses to c alone, for every h. Nothing about the coins, the trial or the ledger can carry a claim to PROVEN — only a sealed authority can, and an allegation about the world has none. The refusal is the ledger's arithmetic, not an opinion about the allegation.",
+        "abstract": "(List.range 2).all (fun h => (List.range 2).all (fun c => 0*h + c - 0*h*c == c))",
+        "identifier": "08ad7647-cf8b-8e2c-9ad8-e31b8b0b4b68",
+        "url": "https://uuidna.com/theorem/proof_needs_citation",
+        "keywords": "reasoning, The rules of inference",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reasoning.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:11ce0708-71b2-84d5-b6c9-3d354be11136",
+        "@type": "ScholarlyArticle",
+        "headline": "NOT PROVEN IS NOT A FINDING OF FALSEHOOD. On the non-justiciable record the REFUTED indicator t·(1−h)·(1−c) is 0 for every h and c — the court cannot refute what it cannot decide. So an UNVERIFIED stamp means \"this ledger cannot decide it\", NEVER \"it is false\"; publishing such a verdict as evidence about the world inverts its meaning, and the inversion is what this seals against.",
+        "abstract": "(List.range 2).all (fun h => (List.range 2).all (fun c => 0*(1-h)*(1-c) == 0))",
+        "identifier": "72a1f375-5de4-89f8-a6ea-fde2f13809cc",
+        "url": "https://uuidna.com/theorem/unproven_not_refuted",
+        "keywords": "reasoning, The rules of inference",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reasoning.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:94e5b470-24ba-8cf3-b1e9-25d5d7795d8b",
+        "@type": "ScholarlyArticle",
+        "headline": "THE SIGNATURE OF UNFALSIFIABILITY, DECIDED. A claim confirmed by the evidence AND by its absence is a claim the evidence never touched: ((e → c) ∧ (¬e → c)) = c on all four rows — the evidence variable drops out of the expression entirely. That is what \"no evidence could change my mind\" is, as algebra, and it is checkable in four rows.",
+        "abstract": "([true, false].all (fun e => [true, false].all (fun c => ((!e || c) && (e || c)) == c))) = true",
+        "identifier": "72ea1dee-a364-8697-9d69-bab1529b5c99",
+        "url": "https://uuidna.com/theorem/absorbed_evidence_idles",
+        "keywords": "reasoning, The rules of inference",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reasoning.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:2539b1cc-5ed7-829a-8db6-8685c1a8ae90",
+        "@type": "ScholarlyArticle",
+        "headline": "A CLAIM THAT FORBIDS NOTHING SAYS NOTHING. Information is what a claim EXCLUDES: over the four (e,c) rows the always-true claim rules out 0 of them, while the falsifiable e → c rules out exactly 1. Zero exclusions is zero content — measured, not asserted, so the unfalsifiable claim and the empty claim are shown to be one object.",
+        "abstract": "((List.range 4).filter (fun _ => false)).length == 0 && ((List.range 4).filter (fun n => n % 2 == 1 && n / 2 != 1)).length == 1",
+        "identifier": "ade9f87b-14b3-88e2-bbc5-685deadc4eac",
+        "url": "https://uuidna.com/theorem/unfalsifiable_excludes_nothing",
         "keywords": "reasoning, The rules of inference",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reasoning.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
