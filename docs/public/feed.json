@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:43d74c41-e46a-89b1-bc18-d4b8b8491239",
+  "@id": "urn:uuid:4e05e1b4-9155-8e52-8af0-25d09d0dbac9",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -22081,6 +22081,118 @@
         "abstract": "(15 / 5) * 60 + (1200 / 600) * 60 = 300",
         "identifier": "0baed1a9-e6d6-88d9-9870-9fe81e32848c",
         "url": "https://uuidna.com/theorem/naismith_rule_estimate",
+        "keywords": "topography, The lay of the land",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Topography.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:d82f161b-cac8-894b-bac5-1dafb207d9fd",
+        "@type": "ScholarlyArticle",
+        "headline": "THE POLAR RADIUS, DERIVED IN INTEGERS. From the two WGS 84 defining constants alone — a = 6378137 m and 1/f = 298.257223563 (scaled to the exact integer 298257223563 over 10⁹) — the semi-minor axis computes as a(1/f − 1)/(1/f) = 6356752 m, and the two axes differ by exactly 21385 m. So the pole sits about 21.4 km closer to the centre than the equator does, and that number is not read off a table: it falls out of the definition by division.",
+        "abstract": "6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385",
+        "identifier": "e5b4ad36-efba-89e8-b2a3-c768cf3c609b",
+        "url": "https://uuidna.com/theorem/wgs84_polar_shorter",
+        "keywords": "topography, The lay of the land",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Topography.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:b9251a13-7452-8e7c-8b82-76d9e260f429",
+        "@type": "ScholarlyArticle",
+        "headline": "NEWTON WAS RIGHT AND CASSINI WAS WRONG, IN ONE COMPARISON. The 18th-century dispute was a yes/no about which axis is longer: Newton predicted a spinning fluid body bulges at the equator (oblate), the Cassinis held it was stretched at the poles (prolate). On the WGS 84 figure the equatorial radius exceeds the polar, 6378137 > 6356752 — oblate. The French geodesic missions to Lapland and Peru measured which way it went; the arithmetic here only states the comparison the standard encodes.",
+        "abstract": "6378137 > 6356752",
+        "identifier": "058a9df8-582f-8b2a-8e80-d7b29f91eb81",
+        "url": "https://uuidna.com/theorem/oblate_not_prolate",
+        "keywords": "topography, The lay of the land",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Topography.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:b4634e28-e31c-8b39-8fc1-15941ac6b7c8",
+        "@type": "ScholarlyArticle",
+        "headline": "THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 × 72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and decidable; the resulting circumference is NOT sealed here, because it depends on the length of his stadion, which is genuinely uncertain — the honest half is the fifty.",
+        "abstract": "3600 = 50 * 72",
+        "identifier": "f9288df2-6898-8c96-82d1-ba87cc4c1532",
+        "url": "https://uuidna.com/theorem/eratosthenes_fiftieth_circle",
+        "keywords": "topography, The lay of the land",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Topography.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:bb1d60a0-0d34-8576-8588-b5584aa1f75f",
+        "@type": "ScholarlyArticle",
+        "headline": "THE HORIZON IS BOUNDED, AND THAT IS THE WHOLE POINT. On a sphere of radius R the distance to the horizon from eye height h satisfies d² ≈ 2Rh — so from 2 m up on R = 6371 km, d² = 25484000 m², bracketed exactly between 5048² and 5049²: about 5.05 km, and it GROWS ONLY AS THE SQUARE ROOT of height. A bounded horizon that scales as √h is the arithmetic signature of a curved surface; on an unbounded flat plane the sightline has no such limit. The bracket is exact integer arithmetic — no square root is taken, so nothing irrational is claimed.",
+        "abstract": "5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049",
+        "identifier": "d9e1869c-2dea-8594-81ad-cd509df5d09d",
+        "url": "https://uuidna.com/theorem/horizon_distance_finite",
         "keywords": "topography, The lay of the land",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Topography.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

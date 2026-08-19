@@ -1,0 +1,12 @@
+{
+  "handle": "489a8b53",
+  "address": "489a8b53-ad94-8108-8fc2-f412a6b99bfe",
+  "statement": "6378137 > 6356752",
+  "tactic": "decide",
+  "keys": [
+    "oblate_not_prolate"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

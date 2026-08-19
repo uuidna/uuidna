@@ -1,0 +1,12 @@
+{
+  "handle": "47147476",
+  "address": "47147476-9889-8c1c-82eb-9db9352313a1",
+  "statement": "3600 = 50 * 72",
+  "tactic": "decide",
+  "keys": [
+    "eratosthenes_fiftieth_circle"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

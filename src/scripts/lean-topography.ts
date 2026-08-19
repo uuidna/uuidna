@@ -78,6 +78,35 @@ const FACTS = [
     why: "Naismith's rule estimates a hill walk: allow an hour per 5 km and an extra hour per 600 m of ascent, so 15 km climbing 1200 m is about (15/5)·60 + (1200/600)·60 = 300 minutes, five hours. HONEST SCOPE: a rule-of-thumb ESTIMATE for planning, not a guarantee — it ignores terrain, load, weather and the walker; never stake safety on it.",
     js: () => (15 / 5) * 60 + (1200 / 600) * 60 === 300,
     lean: 'theorem naismith_rule_estimate : (15 / 5) * 60 + (1200 / 600) * 60 = 300 := by decide' },
+
+  // ── THE FIGURE OF THE EARTH — the decidable arithmetic of the reference ellipsoid every map is drawn on.
+  // WGS 84 fixes TWO constants by definition (not by measurement): the semi-major axis a = 6 378 137 m exactly,
+  // and the inverse flattening 1/f = 298.257223563 exactly. Everything else about the figure is DERIVED from
+  // those two, so the derivation is arithmetic and belongs here — computed, never copied from a table.
+  // HONEST SCOPE: this seals the arithmetic of a DEFINED reference surface, not an empirical finding about the
+  // planet. Whether the earth has this shape is a measurement question with no decidable test in this ledger
+  // (untested_stays_unproven) — sealing 21385 does not adjudicate it, and must never be cited as if it did.
+  { key: 'wgs84_polar_shorter',
+    why: 'THE POLAR RADIUS, DERIVED IN INTEGERS. From the two WGS 84 defining constants alone — a = 6378137 m and 1/f = 298.257223563 (scaled to the exact integer 298257223563 over 10⁹) — the semi-minor axis computes as a(1/f − 1)/(1/f) = 6356752 m, and the two axes differ by exactly 21385 m. So the pole sits about 21.4 km closer to the centre than the equator does, and that number is not read off a table: it falls out of the definition by division.',
+    // BigInt, not Number: 6378137 × 297257223563 ≈ 1.9e18 overflows MAX_SAFE_INTEGER (9.0e15), so float
+    // arithmetic would silently round and the mirror would "agree" with Lean by luck rather than by value.
+    js: () => (6378137n * (298257223563n - 1000000000n)) / 298257223563n === 6356752n && 6378137 - 6356752 === 21385,
+    lean: 'theorem wgs84_polar_shorter : 6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385 := by decide' },
+
+  { key: 'oblate_not_prolate',
+    why: 'NEWTON WAS RIGHT AND CASSINI WAS WRONG, IN ONE COMPARISON. The 18th-century dispute was a yes/no about which axis is longer: Newton predicted a spinning fluid body bulges at the equator (oblate), the Cassinis held it was stretched at the poles (prolate). On the WGS 84 figure the equatorial radius exceeds the polar, 6378137 > 6356752 — oblate. The French geodesic missions to Lapland and Peru measured which way it went; the arithmetic here only states the comparison the standard encodes.',
+    js: () => 6378137 > 6356752,
+    lean: 'theorem oblate_not_prolate : 6378137 > 6356752 := by decide' },
+
+  { key: 'eratosthenes_fiftieth_circle',
+    why: 'THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 × 72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and decidable; the resulting circumference is NOT sealed here, because it depends on the length of his stadion, which is genuinely uncertain — the honest half is the fifty.',
+    js: () => 3600 === 50 * 72,
+    lean: 'theorem eratosthenes_fiftieth_circle : 3600 = 50 * 72 := by decide' },
+
+  { key: 'horizon_distance_finite',
+    why: 'THE HORIZON IS BOUNDED, AND THAT IS THE WHOLE POINT. On a sphere of radius R the distance to the horizon from eye height h satisfies d² ≈ 2Rh — so from 2 m up on R = 6371 km, d² = 25484000 m², bracketed exactly between 5048² and 5049²: about 5.05 km, and it GROWS ONLY AS THE SQUARE ROOT of height. A bounded horizon that scales as √h is the arithmetic signature of a curved surface; on an unbounded flat plane the sightline has no such limit. The bracket is exact integer arithmetic — no square root is taken, so nothing irrational is claimed.',
+    js: () => 5048 * 5048 <= 2 * 6371000 * 2 && 2 * 6371000 * 2 < 5049 * 5049,
+    lean: 'theorem horizon_distance_finite : 5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049 := by decide' },
 ]
 
 console.log('computing ' + FACTS.length + ' TOPOGRAPHY facts (the arithmetic of the map — not a survey, not a route planner) …')

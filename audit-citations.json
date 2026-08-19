@@ -1,17 +1,17 @@
 {
-  "key": "a374b04e-f0cf-876d-829d-cc3d3a4cfb0a",
+  "key": "9eb4a8d9-c908-8fba-a2a0-baa51da91f92",
   "publications": 72,
-  "sealedTheorems": 1313,
+  "sealedTheorems": 1317,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1313,
-    "theorems": 1313,
+    "claims": 1317,
+    "theorems": 1317,
     "bijection": true,
     "digitalRoots": {
-      "claims": 8,
-      "theorems": 8,
+      "claims": 3,
+      "theorems": 3,
       "publications": 9
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -201,8 +201,8 @@
     },
     {
       "slug": "topography",
-      "claims": 13,
-      "cited": 13,
+      "claims": 17,
+      "cited": 17,
       "uncited": [],
       "fabricated": []
     },
