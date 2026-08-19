@@ -24,26 +24,21 @@
 import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRoute } from 'vitepress'
 import { quantumAura } from '../../../dist/index.js'
+import { pickVoice, pitchFromRay, createReadAloudController } from './readAloudLogic.js'
 
 const route = useRoute()
 const supported = ref(false)
 const state = ref('idle') // idle | reading | paused
 const status = ref('')
 
-let utterances = []
-let queueIndex = 0
-let chosenVoice = null
-let chosenPitch = 1
+// The controller (readAloudLogic.ts) owns the actual state machine — unit-tested (readAloudLogic.test.ts, wired
+// into `npm run test:docs`/audit) with a fake speechSynthesis, including the two things that shipped unverified
+// the first time: does stop() really call cancel(), and does the chunk queue really reach "Finished reading"
+// instead of stalling. This component is now a thin binding from that tested logic to Vue's reactivity + the DOM.
+let controller = null
 
 const label = computed(() =>
   state.value === 'reading' ? 'Pause reading' : state.value === 'paused' ? 'Resume reading' : 'Read this page aloud')
-
-// Split into sentence-scale chunks — more robust across browsers than one very long utterance, and lets pause/
-// resume land at a natural boundary instead of mid-sentence silence.
-const chunksOf = (text) => text
-  .split(/(?<=[.!?:])\s+(?=[A-Z0-9])|\n{2,}/)
-  .map((s) => s.trim())
-  .filter((s) => s.length > 0)
 
 const pageText = () => {
   if (typeof document === 'undefined') return ''
@@ -55,91 +50,44 @@ const pageText = () => {
   return (clone.innerText || clone.textContent || '').trim()
 }
 
-// A curated preference list of natural-sounding system voices, tried in order for the page's own language before
-// falling back to whatever the browser considers default — no claim any of these is "the best" universally, just
-// a better starting point than an unreviewed default. Extend per-language as real gaps are found, not guessed.
-const PREFERRED = {
-  'en': ['Samantha', 'Ava', 'Zoe', 'Alex'],
-  'en-us': ['Samantha', 'Ava', 'Zoe', 'Alex'],
-  'en-gb': ['Kate', 'Serena', 'Stephanie'],
-}
-const pickVoice = () => {
+const currentVoice = () => {
   if (typeof window === 'undefined' || !window.speechSynthesis) return null
-  const voices = window.speechSynthesis.getVoices()
-  if (voices.length === 0) return null
-  const htmlLang = (document.documentElement.lang || 'en').toLowerCase()
-  const names = PREFERRED[htmlLang] || PREFERRED[htmlLang.split('-')[0]] || []
-  for (const name of names) {
-    const v = voices.find((x) => x.name === name)
-    if (v) return v
-  }
-  // fall back to any voice matching the page's language, preferring one NOT flagged default (often the more
-  // robotic system pick) if a non-default alternative exists in that language
-  const inLang = voices.filter((v) => v.lang.toLowerCase().startsWith(htmlLang.split('-')[0]))
-  return inLang.find((v) => !v.default) || inLang[0] || voices[0] || null
+  const voices = window.speechSynthesis.getVoices().map((v) => ({ name: v.name, lang: v.lang, default: v.default }))
+  const chosen = pickVoice(voices, document.documentElement.lang || 'en')
+  if (!chosen) return null
+  return window.speechSynthesis.getVoices().find((v) => v.name === chosen.name) || null
 }
 
-// A small, subtle, deterministic pitch variation from the page's own content-address — same address the aura
-// colour system folds, read straight from the meta tag uuidna-quantum.ts already writes. quantumAura's `ray` is
-// 0..6 (the ℤ/7 rosette) — mapped onto the SAME narrow 0.90..1.10 pitch band a page's aura hue already lives in
-// spirit, so ray N always means the same voice character everywhere it appears, not a second, unrelated hash.
-const pitchFromAddress = () => {
+const currentPitch = () => {
   const meta = document.querySelector('meta[property="uuidna:address"]')
   const addr = meta?.getAttribute('content') || ''
   if (!addr) return 1
-  const { ray } = quantumAura(addr)
-  return 0.9 + (ray / 6) * 0.2 // 0.90 .. 1.10, one of the SAME 7 rays the page's own colour aura reads
-}
-
-const speakNext = () => {
-  if (queueIndex >= utterances.length) {
-    state.value = 'idle'
-    status.value = 'Finished reading.'
-    return
-  }
-  const u = utterances[queueIndex]
-  u.onend = () => { queueIndex++; speakNext() }
-  u.onerror = () => { state.value = 'idle'; status.value = 'Reading stopped — a speech error occurred.' }
-  window.speechSynthesis.speak(u)
-}
-
-const start = () => {
-  const text = pageText()
-  if (!text) { status.value = 'Nothing on this page to read.'; return }
-  window.speechSynthesis.cancel()
-  chosenVoice = pickVoice()
-  chosenPitch = pitchFromAddress()
-  utterances = chunksOf(text).map((chunk) => {
-    const u = new SpeechSynthesisUtterance(chunk)
-    if (chosenVoice) u.voice = chosenVoice
-    u.pitch = chosenPitch
-    return u
-  })
-  queueIndex = 0
-  state.value = 'reading'
-  status.value = 'Reading page aloud. Press the button again to pause.'
-  speakNext()
+  return pitchFromRay(quantumAura(addr).ray)
 }
 
 const toggle = () => {
-  if (!supported.value) return
-  if (state.value === 'idle') { start(); return }
-  if (state.value === 'reading') { window.speechSynthesis.pause(); state.value = 'paused'; status.value = 'Paused.'; return }
-  if (state.value === 'paused') { window.speechSynthesis.resume(); state.value = 'reading'; status.value = 'Resuming.'; return }
+  if (!supported.value || !controller) return
+  controller.toggle(pageText(), currentVoice(), currentPitch())
 }
 
 const stop = () => {
-  if (!supported.value) return
-  window.speechSynthesis.cancel()
-  state.value = 'idle'
-  status.value = 'Stopped.'
+  if (!supported.value || !controller) return
+  controller.stop()
 }
 
 onMounted(() => {
   supported.value = typeof window !== 'undefined' && 'speechSynthesis' in window
-  // getVoices() often returns [] until the browser loads them asynchronously — prime it now so the FIRST click
-  // already has the full voice list, not just whatever happened to be ready synchronously.
   if (supported.value) {
+    // onChange fires on EVERY transition, including the async ones (a chunk finishing naturally, or erroring)
+    // that happen outside any toggle()/stop() call — without this, the UI would freeze on "Pause reading" even
+    // after speech genuinely finished, since nothing else re-reads the controller's state after the initial click.
+    controller = createReadAloudController(
+      window.speechSynthesis,
+      (text) => new SpeechSynthesisUtterance(text),
+      (s) => { state.value = s.phase; status.value = s.status },
+    )
+    // getVoices() often returns [] until the browser loads them asynchronously — prime it now so the FIRST click
+    // already has the full voice list, not just whatever happened to be ready synchronously.
     window.speechSynthesis.getVoices()
     window.speechSynthesis.addEventListener?.('voiceschanged', () => window.speechSynthesis.getVoices(), { once: true })
   }
