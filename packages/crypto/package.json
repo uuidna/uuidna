@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node --test ../../dist/test/kat.test.js ../../dist/test/crypt-guard.test.js ../../dist/test/stream.test.js ../../dist/test/contract.test.js",
+    "test": "node --test ../../dist/test/crypto-primitives.test.js ../../dist/test/crypto-bounds.test.js ../../dist/test/crypto-onion.test.js ../../dist/test/crypto-streams.test.js ../../dist/test/crypto-contracts.test.js ../../dist/test/crypto-ratchet.test.js",
     "measure": "npm run crypto:measure --prefix ../.."
   },
   "dependencies": {
