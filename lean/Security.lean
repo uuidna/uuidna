@@ -15,6 +15,9 @@ theorem each_key_bit_doubles : 2^11 = 2 * 2^10 := by decide
 -- The honest caveat: a COLLISION on an n-bit fingerprint costs about half the exponent of a preimage — for 128 bits, ~2^64, because 2 · 64 = 128. Collisions are cheaper than preimages; a fused fingerprint is only as strong as its collision bound.
 theorem birthday_halves_the_exponent : 2 * 64 = 128 := by decide
 
+-- FOURTEEN COINCIDENCES ARE EXACTLY WHAT FOURTEEN EVENTS PREDICT. By linearity of expectation the expected number of COLLIDING pairs among G events over P bins is C(G,2)/P — a rational, needing no approximation. This ledger has 72 wings, so P = 72·71/2 = 2556 possible wing-pairs; the 14 reuse events outside the declared Core/Ring/Vortex cluster give C(14,2) = 14·13/2 = 91, and 91 < 2556, so the expected collision count is 91/2556, under ONE. Fourteen events landing on fourteen distinct pairs is therefore the PREDICTED outcome, not a discovery: the shared facts are the smallest ones (2³ = 8, 4·4 = 16), and a small pool collides at the rate pigeonhole dictates — the same law gematria_forces_collisions states for letter-sums. HONEST SCOPE: this seals the EXPECTATION, an exact rational bound; it does not measure the ledger, and a future ledger with different counts must recompute rather than cite this.
+theorem collisions_under_one : (72 * 71 / 2 = 2556) ∧ (14 * 13 / 2 = 91) ∧ (91 < 2556) := by decide
+
 -- The asymmetry that makes tamper-evidence cheap and forgery dear: verifying a 16-bit tag is ~16 work, forging one is ~2^16 — 16 < 2^16 (16 < 65536). Anyone rechecks for almost nothing; a forger pays exponentially.
 theorem verify_cheaper_than_forge : 16 < 2^16 := by decide
 

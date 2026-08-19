@@ -5,29 +5,29 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1243,
-        "keys": 1327,
+        "distinct": 1244,
+        "keys": 1328,
         "renamings": 84,
         "principles": 72,
         "skills": 68,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "28ab99b9-6bbb-8a21-9713-b8745c678263"
+        "ledgerReceipt": "693b8777-d249-8d11-9490-551508d18fb2"
       },
-      "address": "ef2ef60b-a363-88d1-b6a9-05c97bbe940b"
+      "address": "4e21efc7-8004-8714-a026-2413662b1161"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1327,
-        "ledgerKeys": 1327,
+        "theoremsMeasured": 1328,
+        "ledgerKeys": 1328,
         "unmeasured": 0,
-        "summedDecideSteps": 325632
+        "summedDecideSteps": 325825
       },
-      "address": "aadbfa4c-1cf7-8e5b-b1cd-10d5db12475f"
+      "address": "c662844b-93fd-8989-bd32-d6dd32bc4fea"
     },
     {
       "title": "Citation audit",
@@ -35,10 +35,10 @@
       "present": true,
       "facts": {
         "publications": 72,
-        "sealedTheorems": 1327,
+        "sealedTheorems": 1328,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "b3f44145-615c-82fb-ac43-e9f6bc2aaf27"
+      "address": "fea9b313-9a4d-8800-a736-c4204ca2d841"
     },
     {
       "title": "Support audit",
@@ -69,12 +69,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "363ecba87712038a",
-        "unifiedFold": "ce5d9ef8dd55f574"
+        "foldReceipt": "e80cb98671fd371a",
+        "unifiedFold": "34d82418f8ca0f06"
       },
-      "address": "527d7f6f-c446-89cd-8204-7ddd6c63aee8"
+      "address": "887b8821-514c-87ef-95b7-3c3957c6c7b0"
     }
   ],
-  "receipt": "d377b5ee-19ae-8d03-8c6b-79958819ed2a",
+  "receipt": "a1b0db07-cc41-801d-a66d-395c3ee60eec",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

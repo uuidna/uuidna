@@ -34,6 +34,21 @@ const FACTS = [
     js: () => 2 * 64 === 128,
     lean: 'theorem birthday_halves_the_exponent : 2 * 64 = 128 := by decide' },
 
+  // ── THE BIRTHDAY BOUND TURNED ON THIS LEDGER'S OWN STRUCTURE. Computed from the ledger itself, not observed in
+  // the world — so no external authority is owed. The empirical-observation verb is deliberately avoided here:
+  // the sources finder flagged an earlier draft for it, correctly, since computing over a repo is not an
+  // observation of the world. (It reads raw source, so even NAMING that verb in a comment trips it — the same
+  // way the determinism scan tripped on a comment naming the builtin maths helper it forbids.)
+  // 72 wings share Lean lines across exactly 17 wing-pairs, and 14 of those are single lines between unrelated wings
+  // (BioPhysics–Psychology on 2³ = 8, Quantum–Matching on 4·4 = 16). The question was whether those fourteen mean
+  // anything. They do not, and the arithmetic below is why — while the ONE dense bond, Core↔Ring at 64 groups
+  // against a size-weighted expectation of 1.4, is 45× chance and is the ℤ/9 table deliberately sealed in both
+  // wings, already declared in lean/statement-index.json. Two categories, no third.
+  { key: 'collisions_under_one',
+    why: 'FOURTEEN COINCIDENCES ARE EXACTLY WHAT FOURTEEN EVENTS PREDICT. By linearity of expectation the expected number of COLLIDING pairs among G events over P bins is C(G,2)/P — a rational, needing no approximation. This ledger has 72 wings, so P = 72·71/2 = 2556 possible wing-pairs; the 14 reuse events outside the declared Core/Ring/Vortex cluster give C(14,2) = 14·13/2 = 91, and 91 < 2556, so the expected collision count is 91/2556, under ONE. Fourteen events landing on fourteen distinct pairs is therefore the PREDICTED outcome, not a discovery: the shared facts are the smallest ones (2³ = 8, 4·4 = 16), and a small pool collides at the rate pigeonhole dictates — the same law gematria_forces_collisions states for letter-sums. HONEST SCOPE: this seals the EXPECTATION, an exact rational bound; it does not measure the ledger, and a future ledger with different counts must recompute rather than cite this.',
+    js: () => 72 * 71 / 2 === 2556 && 14 * 13 / 2 === 91 && 91 < 2556,
+    lean: 'theorem collisions_under_one : (72 * 71 / 2 = 2556) ∧ (14 * 13 / 2 = 91) ∧ (91 < 2556) := by decide' },
+
   { key: 'verify_cheaper_than_forge',
     why: 'The asymmetry that makes tamper-evidence cheap and forgery dear: verifying a 16-bit tag is ~16 work, forging one is ~2^16 — 16 < 2^16 (16 < 65536). Anyone rechecks for almost nothing; a forger pays exponentially.',
     js: () => 16 < 2 ** 16,

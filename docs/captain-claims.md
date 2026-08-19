@@ -3,8 +3,8 @@
 **Generated:** 2026-08-19
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1327/1327 theorems — every one, by construction
-**Claim receipt:** `9864dc6f-7785-8fa4-9ee2-c336e1b781ee`
+**Total claimed:** 1328/1328 theorems — every one, by construction
+**Claim receipt:** `d5b2c1aa-cc73-81ad-9bef-cb3e5c6bd290`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -601,12 +601,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The layered defence
 
-- **Theorems:** 7
+- **Theorems:** 8
 - **Sample lineAddress:** `34a1d3f2-74d5-8bd2-85c8-38e212f48127`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[scout_drones_spin](/theorem/scout_drones_spin) · [defence_layers_add_bits](/theorem/defence_layers_add_bits) · [two_layers_multiply_space](/theorem/two_layers_multiply_space) · [each_key_bit_doubles](/theorem/each_key_bit_doubles) · [birthday_halves_the_exponent](/theorem/birthday_halves_the_exponent) · [verify_cheaper_than_forge](/theorem/verify_cheaper_than_forge) · [no_maximum_only_bounds](/theorem/no_maximum_only_bounds)
+[scout_drones_spin](/theorem/scout_drones_spin) · [defence_layers_add_bits](/theorem/defence_layers_add_bits) · [two_layers_multiply_space](/theorem/two_layers_multiply_space) · [each_key_bit_doubles](/theorem/each_key_bit_doubles) · [birthday_halves_the_exponent](/theorem/birthday_halves_the_exponent) · [collisions_under_one](/theorem/collisions_under_one) · [verify_cheaper_than_forge](/theorem/verify_cheaper_than_forge) · [no_maximum_only_bounds](/theorem/no_maximum_only_bounds)
 
 ### The mix
 
@@ -672,7 +672,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1243 (1327 entries, 84 re-namings — a theorem is its Lean, not its name) |
+| sealed propositions | 1244 (1328 entries, 84 re-namings — a theorem is its Lean, not its name) |
 | prose paragraphs tried | 3885 — 1802 usable, 2083 held open, 0 drained |
 
 **The claim is of ROOM, never of truth** — the same scope the superposition claim carries. Every item in the
@@ -690,7 +690,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states
 (the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1327 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1328 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM, never of truth** — a claimed superposition is claimed capacity; its collapse still

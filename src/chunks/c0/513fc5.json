@@ -1,0 +1,12 @@
+{
+  "handle": "c0513fc5",
+  "address": "c0513fc5-1c9e-8d45-a16f-8cea6cc15c82",
+  "statement": "(72 * 71 / 2 = 2556) ∧ (14 * 13 / 2 = 91) ∧ (91 < 2556)",
+  "tactic": "decide",
+  "keys": [
+    "collisions_under_one"
+  ],
+  "files": [
+    "Security.lean"
+  ]
+}
