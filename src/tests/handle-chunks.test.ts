@@ -1,5 +1,5 @@
-// handle-chunks — gen-handle-chunks.ts stores the reusable ALGEBRA (1224 distinct facts), not the theorem record
-// (1308 keys). Tested here for the three things that matter: every key resolves to exactly one chunk, no chunk
+// handle-chunks — gen-handle-chunks.ts stores the reusable ALGEBRA — one file per DISTINCT statement — not the theorem
+// record, of which there are more (a statement sealed in two wings is one fact with two names). Tested here for the three things that matter: every key resolves to exactly one chunk, no chunk
 // is lossy (the has_and_belongs_to_many join holds both ways), and the identity is stable/collision-free.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'

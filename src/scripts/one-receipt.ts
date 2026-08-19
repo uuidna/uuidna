@@ -331,10 +331,12 @@ export function actionsGaps(): Gap[] {
  *  lost — the three words that survive ARE the fact. Grammatical filler (is/the/of/by/only/…) is not counted, since
  *  it carries nothing either way.
  *
- *  A RATCHET, NOT A BIG BANG: 313 keys predate this law, and renaming a theorem moves its content-address, the
+ *  A RATCHET, NOT A BIG BANG: the keys recorded in lean/key-entropy.json predate this law, and renaming a theorem moves its content-address, the
  *  ledger receipt and the published archive — so they are recorded in lean/key-entropy.json as an explicit backlog
  *  that may only SHRINK (src/tests/key-entropy.test.ts enforces that it never grows). Anything NEW fails hard here.
- *  That is how the class stops growing today without moving 313 published addresses in one stroke. */
+ *  That is how the class stops growing today without moving every published address in one stroke. The
+ *  backlog's SIZE is deliberately not written here: it may only shrink, so any figure in prose is wrong the
+ *  moment it does (it read 313 while the list held 311). */
 /** BOTH NUMBERS OR NEITHER — a theorem is its LEAN, not its name, so the ledger has two true sizes: the number of
  *  KEYS and the number of DISTINCT propositions. They differ because some statements are deliberately sealed in two
  *  wings (the ℤ/9 table in Core and in Ring accounts for 64 of the overlap). A surface that prints only the key count

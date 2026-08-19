@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// gen-handle-chunks — the storable unit is the ALGEBRA, not the theorem record. 1308 keys cite only 1224 distinct
+// gen-handle-chunks — the storable unit is the ALGEBRA, not the theorem record. the key count cite only 1224 distinct
 // proven facts (84 re-namings across 79 groups — z9mul_1_1 and mul9_1_1 are one fact, two names); storing a full
 // copy per KEY duplicates 84 facts for nothing. This writes ONE chunk per distinct fact (allStatementChunks(),
 // content-addressed by its normalised statement — the same identity statementCensus()/guard.js's "1224 distinct"
