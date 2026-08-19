@@ -354,7 +354,7 @@ export function countsGaps(): Gap[] {
   const receipt = runTrial().receipt
   const TARGET = 1024                       // the stated v1.0.0 milestone — a goal, not a measurement
   // EVERY count the ledger can honestly report — the census, each wing, each principle group, each skill group.
-  // Derived, because a fixed allow-list would refuse "234 theorems" on the Ring monograph (a true wing count) or
+  // Derived, because a fixed allow-list would refuse a true per-wing count on a monograph or
   // wave through a dead global like 1195 that no longer names anything at all.
   const groupSizes = (k: 'principle' | 'skill'): number[] =>
     [...new Set(T.map((t) => t[k]))].map((v) => T.filter((t) => t[k] === v).length)
@@ -1043,6 +1043,46 @@ export function pagesGaps(): Gap[] {
   for (const f of Object.keys(EXEMPT))
     if (!existsSync(join(docs, f)))
       gaps.push({ what: `pagesGaps EXEMPT still names docs/${f}, which no longer exists`, fix: `remove '${f}' from the EXEMPT map — the list may only shrink` })
+  return gaps
+}
+
+// ── comments: DESCRIBE HISTORY WITH NUMBERS, DESCRIBE THE PRESENT WITHOUT THEM. countsGaps holds every tracked
+// SURFACE to the live ledger, but it deliberately exempts derived files and it reads prose, not comments — so the
+// one place a count could rot unwatched was source comments, where no generator reaches and no gate looked. The
+// README sat twenty theorems stale behind exactly that reasoning.
+// THE RULE IS STRICTER THAN "IS IT CURRENT", and that is the point: a comment naming the current key count is RIGHT today and
+// WRONG on the next landing, so correctness now is no defence. (This very paragraph tripped the finder on its
+// first run, for using a literal count as the example — the third time in one session a check caught a comment
+// that merely DISCUSSED what it forbids, after the determinism scan and the sources finder. Raw-source scanners
+// cannot tell use from mention, so the example is given in words.) Three of the four counts this finder first
+// caught were written earlier the same session and had already drifted by the time it ran; a fourth, in
+// reconcile.ts, was a duplicate of a stale line already fixed twice elsewhere and missed both times by hand.
+// HISTORY IS DIFFERENT AND KEEPS ITS NUMBERS. "reports.json sat tracked for three days stating 1195 theorems"
+// names an event; Zenodo record 21986286 "published 1274 theorems" is an immutable DOI that can never be anything
+// else. Changing those would falsify the record, so a comment marked as past tense or as a published record is
+// allowed — as is a threshold restating the code beside it ("at least 1000 theorems", guarding `>= 1000`).
+export function commentsGaps(): Gap[] {
+  const gaps: Gap[] = []
+  // a ledger COUNT: a 3–5 digit number naming theorems, keys, principles, wings or skills
+  const COUNT = /(?<![0-9a-fx.])(\d{3,5})\s*(?:sealed |distinct )?(theorems?|principles?|wings?|keys|skills)\b/gi
+  // past tense, or the naming of a fixed record — the marks of describing something that already happened
+  const HISTORY = /\b(sat|was|were|had|held|published|predate|grew|collapsed?|read|stale|record \d+|carries|stated|froze|frozen|for three days|once|previously|until|then|earlier|holding)\b/i
+  // a bound the code enforces on the line beside it — a target, not a claim about now
+  const THRESHOLD = /\b(at least|minimum|milestone|target|aims? at|goal)\b/i
+  const files = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n').filter((f) => /\.(ts|js)$/.test(f))
+  for (const f of files) {
+    let src = ''
+    try { src = readFileSync(join(ROOT, f), 'utf8') } catch { continue }
+    const comments = [...src.matchAll(/\/\/[^\n]*/g), ...src.matchAll(/\/\*[\s\S]*?\*\//g)].map((m) => m[0])
+    for (const c of comments) {
+      if (HISTORY.test(c) || THRESHOLD.test(c)) continue
+      for (const m of c.matchAll(COUNT))
+        gaps.push({
+          what: `${f}: a comment states "${m[0]}" — a ledger count in prose, which no generator can keep current`,
+          fix: `drop the number and name the source instead ("the key count", "theoremCountByFile()"), or mark the sentence as HISTORY if it describes something that already happened (past tense, or a named record — those keep their numbers and must not be edited). A count that is correct today is wrong on the next landing, so updating it only schedules the next drift.`,
+        })
+    }
+  }
   return gaps
 }
 

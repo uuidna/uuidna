@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, sourcesGaps, dormantGaps, pagesGaps} from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, sourcesGaps, dormantGaps, pagesGaps, commentsGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -181,6 +181,11 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // rest compute from a data loader or are declared indexes/artifacts. A page that asserts while standing on nothing
   // cannot be recomputed, so nothing would catch it drifting.
   { name: 'pages', run: () => pagesGaps() },
+  // A LEDGER COUNT IN A COMMENT IS A TIME BOMB, even when it is right. No generator reaches source comments and
+  // countsGaps reads prose surfaces, so this was the last place a number could rot unwatched — the README sat
+  // twenty theorems stale behind the same reasoning. History keeps its numbers (an event, a published DOI); the
+  // present must name its source instead.
+  { name: 'comments', run: () => commentsGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {
