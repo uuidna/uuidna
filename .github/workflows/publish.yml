@@ -48,6 +48,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     needs: editorial
+    # the release's own ledger fold, handed to `live` so it can tell THIS deployment from the previous one
+    # without checking the repo out again — publish has already built dist by the time it is read.
+    outputs:
+      feed_id: ${{ steps.feed_id.outputs.id }}
     permissions:
       contents: read
       id-token: write # dual use: OIDC trusted-publishing auth (token-free) + the Sigstore provenance attestation
@@ -98,6 +102,10 @@ jobs:
 
   # The desktop extension ships itself: pack extension/ (one manifest — the standards-compression) into
   # uuidna.mcpb and attach it to the release, so every tag carries the one-click carrier of the receipted tools.
+      - name: The release's ledger fold — the identity `live` waits for on the deployed site
+        id: feed_id
+        run: echo "id=$(node -e "import('./dist/scripts/gen-feed.js').then(m=>console.log(m.buildFeed()['@id']))")" >> "$GITHUB_OUTPUT"
+
   extension:
     runs-on: ubuntu-latest
     needs: publish
@@ -154,6 +162,28 @@ jobs:
     needs: publish
     if: startsWith(github.ref, 'refs/tags/') # a tag push, or the research desk dispatching on a fresh tag
     steps:
+      # WAIT FOR THE DEPLOYED SITE TO BE *THIS* RELEASE, not merely for a job to finish. deploy.yml runs in a
+      # separate workflow, so `needs:` cannot reach it — and a cross-workflow timing dependency would only prove a
+      # job ended, never that the right bytes are being served. The feed's @id content-addresses the WHOLE ledger
+      # (gen-feed folds every theorem's lineAddress), so it changes if any theorem changes: comparing it to the
+      # @id computed from the tag under test is a verification, not a proxy.
+      # Before this, `live` could pass against the PREVIOUS deployment — its two checks (gate spec, trial verdict)
+      # hold for any release, so neither could tell one deployment from another.
+      - name: Wait until uuidna.com serves THIS release (feed @id == the tag's own ledger fold)
+        run: |
+          set -euo pipefail
+          WANT='${{ needs.publish.outputs.feed_id }}'
+          test -n "$WANT" || { echo "::error::publish did not report a feed @id — cannot verify which release is live"; exit 1; }
+          echo "expecting the live feed to carry $WANT"
+          for i in $(seq 1 40); do
+            GOT=$(curl -sf https://uuidna.com/feed.json 2>/dev/null | jq -r '."@id"' || echo '')
+            if [ "$GOT" = "$WANT" ]; then echo "::notice::live site serves this release — feed @id $GOT (after ${i} probe(s))"; exit 0; fi
+            echo "  probe $i: live @id is '${GOT:-unreachable}' — waiting for the deploy"
+            sleep 15
+          done
+          echo "::error::uuidna.com never served this release: after 10 minutes the live feed @id is '${GOT:-unreachable}', not $WANT. The deploy did not land — do not treat the checks below as verifying this release."
+          exit 1
+
       - name: The live edge verifies the release — gate clean + trial VERIFIED, or fail
         run: |
           set -euo pipefail
