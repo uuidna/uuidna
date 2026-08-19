@@ -12,7 +12,7 @@ import { catchTraitors } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps} from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -159,6 +159,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // exists. `npm run x -- <script>` dispatches from discovery; an entry survives only when CI, a hook, the README
   // or a docs page calls it by name, and that set is recomputed here rather than declared.
   { name: 'scripts', run: () => scriptsGaps() },
+  // THE MIRROR MUST AGREE BY VALUE, NOT BY ROUNDING — a js mirror doing Number arithmetic past 2^53 can round to
+  // the SAME wrong value as the Lean it is checked against and pass emit()'s comparison by luck. Three mirrors
+  // needed BigInt in one session (2026-08-19); the third was caught by hand, which is what makes it a finder.
+  { name: 'mirror', run: () => mirrorGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {

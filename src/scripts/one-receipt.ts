@@ -827,6 +827,49 @@ export function scriptsGaps(): Gap[] {
   return gaps
 }
 
+// ── mirror: THE js MIRROR MUST AGREE BY VALUE, NOT BY ROUNDING. emit() hard-fails when a fact's `js:` mirror
+// disagrees with its `lean:` statement — but a mirror doing Number arithmetic past 2^53 can AGREE BY LUCK: both
+// sides round to the same wrong value, the check passes, and the ledger seals a fact its own mirror never really
+// computed. Lean's Nat is arbitrary-precision; JavaScript's Number is a float with a 53-bit integer range.
+// Measured 2026-08-19: three mirrors in one session needed BigInt (wgs84_polar_shorter at 1.9e18,
+// hardware_above_landauer at 2.9e16 — which the author only caught by hand-checking), so the rule is enforced
+// here rather than remembered. A repeated mistake is a missing finder.
+// The check is conservative: read each fact's LEAN statement (the authority), find the integer literals and the
+// products among them, and if anything can exceed 2^53 the mirror must be written in BigInt (an `n` literal or
+// a BigInt(...) call). Number-only mirrors below the bound are untouched.
+export function mirrorGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const SAFE = 9007199254740991 // Number.MAX_SAFE_INTEGER = 2^53 - 1
+  const dir = join(ROOT, 'src/scripts')
+  for (const file of readdirSync(dir).filter((f) => /^lean-.*\.ts$/.test(f)).sort()) {
+    const src = readFileSync(join(dir, file), 'utf8')
+    // each fact is an object literal opening with `key:` — split there, so a block carries its own js + lean
+    for (const block of src.split(/\{\s*key:\s*'/).slice(1)) {
+      const key = /^([a-z0-9_]+)'/.exec(block)?.[1]
+      const lean = /lean:\s*'((?:[^'\\]|\\.)*)'/.exec(block)?.[1]
+      if (!key || !lean) continue
+      const jsPart = block.slice(0, block.indexOf('lean:') >= 0 ? block.indexOf('lean:') : block.length)
+      const usesBigInt = /\d+n\b|BigInt\s*\(/.test(jsPart)
+      if (usesBigInt) continue // already arbitrary-precision — nothing to prove
+      // the biggest value the statement can force: a bare literal, or the product of two literals side by side
+      const lits = [...lean.matchAll(/\b(\d{2,})\b/g)].map((m) => Number(m[1])).filter((n) => Number.isFinite(n))
+      // a plain fold, not the builtin maths max — the determinism law admits no such call ANYWHERE, and this
+      // finder tripped its own sibling scan on the first write. The idiom already lives at the top of this file.
+      let worst = lits.reduce((hi, n) => (n > hi ? n : hi), 0)
+      for (const m of lean.matchAll(/(\d+)\s*\*\s*\(?\s*(\d+)/g)) {
+        const p = Number(m[1]) * Number(m[2])
+        if (p > worst) worst = p
+      }
+      if (worst <= SAFE) continue
+      gaps.push({
+        what: `${file}: theorem ${key}'s js mirror uses Number arithmetic, but its Lean statement reaches ${worst.toExponential(2)} — past 2^53 (${SAFE})`,
+        fix: `rewrite the mirror in BigInt (\`123n\` literals; \`/\` is then exactly Lean's Nat floor division). Above 2^53 a Number mirror can round to the SAME wrong value as the check it is compared against and pass by luck, so emit()'s agreement stops being evidence.`,
+      })
+    }
+  }
+  return gaps
+}
+
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
 // the microdata says, it is audited. ──
