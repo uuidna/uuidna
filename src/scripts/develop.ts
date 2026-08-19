@@ -25,8 +25,12 @@ type Cure = { name: string; when: RegExp; cmd: string; because: string }
 // because the guard happens to re-seal the fold. A drift of the SEAL is never cured by regenerating one of its files.
 const CURES: Cure[] = [
   { name: 'derived layer drift (spin)', when: /NON-QUANTUM DRIFT|Spin hard-rejects drift/,
-    cmd: 'npm run reconcile',
-    because: 'the derived files moved since the last seal; only reconcile re-derives from the ledger AND re-seals — regenerating a named file leaves the seal stale' },
+    // --derive-only, NOT plain reconcile. Plain reconcile ends by committing AND PUSHING to origin, so this cure
+    // made a routine self-heal an outward act — the pass built to keep the gate green unattended could not safely
+    // be run unattended, which is why the same sequence was being hand-run instead. The flag stops after the seal:
+    // re-derive and re-seal locally, publish never. Publishing stays a separate, deliberate command.
+    cmd: 'node dist/scripts/reconcile.js --derive-only',
+    because: 'the derived files moved since the last seal; only the full re-derivation re-seals them (regenerating one named file leaves the seal stale) — and the cure stops at the seal, because healing must not publish' },
   { name: 'changelog section missing', when: /CHANGELOG\.md does not mention version/,
     cmd: 'node dist/scripts/gen-changelog-section.js',
     because: 'the calendar ticks the odometer on its own, so the FACTS of a version (counts, receipts, the odometer step, the surfaces) are emitted from the ledger; the narrative is still never generated — the section says the meaning is owed, and a human completing it is finishing the entry, not correcting it' },

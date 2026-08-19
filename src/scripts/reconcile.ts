@@ -16,7 +16,12 @@ import { ROOT, stageDerived } from './api.js'
 
 const run = (cmd: string): void => { console.log('  · ' + cmd); execSync(cmd, { stdio: 'inherit' }) }
 const out = (cmd: string): string => execSync(cmd).toString().trim()
-const msg = process.argv.slice(2).join(' ') || 'Reconcile: regenerate the derived layer + sync heartbeats to the ledger, backed by theorem two_coins'
+// --derive-only STOPS AFTER THE SEAL. The whole chain below is the re-derivation; the commit and push are a
+// SEPARATE, OUTWARD act bolted onto the end of it. develop's cure for spin drift used to be plain `reconcile`,
+// which meant a routine self-heal could publish to origin — so the pass that exists to make the gate green
+// unattended could not be run unattended. This flag splits the two: re-derive and re-seal locally, publish never.
+const deriveOnly = process.argv.includes('--derive-only')
+const msg = process.argv.slice(2).filter((a) => a !== '--derive-only').join(' ') || 'Reconcile: regenerate the derived layer + sync heartbeats to the ledger, backed by theorem two_coins'
 
 console.log('reconcile — regenerating the derived layer to match the Lean source …')
 run('npm run lean')                                   // generated.ts + PRINCIPLE.md + CHANGELOG — verifies every proof
@@ -37,6 +42,17 @@ run('node dist/scripts/support.js')                   // support-audit.json + re
 run('node dist/scripts/audit-citations.js')           // audit-citations.json — the publication citation audit
 run('node dist/scripts/account.js')                   // ABORTS here (non-zero) if the ledger does NOT reconcile
 run('node dist/scripts/spin.js --seal')               // spin-manifest.json — SEAL the coins of the freshly-rotated derived layer LAST (after every generator); once sealed, the gate re-spins them by itself (verify O(1))
+
+
+// THE SPLIT. Everything above re-derives the layer from the ledger and re-seals it — local, reversible, and the
+// only part a self-heal needs. Everything below publishes. A cure must never publish, so it stops here.
+if (deriveOnly) {
+  const dirty = out('git status --porcelain').length !== 0
+  console.log(dirty
+    ? '✓ reconcile --derive-only — the derived layer is re-derived and re-sealed; the tree is dirty and NOTHING was committed or pushed. Review it, then commit deliberately.'
+    : '✓ reconcile --derive-only — nothing to reconcile; the derived layer already matches the source.')
+  process.exit(0)
+}
 
 if (out('git status --porcelain').length === 0) {
   console.log('✓ nothing to reconcile — the derived layer already matches the source.')
