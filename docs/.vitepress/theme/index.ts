@@ -3,6 +3,8 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
+import ReferrerNav from './ReferrerNav.vue'
+import ReadAloud from './ReadAloud.vue'
 import LinkAuditor from './LinkAuditor.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import HeroAnimation from './HeroAnimation.vue'
@@ -42,7 +44,16 @@ export default {
     // Dimensions rides the same slot — the involution control on every page: fold the reading experience to its
     // simple pole and back, each dimension user-configurable, held in localStorage, applied as data-dim-* on the
     // root so CSS folds even the generated theorem pages.
+    // ReferrerNav rides nav-bar-content-after — genuinely IN the nav bar (not a page-bottom note): a link computed
+    // from ledger.data's own principle groups, offered only when the path actually walked makes one recomputable
+    // (the previous page was a theorem); nav.ts's own 4 links stay the static baseline every static site needs,
+    // this is the referrer-computed layer alongside them, not a replacement of what can't be made dynamic at build time.
     return h(DefaultTheme.Layout, null, {
+      'nav-bar-content-after': () => h(ReferrerNav),
+      // ReadAloud rides doc-before — right before the page's own content, so a reader tabbing in from the skip
+      // link meets it immediately. Purely user-initiated (see the component's own header comment for why: an
+      // auto-advancing or auto-reading page is a WCAG anti-pattern, not an accessibility win).
+      'doc-before': () => h(ReadAloud),
       'layout-bottom': () => [h(SiteFooter), h(LinkAuditor), h(Dimensions)],
     })
   },

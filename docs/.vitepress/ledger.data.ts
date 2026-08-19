@@ -4,7 +4,7 @@
 // not a theorem. The recomputation-only capabilities (FNV address, gate, crypto) are TOOLS, not theorems.
 //
 // Requires the package to be built first (`npm run build` → dist/). `npm run docs:build` does both in order.
-import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid, publications, rosettaIndex, quantumAura } from '../../dist/index.js'
+import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid, publications, rosettaIndex, quantumAura, discoverStaticPages, canonicalOrder, nextOf } from '../../dist/index.js'
 
 export type Theorem = {
   key: string
@@ -46,6 +46,9 @@ export type LedgerData = {
   groups: PrincipleGroup[]
   skillGroups: SkillGroup[]
   rosetta: { ray: number; count: number; fold: string; theorems: { key: string; name: string }[] }[]
+  // route → next route, the SAME wrapping walk scripts/next.ts's Arm 4 verifies has zero gaps (canonicalOrder +
+  // nextOf, site.ts) — so a client reading this always has a next for ANY current route, not only theorem pages.
+  next: Record<string, string>
   trial: {
     receipt: string
     count: number
@@ -98,6 +101,12 @@ export default {
     let chainTip = chainGenesis
     for (const r of roots) chainTip = toUuid(chainTip + '→' + r)
 
+    // route → next route, over EVERY page (static sections + every theorem + every publication) — the exact walk
+    // scripts/next.ts's Arm 4 recomputes and checks for gaps at release time. Shipped so the client (ReferrerNav)
+    // always has a next for the current route, not only when the referrer happened to be a theorem.
+    const walkOrder = canonicalOrder(discoverStaticPages())
+    const next = Object.fromEntries([...nextOf(walkOrder)].map(([route, n]) => [route, n.route]))
+
     return {
       total: LEDGER.length,
       principleCount: order.length,
@@ -108,6 +117,7 @@ export default {
       skillGroups,
       // the 7-ray rosette index — a decidable ℤ/7 partition of the ledger by content-address, each ray folded.
       rosetta: rosettaIndex().map((r) => ({ ray: r.ray, count: r.count, fold: r.fold, theorems: r.theorems.map((t) => ({ key: t.key, name: t.name })) })),
+      next,
       trial: {
         receipt: trial.receipt,
         count: trial.count,
