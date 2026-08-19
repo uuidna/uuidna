@@ -8,6 +8,9 @@ import { publications } from './publish.js'
 import { lsRoot } from './boundary.js'
 import { toUuid } from './address.js'
 import { merkleRoot } from './merkle.js'
+import { readFileSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from './boundary.js'
 
 /** A page in the graph — its route and a short human label for the pager. */
 export interface PageNode { route: string; text: string }
@@ -46,7 +49,7 @@ export const SIDEBAR_CATEGORIES: readonly [string, string[]][] = [
   ['The ledger', ['/theorems', '/topics', '/grid', '/trials', '/quantum', '/quantum-cryptography', '/rosetta', '/rosetta-glagolitic', '/search', '/publications', '/news', '/articles', '/games']],
   ['Fuse it in', ['/school', '/mcp', '/chat', '/books', '/guides', '/chess', '/quantum-messaging', '/dimensions']],
   ['The captain', ['/captain', '/doctrine', '/succession', '/captain-claims']],
-  ['Verify it yourself', ['/tests', '/analytics', '/deploy', '/changelog', '/prose-evidence']],
+  ['Verify it yourself', ['/tests', '/analytics', '/deploy', '/changelog', '/prose-evidence', '/by-proof']],
   ['The terms', ['/license', '/privacy', '/justice']],
 ]
 
@@ -61,7 +64,7 @@ const LABELS: Readonly<Record<string, string>> = {
   '/guides': 'Guides', '/quantum-messaging': 'Quantum messaging', '/dimensions': 'Reading dimensions ◈',
   '/captain': "The captain's coins", '/doctrine': 'The doctrine', '/succession': 'Succession',
   '/captain-claims': 'Captain claims', '/tests': 'The tests', '/analytics': 'Analytics', '/deploy': 'Deploy',
-  '/changelog': 'Changelog', '/prose-evidence': 'Prose evidence', '/license': 'License', '/privacy': 'Privacy',
+  '/changelog': 'Changelog', '/prose-evidence': 'Prose evidence', '/by-proof': 'By proof (second axis)', '/license': 'License', '/privacy': 'Privacy',
   '/justice': 'Justice',
 }
 const labelOf = (route: string): string => LABELS[route] ??
@@ -79,6 +82,44 @@ export interface SidebarGroup { text: string; items: { text: string; link: strin
  *  inventing them. Values compute, prose stays authored, exactly as elsewhere. */
 export interface ContentsEntry { index: number; heading: string; link: string; entries: number; address: string }
 export interface SiteContents { title: string; chapters: ContentsEntry[]; contentsRoot: string }
+
+/** THE BY-PROOF VIEW — the pages grouped by the PRINCIPLE their citations rest on, the second axis beside the
+ *  purpose-organised sidebar. /topics already does exactly this for theorems (by skill); this does it for pages.
+ *  WHY IT IS A SECOND VIEW AND NOT THE SIDEBAR: computed 2026-08-19, deriving the sidebar group NAMES this way
+ *  gives 15 groups for 28 pages, seven of them a single page, and files license.md under "The cipher & the strand"
+ *  because the licence text happens to cite a cipher theorem. The ledger organises by PROOF; a reader navigates by
+ *  PURPOSE. Both are real, they are different axes, and collapsing them costs the reader the licence.
+ *  A page with no citation appears under no principle — it rests on nothing to group by, and saying so is honest. */
+export interface ProofGroup { principle: string; skill: string; pages: { route: string; text: string; cites: number }[]; address: string }
+
+export function pagesByProof(): { groups: ProofGroup[]; grouped: number; root: string } {
+  const T = theorems()
+  const skillOf = new Map(T.map((t) => [t.key, t.skill]))
+  const prinOf = new Map(T.map((t) => [t.key, t.principle]))
+  const known = new Set(T.map((t) => t.key))
+  const byPrinciple = new Map<string, ProofGroup>()
+  let grouped = 0
+  for (const page of discoverStaticPages().filter((p) => p.route === '/articles' || !p.route.startsWith('/articles/'))) {
+    const file = join(ROOT, 'docs', (page.route === '/' ? 'index' : page.route.slice(1)) + '.md')
+    if (!existsSync(file)) continue
+    const src = readFileSync(file, 'utf8')
+    const cites = [...new Set([...src.matchAll(/\/theorem\/([a-z0-9_]+)|theorem\s+([a-z][a-z0-9_]{4,})/gi)]
+      .map((m) => (m[1] || m[2] || '').toLowerCase()).filter((k) => known.has(k)))]
+    if (!cites.length) continue // rests on nothing to group by
+    // the DOMINANT principle — the one most of its citations share; ties break by first-seen, deterministically
+    const tally = new Map<string, number>()
+    for (const k of cites) { const p = prinOf.get(k)!; tally.set(p, (tally.get(p) ?? 0) + 1) }
+    const principle = [...tally.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]![0]
+    const skill = skillOf.get(cites.find((k) => prinOf.get(k) === principle)!) ?? ''
+    if (!byPrinciple.has(principle)) byPrinciple.set(principle, { principle, skill, pages: [], address: '' })
+    byPrinciple.get(principle)!.pages.push({ route: page.route, text: page.text, cites: cites.length })
+    grouped++
+  }
+  const groups = [...byPrinciple.values()]
+    .map((g) => ({ ...g, pages: g.pages.sort((a, b) => b.cites - a.cites), address: toUuid('proof:' + g.principle + ':' + g.pages.map((p) => p.route).sort().join(',')) }))
+    .sort((a, b) => b.pages.length - a.pages.length || a.principle.localeCompare(b.principle))
+  return { groups, grouped, root: merkleRoot(groups.map((g) => toUuid(g.address))) }
+}
 
 export function siteContents(title = 'uuidna'): SiteContents {
   const chapters = computeSidebar().map((g, index) => ({
