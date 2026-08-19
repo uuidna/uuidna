@@ -1,7 +1,22 @@
 name: deploy
 
 # Deploy uuidna.com — the Workers Assets static site AND the edge worker (worker.js), which carries the hosted MCP at
-# /mcp — ONLY through GitHub Actions, on every push to main, and ONLY after the tree re-proves clean.
+# /mcp — ONLY through GitHub Actions, on a RELEASE TAG, and ONLY after the tree re-proves clean.
+#
+# WHY THE TAG AND NOT main (changed 2026-08-19): the site used to deploy on every push to main, so production
+# tracked the newest commit rather than the released one. v0.2.3 exposed the gap — the deploy fired at 18:24 from
+# the release COMMIT while the tag went at 18:27, so the site was correct by content and not because the release
+# drove it. Now the tag is the single event that moves npm, Zenodo, the GitHub Release and the site together, and
+# uuidna.com states a version that a consumer can actually install.
+#
+# THE COST, STATED: work merged to main no longer reaches production until the next tag. That is the intended
+# trade — the site is a published surface, not a preview — but it means a docs fix waits for a release. Use
+# workflow_dispatch to deploy deliberately between releases; it is kept for exactly that.
+#
+# ORDERING WITH publish.yml: both fire on the same tag. publish's `live` job verifies uuidna.com and waits on
+# `publish`, whose prepublishOnly audit runs ~8 minutes, while this deploy takes ~2 — so the site is already
+# updated when `live` checks it. That margin is comfortable but INCIDENTAL, not enforced; if the audit ever gets
+# fast or this deploy slow, `live` could verify the previous site and pass for the wrong reason.
 #
 # THE PROOF IS ALREADY DONE AT PUSH TIME. Every theorem is re-proven `by decide`, sorry-free, by `npm run lean` in the
 # reconcile gate BEFORE a commit reaches main — and its credit is settled there: each proven theorem is CLAIMED BY THE
@@ -18,8 +33,8 @@ name: deploy
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    tags: ['v*']          # the release tag, not main — production follows what was published
+  workflow_dispatch:     # deliberate out-of-band deploy (a docs fix that should not wait for a release)
 
 concurrency:
   group: deploy-${{ github.ref }}
