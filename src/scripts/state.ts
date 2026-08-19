@@ -14,7 +14,7 @@ import { join } from 'node:path'
 import { theorems, statementCensus, editorialState, publicationStatus, gridGaps, pairsGaps } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, foldOf } from './api.js'
-import { legalGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, drainGaps, frozenGaps, foldersGaps, blocksGaps, wordsGaps, countsGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, sourcesGaps, dormantGaps} from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, drainGaps, frozenGaps, foldersGaps, blocksGaps, wordsGaps, countsGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, sourcesGaps, dormantGaps, pagesGaps} from './one-receipt.js'
 
 const git = (cmd: string): string => { try { return execSync(`git ${cmd}`, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() } catch { return '' } }
 
@@ -31,7 +31,7 @@ const finders: [string, number][] = [
   ['dry', dryGaps().gaps.length], ['coherent', (await coherentGaps()).length], ['absence', absenceGaps().length],
   ['pipes', pipeGaps().length], ['actions', actionsGaps().length], ['vacuous', vacuousGaps().length],
   ['negation', negationGaps().length], ['drain', drainGaps().length], ['frozen', frozenGaps().length],
-  ['folders', foldersGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['mirror', mirrorGaps().length], ['lanes', lanesGaps().length], ['sources', sourcesGaps().length], ['dormant', dormantGaps().length],
+  ['folders', foldersGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['mirror', mirrorGaps().length], ['lanes', lanesGaps().length], ['sources', sourcesGaps().length], ['dormant', dormantGaps().length], ['pages', pagesGaps().length],
   ['words', wordsGaps().length], ['counts', countsGaps().length], ['lines', linesGaps().length],
   ['grid', gridGaps().length],
   ['pairs', pairsGaps().length],

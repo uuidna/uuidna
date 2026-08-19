@@ -1005,6 +1005,45 @@ export function dormantGaps(): Gap[] {
   return gaps
 }
 
+// ── pages: EVERY AUTHORED PAGE REDUCES TO A THEOREM COMBINATION, OR DECLARES WHY IT DOES NOT. The site is 1432
+// pages and 1399 of them already come from TWO templates (/theorem/[key] over the whole ledger, /publications/[slug]
+// over the monographs) with the sidebar computed by computeSidebar() — no hand-typed navigation anywhere. The 33
+// authored markdown pages are the remainder, and the question this settles is what each one STANDS ON.
+// Measured 2026-08-19: 28 of 33 fold to a real theorem set (captain-claims to 1326, school to 58, mcp to 19), and
+// the other five earn their place another way — rosetta and topics compute from a .data loader, guides is a link
+// index, changelog and analytics are generated artifacts. So the involution already held; this keeps it holding.
+// A page that ASSERTS while standing on nothing is the gap — it cannot be recomputed, and nothing catches it drifting.
+// HONEST SCOPE: a page's theorem fold is its BACKING, not its meaning. Prose is not removed and not generated — the
+// captain's rule is that values compute while prose stays authored, and a fold records which proofs a page rests on.
+export function pagesGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const docs = join(ROOT, 'docs')
+  if (!existsSync(docs)) return gaps
+  const keys = new Set(theorems().map((t) => t.key))
+  // declared non-asserting pages: an index of links, or an artifact a generator owns. MAY ONLY SHRINK.
+  const EXEMPT: Record<string, string> = {
+    'guides.md': 'a link index — it navigates, it does not assert',
+    'changelog.md': 'generated: sync-changelog stamps it from the ledger',
+    'analytics.md': 'generated: gen-analytics writes it (declared in RECONCILE_OUTPUTS)',
+  }
+  for (const f of readdirSync(docs).filter((x) => x.endsWith('.md')).sort()) {
+    const s = readFileSync(join(docs, f), 'utf8')
+    const cites = [...s.matchAll(/\/theorem\/([a-z0-9_]+)|theorem\s+([a-z][a-z0-9_]{4,})/gi)]
+      .map((m) => (m[1] || m[2] || '').toLowerCase()).filter((k) => keys.has(k))
+    if (cites.length) continue                       // stands on a real theorem combination
+    if (/<script setup|\.data'/.test(s)) continue    // computed from a build-time data loader
+    if (f in EXEMPT) continue                        // declared, with its reason
+    gaps.push({
+      what: `docs/${f} asserts without standing on anything — it cites no sealed theorem, loads no data, and is not a declared index or generated artifact`,
+      fix: `cite the theorems the page rests on (a /theorem/<key> link or "theorem <key>"), or compute it from a .data loader, or declare it in pagesGaps's EXEMPT map with the reason it asserts nothing. A page that cannot be reduced to a theorem combination cannot be recomputed, and nothing will catch it drifting.`,
+    })
+  }
+  for (const f of Object.keys(EXEMPT))
+    if (!existsSync(join(docs, f)))
+      gaps.push({ what: `pagesGaps EXEMPT still names docs/${f}, which no longer exists`, fix: `remove '${f}' from the EXEMPT map — the list may only shrink` })
+  return gaps
+}
+
 // ── micro: THE MICRODATA FINDER — the machine-readable layer under the same law as the prose: every JSON-LD
 // identifier on the built site must be a real address shape, every hasPart key a sealed theorem. No matter what
 // the microdata says, it is audited. ──
