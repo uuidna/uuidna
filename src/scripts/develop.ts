@@ -36,6 +36,14 @@ const CURES: Cure[] = [
   { name: 'heartbeats missing', when: /heartbeats cover the ledger|MISSING \d+: [a-z_]/,
     cmd: 'node dist/scripts/lean-heartbeats.js --sync',
     because: 'the delta mode measures only the new keys — NOT --all, which spawns a kernel per theorem and burned ninety minutes once' },
+  // Found 2026-08-19 by adding a drain path (src/chunks) and watching the gate object with a cure the pass could
+  // not apply: .gitattributes is GENERATED from DRAIN_PATHS, so declaring a new derived path always leaves the
+  // mark stale until someone runs the generator. Deterministic, single-command, and the finder already prints the
+  // exact cure — everything a cure needs, and it was reachable only by a human. Placed ABOVE the filename cures:
+  // the objection names a drain path, so a filename rule would otherwise match it and regenerate the wrong thing.
+  { name: 'gitattributes mark missing', when: /does not mark it unmergeable/,
+    cmd: 'node dist/scripts/gen-gitattributes.js',
+    because: '.gitattributes is generated from DRAIN_PATHS and never hand-edited; a new derived path has no merge, only a recomputation, so the mark is regenerated rather than written' },
   { name: 'support-audit drift', when: /support-audit\.json/,
     cmd: 'node dist/scripts/support.js',
     because: 'a new module changed the reachability count; the audit is derived, so regenerate rather than edit' },
