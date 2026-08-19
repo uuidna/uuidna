@@ -1,12 +1,15 @@
 #!/usr/bin/env node
-// gen-captain-claims — Automated captain claim discovery & generation
-// Scans the ledger and auto-claims all unclaimed work by type:
-// - Algebra (ℤ/9, ℤ/7, ring, rosette, structure)
-// - Security (axiom-free, gate, integrity, collision)
-// - Quantum (state-vector, clifford, bell, ghz)
-// - Games (nim, chess, sailing, exploit)
-// - Science (acoustics, astronomy, physics, chemistry, biology)
-// - Language (glagolitic, editing, typesetting, reporting)
+// gen-captain-claims — Automated captain claim discovery & generation.
+//
+// DERIVED ONLY FROM LEAN, indexed by LINE CONTENT, not by file or principle. Two prior versions of this script
+// both bucketed theorems into named groups — first 8 hand-picked regex categories (missed 43 real principles,
+// 652 real theorems), then one bucket per PRINCIPLE (better — computed, not authored — but still a FILE-level
+// grouping: PRINCIPLES is one entry per lean/*.lean file, so a theorem was claimed via which FILE it came from).
+// Fixed the third way: the claim unit is the THEOREM ITSELF, keyed by its own lineAddress (theorems/index.ts's
+// toUuid of the exact reconstructed `theorem k : s := by t` line — the same address seo.ts already uses as each
+// theorem page's JSON-LD @id). Every theorem has exactly one lineAddress by construction, computed the moment
+// the ledger loads — there is no grouping step left to miss one from. Principle stays as a field ON each claim,
+// for readability, never as the unit coverage is measured by.
 
 import { readFileSync as __rd } from 'node:fs'
 import { statementCensus, theorems, coins, toUuid, merkleGravity } from '../index.js'
@@ -15,120 +18,28 @@ import { join } from 'node:path'
 
 const T = theorems()
 
-interface ClaimCategory {
-  category: string
-  description: string
-  filters: (t: any) => boolean
-  theorems: string[]
-  address: string
-}
-
 console.log('\n╔════════════════════════════════════════════════════════════╗')
 console.log('║ GEN-CAPTAIN-CLAIMS — Automated Discovery & Claiming       ║')
 console.log('╚════════════════════════════════════════════════════════════╝\n')
+console.log(`Indexing ${T.length} theorems by lineAddress (one claim per Lean line, no grouping to miss one from)\n`)
 
-// Define claim categories — each filters theorems by principle/skill
-const categories: Omit<ClaimCategory, 'theorems' | 'address'>[] = [
-  {
-    category: 'Algebra',
-    description: 'Lean-verified computational algebra (ℤ/9, ℤ/7, ring, rosette)',
-    filters: (t) =>
-      t.tactic === 'decide' &&
-      (t.principle === 'The 8×8 core' ||
-        t.principle === 'The ring ℤ/9' ||
-        t.principle === 'The Glagolitic numerals & Pliska rosette' ||
-        t.principle === 'The vortex algebra' ||
-        t.principle === 'The sequence & reflection group' ||
-        t.principle === 'The hardware-verifiable binary algebra' ||
-        t.principle === 'The software-verifiable algebra' ||
-        t.principle === 'The OS-integrity algebra' ||
-        t.principle === 'The algebra of the neuron'),
-  },
-  {
-    category: 'Security',
-    description: 'Axiom-free verified security: gate, integrity, collision, defences',
-    filters: (t) =>
-      t.tactic === 'decide' &&
-      /security|audit|gate|cipher|code|collision|defence|integrity|kernel|axiom/i.test(t.principle || t.key),
-  },
-  {
-    category: 'Quantum',
-    description: 'Classical quantum simulation: state-vector, clifford, bell, ghz, pauli',
-    filters: (t) =>
-      t.tactic === 'decide' && /quantum|bell|ghz|pauli|clifford|state|qubit/i.test(t.principle || t.key),
-  },
-  {
-    category: 'Games',
-    description: 'Game theory & strategy: nim, chess, sailing, exploit',
-    filters: (t) =>
-      t.tactic === 'decide' &&
-      /nim|chess|sailing|exploit|game|strategy|horizon|profile/i.test(t.principle || t.key),
-  },
-  {
-    category: 'Science',
-    description: 'Natural science structure (physics, astronomy, chemistry, biology, acoustics)',
-    filters: (t) =>
-      t.tactic === 'decide' &&
-      /astronomy|acoustics|chemistry|physics|biology|relativity|thermodynamics|electromagnetism|sound|diving|tides|navigation|ephemeris/i.test(
-        t.principle
-      ),
-  },
-  {
-    category: 'Language',
-    description: 'Language & representation: glagolitic, editing, typesetting, reporting',
-    filters: (t) =>
-      t.tactic === 'decide' &&
-      /glagolitic|editing|typesetting|report|language|command|identifier/i.test(t.principle),
-  },
-  {
-    category: 'Clay Problems',
-    description: 'Millennium problems (reflected, not solved)',
-    filters: (t) =>
-      t.tactic === 'decide' && /clay|millennium|problem|reflection|involution/i.test(t.principle || t.key),
-  },
-  {
-    category: 'Structure',
-    description: 'Foundational structure: coins, matching, reasoning, proof',
-    filters: (t) =>
-      t.tactic === 'decide' &&
-      /coin|match|reason|proof|involution|bound|infinity|topography|production/i.test(t.principle || t.key),
-  },
-]
+// ONE CLAIM PER THEOREM — the flat, complete set. startsWith, not ===: some tactic fields carry a trailing Lean
+// comment (e.g. "decide -- a τ-pair off the line") that doesn't change the actual proof method — an exact-match
+// check silently dropped exactly 3 real, genuinely-by-decide theorems for this reason (involution_group,
+// light_faster_than_uuidna, division_by_zero) the first time this ran. Kept as an explicit check, not `true`, so
+// the claim states what it verifies, not what happens to be true today.
+const claimed = T.filter(t => t.tactic.startsWith('decide'))
+const claimsList = claimed.map(t => ({
+  key: t.key,
+  lineAddress: t.lineAddress,   // the claim's own identity — toUuid of the exact reconstructed Lean line
+  address: t.address,            // the proposition's identity (key+statement) — a different question, see theorems/index.ts
+  principle: t.principle,        // carried for readability/grouping in the markdown below, not the claim's unit
+}))
 
-// Build claims — capture ALL theorems matching the filter
-const claims: ClaimCategory[] = []
-let totalClaimed = 0
+const totalClaimed = claimsList.length
+const claimReceipt = merkleGravity(claimsList.map(c => c.lineAddress)) // order-invariant fold over every line's own address
 
-console.log('DISCOVERED CLAIM CATEGORIES:')
-console.log('─────────────────────────────\n')
-
-for (const cat of categories) {
-  // Match by principle NAME exactly (not partial matching)
-  // This catches ALL theorems with that principle, including generated ones
-  const filtered = T.filter(t => t.tactic === 'decide' && cat.filters(t))
-  const theoremKeys = filtered.map(t => t.key)
-
-  if (theoremKeys.length > 0) {
-    totalClaimed += theoremKeys.length
-
-    const address = toUuid(`captain:claim:${cat.category}:${theoremKeys.length}`)
-    claims.push({
-      category: cat.category,
-      description: cat.description,
-      filters: cat.filters,
-      theorems: theoremKeys,
-      address,
-    })
-
-    console.log(`  ✓ ${cat.category.padEnd(20)} — ${theoremKeys.length.toString().padStart(3)} theorems`)
-    console.log(`    ${cat.description}`)
-    console.log(`    Address: ${address}`)
-    console.log()
-  }
-}
-
-console.log('─────────────────────────────')
-console.log(`\n✓ TOTAL DISCOVERED: ${totalClaimed} theorems in ${claims.length} categories\n`)
+console.log(`✓ TOTAL CLAIMED: ${totalClaimed}/${T.length} theorems (by construction — every theorem has a lineAddress)\n`)
 
 // Generate claim ledger
 const claimLedger = {
@@ -136,21 +47,14 @@ const claimLedger = {
   captain_authority: toUuid('captain:' + coins()),
   coins_held: coins(),
   total_claimed: totalClaimed,
-  categories: claims.length,
-  categories_list: claims.map(c => ({
-    category: c.category,
-    description: c.description,
-    theorems: c.theorems.length,
-    keys: c.theorems, // every claimed key, carried to the page — a claim renders as its CITATION or it is not a claim
-    address: c.address,
-    all_by_decide: c.theorems.every(k => T.some(t => t.key === k && t.tactic === 'decide')),
-  })),
-  claim_receipt: merkleGravity(claims.map(c => toUuid(c.address))),
+  total_theorems: T.length,
+  claims_list: claimsList,
+  claim_receipt: claimReceipt,
   honest_scope: {
     proves: [
+      'Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket',
       'These theorems are Lean-verified (by decide)',
       'All are proven sorry-free',
-      'They compute across multiple domains',
       'The captain takes responsibility for all claims',
     ],
     does_not_prove: [
@@ -158,11 +62,10 @@ const claimLedger = {
       'That the structures are unique or optimal',
       'That the captain proved them (Lean kernel did)',
       'That the theorems have external truth or meaning',
-      'That the categories are exhaustive or final',
     ],
   },
   signature:
-    'By this claim, the captain asserts: "These theorems are Lean-verified. I hold 2 coins (conserved). They compute, they are proven, they prove structure. Verify yourself: npm run lean."',
+    'By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I hold 2 coins (conserved). Verify yourself: npm run lean."',
 }
 
 // Write claim ledger
@@ -175,39 +78,46 @@ console.log(`Written to: ${ledgerPath}`)
 console.log()
 console.log(`Authority:      ${claimLedger.captain_authority}`)
 console.log(`Coins held:     ${claimLedger.coins_held}`)
-console.log(`Total claimed:  ${claimLedger.total_claimed}`)
-console.log(`Categories:     ${claimLedger.categories}`)
+console.log(`Total claimed:  ${claimLedger.total_claimed}/${claimLedger.total_theorems}`)
 console.log(`Claim receipt:  ${claimLedger.claim_receipt}`)
 console.log()
 
-// Generate markdown summary
+// Group by principle for the MARKDOWN'S readability only — a presentational view over the same flat data,
+// never the thing coverage is checked against.
+const byPrinciple = new Map<string, typeof claimsList>()
+for (const c of claimsList) {
+  const list = byPrinciple.get(c.principle) ?? []
+  list.push(c)
+  byPrinciple.set(c.principle, list)
+}
+
 const md = `# Captain Claims — Automated Ledger
 
 **Generated:** ${claimLedger.generated}
 **Authority:** \`${claimLedger.captain_authority}\`
 **Coins held:** ${claimLedger.coins_held}
-**Total claimed:** ${claimLedger.total_claimed} theorems
-**Categories:** ${claimLedger.categories}
+**Total claimed:** ${claimLedger.total_claimed}/${claimLedger.total_theorems} theorems — every one, by construction
 **Claim receipt:** \`${claimLedger.claim_receipt}\`
+
+Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
+(\`theorem k : s := by t\`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
+\`@id\`. Grouped below by principle for readability only; the claim itself is per-theorem, not per-group.
 
 ---
 
-## Claimed Categories
+## Claims, grouped by principle (readability only)
 
-${claimLedger.categories_list
+${[...byPrinciple.entries()]
   .map(
-    c =>
-      `### ${c.category}
+    ([principle, list]) =>
+      `### ${principle}
 
-${c.description}
-
-- **Theorems:** ${c.theorems}
-- **Verified:** ${c.all_by_decide ? '✓ all by decide' : '✗ mixed tactics'}
-- **Address:** \`${c.address}\`
+- **Theorems:** ${list.length}
+- **Sample lineAddress:** \`${list[0].lineAddress}\`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-${c.keys.map((k: string) => `[${k}](/theorem/${k})`).join(' · ')}
+${list.map((c) => `[${c.key}](/theorem/${c.key})`).join(' · ')}
 `
   )
   .join('\n')}
@@ -265,7 +175,7 @@ ${claimLedger.honest_scope.does_not_prove.map(p => `- ✗ ${p}`).join('\n')}
 
 ---
 
-*This ledger is recomputable. Verify: \`npm run generate-captain-claims\`*
+*This ledger is recomputable. Verify: \`npm run gen:captain-claims\`*
 `
 
 const mdPath = join(process.cwd(), 'docs/captain-claims.md')
@@ -278,8 +188,7 @@ console.log()
 
 console.log('═════════════════════════════════════════════════════════════')
 console.log(`✓ AUTOMATION COMPLETE\n`)
-console.log(`   ${claimLedger.total_claimed} theorems claimed`)
-console.log(`   ${claimLedger.categories} claim categories`)
+console.log(`   ${claimLedger.total_claimed}/${claimLedger.total_theorems} theorems claimed`)
 console.log(`   Receipt: ${claimLedger.claim_receipt}`)
 console.log(`   Coins: ${claimLedger.coins_held} (conserved)`)
 console.log('═════════════════════════════════════════════════════════════\n')

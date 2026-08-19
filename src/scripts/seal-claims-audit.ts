@@ -3,7 +3,7 @@
 // Ensures no unclaimed work escapes detection, no orphaned claims exist,
 // and all claims are recomputable (same receipt on every run)
 
-import { theorems, coins, toUuid, merkleGravity } from '../index.js'
+import { theorems, coins, merkleGravity } from '../index.js'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -34,12 +34,16 @@ try {
 // Count claimed theorems from the ledger
 const allClaimedCount = claimsLedger.total_claimed || 0
 
-// Find unclaimed theorems (those not in any claimed category principle)
-const claimedPrinciples = new Set(
-  claimsLedger.categories_list?.map((c: any) => c.category) || []
+// Find unclaimed theorems — those whose KEY doesn't appear in claims_list (one entry per theorem, keyed by its
+// own lineAddress; see gen-captain-claims.ts). Two earlier bugs lived here in turn: first this compared
+// t.principle against a Set of CATEGORY NAMES like "Algebra" (never matches — a theorem's principle is never
+// literally equal to a category label), then it read a categories_list/keys[] shape gen-captain-claims.ts no
+// longer emits at all, now that claims are per-theorem, not per-bucket.
+const claimedKeys = new Set<string>(
+  (claimsLedger.claims_list || []).map((c: any) => c.key)
 )
 const unclaimedKeys = T
-  .filter(t => !claimedPrinciples.has(t.principle))
+  .filter(t => !claimedKeys.has(t.key))
   .map(t => t.key)
   .slice(0, 20) // Show first 20 unclaimed
 
@@ -64,8 +68,10 @@ if (T.length - allClaimedCount > 0) {
 console.log('RECOMPUTABLE VERIFICATION:')
 console.log('─────────────────────────────')
 
-const categoryReceipts = claimsLedger.categories_list?.map((c: any) => toUuid(c.address)) || []
-const recomputedReceipt = merkleGravity(categoryReceipts)
+// Matches gen-captain-claims.ts exactly: an order-invariant fold over every claim's OWN lineAddress — no
+// re-hashing, the same values the generator folded.
+const claimLineAddresses = (claimsLedger.claims_list || []).map((c: any) => c.lineAddress)
+const recomputedReceipt = merkleGravity(claimLineAddresses)
 
 console.log(`Original receipt:   ${claimsLedger.claim_receipt}`)
 console.log(`Recomputed receipt: ${recomputedReceipt}`)
@@ -115,7 +121,7 @@ console.log()
 
 if (auditGate.passed) {
   console.log('✓ CAPTAIN CLAIMS SEALED — Ready for deploy')
-  console.log(`  All ${T.length} theorems claimed in ${claimsLedger.categories} categories`)
+  console.log(`  All ${T.length} theorems claimed, each by its own lineAddress`)
   console.log(`  Receipt is recomputable and matches`)
   console.log(`  Captain authority verified (${coins()} coins conserved)`)
 } else {

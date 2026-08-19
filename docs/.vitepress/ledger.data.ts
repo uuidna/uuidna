@@ -16,7 +16,11 @@ export type Theorem = {
   skill: string
   lean: string
   address: string
-  aura: { hsl: string; ray: number }   // the A432 quantum aura folded from the address at build time (deterministic)
+  lineAddress: string
+  aura: { hsl: string; ray: number }       // the A432 quantum aura folded from address (the PROPOSITION's colour)
+  lineAura: { hsl: string; ray: number }   // the A432 quantum aura folded from lineAddress (the exact Lean LINE's
+                                            // own colour — quantumAura only ever reads the address's first 8 hex
+                                            // chars, so this is genuinely a different colour, not address's twin)
 }
 
 export type PrincipleGroup = {
@@ -68,11 +72,13 @@ export default {
   // Rebuild the ledger whenever the compiled package changes.
   watch: ['../../dist/index.js'],
   load(): LedgerData {
-    // The aura is content-addressed and deterministic, so it folds HERE, at build time — no client-side recompute.
-    // Only hsl + ray ship (the full Aura carries a per-address CSS block; 1132 of those would bloat the page data).
+    // Both auras are content-addressed and deterministic, so they fold HERE, at build time — no client-side
+    // recompute. Only hsl + ray ship per aura (the full Aura carries a per-address CSS block; shipping both in
+    // full for 1308 theorems would bloat the page data past what any consumer here actually reads).
     const LEDGER: Theorem[] = theorems().map((t) => {
       const a = quantumAura(t.address)
-      return { ...t, aura: { hsl: a.hsl, ray: a.ray } }
+      const la = quantumAura(t.lineAddress)
+      return { ...t, aura: { hsl: a.hsl, ray: a.ray }, lineAura: { hsl: la.hsl, ray: la.ray } }
     })
     const trial = runTrial()
     const blurb = Object.fromEntries(PRINCIPLES.map((p: string[]) => [p[1], p[2]])) as Record<string, string>

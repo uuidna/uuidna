@@ -87,7 +87,14 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
     const description = `${t.statement} — proven by ${t.tactic ?? 'decide'} in Lean 4, sorry-free (no Mathlib); part of ${t.principle}.`
     const keywords = [t.skill, t.principle].filter(Boolean) as string[]
     const jsonLd = {
-      '@context': 'https://schema.org', '@type': 'ScholarlyArticle', headline: t.name, abstract: t.statement,
+      '@context': 'https://schema.org',
+      // @id is the JSON-LD node's own linked-data identity — a real URI (urn:uuid:, RFC 4122), distinct from
+      // schema.org's `identifier` property below. Two different addresses for two different questions:
+      // identifier (t.address, key+statement) asks "is this the same PROPOSITION"; @id (t.lineAddress, the exact
+      // reconstructed `theorem k : s := by t` line) asks "is this the same reconstructed SOURCE TEXT" — each
+      // computational Lean line indexed as its own computable JSON-LD node, per theorem, live on its own page.
+      '@id': `urn:uuid:${t.lineAddress}`,
+      '@type': 'ScholarlyArticle', headline: t.name, abstract: t.statement,
       identifier: t.address, url: canonical, keywords: keywords.join(', '),
       isBasedOn: `https://github.com/uuidna/uuidna/blob/main/lean/${t.file}`,
       creativeWorkStatus: `Proven by ${t.tactic ?? 'decide'} in Lean 4, sorry-free, axiom-free`,

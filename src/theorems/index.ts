@@ -51,17 +51,26 @@ export function skillOf(key: string): string {
   return 'foundational'
 }
 
-/** A Lean theorem with its reconstructed proof, content-address, and derived skill. */
-export interface Theorem extends LeanTheorem { lean: string; address: string; skill: string }
+/** A Lean theorem with its reconstructed proof, content-address, and derived skill. `address` (key+statement) is
+ *  the ledger-wide identity used everywhere — folds, receipts, JSON-LD `identifier`. `lineAddress` is a DIFFERENT,
+ *  narrower thing: the content-uuid of the reconstructed Lean LINE itself (key+statement+tactic, the literal
+ *  `theorem k : s := by t` text) — for a JSON-LD `@id` that identifies the exact SOURCE TEXT a claim is checked
+ *  against, distinct from `address`'s identity of the PROPOSITION. Two different addresses answer two different
+ *  questions ("is this the same proposition" vs "is this the same literal line"), not a duplicate of one. */
+export interface Theorem extends LeanTheorem { lean: string; address: string; lineAddress: string; skill: string }
 
-const withDerived = (t: LeanTheorem): Theorem => ({
-  ...t,
-  lean: `theorem ${t.key} : ${t.statement} := by ${t.tactic}`,
-  address: toUuid(t.key + ':' + t.statement),
-  // INLINE first: the skill authored in Lean (carried through the manifest → ledger). skillOf(key) is only the
-  // migration fallback for theorems not yet annotated; once every theorem carries an inline skill it is retired.
-  skill: t.skill ?? skillOf(t.key),
-})
+const withDerived = (t: LeanTheorem): Theorem => {
+  const lean = `theorem ${t.key} : ${t.statement} := by ${t.tactic}`
+  return {
+    ...t,
+    lean,
+    address: toUuid(t.key + ':' + t.statement),
+    lineAddress: toUuid(lean),
+    // INLINE first: the skill authored in Lean (carried through the manifest → ledger). skillOf(key) is only the
+    // migration fallback for theorems not yet annotated; once every theorem carries an inline skill it is retired.
+    skill: t.skill ?? skillOf(t.key),
+  }
+}
 
 /** Every Lean-proven theorem, in computing-principle order. */
 export const THEOREMS: readonly Theorem[] = LEAN_LEDGER.map(withDerived)
@@ -124,11 +133,13 @@ export function runTrial(): TrialResult {
   return { count: verdicts.length, verified: verdicts.length, unverified: 0, leanBacked: verdicts.length, receipt, verdicts }
 }
 
-/** The ledger, by reference — each theorem's key, name, statement, Lean proof, principle, skill, source file and
- *  address. Pass `{ skill }` to filter to one skill (the capability axis). */
-export function theorems(opts: { skill?: string } = {}): { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string; lean: string; address: string }[] {
+/** The ledger, by reference — each theorem's key, name, statement, Lean proof, principle, skill, source file,
+ *  address (the proposition's identity) and lineAddress (the exact reconstructed Lean line's identity — see
+ *  Theorem's own doc comment for why these are two different addresses, not one duplicated). Pass `{ skill }`
+ *  to filter to one skill (the capability axis). */
+export function theorems(opts: { skill?: string } = {}): { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string; lean: string; address: string; lineAddress: string }[] {
   const ts = opts.skill ? THEOREMS.filter((t) => t.skill === opts.skill) : THEOREMS
-  return ts.map((t) => ({ key: t.key, name: t.name, statement: t.statement, tactic: t.tactic, file: t.file, principle: t.principle, skill: t.skill, lean: t.lean, address: t.address }))
+  return ts.map((t) => ({ key: t.key, name: t.name, statement: t.statement, tactic: t.tactic, file: t.file, principle: t.principle, skill: t.skill, lean: t.lean, address: t.address, lineAddress: t.lineAddress }))
 }
 
 // CONSOLIDATED INDICES over the immutable ledger — built ONCE at the source and reused everywhere, so no module

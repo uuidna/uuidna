@@ -75,7 +75,8 @@ set in learning order, [the school](/school) rides the doubling orbit out from [
 
 <ul class="tlist tlist-flat" :class="{ 'tlist-aura': aura }">
   <li v-for="t in shown" :key="t.key" :style="aura ? { borderLeftColor: t.aura.hsl } : null">
-    <span v-if="aura" class="tray" :style="{ backgroundColor: t.aura.hsl }" :title="`ray ${t.aura.ray} · ${t.aura.hsl}`">{{ t.aura.ray }}</span>
+    <span v-if="aura" class="tray" :style="{ backgroundColor: t.aura.hsl }" :title="`proposition (address) — ray ${t.aura.ray} · ${t.aura.hsl}`">{{ t.aura.ray }}</span>
+    <span v-if="aura" class="tray tray-line" :style="{ backgroundColor: t.lineAura.hsl }" :title="`exact Lean line (lineAddress) — ray ${t.lineAura.ray} · ${t.lineAura.hsl}`">{{ t.lineAura.ray }}</span>
     <a :href="`/theorem/${t.key}`">{{ t.name }}</a>
     <code class="tstmt">{{ t.statement }}</code>
     <span class="tmeta">{{ t.principle }} · {{ t.skill }}</span>
@@ -129,6 +130,9 @@ The same theorems grouped by skill are on [/topics](/topics); each cluster's mon
 .tlist-flat li { padding: .4rem 0; border-bottom: 1px solid var(--vp-c-divider); }
 .tlist-aura li { border-left: 4px solid transparent; padding-left: .6rem; }
 .tray { display: inline-flex; align-items: center; justify-content: center; width: 1.35rem; height: 1.35rem; border-radius: 50%; margin-right: .45rem; color: white; font-size: .72rem; font-weight: 700; vertical-align: middle; }
+/* the line-content badge rides beside the proposition badge — smaller and square (vs. the circle), so two
+   genuinely different colours (address vs lineAddress) read as two different things, not one repeated. */
+.tray-line { width: 1.1rem; height: 1.1rem; border-radius: 3px; font-size: .62rem; }
 .tlist-flat li > a { font-weight: 600; }
 .tstmt { display: inline-block; margin-left: .5rem; font-size: .82em; color: var(--vp-c-text-2); }
 .tmeta { display: block; font-size: .74em; color: var(--vp-c-text-3); margin-top: .1rem; }

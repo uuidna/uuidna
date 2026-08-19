@@ -7,74 +7,22 @@ import { readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import { quantumSeo, theorems, publications } from '../index.js'
+import { auditJsonLd } from '../schema-org-vocab.js'
 
 // ── THE NAMING AUDIT — the finder, folded ─────────────────────────────────────────────────────────────────────────
-// Every @type and property the SEO surface emits must be VETTED schema.org vocabulary, recorded here with its
-// schema.org URL. Add a new name to seo.ts without vetting it here and this audit fails — naming compliance is a
-// gate, not a one-time hand check. (The name lesson: a name is not its proof; here a name is not schema.org until
-// the vocabulary says so.)
-const SCHEMA_ORG_TYPES: Record<string, string> = {
-  ScholarlyArticle: 'https://schema.org/ScholarlyArticle',
-  WebPage: 'https://schema.org/WebPage',
-  WebSite: 'https://schema.org/WebSite',
-  Dataset: 'https://schema.org/Dataset',
-  Organization: 'https://schema.org/Organization',
-  Person: 'https://schema.org/Person',
-  School: 'https://schema.org/School',
-  MathSolver: 'https://schema.org/MathSolver',
-  SolveMathAction: 'https://schema.org/SolveMathAction',
-  EntryPoint: 'https://schema.org/EntryPoint',
-  Course: 'https://schema.org/Course',
-}
-const SCHEMA_ORG_PROPERTIES: Record<string, string> = {
-  name: 'https://schema.org/name',
-  headline: 'https://schema.org/headline',
-  abstract: 'https://schema.org/abstract',
-  identifier: 'https://schema.org/identifier',
-  url: 'https://schema.org/url',
-  keywords: 'https://schema.org/keywords',
-  isBasedOn: 'https://schema.org/isBasedOn',
-  creativeWorkStatus: 'https://schema.org/creativeWorkStatus',
-  isPartOf: 'https://schema.org/isPartOf',
-  publisher: 'https://schema.org/publisher',
-  mainEntity: 'https://schema.org/mainEntity',
-  description: 'https://schema.org/description',
-  mathExpression: 'https://schema.org/mathExpression',
-  potentialAction: 'https://schema.org/potentialAction',
-  target: 'https://schema.org/target',
-  urlTemplate: 'https://schema.org/urlTemplate',
-  httpMethod: 'https://schema.org/httpMethod',
-  contentType: 'https://schema.org/contentType',
-  isAccessibleForFree: 'https://schema.org/isAccessibleForFree',
-  provider: 'https://schema.org/provider',
-  license: 'https://schema.org/license',
-  copyrightYear: 'https://schema.org/copyrightYear',
-  creditText: 'https://schema.org/creditText',
-  copyrightHolder: 'https://schema.org/copyrightHolder',
-}
-
-// Walk a JSON-LD node: every nested @type must be a vetted type, every key a vetted property.
-function auditNode(node: unknown, where: string, failures: string[]): void {
-  if (Array.isArray(node)) { node.forEach((n, i) => auditNode(n, `${where}[${i}]`, failures)); return }
-  if (!node || typeof node !== 'object') return
-  const rec = node as Record<string, unknown>
-  const type = rec['@type']
-  if (typeof type === 'string' && !(type in SCHEMA_ORG_TYPES)) failures.push(`${where}: unvetted @type "${type}"`)
-  for (const [k, v] of Object.entries(rec)) {
-    if (k === '@context' || k === '@type') continue
-    if (!(k in SCHEMA_ORG_PROPERTIES)) failures.push(`${where}: unvetted property "${k}"`)
-    auditNode(v, `${where}.${k}`, failures)
-  }
-}
+// Every @type and property the SEO surface emits must be VETTED schema.org vocabulary. The vetted list and the
+// walk itself now live in schema-org-vocab.ts — shared with gen-feed.ts's own audit — so this project has ONE
+// vocabulary list, not one private copy per file that happens to emit JSON-LD. (The name lesson: a name is not
+// its proof; here a name is not schema.org until the vocabulary says so.)
 
 test('schema.org naming audit — every emitted @type and property across the WHOLE surface is vetted vocabulary', () => {
   const failures: string[] = []
   const routes = readdirSync(join(ROOT, 'docs'), { withFileTypes: true })
     .filter((e) => e.isFile() && e.name.endsWith('.md'))
     .map((e) => (e.name === 'index.md' ? '/' : '/' + e.name.replace(/\.md$/, '')))
-  for (const route of routes) auditNode(quantumSeo({ route }).jsonLd, `page ${route}`, failures)
-  for (const t of theorems()) auditNode(quantumSeo({ key: t.key }).jsonLd, `theorem ${t.key}`, failures)
-  for (const p of publications()) auditNode(quantumSeo({ slug: p.slug }).jsonLd, `publication ${p.slug}`, failures)
+  for (const route of routes) auditJsonLd(quantumSeo({ route }).jsonLd, `page ${route}`, failures)
+  for (const t of theorems()) auditJsonLd(quantumSeo({ key: t.key }).jsonLd, `theorem ${t.key}`, failures)
+  for (const p of publications()) auditJsonLd(quantumSeo({ slug: p.slug }).jsonLd, `publication ${p.slug}`, failures)
   assert.deepEqual(failures, [], 'unvetted schema.org naming — vet the name (with its schema.org URL) or fix the emission')
 })
 
@@ -120,6 +68,40 @@ test('quantum SEO: /theorems is the SAME Dataset node every theorem cites as isP
   assert.equal(isPartOf['@type'], 'Dataset')
   assert.equal(isPartOf['name'], entity['name'])
   assert.equal(isPartOf['url'], entity['url'])
+})
+
+// Each computational Lean line indexed as its own computable JSON-LD node: @id is the line's content-uuid
+// (RFC 4122 urn:uuid:), distinct from `identifier` (the proposition's content-uuid, key+statement) — two
+// different addresses for two different questions, not one duplicated as two.
+test('quantum SEO: every theorem carries its own line-content @id, distinct from its proposition identifier', () => {
+  const t = theorems()[0]
+  const seo = quantumSeo({ key: t.key })
+  assert.equal(seo.jsonLd['@id'], `urn:uuid:${t.lineAddress}`)
+  assert.equal(seo.jsonLd['identifier'], t.address)
+  assert.notEqual(t.lineAddress, t.address, 'the line address and the proposition address must differ — two different questions')
+  // deterministic and recomputable: same key, same line, same @id, every time
+  const again = quantumSeo({ key: t.key })
+  assert.equal(again.jsonLd['@id'], seo.jsonLd['@id'])
+  // every theorem gets a DISTINCT line address — no two Lean lines collide
+  const all = theorems()
+  const lineAddresses = new Set(all.map((x) => x.lineAddress))
+  assert.equal(lineAddresses.size, all.length, 'every theorem\'s lineAddress must be distinct — a collision would mean two different Lean lines hashed the same')
+})
+
+// The FULL address being distinct (checked above, and by guard.js's own no-address-collision) does NOT guarantee
+// the TRUNCATED 8-hex-char handle stays distinct too — that's the real pigeonhole risk (editor.ts's own handle
+// convention: "the first segment (8 hex) you CITE"; Handle.vue renders exactly this truncation for citation).
+// A collision here would mean two different theorems (or two different Lean lines) cite-alike under the
+// shorthand, silently pointing a reader at the wrong proof. Checked for both address AND lineAddress, since a
+// citation could reasonably shorten either. Automated, not a one-off manual check — this is the actual audit an
+// evocatively-named "quantum collider" idea would want, under its real name: a pigeonhole/birthday-bound check.
+test('theorem handle citation shorthand (first 8 hex chars) has zero collisions, for address and lineAddress', () => {
+  const all = theorems()
+  const handleOf = (addr: string): string => addr.replace(/-/g, '').slice(0, 8)
+  const addressHandles = all.map((t) => handleOf(t.address))
+  const lineHandles = all.map((t) => handleOf(t.lineAddress))
+  assert.equal(new Set(addressHandles).size, all.length, `address-handle collision among ${all.length} theorems — the pigeonhole bound was hit`)
+  assert.equal(new Set(lineHandles).size, all.length, `lineAddress-handle collision among ${all.length} theorems — the pigeonhole bound was hit`)
 })
 
 test('quantum SEO: /quantum-cryptography is a free Course provided by the School node', () => {
