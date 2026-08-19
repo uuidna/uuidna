@@ -38,10 +38,39 @@ const FACTS = [
     why: 'Seven is prime, so ℤ/7 is a field and the rosette closes on itself: 7 leaves no remainder to any of 2,3,4,5,6. That primality is why every non-zero ray has an inverse — the star is whole, none left outside.',
     js: () => [2, 3, 4, 5, 6].every((k) => 7 % k !== 0),
     lean: "theorem pliska_seven_is_prime : (List.range' 2 5).all (fun k => 7 % k != 0) := by decide" },
+
+  // ── THE OTHER ALPHABETIC NUMERALS — Glagolitic's scheme is not unique, and the comparison is arithmetic.
+  // Greek isopsephy and Hebrew gematria letter each glyph the same way (units, tens, hundreds) and READ BY SUM;
+  // Roman numerals letter differently and read by POSITION. Sealing the contrast decides which operation each
+  // script performs — nothing about what any resulting number MEANS.
+  { key: 'alphabetic_three_ranks',
+    why: 'THE SHARED DESIGN OF THE ALPHABETIC NUMERALS. Greek isopsephy and Hebrew gematria use the same architecture Glagolitic does: nine units, nine tens, nine hundreds — 9 + 9 + 9 = 27 signs, the top rank reaching 9 × 100 = 900. That is why 27 glyphs are needed where 22 or 24 letters exist, and why both scripts press extra or final forms into service. One design, three alphabets.',
+    js: () => 9 + 9 + 9 === 27 && 9 * 100 === 900,
+    lean: 'theorem alphabetic_three_ranks : 9 + 9 + 9 = 27 ∧ 9 * 100 = 900 := by decide' },
+
+  { key: 'roman_reads_subtractively',
+    why: 'TWO SCRIPTS, THE SAME TWO SIGNS, DIFFERENT NUMBERS. Roman numerals are POSITIONAL in a way the alphabetic numerals are not: a smaller sign before a larger one subtracts, so IX is 10 − 1 = 9. Glagolitic writes its teens unit-before-ten and still ADDS — one-and-ten is 1 + 10 = 11. The same ordering gesture means subtract in one system and add in the other, and 9 ≠ 11 proves the two rules are not interchangeable.',
+    // computed into bindings, not compared as literals: `9 !== 11` is a type error (no overlap), and the point
+    // is precisely that the two READING RULES disagree on the same pair of signs — so read them, then compare.
+    // the inequality is tested FIRST: in an && chain TS narrows `roman` to the literal 9 once `roman === 9` has
+    // passed, and then flags `roman !== glagolitic` as a no-overlap comparison. Conjunction is commutative, so the
+    // reordered mirror computes exactly the Lean statement's truth.
+    js: () => { const roman: number = 10 - 1, glagolitic: number = 1 + 10; return roman !== glagolitic && roman === 9 && glagolitic === 11 },
+    lean: 'theorem roman_reads_subtractively : 10 - 1 = 9 ∧ 1 + 10 = 11 ∧ 9 ≠ 11 := by decide' },
+
+  { key: 'gematria_ignores_order',
+    why: 'A GEMATRIA VALUE IS A SUM, AND A SUM IS BLIND TO ORDER. Because the letters are added, any rearrangement of the same letters carries the SAME value: 1 + 2 + 3 = 3 + 2 + 1 = 6. So an anagram is numerically indistinguishable from its original, and the value cannot recover which word produced it. This is a property of addition, decided here — not a claim about any tradition that uses it.',
+    js: () => 1 + 2 + 3 === 3 + 2 + 1 && 1 + 2 + 3 === 6,
+    lean: 'theorem gematria_ignores_order : 1 + 2 + 3 = 3 + 2 + 1 ∧ 1 + 2 + 3 = 6 := by decide' },
+
+  { key: 'gematria_forces_collisions',
+    why: 'DIFFERENT WORDS MUST SHARE A VALUE — BY PIGEONHOLE, NOT BY MYSTERY. Over the 22 Hebrew letters there are 22³ = 10648 three-letter strings, while their values (each letter 1…400) can only land between 3 and 1200 — 1198 possible sums. More words than sums, so collisions are FORCED: on average nearly nine strings per value. A shared gematria is therefore the expected case and carries no information on its own; it is the same seats-and-people bound the address layer seals as seats_pigeonhole. HONEST SCOPE: this decides the counting, never the significance anyone assigns to a coincidence.',
+    js: () => 22 * 22 * 22 === 10648 && 1200 - 3 + 1 === 1198 && 10648 > 1198,
+    lean: 'theorem gematria_forces_collisions : 22 * 22 * 22 = 10648 ∧ 1200 - 3 + 1 = 1198 ∧ 10648 > 1198 := by decide' },
 ]
 
 // compute → generate → verify. The Glagolitic numerals and the Pliska rosette's seven-fold — documented arithmetic
 // and geometry, demarcated: the rosette's meaning stays historically debated; only the numbers are sealed.
 emit({ file: 'Glagolitic.lean', skill: 'glagolitic',
-  header: 'GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. Cyril\'s 9th-century script numbered its letters in order: the units 1–9 (Az…Zemlja), the tens and hundreds, combined additively (500+80+3 = 583), with the teens 11–19 written unit-before-ten. The nine units sum to 45 (digital root 9); the Pliska rosette turns on seven rays — the ℤ/7 the rosette layer seals — whose six residues sum to 21 (digital root 3, the primitive root), and 7 is prime so ℤ/7 is a field. HONEST SCOPE: the documented numeral arithmetic and the seven-fold symmetry; the rosette\'s MEANING (the seven planets, the days, the Dulo dynasty, a sun-sign) is historically DEBATED, not decoded here.',
+  header: 'GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. Cyril\'s 9th-century script numbered its letters in order: the units 1–9 (Az…Zemlja), the tens and hundreds, combined additively (500+80+3 = 583), with the teens 11–19 written unit-before-ten. The nine units sum to 45 (digital root 9); the Pliska rosette turns on seven rays — the ℤ/7 the rosette layer seals — whose six residues sum to 21 (digital root 3, the primitive root), and 7 is prime so ℤ/7 is a field. The same three-rank design letters Greek isopsephy and Hebrew gematria (9+9+9 = 27 signs reaching 900), while Roman numerals read by POSITION instead — a smaller sign before a larger subtracts (IX = 9), where Glagolitic\'s unit-before-ten still adds (11), so 9 ≠ 11 shows the rules are not interchangeable. And because a gematria value is a SUM it is blind to order (anagrams collide) and forced to collide by pigeonhole (22³ = 10648 three-letter strings against 1198 possible sums). HONEST SCOPE: the documented numeral arithmetic, the seven-fold symmetry, and the counting properties of letter-sums. What any of it MEANS is NOT decoded here — the rosette\'s reading (seven planets, the days, the Dulo dynasty, a sun-sign) is historically DEBATED, and a shared gematria value is the expected case by pigeonhole, never evidence of a connection. Significance is not decidable; only the arithmetic is.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

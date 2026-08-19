@@ -1,0 +1,12 @@
+{
+  "handle": "0da5b87f",
+  "address": "0da5b87f-8665-8853-bcea-901505160dcb",
+  "statement": "22 * 22 * 22 = 10648 ∧ 1200 - 3 + 1 = 1198 ∧ 10648 > 1198",
+  "tactic": "decide",
+  "keys": [
+    "gematria_forces_collisions"
+  ],
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

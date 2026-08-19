@@ -1,0 +1,12 @@
+{
+  "handle": "46c5dec0",
+  "address": "46c5dec0-9bbd-8332-bcb5-29948732309a",
+  "statement": "10 - 1 = 9 ∧ 1 + 10 = 11 ∧ 9 ≠ 11",
+  "tactic": "decide",
+  "keys": [
+    "roman_reads_subtractively"
+  ],
+  "files": [
+    "Glagolitic.lean"
+  ]
+}
