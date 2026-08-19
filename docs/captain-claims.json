@@ -2,8 +2,8 @@
   "generated": "2026-08-19",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1328,
-  "total_theorems": 1328,
+  "total_claimed": 1329,
+  "total_theorems": 1329,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -7584,6 +7584,12 @@
       "principle": "The layered defence"
     },
     {
+      "key": "wait_covers_margin",
+      "lineAddress": "ce850be2-71f9-8f48-b979-89493d29f619",
+      "address": "ab212eb1-8212-8901-9b43-0e3ea270dd8c",
+      "principle": "The layered defence"
+    },
+    {
       "key": "no_maximum_only_bounds",
       "lineAddress": "65e88118-9b75-8502-9f7d-3353ba357ff3",
       "address": "8dd9e72c-e63a-8fb2-95cf-1fbde2c5f8a5",
@@ -7974,7 +7980,7 @@
       "principle": "The uuid mix space"
     }
   ],
-  "claim_receipt": "d5b2c1aa-cc73-81ad-9bef-cb3e5c6bd290",
+  "claim_receipt": "7b283ba2-883e-82dd-adc2-80c0fce72f00",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

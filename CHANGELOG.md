@@ -14,7 +14,7 @@ theorems). A `.0` bumps development onward.
 ## Roadmap — toward [1.0.0]
 
 A plan, not a promise. **v1.0.0 aims at 1024 theorems** (2¹⁰ — a clean power-of-two milestone), **all `by decide`,
-sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **1244 distinct / 1024 — -220 to go** (1328 keys, 84 deliberate re-namings), across 72 principles.<!-- /LEDGER:TODAY -->
+sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **1245 distinct / 1024 — -221 to go** (1329 keys, 84 deliberate re-namings), across 72 principles.<!-- /LEDGER:TODAY -->
 The versions in between are real, gated releases: each `0.1.x` grows the ledger and must pass `npm run next` (proofs +
 prose + accounts + graph + the changelog self-audit) before it ships. And the honest odometer holds — **1.0.0 comes
 only after the `0.1.x` line is actually published on npm** (today only `0.1.0` is), never by minting forward past an
@@ -26,6 +26,18 @@ Everything before it is not: git is a DAG, not a line, so with only `0.1.0` on n
 still be refactored, reversed, or **folded all the way back to the genesis `0.0.0`** — the reflection turned on
 development itself. Publishing is the involution's fixed point: after it, a version cannot be un-said. So uuidna keeps
 the chance to reverse-develop itself *now*, while the ledger is still free.
+
+## [0.2.4] — computed by the calendar
+
+_Statistics only. This section is emitted by the release job from the sealed ledger; it states what moved, never
+what it meant. The meaning is owed — a human editing this entry is completing it, not correcting it._
+
+- theorems: **1329** · axiom-free 1329/1329 · sorry 0 · offenders 0
+- principles: 72 · MCP tools: 181
+- odometer: 0.2.3 → **0.2.4** (single-digit, monotone, never returning)
+- commits since v0.2.3: 2
+- fold receipt: `92b76cff3765a879`
+- surfaces: npm · GitHub Release · Zenodo standing chain · Zenodo twin chain
 
 ## [0.2.3] — computed by the calendar
 
@@ -269,7 +281,7 @@ pipeline's own gates version what they archive — the Zenodo deposit job names 
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **1244 distinct propositions** under **1328 keys** (84 re-namings — a statement sealed in two wings is one theorem with two names) across **72 principles**, folded to receipt `693b8777-d249-8d11-9490-551508d18fb2`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **1245 distinct propositions** under **1329 keys** (84 re-namings — a statement sealed in two wings is one theorem with two names) across **72 principles**, folded to receipt `744a56da-9f72-831e-909d-33a75da5f331`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added

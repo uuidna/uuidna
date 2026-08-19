@@ -5,29 +5,29 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1244,
-        "keys": 1328,
+        "distinct": 1245,
+        "keys": 1329,
         "renamings": 84,
         "principles": 72,
         "skills": 68,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "693b8777-d249-8d11-9490-551508d18fb2"
+        "ledgerReceipt": "744a56da-9f72-831e-909d-33a75da5f331"
       },
-      "address": "4e21efc7-8004-8714-a026-2413662b1161"
+      "address": "69b87061-b225-8499-8b73-8425d40dd8ba"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1328,
-        "ledgerKeys": 1328,
+        "theoremsMeasured": 1329,
+        "ledgerKeys": 1329,
         "unmeasured": 0,
-        "summedDecideSteps": 325825
+        "summedDecideSteps": 325979
       },
-      "address": "c662844b-93fd-8989-bd32-d6dd32bc4fea"
+      "address": "5c3cd382-0cc9-823d-824a-3cd9f17accaf"
     },
     {
       "title": "Citation audit",
@@ -35,10 +35,10 @@
       "present": true,
       "facts": {
         "publications": 72,
-        "sealedTheorems": 1328,
+        "sealedTheorems": 1329,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "fea9b313-9a4d-8800-a736-c4204ca2d841"
+      "address": "86a03bde-a2e8-8a34-9160-022ffcb799d4"
     },
     {
       "title": "Support audit",
@@ -59,22 +59,22 @@
       "present": true,
       "facts": {
         "workspaces": 6,
-        "version": "0.2.3",
+        "version": "0.2.4",
         "names": "@uuidna/crypto, @uuidna/edge, @uuidna/ledger, @uuidna/mcp, @uuidna/quantum, @uuidna/research"
       },
-      "address": "225b7b29-42a9-81d8-ba34-0e0ce4e530d5"
+      "address": "26fe56c6-5a47-8b27-b046-b6a3cafcfb36"
     },
     {
       "title": "Deployment readiness",
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "92b76cff3765a879",
-        "unifiedFold": "a20b541ee5ee2b2d"
+        "foldReceipt": "925133896979ffc2",
+        "unifiedFold": "a4995ec7f72bfe4c"
       },
-      "address": "6e4a4729-c4c4-8591-bf47-58da124b33cd"
+      "address": "6acb330d-127d-87b8-a402-4cb60c5c728b"
     }
   ],
-  "receipt": "dc9a937e-5a2b-831f-bc14-9d4ecc5d5860",
+  "receipt": "6e713ceb-2ea3-8b89-b370-25b5ac2b9edd",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

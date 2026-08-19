@@ -54,6 +54,17 @@ const FACTS = [
     js: () => 16 < 2 ** 16,
     lean: 'theorem verify_cheaper_than_forge : 16 < 2^16 := by decide' },
 
+  // ── THE RELEASE CHAIN'S ORDERING, AS ARITHMETIC. A tag fires publish and deploy together. `live` verifies
+  // uuidna.com and waits on `publish`, whose prepublishOnly audit runs about nine minutes, while the deploy takes
+  // about two — so the site is already updated when live checks it. That margin is a BUDGET, not a proof, so
+  // live now blocks on the served feed's own identity instead, bounded at forty probes of fifteen seconds. What is
+  // decidable, and worth sealing, is that the bound COVERS the margin: a wait shorter than the gap it must absorb
+  // would fail a release that was merely slow, which is the opposite of the honesty it exists to provide.
+  { key: 'wait_covers_margin',
+    why: 'THE WAIT MUST OUTLAST THE GAP IT ABSORBS. The release chain runs two jobs from one tag: a deploy of about 2 minutes and an audit of about 9, so the worst case a verifier must sit through is 9 − 2 = 7 minutes, or 420 seconds. The bound is 40 probes at 15 seconds = 600 seconds, and 600 > 420 — the wait covers the margin with room, so a release that is merely slow is not failed as if it were broken. HONEST SCOPE: the two durations are the DECLARED BUDGET the chain is designed around, not an observation of the world and not a constant of nature — what is sealed is only the COMPARISON between the bound and the gap. A pipeline whose audit outgrows the budget must widen the bound rather than cite this.',
+    js: () => 40 * 15 === 600 && (9 - 2) * 60 === 420 && 600 > 420,
+    lean: 'theorem wait_covers_margin : (40 * 15 = 600) ∧ ((9 - 2) * 60 = 420) ∧ (600 > 420) := by decide' },
+
   { key: 'no_maximum_only_bounds',
     why: 'There is NO maximum, only bounds: for any keyspace 2^k there is a strictly larger 2^(k+1) — 2^8 < 2^9 (256 < 512). Add a bit and the cost grows; no scheme is the largest. This is why "max tampering cost" is refused — the honest claim is a bound, always exceedable.',
     js: () => 2 ** 8 < 2 ** 9,

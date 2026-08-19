@@ -1,0 +1,12 @@
+{
+  "handle": "483b7f97",
+  "address": "483b7f97-a329-8ac3-a34c-f29de10f0d5f",
+  "statement": "(40 * 15 = 600) ∧ ((9 - 2) * 60 = 420) ∧ (600 > 420)",
+  "tactic": "decide",
+  "keys": [
+    "wait_covers_margin"
+  ],
+  "files": [
+    "Security.lean"
+  ]
+}

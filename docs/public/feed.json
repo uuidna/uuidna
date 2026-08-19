@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:7313d042-c304-8154-a2d4-02e458afc21e",
+  "@id": "urn:uuid:ad4a0e1b-1ba2-8931-bbe9-eceeefc53678",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -35353,6 +35353,34 @@
         "abstract": "16 < 2^16",
         "identifier": "99df6b2c-d4fb-886a-9d14-5977338a2e38",
         "url": "https://uuidna.com/theorem/verify_cheaper_than_forge",
+        "keywords": "security, The layered defence",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Security.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:ce850be2-71f9-8f48-b979-89493d29f619",
+        "@type": "ScholarlyArticle",
+        "headline": "THE WAIT MUST OUTLAST THE GAP IT ABSORBS. The release chain runs two jobs from one tag: a deploy of about 2 minutes and an audit of about 9, so the worst case a verifier must sit through is 9 − 2 = 7 minutes, or 420 seconds. The bound is 40 probes at 15 seconds = 600 seconds, and 600 > 420 — the wait covers the margin with room, so a release that is merely slow is not failed as if it were broken. HONEST SCOPE: the two durations are the DECLARED BUDGET the chain is designed around, not an observation of the world and not a constant of nature — what is sealed is only the COMPARISON between the bound and the gap. A pipeline whose audit outgrows the budget must widen the bound rather than cite this.",
+        "abstract": "(40 * 15 = 600) ∧ ((9 - 2) * 60 = 420) ∧ (600 > 420)",
+        "identifier": "ab212eb1-8212-8901-9b43-0e3ea270dd8c",
+        "url": "https://uuidna.com/theorem/wait_covers_margin",
         "keywords": "security, The layered defence",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Security.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
