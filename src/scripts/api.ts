@@ -12,6 +12,40 @@ import { fileURLToPath } from 'node:url'
 export const HERE = dirname(fileURLToPath(import.meta.url))
 /** the repo root */
 export const ROOT = join(HERE, '..', '..')
+
+// ── USE VERSUS MENTION — THE LAW EVERY RAW-SOURCE CHECK MEETS. A finder that greps source cannot tell a line that
+// DOES a thing from a line that TALKS ABOUT it. This bit four separate checks in one session (2026-08-19), in two
+// opposite directions, and both are now named so the fifth is recognised rather than rediscovered:
+//
+//   FALSE POSITIVE — the check flags the comment explaining it. The determinism scan flagged a comment saying the
+//     builtin maths helper had been avoided; the sources finder flagged a comment saying an observation verb was
+//     deliberately not used; the comments finder flagged its own documentation for using a literal count as the
+//     example. THERE IS NO STRUCTURAL FIX: if a token is banned, it is banned in prose too. The convention is to
+//     describe the forbidden thing IN WORDS and never write its literal form — which is why several comments in
+//     this tree name a helper or an extension descriptively rather than exactly.
+//
+//   FALSE NEGATIVE — the file satisfies the check BY TALKING ABOUT ITSELF. A script documented its own usage with
+//     its compiled name, and the dormancy check read that comment as proof something ran it; any dormant script
+//     could have hidden the same way. THIS ONE IS STRUCTURAL, and selfExcluded() below is the fix.
+//
+// The general rule, from which both follow: EVIDENCE MUST COME FROM SOMEWHERE ELSE. A file is never its own
+// witness, and a check is never satisfied by the sentence describing it.
+
+/** Drop the candidate's own source from a corpus before asking whether anything else refers to it — a file must
+ *  never be its own witness. Pass the candidate's filename and the map of every file being scanned. */
+export function selfExcluded(candidate: string, sources: ReadonlyMap<string, string>): string {
+  return [...sources.entries()].filter(([name]) => name !== candidate).map(([, text]) => text).join('\n')
+}
+
+/** Does one LINE both name a file and carry a runner — i.e. is this an invocation rather than a mention? Reading a
+ *  bare filename counts prose as evidence (a path in a data list, a comment naming a generator, a call that READS
+ *  a script's source); requiring the runner adjacent misses a constructed path built up from parts. One line
+ *  carrying both is the rule that survived testing in both directions. */
+export function invokesFile(corpus: string, base: string): boolean {
+  const named = new RegExp(base.replace(/-/g, '[-]') + '\\.(js|ts)\\b')
+  const runner = /\b(node|execSync|spawn(Sync)?|npm run|x\s+--)\b/
+  return corpus.split('\n').some((line) => named.test(line) && runner.test(line))
+}
 /** read a repo-relative file as utf8 */
 export const rd = (p: string): string => readFileSync(join(ROOT, p), 'utf8')
 /** does a repo-relative path exist */

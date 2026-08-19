@@ -24,7 +24,7 @@ import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
-import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, type Gap } from './api.js'
+import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
 
 // ── record: the three audits (each learned from a REAL manually-found gap, folded so it can never recur unwatched) ──
 
@@ -1001,21 +1001,14 @@ export function dormantGaps(): Gap[] {
     // DISCOVERED, not named: lean-all.ts readdirs every lean-*.ts, so a wing runs on every build with no mention
     if (/^lean-/.test(f)) continue
     const base = f.replace(/\.ts$/, '')
-    const others = [...siblingSrc.entries()].filter(([n]) => n !== f).map(([, v]) => v).join(' ')
     // AN INVOCATION, NOT A MENTION. Matching a bare filename read three kinds of prose as proof something ran:
     // a path inside a data list, a comment naming a generator, and `rd('src/scripts/…')` — which READS a script's
     // source rather than running it. So the pattern requires the RUNNER: `node <path>/<name>.js|.ts`, or the
     // dispatcher form `x -- <name>`. Both extensions count, because node 26 executes TypeScript directly and
     // publish.yml runs await-live that way so the live job needs no install and no build.
-    // ONE LINE MUST NAME BOTH THE FILE AND A RUNNER. Requiring `node <path>` adjacent to the name was too strict:
-    // guard.ts spawns audit-packages as `execSync('node ' + join(HERE, 'audit-packages.js'))`, where the path is
-    // CONSTRUCTED and the two never touch. Matching the bare name was too loose in the other direction, reading a
-    // path in a data list, a comment naming a generator, and `rd('src/scripts/…')` — which reads a script's source
-    // rather than running it — as invocations. So: the file and a runner word on the same line.
-    const b = base.replace(/-/g, '[-]')
-    const named = new RegExp(b + '\\.(js|ts)\\b')
-    const runner = /\b(node|execSync|spawn(Sync)?|npm run|x\s+--)\b/
-    if ((corpus + '\n' + others).split('\n').some((line) => named.test(line) && runner.test(line))) continue
+    // USE VERSUS MENTION, both directions, from api.ts: selfExcluded keeps a file from being its own witness, and
+    // invokesFile demands one line carry both the filename and a runner — see the law stated there in full.
+    if (invokesFile(corpus + '\n' + selfExcluded(f, siblingSrc), base)) continue
     live.push(f)
     if (declared.includes(f)) continue
     gaps.push({
