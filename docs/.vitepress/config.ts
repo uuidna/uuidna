@@ -3,6 +3,7 @@
 
 import { defineConfig } from 'vitepress'
 import { SITE, urlOf } from '../../src/site/index.js'
+import { computeSidebar } from '../../src/site.js'
 import { infuseQuantumPayload } from './uuidna-quantum.js'
 
 // relativePath → clean route (cleanUrls): 'guides.md' → '/guides', 'index.md' → '/'
@@ -34,53 +35,12 @@ export default defineConfig({
       { text: 'Theorems', link: '/theorems' },
     ],
 
-    // The captain's four groups — the ONE categorization, same as the site footer (SiteFooter.vue).
-    sidebar: {
-      '/': [
-        {
-          text: 'The ledger',
-          items: [
-            { text: 'All theorems', link: '/theorems' },
-            { text: 'Topics (by skill)', link: '/topics' },
-            { text: 'The 432 grid', link: '/grid' },
-            { text: 'The trials', link: '/trials' },
-            { text: 'What quantum means', link: '/quantum' },
-            { text: 'Quantum Cryptography (course)', link: '/quantum-cryptography' },
-            { text: 'News (computed)', link: '/news' },
-            { text: 'Articles (computed)', link: '/articles/' },
-            { text: 'Games', link: '/games' },
-          ],
-        },
-        {
-          text: 'Fuse it in',
-          items: [
-            { text: 'The school', link: '/school' },
-            { text: 'MCP tools', link: '/mcp' },
-            { text: 'Chat', link: '/chat' },
-            { text: 'Books', link: '/books' },
-            { text: 'Guides', link: '/guides' },
-            { text: 'Reading dimensions ◈', link: '/dimensions' },
-          ],
-        },
-        {
-          text: 'The captain',
-          items: [
-            { text: "The captain's coins", link: '/captain' },
-            { text: 'The doctrine', link: '/doctrine' },
-            { text: 'Succession', link: '/succession' },
-          ],
-        },
-        {
-          text: 'Verify it yourself',
-          items: [
-            { text: 'The tests', link: '/tests' },
-            { text: 'Analytics', link: '/analytics' },
-            { text: 'Deploy', link: '/deploy' },
-            { text: 'Changelog', link: '/changelog' },
-          ],
-        },
-      ],
-    },
+    // computeSidebar() (src/site.ts) walks the REAL docs/ tree (boundary.ts's lsRoot, Node-only — safe here,
+    // config.ts only ever runs server-side) and groups it by SIDEBAR_CATEGORIES, the one editorial manifest —
+    // not a hand-typed sidebar duplicating a categorisation that also lives, separately, in the homepage table
+    // and SiteFooter.vue. A page that exists but isn't in a category still surfaces, under "More", instead of
+    // silently missing (as ten real pages previously did from the hand-typed version of this array).
+    sidebar: { '/': computeSidebar() },
 
     socialLinks: [
       { icon: 'github', link: SITE.repo },

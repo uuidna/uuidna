@@ -9,9 +9,9 @@
 // overclaim cannot hide in another script. 777 is the MNEMONIC (3 × 7 aligned), expanded to 7 arms for full defensibility.
 // The true number of claim×fold trials actually run is printed below, honestly, never rounded up to the name. It CAN fail (exit 1);
 // a gate rigged to pass would make "ready" mean nothing. Integrity, not truth. Legal soundness. Quantum honesty.
-import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, type PageNode } from '../index.js'
+import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, type PageNode } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
-import { readFileSync, readdirSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 
 const VERSION = JSON.parse(readFileSync(new URL('../../package.json', import.meta.url), 'utf8')).version as string
@@ -20,15 +20,11 @@ const ROSETTE = 7
 let trials = 0            // the true count of individual checks folded into the readiness
 const fails: string[] = []
 
-// Discover the static section pages under docs/ — every .md that is NOT a dynamic-route template ([key].md /
-// [slug].md) — as {route, text}. The same discovery config.ts uses to feed the native pager, so the walk is one.
-const routeOf = (rel: string): string => '/' + rel.replace(/\.md$/, '').replace(/\/index$/, '').replace(/^index$/, '')
-const walkMd = (dir: string, base = ''): string[] => existsSync(dir)
-  ? readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
-      e.isDirectory() ? walkMd(join(dir, e.name), base + e.name + '/')
-      : e.name.endsWith('.md') && !e.name.includes('[') ? [base + e.name] : [])
-  : []
-const staticPages: PageNode[] = walkMd(join(ROOT, 'docs')).map((rel) => ({ route: routeOf(rel), text: routeOf(rel).slice(1) || 'home' }))
+// Discover the static section pages under docs/ — the SAME walk (site.ts's discoverStaticPages, Node-only via
+// boundary.ts's lsRoot) that docs/.vitepress/config.ts now uses to build the live sidebar, so the walk is
+// genuinely one — a page missing from the sidebar and a "next gap" here are the same underlying fact, not two
+// independently hand-maintained lists that can silently disagree.
+const staticPages: PageNode[] = discoverStaticPages()
 
 // QUANTUM-SPEED VERIFY (--verify): the full audit re-proves every theorem `by decide` + tests (O(N), ~80s) — done at
 // PUSH time when the tree was sealed. This mode instead runs preceded by an O(1) `spin --verify` + the millisecond
@@ -126,15 +122,29 @@ console.log(`  ARM 4 · graph    — ${order.length} pages in one wrapping walk 
 console.log(`           coverage — every theorem a node in the walk AND shown in its monograph: ${covered ? 'yes — none invisible, none uncovered' : 'NO (' + notInWalk.length + ' invisible, ' + notShown.length + ' uncovered)'}`)
 const armGraph = merkleGravity([toUuid('pages:' + order.length), toUuid('gaps:' + gap.length), toUuid('covered:' + covered)])
 
-// ── ARM 5 · LEGAL AUDIT — every claim in README/homepage is backed by theorems and legally defensible
-//    (CC BY-NC-ND 4.0 compliant, no false advertising, no misleading implications, honest scope statements).
-const legalClaimsAudited = 7  // 7 major prose claims verified in docs/legal-audit.md
-const legalBackingTheorems = 20 // 20+ theorems back those claims
-const legalCompliant = true   // CC BY-NC-ND 4.0, no health claims, no false advertising
-trials += legalClaimsAudited
-if (!legalCompliant) fails.push(`legal: claims not legally defensible — see docs/legal-audit.md`)
-console.log(`  ARM 5 · legal    — ${legalClaimsAudited} major claims audited, ${legalBackingTheorems}+ backing theorems, CC BY-NC-ND 4.0 compliant: ${legalCompliant ? 'yes' : 'NO'}`)
-const armLegal = merkleGravity([toUuid('claims:' + legalClaimsAudited), toUuid('theorems:' + legalBackingTheorems), toUuid('compliant:' + legalCompliant)])
+// ── ARM 5 · LEGAL AUDIT — README.md and the homepage (docs/index.md), read directly, are the starting point: every
+//    theorem citation either of them makes is run through the SAME slimGate every other prose surface stands on
+//    (no separate lexicon, no separate rule) — a citation to a key not sealed in the ledger drains it, here as
+//    anywhere else. Licensing is checked against the actual text, not asserted: README must carry the CC BY-NC-ND
+//    4.0 line verbatim (it is the canonical statement), the homepage must link to /license (it is not the canonical
+//    statement, just the pointer). Previously this arm was three hardcoded constants citing a docs/legal-audit.md
+//    that does not exist on disk — a gate that could never fail. Fixed: it now reads what it claims to audit.
+const readmeText = readFileSync(join(ROOT, 'README.md'), 'utf8')
+const homepageText = readFileSync(join(ROOT, 'docs/index.md'), 'utf8')
+const readmeGate = slimGate(readmeText)
+const homepageGate = slimGate(homepageText)
+const legalClaimsAudited = readmeGate.cited.length + homepageGate.cited.length
+const legalBackingTheorems = new Set([...readmeGate.real, ...homepageGate.real]).size
+const legalFabricated = [...readmeGate.fabricated.map((k) => `README.md:${k}`), ...homepageGate.fabricated.map((k) => `docs/index.md:${k}`)]
+const licenseInReadme = readmeText.includes('CC BY-NC-ND 4.0')
+const licenseLinkedFromHomepage = /\]\(\/license\)/.test(homepageText)
+const legalCompliant = legalFabricated.length === 0 && licenseInReadme && licenseLinkedFromHomepage
+trials += legalClaimsAudited + 2 // +2 for the two license checks
+for (const f of legalFabricated) fails.push(`legal: ${f} cites a theorem not sealed in the ledger`)
+if (!licenseInReadme) fails.push('legal: README.md does not carry the CC BY-NC-ND 4.0 line verbatim')
+if (!licenseLinkedFromHomepage) fails.push('legal: docs/index.md does not link to /license')
+console.log(`  ARM 5 · legal    — README.md + homepage: ${legalClaimsAudited} theorem citation(s) found, ${legalBackingTheorems} distinct sealed, ${legalFabricated.length} fabricated; license verbatim in README + linked from homepage: ${legalCompliant ? 'yes' : 'NO'}`)
+const armLegal = merkleGravity([toUuid('claims:' + legalClaimsAudited), toUuid('theorems:' + legalBackingTheorems), toUuid('fabricated:' + legalFabricated.length), toUuid('compliant:' + legalCompliant)])
 
 // ── ARM 6 · QUANTUM SCOPE — honest boundaries verified. uuidna CLAIMS quantum capabilities (quantum operations work),
 //    but implemented classically (2^n simulation), not hardware. No quantum ADVANTAGE claimed (Clifford-simulable).
@@ -152,22 +162,31 @@ if (!noQuantumAdvantageOverClassical) fails.push(`quantum: quantum advantage cla
 console.log(`  ARM 6 · quantum  — capabilities claimed: ${quantumCapabilitiesClaimed ? 'yes' : 'NO'} (42 theorems); classical proven: ${classicalImplementationProven ? 'yes' : 'NO'}; honest boundary: ${honestBoundaryProven ? 'yes' : 'NO'}; no advantage claimed: ${noQuantumAdvantageOverClassical ? 'yes' : 'NO'}`)
 const armQuantum = merkleGravity([toUuid('capabilities:' + quantumCapabilitiesClaimed), toUuid('classical:' + classicalImplementationProven), toUuid('honest:' + honestBoundaryProven), toUuid('verified:' + verificationSpeedupMeasured)])
 
-// ── ARM 7 · PROSE EVIDENCE — every claim in README/homepage linked to backing theorems (docs/prose-evidence.md).
-//    Automated via gen-prose-evidence.ts. If a theorem leaves the ledger, its proof vanishes. Live document.
+// ── ARM 7 · PROSE EVIDENCE — every claim in docs/prose-evidence.md (generated by gen-prose-evidence.ts, not
+//    touched here) is a **Prose:** "..." quote it says README.md or the homepage carries. Counting its headings
+//    only proves the evidence FILE is non-empty — it says nothing about whether README/homepage still say what the
+//    file claims they say. So each quote is checked against readmeText + homepageText (read once, in ARM 5) —
+//    README/homepage stay the starting point here too, not the derived file alone. A quote no longer found verbatim
+//    in either is DRIFT: the prose changed (or was removed) after the evidence was generated, so the file is now
+//    citing text that does not exist — the same staleness class as reports.json's three-day-stale ledger count.
 const proseEvidencePath = join(ROOT, 'docs/prose-evidence.md')
 const proseEvidenceExists = existsSync(proseEvidencePath)
 let proseClaimsBacked = 0
+let proseQuotesDrifted: string[] = []
 if (proseEvidenceExists) {
   try {
     const evidence = readFileSync(proseEvidencePath, 'utf8')
-    proseClaimsBacked = (evidence.match(/## /g) || []).length - 1  // count claims (first ## is title)
+    const quotes = [...evidence.matchAll(/\*\*Prose:\*\* "((?:[^"\\]|\\.)*)"/g)].map((m) => m[1])
+    proseClaimsBacked = quotes.length  // the count of actual **Prose:** entries — not a heading-minus-title guess
+    proseQuotesDrifted = quotes.filter((q) => !readmeText.includes(q) && !homepageText.includes(q))
   } catch { /* evidence file unreadable */ }
 }
 trials += proseClaimsBacked || 1
 if (!proseEvidenceExists) fails.push(`evidence: docs/prose-evidence.md missing — prose claims must link to theorems`)
 if (proseClaimsBacked < 5) fails.push(`evidence: only ${proseClaimsBacked} claims backed (expect ≥6) — run gen-prose-evidence.ts`)
-console.log(`  ARM 7 · evidence — prose claims audited: ${proseClaimsBacked || 0}, evidence ledger exists: ${proseEvidenceExists ? 'yes' : 'NO'}`)
-const armEvidence = merkleGravity([toUuid('claims:' + proseClaimsBacked), toUuid('exists:' + proseEvidenceExists)])
+for (const q of proseQuotesDrifted.slice(0, 5)) fails.push(`evidence: drifted — "${q.slice(0, 60)}${q.length > 60 ? '…' : ''}" is no longer in README.md or docs/index.md — regenerate docs/prose-evidence.md`)
+console.log(`  ARM 7 · evidence — prose claims audited: ${proseClaimsBacked}, evidence ledger exists: ${proseEvidenceExists ? 'yes' : 'NO'}, quotes still found in README/homepage: ${proseClaimsBacked - proseQuotesDrifted.length}/${proseClaimsBacked}`)
+const armEvidence = merkleGravity([toUuid('claims:' + proseClaimsBacked), toUuid('exists:' + proseEvidenceExists), toUuid('drifted:' + proseQuotesDrifted.length)])
 
 // ── THE FOLD — the seven arms fold on the rosette to one readiness receipt (order-invariant, recomputable by anyone).
 const readiness = merkleGravity([armProofs, armProse, armAccounts, armGraph, armLegal, armQuantum, armEvidence])

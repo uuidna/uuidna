@@ -164,7 +164,7 @@ export { composePublication, publications, coverage, auditPublication, revisePub
 export { fileReport, type FiledReport } from './reporter.js'
 // site — the ONE navigable graph: every page in a canonical wrapping order (no next-gap, no orphan). The native
 // pager and the release gate both read `next` from this, so the button clicked and the gap hunted are one edge.
-export { canonicalOrder, nextOf, gaps, type PageNode } from './site.js'
+export { canonicalOrder, nextOf, gaps, discoverStaticPages, computeSidebar, SIDEBAR_CATEGORIES, type PageNode, type SidebarGroup } from './site.js'
 // prose-gate — folded to the theorems (the lexical floor is gone): overreachOf drains only a fabricated theorem
 // citation, and reveals everything else. Shared by the provenance audit and the self-trial. See gate.ts for the trial.
 export { overreachOf } from './prose-gate.js'

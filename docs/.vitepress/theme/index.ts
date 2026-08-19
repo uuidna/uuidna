@@ -33,8 +33,10 @@ export default {
   extends: DefaultTheme,
   Layout: () => {
     // Global categorised footer on every page, via the layout-bottom slot. The "next" link is VitePress's OWN
-    // native pager (fed by frontmatter prev/next in config.ts — seqNav) — one next button, the local skill, not a
-    // second custom one that duplicated it and confused the page.
+    // native pager — built-in, derived automatically from the sidebar's own order, which config.ts now computes
+    // (site.ts's computeSidebar, walking the real docs/ tree) rather than hand-typing — one next button, the
+    // local skill, not a second custom one that duplicated it and confused the page. (This comment previously
+    // named a "seqNav" frontmatter mechanism that never existed in config.ts — corrected to what's actually here.)
     // LinkAuditor rides the layout-bottom slot so it mounts on EVERY page and re-audits on each route change — the
     // UI follows any link and audits its destination from the referrer-only perspective, automatically, by default.
     // Dimensions rides the same slot — the involution control on every page: fold the reading experience to its
