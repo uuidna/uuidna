@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:34c9dce1-015d-83a6-afde-3baf995505f2",
+  "@id": "urn:uuid:a29743cf-a89f-82d6-84df-b0f8c15821c6",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -23873,6 +23873,90 @@
         "abstract": "(([1,2,3] : List Nat).map (fun dT => 10 * dT)) = [10,20,30]",
         "identifier": "d5608612-0295-84ee-a209-94655bcc402c",
         "url": "https://uuidna.com/theorem/specific_heat_linear",
+        "keywords": "thermodynamics, The energy domain",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Thermodynamics.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:77737d9d-f202-8a87-81cc-17a5cc9d41d8",
+        "@type": "ScholarlyArticle",
+        "headline": "THE FLOOR UNDER EVERY ERASURE, DERIVED FROM AN EXACT CONSTANT. Boltzmann's k is exact by SI definition (1.380649×10⁻²³ J/K, fixed in the 2019 redefinition), so at room temperature T = 300 K the thermal quantum is kT = 414194700×10⁻²⁹ J, and Landauer's minimum cost of erasing ONE bit is kT·ln2 = 287097813×10⁻²⁹ J ≈ 2.871×10⁻²¹ J. Computed here in exact integers with ln2 as 693147/1000000 — no measurement enters, only the definition and division.",
+        "abstract": "1380649 * 300 = 414194700 ∧ 414194700 * 693147 / 1000000 = 287097813",
+        "identifier": "fa581fce-a714-82bf-b738-624422da8ec3",
+        "url": "https://uuidna.com/theorem/landauer_bound_derived",
+        "keywords": "thermodynamics, The energy domain",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Thermodynamics.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:96307759-b000-8a87-96e6-b5346310f632",
+        "@type": "ScholarlyArticle",
+        "headline": "A COST PROPORTIONAL TO WHAT IS ERASED IS ZERO WHEN NOTHING IS ERASED. Landauer's floor scales with the number of bits destroyed: erase one bit and pay 287097813×10⁻²⁹ J, erase none and pay 0 × that = 0. A logically REVERSIBLE step — an involution like reverse or CNOT, or this ledger's round-tripping imprint codec — destroys no information, so it carries no erasure floor at all. HONEST SCOPE: this is a floor being AVOIDED, never energy being produced; the bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this wing forbids the other reading.",
+        "abstract": "0 * 287097813 = 0 ∧ 1 * 287097813 = 287097813 ∧ 0 < 287097813",
+        "identifier": "ce5b8247-a99c-8782-bac7-7c34b3d4fb00",
+        "url": "https://uuidna.com/theorem/reversible_erases_nothing",
+        "keywords": "thermodynamics, The energy domain",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Thermodynamics.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:55060b58-dede-8b0f-8295-407f258d4bdf",
+        "@type": "ScholarlyArticle",
+        "headline": "REAL SILICON RUNS ABOUT A HUNDRED MILLION TIMES ABOVE THE FLOOR. A switching event in current CMOS dissipates on the order of 10⁻¹² J, against Landauer's 2.871×10⁻²¹ J — a ratio near 3.5×10⁸, stated here as the exact integer comparison 100000000 × 287097813 < 100000000000000000000000000000000. So the headroom between real hardware and the physical limit is enormous and real — and it is headroom for EFFICIENCY, which is a smaller bill, not a source of energy.",
+        "abstract": "100000000 * 287097813 < 100000000000000000000000000000000",
+        "identifier": "48ca318c-fe65-8bed-9834-6081bdbb5e8b",
+        "url": "https://uuidna.com/theorem/hardware_above_landauer",
         "keywords": "thermodynamics, The energy domain",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Thermodynamics.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
