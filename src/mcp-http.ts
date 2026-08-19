@@ -25,7 +25,13 @@ import { quantumCubeChallenge, verifyQuantumCube } from './cube.js'
 import { gateVerdict, gateSelfTest, depositCoins, GATE_THEOREMS } from './gate-engine.js'
 
 const PROTOCOL_VERSION = '2025-06-18'          // the MCP protocol revision this endpoint speaks
-const SERVER = { name: 'uuidna', version: '0.1.1' }
+// The version this endpoint ADVERTISES to every client calling initialize. It sat at 0.1.1 through eleven
+// releases while the package reached 0.2.5, so every consumer asking what it was talking to got a false answer —
+// and nothing noticed, because no surface compared the two. It cannot be imported from package.json (rootDir is
+// src, and this runs at the Workers edge with no filesystem), so it is stated here and HELD to package.json by
+// src/tests/mcp-version.test.ts, which fails with the exact line to change. A stated constant is fine; an
+// unchecked one is how this drifted.
+const SERVER = { name: 'uuidna', version: '0.2.5' }
 
 interface HttpTool { name: string; description: string; inputSchema: Record<string, unknown>; run: (a: Record<string, unknown>) => unknown }
 
