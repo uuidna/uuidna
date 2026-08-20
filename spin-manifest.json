@@ -4,15 +4,15 @@
     "lean/PRINCIPLE.md": "b2e9ca73f3578a91",
     "CHANGELOG.md": "76e611d6bc868790",
     "lean/axioms.json": "11f9caad8a828489",
-    "docs/mcp.md": "d51669425f128998",
+    "docs/mcp.md": "539967287b6b8187",
     "audit-citations.json": "01ed8bdc50de860b",
-    "support-audit.json": "023512d144458418",
-    "research-leads.json": "3b4ced31c283850d",
+    "support-audit.json": "3bcdffb8d26185fd",
+    "research-leads.json": "dca5f4a3dc4a837d",
     ".zenodo.json": "036ea4f863a582f1",
-    "reports.json": "304a923f54928a87",
+    "reports.json": "327b47053a4986a9",
     "lean/statement-index.json": "f6954462fe1f81f6",
     "README.md": "dffc8c4f10fa8006",
-    "llm.txt": "077050bf49f88a0c",
+    "llm.txt": "db25fbb0f5af8d7d",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
     "src/chunks/00/476e9d.json": "cc81754bbb7287bb",
@@ -1365,7 +1365,7 @@
     "lean/electromagnetism-manifest.json": "dba5b496d3c487b9",
     "lean/ephemeris-manifest.json": "59526b75e6678b5e",
     "lean/exploits-manifest.json": "a5504aeb0f6485b1",
-    "lean/findings.json": "4c5cdf13840b8e16",
+    "lean/findings.json": "3c9ad2cbc1d8830b",
     "lean/glagolitic-manifest.json": "14b4d6f5771d8703",
     "lean/hardware-manifest.json": "ec1a09552a8d8aaa",
     "lean/harmony-manifest.json": "4b95a92604a38f40",
@@ -1418,5 +1418,5 @@
     "lean/uuidna-manifest.json": "eed4273248c289a4",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd"
   },
-  "receipt": "ea53e888-fa78-821a-8ce2-e30f4a8a3a2b"
+  "receipt": "481ff8db-19bc-8e30-b05a-f2b1834be814"
 }

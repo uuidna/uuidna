@@ -192,7 +192,8 @@ export function adjudicate(statement: string, decidableTest?: () => boolean): Ve
       verdict = 'VERIFIED'; note = 'cites a sealed Lean theorem in the ledger — verified'
     } else {
       verdict = 'UNVERIFIED'
-      note = `cites ${slim.real.length === 1 ? 'a real sealed theorem' : slim.real.length + ' real sealed theorems'} (${slim.real.join(', ')}) that share NO vocabulary with the claim — a real citation is not entailment, so this verifies nothing (not false: the citation is honest, it simply proves nothing about THIS sentence)`
+      const one = slim.real.length === 1
+      note = `cites ${one ? 'a real sealed theorem' : slim.real.length + ' real sealed theorems'} (${slim.real.join(', ')}) that ${one ? 'shares' : 'share'} NO vocabulary with the claim — a real citation is not entailment, so this verifies nothing (not false: the citation is honest, it simply proves nothing about THIS sentence)`
     }
   } else {
     verdict = 'UNVERIFIED'

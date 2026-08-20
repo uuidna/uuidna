@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="187 keys" />
+# MCP tools <Badge type="tip" text="189 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 187 tools below are read from the server's own tool list and
+is **built from the keys**: the 189 tools below are read from the server's own tool list and
 organised into 38 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 8b5b0cce-9231-89b7-bca4-0bbd46580753
+gate CLEAN f0 d0 v0 · ab622368-2cdb-8b59-9776-607eb23898b2
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 187-tool registry folds to its
-order-invariant identity `3ba85c2e-6887-84f2-b439-c736167d7b4f` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 189-tool registry folds to its
+order-invariant identity `f3d8ce57-0d2c-8bac-b5d9-6a6574f3787b` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`187`" />
+## The grid <Badge type="tip" :text="`189`" />
 
-187 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 72 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+189 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 73 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -108,6 +108,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-rosetta-legs"><code>rosetta_legs</code></a>
 <a href="#uuidna-sanitize"><code>sanitize</code></a>
 <a href="#uuidna-scan-publications"><code>scan_publications</code></a>
+<a href="#uuidna-school-apis"><code>school_apis</code></a>
 <a href="#uuidna-security-audit"><code>security_audit</code></a>
 <a href="#uuidna-selftest"><code>selftest</code></a>
 <a href="#uuidna-seo"><code>seo</code></a>
@@ -151,6 +152,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-document"><code>document</code></a>
 <a href="#uuidna-domain-wave"><code>domain_wave</code></a>
 <a href="#uuidna-double-torus"><code>double_torus</code></a>
+<a href="#uuidna-education-jobs"><code>education_jobs</code></a>
 <a href="#uuidna-engine"><code>engine</code></a>
 <a href="#uuidna-entangle"><code>entangle</code></a>
 <a href="#uuidna-evidence"><code>evidence</code></a>
@@ -555,7 +557,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'78'" />
+## Other <Badge type="tip" :text="'80'" />
 
 *skill: other*
 
@@ -975,6 +977,38 @@ THE OPEN EDUCATION API PROJECTION — the sealed ledger served under the field n
 | --- | --- | --- | --- |
 | `resource` | string | no | omit for the profile, or "learning-outcomes" for the lessons |
 | `course` | string | no | a publication slug, to narrow the learning outcomes to one wing |
+
+### `uuidna_school_apis`
+
+THE EUROPEAN EDUCATION APIS BEHIND ONE DOOR — every source PROBED before it was wired, and recorded with what it ACTUALLY answered rather than what its documentation promises. Pass NOTHING for the registry: the wired sources (esco, eurostat, gisco, oeapi), what each serves, its format and access model, and — the point — the NAMED ABSENCES, the sources that could not be called, each with why and what stands in its place (EURES: its documented vacancy search answered 404 and the app path 403, so there is no open door to wire; the European School Education Platform publishes no general read API; there is no EU-wide national school register, so GISCO is the cross-country stand-in at the cost of per-country variation). Pass {source} to CALL one: {source:"esco",text} the EU skill/occupation taxonomy (also {type:"occupation"|"qualification"}), {source:"eurostat",dataset,geo,time} education statistics decoded from JSON-stat 2.0 flat indices to LABELLED observations (or {source:"eurostat",vacancies:true,geo} for the jobs side, jvs_q_nace2), {source:"gisco",country,match} the member states' own school locations with coordinates and levels. Pass {map:true} for the MAPPING: all 68 uuidna skill clusters matched against the European skill taxonomy. HONEST SCOPE: what comes back over the network is EVIDENCE, never a seal — a provenance fingerprint of what a named public source said when asked, exactly as uuidna_corroborate treats its streams; only a `by decide` theorem SEALS. Rows are passed through unaltered and NEVER fabricated: an unreachable source returns nothing, which is an absence, not a refutation. Eurostat serves aggregates and GISCO serves institutions, so no pupil data passes here. The parse, the JSON-stat decode and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth (theorem provenance_integrity_not_content_truth). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `source` | string | no | omit for the registry, or one of: esco, eurostat, gisco |
+| `map` | boolean | no | map every uuidna skill cluster onto the European skill taxonomy |
+| `text` | string | no | esco: the phrase to look up |
+| `type` | string | no | esco: skill (default), occupation, or qualification |
+| `dataset` | string | no | eurostat: a dataset code, e.g. "educ_uoe_enrt01" |
+| `vacancies` | boolean | no | eurostat: the jobs side (jvs_q_nace2) instead of a dataset |
+| `geo` | string | no | eurostat: a country code, e.g. "BG" |
+| `time` | string | no | eurostat: a year, e.g. "2022" |
+| `country` | string | no | gisco: a two-letter country code, e.g. "BG" |
+| `match` | string | no | gisco: narrow to schools whose name or city contains this |
+| `limit` | number | no | how many rows to return (default 25, max 200) |
+
+### `uuidna_education_jobs`
+
+PAIR EDUCATION TO JOBS through the vocabulary that already holds both. Joining a curriculum to a labour market is normally done by matching strings and hoping; it does not have to be. ESCO — the European Commission's own classification — relates a SKILL to the OCCUPATIONS it is essential or optional for, and publishes the relation in both directions, so this walks a public relation instead of inventing one: {subject} → ESCO skills (lexical match) → the occupations that require them, tagged essential or optional → optionally {geo} the vacancies that country actually reports (Eurostat jvs_q_nace2, whole economy). When the subject names one of uuidna's own sealed skill clusters, the cluster rides along with its theorem count and order-invariant fold, so a lesson that is PROVEN here is paired to work that exists out there. HONEST SCOPE: a MAP BETWEEN PUBLIC VOCABULARIES, hop by named hop — the first hop is a LEXICAL match ESCO returned for the phrase, and a human accepts or rejects it. It is NOT careers advice, NOT a prediction that studying this leads to that work, and NOT a claim that any employer or authority recognises anything sealed here — uuidna is not accredited and awards no qualification. The vacancy figures are a country's own aggregate reporting for the WHOLE ECONOMY, never openings matched to this subject. A hop that returns nothing says so rather than being bridged by guess. Returns {subject,cluster,pairs,occupations,vacancies,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `subject` | string | **yes** | what is taught — a uuidna skill cluster (e.g. "quantum", "z9-ring") or any phrase |
+| `geo` | string | no | a country code to attach its reported vacancies, e.g. "BG" |
+| `perSkill` | number | no | how many ESCO skills to walk from (default 3) |
 
 ### `uuidna_hardware`
 
