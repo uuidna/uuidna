@@ -33,8 +33,8 @@
     {
       "severity": "high",
       "where": "src/grow.ts:19 and :6",
-      "what": "TARGET = 1024 while the ledger holds 1334, so growLife() returns toGo: -310 and the honest string still reads 'growing toward 1024'. This SHIPS through the MCP tool uuidna_grow_life to every consumer.",
-      "reproduce": "growLife().grow -> {theorems: 1334, target: 1024, toGo: -310}",
+      "what": "TARGET = 1024 while the ledger holds 1336 keys over 1252 distinct propositions, so growLife() returns toGo: -310 and the honest string still reads 'growing toward 1024'. This SHIPS through the MCP tool uuidna_grow_life to every consumer.",
+      "reproduce": "growLife().grow -> {theorems: 1336 keys / 1252 distinct, target: 1024, toGo: -312}",
       "fix": "derive the target from the ledger, or state the next boundary above the current count"
     },
     {
