@@ -5,10 +5,10 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity, not truth.
 import { execSync } from 'node:child_process'
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { catchTraitors } from '../treason.js'
+import { catchTraitors, forgedAgainstWings } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
@@ -17,6 +17,28 @@ import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, abs
 let failed = false
 
 // 1) the ledger sweep — pure, O(N), milliseconds
+// 0) THE WITNESS, and it runs BEFORE the ledger sweep because the sweep cannot supply one.
+//
+// catchTraitors' dna-recomputes check compares toUuid(key ":" statement) to t.address — which withDerived
+// DEFINED as that same expression. It compares a pure function to itself and cannot fail: a forged entry
+// {key:'totally_made_up_theorem', statement:'2 + 2 = 5'} passes it, because a forgery recomputes its own address
+// exactly as a real theorem does. Run as a pre-registered trial with that forgery as the control, the check
+// returns VOID about the theorem and REFUTED about itself.
+//
+// A ledger cannot witness itself. The wings can: a theorem exists only if lean/*.lean declares it and the kernel
+// accepted it, so the ledger is downstream of them. Two distinct failures are reported — an entry no wing declares
+// is an INVENTION, and a real key whose statement no longer matches its wing is DRIFT.
+const WINGS = join(ROOT, 'lean')
+const wingSource = readdirSync(WINGS).filter((f: string) => f.endsWith('.lean'))
+  .map((f: string) => readFileSync(join(WINGS, f), 'utf8')).join('\n')
+const forged = forgedAgainstWings(theorems(), wingSource)
+if (forged.length) {
+  failed = true
+  console.error(`✗ guard — ${forged.length} ledger entr(ies) NOT witnessed by any wing:`)
+  for (const f of forged.slice(0, 8)) console.error(`    ${f.key} — ${f.kind === 'no-wing' ? 'no wing declares it (INVENTION)' : 'its wing states something else (DRIFT)'}`)
+  console.error('  fix: seal it in a wing, or remove it from the ledger. The ledger may not carry what the kernel never saw.')
+} else console.log(`✓ guard — all ${theorems().length} ledger entries witnessed by a wing`)
+
 const t = catchTraitors()
 if (t.clean) {
   console.log(`✓ guard — ledger clean: ${t.scanned} theorems, no traitor caught (${t.checks.join(', ')}); receipt ${t.receipt}`)
