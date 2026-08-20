@@ -27,6 +27,9 @@ import {
   reAddress, type EditorState,
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll } from './index.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
+import { ledgerReport } from './research-ledger.js' // the findings, each carrying how well it was verified — the SAME report the hosted edge serves
+import { legCensus, legsFor, mirrorAgreement, type Rosetta } from './rosetta-legs.js' // the leg census, interpreted by the one law both surfaces run
+import { census as legCensusRows } from './scripts/rosetta.js' // deciding a leg reads the tree, so the LIVE decision is local-only; the edge answers from the shipped mirror
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 import { spawnSync } from 'node:child_process' // uuidna_wave orchestration — local stdio only, never the Workers subset (worker imports mcp-http.js)
 import { ROOT as LIB_ROOT } from './boundary.js'
@@ -63,6 +66,12 @@ const hex = (u: Uint8Array): string => Array.from(u, (b) => b.toString(16).padSt
 const unhex = (s: unknown): Uint8Array => { const h = String(s).replace(/\s+/g, ''); if (h.length % 2 || /[^0-9a-fA-F]/.test(h)) throw new Error('expected hex'); const u = new Uint8Array(h.length / 2); for (let i = 0; i < u.length; i++) u[i] = parseInt(h.slice(i * 2, i * 2 + 2), 16); return u }
 const need = (u: Uint8Array, n: number, what: string): Uint8Array => { if (u.length !== n) throw new Error(what + ' must be ' + n + ' bytes (' + n * 2 + ' hex chars), got ' + u.length); return u }
 const unb64 = (s: unknown): Uint8Array => { const bin = atob(String(s)); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u }
+
+// The LIVE leg census reads every wing, emitter and test, so it is held for the life of the process: the tree does
+// not change under a running server, and the self-test calls each zero-argument tool twice and requires the two
+// results to be identical. Recomputing per call would be the same answer at many times the cost.
+let LEG_ROWS: Rosetta[] | null = null
+const liveLegRows = (): Rosetta[] => (LEG_ROWS ??= legCensusRows())
 
 const TOOLS: Tool[] = [
   { name: 'uuidna_address',
@@ -1049,6 +1058,23 @@ const TOOLS: Tool[] = [
     description: 'Photon and electrolysis. The reversible cell voltage is computed from the MEASURED Gibbs energy of liquid water formation (-237.14 kJ/mol) against the EXACT Faraday constant N_A·e (exact because e and N_A are exact under SI 2019), and returned as an integer bracket around roughly 1.2289 V. The familiar 1.23 V is shown BY MULTIPLICATION to be that number rounded UP — an upper bound, not the value. A photon of the given wavelength is priced in volts per electron (exact: h, c and e are all exact) and checked against that floor; the tool also computes the longest wavelength whose single photon still clears it. An applied voltage BELOW the floor is REFUSED — a device claiming sustained hydrogen there is claiming energy from nowhere. An applied voltage below the THERMONEUTRAL voltage (~1.4812 V, from the measured higher heating value 285.83 kJ/mol) is also REFUSED: a cell run there absorbs ambient heat, an efficiency against the higher heating value would come out above 100%, and that number is not free energy and will not be printed as an efficiency. Real electrolysers run 1.6–2.0 V; the gap is overpotential and ohmic loss — heat, not hydrogen.',
     inputSchema: { type: 'object', properties: { wavelengthNanometres: { type: 'number', description: 'photon wavelength, whole nanometres' }, appliedMillivolts: { type: 'number', description: 'cell voltage actually applied, whole millivolts (a real electrolyser is 1600–2000)' }, claimedFaradaicEfficiencyPercent: { type: 'number', description: 'optional — whole percent 0..100; above 100 is refused as over-unity' } }, required: ['wavelengthNanometres', 'appliedMillivolts'] },
     run: (a) => photonElectrolysisYield(a) },
+  // ── THE RESEARCH SURFACE — what was found, how well it was checked, and how many independent witnesses each
+  // sealed claim actually carries. Both tools are served by the hosted edge too (src/mcp-http.ts), from the SAME
+  // pure report functions, so the two surfaces can differ in wording and never in answer.
+  { name: 'uuidna_research_ledger',
+    description: 'THE RESEARCH LEDGER — findings carrying their VERIFICATION STATUS as a field instead of a sentence. Each finding records the claim, the value, the units and the source, and then the field that decides what may be done with it: `read` (the primary source was retrieved and the figure taken from its own text), `secondary` (a citing work reported it), `unread` (believed and unchecked), `refuted`. The second field is `kind`: a CONVENTION is exact by definition, a MEASUREMENT carries uncertainty. TWO RULES FALL OUT AND THE TOOL APPLIES THEM PER FINDING — only a `read` source may ANCHOR a theorem, and only a `read` CONVENTION may seal as an EQUALITY; everything measured seals as an integer BRACKET or as nothing at all. Filter with optional {status} and {kind}; an unknown value is refused by name rather than quietly matching nothing. The census is reported over the WHOLE ledger even under a filter, so no filter can flatter it, and the ledger states its own GAPS: an unread finding, a convention whose defining source was not read, two sources disagreeing about one value. HONEST SCOPE: this reports how well a finding was VERIFIED, never whether it is true — `unread` is not "false", it is not-yet-checked. Returns {filter,total,matched,census,kinds,anchoring,findings:[{claim,value,units,source,status,kind,note,address,anchorsTheorem,sealableAs,why}],gaps,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',
+    inputSchema: { type: 'object', properties: { status: { type: 'string', description: 'optional filter: read | secondary | unread | refuted' }, kind: { type: 'string', description: 'optional filter: convention | measured' } } },
+    run: (a) => ledgerReport(a) },
+  { name: 'uuidna_rosetta_legs',
+    description: 'THE INDEPENDENT-WITNESS CENSUS — how many of the five legs each sealed theorem actually carries. SYMBOL is the TypeScript mirror the emitter cross-checks, PROOF is the kernel\'s `by decide` verdict, WITNESS is a source outside this repository a stranger could consult, FALSIFIER is a deliberate mutation that must FAIL (it tests the test), ADDRESS is the content fold that lets anyone recompute from the exact bytes. Symbol and proof are written by one hand and share that hand\'s errors, so a theorem carrying only those two can DETECT a disagreement and never LOCATE the fault — three is the count that locates one. Pass {key} for one theorem\'s legs and the verdict on them; pass nothing for the distribution across the whole ledger, the per-leg totals, the scarcest leg, the fully-anchored keys, the computed attribution, and the FLOOR the anchoring may never fall below. The scarce legs are the honest headline and are reported as they stand, never smoothed. An unknown key is refused by name. HONEST SCOPE: this MEASURES anchoring, it certifies nothing — proof and address are near-universal by construction and are not evidence about the world, and a missing leg is never a claim that the theorem is false. Returns the per-key answer {key,wing,legs,missing,claimedBy,canLocateFault,verdict} or the census {total,perLeg,scarcest,byLegCount,detectOnly,fullyAnchored,claimedBy,floor,floorGaps,receipt,honest}, each with {hostedMirror} — the live comparison against the census the hosted edge answers from. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',
+    inputSchema: { type: 'object', properties: { key: { type: 'string', description: 'a sealed theorem key; omit for the whole distribution' } } },
+    run: (a) => {
+      const rows = liveLegRows()
+      const hostedMirror = mirrorAgreement(rows)
+      return a.key === undefined || a.key === null || String(a.key) === ''
+        ? { ...legCensus(rows), hostedMirror }
+        : { ...legsFor(rows, String(a.key)), hostedMirror }
+    } },
 ]
 
 // JSON-RPC 2.0 message shape over stdio. Ids may be string | number | null; params is method-specific.
@@ -1197,6 +1223,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^link_book$/, 'Book → sealed-ledger linkage', 'measure'],
   [/^selftest$/, 'MCP self-test (recomputable contract)', 'measure'],
   [/^energy_/, 'DIY energy yield (ceiling first, integer brackets, refuses over-unity)', 'energy'],
+  [/^(research|research_ledger|rosetta_legs)$/, 'Deep research & the evidence census (how well a claim is anchored)', 'research'],
 ]
 const categoryOf = (name: string): [string, string] => {
   const key = name.replace(/^uuidna_/, '')

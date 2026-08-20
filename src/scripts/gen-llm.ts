@@ -31,13 +31,46 @@ const LLM = `# uuidna — instructions for LLM agents (llm.txt)
 - **The dimensions:** one uuid = **${ADDRESS_BITS} bits** (2^${ADDRESS_BITS} classical values). Folded across the **7 dimensions** (the double torus) it has **2^7 = 128 basis configurations** — a **7-qubit** state space (\`by decide\`: 2^7 = 128). So "128" is *${ADDRESS_BITS} bits* (one uuid) and a *7-qubit / 128-state* fold — **not 128 qubits** (that would be 2^128 amplitudes; \`adjudicate\` → UNVERIFIED).
 - **HONEST SCOPE:** "quantum" is the **order-invariant receipt of a CLASSICAL state-vector simulator** — 2^n amplitudes, **no quantum advantage, not hardware**. A claim of a real 128-qubit quantum computer DRAINS at the gate. Integrity, not truth.
 
-## Messaging & encryption (each handle is part of the next — self-authenticating; keys stay local)
+## Messaging & encryption (keys stay local)
 
-- **The chain authenticates itself:** each uuid handle is FOLDED FROM the one before it (the referer/ratchet chain), so each handle is *part of* the next. A dropped, reordered, or forged link no longer folds — the route/message fails authentication. *Sealed/tested:* the ratchet chain round-trips in order, and drop/reorder/edit breaks the referer.
-- **Routes:** \`uuidna.com/h1/h2/h3/h4\` folds four message handles to a FIFTH (the pentagram close), rotated by the \`Referer\` — each referrer a distinct room key, O(1) to recompute (speed) and un-correlatable across referrers (privacy by design). Because each handle is part of the fold, a tampered path yields a different fifth — authenticity by construction.
-- **Secrecy = ChaCha20-Poly1305** (RFC 8439, pure TypeScript, no WebCrypto) keyed by **PBKDF2-SHA256** (600k), under the uuidna 7d-fold envelope (public integrity). KAT-verified. Wrong key or any tamper → Poly1305 authentication fails.
-- **The channel IS the uuid stream:** \`uuidna_send\` encrypts then imprints into a uuid chain; \`uuidna_receive\` reads it back and decrypts. An advancing \`step\` keeps identical plaintexts from sealing alike. *Sealed:* \`salt_conv_leaks_equality\`, \`salt_seq_injective\`. Contract-keyed via \`uuidna_contract_seal\` — only holders of the exact terms decrypt.
-- **HONEST + LOCAL-ONLY:** secrecy is exactly the passphrase/contract entropy. The FNV content-address is **non-cryptographic** (integrity/routing, not secrecy; the cryptographic address is SHA-256 — sealed collision-resistance \`seats_pigeonhole\`). Keys and plaintext stay client-side; \`/trials\` persists nothing without explicit \`consent: true\`. Some data stays local by standard.
+- Each uuid handle is folded FROM the one before it, so the chain authenticates itself; \`uuidna_send\` encrypts then
+  imprints into that chain and \`uuidna_receive\` reads it back.
+- Secrecy is ChaCha20-Poly1305 (RFC 8439) keyed by PBKDF2-SHA256. Secrecy is exactly the passphrase entropy, and the
+  FNV content-address is **non-cryptographic** — it identifies, it does not protect.
+
+## The coins first — the theorems everything else is priced in
+
+- \`two_coins\` — ${stmt('two_coins')}
+- \`captain_commission_two_coins\` — ${stmt('captain_commission_two_coins')}
+- \`two_coins_is_double_torus\` — ${stmt('two_coins_is_double_torus')}
+- \`uuidna_is_dna_times_the_two_coins\` — ${stmt('uuidna_is_dna_times_the_two_coins')}
+- \`captain_coins_respected_at_scale\` — ${stmt('captain_coins_respected_at_scale')}
+- \`vote_weight_equals_coins_paid\` — ${stmt('vote_weight_equals_coins_paid')}
+
+Every one is \`by decide\`, sorry-free and axiom-free: the kernel alone settles them. Cite a key to make a claim
+VERIFIED; cite nothing and it is UNVERIFIED, which means undecided here — never false.
+
+## Hard rules — each one derived from a failure that actually happened here
+
+- **\`Math.*\` is rejected everywhere, INCLUDING inside comments.** The scan reads raw source and does not require a
+  trailing paren, so prose *describing* the ban trips it. Use integer arithmetic; a ratio becomes a two-sided
+  bracket (\`a * d > n\` and \`a * d < m\`), never a division and never a float.
+- **Never pipe a command whose exit code you need.** \`$?\` after \`| tail\` is tail's status, so a failing gate reads
+  as a pass. Capture the code directly, then inspect the log.
+- **Use is not mention.** A finder that greps source cannot tell a line that DOES a thing from one that NAMES it.
+  A comment citing a script counted as running it; a regex alternation bar read as a shell pipe. Evidence must come
+  from somewhere other than the file being judged.
+- **Never \`git add -A\`.** Stage declared paths only. A blanket add swept a subagent's half-written files into a
+  commit, leaving a mid-edit snapshot sealed in history.
+- **Read before you overwrite.** Writing a module without checking whether that path already exists destroys the
+  file that was there.
+- **A check that cannot fail is not a check.** Before trusting one, break the thing it guards and confirm it goes
+  red. A forged theorem asserting \`2 + 2 = 5\` passes four of this repo's own integrity checks.
+- **Convention vs measurement.** A defined constant (the Faraday constant, \`1 kWh = 3600 kJ\`, Betz's 16/27) may
+  seal as an equality. A measured quantity may seal only as an integer bracket. Confusing them turns a rounded
+  figure into an asserted constant.
+- **Derivation is the failure mode.** Where a source exists, read it. Recall produced six wrong claims in one
+  session; measurement produced none.
 
 ## Working with uuidna (MCP-first — do not hand-derive what the tools compute)
 

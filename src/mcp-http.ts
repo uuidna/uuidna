@@ -23,6 +23,12 @@ import { quantumCubeChallenge, verifyQuantumCube } from './cube.js'
 // The gated dispatch core — pure and Workers-safe (address/gravity/sanitize/slimgate, no node built-ins): the SAME
 // conjunction gate the stdio server enforces, so the edge and the local surface serve ONE law (DRY, sealed spec).
 import { gateVerdict, gateSelfTest, depositCoins, GATE_THEOREMS } from './gate-engine.js'
+// The research surface, edge-safe by construction: the ledger carries its findings in source and the leg census is
+// shipped as a mirror (src/rosetta-mirror.ts), because DECIDING a leg means reading the wings and the tests and this
+// runtime has no disk. Both call the SAME report functions the stdio server calls — one law, two surfaces.
+import { ledgerReport } from './research-ledger.js'
+import { legCensus, legsFor, mirrorRows } from './rosetta-legs.js'
+import { deepResearch } from './research.js'
 
 const PROTOCOL_VERSION = '2025-06-18'          // the MCP protocol revision this endpoint speaks
 // The version this endpoint ADVERTISES to every client calling initialize. It sat at 0.1.1 through eleven
@@ -77,6 +83,15 @@ const TOOLS: HttpTool[] = [
   { name: 'uuidna_quantum_cube', description: 'THE QUANTUM-CUBE CHALLENGE — a SYMMETRIC, deterministic challenge-response whose answer is the A432 aura as a spinning 3D cube. Pass {secret, nonce} for the cube, or {secret, nonce, response} to VERIFY. HONEST: symmetric (the verifier shares the secret), strength is the secret\'s entropy, NOT zero-knowledge and NOT biometric.',
     inputSchema: { type: 'object', properties: { secret: { type: 'string' }, nonce: { type: 'string' }, response: { type: 'string' } }, required: ['secret', 'nonce'] },
     run: (a) => a.response !== undefined ? { match: verifyQuantumCube(String(a.secret), String(a.nonce), String(a.response)), nonce: String(a.nonce) } : quantumCubeChallenge(String(a.secret), String(a.nonce)) },
+  { name: 'uuidna_research_ledger', description: 'THE RESEARCH LEDGER at the edge — findings carrying their VERIFICATION STATUS as a field: `read` (the primary source was retrieved and the figure taken from its own text), `secondary` (a citing work reported it), `unread` (believed and unchecked), `refuted`. With `kind` (convention = exact by definition, measured = carries uncertainty) it decides what each finding may DO: only a `read` source may ANCHOR a theorem, and only a `read` CONVENTION may seal as an EQUALITY — everything measured seals as an integer BRACKET or as nothing. Optional {status} and {kind} filter; an unknown value is refused by name. The census covers the whole ledger even under a filter, and the ledger states its own gaps. HONEST: this reports how well a finding was VERIFIED, never whether it is true — `unread` is not "false". Returns {filter,total,matched,census,kinds,anchoring,findings,gaps,receipt,honest}.',
+    inputSchema: { type: 'object', properties: { status: { type: 'string' }, kind: { type: 'string' } } },
+    run: (a) => ledgerReport(a) },
+  { name: 'uuidna_rosetta_legs', description: 'THE INDEPENDENT-WITNESS CENSUS at the edge — how many of the five legs each sealed theorem carries: SYMBOL (the TypeScript mirror the emitter cross-checks), PROOF (the kernel\'s `by decide` verdict), WITNESS (a source outside this repository), FALSIFIER (a deliberate mutation that must FAIL — it tests the test), ADDRESS (the content fold anyone recomputes from). Symbol and proof are written by one hand and share its errors, so two legs DETECT a disagreement and never LOCATE the fault; three locate one. Pass {key} for one theorem, or nothing for the distribution, the per-leg totals, the scarcest leg, the fully-anchored keys and the floor the anchoring may never fall below. DECIDING a leg needs the wings, the emitters and the tests — a filesystem this runtime does not have — so the edge answers from the census shipped in source, and the stdio tool reports whether the two still agree. HONEST: it MEASURES anchoring and certifies nothing; a missing leg is never a claim that the theorem is false.',
+    inputSchema: { type: 'object', properties: { key: { type: 'string' } } },
+    run: (a) => { const rows = mirrorRows(); return a.key === undefined || a.key === null || String(a.key) === '' ? legCensus(rows) : legsFor(rows, String(a.key)) } },
+  { name: 'uuidna_research', description: 'DEEP RESEARCH at the edge, with the REVERSIBLE imprint codec: PRESS {text} into a uuid chain and DECOMPRESS it back LOSSLESSLY (the round-trip proves it), bind the pressed pieces to the order-invariant entangled fold, and report NOVELTY as content-address uniqueness — an address not among {seenAddresses} is novel CONTENT. HONEST SCOPE: uuidna fingerprints STRUCTURE and NOVELTY, it does NOT extract MEANING — `meaning` is null by design, left to the reader — so instead of a dead end it hands back the sealed theorems the prose REFLECTS and a develop path through them. Novelty is decidable; meaning is the reader\'s. Integrity, not truth. Returns {address,compressed,losslessRoundTrip,entangledReceipt,novel,meaning,relatedMath,develop,honest}.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' }, seenAddresses: { type: 'array', items: { type: 'string' } } }, required: ['text'] },
+    run: (a) => deepResearch(String(a.text), ((a.seenAddresses as string[]) || []).map(String)) },
   { name: 'uuidna_gate_status', description: 'THE GATE PROVES ITSELF, live at the edge: every hosted tools/call passes the sealed conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — input sanitized, output sanitized, no fabricated theorem citation — and this tool recomputes the eight-state verdict table and REQUIRES it to equal the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle). The registry folds to its ORDER-INVARIANT identity receipt. The SAME gate the stdio server enforces — one law, both surfaces. Returns {table,sealedTable,matchesSealedSpec,cleanStates,drainedStates,tools,registry,cites,receipt}.',
     inputSchema: { type: 'object', properties: {} },
     run: () => gateSelfTest(TOOLS.map((t) => t.name)) },
@@ -106,7 +121,17 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
     // the settled output is judged, the verdict travels in the response, a drained verdict ships sanitized and
     // flagged with its bits named. Stateless: the gate receipt is per-call, no session chain at the edge.
     try {
-      const out = tool.run((params.arguments as Record<string, unknown>) ?? {})
+      // THE SCHEMA IS THE CONTRACT, ON THIS SURFACE TOO. The stdio server folds this check into its one dispatch
+      // door (callTool in mcp.ts); the edge had no equivalent, so a tools/call with no arguments reached the body as
+      // String(undefined) and the tool computed, confidently, over the literal text "undefined". Same law, same
+      // wording, both surfaces — a rule enforced on one of two doors is not enforced.
+      const args = (params.arguments as Record<string, unknown>) ?? {}
+      const required = (tool.inputSchema as { required?: unknown })?.required
+      if (Array.isArray(required)) {
+        const missing = required.filter((k) => args[String(k)] === undefined)
+        if (missing.length) throw new Error(`${String(name)}: missing required argument${missing.length > 1 ? 's' : ''}: ${missing.join(', ')} (the tool's own schema declares ${missing.length > 1 ? 'them' : 'it'} required — nothing was computed)`)
+      }
+      const out = tool.run(args)
       const g = gateVerdict(String(name), (params.arguments as Record<string, unknown>) ?? {}, out)
       // THE IMMEDIATE DEPOSIT — the edge deposits too: the agent's first hosted call already contributes.
       const dep = depositCoins(String(name), g.gate.receipt)

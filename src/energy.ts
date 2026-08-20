@@ -78,21 +78,33 @@ const bracketOf = (quantity: string, unit: string, nLo: bigint, dLo: bigint, nHi
     `${high - 1n} * ${dHi} < ${nHi}`,
     `${low} <= ${high}`,
   ]
-  const holds = low * dLo <= nLo && (low + 1n) * dLo > nLo && high * dHi >= nHi && (high - 1n) * dHi < nHi && low <= high
   const approx = low === high ? dec(low, 1n, 0) : `${dec(nLo, dLo, places)} .. ${dec(nHi, dHi, places)}`
-  return { quantity, unit, low: low.toString(), high: high.toString(), witness, holds, approx }
+  const b: Bracket = { quantity, unit, low: low.toString(), high: high.toString(), witness, holds: false, approx }
+  // `holds` is the VERIFIER's answer, never a second opinion computed alongside it — so a bracket can never be
+  // published claiming to hold while verifyBracket, the thing anyone else would run, says otherwise.
+  return { ...b, holds: verifyBracket(b) }
 }
 
 /** An exactly-known integer, bracketed to itself so every reported quantity carries the same proof shape. */
 const exactBracket = (quantity: string, unit: string, v: bigint): Bracket => bracketOf(quantity, unit, v, 1n, v, 1n, 0)
 
-const INT_WITNESS = /^(-?\d+) \* (\d+) (<=|>=|>|<) (-?\d+)$/
+/** Append further exact inequalities to a bracket — how a REFUSAL carries the multiplication that convicts it while
+ *  keeping the canonical binding shape (witness[0] binds `low`, witness[2] binds `high`) that verifyBracket demands. */
+const withWitness = (b: Bracket, quantity: string, extra: string[]): Bracket => {
+  const merged = { ...b, quantity, witness: [...b.witness, ...extra] }
+  return { ...merged, holds: verifyBracket(merged) }
+}
+
+const INT_WITNESS = /^(-?\d+) \* (-?\d+) (<=|>=|>|<) (-?\d+)$/
 const ORD_WITNESS = /^(-?\d+) <= (-?\d+)$/
 
 /** Re-evaluate a bracket's own witnesses. A tampered bracket returns false — the verifier is not a formality:
- *  src/tests/energy.test.ts mutates a witness and asserts this reports false, so the check is known to be fallible. */
+ *  src/tests/energy.test.ts mutates a witness and asserts this reports false, so the check is known to be fallible.
+ *  The two stated bounds are bound POSITIONALLY (witness[0] establishes `low`, witness[2] establishes `high`), because
+ *  a mere "some witness mentions this number" test is satisfiable by the neighbouring tightness witnesses — moving
+ *  `low` up by one lands on the `low + 1` witness and passes, which is exactly the silent edit this must catch. */
 export function verifyBracket(b: Bracket): boolean {
-  if (!b || !Array.isArray(b.witness) || b.witness.length === 0) return false
+  if (!b || !Array.isArray(b.witness) || b.witness.length < 3) return false
   for (const w of b.witness) {
     const ord = ORD_WITNESS.exec(w)
     if (ord) { if (!(BigInt(ord[1]) <= BigInt(ord[2]))) return false; continue }
@@ -102,9 +114,10 @@ export function verifyBracket(b: Bracket): boolean {
     const ok = m[3] === '<=' ? lhs <= rhs : m[3] === '>=' ? lhs >= rhs : m[3] === '>' ? lhs > rhs : lhs < rhs
     if (!ok) return false
   }
-  // the stated bounds must be the ones the witnesses are about
-  if (!b.witness.some((w) => w.startsWith(b.low + ' '))) return false
-  if (!b.witness.some((w) => w.startsWith(b.high + ' ') || w.endsWith('<= ' + b.high))) return false
+  const lowW = INT_WITNESS.exec(b.witness[0])
+  if (!lowW || lowW[1] !== b.low || lowW[3] !== '<=') return false
+  const highW = INT_WITNESS.exec(b.witness[2])
+  if (!highW || highW[1] !== b.high || highW[3] !== '>=') return false
   return true
 }
 
@@ -114,6 +127,18 @@ export function verifyBracket(b: Bracket): boolean {
 const MAX_INPUT = p10(15)
 
 type Parsed = { ok: true; v: bigint } | { ok: false; why: string }
+
+/** describe an untrusted value for a refusal message — never JSON.stringify, which throws on a bigint and on a
+ *  hostile toString. A refusal that throws while explaining itself is not a refusal. */
+const describe = (raw: unknown): string => {
+  if (raw === null) return 'null'
+  const t = typeof raw
+  if (t === 'bigint') return `a very large integer`
+  if (t === 'string') return `the text "${(raw as string).slice(0, 40)}"`
+  if (t === 'number' || t === 'boolean') return `${raw as number | boolean}`
+  if (Array.isArray(raw)) return `a list of ${raw.length}`
+  return `a value of type ${t}`
+}
 
 const intArg = (raw: unknown, name: string, fallback?: bigint): Parsed => {
   if (raw === undefined || raw === null || raw === '') {
@@ -127,7 +152,7 @@ const intArg = (raw: unknown, name: string, fallback?: bigint): Parsed => {
     if (!Number.isInteger(raw)) return { ok: false, why: `${name} must be a whole number in its stated unit (this module carries no floating point); received ${raw}` }
     v = BigInt(raw)
   } else if (typeof raw === 'string' && /^\s*-?\d+\s*$/.test(raw)) v = BigInt(raw.trim())
-  else return { ok: false, why: `${name} must be a whole number in its stated unit; received ${JSON.stringify(raw)}` }
+  else return { ok: false, why: `${name} must be a whole number in its stated unit; received ${describe(raw)}` }
   const mag = v < 0n ? -v : v
   if (mag > MAX_INPUT) return { ok: false, why: `${name} is outside this module's bounded input range (magnitude at most ${MAX_INPUT}) — refused rather than answered` }
   return { ok: true, v }
@@ -241,7 +266,10 @@ export function windBetzCeiling(input: WindInput = {}): EnergyReport {
   // the Betz ceiling = 16/27 of it, in milliwatts:  2 * pi * K / (27 * 1e15)
   const betzDen = 27n * p10(15)
   const betz = bracketOf('the Betz ceiling — the most this rotor could capture at this wind speed', 'milliwatts', 2n * PI_LO_N * K, PI_LO_D * betzDen, 2n * PI_HI_N * K, PI_HI_D * betzDen, 1)
-  const brackets = [ceilFallback, area, wind, betz]
+  // the greatest WHOLE milliwatt claim this module admits: floor of the exact upper bound, so the refusal boundary
+  // is a stated integer rather than something a caller has to infer from a rounded ceiling
+  const admissible = exactBracket('the greatest whole-milliwatt claim admitted before the Betz refusal fires', 'milliwatts', fl(2n * PI_HI_N * K, PI_HI_D * betzDen))
+  const brackets = [ceilFallback, area, wind, betz, admissible]
   const notes = [
     'This ceiling is what the AIR allows, not what a machine delivers. Blade count, airfoil, generator, gearbox and controller all subtract from it; a real small turbine typically reaches a third to a half of the Betz figure, and this module will not invent that fraction for you.',
     'The wind speed enters as a cube, so the ceiling is dominated by the site, not by the rotor: doubling the wind speed multiplies the ceiling by eight, while doubling the diameter multiplies it by four.',
@@ -262,7 +290,7 @@ export function windBetzCeiling(input: WindInput = {}): EnergyReport {
   const lhs = claim.v * PI_HI_D * betzDen, rhs = 2n * PI_HI_N * K
   if (lhs > rhs) {
     const why = `claimedOutputMilliwatts = ${claim.v} exceeds the Betz ceiling. No open-flow turbine captures more than 16/27 of the wind's kinetic energy, so this claim is refused rather than reported: ${claim.v} * ${PI_HI_D} * ${betzDen} = ${lhs} > 2 * ${PI_HI_N} * ${K} = ${rhs}`
-    const conviction = { ...betz, quantity: 'REFUSAL WITNESS — the claim exceeds the Betz ceiling', witness: [`${claim.v} * ${PI_HI_D * betzDen} > ${rhs}`], holds: claim.v * (PI_HI_D * betzDen) > rhs, approx: betz.approx }
+    const conviction = withWitness(admissible, 'REFUSAL WITNESS — the claim exceeds the Betz ceiling', [`${claim.v} * ${PI_HI_D * betzDen} > ${rhs}`])
     return report('wind', 'REFUSED', why, betz, null, [...brackets, conviction], { claimChecked: true, claimWithinBetz: false }, exact, measured, src, notes, 'REFUSED — ' + why)
   }
   // coefficient of performance in ppm = claim / (power in the wind); the wider pi bound on each side
@@ -370,7 +398,7 @@ export function biogasEngineYield(input: BiogasInput = {}): EnergyReport {
   // the convicting multiplication:  claim * T_hot  >  100 * (T_hot - T_cold)
   if (claim.v * hot.v > 100n * (hot.v - cold.v)) {
     const why = `claimedThermalEfficiencyPercent = ${claim.v} exceeds the Carnot ceiling between ${hot.v} K and ${cold.v} K: ${claim.v} * ${hot.v} = ${claim.v * hot.v} > 100 * (${hot.v} - ${cold.v}) = ${100n * (hot.v - cold.v)}. Refused rather than reported`
-    const conviction = { quantity: 'REFUSAL WITNESS — the claim exceeds Carnot', unit: 'parts per million', low: carnot.low, high: carnot.high, witness: [`${claim.v} * ${hot.v} > ${100n * (hot.v - cold.v)}`], holds: claim.v * hot.v > 100n * (hot.v - cold.v), approx: carnot.approx }
+    const conviction = withWitness(carnot, 'REFUSAL WITNESS — the claim exceeds Carnot', [`${claim.v} * ${hot.v} > ${100n * (hot.v - cold.v)}`])
     return report('biogas-engine', 'REFUSED', why, carnotWork, null, [...brackets, conviction], { carnotComputed: true, claimChecked: true, claimWithinCarnot: false }, exact, measured, src, notes, 'REFUSED — ' + why)
   }
   const work = bracketOf('shaft work at the claimed efficiency', 'joules', base * METHANE_HHV_LO * claim.v, MOLAR_VOLUME_NUM * 100n, base * METHANE_HHV_HI * claim.v, MOLAR_VOLUME_NUM * 100n, 0)
@@ -404,7 +432,9 @@ export function microbialFuelCellYield(input: MfcInput = {}): EnergyReport {
   ]
   const src = [ENERGY_SOURCES.mfc, ENERGY_SOURCES.mfcLab]
   const scaleRaw = input.scale
-  const scale = scaleRaw === undefined || scaleRaw === null || scaleRaw === '' ? 'pilot' : String(scaleRaw)
+  // NEVER String() an untrusted value: a hostile toString throws, and a route that throws while validating is not
+  // total. Only a real string is accepted; anything else falls through to the named refusal below.
+  const scale = scaleRaw === undefined || scaleRaw === null || scaleRaw === '' ? 'pilot' : typeof scaleRaw === 'string' ? scaleRaw : ' not-a-string'
   const isLab = scale === 'lab'
   const cap = isLab ? MFC_LAB_RECORD : MFC_VOL_MAX
   const capCeiling = exactBracket(isLab
@@ -413,7 +443,7 @@ export function microbialFuelCellYield(input: MfcInput = {}): EnergyReport {
   const bail = (why: string, brackets: Bracket[]): EnergyReport =>
     report('microbial-fuel-cell', 'REFUSED', why, capCeiling, null, brackets, {}, exact, measured, src, [], 'REFUSED — ' + why)
 
-  if (scale !== 'pilot' && scale !== 'lab') return bail(`scale must be 'pilot' or 'lab'; received ${JSON.stringify(scaleRaw)}`, [capCeiling])
+  if (scale !== 'pilot' && scale !== 'lab') return bail(`scale must be 'pilot' or 'lab'; received ${describe(scaleRaw)}`, [capCeiling])
   const litres = intArg(input.reactorLitres, 'reactorLitres')
   if (!litres.ok) return bail(litres.why, [capCeiling])
   const hours = intArg(input.retentionHours, 'retentionHours')
@@ -443,11 +473,7 @@ export function microbialFuelCellYield(input: MfcInput = {}): EnergyReport {
   const energyLo = (MFC_ENERGY_MEAN - MFC_ENERGY_SD) * 1000n, energyHi = (MFC_ENERGY_MEAN + MFC_ENERGY_SD) * 1000n // mWh/m3
   const bandsAgree = powerOverHoldHi >= energyLo && powerOverHoldLo <= energyHi
   const crossCheck: Bracket = {
-    quantity: 'the measured power range integrated over the stated retention time, to be compared with the measured energy recovery',
-    unit: 'milliwatt-hours per cubic metre',
-    low: powerOverHoldLo.toString(), high: powerOverHoldHi.toString(),
-    witness: [`${powerOverHoldLo} * 1 <= ${powerOverHoldLo}`, `${powerOverHoldLo + 1n} * 1 > ${powerOverHoldLo}`, `${powerOverHoldHi} * 1 >= ${powerOverHoldHi}`, `${powerOverHoldHi - 1n} * 1 < ${powerOverHoldHi}`, `${powerOverHoldLo} <= ${powerOverHoldHi}`],
-    holds: true,
+    ...bracketOf('the measured power range integrated over the stated retention time, to be compared with the measured energy recovery', 'milliwatt-hours per cubic metre', powerOverHoldLo, 1n, powerOverHoldHi, 1n, 0),
     approx: `${powerOverHoldLo} .. ${powerOverHoldHi} against the reported ${energyLo} .. ${energyHi}`,
   }
   brackets.push(crossCheck)
@@ -471,7 +497,7 @@ export function microbialFuelCellYield(input: MfcInput = {}): EnergyReport {
     const why = isLab
       ? `assertedVolumetricMilliwattsPerCubicMetre = ${asserted.v} is above ${cap}, the highest volumetric power reported for any microbial fuel cell anywhere. Refused: ${asserted.v} * 1 > ${cap}`
       : `assertedVolumetricMilliwattsPerCubicMetre = ${asserted.v} is above ${cap}, the top of the pilot-scale range in the survey. Refused: ${asserted.v} * 1 > ${cap}. If you mean the miniaturised laboratory cell on a defined medium, pass scale='lab' and read the label that comes with it — it is not a wastewater result`
-    const conviction: Bracket = { quantity: 'REFUSAL WITNESS — the assertion exceeds the reported ceiling', unit: 'milliwatts per cubic metre', low: cap.toString(), high: cap.toString(), witness: [`${asserted.v} * 1 > ${cap}`], holds: asserted.v > cap, approx: `${asserted.v} > ${cap}` }
+    const conviction = withWitness(exactBracket('the reported ceiling', 'milliwatts per cubic metre', cap), 'REFUSAL WITNESS — the assertion exceeds the reported ceiling', [`${asserted.v} * 1 > ${cap}`])
     return report('microbial-fuel-cell', 'REFUSED', why, ceilingPower, null, [...brackets, conviction], { bandsAgree, scaleIsLab: isLab, assertionChecked: true, assertionWithinCeiling: false }, exact, measured, src, notes, 'REFUSED — ' + why)
   }
   const assertedPower = exactBracket('power at the asserted volumetric density', 'microwatts', asserted.v * litres.v)
@@ -522,11 +548,11 @@ export function photonElectrolysisYield(input: PhotonInput = {}): EnergyReport {
   // the 1.23 V claim, settled by multiplication with no division anywhere
   const roundedUp = 1230000n * (2n * FARADAY_NUM) > GIBBS_WATER_HI * p10(19)
   const roundingWitness: Bracket = {
-    quantity: 'the familiar 1.23 V, tested against the reversible voltage — it is an UPPER BOUND, not the value',
-    unit: 'microvolts', low: rev.low, high: '1230000',
-    witness: [`1230000 * ${2n * FARADAY_NUM} > ${GIBBS_WATER_HI * p10(19)}`, `${rev.high} <= 1230000`],
-    holds: roundedUp && revHi <= 1230000n,
-    approx: `${rev.approx} V x 1e6, so 1.23 V overstates the floor`,
+    ...withWitness(
+      exactBracket('the familiar 1.23 V, tested against the reversible voltage — it is an UPPER BOUND, not the value', 'microvolts', 1230000n),
+      'the familiar 1.23 V, tested against the reversible voltage — it is an UPPER BOUND, not the value',
+      [`1230000 * ${2n * FARADAY_NUM} > ${GIBBS_WATER_HI * p10(19)}`, `${rev.high} <= 1230000`]),
+    approx: `the floor is ${rev.approx} microvolts, so 1230000 microvolts overstates it`,
   }
   const brackets = [rev, tn, roundingWitness]
   const notes = [
@@ -557,12 +583,12 @@ export function photonElectrolysisYield(input: PhotonInput = {}): EnergyReport {
 
   if (mv.v * 1000n < revLo) {
     const why = `appliedMillivolts = ${mv.v} is below the reversible floor. Water splitting is thermodynamically uphill there, so a device claiming sustained hydrogen output at this voltage is claiming energy from nowhere. Refused: ${mv.v} * ${2000n * FARADAY_NUM} < ${GIBBS_WATER_LO * p10(19)}`
-    const conviction: Bracket = { quantity: 'REFUSAL WITNESS — the applied voltage is below the thermodynamic floor', unit: 'microvolts', low: (mv.v * 1000n).toString(), high: rev.low, witness: [`${mv.v} * ${2000n * FARADAY_NUM} < ${GIBBS_WATER_LO * p10(19)}`, `${mv.v * 1000n} <= ${rev.low}`], holds: mv.v * (2000n * FARADAY_NUM) < GIBBS_WATER_LO * p10(19), approx: `${mv.v} mV < ${rev.approx} uV` }
+    const conviction = withWitness(exactBracket('the applied voltage', 'microvolts', mv.v * 1000n), 'REFUSAL WITNESS — the applied voltage is below the thermodynamic floor', [`${mv.v} * ${2000n * FARADAY_NUM} < ${GIBBS_WATER_LO * p10(19)}`, `${mv.v * 1000n} <= ${rev.low}`])
     return bail(why, [conviction])
   }
   if (mv.v * 1000n < tnLo) {
     const why = `appliedMillivolts = ${mv.v} is below the thermoneutral voltage (${tn.approx} uV). A cell run there is ENDOTHERMIC: it absorbs heat from its surroundings, and an efficiency measured against hydrogen's higher heating value would come out above 100%. That number is not free energy and this module will not print it as an efficiency — the heat drawn from the surroundings would have to be accounted for, and no sourced figure for it is carried here. Raise the applied voltage to ${tnHi / 1000n + 1n} mV or above, or ask for the voltages themselves`
-    const conviction: Bracket = { quantity: 'REFUSAL WITNESS — the applied voltage is below the thermoneutral voltage', unit: 'microvolts', low: (mv.v * 1000n).toString(), high: tn.low, witness: [`${mv.v} * ${2000n * FARADAY_NUM} < ${HYDROGEN_HHV_LO * p10(19)}`, `${mv.v * 1000n} <= ${tn.low}`], holds: mv.v * (2000n * FARADAY_NUM) < HYDROGEN_HHV_LO * p10(19), approx: `${mv.v} mV < ${tn.approx} uV` }
+    const conviction = withWitness(exactBracket('the applied voltage', 'microvolts', mv.v * 1000n), 'REFUSAL WITNESS — the applied voltage is below the thermoneutral voltage', [`${mv.v} * ${2000n * FARADAY_NUM} < ${HYDROGEN_HHV_LO * p10(19)}`, `${mv.v * 1000n} <= ${tn.low}`])
     return report('photon-electrolysis', 'REFUSED', why, rev, null, [...brackets, conviction], { photonClearsFloor: clearsFloor, oneTwoThreeIsAnUpperBound: roundedUp, appliedAboveFloor: true, appliedAboveThermoneutral: false }, exact, measured, src, notes, 'REFUSED — ' + why)
   }
 

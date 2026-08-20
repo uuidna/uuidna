@@ -22,17 +22,22 @@
 // the last three: the seams theorem (true by construction) by the FALSIFIER, the sailing angles and the stroke
 // framing by the WITNESS.
 //
-// THIS MEASURES BEFORE IT ENFORCES. Requiring five legs of all 1334 theorems today would fail on nearly all of
+// THIS MEASURES BEFORE IT ENFORCES. Requiring five legs of every sealed theorem today would fail on nearly all of
 // them — only a handful cite an external source. So it reports the census and holds a FLOOR that may only RISE,
 // the same shape as the dormant roster's may-only-shrink rule: the ledger cannot get less anchored than it is.
 //
+// THE DECISION IS MADE HERE AND SHIPPED. Deciding a leg means reading the wings, the emitters and the tests — a
+// filesystem the Cloudflare Workers edge does not have. So every run also WRITES src/rosetta-mirror.ts, the rows in
+// compact form, and the hosted /mcp tool answers from that while the local one recomputes live. The audit chain
+// already runs this script, so the mirror refreshes itself; nothing is kept current by hand.
+//
 //   node dist/scripts/rosetta.js [--census] [--key <theorem>]
-import { readFileSync, readdirSync, existsSync } from 'node:fs'
+import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
+import { LEGS, maskOfLegs, floorGaps, type Leg, type Rosetta } from '../rosetta-legs.js'
 
-export type Leg = 'symbol' | 'proof' | 'witness' | 'falsifier' | 'address'
-export const LEGS: readonly Leg[] = ['symbol', 'proof', 'witness', 'falsifier', 'address'] as const
+export { LEGS, floorGaps, type Leg, type Rosetta }
 
 /** Named external anchors. A WITNESS must be something outside this repository that a stranger could consult —
  *  a published standard, a named author, a measured artefact. The project's own prose is not a witness to itself. */
@@ -49,11 +54,9 @@ const WITNESS = /\b(NIST|CODATA|WGS ?84|IUPAC|SI\b|Gutenberg|Landauer|Eratosthen
 //
 // WITNESS stays a separate and deliberately rare axis, because the two answer different questions. The captain's
 // claim settles WHOSE it is — legal, universal, computed. A witness settles WHETHER A STRANGER CAN CHECK IT —
-// epistemic, external, and at 9 of 1334 the scarcest thing in the ledger. Folding the first into the second would
+// epistemic, external, and by far the scarcest leg in the ledger. Folding the first into the second would
 // score every theorem as witnessed and destroy the only measurement that located today's errors: the vacuity trap
 // one more time, wearing the captain's name.
-
-export interface Rosetta { key: string; wing: string; legs: Leg[]; missing: Leg[]; claimedBy: string }
 
 /** The hook: an external source if the note names one, otherwise the captain. No annotation, no date, no
  *  exceptions — the unclaimed is claimed, which is the doctrine gen-captain-claims.ts already seals. */
@@ -109,20 +112,66 @@ export function census(): Rosetta[] {
       if (WITNESS.test(note)) legs.push('witness')
       // FALSIFIER — a test names it, which is where a mutation that must fail would live
       if (tests.includes(key)) legs.push('falsifier')
-      out.push({ key, wing, legs, missing: LEGS.filter((l) => !legs.includes(l)), claimedBy: claimedBy(note) })
+      // NORMALISED to the fixed LEGS order, not the order the checks happen to run in: the hosted edge rebuilds
+      // these rows from a bit-mask and would otherwise report the same theorem's legs in a different sequence — a
+      // difference between the two surfaces that is invisible until someone diffs two answers.
+      out.push({ key, wing, legs: LEGS.filter((l) => legs.includes(l)), missing: LEGS.filter((l) => !legs.includes(l)), claimedBy: claimedBy(note) })
     }
   }
   return out
 }
 
-/** the floor may only rise: a ledger cannot become less anchored than it already is. */
-export function floorGaps(rows: readonly Rosetta[], floor: { witness: number; falsifier: number }): string[] {
-  const gaps: string[] = []
-  const w = rows.filter((r) => r.legs.includes('witness')).length
-  const f = rows.filter((r) => r.legs.includes('falsifier')).length
-  if (w < floor.witness) gaps.push(`witnessed theorems fell to ${w}, below the floor of ${floor.witness} — a claim lost its external anchor`)
-  if (f < floor.falsifier) gaps.push(`falsified theorems fell to ${f}, below the floor of ${floor.falsifier} — a check stopped proving it can fail`)
-  return gaps
+// ── THE SHIPPED MIRROR ────────────────────────────────────────────────────────────────────────────────────────
+// The rows, compact: one `#wing` section header, then `key mask` per theorem (the mask is the leg bit-set defined in
+// rosetta-legs.ts). Non-captain attribution is carried separately because it is rare — writing "captain" beside
+// every key would be storing a default, which is the annotation habit this module already refused once.
+const MIRROR_PATH = join(ROOT, 'src', 'rosetta-mirror.ts')
+
+/** The floor STATED in the current mirror, read from source (never from dist, which may lag a rebuild). */
+export function statedFloor(): { witness: number; falsifier: number } {
+  if (!existsSync(MIRROR_PATH)) return { witness: 0, falsifier: 0 }
+  const src = readFileSync(MIRROR_PATH, 'utf8')
+  const m = /export const FLOOR = \{ witness: (\d+), falsifier: (\d+) \}/.exec(src)
+  return m ? { witness: Number(m[1]), falsifier: Number(m[2]) } : { witness: 0, falsifier: 0 }
+}
+
+export function renderMirror(rows: readonly Rosetta[]): string {
+  const wings = [...new Set(rows.map((r) => r.wing))].sort()
+  const body: string[] = []
+  for (const w of wings) {
+    body.push('#' + w)
+    for (const r of rows.filter((x) => x.wing === w)) body.push(`${r.key} ${maskOfLegs(r.legs)}`)
+  }
+  const claims = rows.filter((r) => r.claimedBy !== 'captain').map((r) => `${r.key} ${r.claimedBy}`).sort()
+  const witness = rows.filter((r) => r.legs.includes('witness')).length
+  const falsifier = rows.filter((r) => r.legs.includes('falsifier')).length
+  return [
+    '// rosetta-mirror — GENERATED by scripts/rosetta.ts. DO NOT EDIT.',
+    '// The leg census, decided on device by reading the wings, the emitters and the tests, and shipped in source so',
+    '// the hosted Workers edge — which has no filesystem — can serve the same answer the stdio server recomputes.',
+    '// Format: `#wing` opens a section; each following line is `key mask`, the mask being the leg bit-set from',
+    '// rosetta-legs.ts. Attribution is listed only where it is NOT the captain, because storing a default is an',
+    '// annotation, and the FLOOR is the anchoring this ledger may never fall below.',
+    '',
+    'export const MIRROR = `' + body.join('\n') + '`',
+    '',
+    'export const CLAIMS = `' + claims.join('\n') + '`',
+    '',
+    `export const FLOOR = { witness: ${witness}, falsifier: ${falsifier} }`,
+    '',
+  ].join('\n')
+}
+
+/** Write the mirror if it changed. REFUSES to lower the floor: the anchoring may rise, never fall, so a run that
+ *  would publish a smaller witness or falsifier count fails loudly instead of quietly ratifying the loss. */
+export function writeMirror(rows: readonly Rosetta[]): { changed: boolean; refused: string[] } {
+  const refused = floorGaps(rows, statedFloor())
+  if (refused.length) return { changed: false, refused }
+  const next = renderMirror(rows)
+  const current = existsSync(MIRROR_PATH) ? readFileSync(MIRROR_PATH, 'utf8') : ''
+  if (current === next) return { changed: false, refused: [] }
+  writeFileSync(MIRROR_PATH, next)
+  return { changed: true, refused: [] }
 }
 
 if (process.argv[1] && /rosetta\.(js|ts)$/.test(process.argv[1])) {
@@ -154,4 +203,15 @@ if (process.argv[1] && /rosetta\.(js|ts)$/.test(process.argv[1])) {
 
   const five = rows.filter((r) => r.legs.length === 5)
   console.log(`\n  fully anchored (all five): ${five.length}${five.length ? ' — ' + five.slice(0, 6).map((r) => r.key).join(', ') : ''}`)
+
+  // and SHIP the decision, so the hosted /mcp answers from the same census this run just took
+  const written = writeMirror(rows)
+  if (written.refused.length) {
+    console.error('✗ rosetta — the mirror was NOT rewritten: the floor may only rise')
+    for (const g of written.refused) console.error('    ' + g)
+    process.exit(1)
+  }
+  console.log(written.changed
+    ? '\n  ✓ src/rosetta-mirror.ts rewritten — rebuild to ship it to the hosted edge'
+    : '\n  ✓ src/rosetta-mirror.ts already current — the hosted edge and this census agree')
 }

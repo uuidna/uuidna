@@ -4,13 +4,13 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="181 keys" />
+# MCP tools <Badge type="tip" text="185 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 181 tools below are read from the server's own tool list and
-organised into 36 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 185 tools below are read from the server's own tool list and
+organised into 37 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 57f554f9-e83a-8210-89cf-444187e13010
+gate CLEAN f0 d0 v0 · 5de93d3b-2d49-8026-9aea-3c87e56a69a5
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 181-tool registry folds to its
-order-invariant identity `4599b181-e885-8009-9303-4a423fbda386` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 185-tool registry folds to its
+order-invariant identity `ef4a3861-ed25-8335-b462-8110962b36ee` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`181`" />
+## The grid <Badge type="tip" :text="`185`" />
 
-181 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 70 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+185 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 70 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -206,6 +206,10 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-coprime"><code>coprime</code></a>
 <a href="#uuidna-decrypt"><code>decrypt</code></a>
 <a href="#uuidna-encrypt"><code>encrypt</code></a>
+<a href="#uuidna-energy-biogas"><code>energy_biogas</code></a>
+<a href="#uuidna-energy-mfc"><code>energy_mfc</code></a>
+<a href="#uuidna-energy-photon"><code>energy_photon</code></a>
+<a href="#uuidna-energy-wind"><code>energy_wind</code></a>
 <a href="#uuidna-hmac"><code>hmac</code></a>
 <a href="#uuidna-merge"><code>merge</code></a>
 <a href="#uuidna-merkle-prove"><code>merkle_prove</code></a>
@@ -2178,4 +2182,63 @@ Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over
 | `circuit` | string | no | bell (2 qubits) or ghz (n qubits); ignored if ops is given |
 | `qubits` | number | no | qubit count, 1..12 (ghz default 3; required for ops) |
 | `ops` | array | no | OpenQASM circuit: [{gate, qubits:[...]}] with gate ∈ h,x,y,z,s,sdg,cx,cz,swap,ccx,ccz |
+
+## DIY energy yield (ceiling first, integer brackets, refuses over-unity) <Badge type="tip" :text="'4'" />
+
+*skill: energy*
+
+### `uuidna_energy_wind`
+
+Wind, bounded by BETZ. Power in the wind is proportional to the swept area and the CUBE of the wind speed; no open-flow turbine captures more than 16/27 of it (Betz 1919/1920 — an exact ratio from the derivation, not a measurement). Give the rotor diameter in mm and the wind speed in mm/s and the tool returns the Betz ceiling as an integer bracket in milliwatts, each side proved by exact multiplication with no division in the verdict. Supply claimedOutputMilliwatts and a claim above the ceiling is REFUSED with the multiplication that convicts it. Air density defaults to the STANDARD-ATMOSPHERE reference 1225 g/m3 — a convention, not the air at your site, and the answer is conditional on it. The circle constant is bracketed by its convergents 333/106 and 355/113. This is what the AIR allows, never what a machine delivers: blades, generator and controller all subtract, and this tool will not invent that fraction for you.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `rotorDiameterMillimetres` | number | **yes** | rotor diameter, whole millimetres |
+| `windSpeedMillimetresPerSecond` | number | **yes** | wind speed, whole millimetres per second (6 m/s = 6000) |
+| `airDensityGramsPerCubicMetre` | number | no | air density in g/m3; defaults to the standard-atmosphere 1225 |
+| `claimedOutputMilliwatts` | number | no | optional — a machine’s measured output, checked against the Betz ceiling |
+
+### `uuidna_energy_biogas`
+
+Biogas into a four-stroke engine. The chemical energy is bracketed from the MEASURED methane combustion enthalpy 890.29 kJ/mol (Horstmeyer et al. 2018, J. Water Reuse & Desalination 8(4):455, from CODATA enthalpies — the value with LIQUID water as product, so an engine exhausting steam recovers less) through the EXACT ideal-gas molar volume at STP (R = k·N_A is exact under SI 2019; the ideal-gas law is a MODEL, not a measurement of real biogas). Shaft work is bounded by CARNOT between the stated hot and cold temperatures. A claimed thermal efficiency at or above unity, or above Carnot, is REFUSED with the integer multiplication that convicts it. The cycle counts are definitional, not measured: 4 strokes, 2 crankshaft revolutions, exactly 1 working stroke per cycle, one impulse per cylinder per two revolutions (Runciman, Gutenberg 27286; Rathbun, Gutenberg 56776, who states impulses per revolution = cylinders / 2 — the same count written with a fraction).
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `biogasLitres` | number | **yes** | biogas volume, whole litres |
+| `methanePercent` | number | **yes** | methane fraction, whole percent 0..100 |
+| `cylinders` | number | no | engine cylinders (default 1) |
+| `crankRevolutionsPerMinute` | number | no | optional crank speed, rpm — reports working strokes per two minutes as an exact integer |
+| `hotKelvin` | number | no | optional peak cycle temperature, K — with coldKelvin gives the Carnot ceiling |
+| `coldKelvin` | number | no | optional heat-rejection temperature, K |
+| `claimedThermalEfficiencyPercent` | number | no | optional — your engine’s measured brake thermal efficiency, checked against Carnot |
+
+### `uuidna_energy_mfc`
+
+The microbial fuel cell, priced from a pilot-scale survey where NOTHING is exact by definition — so every figure is a bracket. Volumetric power 600 +/- 452 mW/m3 (reported range 12–1435), areal 49 +/- 27 mW/m2, energy recovery 11 +/- 6 Wh/m3, all MEASURED (Rossi & Logan 2022, Water Research 225:119179); the standard deviation is larger than three quarters of the mean, so the band IS the finding and a single-number expectation would be dishonest. The top of the reported range is the ceiling and an asserted power above it is REFUSED. The tool also checks the two independent measured bands AGAINST EACH OTHER over the stated retention time, and that check is allowed to come out FALSE — a pass too short for the reported energy recovery is named as such. The lab record of 11,220 W/m3 (Ren et al. 2016, Nanoscale 8:3539) is reachable only under scale=lab and always carries its label: a MINIATURISED cell on a DEFINED MEDIUM, not wastewater and not a yield to plan around.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `reactorLitres` | number | **yes** | reactor working volume, whole litres |
+| `retentionHours` | number | **yes** | hydraulic retention time, whole hours |
+| `anodeAreaSquareMillimetres` | number | no | optional anode area in mm2 — adds the areal-power band |
+| `assertedVolumetricMilliwattsPerCubicMetre` | number | no | optional — a claimed volumetric power density, checked against the reported ceiling |
+| `scale` | string | no | 'pilot' (default, the wastewater survey) or 'lab' (the miniaturised-cell record, labelled) |
+
+### `uuidna_energy_photon`
+
+Photon and electrolysis. The reversible cell voltage is computed from the MEASURED Gibbs energy of liquid water formation (-237.14 kJ/mol) against the EXACT Faraday constant N_A·e (exact because e and N_A are exact under SI 2019), and returned as an integer bracket around roughly 1.2289 V. The familiar 1.23 V is shown BY MULTIPLICATION to be that number rounded UP — an upper bound, not the value. A photon of the given wavelength is priced in volts per electron (exact: h, c and e are all exact) and checked against that floor; the tool also computes the longest wavelength whose single photon still clears it. An applied voltage BELOW the floor is REFUSED — a device claiming sustained hydrogen there is claiming energy from nowhere. An applied voltage below the THERMONEUTRAL voltage (~1.4812 V, from the measured higher heating value 285.83 kJ/mol) is also REFUSED: a cell run there absorbs ambient heat, an efficiency against the higher heating value would come out above 100%, and that number is not free energy and will not be printed as an efficiency. Real electrolysers run 1.6–2.0 V; the gap is overpotential and ohmic loss — heat, not hydrogen.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `wavelengthNanometres` | number | **yes** | photon wavelength, whole nanometres |
+| `appliedMillivolts` | number | **yes** | cell voltage actually applied, whole millivolts (a real electrolyser is 1600–2000) |
+| `claimedFaradaicEfficiencyPercent` | number | no | optional — whole percent 0..100; above 100 is refused as over-unity |
 

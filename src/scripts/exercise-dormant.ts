@@ -38,9 +38,59 @@ import { execFileSync, execSync } from 'node:child_process'
 import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { HERE, ROOT } from './api.js'
+import { merkleGravity, toUuid } from '../index.js'
 import dormant from '../../lean/dormant-scripts.json' with { type: 'json' }
 
 const TIMEOUT_MS = 120_000
+const RECEIPT = 'lean/dormant-receipt.json'
+
+/** FOLD THE SLOW WORK SO AN UNCHANGED RUN VERIFIES FREE.
+ *
+ *  Exercising 32 subprocesses costs about 33 seconds of every gate pass, and it re-runs them whether or not a
+ *  single byte changed. The Lean wings solved this already — each emits a receipt and reports "the next unchanged
+ *  run verifies free" — and the same discipline applies here: fold the BUILT bytes of every rostered script
+ *  together with the manifest that governs them, and if that fold matches the receipt of the last green run,
+ *  nothing can have changed and the sweep has nothing to find.
+ *
+ *  The fold is over the compiled output rather than the source, because compiled output is what actually runs.
+ *  merkleGravity sorts its leaves, so the receipt does not depend on the order the roster is read in. */
+export function rosterFold(roster: readonly string[]): string {
+  const leaves = roster.map((n) => toUuid(n + ':' + scriptFold(n)))
+  leaves.push(toUuid('manifest:' + manifestFold()))
+  return merkleGravity(leaves)
+}
+
+/** THE INVERSE OF SKIPPING EVERYTHING IS RUNNING ONLY WHAT MOVED.
+ *
+ *  A single roster-wide fold is all-or-nothing: change one byte in one script and all 32 subprocesses run again,
+ *  76 seconds to re-learn 31 things that could not have changed. Folding each script SEPARATELY inverts that —
+ *  the fold stops being a gate over the whole sweep and becomes an index into it, so the cost of a change is the
+ *  cost of the change rather than the cost of the roster.
+ *
+ *  The manifest is deliberately global. It declares what each script may WRITE, so a manifest edit can invalidate
+ *  any script's verdict without touching that script's bytes; when it moves, everything is re-exercised. */
+export const scriptFold = (name: string): string => {
+  const built = join(HERE, name.replace(/\.ts$/, '') + '.js')
+  return toUuid(existsSync(built) ? readFileSync(built, 'utf8') : 'MISSING')
+}
+export const manifestFold = (): string => toUuid(readFileSync(join(ROOT, 'lean', 'dormant-scripts.json'), 'utf8'))
+
+/** which scripts must actually run: those whose built bytes moved, or all of them if the manifest moved */
+export function movedSince(roster: readonly string[], prior: { manifest?: string; scripts?: Record<string, string> } | null): string[] {
+  if (!prior || prior.manifest !== manifestFold()) return [...roster]
+  return roster.filter((n) => (prior.scripts ?? {})[n] !== scriptFold(n))
+}
+
+export function priorReceipt(): { manifest?: string; scripts?: Record<string, string> } | null {
+  try { return JSON.parse(readFileSync(join(ROOT, RECEIPT), 'utf8')) as { manifest?: string; scripts?: Record<string, string> } }
+  catch { return null }
+}
+
+/** the receipt of the last run in which every rostered script exited 0 */
+export function lastGreen(): string | null {
+  try { return (JSON.parse(readFileSync(join(ROOT, RECEIPT), 'utf8')) as { fold?: string }).fold ?? null }
+  catch { return null }
+}
 
 export interface Exercise {
   script: string
@@ -160,8 +210,16 @@ if (process.argv[1] && /exercise-dormant\.(js|ts)$/.test(process.argv[1])) {
     process.exit(1)
   }
 
-  console.log(`exercise-dormant — running ${roster.length} declared-dormant script(s); each must exit 0 …`)
-  const results = roster.map((s) => exercise(s, writes[s] ?? []))
+  const fold = rosterFold(roster)
+  const prior = priorReceipt()
+  const moved = only ? roster : movedSince(roster, prior)
+  const carried = roster.length - moved.length
+  if (!moved.length) {
+    console.log(`✓ exercise-dormant — all ${roster.length} script(s) unchanged since the last green sweep (receipt ${fold.slice(0, 8)}); verified free.`)
+    process.exit(0)
+  }
+  console.log(`exercise-dormant — ${moved.length} of ${roster.length} script(s) moved${carried ? `, ${carried} carried forward unchanged` : ''}; each must exit 0 …`)
+  const results = moved.map((s) => exercise(s, writes[s] ?? []))
   const gaps = dormantRotGaps(results)
 
   const residue = [...dirtySet()]
@@ -176,5 +234,12 @@ if (process.argv[1] && /exercise-dormant\.(js|ts)$/.test(process.argv[1])) {
     for (const g of gaps) console.error(`  · ${g.what}\n    fix: ${g.fix}`)
     process.exit(1)
   }
+  const scripts: Record<string, string> = { ...(prior?.scripts ?? {}) }
+  for (const r of results) scripts[r.script] = scriptFold(r.script)
+  writeFileSync(join(ROOT, RECEIPT), JSON.stringify({
+    why: 'Per-script folds of the BUILT bytes, from the last sweep in which each exited 0, plus the manifest fold. A script whose fold is unchanged cannot have changed behaviour, so only the MOVED ones are re-exercised — the cost of a change is the cost of the change, not the cost of the roster. The manifest is global: it declares what each script may write, so when it moves everything is re-exercised. Delete this file to force a full sweep.',
+    fold, manifest: manifestFold(), count: roster.length, scripts,
+  }, null, 2) + '\n')
   console.log(`✓ exercise-dormant — ${results.length} dormant script(s) exercised, all exit 0, writes all declared; tree residue ${residue.length === 0 ? 'none' : residue.join(', ')}`)
+  console.log(`  receipt ${fold.slice(0, 8)} recorded — only what moves is re-exercised.`)
 }
