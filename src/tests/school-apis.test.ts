@@ -73,8 +73,11 @@ test('the CSV split survives quoted commas and doubled quotes', () => {
   assert.deepEqual(splitCsvLine('x,,y'), ['x', '', 'y'])
 })
 
-// ── THE HOMOGRAPH RULE. The finder for the gap this module shipped with: a search returns the query's letters, so
-// a fragment hit carries no information. z9-ring is a ring of sealed arithmetic, never a cast concrete one.
+// ── THE HOMOGRAPH RULE, and the surface it cost. The finder for the gap this module shipped with: a search returns
+// the query's letters, so a fragment hit carries no information. z9-ring is a ring of sealed arithmetic, never a cast
+// concrete one. The rule now guards the PAIRING's first hop; the bulk ledger-to-ESCO map it was written for was
+// measured, found to produce confident wrong rows that no string rule could reach, and REMOVED — recorded in ABSENT
+// rather than deleted in silence, because a surface that vanishes without a reason looks like one nobody thought of.
 test('a fragment hit is a homograph, not a mapping', () => {
   const keep: [string, string][] = [['quantum', 'quantum mechanics'], ['astronomy', 'astronomy'],
     ['martial-arts', 'practice martial arts'], ['optimisation', 'conduct search engine optimisation']]
@@ -84,4 +87,10 @@ test('a fragment hit is a homograph, not a mapping', () => {
   const whole = (skill: string, title: string): boolean => norm(title).includes(norm(skill))
   for (const [skill, title] of keep) assert.ok(whole(skill, title), `the whole name is there: ${skill} → ${title}`)
   for (const [skill, title] of drop) assert.ok(!whole(skill, title), `a homograph must not map: ${skill} → ${title}`)
+})
+
+test('the removed bulk mapping is recorded as an absence, with what replaced it', () => {
+  const gone = schoolApiRegistry().absent.find((a) => a.source.includes('automatic mapping'))
+  assert.ok(gone, 'a surface that was built and withdrawn must say so — silence reads as an oversight')
+  assert.match(gone.instead, /uuidna_education_jobs/, 'a withdrawal that names no replacement lies by omission')
 })

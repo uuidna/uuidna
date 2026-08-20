@@ -112,6 +112,15 @@ const ABSENT: { source: string; why: string; instead: string }[] = [
       'the endpoint-nobody-called this registry exists to avoid.',
     instead: 'The jobs side is reached two ways that DO answer: ESCO occupations (what work a skill is needed for) ' +
       'and Eurostat jvs_q_nace2 (how many vacancies a country actually reports).' },
+  { source: 'an automatic mapping of the sealed ledger onto ESCO (built, measured, REMOVED)',
+    why: 'it was wired and run over all 68 skill clusters, and it produced confident wrong rows: sequence — the Z/9 ' +
+      'doubling orbit — mapped to "sequence explosions" and on to explosives engineer, colour to "add colour" and on ' +
+      'to transport engineer. Filtering fragment hits raised the floor and did not reach a ceiling, because the ' +
+      'remaining error needs MEANING, not string shape. A surface that is right most of the time about which European ' +
+      'skill a proof teaches is worse than no surface, since nothing in the output marks which rows are the wrong ones.',
+    instead: 'The pairing walk, one subject at a time and a human reading the result: uuidna_education_jobs. It moves ' +
+      'along ESCO\'s OWN published skill-to-occupation relation instead of guessing, and now filters its first hop by ' +
+      'the same whole-name rule, reporting what it rejected.' },
   { source: 'any student information system (enrolment, grades, attendance)',
     why: 'no EU-level API serves these, and uuidna holds no learner data to serve: it enrols nobody and grades ' +
       'nobody. A pupil-data API is a thing an institution operates, under a controller, not a thing to federate.',
@@ -166,52 +175,16 @@ export async function escoSearch(text: string, type = 'skill', limit?: number): 
   return answer('esco', { text, type }, url, results, total > results.length)
 }
 
-export interface EscoSkillMapping { skill: string; theorems: number; fold: string; esco: EscoConcept[] }
-export interface EscoMap {
-  mapped: number; homographs: { skill: string; rejected: string[] }[]; unmatched: string[]
-  mappings: EscoSkillMapping[]; receipt: string; honest: string
-}
-
-/** THE HOMOGRAPH RULE — a lexical hit is a MAPPING only if the cluster's FULL name appears as a whole token
- *  sequence in the concept's title. MEASURED over all 68 clusters: without it, 61 "matched" and the matches were
- *  worse than the misses — z9-ring landed on "cast concrete rings", z7-rosette on "finish costumes", cipher on
- *  "interpret religious texts". A search GUARANTEES the query's letters come back, so a fragment hit carries no
- *  information; requiring the whole name leaves 28 clusters, and they are the ones that survive reading aloud
- *  (astronomy → astronomy, thermodynamics → thermodynamics). Two weaker rules were tried and REFUTED first: a
- *  vocabulary overlap between the cluster's theorem statements and the concept's description scored "quantum
- *  mechanics" and "cast concrete rings" identically (the signal was stopwords), and requiring the concept to carry
- *  an occupation relation rejected nothing — "cast concrete rings" has two. */
-const isWholeName = (skill: string, title: string): boolean => {
+/** THE HOMOGRAPH RULE — a lexical hit is worth walking only if the subject's FULL name appears as a whole token
+ *  sequence in the concept's title. A search GUARANTEES the query's letters come back, so a fragment hit carries no
+ *  information: measured over the ledger's 68 skill clusters, the unfiltered matches were worse than the misses —
+ *  z9-ring landed on "cast concrete rings", z7-rosette on "finish costumes", cipher on "interpret religious texts".
+ *  Two weaker rules were tried and REFUTED first: vocabulary overlap between the subject's theorem statements and
+ *  the concept's description scored "quantum mechanics" and "cast concrete rings" identically (the signal was
+ *  stopwords), and requiring an occupation relation rejected nothing — "cast concrete rings" has two. */
+const isWholeName = (subject: string, title: string): boolean => {
   const norm = (x: string): string => ' ' + x.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() + ' '
-  return norm(title).includes(norm(skill))
-}
-
-/** mapSkillsToEsco() → THE MAPPING: every uuidna skill cluster matched against the European skill taxonomy, so a
- *  sealed theorem's skill carries a European URI a curriculum can read. One network call per cluster, in parallel.
- *  A cluster whose name is uuidna's own coinage maps to NOTHING and is returned as a named homograph rejection —
- *  an empty, named absence beats a confident wrong row, which is the same law the registry's ABSENT list runs on.
- *  HONEST: a surviving match is still a LEXICAL match for a human to accept or reject, NEVER a claim that uuidna's
- *  cluster and the European skill are the same thing, and never a certification. */
-export async function mapSkillsToEsco(perSkill = 3): Promise<EscoMap> {
-  const groups = skillGroups()
-  const found = await Promise.all(groups.map((g) => escoSearch(g.skill, 'skill', perSkill)))
-  const homographs: { skill: string; rejected: string[] }[] = []
-  const mappings: EscoSkillMapping[] = groups.map((g, i) => {
-    const all = found[i].results as EscoConcept[]
-    const kept = all.filter((c) => isWholeName(g.skill, c.title))
-    if (all.length && !kept.length) homographs.push({ skill: g.skill, rejected: all.map((c) => c.title) })
-    return { skill: g.skill, theorems: g.count, fold: g.fold, esco: kept }
-  })
-  const unmatched = mappings.filter((m) => !m.esco.length).map((m) => m.skill)
-  return {
-    mapped: mappings.length - unmatched.length, homographs, unmatched, mappings,
-    receipt: merkleGravity(mappings.flatMap((m) => m.esco.map((e) => e.address))),
-    honest: 'A LEXICAL correspondence offered for a human to accept or reject: ESCO answered these concepts for the ' +
-      'cluster\'s NAME, and only those carrying the WHOLE name are kept — a fragment hit is a homograph, and the ' +
-      'rejected ones are returned by name rather than dropped. It is a pointer between vocabularies, never a claim ' +
-      'that the two mean the same thing, never an endorsement by the European Commission, and never a qualification ' +
-      '— uuidna is not accredited and awards none. ' + HONEST,
-  }
+  return norm(title).includes(norm(subject))
 }
 
 // ── Eurostat: JSON-stat 2.0, decoded from flat indices to labelled observations ────────────────────────────────────
@@ -351,6 +324,7 @@ export interface OccupationLink extends SchoolApiEvidence { uri: string; title: 
 export interface SkillJobPair { skill: string; escoSkill: { uri: string; title: string } | null; occupations: OccupationLink[] }
 export interface EducationJobsPairing {
   subject: string
+  homographs: string[]                                 // lexical hits rejected as fragment matches, returned by name
   cluster: { skill: string; theorems: number; fold: string } | null
   pairs: SkillJobPair[]
   occupations: number
@@ -393,23 +367,28 @@ export async function eurostatVacancies(geo: string, limit?: number): Promise<Sc
 export async function pairEducationToJobs(subject: string, opts: { geo?: string; perSkill?: number; limit?: number } = {}): Promise<EducationJobsPairing> {
   const group = skillGroups().find((g) => g.skill.toLowerCase() === subject.toLowerCase())
   const skills = await escoSearch(subject, 'skill', opts.perSkill ?? 3)
-  const pairs: SkillJobPair[] = skills.results.length
-    ? await Promise.all((skills.results as EscoConcept[]).map(async (c) => ({
+  const all = skills.results as EscoConcept[]
+  const onTopic = all.filter((c) => isWholeName(subject, c.title))
+  const homographs = all.filter((c) => !isWholeName(subject, c.title)).map((c) => c.title)
+  const pairs: SkillJobPair[] = onTopic.length
+    ? await Promise.all(onTopic.map(async (c) => ({
         skill: subject, escoSkill: { uri: c.uri, title: c.title }, occupations: await escoOccupationsForSkill(c.uri),
       })))
     : [{ skill: subject, escoSkill: null, occupations: [] }]
   const vacancies = opts.geo ? await eurostatVacancies(opts.geo, opts.limit) : null
   const occupations = pairs.reduce((n, p) => n + p.occupations.length, 0)
   return {
-    subject,
+    subject, homographs,
     cluster: group ? { skill: group.skill, theorems: group.count, fold: group.fold } : null,
     pairs, occupations, vacancies,
     receipt: merkleGravity(pairs.flatMap((p) => p.occupations.map((o) => o.address))),
     honest:
-      'A MAP BETWEEN PUBLIC VOCABULARIES, hop by named hop: the subject is matched LEXICALLY to ESCO skills, and each ' +
+      'A MAP BETWEEN PUBLIC VOCABULARIES, hop by named hop: the subject is matched LEXICALLY to ESCO skills — and a ' +
+      'match is walked only if it carries the subject\'s WHOLE name, because a search returns the query\'s letters and ' +
+      'a fragment hit is a homograph, returned here by name rather than dropped. Each surviving ' +
       'skill is walked along ESCO\'s OWN published essential/optional relation to the occupations it serves. It is not ' +
       'careers advice, not a prediction that studying this leads to that work, and not a claim that any employer or ' +
-      'authority recognises anything sealed here — uuidna awards no qualification. The vacancy figures are a country\'s ' +
+      'authority recognises anything sealed here (theorem provenance_integrity_not_content_truth) — uuidna awards no qualification. The vacancy figures are a country\'s ' +
       'own aggregate reporting for the whole economy, NEVER openings matched to this subject. ' + HONEST,
   }
 }
