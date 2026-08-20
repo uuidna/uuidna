@@ -60,6 +60,8 @@ backing_clears 19
 exactly_one_flag 19
 flag_matches_spec 19
 sanitize_depth_bounded 19
+witnesses_locate_faults 19
+handle_splits_four 19
 drift_is_named_or_caught 19
 #AuditGame.lean
 flag_is_any_refutation 19
@@ -1254,7 +1256,7 @@ partition_six_three 19
 powers_avoid_triangle 19
 mirror_opens_triangle 19
 gateways_mark_triangle 19
-budget_not_conserved 19
+budget_not_conserved 27
 angles_close 19
 seams_two 19
 one_strip 19
@@ -1422,4 +1424,4 @@ reversible_erases_nothing Landauer
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 9, falsifier: 52 }
+export const FLOOR = { witness: 9, falsifier: 53 }

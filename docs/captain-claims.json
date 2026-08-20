@@ -2,8 +2,8 @@
   "generated": "2026-08-20",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1334,
-  "total_theorems": 1334,
+  "total_claimed": 1336,
+  "total_theorems": 1336,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -4005,6 +4005,18 @@
       "key": "sanitize_depth_bounded",
       "lineAddress": "bff12341-461c-81a9-a1fa-07443dfdba63",
       "address": "70a310ab-3cba-8a25-9be2-953a483841b4",
+      "principle": "The detectors, proven"
+    },
+    {
+      "key": "witnesses_locate_faults",
+      "lineAddress": "8bdaa302-dbca-86e8-9b59-88b6f15054b7",
+      "address": "1652831b-c231-84ca-be0b-879fe58a7c02",
+      "principle": "The detectors, proven"
+    },
+    {
+      "key": "handle_splits_four",
+      "lineAddress": "13ce0d4c-9b19-8a02-beb0-6e9f9c59e9cf",
+      "address": "06a907f2-0c27-8550-9d39-b5d7b82119b1",
       "principle": "The detectors, proven"
     },
     {
@@ -8010,7 +8022,7 @@
       "principle": "The uuid mix space"
     }
   ],
-  "claim_receipt": "64b5b99d-dfbe-8cdf-91c6-7e58d4c8772b",
+  "claim_receipt": "9ec97f4c-aad4-8bab-811f-e87944270549",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

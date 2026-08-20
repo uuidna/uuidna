@@ -4,13 +4,13 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="185 keys" />
+# MCP tools <Badge type="tip" text="187 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 185 tools below are read from the server's own tool list and
-organised into 37 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 187 tools below are read from the server's own tool list and
+organised into 38 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 5de93d3b-2d49-8026-9aea-3c87e56a69a5
+gate CLEAN f0 d0 v0 · 8b5b0cce-9231-89b7-bca4-0bbd46580753
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 185-tool registry folds to its
-order-invariant identity `ef4a3861-ed25-8335-b462-8110962b36ee` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 187-tool registry folds to its
+order-invariant identity `3ba85c2e-6887-84f2-b439-c736167d7b4f` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`185`" />
+## The grid <Badge type="tip" :text="`187`" />
 
-185 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 70 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+187 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 72 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -101,9 +101,11 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-quantum-sailing-weather"><code>quantum_sailing_weather</code></a>
 <a href="#uuidna-reports"><code>reports</code></a>
 <a href="#uuidna-repos"><code>repos</code></a>
+<a href="#uuidna-research-ledger"><code>research_ledger</code></a>
 <a href="#uuidna-resources"><code>resources</code></a>
 <a href="#uuidna-review-domains"><code>review_domains</code></a>
 <a href="#uuidna-rights"><code>rights</code></a>
+<a href="#uuidna-rosetta-legs"><code>rosetta_legs</code></a>
 <a href="#uuidna-sanitize"><code>sanitize</code></a>
 <a href="#uuidna-scan-publications"><code>scan_publications</code></a>
 <a href="#uuidna-security-audit"><code>security_audit</code></a>
@@ -553,7 +555,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'79'" />
+## Other <Badge type="tip" :text="'78'" />
 
 *skill: other*
 
@@ -789,17 +791,6 @@ The REPORTER'S METHOD (Report.lean) reflected live: file a report of a PROVEN di
 | --- | --- | --- | --- |
 | `draft` | string | **yes** | the report draft (its claims are honesty-gated) The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught. |
 | `sources` | array | no | the independent sources (≥ 2 to corroborate) |
-
-### `uuidna_research`
-
-Deep research with the REVERSIBLE imprint codec: PRESS external research (text or a link's content) into a uuid chain and DECOMPRESS it back LOSSLESSLY (the round-trip proves it), bind the pressed pieces to the computable ENTANGLED algebra (the order-invariant fold), and report NOVELTY as content-address uniqueness — a never-seen address is novel CONTENT. HONEST SCOPE: uuidna fingerprints STRUCTURE and NOVELTY, it does NOT extract MEANING — provenance + structure, never hidden meaning; `meaning` is null by design, left to the reader. Returns {address,compressed,losslessRoundTrip,entangledReceipt,novel,meaning}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `text` | string | **yes** | the research text to press, entangle and check for novelty |
-| `seenAddresses` | array | no | known content-addresses; a new one is novel |
 
 ### `uuidna_snapshot`
 
@@ -1604,6 +1595,42 @@ BOOK → SEALED-LEDGER LINKAGE — the captain's INDEPENDENT, CLOSED-DOOR legal 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `text` | string | **yes** | the text to mine and link (a passage, a chapter, a claim) |
+
+## Deep research & the evidence census (how well a claim is anchored) <Badge type="tip" :text="'3'" />
+
+*skill: research*
+
+### `uuidna_research`
+
+Deep research with the REVERSIBLE imprint codec: PRESS external research (text or a link's content) into a uuid chain and DECOMPRESS it back LOSSLESSLY (the round-trip proves it), bind the pressed pieces to the computable ENTANGLED algebra (the order-invariant fold), and report NOVELTY as content-address uniqueness — a never-seen address is novel CONTENT. HONEST SCOPE: uuidna fingerprints STRUCTURE and NOVELTY, it does NOT extract MEANING — provenance + structure, never hidden meaning; `meaning` is null by design, left to the reader. Returns {address,compressed,losslessRoundTrip,entangledReceipt,novel,meaning}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** | the research text to press, entangle and check for novelty |
+| `seenAddresses` | array | no | known content-addresses; a new one is novel |
+
+### `uuidna_research_ledger`
+
+THE RESEARCH LEDGER — findings carrying their VERIFICATION STATUS as a field instead of a sentence. Each finding records the claim, the value, the units and the source, and then the field that decides what may be done with it: `read` (the primary source was retrieved and the figure taken from its own text), `secondary` (a citing work reported it), `unread` (believed and unchecked), `refuted`. The second field is `kind`: a CONVENTION is exact by definition, a MEASUREMENT carries uncertainty. TWO RULES FALL OUT AND THE TOOL APPLIES THEM PER FINDING — only a `read` source may ANCHOR a theorem, and only a `read` CONVENTION may seal as an EQUALITY; everything measured seals as an integer BRACKET or as nothing at all. Filter with optional {status} and {kind}; an unknown value is refused by name rather than quietly matching nothing. The census is reported over the WHOLE ledger even under a filter, so no filter can flatter it, and the ledger states its own GAPS: an unread finding, a convention whose defining source was not read, two sources disagreeing about one value. HONEST SCOPE: this reports how well a finding was VERIFIED, never whether it is true — `unread` is not "false", it is not-yet-checked. Returns {filter,total,matched,census,kinds,anchoring,findings:[{claim,value,units,source,status,kind,note,address,anchorsTheorem,sealableAs,why}],gaps,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `status` | string | no | optional filter: read \| secondary \| unread \| refuted |
+| `kind` | string | no | optional filter: convention \| measured |
+
+### `uuidna_rosetta_legs`
+
+THE INDEPENDENT-WITNESS CENSUS — how many of the five legs each sealed theorem actually carries. SYMBOL is the TypeScript mirror the emitter cross-checks, PROOF is the kernel's `by decide` verdict, WITNESS is a source outside this repository a stranger could consult, FALSIFIER is a deliberate mutation that must FAIL (it tests the test), ADDRESS is the content fold that lets anyone recompute from the exact bytes. Symbol and proof are written by one hand and share that hand's errors, so a theorem carrying only those two can DETECT a disagreement and never LOCATE the fault — three is the count that locates one. Pass {key} for one theorem's legs and the verdict on them; pass nothing for the distribution across the whole ledger, the per-leg totals, the scarcest leg, the fully-anchored keys, the computed attribution, and the FLOOR the anchoring may never fall below. The scarce legs are the honest headline and are reported as they stand, never smoothed. An unknown key is refused by name. HONEST SCOPE: this MEASURES anchoring, it certifies nothing — proof and address are near-universal by construction and are not evidence about the world, and a missing leg is never a claim that the theorem is false. Returns the per-key answer {key,wing,legs,missing,claimedBy,canLocateFault,verdict} or the census {total,perLeg,scarcest,byLegCount,detectOnly,fullyAnchored,claimedBy,floor,floorGaps,receipt,honest}, each with {hostedMirror} — the live comparison against the census the hosted edge answers from. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `key` | string | no | a sealed theorem key; omit for the whole distribution |
 
 ## Rotation & cycles <Badge type="tip" :text="'5'" />
 

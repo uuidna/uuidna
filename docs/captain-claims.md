@@ -3,8 +3,8 @@
 **Generated:** 2026-08-20
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1334/1334 theorems — every one, by construction
-**Claim receipt:** `64b5b99d-dfbe-8cdf-91c6-7e58d4c8772b`
+**Total claimed:** 1336/1336 theorems — every one, by construction
+**Claim receipt:** `9ec97f4c-aad4-8bab-811f-e87944270549`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -142,12 +142,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The detectors, proven
 
-- **Theorems:** 9
+- **Theorems:** 11
 - **Sample lineAddress:** `dbb130ad-3a9a-83ab-8dd4-9de755d6f4ca`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[wall_steady_state](/theorem/wall_steady_state) · [flag_truth_table](/theorem/flag_truth_table) · [flag_requires_hollow](/theorem/flag_requires_hollow) · [demarcation_clears](/theorem/demarcation_clears) · [backing_clears](/theorem/backing_clears) · [exactly_one_flag](/theorem/exactly_one_flag) · [flag_matches_spec](/theorem/flag_matches_spec) · [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) · [drift_is_named_or_caught](/theorem/drift_is_named_or_caught)
+[wall_steady_state](/theorem/wall_steady_state) · [flag_truth_table](/theorem/flag_truth_table) · [flag_requires_hollow](/theorem/flag_requires_hollow) · [demarcation_clears](/theorem/demarcation_clears) · [backing_clears](/theorem/backing_clears) · [exactly_one_flag](/theorem/exactly_one_flag) · [flag_matches_spec](/theorem/flag_matches_spec) · [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) · [witnesses_locate_faults](/theorem/witnesses_locate_faults) · [handle_splits_four](/theorem/handle_splits_four) · [drift_is_named_or_caught](/theorem/drift_is_named_or_caught)
 
 ### The audit game
 
@@ -672,7 +672,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1250 (1334 entries, 84 re-namings — a theorem is its Lean, not its name) |
+| sealed propositions | 1252 (1336 entries, 84 re-namings — a theorem is its Lean, not its name) |
 | prose paragraphs tried | 3885 — 1802 usable, 2083 held open, 0 drained |
 
 **The claim is of ROOM, never of truth** — the same scope the superposition claim carries. Every item in the
@@ -690,7 +690,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states
 (the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1334 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1336 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM, never of truth** — a claimed superposition is claimed capacity; its collapse still
