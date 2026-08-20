@@ -8,7 +8,7 @@
 // These assertions are PURE — no network. A test that needs the internet fails for reasons that are not the code's.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { schoolApiRegistry, SCHOOL_APIS, GISCO_VINTAGE } from '../school-apis.js'
+import { schoolApiRegistry, schoolApiFetch, splitCsvLine, SCHOOL_APIS, GISCO_VINTAGE } from '../school-apis.js'
 
 test('every registered source declares what it serves and how it answered', () => {
   const r = schoolApiRegistry()
@@ -40,4 +40,35 @@ test('the GISCO vintage is pinned — a directory without a vintage cannot be re
 test('no two sources share an id', () => {
   const ids = SCHOOL_APIS.map((s) => s.id)
   assert.equal(new Set(ids).size, ids.length)
+})
+
+// ── THE PAIRING. Education and jobs are joined through a PUBLISHED relation, so the join is named, not guessed.
+test('ESCO is declared as the bridge, and the jobs side is reachable from the same door', () => {
+  const esco = SCHOOL_APIS.find((s) => s.id === 'esco')
+  assert.ok(esco, 'the taxonomy that relates skills to occupations must be a wired source')
+  assert.match(esco.honest, /BRIDGE/, 'the source that pairs education to jobs must say so where it is declared')
+  const eurostat = SCHOOL_APIS.find((s) => s.id === 'eurostat')
+  assert.ok(eurostat?.serves.some((x) => x.includes('vacanc')), 'the jobs side rides the same Eurostat door')
+})
+
+// EURES is the whole reason ABSENT exists: it is the one every survey lists and nobody calls.
+test('EURES is named in ABSENT with what stands in its place', () => {
+  const eures = schoolApiRegistry().absent.find((a) => a.source.includes('EURES'))
+  assert.ok(eures, 'a probed-and-refused source must be recorded, not dropped')
+  assert.ok(eures.why.includes('404') || eures.why.includes('403'), 'the absence carries what the probe actually got')
+  assert.ok(eures.instead.length > 0, 'an absence that names no alternative lies by omission')
+})
+
+test('an unknown source is refused BY NAME, never answered with an empty result', async () => {
+  await assert.rejects(() => schoolApiFetch('eures'), /unknown source "eures"/)
+  await assert.rejects(() => schoolApiFetch('esco'), /needs \{text\}/)
+  await assert.rejects(() => schoolApiFetch('gisco'), /needs \{country\}/)
+  await assert.rejects(() => schoolApiFetch('oeapi'), /SERVED, not fetched/)
+})
+
+// The GISCO rows carry quoted names with embedded commas and doubled quotes — a naive split truncates schools.
+test('the CSV split survives quoted commas and doubled quotes', () => {
+  assert.deepEqual(splitCsvLine('a,"b,c",d'), ['a', 'b,c', 'd'])
+  assert.deepEqual(splitCsvLine('BG_1,"УЧИЛИЩЕ ""АНГЕЛ УЗУНОВ"" I-XII",41.9'), ['BG_1', 'УЧИЛИЩЕ "АНГЕЛ УЗУНОВ" I-XII', '41.9'])
+  assert.deepEqual(splitCsvLine('x,,y'), ['x', '', 'y'])
 })

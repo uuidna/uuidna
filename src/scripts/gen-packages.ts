@@ -47,6 +47,7 @@ const PARTITION: Record<string, string> = {
   './sanitize.js': 'mcp', './harness.js': 'mcp',
   // edge — the deployment surface
   './cloudflare.js': 'edge', './site.js': 'edge', './seo.js': 'edge', './oeapi.js': 'edge', './render.js': 'edge',
+  './school-apis.js': 'research',
   './editor.js': 'edge', './payload-seed.js': 'edge', './profile.js': 'edge', './social.js': 'edge',
 }
 

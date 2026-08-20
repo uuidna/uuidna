@@ -17,3 +17,8 @@ export { beaconAnchor, type Anchor } from '@uuidna/uuidna'
 export { nistConstant, type NistConstant } from '@uuidna/uuidna'
 export { auditCve, type CveAudit } from '@uuidna/uuidna'
 export { vocabulary, type Term, type Vocabulary } from '@uuidna/uuidna'
+export { schoolApiRegistry, schoolApiFetch, escoSearch, mapSkillsToEsco, eurostatEducation, giscoSchools,
+  escoOccupationsForSkill, eurostatVacancies, pairEducationToJobs, splitCsvLine, SCHOOL_APIS, GISCO_VINTAGE,
+  EUROSTAT_VACANCIES, type SchoolApi, type SchoolApiRegistry, type SchoolApiAnswer, type SchoolApiEvidence,
+  type SchoolApiQuery, type EscoConcept, type EscoMap, type EscoSkillMapping, type EurostatObservation,
+  type GiscoSchool, type OccupationLink, type SkillJobPair, type EducationJobsPairing } from '@uuidna/uuidna'

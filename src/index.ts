@@ -281,6 +281,18 @@ export { oeapiProfile, oeapiOrganisations, oeapiProgrammes, oeapiCourses, oeapiL
   type OeapiProfile, type OeapiOrganisation, type OeapiProgramme, type OeapiCourse, type OeapiLearningOutcome,
   type OeapiLangString, type OeapiCode } from './oeapi.js'
 
+// school-apis — THE EUROPEAN EDUCATION APIS behind one door, each PROBED before it was wired: ESCO (the EU skill and
+// occupation taxonomy — and the BRIDGE that pairs education to jobs through its own published relations), Eurostat
+// (education statistics AND job vacancies, JSON-stat decoded to labelled observations), and GISCO (the member states'
+// own school locations). OOAPI is the fourth, and the only one that runs the other way: uuidna SERVES it. What comes
+// back is EVIDENCE, never a seal — a fingerprint of what a named public source answered. A source that could not be
+// called (EURES) is in the named absences, not in the registry.
+export { schoolApiRegistry, schoolApiFetch, escoSearch, mapSkillsToEsco, eurostatEducation, giscoSchools,
+  escoOccupationsForSkill, eurostatVacancies, pairEducationToJobs, splitCsvLine, SCHOOL_APIS, GISCO_VINTAGE,
+  EUROSTAT_VACANCIES, type SchoolApi, type SchoolApiRegistry, type SchoolApiAnswer, type SchoolApiEvidence,
+  type SchoolApiQuery, type EscoConcept, type EscoMap, type EscoSkillMapping, type EurostatObservation,
+  type GiscoSchool, type OccupationLink, type SkillJobPair, type EducationJobsPairing } from './school-apis.js'
+
 // rights — the CAPTAIN'S RIGHTS, hard-imprinted: copyright (© Tsvetan Rouschev), licence (CC BY-NC-ND 4.0), and the
 // credit law, content-addressed and reversibly imprinted so they travel with every artifact (infused into every page's
 // head + JSON-LD). draftContract drafts the formal, content-addressed rights contract. Factual, tamper-evident — NOT a
@@ -384,4 +396,3 @@ export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theorem
 
 export { discover, superposition, rigid, type Value as DiscoverValue, type Relation } from './discover.js'
 
-export { schoolApiRegistry, SCHOOL_APIS, GISCO_VINTAGE, type SchoolApi, type SchoolApiRegistry } from './school-apis.js'

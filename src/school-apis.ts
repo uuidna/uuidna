@@ -3,8 +3,8 @@
 //
 // "EU school APIs" is not one thing, and every survey of them that reads well is wrong in the same place: it lists an
 // endpoint nobody called. So each source here was fetched first and is recorded with what it ACTUALLY answered —
-// ESCO's search returned 277 skills for "programming", Eurostat's dissemination API returned JSON-stat 2.0 for
-// educ_uoe_enrt01, GISCO's education directory served 3843 Bulgarian schools as CSV. A source that could not be
+// ESCO's search answered for "programming" with a live skills page, Eurostat's dissemination API returned JSON-stat 2.0 for
+// educ_uoe_enrt01, GISCO's education directory served the Bulgarian school directory as CSV. A source that could not be
 // called is not in the registry; it is in ABSENT, by name, with what stands in its place.
 //
 // THE FOUR, AND WHAT EACH IS FOR:
@@ -72,10 +72,13 @@ export const SCHOOL_APIS: readonly SchoolApi[] = [
     kind: 'taxonomy', direction: 'fetched',
     serves: ['skills', 'competences', 'occupations', 'qualifications', 'multilingual labels'],
     format: 'JSON (HAL)', access: 'public, no key',
-    honest: 'A CLASSIFICATION, not a school system: it says what a skill IS CALLED across the EU, never who holds it.' },
+    honest: 'A CLASSIFICATION, not a school system: it says what a skill IS CALLED across the EU, never who holds it. ' +
+      'It is also the BRIDGE — the same concept graph carries skills and occupations, related both ways, so education ' +
+      'and jobs are paired INSIDE one public vocabulary rather than joined on a guess.' },
   { id: 'eurostat', name: 'Eurostat — education and training statistics', base: EUROSTAT,
     kind: 'statistics', direction: 'fetched',
-    serves: ['enrolment', 'expenditure', 'participation', 'attainment', 'teaching staff', 'early leavers'],
+    serves: ['enrolment', 'expenditure', 'participation', 'attainment', 'teaching staff', 'early leavers',
+      'job vacancies (jvs_q_nace2) — the JOBS side of the same door'],
     format: 'JSON-stat 2.0', access: 'public, no key',
     honest: 'AGGREGATES ONLY — country/level/year cells. No individual record exists in it to ask for.' },
   { id: 'gisco', name: 'Eurostat GISCO — education services (school locations)', base: GISCO,
@@ -103,6 +106,12 @@ const ABSENT: { source: string; why: string; instead: string }[] = [
       'own address. Wiring "the national register" as one source would be inventing a door that does not exist.',
     instead: 'The gisco source is the cross-country stand-in — assembled FROM those national sources, at the cost of ' +
       'per-country variation in coverage and fields.' },
+  { source: 'EURES — the European job-mobility portal (europa.eu/eures)',
+    why: 'the portal is public but its vacancy search is not: the documented search endpoint answered 404 and the ' +
+      'app path answered 403 when probed, so there is no open door to wire. Listing it as available would be exactly ' +
+      'the endpoint-nobody-called this registry exists to avoid.',
+    instead: 'The jobs side is reached two ways that DO answer: ESCO occupations (what work a skill is needed for) ' +
+      'and Eurostat jvs_q_nace2 (how many vacancies a country actually reports).' },
   { source: 'any student information system (enrolment, grades, attendance)',
     why: 'no EU-level API serves these, and uuidna holds no learner data to serve: it enrols nobody and grades ' +
       'nobody. A pupil-data API is a thing an institution operates, under a controller, not a thing to federate.',
@@ -303,9 +312,88 @@ export async function giscoSchools(country: string, match?: string, limit?: numb
   return answer('gisco', match ? { country: cc, match, year } : { country: cc, year }, url, results, more)
 }
 
+
+// ── THE PAIRING: education ↔ jobs, through the vocabulary that already holds both ──────────────────────────────────
+//
+// Joining a curriculum to a labour market is normally done by matching strings and hoping. It does not have to be:
+// ESCO's concept graph relates a SKILL to the OCCUPATIONS it is essential or optional for, and an OCCUPATION back to
+// the skills it needs — both directions published, both fetched here. So the pairing walks a public relation instead
+// of inventing one: uuidna skill cluster → ESCO skill → the occupations that require it → what the member states
+// report as vacancies. Each hop is named, and a hop that returns nothing says so rather than being bridged by guess.
+
+/** the Eurostat dataset the jobs side is counted from — quarterly job vacancy statistics by NACE Rev. 2 activity */
+export const EUROSTAT_VACANCIES = 'jvs_q_nace2'
+
+export interface OccupationLink extends SchoolApiEvidence { uri: string; title: string; relation: 'essential' | 'optional' }
+export interface SkillJobPair { skill: string; escoSkill: { uri: string; title: string } | null; occupations: OccupationLink[] }
+export interface EducationJobsPairing {
+  subject: string
+  cluster: { skill: string; theorems: number; fold: string } | null
+  pairs: SkillJobPair[]
+  occupations: number
+  vacancies: SchoolApiAnswer | null
+  receipt: string
+  honest: string
+}
+
+/** escoOccupationsForSkill(uri) → the occupations ESCO relates to one skill, each tagged essential or optional.
+ *  One network call. The relation is ESCO's own; nothing is inferred from the label. */
+export async function escoOccupationsForSkill(uri: string): Promise<OccupationLink[]> {
+  const url = `${ESCO}/resource/skill?uri=${encodeURIComponent(uri)}&language=en`
+  const out: OccupationLink[] = []
+  try {
+    const r = await fetch(url, { headers: { accept: 'application/json' } })
+    if (!r.ok) return out
+    const body = await r.json() as { _links?: Record<string, { uri?: string; title?: string }[]> }
+    const relations: [string, 'essential' | 'optional'][] = [['isEssentialForOccupation', 'essential'], ['isOptionalForOccupation', 'optional']]
+    for (const [key, relation] of relations)
+      for (const o of body._links?.[key] ?? []) {
+        if (!o.uri) continue // never fabricate a link the graph did not publish
+        out.push({ source: 'esco', address: toUuid(o.uri), uri: o.uri, title: String(o.title ?? ''), relation })
+      }
+  } catch { /* best-effort: an unreachable hop is an absence, and an absence is reported, never filled in */ }
+  return out
+}
+
+/** eurostatVacancies(geo) → what a country REPORTS as job vacancies (jvs_q_nace2, whole economy B-S, all sizes),
+ *  the jobs-side counterpart to the enrolment figures on the education side. One network call. */
+export async function eurostatVacancies(geo: string, limit?: number): Promise<SchoolApiAnswer> {
+  return eurostatEducation(EUROSTAT_VACANCIES, { geo, indic_em: 'JOBVAC', sizeclas: 'TOTAL', nace_r2: 'B-S', s_adj: 'NSA' }, limit)
+}
+
+/** pairEducationToJobs(subject) → THE PAIR: a subject taught (a uuidna skill cluster, or any phrase) walked through
+ *  ESCO to the occupations that need it, optionally with the vacancies a country reports ({geo:"BG"}).
+ *  HONEST: every hop is a published EU relation or a lexical match ESCO returned — a MAP BETWEEN VOCABULARIES for a
+ *  human to accept or reject. It is not careers advice, not a prediction that a course leads to a job, and not a
+ *  claim that any employer recognises anything sealed here. The vacancy figures are a country's own aggregate
+ *  reporting, not openings matched to this subject. */
+export async function pairEducationToJobs(subject: string, opts: { geo?: string; perSkill?: number; limit?: number } = {}): Promise<EducationJobsPairing> {
+  const group = skillGroups().find((g) => g.skill.toLowerCase() === subject.toLowerCase())
+  const skills = await escoSearch(subject, 'skill', opts.perSkill ?? 3)
+  const pairs: SkillJobPair[] = skills.results.length
+    ? await Promise.all((skills.results as EscoConcept[]).map(async (c) => ({
+        skill: subject, escoSkill: { uri: c.uri, title: c.title }, occupations: await escoOccupationsForSkill(c.uri),
+      })))
+    : [{ skill: subject, escoSkill: null, occupations: [] }]
+  const vacancies = opts.geo ? await eurostatVacancies(opts.geo, opts.limit) : null
+  const occupations = pairs.reduce((n, p) => n + p.occupations.length, 0)
+  return {
+    subject,
+    cluster: group ? { skill: group.skill, theorems: group.count, fold: group.fold } : null,
+    pairs, occupations, vacancies,
+    receipt: merkleGravity(pairs.flatMap((p) => p.occupations.map((o) => o.address))),
+    honest:
+      'A MAP BETWEEN PUBLIC VOCABULARIES, hop by named hop: the subject is matched LEXICALLY to ESCO skills, and each ' +
+      'skill is walked along ESCO\'s OWN published essential/optional relation to the occupations it serves. It is not ' +
+      'careers advice, not a prediction that studying this leads to that work, and not a claim that any employer or ' +
+      'authority recognises anything sealed here — uuidna awards no qualification. The vacancy figures are a country\'s ' +
+      'own aggregate reporting for the whole economy, NEVER openings matched to this subject. ' + HONEST,
+  }
+}
+
 // ── The one door ──────────────────────────────────────────────────────────────────────────────────────────────────
 
-export interface SchoolApiQuery { text?: string; type?: string; dataset?: string; geo?: string; time?: string; country?: string; match?: string; limit?: number; year?: string }
+export interface SchoolApiQuery { text?: string; type?: string; dataset?: string; geo?: string; time?: string; country?: string; match?: string; limit?: number; year?: string; vacancies?: boolean }
 
 /** schoolApiFetch(source, query) → dispatch to one wired source by id. The registry is the only list of names, so a
  *  source that is not in it is refused BY NAME rather than silently answered with nothing. */
@@ -317,7 +405,11 @@ export async function schoolApiFetch(source: string, query: SchoolApiQuery = {})
     return escoSearch(query.text, query.type ?? 'skill', query.limit)
   }
   if (source === 'eurostat') {
-    if (!query.dataset) throw new Error('school-apis: eurostat needs {dataset} — a Eurostat code, e.g. "educ_uoe_enrt01"')
+    if (query.vacancies) {
+      if (!query.geo) throw new Error('school-apis: eurostat vacancies need {geo} — a country code, e.g. "BG"')
+      return eurostatVacancies(query.geo, query.limit)
+    }
+    if (!query.dataset) throw new Error('school-apis: eurostat needs {dataset} — a Eurostat code, e.g. "educ_uoe_enrt01", or {vacancies:true,geo} for the jobs side')
     const filters: Record<string, string> = {}
     if (query.geo) filters.geo = query.geo
     if (query.time) filters.time = query.time
