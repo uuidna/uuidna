@@ -4,13 +4,6 @@
   "open": [
     {
       "severity": "critical",
-      "where": "src/theorems/index.ts:62 with src/treason.ts:39, src/conformance.ts:28, src/domain-wave.ts:40, src/exploit-fold.ts:31",
-      "what": "withDerived COMPUTES both `lean` and `address` at load time, so every check that recomputes the address and compares it to t.address compares a pure function to itself. Four checks cannot fail.",
-      "reproduce": "A forged entry {key:'totally_made_up_theorem', statement:'2 + 2 = 5'} passes both dna-recomputes and seal-integrity. Verified by running each check's exact expression.",
-      "fix": "compare against a stored address from the sealed record, not one derived from the same fields"
-    },
-    {
-      "severity": "critical",
       "where": "src/adjudicate.ts:27 and :37",
       "what": "DEMARCATED matches a hedge word ANYWHERE in the sentence and :37 then returns no collisions, so appending a hedge flips a Clay claim from UNVERIFIED to VERIFIED.",
       "reproduce": "'we prove the Riemann hypothesis' -> 1 collision, UNVERIFIED. Append 'and no counterexample remains' -> 0 collisions, VERIFIED. src/security-audit.ts:83 still reports ok:true because it probes only two fixed sentence shapes.",
@@ -106,6 +99,11 @@
       "what": "Three 'measured' claims that measure nothing: 'Measured entropy: 122 free bits' is 128-6 bit accounting; cube.ts says strength is 'measured not asserted' with no code path measuring it; reports.ts declares zero_entropy in the type and never reads it.",
       "reproduce": "read the lines",
       "fix": "measure, or drop the word"
+    },
+    {
+      "severity": "low",
+      "where": "lean/key-entropy.json with src/scripts/guard.ts:114 and src/tests/key-entropy.test.ts:6",
+      "what": "The backlog holds 311 keys; two other places say 313. one-receipt.ts:338 already documents this exact drift, so the fix landed in one comment and not the other two."
     }
   ],
   "fixed": [
@@ -125,10 +123,9 @@
       "closed_by": "7b37022c"
     },
     {
-      "where": "lean/key-entropy.json with src/scripts/guard.ts:114 and src/tests/key-entropy.test.ts:6",
-      "what": "The backlog holds 311 keys; two other places say 313. one-receipt.ts:338 already documents this exact drift, so the fix landed in one comment and not the other two.",
-      "closed_by": "forgedAgainstWings in src/treason.ts — the ledger is now witnessed by lean/*.lean, an INDEPENDENT source. The tautological check is kept but annotated as not the integrity check its comment claimed. Wiring it into catchTraitors remains.",
-      "status": "check exists and is proven falsifiable; NOT YET WIRED into the running gate"
+      "where": "src/theorems/index.ts:62 with src/treason.ts:39, src/conformance.ts:28, src/domain-wave.ts:40, src/exploit-fold.ts:31",
+      "what": "withDerived COMPUTES both `lean` and `address` at load time, so every check that recomputes the address and compares it to t.address compares a pure function to itself. Four checks cannot fail.",
+      "closed_by": "7e8851ca — forgedAgainstWings runs in guard.ts ahead of catchTraitors; guard reports all 1336 entries witnessed by a wing, and a forged entry is rejected as no-wing. The tautological check is kept and annotated, not deleted."
     }
   ]
 }
