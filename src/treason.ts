@@ -34,6 +34,17 @@ export function catchTraitors(): TreasonReport {
   const traitors: Traitor[] = []
   const checksRun: string[] = []
 
+  // NOTE ON CHECK 1 BELOW, which is why check 0 exists. `address` is DERIVED by withDerived as
+  // toUuid(key ":" statement), so recomputing it from key and statement and comparing compares a pure function to
+  // itself. It cannot fail: a tamper on the key or the statement moves BOTH sides together, and the address is
+  // stored nowhere, so it cannot be tampered independently. A forged entry {key:'totally_made_up_theorem',
+  // statement:'2 + 2 = 5'} passes it, verified by running the expression. It is kept because it still guards the
+  // derivation itself, but it is not the integrity check its comment claims to be.
+  //
+  // The independent witness is the WING. A theorem exists because lean/*.lean carries it and the kernel accepted
+  // it; the ledger is downstream of that. Checking the ledger against the wings catches what checking the ledger
+  // against itself never could — an entry that no wing ever proved.
+
   // 1) DNA — every theorem's address IS toUuid(key ":" statement); a tampered key/statement/address breaks exactly one.
   checksRun.push('dna-recomputes')
   for (const t of T) if (toUuid(t.key + ':' + t.statement) !== t.address)
@@ -155,4 +166,28 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
       'verified against the live ledger now; a \'script\' `holds` is enforced by `npm run guard`. Trust the check, not the ' +
       'note: the knowledge lives where it recomputes. Integrity, not truth.',
   }
+}
+
+
+/** FORGED ENTRIES — ledger records that no Lean wing carries.
+ *
+ *  Pure and injected: the caller supplies the concatenated wing source, so this is testable without a filesystem
+ *  and cannot be satisfied by the thing it judges. A ledger entry is legitimate only if a wing declares that exact
+ *  key; a statement mismatch on a real key is reported separately, because the two mean different things — one is
+ *  an invention, the other is drift. */
+export function forgedAgainstWings(
+  ledger: readonly { key: string; statement: string }[],
+  wingSource: string,
+): { key: string; kind: 'no-wing' | 'statement-drift' }[] {
+  const declared = new Map<string, string>()
+  for (const m of wingSource.matchAll(/^theorem\s+([A-Za-z0-9_]+)\s*:\s*([\s\S]*?)\s*:=\s*by\b/gm)) {
+    declared.set(m[1], m[2].replace(/\s+/g, ' ').trim())
+  }
+  const out: { key: string; kind: 'no-wing' | 'statement-drift' }[] = []
+  for (const t of ledger) {
+    const wing = declared.get(t.key)
+    if (wing === undefined) { out.push({ key: t.key, kind: 'no-wing' }); continue }
+    if (wing !== t.statement.replace(/\s+/g, ' ').trim()) out.push({ key: t.key, kind: 'statement-drift' })
+  }
+  return out
 }

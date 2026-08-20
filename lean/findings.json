@@ -2,26 +2,133 @@
   "why": "Defects found by audit and NOT yet fixed. This exists because the session that found them had no queue, so priority became whatever was most recent and thirty real findings lived only in a transcript. A finding here is not a claim that something is broken in general — each names a file, a line, and the input or condition that exposes it, so it can be reproduced or refuted. Drain in order of severity. A fixed entry moves to `fixed` with the commit that closed it; a refuted one moves to `refuted` with what disproved it.",
   "recorded": "2026-08-20",
   "open": [
-    { "severity": "critical", "where": "src/theorems/index.ts:62 with src/treason.ts:39, src/conformance.ts:28, src/domain-wave.ts:40, src/exploit-fold.ts:31", "what": "withDerived COMPUTES both `lean` and `address` at load time, so every check that recomputes the address and compares it to t.address compares a pure function to itself. Four checks cannot fail.", "reproduce": "A forged entry {key:'totally_made_up_theorem', statement:'2 + 2 = 5'} passes both dna-recomputes and seal-integrity. Verified by running each check's exact expression.", "fix": "compare against a stored address from the sealed record, not one derived from the same fields" },
-    { "severity": "critical", "where": "src/adjudicate.ts:27 and :37", "what": "DEMARCATED matches a hedge word ANYWHERE in the sentence and :37 then returns no collisions, so appending a hedge flips a Clay claim from UNVERIFIED to VERIFIED.", "reproduce": "'we prove the Riemann hypothesis' -> 1 collision, UNVERIFIED. Append 'and no counterexample remains' -> 0 collisions, VERIFIED. src/security-audit.ts:83 still reports ok:true because it probes only two fixed sentence shapes.", "fix": "scope the demarcation to the clause it qualifies, and widen the security probe beyond its two literals" },
-    { "severity": "high", "where": "src/quantum/message/index.ts:77", "what": "BigInt(1 << (state.scale * 2)) with scale 16 wraps to 1 in JS 32-bit bitwise, so every probability is wrong and every quantum receipt is the SAME constant, independent of plaintext.", "reproduce": "six theorem keys all produce receipt b8056f57-...; the simulator's own distribution() gives 1/65536 where the module reports 1", "fix": "compute the denominator in BigInt; the exponent is also wrong (2*scale, not scale)" },
-    { "severity": "high", "where": "src/quantum/message/index.ts:111", "what": "measureMessage conflates qubit index with basis index (i1 = i | (1 << i)), so p1 > p0 is never true and it always returns all zeros.", "reproduce": "returns '0000000000000000' for every input", "fix": "index the basis states by bit position, not by qubit ordinal" },
-    { "severity": "high", "where": "src/grow.ts:19 and :6", "what": "TARGET = 1024 while the ledger holds 1334, so growLife() returns toGo: -310 and the honest string still reads 'growing toward 1024'. This SHIPS through the MCP tool uuidna_grow_life to every consumer.", "reproduce": "growLife().grow -> {theorems: 1334, target: 1024, toGo: -310}", "fix": "derive the target from the ledger, or state the next boundary above the current count" },
-    { "severity": "high", "where": "src/spin.ts:14 and :38", "what": "DERIVED_FILES lists 8 of the 14 paths the audit chain git-diffs; six real files are never rotated. Worse, sealSpin skips anything not listed, so the manifest can be empty and verifySpin on an empty manifest returns ok:true against ANY file set.", "reproduce": "compare DERIVED_FILES against the audit script's git diff path list; .zenodo.json, reports.json, README.md, llm.txt, lean/statement-index.json and src/chunks are all missing", "fix": "derive DERIVED_FILES from the same list the gate diffs, and make verifySpin refuse an empty manifest" },
-    { "severity": "medium", "where": "src/next.ts:155 and src/scripts/gen-analytics.ts:48", "what": "Two 'measured' figures that are typed-in literals: verificationSpeedupMeasured = true, and verification_speedup_x: 80000 published as '80x faster verify than prove'.", "reproduce": "read the lines; neither derives from a measurement", "fix": "measure them, or drop the word measured" },
-    { "severity": "medium", "where": "src/scripts/crypto-measure.ts:339 and :347", "what": "computeLog2 is a six-branch ladder that cannot return 0, so a constant buffer with true entropy zero reports 1 bit/byte. And :339 prints 'approaching 8 bits/byte' directly under measured 4.0000 — unreachable by construction, since H <= log2(n) caps a 16-byte sample at 4.", "reproduce": "all-zero input -> repo reports 1.0000, true value 0.0000", "fix": "handle p = 1 explicitly; state the sample-size ceiling instead of an unreachable target" },
-    { "severity": "medium", "where": "lean/Thermodynamics.lean:7 with src/scripts/one-receipt.ts:472", "what": "entropy_never_decreases is (List.range 9).all (fun t => t <= t + 1) — a Nat tautology with S as the identity, so no input can falsify it. vacuousGaps() cannot see it because it splits at paren depth 0 and this sits at depth 1 inside the lambda.", "reproduce": "vacuousGaps() returns 0 against a theorem that is vacuous by inspection", "fix": "state entropy as a function that can decrease, and teach vacuousGaps to descend into lambdas" },
-    { "severity": "medium", "where": "lean/Thermodynamics.lean:37 with src/scripts/lean-thermodynamics.ts:88", "what": "hardware_above_landauer carries 10^32 on the RHS where the wing's unit implies 10^17, so the theorem stays true if silicon were 10^15 times worse than it is. The js mirror carries the SAME literal, so the cross-check confirms agreement and not correctness.", "reproduce": "measured slack 3.48e15 against prose claiming a ratio near 3.5e8", "fix": "tighten to 100000000 * 287097813 < 100000000000000000, and add a third witness" },
-    { "severity": "medium", "where": "src/forensics.ts:47 and src/evidence.ts:42", "what": "Both copied slimgate.ts's citation regex WITHOUT its /[_0-9]/ key-shape guard, so ordinary English prose about theorems is reported as a fabricated citation. Three library modules now disagree about the same string.", "reproduce": "'the theorem ledger is sealed' -> forensics clean=false, evidence missing ['ledger'], slimGate cited []", "fix": "share one matcher rather than three copies" },
-    { "severity": "medium", "where": "src/books.ts:279", "what": "linkBookFacts uses substring matching (t.norm.includes(core)), so a novel fact is reported as already sealed against an unrelated theorem.", "reproduce": "linkBookFacts('and 4 + 1 is 5 lanterns') -> status 'sealed-match' against sanitize_bidi_overrides_are_five, whose statement is about Unicode codepoints", "fix": "match on equality of normalised statements, not substring containment" },
-    { "severity": "low", "where": "src/harness.ts:15, :26, :36", "what": "Vacuous end to end: reproducible compares toUuid(output) to an address defined as toUuid(output); harnessGain().gained is (always true) && !(literal false). Brute-forced 200,015 inputs, never false. harnessGain also has zero call sites.", "reproduce": "any input", "fix": "delete, or compare two independent derivations the way gateSelfTest does" },
-    { "severity": "low", "where": "src/corroborate.ts:125, src/license.ts:55", "what": "approve() is documented as 'the HARD gate' and verifyLicense as making any altered term visible. Neither has a call site. verifyLicense IS falsifiable (zeroing bill.coins returns false) — a working check nobody runs.", "reproduce": "AST census over 349 files finds zero callers", "fix": "wire them into the gate, or retire the claim that they gate anything" },
-    { "severity": "low", "where": "src/mcp.ts:68, src/cube.ts:9, src/reports.ts:114", "what": "Three 'measured' claims that measure nothing: 'Measured entropy: 122 free bits' is 128-6 bit accounting; cube.ts says strength is 'measured not asserted' with no code path measuring it; reports.ts declares zero_entropy in the type and never reads it.", "reproduce": "read the lines", "fix": "measure, or drop the word" },
-    { "severity": "low", "where": "lean/key-entropy.json with src/scripts/guard.ts:114 and src/tests/key-entropy.test.ts:6", "what": "The backlog holds 311 keys; two other places say 313. one-receipt.ts:338 already documents this exact drift, so the fix landed in one comment and not the other two.", "reproduce": "compare the three", "fix": "derive the number from the list" }
+    {
+      "severity": "critical",
+      "where": "src/theorems/index.ts:62 with src/treason.ts:39, src/conformance.ts:28, src/domain-wave.ts:40, src/exploit-fold.ts:31",
+      "what": "withDerived COMPUTES both `lean` and `address` at load time, so every check that recomputes the address and compares it to t.address compares a pure function to itself. Four checks cannot fail.",
+      "reproduce": "A forged entry {key:'totally_made_up_theorem', statement:'2 + 2 = 5'} passes both dna-recomputes and seal-integrity. Verified by running each check's exact expression.",
+      "fix": "compare against a stored address from the sealed record, not one derived from the same fields"
+    },
+    {
+      "severity": "critical",
+      "where": "src/adjudicate.ts:27 and :37",
+      "what": "DEMARCATED matches a hedge word ANYWHERE in the sentence and :37 then returns no collisions, so appending a hedge flips a Clay claim from UNVERIFIED to VERIFIED.",
+      "reproduce": "'we prove the Riemann hypothesis' -> 1 collision, UNVERIFIED. Append 'and no counterexample remains' -> 0 collisions, VERIFIED. src/security-audit.ts:83 still reports ok:true because it probes only two fixed sentence shapes.",
+      "fix": "scope the demarcation to the clause it qualifies, and widen the security probe beyond its two literals"
+    },
+    {
+      "severity": "high",
+      "where": "src/quantum/message/index.ts:77",
+      "what": "BigInt(1 << (state.scale * 2)) with scale 16 wraps to 1 in JS 32-bit bitwise, so every probability is wrong and every quantum receipt is the SAME constant, independent of plaintext.",
+      "reproduce": "six theorem keys all produce receipt b8056f57-...; the simulator's own distribution() gives 1/65536 where the module reports 1",
+      "fix": "compute the denominator in BigInt; the exponent is also wrong (2*scale, not scale)"
+    },
+    {
+      "severity": "high",
+      "where": "src/quantum/message/index.ts:111",
+      "what": "measureMessage conflates qubit index with basis index (i1 = i | (1 << i)), so p1 > p0 is never true and it always returns all zeros.",
+      "reproduce": "returns '0000000000000000' for every input",
+      "fix": "index the basis states by bit position, not by qubit ordinal"
+    },
+    {
+      "severity": "high",
+      "where": "src/grow.ts:19 and :6",
+      "what": "TARGET = 1024 while the ledger holds 1334, so growLife() returns toGo: -310 and the honest string still reads 'growing toward 1024'. This SHIPS through the MCP tool uuidna_grow_life to every consumer.",
+      "reproduce": "growLife().grow -> {theorems: 1334, target: 1024, toGo: -310}",
+      "fix": "derive the target from the ledger, or state the next boundary above the current count"
+    },
+    {
+      "severity": "high",
+      "where": "src/spin.ts:14 and :38",
+      "what": "DERIVED_FILES lists 8 of the 14 paths the audit chain git-diffs; six real files are never rotated. Worse, sealSpin skips anything not listed, so the manifest can be empty and verifySpin on an empty manifest returns ok:true against ANY file set.",
+      "reproduce": "compare DERIVED_FILES against the audit script's git diff path list; .zenodo.json, reports.json, README.md, llm.txt, lean/statement-index.json and src/chunks are all missing",
+      "fix": "derive DERIVED_FILES from the same list the gate diffs, and make verifySpin refuse an empty manifest"
+    },
+    {
+      "severity": "medium",
+      "where": "src/next.ts:155 and src/scripts/gen-analytics.ts:48",
+      "what": "Two 'measured' figures that are typed-in literals: verificationSpeedupMeasured = true, and verification_speedup_x: 80000 published as '80x faster verify than prove'.",
+      "reproduce": "read the lines; neither derives from a measurement",
+      "fix": "measure them, or drop the word measured"
+    },
+    {
+      "severity": "medium",
+      "where": "src/scripts/crypto-measure.ts:339 and :347",
+      "what": "computeLog2 is a six-branch ladder that cannot return 0, so a constant buffer with true entropy zero reports 1 bit/byte. And :339 prints 'approaching 8 bits/byte' directly under measured 4.0000 — unreachable by construction, since H <= log2(n) caps a 16-byte sample at 4.",
+      "reproduce": "all-zero input -> repo reports 1.0000, true value 0.0000",
+      "fix": "handle p = 1 explicitly; state the sample-size ceiling instead of an unreachable target"
+    },
+    {
+      "severity": "medium",
+      "where": "lean/Thermodynamics.lean:7 with src/scripts/one-receipt.ts:472",
+      "what": "entropy_never_decreases is (List.range 9).all (fun t => t <= t + 1) — a Nat tautology with S as the identity, so no input can falsify it. vacuousGaps() cannot see it because it splits at paren depth 0 and this sits at depth 1 inside the lambda.",
+      "reproduce": "vacuousGaps() returns 0 against a theorem that is vacuous by inspection",
+      "fix": "state entropy as a function that can decrease, and teach vacuousGaps to descend into lambdas"
+    },
+    {
+      "severity": "medium",
+      "where": "lean/Thermodynamics.lean:37 with src/scripts/lean-thermodynamics.ts:88",
+      "what": "hardware_above_landauer carries 10^32 on the RHS where the wing's unit implies 10^17, so the theorem stays true if silicon were 10^15 times worse than it is. The js mirror carries the SAME literal, so the cross-check confirms agreement and not correctness.",
+      "reproduce": "measured slack 3.48e15 against prose claiming a ratio near 3.5e8",
+      "fix": "tighten to 100000000 * 287097813 < 100000000000000000, and add a third witness"
+    },
+    {
+      "severity": "medium",
+      "where": "src/forensics.ts:47 and src/evidence.ts:42",
+      "what": "Both copied slimgate.ts's citation regex WITHOUT its /[_0-9]/ key-shape guard, so ordinary English prose about theorems is reported as a fabricated citation. Three library modules now disagree about the same string.",
+      "reproduce": "'the theorem ledger is sealed' -> forensics clean=false, evidence missing ['ledger'], slimGate cited []",
+      "fix": "share one matcher rather than three copies"
+    },
+    {
+      "severity": "medium",
+      "where": "src/books.ts:279",
+      "what": "linkBookFacts uses substring matching (t.norm.includes(core)), so a novel fact is reported as already sealed against an unrelated theorem.",
+      "reproduce": "linkBookFacts('and 4 + 1 is 5 lanterns') -> status 'sealed-match' against sanitize_bidi_overrides_are_five, whose statement is about Unicode codepoints",
+      "fix": "match on equality of normalised statements, not substring containment"
+    },
+    {
+      "severity": "low",
+      "where": "src/harness.ts:15, :26, :36",
+      "what": "Vacuous end to end: reproducible compares toUuid(output) to an address defined as toUuid(output); harnessGain().gained is (always true) && !(literal false). Brute-forced 200,015 inputs, never false. harnessGain also has zero call sites.",
+      "reproduce": "any input",
+      "fix": "delete, or compare two independent derivations the way gateSelfTest does"
+    },
+    {
+      "severity": "low",
+      "where": "src/corroborate.ts:125, src/license.ts:55",
+      "what": "approve() is documented as 'the HARD gate' and verifyLicense as making any altered term visible. Neither has a call site. verifyLicense IS falsifiable (zeroing bill.coins returns false) — a working check nobody runs.",
+      "reproduce": "AST census over 349 files finds zero callers",
+      "fix": "wire them into the gate, or retire the claim that they gate anything"
+    },
+    {
+      "severity": "low",
+      "where": "src/mcp.ts:68, src/cube.ts:9, src/reports.ts:114",
+      "what": "Three 'measured' claims that measure nothing: 'Measured entropy: 122 free bits' is 128-6 bit accounting; cube.ts says strength is 'measured not asserted' with no code path measuring it; reports.ts declares zero_entropy in the type and never reads it.",
+      "reproduce": "read the lines",
+      "fix": "measure, or drop the word"
+    }
   ],
   "fixed": [
-    { "where": "src/quantum/voting/index.ts", "what": "encodeVote applied H then Z to every qubit, so YES and NO differed by a GLOBAL PHASE and produced the identical receipt — the ballot could not be read. Also a dead store overwrote the encoding with a plain merkle fold.", "closed_by": "7a54411e" },
-    { "where": "lean/Sequence.lean", "what": "strokes_survive_reflection framed a minority reading as reflection's law; the mirror conserves the budget on 30 of 54 rows and the identity is the only map conserving it everywhere.", "closed_by": "7a54411e, replaced by budget_not_conserved" },
-    { "where": "src/scripts/reserve.ts", "what": "Targeted a hardcoded 65536-byte package that had grown to 3,253,634, so it threw — but only AFTER emptying the shipped reserved.uuidna, whose header meanwhile asserted 64 KiB alignment to every npm consumer.", "closed_by": "7b37022c" }
+    {
+      "where": "src/quantum/voting/index.ts",
+      "what": "encodeVote applied H then Z to every qubit, so YES and NO differed by a GLOBAL PHASE and produced the identical receipt — the ballot could not be read. Also a dead store overwrote the encoding with a plain merkle fold.",
+      "closed_by": "7a54411e"
+    },
+    {
+      "where": "lean/Sequence.lean",
+      "what": "strokes_survive_reflection framed a minority reading as reflection's law; the mirror conserves the budget on 30 of 54 rows and the identity is the only map conserving it everywhere.",
+      "closed_by": "7a54411e, replaced by budget_not_conserved"
+    },
+    {
+      "where": "src/scripts/reserve.ts",
+      "what": "Targeted a hardcoded 65536-byte package that had grown to 3,253,634, so it threw — but only AFTER emptying the shipped reserved.uuidna, whose header meanwhile asserted 64 KiB alignment to every npm consumer.",
+      "closed_by": "7b37022c"
+    },
+    {
+      "where": "lean/key-entropy.json with src/scripts/guard.ts:114 and src/tests/key-entropy.test.ts:6",
+      "what": "The backlog holds 311 keys; two other places say 313. one-receipt.ts:338 already documents this exact drift, so the fix landed in one comment and not the other two.",
+      "closed_by": "forgedAgainstWings in src/treason.ts — the ledger is now witnessed by lean/*.lean, an INDEPENDENT source. The tautological check is kept but annotated as not the integrity check its comment claimed. Wiring it into catchTraitors remains.",
+      "status": "check exists and is proven falsifiable; NOT YET WIRED into the running gate"
+    }
   ]
 }
