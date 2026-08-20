@@ -107,6 +107,28 @@
       "reproduce": "read the statement beside its why: the why describes CHSH, the Lean says 4 < 8",
       "fix": "Either derive it or say plainly that it is a BRACKET on two published bounds rather than a derivation. A full CHSH correlator needs measurement angles and therefore cosines, which are irrational, and Math.* is rejected tree-wide — so the reduction to squared bounds is a legitimate consequence of this ledger honest constraints, not laziness. The honest form states that constraint in the why. What COULD be derived in exact integers: that the Bell state distribution [1,0,0,1]/2 gives perfect correlation while any product state cannot, which is the no-hidden-variable content reachable without trigonometry.",
       "caution": "Do not delete it. The squared bracket is the correct idiom for an irrational bound and matches caesium_light_step. The defect is the prose claiming a derivation, not the arithmetic."
+    },
+    {
+      "severity": "critical",
+      "where": "docs/articles/neuro.md",
+      "what": "PUBLISHED OVERCLAIM. The article states the neurons output is binary 0 or 1 FOR EVERY INPUT with no partial spike, and asserts that every boundary it names is CONFIRMED by a sealed theorem. Neither the universal quantifier nor the no-partial-spike claim is sealed by anything, and the refractory boundary it names is backed by DEAD CODE. Measured amplitude is not invariant: Ohura and Kamiya 2018 eNeuro 5(1) report 89.3%, 61.8% and 50.2% of the first spike under repetitive firing.",
+      "reproduce": "read the article beside lean/Neuro.lean; the sealed theorems do not carry the quantifier the prose claims",
+      "fix": "State the abstraction honestly — a binary threshold unit is legitimate, presenting it as the physiology is not — and remove the claim that every named boundary is sealed until it is."
+    },
+    {
+      "severity": "critical",
+      "where": "lean/Neuro.lean — all_or_none, firing_monotone, excitatory_inhibitory_net, refractory_caps_spike",
+      "what": "FOUR OF NINE THEOREMS CANNOT FAIL, proved in Lean rather than argued: by decide certifies all_or_none and firing_monotone for EVERY threshold 0..39 and refractory_caps_spike for every threshold and input. They are satisfied by a dead neuron, an always-on neuron, and an inverted one. refractory_caps_spike is the worst: if 1 < 2 then 0 else X folds to 0, so the firing branch is unreachable — dead code wearing a physiological name. And all_or_none is INVERTED: its only live constants are the numerals 1 and 0, so substituting the real amplitude of 110 mV makes it FALSE. It verifies its own notation and is refuted by the physiology it names.",
+      "reproduce": "parameter sweep over thresholds -10..20; 0 of 434 settings false for all_or_none and firing_monotone; vacuity_witness.lean compiles exit 0",
+      "fix": "Replace, do not delete. 18 mutation-tested replacements exist and compile axiom-free — all_or_none becomes a stimulus-to-amplitude table with a graded rival, firing_monotone becomes rate saturation capped at the MEASURED 450 Hz (Wang 2016) rather than the 1000 Hz idealisation, refractory_caps_spike becomes absolute plus relative windows with firing restored at rest so a dead neuron cannot satisfy it.",
+      "caution": "hebbian_coincidence is UNDER-SPECIFIED, not vacuous — the auditor expected vacuity and was wrong. It survives a threshold sweep but is killed by replacing multiplication with max, sum or pre-alone, so it genuinely excludes OR and SUM potentiation. Keep its content; fix only the dead List.range 2."
+    },
+    {
+      "severity": "high",
+      "where": "src/scripts/one-receipt.ts:473 vacuousGaps",
+      "what": "THE VACUITY DETECTOR FLAGS 0 OF 9 known-vacuous theorems. It is string equality on a depth-0 split, so besides missing anything inside a lambda it also misses x + 0 = x and 2 * 3 = 6. It detects NOTATION, not vacuity — which is why entropy_never_decreases and four Neuro theorems all passed it.",
+      "reproduce": "lift why() verbatim and run it over lean/Neuro.lean: zero flagged",
+      "fix": "The proposed guard is better than widening the regex: emit() at src/scripts/lean-gen.ts:91 already runs each facts js() and exits 1 if false. Add an optional mutants field to Fact — the same check with one constant moved — and refuse any fact whose mutants ALL still pass. A prototype flags all_or_none and refractory_caps_spike, passes spatial_summation, and separately reports action_potential_swing as UNGUARDED because it declares no mutants. That distinction matters: proved-vacuous is not the same as never-tested."
     }
   ],
   "fixed": [

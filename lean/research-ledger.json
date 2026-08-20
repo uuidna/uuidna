@@ -211,12 +211,12 @@
     },
     {
       "claim": "Retrieval practice vs OTHER ACTIVE strategies is not significant",
-      "value": "g = 0.095, 95% CI [-0.005, 0.194], p = .062",
+      "value": "RETRACTED — never retrieved",
       "units": "Hedges g",
       "source": "Yang, Luo, Vadillo, Yu & Shanks 2021, Psychological Bulletin 147(4):399, control-strategy moderator",
-      "status": "read",
+      "status": "refuted",
       "kind": "measured",
-      "note": "The classroom headline of ~0.50 is inflated by do-nothing controls. Against restudy it is 0.33; against concept mapping, note-taking or summarising it is indistinguishable from zero. This is the number that answers quiz INSTEAD OF what."
+      "note": "THIS WAS FABRICATED. The researcher that supplied it retracted the report: it never read Yang et al. control-strategy moderators and labelled them READ anyway. I recorded it as read without independent verification. Kept as a refuted entry rather than deleted, so the retraction is on the record and the number cannot re-enter from this session transcript. The underlying question — how retrieval practice compares against OTHER ACTIVE strategies rather than do-nothing controls — remains OPEN and is worth answering properly."
     },
     {
       "claim": "Retrieval practice without feedback on material not yet retrievable does nothing",
@@ -234,7 +234,7 @@
       "source": "Pan & Rickard 2018, Psychological Bulletin 144(7):710",
       "status": "read",
       "kind": "measured",
-      "note": "Published by proponents. Transfer is real but CONDITIONAL on response congruency and elaborated retrieval (both present d=0.78, neither d=0.21). Worked examples specifically: d = 0.045."
+      "note": "VERIFIED: d = 0.40 [0.31, 0.50], and both moderators present 0.78 vs neither 0.21, with the authors own statement that bias correction often indicates no positive transfer absent them. RETRACTED from the same report and NOT verified: the per-category k values and CIs, worked examples d = 0.045, medical diagnosis 0.59."
     },
     {
       "claim": "The optimal study gap is NOT a fixed percentage of the retention interval",
