@@ -8,7 +8,7 @@ import { readdirSync, readFileSync, writeFileSync, existsSync, statSync } from '
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems, PRINCIPLES } from '../index.js'
-import { HERE, ROOT } from './api.js'
+import { HERE, ROOT, invokesFile } from './api.js'
 
 interface PredictedGap {
   pattern: string
@@ -256,7 +256,12 @@ function predictFeatureGaps(): PredictedGap[] {
     // A file another module IMPORTS is a shared library (scripts/api.ts is the declared one), not a script anybody
     // runs — reachability for those is support.ts's dead-module scan. Only files nothing imports must be INVOKED.
     if (others.includes(`from './${scriptName}.js'`) || others.includes(`from './scripts/${scriptName}.js'`)) continue
-    const isWired = others.includes(`dist/scripts/${scriptName}.js`)
+    // ONE LAW, NOT TWO OPINIONS. This used to match the literal string `dist/scripts/<name>.js`, which knows
+    // nothing about the `x` dispatcher (`npm run x -- <name>`), a path built up inside execSync, or node running
+    // the TypeScript directly — so after the 57 thin wrappers were collapsed it declared 36 live scripts unwired,
+    // and its auto-fill offered to restore exactly the wrapper scriptsGaps now BLOCKS. Two gap reporters giving
+    // opposite advice is worse than either alone. Both now use invokesFile from api.ts.
+    const isWired = invokesFile(others, scriptName)
       || discoveryGlobs(others).some((re) => re.test(`${scriptName}.js`))
     if (!isWired && !scriptName.startsWith('_')) {
       gaps.push({
@@ -266,7 +271,9 @@ function predictFeatureGaps(): PredictedGap[] {
         prediction: `${file} exists but no npm script runs it. Pattern: new scripts often forgotten in package.json.`,
         autoFillAction: {
           file: packageJsonPath,
-          content: `"${scriptName}": "npm run build && node dist/scripts/${scriptName}.js"`,
+          // NOT a thin wrapper — scriptsGaps blocks those, since a hand-typed entry per script is the repetition
+          // the dispatcher removed. Wire it into a real chain, or reach it with the dispatcher.
+          content: `run it with \`npm run x -- ${scriptName}\`, or wire it into the audit chain / a workflow if it should run unattended`,
         },
       })
     }
