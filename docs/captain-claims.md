@@ -1,10 +1,10 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-08-19
+**Generated:** 2026-08-20
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1329/1329 theorems — every one, by construction
-**Claim receipt:** `7b283ba2-883e-82dd-adc2-80c0fce72f00`
+**Total claimed:** 1330/1330 theorems — every one, by construction
+**Claim receipt:** `2f39711a-0976-8e63-ae31-ff4fd344c2b6`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -313,12 +313,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The energy domain
 
-- **Theorems:** 11
+- **Theorems:** 12
 - **Sample lineAddress:** `83ea9781-db24-8999-b2ee-8463326b3121`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[first_law_conservation](/theorem/first_law_conservation) · [entropy_never_decreases](/theorem/entropy_never_decreases) · [heat_flows_hot_to_cold](/theorem/heat_flows_hot_to_cold) · [carnot_efficiency_below_one](/theorem/carnot_efficiency_below_one) · [absolute_zero_and_kelvin](/theorem/absolute_zero_and_kelvin) · [charles_law](/theorem/charles_law) · [no_perpetual_motion](/theorem/no_perpetual_motion) · [specific_heat_linear](/theorem/specific_heat_linear) · [landauer_bound_derived](/theorem/landauer_bound_derived) · [reversible_erases_nothing](/theorem/reversible_erases_nothing) · [hardware_above_landauer](/theorem/hardware_above_landauer)
+[first_law_conservation](/theorem/first_law_conservation) · [entropy_never_decreases](/theorem/entropy_never_decreases) · [heat_flows_hot_to_cold](/theorem/heat_flows_hot_to_cold) · [carnot_efficiency_below_one](/theorem/carnot_efficiency_below_one) · [absolute_zero_and_kelvin](/theorem/absolute_zero_and_kelvin) · [charles_law](/theorem/charles_law) · [no_perpetual_motion](/theorem/no_perpetual_motion) · [specific_heat_linear](/theorem/specific_heat_linear) · [caesium_light_step](/theorem/caesium_light_step) · [landauer_bound_derived](/theorem/landauer_bound_derived) · [reversible_erases_nothing](/theorem/reversible_erases_nothing) · [hardware_above_landauer](/theorem/hardware_above_landauer)
 
 ### The bond domain
 
@@ -672,7 +672,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1245 (1329 entries, 84 re-namings — a theorem is its Lean, not its name) |
+| sealed propositions | 1246 (1330 entries, 84 re-namings — a theorem is its Lean, not its name) |
 | prose paragraphs tried | 3885 — 1802 usable, 2083 held open, 0 drained |
 
 **The claim is of ROOM, never of truth** — the same scope the superposition claim carries. Every item in the
@@ -690,7 +690,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states
 (the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1329 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1330 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM, never of truth** — a claimed superposition is claimed capacity; its collapse still

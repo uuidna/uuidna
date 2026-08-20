@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-19",
+  "generated": "2026-08-20",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1329,
-  "total_theorems": 1329,
+  "total_claimed": 1330,
+  "total_theorems": 1330,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -5124,6 +5124,12 @@
       "principle": "The energy domain"
     },
     {
+      "key": "caesium_light_step",
+      "lineAddress": "ed901bc5-5032-8d48-b51a-1f97609565dc",
+      "address": "c4843a0f-89c7-8db2-918f-81e0055f4538",
+      "principle": "The energy domain"
+    },
+    {
       "key": "landauer_bound_derived",
       "lineAddress": "77737d9d-f202-8a87-81cc-17a5cc9d41d8",
       "address": "fa581fce-a714-82bf-b738-624422da8ec3",
@@ -7980,7 +7986,7 @@
       "principle": "The uuid mix space"
     }
   ],
-  "claim_receipt": "7b283ba2-883e-82dd-adc2-80c0fce72f00",
+  "claim_receipt": "2f39711a-0976-8e63-ae31-ff4fd344c2b6",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

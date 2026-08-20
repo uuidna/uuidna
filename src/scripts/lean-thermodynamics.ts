@@ -56,6 +56,17 @@ const FACTS = [
   // source. Reversible computation avoids paying it; it does not produce energy, and no arrangement of hardware
   // or sensors makes it produce energy — first_law_conservation and no_perpetual_motion, already sealed in this
   // same wing, forbid exactly that. "Free energy from computation" is refused by the ledger, not by opinion.
+  // ── THE SI, MINED FROM ITS OWN TABLE. NIST's CODATA listing marks 81 constants (exact); seven of them are the
+  // DEFINING constants that fix the SI since 2019, and every one has an integer mantissa — 9192631770, 299792458,
+  // 662607015, 1602176634, 1380649, 602214076, 683. That is why arithmetic over them seals: a defining constant
+  // is a CONVENTION, not an observation, so relations between them are decidable without measuring anything.
+  // Source: NIST/CODATA 2022 Fundamental Physical Constants (physics.nist.gov/constants), the same table the
+  // Boltzmann value below is read from.
+  { key: 'caesium_light_step',
+    why: 'TWO DEFINING CONSTANTS BRACKET A REAL LENGTH, IN EXACT INTEGERS. The second is defined as 9192631770 periods of the caesium-133 hyperfine transition, and the metre so that light travels 299792458 m in one second — both exact by definition, both whole numbers. So in ONE caesium period light travels 299792458/9192631770 metres, and that ratio is bracketed here without dividing: 299792458 × 100 > 9192631770 × 3 and < 9192631770 × 4, so the step is between three and four centimetres (≈3.26 cm). Nothing irrational is asserted and no division is taken — two conventions, multiplied, settle a physical distance exactly.',
+    js: () => 299792458 * 100 > 9192631770 * 3 && 299792458 * 100 < 9192631770 * 4,
+    lean: 'theorem caesium_light_step : 299792458 * 100 > 9192631770 * 3 ∧ 299792458 * 100 < 9192631770 * 4 := by decide' },
+
   { key: 'landauer_bound_derived',
     why: 'THE FLOOR UNDER EVERY ERASURE, DERIVED FROM AN EXACT CONSTANT. Boltzmann\'s k is exact by SI definition (1.380649×10⁻²³ J/K, fixed in the 2019 redefinition), so at room temperature T = 300 K the thermal quantum is kT = 414194700×10⁻²⁹ J, and Landauer\'s minimum cost of erasing ONE bit is kT·ln2 = 287097813×10⁻²⁹ J ≈ 2.871×10⁻²¹ J. Computed here in exact integers with ln2 as 693147/1000000 — no measurement enters, only the definition and division.',
     // BigInt division, not a library rounding helper: the determinism scan hard-rejects the whole builtin maths

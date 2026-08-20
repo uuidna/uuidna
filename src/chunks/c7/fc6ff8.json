@@ -1,0 +1,12 @@
+{
+  "handle": "c7fc6ff8",
+  "address": "c7fc6ff8-9b47-8fb4-a2d2-b2aa3b7debe0",
+  "statement": "299792458 * 100 > 9192631770 * 3 ∧ 299792458 * 100 < 9192631770 * 4",
+  "tactic": "decide",
+  "keys": [
+    "caesium_light_step"
+  ],
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

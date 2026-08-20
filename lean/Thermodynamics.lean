@@ -24,6 +24,9 @@ theorem no_perpetual_motion : (40 <= 100) ∧ ((100 - 40) = 60) := by decide
 -- Specific heat is linear: Q = m·c·ΔT, so with m·c = 10 the heat scales with the temperature change — ΔT of [1,2,3] needs Q of [10,20,30]. Double the rise, double the heat.
 theorem specific_heat_linear : (([1,2,3] : List Nat).map (fun dT => 10 * dT)) = [10,20,30] := by decide
 
+-- TWO DEFINING CONSTANTS BRACKET A REAL LENGTH, IN EXACT INTEGERS. The second is defined as 9192631770 periods of the caesium-133 hyperfine transition, and the metre so that light travels 299792458 m in one second — both exact by definition, both whole numbers. So in ONE caesium period light travels 299792458/9192631770 metres, and that ratio is bracketed here without dividing: 299792458 × 100 > 9192631770 × 3 and < 9192631770 × 4, so the step is between three and four centimetres (≈3.26 cm). Nothing irrational is asserted and no division is taken — two conventions, multiplied, settle a physical distance exactly.
+theorem caesium_light_step : 299792458 * 100 > 9192631770 * 3 ∧ 299792458 * 100 < 9192631770 * 4 := by decide
+
 -- THE FLOOR UNDER EVERY ERASURE, DERIVED FROM AN EXACT CONSTANT. Boltzmann's k is exact by SI definition (1.380649×10⁻²³ J/K, fixed in the 2019 redefinition), so at room temperature T = 300 K the thermal quantum is kT = 414194700×10⁻²⁹ J, and Landauer's minimum cost of erasing ONE bit is kT·ln2 = 287097813×10⁻²⁹ J ≈ 2.871×10⁻²¹ J. Computed here in exact integers with ln2 as 693147/1000000 — no measurement enters, only the definition and division.
 theorem landauer_bound_derived : 1380649 * 300 = 414194700 ∧ 414194700 * 693147 / 1000000 = 287097813 := by decide
 

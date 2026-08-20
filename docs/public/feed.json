@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:ad4a0e1b-1ba2-8931-bbe9-eceeefc53678",
+  "@id": "urn:uuid:0154b5a7-feb6-8658-a7d4-69ee04f6c065",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -23874,6 +23874,34 @@
         "abstract": "(([1,2,3] : List Nat).map (fun dT => 10 * dT)) = [10,20,30]",
         "identifier": "d5608612-0295-84ee-a209-94655bcc402c",
         "url": "https://uuidna.com/theorem/specific_heat_linear",
+        "keywords": "thermodynamics, The energy domain",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Thermodynamics.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:ed901bc5-5032-8d48-b51a-1f97609565dc",
+        "@type": "ScholarlyArticle",
+        "headline": "TWO DEFINING CONSTANTS BRACKET A REAL LENGTH, IN EXACT INTEGERS. The second is defined as 9192631770 periods of the caesium-133 hyperfine transition, and the metre so that light travels 299792458 m in one second — both exact by definition, both whole numbers. So in ONE caesium period light travels 299792458/9192631770 metres, and that ratio is bracketed here without dividing: 299792458 × 100 > 9192631770 × 3 and < 9192631770 × 4, so the step is between three and four centimetres (≈3.26 cm). Nothing irrational is asserted and no division is taken — two conventions, multiplied, settle a physical distance exactly.",
+        "abstract": "299792458 * 100 > 9192631770 * 3 ∧ 299792458 * 100 < 9192631770 * 4",
+        "identifier": "c4843a0f-89c7-8db2-918f-81e0055f4538",
+        "url": "https://uuidna.com/theorem/caesium_light_step",
         "keywords": "thermodynamics, The energy domain",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Thermodynamics.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
