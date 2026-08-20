@@ -104,6 +104,13 @@
       "severity": "low",
       "where": "lean/key-entropy.json with src/scripts/guard.ts:114 and src/tests/key-entropy.test.ts:6",
       "what": "The backlog holds 311 keys; two other places say 313. one-receipt.ts:338 already documents this exact drift, so the fix landed in one comment and not the other two."
+    },
+    {
+      "severity": "high",
+      "where": "src/scripts/quantum-school.ts (907 lines), docs/school.md (546 lines), src/oeapi.ts",
+      "what": "The school is chaotic and unusable and must be rebuilt from scratch against a stated information architecture: name/mission, ENROLLMENT requirements and application, grade levels and courses, academic calendar and dates, tuition or free-public-school status, technology requirements, student handbook and policies, teacher and counsellor information, FAQ, contact and technical support, and news/announcements/clubs/events.",
+      "reproduce": "read docs/school.md and quantum-school.ts; neither presents a navigable structure a reader could enrol from",
+      "fix": "Rebuild COMPUTED from the ledger, not authored: courses derive from the proof wings, the calendar from the release cron, policies from the projects own encoded laws. HONEST SCOPE IS BINDING HERE — uuidna is NOT an accredited school and the accreditation section must say so plainly rather than imply otherwise; enrolment must not collect personal data; tuition is free. A page that implies accreditation it does not hold would be the one overclaim this ledger cannot make."
     }
   ],
   "fixed": [
