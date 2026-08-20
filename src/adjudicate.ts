@@ -34,7 +34,20 @@ export interface StatusCollision { key: string; status: string; subject: string 
 export function statusCollisions(claim: string): StatusCollision[] {
   // strip citation clauses first — a key like clay_verified_ne_solved must not read as a subject mention
   const text = claim.replace(/\/theorem\/[a-z0-9_]+/gi, ' ').replace(/\btheorem\s+[a-z][a-z0-9_]{3,}/gi, ' ')
-  if (!SELF_VOICE.test(text) || !SOLVE_VERB.test(text) || DEMARCATED.test(text)) return []
+  // DEMARCATION IS CLAUSE-LOCAL, not sentence-wide.
+  //
+  // This tested DEMARCATED against the WHOLE text, so a hedge word anywhere disarmed the check entirely. Appending
+  // "and no counterexample remains" to a Riemann claim flipped it from UNVERIFIED to VERIFIED, and the security
+  // audit guarding this still reported ok because it probes only two fixed sentence shapes. A qualifier belongs to
+  // the clause it qualifies: "we do not claim to have solved X" is demarcated; "we solved X, and nothing remains"
+  // is a claim with a flourish attached.
+  if (!SELF_VOICE.test(text) || !SOLVE_VERB.test(text)) return []
+  const claimClause = text
+    .split(/[;,.]|\s+—\s+|\band\b|\bbut\b|\bwhile\b|\bthough\b/i)
+    .find((c) => SOLVE_VERB.test(c) && SELF_VOICE.test(c))
+  // no clause carries both voice and verb together — the sentence is too diffuse to read as a claim
+  if (!claimClause) return []
+  if (DEMARCATED.test(claimClause)) return []
   // normalize: strip diacritics (Poincaré → poincare, matching the ascii key convention) and versus → vs (p_vs_np)
   const lower = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\bversus\b/g, 'vs')
   const out: StatusCollision[] = []
