@@ -20,6 +20,19 @@ export const DERIVED_FILES: readonly string[] = [
   'audit-citations.json',
   'support-audit.json',
   'research-leads.json',
+  // ADDED after measuring: the gate git-diffs fourteen paths and this list named eight, so six files were gated
+  // and never rotated. A file the gate watches but spin does not seal can drift without moving the receipt, which
+  // is the exact hole the receipt exists to close. spin-parity.test.ts now asserts this list against the audit
+  // script itself, so the two cannot separate again by hand.
+  '.zenodo.json',
+  'reports.json',
+  'lean/statement-index.json',
+  'README.md',
+  'llm.txt',
+  'src/chunks',   // a DIRECTORY: every chunk under it is sealed, matched by prefix
+  'lean',         // likewise — the gate diffs ALL of lean/, and spin sealed three named files under it. The wings
+                  // themselves, every domain manifest, and the heartbeat, findings and leads ledgers were gated
+                  // and never rotated. The parity test found this while checking the smaller gap it was written for.
 ]
 
 /** Spin the bits: fold a file's bytes into its content-address and take the top-64 COIN. One order-invariant fold,
@@ -35,7 +48,15 @@ export interface SpinManifest { coins: Record<string, string>; receipt: string }
  *  in any single file moves the whole receipt — the layer has one address). `files` maps path → its current bytes. */
 export function sealSpin(files: Record<string, string>): SpinManifest {
   const coins: Record<string, string> = {}
-  for (const p of DERIVED_FILES) if (p in files) coins[p] = spin(files[p]).coin
+  // A DERIVED_FILES entry with no extension is a DIRECTORY: seal every file beneath it. src/chunks holds one file
+  // per distinct statement and the gate diffs the whole tree, so sealing only the paths that happen to be plain
+  // files left the largest derived surface in the repository un-rotated.
+  const isDir = (p: string): boolean => !/\.[a-z0-9]+$/i.test(p)
+  for (const p of DERIVED_FILES) {
+    if (isDir(p)) {
+      for (const f of Object.keys(files)) if (f.startsWith(p + '/')) coins[f] = spin(files[f]).coin
+    } else if (p in files) coins[p] = spin(files[p]).coin
+  }
   // fold the (path, coin) pairs in a FIXED order into one receipt — order-invariant content is the sorted join
   const receipt = toUuid(Object.keys(coins).sort().map((p) => p + '=' + coins[p]).join('\n'))
   return { coins, receipt }
@@ -53,5 +74,11 @@ export function verifySpin(manifest: SpinManifest, files: Record<string, string>
     if (spun !== manifest.coins[p]) drift.push({ path: p, sealed: manifest.coins[p], spun })
   }
   const receipt = sealSpin(files).receipt
+  // AN EMPTY MANIFEST REFUSES. It sealed nothing, so it agreed with every file set alive or dead — verifySpin
+  // returned ok:true against ANY input, which is a verifier that verifies nothing and passes. Same class as the
+  // dna-recompute check that accepted a forged theorem: a control it could never fail.
+  if (Object.keys(manifest.coins).length === 0) {
+    return { ok: false, drift: [{ path: '(manifest)', sealed: '(empty)', spun: receipt }], receipt, sealedReceipt: manifest.receipt }
+  }
   return { ok: drift.length === 0 && receipt === manifest.receipt, drift, receipt, sealedReceipt: manifest.receipt }
 }

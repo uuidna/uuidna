@@ -4,7 +4,7 @@
 // moved is non-quantum and is rejected before it can be committed. Seal runs inside reconcile (after every generator,
 // so the coins are of the freshly-rotated layer). Verify is the fast check a developer runs BEFORE the slow O(N)
 // gate: "has my derived layer drifted since the last seal?" answered in one fold per file, no re-derivation.
-import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync, statSync, readdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { DERIVED_FILES, sealSpin, verifySpin, type SpinManifest } from '../spin.js'
@@ -15,7 +15,16 @@ import { ROOT } from './api.js'
 const MANIFEST = join(ROOT, 'spin-manifest.json')
 const read = (): Record<string, string> => {
   const files: Record<string, string> = {}
-  for (const p of DERIVED_FILES) { const abs = join(ROOT, p); if (existsSync(abs)) files[p] = readFileSync(abs, 'utf8') }
+  // A DERIVED_FILES entry may be a DIRECTORY — lean/ and src/chunks are gated wholesale by the audit chain, and
+  // sealing only the plain-file entries left the wings, every domain manifest and the whole chunk store un-rotated.
+  // Walk directories into their files so the sealer covers exactly what the gate diffs.
+  const walk = (rel: string): void => {
+    const abs = join(ROOT, rel)
+    if (!existsSync(abs)) return
+    if (statSync(abs).isDirectory()) { for (const e of readdirSync(abs)) walk(rel + '/' + e); return }
+    files[rel] = readFileSync(abs, 'utf8')
+  }
+  for (const p of DERIVED_FILES) walk(p)
   return files
 }
 
