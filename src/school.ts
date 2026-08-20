@@ -17,6 +17,7 @@
 // What IS true is worth more than a borrowed credential: every lesson is a `by decide` theorem the reader can
 // recompute, and nothing is taken on the teacher's authority. That is a stronger guarantee than accreditation
 // offers, and it is the only one uuidna can actually give.
+import { readFileSync } from 'node:fs'
 import { theorems } from './index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
@@ -40,6 +41,31 @@ export function courses(): Course[] {
 }
 
 const line = (label: string, value: string | number): string => `${label}: ${value}`
+
+/** THE MANIFEST IS THE SOURCE, NOT MY MEMORY OF IT.
+ *
+ *  Eight of these eleven sections were authored strings — the licence, the Node requirement, the dependency count,
+ *  every contact URL — each of which is a field in package.json that I retyped. A retyped field is a claim that
+ *  cannot stay true, which is the same defect as a ledger count frozen into a comment. */
+const manifest = (): Record<string, string | Record<string, string>> => {
+  try { return JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')) as Record<string, string | Record<string, string>> }
+  catch { return {} }
+}
+const mf = (k: string, sub?: string): string => {
+  const m = manifest()[k]
+  if (sub && m && typeof m === 'object') return String((m as Record<string, string>)[sub] ?? '')
+  return typeof m === 'string' ? m : ''
+}
+const runtimeDeps = (): number => Object.keys((manifest().dependencies as Record<string, string>) ?? {}).length
+
+/** Releases ARE the calendar. Each is a dated event with a receipt; I wrote "no dates" rather than read them. */
+const releases = (): string[] => {
+  try {
+    const md = readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8')
+    return [...md.matchAll(/^##\s*\[?(\d+\.\d+\.\d+)\]?\s*[-–—]?\s*(\d{4}-\d{2}-\d{2})?/gm)]
+      .map((m) => m[2] ? `${m[1]} — ${m[2]}` : m[1])
+  } catch { return [] }
+}
 
 /** The eleven sections. `computed: false` marks a section whose content is a STANDING FACT about the project
  *  rather than a reading of the ledger — so a reader can tell which parts move on their own. */
@@ -73,16 +99,22 @@ export function school(): School {
       ...cs.slice(0, 8).map((c) => `  ${c.code}  ${c.title} — ${c.lessons} lessons`),
       cs.length > 8 ? `  … and ${cs.length - 8} more` : '',
     ].filter(Boolean) },
-    { id: 'calendar', title: 'Academic calendar', computed: false, body: [
-      'There are no terms and no intake dates. The ledger releases when its gate is green, not on a timetable,',
-      'so a lesson appears when it is proven rather than when a semester begins.',
-    ] },
-    { id: 'tuition', title: 'Tuition', computed: false, body: [
+    { id: 'calendar', title: 'Academic calendar', computed: true, body: [
+      'There are no terms and no intake dates — the ledger releases when its gate is green, not on a timetable.',
+      'But releases ARE the dated events, and they are recorded rather than announced:',
+      line('Releases to date', releases().length),
+      ...releases().slice(0, 5).map((r) => '  ' + r),
+      releases().length > 5 ? `  … and ${releases().length - 5} earlier` : '',
+      line('Current', mf('version')),
+    ].filter(Boolean) },
+    { id: 'tuition', title: 'Tuition', computed: true, body: [
       'Free. There is no tuition, no materials fee, and nothing to purchase.',
-      'The licence is CC BY-NC-ND: study and share freely, commercial use reserved.',
+      line('Licence', mf('license') + ' — study and share freely; commercial use reserved'),
     ] },
-    { id: 'technology', title: 'Technology requirements', computed: false, body: [
+    { id: 'technology', title: 'Technology requirements', computed: true, body: [
       'A browser is enough to read. To verify a proof yourself you need Node and the package — no account, no cloud.',
+      line('Node', mf('engines', 'node')),
+      line('Runtime dependencies', runtimeDeps() === 0 ? 'none — nothing is fetched at run time' : String(runtimeDeps())),
       'To check the proofs at their source you need the Lean toolchain; the kernel-only witness ships so you can',
       'recompute offline.',
     ] },
@@ -94,9 +126,10 @@ export function school(): School {
       '  Refutation is a result. A refuted claim establishes its negation and is recorded, never discarded.',
       line('Laws currently sealed as theorems', lessons),
     ] },
-    { id: 'staff', title: 'Teachers and counsellors', computed: false, body: [
+    { id: 'staff', title: 'Teachers and counsellors', computed: true, body: [
       'There is no faculty. The proofs teach, and the kernel marks the work.',
-      'Corrections and questions are handled in the open repository, where the reasoning is visible.',
+      line('Maintainer', mf('author')),
+      line('Marking authority', 'the Lean kernel — every lesson is checked, none is graded by opinion'),
     ] },
     { id: 'faq', title: 'Frequently asked questions', computed: false, body: [
       'Is this accredited? No — see the accreditation section, which states the position plainly.',
@@ -104,9 +137,12 @@ export function school(): School {
       'What does it cost? Nothing.',
       'Can I be wrong here? Yes, and that is the point: every lesson can be checked against you.',
     ] },
-    { id: 'contact', title: 'Contact and announcements', computed: false, body: [
-      'Questions, corrections and news are handled in the public repository. Corrections are welcome and are the',
-      'fastest way to improve a lesson — a refutation is recorded as a result, not treated as a complaint.',
+    { id: 'contact', title: 'Contact, support and announcements', computed: true, body: [
+      'Questions, corrections and news are handled in the open. Corrections are the fastest way to improve a',
+      'lesson — a refutation is recorded as a result, never treated as a complaint.',
+      line('Repository', mf('repository', 'url').replace(/^git\+/, '')),
+      line('Technical support', mf('bugs', 'url')),
+      line('Home', mf('homepage')),
     ] },
   ]
 

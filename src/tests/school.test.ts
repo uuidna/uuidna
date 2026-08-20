@@ -39,6 +39,27 @@ test('every wing is a course, and lessons sum to the ledger', () => {
   assert.equal(new Set(cs.map((c) => c.code)).size, cs.length, 'course codes must not collide')
 })
 
+// ── PROSE REPLACED BY READS. Eight of eleven sections were authored strings restating fields that already exist
+// in package.json and CHANGELOG.md — a retyped field is a claim that cannot stay true, the same defect as a ledger
+// count frozen into a comment. Only positions that are NOT measurements may stay authored.
+test('most sections are computed, and the authored ones are positions rather than facts', () => {
+  const s = school()
+  const authored = s.sections.filter((x) => !x.computed).map((x) => x.id).sort()
+  assert.deepEqual(authored, ['accreditation', 'enrollment', 'faq'],
+    'a section may stay authored only if it states a position; anything readable from a source must be read')
+  assert.ok(s.sections.filter((x) => x.computed).length >= 8)
+})
+
+test('the computed sections carry real values, not placeholders', () => {
+  const body = (id: string): string => school().sections.find((x) => x.id === id)!.body.join(' ')
+  assert.match(body('tuition'), /CC-BY-NC-ND/, 'the licence is read from the manifest')
+  assert.match(body('technology'), /Node: >=/, 'the engine requirement is read, not remembered')
+  assert.match(body('contact'), /github\.com/, 'contact points are read from the manifest')
+  assert.match(body('calendar'), /Releases to date: \d+/, 'releases ARE the calendar')
+  for (const id of ['tuition', 'technology', 'contact', 'calendar'])
+    assert.ok(!/undefined|: $|NaN/.test(body(id)), `${id} has an unresolved field`)
+})
+
 test('the catalogue MOVES with the ledger — it is a reading, not a promise', () => {
   const before = school().receipt
   assert.equal(before, school().receipt, 'deterministic')
