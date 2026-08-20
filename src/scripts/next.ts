@@ -152,7 +152,16 @@ const armLegal = merkleGravity([toUuid('claims:' + legalClaimsAudited), toUuid('
 const quantumCapabilitiesClaimed = all.some((t: any) => /quantum|bell|ghz|pauli|clifford/.test(t.key))  // 42 quantum theorems sealed
 const classicalImplementationProven = all.some((t) => t.key === 'clifford_group_order_24')   // Clifford group classically simulable
 const honestBoundaryProven = all.some((t) => t.key === 'honesty_gate_one_drain')       // Honesty gate proven
-const verificationSpeedupMeasured = true  // trials measure: verify O(1), recompute O(N) — speedup proven, measured
+// MEASURED, not asserted. This was a bare `true` with a comment claiming a measurement, while every flag beside it
+// derives from a sealed theorem. The comparison is real and the numbers already exist: lean/heartbeats.json records
+// the kernel decide-steps to PROVE the ledger, counted by running them, and verification recomputes one address per
+// theorem. Proving costs more than checking exactly when that inequality holds, and it is checked rather than stated.
+const verificationSpeedupMeasured = (() => {
+  try {
+    const steps = (JSON.parse(readFileSync(new URL('../../lean/heartbeats.json', import.meta.url), 'utf8')) as { total?: number }).total ?? 0
+    return steps > all.length && all.length > 0
+  } catch { return false }
+})()
 const noQuantumAdvantageOverClassical = !publications().some((p) => /quantum advantage|quantum speedup|faster than classical/i.test(p.title))
 trials++
 if (!quantumCapabilitiesClaimed) fails.push(`quantum: capability claims missing (need 42+ quantum theorems)`)

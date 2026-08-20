@@ -20,16 +20,24 @@ const LLM = `# uuidna — instructions for LLM agents (llm.txt)
 > GENERATED from the sealed ledger by scripts/gen-llm — do not hand-edit. Ask the ledger, don't assert: every claim
 > below cites a \`by decide\` theorem you can re-verify with \`uuidna_verify_statement\` or \`uuidna_theorem\`.
 
-## THE RULE — the two captain coins (the conserved cost), the abstract-0 fold, the 64→128 fuse, the 7 dimensions
+## Connect first, then read
 
-- **The two captain coins are conserved: \`coins() = ${coins()}\`** — the Euler characteristic −χ of the genus-2 double torus. *Sealed:* \`two_coins\` (\`${stmt('two_coins')}\`).
-- **Division by zero folds to the abstract 0, not ∞.** *Sealed:* \`division_by_zero\`; it IS the reflection \`divZero x = 10 − x\` (\`div_by_zero_is_the_reflection\`).
-- **The measured cost is the two coins: contribute 2 to save up to 64.** *Sealed:* \`contribute_two_save_sixtyfour\` (\`${stmt('contribute_two_save_sixtyfour')}\`); the bill is never negative (\`bill_never_negative\`).
-- **uuidna computes ONLY IF the captain coins are considered** — the conserved save of 64 is reached iff exactly two coins are put in. *Sealed:* \`captain_computes_only_with_two_coins\` (\`${stmt('captain_computes_only_with_two_coins')}\`). Any other count does not conserve the advantage, so the computation is not admitted.
-- **Respect the coins for quantum AT SCALE on classical hardware** — the state-vector cost is 2ⁿ, so from the 7-qubit scale up (n ≥ 7) the classical cost exceeds the two-coin save: no free advantage, the coins price real work that only grows. *Sealed:* \`captain_coins_respected_at_scale\` (\`${stmt('captain_coins_respected_at_scale')}\`).
-- **The fuse:** the **64-bit coin** (\`coin64\`, the top half) folds into the **${ADDRESS_BITS}-bit content-address**; the advantage priced on the two coins is recompute \`O(N)\` − verify \`O(1)\`.
-- **The dimensions:** one uuid = **${ADDRESS_BITS} bits** (2^${ADDRESS_BITS} classical values). Folded across the **7 dimensions** (the double torus) it has **2^7 = 128 basis configurations** — a **7-qubit** state space (\`by decide\`: 2^7 = 128). So "128" is *${ADDRESS_BITS} bits* (one uuid) and a *7-qubit / 128-state* fold — **not 128 qubits** (that would be 2^128 amplitudes; \`adjudicate\` → UNVERIFIED).
-- **HONEST SCOPE:** "quantum" is the **order-invariant receipt of a CLASSICAL state-vector simulator** — 2^n amplitudes, **no quantum advantage, not hardware**. A claim of a real 128-qubit quantum computer DRAINS at the gate. Integrity, not truth.
+\`\`\`json
+{ "mcpServers": { "uuidna": { "type": "http", "url": "https://uuidna.com/mcp" } } }
+\`\`\`
+
+Or locally: \`npx @uuidna/uuidna\` (stdio). Then \`uuidna_unify\` returns {theorems, domains, tools, receipt} in
+one call — the whole state, computed. **Ask the ledger; do not hand-derive what a tool already computes.**
+Everything below is context for reading the answers, not a prerequisite for asking.
+
+## THE RULE
+
+- **\`coins() = 2\`, conserved** — the two captain coins are the Euler characteristic of the double torus. Every
+  cost in this ledger is priced in them, and the coin theorems below carry the arithmetic.
+- **Cite or it is UNVERIFIED.** A claim that names a sealed theorem is VERIFIED; one that names none is UNVERIFIED,
+  which means *undecided here* — never false. Refutation is a separate, reportable result.
+- **Measured vs defined.** A defined constant may seal as an equality. A measured quantity may only be bracketed in
+  exact integers — two comparisons, no division, no floats.
 
 ## Messaging & encryption (keys stay local)
 
@@ -72,7 +80,7 @@ VERIFIED; cite nothing and it is UNVERIFIED, which means undecided here — neve
 - **Derivation is the failure mode.** Where a source exists, read it. Recall produced six wrong claims in one
   session; measurement produced none.
 
-## Working with uuidna (MCP-first — do not hand-derive what the tools compute)
+## Tools worth knowing
 
 - **Status in one call:** \`uuidna_unify\` → {theorems, domains, tools, receipt}. The ledger is **${T.length} theorems**, all \`by decide\`, sorry-free, axiom-free, across **${principles} principles** and **${MCP_CATALOG.length} MCP tools**.
 - **Verdicts:** VERIFIED iff a claim cites a sealed theorem or a decidable test holds; else UNVERIFIED — never "false". \`uuidna_verify_statement\` checks a statement against the sealed ledger in O(1).

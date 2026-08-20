@@ -15,9 +15,9 @@
 | **Axiom-free** | 1336/1336 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 72 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 68 | Capability axes across the ledger |
-| **Verification cost** | ~1ms | O(1) seal check via spin --verify |
-| **Proof cost** | ~80000ms | O(N) full re-proof via npm run next |
-| **Verification speedup** | 80x | Proof must run once; verify runs every push |
+| **Proof cost** | 331239 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Verification work** | 1336 addresses | one recomputed per theorem |
+| **Steps per address** | 247 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -57,8 +57,8 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself â
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): ~80s (full npm run next)
-- Every later push (verify): ~1ms (spin --verify)
+- First push (prove): 331239 kernel decide-steps, measured
+- Every later push (verify): 1336 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
