@@ -21,7 +21,18 @@
 //
 // Nothing here decides truth. It decides whether an experiment was capable of being wrong.
 
+import { toUuid } from './address.js'
+
+/** the address of a protocol — hypothesis and criterion, which are what make two trials the same trial */
+export const protocolAddress = (hypothesis: string, refutedIf: string): string => toUuid(`trial:${hypothesis}|${refutedIf}`)
+
 export type Outcome = 'supported' | 'refuted' | 'void' | 'inconclusive'
+
+/** What the verdict is ABOUT. This is the whole content of folding a void: a trial whose control passes tells you
+ *  nothing about the subject, and it tells you something definite about the INSTRUMENT — that it cannot
+ *  discriminate. Re-aimed at the instrument, the same run is not void at all, it is a refutation. So `void` is
+ *  never a dead end; it is a verdict that has not yet been pointed at the thing it actually settles. */
+export type About = 'subject' | 'instrument'
 
 export interface Protocol<T> {
   hypothesis: string
@@ -39,14 +50,31 @@ export interface Result {
   hypothesis: string
   refutedIf: string
   outcome: Outcome
+  about: About
   controlRejected: boolean
+  /** the fold of the protocol itself, so a void is CITABLE — an instrument shown non-discriminating can be named,
+   *  tracked, and re-tested against a stricter control rather than quietly re-run and re-believed. */
+  receipt: string
   why: string
+}
+
+/** fold a void into the finding it already is: the instrument is the subject, and the verdict is refuted. */
+export function foldVoid(r: Result): Result {
+  if (r.outcome !== 'void') return r
+  return {
+    ...r,
+    outcome: 'refuted',
+    about: 'instrument',
+    hypothesis: `the instrument for "${r.hypothesis}" can discriminate`,
+    refutedIf: 'a control that should fail is accepted',
+    why: `${r.why} Re-aimed at the instrument this is not void but REFUTED: the test accepts a case it was built to reject.`,
+  }
 }
 
 /** Run a pre-registered trial. The CONTROL is evaluated first and independently of the subject: a trial whose
  *  control passes is void whatever the subject does, because the instrument has not been shown to discriminate. */
 export function trial<T>(p: Protocol<T>): Result {
-  const base = { hypothesis: p.hypothesis, refutedIf: p.refutedIf }
+  const base = { hypothesis: p.hypothesis, refutedIf: p.refutedIf, about: 'subject' as About, receipt: protocolAddress(p.hypothesis, p.refutedIf) }
   if (!p.refutedIf.trim()) return {
     ...base, outcome: 'void', controlRejected: false,
     why: 'no refutation criterion was registered — an experiment that cannot say what would disprove it is not an experiment',
@@ -69,11 +97,11 @@ export function trial<T>(p: Protocol<T>): Result {
 export function trialWithControls<T>(p: Omit<Protocol<T>, 'control'> & { controls: readonly T[] }): Result {
   const leaked = p.controls.filter((c) => p.test(c))
   if (leaked.length) return {
-    hypothesis: p.hypothesis, refutedIf: p.refutedIf, outcome: 'void', controlRejected: false,
+    hypothesis: p.hypothesis, refutedIf: p.refutedIf, about: 'subject', receipt: protocolAddress(p.hypothesis, p.refutedIf), outcome: 'void', controlRejected: false,
     why: `${leaked.length} of ${p.controls.length} controls PASSED — the instrument does not discriminate`,
   }
   if (!p.controls.length) return {
-    hypothesis: p.hypothesis, refutedIf: p.refutedIf, outcome: 'inconclusive', controlRejected: false,
+    hypothesis: p.hypothesis, refutedIf: p.refutedIf, about: 'subject', receipt: protocolAddress(p.hypothesis, p.refutedIf), outcome: 'inconclusive', controlRejected: false,
     why: 'no controls were supplied, so nothing establishes that this test can fail',
   }
   return trial({ ...p, control: p.controls[0] })

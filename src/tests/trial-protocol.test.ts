@@ -5,7 +5,7 @@
 // reported green since it was written, because nothing ever fed it a forgery.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { trial, trialWithControls } from '../trial-protocol.js'
+import { trial, trialWithControls, foldVoid } from '../trial-protocol.js'
 import { theorems, toUuid } from '../index.js'
 
 test('a test that always passes is VOID, not supported', () => {
@@ -60,4 +60,32 @@ test("the ledger's dna-recomputes check is VOID: a forged theorem passes its con
   })
   assert.equal(r.outcome, 'void', 'the check compares a pure function to itself, so its control cannot fail')
   assert.equal(r.controlRejected, false)
+})
+
+// ── FOLDING A VOID. It was never an absence: a control that passes is a definite finding about the INSTRUMENT,
+// and the same run re-aimed is a refutation. The receipt must not move, because nothing was re-tested.
+test('a void folds into a refutation of the instrument, keeping its receipt', () => {
+  const v = trial({ hypothesis: 'h', refutedIf: 'r', test: () => true, control: 'c', subject: 's' })
+  assert.equal(v.outcome, 'void')
+  assert.equal(v.about, 'subject')
+  const f = foldVoid(v)
+  assert.equal(f.outcome, 'refuted')
+  assert.equal(f.about, 'instrument')
+  assert.equal(f.receipt, v.receipt, 'same trial, re-read — not re-run')
+  assert.match(f.hypothesis, /can discriminate/)
+})
+
+test('folding is inert on a real result — it cannot launder a failure into a finding', () => {
+  for (const r of [
+    trial({ hypothesis: 'evens', refutedIf: 'an odd passes', test: (n: number) => n % 2 === 0, control: 3, subject: 4 }),
+    trial({ hypothesis: 'evens', refutedIf: 'an odd passes', test: (n: number) => n % 2 === 0, control: 3, subject: 7 }),
+  ]) assert.deepEqual(foldVoid(r), r)
+})
+
+test('the receipt identifies the TRIAL, so the same question folds to the same address', () => {
+  const a = trial({ hypothesis: 'h', refutedIf: 'r', test: () => true, control: 1, subject: 1 })
+  const b = trial({ hypothesis: 'h', refutedIf: 'r', test: () => false, control: 2, subject: 2 })
+  assert.equal(a.receipt, b.receipt, 'hypothesis and criterion are what make two trials the same trial')
+  const c = trial({ hypothesis: 'h', refutedIf: 'DIFFERENT', test: () => true, control: 1, subject: 1 })
+  assert.notEqual(a.receipt, c.receipt, 'a changed criterion is a different trial')
 })
