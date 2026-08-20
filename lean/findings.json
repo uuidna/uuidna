@@ -83,6 +83,14 @@
       "what": "A theorem is meant to be a hook and hooked at once — reachable from the live API through the skill it carries. Only 18 of 68 skills are reachable from any tool name or category; 50 are ORPHANED, including sequence, involution, z9-ring, z7-rosette, clay-reflection, foundational, neuro and science-pairs. Theorems carrying those skills are sealed, witnessed and served by nothing.",
       "reproduce": "intersect the distinct theorem skills with MCP tool names and categories; 18 match, 50 do not",
       "fix": "Serve skills as a dimension rather than adding 50 tools by hand: one tool that takes a skill and returns its theorems, its handles and its ESCO mapping. src/school-apis.ts already wires ESCO for exactly this and is currently referenced by nothing (0 call sites). That closes the orphan set in one computed surface instead of fifty authored ones — and a finder should then assert the intersection, so a new skill cannot arrive unserved."
+    },
+    {
+      "severity": "high",
+      "where": "package.json (38 npm scripts, 30 gate steps), src/scripts (159), src/scripts/guard.ts (29 finders), src/mcp.ts (189 tools)",
+      "what": "The automation surface has grown past what a reader can hold, and several entries do overlapping work. MEASURED: 10 of 38 npm scripts are a single dist call adding nothing but a name — gen:captain-claims, axioms, reconcile, security, develop, probe:apis, guard, mcp:drive, state, x. And FIVE separate entry points all answer one question, what is the state of this ledger: measure, rosetta, exercise-dormant, discover, trial-protocol. Three overlapping catalogues describe the same work: 30 gate steps, 29 guard finders, 38 npm scripts.",
+      "reproduce": "count them; then note that measure.js already registers six measurements behind one call, which is the shape the other four should fold into",
+      "fix": "FOLD, do not add. The good precedents are already here and each REPLACED N entry points with one: gate-all took 30 chain steps into a single concurrent pass, measure --all took six one-liners into one receipted call, searchAll took six libraries into one search, handleOf took three derivations of a handle into one, exercise-dormant took 32 unrun scripts into one roster. Register rosetta, exercise-dormant, discover and trial-protocol INTO measure so there is one command, one receipt, and one obvious way in; retire the thin npm wrappers in favour of the x dispatcher, which the scripts finder already asks for. NOT a sixth entry point. The aggregate is the defect, not any single addition — 27 files were added in one session, each defensible alone.",
+      "caution": "A count of scripts no npm script names is NOT a count of dead scripts: 72 lean-* wing emitters are discovered from disk by lean-all by design, and others are invoked by siblings. Measure invocation, not naming, or this fold will delete working code."
     }
   ],
   "fixed": [

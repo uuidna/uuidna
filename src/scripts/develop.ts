@@ -61,6 +61,21 @@ const CURES: Cure[] = [
   { name: 'MCP surface drift', when: /docs\/mcp\.md/,
     cmd: 'node dist/scripts/gen-mcp.js',
     because: 'the tool docs are computed from the catalog keys' },
+
+  // EVERY UNATTENDED CYCLE LEAVES EVIDENCE, not only repairs.
+  //
+  // develop runs every thirty minutes and its cures fix what they can. What it never did was RECORD what it saw,
+  // so a slow drift between runs was invisible unless a cure happened to trip on it. measure --all folds the
+  // ledger counts, wing parity in both directions, handle round-trips, the rosetta census, research verification
+  // status and the open findings — each into a receipt that moves when its value moves. A number that changes
+  // between two cycles is then visible in an artifact rather than in nobody's memory.
+  //
+  // It is a MEASUREMENT, never a cure. Nothing here repairs anything, so a wrong reading cannot make the tree
+  // worse — it can only be seen.
+  { name: 'measurements (receipted)', when: /^$/,
+    cmd: 'node dist/scripts/measure.js --all',
+    because: 'an unattended cycle that only repairs leaves no evidence of what it saw; each measurement folds to a receipt that moves when its value moves, so drift between runs is visible in an artifact rather than in nobody memory',
+  },
   { name: 'package surface drift', when: /packages? (?:receipt|surface)|gen:packages/,
     cmd: 'node dist/scripts/gen-packages.js',
     because: 'the six package surfaces are generated from src/index.ts; the guard hard-rejects drift' },
