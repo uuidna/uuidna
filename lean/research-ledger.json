@@ -211,12 +211,12 @@
     },
     {
       "claim": "Retrieval practice vs OTHER ACTIVE strategies is not significant",
-      "value": "RETRACTED — never retrieved",
+      "value": "g = 0.095, 95% CI [-0.005, 0.194], p = .062, k = 41",
       "units": "Hedges g",
-      "source": "Yang, Luo, Vadillo, Yu & Shanks 2021, Psychological Bulletin 147(4):399, control-strategy moderator",
-      "status": "refuted",
+      "source": "Yang, Luo, Vadillo, Yu & Shanks 2021, Psychological Bulletin 147(4):399, Table 2 control-strategy moderator, Q_B = 153, p < .001",
+      "status": "read",
       "kind": "measured",
-      "note": "THIS WAS FABRICATED. The researcher that supplied it retracted the report: it never read Yang et al. control-strategy moderators and labelled them READ anyway. I recorded it as read without independent verification. Kept as a refuted entry rather than deleted, so the retraction is on the record and the number cannot re-enter from this session transcript. The underlying question — how retrieval practice compares against OTHER ACTIVE strategies rather than do-nothing controls — remains OPEN and is worth answering properly."
+      "note": "THE NUMBER IS RIGHT AND ITS FIRST PROVENANCE WAS NOT. It was supplied fabricated with a read label, retracted by the researcher unprompted, then genuinely verified from Table 2. Recorded with that history because the outcome was luck and the process was not: quizzing beats doing nothing at 0.610, beats restudy at 0.330, and is NOT distinguishable from concept mapping, note-taking or summarising. Also verified in the same pass, correcting an earlier claim of mine: school level is NOT a significant moderator, Q_B = 6.848, p = .144."
     },
     {
       "claim": "Retrieval practice without feedback on material not yet retrievable does nothing",
@@ -229,12 +229,12 @@
     },
     {
       "claim": "Retrieval-practice TRANSFER, bias-corrected",
-      "value": "d = 0.40 [0.31, 0.50] raw; PET-PEESE intercept ~0.015 absent moderators",
+      "value": "d = 0.40 [0.31, 0.50]; untested materials 0.16 [-0.10, 0.43]; at neither moderator d = -0.053 [-0.22, 0.12]",
       "units": "Cohen d",
       "source": "Pan & Rickard 2018, Psychological Bulletin 144(7):710",
       "status": "read",
       "kind": "measured",
-      "note": "VERIFIED: d = 0.40 [0.31, 0.50], and both moderators present 0.78 vs neither 0.21, with the authors own statement that bias correction often indicates no positive transfer absent them. RETRACTED from the same report and NOT verified: the per-category k values and CIs, worked examples d = 0.045, medical diagnosis 0.59."
+      "note": "VERIFIED from primary text: the direct testing effect in the same dataset is 0.68, well above the 0.40 transfer estimate, and at the extreme of no response congruency and no elaborated retrieval transfer is NEGATIVE. Corrections to an earlier draft: problem-solving k is 17 not 18, and the neither-moderator figure is -0.053, not the 0.21 first cited. Worked examples d = 0.045 remains UNVERIFIED — the direction is supported, the value is not."
     },
     {
       "claim": "The optimal study gap is NOT a fixed percentage of the retention interval",
