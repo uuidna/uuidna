@@ -1,0 +1,14 @@
+{
+  "why": "TWO SURFACES SERVE THIS MCP AND THEY ARE MAINTAINED BY HAND, SEPARATELY. src/mcp.ts is the stdio catalogue (`npx @uuidna/uuidna`); src/mcp-http.ts is the Cloudflare Workers edge behind https://uuidna.com/mcp, which serves the Workers-safe subset — no filesystem, no process, no child_process. Nothing computed one from the other, so they drift: the edge advertised version 0.1.1 through eleven releases while the package reached 0.2.5, and src/tests/mcp-version.test.ts was written to hold that one constant. This file holds the OTHER drift the version test cannot see — tools whose ARGUMENT CONTRACT differs between the two surfaces, and tools the edge serves under a name the stdio catalogue does not use. An agent that learns a tool against uuidna.com and then runs it over stdio gets a wrong answer or an error, and until now nothing said so. Recorded 2026-08-20; THIS LIST MAY ONLY SHRINK. A new divergence fails src/tests/mcp-surface.test.ts by name; a divergence that has been repaired must be deleted from here, because a stale entry is an excuse nobody is spending. Repairing one means changing a published contract on one of the two surfaces, so each is a deliberate decision, not a typo to sweep.",
+  "recorded": "2026-08-20",
+  "argumentDivergence": [
+    { "tool": "uuidna_address", "stdio": ["text"], "edge": ["value"], "note": "the same mint under two argument names — the most-called tool on both surfaces" },
+    { "tool": "uuidna_gate", "stdio": ["text"], "edge": ["claim"], "note": "the honesty gate; the edge also runs a different function (reveal) than the stdio tool (computes)" },
+    { "tool": "uuidna_trial", "stdio": [], "edge": ["statement"], "note": "the stdio tool runs the whole trial with no arguments; the edge adjudicates one statement" },
+    { "tool": "uuidna_bill", "stdio": ["commercial", "recomputeOps", "verifyOps"], "edge": [], "note": "the edge defaults every term, so a bare call bills against zeros instead of refusing" }
+  ],
+  "edgeOnlyNames": [
+    { "tool": "uuidna_merkle_proof", "note": "the stdio catalogue spells the same capability uuidna_merkle_prove (and splits root/verify into their own tools)" },
+    { "tool": "uuidna_coins", "note": "the two captain coins; stdio reaches the same constant through uuidna_captain and the billing tools" }
+  ]
+}
