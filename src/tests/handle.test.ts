@@ -7,10 +7,13 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  isHandle, handleParts, handlePath, handleOfPath, handleDirs, pathOrderMatchesHandleOrder, HANDLE_ROOT,
+  isHandle, handleOf, handleParts, handlePath, handleOfPath, handleDirs, pathOrderMatchesHandleOrder, HANDLE_ROOT,
 } from '../handle.js'
 import { chunkHandleOf } from '../scripts/gen-handle-chunks.js'
 import { theorems } from '../index.js'
+import { readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from '../scripts/api.js'
 
 const live = (): string[] => [...new Set(theorems().map((t) => chunkHandleOf(t.key)).filter((h): h is string => !!h))]
 
@@ -84,4 +87,45 @@ test('the extremes of the space address correctly', () => {
     assert.equal(isHandle(edge), true)
     assert.equal(handleOfPath(handlePath(edge)), edge)
   }
+})
+
+// ── ONE DERIVATION, OR IT FRAGMENTS AGAIN. handleOf was written three times before it was written once:
+// gen-handle-chunks stripped the hyphens, editor.ts and mcp.ts sliced the raw string, and the three agreed ONLY
+// because a v8 UUID's first group is exactly eight hex characters. That is agreement by formatting coincidence.
+// This is the source-level finder: a new inline `.slice(0, 8)` on an address re-forks the identity scheme, and the
+// only way that stays caught is if adding one fails here.
+test('every handle in the source comes from handleOf — no site re-derives it inline', () => {
+  const SRC = join(ROOT, 'src')
+  const offenders: string[] = []
+  const walk = (dir: string): void => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, e.name)
+      if (e.isDirectory()) { if (e.name !== 'tests' && e.name !== 'chunks') walk(full); continue }
+      if (!e.name.endsWith('.ts')) continue
+      const text = readFileSync(full, 'utf8')
+      text.split('\n').forEach((line, i) => {
+        // A finder that cries wolf gets switched off, so this flags a handle DERIVATION and nothing else. The
+        // first pass caught 18 lines of which 3 were real: arrays truncated for display (`forged.slice(0, 8)`),
+        // receipts interpolated into a log line, and eight hex parsed as an INTEGER SEED (aura, css, holofractal)
+        // all slice eight and none of them mint an identity. The receiver must be address-shaped and assigned.
+        // NARROWED, because the first version could not tell an array slice from a string one. It flagged
+        // minted.slice(0, 8) and uniq.slice(0, 8) — arrays — plus display truncation in HTML and log lines. A
+        // grep cannot distinguish use from mention, so the criterion is what the value BECOMES: a site that
+        // produces something *named* a handle must derive it, and everything else may slice for its own reasons.
+        if (!/(?:\bhandle\b\s*[:=]|\bhandle[A-Z]\w*\s*=)[^,;]*\.slice\(0, ?8\)/.test(line)) return
+        if (/handleOf|hex\.slice/.test(line)) return
+        offenders.push(`${full.slice(SRC.length + 1)}:${i + 1}: ${line.trim().slice(0, 90)}`)
+      })
+    }
+  }
+  walk(SRC)
+  assert.deepEqual(offenders, [], 'these re-derive a handle inline — call handleOf(address) instead')
+})
+
+test('handleOf refuses what it cannot address, rather than coercing it', () => {
+  assert.equal(handleOf('57f5ef04-a2f0-83cb-a686-3343c324de12'), '57f5ef04')
+  assert.equal(handleOf('57f5ef04a2f083cba6863343c324de12'), '57f5ef04', 'hyphens are incidental, not the shape')
+  assert.equal(handleOf('57F5EF04-A2F0-83CB-A686-3343C324DE12'), '57f5ef04', 'handles are lowercase hex')
+  for (const bad of ['', 'zzzzzzzz', 'short', '----------'])
+    assert.throws(() => handleOf(bad), /eight hex/, `refused, not coerced: ${JSON.stringify(bad)}`)
 })

@@ -17,6 +17,7 @@
 // itself. This is the has_and_belongs_to_many join the other side of: every chunk lists every key that cites it;
 // every key can be resolved to its one chunk via chunkHandleOf.
 import { writeFileSync, mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs'
+import { handleOf } from '../handle.js'
 import { join } from 'node:path'
 import { allStatementChunks } from '../editorial.js'
 import { toUuid } from '../address.js'
@@ -36,7 +37,7 @@ export function buildChunks(): HandleChunk[] {
   return allStatementChunks()
     .map((c) => {
       const address = toUuid('chunk:' + c.statement.replace(/\s+/g, ''))
-      return { handle: address.replace(/-/g, '').slice(0, 8), address, statement: c.statement, tactic: c.tactic, keys: c.keys, files: c.files }
+      return { handle: handleOf(address), address, statement: c.statement, tactic: c.tactic, keys: c.keys, files: c.files }
     })
     .sort((a, b) => a.handle.localeCompare(b.handle))
 }

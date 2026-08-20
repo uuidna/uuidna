@@ -6,6 +6,7 @@
 // is `merkleRoot` (a positional merkle tree) over the serialized leaves' uuids. Editing is re-addressing.
 //
 // This is the piece a PayloadCMS plugin and a VitePress plugin BOTH import — ONE fold under both frameworks: the edit
+import { handleOf } from './handle.js'   // THE one derivation — see handle.ts on why this was three
 // projection (Payload stamps the address on save) and the render projection (VitePress reads the same address) agree
 // because the address IS the document. Integrity, not truth: the handle proves WHICH document, never that its content
 // is correct — and injectivity holds only on the bounded model (pigeonhole: 2^128 addresses < all documents, so the
@@ -42,7 +43,7 @@ export function documentAddress(state: EditorState): string {
 // documentHandle — the first segment (8 hex) you CITE; the whole address is the fold (recompute-only), the same handle
 // idiom as every uuidna address: cite the handle, recompute the fold.
 export function documentHandle(state: EditorState): string {
-  return documentAddress(state).slice(0, 8)
+  return handleOf(documentAddress(state))
 }
 
 /** The result of re-addressing a document: the handle to cite, the full fold, and the node count folded. */
@@ -53,7 +54,7 @@ export interface DocFold { handle: string; address: string; nodes: number }
 export function reAddress(state: EditorState): DocFold {
   const leaves = serialize(state.root)
   const address = merkleRoot(leaves.map(toUuid))
-  return { handle: address.slice(0, 8), address, nodes: leaves.length }
+  return { handle: handleOf(address), address, nodes: leaves.length }
 }
 
 // ── PayloadCMS hook — "lean hooks to payload". Payload runs field/collection hooks with { data, ... } and expects the

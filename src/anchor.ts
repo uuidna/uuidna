@@ -11,6 +11,7 @@
 // (Bitcoin-anchored) signs a hash of your document directly — the recognised instruments. This is one network call
 // (Node's built-in fetch); the fold itself is pure. Integrity, not truth.
 import { toUuid } from './address.js'
+import { handleOf } from './handle.js'
 
 export interface Anchor {
   address: string          // the in-house record being anchored
@@ -39,7 +40,7 @@ export async function beaconAnchor(address: string): Promise<Anchor> {
     },
     anchored: toUuid(address + '|beacon:' + outputValue + '|' + (p.timeStamp || '')),
     proves:
-      `The record ${address.slice(0, 8)}… existed AT OR AFTER ${p.timeStamp || '(pulse time)'} — the beacon's ` +
+      `The record ${handleOf(address)}… existed AT OR AFTER ${p.timeStamp || '(pulse time)'} — the beacon's ` +
       `unpredictable value could not be known before then, and NIST signs and archives every pulse, so anyone ` +
       `re-fetches that pulse and re-verifies the fold.`,
     honest:

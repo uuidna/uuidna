@@ -8,7 +8,8 @@
 // These assertions are PURE — no network. A test that needs the internet fails for reasons that are not the code's.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { schoolApiRegistry, schoolApiFetch, splitCsvLine, SCHOOL_APIS, GISCO_VINTAGE } from '../school-apis.js'
+import { schoolApiRegistry, schoolApiFetch, probeSchoolApis, splitCsvLine, pickLang, SCHOOL_APIS, GISCO_VINTAGE,
+  type SchoolApiAnswer } from '../school-apis.js'
 
 test('every registered source declares what it serves and how it answered', () => {
   const r = schoolApiRegistry()
@@ -93,4 +94,70 @@ test('the removed bulk mapping is recorded as an absence, with what replaced it'
   const gone = schoolApiRegistry().absent.find((a) => a.source.includes('automatic mapping'))
   assert.ok(gone, 'a surface that was built and withdrawn must say so — silence reads as an oversight')
   assert.match(gone.instead, /uuidna_education_jobs/, 'a withdrawal that names no replacement lies by omission')
+})
+
+// ── A SOURCE THAT ANSWERS IS NOT A SOURCE THAT SERVES. SEDIA returns 200 on the path nobody needs.
+test('a source wired on the responding path rather than the serving path is refused, and says which', () => {
+  const sedia = schoolApiRegistry().absent.find((a) => a.source.includes('SEDIA'))
+  assert.ok(sedia, 'a probed source rejected for what it returns must be recorded, not silently skipped')
+  assert.match(sedia.why, /ANSWERS/, 'the reason must be that it answers uselessly, not that it is unreachable')
+  assert.match(sedia.instead, /cordis/, 'a rejection that names no replacement lies by omission')
+})
+
+test('each fetched source is refused by name when its own required argument is missing', async () => {
+  await assert.rejects(() => schoolApiFetch('data-europa'), /needs \{text\}/)
+  await assert.rejects(() => schoolApiFetch('cordis'), /needs \{text\}/)
+  await assert.rejects(() => schoolApiFetch('sedia'), /unknown source "sedia"/)
+})
+
+// The EU publishes titles per language; dropping a row for not being English would lose it entirely.
+test('a multilingual title prefers English and never falls through to nothing', () => {
+  assert.equal(pickLang({ bg: 'училище', en: 'school' }), 'school')
+  assert.equal(pickLang({ lav: 'skola', bul: 'училище' }), 'skola', 'no English: keep the row, take what exists')
+  assert.equal(pickLang({ MUL: ['multi'] }), 'multi', 'TED wraps its values in arrays')
+  assert.equal(pickLang('plain'), 'plain')
+  assert.equal(pickLang(undefined), '')
+})
+
+// ── THE HEARTBEAT, EXERCISED OFFLINE. await-live.ts already argued the shape: a probe written inside a workflow is
+// a probe no test can reach. The call is INJECTED, so every path a live source can take — answers, returns nothing,
+// REFUSES the query, throws — is asserted here with no network at all. This is the finder the `declined` flag was
+// missing: a refusal and an empty world are different facts, and the heartbeat must never render them the same.
+const fake = (by: Record<string, Partial<SchoolApiAnswer> | 'throw'>) =>
+  async (source: string): Promise<SchoolApiAnswer> => {
+    const r = by[source]
+    if (r === 'throw') throw new Error('connect ECONNREFUSED')
+    return { source, query: {}, url: '', count: 0, results: [], truncated: false, receipt: '', honest: '', ...(r ?? {}) }
+  }
+
+test('every source declares the known-good query that proves it still answers', () => {
+  for (const s of SCHOOL_APIS.filter((x) => x.direction === 'fetched'))
+    assert.ok(s.probe, `${s.id}: a source with no way to check it cannot be told from a dead one`)
+})
+
+test('the heartbeat separates answering, empty, REFUSED and thrown — and never raises', async () => {
+  const h = await probeSchoolApis(fake({
+    esco: { count: 3 }, eurostat: { count: 0 },
+    gisco: { count: 0, declined: true }, 'data-europa': 'throw',
+    cordis: { count: 1 }, ted: { count: 2 },
+  }))
+  const by = Object.fromEntries(h.probes.map((p) => [p.id, p]))
+  assert.equal(by.esco.ok, true)
+  assert.equal(by.eurostat.ok, false, 'zero rows for a known-good query is a source that moved')
+  assert.equal(by.gisco.declined, true, 'a REFUSAL must not be reported as an empty world')
+  assert.match(by.gisco.note, /REFUSED/)
+  assert.equal(by['data-europa'].ok, false)
+  assert.match(by['data-europa'].note, /threw/, 'an unreachable source is named, not swallowed')
+  assert.equal(h.answering, 3)
+  assert.equal(h.dark.length, 3)
+})
+
+test('the heartbeat receipt moves when a source goes dark, and is stable when nothing changes', async () => {
+  const all = { esco: { count: 1 }, eurostat: { count: 1 }, gisco: { count: 1 },
+    'data-europa': { count: 1 }, cordis: { count: 1 }, ted: { count: 1 } }
+  const a = await probeSchoolApis(fake(all))
+  const b = await probeSchoolApis(fake(all))
+  assert.equal(a.receipt, b.receipt, 'same liveness, same receipt — recomputable by anyone')
+  const c = await probeSchoolApis(fake({ ...all, ted: { count: 0 } }))
+  assert.notEqual(a.receipt, c.receipt, 'a source going dark must MOVE the receipt or the silence is invisible')
 })

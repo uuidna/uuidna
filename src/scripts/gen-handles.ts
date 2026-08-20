@@ -6,6 +6,7 @@
 // silently point two proofs at one door. Regenerated on every build (wrangler's [build] step), so it never drifts.
 // The full uuid is never emitted here — only its first part is the key; the rest recomputes from the proof.
 import { writeFileSync } from 'node:fs'
+import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems } from '../index.js'
@@ -13,7 +14,7 @@ import { ROOT } from './api.js'
 
 const T = theorems()
 const map: Record<string, string> = {}
-for (const t of T) map[t.address.slice(0, 8)] = t.key
+for (const t of T) map[handleOf(t.address)] = t.key
 const n = Object.keys(map).length
 if (n !== T.length) throw new Error(`gen-handles: first-8 handle COLLISION — ${T.length} theorems but only ${n} distinct handles; the worker cannot route them uniquely.`)
 writeFileSync(

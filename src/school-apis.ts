@@ -23,6 +23,7 @@
 // A source may be unreachable — best-effort, and it NEVER fabricates a row. The parse, the decode and the addressing
 // are pure: the same bytes fold to the same receipt for anyone. Integrity, not truth.
 import { toUuid } from './address.js'
+import { handleOf } from './handle.js'   // THE one derivation of a handle from an address — see handle.ts
 import { merkleGravity } from './gravity.js'
 import { skillGroups } from './theorems/index.js'
 
@@ -31,11 +32,14 @@ export interface SchoolApi {
   id: string
   name: string
   base: string
-  kind: 'taxonomy' | 'statistics' | 'geography' | 'interoperability'
+  kind: 'taxonomy' | 'statistics' | 'geography' | 'interoperability' | 'catalogue' | 'research' | 'procurement'
   serves: string[]
   format: string
   access: string
   direction: 'fetched' | 'served'
+  /** the known-good query that proves this source still answers — declared HERE so a source cannot be added
+   *  without saying how to check it, the way lean/dormant-scripts.json refuses a script with no way to run it. */
+  probe?: SchoolApiQuery
   honest: string
 }
 
@@ -49,6 +53,8 @@ export interface SchoolApiAnswer {
   count: number
   results: SchoolApiEvidence[]
   truncated: boolean
+  declined?: boolean          // the source answered 200 with no result envelope at all — it REFUSED the query
+
   receipt: string
   honest: string
 }
@@ -62,13 +68,53 @@ const HONEST =
 const ESCO = 'https://ec.europa.eu/esco/api'
 const EUROSTAT = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data'
 const GISCO = 'https://gisco-services.ec.europa.eu/pub/education'
+const DATA_EUROPA = 'https://data.europa.eu/api/hub/search/search'
+const CORDIS = 'https://cordis.europa.eu/api/search/results'
+const TED = 'https://api.ted.europa.eu/v3/notices/search'
+/** the CPV division for education and training services — TED's own classification, so the filter is the EU's, not ours */
+export const CPV_EDUCATION = '80000000'
 /** the GISCO education vintage this module was probed against — the directory is versioned, so the year is explicit */
 export const GISCO_VINTAGE = '2020'
 const DEFAULT_LIMIT = 25
 
-/** THE ONE REGISTRY — every source is reached through this table, so adding one is a single entry, never a new door. */
+// THE ONE CACHE, AND WHY IT IS SAFE HERE AND NOWHERE ELSE ON THIS PAGE. Six of these sources answer QUERIES — ask
+// ESCO the same phrase next year and it may honestly answer differently — so caching them would serve a stale answer
+// as a live one, which is the drift this module exists to catch. GISCO is a different kind of read: its URL CARRIES
+// THE VINTAGE (…/education/2020/csv/BG.csv), so the bytes behind a given URL cannot change — a new vintage is a new
+// URL. That is immutability by construction, not by assumption, and it is the standing law's own case: cache the
+// immutable read and pay for it once. MEASURED before caching: 1,012,784 bytes fetched to return 7,377 — 0.7%
+// useful, re-paid on every call. Same idiom as _uuidCache in address.ts and _cache in captain/credits.
+const _immutable = new Map<string, string>()
+
+/** Fetch a URL whose bytes cannot change because the URL names its own version. Anything else must NOT come here. */
+async function immutableText(url: string, accept: string): Promise<string> {
+  const hit = _immutable.get(url)
+  if (hit !== undefined) return hit
+  const r = await fetch(url, { headers: { accept } })
+  if (!r.ok) throw new Error(`school-apis: ${url} responded ${r.status}`)
+  const text = await r.text()
+  _immutable.set(url, text)
+  return text
+}
+
+/** immutableReads() → what the vintage-carrying cache is holding: the URLs paid for once, for the heartbeat and for
+ *  anyone auditing that a cached read is only ever a versioned one. */
+export function immutableReads(): { handle: string; url: string; bytes: number }[] {
+  // CITED by handle, KEYED by the full url. The handle is the repo's one identity shape (handle.ts), but eight hex
+  // is a 2^32 collision surface, and a cache that returns the wrong bytes on a collision is a correctness defect,
+  // not a naming one. So the map keeps the whole url and the report carries the handle anyone would quote.
+  return [..._immutable].map(([url, text]) => ({ handle: handleOf(toUuid(url)), url, bytes: text.length }))
+}
+
+/** THE ONE REGISTRY — every source is DECLARED here and reached through schoolApiFetch, so there is one door.
+ *  It is NOT one edit: adding a source costs three (this entry, a fetcher, a dispatcher branch), unlike
+ *  corroborate.ts, where a source really is one line because the streams share a signature and fan out from an
+ *  array. The shapes here genuinely differ — GET vs POST, JSON vs CSV, phrase vs classification code — so the
+ *  three edits are the honest cost, not a shortcut nobody took. Stated because a comment claiming one entry
+ *  when the code needs three is the drift this repo folds finders to catch. */
 export const SCHOOL_APIS: readonly SchoolApi[] = [
   { id: 'esco', name: 'ESCO — European Skills, Competences, Qualifications and Occupations', base: ESCO,
+    probe: { text: 'chemistry', limit: 3 },
     kind: 'taxonomy', direction: 'fetched',
     serves: ['skills', 'competences', 'occupations', 'qualifications', 'multilingual labels'],
     format: 'JSON (HAL)', access: 'public, no key',
@@ -76,17 +122,40 @@ export const SCHOOL_APIS: readonly SchoolApi[] = [
       'It is also the BRIDGE — the same concept graph carries skills and occupations, related both ways, so education ' +
       'and jobs are paired INSIDE one public vocabulary rather than joined on a guess.' },
   { id: 'eurostat', name: 'Eurostat — education and training statistics', base: EUROSTAT,
+    probe: { dataset: 'educ_uoe_enrt01', geo: 'BG', time: '2022', limit: 3 },
     kind: 'statistics', direction: 'fetched',
     serves: ['enrolment', 'expenditure', 'participation', 'attainment', 'teaching staff', 'early leavers',
       'job vacancies (jvs_q_nace2) — the JOBS side of the same door'],
     format: 'JSON-stat 2.0', access: 'public, no key',
     honest: 'AGGREGATES ONLY — country/level/year cells. No individual record exists in it to ask for.' },
   { id: 'gisco', name: 'Eurostat GISCO — education services (school locations)', base: GISCO,
+    probe: { country: 'BG', limit: 3 },
     kind: 'geography', direction: 'fetched',
     serves: ['school name and address', 'coordinates', 'education levels', 'facility type', 'reference year'],
     format: 'CSV (also GeoJSON / GeoPackage)', access: 'public bulk download, no key',
     honest: 'A GEOGRAPHIC DISCOVERY LAYER assembled from member-state sources — coverage and fields VARY BY COUNTRY, ' +
       'and it is not a substitute for a national school register.' },
+  { id: 'data-europa', name: 'data.europa.eu — the EU open data catalogue', base: DATA_EUROPA,
+    probe: { text: 'education', limit: 3 },
+    kind: 'catalogue', direction: 'fetched',
+    serves: ['dataset titles and descriptions', 'publishing country', 'catalogue', 'categories', 'keywords'],
+    format: 'JSON', access: 'public, no key',
+    honest: 'A CATALOGUE OF CATALOGUES — it says which datasets EXIST and who publishes them, never what is in them. ' +
+      'It is the door the other three were found through: search it before assuming a European dataset is absent.' },
+  { id: 'cordis', name: 'CORDIS — EU research projects and Horizon programme topics', base: CORDIS,
+    probe: { text: 'quantum', limit: 3 },
+    kind: 'research', direction: 'fetched',
+    serves: ['funded project titles and teasers', 'Horizon call topics', 'content type', 'record id'],
+    format: 'JSON', access: 'public, no key',
+    honest: 'PUBLIC RECORD of what the EU funded and what it is calling for — evidence of prior work and of open ' +
+      'topics, never a claim that uuidna is party to any of it, nor that a topic would accept it.' },
+  { id: 'ted', name: 'TED — Tenders Electronic Daily (EU public procurement)', base: TED,
+    probe: { limit: 3 },
+    kind: 'procurement', direction: 'fetched',
+    serves: ['notice titles in every official language', 'publication number', 'notice links'],
+    format: 'JSON (POST)', access: 'public, no key',
+    honest: 'PUBLISHED NOTICES only, filtered by the EU\'s own CPV classification (education = 80000000). It says what ' +
+      'was tendered; it does not assess, rank or advise on bidding, and a notice is not an opportunity assessment.' },
   { id: 'oeapi', name: 'Open Education API v6.0 — the interoperability standard', base: 'https://oeapi.eu/',
     kind: 'interoperability', direction: 'served',
     serves: ['organisations', 'programmes', 'courses', 'learning outcomes'],
@@ -106,6 +175,13 @@ const ABSENT: { source: string; why: string; instead: string }[] = [
       'own address. Wiring "the national register" as one source would be inventing a door that does not exist.',
     instead: 'The gisco source is the cross-country stand-in — assembled FROM those national sources, at the cost of ' +
       'per-country variation in coverage and fields.' },
+  { source: 'Funding & Tenders portal search (SEDIA, api.tech.ec.europa.eu)',
+    why: 'it ANSWERS — and that is the trap. The generic text search returns 200 with the portal\'s support and FAQ ' +
+      'pages ranked above anything fundable, and the filtered form that would return call topics answered 500. A ' +
+      'source wired on the path that responds rather than the path that serves is how a registry fills with rows ' +
+      'nobody can use.',
+    instead: 'The cordis source above already surfaces Horizon call topics (a search for "quantum" returned the ' +
+      'HORIZON-CL3 post-quantum-cryptography topic by id), which is the part SEDIA was wanted for.' },
   { source: 'EURES — the European job-mobility portal (europa.eu/eures)',
     why: 'the portal is public but its vacancy search is not: the documented search endpoint answered 404 and the ' +
       'app path answered 403 when probed, so there is no open door to wire. Listing it as available would be exactly ' +
@@ -278,9 +354,10 @@ export async function giscoSchools(country: string, match?: string, limit?: numb
   const results: GiscoSchool[] = []
   let more = false
   try {
-    const r = await fetch(url, { headers: { accept: 'text/csv' } })
-    if (r.ok) {
-      const text = (await r.text()).replace(/^﻿/, '')     // the file is served with a BOM
+    // the vintage is in the URL, so this text is paid for ONCE per country per vintage, however many times a
+    // caller narrows it with a different `match` or `limit` — the filtering below is pure and re-runs for free.
+    const text = (await immutableText(url, 'text/csv')).replace(/^\ufeff/, '')     // the file is served with a BOM
+    {
       const lines = text.split(/\r?\n/)
       const head = splitCsvLine(lines[0] ?? '')
       const at = (row: string[], field: string): string => {
@@ -308,6 +385,109 @@ export async function giscoSchools(country: string, match?: string, limit?: numb
   return answer('gisco', match ? { country: cc, match, year } : { country: cc, year }, url, results, more)
 }
 
+
+
+// ── The catalogue, the research record, and the tenders ───────────────────────────────────────────────────────────
+
+/** Pick a language's string out of the EU's multilingual objects ({en:…, bg:…} / {ENG:…}), preferring English and
+ *  falling back to whatever exists — dropping a title because it is not in English would lose the row entirely. */
+export function pickLang(v: unknown): string {
+  if (typeof v === 'string') return v
+  if (!v || typeof v !== 'object') return ''
+  const o = v as Record<string, unknown>
+  for (const k of ['en', 'eng', 'ENG', 'en-GB', 'mul', 'MUL']) {
+    const hit = o[k]
+    if (typeof hit === 'string') return hit
+    if (Array.isArray(hit) && typeof hit[0] === 'string') return hit[0]
+  }
+  for (const val of Object.values(o)) {
+    if (typeof val === 'string') return val
+    if (Array.isArray(val) && typeof val[0] === 'string') return val[0]
+  }
+  return ''
+}
+
+export interface EuDataset extends SchoolApiEvidence { id: string; title: string; country: string; catalogue: string }
+
+/** dataEuropaSearch(text) → which European datasets EXIST for a phrase, from the EU's own catalogue of catalogues.
+ *  This is the door the education sources were found through. One network call. */
+export async function dataEuropaSearch(text: string, limit?: number): Promise<SchoolApiAnswer> {
+  const n = limitOf(limit)
+  const url = `${DATA_EUROPA}?q=${encodeURIComponent(text)}&limit=${n}`
+  const results: EuDataset[] = []
+  try {
+    const r = await fetch(url, { headers: { accept: 'application/json' } })
+    if (r.ok) {
+      const body = await r.json() as { result?: { results?: { id?: string; title?: unknown; country?: { label?: string }; catalog?: { id?: string } }[] } }
+      for (const d of body.result?.results ?? []) {
+        if (!d.id) continue // never fabricate an identifier the catalogue did not give
+        results.push({ source: 'data-europa', address: toUuid('data-europa:' + d.id), id: d.id,
+          title: pickLang(d.title), country: d.country?.label ?? '', catalogue: d.catalog?.id ?? '' })
+      }
+    }
+  } catch { /* best-effort: an unreachable catalogue returns nothing, never an invented dataset */ }
+  return answer('data-europa', { text }, url, results, false)
+}
+
+export interface CordisRecord extends SchoolApiEvidence { id: string; title: string; teaser: string; contentType: string }
+
+/** cordisSearch(text) → what the EU has FUNDED and what it is CALLING FOR: project records and Horizon programme
+ *  topics in one public index. One network call.
+ *
+ *  THE HYPHEN TRAP, found by probing: CORDIS reads `-` as the NOT operator, so a search for "post-quantum
+ *  cryptography" answers 200 with an EMPTY payload — no results, no total, and error:null. That is an absence
+ *  wearing the shape of data, and a best-effort catch would have reported it as "nothing found" forever. The phrase
+ *  is quoted here (which restores the 299 real hits), and a payload carrying no `total` at all is reported as
+ *  DECLINED rather than as zero — the source refusing a query and the world containing nothing are different facts. */
+export async function cordisSearch(text: string, limit?: number): Promise<SchoolApiAnswer> {
+  const n = limitOf(limit)
+  // quote the phrase so CORDIS's operator syntax cannot eat it; a quote inside the text would break the quoting
+  const phrase = '"' + text.replace(/"/g, ' ') + '"'
+  const url = `${CORDIS}?q=${encodeURIComponent(phrase)}&format=json&num=${n}`
+  const results: CordisRecord[] = []
+  let more = false, declined = false
+  try {
+    const r = await fetch(url, { headers: { accept: 'application/json' } })
+    if (r.ok) {
+      const body = await r.json() as { payload?: { total?: number; results?: { id?: string; title?: unknown; teaser?: unknown; contentType?: string }[] } }
+      const rows = body.payload?.results ?? []
+      declined = body.payload?.total === undefined || body.payload?.total === null
+      more = Number(body.payload?.total ?? 0) > rows.length
+      for (const c of rows) {
+        if (!c.id) continue
+        results.push({ source: 'cordis', address: toUuid('cordis:' + c.id), id: c.id,
+          title: pickLang(c.title), teaser: pickLang(c.teaser).slice(0, 240), contentType: c.contentType ?? '' })
+      }
+    }
+  } catch { /* best-effort */ }
+  return { ...answer('cordis', { text }, url, results, more), declined }
+}
+
+export interface TedNotice extends SchoolApiEvidence { publication: string; title: string; link: string }
+
+/** tedNotices(cpv) → published EU tender notices under one CPV division, education (80000000) by default. TED wants a
+ *  POST with its own expert-query syntax, so the filter is the EU's classification rather than a phrase we invented. */
+export async function tedNotices(cpv = CPV_EDUCATION, limit?: number): Promise<SchoolApiAnswer> {
+  const n = limitOf(limit)
+  const results: TedNotice[] = []
+  let more = false
+  try {
+    const r = await fetch(TED, { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' },
+      body: JSON.stringify({ query: `classification-cpv=${cpv}`, limit: n, fields: ['publication-number', 'notice-title'] }) })
+    if (r.ok) {
+      const body = await r.json() as { notices?: { 'publication-number'?: string; 'notice-title'?: unknown }[]; totalNoticeCount?: number }
+      const rows = body.notices ?? []
+      more = Number(body.totalNoticeCount ?? 0) > rows.length
+      for (const t of rows) {
+        const pub = t['publication-number']
+        if (!pub) continue
+        results.push({ source: 'ted', address: toUuid('ted:' + pub), publication: pub,
+          title: pickLang(t['notice-title']).slice(0, 200), link: `https://ted.europa.eu/en/notice/${pub}` })
+      }
+    }
+  } catch { /* best-effort */ }
+  return answer('ted', { cpv }, TED, results, more)
+}
 
 // ── THE PAIRING: education ↔ jobs, through the vocabulary that already holds both ──────────────────────────────────
 //
@@ -395,7 +575,7 @@ export async function pairEducationToJobs(subject: string, opts: { geo?: string;
 
 // ── The one door ──────────────────────────────────────────────────────────────────────────────────────────────────
 
-export interface SchoolApiQuery { text?: string; type?: string; dataset?: string; geo?: string; time?: string; country?: string; match?: string; limit?: number; year?: string; vacancies?: boolean }
+export interface SchoolApiQuery { text?: string; type?: string; dataset?: string; geo?: string; time?: string; country?: string; match?: string; limit?: number; year?: string; vacancies?: boolean; cpv?: string }
 
 /** schoolApiFetch(source, query) → dispatch to one wired source by id. The registry is the only list of names, so a
  *  source that is not in it is refused BY NAME rather than silently answered with nothing. */
@@ -417,9 +597,64 @@ export async function schoolApiFetch(source: string, query: SchoolApiQuery = {})
     if (query.time) filters.time = query.time
     return eurostatEducation(query.dataset, filters, query.limit)
   }
+  if (source === 'data-europa') {
+    if (!query.text) throw new Error('school-apis: data-europa needs {text} — the phrase to search the EU catalogue for')
+    return dataEuropaSearch(query.text, query.limit)
+  }
+  if (source === 'cordis') {
+    if (!query.text) throw new Error('school-apis: cordis needs {text} — the phrase to search EU research records for')
+    return cordisSearch(query.text, query.limit)
+  }
+  if (source === 'ted') return tedNotices(query.cpv ?? CPV_EDUCATION, query.limit)
   if (source === 'gisco') {
     if (!query.country) throw new Error('school-apis: gisco needs {country} — a two-letter code, e.g. "BG"')
     return giscoSchools(query.country, query.match, query.limit, query.year ?? GISCO_VINTAGE)
   }
   throw new Error('school-apis: oeapi is SERVED, not fetched — uuidna publishes it; call uuidna_oeapi instead')
+}
+
+// ── THE HEARTBEAT — a source that nobody calls is a source that can die quietly ───────────────────────────────────
+//
+// Every test over this module is PURE, and every source is reached only through an MCP tool, which means the seven
+// endpoints run exactly when a human or an agent asks. That is the opposite of independence: all seven could begin
+// answering 404 tomorrow and the whole suite would stay green. src/scripts/exercise-dormant.ts exists for the same
+// reason one level down ("importing a module makes it supported while nothing exercises what it DOES"), and when its
+// 33 scripts were finally run, four were dead.
+//
+// So the probe is a FUNCTION with the call INJECTED — the shape await-live.ts already argued for: a loop written
+// inside a workflow is a loop no test can reach. Here every path (answers, empty, declines, throws) is exercised by
+// node --test with a fake dispatcher, offline, and the live run is the same function with the real door passed in.
+//
+// IT REPORTS DARKNESS, IT DOES NOT FAIL. An EU API being down is not this repository's defect; the defect would be
+// not noticing. There is also no timing here on purpose: a clock is banned in this source tree, so the probe reports
+// WHETHER a source answered and with how many rows, never how fast — latency is measured outside, by hand.
+
+export interface SourceProbe { id: string; ok: boolean; rows: number; declined: boolean; note: string }
+export interface Heartbeat { probed: number; answering: number; dark: SourceProbe[]; probes: SourceProbe[]; receipt: string; honest: string }
+
+/** probeSchoolApis(call?) → ask every FETCHED source its own declared known-good query and report which answered.
+ *  `call` is injected so the whole thing is testable offline; it defaults to the real door. Never throws. */
+export async function probeSchoolApis(
+  call: (source: string, query: SchoolApiQuery) => Promise<SchoolApiAnswer> = schoolApiFetch,
+): Promise<Heartbeat> {
+  const wired = SCHOOL_APIS.filter((s) => s.direction === 'fetched')
+  const probes: SourceProbe[] = await Promise.all(wired.map(async (s): Promise<SourceProbe> => {
+    if (!s.probe) return { id: s.id, ok: false, rows: 0, declined: false, note: 'no known-good query is declared for this source' }
+    try {
+      const a = await call(s.id, s.probe)
+      if (a.declined) return { id: s.id, ok: false, rows: a.count, declined: true, note: 'the source REFUSED the query (answered with no result envelope) — not the same as finding nothing' }
+      if (!a.count) return { id: s.id, ok: false, rows: 0, declined: false, note: 'answered, but returned no rows for a query that is known to have some — the source moved, or the query no longer means what it did' }
+      return { id: s.id, ok: true, rows: a.count, declined: false, note: 'answering' }
+    } catch (e) { return { id: s.id, ok: false, rows: 0, declined: false, note: 'threw: ' + String((e as Error).message).slice(0, 120) } }
+  }))
+  const dark = probes.filter((p) => !p.ok)
+  return {
+    probed: probes.length, answering: probes.length - dark.length, dark, probes,
+    receipt: merkleGravity(probes.map((p) => toUuid(p.id + ':' + (p.ok ? 'answering' : 'dark')))),
+    honest:
+      'A LIVENESS REPORT, not a verdict on anyone: it says which declared sources answered their own known-good ' +
+      'query just now. A dark source is NOT a defect of this repository — a public API may be down, moved or ' +
+      'rate-limiting — and it is reported rather than raised, because the failure this guards against is not a ' +
+      'source going dark, it is a source going dark UNNOTICED. No timing is reported: a clock is banned here.',
+  }
 }

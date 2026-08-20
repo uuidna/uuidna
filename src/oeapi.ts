@@ -45,21 +45,24 @@ export interface OeapiOrganisation {
 export interface OeapiProgramme {
   programmeId: string; programmeType: string; name: OeapiLangString[]; primaryCode: OeapiCode
   organisationId: string; link: string; teachingLanguages: string[]
+  learningOutcomeIds: string[]; otherCodes: OeapiCode[]
 }
 export interface OeapiCourse {
   courseId: string; name: OeapiLangString[]; primaryCode: OeapiCode; description: OeapiLangString[]
   organisationId: string; link: string; teachingLanguages: string[]
   programmeIds: string[]; learningOutcomeIds: string[]
+  abbreviation: string; otherCodes: OeapiCode[]
 }
 export interface OeapiLearningOutcome {
   learningOutcomeId: string; name: OeapiLangString[]; primaryCode: OeapiCode
-  description: OeapiLangString[]; ext: { proof: string; tactic: string }
+  description: OeapiLangString[]; otherCodes: OeapiCode[]; ext: { proof: string; tactic: string }
 }
 export interface OeapiProfile {
   version: string; spec: string
   counts: { organisations: number; programmes: number; courses: number; learningOutcomes: number }
   organisations: OeapiOrganisation[]; programmes: OeapiProgramme[]; courses: OeapiCourse[]
   absent: { resource: string; why: string; instead: string }[]
+  absentFields: { field: string; why: string }[]
   receipt: string; honest: string
 }
 
@@ -96,6 +99,10 @@ export function oeapiProgrammes(): OeapiProgramme[] {
     programmeId: g.fold, programmeType: 'track', name: lang(g.skill),
     primaryCode: ident('programme_code', g.skill), organisationId: SCHOOL_ID,
     link: `${HOST}/topics`, teachingLanguages: TEACHING_LANGUAGES,
+    // the cluster already knows its theorems, and a theorem IS a learning outcome here — the ids were held and
+    // not served. Additive under the standard: a consumer keyed on the required fields cannot notice.
+    learningOutcomeIds: g.theorems.map((t) => t.address),
+    otherCodes: [ident('uuid', g.fold)],
   }))
 }
 
@@ -112,6 +119,8 @@ export function oeapiCourses(): OeapiCourse[] {
     }
     return {
       courseId: p.address, name: lang(p.title), primaryCode: ident('identifier', p.slug),
+      abbreviation: p.slug,                        // the spec's "abbreviation or internal code" — the slug IS one
+      otherCodes: [ident('uuid', p.address)],      // the content-address, in the spec's own uuid codeType
       description: lang(p.abstract), organisationId: SCHOOL_ID,
       link: `${HOST}/publications/${p.slug}`, teachingLanguages: TEACHING_LANGUAGES,
       programmeIds, learningOutcomeIds: wing.map((t) => t.address),
@@ -128,6 +137,7 @@ export function oeapiLearningOutcomes(course?: string): OeapiLearningOutcome[] {
   // field, and inventing one would break the very interoperability this projection exists for.
   return T.map((t) => ({
     learningOutcomeId: t.address, name: lang(t.name), primaryCode: ident('identifier', t.key),
+    otherCodes: [ident('uuid', t.address)],
     description: lang(t.statement), ext: { proof: `${HOST}/theorem/${t.key}`, tactic: t.tactic ?? 'decide' },
   }))
 }
@@ -149,6 +159,22 @@ const ABSENT: { resource: string; why: string; instead: string }[] = [
     instead: 'The one recomputable home: uuidna.com.' },
 ]
 
+// THE ABSENCE LAW, ONE LEVEL DOWN. The list above says which RESOURCES are absent. It said nothing about absent
+// FIELDS, so a reader of /programmes could not tell a field that is impossible here from one that was forgotten —
+// and measuring found both. These two are the impossible kind, and refusing them is the same law that keeps
+// `complexityLevel` out: the standard fixes not just the NAME of a field but what its VALUE must mean, and filling
+// one with a value of the wrong kind passes every name-vetting audit while lying to every consumer.
+const ABSENT_FIELDS: { field: string; why: string }[] = [
+  { field: 'LearningOutcome.fieldsOfStudy',
+    why: 'the spec types it as an ISCED-F code (UNESCO\'s field-of-study classification). A theorem carries a uuidna ' +
+      'SKILL — "z9-ring", "vortex" — which is not an ISCED-F code and does not map onto one. Emitting the skill here ' +
+      'would satisfy the field-name audit and misinform every reader who trusts the field to mean what ISCED says.' },
+  { field: 'LearningOutcome.parentIds',
+    why: 'the spec types it as the ids of the LEARNING OUTCOMES that are this one\'s parents. uuidna groups theorems ' +
+      'by PRINCIPLE, and a principle is not a learning outcome — it is not taught and it is not decidable — so every ' +
+      'id emitted here would dangle. The grouping is served honestly as the programme instead.' },
+]
+
 /** oeapiProfile() → the whole read-only projection: the organisations, the programmes, the courses (each carrying its
  *  learning-outcome ids), the named absences, and one order-invariant receipt anyone can recompute. The learning
  *  outcomes themselves are served by oeapiLearningOutcomes() — the ledger's full 1000+ lessons, or one course's. */
@@ -164,6 +190,6 @@ export function oeapiProfile(): OeapiProfile {
   return {
     version: OEAPI_VERSION, spec: OEAPI_SPEC,
     counts: { organisations: organisations.length, programmes: programmes.length, courses: courses.length, learningOutcomes },
-    organisations, programmes, courses, absent: ABSENT, receipt, honest: HONEST,
+    organisations, programmes, courses, absent: ABSENT, absentFields: ABSENT_FIELDS, receipt, honest: HONEST,
   }
 }

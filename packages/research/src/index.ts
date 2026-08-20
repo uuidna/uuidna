@@ -18,7 +18,8 @@ export { nistConstant, type NistConstant } from '@uuidna/uuidna'
 export { auditCve, type CveAudit } from '@uuidna/uuidna'
 export { vocabulary, type Term, type Vocabulary } from '@uuidna/uuidna'
 export { schoolApiRegistry, schoolApiFetch, escoSearch, eurostatEducation, giscoSchools,
+  dataEuropaSearch, cordisSearch, tedNotices, pickLang, probeSchoolApis, immutableReads, CPV_EDUCATION,
   escoOccupationsForSkill, eurostatVacancies, pairEducationToJobs, splitCsvLine, SCHOOL_APIS, GISCO_VINTAGE,
   EUROSTAT_VACANCIES, type SchoolApi, type SchoolApiRegistry, type SchoolApiAnswer, type SchoolApiEvidence,
-  type SchoolApiQuery, type EscoConcept, type EurostatObservation,
+  type SchoolApiQuery, type EscoConcept, type EurostatObservation, type EuDataset, type CordisRecord, type TedNotice, type SourceProbe, type Heartbeat,
   type GiscoSchool, type OccupationLink, type SkillJobPair, type EducationJobsPairing } from '@uuidna/uuidna'

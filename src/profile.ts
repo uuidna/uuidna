@@ -8,6 +8,7 @@
 // HONEST SCOPE: integrity, not truth — a recomputable SELF-DESCRIPTION, decorated by its own aura; it composes sealed
 // facts, it asserts nothing new. The aura is ART (a defined arithmetic from the address to a hue), not physics.
 import { toUuid } from './address.js'
+import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { merkleGravity } from './gravity.js'
 import { theorems, runTrial } from './theorems/index.js'
 import { quantumAura } from './aura.js'
@@ -69,7 +70,7 @@ export function quantumProfile(): QuantumProfile {
   const receipt = merkleGravity(fieldReceipts)
 
   return {
-    handle: receipt.slice(0, 8),
+    handle: handleOf(receipt),
     identity: { name: 'uuidna', address: self, aura: { ray: aura.ray, hue: aura.hue, hsl: aura.hsl, rgb: aura.rgb } },
     proofs: { theorems: trial.count, verified: trial.verified, kernelOnly: witness.holds, receipt: trial.receipt },
     quantumCrypto: {

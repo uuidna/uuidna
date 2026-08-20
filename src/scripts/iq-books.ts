@@ -25,6 +25,7 @@
 //
 //   node dist/scripts/iq-books.js [--seed <text>] [--n 12]
 import { toUuid } from '../index.js'
+import { handleOf } from '../handle.js'
 import { decode } from './decode-book.js'
 
 const CATALOGUE = 75000 // Gutenberg ids run roughly to here; misses are expected and reported
@@ -37,7 +38,7 @@ export interface Verdict { fact: string; held: number; failed: number; discrimin
 export function sample(seed: string, n: number): number[] {
   const ids: number[] = []
   for (let i = 0; ids.length < n && i < n * 40; i++) {
-    const hex = toUuid(`${seed}:${i}`).replace(/-/g, '').slice(0, 8)
+    const hex = handleOf(toUuid(`${seed}:${i}`))   // the handle, read as an integer below — not a second scheme
     const id = (parseInt(hex, 16) % CATALOGUE) + 1
     if (!ids.includes(id)) ids.push(id)
   }

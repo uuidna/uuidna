@@ -8,6 +8,7 @@
 // plaintext stay client-side, the channel IS the uuid stream, nothing is sent. Secrecy is exactly the passphrase
 // entropy; the handles are integrity/routing, not secrecy; an advancing per-message step closes the equality leak.
 import { merge, coin64, toUuid } from './address.js'
+import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { encryptSession, decryptSession, type Sealed } from './crypt.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
 
@@ -22,7 +23,7 @@ export function conversationFold(handles: string[], referer = ''): Room {
   if (handles.length !== 4 || !handles.every((h) => HANDLE.test(h)))
     throw new Error('conversationFold needs exactly four 8-hex handles')
   const address = merge(merge(merge(merge(handles[0], handles[1]), handles[2]), handles[3]), String(referer))
-  return { handles: [...handles], referer: String(referer), fifth: address.replace(/-/g, '').slice(0, 8), address }
+  return { handles: [...handles], referer: String(referer), fifth: handleOf(address), address }
 }
 
 /** Open a local chat room from four handles (+ the referer). The room key is its fifth-handle address. */
@@ -53,8 +54,8 @@ export const receiveFromRoom = (room: Room, uuids: string[], passphrase: string)
 export interface AttachedChat { subject: string; id: string; minimised: string; handles: string[]; room: Room }
 export function attachChat(subjectUrl: string, id = '', referer = ''): AttachedChat {
   const u = String(subjectUrl)
-  const target = coin64(u).replace(/-/g, '').slice(0, 8)                                   // handle 0 — minimised pointer back to the subject
-  const h = (tag: string): string => toUuid(u + '|' + String(id) + '|' + tag).replace(/-/g, '').slice(0, 8)
+  const target = handleOf(coin64(u))                                                       // handle 0 — minimised pointer back to the subject
+  const h = (tag: string): string => handleOf(toUuid(u + '|' + String(id) + '|' + tag))
   const handles = [target, h('1'), h('2'), h('3')]                                         // unique to (subject, id)
   const room = conversationFold(handles, referer)
   return { subject: u, id: String(id), minimised: '/' + handles.join('/'), handles, room }

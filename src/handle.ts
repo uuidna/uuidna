@@ -27,6 +27,21 @@ const HANDLE = /^[0-9a-f]{8}$/
 
 export const isHandle = (h: string): boolean => HANDLE.test(h)
 
+/** handleOf(address) → THE ONE derivation of a handle from a content-address: strip the hyphens, take eight hex.
+ *
+ *  It was written three times before it was written once — gen-handle-chunks stripped the hyphens first, while
+ *  editor.ts and mcp.ts sliced the raw string — and the three agreed only because a v8 UUID's FIRST GROUP happens
+ *  to be exactly eight hex characters. That is agreement by coincidence of formatting, not by law: hand any of
+ *  those call sites an address written without hyphens, or one folded to a different shape, and they diverge in
+ *  silence. Every handle in the repository now comes from here, so there is one identity scheme and not three
+ *  that look alike. Refuses rather than coerces, which is the same law isHandle already holds. */
+export function handleOf(address: string): string {
+  const hex = String(address).replace(/-/g, '').toLowerCase()
+  const handle = hex.slice(0, 8)
+  if (!HANDLE.test(handle)) throw new Error(`handle: "${address}" does not begin with eight hex characters`)
+  return handle
+}
+
 /** split a handle into its four parts: cc9c0011 -> ['cc','9c','00','11'] */
 export function handleParts(handle: string): string[] {
   if (!isHandle(handle)) throw new Error(`handle must be eight lowercase hex characters, got ${JSON.stringify(handle)}`)

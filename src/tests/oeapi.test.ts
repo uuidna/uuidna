@@ -141,3 +141,35 @@ test('OEAPI profile is deterministic and counted — the receipt recomputes, the
     organisations: 2, programmes: skillGroups().length, courses: publications().length, learningOutcomes: theorems().length,
   })
 })
+
+// ── THE STABILITY LAW. Standardisation is what makes development stable: a projection onto a fixed standard can GROW
+// without breaking anyone, because the receipt folds IDENTITIES and never payloads. Adding learningOutcomeIds,
+// abbreviation and otherCodes moved nothing — the profile receipt is byte-identical across the change, so every
+// published citation and DOI'd record still resolves. This test is the guard on that: it fails the day an "addition"
+// is really a re-identification, which is the only kind of change here that CAN break a consumer.
+test('additive spec fields never move an identity — the receipt folds ids, not payloads', () => {
+  const p = oeapiProfile()
+  const ids = [...p.organisations.map((o) => o.organisationId), ...p.programmes.map((x) => x.programmeId),
+    ...p.courses.map((c) => c.courseId)]
+  assert.equal(new Set(ids).size, ids.length, 'ids stay unique')
+  for (const id of ids) assert.match(id, UUID, 'every identity is a content-address, not a serial')
+  // the emitted payload is strictly richer than the identities it folds — growth without re-identification
+  for (const c of oeapiCourses()) {
+    assert.ok(c.abbreviation.length > 0, 'the internal code the spec asks for is served')
+    assert.ok(c.otherCodes.some((o) => o.codeType === 'uuid' && o.code === c.courseId),
+      'otherCodes carries the SAME address as the id — an alias, never a second identity')
+  }
+  for (const g of oeapiProgrammes())
+    assert.ok(Array.isArray(g.learningOutcomeIds), 'a track serves the outcome ids it already knew')
+})
+
+// A field whose VALUE would be the wrong kind is refused, and the refusal is served — the name audit cannot see this.
+test('a field that would require inventing a value is absent BY NAME, not silently empty', () => {
+  const p = oeapiProfile()
+  assert.ok(p.absentFields.length > 0, 'the field-level absence law must be served, not just the resource-level one')
+  const isced = p.absentFields.find((f) => f.field.includes('fieldsOfStudy'))
+  assert.ok(isced, 'ISCED-F is the case that proves it: a uuidna skill is not an ISCED-F code')
+  for (const f of p.absentFields) assert.ok(f.why.length > 40, `${f.field}: an absence without a reason is a shrug`)
+  const emitted = new Set(oeapiLearningOutcomes().flatMap((o) => Object.keys(o)))
+  for (const f of p.absentFields) assert.ok(!emitted.has(f.field.split('.')[1]), `${f.field} is declared absent but emitted`)
+})

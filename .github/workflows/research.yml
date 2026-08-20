@@ -43,6 +43,16 @@ jobs:
         # cron rather than in the fast guard — cheap gates stay cheap. It SEALS NOTHING: the two-handle law holds,
         # the desk proposes and only the captain disposes.
         run: node dist/scripts/mine-books.js
+      # HEARTBEAT FOR THE SEVEN. Every test over school-apis.ts is PURE (a test needing the internet fails for
+      # reasons that are not the code's), and every EU source is reached only through an MCP tool — so all of them
+      # ran exactly when a human or an agent asked, and could have started answering 404 without a single test
+      # going red. This asks each source its OWN declared known-good query, once a day, here rather than in the
+      # half-hourly school heartbeat: 48 probes a day against public EU infrastructure — GISCO alone re-downloads a
+      # 1 MB country file per call — is a cost this repo would be imposing on someone else for no added signal.
+      # IT REPORTS, IT DOES NOT RAISE: an EU API being down is not this repository's defect, and the failure being
+      # guarded against is not a source going dark, it is a source going dark UNNOTICED.
+      - name: PROBE — the wired EU sources answer their own known-good query, or their silence is named
+        run: npm run probe:apis
       - name: EDIT — the full editorial desk over everything, including what the search just returned
         run: npm run editorial
       - name: GUARD — the fold accepts, or nothing publishes

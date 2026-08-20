@@ -13,6 +13,7 @@
 // recomputable address; the recycle plan is the honest NEXT, not a proof that the recycled claim is true. Nothing
 // here decides truth — the ledger and the develop plan are recomputable by anyone. Integrity, not truth.
 import { THEOREMS } from './theorems/index.js'
+import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { adjudicate } from './adjudicate.js'
 import { merkleGravity } from './gravity.js'
 import { toUuid } from './address.js'
@@ -57,7 +58,7 @@ export function snapshot(keys: string[]): Snapshot {
   const viewpoints = [...axisFold('principle'), ...axisFold('skill')]
   return {
     keys, members, unknown,
-    handle: superposition.slice(0, 8),
+    handle: handleOf(superposition),
     superposition,
     viewpoints,
     receipt: merkleGravity([superposition, ...viewpoints.map((v) => v.fold)]),
@@ -99,7 +100,7 @@ export function reactor(claims: string[], tests: (undefined | (() => boolean))[]
   const unverified = cells.filter((c) => c.verdict !== 'VERIFIED')
   return {
     cells, verified, unverified,
-    handle: superposition.slice(0, 8),
+    handle: handleOf(superposition),
     superposition,
     receipt: merkleGravity([superposition, toUuid('reactor:' + verified.length + '/' + unverified.length)]),
     honest:
