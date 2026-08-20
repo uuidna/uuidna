@@ -1,9 +1,7 @@
 {
-  "modules": 340,
-  "roots": 226,
-  "supported": 339,
-  "dead": [
-    "src/discover.ts"
-  ],
-  "receipt": "f1c29c1c-9e6d-87ec-830c-8ace576914fb"
+  "modules": 342,
+  "roots": 228,
+  "supported": 342,
+  "dead": [],
+  "receipt": "3ef9add1-3b01-82e9-a770-0d69540d4249"
 }
