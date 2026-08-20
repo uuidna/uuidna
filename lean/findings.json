@@ -99,6 +99,14 @@
       "reproduce": "JSON.stringify the catalogue name/description/inputSchema triples and measure; then sum description bytes alone",
       "fix": "USE THE THEOREMS. 82 of 190 tools carry honest-scope PROSE totalling 23,282 bytes (~5,821 tokens), and 110 tools ALREADY cite a sealed theorem — the pattern exists and is simply not applied to scope. A theorem key costs ~6 tokens; a scope sentence averages ~71. Replacing the prose with a citation is ~12x cheaper AND strictly more honest, because a cited theorem is VERIFIED scope where prose only asserts it. That is this project law already: cite a sealed theorem or the claim is UNVERIFIED. So the catalogue carries one sentence on what the tool does plus the keys it is bounded by, and a client that wants the reasoning fetches the theorem — which it can then recompute. This supersedes the earlier cap-at-200-bytes fix: capping DELETES the scope, citing PROVES it.",
       "caution": "The earlier caution stands but inverts: do not delete scope prose to save tokens. Replace it with the theorem that seals the same bound, which is smaller AND checkable. Where no theorem seals a stated bound, that is a finding in itself — a scope claim with nothing behind it."
+    },
+    {
+      "severity": "medium",
+      "where": "lean/Quantum.lean chsh_beats_classical, and src/scripts/lean-quantum.ts:147",
+      "what": "The statement is (2:Nat)^2 < 2^3 and 2^3 = 8 — that is, 4 < 8. Squaring is the RIGHT way to bracket the Tsirelson bound 2*sqrt2 without an irrational, since its square is 8 against the classical 4. But the arithmetic only asserts two numbers are ordered. It derives neither bound, computes no correlator, and names no measurement setting, while the prose says quantum correlations exceed every local hidden variable. Not vacuous — change the numbers and it fails — but the framing reaches past what the statement establishes, the same class as hardware_above_landauer.",
+      "reproduce": "read the statement beside its why: the why describes CHSH, the Lean says 4 < 8",
+      "fix": "Either derive it or say plainly that it is a BRACKET on two published bounds rather than a derivation. A full CHSH correlator needs measurement angles and therefore cosines, which are irrational, and Math.* is rejected tree-wide — so the reduction to squared bounds is a legitimate consequence of this ledger honest constraints, not laziness. The honest form states that constraint in the why. What COULD be derived in exact integers: that the Bell state distribution [1,0,0,1]/2 gives perfect correlation while any product state cannot, which is the no-hidden-variable content reachable without trigonometry.",
+      "caution": "Do not delete it. The squared bracket is the correct idiom for an irrational bound and matches caesium_light_step. The defect is the prose claiming a derivation, not the arithmetic."
     }
   ],
   "fixed": [
