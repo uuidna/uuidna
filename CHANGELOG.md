@@ -27,6 +27,18 @@ still be refactored, reversed, or **folded all the way back to the genesis `0.0.
 development itself. Publishing is the involution's fixed point: after it, a version cannot be un-said. So uuidna keeps
 the chance to reverse-develop itself *now*, while the ledger is still free.
 
+## [0.2.7] — computed by the calendar
+
+_Statistics only. This section is emitted by the release job from the sealed ledger; it states what moved, never
+what it meant. The meaning is owed — a human editing this entry is completing it, not correcting it._
+
+- theorems: **1330** · axiom-free 1330/1330 · sorry 0 · offenders 0
+- principles: 72 · MCP tools: 181
+- odometer: 0.2.6 → **0.2.7** (single-digit, monotone, never returning)
+- commits since v0.2.6: 6
+- fold receipt: `6f43938e59cff39f`
+- surfaces: npm · GitHub Release · Zenodo standing chain · Zenodo twin chain
+
 ## [0.2.6] — computed by the calendar
 
 _Statistics only. This section is emitted by the release job from the sealed ledger; it states what moved, never
