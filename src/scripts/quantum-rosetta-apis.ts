@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // src/scripts/quantum-rosetta-apis.ts — QUANTUM ROSETTA API ORGANIZATION
 // One message (API), three interpretations (Glagolitic, Genetic, Quantum), one proof
 

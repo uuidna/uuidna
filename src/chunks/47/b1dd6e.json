@@ -1,0 +1,12 @@
+{
+  "handle": "47b1dd6e",
+  "address": "47b1dd6e-9ecd-88c5-ae5e-c6dd731c539e",
+  "statement": "([1,4,7].map (fun d => 10 - d) = [9,6,3]) ∧ ([1,4,6,7].all (fun x => 10 - (10 - x) == x)) ∧ (10 - 7 = 3) ∧ (10 - 6 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "mirror_opens_triangle"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

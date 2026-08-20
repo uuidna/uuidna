@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // src/scripts/auto-harmonise.ts — AUTO-HARMONISE LOOP
 // Coins in → Code out → System harmonises continuously
 // Every contribution triggers system improvement → more compact, more useful

@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:0154b5a7-feb6-8658-a7d4-69ee04f6c065",
+  "@id": "urn:uuid:5ee3a6a8-c38e-83c9-97db-5fce93331e91",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -13598,6 +13598,118 @@
         "abstract": "((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => ¬ (List.range 9).any (fun e => a*e % 9 == 1))).length = 3",
         "identifier": "7f4d7ad1-97f1-8c07-83cf-788578d27a41",
         "url": "https://uuidna.com/theorem/partition_six_three",
+        "keywords": "sequence, The sequence & reflection group",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sequence.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:457fe7f5-f965-8d79-9116-a00d4007b315",
+        "@type": "ScholarlyArticle",
+        "headline": "NO POWER OF TWO EVER LANDS ON 0, 3 OR 6. Doubling from 1 walks the six units 1→2→4→8→7→5 and closes, so the residue of 2^n mod 9 is always a unit and NEVER a member of the triangle {3,6,9≡0}. The bound n<6 is not a sample: 2^6 ≡ 1 (mod 9) returns the walk to its start, so the six residues checked here are the COMPLETE image of 2^n over every n there is — an infinite claim decided by six cases.",
+        "abstract": "((List.range 6).all (fun n => (2^n % 9 != 0) && (2^n % 9 != 3) && (2^n % 9 != 6))) ∧ (2^6 % 9 = 1)",
+        "identifier": "3857b5b1-74f3-83fb-bb05-8b8524b64acc",
+        "url": "https://uuidna.com/theorem/powers_avoid_triangle",
+        "keywords": "sequence, The sequence & reflection group",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sequence.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:ecd6a0ff-91c5-8d37-98e0-e0e4833cf40e",
+        "@type": "ScholarlyArticle",
+        "headline": "THE TRIANGLE IS REACHED ONLY BY REFLECTION, and it is exactly the mirror of {1,4,7}. Doubling cannot arrive at 3, 6 or 9, but the mirror m(d)=10−d carries 1↦9, 4↦6, 7↦3 — so the three digits the vortex never touches are the reflections of three it always does. m is an involution, which is why the reading runs both ways: m(7)=3 and, back across the same axis, m(6)=4.",
+        "abstract": "([1,4,7].map (fun d => 10 - d) = [9,6,3]) ∧ ([1,4,6,7].all (fun x => 10 - (10 - x) == x)) ∧ (10 - 7 = 3) ∧ (10 - 6 = 4)",
+        "identifier": "dab99bbe-4050-859d-9d84-83c5ceb6dac2",
+        "url": "https://uuidna.com/theorem/mirror_opens_triangle",
+        "keywords": "sequence, The sequence & reflection group",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sequence.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:3d138ae2-921a-882d-8ae9-8f740b1f758f",
+        "@type": "ScholarlyArticle",
+        "headline": "THE GATEWAYS OF THE REFLECTED ROW ARE {1,4,7}, AND {1,4,7} MIRRORS ONTO THE TRIANGLE. Written with its strokes, the tour is 0\\1\\2\\4\\8/7/5/3/6/9 and its reflection is 0\\9/8/6/2\\3\\5\\7/4/1 — the second row IS the first mapped through dz, digit for digit, which is the check that the drawing and the algebra are the same object. Reading only where the stroke TURNS: the direct row turns once, at position 4; the reflected row turns three times, at positions 1, 4 and 7 — and dz carries {1,4,7} to {9,6,3}, the three digits doubling can never reach. So the gateways of the mirror stand exactly where the triangle is let in, and the direct row's single gateway is their centre.",
+        "abstract": "(flips strokes1 = [4]) ∧ (flips strokes2 = [1,4,7]) ∧ ([1,4,7].map dz = [9,6,3]) ∧ ([0,1,2,4,8,7,5,3,6,9].map dz = [0,9,8,6,2,3,5,7,4,1])",
+        "identifier": "0b9f07f7-efb1-8284-83d4-dc7906866765",
+        "url": "https://uuidna.com/theorem/gateways_mark_triangle",
+        "keywords": "sequence, The sequence & reflection group",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sequence.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:30503c44-7051-826a-882a-892c2945ac0e",
+        "@type": "ScholarlyArticle",
+        "headline": "REFLECTION MOVES THE GATEWAYS BUT NEVER CHANGES THE COUNT. Both rows are written with nine strokes, four falling and five rising — the mirror permutes WHERE the turns fall (one gateway becomes three) while conserving the four-and-five that make them. The stroke budget is an invariant of the reflection; only its distribution is not.",
+        "abstract": "((strokes1.filter (fun b => !b)).length = 4 ∧ (strokes1.filter (fun b => b)).length = 5) ∧ ((strokes2.filter (fun b => !b)).length = 4 ∧ (strokes2.filter (fun b => b)).length = 5) ∧ (strokes1.length = 9 ∧ strokes2.length = 9)",
+        "identifier": "1cf8ac87-3a46-84fd-9abc-0665fded882f",
+        "url": "https://uuidna.com/theorem/strokes_survive_reflection",
         "keywords": "sequence, The sequence & reflection group",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sequence.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

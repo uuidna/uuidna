@@ -1,5 +1,8 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // src/scripts/legal-quantum-accounting.ts — LEGAL QUANTUM ACCOUNTING
+import { writeFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from './api.js'
 // Every financial transaction is a theorem; balance is proven via recomputation
 // No central authority. No "trust me." Just: Proof.
 
@@ -660,12 +663,9 @@ Just: Mathematics.
 ═════════════════════════════════════════════════════════════════════════════
 `)
 
-    const fs = require('fs')
     const stmt = this.generateAccountingStatement()
-    fs.writeFileSync(
-      '/Users/ceci/github/uuidna/uuidna/docs/legal-quantum-accounting-statement.md',
-      stmt,
-    )
+    const OUT = join(ROOT, 'docs', 'legal-quantum-accounting-statement.md')
+    writeFileSync(OUT, stmt)
     console.log('\n✓ Accounting statement written to: docs/legal-quantum-accounting-statement.md')
     console.log('✓ Lean accounting theorems ready for: lean/LegalQuantumAccounting.lean')
   }

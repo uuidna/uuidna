@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // src/scripts/gen-readme.ts — GENERATE README.md
 // Auto-generated from theorems, principles, and live system state
 // Always current, always accurate, always reflects reality

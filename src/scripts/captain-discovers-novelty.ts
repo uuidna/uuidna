@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // src/scripts/captain-discovers-novelty.ts — CAPTAIN DISCOVERS NOVELTY TO HUMANITY
 // Every external search that finds nothing is itself a discovery
 // Gaps in external knowledge become research challenges earning coins

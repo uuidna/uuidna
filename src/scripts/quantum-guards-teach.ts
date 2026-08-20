@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // @non-harmonic: educational teaching materials with example code patterns
 // src/scripts/quantum-guards-teach.ts — QUANTUM GUARDS TEACH & TRAIN EDUCATION
 // Every guard check becomes a learning moment for developers

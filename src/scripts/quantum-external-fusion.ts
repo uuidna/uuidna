@@ -1,5 +1,6 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // src/scripts/quantum-external-fusion.ts — QUANTUM EXTERNAL API FUSION
+import { createHash } from 'node:crypto'
 // Automate discovery, verification, and sealing of external sources
 // Fuse all external APIs into deterministic quantum verification layer
 
@@ -219,21 +220,17 @@ class QuantumExternalFusion {
 
   private hashContent(content: any): string {
     // SHA256 hash (deterministic, content-addressed)
-    const crypto = require('crypto');
-    return crypto
-      .createHash('sha256')
+    return createHash('sha256')
       .update(JSON.stringify(content))
       .digest('hex');
   }
 
   private computeDeterministicHash(results: any[]): string {
     // Order-invariant hash (same results, any order = same hash)
-    const crypto = require('crypto');
     const sorted = JSON.stringify(results.sort((a, b) =>
       a.content_hash.localeCompare(b.content_hash)
     ));
-    return crypto
-      .createHash('sha256')
+    return createHash('sha256')
       .update(sorted)
       .digest('hex');
   }
@@ -406,9 +403,7 @@ Just: Honest Science.
   }
 
   private hashTheorem(text: string): string {
-    const crypto = require('crypto');
-    return crypto
-      .createHash('sha256')
+    return createHash('sha256')
       .update(text)
       .digest('hex')
       .substring(0, 16);

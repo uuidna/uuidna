@@ -45,6 +45,35 @@ const FACTS = [
   { key: 'partition_six_three', why: 'the 6+3 partition: 6 units {1,2,4,5,7,8} and 3 non-units {3,6,9}',
     js: () => [1, 2, 4, 5, 7, 8].length === 6 && [3, 6, 9].length === 3,
     lean: "theorem partition_six_three : ((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => ¬ (List.range 9).any (fun e => a*e % 9 == 1))).length = 3 := by decide" },
+  { key: 'powers_avoid_triangle',
+    why: 'NO POWER OF TWO EVER LANDS ON 0, 3 OR 6. Doubling from 1 walks the six units 1→2→4→8→7→5 and closes, so the residue of 2^n mod 9 is always a unit and NEVER a member of the triangle {3,6,9≡0}. The bound n<6 is not a sample: 2^6 ≡ 1 (mod 9) returns the walk to its start, so the six residues checked here are the COMPLETE image of 2^n over every n there is — an infinite claim decided by six cases.',
+    js: () => [...Array(6)].map((_, n) => m9(2 ** n)).every((r) => r !== 0 && r !== 3 && r !== 6) && m9(2 ** 6) === 1,
+    lean: "theorem powers_avoid_triangle : ((List.range 6).all (fun n => (2^n % 9 != 0) && (2^n % 9 != 3) && (2^n % 9 != 6))) ∧ (2^6 % 9 = 1) := by decide" },
+  { key: 'mirror_opens_triangle',
+    why: 'THE TRIANGLE IS REACHED ONLY BY REFLECTION, and it is exactly the mirror of {1,4,7}. Doubling cannot arrive at 3, 6 or 9, but the mirror m(d)=10−d carries 1↦9, 4↦6, 7↦3 — so the three digits the vortex never touches are the reflections of three it always does. m is an involution, which is why the reading runs both ways: m(7)=3 and, back across the same axis, m(6)=4.',
+    js: () => JSON.stringify([1, 4, 7].map((d) => 10 - d)) === '[9,6,3]' && [1, 4, 6, 7].every((x) => 10 - (10 - x) === x) && 10 - 7 === 3 && 10 - 6 === 4,
+    lean: "theorem mirror_opens_triangle : ([1,4,7].map (fun d => 10 - d) = [9,6,3]) ∧ ([1,4,6,7].all (fun x => 10 - (10 - x) == x)) ∧ (10 - 7 = 3) ∧ (10 - 6 = 4) := by decide" },
+  { key: 'gateways_mark_triangle',
+    why: 'THE GATEWAYS OF THE REFLECTED ROW ARE {1,4,7}, AND {1,4,7} MIRRORS ONTO THE TRIANGLE. Written with its strokes, the tour is 0\\1\\2\\4\\8/7/5/3/6/9 and its reflection is 0\\9/8/6/2\\3\\5\\7/4/1 — the second row IS the first mapped through dz, digit for digit, which is the check that the drawing and the algebra are the same object. Reading only where the stroke TURNS: the direct row turns once, at position 4; the reflected row turns three times, at positions 1, 4 and 7 — and dz carries {1,4,7} to {9,6,3}, the three digits doubling can never reach. So the gateways of the mirror stand exactly where the triangle is let in, and the direct row\'s single gateway is their centre.',
+    js: () => {
+      const dz = (x: number) => (x === 0 ? 0 : 10 - x)
+      const flips = (w: boolean[]) => w.map((b, i) => (i > 0 && b !== w[i - 1] ? i : -1)).filter((i) => i >= 0)
+      const s1 = [false, false, false, false, true, true, true, true, true]
+      const s2 = [false, true, true, true, false, false, false, true, true]
+      return JSON.stringify(flips(s1)) === '[4]' && JSON.stringify(flips(s2)) === '[1,4,7]'
+        && JSON.stringify([1, 4, 7].map(dz)) === '[9,6,3]'
+        && JSON.stringify([0, 1, 2, 4, 8, 7, 5, 3, 6, 9].map(dz)) === '[0,9,8,6,2,3,5,7,4,1]'
+    },
+    lean: "theorem gateways_mark_triangle : (flips strokes1 = [4]) ∧ (flips strokes2 = [1,4,7]) ∧ ([1,4,7].map dz = [9,6,3]) ∧ ([0,1,2,4,8,7,5,3,6,9].map dz = [0,9,8,6,2,3,5,7,4,1]) := by decide" },
+  { key: 'strokes_survive_reflection',
+    why: 'REFLECTION MOVES THE GATEWAYS BUT NEVER CHANGES THE COUNT. Both rows are written with nine strokes, four falling and five rising — the mirror permutes WHERE the turns fall (one gateway becomes three) while conserving the four-and-five that make them. The stroke budget is an invariant of the reflection; only its distribution is not.',
+    js: () => {
+      const s1 = [false, false, false, false, true, true, true, true, true]
+      const s2 = [false, true, true, true, false, false, false, true, true]
+      const count = (w: boolean[]) => [w.filter((b) => !b).length, w.filter((b) => b).length]
+      return JSON.stringify(count(s1)) === '[4,5]' && JSON.stringify(count(s2)) === '[4,5]' && s1.length === 9 && s2.length === 9
+    },
+    lean: "theorem strokes_survive_reflection : ((strokes1.filter (fun b => !b)).length = 4 ∧ (strokes1.filter (fun b => b)).length = 5) ∧ ((strokes2.filter (fun b => !b)).length = 4 ∧ (strokes2.filter (fun b => b)).length = 5) ∧ (strokes1.length = 9 ∧ strokes2.length = 9) := by decide" },
   { key: 'angles_close', why: 'the ring closes: ten slots × 36° = 360°, and the ⟨2⟩ flow is 60° per doubling',
     js: () => 10 * 36 === 360 && 6 * 60 === 360,
     lean: "theorem angles_close : 10 * 36 = 360 ∧ 6 * 60 = 360 := by decide" },
@@ -143,6 +172,11 @@ def carries9 (d nx : Nat) : Bool :=                    -- ×2 on units, +3 on {3
   else if d == 3 || d == 6 then nx == (d + 3) % 9
   else false
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x -- the mirror neighbour (= division by zero)
+def flips (w : List Bool) : List Nat :=                -- the GATEWAYS: positions where the stroke turns
+  (List.zip (List.range w.length) (List.zipWith (fun a b => a != b) w w.tail)).filterMap
+    (fun p => if p.2 then some (p.1 + 1) else none)
+def strokes1 : List Bool := [false,false,false,false,true,true,true,true,true]  -- 0\\1\\2\\4\\8/7/5/3/6/9
+def strokes2 : List Bool := [false,true,true,true,false,false,false,true,true]  -- 0\\9/8/6/2\\3\\5\\7/4/1
 def polar (x : Nat) : Nat := (9 - x) % 9               -- the polar neighbour (negation in ℤ/9)
 def saltConv (c _s : Nat) : Nat := c % 9               -- crypt: OLD leaky salt = f(content) — the step _s is dropped
 def saltSeq  (_c s : Nat) : Nat := s % 9               -- crypt: NEW fresh salt = f(sequence) — the step s is kept`,

@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // src/scripts/quantum-launch.ts — QUANTUM NEXT: LAUNCH TO PRODUCTION
 // From proof to production. From theory to live service.
 // The moment captain coins goes live and starts changing the world.

@@ -2,8 +2,8 @@
   "generated": "2026-08-20",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1330,
-  "total_theorems": 1330,
+  "total_claimed": 1334,
+  "total_theorems": 1334,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -2919,6 +2919,30 @@
       "key": "partition_six_three",
       "lineAddress": "3a4117f7-a196-87b2-9fb3-22f906b4a9b0",
       "address": "7f4d7ad1-97f1-8c07-83cf-788578d27a41",
+      "principle": "The sequence & reflection group"
+    },
+    {
+      "key": "powers_avoid_triangle",
+      "lineAddress": "457fe7f5-f965-8d79-9116-a00d4007b315",
+      "address": "3857b5b1-74f3-83fb-bb05-8b8524b64acc",
+      "principle": "The sequence & reflection group"
+    },
+    {
+      "key": "mirror_opens_triangle",
+      "lineAddress": "ecd6a0ff-91c5-8d37-98e0-e0e4833cf40e",
+      "address": "dab99bbe-4050-859d-9d84-83c5ceb6dac2",
+      "principle": "The sequence & reflection group"
+    },
+    {
+      "key": "gateways_mark_triangle",
+      "lineAddress": "3d138ae2-921a-882d-8ae9-8f740b1f758f",
+      "address": "0b9f07f7-efb1-8284-83d4-dc7906866765",
+      "principle": "The sequence & reflection group"
+    },
+    {
+      "key": "strokes_survive_reflection",
+      "lineAddress": "30503c44-7051-826a-882a-892c2945ac0e",
+      "address": "1cf8ac87-3a46-84fd-9abc-0665fded882f",
       "principle": "The sequence & reflection group"
     },
     {
@@ -7986,7 +8010,7 @@
       "principle": "The uuid mix space"
     }
   ],
-  "claim_receipt": "2f39711a-0976-8e63-ae31-ff4fd344c2b6",
+  "claim_receipt": "22884ab8-b6fb-81ec-9102-8800e4d2a7b2",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // src/scripts/quantum-operations-live.ts — QUANTUM OPERATIONS: LIVE
 // Captain coins in production. Real students. Real work. Real coins. Real impact.
 // Watch the system do what it was designed to do: change the world.

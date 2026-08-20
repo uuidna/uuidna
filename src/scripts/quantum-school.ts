@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
 // src/scripts/quantum-school.ts — QUANTUM SCHOOL
 // Complete curriculum for training developers to build provably correct systems
 // Education through verification, mastery through practice

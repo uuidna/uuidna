@@ -1,0 +1,12 @@
+{
+  "handle": "88d1402d",
+  "address": "88d1402d-45ee-88ce-be0f-59883e29d0be",
+  "statement": "(flips strokes1 = [4]) ∧ (flips strokes2 = [1,4,7]) ∧ ([1,4,7].map dz = [9,6,3]) ∧ ([0,1,2,4,8,7,5,3,6,9].map dz = [0,9,8,6,2,3,5,7,4,1])",
+  "tactic": "decide",
+  "keys": [
+    "gateways_mark_triangle"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}
