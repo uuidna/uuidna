@@ -3,20 +3,6 @@
   "recorded": "2026-08-20",
   "open": [
     {
-      "severity": "high",
-      "where": "src/quantum/message/index.ts:77",
-      "what": "BigInt(1 << (state.scale * 2)) with scale 16 wraps to 1 in JS 32-bit bitwise, so every probability is wrong and every quantum receipt is the SAME constant, independent of plaintext.",
-      "reproduce": "six theorem keys all produce receipt b8056f57-...; the simulator's own distribution() gives 1/65536 where the module reports 1",
-      "fix": "compute the denominator in BigInt; the exponent is also wrong (2*scale, not scale)"
-    },
-    {
-      "severity": "high",
-      "where": "src/quantum/message/index.ts:111",
-      "what": "measureMessage conflates qubit index with basis index (i1 = i | (1 << i)), so p1 > p0 is never true and it always returns all zeros.",
-      "reproduce": "returns '0000000000000000' for every input",
-      "fix": "index the basis states by bit position, not by qubit ordinal"
-    },
-    {
       "severity": "medium",
       "where": "src/next.ts:155 and src/scripts/gen-analytics.ts:48",
       "what": "Two 'measured' figures that are typed-in literals: verificationSpeedupMeasured = true, and verification_speedup_x: 80000 published as '80x faster verify than prove'.",
@@ -127,6 +113,16 @@
       "where": "src/spin.ts:14 and :38",
       "what": "DERIVED_FILES lists 8 of the 14 paths the audit chain git-diffs; six real files are never rotated. Worse, sealSpin skips anything not listed, so the manifest can be empty and verifySpin on an empty manifest returns ok:true against ANY file set.",
       "closed_by": "DERIVED_FILES now covers every gated path, directory entries are walked into their files (8 sealed coins became 1417), and verifySpin REFUSES an empty manifest instead of agreeing with any file set. src/tests/spin-parity.test.ts reads the audit chain from package.json so the two lists cannot separate by hand again."
+    },
+    {
+      "where": "src/quantum/message/index.ts:77",
+      "what": "BigInt(1 << (state.scale * 2)) with scale 16 wraps to 1 in JS 32-bit bitwise, so every probability is wrong and every quantum receipt is the SAME constant, independent of plaintext.",
+      "closed_by": "Both delegated to the verified simulator (distribution, marginal) instead of recomputing, AND the key moved out of a phase into the basis state. The overflow was real but never the cause: hadamardX and hadamard have the identical distribution, so the key was unreadable by any measurement. Receipts 1/4 distinct became 4/4; measureMessage returns bits instead of zeros. src/tests/quantum-message-encoding.test.ts"
+    },
+    {
+      "where": "src/quantum/message/index.ts:111",
+      "what": "measureMessage conflates qubit index with basis index (i1 = i | (1 << i)), so p1 > p0 is never true and it always returns all zeros.",
+      "closed_by": "Both delegated to the verified simulator (distribution, marginal) instead of recomputing, AND the key moved out of a phase into the basis state. The overflow was real but never the cause: hadamardX and hadamard have the identical distribution, so the key was unreadable by any measurement. Receipts 1/4 distinct became 4/4; measureMessage returns bits instead of zeros. src/tests/quantum-message-encoding.test.ts"
     }
   ]
 }

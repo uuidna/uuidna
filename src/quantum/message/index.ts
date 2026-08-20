@@ -16,7 +16,7 @@
 
 import { theorems, toUuid } from '../../index.js'
 import { quantumAura, type Aura } from '../../aura.js'
-import { ket0, hadamard, hadamardX, pauliZ, label, fraction, type QState } from '../index.js'
+import { ket0, hadamard, pauliX, pauliZ, label, fraction, distribution, marginal, type QState } from '../index.js'
 import { merkleGravity } from '../../gravity.js'
 import { imprintTextChain, readImprintTextChain } from '../../imprint.js'
 import { encrypt, decrypt, verifyEnvelope, type Sealed } from '../../crypt.js'
@@ -67,15 +67,30 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
   // For each qubit, apply Hadamard (superposition) then controlled-X based on theorem bit — fused into one
   // O(2^n) pass via hadamardX when the bit is set (algebraically identical to hadamard-then-pauliX; see
   // src/quantum/index.ts), instead of two full state-vector allocations for roughly half the qubits.
+  // THE KEY BIT MUST SURVIVE MEASUREMENT, SO IT CANNOT LIVE IN A PHASE.
+  //
+  // This applied hadamardX where the bit was set and hadamard where it was not. Those are algebraically distinct
+  // states — and they have the IDENTICAL distribution, 1/2 1/2 on every qubit, because they differ only in sign.
+  // Phase is exactly the quantity no measurement can see, so the theorem key was not merely hard to read out of
+  // the state: it was unreadable. Every receipt came out the same constant, for every theorem and every plaintext.
+  //
+  // The same defect sat in the voting module, where YES and NO differed by a global phase and produced one
+  // receipt. The fix is the same: put the bit in the BASIS STATE. A set bit flips its qubit with X and leaves it
+  // un-superposed, so it is visible to distribution(), to marginal(), and therefore to the receipt; an unset bit
+  // gets the Hadamard, which still carries the superposition the encoding wants.
   for (let i = 0; i < qubits; i++) {
-    state = keyBits[i] ? hadamardX(state, i) : hadamard(state, i)
+    state = keyBits[i] ? pauliX(state, i) : hadamard(state, i)
   }
 
   // The quantum receipt: fold the state's amplitude probabilities
-  const amplitudes = state.amp.map((a, i) => ({
-    label: label(i, qubits),
-    prob: fraction({ num: a.re * a.re + a.im * a.im, den: BigInt(1 << (state.scale * 2)) }),
-  }))
+  // DELEGATED, not recomputed. This built the denominator as BigInt(1 << (state.scale * 2)), and with scale 16
+  // that is 1 << 32, which WRAPS TO 1 in JavaScript's 32-bit bitwise arithmetic. Every probability came out as 1,
+  // so every receipt was the same constant regardless of theorem or plaintext — a "tamper-evident" fold that was a
+  // constant function of qubit count. distribution() is the simulator's own, verified against Bell, GHZ and the
+  // no-signalling marginals in exact BigInt. Reimplementing arithmetic that already exists correctly is what
+  // produced the bug; this stops doing it.
+  const probs = distribution(state)
+  const amplitudes = probs.map((pr, i) => ({ label: label(i, qubits), prob: fraction(pr) }))
   const receipt = merkleGravity(amplitudes.map(a => toUuid(a.label + '|' + a.prob)))
 
   // Fold the whole message identity
@@ -108,10 +123,11 @@ export function measureMessage(message: QuantumMessage): string {
   for (let i = 0; i < message.quantum.qubits; i++) {
     // The measurement outcome is determined by the state's amplitudes
     // (in uuidna, this is not probabilistic — the encoding deterministically fixes the outcome)
-    const i0 = i, i1 = i | (1 << i)
-    const p0 = state.amp[i0].re * state.amp[i0].re + state.amp[i0].im * state.amp[i0].im
-    const p1 = state.amp[i1].re * state.amp[i1].re + state.amp[i1].im * state.amp[i1].im
-    outcome += p1 > p0 ? '1' : '0'
+    // marginal(state, i, v) sums over every basis state whose qubit i is v — which is what measuring one qubit
+    // MEANS. This indexed the amplitude array with `i` and `i | (1 << i)`, conflating a qubit ordinal with a basis
+    // index, so p1 > p0 was never true and the outcome was all zeros for every input.
+    const p0 = marginal(state, i, 0), p1 = marginal(state, i, 1)
+    outcome += p1.num * p0.den > p0.num * p1.den ? '1' : '0'
   }
   return outcome
 }
