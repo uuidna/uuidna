@@ -76,6 +76,13 @@
       "what": "PARTIALLY ADDRESSED. src/school.ts computes all eleven sections from the ledger — courses ARE the 72 proof wings, lesson counts ARE the theorems in them, and the accreditation section states plainly that uuidna is NOT accredited (asserted in src/tests/school.test.ts, including that no phrasing may imply an accrediting body). The school is chaotic and unusable and must be rebuilt from scratch against a stated information architecture: name/mission, ENROLLMENT requirements and application, grade levels and courses, academic calendar and dates, tuition or free-public-school status, technology requirements, student handbook and policies, teacher and counsellor information, FAQ, contact and technical support, and news/announcements/clubs/events.",
       "reproduce": "read docs/school.md and quantum-school.ts; neither presents a navigable structure a reader could enrol from",
       "fix": "REMAINING: render these sections into docs/school.md and the OEAPI surface, and retire the 907-line quantum-school.ts and 546-line docs/school.md that the computed model replaces. src/school-apis.ts is available as the external data layer (ESCO skills, Eurostat enrolment, GISCO directory). The data model and its constraints are done; the rendering and the retirement are not."
+    },
+    {
+      "severity": "high",
+      "where": "src/mcp.ts (189 tools, 38 categories) against the 68 skills carried by theorems in src/theorems/generated.ts",
+      "what": "A theorem is meant to be a hook and hooked at once — reachable from the live API through the skill it carries. Only 18 of 68 skills are reachable from any tool name or category; 50 are ORPHANED, including sequence, involution, z9-ring, z7-rosette, clay-reflection, foundational, neuro and science-pairs. Theorems carrying those skills are sealed, witnessed and served by nothing.",
+      "reproduce": "intersect the distinct theorem skills with MCP tool names and categories; 18 match, 50 do not",
+      "fix": "Serve skills as a dimension rather than adding 50 tools by hand: one tool that takes a skill and returns its theorems, its handles and its ESCO mapping. src/school-apis.ts already wires ESCO for exactly this and is currently referenced by nothing (0 call sites). That closes the orphan set in one computed surface instead of fifty authored ones — and a finder should then assert the intersection, so a new skill cannot arrive unserved."
     }
   ],
   "fixed": [
