@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "3237c453-1063-8301-837f-4e39b17dbac4"
+        "ledgerReceipt": "e94bbd46-4afa-82f4-a1bd-1d49113ac5d0"
       },
-      "address": "420a5a4e-ee31-8330-b812-33c4d30c7c04"
+      "address": "0fb84463-a498-8a27-8ed5-93fbcc1c77b7"
     },
     {
       "title": "Heartbeat coverage",
@@ -25,9 +25,9 @@
         "theoremsMeasured": 1334,
         "ledgerKeys": 1334,
         "unmeasured": 0,
-        "summedDecideSteps": 327377
+        "summedDecideSteps": 330429
       },
-      "address": "074a7010-e4c5-867c-a7ec-010ed4b5e7eb"
+      "address": "30253628-7959-8823-8ecf-c578ad4d2137"
     },
     {
       "title": "Citation audit",
@@ -45,13 +45,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 317,
-        "roots": 211,
-        "supported": 317,
+        "modules": 322,
+        "roots": 216,
+        "supported": 322,
         "dead": 0,
-        "receipt": "7c7ecc2d-3185-8208-9653-f2e083908623"
+        "receipt": "f95b101f-3a0e-8f46-8354-2b0e88f58a1d"
       },
-      "address": "4064812f-b5ce-83e7-ad5f-bf712ae3a1e1"
+      "address": "990d6d7f-565b-8898-a515-d3d9c4a42dca"
     },
     {
       "title": "Package inventory",
@@ -69,12 +69,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "03d3e221abfbc187",
-        "unifiedFold": "4eec7711adce018b"
+        "foldReceipt": "e0103b9b704f62ca",
+        "unifiedFold": "80db0b1d924ec996"
       },
-      "address": "d77e3931-bb57-8f04-9410-1bac5ef82390"
+      "address": "4d36f38b-3631-8c47-b5c2-1ca9391362c5"
     }
   ],
-  "receipt": "d74593be-9789-8d4d-92f3-7cd3b0ef1a9f",
+  "receipt": "8645b86b-10ef-80a2-b69a-fa776aec5d6b",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

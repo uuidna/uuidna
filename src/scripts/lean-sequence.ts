@@ -50,7 +50,7 @@ const FACTS = [
     js: () => [...Array(6)].map((_, n) => m9(2 ** n)).every((r) => r !== 0 && r !== 3 && r !== 6) && m9(2 ** 6) === 1,
     lean: "theorem powers_avoid_triangle : ((List.range 6).all (fun n => (2^n % 9 != 0) && (2^n % 9 != 3) && (2^n % 9 != 6))) ∧ (2^6 % 9 = 1) := by decide" },
   { key: 'mirror_opens_triangle',
-    why: 'THE TRIANGLE IS REACHED ONLY BY REFLECTION, and it is exactly the mirror of {1,4,7}. Doubling cannot arrive at 3, 6 or 9, but the mirror m(d)=10−d carries 1↦9, 4↦6, 7↦3 — so the three digits the vortex never touches are the reflections of three it always does. m is an involution, which is why the reading runs both ways: m(7)=3 and, back across the same axis, m(6)=4.',
+    why: 'THE TRIANGLE IS REACHED ONLY BY REFLECTION. and it is exactly the mirror of {1,4,7}. Doubling cannot arrive at 3, 6 or 9, but the mirror m(d)=10−d carries 1↦9, 4↦6, 7↦3 — so the three digits the vortex never touches are the reflections of three it always does. m is an involution, which is why the reading runs both ways: m(7)=3 and, back across the same axis, m(6)=4.',
     js: () => JSON.stringify([1, 4, 7].map((d) => 10 - d)) === '[9,6,3]' && [1, 4, 6, 7].every((x) => 10 - (10 - x) === x) && 10 - 7 === 3 && 10 - 6 === 4,
     lean: "theorem mirror_opens_triangle : ([1,4,7].map (fun d => 10 - d) = [9,6,3]) ∧ ([1,4,6,7].all (fun x => 10 - (10 - x) == x)) ∧ (10 - 7 = 3) ∧ (10 - 6 = 4) := by decide" },
   { key: 'gateways_mark_triangle',
@@ -65,15 +65,24 @@ const FACTS = [
         && JSON.stringify([0, 1, 2, 4, 8, 7, 5, 3, 6, 9].map(dz)) === '[0,9,8,6,2,3,5,7,4,1]'
     },
     lean: "theorem gateways_mark_triangle : (flips strokes1 = [4]) ∧ (flips strokes2 = [1,4,7]) ∧ ([1,4,7].map dz = [9,6,3]) ∧ ([0,1,2,4,8,7,5,3,6,9].map dz = [0,9,8,6,2,3,5,7,4,1]) := by decide" },
-  { key: 'strokes_survive_reflection',
-    why: 'REFLECTION MOVES THE GATEWAYS BUT NEVER CHANGES THE COUNT. Both rows are written with nine strokes, four falling and five rising — the mirror permutes WHERE the turns fall (one gateway becomes three) while conserving the four-and-five that make them. The stroke budget is an invariant of the reflection; only its distribution is not.',
+  { key: 'budget_not_conserved',
+    why: 'THE STROKE BUDGET IS BOUNDED, NOT CONSERVED — the four-and-five is this pair\'s reading, not the reflection\'s law. Written with strokes the tour is 0\\1\\2\\4\\8/7/5/3/6/9 and its mirror 0\\9/8/6/2\\3\\5\\7/4/1, and BOTH read four falling and five rising, which is exactly why the conservation looked like a law. It is not. Across the whole family — the 54 affine rows x -> a*x+b of AGL(1,Z/9), drawn from the same nine digits by the same rule — the budgets are 4,5 in 18 rows, 5,4 in 30 and 6,3 in 6: four-and-five is a MINORITY reading. The mirror keeps the budget on exactly 30 of the 54 and BREAKS it on 24; row(2,2) reads four falling and its reflection reads six. And the identity is the ONLY affine map conserving the budget on every row, so no reflection could ever have been the conserving one. What IS general is a BOUND: every one of the 54 rows rises three, four or five times, never fewer and never more, so only three of the ten conceivable budgets are ever drawn. This replaces strokes_survive_reflection, which stated the conservation as a law: that theorem was TRUE of the pair and false as framed, and it passed both the js mirror and the kernel because a single hand wrote both legs.',
     js: () => {
-      const s1 = [false, false, false, false, true, true, true, true, true]
-      const s2 = [false, true, true, true, false, false, false, true, true]
-      const count = (w: boolean[]) => [w.filter((b) => !b).length, w.filter((b) => b).length]
-      return JSON.stringify(count(s1)) === '[4,5]' && JSON.stringify(count(s2)) === '[4,5]' && s1.length === 9 && s2.length === 9
+      const ren = (v: number) => (v === 0 ? 9 : v)
+      const arow = (a: number, b: number) => [0, ...[1, 2, 4, 8, 7, 5, 3, 6, 9].map((d) => ren(m9(a * d + b)))]
+      const rises = (p: number, n: number) => n < p || ((p === 3 || p === 6) && m9(n) === m9(p + 3))
+      const st = (r: number[]) => r.slice(1).map((n, i) => rises(r[i], n))
+      const ris = (r: number[]) => st(r).filter((x) => x).length
+      const fal = (r: number[]) => st(r).filter((x) => !x).length
+      const R9 = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+      const tally = (p: (a: number, b: number) => boolean) => UNITS.reduce((t, a) => t + R9.filter((b) => p(a, b)).length, 0)
+      return fal(arow(1, 0)) === 4 && ris(arow(1, 0)) === 5 && fal(arow(8, 1)) === 4 && ris(arow(8, 1)) === 5
+        && tally((a, b) => ris(arow(a, b)) === 5) === 18 && tally((a, b) => ris(arow(a, b)) === 4) === 30
+        && tally((a, b) => ris(arow(a, b)) === 3) === 6
+        && UNITS.every((a) => R9.every((b) => ris(arow(a, b)) >= 3 && ris(arow(a, b)) <= 5))
+        && fal(arow(2, 2)) === 4 && fal(arow(2, 2).map((x) => (x === 0 ? 0 : 10 - x))) === 6
     },
-    lean: "theorem strokes_survive_reflection : ((strokes1.filter (fun b => !b)).length = 4 ∧ (strokes1.filter (fun b => b)).length = 5) ∧ ((strokes2.filter (fun b => !b)).length = 4 ∧ (strokes2.filter (fun b => b)).length = 5) ∧ (strokes1.length = 9 ∧ strokes2.length = 9) := by decide" },
+    lean: "theorem budget_not_conserved : (fallingOf (arow 1 0) = 4 \u2227 risingOf (arow 1 0) = 5) \u2227 (fallingOf (arow 8 1) = 4 \u2227 risingOf (arow 8 1) = 5) \u2227 (famTally (fun a b => risingOf (arow a b) == 5) = 18 \u2227 famTally (fun a b => risingOf (arow a b) == 4) = 30 \u2227 famTally (fun a b => risingOf (arow a b) == 3) = 6) \u2227 units9.all (fun a => (List.range 9).all (fun b => 3 \u2264 risingOf (arow a b) && risingOf (arow a b) \u2264 5)) \u2227 (fallingOf (arow 2 2) = 4 \u2227 fallingOf ((arow 2 2).map dz) = 6) := by decide" },
   { key: 'angles_close', why: 'the ring closes: ten slots × 36° = 360°, and the ⟨2⟩ flow is 60° per doubling',
     js: () => 10 * 36 === 360 && 6 * 60 === 360,
     lean: "theorem angles_close : 10 * 36 = 360 ∧ 6 * 60 = 360 := by decide" },
@@ -175,8 +184,17 @@ def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x -- the mirror neighbour (
 def flips (w : List Bool) : List Nat :=                -- the GATEWAYS: positions where the stroke turns
   (List.zip (List.range w.length) (List.zipWith (fun a b => a != b) w w.tail)).filterMap
     (fun p => if p.2 then some (p.1 + 1) else none)
-def strokes1 : List Bool := [false,false,false,false,true,true,true,true,true]  -- 0\\1\\2\\4\\8/7/5/3/6/9
-def strokes2 : List Bool := [false,true,true,true,false,false,false,true,true]  -- 0\\9/8/6/2\\3\\5\\7/4/1
+def tourTail : List Nat := [1,2,4,8,7,5,3,6,9]
+def ren (v : Nat) : Nat := if v == 0 then 9 else v      -- the drawing writes 9 where the algebra says 0
+def arow (a b : Nat) : List Nat := 0 :: tourTail.map (fun d => ren ((a * d + b) % 9))
+def rises (p n : Nat) : Bool := (n < p) || ((p == 3 || p == 6) && n % 9 == (p + 3) % 9)
+def strokesOf (r : List Nat) : List Bool := List.zipWith rises r r.tail
+def risingOf (r : List Nat) : Nat := ((strokesOf r).filter (fun s => s)).length
+def fallingOf (r : List Nat) : Nat := ((strokesOf r).filter (fun s => !s)).length
+def famTally (p : Nat -> Nat -> Bool) : Nat :=
+  (units9.map (fun a => ((List.range 9).filter (fun b => p a b)).length)).foldl (fun x y => x + y) 0
+def strokes1 : List Bool := strokesOf (arow 1 0)        -- 0\\1\\2\\4\\8/7/5/3/6/9, COMPUTED
+def strokes2 : List Bool := strokesOf (arow 8 1)        -- 0\\9/8/6/2\\3\\5\\7/4/1, its mirror x -> 8x+1
 def polar (x : Nat) : Nat := (9 - x) % 9               -- the polar neighbour (negation in ℤ/9)
 def saltConv (c _s : Nat) : Nat := c % 9               -- crypt: OLD leaky salt = f(content) — the step _s is dropped
 def saltSeq  (_c s : Nat) : Nat := s % 9               -- crypt: NEW fresh salt = f(sequence) — the step s is kept`,

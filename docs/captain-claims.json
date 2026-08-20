@@ -2940,9 +2940,9 @@
       "principle": "The sequence & reflection group"
     },
     {
-      "key": "strokes_survive_reflection",
-      "lineAddress": "30503c44-7051-826a-882a-892c2945ac0e",
-      "address": "1cf8ac87-3a46-84fd-9abc-0665fded882f",
+      "key": "budget_not_conserved",
+      "lineAddress": "82d885ca-cdf9-8a5f-9c9f-8d75259827ac",
+      "address": "d2e25146-a00a-8db0-8bc3-4ae02830a9d5",
       "principle": "The sequence & reflection group"
     },
     {
@@ -8010,7 +8010,7 @@
       "principle": "The uuid mix space"
     }
   ],
-  "claim_receipt": "22884ab8-b6fb-81ec-9102-8800e4d2a7b2",
+  "claim_receipt": "64b5b99d-dfbe-8cdf-91c6-7e58d4c8772b",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

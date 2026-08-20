@@ -363,22 +363,84 @@ export function auditTranslation(
 /** The public source a book was pulled from: the id, its metadata, and the exact text URL (all recomputable). */
 export interface FetchedBook { id: number; title: string; authors: string[]; text: string; source: string }
 
-/** fetchGutenberg(id) → a public-domain book from Project Gutenberg via the public Gutendex API (no key). Node's
- *  built-in fetch — the ONE network call in the package. The returned text is DATA to be audited, never executed. */
+// ── WHY THIS FUNCTION CARRIES A MIRROR CHAIN ────────────────────────────────────────────────────────────────────
+// MEASURED 2026-08-20: every www.gutenberg.org URL form answered 503/504 with a ~100-byte HTML error page —
+// /cache/epub/27286/pg27286.txt, /files/27286/27286-0.txt and /ebooks/27286.txt.utf-8 alike, over HTTP/1.1 (node:https)
+// AND over HTTP/2 (Node's fetch), where the h2 path surfaced the outage as `TypeError: fetch failed` with cause
+// ERR_HTTP2_STREAM_ERROR / NGHTTP2_REFUSED_STREAM. The protocol was never the fault: the ORIGIN was refusing, and the
+// h2 error text merely hid a 503 behind a transport exception. Gutendex was healthy the whole time, so a single-URL
+// fetch that trusts Gutendex's `formats` map fails whenever the one host it names is down.
+// Two consequences are encoded below, and both are the honest-scope habit applied to IO:
+//  (1) TRY EVERY KNOWN MIRROR, not one URL. Project Gutenberg publishes the same bytes on mirrors (pglaf, aleph); the
+//      canonical host is tried first so provenance stays canonical when it is up, and `source` always records the URL
+//      the bytes ACTUALLY came from, never the one that was asked for. A mirror is the same public-domain text; the
+//      audit's own content-address is what proves that, and it is recomputable by anyone against any mirror.
+//  (2) A 200 IS NOT A BOOK. The outage served HTTP 200 in some forms and a 92–107 byte HTML error page as the body, so
+//      status alone cannot decide success. The body is checked for the two signatures an error page always has and a
+//      Gutenberg text never does: it opens with `<` (HTML), or it is implausibly short. Refusing a bad body is the same
+//      law as UNVERIFIED — say "not obtained here", never hand back an error page dressed as a book.
+const GUT_UA = 'uuidna/0.2 (+https://github.com/uuidna/uuidna) public-domain text audit'
+// Gutenberg's mirror layout scatters an id over directories: 27286 → 2/7/2/8/27286 (every digit but the last, then the
+// whole id). Single-digit ids live under `0`. Pure string arithmetic — no Math, nothing to round.
+const mirrorPath = (id: string): string => (id.length === 1 ? '0' : id.slice(0, -1).split('').join('/')) + '/' + id
+/** Every public URL that can serve the plain text of a Gutenberg id, canonical host first, then the mirrors. */
+const gutenbergTextUrls = (id: string, declared?: string): string[] => {
+  const p = mirrorPath(id)
+  const urls = [
+    declared,
+    `https://www.gutenberg.org/cache/epub/${id}/pg${id}.txt`,
+    `https://gutenberg.pglaf.org/cache/generated/${id}/pg${id}.txt`,
+    `http://aleph.gutenberg.org/cache/generated/${id}/pg${id}.txt`,
+    `https://gutenberg.pglaf.org/${p}/${id}-0.txt`,
+    `https://gutenberg.pglaf.org/${p}/${id}-8.txt`,
+    `https://gutenberg.pglaf.org/${p}/${id}.txt`,
+    `http://aleph.gutenberg.org/${p}/${id}-0.txt`,
+    `http://aleph.gutenberg.org/${p}/${id}.txt`,
+  ].filter((u): u is string => typeof u === 'string' && u.length > 0 && !u.endsWith('.zip'))
+  return [...new Set(urls)]
+}
+// An outage page is HTML and tiny; a Gutenberg plain text is neither. 500 chars is far below the shortest real
+// Gutenberg text (its boilerplate header alone is longer) and far above the 92–107 byte error bodies measured.
+const looksLikeBook = (body: string): boolean => body.trim().length >= 500 && !body.trim().startsWith('<')
+
+/** fetchGutenberg(id) → a public-domain book from Project Gutenberg. Metadata comes from the public Gutendex API (no
+ *  key) and is BEST-EFFORT: if Gutendex is unreachable the text is still fetched, because the text is the payload and
+ *  the title is a label. The text is fetched from the canonical host first and then from Gutenberg's public mirrors
+ *  until one returns a body that is actually a book (see above — a 200 with an HTML error page is not). Node's
+ *  built-in fetch, so the package stays zero-dependency. The returned text is DATA to be audited, never executed;
+ *  `source` is the URL the bytes truly came from, so the audit's provenance names the real origin. */
 export async function fetchGutenberg(id: number | string): Promise<FetchedBook> {
-  const metaRes = await fetch(`https://gutendex.com/books/${encodeURIComponent(String(id))}`)
-  if (!metaRes.ok) throw new Error(`books: Gutendex responded ${metaRes.status} for id ${id}`)
-  const meta = (await metaRes.json()) as { title?: string; authors?: { name: string }[]; formats?: Record<string, string> }
+  const key = encodeURIComponent(String(id))
+  const headers = { 'user-agent': GUT_UA, accept: '*/*' }
+  let meta: { title?: string; authors?: { name: string }[]; formats?: Record<string, string> } = {}
+  try {
+    const metaRes = await fetch(`https://gutendex.com/books/${key}/`, { headers, redirect: 'follow' })
+    if (metaRes.ok) meta = (await metaRes.json()) as typeof meta
+  } catch {
+    meta = {} // Gutendex down — a missing label never blocks the text
+  }
   const formats = meta.formats || {}
-  const url =
+  const declared =
     formats['text/plain; charset=utf-8'] ||
     formats['text/plain; charset=us-ascii'] ||
     formats['text/plain'] ||
     Object.entries(formats).find(([k, v]) => k.startsWith('text/plain') && !v.endsWith('.zip'))?.[1]
-  if (!url) throw new Error(`books: no plain-text format offered for Gutenberg id ${id}`)
-  const textRes = await fetch(url)
-  if (!textRes.ok) throw new Error(`books: fetching text got ${textRes.status} from ${url}`)
-  return { id: Number(id), title: meta.title || '', authors: (meta.authors || []).map((a) => a.name), text: await textRes.text(), source: url }
+  const tried: string[] = []
+  for (const url of gutenbergTextUrls(String(id), declared)) {
+    let body = ''
+    try {
+      const res = await fetch(url, { headers, redirect: 'follow' })
+      if (!res.ok) { tried.push(`${url} → HTTP ${res.status}`); continue }
+      body = await res.text()
+    } catch (e) {
+      // a transport-level refusal (the origin's 503 surfacing as ERR_HTTP2_STREAM_ERROR) is one dead mirror, not a fault
+      tried.push(`${url} → ${(e as Error).message}`)
+      continue
+    }
+    if (!looksLikeBook(body)) { tried.push(`${url} → ${body.length}-byte non-book body (error page)`); continue }
+    return { id: Number(id), title: meta.title || '', authors: (meta.authors || []).map((a) => a.name), text: body, source: url }
+  }
+  throw new Error(`books: no mirror served the text of Gutenberg id ${id} — tried:\n  ${tried.join('\n  ')}`)
 }
 
 /** auditBook(id) → fetch a public-domain Gutenberg book, then audit it. The network step is fetchGutenberg; the

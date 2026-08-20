@@ -32,7 +32,7 @@ theorem clay_poincare : (dz 7 = 3) ∧ (dz (dz 7) = 7) ∧ ((0:Nat) < 1) := by d
 -- VERIFIED ≠ SOLVED — verification is the kernel's judgment on the stated proposition, solved is the world's judgment on the named problem, and the seal confers the first, never the second: 7 reflected and sealed, 0 solved by the reflection, 1 solved by humanity (Perelman); 7 ≠ 0, 7 ≠ 1, 0 ≠ 1
 theorem clay_verified_ne_solved : ((7:Nat) ≠ 0) ∧ ((7:Nat) ≠ 1) ∧ ((0:Nat) ≠ 1) := by decide
 
--- the distinction was decided by theorems only — the seven reflected theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt 5a677acc-7a82-8de2-818e-abbbfee4119d; 7 + 0 = 7 and 0 < 7
+-- the distinction was decided by theorems only — the seven reflected theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt 186a9869-40c6-8ce7-a427-c68589151acf; 7 + 0 = 7 and 0 < 7
 theorem clay_vote_theorems_only : (7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0) := by decide
 
 -- the status DNA is total on the seven — every reflected theorem's sealed name carries its world-status marker: 6 OPEN + 1 SOLVED = 7 of 7, none unmarked

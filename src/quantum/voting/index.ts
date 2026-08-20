@@ -7,7 +7,7 @@
 // The same coins settle all three — one unified economy.
 
 import { theorems, toUuid, merkleGravity } from '../../index.js'
-import { ket0, hadamard, pauliX, pauliZ, cnot, cz, label, fraction, type QState } from '../index.js'
+import { ket0, hadamard, pauliX, pauliZ, cnot, cz, label, fraction, receiptOf, type QState } from '../index.js'
 
 export interface AgentContribution {
   workAddress: string       // content-address of the work (code, docs, theorems)
@@ -69,13 +69,26 @@ export function encodeVote(decision: boolean, weight: number): QState {
   // Start in |0…0⟩
   let state = ket0(qubits)
 
-  // Apply Hadamard to all qubits (equal superposition)
-  for (let i = 0; i < qubits; i++) {
+  // QUBIT 0 CARRIES THE DECISION, AND IT IS NOT SUPERPOSED.
+  //
+  // This encoding used to Hadamard EVERY qubit and then, for YES, apply Z to every qubit. Z multiplies the |1⟩
+  // components by −1, so on a uniform superposition it changes signs and nothing else: the magnitudes — and
+  // therefore the whole measurement distribution — are identical for YES and NO. The two votes differed by a
+  // GLOBAL PHASE, which is precisely the quantity no measurement can see. Both produced the same distribution
+  // (1/8 across eight states) and the same receipt e049c094…, so the yes/no bit was not merely hard to read, it
+  // was UNREPRESENTABLE. A ballot whose two answers are indistinguishable in its own receipt is not a ballot.
+  //
+  // X on an un-Hadamarded qubit is the fix: |0⟩ ↦ |1⟩ moves the amplitude to a different basis state, which every
+  // downstream distribution, marginal and receipt can see. The remaining qubits still carry the weight as
+  // superposition breadth, so the original intent survives — only the unobservable part is replaced.
+  if (decision) state = pauliX(state, 0)
+
+  // the REMAINING qubits carry the weight as superposition breadth (qubit 0 is reserved for the decision)
+  for (let i = 1; i < qubits; i++) {
     state = hadamard(state, i)
   }
 
-  // If voting YES: apply Z-phases to bias the superposition toward |1⟩ basis
-  if (decision) {
+  if (false) {
     for (let i = 0; i < qubits; i++) {
       state = pauliZ(state, i)
     }
@@ -88,12 +101,15 @@ export function encodeVote(decision: boolean, weight: number): QState {
  *  The outcome is the majority by weight (deterministic, order-invariant). */
 export function tallyVotes(votes: { voterId: string; decision: boolean; weight: number }[], proposal: string): QuantumVote {
   const quantumVotes: Vote[] = votes.map(v => {
+    // the encoded state is USED, not recomputed and thrown away. This line previously derived quantumState and
+    // the next overwrote it with a plain merkle fold of the same two fields — a dead store, and one that could be
+    // reproduced without loading the simulator at all. The receipt now depends on the encoding it names.
     const quantumState = encodeVote(v.decision, v.weight)
     return {
       voterId: v.voterId,  // anonymized (content-address, not identity)
       decision: v.decision,
       weight: v.weight,
-      quantumState: merkleGravity([toUuid(String(v.decision)), toUuid(String(v.weight))]),
+      quantumState: receiptOf(quantumState),
     }
   })
 
