@@ -18,13 +18,6 @@
     },
     {
       "severity": "high",
-      "where": "src/grow.ts:19 and :6",
-      "what": "TARGET = 1024 while the ledger holds 1336 keys over 1252 distinct propositions, so growLife() returns toGo: -310 and the honest string still reads 'growing toward 1024'. This SHIPS through the MCP tool uuidna_grow_life to every consumer.",
-      "reproduce": "growLife().grow -> {theorems: 1336 keys / 1252 distinct, target: 1024, toGo: -312}",
-      "fix": "derive the target from the ledger, or state the next boundary above the current count"
-    },
-    {
-      "severity": "high",
       "where": "src/spin.ts:14 and :38",
       "what": "DERIVED_FILES lists 8 of the 14 paths the audit chain git-diffs; six real files are never rotated. Worse, sealSpin skips anything not listed, so the manifest can be empty and verifySpin on an empty manifest returns ok:true against ANY file set.",
       "reproduce": "compare DERIVED_FILES against the audit script's git diff path list; .zenodo.json, reports.json, README.md, llm.txt, lean/statement-index.json and src/chunks are all missing",
@@ -131,6 +124,11 @@
       "where": "src/adjudicate.ts:27 and :37",
       "what": "DEMARCATED matches a hedge word ANYWHERE in the sentence and :37 then returns no collisions, so appending a hedge flips a Clay claim from UNVERIFIED to VERIFIED.",
       "closed_by": "demarcation is clause-local now: the hedge must sit in the clause carrying both the self-voice and the solve verb. Four evasions that returned zero collisions now collide; four genuine demarcations still pass. src/tests/adjudicate-demarcation.test.ts"
+    },
+    {
+      "where": "src/grow.ts:19 and :6",
+      "what": "TARGET = 1024 while the ledger holds 1336 keys over 1252 distinct propositions, so growLife() returns toGo: -310 and the honest string still reads 'growing toward 1024'. This SHIPS through the MCP tool uuidna_grow_life to every consumer.",
+      "closed_by": "nextMilestone(living) computes the next power of two strictly above the count, by doubling — no Math.*, no logarithm. target 2048, toGo 712. src/tests/grow-milestone.test.ts asserts that crossing a milestone ADVANCES it."
     }
   ]
 }

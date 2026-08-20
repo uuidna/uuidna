@@ -16,7 +16,19 @@ import { captainRights } from './captain/rights/index.js'
 import { securityAudit } from './security-audit.js'
 import { axiomWitness } from './axiom-witness.js'
 
-const TARGET = 1024 // the v1.0.0 milestone (2^10) — the growth's stated horizon, a named constant
+/** THE MILESTONE IS COMPUTED, BECAUSE THE LAST ONE WAS REACHED.
+ *
+ *  This was a fixed 1024 — the v1.0.0 horizon, 2^10 — and the ledger passed it. Nothing recomputed, so growLife()
+ *  reported a NEGATIVE toGo and the honest string still said "growing toward 1024", shipped through the MCP tool
+ *  uuidna_grow_life to every consumer. A horizon behind you is not a horizon.
+ *
+ *  The next power of two strictly above the living count is the horizon at any size, so it can never fall behind
+ *  again. Found by doubling: Math.* settles no theorem and is rejected tree-wide, so no logarithm is taken. */
+export function nextMilestone(living: number): number {
+  let m = 1
+  while (m <= living) m = m * 2
+  return m
+}
 
 export interface GrowLife {
   mission: string
@@ -33,7 +45,7 @@ const HONEST =
   'The mission, recomputable: uuidna uses its tools to LEGALLY GROW LIFE. GROW — the frontier always advances ' +
   '(research_always_has_a_next), so the ledger is a living, never-closed organism. LEGALLY — inside the licence, the ' +
   'sole-representation reservation (uuidna.com only) and the honest cost model (never take more than saved). LIFE — ' +
-  'the living count of by-decide theorems, each kept, none destroyed, growing toward 1024. PERMACULTURE — the growth ' +
+  'the living count of by-decide theorems, each kept, none destroyed, growing toward the next power of two. PERMACULTURE — the growth ' +
   'is self-sustaining (zero runtime dependencies), regenerative (the layer regrows from the ledger as a fixed point, ' +
   'the kernel-only witness ships so anyone regrows it offline), and wastes nothing (monotone + honest cost). HONEST ' +
   'SCOPE: integrity, not truth — "life" is the MONOTONE, lawful, self-sustaining growth of a recomputable proof-ledger ' +
@@ -42,14 +54,14 @@ const HONEST =
 
 /** growLife() → the captain's mission as one recomputable object: the lawful, monotone growth of the living ledger.
  *  Composes the growth invariant (research_always_has_a_next), the legal frame (licence + reservation + honest cost),
- *  and the life measure (living theorem count toward 1024). Deterministic; folds to one receipt. Integrity, not truth. */
+ *  and the life measure (living theorem count toward the next computed milestone). Deterministic; folds to one receipt. Integrity, not truth. */
 export function growLife(): GrowLife {
   const T = theorems()
   const lf = legalFacts()
   const rights = captainRights()
   const sealed = (k: string): boolean => T.some((t) => t.key === k)
   const count = T.length
-  const grow = { alwaysANext: sealed('research_always_has_a_next'), theorems: count, target: TARGET, toGo: TARGET - count }
+  const grow = { alwaysANext: sealed('research_always_has_a_next'), theorems: count, target: nextMilestone(count), toGo: nextMilestone(count) - count } // was TARGET - count }
   const legally = {
     license: lf.license.spdx,
     canonical: rights.representation.canonical,
@@ -74,7 +86,7 @@ export function growLife(): GrowLife {
   // gravity, no float/clock/RNG — harmonic) and ORDER-INVARIANT — the same receipt seen from any ordering, i.e. the
   // same consolidation in every dimension. `harmonic` is that order-invariance, recomputed live (fold == reverse-fold).
   const parts = [
-    toUuid('grow|' + grow.alwaysANext + '|' + count + '/' + TARGET),
+    toUuid('grow|' + grow.alwaysANext + '|' + count + '/' + nextMilestone(count)),
     toUuid('legally|' + legally.license + '|' + legally.canonical + '|' + legally.lawfulCost),
     toUuid('life|' + count + '|' + life.monotone),
     toUuid('permaculture|' + permaculture.selfSustaining + '|' + permaculture.regenerative + '|' + permaculture.noWaste),
