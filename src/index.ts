@@ -287,10 +287,10 @@ export { oeapiProfile, oeapiOrganisations, oeapiProgrammes, oeapiCourses, oeapiL
 // own school locations). OOAPI is the fourth, and the only one that runs the other way: uuidna SERVES it. What comes
 // back is EVIDENCE, never a seal — a fingerprint of what a named public source answered. A source that could not be
 // called (EURES) is in the named absences, not in the registry.
-export { schoolApiRegistry, schoolApiFetch, escoSearch, mapSkillsToEsco, eurostatEducation, giscoSchools,
+export { schoolApiRegistry, schoolApiFetch, escoSearch, eurostatEducation, giscoSchools,
   escoOccupationsForSkill, eurostatVacancies, pairEducationToJobs, splitCsvLine, SCHOOL_APIS, GISCO_VINTAGE,
   EUROSTAT_VACANCIES, type SchoolApi, type SchoolApiRegistry, type SchoolApiAnswer, type SchoolApiEvidence,
-  type SchoolApiQuery, type EscoConcept, type EscoMap, type EscoSkillMapping, type EurostatObservation,
+  type SchoolApiQuery, type EscoConcept, type EurostatObservation,
   type GiscoSchool, type OccupationLink, type SkillJobPair, type EducationJobsPairing } from './school-apis.js'
 
 // rights — the CAPTAIN'S RIGHTS, hard-imprinted: copyright (© Tsvetan Rouschev), licence (CC BY-NC-ND 4.0), and the
@@ -396,3 +396,5 @@ export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theorem
 
 export { discover, superposition, rigid, type Value as DiscoverValue, type Relation } from './discover.js'
 
+
+export { school, courses, type School, type Course, type Section } from './school.js'

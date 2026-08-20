@@ -71,11 +71,11 @@
       "what": "The backlog holds 311 keys; two other places say 313. one-receipt.ts:338 already documents this exact drift, so the fix landed in one comment and not the other two."
     },
     {
-      "severity": "high",
+      "severity": "medium",
       "where": "src/scripts/quantum-school.ts (907 lines), docs/school.md (546 lines), src/oeapi.ts",
-      "what": "The school is chaotic and unusable and must be rebuilt from scratch against a stated information architecture: name/mission, ENROLLMENT requirements and application, grade levels and courses, academic calendar and dates, tuition or free-public-school status, technology requirements, student handbook and policies, teacher and counsellor information, FAQ, contact and technical support, and news/announcements/clubs/events.",
+      "what": "PARTIALLY ADDRESSED. src/school.ts computes all eleven sections from the ledger — courses ARE the 72 proof wings, lesson counts ARE the theorems in them, and the accreditation section states plainly that uuidna is NOT accredited (asserted in src/tests/school.test.ts, including that no phrasing may imply an accrediting body). The school is chaotic and unusable and must be rebuilt from scratch against a stated information architecture: name/mission, ENROLLMENT requirements and application, grade levels and courses, academic calendar and dates, tuition or free-public-school status, technology requirements, student handbook and policies, teacher and counsellor information, FAQ, contact and technical support, and news/announcements/clubs/events.",
       "reproduce": "read docs/school.md and quantum-school.ts; neither presents a navigable structure a reader could enrol from",
-      "fix": "Rebuild COMPUTED from the ledger, not authored: courses derive from the proof wings, the calendar from the release cron, policies from the projects own encoded laws. HONEST SCOPE IS BINDING HERE — uuidna is NOT an accredited school and the accreditation section must say so plainly rather than imply otherwise; enrolment must not collect personal data; tuition is free. A page that implies accreditation it does not hold would be the one overclaim this ledger cannot make."
+      "fix": "REMAINING: render these sections into docs/school.md and the OEAPI surface, and retire the 907-line quantum-school.ts and 546-line docs/school.md that the computed model replaces. src/school-apis.ts is available as the external data layer (ESCO skills, Eurostat enrolment, GISCO directory). The data model and its constraints are done; the rendering and the retirement are not."
     }
   ],
   "fixed": [
