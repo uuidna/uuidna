@@ -91,6 +91,14 @@
       "reproduce": "count them; then note that measure.js already registers six measurements behind one call, which is the shape the other four should fold into",
       "fix": "FOLD, do not add. The good precedents are already here and each REPLACED N entry points with one: gate-all took 30 chain steps into a single concurrent pass, measure --all took six one-liners into one receipted call, searchAll took six libraries into one search, handleOf took three derivations of a handle into one, exercise-dormant took 32 unrun scripts into one roster. Register rosetta, exercise-dormant, discover and trial-protocol INTO measure so there is one command, one receipt, and one obvious way in; retire the thin npm wrappers in favour of the x dispatcher, which the scripts finder already asks for. NOT a sixth entry point. The aggregate is the defect, not any single addition — 27 files were added in one session, each defensible alone.",
       "caution": "A count of scripts no npm script names is NOT a count of dead scripts: 72 lean-* wing emitters are discovered from disk by lean-all by design, and others are invoked by siblings. Measure invocation, not naming, or this fold will delete working code."
+    },
+    {
+      "severity": "high",
+      "where": "src/mcp.ts and src/mcp-http.ts — the tool catalogue served to every client",
+      "what": "Loading the MCP catalogue costs about 43,637 tokens PER CONNECTION (174,548 bytes for 190 tools), and 130,851 bytes of that — 75% — is tool DESCRIPTIONS. The median description is 646 bytes and the longest is 2,849. Every agent pays this before it can do anything, on every connection, whether or not it uses a single tool.",
+      "reproduce": "JSON.stringify the catalogue name/description/inputSchema triples and measure; then sum description bytes alone",
+      "fix": "Cap the catalogue description at roughly 200 bytes — one sentence saying what the tool does and when to reach for it — and move the reasoning behind it to a resource the agent fetches ONLY if it calls the tool. Capping saves an estimated 23477 tokens per connection. Then a finder asserts the cap, or it regrows: the four longest descriptions are all RECENT additions (school_apis, oeapi, grow_life, rosetta_legs), which is how it got here.",
+      "caution": "The prose in those descriptions is genuinely load-bearing here — it is where honest scope is stated, and this project states scope constantly. Do not delete it; MOVE it. A capped description that drops the honest-scope clause would trade tokens for exactly the property the ledger exists to hold."
     }
   ],
   "fixed": [
