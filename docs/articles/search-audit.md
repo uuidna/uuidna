@@ -19,9 +19,9 @@ the hard gate of the corroboration law.
 | `8ead66a0` | zenodo.org | zenodo record 21759908: TWO-STAGE CLASSIFICATION ARCHITECTURES IN MODERN OBJECT DETECTION: FROM REGION P | UNVERIFIED | VERIFIED |
 | `e2fa2ca2` | zenodo.org | zenodo record 3508070: Building... then crossing bridges in support of open research | UNVERIFIED | VERIFIED |
 | `a69a2116` | zenodo.org | zenodo record 8384083: A dataset of open-source android applications collected from F-droid | UNVERIFIED | VERIFIED |
+| `b6add05f` | zenodo.org | zenodo record 5926112: Thelepus cincinnatus | UNVERIFIED | VERIFIED |
+| `c3f398aa` | zenodo.org | zenodo record 8344603: On-site testing of VOC detectors for Indoor Air Quality assessment | UNVERIFIED | VERIFIED |
 | `b3f8cdc1` | zenodo.org | zenodo record 1078514: Assessing Post-Detection Filters for a Generic Pedestrian Detector in a Tracking | UNVERIFIED | VERIFIED |
-| `a6580660` | zenodo.org | zenodo record 10926483: Raw data for "Deep mouse brain two-photon near-infrared fluorescence imaging usi | UNVERIFIED | VERIFIED |
-| `fa7e3ea8` | zenodo.org | zenodo record 6969827: G-Networks that Detect Different Types of Cyberattacks | UNVERIFIED | VERIFIED |
 | `25a8a845` | crossref.org | DOI 10.1142/9789812819093_0107: IGNORED DISCOVERY NOW PROVEN CAPABLE OF SAVING MILLIONS OF LIVES FROM PREMATURE  | UNVERIFIED | VERIFIED |
 | `54ea419e` | crossref.org | DOI 10.7591/cornell/9781501750373.003.0001: Introduction | UNVERIFIED | VERIFIED |
 | `d4942777` | crossref.org | DOI 10.53347/rid-161861: amyloid biopsy proven | UNVERIFIED | VERIFIED |
@@ -30,24 +30,16 @@ the hard gate of the corroboration law.
 | `828360ce` | crossref.org | DOI 10.1093/oed/1040001202: non-proven, adj. | UNVERIFIED | VERIFIED |
 | `40ce8897` | crossref.org | DOI 10.1007/978-1-4020-2867-0_7: BHDL: Principles and tools for generating proven hardware | UNVERIFIED | VERIFIED |
 | `1d2aa0f7` | crossref.org | DOI 10.7591/cornell/9781501750373.001.0001: The Ascent of Market Efficiency | UNVERIFIED | VERIFIED |
-| `8df20b84` | semanticscholar.org | S2 YOLOv12: Attention-Centric Real-Time Object Detectors — AI tldr: This paper proposes an attention-centric YOLO framework, namely YOLOv12, that matches the  | UNVERIFIED | VERIFIED |
-| `fafe734f` | semanticscholar.org | S2 Improving Generalization of Deepfake Detectors by Imposing G | UNVERIFIED | VERIFIED |
-| `47b287b8` | semanticscholar.org | S2 Explainable and Transferable Adversarial Attack for ML-Based — AI tldr: ETA, an Explainable Transfer-based Opaque-Box Adversarial Attack framework, provides a gen | UNVERIFIED | VERIFIED |
-| `7c2a2205` | semanticscholar.org | S2 How About Bug-Triggering Paths? - Understanding and Characte | UNVERIFIED | VERIFIED |
-| `6c46a9a6` | semanticscholar.org | S2 Beyond Fidelity: Explaining Vulnerability Localization of Le — AI tldr: This study evaluates the performance of ten explanation approaches for vulnerability detec | UNVERIFIED | VERIFIED |
-| `c58a1b10` | semanticscholar.org | S2 Accelerating Iteratively Linear Detectors in Multi-User (ELA — AI tldr: It is proven that the e-channel matrix is better conditioned than the original MIMO channe | UNVERIFIED | VERIFIED |
-| `e559c415` | semanticscholar.org | S2 LLM Detectors Still Fall Short of Real World: Case of LLM-Ge — AI tldr: It is demonstrated that existing LLM detectors, whether zero-shot or purpose-trained, are  | UNVERIFIED | VERIFIED |
-| `7a6e2aff` | semanticscholar.org | S2 DAP: A Dynamic Adversarial Patch for Evading Person Detector — AI tldr: A novel approach that produces a Dynamic Adversarial Patch that maintains a naturalistic a | UNVERIFIED | VERIFIED |
 | `926ffed1` | openalex.org | OpenAlex The LHCb Detector at the LHC [Particle Detector Development ] | UNVERIFIED | VERIFIED |
 | `deb4b688` | openalex.org | OpenAlex DSSD : Deconvolutional Single Shot Detector [Advanced Neural Network Applic] | UNVERIFIED | VERIFIED |
 | `0019e8cb` | openalex.org | OpenAlex Massive MIMO in the UL/DL of Cellular Networks: How Many Antennas Do W [Advanced MIMO Systems Optimiza] | UNVERIFIED | VERIFIED |
 | `75da3941` | openalex.org | OpenAlex ADJUST: An automatic EEG artifact detector based on the joint use of s [EEG and Brain-Computer Interfa] | UNVERIFIED | VERIFIED |
 | `19c2f3b2` | openalex.org | OpenAlex A Review of Accelerometry-Based Wearable Motion Detectors for Physical [Context-Aware Activity Recogni] | UNVERIFIED | VERIFIED |
-| `cd21a41c` | openalex.org | OpenAlex A Multi-Modal Distributed Real-Time IoT System for Urban Traffic Contr [Advanced Image and Video Retri] | UNVERIFIED | VERIFIED |
 | `9bad770f` | openalex.org | OpenAlex Letter of Intent: The Hyper-Kamiokande Experiment --- Detector Design  [Neutrino Physics Research] | UNVERIFIED | VERIFIED |
+| `cd21a41c` | openalex.org | OpenAlex A Multi-Modal Distributed Real-Time IoT System for Urban Traffic Contr [Advanced Image and Video Retri] | UNVERIFIED | VERIFIED |
 | `4ea15c23` | openalex.org | OpenAlex Performance test of an LSO-APD detector in a 7-T MRI scanner for simul [Medical Imaging Techniques and] | UNVERIFIED | VERIFIED |
 
-**32 findings · 32 usable search-trial combinations · receipt `e646cfbb`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `148982b8`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

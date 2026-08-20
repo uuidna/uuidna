@@ -37,9 +37,9 @@ the hard gate of the corroboration law.
 | `a18a0b4e` | openalex.org | OpenAlex Uses and abuses of EIDORS: an extensible software base for EIT [Electrical and Bioimpedance To] | UNVERIFIED | VERIFIED |
 | `e2b4ac02` | openalex.org | OpenAlex Program Logics for Certified Compilers [Logic, programming, and type s] | UNVERIFIED | VERIFIED |
 | `360870e2` | openalex.org | OpenAlex xJsnark: A Framework for Efficient Verifiable Computation [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
-| `409b8ef6` | openalex.org | OpenAlex Verifiable Delay Functions from Supersingular Isogenies and Pairings [Cryptography and Residue Arith] | UNVERIFIED | VERIFIED |
+| `5d3717a1` | openalex.org | OpenAlex Prospects for an engineering discipline of software [Software Engineering Technique] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `d44cec22`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `f53e7f18`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

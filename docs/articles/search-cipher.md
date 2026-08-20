@@ -14,14 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `029d08a5` | zenodo.org | zenodo record 16437883: Abstract of Meteorological Observations for the Month of April, 1853 | UNVERIFIED | VERIFIED |
-| `e82bf0af` | zenodo.org | zenodo record 16439540: Abstract of the Meteorological Register | UNVERIFIED | VERIFIED |
-| `4e7321e1` | zenodo.org | zenodo record 16244744: Proceedings of the Asiatic Society of Bengal, for January, 1861 | UNVERIFIED | VERIFIED |
-| `33891b72` | zenodo.org | zenodo record 16140616: Proceedings of the Asiatic Society of Bengal, for September, 1854 | UNVERIFIED | VERIFIED |
-| `1fd09e0f` | zenodo.org | zenodo record 16164042: Notice of Some Counterfeit Bactriun Coins | UNVERIFIED | VERIFIED |
-| `85f12907` | zenodo.org | zenodo record 15888933: A Comparative Essay on the Ancient Geography of India | UNVERIFIED | VERIFIED |
-| `ff2179e3` | zenodo.org | zenodo record 1623682: Remarks on Prof. Huxley's proposed Classification of Birds | UNVERIFIED | VERIFIED |
-| `ed98fe90` | zenodo.org | zenodo record 16448677: Account of Further Intercourse with the Native of the Andaman Islands | UNVERIFIED | VERIFIED |
+| `a77f5d88` | zenodo.org | zenodo record 16057963: Literary Intelligence | UNVERIFIED | VERIFIED |
+| `d88fd87a` | zenodo.org | zenodo record 2286557: Herstellung kolloider Lösungen durch Zerstäubung von Metallen mit ultraviolettem | UNVERIFIED | VERIFIED |
+| `2b77ec73` | zenodo.org | zenodo record 16005104: Meteorological Observations Abstract of the Results of the Hourly Meteorological | UNVERIFIED | VERIFIED |
+| `ff29f516` | zenodo.org | zenodo record 16058548: Meteorological Register kept at Rangoon | UNVERIFIED | VERIFIED |
+| `bb37fbf8` | zenodo.org | zenodo record 16070057: Literary and Misccllaneous Intelligence | UNVERIFIED | VERIFIED |
+| `307ce972` | zenodo.org | zenodo record 16188934: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
+| `df04ade0` | zenodo.org | zenodo record 16023483: Literary Intelligence | UNVERIFIED | VERIFIED |
+| `71f2dcf5` | zenodo.org | zenodo record 16140517: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
 | `5704ff8a` | crossref.org | DOI 10.18178/ijmlc.2019.9.3.801: A Complex Transformation of Monoalphabetic Cipher to Polyalphabetic Cipher: (Vig | UNVERIFIED | VERIFIED |
 | `82443aa6` | crossref.org | DOI 10.1117/12.2237570.5178981884001:  | UNVERIFIED | VERIFIED |
 | `5020ba9c` | crossref.org | DOI 10.36341/rabit.v11i1.7490: EVALUASI PERFORMA ALGORITMA HILL CIPHER DAN AFFINE CIPHER PADA PENGAMANAN DATA P | UNVERIFIED | VERIFIED |
@@ -37,9 +37,9 @@ the hard gate of the corroboration law.
 | `49840c6b` | openalex.org | OpenAlex Ciphers and Executioners: How 3′-Untranslated Regions Determine the Fa [RNA Research and Splicing] | UNVERIFIED | VERIFIED |
 | `c99121e9` | openalex.org | OpenAlex DNA Strands Level Scrambling Based Color Image Encryption Scheme [Chaos-based Image/Signal Encry] | UNVERIFIED | VERIFIED |
 | `76c0fb9c` | openalex.org | OpenAlex Genome Engineering With Zinc-Finger Nucleases [CRISPR and Genetic Engineering] | UNVERIFIED | VERIFIED |
-| `d0eeea84` | openalex.org | OpenAlex A DNA sticker algorithm for bit-substitution in a block cipher [DNA and Biological Computing] | UNVERIFIED | VERIFIED |
+| `6933466c` | openalex.org | OpenAlex Dynamic 3D scrambled image based RGB image encryption scheme using hyp [Chaos-based Image/Signal Encry] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `63ae54a1`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `5029fd86`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

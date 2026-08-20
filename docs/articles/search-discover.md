@@ -16,8 +16,8 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `09f2c587` | zenodo.org | zenodo record 21947143: Computational Self-Discovered Mathematics (CSDM) | UNVERIFIED | VERIFIED |
 | `fb59cf83` | zenodo.org | zenodo record 21947253: 计算智能宇宙分类学 | UNVERIFIED | VERIFIED |
-| `3a4e0488` | zenodo.org | zenodo record 18720470: The Big Question: Is Mathematics Discovered or Invented? | UNVERIFIED | VERIFIED |
 | `a5a072cd` | zenodo.org | zenodo record 16620515: Emotion Formation through AI's Experience and Socialization Human Ver4 | UNVERIFIED | VERIFIED |
+| `3a4e0488` | zenodo.org | zenodo record 18720470: The Big Question: Is Mathematics Discovered or Invented? | UNVERIFIED | VERIFIED |
 | `cf02b356` | zenodo.org | zenodo record 1640024: Breaches of Confidence and Medical Fees at Assurance Offices. | UNVERIFIED | VERIFIED |
 | `694f44c2` | zenodo.org | zenodo record 1959072: Small-Pox Accompanying Vaccination. | UNVERIFIED | VERIFIED |
 | `a00427af` | zenodo.org | zenodo record 2146140: Medical Fees at Assurance Offices. | UNVERIFIED | VERIFIED |
@@ -28,8 +28,8 @@ the hard gate of the corroboration law.
 | `19b428e6` | crossref.org | DOI 10.30965/9789004398030_003: Boccaccio as Homer: A Recently Discovered Self-portrait and the ‘modern’ Canon | UNVERIFIED | VERIFIED |
 | `965e3684` | crossref.org | DOI 10.3102/2101375: Expansive Learning as a Catalyst for Cultural Competency Action Discovered Throu | UNVERIFIED | VERIFIED |
 | `ecddb019` | crossref.org | DOI 10.64628/aai.69vnjf3nv: Space radiation can damage satellites − my team discovered that a next-generatio | UNVERIFIED | VERIFIED |
-| `a577da2b` | crossref.org | DOI 10.26434/chemrxiv-2022-q6pqt-v2: Multiple Routes to Bicontinuous Cubic Liquid Crystal Phases Discovered by High-T | UNVERIFIED | VERIFIED |
 | `98dd6d3b` | crossref.org | DOI 10.26434/chemrxiv-2022-q6pqt: Multiple Routes to Bicontinuous Cubic Liquid Crystal Phases Discovered by High-T | UNVERIFIED | VERIFIED |
+| `a577da2b` | crossref.org | DOI 10.26434/chemrxiv-2022-q6pqt-v2: Multiple Routes to Bicontinuous Cubic Liquid Crystal Phases Discovered by High-T | UNVERIFIED | VERIFIED |
 | `e5334c62` | openalex.org | OpenAlex Culture and the self: Implications for cognition, emotion, and motivat [Cultural Differences and Value] | UNVERIFIED | VERIFIED |
 | `99470886` | openalex.org | OpenAlex Discovering Statistics Using Ibm Spss Statistics [Online and Blended Learning] | UNVERIFIED | VERIFIED |
 | `035fc1a9` | openalex.org | OpenAlex The self-organizing map [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
@@ -37,9 +37,9 @@ the hard gate of the corroboration law.
 | `72a741c5` | openalex.org | OpenAlex Exploring the sequence space for (tri-)peptide self-assembly to design [Supramolecular Self-Assembly i] | UNVERIFIED | VERIFIED |
 | `84b3a1e2` | openalex.org | OpenAlex The Man Who Comes Back through the Door in the Wall: Discovering Truth [Evaluation and Performance Ass] | UNVERIFIED | VERIFIED |
 | `6bdc8156` | openalex.org | OpenAlex Helpseeking for self-discovered breast symptoms. Implications for earl [Global Cancer Incidence and Sc] | UNVERIFIED | VERIFIED |
-| `fa2c450e` | openalex.org | OpenAlex Self-organizing neural network that discovers surfaces in random-dot s [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
+| `cad651ce` | openalex.org | OpenAlex Help Seeking Behavior of Women with Self-Discovered Breast Cancer Symp [Cancer survivorship and care] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `451a7e63`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `3c187ddd`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

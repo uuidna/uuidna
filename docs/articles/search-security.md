@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The layered defence
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The layered defence* — the wing sealed in [lean/Security.lean](/lean/Security.lean) with **7 theorems**. Each
+asked in parallel about *The layered defence* — the wing sealed in [lean/Security.lean](/lean/Security.lean) with **9 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -48,7 +48,9 @@ The sealed backing this trial held the findings beside:
 - [two_layers_multiply_space](/theorem/two_layers_multiply_space) — `2^8 * 2^8 = 2^16`
 - [each_key_bit_doubles](/theorem/each_key_bit_doubles) — `2^11 = 2 * 2^10`
 - [birthday_halves_the_exponent](/theorem/birthday_halves_the_exponent) — `2 * 64 = 128`
+- [collisions_under_one](/theorem/collisions_under_one) — `(72 * 71 / 2 = 2556) ∧ (14 * 13 / 2 = 91) ∧ (91 < 2556)`
 - [verify_cheaper_than_forge](/theorem/verify_cheaper_than_forge) — `16 < 2^16`
+- [wait_covers_margin](/theorem/wait_covers_margin) — `(40 * 15 = 600) ∧ ((9 - 2) * 60 = 420) ∧ (600 > 420)`
 - [no_maximum_only_bounds](/theorem/no_maximum_only_bounds) — `2^8 < 2^9`
 
 ::: warning HONEST SCOPE

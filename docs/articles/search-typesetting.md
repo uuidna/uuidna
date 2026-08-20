@@ -19,9 +19,9 @@ the hard gate of the corroboration law.
 | `ff7d730f` | zenodo.org | zenodo record 11121120: Radiofrequency Measuring Receiver with Spectrum Analyzer Function as a Tool for  | UNVERIFIED | VERIFIED |
 | `bb4fd308` | zenodo.org | zenodo record 17802131: VNA with two coils impedance measurement data | UNVERIFIED | VERIFIED |
 | `4b970ff9` | zenodo.org | zenodo record 1317529: ДЕЯКІ ПРОЦЕСУАЛЬНІ СКЛАДНОЩІ  У ВИКОНАННІ ЗАВДАНЬ КРИМІНАЛЬНОГО ПРОВАДЖЕННЯ | UNVERIFIED | VERIFIED |
-| `02799a58` | zenodo.org | zenodo record 18513988: Fingertip Injuries: From Current Epidemiology in Mexico to Reconstructive Option | UNVERIFIED | VERIFIED |
 | `b91f075c` | zenodo.org | zenodo record 4966370: Implementation of Innovations into Educational and Correctional Work in Groups f | UNVERIFIED | VERIFIED |
-| `9b498729` | zenodo.org | zenodo record 375962: RegMeasures/XChannel: XChannel v1 | UNVERIFIED | VERIFIED |
+| `b1d871b1` | zenodo.org | zenodo record 18522824: INNOVATIVE MANAGEMENT TECHNOLOGIES IN PRESCHOOL EDUCATION | UNVERIFIED | VERIFIED |
+| `02799a58` | zenodo.org | zenodo record 18513988: Fingertip Injuries: From Current Epidemiology in Mexico to Reconstructive Option | UNVERIFIED | VERIFIED |
 | `d8514743` | crossref.org | DOI 10.1515/9783112231463-007: Bibliography | UNVERIFIED | VERIFIED |
 | `4007b008` | crossref.org | DOI 10.1515/9783112231463-005: 4775 Gibbs measures associated with Feynman–Kac semigroups | UNVERIFIED | VERIFIED |
 | `5c83aee5` | crossref.org | DOI 10.1787/888933389290: Figure 2.15. Non-tariff-measures by type | UNVERIFIED | VERIFIED |
@@ -30,8 +30,16 @@ the hard gate of the corroboration law.
 | `d19afe78` | crossref.org | DOI 10.1515/9783112231463-008: 583584585586587588589590591Index | UNVERIFIED | VERIFIED |
 | `7282cdd3` | crossref.org | DOI 10.1515/9783112231463-003: 1473 Lévy processes | UNVERIFIED | VERIFIED |
 | `3df32ed0` | crossref.org | DOI 10.1515/9783112231463-002: 82 Brownian motion | UNVERIFIED | VERIFIED |
+| `937b76ca` | openalex.org | OpenAlex Development of an instrument for measuring different types of cognitiv [Visual and Cognitive Learning ] | UNVERIFIED | VERIFIED |
+| `08b04445` | openalex.org | OpenAlex C-Peptide Is the Appropriate Outcome Measure for Type 1 Diabetes Clini [Pancreatic function and diabet] | UNVERIFIED | VERIFIED |
+| `1292c65a` | openalex.org | OpenAlex Measuring New Types of Question-Order Effects [Expert finding and Q&A systems] | UNVERIFIED | VERIFIED |
+| `ea4a18fb` | openalex.org | OpenAlex The Measurement of Observer Agreement for Categorical Data [Reliability and Agreement in M] | UNVERIFIED | VERIFIED |
+| `2a293e8a` | openalex.org | OpenAlex Clinical Dementia Rating: A Reliable and Valid Diagnostic and Staging  [Dementia and Cognitive Impairm] | UNVERIFIED | VERIFIED |
+| `e153a289` | openalex.org | OpenAlex Information-type measures of difference of probability distributions a [Bayesian Methods and Mixture M] | UNVERIFIED | VERIFIED |
+| `fe518dea` | openalex.org | OpenAlex Common method biases in behavioral research: A critical review of the  [Behavioral and Psychological S] | UNVERIFIED | VERIFIED |
+| `170248fc` | openalex.org | OpenAlex A Radioisotopic Method to Measure Delayed Type Hypersensitivity in the [Vitamin D Research Studies] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `a9588388`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `6d0aa3c0`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

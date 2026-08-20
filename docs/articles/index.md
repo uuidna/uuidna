@@ -36,7 +36,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The field domain](/articles/electromagnetism) | 13 |
 | [The time coordinate](/articles/ephemeris) | 8 |
 | [The exploit folds](/articles/exploits) | 13 |
-| [The Glagolitic numerals & Pliska rosette](/articles/glagolitic) | 6 |
+| [The Glagolitic numerals & Pliska rosette](/articles/glagolitic) | 10 |
 | [The hardware-verifiable binary algebra](/articles/hardware) | 14 |
 | [The harmony of pairs](/articles/harmony) | 8 |
 | [The identifiers](/articles/identifiers) | 6 |
@@ -59,24 +59,24 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [Propulsion — Newtonian & bounded](/articles/propulsion) | 5 |
 | [The instrument](/articles/psychology) | 8 |
 | [The quantum computer](/articles/quantum) | 50 |
-| [The rules of inference](/articles/reasoning) | 20 |
+| [The rules of inference](/articles/reasoning) | 25 |
 | [The spacetime domain](/articles/relativity) | 8 |
 | [The report](/articles/report) | 8 |
 | [The ring ℤ/9](/articles/ring) | 234 |
 | [The rosette ℤ/7](/articles/rosette) | 148 |
-| [The points-of-sail domain](/articles/sailing) | 8 |
+| [The points-of-sail domain](/articles/sailing) | 9 |
 | [Quantum sailing seals](/articles/sailing-seals) | 13 |
 | [The sanitise standards](/articles/sanitize) | 7 |
-| [The layered defence](/articles/security) | 7 |
-| [The sequence & reflection group](/articles/sequence) | 27 |
+| [The layered defence](/articles/security) | 9 |
+| [The sequence & reflection group](/articles/sequence) | 28 |
 | [The software-verifiable algebra](/articles/software) | 11 |
 | [The Platonic solids in every dimension](/articles/solids) | 12 |
 | [The spectrum](/articles/spectrum) | 8 |
 | [The structures domain](/articles/statics) | 8 |
 | [Maxwell's rule](/articles/structures) | 3 |
-| [The energy domain](/articles/thermodynamics) | 8 |
+| [The energy domain](/articles/thermodynamics) | 12 |
 | [The tides](/articles/tides) | 7 |
-| [The lay of the land](/articles/topography) | 13 |
+| [The lay of the land](/articles/topography) | 18 |
 | [The measures of type](/articles/typesetting) | 14 |
 | [The uuid mix space](/articles/uuid-mix) | 1 |
 | [The vortex algebra](/articles/uuidna) | 15 |

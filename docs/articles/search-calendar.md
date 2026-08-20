@@ -18,8 +18,8 @@ the hard gate of the corroboration law.
 | `e118809d` | zenodo.org | zenodo record 10943680: kalendar | UNVERIFIED | VERIFIED |
 | `a56c83d3` | zenodo.org | zenodo record 2702057: DEMOGRAPHY IN PERSONS, EVENTS, DOCUMENTS. MEMORABLE DATES 2017. | UNVERIFIED | VERIFIED |
 | `dd624736` | zenodo.org | zenodo record 3485139: DEMOGRAPHY IN PERSONS, EVENTS, DOCUMENTS. MEMORABLE DATES 2017. | UNVERIFIED | VERIFIED |
-| `0f0ebe14` | zenodo.org | zenodo record 12777444: Ficedula tricolor subsp. diversa Vaurie 1953 | UNVERIFIED | VERIFIED |
 | `3c0c4de4` | zenodo.org | zenodo record 15615636: An Interview About Shepseskaf | UNVERIFIED | VERIFIED |
+| `0f0ebe14` | zenodo.org | zenodo record 12777444: Ficedula tricolor subsp. diversa Vaurie 1953 | UNVERIFIED | VERIFIED |
 | `7b2a7979` | zenodo.org | zenodo record 4382331: East Asian calendar conversion database | UNVERIFIED | VERIFIED |
 | `1c928475` | zenodo.org | zenodo record 12573961: Cakawi [sic] Cam 1969 | UNVERIFIED | VERIFIED |
 | `ebc70768` | crossref.org | DOI 10.1093/0198270348.003.0005: Calendar and Community: The Emergence of the Normative Jewish Calendar | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `40174380` | openalex.org | OpenAlex Hidden Rhythms: Schedules and Calendars in Social Life [Globalization and Cultural Ide] | UNVERIFIED | VERIFIED |
 | `93c58005` | openalex.org | OpenAlex An accelerated calendar and cycle life study of Li-ion cells [Advanced Battery Technologies ] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `ac1d766a`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `4c421fb6`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -19,8 +19,8 @@ the hard gate of the corroboration law.
 | `b9bcd87b` | zenodo.org | zenodo record 14759468: KINETIC CITIES: VIABILITY OF ADAPTABLE PNP CONTAINER MODULES FOR SMART LIVING | UNVERIFIED | VERIFIED |
 | `075160cf` | zenodo.org | zenodo record 17402306: Newton's Laws of Motion | UNVERIFIED | VERIFIED |
 | `caa7fc74` | zenodo.org | zenodo record 20589605: Automated human tracheal morphometrics using deep learning: toward custom trache | UNVERIFIED | VERIFIED |
-| `d22fad72` | zenodo.org | zenodo record 10517335: Data inputs and results from AI-supported title and abstract screening "Lack of  | UNVERIFIED | VERIFIED |
 | `8aae29a3` | zenodo.org | zenodo record 16883017: The Benefits of Cooperative Teaching Applied Through Projects to Improve Learnin | UNVERIFIED | VERIFIED |
+| `d22fad72` | zenodo.org | zenodo record 10517335: Data inputs and results from AI-supported title and abstract screening "Lack of  | UNVERIFIED | VERIFIED |
 | `695bdbb7` | zenodo.org | zenodo record 18071417: AI in Clinical Neurophysiology:  from IED detection to neuroprognostication. | UNVERIFIED | VERIFIED |
 | `2c2b7b26` | crossref.org | DOI 10.53053/etef6279: Introducing ‘Synaptic,’ a new podcast from Spectrum | UNVERIFIED | VERIFIED |
 | `ce9b2aae` | crossref.org | DOI 10.53053/afoh9532: Community Newsletter: Ethical review boards, Spectrum 10K, participatory tips | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `0556d374` | openalex.org | OpenAlex Spectrum estimation and harmonic analysis [Image and Signal Denoising Met] | UNVERIFIED | VERIFIED |
 | `973d15cb` | openalex.org | OpenAlex Secure spread spectrum watermarking for multimedia [Advanced Steganography and Wat] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `1defe304`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `30521cb0`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

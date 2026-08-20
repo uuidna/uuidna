@@ -16,20 +16,20 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `a4c9a73c` | zenodo.org | zenodo record 15030313: A Note on Geometric Algebra and Neural Networks | UNVERIFIED | VERIFIED |
 | `1d64b2b3` | zenodo.org | zenodo record 16285606: The commercial exploitation of the freshwater pearl mussel, Margaritifera margar | UNVERIFIED | VERIFIED |
-| `4fb148c5` | zenodo.org | zenodo record 1326385: The 4th Newsletter of the Patient Empowerment through Predictive Personalised De | UNVERIFIED | VERIFIED |
 | `640437e3` | zenodo.org | zenodo record 16970139: Erratum to: MOrphOlOgical and mOlecular evidence OF the Occurrence OF Artibeus a | UNVERIFIED | VERIFIED |
+| `4fb148c5` | zenodo.org | zenodo record 1326385: The 4th Newsletter of the Patient Empowerment through Predictive Personalised De | UNVERIFIED | VERIFIED |
 | `0db76dba` | zenodo.org | zenodo record 16643208: The corrosion of shells in cabinets | UNVERIFIED | VERIFIED |
 | `c7505772` | zenodo.org | zenodo record 16254409: Snail Shells under Starling Roosts | UNVERIFIED | VERIFIED |
 | `33484d93` | zenodo.org | zenodo record 13256706: Book Review | UNVERIFIED | VERIFIED |
-| `54c2e844` | zenodo.org | zenodo record 16152939: Official Canadian Record of Bird-Banding Returns | UNVERIFIED | VERIFIED |
+| `a15f54f2` | zenodo.org | zenodo record 3460283: Vienna Oriental Journal 5 (1891) | UNVERIFIED | VERIFIED |
 | `649c70a3` | crossref.org | DOI 10.4028/www.scientific.net/amr.187.319: Geometric Algebra Neuron for SAR Automation Target Recognition | UNVERIFIED | VERIFIED |
 | `7db9b261` | crossref.org | DOI 10.1109/tnn.2003.809427: Lattice algebra approach to single-neuron computation | UNVERIFIED | VERIFIED |
 | `900ed8c5` | crossref.org | DOI 10.1007/978-3-642-01216-7_45: Geometry Algebra Neuron Based on Biomimetic Pattern Recognition | UNVERIFIED | VERIFIED |
 | `7b78a0ca` | crossref.org | DOI 10.7717/peerj-cs.3184/fig-2: Figure 2: Representation of neuron models: (A) artificial neuron. (B) spiking ne | UNVERIFIED | VERIFIED |
 | `dc23c14f` | crossref.org | DOI 10.1016/0896-6273(88)90159-6: Neuron reviewers | UNVERIFIED | VERIFIED |
 | `f6f5ff60` | crossref.org | DOI 10.1016/0896-6273(94)90433-2: Neuron reviewers | UNVERIFIED | VERIFIED |
-| `544f2c0d` | crossref.org | DOI 10.1016/0896-6273(90)90351-f: Neuron reviewers | UNVERIFIED | VERIFIED |
 | `dd62e1a4` | crossref.org | DOI 10.1016/s0896-6273(02)01141-8: Neuron Reviewers | UNVERIFIED | VERIFIED |
+| `311ff3df` | crossref.org | DOI 10.1016/s0896-6273(03)00812-2: Neuron Reviewer | UNVERIFIED | VERIFIED |
 | `f10b2399` | openalex.org | OpenAlex The Variable Discharge of Cortical Neurons: Implications for Connectiv [Neural dynamics and brain func] | UNVERIFIED | VERIFIED |
 | `93e9ae84` | openalex.org | OpenAlex Lattice algebra approach to single-neuron computation [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 | `7885cdc7` | openalex.org | OpenAlex The Algebraic Mind: Integrating Connectionism and Cognitive Science [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `2e402279` | openalex.org | OpenAlex Neuronal activity in the vestibular nuclei of the alert monkey during  [Visual perception and processi] | UNVERIFIED | VERIFIED |
 | `847e42e1` | openalex.org | OpenAlex On Clifford neurons and Clifford multi-layer perceptrons [Neural Networks and Applicatio] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `8ba7fb6c`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `e8857031`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

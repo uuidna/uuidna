@@ -14,11 +14,11 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `1fd62786` | zenodo.org | zenodo record 15353840: HOLLOW VICTORY HEAPS | UNVERIFIED | VERIFIED |
 | `b2ed5afb` | zenodo.org | zenodo record 2432221: LXXXVI. The effect of magnetic fields on resistance .—II | UNVERIFIED | VERIFIED |
+| `1fd62786` | zenodo.org | zenodo record 15353840: HOLLOW VICTORY HEAPS | UNVERIFIED | VERIFIED |
+| `8dd89f83` | zenodo.org | zenodo record 16032247: Insect Colonization Of Drilled Tree Holes | UNVERIFIED | VERIFIED |
 | `0834ccbc` | zenodo.org | zenodo record 1510444: The Magnetostriction and Resistance of Iron and Nickel | UNVERIFIED | VERIFIED |
 | `aaa4ad3c` | zenodo.org | zenodo record 1272735: One micron laser technology advancements at GSFC. | UNVERIFIED | VERIFIED |
-| `8dd89f83` | zenodo.org | zenodo record 16032247: Insect Colonization Of Drilled Tree Holes | UNVERIFIED | VERIFIED |
 | `24db7f1d` | zenodo.org | zenodo record 8337235: On the Periodicity of Genus Sequences of Quaternary Games | UNVERIFIED | VERIFIED |
 | `0ba61af7` | zenodo.org | zenodo record 7759164: Dijkstra's Algorithm using a Fibonacci Heap, Binary Heap and Self-balancing Bina | UNVERIFIED | VERIFIED |
 | `5785aff5` | zenodo.org | zenodo record 8337228: n the Periodicity of Genus Sequences of Quaternary Games | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `994905d0` | openalex.org | OpenAlex Relaxed heaps: an alternative to Fibonacci heaps with applications to  [Complexity and Algorithms in G] | UNVERIFIED | VERIFIED |
 | `d3df8856` | openalex.org | OpenAlex An Unconnected Heap of Duties? [Political Philosophy and Ethic] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `fe3f1772`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `03823517`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

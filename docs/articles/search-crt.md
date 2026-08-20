@@ -17,8 +17,8 @@ the hard gate of the corroboration law.
 | `23260542` | zenodo.org | zenodo record 8291366: Indole-based alkaloids from Ophiocordyceps xuefengensis | UNVERIFIED | VERIFIED |
 | `1bfaa98d` | zenodo.org | zenodo record 6586857: SYNTHETIC INVESTIGATIONS IN THE FUSED RING SYSTEMS. PART I. STUDIES ON THE MICHA | UNVERIFIED | VERIFIED |
 | `63829799` | zenodo.org | zenodo record 14931909: Non-fused and fused ring non-fullerene acceptors | UNVERIFIED | VERIFIED |
-| `12ce709b` | zenodo.org | zenodo record 4984348: Data from: Proximity labeling reveals novel interactomes in live Drosophila tiss | UNVERIFIED | VERIFIED |
 | `d30986b6` | zenodo.org | zenodo record 6602722: PARACHOR OF FUSED RING STRUCTURE | UNVERIFIED | VERIFIED |
+| `12ce709b` | zenodo.org | zenodo record 4984348: Data from: Proximity labeling reveals novel interactomes in live Drosophila tiss | UNVERIFIED | VERIFIED |
 | `14fbffd8` | zenodo.org | zenodo record 6526441: Synthetic Investigations on Fused-ring Compounds. Part I. Synthesis of cis-β-Dec | UNVERIFIED | VERIFIED |
 | `5f07c554` | zenodo.org | zenodo record 15058244: Easy one step multiple condensation reactions to produce Nitrogen-containing pol | UNVERIFIED | VERIFIED |
 | `fd22dacd` | zenodo.org | zenodo record 6520091: Synthesis of Fused Ring Systems. Part I. Derivatives of 1,2,3,4,6,7,8,8a-Octahyd | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `869df8ae` | openalex.org | OpenAlex Noncovalently fused-ring electron acceptors with near-infrared absorpt [Organic Electronics and Photov] | UNVERIFIED | VERIFIED |
 | `a3ce61e6` | openalex.org | OpenAlex Fused-ring metallabenzenes [Cyclopropane Reaction Mechanis] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `46bc0133`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `3541478e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

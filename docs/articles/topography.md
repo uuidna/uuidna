@@ -1,13 +1,13 @@
 ---
 title: "The lay of the land"
-description: "Computed from lean/Topography.lean — 13 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Topography.lean — 18 sealed theorems, every claim citing its proof."
 ---
 
 # The lay of the land
 
-> TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. HONEST SCOPE: exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. — held by [contour_index_every_fifth](/theorem/contour_index_every_fifth) and its 12 siblings below.
+> TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. HONEST SCOPE: exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. — held by [contour_index_every_fifth](/theorem/contour_index_every_fifth) and its 17 siblings below.
 
-**13 theorems**, from [contour_index_every_fifth](/theorem/contour_index_every_fifth) onward, each proven `by decide` in [lean/Topography.lean](/lean/Topography.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**18 theorems**, from [contour_index_every_fifth](/theorem/contour_index_every_fifth) onward, each proven `by decide` in [lean/Topography.lean](/lean/Topography.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### A contour joins points of equal height; every fifth line is drawn heavy — the index contour — so with a 10 m interval the heavy lines fall on multiples of 50 m: [50,100,150,200] all divide by 50, while an intermediate 30 m line does not. The map lets you read height without a number on every ring.
 The ledger holds this as [contour_index_every_fifth](/theorem/contour_index_every_fifth) — proven `by decide`, sorry-free:
@@ -98,6 +98,41 @@ The ledger holds this as [naismith_rule_estimate](/theorem/naismith_rule_estimat
 
 ```lean
 (15 / 5) * 60 + (1200 / 600) * 60 = 300
+```
+
+### THE POLAR RADIUS, DERIVED IN INTEGERS. From the two WGS 84 defining constants alone — a = 6378137 m and 1/f = 298.257223563 (scaled to the exact integer 298257223563 over 10⁹) — the semi-minor axis computes as a(1/f − 1)/(1/f) = 6356752 m, and the two axes differ by exactly 21385 m. So the pole sits about 21.4 km closer to the centre than the equator does, and that number is not read off a table: it falls out of the definition by division.
+The ledger holds this as [wgs84_polar_shorter](/theorem/wgs84_polar_shorter) — proven `by decide`, sorry-free:
+
+```lean
+6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385
+```
+
+### NEWTON WAS RIGHT AND CASSINI WAS WRONG, IN ONE COMPARISON. The 18th-century dispute was a yes/no about which axis is longer: Newton predicted a spinning fluid body bulges at the equator (oblate), the Cassinis held it was stretched at the poles (prolate). On the WGS 84 figure the equatorial radius exceeds the polar, 6378137 > 6356752 — oblate. The French geodesic missions to Lapland and Peru measured which way it went; the arithmetic here only states the comparison the standard encodes.
+The ledger holds this as [oblate_not_prolate](/theorem/oblate_not_prolate) — proven `by decide`, sorry-free:
+
+```lean
+6378137 > 6356752
+```
+
+### THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 × 72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and decidable; the resulting circumference is NOT sealed here, because it depends on the length of his stadion, which is genuinely uncertain — the honest half is the fifty.
+The ledger holds this as [eratosthenes_fiftieth_circle](/theorem/eratosthenes_fiftieth_circle) — proven `by decide`, sorry-free:
+
+```lean
+3600 = 50 * 72
+```
+
+### THE HORIZON IS BOUNDED, AND THAT IS THE WHOLE POINT. On a sphere of radius R the distance to the horizon from eye height h satisfies d² ≈ 2Rh — so from 2 m up on R = 6371 km, d² = 25484000 m², bracketed exactly between 5048² and 5049²: about 5.05 km, and it GROWS ONLY AS THE SQUARE ROOT of height. A bounded horizon that scales as √h is the arithmetic signature of a curved surface; on an unbounded flat plane the sightline has no such limit. The bracket is exact integer arithmetic — no square root is taken, so nothing irrational is claimed.
+The ledger holds this as [horizon_distance_finite](/theorem/horizon_distance_finite) — proven `by decide`, sorry-free:
+
+```lean
+5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049
+```
+
+### ROTATION SHAPES THE EARTH MORE THAN MOUNTAINS DO. Summit to trench — Everest at 8849 m above sea level (the 2020 joint China–Nepal survey, 8848.86 m) and Challenger Deep at 10935 m below it (Greenaway et al. 2021, ±6 m) — the whole topographic range is 19784 m. The equatorial bulge, the difference between the WGS 84 axes, is 21385 m: LARGER, by 1601 m. So the biggest departure from a sphere is not the terrain at all; it is the flattening a spinning body takes. Two measured extremes and one derived constant, compared in integers.
+The ledger holds this as [bulge_exceeds_relief](/theorem/bulge_exceeds_relief) — proven `by decide`, sorry-free:
+
+```lean
+8849 + 10935 = 19784 ∧ 21385 > 19784
 ```
 
 

@@ -17,15 +17,15 @@ the hard gate of the corroboration law.
 | `29bdcf6c` | zenodo.org | zenodo record 15107681: Kinetics of PAA polymerization | UNVERIFIED | VERIFIED |
 | `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
 | `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
-| `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
 | `3ec8c6d6` | zenodo.org | zenodo record 15106111: Evolution in time of the storage modulus during gelification of 4 different PNA( | UNVERIFIED | VERIFIED |
-| `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
-| `3c3a523b` | zenodo.org | zenodo record 8161027: A Search Tool for Aggregated Information on Open Access | UNVERIFIED | VERIFIED |
-| `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
+| `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
+| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `452aceea` | zenodo.org | zenodo record 14128032: PM_063833_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `a21fc5c3` | crossref.org | DOI 10.1007/978-94-009-2929-6_13: The Time Domain in Intramolecular Electron Transfer Reactions | UNVERIFIED | VERIFIED |
 | `7f7a02a1` | crossref.org | DOI 10.1021/acschembio.9b00929.s001: Characterization of a Unique Interrupted Adenylation Domain That Can Catalyze Th | UNVERIFIED | VERIFIED |
-| `2640ef10` | crossref.org | DOI 10.1021/acs.jpcb.3c07988.s001: Elementary Reactions in the Functional Triads of the Blue-Light Photoreceptor BL | UNVERIFIED | VERIFIED |
 | `c3b32486` | crossref.org | DOI 10.12681/eadd/59592: Systematic studies of heavy-ion reactions in the Fermi energy domain for the pro | UNVERIFIED | VERIFIED |
+| `2640ef10` | crossref.org | DOI 10.1021/acs.jpcb.3c07988.s001: Elementary Reactions in the Functional Triads of the Blue-Light Photoreceptor BL | UNVERIFIED | VERIFIED |
 | `0a1dc395` | crossref.org | DOI 10.1021/jacs.3c03086.s006: Quinone Catalysis Modulates Proton Transfer Reactions in the Membrane Domain of  | UNVERIFIED | VERIFIED |
 | `dc341453` | crossref.org | DOI 10.1021/jacs.3c03086.s002: Quinone Catalysis Modulates Proton Transfer Reactions in the Membrane Domain of  | UNVERIFIED | VERIFIED |
 | `d32e9532` | crossref.org | DOI 10.1021/jacs.3c03086.s005: Quinone Catalysis Modulates Proton Transfer Reactions in the Membrane Domain of  | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `a35cfaa4` | openalex.org | OpenAlex Similarity searching in the Organic reaction domain [Phosphorus compounds and react] | UNVERIFIED | VERIFIED |
 | `28ca626c` | openalex.org | OpenAlex Palladium‐Catalyzed Cross‐Coupling Reactions in Total Synthesis [Catalytic Cross-Coupling React] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5cc7f210`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `3411e251`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
