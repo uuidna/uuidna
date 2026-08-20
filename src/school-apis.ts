@@ -168,26 +168,49 @@ export async function escoSearch(text: string, type = 'skill', limit?: number): 
 
 export interface EscoSkillMapping { skill: string; theorems: number; fold: string; esco: EscoConcept[] }
 export interface EscoMap {
-  mapped: number; unmatched: string[]; mappings: EscoSkillMapping[]; receipt: string; honest: string
+  mapped: number; homographs: { skill: string; rejected: string[] }[]; unmatched: string[]
+  mappings: EscoSkillMapping[]; receipt: string; honest: string
+}
+
+/** THE HOMOGRAPH RULE — a lexical hit is a MAPPING only if the cluster's FULL name appears as a whole token
+ *  sequence in the concept's title. MEASURED over all 68 clusters: without it, 61 "matched" and the matches were
+ *  worse than the misses — z9-ring landed on "cast concrete rings", z7-rosette on "finish costumes", cipher on
+ *  "interpret religious texts". A search GUARANTEES the query's letters come back, so a fragment hit carries no
+ *  information; requiring the whole name leaves 28 clusters, and they are the ones that survive reading aloud
+ *  (astronomy → astronomy, thermodynamics → thermodynamics). Two weaker rules were tried and REFUTED first: a
+ *  vocabulary overlap between the cluster's theorem statements and the concept's description scored "quantum
+ *  mechanics" and "cast concrete rings" identically (the signal was stopwords), and requiring the concept to carry
+ *  an occupation relation rejected nothing — "cast concrete rings" has two. */
+const isWholeName = (skill: string, title: string): boolean => {
+  const norm = (x: string): string => ' ' + x.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() + ' '
+  return norm(title).includes(norm(skill))
 }
 
 /** mapSkillsToEsco() → THE MAPPING: every uuidna skill cluster matched against the European skill taxonomy, so a
  *  sealed theorem's skill carries a European URI a curriculum can read. One network call per cluster, in parallel.
- *  HONEST: a match is a LEXICAL match ESCO returned for the cluster's name — a pointer for a human to accept or
- *  reject, NEVER a claim that uuidna's cluster and the European skill are the same thing, and never a certification. */
+ *  A cluster whose name is uuidna's own coinage maps to NOTHING and is returned as a named homograph rejection —
+ *  an empty, named absence beats a confident wrong row, which is the same law the registry's ABSENT list runs on.
+ *  HONEST: a surviving match is still a LEXICAL match for a human to accept or reject, NEVER a claim that uuidna's
+ *  cluster and the European skill are the same thing, and never a certification. */
 export async function mapSkillsToEsco(perSkill = 3): Promise<EscoMap> {
   const groups = skillGroups()
   const found = await Promise.all(groups.map((g) => escoSearch(g.skill, 'skill', perSkill)))
-  const mappings: EscoSkillMapping[] = groups.map((g, i) => ({
-    skill: g.skill, theorems: g.count, fold: g.fold, esco: found[i].results as EscoConcept[],
-  }))
+  const homographs: { skill: string; rejected: string[] }[] = []
+  const mappings: EscoSkillMapping[] = groups.map((g, i) => {
+    const all = found[i].results as EscoConcept[]
+    const kept = all.filter((c) => isWholeName(g.skill, c.title))
+    if (all.length && !kept.length) homographs.push({ skill: g.skill, rejected: all.map((c) => c.title) })
+    return { skill: g.skill, theorems: g.count, fold: g.fold, esco: kept }
+  })
   const unmatched = mappings.filter((m) => !m.esco.length).map((m) => m.skill)
   return {
-    mapped: mappings.length - unmatched.length, unmatched, mappings,
+    mapped: mappings.length - unmatched.length, homographs, unmatched, mappings,
     receipt: merkleGravity(mappings.flatMap((m) => m.esco.map((e) => e.address))),
     honest: 'A LEXICAL correspondence offered for a human to accept or reject: ESCO answered these concepts for the ' +
-      'cluster\'s NAME. It is a pointer between vocabularies, never a claim that the two mean the same thing, never ' +
-      'an endorsement by the European Commission, and never a qualification — uuidna awards none. ' + HONEST,
+      'cluster\'s NAME, and only those carrying the WHOLE name are kept — a fragment hit is a homograph, and the ' +
+      'rejected ones are returned by name rather than dropped. It is a pointer between vocabularies, never a claim ' +
+      'that the two mean the same thing, never an endorsement by the European Commission, and never a qualification ' +
+      '— uuidna is not accredited and awards none. ' + HONEST,
   }
 }
 

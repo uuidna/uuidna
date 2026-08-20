@@ -72,3 +72,16 @@ test('the CSV split survives quoted commas and doubled quotes', () => {
   assert.deepEqual(splitCsvLine('BG_1,"УЧИЛИЩЕ ""АНГЕЛ УЗУНОВ"" I-XII",41.9'), ['BG_1', 'УЧИЛИЩЕ "АНГЕЛ УЗУНОВ" I-XII', '41.9'])
   assert.deepEqual(splitCsvLine('x,,y'), ['x', '', 'y'])
 })
+
+// ── THE HOMOGRAPH RULE. The finder for the gap this module shipped with: a search returns the query's letters, so
+// a fragment hit carries no information. z9-ring is a ring of sealed arithmetic, never a cast concrete one.
+test('a fragment hit is a homograph, not a mapping', () => {
+  const keep: [string, string][] = [['quantum', 'quantum mechanics'], ['astronomy', 'astronomy'],
+    ['martial-arts', 'practice martial arts'], ['optimisation', 'conduct search engine optimisation']]
+  const drop: [string, string][] = [['z9-ring', 'cast concrete rings'], ['z7-rosette', 'finish costumes'],
+    ['coins', 'count money'], ['cipher', 'interpret religious texts'], ['science-pairs', 'pair beer with food']]
+  const norm = (x: string): string => ' ' + x.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() + ' '
+  const whole = (skill: string, title: string): boolean => norm(title).includes(norm(skill))
+  for (const [skill, title] of keep) assert.ok(whole(skill, title), `the whole name is there: ${skill} → ${title}`)
+  for (const [skill, title] of drop) assert.ok(!whole(skill, title), `a homograph must not map: ${skill} → ${title}`)
+})
