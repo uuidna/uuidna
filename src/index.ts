@@ -383,3 +383,5 @@ export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle,
 export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview } from './theorems/index.js'
 
 export { discover, superposition, rigid, type Value as DiscoverValue, type Relation } from './discover.js'
+
+export { schoolApiRegistry, SCHOOL_APIS, GISCO_VINTAGE, type SchoolApi, type SchoolApiRegistry } from './school-apis.js'
