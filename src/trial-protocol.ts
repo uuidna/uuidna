@@ -106,3 +106,38 @@ export function trialWithControls<T>(p: Omit<Protocol<T>, 'control'> & { control
   }
   return trial({ ...p, control: p.controls[0] })
 }
+
+/** FOLD A REFUTATION AND IT IS NOT A REFUTATION EITHER.
+ *
+ *  A refuted hypothesis is a SUPPORTED negation, from the same run, at the same strength. Nothing is re-tested;
+ *  the verdict is re-read. This session is the evidence: every one of eleven refutations yielded a positive claim.
+ *  strokes_survive_reflection refuted GAVE budget_not_conserved — the bound that survives. "42 tiles 432" refuted
+ *  gave 7 does not divide 72. "The network is down" refuted gave seven of eight hosts answering. The negation was
+ *  never a consolation for the loss; it was the finding, waiting to be pointed at.
+ *
+ *  The strength carries only because the control was rejected — a trial that could not discriminate supports no
+ *  negation either, which is why foldVoid must run first and why this refuses an unsound run. */
+export function foldRefuted(r: Result): Result {
+  if (r.outcome !== 'refuted') return r
+  if (!r.controlRejected) return r   // an unsound trial supports nothing, in either direction
+  return {
+    ...r,
+    outcome: 'supported',
+    hypothesis: `NOT (${r.hypothesis})`,
+    refutedIf: `the original holds after all: ${r.hypothesis}`,
+    why: `${r.why} Re-aimed at the negation this is SUPPORTED: refuting a claim establishes its negation, at exactly the strength the control earned.`,
+  }
+}
+
+/** The whole chain. void -> refuted (about the instrument) -> supported (of the negation). Applied until it
+ *  settles, so no verdict is a dead end and none is re-run to get there. `supported` is terminal: folding it again
+ *  would only restate that the negation is refuted, which is the same information read backwards. */
+export function fold(r: Result, limit = 4): Result {
+  let out = r
+  for (let i = 0; i < limit; i++) {
+    const next = foldRefuted(foldVoid(out))
+    if (next.outcome === out.outcome && next.hypothesis === out.hypothesis) return out
+    out = next
+  }
+  return out
+}

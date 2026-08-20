@@ -5,7 +5,7 @@
 // reported green since it was written, because nothing ever fed it a forgery.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { trial, trialWithControls, foldVoid } from '../trial-protocol.js'
+import { trial, trialWithControls, foldVoid, foldRefuted, fold } from '../trial-protocol.js'
 import { theorems, toUuid } from '../index.js'
 
 test('a test that always passes is VOID, not supported', () => {
@@ -88,4 +88,38 @@ test('the receipt identifies the TRIAL, so the same question folds to the same a
   assert.equal(a.receipt, b.receipt, 'hypothesis and criterion are what make two trials the same trial')
   const c = trial({ hypothesis: 'h', refutedIf: 'DIFFERENT', test: () => true, control: 1, subject: 1 })
   assert.notEqual(a.receipt, c.receipt, 'a changed criterion is a different trial')
+})
+
+// ── FOLDING A REFUTATION. A refuted hypothesis is a supported NEGATION, from the same run at the same strength.
+// This session is the evidence: strokes_survive_reflection refuted GAVE budget_not_conserved.
+test('a refutation folds into support for the negation, keeping its receipt', () => {
+  const r = trial({ hypothesis: 'evens', refutedIf: 'an odd passes', test: (n: number) => n % 2 === 0, control: 3, subject: 7 })
+  assert.equal(r.outcome, 'refuted')
+  const f = foldRefuted(r)
+  assert.equal(f.outcome, 'supported')
+  assert.equal(f.hypothesis, 'NOT (evens)')
+  assert.equal(f.receipt, r.receipt, 'same run, re-read')
+})
+
+// ── THE GUARD. An unsound trial indicts its instrument but certifies nothing.
+test('a refutation from an UNSOUND trial supports no negation', () => {
+  const indicted = foldVoid(trial({ hypothesis: 'h', refutedIf: 'r', test: () => true, control: 'c', subject: 's' }))
+  assert.equal(indicted.outcome, 'refuted')
+  assert.equal(indicted.controlRejected, false)
+  assert.deepEqual(foldRefuted(indicted), indicted, 'no control was rejected, so nothing is established either way')
+})
+
+test('the chain settles: void -> refuted(instrument), and refuted -> supported(negation)', () => {
+  const v = fold(trial({ hypothesis: 'h', refutedIf: 'r', test: () => true, control: 'c', subject: 's' }))
+  assert.equal(v.outcome, 'refuted')
+  assert.equal(v.about, 'instrument')
+  const d = fold(trial({ hypothesis: 'evens', refutedIf: 'odd passes', test: (n: number) => n % 2 === 0, control: 3, subject: 7 }))
+  assert.equal(d.outcome, 'supported')
+  assert.match(d.hypothesis, /^NOT \(/)
+})
+
+test('supported is terminal — folding it again changes nothing', () => {
+  const g = trial({ hypothesis: 'evens', refutedIf: 'odd passes', test: (n: number) => n % 2 === 0, control: 3, subject: 4 })
+  assert.deepEqual(fold(g), g)
+  assert.deepEqual(fold(fold(g)), g)
 })
