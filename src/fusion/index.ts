@@ -25,4 +25,4 @@
 //
 // HONEST SCOPE: bookkeeping over sealed proofs. No physics, no speed claim, no quantum circuit (src/quantum runs
 // those, classically and exactly), and no proving (lean/ does that, and the kernel signs it). Integrity, not truth.
-export { fuse, fuseHalves, reactorOutput, HALF_HEXBITS, type Fusion } from './reactor/index.js'
+export { fuse, fuseHalves, reactorOutput, mintOf, mintByWing, powerOf, pathOf, HALF_HEXBITS, type Fusion, type Mint, type Power, type Path } from './reactor/index.js'

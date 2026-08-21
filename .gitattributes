@@ -14,6 +14,7 @@ quantum-fold.json merge=derived
 spin-manifest.json merge=derived
 lean/heartbeats.json merge=derived
 lean/proof-cache.json merge=derived
+lean/generator-cache.json merge=derived
 prose-trials.json merge=derived
 docs/captain-claims.json merge=derived
 src/seeds/** merge=derived
