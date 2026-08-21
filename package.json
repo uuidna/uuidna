@@ -1,10 +1,10 @@
 {
   "name": "@uuidna/uuidna",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "publishConfig": {
     "access": "public"
   },
-  "description": "Content-addressed identity, honest by construction \u2014 mint + mind, holographic merkle proofs, a reversible imprint codec, a reeducating harness, a measured billing model, pure-TypeScript ChaCha20-Poly1305 encryption under a 7d-fold envelope, and an MCP server to fuse it into any harness.",
+  "description": "Content-addressed identity, honest by construction — mint + mind, holographic merkle proofs, a reversible imprint codec, a reeducating harness, a measured billing model, pure-TypeScript ChaCha20-Poly1305 encryption under a 7d-fold envelope, and an MCP server to fuse it into any harness.",
   "type": "module",
   "license": "CC-BY-NC-ND-4.0",
   "author": "Tsvetan Rouschev <ceccec@psg.bg>",
@@ -89,7 +89,7 @@
     "editorial": "npm run build && node dist/scripts/gen-articles.js && node dist/scripts/provenance.js && node dist/scripts/audit-citations.js && node dist/scripts/one-receipt.js prose && node dist/scripts/one-receipt.js legal && node dist/scripts/derive-prose-trials.js",
     "search:trial:all": "npm run build && node dist/scripts/quantum-search-trial.js --all",
     "mcp:drive": "npm run build && node dist/scripts/mcp-drive.js",
-    "setup:git": "git config core.hooksPath hooks && git config merge.derived.driver \"true\" && git config merge.derived.name \"derived layer \u2014 keep one side; reconcile recomputes the truth\" && echo \"\u2713 git configured: hooks + the derived merge driver\"",
+    "setup:git": "git config core.hooksPath hooks && git config merge.derived.driver \"true\" && git config merge.derived.name \"derived layer — keep one side; reconcile recomputes the truth\" && echo \"✓ git configured: hooks + the derived merge driver\"",
     "state": "npm run build && node dist/scripts/state.js",
     "x": "npm run build && node dist/scripts/run.js"
   },
