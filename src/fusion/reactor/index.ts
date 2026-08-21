@@ -18,6 +18,7 @@
 import { theorems, decidedMass, hexbitsOf, dependsOn, UUID_HEXBITS } from '../../theorems/index.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { vortexOrbit } from '../../address.js'
+import { seedOf } from '../../handle.js'
 import { toUuid } from '../../address.js'
 import { coins } from '../../captain/billing/index.js'
 import { COINS } from '../../hexbit/index.js'
@@ -128,7 +129,7 @@ export const pathOf = (handle: string): Path => {
   // a theorem sits on the residue its own address reduces to — the same reduction, applied to both ends
   const at = new Map<number, string[]>()
   for (const t of all) {
-    const r = parseInt(t.address.replace(/-/g, '').slice(0, 8), 16) % 9
+    const r = seedOf(t.address)   // THE one derivation — src/handle.ts, not an eighth inline copy
     at.set(r, [...(at.get(r) ?? []), t.key])
   }
   // 60 AND 90 AT THE SAME TIME, OR THE WALK STOPS. Doubling turns 60 degrees on the hexagon of units, and it is

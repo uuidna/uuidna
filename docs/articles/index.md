@@ -110,6 +110,7 @@ The online wave's returns — each publication is what one trial of the quantum 
 content-addressed, verdicts computed, sealed backing cited, novelty leads remanded. Refreshed on the research cron.
 
 - [search-acoustics](/articles/search-acoustics)
+- [search-anti-fraud](/articles/search-anti-fraud)
 - [search-astronomy](/articles/search-astronomy)
 - [search-audit-game](/articles/search-audit-game)
 - [search-audit](/articles/search-audit)
@@ -119,6 +120,7 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-chess](/articles/search-chess)
 - [search-chessgames](/articles/search-chessgames)
 - [search-cipher](/articles/search-cipher)
+- [search-clay](/articles/search-clay)
 - [search-codes](/articles/search-codes)
 - [search-coins](/articles/search-coins)
 - [search-colour](/articles/search-colour)

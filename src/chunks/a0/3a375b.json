@@ -1,0 +1,12 @@
+{
+  "handle": "a03a375b",
+  "address": "a03a375b-de20-8368-ae58-5cd5daaef014",
+  "statement": "(0 < 1386) ∧ (0 + 1386 = 1386)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

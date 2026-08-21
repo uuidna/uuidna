@@ -1,0 +1,12 @@
+{
+  "handle": "8c7e5ec8",
+  "address": "8c7e5ec8-9142-8256-87ca-32ebdb1e3bb6",
+  "statement": "(0 < 90) ∧ (0 < 3) ∧ (1386 = 1386 + 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_audit_total"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}
