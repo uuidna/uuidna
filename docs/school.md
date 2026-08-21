@@ -69,6 +69,16 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
 6. **Minimum bytes, max coins** — one session deleted ~67,000 lines while the coins held at 2 per superposition
    ([`two_coins`](/theorem/two_coins)) and the checks grew. *Practice:* measure with `uuidna_ledger_costs`, then
    find a fold of your own.
+7. **Seal the input, never its pure function** — a digest of f(x) moves exactly when a digest of x moves, so
+   sealing both seals one fact twice, and the second seal is pure cost
+   ([`verify_beats_recompute_by_magnitudes`](/theorem/verify_beats_recompute_by_magnitudes)). One session's fold
+   composed **70** monographs to fingerprint what their (principle, theorem set) already fixed, and ran **1437**
+   auras to fingerprint what the addresses already fixed: **1507** computations, **2 hexbits** wide
+   ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)) — the same width as the ledger it was fingerprinting.
+   Priced in hexbits and not in milliseconds on purpose: a wall-clock figure moves with the host and the cache, and
+   a practice that carries a number which moves is a practice that goes stale. *Practice:* run
+   `UUIDNA_METER=1 npm run x -- guard`, then find a leaf whose subject is a function of something the fold already
+   seals. The meter names the cost; the arithmetic tells you whether it was earned.
 
 ## The scattering lesson — collisions become interactions when the trace is kept
 

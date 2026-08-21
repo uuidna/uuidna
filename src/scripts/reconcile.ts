@@ -24,6 +24,14 @@ const out = (cmd: string): string => execSync(cmd).toString().trim()
 const deriveOnly = process.argv.includes('--derive-only')
 const msg = process.argv.slice(2).filter((a) => a !== '--derive-only').join(' ') || 'Reconcile: regenerate the derived layer + sync heartbeats to the ledger, backed by theorem two_coins'
 
+// GUARD FIRST, AND THE CHAIN OWNS IT. The standing law is "run the guard before every reconcile", and it was being
+// obeyed by a human typing `guard && reconcile` — a manual step compensating for a missing precondition, which is
+// the shape of every crack this tree folds into a finder. The gate DOES run later, inside the pre-push hook, but by
+// then reconcile has already spent `npm run lean` and the whole regeneration; the guard costs 0.90s and fails on a
+// forged ledger before any of that is paid. So the conjunction stops being something to remember.
+console.log('reconcile — the guard first, because a reconcile on an unforged ledger is the only kind worth paying for …')
+run('node dist/scripts/guard.js')
+
 console.log('reconcile — regenerating the derived layer to match the Lean source …')
 run('npm run lean')                                   // generated.ts + PRINCIPLE.md + CHANGELOG — verifies every proof
 run('node dist/scripts/one-receipt.js coherent || { rm -rf dist; npm run build; node dist/scripts/one-receipt.js coherent; }') // SELF-HEAL the mixed-dist class (interleaved writers on the shared tree): probe every dist import against dist/index.js; on drift, one clean emit — the known total cure — then re-probe. The wrapper no longer dies mid-chain on a stale export.

@@ -194,6 +194,8 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-llm': ['llm.txt'],
   'gen-zenodo': ['.zenodo.json'],
   'gate-receipt': ['gate-receipt.json'],
+  // the gate now runs as reconcile's precondition, so its one written artifact is declared like any other
+  'guard': ['quantum-fold.json'],
   'gen-reports': ['reports.json'],
   'gen-lines': ['lean/statement-index.json'],
   'gen-handle-chunks': ['src/chunks'],
