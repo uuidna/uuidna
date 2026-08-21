@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `0212eead` | zenodo.org | zenodo record 7088416: From Words to Sound: Neural Audio Synthesis of Guitar Sounds with Timbral Descri | UNVERIFIED | VERIFIED |
 | `f6518377` | zenodo.org | zenodo record 20784273: Autonomous Listening-Based Synthesizer Control with Reinforcement Learning for L | UNVERIFIED | VERIFIED |
 | `4db07fa1` | zenodo.org | zenodo record 3514950: VOICe Dataset | UNVERIFIED | VERIFIED |
-| `ad25cddb` | zenodo.org | zenodo record 6462969: DCASE 2022 Challenge Task 2 Additional Training Dataset | UNVERIFIED | VERIFIED |
+| `6f943184` | zenodo.org | zenodo record 6586456: DCASE 2022 Challenge Task 2 Evaluation Dataset | UNVERIFIED | VERIFIED |
 | `97020d6c` | crossref.org | DOI 10.25144/18168: SOUND SYSTEM DESIGN AND THE DIGITAL DOMAIN | UNVERIFIED | VERIFIED |
 | `67275b37` | crossref.org | DOI 10.25144/18171: THE TIME DOMAIN RESPONSE OF SOME SYSTEMS FOR SOUND REPRODUCTION | UNVERIFIED | VERIFIED |
 | `7cd9df2f` | crossref.org | DOI 10.2307/j.ctt5hjq5s.12: SOUND VIEW | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `c72264eb` | openalex.org | OpenAlex Emotional pictures and sounds: a review of multimodal interactions of  [Multisensory perception and in] | UNVERIFIED | VERIFIED |
 | `932d0f40` | openalex.org | OpenAlex Separation of concurrent harmonic sounds: Fundamental frequency estima [Speech and Audio Processing] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `c3034cd5`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `d81b80f3`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

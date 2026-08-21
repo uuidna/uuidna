@@ -27,11 +27,11 @@ the hard gate of the corroboration law.
 | `3fb1bc3a` | crossref.org | DOI 10.1093/gao/9781884446054.article.t068170: Pliska | UNVERIFIED | VERIFIED |
 | `25fc2091` | crossref.org | DOI 10.54664/ltzr2122: Deciphering the Script of the Pliska Rosette | UNVERIFIED | VERIFIED |
 | `58e81b9c` | crossref.org | DOI 10.33675/978-3-8253-7878-3: Introduction to Glagolitic Palaeography | UNVERIFIED | VERIFIED |
-| `ece9fbb9` | crossref.org | DOI 10.1163/2589-6229_eslo_com_036378: Glagolitic in Bohemia-Poland | UNVERIFIED | VERIFIED |
 | `c1777149` | crossref.org | DOI 10.1515/9783110218831.3.661: Catalogue of archaeological finds from Pliska | UNVERIFIED | VERIFIED |
+| `ece9fbb9` | crossref.org | DOI 10.1163/2589-6229_eslo_com_036378: Glagolitic in Bohemia-Poland | UNVERIFIED | VERIFIED |
 | `f3e51427` | crossref.org | DOI 10.1093/oed/7726798262: Glagolitic, adj. &amp; n. | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `7e9621c2`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `44f8d87c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

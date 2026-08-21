@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `e38c89db` | zenodo.org | zenodo record 20555421: COcyber White Paper - Unlocking cybersecurity potential in civil and defence dom | UNVERIFIED | VERIFIED |
 | `70503e42` | zenodo.org | zenodo record 8397792: ADAPTIVE EDUCATIONAL APPROACHES IN HIGHER EDUCATION INSTITUTIONS OF EUROPEAN (CI | UNVERIFIED | VERIFIED |
 | `bb4ffbf9` | zenodo.org | zenodo record 4657072: Contour elevations across Manchester, UK | UNVERIFIED | VERIFIED |
-| `388c3457` | zenodo.org | zenodo record 4657100: Mastermap Topography of Manchester, UK | UNVERIFIED | VERIFIED |
+| `77f51745` | zenodo.org | zenodo record 4657085: Manchester landcover | UNVERIFIED | VERIFIED |
 | `b638270e` | crossref.org | DOI 10.1017/9781108784863.028: Matrix Algebra | UNVERIFIED | VERIFIED |
 | `143a85fb` | crossref.org | DOI 10.1115/ipc2006-10159: An External Corrosion Direct Assessment Module for a Pipeline Integrity Manageme | UNVERIFIED | VERIFIED |
 | `bdf609d5` | crossref.org | DOI 10.1147/sj.133.0230: Operating system integrity in OS/VS2 | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `fcdc6986` | openalex.org | OpenAlex Blockchain-Based Cloud Data Integrity Verification Scheme with High Ef [Cloud Data Security Solutions] | UNVERIFIED | VERIFIED |
 | `cad29974` | openalex.org | OpenAlex Integrity Audit of Shared Cloud Data with Identity Tracking [Cloud Data Security Solutions] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `100a4996`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `aad812ea`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

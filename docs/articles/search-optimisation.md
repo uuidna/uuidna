@@ -30,16 +30,16 @@ the hard gate of the corroboration law.
 | `0abd615e` | crossref.org | DOI 10.1016/b978-012064155-0/50007-0: More on Linear Programming Methods for Optimum Design | UNVERIFIED | VERIFIED |
 | `280ba70d` | crossref.org | DOI 10.1016/b978-0-12-381375-6.00009-7: More on Linear Programming Methods for Optimum Design | UNVERIFIED | VERIFIED |
 | `f7acadc4` | crossref.org | DOI 10.1016/b978-0-12-800806-5.00009-3: More on Linear Programming Methods for Optimum Design | UNVERIFIED | VERIFIED |
-| `628390e7` | openalex.org | OpenAlex Linear Optimal Control Systems [Advanced Control Systems Optim] | UNVERIFIED | VERIFIED |
-| `43515173` | openalex.org | OpenAlex Linear Optimal Control [Advanced Control Systems Optim] | UNVERIFIED | VERIFIED |
-| `c8e90fc5` | openalex.org | OpenAlex Linear Optimal Control [Advanced Control Systems Optim] | UNVERIFIED | VERIFIED |
-| `1d911d9c` | openalex.org | OpenAlex Optimal Control: Linear Quadratic Methods [Aerospace Engineering and Cont] | UNVERIFIED | VERIFIED |
-| `f9ff8835` | openalex.org | OpenAlex Optimal decoding of linear codes for minimizing symbol error rate (Cor [Advanced Wireless Communicatio] | UNVERIFIED | VERIFIED |
-| `51c21ac9` | openalex.org | OpenAlex Optimal decoding of linear codes for minimizing symbol error rate [Error Correcting Code Techniqu] | UNVERIFIED | VERIFIED |
-| `0a481442` | openalex.org | OpenAlex Optimal Detection of Changepoints With a Linear Computational Cost [Algorithms and Data Compressio] | UNVERIFIED | VERIFIED |
-| `1aa0de6f` | openalex.org | OpenAlex A New Approach to Linear Filtering and Prediction Problems [Target Tracking and Data Fusio] | UNVERIFIED | VERIFIED |
+| `974b3444` | semanticscholar.org | S2 Non-Linear Index Coding Outperforming the Linear Optimum — AI tldr: This work disproves the main conjecture of (Z. Bar-Yossef, 2006) in the following strong s | UNVERIFIED | VERIFIED |
+| `b2adeda6` | semanticscholar.org | S2 Sparse Approximate Solutions to Linear Systems — AI tldr: It is shown that the problem is NP-hard, but that the well-known greedy heuristic is good  | UNVERIFIED | VERIFIED |
+| `c085fdbb` | semanticscholar.org | S2 Optimum Array Processing — AI tldr: The present work focuses on the characterization of Space-Time Processes of Array Processi | UNVERIFIED | VERIFIED |
+| `819f2c55` | semanticscholar.org | S2 A Convergence Analysis of Gradient Descent for Deep Linear N — AI tldr: The speed of convergence to global optimum for gradient descent training a deep linear neu | UNVERIFIED | VERIFIED |
+| `de205e79` | semanticscholar.org | S2 A computer program for designing optimum FIR linear phase di — AI tldr: A general-purpose computer program which is capable of designing a large Class of optimum  | UNVERIFIED | VERIFIED |
+| `de9e16b8` | semanticscholar.org | S2 Optimization of gas-solid carbonation conditions of recycled | UNVERIFIED | VERIFIED |
+| `59f5eba2` | semanticscholar.org | S2 Linear network coding — AI tldr: This work forms this multicast problem and proves that linear coding suffices to achieve t | UNVERIFIED | VERIFIED |
+| `8f9921ae` | semanticscholar.org | S2 A Linear Programming Model for the Single Destination System — AI tldr: The main objective of the paper is to demonstrate that the DTA problem can be modeled as a | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `830259fa`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `ff720956`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -18,10 +18,10 @@ the hard gate of the corroboration law.
 | `1ec85849` | zenodo.org | zenodo record 15920803: Effectiveness of Using Moisturizer with Saccharide Isomerate on Skin Hydration i | UNVERIFIED | VERIFIED |
 | `3cf4aea1` | zenodo.org | zenodo record 14629255: Recommendations on the implementation of portfolio management in the defense man | UNVERIFIED | VERIFIED |
 | `bf36a698` | zenodo.org | zenodo record 15244824: Time Differences in Reaching Minimal Erythemal Doses among Different Fitzpatrick | UNVERIFIED | VERIFIED |
-| `a501f1e5` | zenodo.org | zenodo record 3381483: The adaptable energy platform | UNVERIFIED | VERIFIED |
 | `fe4cb69d` | zenodo.org | zenodo record 14629133: Project management in the Ministry of Defense of Ukraine and the Armed Forces of | UNVERIFIED | VERIFIED |
+| `a501f1e5` | zenodo.org | zenodo record 3381483: The adaptable energy platform | UNVERIFIED | VERIFIED |
 | `011dfdc6` | zenodo.org | zenodo record 12031612: CREATION OF A SUBSYSTEM FOR EXTERNAL QUALITY ASSURANCE OF PROFESSIONAL MILITARY  | UNVERIFIED | VERIFIED |
-| `ac543dcd` | zenodo.org | zenodo record 17265094: The Association of Foot Hygiene Level with Tinea Pedis Incidence in Military Per | UNVERIFIED | VERIFIED |
+| `14f9c299` | zenodo.org | zenodo record 2248344: Effect of Gas-To-Liquid (GTL) fuels on marine diesel engines compared to F-76 | UNVERIFIED | VERIFIED |
 | `948d2ac0` | crossref.org | DOI 10.1016/j.dt.2024.11.008: Impact of adhesive layer properties on ceramic multi-layered ballistic armour sy | UNVERIFIED | VERIFIED |
 | `9473cbe0` | crossref.org | DOI 10.1007/978-3-642-20751-8_3: The Common Security and Defence Policy | UNVERIFIED | VERIFIED |
 | `ba1bc566` | crossref.org | DOI 10.1016/j.dt.2023.01.013: Design of Multi-layered Protection Against Guided Mortar Threats Yhrough Numeric | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `419120be` | openalex.org | OpenAlex Multi-Layer Defences for Robust GNSS Timing Retrieval [GNSS positioning and interfere] | UNVERIFIED | VERIFIED |
 | `70a7539f` | openalex.org | OpenAlex Class III peroxidases in plant defence reactions [Plant-Microbe Interactions and] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `19d9469f`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `e79c0afd`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

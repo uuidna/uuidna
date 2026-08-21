@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `b3c25526` | zenodo.org | zenodo record 5534275: SARS-COV-2 virus and food | UNVERIFIED | VERIFIED |
-| `b0e65d17` | zenodo.org | zenodo record 4662568: A Combinatorial Approach to Testing Deep Neural Network-based Autonomous Driving | UNVERIFIED | VERIFIED |
-| `198890ea` | zenodo.org | zenodo record 4662551: A Combinatorial Approach to Explaining Image Classifiers | UNVERIFIED | VERIFIED |
-| `e6b07914` | zenodo.org | zenodo record 7360030: List and details of current standards for biodegradation and ecotoxicity | UNVERIFIED | VERIFIED |
-| `e9e92f71` | zenodo.org | zenodo record 18673734: GSOS™ Canonical Masterwork Unified Spectral Operator Framework for Infinite-Dime | UNVERIFIED | VERIFIED |
-| `c7344c72` | zenodo.org | zenodo record 18743201: Our Coasts, Resiliency, and Carbon Dioxide Removal | UNVERIFIED | VERIFIED |
-| `f315ac7d` | zenodo.org | zenodo record 19551443: Technical Bulletin for GROQ-seq T7 RNA Polymerase Function Assay | UNVERIFIED | VERIFIED |
-| `96714cc6` | zenodo.org | zenodo record 6081435: Data for "Reactions Between Layer-Resolved Molecules Mediated by Dipolar Spin Ex | UNVERIFIED | VERIFIED |
 | `61a68609` | crossref.org | DOI 10.64628/ab.skum6tejx: James Bond: don’t sanitise 007’s sexism, confront it | UNVERIFIED | VERIFIED |
 | `1e0904fb` | crossref.org | DOI 10.1038/sj.bdj.2011.891: Sanitise in seconds | UNVERIFIED | VERIFIED |
 | `bcf9f1e4` | crossref.org | DOI 10.7748/ns.23.18.33.s47: Sanitise with bleach sprays rather than antibacterials | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `2125596b` | openalex.org | OpenAlex The Potential Use of Hypochlorous Acid and a Smart Prefabricated Sanit [Infection Control and Ventilat] | UNVERIFIED | VERIFIED |
 | `dd65df6c` | openalex.org | OpenAlex Safe for Work: Feminist Porn, Corporate Regulation and Community Stand [Sexuality, Behavior, and Techn] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `9354b7a0`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `002f3a5c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

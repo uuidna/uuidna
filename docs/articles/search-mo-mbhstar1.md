@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `0f8e1954` | zenodo.org | zenodo record 4963761: The Return From Shot Oblivion (Based on the Materials of Serhii Zhyhalko Trial) | UNVERIFIED | VERIFIED |
-| `252f1a96` | zenodo.org | zenodo record 7058392: Best-worst / Worst-best sensitivity analyses of explorative outcomes in SafeBoos | UNVERIFIED | VERIFIED |
-| `7ae471d1` | zenodo.org | zenodo record 7058338: Modification of the definition of bronchopulmonary dysplasia in SafeBoosC-III | UNVERIFIED | VERIFIED |
-| `de2058e7` | zenodo.org | zenodo record 7056927: Post-hoc subgroup analysis of infants with late cerebral ultrasound in SafeBoosC | UNVERIFIED | VERIFIED |
-| `0e3943f4` | zenodo.org | zenodo record 11106279: Trial | UNVERIFIED | VERIFIED |
-| `8520371b` | zenodo.org | zenodo record 7058314: Central data monitoring plan SafeBoosC-III | UNVERIFIED | VERIFIED |
-| `b5c359b0` | zenodo.org | zenodo record 7058319: Local monitoring plan SafeBoosC-III | UNVERIFIED | VERIFIED |
-| `1408c38a` | zenodo.org | zenodo record 7041689: Marginal effect estimates SafeBoosC-III | UNVERIFIED | VERIFIED |
 | `0217768d` | crossref.org | DOI 10.1163/2210-7975_hrd-9827-2014008: Background paper: Pre-trial detention | UNVERIFIED | VERIFIED |
 | `86734224` | crossref.org | DOI 10.2139/ssrn.1532812: Trial Paper Submission 1 | UNVERIFIED | VERIFIED |
 | `2b80574c` | crossref.org | DOI 10.4135/9781529777338: The Methods: Clinical Trial Phases | UNVERIFIED | VERIFIED |
@@ -30,16 +22,16 @@ the hard gate of the corroboration law.
 | `e8561462` | crossref.org | DOI 10.4271/861787: Aerospace Information Report 1939 Trial Application | UNVERIFIED | VERIFIED |
 | `88582757` | crossref.org | DOI 10.4271/2000-01-0735: USCAR U.S. Field Trial for Automotive Polymers Recycling: Interim Findings | UNVERIFIED | VERIFIED |
 | `b0fe3689` | crossref.org | DOI 10.4324/9781315775432-5: PAPER | UNVERIFIED | VERIFIED |
-| `7c1e8f4d` | openalex.org | OpenAlex Meta-analysis in clinical trials [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
-| `7f698b03` | openalex.org | OpenAlex The Cochrane Collaboration's tool for assessing risk of bias in random [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
-| `db539e65` | openalex.org | OpenAlex Applying extracellular vesicles based therapeutics in clinical trials  [Extracellular vesicles in dise] | UNVERIFIED | VERIFIED |
-| `21cd4132` | openalex.org | OpenAlex RoB 2: a revised tool for assessing risk of bias in randomised trials [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
-| `54faf3c0` | openalex.org | OpenAlex SPIRIT 2013 explanation and elaboration: guidance for protocols of cli [Health Systems, Economic Evalu] | UNVERIFIED | VERIFIED |
-| `14faa39d` | openalex.org | OpenAlex Adherence to a Smartphone Application for Weight Loss Compared to Webs [Mobile Health and mHealth Appl] | UNVERIFIED | VERIFIED |
-| `65c398bc` | openalex.org | OpenAlex Classification of subtype of acute ischemic stroke. Definitions for us [Acute Ischemic Stroke Manageme] | UNVERIFIED | VERIFIED |
-| `b69c28e4` | openalex.org | OpenAlex CONSORT 2010 Statement: updated guidelines for reporting parallel grou [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
+| `d08775de` | semanticscholar.org | S2 Pilot study on comparisons between the effectiveness of mobi — AI tldr: The use of mobile video-guided home exercise program was superior to standard paper-based  | UNVERIFIED | VERIFIED |
+| `10b03dde` | semanticscholar.org | S2 Target Positioning Using an L-Band Multistatic Radar System: | UNVERIFIED | VERIFIED |
+| `4fff16d2` | semanticscholar.org | S2 A mHealth intervention (mTB-Tobacco) for smoking cessation i — AI tldr: This paper summarises the methodology proposed to assess the effectiveness and cost-effect | UNVERIFIED | VERIFIED |
+| `d08d6a44` | semanticscholar.org | S2 The World Health Organization Quality of Life assessment (WH — AI tldr: The World Health Organization's project to develop a quality of life instrument (the WHOQO | UNVERIFIED | VERIFIED |
+| `e2a8444f` | semanticscholar.org | S2 Beyond Trial & Error: Iteration-to-Learn using Computational | UNVERIFIED | VERIFIED |
+| `30db49d2` | semanticscholar.org | S2 Implementation and evaluation of a multi-level mental health — AI tldr: The results of this study will provide a comprehensive overview of the implementation and  | UNVERIFIED | VERIFIED |
+| `a164a19b` | semanticscholar.org | S2 Strategies to minimise and monitor biases and imbalances by  | UNVERIFIED | VERIFIED |
+| `859d77e2` | semanticscholar.org | S2 The SOFIA pilot trial: a cluster-randomized trial of coordin — AI tldr: A protocol designed to evaluate the feasibility of a coordinated co-produced care program  | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `71ed1f3c`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `aaa9d75e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `f07fa1cd` | zenodo.org | zenodo record 1273615: Tamper-indicating quantum optical seals | UNVERIFIED | VERIFIED |
-| `0a2fec84` | zenodo.org | zenodo record 7667899: The new O'pen Skiff 3.5 sail: An aerodynamic consideration | UNVERIFIED | VERIFIED |
-| `265a3a93` | zenodo.org | zenodo record 7341395: British Antarctic Survey Arctic Whaling Database | UNVERIFIED | VERIFIED |
-| `fd779ee8` | zenodo.org | zenodo record 7668312: Sharpening the trailing edge in the ILCA centerboard: investigation on a NACA Ai | UNVERIFIED | VERIFIED |
-| `2b539b1e` | zenodo.org | zenodo record 17636264: Multimodal Brain Imaging Fusion Using Machine Learning for Enhanced Diagnostic A | UNVERIFIED | VERIFIED |
-| `46cfdaea` | zenodo.org | zenodo record 14250283: Improvement of Warehouse Classification and Service in Logistics Infrastructure | UNVERIFIED | VERIFIED |
-| `28671d67` | zenodo.org | zenodo record 1451695: Evaluation of the fuel-consumption-reduction potential of a Danube vessel | UNVERIFIED | VERIFIED |
-| `a24a4222` | zenodo.org | zenodo record 18817015: The Coins of Al-Andalus: Evolution and Historical Context | UNVERIFIED | VERIFIED |
 | `2f7af696` | crossref.org | DOI 10.3126/bibechana.v14i0.15407: General relativity, quantum behavior and Doppler factor basics in laser-driven l | UNVERIFIED | VERIFIED |
 | `7a9ff06e` | crossref.org | DOI 10.22328/2413-5747-2023-9-2-105-110: Prevention of seals to caries and ways to reduce it in durable sailing | UNVERIFIED | VERIFIED |
 | `3f75048f` | crossref.org | DOI 10.1142/s0219749903000139: Quantum Seals | UNVERIFIED | VERIFIED |
@@ -30,16 +22,8 @@ the hard gate of the corroboration law.
 | `9389e7c6` | crossref.org | DOI 10.1117/12.3000309: Hybrid quantum photonics | UNVERIFIED | VERIFIED |
 | `97c992d1` | crossref.org | DOI 10.1117/12.3000948: Quantum computing with photonic integrated circuits | UNVERIFIED | VERIFIED |
 | `5c953445` | crossref.org | DOI 10.1140/epjd/e2014-50002-2: Quantum bit commitment is weaker than quantum bit seals | UNVERIFIED | VERIFIED |
-| `4bcb442d` | openalex.org | OpenAlex S, N Co-Doped Graphene Quantum Dot/TiO2 Composites for Efficient Photo [Carbon and Quantum Dots Applic] | UNVERIFIED | VERIFIED |
-| `18efae72` | openalex.org | OpenAlex Quantum Oscillations in Noncentrosymmetric Weyl Semimetal SmAlSi [Topological Materials and Phen] | UNVERIFIED | VERIFIED |
-| `ae78a372` | openalex.org | OpenAlex Ceramic-like stable CsPbBr3 nanocrystals encapsulated in silica derive [Perovskite Materials and Appli] | UNVERIFIED | VERIFIED |
-| `5bf4d9e6` | openalex.org | OpenAlex Optical quantum states based on hot atomic ensembles and their applica [Quantum Information and Crypto] | UNVERIFIED | VERIFIED |
-| `b8fc16d6` | openalex.org | OpenAlex Large intrinsic anomalous Hall effect in half-metallic ferromagnet Co3 [Topological Materials and Phen] | UNVERIFIED | VERIFIED |
-| `2e202a1b` | openalex.org | OpenAlex Caring for seals and the Wadden Sea: Multispecies entanglements in sea [Geographies of human-animal in] | UNVERIFIED | VERIFIED |
-| `81b585ba` | openalex.org | OpenAlex High-temperature superconductivity in monolayer Bi2Sr2CaCu2O8+δ [Physics of Superconductivity a] | UNVERIFIED | VERIFIED |
-| `4ab9c53e` | openalex.org | OpenAlex THE PREHISTORIC ORIGINS OF EUROPEAN ECONOMIC INTEGRATION [Law, logistics, and internatio] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `abbdb5d7`** (fold of every finding's address — recompute by re-running the search).
+**8 findings · 8 usable search-trial combinations · receipt `2d27fd24`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

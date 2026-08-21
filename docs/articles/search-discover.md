@@ -19,9 +19,9 @@ the hard gate of the corroboration law.
 | `a5a072cd` | zenodo.org | zenodo record 16620515: Emotion Formation through AI's Experience and Socialization Human Ver4 | UNVERIFIED | VERIFIED |
 | `3a4e0488` | zenodo.org | zenodo record 18720470: The Big Question: Is Mathematics Discovered or Invented? | UNVERIFIED | VERIFIED |
 | `cf02b356` | zenodo.org | zenodo record 1640024: Breaches of Confidence and Medical Fees at Assurance Offices. | UNVERIFIED | VERIFIED |
+| `53fdc6ae` | zenodo.org | zenodo record 2450999: �ber die Gehaltsbestimmung von Eisessig | UNVERIFIED | VERIFIED |
 | `694f44c2` | zenodo.org | zenodo record 1959072: Small-Pox Accompanying Vaccination. | UNVERIFIED | VERIFIED |
 | `a00427af` | zenodo.org | zenodo record 2146140: Medical Fees at Assurance Offices. | UNVERIFIED | VERIFIED |
-| `53fdc6ae` | zenodo.org | zenodo record 2450999: �ber die Gehaltsbestimmung von Eisessig | UNVERIFIED | VERIFIED |
 | `a9d34e79` | crossref.org | DOI 10.1017/cbo9781107589094.009: The Masculine Self Discovered | UNVERIFIED | VERIFIED |
 | `19874a49` | crossref.org | DOI 10.2986/tren.033-0103: Granting A Certain Space To The Feminine: The Discovered-Self Of Thomas Merton | UNVERIFIED | VERIFIED |
 | `27967819` | crossref.org | DOI 10.3138/9781442661011-012: Conclusion: The Self Discovered by Sin | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `6bdc8156` | openalex.org | OpenAlex Helpseeking for self-discovered breast symptoms. Implications for earl [Global Cancer Incidence and Sc] | UNVERIFIED | VERIFIED |
 | `cad651ce` | openalex.org | OpenAlex Help Seeking Behavior of Women with Self-Discovered Breast Cancer Symp [Cancer survivorship and care] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `3c187ddd`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `34843da5`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
