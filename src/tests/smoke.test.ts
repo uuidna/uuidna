@@ -1,4 +1,4 @@
-// Smoke tests — run against the built dist. `npm test` builds first. Integrity, not truth.
+// Smoke tests — run against the built dist. `npm test` builds first. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readdirSync, readFileSync } from 'node:fs'
@@ -91,7 +91,7 @@ const CLAY_SEVEN = [
 
 test('the trial — one answer, VERIFIED or UNVERIFIED, all else void', () => {
   // The gate still refuses shipping a fabricated citation (a note naming a proof that is not sealed); a boast with no
-  // citation is revealed (binary 1), never word-censored.
+  // citation is revealed (binary 1).
   assert.equal(computes('we prove the Riemann hypothesis').binary, 1)                    // no citation → revealed
   assert.equal(computes('proven in theorem riemann_is_solved').binary, 0)               // names a proof not in the ledger
   assert.equal(computes('a content-address proves integrity').binary, 1)
@@ -135,7 +135,7 @@ test('the trial — one answer, VERIFIED or UNVERIFIED, all else void', () => {
 test('harness makes any output auditable; reeducate bounds overclaims until they hold', () => {
   assert.equal(harness('anything').auditable, true)
   assert.equal(harness7('x').auditableInAll, true)
-  // reeducate bounds a FABRICATED citation until it holds (the theorem-fold: a lexical boast is revealed, not bounded)
+  // reeducate bounds a FABRICATED citation until it holds (the theorem-fold: a lexical boast is revealed
   const r = reeducate('quantum supremacy, proven in theorem riemann_is_solved, faster than light')
   assert.equal(r.passed, true)
   assert.ok(r.steps.length >= 1)
@@ -145,7 +145,7 @@ test('render presents by reference — pure TS+CSS, address in every card, no fr
   const html = renderTheorem({ name: 'a decidable theorem — computed by exhaustion' })
   assert.match(html, /<article class="uuidna-card"/)
   assert.match(html, /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/) // the content-address pointer
-  assert.match(html, /integrity, not truth/)
+  assert.match(html, /integrity — the record recomputes for anyone/)
   assert.ok(!/<script/i.test(html)) // no framework, no script
   // present many BY REFERENCE within a fixed per-card budget
   const list = renderList(Array.from({ length: 50 }, (_, i) => ({ name: 'theorem ' + i })))
@@ -178,7 +178,7 @@ test('billing measures bits saved; coins are conserved; public interest is free'
   const NONDET = /\b(?:Date\s*\.\s*now|new\s+Date|performance\s*\.\s*now|process\s*\.\s*hrtime)\b/  // RNG reads already caught by rule (1) via Math.*
   // The recomputable library must be pure. EXEMPT: scripts/ + test(s)/ (build tooling that may TIME Lean), and the
   // device-integration boundary src/quantum/drivers/** + src/quantum/os/** — where talking to REAL hardware and the
-  // host CLOCK is legitimate and non-determinism is honest, not a leak. That boundary is named, not silent.
+  // host CLOCK is legitimate and non-determinism is honest. That boundary is named.
   const library = files.filter((f) => !/[\\/](?:scripts|tests?|drivers|os)[\\/]/.test(f))
   const nondet = library.filter((f) => NONDET.test(src.get(f)!)).map(rel)
   assert.deepEqual(nondet, [], 'non-determinism is hard-rejected in the library — a wall-clock/RNG read is not recomputable by every observer, breaking the order-invariant quantum receipt (bell_no_signaling)')
@@ -200,7 +200,7 @@ test('crypt: pure-TS ChaCha20-Poly1305 round-trips; wrong key and tamper fail; d
 
 test('777 · the theorem-fold gate holds across every stream — a real description passes, a fabricated proof drains', () => {
   const s = encrypt(STREAMS[0], KEY) // s.alg is the same constant for every stream — one seal proves the gate
-  assert.equal(computes(s.alg + ' — integrity of the envelope, not truth').binary, 1) // cites no theorem → revealed
+  assert.equal(computes(s.alg + ' — integrity of the envelope').binary, 1) // cites no theorem → revealed
   // The gate folded to the theorems: a lexical boast is no longer drained (it is revealed as UNVERIFIED); only a
   // FABRICATED theorem citation is the decidably-false case that drains.
   assert.equal(computes('unbreakable 100% secure quantum encryption').binary, 1)             // no citation → revealed
@@ -208,7 +208,7 @@ test('777 · the theorem-fold gate holds across every stream — a real descript
 })
 
 test('777 · the same tests generate the UI — shadcn microdata cards, each statement linked to its proof', () => {
-  // every stream renders a card by reference (the address, not the payload)
+  // every stream renders a card by reference (the address
   const cards = STREAMS.map((p) => renderTheorem({ name: 'encrypted stream — ' + p + ' — round-trips both ways' }))
   for (const html of cards) {
     assert.match(html, /<article class="uuidna-card"/)
@@ -234,7 +234,7 @@ test('777 · the same tests generate the UI — shadcn microdata cards, each sta
 // Prose aligns to the theorems — a hardcoded ledger/catalog COUNT in README that drifts from the live derived truth
 // is a crack (not lean-backed, it silently rots). This hard-rejects the drift: every `Foo.lean, N` per-file count and
 // every `**N tools**` catalog count in README must equal the live ledger / MCP catalog, or be removed (the live count
-// is derived in PRINCIPLE.md / docs/mcp.md, never hardcoded). Self dry-clean: change the ledger, the prose must follow.
+// is derived in PRINCIPLE.md / docs/mcp.md. Self dry-clean: change the ledger, the prose must follow.
 test('prose aligns to the theorems — no hardcoded count drifts from the live ledger/catalog', () => {
   const root = ROOT
   const readme = readFileSync(join(root, 'README.md'), 'utf8')
@@ -326,7 +326,7 @@ test('trial deposit — requires the two coins deposited by the parties, sealed 
   assert.ok(both.parity && both.deposited && !both.remanded, 'parity — all parties sealed a diamond, the trial computes')
   assert.equal(both.diamonds.length, 2, 'two sealed diamonds')
   assert.equal(both.coins, 2, 'the two coins are in')
-  assert.equal(both.verdict?.verdict, 'UNVERIFIED', 'the deposit buys the computation, never the outcome — solve-claim still UNVERIFIED')
+  assert.equal(both.verdict?.verdict, 'UNVERIFIED', 'the deposit buys the computation— solve-claim still UNVERIFIED')
   // the CAPTAIN side — a claim that IS a sealed theorem VERIFIES in parity (the captain prose is proven by the theorem)
   const captain = depositTrial('(List.range 8).filter (fun k => 32 * k == 64) = [2]', [{ party: 'captain', proof }, { party: 'court', proof }])
   assert.equal(captain.verdict?.verdict, 'VERIFIED', 'a claim that IS a sealed theorem verifies — the captain prose is proven')
@@ -358,7 +358,7 @@ test('exploit fold — computes from the ledger (no table), verifies BOTH proble
     assert.ok(f.problemVerified, `problem sealed: ${f.key}`)
     assert.ok(f.solutionVerified, `solution sealed: ${f.key} → ${f.solution}`)
   }
-  // COMPUTES ITSELF — the classes are real sealed theorems (fold_*/oos_*), not a TS table
+  // COMPUTES ITSELF — the classes are real sealed theorems (fold_*/oos_*)
   assert.ok(a.folded.every((f) => f.key.startsWith('fold_')), 'folded keys are fold_*')
   assert.ok(a.outOfScope.every((f) => f.key.startsWith('oos_') && f.solution === 'void'), 'out-of-scope folds to the void')
   // HONEST — never claims to solve everything
@@ -393,8 +393,8 @@ test('sanitise by all standards — process any input, sanitise any output, rule
   assert.equal(MAX_ARRAY, 100000); assert.equal(MAX_KEYS, 100000); assert.equal(verifyStatement('(100000 = 10^5) ∧ (10^5 = 10^5)').verdict, 'VERIFIED', 'array/keys bound sealed')
 })
 
-test('the quantum engine — one input→output surface: any op dispatches, folds to a recomputable receipt, never itself', () => {
-  // INPUT → OUTPUT: the engine's output equals the sealed tool's own output (it is the door, not a new claim)
+test('the quantum engine — one input→output surface: any op dispatches, folds to a recomputable receipt', () => {
+  // INPUT → OUTPUT: the engine's output equals the sealed tool's own output (it is the door
   const r = engine('uuidna_coin64', { text: 'captain' })
   assert.ok(r.ok, 'a real op runs through the engine')
   assert.deepEqual(r.output, callTool('uuidna_coin64', { text: 'captain' }), 'engine output = the underlying sealed tool output')
@@ -405,9 +405,9 @@ test('the quantum engine — one input→output surface: any op dispatches, fold
   // NO SELF-DISPATCH — the engine does not run itself (no recursion)
   const self = engine('uuidna_engine', { op: 'uuidna_coin64' })
   assert.ok(!self.ok && /does not dispatch itself/.test(self.error ?? ''), 'the engine refuses to dispatch itself')
-  // UNKNOWN op fails cleanly, never throws through the surface
+  // UNKNOWN op fails cleanly
   const bad = engine('uuidna_nonexistent', {})
-  assert.ok(!bad.ok && /unknown tool/.test(bad.error ?? ''), 'an unknown op fails cleanly with an error, not a throw')
+  assert.ok(!bad.ok && /unknown tool/.test(bad.error ?? ''), 'an unknown op fails cleanly with an error')
 })
 
 test('pentagram monographs — the split computes itself from the addresses; prime-neighbour walk, order-invariant seal', () => {
@@ -438,7 +438,7 @@ test('spin — the bits spin by themselves: a sealed layer verifies O(1), any dr
   // seal a layer, then re-spinning the SAME bytes is a fixed point (verify O(1) — no re-derivation)
   const layer = Object.fromEntries(DERIVED_FILES.map((p, i) => [p, 'derived-' + i]))
   const sealed = sealSpin(layer)
-  // THE LAW IS ABOUT PLAIN FILES, not about the length of the declaration. DERIVED_FILES carries two DIRECTORY
+  // THE LAW IS ABOUT PLAIN FILES. DERIVED_FILES carries two DIRECTORY
   // entries (src/chunks, lean) that sealSpin expands into their children, and this synthetic layer gives them
   // none — so 15 declared paths correctly yield 13 coins. The old assertion compared against the declaration
   // length and went stale the moment directories were added; the count was never the invariant.

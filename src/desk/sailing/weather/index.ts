@@ -2,7 +2,7 @@
 // Discovers public APIs that provide decidable facts (temperature, wind speed, wave height, pressure) and
 // LINKS them to theorems already sealed in the ledger. No keys, no auth — only free public data. The captain
 // knows the weather by recomputation. Pure and recomputable: all functions are deterministic; network fetches
-// (if needed) are application-layer responsibilities, not part of the core correlation logic.
+// (if needed) are application-layer responsibilities.
 
 import { theorems, toUuid, merkleGravity } from '../../../index.js'
 
@@ -74,7 +74,7 @@ export function correlateWeatherToTheorems(facts: WeatherFact[]): QuantumSailing
     honest:
       'Weather → ledger correlation: PURE, recomputable, no network calls. Decidable weather facts ' +
       '(temperature, wind, pressure, waves, tides) are checked against the sealed ledger. Matches prove ' +
-      'the theorem already knows this fact; novel facts are research leads awaiting sealing. Integrity, not truth.',
+      'the theorem already knows this fact; novel facts are research leads awaiting sealing. Integrity.',
   }
 }
 

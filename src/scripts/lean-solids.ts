@@ -6,8 +6,8 @@
 // verification (`by decide`, sorry-free). The arc the pentagrams drew closes here: 57 monographs computed themselves
 // into 12 pentagrams, and 12 pentagons ARE the dodecahedron — whose Euler characteristic V−E+F = 2 is the two
 // captain coins. In all dimensions: 5 regular solids in 3D, 6 polytopes in 4D, and exactly 3 in every dimension ≥ 5
-// (including the 7th — simplex, hypercube, orthoplex). integrity, not truth — each theorem seals its
-// EXACT decidable statement (the arithmetic of the counts), never a claim beyond it.
+// (including the 7th — simplex, hypercube, orthoplex). integrity— each theorem seals its
+// EXACT decidable statement (the arithmetic of the counts).
 import { emit } from './lean-gen.js'
 
 // A solid as (V, E, F): tetrahedron, cube, octahedron, dodecahedron, icosahedron

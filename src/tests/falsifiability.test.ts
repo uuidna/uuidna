@@ -45,5 +45,5 @@ test('order-invariance is NOT falsifiable — it survives every mutation, which 
   )
   assert.equal(r.holds, true)
   assert.deepEqual(r.survived, [0, 1, 2],
-    'merkleFold sorts, so this holds for every input — it is a structural property, never a finding')
+    'merkleFold sorts, so this holds for every input — it is a structural property')
 })

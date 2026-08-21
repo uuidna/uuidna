@@ -7,7 +7,7 @@
 // at four power points in a nine-square; a crossfade of L frames makes two clips a+b−L long — inclusion–exclusion on
 // the timeline, the SAME identity uuidna_compare folds; 48 kHz audio is 2000 samples a frame, exactly in sync; and
 // six 30° steps span the 180° axis. the arithmetic of the edit — NOT a codec, an NLE, or a renderer.
-// COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -52,7 +52,7 @@ const FACTS = [
     lean: 'theorem crossfade_overlap : 48 + 48 - 12 = 84 := by decide' },
 
   { key: 'audio_samples_per_frame',
-    why: '48 kHz audio at 24 fps is 2000 samples a frame, and it divides evenly (48000 % 24 = 0) — the exact sync that lets a cut land on a sample, not between two.',
+    why: '48 kHz audio at 24 fps is 2000 samples a frame, and it divides evenly (48000 % 24 = 0) — the exact sync that lets a cut land on a sample.',
     js: () => 48000 / 24 === 2000 && 48000 % 24 === 0,
     lean: 'theorem audio_samples_per_frame : 48000 / 24 = 2000 ∧ 48000 % 24 = 0 := by decide' },
 

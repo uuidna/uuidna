@@ -1,4 +1,4 @@
-// pair-grid — 42 IS THE SAME LAW AS 432, NOT A SECOND COINCIDENCE, and that is what these tests pin. Both grids are
+// pair-grid — 42 IS THE SAME LAW AS 432. Both grids are
 // the full product with the IDENTITY REMOVED: the wing grid drops the 72 seats where a wing is read along the ray it
 // is already written in (504 → 432), and the pair grid drops the 7 self-pairs (49 → 42). If either exclusion were a
 // special case rather than the rule, one of these files would go red while the other stayed green.
@@ -8,7 +8,7 @@
 // directions fall into exactly 21 orbits of size two. A fixed point would mean some direction was its own reverse,
 // which would make the two readings disagree.
 //
-// 42 IS DELIBERATELY NOT FOLDED INTO 432. It does not divide it and its digital root is 6, not 9; the tests assert
+// 42 IS DELIBERATELY NOT FOLDED INTO 432. It does not divide it and its digital root is 6; the tests assert
 // the NON-relationship so a later hand cannot quietly claim the two grids are one.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
@@ -77,7 +77,7 @@ test('every direction is uniquely named and uniquely addressed', () => {
 
 test('a direction and its reverse are DIFFERENT addresses — order is real', () => {
   const there = pairSeat('bg', 'zh')!, back = pairSeat('zh', 'bg')!
-  assert.notEqual(there.address, back.address, 'the pair is ordered, not a set')
+  assert.notEqual(there.address, back.address, 'the pair is ordered')
 })
 
 test('42 is NOT a reshape of 432 — the two grids stay separate', () => {

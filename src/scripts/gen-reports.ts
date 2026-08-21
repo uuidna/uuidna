@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// src/scripts/gen-reports.ts — reports.json, computed. The file is now an OUTPUT of src/reports.ts, never an
+// src/scripts/gen-reports.ts — reports.json, computed. The file is now an OUTPUT of src/reports.ts
 // authored snapshot: it held 1195 theorems and 66 principles for three days with no writer and no reader.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'

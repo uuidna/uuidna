@@ -14,11 +14,11 @@ test('every residue is reached, and the seed is always in the ring', () => {
     // would make digit 9 unreachable as a seed. This assertion is what caught that in the executor.
     assert.equal(r.seed, d % 10, `${d} must enter at its own digit`)
     assert.ok(r.seed >= 0 && r.seed <= 9, 'a seed outside the ring is not a seed')
-    assert.equal(r.reflection, dz(r.seed), 'the reflection must be dz of the seed, not a parallel derivation')
+    assert.equal(r.reflection, dz(r.seed), 'the reflection must be dz of the seed')
   }
 })
 
-test('the fixed points are EXACTLY 0 and 5 — measured, not asserted', () => {
+test('the fixed points are EXACTLY 0 and 5 — measured', () => {
   const fixed = DIGITS.filter((d) => runSequence(d).fixed)
   assert.deepEqual(fixed, [0, 5], 'dz fixes only the ends and the centre')
   // the control: every other residue must MOVE under the reflection
@@ -41,7 +41,7 @@ test('text enters through its content-address, and the same text always lands th
   assert.equal(a.kind, 'text')
   assert.equal(runSequence(7).kind, 'number')
   assert.equal(runSequence(7).address, null, 'a number needs no address to have a residue')
-  // the control: DIFFERENT text must generally land elsewhere — 1-in-9 agreement is the floor, not the rule
+  // the control: DIFFERENT text must generally land elsewhere — 1-in-9 agreement is the floor
   const seeds = new Set(['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota']
     .map((s) => runSequence(s).seed))
   assert.ok(seeds.size > 1, 'nine different strings folding to one residue would mean the fold is constant')

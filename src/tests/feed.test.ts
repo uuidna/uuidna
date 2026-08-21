@@ -25,7 +25,7 @@ test('feed: @type/@id are structurally correct DataFeed/DataFeedItem, receipt is
   assert.equal(feed['@type'], 'DataFeed')
   assert.match(feed['@id'], /^urn:uuid:[0-9a-f-]{36}$/)
   for (const el of feed.dataFeedElement) assert.equal(el['@type'], 'DataFeedItem')
-  // same construction as gen-feed.ts's own receipt — recomputed independently here, not trusted blind
+  // same construction as gen-feed.ts's own receipt — recomputed independently here
   const receipt = merkleGravity(theorems().map((t) => t.lineAddress))
   assert.equal(feed['@id'], `urn:uuid:${toUuid('feed:' + receipt)}`)
   // deterministic — two builds produce the identical feed

@@ -9,15 +9,15 @@
 // residue the same way every other identity in this repository is folded. That is the one liberty taken here, and
 // it is stated rather than hidden: a string has no residue until something chooses one, and choosing the
 // content-address means two different strings walk the same path only when they fold to the same digit — which is
-// 1 in 9, by construction, not by accident.
+// 1 in 9, by construction.
 //
-// WHAT IT REPORTS IS MEASURED, NOT ASSERTED. The orbit is walked, not looked up. The period is found by walking
+// WHAT IT REPORTS IS MEASURED. The orbit is walked. The period is found by walking
 // until it closes. Reversibility is tested over the whole domain rather than claimed from the definition — dz is
 // an involution and doubling is not, and the executor discovers that each time rather than remembering it.
 //
 // HONEST SCOPE: this executes the ℤ/9 walk and reports its measured shape. It decides nothing about the input's
 // MEANING, seals no theorem, and a residue is not a fact about the thing that folded to it. The theorems this walk
-// belongs to are sealed in lean/Sequence.lean and lean/DivByZero.lean; this is the runner, not the proof.
+// belongs to are sealed in lean/Sequence.lean and lean/DivByZero.lean; this is the runner.
 import { dz, doubling, DIGITS, reach, period, involutes, isReversible, orderMatters } from './separation.js'
 import { toUuid } from './address.js'
 import { seedOf } from './handle.js'
@@ -33,7 +33,7 @@ export interface SequenceRun {
   visited: number[]        // the distinct residues that walk reaches, sorted
   period: number           // steps until the walk closes on itself
   covers: boolean          // does the walk reach every digit of the ring
-  reversible: { dz: boolean; doubling: boolean }   // tested over the domain, never assumed
+  reversible: { dz: boolean; doubling: boolean }   // tested over the domain
   orderMatters: number[]   // residues where dz∘double differs from double∘dz
   honest: string
 }
@@ -42,8 +42,8 @@ const HONEST =
   'The ℤ/9 walk EXECUTED and measured: the orbit is stepped rather than looked up, the period found by walking ' +
   'until it closes, and reversibility tested over the whole domain rather than read off a definition. A text enters ' +
   'through its content-address, which is a stated convention and not a property of the text. HONEST SCOPE: this ' +
-  'reports the SHAPE of the walk, never the meaning of the input — a residue is not a fact about what folded to it, ' +
-  'and nothing here seals a theorem. Integrity, not truth.'
+  'reports the SHAPE of the walk— a residue is not a fact about what folded to it, ' +
+  'and nothing here seals a theorem. Integrity.'
 
 /** runSequence(input, steps) → walk ANY input through the ring and report what the walk measures. */
 export function runSequence(input: string | number, steps = 18): SequenceRun {
@@ -55,7 +55,7 @@ export function runSequence(input: string | number, steps = 18): SequenceRun {
   // toward zero, written as arithmetic: a number that is already integral passes through unchanged.
   const n = Number(input)
   const raw = kind === 'number' ? (n < 0 ? -Number(String(-n).split('.')[0]) : Number(String(n).split('.')[0])) : seedOf(address!)
-  // THE DOMAIN IS TEN DIGITS, NOT NINE RESIDUES — and folding mod 9 was wrong here, caught by the test that
+  // THE DOMAIN IS TEN DIGITS— and folding mod 9 was wrong here, caught by the test that
   // expected exactly two fixed points and found three. dz, reach, period and isReversible are all defined over
   // DIGITS (0..9), where dz(9) = 1 and dz(0) = 0 are DIFFERENT maps. Folding mod 9 collapsed 9 onto 0, so the
   // executor reported reflection 0 for input 9 and, worse, digit 9 could never be a seed at all — a tenth of the

@@ -3,7 +3,7 @@
 // It is not a scanner and not a pentest: it asserts the posture PROVABLE from the package itself — the supply-chain
 // surface, the sealed defence-in-depth theorems, collision resistance by pigeonhole, and the honesty gate biting a
 // fabricated citation. HONEST SCOPE: the repo-tree scans (no committed secret, KAT suite present) need the source
-// tree, not the shipped package, so they live in scripts/security-audit and CI — NOT here. Integrity, not truth.
+// tree, not the shipped package, so they live in scripts/security-audit and CI — NOT here. Integrity.
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
@@ -34,7 +34,7 @@ export const DEFENCE_THEOREMS = ['defence_layers_add_bits', 'two_layers_multiply
   'birthday_halves_the_exponent', 'verify_cheaper_than_forge', 'no_maximum_only_bounds'] as const
 // The SEVEN Clay problems. What uuidna seals is the REFLECTION (dz k, dz(dz k)=k) — never the problem. uuidna must
 // verify NONE of the seven; a solve-CLAIM must never adjudicate VERIFIED. (In mathematics six stay open; Poincaré was
-// solved by Perelman, 2003 — not by uuidna.) These two facts are audited, not asserted.
+// solved by Perelman, 2003 — not by uuidna.) These two facts are audited.
 // The Clay tables that stood here are gone with the wing. They named seven theorems whose whole content was
 // dz k = 10 − k and dz (dz k) = k — single points of dz_involution, which DivByZero seals for every digit at
 // once — with the Millennium problem living in the KEY, where no kernel reads it. The two checks below them
@@ -55,11 +55,11 @@ export function securityAudit(): SecurityAuditReport {
   const unknownDev = Object.keys(pkg.devDependencies ?? {}).filter((d) => !(KNOWN_DEV_DEPS as readonly string[]).includes(d))
   const sealedDefence = DEFENCE_THEOREMS.filter(sealed)
   // the honesty gate is a SECURITY control on claims: it must drain a fabricated theorem citation (binary 0) and
-  // sign the honest floor (binary 1) — recomputed live, not asserted.
+  // sign the honest floor (binary 1) — recomputed live.
   const gateBites = computes('proven in theorem riemann_is_solved').binary === 0 &&
                     computes('a content-address proves integrity').binary === 1
   // the Clay honesty invariant: uuidna verifies NONE of the seven — a solve-CLAIM of the problem must never adjudicate
-  // VERIFIED (what is sealed is the reflection, never the problem), and each clay theorem must seal ONLY the reflection
+  // VERIFIED (what is sealed is the reflection
   // round-trip (dz k = …, dz (dz k) = k) — recomputed live from the shipped ledger + trial.
   // Probe BOTH forms: the bare solve-claim (no citation → UNVERIFIED by the slim gate) AND the citation-dressed
   // solve-claim (a REAL sealed key attached — the demonstrated bypass, trial 047ba524: a real citation must not

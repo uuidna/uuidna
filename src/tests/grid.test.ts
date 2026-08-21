@@ -1,4 +1,4 @@
-// grid — THE 432 GRID IS A COMPUTED FIXED POINT, NOT A CHOSEN NUMBER, and these are the tests that make the
+// grid — THE 432 GRID IS A COMPUTED FIXED POINT
 // difference checkable. A count you pick and then hardcode passes any test you write for it; a count that FALLS OUT
 // of two independent structures — the rays the harness already seals and the wings the ledger already carries — can
 // be wrong, and would be, the moment either structure moved. So every assertion here recomputes the width from the
@@ -6,7 +6,7 @@
 //
 // THE SEVENTH RAY IS THE SOURCE. 'en' is the language the wings are WRITTEN in, so its projection is the identity
 // and it holds no seat: 7 × 72 = 504 would count 72 tools that compute nothing, which is the exact dormancy the
-// unwired-scripts finder exists to catch. 504 − 72 = 432 is tested here as an identity, not asserted as a fact.
+// unwired-scripts finder exists to catch. 504 − 72 = 432 is tested here as an identity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { PROJECTED, GRID_SEATS, wings, wingSlug, wingRoot, seatName, grid, gridSeat, gridRoot, gridGaps, gridReport, DIMENSIONS, theorems } from '../index.js'
@@ -59,7 +59,7 @@ test('the digit-reversal fusion holds for one spelling in one base, and no other
   assert.notEqual(16 * 57, 432, 'rev(75) does not reproduce it')
   assert.notEqual(16 * 87, 432, 'rev(78) does not reproduce it')
   assert.notEqual(16 * 132, 432, 'the hexadecimal reversal of 72 gives 2112')
-  assert.equal(2 ** 4 * 3 ** 3, 432, 'k432 first clause — arithmetic, not spelling')
+  assert.equal(2 ** 4 * 3 ** 3, 432, 'k432 first clause — arithmetic')
 })
 test('seats are addressable by name and by slug, and the source ray is refused', () => {
   const w = wings()[0]
@@ -71,7 +71,7 @@ test('seats are addressable by name and by slug, and the source ray is refused',
   assert.equal(gridSeat('xx', w), null, 'an unknown ray has no seat')
 })
 
-test('a seat MOVES when its wing moves — the address is derived, never decorative', () => {
+test('a seat MOVES when its wing moves — the address is derived', () => {
   const w = wings()[0]
   const before = wingRoot(w)
   assert.match(before, /^[0-9a-f-]{36}$/)
@@ -90,7 +90,7 @@ test('the grid root is order-invariant and recomputes', () => {
 
 // THE FINDER REPORTS THE BASE, and reports it honestly at whatever count the ledger holds. It stopped asserting a
 // healthy grid at exactly 72 because that count is harmonic in DECIMAL ONLY (432 leaves 12 mod 15). What it must
-// still do is speak when neither base is satisfied and stay silent when both are — the rule, not the snapshot.
+// still do is speak when neither base is satisfied and stay silent when both are — the rule.
 test('the finder names which base a count satisfies, and is silent only when both are', () => {
   const w = wings().length
   const gaps = gridGaps()
@@ -101,7 +101,7 @@ test('the finder names which base a count satisfies, and is silent only when bot
   } else {
     const spoke = gaps.find((g) => /harmonic in/.test(g.what))
     assert.ok(spoke, `at ${w} wings the finder must speak`)
-    assert.match(spoke.what, /mod 9 and .* mod 15/, 'and it must name BOTH remainders, not just the decimal one')
+    assert.match(spoke.what, /mod 9 and .* mod 15/, 'and it must name BOTH remainders')
   }
   assert.ok(r.factorisations.length >= 2, 'both factorisations are still reported')
 })

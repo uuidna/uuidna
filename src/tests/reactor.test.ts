@@ -16,18 +16,18 @@ test('snapshot fuses sealed theorems across domains to one recomputable superpos
   assert.equal(s.handle, handleOf(s.superposition), 'the first part IS the identity handle')
   // order-invariant — the same set, any order, recomputes the same superposition (no drift)
   assert.equal(snapshot([...keys].reverse()).superposition, s.superposition)
-  // a changed member MOVES the uuid — drift is caught, not hidden (z9add_0_0 is a real sealed key, so it folds in)
+  // a changed member MOVES the uuid — drift is caught
   assert.notEqual(snapshot([...keys, 'z9add_0_0']).superposition, s.superposition)
   assert.ok(s.viewpoints.length >= 4, 'each domain and skill the set spans is a folded point of view')
 })
 
-test('snapshot NAMES an unknown key rather than folding it — drift refused, not silent', () => {
+test('snapshot NAMES an unknown key rather than folding it — drift refused', () => {
   const s = snapshot(['diamond_involution', 'not_a_real_theorem'])
   assert.deepEqual(s.unknown, ['not_a_real_theorem'])
   assert.equal(s.members.length, 1)
 })
 
-test('the reactor recycles — an unverified claim returns with its develop plan, never discarded', () => {
+test('the reactor recycles — an unverified claim returns with its develop plan', () => {
   const r = reactor([
     'the birth number governs destiny',                    // cites no proof → UNVERIFIED
     'proven in theorem riemann_is_solved',                 // cites a proof not in the ledger → UNVERIFIED

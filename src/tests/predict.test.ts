@@ -29,7 +29,7 @@ test('the engine never predicts what the repository has already declared', () =>
 
 // NO SILENT CAPS: what the declaration absorbed must be COUNTED. A number that quietly shrinks reads as progress;
 // this one is a boundary being respected, and those are different facts.
-test('what the declaration absorbed is reported, not silently dropped', () => {
+test('what the declaration absorbed is reported', () => {
   const r = predictGaps()
   assert.ok(r.declaredDormantSkipped > 0, 'the skipped count must be served — a silent subtraction is a lie by omission')
 })
@@ -40,7 +40,7 @@ test('the remaining predictors still FIRE — a quiet engine must not be an empt
   const r = predictGaps()
   assert.ok(Array.isArray(r.gaps), 'it must still return a list')
   assert.equal(typeof r.total, 'number')
-  assert.equal(r.total, r.gaps.length, 'the total must be what is served, never what is hoped')
+  assert.equal(r.total, r.gaps.length, 'the total must be what is served')
   assert.ok(r.byLikelihood.high + r.byLikelihood.medium + r.byLikelihood.low === r.total,
     'every gap must be counted under exactly one likelihood — none may fall between the buckets')
   assert.ok(r.honest.length > 80, 'the honest scope travels with the answer')

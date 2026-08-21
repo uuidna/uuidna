@@ -8,7 +8,7 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 
-test('the hosted MCP advertises the package version, not a stale literal', () => {
+test('the hosted MCP advertises the package version', () => {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }
   const src = readFileSync(join(ROOT, 'src', 'mcp-http.ts'), 'utf8')
   const stated = /const SERVER = \{ name: 'uuidna', version: '([^']+)' \}/.exec(src)?.[1]

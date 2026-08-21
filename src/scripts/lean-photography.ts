@@ -7,12 +7,12 @@
 // Where the standard does NOT round — the full-stop ISO doublings — uuidna and the standard AGREE exactly. WHY the
 // difference: the dial rounds for the hand; the ring keeps the power of two, and the doublings fold mod 9 to the
 // vortex 1,2,4,8,7,5. the arithmetic of stops and the rounding gap — NOT a light meter or a sensor
-// model. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// model. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
   { key: 'full_stop_is_exact_doubling',
-    why: 'The physics uuidna keeps: a full stop is EXACTLY a doubling, so the exact shutter after 1/64 is 1/128 = 2⁷ — a power of two, not a round number.',
+    why: 'The physics uuidna keeps: a full stop is EXACTLY a doubling, so the exact shutter after 1/64 is 1/128 = 2⁷ — a power of two.',
     js: () => 2 ** 7 === 128,
     lean: 'theorem full_stop_is_exact_doubling : 2^7 = 128 := by decide' },
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Generate the handle → key map the edge worker resolves ON THE SPOT — the FIRST PART (first 8 hex) of each
 // theorem's content-address mapped to its key. So /<handle> redirects to /theorem/<key> with ZERO static pages and
-// almost no memory (a ~30 KB string map, not 888 HTML files) — the "compute at spot / optimise the bill" shape.
+// almost no memory (a ~30 KB string map— the "compute at spot / optimise the bill" shape.
 // The first 8 hex are UNIQUE across the ledger; this asserts it and throws on any collision, so the map can never
 // silently point two proofs at one door. Regenerated on every build (wrangler's [build] step), so it never drifts.
 // The full uuid is never emitted here — only its first part is the key; the rest recomputes from the proof.

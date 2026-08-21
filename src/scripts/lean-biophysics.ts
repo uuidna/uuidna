@@ -79,7 +79,7 @@ const FACTS = [
     lean: "theorem primary_secondary_split : ((List.range 6).filter (fun h => h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h => h % 2 == 1) = [1, 3, 5]) := by decide" },
 ]
 
-console.log('computing ' + FACTS.length + ' bio/physics STRUCTURE facts (algebra, not a medical/physical claim) …')
+console.log('computing ' + FACTS.length + ' bio/physics STRUCTURE facts (algebra')
 
 emit({ file: 'BioPhysics.lean', skill: 'science-pairs', defs: LXOR_DEF,
   header: 'The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement.',

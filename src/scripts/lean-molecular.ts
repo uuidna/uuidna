@@ -5,7 +5,7 @@
 // structure counts total valence electrons; a large electronegativity difference makes a bond ionic; molar mass
 // sums the atomic masses; and bond strength rises with order. the arithmetic of bonding bookkeeping
 // — electron and mass counts, exact thresholds — not a full quantum-chemistry derivation, and distinct from the
-// DNA base-pairing in BioPhysics and the reactions in Chemistry. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// DNA base-pairing in BioPhysics and the reactions in Chemistry. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [

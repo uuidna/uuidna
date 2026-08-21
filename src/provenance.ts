@@ -4,18 +4,18 @@
 // Deterministic and offline — the same bytes fingerprint to the same address for everyone; change ONE byte and both
 // the hash and the handle move, so a tamper is caught by recomputing and comparing.
 //
-// HONEST SCOPE: integrity, not truth. This proves EXACT-COPY and TAMPER-EVIDENCE of the bytes — NOT authenticity of
+// HONEST SCOPE: integrity. This proves EXACT-COPY and TAMPER-EVIDENCE of the bytes — NOT authenticity of
 // what the image DEPICTS. It says NOTHING about whether an image is a genuine photograph, where or when it was taken,
 // whether it shows the poles or anything else, or whether its CONTENT was manipulated before these bytes existed.
 // Content authenticity, origin, and liveness are outside uuidna's recomputable model (like voice/video biometrics and
-// the aura's "art, not physics"). A matching fingerprint proves two files are byte-identical; it never proves a file
+// the aura's "art"). A matching fingerprint proves two files are byte-identical; it never proves a file
 // is a truthful record of the world.
 import { sha256 } from './sha256.js'
 import { toUuid } from './address.js'
 
 export interface ImageProvenance {
   bytes: number            // exact byte length
-  format: string           // container format read from the magic bytes (declared, not guaranteed)
+  format: string           // container format read from the magic bytes (declared
   sha256: string           // hex of SHA-256 over the EXACT bytes — the authoritative exact-copy fingerprint
   handle: string           // a uuidna content-address (FNV over the hash) — a short recomputable id
   honest: string
@@ -23,15 +23,15 @@ export interface ImageProvenance {
 
 const HONEST =
   'Byte-level provenance: the SHA-256 of the exact bytes (exact-copy + tamper-evidence) and a uuidna handle over it. ' +
-  'Change one byte and both move, so a tamper is caught by recomputing. HONEST SCOPE: it fingerprints the BYTES, NOT ' +
+  'Change one byte and both move, so a tamper is caught by recomputing. HONEST SCOPE: it fingerprints the BYTES' +
   'the truth of the image — it does NOT verify the picture is genuine, where/when it was taken, that it depicts the ' +
   'poles (or anything), or that its content was not manipulated before these bytes. Content authenticity, origin and ' +
-  'liveness are outside the recomputable model. A match proves byte-identity, never a truthful record of the world.'
+  'liveness are outside the recomputable model. A match proves byte-identity.'
 
 // hex of a byte array — pure string arithmetic, no Math.*
 const toHex = (b: Uint8Array): string => { let s = ''; for (const x of b) s += (x < 16 ? '0' : '') + x.toString(16); return s }
 
-// magic-byte format detection — a small, honest set; the DECLARED container, never a guarantee of contents.
+// magic-byte format detection — a small, honest set; the DECLARED container.
 const startsWith = (b: Uint8Array, sig: number[], off = 0): boolean => sig.every((v, i) => b[off + i] === v)
 function detectFormat(b: Uint8Array): string {
   if (startsWith(b, [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])) return 'png'
@@ -46,7 +46,7 @@ function detectFormat(b: Uint8Array): string {
 
 /** imageProvenance(bytes) → the byte-level provenance fingerprint of a file: its SHA-256 (exact-copy + tamper-evidence),
  *  a uuidna handle, and the container format from the magic bytes. Deterministic and offline. HONEST: it fingerprints
- *  the BYTES, never the truth of what the image depicts — a match proves byte-identity, not a genuine record. */
+ *  the BYTES, never the truth of what the image depicts — a match proves byte-identity. */
 export function imageProvenance(bytes: Uint8Array): ImageProvenance {
   const digest = toHex(sha256(bytes))
   return { bytes: bytes.length, format: detectFormat(bytes), sha256: digest, handle: toUuid('bytes:sha256:' + digest), honest: HONEST }

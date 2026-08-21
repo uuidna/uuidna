@@ -33,10 +33,10 @@ const CURES: Cure[] = [
     because: 'the derived files moved since the last seal; only the full re-derivation re-seals them (regenerating one named file leaves the seal stale) — and the cure stops at the seal, because healing must not publish' },
   { name: 'changelog section missing', when: /CHANGELOG\.md does not mention version/,
     cmd: 'node dist/scripts/gen-changelog-section.js',
-    because: 'the calendar ticks the odometer on its own, so the FACTS of a version (counts, receipts, the odometer step, the surfaces) are emitted from the ledger; the narrative is still never generated — the section says the meaning is owed, and a human completing it is finishing the entry, not correcting it' },
+    because: 'the calendar ticks the odometer on its own, so the FACTS of a version (counts, receipts, the odometer step, the surfaces) are emitted from the ledger; the narrative is still never generated — the section says the meaning is owed, and a human completing it is finishing the entry' },
   { name: 'rosetta mirror stale', when: /hosted edge would answer from a stale census/,
     cmd: 'node dist/scripts/rosetta.js && npm run build',
-    because: 'the five-leg census is recomputed from the ledger and shipped to the hosted edge as src/rosetta-mirror.ts, so ANY change to the ledger leaves the edge answering from the previous generation — the test that catches it prints exactly this command. The rebuild is part of the cure and not an afterthought: rewriting the mirror source without compiling it leaves dist/ carrying the stale census, which is the same fault one step further along. Taught 2026-08-20, after a session where this objection came back three times and was hand-run each time. DELIBERATELY NARROW: the signature matches only the STALE-MIRROR face, never rosetta refusing to write because the floor fell — see NO_CURE' },
+    because: 'the five-leg census is recomputed from the ledger and shipped to the hosted edge as src/rosetta-mirror.ts, so ANY change to the ledger leaves the edge answering from the previous generation — the test that catches it prints exactly this command. The rebuild is part of the cure and not an afterthought: rewriting the mirror source without compiling it leaves dist/ carrying the stale census, which is the same fault one step further along. Taught 2026-08-20, after a session where this objection came back three times and was hand-run each time. DELIBERATELY NARROW: the signature matches only the STALE-MIRROR face— see NO_CURE' },
   { name: 'axiom witness stale', when: /AXIOM WITNESS STALE|kernel-only-witness-shipped/,
     cmd: 'npm run axioms',
     because: 'a new theorem has no kernel-only witness yet; the audit regenerates them in one probe per file' },
@@ -65,7 +65,7 @@ const CURES: Cure[] = [
     cmd: 'node dist/scripts/gen-mcp.js',
     because: 'the tool docs are computed from the catalog keys' },
 
-  // EVERY UNATTENDED CYCLE LEAVES EVIDENCE, not only repairs.
+  // EVERY UNATTENDED CYCLE LEAVES EVIDENCE.
   //
   // develop runs every thirty minutes and its cures fix what they can. What it never did was RECORD what it saw,
   // so a slow drift between runs was invisible unless a cure happened to trip on it. measure --all folds the
@@ -73,7 +73,7 @@ const CURES: Cure[] = [
   // status and the open findings — each into a receipt that moves when its value moves. A number that changes
   // between two cycles is then visible in an artifact rather than in nobody's memory.
   //
-  // It is a MEASUREMENT, never a cure. Nothing here repairs anything, so a wrong reading cannot make the tree
+  // It is a MEASUREMENT. Nothing here repairs anything, so a wrong reading cannot make the tree
   // worse — it can only be seen.
   { name: 'measurements (receipted)', when: /^$/,
     cmd: 'node dist/scripts/measure.js --all',
@@ -85,7 +85,7 @@ const CURES: Cure[] = [
   // A neighbourhood that will not seal is nearly always a census taken while the wings were being written — the
   // memory walked lean/ mid-generation and saw a file that had not finished moving. Regenerating the wings and
   // re-sealing is the whole repair, and it is safe to attempt because a stale memory can only cost extra sealing:
-  // every address is recomputed from the file's own bytes on each run and compared, never trusted from the file.
+  // every address is recomputed from the file's own bytes on each run and compared.
   // If it survives the cure, the cause is a genuine duplicate key and the emitter's own gate will name it.
   { name: 'neighbourhood did not seal', when: /neighbourhood \S+ did not seal|members held, missing/,
     cmd: 'node dist/scripts/lean-all.js && node dist/scripts/cube-memory.js',
@@ -148,7 +148,7 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
     const r = teeStep(`develop · round ${round} · ${step.label}`, step.cmd)
     if (!r.ok) { objection = { label: step.label, out: r.out }; break }
   }
-  // A TORN TREE IS NOT AN OBJECTION — the concurrent-writer test belongs on the WALK too, not only on the cures. Met
+  // A TORN TREE IS NOT AN OBJECTION — the concurrent-writer test belongs on the WALK too. Met
   // the second time this pass ran: another session was mid-edit on gen-readme.ts (naming THEOREM_COUNT before defining
   // it), so `build` failed with a TS error that was nobody's bug and was gone minutes later. Reporting that as "no
   // taught cure" sends a human to debug a file that was simply half-written at the moment we read it.
@@ -222,7 +222,7 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
       lastAttempt = ''
       continue
     }
-    console.error(`✗ develop — the cure for "${cure.name}" itself failed on a tree that did not move; that is a real break, not drift.`)
+    console.error(`✗ develop — the cure for "${cure.name}" itself failed on a tree that did not move; that is a real break.`)
     process.exit(1)
   }
 }

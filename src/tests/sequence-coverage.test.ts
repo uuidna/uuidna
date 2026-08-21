@@ -6,7 +6,7 @@
 // rest on anyone remembering that it was proven — so this checks, against the LIVE ledger, that every claim the
 // rest of the code makes about the sequence is a sealed, kernel-checked fact.
 //
-// It asserts COVERAGE, not arithmetic: the arithmetic is Lean's job and the kernel already did it. What can rot is
+// It asserts COVERAGE's job and the kernel already did it. What can rot is
 // the LINK — a theorem renamed, a wing emptied, a fact quietly dropped while the code that depends on it stays.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
@@ -18,9 +18,9 @@ const bySubstring = (needle: RegExp): { key: string; statement: string; file: st
 test('the orbit itself is sealed — [1, 2, 4, 8, 7, 5], written out in a decided statement', () => {
   const orbit = bySubstring(/\[1,2,4,8,7,5\]/)
   assert.ok(orbit.length > 0, 'no sealed theorem states the orbit — the animation, the fold and the school all read it')
-  // and it is the DOUBLING that produces it, not a list someone typed
+  // and it is the DOUBLING that produces it
   const doubling = theorems().filter((t) => /2\s*\^\s*k|1\*2|\*2\)%9/.test(t.statement))
-  assert.ok(doubling.length > 0, 'the orbit must be PRODUCED by doubling mod 9, not asserted as a literal')
+  assert.ok(doubling.length > 0, 'the orbit must be PRODUCED by doubling mod 9')
 })
 
 test('the sequence closes — six steps, and the sixth returns to one', () => {
@@ -30,9 +30,9 @@ test('the sequence closes — six steps, and the sixth returns to one', () => {
   assert.ok(closes.length > 0, 'that the walk RETURNS to 1 is the property everything cyclic here depends on')
 })
 
-test('the digit sum 27 is sealed, not folklore', () => {
+test('the digit sum 27 is sealed', () => {
   const sum = theorems().find((t) => t.statement.replace(/\s+/g, '') === '1+2+4+8+7+5=27')
-  assert.ok(sum, 'the trinity-of-nine reading rests on this sum; it must be a theorem, not a remembered number')
+  assert.ok(sum, 'the trinity-of-nine reading rests on this sum; it must be a theorem')
 })
 
 test('the wing exists, is non-trivial, and every one of its theorems is kernel-only', () => {
@@ -56,7 +56,7 @@ test('the coverage predicate FIRES on a sequence that is not sealed', () => {
 // started. A gap at step four would leave every test above green.
 const norm = (s: string): string => s.replace(/\s+/g, '')
 
-test('every STEP of the recurrence is sealed on its own, not just the orbit as a whole', () => {
+test('every STEP of the recurrence is sealed on its own', () => {
   const T = theorems()
   const sealedStep = (a: number, b: number): string[] =>
     T.filter((t) => norm(t.statement).includes(`${a}*2%9=${b}`) || norm(t.statement).includes(`(${a}*2)%9=${b}`))

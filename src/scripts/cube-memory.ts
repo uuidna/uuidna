@@ -2,7 +2,7 @@
 // cube-memory — RUN THE CUBE MEMORY OVER THE LEAN ON DISK, and persist the one thing that cannot be recomputed
 // from it: which neighbourhoods have already been sealed, and at what fold.
 //
-// THE CENSUS COMES FROM lean/*.lean, NOT FROM THE LEDGER. src/theorems/generated.ts is written by lean-ledger from
+// THE CENSUS COMES FROM lean/*.lean. src/theorems/generated.ts is written by lean-ledger from
 // these same files, so reading it here would census the PREVIOUS generation — the one-generation-stale defect that
 // already shipped once in this repository (the infinity wing counted its own census a run behind). A .lean file IS
 // a neighbourhood: lean-ledger assigns `principle: titleOf(file)`, one title per file, so the cubes are the wings
@@ -13,7 +13,7 @@
 // stored copy of a derived fact is the only kind that can disagree with the first. An earlier attempt at a handle
 // store materialised 3,494 directories for 1,271 payloads and was refused by the guard; this writes one file.
 //
-// A STALE MEMORY COSTS EXTRA SEALING, NEVER A FALSE SEAL. Every address here is recomputed from the file's own
+// A STALE MEMORY COSTS EXTRA SEALING. Every address here is recomputed from the file's own
 // bytes on every run and compared; nothing is trusted from the memory file. Delete it and the next run re-seals
 // everything and agrees with itself. That is the same asymmetry the delta gate in lean-gen rests on.
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs'

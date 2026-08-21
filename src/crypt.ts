@@ -17,7 +17,7 @@
 // hold the same plaintext. The step plays the role a nonce-counter plays elsewhere: it must ADVANCE (never reuse
 // a step for the same passphrase). This closes the equality leak; it does NOT make the FNV address collision-
 // resistant (a different, non-crypto-by-design gap). Honest caveats: pure JS is NOT constant-time (timing side-
-// channels). Strength = ChaCha20-Poly1305 + the passphrase's own entropy. Integrity, not truth.
+// channels). Strength = ChaCha20-Poly1305 + the passphrase's own entropy. Integrity.
 //
 // QUANTUM POSTURE (honest): the scheme is SYMMETRIC-ONLY — no RSA/ECC — so Shor's algorithm has no asymmetric
 // target here. The one quantum threat, Grover, is a quadratic speedup that reduces the 256-bit ChaCha key to
@@ -31,7 +31,7 @@ const enc = new TextEncoder(), dec = new TextDecoder()
 export const ITER = 600_000 // PBKDF2-SHA-256 iterations (OWASP 2023)
 // Hard ceiling on the work factor. `iter` travels in the envelope and is attacker-controlled on decrypt; pure-TS
 // PBKDF2 has no upper bound, so a hostile `iter` (e.g. 1e12) would spin forever (CPU DoS). 10M is ~16× the default
-// and still finite — a legitimate envelope never exceeds it. Recompute-cost is bounded, not unbounded.
+// and still finite — a legitimate envelope never exceeds it. Recompute-cost is bounded.
 export const MAX_ITER = 10_000_000
 // Sealed by theorem aead_nonce_and_salt_bits (lean/Cipher.lean): 12·8=96 bits (RFC 8439), 16·8=128 bits, 96<128.
 // Named (not the six inline 12s/16s this replaces) so axiom-hunt.ts can bind a LIVE constant instead of a
@@ -50,10 +50,10 @@ const foldEnvelope = (alg: string, salt: string, nonce: string, ct: string, tag:
   merkleFold([alg, salt, nonce, ct, tag].map(toUuid))
 
 // The uuidna KDF memo — the 600k-iteration derivation is a PURE function of (passphrase, salt, iter), so a decrypt
-// re-derives the exact key its encrypt already did: the second pass is a cache hit, not 600k more rounds. ITER is
+// re-derives the exact key its encrypt already did: the second pass is a cache hit. ITER is
 // unchanged; we only stop paying it twice. Process-lifetime, in-memory. The cache key is a SHA-256 digest of the
 // derivation string — NOT FNV: keying a secret's memo on a non-cryptographic hash would return the WRONG key on a
-// collision, so the map key must be collision-resistant (the value is the derived key, never the raw passphrase).
+// collision, so the map key must be collision-resistant (the value is the derived key.
 const kdfCache = new Map<string, Uint8Array>()
 const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array => {
   const memoKey = b64(sha256(enc.encode('uuidna-kdf-v1|' + iter + '|' + b64(salt) + '|' + b64(pass)))) // collision-resistant memo key
@@ -107,7 +107,7 @@ export function sealSequence(messages: readonly string[], passphrase: string, st
 /** Decrypt a sealed envelope. A wrong passphrase or tampered ciphertext throws (Poly1305 authentication). */
 // encryptSession — the captain theorem as encryption: CONTRIBUTE THE TWO COINS ONCE (one 600k KDF on a STABLE
 // session salt), then SEAL EVERY MESSAGE FREE (O(1) ChaCha20 under a per-step nonce). The salt is derived from the
-// session (a room address, a channel id), not the plaintext — so `deriveKey` is a cache hit from the 2nd message on
+// session (a room address, a channel id)— so `deriveKey` is a cache hit from the 2nd message on
 // (~16 µs, not 1.75 s). SECURITY is preserved: the key is still PBKDF2-600k, and the NONCE freshens per `step`, so
 // identical plaintexts seal differently and the equality leak stays closed. The `step` MUST advance (never reuse it
 // under one session key) — the same nonce-uniqueness contract as v2. Opens with the ordinary `decrypt` (which reads

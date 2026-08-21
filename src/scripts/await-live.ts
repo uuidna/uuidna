@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // @non-harmonic: polls a live URL over the network (fetch) — a NAMED boundary, like books.ts and corroborate.ts.
-// await-live — WAIT UNTIL THE DEPLOYED SITE IS *THIS* RELEASE, not merely until a job has finished.
+// await-live — WAIT UNTIL THE DEPLOYED SITE IS *THIS* RELEASE.
 //
 // A release tag fires publish and deploy in two separate workflows, so GitHub's `needs:` cannot span them — and a
-// cross-workflow timing dependency would only ever prove that a job ended, never that the right bytes are served.
+// cross-workflow timing dependency would only ever prove that a job ended.
 // So the wait is on CONTENT: gen-feed's @id content-addresses the whole ledger (it folds every theorem's
 // lineAddress), so it moves if any theorem moves. Comparing the served @id to the one computed from the tag under
 // test is a verification; waiting on a clock is a guess.
@@ -11,7 +11,7 @@
 // WHY IT IS A SCRIPT AND NOT SHELL IN THE WORKFLOW. This loop lived in publish.yml, where no test could reach it,
 // and hand-checking it found a real hazard: under `set -euo pipefail` an unguarded failing curl aborts the whole
 // step, so a site that was merely slow to answer would fail the release instead of being retried. Here the loop is
-// one function with the probe and the sleep INJECTED, so every path — lands late, never lands, unreachable — is
+// one function with the probe and the sleep INJECTED, so every path — lands late— is
 // exercised by node --test rather than by someone remembering to try it.
 //
 //   node dist/scripts/await-live.js <url> <want> [maxProbes] [sleepMs] [field]
@@ -52,7 +52,7 @@ export async function awaitValue(opts: {
   }
   return {
     ok: false, probes: maxProbes, got,
-    reason: `never served this release: after ${maxProbes} probe(s) the value is '${got ?? 'unreachable'}', not '${want}'. The deploy did not land — do not treat later checks as verifying this release.`,
+    reason: `never served this release: after ${maxProbes} probe(s) the value is '${got ?? 'unreachable'}''${want}'. The deploy did not land — do not treat later checks as verifying this release.`,
   }
 }
 

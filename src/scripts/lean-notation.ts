@@ -14,7 +14,7 @@
 // gives 16 × 57 = 912, rev(78) = 87 gives 1392. A relation true of one spelling was sealed and then used to constrain
 // growth, and the wing count has now left it. That is sealed here as what it is.
 //
-// integrity, not truth. NOTHING here makes an existing theorem false. 432 % 9 = 0 is exact and stays
+// integrity — the record recomputes for anyone. NOTHING here makes an existing theorem false. 432 % 9 = 0 is exact and stays
 // exact. What is decided is that its SIGNIFICANCE is base-relative — the arithmetic survives, the harmonic reading
 // is notational, and the two were not previously distinguished in the ledger.
 import { emit } from './lean-gen.js'
@@ -30,7 +30,7 @@ const FACTS = [
     lean: 'theorem ten_reduces_to_one : [10,100,1000,10000].all (fun p => p % 9 == 1) := by decide' },
 
   { key: 'base_fixes_modulus',
-    why: 'THE MODULUS IS CHOSEN BY THE BASE, NOT BY THE NUMBERS: b ≡ 1 (mod b−1) for every base, so base eight gives mod 7, base ten mod 9, hexadecimal mod 15. Three bases, three different rings, one construction.',
+    why: 'THE MODULUS IS CHOSEN BY THE BASE. Three bases, three different rings, one construction.',
     js: () => BASES.every((b) => b % (b - 1) === 1),
     lean: `theorem base_fixes_modulus : ${L(BASES)}.all (fun b => b % (b - 1) == 1) := by decide` },
 
@@ -42,12 +42,12 @@ const FACTS = [
     lean: 'theorem bases_disagree_on_root : (432 % 9 = 0) ∧ (432 % 7 = 5) ∧ (432 % 9 ≠ 432 % 7) := by decide' },
 
   { key: 'reversal_escapes_arithmetic',
-    why: 'DIGIT REVERSAL ACTS ON THE SPELLING, NOT THE NUMBER. k432 fuses its two factorisations through rev(72) = 27, and 16 × 27 = 432 holds. It holds for that spelling alone: rev(75) = 57 gives 912 and rev(78) = 87 gives 1392, neither of them 432. The line proves the identity AND its two failures, so what was read as an involution over wings is shown to be a property of one written number.',
+    why: 'DIGIT REVERSAL ACTS ON THE SPELLING. k432 fuses its two factorisations through rev(72) = 27, and 16 × 27 = 432 holds. It holds for that spelling alone: rev(75) = 57 gives 912 and rev(78) = 87 gives 1392, neither of them 432. The line proves the identity AND its two failures, so what was read as an involution over wings is shown to be a property of one written number.',
     js: () => rev(72) === 27 && 16 * 27 === 432 && rev(75) === 57 && 16 * 57 !== 432 && rev(78) === 87 && 16 * 87 !== 432,
     lean: 'theorem reversal_escapes_arithmetic : (16 * 27 = 432) ∧ (16 * 57 ≠ 432) ∧ (16 * 87 ≠ 432) := by decide' },
 
   { key: 'root_survives_the_reading',
-    why: 'THE ARITHMETIC IS UNTOUCHED. Every digital-root fact the ledger seals stays exactly true — 432 % 9 = 0, and the nine units sum to 45 whose digits sum to 9. SCOPE: what this wing decides is that such facts are BASE-RELATIVE, never that they are wrong. The remainder is exact; the harmony read into it is notational, and the two are different claims.',
+    why: 'THE ARITHMETIC IS UNTOUCHED. Every digital-root fact the ledger seals stays exactly true — 432 % 9 = 0, and the nine units sum to 45 whose digits sum to 9. SCOPE: what this wing decides is that such facts are BASE-RELATIVE. The remainder is exact; the harmony read into it is notational, and the two are different claims.',
     js: () => { const a: number = 432 % 9; return a === 0 && 45 % 9 === 0 && 4 + 5 === 9 },
     lean: 'theorem root_survives_the_reading : (432 % 9 = 0) ∧ (45 % 9 = 0) ∧ (4 + 5 = 9) := by decide' },
 

@@ -2,7 +2,7 @@
 // has a next, so there is no "next gap" and no orphan. VitePress's native pager reads its `next` from this order
 // (config.ts), and the release gate checks the order covers every real page (scripts/next.ts) — one source, so the
 // button the reader clicks and the gap the gate hunts are the same edge. A page is a node; the order is a Hamiltonian
-// walk over all nodes that returns to the start. Integrity, not truth.
+// walk over all nodes that returns to the start. Integrity.
 import { theorems, SKILLS } from './theorems/index.js'
 import { publications } from './publish.js'
 import { lsRoot } from './boundary.js'
@@ -44,7 +44,7 @@ export function discoverStaticPages(): PageNode[] {
 //    curation choice, not a decidable fact a theorem could settle. Kept small, visible, and singular (matching
 //    the site footer's own four groups) rather than duplicated by hand across config.ts, the homepage table, and
 //    SiteFooter.vue as it was before. Any real page NOT listed here still appears (in "More"), so a forgotten
-//    category assignment is a visible gap, never a silent drop the way an un-added sidebar entry used to be.
+//    category assignment is a visible gap.
 export const SIDEBAR_CATEGORIES: readonly [string, string[]][] = [
   ['The ledger', ['/theorems', '/topics', '/grid', '/trials', '/quantum', '/quantum-cryptography', '/rosetta', '/rosetta-glagolitic', '/search', '/publications', '/news', '/articles', '/games']],
   ['Fuse it in', ['/school', '/mcp', '/chat', '/books', '/guides', '/chess', '/quantum-messaging', '/dimensions']],
@@ -54,7 +54,7 @@ export const SIDEBAR_CATEGORIES: readonly [string, string[]][] = [
 ]
 
 /** Human labels for known routes — the readable text a slug alone doesn't carry. A route with no entry here still
- *  renders (title-cased from its slug), so an unlabelled new page is visible, not missing. */
+ *  renders (title-cased from its slug), so an unlabelled new page is visible. */
 const LABELS: Readonly<Record<string, string>> = {
   '/theorems': 'All theorems', '/topics': 'Topics (by skill)', '/grid': 'The 432 grid', '/trials': 'The trials',
   '/quantum': 'What quantum means', '/quantum-cryptography': 'Quantum Cryptography (course)',
@@ -139,7 +139,7 @@ export function siteContents(title = 'uuidna'): SiteContents {
  *  privacy, prose-evidence, publications, quantum-messaging, rosetta, rosetta-glagolitic, search) previously did
  *  under the hand-typed array. Ledger-derived counts ride the label where one exists (theorem/skill totals).
  *  /articles/* subpages (150+, individually) are excluded from "More" — they're sidebar-scale-excluded by design
- *  (the single /articles entry covers them), not forgotten; discoverStaticPages still sees them for the gap audit. */
+ *  (the single /articles entry covers them); discoverStaticPages still sees them for the gap audit. */
 export function computeSidebar(): SidebarGroup[] {
   const real = discoverStaticPages().filter((p) => p.route === '/articles' || !p.route.startsWith('/articles/'))
   const realRoutes = new Set(real.map((p) => p.route))

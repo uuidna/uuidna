@@ -31,7 +31,7 @@ const ledgerCheck = {
   params: { name: 'guard_ledger_clean', arguments: {} }
 }
 // In production: const ledgerResult = await callMcpTool(ledgerCheck)
-// THE COUNT IS DERIVED, NEVER TYPED. This read `T.length === 1195 && coins() === 2`, so the check failed the moment
+// THE COUNT IS DERIVED. This read `T.length === 1195 && coins() === 2`, so the check failed the moment
 // the ledger GREW past the count someone froze into it — by 1290 theorems it was reporting "✗ Ledger Clean" while
 // describing a perfectly clean ledger, and nothing noticed because this script was wired to no npm command. What is
 // actually being asserted is that the ledger is non-empty, every theorem is uniquely addressable, and the two coins

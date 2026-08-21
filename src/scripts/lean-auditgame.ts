@@ -6,8 +6,8 @@
 // × moves, like a bounded chess game), the verdict is DECIDABLE, and N INDEPENDENT refuters are strictly more
 // accurate: adding a refuter is monotone (never un-flags), a 3-vote panel confirms on a majority, and the survive
 // condition is the product of clears ∏(1−rᵢ) — the same {0,1} algebra Audit.lean proves for the detectors. // SCOPE: the game's DECISION is decidable, but its COVERAGE is not — the refutation lexicon is incomplete, so an
-// audit RAISES the cost of a false claim surviving, it does NOT reduce it to zero. A floor, not a wall — the same
-// honest bound Security proves. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// audit RAISES the cost of a false claim surviving, it does NOT reduce it to zero. A floor— the same
+// honest bound Security proves. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit, range } from './lean-gen.js'
 
 const R2 = range(2) // a refuter's verdict: 1 = found a winning refutation (claim false), 0 = failed to refute
@@ -30,7 +30,7 @@ const FACTS = [
     lean: 'theorem verdict_is_exactly_one : (List.range 2).all (fun a => (List.range 2).all (fun b => ((1-a)*(1-b) + (1 - (1-a)*(1-b))) == 1)) := by decide' },
 
   { key: 'dual_dominates_single',
-    why: 'Two independent refuters catch at least as much as one: flag(a,b) = a OR b ≥ a. Adding an independent refuter is MONOTONE — it can only catch more, never fewer. This is why a dual audit is strictly more accurate than a single pass.',
+    why: 'Two independent refuters catch at least as much as one: flag(a,b) = a OR b ≥ a. Adding an independent refuter is MONOTONE — it can only catch more. This is why a dual audit is strictly more accurate than a single pass.',
     js: () => R2.every((a) => R2.every((b) => (1 - (1 - a) * (1 - b)) >= a)),
     lean: 'theorem dual_dominates_single : (List.range 2).all (fun a => (List.range 2).all (fun b => (1 - (1-a)*(1-b)) >= a)) := by decide' },
 
@@ -60,12 +60,12 @@ const FACTS = [
     lean: 'theorem audit_is_a_finite_game : ([0,1,2,3].map (fun n => (2:Nat)^n)) = [1, 2, 4, 8] := by decide' },
 
   { key: 'no_audit_catches_all',
-    why: 'SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵), so an audit RAISES the cost of a false claim surviving but never zeroes it. A floor, not a wall — the same "no maximum, only bounds" Security proves; the game\'s DECISION is decidable, its COVERAGE is not.',
+    why: 'SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵), so an audit RAISES the cost of a false claim surviving but never zeroes it. A floor— the same "no maximum, only bounds" Security proves; the game\'s DECISION is decidable, its COVERAGE is not.',
     js: () => 2 ** 3 < 2 ** 4 && 2 ** 4 < 2 ** 5,
     lean: 'theorem no_audit_catches_all : ((2:Nat)^3 < 2^4) ∧ ((2:Nat)^4 < 2^5) := by decide' },
 
   { key: 'audit_space_meets_chess_at_eight',
-    why: 'The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) = 10 − 8 = 2 is the first step of the vortex orbit. The three games interact in the diamond: chess at the units {1, 8}, the audit at 8, nim at the nilpotent 6. a structural residue, NOT a claim the audit IS the ring.',
+    why: 'The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) = 10 − 8 = 2 is the first step of the vortex orbit. The three games interact in the diamond: chess at the units {1, 8}, the audit at 8, nim at the nilpotent 6. a structural residue.',
     js: () => (2 ** 3) % 9 === 8 && (8 * 8) % 9 === 1 && (10 - 8) === 2,
     lean: 'theorem audit_space_meets_chess_at_eight : ((2^3) % 9 = 8) ∧ ((8 * 8) % 9 = 1) ∧ ((10 - 8) = 2) := by decide' },
 ]

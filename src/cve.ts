@@ -2,7 +2,7 @@
 // cve — audit a CVE's PUBLIC advisory metadata from NIST's National Vulnerability Database (NVD,
 // services.nvd.nist.gov, no key for low rate). Content-addresses the id, English description, CVSS severity and
 // dates — a recomputable provenance fingerprint of the public advisory, for the security reflection (the theorems a
-// real security system reflects). HONEST SCOPE: it fingerprints the PUBLIC metadata only, NOT an exploit, NOT the
+// real security system reflects). HONEST SCOPE: it fingerprints the PUBLIC metadata only
 // affected code, and it is NOT a claim that uuidna assesses, reproduces, or fixes the vulnerability. NVD publishes;
 // uuidna fingerprints the public record so it can be cited and rechecked. One network call; the audit is pure.
 import { auditText, type BookAudit } from './books.js'
@@ -37,7 +37,7 @@ export async function auditCve(cveId: string): Promise<CveAudit> {
     published,
     honest:
       'Fingerprints the PUBLIC NVD advisory metadata of a CVE (id, description, CVSS severity, dates), content-addressed ' +
-      '— NOT an exploit, NOT the affected code, and NOT a claim that uuidna assesses, reproduces, or fixes the ' +
+      '— NOT an exploit' +
       'vulnerability. NVD publishes; uuidna fingerprints the public record so it can be cited and rechecked by anyone.',
   }
 }

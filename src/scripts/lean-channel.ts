@@ -16,7 +16,7 @@
 //
 // THE ASSUMPTION IS SEALED AS AN ASSUMPTION. 378 states per element holds only if rung, hue and ray vary FREELY. If
 // the design system derives hue from the rung, the axes collapse and the true figure is smaller. That is stated in
-// the theorems below as a condition, never as a finding — it is measurable in the browser, and it is not measured here.
+// the theorems below as a condition— it is measurable in the browser, and it is not measured here.
 import { emit } from './lean-gen.js'
 
 const RUNGS = 6, HUES = 9, RAYS = 7
@@ -46,7 +46,7 @@ const FACTS = [
     lean: 'theorem three_recover_the_discard : ((378:Nat)^3 < 2^28) ∧ ((378:Nat)^4 > 2^28) := by decide' },
 
   { key: 'independence_is_assumed',
-    why: 'THE PRODUCT ASSUMES THE AXES ARE FREE. If hue were derived from the rung, the channel would be 6 × 7 = 42 per element, not 378, and the two differ by an order of magnitude — which the line proves so the assumption cannot pass unnoticed. SCOPE: which case holds is a property of the design system and is measurable in a browser against computed styles. It is NOT measured here, and nothing in this wing claims the axes are independent.',
+    why: 'THE PRODUCT ASSUMES THE AXES ARE FREE. If hue were derived from the rung, the channel would be 6 × 7 = 42 per element— which the line proves so the assumption cannot pass unnoticed. SCOPE: which case holds is a property of the design system and is measurable in a browser against computed styles. It is NOT measured here, and nothing in this wing claims the axes are independent.',
     js: () => { const free: number = PER, tied: number = RUNGS * RAYS; return free !== tied && free === 378 && tied === 42 && free > tied },
     lean: 'theorem independence_is_assumed : (6 * 9 * 7 = 378) ∧ (6 * 7 = 42) ∧ (378 ≠ 42) ∧ (378 > 42) := by decide' },
 

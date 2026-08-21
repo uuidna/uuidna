@@ -1,4 +1,4 @@
-// gate-paths — A GATE MUST ASSERT THE PROPERTY, NEVER THE FILENAME. Folded after the 2026-08-17 sweep, which found
+// gate-paths — A GATE MUST ASSERT THE PROPERTY. Folded after the 2026-08-17 sweep, which found
 // three drifted path references and one dangerous one:
 //   · security-audit backed the "KAT-verified" claim with existsSync('src/tests/kat.test.ts') — a rename broke it and
 //     an EMPTY file of that name would have passed it. It now locates the suite by the standards' own vectors.
@@ -50,7 +50,7 @@ test('every literal path a gate script names resolves — a drifted reference ma
 test('the finder bites — the historical offenders are exactly what the rule flags', () => {
   // proof by the real bugs: had these still been present, the sweep above would have named them
   for (const offender of ['lean/theorems/generated.ts', 'src/tests/kat.test.ts'])
-    assert.equal(existsSync(join(ROOT, offender)), false, `${offender} must stay absent — it is the drifted path, not a real file`)
+    assert.equal(existsSync(join(ROOT, offender)), false, `${offender} must stay absent — it is the drifted path`)
   assert.ok(existsSync(join(ROOT, 'src/theorems/generated.ts')), 'the real ledger path')
   assert.ok(existsSync(join(ROOT, 'src/tests/crypto-primitives.test.ts')), 'the real KAT suite')
 })

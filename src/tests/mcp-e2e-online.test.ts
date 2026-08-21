@@ -9,7 +9,7 @@
 //   HARD FAILURE  — the ENVELOPE. A reachable source must return the shape the tool promises: the declared fields,
 //                   a content-addressed row for every result, a recomputable receipt. That is uuidna's contract and
 //                   it cannot be excused by anyone else's uptime.
-//   SKIPPED, LOUDLY — a source that answered nothing. Reported by name, never failed, never silently passed.
+//   SKIPPED, LOUDLY — a source that answered nothing. Reported by name.
 //
 // It also asserts something the live heartbeat currently cannot: that a row is real DATA and not an HTML error page
 // served with a 200. Researching the EU API surface found twelve endpoints doing exactly that, two of them at a
@@ -52,7 +52,7 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 const looksLikeHtml = (s: string): boolean => /<!doctype html|<html[\s>]|<meta |<script[\s>]/i.test(s)
 
 /** Is the outside world reachable AT ALL? Without this, a CI runner with no egress would run every case below
- *  against a wall. The envelope assertions would still hold (best-effort fetchers return an empty answer, never a
+ *  against a wall. The envelope assertions would still hold (best-effort fetchers return an empty answer
  *  throw), but the suite would spend its timeouts proving nothing. One cheap probe decides, and when it fails every
  *  case SKIPS by name — a green deploy on an offline machine is correct, and a silent one would not be. */
 let online = false
@@ -98,17 +98,17 @@ for (const { source, args } of SOURCES)
     assert.ok(typeof body.url === 'string' && (body.url as string).startsWith('https://'), 'the exact url must be citable')
     assert.equal(typeof body.count, 'number')
     assert.ok(Array.isArray(body.results), 'results must always be an array, empty or not')
-    assert.equal((body.results as unknown[]).length, body.count, 'the count must be what is served, never what is hoped')
+    assert.equal((body.results as unknown[]).length, body.count, 'the count must be what is served')
     assert.match(String(body.receipt), UUID, 'the receipt is a content-address, computed from what came back')
     assert.ok(String(body.honest).length > 80, 'the honest scope travels with every answer')
 
-    if (!(body.count as number)) { t.skip(`${source} returned no rows — reported, not failed: an EU API being down is not this repo's defect`); return }
+    if (!(body.count as number)) { t.skip(`${source} returned no rows — reported's defect`); return }
 
     for (const row of body.results as Record<string, unknown>[]) {
       assert.equal(row.source, source, 'each row names its origin')
       assert.match(String(row.address), UUID, 'each row is content-addressed, so it can be cited and rechecked')
       // the finding the live heartbeat cannot see: twelve EU endpoints serve HTML with a 200, two of them at /api/
-      assert.ok(!looksLikeHtml(JSON.stringify(row)), `${source} row carries HTML — that is a web page, not data`)
+      assert.ok(!looksLikeHtml(JSON.stringify(row)), `${source} row carries HTML — that is a web page`)
     }
   })
 
@@ -118,15 +118,15 @@ test('e2e online: education↔jobs walks ESCO and returns a shaped pairing', asy
   const { body } = await call('uuidna_education_jobs', { subject: 'quantum', perSkill: 2 })
   assert.equal(body.subject, 'quantum')
   assert.ok(Array.isArray(body.pairs), 'pairs must always be an array')
-  assert.ok(Array.isArray(body.homographs), 'the rejected lexical hits are returned by name, never dropped')
+  assert.ok(Array.isArray(body.homographs), 'the rejected lexical hits are returned by name')
   assert.match(String(body.receipt), UUID)
   const pairs = body.pairs as { escoSkill?: { uri?: string; title?: string }; occupations?: { uri?: string; relation?: string }[] }[]
-  if (!pairs.length || !pairs[0].escoSkill) { t.skip('ESCO returned no skill for "quantum" — reported, not failed'); return }
+  if (!pairs.length || !pairs[0].escoSkill) { t.skip('ESCO returned no skill for "quantum" — reported'); return }
   for (const p of pairs) {
-    assert.match(String(p.escoSkill?.uri), /^https?:\/\/data\.europa\.eu\/esco\//, 'the skill must be a real ESCO URI, never minted here')
+    assert.match(String(p.escoSkill?.uri), /^https?:\/\/data\.europa\.eu\/esco\//, 'the skill must be a real ESCO URI')
     for (const o of p.occupations ?? []) {
       assert.match(String(o.uri), /^https?:\/\/data\.europa\.eu\/esco\/occupation\//, 'an occupation must be ESCO\'s own id')
-      assert.ok(o.relation === 'essential' || o.relation === 'optional', 'the relation is ESCO\'s published one, not an invented label')
+      assert.ok(o.relation === 'essential' || o.relation === 'optional', 'the relation is ESCO\'s published one')
     }
   }
 })

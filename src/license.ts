@@ -4,7 +4,7 @@
 // NOT legal advice, and NOT the grant itself: a licence is an agreement executed between the parties (see legal.ts,
 // which leaves the ruling to humans). Non-commercial use is FREE (0 coins) and needs no licence; commercial use is
 // billed the two CONSERVED coins (110 − 108 = 2) on the measured advantage (recompute − verify). verifyLicense
-// recomputes the address, so any altered term or bill is visible. A content-address proves integrity, not truth.
+// recomputes the address, so any altered term or bill is visible. A content-address proves integrity.
 import { toUuid } from './address.js'
 import { coinOfReferer, meetAt } from './conversation.js'
 import { hmacSha256 } from './sha256.js'
@@ -19,13 +19,13 @@ import { legalFacts } from './legal.js'
  *
  *  So a licence binds two things a list cannot:
  *    A COIN PER REFERRER          — one 64-bit coin per distinct source, so the licence names WHO exercises it and
- *                                   the same source arriving repeatedly stays one licence, not many.
+ *                                   the same source arriving repeatedly stays one licence.
  *    A SUPERPOSITION PER DESTINATION — every referrer licensed at that destination folded ORDER-INVARIANTLY into
  *                                   one uuid. The destination is inside the fold, so a licence at one host does not
  *                                   verify at another, however the DNS is pointed.
  *
  *  HONEST SCOPE, unchanged: this fingerprints WHO and WHERE so tampering either is visible. It does not decide that
- *  a host is entitled to anything — the grant is executed between the parties, and a court rules, not this fold. */
+ *  a host is entitled to anything — the grant is executed between the parties, and a court rules. */
 export interface LicenseAt {
   referer: string          // the source exercising the licence
   destination: string      // the host it is exercised at
@@ -55,13 +55,13 @@ const TERMS_C =
 
 const HONEST =
   'A recomputable RECORD of the licence terms and the measured bill — proof of WHAT and HOW MUCH, recomputable by ' +
-  'anyone. NOT a signed legal agreement, not legal advice, not the grant itself: a commercial licence is executed ' +
+  'anyone. NOT a signed legal agreement' +
   'between the parties. Non-commercial use is free and needs no licence; commercial use is billed the two conserved ' +
-  'coins. A content-address proves integrity, not truth.'
+  'coins. A content-address proves integrity.'
 
 // the digest a licence content-addresses — EVERY binding term AND every bill FIELD (not just the bill's own receipt),
 // so tampering a displayed field (e.g. zeroing the coins) is visible even if the bill receipt is left untouched.
-// THE ARRIVAL IS APPENDED, NEVER INTERLEAVED. An unbound licence digests to the byte-identical string it always
+// THE ARRIVAL IS APPENDED. An unbound licence digests to the byte-identical string it always
 // did, so every address ever issued still recomputes — the stability the standard projection buys elsewhere, kept
 // here deliberately. A BOUND licence carries the coin and the superposition inside its identity, which is the whole
 // point: alter the referrer or the destination and the address moves.
@@ -91,9 +91,9 @@ export function license(licensee: string, usage: UuidnaUsage,
 }
 
 /** verifyLicense(l) → recompute the record's address; true iff every term and EVERY bill field are UNALTERED.
- *  Integrity, not validity — this proves the record was not tampered with, not that the licence is legally in force. */
+ *  Integrity, not validity — this proves the record was not tampered with. */
 export function verifyLicense(l: License): boolean {
-  // the bound pair is recomputed from its OWN inputs, not trusted as given: a record claiming a coin that its
+  // the bound pair is recomputed from its OWN inputs
   // referer does not mint, or a superposition its destination does not fold to, fails here rather than passing
   // because the two numbers were written down consistently with each other.
   // THE COIN IS RECOMPUTED FROM ITS OWN INPUT — a record claiming a coin its referer does not mint fails here,
@@ -103,7 +103,7 @@ export function verifyLicense(l: License): boolean {
   // this repository deletes on sight: it folds over EVERY referrer licensed at that destination, and a record does
   // not carry the others. What is verified is that it is UNALTERED — it rides inside the address below, so editing
   // it moves the record. Verifying it is the RIGHT fold needs the destination's full referrer set, which is a
-  // question for whoever holds that list, not for this function.
+  // question for whoever holds that list.
   return toUuid(digest(l.licensee, l.scope, l.terms, l.bill, l.at)) === l.address
 }
 
@@ -112,7 +112,7 @@ export function verifyLicense(l: License): boolean {
 //
 // The edge decides who it serves with a hostname allowlist (worker.js, LICENSED — empty today, so only the
 // first-party wildcard is served). A hostname is IMITABLE: anyone can point a CNAME. The sealed theorem
-// redirect_imitable_but_coins_authorise names the cure — the coins authorise, not the redirect.
+// redirect_imitable_but_coins_authorise names the cure — the coins authorise.
 //
 // BUT A COIN ALONE CANNOT AUTHORISE, and saying otherwise would be the overclaim this repository exists to catch.
 // coinOfReferer and meetAt are PUBLIC ARITHMETIC over public strings: anyone who knows a referrer and a destination

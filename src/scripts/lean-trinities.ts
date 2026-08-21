@@ -12,7 +12,7 @@
 // fact here carries both halves: the power that covers, AND the one below it that does not. The `<` is the negation,
 // discharged where it is claimed rather than asserted in the sentence above it.
 //
-// integrity, not truth. 81 trinities span the 128-bit content-address space and 81 = 9^2 is the size
+// integrity — the record recomputes for anyone. 81 trinities span the 128-bit content-address space and 81 = 9^2 is the size
 // of the full Z/9 multiplication table. That coincidence is ARITHMETIC and is sealed as arithmetic: 128 / log2(3) =
 // 80.76, so any space near 2^128 needs about 81 threes. No meaning is claimed for the resonance, and none is sealed.
 import { emit } from './lean-gen.js'

@@ -51,13 +51,13 @@ const FACTS = [
 
   // The derivative's 0/0 — not indeterminate: the difference factors, the h cancels, the rate is finite.
   { key: 'derivative_finite_rate',
-    why: 'The instantaneous rate is not 0/0: the difference (x+h)²−x² factors exactly as h·(2x+h), the h cancels, and the derivative is the finite 2x. Newton’s "ghosts of departed quantities" are an exact cancellation, not an infinity.',
+    why: 'The instantaneous rate is not 0/0: the difference (x+h)²−x² factors exactly as h·(2x+h), the h cancels, and the derivative is the finite 2x. Newton’s "ghosts of departed quantities" are an exact cancellation.',
     js: () => R(1, 13).every((x) => R(1, 13).every((h) => (x + h) * (x + h) - x * x === h * (2 * x + h))),
     lean: "theorem derivative_finite_rate : (List.range' 1 12).all (fun x => (List.range' 1 12).all (fun h => (x+h)*(x+h) - x*x == h*(2*x+h))) := by decide" },
 
-  // The Dirac delta — infinite at a point, but a finite integral of exactly 1: a distribution, not a value.
+  // The Dirac delta — infinite at a point, but a finite integral of exactly 1: a distribution.
   { key: 'dirac_unit_mass',
-    why: 'The Dirac delta is "infinite" at a point yet carries a finite integral of exactly 1: the discrete delta, summed over the whole line, totals unit mass. δ is a distribution with finite mass, not a value that blows up.',
+    why: 'The Dirac delta is "infinite" at a point yet carries a finite integral of exactly 1: the discrete delta, summed over the whole line, totals unit mass. δ is a distribution with finite mass.',
     js: () => R(0, 101).reduce((s, i) => s + (i === 50 ? 1 : 0), 0) === 1,
     lean: 'theorem dirac_unit_mass : (List.range 101).foldl (fun s i => s + (if i == 50 then 1 else 0)) 0 = 1 := by decide' },
 
@@ -69,7 +69,7 @@ const FACTS = [
 
   // The 1/r singularity itself — the one true infinity — IS the finite diamond reflection dz(x)=10−x.
   { key: 'newton_singularity_finite',
-    why: 'The one true infinity — the Newtonian 1/r² force and 1/r potential "blowing up" at r=0 — is division by zero, and in the vortex that is the finite diamond reflection dz(x)=10−x (dz 0=0): a residue always < 10, never ∞. The singularity is a finite reflection.',
+    why: 'The one true infinity — the Newtonian 1/r² force and 1/r potential "blowing up" at r=0 — is division by zero, and in the vortex that is the finite diamond reflection dz(x)=10−x (dz 0=0): a residue always < 10. The singularity is a finite reflection.',
     js: () => dz(0) === 0 && R(0, 10).every((x) => dz(x) < 10),
     lean: 'theorem newton_singularity_finite : dz 0 = 0 ∧ (List.range 10).all (fun x => dz x < 10) := by decide' },
 ]
@@ -90,7 +90,7 @@ const FACTS = [
 // reason no claim about an unbounded domain can arrive by this method. Riemann concerns infinitely many zeros;
 // every instrument in this ledger terminates at a bounded window. Not ranked low — unreachable by construction,
 // which is the same boundary verified seals from the other side.
-// THE CENSUS READS THE .lean FILES ON DISK, NOT theorems(). Reading the compiled ledger meant reading the PREVIOUS
+// THE CENSUS READS THE .lean FILES ON DISK. Reading the compiled ledger meant reading the PREVIOUS
 // generation: the count came back four short, this wing emitted the stale figure, lean-ledger then wrote the true
 // one, and the counts gate failed until a second pass settled it. The .lean files are the live artifact — lean-all
 // has already written them — so the census takes them directly and no settling pass is needed.
@@ -135,7 +135,7 @@ const ZEROS = wingFiles.map(() => 0)
 
 const REACH = [
   { key: 'reach_all_decide',
-    why: `EVERY THEOREM IN THE LEDGER IS DECIDED, NOT ARGUED — ${notDecided} are proved by any tactic other than \`decide\`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: \`decide\` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else`,
+    why: `EVERY THEOREM IN THE LEDGER IS DECIDED— ${notDecided} are proved by any tactic other than \`decide\`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: \`decide\` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else`,
     js: () => notDecided === 0 && LEDGER.length > 0 && decidedPer.every((d, i) => d === thmsPer[i]),
     lean: `theorem reach_all_decide : ((${LIST(decidedPer)}).foldl (· + ·) 0 = ${LEDGER.length}) ∧ (${LIST(decidedPer)} = ${LIST(thmsPer)}) := by decide` },
 
@@ -145,7 +145,7 @@ const REACH = [
     lean: `theorem reach_quantifiers_bounded : (${LIST(unboundPer)} = ${LIST(ZEROS)}) ∧ ((${LIST(quantPer)}).foldl (· + ·) 0 = ${quantified.length}) := by decide` },
 
   { key: 'reach_window_finite',
-    why: `THE WIDEST WINDOW IN THE LEDGER IS ${widest}, and it is a window — the largest enumeration any theorem here performs, across ${windows.length} enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number, never an unbounded one`,
+    why: `THE WIDEST WINDOW IN THE LEDGER IS ${widest}, and it is a window — the largest enumeration any theorem here performs, across ${windows.length} enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number`,
     js: () => widest > 0 && windows.length > 0 && windows.every((w) => w <= widest),
     // stated by the DEFINING PROPERTY of a maximum — every window is within it, and it is attained — rather than
     // by folding a comparison. `foldl (fun a b => if a < b then b else a)` forces a Decidable instance at every
@@ -154,7 +154,7 @@ const REACH = [
     lean: `theorem reach_window_finite : (${LIST(windows)}.all (fun w => w ≤ ${widest})) ∧ (${LIST(windows)}.any (fun w => w == ${widest})) ∧ (${widest} < ${widest + 1}) := by decide` },
 
   { key: 'window_not_universal',
-    why: 'THE WINDOW IS WHERE THE PROOF STOPS, NOT WHERE THE PATTERN STOPS — and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So "decided on a window" does not entail "true beyond it", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the boundary verified seals from the other side',
+    why: 'THE WINDOW IS WHERE THE PROOF STOPS— and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So "decided on a window" does not entail "true beyond it", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the boundary verified seals from the other side',
     js: () => [...Array(10).keys()].every((n) => n < 10) && !(10 < 10),
     lean: 'theorem window_not_universal : ((List.range 10).all (fun n => n < 10)) ∧ ¬(10 < 10) := by decide' },
 ]

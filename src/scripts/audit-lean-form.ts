@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// scripts/lean-form — THE LEAN FORM, enforced on the surfaces the prose trial never reaches. The law is already
+// scripts/audit-lean-form — THE LEAN FORM, enforced on the surfaces the prose trial never reaches. The law is already
 // stated in derive-prose-trials.ts: "explicitly denying is not lean — lean CONFIRMS instead of denying". A paragraph
 // mentioning quantum speedup or advantage passes ONLY by citing a sealed theorem — the positive confirmation of what
 // IS (the classical bound, n_qubit_dimension) — never by adverbs of absence. derive-prose-trials holds that line over
 // README + docs/*.md (197 markdown surfaces). It does NOT reach source comments, string literals, or Lean headers,
 // which is where the remaining denials live. This finder covers exactly that gap.
 //
-// EXEMPTIONS ARE NAMED, never inferred (theorem drift_is_named_or_caught: a boundary is either declared or it fails).
+// EXEMPTIONS ARE NAMED.
 // The gate machinery must utter the refused phrase to refuse it — the regex that rejects a release cannot be written
 // without the words it rejects — so those files are listed below by path, in the open.
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
@@ -22,7 +22,7 @@ const EXEMPT = new Set([
   'src/scripts/next.ts',                // ARM 6: the release-title regex and its failure message
   'src/scripts/one-receipt.ts',         // the NEG demarcation regex
   'src/scripts/derive-prose-trials.ts', // the law's own statement (PHYSICS_CLAIM)
-  'src/scripts/lean-form.ts',           // this finder
+  'src/scripts/audit-lean-form.ts',     // this finder
   'src/tests/energy.test.ts',           // the assertion that tool descriptions stay clean
   'src/tests/readme-quantum.test.ts',   // the assertion that the README stays clean
   'lean/leads.json',                    // a research lead NAMES the claim class it hunts
@@ -64,8 +64,8 @@ for (const f of files) {
       PHYSICS_CLAIM.lastIndex = 0
       // THE BACKED-BY WINDOW (the precedent is provenance.ts): a theorem's description is vouched by its OWN key,
       // which sits on a sibling line of the same object literal — so the citation window is the block plus six
-      // lines either side, never the block alone. A narrower window false-flags every sealed `why:` in the tree.
-      const window = lines.slice(Math.max(0, i - 6), j + 7).join('\n')
+      // lines either side. A narrower window false-flags every sealed `why:` in the tree.
+      const window = lines.slice(i > 6 ? i - 6 : 0, j + 7).join('\n')
       const cited = [...SEALED].some((k) => window.includes(k))
       if (!cited) for (const m of block.matchAll(PHYSICS_CLAIM))
         violations.push({ surface: rel, line: i + 1, claim: m[0], text: (lines[i] ?? '').trim().slice(0, 100) })
@@ -75,7 +75,7 @@ for (const f of files) {
   }
 }
 
-console.log('  THE LEAN FORM — source prose confirms by citation, never denies by adverb.')
+console.log('  THE LEAN FORM — source prose confirms by citation.')
 console.log(`    surfaces   : ${files.length} (src/**/*.ts, source of truth only)`)
 console.log(`    exempt     : ${EXEMPT.size} named (gate machinery — it must say the phrase to refuse it)`)
 if (violations.length === 0) {

@@ -95,7 +95,7 @@ export function correlateAcrossBooks(
     receipt,
     honest:
       'Cross-book correlation: PURE, recomputable, no network calls. Books are read together to find shared theorems and decidable facts that resonate across texts. ' +
-      'Shared theorems cite sealed proofs; novel patterns are research leads awaiting ledger entry. Integrity, not truth.',
+      'Shared theorems cite sealed proofs; novel patterns are research leads awaiting ledger entry. Integrity.',
   }
 }
 

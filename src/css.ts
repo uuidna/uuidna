@@ -69,7 +69,7 @@ export function matrixEffects(): string {
   const weight = milli(1, C)                          // 0.500 — each of C equal states (coin_is_one_qubit)
   const mid = fdiv(100, C)                            // 50% — the keyframe midpoint, the same halving
   const rungs = [...new Set(vortexOrbit())].sort((a, b) => a - b)
-  // the dz mirror pairs (d, 10−d) with d below its mirror — the involution chooses them, not an author
+  // the dz mirror pairs (d, 10−d) with d below its mirror — the involution chooses them
   const pairs: Array<[number, number]> = []
   for (let d = 1; d <= BASE; d++) { const m = 10 - d; if (d < m && m <= BASE) pairs.push([d, m]) }
 
@@ -78,12 +78,12 @@ export function matrixEffects(): string {
   const ladder = rungs.map((d) => `.q-rung-${d} { transition-duration: var(--dur-${d}); }`).join('\n')
 
   return `
-/* THE SPEED LAW (engineering, not arithmetic — named as such): every effect below animates ONLY \`transform\`
+/* THE SPEED LAW (engineering— named as such): every effect below animates ONLY \`transform\`
    and \`opacity\`, the two properties a compositor runs without returning to layout or paint. Nothing here
    animates a property that forces the pipeline, and every timing function is linear — no invented curve. */
 
 /* q-superposition — C = ${C} STATES HELD AT ONCE, each at weight 1/${C} = ${weight}: a digit and its dz-mirror
-   (10−d) layered. One rule per mirror pair; the involution chose the pairs, not an author. */
+   (10−d) layered. One rule per mirror pair; the involution chose the pairs. */
 .q-superposition { position: relative; isolation: isolate; }
 .q-superposition::before,
 .q-superposition::after {

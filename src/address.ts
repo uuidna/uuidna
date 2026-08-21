@@ -1,6 +1,6 @@
 // uuidna — the content-addressed core. Dependency-free, exact integer arithmetic (no Math.*).
-// toUuid provides INTEGRITY, not secrecy: the same input always mints the same address, for anyone, with no key.
-// FNV-1a is NON-cryptographic by design — public and reproducible, not secret. For adversarial integrity use
+// toUuid provides INTEGRITY.
+// FNV-1a is NON-cryptographic by design — public and reproducible. For adversarial integrity use
 // cryptoAddress (SHA-256), which is collision- and preimage-resistant.
 // Licensed CC BY-NC-ND 4.0 · Attribution: Tsvetan Rouschev (ceccec@psg.bg).
 import { sha256 } from './sha256.js'
@@ -69,7 +69,7 @@ export function toUuid(seed: string): string {
 
 /** Cryptographic (SHA-256) content-address — collision- and preimage-resistant, formatted as a v8 UUID from the
  *  first 128 bits of SHA-256('uuidna:' + seed). Use where the address must resist an adversary; toUuid stays the
- *  fast public identity. Recomputable by anyone from the same seed; still integrity, not secrecy (it carries no key). */
+ *  fast public identity. Recomputable by anyone from the same seed; still integrity. */
 export function cryptoAddress(seed: string): string {
   return formatUuid([...sha256(enc.encode('uuidna:' + seed))])
 }
@@ -93,8 +93,8 @@ export function coin64(text: string): string {
 /** Canonical JSON of a plain object with some keys dropped and the rest key-sorted — ready for toUuid().
  *  Same content (same surviving key/value pairs) always serializes identically regardless of the input
  *  object's own property order; a changed value, or a changed key set, moves the result. This is an
- *  ECMAScript-spec guarantee (JSON.stringify with a sorted replacer array), not a Lean-provable claim —
- *  verified by real tests over real objects, not a small representative instance. */
+ *  ECMAScript-spec guarantee (JSON.stringify with a sorted replacer array)—
+ *  verified by real tests over real objects. */
 export function excludeSortedJson(obj: Record<string, unknown>, excludeKeys: readonly string[]): string {
   const exclude = new Set(excludeKeys)
   const rest: Record<string, unknown> = {}
@@ -150,7 +150,7 @@ export function modpow(b: number, e: number, n: number): number {
   return r
 }
 
-// ── The ℤ/9 vortex primitives — DERIVED from a single axiom, never typed as literals. ──
+// ── The ℤ/9 vortex primitives — DERIVED from a single axiom. ──
 /** The one irreducible axiom: the trinity. */
 export const TRINITY = 3
 /** The base of the ring — TRINITY², derived. */

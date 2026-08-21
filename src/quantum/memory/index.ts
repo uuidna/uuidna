@@ -10,7 +10,7 @@
 // leaves a store that LOOKS addressed and is silently partial, and nothing downstream can tell that state from a
 // wing that genuinely has forty.
 //
-// SO INCOMPLETENESS IS A STATE, NOT AN ABSENCE. A held handle is in memory and on no disk. A cube seals only when
+// SO INCOMPLETENESS IS A STATE. A held handle is in memory and on no disk. A cube seals only when
 // every member its census names is present — not a count match, the KEY SET, because n members can be the wrong n
 // (holding one key twice, or a stranger's key, matches a count and is not the neighbourhood). Only sealed cubes are
 // written, so a partial store cannot exist to be misread.
@@ -25,10 +25,10 @@
 // replaces its receipt, a held cube contributes nothing at all. The memory forgets only what it has actually
 // re-measured, so a partial run costs nothing and destroys nothing.
 //
-// HONEST SCOPE: integrity, not truth. This decides SAMENESS — whether the content behind a handle is byte-for-byte
+// HONEST SCOPE: integrity. This decides SAMENESS — whether the content behind a handle is byte-for-byte
 // the content a receipt was issued for. It does not decide whether the theorem is right; the kernel does that, and
-// the receipt only records that the kernel already did. A stale receipt can cost extra sealing, never a false seal:
-// the handle is recomputed from the address every time and compared, never trusted from the file.
+// the receipt only records that the kernel already did. A stale receipt can cost extra sealing
+// the handle is recomputed from the address every time and compared.
 import { merkleGravity } from '../../gravity.js'
 import { handleOf } from '../../handle.js'
 
@@ -43,7 +43,7 @@ export interface Cube {
   missing: readonly string[]      // the census keys not yet held — empty exactly when sealed
   address: string                 // THE IDENTITY THAT TRAVELS: merkleGravity of the member addresses, a COMPLETE
                                   // uuid; '' while incomplete
-  handle: string                  // the eight-hex INDEX derived from that address — a path, never a message
+  handle: string                  // the eight-hex INDEX derived from that address — a path
   sealed: boolean
 }
 
@@ -57,7 +57,7 @@ export interface Cube {
  *  recomputed at the far end — then no payload is needed anywhere in the chain, and the receipt collapses to the
  *  single value that cannot be derived from the file: the fold the memory has already sealed.
  *
- *  AND THE MESSAGE CARRIES THE COMPLETE UUID, NOT THE HANDLE. Eight hex characters index 16^8 addresses, and the
+ *  AND THE MESSAGE CARRIES THE COMPLETE UUID. Eight hex characters index 16^8 addresses, and the
  *  birthday bound puts the usable ceiling of that space near 65,536 — ample for seventy-two neighbourhoods, and a
  *  collision waiting to be reached by a memory whose whole purpose is that it scales. The handle is a PATH: four
  *  levels of two hex characters, an index into a tree (handle_splits_four). The address is the IDENTITY: the full
@@ -73,7 +73,7 @@ export interface CubeMemory {
 }
 
 /** cubeMemory(census) — a memory that knows which keys EVERY neighbourhood is owed before a single one is staged.
- *  The census is the key set per principle, not a count: completeness is set equality, and a count is not. */
+ *  The census is the key set per principle. */
 export function cubeMemory(census: Iterable<readonly [string, Iterable<string>]>): CubeMemory {
   const expected = new Map<string, ReadonlySet<string>>()
   for (const [principle, keys] of census) {

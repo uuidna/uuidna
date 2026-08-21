@@ -7,9 +7,9 @@
 // pure ratio (1:25000 → 1 cm is 250 m); a grid reference splits each square into tenths; a back-bearing is the
 // forward turned 180° about the compass (bearings live in ℤ/360); relief is the highest spot height less the
 // lowest; and the triangulation that fixed every hilltop rests on a triangle whose angles sum to 180°. // SCOPE: the arithmetic of the map — exact ratios, counts and cycles — NOT a survey, a GPS fix, a route planner, or
-// safety guidance. The ledger seals only EXACT rational facts — the 3-4-5 slope triple, not the irrational length of
+// safety guidance. The ledger seals only EXACT rational facts — the 3-4-5 slope triple
 // a general hillside — and Naismith's walking time is a rule-of-thumb ESTIMATE, demarcated where it appears.
-// COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -34,7 +34,7 @@ const FACTS = [
     lean: 'theorem contour_spacing_inverse_gradient : (10 * 5 = 50) ∧ (10 * 10 = 100) ∧ (50 < 100) := by decide' },
 
   { key: 'hillside_three_four_five',
-    why: 'The distance walked exceeds the distance mapped: a 400 m run that climbs 300 m is a 500 m walk along the ground, because 300² + 400² = 500² — the walker\'s 3-4-5 hillside — and the slope length 500 is strictly greater than the flat run 400. A map measures the shadow, not the climb.',
+    why: 'The distance walked exceeds the distance mapped: a 400 m run that climbs 300 m is a 500 m walk along the ground, because 300² + 400² = 500² — the walker\'s 3-4-5 hillside — and the slope length 500 is strictly greater than the flat run 400. A map measures the shadow.',
     js: () => 300 * 300 + 400 * 400 === 500 * 500 && 500 > 400,
     lean: 'theorem hillside_three_four_five : (300 * 300 + 400 * 400 = 500 * 500) ∧ (500 > 400) := by decide' },
 
@@ -69,20 +69,20 @@ const FACTS = [
     lean: 'theorem gunters_chain_measures : (80 * 66 = 5280) ∧ (22 * 220 = 4840) := by decide' },
 
   { key: 'vertical_exaggeration',
-    why: 'A cross-section stretches the vertical to make gentle relief legible: the exaggeration is the vertical scale over the horizontal, so a profile drawn at 1:100 vertical against 1:500 horizontal exaggerates the slopes five-fold (500 / 100 = 5). the profile then LOOKS five times steeper than the land — a reading aid, not the true gradient.',
+    why: 'A cross-section stretches the vertical to make gentle relief legible: the exaggeration is the vertical scale over the horizontal, so a profile drawn at 1:100 vertical against 1:500 horizontal exaggerates the slopes five-fold (500 / 100 = 5). the profile then LOOKS five times steeper than the land — a reading aid.',
     js: () => 500 / 100 === 5,
     lean: 'theorem vertical_exaggeration : 500 / 100 = 5 := by decide' },
 
   { key: 'naismith_rule_estimate',
-    why: "Naismith's rule estimates a hill walk: allow an hour per 5 km and an extra hour per 600 m of ascent, so 15 km climbing 1200 m is about (15/5)·60 + (1200/600)·60 = 300 minutes, five hours. a rule-of-thumb ESTIMATE for planning, not a guarantee — it ignores terrain, load, weather and the walker; never stake safety on it.",
+    why: "Naismith's rule estimates a hill walk: allow an hour per 5 km and an extra hour per 600 m of ascent, so 15 km climbing 1200 m is about (15/5)·60 + (1200/600)·60 = 300 minutes, five hours. a rule-of-thumb ESTIMATE for planning— it ignores terrain, load, weather and the walker; never stake safety on it.",
     js: () => (15 / 5) * 60 + (1200 / 600) * 60 === 300,
     lean: 'theorem naismith_rule_estimate : (15 / 5) * 60 + (1200 / 600) * 60 = 300 := by decide' },
 
   // ── THE FIGURE OF THE EARTH — the decidable arithmetic of the reference ellipsoid every map is drawn on.
   // WGS 84 fixes TWO constants by definition (not by measurement): the semi-major axis a = 6 378 137 m exactly,
   // and the inverse flattening 1/f = 298.257223563 exactly. Everything else about the figure is DERIVED from
-  // those two, so the derivation is arithmetic and belongs here — computed, never copied from a table.
-  // this seals the arithmetic of a DEFINED reference surface, not an empirical finding about the
+  // those two, so the derivation is arithmetic and belongs here — computed.
+  // this seals the arithmetic of a DEFINED reference surface
   // planet. Whether the earth has this shape is a measurement question with no decidable test in this ledger
   // (untested_stays_unproven) — sealing 21385 does not adjudicate it, and must never be cited as if it did.
   { key: 'wgs84_polar_shorter',
@@ -109,10 +109,10 @@ const FACTS = [
     lean: 'theorem bulge_exceeds_relief : 8849 + 10935 = 19784 ∧ 21385 > 19784 := by decide' },
 ]
 
-console.log('computing ' + FACTS.length + ' TOPOGRAPHY facts (the arithmetic of the map — not a survey, not a route planner) …')
+console.log('computing ' + FACTS.length + ' TOPOGRAPHY facts (the arithmetic of the map — not a survey')
 
 emit({
   file: 'Topography.lean', skill: 'topography',
-  header: 'TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor\'s chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith\'s walking estimate. exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside\'s irrational length), and Naismith\'s time is a rule-of-thumb estimate, demarcated where it appears.',
+  header: 'TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor\'s chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith\'s walking estimate. exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple's irrational length), and Naismith\'s time is a rule-of-thumb estimate, demarcated where it appears.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

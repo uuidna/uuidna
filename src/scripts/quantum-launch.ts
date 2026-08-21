@@ -250,7 +250,7 @@ PHASE 4: PUBLIC LAUNCH (Week 4-5)
 What: Open the doors. The school is live. Enrollment is open. The future starts.
 
 Launch Marketing:
-  "Code that is PROVEN, not HOPED for"
+  "Code that is PROVEN"
   "Learn by Building. Earn Real Coins. Change the World."
   "Quantum School: Where theorems replace hope"
 

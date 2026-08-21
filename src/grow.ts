@@ -4,9 +4,9 @@
 // growth stays inside the licence (CC BY-NC-ND), the sole-representation reservation (uuidna.com only) and the credit
 // law, and inside the honest cost model (bill_never_negative: never take more than the measured saving); LIFE — the
 // count of living, by-decide theorems, growing toward the 1024 milestone, each one kept, none destroyed. Folded to
-// one receipt anyone recomputes. HONEST SCOPE: integrity, not truth — "grow life" is the MONOTONE, lawful growth of a
-// recomputable ledger (a living system of proofs), NOT biological life and NOT a claim to create or own life; "uses
-// all tools" is the recomputable capabilities serving the growth, not a claim of unlimited power. It composes what is
+// one receipt anyone recomputes. HONEST SCOPE: integrity— "grow life" is the MONOTONE, lawful growth of a
+// recomputable ledger (a living system of proofs); "uses
+// all tools" is the recomputable capabilities serving the growth. It composes what is
 // already sealed; it asserts nothing new.
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
@@ -32,7 +32,7 @@ export function nextMilestone(living: number): number {
 
 export interface GrowLife {
   mission: string
-  grow: { alwaysANext: boolean; theorems: number; target: number; toGo: number }  // the frontier advances, never closes
+  grow: { alwaysANext: boolean; theorems: number; target: number; toGo: number }  // the frontier advances
   legally: { license: string; canonical: string; reservationAddress: string; lawfulCost: boolean }  // inside licence + reservation + honest cost
   life: { living: number; monotone: boolean }   // living by-decide theorems; growth keeps every one (monotone)
   permaculture: { selfSustaining: boolean; regenerative: boolean; noWaste: boolean; sustains: boolean }  // a QUANTUM-LIFE PERMACULTURE: self-sufficient, regrows from the ledger, wastes nothing
@@ -48,13 +48,13 @@ const HONEST =
   'the living count of by-decide theorems, each kept, none destroyed, growing toward the next power of two. PERMACULTURE — the growth ' +
   'is self-sustaining (zero runtime dependencies), regenerative (the layer regrows from the ledger as a fixed point, ' +
   'the kernel-only witness ships so anyone regrows it offline), and wastes nothing (monotone + honest cost). HONEST ' +
-  'SCOPE: integrity, not truth — "life" is the MONOTONE, lawful, self-sustaining growth of a recomputable proof-ledger ' +
-  '(a living system of proofs, a permaculture), NOT biological life and NOT a claim to create or own life; it composes ' +
+  'SCOPE: integrity — the record recomputes for anyone — "life" is the MONOTONE, lawful, self-sustaining growth of a recomputable proof-ledger ' +
+  '(a living system of proofs, a permaculture); it composes ' +
   'sealed facts and asserts nothing new.'
 
 /** growLife() → the captain's mission as one recomputable object: the lawful, monotone growth of the living ledger.
  *  Composes the growth invariant (research_always_has_a_next), the legal frame (licence + reservation + honest cost),
- *  and the life measure (living theorem count toward the next computed milestone). Deterministic; folds to one receipt. Integrity, not truth. */
+ *  and the life measure (living theorem count toward the next computed milestone). Deterministic; folds to one receipt. Integrity. */
 export function growLife(): GrowLife {
   const T = theorems()
   const lf = legalFacts()
@@ -73,7 +73,7 @@ export function growLife(): GrowLife {
   //   selfSustaining — ZERO runtime dependencies (the security audit's zero-runtime-deps check): no external input to live.
   //   regenerative   — the whole derived layer REGROWS deterministically from the ledger (a fixed point) and the
   //                    kernel-only witness SHIPS, so any observer regenerates the identical system offline.
-  //   noWaste        — monotone + honest cost (bill_never_negative): every theorem kept, never take more than saved.
+  //   noWaste        — monotone + honest cost (bill_never_negative): every theorem kept.
   const audit = securityAudit()
   const permaculture = {
     selfSustaining: audit.checks.find((c) => c.id === 'zero-runtime-deps')?.ok ?? false,

@@ -21,7 +21,7 @@ test('a coin per referrer — deterministic, 64 bits, and distinct per source', 
   assert.notEqual(coinOfReferer(A), coin64(A), 'a referrer coin and a subject coin for the same url are different things')
 })
 
-test('a coin identifies a SOURCE, not a visit — repeats do not mint more', () => {
+test('a coin identifies a SOURCE— repeats do not mint more', () => {
   const once = meetAt('/checkout', [A, B, C])
   const many = meetAt('/checkout', [A, B, C, A, B, A])
   assert.equal(once.referrers, 3)
@@ -49,9 +49,9 @@ test('per DESTINATION — the same crowd at another place is another meeting', (
 
 test('the handle is the superposition read through the one derivation, and an empty meeting still answers', () => {
   const m = meetAt('/checkout', [A])
-  assert.equal(m.handle, m.superposition.replace(/-/g, '').slice(0, 8), 'the handle is the first eight hex, not a second scheme')
+  assert.equal(m.handle, m.superposition.replace(/-/g, '').slice(0, 8), 'the handle is the first eight hex')
   const empty = meetAt('/checkout', [])
-  assert.equal(empty.referrers, 0, 'a destination nobody reached is a real answer, not an error')
+  assert.equal(empty.referrers, 0, 'a destination nobody reached is a real answer')
   assert.match(empty.superposition, UUID, 'and it still folds to an address')
   assert.notEqual(empty.superposition, m.superposition, 'nobody arriving and someone arriving are different facts')
 })
@@ -70,7 +70,7 @@ test('a bound licence names WHO and WHERE, and both ride inside its address', ()
   assert.equal(verifyLicense(here), true)
 })
 
-test('a forged referrer is REJECTED — the coin is recomputed, not trusted as written', () => {
+test('a forged referrer is REJECTED — the coin is recomputed', () => {
   const usage = { commercial: true, recomputeOps: 100, verifyOps: 1 }
   const real = license('acme', usage, { referer: 'https://acme.example', destination: 'shop.acme.com' })
   assert.ok(real.at)

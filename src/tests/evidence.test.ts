@@ -1,6 +1,6 @@
 // Evidence tests — a court accepts a trial by RECOMPUTING it. The bundle delivers cited proofs in full, catches
 // fabricated citations, binds to the ledger receipt, and folds to one recomputable evidenceReceipt. It proves
-// integrity, never legal correctness. Integrity, not truth.
+// integrity, never legal correctness. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { evidence, toUuid, THEOREMS, runTrial } from '../index.js'

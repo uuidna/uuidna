@@ -1,20 +1,20 @@
 #!/usr/bin/env node
-// @non-harmonic: node process host (reads process — infra, not the recomputable core) — NAMED boundary; the harmonic core must never carry these ops.
+// @non-harmonic: node process host (reads process — infra— NAMED boundary; the harmonic core must never carry these ops.
 // daemon — uuidna as a long-running LOCAL service: a verifier and a gate any process on the machine can query over
-// HTTP. Zero-dependency (Node's built-in http), bound to 127.0.0.1 ONLY (never 0.0.0.0 — loopback, not the network),
+// HTTP. Zero-dependency (Node's built-in http), bound to 127.0.0.1 ONLY (never 0.0.0.0 — loopback
 // READ-ONLY, and STATELESS: it stores nothing, logs no request bodies, keeps no device data (privacy by default,
 // "without consent nothing is stored"). It exposes what uuidna proves and checks — content-address anything, try a
 // statement (the three-way verdict), read the sealed ledger, run the honesty gate, fold the trial receipt, and
 // VERIFY a text against a claimed address (the keyless tamper-check). It is NOT a censor (it removes nothing, it only
 // flags a claim and asks for a proof) and NOT a quantum computer (uuidna's quantum is a classical simulation) — both
-// were refuted at trial. This is how uuidna installs deeper on a device: as a service, honestly bounded. Integrity, not truth.
+// were refuted at trial. This is how uuidna installs deeper on a device: as a service, honestly bounded. Integrity.
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
 import { readFileSync } from 'node:fs'
 import {
   toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics, evidence, ledgerFingerprint, reason, reflects,
   catchTraitors, reveal, signCommit, reeducate,
 } from './index.js'
-import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
+import { resources } from './resources.js' // Node-only (reads process/os) — imported here
 import { legalFacts } from './legal.js'
 
 const VERSION = (() => {
@@ -34,14 +34,14 @@ export function route(method: string, path: string, query: URLSearchParams, body
 
   if (method === 'GET' && path === '/') return ok({
     service: 'uuidna', version: VERSION,
-    honest: 'A local, loopback-only, read-only, stateless verifier and gate. Not a censor, not a quantum computer.',
+    honest: 'A local, loopback-only, read-only, stateless verifier and gate. Not a censor.',
     routes: {
       'GET /health': 'liveness + ledger receipt',
       'GET|POST /address': 'content-address a value (?of= or {text})',
       'POST /trial': 'a three-way verdict for {statement}',
       'POST /forensics': 'audit an agent {statement} (+ optional {claims}) against the receipts',
       'GET /treason': 'the scout drones sweep — catch any forgery/collision/uncovered/broken-invariant in the ledger',
-      'POST /reveal': 'the quantum polygraph — VERIFIED/UNVERIFIED/DRAINED for {claim} (reads the citation, not the world)',
+      'POST /reveal': 'the quantum polygraph — VERIFIED/UNVERIFIED/DRAINED for {claim} (reads the citation',
       'POST /sign': 'sign {message} TRUE against the ledger, or refuse (signed iff it cites a real sealed theorem)',
       'POST /reeducate': 'the demons make a traitor READ until the {claim} holds — bound the overclaim, or reveal it unverified',
       'POST /evidence': 'deliver the recomputable evidence bundle for {statement}',
@@ -129,7 +129,7 @@ export function route(method: string, path: string, query: URLSearchParams, body
     return ok(catchTraitors())
   }
   if (method === 'POST' && path === '/reveal') {
-    // the quantum polygraph — VERIFIED / UNVERIFIED / DRAINED for {claim}, the citation read, not the world.
+    // the quantum polygraph — VERIFIED / UNVERIFIED / DRAINED for {claim}, the citation read.
     if (typeof body.claim !== 'string') return bad('provide {"claim":…} (the polygraph verdict)')
     return ok(reveal(body.claim))
   }

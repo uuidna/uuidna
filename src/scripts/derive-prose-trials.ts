@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // derive-prose-trials — ALL PROSE TO TRIAL, RETURNING THE USABLE COMBINATIONS. Every paragraph of every prose
 // surface (README + docs/*.md) is sent through the gate's reveal() — the same trial the commit-sign and the
-// provenance audit use — and the output is DERIVED, never authored: the combinations that are USABLE, meaning
+// provenance audit use — and the output is DERIVED
 // a prose unit paired with the sealed theorems it actually cites (verdict VERIFIED), plus the honest census of
-// what stays UNVERIFIED (revealed as unbacked, not endorsed) and what would DRAIN (a fabricated citation — the
+// what stays UNVERIFIED (revealed as unbacked— the
 // one decidably-false case; the gate keeps this at zero). No hand-curated evidence list — the ledger decides.
 // Deterministic: file order, paragraph order, no wall-clock, no RNG; the receipt is the fold of the output.
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
@@ -65,7 +65,7 @@ const deadLinks: Array<{ surface: string; key: string }> = []
 
 for (const file of surfaces) {
   const rel = file.slice(ROOT.length + 1)
-  // paragraphs: blank-line separated blocks; code fences skipped (code is audited by the harmonic scan, not this trial)
+  // paragraphs: blank-line separated blocks; code fences skipped (code is audited by the harmonic scan
   const text = readFileSync(file, 'utf8')
   const paragraphs = text.split(/\n{2,}/)
   let inFence = false
@@ -111,7 +111,7 @@ console.log(`  PROSE ON TRIAL — every paragraph through reveal(), the ledger d
 console.log(`    surfaces   : ${surfaces.length} (README + docs/*.md)`)
 console.log(`    paragraphs : ${tried} tried`)
 console.log(`    usable     : ${usable.length} combinations (prose ↔ sealed theorems, verdict VERIFIED)`)
-console.log(`    unverified : ${unverified} (revealed as unbacked — held open, not endorsed, not drained)`)
+console.log(`    unverified : ${unverified} (revealed as unbacked — held open`)
 console.log(`    drained    : ${drained} (fabricated citations — must be zero)`)
 for (const d of drainedHits) console.log(`      ✗ ${d.surface} cites fabricated: ${d.fabricated.join(', ')}`)
 console.log(`    receipt    : ${receipt}`)
@@ -141,5 +141,5 @@ if (physicsChaos.length) {
 } else {
   console.log(`    physics law: ✓ every quantum-advantage mention is demarcated or cited — the honest boundary holds`)
 }
-console.log(`✓ derive-prose-trials — prose-trials.json written; the usable combinations are derived, not authored.`)
+console.log(`✓ derive-prose-trials — prose-trials.json written; the usable combinations are derived.`)
 if (drained > 0 || coinChaos.length > 0 || physicsChaos.length > 0 || deadLinks.length > 0) process.exit(1)

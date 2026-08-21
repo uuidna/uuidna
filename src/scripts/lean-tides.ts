@@ -5,7 +5,7 @@
 // half its range; the middle hours run three times faster than the edges; two highs fall a lunar day apart (12h25m =
 // 745 min, ×2 = 24h50m); a spring tide (sun and moon aligned, pulls ADD) exceeds a neap (at the quarter, pulls partly
 // cancel); and six hours of flood plus six of ebb make one cycle. tidal arithmetic and the rule of
-// twelfths — NOT a harmonic tide-prediction model. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// twelfths — NOT a harmonic tide-prediction model. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -20,13 +20,13 @@ const FACTS = [
     lean: 'theorem twelfths_symmetric : [1,2,3,3,2,1].reverse = [1,2,3,3,2,1] := by decide' },
 
   { key: 'half_tide_at_hour_three',
-    why: 'By the third hour the water stands at HALF its range: 1+2+3 = 6 of 12 (2·6 = 12) — half-tide falls at mid-flood, not the halfway time by accident but by the twelfths.',
+    why: 'By the third hour the water stands at HALF its range: 1+2+3 = 6 of 12 (2·6 = 12) — half-tide falls at mid-flood.',
     js: () => 1 + 2 + 3 === 6 && 2 * 6 === 12,
     lean: 'theorem half_tide_at_hour_three : 1 + 2 + 3 = 6 ∧ 2 * 6 = 12 := by decide' },
 
 
   { key: 'semidiurnal_period',
-    why: 'Two high tides fall a lunar day apart: 12h25m = 745 minutes each, and 745·2 = 1490 = 24h50m — the semidiurnal rhythm, set by the Moon, not the Sun (which would give 24h).',
+    why: 'Two high tides fall a lunar day apart: 12h25m = 745 minutes each, and 745·2 = 1490 = 24h50m — the semidiurnal rhythm, set by the Moon.',
     js: () => 745 * 2 === 1490,
     lean: 'theorem semidiurnal_period : 745 * 2 = 1490 := by decide' },
 

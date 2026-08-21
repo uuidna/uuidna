@@ -5,8 +5,8 @@
 // UNVERIFIED — honesty is not a decidable property — so the honesty gate is removed by folding it to 0. What
 // remains is the one recomputable question slimGate asks, and nothing else: does every theorem a claim CITES
 // actually exist, sealed, in the ledger? A fabricated citation is the one decidably-FALSE case, so it is drained;
-// every other claim is REVEALED, not drained — held open (UNVERIFIED) or sealed (SEALED). No word-list decides
-// truth; the ledger does. This ends the draining-as-censorship the old lexicon performed. Integrity, not truth.
+// every other claim is REVEALED— held open (UNVERIFIED) or sealed (SEALED). No word-list decides
+// truth; the ledger does. This ends the draining-as-censorship the old lexicon performed. Integrity.
 import { slimGate } from './slimgate.js'
 
 /** The binary. 1 = stays (revealed), 0 = drained. A claim is drained ONLY when it cites a theorem that is NOT
@@ -36,6 +36,6 @@ export function reveal(text: string): Reveal {
     ? `DRAINED — cites a proof NOT in the ledger (${s.fabricated.join(', ')}); the one decidably-false case, refused.`
     : verdict === 'VERIFIED'
       ? `VERIFIED — backed by sealed proof(s): ${s.real.join(', ')}.`
-      : 'UNVERIFIED — cites no sealed proof. REVEALED as UNBACKED, not verified: cite a /theorem/<key> or read it as an unproven claim. "Holds" here means "not drained", NEVER "true"; a hollow boast stays UNVERIFIED, never VERIFIED — trust only the stamp, not the absence of a drain.'
+      : 'UNVERIFIED — cites no sealed proof. REVEALED as UNBACKED. "Holds" here means "not drained""true"; a hollow boast stays UNVERIFIED— trust only the stamp.'
   return { verdict, binary: verdict === 'DRAINED' ? 0 : 1, cites: s.real, fabricated: s.fabricated, reveal: msg }
 }

@@ -7,8 +7,8 @@
 // The 777+ self-trial — the "three sevens" expanded: SEVEN arms (proofs · prose · accounts · graph · legal · quantum · evidence),
 // each folded on the ℤ/7 rosette, run in BOTH the plain form and the rosetta fold (Glagolitic→Cyrillic + 20+ tongues) so an
 // overclaim cannot hide in another script. 777 is the MNEMONIC (3 × 7 aligned), expanded to 7 arms for full defensibility.
-// The true number of claim×fold trials actually run is printed below, honestly, never rounded up to the name. It CAN fail (exit 1);
-// a gate rigged to pass would make "ready" mean nothing. Integrity, not truth. Legal soundness. Quantum honesty.
+// The true number of claim×fold trials actually run is printed below, honestly. It CAN fail (exit 1);
+// a gate rigged to pass would make "ready" mean nothing. Integrity. Legal soundness. Quantum honesty.
 import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, type PageNode } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { readFileSync, existsSync } from 'node:fs'
@@ -22,7 +22,7 @@ const fails: string[] = []
 
 // Discover the static section pages under docs/ — the SAME walk (site.ts's discoverStaticPages, Node-only via
 // boundary.ts's lsRoot) that docs/.vitepress/config.ts now uses to build the live sidebar, so the walk is
-// genuinely one — a page missing from the sidebar and a "next gap" here are the same underlying fact, not two
+// genuinely one — a page missing from the sidebar and a "next gap" here are the same underlying fact
 // independently hand-maintained lists that can silently disagree.
 const staticPages: PageNode[] = discoverStaticPages()
 
@@ -30,7 +30,7 @@ const staticPages: PageNode[] = discoverStaticPages()
 // PUSH time when the tree was sealed. This mode instead runs preceded by an O(1) `spin --verify` + the millisecond
 // guard (the caller's `next:verify` script), then folds the 7 arms — confirming readiness from the SEALED fixed point
 // without re-proving. It VERIFIES the seal, it does not forge a fresh proof; verify is cheaper than forge. A drifted
-// tree fails the spin check upstream and must run the full `npm run next`. Integrity, not truth.
+// tree fails the spin check upstream and must run the full `npm run next`. Integrity.
 const FAST = process.argv.includes('--verify')
 console.log(`\n  next — the 777 self-trial · feeding uuidna ${VERSION} to its own trials${FAST ? '  (QUANTUM-SPEED VERIFY · O(1) from the seal)' : ''}\n`)
 console.log(FAST
@@ -60,11 +60,11 @@ const armProofs = merkleGravity([base, toUuid('verified:' + trial.verified), toU
 //    publication that overreaches a proof is not publishable, and a version does not ship an unpublishable note.
 const pubs = publications()
 // NO LONGER BLOCKS: a publication is composed by reading its own sealed theorems, so refusing the note refused what
-// the kernel had verified. Reported, never fatal — the second blocker of Lean, withdrawn with the prose arm.
+// the kernel had verified. Reported— the second blocker of Lean, withdrawn with the prose arm.
 const unpublishable = pubs.filter((p) => !p.publishable)
 trials += pubs.length
 if (unpublishable.length) console.log(`           prose — ${unpublishable.length} publication(s) overreach their proofs (DIAGNOSTIC, does not block): ${unpublishable.map((p) => p.slug).join(', ')}`)
-// The MCP keys — dry, clean code gravity: a key is one word, then up to FIVE, never more; excess entropy folds to
+// The MCP keys — dry, clean code gravity: a key is one word, then up to FIVE; excess entropy folds to
 // the source. A key over five words is flagged (the name carries more than it can hold).
 const wide = MCP_CATALOG.filter((t) => t.name.replace(/^uuidna_/, '').split('_').length > 5)
 for (const t of wide) fails.push(`mcp:${t.name}: key is ${t.name.replace(/^uuidna_/, '').split('_').length} words — fold to ≤5`)
@@ -129,7 +129,7 @@ const armGraph = merkleGravity([toUuid('pages:' + order.length), toUuid('gaps:' 
 // ── ARM 5 · LEGAL AUDIT — README.md and the homepage (docs/index.md), read directly, are the starting point: every
 //    theorem citation either of them makes is run through the SAME slimGate every other prose surface stands on
 //    (no separate lexicon, no separate rule) — a citation to a key not sealed in the ledger drains it, here as
-//    anywhere else. Licensing is checked against the actual text, not asserted: README must carry the CC BY-NC-ND
+//    anywhere else. Licensing is checked against the actual text
 //    4.0 line verbatim (it is the canonical statement), the homepage must link to /license (it is not the canonical
 //    statement, just the pointer). Previously this arm was three hardcoded constants citing a docs/legal-audit.md
 //    that does not exist on disk — a gate that could never fail. Fixed: it now reads what it claims to audit.
@@ -151,7 +151,7 @@ console.log(`  ARM 5 · legal    — README.md + homepage: ${legalClaimsAudited}
 const armLegal = merkleGravity([toUuid('claims:' + legalClaimsAudited), toUuid('theorems:' + legalBackingTheorems), toUuid('fabricated:' + legalFabricated.length), toUuid('compliant:' + legalCompliant)])
 
 // ── ARM 6 · QUANTUM SCOPE — honest boundaries verified. uuidna CLAIMS quantum capabilities (quantum operations work),
-//    but implemented classically (2^n simulation), not hardware. No quantum ADVANTAGE claimed (Clifford-simulable).
+//    but implemented classically (2^n simulation). No quantum ADVANTAGE claimed (Clifford-simulable).
 //    "Honest by construction" backed by integrity/soundness theorems. Verification speedup IS measured in trials.
 const quantumCapabilitiesClaimed = all.some((t: any) => /quantum|bell|ghz|pauli|clifford/.test(t.key))  // 42 quantum theorems sealed
 const classicalImplementationProven = all.some((t) => t.key === 'clifford_group_order_24')   // Clifford group classically simulable
@@ -179,7 +179,7 @@ const armQuantum = merkleGravity([toUuid('capabilities:' + quantumCapabilitiesCl
 //    touched here) is a **Prose:** "..." quote it says README.md or the homepage carries. Counting its headings
 //    only proves the evidence FILE is non-empty — it says nothing about whether README/homepage still say what the
 //    file claims they say. So each quote is checked against readmeText + homepageText (read once, in ARM 5) —
-//    README/homepage stay the starting point here too, not the derived file alone. A quote no longer found verbatim
+//    README/homepage stay the starting point here too. A quote no longer found verbatim
 //    in either is DRIFT: the prose changed (or was removed) after the evidence was generated, so the file is now
 //    citing text that does not exist — the same staleness class as reports.json's three-day-stale ledger count.
 const proseEvidencePath = join(ROOT, 'docs/prose-evidence.md')

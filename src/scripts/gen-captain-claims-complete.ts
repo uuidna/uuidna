@@ -9,7 +9,7 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const T = theorems()
-// The count is READ, never written. This generator hardcoded 1195 in its own honest_scope and signature, so the
+// The count is READ. This generator hardcoded 1195 in its own honest_scope and signature, so the
 // file it produced published a dead number under the captain's name — a claim of total coverage that had not
 // recounted anything since the day it was typed.
 const CENSUS = statementCensus()

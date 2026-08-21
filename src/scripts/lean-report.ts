@@ -6,9 +6,9 @@
 // complete report answers, a chronological timeline, corroboration by TWO reputable sources (one is uncorroborated),
 // TRINITY editing (three independent passes), FULL-QUORUM publication (a report ships only when verified AND audited
 // AND quorate — any one failing blocks it), the inverted pyramid, and the honest verdict every claim carries —
-// VERIFIED (it cites a checkable source/proof) or UNVERIFIED (held open, never asserted as fact, never called
+// VERIFIED (it cites a checkable source/proof) or UNVERIFIED (held open
 // false). The subject is uuidna's own PROVEN discoveries (the sealed theorems); the discipline is what makes the
-// report trustworthy, not a claim uuidna knows the world. Integrity, not truth.
+// report trustworthy, not a claim uuidna knows the world. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -18,7 +18,7 @@ const FACTS = [
     lean: 'theorem five_ws_and_one_h : 5 + 1 = 6 := by decide' },
 
   { key: 'timeline_is_chronological',
-    why: 'A confirmed timeline is ORDERED in time — the events run 0,1,2,3,4,5, strictly ascending, each after the last. Diving deep means confirming the sequence, not just the facts: a reordered timeline is a different, unconfirmed story.',
+    why: 'A confirmed timeline is ORDERED in time — the events run 0,1,2,3,4,5, strictly ascending, each after the last. Diving deep means confirming the sequence.',
     js: () => JSON.stringify(Array.from({ length: 6 }, (_, i) => i)) === JSON.stringify([0, 1, 2, 3, 4, 5]),
     lean: 'theorem timeline_is_chronological : (List.range 6) = [0,1,2,3,4,5] := by decide' },
 

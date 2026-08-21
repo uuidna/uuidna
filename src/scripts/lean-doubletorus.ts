@@ -34,7 +34,7 @@ const FACTS = [
     lean: 'theorem handles_give_generators : (2 * 2 = 4) ∧ (4 ≠ 2) := by decide' },
 
   { key: 'presentation_counts_five',
-    why: 'THE WHOLE DESCRIPTION IS FIVE SYMBOLS: four generators and one relation, [a₁,b₁][a₂,b₂] = 1. One relation, not none — a free group on four generators is a different object, and the single constraint is exactly what closes the surface.',
+    why: 'THE WHOLE DESCRIPTION IS FIVE SYMBOLS: four generators and one relation, [a₁,b₁][a₂,b₂] = 1. One relation— a free group on four generators is a different object, and the single constraint is exactly what closes the surface.',
     js: () => { const rel: number = RELATION, none: number = 0; return GENERATORS + RELATION === 5 && rel !== none },
     lean: 'theorem presentation_counts_five : (4 + 1 = 5) ∧ (1 ≠ 0) := by decide' },
 

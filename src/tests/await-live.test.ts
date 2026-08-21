@@ -33,7 +33,7 @@ test('fails when the deploy never lands, naming both values and disowning later 
   assert.match(out.reason, /do not treat later checks as verifying this release/)
 })
 
-test('an unreachable site is retried and reported as unreachable, never as a stale value', async () => {
+test('an unreachable site is retried and reported as unreachable', async () => {
   let attempts = 0
   const out = await awaitValue({
     probe: async () => { attempts++; return null },   // down, refused, or unparseable

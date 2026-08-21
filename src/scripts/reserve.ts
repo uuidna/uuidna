@@ -9,7 +9,7 @@
 //      false by a factor of 50, published to every npm consumer;
 //   2. the script emptied `reserved.uuidna` (to measure the base) BEFORE the reachability check, so merely running
 //      it DESTROYED a shipped artifact and then failed.
-// Both are fixed here. 64 KiB is now the ALIGNMENT UNIT, not the total: the target is the next 64 KiB boundary at
+// Both are fixed here. 64 KiB is now the ALIGNMENT UNIT
 // or above the base, so it is reachable at every size the package will ever reach, the padding never exceeds one
 // unit, and the header states the measured figure instead of a remembered one.
 //
@@ -27,7 +27,7 @@ interface PackFile { path: string; size: number }
 interface PackResult { files: PackFile[]; unpackedSize: number }
 const measure = (): PackResult => JSON.parse(execSync('npm pack --dry-run --json', { encoding: 'utf8' }))[0]
 
-/** the target is derived, never remembered: the smallest whole number of UNITs that fits the base, with room kept
+/** the target is derived
  *  for the header when the base already sits exactly on a boundary. Integer arithmetic only — Math.* settles no
  *  theorem, so the determinism scan rejects it outright and the alignment must be computed without rounding. */
 export const alignTarget = (base: number, unit: number = UNIT): number => {

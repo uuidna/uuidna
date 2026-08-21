@@ -2,8 +2,8 @@
 // Automate the Lean layer for NAVIGATION — bounded geometry, demarcated. Straight-line distance is Pythagorean
 // (3-4-5), the compass rose is ℤ/8 (eight 45° headings), the reciprocal bearing is +4 (180°, an involution), a
 // quarter turn is +2 (order 4), and dead reckoning is the vector sum of the legs. the decidable
-// ALGEBRA of classical navigation — not GPS-grade guidance, not a positioning claim about anyone, just the
-// geometry. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// ALGEBRA of classical navigation — not GPS-grade guidance
+// geometry. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i)
@@ -36,7 +36,7 @@ const FACTS = [
 ]
 
 // compute → generate → verify. Navigation is bounded geometry — Pythagorean range, the ℤ/8 compass, reciprocal
-// and quarter bearings, dead reckoning by vector sum. Demarcated: the algebra, not a positioning claim about anyone.
+// and quarter bearings, dead reckoning by vector sum. Demarcated: the algebra.
 emit({ file: 'Navigation.lean',
   header: 'NAVIGATION — bounded geometry, demarcated.',
   skill: 'navigation', // the capability every fact here demonstrates — authored inline (the reverse-bearing fact is an involution too, but its domain, the capability it serves, is navigation)

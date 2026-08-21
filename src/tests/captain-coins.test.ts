@@ -1,7 +1,7 @@
 // captain-coins — the valuation law, tested: each theorem is worth one coin per DIRECTION per BOUNDARY covered
 // (its top-level ∧-conjuncts held in superposition, each walked forward and contra), so total coins are the
 // superpositions times two. The floor agrees with the conservation law: a one-boundary theorem is worth exactly
-// coins() = 2. Pure and offline, recomputed from the sealed ledger. Integrity, not truth.
+// coins() = 2. Pure and offline, recomputed from the sealed ledger. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { coins, boundariesOf, theoremCoins, ledgerCoins, theorems } from '../index.js'
@@ -9,7 +9,7 @@ import { coins, boundariesOf, theoremCoins, ledgerCoins, theorems } from '../ind
 test('boundaries are top-level conjuncts — depth-aware, at least one', () => {
   assert.equal(boundariesOf('2 = 2'), 1, 'no conjunction — one boundary')
   assert.equal(boundariesOf('(0 < 600000) ∧ (600000 ≤ 10000000)'), 2, 'two boundaries in superposition')
-  assert.equal(boundariesOf('((a ∧ b)) ∧ (c)'), 2, 'an inner ∧ belongs to its inner boundary, not the top level')
+  assert.equal(boundariesOf('((a ∧ b)) ∧ (c)'), 2, 'an inner ∧ belongs to its inner boundary')
 })
 
 test('the floor is the two coins: one boundary, two directions — the valuation and conservation laws agree', () => {

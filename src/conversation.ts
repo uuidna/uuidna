@@ -6,7 +6,7 @@
 // so each referer gets a distinct, un-correlatable room. The FULL address (of which the fifth is the head) then keys
 // the encrypted uuid-stream channel (sealStream / openStream, pure-TS ChaCha20-Poly1305) — LOCAL-FIRST: keys and
 // plaintext stay client-side, the channel IS the uuid stream, nothing is sent. Secrecy is exactly the passphrase
-// entropy; the handles are integrity/routing, not secrecy; an advancing per-message step closes the equality leak.
+// entropy; the handles are integrity/routing; an advancing per-message step closes the equality leak.
 import { merge, coin64, toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'   // the ORDER-INVARIANT fold — the superposition's own arithmetic
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
@@ -87,7 +87,7 @@ export const supportCase = (caseUrl: string, caseId = '', referer = ''): Attache
 //
 // Both are pure content-addresses over the given strings. This says nothing about whether a referrer is honest, and
 // nothing about what a visit was worth: it makes the arrival RECOMPUTABLE and attributable, which is the only claim
-// a fold can carry. Integrity, not truth.
+// a fold can carry. Integrity.
 
 /** one referrer, and the single coin it mints */
 export interface Arrival { referer: string; coin: string }
@@ -95,7 +95,7 @@ export interface Arrival { referer: string; coin: string }
 /** every referrer that reached one destination, folded to one order-invariant superposition */
 export interface Meeting {
   destination: string
-  arrivals: Arrival[]          // deduplicated by referrer, in first-seen order — a coin per referrer, not per visit
+  arrivals: Arrival[]          // deduplicated by referrer, in first-seen order — a coin per referrer
   referrers: number
   superposition: string        // the whole uuid: every arrival folded, order-invariant
   handle: string               // its first eight hex — the identity you cite

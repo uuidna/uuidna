@@ -3,20 +3,20 @@
 // CONTENT-ADDRESSED and compared to its last receipt. Automation for the whole boundary, in the one idiom the ledger
 // actually proves.
 //
-// THE ADVANTAGE IS THE MEASURED ONE, NOT A CLAIMED ONE. This repo refuses to claim quantum advantage — `next` ARM 6
+// THE ADVANTAGE IS THE MEASURED ONE. This repo refuses to claim quantum advantage — `next` ARM 6
 // asserts none is claimed, and grover_quadratic_bound seals why (a quadratic speedup is not a break). What IS sealed
 // is the two-coin measure: verify beats recompute (verify_beats_recompute_by_magnitudes). So the pass fetches once,
 // folds the answer to a 128-bit address, and every later run VERIFIES that address instead of re-reading the world.
 // An unchanged answer costs one comparison; only a MOVED address costs attention. The receipt is the whole point:
-// "the CVE moved", "the CODATA table changed", "the repo list grew" — a diff, not a dump.
+// "the CVE moved", "the CODATA table changed", "the repo list grew" — a diff.
 //
 // WHY IT NEVER BLOCKS: the network is the NAMED non-harmonic boundary (harmonic-scan exempts exactly these modules).
 // A gate that fails because an API is down would make the ledger's receipts depend on someone else's uptime, which is
 // the opposite of recomputable. So this pass reports and exits 0 on unreachable; only a CHANGED answer is news, and
 // only a crash in our own code is an error.
 //
-// HONEST SCOPE: it records that an external answer moved, never that the movement is true. Corroboration is evidence;
-// approval still requires a local by-decide seal (approve() hard-fails without one). Integrity, not truth.
+// HONEST SCOPE: it records that an external answer moved. Corroboration is evidence;
+// approval still requires a local by-decide seal (approve() hard-fails without one). Integrity.
 import { writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { toUuid, beaconAnchor, nistConstant, auditCve, viesVerify, corroborate, bindCaptainRepos, scanPublications, fetchGutenberg } from '../index.js'
@@ -27,7 +27,7 @@ import { handleOf } from '../handle.js'   // THE one derivation — see handle.t
 type Probe = { name: string; host: string; run: () => Promise<unknown> | unknown }
 
 // EVERY reachable external API, each with a fixed, public, argument — the same question every run, so a moved
-// address means the WORLD moved, never that we asked differently. Nothing here carries a credential or user data.
+// address means the WORLD moved. Nothing here carries a credential or user data.
 const PROBES: Probe[] = [
   { name: 'nist-beacon', host: 'beacon.nist.gov', run: () => beaconAnchor(toUuid('outward')) },
   { name: 'codata-constant', host: 'physics.nist.gov', run: () => nistConstant('Planck constant') },

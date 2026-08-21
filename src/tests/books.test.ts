@@ -1,6 +1,6 @@
 // Book-audit tests — the PURE, offline auditText (provenance fingerprint + structural decode + honesty gate).
 // fetchGutenberg/auditBook are the network path and are NOT unit-tested here (the audit gate stays hermetic — no
-// live HTTP in CI); auditBook is just fetchGutenberg piped into this same auditText. Integrity, not truth.
+// live HTTP in CI); auditBook is just fetchGutenberg piped into this same auditText. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { auditText, auditTranslation, toUuid, digitalRoot, merkleRoot } from '../index.js'
@@ -31,7 +31,7 @@ test('chapters are split and merkle-folded — any chapter can be proven to belo
   assert.match(a.chapterRoot, UUID)
 })
 
-test('structural decode: counts and the ℤ/9 gravity are recomputable, not a meaning', () => {
+test('structural decode: counts and the ℤ/9 gravity are recomputable', () => {
   const a = auditText(BOOK)
   assert.equal(a.chars, BOOK.length)
   assert.equal(a.words, BOOK.trim().split(/\s+/).length)

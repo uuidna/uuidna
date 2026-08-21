@@ -4,7 +4,7 @@
 // HONEST SCOPE: the matched theorems already exist and were proven `by decide` for their own domain; this shows that
 // the SAME arithmetic recurs in the system named — it does NOT claim uuidna IS that system, nor that the theorems
 // were made for it, nor that citing them makes the system secure/correct. A reflection is a resemblance the ledger
-// already carries, recomputable by anyone. Integrity, not truth.
+// already carries, recomputable by anyone. Integrity.
 import { theorems } from './theorems/index.js'
 import { merkleFold, toUuid } from './address.js'
 
@@ -22,11 +22,11 @@ export interface Reflected {
 export interface Reflection {
   query: string
   concepts: string[]       // the distinct concept-words drawn from the query
-  matches: Reflected[]     // sealed theorems the query rings, LOUDEST FIRST (by resonance amplitude) — the dynamics, not a list
+  matches: Reflected[]     // sealed theorems the query rings, LOUDEST FIRST (by resonance amplitude) — the dynamics
   count: number
   peak: number             // the loudest single resonance amplitude in the field — the dominant pattern's strength
   spectrum: { concept: string; reach: number; weight: number }[]  // each query concept: how many theorems it rings (reach) and how loud (weight = N − reach)
-  receipt: string          // the rung theorems' addresses, folded order-invariant (set, not order) — recompute it or it changed
+  receipt: string          // the rung theorems' addresses, folded order-invariant (set— recompute it or it changed
   honest: string
 }
 
@@ -81,9 +81,9 @@ export function reflects(query: string): Reflection {
     receipt: matches.length ? merkleFold(matches.map((m) => m.address)) : toUuid('no-reflection'),
     honest:
       'These theorems ALREADY EXIST, each proven `by decide` for its own domain; the reflection is that the SAME ' +
-      'decidable arithmetic recurs in the system named. RESONANCE is amplitude, not proof: a rare word rings few ' +
+      'decidable arithmetic recurs in the system named. RESONANCE is amplitude' +
       'theorems loud, a stopword rings the whole ledger silent — the ranking is the dynamics, weighted by specificity. ' +
       'It does NOT claim uuidna is that system, that the theorems were built for it, or that a loud resonance makes the ' +
-      'system secure or correct — a resemblance is not an endorsement. Recomputable by anyone. Integrity, not truth.',
+      'system secure or correct — a resemblance is not an endorsement. Recomputable by anyone. Integrity.',
   }
 }

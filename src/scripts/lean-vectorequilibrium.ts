@@ -9,14 +9,14 @@
 // quantities exactly 2 as INTEGERS, so the defining property of the vector equilibrium is `2 = 2` and decides in the
 // kernel. The geometry is not approximated here; it is chosen in the coordinates where it is already arithmetic.
 //
-// integrity, not truth. Each theorem seals its exact decidable arithmetic and NOTHING beyond it. The
-// cuboctahedron is Archimedean, not one of the five Platonic solids in Solids.lean. NOTHING HERE IS EMPIRICAL: the
-// orbit sets below are output of this repository's own walk (src/sequence-run.ts), not a measurement of the world.
+// integrity — the record recomputes for anyone. Each theorem seals its exact decidable arithmetic and NOTHING beyond it. The
+// cuboctahedron is Archimedean.lean. NOTHING HERE IS EMPIRICAL: the
+// orbit sets below are output of this repository's own walk (src/sequence-run.ts).
 // What is sealed is that those sets are closed under the involution — arithmetic — NOT that the walk produces them.
 // THE NEGATION RULE THIS WING OBEYS. A negation in the sentence above a theorem is a CLAIM, and the line below it
 // must discharge it. Two kinds are distinguished, because only one of them can ever be proven:
 //
-//   OBJECT-LEVEL — a negation about the mathematics ("eight digits, not ten", "adds no digit"). The theorem beneath
+//   OBJECT-LEVEL — a negation about the mathematics ("eight digits", "adds no digit"). The theorem beneath
 //   it MUST prove it. Where a negation was worth keeping but the line fell short, the LINE was strengthened rather
 //   than the sentence softened — see missing_pair_involution, which now proves the pair as well as the gap.
 //
@@ -26,7 +26,7 @@
 //   for proven negations. A disclaimer may not masquerade as a proof, and a proof may not hide as a disclaimer.
 //
 // Sentences that failed both tests were removed outright: "no square root taken" and "not an approximation" describe
-// the METHOD, not the objects, and "a mirror, not a rotation" named a concept ("rotation") this wing never defines.
+// the METHOD, not the objects, and "a mirror" named a concept ("rotation") this wing never defines.
 import { emit } from './lean-gen.js'
 
 // The twelve VE vertices — every permutation of (±1,±1,0). Integer coordinates: every length is an exact integer.
@@ -108,7 +108,7 @@ const FACTS = [
     lean: 'theorem orbits_closed_involution : [[0], [0,1,9], [0,1,3,5,7,9], [0,1,3,4,5,6,7,9], [0,1,5,9], [0,1,2,3,4,5,6,7,8,9]].all (fun s => s.all (fun d => s.contains (dz d))) := by decide' },
 
   { key: 'missing_pair_involution',
-    why: 'The five non-covering seeds {0,1,3,4,5} together with their reflections {0,9,7,6,5} reach eight digits, not ten. What is missing is exactly {2,8}, and the second conjunct proves dz(2) = 8 — so the gap is ONE involution pair, discharged on this line rather than borrowed from another. The gap has the involution\'s own shape.',
+    why: 'The five non-covering seeds {0,1,3,4,5} together with their reflections {0,9,7,6,5} reach eight digits. What is missing is exactly {2,8}, and the second conjunct proves dz(2) = 8 — so the gap is ONE involution pair, discharged on this line rather than borrowed from another. The gap has the involution\'s own shape.',
     js: () => {
       const u = [...new Set([...[0, 1, 3, 4, 5], ...[0, 1, 3, 4, 5].map(dz)])].sort((a, b) => a - b)
       return JSON.stringify(DIGITS.filter((d) => !u.includes(d))) === JSON.stringify([2, 8]) && dz(2) === 8
@@ -119,5 +119,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'VectorEquilibrium.lean', skill: 'vector-equilibrium', defs: DEFS,
-  header: "THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferential vectors are Buckminster Fuller's (Synergetics, 1975). Sealed WITHOUT an irrational: placing the twelve vertices at the permutations of (±1,±1,0) makes the radial and the edge squared-lengths both exactly 2, so Fuller's defining equilibrium property is an integer identity that decides in the kernel. Twelve vertices, four neighbours each, 24 edges, 14 faces (8 triangles + 6 squares), and V − E + F = 2 — the same two as the Platonic solids, though the cuboctahedron is Archimedean and is NOT among the five in Solids.lean. Beside it, the reflection dz(x) = 10 − x: exactly two fixed points (0 and 5), an involution on all ten digits, and the measured orbit sets each closed under it — the walk alternates dz with doubling, so it carries its own mirror and reflecting a finished orbit adds nothing. integrity, not truth — each theorem seals its exact decidable arithmetic. The orbit sets are OUTPUT OF THIS REPOSITORY'S OWN WALK (src/sequence-run.ts), not an observation of anything in the world; their closure under dz is what decides, never the claim that the walk produces them.",
+  header: "THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferential vectors are Buckminster Fuller's (Synergetics, 1975). Sealed WITHOUT an irrational: placing the twelve vertices at the permutations of (±1,±1,0) makes the radial and the edge squared-lengths both exactly 2, so Fuller's defining equilibrium property is an integer identity that decides in the kernel. Twelve vertices, four neighbours each, 24 edges, 14 faces (8 triangles + 6 squares), and V − E + F = 2 — the same two as the Platonic solids, though the cuboctahedron is Archimedean and is NOT among the five in Solids.lean. Beside it, the reflection dz(x) = 10 − x: exactly two fixed points (0 and 5), an involution on all ten digits, and the measured orbit sets each closed under it — the walk alternates dz with doubling, so it carries its own mirror and reflecting a finished orbit adds nothing. integrity— each theorem seals its exact decidable arithmetic. The orbit sets are OUTPUT OF THIS REPOSITORY'S OWN WALK (src/sequence-run.ts); their closure under dz is what decides.",
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

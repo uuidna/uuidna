@@ -48,7 +48,7 @@ test('both arms fire independently — a broken script that also writes is two g
 })
 
 // ── the live roster: every name in the manifest must be exercisable. This is the check the manifest itself now
-// leans on — the list is a ROSTER, not an excuse, so a name on it that cannot run is a gap in the gate.
+// leans on — the list is a ROSTER.
 test('the manifest is a roster: it declares writes only for scripts it also lists', () => {
   // read rather than import so a malformed manifest fails loudly here instead of at module load
   const manifest = JSON.parse(

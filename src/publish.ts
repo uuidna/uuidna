@@ -6,10 +6,10 @@
 // Writing here descends from READING. The note is written by reading the ledger the package already sealed; a
 // sentence keeps its place only if a proof backs it. auditPublication runs the SAME honesty gate the site-wide
 // provenance audit runs (computes + the translation-aware overreach lexicon), BEFORE publishing — so an
-// overclaiming note is REFUSED, never shipped. `publishable` is false when any sentence trips the gate unbacked;
+// overclaiming note is REFUSED. `publishable` is false when any sentence trips the gate unbacked;
 // the generator (docs/publications/[slug].paths.js) fails the build rather than emit it. Audited before published.
 //
-// HONEST SCOPE (integrity, not truth): a publication proves that every claim it makes is backed by a sealed Lean
+// HONEST SCOPE (integrity
 // proof and that the note itself passes the overreach gate. It does NOT claim the domain is complete, nor that the
 // prose is elegant — only that it says nothing its theorems do not. Its content-address recomputes from the text;
 // the member proofs fold, order-invariantly, to one receipt anyone recomputes from the same ledger.
@@ -39,14 +39,14 @@ export interface Publication {
 
 // Split prose into sentence-ish units, dropping fenced/inline code (examples legitimately carry API strings) and
 // normalising each unit's leading markdown marker (list `-`/`*`, heading `#`, blockquote `>`) so a claim reads the
-// same whether it sits in a heading, a bullet or a paragraph — the marker is layout, not part of the assertion.
+// same whether it sits in a heading, a bullet or a paragraph — the marker is layout.
 const units = (text: string): string[] =>
   text.replace(/```[\s\S]*?```/g, ' ').replace(/`[^`]*`/g, ' ')
     .split(/(?<=[.!?])\s+|\n+/).map((s) => s.replace(/^[\s>#*-]+/, '').trim()).filter((s) => s.length > 0 && s.length < 2000)
 
 // The tripwire, folded to the theorems: a sentence blocks publishing only when it CITES A FABRICATED theorem — a
 // key that is not sealed in the ledger (computes → binary 0). No lexicon, no demarcation guessing: a note that
-// links a real proof is SEALED and passes; a note that makes an unbacked claim is REVEALED (held open), not refused;
+// links a real proof is SEALED and passes; a note that makes an unbacked claim is REVEALED (held open);
 // only a fabricated citation — the one decidably-false thing — is drained. A quoted phrase is a citation of a word,
 // so de-quote before matching. This is the same theorem-fold the site-wide provenance audit now runs.
 const tripped = (u: string): string | null => {
@@ -57,7 +57,7 @@ const tripped = (u: string): string | null => {
 
 /** auditPublication(markdown[, sealed]) → the findings that block publishing: every sentence that cites a FABRICATED
  *  theorem. Empty ⇒ the note is publishable. The same theorem-fold the site-wide provenance audit runs, applied to a
- *  note BEFORE it is written to the site — so a note that invents a proof is refused, not shipped. `sealed` pre-clears
+ *  note BEFORE it is written to the site — so a note that invents a proof is refused. `sealed` pre-clears
  *  units that ARE sealed, committed artifacts (a domain title, a blurb, a theorem's own name). No word-list: a claim
  *  is refused only for citing a proof that does not exist; everything else is revealed. */
 export function auditPublication(markdown: string, sealed: Set<string> = new Set()): PubFinding[] {
@@ -90,7 +90,7 @@ export function composePublication(file: string): Publication {
     `These ${ts.length} facts hold by decision. Each was proven in Lean 4 — no Mathlib, ` +
     `checked sorry-free — and every sentence below links the proof that seals it. This note claims nothing beyond ` +
     `what its theorems settle: not that the domain is complete, only that the prose says nothing the proofs do not. ` +
-    `It was written by reading the sealed ledger; read the proofs, not the prose.`
+    `It was written by reading the sealed ledger; read the proofs.`
   // The body — each sealed theorem's own human sentence, BACKED by a link to its proof. The theorem name IS the
   // honest claim (it is authored beside the proof and audited on every theorem page), so the note reads as prose
   // while every load-bearing sentence points at the proof that earns it.
@@ -105,7 +105,7 @@ export function composePublication(file: string): Publication {
     `These ${ts.length} proofs fold, order-invariant, to the receipt \`${receipt}\` — recompute it from the same ` +
     `ledger and it returns. The note itself content-addresses to a uuid, so any edit is visible. Writing descends ` +
     `from reading: this note holds only what the proofs it links already sealed, and it was audited by uuidna's own ` +
-    `honesty gate before it was published — a sentence that overreached a proof would have been refused, not shipped.\n\n` +
+    `honesty gate before it was published — a sentence that overreached a proof would have been refused.\n\n` +
     `Source · [lean/${file}](https://github.com/uuidna/uuidna/blob/main/lean/${file}) · [all theorems](/theorems)\n`
   // Pre-clear the SEALED, committed, already-audited artifacts woven into the note — the domain title, its blurb,
   // and each theorem's own name (each backed by its proof and audited on its own page, exactly as the site audit
@@ -120,14 +120,14 @@ export function composePublication(file: string): Publication {
     honest:
       'A publication proves that every claim it makes links a sealed Lean proof and that the note passes the ' +
       'overreach gate — audited BEFORE publishing, refused if it overreaches. It does NOT claim the domain is ' +
-      'complete or the prose elegant, only that the note says nothing its theorems do not. Integrity, not truth.',
+      'complete or the prose elegant, only that the note says nothing its theorems do not. Integrity.',
   }
 }
 
 /** A revision — the editor primitive. Editing is RE-ADDRESSING: a draft edited to a new draft re-fingerprints, so
  *  the change is visible (the address moves), re-audits (the new draft must still earn every claim before it ships),
  *  and binds to the draft it descends from by a directional receipt (before → after, order-sensitive). The honest
- *  unit of editing on uuidna — a diff you can prove, not a claim you take on faith. */
+ *  unit of editing on uuidna — a diff you can prove. */
 export interface Revision {
   before: string          // the draft's content-address, before the edit
   after: string           // the draft's content-address, after the edit
@@ -155,15 +155,15 @@ export function revisePublication(before: string, after: string): Revision {
     honest:
       'Editing is re-addressing: the two content-addresses differ iff the text changed, so an edit cannot hide. The ' +
       'before→after receipt binds THIS revision to the draft it descends from (reverse is a different receipt). The ' +
-      'edited draft is audited before it publishes — an edit that overreaches a proof is refused, not shipped. ' +
-      'Integrity, not truth: this proves the edit and its provenance, never that the new prose reads better.',
+      'edited draft is audited before it publishes — an edit that overreaches a proof is refused. ' +
+      'Integrity — the record recomputes for anyone: this proves the edit and its provenance, never that the new prose reads better.',
   }
 }
 
 /** A comparison — pattern recognition by examining differences. Two texts are partitioned into what is ONLY in
  *  each and what is SHARED; the similarity is DERIVED from that difference (shared over the union), and the shared
  *  tokens fold to one receipt — the recognized pattern. Inclusion–exclusion holds exactly (|A|+|B|−shared = union),
- *  so the count is a proof, not an estimate. The editor's eye: a similarity is only ever seen against a difference. */
+ *  so the count is a proof. The editor's eye: a similarity is only ever seen against a difference. */
 export interface Comparison {
   onlyA: number           // tokens only in A — the difference on A's side
   onlyB: number           // tokens only in B — the difference on B's side
@@ -196,9 +196,9 @@ export function comparePublications(a: string, b: string): Comparison {
     pattern: shared.length ? merkleFold(shared.sort().map((w) => toUuid(w))) : toUuid('no-shared-pattern'),
     honest:
       'Similarity is DERIVED from difference: the shared count is what is left once only-A and only-B are removed, and ' +
-      'inclusion–exclusion (|A| + |B| − shared = union) holds exactly, so the similarity is a proof, not an estimate. ' +
-      'The shared tokens fold to one order-invariant receipt — the recognised pattern. It compares word sets, NOT ' +
-      'meaning: a shared vocabulary is not a shared claim. Integrity, not truth.',
+      'inclusion–exclusion (|A| + |B| − shared = union) holds exactly, so the similarity is a proof. ' +
+      'The shared tokens fold to one order-invariant receipt — the recognised pattern. It compares word sets' +
+      'meaning: a shared vocabulary is not a shared claim. Integrity.',
   }
 }
 
@@ -215,13 +215,13 @@ export function publications(): Publication[] {
 }
 
 /** A COVERAGE gap: a domain the monographs do not cover — a presentation diagnosis. It BLOCKS NOTHING: PRINCIPLE's
- *  power to reject a Lean-verified theorem was withdrawn, so this reports what is unpublished, never what is refused. */
+ *  power to reject a Lean-verified theorem was withdrawn, so this reports what is unpublished. */
 export interface Coverage {
   total: number                 // theorems in the ledger
   covered: number               // theorems shown in some monograph
   uncovered: string[]           // theorem KEYS in no monograph — DIAGNOSTIC ONLY; no longer blocks any push
   uncoveredFiles: string[]      // ledger FILES with no publication — the ROOT fix: author a PRINCIPLE [file,title,blurb]
-  ready: boolean                // true iff nothing is uncovered — a presentation signal, not a gate verdict
+  ready: boolean                // true iff nothing is uncovered — a presentation signal
   receipt: string               // the order-invariant fold of the coverage state, recomputable by anyone from the ledger
 }
 
@@ -229,7 +229,7 @@ export interface Coverage {
  *  the pre-push gate blocks on) as ONE pure, recomputable call: an agent adding a domain runs this instead of tracing
  *  the gate by hand. A theorem is COVERED iff its key appears in some publication; a FILE is uncovered iff it carries
  *  theorems but has no publication (the root cause — it needs a PRINCIPLE [file,title,blurb] entry in lean-ledger). The
- *  member facts fold, order-invariantly, to one receipt anyone recomputes from the same ledger. Integrity, not truth. */
+ *  member facts fold, order-invariantly, to one receipt anyone recomputes from the same ledger. Integrity. */
 export function coverage(): Coverage {
   const inMonograph = new Set(publications().flatMap((p) => p.theorems))
   const pubFiles = new Set(publications().map((p) => p.file))

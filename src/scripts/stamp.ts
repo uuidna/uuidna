@@ -32,7 +32,7 @@ const RECEIPT = runTrial().receipt
 /** THE SLOT TABLE — the only place any surface's ledger number is decided. A number absent here cannot be
  *  stamped, which is the intended friction: a fact worth publishing is worth computing. */
 export const SLOTS: Readonly<Record<string, () => string>> = {
-  distinct: () => String(census.distinct),        // propositions — a theorem is its Lean, not its name
+  distinct: () => String(census.distinct),        // propositions — a theorem is its Lean
   keys: () => String(T.length),                   // entries — the larger of the two true sizes
   renamings: () => String(census.renamings),      // the gap between them, stated so neither number misleads
   principles: () => String((PRINCIPLES as unknown[]).length),
@@ -62,7 +62,7 @@ export function stampText(text: string): { out: string; slots: string[]; unknown
   return { out, slots, unknown }
 }
 
-/** The surfaces are DISCOVERED, never listed — a file is stamped exactly when it declares a slot. */
+/** The surfaces are DISCOVERED— a file is stamped exactly when it declares a slot. */
 export function stampSurfaces(): { file: string; slots: string[]; changed: boolean }[] {
   const files = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n')
     .filter((f) => /\.(md|html|txt|json)$/.test(f) && !f.includes('package-lock'))

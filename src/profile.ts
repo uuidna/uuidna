@@ -5,8 +5,8 @@
 // Grover only halves to a ~128-bit floor — with the post-quantum floor theorems that back it), the two captain coins,
 // the integrity fingerprint (FNV + SHA-256 + tamper cost), and the rights (© + licence). Every field carries its own
 // receipt, and the profile folds them order-invariantly to one profileReceipt: the same profile for every observer.
-// HONEST SCOPE: integrity, not truth — a recomputable SELF-DESCRIPTION, decorated by its own aura; it composes sealed
-// facts, it asserts nothing new. The aura is ART (a defined arithmetic from the address to a hue), not physics.
+// HONEST SCOPE: integrity— a recomputable SELF-DESCRIPTION, decorated by its own aura; it composes sealed
+// facts, it asserts nothing new. The aura is ART (a defined arithmetic from the address to a hue).
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { merkleGravity } from './gravity.js'
@@ -20,7 +20,7 @@ import { captainRights } from './captain/rights/index.js'
 
 // the post-quantum floor the symmetric-only posture rests on — each a sealed `by decide` fact. Shor has no asymmetric
 // target (symmetric-only); Grover is a quadratic speedup only (2^n·2^n = 2^(2n)), halving the exponent to a ~128-bit
-// floor. These are drawn from the ledger, so the posture claim is BACKED by proofs, not asserted.
+// floor. These are drawn from the ledger, so the posture claim is BACKED by proofs.
 const POST_QUANTUM_FLOOR = ['grover_quadratic_bound', 'each_key_bit_doubles', 'birthday_halves_the_exponent'] as const
 
 export interface QuantumProfile {
@@ -38,8 +38,8 @@ const HONEST =
   'The quantum profile: uuidna\'s recomputable self-portrait, composed from sealed facts (identity + aura, proofs + ' +
   'kernel-only witness, the symmetric-only quantum-crypto posture and the post-quantum floor theorems that back it, ' +
   'the two coins, the integrity fingerprint, the rights) and folded to ONE receipt — the same profile for every ' +
-  'observer, no privileged view. It COMPOSES what is already proven; it asserts nothing new. The aura is ART, not ' +
-  'physics. Integrity, not truth.'
+  'observer, no privileged view. It COMPOSES what is already proven; it asserts nothing new. The aura is ART' +
+  'physics. Integrity — the record recomputes for anyone.'
 
 /** quantumProfile() → uuidna's content-addressed self-profile, every field recomputable and folded to one receipt.
  *  Composes the identity/aura, the proofs + kernel-only witness, the quantum-crypto posture + floor theorems, the
@@ -76,7 +76,7 @@ export function quantumProfile(): QuantumProfile {
     quantumCrypto: {
       posture: 'SYMMETRIC-ONLY (HMAC-SHA256, ChaCha20-Poly1305, PBKDF2-SHA256): no RSA/ECC, so Shor has no asymmetric ' +
         'target; Grover is a quadratic speedup only, halving the exponent to a ~128-bit floor. Backed by the sealed ' +
-        'post-quantum floor theorems, not asserted.',
+        'post-quantum floor theorems.',
       symmetricOnly, floorTheorems: [...POST_QUANTUM_FLOOR], floorSealed, coins: coins(),
     },
     integrity: { fnv: analytics.integrity.fnvReceipt, sha256: analytics.integrity.sha256, tamperCost: analytics.integrity.tamperCost },

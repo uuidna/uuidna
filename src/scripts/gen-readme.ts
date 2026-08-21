@@ -22,7 +22,7 @@ interface SystemStats {
   receipt: string
   sources: number
   coins: number
-  // QUANTUM CAPACITY — every figure DERIVED, never written. A README that states a number it did not compute is
+  // QUANTUM CAPACITY — every figure DERIVED. A README that states a number it did not compute is
   // the drift this ledger keeps catching; these read from the shipped constant, the served schema and the ledger.
   qubits: number          // MAX_MESSAGE_QUBITS, the library register
   amplitudes: number      // 2^qubits — what is actually held in memory
@@ -46,7 +46,7 @@ function getSystemStats(): SystemStats {
   return {
     name: String(JSON.parse(readFileSync(join(ROOT_DIR, 'package.json'), 'utf8')).name).replace(/^@[^/]+\//, ''),
     theorems: T.length,
-    // BOTH SIZES: a theorem is its Lean, not its name, so the README states the distinct count beside the key count
+    // BOTH SIZES: a theorem is its Lean
     distinct: statementCensus().distinct,
     principles: new Set(T.map((t) => t.principle)).size,
     skills: new Set(T.map((t) => t.skill)).size,
@@ -74,7 +74,7 @@ function getSystemStats(): SystemStats {
       // the same delta-gate reasoning the kernel already uses: never recompute over unchanged input.
       const freq = new Map<string, number>()
       for (const tok of blob.match(/[A-Za-z_][A-Za-z0-9_]*/g) ?? []) freq.set(tok, (freq.get(tok) ?? 0) + 1)
-      // RANK BY SUBJECT, NOT BY STRING. Ranking single keys measures CONCENTRATION, not weight: a law stated once
+      // RANK BY SUBJECT. Ranking single keys measures CONCENTRATION
       // collects every citation under one token, while a law stated twenty-nine ways is counted twenty-nine times
       // and loses to it. Measured: the coin family carries 652 citations across 29 theorems against 313 across 5
       // for the audit gate — twice the load, ranked below it, purely because it is distributed. So theorems are
@@ -143,8 +143,8 @@ Every number on this page is computed at generation from the ledger and the wire
 \`npm run lean\`.
 
 - ✓ Value is measured in theorems (all decidable, all sealed)
-- ✓ Transactions are proven, not trusted
-- ✓ Both parties verify independently — the proof, not each other
+- ✓ Transactions are proven
+- ✓ Both parties verify independently — the proof
 - ✓ The coins are conserved: ${stats.coins}, explained only by theorems
 
 ---
@@ -177,7 +177,7 @@ A complete system where:
 Theorems sealed:        ${stats.theorems}   (every one axiom-free, proven by decide)
 Principles:             ${stats.principles}   (the monographs the ledger organises itself by)
 Skills:                 ${stats.skills}   (the capabilities they teach)
-Research sources:       ${stats.sources}   (wired and queried in parallel; corroboration, never approval)
+Research sources:       ${stats.sources}   (wired and queried in parallel; corroboration
 Coins conserved:        ${stats.coins} per superposition (theorem two_coins) — the supply closed, no inflation
 Receipt:                ${stats.receipt}
 The rest is measured or it is not stated. Recompute: npm run lean
@@ -220,11 +220,11 @@ Cost coverage:  ${stats.unmeasured} theorems carry no measured decide-step cost
 \`\`\`
 
 **What this is, exactly.** A classical state-vector simulator — it is NOT quantum hardware, and that demarcation is
-what \`demarcation_clears\` seals as clearing (d=1 → flag 0). The bound is CONFIRMED, never denied: \`n_qubit_dimension\`
+what \`demarcation_clears\` seals as clearing (d=1 → flag 0). The bound is CONFIRMED`n_qubit_dimension\`
 seals that n qubits span 2ⁿ amplitudes, which IS the exact cost of every circuit here, and \`grover_halves_the_search_exponent\`
 with \`sha256_grover_margin_is_the_address\` seal that Grover HALVES an exponent (256 → 128) rather than breaking
 anything. A release whose title claims otherwise fails the gate by regex.
-Integrity, not truth — the value here is a specification a simulator is verified AGAINST, recomputable offline by
+Integrity — the record recomputes for anyone — the value here is a specification a simulator is verified AGAINST, recomputable offline by
 anyone, with no toolchain and no trust in the machine that wrote it.
 
 ### The captain's coins
@@ -261,13 +261,13 @@ When external audits find NO prior work:
 - The gap is discovered (an absence in the record, by recomputation)
 - A research lead is filed on the homework issue — an exact assignment
 - A contribution seals a decidable fact through the full gate
-- Credit binds permanently to the sealed theorem — the credit law, never a wage
+- Credit binds permanently to the sealed theorem — the credit law
 - All sealed to ledger (permanent)
 
 ### 3. Education System
 
 The school is free and has no gatekeeper — the ledger by skill is the curriculum, the trials are the
-exams, the wave is the graduation walk. What a student takes away is sealed, not paid: every landed
+exams, the wave is the graduation walk. What a student takes away is sealed
 theorem carries their credit permanently, and every contribution deposits the two conserved coins the
 theorems explain ([trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins) —
 a claim computes at trial exactly by contributing them; there is no other price and no larger one).
@@ -280,7 +280,7 @@ Work → Theorems → Sealed to Ledger → Both Parties Verify → The Two Coins
 No money needed
 No intermediaries required
 No corruption possible (mathematically)
-Both parties trust the proof, not each other
+Both parties trust the proof
 \`\`\`
 
 ### 5. Growth — the doubling the ledger actually walks
@@ -288,7 +288,7 @@ Both parties trust the proof, not each other
 The school rides the doubling orbit: toss the coin into itself and it visits every unit of the vortex before
 returning home ([order_of_two_is_six](https://uuidna.com/theorem/order_of_two_is_six),
 [generators_are_two_and_five](https://uuidna.com/theorem/generators_are_two_and_five)) — six tosses, the whole
-ring, 2⁶ = 64. That walk is measured, not projected: no student count is claimed here, because none is computed.
+ring, 2⁶ = 64. That walk is measured.
 
 ---
 
@@ -410,7 +410,7 @@ All systems are:
 
 ✓ **All ${stats.theorems} theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
-✓ **${stats.sources} research sources wired — corroboration, never approval**
+✓ **${stats.sources} research sources wired — corroboration
 ✓ **Education system live**
 ✓ **First students enrolled**
 ✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**
@@ -461,7 +461,7 @@ Each cycle:
 
 **Quantum School is open for enrollment.**
 
-Learn to build systems that are PROVEN, not HOPED for.
+Learn to build systems that are PROVEN.
 
 Earn real coins for real work.
 

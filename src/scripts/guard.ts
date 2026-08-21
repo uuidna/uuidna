@@ -3,7 +3,7 @@
 // (crypto KATs + lean regen). This runs the FAST intrusion checks in seconds so a forgery is caught immediately, not
 // after a wasted reconcile: the ledger-level sweep catchTraitors() (DNA recompute, collisions, coverage, conformance —
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
-// Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity, not truth.
+// Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { execSync } from 'node:child_process'
 import { predictGaps } from './predict-and-fill.js'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
@@ -57,7 +57,7 @@ if (t.clean) {
 // the 12s Lean re-run. lean/axioms.json is the derived witness {audited, axiomFree, offenders}; verifying it COVERS
 // every current theorem and is fully axiom-free catches that class in milliseconds — no Lean re-run.
 try {
-  // offenders is a MAP (address → the axioms it borrows) written by lean-axioms, never a list. Typed as string[]
+  // offenders is a MAP (address → the axioms it borrows) written by lean-axioms. Typed as string[]
   // here, `offenders.length` was ALWAYS undefined — so this check's offender arm never fired, and its error path
   // would have called .join() on an object and thrown instead of naming the traitor. The count comparison below
   // still caught the class (axiomFree = audited − offender keys), but a condition that cannot fire is not a check.
@@ -69,16 +69,16 @@ try {
   else console.log(`✓ guard — axiom witness: ${ax.axiomFree}/${ax.audited} theorems kernel-only (no propext, no Classical.choice), covering all ${N}`)
 } catch { failed = true; console.error('✗ guard — no lean/axioms.json witness — run `npm run axioms` (the ledger has no kernel-only proof witness)') }
 
-// 1b) UNIQUENESS COMES FROM LEAN, NOT FROM THE NAME — a theorem is its statement, so two entries proving the same
+// 1b) UNIQUENESS COMES FROM LEAN— a theorem is its statement, so two entries proving the same
 // proposition under different keys are one theorem wearing two names. The guard REPORTS both counts (so no surface
 // can quietly print the larger one) and NAMES every re-naming group. It does not fail on the standing ones — the
 // ℤ/9 table lives deliberately in both the core and the ring wing — but it makes the difference impossible to
 // overlook, and a NEW re-naming arrives named, at guard speed, instead of inflating the count in silence.
 {
   const c = statementCensus()
-  if (c.renamings === 0) console.log(`✓ guard — uniqueness: all ${c.entries} entries are distinct statements (a theorem is its Lean, not its name)`)
+  if (c.renamings === 0) console.log(`✓ guard — uniqueness: all ${c.entries} entries are distinct statements (a theorem is its Lean`)
   else {
-    console.log(`  guard — uniqueness: ${c.entries} entries, ${c.distinct} DISTINCT statements, ${c.renamings} re-namings across ${c.groups.length} groups (a theorem is its Lean, not its name):`)
+    console.log(`  guard — uniqueness: ${c.entries} entries, ${c.distinct} DISTINCT statements, ${c.renamings} re-namings across ${c.groups.length} groups (a theorem is its Lean`)
     for (const g of c.groups.slice(0, 5)) console.log(`    · ${g.keys.join(' ≡ ')}  [${g.files.join(', ')}]`)
     if (c.groups.length > 5) console.log(`    · … ${c.groups.length - 5} more groups — the full census: uuidna_statement_census`)
   }
@@ -132,7 +132,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'actions', run: () => actionsGaps() },
   // PROMOTED from ADVISORY 2026-08-17: the captain made the call the advisory tier was waiting on ("fix the 12
   // vacuous theorems"), and all 12 were rewritten to prove their own names — kernel-verified, axiom-free, the
-  // ledger held at 1294 because they were REWRITTEN, not dropped. The class is closed, so it blocks now: no
+  // ledger held at 1294 because they were REWRITTEN. The class is closed, so it blocks now: no
   // theorem may again be true regardless of its content. `by decide` checks the proposition; this checks that
   // the proposition means its key.
   { name: 'vacuous', run: () => vacuousGaps() },
@@ -157,7 +157,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'counts', run: () => countsGaps() },
   // BLOCKING from birth, by the captain's law "all not lean green fails": a boundary stated bare drops the lead —
   // the reader is told what the work is not and never handed the sealed thing that fixes the bound. It was written
-  // advisory with 56 open findings; all 56 were paid in the same landing (the recurring "integrity, not truth"
+  // advisory with 56 open findings; all 56 were paid in the same landing (the recurring "integrity"
   // cited at its source in src/mcp.ts so the generated catalog inherits it, then each remaining boundary given the
   // proof that actually fixes it), so it enters the gate green and stays that way.
   { name: 'negation', run: () => negationGaps() },
@@ -174,7 +174,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // theorem identically, or the "same data, two envelopes" claim from 2026-08-18 ("each theorem is a
   // block") is false. Skips clean when the optional exports have not been generated yet.
   { name: 'blocks', run: () => blocksGaps() },
-  // THE 432 GRID IS A LIVE GATE, NOT A FROZEN NUMBER. Its width falls out of two structures that can both move: the
+  // THE 432 GRID IS A LIVE GATE. Its width falls out of two structures that can both move: the
   // six projected rays (the seventh, 'en', is the source the wings are written in, so it holds no seat) and the 72
   // wings the ledger carries. 6·w keeps digital root 9 only when w ≡ 0 (mod 3), so a SINGLE new wing would silently
   // turn 432 into 438 and break the harmony that made the number natural. This finder makes that impossible to do
@@ -196,7 +196,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // exists. `npm run x -- <script>` dispatches from discovery; an entry survives only when CI, a hook, the README
   // or a docs page calls it by name, and that set is recomputed here rather than declared.
   { name: 'scripts', run: () => scriptsGaps() },
-  // THE MIRROR MUST AGREE BY VALUE, NOT BY ROUNDING — a js mirror doing Number arithmetic past 2^53 can round to
+  // THE MIRROR MUST AGREE BY VALUE— a js mirror doing Number arithmetic past 2^53 can round to
   // the SAME wrong value as the Lean it is checked against and pass emit()'s comparison by luck. Three mirrors
   // needed BigInt in one session (2026-08-19); the third was caught by hand, which is what makes it a finder.
   { name: 'mirror', run: () => mirrorGaps() },
@@ -212,7 +212,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // for months. Of the first six dormant scripts actually EXECUTED, two were broken — one read a directory deleted
   // the same day, and one was holding a real finding (1308/1327 theorems claimed). Dormant code rots silently.
   { name: 'dormant', run: () => dormantGaps() },
-  // THE PAYLOAD IS A PER-TURN TOLL, NOT DOCUMENTATION. tools/list rides into the model context on EVERY request of
+  // THE PAYLOAD IS A PER-TURN TOLL. tools/list rides into the model context on EVERY request of
   // every session, and nothing was watching it: it reached 174,903 bytes across 191 tools, 14,401 of them ONE
   // sentence copied verbatim into 87 descriptions. Three classes, each blocking — the sealed ceiling may only
   // shrink, no sentence over the law-phrase bound may repeat across three descriptions, and a description over the

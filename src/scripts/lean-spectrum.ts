@@ -5,7 +5,7 @@
 // (radio, microwave, infrared, visible, ultraviolet, X-ray, gamma) order by increasing frequency — SEVEN, the
 // rosette count — and photon energy E = h·f rises with them, so gamma carries more energy than radio. The visible
 // window is less than ONE octave (700 nm to 400 nm is a ratio under 2), unlike sound's many octaves. And "300,000
-// km/s" ROUNDS the exact c (like the photography stops), off by 207542 m/s. SCOPE (integrity, not truth):
+// km/s" ROUNDS the exact c (like the photography stops), off by 207542 m/s. SCOPE (integrity
 // this is the ARITHMETIC of the spectrum — the wave relation, the band order, the octave, the rounding gap — NOT an
 // EMF safety, exposure, or health claim of any kind; uuidna makes no claim about radiation and the body. Integrity,
 // not truth.

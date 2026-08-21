@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // SELF-DISCOVERY of ℤ/9 theorems — all computes by itself. No hardcoded structure arrays: the units, inverses,
 // orbit, nilpotents and idempotents are DERIVED by functions (gcd, inverse-search, iterated doubling), and each
-// discovered fact is a COMPUTED PROPERTY (a filter/any/all over a defined predicate), not a static list on the
+// discovered fact is a COMPUTED PROPERTY (a filter/any/all over a defined predicate)
 // right-hand side. The engine computes each fact in JS, generates a `by decide` Lean theorem that RECOMPUTES the
 // same property, writes lean/Discover.lean, verifies it sorry-free, and reports which theorems are NEW (not yet
-// in the other lean/*.lean files). Integrity, not truth.
+// in the other lean/*.lean files). Integrity.
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { emit, ROOT } from './lean-gen.js'

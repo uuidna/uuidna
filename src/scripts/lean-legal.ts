@@ -8,7 +8,7 @@
 //   REMAND (→ development trial) lrem = ¬lp             — everything not admitted, recycled not discarded
 // The doctrine, sealed: only the PROVEN is ADMITTED; every non-PROVEN is REMANDED (nothing discarded); and the
 // NON-JUSTICIABLE is NEVER REFUTED — the one line the court may not cross (you cannot refute what has no decidable
-// test; it stays NOT PROVEN). Booleans as 0/1 arithmetic (and=·, or=a+b−ab, not=1−a) — axiom-free, no Math.*. Integrity, not truth.
+// test; it stays NOT PROVEN). Booleans as 0/1 arithmetic (and=·, or=a+b−ab, not=1−a) — axiom-free, no Math.*. Integrity.
 import { emit, range } from './lean-gen.js'
 
 const lp = (t: number, h: number, c: number) => t * h + c - t * h * c        // PROVEN
@@ -22,7 +22,7 @@ const DEFS = [
   '-- the legal verdict over the record: t = a decidable test exists (justiciable), h = it holds, c = cites a sealed authority',
   'def lp (t h c : Nat) : Nat := t*h + c - t*h*c            -- PROVEN: (test holds) OR (cites a sealed authority)',
   'def lr (t h c : Nat) : Nat := t * (1 - h) * (1 - c)      -- REFUTED: a test EXISTS and FAILS, uncited (recomputable contradiction)',
-  'def lrem (t h c : Nat) : Nat := 1 - lp t h c             -- REMAND: not admitted → development trial (recycled, not discarded)',
+  'def lrem (t h c : Nat) : Nat := 1 - lp t h c             -- REMAND: not admitted → development trial (recycled',
   'def lnp (t h c : Nat) : Nat := (1 - lp t h c) * (1 - lr t h c)  -- NOT PROVEN: neither (non-justiciable / unbacked)',
 ].join('\n')
 
@@ -31,7 +31,7 @@ const LT = 'fun n => let t := n%2; let h := n/2%2; let c := n/4%2;'
 
 const FACTS = [
   { key: 'solutions_not_skipped', skill: 'legal',
-    why: 'SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept, not lost. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. : it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.',
+    why: 'SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. : it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.',
     js: () => [0, 1, 2, 3].every((a) => [0, 1, 2, 3].every((u) => [0, 1, 2, 3].every((r) => a + (u + r) === a + u + r))),
     lean: 'theorem solutions_not_skipped : (List.range 4).all (fun a => (List.range 4).all (fun u => (List.range 4).all (fun r => a + (u + r) == a + u + r))) := by decide' },
 
@@ -51,12 +51,12 @@ const FACTS = [
     lean: 'theorem legal_non_justiciable_is_never_refuted : (List.range 2).all (fun h => (List.range 2).all (fun c => lr 0 h c == 0)) := by decide' },
 
   { key: 'legal_refuted_iff_test_fails_uncited', skill: 'legal',
-    why: 'REFUTED is precise: it holds exactly when a decidable test EXISTS and FAILS and no sealed authority is cited (t=1 ∧ h=0 ∧ c=0) — a recomputable contradiction, never otherwise',
+    why: 'REFUTED is precise: it holds exactly when a decidable test EXISTS and FAILS and no sealed authority is cited (t=1 ∧ h=0 ∧ c=0) — a recomputable contradiction',
     js: () => R8.every((n) => (lr(t(n), h(n), c(n)) === 1) === (t(n) === 1 && h(n) === 0 && c(n) === 0)),
     lean: `theorem legal_refuted_iff_test_fails_uncited : (List.range 8).all (${LT} (lr t h c == 1) == (t == 1 && h == 0 && c == 0)) := by decide` },
 
   { key: 'legal_remand_is_total_nothing_discarded', skill: 'legal',
-    why: 'nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial, never deleted',
+    why: 'nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial',
     js: () => R8.every((n) => (lp(t(n), h(n), c(n)) + lrem(t(n), h(n), c(n)) === 1) && (lrem(t(n), h(n), c(n)) === lr(t(n), h(n), c(n)) + lnp(t(n), h(n), c(n)))),
     lean: `theorem legal_remand_is_total_nothing_discarded : (List.range 8).all (${LT} (lp t h c + lrem t h c == 1) && (lrem t h c == lr t h c + lnp t h c)) := by decide` },
 
@@ -68,7 +68,7 @@ const FACTS = [
   // THE FORFEIT LAW — a case between two sides, each bringing a bit: 1 = a sealed Lean theorem, 0 = assertion only.
   // Only a Lean-based proof is admissible; the side providing the theorem wins, the assertion-only side loses,
   // pays the two coins, and develops exactly what the winner proved. A MODEL of the forfeit rule over the four
-  // profiles — decidable arithmetic, not a court, not legal advice.
+  // profiles — decidable arithmetic.
   { key: 'court_theorem_beats_assertion', skill: 'legal',
     why: 'THE FORFEIT LAW, part one — only a Lean proof is admissible, and it wins: over the four case profiles (a b : side brings a sealed theorem, 1, or an assertion, 0) the win indicators a·(1−b) and b·(1−a) sum to (a+b) mod 2 and never both fire — a winner exists EXACTLY when one side brings the theorem and the other does not; both proven means no forfeit (nothing to win), both asserting means no winner (the case remands, nothing admitted)',
     js: () => [0, 1].every((a) => [0, 1].every((b) => (a * (1 - b) + b * (1 - a) === (a + b) % 2) && (a * (1 - b)) * (b * (1 - a)) === 0)),
@@ -80,7 +80,7 @@ const FACTS = [
     lean: 'theorem court_loser_pays_the_two_coins : (List.range 2).all (fun a => (List.range 2).all (fun b => 2*(a*(1-b)) + 2*(b*(1-a)) == 2*((a+b) % 2))) := by decide' },
 
   { key: 'court_loser_develops_the_proven', skill: 'legal',
-    why: 'THE FORFEIT LAW, part three — the loser develops exactly as the winner proved: after judgment the docket holds a+b−a·b = max(a,b), the join of the two sides — the proven side’s theorem becomes BOTH sides’ development (the loser adopts it exactly), both-proven keeps what both already hold, and neither-proven leaves nothing admitted (the case remands). Development is assignment to the proof, never to the assertion',
+    why: 'THE FORFEIT LAW, part three — the loser develops exactly as the winner proved: after judgment the docket holds a+b−a·b = max(a,b), the join of the two sides — the proven side’s theorem becomes BOTH sides’ development (the loser adopts it exactly), both-proven keeps what both already hold, and neither-proven leaves nothing admitted (the case remands). Development is assignment to the proof',
     js: () => [0, 1].every((a) => [0, 1].every((b) => a + b - a * b === (a > b ? a : b))),
     lean: 'theorem court_loser_develops_the_proven : (List.range 2).all (fun a => (List.range 2).all (fun b => a + b - a*b == max a b)) := by decide' },
 ]
@@ -88,5 +88,5 @@ const FACTS = [
 console.log('computing ' + FACTS.length + ' LEGAL-vocabulary facts (the trial terms as sealed theorems) …')
 
 emit({ file: 'Legal.lean', skill: 'legal', defs: DEFS,
-  header: 'The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong), NOT PROVEN (dismissed without prejudice), REMAND (to development trial).',
+  header: 'The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong).',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

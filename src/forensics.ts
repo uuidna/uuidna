@@ -2,7 +2,7 @@
 // must cite a real one; when it claims an address, the text must recompute to it. Forensics recomputes and compares,
 // so a FALSE TRIAL — a claim dressed as sealed that the ledger does not back — cannot stand. Every violation is on
 // the CLAIM, never on a person: it names a fabricated citation or a mismatched address, not a "traitor". The flag is
-// a recomputable fact anyone rechecks, which is exactly why it needs no accusation. Integrity, not truth.
+// a recomputable fact anyone rechecks, which is exactly why it needs no accusation. Integrity.
 //
 // It detects four kinds, each content-addressed and folded to one receipt:
 //   · overreach          — the statement drains a named overclaim (the honesty gate, unbacked/undemarcated).
@@ -66,13 +66,13 @@ export function forensics(statement: string, opts: { claims?: { text: string; ad
   // 5) unbacked law — a claim of legality/lawfulness/compliance must CARRY A RECEIPT: the specific statement, content-
   //    addressed. If the agent says it knows the law but cites no receipt (no /theorem/, no uuid, no {text→address}
   //    claim), the claim is unbacked. The receipt proves you made THIS exact claim, recomputably — NEVER that the
-  //    claim is legally correct (that is a court's ruling, not a fold). "Say you know the law → carry its receipt."
+  //    claim is legally correct (that is a court's ruling. "Say you know the law → carry its receipt."
   // Legal/IP OWNERSHIP claims that must carry a receipt — including patents and intellectual-property assertions,
   // added after a real near-miss: "uuidna holds all the patents" once passed clean because "patent" was not listed.
   const LAW = /\b(lawful(ly)?|legal(ly)?|complian\w+|complies|according to (the )?law|knows? the law|by law|licen[sc]ed|patent\w*|trademark\w*|intellectual property|proprietary|owns? (all )?(the )?(rights|patents))\b/i
   const carriesReceipt = /\/theorem\//.test(statement) || UUID_RE.test(statement) || (opts.claims || []).length > 0
   UUID_RE.lastIndex = 0 // reset the global regex after .test above
-  if (LAW.test(statement) && !carriesReceipt) add('unbacked-law', 'claims lawful/legal/compliant but carries no receipt — cite the specific statement and its content-address (a receipt proves the claim was made, not that it is legally correct)')
+  if (LAW.test(statement) && !carriesReceipt) add('unbacked-law', 'claims lawful/legal/compliant but carries no receipt — cite the specific statement and its content-address (a receipt proves the claim was made')
 
   return {
     statement,
@@ -85,7 +85,7 @@ export function forensics(statement: string, opts: { claims?: { text: string; ad
       'Every violation is a recomputable fact about the CLAIM — a fabricated citation, a false address, a drained ' +
       'overclaim — never an accusation of a person. Recheck it from the same ledger and get the same result; a false ' +
       'trial cannot survive recomputation. The flag is cleared by fixing the claim (cite a real proof, correct the ' +
-      'address, demarcate the prose), not by appeal. Integrity, not truth.',
+      'address, demarcate the prose). Integrity.',
   }
 }
 

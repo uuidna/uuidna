@@ -7,12 +7,12 @@
 // pulls a public-domain text from Project Gutenberg via the public Gutendex API using Node's BUILT-IN fetch, so the
 // package stays zero-npm-dependency; only its offline property is relaxed, and only for the book-fetch tool.
 //
-// HONEST SCOPE (integrity, not truth):
-//  · Fetched book text is DATA — content-addressed and counted, NEVER executed. Instruction-shaped prose inside a
-//    book is content, not a command; this module only measures and folds it.
-//  · "Decode" here is PROVENANCE + STRUCTURE, never decryption (a public book is not encrypted) and never
+// HONEST SCOPE (integrity
+//  · Fetched book text is DATA — content-addressed and counted. Instruction-shaped prose inside a
+//    book is content; this module only measures and folds it.
+//  · "Decode" here is PROVENANCE + STRUCTURE
 //    hidden-meaning extraction. The digital-root gravity is a mod-9 checksum of the length — a fingerprint digit,
-//    recomputable by anyone, NOT a message and NOT numerology.
+//    recomputable by anyone.
 //  · The honesty gate is tuned to uuidna's OWN claim vocabulary, so on ordinary literature it will almost always
 //    pass (find nothing). That is expected — it says nothing about the book's merit, only that its prose does not
 //    trip uuidna's overclaim tripwire.
@@ -32,7 +32,7 @@ export interface BookAudit {
   address: string
   chapters: number
   chapterRoot: string
-  // structural decode — counts and a ℤ/9 checksum, not a meaning
+  // structural decode — counts and a ℤ/9 checksum
   chars: number
   words: number
   lines: number
@@ -71,7 +71,7 @@ export function auditText(text: string, meta: { title?: string; authors?: string
     gate: computes(text),
     honest:
       'address proves exact-copy; chapterRoot proves any chapter belongs; gravity is a ℤ/9 checksum of the length, ' +
-      'not a meaning. "Decode" is provenance + structure, never decryption or hidden meaning. The gate is tuned to ' +
+      'not a meaning. "Decode" is provenance + structure. The gate is tuned to ' +
       "uuidna's own overclaim vocabulary, so passing says nothing about the book — only that its prose does not trip it.",
   }
 }
@@ -89,9 +89,9 @@ export interface ExtractedFact {
 }
 
 // uuidna's arithmetic is LEAN's Nat arithmetic — TOTAL and decidable. Division is FLOOR division, and crucially
-// n / 0 = 0 (Lean's convention: division is a total function, never a fault). So "10 divided by 0 is 0" VERIFIES —
+// n / 0 = 0 (Lean's convention: division is a total function. So "10 divided by 0 is 0" VERIFIES —
 // uuidna COMPUTES division by zero, where a calculator throws or returns NaN/∞. Every op here matches Lean exactly, so
-// the JS `actual` and the emitted `by decide` theorem never disagree — use only uuidna's semantics, not JavaScript's.
+// the JS `actual` and the emitted `by decide` theorem never disagree — use only uuidna's semantics's.
 // FLOOR division with NO Math.* (Math is hard-rejected — not a local theorem). a − (a % b) is a multiple of b, so the
 // final ÷ is exact integer arithmetic; and b = 0 returns 0, matching Lean's total Nat division exactly.
 const natDiv = (a: number, b: number) => (b === 0 ? 0 : (a - (a % b)) / b)
@@ -108,7 +108,7 @@ const EXTRACT_OPS: Record<string, [(a: number, b: number) => number, string]> = 
 /** extractDecidable(text) → the DECIDABLE INTEGER ARITHMETIC the text asserts, each independently sealed by decide
  *  (VERIFIED) or corrected (REFUTED — the book's sum is wrong). HONEST SCOPE: integer arithmetic ONLY — the sliver
  *  of a book that computes; this does NOT autoformalize the book's meaning, argument, or non-decidable mathematics,
- *  and the proofs are uuidna's own, not the book's. A theorem computes in Lean, or it is not a theorem. */
+ *  and the proofs are uuidna's own's. A theorem computes in Lean, or it is not a theorem. */
 export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
   const out: ExtractedFact[] = []
   const seen = new Set<string>()
@@ -194,7 +194,7 @@ const UNIT = '(?:degrees?|points?|cubits?|feet|foot|inches|spans?|handbreadths?|
  *  UNIT-EQUIVALENCE ("45 degrees, or four points by compass") — the shape that carries domain knowledge and that
  *  extractDecidable cannot see, because the text never writes it as arithmetic; and MEASUREMENT ("300 cubits the
  *  length"), the shape a scripture or a treatise states its dimensions in.
- *  HONEST SCOPE, and it is the whole point: this reports WHAT A TEXT SAYS, never whether the text is right, and
+ *  HONEST SCOPE, and it is the whole point: this reports WHAT A TEXT SAYS
  *  never anything about the text's meaning or authority. A verdict is not attempted here — untested_stays_unproven
  *  governs any claim about the world that carries no decidable test, and a shared number is the expected case by
  *  pigeonhole (gematria_forces_collisions), never evidence of a connection. Deterministic: no model, no network. */
@@ -260,8 +260,8 @@ const LINK_HONEST =
   'fact a text asserts to the SEALED ledger (sealed-match), flags a VERIFIED fact NOT yet in the ledger as NOVEL (a ' +
   'discovery — a candidate research lead for humanity), and marks false arithmetic REFUTED. Independent: no authority ' +
   'decides it, anyone recomputes from the public ledger; closed-door: purely recomputable, no network, no external ' +
-  'trust. HONEST SCOPE: integrity, not truth — it links DECIDABLE ARITHMETIC only (a sliver of a book), NOT the book\'s ' +
-  'meaning; a NOVEL fact is a CANDIDATE a human seals by decide, discovered here, never auto-admitted. A theorem ' +
+  'trust. HONEST SCOPE: integrity— it links DECIDABLE ARITHMETIC only (a sliver of a book)'s ' +
+  'meaning; a NOVEL fact is a CANDIDATE a human seals by decide, discovered here. A theorem ' +
   'computes in Lean, or it is not a theorem.'
 
 // the sealed statement, whitespace-normalised, so "2 * 2 = 4" (as extracted) matches a ledger statement written "2*2=4".
@@ -270,7 +270,7 @@ const normStmt = (s: string): string => s.replace(/\s+/g, '')
 /** linkBookFacts(text) → the independent closed-door docket: extract every decidable fact the text asserts (now
  *  including subtraction), then LINK each to the sealed ledger — sealed-match (already a theorem), NOVEL (verified but
  *  not yet sealed — a discovery for humanity), or REFUTED (false). Folds to one recomputable receipt. No network, no
- *  authority — anyone recomputes it. Integrity, not truth; a novel fact is a candidate to seal, never auto-admitted. */
+ *  authority — anyone recomputes it. Integrity; a novel fact is a candidate to seal. */
 export function linkBookFacts(text: string, limit = 100): BookLedgerLinkage {
   const facts = extractDecidable(text, limit)
   const ledger = theorems().map((t) => ({ key: t.key, norm: normStmt(t.statement) }))
@@ -295,7 +295,7 @@ export function linkBookFacts(text: string, limit = 100): BookLedgerLinkage {
 /** composeBookArticle(audit, facts) → an AUDITED article about a public-domain text: its provenance fingerprint, its
  *  structure, and the decidable arithmetic uuidna sealed (or refuted) from it, each backed by a by-decide proof.
  *  HONEST SCOPE: the article claims ONLY the provenance and the decidable integer arithmetic — never the book's
- *  meaning, argument, or non-decidable mathematics; the proofs are uuidna's, not the book's. */
+ *  meaning, argument, or non-decidable mathematics; the proofs are uuidna's's. */
 export function composeBookArticle(audit: BookAudit, facts: ExtractedFact[]): { markdown: string; address: string; receipt: string } {
   const v = facts.filter((f) => f.verdict === 'VERIFIED').length
   const r = facts.filter((f) => f.verdict === 'REFUTED').length
@@ -307,14 +307,14 @@ export function composeBookArticle(audit: BookAudit, facts: ExtractedFact[]): { 
     `> a recomputable article — provenance, structure, and the decidable arithmetic uuidna sealed from the text\n\n` +
     `This text content-addresses to \`${audit.address}\` (${audit.chapters} chapters, ${audit.words} words, ℤ/9 gravity ${audit.gravity}); the address proves exact-copy, the chapterRoot \`${audit.chapterRoot}\` proves any chapter belongs. uuidna scanned its prose for INTEGER ARITHMETIC — the only fragment it can independently decide — and sealed each \`by decide\`: **${v} VERIFIED**, **${r} REFUTED** (an arithmetic the text states that does not hold).\n\n` +
     `## The decidable arithmetic, each backed by its own proof\n\n` +
-    (facts.length ? facts.map((f) => `- **${f.verdict}** — the text says \`${f.claim}\`${f.verdict === 'REFUTED' ? ` (it is ${f.actual}, not ${f.asserted})` : ''}; uuidna seals \`${f.lean}\` · \`${f.address}\``).join('\n') : '_No integer arithmetic found to decide._') +
-    `\n\n## Provenance\n\nThe ${facts.length} sealed facts fold order-invariantly to receipt \`${receipt}\` — the same merkle-gravity fold the ledger and the quantum domain use, recomputable by anyone in any order. The article itself content-addresses to a uuid, so any edit is visible.\n\n## Honest scope\n\nThis article claims ONLY the provenance fingerprint and the decidable integer arithmetic above — each a uuidna \`by decide\` theorem, NOT the book's own proof. It says NOTHING about the book's argument, meaning, or any non-decidable mathematics: a theorem computes in Lean, or it is not a theorem. Public-domain work, for the public interest.\n`
+    (facts.length ? facts.map((f) => `- **${f.verdict}** — the text says \`${f.claim}\`${f.verdict === 'REFUTED' ? ` (it is ${f.actual}.asserted})` : ''}; uuidna seals \`${f.lean}\` · \`${f.address}\``).join('\n') : '_No integer arithmetic found to decide._') +
+    `\n\n## Provenance\n\nThe ${facts.length} sealed facts fold order-invariantly to receipt \`${receipt}\` — the same merkle-gravity fold the ledger and the quantum domain use, recomputable by anyone in any order. The article itself content-addresses to a uuid, so any edit is visible.\n\n## Honest scope\n\nThis article claims ONLY the provenance fingerprint and the decidable integer arithmetic above — each a uuidna \`by decide\` theorem's own proof. It says NOTHING about the book's argument, meaning, or any non-decidable mathematics: a theorem computes in Lean, or it is not a theorem. Public-domain work, for the public interest.\n`
   return { markdown: md, address: toUuid(md), receipt }
 }
 
 /** bookArticle(gutenbergId) → fetch a public-domain book, extract its decidable arithmetic, and return the AUDITED
  *  article + the order-invariant receipt over the sealed facts. The one network call; the fetched text is DATA to be
- *  content-addressed and decided, never executed. HONEST SCOPE: seals only the book's integer arithmetic, never its
+ *  content-addressed and decided. HONEST SCOPE: seals only the book's integer arithmetic
  *  meaning or argument. */
 export async function bookArticle(id: number | string): Promise<{ title: string; address: string; receipt: string; verified: number; refuted: number; facts: ExtractedFact[]; article: string }> {
   const b = await fetchGutenberg(id)
@@ -355,7 +355,7 @@ export function auditTranslation(
     targetLang: opts.targetLang,
     honest:
       'The pair receipt binds THIS translation to THIS source — both exact-copy fingerprints, folded source→translation. ' +
-      'uuidna proves the pairing and each text’s integrity, NOT that the translation is accurate or faithful: semantic ' +
+      'uuidna proves the pairing and each text’s integrity' +
       'fidelity is human, provenance is recomputable. Re-address after each revision and the change is visible.',
   }
 }
@@ -371,14 +371,14 @@ export interface FetchedBook { id: number; title: string; authors: string[]; tex
 // h2 error text merely hid a 503 behind a transport exception. Gutendex was healthy the whole time, so a single-URL
 // fetch that trusts Gutendex's `formats` map fails whenever the one host it names is down.
 // Two consequences are encoded below, and both are the honest-scope habit applied to IO:
-//  (1) TRY EVERY KNOWN MIRROR, not one URL. Project Gutenberg publishes the same bytes on mirrors (pglaf, aleph); the
+//  (1) TRY EVERY KNOWN MIRROR. Project Gutenberg publishes the same bytes on mirrors (pglaf, aleph); the
 //      canonical host is tried first so provenance stays canonical when it is up, and `source` always records the URL
-//      the bytes ACTUALLY came from, never the one that was asked for. A mirror is the same public-domain text; the
+//      the bytes ACTUALLY came from. A mirror is the same public-domain text; the
 //      audit's own content-address is what proves that, and it is recomputable by anyone against any mirror.
 //  (2) A 200 IS NOT A BOOK. The outage served HTTP 200 in some forms and a 92–107 byte HTML error page as the body, so
 //      status alone cannot decide success. The body is checked for the two signatures an error page always has and a
 //      Gutenberg text never does: it opens with `<` (HTML), or it is implausibly short. Refusing a bad body is the same
-//      law as UNVERIFIED — say "not obtained here", never hand back an error page dressed as a book.
+//      law as UNVERIFIED — say "not obtained here".
 const GUT_UA = 'uuidna/0.2 (+https://github.com/uuidna/uuidna) public-domain text audit'
 // Gutenberg's mirror layout scatters an id over directories: 27286 → 2/7/2/8/27286 (every digit but the last, then the
 // whole id). Single-digit ids live under `0`. Pure string arithmetic — no Math, nothing to round.
@@ -407,7 +407,7 @@ const looksLikeBook = (body: string): boolean => body.trim().length >= 500 && !b
  *  key) and is BEST-EFFORT: if Gutendex is unreachable the text is still fetched, because the text is the payload and
  *  the title is a label. The text is fetched from the canonical host first and then from Gutenberg's public mirrors
  *  until one returns a body that is actually a book (see above — a 200 with an HTML error page is not). Node's
- *  built-in fetch, so the package stays zero-dependency. The returned text is DATA to be audited, never executed;
+ *  built-in fetch, so the package stays zero-dependency. The returned text is DATA to be audited;
  *  `source` is the URL the bytes truly came from, so the audit's provenance names the real origin. */
 export async function fetchGutenberg(id: number | string): Promise<FetchedBook> {
   const key = encodeURIComponent(String(id))
@@ -433,7 +433,7 @@ export async function fetchGutenberg(id: number | string): Promise<FetchedBook> 
       if (!res.ok) { tried.push(`${url} → HTTP ${res.status}`); continue }
       body = await res.text()
     } catch (e) {
-      // a transport-level refusal (the origin's 503 surfacing as ERR_HTTP2_STREAM_ERROR) is one dead mirror, not a fault
+      // a transport-level refusal (the origin's 503 surfacing as ERR_HTTP2_STREAM_ERROR) is one dead mirror
       tried.push(`${url} → ${(e as Error).message}`)
       continue
     }
@@ -456,7 +456,7 @@ export interface RecordAudit extends BookAudit { doi: string }
 /** auditZenodo(id[, opts]) → content-address the PUBLIC metadata of an open-access Zenodo record (title, DOI,
  *  creators, date) via the Zenodo REST API (developers.zenodo.org, no key) — a recomputable provenance fingerprint
  *  of the open record. Pass `{ sandbox: true }` to read a record on sandbox.zenodo.org (the test instance) instead,
- *  for verifying a deposit before it is public. HONEST: it fingerprints the public metadata only, NOT the deposited
+ *  for verifying a deposit before it is public. HONEST: it fingerprints the public metadata only
  *  files or their content; uuidna audits text provenance. Anyone re-fetches the same public record and recomputes
  *  the same address. Read-only — it never deposits, authenticates, or changes a record. */
 export async function auditZenodo(id: number | string, opts: { sandbox?: boolean } = {}): Promise<RecordAudit> {
@@ -477,13 +477,13 @@ export async function auditZenodo(id: number | string, opts: { sandbox?: boolean
   }
 }
 
-/** A film audit — the provenance fingerprint of the PUBLIC description of a movie, NOT the film. */
+/** A film audit — the provenance fingerprint of the PUBLIC description of a movie. */
 export interface MovieAudit extends BookAudit { movieDescription: string }
 
 /** auditMovie(title) → content-address the PUBLIC Wikipedia summary of a film (its factual description, CC BY-SA,
  *  free, no key) — a recomputable provenance fingerprint of the public facts. It does NOT and CANNOT decode the
  *  film: a movie is video, and a copyrighted film's footage, dialogue and screenplay are neither fetched nor
- *  reproduced here. uuidna audits text provenance only; this fingerprints public metadata, not a hidden meaning. */
+ *  reproduced here. uuidna audits text provenance only; this fingerprints public metadata. */
 export async function auditMovie(title: string): Promise<MovieAudit> {
   const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`)
   if (!r.ok) throw new Error(`movies: Wikipedia summary responded ${r.status} for "${title}"`)
@@ -499,7 +499,7 @@ export async function auditMovie(title: string): Promise<MovieAudit> {
   }
 }
 
-/** A standards/law audit — the recomputable FLOOR of a compliance audit, NOT the ruling. */
+/** A standards/law audit — the recomputable FLOOR of a compliance audit. */
 export interface StandardAudit extends BookAudit { standard: string; checks: ExtractedFact[]; factBase: string; ruling: string }
 
 /** auditStandard(name) → the recomputable FLOOR of a standards/law audit: content-address the PUBLIC Wikipedia
@@ -525,11 +525,11 @@ export async function auditStandard(name: string): Promise<StandardAudit> {
     ruling:
       'NOT provided. A standards / compliance / legal audit RULING requires a human auditor or licensed counsel reviewing the ' +
       'specific jurisdiction, edition and deployment. uuidna cannot and does not rule; it delivers the floor — the fingerprint ' +
-      'and the decidable checks — and leaves the ruling to humans. Integrity, not truth.',
+      'and the decidable checks — and leaves the ruling to humans. Integrity.',
   }
 }
 
-// ─── THE UNLOCK: books that can be READ, not only measured ──────────────────────────────────────────────────────
+// ─── THE UNLOCK: books that can be READ
 // EVERY SURFACE ABOVE MEASURES A BOOK AND DISCARDS THE TEXT. auditText splits the chapters, addresses each one,
 // folds them into chapterRoot — and then returns `chapters: number`. The COUNT survives; the chapters do not. So
 // uuidna could prove you held an exact edition and could never show you a page of it. That fails the one law every
@@ -540,8 +540,8 @@ export async function auditStandard(name: string): Promise<StandardAudit> {
 // that book actually contains. That is strictly MORE than an ordinary reader gets — a plain text file can be
 // altered silently, while a chapter carrying its proof cannot: change one character and `belongs` goes false.
 //
-// HONEST SCOPE: this returns the book's own words, unmodified, public-domain. It is READING, never interpretation —
-// uuidna proves WHICH text you hold, never what it means. Integrity, not truth.
+// HONEST SCOPE: this returns the book's own words, unmodified, public-domain. It is READING—
+// uuidna proves WHICH text you hold. Integrity.
 
 export interface ChapterRead {
   index: number
@@ -570,7 +570,7 @@ export function bookContents(text: string, meta: { title?: string; authors?: str
     ...meta,
     chapters: parts.map((c, index) => ({
       index,
-      // the chapter's own first non-empty line is its heading — the book's word, never ours
+      // the chapter's own first non-empty line is its heading — the book's word
       heading: (c.split('\n').find((l) => l.trim()) ?? '').trim().slice(0, 120),
       chars: c.length,
       words: c.trim() ? c.trim().split(/\s+/).length : 0,
@@ -584,7 +584,7 @@ export function bookContents(text: string, meta: { title?: string; authors?: str
 export function readChapter(text: string, index: number, meta: { title?: string; authors?: string[]; source?: string } = {}): ChapterRead {
   const parts = splitChapters(text)
   const leaves = parts.map((c) => toUuid(c))
-  // clamp into range without Math.* (the determinism law admits no exception, not even here)
+  // clamp into range without Math.* (the determinism law admits no exception
   const i = index < 0 ? 0 : index >= parts.length ? parts.length - 1 : index
   const chapter = parts[i] ?? ''
   const chapterRoot = merkleRoot(leaves)
@@ -602,8 +602,8 @@ export function readChapter(text: string, index: number, meta: { title?: string;
     words: chapter.trim() ? chapter.trim().split(/\s+/).length : 0,
     honest:
       'The book\'s own words, public-domain and unmodified, with the inclusion proof that they belong to this exact ' +
-      'edition — recompute `belongs` yourself and a single altered character fails it. Reading, never interpretation: ' +
-      'uuidna proves WHICH text you hold, never what it means. Integrity, not truth.',
+      'edition — recompute `belongs` yourself and a single altered character fails it. Reading' +
+      'uuidna proves WHICH text you hold. Integrity.',
   }
 }
 

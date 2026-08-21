@@ -18,7 +18,7 @@ interface EvidenceEntry {
 // Every `prose` string below must be an EXACT, single-line substring of the CURRENT README.md or docs/index.md —
 // next.ts's ARM 7 checks each verbatim, and a rewrite of either surface (gen-readme.ts, docs/index.md) drifts these
 // silently until re-synced here. Regenerating this file does NOT re-derive the quotes (they are hand-picked, not
-// computed) — a drifted quote means the SOURCE prose changed, and the fix is to re-pick a live quote, not to just
+// computed) — a drifted quote means the SOURCE prose changed, and the fix is to re-pick a live quote
 // re-run this generator. (Learned 2026-08-19: the previous quote set named marketing copy — "432 Hz", "honest by
 // construction", "human quantum analog" — that a prior README/homepage rewrite had already dropped entirely.)
 const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
@@ -44,7 +44,7 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
   },
   {
     claim: 'novelty discovery is a proven absence',
-    prose: 'an absence proven by recomputation, never a claim (theorem legal_remand_is_total_nothing_discarded)',
+    prose: 'an absence proven by recomputation',
     backing: T.filter(t => t.key === 'legal_remand_is_total_nothing_discarded')
   },
   {
@@ -88,7 +88,7 @@ ${e.backing.map((t) => `- **[${t.key}](/theorem/${t.key})** — "${t.name}"\n  -
 - Proof method: All \`by decide\` (no axioms, kernel-only)
 - Integrity: Each claim is content-addressed and verifiable
 
-If a backing theorem is removed from the ledger, its proof vanishes. The prose is a live document, not decoration.
+If a backing theorem is removed from the ledger, its proof vanishes. The prose is a live document.
 `
 
 writeFileSync(join(process.cwd(), 'docs/prose-evidence.md'), md)

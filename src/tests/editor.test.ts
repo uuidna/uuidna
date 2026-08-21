@@ -17,7 +17,7 @@ test('deterministic — the same document folds to the same address (editor_empt
   assert.equal(documentAddress(a), reAddress(a).address)          // reAddress is the same fold
 })
 
-test('ORDER-SENSITIVE — reordering paragraphs MOVES the address (editor_fold_order_sensitive: a document is a sequence, not a set)', () => {
+test('ORDER-SENSITIVE — reordering paragraphs MOVES the address (editor_fold_order_sensitive: a document is a sequence', () => {
   assert.notEqual(documentAddress(doc('alpha', 'beta')), documentAddress(doc('beta', 'alpha')))
   // ...and this is the OPPOSITE of the memory store's order-invariant fold — the whole point of the honest distinction.
 })

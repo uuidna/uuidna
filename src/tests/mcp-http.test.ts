@@ -36,7 +36,7 @@ test('tools/call is deterministic — the same call recomputes the same address'
   assert.equal(call().result.content[0].text, call().result.content[0].text)
 })
 
-test('an unknown tool is a tools/call error, not a crash', () => {
+test('an unknown tool is a tools/call error', () => {
   const r = handleMcpRpc({ jsonrpc: '2.0', id: 5, method: 'tools/call', params: { name: 'uuidna_not_a_tool', arguments: {} } }) as { error?: { code: number } }
   assert.equal(r.error?.code, -32602)
 })

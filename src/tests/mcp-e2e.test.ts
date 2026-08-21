@@ -5,7 +5,7 @@
 // are fast. But they cannot see the layer a real client actually depends on: the handshake, the framing, the error
 // SHAPE on the wire, and whether the process is still serving after it has refused something. mcp-drive.ts does
 // spawn the real binary, and it is the only thing that does — but it drives three computations to recompute three
-// receipts, which is a proof about arithmetic, not about usage.
+// receipts, which is a proof about arithmetic.
 //
 // So this is the usage test: connect once, then use the server the way a client does — list, call, misuse, and
 // keep going. Every tool exercised here is OFFLINE by construction. Reaching for a network tool would make a red
@@ -80,7 +80,7 @@ test('e2e: a tool call returns parseable JSON with the field it promises', async
   assert.equal(r.error, undefined, `the call errored: ${JSON.stringify(r.error)}`)
   const body = JSON.parse(callText(r)) as { count?: number; sources?: unknown[]; absent?: unknown[]; receipt?: string }
   assert.ok(body.count && body.count > 0, 'the registry must serve its sources over the wire')
-  assert.equal(body.sources?.length, body.count, 'the count must match what is served, not what is remembered')
+  assert.equal(body.sources?.length, body.count, 'the count must match what is served')
   assert.ok(Array.isArray(body.absent), 'the absence law travels with the payload')
   assert.match(String(body.receipt), /^[0-9a-f-]{36}$/, 'the receipt is a content-address')
 })
@@ -109,7 +109,7 @@ test('e2e: a missing required argument is refused, and the refusal NAMES the arg
   assert.match(said, /subject/, `the schema declares "subject" required — the refusal must say so, said: ${said.slice(0, 160)}`)
 })
 
-test('e2e: an unknown METHOD is an error, not a crash', async () => {
+test('e2e: an unknown METHOD is an error', async () => {
   const r = await rpc('no/such/method', {})
   assert.ok(r.error !== undefined || callText(r) === '', 'an unknown method must not be answered as though it worked')
   const after = await rpc('tools/list')

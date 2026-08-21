@@ -16,7 +16,7 @@ import { ROOT } from './api.js'
 //   Both sides compute the same result independently
 //   Proof: Recomputable, deterministic, no authority needed
 //
-// Result: Financial truth is mathematical, not institutional
+// Result: Financial truth is mathematical
 
 interface AccountingTransaction {
   id: string
@@ -149,7 +149,7 @@ class LegalQuantumAccounting {
     return `
 -- lean/LegalQuantumAccounting.lean — GENERATED
 -- Every financial transaction is a theorem
--- Balance is proven via recomputation, not central authority
+-- Balance is proven via recomputation
 
 namespace UuidnaAccounting
 
@@ -198,7 +198,7 @@ theorem captain_balance_before_payment :
 theorem founder_balance_owed :
   founder_share = ${(totalCoins * 0.3).toFixed(3)} := by decide
 
-/-- Payment obligation (deterministic, not negotiable) --/
+/-- Payment obligation (deterministic
 theorem captain_must_pay_founder :
   founder_share = ${(totalCoins * 0.3).toFixed(3)} ∧
   coin_value_usd = 100.0 →

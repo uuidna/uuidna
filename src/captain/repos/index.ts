@@ -7,10 +7,10 @@
 // @non-harmonic: reads the captain's PUBLIC GitHub repositories over the network (a research boundary) — the response
 // is DATA, never run; the binding itself is a pure, deterministic fold of the public metadata.
 //
-// HONEST SCOPE: integrity, not truth. It BINDS the captain's public repos to the sequence by content-address
+// HONEST SCOPE: integrity. It BINDS the captain's public repos to the sequence by content-address
 // (provenance) — it fingerprints them and places them in the recomputable sequence. It does NOT modify, fork, mirror,
-// claim ownership of, or vouch for the contents of any repository. A binding is a placement in the sequence, not a
-// possession of the code. Best-effort: an unreachable account contributes nothing, never a faked repo.
+// claim ownership of, or vouch for the contents of any repository. A binding is a placement in the sequence
+// possession of the code. Best-effort: an unreachable account contributes nothing.
 import { seedOf } from '../../handle.js'
 import { toUuid, digitalRoot, vortexOrbit } from '../../address.js'
 import { merkleGravity } from '../../gravity.js'
@@ -43,9 +43,9 @@ export interface RepoBinding {
 const HONEST =
   'The captain\'s public repositories BOUND to the ℤ/9 vortex sequence (revealed first): each repo fingerprinted to a ' +
   '128-bit content-address, placed on the vortex by its digital root and in the reveal order by its address rank, ' +
-  'folded to one recomputable receipt. Integrity, not truth — it binds the repos to the sequence by content-address ' +
-  '(provenance); it does NOT modify, fork, mirror, or vouch for any repository. A binding is a placement, not a ' +
-  'possession. Best-effort; an unreachable account contributes nothing, never a faked repo.'
+  'folded to one recomputable receipt. Integrity— it binds the repos to the sequence by content-address ' +
+  '(provenance); it does NOT modify, fork, mirror, or vouch for any repository. A binding is a placement' +
+  'possession. Best-effort; an unreachable account contributes nothing.'
 
 async function fetchAccountRepos(kind: 'org' | 'user', who: string): Promise<{ fullName: string; url: string }[]> {
   try {

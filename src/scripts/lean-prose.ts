@@ -36,7 +36,7 @@ import { ROOT, docComment, m9, type Fact } from './lean-gen.js'
 const LEAN_DIR = join(ROOT, 'lean')
 const SELF = 'Audit.lean'
 
-// WHICH WINGS ARE GENERATED IS MEASURED, NOT TYPED. The first version of this file carried a hand-written list of
+// WHICH WINGS ARE GENERATED IS MEASURED. The first version of this file carried a hand-written list of
 // the hand-written wings, and it was wrong within the hour: it named three (Uuidna, Vortex, OneLeap) when there are
 // six — AntiFraud, DisputedTopics and SailingSeals are authored Lean too, and the audit charged their 52 theorems
 // against the emitter as missing prose. A typed list of what is generated is exactly the kind of claim this

@@ -20,7 +20,7 @@
 //             every error of mine today.
 //   kind    — convention | measured. A convention (the Faraday constant, 1 kWh = 3600 kJ, the Betz ratio 16/27) is
 //             exact by definition and may seal as an EQUALITY. A measurement carries uncertainty and may only ever
-//             seal as an integer BRACKET, never by taking a division. Confusing the two is how a rounded figure
+//             seal as an integer BRACKET. Confusing the two is how a rounded figure
 //             becomes an asserted constant.
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
@@ -57,10 +57,10 @@ export function researchGaps(fs: readonly Finding[]): { what: string; fix: strin
     })
     if (f.kind === 'convention' && f.status !== 'read') gaps.push({
       what: `"${f.claim}" is treated as exact-by-definition but its defining source was not read (${f.status})`,
-      fix: 'a convention seals as an EQUALITY, so its definition must come from the standard itself, not a citing work',
+      fix: 'a convention seals as an EQUALITY, so its definition must come from the standard itself',
     })
   }
-  // GROUPED BY THE QUANTITY, NOT BY THE ADDRESS. This branch was unreachable when it grouped on findingAddress:
+  // GROUPED BY THE QUANTITY. This branch was unreachable when it grouped on findingAddress:
   // the address folds claim ∥ value ∥ units ∥ source, so every member of a group already shared its value and the
   // "disagreeing values" test could never come out true. A check that cannot fire is not a check — the exact class
   // the falsifier leg exists to catch — so the key is now the quantity (claim ∥ units), which is what a reader
@@ -101,7 +101,7 @@ export const FINDINGS: readonly Finding[] = [
     status: 'read', kind: 'convention', note: 'Exact product, sharper than the commonly quoted 96485.33212.' },
   { claim: 'Water-splitting reversible cell potential', value: '1.228891', units: 'V',
     source: 'computed from CODATA Gibbs energy -237.14 kJ/mol over 2F',
-    status: 'read', kind: 'measured', note: 'The textbook 1.23 V is a ROUNDING UP — an upper bound, not the value. Real electrolysers run 1.6-2.0 V.' },
+    status: 'read', kind: 'measured', note: 'The textbook 1.23 V is a ROUNDING UP — an upper bound. Real electrolysers run 1.6-2.0 V.' },
   { claim: 'Methane combustion enthalpy, liquid water basis', value: '890.30', units: 'kJ/mol',
     source: 'recomputed from NIST WebBook formation enthalpies: 39351 + 2*28583 - 7487 = 89030',
     status: 'read', kind: 'measured', note: 'The project\'s 890.29 sits at the BOTTOM of the credible band; NIST lists four values spanning 890.3-890.6.' },
@@ -113,13 +113,13 @@ export const FINDINGS: readonly Finding[] = [
     status: 'read', kind: 'measured', note: 'PDF retrieved and text extracted; figures read from the paper\'s own text.' },
   { claim: 'Pilot MFC effluent COD against discharge target', value: '247 +/- 206 against ~60', units: 'mg/L',
     source: 'Rossi & Logan 2022, Water Research 225:119179',
-    status: 'read', kind: 'measured', note: 'Refutes \'exhausting pure water\' for the MFC route: cleaner, not clean.' },
+    status: 'read', kind: 'measured', note: 'Refutes \'exhausting pure water\' for the MFC route: cleaner.' },
   { claim: 'Four-stroke cycle completes in two crankshaft revolutions', value: '2', units: 'revolutions',
     source: 'Runciman, Gas and Oil Engines Simply Explained (Gutenberg 27286); corroborated by Rathbun (Gutenberg 56776)',
     status: 'read', kind: 'convention', note: 'Both books read in full; corroborated independently by the 2:1 camshaft ratio.' },
   { claim: 'One working stroke in four; impulses per revolution equal cylinders divided by two', value: '1 of 4', units: 'strokes',
     source: 'Rathbun, Practical Hand Book of Gas, Oil and Steam Engines (Gutenberg 56776)',
-    status: 'read', kind: 'convention', note: 'A firing-frequency fact, NOT an efficiency factor — must not be multiplied into a fuel-energy chain.' },
+    status: 'read', kind: 'convention', note: 'A firing-frequency fact— must not be multiplied into a fuel-energy chain.' },
   { claim: 'No engine book consulted states degrees of crank rotation per stroke or per cycle', value: 'absent', units: 'none',
     source: 'Runciman 27286, Rathbun 56776, Mathot 38415 — all read in full',
     status: 'read', kind: 'measured', note: 'NEGATIVE RESULT. No 180 degrees, no 720 degrees, and no in-line firing order anywhere. Derivation would have fabricated all three.' },
@@ -142,11 +142,11 @@ export const FINDINGS: readonly Finding[] = [
   // the exact divergence is what caught it.
   { claim: 'Interleaving effect size, overall', value: '0.42 (95% CI 0.34-0.50), k=238, I2=77.3%', units: 'Hedges g',
     source: 'Brunmair & Richter 2019, Psychological Bulletin 145(11):1029, doi 10.1037/bul0000209',
-    status: 'read', kind: 'measured', note: 'Trim-and-fill corrects to 0.29 (0.20-0.38) with 23 studies estimated missing. Use 0.29 as the planning number, not 0.42.' },
+    status: 'read', kind: 'measured', note: 'Trim-and-fill corrects to 0.29 (0.20-0.38) with 23 studies estimated missing. Use 0.29 as the planning number.42.' },
   { claim: 'Interleaving HARMS word learning', value: '-0.39 (95% CI -0.64 to -0.14), k=13', units: 'Hedges g',
     source: 'Brunmair & Richter 2019, Table 2',
     status: 'read', kind: 'measured', note: 'REFUTES the popular claim that interleaving is a general-purpose booster. Range across materials: -0.39 (words, blocking wins) to +0.67 (paintings); expository text is a null at 0.21, p=.119.' },
-  { claim: 'Interleaving is a DISCRIMINATION intervention, not a spacing one', value: '0.73 immediate succession vs 0.22 when temporally spaced', units: 'Hedges g',
+  { claim: 'Interleaving is a DISCRIMINATION intervention', value: '0.73 immediate succession vs 0.22 when temporally spaced', units: 'Hedges g',
     source: 'Brunmair & Richter 2019, Results; corroborated by Birnbaum et al. 2013, Memory & Cognition 41:392',
     status: 'read', kind: 'measured', note: 'Spacing REMOVES the benefit. It requires confusable categories to act on.' },
   { claim: 'Interleaving works WORSE on unfamiliar material', value: 'familiarity moderator b = +0.20', units: 'regression coefficient',
@@ -175,7 +175,7 @@ export const FINDINGS: readonly Finding[] = [
     status: 'read', kind: 'measured', note: 'At 50% or lower initial success WITHOUT feedback the effect vanishes. The sharpest boundary condition in the literature: it constrains where in a sequence quizzing can be placed at all.' },
   { claim: 'Retrieval-practice TRANSFER, bias-corrected', value: 'd = 0.40 [0.31, 0.50]; untested materials 0.16 [-0.10, 0.43]; at neither moderator d = -0.053 [-0.22, 0.12]', units: 'Cohen d',
     source: 'Pan & Rickard 2018, Psychological Bulletin 144(7):710',
-    status: 'read', kind: 'measured', note: 'VERIFIED from primary text: the direct testing effect in the same dataset is 0.68, well above the 0.40 transfer estimate, and at the extreme of no response congruency and no elaborated retrieval transfer is NEGATIVE. Corrections to an earlier draft: problem-solving k is 17 not 18, and the neither-moderator figure is -0.053, not the 0.21 first cited. Worked examples d = 0.045 remains UNVERIFIED — the direction is supported, the value is not.' },
+    status: 'read', kind: 'measured', note: 'VERIFIED from primary text: the direct testing effect in the same dataset is 0.68, well above the 0.40 transfer estimate, and at the extreme of no response congruency and no elaborated retrieval transfer is NEGATIVE. Corrections to an earlier draft: problem-solving k is 17 not 18, and the neither-moderator figure is -0.053.21 first cited. Worked examples d = 0.045 remains UNVERIFIED — the direction is supported, the value is not.' },
   { claim: 'The optimal study gap is NOT a fixed percentage of the retention interval', value: 'declines from ~43% at a 7-day delay to ~8% at 350 days', units: 'ratio',
     source: 'Cepeda, Vul, Rohrer, Wixted & Pashler 2008, Psychological Science 19(11):1095',
     status: 'read', kind: 'measured', note: 'REFUTES the 10-20% rule circulating in ed-tech. The authors state the optimal gap is not some absolute quantity that can be recommended. Estimated from 32 obscure trivia facts on a coarse grid with no CI on the optimum location. The supported directional claim is ASYMMETRY: erring long is cheap, erring short is expensive.' },
@@ -189,7 +189,7 @@ export const KINDS: readonly Kind[] = ['convention', 'measured'] as const
 
 /** What a finding may be sealed AS. The three answers are the whole doctrine: an unread source seals NOTHING, a
  *  measurement seals only as an integer BRACKET, and only a convention whose defining source was read seals as an
- *  EQUALITY. Derived from the two predicates above rather than restated, so there is one rule, not three. */
+ *  EQUALITY. Derived from the two predicates above rather than restated, so there is one rule. */
 export type Seal = 'EQUALITY' | 'BRACKET' | 'NOTHING'
 export const sealableAs = (f: Finding): Seal => (!anchors(f) ? 'NOTHING' : sealableAsEquality(f) ? 'EQUALITY' : 'BRACKET')
 
@@ -198,7 +198,7 @@ export const sealReason = (f: Finding): string =>
   sealableAs(f) === 'EQUALITY'
     ? 'exact by definition AND its defining source was read — it may seal as an equality'
     : sealableAs(f) === 'BRACKET'
-      ? 'read at the primary source, but MEASURED — it may anchor a theorem only as an integer bracket, never by taking a division'
+      ? 'read at the primary source, but MEASURED — it may anchor a theorem only as an integer bracket'
       : `not read (${f.status}) — it may not anchor a theorem at all until the primary source is retrieved or it is marked refuted`
 
 export interface JudgedFinding extends Finding {
@@ -224,14 +224,14 @@ export interface LedgerReport {
 }
 
 const HONEST_LEDGER =
-  'The research ledger reports how well each finding was VERIFIED, not whether it is true. `read` means the primary ' +
+  'The research ledger reports how well each finding was VERIFIED. `read` means the primary ' +
   'source was retrieved and the figure taken from its own text; `secondary` means a citing work reported it; `unread` ' +
   'means believed and unchecked. Only a `read` finding may anchor a theorem, and only a `read` CONVENTION may seal as ' +
   'an EQUALITY — a measurement gets an integer bracket or nothing. UNREAD is never "false", only not-yet-checked. ' +
-  'Integrity, not truth.'
+  'Integrity — the record recomputes for anyone.'
 
 /** THE ONE REPORT BOTH SURFACES SERVE — the stdio server and the hosted Workers edge call this same function, so a
- *  divergence between them can only be a description, never an answer. Filters are optional and validated; an
+ *  divergence between them can only be a description. Filters are optional and validated; an
  *  unknown status or kind is REFUSED by name rather than silently matching nothing. */
 export function ledgerReport(opts: { status?: unknown; kind?: unknown } = {}, fs: readonly Finding[] = FINDINGS): LedgerReport {
   const status = opts.status === undefined || opts.status === null ? null : String(opts.status) as Status

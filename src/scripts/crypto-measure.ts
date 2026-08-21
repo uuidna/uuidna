@@ -16,7 +16,7 @@
  *   7. Convergent-encryption equality    — salt_conv_leaks_equality / salt_conv_step_is_division_by_zero
  *
  * HONEST SCOPE: measurements 1, 5, and the R² slope of 4 have NO decidable anchor — a timing
- * magnitude and the entropy of a fixed sample are empirical, not `by decide` propositions, and
+ * magnitude and the entropy of a fixed sample are empirical`by decide` propositions, and
  * this script never dresses them up as theorems. The rest are anchored: the measurement is the
  * observable shadow, the cited theorem is the sealed diamond. Before running, the script asserts
  * every cited theorem actually exists in the sealed ledger (the same guard as signCommit — a
@@ -35,7 +35,7 @@ const enc = new TextEncoder()
 const log = console.log
 
 // Each measurement names the sealed diamond theorem that proves its DECIDABLE core, or null when
-// the measurement is inherently empirical (a magnitude, not a decidable proposition).
+// the measurement is inherently empirical (a magnitude.
 type Anchor = string | null
 const ANCHOR: Record<string, Anchor> = {
   pbkdf2Timing: null, // a wall-clock magnitude is not decidable — measurement only
@@ -62,7 +62,7 @@ function assertAnchorsSealed(): void {
 function anchorLine(measurement: string): string {
   const a = ANCHOR[measurement]
   return a ? `  🔷 Diamond theorem (decidable core): ${a} — verify: npm run lean`
-           : `  🔷 No decidable anchor — this is a MEASUREMENT, not a theorem (a magnitude is empirical).`
+           : `  🔷 No decidable anchor — this is a MEASUREMENT.`
 }
 
 // ════════════════════════════════════════════════════════════════════════════
@@ -227,7 +227,7 @@ function measureAuthenticationTagValidation() {
   log(anchorLine('tagValidation'))
   log(`     (tamper_changes_tag + xor_checksum_catches_flip: a 1-bit flip changes the tag, so the`)
   log(`      equality gate rejects it. HONEST SCOPE: this is the decidable reason no flip is a no-op;`)
-  log(`      full Poly1305 unforgeability is cryptographic, not a decidable theorem.)`)
+  log(`      full Poly1305 unforgeability is cryptographic.)`)
   log()
 }
 
@@ -282,7 +282,7 @@ function measureCipherLengthTiming() {
 
   log(`\n📊 ANALYSIS:`)
   log(`  Linear regression: time = ${intercept.toFixed(6)} + ${slope.toFixed(9)} × length`)
-  log(`  R² correlation: ${r2.toFixed(4)} (0 = independent, 1 = perfectly correlated) — a MEASUREMENT, not a theorem`)
+  log(`  R² correlation: ${r2.toFixed(4)} (0 = independent, 1 = perfectly correlated) — a MEASUREMENT`)
 
   if (r2 > 0.9) {
     log('  ✗ Strong correlation: ciphertext length leaks via timing')
@@ -338,7 +338,7 @@ function measureDerivedEntropyQuality() {
   log(`📊 ANALYSIS:`)
   log(`  Derived bytes show high entropy (approaching 8 bits/byte); SHA-256 whitens its output.`)
   log(anchorLine('derivedEntropy'))
-  log(`     (The entropy of a fixed sample is an observation, not a decidable proposition — it is not`)
+  log(`     (The entropy of a fixed sample is an observation— it is not`)
   log(`      sealed, and this script does not claim it is.)`)
   log()
 }
@@ -491,7 +491,7 @@ async function main() {
 
     log('HONEST SCOPE:')
     log('- The DECIDABLE core of each anchored property is proven by decide in the ledger (npm run lean).')
-    log('- Measurements 1 and 5 (and the R² slope of 4) are magnitudes, not theorems — never sealed.')
+    log('- Measurements 1 and 5 (and the R² slope of 4) are magnitudes— never sealed.')
     log('- This script settles a stopwatch and a byte histogram; the Lean kernel settles the theorems.\n')
   } catch (e) {
     console.error('Measurement error:', e)

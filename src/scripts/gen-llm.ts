@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // gen-llm — GENERATE llm.txt (the LLM-agent instructions) from the sealed ledger, so the imprinted RULE never drifts:
-// every count and every cited theorem STATEMENT is pulled live from theorems()/coins()/ADDRESS_BITS, not hand-typed.
+// every count and every cited theorem STATEMENT is pulled live from theorems()/coins()/ADDRESS_BITS.
 // The rule = the two captain coins (conserved cost), the abstract-0 fold, the 64→128 fuse, and the 7-dimension
 // (2^7 = 128) scope — each line cites a `by decide` theorem an agent can re-verify with uuidna_verify_statement.
-// Run in the reconcile wave (after gen-readme); a changed theorem re-flows here. Integrity, not truth.
+// Run in the reconcile wave (after gen-readme); a changed theorem re-flows here. Integrity.
 import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -15,10 +15,10 @@ const T = theorems()
 const stmt = (k: string): string => T.find((t) => t.key === k)?.statement ?? '(missing — reconcile)'
 const principles = new Set(T.map((t) => t.principle)).size
 
-// THE COIN LIST IS READ, NOT TYPED. It was six keys written into the template below, and two of them — dropped
+// THE COIN LIST IS READ. It was six keys written into the template below, and two of them — dropped
 // when AntiFraud was regenerated — survived as citations to theorems that no longer exist. llm.txt is loaded by
 // every agent, so a stale key here is a fabricated citation repeated at scale. The family is now selected from the
-// ledger by name, shortest statement first (the anchors, not the composites), so a consolidation rewrites this
+// ledger by name, shortest statement first (the anchors
 // block instead of rotting it.
 const coinTheorems = (): string => T
   .filter((t) => /coin/.test(t.key))
@@ -40,7 +40,7 @@ const LLM = `# uuidna — instructions for LLM agents (llm.txt)
 
 Or locally: \`npx @uuidna/uuidna\` (stdio). Then \`uuidna_unify\` returns {theorems, domains, tools, receipt} in
 one call — the whole state, computed. **Ask the ledger; do not hand-derive what a tool already computes.**
-Everything below is context for reading the answers, not a prerequisite for asking.
+Everything below is context for reading the answers.
 
 ## THE RULE
 
@@ -69,7 +69,7 @@ VERIFIED; cite nothing and it is UNVERIFIED, which means undecided here — neve
 
 - **\`Math.*\` is rejected everywhere, INCLUDING inside comments.** The scan reads raw source and does not require a
   trailing paren, so prose *describing* the ban trips it. Use integer arithmetic; a ratio becomes a two-sided
-  bracket (\`a * d > n\` and \`a * d < m\`), never a division and never a float.
+  bracket (\`a * d > n\` and \`a * d < m\`).
 - **Never pipe a command whose exit code you need.** \`$?\` after \`| tail\` is tail's status, so a failing gate reads
   as a pass. Capture the code directly, then inspect the log.
 - **Use is not mention.** A finder that greps source cannot tell a line that DOES a thing from one that NAMES it.
@@ -91,8 +91,8 @@ VERIFIED; cite nothing and it is UNVERIFIED, which means undecided here — neve
 
 - **Status in one call:** \`uuidna_unify\` → {theorems, domains, tools, receipt}. The ledger is **${T.length} theorems**, all \`by decide\`, sorry-free, axiom-free, across **${principles} principles** and **${MCP_CATALOG.length} MCP tools**.
 - **Verdicts:** VERIFIED iff a claim cites a sealed theorem or a decidable test holds; else UNVERIFIED — never "false". \`uuidna_verify_statement\` checks a statement against the sealed ledger in O(1).
-- **The Clay boundary:** uuidna solves **0 of the 7** Millennium problems — the *reflection* is sealed, the *problem* is not (Poincaré: Perelman, 2003, not uuidna).
-- **Integrity, not truth:** every value has a content-address; the fold is order-invariant. Nothing here is asserted that a sealed theorem does not settle.
+- **The Clay boundary:** uuidna solves **0 of the 7** Millennium problems — the *reflection* is sealed, the *problem* is not (Poincaré: Perelman, 2003.
+- **Integrity — the record recomputes for anyone:** every value has a content-address; the fold is order-invariant. Nothing here is asserted that a sealed theorem does not settle.
 `
 
 writeFileSync(join(ROOT, 'llm.txt'), LLM)

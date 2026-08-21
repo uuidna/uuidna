@@ -3,7 +3,7 @@
 // time: the captain coins are conserved, EVERY theorem's content-address recomputes (a forged or tampered theorem is
 // caught — its DNA no longer matches), the security posture is clean (zero runtime deps, defences + collision-
 // resistance sealed, the honesty gate bites, Clay solves none), and the ledger is non-empty and axiom-shaped. Run in
-// the audit / pre-push wave; a non-conforming commit is BLOCKED. Recomputable by anyone — integrity, not truth.
+// the audit / pre-push wave; a non-conforming commit is BLOCKED. Recomputable by anyone — integrity.
 import { theorems } from './theorems/index.js'
 import { coins } from './captain/billing/index.js'
 import { toUuid } from './address.js'

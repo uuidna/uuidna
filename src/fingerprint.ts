@@ -4,7 +4,7 @@
 // collision-resistant: forging a theorem that survives it costs a ~2^128 collision, the primitive's ceiling. Carry
 // both and a change is caught for free while a forgery that passes both costs a SHA-256 collision. Add a key (HMAC)
 // and forgery also needs the secret — the cost becomes the key's entropy. None of this is "maximum" — no scheme
-// proves a maximum; it raises the cost to the honest ceiling of the primitive used. Integrity, not truth.
+// proves a maximum; it raises the cost to the honest ceiling of the primitive used. Integrity.
 import { theorems } from './theorems/index.js'
 import { merkleGravity } from './gravity.js'
 import { sha256 } from './sha256.js'
@@ -32,7 +32,7 @@ export function ledgerFingerprint(): LedgerFingerprint {
     tamperCost:
       'A change is detected for free — the FNV receipt moves. A forgery that also survives the SHA-256 fingerprint ' +
       'costs a SHA-256 collision (~2^128 work), and one that survives an HMAC signature also needs the secret key ' +
-      '(cost = the key entropy). These are BOUNDS set by the primitives, NOT a maximum — no scheme proves a maximum. ' +
+      '(cost = the key entropy). These are BOUNDS set by the primitives— no scheme proves a maximum. ' +
       'The gap raises tampering cost to the honest ceiling; it does not close it to zero or claim it is unbreakable.',
   }
 }

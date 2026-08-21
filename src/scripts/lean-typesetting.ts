@@ -9,8 +9,8 @@
 // measure sits at 66 characters inside the 45–75 a typographer keeps; leading exceeds the type it carries (12 on 14)
 // and snaps to a baseline grid; the type scale rises by octaves (8→16, 9→18); a ream is 500 sheets (20 quires of 25);
 // and a leaf has a recto (odd) and a verso (even). the arithmetic of the page — NOT a layout engine, a
-// hyphenator, or a font renderer, and the √2 of the A-series is irrational (demarcated, not decided). COMPUTE →
-// GENERATE → VERIFY. Integrity, not truth.
+// hyphenator, or a font renderer, and the √2 of the A-series is irrational (demarcated. COMPUTE →
+// GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -61,7 +61,7 @@ const FACTS = [
     lean: 'theorem baseline_grid_snaps_to_four : [12,16,20,24].all (fun n => n % 4 == 0) := by decide' },
 
   { key: 'type_scale_octave',
-    why: "The compositor's case held a fixed scale of sizes, not a continuum, and the classic run 6,7,8,9,10,11,12,14,16,18 rises by set steps; doubling is the octave the scale keeps — 8 → 16 and 9 → 18 (16 = 8·2, 18 = 9·2) — so a display size is the exact double of a text size, the typographic analogue of the musical octave.",
+    why: "The compositor's case held a fixed scale of sizes; doubling is the octave the scale keeps — 8 → 16 and 9 → 18 (16 = 8·2, 18 = 9·2) — so a display size is the exact double of a text size, the typographic analogue of the musical octave.",
     js: () => 16 === 8 * 2 && 18 === 9 * 2,
     lean: 'theorem type_scale_octave : (16 = 8 * 2) ∧ (18 = 9 * 2) := by decide' },
 
@@ -71,7 +71,7 @@ const FACTS = [
     lean: 'theorem a_series_halving : [1,2,4].map (fun n => n * 2) = [2,4,8] := by decide' },
 
   { key: 'ream_is_five_hundred',
-    why: 'A ream is five hundred sheets: twenty quires of twenty-five — 20 · 25 = 500 — the count a paper mill sells the printer by, and the reason a print run is reckoned in reams, not sheets. (The older "short" quire of 24 and the printer\'s ream of 516 are historical variants; the metric ream settled on the round 500.)',
+    why: 'A ream is five hundred sheets: twenty quires of twenty-five — 20 · 25 = 500 — the count a paper mill sells the printer by, and the reason a print run is reckoned in reams. (The older "short" quire of 24 and the printer\'s ream of 516 are historical variants; the metric ream settled on the round 500.)',
     js: () => 20 * 25 === 500,
     lean: 'theorem ream_is_five_hundred : 20 * 25 = 500 := by decide' },
 
@@ -83,6 +83,6 @@ const FACTS = [
 
 emit({
   file: 'Typesetting.lean', skill: 'typesetting',
-  header: 'THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini\'s identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided.',
+  header: 'THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini\'s identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page; the √2 A-series ratio is irrational and demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

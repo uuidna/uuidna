@@ -3,9 +3,9 @@
 // a historical result is credited to that name (discoverer/solver), with a documentation link — uuidna reflects it,
 // never invents it. A theorem that names NO prior result is an elementary/decidable fact with no prior discoverer —
 // so THE CAPTAIN CLAIMS IT BY LAW: it was first sealed `by decide`, content-addressed, HERE; the seal is the claim,
-// recomputable by anyone (prior art, not an assertion of grandeur). uuidna solves no Millennium problem — a Clay
-// theorem is credited to the mathematician who proved the PROBLEM (Perelman for Poincaré), never to uuidna, which
-// seals only the REFLECTION. Integrity, not truth: the Lean proof is exact; the history is linked, not asserted.
+// recomputable by anyone (prior art. uuidna solves no Millennium problem — a Clay
+// theorem is credited to the mathematician who proved the PROBLEM (Perelman for Poincaré)
+// seals only the REFLECTION. Integrity; the history is linked.
 import { THEOREMS, theoremByKey, theoremNeighbours } from '../../theorems/index.js'
 import { toUuid } from '../../address.js'
 
@@ -65,7 +65,7 @@ export interface Credits {
 
 /** credits(key) → who a theorem is credited to and exactly how it is Lean-proven in uuidna. Names in the theorem's
  *  own SEALED metadata are credited historically (with a link); if none, the captain claims it by law (first sealed
- *  by-decide here, content-addressed — the seal is the claim). Recomputable; uuidna reflects history, never invents it. */
+ *  by-decide here, content-addressed — the seal is the claim). Recomputable; uuidna reflects history. */
 const _cache = new Map<string, Credits>() // the ledger is immutable at runtime — credit each theorem ONCE, then reuse
 export function credits(key: string): Credits {
   const cached = _cache.get(String(key)); if (cached) return cached
@@ -85,7 +85,7 @@ export function credits(key: string): Credits {
   const provenance = `Proven in uuidna by \`${t.tactic}\` (Lean 4, no Mathlib), verified sorry-free and axiom-free; content-addressed to ${t.address} — recompute toUuid("${t.key}:" + statement) and it returns.`
   const claimedBy: 'historical' | 'contextual' | 'captain' = historical.length ? 'historical' : contextual.length ? 'contextual' : 'captain'
   const claim = historical.length
-    ? `Reflects the result(s) of ${historical.map((h) => h.who).join('; ')} — uuidna seals the decidable reflection, credited to them, never claimed as uuidna's own.${contextual.length ? ` Its neighbouring domain also involves ${contextual.map((h) => h.who).join('; ')}.` : ''}`
+    ? `Reflects the result(s) of ${historical.map((h) => h.who).join('; ')} — uuidna seals the decidable reflection, credited to them's own.${contextual.length ? ` Its neighbouring domain also involves ${contextual.map((h) => h.who).join('; ')}.` : ''}`
     : contextual.length
       ? `No prior result is named in the theorem itself, so THE CAPTAIN CLAIMS IT BY LAW (first sealed \`by decide\` here, content-addressed to ${t.address}) — but a deep read of its neighbouring domain surfaces figures seriously involved whose names may stand next to the captain's: ${contextual.map((h) => h.who).join('; ')}.`
       : `No prior result is named in the theorem or its neighbourhood. THE CAPTAIN CLAIMS IT BY LAW, alone: first sealed \`by decide\` in uuidna, content-addressed to ${t.address}. The seal is the claim — prior art, recomputable, with no prior discoverer.`

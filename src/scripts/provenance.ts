@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 // scripts/provenance — the PROVENANCE AUDIT (a fourth arm of the self-audit). PURELY LEDGER-DERIVED: a sentence is
 // flagged only when it CITES A FABRICATED theorem — a /theorem/<key> or sealed-key name that is NOT in the ledger —
-// the one decidably-false thing prose can do. A hollow superlative that cites nothing is REVEALED, not refused: a
+// the one decidably-false thing prose can do. A hollow superlative that cites nothing is REVEALED
 // word-list is VOID here (it is not a theorem, so it carries no authority), so none is used — the ledger is the only
 // authority. A unit that links a sealed proof, or is a theorem's own committed description, is cleared. Findings are
 // content-addressed and fold, order-invariantly, to ONE recomputable receipt. It can FAIL (exit 1) — the opposite of
-// a trial rigged to pass. Integrity, not truth.
+// a trial rigged to pass. Integrity.
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { join, dirname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -15,7 +15,7 @@ import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, rd } from './api.js'
 
 // The floor lives in ONE tested place — src/prose-gate.ts (overreachOf → slimGate) — so the audit and the self-trial
-// share the exact same detector: a unit drains only for citing a FABRICATED theorem, never for a word. This script
+// share the exact same detector: a unit drains only for citing a FABRICATED theorem. This script
 // adds only the CONTEXT the ledger derives: whether a unit is BACKED (links a proof / names a sealed key) or vouched
 // by a theorem's own proof (backedBy). The call is overreachOf(u); backing is applied below.
 
@@ -37,10 +37,10 @@ const findings: Finding[] = []
 const scan = (surface: string, text: string, backedBy?: string): void => {
   for (const u of units(text)) {
     // If this unit is vouched by a theorem's own proof (backedBy) or BACKED (links a proof / names a sealed key),
-    // it is cleared — a proof, not a negation word, is what disputes a claim. Otherwise ask overreachOf, which now
+    // it is cleared — a proof. Otherwise ask overreachOf, which now
     // delegates ENTIRELY to slimGate (no lexicon): a unit drains ONLY when it cites a theorem key — via /theorem/<key>
     // or `theorem <key_shaped_token>` — that is not sealed in the ledger (a fabricated citation). An uncited claim
-    // does not drain; this is an INTEGRITY floor (every cited proof must exist), not a truth or boast detector.
+    // does not drain; this is an INTEGRITY floor (every cited proof must exist).
     if (backedBy || backed(u)) continue
     const token = overreachOf(u)
     if (token) findings.push({ surface, unit: u.length > 160 ? u.slice(0, 157) + '…' : u, token, address: toUuid(surface + '|' + u) })
@@ -77,7 +77,7 @@ console.log('\n  PROVENANCE AUDIT — prose earns its claim by linking a sealed 
 console.log('    surfaces : README + docs/*.md + ' + MCP_CATALOG.length + ' MCP descriptions + inline docs (theorem "why" + lean/*.lean) + code comments (src/**/*.ts)')
 console.log('    fabricated-citation claims : ' + findings.length)
 // The remedy is free of money and paid in CODE: back the claim with a sealed theorem, or demarcate it. The flag is
-// on the CLAIM, never on a person — a hollow sentence is cleared by delivering the proof that makes it true.
-for (const f of findings) console.log(`      • [${f.token}] ${f.surface}\n        "${f.unit}"\n        remedy (paid in code, not coin): cite a /theorem/<key> that IS sealed in the ledger — this one is not`)
+// on the CLAIM— a hollow sentence is cleared by delivering the proof that makes it true.
+for (const f of findings) console.log(`      • [${f.token}] ${f.surface}\n        "${f.unit}"\n        remedy (paid in code— this one is not`)
 console.log('    audit receipt : ' + receipt + (findings.length ? '  (FLAGGED — a claim cites a fabricated theorem)' : '  (CLEAN — no claim cites a fabricated theorem)'))
 process.exitCode = findings.length ? 1 : 0

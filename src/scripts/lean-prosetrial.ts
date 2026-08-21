@@ -10,7 +10,7 @@
 // orbit, the six orbits are exactly the six the whole ledger lands on, and a forged order is REFUSED by a `≠` that
 // the kernel evaluates. Prose is regenerable from (orbit, order); those two are now decided by decide.
 //
-// THE NEGATION IS ON THE LINE, not in the sentence above it — the discrimination theorem carries its own `≠`, so
+// THE NEGATION IS ON THE LINE— the discrimination theorem carries its own `≠`, so
 // the claim "a forged order is refused" is discharged where it is made.
 import { emit } from './lean-gen.js'
 

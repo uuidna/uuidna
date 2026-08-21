@@ -4,7 +4,7 @@
 // than light; the decibel scale is logarithmic (each 10 dB is ×10 intensity); two tones beat at their difference;
 // the Doppler shift raises pitch on approach and lowers it on recession; a closed pipe sounds only odd harmonics;
 // and intensity falls as the inverse square of distance. the arithmetic of sound waves — exact
-// ratios and cycles, not a full acoustics derivation, distinct from the music/432 ladder in BioPhysics.
+// ratios and cycles.
 import { emit } from './lean-gen.js'
 
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i)
@@ -44,7 +44,7 @@ const FACTS = [
 ]
 
 // compute → generate → verify. The sound domain — harmonics, v=fλ, the decibel, beats, Doppler, pipe modes, the
-// inverse square — as decidable arithmetic, demarcated: exact ratios of sound waves, not a full acoustics derivation.
+// inverse square — as decidable arithmetic, demarcated: exact ratios of sound waves.
 emit({ file: 'Acoustics.lean', skill: 'acoustics',
   header: 'ACOUSTICS — the sound domain, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

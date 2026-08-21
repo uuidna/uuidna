@@ -1,9 +1,9 @@
 // crypto-primitives — THE STANDARDS' OWN VECTORS, one test per primitive, every vector kept as DATA. Folded from
-// kat.test.ts + pq.test.ts (33 declarations → 7) by table, never by deletion: a round-trip proves invertibility, only
+// kat.test.ts + pq.test.ts (33 declarations → 7) by table
 // a published vector proves CONFORMANCE, so each vector below is still asserted — it simply no longer needs its own
 // test declaration. Sources: FIPS 180-4, RFC 4231, RFC 8018, RFC 8439. These carry no PBKDF2 work factor (the KAT
 // counts are the standards' own c=1..4096), so this whole file is milliseconds — it parallelises against the two
-// heavy crypto files as its own process. Integrity, not truth.
+// heavy crypto files as its own process. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { sha256, hmacSha256, pbkdf2Sha256, chachaBlock, chacha20, poly1305, aeadEncrypt, aeadDecrypt,

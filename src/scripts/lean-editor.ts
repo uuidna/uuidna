@@ -6,8 +6,8 @@
 // dfold (base-8 Horner, the same shape a merkle root realizes without bound): reordering distinct nodes MOVES the fold,
 // a changed node MOVES it, and on the bounded model the fold is INJECTIVE (the address determines the node sequence).
 // injective only where it cannot overflow (bounded values, fixed length); the real content-address
-// (merkleRoot over uuids, in src/editor.ts) is collision-RESISTANT, not collision-FREE — by pigeonhole 2^128 addresses
-// < all documents. The arithmetic of the document fold, NOT a rich-text engine. COMPUTE → GENERATE → VERIFY.
+// (merkleRoot over uuids, in src/editor.ts) is collision-RESISTANT— by pigeonhole 2^128 addresses
+// < all documents. The arithmetic of the document fold. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
 
 // dfold — the positional (order-SENSITIVE) document fold, mirrored in JS to self-check every fact before a line is
@@ -30,7 +30,7 @@ const FACTS = [
     lean: 'theorem editor_empty_doc_folds_zero : dfold [] = 0 := by decide' },
 
   { key: 'editor_fold_order_sensitive',
-    name: "a document is a SEQUENCE, not a set — reordering two DISTINCT nodes MOVES the address (the opposite of the memory store's order-invariant fold): for all a,b, either a=b or dfold [a,b] ≠ dfold [b,a]",
+    name: "a document is a SEQUENCE— reordering two DISTINCT nodes MOVES the address (the opposite of the memory store's order-invariant fold): for all a,b, either a=b or dfold [a,b] ≠ dfold [b,a]",
     js: () => R(0, 8).every((a) => R(0, 8).every((b) => a === b || dfold([a, b]) !== dfold([b, a]))),
     lean: 'theorem editor_fold_order_sensitive : (List.range 8).all (fun a => (List.range 8).all (fun b => (a == b) || (dfold [a,b] != dfold [b,a]))) := by decide' },
 
@@ -40,7 +40,7 @@ const FACTS = [
     lean: 'theorem editor_fold_change_sensitive : (List.range 8).all (fun a => (List.range 8).all (fun a2 => (List.range 8).all (fun b => (List.range 8).all (fun c => (dfold [a,b,c] == dfold [a2,b,c]) == (a == a2))))) := by decide' },
 
   { key: 'editor_fold_injective_bounded',
-    name: "on the bounded model the fold is INJECTIVE — the address DETERMINES the node sequence: two three-node documents fold equal iff they are the same document, node for node (order and content). injective only where it cannot overflow; the real merkleRoot fold is collision-RESISTANT, not collision-free (pigeonhole: 2^128 < all documents)",
+    name: "on the bounded model the fold is INJECTIVE — the address DETERMINES the node sequence: two three-node documents fold equal iff they are the same document, node for node (order and content). injective only where it cannot overflow; the real merkleRoot fold is collision-RESISTANT",
     js: () => R(0, 6).every((a) => R(0, 6).every((b) => R(0, 6).every((c) => R(0, 6).every((a2) => R(0, 6).every((b2) => R(0, 6).every((c2) => (dfold([a, b, c]) === dfold([a2, b2, c2])) === (a === a2 && b === b2 && c === c2))))))),
     lean: 'theorem editor_fold_injective_bounded : (List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun a2 => (List.range 6).all (fun b2 => (List.range 6).all (fun c2 => (dfold [a,b,c] == dfold [a2,b2,c2]) == ((a == a2) && (b == b2) && (c == c2))))))) ) := by decide' },
 ]

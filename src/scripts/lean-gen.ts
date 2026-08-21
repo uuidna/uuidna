@@ -2,7 +2,7 @@
 // computes its facts (each a decidable JS predicate paired with a Lean proposition or full theorem), and calls
 // emit(): it checks every fact holds in JS, writes lean/<File>.lean and lean/<file>-manifest.json (the microdata
 // bridge — {key,name} per theorem), and shells out to `lean` to verify the file compiles sorry-free. One helper,
-// no repetition. Integrity, not truth.
+// no repetition. Integrity.
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { join, dirname } from 'node:path'
@@ -16,7 +16,7 @@ export { ROOT }
 // THE DELTA GATE — the gate proves only what MOVED (verify_beats_recompute_by_magnitudes). lean/proof-cache.json
 // maps each generated file to the content-address of the last text the KERNEL ITSELF verified; byte-identical
 // content carries that prior signature, recomputable by anyone from the address, so the spawn is skipped. A
-// changed wing's address moves and always re-proves; a stale cache can only cause EXTRA proving, never a false
+// changed wing's address moves and always re-proves; a stale cache can only cause EXTRA proving
 // pass. UUIDNA_PROVE_ALL=1 forces every spawn (the full recalibration door, like heartbeats --all).
 const CACHE_PATH = join(ROOT, 'lean', 'proof-cache.json')
 export const readProofCache = (): Record<string, string> => {
@@ -33,7 +33,7 @@ export const m9 = (n: number): number => ((n % 9) + 9) % 9
 // the boilerplate cannot regrow (one-receipt dry objects to any re-declaration, with the exact fix).
 export const range = (n: number): number[] => Array.from({ length: n }, (_, i) => i)
 // One shared exec buffer for every `lean` shell-out across the pipeline (generators, the audit, the heartbeat probe)
-// — a Lean file's stdout/stderr never approaches this, but a single constant keeps the cap consistent, not guessed
+// — a Lean file's stdout/stderr never approaches this, but a single constant keeps the cap consistent
 // per call site.
 export const MAXBUF = 64 * 1024 * 1024
 
@@ -74,7 +74,7 @@ export interface Fact {
   why?: string
   js?: () => boolean
   defs?: string
-  skill?: string  // the CAPABILITY this fact demonstrates — authored inline (the single source), not derived from the key
+  skill?: string  // the CAPABILITY this fact demonstrates — authored inline (the single source)
 }
 
 // emit's arguments: the target Lean file, its header comment, the facts to prove, and shared Lean defs. `skill` is
@@ -89,7 +89,7 @@ export interface EmitArgs {
 
 /** docComment(prose) → a real Lean `/-- … -/` DOC COMMENT, attached to the declaration that follows it.
  *
- *  THE PROSE BELONGS TO THE PROOF, NOT BESIDE IT. Every generator already carried a sentence per fact — `name`, or
+ *  THE PROSE BELONGS TO THE PROOF. Every generator already carried a sentence per fact — `name`, or
  *  `why` — and that sentence went into lean/<file>-manifest.json and into src/theorems/generated.ts while the .lean
  *  file itself got, at most, an ordinary `--` comment and usually nothing at all. So the one artifact a reader can
  *  check independently, and the one artifact the kernel signs, was the one artifact with no prose in it: the docs

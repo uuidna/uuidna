@@ -5,11 +5,11 @@
 // a DIFFERENT nonce fails). verifyQuantumCube recomputes and compares. Deterministic — no clock, no RNG (uuidna does
 // not GENERATE the nonce; the verifier supplies it from their own entropy, and uuidna RESPONDS).
 //
-// HONEST SCOPE: integrity, not truth. This is a SYMMETRIC challenge-response — the verifier must share the secret to
+// HONEST SCOPE: integrity. This is a SYMMETRIC challenge-response — the verifier must share the secret to
 // check it (like the ChaCha passphrase); its strength is the SECRET'S entropy, measured not asserted. It is NOT
 // zero-knowledge, NOT public-key, and NOT biometric: it proves knowledge of the shared secret for a fresh nonce, and
 // nothing about a person's voice, face, or liveness — those are runtime layers OUTSIDE uuidna's recomputable model.
-// The cube itself is ART (the aura's colour arithmetic rendered as a rotating cube), never a cipher. Reusing a nonce
+// The cube itself is ART (the aura's colour arithmetic rendered as a rotating cube). Reusing a nonce
 // leaks nothing new but proves nothing fresh; use a new nonce each challenge.
 import { toUuid } from './address.js'
 import { quantumAura } from './aura.js'
@@ -29,10 +29,10 @@ export interface QuantumCube {
 const HONEST =
   'The quantum-cube challenge: a SYMMETRIC, deterministic challenge-response — the holder answers a verifier-supplied ' +
   'nonce by folding secret+nonce to a content-address and computing its aura (the spinning cube). The verifier ' +
-  'recomputes and compares (it must SHARE the secret — not zero-knowledge, not public-key). Strength is the secret\'s ' +
+  'recomputes and compares (it must SHARE the secret — not zero-knowledge. Strength is the secret\'s ' +
   'entropy, measured not asserted; it proves knowledge of the shared secret for a fresh nonce, NOTHING about voice, ' +
-  'face, or liveness (those are runtime layers outside this recomputable model). The cube is ART, not a cipher (the cipher is the sealed ChaCha20-Poly1305 layer, rotating per step). ' +
-  'Integrity, not truth.'
+  'face, or liveness (those are runtime layers outside this recomputable model). The cube is ART. ' +
+  'Integrity — the record recomputes for anyone.'
 
 // the spinning-cube CSS: a 3D cube whose six faces wear the aura, rotating on the derived axis at the derived speed.
 // Pure string assembly from integer params — no Math.*, no clock, no RNG.
@@ -51,7 +51,7 @@ const cubeCss = (hsl: string, ray: number, spin: number, axis: string): string =
 
 /** quantumCubeChallenge(secret, nonce) → the deterministic spinning-cube ANSWER to a challenge: fold secret+nonce to a
  *  content-address and render its aura as a rotating 3D cube. The verifier (who shares the secret) recomputes the same
- *  response for the same nonce. Symmetric, deterministic, offline — strength is the secret's entropy. Integrity, not truth. */
+ *  response for the same nonce. Symmetric, deterministic, offline — strength is the secret's entropy. Integrity. */
 export function quantumCubeChallenge(secret: string, nonce: string): QuantumCube {
   const response = toUuid(secret + '|' + nonce)
   const aura = quantumAura(response)

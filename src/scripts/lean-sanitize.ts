@@ -3,7 +3,7 @@
 // input->output guard (src/sanitize.ts) enforces bounds and drops dangerous shapes/code points BY ALL STANDARDS;
 // those exact bounds and counts are sealed here as `by decide` facts, so the rule is SENT BY THE THEOREMS THEMSELVES
 // and a drift between the code's constant and the sealed value is caught (smoke test binds them). Reused in all
-// dimensions (the 777 order-invariance gate covers these too). Integrity, not truth: each seals its exact number.
+// dimensions (the 777 order-invariance gate covers these too). Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [

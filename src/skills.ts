@@ -4,7 +4,7 @@
 // foundational, neuro and science-pairs among them. Those theorems were sealed, axiom-free, witnessed by their wings,
 // and served by nothing.
 //
-// THE FIX IS ONE COMPUTED SURFACE, NOT ONE TOOL PER SKILL. Fifty authored tools would be fifty places to forget: every
+// THE FIX IS ONE COMPUTED SURFACE. Fifty authored tools would be fifty places to forget: every
 // hand-kept list in this repository has rotted the same way, and the skill set is not even authored here — it is
 // carried by the wings, so it MOVES. So the axis is served as a DIMENSION. One tool takes a skill and returns its
 // theorems with their handles and its ESCO mapping; one enumerates every skill with its count so the surface is
@@ -20,7 +20,7 @@
 //
 // HONEST SCOPE: a skill groups theorems by the CAPABILITY they demonstrate — an axis orthogonal to `principle`. The
 // ESCO leg says what a skill IS CALLED in a European vocabulary; it is never a claim that anyone recognises,
-// accredits, or would employ what is sealed here. Integrity, not truth.
+// accredits, or would employ what is sealed here. Integrity.
 import { skillGroups, type Theorem } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
@@ -34,7 +34,7 @@ const HONEST =
   'it says what this capability is CALLED in the European Commission\'s own taxonomy, and NEVER that any authority ' +
   'recognises, accredits or would employ anything sealed here (theorem provenance_integrity_not_content_truth). ' +
   'No network is reached by this surface — the ESCO leg is a pure pointer plus the published whole-name rule, so the ' +
-  'same call folds to the same receipt for anyone, offline. Integrity, not truth.'
+  'same call folds to the same receipt for anyone, offline. Integrity.'
 
 /** The tool names that must serve the capability axis, on BOTH surfaces (the stdio catalogue and the hosted edge).
  *  Named here rather than in either server, so the finder holds one list against two registrations. */
@@ -51,13 +51,13 @@ export interface SkillEscoMapping {
   source: 'esco'
   taxonomy: string
   phrase: string
-  lookup: string        // the exact URL the live fetcher calls — derived by school-apis, never re-spelled here
+  lookup: string        // the exact URL the live fetcher calls — derived by school-apis
   address: string       // the content-address of that lookup, so two callers cite the same query
   rule: string          // the homograph rule, stated
-  fetchWith: string     // the one hop that actually reaches ESCO (a NAMED network boundary, not taken here)
+  fetchWith: string     // the one hop that actually reaches ESCO (a NAMED network boundary
   pairWith: string      // the walk from this skill to the occupations ESCO relates it to
   onTopic: readonly string[]     // of the titles handed in, those carrying the skill's WHOLE name
-  homographs: readonly string[]  // and those that merely share its letters — returned by name, never dropped
+  homographs: readonly string[]  // and those that merely share its letters — returned by name
   honest: string
 }
 
@@ -78,7 +78,7 @@ export function skillEsco(skill: string, titles: readonly string[] = []): SkillE
     rule:
       'A lexical hit is on-topic only if the skill\'s FULL name appears as a whole token sequence in the concept ' +
       'title. A search GUARANTEES the query\'s letters come back, so a fragment hit carries no information — this is ' +
-      'school-apis\' own published rule (escoWholeName), applied here, not re-implemented.',
+      'school-apis\' own published rule (escoWholeName), applied here.',
     fetchWith: `uuidna_school_apis { "source": "esco", "text": ${JSON.stringify(phrase)} }`,
     pairWith: `uuidna_education_jobs { "subject": ${JSON.stringify(skill)} }`,
     onTopic: judged.filter((t) => escoWholeName(phrase, t)),
@@ -169,7 +169,7 @@ export function skillIndex(): SkillRow[] {
 export interface SkillOrphan { skill: string; theorems: number; why: string }
 
 /** orphanedSkills(answer) → THE INTERSECTION, MEASURED BY CALLING. `answer(skill)` must be a real served dispatch
- *  (callTool over stdio, or the edge's tools/call), never a list read from source: a catalogue can advertise a tool
+ *  (callTool over stdio, or the edge's tools/call)
  *  whose handler answers for something else, and that is precisely the drift this measures. A skill counts as SERVED
  *  only when the surface returns THAT skill's own, complete, correctly-folded theorem set with its ESCO mapping —
  *  so a surface that answers with a truncated set, a different skill, or no mapping is an orphan with the reason.
@@ -180,7 +180,7 @@ export function orphanedSkills(answer: (skill: string) => unknown): SkillOrphan[
     const orphan = (why: string): void => { out.push({ skill: g.skill, theorems: g.count, why }) }
     let raw: unknown
     try { raw = answer(g.skill) } catch (e) { orphan('the surface refused it: ' + String((e as Error)?.message ?? e).slice(0, 160)); continue }
-    if (!raw || typeof raw !== 'object') { orphan('the surface returned ' + (raw === undefined ? 'nothing' : typeof raw) + ', not a skill surface'); continue }
+    if (!raw || typeof raw !== 'object') { orphan('the surface returned ' + (raw === undefined ? 'nothing' : typeof raw) + ''); continue }
     const s = raw as Partial<SkillSurface>
     if (s.skill !== g.skill) { orphan(`the surface answered for "${String(s.skill)}" instead`); continue }
     if (!Array.isArray(s.theorems)) { orphan('the surface carried no theorems array'); continue }
@@ -219,6 +219,6 @@ export function skillReach(surface: string, answer: (skill: string) => unknown):
     honest:
       'REACHABILITY, measured by CALLING the surface — not by reading its catalogue. It reports whether a sealed ' +
       'capability can be OPENED through the live API; it says nothing about whether the capability is useful, and an ' +
-      'orphan is never a claim that its theorems are false. Integrity, not truth.',
+      'orphan is never a claim that its theorems are false. Integrity.',
   }
 }

@@ -7,8 +7,8 @@
 // yxcvbnm') returned CORROBORATED on a single CrossRef row, while reporter.ts had always required two INDEPENDENT
 // SOURCES, requiring two INDEPENDENT sources. A function contradicting the rule it is named for.
 //
-// These assertions are PURE — the evidence is constructed, not fetched, so this proves the RULE rather than the
-// weather. The live behaviour it was found by is recorded above, not re-run here.
+// These assertions are PURE — the evidence is constructed
+// weather. The live behaviour it was found by is recorded above.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { corroborate, toUuid, theorems, type ResearchEvidence } from '../index.js'
@@ -18,7 +18,7 @@ import { corroborate, toUuid, theorems, type ResearchEvidence } from '../index.j
 // verdict that discriminates from one that always says yes. MEASURED on 2026-08-20, before the fix:
 // corroborateWithResearch('qwertzuiop asdfghjkl yxcvbnm') returned CORROBORATED on ONE CrossRef row, while
 // reporter.ts had always required two INDEPENDENT SOURCES and this is the test that holds it.
-test('corroboration needs TWO INDEPENDENT SOURCES — the sealed theorem, not one row', () => {
+test('corroboration needs TWO INDEPENDENT SOURCES — the sealed theorem', () => {
   const ev = (source: string, n: number): ResearchEvidence[] =>
     Array.from({ length: n }, (_, i) => ({ source, address: toUuid(`${source}:${i}`), note: '' }))
 
@@ -27,7 +27,7 @@ test('corroboration needs TWO INDEPENDENT SOURCES — the sealed theorem, not on
   assert.equal(corroborate('x', ev('crossref.org', 8)).verdict, 'UNVERIFIED', 'ROWS are not sources — volume is not independence')
   assert.equal(corroborate('x', [...ev('crossref.org', 1), ...ev('zenodo.org', 1)]).verdict, 'CORROBORATED',
     'two independent sources clear the bar')
-  assert.equal(corroborate('x', []).verdict, 'UNVERIFIED', 'silence is not-yet, never false')
+  assert.equal(corroborate('x', []).verdict, 'UNVERIFIED', 'silence is not-yet')
 
   // The rule no longer cites a theorem, so there is no citation to check. `corroboration_needs_two` stated
   // `1 < 2` — two bare literals, which the kernel confirms without ever reaching independence, sources or

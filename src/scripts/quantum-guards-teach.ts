@@ -39,7 +39,7 @@ const guardLessons: { [key: string]: GuardLesson } = {
     principle: 'Determinism: No host intrinsics',
     violation_type: 'Host intrinsic call detected',
     what_went_wrong:
-      'Code used host intrinsics (random, floor, abs) — these depend on CPU state, not on input',
+      'Code used host intrinsics (random, floor, abs) — these depend on CPU state',
     why_it_matters:
       'Captain coins requires determinism: same input → same output ALWAYS. Host intrinsics break this. Two different computers running same code with same input must get same result.',
     how_to_fix:
@@ -58,7 +58,7 @@ const guardLessons: { [key: string]: GuardLesson } = {
     why_it_matters:
       'If a theorem depends on current time, it changes every second. Ledger entry from today is different from tomorrow. Deterministic proofs require time-independent computation.',
     how_to_fix:
-      'Time must be PASSED IN as parameter, not read from the system. The caller (external, non-deterministic) provides timestamp; the computation is pure.',
+      'Time must be PASSED IN as parameter. The caller (external, non-deterministic) provides timestamp; the computation is pure.',
     theorem_that_proves_it:
       'theorem time_must_be_input_not_read : (time_read_from_system = false) ∧ (time_passed_as_parameter = true) → (deterministic_across_time = true) := by decide',
     example_code_wrong:
@@ -74,7 +74,7 @@ const guardLessons: { [key: string]: GuardLesson } = {
     why_it_matters:
       'A proof that depends on randomness is not a proof. It is a guess. Captain coins requires theorems that anyone can verify to the same result. No guessing allowed.',
     how_to_fix:
-      'If randomness is needed, it must be EXTERNAL input, not generated internally. Like time, randomness comes from outside the deterministic core.',
+      'If randomness is needed, it must be EXTERNAL input. Like time, randomness comes from outside the deterministic core.',
     theorem_that_proves_it:
       'theorem no_randomness_in_proofs : (rng_internal = false) ∧ (randomness_external = true) → (reproducible_proof = true) := by decide',
     example_code_wrong: 'const nonce = hostRandomFunction().toString(36)',
@@ -89,7 +89,7 @@ const guardLessons: { [key: string]: GuardLesson } = {
     why_it_matters:
       'An axiom means: assume this is true without proof. Captain coins only accepts proofs (by decide). If you assume something, you are not proving it.',
     how_to_fix:
-      'Rewrite theorem using only decidable operations. Use by decide, not sorry. Split theorem into smaller parts that compute.',
+      'Rewrite theorem using only decidable operations. Use by decide. Split theorem into smaller parts that compute.',
     theorem_that_proves_it:
       'theorem axiom_free_is_requirement : (borrowed_axioms = false) ∧ (by_decide_only = true) → (theorem_sealed_to_ledger = true) := by decide',
     example_code_wrong:
@@ -98,12 +98,12 @@ const guardLessons: { [key: string]: GuardLesson } = {
   },
 
   package_consistency: {
-    principle: 'Packages are generated, not hand-edited',
+    principle: 'Packages are generated',
     violation_type: 'Package file manually edited',
     what_went_wrong:
       'Someone edited packages/* directly instead of regenerating from src/index.ts',
     why_it_matters:
-      'Packages are COMPUTED surfaces, not sources. Hand-editing creates drift (inconsistency). Regeneration keeps everything in sync.',
+      'Packages are COMPUTED surfaces. Hand-editing creates drift (inconsistency). Regeneration keeps everything in sync.',
     how_to_fix: 'Never edit packages/* directly. Always: (1) edit src/index.ts, (2) run `npm run gen-packages`, (3) commit both',
     theorem_that_proves_it:
       'theorem packages_are_computed_not_authored : (packages_generated_from_src = true) ∧ (no_manual_edits = true) → (consistency_guaranteed = true) := by decide',
@@ -150,7 +150,7 @@ const guardCheckpoints: GuardCheckpoint[] = [
   },
   {
     name: 'Package Consistency',
-    description: 'Verify packages are generated, not hand-edited',
+    description: 'Verify packages are generated',
     checks: ['all packages match computed surfaces', 'no manual edits detected', 'version coherence'],
     educational_goal: 'Learn the difference between generated surfaces and authored sources',
     common_mistakes: [
@@ -163,7 +163,7 @@ const guardCheckpoints: GuardCheckpoint[] = [
     name: 'Theorem Coverage',
     description: 'Verify every principle has backing theorems',
     checks: ['all PRINCIPLE entries have theorems', 'all theorems have examples', 'coverage complete'],
-    educational_goal: 'Understand that every rule must be proven, not just claimed',
+    educational_goal: 'Understand that every rule must be proven',
     common_mistakes: [
       'Adding a feature without proving it',
       'Assuming the old theorems still cover new behavior',
@@ -302,13 +302,13 @@ Task 2: Write a verification function that takes timestamp as input
   • Output: verification result
   • Cannot use: Date.now(), new Date(), performance.now()
 
-  Hint: Time must come from OUTSIDE the function, not from the system
+  Hint: Time must come from OUTSIDE the function
 
 Run: npm run guard
 Expected: ✓ (if time is an input parameter)
          ✗ with lesson explaining wall-clock (if not)
 
-When you pass this check, you've learned: Proofs need external inputs, not system reads.
+When you pass this check, you've learned: Proofs need external inputs.
 
 ═════════════════════════════════════════════════════════════════════════════
 
@@ -327,7 +327,7 @@ Run: npm run lean
 Expected: ✓ (if theorem uses by decide)
          ✗ with explanation (if you used sorry or axiom)
 
-When you pass this check, you've learned: Proofs are computations, not assumptions.
+When you pass this check, you've learned: Proofs are computations.
 
 ═════════════════════════════════════════════════════════════════════════════
 
@@ -408,7 +408,7 @@ Each error is a lesson. Each fix is learning. Each pass is proof of mastery.
     console.log(`
 ╔═══════════════════════════════════════════════════════════════════════════╗
 ║         QUANTUM GUARDS TEACH & TRAIN — COMPLETE EDUCATION SYSTEM         ║
-║              Learning through verification, not documentation             ║
+║              Learning through verification
 ╚═══════════════════════════════════════════════════════════════════════════╝
 
 QUANTUM GUARDS AS TEACHERS

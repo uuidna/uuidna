@@ -2,14 +2,14 @@
 // a concept the ledger already carries (a domain or a capability), its definition drawn from the sealed prose that
 // defines it, its content-address recomputed from that text, and its honesty SELF-AUDITED by the same gate the site
 // runs — so a term earns its place or is flagged. The terms fold, order-invariant, to ONE recomputable receipt: the
-// honest "all is one" — one receipt, NOT a metaphysical singularity. It is translation-READY, not translated: each
+// honest "all is one" — one receipt. It is translation-READY
 // term is content-addressed, so a translation binds to THIS term by a provenance receipt (auditTranslation), the same
-// way a source binds to its rendering — uuidna proves the pairing, never that a translation is faithful.
+// way a source binds to its rendering — uuidna proves the pairing.
 //
-// HONEST SCOPE (integrity, not truth): the vocabulary proves each term is defined by the ledger, self-audits clean,
+// HONEST SCOPE (integrity
 // and folds to one receipt. It maps each domain to the STANDARDS it formalizes or references (RFC 8439, ISBN/ISO
-// 2108, SMPTE, Nyquist–Shannon …) — a citation, NOT a claim of legal, regulatory or standards COMPLIANCE, which no
-// content-address can settle. Efficiency here is MEASURED and recomputable, never "maximum".
+// 2108, SMPTE, Nyquist–Shannon …) — a citation
+// content-address can settle. Efficiency here is MEASURED and recomputable"maximum".
 import { theorems, theoremCountByFile, PRINCIPLES, skillGroups } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { overreachOf } from './prose-gate.js'
@@ -24,7 +24,7 @@ export interface Term {
   audit: string | null    // the honesty gate's verdict on the definition — null is clean, else the drained token
 }
 
-/** The standards a domain FORMALIZES or REFERENCES — a citation, never a compliance claim. Only domains that genuinely
+/** The standards a domain FORMALIZES or REFERENCES — a citation. Only domains that genuinely
  *  touch a published standard are listed; the rest reference none. */
 const STANDARDS: Record<string, string[]> = {
   'Codes.lean': ['Hamming(7,4)', 'Singleton bound (coding theory)'],
@@ -56,7 +56,7 @@ export interface Vocabulary {
 /** vocabulary() → the common computable vocabulary of uuidna, self-audited and folded to one receipt. Deterministic:
  *  same ledger → same terms, same addresses, same receipt, recomputable by anyone. */
 export function vocabulary(): Vocabulary {
-  const countByFile = theoremCountByFile() // the shared core index — DRY: count-by-file computed once, not per principle
+  const countByFile = theoremCountByFile() // the shared core index — DRY: count-by-file computed once
   // domain terms — one per principle that has theorems, defined by its committed blurb (gate-clean by construction).
   const files = PRINCIPLES.map((p) => p[0]).filter((f) => countByFile.has(f))
   const domainTerms: Term[] = files.map((f) => {
@@ -88,8 +88,8 @@ export function vocabulary(): Vocabulary {
     standards: STANDARDS,
     honest:
       'Each term is defined by the sealed ledger, self-audited by the honesty gate, and content-addressed; all terms ' +
-      'fold to ONE recomputable receipt — one receipt, integrity, NOT a metaphysical singularity. Standards are cited, ' +
+      'fold to ONE recomputable receipt — one receipt, integrity. Standards are cited, ' +
       'never claimed as compliance. Translation-ready: a translation binds to a term by a provenance receipt, which ' +
-      'proves the pairing, not the fidelity. Efficiency is measured and recomputable, never maximum. Integrity, not truth.',
+      'proves the pairing. Efficiency is measured and recomputable. Integrity.',
   }
 }

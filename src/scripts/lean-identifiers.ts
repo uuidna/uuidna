@@ -4,7 +4,7 @@
 // as a uuid is a 128-bit fold). ISBN-10 uses a weighted sum mod 11 (prime) — every weight is nonzero mod 11, so any
 // single-digit error shifts the checksum, and consecutive weights differ by 1, so any adjacent transposition shifts
 // it too. ISBN-13 uses alternating 1/3 weights mod 10 with the 978/979 Bookland prefix. the checksum
-// arithmetic and what it catches — NOT a validator library. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// arithmetic and what it catches — NOT a validator library. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const ISBN10 = [0, 3, 0, 6, 4, 0, 6, 1, 5, 2] // 0-306-40615-2, a valid ISBN-10

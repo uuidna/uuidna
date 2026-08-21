@@ -1,12 +1,12 @@
 // quantum/os/packages — EACH ALPINE PACKAGE BECOMES uuidna/[package]. At the os/ provenance boundary (never execution),
-// this reads Alpine's PUBLISHED apk index (APKINDEX.tar.gz over the network — the response is DATA, never run), gunzips
-// it with the platform DecompressionStream (a web primitive like fetch, NOT node:zlib — uuidnaOS stays pure TS),
+// this reads Alpine's PUBLISHED apk index (APKINDEX.tar.gz over the network — the response is DATA
+// it with the platform DecompressionStream (a web primitive like fetch— uuidnaOS stays pure TS),
 // untars it in pure TS, and mints each package as a content-addressed provenance identity `uuidna/<name>`: the exact
 // (name, version, arch, repo, branch, published-checksum) folded to a 128-bit address that recomputes for anyone
 // holding the same index. Automate updates/upgrades: re-read the index and the identities move with the published
 // versions. It NEVER installs, links, or runs a package — it FINGERPRINTS the published metadata so a deployment can
 // PROVE which exact packages it rests on. Non-determinism (a live "latest" read) is honest HERE, the named boundary.
-// HONEST SCOPE: integrity, not execution. uuidna/<package> is a provenance identity, not a fork, a mirror, or a
+// HONEST SCOPE: integrity. uuidna/<package> is a provenance identity
 // runnable package; it names the upstream bytes, it does not host or modify them. Best-effort: a down mirror yields an
 // empty catalog, never a faked checksum.
 import { toUuid } from '../../address.js'
@@ -22,7 +22,7 @@ export interface UuidnaPackage {
   arch: string
   repo: string        // 'main' | 'community'
   branch: string      // e.g. 'latest-stable'
-  checksum: string    // Alpine's PUBLISHED C: field (base64 SHA-1) — the external anchor, never faked
+  checksum: string    // Alpine's PUBLISHED C: field (base64 SHA-1) — the external anchor
   address: string     // 128-bit content-address of the pinned tuple — proof you hold exactly this package release
 }
 
@@ -49,7 +49,7 @@ const untarMember = (tar: Uint8Array, member: string): string => {
 }
 
 /** fetchAlpineIndex(arch, repo, branch) → read the PUBLISHED apk index and parse each package's (name, version,
- *  checksum). Network + platform gunzip + pure-TS untar; the document is DATA, never executed. Best-effort: a down
+ *  checksum). Network + platform gunzip + pure-TS untar; the document is DATA. Best-effort: a down
  *  mirror or a shape drift yields []. */
 export async function fetchAlpineIndex(arch = 'x86_64', repo = 'main', branch = 'latest-stable'): Promise<{ name: string; version: string; checksum: string }[]> {
   try {
@@ -71,7 +71,7 @@ export async function fetchAlpineIndex(arch = 'x86_64', repo = 'main', branch = 
 export interface PackageCatalog {
   arch: string; repo: string; branch: string
   count: number
-  sample: UuidnaPackage[]     // the first few minted identities (the full set is proven by the receipt, not dumped)
+  sample: UuidnaPackage[]     // the first few minted identities (the full set is proven by the receipt
   receipt: string            // order-invariant fold of every package's address — the whole catalog, one address
   honest: string
 }
@@ -80,7 +80,7 @@ const HONEST =
   'Each Alpine package minted as uuidna/<name>: a content-addressed provenance identity of the exact published release ' +
   '(name, version, arch, repo, branch, PUBLISHED checksum), recomputable by anyone holding the same index. uuidna does ' +
   'NOT install, link, run, fork, or mirror the package — it FINGERPRINTS the upstream metadata so a deployment can prove ' +
-  'which exact packages it rests on. Best-effort; a down mirror yields an empty catalog, never a faked checksum. ' +
+  'which exact packages it rests on. Best-effort; a down mirror yields an empty catalog. ' +
   'Integrity, not execution.'
 
 /** infuseAlpinePackages(arch, repo, branch) → mint EVERY package in the index as uuidna/<name>, folded to one catalog

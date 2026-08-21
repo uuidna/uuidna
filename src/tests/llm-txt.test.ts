@@ -15,7 +15,7 @@ const txt = (): string => readFileSync(new URL('../../llm.txt', import.meta.url)
 //
 // Checked against BOTH sets at once rather than partitioned by prefix. The first version split them on `uuidna_`
 // and a theorem key beginning with that prefix — uuidna_is_dna_times_the_two_coins — fell through both checks,
-// excluded from one and wrongly demanded of the other. A prefix is a naming convention, not a type.
+// excluded from one and wrongly demanded of the other. A prefix is a naming convention.
 test('every identifier cited in llm.txt is a sealed theorem or a real tool', () => {
   const known = new Set([...theorems().map((t) => t.key), ...MCP_CATALOG.map((t) => t.name)])
   const cited = [...new Set([...txt().matchAll(/`([a-z][a-z0-9_]{4,})`/g)].map((m) => m[1]))]

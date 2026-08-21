@@ -81,7 +81,7 @@ export const designSystem = {
 
   // TYPOGRAPHY IS NOT AUTHORED HERE — it is the matrix. The ladder computes from the vortex orbit in src/css.ts
   // (six rungs, because 2 has order 6 in ℤ/9*; each rung a ninth above the base; line height in the sealed 3:4
-  // rectangle) and is served to every surface by uuidna_css. Read the CSS variables, never a pixel literal.
+  // rectangle) and is served to every surface by uuidna_css. Read the CSS variables.
   typography: {
     scale: typeScale(),            // [{digit, size, lineHeight}] — the six rungs, computed
     vars: typeScaleVars(),         // --type-<digit> / --type-lh-<digit>, the served names

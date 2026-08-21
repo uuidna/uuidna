@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // state — ONE CALL INSTEAD OF SEVEN. Measured on the 2026-08-17 session: 78.2M weighted tokens across 1433 API
-// calls, of which 93% was context re-read — so the unit of cost is the TURN, not the tool. The turns went to
+// calls, of which 93% was context re-read — so the unit of cost is the TURN. The turns went to
 // questions the tree could answer in one breath and did not: is my work on origin, what is the gate objecting to,
 // what is the ledger at, what do I run next. Seven git commands to learn "already pushed"; a grep loop to learn
 // "the heartbeats are stale". Each answer was cheap and each ASKING cost a full re-read of the conversation.

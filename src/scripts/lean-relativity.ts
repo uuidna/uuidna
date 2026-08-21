@@ -5,7 +5,7 @@
 // events as timelike (causal) or spacelike (no causal link without FTL); the Lorentz factor rides a Pythagorean
 // triangle (β = 5/13 → γ = 13/12); moving clocks dilate and moving lengths contract; and rest energy is E = mc².
 // the arithmetic of special relativity in integer-friendly cases — intervals, the γ triangle and
-// exact ratios — not a full tensor or general-relativity derivation. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// exact ratios — not a full tensor or general-relativity derivation. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [

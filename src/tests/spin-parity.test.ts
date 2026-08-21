@@ -42,5 +42,5 @@ test('a sealed manifest still detects a tampered file, and passes an intact one'
   assert.ok(Object.keys(m.coins).length === 2, 'both must be in DERIVED_FILES to be sealed at all')
   assert.equal(verifySpin(m, { 'README.md': 'a', 'llm.txt': 'b' }).ok, true)
   assert.equal(verifySpin(m, { 'README.md': 'CHANGED', 'llm.txt': 'b' }).ok, false)
-  assert.equal(verifySpin(m, { 'llm.txt': 'b' }).ok, false, 'an absent file is drift, not a pass')
+  assert.equal(verifySpin(m, { 'llm.txt': 'b' }).ok, false, 'an absent file is drift')
 })

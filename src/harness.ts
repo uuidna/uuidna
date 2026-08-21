@@ -1,12 +1,12 @@
-// harness — treat any output as a receipted STRUCTURE, not opaque bytes: it becomes content-addressed
+// harness — treat any output as a receipted STRUCTURE
 // (auditable) and, if it drains the honesty floor, it is REEDUCATED — each overclaim bounded until it holds.
-// The gain is auditability, never intelligence, never a quantum-hardware advantage. Pure; runs anywhere.
+// The gain is auditability. Pure; runs anywhere.
 import { toUuid, merkleFold } from './address.js'
 import { computes } from './gate.js'
 
 export type Harnessed = { output: string; address: string; reproducible: boolean; gatePass: boolean; auditable: boolean }
 
-/** The seven dimensions (the locale rays) — the structural "quantum" sense, NOT a physical qubit. */
+/** The seven dimensions (the locale rays) — the structural "quantum" sense. */
 export const DIMENSIONS = ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'] as const
 
 /** Content-address an output, confirm the address reproduces, gate-check it. `auditable` = it reproduces. */

@@ -12,7 +12,7 @@ import { contextGaps, wireBytes, type WireTool } from '../scripts/context-budget
 import { MCP_CATALOG } from '../mcp.js'
 
 const BOILERPLATE = 'The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.'
-const CITATION = 'Integrity, not truth (theorem provenance_integrity_not_content_truth).'
+const CITATION = 'Integrity.'
 
 const tool = (name: string, description: string): WireTool => ({ name, description, inputSchema: { type: 'object', properties: {} } })
 

@@ -1,9 +1,9 @@
 // verify-statement — the FAST verification path of the framework: is this exact statement a SEALED theorem? uuidna
-// is a verification framework, so it should verify a THEOREM directly, not only a prose claim that cites one. A
+// is a verification framework, so it should verify a THEOREM directly. A
 // statement byte-identical to a sealed theorem's statement VERIFIES in O(1) — a single content-address lookup against
 // the ledger index — returning the sealing theorem, its tactic and address. No citation needed, no fuzzy matching:
 // exact seal or nothing (never "false", only UNVERIFIED). This is complementary to the honesty gate (slimGate judges
-// PROSE claims by citation); this judges whether a STATEMENT is itself sealed. Integrity, not truth.
+// PROSE claims by citation); this judges whether a STATEMENT is itself sealed. Integrity.
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 

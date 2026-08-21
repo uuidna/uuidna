@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // lean-payload-seeds — CONVERT the Lean sources into computable PayloadCMS nested page seeds, versioned by content:
 // each lean/*.lean becomes src/seeds/<uuid>/page.json, where the uuid is the reversible imprint of
-// (status ∥ stem ∥ content). A changed Lean file mints a NEW folder (append-only versions, never overwritten);
+// (status ∥ stem ∥ content). A changed Lean file mints a NEW folder (append-only versions;
 // an unchanged file finds its folder already sealed and skips. The closing demo REVERSE-ENGINEERS the whole tree
 // from the folder NAMES alone — zero file reads — proving the no-cost filtering/indexing claim on the spot.
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'

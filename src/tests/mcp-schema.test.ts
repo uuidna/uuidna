@@ -1,5 +1,5 @@
 // mcp-schema — THE SERVED SURFACE HONOURS ITS OWN CONTRACT. A tool that declares an argument required must REFUSE
-// when it is missing, not compute over the literal string "undefined" and answer confidently. Folded as a finder over
+// when it is missing"undefined" and answer confidently. Folded as a finder over
 // the WHOLE catalog rather than 106 hand-written cases: add a tool tomorrow and this audit already covers it.
 //
 // MEASURED, the day it was folded (2026-08-17): 72 of the 106 tools declaring required arguments ran anyway on `{}`.
@@ -25,7 +25,7 @@ test('the served surface enforces its own schema — a declared-required argumen
     if (!required.length) continue
     try {
       const r = callTool(t.name, {})
-      // a Promise means the body already ran (the async tools) — that is the failure too, not an exemption
+      // a Promise means the body already ran (the async tools) — that is the failure too
       if (r && typeof (r as { then?: unknown }).then === 'function') (r as Promise<unknown>).catch(() => {})
       unenforced.push(t.name)
     } catch (e) {

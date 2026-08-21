@@ -5,7 +5,7 @@
 // (97 leap days); a body's mean motion advances its longitude linearly in time; eclipses recur on the Saros; the
 // Sun creeps just under a degree along the ecliptic per day; and a Julian Date is a continuous integer day count.
 // the arithmetic of calendars and mean motion — the time coordinate — not a perturbed ephemeris.
-// Distinct from the positional facts in Astronomy. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// Distinct from the positional facts in Astronomy. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [

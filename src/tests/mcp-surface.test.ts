@@ -73,7 +73,7 @@ test('the hosted edge REFUSES a missing required argument instead of computing o
   assert.equal(r.result.isError, true)
   assert.match(r.result.content[0].text, /missing required argument: text/)
   assert.doesNotMatch(r.result.content[0].text, /"address"/, 'nothing may be computed when a required argument is absent')
-  // EVERY required-argument tool at the edge, not just the new one
+  // EVERY required-argument tool at the edge
   for (const t of edgeTools()) {
     if (!(t.inputSchema.required ?? []).length) continue
     const out = call(t.name, {})
@@ -86,7 +86,7 @@ test('the hosted edge REFUSES a missing required argument instead of computing o
   assert.deepEqual(JSON.parse(zero.result.content[0].text), { coins: 2 })
 })
 
-test('the same call to both surfaces returns the same research answer, not just the same shape', () => {
+test('the same call to both surfaces returns the same research answer', () => {
   const text = 'the Betz ceiling is sixteen twenty-sevenths of the kinetic energy in the wind'
   const stdio = callTool('uuidna_research', { text }) as { address: string; entangledReceipt: string; novel: boolean }
   const rpc = handleMcpRpc({ jsonrpc: '2.0', id: 4, method: 'tools/call', params: { name: 'uuidna_research', arguments: { text } } }) as { result: { content: { text: string }[] } }

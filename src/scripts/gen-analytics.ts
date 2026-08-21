@@ -135,9 +135,9 @@ New theorems require proof-time; updates verify at speed-of-light (Merkle fold, 
 **Competitive advantage:** Iteration speed while maintaining ironclad certainty. Competitors either slow down (re-prove every change) or trade certainty for speed.
 
 ### 5. **Coins Are Conserved (Fair Exchange)**
-The two coins (110 − 108 = 2 = −χ of genus-2 torus) are topologically conserved. No refunds, no chargebacks, no negotiation — mathematics settles disputes, not lawyers.
+The two coins (110 − 108 = 2 = −χ of genus-2 torus) are topologically conserved. No refunds, no chargebacks, no negotiation — mathematics settles disputes.
 
-**Competitive advantage:** Billing is auditable, fair, and final. Customers know the exact cost; the captain knows the exact revenue. Disputes are resolved by recomputing, not arbitration.
+**Competitive advantage:** Billing is auditable, fair, and final. Customers know the exact cost; the captain knows the exact revenue. Disputes are resolved by recomputing.
 
 ### 6. **Deterministic Concurrency**
 Classical concurrency (Promise.all, fan-out) cannot corrupt the result. The Merkle fold is order-invariant (store_fold_order_invariant theorem): race conditions speed it up, they never break it.
@@ -147,7 +147,7 @@ Classical concurrency (Promise.all, fan-out) cannot corrupt the result. The Merk
 ### 7. **Honest Scope Is The Scope**
 Every term has a disclaimer: "This does NOT prove X." The gate does not verify relevance, fitness, or truth — only theorem backing. Customers know exactly what they're buying.
 
-**Competitive advantage:** Dramatically reduced legal liability. No claim is overstated; every boundary is explicit. A theorem covers what it covers; a content-address proves integrity, never authenticity.
+**Competitive advantage:** Dramatically reduced legal liability. No claim is overstated; every boundary is explicit. A theorem covers what it covers; a content-address proves integrity.
 
 ---
 
@@ -193,6 +193,6 @@ console.log(`✓ Analytics generated: docs/analytics.md`)
 console.log(`\nKey metrics:`)
 console.log(`  • ${analytics.theorems_total} theorems, ${(analytics.confidence).toFixed(0)}% by decide (axiom-free)`)
 console.log(`  • ${analytics.security_checks} security checks, ${analytics.gate_clean}% gate-clean prose`)
-console.log(`  • ${analytics.steps_per_address} decide-steps per address — measured, not timed`)
+console.log(`  • ${analytics.steps_per_address} decide-steps per address — measured`)
 console.log(`  • ${analytics.zero_dependencies ? 'Zero' : '?'} runtime dependencies`)
 console.log(`  • Coins conserved: ${analytics.coins_conserved ? '✓' : '✗'}`)

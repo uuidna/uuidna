@@ -1,6 +1,6 @@
 // quantum/drivers — the uuidnaOS driver-bundle provenance manifest, tested. It PINS an exact Alpine netboot bundle
 // (kernel + modloop = the drivers) and VERIFIES the bytes with uuidna's OWN pure-TS SHA-256. It NEVER loads, inserts,
-// or runs a module — these tests exercise integrity only (there is nothing to execute). Integrity, not truth.
+// or runs a module — these tests exercise integrity only (there is nothing to execute). Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { driverBundle, verifyDriverBundle } from '../drivers/driver/index.js'

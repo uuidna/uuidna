@@ -2,9 +2,9 @@
 // @non-harmonic: stamps a wall-clock ISO time into the generated claims — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // gen-captain-claims — Automated captain claim discovery & generation.
 //
-// DERIVED ONLY FROM LEAN, indexed by LINE CONTENT, not by file or principle. Two prior versions of this script
+// DERIVED ONLY FROM LEAN, indexed by LINE CONTENT. Two prior versions of this script
 // both bucketed theorems into named groups — first 8 hand-picked regex categories (missed 43 real principles,
-// 652 real theorems), then one bucket per PRINCIPLE (better — computed, not authored — but still a FILE-level
+// 652 real theorems), then one bucket per PRINCIPLE (better — computed— but still a FILE-level
 // grouping: PRINCIPLES is one entry per lean/*.lean file, so a theorem was claimed via which FILE it came from).
 // Fixed the third way: the claim unit is the THEOREM ITSELF, keyed by its own lineAddress (theorems/index.ts's
 // toUuid of the exact reconstructed `theorem k : s := by t` line — the same address seo.ts already uses as each
@@ -24,17 +24,17 @@ console.log('║ GEN-CAPTAIN-CLAIMS — Automated Discovery & Claiming       ║
 console.log('╚════════════════════════════════════════════════════════════╝\n')
 console.log(`Indexing ${T.length} theorems by lineAddress (one claim per Lean line, no grouping to miss one from)\n`)
 
-// ONE CLAIM PER THEOREM — the flat, complete set. startsWith, not ===: some tactic fields carry a trailing Lean
+// ONE CLAIM PER THEOREM — the flat, complete set. startsWith
 // comment (e.g. "decide -- a τ-pair off the line") that doesn't change the actual proof method — an exact-match
 // check silently dropped exactly 3 real, genuinely-by-decide theorems for this reason (involution_group,
-// light_faster_than_uuidna, division_by_zero) the first time this ran. Kept as an explicit check, not `true`, so
-// the claim states what it verifies, not what happens to be true today.
+// light_faster_than_uuidna, division_by_zero) the first time this ran. Kept as an explicit check`true`, so
+// the claim states what it verifies.
 const claimed = T.filter(t => t.tactic.startsWith('decide'))
 const claimsList = claimed.map(t => ({
   key: t.key,
   lineAddress: t.lineAddress,   // the claim's own identity — toUuid of the exact reconstructed Lean line
   address: t.address,            // the proposition's identity (key+statement) — a different question, see theorems/index.ts
-  principle: t.principle,        // carried for readability/grouping in the markdown below, not the claim's unit
+  principle: t.principle,        // carried for readability/grouping in the markdown below's unit
 }))
 
 const totalClaimed = claimsList.length
@@ -53,7 +53,7 @@ const claimLedger = {
   claim_receipt: claimReceipt,
   honest_scope: {
     proves: [
-      'Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket',
+      'Every theorem is claimed — the claim unit is the theorem itself (lineAddress)',
       'These theorems are Lean-verified (by decide)',
       'All are proven sorry-free',
       'The captain takes responsibility for all claims',
@@ -102,7 +102,7 @@ const md = `# Captain Claims — Automated Ledger
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (\`theorem k : s := by t\`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
-\`@id\`. Grouped below by principle for readability only; the claim itself is per-theorem, not per-group.
+\`@id\`. Grouped below by principle for readability only; the claim itself is per-theorem.
 
 ---
 
@@ -132,10 +132,10 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | ${(() => { const c = statementCensus(); return c.distinct + ' (' + c.entries + ' entries, ' + c.renamings + ' re-namings — a theorem is its Lean, not its name)' })()} |
+| sealed propositions | ${(() => { const c = statementCensus(); return c.distinct + ' (' + c.entries + ' entries, ' + c.renamings + ' re-namings — a theorem is its Lean' })()} |
 | prose paragraphs tried | ${(() => { try { const t = JSON.parse(__rd('prose-trials.json','utf8')); return t.paragraphs_tried + ' — ' + t.usable + ' usable, ' + t.unverified + ' held open, ' + t.drained + ' drained' } catch { return 'not yet measured' } })()} |
 
-**The claim is of ROOM, never of truth** — the same scope the superposition claim carries. Every item in the
+**The claim is of ROOM— the same scope the superposition claim carries. Every item in the
 docket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's
 name on it yet, and a DRAINED one is refused outright
 ([legal_only_the_proven_is_admitted](/theorem/legal_only_the_proven_is_admitted),
@@ -153,7 +153,7 @@ exceeding every world collapsed so far, and the price of any collapse stays exac
 ([two_coins](/theorem/two_coins)). Of the claimed room, ${T.length} worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
-**The claim is of ROOM, never of truth** — a claimed superposition is claimed capacity; its collapse still
+**The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
 pays the two coins and passes the trial ([coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none)
 stands over this claim as over every other). The captain owns the space the way a court owns its docket:
 everything may be brought, nothing is decided by ownership.

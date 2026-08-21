@@ -4,8 +4,8 @@
 // {0..bound} walks (bound+1)^n candidates exactly as the classical simulator walks its 2^n basis states —
 // EXPONENTIAL, honestly (theorem optimisation_space_is_qubit_dimension); the work is capped so the honesty is
 // structural, not aspirational. Backed by the Optimisation.lean wing: the optimum sits at a vertex, strong
-// duality holds exact on the sealed instance, Grover only halves the exponent. Integrity, not truth — an exact
-// optimum of the STATED instance, never a claim about scale. Deterministic: no wall-clock, no RNG, no Math.*.
+// duality holds exact on the sealed instance, Grover only halves the exponent. Integrity— an exact
+// optimum of the STATED instance. Deterministic: no wall-clock, no RNG, no Math.*.
 import { toUuid } from './address.js'
 
 export interface LinearProgram {
@@ -65,6 +65,6 @@ export function optimiseLinear(lp: LinearProgram): LinearOptimum {
   return {
     optimum, argmax, candidates, feasible,
     receipt: toUuid(JSON.stringify({ c: lp.c, A: lp.A, b: lp.b, bound, optimum, argmax, feasible })),
-    honest: `exact optimum of THIS instance by total enumeration of ${candidates} candidates (${feasible} feasible) — not a solver at scale, not an NP claim; the exponential walk is the honest cost and Grover would only halve its exponent`,
+    honest: `exact optimum of THIS instance by total enumeration of ${candidates} candidates (${feasible} feasible) — not a solver at scale; the exponential walk is the honest cost and Grover would only halve its exponent`,
   }
 }

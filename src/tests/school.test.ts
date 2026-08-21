@@ -2,7 +2,7 @@
 //
 // The accreditation test is the one that matters. A school page implying credentials it does not hold would be the
 // one overclaim this ledger could not survive, because everything else it publishes rests on its claims being
-// checkable. So the position is asserted here, not left to a comment somebody may later soften.
+// checkable. So the position is asserted here.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { school, courses, levels, levelOf, bandOf } from '../school.js'
@@ -50,24 +50,24 @@ test('most sections are computed, and the authored ones are positions rather tha
   assert.ok(s.sections.filter((x) => x.computed).length >= 8)
 })
 
-test('the computed sections carry real values, not placeholders', () => {
+test('the computed sections carry real values', () => {
   const body = (id: string): string => school().sections.find((x) => x.id === id)!.body.join(' ')
   assert.match(body('tuition'), /CC-BY-NC-ND/, 'the licence is read from the manifest')
-  assert.match(body('technology'), /Node: >=/, 'the engine requirement is read, not remembered')
+  assert.match(body('technology'), /Node: >=/, 'the engine requirement is read')
   assert.match(body('contact'), /github\.com/, 'contact points are read from the manifest')
   assert.match(body('calendar'), /Releases to date: \d+/, 'releases ARE the calendar')
   for (const id of ['tuition', 'technology', 'contact', 'calendar'])
     assert.ok(!/undefined|: $|NaN/.test(body(id)), `${id} has an unresolved field`)
 })
 
-test('the catalogue MOVES with the ledger — it is a reading, not a promise', () => {
+test('the catalogue MOVES with the ledger — it is a reading', () => {
   const before = school().receipt
   assert.equal(before, school().receipt, 'deterministic')
   assert.ok(before.length > 0)
 })
 
 // ── GRADE LEVELS. Every test below was written to FAIL FIRST and then confirmed red against a real mutation of
-// src/school.ts, because a check that cannot fail is void, not passed. The mutation each one catches is named on
+// src/school.ts, because a check that cannot fail is void. The mutation each one catches is named on
 // the test, so a later reader can re-run the experiment instead of trusting this comment.
 
 // MUTATION CAUGHT: change `decade * 10 <= steps` to `<` (levelOf(100) drops to 10); or drop the `< 1` guard
@@ -80,7 +80,7 @@ test('a level is the DECADE of a measured cost, and its boundaries are exact', (
   assert.equal(levelOf(100), 100)
   assert.equal(levelOf(97467), 10000)
   assert.notEqual(levelOf(99), levelOf(100), 'the decade boundary must SEPARATE — a level that never changes is not a level')
-  // an absent measure is not a low one: UNVERIFIED means undecided here, never "beginner by default"
+  // an absent measure is not a low one: UNVERIFIED means undecided here"beginner by default"
   for (const nothing of [0, -1, 0.5, Number.NaN]) assert.equal(levelOf(nothing), 0, `${nothing} is not a measured cost`)
   assert.equal(bandOf(0), 'unmeasured')
   assert.equal(bandOf(10), '10–99 steps')
@@ -90,7 +90,7 @@ test('a level is the DECADE of a measured cost, and its boundaries are exact', (
 // MUTATION CAUGHT: rank the courses and slice them into percentile bands instead. Every assertion below still
 // passes under a percentile scheme EXCEPT this one, because a percentile level is a fact about the CATALOGUE and
 // re-deriving it over any subset moves it. This is the property that makes the decade derivation defensible.
-test('a level is a property of the course, not of the catalogue — it survives the catalogue changing', () => {
+test('a level is a property of the course— it survives the catalogue changing', () => {
   const cs = courses()
   for (const c of cs) assert.equal(c.level, levelOf(c.steps), `${c.code}: its level is read from its own measured cost, nothing else`)
   // re-grading any sub-catalogue reproduces the SAME level for every course in it
@@ -119,7 +119,7 @@ test('the reading order is total, starts at the cheapest course, and never sorts
 // starts counting as a one-step lesson and drags the median down.
 test('a course cost is a cost the kernel actually paid — an element of its own roll, in integers', () => {
   for (const c of courses()) {
-    assert.ok(Number.isInteger(c.steps) && Number.isInteger(c.entry), `${c.code}: costs are integers, never an average`)
+    assert.ok(Number.isInteger(c.steps) && Number.isInteger(c.entry), `${c.code}: costs are integers`)
     assert.equal(c.roll.length, c.lessons, `${c.code}: the roll IS the course`)
     for (let i = 1; i < c.roll.length; i++)
       assert.ok(c.roll[i].steps >= c.roll[i - 1].steps, `${c.code}: the roll is ordered cheapest first — that is where to start`)
@@ -143,9 +143,9 @@ test('nothing measured is nothing graded — an absent measure is never a low on
     assert.equal(c.entry, 0)
     assert.equal(c.band, 'unmeasured')
   }
-  assert.deepEqual(levels({}).map((l) => l.band), ['unmeasured'], 'one honest band, not a fabricated ladder')
+  assert.deepEqual(levels({}).map((l) => l.band), ['unmeasured'], 'one honest band')
 
-  // measure ONE course and the unmeasured rest must fall in behind it, never ahead of it
+  // measure ONE course and the unmeasured rest must fall in behind it
   const one = courses()[0]
   const partial = Object.fromEntries(theorems().filter((t) => t.file === one.wing)
     .map((t) => [t.address, one.roll.find((l) => l.key === t.key)!.steps]))
@@ -188,7 +188,7 @@ test('OEAPI serves the measured level in ext and REFUSES the spec field that wou
     assert.ok(c.ext && typeof c.ext.level === 'number', `${c.abbreviation}: the measured grading must be served`)
     assert.equal(c.ext.band, bandOf(c.ext.level), `${c.abbreviation}: the band names its own decade`)
   }
-  // and it is the SAME grading the school page shows — one derivation, two surfaces, never two answers
+  // and it is the SAME grading the school page shows — one derivation, two surfaces
   const wingOf = new Map(publications().map((p) => [p.slug, p.file]))
   let checked = 0
   for (const c of cs) {
@@ -199,7 +199,7 @@ test('OEAPI serves the measured level in ext and REFUSES the spec field that wou
     assert.equal(c.ext.rank, g.rank)
     checked++
   }
-  assert.ok(checked > 0, 'no course could be matched back to its wing — the join is broken, not the grading')
+  assert.ok(checked > 0, 'no course could be matched back to its wing — the join is broken')
   const profile = oeapiProfile()
   const refused = profile.absentFields.find((f) => f.field === 'Course.level')
   assert.ok(refused, 'a field refused silently is a field forgotten — the refusal is part of the projection')
@@ -208,7 +208,7 @@ test('OEAPI serves the measured level in ext and REFUSES the spec field that wou
 })
 
 // MUTATION CAUGHT: leave the levels-and-courses section on its old body (a bare list of eight course codes).
-// The section is what a reader actually sees, so the derivation has to reach it, not just exist in the module.
+// The section is what a reader actually sees, so the derivation has to reach it.
 test('the levels section RENDERS the derivation — the measure reaches the reader', () => {
   const s = school()
   const body = s.sections.find((x) => x.id === 'levels-courses')!.body.join('\n')

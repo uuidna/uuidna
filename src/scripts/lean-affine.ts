@@ -55,7 +55,7 @@ const FACTS = [
     lean: 'theorem every_map_inverts : agl.all (fun f => agl.any (fun g => comp f g == 9)) := by decide' },
 
   { key: 'group_does_not_commute',
-    why: 'AND IT IS NOT ABELIAN, shown by exhibiting the failure rather than asserting it: 2376 of the 2916 ordered pairs do not commute — a majority, not an exception. Only 540 pairs agree, so order matters almost everywhere in this group.',
+    why: 'AND IT IS NOT ABELIAN, shown by exhibiting the failure rather than asserting it: 2376 of the 2916 ordered pairs do not commute — a majority. Only 540 pairs agree, so order matters almost everywhere in this group.',
     js: () => { const n: number = NONCOMM, z: number = 0; return n !== z && n === 2376 && 2916 - n === 540 },
     lean: 'theorem group_does_not_commute : (agl.any (fun f => agl.any (fun g => comp f g != comp g f))) ∧ (2376 + 540 = 2916) ∧ (2376 ≠ 0) := by decide' },
 ]

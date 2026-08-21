@@ -12,7 +12,7 @@ test('the refusals are bounded and fast: the layer count and a hostile work fact
   assert.throws(() => sealStream('x', new Array(MAX_LAYERS + 1).fill('k')))
   const keys = new Array(MAX_LAYERS).fill(0).map((_, i) => `layer-${i}`)
   assert.equal(openStream(sealStream('deep', keys).uuids, keys), 'deep')
-  // iter — attacker-controlled on decrypt, so a hostile work factor is REFUSED, never run (pure-TS PBKDF2 is unbounded)
+  // iter — attacker-controlled on decrypt, so a hostile work factor is REFUSED
   const s = encrypt('beat to windward', 'gold-string-60')
   assert.equal(s.iter, ITER)
   assert.ok(ITER < MAX_ITER)

@@ -4,7 +4,7 @@
 // the absolute pressure; air's ppO2 leaves the breathable window at depth (why deep dives blend trimix); gases are
 // blended by partial pressure to the fill; helium is non-narcotic (it lowers the equivalent narcotic depth); and a
 // direct ascent that exceeds the Haldane ratio needs a decompression stop. HARD SAFETY SCOPE: this is ARITHMETIC,
-// NOT a dive planner, NOT dive tables, NOT medical or safety advice. NEVER plan or execute a dive on these numbers
+// NOT a dive planner. NEVER plan or execute a dive on these numbers
 // — use certified training, cut tables, and a dive computer. Diving is life-critical. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
 
@@ -51,7 +51,7 @@ const FACTS = [
 ]
 
 // compute → generate → verify. The arithmetic of trimix gas laws — fractions, Dalton, the oxygen window, blending,
-// narcosis, the decompression ratio. HARD SAFETY DEMARCATION: algebra, never a dive plan; use training and a computer.
+// narcosis, the decompression ratio. HARD SAFETY DEMARCATION: algebra; use training and a computer.
 emit({ file: 'Diving.lean', skill: 'diving',
   header: 'DIVING — the decidable arithmetic of trimix gas laws, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -8,7 +8,7 @@ import assert from 'node:assert/strict'
 import { trial, trialWithControls, foldVoid, foldRefuted, fold } from '../trial-protocol.js'
 import { theorems, toUuid } from '../index.js'
 
-test('a test that always passes is VOID, not supported', () => {
+test('a test that always passes is VOID', () => {
   const r = trial({ hypothesis: 'all is well', refutedIf: 'never', test: () => true, control: 'x', subject: 'x' })
   assert.equal(r.outcome, 'void')
   assert.equal(r.controlRejected, false)
@@ -28,7 +28,7 @@ test('control rejected and subject holds is SUPPORTED — and says that is not p
   assert.match(r.why, /not proven/)
 })
 
-test('control rejected and subject fails is REFUTED — a result, not an error', () => {
+test('control rejected and subject fails is REFUTED — a result', () => {
   const r = trial({ hypothesis: 'evens', refutedIf: 'an odd passes', test: (n: number) => n % 2 === 0, control: 3, subject: 7 })
   assert.equal(r.outcome, 'refuted')
   assert.match(r.why, /is a result/)

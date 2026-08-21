@@ -1,7 +1,7 @@
 // payload-seed — the versioned Lean→PayloadCMS seed tree, tested at its three claims: the uuid is a REVERSIBLE
 // imprint (status/stem/content decode back out — the no-cost index), any content change mints a NEW version
 // (append-only immutability), and the seed's page tree is stamped by the order-sensitive document address.
-// Pure and offline. Integrity, not truth.
+// Pure and offline. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs } from '../index.js'
@@ -60,5 +60,5 @@ test('payload sync speaks only the standard shapes: pages, nested-docs parent, d
   assert.equal(child.content.root.type, 'root', 'the content field is the lexical editor-state shape')
   assert.equal(parent.uuidnaVersion, child.uuidnaVersion, 'one version uuid rides every doc — idempotent upsert by equality')
   const draft = toPayloadDocs(buildLeanPageSeed('Draft1', 'x', [], false))
-  assert.equal(draft[0]._status, 'draft', 'a lean file with nothing sealed syncs as a draft, never published')
+  assert.equal(draft[0]._status, 'draft', 'a lean file with nothing sealed syncs as a draft')
 })

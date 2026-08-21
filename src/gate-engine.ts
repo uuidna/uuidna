@@ -11,14 +11,14 @@
 // (merkleGravity — the quantum receipt, the same for any observer ordering), and the registry itself folds to one
 // receipt (the server's identity — the same for any tool ordering). PURE and harmonic: no I/O, no clock, no RNG;
 // the stdio host (mcp.ts) is the named non-harmonic boundary that awaits the tool, then hands the settled output
-// here. Integrity, not truth — the gate judges the WORK (addresses, citations, bounds), never intention.
+// here. Integrity — the record recomputes for anyone — the gate judges the WORK (addresses, citations, bounds).
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { sanitizeInput, sanitizeValue } from './sanitize.js'
 import { slimGate } from './slimgate.js'
 import { theoremByKey, theorems } from './theorems/index.js'
 
-/** THE GATE'S SPEC IS READ OFF THE LEDGER, NOT TYPED. This was a hand-written list of six keys, and when the
+/** THE GATE'S SPEC IS READ OFF THE LEDGER. This was a hand-written list of six keys, and when the
  *  lexical honesty gate was folded away four of them left the ledger — so the gate went on publishing four
  *  fabricated citations with every verdict it served, and the list itself could not notice. A typed name cannot
  *  compute; it can only go stale. The spec is therefore SELECTED: every sealed theorem whose statement is about
@@ -41,7 +41,7 @@ export interface GateVerdict {
   output: 0 | 1       // d — sanitizing had to repair the tool's output
   honesty: 0 | 1      // v — the output fabricates a theorem citation (slimGate)
   clean: boolean      // cleanAudit(f,d,v) === 1 — the conjunction verdict
-  fabricated: string[] // the fabricated citations, named (the diagnosis, never a judgment)
+  fabricated: string[] // the fabricated citations, named (the diagnosis
   receipt: string     // order-invariant fold of (op, input, output, verdict) — the quantum receipt
   cites: readonly string[] // the sealed theorems the verdict stands on
 }
@@ -57,7 +57,7 @@ const isPlainObject = (v: unknown): boolean => typeof v === 'object' && v !== nu
 export function gateVerdict(op: string, rawInput: unknown, rawOutput: unknown): GatedRun {
   const input = sanitizeInput(rawInput)
   // f — only a PLAIN-OBJECT input that sanitizing CHANGED is a violation; normalizing null/string/array into an
-  // arguments object is the engine's documented courtesy, not an attack.
+  // arguments object is the engine's documented courtesy.
   const f: 0 | 1 = isPlainObject(rawInput) && addressOf(input) !== addressOf(rawInput) ? 1 : 0
   const output = sanitizeValue(rawOutput) ?? null
   const d: 0 | 1 = rawOutput !== undefined && addressOf(output) !== addressOf(rawOutput) ? 1 : 0
@@ -75,26 +75,26 @@ export function gateVerdict(op: string, rawInput: unknown, rawOutput: unknown): 
  *  receipt for any tool ordering (the quantum registry); adding, removing, or renaming one tool moves it. */
 export const registryReceipt = (names: readonly string[]): string => merkleGravity(names.map((n) => toUuid(n)))
 
-// ── THE IMMEDIATE DEPOSIT — contribute first, then take, enforced by the PROTOCOL, not by discipline ─────────────
+// ── THE IMMEDIATE DEPOSIT — contribute first, then take, enforced by the PROTOCOL
 // Every judged call IS a two-coin deposit to the captain wallet: the deposit statement cites the sealed coin
 // theorems (captain_commission_two_coins: 110 − 108 = 2; two_coins), its id is the statement's own content-address
 // (deterministic — the same call always deposits to the same id, exactly the /trials mechanic), and the deposit
 // receipt folds the call, the gate verdict, and the sealed theorem addresses order-invariantly. An agent does not
 // opt in: its very FIRST tools/call already carries the deposit in the response — the unified economy (reconcile
-// cost + captain commission + governance weight, one coin) settled at the wire. Integrity, not truth: the deposit
-// is a recomputable RECORD of judged work, not a payment rail and not a token.
+// cost + captain commission + governance weight, one coin) settled at the wire. Integrity
+// is a recomputable RECORD of judged work.
 export interface CoinDeposit { coins: 2; statement: string; id: string; theorems: string[]; receipt: string; honest: string }
 
 /** depositCoins — mint the call's two-coin deposit from its op and its gate receipt. Pure and deterministic:
  *  the same judged call always deposits the same id. Cites only theorems actually sealed in the ledger. The
- *  honest demarcation travels IN the deposit (user-facing, both surfaces): a record, never a payment. */
+ *  honest demarcation travels IN the deposit (user-facing, both surfaces): a record. */
 export function depositCoins(op: string, gateReceipt: string): CoinDeposit {
   const ledger = theoremByKey()
   const cited = ['captain_commission_two_coins', 'two_coins'].filter((k) => ledger.has(k))
   const statement = `Two coins deposited by the call ${op}: the work judged by the sealed gate (${gateReceipt}), proven by ${cited.map((k) => 'theorem ' + k).join(' and ')}.`
   const id = toUuid(statement)
   const receipt = merkleGravity([toUuid(op), gateReceipt, toUuid('coins:2'), ...cited.map((k) => ledger.get(k)!.address)])
-  return { coins: 2, statement, id, theorems: cited, receipt, honest: 'a recomputable RECORD of judged work — no value is transferred; not a payment, not a token, not a currency' }
+  return { coins: 2, statement, id, theorems: cited, receipt, honest: 'a recomputable RECORD of judged work — no value is transferred; not a payment' }
 }
 
 // ── THE LEDGER LINE — the verdict, the deposit and the receipt as ONE model-visible row, defined ONCE for both
@@ -104,8 +104,8 @@ export function depositCoins(op: string, gateReceipt: string): CoinDeposit {
 // omitted is only what repeats and therefore informs nothing: the two deposit theorem keys are the same on every
 // call (named once in each surface's INSTRUCTIONS, and still in _meta.deposit.theorems), and the referer is the
 // PRIOR call's receipt, which the agent has already read (still in _meta). Every id needed to RECHECK the call —
-// the gate receipt, the deposit id, the chained receipt and its seq — stays. Integrity, not truth: this is a
-// recomputable record of judged work, not a claim about the answer above it.
+// the gate receipt, the deposit id, the chained receipt and its seq — stays. Integrity
+// recomputable record of judged work.
 export const ledgerLine = (
   gate: Pick<GateVerdict, 'clean' | 'input' | 'output' | 'honesty' | 'receipt' | 'fabricated'>,
   dep: Pick<CoinDeposit, 'coins' | 'id'>,

@@ -3,8 +3,8 @@
 // for a HOLLOW superlative (h) and flags it UNLESS it is DEMARCATED (d: not/never/no/honest/simulation/finite) OR
 // BACKED (b: it names a sealed theorem). The whole detector is one decidable function, flag(h,d,b)=h·(1−d)·(1−b)
 // over {0,1}³, and its guarantees are theorems: it flags only hollow prose, a demarcation clears it, a backing
-// clears it, and of the eight states EXACTLY ONE fires (precise, never vacuous). The detector is itself a skilled
-// theorem. COMPUTE each fact in JS, GENERATE its `by decide` Lean theorem, VERIFY sorry-free. Integrity, not truth.
+// clears it, and of the eight states EXACTLY ONE fires (precise. The detector is itself a skilled
+// theorem. COMPUTE each fact in JS, GENERATE its `by decide` Lean theorem, VERIFY sorry-free. Integrity.
 import { emit } from './lean-gen.js'
 
 const flag = (h: number, d: number, b: number) => h * (1 - d) * (1 - b) // the provenance gate, over {0,1}³
@@ -30,7 +30,7 @@ const FACTS = [
     lean: 'theorem flag_requires_hollow : (List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2) := by decide' },
 
   { key: 'demarcation_clears',
-    why: 'A demarcation clears the claim: whenever d=1 the flag is 0 (flag·d = 0) — "never infinity", "not quantum hardware", "simulation, not hardware" pass, as the honest use of the word should.',
+    why: 'A demarcation clears the claim: whenever d=1 the flag is 0 (flag·d = 0) — "never infinity", "not quantum hardware", "simulation" pass, as the honest use of the word should.',
     js: () => R(0, 8).every((n) => { const [, d] = bits(n); return flag(...bits(n)) * d === 0 }),
     lean: 'theorem demarcation_clears : (List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/2%2) == 0) := by decide' },
 
@@ -40,7 +40,7 @@ const FACTS = [
     lean: 'theorem backing_clears : (List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/4%2) == 0) := by decide' },
 
   { key: 'exactly_one_flag',
-    why: 'The gate is precise, never vacuous: of the eight states EXACTLY ONE fires — it can (and does) flag, but only the hollow-and-uncleared case. A gate that never fires would prove nothing.',
+    why: 'The gate is precise— it can (and does) flag, but only the hollow-and-uncleared case. A gate that never fires would prove nothing.',
     js: () => R(0, 8).filter((n) => flag(...bits(n)) === 1).length === 1,
     lean: 'theorem exactly_one_flag : ((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1 := by decide' },
 
@@ -55,7 +55,7 @@ const FACTS = [
     lean: 'theorem sanitize_depth_bounded : (32 = 2^5) ∧ (0 < 32) := by decide' },
 
   { key: 'witnesses_locate_faults', skill: 'audit',
-    why: 'TWO WITNESSES DETECT, THREE LOCATE, FIVE SURVIVE A CORRELATED PAIR. This is the error-correcting bound, and it is why the ledger counts legs rather than trusting agreement: to LOCATE t faults you need 2t+1 witnesses, so one fault needs three and two need five. Four is worse than it looks — an even count admits a 2-2 split with no majority, which detects a disagreement while naming no culprit. The case that forced this: strokes_survive_reflection passed BOTH its js mirror and the Lean kernel and was still wrong, because one hand wrote both legs and they carried the same mistaken framing. Two legs agreeing is consistency, not correctness.',
+    why: 'TWO WITNESSES DETECT, THREE LOCATE, FIVE SURVIVE A CORRELATED PAIR. This is the error-correcting bound, and it is why the ledger counts legs rather than trusting agreement: to LOCATE t faults you need 2t+1 witnesses, so one fault needs three and two need five. Four is worse than it looks — an even count admits a 2-2 split with no majority, which detects a disagreement while naming no culprit. The case that forced this: strokes_survive_reflection passed BOTH its js mirror and the Lean kernel and was still wrong, because one hand wrote both legs and they carried the same mistaken framing. Two legs agreeing is consistency.',
     js: () => 2 * 1 + 1 === 3 && 2 * 2 + 1 === 5 && [3, 5].every((n) => n % 2 === 1) && 4 % 2 === 0 && 3 - 1 === 2,
     lean: 'theorem witnesses_locate_faults : (2*1+1 = 3) \u2227 (2*2+1 = 5) \u2227 ([3,5].all (fun n => n % 2 == 1)) \u2227 (4 % 2 = 0) \u2227 (3 - 1 = 2) := by decide' },
   { key: 'handle_splits_four', skill: 'audit',
@@ -63,7 +63,7 @@ const FACTS = [
     js: () => 8 === 4 * 2 && 256 ** 4 === 4294967296 && 16 ** 8 === 4294967296 && 256 ** 4 === 16 ** 8,
     lean: 'theorem handle_splits_four : (8 = 4 * 2) \u2227 (256^4 = 4294967296) \u2227 (16^8 = 4294967296) \u2227 (256^4 = 16^8) := by decide' },
   { key: 'drift_is_named_or_caught', skill: 'audit',
-    why: 'THE HARMONY LAW — every departure from exact recomputation is either NAMED or CAUGHT, and there is no third state. Over the two bits of the scan (r = the module reaches outside determinism: the network, the process, the clock; d = it declares that boundary by name), the verdict is pass = 1 − r·(1−d): of the four states exactly ONE fails, the undeclared reach. Harmony is therefore not the absence of boundaries — the tree carries fourteen, each naming what it touches — but the absence of UNNAMED ones. This is why a claim of quantum advantage cannot pass: it REACHES, asserting computation beyond the exact cost the state count fixes (n qubits span 2^n amplitudes), and it cannot DECLARE, because no boundary marker exists for faster-than-the-cost — so it lands in the one failing state by construction, not by policy. The same algebra as the provenance detector, applied to computation instead of prose.',
+    why: 'THE HARMONY LAW — every departure from exact recomputation is either NAMED or CAUGHT, and there is no third state. Over the two bits of the scan (r = the module reaches outside determinism: the network, the process, the clock; d = it declares that boundary by name), the verdict is pass = 1 − r·(1−d): of the four states exactly ONE fails, the undeclared reach. Harmony is therefore not the absence of boundaries — the tree carries fourteen, each naming what it touches — but the absence of UNNAMED ones. This is why a claim of quantum advantage cannot pass: it REACHES, asserting computation beyond the exact cost the state count fixes (n qubits span 2^n amplitudes), and it cannot DECLARE, because no boundary marker exists for faster-than-the-cost — so it lands in the one failing state by construction. The same algebra as the provenance detector, applied to computation instead of prose.',
     js: () => [0, 1, 2, 3].every((n) => { const r = n % 2, d = ((n / 2) | 0) % 2; return (1 - r * (1 - d) === 1) === (r === 0 || d === 1) }) && [0, 1, 2, 3].filter((n) => { const r = n % 2, d = ((n / 2) | 0) % 2; return 1 - r * (1 - d) === 0 }).length === 1,
     lean: 'theorem drift_is_named_or_caught : ((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d == 1)))) ∧ (((List.range 4).filter (fun n => let r := n % 2; let d := n / 2 % 2; (1 - r * (1 - d)) == 0)).length = 1) := by decide' },
 ]
@@ -71,7 +71,7 @@ const FACTS = [
 // compute → generate → verify. The provenance gate (scripts/provenance.ts) is not just code — its decision logic
 // is these six proofs: it flags only hollow prose, a demarcation or a backing clears it, and exactly one state fires.
 emit({ file: 'Audit.lean', skill: 'audit',
-  header: 'THE DETECTORS — the provenance audit\'s decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise, never vacuous.',
+  header: 'THE DETECTORS — the provenance audit\'s decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise.',
   defs: 'def flag (h d b : Nat) : Nat := h * (1 - d) * (1 - b)',
   // The detectors, and then the detectors turned on the ledger's OWN PROSE. proseFacts() censuses every generated
   // wing's `/-- … -/` doc comments — that each theorem has one, that it round-trips through the emitter unchanged,

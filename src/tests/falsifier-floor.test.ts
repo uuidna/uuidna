@@ -16,7 +16,7 @@ import { census } from '../scripts/rosetta.js'
 import { FLOOR } from '../rosetta-mirror.js'
 
 const T = theorems()
-/** the sealed statement with every space removed, so a fragment compares against the algebra, not the layout */
+/** the sealed statement with every space removed, so a fragment compares against the algebra
 const sealed = (key: string): string => {
   const t = T.find((x) => x.key === key)
   assert.ok(t, `${key} is not in the ledger — a test may not cite a theorem that does not exist`)
@@ -64,7 +64,7 @@ test('vortex_one_leap — the doubling orbit on the units, and its digit sum', (
 test('redirect_imitable_but_coins_authorise — exactly two coins authorise, no other count does', () => {
   assert.deepEqual(R(8).filter((c) => 32 * c === 64), [2])
   assert.ok(sealed('redirect_imitable_but_coins_authorise').includes('32*c==64)=[2]'))
-  assert.equal(R(8).filter((c) => 32 * c === 64).length, 1, 'THE CONTROL: the authorisation is unique, not merely satisfied')
+  assert.equal(R(8).filter((c) => 32 * c === 64).length, 1, 'THE CONTROL: the authorisation is unique')
 })
 
 test('reversible_erases_nothing — multiplying by the modulus keeps zero at zero and one at itself', () => {
@@ -79,7 +79,7 @@ test('octave_codon_address — eight doublings reach 128, and the codon lands mi
   assert.deepEqual(R(8).map((k) => 2 ** k), [1, 2, 4, 8, 16, 32, 64, 128])
   assert.equal(4 ** 3, 64)
   assert.ok(sealed('octave_codon_address').includes('[1,2,4,8,16,32,64,128]'))
-  assert.equal(R(8).map((k) => 2 ** k).length, 8, 'THE CONTROL: eight steps, not nine — 256 is the next octave')
+  assert.equal(R(8).map((k) => 2 ** k).length, 8, 'THE CONTROL: eight steps— 256 is the next octave')
 })
 
 test('forgery_flags_every_mismatch — all 81 pairs walked, 9 honest and 72 forged', () => {
@@ -99,7 +99,7 @@ test('captain_commission_two_coins — two coins per FULL hundred-ten, nothing f
   assert.ok(sealed('captain_commission_two_coins').includes('commission110=2'))
 })
 
-test('THE FLOOR IS MET BY A LIVE RECOMPUTE, not by the mirror it shipped', () => {
+test('THE FLOOR IS MET BY A LIVE RECOMPUTE', () => {
   const live = census().filter((r) => r.legs.includes('falsifier')).length
   assert.ok(live >= 63, `the live falsifier count is ${live}, below the derived floor of 63`)
 })
@@ -112,7 +112,7 @@ const STATES: [number, number, number][] = [0, 1, 2, 3, 4, 5, 6, 7].map((p) => [
 
 test('honesty_gate_passes_iff_all_sealed — an IFF, so no second passing state can hide', () => {
   assert.ok(STATES.every(([f, d, v]) => (cleanAudit(f, d, v) === 1) === (f === 0 && d === 0 && v === 0)))
-  assert.equal(STATES.filter(([f, d, v]) => cleanAudit(f, d, v) === 1).length, 1, 'THE CONTROL: exactly one of eight, not merely "at least the clean one"')
+  assert.equal(STATES.filter(([f, d, v]) => cleanAudit(f, d, v) === 1).length, 1, 'THE CONTROL: exactly one of eight"at least the clean one"')
   assert.ok(sealed('honesty_gate_passes_iff_all_sealed').includes('cleanAuditfdv==1'))
 })
 
@@ -146,12 +146,12 @@ test('reduce_is_order_invariant — the fold is blind to the order it is handed'
   // the control needs an operation order actually changes. Subtraction from 0 does NOT: it yields −(sum) either
   // way, so the first control I wrote passed for both orders and proved nothing.
   const digits = (xs: number[]): number => xs.reduce((a, b) => a * 10 + b, 0)
-  assert.notEqual(digits([1, 2, 3, 4]), digits([4, 3, 2, 1]), 'THE CONTROL: order-invariance is the operation, not the fold')
+  assert.notEqual(digits([1, 2, 3, 4]), digits([4, 3, 2, 1]), 'THE CONTROL: order-invariance is the operation')
 })
 
 test('z7fermat — every non-multiple of 7 raised to the sixth returns to 1', () => {
   assert.ok(R(7).every((a) => a % 7 === 0 || a ** 6 % 7 === 1))
-  assert.equal(0 ** 6 % 7, 0, 'THE CONTROL: 0 is the exception the theorem states, not a case it hides')
+  assert.equal(0 ** 6 % 7, 0, 'THE CONTROL: 0 is the exception the theorem states')
   assert.ok(sealed('z7fermat').includes('(a^6)%7==1'))
 })
 

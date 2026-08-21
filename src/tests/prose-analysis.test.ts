@@ -1,7 +1,7 @@
 // Prose analysis — the honest scope of READ / UNDERSTAND / COMPUTE, as regression tests (was scratchpad prose-test).
 // uuidna READS any prose (content-address), COMPUTES the binary integer arithmetic it finds to a by-decide verdict
 // (uuidna's TOTAL Nat semantics — it computes even division by zero), UNDERSTANDS by RESONANCE (amplitude-ranked
-// reflection onto the sealed math — not meaning), and DRAINS a fabricated theorem citation. Integrity, not truth.
+// reflection onto the sealed math — not meaning), and DRAINS a fabricated theorem citation. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { extractDecidable, reflects, computes } from '../index.js'
@@ -23,14 +23,14 @@ test('COMPUTE — the compound guard refuses a fragment (no false REFUTED)', () 
 test('COMPUTE — uuidna computes division with TOTAL Nat semantics, including division by zero', () => {
   const div = (s: string) => extractDecidable(s)[0]
   assert.equal(div('10 divided by 2 is 5').verdict, 'VERIFIED')      // exact
-  assert.equal(div('7 divided by 2 is 3').verdict, 'VERIFIED')       // FLOOR division (Lean Nat), not 3.5
+  assert.equal(div('7 divided by 2 is 3').verdict, 'VERIFIED')       // FLOOR division (Lean Nat).5
   assert.equal(div('10 divided by 0 is 0').verdict, 'VERIFIED')      // n / 0 = 0 — uuidna COMPUTES it; a calculator faults
   assert.equal(div('12 / 3 is 4').verdict, 'VERIFIED')              // the / symbol, uuidna semantics
   // the emitted proof is a real by-decide theorem in uuidna's arithmetic
   assert.match(div('10 divided by 0 is 0').lean, /10 \/ 0 = 0 := by decide/)
 })
 
-test('UNDERSTAND — resonance ranks by amplitude, so the reflection is legible, not uniform noise', () => {
+test('UNDERSTAND — resonance ranks by amplitude, so the reflection is legible', () => {
   const r = reflects('The lay of the land remembers the river long after the water has gone.')
   assert.ok(r.peak > 0, 'a non-empty query has a peak resonance')
   // the loudest reflections must be the geography domain the prose rings — NOT the stopword-matched ℤ/9 head that the

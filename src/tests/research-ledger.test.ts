@@ -22,7 +22,7 @@ const READ_MEASURED: Finding = { ...READ_CONVENTION, claim: 'a measurement read 
 
 test('the shipped findings are the record in lean/research-ledger.json, field for field', () => {
   // The edge has no filesystem, so the findings are carried in source; the JSON is the human record. Two copies of
-  // anything drift, so the comparison is the guard — and it names the finding that moved, not merely that one did.
+  // anything drift, so the comparison is the guard — and it names the finding that moved.
   const record = JSON.parse(readFileSync(join(ROOT, 'lean', 'research-ledger.json'), 'utf8')) as { findings: Finding[] }
   const same = (a: readonly Finding[], b: readonly Finding[]): string[] => {
     const diffs: string[] = []
@@ -54,7 +54,7 @@ test('a MEASUREMENT never seals as an equality, however well it was read', () =>
   assert.equal(sealableAs(READ_CONVENTION), 'EQUALITY')
   assert.equal(sealableAs(READ_MEASURED), 'BRACKET')
   assert.equal(sealableAs({ ...READ_CONVENTION, status: 'secondary' }), 'NOTHING')
-  // the reason must name the actual status, not a generic sentence — a diagnosis, not a verdict
+  // the reason must name the actual status— a diagnosis
   assert.match(sealReason({ ...READ_CONVENTION, status: 'unread' }), /unread/)
 })
 
@@ -94,11 +94,11 @@ test('the census counts every status and cannot be flattered by a filter', () =>
   assert.deepEqual(readOnly.census, all.census, 'the census must describe the WHOLE ledger, filtered or not')
   assert.ok(readOnly.matched < all.total, 'the filter must actually narrow the findings it returns')
   assert.ok(readOnly.findings.every((f) => f.status === 'read'))
-  // and the receipt is the ledger's identity, not the filter's — order-invariant over every finding
+  // and the receipt is the ledger's identity's — order-invariant over every finding
   assert.equal(readOnly.receipt, all.receipt)
 })
 
-test('an unknown filter is REFUSED by name, never answered with an empty list', () => {
+test('an unknown filter is REFUSED by name', () => {
   assert.throws(() => ledgerReport({ status: 'skimmed' }), /unknown status "skimmed"/)
   assert.throws(() => ledgerReport({ kind: 'vibes' }), /unknown kind "vibes"/)
   // NEGATIVE CONTROL: every legitimate value must be accepted, or the refusal is just a broken filter
@@ -125,6 +125,6 @@ test('the tool dispatches through the served surface and is listed in the catalo
   assert.equal(served.matched, ledgerReport({ status: 'unread' }).matched)
   assert.ok(served.findings.every((f) => !f.anchorsTheorem), 'an unread finding may never anchor a theorem')
   assert.ok(MCP_CATALOG.some((t) => t.name === 'uuidna_research_ledger'), 'the catalogue must list it, or docs/mcp.md cannot see it')
-  // a bad argument through the SERVED door must refuse there too, not only in the library
+  // a bad argument through the SERVED door must refuse there too
   assert.throws(() => callTool('uuidna_research_ledger', { kind: 'measured-ish' }), /unknown kind/)
 })

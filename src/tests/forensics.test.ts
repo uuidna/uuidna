@@ -1,6 +1,6 @@
 // Forensics tests — audit agent statements against the receipts. A false trial cannot survive recomputation: a
 // fabricated citation, a false address, an unbacked legal claim, a drained overclaim are all recomputable facts about
-// the CLAIM, never accusations. A clean, backed statement passes. Integrity, not truth.
+// the CLAIM, never accusations. A clean, backed statement passes. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { forensics, auditAgents, toUuid, THEOREMS } from '../index.js'
@@ -36,7 +36,7 @@ test('an address-mismatch (tamper/forgery) is caught by recomputation', () => {
 test('an unbacked legal claim is flagged — a legal claim must carry a receipt', () => {
   const bare = forensics('This system is fully compliant and lawful.')
   assert.ok(bare.violations.some((v) => v.kind === 'unbacked-law'), 'bare legal claim carries no receipt')
-  // the SAME legal claim WITH a receipt (a cited theorem) is legally FORMED, not flagged
+  // the SAME legal claim WITH a receipt (a cited theorem) is legally FORMED
   const formed = forensics(`This is lawful, per the statement sealed at /theorem/${realKey}.`)
   assert.ok(!formed.violations.some((v) => v.kind === 'unbacked-law'), 'a legal claim carrying its receipt is well-formed')
 })

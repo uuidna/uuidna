@@ -5,12 +5,12 @@
 //
 // Not a cipher — the cipher is the sealed ChaCha20-Poly1305 layer (../crypt.ts), rotating per step —
 // (everyone sees the aura, the state, and can rebuild it); not a signature (the
-// proof is sealed, not cryptographic). A quantum message is a **witnessed message** — the witness
+// proof is sealed. A quantum message is a **witnessed message** — the witness
 // is a sealed theorem, and the message's quantum encoding is the proof that the witness was cited.
 //
 // sealMessage/openMessage COMPLETE the crypto↔quantum fusion: secrecy from the ChaCha20-Poly1305 envelope
 // (crypt.ts, symmetric-only — no Shor target, Grover only halves the 256-bit key to a ~128-bit floor), the
-// witness from the sealed theorem — quantum-encoded over the CIPHERTEXT envelope's address, never the
+// witness from the sealed theorem — quantum-encoded over the CIPHERTEXT envelope's address
 // plaintext, so anyone verifies the witness and the envelope's integrity while only the key holder reads.
 // The quantum encoding adds NO secrecy and NO quantum channel — not QKD; the cost stays the classical 2^n
 // CONFIRMED by theorem n_qubit_dimension.
@@ -110,7 +110,7 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
       'A quantum message is NOT a cipher or signature (the cipher is the sealed ChaCha20-Poly1305 layer) — it is a WITNESSED message. The plaintext is public ' +
       '(everyone sees it), the aura is deterministic (same message → same color for all observers), and the quantum ' +
       'state proves the theorem was cited (the basis encodes the theorem key, Hadamard guarantees superposition, ' +
-      'and the receipt is tamper-evident). Integrity, not secrets — and when secrecy IS wanted, sealMessage carries ' +
+      'and the receipt is tamper-evident). Integrity— and when secrecy IS wanted, sealMessage carries ' +
       'this same envelope into the ChaCha20-Poly1305 layer, whose derivation rotates with every advancing step. ' +
       'The same message always folds to the same state and aura — recomputable by anyone.',
   }
@@ -181,11 +181,11 @@ export function deserializeMessage(data: {
 }
 
 /** A SEALED quantum message — the crypto↔quantum fusion. The envelope carries the secrecy (ChaCha20-Poly1305);
- *  the quantum witness is encoded over the envelope's 7d-fold ADDRESS (the ciphertext identity), never the
+ *  the quantum witness is encoded over the envelope's 7d-fold ADDRESS (the ciphertext identity)
  *  plaintext — so the witness and the envelope's integrity verify publicly while the plaintext stays sealed. */
 export interface SealedQuantumMessage {
   sealed: Sealed              // the ChaCha20-Poly1305 envelope — secrecy from crypt alone
-  witness: QuantumMessage     // encodeMessage(sealed.address, theoremKey) — witnesses the ciphertext, not the plaintext
+  witness: QuantumMessage     // encodeMessage(sealed.address, theoremKey) — witnesses the ciphertext
   fold: string                // merkleGravity of (envelope address, witness fold) — one identity for the fusion
   honest: string
 }
@@ -233,7 +233,7 @@ export function openMessage(message: SealedQuantumMessage, passphrase: string): 
 // A cube therefore witnesses its own completion out of its own contents, and a fabricated cube cannot borrow one:
 // encodeMessage refuses a key the ledger does not carry.
 //
-// HONEST SCOPE: this is TAMPER-EVIDENCE AND REVERSIBILITY, NOT SECRECY. The carrier is a codec, not a cipher —
+// HONEST SCOPE: this is TAMPER-EVIDENCE AND REVERSIBILITY. The carrier is a codec—
 // everyone who holds the chain reads the address back. For secrecy, sealCubeSecurely puts the same address inside
 // the ChaCha20-Poly1305 envelope, where the secrecy comes from the cipher alone (symmetric-only: no Shor target,
 // Grover halving 256 bits to a ~128-bit floor) and the quantum encoding adds none. No quantum channel, no QKD, no
@@ -244,7 +244,7 @@ import { handleOf } from '../../handle.js'   // THE one derivation — never re-
 export interface SealedCubeMessage {
   principle: string           // the neighbourhood this announces
   address: string             // its fold — the COMPLETE uuid, the identity that travels
-  handle: string              // the eight-hex index derived from it — a path, never the message
+  handle: string              // the eight-hex index derived from it — a path
   carrier: string[]           // the imprint chain carrying the address: reversible, byte-exact, tamper-evident
   witness: QuantumMessage     // one of the cube's own theorems, witnessing its completion
   fold: string                // merkleGravity of (address, witness fold) — one identity for the whole fusion
@@ -254,9 +254,9 @@ export interface SealedCubeMessage {
 const CUBE_HONEST =
   'A sealed neighbourhood announced as a message: the payload is the cube\'s order-invariant fold (a complete uuid, ' +
   'never the truncated handle), the carrier is the reversible imprint codec, and the witness is one of the cube\'s ' +
-  'OWN sealed theorems. Tamper-evidence and reversibility, NOT secrecy — the carrier is a codec and anyone holding ' +
+  'OWN sealed theorems. Tamper-evidence and reversibility— the carrier is a codec and anyone holding ' +
   'the chain reads the address back. Only a COMPLETE neighbourhood can be sealed this way; an incomplete one is ' +
-  'refused rather than announced. Integrity, not truth.'
+  'refused rather than announced. Integrity.'
 
 /** sealCubeMessage(cube) → the complete fusion, imprinted as a travelling chain and witnessed by its own contents.
  *  An INCOMPLETE cube is refused: a half-neighbourhood that could be announced is the exact artifact the memory
@@ -331,7 +331,7 @@ function computeMessagingSeal() {
     honest: 'THE TOTALITY SEAL: secure messaging is a TOTAL function on the ledger — for every sealed theorem the ' +
       'reversible carrier decodes back to the exact statement and the message id recomputes, and all envelope ' +
       'identities fold order-invariant to one receipt. The full quantum state verifies per message via ' +
-      'theoremMessage + verifyMessage. Integrity, not secrets: nothing is hidden, everything is tamper-evident.',
+      'theoremMessage + verifyMessage. Integrity.',
   }
 }
 /** messagingSeal() → the totality seal over ALL theorems (cached — the ledger is immutable within a process). */

@@ -62,7 +62,7 @@ const bits = (n: number): [number, number] => [n % 2, ((n / 2) | 0) % 2]
 
 export const cubeFacts = (): Fact[] => [
   { key: 'cube_seals_at_completeness_only', skill: 'software',
-    name: `A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the ${perCube.length} neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files, not chosen, so the kernel is walking the real shape of the ledger and not an example of it.`,
+    name: `A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the ${perCube.length} neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.`,
     // BOTH HALVES COUNT RATHER THAN CHECK, and that is a kernel constraint met head-on rather than worked around.
     // The natural way to say "no smaller count seals" is a nested `.all` inside `.all`, and it exhausts the kernel's
     // recursion at this ledger's real shape (71 neighbourhoods, the largest carrying the key count) — measured, by
@@ -74,25 +74,25 @@ export const cubeFacts = (): Fact[] => [
 
   { key: 'cubes_partition_ledger', skill: 'software',
     name: `THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the ${perCube.length} measured wing counts and lands on ${total} — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.`,
-    // TWO FOLDS AGAINST ONE TARGET, NOT A LIST COMPARED TO ITSELF. The first version of this stated
+    // TWO FOLDS AGAINST ONE TARGET. The first version of this stated
     // `DECLARED = DISTINCT` elementwise, and since the census is taken before the file is written, the emitter
     // produced two textually IDENTICAL 71-element literals — the kernel compared a list to a copy of itself and
     // signed the result. That is the furniture shape this repository carries a standing critical finding about,
     // reproduced in the very wing whose subject is when a thing is safe to seal. The kernel folds each list
     // SEPARATELY instead, and both sums must land on the same measured total — work whose answer is nowhere in the
-    // input. It is not a weaker claim: a duplicate key can only make the distinct count SMALLER, never larger and
+    // input. It is not a weaker claim: a duplicate key can only make the distinct count SMALLER
     // never compensated elsewhere, so the two sums agree exactly when no wing anywhere carries a repeated key.
     // THE KERNEL MUST DISCRIMINATE, OR THE THEOREM IS FURNITURE — and this fact took two wrong turns before it
     // did. It first stated `DECLARED = DISTINCT` elementwise; since the census is taken before the file is written
     // those two 71-element literals were emitted TEXTUALLY IDENTICAL, so the kernel compared a list to a copy of
-    // itself. Restating it as two separate folds against one total was worse, not better: both conjuncts rendered
+    // itself. Restating it as two separate folds against one total was worse
     // to the same text and the vacuity detector correctly called it P ∧ P, a tautology true for any P. The lesson
     // is that no arithmetic over two equal measurements can be non-trivial — the equality is in the emitter, not
     // in the kernel. So the kernel is given work whose ANSWER IS NOT IN ITS INPUT: fold seventy-one numbers to a
     // total that appears nowhere among them, count the list, and compare the two. The duplicate-key gate stays
     // where it can actually fail, in the js predicate below, and the name no longer claims otherwise.
     js: () => distinct.reduce((a, b) => a + b, 0) === total && distinct.length === perCube.length && perCube.length < total
-      // the emitter's gate, not the kernel's: a wing that declares more theorems than it has distinct keys stops
+      // the emitter's gate's: a wing that declares more theorems than it has distinct keys stops
       // the build here rather than being sealed as a smaller census
       && declared.length === distinct.length && declared.every((d, i) => d === distinct[i]),
     stmt: `(${SUM(distinct)} = ${total}) ∧ (${L(distinct)}.length = ${perCube.length}) ∧ (${perCube.length} < ${total})` },

@@ -4,10 +4,10 @@
 // and lets a holder PROVE they hold the tagged contract (re-address their terms and compare) — while the contract
 // TEXT is the private KEY. Same addressing as the license's own receipt, so the license itself is a contract.
 //
-// HONEST SCOPE (integrity, not truth). Confidentiality is EXACTLY the secrecy of the contract text — pure-TS
+// HONEST SCOPE (integrity. Confidentiality is EXACTLY the secrecy of the contract text — pure-TS
 // ChaCha20-Poly1305 (crypt.ts) keyed by it:
 //  · If the contract is PUBLIC (the CC BY-NC license on uuidna.com/license), there is NO secrecy — a public key is
-//    public. That is sealed, not hoped: complement_is_xor_key3 ("a fixed pad is public, not secret"). Sealing under
+//    public. That is sealed"a fixed pad is public"). Sealing under
 //    a public contract only BINDS a message to the terms (coupling); it does not hide it.
 //  · If the contract is a PRIVATE commercial contract (a secret shared only with the licensee), it is real
 //    confidentiality — only holders of the terms decrypt; a wrong contract fails the address check or Poly1305
@@ -32,7 +32,7 @@ export function contractDomain(terms: string, base = 'uuidna.org'): string {
 
 /** A message sealed under a contract: the sealed uuid stream, TAGGED with the public contract-uuid (routing only). */
 export interface ContractSealed extends Stream {
-  contract: string // the [contract-uuid] this is under — public routing, NOT the key
+  contract: string // the [contract-uuid] this is under — public routing
 }
 
 /** Seal ONE message under a contract. Encrypts with the contract text as the ChaCha20-Poly1305 key and tags the
@@ -46,7 +46,7 @@ export function sealToContract(message: string, terms: string, step?: number): C
  *  proof of holding the right contract), then decrypts. A wrong contract fails the address check or Poly1305 auth. */
 export function openFromContract(sealed: ContractSealed, terms: string): string {
   if (contractId(terms) !== sealed.contract)
-    throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}, not ${sealed.contract}`)
+    throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}.contract}`)
   return openStream(sealed.uuids, [terms])
 }
 
@@ -57,7 +57,7 @@ export interface ContractChain {
   links: Link[]
 }
 
-/** Seal a STREAM of messages under a contract as a ratchet (freshness + linkage + tamper-evidence, not secrecy).
+/** Seal a STREAM of messages under a contract as a ratchet (freshness + linkage + tamper-evidence.
  *  Seeded from the public contract-uuid so the same contract's chain is reproducible. */
 export function sealChainToContract(messages: readonly string[], terms: string): ContractChain {
   const contract = contractId(terms)
@@ -68,6 +68,6 @@ export function sealChainToContract(messages: readonly string[], terms: string):
  *  rotates correctly, then decrypts each link. A wrong contract, or a dropped/reordered/edited link, throws. */
 export function openChainFromContract(chain: ContractChain, terms: string): string[] {
   if (contractId(terms) !== chain.contract)
-    throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}, not ${chain.contract}`)
+    throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}.contract}`)
   return openChain(chain.links, [terms], chain.contract)
 }

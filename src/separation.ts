@@ -20,7 +20,7 @@
 // applications actually differ, and what a cascade of such steps accumulates. It does NOT assert any physical
 // separation factor. That number belongs to a measurement I have not read, and this ledger's failure mode today
 // was asserting from recall what a source would have corrected — so the factor is a PARAMETER here, awaiting its
-// witness. The arithmetic is exact: cascades run in BigInt rationals, never floats, because a separation factor
+// witness. The arithmetic is exact: cascades run in BigInt rationals
 // compounded fifty times is where rounding silently invents an answer.
 import { toUuid } from './address.js'
 
@@ -165,8 +165,8 @@ export const isReversible = <T>(f: (x: T) => T, domain: readonly T[], key: (x: T
 // vector to itself, so the core of the twice-reflected set is the core of the original — the fold inherits the
 // involution's own self-inverse property, which is what makes the singularity a mirror rather than a drain.
 //
-// HONEST SCOPE: integrity, not truth. The core proves WHICH set folded to it and nothing about what the members
-// mean. Two different sets can share a core only by collision, and the address layer's bound governs that, not this.
+// HONEST SCOPE: integrity. The core proves WHICH set folded to it and nothing about what the members
+// mean. Two different sets can share a core only by collision, and the address layer's bound governs that.
 import { toUuid as _toUuidForFold } from './address.js'
 import { merkleGravity as _foldForCore } from './gravity.js'
 
@@ -190,8 +190,8 @@ export function singularity(vectors: readonly string[]): Singularity {
     fixed: seeds.filter((s) => dz(s) === s),
     honest:
       'Every vector reflected and folded at once into one core. The fold is ORDER-INVARIANT, so the core reads ' +
-      'membership rather than arrival order — a set of referrers is a superposition, not a sequence. The reflection ' +
+      'membership rather than arrival order — a set of referrers is a superposition. The reflection ' +
       'is a bijection, so nothing is lost before the fold, and applying it twice returns every vector to itself. ' +
-      'HONEST SCOPE: integrity, not truth — the core proves WHICH set folded to it, never what its members mean.',
+      'HONEST SCOPE: integrity— the core proves WHICH set folded to it.',
   }
 }

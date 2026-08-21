@@ -136,7 +136,7 @@ test('skillSurface serves ONLY that skill\'s theorems, and REFUSES an unknown on
     assert.equal(s.fold, g.fold)
     const foreign = s.theorems.filter((t) => bySkill.get(t.key) !== g.skill)
     assert.deepEqual(foreign.map((t) => t.key), [], `${g.skill} served a theorem carrying another skill`)
-    // the handle is THE one derivation from the address (handle.ts), not a shape that merely looks like one — a
+    // the handle is THE one derivation from the address (handle.ts)— a
     // constant would satisfy the pattern while addressing every theorem to the same place
     for (const t of s.theorems) assert.equal(t.handle, handleOf(t.address), `${t.key}: the handle must be handleOf(address)`)
     assert.equal(s.handle, handleOf(s.fold), `${g.skill}: the cluster handle must be handleOf(fold)`)
@@ -148,7 +148,7 @@ test('skillSurface serves ONLY that skill\'s theorems, and REFUSES an unknown on
   assert.equal(servedKeys.length, THEOREMS.length, 'the axis covers the whole ledger')
   assert.equal(new Set(servedKeys).size, THEOREMS.length, 'no theorem is served under two skills')
 
-  // NEGATIVE — an unknown skill is refused BY NAME with the live list, never answered with an empty set that would
+  // NEGATIVE — an unknown skill is refused BY NAME with the live list
   // read like "this capability is unproven"
   assert.throws(() => skillSurface('no-such-skill'), (e: Error) => {
     assert.match(e.message, /unknown skill "no-such-skill"/)
@@ -177,8 +177,8 @@ test('skillIndex enumerates EVERY skill with its count — the surface is discov
   assert.equal(rows.some((r) => r.theorems === 0), false, 'a listed skill with no theorems would be an empty promise')
 })
 
-test('the ESCO mapping is a POINTER and a RULE — a homograph is named, never kept', () => {
-  // the lookup is school-apis' own derivation, not a second URL that can drift from it
+test('the ESCO mapping is a POINTER and a RULE — a homograph is named', () => {
+  // the lookup is school-apis' own derivation
   for (const g of skillGroups())
     assert.equal(skillEsco(g.skill).lookup, escoSearchUrl(escoPhrase(g.skill), 'skill'))
 
@@ -190,10 +190,10 @@ test('the ESCO mapping is a POINTER and a RULE — a homograph is named, never k
   // NEGATIVE — the fragment hit must NOT be on-topic, and it must not be silently dropped either
   assert.equal(m.onTopic.includes('cast concrete rings'), false)
   assert.equal(m.onTopic.length + m.homographs.length, 3, 'every title handed in comes back judged, none discarded')
-  // the judgement is school-apis' published rule, not a copy of it
+  // the judgement is school-apis' published rule
   for (const title of ['cast concrete rings', 'z9 ring analysis', 'finish costumes'])
     assert.equal(m.onTopic.includes(title), escoWholeName(escoPhrase('z9-ring'), title))
-  // handing in nothing yields the pointer alone — an absence, never a fabricated match
+  // handing in nothing yields the pointer alone — an absence
   assert.deepEqual(skillEsco('z9-ring').onTopic, [])
   assert.deepEqual(skillEsco('z9-ring').homographs, [])
   // it is PURE: the same call folds to the same address twice, and a different skill to a different one
@@ -231,7 +231,7 @@ test('the skills FINDER is clean, and is wired into the guard as BLOCKING', () =
   assert.doesNotMatch(guard, /\{ name: 'no-such-finder', run:/)
 })
 
-test('the two skill tools are CATEGORISED, not dropped into Other', () => {
+test('the two skill tools are CATEGORISED', () => {
   for (const tool of SKILL_TOOLS) {
     const entry = MCP_CATALOG.find((t) => t.name === tool)
     assert.ok(entry, `${tool} must be in the catalogue`)

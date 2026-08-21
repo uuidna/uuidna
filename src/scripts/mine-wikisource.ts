@@ -21,9 +21,9 @@
 // with every reading, because a wiki page is not frozen the way a Gutenberg file is: counts without the
 // revision they were taken from are an assertion, and with it they are a receipt.
 //
-// SCALE IS BATCHED, NOT HAMMERED. The API accepts many titles per request, so a category of fifty works costs a
+// SCALE IS BATCHED. The API accepts many titles per request, so a category of fifty works costs a
 // handful of calls rather than fifty. Requests are sequential and the batch size is bounded — the point is to
-// read a library thoroughly, not to make a nuisance of the reading.
+// read a library thoroughly.
 //
 // The decoder is script-agnostic (Unicode property escapes), so this works on any Wikisource language. The
 // numerals table in decode-book.ts is the only per-language part, and it currently carries English and Bulgarian.
@@ -38,7 +38,7 @@ const UA = 'uuidna-research/0.2.7 (https://uuidna.com; content-addressed ledger;
 export interface Page { pageid: number; title: string }
 export interface Reading extends Decoding { pageid: number; title: string; revid: number; lang: string; text: string }
 
-/** wikitext carries templates, refs and link syntax that are apparatus, not the work. Strip them so the counts
+/** wikitext carries templates, refs and link syntax that are apparatus. Strip them so the counts
  *  describe what was written rather than how the wiki stores it. */
 export function stripMarkup(wt: string): string {
   return wt
@@ -93,7 +93,7 @@ export async function readBatch(lang: string, pages: readonly Page[], top: numbe
   const out: Reading[] = []
   for (const p of got) {
     const text = stripMarkup(p.revisions?.[0]?.slots?.main?.content ?? '')
-    if (!text.trim()) continue // an empty extract is a miss, not a short work — never report it as zero words
+    if (!text.trim()) continue // an empty extract is a miss— never report it as zero words
     out.push({ ...decode(text, top), pageid: p.pageid, title: p.title, revid: p.revisions?.[0]?.revid ?? 0, lang, text })
   }
   return out
@@ -126,7 +126,7 @@ if (process.argv[1] && /mine-wikisource\.(js|ts)$/.test(process.argv[1])) {
     console.log(`  ${String(r.words).padStart(7)}w ${String(r.distinct).padStart(6)}d  rev ${String(r.revid).padStart(9)}  ${r.title.slice(0, 44).padEnd(44)} ${r.ranks.slice(0, 3).map((x) => x.word + '=' + x.count).join(' ')}`)
   }
   const missing = pages.length - readings.length
-  console.log(`\n  ${readings.length} decoded${missing > 0 ? `, ${missing} with no extract (reported as misses, never as zero)` : ''}`)
+  console.log(`\n  ${readings.length} decoded${missing > 0 ? `, ${missing} with no extract (reported as misses` : ''}`)
   console.log(`  ${chars} characters · ${words} words · ${numerals} numerals written as words`)
   if (readings.length) {
     const biggest = readings.reduce((a, b) => (b.words > a.words ? b : a))

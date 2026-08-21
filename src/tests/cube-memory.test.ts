@@ -40,9 +40,9 @@ test('a COUNT is not a neighbourhood — the right number of the wrong keys is r
   hold(mem, { key: 'a', principle: 'Ring', address: addr('3') })
   assert.equal(cubeOf(mem, 'Ring')!.sealed, false, 'three holds of two keys is not three members')
   assert.throws(() => hold(mem, { key: 'stranger', principle: 'Ring', address: addr('4') }), /not a member/,
-    'a key the census does not name must be REFUSED, not counted toward completeness')
+    'a key the census does not name must be REFUSED')
   assert.throws(() => hold(mem, { key: 'a', principle: 'Nowhere', address: addr('5') }), /does not carry/,
-    'an unknown neighbourhood is unknown, not empty')
+    'an unknown neighbourhood is unknown')
 })
 
 test('the cube handle is ORDER-INVARIANT, and moves when any member moves', () => {
@@ -65,7 +65,7 @@ test('a standing receipt means NOT RECOMPUTED, and only the changed cube pays', 
   assert.equal(receipts['Ring'], cubeOf(first, 'Ring')!.address, 'and it is exactly the cube fold')
   for (const [principle, v] of Object.entries(receipts)) {
     assert.match(v, /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/, 'messaging carries complete uuids')
-    // the handle is that address TRUNCATED, never a second identity — 32 bits of the 128 that travel
+    // the handle is that address TRUNCATED— 32 bits of the 128 that travel
     const cube = cubeOf(first, principle)!
     assert.equal(cube.handle, v.replace(/-/g, '').slice(0, 8), 'the handle is the address, cut short')
     assert.equal(v.replace(/-/g, '').length, 32, 'the receipt carries all 128 bits')
@@ -88,7 +88,7 @@ test('a MISSING receipt is not a fresh one', () => {
   const mem = cubeMemory(CENSUS); fill(mem, 'Ring', ['a', 'b', 'c']); fill(mem, 'Vortex', ['x', 'y'])
   const plan = planMemory(mem, {})
   assert.deepEqual([...plan.fresh], [], 'absence of a receipt is not a receipt')
-  assert.deepEqual([...plan.moved], ['Ring', 'Vortex'], 'an unseen cube is work, not a hit')
+  assert.deepEqual([...plan.moved], ['Ring', 'Vortex'], 'an unseen cube is work')
 })
 
 test('a PARTIAL RUN neither writes a partial store nor forgets the cubes it never looked at', () => {

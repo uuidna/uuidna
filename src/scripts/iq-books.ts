@@ -9,7 +9,7 @@
 // is the vacuity law turned on the decoder itself: the same test that killed the seams theorem, which was true by
 // construction and therefore said nothing.
 //
-// THE SAMPLE IS COMPUTED, NOT CHOSEN. The first attempt at this was nine book ids typed by hand and called random.
+// THE SAMPLE IS COMPUTED. The first attempt at this was nine book ids typed by hand and called random.
 // They were not random, they were mine — English-language classics I happened to know — so any conclusion drawn
 // from them would have measured my taste and reported it as a property of literature. Here the sample is derived
 // from a seed through toUuid, the ledger's own content-addresser: nobody picks the books, and anyone re-running
@@ -17,10 +17,10 @@
 // wide anyway because it settles no theorem — a seeded draw is both unbiased and RECOMPUTABLE, so a surprising
 // result can be checked rather than taken on trust.
 //
-// MISSES ARE REPORTED, NEVER HIDDEN. A sampled id may not exist or may carry no plain text. Those are counted and
+// MISSES ARE REPORTED. A sampled id may not exist or may carry no plain text. Those are counted and
 // named, because a sample that silently drops its failures is a sample that reports whatever survived.
 //
-// Exits non-zero when a candidate fact holds across the WHOLE sample: that is the finding, not a pass. It means
+// Exits non-zero when a candidate fact holds across the WHOLE sample: that is the finding. It means
 // the fact cannot distinguish one book from another and must not be sealed as though it identifies anything.
 //
 //   node dist/scripts/iq-books.js [--seed <text>] [--n 12]

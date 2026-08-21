@@ -14,10 +14,10 @@
 // package.json, then heartbeats again, then spin drift, then the derived diff. Every one was already true on the
 // first pass. The sequence did not compute all at once.
 //
-// INDEPENDENT MEANS CONCURRENT, NOT MERELY UNGATED. The first version of this script collected every verdict but
+// INDEPENDENT MEANS CONCURRENT. The first version of this script collected every verdict but
 // still walked the checks one after another, so it reported all at once while computing linearly — and was slow for
 // exactly that reason. Independence is the licence to run them TOGETHER: the wall-clock of the check phase is the
-// slowest single check, not the sum of all sixteen.
+// slowest single check.
 //
 // Three classes, derived from the chain rather than copied — a hand-typed second list could only lag the first:
 //   GENERATOR     ordered, fail-fast. Later steps read what it writes.
@@ -42,7 +42,7 @@ import { ROOT } from './api.js'
  *
  *  Kept as SEPARATE patterns rather than one alternation on purpose. Collapsed into a single regex, a gate-name
  *  literal ends up directly before an alternation bar, and the pipes finder — which holds the law that a gate's
- *  exit code is captured raw, never through a shell pipe — reads that bar as the pipe and flags this file. It is
+ *  exit code is captured raw— reads that bar as the pipe and flags this file. It is
  *  right to look: grepping source cannot tell an alternation from a pipe. One pattern per line, no ambiguity.
  *  (This note is deliberately written WITHOUT the offending characters: the first version of it described the
  *  pattern by quoting it, and so tripped the very finder it was explaining — the seventh use-versus-mention catch
@@ -167,6 +167,6 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
   }
   console.error(`\n✗ gate-all — ${failed.length} of ${count('check') + count('serial-check')} checks FAILED, all computed in one pass (${Date.now() - started}ms):\n`)
   for (const f of failed) console.error(`  · ${label(f.cmd)}  (exit ${f.exit})`)
-  console.error('\n  These are simultaneous, not sequential — the && chain would have shown you ONE of them per run.')
+  console.error('\n  These are simultaneous— the && chain would have shown you ONE of them per run.')
   process.exit(1)
 }

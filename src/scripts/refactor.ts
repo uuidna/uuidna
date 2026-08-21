@@ -5,7 +5,7 @@
 // address digital root — its ℤ/9 weight) and TIME (its byte size — a proxy for the work it carries). The LIGHTEST
 // (smallest, lowest-gravity) are marked to COMPRESS — folded into a shared `misc/index.ts` rather than their own folder,
 // so the tree keeps only meaningful single-word folders. Run with --apply to execute the move + rewrite every import
-// (depth-aware); default is the dry-run PLAN so the guard can check it before a single file moves. Integrity, not truth.
+// (depth-aware); default is the dry-run PLAN so the guard can check it before a single file moves. Integrity.
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { seedOf } from '../handle.js'
 import { join, dirname } from 'node:path'

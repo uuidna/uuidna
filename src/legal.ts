@@ -4,7 +4,7 @@
 // tamper-evident receipt, the project's compliance STANCE (it makes no compliance claim and its own gate refuses
 // one), and the standards it CITES (not certifies) — each recomputable by anyone, folded to one receipt. It is the
 // evidence() pattern applied to the legal surface: uuidna delivers what recomputes; the ruling is a human's, and a
-// court's, never a fold's. Integrity, not truth.
+// court's, never a fold's. Integrity.
 import { runTrial } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { vocabulary } from './vocab.js'
@@ -24,7 +24,7 @@ export interface LegalFacts {
 }
 
 /** legalFacts() → the recomputable legal fact base. Deterministic: same repo state → same facts → same receipt.
- *  NOT a legal opinion — the inputs an audit starts from, never its conclusion. */
+ *  NOT a legal opinion — the inputs an audit starts from. */
 export function legalFacts(): LegalFacts {
   const trial = runTrial()
   const standardsCited = vocabulary().standards
@@ -42,12 +42,12 @@ export function legalFacts(): LegalFacts {
     ledger: { theorems: trial.count, receipt: trial.receipt, note: 'tamper-evident: any change moves the receipt; recompute with `npm run lean`' },
     complianceStance: {
       makesComplianceClaim: false,
-      note: 'The project makes NO compliance claim — it disclaims one (privacy by design, not certified). See /privacy.',
+      note: 'The project makes NO compliance claim — it disclaims one (privacy by design. See /privacy.',
       overclaimRefused,
     },
     standardsCited,
     forCounsel:
-      'These are recomputable inputs, not a verdict. A qualified IP/technology attorney should review them against ' +
+      'These are recomputable inputs. A qualified IP/technology attorney should review them against ' +
       'the relevant jurisdictions (copyright, privacy such as GDPR/CCPA, export/crypto controls, consumer law) and ' +
       'the actual commercial deployment. uuidna delivers what recomputes and leaves the legal ruling to humans.',
     receipt: merkleFold([

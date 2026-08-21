@@ -5,7 +5,7 @@
 // captain's save is 64. The fused ring holds 63 states, the two coins buy 64, and the difference is the one that
 // closes it: the save is the first bit beyond the whole structure. COMPUTE each fact in JS, GENERATE its
 // `by decide` theorem, VERIFY sorry-free. Honest scope: ring arithmetic and a counting correspondence — the CRT
-// isomorphism is a statement about residues, never about the world the residues are used to describe.
+// isomorphism is a statement about residues.
 import { emit, range } from './lean-gen.js'
 
 const ord = (a: number, n: number): number => { let x = 1; for (let k = 1; k <= n; k++) { x = (x * a) % n; if (x === 1) return k } return 0 }
@@ -24,7 +24,7 @@ const FACTS = [
     lean: 'theorem rosette_and_vortex_are_coprime : (Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3) := by decide' },
 
   { key: 'axes_stride_coprime', skill: 'crt',
-    why: 'THE SEVEN AXES OF DISCOVERY, AND WHY THEY LEAVE NO ORPHAN. Every theorem page weaves its neighbours on seven axes: three navigational (skill, principle, sequence), three CYCLIC ROTATIONS over the whole ledger, and the runtime referer — 3 + 3 + 1 = 7. The rotations are what make the ledger totally traversable: a stride walks every position exactly when it is coprime to the count, so following one rotation from ANY theorem reaches ALL of them, with no gap and no orphan. The strides are not decorative — they are 1, 7 and 9: the unit step, the rosette and the vortex, and 7 · 9 = 63 is the fused ring the captain\'s two coins buy with one to spare (63 = 2⁶ − 1). The condition is REAL, not decorative, and the last conjunct proves it can fail: gcd(2, 8) = 2, so an even stride on an even count closes early and orphans half the ledger. this seals the STRUCTURE — the axis count, the strides, their coprimality and the fused product. It deliberately does NOT seal the ledger\'s current size, because a theorem that froze the count would rot the moment a wing lands (the mistake audit-mcp-native made with 1195); totality for a given count is checked at run time against that count, never asserted here.',
+    why: 'THE SEVEN AXES OF DISCOVERY, AND WHY THEY LEAVE NO ORPHAN. Every theorem page weaves its neighbours on seven axes: three navigational (skill, principle, sequence), three CYCLIC ROTATIONS over the whole ledger, and the runtime referer — 3 + 3 + 1 = 7. The rotations are what make the ledger totally traversable: a stride walks every position exactly when it is coprime to the count, so following one rotation from ANY theorem reaches ALL of them, with no gap and no orphan. The strides are not decorative — they are 1, 7 and 9: the unit step, the rosette and the vortex, and 7 · 9 = 63 is the fused ring the captain\'s two coins buy with one to spare (63 = 2⁶ − 1). The condition is REAL. this seals the STRUCTURE — the axis count, the strides, their coprimality and the fused product. It deliberately does NOT seal the ledger\'s current size, because a theorem that froze the count would rot the moment a wing lands (the mistake audit-mcp-native made with 1195); totality for a given count is checked at run time against that count.',
     js: () => 3 + 3 + 1 === 7 && coprime(7, 9) && 7 * 9 === 63 && 63 === 2 ** 6 - 1 && !coprime(2, 8),
     lean: 'theorem axes_stride_coprime : (3 + 3 + 1 = 7) ∧ (Nat.gcd 7 9 = 1) ∧ (7 * 9 = 63) ∧ (63 = 2^6 - 1) ∧ (Nat.gcd 2 8 = 2) := by decide' },
 
@@ -45,7 +45,7 @@ const FACTS = [
     lean: 'theorem fused_units_are_the_orbit_squared : (((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6) := by decide' },
 
   { key: 'the_coin_keeps_its_order_in_the_fused_ring', skill: 'crt',
-    why: 'THE COIN\'S WALK SURVIVES THE FUSION, AND THE SEAM IS NAMED — 2 has order 6 in Z/9 and order 6 in the fused Z/63, so the coin tossed into itself still comes home in six. But its order in Z/7 is 3, not 6: the coin walks the rosette TWICE for every single turn of the vortex. That asymmetry is the honest seam of the fusion — the orders are the least common multiple, lcm(3,6) = 6, so the fused order is the vortex\'s, and the rosette simply closes twice inside it. Named rather than smoothed: the two windows do not turn at the same rate.',
+    why: 'THE COIN\'S WALK SURVIVES THE FUSION, AND THE SEAM IS NAMED — 2 has order 6 in Z/9 and order 6 in the fused Z/63, so the coin tossed into itself still comes home in six. But its order in Z/7 is 3. That asymmetry is the honest seam of the fusion — the orders are the least common multiple, lcm(3,6) = 6, so the fused order is the vortex\'s, and the rosette simply closes twice inside it. Named rather than smoothed: the two windows do not turn at the same rate.',
     js: () => ord(2, 63) === 6 && ord(2, 9) === 6 && ord(2, 7) === 3 && ord(5, 63) === 6,
     lean: 'theorem the_coin_keeps_its_order_in_the_fused_ring : ((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1) := by decide' },
 

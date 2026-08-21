@@ -43,7 +43,7 @@ test('THE MIRROR THE HOSTED EDGE ANSWERS FROM MATCHES A LIVE RECOMPUTE, KEY FOR 
   assert.deepEqual(caught.disagreeing, [live[0].key])
 })
 
-test('the two surfaces give the SAME answer for the same theorem, not merely the same tool name', () => {
+test('the two surfaces give the SAME answer for the same theorem', () => {
   const key = live.find((r) => r.legs.length === LEGS.length)?.key ?? live[0].key
   const stdio = callTool('uuidna_rosetta_legs', { key }) as { legs: string[]; wing: string; claimedBy: string }
   const rpc = handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_rosetta_legs', arguments: { key } } }) as { result: { content: { text: string }[] } }
@@ -58,7 +58,7 @@ test('the two surfaces give the SAME answer for the same theorem, not merely the
   assert.equal(edgeCensus.total, localCensus.total)
 })
 
-test('three legs LOCATE a fault, two only DETECT one — the bound, not a preference', () => {
+test('three legs LOCATE a fault, two only DETECT one — the bound', () => {
   assert.equal(canLocateFault(THREE.legs), true)
   assert.equal(canLocateFault(TWO.legs), false, 'two correlated legs must never be reported as able to locate a fault')
   assert.match(legsFor([TWO], 'b').verdict, /DETECT/)
@@ -103,7 +103,7 @@ test('THE FLOOR MAY ONLY RISE, and the check FIRES when anchoring is lost', () =
   assert.match(floorGaps(noTests, FLOOR)[0], /stopped proving it can fail/)
 })
 
-test('the scarce legs are reported as they stand, never smoothed', () => {
+test('the scarce legs are reported as they stand', () => {
   const c = legCensus(live)
   const witness = c.perLeg.find((p) => p.leg === 'witness')?.theorems ?? 0
   const falsifier = c.perLeg.find((p) => p.leg === 'falsifier')?.theorems ?? 0

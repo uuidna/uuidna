@@ -4,7 +4,7 @@
 // Lean source moves the content fingerprint, so a new VERSION appears as a new src/seeds/<uuid> folder — versions are
 // immutable, append-only, exactly like diamonds. And because the status travels IN the uuid, filtering and indexing
 // cost NOTHING: readSeed(dirname) recovers (status, stem, content) with zero file reads and zero index — the folder
-// listing IS the index, reverse-engineered from the names. Integrity, not truth: the seed carries provenance and
+// listing IS the index, reverse-engineered from the names. Integrity
 // structure; PayloadCMS renders it, uuidna never executes it.
 import { coin64 } from './address.js'
 import { imprint, readImprint } from './imprint.js'
@@ -119,7 +119,7 @@ export interface PayloadDoc {
 
 /** toPayloadDocs(seed) → the seed flattened into standard Payload pages-collection docs: one parent (the lean
  *  file) + one child per theorem, wired by the nested-docs `parent` slug. Feed them to Payload's Local/REST API
- *  upsert-by-slug; compare `uuidnaVersion` first and skip equal — the whole sync is recognition, not migration. */
+ *  upsert-by-slug; compare `uuidnaVersion` first and skip equal — the whole sync is recognition. */
 export function toPayloadDocs(seed: LeanPageSeed): PayloadDoc[] {
   // the drafts field's values come from the one shared model, so the emitter and the sync cannot disagree
   const status: 'published' | 'draft' = seed.status === 'usable' ? PAYLOAD.statuses.published : PAYLOAD.statuses.draft
@@ -149,7 +149,7 @@ export function toPayloadDocs(seed: LeanPageSeed): PayloadDoc[] {
 // own Pages collection has no lexical `content` field; it renders a `layout` BLOCKS array (callout/cta/content/…).
 // toPayloadDocs' one-page-per-theorem shape auto-recognizes on a richText receiver but sits unrendered on a
 // blocks receiver — not because the DATA is wrong, but because the SHAPE is wrong: many docs vs. one doc, many
-// blocks. This is the second shape, not a replacement: one page PER WING, its `layout` holding one block PER
+// blocks. This is the second shape`layout` holding one block PER
 // THEOREM, each block carrying the theorem's own lexical content and its own address — the same per-theorem
 // identity toPayloadDocs now stamps, just folded into blocks instead of spread across sibling documents.
 export interface PayloadBlock {
@@ -164,7 +164,7 @@ export interface PayloadBlocksDoc {
   slug: string
   title: string
   _status: 'published' | 'draft'
-  layout: PayloadBlock[]        // one entry per theorem — the wing IS its blocks, not a parent with children
+  layout: PayloadBlock[]        // one entry per theorem — the wing IS its blocks
   uuidnaVersion: string
   uuidnaAddress: string         // the wing's own address (documentAddress of the whole seed), distinct from every block's
 }
@@ -182,7 +182,7 @@ export function toPayloadBlocksDoc(seed: LeanPageSeed): PayloadBlocksDoc {
       slug: String((n as { slug?: unknown }).slug ?? ''),
       title: String((n as { slug?: unknown }).slug ?? ''),
       content,
-      uuidnaAddress: documentAddress(content),   // per-theorem, never the wing's — the same law toPayloadDocs pays
+      uuidnaAddress: documentAddress(content),   // per-theorem's — the same law toPayloadDocs pays
     }
   })
   return {

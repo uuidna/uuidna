@@ -3,7 +3,7 @@
 // affine algebra (self-proving in JS), GENERATE a `by decide` Lean theorem, write lean/Sequence.lean, and VERIFY
 // it compiles sorry-free with `lean`. The mirror m(d)=10−d (≡1−d mod 9, fixed at 5); doubling σ and the mirror
 // generate AGL(1,ℤ/9) of order 54, acting in ONE orbit; the commutator [σ,μ] is the unit shift x↦x+1. Nothing
-// typed twice — every cell derived. Integrity, not truth.
+// typed twice — every cell derived. Integrity.
 import { emit, range } from './lean-gen.js'
 
 const m9 = (n: number) => ((n % 9) + 9) % 9
@@ -66,7 +66,7 @@ const FACTS = [
     },
     lean: "theorem gateways_mark_triangle : (flips strokes1 = [4]) ∧ (flips strokes2 = [1,4,7]) ∧ ([1,4,7].map dz = [9,6,3]) ∧ ([0,1,2,4,8,7,5,3,6,9].map dz = [0,9,8,6,2,3,5,7,4,1]) := by decide" },
   { key: 'budget_not_conserved',
-    why: 'THE STROKE BUDGET IS BOUNDED, NOT CONSERVED — the four-and-five is this pair\'s reading, not the reflection\'s law. Written with strokes the tour is 0\\1\\2\\4\\8/7/5/3/6/9 and its mirror 0\\9/8/6/2\\3\\5\\7/4/1, and BOTH read four falling and five rising, which is exactly why the conservation looked like a law. It is not. Across the whole family — the 54 affine rows x -> a*x+b of AGL(1,Z/9), drawn from the same nine digits by the same rule — the budgets are 4,5 in 18 rows, 5,4 in 30 and 6,3 in 6: four-and-five is a MINORITY reading. The mirror keeps the budget on exactly 30 of the 54 and BREAKS it on 24; row(2,2) reads four falling and its reflection reads six. And the identity is the ONLY affine map conserving the budget on every row, so no reflection could ever have been the conserving one. What IS general is a BOUND: every one of the 54 rows rises three, four or five times, never fewer and never more, so only three of the ten conceivable budgets are ever drawn. This replaces strokes_survive_reflection, which stated the conservation as a law: that theorem was TRUE of the pair and false as framed, and it passed both the js mirror and the kernel because a single hand wrote both legs.',
+    why: 'THE STROKE BUDGET IS BOUNDED— the four-and-five is this pair\'s reading's law. Written with strokes the tour is 0\\1\\2\\4\\8/7/5/3/6/9 and its mirror 0\\9/8/6/2\\3\\5\\7/4/1, and BOTH read four falling and five rising, which is exactly why the conservation looked like a law. It is not. Across the whole family — the 54 affine rows x -> a*x+b of AGL(1,Z/9), drawn from the same nine digits by the same rule — the budgets are 4,5 in 18 rows, 5,4 in 30 and 6,3 in 6: four-and-five is a MINORITY reading. The mirror keeps the budget on exactly 30 of the 54 and BREAKS it on 24; row(2,2) reads four falling and its reflection reads six. And the identity is the ONLY affine map conserving the budget on every row, so no reflection could ever have been the conserving one. What IS general is a BOUND: every one of the 54 rows rises three, four or five times. This replaces strokes_survive_reflection, which stated the conservation as a law: that theorem was TRUE of the pair and false as framed, and it passed both the js mirror and the kernel because a single hand wrote both legs.',
     js: () => {
       const ren = (v: number) => (v === 0 ? 9 : v)
       const arow = (a: number, b: number) => [0, ...[1, 2, 4, 8, 7, 5, 3, 6, 9].map((d) => ren(m9(a * d + b)))]
@@ -92,7 +92,7 @@ const FACTS = [
   { key: 'one_strip', why: 'at EACH step the doubling sequence and its inversion are computed together: forward[k] + inverted[k] = 10 (the rungs), and BOTH rails end at the center 5 (the reflection fixed point) while the ends 1,9 mirror — so forward and reflected are ONE strip (a half-twist band), joined at the heart and closed at the void 0≡9',
     js: () => { const fwd = (() => { const o = []; let x = 1; do { o.push(x); x = m9(x * 2) } while (x !== 1); return o })(); const inv = fwd.map((d) => 10 - d); return fwd.every((f, k) => f + inv[k] === 10) && fwd[fwd.length - 1] === 5 && inv[inv.length - 1] === 5 && fwd[0] + inv[0] === 10 && m9(9) === 0 },
     lean: "theorem one_strip : (([1,2,4,8,7,5].zip [9,8,6,2,3,5]).all (fun p => p.1 + p.2 == 10)) ∧ ([1,2,4,8,7,5].getLast? = some 5) ∧ ([9,8,6,2,3,5].getLast? = some 5) ∧ (1 + 9 = 10) ∧ (9 % 9 = 0) := by decide" },
-  { key: 'double_strand', why: 'the developed-true core of "dna": the two strands A and B pair to 10 at EVERY position — complementary base-pairing (the double helix), each rung a reflection; this is the algebra, not a biological claim',
+  { key: 'double_strand', why: 'the developed-true core of "dna": the two strands A and B pair to 10 at EVERY position — complementary base-pairing (the double helix), each rung a reflection; this is the algebra',
     js: () => { const A = [1, 2, 4, 8, 7, 5, 3, 6, 9]; const B = A.map((d) => 10 - d); return A.every((a, i) => a + B[i] === 10) },
     lean: "theorem double_strand : (([1,2,4,8,7,5,3,6,9].zip [9,8,6,2,3,5,7,4,1]).all (fun p => p.1 + p.2 == 10)) := by decide" },
   { key: 'polarities_plus_minus', why: 'the vortex polarities: the mirror pairs each sum to 10, splitting the digits into − (below the center 5) and + (above 5); the two centers 5 and 0≡9 are self-polar — the ± of the reflection',
@@ -120,7 +120,7 @@ const FACTS = [
   { key: 'salt_seq_injective', skill: 'crypt-salt', why: 'the crypt fix: an advancing-sequence salt is injective in the step (equal salts ⇔ equal steps) — distinct seals never collide',
     js: () => { const ss = (_c: number, s: number) => m9(s); const R = [0, 1, 2, 3, 4, 5, 6, 7, 8]; return R.every((s1) => R.every((s2) => (ss(0, s1) === ss(0, s2)) === (s1 === s2))) },
     lean: "theorem salt_seq_injective : (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => (saltSeq 0 s1 == saltSeq 0 s2) == (s1 == s2))) := by decide" },
-  { key: 'salt_seq_fibre_singleton', skill: 'crypt-salt', why: 'the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept, not collapsed',
+  { key: 'salt_seq_fibre_singleton', skill: 'crypt-salt', why: 'the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept',
     js: () => { const ss = (_c: number, s: number) => m9(s); const R = [0, 1, 2, 3, 4, 5, 6, 7, 8]; return R.every((s0) => R.filter((s) => ss(0, s) === ss(0, s0)).length === 1) },
     lean: "theorem salt_seq_fibre_singleton : (List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0)).length == 1) := by decide" },
   { key: 'five_is_the_halving', skill: 'sequence',

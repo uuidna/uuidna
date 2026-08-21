@@ -1,16 +1,16 @@
 // transform — the automation of the rule "no unverified material stays: transform until verified". Only VERIFICATION
 // is honesty: a "honest / bounded" label with no proof behind it is itself an unverified claim — a lie, manipulation —
-// so this automation ADMITS only what verifies, and it verifies EXACTLY, never by association. Each material is driven
+// so this automation ADMITS only what verifies, and it verifies EXACTLY. Each material is driven
 // toward a terminal, recycling never discarding:
 //   • VERIFIED   — the material IS a SEALED theorem (byte-identical, or identical after whitespace normalization — the
 //                  SAME statement, reformatted), or it CITES a sealed theorem. The content-address is recomputed to
 //                  confirm. Admitted. The only honest terminal.
-//   • UNVERIFIED — it is not a sealed statement and cites no sealed proof. NOT admitted, NOT called honest, NOT called
+//   • UNVERIFIED — it is not a sealed statement and cites no sealed proof. NOT admitted
 //                  false — recycled with a DEVELOP plan (cite a sealed theorem, or supply a decidable proof). It does
 //                  not "stay": it is held out until a proof exists.
 // The transform CANNOT manufacture truth. There is no fuzzy match: "the moon is made of cheese" shares a word with a
 // lunar theorem but is NOT that theorem, so it stays UNVERIFIED. An overclaim to SOLVE a problem is never admitted —
-// only the sealed REFLECTION (dz(dz k)=k), cited or stated exactly, verifies. Folds to one receipt. Integrity, not truth.
+// only the sealed REFLECTION (dz(dz k)=k), cited or stated exactly, verifies. Folds to one receipt. Integrity.
 import { theorems } from './theorems/index.js'
 import { verifyStatement } from './verify-statement.js'
 import { adjudicate } from './adjudicate.js'
@@ -40,7 +40,7 @@ const normIndex = (): Map<string, { key: string; address: string }> => {
 }
 
 /** Drive one material to a terminal state — VERIFIED only via an EXACT seal (as-is, whitespace-normalized, or a
- *  sealed citation), else UNVERIFIED (recycled, never admitted). No association, no manufacture of truth. */
+ *  sealed citation), else UNVERIFIED (recycled. No association, no manufacture of truth. */
 export function transformOne(material: string): TransformCell {
   const input = norm(String(material))
   // 1) exact: is this the statement of a sealed theorem?
@@ -61,11 +61,11 @@ export function transformOne(material: string): TransformCell {
     input, status: 'VERIFIED', transform: 'cited', address: toUuid('cited:' + input),
     note: 'VERIFIED by citation — it names a sealed theorem in the ledger',
   }
-  // 4) no proof reached — NOT admitted, never called honest
+  // 4) no proof reached — NOT admitted
   return {
     input, status: 'UNVERIFIED',
     develop: 'cite a sealed theorem (/theorem/<key>) or supply a decidable proof — then, and only then, it verifies',
-    note: 'no sealed proof — NOT admitted and NOT called honest (honesty without verification is a lie); recycled, not stayed',
+    note: 'no sealed proof — NOT admitted and NOT called honest (honesty without verification is a lie); recycled',
   }
 }
 

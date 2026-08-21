@@ -103,7 +103,7 @@ function predictPackageGaps(): PredictedGap[] {
     // reported nothing a reader could act on, and did it at HIGH likelihood: the engine's single most severe
     // finding was a local build artifact being younger than its source, which is what a build artifact IS between
     // edits. The real check is deterministic and already runs: gen-packages --verify at guard step 3, which
-    // compares the CONTENT of the generated surfaces, not a timestamp on an untracked file.
+    // compares the CONTENT of the generated surfaces.
 
     // Pattern: Generated file without marker
     if (existsSync(srcPath)) {
@@ -178,7 +178,7 @@ function predictTestGaps(): PredictedGap[] {
 
 /** the scripts already DECLARED dormant — read once, so the engine cannot predict what the repo has written down.
  *  A missing or unreadable list is treated as EMPTY rather than silently trusted: if the declaration cannot be
- *  read, every unwired script should be reported, not none of them. */
+ *  read, every unwired script should be reported. */
 const DECLARED_DORMANT: Set<string> = (() => {
   try {
     const raw = JSON.parse(readFileSync(join(ROOT, 'lean', 'dormant-scripts.json'), 'utf8')) as { scripts?: string[] }
@@ -198,7 +198,7 @@ function predictFeatureGaps(): PredictedGap[] {
 
   // A script is WIRED when something actually INVOKES it — `dist/scripts/<name>.js` in an npm script body, a CI
   // workflow, or another script that spawns it. The previous check asked whether any npm script KEY contained the
-  // filename as a substring: a NAME, not a property. `audit.ts` passed it because a script named "audit" exists —
+  // filename as a substring: a NAME. `audit.ts` passed it because a script named "audit" exists —
   // and that script never runs dist/scripts/audit.js. It was unwired AND dead (ENOENT on a stale root-level read)
   // for as long as nobody looked, which is exactly the gap this detector exists to prevent. (The old expression also
   // nested a second `.some` over the same keys array, rescanning it for no effect.)
@@ -242,7 +242,7 @@ function predictFeatureGaps(): PredictedGap[] {
   for (const file of scriptFiles) {
     const scriptName = file.replace('.ts', '')
     const others = invocationText(join(scriptsDir, file))
-    // A file another module IMPORTS is a shared library (scripts/api.ts is the declared one), not a script anybody
+    // A file another module IMPORTS is a shared library (scripts/api.ts is the declared one)
     // runs — reachability for those is support.ts's dead-module scan. Only files nothing imports must be INVOKED.
     if (others.includes(`from './${scriptName}.js'`) || others.includes(`from './scripts/${scriptName}.js'`)) continue
     // ONE LAW, NOT TWO OPINIONS. This used to match the literal string `dist/scripts/<name>.js`, which knows
@@ -292,7 +292,7 @@ export function predictGaps(): { total: number; declaredDormantSkipped: number; 
   const all = [...predictTheoremGaps(), ...predictPackageGaps(), ...predictExportGaps(), ...predictTestGaps(), ...predictFeatureGaps()]
   return {
     total: all.length,
-    // NO SILENT CAPS: what the declaration absorbed is COUNTED, never just dropped — a number that quietly
+    // NO SILENT CAPS: what the declaration absorbed is COUNTED— a number that quietly
     // shrinks reads as progress, and this one is a boundary being respected, which is a different fact.
     declaredDormantSkipped: DECLARED_DORMANT.size,
     byLikelihood: {
@@ -307,7 +307,7 @@ export function predictGaps(): { total: number; declaredDormantSkipped: number; 
       'test — NOT proofs and NOT a claim that any of these WILL break. Each is a pattern that has produced a gap ' +
       'here before, offered so it can be closed before it forms. Deterministic: same tree, same list. Reads the ' +
       'filesystem, so this answers from the stdio server only; the edge has none and does not pretend to. ' +
-      'Integrity, not truth.',
+      'Integrity — the record recomputes for anyone.',
   }
 }
 

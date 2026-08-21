@@ -19,7 +19,7 @@ test('the recompute audit is FALSIFIABLE — a tampered statement is caught', ()
   assert.notEqual(toUuid(t.key + 'x:' + t.statement), t.address)
 })
 
-test('order-invariance is STRUCTURAL, not a finding — it holds for every input', () => {
+test('order-invariance is STRUCTURAL— it holds for every input', () => {
   // stated so no one mistakes it for an audit again: merkleFold sorts, so this cannot fail
   for (let n = 0; n <= 12; n++) {
     const a = [...Array(n).keys()].map((i) => toUuid('probe:' + n + ':' + i))

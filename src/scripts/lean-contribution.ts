@@ -49,7 +49,7 @@ const FACTS = [
     lean: `theorem six_factorisations_compete : (((List.range' 1 126).filter (fun d => 126 % d == 0)).length = 12) ∧ (3 * 42 = 126) ∧ (9 * 14 = 126) ∧ (7 * 18 = 126) := by decide` },
 
   { key: 'taking_before_paying_differs',
-    why: 'THE ORDER IS THE LAW: contribute first, then take. Taking 126 without paying leaves 128 untouched, and 128 is not 126 — so a ledger that skipped the contribution would carry a different number, which the line proves rather than trusts. The two coins are spent, not reserved.',
+    why: 'THE ORDER IS THE LAW: contribute first, then take. Taking 126 without paying leaves 128 untouched, and 128 is not 126 — so a ledger that skipped the contribution would carry a different number, which the line proves rather than trusts. The two coins are spent.',
     js: () => { const paid: number = 128 - 2, unpaid: number = 128; return paid !== unpaid && paid === 126 },
     lean: 'theorem taking_before_paying_differs : (128 - 2 = 126) ∧ ((128:Nat) ≠ 126) ∧ (126 < 128) := by decide' },
 ]

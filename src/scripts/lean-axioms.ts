@@ -6,12 +6,12 @@
 // discipline into a receipt that recomputes from the source, exactly like the decide-step heartbeat fold.
 //
 // What it catches, mechanically, that a grep cannot: a stray `sorry` (adds `sorryAx`), a `native_decide` (adds
-// `Lean.ofReduceBool` — trusts the COMPILER, not just the kernel), and any `import Mathlib`-borne `Classical.choice`
+// `Lean.ofReduceBool` — trusts the COMPILER`import Mathlib`-borne `Classical.choice`
 // / `propext` / `Quot.sound`. The allowed set is EMPTY by design: the trust base is `leanprover/lean4`'s kernel and
 // nothing beyond it. Requires the `lean` toolchain. Usage:
 //   npm run axioms          → audit the whole ledger, write lean/axioms.json, drain on any dependency
 //   npm run axioms --check   → audit only; do not rewrite the receipt (CI diff guard)
-// Integrity, not truth.
+// Integrity — the record recomputes for anyone.
 import { execFile } from 'node:child_process'
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
@@ -19,7 +19,7 @@ import { tmpdir } from 'node:os'
 import { theorems } from '../index.js'
 import { ROOT, MAXBUF } from './lean-gen.js'
 
-// The trust base is the kernel alone — NO axiom is tolerated, not even propext/Quot.sound. Widen this set only by a
+// The trust base is the kernel alone — NO axiom is tolerated.sound. Widen this set only by a
 // conscious, documented decision; a `by decide` ledger should never need to.
 const ALLOWED = new Set<string>()
 
@@ -28,7 +28,7 @@ const addrOf: Record<string, string> = Object.fromEntries(T.map((t) => [t.key, t
 
 // One audit probe per SOURCE FILE: the real, already-verified file text (it compiled in lean-all) with a
 // `#print axioms <key>` appended per theorem it defines. Files are flat (no `namespace`), so bare keys resolve and
-// one `lean` run answers for every theorem in the file — ~40 runs for the whole ledger, not one per theorem.
+// one `lean` run answers for every theorem in the file — ~40 runs for the whole ledger.
 const byFile: Record<string, string[]> = {}
 for (const t of T) (byFile[t.file] ||= []).push(t.key)
 
@@ -79,7 +79,7 @@ const runLean = (probe: string, attempt = 0): Promise<string> =>
   })
 
 // Compile one file + its axiom queries; resolve name → axiom-list for every theorem in the file. `async` so a failed
-// read/write (a missing probe source) surfaces as a promise REJECTION the pool awaits, not a synchronous throw.
+// read/write (a missing probe source) surfaces as a promise REJECTION the pool awaits.
 const auditFile = async (file: string, keys: string[]): Promise<Record<string, string[]>> => {
   const src = readFileSync(join(ROOT, 'lean', file), 'utf8')
   const probe = join(tmpdir(), 'uuidna-ax-' + file)

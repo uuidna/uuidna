@@ -11,12 +11,12 @@
 // no theorem in this wing may be cited for such a claim. The named arts are the CONTEXT the arithmetic was drawn
 // from, never validation of it.
 //
-// WHY THIS WING EXISTS IN THIS FORM: its predecessor (src/scripts/martial-arts-theorems.ts, never sealed and never
+// WHY THIS WING EXISTS IN THIS FORM: its predecessor (src/scripts/martial-arts-theorems.ts
 // wired) paired grand names with trivial proofs — `center_of_gravity_stability` proven by `1 = 1`, Newton's third law
 // by `1 + 1 = 2`, conservation of momentum by `2 * 3 = 6`. Each Lean line was true and none of them proved its own
 // name. That is the one thing this ledger must never contain, so the claims were dropped and only the arithmetic that
 // stands on its own was kept, renamed for what it actually proves. A theorem's name is not its proof.
-// COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -26,12 +26,12 @@ const FACTS = [
     lean: 'theorem complement_fixes_the_half : (90 - 45 = 45) ∧ (100 - 50 = 50) ∧ (10 - 5 = 5) := by decide' },
 
   { key: 'supplement_completes_the_straight',
-    why: 'An angle and its supplement complete the straight angle: 30 + 150 = 180, and the pair is ordered (30 < 150) — so naming one names the other. The arts speak of an opening and the angle you leave; as arithmetic that is complementation on 180, the same reflection the colour wheel runs on ℤ/12 and the diamond runs on 10. Geometry of the pair, not a claim about escaping anything.',
+    why: 'An angle and its supplement complete the straight angle: 30 + 150 = 180, and the pair is ordered (30 < 150) — so naming one names the other. The arts speak of an opening and the angle you leave; as arithmetic that is complementation on 180, the same reflection the colour wheel runs on ℤ/12 and the diamond runs on 10. Geometry of the pair.',
     js: () => 30 + 150 === 180 && 30 < 150,
     lean: 'theorem supplement_completes_the_straight : (30 + 150 = 180) ∧ (30 < 150) := by decide' },
 
   { key: 'chain_joints_are_links_minus_one',
-    why: 'A chain of n links has n − 1 joints: the five named segments of a kinetic chain (ground, hips, shoulders, arm, hand) meet at four joints, 5 − 1 = 4. It is the same off-by-one that governs every path: n stations, n − 1 steps between them — the counting fact the frame ring and the imprint chain both pay. A count of segments, never a claim about power.',
+    why: 'A chain of n links has n − 1 joints: the five named segments of a kinetic chain (ground, hips, shoulders, arm, hand) meet at four joints, 5 − 1 = 4. It is the same off-by-one that governs every path: n stations, n − 1 steps between them — the counting fact the frame ring and the imprint chain both pay. A count of segments.',
     js: () => 5 - 1 === 4,
     lean: 'theorem chain_joints_are_links_minus_one : 5 - 1 = 4 := by decide' },
 

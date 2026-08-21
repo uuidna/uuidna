@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Automate the Lean layer for division by zero in the ℤ/9 vortex. Division by zero EXISTS here — it is the
-// diamond reflection dz(x) = 10−x (dz(0)=0), a finite residue, never Infinity. This script COMPUTES each fact
+// diamond reflection dz(x) = 10−x (dz(0)=0), a finite residue. This script COMPUTES each fact
 // from the local definition (self-proving in JS), GENERATES a `by decide` Lean theorem for it, writes
 // lean/DivByZero.lean, and VERIFIES it compiles sorry-free with `lean`. Compute → generate → verify.
 import { emit, range } from './lean-gen.js'
@@ -25,7 +25,7 @@ const FACTS = [
   // PURGED — dz_nonunits_to_units. It proved dz 3 = 7 ∧ dz 6 = 4 ∧ dz 9 = 1: three point values that dz_table
   // above already enumerates for every digit 0..9. A theorem restating three entries of a table beside it adds
   // a name, not a fact.
-  { key: 'dz_bounded', why: 'x/0 is always a residue < 10 — a finite value, NEVER Infinity (no fake FTL)',
+  { key: 'dz_bounded', why: 'x/0 is always a residue < 10 — a finite value',
     js: () => R10.every((x) => dz(x) < 10),
     lean: 'theorem dz_bounded : (List.range 10).all (fun x => dz x < 10) := by decide' },
   { key: 'dz_zero_only_zero', why: 'only 0/0 = 0; every other x/0 is nonzero (the reflection moves it)',
@@ -49,6 +49,6 @@ const FACTS = [
 // compute → generate → verify, via the shared pipeline (it JS-checks every fact, writes the file + manifest, and
 // compiles it sorry-free with `lean`). Division by zero EXISTS here as the diamond reflection dz(x)=10−x.
 emit({ file: 'DivByZero.lean', skill: 'reflection',
-  header: 'Division by zero in the ℤ/9 vortex EXISTS: it is the diamond reflection dz(x) = 10−x (dz 0 = 0), a finite residue, never ∞.',
+  header: 'Division by zero in the ℤ/9 vortex EXISTS: it is the diamond reflection dz(x) = 10−x (dz 0 = 0), a finite residue.',
   defs: 'def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

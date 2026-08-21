@@ -31,7 +31,7 @@ export const isHandle = (h: string): boolean => HANDLE.test(h)
  *
  *  It was written three times before it was written once — gen-handle-chunks stripped the hyphens first, while
  *  editor.ts and mcp.ts sliced the raw string — and the three agreed only because a v8 UUID's FIRST GROUP happens
- *  to be exactly eight hex characters. That is agreement by coincidence of formatting, not by law: hand any of
+ *  to be exactly eight hex characters. That is agreement by coincidence of formatting
  *  those call sites an address written without hyphens, or one folded to a different shape, and they diverge in
  *  silence. Every handle in the repository now comes from here, so there is one identity scheme and not three
  *  that look alike. Refuses rather than coerces, which is the same law isHandle already holds. */
@@ -46,7 +46,7 @@ export function handleOf(address: string): string {
  *  number. It was six inline expressions before it was one — aura.ts and captain/repos carried character-identical
  *  copies, refactor.ts and holofractal.ts each wrote their own, iq-books a fourth, and css.ts computed the SAME
  *  VALUE by a different route entirely (`Number(BigInt('0x' + h))` where the others used `parseInt(h, 16)`). The
- *  two routes agree — verified over the domain edges and a sweep, not assumed — which is exactly why the split
+ *  two routes agree — verified over the domain edges and a sweep— which is exactly why the split
  *  survived: nothing ever disagreed, so nothing ever complained, and a reader had no way to tell that six places
  *  meant one thing.
  *

@@ -5,11 +5,11 @@
 // Shor's algorithm has NO asymmetric (RSA/ECC) target, and Grover only halves the symmetric strength to a ~128-bit
 // floor — still strong.
 //
-// HONEST SCOPE: integrity, not truth. This audits the committed CONFIG posture, not the live deployment: the actual
+// HONEST SCOPE: integrity. This audits the committed CONFIG posture
 // TRIAL_KEY secret and any KV id are set at the edge via `wrangler secret put` / `wrangler kv namespace create` and are
 // NOT in the repo (by design) — so this cannot and does not attest that the running edge is configured correctly, only
 // that the committed config leaks no secret and the crypto is post-quantum-appropriate. A real deployment audit needs
-// the edge account. It is not a penetration test, not a compliance certification.
+// the edge account. It is not a penetration test.
 import { toUuid, merkleFold } from './address.js'
 import { rdRoot } from './boundary.js'
 
@@ -38,7 +38,7 @@ const activeLines = (toml: string): string[] => toml.split('\n').map((l) => l.re
 
 /** Parse the REAL wrangler.toml (not a hand-typed guess) for the three things that actually matter: does the
  *  ASSETS binding exist as claimed, is the KV namespace still opt-in/uncommitted, and is TRIAL_KEY ever assigned
- *  a real value in the file (it must never be — only `wrangler secret put` sets it, at the edge, never here). */
+ *  a real value in the file (it must never be — only `wrangler secret put` sets it, at the edge. */
 function parseWranglerToml(toml: string): { assetsBindingPresent: boolean; kvIdCommitted: boolean; trialKeyValueCommitted: boolean } {
   const active = activeLines(toml)
   const assetsBindingPresent = active.some((l) => /^binding\s*=\s*"ASSETS"$/.test(l))
@@ -52,7 +52,7 @@ function parseWranglerToml(toml: string): { assetsBindingPresent: boolean; kvIdC
 
 /** auditCloudflareBindings() → the recomputable audit of the Cloudflare Workers bindings: no secret is committed, and
  *  every binding is post-quantum-appropriate (symmetric or no crypto target). Deterministic; folds to one content-
- *  address. Reflects the committed config posture, NOT the live edge deployment. Integrity, not truth.
+ *  address. Reflects the committed config posture. Integrity.
  *  Actually reads wrangler.toml (via boundary.ts's rdRoot) rather than asserting a hand-typed snapshot of it —
  *  a real KV id or secret pasted into the file moves secretInRepo/clean, it doesn't silently keep reporting clean. */
 export function auditCloudflareBindings(): CloudflareAudit {
@@ -68,8 +68,8 @@ export function auditCloudflareBindings(): CloudflareAudit {
         : 'KV persistence is OPT-IN and COMMENTED OUT — no namespace id committed; enabled only by `wrangler kv namespace create`. Until then the worker computes trials but cannot persist. Consent-gated (POST /trials stores only with explicit consent).' },
     { binding: 'TRIAL_KEY', kind: 'secret', secretInRepo: parsed.trialKeyValueCommitted, quantumSecure: true,
       note: parsed.trialKeyValueCommitted
-        ? 'TRIAL_KEY is assigned a VALUE directly in wrangler.toml — it must be a wrangler secret (`wrangler secret put TRIAL_KEY`), never a committed value. This is a real leak, not the expected posture.'
-        : 'A SECRET set at the edge (`wrangler secret put TRIAL_KEY`), NEVER in the repo. Signs each trial verdict with HMAC-SHA256 — SYMMETRIC, so no Shor target; Grover only halves it to a ~128-bit floor. A fork recomputes the verdict but cannot forge the signature.' },
+        ? 'TRIAL_KEY is assigned a VALUE directly in wrangler.toml — it must be a wrangler secret (`wrangler secret put TRIAL_KEY`). This is a real leak.'
+        : 'A SECRET set at the edge (`wrangler secret put TRIAL_KEY`). Signs each trial verdict with HMAC-SHA256 — SYMMETRIC, so no Shor target; Grover only halves it to a ~128-bit floor. A fork recomputes the verdict but cannot forge the signature.' },
   ]
   const secretsInRepo = BINDINGS.filter((b) => b.secretInRepo).length
   const clean = secretsInRepo === 0 && parsed.assetsBindingPresent && BINDINGS.every((b) => b.quantumSecure)
@@ -86,7 +86,7 @@ export function auditCloudflareBindings(): CloudflareAudit {
     honest:
       'Audits the COMMITTED wrangler.toml posture: no secret/id is committed (TRIAL_KEY is a wrangler secret, KV opt-in), ' +
       'and the crypto is symmetric-only (post-quantum-appropriate). It does NOT attest the LIVE edge is configured ' +
-      'correctly — the real secret and KV id live at the edge, not the repo — nor is it a penetration test or a ' +
-      'compliance certification. A live audit needs the Cloudflare account. Integrity, not truth.',
+      'correctly — the real secret and KV id live at the edge— nor is it a penetration test or a ' +
+      'compliance certification. A live audit needs the Cloudflare account. Integrity.',
   }
 }

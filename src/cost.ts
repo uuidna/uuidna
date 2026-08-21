@@ -1,8 +1,8 @@
-// cost — the RECOMPUTABLE cost of the ledger, computed from lean/*.lean itself, not self-reported like tokens. The
+// cost — the RECOMPUTABLE cost of the ledger, computed from lean/*.lean itself. The
 // PRODUCE cost is the size of the formal corpus (Σ bytes of each `theorem … := by decide`); the VERIFY cost is O(1)
 // per theorem — recompute its content-address and compare. Anyone recomputes the SAME numbers from the SAME source,
-// so the numerator is routed to the ledger, not hallucinated. Unlike uuidna_tokens (a self-report the server cannot
-// observe), nothing here is on trust: the cost folds to a receipt anyone rechecks. Integrity, not truth.
+// so the numerator is routed to the ledger. Unlike uuidna_tokens (a self-report the server cannot
+// observe), nothing here is on trust: the cost folds to a receipt anyone rechecks. Integrity.
 import { theorems } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 
@@ -14,7 +14,7 @@ import { toUuid, merkleFold } from './address.js'
 // joules. The gap between the two is not a defect to close — it is the honest line between the reproducible and the
 // physical. There is no free computation: coding a bit is paid by the thermodynamics of the device used.
 export const THERMODYNAMICS = {
-  landauerJoulePerBitAt300K: 2.87e-21, // kT·ln2 at T=300 K — the MINIMUM energy to erase one bit (a floor, not the cost)
+  landauerJoulePerBitAt300K: 2.87e-21, // kT·ln2 at T=300 K — the MINIMUM energy to erase one bit (a floor
   note:
     'The heartbeat and the formal byte are machine-independent — the same on any device — so they are NOT the energy ' +
     'cost. The real cost is thermodynamic and device-dependent, bounded below by Landauer: erasing one bit costs at ' +

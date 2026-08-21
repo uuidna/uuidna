@@ -5,13 +5,13 @@
 // gates live in — closed under X, Y, Z, S, S†, H, CNOT, CZ, SWAP, Toffoli, CCZ — so the whole simulation runs in
 // BigInt with no rounding, and every measurement probability is the EXACT rational (re² + im²) / 2^scale.
 //
-// Verified the way the crypto tests verify: exact KNOWN-ANSWER equality, never tolerances (test/quantum.test.mjs).
+// Verified the way the crypto tests verify: exact KNOWN-ANSWER equality.test.mjs).
 //
 // Honestly bounded: exact for small systems, but the state has 2^n amplitudes — EXPONENTIAL in qubit count, the
-// exact classical cost CONFIRMED by theorem n_qubit_dimension; a simulator, NOT a quantum computer. The uniform-scale exact rep covers the Clifford group + Toffoli/CCZ
+// exact classical cost CONFIRMED by theorem n_qubit_dimension; a simulator. The uniform-scale exact rep covers the Clifford group + Toffoli/CCZ
 // (permutations, Gaussian-integer phases, and H); a non-Clifford √-phase applied to only part of a superposition
 // (T = diag(1, e^{iπ/4}), controlled-H, arbitrary rotations) needs per-branch scaling and is the honest boundary —
-// out of this exact representation, by construction. The paradox COMPUTES as simulation, not as hardware.
+// out of this exact representation, by construction. The paradox COMPUTES as simulation.
 import { gcdBigInt, toUuid } from '../address.js'
 import { merkleGravity } from '../gravity.js'
 
@@ -35,7 +35,7 @@ const reduce = (num: bigint, den: bigint): Prob => {
   const g = gcdBigInt(num < 0n ? -num : num, den) || 1n
   return { num: num / g, den: den / g }
 }
-/** Format an exact probability: 0, 1, or num/den — never a float, never a decimal (no drift). */
+/** Format an exact probability: 0, 1, or num/den — never a float. */
 export const fraction = (p: Prob): string => (p.num === 0n ? '0' : p.den === 1n ? p.num.toString() : p.num + '/' + p.den)
 /** The n-qubit basis label of index i as a bit-string qₙ₋₁…q₀ (q0 is the low bit). */
 export const label = (i: number, qubits: number): string => { let b = ''; for (let q = qubits - 1; q >= 0; q--) b += (i >> q) & 1; return b }
@@ -199,7 +199,7 @@ function classicalStep(op: GateOp, i: number): number {
   }
 }
 
-/** True iff the circuit is H-free — i.e. it computes a deterministic CLASSICAL reversible function, not a superposition. */
+/** True iff the circuit is H-free — i.e. it computes a deterministic CLASSICAL reversible function. */
 export function isClassical(ops: readonly GateOp[]): boolean { return ops.every((op) => !superposes(op.gate)) }
 
 /** The classical reversible function an H-free circuit computes: a permutation of {0 … 2^qubits−1} (input index →
@@ -239,8 +239,8 @@ export function report(): string {
   o += '  the quantum receipt (order-invariant content-address of the Bell distribution):\n    ' + quantumReceipt() + '\n\n'
   o += 'HONEST: this is CLASSICAL state-vector simulation — exact for small systems, but the state has\n'
   o += '2^n amplitudes, so it is EXPONENTIAL in qubit count — the exact classical cost CONFIRMED by\n'
-  o += 'theorem n_qubit_dimension; a simulator, NOT a quantum computer. The Bell correlation carries NO\n'
+  o += 'theorem n_qubit_dimension; a simulator. The Bell correlation carries NO\n'
   o += 'message (marginals unchanged). The paradox COMPUTES\n'
-  o += 'as simulation, not as quantum hardware. entails →'
+  o += 'as simulation. entails →'
   return o
 }

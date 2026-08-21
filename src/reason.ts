@@ -3,9 +3,9 @@
 // a fixpoint: whenever every premise of a rule is known, it concludes the head by MODUS PONENS (or, for a multi-premise
 // rule, the chained hypothetical syllogism), and each derivation CITES the sealed theorem that licenses it. It is
 // bounded (a fixed round cap — it cannot loop forever), deterministic, and folds its whole derivation to one receipt,
-// so a reasoning is rechecked, not trusted. HONEST SCOPE: bounded propositional forward-chaining over the rules you
-// give it (Horn clauses) — NOT a general theorem prover, NOT predicate logic; it derives only what those rules entail
-// from those facts, each step backed by a rule uuidna already proved by decide. Integrity, not truth.
+// so a reasoning is rechecked. HONEST SCOPE: bounded propositional forward-chaining over the rules you
+// give it (Horn clauses) — NOT a general theorem prover; it derives only what those rules entail
+// from those facts, each step backed by a rule uuidna already proved by decide. Integrity.
 import { toUuid, merkleFold } from './address.js'
 
 /** An implication rule: if every atom in `if` is known, then `then` follows. */
@@ -63,6 +63,6 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
       'Bounded propositional forward-chaining over the rules given: each conclusion follows by a sealed inference rule ' +
       '(modus ponens, or the hypothetical syllogism for a chain), cited on the step. It is deterministic and folds to ' +
       'one receipt anyone rechecks. It derives only what these rules entail from these facts — NOT a general theorem ' +
-      'prover, and it never claims a conclusion is TRUE, only that it FOLLOWS from what it was given. Integrity, not truth.',
+      'prover, and it never claims a conclusion is TRUE, only that it FOLLOWS from what it was given. Integrity.',
   }
 }

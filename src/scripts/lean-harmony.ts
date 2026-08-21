@@ -5,14 +5,14 @@
 // DNA bases pair (A↔T, G↔C), an acid and its base neutralise, an agonist and antagonist cancel, action meets an
 // equal reaction, a cation balances an anion — and the LAST theorem proves these are the same reflection at
 // different centres (0 for charge, 3 for the four bases, 14 for pH). This HARMONISES the science-pairs cluster
-// across the four fields. SCOPE (integrity, not truth): these are STRUCTURE facts — the arithmetic of the
+// across the four fields. SCOPE (integrity— the arithmetic of the
 // pairing — NOT medical, biological, chemical or physical claims; uuidna is not a lab. Each pair's real mechanism
-// lives in its own science; what is sealed here is only that they share one decidable signature. Integrity, not truth.
+// lives in its own science; what is sealed here is only that they share one decidable signature. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
   { key: 'dna_bases_reflect_through_three',
-    why: 'BIOLOGY: the four DNA bases pair by complement — A↔T, G↔C — written as the REFLECTION c ↦ 3−c on {0,1,2,3} (the same reflection form as pH and charge below, not the XOR form of dna_base_pairing_involution): applied twice it returns (an involution), and no base pairs with itself (3−c ≠ c). The helix pairs through the centre 3.',
+    why: 'BIOLOGY: the four DNA bases pair by complement — A↔T, G↔C — written as the REFLECTION c ↦ 3−c on {0,1,2,3} (the same reflection form as pH and charge below. The helix pairs through the centre 3.',
     js: () => [0, 1, 2, 3].every((c) => 3 - (3 - c) === c && 3 - c !== c),
     lean: 'theorem dna_bases_reflect_through_three : (List.range 4).all (fun c => 3 - (3 - c) == c) ∧ (List.range 4).all (fun c => 3 - c != c) := by decide' },
 

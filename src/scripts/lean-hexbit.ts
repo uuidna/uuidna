@@ -36,7 +36,7 @@ const FACTS = [
     lean: 'theorem characters_span_the_address : (32 * 4 = 128) ∧ ((2:Nat)^7 = 128) := by decide' },
 
   { key: 'handle_is_the_first_group',
-    why: 'THE HANDLE IS THE FIRST GROUP, not a slice taken afterwards: the layout opens with eight characters, and eight characters are thirty-two bits. Every other group is shorter, which the line proves — so the opening group is the widest single field the layout has, apart from the closing twelve.',
+    why: 'THE HANDLE IS THE FIRST GROUP. Every other group is shorter, which the line proves — so the opening group is the widest single field the layout has, apart from the closing twelve.',
     js: () => GROUPS[0] === 8 && GROUPS[0] * 4 === 32 && GROUPS.slice(1, 4).every((g) => g < GROUPS[0]),
     lean: `theorem handle_is_the_first_group : (${L(GROUPS)}.head! = 8) ∧ (8 * 4 = 32) ∧ ((${L(GROUPS)}.drop 1).take 3).all (fun g => g < 8) := by decide` },
 

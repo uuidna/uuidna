@@ -5,7 +5,7 @@
 // that decodes back to the exact rights line. Infused everywhere (every page's head + JSON-LD, an MCP tool), so the
 // captain's rights are inseparable from every artifact.
 //
-// HONEST SCOPE: integrity, not truth. These are FACTUAL rights — the real copyright (© Tsvetan Rouschev), the real
+// HONEST SCOPE: integrity. These are FACTUAL rights — the real copyright (© Tsvetan Rouschev), the real
 // licence (CC BY-NC-ND 4.0), and uuidna's own credit law — content-addressed so they are tamper-evident and
 // recomputable, NOT a legal ruling or a compliance claim (legalFacts disclaims that). A content-address proves the
 // terms are unaltered; it does not adjudicate them. The imprint marks the work; it does not enforce the law — that is
@@ -16,7 +16,7 @@ import { toUuid, merkleFold } from '../../address.js'
 import { imprintTextChain, readImprintTextChain } from '../../imprint.js'
 import type { HeadTuple } from '../../seo.js'
 
-const YEAR = '2025' // the copyright year is a fixed datum, not a wall-clock read (determinism: no Date)
+const YEAR = '2025' // the copyright year is a fixed datum
 
 export interface CaptainRights {
   copyright: string          // © holder — the human who holds the rights
@@ -40,7 +40,7 @@ let _cache: CaptainRights | null = null
 
 /** captainRights() → the hard-imprinted captain's rights: copyright + licence + credit law, content-addressed and
  *  reversibly imprinted, with a ready `head` array to infuse everywhere. Composes legalFacts() (the terms) and the
- *  credit tally. Recomputable; the imprint decodes back to the exact rights line. Integrity, not truth. */
+ *  credit tally. Recomputable; the imprint decodes back to the exact rights line. Integrity. */
 export function captainRights(): CaptainRights {
   if (_cache) return _cache
   const lf = legalFacts()
@@ -90,7 +90,7 @@ export function captainRights(): CaptainRights {
       'elsewhere — handles or nicknames — unless licensed), content-addressed and reversibly imprinted so they travel ' +
       'with the work and any alteration is visible. FACTUAL rights, tamper-evident and recomputable — NOT a legal ' +
       'ruling, a trademark registration, or a claim to own every use of the name; the imprint marks the reservation, a ' +
-      'human court enforces the law. Integrity, not truth.',
+      'human court enforces the law. Integrity.',
   }
   return _cache
 }
@@ -100,7 +100,7 @@ export const readImprintedRights = (chain: string[]): string => readImprintTextC
 
 /** The DRAFTED rights contract — the captain's rights as a formal, content-addressed agreement. Its content-address
  *  IS its id (contractId = toUuid(terms), the [contract-uuid] domain), so a holder proves they hold the exact terms by
- *  re-addressing them. FACTUAL terms (the real licence + credit law), a DRAFT — not executed, not legal advice. */
+ *  re-addressing them. FACTUAL terms (the real licence + credit law), a DRAFT — not executed. */
 export interface RightsContract {
   title: string
   licensor: string           // the captain / rights holder
@@ -134,9 +134,9 @@ export function draftContract(licensee = 'the recipient'): RightsContract {
     '',
     '3. REPRESENTATION RESERVED. ' + r.representation.statement,
     '',
-    '4. INTEGRITY. These terms are content-addressed: their id is the fold of this exact text. Any alteration moves the id, so a holder PROVES they hold the unaltered terms by re-addressing them. Integrity, not truth — the address proves the terms are unaltered; it does not adjudicate them.',
+    '4. INTEGRITY. These terms are content-addressed: their id is the fold of this exact text. Any alteration moves the id, so a holder PROVES they hold the unaltered terms by re-addressing them. Integrity— the address proves the terms are unaltered; it does not adjudicate them.',
     '',
-    '5. NO WARRANTY; NOT LEGAL ADVICE. The Work is provided "as is". This DRAFT is a recomputable fact base, NOT an executed contract, legal advice, or a compliance opinion. It binds no one until reviewed by qualified counsel and signed by the parties. A content-address cannot settle a legal question; a human court enforces the law.',
+    '5. NO WARRANTY; NOT LEGAL ADVICE. The Work is provided "as is". This DRAFT is a recomputable fact base. It binds no one until reviewed by qualified counsel and signed by the parties. A content-address cannot settle a legal question; a human court enforces the law.',
   ].join('\n')
   const contractId = toUuid(terms)
   return {
@@ -145,7 +145,7 @@ export function draftContract(licensee = 'the recipient'): RightsContract {
     receipt: merkleFold([toUuid('contract:' + contractId), r.imprint, r.receipt]),
     honest:
       'A DRAFT of the captain\'s rights contract — the real licence (' + r.license + ') and credit law as formal, ' +
-      'content-addressed terms whose id proves they are unaltered. NOT an executed contract, not legal advice, not a ' +
-      'compliance claim; it binds no one until signed by the parties and reviewed by counsel. Integrity, not truth.',
+      'content-addressed terms whose id proves they are unaltered. NOT an executed contract' +
+      'compliance claim; it binds no one until signed by the parties and reviewed by counsel. Integrity.',
   }
 }

@@ -6,9 +6,9 @@
 // and the identities a hardware toolchain checks a netlist AGAINST — the gate truth tables, NAND functional
 // completeness, the half- and full-adder, the 2:1 multiplexer, De Morgan — are each a finite, decidable statement the
 // Lean kernel settles with no axiom. XOR uses `lxor` (structural, 8-bit fuel) so the whole layer stays kernel-only —
-// not even propext (verified by scripts/lean-axioms). integrity, not truth. uuidna SEALS this spec —
+// not even propext (verified by scripts/lean-axioms). integrity. uuidna SEALS this spec —
 // the exact decidable arithmetic of the gates — so a gate design can be VERIFIED AGAINST it. It does not, and these
-// theorems do not claim to, fabricate a device, synthesise a netlist, or develop silicon. A sealed spec, not a chip.
+// theorems do not claim to, fabricate a device, synthesise a netlist, or develop silicon. A sealed spec.
 import { emit, LXOR_DEF } from './lean-gen.js'
 
 // bit rows: the four (a,b) input assignments, as the exact list the truth tables enumerate

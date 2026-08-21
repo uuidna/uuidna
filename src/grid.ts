@@ -1,8 +1,8 @@
 // grid — THE 432 GRID: every (projected dimension × ledger wing) seat, named, addressed, and folded to one root.
 //
-// THE SEVENTH DIMENSION IS THE SOURCE, NOT A SEAT. DIMENSIONS[0] is 'en' and the wings are WRITTEN in it — every
+// THE SEVENTH DIMENSION IS THE SOURCE. DIMENSIONS[0] is 'en' and the wings are WRITTEN in it — every
 // theorem key, statement and name is English. So projecting a wing into 'en' is the IDENTITY map, and a tool for it
-// would compute nothing. That is why the grid is SIX rays wide, not seven: 7 × 72 = 504 counts 72 seats that do no
+// would compute nothing. That is why the grid is SIX rays wide
 // work, and 504 − 72 = 432 is exactly the count of seats that compute. A catalog padded to 504 would manufacture the
 // precise defect the unwired-scripts finder exists to catch.
 //
@@ -12,13 +12,13 @@
 // identity), and both counts carry digital root 9, as does their sum, 72 + 27 = 99. Two independent factorisations
 // meeting at one number is the grid's whole claim to being a NATURAL size rather than a chosen one.
 //
-// HARMONY IS A CONSTRAINT ON GROWTH, NOT A ONE-TIME FACT. 6·w has digital root 9 exactly when w ≡ 0 (mod 3), so the
+// HARMONY IS A CONSTRAINT ON GROWTH. 6·w has digital root 9 exactly when w ≡ 0 (mod 3), so the
 // ledger stays harmonic only if wings are added THREE AT A TIME. 72 → 73 would give 438 (digital root 6): a broken
 // grid. gridGaps() reports this, which makes the grid a live gate rather than a frozen number.
 //
-// HONEST SCOPE: a seat is the content-address of one wing read along one locale ray — a receipt, never a
+// HONEST SCOPE: a seat is the content-address of one wing read along one locale ray — a receipt
 // translation. The grid proves that every wing is reachable from every ray and that nothing is missing; it makes no
-// claim that the wing has been rendered into that language. Integrity, not truth.
+// claim that the wing has been rendered into that language. Integrity.
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { DIMENSIONS } from './harness.js'
@@ -41,7 +41,7 @@ export interface Seat {
 export const wingSlug = (wing: string): string =>
   wing.replace(/\.lean$/, '').replace(/([a-z0-9])([A-Z])/g, '$1_$2').toLowerCase()
 
-/** The wings, sorted — the grid's second axis, read from the ledger, never hardcoded. */
+/** The wings, sorted — the grid's second axis, read from the ledger. */
 export function wings(): string[] {
   return [...new Set(theorems().map((t) => t.file))].sort()
 }
@@ -102,7 +102,7 @@ export function gridGaps(): GridGap[] {
                 fix: `a count divisible by FIFTEEN is harmonic in both bases (lcm(3,5) = 15): ${ws.length - (ws.length % 15)} or ${ws.length + (15 - (ws.length % 15))} wings. Three-at-a-time was the decimal rule; five-at-a-time is the hexadecimal one, and fifteen is base-agnostic` })
 
   if (expected !== GRID_SEATS)
-    gaps.push({ what:`the grid is ${expected} seats, not the sealed ${GRID_SEATS} — the ledger moved to ${ws.length} wings`,
+    gaps.push({ what:`the grid is ${expected} seats— the ledger moved to ${ws.length} wings`,
                 fix: `either restore 72 wings, or re-seal the width: k432's 16 × 27 no longer reads as ${PROJECTED.length} × ${ws.length}` })
 
   const names = seats.map((s) => s.name)
@@ -153,12 +153,12 @@ export function gridReport(): {
 // identity pairs were removed. So the 42 directions fall into exactly 21 transpose orbits of size two, and no
 // direction is its own reverse.
 //
-// 42 IS NOT A RESHAPE OF 432. It does not divide it (432 / 42 is not an integer) and its digital root is 6, not 9.
+// 42 IS NOT A RESHAPE OF 432. It does not divide it (432 / 42 is not an integer) and its digital root is 6.
 // This is a SECOND grid over a different domain, deliberately kept separate: the wing grid answers which wing is
 // reachable from which ray, and the pair grid answers which dimension can be carried to which other. Folding them
 // into one number would be arithmetic theatre.
 //
-// HONEST SCOPE: a pair is a named DIRECTION with a recomputable address, never a translation and never evidence
+// HONEST SCOPE: a pair is a named DIRECTION with a recomputable address
 // that any content has been carried along it. The grid proves the directions are all present, distinct and
 // balanced; it says nothing about what travels.
 
@@ -167,7 +167,7 @@ export const PAIR_SEATS = 42
 
 export interface Pair {
   from: string      // the source dimension
-  to: string        // the target dimension, never equal to the source
+  to: string        // the target dimension
   name: string      // uuidna_pair_<from>_<to>
   address: string   // toUuid(from + '>' + to) — the direction's own address
 }
@@ -211,7 +211,7 @@ export function pairsGaps(): GridGap[] {
                 fix: 'pairs() must emit one seat per ORDERED pair of distinct dimensions — check the identity exclusion' })
 
   if (expected !== PAIR_SEATS)
-    gaps.push({ what: `the pair grid is ${expected} directions, not the sealed ${PAIR_SEATS} — the ledger moved to ${n} dimensions`,
+    gaps.push({ what: `the pair grid is ${expected} directions— the ledger moved to ${n} dimensions`,
                 fix: `either restore 7 dimensions, or re-seal the width: 42 = 7 × 6 no longer reads as ${n} × ${n - 1}` })
 
   if (ps.some((p) => p.from === p.to))
@@ -229,7 +229,7 @@ export function pairsGaps(): GridGap[] {
     const asSource = ps.filter((p) => p.from === d).length
     const asTarget = ps.filter((p) => p.to === d).length
     if (asSource !== n - 1 || asTarget !== n - 1)
-      gaps.push({ what: `${d} is a source ${asSource} time(s) and a target ${asTarget} time(s), not ${n - 1} each`,
+      gaps.push({ what: `${d} is a source ${asSource} time(s) and a target ${asTarget} time(s)`,
                   fix: 'the pair grid is regular by construction — a lopsided dimension means the product is incomplete' })
   }
 

@@ -9,7 +9,7 @@
 // carrying a trinity), each trinity folded order-invariantly, and the five trinity-folds walked BY 2 in the sealed
 // single stroke [0,2,4,1,3] (pentagram_single_stroke; it closes because gcd(2,5)=1) — the stroke's tip IS the
 // singularity, the one unified fold. Every audit finding is an exact computational prompt (GAP + FIX). Honest
-// scope throughout: consistency and recomputation, never counsel, never truth.
+// scope throughout: consistency and recomputation.
 //
 //   sealed  theorems · principles · monographs     (the ledger and its pages — the address IS the page)
 //   served  packages · exports · mcp               (every surface a consumer fuses)
@@ -53,7 +53,7 @@ export function legalGaps(): { gaps: Gap[]; facts: string } {
     if (/open[- ]source/i.test(prose))
       gaps.push({ what: `${p}: calls the work "open source" — CC BY-NC-ND is not an OSI license`, fix: `edit ${p}: replace the "open source"/"open-source" phrase with "free for the public interest" (the honest tier name)` })
     if (/\d\s*coins?\s*=\s*[$€£]|[$€£]\s*\d+[^)]*per\s+coin/i.test(prose))
-      gaps.push({ what: `${p}: seals a coin↔currency rate — coins are conserved, never priced`, fix: `edit ${p}: delete the rate claim; state "a measured unit of work saved, not a price" (theorem two_coins)` })
+      gaps.push({ what: `${p}: seals a coin↔currency rate — coins are conserved`, fix: `edit ${p}: delete the rate claim; state "a measured unit of work saved" (theorem two_coins)` })
   }
   const emails = new Set<string>()
   for (const p of ['LICENSE', 'docs/license.md', 'README.md', 'package.json'])
@@ -72,7 +72,7 @@ export function legalGaps(): { gaps: Gap[]; facts: string } {
   // 8) LEGAL COMPLETENESS — the elements a complete terms-record must contain, each PRESENT in the terms surface
   // (license.md + captain.md; the CC legalcode link carries the formal termination/warranty machinery) or the
   // audit objects. Learned 2026-08-15 from a REAL miss: /doctrine claimed coverage the pages did not deliver —
-  // consistency checks cannot hear silence, so completeness is its own check. Presence, never adequacy.
+  // consistency checks cannot hear silence, so completeness is its own check. Presence.
   const terms = (existsSync(join(ROOT, 'docs/license.md')) ? rd('docs/license.md') : '') + '\n' + (existsSync(join(ROOT, 'docs/captain.md')) ? rd('docs/captain.md') : '')
   const ELEMENTS: [string, RegExp, string][] = [
     ['parties-author', /Tsvetan Rouschev/, 'edit docs/license.md: name the author/licensor'],
@@ -118,7 +118,7 @@ export function proseGaps(): { gaps: Gap[]; facts: string; pages: number } {
     for (const m of prose.matchAll(/(?:^|[\s(`])(\.?\/?(?:docs\/\.vitepress|src|lean|packages|hooks)\/[A-Za-z0-9_./-]+|worker\.js|wrangler\.toml|CONTRIBUTING\.md|LICENSE)(?=[\s)`.,:]|$)/gm)) {
       const p = m[1].replace(/^\.\//, '').replace(/[.,:]+$/, '')
       if (p.includes('*') || p.endsWith('/')) continue
-      if (/(^|\/)(dist|\.vitepress\/dist|\.vitepress\/cache)(\/|$)/.test(p)) continue // a DECLARED BUILD OUTPUT exists by construction, not by claim — teaching it is honest even on a fresh clone where the build has not run yet (the CI-order flake this line ends)
+      if (/(^|\/)(dist|\.vitepress\/dist|\.vitepress\/cache)(\/|$)/.test(p)) continue // a DECLARED BUILD OUTPUT exists by construction— teaching it is honest even on a fresh clone where the build has not run yet (the CI-order flake this line ends)
       if (!existsSync(join(ROOT, p)))
         gaps.push({ what: `docs/${f}: teaches the path "${p}" which does not exist`, fix: `edit docs/${f}: replace "${p}" with the current path (verify with \`ls\`), or delete the claim` })
     }
@@ -200,7 +200,7 @@ export function migrate(): void {
 // ── seo: THE DISCOVERABILITY AUDIT — the zero-click finding (pages rank 4-9 but titles do not promise the answer)
 // made a checked invariant: every built page must carry a title, a meta description in the click-worthy length band
 // (50-160 chars — Google truncates outside it), a canonical link, and structured data; and no two pages may share a
-// description (the duplicate-content penalty). Honest SEO: describe what is sealed, never cloak or stuff. ──
+// description (the duplicate-content penalty). Honest SEO: describe what is sealed. ──
 export function seoGaps(): { gaps: Gap[]; pages: number } {
   const gaps: Gap[] = []
   const dist = join(ROOT, 'docs/.vitepress/dist')
@@ -268,7 +268,7 @@ export function pipeGaps(): Gap[] {
     lines.forEach((line, i) => {
       if (line.trimStart().startsWith('|')) return // a markdown table row's cell border is not a pipe
       if (GATE.test(line))
-        gaps.push({ what: `${rel}:${i + 1} pipes a gate — its exit code is the pipe's, not the gate's`, fix: 'capture the exit raw: `gate > log 2>&1; echo EXIT=$?` and read the log after — never let a gate flow into a pipe' })
+        gaps.push({ what: `${rel}:${i + 1} pipes a gate — its exit code is the pipe's's`, fix: 'capture the exit raw: `gate > log 2>&1; echo EXIT=$?` and read the log after — never let a gate flow into a pipe' })
     })
   }
   check('package.json')
@@ -326,7 +326,7 @@ export function actionsGaps(): Gap[] {
 // vacuous proof is the one thing this ledger must never contain (the martial-arts wing was rewritten for
 // exactly this, 2026-08-17). `by decide` will happily certify every one of them: the kernel checks the
 // proposition, never whether the proposition means what its key says. This finder is that missing half.
-// EXEMPT: the declared `oos_` scope markers, whose whole purpose is to be void — a named boundary, not a claim.
+// EXEMPT: the declared `oos_` scope markers, whose whole purpose is to be void — a named boundary.
 /** THREE CONTENT WORDS CARRY THE FACT; MORE IS ENTROPY — and entropy fails hard. A key that needs a fourth word is
  *  usually carrying scaffolding rather than content: `forged_theorem_costs_2_power_7_bits` is `forgery_costs_128`,
  *  and this session's own `doubling_ladder_spans_octave_codon_address` folded to `octave_codon_address` with nothing
@@ -339,7 +339,7 @@ export function actionsGaps(): Gap[] {
  *  That is how the class stops growing today without moving every published address in one stroke. The
  *  backlog's SIZE is deliberately not written here: it may only shrink, so any figure in prose is wrong the
  *  moment it does (it read 313 while the list held 311). */
-/** BOTH NUMBERS OR NEITHER — a theorem is its LEAN, not its name, so the ledger has two true sizes: the number of
+/** BOTH NUMBERS OR NEITHER — a theorem is its LEAN
  *  KEYS and the number of DISTINCT propositions. They differ because some statements are deliberately sealed in two
  *  wings (the ℤ/9 table in Core and in Ring accounts for 64 of the overlap). A surface that prints only the key count
  *  is quietly choosing the larger of two true numbers, and a surface carrying a count from an older ledger is simply
@@ -354,7 +354,7 @@ export function countsGaps(): Gap[] {
   const keys = T.length
   const principles = (PRINCIPLES as unknown[]).length
   const receipt = runTrial().receipt
-  const TARGET = 1024                       // the stated v1.0.0 milestone — a goal, not a measurement
+  const TARGET = 1024                       // the stated v1.0.0 milestone — a goal
   // EVERY count the ledger can honestly report — the census, each wing, each principle group, each skill group.
   // Derived, because a fixed allow-list would refuse a true per-wing count on a monograph or
   // wave through a dead global like 1195 that no longer names anything at all.
@@ -362,12 +362,12 @@ export function countsGaps(): Gap[] {
     [...new Set(T.map((t) => t[k]))].map((v) => T.filter((t) => t[k] === v).length)
   const allowed = new Set([keys, census.distinct, census.renamings, TARGET,
     ...Object.values(theoremCountByFile()), ...groupSizes('principle'), ...groupSizes('skill')].map(String))
-  // THE SURFACES ARE DISCOVERED, NOT LISTED. The first cut of this finder named three files by hand, which is the
+  // THE SURFACES ARE DISCOVERED. The first cut of this finder named three files by hand, which is the
   // same failure it exists to catch one level up: a fixed list cannot grow with the repo, and every surface it
   // omits is free to publish a dead number. A surface is now anything TRACKED that makes a census claim — states a
   // theorem count or a principle count — minus the derived layer, whose numbers recompute on every reconcile and
-  // whose staleness is its generator's fault, not the file's. That exemption is itself read from the declarations
-  // (DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS), never retyped here.
+  // whose staleness is its generator's fault's. That exemption is itself read from the declarations
+  // (DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS).
   const derived = new Set<string>([...DRAIN_PATHS, ...Object.values(RECONCILE_OUTPUTS).flat(), ...Object.values(DOCS_BUILD_OUTPUTS).flat()])
   const isDerived = (f: string): boolean =>
     [...derived].some((d) => d.endsWith('*') ? f.startsWith(d.slice(0, -1)) : f === d || f.startsWith(d + '/'))
@@ -391,7 +391,7 @@ export function countsGaps(): Gap[] {
     })
     for (const n of sp) if (n !== String(principles)) gaps.push({
       what: `${f}: states ${n} principles, which the ledger does not report (${principles} live)`,
-      fix: `state ${principles} — the ledger organises itself by PRINCIPLES.length, so the number is read, never chosen`,
+      fix: `state ${principles} — the ledger organises itself by PRINCIPLES.length, so the number is read`,
     })
     // a surface naming the key count must name the distinct count beside it, or it presents the larger of two truths
     if (st.includes(String(keys)) && !text.includes(String(census.distinct))) gaps.push({
@@ -399,7 +399,7 @@ export function countsGaps(): Gap[] {
       fix: `state both, with the reason: "${census.distinct} distinct propositions under ${keys} keys (${census.renamings} deliberate re-namings)"`,
     })
     // A uuid is only THE LEDGER'S receipt where it sits in the same sentence as a census claim. Everywhere else a
-    // uuid is a page address or a per-claim seal, and holding those to the fold would be a wall, not a floor.
+    // uuid is a page address or a per-claim seal, and holding those to the fold would be a wall.
     for (const sentence of text.split(/(?<=\.)\s|\n/)) {
       if (!stated(sentence, RX_T).length && !stated(sentence, RX_P).length) continue
       for (const r of stated(sentence, [/\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b/g]))
@@ -418,8 +418,8 @@ export function countsGaps(): Gap[] {
  *  Lean is duplication everywhere downstream — and the census had been discovering it after the fact rather than the
  *  generator refusing it up front. 85 keys seal a statement some other key already sealed. Most are legitimate: the
  *  wings verify STANDALONE (no lean file imports another, which is what keeps each one kernel-independent), so the
- *  ℤ/9 table sealed in Core and again in Ring is a deliberate re-seal, not an accident. That is a real cost paid for
- *  a real property, and the honest treatment is to NAME it, not to hide it or to break the property chasing zero.
+ *  ℤ/9 table sealed in Core and again in Ring is a deliberate re-seal. That is a real cost paid for
+ *  a real property, and the honest treatment is to NAME it.
  *
  *  What is NOT legitimate is a statement sealed twice inside ONE file, where no independence is bought — measured
  *  once, in Nim.lean, where a named theorem claiming the Sprague–Grundy law re-proved a single row of the nim table
@@ -445,7 +445,7 @@ export function linesGaps(): Gap[] {
     const known = declared[g.statement]
     if (!known) gaps.push({
       what: `NEW cross-wing reuse: "${g.statement}" is sealed by ${g.keys.join(', ')} across ${files.join(' + ')}, and lean/statement-index.json does not declare it`,
-      fix: 'if the re-seal is deliberate (a standalone wing may not import another, so a shared fact is re-proven on purpose), run `npm run gen:lines` to declare it; if it is an accident, withdraw the later key. The index may only shrink — a new entry is a decision, never a default',
+      fix: 'if the re-seal is deliberate (a standalone wing may not import another, so a shared fact is re-proven on purpose), run `npm run gen:lines` to declare it; if it is an accident, withdraw the later key. The index may only shrink — a new entry is a decision',
     })
     else if (known.length !== g.keys.length || !g.keys.every((k) => known.includes(k))) gaps.push({
       what: `reuse of "${g.statement}" changed: declared ${known.join(', ')} but the ledger now seals it as ${g.keys.join(', ')}`,
@@ -455,7 +455,7 @@ export function linesGaps(): Gap[] {
   return gaps
 }
 
-// ── words: REMOVED. It capped a theorem NAME at a word count, and a name is prose about a proof, never the proof —
+// ── words: REMOVED. It capped a theorem NAME at a word count, and a name is prose about a proof—
 // the kernel verifies the same statement whatever it is called. It caught no Lean violation, so it was custom logic
 // over spelling, and tuning its limit (3 -> the derived 6) was elaborating something that should not exist. The
 // naming law survives where it belongs: name the OPERATION, as Glagolitic does. That is a law for a person writing a
@@ -562,7 +562,7 @@ export function absenceGaps(): Gap[] {
 // checks the invariant that makes "two envelopes" honest rather than "two sources of truth": every theorem's
 // address must AGREE across both files, and every block address must be DISTINCT — the exact class that once
 // collapsed 235 theorems onto one wing address, now guarded on both shapes at once.
-// SKIPS (returns clean, not gap) if either file is absent — these are optional exports (`npm run payload:sync`),
+// SKIPS (returns clean— these are optional exports (`npm run payload:sync`),
 // not part of every reconcile, so guard does not force-generate them; when they exist, they must agree.
 export function blocksGaps(): Gap[] {
   const gaps: Gap[] = []
@@ -576,7 +576,7 @@ export function blocksGaps(): Gap[] {
   const seen = new Map<string, string>()
   for (const b of blocks) {
     const prior = seen.get(b.uuidnaAddress)
-    if (prior) gaps.push({ what: `payload-sync-blocks.json: "${prior}" and "${b.slug}" share address ${b.uuidnaAddress} — the wing-address collision class, back in the blocks shape`, fix: 'each block must be addressed from its OWN content (documentAddress of its lexical root), never a shared or wing-level address — see toPayloadBlocksDoc in src/payload-seed.ts' })
+    if (prior) gaps.push({ what: `payload-sync-blocks.json: "${prior}" and "${b.slug}" share address ${b.uuidnaAddress} — the wing-address collision class, back in the blocks shape`, fix: 'each block must be addressed from its OWN content (documentAddress of its lexical root)— see toPayloadBlocksDoc in src/payload-seed.ts' })
     seen.set(b.uuidnaAddress, b.slug)
   }
 
@@ -593,7 +593,7 @@ export function blocksGaps(): Gap[] {
 // innocents: clay_launder_refused and clay_status_dna_total look like closed arithmetic (`15 - 15 = 0`) but their
 // generators compute LIVE — refusedCount runs adjudicate() over all fifteen probes, and emit() hard-exits when a
 // mirror returns false, so one probe verifying blocks the wing from regenerating at all. The Lean there is a frozen
-// WITNESS of a live check, not a substitute for one. So the finder now reads BOTH halves from the generator: a fact
+// WITNESS of a live check. So the finder now reads BOTH halves from the generator: a fact
 // is flagged only when its Lean statement AND its js mirror are both closed constants — nothing walked, nothing
 // measured, no path from the name to a computation in either dimension. That is the real class, and it is small.
 export function frozenGaps(): Gap[] {
@@ -648,8 +648,8 @@ export function stateGaps(): Gap[] {
   // names, and it drifted the day `folders` and `blocks` landed in the guard without landing here: state reported
   // nine finders while ten were actually gating the push. A fold that quietly omits members is worse than no fold,
   // because it reads as complete. Compares guard's blocking `{ name: 'x', run: ... }` entries against state.ts's
-  // own `['x', xGaps()...]` array — both read fresh from source, never assumed.
-  // SELF-EXEMPT, by name and reason, not by accident — the same discipline finder-coverage.test.ts's ON_DEMAND
+  // own `['x', xGaps()...]` array — both read fresh from source.
+  // SELF-EXEMPT, by name and reason— the same discipline finder-coverage.test.ts's ON_DEMAND
   // uses. 'state' cannot report on itself (state.ts calling stateGaps() to build state.ts is not a check, it is
   // a loop). 'micro' needs a built site (needsBuiltSite in guard.ts) and state.ts never builds one, so it would
   // either always read clean-by-absence or force a site build on every `npm run state` call — the wrong cost for
@@ -665,7 +665,7 @@ export function stateGaps(): Gap[] {
   // two tiers for the same reason, so only ITS blocking one is read. Its `advisory` array uses the identical
   // ['name', xGaps(…)] shape, and without this slice every deliberately-demoted finder reads as a fold naming a
   // gate that does not gate — the finder would fire on the very declaration that makes the demotion honest.
-  // `(await coherentGaps()).length` — the invocation may be wrapped in (await …), not just called bare
+  // `(await coherentGaps()).length` — the invocation may be wrapped in (await …)
   const stateFindersBlock = stateSrc.slice(stateSrc.indexOf('const finders'))
   const stateNames = new Set([...stateFindersBlock.matchAll(/\['([a-z]+)',\s*\(?(?:await )?\w+Gaps\(/g)].map((m) => m[1]))
   for (const n of guardNames) if (!stateNames.has(n)) gaps.push({ what: `guard.ts blocks on '${n}' but state.ts's finders array does not report it — the fold is incomplete`, fix: `add ['${n}', ${n}Gaps().length] (or the shape its guard.ts entry uses — .gaps.length, or await if async) to the finders array in src/scripts/state.ts` })
@@ -677,7 +677,7 @@ export function stateGaps(): Gap[] {
 // nothing else — index.ts is what it does, index.md is what it means, and a further extension is a further face of
 // the same thing. A second NAMED file inside it is a second name for one concept, and a hyphenated folder is two
 // concepts sharing a directory; both are the drift this refuses. src/quantum/clock is the shape: one word, index
-// faces only. COLLECTIONS are exempt by name, not by accident — scripts, test, lean and theorems hold many
+// faces only. COLLECTIONS are exempt by name— scripts, test, lean and theorems hold many
 // independent things rather than one concept, and calling them modules would be the same category error inverted.
 export function foldersGaps(): Gap[] {
   const gaps: Gap[] = []
@@ -713,7 +713,7 @@ export function foldersGaps(): Gap[] {
 // that fixes the bound. Scoped truth + pointer is honest; scoped truth alone is the omission the trial drains, and
 // it is the more dangerous half here, because a demarcation READS like rigour while pointing at nothing.
 // A pointer is a /theorem/<key> link, a `theorem <key>` citation, or any sealed key named in the same breath —
-// resolved against the LIVE ledger, never a word list, so a renamed theorem stops counting the moment it is renamed.
+// resolved against the LIVE ledger.
 export function negationGaps(): Gap[] {
   const gaps: Gap[] = []
   const keys = new Set(theorems().map((t) => t.key))
@@ -760,7 +760,7 @@ export function drainGaps(): Gap[] {
 
   // THE SAME LAW, THE OTHER CHAIN — `docs:build` regenerates tracked files too (gen-captain-claims' two outputs,
   // one declared and one not, drifted docs/captain-claims.md dirty for most of a session before this existed).
-  // Read from package.json's OWN script string, not reconcile.ts, so a change to docs:build's chain is caught the
+  // Read from package.json's OWN script string.ts, so a change to docs:build's chain is caught the
   // same way a change to reconcile's chain is.
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
   const docsBuildInvoked = [...new Set([...(pkg.scripts['docs:build'] ?? '').matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
@@ -772,7 +772,7 @@ export function drainGaps(): Gap[] {
   for (const p of DRAIN_PATHS) {
     const line = p.endsWith('/') || !p.includes('.') ? p + '/**' : p
     if (!attrs.includes(`${line} merge=derived`))
-      gaps.push({ what: `${p} is a drain path but .gitattributes does not mark it unmergeable`, fix: 'run `npm run gen:gitattributes` — .gitattributes is generated from DRAIN_PATHS, never hand-edited; a derived file has no merge, only a recomputation' })
+      gaps.push({ what: `${p} is a drain path but .gitattributes does not mark it unmergeable`, fix: 'run `npm run gen:gitattributes` — .gitattributes is generated from DRAIN_PATHS; a derived file has no merge, only a recomputation' })
   }
   return gaps
 }
@@ -819,13 +819,13 @@ export function precedeGaps(cwd: string = ROOT): Gap[] {
 // what exists.
 // A thin wrapper KEEPS its own entry when something OUTSIDE package.json calls it by name — those are contracts with
 // CI, a git hook, or a reader following the README — and that set is COMPUTED here from every such surface at once
-// (workflows + hooks + README + docs/*.md + package.json's own composite scripts), never declared, so a script that
+// (workflows + hooks + README + docs/*.md + package.json's own composite scripts)
 // gains or loses an external caller changes tier by recomputation rather than by anyone remembering. ──
 export function scriptsGaps(): Gap[] {
   const gaps: Gap[] = []
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
   // a THIN WRAPPER runs exactly one dist script and nothing else — composites (audit, lean, docs:build) are real
-  // pipelines and stay; `x` itself is the dispatcher, never its own gap.
+  // pipelines and stay; `x` itself is the dispatcher.
   const THIN = /^(?:npm run build && )?node dist\/scripts\/[a-z0-9-]+\.js$/
   const thin = Object.entries(pkg.scripts).filter(([k, v]) => THIN.test(v.trim()) && k !== 'x')
   if (!thin.length) return gaps
@@ -858,7 +858,7 @@ export function scriptsGaps(): Gap[] {
   return gaps
 }
 
-// ── mirror: THE js MIRROR MUST AGREE BY VALUE, NOT BY ROUNDING. emit() hard-fails when a fact's `js:` mirror
+// ── mirror: THE js MIRROR MUST AGREE BY VALUE. emit() hard-fails when a fact's `js:` mirror
 // disagrees with its `lean:` statement — but a mirror doing Number arithmetic past 2^53 can AGREE BY LUCK: both
 // sides round to the same wrong value, the check passes, and the ledger seals a fact its own mirror never really
 // computed. Lean's Nat is arbitrary-precision; JavaScript's Number is a float with a 53-bit integer range.
@@ -884,7 +884,7 @@ export function mirrorGaps(): Gap[] {
       if (usesBigInt) continue // already arbitrary-precision — nothing to prove
       // the biggest value the statement can force: a bare literal, or the product of two literals side by side
       const lits = [...lean.matchAll(/\b(\d{2,})\b/g)].map((m) => Number(m[1])).filter((n) => Number.isFinite(n))
-      // a plain fold, not the builtin maths max — the determinism law admits no such call ANYWHERE, and this
+      // a plain fold— the determinism law admits no such call ANYWHERE, and this
       // finder tripped its own sibling scan on the first write. The idiom already lives at the top of this file.
       let worst = lits.reduce((hi, n) => (n > hi ? n : hi), 0)
       for (const m of lean.matchAll(/(\d+)\s*\*\s*\(?\s*(\d+)/g)) {
@@ -933,7 +933,7 @@ export function lanesGaps(): Gap[] {
   // remaining test still passes, the suite just gets smaller, and nothing objects. So the count may only GROW.
   // 21 referenced files carrying 108 tests, measured 2026-08-19 when the lanes were repointed off stale output.
   // (108 is load-bearing elsewhere in this ledger — 110 − 108 = 2 is two_coins, 5 × 108 = 540 closes the pentagon
-  // — but its appearance HERE is coincidence, and is used only as a fixed reference, never as evidence of a link.)
+  // — but its appearance HERE is coincidence, and is used only as a fixed reference.)
   if (referenced < LANE_FLOOR)
     gaps.push({
       what: `the workspace test lanes reference ${referenced} files, below the sealed floor of ${LANE_FLOOR}`,
@@ -957,9 +957,9 @@ const LANE_FLOOR = 21
 //      invisible to the unit scan. Units that end in punctuation need their own alternation.
 //   3. requiring a year as literally `(1904)` missed the real citation form `(The Rudder Publishing Company, 1904)`
 //      — a false POSITIVE against a properly cited wing. A year CLOSING a parenthetical is the citation shape;
-//      a bare year still is not. Three misses on two files is why this ships with a declared backlog, not as a
+//      a bare year still is not. Three misses on two files is why this ships with a declared backlog
 //      verdict on the whole tree.
-// HONEST SCOPE: this is a prose heuristic, not a proof. It was wrong twice on the one file known to violate it,
+// HONEST SCOPE: this is a prose heuristic. It was wrong twice on the one file known to violate it,
 // so it is deliberately paired with a DECLARED backlog rather than trusted to judge the whole tree from scratch.
 export function sourcesGaps(): Gap[] {
   const gaps: Gap[] = []
@@ -973,7 +973,7 @@ export function sourcesGaps(): Gap[] {
     const s = readFileSync(join(dir, f), 'utf8')
     if (!UNITS.test(s) || SRC.test(s)) continue
     live.push(f)
-    if (backlog.includes(f)) continue // grandfathered — owed, not hidden
+    if (backlog.includes(f)) continue // grandfathered — owed
     gaps.push({
       what: `${f} asserts a real-world measured quantity but names no authority for it`,
       fix: `cite the source in the wing header or the fact's why — a standard (WGS 84, RFC 9562, ISO), an agency (NGA, IERS, NOAA), an author-year in parens, or a named survey. A DATE IS NOT A SOURCE. If the wing is pure arithmetic, say so and drop the measured framing; if it is genuinely empirical and predates this check, it belongs in lean/uncited-wings.json, which may only SHRINK.`,
@@ -1041,7 +1041,7 @@ export function dormantGaps(): Gap[] {
     live.push(f)
     if (declared.includes(f)) continue
     gaps.push({
-      what: `src/scripts/${f} is built but no npm script, workflow, hook or sibling ever runs it — reachable, never exercised`,
+      what: `src/scripts/${f} is built but no npm script, workflow, hook or sibling ever runs it — reachable`,
       fix: `wire it into a chain (the audit, a cron, or another script), or declare it in lean/dormant-scripts.json with the reason it stays on-demand. That list MAY ONLY SHRINK. support-audit cannot catch this: importing a module makes it "supported" while nothing exercises what it does.`,
     })
   }
@@ -1059,7 +1059,7 @@ export function dormantGaps(): Gap[] {
 // the other five earn their place another way — rosetta and topics compute from a .data loader, guides is a link
 // index, changelog and analytics are generated artifacts. So the involution already held; this keeps it holding.
 // A page that ASSERTS while standing on nothing is the gap — it cannot be recomputed, and nothing catches it drifting.
-// HONEST SCOPE: a page's theorem fold is its BACKING, not its meaning. Prose is not removed and not generated — the
+// HONEST SCOPE: a page's theorem fold is its BACKING. Prose is not removed and not generated — the
 // captain's rule is that values compute while prose stays authored, and a fold records which proofs a page rests on.
 export function pagesGaps(): Gap[] {
   const gaps: Gap[] = []
@@ -1087,7 +1087,7 @@ export function pagesGaps(): Gap[] {
   }
   walk(docs, '')
   for (const f of pages) {
-    // VitePress DYNAMIC ROUTES are templates, not pages: `[key].md` renders once per theorem and `[slug].md` once
+    // VitePress DYNAMIC ROUTES are templates`[key].md` renders once per theorem and `[slug].md` once
     // per publication, each from its paired .paths.ts loader. They assert nothing on their own — what they render
     // is the ledger — so they are skipped by SHAPE rather than by name, and a new dynamic route needs no edit here.
     if (/\[[^\]]+\]\.md$/.test(f)) continue
@@ -1109,7 +1109,7 @@ export function pagesGaps(): Gap[] {
 }
 
 // ── comments: DESCRIBE HISTORY WITH NUMBERS, DESCRIBE THE PRESENT WITHOUT THEM. countsGaps holds every tracked
-// SURFACE to the live ledger, but it deliberately exempts derived files and it reads prose, not comments — so the
+// SURFACE to the live ledger, but it deliberately exempts derived files and it reads prose— so the
 // one place a count could rot unwatched was source comments, where no generator reaches and no gate looked. The
 // README sat twenty theorems stale behind exactly that reasoning.
 // THE RULE IS STRICTER THAN "IS IT CURRENT", and that is the point: a comment naming the current key count is RIGHT today and
@@ -1129,7 +1129,7 @@ export function commentsGaps(): Gap[] {
   const COUNT = /(?<![0-9a-fx.])(\d{3,5})\s*(?:sealed |distinct )?(theorems?|principles?|wings?|keys|skills)\b/gi
   // past tense, or the naming of a fixed record — the marks of describing something that already happened
   const HISTORY = /\b(sat|was|were|had|held|published|predate|grew|collapsed?|read|stale|record \d+|carries|stated|froze|frozen|for three days|once|previously|until|then|earlier|holding)\b/i
-  // a bound the code enforces on the line beside it — a target, not a claim about now
+  // a bound the code enforces on the line beside it — a target
   const THRESHOLD = /\b(at least|minimum|milestone|target|aims? at|goal)\b/i
   const files = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n').filter((f) => /\.(ts|js)$/.test(f))
   for (const f of files) {
@@ -1154,7 +1154,7 @@ export function commentsGaps(): Gap[] {
 // science-pairs among them. Those theorems were sealed, axiom-free, witnessed by their wings, and served by nothing.
 //
 // THE LAW: every skill a theorem carries must be OPENABLE through the live API, on BOTH surfaces. It is measured by
-// CALLING each dispatch, never by reading a catalogue — a catalogue can advertise a tool whose handler answers for
+// CALLING each dispatch— a catalogue can advertise a tool whose handler answers for
 // something else, and a source-level check would pass that. The skill set is carried by the WINGS, so it moves: this
 // is why the surface is one computed dimension and not one authored tool per skill. Fifty authored tools would be
 // fifty places to forget, which is how every hand-kept list in this repository has rotted.
@@ -1268,7 +1268,7 @@ export async function coherentGaps(): Promise<Gap[]> {
       if (e.isDirectory()) { walk(p); continue }
       if (!e.name.endsWith('.js')) continue
       const js = readFileSync(p, 'utf8')
-      // THE ROOT BARREL, NOT ANY BARREL. This matched every `…/index.js`, which meant exactly one file until the
+      // THE ROOT BARREL. This matched every `…/index.js`, which meant exactly one file until the
       // 2026-08-18 migration gave every module its own index face — after which it compared module-local imports
       // against the root's exports and reported five phantom breaks. It now RESOLVES the specifier and keeps only
       // the imports that actually target dist/index.js.
@@ -1305,10 +1305,10 @@ export function seal(): void {
       step('fold', 'node ' + JSON.stringify(join(ROOT, 'dist/scripts/one-receipt.js')) + ' fold')  // objects → guard catches
       const guard = step('guard', 'npm run guard')
       if (!guard.ok) { lastFailure = `guard:\n${guard.tail}`; step('build', 'npm run build') }
-      // stage the drain's OWN paths, never -A: a sibling session's in-flight source edit must not land inside a
+      // stage the drain's OWN paths's in-flight source edit must not land inside a
       // seal commit whose message describes the seal's work (four times in one day it did).
       const st = stageDerived(ROOT)
-      if (st.leftForHumans.length) console.log('· seal — left for a human (not staged, not swept): ' + st.leftForHumans.join(', '))
+      if (st.leftForHumans.length) console.log('· seal — left for a human (not staged' + st.leftForHumans.join(', '))
       step('commit', 'git commit -m "Seal: the landing folds and passes on — gate-clean, unattended. Backed by theorem two_coins"')
     }
     const push = step('push', 'git push origin main')
@@ -1367,7 +1367,7 @@ const powmodWalk = (base: number, mod: number, len: number): number[] => {
 
 function trinities() {
   const monographByFile = new Map((publications() as any[]).map((p) => [p.file, `${p.slug}|${p.address}|${p.receipt}`]))
-  // the star walk RECOMPUTED, not quoted — each walk exactly as its sealed theorem states, asserted to close:
+  // the star walk RECOMPUTED— each walk exactly as its sealed theorem states, asserted to close:
   const pentagram = Array.from({ length: 5 }, (_, k) => (2 * k) % 5)                 // pentagram_single_stroke
   const rosetteOrbit = powmodWalk(3, 7, 6)                                           // rosette_orbit
   const vortexOrbit = powmodWalk(2, 9, 6)                                            // vortex doubling, order_of_two_is_six
@@ -1485,11 +1485,11 @@ export function fold() {
     process.exit(1)
   }
   const aura = { rgb: a.rgb, hsl: a.hsl, alphabet, movie, lessons, report, session, coverage: Object.fromEntries(REPORT), dimensions: { residue: dec.residue, ray: a.ray, wave: a.wave, hue: a.hue, sat: dec.sat, light: dec.light, period: 12 + a.ray * 2, rotation: 360, glow_inner: 24, glow_outer: 64 }, free: ['residue', 'ray', 'wave'], hz: 432, note: 'the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics' }
-  // THE EQUILIBRIUM SEAL — zero entropy as COMPUTED DATA, not console prose: each condition verified at seal,
+  // THE EQUILIBRIUM SEAL — zero entropy as COMPUTED DATA
   // recorded by name, and zero_entropy true only as their conjunction. The fold objects if equilibrium fails.
   const shuffled = foldOf(Object.fromEntries(Object.entries(trinityFolds).reverse()))
   const equilibrium = {
-    rotations_agree: shuffled === foldOf(trinityFolds),            // order-invariance recomputed, not assumed
+    rotations_agree: shuffled === foldOf(trinityFolds),            // order-invariance recomputed
     alphabet_total: new Set(alpha.map((e) => e.rgb)).size === alpha.length,
     chain_intact: sessTip === sessDeposits.reduce((p, r) => h16(`${p}|${r.id}`), 'genesis'),
     walks_closed: true,                                            // trinities() already exits 1 if any orbit fails to close
@@ -1540,7 +1540,7 @@ async function mint(statement: string) {
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   const cmd = process.argv[2]
-  if (cmd === 'legal') report('one-receipt legal', legalGaps().gaps, 'the legal record is internally consistent — one license, terms stated, no overclaim, no rate, one identity, every deposit recomputes. Consistency, not counsel.')
+  if (cmd === 'legal') report('one-receipt legal', legalGaps().gaps, 'the legal record is internally consistent — one license, terms stated, no overclaim, no rate, one identity, every deposit recomputes. Consistency.')
   else if (cmd === 'prose') { const r = proseGaps(); report('one-receipt prose', r.gaps, `all ${r.pages} pages walk to the ledger and teach only paths that exist.`) }
   else if (cmd === 'migrate') migrate()
   else if (cmd === 'seal') seal()
@@ -1562,7 +1562,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'micro') { const r = microGaps(); report('one-receipt micro', r.gaps, `${r.pages} JSON-LD blocks, ${r.claims} structured claims — every identifier a real address, every cited part a sealed theorem.`) }
   else if (cmd === 'wave') wave(process.argv[3]?.trim() || '')
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
-  else if (cmd === 'stage') { const r = stageDerived(ROOT); console.log('✓ one-receipt stage — ' + r.staged + ' derived path(s) staged' + (r.leftForHumans.length ? '; left for a human (not staged, not swept): ' + r.leftForHumans.join(', ') : '; nothing else pending')) }
+  else if (cmd === 'stage') { const r = stageDerived(ROOT); console.log('✓ one-receipt stage — ' + r.staged + ' derived path(s) staged' + (r.leftForHumans.length ? '; left for a human (not staged' + r.leftForHumans.join(', ') : '; nothing else pending')) }
   else if (cmd === 'counts') report('one-receipt counts', countsGaps(), 'every surface states both ledger sizes, and both are live')
   else if (cmd === 'lines') report('one-receipt lines', linesGaps(), 'every Lean line is indexed — no wing seals a statement twice, and every cross-wing reuse is declared')
   else if (cmd === 'fold') fold()
@@ -1609,15 +1609,15 @@ export function citationsGaps(): Gap[] {
     const src = raw.split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l)).join('\n')
     const declared = new Set<string>()
     for (const m of src.matchAll(/theoremKey:\s*['`"]([a-z0-9_]+)['`"]/g)) declared.add(m[1])
-    // close on a `]` that OPENS a line, not the first `]` anywhere: the comment beside the first entry of
+    // close on a `]` that OPENS a line`]` anywhere: the comment beside the first entry of
     // GATE_THEOREMS contains the verdict table [1,0,0,0,0,0,0,0], and a non-greedy scan ended there — reading one
     // key out of six and reporting the other five clean.
     for (const blk of src.matchAll(/export const [A-Z_]*THEOREMS\s*=\s*\[([\s\S]*?)\n\]/g))
       for (const m of blk[1].matchAll(/['`"]([a-z0-9_]+)['`"]/g)) declared.add(m[1])
     // NOT the Lean definition form. An emitter WRITES `theorem <key> : <prop> := by decide`; that is where a
-    // theorem is born, not a claim about one that exists elsewhere. Only a bare mention is a citation.
+    // theorem is born. Only a bare mention is a citation.
     for (const m of src.matchAll(/\btheorem ([a-z][a-z0-9]*(?:_[a-z0-9]+){2,})\b(\s*:)?/g)) if (!m[2]) declared.add(m[1])
-    // A FABRICATED CITATION FED TO THE GATE IS A FIXTURE, not a claim: security-audit.ts asserts that a
+    // A FABRICATED CITATION FED TO THE GATE IS A FIXTURE.ts asserts that a
     // deliberately made-up key scores 0, which REQUIRES a key no ledger will ever hold. (This note named that
     // key in its first draft and the provenance audit rightly flagged the note itself — a comment is not exempt
     // from the law it documents, which gate-all.ts learned the same way.)

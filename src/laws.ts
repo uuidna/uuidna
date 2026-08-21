@@ -1,7 +1,7 @@
 // laws — uuidna's standing invariants, IN uuidna (not in an agent's private notes) and each DEMONSTRATED, not
 // asserted: every law states what holds AND recomputes its `holds` from the actual gate that enforces it, so a reader
-// verifies the law rather than trusting the prose. A law with `holds:false` is a red gate, not an opinion. Folds to
-// one receipt anyone recomputes from the ledger. Integrity, not truth — a law here is only as true as its computed check.
+// verifies the law rather than trusting the prose. A law with `holds:false` is a red gate. Folds to
+// one receipt anyone recomputes from the ledger. Integrity— a law here is only as true as its computed check.
 import { theorems } from './theorems/index.js'
 import { conformance } from './conformance.js'
 import { computes } from './gate.js'
@@ -26,7 +26,7 @@ export function laws(): Laws {
     { law: 'Any manual fails — every theorem recomputes its content-address; a hand-tampered theorem turns the recompute test red.',
       enforcedBy: 'conformance:ledger-dna-recomputes + recompute.test', holds: forged === 0,
       detail: forged === 0 ? `all ${T.length} addresses recompute; ${forged} forged` : `${forged} theorem(s) do not recompute` },
-    { law: 'Honesty is DEMONSTRATED by the gate, never asserted — a claim citing a theorem that is not sealed drains to 0.',
+    { law: 'Honesty is DEMONSTRATED by the gate— a claim citing a theorem that is not sealed drains to 0.',
       enforcedBy: 'the honesty gate (computes/slimGate)', holds: computes('proven in theorem nonexistent_xyz').binary === 0,
       detail: 'a fabricated theorem citation drains; an honest floor signs' },
     { law: 'The two captain coins are conserved — 110 − 108 = 2, the fair-exchange invariant priced on every fold.',

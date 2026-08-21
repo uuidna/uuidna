@@ -1,11 +1,11 @@
 // Ordered merkle tree with INCLUSION PROOFS — prove a leaf is in the root without revealing the other
 // leaves (light-client verification). A content-addressed, tamper-evident ledger — NO currency, NO mining,
-// NO consensus, NO wallet. Integrity and provenance, never money. Verification is O(log N), not O(N).
+// NO consensus, NO wallet. Integrity and provenance. Verification is O(log N).
 import { toUuid, merge } from './address.js'
 
 const leafHash = (l: string) => toUuid('leaf:' + l)
 
-/** Root of the ordered merkle tree over leaves (an odd node is promoted, not duplicated). */
+/** Root of the ordered merkle tree over leaves (an odd node is promoted. */
 export function merkleRoot(leaves: readonly string[]): string {
   if (leaves.length === 0) return toUuid('empty')
   let layer = leaves.map(leafHash)

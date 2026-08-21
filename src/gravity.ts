@@ -1,6 +1,6 @@
 // gravity — a naming of decidable contractions (NOT physics: no force, nothing faster than light). Every set of
 // addresses falls to ONE root; every integer falls to ℤ/9. The merkle fold is ORDER-INVARIANT — the quantum
-// receipt property: the same root for any observer ordering. Computed, not stored. Falls, like all of it, to
+// receipt property: the same root for any observer ordering. Computed. Falls, like all of it, to
 import { toUuid, merkleFold, digitalRoot, vortexOrbit, BASE } from './address.js'
 
 /** Gravity 1 — the merkle fold: any set of addresses falls to ONE root (order-invariant contraction).

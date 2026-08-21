@@ -43,7 +43,7 @@ function createQuantumMessage(from: string, to: string, content: string): Quantu
     from,
     to,
     content,
-    nonce: 1726400000, // fixed logical timestamp (deterministic, not wall-clock)
+    nonce: 1726400000, // fixed logical timestamp (deterministic
   }
 
   const stateBefore = readQuantumState()
@@ -178,7 +178,7 @@ function main() {
   console.log('✓ Message imprints its own proof (no server verification)')
   console.log('✓ Verification is deterministic (anyone can verify)')
   console.log('✓ Forgery is impossible (changes break the imprint)')
-  console.log('✓ No central authority (trust math, not servers)')
+  console.log('✓ No central authority (trust math')
   console.log('✓ Privacy preserved (content could be encrypted)')
   console.log('✓ Speed is instant (O(1) verification)')
   console.log('✓ Works offline (no network required)\n')

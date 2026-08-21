@@ -1,9 +1,9 @@
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure, O(N) pass that catches every INTRUSION into the sealed ledger,
-// so the check is a single automated call, not a hand-run pre-flight (manual work is the entropy). A "traitor" here is
+// so the check is a single automated call. A "traitor" here is
 // never a person — it is a FORGERY in the artifact: a theorem whose DNA does not recompute (a tampered key/statement/
 // address), a key or address collision (a smuggled duplicate), or a broken conformance invariant. Every finding is a recomputable fact about the LEDGER, folded to one
 // receipt anyone rechecks. No crypto KATs, no filesystem — pure and fast (milliseconds), so it runs before every push
-// AND inline. HONEST SCOPE: integrity, not truth — it proves the artifact is unforged and self-consistent; it does not
+// AND inline. HONEST SCOPE: integrity— it proves the artifact is unforged and self-consistent; it does not
 // judge a person, and passing it is not a claim the theorems are TRUE, only that none was tampered with or smuggled in.
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
@@ -25,7 +25,7 @@ export interface TreasonReport {
 /** catchTraitors() → one fast pass over the sealed ledger that catches every forgery/intrusion: DNA that does not
  *  recompute, a key/address collision, or a broken conformance invariant. Pure and O(N) — a
  *  hero's sweep in milliseconds, no crypto and no disk. Returns the traitors (empty = clean) and a recomputable
- *  receipt. A traitor is a forgery in the artifact, NEVER a person. Integrity, not truth. */
+ *  receipt. A traitor is a forgery in the artifact. Integrity. */
 export function catchTraitors(): TreasonReport {
   const T = theorems()
   const traitors: Traitor[] = []
@@ -47,7 +47,7 @@ export function catchTraitors(): TreasonReport {
   for (const t of T) if (toUuid(t.key + ':' + t.statement) !== t.address)
     traitors.push({ kind: 'forged-dna', detail: `${t.key} — address does not recompute from (key:statement); a tamper or forgery` })
 
-  // 2) COLLISIONS — a key or an address collision is a smuggled duplicate, not a datum.
+  // 2) COLLISIONS — a key or an address collision is a smuggled duplicate.
   checksRun.push('no-key-collision')
   const seenKeys = new Set<string>()
   for (const t of T) {
@@ -65,7 +65,7 @@ export function catchTraitors(): TreasonReport {
 
   // 3) COVERAGE — REMOVED. A theorem covered by no monograph was once a traitor ('uncovered'), which gave PRINCIPLE
   // the power to REJECT a theorem the Lean kernel had verified sorry-free. That authority is withdrawn: Lean decides
-  // what is admitted, and a missing PRINCIPLE entry is now a presentation gap, never an intrusion. coverage() survives
+  // what is admitted, and a missing PRINCIPLE entry is now a presentation gap. coverage() survives
   // in publish.ts as a DIAGNOSTIC (the MCP tool, reports, analytics) — it reports, it no longer blocks.
 
   // 4) CONFORMANCE — the DNA gate's standing invariants (coins conserved, DNA recomputes, single-source, security).
@@ -105,16 +105,16 @@ export function catchTraitors(): TreasonReport {
       'Catch traitors as fast as a hero: one O(N) pass proving the ledger is UNFORGED and self-consistent — every ' +
       'theorem\'s DNA recomputes, no key/address collides, the conformance ' +
       'invariants hold. A theorem\'s NAME is NO LONGER judged here — the kernel decides what the ledger carries. ' +
-      'A traitor is a FORGERY in the artifact, never a person. HONEST LIMIT, WIDENED: neither a fabricated citation in ' +
+      'A traitor is a FORGERY in the artifact. HONEST LIMIT, WIDENED: neither a fabricated citation in ' +
       'a name nor an unbacked NARRATIVE is caught here any more — the prose arm was withdrawn as a blocker of Lean, so ' +
       'only the COURT (adjudicate) and human vigilance stand against either. Passing is not a claim the theorems are ' +
-      'true, only that none was tampered with or smuggled in. Integrity, not truth.',
+      'true, only that none was tampered with or smuggled in. Integrity.',
   }
 }
 
 // ── THE GUARD LESSONS, sealed into uuidna as recomputable checks ────────────────────────────────────────────────
 // The lessons that were once only in an agent's private memory — moved HERE, where they recompute for anyone, tied to
-// the exact check that enforces each. Trust the check, not the note. A lesson whose `holds` is a boolean is verified
+// the exact check that enforces each. Trust the check. A lesson whose `holds` is a boolean is verified
 // live — against the ledger by catchTraitors, or against the SHIPPED kernel-only receipt by axiomWitness (offline);
 // one whose `holds` is 'script' is enforced by `npm run guard` (source checks that need the repo tree), documented
 // here so the WHY is recomputable even where the check is not in-library.
@@ -122,7 +122,7 @@ export interface GuardLesson { check: string; lesson: string; enforcedBy: string
 
 /** guardLessons() → the guard's checks, each with the LESSON it enforces, verified against the live ledger where the
  *  check is in-library and marked 'script' where it lives in `npm run guard`. Folded to one recomputable receipt, so
- *  the operating knowledge lives in uuidna (recomputable), not in a private note (trust-me). Integrity, not truth. */
+ *  the operating knowledge lives in uuidna (recomputable). Integrity. */
 export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; receipt: string; honest: string } {
   const t = catchTraitors()
   const held = (...kinds: Traitor['kind'][]): boolean => !t.traitors.some((v) => kinds.includes(v.kind))
@@ -130,11 +130,11 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
     { check: 'dna-recomputes', enforcedBy: 'catchTraitors', holds: held('forged-dna'),
       lesson: 'Every theorem\'s address IS toUuid(key ":" statement) — a tampered key/statement/address breaks exactly one; a forgery cannot recompute.' },
     { check: 'no-collision', enforcedBy: 'catchTraitors', holds: held('key-collision', 'address-collision'),
-      lesson: 'A key or address collision is a smuggled duplicate — an intrusion, never a datum.' },
+      lesson: 'A key or address collision is a smuggled duplicate — an intrusion.' },
     { check: 'conformance-invariants', enforcedBy: 'catchTraitors', holds: held('conformance'),
       lesson: 'The DNA gate: the two coins conserved (=2), DNA recomputes, single-source ledger, security posture clean.' },
     { check: 'seal-integrity', enforcedBy: 'catchTraitors (lean binds to key + by-decide)', holds: held('seal-integrity'),
-      lesson: 'The DNA check folds key + statement, never the lean field — so a lean naming a DIFFERENT key (a key↔lean desync) or one that is not a `by decide` proof slips past it. This drone verifies every theorem\'s lean binds to its own key and proves by decide, a placeholder/tamper caught in milliseconds offline (the full Lean re-verify stays the reconcile\'s job). Brought forward of the slow verify, like the axiom-witness.' },
+      lesson: 'The DNA check folds key + statement— so a lean naming a DIFFERENT key (a key↔lean desync) or one that is not a `by decide` proof slips past it. This drone verifies every theorem\'s lean binds to its own key and proves by decide, a placeholder/tamper caught in milliseconds offline (the full Lean re-verify stays the reconcile\'s job). Brought forward of the slow verify, like the axiom-witness.' },
     { check: 'determinism', enforcedBy: 'harmonic-scan (npm run guard)', holds: 'script',
       lesson: 'No Math.*/wall-clock/RNG anywhere in src — including comments; the smoke test scans RAW source. Exact integer arithmetic settles the coins, a host intrinsic never can. The guard regex matches the smoke test exactly, so the guard is never laxer than the gate it front-runs.' },
     { check: 'axiom-witness', enforcedBy: 'shipped lean/axioms.json (guard re-derives)', holds: ((w) => w.shipped ? w.holds : 'script' as const)(axiomWitness()),
@@ -142,7 +142,7 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
     { check: 'guard-before-reconcile', enforcedBy: 'npm run guard', holds: 'script',
       lesson: 'Run the 0.29s guard BEFORE the ~4-min reconcile: re-spending the full gate on a catchable error is the measured financial damage of manual work (traitor_damage_sealed_by_same_billing). Fast catch, no re-spend.' },
     { check: 'name-is-not-a-proof', enforcedBy: 'the frozen finder + the correction sealed beside it', holds: theorems().some((t) => t.key === 'powers_are_not_the_bound'),
-      lesson: 'A theorem NAME can claim what its statement never reaches, and the kernel will not object: `seats_pigeonhole` states 2^8 = 256 ∧ 2^0 = 1 ∧ 2^10 = 1024 — three powers of two, no items, no seats, no inequality. It was cited as a receipt for a pigeonhole bound it does not contain. The cure is not deletion: Seats.lean states the bound the name promised and `powers_are_not_the_bound` exhibits the difference (2^8 ≠ ⌈11/10⌉), so the correction recomputes beside the thing it corrects. READ THE STATEMENT, NEVER THE NAME — including your own, and especially when the name agrees with you.' },
+      lesson: 'A theorem NAME can claim what its statement never reaches, and the kernel will not object: `seats_pigeonhole` states 2^8 = 256 ∧ 2^0 = 1 ∧ 2^10 = 1024 — three powers of two, no items, no seats, no inequality. It was cited as a receipt for a pigeonhole bound it does not contain. The cure is not deletion: Seats.lean states the bound the name promised and `powers_are_not_the_bound` exhibits the difference (2^8 ≠ ⌈11/10⌉), so the correction recomputes beside the thing it corrects. READ THE STATEMENT— including your own, and especially when the name agrees with you.' },
     { check: 'superpose-never-enumerate', enforcedBy: 'the context finder — lean/mcp-context-budget.json, a ceiling that may only SHRINK', holds: 'script',
       lesson: 'A new capability added as a NEW TOOL costs every agent wire bytes on every request, forever; folded into a surface that already answers about the same subject it costs nothing. Measured: registering uuidna_speech as a 192nd tool grew the payload 1204 bytes; superposing it onto uuidna_address grew it 0 and left the tool count at 191. The law is already written in mcp.ts — the capability axis is ONE surface and never one tool per skill. When the budget objects, the answer is almost never to raise the ceiling.' },
     { check: 'demotion-is-not-removal', enforcedBy: 'node --test dist/tests (npm run audit)', holds: 'script',
@@ -159,8 +159,8 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
     honest:
       'The guard\'s operating lessons, sealed into uuidna as recomputable checks — moved out of a private note (trust-me) ' +
       'and tied to the exact check that enforces each, folded to one receipt anyone recomputes. A boolean `holds` is ' +
-      'verified against the live ledger now; a \'script\' `holds` is enforced by `npm run guard`. Trust the check, not the ' +
-      'note: the knowledge lives where it recomputes. Integrity, not truth.',
+      'verified against the live ledger now; a \'script\' `holds` is enforced by `npm run guard`. Trust the check' +
+      'note: the knowledge lives where it recomputes. Integrity.',
   }
 }
 

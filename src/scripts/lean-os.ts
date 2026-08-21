@@ -4,13 +4,13 @@
 // seals the decidable facts a DEPLOYMENT is verified against: that a system image / driver bundle is EXACTLY the named
 // upstream bytes. uuidnaOS (src/os, src/drivers) is a content-addressed PROVENANCE boundary — it pins
 // an exact Alpine release + driver bundle and their PUBLISHED SHA-256 digests, and checks your actual bytes with
-// uuidna's OWN pure-TS SHA-256. It NEVER boots, ports, links, or executes — integrity, not execution. The decidable
+// uuidna's OWN pure-TS SHA-256. It NEVER boots, ports, links, or executes — integrity. The decidable
 // core of that boundary: verification IS byte-equality (exact-copy), so a single changed byte, a truncation, or a
-// reordering breaks the match (a provenance is a SEQUENCE, not a set); the digest is a fixed 256 bits, the content-
+// reordering breaks the match (a provenance is a SEQUENCE; the digest is a fixed 256 bits, the content-
 // address a fixed 128; and the non-determinism boundary is EXACTLY the two named modules — nowhere else. Each fact is
-// a decidable, AXIOM-FREE `by decide` particle. integrity, not truth, and not execution — uuidna SEALS
+// a decidable, AXIOM-FREE `by decide` particle. integrity— uuidna SEALS
 // what an exact-copy verification decides, so a deployment can be verified against it; it does NOT run an operating
-// system, and no theorem here claims it does. A sealed integrity spec, not a booted OS.
+// system, and no theorem here claims it does. A sealed integrity spec.
 import { emit } from './lean-gen.js'
 
 const eqBytes = (a: number[], b: number[]): boolean => a.length === b.length && a.every((x, i) => x === b[i])
@@ -32,7 +32,7 @@ const FACTS = [
     lean: 'theorem truncation_is_detected : ([1,2,3] : List Nat) ≠ [1,2] := by decide' },
 
   { key: 'byte_order_is_significant',
-    why: 'A PROVENANCE is a SEQUENCE, not a set: reordering the bytes breaks the match — [1,2,3] ≠ [3,2,1]. The same bytes in a different order are a different image; exact-copy pins the order, not just the multiset.',
+    why: 'A PROVENANCE is a SEQUENCE— [1,2,3] ≠ [3,2,1]. The same bytes in a different order are a different image; exact-copy pins the order.',
     js: () => !eqBytes([1, 2, 3], [3, 2, 1]),
     lean: 'theorem byte_order_is_significant : ([1,2,3] : List Nat) ≠ [3,2,1] := by decide' },
 

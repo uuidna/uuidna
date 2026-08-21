@@ -2,7 +2,7 @@
 // security-audit (CLI) — the full recomputable security gate: the shipped package posture (securityAudit) PLUS the
 // repo-tree scans that need the source (no committed secret across every tracked file; the crypto KAT suite wired),
 // folded to ONE order-invariant receipt and printed as a table. Exits non-zero if any check fails — a dimension of
-// `npm run audit`, recomputable by anyone from the same tree. Integrity, not truth.
+// `npm run audit`, recomputable by anyone from the same tree. Integrity.
 import { execSync } from 'node:child_process'
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
@@ -10,7 +10,7 @@ import { securityAudit, type SecurityCheck } from '../security-audit.js'
 import { toUuid, merkleGravity } from '../index.js'
 import { ROOT } from './lean-gen.js'
 
-// HIGH-CONFIDENCE credential patterns only — real leaked secrets, not fixture strings (the repo is full of test
+// HIGH-CONFIDENCE credential patterns only — real leaked secrets
 // passphrases and crypto prose, so a loose scan would cry wolf). Each pattern is the literal shape of a live token.
 const SECRET_PATTERNS: [string, RegExp][] = [
   ['private-key-pem', /-----BEGIN (?:RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY-----/],
@@ -20,7 +20,7 @@ const SECRET_PATTERNS: [string, RegExp][] = [
   ['google-api-key', /\bAIza[0-9A-Za-z_-]{35}\b/],
   ['npm-token', /\bnpm_[A-Za-z0-9]{36}\b/],
 ]
-// the scanner's own source carries these pattern strings — never scan them (they are shapes, not secrets).
+// the scanner's own source carries these pattern strings — never scan them (they are shapes.
 const SKIP = new Set(['src/security-audit.ts', 'src/scripts/security-audit.ts'])
 
 // scan every tracked text file for a credential pattern — recomputable from `git ls-files`.
@@ -38,7 +38,7 @@ for (const rel of tracked) {
   const text = buf.toString('utf8')
   for (const [name, re] of SECRET_PATTERNS) if (re.test(text)) hits.push({ file: rel, pattern: name })
 }
-// THE KAT CLAIM IS BACKED BY VECTORS, NOT BY A FILENAME. This check used to assert that src/tests/kat.test.ts exists
+// THE KAT CLAIM IS BACKED BY VECTORS. This check used to assert that src/tests/kat.test.ts exists
 // — a hardcoded path, which a legitimate refactor breaks and an EMPTY file with the right name would satisfy. What
 // actually backs "KAT-verified" is that the standards' own published outputs are asserted somewhere in the tests, so
 // that is what is counted: each anchor below is a vector no implementation can produce without conforming.

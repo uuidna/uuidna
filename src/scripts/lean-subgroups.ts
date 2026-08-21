@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Automate the Lean layer for THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited, not merely counted.
+// Automate the Lean layer for THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited.
 // PURE ARITHMETIC: every value is a residue or a count; nothing is measured from the world.
 //
 // WHY. Discover.lean seals Lagrange's theorem and the per-element orders, and Affine.lean seals the six units as
@@ -63,5 +63,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Subgroups.lean', skill: 'subgroups', defs: DEFS,
-  header: 'THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited, not merely counted.',
+  header: 'THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

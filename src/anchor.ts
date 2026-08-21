@@ -9,7 +9,7 @@
 // HONEST SCOPE: it gives a NOT-BEFORE bound only. For NOT-AFTER, publish the anchor to an independent observer (a git
 // push, whose time GitHub records). For a FORMAL legal timestamp, an RFC 3161 timestamp authority or OpenTimestamps
 // (Bitcoin-anchored) signs a hash of your document directly — the recognised instruments. This is one network call
-// (Node's built-in fetch); the fold itself is pure. Integrity, not truth.
+// (Node's built-in fetch); the fold itself is pure. Integrity.
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'
 

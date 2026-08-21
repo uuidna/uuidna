@@ -9,7 +9,7 @@
 //   npm run heartbeats            → a small sample
 //   npm run heartbeats key ...    → named theorems
 //   npm run heartbeats --all      → FOLD the whole ledger (expensive: ~15 probes × every theorem, run in parallel)
-// Integrity, not truth.
+// Integrity — the record recomputes for anyone.
 import { execFile } from 'node:child_process'
 import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'

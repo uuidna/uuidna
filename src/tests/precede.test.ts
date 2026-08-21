@@ -44,7 +44,7 @@ test('derived STAGED while its Lean source is not is caught, and the gap names b
   assert.equal(gaps.length, 1, 'the inversion must be caught')
   assert.match(gaps[0]!.what, /generated\.ts/, 'the staged derived file is named')
   assert.match(gaps[0]!.what, /lean\/Core\.lean/, 'the unstaged source is named')
-  assert.match(gaps[0]!.fix, /git add/, 'the fix is an exact command, not advice')
+  assert.match(gaps[0]!.fix, /git add/, 'the fix is an exact command')
   rmSync(dir, { recursive: true, force: true })
 })
 
@@ -58,6 +58,6 @@ test('staging the source alongside its derived output clears the gap — the fin
 test('a staged SOURCE with no derived file staged is not an inversion — the order it forbids has a direction', () => {
   const dir = scratch()
   execSync('git add lean/Core.lean', { cwd: dir, stdio: 'ignore' })
-  assert.deepEqual(precedeGaps(dir), [], 'source ahead of derived is the safe order, never the caught one')
+  assert.deepEqual(precedeGaps(dir), [], 'source ahead of derived is the safe order')
   rmSync(dir, { recursive: true, force: true })
 })

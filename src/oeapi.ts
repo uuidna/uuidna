@@ -23,8 +23,8 @@
 //
 // HONEST SCOPE: an interoperability PROJECTION of sealed, public data — NOT a Student Information System. Read-only,
 // and it carries NO personal data: no persons, groups, offerings, associations or results, because uuidna enrols
-// nobody and grades nobody — the kernel grades the PROOF, and a claim is tried at /trials, never a person. Every
-// absence is listed by name with the pointer to what stands in its place. Recomputable by anyone; integrity, not truth.
+// nobody and grades nobody — the kernel grades the PROOF, and a claim is tried at /trials. Every
+// absence is listed by name with the pointer to what stands in its place. Recomputable by anyone; integrity.
 import { theorems, skillGroups } from './theorems/index.js'
 import { publications } from './publish.js'
 import { courses as schoolCourses } from './school.js'
@@ -79,7 +79,7 @@ const HONEST =
   'and carrying no personal data. uuidna is NOT a Student Information System: it enrols nobody and grades nobody, so ' +
   'the person/group/offering/result resources are absent by construction, each listed with what stands in its place. ' +
   'The ids are the ledger\'s own content-addresses, so every identifier recomputes from the proof it names. ' +
-  'Recomputable by anyone. Integrity, not truth.'
+  'Recomputable by anyone. Integrity.'
 
 const lang = (value: string): OeapiLangString[] => [{ language: LANGUAGE, value }]
 const ident = (codeType: string, code: string): OeapiCode => ({ codeType, code })
@@ -92,7 +92,7 @@ export function oeapiOrganisations(): OeapiOrganisation[] {
   return [
     { organisationId: ROOT_ID, organisationType: 'root', name: lang('uuidna'),
       primaryCode: ident('organisation_id', 'uuidna'), shortName: lang('uuidna'),
-      description: lang('Content-addressed identity and a sealed ledger of machine-checked theorems. Every claim links a Lean 4 proof; integrity, not truth.'),
+      description: lang('Content-addressed identity and a sealed ledger of machine-checked theorems. Every claim links a Lean 4 proof; integrity.'),
       link: HOST, childIds: [SCHOOL_ID] },
     { organisationId: SCHOOL_ID, organisationType: 'school', name: lang('The quantum school'),
       primaryCode: ident('organisation_id', 'uuidna-school'), shortName: lang('quantum school'),
@@ -101,7 +101,7 @@ export function oeapiOrganisations(): OeapiOrganisation[] {
   ]
 }
 
-/** The skill clusters as programmes — typed `track`: a structured learning path, never a qualification. */
+/** The skill clusters as programmes — typed `track`: a structured learning path. */
 export function oeapiProgrammes(): OeapiProgramme[] {
   return skillGroups().map((g) => ({
     programmeId: g.fold, programmeType: 'track', name: lang(g.skill),
@@ -138,7 +138,7 @@ export function oeapiCourses(): OeapiCourse[] {
       description: lang(p.abstract), organisationId: SCHOOL_ID,
       link: `${HOST}/publications/${p.slug}`, teachingLanguages: TEACHING_LANGUAGES,
       programmeIds, learningOutcomeIds: wing.map((t) => t.address),
-      // an unknown wing grades as 0/unmeasured rather than defaulting to the easiest rung — undecided, never low
+      // an unknown wing grades as 0/unmeasured rather than defaulting to the easiest rung — undecided
       ext: { level: g?.level ?? 0, band: g?.band ?? 'unmeasured', rank: g?.rank ?? 0,
         decideSteps: g?.steps ?? 0, entryCost: g?.entry ?? 0 },
     }
@@ -163,9 +163,9 @@ export function oeapiLearningOutcomes(course?: string): OeapiLearningOutcome[] {
 // the reason and the pointer to what stands in its place here.
 const ABSENT: { resource: string; why: string; instead: string }[] = [
   { resource: '/persons', why: 'uuidna records no people — there is no roster, no account and no personal data to project.',
-    instead: 'A contribution is credited to a content-address, not to a profile: /captain (the credit law).' },
+    instead: 'A contribution is credited to a content-address.' },
   { resource: '/groups', why: 'no cohorts exist: nobody is enrolled, so nobody is grouped.',
-    instead: 'The skill clusters group THEOREMS, not students: /topics.' },
+    instead: 'The skill clusters group THEOREMS.' },
   { resource: '/course-offerings', why: 'nothing is scheduled or delivered in time — a proof is available always or not at all.',
     instead: 'The wing itself, served the moment it is sealed: /publications.' },
   { resource: '/associations', why: 'an association binds a person to an offering; with neither, it cannot exist.',
@@ -190,7 +190,7 @@ const ABSENT_FIELDS: { field: string; why: string }[] = [
     why: 'the spec types it as the QUALIFICATION level a course sits at — the Dutch/EQF ladder (secondary vocational, ' +
       'associate degree, bachelor, master, doctoral). uuidna awards no qualification at any of those levels, so every ' +
       'value the enum offers would be false. The school DOES grade its courses, by the decade of the measured kernel ' +
-      'decide-step cost of the wing\'s proofs, and that grading is served in `ext` — a difficulty reading, never a ' +
+      'decide-step cost of the wing\'s proofs, and that grading is served in `ext` — a difficulty reading' +
       'qualification. Putting it in `level` would satisfy the field-name audit and tell every consumer that uuidna ' +
       'confers a degree it does not confer, which is the one overclaim this projection exists to refuse.' },
   { field: 'LearningOutcome.parentIds',

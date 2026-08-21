@@ -50,7 +50,7 @@ const FACTS = [
     lean: 'theorem five_returns_out_of_phase : (dz 5 = 5) ∧ (dbl 5 = 1) ∧ (dbl 5 ≠ 5) := by decide' },
 
   { key: 'reach_shrinks_each_pass',
-    why: 'THE DOMAIN NARROWS AS THE WALK RUNS: applying doubling to the ten digits leaves nine, and applying it again leaves nine of those — the image cannot grow. SCOPE: what decides here is that the image never widens, which is what makes a return to an outside seed impossible. That the walk therefore NEVER closes for such a seed is the reading, not the seal — `by decide` settles the maps, not every walk.',
+    why: 'THE DOMAIN NARROWS AS THE WALK RUNS: applying doubling to the ten digits leaves nine, and applying it again leaves nine of those — the image cannot grow. SCOPE: what decides here is that the image never widens, which is what makes a return to an outside seed impossible. That the walk therefore NEVER closes for such a seed is the reading— `by decide` settles the maps.',
     js: () => { const once: number = dblImg.length, twice: number = [...new Set(dblImg.map(dbl))].length; return twice <= once && once === 9 },
     lean: 'theorem reach_shrinks_each_pass : ((((List.range 10).map dbl).eraseDups.map dbl).eraseDups.length ≤ ((List.range 10).map dbl).eraseDups.length) ∧ (((List.range 10).map dbl).eraseDups.length = 9) := by decide' },
 ]

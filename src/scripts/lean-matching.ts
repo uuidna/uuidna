@@ -6,8 +6,8 @@
 // consent and safety obligations that live OUTSIDE these theorems (see /privacy). What is sealed here is only the
 // arithmetic: a mutual match is SYMMETRIC (both must choose — one-sided is not a match), a pairing is a fixed-point-
 // free involution (each partnered with exactly one other, no self-pairing), the introductions among n people number
-// n(n−1)/2, and — the honest ceiling — Gale–Shapley halts in AT MOST n² proposals (bounded, not free; the same
-// "no maximum, only bounds" the Security domain proves). COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// n(n−1)/2, and — the honest ceiling — Gale–Shapley halts in AT MOST n² proposals (bounded; the same
+// "no maximum, only bounds" the Security domain proves). COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit, NTH_DEF } from './lean-gen.js'
 
 const FACTS = [
@@ -17,7 +17,7 @@ const FACTS = [
     lean: 'theorem handshake_degree_sum_even : List.sum [1,3,2,2,1,1] = 10 ∧ 10 % 2 = 0 := by decide' },
 
   { key: 'edges_are_half_the_degree_sum',
-    why: 'Because each connection is counted from both ends, the number of edges is exactly half the degree sum — 5 connections make a degree sum of 10. Connections are shared, never owned by one side.',
+    why: 'Because each connection is counted from both ends, the number of edges is exactly half the degree sum — 5 connections make a degree sum of 10. Connections are shared.',
     js: () => 2 * 5 === 10,
     lean: 'theorem edges_are_half_the_degree_sum : 2 * 5 = 10 := by decide' },
 
@@ -37,7 +37,7 @@ const FACTS = [
     lean: 'theorem n_people_make_n_half_pairs : 8 = 2 * 4 := by decide' },
 
   { key: 'proposals_bounded_by_n_squared',
-    why: 'The honest ceiling: the Gale–Shapley stable-matching process halts, in AT MOST n² proposals — for four people, at most 16. It is BOUNDED, not free; the same "no maximum, only bounds" the security layer proves — connecting people has a cost, and the cost is finite and known.',
+    why: 'The honest ceiling: the Gale–Shapley stable-matching process halts, in AT MOST n² proposals — for four people, at most 16. It is BOUNDED; the same "no maximum, only bounds" the security layer proves — connecting people has a cost, and the cost is finite and known.',
     js: () => 4 * 4 === 16,
     lean: 'theorem proposals_bounded_by_n_squared : 4 * 4 = 16 := by decide' },
 

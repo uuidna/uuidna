@@ -1,19 +1,19 @@
 #!/usr/bin/env node
-// gen-handle-chunks — the storable unit is the ALGEBRA, not the theorem record. the key count cite only 1224 distinct
+// gen-handle-chunks — the storable unit is the ALGEBRA. the key count cite only 1224 distinct
 // proven facts (84 re-namings across 79 groups — z9mul_1_1 and mul9_1_1 are one fact, two names); storing a full
 // copy per KEY duplicates 84 facts for nothing. This writes ONE chunk per distinct fact (allStatementChunks(),
 // content-addressed by its normalised statement — the same identity statementCensus()/guard.js's "1224 distinct"
 // already audits, not a new one invented here), sharded ONE level deep by the first byte of its handle.
 //
-// Why one level, not four: computed against the real ledger (2026-08-19) — at 1224 chunks, one level of 2-hex
+// Why one level— at 1224 chunks, one level of 2-hex
 // sharding (256 buckets) already averages ~5 entries/bucket (max 11); a second level averages ~1/bucket, and a
-// third or fourth level is 100% single-entry directories — decoration, not sharding, and it costs real git/build
+// third or fourth level is 100% single-entry directories — decoration
 // overhead (empty intermediate dirs, extra readdir/stat calls, more surface for cross-branch tree conflicts) for
 // zero lookup benefit past level one. A handle still reads as four DNA-codon pairs (ab·cd·ef·12) at the DISPLAY
 // layer — src/chunks/<ab>/<cdef12>.json keeps that reading without four levels of nearly-empty folders on disk.
 //
 // Each theorem's own per-key record (src/theorems/generated.ts) is unchanged — key+statement is still its own
-// citation identity (address = toUuid(key+':'+statement)), because a key names WHO cites the fact, not the fact
+// citation identity (address = toUuid(key+':'+statement)), because a key names WHO cites the fact
 // itself. This is the has_and_belongs_to_many join the other side of: every chunk lists every key that cites it;
 // every key can be resolved to its one chunk via chunkHandleOf.
 import { writeFileSync, mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs'
@@ -44,7 +44,7 @@ export function buildChunks(): HandleChunk[] {
 
 /** chunkHandleOf(key) — resolve a theorem KEY to the handle of the fact it cites (the has_and_belongs_to_many
  *  join, read from the key's side). A caller resolving many keys should build the map once instead: this is a
- *  convenience for the occasional single lookup, not a loop-friendly primitive. */
+ *  convenience for the occasional single lookup. */
 export function chunkHandleOf(key: string): string | undefined {
   return buildChunks().find((c) => c.keys.includes(key))?.handle
 }

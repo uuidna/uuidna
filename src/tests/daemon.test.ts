@@ -1,5 +1,5 @@
 // Daemon tests — the pure router, exercised without binding a socket. Read-only, stateless, honest: it verifies,
-// tries, and gates; it never removes or stores. The tamper-check is keyless. Integrity, not truth.
+// tries, and gates; it never removes or stores. The tamper-check is keyless. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { route } from '../daemon.js'
@@ -33,12 +33,12 @@ test('verify is a keyless tamper-check', () => {
 
 test('gate drains a fabricated citation and reveals everything else', () => {
   // The gate is folded to the theorems: only a claim citing a proof that does NOT exist is drained; a lexical
-  // boast with no citation is revealed (clean), not censored.
+  // boast with no citation is revealed (clean).
   const bad = route('GET', '/gate', Q('text=' + encodeURIComponent('proven in theorem this_is_unbreakable')), {}).json as { clean: boolean }
   const boast = route('GET', '/gate', Q('text=' + encodeURIComponent('this is unbreakable')), {}).json as { clean: boolean }
   const good = route('GET', '/gate', Q('text=' + encodeURIComponent('content-addressed, recomputable')), {}).json as { clean: boolean }
   assert.equal(bad.clean, false)   // fabricated proof → drained
-  assert.equal(boast.clean, true)  // no citation → revealed, not drained
+  assert.equal(boast.clean, true)  // no citation → revealed
   assert.equal(good.clean, true)
 })
 
@@ -47,6 +47,6 @@ test('trial returns one answer — VERIFIED or UNVERIFIED, all else void', () =>
   assert.equal(r.verdict, 'UNVERIFIED') // a citation to a proof not in the ledger verifies nothing — never called false
 })
 
-test('an unknown route 404s, never crashes', () => {
+test('an unknown route 404s', () => {
   assert.equal(route('GET', '/nope', Q(), {}).status, 404)
 })

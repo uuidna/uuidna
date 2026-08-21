@@ -4,7 +4,7 @@
 // (mechanical advantage); the centre of mass is the weighted average of positions; a simply-supported beam splits
 // a central load evenly; a rigid planar truss obeys Maxwell's rule m = 2j − 3; stress is force over area; and
 // Hooke's law is linear. the arithmetic of equilibrium — sums, balances and exact ratios — not a
-// full structural-analysis or finite-element derivation. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// full structural-analysis or finite-element derivation. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [

@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // axiom-hunt — FIND THE AXIOMS IN USE. The Lean ledger is already axiom-free (lean-axioms: trust base ∅ — no axiom
 // beyond the kernel); this hunts the OTHER axioms: the constants and bounds the library ASSUMES at runtime. Each
-// candidate binds a LIVE code constant (imported, not copied) to the sealed theorem KEY that proves its decidable
+// candidate binds a LIVE code constant (imported
 // core — never a loose substring match, which "covers" by digit coincidence. Three states: PROVEN (predicate true,
 // key sealed), EXPOSED AXIOM (predicate true, no sealing theorem — the research lead to seal next), REFUTED
-// (predicate false — the code disagrees with its own assumption: a traitor, exit 1). Integrity, not truth.
+// (predicate false — the code disagrees with its own assumption: a traitor, exit 1). Integrity.
 import {
   theoremByKey, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, MAX_LAYERS, ADDRESS_BITS, A432_STEP, CAPACITY,
   MAX_DEPTH, MAX_STRING, MAX_ARRAY, MAX_KEYS,
@@ -39,7 +39,7 @@ for (const c of CANDIDATES) {
   console.log(`  ${state} ${c.key} — ${c.assumes} (${c.where})`)
 }
 if (refuted) {
-  console.error(`✗ axiom-hunt — ${refuted} assumption(s) REFUTED: the code disagrees with what it assumes. Fix the source, never the predicate.`)
+  console.error(`✗ axiom-hunt — ${refuted} assumption(s) REFUTED: the code disagrees with what it assumes. Fix the source.`)
   process.exit(1)
 }
 if (exposed) console.log(`⚠ axiom-hunt — ${exposed} axiom(s) in use with NO sealing theorem: seal each (add the fact to its domain generator, then npm run lean).`)

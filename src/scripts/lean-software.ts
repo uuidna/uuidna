@@ -5,10 +5,10 @@
 // loses nothing), structure preservation (map keeps length, filter never grows, append adds), totality (a guarded
 // division is defined for every input, zero included — no crash), bounded termination (a 4-bit value shifts to 0 in
 // four steps — the loop halts), order-invariance (a fold reduces the same regardless of order — safe to parallelise),
-// safe access (indexing past the end returns the default, never faults), the compare-swap that orders (the basis of
+// safe access (indexing past the end returns the default
 // every sort), and reversibility (undo of undo is the identity). Each is a finite, decidable, AXIOM-FREE `by decide`
-// fact and a 128-bit content-address particle. Indexing uses the axiom-free `nth` (structural, not List.getD).
-// integrity, not truth. uuidna SEALS the spec — the algebraic laws a correct program upholds — so an
+// fact and a 128-bit content-address particle. Indexing uses the axiom-free `nth` (structural.getD).
+// integrity — the record recomputes for anyone. uuidna SEALS the spec — the algebraic laws a correct program upholds — so an
 // implementation can be VERIFIED AGAINST it. It does not, and these theorems do not claim to, write, compile, or run
 // your program, nor prove an arbitrary program correct. A sealed spec a program is checked against — not the program.
 import { emit, NTH_DEF } from './lean-gen.js'
@@ -47,7 +47,7 @@ const FACTS = [
     lean: 'theorem clamp_is_idempotent : (List.range 20).all (fun n => let c := if n ≤ 7 then n else 7; (if c ≤ 7 then c else 7) == c) := by decide' },
 
   { key: 'safe_div_is_total',
-    why: 'A GUARDED DIVISION is TOTAL: defined for every divisor including zero — 12/b for b ≠ 0, and 0 when b = 0 (the abstract-zero fold), never an error. Its table over [0,1,2,3,4,6] is [0,12,6,4,3,2]. Software never crashes on divide-by-zero.',
+    why: 'A GUARDED DIVISION is TOTAL: defined for every divisor including zero — 12/b for b ≠ 0, and 0 when b = 0 (the abstract-zero fold). Its table over [0,1,2,3,4,6] is [0,12,6,4,3,2]. Software never crashes on divide-by-zero.',
     js: () => JSON.stringify([0, 1, 2, 3, 4, 6].map((b) => (b === 0 ? 0 : fdiv(12, b)))) === JSON.stringify([0, 12, 6, 4, 3, 2]),
     lean: 'theorem safe_div_is_total : [0,1,2,3,4,6].map (fun b => if b == 0 then 0 else 12 / b) = [0,12,6,4,3,2] := by decide' },
 

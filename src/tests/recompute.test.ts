@@ -1,9 +1,9 @@
-// recompute — GENERATED FROM LEAN, not hand-authored. For EVERY sealed theorem it reads the ledger the Lean layer
+// recompute — GENERATED FROM LEAN. For EVERY sealed theorem it reads the ledger the Lean layer
 // generated (theorems()) and recomputes its content-address from the theorem's own (key, statement). It therefore
 // covers the WHOLE ledger automatically — add a domain, this test grows with it, no edit here. It is ALWAYS GREEN
 // unless an INTRUDER writes: tamper a theorem's key, statement, or address and its content-address no longer
 // recomputes and this goes red; leave the ledger as Lean sealed it and every one returns. The tests are the ledger's
-// own self-check — integrity by recomputation, not by hand.
+// own self-check — integrity by recomputation.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { theorems, toUuid, merkleGravity } from '../index.js'

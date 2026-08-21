@@ -5,7 +5,7 @@
 // take, the pair fixes the digit uniquely by the LCM BOUND (residues_identify_digit): 18 = 2·9 is the two coins on the ring and 18 − 16 = 2 is the coins as headroom. NOT the CRT — gcd(9,6) = 3, sealed. Six nodes therefore carry six digits of
 // the theorem's own content-address, and readHero() reads them back out of the SVG.
 //
-// HONEST SCOPE: the motion transmits IDENTITY, never meaning — which theorem is speaking, not what it says.
+// HONEST SCOPE: the motion transmits IDENTITY— which theorem is speaking.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { heroAnimation, readHero, theorems, vortexOrbit, durationVars } from '../index.js'
@@ -44,7 +44,7 @@ test('the lcm bound makes the read exact — and the margin over a hex digit is 
   }
 })
 
-test('a foreign animation is refused, not guessed at', () => {
+test('a foreign animation is refused', () => {
   // an SVG whose tempo is not one of the sealed six carries nothing this reader will invent a digit for
   const forged = '<svg><circle data-seq="3"><animate dur="123ms"/></circle></svg>'
   assert.equal(readHero(forged).carried, 0)

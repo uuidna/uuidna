@@ -17,7 +17,7 @@ export interface AgentContribution {
 }
 
 export interface Vote {
-  voterId: string           // anonymized voter (content-address, not a name)
+  voterId: string           // anonymized voter (content-address
   decision: boolean         // yes (true) or no (false)
   weight: number            // voting power (coins paid = weight)
   quantumState: string      // the quantum encoding of this vote
@@ -101,12 +101,12 @@ export function encodeVote(decision: boolean, weight: number): QState {
  *  The outcome is the majority by weight (deterministic, order-invariant). */
 export function tallyVotes(votes: { voterId: string; decision: boolean; weight: number }[], proposal: string): QuantumVote {
   const quantumVotes: Vote[] = votes.map(v => {
-    // the encoded state is USED, not recomputed and thrown away. This line previously derived quantumState and
+    // the encoded state is USED. This line previously derived quantumState and
     // the next overwrote it with a plain merkle fold of the same two fields — a dead store, and one that could be
     // reproduced without loading the simulator at all. The receipt now depends on the encoding it names.
     const quantumState = encodeVote(v.decision, v.weight)
     return {
-      voterId: v.voterId,  // anonymized (content-address, not identity)
+      voterId: v.voterId,  // anonymized (content-address
       decision: v.decision,
       weight: v.weight,
       quantumState: receiptOf(quantumState),

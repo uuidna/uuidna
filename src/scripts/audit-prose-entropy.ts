@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // audit-prose-entropy.ts — Detect entropy in prose that shouldn't be there
 // When theorems speak in Glagolitic (formal proofs), any supporting prose
-// should be COMPUTABLE (deterministic), not random or time-dependent.
+// should be COMPUTABLE (deterministic).
 //
 // Checks:
 // 1. No timestamps, dates, "currently", "recently", "soon"
 // 2. No uncertain language ("might", "could", "may", "possibly", "probably")
 // 3. No random explanations or hand-waving
-// 4. Each comment must explain WHY, not just WHAT
+// 4. Each comment must explain WHY
 // 5. No references to external, non-reproducible sources
 
 import { readFileSync, readdirSync } from 'node:fs'
@@ -114,7 +114,7 @@ function audit() {
   if (issues.length === 0) {
     console.log('✓ PASSED: All prose is deterministic (no entropy detected)')
     console.log('✓ No time-dependencies, uncertainty, or external references')
-    console.log('✓ All comments explain WHY, not just WHAT\n')
+    console.log('✓ All comments explain WHY')
     return { passed: true, count: 0 }
   }
 

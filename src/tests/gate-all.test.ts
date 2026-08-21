@@ -1,4 +1,4 @@
-// gate-all — the law that independent verdicts are computed TOGETHER, not one per run and not one after another.
+// gate-all — the law that independent verdicts are computed TOGETHER.
 //
 // `npm run audit` joins twenty-nine steps with `&&`, so it stops at the first failure. Bringing the dormant-backlog
 // work to green cost SEVEN full passes — stale axiom witness, Math.* determinism reject, heartbeats missing four,
@@ -22,7 +22,7 @@ test('the plan is READ from the chain, so it cannot drift from what audit runs',
     ['generator', 'generator', 'generator', 'check', 'generator', 'check', 'check', 'serial-check', 'serial-check'])
 })
 
-test('the three classes are told apart by what a step DOES, not by its name', () => {
+test('the three classes are told apart by what a step DOES', () => {
   assert.equal(kindOf('node dist/scripts/gen-mcp.js'), 'generator', 'gen-* writes inputs for later steps')
   assert.equal(kindOf('npx vitepress build docs'), 'generator')
   assert.equal(kindOf('node dist/scripts/harmonic-scan.js'), 'check', 'a scanner renders a verdict and feeds nothing')
@@ -30,7 +30,7 @@ test('the three classes are told apart by what a step DOES, not by its name', ()
   assert.equal(kindOf('git diff --exit-code -- lean/'), 'serial-check', 'it READS the tree to decide')
 })
 
-// ── THE POINT (1): every failing check is reported from one pass, not one per run.
+// ── THE POINT (1): every failing check is reported from one pass.
 test('every failing CHECK is reported in a single pass', async () => {
   const failing = new Set(['node dist/scripts/guard.js', 'node dist/scripts/spin.js', 'node dist/scripts/conformance.js'])
   const { verdicts, aborted } = await runPlan(plan(CHAIN), async (cmd) => ({ exit: failing.has(cmd) ? 1 : 0, out: '' }), 8)

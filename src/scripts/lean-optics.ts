@@ -4,8 +4,8 @@
 // medium is SLOWER than c (never faster — no FTL, the vacuum is the ceiling); Snell's law n₁sinθ₁ = n₂sinθ₂ holds
 // in a consistent rational-sine case; the thin-lens equation 1/f = 1/do + 1/di and its magnification are exact;
 // dispersion refracts blue more than red; and total internal reflection needs a denser source. the
-// arithmetic of geometric optics — specific consistent cases (Snell/critical angle use rational sines), not a full
-// wave-optics derivation. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// arithmetic of geometric optics — specific consistent cases (Snell/critical angle use rational sines)
+// wave-optics derivation. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i)

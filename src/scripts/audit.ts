@@ -11,7 +11,7 @@
 //     equality leak, its v2 closure, and tamper-rejection — the claims, run.
 //
 // Every finding is content-addressed; the addresses fold, ORDER-INVARIANTLY, to ONE recomputable audit receipt.
-// Recomputable by anyone from this same tree. Integrity, not truth.
+// Recomputable by anyone from this same tree. Integrity.
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
@@ -34,10 +34,10 @@ const flag = (severity: Severity, arm: string, where: string, note: string, hit?
 
 // ── ARM 1 · THE ROSETTA — the gate over the project's own prose ───────────────────────────────────────────────
 // A unit is one paragraph / description / visible-text block. computes() is a lexical TRIPWIRE (necessary, not
-// sufficient): a hit means "matches a red-flag shape" and is surfaced for human judgement, never an auto-verdict.
+// sufficient): a hit means "matches a red-flag shape" and is surfaced for human judgement.
 const gateUnits = []
 
-// README — prose blocks, skipping fenced code (examples legitimately contain API strings, not claims).
+// README — prose blocks, skipping fenced code (examples legitimately contain API strings.
 {
   const md = rd('README.md')
   let inFence = false
@@ -63,13 +63,13 @@ for (const t of MCP_CATALOG) {
 }
 
 // The VitePress-built site pages (the default outDir docs/.vitepress/dist) — strip tags to visible text, split to
-// sentences. The page list is DISCOVERED, never hardcoded: it used to name two pages, and one of them
+// sentences. The page list is DISCOVERED
 // ('theorems/index.html') stopped existing when cleanUrls started emitting 'theorems.html' — so the audit silently
 // covered half of what it claimed, for as long as nobody looked. A path is not a property; read the directory.
 const builtRoot = join(ROOT, 'docs', '.vitepress', 'dist')
 const builtPages = existsSync(builtRoot)
   ? readdirSync(builtRoot).filter((f) => f.endsWith('.html')).sort().map((f) => join('docs/.vitepress/dist', f))
-  : []                                        // the dist is gitignored — absent means "site not built", not a failure
+  : []                                        // the dist is gitignored — absent means "site not built"
 for (const page of builtPages) {
   let html
   try { html = rd(page) } catch { continue }
@@ -137,7 +137,7 @@ try {
   assert('v2 seals still round-trip', seq.every((s) => decrypt(s, P) === 'repeat'))
 
   // tamper-rejection: a flipped ciphertext byte must fail Poly1305 authentication. Flip the FIRST base64 char
-  // of ct (a full 6 significant bits, not trailing padding) so the decoded bytes are guaranteed to differ.
+  // of ct (a full 6 significant bits.
   let threw = false
   const flip = (c: string) => (c === 'A' ? 'B' : 'A') + s1.ct.slice(1)
   const tampered = { ...s1, ct: flip(s1.ct[0]) }

@@ -19,7 +19,7 @@ import { statementCensus } from './editorial.js'
 import { coins } from './captain/billing/index.js'
 import { toUuid, merkleFold } from './address.js'
 
-// the filesystem reach is the boundary's, not this module's — one layer owns it, everything else asks
+// the filesystem reach is the boundary's's — one layer owns it, everything else asks
 const readJson = <T>(rel: string): T | null => {
   try { return JSON.parse(rdRoot(rel)) as T } catch { return null }
 }
@@ -28,7 +28,7 @@ export interface ReportSection {
   title: string
   /** the artifact this section reads, or null when it computes from the ledger alone */
   source: string | null
-  /** absent when the artifact has not been produced — stated, never guessed */
+  /** absent when the artifact has not been produced — stated
   present: boolean
   facts: Record<string, number | string>
   address: string
@@ -65,10 +65,10 @@ function accounting(): ReportSection {
 }
 
 /** Heartbeat coverage — how many theorems carry a measured decide-step cost, and what those steps sum to.
- *  `total` in the artifact is the SUMMED cost, not a theorem count; subtracting one from the other would be a
+ *  `total` in the artifact is the SUMMED cost; subtracting one from the other would be a
  *  nonsense the report would then publish, so both are named for what they are and the shortfall is computed
  *  against the ledger instead. */
-// COST — the DISTRIBUTION of what verification actually costs, not merely how much of it was measured. coverage()
+// COST — the DISTRIBUTION of what verification actually costs. coverage()
 // above reports the totals; this reports the shape, which is where the information is: a median beside a maximum
 // three orders of magnitude larger says the ledger is cheap everywhere except in a few places, and names them.
 // The unit is DECIDE-STEPS, counted by the kernel — the repository cannot time itself (harmonic-scan hard-rejects
@@ -94,7 +94,7 @@ function cost(): ReportSection {
     dearestFive: entries.slice(-5).reverse().map(([key, steps]) => key + ' ' + steps).join(' · '),
     concentration: 'the five dearest against the total, as an exact pair — never a percentage, which would round',
     dearestFiveSteps: entries.slice(-5).reduce((a, e) => a + e[1], 0),
-    honest: 'DESCRIPTIVE: this measures what the kernel spent deciding, never whether a theorem is worth deciding.',
+    honest: 'DESCRIPTIVE: this measures what the kernel spent deciding.',
   })
 }
 
@@ -117,7 +117,7 @@ function citations(): ReportSection {
   })
 }
 
-/** the support audit — which modules the roots actually reach; dead code is named, not hidden. */
+/** the support audit — which modules the roots actually reach; dead code is named. */
 function support(): ReportSection {
   const s = readJson<{ modules: number; roots: number; supported: number; dead: string[]; receipt: string }>('support-audit.json')
   if (!s) return section('Support audit', 'support-audit.json', false, { note: 'not run — npm run audit' })
@@ -154,6 +154,6 @@ export function reportAll(): ConsolidatedReports {
   return {
     sections,
     receipt: merkleFold(sections.map((s) => s.address)),
-    honest: 'Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess.',
+    honest: 'Descriptive measures of what is sealed and what the gates recorded — integrity. A section whose artifact is absent says so; it does not guess.',
   }
 }

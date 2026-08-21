@@ -4,11 +4,11 @@
 // Syndication Format (RFC 4287) is a distinct, real, XML-based standard that has never existed anywhere in this
 // codebase (checked, twice, across this whole session: zero hits). DataFeed is schema.org's own real, vetted
 // JSON-LD equivalent for exactly this shape — a feed of items — so this builds the honest version of what was
-// asked: uniting real, already-existing nodes into one real, standards-based document, not inventing a format
+// asked: uniting real, already-existing nodes into one real, standards-based document
 // this project never had.
 //
 // Written to docs/public/feed.json — VitePress's real static-passthrough directory (the same one robots.txt and
-// manifest.webmanifest already live in), so it is genuinely fetchable at /feed.json, not just source data a
+// manifest.webmanifest already live in), so it is genuinely fetchable at /feed.json
 // markdown page reads (the way captain-claims.json is).
 
 import { theorems, quantumSeo, merkleGravity, toUuid } from '../index.js'
@@ -51,7 +51,7 @@ export function buildFeed(): DataFeed {
     '@id': `urn:uuid:${toUuid('feed:' + receipt)}`,
     '@type': 'DataFeed',
     name: 'uuidna theorem ledger feed',
-    description: 'Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.',
+    description: 'Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity.',
     url: 'https://uuidna.com/feed.json',
     version,
     dataFeedElement,

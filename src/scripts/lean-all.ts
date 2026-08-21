@@ -3,7 +3,7 @@
 // dist/scripts/lean-*.js, so a NEW domain needs NO package.json wiring: drop src/scripts/lean-<domain>.ts, run
 // `npm run lean`, and it is generated, verified sorry-free, and folded into the receipt. Best cost per theorem —
 // write the facts, nothing else. Order does not matter for correctness (the derivation order is the PRINCIPLE
-// metadata, not the run order). Integrity, not truth.
+// metadata, not the run order). Integrity.
 // THE DELTA GATE: generators execute by dynamic import in ONE process (a spawn per generator would pay node
 // startup each), and the hand-written proofs ride the same receipt cache as the generated wings — a
 // byte-identical file's prior kernel signature stands, a changed file always re-proves, and UUIDNA_PROVE_ALL=1
@@ -29,7 +29,7 @@ const LEAN = join(ROOT, 'lean')
 // 1) every generator — dist/scripts/lean-*.js — imported into THIS process (top-level executes on import).
 // A failing generator prints its own cause (emit names the file and the Lean diagnostic) and exits; the
 // try/catch only adds the step name for anything that throws without exiting.
-const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js', 'lean-one.js']) // heartbeats is an on-demand cost probe, not a generator; lean-one is the single-domain dispatcher, not a domain itself
+const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js', 'lean-one.js']) // heartbeats is an on-demand cost probe; lean-one is the single-domain dispatcher
 const generators = readdirSync(SCRIPTS).filter((f) => /^lean-.*\.js$/.test(f) && !SKIP.has(f)).sort()
 for (const g of generators) {
   try {

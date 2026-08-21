@@ -2,9 +2,9 @@
 // DECOMPRESS it back LOSSLESSLY (the round-trip proves it), bind the pressed pieces to the computable ENTANGLED
 // algebra (the order-invariant merkle-gravity fold), and report NOVELTY as content-address uniqueness — a never-seen
 // address is novel CONTENT. HONEST SCOPE, stated first because it is the whole point: uuidna fingerprints STRUCTURE
-// and NOVELTY, it does NOT extract MEANING — "decode is provenance + structure, never hidden meaning" (books.ts).
+// and NOVELTY, it does NOT extract MEANING — "decode is provenance + structure" (books.ts).
 // Novelty is DECIDABLE (a new content-address); MEANING is human/semantic and is left to the reader — `meaning` is
-// null by design. Integrity, not truth.
+// null by design. Integrity.
 import { toUuid } from './address.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
 import { merkleGravity } from './gravity.js'
@@ -17,7 +17,7 @@ export interface DeepResearch {
   entangledReceipt: string   // the order-invariant fold binding the pressed pieces — the computable entangled algebra
   novel: boolean             // is the content-address NEW (not among the seen ones)? novelty = never-seen content
   meaning: null              // uuidna does NOT extract meaning — always null, by design
-  relatedMath: Reflected[]   // the NULL-HOOK: the sealed theorems the prose REFLECTS — R&D from related MATH, not meaning
+  relatedMath: Reflected[]   // the NULL-HOOK: the sealed theorems the prose REFLECTS — R&D from related MATH
   develop: string[]          // when meaning is null, the develop path — research the related math (never a dead end)
   honest: string
 }
@@ -26,8 +26,8 @@ const HONEST =
   'Deep research pressed and decompressed with the REVERSIBLE imprint codec (the round-trip returns the exact input), ' +
   'bound to the computable ENTANGLED algebra (the order-invariant fold), with NOVELTY reported as content-address ' +
   'uniqueness — a never-seen address is novel CONTENT. HONEST SCOPE: uuidna fingerprints STRUCTURE and NOVELTY, it ' +
-  'does NOT extract MEANING — provenance + structure, never hidden meaning. Novelty is decidable (a new address); ' +
-  'meaning is the reader\'s — `meaning` is null by design. Integrity, not truth.'
+  'does NOT extract MEANING — provenance + structure. Novelty is decidable (a new address); ' +
+  'meaning is the reader\'s — `meaning` is null by design. Integrity.'
 
 /** deepResearch(text, seenAddresses) → PRESS the research into a reversible uuid chain, bind the pieces to the
  *  entangled algebra (order-invariant fold), and report NOVELTY (a content-address not among the seen ones). It does
@@ -39,9 +39,9 @@ export function deepResearch(text: string, seenAddresses: readonly string[] = []
   const entangledReceipt = merkleGravity(compressed)
   const novel = !seenAddresses.includes(address)
   // the NULL-HOOK: meaning is null, so instead of a dead end, reflect the prose onto the SEALED MATH it touches and
-  // hand back a develop path — R&D from the related math, never from a meaning uuidna cannot extract. Capped to a
-  // meaningful few: the reflect matcher is a concept-word overlap (a floor, not semantic ranking), so a loose query
-  // can touch most of the ledger — the cap keeps the hook a lead, not a firehose.
+  // hand back a develop path — R&D from the related math. Capped to a
+  // meaningful few: the reflect matcher is a concept-word overlap (a floor
+  // can touch most of the ledger — the cap keeps the hook a lead.
   const relatedMath = reflects(text).matches.slice(0, 8)
   const develop = relatedMath.length
     ? [

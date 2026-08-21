@@ -5,10 +5,10 @@
 // the ultimate test that reverse and inverse compose to a clean self-inverse, proven on a real signal. Around them
 // the counting of the studio: the chromatic scale is ℤ/12 (twelve semitones, the octave wraps like the rosette);
 // an octave DOUBLES frequency (440→880); 120 BPM is 500 ms a beat, 2 s a 4/4 bar; Nyquist is half the sample rate
-// (44.1 k → 22.05 k, the honest ceiling, NOT lossless); MIDI is 7-bit (128 notes, 0..127); 16-bit dynamic range is
+// (44.1 k → 22.05 k, the honest ceiling; MIDI is 7-bit (128 notes, 0..127); 16-bit dynamic range is
 // the ~6 dB-per-bit rule of thumb (≈96 dB); and stepping by a perfect fifth (7 semitones) visits all twelve tones —
 // the circle of fifths is ONE cycle, 7 coprime to 12, the pentagram idea in sound. the arithmetic and
-// the involutions of the mix — NOT a DAW, a synth, or a mastering chain. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// the involutions of the mix — NOT a DAW, a synth, or a mastering chain. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const neg = (l: number[]): number[] => l.map((x) => -x)

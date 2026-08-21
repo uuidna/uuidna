@@ -50,7 +50,7 @@ const FACTS = [
 
   { key: 'roman_reads_subtractively',
     why: 'TWO SCRIPTS, THE SAME TWO SIGNS, DIFFERENT NUMBERS. Roman numerals are POSITIONAL in a way the alphabetic numerals are not: a smaller sign before a larger one subtracts, so IX is 10 − 1 = 9. Glagolitic writes its teens unit-before-ten and still ADDS — one-and-ten is 1 + 10 = 11. The same ordering gesture means subtract in one system and add in the other, and 9 ≠ 11 proves the two rules are not interchangeable.',
-    // computed into bindings, not compared as literals: `9 !== 11` is a type error (no overlap), and the point
+    // computed into bindings`9 !== 11` is a type error (no overlap), and the point
     // is precisely that the two READING RULES disagree on the same pair of signs — so read them, then compare.
     // the inequality is tested FIRST: in an && chain TS narrows `roman` to the literal 9 once `roman === 9` has
     // passed, and then flags `roman !== glagolitic` as a no-overlap comparison. Conjunction is commutative, so the
@@ -64,7 +64,7 @@ const FACTS = [
     lean: 'theorem gematria_ignores_order : 1 + 2 + 3 = 3 + 2 + 1 ∧ 1 + 2 + 3 = 6 := by decide' },
 
   { key: 'gematria_forces_collisions',
-    why: 'DIFFERENT WORDS MUST SHARE A VALUE — BY PIGEONHOLE, NOT BY MYSTERY. Over the 22 Hebrew letters there are 22³ = 10648 three-letter strings, while their values (each letter 1…400) can only land between 3 and 1200 — 1198 possible sums. More words than sums, so collisions are FORCED: on average nearly nine strings per value. A shared gematria is therefore the expected case and carries no information on its own; it is the same seats-and-people bound the address layer seals as seats_pigeonhole. this decides the counting, never the significance anyone assigns to a coincidence.',
+    why: 'DIFFERENT WORDS MUST SHARE A VALUE — BY PIGEONHOLE. Over the 22 Hebrew letters there are 22³ = 10648 three-letter strings, while their values (each letter 1…400) can only land between 3 and 1200 — 1198 possible sums. More words than sums, so collisions are FORCED: on average nearly nine strings per value. A shared gematria is therefore the expected case and carries no information on its own; it is the same seats-and-people bound the address layer seals as seats_pigeonhole. this decides the counting.',
     js: () => 22 * 22 * 22 === 10648 && 1200 - 3 + 1 === 1198 && 10648 > 1198,
     lean: 'theorem gematria_forces_collisions : 22 * 22 * 22 = 10648 ∧ 1200 - 3 + 1 = 1198 ∧ 10648 > 1198 := by decide' },
 ]

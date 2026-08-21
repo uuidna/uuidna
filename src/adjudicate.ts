@@ -3,7 +3,7 @@
 //   UNVERIFIED — everything else: no test, no sealed citation, a failed test, or a citation to a proof that is not
 //                sealed. uuidna VERIFIES; it never REFUTES — calling a claim false is an overclaim it cannot decide,
 //                so "not verified" is the whole of the negative. Absence of proof is not proof of falsity.
-// Integrity, not truth. Everything content-addressed.
+// Integrity — the record recomputes for anyone. Everything content-addressed.
 import { slimGate } from './slimgate.js'
 import { THEOREMS, theoremByKey, type LeanTheorem } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
@@ -23,7 +23,7 @@ export interface Verdict { statement: string; verdict: VerdictKind; receipt: str
 
 // ── THE RELEVANCE PROBE — a real citation is not entailment (found live 2026-08-18: "the moon is made of cheese,
 // proven by theorem two_coins" adjudicated VERIFIED, because slimGate asks only whether the cited theorem EXISTS).
-// This is the decidable FLOOR under that gap, not a semantic entailment checker — entailment is undecidable, and
+// This is the decidable FLOOR under that gap— entailment is undecidable, and
 // claiming one would be the fraud this gate exists to catch. What IS decidable: whether the claim and its cited
 // theorem share ANY vocabulary at all. A citation about a totally disjoint topic never entails a claim; sharing
 // vocabulary does not PROVE entailment either, but its total absence is a floor no honest citation should need —
@@ -95,7 +95,7 @@ export function numeralsOf(text: string): number[] {
   for (let i = 0; i < words.length; i++) {
     const v = WORD_VALUE[words[i]]
     const next = i + 1 < words.length ? WORD_VALUE[words[i + 1]] : undefined
-    // "seven hundred" is one number, not two — otherwise 7 would satisfy a claim that said 700
+    // "seven hundred" is one number— otherwise 7 would satisfy a claim that said 700
     if (next !== undefined && next >= 100) { out.add(v * next); i++ } else out.add(v)
   }
   return [...out]
@@ -137,7 +137,7 @@ function contradictsNumerically(claim: string, key: string): number[] {
 
 /** relevantCitation(claimWords, key) → does the SEALED theorem named `key` share any vocabulary with the claim?
  *  Unknown/unsealed keys are handled upstream (slimGate already marks them fabricated); this only judges real
- *  citations. Returns true (relevant) on any shared word — the floor, not a wall. */
+ *  citations. Returns true (relevant) on any shared word — the floor. */
 function relevantCitation(claimWords: string[], key: string): boolean {
   const t = theoremByKey().get(key)
   if (!t) return false
@@ -165,7 +165,7 @@ function developPlan(statement: string, verdict: VerdictKind, fabricated: string
     'Cite a theorem whose own key or gloss actually names the thing this sentence claims, or seal a NEW theorem for it in lean/*.lean if none exists yet.',
   )
   if (fabricated.length) steps.push(
-    `The citation ${JSON.stringify(fabricated[0])} names a theorem that is NOT sealed in the ledger, so it verifies nothing — this is UNVERIFIED, not false.`,
+    `The citation ${JSON.stringify(fabricated[0])} names a theorem that is NOT sealed in the ledger, so it verifies nothing — this is UNVERIFIED.`,
     'Either seal that theorem (author it in lean/*.lean `by decide`, re-run npm run lean) or drop the citation and bring a decidable test.',
   )
   steps.push(
@@ -177,7 +177,7 @@ function developPlan(statement: string, verdict: VerdictKind, fabricated: string
     'Note: security is not a decidable property — it can never SEAL directly. Develop the three decidable PROXIES, each a () => boolean:',
     '1. keyspace — generate the map family to closure; assert |G| ≥ 2^128 (the affine/vortex family closes at 54, so it fails this).',
     '2. nonlinearity — assert the map is NOT affine: isAffine(perm) === false.',
-    '3. key-dependence — assert the output varies with the key, not a keyless content-address.',
+    '3. key-dependence — assert the output varies with the key.',
     'All three hold → the claim meets a necessary standard (still not a superlative). Any one does not → it stays UNVERIFIED.',
   )
   else if (GROUP_WORDS.test(statement)) steps.push('Group/closure claim: generate from the generators to closure, then assert the cardinality or the closure property as the predicate.')
@@ -229,7 +229,7 @@ export function adjudicate(statement: string, decidableTest?: () => boolean): Ve
   return { statement, verdict, receipt, note, develop: developPlan(statement, verdict, slim.fabricated, verdict === 'UNVERIFIED' && slim.verdict === 'VERIFIED' ? slim.real : []) }
 }
 
-// A valid trial folds the FORMULAS, not just the verdict text: the caller supplies the receipts of the decidable
+// A valid trial folds the FORMULAS
 // theorems (each recomputing true) that establish the floor for this claim; they fold — with the gate predicate
 // and the verdict — through merkleGravity (ORDER-INVARIANT, the quantum receipt) to ONE proof-of-verdict root,
 // reproducible by any observer regardless of the order the formulas are presented in.
@@ -242,7 +242,7 @@ export function proveVerdict(statement: string, formulaReceipts: readonly string
 
 // uuidna quantum verification: recompute the address from its seed (integrity, reproducible by anyone), decode
 // any bounded imprinted message, and fold a MULTI-PERSPECTIVE receipt — the same for any observer ordering (the
-// merkle fold is order-invariant). The quantum here is the multi-perspective structure, not hardware.
+// merkle fold is order-invariant). The quantum here is the multi-perspective structure.
 export interface UuidnaVerdict { seed: string; address: string; recomputes: boolean; message: string | null; jointReceipt: string }
 export function verifyUuidna(seed: string): UuidnaVerdict {
   const address = toUuid(seed)

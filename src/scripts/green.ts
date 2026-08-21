@@ -15,7 +15,7 @@
 //
 // WHAT GREEN MEANS, AND WHAT IT DOES NOT. Green means: the types compile with no emit on error, the ledger is
 // unforged, every test passes, we are not behind origin, and the index holds nothing this run did not put there.
-// It does NOT mean the theorems are true — no gate here judges content. Integrity, not truth.
+// It does NOT mean the theorems are true — no gate here judges content. Integrity.
 import { execSync, spawnSync } from 'node:child_process'
 import { ROOT } from './api.js'
 

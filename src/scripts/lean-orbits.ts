@@ -10,7 +10,7 @@
 // never selected from a table of phrases. A phrase table is the defect this project keeps finding: nine hand-typed
 // sentences lost a word in a refactor and no check noticed, because a word in a table has no witness.
 //
-// integrity, not truth. This decides the measured shape of the walk over ten digits. That the walk
+// integrity — the record recomputes for anyone. This decides the measured shape of the walk over ten digits. That the walk
 // models anything is not claimed, and a residue is not a fact about whatever folded to it.
 import { emit } from './lean-gen.js'
 
@@ -34,9 +34,9 @@ const closed = (o: number[]) => o.every((d) => o.includes(dz(d)))
 const FACTS = [
   ...DISTINCT.map((o) => ({
     key: 'orbit_' + o.join('_') + '_closes',
-    // the sentence is composed from what was measured, not chosen from a list
+    // the sentence is composed from what was measured
     why: `The walk from any seed reaching ${o[0]} settles on ${o.length} of the ten digits (${o.join(', ')})`
-      + `${o.length === 10 ? ', which is every one' : ''}, and that set is closed under the reflection — every member's mirror is already a member, so reflecting the finished orbit adds nothing. Measured by walking, not asserted.`,
+      + `${o.length === 10 ? ', which is every one' : ''}, and that set is closed under the reflection — every member's mirror is already a member, so reflecting the finished orbit adds nothing. Measured by walking.`,
     js: () => closed(o) && o.length >= 1,
     lean: `theorem orbit_${o.join('_')}_closes : ${L(o)}.all (fun d => ${L(o)}.contains (if d = 0 then 0 else 10 - d)) := by decide`,
   })),

@@ -6,9 +6,9 @@
 // (pigeonhole) — identity is not injective over all of chess. What IS true, and is uuidna's actual thing: any GIVEN
 // game recomputes to its content-address in O(moves), a bounded, instant IDENTITY (a game is finite — the fifty-move
 // rule forbids an endless run), and the decidable arithmetic of the board and its d-dimensional generalisation
-// (8^d = 2^(3d) cells) is sealed. a content-address proves INTEGRITY, not truth — here, not
-// enumeration; the ℤ/9-diamond and opening-combination facts are STRUCTURE, not a claim that chess IS the ring.
-// COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// (8^d = 2^(3d) cells) is sealed. a content-address proves INTEGRITY— here, not
+// enumeration; the ℤ/9-diamond and opening-combination facts are STRUCTURE.
+// COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 // Board-geometry helpers — the JS mirror of "how many of a piece's move-deltas stay on the 8×8 board", to self-check
@@ -46,7 +46,7 @@ const FACTS = [
     lean: 'theorem positions_exceed_uuid_space : (2:Nat)^128 < 10^44 := by decide' },
 
   { key: 'positions_within_naive_bound',
-    why: 'The legal positions (~10^44) sit inside the naive state space 13^64 — 64 squares, each in one of 13 states — and 10^44 < 13^64. Most of the naive configurations are illegal, so the true count is far smaller, but still bounded above: finite, never infinite.',
+    why: 'The legal positions (~10^44) sit inside the naive state space 13^64 — 64 squares, each in one of 13 states — and 10^44 < 13^64. Most of the naive configurations are illegal, so the true count is far smaller, but still bounded above: finite.',
     js: () => 10 ** 44 < 13 ** 64,
     lean: 'theorem positions_within_naive_bound : (10:Nat)^44 < 13^64 := by decide' },
 
@@ -62,7 +62,7 @@ const FACTS = [
     lean: 'theorem fifty_move_rule_bounds_a_run : 50 * 2 = 100 := by decide' },
 
   { key: 'one_game_is_a_speck',
-    why: 'Addressing ONE game costs its ply-count — bounded well under six thousand — and 6000 < 10^120: a single game recomputes to its uuid instantly, a speck against the un-enumerable tree. This is the TRUE kernel: recompute is O(moves), an identity, not O(all games), an enumeration.',
+    why: 'Addressing ONE game costs its ply-count — bounded well under six thousand — and 6000 < 10^120: a single game recomputes to its uuid instantly, a speck against the un-enumerable tree. This is the TRUE kernel: recompute is O(moves), an identity.',
     js: () => 6000 < 10 ** 120,
     lean: 'theorem one_game_is_a_speck : (6000:Nat) < 10^120 := by decide' },
 
@@ -89,12 +89,12 @@ const FACTS = [
 
   // ── the diamant — the knight's leap reflected in the ℤ/9 diamond ──
   { key: 'knight_on_the_diamond',
-    why: 'The knight\'s leap 1 + 2 = 3 lands on residue 3 of the ℤ/9 vortex, and the diamond reflection dz(3) = 10 − 3 = 7 sends it to 7 — the same reflection the whole ledger centres on. a structural analogy (the move-count read as a residue), NOT a claim that chess IS the ring.',
+    why: 'The knight\'s leap 1 + 2 = 3 lands on residue 3 of the ℤ/9 vortex, and the diamond reflection dz(3) = 10 − 3 = 7 sends it to 7 — the same reflection the whole ledger centres on. a structural analogy (the move-count read as a residue).',
     js: () => (1 + 2) % 9 === 3 && (10 - 3) === 7,
     lean: 'theorem knight_on_the_diamond : ((1 + 2) % 9 = 3) ∧ ((10 - 3) = 7) := by decide' },
 
   { key: 'boards_are_diamond_self_inverses',
-    why: 'The board enters the ℤ/9 diamond, where the games interact: the flat board 64 ≡ 1 (the vortex origin) and the 3D board 512 ≡ 8 (mod 9), and {1, 8} are exactly the TWO self-inverse units of the ring (8·8 ≡ 1). The board, in either dimension, is a self-inverse of the diamond — and the 3D board shares residue 8 with the audit game. a structural residue, NOT a claim the board IS the ring.',
+    why: 'The board enters the ℤ/9 diamond, where the games interact: the flat board 64 ≡ 1 (the vortex origin) and the 3D board 512 ≡ 8 (mod 9), and {1, 8} are exactly the TWO self-inverse units of the ring (8·8 ≡ 1). The board, in either dimension, is a self-inverse of the diamond — and the 3D board shares residue 8 with the audit game. a structural residue.',
     js: () => 64 % 9 === 1 && 512 % 9 === 8 && (8 * 8) % 9 === 1,
     lean: 'theorem boards_are_diamond_self_inverses : (64 % 9 = 1) ∧ (512 % 9 = 8) ∧ ((8 * 8) % 9 = 1) := by decide' },
 ]
@@ -120,10 +120,10 @@ FACTS.push({ key: 'material_sum_twentyone', why: 'The classical piece values sum
 FACTS.push({ key: 'central_four_squares', why: 'The centre the pieces fight for is the 2×2 block d4-d5-e4-e5 — 2·2 = 4 squares, the four the opening contests. The board\'s heart, counted.',
   js: () => 2 * 2 === 4, lean: 'theorem central_four_squares : 2 * 2 = 4 := by decide' })
 
-console.log('computing ' + FACTS.length + ' CHESS-HORIZON facts (the honest kernel + the mobility map — integrity, not enumeration) …')
+console.log('computing ' + FACTS.length + ' CHESS-HORIZON facts (the honest kernel + the mobility map — integrity')
 
 emit({
   file: 'Chessgames.lean', skill: 'chess',
-  header: 'THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves), not O(all games)), the d-dimensional board (8^d = 2^(3d): the 3D 512 = 2^9, the 8-dimensional 8^8 = 2^24), no maximal board (only bounds), and the knight on the ℤ/9 diamond. uuidna does NOT enumerate or precompute the game tree — a content-address proves INTEGRITY, not truth, here not enumeration; the diamond and combination facts are STRUCTURE, not a claim that chess IS the ring.',
+  header: 'THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves). uuidna does NOT enumerate or precompute the game tree — a content-address proves INTEGRITY; the diamond and combination facts are STRUCTURE.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

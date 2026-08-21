@@ -307,7 +307,7 @@ ENROLLMENT BEGINS...
 
   // Day 5-6: More progress
   console.log('Day 5-6: Momentum Builds\n')
-  ops.completeAssignment('student_001', 'Time as input, not wall-clock', 75)
+  ops.completeAssignment('student_001', 'Time as input', 75)
   ops.completeAssignment('student_002', 'Temporal ordering without Date.now()', 75)
   ops.completeAssignment('student_003', 'Ledger without wall-clock reads', 75)
   console.log('✓ 3 more assignments completed\n')

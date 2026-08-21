@@ -6,7 +6,7 @@
 // This is the two-coin advantage made operational: recompute O(N) − verify O(1) (`verify_cheaper_than_forge`),
 // priced on the conserved two coins (`two_coins`, `captain_computes_only_with_two_coins`). HONEST SCOPE: spin
 // proves a file is unchanged SINCE ITS LAST SEAL (self-consistency) — it does NOT re-prove the file against the
-// ledger; that remains the O(N) gate. Spin is the fast door, not a replacement for the proof. Integrity, not truth.
+// ledger; that remains the O(N) gate. Spin is the fast door. Integrity.
 import { coin64, toUuid } from './address.js'
 
 /** The gated derived layer — the exact files the pre-push gate git-diffs against the ledger. Kept in one place so

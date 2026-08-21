@@ -24,7 +24,7 @@ test('every live handle is eight lowercase hex characters', () => {
   assert.ok(hs.every(isHandle))
 })
 
-test('malformed handles are REFUSED, never coerced', () => {
+test('malformed handles are REFUSED', () => {
   for (const bad of ['CC9C0011', 'cc9c001', 'cc9c00112', 'zz9c0011', '', 'cc 9c0011', 'cc9c-011']) {
     assert.equal(isHandle(bad), false, `${JSON.stringify(bad)} must not pass`)
     assert.throws(() => handleParts(bad), /eight lowercase hex/, `${JSON.stringify(bad)} must throw`)
@@ -124,10 +124,10 @@ test('every handle in the source comes from handleOf — no site re-derives it i
 
 test('handleOf refuses what it cannot address, rather than coercing it', () => {
   assert.equal(handleOf('57f5ef04-a2f0-83cb-a686-3343c324de12'), '57f5ef04')
-  assert.equal(handleOf('57f5ef04a2f083cba6863343c324de12'), '57f5ef04', 'hyphens are incidental, not the shape')
+  assert.equal(handleOf('57f5ef04a2f083cba6863343c324de12'), '57f5ef04', 'hyphens are incidental')
   assert.equal(handleOf('57F5EF04-A2F0-83CB-A686-3343C324DE12'), '57f5ef04', 'handles are lowercase hex')
   for (const bad of ['', 'zzzzzzzz', 'short', '----------'])
-    assert.throws(() => handleOf(bad), /eight hex/, `refused, not coerced: ${JSON.stringify(bad)}`)
+    assert.throws(() => handleOf(bad), /eight hex/, `refused.stringify(bad)}`)
 })
 
 // ── THE SECOND DERIVATION. seedOf was six inline expressions, and the sharpest part is that ONE of them took a
@@ -145,9 +145,9 @@ test('seedOf is the handle read as a number, over the LIVE ledger and not over e
   const T = theorems()
   assert.ok(T.length > 1000)
   const wrong = T.filter((t) => seedOf(t.address) !== parseInt(handleOf(t.address), 16))
-  assert.deepEqual(wrong.map((t) => t.key), [], 'the seed must be the handle, never a parallel truncation')
+  assert.deepEqual(wrong.map((t) => t.key), [], 'the seed must be the handle')
   for (const t of T.slice(0, 200)) {
-    assert.ok(Number.isInteger(seedOf(t.address)), 'an exact integer, never a float')
+    assert.ok(Number.isInteger(seedOf(t.address)), 'an exact integer')
     assert.ok(seedOf(t.address) <= 0xffffffff, 'eight hex cannot exceed 2^32 - 1')
   }
 })
@@ -159,5 +159,5 @@ test('the derivations that are deliberately NOT seedOf keep their own width and 
   const hex = a.replace(/-/g, '')
   assert.notEqual(hex.slice(0, 13), hex.slice(0, 8), 'stream.ts steps THIRTEEN hex, a wider step on purpose')
   assert.notEqual(Number(BigInt('0x' + hex) % 7n), seedOf(a) % 7,
-    'the rosette folds the WHOLE address mod 7 — a different domain, not a truncation of this one')
+    'the rosette folds the WHOLE address mod 7 — a different domain')
 })

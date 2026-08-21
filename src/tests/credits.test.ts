@@ -1,6 +1,6 @@
 // credits — GENERATED FROM THE LEDGER: every theorem has an exact Lean-proof provenance and exactly one credit path
 // (a named historical result it reflects, OR the captain claims it by law). Reads the Lean-generated ledger, grows
-// with it, green unless an intruder tampers. uuidna reflects history, never invents it; it claims only the unclaimed.
+// with it, green unless an intruder tampers. uuidna reflects history; it claims only the unclaimed.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { theorems, credits, creditsSummary } from '../index.js'
@@ -26,12 +26,12 @@ test('every theorem is credited — a named historical result it reflects, or th
   assert.equal(s.captainAlone, captain)
   assert.equal(s.total, T.length)
 
-  // uuidna reflects history, never claims it. This stood on clay_poincare, whose wing is purged: its theorems
+  // uuidna reflects history. This stood on clay_poincare, whose wing is purged: its theorems
   // proved dz 7 = 3 and dz (dz 7) = 7 — single points of dz_involution, with Poincaré named only in the key.
   // A surviving theorem that genuinely reflects a named result carries the credit instead.
   const named = T.find((t) => credits(t.key).claimedBy === 'historical')
   assert.ok(named, 'some sealed theorem reflects a named historical result')
-  assert.ok(credits(named.key).historical.length > 0, 'and the credit names who, not uuidna')
+  assert.ok(credits(named.key).historical.length > 0, 'and the credit names who')
   // an elementary decidable fact has no prior discoverer — the captain claims it.
   assert.equal(credits('mul9_1_1').claimedBy, 'captain')
 })

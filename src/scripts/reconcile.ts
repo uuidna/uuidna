@@ -10,7 +10,7 @@
 //   npm run reconcile "Add the nim domain"  → your own message
 //
 // Nothing is committed if the reconcile leaves the tree unchanged (the derived layer already matched). account.js
-// fails loudly if the ledger does not reconcile, aborting before any commit/push. Integrity, not truth.
+// fails loudly if the ledger does not reconcile, aborting before any commit/push. Integrity.
 import { execSync } from 'node:child_process'
 import { ROOT, stageDerived } from './api.js'
 
@@ -26,7 +26,7 @@ const msg = process.argv.slice(2).filter((a) => a !== '--derive-only').join(' ')
 console.log('reconcile — regenerating the derived layer to match the Lean source …')
 run('npm run lean')                                   // generated.ts + PRINCIPLE.md + CHANGELOG — verifies every proof
 run('node dist/scripts/one-receipt.js coherent || { rm -rf dist; npm run build; node dist/scripts/one-receipt.js coherent; }') // SELF-HEAL the mixed-dist class (interleaved writers on the shared tree): probe every dist import against dist/index.js; on drift, one clean emit — the known total cure — then re-probe. The wrapper no longer dies mid-chain on a stale export.
-run('npm run build')                                  // REBUILD dist from the fresh generated.ts, so the downstream generators (gen-mcp/gen-readme/heartbeats/account) read the CURRENT ledger, not the stale pre-lean dist — else a new domain's theorems are missing from heartbeats and accounting fails at the pre-push gate
+run('npm run build')                                  // REBUILD dist from the fresh generated.ts, so the downstream generators (gen-mcp/gen-readme/heartbeats/account) read the CURRENT ledger— else a new domain's theorems are missing from heartbeats and accounting fails at the pre-push gate
 run('node dist/scripts/sync-changelog.js')            // RE-STAMP CHANGELOG from the FRESH dist. `npm run lean` above stamps it during its OWN pre-lean-all build, so it reads the STALE (pre-new-theorem) count; without this re-stamp the committed CHANGELOG lags by the just-added theorems, and the pre-push gate (`npm run next`) recomputes the true count and BLOCKS on the drift — forcing a manual second reconcile. Re-stamping here makes reconcile ONE-SHOT (the measured cost of manual work, sealed as manipulation_never_faster / guard-before-reconcile).
 run('node dist/scripts/lean-axioms.js')               // lean/axioms.json — re-derive the axiom-free audit from the CURRENT ledger (gated under lean/; the pre-push gate regenerates it, so reconcile must too or the git-diff blocks the push)
 run('node dist/scripts/gen-mcp.js')                   // docs/mcp.md — the MCP catalog, built from the tool keys
@@ -70,7 +70,7 @@ if (out('git status --porcelain').length === 0) {
   console.log('  ✓ commit signed true — ' + sig.reason)
   // explicit paths, never -A — the drain commits what IT regenerated; anything else belongs to whoever wrote it
   const staged = stageDerived(ROOT)
-  if (staged.leftForHumans.length) console.log('· reconcile — left for a human (not staged, not swept): ' + staged.leftForHumans.join(', '))
+  if (staged.leftForHumans.length) console.log('· reconcile — left for a human (not staged' + staged.leftForHumans.join(', '))
   // NOTHING STAGED IS NOT NOTHING TO SAY. The tree is dirty (checked above) but the drain's paths matched none of
   // it — so every changed file belongs to a sibling, or to a generator whose output is missing from DRAIN_PATHS.
   // Committing anyway hands git an empty index and the run dies on `no changes added to commit`, an error about

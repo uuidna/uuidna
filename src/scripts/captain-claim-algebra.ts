@@ -23,8 +23,8 @@ console.log('╚═════════════════════�
 // Identify algebra principles (Ring, Rosette, Core, Sequence, etc.)
 const algebraPrinciples = [
   'The 8×8 core',                       // 64 theorems — the 8×8 ℤ/9 multiplication core
-  'The ring ℤ/9',                       // the full ℤ/9 ring (its size is theoremCountByFile(), never written here)
-  'The Glagolitic numerals & Pliska rosette', // the ℤ/7 group (size computed, not written)
+  'The ring ℤ/9',                       // the full ℤ/9 ring (its size is theoremCountByFile()
+  'The Glagolitic numerals & Pliska rosette', // the ℤ/7 group (size computed
   'The sequence & reflection group',    // 20 theorems — reflection group, AGL(1,ℤ/9)
   'The vortex algebra',                 // 16 theorems — vortex algebra
   'Self-discovered',                    // discovery facts

@@ -4,8 +4,8 @@
 // measure gives 3600 arcseconds per degree. Kepler's harmonic law T² = a³ holds exactly in scaled units. The
 // Metonic cycle folds 19 solar years into 235 synodic months. The classical great year precesses at 72 years per
 // degree (25920). A star's declination spans 180° pole to pole — bounded. the decidable ARITHMETIC
-// of positional astronomy — exact ratios and cycles, some (precession) classical approximations, not claims about
-// the cosmos. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// of positional astronomy — exact ratios and cycles, some (precession) classical approximations
+// the cosmos. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -57,7 +57,7 @@ const FACTS = [
     lean: 'theorem metonic_cycle : 19 * 12 + 7 = 235 := by decide' },
 
   { key: 'great_year_precession',
-    why: 'The classical great year: the equinoxes precess at about 72 years per degree, so the full 360° circuit takes 72 × 360 = 25920 years. (A classical approximation of the ~25772-year platonic year, not an exact modern figure.)',
+    why: 'The classical great year: the equinoxes precess at about 72 years per degree, so the full 360° circuit takes 72 × 360 = 25920 years. (A classical approximation of the ~25772-year platonic year.)',
     js: () => 72 * 360 === 25920,
     lean: 'theorem great_year_precession : 72 * 360 = 25920 := by decide' },
 

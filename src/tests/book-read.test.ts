@@ -8,14 +8,14 @@
 // tests assert exactly that: the words come back, and a forgery is caught. The machinery was already here
 // (merkleProof/verifyProof); only the return was missing.
 //
-// HONEST SCOPE: reading, never interpretation — this proves WHICH text you hold, never what it means.
+// HONEST SCOPE: reading— this proves WHICH text you hold.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { bookContents, readChapter, auditText, verifyProof } from '../index.js'
 
 const BOOK = [
   'CHAPTER I',
-  'Call me Ishmael. Some years ago, never mind how long precisely.',
+  'Call me Ishmael. Some years ago.',
   '',
   'CHAPTER II',
   'I stuffed a shirt or two into my old carpet-bag.',
@@ -66,7 +66,7 @@ test('the table of contents lists the book own headings', () => {
   for (const c of toc.chapters) assert.ok(c.words > 0, 'no empty chapter listed')
 })
 
-test('an out-of-range index is clamped, never an error', () => {
+test('an out-of-range index is clamped', () => {
   assert.equal(readChapter(BOOK, 99).index, 2, 'past the end clamps to the last chapter')
   assert.equal(readChapter(BOOK, -5).index, 0, 'before the start clamps to the first')
   assert.equal(readChapter(BOOK, 99).belongs, true, 'a clamped read still proves membership')

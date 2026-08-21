@@ -11,7 +11,7 @@
 // THE NAME COMES FROM THE ALGEBRA. A handle's title is its orbit written out — the digits the walk actually
 // reaches, in order. No English is invented for it, so a title can never claim more than the walk performs.
 //
-// HONEST SCOPE: integrity, not truth. This reports the measured SHAPE of a handle's walk and composes a sentence
+// HONEST SCOPE: integrity. This reports the measured SHAPE of a handle's walk and composes a sentence
 // from those measurements. A residue is not a fact about the thing that folded to it, and nothing here decides
 // what a theorem MEANS — only which of the six orbits its address walks.
 import { runSequence } from './sequence-run.js'
@@ -21,7 +21,7 @@ export interface Speech {
   seed: number         // the residue its content-address folds to, 0..9
   orbit: number[]      // the digits the walk reaches — one of the six sealed orbits
   title: string        // the orbit written out — the name, taken from the algebra and nowhere else
-  description: string  // composed from the walk's own measurements, never from a phrase table
+  description: string  // composed from the walk's own measurements
   order: number        // the orbit's size — the period any motion derived from it must have
   period: string       // that order as a CSS duration, for the page that renders it
   direction: string    // 'paused' for a fixed point (it does not move), else 'normal'
@@ -33,7 +33,7 @@ export interface Speech {
 const HONEST =
   'The measured shape of one handle\'s walk through the sealed ℤ/9 ring: which residue its content-address folds ' +
   'to, which of the six proven orbits it reaches, and the order of that orbit. The title is the orbit itself, so ' +
-  'no word here claims more than the walk performs. HONEST SCOPE: integrity, not truth — a residue is not a fact ' +
+  'no word here claims more than the walk performs. HONEST SCOPE: integrity— a residue is not a fact ' +
   'about the thing that folded to it, and this decides no meaning.'
 
 /** speak(input) → the title, sentence and motion of any handle, all read off the sealed walk. */
@@ -45,7 +45,7 @@ export function speak(input: string | number): Speech {
   // THE TITLE IS THE ORBIT. A contiguous run of every digit reads as its span; anything else lists what it reaches.
   const contiguous = orbit.every((d, i) => d === orbit[0] + i)
   const title = fixed ? `${orbit[0]}` : contiguous ? `${orbit[0]}–${orbit[order - 1]}` : orbit.join('·')
-  // THE SENTENCE IS COMPOSED FROM MEASUREMENTS, never selected from a table of phrases.
+  // THE SENTENCE IS COMPOSED FROM MEASUREMENTS.
   const description = fixed
     ? `a fixed point: the walk starts at ${orbit[0]} and never leaves it — one digit of the ten, reached and held`
     : `walks ${order} of the ten digits (${orbit.join(', ')})${run.covers ? ', reaching every one' : ''}, closed under the reflection dz so the mirror adds nothing`
@@ -80,13 +80,13 @@ export function speechCensus(keys: readonly string[]): { orbits: { title: string
 // evidence. That is the clay_launder_refused defect exactly: a name claiming what the statement cannot support.
 //
 // THE TEST THAT DECIDES. Prose is DERIVED iff it is what the algebra GENERATES — byte-identical to compose(facts).
-// Not "contains the right numbers", not "mentions no forbidden word": REGENERABLE. Anything a person authored
+// Not "contains the right numbers""mentions no forbidden word": REGENERABLE. Anything a person authored
 // differs from the generated string somewhere, and the difference is the evidence. This is harsh by construction
 // and that is the point — "lean computes and all prose emerges from there" admits no gap for a template a person
 // fills in. compose() below IS the whole vocabulary; it takes only measured facts and can say nothing else.
 //
-// THE COURT DECIDES, NOT THIS MODULE. A verdict comes from adjudicate() over the sealed legal vocabulary in
-// lean/Legal.lean. Undecided prose is REMANDED, never discarded — theorem legal_remand_is_total_nothing_discarded.
+// THE COURT DECIDES. A verdict comes from adjudicate() over the sealed legal vocabulary in
+// lean/Legal.lean. Undecided prose is REMANDED— theorem legal_remand_is_total_nothing_discarded.
 import { adjudicate } from './adjudicate.js'
 
 export type ProseVerdict = 'DERIVED' | 'TREASON' | 'REMAND'
@@ -109,7 +109,7 @@ export function compose(s: Speech): string {
 }
 
 /** tryProse(prose, s) → the trial. Identical to the derivation is DERIVED; otherwise the COURT decides whether the
- *  divergence is refused outright (TREASON) or merely undecided (REMAND — held, never discarded). */
+ *  divergence is refused outright (TREASON) or merely undecided (REMAND — held. */
 export function tryProse(prose: string, s: Speech): ProseTrial {
   const generated = compose(s)
   let i = 0

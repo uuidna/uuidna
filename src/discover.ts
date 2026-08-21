@@ -1,7 +1,7 @@
 // discover — HOLD EVERY CANDIDATE AT ONCE, AND REFUTE IN THE SAME PASS.
 //
 // Relations between the ledger's own measured numbers are worth finding, and finding them one at a time is how
-// noise gets sealed. In one session I claimed the re-namings were 2 x 42 (they were 73, not 84) and that 42 tiles
+// noise gets sealed. In one session I claimed the re-namings were 2 x 42 (they were 73
 // 432 (it does not: 7 does not divide 72). Both were arithmetic that LOOKED like structure, proposed singly and
 // checked only after being stated.
 //
@@ -16,7 +16,7 @@
 // that are independently measured; against derived quantities it confirms their own construction.
 //
 // Nothing here seals anything. It proposes, and the proposals still owe the other legs: an independent witness,
-// and a falsifier. A survivor is a candidate for a theorem, never a theorem.
+// and a falsifier. A survivor is a candidate for a theorem.
 
 export interface Value { name: string; n: number }
 export interface Relation { form: string; holds: boolean; rigid: boolean; note?: string }

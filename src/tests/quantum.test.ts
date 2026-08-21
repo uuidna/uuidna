@@ -135,7 +135,7 @@ test('runCircuit rejects unknown gates and out-of-range qubits', () => {
 test('the report is honest (passes the gate) and carries no floating point', () => {
   const o = report()
   assert.equal(computes(o).binary, 1)
-  assert.match(o, /H·Z·H = X : true/)   // the identity computed, not asserted
+  assert.match(o, /H·Z·H = X : true/)   // the identity computed
   assert.match(o, /S·S = Z : true/)
   assert.ok(!/\d+\.\d+/.test(o))         // exact fractions only — no decimal drift
 })

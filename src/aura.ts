@@ -4,7 +4,7 @@
 // every observer (no RNG, no clock) — the colour is content-addressed, like everything else. The MOVING aura is a CSS
 // block whose animation parameters are computed from the address, so a page's glow IS its fingerprint in light.
 //
-// HONEST SCOPE: integrity, not truth. This is an ARTISTIC, recomputable colour mapping — NOT physics, NOT real string
+// HONEST SCOPE: integrity. This is an ARTISTIC, recomputable colour mapping — NOT physics
 // theory, and NOT a claim that sound IS light or that 432 Hz carries special physical power. It is a deterministic
 // aesthetic derived from the address: a defined arithmetic from a number to a hue. Recomputable by anyone; it decorates
 // the work, it does not describe the universe.
@@ -30,7 +30,7 @@ const HONEST =
   'The quantum aura: a recomputable, A432-tuned colour folded from a content-address (the 7 rosette rays as bands, the ' +
   'ℤ/9 vortex as the wave, the hue stepping by 360/9 = 40°). Deterministic — the same address, the same aura for ' +
   'everyone. ARTISTIC, not physics: it is a defined arithmetic from a number to a hue, NOT real string theory and not a ' +
-  'claim that sound is light. It decorates the work; it does not describe the universe. Integrity, not truth.'
+  'claim that sound is light. It decorates the work; it does not describe the universe. Integrity.'
 
 // abs and floor via exact comparison / arithmetic, NO Math.* — the determinism hard-reject bans host intrinsics.
 const absN = (n: number): number => (n < 0 ? -n : n)
@@ -66,7 +66,7 @@ const rgbToCmyk = (r: number, g: number, b: number): [number, number, number, nu
 
 /** quantumAura(subject) → the recomputable A432 aura for a content-address (pass an address, or any string to fold
  *  into one). The 7 rays band it, the ℤ/9 vortex waves it, the hue steps by 40°. Deterministic and content-addressed;
- *  returns the colour in HSL/RGB/CMYK plus a ready moving-aura CSS block. Artistic, not physics. */
+ *  returns the colour in HSL/RGB/CMYK plus a ready moving-aura CSS block. Artistic. */
 export function quantumAura(subject: string): Aura {
   const address = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(subject) ? subject : toUuid(subject)
   const n = seedOf(address)                                        // a stable integer from the address
@@ -93,7 +93,7 @@ export function quantumAura(subject: string): Aura {
 /** auraDecode(rgbHex) → the state the colour carries — {residue, ray, wave, hue, sat, light} — or null if the hex
  *  is not one of the 378 aura colours. EXACT by construction: every state renders through the same pipeline and the
  *  hex is matched, so decode∘encode = id (the fold verifies the whole table stays collision-free at every seal).
- *  The colour is a reversible harmonic message — state and status readable from the glow. Art, not physics. */
+ *  The colour is a reversible harmonic message — state and status readable from the glow. Art. */
 export function auraDecode(rgbHex: string): { residue: number; ray: number; wave: number; hue: number; sat: number; light: number } | null {
   const target = rgbHex.toLowerCase()
   for (const e of auraAlphabet()) if (e.rgb === target) return { residue: e.residue, ray: e.ray, wave: e.wave, hue: e.hue, sat: e.sat, light: e.light }

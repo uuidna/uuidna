@@ -1,6 +1,6 @@
 // SEO tests — the schema.org surface is recomputable and typed from the route: /school is a School, /trials is a
 // MathSolver whose SolveMathAction targets the REAL live endpoint, and every other static page stays a plain WebPage.
-// The finder folded from the schema.org/School + /MathSolver vocabulary pass (2026-08-16). Integrity, not truth.
+// The finder folded from the schema.org/School + /MathSolver vocabulary pass (2026-08-16). Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readdirSync } from 'node:fs'
@@ -72,7 +72,7 @@ test('quantum SEO: /theorems is the SAME Dataset node every theorem cites as isP
 
 // Each computational Lean line indexed as its own computable JSON-LD node: @id is the line's content-uuid
 // (RFC 4122 urn:uuid:), distinct from `identifier` (the proposition's content-uuid, key+statement) — two
-// different addresses for two different questions, not one duplicated as two.
+// different addresses for two different questions.
 test('quantum SEO: every theorem carries its own line-content @id, distinct from its proposition identifier', () => {
   const t = theorems()[0]
   const seo = quantumSeo({ key: t.key })
@@ -93,7 +93,7 @@ test('quantum SEO: every theorem carries its own line-content @id, distinct from
 // convention: "the first segment (8 hex) you CITE"; Handle.vue renders exactly this truncation for citation).
 // A collision here would mean two different theorems (or two different Lean lines) cite-alike under the
 // shorthand, silently pointing a reader at the wrong proof. Checked for both address AND lineAddress, since a
-// citation could reasonably shorten either. Automated, not a one-off manual check — this is the actual audit an
+// citation could reasonably shorten either. Automated— this is the actual audit an
 // evocatively-named "quantum collider" idea would want, under its real name: a pigeonhole/birthday-bound check.
 test('theorem handle citation shorthand (first 8 hex chars) has zero collisions, for address and lineAddress', () => {
   const all = theorems()

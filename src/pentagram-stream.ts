@@ -1,9 +1,9 @@
 // pentagram-stream — stream a sequence through the star {n/step} visiting order (the pentagram {5/2} generalized):
 // item k is visited at index (step·k mod n), a SINGLE closed stroke iff gcd(step,n)=1 (the pentagram is {5/2}),
-// else gcd(step,n) shorter loops — reported honestly, never forced to one stroke. Each streamed item is stamped
+// else gcd(step,n) shorter loops — reported honestly. Each streamed item is stamped
 // holofractal (pentagram · hologram · fractal · accounted), and the whole folds to ONE order-INVARIANT quantum
 // receipt: the stream has a definite pentagram ORDER yet an order-free RECEIPT (every observer ordering → the same
-// root — the doubleTorus/gravity duality, bell_no_signaling). Streaming · quantum · pentagram, recomputable. Integrity, not truth.
+// root — the doubleTorus/gravity duality, bell_no_signaling). Streaming · quantum · pentagram, recomputable. Integrity.
 import { pentagramHologramFractal, type HoloFractal } from './holofractal.js'
 import { starPolygon, gcdInt } from './cycles.js'
 import { merkleGravity } from './gravity.js'
@@ -34,6 +34,6 @@ export function pentagramStream(items: string[], step = 2): PentagramStream {
   const streamed = order.map((visitIndex) => ({ visitIndex, item: list[visitIndex], holofractal: pentagramHologramFractal(list[visitIndex]) }))
   const addrs = streamed.map((c) => c.holofractal.address)
   const receipt = merkleGravity(addrs)
-  const quantum = receipt === merkleGravity([...addrs].reverse())   // order-invariant: proven, not asserted
+  const quantum = receipt === merkleGravity([...addrs].reverse())   // order-invariant: proven
   return { n, step, order, single: sp.single, loops: sp.loops, streamed, receipt, quantum }
 }

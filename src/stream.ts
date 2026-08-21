@@ -2,10 +2,10 @@
 // ChaCha20-Poly1305 layer, crypt.ts), then carry the outer envelope ENTIRELY inside a chain of uuids (imprint.ts).
 // openStream peels the layers back to the plaintext. The message channel IS the uuid stream — no separate blob.
 //
-// HONEST SCOPE (integrity, not truth):
-//  · Layers are BOUNDED (1..MAX_LAYERS), never infinite. Each onion wrap re-encodes the layer below as base64
-//    JSON, so the sealed size grows ~(4/3)^N — unbounded depth is physically impossible, not merely disallowed.
-//    The "infinities" in this repo are the FINITE Lean witnesses (lean/Infinity.lean), not an encryption depth.
+// HONEST SCOPE (integrity
+//  · Layers are BOUNDED (1..MAX_LAYERS). Each onion wrap re-encodes the layer below as base64
+//    JSON, so the sealed size grows ~(4/3)^N — unbounded depth is physically impossible.
+//    The "infinities" in this repo are the FINITE Lean witnesses (lean/Infinity.lean).
 //  · Secrecy comes ONLY from the ChaCha20-Poly1305 layers. The uuid transport (imprint) is NOT encryption — its
 //    bits are public and hide nothing; opening still needs every passphrase, applied outermost-first.
 //  · The stream's receipt is a public 7d-fold content-address (non-crypto FNV). In a CHAIN it is not passive:
@@ -30,7 +30,7 @@ export interface Stream {
 const check = (passphrases: readonly string[]): void => {
   if (passphrases.length < 1) throw new Error('stream: need at least 1 passphrase — 1 encryption layer')
   if (passphrases.length > MAX_LAYERS)
-    throw new Error(`stream: ${passphrases.length} layers > MAX_LAYERS ${MAX_LAYERS} — layers are bounded, never infinite`)
+    throw new Error(`stream: ${passphrases.length} layers > MAX_LAYERS ${MAX_LAYERS} — layers are bounded`)
 }
 
 /** sealStream(message, passphrases[, step]) → a uuid chain carrying the onion-sealed message. Layer order:
@@ -83,7 +83,7 @@ const stepOf = (referer: string): number => parseInt(referer.replace(/-/g, '').s
 
 /** sealChain(messages, passphrases[, genesis]) → a forward-linked (ratcheting) stream. Each message onion-seals
  *  at a step ROTATED from the prior link's receipt (the referer), so every step is fresh and the whole stream is
- *  content-chained. Public rotation: freshness + linkage + accidental-tamper-evidence, not secrecy. */
+ *  content-chained. Public rotation: freshness + linkage + accidental-tamper-evidence. */
 export function sealChain(messages: readonly string[], passphrases: readonly string[], genesis = GENESIS): Link[] {
   check(passphrases)
   const out: Link[] = []

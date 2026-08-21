@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // Automate the Lean layer for the QUANTUM computer — the exact facts src/quantum.ts computes. this
-// is the algebra of a CLASSICAL state-vector simulation (integer positions, no decimal drift), NOT quantum
-// hardware and NO quantum advantage. Amplitudes are Gaussian integers over √(2^scale); the Born-rule weights and
+// is the algebra of a CLASSICAL state-vector simulation (integer positions, no decimal drift)
+// hardware — the cost is the classical 2^n CONFIRMED by n_qubit_dimension. Amplitudes are Gaussian integers over √(2^scale); the Born-rule weights and
 // marginals are non-negative integers (Nat), and the phase-gate algebra (S·S=Z, Z²=I, S·S†=I) lives in ℤ. COMPUTE
-// each fact, GENERATE a `by decide` theorem, VERIFY it compiles sorry-free (lean). Simulation, not hardware.
+// each fact, GENERATE a `by decide` theorem, VERIFY it compiles sorry-free (lean). Simulation.
 import { emit, LXOR_DEF } from './lean-gen.js'
 
 // JS mirrors of the exact simulator arithmetic (must each hold before a line is written).
@@ -91,7 +91,7 @@ const FACTS = [
   { key: 'pauli_x_z_anticommute', why: 'Pauli X and Z ANTICOMMUTE (XZ = −ZX): X flips the bit, Z stamps (−1)^bit, and (−1)^b = −(−1)^(1−b) on both bits — the sign the simulator carries; the nonabelian core of the gate algebra',
     js: () => [0, 1].every((b) => (-1) ** b === -((-1) ** (1 - b))),
     lean: 'theorem pauli_x_z_anticommute : (List.range 2).all (fun b => ((-1 : Int))^b == -(((-1 : Int))^(1 - b))) := by decide' },
-  // ── the W state: a distinct entanglement class (three corners, not two) ──
+  // ── the W state: a distinct entanglement class (three corners
   { key: 'w_state_three_outcomes', why: 'The W state (|001⟩+|010⟩+|100⟩)/√3 — exactly THREE of the 2³ corners carry weight (vs GHZ’s two): a distinct entanglement class, robust to one-party loss. The simulator’s amplitude vector, counted',
     js: () => [0, 1, 1, 0, 1, 0, 0, 0].filter((a) => a !== 0).length === 3,
     lean: 'theorem w_state_three_outcomes : (([0,1,1,0,1,0,0,0] : List Nat).filter (fun a => a != 0)).length = 3 := by decide' },
@@ -103,7 +103,7 @@ const FACTS = [
     js: () => (1 * 1 + 0 * 0 + 0 * 0 + 1 * -1) === 0 && (0 * 0 + 1 * 1 + 1 * -1 + 0 * 0) === 0 && (1 * 1 + 0 * 0 + 0 * 0 + 1 * 1) === 2,
     lean: 'theorem bell_basis_orthogonal : ((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0) ∧ ((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0) ∧ ((1*1 + 0*0 + 0*0 + 1*1 : Int) = 2) := by decide' },
   // ── the state space, counted: n qubits span 2ⁿ amplitudes — EXPONENTIAL, which is why the classical simulation is
-  //    costly. : this is the cost of simulation, NOT a speedup or an advantage. ──
+  //    costly. : this is the cost of simulation. ──
   { key: 'n_qubit_dimension', why: 'n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. this counts the simulation cost, it is NOT a speedup or a quantum advantage.',
     js: () => JSON.stringify([1, 2, 3, 4, 5].map((n) => 2 ** n)) === JSON.stringify([2, 4, 8, 16, 32]),
     lean: 'theorem n_qubit_dimension : ([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32] := by decide' },
@@ -134,7 +134,7 @@ const FACTS = [
     lean: 'theorem real_pauli_group_order_8 : (2 * 4 = 8) ∧ (8 * 2 = 16) := by decide' },
 
   { key: 'four_messages_two_bits',
-    why: 'The order-8 signed group carries 4 distinguishable messages, not 8: dividing out the unobservable global phase (÷2) collapses 8 group elements to 4 = 2² Bell states — superdense coding\'s two classical bits. The group\'s 8 and the channel\'s 4 pinned together: 8/2 = 4 = 2². Group doubling, phase quotient, message count, one line.',
+    why: 'The order-8 signed group carries 4 distinguishable messages— superdense coding\'s two classical bits. The group\'s 8 and the channel\'s 4 pinned together: 8/2 = 4 = 2². Group doubling, phase quotient, message count, one line.',
     js: () => 8 / 2 === 4 && 2 ** 2 === 4,
     lean: 'theorem four_messages_two_bits : (8 / 2 = 4) ∧ ((2:Nat)^2 = 4) := by decide' },
 
@@ -147,7 +147,7 @@ const FACTS = [
   { key: 'chsh_beats_classical', why: 'The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. the simulator computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL).',
     js: () => 2 ** 2 < 2 ** 3 && 2 ** 3 === 8,
     lean: 'theorem chsh_beats_classical : ((2:Nat)^2 < 2^3) ∧ (2^3 = 8) := by decide' },
-  { key: 'no_cloning_dimension', why: 'The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)² dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². this is the arithmetic SHADOW of the no-cloning theorem (a linearity fact), not a proof of it.',
+  { key: 'no_cloning_dimension', why: 'The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)² dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². this is the arithmetic SHADOW of the no-cloning theorem (a linearity fact).',
     js: () => 2 ** 2 < (2 ** 2) ** 2,
     lean: 'theorem no_cloning_dimension : (2:Nat)^2 < (2^2)^2 := by decide' },
   { key: 'hadamard_conjugates_x_to_z', why: 'The Hadamard swaps the X and Z bases: HXH = Z, verified on integer amplitudes up to the √2² = 2 scale — HXH[a,b] = [2a, −2b] = 2·Z[a,b], on sample amplitudes. The conjugation that turns a bit-flip into a phase-flip, the heart of the Clifford structure.',
@@ -170,7 +170,7 @@ const FACTS = [
     lean: 'theorem teleportation_four_corrections : (([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4) := by decide' },
   // ── the computer's MEMORY, folded here: the content-address receipt the simulator's state distils to, under the
   //    SAME axiom-free XOR (lxor) the gate permutations use (CNOT = i⊕2·q0). Kept skill 'memory'. a
-  //    classical INTEGRITY receipt — not a quantum memory, not an advantage. (Statements verbatim: addresses stable.) ──
+  //    classical INTEGRITY receipt — not a quantum memory. (Statements verbatim: addresses stable.) ──
   { key: 'store_fold_order_invariant', skill: 'memory',
     why: "The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). the classical content-address receipt the state folds to, integrity — not a quantum memory.",
     js: () => { for (let a = 0; a < 8; a++) for (let b = 0; b < 8; b++) for (let c = 0; c < 8; c++) { const base = a ^ b ^ c; if (!(base === (a ^ c ^ b) && base === (b ^ a ^ c) && base === (b ^ c ^ a) && base === (c ^ a ^ b) && base === (c ^ b ^ a))) return false } return true },
@@ -182,7 +182,7 @@ const FACTS = [
     && ([a,b,c].foldl lxor 0 == [c,a,b].foldl lxor 0)
     && ([a,b,c].foldl lxor 0 == [c,b,a].foldl lxor 0)))) := by decide` },
   { key: 'store_fold_change_moves_receipt', skill: 'memory',
-    why: "The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. integrity of the content-address, not a quantum property.",
+    why: "The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. integrity of the content-address.",
     js: () => { for (let a = 0; a < 8; a++) for (let b = 0; b < 8; b++) for (let c = 0; c < 8; c++) for (let a2 = 0; a2 < 8; a2++) { if (((a ^ b ^ c) === (a2 ^ b ^ c)) !== (a === a2)) return false } return true },
     lean: `theorem store_fold_change_moves_receipt :
   (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 =>
@@ -208,13 +208,13 @@ const FACTS = [
     lean: 'theorem merkle_sort_invariant : (let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1)) := by decide' },
 
   { key: 'all_signaling_duality',
-    why: 'UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total, never the arrangement (1+0 = 0+1: swap the far side, the near statistics never move; correlation carries no message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal, never by obscurity.',
+    why: 'UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total; correlation carries no message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal.',
     js: () => (1 + 0 === 0 + 1) && [0, 1, 2].every((a) => [0, 1, 2].every((b) => [0, 1, 2].every((c) => [0, 1, 2].every((d) => ((10 * a + b === 10 * c + d) === (a === c && b === d)))))),
     lean: 'theorem all_signaling_duality : (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d)))))) := by decide' },
 ]
 
-console.log('computing ' + FACTS.length + ' QUANTUM facts (classical simulation, not hardware — the classical 2^n of n_qubit_dimension) …')
+console.log('computing ' + FACTS.length + ' QUANTUM facts (classical simulation— the classical 2^n of n_qubit_dimension) …')
 
 emit({ file: 'Quantum.lean', skill: 'quantum', defs: LXOR_DEF,
-  header: 'The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL.',
+  header: 'The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

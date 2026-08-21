@@ -1,12 +1,12 @@
-// @non-harmonic: external free-API research corroboration (network — evidence, never a seal) — NAMED boundary; the harmonic core must never carry these ops.
+// @non-harmonic: external free-API research corroboration (network — evidence— NAMED boundary; the harmonic core must never carry these ops.
 // corroborate — augment the LOCAL binary verification (adjudicate: VERIFIED / UNVERIFIED, where UNVERIFIED is never
 // "false", only "not yet verified") with EXTERNAL RESEARCH streamed from FREE APIs. HONEST SCOPE: external evidence
 // is a recomputable PROVENANCE FINGERPRINT of what a public source says — it CORROBORATES, it does NOT prove. Only a
 // `by decide` theorem SEALS (VERIFIED); CORROBORATED means "unverified locally, but a named free source attests it" —
 // evidence, never truth. A local VERIFIED (a sealed proof) always outranks external evidence; a binary gate can prove
-// but never refute, so external research only ever populates the silent UNVERIFIED bucket, never overturns a seal.
+// but never refute, so external research only ever populates the silent UNVERIFIED bucket.
 // The evidence folds ORDER-INVARIANTLY to one receipt (the same merkle-gravity fold the quantum domain uses).
-// Integrity, not truth.
+// Integrity — the record recomputes for anyone.
 import { adjudicate } from './adjudicate.js'
 import { nistConstant } from './constants.js'
 import { merkleGravity } from './gravity.js'
@@ -27,21 +27,21 @@ export interface Corroboration {
 
 const HONEST =
   'External research CORROBORATES, it does not PROVE: each evidence item is a provenance fingerprint of what a FREE ' +
-  'public API says, never a proof. Only a `by decide` theorem SEALS (VERIFIED). CORROBORATED = unverified locally but ' +
-  'attested by a named external source — evidence, not truth; UNVERIFIED is never "false", only "not yet verified". A ' +
+  'public API says. Only a `by decide` theorem SEALS (VERIFIED). CORROBORATED = unverified locally but ' +
+  'attested by a named external source — evidence; UNVERIFIED is never "false", only "not yet verified". A ' +
   'binary gate proves but never refutes, so a local VERIFIED always outranks external evidence, and no stream can ' +
   'promote a claim to SEALED. The evidence folds order-invariantly to the receipt, recomputable by anyone.'
 
 /** corroborate(statement, evidence[, decidableTest]) → the LOCAL binary verdict augmented with external evidence,
  *  folded to an order-invariant receipt. A sealed proof (VERIFIED) outranks everything; else evidence from TWO
- *  INDEPENDENT SOURCES yields CORROBORATED (attestation, not proof); else UNVERIFIED (never "false"). Pure.
+ *  INDEPENDENT SOURCES yields CORROBORATED (attestation; else UNVERIFIED (never "false"). Pure.
  *
  *  TWO, NOT ONE, AND SOURCES, NOT ROWS — this function contradicted the theorem it is named for. reporter.ts:34
  *  has always read `sources.length >= 2` — the threshold is the code's, and the theorem that once "sealed" it only compared 1 to 2 — while this line
  *  read `evidence.length` — ONE, and one ROW at that, so eight hits from a single stream would have cleared even a
  *  naive two-check. MEASURED before the fix: corroborateWithResearch('qwertzuiop asdfghjkl yxcvbnm') returned
  *  CORROBORATED on a single CrossRef row. Retrieval is not corroboration, the same way a citation is not
- *  entailment; a ranked search engine answers with the best of what it has, never with nothing.
+ *  entailment; a ranked search engine answers with the best of what it has.
  *
  *  WHAT THIS STILL DOES NOT FIX, said plainly rather than left to be discovered: a uuidna coinage naming nothing
  *  outside this repository ("The 8x8 core") returns THREE independent sources and clears the bar honestly. Counting
@@ -58,14 +58,14 @@ export function corroborate(statement: string, evidence: ResearchEvidence[] = []
 // THE RESEARCH SOURCES — the ONE registry of reachable free API streams, each a best-effort fetch returning provenance-
 // fingerprinted evidence and NEVER a fabricated one. researchEvidence fans them ALL out in parallel, so the concurrency
 // lives in ONE place: every consumer (corroborateWithResearch, scanPublications) gets every source at once, and adding a
-// source is a single line here — the parallel speedup is DRY, never re-implemented per caller.
+// source is a single line here — the parallel speedup is DRY.
 type ResearchSource = (query: string) => Promise<ResearchEvidence[]>
 
 const nistSource: ResearchSource = async (query) => {
   try {
     const nist = await nistConstant(query)
     return nist.matches.slice(0, 8).map((m) => ({ source: nist.source, address: toUuid(JSON.stringify(m)), note: JSON.stringify(m).replace(/[{}"]/g, '').slice(0, 100) }))
-  } catch { return [] } // a free API may be unreachable — best-effort, NEVER fabricates evidence
+  } catch { return [] } // a free API may be unreachable — best-effort
 }
 
 const zenodoSource: ResearchSource = async (query) => {
@@ -78,7 +78,7 @@ const zenodoSource: ResearchSource = async (query) => {
 }
 
 // A third reachable free source: Crossref, the canonical DOI registry (api.crossref.org, no key; ?mailto for the
-// polite pool). Each hit is a provenance-fingerprinted publication mention — content-addressed, never executed.
+// polite pool). Each hit is a provenance-fingerprinted publication mention — content-addressed.
 const crossrefSource: ResearchSource = async (query) => {
   try {
     const res = await fetch('https://api.crossref.org/works?rows=8&mailto=ceccec@psg.bg&query=' + encodeURIComponent(query))
@@ -90,7 +90,7 @@ const crossrefSource: ResearchSource = async (query) => {
 
 // FREE AI-CAPABLE SEARCH, inside the law — two archives with machine intelligence built in and NO key required.
 // Semantic Scholar returns an AI-GENERATED TLDR per paper; OpenAlex returns ML-classified works. Their AI output
-// is EVIDENCE like any other note — content-addressed, quoted, tried at the gate, never executed and never
+// is EVIDENCE like any other note — content-addressed, quoted, tried at the gate
 // approval (only a Lean seal approves). Quantum secure and fast the same way every source is: parallel fan-out,
 // best-effort, a down archive returns [] — the sweep never fabricates and never stalls.
 const semanticScholarSource: ResearchSource = async (query) => {
@@ -118,12 +118,12 @@ const openAlexSource: ResearchSource = async (query) => {
 }
 
 const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource, semanticScholarSource, openAlexSource]
-/** the sources BY NAME — so any surface states how many are actually wired, never a remembered number */
+/** the sources BY NAME — so any surface states how many are actually wired
 export const RESEARCH_SOURCE_NAMES: readonly string[] = ['nist.gov', 'zenodo.org', 'crossref.org', 'semanticscholar.org', 'openalex.org']
 
 /** researchEvidence(query) → external research from the free API STREAMS, FANNED OUT IN PARALLEL (Promise.all over
- *  RESEARCH_SOURCES): the wall-clock is the slowest source, not the sum, and every match is a provenance-fingerprinted
- *  Evidence item. The responses are DATA — content-addressed, never executed. Best-effort: a down/empty stream yields
+ *  RESEARCH_SOURCES): the wall-clock is the slowest source
+ *  Evidence item. The responses are DATA — content-addressed. Best-effort: a down/empty stream yields
  *  no evidence, never a fabricated one. The one parallel fan-out every research consumer shares (DRY). */
 export async function researchEvidence(query: string): Promise<ResearchEvidence[]> {
   return (await Promise.all(RESEARCH_SOURCES.map((s) => s(query)))).flat()
@@ -131,8 +131,8 @@ export async function researchEvidence(query: string): Promise<ResearchEvidence[
 
 /** approve(c) → the HARD gate: ONLY a local by-decide seal (the "quantum" verification — a proof that COMPUTES)
  *  approves a claim. THROWS if a non-sealed source is used as approval — CORROBORATED (external research) and
- *  UNVERIFIED (silence) are evidence and not-yet, NEVER approval. This makes "only lean approves" a HARD FAILURE, not
- *  a soft downgrade: no external stream, no attestation, can ever seal. (Honest caveat: this gates APPROVAL, not the
+ *  UNVERIFIED (silence) are evidence and not-yet. This makes "only lean approves" a HARD FAILURE, not
+ *  a soft downgrade: no external stream, no attestation, can ever seal. (Honest caveat: this gates APPROVAL
  *  ledger — uuidna's own arithmetic is classical and honestly so; "quantum" here names the recomputable Lean seal.) */
 export function approve(c: Corroboration): Corroboration {
   if (c.local !== 'VERIFIED')
@@ -167,7 +167,7 @@ const FIREWALL_HONEST =
   'A WATERFALL of hard gates: each layer crosses ONLY on a local by-decide seal (VERIFIED); the first unsealed layer ' +
   'BLOCKS the whole cascade — nothing downstream is even reached — and reflects the develop path to seal it. Defence-' +
   'in-depth, the same "no maximum, only bounds" the Security domain proves. HONEST SCOPE: "quantum" names the ' +
-  'recomputable Lean seal and the order-invariant fold, NOT hardware; external research corroborates but never crosses.'
+  'recomputable Lean seal and the order-invariant fold; external research corroborates but never crosses.'
 
 /** firewall(layers) → the QUANTUM FIREWALL as a WATERFALL: run the corroborations in order, each APPROVED only by a
  *  local by-decide seal. The FIRST unsealed layer blocks the whole cascade (a hard drop) and reflects its develop
@@ -211,7 +211,7 @@ export function entangle(corroborations: Corroboration[]): Entanglement {
 // ── THE PUBLICATION SCANNER — scan online for uuidna-related mentions and INVESTIGATE each against the reservation ──
 export interface PublicationFinding {
   source: string        // the free stream the mention came from
-  address: string       // content-address of the raw response item — a provenance fingerprint, never executed
+  address: string       // content-address of the raw response item — a provenance fingerprint
   note: string          // the fingerprinted snippet
   legitimacy: 'canonical' | 'external-unlicensed'  // per the sole-representation reservation
   investigation: string // the honest read: what this finding is, and what it is NOT
@@ -229,14 +229,14 @@ const SCAN_HONEST =
   'The publication scanner: a BEST-EFFORT scan of the NAMED FREE research streams for a query, each match a provenance ' +
   'fingerprint (content-addressed, never executed), INVESTIGATED against the sole-representation reservation — the one ' +
   'legitimate representation is uuidna.com; any external mention is legitimate ONLY if licensed by the captain. HONEST ' +
-  'SCOPE: integrity, not truth — it scans the streams it can REACH, NOT the open web, so an empty result is NOT proof ' +
+  'SCOPE: integrity — the record recomputes for anyone — it scans the streams it can REACH' +
   'no publication exists; it CORROBORATES a mention, it never proves authorship, endorsement, or infringement; a human ' +
-  'court decides legitimacy. It fetches DATA, never runs it, and never fabricates a finding.'
+  'court decides legitimacy. It fetches DATA.'
 
 /** scanPublications(query='uuidna') → BEST-EFFORT scan the reachable free research streams for uuidna-related mentions
  *  and investigate each against the reservation (canonical uuidna.com vs external-unlicensed). The network call; the
- *  responses are DATA, content-addressed, never executed. Best-effort: an unreachable/empty stream yields no finding,
- *  never a fabricated one. HONEST: scans the reachable streams, NOT the open web — absence is not proof of absence. */
+ *  responses are DATA, content-addressed. Best-effort: an unreachable/empty stream yields no finding,
+ *  never a fabricated one. HONEST: scans the reachable streams— absence is not proof of absence. */
 export async function scanPublications(query = 'uuidna'): Promise<PublicationScan> {
   const canonical = 'https://uuidna.com'
   // researchEvidence is the ONE parallel fan-out over every reachable source (NIST + Zenodo + …) — so the scan gets the

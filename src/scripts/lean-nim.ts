@@ -5,7 +5,7 @@
 // that one XOR the whole normal-play theory reads off — equal heaps cancel (the mirror strategy), a lone heap is a
 // win, and the Sprague–Grundy value of a sum of games is the XOR of the parts. NORMAL play (last to move
 // WINS) only — MISÈRE nim (last to move loses) flips the endgame and is demarcated where it appears; and this is the
-// exact arithmetic of the nim-sum, not a general game solver. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// exact arithmetic of the nim-sum. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit, LXOR_DEF } from './lean-gen.js'
 
 // JS nim-sum (XOR fold) — the mirror of lxor, to self-check every fact before a line is written.
@@ -34,7 +34,7 @@ const FACTS = [
     lean: 'theorem nim_empty_heap_neutral : (List.range 16).all (fun n => lxor n 0 == n) := by decide' },
 
   { key: 'nim_sum_commutes',
-    why: 'The nim-sum does not care about heap order: lxor a b = lxor b a. The heaps are a set, not a sequence — a symmetry the whole theory rests on.',
+    why: 'The nim-sum does not care about heap order: lxor a b = lxor b a. The heaps are a set— a symmetry the whole theory rests on.',
     js: () => R(0, 8).every((a) => R(0, 8).every((b) => nimsum(a, b) === nimsum(b, a))),
     lean: 'theorem nim_sum_commutes : (List.range 8).all (fun a => (List.range 8).all (fun b => lxor a b == lxor b a)) := by decide' },
 
@@ -69,7 +69,7 @@ const FACTS = [
     lean: 'theorem nim_misere_differs : lxor (lxor 1 1) 1 = 1 := by decide' },
 
   { key: 'nim_max_is_a_diamond_nilpotent',
-    why: 'Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6 is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond\'s self-annihilating residue, its "draw". The biggest win reduces to the vortex\'s zero-square, while chess sits at the units {1,8} and the audit at 8. a structural residue of the nim-sum, NOT a claim nim IS the ring.',
+    why: 'Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6 is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond\'s self-annihilating residue, its "draw". The biggest win reduces to the vortex\'s zero-square, while chess sits at the units {1,8} and the audit at 8. a structural residue of the nim-sum.',
     js: () => 15 % 9 === 6 && (6 * 6) % 9 === 0,
     lean: 'theorem nim_max_is_a_diamond_nilpotent : (15 % 9 = 6) ∧ ((6 * 6) % 9 = 0) := by decide' },
 ]

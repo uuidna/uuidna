@@ -5,8 +5,8 @@
 // audited theorem must be axiom-free, and no offender may be listed. This moves a repo-only check into the shipped
 // package — offline independence, the knowledge living where it recomputes. HONEST SCOPE: it verifies the SEALED
 // receipt against the ledger count; re-deriving the receipt itself still needs the Lean toolchain (the guard, CI).
-// A tree without the receipt (not shipped, not in the repo) reports shipped:false and defers to the guard script.
-// Integrity, not truth.
+// A tree without the receipt (not shipped.
+// Integrity — the record recomputes for anyone.
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
@@ -32,11 +32,11 @@ const HONEST =
   'The captain\'s claim "all axioms are replaceable, the uncovered are spies" DEMARCATED to its backed form: this ledger ' +
   'borrows ZERO axioms (the trust base is the kernel alone, the allowed set empty), so no axiom is load-bearing HERE — ' +
   'and an axiom that does appear is an OFFENDER the witness catches: the spy. NOT a claim about mathematics at large. ' +
-  'Re-deriving the receipt needs the Lean toolchain (repo/CI); verifying it needs only this package. Integrity, not truth.'
+  'Re-deriving the receipt needs the Lean toolchain (repo/CI); verifying it needs only this package. Integrity.'
 
 /** axiomWitness() → verify the SHIPPED kernel-only receipt (lean/axioms.json) against the live ledger, offline.
  *  holds=true means the sealed audit covers the whole current ledger and found no borrowed axiom; shipped=false
- *  means no receipt is beside dist (defer to `npm run guard`, which re-derives it). Integrity, not truth. */
+ *  means no receipt is beside dist (defer to `npm run guard`, which re-derives it). Integrity. */
 export function axiomWitness(): AxiomWitnessReport {
   const ledger = theorems().length
   let audited = 0, axiomFree = 0, offenders: Record<string, string[]> = {}, shipped = false

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // quantum-messaging-hybrid — demonstrate weak+strong security layering
 // Fast payload cipher (ChaCha20 stream, less-than-auth speed) protected by strong quantum proof
-// Result: High-speed messaging + cryptographic proof, not authentication-latency cost
+// Result: High-speed messaging + cryptographic proof
 // This is the hybrid model: lightweight cipher for speed, quantum imprint for authority
 
 // Example only — NOT cryptographic in the non-quantum parts (educational model)

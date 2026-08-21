@@ -1,9 +1,9 @@
 // Billing — the honest, measured schedule. Free for public interest and independent research; commercial
 // use is billed on the measured ADVANTAGE — the difference of computational power between PRODUCING (O(N)
 // recompute) and VERIFYING (O(1)). The two coins are the CONSERVED fair-exchange invariant (110 − 108 = 2 = −χ
-// of a genus-2 surface); the advantage is the measured quantity they are priced on, never a market rate. And the
+// of a genus-2 surface); the advantage is the measured quantity they are priced on. And the
 // whole bill is COMPLETE IN ITS OWN RECEIPT — a content-address of every term, so a bill is recomputed and
-// checked, never trusted. A measure of work saved, not a market price — integrity, not truth.
+// checked, never trusted. A measure of work saved— integrity.
 import { toUuid } from '../../address.js'
 
 /** The two coins — the conserved fair-exchange invariant. */
@@ -49,7 +49,7 @@ export function billUuidna(u: UuidnaUsage): { advantage: number; bitsSaved: numb
  *  theorem seals). The value is one coin PER DIRECTION per boundary — each boundary is walked forward and contra
  *  (the tour and its reflection, tour_contra_involutes), so a theorem's coins = 2 · superpositions. The simplest
  *  theorem (one boundary) is worth exactly the two coins (two_coins) — the valuation law and the conservation law
- *  agree at the floor. Integrity, not truth: a measure of sealed coverage, never a market price. */
+ *  agree at the floor. Integrity. */
 export interface TheoremCoins { key: string; boundaries: number; directions: 2; uses: number; dimensions: number; coinValue: number }
 export interface LedgerCoins {
   theorems: number
@@ -62,7 +62,7 @@ export interface LedgerCoins {
 }
 
 /** boundariesOf(statement) → the boundaries a sealed statement covers: its top-level ∧-conjuncts (at least one).
- *  Depth-aware — a ∧ inside parentheses belongs to an inner boundary, not a new top-level one. */
+ *  Depth-aware — a ∧ inside parentheses belongs to an inner boundary. */
 export function boundariesOf(statement: string): number {
   let depth = 0
   let cuts = 0
@@ -118,6 +118,6 @@ export function ledgerCoins(entries: readonly { key: string; statement: string; 
       'minting is sealing one decidable fact (a by-decide theorem, cheap for anyone honest), but a coin is not a ' +
       'bearer token — it is a RECOMPUTATION of its theorem, so stealing one means forging a sealed theorem, which ' +
       'costs the 2^7-bit collision bound (forged_theorem_costs_2_power_7_bits; verification stays cheaper than ' +
-      'forgery). A measure of sealed coverage and use, recomputable by anyone — never a market price. Integrity, not truth.',
+      'forgery). A measure of sealed coverage and use, recomputable by anyone — never a market price. Integrity.',
   }
 }

@@ -1,6 +1,6 @@
 # Two Coins
 
-> `two_coins` — the theorem this repository leans on hardest, cited 652× against a
+> `two_coins` — the theorem this repository leans on hardest, cited 653× against a
 > median of 14. Not chosen for the title: counted into it. The conserved fair-exchange invariant, 110 − 108 = 2.
 
 ```lean
@@ -83,15 +83,15 @@ measured cost is real memory — 65536 complex amplitudes at 16 qubits.
 Counted, not chosen: every surface in the repository was scanned and each theorem ranked by how often it is cited
 by key. The median across all 1435 is 14.
 
-1. **`two_coins`** — cited 652× (Coins.lean)
+1. **`two_coins`** — cited 653× (Coins.lean)
    `110 - 108 = 2`
 2. **`rosette_and_vortex_are_coprime`** — cited 381× (Crt.lean)
    `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`
 3. **`court_theorem_beats_assertion`** — cited 363× (Legal.lean)
    `(List.range 2).all (fun a => (List.range 2).all (fun b => (a*(1-b) + b*(1-a) == (a+b) % 2) && ((a*(1-b)) * (b*…`
-4. **`drift_is_named_or_caught`** — cited 313× (Audit.lean)
+4. **`drift_is_named_or_caught`** — cited 314× (Audit.lean)
    `((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d …`
-5. **`uuid_mix_census_is_quantum`** — cited 248× (UuidMix.lean)
+5. **`uuid_mix_census_is_quantum`** — cited 251× (UuidMix.lean)
    `(10 * 9 = 2 * 45) ∧ (90 + 10 = 10 * 10) ∧ (1 + 10 + 45 + 120 + 210 + 252 + 210 + 120 + 45 + 10 + 1 = 1024)`
 6. **`provenance_integrity_not_content_truth`** — cited 194× (Reasoning.lean)
    `(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => …`

@@ -9,9 +9,9 @@
 //   UNVERIFIED (cites none) is not waste — it is fed back as MATERIAL, carrying the develop plan that says which new
 //   aspect would seal its honest kernel. "Refuted" holds "re-fuse": the refusal is the start of the next fusion.
 //
-// HONEST SCOPE (integrity, not truth): the snapshot proves only that a set of sealed theorems folds to a
-// recomputable address; the recycle plan is the honest NEXT, not a proof that the recycled claim is true. Nothing
-// here decides truth — the ledger and the develop plan are recomputable by anyone. Integrity, not truth.
+// HONEST SCOPE (integrity
+// recomputable address; the recycle plan is the honest NEXT. Nothing
+// here decides truth — the ledger and the develop plan are recomputable by anyone. Integrity.
 import { THEOREMS } from './theorems/index.js'
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { adjudicate } from './adjudicate.js'
@@ -34,7 +34,7 @@ export interface Snapshot {
 
 /** snapshot(keys) → the cross-domain FUSION: the sealed theorems among `keys` fold, order-invariantly, to one
  *  superposition uuid whose first segment is the identity handle; each principle and skill axis the set spans is a
- *  point of view folded on its own. Unknown keys are refused (named, not silently dropped) — that is drift refused. */
+ *  point of view folded on its own. Unknown keys are refused (named— that is drift refused. */
 export function snapshot(keys: string[]): Snapshot {
   const seen = new Set<string>()
   const members: string[] = []
@@ -65,7 +65,7 @@ export function snapshot(keys: string[]): Snapshot {
     honest:
       'The first segment (handle) is the identity; the whole uuid superposes every member address, order-invariant, ' +
       'so the same set recomputes the same superposition and a changed member moves it — drift is refused. Unknown ' +
-      'keys are named, not folded. A snapshot proves a recomputable fold of sealed theorems, not any new truth.',
+      'keys are named. A snapshot proves a recomputable fold of sealed theorems.',
   }
 }
 
@@ -78,7 +78,7 @@ export interface ReactorCell {
 export interface ReactorRun {
   cells: ReactorCell[]
   verified: ReactorCell[]    // kept — a sealed proof or a decidable test backs it
-  unverified: ReactorCell[]  // recycled — re-fused: each carries the develop plan (never discarded, never called false)
+  unverified: ReactorCell[]  // recycled — re-fused: each carries the develop plan (never discarded
   handle: string
   superposition: string      // every cell's address folded — the run as one superposition uuid
   receipt: string

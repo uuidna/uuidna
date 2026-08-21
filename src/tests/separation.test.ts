@@ -60,7 +60,7 @@ test('the mirror is reversible and the doubling is not — the irreversible step
   assert.equal(isReversible(doubling, DIGITS), false, 'doubling collapses 0 and 9 onto one residue')
 })
 
-test('cascades are exact rationals, never floats', () => {
+test('cascades are exact rationals', () => {
   const out = cascade({ num: 1n, den: 1n }, { num: 23n, den: 10n }, 3)
   assert.equal(out.num, 12167n, '23 cubed, exactly')
   assert.equal(out.den, 1000n)
@@ -73,11 +73,11 @@ test('stagesToReach returns the BRACKET, and refuses a factor that cannot climb'
   assert.ok(r!.below.num * 1n < 1n * r!.below.den, 'the stage before must fall short')
   assert.ok(r!.above.num * 1n >= 1n * r!.above.den, 'the stage after must clear — these two comparisons ARE the proof')
   assert.equal(stagesToReach({ num: 1n, den: 2n }, { num: 1n, den: 1n }, { num: 1n, den: 1n }), null,
-    'a factor at or below one must refuse, not spin to the cap')
+    'a factor at or below one must refuse')
   assert.equal(stagesToReach({ num: 1n, den: 2n }, { num: 9n, den: 10n }, { num: 1n, den: 1n }), null)
 })
 
-test('the price is bracketed, not divided — sail five to make good three', () => {
+test('the price is bracketed— sail five to make good three', () => {
   const c = costOf(5n, 3n)
   assert.equal(withinPrice(c, 5n, 3n), true, 'the sealed rate itself')
   assert.equal(withinPrice(c, 3n, 2n), false, 'and it is NOT within three-halves — the bracket is tight')

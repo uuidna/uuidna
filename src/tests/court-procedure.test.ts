@@ -1,7 +1,7 @@
 // court-procedure — the trial procedure in the EXACT order a court follows, tested: ten stages strictly ordered,
 // every stage backed by a sealed theorem, all six due-process guarantees appearing among the stages, the receipt
 // deterministic, and a submitted claim walked through the same order (sealed citation admits, garbage remands,
-// nothing is ever discarded). Pure and offline. Integrity, not truth — the authority stays the court's.
+// nothing is ever discarded). Pure and offline. Integrity— the authority stays the court's.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { courtProcedure, fileSealed, verifyFiling, openMessage, serializeMessage } from '../index.js'
@@ -25,7 +25,7 @@ test('each trial BEGINS only on deposit: coins (a decidable test) or supporting 
   assert.equal(cited.began, true, 'the deposit (a sealed supporting theorem) starts the trial')
   assert.equal(cited.verdict, 'VERIFIED', 'a real sealed citation is admitted')
   assert.equal(garbage.began, false, 'no coins, no supporting theorems — the trial never begins; the case waits at stage 2')
-  assert.equal(garbage.verdict, 'UNVERIFIED', 'never refuted without a failed test — remanded, not adjudged false')
+  assert.equal(garbage.verdict, 'UNVERIFIED', 'never refuted without a failed test — remanded')
   assert.match(garbage.note, /NOT begun|no deposit/i, 'the docket says why the clock has not started')
 })
 

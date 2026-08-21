@@ -153,7 +153,7 @@ export function restore(paths: readonly string[]): void {
     try {
       if (tracked) execFileSync('git', ['checkout', '--', p], { cwd: ROOT, stdio: 'ignore' })
       else execFileSync('rm', ['-rf', join(ROOT, p)], { stdio: 'ignore' })
-    } catch { /* reported as residue by the caller, never swallowed silently */ }
+    } catch { /* reported as residue by the caller
   }
 }
 
@@ -238,7 +238,7 @@ if (process.argv[1] && /exercise-dormant\.(js|ts)$/.test(process.argv[1])) {
   const scripts: Record<string, string> = { ...(prior?.scripts ?? {}) }
   for (const r of results) scripts[r.script] = scriptFold(r.script)
   writeFileSync(join(ROOT, RECEIPT), JSON.stringify({
-    why: 'Per-script folds of the BUILT bytes, from the last sweep in which each exited 0, plus the manifest fold. A script whose fold is unchanged cannot have changed behaviour, so only the MOVED ones are re-exercised — the cost of a change is the cost of the change, not the cost of the roster. The manifest is global: it declares what each script may write, so when it moves everything is re-exercised. Delete this file to force a full sweep.',
+    why: 'Per-script folds of the BUILT bytes, from the last sweep in which each exited 0, plus the manifest fold. A script whose fold is unchanged cannot have changed behaviour, so only the MOVED ones are re-exercised — the cost of a change is the cost of the change. The manifest is global: it declares what each script may write, so when it moves everything is re-exercised. Delete this file to force a full sweep.',
     fold, manifest: manifestFold(), count: roster.length, scripts,
   }, null, 2) + '\n')
   console.log(`✓ exercise-dormant — ${results.length} dormant script(s) exercised, all exit 0, writes all declared; tree residue ${residue.length === 0 ? 'none' : residue.join(', ')}`)

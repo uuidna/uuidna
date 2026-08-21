@@ -3,7 +3,7 @@
 // law sets the sign (like charges repel, opposites attract); Ohm's law is V = I·R; electric power is V·I = I²R;
 // resistances add in series and combine reciprocally in parallel; Kirchhoff conserves current at a node and
 // voltage around a loop; and Faraday induces EMF only from a CHANGING flux (constant flux → none). // the arithmetic of circuits and fields — signs, sums and exact ratios — not a full Maxwell derivation, and
-// distinct from the light waves in Optics. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// distinct from the light waves in Optics. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -74,7 +74,7 @@ const FACTS = [
 ]
 
 // compute → generate → verify. The field domain — Coulomb, Ohm, power, series/parallel, Kirchhoff, Faraday — as
-// decidable circuit/field arithmetic, demarcated: signs, sums and ratios, not a full Maxwell derivation.
+// decidable circuit/field arithmetic, demarcated: signs, sums and ratios.
 emit({ file: 'Electromagnetism.lean', skill: 'electromagnetism',
   header: 'ELECTROMAGNETISM — the field domain, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

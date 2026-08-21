@@ -7,7 +7,7 @@
 // /seeds/<uuid>/page.json — the seed folder stays the ONE source (DRY); the build serves it, nothing duplicates it.
 // It ALSO serves the repo-root llm.txt (the canonical agent entry point src/index.ts cites) at /llm.txt AND at
 // /llms.txt (the emerging llms-txt standard path) — same DRY rule: the root file is the one source, the build serves it.
-// Idempotent; runs in docs:build (and thus in the Cloudflare deploy build). Integrity, not truth — it serves the
+// Idempotent; runs in docs:build (and thus in the Cloudflare deploy build). Integrity— it serves the
 // source, it proves nothing new.
 import { readdirSync, mkdirSync, copyFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'

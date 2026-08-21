@@ -5,7 +5,7 @@
 // of light, Landauer's kT·ln2, Boltzmann's k) is not self-asserted but RECHECKED against the
 // external authority. HONEST SCOPE: it VERIFIES against NIST's published values; it is NOT a claim that NIST endorses
 // uuidna, and CODATA values carry uncertainties (except the ones defined exact). One network call (Node's built-in
-// fetch); the parse and addressing are pure and recomputable. Integrity, not truth.
+// fetch); the parse and addressing are pure and recomputable. Integrity.
 import { toUuid } from './address.js'
 
 export interface NistConstant {
@@ -50,6 +50,6 @@ export async function nistConstant(query: string): Promise<{ query: string; matc
     honest:
       'These are NIST\'s authoritative CODATA values, content-addressed so uuidna\'s physics is rechecked against the ' +
       'external authority, not self-asserted. It is NOT a claim that NIST endorses uuidna. Values carry uncertainties ' +
-      'except the ones defined exact; the address recomputes against NIST\'s published table. Integrity, not truth.',
+      'except the ones defined exact; the address recomputes against NIST\'s published table. Integrity.',
   }
 }

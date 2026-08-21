@@ -13,7 +13,7 @@
 // integer identity ⌈n/s⌉ = (n + s − 1) / s in Nat division, so no rounding is assumed.
 //
 // THE NEGATIONS ARE ON THE LINES. "Sharing is forced" and "equality is impossible" are each carried by a `≠` or a
-// `<` in the theorem that claims them, never by the sentence above it.
+// `<` in the theorem that claims them.
 import { emit } from './lean-gen.js'
 
 // (items, seats) — chosen to span the cases: one over, many over, exact fit, and fewer than seats.
@@ -27,7 +27,7 @@ const L = (xs: number[]) => '[' + xs.join(',') + ']'
 const PAIRS = '[' + CASES.map(([n, s]) => `(${n},${s})`).join(',') + ']'
 const DEFS = `def seatCases : List (Nat × Nat) := ${PAIRS}
 
--- the fullest seat's floor: ⌈n/s⌉ written as exact Nat arithmetic, never a rounded division
+-- the fullest seat's floor: ⌈n/s⌉ written as exact Nat arithmetic
 def fullest (n s : Nat) : Nat := (n + s - 1) / s`
 
 const FACTS = [
@@ -52,7 +52,7 @@ const FACTS = [
     lean: 'theorem powers_are_not_the_bound : ((2:Nat)^8 ≠ (11 + 10 - 1) / 10) ∧ ((2:Nat)^10 ≠ (21 + 10 - 1) / 10) := by decide' },
 
   { key: 'digits_split_five_five',
-    why: 'THE TEN DIGITS PARTITION IN HALF by whether a walk from that seed reaches every digit: {2,6,7,8,9} cover and {0,1,3,4,5} do not. The two are disjoint, their union is all ten, and five plus five is the whole ring — a partition, decided, not a tally of two lists written side by side.',
+    why: 'THE TEN DIGITS PARTITION IN HALF by whether a walk from that seed reaches every digit: {2,6,7,8,9} cover and {0,1,3,4,5} do not. The two are disjoint, their union is all ten, and five plus five is the whole ring — a partition, decided.',
     js: () => {
       const a = [2, 6, 7, 8, 9], b = [0, 1, 3, 4, 5], u = [...a, ...b]
       return u.length === 10 && Array.from({ length: 10 }, (_, d) => d).every((d) => u.includes(d)) && a.every((d) => !b.includes(d))

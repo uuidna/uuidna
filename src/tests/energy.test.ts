@@ -56,7 +56,7 @@ test('the exact SI products are the published constants, and the circle bracket 
 
 // ── (1) THE VERIFIER MUST BE ABLE TO REJECT ──────────────────────────────────────────────────────────────────────
 
-test('verifyBracket rejects a tampered bracket — the verifier is fallible, not a formality', () => {
+test('verifyBracket rejects a tampered bracket — the verifier is fallible', () => {
   const r = seen(windBetzCeiling({ rotorDiameterMillimetres: 3000, windSpeedMillimetresPerSecond: 6000 }))
   const good = r.ceiling
   assert.ok(verifyBracket(good), 'the honest bracket verifies')
@@ -98,7 +98,7 @@ test('wind: the Betz ceiling brackets an INDEPENDENT recomputation, and rejects 
 test('wind: a claim above the Betz limit is REFUSED, and the boundary is exactly where the module says', () => {
   const args = { rotorDiameterMillimetres: 3000, windSpeedMillimetresPerSecond: 6000 }
   const base = windBetzCeiling(args)
-  // the boundary is the greatest WHOLE milliwatt the module admits — the floor of the exact bound, not the rounded
+  // the boundary is the greatest WHOLE milliwatt the module admits — the floor of the exact bound
   // ceiling, which is one integer above it by construction and would therefore already be a violation
   const admissible = base.brackets.find((b) => b.quantity.startsWith('the greatest whole-milliwatt claim'))!
   const ceiling = BigInt(admissible.low)
@@ -197,7 +197,7 @@ test('biogas: the Carnot boundary is exact — 75% passes at 1200/300 K and 76% 
   assert.equal(ppm.high, '899000')
   assert.equal(seen(biogasEngineYield({ ...tight, claimedThermalEfficiencyPercent: 89 })).verdict, 'BOUNDED', '89% is below the 89.9% ceiling')
   const justOver = seen(biogasEngineYield({ ...tight, claimedThermalEfficiencyPercent: 90 }))
-  assert.equal(justOver.verdict, 'REFUSED', '90% is above the 89.9% ceiling and must refuse — the comparison is 100x, not 101x')
+  assert.equal(justOver.verdict, 'REFUSED', '90% is above the 89.9% ceiling and must refuse — the comparison is 100x')
   assert.ok(90n * 1000n > 100n * 899n && 90n * 1000n <= 101n * 899n, 'this case sits exactly in the window a loosened comparison would open')
 })
 
@@ -221,7 +221,7 @@ test('biogas: unity, impossible fractions and impossible engines are REFUSED', (
   assert.equal(seen(biogasEngineYield({ biogasLitres: 1, methanePercent: 100, hotKelvin: 2000, coldKelvin: 1, claimedThermalEfficiencyPercent: 100 })).verdict, 'REFUSED')
 })
 
-test('biogas: the four-stroke counts are the definitional ones, not an approximation', () => {
+test('biogas: the four-stroke counts are the definitional ones', () => {
   const r = biogasEngineYield({ biogasLitres: 100, methanePercent: 60, cylinders: 4, crankRevolutionsPerMinute: 1500 })
   const impulses = r.brackets.find((b) => b.quantity.startsWith('working strokes per two crankshaft revolutions'))!
   assert.equal(impulses.low, '4')
@@ -301,7 +301,7 @@ test('electrolysis: the reversible floor is about 1.2289 V, and 1.23 V is proved
   const r = seen(photonElectrolysisYield({ wavelengthNanometres: 400, appliedMillivolts: 1800 }))
   assert.equal(r.verdict, 'BOUNDED')
   const rev = r.brackets.find((b) => b.quantity.includes('reversible cell voltage'))!
-  // INDEPENDENT recomputation: the separately quoted Faraday constant 96485.33212 C/mol, not the exact product
+  // INDEPENDENT recomputation: the separately quoted Faraday constant 96485.33212 C/mol
   const quotedF = 9648533212n, quotedScale = 100000n   // F = 96485.33212 C/mol
   assert.ok(contains(rev, 237140n * quotedScale * 10n ** 6n, 2n * quotedF), 'the bracket must contain the value computed from the quoted Faraday constant')
   // the SAME check must reject the value the module refuses to endorse: 1.23 V
@@ -309,13 +309,13 @@ test('electrolysis: the reversible floor is about 1.2289 V, and 1.23 V is proved
   observed.rejectedContainments++
   // every bound rounds to 1.2289 V at four decimal places, and 1.23 V is strictly above the whole bracket
   assert.ok(BigInt(rev.low) >= 1228850n && BigInt(rev.high) < 1228950n, `${rev.low}..${rev.high} must round to 1.2289 V`)
-  assert.ok(BigInt(rev.high) < 1230000n, '1.23 V is an upper bound, not the value')
+  assert.ok(BigInt(rev.high) < 1230000n, '1.23 V is an upper bound')
   assert.equal(r.flags.oneTwoThreeIsAnUpperBound, true)
   // the witness is a multiplication with no division anywhere
   const rounding = r.brackets.find((b) => b.quantity.includes('the familiar 1.23 V'))!
   assert.ok(rounding.witness.includes(`1230000 * ${2n * FARADAY_NUM} > ${237145n * 10n ** 19n}`), `the convicting multiplication is missing: ${rounding.witness.join(' ; ')}`)
   assert.ok(verifyBracket(rounding))
-  // and it is a real inequality, not a tautology: shrink the left side and the same witness form must fail
+  // and it is a real inequality
   assert.equal(1228000n * (2n * FARADAY_NUM) > 237145n * 10n ** 19n, false, '1.228 V must NOT clear the same bound — the witness is not vacuously true')
 })
 

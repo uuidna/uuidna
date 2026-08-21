@@ -67,7 +67,7 @@ const FACTS = [
     lean: 'theorem mombh_quantum_hbeta_hgamma_are_balmer_lines : (12398 * 160 - 4860 * 408 = 800) ∧ (800 < 1000) ∧ (12398 * 1000 - 4339 * 136 * 21 = 5816) ∧ (5816 < 12398) := by decide' },
 
   { key: 'mombh_quantum_n2_population_needs_density', skill: 'paper-trial',
-    name: 'QUANTUM: at 1e4 K, n2/n1 = 4·exp(−10.2/0.86) ≈ 3e−5 (×1e6: 29 < 100). Thermal population of n=2 is negligible; only collisions at nH ≥ 1e9 fill it. Density is forced by a level population, not chosen.',
+    name: 'QUANTUM: at 1e4 K, n2/n1 = 4·exp(−10.2/0.86) ≈ 3e−5 (×1e6: 29 < 100). Thermal population of n=2 is negligible; only collisions at nH ≥ 1e9 fill it. Density is forced by a level population.',
     js: () => (29 < 100) && (9 <= 11),
     lean: 'theorem mombh_quantum_n2_population_needs_density : (29 < 100) ∧ (9 <= 11) := by decide' },
 ]
@@ -75,5 +75,5 @@ const FACTS = [
 console.log('computing ' + FACTS.length + ' PAPER-TRIAL facts (a Nature letter\'s claims as decidable arithmetic — MoM-BH* 1) …')
 
 emit({ file: 'MoMBHStar1.lean', skill: 'paper-trial',
-  header: 'THE PAPER ON TRIAL — "A gas-enshrouded and gas-reddened black hole at cosmic dawn" (DOI 10.1038/s41586-026-10846-4, data 10.5281/zenodo.15059214): the letter\'s published numbers as decidable arithmetic (measurements ×10/×100/×1000 into Nat), the press-vs-paper delta refuted by the paper\'s own tables, and the Balmer break derived from Rydberg arithmetic. n=1, one fiducial of ~1e6 models, 0 solved — arithmetic witnesses of the PUBLISHED numbers, never astrophysics re-derived',
+  header: 'THE PAPER ON TRIAL — "A gas-enshrouded and gas-reddened black hole at cosmic dawn" (DOI 10.1038/s41586-026-10846-4, data 10.5281/zenodo.15059214): the letter\'s published numbers as decidable arithmetic (measurements ×10/×100/×1000 into Nat), the press-vs-paper delta refuted by the paper\'s own tables, and the Balmer break derived from Rydberg arithmetic. n=1, one fiducial of ~1e6 models, 0 solved — arithmetic witnesses of the PUBLISHED numbers',
   facts: FACTS })

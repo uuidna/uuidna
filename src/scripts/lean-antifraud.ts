@@ -27,12 +27,12 @@ def commission (bits : Nat) : Nat := 2 * (bits / 110)
 def verified (c s : Nat) : Nat := c * s
 def unverified (c s : Nat) : Nat := 1 - verified c s
 
--- the 27 length-three claim lists over a three-theorem alphabet — the detector's whole domain, not a sample
+-- the 27 length-three claim lists over a three-theorem alphabet — the detector's whole domain
 def lists : List (List Nat) := [${LISTS.map((l) => '[' + l.join(',') + ']').join(',')}]`
 
 const FACTS = [
   { key: 'captain_commission_two_coins',
-    why: 'THE CAPTAIN COMMISSION \u2014 the key the hosted MCP quotes to every agent that connects and every two-coin deposit cites, so the NAME is a published contract, not a label. THE COMMISSION IS A STEP, NOT A FRACTION: two coins per COMPLETED 110, so 110 pays two, 220 pays four, and 109 pays nothing. A rate that rounded would leak; a floor cannot.',
+    why: 'THE CAPTAIN COMMISSION \u2014 the key the hosted MCP quotes to every agent that connects and every two-coin deposit cites, so the NAME is a published contract. THE COMMISSION IS A STEP. A rate that rounded would leak; a floor cannot.',
     js: () => 2 * ((110 / 110) | 0) === 2 && 2 * ((220 / 110) | 0) === 4 && 2 * ((109 / 110) | 0) === 0,
     lean: 'theorem captain_commission_two_coins : (commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0) := by decide' },
 
@@ -42,7 +42,7 @@ const FACTS = [
     lean: 'theorem forgery_flags_every_mismatch : (((List.range 9).flatMap (fun c => (List.range 9).map (fun s => forged c s))).filter (fun x => x == 1)).length = 72 ∧ (((List.range 9).flatMap (fun c => (List.range 9).map (fun s => forged c s))).filter (fun x => x == 0)).length = 9 := by decide' },
 
   { key: 'double_spend_walks_every_list',
-    why: 'THE DOUBLE-SPEND DETECTOR, EXHAUSTIVE AT LAST: all 27 length-three claim lists over three theorems are walked, and exactly 21 contain a repeat while 6 do not. The wing formerly sampled four lists by hand — a detector tested on the cases its author imagined is tested against its author, not against fraud.',
+    why: 'THE DOUBLE-SPEND DETECTOR, EXHAUSTIVE AT LAST: all 27 length-three claim lists over three theorems are walked, and exactly 21 contain a repeat while 6 do not. The wing formerly sampled four lists by hand — a detector tested on the cases its author imagined is tested against its author.',
     js: () => FLAGGED === 21 && LISTS.length === 27 && LISTS.length - FLAGGED === 6,
     lean: 'theorem double_spend_walks_every_list : (lists.length = 27) ∧ ((lists.filter (fun l => [1,2,3].any (fun t => doubleSpent t l))).length = 21) ∧ ((lists.filter (fun l => !([1,2,3].any (fun t => doubleSpent t l)))).length = 6) := by decide' },
 
@@ -67,7 +67,7 @@ const FACTS = [
     lean: 'theorem sealed_theorem_not_forged : ((List.range 9).map (fun c => forged c c)).all (fun x => x == 0) := by decide' },
 
   { key: 'honesty_gate_passes_iff_all_sealed',
-    why: 'THE GATE PASSES EXACTLY WHEN NOTHING IS FLAGGED \u2014 an IFF over all eight detector states, not merely "it passes when clean". One direction alone would admit a gate that also passed on something else. Named in GATE_THEOREMS as part of the gate\u2019s published spec.',
+    why: 'THE GATE PASSES EXACTLY WHEN NOTHING IS FLAGGED \u2014 an IFF over all eight detector states"it passes when clean". One direction alone would admit a gate that also passed on something else. Named in GATE_THEOREMS as part of the gate\u2019s published spec.',
     js: () => [0,1].every((f) => [0,1].every((d) => [0,1].every((v) => ((1-f)*(1-d)*(1-v) === 1) === (f === 0 && d === 0 && v === 0)))),
     lean: 'theorem honesty_gate_passes_iff_all_sealed : (List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (cleanAudit f d v == 1) == (f == 0 && d == 0 && v == 0)))) := by decide' },
 
@@ -92,7 +92,7 @@ const FACTS = [
     lean: 'theorem fraud_verdict_is_exactly_one : (List.range 2).all (fun c => (List.range 2).all (fun s => verified c s + unverified c s == 1)) := by decide' },
 
   { key: 'fabricated_cite_stays_unverified',
-    why: 'A CITATION WITHOUT A SEAL IS UNVERIFIED, never false: citing with nothing sealed behind it leaves the claim open rather than refuted, and only citation AND seal together verify. An open door is not a closed one.',
+    why: 'A CITATION WITHOUT A SEAL IS UNVERIFIED. An open door is not a closed one.',
     js: () => 1 - 1 * 0 === 1 && 1 * 1 === 1,
     lean: 'theorem fabricated_cite_stays_unverified : (unverified 1 0 = 1) ∧ (verified 1 1 = 1) ∧ (verified 1 0 = 0) := by decide' },
 ]

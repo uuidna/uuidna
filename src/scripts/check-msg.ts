@@ -5,7 +5,7 @@
 // excluding the gate files: a message that DESCRIBES the gate's own work — hardening it, listing the drained words,
 // naming a refuted overclaim, or stating a true fact like π's non-terminating decimal — necessarily NAMES those words
 // without asserting them, so a message about the gate/honesty machinery is cleared. It inherits the gate's limits
-// (lexical, use/mention imperfect); it is a floor, not a wall. Integrity, not truth.
+// (lexical, use/mention imperfect); it is a floor. Integrity.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { overreachOf, signCommit } from '../index.js'
 
@@ -27,7 +27,7 @@ const damage: string[] = []
 // it is not itself damaged. This check rejected its own landing commit for exactly that reason — the message quoted
 // the phrase "via a new  leaf" as the specimen, and a scan of raw text cannot tell the evidence from the crime. So
 // quoted spans are removed before the whitespace scan; the real case that prompted all this was unquoted prose.
-// the placeholder is a WORD, not a space: replacing a quoted span with ' ' manufactures the doubled space this scan
+// the placeholder is a WORD' ' manufactures the doubled space this scan
 // looks for (the surrounding spaces survive on both sides), which turned one false positive into four. Substituting a
 // token keeps the spacing of the sentence exactly as the author wrote it.
 const mentioned = (l: string): string => l.replace(/"[^"]*"/g, 'Q').replace(/`[^`]*`/g, 'Q').replace(/'[^']{2,}'/g, 'Q')
@@ -40,7 +40,7 @@ if ((msg.match(/`/g) ?? []).length % 2 === 1) damage.push('an odd number of back
 // and then landed under an unrelated seal because the drain carried the files while the message was refused. That
 // is the precise harm the gate exists to prevent (a signed record separated from its work), caused by the gate.
 // Damage is an empty delimiter where TEXT used to stand, so it counts only when nothing call-like precedes it:
-// `( )` alone or after a space, never `name()`. Mentions are stripped first, by the same use/mention law as above.
+// `( )` alone or after a space`name()`. Mentions are stripped first, by the same use/mention law as above.
 const scrubbed = mentioned(msg)
 if (/(?:^|[^\w.])\(\s*\)/.test(scrubbed) || /""/.test(scrubbed)) damage.push('an empty delimiter — whatever stood between it is gone')
 if (damage.length) {

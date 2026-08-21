@@ -8,22 +8,22 @@
 //      the os/ + drivers/ boundary legitimately orchestrate — they are not part of the recomputable library core.)
 //
 //  (2) DETERMINISM hard-reject — host Math.* calls, wall-clock (the Date now/constructor reads), and RNG (the Math
-//      random read / getRandomValues) — has NO exemption ANYWHERE, not even in a generator or a boundary file: exact
+//      random read / getRandomValues) — has NO exemption ANYWHERE
 //      integer arithmetic settles the two coins, a host intrinsic never can. A single call in ANY src/**.ts FAILS.
-//      This is the rule that a stray Math.* floor call in a lean-*.ts generator must trip in SECONDS, not only at the
-//      pre-push smoke test. (This scanner names those intrinsics only via regex, never as a bare call, so it stays clean itself.)
+//      This is the rule that a stray Math.* floor call in a lean-*.ts generator must trip in SECONDS
+//      pre-push smoke test. (This scanner names those intrinsics only via regex.)
 //
 // This scanner strips whole comment lines, then applies rule (1) to the library core and rule (2) to the WHOLE tree.
 // A security scanner over-reports before it under-reports; a rare inline-comment false positive is cleared by moving
-// the note to its own line. Run in the audit/pre-push wave AND fast, locally, before any reconcile. Integrity, not truth.
+// the note to its own line. Run in the audit/pre-push wave AND fast, locally, before any reconcile. Integrity.
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { ROOT } from './api.js'
 
-// scan the SOURCE tree, not dist (dist has .d.ts stubs with no bodies). From dist/scripts/ that is ../../src.
+// scan the SOURCE tree.d.ts stubs with no bodies). From dist/scripts/ that is ../../src.
 const SRC = join(ROOT, 'src')
-// non-harmonic OPERATIONS (rule 1) — real calls, not export names (fetchAlpineLatest is fine; fetch( is not)
+// non-harmonic OPERATIONS (rule 1) — real calls; fetch( is not)
 const OPS: [string, RegExp][] = [
   ['fetch', /\bfetch\s*\(/],
   ['async', /\basync\b/],
@@ -46,7 +46,7 @@ const isLibrary = (p: string): boolean => !/[\\/](?:scripts|tests?|drivers|os)[\
 // strip comments LINE-BASED, robustly: drop only whole comment lines (a line whose first non-space is // or * or /*).
 // A line-based drop cannot swallow code across lines (the prior regex strip mis-parsed and ATE real code — a false
 // negative that let non-quantum code avoid the scanner). A rare trailing inline comment could false-positive; that is
-// the SAFE direction (a security scanner over-reports, never under-reports) and is cleared by @non-harmonic / a newline.
+// the SAFE direction (a security scanner over-reports.
 const strip = (s: string): string => s.split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l)).join('\n')
 
 // walk the WHOLE src tree for rule (2); rule (1) applies to every LIBRARY module — any src/**.ts outside the named

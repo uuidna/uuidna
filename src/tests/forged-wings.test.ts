@@ -29,7 +29,7 @@ test('an invented theorem is caught — the exact entry that passed four other c
 test('drift on a REAL key is reported separately from invention', () => {
   const real = theorems()[0].key
   assert.deepEqual(forgedAgainstWings([{ key: real, statement: '0 = 1' }], wings()),
-    [{ key: real, kind: 'statement-drift' }], 'a changed statement is drift, not a forgery')
+    [{ key: real, kind: 'statement-drift' }], 'a changed statement is drift')
 })
 
 test('whitespace alone is not drift — the wings and the ledger may format differently', () => {

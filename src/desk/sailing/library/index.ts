@@ -69,7 +69,7 @@ export async function buildQuantumSailingLibrary(bookIds: number[] = [2701]): Pr
     honest:
       'The quantum sailing library: an OFFLINE collection of public-domain books (Project Gutenberg), ' +
       'each audited for provenance (content-addressed), linked to the sealed ledger (decidable facts extracted), ' +
-      'and served locally without network dependency. Each book is a witness to arithmetic. Integrity, not truth.',
+      'and served locally without network dependency. Each book is a witness to arithmetic. Integrity.',
   }
 }
 

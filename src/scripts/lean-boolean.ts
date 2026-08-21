@@ -61,7 +61,7 @@ const FACTS = [
     lean: `theorem xor_differs_from_or : (rowsOf 6 ≠ rowsOf 14) ∧ ((rowsOf 6).take 3 = (rowsOf 14).take 3) ∧ (rowsOf 6 = ${L(table(XOR))}) := by decide` },
 
   { key: 'implication_is_a_gate',
-    why: 'IMPLICATION IS ONE OF THE SIXTEEN, not a logical extra: a implies b reads 1011 over the four rows, false only where a holds and b does not. Its converse and both negations are also among the sixteen, so the whole of two-input logic is inside the enumeration with nothing left outside it.',
+    why: 'IMPLICATION IS ONE OF THE SIXTEEN. Its converse and both negations are also among the sixteen, so the whole of two-input logic is inside the enumeration with nothing left outside it.',
     js: () => table(13).join('') === '1011' && table(11).join('') === '1101' && table(2).join('') === '0100',
     lean: `theorem implication_is_a_gate : (rowsOf 13 = ${L(table(13))}) ∧ (rowsOf 11 = ${L(table(11))}) ∧ (rowsOf 2 = ${L(table(2))}) := by decide` },
 ]

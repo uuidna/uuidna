@@ -8,9 +8,9 @@
 // This is the piece a PayloadCMS plugin and a VitePress plugin BOTH import — ONE fold under both frameworks: the edit
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts on why this was three
 // projection (Payload stamps the address on save) and the render projection (VitePress reads the same address) agree
-// because the address IS the document. Integrity, not truth: the handle proves WHICH document, never that its content
+// because the address IS the document. Integrity
 // is correct — and injectivity holds only on the bounded model (pigeonhole: 2^128 addresses < all documents, so the
-// real fold is collision-RESISTANT, not collision-free).
+// real fold is collision-RESISTANT.
 import { toUuid } from './address.js'
 import { merkleRoot } from './merkle.js'
 
@@ -58,7 +58,7 @@ export function reAddress(state: EditorState): DocFold {
 }
 
 // ── PayloadCMS hook — "lean hooks to payload". Payload runs field/collection hooks with { data, ... } and expects the
-// (possibly mutated) data back. This is that hook SHAPE, dependency-FREE (no payload import — the adapter, not the
+// (possibly mutated) data back. This is that hook SHAPE, dependency-FREE (no payload import — the adapter
 // whole plugin): on every change it reads the Lexical editorState at `field`, folds it through the proven contract,
 // and stamps `_handle` + `_address` onto the record, so the stored document carries its own tamper-evident receipt.
 // The SAME fold a VitePress plugin calls at render time — one contract, both frameworks.

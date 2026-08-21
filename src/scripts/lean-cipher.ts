@@ -2,12 +2,12 @@
 // Automate the Lean layer for CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits.
 // Bases A=0, C=1, G=2, T=3; complement comp(x)=3−x pairs A↔T and C↔G. From that one reflection the whole domain
 // reads off: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse, but key reuse leaks
-// the plaintext XOR (why a step must ADVANCE), a linear fold is malleable (a receipt is integrity, not a seal),
+// the plaintext XOR (why a step must ADVANCE), a linear fold is malleable (a receipt is integrity
 // the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but
-// linear, and Grover only HALVES the key (256→128, not a break). This script COMPUTES each fact in JS (self-
+// linear, and Grover only HALVES the key (256→128. This script COMPUTES each fact in JS (self-
 // proving), GENERATES its `by decide` Lean theorem, writes lean/Cipher.lean, and VERIFIES it compiles sorry-free.
 // these are the decidable BOUNDS of the algebra — what it guarantees and what it cannot. Secrecy is
-// ChaCha20-Poly1305 (src/crypt.ts); these theorems are the demarcation, computed, not a claim of a secure cipher.
+// ChaCha20-Poly1305 (src/crypt.ts); these theorems are the demarcation, computed.
 import { emit, LXOR_DEF } from './lean-gen.js'
 
 const comp = (x: number) => 3 - x // the base-pair complement — the diamond reflection on {A,C,G,T} = {0,1,2,3}
@@ -26,7 +26,7 @@ const FACTS = [
     lean: 'theorem dna_complement_fixed_point_free : (List.range 4).all (fun x => 3 - x != x) := by decide' },
 
   { key: 'complement_is_xor_key3',
-    why: 'Base-pairing IS a XOR cipher: on the 2-bit encoding comp(x)=3−x equals x XOR 3 — a one-time-pad STEP with the fixed pad 3. Real, but a FIXED pad is public, not secret.',
+    why: 'Base-pairing IS a XOR cipher: on the 2-bit encoding comp(x)=3−x equals x XOR 3 — a one-time-pad STEP with the fixed pad 3. Real, but a FIXED pad is public.',
     js: () => R(0, 4).every((x) => comp(x) === (x ^ 3)),
     lean: 'theorem complement_is_xor_key3 : (List.range 4).all (fun x => 3 - x == lxor x 3) := by decide' },
 
@@ -41,7 +41,7 @@ const FACTS = [
     lean: 'theorem otp_key_reuse_leaks_xor : (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2)))) := by decide' },
 
   { key: 'xor_fold_is_malleable',
-    why: 'A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing, NOT a binding one-way seal.',
+    why: 'A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing.',
     js: () => R(0, 16).every((a) => R(0, 16).every((d) => (((a ^ d) ^ a) === d))),
     lean: 'theorem xor_fold_is_malleable : (List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d)) := by decide' },
 
@@ -61,12 +61,12 @@ const FACTS = [
     lean: 'theorem uuidna_is_dna_times_the_two_coins : (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide' },
 
   { key: 'octave_codon_address',
-    why: 'THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction, not discovered to be.',
+    why: 'THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction.',
     js: () => JSON.stringify([0,1,2,3,4,5,6,7].map((k) => 2 ** k)) === JSON.stringify([1,2,4,8,16,32,64,128]) && 4 ** 3 === 64 && 700 < 2 * 400,
     lean: 'theorem octave_codon_address : ((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400) := by decide' },
 
   { key: 'translation_is_lossy',
-    why: 'Translation is LOSSY, never a cipher: 64 codons map onto only 21 outcomes (20 amino acids + stop), and 64 > 21, so by pigeonhole the map cannot be injective — a hash-like reduction that cannot be inverted, not encryption.',
+    why: 'Translation is LOSSY— a hash-like reduction that cannot be inverted.',
     js: () => 4 ** 3 > 21,
     lean: 'theorem translation_is_lossy : 4^3 > 21 := by decide' },
 
@@ -76,7 +76,7 @@ const FACTS = [
     lean: 'theorem affine_is_permutation : (List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y)) := by decide' },
 
   { key: 'grover_quadratic_bound',
-    why: 'The honest quantum posture: Grover’s search is a QUADRATIC speedup, not a break — a 2n-bit key space costs ~2ⁿ work ((2ⁿ)² = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor target at all.',
+    why: 'The honest quantum posture: Grover’s search is a QUADRATIC speedup— a 2n-bit key space costs ~2ⁿ work ((2ⁿ)² = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor target at all.',
     js: () => R(0, 27).every((n) => 2 ** n * 2 ** n === 2 ** (2 * n)),
     lean: 'theorem grover_quadratic_bound : (List.range 27).all (fun n => 2^n * 2^n == 2^(2*n)) := by decide' },
 
@@ -102,7 +102,7 @@ const FACTS = [
     lean: 'theorem sha256_rounds_are_the_board : ((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧ (512 = 2 * 256) := by decide' },
 
   { key: 'sha256_grover_margin_is_the_address',
-    why: 'THE POST-QUANTUM ENTANGLEMENT: Grover\'s quadratic speedup halves SHA-256\'s preimage exponent — 256/2 = 128 — landing EXACTLY on the content-address width: the standard\'s worst-case quantum strength IS uuidna\'s unit of speech. No Shor target exists (symmetric, keyless); the architecture survives the quantum era at precisely the width this system already speaks. uuidna\'s deployment patches the standard\'s USE-flaws by name — HMAC against length-extension, the bounded-iteration ceiling against KDF cost abuse, the advancing step against the equality leak — and NAMES the one it cannot patch: pure-JS timing. Integrity, not omniscience.',
+    why: 'THE POST-QUANTUM ENTANGLEMENT: Grover\'s quadratic speedup halves SHA-256\'s preimage exponent — 256/2 = 128 — landing EXACTLY on the content-address width: the standard\'s worst-case quantum strength IS uuidna\'s unit of speech. No Shor target exists (symmetric, keyless); the architecture survives the quantum era at precisely the width this system already speaks. uuidna\'s deployment patches the standard\'s USE-flaws by name — HMAC against length-extension, the bounded-iteration ceiling against KDF cost abuse, the advancing step against the equality leak — and NAMES the one it cannot patch: pure-JS timing. Integrity.',
     js: () => 256 / 2 === 128 && 256 % 2 === 0,
     lean: 'theorem sha256_grover_margin_is_the_address : (256 / 2 = 128) ∧ (256 % 2 = 0) := by decide' },
 
@@ -150,5 +150,5 @@ const FACTS = [
 // compute → generate → verify, via the shared pipeline (JS-checks every fact, writes the file + manifest, and
 // compiles it sorry-free with `lean`). Crypto ∩ DNA — the shared algebra and its honest limits, demarcated.
 emit({ file: 'Cipher.lean', skill: 'cipher', defs: LXOR_DEF,
-  header: 'CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this.',
+  header: 'CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

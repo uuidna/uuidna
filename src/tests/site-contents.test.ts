@@ -10,7 +10,7 @@ test('site contents is a book: every chapter carries an index, a heading and its
   const c = siteContents()
   assert.ok(c.chapters.length > 0, 'a site with no contents is not a book')
   c.chapters.forEach((ch, i) => {
-    assert.equal(ch.index, i, 'chapters are ORDERED — index is position, not decoration')
+    assert.equal(ch.index, i, 'chapters are ORDERED — index is position')
     assert.ok(ch.heading.length > 0)
     assert.match(ch.address, /^[0-9a-f-]{36}$/)
     assert.ok(ch.entries > 0, `chapter "${ch.heading}" holds no pages`)
@@ -40,7 +40,7 @@ test('the contents covers the whole sidebar — no group is dropped on the way t
 
 // ── the BY-PROOF axis — the page-level twin of /topics. It groups by what a page RESTS ON, and is deliberately a
 // second view rather than the sidebar: deriving the sidebar names this way files license.md under the cipher
-// principle, which is true and useless for finding it. These hold the axis honest, not merely present.
+// principle, which is true and useless for finding it. These hold the axis honest.
 test('by-proof groups every page that cites, and no page that does not', () => {
   const { groups, grouped } = pagesByProof()
   assert.ok(groups.length > 0)
@@ -58,7 +58,7 @@ test('by-proof is deterministic and its root folds every group', () => {
   assert.equal(new Set(addrs).size, addrs.length, 'two groups folded alike')
 })
 
-test('by-proof is a SECOND axis, not the sidebar — the two disagree, and that is the point', () => {
+test('by-proof is a SECOND axis— the two disagree, and that is the point', () => {
   const proof = pagesByProof().groups.length
   const purpose = computeSidebar().length
   assert.notEqual(proof, purpose, 'if the axes agreed there would be no reason to keep both')

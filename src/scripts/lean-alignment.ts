@@ -10,7 +10,7 @@
 // WHERE IT BITES. The walk enters through seedOf, which reads eight hex characters as an integer and then reduces
 // MOD TEN. A base-sixteen object, narrowed by a base-ten modulus: four qubits are spent naming ten states, so six of
 // the sixteen go unused. Base sixteen's own digit invariant is mod 15 (Notation.lean: b ≡ 1 mod b−1), which wastes
-// one. this decides the counting, never that one choice is better — the ledger deliberately walks ten
+// one. this decides the counting— the ledger deliberately walks ten
 // DIGITS rather than nine residues, and that decision is recorded in sequence-run.ts with its own reason.
 import { emit } from './lean-gen.js'
 

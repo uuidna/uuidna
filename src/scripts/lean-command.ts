@@ -6,7 +6,7 @@
 // changes the tag. this proves the DECISION logic and the REQUIREMENT that the MAC be nonlinear and
 // keyed — a LINEAR tag is forgeable (one tag forges another), so the real strength is HMAC-SHA256 (src/sha256.ts,
 // KAT-verified), NOT the arithmetic model here. "Only the key-holder can produce a matching tag" is HMAC's
-// property, proven by its KATs; this file proves the gate, not the cipher. COMPUTE → GENERATE → VERIFY.
+// property, proven by its KATs; this file proves the gate. COMPUTE → GENERATE → VERIFY.
 import { emit, LXOR_DEF } from './lean-gen.js'
 
 const accept = (signed: number, verifies: number) => signed * verifies // accept iff signed AND the tag verifies
@@ -45,14 +45,14 @@ const FACTS = [
     lean: 'theorem tamper_changes_tag : (List.range 9).all (fun m1 => (List.range 9).all (fun m2 => (m1 == m2) || ((7 + m1) % 9 != (7 + m2) % 9))) := by decide' },
 
   { key: 'linear_tag_is_forgeable',
-    why: 'Why the MAC must be HMAC-SHA256, not arithmetic: a LINEAR tag t = k ⊕ m is forgeable — (k⊕m₁) ⊕ (m₁⊕m₂) = k⊕m₂, so seeing one command\'s tag lets an attacker forge another. Authentication demands a NONLINEAR keyed MAC (HMAC-SHA256, KAT-verified); this is the honest reason the toy tag is refused.',
+    why: 'Why the MAC must be HMAC-SHA256— (k⊕m₁) ⊕ (m₁⊕m₂) = k⊕m₂, so seeing one command\'s tag lets an attacker forge another. Authentication demands a NONLINEAR keyed MAC (HMAC-SHA256, KAT-verified); this is the honest reason the toy tag is refused.',
     js: () => R(0, 8).every((k) => R(0, 8).every((m1) => R(0, 8).every((m2) => ((k ^ m1) ^ (m1 ^ m2)) === (k ^ m2)))),
     lean: 'theorem linear_tag_is_forgeable : (List.range 8).all (fun k => (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (lxor (lxor k m1) (lxor m1 m2)) == (lxor k m2)))) := by decide' },
 ]
 
 // compute → generate → verify. The command gate: accept iff signed AND verifying — proven; the strength is
-// HMAC-SHA256, demarcated. Only the key-holder can produce a matching tag; that is HMAC's KAT, not this model.
+// HMAC-SHA256, demarcated. Only the key-holder can produce a matching tag; that is HMAC's KAT.
 emit({ file: 'Command.lean', skill: 'command',
-  header: 'COMMAND AUTHENTICATION — the gate logic, proven, HMAC-backed. accept(signed, verifies) = signed·verifies: a command is accepted IFF it is signed and its tag verifies; unsigned is rejected, a failing/tampered tag is rejected, exactly one tag (the correct MAC) verifies, and tampering the message changes the tag. the DECISION logic and the requirement that the MAC be nonlinear and keyed — a LINEAR tag is forgeable, so the real strength is HMAC-SHA256 (src/sha256.ts, KAT-verified), NOT the arithmetic model here. "Only the key-holder can produce a matching tag" is HMAC\'s property; this proves the gate, not the cipher.',
+  header: 'COMMAND AUTHENTICATION — the gate logic, proven, HMAC-backed. accept(signed, verifies) = signed·verifies: a command is accepted IFF it is signed and its tag verifies; unsigned is rejected, a failing/tampered tag is rejected, exactly one tag (the correct MAC) verifies, and tampering the message changes the tag. the DECISION logic and the requirement that the MAC be nonlinear and keyed — a LINEAR tag is forgeable, so the real strength is HMAC-SHA256 (src/sha256.ts, KAT-verified). "Only the key-holder can produce a matching tag" is HMAC\'s property; this proves the gate.',
   defs: 'def accept (signed verifies : Nat) : Nat := signed * verifies\n\n' + LXOR_DEF,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

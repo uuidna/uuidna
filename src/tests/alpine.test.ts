@@ -1,6 +1,6 @@
 // quantum/os — the uuidnaOS provenance manifest, tested. It PINS an exact Alpine release and VERIFIES rootfs bytes with
 // uuidna's OWN pure-TS SHA-256. It NEVER boots, runs, or ports Alpine — these tests only exercise integrity, not
-// execution (there is nothing to execute). Integrity, not truth.
+// execution (there is nothing to execute). Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { alpineRelease, verifyAlpineRootfs } from '../os/alpine/index.js'

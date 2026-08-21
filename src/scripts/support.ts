@@ -4,7 +4,7 @@
 // graph reaches it from a ROOT — the public API (index.ts, what the package/site/MCP consume), the build/CI scripts,
 // or the tests. A module no root can reach is DEAD: nothing imports it, so nothing it claims is exercised — it is
 // "the rest" the purge removes. This is a pure static decision (a reachability closure over the import edges), so CI
-// and the trial decide it with no agent judgment: run it, read the verdict. Integrity, not truth.
+// and the trial decide it with no agent judgment: run it, read the verdict. Integrity.
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs'
 import { join, dirname, resolve, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -21,7 +21,7 @@ const all = walk(SRC).map((f) => relative(ROOT, f)).sort()
 
 // Resolve a relative import specifier (written with a .js extension, NodeNext style) to the .ts it compiles from.
 const resolveImport = (fromFile: string, spec: string): string | null => {
-  if (!spec.startsWith('.')) return null // a bare specifier is a dependency, not a src module
+  if (!spec.startsWith('.')) return null // a bare specifier is a dependency
   const base = resolve(ROOT, dirname(fromFile), spec)
   for (const cand of [base.replace(/\.js$/, '.ts'), base + '.ts', join(base, 'index.ts')])
     if (existsSync(cand)) return relative(ROOT, cand)
@@ -47,7 +47,7 @@ const roots = all.filter(isRoot)
 // worker.js is the Cloudflare EDGE ENTRY POINT — a real root that lives at the repo root and imports the COMPILED
 // dist/*.js of the src modules it serves in production (adjudicate, address, mcp-http, analytics-handler, …). It is
 // consumed exactly like index.ts consumes the public API, so its imports are supported. Map each ./dist/X.js back to
-// src/X.ts (the audit scans src, not dist) and seed the closure with them, so a worker-only module is not "dead".
+// src/X.ts (the audit scans src"dead".
 const workerReached = ((): string[] => {
   const wf = 'worker.js'
   if (!existsSync(join(ROOT, wf))) return []
@@ -80,7 +80,7 @@ const leads = unsupported.map((module) => ({
   develop: {
     local: [
       'wire it to a root — import its exports from index.ts (public API), a script, or a test',
-      'promote its claim to a Lean theorem so the trial verifies it, not just runs it',
+      'promote its claim to a Lean theorem so the trial verifies it',
       'find the existing caller it was meant to serve, and connect it',
     ],
     online: 'if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived',

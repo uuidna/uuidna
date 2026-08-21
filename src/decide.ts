@@ -1,6 +1,6 @@
 // decide — THE QUANTUM CALCULATOR, founded on division by zero. The compact core that folds ANY input to a
 // lean-green response: {verdict, cites, receipt}. Its arithmetic is TOTAL because the ledger's own laws make it
-// total — division by zero is the finite reflection, never a crash (x / 0 = 0, the abstract-0 fold sealed in
+// total — division by zero is the finite reflection
 // DivByZero.lean: dz_zero_only_zero, dz_bounded — exactly Lean's own Nat semantics), subtraction truncates at
 // the floor (Nat), and every operation is exact BigInt under honest caps. The route, in order: (1) the SEALED
 // INDEX — input matching a sealed theorem's statement verbatim (normalized) is VERIFIED by the kernel's own
@@ -8,8 +8,8 @@
 // arithmetic propositions: true → VERIFIED_BY_DECIDE, false → REFUTED — truth and falsehood at last wear
 // different verdicts; a bare expression computes its exact value; (3) PROSE — everything else goes to the gate
 // (reveal), language-blind, citations decided by the ledger. Deterministic: no wall-clock, no RNG, no host
-// intrinsics; the same input always folds to the same receipt. Integrity, not truth — a decided proposition is
-// decided ABOUT ITS ARITHMETIC, never about the world.
+// intrinsics; the same input always folds to the same receipt. Integrity— a decided proposition is
+// decided ABOUT ITS ARITHMETIC.
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { reveal } from './gate.js'
@@ -30,7 +30,7 @@ const MAX_BITS = 4096
 
 // ── the total Nat semantics — the division-by-zero law as code, mirroring the kernel exactly ──
 const natSub = (a: bigint, b: bigint): bigint => (a < b ? 0n : a - b)
-const natDiv = (a: bigint, b: bigint): bigint => (b === 0n ? 0n : a / b)          // x / 0 = 0 — the reflection, never a crash
+const natDiv = (a: bigint, b: bigint): bigint => (b === 0n ? 0n : a / b)          // x / 0 = 0 — the reflection
 const natMod = (a: bigint, b: bigint): bigint => (b === 0n ? a : a % b)           // x % 0 = x — Lean's own law
 const natPow = (a: bigint, b: bigint): bigint => {
   if (b > MAX_EXP) throw new Error('exponent beyond the honest cap')
@@ -54,7 +54,7 @@ const sealedIndex = (): Map<string, string> => {
   return INDEX
 }
 
-// ── the bounded grammar (recursive descent, never eval) ──
+// ── the bounded grammar (recursive descent
 // prop := cmpOrExpr ('&&' cmpOrExpr)* ; cmp := expr (op expr)? ; expr := term (± term)* ;
 // term := pow (*,/,% pow)* ; pow := atom (^ pow)? ; atom := INT | '(' prop ')' | '!' atom
 type Val = { b?: boolean; n?: bigint }
@@ -127,7 +127,7 @@ export function decide(input: string): Decision {
     honest: `this exact statement IS the sealed theorem ${hit} — the kernel decided it already; nothing recomputed, the citation is the proof`,
   })
 
-  // (2) the grammar — fresh arithmetic, decided totally (division by zero is the reflection, never a crash)
+  // (2) the grammar — fresh arithmetic, decided totally (division by zero is the reflection
   try {
     const v = new Parser(norm).parse()
     if (v.b !== undefined) return seal({

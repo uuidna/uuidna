@@ -5,12 +5,12 @@
 // true when close-hauled; two equal tacks cancel leeway; precise tacks compound linearly toward the mark; and a
 // BALANCED helm holds its course in equilibrium — the boat sails itself, and the captain rests. the
 // arithmetic of sailing geometry and balance — angles, triangles and equilibrium — not a full aero/hydrodynamic
-// derivation. Grounded in the points-of-sail / VMG literature. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// derivation. Grounded in the points-of-sail / VMG literature. COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
   { key: 'no_go_zone',
-    why: 'A boat cannot sail directly into the wind: the no-go zone is about 45° either side, a 90° cone (45 + 45 = 90) where the sails luff and make no power. To go upwind you must sail around it, not through it.',
+    why: 'A boat cannot sail directly into the wind: the no-go zone is about 45° either side, a 90° cone (45 + 45 = 90) where the sails luff and make no power. To go upwind you must sail around it.',
     js: () => 45 + 45 === 90,
     lean: 'theorem no_go_zone : 45 + 45 = 90 := by decide' },
 
@@ -47,9 +47,9 @@ const FACTS = [
   // one-receipt.ts now enforces it, and this wing was the single file it flagged). So the angle here comes from
   // the text itself, fetched and content-addressed through this repo's own books.ts pipeline —
   // fetchGutenberg(45493) → auditText → address fec13c42-2180-8890-83eb-c1e7fbd7300d — and what is sealed is the
-  // arithmetic that Day's two stated units agree, never a derivation of what angle a boat "should" make.
+  // arithmetic that Day's two stated units agree"should" make.
   { key: 'four_points_is_45',
-    why: 'THE CLOSE-HAULED ANGLE, READ FROM THE SOURCE RATHER THAN DERIVED. Thomas Fleming Day — editor of The Rudder — states it exactly in On Yacht Sailing (The Rudder Publishing Company, 1904): "This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass." His two units agree by arithmetic, and that agreement is what is sealed here: the compass rose carries 32 points over 360°, so four points is 45° exactly — 4 × 360 = 32 × 45 = 1440, an integer identity needing no division and no approximation. It also confirms what this wing already sealed independently as no_go_zone (45 + 45 = 90): the two tacks of a boat working to windward lie a right angle apart. 45° is Day\'s figure for a good vessel of 1904 under his rig; modern yachts point higher, and this seals the ARITHMETIC of his stated angle, never a claim about what any particular boat can achieve today.',
+    why: 'THE CLOSE-HAULED ANGLE, READ FROM THE SOURCE RATHER THAN DERIVED. Thomas Fleming Day — editor of The Rudder — states it exactly in On Yacht Sailing (The Rudder Publishing Company, 1904): "This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass." His two units agree by arithmetic, and that agreement is what is sealed here: the compass rose carries 32 points over 360°, so four points is 45° exactly — 4 × 360 = 32 × 45 = 1440, an integer identity needing no division and no approximation. It also confirms what this wing already sealed independently as no_go_zone (45 + 45 = 90): the two tacks of a boat working to windward lie a right angle apart. 45° is Day\'s figure for a good vessel of 1904 under his rig; modern yachts point higher, and this seals the ARITHMETIC of his stated angle.',
     js: () => 4 * 360 === 32 * 45 && 4 * 360 === 1440 && 45 + 45 === 90,
     lean: 'theorem four_points_is_45 : (4 * 360 = 32 * 45) ∧ (4 * 360 = 1440) ∧ (45 + 45 = 90) := by decide' },
 ]

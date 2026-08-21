@@ -51,7 +51,7 @@ for (const wing of wings) {
 
   const md = `---
 title: "The search on trial: ${principle.replace(/"/g, "'")}"
-description: "The quantum search's findings for this wing, each held at trial — evidence corroborated, never approved; only a Lean seal approves."
+description: "The quantum search's findings for this wing, each held at trial — evidence corroborated; only a Lean seal approves."
 ---
 
 # The search on trial: ${principle}
@@ -59,7 +59,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
 asked in parallel about *${principle}* — the wing sealed in [lean/${wing}](/lean/${wing}) with **${entries.length} theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
-no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
+no sealed proof, so it stays **UNVERIFIED** — evidence; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local \`by decide\` seal approves —
 the hard gate of the corroboration law.
 
@@ -72,7 +72,7 @@ ${rows.length ? rows.join('\n') : '| — | — | the sources returned no records
 ${s.novel.length ? `## The novelty harvest
 
 **${s.novel.length} candidate fact(s)** the web asserts, the calculator confirms (decided TRUE by total arithmetic —
-division by zero is the reflection, never a crash), and the sealed ledger does not yet hold. Each is REMANDED for
+division by zero is the reflection. Each is REMANDED for
 admission — the paying handle decides what becomes a wing; the cron never seals judgment.
 
 ${s.novel.map((n) => `- \`${n.fragment}\` — from finding \`${handleOf(n.from)}\`, decision receipt \`${handleOf(n.receipt)}\``).join('\n')}

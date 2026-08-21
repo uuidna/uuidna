@@ -4,14 +4,14 @@
 // above its physical limit REFUSES and names the limit instead — there is no over-unity arm in this module, and no
 // arm that returns an unbounded number.
 //
-// THE VERDICT IS AN INTEGER BRACKET, NEVER A FLOAT. Every quantity is carried as an exact rational over bigint and
+// THE VERDICT IS AN INTEGER BRACKET. Every quantity is carried as an exact rational over bigint and
 // reported as the tightest pair of integers that provably enclose it, each side witnessed by a multiplication a
 // reader can recompute by hand: `low * denominator <= numerator` and `high * denominator >= numerator`. No division
 // survives into a verdict. Decimals appear only in the human-readable `display` line, which is derived from the same
 // integers and is never the thing being asserted. verifyBracket() re-evaluates a bracket's own witnesses, so a
 // tampered bracket reports false rather than passing on the strength of having been written down.
 //
-// EXACT vs MEASURED IS DECLARED PER ROUTE, not implied by precision. Exact by definition: the Betz ratio 16/27, the
+// EXACT vs MEASURED IS DECLARED PER ROUTE. Exact by definition: the Betz ratio 16/27, the
 // stroke counts of the four-stroke cycle, the 2019 SI constants (h, c, e, N_A, k, and the Faraday constant and molar
 // gas constant that are their exact products), 1 kWh = 3600 kJ, and the STP reference point. Measured, and therefore
 // only ever bracketed: the methane combustion enthalpy, the Gibbs energy of water formation, hydrogen's heating
@@ -28,8 +28,8 @@ export interface Bracket {
   low: string             // greatest integer <= the quantity's lower end (decimal string; never a float)
   high: string            // least integer >= the quantity's upper end
   witness: string[]       // the exact integer multiplications that establish each side
-  holds: boolean          // recomputed here from the witnesses, never asserted
-  approx: string          // human-readable only — derived from the same integers, never the claim
+  holds: boolean          // recomputed here from the witnesses
+  approx: string          // human-readable only — derived from the same integers
 }
 
 /** One route's answer. `ceiling` is always present: no output of this module can read as unbounded. */
@@ -80,7 +80,7 @@ const bracketOf = (quantity: string, unit: string, nLo: bigint, dLo: bigint, nHi
   ]
   const approx = low === high ? dec(low, 1n, 0) : `${dec(nLo, dLo, places)} .. ${dec(nHi, dHi, places)}`
   const b: Bracket = { quantity, unit, low: low.toString(), high: high.toString(), witness, holds: false, approx }
-  // `holds` is the VERIFIER's answer, never a second opinion computed alongside it — so a bracket can never be
+  // `holds` is the VERIFIER's answer— so a bracket can never be
   // published claiming to hold while verifyBracket, the thing anyone else would run, says otherwise.
   return { ...b, holds: verifyBracket(b) }
 }
@@ -121,7 +121,7 @@ export function verifyBracket(b: Bracket): boolean {
   return true
 }
 
-// ── input handling: total, never throwing, never silently coercing a non-integer ─────────────────────────────────
+// ── input handling: total
 
 /** the bounded input range — a magnitude beyond this is refused by name rather than folded into a huge bigint */
 const MAX_INPUT = p10(15)
@@ -203,14 +203,14 @@ const MFC_LAB_RECORD = 11220000n                           // mW/m3 (11,220 W/m3
 const JOULES_PER_KWH = 3600000n
 
 export const ENERGY_SOURCES: Readonly<Record<string, string>> = {
-  betz: 'Betz, A. (1919/1920) — the maximum fraction of an open flow’s kinetic energy any turbine can capture is 16/27. A ratio of integers, exact by the derivation, not a measurement.',
+  betz: 'Betz, A. (1919/1920) — the maximum fraction of an open flow’s kinetic energy any turbine can capture is 16/27. A ratio of integers, exact by the derivation.',
   methane: 'Horstmeyer et al. (2018), Journal of Water Reuse and Desalination 8(4):455 — CH4 + 2 O2 -> CO2 + 2 H2O releases 890.29 kJ/mol, derived from CODATA enthalpies. This is the value with LIQUID water as product (the higher heating value); an engine exhausting steam recovers less, and the vaporisation loss is not sourced here so it is not subtracted.',
-  fourStroke: 'Runciman (Project Gutenberg 27286) and Rathbun (Project Gutenberg 56776) — a four-stroke engine gives ONE working stroke in four, i.e. two crankshaft revolutions per cycle; Rathbun states impulses per revolution = cylinders / 2. Definitional counts of the cycle, not measurements.',
+  fourStroke: 'Runciman (Project Gutenberg 27286) and Rathbun (Project Gutenberg 56776) — a four-stroke engine gives ONE working stroke in four, i.e. two crankshaft revolutions per cycle; Rathbun states impulses per revolution = cylinders / 2. Definitional counts of the cycle.',
   mfc: 'Rossi & Logan (2022), Water Research 225:119179 — pilot-scale volumetric power 600 +/- 452 mW/m3 (range 12–1435), areal 49 +/- 27 mW/m2, energy recovery 11 +/- 6 Wh/m3. Every one of these is MEASURED and carries uncertainty.',
-  mfcLab: 'Ren et al. (2016), Nanoscale 8:3539 — 11,220 W/m3 from a MINIATURISED cell on a DEFINED MEDIUM. Not wastewater, not pilot scale, and not a yield anyone should plan around.',
-  si: 'SI (2019) — h, e, k and N_A have exact fixed numerical values, so the Faraday constant and the molar gas constant are exact products, not measurements.',
-  gibbs: 'Gibbs energy of liquid water formation, -237.14 kJ/mol, against the exact Faraday constant, gives a reversible cell voltage of about 1.2289 V. The commonly quoted 1.23 V is that number ROUNDED UP — an upper bound, not the value. Real electrolysers run 1.6–2.0 V.',
-  pi: 'The circle constant is bracketed by its consecutive convergents 333/106 and 355/113 (a unimodular pair). Cited, not re-derived here.',
+  mfcLab: 'Ren et al. (2016), Nanoscale 8:3539 — 11,220 W/m3 from a MINIATURISED cell on a DEFINED MEDIUM. Not wastewater.',
+  si: 'SI (2019) — h, e, k and N_A have exact fixed numerical values, so the Faraday constant and the molar gas constant are exact products.',
+  gibbs: 'Gibbs energy of liquid water formation, -237.14 kJ/mol, against the exact Faraday constant, gives a reversible cell voltage of about 1.2289 V. The commonly quoted 1.23 V is that number ROUNDED UP — an upper bound. Real electrolysers run 1.6–2.0 V.',
+  pi: 'The circle constant is bracketed by its consecutive convergents 333/106 and 355/113 (a unimodular pair). Cited.',
 }
 
 // ── shared assembly ─────────────────────────────────────────────────────────────────────────────────────────────
@@ -241,7 +241,7 @@ const betzRatioCeiling = (): Bracket => bracketOf('the Betz limit — the larges
 export function windBetzCeiling(input: WindInput = {}): EnergyReport {
   const ceilFallback = betzRatioCeiling()
   const exact = ['the Betz ratio 16/27 (exact, from the derivation)', 'the cube law in wind speed and the area law in swept area (exact, from the kinetic-energy flux)']
-  const measured = ['air density — the 1.225 kg/m3 default is the standard-atmosphere REFERENCE value at sea level, not the air at any site; supply the site value to bound the answer to it']
+  const measured = ['air density — the 1.225 kg/m3 default is the standard-atmosphere REFERENCE value at sea level; supply the site value to bound the answer to it']
   const src = [ENERGY_SOURCES.betz, ENERGY_SOURCES.pi]
 
   const d = intArg(input.rotorDiameterMillimetres, 'rotorDiameterMillimetres')
@@ -271,8 +271,8 @@ export function windBetzCeiling(input: WindInput = {}): EnergyReport {
   const admissible = exactBracket('the greatest whole-milliwatt claim admitted before the Betz refusal fires', 'milliwatts', fl(2n * PI_HI_N * K, PI_HI_D * betzDen))
   const brackets = [ceilFallback, area, wind, betz, admissible]
   const notes = [
-    'This ceiling is what the AIR allows, not what a machine delivers. Blade count, airfoil, generator, gearbox and controller all subtract from it; a real small turbine typically reaches a third to a half of the Betz figure, and this module will not invent that fraction for you.',
-    'The wind speed enters as a cube, so the ceiling is dominated by the site, not by the rotor: doubling the wind speed multiplies the ceiling by eight, while doubling the diameter multiplies it by four.',
+    'This ceiling is what the AIR allows. Blade count, airfoil, generator, gearbox and controller all subtract from it; a real small turbine typically reaches a third to a half of the Betz figure, and this module will not invent that fraction for you.',
+    'The wind speed enters as a cube, so the ceiling is dominated by the site.',
   ]
 
   const claimRaw = input.claimedOutputMilliwatts
@@ -321,7 +321,7 @@ const unityCeiling = (): Bracket => exactBracket('the unity bound — no heat en
  */
 export function biogasEngineYield(input: BiogasInput = {}): EnergyReport {
   const exact = [
-    'the four-stroke cycle: 4 strokes, 2 crankshaft revolutions, exactly 1 working stroke per cycle — counts, not measurements',
+    'the four-stroke cycle: 4 strokes, 2 crankshaft revolutions, exactly 1 working stroke per cycle — counts',
     'the molar gas constant R = k N_A and the STP reference point (273.15 K, 100 kPa) — exact under SI 2019',
     'the stoichiometry CH4 + 2 O2 -> CO2 + 2 H2O — exact integer coefficients',
     '1 kWh = 3600 kJ — exact by definition',
@@ -330,7 +330,7 @@ export function biogasEngineYield(input: BiogasInput = {}): EnergyReport {
   const measured = [
     'the methane combustion enthalpy 890.29 kJ/mol — MEASURED, bracketed here at the precision it is quoted to',
     'the biogas methane fraction — whatever the caller supplies; real digester gas varies by feedstock, season and load',
-    'the IDEAL-GAS molar volume is a MODEL, not a measurement of real biogas: water vapour, carbon dioxide and pressure all move the true molar count',
+    'the IDEAL-GAS molar volume is a MODEL',
   ]
   const src = [ENERGY_SOURCES.methane, ENERGY_SOURCES.fourStroke, ENERGY_SOURCES.si]
   const bail = (why: string, ceiling: Bracket, brackets: Bracket[]): EnergyReport =>
@@ -438,8 +438,8 @@ export function microbialFuelCellYield(input: MfcInput = {}): EnergyReport {
   const isLab = scale === 'lab'
   const cap = isLab ? MFC_LAB_RECORD : MFC_VOL_MAX
   const capCeiling = exactBracket(isLab
-    ? 'the highest volumetric power reported for ANY microbial fuel cell — a miniaturised cell on a defined medium, NOT wastewater and NOT a pilot-scale expectation'
-    : 'the highest volumetric power reported at pilot scale in the survey — the top of the measured range, not a design target', 'milliwatts per cubic metre', cap)
+    ? 'the highest volumetric power reported for ANY microbial fuel cell — a miniaturised cell on a defined medium'
+    : 'the highest volumetric power reported at pilot scale in the survey — the top of the measured range', 'milliwatts per cubic metre', cap)
   const bail = (why: string, brackets: Bracket[]): EnergyReport =>
     report('microbial-fuel-cell', 'REFUSED', why, capCeiling, null, brackets, {}, exact, measured, src, [], 'REFUSED — ' + why)
 
@@ -481,9 +481,9 @@ export function microbialFuelCellYield(input: MfcInput = {}): EnergyReport {
     'The standard deviation here is larger than three quarters of the mean, so a single-number expectation from this route would be dishonest. The band is the finding.',
     bandsAgree
       ? `Over ${hours.v} h the measured power range spans ${powerOverHoldLo}..${powerOverHoldHi} mWh/m3, which overlaps the measured energy recovery band ${energyLo}..${energyHi} mWh/m3 — the two independent measurements can both describe this reactor.`
-      : `Over ${hours.v} h the measured power range spans ${powerOverHoldLo}..${powerOverHoldHi} mWh/m3, which does NOT overlap the measured energy recovery band ${energyLo}..${energyHi} mWh/m3. The two published measurements cannot both describe a pass of this length; the retention time, not the survey, is what does not fit.`,
+      : `Over ${hours.v} h the measured power range spans ${powerOverHoldLo}..${powerOverHoldHi} mWh/m3, which does NOT overlap the measured energy recovery band ${energyLo}..${energyHi} mWh/m3. The two published measurements cannot both describe a pass of this length; the retention time.`,
   ]
-  if (isLab) notes.push('You asked for the lab scale. The record it admits comes from a miniaturised cell fed a defined medium, not wastewater. It is a laboratory result about electrode and reactor design, and treating it as a yield for a bucket of sewage would be the exact overclaim this module exists to refuse.')
+  if (isLab) notes.push('You asked for the lab scale. The record it admits comes from a miniaturised cell fed a defined medium. It is a laboratory result about electrode and reactor design, and treating it as a yield for a bucket of sewage would be the exact overclaim this module exists to refuse.')
 
   const assertedRaw = input.assertedVolumetricMilliwattsPerCubicMetre
   if (assertedRaw === undefined || assertedRaw === null || assertedRaw === '') {
@@ -540,7 +540,7 @@ export function photonElectrolysisYield(input: PhotonInput = {}): EnergyReport {
     'the stoichiometry of water splitting: 2 electrons per hydrogen molecule — an exact integer',
   ]
   const measured = [
-    'the Gibbs energy of liquid water formation, -237.14 kJ/mol — MEASURED. It, not the Faraday constant, is the whole width of the voltage bracket below',
+    'the Gibbs energy of liquid water formation, -237.14 kJ/mol — MEASURED. It',
     'hydrogen’s higher heating value 285.83 kJ/mol and lower heating value 241.83 kJ/mol — MEASURED',
     'the 1.6–2.0 V a real electrolyser actually runs at — OBSERVED practice, dominated by kinetic overpotential and ohmic loss, neither of which this module models',
   ]
@@ -549,14 +549,14 @@ export function photonElectrolysisYield(input: PhotonInput = {}): EnergyReport {
   const roundedUp = 1230000n * (2n * FARADAY_NUM) > GIBBS_WATER_HI * p10(19)
   const roundingWitness: Bracket = {
     ...withWitness(
-      exactBracket('the familiar 1.23 V, tested against the reversible voltage — it is an UPPER BOUND, not the value', 'microvolts', 1230000n),
-      'the familiar 1.23 V, tested against the reversible voltage — it is an UPPER BOUND, not the value',
+      exactBracket('the familiar 1.23 V, tested against the reversible voltage — it is an UPPER BOUND', 'microvolts', 1230000n),
+      'the familiar 1.23 V, tested against the reversible voltage — it is an UPPER BOUND',
       [`1230000 * ${2n * FARADAY_NUM} > ${GIBBS_WATER_HI * p10(19)}`, `${rev.high} <= 1230000`]),
     approx: `the floor is ${rev.approx} microvolts, so 1230000 microvolts overstates it`,
   }
   const brackets = [rev, tn, roundingWitness]
   const notes = [
-    'The reversible voltage is a FLOOR, not a target. Real electrolysers run 1.6–2.0 V, and the difference is kinetic overpotential and ohmic loss — heat, not hydrogen.',
+    'The reversible voltage is a FLOOR. Real electrolysers run 1.6–2.0 V, and the difference is kinetic overpotential and ohmic loss — heat.',
     'The bracket’s whole width comes from the measured Gibbs energy. The Faraday constant contributes none of it: under SI 2019 it is an exact product of two exact constants.',
   ]
   const bail = (why: string, extra: Bracket[] = []): EnergyReport =>

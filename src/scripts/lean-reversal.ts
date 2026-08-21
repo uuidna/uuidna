@@ -12,7 +12,7 @@
 // came. The digit 9 has NONE, so it is UNREACHED — doubling never produces it, and no reversal arrives there
 // because nothing ever left. Under dz every count is exactly 1: no ambiguity, no unexplored digit.
 //
-// integrity, not truth. This decides the two maps' preimage structure over the ten digits. It says
+// integrity — the record recomputes for anyone. This decides the two maps' preimage structure over the ten digits. It says
 // nothing about walks longer than one step, which is the reading these facts support and not itself sealed.
 import { emit } from './lean-gen.js'
 

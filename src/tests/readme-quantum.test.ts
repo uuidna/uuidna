@@ -7,7 +7,7 @@
 // served schema and the ledger, and asserts the published text carries exactly those values. A regenerated README
 // passes; a hand-edited or stale one fails, naming the figure that moved.
 //
-// AND IT GUARDS THE BOUNDARY, not only the numbers. The honest-scope sentences are the reason the figures are
+// AND IT GUARDS THE BOUNDARY. The honest-scope sentences are the reason the figures are
 // publishable at all: this is a CLASSICAL simulator, no speedup is claimed, and Grover halves an exponent rather
 // than breaking anything. A README that dropped those while keeping the qubit count would be a different claim.
 import { test } from 'node:test'
@@ -23,7 +23,7 @@ const readme = (): string => readFileSync(join(ROOT, 'README.md'), 'utf8')
 test('the published quantum capacity equals the measured capacity, figure for figure', () => {
   const md = readme()
   const T = theorems()
-  // the served ceiling is read from the served surface itself, never repeated here
+  // the served ceiling is read from the served surface itself
   const served = Number((readFileSync(join(ROOT, 'src', 'mcp.ts'), 'utf8')
     .match(/n > (\d+)\) throw new Error\('qubits must be an integer in 1\.\.\d+/) ?? [, '0'])[1]
   )
@@ -43,7 +43,7 @@ test('the published quantum capacity equals the measured capacity, figure for fi
     assert.ok(md.includes(String(value)), `README does not carry the live ${what} (${value}) — regenerate: node dist/scripts/gen-readme.js`)
 })
 
-test('the capacity section keeps its honest boundary, not just its numbers', () => {
+test('the capacity section keeps its honest boundary', () => {
   const md = readme()
   // a qubit count without these sentences is a different claim than the one the gate permits
   for (const clause of ['classical state-vector simulator', 'NOT quantum hardware', 'Grover HALVES'])
@@ -55,5 +55,5 @@ test('the capacity section keeps its honest boundary, not just its numbers', () 
   assert.equal(/quantum advantage|quantum speedup|faster than classical/i.test(md), false,
     'the README must not carry the refused phrase at all — next.ts ARM 6 fails a release on it and refused[] carries the boundary')
   for (const cite of ['n_qubit_dimension', 'demarcation_clears'])
-    assert.ok(md.includes(cite), `the lean form requires the positive citation "${cite}", not an adverb of absence`)
+    assert.ok(md.includes(cite), `the lean form requires the positive citation "${cite}"`)
 })

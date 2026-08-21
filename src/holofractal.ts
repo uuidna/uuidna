@@ -8,7 +8,7 @@
 //   • FRACTAL   — the self-similar fold tower: the 128-bit address, its top-half 64-bit coin, and its ℤ/9 digital
 //     root — the SAME content-fold at descending scales. Every I/O is fractal (self-similar across scale).
 // The three fuse to one order-invariant receipt. `verified` is the recomputable conjunction (single ∧ proof ∧
-// self-similar) — true by construction for every input. Integrity, not truth.
+// self-similar) — true by construction for every input. Integrity.
 import { toUuid, coin64, digitalRoot } from './address.js'
 import { seedOf } from './handle.js'   // THE one address→integer derivation — see handle.ts
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
@@ -43,7 +43,7 @@ export function pentagramHologramFractal(input: string): HoloFractal {
   // HOLOGRAM — merkle root over the input's parts; a deterministic sample part verifies against the whole
   const leaves = s.length ? [...s] : ['∅']
   const root = merkleRoot(leaves)
-  // deterministic middle index — FLOOR(n/2) with NO Math.* (hard-rejected, not a local theorem): (n − n%2)/2
+  // deterministic middle index — FLOOR(n/2) with NO Math.* (hard-rejected
   const sampleIndex = leaves.length > 1 ? (leaves.length - (leaves.length % 2)) / 2 : 0
   const proof = merkleProof(leaves, sampleIndex)
   const proofVerifies = verifyProof(leaves[sampleIndex], proof, root)

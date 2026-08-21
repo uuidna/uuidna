@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // @non-harmonic: queries the Gutendex catalogue over the network — a NAMED boundary, like books.ts and await-live.ts.
 //
-// discover-books — THE CORPUS IS COMPUTED FROM SUBJECTS, NOT TYPED AS IDs.
+// discover-books — THE CORPUS IS COMPUTED FROM SUBJECTS.
 //
 // mine-books.ts carried a hand-written CORPUS: a literal list of Gutenberg ids with a note beside each. Every one
 // had to be found by hand and pasted in, which is the manual step that always loses — a typed list can only ever
@@ -14,7 +14,7 @@
 //
 // WHY SUBJECTS AND NOT ONE BIG SEARCH. Each subject is a separate query whose results are attributed to it, so the
 // corpus records provenance per book: this text is here because the ledger asked about cross-examination. That is
-// the same discipline the theorems use — a claim carries the source that settles it, not a vague gesture at one.
+// the same discipline the theorems use — a claim carries the source that settles it.
 //
 // The catalogue is queried; the BOOKS are fetched and decoded by mine-books.ts, which reads what this writes.
 //
@@ -62,7 +62,7 @@ export const crossref: Library = { name: 'crossref', search: async (q, take) => 
   return (b.message?.items ?? []).map((it, i) => mk(it.title?.[0] ?? '', it.author?.[0]?.family ?? '', it.DOI ?? '', 'crossref', i))
 } }
 
-/** Europe PMC — OPEN-ACCESS full text. The wastewater and fuel-cell literature lives here, not behind a publisher. */
+/** Europe PMC — OPEN-ACCESS full text. The wastewater and fuel-cell literature lives here. */
 export const europepmc: Library = { name: 'europepmc', search: async (q, take) => {
   const b = await get(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?format=json&pageSize=${take}&query=${encodeURIComponent(q)}`) as { resultList?: { result?: { title?: string; authorString?: string; doi?: string; id?: string }[] } }
   return (b.resultList?.result ?? []).map((it, i) => mk(it.title ?? '', (it.authorString ?? '').split(',')[0], it.doi ?? it.id ?? '', 'europepmc', i))
@@ -80,7 +80,7 @@ export const wikisource = (lang = 'en'): Library => ({ name: `wikisource:${lang}
   return (b.query?.search ?? []).map((it, i) => mk(it.title ?? '', '', String(it.pageid ?? ''), `wikisource:${lang}`, i))
 } })
 
-/** Gutenberg, behind the same interface as the rest — it is one library among several, not the default. */
+/** Gutenberg, behind the same interface as the rest — it is one library among several. */
 export const gutenberg: Library = { name: 'gutenberg', search: async (q, take) => {
   const b = await get('https://gutendex.com/books?search=' + encodeURIComponent(q)) as { results?: { id: number; title: string; authors: { name: string }[]; download_count?: number }[] }
   return (b.results ?? []).slice(0, take).map((it, i) => ({ ...mk(it.title, it.authors?.[0]?.name ?? '', String(it.id), 'gutenberg', i), downloads: it.download_count ?? 0 }))
@@ -95,7 +95,7 @@ export const LIBRARIES: readonly Library[] = [gutenberg, crossref, europepmc, ar
  *  aimed at the single collection that could not reach any open question. This fans out across all of them and
  *  returns one list.
  *
- *  A library that FAILS is reported, never silently dropped. Today a single unfollowed 301 was read as a total
+ *  A library that FAILS is reported. Today a single unfollowed 301 was read as a total
  *  network outage and repeated as fact; a fan-out that hides which leg failed makes that error routine. Results
  *  carry their library, so a finding always knows where it came from. */
 export async function searchAll(query: string, take = 4, libs: readonly Library[] = LIBRARIES):

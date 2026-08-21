@@ -2,8 +2,8 @@
 // Automate the Lean layer for PROPULSION — Newtonian and BOUNDED, demarcated. Thrust is momentum conservation:
 // the rocket's forward momentum equals the exhaust's backward momentum (Newton's third law). From that: thrust
 // REQUIRES ejected reaction mass (zero exhaust → zero thrust, so no "reactionless" or free drive), thrust = ṁ·vₑ,
-// the Δv budget adds across stages, and acceleration a = F/m is FINITE — there is no infinite g. // the decidable ALGEBRA of Newtonian rocketry — not a claim of a novel drive, not FTL, not infinite g-force.
-// COMPUTE → GENERATE → VERIFY. Integrity, not truth.
+// the Δv budget adds across stages, and acceleration a = F/m is FINITE — there is no infinite g. // the decidable ALGEBRA of Newtonian rocketry — not a claim of a novel drive.
+// COMPUTE → GENERATE → VERIFY. Integrity.
 import { emit } from './lean-gen.js'
 
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i)
@@ -26,7 +26,7 @@ const FACTS = [
     lean: 'theorem thrust_is_mdot_times_ve : 5 * 60 = 300 := by decide' },
 
   { key: 'delta_v_stages_add',
-    why: 'The Δv budget adds across stages: staging sums the increments, 3 + 2 + 1 = 6 — the rocket equation is additive in log-mass, so multi-stage Δv is a sum, not a leap.',
+    why: 'The Δv budget adds across stages: staging sums the increments, 3 + 2 + 1 = 6 — the rocket equation is additive in log-mass, so multi-stage Δv is a sum.',
     js: () => [3, 2, 1].reduce((a, b) => a + b, 0) === 6,
     lean: 'theorem delta_v_stages_add : ([3, 2, 1] : List Nat).sum = 6 := by decide' },
 

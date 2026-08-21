@@ -4,9 +4,9 @@
 // sit opposite (a +6 half-turn, self-inverse), three primaries alternate with three secondaries (3+3=6, the
 // hexagon), and the classical harmonies are the regular polygons on the wheel: the triad is thirds (+4, {0,4,8}),
 // the square is fourths (+3, {0,3,6,9}). True colour is 8 bits a channel (2⁸ = 256), 2²⁴ = 16777216 in all; a tint
-// and its shade complement to full value. SCOPE (integrity, not truth): this is the ARITHMETIC of the colour
+// and its shade complement to full value. SCOPE (integrity
 // wheel and its harmonies — the geometry a colourist works in — NOT a claim that beauty, taste, or which colours
-// "go together" is objective; harmony here means the polygon, not a verdict on art. Integrity, not truth.
+// "go together" is objective; harmony here means the polygon. Integrity.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
@@ -31,7 +31,7 @@ const FACTS = [
     lean: 'theorem hue_mirror_meeting : (360 - 340 = 20) ∧ (360 - 320 = 40) := by decide' },
 
   { key: 'scattering_tiebreak_separates',
-    why: 'THE SCATTERING LESSON, part 2 — the interaction that preserves both paths. The one-percent saturation tiebreak is the smallest possible interaction, the successor: 62+2·5 = 72 with its lifted partner 73, and 62+2·3 = 68 with its lifted 69 — distinct by +1, so states that once fused now meet, interact, and continue distinguishable, the +1 left in the formula as the trace. Degeneracy lifted, information conserved: scattering, not collision.',
+    why: 'THE SCATTERING LESSON, part 2 — the interaction that preserves both paths. The one-percent saturation tiebreak is the smallest possible interaction, the successor: 62+2·5 = 72 with its lifted partner 73, and 62+2·3 = 68 with its lifted 69 — distinct by +1, so states that once fused now meet, interact, and continue distinguishable, the +1 left in the formula as the trace. Degeneracy lifted, information conserved: scattering.',
     js: () => 62 + 2*5 === 72 && 72 + 1 === 73 && 62 + 2*3 === 68 && 68 + 1 === 69,
     lean: 'theorem scattering_tiebreak_separates : (62 + 2*5 = 72) ∧ (72 + 1 = 73) ∧ (62 + 2*3 = 68) ∧ (68 + 1 = 69) := by decide' },
 
@@ -81,7 +81,7 @@ const FACTS = [
     lean: 'theorem warm_cool_split_six_six : 6 + 6 = 12 := by decide' },
 
   { key: 'aura_step_divides_circle',
-    why: 'The aura’s hue step the A432 rendering ASSUMES, sealed (axiom-hunt): the ℤ/9 vortex walks the 360° wheel in steps of 40° — 9 · 40 = 360 exactly, so the nine residues tile the circle with no remainder. Artistic arithmetic, not physics: a defined step, proven to divide the wheel.',
+    why: 'The aura’s hue step the A432 rendering ASSUMES, sealed (axiom-hunt): the ℤ/9 vortex walks the 360° wheel in steps of 40° — 9 · 40 = 360 exactly, so the nine residues tile the circle with no remainder. Artistic arithmetic.',
     js: () => 9 * 40 === 360 && 360 % 9 === 0,
     lean: 'theorem aura_step_divides_circle : (9 * 40 = 360) ∧ (360 % 9 = 0) := by decide' },
 

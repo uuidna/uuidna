@@ -80,7 +80,7 @@ const gameServer = {
     total_potential: games.length,
   },
   honest_scope:
-    'Games test structural hypotheses only (does A connect to B?), not theorem validity. Sealed theorems remain sealed regardless of game outcome. Games explore the entanglement graph.',
+    'Games test structural hypotheses only (does A connect to B?). Sealed theorems remain sealed regardless of game outcome. Games explore the entanglement graph.',
 }
 
 const serverPath = join(SCRIPTS, 'quantum-games-server.json')
@@ -142,7 +142,7 @@ console.log(`  Research leads: ${leads.length}`)
 console.log(`  Games generated: ${games.length} (sample)`)
 console.log(`  Verification model: Play-to-verify (game outcome seals hypothesis)`)
 console.log(`  Coin potential: ${games.length} coins available`)
-console.log(`  Honest scope: Test entanglement structure, not theorem validity`)
+console.log(`  Honest scope: Test entanglement structure`)
 console.log('\nNext Steps:')
 console.log('  1. Deploy quantum-games-server.json')
 console.log('  2. Players begin: quantum-games play')

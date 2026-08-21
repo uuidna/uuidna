@@ -24,14 +24,14 @@ test('rigidity is the refutation — a relation that survives a moved input is n
   assert.equal(rigid(always, vs), false, 'a test that cannot fail is never rigid')
 })
 
-test('divisibility by one is caught as limp, not reported as a find', () => {
+test('divisibility by one is caught as limp', () => {
   const r = discover([{ name: 'n', n: 42 }, { name: 'one', n: 1 }, { name: 'other', n: 9 }])
   const div = [...r.survived, ...r.limp].find((x) => x.form === 'one divides n')
   assert.ok(div, 'the relation holds')
-  assert.equal(div!.rigid, false, 'everything is divisible by one — arithmetic, not structure')
+  assert.equal(div!.rigid, false, 'everything is divisible by one — arithmetic')
 })
 
-test('the superposition is enumerated whole, not one candidate at a time', () => {
+test('the superposition is enumerated whole', () => {
   const n = superposition([{ name: 'a', n: 2 }, { name: 'b', n: 3 }, { name: 'c', n: 6 }]).length
   assert.ok(n > 20, `expected the full cross-product of forms, saw ${n}`)
 })

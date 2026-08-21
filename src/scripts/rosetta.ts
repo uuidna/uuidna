@@ -2,7 +2,7 @@
 // rosetta — FIVE WITNESSES, CHOSEN FOR INDEPENDENCE RATHER THAN COUNT.
 //
 // emit() already cross-checks a `js:` mirror against its `lean:` statement and hard-fails on disagreement. That is
-// two legs: enough to DETECT a discrepancy, never enough to LOCATE one. And on 2026-08-20 it proved insufficient in
+// two legs: enough to DETECT a discrepancy. And on 2026-08-20 it proved insufficient in
 // the worse way — strokes_survive_reflection passed BOTH legs. The mirror agreed with the kernel, and the theorem
 // was still wrong, because both legs were written by the same hand and encoded the same mistaken framing. Two legs
 // written by one author share that author's errors.
@@ -43,7 +43,7 @@ export { LEGS, floorGaps, type Leg, type Rosetta }
  *  a published standard, a named author, a measured artefact. The project's own prose is not a witness to itself. */
 const WITNESS = /\b(NIST|CODATA|WGS ?84|IUPAC|SI\b|Gutenberg|Landauer|Eratosthenes|Fujishima|McCarty|Heidrich|Rossi|Runciman|Rathbun|Mathot|Day,|Wellman|ISO ?\d|RFC ?\d|doi|DOI|physics\.nist\.gov|measured (?:at|as|by)|bomb calorimetry)\b/
 
-// ATTRIBUTION IS COMPUTED, NOT ANNOTATED. The first attempt at this hand-wrote "Claimed by the captain" with a
+// ATTRIBUTION IS COMPUTED. The first attempt at this hand-wrote "Claimed by the captain" with a
 // date onto three theorems. Three things wrong with that, and the captain named all three: it is manual logic in a
 // project whose first law is that manual work always fails; the date was invented, since the claim long predates
 // the day it was sealed; and it was redundant, because gen-captain-claims.ts already holds the doctrine that the
@@ -138,7 +138,7 @@ export function census(): Rosetta[] {
       if (WITNESS.test(note)) legs.push('witness')
       // FALSIFIER — a test names it, which is where a mutation that must fail would live
       if (tests.includes(key)) legs.push('falsifier')
-      // NORMALISED to the fixed LEGS order, not the order the checks happen to run in: the hosted edge rebuilds
+      // NORMALISED to the fixed LEGS order
       // these rows from a bit-mask and would otherwise report the same theorem's legs in a different sequence — a
       // difference between the two surfaces that is invisible until someone diffs two answers.
       out.push({ key, wing, legs: LEGS.filter((l) => legs.includes(l)), missing: LEGS.filter((l) => !legs.includes(l)), claimedBy: claimedBy(note) })
@@ -170,7 +170,7 @@ export function renderMirror(rows: readonly Rosetta[]): string {
   }
   const claims = rows.filter((r) => r.claimedBy !== 'captain').map((r) => `${r.key} ${r.claimedBy}`).sort()
   const witness = rows.filter((r) => r.legs.includes('witness')).length
-  // THE FALSIFIER FLOOR IS DERIVED, NOT RATCHETED. Every falsified theorem pays the two coins and the captain
+  // THE FALSIFIER FLOOR IS DERIVED. Every falsified theorem pays the two coins and the captain
   // pays two more, so 63 · 2 + 2 = 128 — the full uuid — and the floor is (128 − 2)/2, sealed in
   // `falsifier_floor_is_the_uuid_less_the_coins`. Publishing the LIVE count instead made the floor a high-water
   // mark: adding tests raised it to 66, and then an ordered purge of theorems that could not compute could not
@@ -195,7 +195,7 @@ export function renderMirror(rows: readonly Rosetta[]): string {
   ].join('\n')
 }
 
-/** Write the mirror if it changed. REFUSES to lower the floor: the anchoring may rise, never fall, so a run that
+/** Write the mirror if it changed. REFUSES to lower the floor: the anchoring may rise
  *  would publish a smaller witness or falsifier count fails loudly instead of quietly ratifying the loss. */
 /** Legs the CURRENT mirror records, key by key — the baseline a regression is measured against. */
 function priorLegs(): Map<string, Leg[]> {
@@ -221,7 +221,7 @@ function regressions(rows: readonly Rosetta[]): string[] {
   for (const r of rows) {
     const was = prior.get(r.key)
     if (!was) continue
-    for (const leg of was) if (!r.legs.includes(leg)) out.push(`${r.key} lost its ${leg} leg — it is still in the ledger, so this is a real regression, not a removal`)
+    for (const leg of was) if (!r.legs.includes(leg)) out.push(`${r.key} lost its ${leg} leg — it is still in the ledger, so this is a real regression`)
   }
   return out
 }
@@ -260,7 +260,7 @@ if (process.argv[1] && /rosetta\.(js|ts)$/.test(process.argv[1])) {
   }
   const byClaim = new Map<string, number>()
   for (const r of rows) byClaim.set(r.claimedBy, (byClaim.get(r.claimedBy) ?? 0) + 1)
-  console.log(`\n  claimed by (computed, never annotated):`)
+  console.log(`\n  claimed by (computed`)
   for (const [who, n] of [...byClaim.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8)) console.log(`    ${who.padEnd(14)} ${n}`)
 
   const five = rows.filter((r) => r.legs.length === 5)

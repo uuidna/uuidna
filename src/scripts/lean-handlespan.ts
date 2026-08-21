@@ -7,7 +7,7 @@
 // Take 2^16 = 65536 such handles and the qubit counts ADD while the spans multiply: 2^16 * 2^5 = 2^21, so the total
 // is 2^21 = 2097152 qubits. Multiplication of counts is addition of exponents, and that is the whole derivation.
 //
-// AND WHAT IT IS NOT — carried on the lines, not in this comment. Two million qubits of SPAN is not two million
+// AND WHAT IT IS NOT — carried on the lines. Two million qubits of SPAN is not two million
 // amplitudes: a register of n qubits holds 2^n amplitudes, so 16 qubits is already 65536 complex numbers in memory
 // (the shipped MAX_MESSAGE_QUBITS), and 2^21 qubits would demand 2^2097152 of them. The theorems below seal that the
 // total exceeds the register rather than fitting inside it, so the span can never be read as a capacity.
@@ -24,7 +24,7 @@ const FACTS = [
     lean: 'theorem handles_times_qubits : (65536 * 32 = 2097152) ∧ ((2:Nat)^16 * 2^5 = 2^21) := by decide' },
 
   { key: 'exponents_add',
-    why: 'WHY IT IS A SHIFT AND NOT A MULTIPLICATION OF QUBITS: counts multiply exactly when exponents add — 16 + 5 = 21. The qubit total is the sum of the two exponents, never their product, and 16 * 5 = 80 differs, which the line proves rather than assumes.',
+    why: 'WHY IT IS A SHIFT AND NOT A MULTIPLICATION OF QUBITS: counts multiply exactly when exponents add — 16 + 5 = 21. The qubit total is the sum of the two exponents.',
     js: () => 16 + 5 === 21 && 16 * 5 !== 21,
     lean: 'theorem exponents_add : (16 + 5 = 21) ∧ (16 * 5 ≠ 21) := by decide' },
 
@@ -39,15 +39,15 @@ const FACTS = [
     lean: 'theorem register_holds_amplitudes : ((List.range 17).map (fun n => 2^n)).getLast! = 65536 := by decide' },
 
   { key: 'total_exceeds_register',
-    why: 'THE SPAN IS NOT A CAPACITY, and the refusal is on this line: the 2097152-qubit total is strictly greater than the 16 qubits any shipped register holds, and the two numbers are not equal. A total arrived at by adding exponents describes what can be NAMED, never what can be HELD.',
-    // computed into bindings, not compared as literals: TS narrows `2097152 !== 16` to a no-overlap type error,
+    why: 'THE SPAN IS NOT A CAPACITY, and the refusal is on this line: the 2097152-qubit total is strictly greater than the 16 qubits any shipped register holds, and the two numbers are not equal. A total arrived at by adding exponents describes what can be NAMED.',
+    // computed into bindings`2097152 !== 16` to a no-overlap type error,
     // and the point is precisely that the two quantities DIFFER — so compute both, then compare. Same fix the
     // ledger already documents at roman_reads_subtractively.
     js: () => { const total: number = 2 ** TOTAL, reg: number = HANDLES; return total > reg && total !== reg && 2 ** 21 !== 2 ** 16 },
     lean: 'theorem total_exceeds_register : (2097152 > 16) ∧ (2097152 ≠ 16) ∧ ((2:Nat)^21 ≠ 2^16) := by decide' },
 
   { key: 'total_is_not_amplitudes',
-    why: 'AND THE TOTAL IS NOT AN AMPLITUDE COUNT EITHER: 2^21 = 2097152 is the number of QUBITS, while the amplitudes such a register would carry is 2 raised to that — a number this line does not attempt to write. SCOPE: what is sealed here is that the two differ, 2097152 ≠ 65536; the larger quantity is named, never evaluated, and nothing claims it can be realised.',
+    why: 'AND THE TOTAL IS NOT AN AMPLITUDE COUNT EITHER: 2^21 = 2097152 is the number of QUBITS, while the amplitudes such a register would carry is 2 raised to that — a number this line does not attempt to write. SCOPE: what is sealed here is that the two differ, 2097152 ≠ 65536; the larger quantity is named.',
     js: () => { const total: number = 2 ** TOTAL, amps: number = 2 ** HANDLES; return total !== amps && total > amps },
     lean: 'theorem total_is_not_amplitudes : (2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16) := by decide' },
 ]

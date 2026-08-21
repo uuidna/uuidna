@@ -2,11 +2,11 @@
 // single pair of guards here hardens every tool reached through it: no throw on a hostile input, no unserializable,
 // unbounded, or self-referential output, and no known injection/pollution vector. Deterministic (no Math.*, no
 // clock) - the same value sanitizes to the same value, so a sanitized run still folds to a recomputable receipt.
-// Integrity, not truth: sanitising changes SHAPE, never a sealed fact - a finite number, a clean short string, an
+// Integrity — the record recomputes for anyone: sanitising changes SHAPE, never a sealed fact - a finite number, a clean short string, an
 // acyclic object all pass untouched. Legitimate unicode (the maths glyphs) is preserved; only dangerous points go.
 
 export const MAX_DEPTH = 32          // nesting deeper than this is collapsed - no stack blow-up on a hostile input
-export const MAX_STRING = 1_000_000  // 1 MB per string - bounded, never unbounded
+export const MAX_STRING = 1_000_000  // 1 MB per string - bounded
 export const MAX_ARRAY = 100_000     // array length cap - a hostile "make me allocate forever" is refused
 export const MAX_KEYS = 100_000      // object key cap - same, for a hostile many-keyed object
 

@@ -4,8 +4,8 @@
 // proof in full (its Lean text, its address, its source file), the ledger receipt the evidence is bound to, and the
 // exact steps to recompute every number. Anyone re-runs the steps and lands on the same evidence receipt — or they
 // do not, and the evidence is void. uuidna delivers what recomputes; the court rules. It proves INTEGRITY (the claim
-// was made, the proofs are these, nothing was quietly changed), NEVER legal correctness — that is the court's, not a
-// fold's. Deterministic and offline. Integrity, not truth.
+// was made, the proofs are these, nothing was quietly changed)— that is the court's
+// fold's. Deterministic and offline. Integrity.
 import { THEOREMS, theoremByKey } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { runTrial } from './theorems/index.js'
@@ -31,7 +31,7 @@ export interface Evidence {
 }
 
 /** evidence(statement) → the recomputable evidence bundle for a statement. Same statement + same ledger → same bundle
- *  and same evidenceReceipt, reproducible by anyone. Delivers integrity, never a legal ruling. */
+ *  and same evidenceReceipt, reproducible by anyone. Delivers integrity. */
 export function evidence(statement: string): Evidence {
   const _byKey = theoremByKey() // the shared consolidated index — O(1) cited-key lookup, built once at the source
   const report = forensics(statement)

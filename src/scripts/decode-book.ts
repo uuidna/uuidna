@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // @non-harmonic: fetches a book over the network before decoding it — a NAMED boundary, like books.ts.
 //
-// decode-book — WHAT A BOOK DECIDES, NOT WHAT IT SAYS.
+// decode-book — WHAT A BOOK DECIDES.
 //
 // I measured the corpus wrong and reached a wrong conclusion from a right number. Counting only theorems that state
 // exact arithmetic, prose scored about one per quarter-million characters against a standards table's dozens per
@@ -28,7 +28,7 @@
 // well as for a standard. That is why literature is not the wrong end of the library: a novel cannot tell you a
 // defining constant, but it can DECIDE its own structure, and it does so with more integers than a table.
 //
-// LICENCE IS A GATE, NOT A PROMISE. This decodes public-domain text and quotes nothing verbatim into the ledger —
+// LICENCE IS A GATE. This decodes public-domain text and quotes nothing verbatim into the ledger —
 // it emits counts. A source whose copyright has not expired must not be sealed here at all: the ledger publishes
 // to npm, the site and a DOI'd Zenodo deposit, and a permanent citable deposit of in-copyright text is exactly the
 // exposure the legal arm exists to prevent. Counts are facts; the text is not ours to republish.
@@ -66,7 +66,7 @@ const NUMERALS: Record<string, number> = {
 const WORD = /[\p{L}\p{M}'\u2019]+/gu
 const LETTER = /\p{L}/u
 
-/** strip the Project Gutenberg header and licence so the counts describe the WORK, not the wrapper. */
+/** strip the Project Gutenberg header and licence so the counts describe the WORK. */
 export function body(raw: string): string {
   const start = raw.indexOf('*** START OF')
   const end = raw.indexOf('*** END OF')
@@ -101,7 +101,7 @@ export function decode(raw: string, top = 12): Decoding {
   }
 }
 
-/** Candidate sealable facts: exact integer relations this text decides. Ratios are BRACKETED, never divided —
+/** Candidate sealable facts: exact integer relations this text decides. Ratios are BRACKETED—
  *  the same discipline as caesium_light_step, so nothing irrational or rounded enters the ledger. */
 export function candidates(d: Decoding): { claim: string; holds: boolean }[] {
   const out: { claim: string; holds: boolean }[] = []

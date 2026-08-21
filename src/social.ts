@@ -4,8 +4,8 @@
 // the card wears, the canonical links (site, source, package, licence), the credit tally (who is credited), and a
 // content-addressed avatar seed. Deterministic and OFFLINE — it composes sealed/recomputable facts and static
 // canonical links; it does NOT fetch the network, post anything, or represent a person's private data. Folded to one
-// receipt: the same social card for every observer. HONEST SCOPE: integrity, not truth — a recomputable public card,
-// its bio BACKED by the ledger count; the aura is ART (an address→hue arithmetic), not physics. It shares nothing but
+// receipt: the same social card for every observer. HONEST SCOPE: integrity— a recomputable public card,
+// its bio BACKED by the ledger count; the aura is ART (an address→hue arithmetic). It shares nothing but
 // what is already public and sealed.
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
@@ -32,10 +32,10 @@ export interface SocialProfile {
 const HONEST =
   'The social profile: uuidna\'s public, shareable card, composed from sealed facts and static canonical links and ' +
   'folded to ONE receipt — the same card for every observer. The bio is computed from the ledger (it cannot drift ' +
-  'from the proof count); the aura colour is ART (an address→hue arithmetic), not physics. REPRESENTATION RESERVED: ' +
+  'from the proof count); the aura colour is ART (an address→hue arithmetic). REPRESENTATION RESERVED: ' +
   'uuidna.com is the only legitimate representation — a @uuidna handle or nickname elsewhere is not legitimate unless ' +
   'licensed by the captain, and this card says so rather than implying a presence that is not the captain\'s. OFFLINE ' +
-  'and read-only: it fetches nothing, posts nothing, and shares only what is already public and sealed. Integrity, not truth.'
+  'and read-only: it fetches nothing, posts nothing, and shares only what is already public and sealed. Integrity.'
 
 /** socialProfile() → uuidna's public, shareable card: handle, ledger-computed bio, aura colour, canonical links and
  *  credit, folded to one receipt. Deterministic and offline — composes sealed facts + static links, fetches nothing. */
@@ -46,7 +46,7 @@ export function socialProfile(): SocialProfile {
   const credits = creditsSummary()
   const rights = captainRights()
   const bio = `Content-addressed identity, honest by construction — ${trial.count} Lean theorems, all by decide, ` +
-    `kernel-only, folded to one receipt. Integrity, not truth.`
+    `kernel-only, folded to one receipt. Integrity.`
   const links = {
     site: HOST,
     source: 'https://github.com/uuidna/uuidna',

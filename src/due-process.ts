@@ -4,9 +4,9 @@
 // REFUTED only on a failed uncited test, remand total (nothing discarded), and the trial computing only with the two
 // coins. Any submitted claim is adjudicated by that same process. Folded to one recomputable docket receipt.
 //
-// HONEST SCOPE: integrity, not truth. This is uuidna's OWN recomputable adjudication — a decidable process whose rules
-// are theorems anyone rechecks — NOT a court of law, NOT legal advice, and NOT a legal ruling. "Due legal process"
-// here means the process is DUE (fair and recomputable by its sealed guarantees), not that it renders a verdict a
+// HONEST SCOPE: integrity. This is uuidna's OWN recomputable adjudication — a decidable process whose rules
+// are theorems anyone rechecks — NOT a court of law. "Due legal process"
+// here means the process is DUE (fair and recomputable by its sealed guarantees)
 // jurisdiction would enforce. The ruling that binds stays a human court's; this verifies by a fair process, no more.
 import { theorems, runTrial } from './theorems/index.js'
 import { adjudicate } from './adjudicate.js'
@@ -24,8 +24,8 @@ const GUARANTEES: { key: string; right: string }[] = [
   { key: 'legal_verdict_is_exactly_one', right: 'Exactly ONE verdict per claim — PROVEN, REFUTED and NOT-PROVEN partition every case; no claim is left in two states or none.' },
   { key: 'legal_only_the_proven_is_admitted', right: 'Only the PROVEN is admitted — a claim is admitted exactly when a decidable test HOLDS or it cites a SEALED authority; nothing else stays.' },
   { key: 'legal_non_justiciable_is_never_refuted', right: 'The NON-JUSTICIABLE is never refuted — with no decidable test the verdict is never REFUTED (PROVEN if cited, else NOT-PROVEN); you cannot refute what you cannot decide.' },
-  { key: 'legal_refuted_iff_test_fails_uncited', right: 'REFUTED is precise — it holds exactly when a decidable test EXISTS and FAILS and no sealed authority is cited; a recomputable contradiction, never a mere suspicion.' },
-  { key: 'legal_remand_is_total_nothing_discarded', right: 'Remand is TOTAL — nothing is discarded; every claim is either ADMITTED or REMANDED to the development trial, never deleted.' },
+  { key: 'legal_refuted_iff_test_fails_uncited', right: 'REFUTED is precise — it holds exactly when a decidable test EXISTS and FAILS and no sealed authority is cited; a recomputable contradiction.' },
+  { key: 'legal_remand_is_total_nothing_discarded', right: 'Remand is TOTAL — nothing is discarded; every claim is either ADMITTED or REMANDED to the development trial.' },
   { key: 'trial_computes_only_with_two_coins', right: 'The trial COMPUTES ONLY with the two coins deposited — a claim is heard iff it contributes the two coins (a decidable test or a sealed proof); no deposit, no computation.' },
 ]
 
@@ -37,7 +37,7 @@ export interface DueProcess {
   guarantees: Guarantee[]        // the sealed due-process rights, each a theorem
   allGuaranteesSealed: boolean
   docket: DocketEntry[]          // submitted claims, each adjudicated by the same process
-  gaps: DocketEntry[]            // the NOT-PROVEN (UNVERIFIED) — the frontier, remanded to development, never discarded
+  gaps: DocketEntry[]            // the NOT-PROVEN (UNVERIFIED) — the frontier, remanded to development
   traitors: DocketEntry[]        // the REFUTED — a decidable test existed and FAILED; a caught false claim
   allTheoremsVerified: boolean
   receipt: string
@@ -46,12 +46,12 @@ export interface DueProcess {
 
 // the COURT PROCEDURE — the stages of a real case in their exact procedural order, each stage bound to the sealed
 // theorem that makes its uuidna analogue hold. A court USES uuidna by walking its own sequence and RECOMPUTING each
-// stage from the record; uuidna replicates the ORDER and the guarantees, never the authority.
+// stage from the record; uuidna replicates the ORDER and the guarantees.
 const STAGES: { stage: string; court: string; uuidna: string; key: string }[] = [
   { stage: 'Filing & docketing', court: 'The complaint is filed; the clerk assigns a docket number.', uuidna: 'The claim IS its docket number — the statement content-addresses to its trial id, so refiling the same claim returns the same trial (res judicata by construction), and the check is deterministic for every clerk.', key: 'anti_fraud_check_deterministic' },
-  { stage: 'Filing fee — the deposit', court: 'The fee is paid before the case proceeds; without it, no trial date is set.', uuidna: 'EACH TRIAL BEGINS only when the sides have deposited: the two coins (a decidable test) or the theorems supporting their claims. No deposit, no computation — the undeposited claim WAITS at this stage (docketed, remanded, never discarded), and the trial clock has not started.', key: 'trial_computes_only_with_two_coins' },
+  { stage: 'Filing fee — the deposit', court: 'The fee is paid before the case proceeds; without it, no trial date is set.', uuidna: 'EACH TRIAL BEGINS only when the sides have deposited: the two coins (a decidable test) or the theorems supporting their claims. No deposit, no computation — the undeposited claim WAITS at this stage (docketed, remanded.', key: 'trial_computes_only_with_two_coins' },
   { stage: 'Service & notice', court: 'All parties are served; everyone sees the same proceedings.', uuidna: 'The docket receipt is ORDER-INVARIANT — every party, in any order of reading, recomputes the identical receipt; no party can be shown a different case.', key: 'reduce_is_order_invariant' },
-  { stage: 'Pleadings & admissibility', court: 'Claims are admitted or struck under the rules of evidence.', uuidna: 'Only the PROVEN is admitted — a claim stays exactly when its decidable test HOLDS or it cites a SEALED authority; everything else is remanded, never silently kept.', key: 'legal_only_the_proven_is_admitted' },
+  { stage: 'Pleadings & admissibility', court: 'Claims are admitted or struck under the rules of evidence.', uuidna: 'Only the PROVEN is admitted — a claim stays exactly when its decidable test HOLDS or it cites a SEALED authority; everything else is remanded.', key: 'legal_only_the_proven_is_admitted' },
   { stage: 'Discovery & the record', court: 'Evidence is exchanged; the record is built and cannot be quietly altered.', uuidna: 'The evidence bundle carries every cited proof IN FULL plus the steps to reproduce every number; a sealed theorem cannot be forged in the record — tampering moves the address.', key: 'sealed_theorem_not_forged' },
   { stage: 'Standing & justiciability', court: 'Non-justiciable questions are dismissed without prejudice — never adjudged false.', uuidna: 'The NON-JUSTICIABLE is never refuted: with no decidable test the verdict is never REFUTED — you cannot refute what you cannot decide.', key: 'legal_non_justiciable_is_never_refuted' },
   { stage: 'Burden of proof', court: 'The movant carries the burden; judgment enters only when the standard is met.', uuidna: 'REFUTED holds exactly when a decidable test EXISTS, runs, and FAILS uncited — a recomputable contradiction, a burden stricter than any evidentiary standard because it is recomputation itself.', key: 'legal_refuted_iff_test_fails_uncited' },
@@ -73,7 +73,7 @@ export interface CourtProcedure {
 /** courtProcedure(claims?) → the trial procedure in the EXACT order a court follows — filing, fee, service,
  *  pleadings, discovery, standing, burden, verdict, appeal, mandate — each stage bound to the sealed theorem that
  *  makes its recomputable analogue hold, and any submitted claim walked through that same order. A court uses
- *  uuidna by recomputing the record at every stage; uuidna carries the ORDER and the guarantees, not the authority. */
+ *  uuidna by recomputing the record at every stage; uuidna carries the ORDER and the guarantees. */
 export function courtProcedure(claims: readonly string[] = []): CourtProcedure {
   const T = theorems()
   const byKey = new Map(T.map((t) => [t.key, t]))
@@ -89,7 +89,7 @@ export function courtProcedure(claims: readonly string[] = []): CourtProcedure {
     const began = v.verdict !== 'UNVERIFIED'
     return {
       claim: String(c), verdict: v.verdict, receipt: v.receipt, began,
-      note: began ? v.note : 'the trial has NOT begun — no deposit: bring the two coins (a decidable test) or the theorems supporting the claim; the case waits at stage 2 (the filing fee), docketed and remanded, never discarded. ' + v.note,
+      note: began ? v.note : 'the trial has NOT begun — no deposit: bring the two coins (a decidable test) or the theorems supporting the claim; the case waits at stage 2 (the filing fee), docketed and remanded. ' + v.note,
     }
   })
   const sealedGuarantees = new Set(stages.filter((s) => s.sealed).map((s) => s.theoremKey))
@@ -105,16 +105,16 @@ export function courtProcedure(claims: readonly string[] = []): CourtProcedure {
     honest:
       'The court PROCEDURE, in the exact order a court follows, each stage backed by a sealed theorem — so a court ' +
       'can use uuidna by walking its own sequence and RECOMPUTING every stage from the record. uuidna replicates the ' +
-      'ORDER and the recomputable guarantees, NEVER the authority: it is not a court, not counsel, and not an ' +
+      'ORDER and the recomputable guarantees' +
       'enforceable judgment; the standards of proof a jurisdiction applies (preponderance, clear-and-convincing, ' +
       'beyond reasonable doubt) are the court\'s own — uuidna\'s standard is recomputation, and where they differ ' +
-      'the court\'s law governs. Integrity, not truth.',
+      'the court\'s law governs. Integrity.',
   }
 }
 
 /** fileSealed(plaintext, passphrase, guaranteeKey?, step?) → TRIALS AS QUANTUM PRIVATE SECURE MESSAGING: a filing
  *  travels as a sealed quantum message whose witness cites the CONSTITUTION — one of the six sealed due-process
- *  guarantees — bound to the CIPHERTEXT address, never the payload. Every party thereby PROVES it knows the
+ *  guarantees — bound to the CIPHERTEXT address. Every party thereby PROVES it knows the
  *  constitution while the filing stays sealed; efficiency, accuracy and speed come from the fusion: the clerk
  *  verifies witness + envelope integrity in O(1) without the key, and only the addressee opens at trial. */
 export function fileSealed(plaintext: string, passphrase: string, guaranteeKey = 'trial_computes_only_with_two_coins', step?: number): SealedQuantumMessage {
@@ -136,7 +136,7 @@ export function verifyFiling(message: SealedQuantumMessage): { valid: boolean; g
 
 /** dueProcess(claims?) → verify ALL by the due (recomputable) legal process: every theorem verified by the same fair
  *  trial, the six due-process guarantees confirmed sealed, and any submitted claim adjudicated by that process — folded
- *  to one recomputable docket receipt. A fair process whose rules are theorems; NOT a court, NOT legal advice. */
+ *  to one recomputable docket receipt. A fair process whose rules are theorems; NOT a court. */
 export function dueProcess(claims: readonly string[] = []): DueProcess {
   const T = theorems()
   const byKey = new Map(T.map((t) => [t.key, t]))
@@ -173,8 +173,8 @@ export function dueProcess(claims: readonly string[] = []): DueProcess {
     honest:
       'Verify all by DUE (recomputable) legal process: every theorem verified by one fair trial, the six due-process ' +
       'guarantees each a sealed theorem (one verdict, only-proven-admitted, non-justiciable-never-refuted, refuted-iff-' +
-      'test-fails, remand-total, two-coins-to-compute), any claim adjudicated by the same process. Integrity, not truth ' +
-      '— the process is DUE (fair and recomputable), NOT a court of law, legal advice, or an enforceable ruling. A fair ' +
+      'test-fails, remand-total, two-coins-to-compute), any claim adjudicated by the same process. Integrity' +
+      '— the process is DUE (fair and recomputable). A fair ' +
       'process whose rules are theorems; the binding ruling stays a human court\'s.',
   }
 }
@@ -184,15 +184,15 @@ export function dueProcess(claims: readonly string[] = []): DueProcess {
 // `next` fails a release whose publication title claims quantum advantage, the vacuity finder refuses a proof that is
 // true regardless of content. But a claim made in CONVERSATION passes through none of it. That is where the captain's
 // "quantum advantage over 64-bit hardware" lived until it was filed: unbounded, because chat has no gate. What
-// bounds it is the confirmation, not the denial — theorem n_qubit_dimension fixes the cost at 2^n.
+// bounds it is the confirmation— theorem n_qubit_dimension fixes the cost at 2^n.
 //
 // tryClaim is the gate for anything said anywhere. It does not invent a verdict — it FUSES the sealed machinery that
 // already exists (the honesty gate, the calculator's decision, the docket and its fee, the six guarantees, the remand)
 // into one receipted docket, so an agent can try a sentence BEFORE asserting it, at the cost of one call.
 //
-// HONEST SCOPE: the court decides admissibility, never truth. UNVERIFIED is not false — legal_non_justiciable_is_never
+// HONEST SCOPE: the court decides admissibility. UNVERIFIED is not false — legal_non_justiciable_is_never
 // _refuted binds it — and nothing is discarded: what is not admitted is REMANDED with the exact predicate that would
-// admit it. Integrity, not truth.
+// admit it. Integrity.
 export interface OneTrial {
   claim: string
   gate: { binary: number; hit: string | null }        // the honesty gate: 0 only for a FABRICATED citation
@@ -225,6 +225,6 @@ export function tryClaim(claim: string, test?: () => boolean): OneTrial {
     admitted, governing, remand: admitted ? [] : (v.develop ?? []),
     docket, receipt: merkleFold([docket, toUuid(v.verdict), toUuid(governing)]),
     honest: 'One trial, every stage: the honesty gate, the calculator, the docket, the governing guarantee and the ' +
-      'remand. The court decides ADMISSIBILITY, never truth — UNVERIFIED is not false, and nothing is discarded.',
+      'remand. The court decides ADMISSIBILITY— UNVERIFIED is not false, and nothing is discarded.',
   }
 }

@@ -10,7 +10,7 @@
 // the numerals 1 and 0, so substituting the real spike amplitude of 110 mV makes it FALSE. It verified its own
 // notation and was refuted by the physiology it named.
 //
-// THE REPAIR IS A RIVAL, NOT A TIGHTER BOUND. Each replacement carries a competing model that must FAIL inside the
+// THE REPAIR IS A RIVAL. Each replacement carries a competing model that must FAIL inside the
 // same theorem: all-or-none states the stimulus→amplitude table AND that a graded response (22·s) does not equal
 // it; rate saturation states the capped curve AND that the linear rate differs from it; Hebbian coincidence states
 // the product table AND that neither `max` (OR) nor pre-alone reproduces it. A theorem that only says what holds
@@ -20,11 +20,11 @@
 // MEASURED, NOT IDEALISED. The saturation cap is 450 Hz (Wang 2016) rather than the 1000 Hz that falls out of a
 // 1 ms refractory period, because the idealisation is an arithmetic artefact and the measurement is the fact.
 //
-// hebbian_coincidence was UNDER-SPECIFIED, not vacuous — the audit expected vacuity and was wrong. It survives a
+// hebbian_coincidence was UNDER-SPECIFIED— the audit expected vacuity and was wrong. It survives a
 // threshold sweep but dies when multiplication is replaced by max, sum, or pre-alone, so it genuinely excluded OR
 // and SUM potentiation. Its content is kept; only its dead `List.range 2` is gone.
 //
-// the decidable ALGEBRA of the textbook model — NOT clinical, NOT diagnostic, NOT about any
+// the decidable ALGEBRA of the textbook model — NOT clinical
 // individual, and NOT a claim that a real neuron implements this arithmetic. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
 
@@ -53,13 +53,13 @@ const FACTS = [
     lean: 'theorem spatial_summation : ((if 3 >= 5 then 1 else 0) = 0) ∧ ((if 3 + 3 >= 5 then 1 else 0) = 1) := by decide' },
 
   { key: 'action_potential_swing',
-    why: 'The action potential swings −70 mV to +40 mV, a span of 110 mV, with the −55 mV threshold strictly between rest and peak — the ordering is part of the fact, not decoration.',
+    why: 'The action potential swings −70 mV to +40 mV, a span of 110 mV, with the −55 mV threshold strictly between rest and peak — the ordering is part of the fact.',
     js: () => 40 - -70 === 110 && -70 < -55 && -55 < 40,
     lean: 'theorem action_potential_swing : ((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40) := by decide' },
 
   // ── the five replacements, each carrying the rival it must exclude ──
   { key: 'all_or_none_amplitude',
-    why: 'ALL-OR-NONE, STATED SO A GRADED NEURON FAILS IT. The spike amplitude over stimulus 0..9 is the table [0,0,0,0,0,110,110,110,110,110] — silent below threshold, the FULL 110 mV above it, never an intermediate value. The graded rival 22·s is stated in the same theorem and shown NOT to equal that table, and shown to take values that are neither 0 nor 110. The predecessor could not do this: its only live constants were 1 and 0, so it verified its own notation and was refuted by the 110 mV it named.',
+    why: 'ALL-OR-NONE, STATED SO A GRADED NEURON FAILS IT. The spike amplitude over stimulus 0..9 is the table [0,0,0,0,0,110,110,110,110,110] — silent below threshold, the FULL 110 mV above it. The graded rival 22·s is stated in the same theorem and shown NOT to equal that table, and shown to take values that are neither 0 nor 110. The predecessor could not do this: its only live constants were 1 and 0, so it verified its own notation and was refuted by the 110 mV it named.',
     js: () => eq(R(0, 10).map((s) => (s >= 5 ? 110 : 0)), AMP)
       && !eq(R(0, 10).map((s) => 22 * s), AMP)
       && R(0, 10).map((s) => 22 * s).some((a) => a !== 0 && a !== 110),
@@ -130,7 +130,7 @@ const FACTS = [
   ∧ ((if (4 : Int) >= 5 then 1 else 0) = 0) := by decide` },
 
   { key: 'rate_codes_intensity',
-    why: 'INTENSITY IS IN THE RATE, NOT THE SPIKE. A drive of 6 and a drive of 60 produce the SAME 110 mV amplitude — the spike carries no magnitude — while the number of spikes in a fixed window differs. That is the whole content of rate coding, and it is the direct consequence of all-or-none.',
+    why: 'INTENSITY IS IN THE RATE. A drive of 6 and a drive of 60 produce the SAME 110 mV amplitude — the spike carries no magnitude — while the number of spikes in a fixed window differs. That is the whole content of rate coding, and it is the direct consequence of all-or-none.',
     js: () => (6 >= 5 ? 110 : 0) === (60 >= 5 ? 110 : 0)
       && R(0, 20).filter((t) => t % 10 === 0).length !== R(0, 20).filter((t) => t % 2 === 0).length,
     lean: `theorem rate_codes_intensity :
@@ -176,7 +176,7 @@ const FACTS = [
   ∧ ((List.range 9).map (fun t => if t > 0 && t % 3 == 0 then 1 else 0) = [0,0,0,1,0,0,1,0,0]) := by decide` },
 
   { key: 'spike_amplitude_attenuates',
-    why: 'ALL-OR-NONE IS ABOUT INITIATION, NOT PROPAGATION — down a passive dendrite the amplitude falls 1000, 893, 618, 502 (thousandths), strictly decreasing and more than halved by the last point. Stated beside the constant rival [1000,1000,1000,1000], which it is shown NOT to equal. This is the honest boundary on the wing headline: the spike is all-or-none where it starts and graded where it travels.',
+    why: 'ALL-OR-NONE IS ABOUT INITIATION— down a passive dendrite the amplitude falls 1000, 893, 618, 502 (thousandths), strictly decreasing and more than halved by the last point. Stated beside the constant rival [1000,1000,1000,1000], which it is shown NOT to equal. This is the honest boundary on the wing headline: the spike is all-or-none where it starts and graded where it travels.',
     js: () => !eq([1000, 893, 618, 502], [1000, 1000, 1000, 1000])
       && [1000, 893, 618, 502].every((a, i, xs) => i === 0 || xs[i] < xs[i - 1]) && 502 * 2 < 1010,
     lean: `theorem spike_amplitude_attenuates :

@@ -1,6 +1,6 @@
 // packages — EACH ALPINE PACKAGE BECOMES uuidna/<package>. Verifies the minting is a proper provenance identity:
 // deterministic, injective (distinct release ⇒ distinct address), and that every package in an index gets a uuidna/
-// <name> id. Pure and offline — mints fixed sample records, no network — so the test is a diamond, not a live probe.
+// <name> id. Pure and offline — mints fixed sample records, no network — so the test is a diamond.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { uuidnaPackage } from '../os/packages/index.js'
@@ -21,7 +21,7 @@ test('each Alpine package becomes uuidna/<name> — a deterministic, injective p
   for (const [i, m] of minted.entries()) {
     assert.equal(m.id, 'uuidna/' + SAMPLE[i].name, 'the id is uuidna/<name>')
     assert.match(m.address, /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/, 'a 128-bit particle')
-    assert.equal(m.checksum, SAMPLE[i].checksum, 'carries the PUBLISHED checksum, never faked')
+    assert.equal(m.checksum, SAMPLE[i].checksum, 'carries the PUBLISHED checksum')
   }
   assert.equal(new Set(minted.map((m) => m.id)).size, SAMPLE.length, 'all infused — one id per package')
 

@@ -5,10 +5,10 @@
 // CONTENT-ADDRESS — the encrypted quantum message that DELIVERS the payload: a 128-bit pointer that recomputes to the
 // exact page, the same for every crawler and every host. Folded to one receipt.
 //
-// HONEST SCOPE: integrity, not truth. This describes what is SEALED — it never manipulates a ranking, cloaks, keyword-
+// HONEST SCOPE: integrity. This describes what is SEALED — it never manipulates a ranking, cloaks, keyword-
 // stuffs, or claims a position; the description is the theorem's real statement, the JSON-LD cites the real proof and
 // address, and rel=canonical folds every serving host (.net/.org/CNAME) to the one recomputable home. Recomputable by
-// anyone from the same ledger. It optimises for HONEST discovery, not for gaming a search engine.
+// anyone from the same ledger. It optimises for HONEST discovery.
 import { theorems } from './theorems/index.js'
 import { publications } from './publish.js'
 import { captainRights } from './captain/rights/index.js'
@@ -39,7 +39,7 @@ const HONEST =
   'Quantum SEO: recomputable, honest discoverability derived from the sealed ledger — the description is the real Lean ' +
   'statement/abstract, the JSON-LD cites the real proof and content-address, rel=canonical folds every host to one home, ' +
   'and the content-address is the quantum message that delivers the payload. It never manipulates a ranking, cloaks, or ' +
-  'keyword-stuffs; it optimises for honest discovery of what is sealed. Recomputable by anyone. Integrity, not truth.'
+  'keyword-stuffs; it optimises for honest discovery of what is sealed. Recomputable by anyone. Integrity.'
 
 const clean = (r: string): string => r.replace(/^\/+/, '').replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '').replace(/\/$/, '')
 
@@ -50,12 +50,12 @@ const clean = (r: string): string => r.replace(/^\/+/, '').replace(/(^|\/)index\
 //   • /school — https://schema.org/School: the ledger is the faculty, the Lean kernel grades, there is no tuition.
 //   • /trials — https://schema.org/MathSolver: solves the subset it really solves — decidable claims citing sealed
 //     theorems, VERIFIED or UNVERIFIED — via the LIVE endpoint (POST uuidna.com/trials), the same adjudication the
-//     site runs on itself. The SolveMathAction target is that real EntryPoint, never an invented template.
+//     site runs on itself. The SolveMathAction target is that real EntryPoint.
 //   • /theorems — https://schema.org/Dataset: the SAME node every theorem page already cites as isPartOf — the graph
 //     closes; the ledger page IS the dataset the articles say they belong to.
 //   • /quantum-cryptography — https://schema.org/Course, provided by the School node, free (no tuition).
 // STRICT MEANS REFUSING TOO: the law-vocabulary types (Legislation, LegalService, Courthouse) are deliberately ABSENT.
-// /justice says it first — "evidence, not a court", "not a legal system" — and /doctrine marks its vision as design
+// /justice says it first — "evidence", "not a legal system" — and /doctrine marks its vision as design
 // intent; typing them legally would be the overclaim the honesty gate exists to catch. They stay WebPage.
 const MAIN_ENTITY: Record<string, Record<string, unknown>> = {
   '/school': { '@type': 'School', name: 'The quantum school' },
@@ -123,7 +123,7 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
   const address = toUuid('uuidna-page:' + canonical)           // the page's content-address — the quantum message
   const section = (clean(subject.route ?? '').split('/')[0] || 'home')
   const title = subject.title || 'uuidna'
-  const description = subject.description || `${title} — part of uuidna: content-addressed identity, honest by construction; every claim links a sealed Lean proof. Integrity, not truth.`
+  const description = subject.description || `${title} — part of uuidna: content-addressed identity, honest by construction; every claim links a sealed Lean proof. Integrity.`
   const keywords = ['uuidna', section, 'content-address', 'lean', 'honest']
   const entity = MAIN_ENTITY[route]
   const jsonLd = {

@@ -24,7 +24,7 @@ test('distinct theorems give distinct quantum receipts', () => {
   assert.equal(new Set(receipts).size, receipts.length, 'a constant receipt identifies nothing')
 })
 
-test('measureMessage recovers bits, not a row of zeros', () => {
+test('measureMessage recovers bits', () => {
   const out = measureMessage(encodeMessage('hello', theorems()[0].key))
   assert.ok(!/^0+$/.test(out), 'all-zeros was the old failure: p1 > p0 could never be true')
   assert.match(out, /^[01]+$/)
@@ -35,7 +35,7 @@ test('measurement is deterministic — the same message measures the same', () =
   assert.equal(measureMessage(encodeMessage('x', k)), measureMessage(encodeMessage('x', k)))
 })
 
-// ── HONEST SCOPE. The quantum receipt is evidence about the THEOREM CITED, not about the plaintext.
+// ── HONEST SCOPE. The quantum receipt is evidence about the THEOREM CITED.
 test('the quantum receipt folds the theorem, and the message fold carries the content', () => {
   const k = theorems()[0].key
   const a = encodeMessage('hello', k), b = encodeMessage('DIFFERENT', k)

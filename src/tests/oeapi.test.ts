@@ -2,7 +2,7 @@
 // own vocabulary, the same law src/tests/seo.test.ts holds over schema.org names. The vocabulary below is transcribed
 // from https://github.com/open-education-api/specification/blob/main/oeapi.json (info.version 6.0) — add a field to
 // src/oeapi.ts that the spec does not define and this audit fails, which is how it caught `link` on LearningOutcome
-// (the spec has no such field; the proof URL belongs in `ext`) before it ever shipped. Integrity, not truth.
+// (the spec has no such field; the proof URL belongs in `ext`) before it ever shipped. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { oeapiProfile, oeapiOrganisations, oeapiProgrammes, oeapiCourses, oeapiLearningOutcomes,
@@ -135,7 +135,7 @@ test('OEAPI refuses what it cannot derive — no complexityLevel, and every abse
 
 test('OEAPI profile is deterministic and counted — the receipt recomputes, the counts are the ledger', () => {
   const a = oeapiProfile(), b = oeapiProfile()
-  assert.equal(a.receipt, b.receipt, 'the projection is recomputable, not generated')
+  assert.equal(a.receipt, b.receipt, 'the projection is recomputable')
   assert.equal(a.version, '6.0')
   assert.deepEqual(a.counts, {
     organisations: 2, programmes: skillGroups().length, courses: publications().length, learningOutcomes: theorems().length,
@@ -147,26 +147,26 @@ test('OEAPI profile is deterministic and counted — the receipt recomputes, the
 // abbreviation and otherCodes moved nothing — the profile receipt is byte-identical across the change, so every
 // published citation and DOI'd record still resolves. This test is the guard on that: it fails the day an "addition"
 // is really a re-identification, which is the only kind of change here that CAN break a consumer.
-test('additive spec fields never move an identity — the receipt folds ids, not payloads', () => {
+test('additive spec fields never move an identity — the receipt folds ids', () => {
   const p = oeapiProfile()
   const ids = [...p.organisations.map((o) => o.organisationId), ...p.programmes.map((x) => x.programmeId),
     ...p.courses.map((c) => c.courseId)]
   assert.equal(new Set(ids).size, ids.length, 'ids stay unique')
-  for (const id of ids) assert.match(id, UUID, 'every identity is a content-address, not a serial')
+  for (const id of ids) assert.match(id, UUID, 'every identity is a content-address')
   // the emitted payload is strictly richer than the identities it folds — growth without re-identification
   for (const c of oeapiCourses()) {
     assert.ok(c.abbreviation.length > 0, 'the internal code the spec asks for is served')
     assert.ok(c.otherCodes.some((o) => o.codeType === 'uuid' && o.code === c.courseId),
-      'otherCodes carries the SAME address as the id — an alias, never a second identity')
+      'otherCodes carries the SAME address as the id — an alias')
   }
   for (const g of oeapiProgrammes())
     assert.ok(Array.isArray(g.learningOutcomeIds), 'a track serves the outcome ids it already knew')
 })
 
 // A field whose VALUE would be the wrong kind is refused, and the refusal is served — the name audit cannot see this.
-test('a field that would require inventing a value is absent BY NAME, not silently empty', () => {
+test('a field that would require inventing a value is absent BY NAME', () => {
   const p = oeapiProfile()
-  assert.ok(p.absentFields.length > 0, 'the field-level absence law must be served, not just the resource-level one')
+  assert.ok(p.absentFields.length > 0, 'the field-level absence law must be served')
   const isced = p.absentFields.find((f) => f.field.includes('fieldsOfStudy'))
   assert.ok(isced, 'ISCED-F is the case that proves it: a uuidna skill is not an ISCED-F code')
   for (const f of p.absentFields) assert.ok(f.why.length > 40, `${f.field}: an absence without a reason is a shrug`)

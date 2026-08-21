@@ -6,7 +6,7 @@
 // HONEST SCOPE: uuidna audits RECOMPUTABLE FACTS ONLY (theorem addresses, coin tallies,
 // vote weights, ledger DNA). It does NOT judge intention or identity — only the work's
 // integrity. A forged theorem is a fact (the address does not recompute); a traitor is
-// a forgery in the artifact, never a person.
+// a forgery in the artifact.
 
 import { theoremByKey, toUuid, merkleGravity, ledgerFingerprint, type Theorem, type LedgerFingerprint } from './index.js'
 import { catchTraitors, type TreasonReport } from './treason.js'

@@ -10,7 +10,7 @@
 //
 // No lexicon decides "superlative"; the ledger decides "sealed". CACHED: keyed by the content-address of the whole
 // publication set, so an unchanged set is a cache hit and a changed note moves the key and re-scans. SAVED to
-// audit-citations.json, recomputable by anyone from the same ledger. Integrity, not truth.
+// audit-citations.json, recomputable by anyone from the same ledger. Integrity.
 import { writeFileSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -29,7 +29,7 @@ const key = merkleFold(pubs.map((p) => p.address))
 // lowercase-only class truncates such a key mid-word and mis-reports a real citation as fabricated.
 const CITE = /\/theorem\/([A-Za-z0-9_]+)/g
 // A load-bearing CLAIM is a bullet line in the composed note (the generator writes one bullet per fact); meta prose
-// (title, abstract, provenance) is not a per-fact claim. Structure, not a word-list, picks the claims out.
+// (title, abstract, provenance) is not a per-fact claim. Structure.
 const claimsOf = (markdown: string): string[] =>
   markdown.split('\n').map((l) => l.trim()).filter((l) => l.startsWith('- '))
 
@@ -59,7 +59,7 @@ function scan(): { key: string; publications: number; sealedTheorems: number; fa
     : toUuid('citations-clean')
   // The HARMONIC reading — decidable ℤ/9 facts about the counts (their digital roots), and the BIJECTION invariant:
   // every sealed theorem should surface as exactly one cited claim, so total claims == total sealed theorems. The
-  // digital roots are proven arithmetic; any NUMEROLOGICAL meaning is UNVERIFIED (the ledger seals the number, not a
+  // digital roots are proven arithmetic; any NUMEROLOGICAL meaning is UNVERIFIED (the ledger seals the number
   // significance). The bijection, by contrast, IS a real integrity invariant — a drift in it means a lost citation.
   const totalClaims = perPublication.reduce((n, p) => n + p.claims, 0)
   const harmonic = {
@@ -84,7 +84,7 @@ if (prev && prev.key === key) {
   const totalClaims = report.perPublication.reduce((n, p) => n + p.claims, 0)
   console.log(`audit-citations (purely ledger-derived): ${report.publications} publications, ${totalClaims} claims.`)
   console.log(`  FABRICATED (cite a key not in the ledger) : ${report.fabricated}   ← the only ledger-derivable violation`)
-  console.log(`  UNCITED    (a claim linking no proof)      : ${report.uncited}   ← revealed as unbacked, not a violation`)
+  console.log(`  UNCITED    (a claim linking no proof)      : ${report.uncited}   ← revealed as unbacked`)
   console.log(`  HARMONIC   claims ${report.harmonic.claims} (dr ${report.harmonic.digitalRoots.claims}) ${report.harmonic.bijection ? '==' : '!='} theorems ${report.harmonic.theorems} (dr ${report.harmonic.digitalRoots.theorems}) · publications ${report.publications} (dr ${report.harmonic.digitalRoots.publications})` + (report.harmonic.bijection ? '   ← bijection holds' : '   ← BIJECTION BROKEN: a citation drifted'))
   for (const p of report.perPublication.filter((p) => p.fabricated.length || p.uncited.length))
     console.log(`    • ${p.slug}: ${p.cited}/${p.claims} cited` + (p.fabricated.length ? `, ${p.fabricated.length} FABRICATED` : '') + (p.uncited.length ? `, ${p.uncited.length} uncited` : ''))

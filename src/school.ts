@@ -8,8 +8,8 @@
 // the laws already encoded in the gate. Nothing here is a promise about the project — each field is a reading of
 // it, and a reading moves when the project does.
 //
-// GRADE LEVELS ARE MEASURED, NOT ASSIGNED, and that is the second thing this file exists to fix. A catalogue of
-// wings with no levels and no order is a list, not a school: a reader cannot tell where to start. The ledger
+// GRADE LEVELS ARE MEASURED. A catalogue of
+// wings with no levels and no order is a list. The ledger
 // already holds the honest difficulty measure — lean/heartbeats.json records what each proof cost the Lean kernel
 // in decide-steps — so the level is read off that and nothing else. See levelOf for why it is a DECADE of cost and
 // not a percentile: a decade is a property of the course, a percentile is a property of the catalogue, and only
@@ -17,7 +17,7 @@
 //
 // ACCREDITATION IS THE SECTION THAT MATTERS MOST, and it is the one where honesty costs something. uuidna is NOT
 // an accredited institution and awards no recognised qualification. Saying so plainly is not a disclaimer bolted
-// on; it is the same law that governs every theorem here — UNVERIFIED means undecided, never false, and a claim
+// on; it is the same law that governs every theorem here — UNVERIFIED means undecided
 // without a witness is not made. A school page implying credentials it does not hold would be the one overclaim
 // this ledger could not survive, because everything else it publishes depends on its claims being checkable.
 //
@@ -55,7 +55,7 @@ const decideSteps = (): Record<string, number> => {
 }
 
 /** THE LEVEL OF A COST — the decade it falls in: 1, 10, 100, 1000 … An unmeasured or nonsensical cost has NO level
- *  (0), which is the ledger's own law applied to a curriculum: undecided here, never "beginner by default".
+ *  (0), which is the ledger's own law applied to a curriculum: undecided here"beginner by default".
  *
  *  Why a decade and not a percentile. A percentile level is a RANKING: the same course changes level when a
  *  different course is added, removed or re-measured, so a reader who learned "level 2" last month is holding a
@@ -73,7 +73,7 @@ export function levelOf(steps: number): number {
 export const bandOf = (level: number): string => level === 0 ? 'unmeasured' : `${level}–${level * 10 - 1} steps`
 
 /** The LOWER median of a sorted list — an element of the list, so the course's cost stays an integer the kernel
- *  actually paid for one of its lessons, never an average of costs nothing ever cost. Empty = unmeasured. */
+ *  actually paid for one of its lessons. Empty = unmeasured. */
 const lowerMedian = (sorted: number[]): number => sorted.length === 0 ? 0 : sorted[(sorted.length - 1) >> 1]
 
 /** unmeasured courses and levels sort LAST — an absent measure is not a low one. */
@@ -132,7 +132,7 @@ export function levels(cost?: Record<string, number>): Level[] {
 
 const line = (label: string, value: string | number): string => `${label}: ${value}`
 
-/** THE MANIFEST IS THE SOURCE, NOT MY MEMORY OF IT.
+/** THE MANIFEST IS THE SOURCE.
  *
  *  Eight of these eleven sections were authored strings — the licence, the Node requirement, the dependency count,
  *  every contact URL — each of which is a field in package.json that I retyped. A retyped field is a claim that
@@ -187,7 +187,7 @@ export function school(): School {
     ] },
     { id: 'levels-courses', title: 'Levels and courses', computed: true, body: [
       'A course is a proof wing and a lesson is a theorem in it, so the catalogue is the ledger — not a syllabus',
-      'anyone maintains. The LEVEL is measured, not assigned: lean/heartbeats.json records what each proof cost',
+      'anyone maintains. The LEVEL is measured.json records what each proof cost',
       'the Lean kernel in decide-steps, a course takes the median of its own lessons, and the level is the decade',
       'that median falls in — a level-10 course settles in tens of steps on your machine, a level-1000 course in',
       'thousands. Because the level is read off one course alone, it does not move when other courses are added or',
@@ -197,7 +197,7 @@ export function school(): School {
       cs.length ? `Start here: ${cs[0].code} ${cs[0].title} — ${cs[0].lessons} lessons, its cheapest ${cs[0].entry} steps` : '',
     ].filter(Boolean) },
     { id: 'calendar', title: 'Academic calendar', computed: true, body: [
-      'There are no terms and no intake dates — the ledger releases when its gate is green, not on a timetable.',
+      'There are no terms and no intake dates — the ledger releases when its gate is green.',
       'But releases ARE the dated events, and they are recorded rather than announced:',
       line('Releases to date', releases().length),
       ...releases().slice(0, 5).map((r) => '  ' + r),
@@ -216,11 +216,11 @@ export function school(): School {
       'recompute offline.',
     ] },
     { id: 'handbook', title: 'Handbook and policies', computed: true, body: [
-      'The policies are the gate, not a document — each is enforced on every change:',
-      '  A claim cites a sealed theorem or it is UNVERIFIED. Unverified means undecided here, never false.',
+      'The policies are the gate— each is enforced on every change:',
+      '  A claim cites a sealed theorem or it is UNVERIFIED. Unverified means undecided here.',
       '  A measured quantity may be bracketed in integers; only a defined constant may seal as an equality.',
       '  A check that cannot fail is not a check, and is reported as void rather than passed.',
-      '  Refutation is a result. A refuted claim establishes its negation and is recorded, never discarded.',
+      '  Refutation is a result. A refuted claim establishes its negation and is recorded.',
       line('Laws currently sealed as theorems', lessons),
     ] },
     { id: 'staff', title: 'Teachers and counsellors', computed: true, body: [
@@ -236,7 +236,7 @@ export function school(): School {
     ] },
     { id: 'contact', title: 'Contact, support and announcements', computed: true, body: [
       'Questions, corrections and news are handled in the open. Corrections are the fastest way to improve a',
-      'lesson — a refutation is recorded as a result, never treated as a complaint.',
+      'lesson — a refutation is recorded as a result.',
       line('Repository', mf('repository', 'url').replace(/^git\+/, '')),
       line('Technical support', mf('bugs', 'url')),
       line('Home', mf('homepage')),

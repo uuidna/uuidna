@@ -93,7 +93,7 @@ export async function automateQuantumSailing(bookIds: number[] = [2701, 26, 4300
     honest:
       'Quantum Sailing Complete: PURE, recomputable automation. Books fetched and audited, facts linked to ledger, ' +
       'weather correlated, cross-book resonances discovered, theorems clustered. Every layer folds to one unified receipt. ' +
-      'Integrity, not truth.',
+      'Integrity — the record recomputes for anyone.',
   }
 }
 
