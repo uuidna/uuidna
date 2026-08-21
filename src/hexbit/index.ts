@@ -2,7 +2,7 @@
 //
 // Every width in this ledger is a hexbit width. A hexbit is 4 bits and 16 states; thirty-two of them are one
 // uuid, 128 bits entire; and the commission is two, so 128 / 2 = 64 — the leverage, from either side. That is
-// `captain_coins_unlock_the_uuid`, and this module is nothing but that theorem made callable: the constants are
+// `key_floor_is_one_uuid` (32 * 4 = 128), and this module is nothing but that theorem made callable: the constants are
 // its conjuncts and the conversions are its arithmetic. Change the theorem and this changes with it; change this
 // and the guard says so.
 //
@@ -18,7 +18,7 @@
 /** 4 bits, 16 states — the qubit-tile the ledger computes in. */
 export const HEXBIT_BITS = 4
 
-/** 32 hexbits = 128 bits = one uuid, entire (`captain_coins_unlock_the_uuid`: 32 * 4 = 128). */
+/** 32 hexbits = 128 bits = one uuid, entire (`key_floor_is_one_uuid`: 32 * 4 = 128). */
 export const UUID_HEXBITS = 32
 export const UUID_BITS = UUID_HEXBITS * HEXBIT_BITS
 

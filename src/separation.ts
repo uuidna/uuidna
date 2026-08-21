@@ -5,8 +5,8 @@
 //   SAILING     a boat cannot point into the wind. `no_go_zone : 45 + 45 = 90` is the cone it cannot steer into.
 //               It alternates two headings it CAN hold, and `tacking_cancels_leeway : (4 + (-4)) = 0` says what
 //               happens — the cross-wind parts annihilate and what survives is progress along the forbidden axis.
-//   THE VORTEX  doubling never lands on 3, 6 or 9 (`powers_avoid_triangle`, decided from six cases because
-//               2^6 = 1 mod 9 closes the walk). The mirror reaches them (`mirror_opens_triangle`), and the mirror
+//   THE VORTEX  doubling never lands on 3, 6 or 9 — the orbit is [1,2,4,8,7,5] (`doubling_circuit`), six cases because
+//               2^6 = 1 mod 9 closes the walk. The mirror reaches them, and the mirror
 //               is an INVOLUTION: applied twice it is the identity, so it separates nothing on its own.
 //   ISOTOPES    deuterium cannot be filtered from hydrogen — they are the same element and no sieve sees the
 //               difference. The industrial route is a reversible exchange run at two temperatures, where the

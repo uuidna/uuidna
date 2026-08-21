@@ -367,8 +367,8 @@ export function actionsGaps(): Gap[] {
 // proposition, never whether the proposition means what its key says. This finder is that missing half.
 // EXEMPT: the declared `oos_` scope markers, whose whole purpose is to be void — a named boundary.
 /** THREE CONTENT WORDS CARRY THE FACT; MORE IS ENTROPY — and entropy fails hard. A key that needs a fourth word is
- *  usually carrying scaffolding rather than content: `forged_theorem_costs_2_power_7_bits` is `forgery_costs_128`,
- *  and this session's own `doubling_ladder_spans_octave_codon_address` folded to `octave_codon_address` with nothing
+ *  usually carrying scaffolding rather than content: forged_theorem_costs_2_power_7_bits was forgery_costs_128,
+ *  and this session's own doubling_ladder_spans_octave_codon_address folded to octave_codon_address with nothing
  *  lost — the three words that survive ARE the fact. Grammatical filler (is/the/of/by/only/…) is not counted, since
  *  it carries nothing either way.
  *
@@ -1948,7 +1948,7 @@ const COMPUTED_NAMES: { name: RegExp; needs: RegExp; why: string }[] = [
 
 /** A BACKTICKED KEY IS A CITATION, AND A CITATION TO NOTHING IS A HACK.
  *
- *  THE VIOLATION THAT MADE IT (2026-08-21): docs/school.md cited `clay_verified_ne_solved` in three places, a key
+ *  THE VIOLATION THAT MADE IT (2026-08-21): docs/school.md cited a purged Clay key in three places, one
  *  purged with the Clay wing — and the guard was GREEN. citationsGaps checks /theorem/<key> LINKS and slimGate reads
  *  `theorem <key>`, so a bare backticked key was examined by nothing. Eleven more dead names were found the same way,
  *  and the hosted edge still serves some of them from an older ledger, which is exactly how one gets written in good
@@ -1961,12 +1961,23 @@ export function deadkeyGaps(): Gap[] {
   const gaps: Gap[] = []
   const sealed = new Set((theorems() as { key: string }[]).map((t) => t.key))
   const tools = new Set((MCP_CATALOG as { name: string }[]).map((t) => t.name))
-  const docs = join(ROOT, 'docs')
-  const walk = (d: string): string[] => existsSync(d)
+  // EVERY SURFACE A READER TRUSTS, not just the site. A dead key in a source comment or a package doc reads exactly
+  // as authoritative as one on a page — the same violation, one layer over. TESTS ARE EXEMPT BY NAME: they carry
+  // deliberate NEGATIVE FIXTURES (no_such_key) fed to the refusers to prove the refusers refuse, and a finder that
+  // flagged its own controls would be demanding the suite stop testing failure. Generated trees are skipped for the
+  // usual reason — fixing a copy is drift; the source it came from is in scope.
+  const walk = (d: string, ext: string): string[] => existsSync(d)
     ? readdirSync(d, { withFileTypes: true }).flatMap((e) =>
-        e.isDirectory() && !e.name.startsWith('.') ? walk(join(d, e.name)) : e.name.endsWith('.md') ? [join(d, e.name)] : [])
+        e.isDirectory() && !e.name.startsWith('.') && !['node_modules', 'dist', 'seeds', 'chunks', 'tests'].includes(e.name)
+          ? walk(join(d, e.name), ext)
+          : e.name.endsWith(ext) ? [join(d, e.name)] : [])
     : []
-  for (const f of walk(docs)) {
+  const surfaces = [
+    ...walk(join(ROOT, 'docs'), '.md'),
+    ...walk(join(ROOT, 'src'), '.ts'),
+    ...walk(join(ROOT, 'packages'), '.md'),
+  ]
+  for (const f of surfaces) {
     const rel = relative(ROOT, f)
     fileLines(f).forEach((l, i) => {
       for (const m of l.matchAll(/`([a-z][a-z0-9]*(?:_[a-z0-9]+){2,})`/g)) {

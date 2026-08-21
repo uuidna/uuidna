@@ -12,7 +12,7 @@
 // from, never validation of it.
 //
 // WHY THIS WING EXISTS IN THIS FORM: its predecessor (src/scripts/martial-arts-theorems.ts
-// wired) paired grand names with trivial proofs — `center_of_gravity_stability` proven by `1 = 1`, Newton's third law
+// wired) paired grand names with trivial proofs — center_of_gravity_stability proven by 1 = 1, Newton's third law
 // by `1 + 1 = 2`, conservation of momentum by `2 * 3 = 6`. Each Lean line was true and none of them proved its own
 // name. That is the one thing this ledger must never contain, so the claims were dropped and only the arithmetic that
 // stands on its own was kept, renamed for what it actually proves. A theorem's name is not its proof.
