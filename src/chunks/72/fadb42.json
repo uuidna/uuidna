@@ -1,0 +1,12 @@
+{
+  "handle": "72fadb42",
+  "address": "72fadb42-0809-8be9-9910-e639543ef456",
+  "statement": "((words.filter (fun w => wt w == 0)).length = 1) ∧ ((words.filter (fun w => wt w == 3)).length = 7) ∧ ((words.filter (fun w => wt w == 4)).length = 7) ∧ ((words.filter (fun w => wt w == 7)).length = 1) ∧ (words.all (fun w => [0,3,4,7].contains (wt w)))",
+  "tactic": "decide",
+  "keys": [
+    "weights_enumerate"
+  ],
+  "files": [
+    "Hamming.lean"
+  ]
+}

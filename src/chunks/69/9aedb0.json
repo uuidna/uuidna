@@ -1,0 +1,12 @@
+{
+  "handle": "699aedb0",
+  "address": "699aedb0-6a8f-8227-93ab-b4353723d466",
+  "statement": "(([2,6,7,8,9] ++ [0,1,3,4,5]).length = 10) ∧ ((List.range 10).all (fun d => ([2,6,7,8,9] ++ [0,1,3,4,5]).contains d)) ∧ ([2,6,7,8,9].all (fun d => !([0,1,3,4,5].contains d)))",
+  "tactic": "decide",
+  "keys": [
+    "digits_split_five_five"
+  ],
+  "files": [
+    "Seats.lean"
+  ]
+}

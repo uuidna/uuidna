@@ -4,11 +4,9 @@
   "statement": "110 - 108 = 2",
   "tactic": "decide",
   "keys": [
-    "captain_commission_two_coins",
     "two_coins"
   ],
   "files": [
-    "AntiFraud.lean",
     "Coins.lean"
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "handle": "ab5cc561",
+  "address": "ab5cc561-f47f-84ec-8116-2597061c3fd7",
+  "statement": "(List.range 7).map (fun n => 3^n) = [1,3,9,27,81,243,729]",
+  "tactic": "decide",
+  "keys": [
+    "trinities_span_powers"
+  ],
+  "files": [
+    "Trinities.lean"
+  ]
+}

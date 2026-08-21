@@ -1,0 +1,12 @@
+{
+  "handle": "abc0e9ad",
+  "address": "abc0e9ad-52d7-815c-bc53-42e5505398f3",
+  "statement": "([2,6,7,8,9].length = 5) ∧ ([0,1,3,4,5].length = 5) ∧ (5 + 5 = 10)",
+  "tactic": "decide",
+  "keys": [
+    "covering_seeds_are_named"
+  ],
+  "files": [
+    "Orbits.lean"
+  ]
+}

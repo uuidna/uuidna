@@ -4,14 +4,14 @@
 // sit opposite (a +6 half-turn, self-inverse), three primaries alternate with three secondaries (3+3=6, the
 // hexagon), and the classical harmonies are the regular polygons on the wheel: the triad is thirds (+4, {0,4,8}),
 // the square is fourths (+3, {0,3,6,9}). True colour is 8 bits a channel (2⁸ = 256), 2²⁴ = 16777216 in all; a tint
-// and its shade complement to full value. HONEST SCOPE (integrity, not truth): this is the ARITHMETIC of the colour
+// and its shade complement to full value. SCOPE (integrity, not truth): this is the ARITHMETIC of the colour
 // wheel and its harmonies — the geometry a colourist works in — NOT a claim that beauty, taste, or which colours
 // "go together" is objective; harmony here means the polygon, not a verdict on art. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
 const FACTS = [
   { key: 'fourth_ray_is_green_band',
-    why: 'THE HEART DISCOVERY: each rosette ray offsets the hue wheel by 360/7 = 51°, and the FOURTH ray (index 3, counting the first as 1) lands at 3·51 = 153° — squarely the green band. The seven rays walk the wheel as seven stations, and the fourth is green — the arithmetic behind the observation that two seven-fold systems agree. HONEST SCOPE: the offset arithmetic is sealed; any chakra reading of it stays UNVERIFIED — the number is sealed, the meaning is not.',
+    why: 'THE HEART DISCOVERY: each rosette ray offsets the hue wheel by 360/7 = 51°, and the FOURTH ray (index 3, counting the first as 1) lands at 3·51 = 153° — squarely the green band. The seven rays walk the wheel as seven stations, and the fourth is green — the arithmetic behind the observation that two seven-fold systems agree. the offset arithmetic is sealed; any chakra reading of it stays UNVERIFIED — the number is sealed, the meaning is not.',
     js: () => (360 - (360 % 7)) / 7 === 51 && 3 * 51 === 153,
     lean: 'theorem fourth_ray_is_green_band : (360 / 7 = 51) ∧ (3 * 51 = 153) := by decide' },
 
@@ -91,13 +91,13 @@ const FACTS = [
     lean: 'theorem polarity_angles_are_the_system_counts : (360 / 9 = 40) ∧ (360 / 6 = 60) ∧ (360 / 4 = 90) ∧ (360 / 3 = 120) ∧ (2 * 60 = 120) ∧ (2^2 = 4) := by decide' },
 
   { key: 'no_digit_is_an_exact_complement',
-    why: 'THE HONEST BOUNDARY BETWEEN THE TWO INVOLUTIONS — the dz mirror (d ↦ 10−d, an involution on DIGITS) is not the colour complement (h ↦ h+180°, an involution on HUES), because no whole number of A432 steps reaches a half turn: 180 % 40 = 20 ≠ 0, and 4·40 = 160 < 180 < 200 = 5·40 — the complement of any digit\'s hue falls strictly BETWEEN two digits. The 9-lattice and the 6-lattice meet only at multiples of their common 120°. Two involutions, one wheel, and they do not coincide — stated rather than smoothed over.',
+    why: 'THE BOUNDARY BETWEEN THE TWO INVOLUTIONS — the dz mirror (d ↦ 10−d, an involution on DIGITS) is not the colour complement (h ↦ h+180°, an involution on HUES), because no whole number of A432 steps reaches a half turn: 180 % 40 = 20 ≠ 0, and 4·40 = 160 < 180 < 200 = 5·40 — the complement of any digit\'s hue falls strictly BETWEEN two digits. The 9-lattice and the 6-lattice meet only at multiples of their common 120°. Two involutions, one wheel, and they do not coincide — stated rather than smoothed over.',
     js: () => (180 % 40 === 20) && (4 * 40 === 160) && (160 < 180) && (180 < 200) && (5 * 40 === 200),
     lean: 'theorem no_digit_is_an_exact_complement : (180 % 40 = 20) ∧ (4 * 40 = 160) ∧ (160 < 180) ∧ (180 < 200) ∧ (5 * 40 = 200) := by decide' },
 ]
 
 emit({
   file: 'Colour.lean', skill: 'colour',
-  header: 'THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. The geometry of the wheel, NOT a claim that taste or beauty is objective.',
+  header: 'THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

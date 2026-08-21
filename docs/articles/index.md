@@ -10,76 +10,98 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | article | theorems |
 |---|---|
 | [The sound domain](/articles/acoustics) | 8 |
-| [Anti-fraud detection](/articles/anti-fraud) | 24 |
+| [lean/Affine.lean](/articles/affine) | 6 |
+| [lean/Alignment.lean](/articles/alignment) | 6 |
+| [Anti-fraud detection](/articles/anti-fraud) | 8 |
 | [The fixed stars](/articles/astronomy) | 11 |
-| [The detectors, proven](/articles/audit) | 9 |
+| [The detectors, proven](/articles/audit) | 17 |
 | [The audit game](/articles/audit-game) | 11 |
 | [Applied structure — the science pairs](/articles/bio-physics) | 16 |
+| [lean/Boolean.lean](/articles/boolean) | 6 |
+| [lean/Byte.lean](/articles/byte) | 5 |
 | [The calendar](/articles/calendar) | 9 |
+| [lean/Channel.lean](/articles/channel) | 6 |
 | [The reactions domain](/articles/chemistry) | 8 |
 | [The chessboard](/articles/chess) | 13 |
 | [The chess horizon](/articles/chessgames) | 24 |
 | [The cipher & the strand](/articles/cipher) | 27 |
 | [The seven reflected](/articles/clay) | 14 |
+| [lean/Clock.lean](/articles/clock) | 6 |
 | [The error-correcting codes](/articles/codes) | 8 |
 | [The two coins & the 64](/articles/coins) | 19 |
 | [The colour wheel](/articles/colour) | 17 |
 | [Command authentication](/articles/command) | 7 |
+| [lean/Contribution.lean](/articles/contribution) | 6 |
 | [The 8×8 core](/articles/core) | 64 |
 | [The fused ring](/articles/crt) | 8 |
 | [Self-discovered](/articles/discover) | 16 |
-| [The honest court](/articles/disputed-topics) | 15 |
 | [Division by zero](/articles/div-by-zero) | 8 |
 | [Diving — trimix gas laws](/articles/diving) | 8 |
+| [lean/DoubleTorus.lean](/articles/double-torus) | 6 |
 | [The cut](/articles/editing) | 14 |
 | [The document fold](/articles/editor) | 4 |
 | [The field domain](/articles/electromagnetism) | 13 |
 | [The time coordinate](/articles/ephemeris) | 8 |
 | [The exploit folds](/articles/exploits) | 13 |
 | [The Glagolitic numerals & Pliska rosette](/articles/glagolitic) | 10 |
+| [lean/Grid.lean](/articles/grid) | 6 |
+| [lean/Hamming.lean](/articles/hamming) | 6 |
+| [lean/HandleSpan.lean](/articles/handle-span) | 6 |
 | [The hardware-verifiable binary algebra](/articles/hardware) | 14 |
 | [The harmony of pairs](/articles/harmony) | 8 |
+| [lean/Hexbit.lean](/articles/hexbit) | 6 |
 | [The identifiers](/articles/identifiers) | 6 |
-| [The physics infinities, made finite](/articles/infinity) | 9 |
+| [The physics infinities, made finite](/articles/infinity) | 13 |
+| [lean/Isometry.lean](/articles/isometry) | 6 |
 | [The legal vocabulary](/articles/legal) | 10 |
 | [The stance and the angle](/articles/martial-arts) | 4 |
 | [The matching](/articles/matching) | 8 |
 | [The paper on trial](/articles/mo-mbhstar1) | 17 |
 | [The bond domain](/articles/molecular) | 8 |
 | [Navigation — bounded geometry](/articles/navigation) | 5 |
-| [The algebra of the neuron](/articles/neuro) | 9 |
+| [The algebra of the neuron](/articles/neuro) | 18 |
 | [The heaps](/articles/nim) | 93 |
+| [lean/Notation.lean](/articles/notation) | 6 |
 | [One leap](/articles/one-leap) | 1 |
 | [The light domain](/articles/optics) | 8 |
 | [The linear optimum](/articles/optimisation) | 9 |
+| [lean/Orbits.lean](/articles/orbits) | 9 |
 | [The OS-integrity algebra](/articles/os) | 7 |
 | [The pentagram & the Fibonacci digits](/articles/pentagram) | 13 |
+| [lean/Phase.lean](/articles/phase) | 6 |
 | [The exposure](/articles/photography) | 8 |
 | [The mix](/articles/production) | 10 |
 | [Propulsion — Newtonian & bounded](/articles/propulsion) | 5 |
+| [lean/ProseTrial.lean](/articles/prose-trial) | 6 |
 | [The instrument](/articles/psychology) | 8 |
 | [The quantum computer](/articles/quantum) | 50 |
 | [The rules of inference](/articles/reasoning) | 25 |
+| [lean/Reflection.lean](/articles/reflection) | 6 |
 | [The spacetime domain](/articles/relativity) | 8 |
 | [The report](/articles/report) | 8 |
+| [lean/Reversal.lean](/articles/reversal) | 6 |
 | [The ring ℤ/9](/articles/ring) | 234 |
 | [The rosette ℤ/7](/articles/rosette) | 148 |
 | [The points-of-sail domain](/articles/sailing) | 9 |
-| [Quantum sailing seals](/articles/sailing-seals) | 13 |
 | [The sanitise standards](/articles/sanitize) | 7 |
+| [lean/Seats.lean](/articles/seats) | 6 |
 | [The layered defence](/articles/security) | 9 |
-| [The sequence & reflection group](/articles/sequence) | 28 |
-| [The software-verifiable algebra](/articles/software) | 11 |
+| [The sequence & reflection group](/articles/sequence) | 32 |
+| [The software-verifiable algebra](/articles/software) | 15 |
 | [The Platonic solids in every dimension](/articles/solids) | 12 |
 | [The spectrum](/articles/spectrum) | 8 |
+| [lean/SpectrumHex.lean](/articles/spectrum-hex) | 6 |
 | [The structures domain](/articles/statics) | 8 |
 | [Maxwell's rule](/articles/structures) | 3 |
+| [lean/Subgroups.lean](/articles/subgroups) | 6 |
 | [The energy domain](/articles/thermodynamics) | 12 |
 | [The tides](/articles/tides) | 7 |
 | [The lay of the land](/articles/topography) | 18 |
+| [lean/Trinities.lean](/articles/trinities) | 6 |
 | [The measures of type](/articles/typesetting) | 14 |
 | [The uuid mix space](/articles/uuid-mix) | 1 |
 | [The vortex algebra](/articles/uuidna) | 15 |
+| [The vector equilibrium — radius equals edge](/articles/vector-equilibrium) | 12 |
 | [Ported from millennium-solutions](/articles/vortex) | 16 |
 
 ## The search on trial
@@ -88,7 +110,6 @@ The online wave's returns — each publication is what one trial of the quantum 
 content-addressed, verdicts computed, sealed backing cited, novelty leads remanded. Refreshed on the research cron.
 
 - [search-acoustics](/articles/search-acoustics)
-- [search-anti-fraud](/articles/search-anti-fraud)
 - [search-astronomy](/articles/search-astronomy)
 - [search-audit-game](/articles/search-audit-game)
 - [search-audit](/articles/search-audit)
@@ -106,7 +127,6 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-core](/articles/search-core)
 - [search-crt](/articles/search-crt)
 - [search-discover](/articles/search-discover)
-- [search-disputed-topics](/articles/search-disputed-topics)
 - [search-div-by-zero](/articles/search-div-by-zero)
 - [search-diving](/articles/search-diving)
 - [search-editing](/articles/search-editing)
@@ -142,7 +162,6 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-report](/articles/search-report)
 - [search-ring](/articles/search-ring)
 - [search-rosette](/articles/search-rosette)
-- [search-sailing-seals](/articles/search-sailing-seals)
 - [search-sailing](/articles/search-sailing)
 - [search-sanitize](/articles/search-sanitize)
 - [search-security](/articles/search-security)

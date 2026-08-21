@@ -8,7 +8,7 @@
 // core of that boundary: verification IS byte-equality (exact-copy), so a single changed byte, a truncation, or a
 // reordering breaks the match (a provenance is a SEQUENCE, not a set); the digest is a fixed 256 bits, the content-
 // address a fixed 128; and the non-determinism boundary is EXACTLY the two named modules — nowhere else. Each fact is
-// a decidable, AXIOM-FREE `by decide` particle. HONEST SCOPE: integrity, not truth, and not execution — uuidna SEALS
+// a decidable, AXIOM-FREE `by decide` particle. integrity, not truth, and not execution — uuidna SEALS
 // what an exact-copy verification decides, so a deployment can be verified against it; it does NOT run an operating
 // system, and no theorem here claims it does. A sealed integrity spec, not a booted OS.
 import { emit } from './lean-gen.js'
@@ -56,5 +56,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Os.lean', skill: 'os',
-  header: 'THE OS-INTEGRITY ALGEBRA — the third named layer, completing hardware → software → os: the decidable facts a DEPLOYMENT is verified against. uuidnaOS is a content-addressed PROVENANCE boundary (src/os pins an exact Alpine release, src/drivers the exact driver bundle, each checked against its PUBLISHED SHA-256 with uuidna\'s own pure-TS hash) — it NEVER boots, ports, links, or executes. This seals the decidable core: verification IS byte-equality (exact-copy), so a single-byte tamper, a truncation, or a reordering breaks the match (a provenance is a SEQUENCE, not a set); the digest is a fixed 256 bits, the content-address a fixed 128; and the non-determinism boundary is EXACTLY the two named modules. HONEST SCOPE: integrity, not truth, and not execution — uuidna seals what an exact-copy verification decides so a deployment can be verified against it; it does NOT run an operating system. A sealed integrity spec, not a booted OS.',
+  header: 'THE OS-INTEGRITY ALGEBRA — the third named layer, completing hardware → software → os: the decidable facts a DEPLOYMENT is verified against. uuidnaOS is a content-addressed PROVENANCE boundary (src/os pins an exact Alpine release, src/drivers the exact driver bundle, each checked against its PUBLISHED SHA-256 with uuidna\'s own pure-TS hash) — it NEVER boots, ports, links, or executes.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

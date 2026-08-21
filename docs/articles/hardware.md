@@ -5,9 +5,9 @@ description: "Computed from lean/Hardware.lean — 14 sealed theorems, every cla
 
 # The hardware-verifiable binary algebra
 
-> THE HARDWARE-VERIFIABLE BINARY ALGEBRA — the named nucleus of low-level combinational logic, each fact a decidable, axiom-free `by decide` particle. A bit is a Nat in {0,1}; a gate is arithmetic on bits (NOT a = 1−a, AND = a·b, OR = a+b−a·b, XOR = lxor, kernel-only); the layer seals the four gate truth tables, that XOR is addition mod 2, closure on the bit, NAND functional completeness (NAND rebuilds NOT/AND/OR — why chips are one repeated gate), De Morgan, the half- and full-adder, and the 2:1 multiplexer. These are the identities a hardware toolchain verifies a netlist AGAINST. HONEST SCOPE: integrity, not truth — uuidna SEALS this spec so a gate design can be verified against it; it does NOT fabricate a device, synthesise a netlist, or develop silicon. A sealed spec, not a chip. — held by [not_gate_truth_table](/theorem/not_gate_truth_table) and its 13 siblings below.
+> THE HARDWARE-VERIFIABLE BINARY ALGEBRA — the named nucleus of low-level combinational logic, each fact a decidable, axiom-free `by decide` particle. — held by [not_gate_truth_table](/theorem/not_gate_truth_table) and its 13 siblings below.
 
-**14 theorems**, from [not_gate_truth_table](/theorem/not_gate_truth_table) onward, each proven `by decide` in [lean/Hardware.lean](/lean/Hardware.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**14 theorems**, from [not_gate_truth_table](/theorem/not_gate_truth_table) onward, each proven `by decide` in [lean/Hardware.lean](/lean/Hardware.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 10 of its 14 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [not_gate_truth_table](/theorem/not_gate_truth_table). A boundary stated here is decided, not merely denied.
 
 ### The NOT gate as arithmetic: NOT a = 1 − a over a bit. Its truth table is [0,1] ↦ [1,0] — the one-input inverter, sealed exactly.
 The ledger holds this as [not_gate_truth_table](/theorem/not_gate_truth_table) — proven `by decide`, sorry-free:
@@ -107,9 +107,5 @@ The ledger holds this as [mux_selects_input](/theorem/mux_selects_input) — pro
 (List.range 8).all (fun n => (1 - n%2) * (n/2%2) + (n%2) * (n/4%2) == (if n%2 == 0 then n/2%2 else n/4%2))
 ```
 
-
-::: warning HONEST SCOPE
-integrity, not truth — uuidna SEALS this spec so a gate design can be verified against it; it does NOT fabricate a device, synthesise a netlist, or develop silicon. The boundary is confirmed by the wing's own sealed theorems — e.g. [not_gate_truth_table](/theorem/not_gate_truth_table) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

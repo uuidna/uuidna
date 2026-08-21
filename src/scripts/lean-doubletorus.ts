@@ -9,7 +9,7 @@
 // generators and ONE relation — five symbols — while the words over those generators grow without bound. That gap is
 // what this wing closes.
 //
-// THE HONEST LIMIT, STATED BEFORE THE FACTS. `by decide` cannot prove a group INFINITE; it settles finitely many
+// THE LIMIT, STATED BEFORE THE FACTS. `by decide` cannot prove a group INFINITE; it settles finitely many
 // cases. So infinity is NOT sealed here. What is sealed is that word counts OUTGROW the presentation and keep
 // outgrowing it at every length tested, and that the description itself never grows — 5 symbols, at every n. The
 // unboundedness is the reading; the growth is the fact.
@@ -57,5 +57,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'DoubleTorus.lean', skill: 'double-torus', defs: '',
-  header: 'THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing. The Euler characteristic χ = 2 − 2g gives 0 at genus one and −2 at genus two, so −χ = 2, the two coins (already sealed beside this as two_coins_is_double_torus and containment_is_genus_one). What no wing carried is the PRESENTATION: each handle contributes two generators, so a double torus has 2 × 2 = 4 — a₁, b₁, a₂, b₂ — bound by ONE relation, [a₁,b₁][a₂,b₂] = 1. Five symbols in total, and a free group on four generators is a different object, so the single constraint is exactly what closes the surface. A STEP COSTS THREE QUBITS: two to name the generator (2² = 4), one for its direction, giving a per-step alphabet of 8 = 2³. Words of length n number 8ⁿ — 1, 8, 64, 512, 4096, 32768 — and every length past the first already exceeds the five symbols describing them all, while the description never grows. PURE ARITHMETIC: every number is a genus, a generator count or a power of two; no ledger count appears and nothing is measured from the world. HONEST SCOPE: integrity, not truth — `by decide` settles finitely many cases and CANNOT prove a group infinite. The growth is sealed; that it never stops is the reading, and it is not sealed here.',
+  header: 'THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -8,7 +8,7 @@
 // safe access (indexing past the end returns the default, never faults), the compare-swap that orders (the basis of
 // every sort), and reversibility (undo of undo is the identity). Each is a finite, decidable, AXIOM-FREE `by decide`
 // fact and a 128-bit content-address particle. Indexing uses the axiom-free `nth` (structural, not List.getD).
-// HONEST SCOPE: integrity, not truth. uuidna SEALS the spec — the algebraic laws a correct program upholds — so an
+// integrity, not truth. uuidna SEALS the spec — the algebraic laws a correct program upholds — so an
 // implementation can be VERIFIED AGAINST it. It does not, and these theorems do not claim to, write, compile, or run
 // your program, nor prove an arbitrary program correct. A sealed spec a program is checked against — not the program.
 import { emit, NTH_DEF } from './lean-gen.js'
@@ -90,5 +90,5 @@ for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before
 import { cubeFacts } from './lean-cube.js'
 
 emit({ file: 'Software.lean', skill: 'software', defs: NTH_DEF,
-  header: 'THE SOFTWARE-VERIFIABLE ALGEBRA — the companion to the hardware layer, one level up: the algebraic correctness LAWS a program is verified AGAINST, each a decidable, axiom-free `by decide` particle. Losslessness (split-and-recompose is the identity), structure preservation (map keeps length, filter never grows, append adds), idempotent normalisation, total guarded division (no divide-by-zero crash), bounded termination (a shift loop halts), order-invariant reduction (safe to parallelise), the compare-swap that orders (every sort\'s basis), total safe indexing (no over-read), and reversibility (undo of undo is the identity). Indexing uses the axiom-free `nth`. HONEST SCOPE: integrity, not truth — uuidna SEALS the spec so an implementation can be verified against it; it does NOT write, compile, or run your program, nor prove an arbitrary program correct. A sealed spec a program is checked against — not the program.',
+  header: 'THE SOFTWARE-VERIFIABLE ALGEBRA — the companion to the hardware layer, one level up: the algebraic correctness LAWS a program is verified AGAINST, each a decidable, axiom-free `by decide` particle.',
   facts: [...FACTS.map((f) => ({ ...f, name: f.why })), ...cubeFacts()] })

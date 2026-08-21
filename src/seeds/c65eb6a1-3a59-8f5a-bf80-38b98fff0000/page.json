@@ -1,0 +1,177 @@
+{
+  "file": "Editor.lean",
+  "slug": "editor",
+  "status": "usable",
+  "address": "851c8eff-1632-8540-848c-a87f82021694",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Editor.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Editor.lean — GENERATED. The document fold — the serializer contract of a content-addressed document (a node SEQUENCE), proven ORDER-SENSITIVE (reordering moves the address, unlike the memory store's order-invariant fold), change-sensitive, and bounded-injective (the address determines the node sequence). The real fold is merkleRoot over uuids in src/editor.ts — collision-resistant, not collision-free. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- dfold — the positional, ORDER-SENSITIVE document fold. A document is a SEQUENCE (order is identity), so unlike the\n-- memory store's order-invariant fold this one CARRIES position: base 8 > every node value below, so on a fixed length\n-- it is base-8 place value — reordering or changing a node moves the number. Structural recursion over List, axiom-free.\ndef dfold : List Nat → Nat\n  | [] => 0\n  | x :: xs => x + 8 * dfold xs\n\n/-- the empty document folds to zero — the identity a fresh editor starts from, before a single node is authored -/\ntheorem editor_empty_doc_folds_zero : dfold [] = 0 := by decide\n\n/-- a document is a SEQUENCE, not a set — reordering two DISTINCT nodes MOVES the address (the opposite of the\n    memory store's order-invariant fold): for all a,b, either a=b or dfold [a,b] ≠ dfold [b,a] -/\ntheorem editor_fold_order_sensitive : (List.range 8).all (fun a => (List.range 8).all (fun b => (a == b) || (dfold [a,b] != dfold [b,a]))) := by decide\n\n/-- a document refuses DRIFT — a changed node MOVES the address: the three-node fold is unchanged iff the\n    changed node is unchanged, so any edit to a node is visible in the fold (tamper-evident) -/\ntheorem editor_fold_change_sensitive : (List.range 8).all (fun a => (List.range 8).all (fun a2 => (List.range 8).all (fun b => (List.range 8).all (fun c => (dfold [a,b,c] == dfold [a2,b,c]) == (a == a2))))) := by decide\n\n/-- on the bounded model the fold is INJECTIVE — the address DETERMINES the node sequence: two three-node\n    documents fold equal iff they are the same document, node for node (order and content). injective only where\n    it cannot overflow; the real merkleRoot fold is collision-RESISTANT, not collision-free (pigeonhole: 2^128 <\n    all documents) -/\ntheorem editor_fold_injective_bounded : (List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun a2 => (List.range 6).all (fun b2 => (List.range 6).all (fun c2 => (dfold [a,b,c] == dfold [a2,b2,c2]) == ((a == a2) && (b == b2) && (c == c2))))))) ) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-editor_empty_doc_folds_zero",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "the empty document folds to zero — the identity a fresh editor starts from, before a single node is authored"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "dfold [] = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem editor_empty_doc_folds_zero : dfold [] = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-editor_fold_order_sensitive",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "a document is a SEQUENCE, not a set — reordering two DISTINCT nodes MOVES the address (the opposite of the memory store's order-invariant fold): for all a,b, either a=b or dfold [a,b] ≠ dfold [b,a]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 8).all (fun a => (List.range 8).all (fun b => (a == b) || (dfold [a,b] != dfold [b,a])))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem editor_fold_order_sensitive : (List.range 8).all (fun a => (List.range 8).all (fun b => (a == b) || (dfold [a,b] != dfold [b,a]))) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-editor_fold_change_sensitive",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "a document refuses DRIFT — a changed node MOVES the address: the three-node fold is unchanged iff the changed node is unchanged, so any edit to a node is visible in the fold (tamper-evident)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 8).all (fun a => (List.range 8).all (fun a2 => (List.range 8).all (fun b => (List.range 8).all (fun c => (dfold [a,b,c] == dfold [a2,b,c]) == (a == a2)))))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem editor_fold_change_sensitive : (List.range 8).all (fun a => (List.range 8).all (fun a2 => (List.range 8).all (fun b => (List.range 8).all (fun c => (dfold [a,b,c] == dfold [a2,b,c]) == (a == a2))))) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-editor_fold_injective_bounded",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "on the bounded model the fold is INJECTIVE — the address DETERMINES the node sequence: two three-node documents fold equal iff they are the same document, node for node (order and content). HONEST SCOPE: injective only where it cannot overflow; the real merkleRoot fold is collision-RESISTANT, not collision-free (pigeonhole: 2^128 < all documents)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun a2 => (List.range 6).all (fun b2 => (List.range 6).all (fun c2 => (dfold [a,b,c] == dfold [a2,b2,c2]) == ((a == a2) && (b == b2) && (c == c2))))))) )"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem editor_fold_injective_bounded : (List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun a2 => (List.range 6).all (fun b2 => (List.range 6).all (fun c2 => (dfold [a,b,c] == dfold [a2,b2,c2]) == ((a == a2) && (b == b2) && (c == c2))))))) ) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

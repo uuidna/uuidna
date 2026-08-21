@@ -8,7 +8,7 @@
 // identity keeps within one unit of the golden section, with margins in the medieval 2:3:4:6 canon. The readable
 // measure sits at 66 characters inside the 45–75 a typographer keeps; leading exceeds the type it carries (12 on 14)
 // and snaps to a baseline grid; the type scale rises by octaves (8→16, 9→18); a ream is 500 sheets (20 quires of 25);
-// and a leaf has a recto (odd) and a verso (even). HONEST SCOPE: the arithmetic of the page — NOT a layout engine, a
+// and a leaf has a recto (odd) and a verso (even). the arithmetic of the page — NOT a layout engine, a
 // hyphenator, or a font renderer, and the √2 of the A-series is irrational (demarcated, not decided). COMPUTE →
 // GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
@@ -70,7 +70,7 @@ const FACTS = [
     lean: 'theorem type_scale_octave : (16 = 8 * 2) ∧ (18 = 9 * 2) := by decide' },
 
   { key: 'a_series_halving',
-    why: 'The ISO page folds like a signature: A4 halves into two A5, A5 into two A6 — [1,2,4] sheets of each become [2,4,8] of the next — so the area halves at every cut. HONEST SCOPE: the √2 side-ratio that lets the shape survive the fold is IRRATIONAL and is NOT decided here; the decidable fact is the doubling of the COUNT, the counting that a print shop actually meters paper by.',
+    why: 'The ISO page folds like a signature: A4 halves into two A5, A5 into two A6 — [1,2,4] sheets of each become [2,4,8] of the next — so the area halves at every cut. the √2 side-ratio that lets the shape survive the fold is IRRATIONAL and is NOT decided here; the decidable fact is the doubling of the COUNT, the counting that a print shop actually meters paper by.',
     js: () => JSON.stringify([1, 2, 4].map((n) => n * 2)) === JSON.stringify([2, 4, 8]),
     lean: 'theorem a_series_halving : [1,2,4].map (fun n => n * 2) = [2,4,8] := by decide' },
 
@@ -87,6 +87,6 @@ const FACTS = [
 
 emit({
   file: 'Typesetting.lean', skill: 'typesetting',
-  header: 'THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini\'s identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. HONEST SCOPE: the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided.',
+  header: 'THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini\'s identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

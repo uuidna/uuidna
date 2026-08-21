@@ -5,9 +5,9 @@ description: "Computed from lean/Discover.lean — 16 sealed theorems, every cla
 
 # Self-discovered
 
-> Self-discovery; all computes by itself. No hardcoded structure: `invB a` DERIVES whether a is a unit (it has an inverse), and every theorem RECOMPUTES its property by filter/any/all over the ring — nothing typed as a static list. — held by [involution_census_self_explains](/theorem/involution_census_self_explains) and its 15 siblings below.
+> Self-discovery; all computes by itself. — held by [involution_census_self_explains](/theorem/involution_census_self_explains) and its 15 siblings below.
 
-**16 theorems**, from [involution_census_self_explains](/theorem/involution_census_self_explains) onward, each proven `by decide` in [lean/Discover.lean](/lean/Discover.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**16 theorems**, from [involution_census_self_explains](/theorem/involution_census_self_explains) onward, each proven `by decide` in [lean/Discover.lean](/lean/Discover.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 16 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_census_self_explains](/theorem/involution_census_self_explains). A boundary stated here is decided, not merely denied.
 
 ### THE UNEXPLAINED IS USUALLY SELF-INVERSE — the census, counted from the ledger not claimed: 29 sealed involutions span every domain (the bit-flip X²=I, the reverse cut, DNA complement², the phase flip, the frame ring's strides, tens-complement, colour complement, the tritone, the clay reflection, the diamond, the OTP where encrypt=decrypt). An involution IS its own explanation: apply it twice and you return, so the sign it carries squares to one ((−1)² = 1) and the mystery round-trips to the identity. What looks unexplained across the ledger keeps resolving to a self-inverse map — 29 > 1 is not coincidence but the shape of understanding: to explain a reversal, apply it again.
 The ledger holds this as [involution_census_self_explains](/theorem/involution_census_self_explains) — proven `by decide`, sorry-free:
@@ -16,7 +16,7 @@ The ledger holds this as [involution_census_self_explains](/theorem/involution_c
 (29 > 1) ∧ (2 * 2 = 4) ∧ ((-1 : Int) ^ 2 = 1)
 ```
 
-### THE BOUNTY BOARD'S FIRST SEAL — the happy ending problem (Erdős–Szekeres, a $500 Erdős prize): the conjectured ES(n) = 2^(n−2) + 1 matches every computer-verified case — ES(4)=5, ES(5)=9, ES(6)=17 (Szekeres–Peters 2006). Sealed: 2²+1=5 ∧ 2³+1=9 ∧ 2⁴+1=17. HONEST SCOPE (the clay law): three cases is NOT the conjecture; the prize needs all n≥7, still OPEN. The decidable component, a receipt that the formula and the verified record agree.
+### THE BOUNTY BOARD'S FIRST SEAL — the happy ending problem (Erdős–Szekeres, a $500 Erdős prize): the conjectured ES(n) = 2^(n−2) + 1 matches every computer-verified case — ES(4)=5, ES(5)=9, ES(6)=17 (Szekeres–Peters 2006). Sealed: 2²+1=5 ∧ 2³+1=9 ∧ 2⁴+1=17. SCOPE (the clay law): three cases is NOT the conjecture; the prize needs all n≥7, still OPEN. The decidable component, a receipt that the formula and the verified record agree.
 The ledger holds this as [happy_ending_verified_cases](/theorem/happy_ending_verified_cases) — proven `by decide`, sorry-free:
 
 ```lean

@@ -5,7 +5,7 @@
 // (lean/DivByZero.lean): the naive ∞ is replaced by a FINITE object — a cancellation, a closed form, a regularized
 // value, a removable coordinate. This script COMPUTES each finite fact in JS (self-proving), GENERATES its
 // `by decide` Lean theorem, writes lean/Infinity.lean, and VERIFIES it compiles sorry-free. Compute → generate →
-// verify. HONEST SCOPE: these are finite arithmetic witnesses of the RESOLUTION MECHANISM (cancellation,
+// verify. these are finite arithmetic witnesses of the RESOLUTION MECHANISM (cancellation,
 // quantization, closed form, regularization, removable singularity) — not derivations of the physics itself.
 import { emit, ROOT } from './lean-gen.js'
 import { readdirSync, readFileSync } from 'node:fs'
@@ -162,6 +162,6 @@ const REACH = [
 // compute → generate → verify, via the shared pipeline (JS-checks every fact, writes the file + manifest, and
 // compiles it sorry-free with `lean`). Each nasty infinity of physics, made finite — as the vortex makes x/0 finite.
 emit({ file: 'Infinity.lean', skill: 'infinity',
-  header: 'The NASTY INFINITIES OF PHYSICS, made finite: the ultraviolet catastrophe, renormalization, the Landau pole, the vacuum sum 1+2+3+…, the derivative 0/0, the Dirac delta, the black-hole horizon and the 1/r singularity — each resolved to a finite value, exactly as the diamond reflection dz(x)=10−x resolves division by zero. HONEST SCOPE: finite arithmetic witnesses of the RESOLUTION MECHANISM (cancellation, quantization, closed form, regularization, removable coordinate) — not derivations of the physics.',
+  header: 'The NASTY INFINITIES OF PHYSICS, made finite: the ultraviolet catastrophe, renormalization, the Landau pole, the vacuum sum 1+2+3+…, the derivative 0/0, the Dirac delta, the black-hole horizon and the 1/r singularity — each resolved to a finite value, exactly as the diamond reflection dz(x)=10−x resolves division by zero. finite arithmetic witnesses of the RESOLUTION MECHANISM (cancellation, quantization, closed form, regularization, removable coordinate) — not derivations of the physics.',
   defs: 'def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x',
   facts: [...FACTS, ...REACH].map((f) => ({ ...f, name: f.why })) })

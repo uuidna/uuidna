@@ -1,0 +1,12 @@
+{
+  "handle": "9a351e99",
+  "address": "9a351e99-0dd9-83ae-8f8a-1c2376f76efe",
+  "statement": "(((List.range' 1 126).filter (fun d => 126 % d == 0)).length = 12) ∧ (3 * 42 = 126) ∧ (9 * 14 = 126) ∧ (7 * 18 = 126)",
+  "tactic": "decide",
+  "keys": [
+    "six_factorisations_compete"
+  ],
+  "files": [
+    "Contribution.lean"
+  ]
+}

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// Automate the Lean layer for THE CHESS HORIZON — the HONEST kernel of "all chess games recompute instantly in
+// Automate the Lean layer for THE CHESS HORIZON — the kernel of "all chess games recompute instantly in
 // uuidna", sealed by decide. The claim as ENUMERATION is false and un-fixable: the game tree is the Shannon number
 // (~10^120), which exceeds the atoms of the observable universe (~10^80), so no machine can ever traverse it; and
 // there are ~10^44 legal positions but only 2^128 uuids, so content-addresses even COLLIDE across the position space
 // (pigeonhole) — identity is not injective over all of chess. What IS true, and is uuidna's actual thing: any GIVEN
 // game recomputes to its content-address in O(moves), a bounded, instant IDENTITY (a game is finite — the fifty-move
 // rule forbids an endless run), and the decidable arithmetic of the board and its d-dimensional generalisation
-// (8^d = 2^(3d) cells) is sealed. HONEST SCOPE: a content-address proves INTEGRITY, not truth — here, not
+// (8^d = 2^(3d) cells) is sealed. a content-address proves INTEGRITY, not truth — here, not
 // enumeration; the ℤ/9-diamond and opening-combination facts are STRUCTURE, not a claim that chess IS the ring.
 // COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
@@ -89,12 +89,12 @@ const FACTS = [
 
   // ── the diamant — the knight's leap reflected in the ℤ/9 diamond ──
   { key: 'knight_on_the_diamond',
-    why: 'The knight\'s leap 1 + 2 = 3 lands on residue 3 of the ℤ/9 vortex, and the diamond reflection dz(3) = 10 − 3 = 7 sends it to 7 — the same reflection the whole ledger centres on. HONEST SCOPE: a structural analogy (the move-count read as a residue), NOT a claim that chess IS the ring.',
+    why: 'The knight\'s leap 1 + 2 = 3 lands on residue 3 of the ℤ/9 vortex, and the diamond reflection dz(3) = 10 − 3 = 7 sends it to 7 — the same reflection the whole ledger centres on. a structural analogy (the move-count read as a residue), NOT a claim that chess IS the ring.',
     js: () => (1 + 2) % 9 === 3 && (10 - 3) === 7,
     lean: 'theorem knight_on_the_diamond : ((1 + 2) % 9 = 3) ∧ ((10 - 3) = 7) := by decide' },
 
   { key: 'boards_are_diamond_self_inverses',
-    why: 'The board enters the ℤ/9 diamond, where the games interact: the flat board 64 ≡ 1 (the vortex origin) and the 3D board 512 ≡ 8 (mod 9), and {1, 8} are exactly the TWO self-inverse units of the ring (8·8 ≡ 1). The board, in either dimension, is a self-inverse of the diamond — and the 3D board shares residue 8 with the audit game. HONEST SCOPE: a structural residue, NOT a claim the board IS the ring.',
+    why: 'The board enters the ℤ/9 diamond, where the games interact: the flat board 64 ≡ 1 (the vortex origin) and the 3D board 512 ≡ 8 (mod 9), and {1, 8} are exactly the TWO self-inverse units of the ring (8·8 ≡ 1). The board, in either dimension, is a self-inverse of the diamond — and the 3D board shares residue 8 with the audit game. a structural residue, NOT a claim the board IS the ring.',
     js: () => 64 % 9 === 1 && 512 % 9 === 8 && (8 * 8) % 9 === 1,
     lean: 'theorem boards_are_diamond_self_inverses : (64 % 9 = 1) ∧ (512 % 9 = 8) ∧ ((8 * 8) % 9 = 1) := by decide' },
 ]
@@ -124,6 +124,6 @@ console.log('computing ' + FACTS.length + ' CHESS-HORIZON facts (the honest kern
 
 emit({
   file: 'Chessgames.lean', skill: 'chess',
-  header: 'THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves), not O(all games)), the d-dimensional board (8^d = 2^(3d): the 3D 512 = 2^9, the 8-dimensional 8^8 = 2^24), no maximal board (only bounds), and the knight on the ℤ/9 diamond. HONEST SCOPE: uuidna does NOT enumerate or precompute the game tree — a content-address proves INTEGRITY, not truth, here not enumeration; the diamond and combination facts are STRUCTURE, not a claim that chess IS the ring.',
+  header: 'THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves), not O(all games)), the d-dimensional board (8^d = 2^(3d): the 3D 512 = 2^9, the 8-dimensional 8^8 = 2^24), no maximal board (only bounds), and the knight on the ℤ/9 diamond. uuidna does NOT enumerate or precompute the game tree — a content-address proves INTEGRITY, not truth, here not enumeration; the diamond and combination facts are STRUCTURE, not a claim that chess IS the ring.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

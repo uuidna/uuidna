@@ -1,0 +1,12 @@
+{
+  "handle": "880db357",
+  "address": "880db357-e112-8958-981c-fb87f29bb623",
+  "statement": "(65536 * 32 = 2097152) ∧ ((2:Nat)^16 * 2^5 = 2^21)",
+  "tactic": "decide",
+  "keys": [
+    "handles_times_qubits"
+  ],
+  "files": [
+    "HandleSpan.lean"
+  ]
+}

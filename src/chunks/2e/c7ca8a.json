@@ -1,0 +1,12 @@
+{
+  "handle": "2ec7ca8a",
+  "address": "2ec7ca8a-6d66-8570-a01a-314e0632864f",
+  "statement": "(16^8 = 4294967296) ∧ (65536 * 65536 = 16^8) ∧ (8 * 4 = 32) ∧ (32 * 4 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "message_carries_address"
+  ],
+  "files": [
+    "Software.lean"
+  ]
+}

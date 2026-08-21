@@ -1,0 +1,12 @@
+{
+  "handle": "6ab9635d",
+  "address": "6ab9635d-1c9c-8870-8409-3c498f2fe1f2",
+  "statement": "([1,2,3,6].all (fun n => 6 % n == 0)) ∧ ([1,2,3,6] = ((List.range' 1 6).filter (fun d => 6 % d == 0)))",
+  "tactic": "decide",
+  "keys": [
+    "lagrange_divides_every_order"
+  ],
+  "files": [
+    "Subgroups.lean"
+  ]
+}

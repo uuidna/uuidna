@@ -1,4 +1,4 @@
--- lean/MartialArts.lean — GENERATED. MARTIAL ARTS — the arithmetic of stance and angle: the complement map's fixed point is the half (one law at 90, 100 and the ledger's 10), the supplement pair, the chain's off-by-one, the exact lever ratio. Facts about NUMBERS: nothing here claims anything about technique, force, physiology or effectiveness. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/MartialArts.lean — GENERATED. MARTIAL ARTS — the arithmetic of stance and angle: the complement map's fixed point is the half (one law at 90, 100 and the ledger's 10), the supplement pair, the chain's off-by-one, the exact lever ratio. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- THE BALANCED SPLIT IS A FIXED POINT, at every scale the arts measure in: the complement map c(x) = w − x
     sends x to what is left of the whole, and it fixes exactly the half — 90 − 45 = 45 for the angle, 100 − 50 =

@@ -24,7 +24,7 @@
 // threshold sweep but dies when multiplication is replaced by max, sum, or pre-alone, so it genuinely excluded OR
 // and SUM potentiation. Its content is kept; only its dead `List.range 2` is gone.
 //
-// HONEST SCOPE: the decidable ALGEBRA of the textbook model — NOT clinical, NOT diagnostic, NOT about any
+// the decidable ALGEBRA of the textbook model — NOT clinical, NOT diagnostic, NOT about any
 // individual, and NOT a claim that a real neuron implements this arithmetic. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
 
@@ -194,5 +194,5 @@ const FACTS = [
 // a dead neuron. Each replacement names the rival model it excludes, because a theorem that only says what holds
 // can be satisfied by a degenerate one.
 emit({ file: 'Neuro.lean', skill: 'neuro',
-  header: 'NEUROSCIENCE — the algebra of the neuron, demarcated, and rebuilt so a DEAD NEURON CANNOT SATISFY IT. Four of the previous nine could not fail (a sweep over thresholds −10..20 found 0 of 434 settings false; one folded to a constant with its firing branch unreachable), so each replacement now carries the rival it excludes: all-or-none states the stimulus→amplitude table AND that a graded response differs from it, rate saturation caps at the MEASURED 450 Hz (Wang 2016) AND differs from the linear rate, Hebbian coincidence excludes both OR and pre-alone, and the refractory window restores firing at rest so silence is not enough. Added: temporal summation with a finite window, rate coding, the refractory rate ceiling, accommodation, depolarisation block (firing is NOT monotone in input), integrate-and-fire reset, dendritic attenuation, and the quasi-threshold band. HONEST SCOPE: the decidable ALGEBRA of the textbook model — not clinical, not diagnostic, not about any individual, and not a claim that a real neuron implements this arithmetic — the boundary itself is sealed rather than merely asserted: theorem spike_amplitude_attenuates states that the all-or-none headline holds at INITIATION and fails during propagation, and theorem threshold_is_quasi_threshold states the 100 µV band the step function discards.',
+  header: 'NEUROSCIENCE — the algebra of the neuron, demarcated, and rebuilt so a DEAD NEURON CANNOT SATISFY IT.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

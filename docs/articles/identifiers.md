@@ -7,7 +7,7 @@ description: "Computed from lean/Identifiers.lean — 6 sealed theorems, every c
 
 > THE IDENTIFIERS — ISBN-10/13 check-digit arithmetic: the mod-11/mod-10 weighted sums and the errors they catch, decidable. — held by [isbn10_valid_check](/theorem/isbn10_valid_check) and its 5 siblings below.
 
-**6 theorems**, from [isbn10_valid_check](/theorem/isbn10_valid_check) onward, each proven `by decide` in [lean/Identifiers.lean](/lean/Identifiers.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**6 theorems**, from [isbn10_valid_check](/theorem/isbn10_valid_check) onward, each proven `by decide` in [lean/Identifiers.lean](/lean/Identifiers.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [isbn10_catches_single_error](/theorem/isbn10_catches_single_error). A boundary stated here is decided, not merely denied.
 
 ### ISBN-10 0-306-40615-2 checks out: its weighted sum Σ (11−i)·dᵢ = 132 = 12·11 ≡ 0 (mod 11) — the check digit 2 makes the whole thing divisible by 11.
 The ledger holds this as [isbn10_valid_check](/theorem/isbn10_valid_check) — proven `by decide`, sorry-free:

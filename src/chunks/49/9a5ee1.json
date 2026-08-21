@@ -1,0 +1,12 @@
+{
+  "handle": "499a5ee1",
+  "address": "499a5ee1-3920-8bab-8324-41f9cd83e858",
+  "statement": "VE.all (fun v => n2 v == 2)",
+  "tactic": "decide",
+  "keys": [
+    "radial_squared_two"
+  ],
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

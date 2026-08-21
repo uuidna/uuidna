@@ -1,0 +1,12 @@
+{
+  "handle": "f0fe8ee1",
+  "address": "f0fe8ee1-3844-8902-8a19-23c6668c368f",
+  "statement": "orbits.map (fun o => o.length) = [10,8,3,1,6,4]",
+  "tactic": "decide",
+  "keys": [
+    "order_measures_orbit"
+  ],
+  "files": [
+    "ProseTrial.lean"
+  ]
+}

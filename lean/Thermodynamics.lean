@@ -1,4 +1,4 @@
--- lean/Thermodynamics.lean — GENERATED. THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. The first law conserves energy (ΔU = Q − W: 100 = 60 + 40); the second law forbids entropy from decreasing and sends heat hot → cold; the Carnot efficiency is below 1 (no perfect engine, no perpetual motion); the Kelvin scale floors at absolute zero (0 °C = 273 K); Charles's law keeps V/T constant; and specific heat is linear in ΔT. HONEST SCOPE: the arithmetic of the laws — conservation, monotonicity and exact ratios, not a full statistical-mechanics derivation. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Thermodynamics.lean — GENERATED. THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- The first law conserves energy: ΔU = Q − W, so the heat added equals the internal-energy change plus the
     work done — 100 = 60 + 40. Energy is neither created nor destroyed, only moved. -/
@@ -51,9 +51,9 @@ theorem landauer_bound_derived : 1380649 * 300 = 414194700 ∧ 414194700 * 69314
 /-- A COST PROPORTIONAL TO WHAT IS ERASED IS ZERO WHEN NOTHING IS ERASED. Landauer's floor scales with the
     number of bits destroyed: erase one bit and pay 287097813×10⁻²⁹ J, erase none and pay 0 × that = 0. A
     logically REVERSIBLE step — an involution like reverse or CNOT, or this ledger's round-tripping imprint
-    codec — destroys no information, so it carries no erasure floor at all. HONEST SCOPE: this is a floor being
-    AVOIDED, never energy being produced; the bound stays strictly positive (0 < 287097813), and
-    no_perpetual_motion in this wing forbids the other reading. -/
+    codec — destroys no information, so it carries no erasure floor at all. this is a floor being AVOIDED, never
+    energy being produced; the bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this
+    wing forbids the other reading. -/
 theorem reversible_erases_nothing : 0 * 287097813 = 0 ∧ 1 * 287097813 = 287097813 ∧ 0 < 287097813 := by decide
 
 /-- REAL SILICON RUNS ABOUT A HUNDRED MILLION TIMES ABOVE THE FLOOR. A switching event in current CMOS

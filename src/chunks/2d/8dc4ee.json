@@ -1,0 +1,12 @@
+{
+  "handle": "2d8dc4ee",
+  "address": "2d8dc4ee-b96d-8d74-8166-fc6e5ef2a13f",
+  "statement": "orbits.length = 6",
+  "tactic": "decide",
+  "keys": [
+    "orbits_number_six"
+  ],
+  "files": [
+    "ProseTrial.lean"
+  ]
+}

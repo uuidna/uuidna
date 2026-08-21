@@ -3,7 +3,7 @@
 // the octet (8 valence electrons); a covalent bond of order n shares 2n electrons; the bond order (bonding −
 // antibonding)/2 gives N₂ a triple and O₂ a double bond; main-group valence is the group number minus 10; a Lewis
 // structure counts total valence electrons; a large electronegativity difference makes a bond ionic; molar mass
-// sums the atomic masses; and bond strength rises with order. HONEST SCOPE: the arithmetic of bonding bookkeeping
+// sums the atomic masses; and bond strength rises with order. the arithmetic of bonding bookkeeping
 // — electron and mass counts, exact thresholds — not a full quantum-chemistry derivation, and distinct from the
 // DNA base-pairing in BioPhysics and the reactions in Chemistry. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
@@ -53,5 +53,5 @@ const FACTS = [
 // compute → generate → verify. The bond domain — octet, shared pairs, bond order, valence, Lewis counts, the ionic
 // threshold, molar mass, bond strength — decidable bookkeeping, demarcated: not a full quantum-chemistry derivation.
 emit({ file: 'Molecular.lean', skill: 'molecular',
-  header: 'MOLECULAR — the bond domain, as decidable arithmetic, demarcated. Atoms bond toward the octet (4+4=8); a covalent bond of order n shares 2n electrons; bond order (bonding−antibonding)/2 gives N₂ a triple and O₂ a double bond; main-group valence is the group number minus 10; a Lewis structure counts total valence electrons (H₂O: 2·1+6=8); a large electronegativity difference makes a bond ionic (NaCl 21 > 17); molar mass sums the atomic masses (H₂O = 18); and bond strength rises with order. HONEST SCOPE: the arithmetic of bonding bookkeeping — electron and mass counts, exact thresholds — not a full quantum-chemistry derivation, distinct from the DNA base-pairing in BioPhysics and the reactions in Chemistry.',
+  header: 'MOLECULAR — the bond domain, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

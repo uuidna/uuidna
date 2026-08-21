@@ -1,0 +1,12 @@
+{
+  "handle": "9b2de591",
+  "address": "9b2de591-1914-80c4-8679-e6751c070dcd",
+  "statement": "VE.all (fun v => (VE.filter (fun w => dd v w == 2)).length == 4)",
+  "tactic": "decide",
+  "keys": [
+    "ve_four_neighbours"
+  ],
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

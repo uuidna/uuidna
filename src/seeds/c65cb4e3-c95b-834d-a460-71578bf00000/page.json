@@ -1,0 +1,249 @@
+{
+  "file": "SpectrumHex.lean",
+  "slug": "spectrumhex",
+  "status": "usable",
+  "address": "137e07c2-319a-8ceb-a5ae-d9eaa7ce0273",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "SpectrumHex.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/SpectrumHex.lean — GENERATED. THE COLOUR AS SIX HEXBITS — the spectrum sized in the unit the machine writes it in. A colour is #RRGGBB: six hex characters at four bits each, so 24 bits, and 16^6 equals 2^24 exactly — the hexadecimal reading and the binary reading are one number, 16777216 colours. Each channel is TWO hexbits, one byte, 256 levels, and three channels of eight bits close the twenty-four; the colour is not a number that prints in hex, it IS three bytes and hex is how a byte is spelled. The greys lie on the diagonal where the channels are equal: 256 of 16777216, one in 65536 = 2^16, with two channels carrying nothing. The three-digit shorthand reaches 16^3 = 4096, one in 4096 of the space — a notation for a fraction of the colours, not a short notation for all of them. AND THE HUE WHEEL DOES NOT DIVIDE BY SIXTEEN: 16 x 22 = 352 and 16 x 23 = 368 straddle 360, so no whole-degree step cuts the circle into sixteen parts. It divides by NINE at 40 degrees — the step the aura already walks — and by SIX at 60, the sextant of primaries and secondaries. The storage is hexadecimal and the geometry is ninefold and sixfold: the same split between a base-sixteen address and a non-hexadecimal harmonic reading that Notation.lean decides, appearing again one layer up. PURE ARITHMETIC, nothing measured from the world. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- A COLOUR IS SIX HEX CHARACTERS: #RRGGBB at four bits each is 24 bits, and 16^6 equals 2^24 exactly — the\n    hexadecimal reading and the binary reading are one number, 16777216 colours. -/\ntheorem colour_is_six_hexbits : (6 * 4 = 24) ∧ ((16:Nat)^6 = (2:Nat)^24) ∧ ((16:Nat)^6 = 16777216) := by decide\n\n/-- EACH CHANNEL IS TWO HEXBITS — one byte, 256 levels — and three channels of eight bits close the twenty-four.\n    The colour is not a number that prints in hex; it is three bytes, and the hex is how a byte is spelled. -/\ntheorem channel_is_two_hexbits : (2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ (3 * 8 = 24) ∧ (3 * 2 = 6) := by decide\n\n/-- THE GREYS ARE THE DIAGONAL: red, green and blue equal gives 256 colours out of 16777216 — one in 65536,\n    which is 2^16. Two of the three channels carry no information on that diagonal, and the line proves the\n    ratio rather than describing it. -/\ntheorem greys_are_one_in_sixtyfive_thousand : ((16:Nat)^6 / 256 = 65536) ∧ ((2:Nat)^16 = 65536) ∧ (256 * 65536 = 16777216) := by decide\n\n/-- THE THREE-DIGIT SHORTHAND #RGB EXPANDS EACH CHARACTER TWICE, so it reaches 16^3 = 4096 colours — one in 4096\n    of the full space. A palette written in shorthand is not a small notation for all colours; it is a notation\n    for a sixteen-thousandth of them. -/\ntheorem shorthand_covers_one_in_four_thousand : ((16:Nat)^3 = 4096) ∧ ((16:Nat)^6 / (16:Nat)^3 = 4096) ∧ ((16:Nat)^3 * 4096 = 16777216) := by decide\n\n/-- THE HUE WHEEL DOES NOT DIVIDE BY SIXTEEN: 16 x 22 = 352 and 16 x 23 = 368 straddle 360, so no whole-degree\n    step cuts the circle into sixteen. It divides by NINE at 40 degrees and by SIX at 60 — the storage is\n    hexadecimal while the geometry is not, and the line proves the failure rather than leaving it implied. -/\ntheorem spectrum_refuses_sixteen : (16 * 22 < 360) ∧ (360 < 16 * 23) ∧ (360 % 9 = 0) ∧ (360 % 6 = 0) ∧ (360 % 16 ≠ 0) := by decide\n\n/-- THE DIVISORS THE WHEEL ADMITS below twenty are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20 — nine and six\n    among them, sixteen not. Forty degrees is the ninefold step the aura already walks, sixty the sextant of\n    primaries and secondaries. -/\ntheorem wheel_divides_by_nine_and_six : (((List.range' 1 20).filter (fun d => 360 % d == 0)) = [1,2,3,4,5,6,8,9,10,12,15,18,20]) ∧ (360 / 9 = 40) ∧ (360 / 6 = 60) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-colour_is_six_hexbits",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A COLOUR IS SIX HEX CHARACTERS: #RRGGBB at four bits each is 24 bits, and 16^6 equals 2^24 exactly — the hexadecimal reading and the binary reading are one number, 16777216 colours."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(6 * 4 = 24) ∧ ((16:Nat)^6 = (2:Nat)^24) ∧ ((16:Nat)^6 = 16777216)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem colour_is_six_hexbits : (6 * 4 = 24) ∧ ((16:Nat)^6 = (2:Nat)^24) ∧ ((16:Nat)^6 = 16777216) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-channel_is_two_hexbits",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "EACH CHANNEL IS TWO HEXBITS — one byte, 256 levels — and three channels of eight bits close the twenty-four. The colour is not a number that prints in hex; it is three bytes, and the hex is how a byte is spelled."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ (3 * 8 = 24) ∧ (3 * 2 = 6)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem channel_is_two_hexbits : (2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ (3 * 8 = 24) ∧ (3 * 2 = 6) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-greys_are_one_in_sixtyfive_thousand",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE GREYS ARE THE DIAGONAL: red, green and blue equal gives 256 colours out of 16777216 — one in 65536, which is 2^16. Two of the three channels carry no information on that diagonal, and the line proves the ratio rather than describing it."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((16:Nat)^6 / 256 = 65536) ∧ ((2:Nat)^16 = 65536) ∧ (256 * 65536 = 16777216)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem greys_are_one_in_sixtyfive_thousand : ((16:Nat)^6 / 256 = 65536) ∧ ((2:Nat)^16 = 65536) ∧ (256 * 65536 = 16777216) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-shorthand_covers_one_in_four_thousand",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE THREE-DIGIT SHORTHAND #RGB EXPANDS EACH CHARACTER TWICE, so it reaches 16^3 = 4096 colours — one in 4096 of the full space. A palette written in shorthand is not a small notation for all colours; it is a notation for a sixteen-thousandth of them."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((16:Nat)^3 = 4096) ∧ ((16:Nat)^6 / (16:Nat)^3 = 4096) ∧ ((16:Nat)^3 * 4096 = 16777216)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem shorthand_covers_one_in_four_thousand : ((16:Nat)^3 = 4096) ∧ ((16:Nat)^6 / (16:Nat)^3 = 4096) ∧ ((16:Nat)^3 * 4096 = 16777216) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-spectrum_refuses_sixteen",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE HUE WHEEL DOES NOT DIVIDE BY SIXTEEN: 16 x 22 = 352 and 16 x 23 = 368 straddle 360, so no whole-degree step cuts the circle into sixteen. It divides by NINE at 40 degrees and by SIX at 60 — the storage is hexadecimal while the geometry is not, and the line proves the failure rather than leaving it implied."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(16 * 22 < 360) ∧ (360 < 16 * 23) ∧ (360 % 9 = 0) ∧ (360 % 6 = 0) ∧ (360 % 16 ≠ 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem spectrum_refuses_sixteen : (16 * 22 < 360) ∧ (360 < 16 * 23) ∧ (360 % 9 = 0) ∧ (360 % 6 = 0) ∧ (360 % 16 ≠ 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-wheel_divides_by_nine_and_six",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE DIVISORS THE WHEEL ADMITS below twenty are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20 — nine and six among them, sixteen not. Forty degrees is the ninefold step the aura already walks, sixty the sextant of primaries and secondaries."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((List.range' 1 20).filter (fun d => 360 % d == 0)) = [1,2,3,4,5,6,8,9,10,12,15,18,20]) ∧ (360 / 9 = 40) ∧ (360 / 6 = 60)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem wheel_divides_by_nine_and_six : (((List.range' 1 20).filter (fun d => 360 % d == 0)) = [1,2,3,4,5,6,8,9,10,12,15,18,20]) ∧ (360 / 9 = 40) ∧ (360 / 6 = 60) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

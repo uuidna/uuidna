@@ -5,9 +5,9 @@ description: "Computed from lean/Os.lean — 7 sealed theorems, every claim citi
 
 # The OS-integrity algebra
 
-> THE OS-INTEGRITY ALGEBRA — the third named layer, completing hardware → software → os: the decidable facts a DEPLOYMENT is verified against. uuidnaOS is a content-addressed PROVENANCE boundary (src/os pins an exact Alpine release, src/drivers the exact driver bundle, each checked against its PUBLISHED SHA-256 with uuidna's own pure-TS hash) — it NEVER boots, ports, links, or executes. This seals the decidable core: verification IS byte-equality (exact-copy), so a single-byte tamper, a truncation, or a reordering breaks the match (a provenance is a SEQUENCE, not a set); the digest is a fixed 256 bits, the content-address a fixed 128; and the non-determinism boundary is EXACTLY the two named modules. HONEST SCOPE: integrity, not truth, and not execution — uuidna seals what an exact-copy verification decides so a deployment can be verified against it; it does NOT run an operating system. A sealed integrity spec, not a booted OS. — held by [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) and its 6 siblings below.
+> THE OS-INTEGRITY ALGEBRA — the third named layer, completing hardware → software → os: the decidable facts a DEPLOYMENT is verified against. uuidnaOS is a content-addressed PROVENANCE boundary (src/os pins an exact Alpine release, src/drivers the exact driver bundle, each checked against its PUBLISHED SHA-256 with uuidna's own pure-TS hash) — it NEVER boots, ports, links, or executes. — held by [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) and its 6 siblings below.
 
-**7 theorems**, from [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) onward, each proven `by decide` in [lean/Os.lean](/lean/Os.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**7 theorems**, from [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) onward, each proven `by decide` in [lean/Os.lean](/lean/Os.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected). A boundary stated here is decided, not merely denied.
 
 ### PROVENANCE verification IS byte-equality: the bytes you hold match the pinned release exactly — [1,2,3] equals [1,2,3]. The exact-copy proof is nothing more, and nothing less, than the held bytes equalling the named ones.
 The ledger holds this as [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) — proven `by decide`, sorry-free:
@@ -58,9 +58,5 @@ The ledger holds this as [boundary_is_exactly_two_named_modules](/theorem/bounda
 (["os","drivers"] : List String).length = 2
 ```
 
-
-::: warning HONEST SCOPE
-integrity, not truth, and not execution — uuidna seals what an exact-copy verification decides so a deployment can be verified against it; it does NOT run an operating system. The boundary is confirmed by the wing's own sealed theorems — e.g. [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -1,0 +1,12 @@
+{
+  "handle": "f02e0a2a",
+  "address": "f02e0a2a-917f-8482-9592-55dd553f5f5f",
+  "statement": "[0].all (fun d => [0].contains (if d = 0 then 0 else 10 - d))",
+  "tactic": "decide",
+  "keys": [
+    "orbit_0_closes"
+  ],
+  "files": [
+    "Orbits.lean"
+  ]
+}

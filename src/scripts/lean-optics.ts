@@ -3,7 +3,7 @@
 // involution (angle in = angle out; reflect twice, return); the refractive index n = c/v is ≥ 1, so light in a
 // medium is SLOWER than c (never faster — no FTL, the vacuum is the ceiling); Snell's law n₁sinθ₁ = n₂sinθ₂ holds
 // in a consistent rational-sine case; the thin-lens equation 1/f = 1/do + 1/di and its magnification are exact;
-// dispersion refracts blue more than red; and total internal reflection needs a denser source. HONEST SCOPE: the
+// dispersion refracts blue more than red; and total internal reflection needs a denser source. the
 // arithmetic of geometric optics — specific consistent cases (Snell/critical angle use rational sines), not a full
 // wave-optics derivation. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
@@ -55,5 +55,5 @@ const FACTS = [
 // compute → generate → verify. The light domain — reflection, refraction, the lens, dispersion, TIR — as decidable
 // arithmetic, demarcated: geometric optics in consistent cases, and light in a medium is slower than c (no FTL).
 emit({ file: 'Optics.lean', skill: 'optics',
-  header: 'OPTICS — the light domain, as decidable arithmetic, demarcated. Reflection is an involution (angle in = angle out); the refractive index n = c/v is ≥ 1, so light in a medium is SLOWER than c (no FTL, the vacuum is the ceiling); Snell\'s law n₁sinθ₁ = n₂sinθ₂ holds in a consistent rational-sine case (4·3 = 3·4); the thin-lens equation 1/f = 1/do + 1/di and its magnification are exact; dispersion refracts blue more than red; and total internal reflection needs a denser source. HONEST SCOPE: the arithmetic of geometric optics — specific consistent cases, not a full wave-optics derivation.',
+  header: 'OPTICS — the light domain, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

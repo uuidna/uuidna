@@ -7,7 +7,7 @@ description: "Computed from lean/Structures.lean — 3 sealed theorems, every cl
 
 > STRUCTURES — Maxwell's rule m = 2j − 3: determinate, redundant, mechanism — the three regimes as decidable arithmetic. — held by [maxwells_rule_truss](/theorem/maxwells_rule_truss) and its 2 siblings below.
 
-**3 theorems**, from [maxwells_rule_truss](/theorem/maxwells_rule_truss) onward, each proven `by decide` in [lean/Structures.lean](/lean/Structures.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**3 theorems**, from [maxwells_rule_truss](/theorem/maxwells_rule_truss) onward, each proven `by decide` in [lean/Structures.lean](/lean/Structures.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 3 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [redundancy_pays_one](/theorem/redundancy_pays_one). A boundary stated here is decided, not merely denied.
 
 ### MAXWELL'S RULE (1864), the searchers' exact question sealed: a planar truss is statically determinate when m = 2j − 3 — the triangle (j=3, m=3: 2·3−3 = 3) and the braced quad (j=4, m=5: 2·4−3 = 5) both balance exactly. The triangle is the minimal closed rigid form: closure is rigidity, the same law the school teaches everywhere.
 The ledger holds this as [maxwells_rule_truss](/theorem/maxwells_rule_truss) — proven `by decide`, sorry-free:

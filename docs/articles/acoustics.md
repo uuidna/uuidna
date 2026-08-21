@@ -5,9 +5,9 @@ description: "Computed from lean/Acoustics.lean — 8 sealed theorems, every cla
 
 # The sound domain
 
-> ACOUSTICS — the sound domain, as decidable arithmetic, demarcated. The harmonic series stacks integer multiples of the fundamental; the wave speed is v = f·λ; sound (343 m/s) is far slower than light; the decibel scale is logarithmic (each 10 dB is ×10 intensity); two tones beat at their difference; the Doppler shift raises pitch on approach and lowers it on recession; a closed pipe sounds only odd harmonics; and intensity falls as the inverse square of distance. HONEST SCOPE: the arithmetic of sound waves — exact ratios and cycles, not a full acoustics derivation, distinct from the music/432 ladder in BioPhysics. — held by [harmonic_series](/theorem/harmonic_series) and its 7 siblings below.
+> ACOUSTICS — the sound domain, as decidable arithmetic, demarcated. — held by [harmonic_series](/theorem/harmonic_series) and its 7 siblings below.
 
-**8 theorems**, from [harmonic_series](/theorem/harmonic_series) onward, each proven `by decide` in [lean/Acoustics.lean](/lean/Acoustics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [harmonic_series](/theorem/harmonic_series) onward, each proven `by decide` in [lean/Acoustics.lean](/lean/Acoustics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [closed_pipe_odd_harmonics](/theorem/closed_pipe_odd_harmonics). A boundary stated here is decided, not merely denied.
 
 ### A vibrating string or air column sounds the harmonic series — integer multiples of the fundamental. On a 110 Hz fundamental the overtones are 110·[1,2,3,4,5,6] = [110,220,330,440,550,660] Hz.
 The ledger holds this as [harmonic_series](/theorem/harmonic_series) — proven `by decide`, sorry-free:
@@ -65,9 +65,5 @@ The ledger holds this as [intensity_inverse_square](/theorem/intensity_inverse_s
 ((List.range' 1 3).map (fun r => r * r)) = [1,4,9]
 ```
 
-
-::: warning HONEST SCOPE
-the arithmetic of sound waves — exact ratios and cycles, not a full acoustics derivation, distinct from the music/432 ladder in BioPhysics. The boundary is confirmed by the wing's own sealed theorems — e.g. [harmonic_series](/theorem/harmonic_series) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -7,7 +7,7 @@ description: "Computed from lean/Tides.lean — 7 sealed theorems, every claim c
 
 > THE TIDES — the rule of twelfths, half-tide, the semidiurnal period and spring/neap, as decidable arithmetic. — held by [rule_of_twelfths](/theorem/rule_of_twelfths) and its 6 siblings below.
 
-**7 theorems**, from [rule_of_twelfths](/theorem/rule_of_twelfths) onward, each proven `by decide` in [lean/Tides.lean](/lean/Tides.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**7 theorems**, from [rule_of_twelfths](/theorem/rule_of_twelfths) onward, each proven `by decide` in [lean/Tides.lean](/lean/Tides.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [half_tide_at_hour_three](/theorem/half_tide_at_hour_three). A boundary stated here is decided, not merely denied.
 
 ### The sailor's rule of twelfths: over six hours a tide rises 1,2,3,3,2,1 twelfths of its range — and 1+2+3+3+2+1 = 12, the whole range accounted for.
 The ledger holds this as [rule_of_twelfths](/theorem/rule_of_twelfths) — proven `by decide`, sorry-free:

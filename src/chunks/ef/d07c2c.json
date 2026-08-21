@@ -1,0 +1,12 @@
+{
+  "handle": "efd07c2c",
+  "address": "efd07c2c-0d89-8493-a7d1-7db1afdb7dcc",
+  "statement": "((3:Nat)^41 ≥ 2^64) ∧ ((3:Nat)^40 < 2^64)",
+  "tactic": "decide",
+  "keys": [
+    "trinities_cover_word"
+  ],
+  "files": [
+    "Trinities.lean"
+  ]
+}

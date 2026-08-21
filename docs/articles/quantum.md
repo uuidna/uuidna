@@ -5,9 +5,9 @@ description: "Computed from lean/Quantum.lean — 50 sealed theorems, every clai
 
 # The quantum computer
 
-> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. HONEST SCOPE: the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 49 siblings below.
+> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 49 siblings below.
 
-**50 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**50 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 12 of its 50 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided, not merely denied.
 
 ### the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
 The ledger holds this as [bell_born_weights](/theorem/bell_born_weights) — proven `by decide`, sorry-free:
@@ -198,7 +198,7 @@ The ledger holds this as [bell_basis_orthogonal](/theorem/bell_basis_orthogonal)
 ((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0) ∧ ((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0) ∧ ((1*1 + 0*0 + 0*0 + 1*1 : Int) = 2)
 ```
 
-### n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. HONEST SCOPE: this counts the simulation cost, it is NOT a speedup or a quantum advantage.
+### n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. this counts the simulation cost, it is NOT a speedup or a quantum advantage.
 The ledger holds this as [n_qubit_dimension](/theorem/n_qubit_dimension) — proven `by decide`, sorry-free:
 
 ```lean
@@ -268,14 +268,14 @@ The ledger holds this as [phase_gate_order_ladder](/theorem/phase_gate_order_lad
 (8 = 2*4) ∧ (4 = 2*2) ∧ (8 % 8 = 0)
 ```
 
-### The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. HONEST SCOPE: the simulator computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL).
+### The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. the simulator computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL).
 The ledger holds this as [chsh_beats_classical](/theorem/chsh_beats_classical) — proven `by decide`, sorry-free:
 
 ```lean
 ((2:Nat)^2 < 2^3) ∧ (2^3 = 8)
 ```
 
-### The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)² dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². HONEST SCOPE: this is the arithmetic SHADOW of the no-cloning theorem (a linearity fact), not a proof of it.
+### The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)² dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². this is the arithmetic SHADOW of the no-cloning theorem (a linearity fact), not a proof of it.
 The ledger holds this as [no_cloning_dimension](/theorem/no_cloning_dimension) — proven `by decide`, sorry-free:
 
 ```lean
@@ -310,28 +310,28 @@ The ledger holds this as [ghz_stabilized_by_xxx](/theorem/ghz_stabilized_by_xxx)
 ([1,0,0,0,0,0,0,1] : List Int).reverse = [1,0,0,0,0,0,0,1]
 ```
 
-### Superdense coding: one qubit carries 2 classical bits — Alice's four local operations map |Φ⁺⟩ to the four orthogonal Bell states, 2² = 4 distinguishable messages, and 2 > 1. HONEST SCOPE: this REQUIRES a pre-shared EPR pair; it is not bandwidth from nothing, and nothing signals faster than light.
+### Superdense coding: one qubit carries 2 classical bits — Alice's four local operations map |Φ⁺⟩ to the four orthogonal Bell states, 2² = 4 distinguishable messages, and 2 > 1. this REQUIRES a pre-shared EPR pair; it is not bandwidth from nothing, and nothing signals faster than light.
 The ledger holds this as [superdense_two_bits](/theorem/superdense_two_bits) — proven `by decide`, sorry-free:
 
 ```lean
 ((2:Nat)^2 = 4) ∧ (2 > 1)
 ```
 
-### Teleportation sends one qubit with 2 classical bits and one EPR pair: Bob applies one of the four Pauli corrections {I, X, Z, XZ} indexed by the 2 measured bits (2+2 = 4 = the four corrections). HONEST SCOPE: the classical channel is ESSENTIAL — without the 2 bits nothing arrives, so no faster-than-light transfer.
+### Teleportation sends one qubit with 2 classical bits and one EPR pair: Bob applies one of the four Pauli corrections {I, X, Z, XZ} indexed by the 2 measured bits (2+2 = 4 = the four corrections). the classical channel is ESSENTIAL — without the 2 bits nothing arrives, so no faster-than-light transfer.
 The ledger holds this as [teleportation_four_corrections](/theorem/teleportation_four_corrections) — proven `by decide`, sorry-free:
 
 ```lean
 (([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4)
 ```
 
-### The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical content-address receipt the state folds to, integrity — not a quantum memory.
+### The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). the classical content-address receipt the state folds to, integrity — not a quantum memory.
 The ledger holds this as [store_fold_order_invariant](/theorem/store_fold_order_invariant) — proven `by decide`, sorry-free:
 
 ```lean
 (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,a,c].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,c,a].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,a,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,b,a].foldl lxor 0))))
 ```
 
-### The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. HONEST SCOPE: integrity of the content-address, not a quantum property.
+### The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. integrity of the content-address, not a quantum property.
 The ledger holds this as [store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt) — proven `by decide`, sorry-free:
 
 ```lean
@@ -345,7 +345,7 @@ The ledger holds this as [message_qubit_cap_states](/theorem/message_qubit_cap_s
 2^16 = 65536
 ```
 
-### The message receipt folds every leaf through merkleFold, which SORTS before it merges — the honest reason the fold is order-invariant even though merge itself is NOT commutative (merge(a,b) ≠ merge(b,a), by design). Sealed on a representative 3-leaf fold with a deliberately non-commutative pairwise op (f(a,b)=2a+b, so f(1,2)=4 ≠ f(2,1)=5): sorting first (min, mid, max via Nat.min/Nat.max and sum-arithmetic, no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. HONEST SCOPE: one representative instance, the same scope every fold-invariance theorem here uses (store_fold_order_invariant proves the same shape for a commutative XOR fold; this is the harder, non-commutative case merkleFold actually is).
+### The message receipt folds every leaf through merkleFold, which SORTS before it merges — the honest reason the fold is order-invariant even though merge itself is NOT commutative (merge(a,b) ≠ merge(b,a), by design). Sealed on a representative 3-leaf fold with a deliberately non-commutative pairwise op (f(a,b)=2a+b, so f(1,2)=4 ≠ f(2,1)=5): sorting first (min, mid, max via Nat.min/Nat.max and sum-arithmetic, no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. one representative instance, the same scope every fold-invariance theorem here uses (store_fold_order_invariant proves the same shape for a commutative XOR fold; this is the harder, non-commutative case merkleFold actually is).
 The ledger holds this as [merkle_sort_invariant](/theorem/merkle_sort_invariant) — proven `by decide`, sorry-free:
 
 ```lean
@@ -359,9 +359,5 @@ The ledger holds this as [all_signaling_duality](/theorem/all_signaling_duality)
 (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d))))))
 ```
 
-
-::: warning HONEST SCOPE
-the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL. The boundary is confirmed by the wing's own sealed theorems — e.g. [bell_born_weights](/theorem/bell_born_weights) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

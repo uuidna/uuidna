@@ -1,0 +1,12 @@
+{
+  "handle": "059bb106",
+  "address": "059bb106-c399-8f1e-8900-770ad7b0d788",
+  "statement": "words.all (fun w => ((w % 2) + ((w/4) % 2) + ((w/16) % 2) + ((w/64) % 2)) % 2 == 0)",
+  "tactic": "decide",
+  "keys": [
+    "codewords_syndrome_zero"
+  ],
+  "files": [
+    "Hamming.lean"
+  ]
+}

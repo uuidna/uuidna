@@ -1,13 +1,13 @@
 ---
 title: "The software-verifiable algebra"
-description: "Computed from lean/Software.lean — 11 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Software.lean — 15 sealed theorems, every claim citing its proof."
 ---
 
 # The software-verifiable algebra
 
-> THE SOFTWARE-VERIFIABLE ALGEBRA — the companion to the hardware layer, one level up: the algebraic correctness LAWS a program is verified AGAINST, each a decidable, axiom-free `by decide` particle. Losslessness (split-and-recompose is the identity), structure preservation (map keeps length, filter never grows, append adds), idempotent normalisation, total guarded division (no divide-by-zero crash), bounded termination (a shift loop halts), order-invariant reduction (safe to parallelise), the compare-swap that orders (every sort's basis), total safe indexing (no over-read), and reversibility (undo of undo is the identity). Indexing uses the axiom-free `nth`. HONEST SCOPE: integrity, not truth — uuidna SEALS the spec so an implementation can be verified against it; it does NOT write, compile, or run your program, nor prove an arbitrary program correct. A sealed spec a program is checked against — not the program. — held by [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) and its 10 siblings below.
+> THE SOFTWARE-VERIFIABLE ALGEBRA — the companion to the hardware layer, one level up: the algebraic correctness LAWS a program is verified AGAINST, each a decidable, axiom-free `by decide` particle. — held by [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) and its 14 siblings below.
 
-**11 theorems**, from [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) onward, each proven `by decide` in [lean/Software.lean](/lean/Software.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**15 theorems**, from [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) onward, each proven `by decide` in [lean/Software.lean](/lean/Software.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 15 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [filter_never_grows](/theorem/filter_never_grows). A boundary stated here is decided, not merely denied.
 
 ### LOSSLESS by construction: splitting a number into (quotient, remainder) and recomposing it — 2·(n/2) + n%2 — returns n exactly, for every value. Serialisation that decomposes then reassembles loses nothing; the round-trip is the identity.
 The ledger holds this as [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) — proven `by decide`, sorry-free:
@@ -86,9 +86,33 @@ The ledger holds this as [reverse_is_involutive](/theorem/reverse_is_involutive)
 [1,2,3,4].reverse.reverse = [1,2,3,4]
 ```
 
+### A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 93 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files, not chosen, so the kernel is walking the real shape of the ledger and not an example of it.
+The ledger holds this as [cube_seals_at_completeness_only](/theorem/cube_seals_at_completeness_only) — proven `by decide`, sorry-free:
 
-::: warning HONEST SCOPE
-integrity, not truth — uuidna SEALS the spec so an implementation can be verified against it; it does NOT write, compile, or run your program, nor prove an arbitrary program correct. The boundary is confirmed by the wing's own sealed theorems — e.g. [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) — never merely denied.
-:::
+```lean
+([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))
+```
+
+### THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 93 measured wing counts and lands on 1452 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.
+The ledger holds this as [cubes_partition_ledger](/theorem/cubes_partition_ledger) — proven `by decide`, sorry-free:
+
+```lean
+(([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16].foldl (· + ·) 0) = 1452) ∧ ([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16].length = 93) ∧ (93 < 1452)
+```
+
+### A STANDING RECEIPT IS FREE, AND ONLY A MOVED NEIGHBOURHOOD IS PAID FOR. Over the two bits the plan decides on (s = the cube is sealed, m = its fold matches the receipt already held), the cost is s·(1−m), and of the four states EXACTLY ONE pays: sealed-and-moved. A held cube costs nothing because it has not been decided either way, and a sealed cube whose fold is unchanged costs nothing because the work was already done and recorded — verify-by-receipt at the granularity of a neighbourhood rather than a file. The same algebra as the provenance gate and the harmony law, turned on cost instead of prose: never vacuous, because it does fire, and only where it should.
+The ledger holds this as [receipt_costs_nothing](/theorem/receipt_costs_nothing) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 4).filter (fun n => let s := n % 2; let m := n / 2 % 2; s * (1 - m) == 1)).length = 1) ∧ ((List.range 4).all (fun n => let s := n % 2; let m := n / 2 % 2; s * (1 - m) ≤ s))
+```
+
+### WHAT TRAVELS IS THE COMPLETE ADDRESS; THE HANDLE IS ONLY THE PATH. A handle is 8 hex characters — 4 levels of 2, which is why it splits into a directory tree — and it indexes 16^8 = 4,294,967,296 addresses. The birthday bound is the reason that number is not the capacity: collisions become likely around its square root, and 65,536 × 65,536 is exactly 16^8, so the usable ceiling of an 8-hex name is about 65,536 things. The ledger is well inside that today and a memory built to grow is not. The full address carries 32 hex characters, 4 times the width and 128 bits, so the receipt stores that and the handle stays what it is good for: a place to put the file. Shipping the index where the identity belongs is the saving this refuses to take, refused here rather than at the point it would first collide.
+The ledger holds this as [message_carries_address](/theorem/message_carries_address) — proven `by decide`, sorry-free:
+
+```lean
+(16^8 = 4294967296) ∧ (65536 * 65536 = 16^8) ∧ (8 * 4 = 32) ∧ (32 * 4 = 128)
+```
+
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -5,9 +5,9 @@ description: "Computed from lean/Clay.lean — 14 sealed theorems, every claim c
 
 # The seven reflected
 
-> The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED and THE COLLISION LAW (a claim colliding with sealed status DNA never verifies, whatever it cites) are each sealed by a theorems-only secure-messaging vote of the seven — held by [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) and its 13 siblings below.
+> The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. — held by [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) and its 13 siblings below.
 
-**14 theorems**, from [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) onward, each proven `by decide` in [lean/Clay.lean](/lean/Clay.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**14 theorems**, from [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) onward, each proven `by decide` in [lean/Clay.lean](/lean/Clay.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 14 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [clay_verified_ne_solved](/theorem/clay_verified_ne_solved). A boundary stated here is decided, not merely denied.
 
 ### the reflection is a BIJECTION on the nine residues — dz maps {1..9} onto {9..1}
 The ledger holds this as [clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) — proven `by decide`, sorry-free:
@@ -79,7 +79,7 @@ The ledger holds this as [clay_verified_ne_solved](/theorem/clay_verified_ne_sol
 ((7:Nat) ≠ 0) ∧ ((7:Nat) ≠ 1) ∧ ((0:Nat) ≠ 1)
 ```
 
-### the distinction was decided by theorems only — the seven reflected theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt 5a677acc-7a82-8de2-818e-abbbfee4119d; 7 + 0 = 7 and 0 < 7
+### the distinction was decided by theorems only — the seven reflected theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt 186a9869-40c6-8ce7-a427-c68589151acf; 7 + 0 = 7 and 0 < 7
 The ledger holds this as [clay_vote_theorems_only](/theorem/clay_vote_theorems_only) — proven `by decide`, sorry-free:
 
 ```lean

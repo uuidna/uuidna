@@ -2,7 +2,7 @@
 // Automate the Lean layer for CHEMISTRY — the reactions domain, as decidable arithmetic, demarcated. A balanced
 // equation conserves atoms (Haber, combustion); a neutral compound conserves charge; oxidation states sum to the
 // molecular charge; pH + pOH = 14 at 25 °C; Boyle's law keeps P·V constant; neutralization pairs H⁺ with OH⁻; and
-// stoichiometry scales linearly. HONEST SCOPE: the arithmetic of reaction bookkeeping — atom/charge counts and
+// stoichiometry scales linearly. the arithmetic of reaction bookkeeping — atom/charge counts and
 // exact ratios, not a full thermodynamics or kinetics derivation, and distinct from the electron-shell chemistry
 // (2n² shells, 4l+2 subshells) in BioPhysics. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
@@ -52,5 +52,5 @@ const FACTS = [
 // compute → generate → verify. The reactions domain — mass balance, charge, oxidation states, pH+pOH, Boyle,
 // neutralization, stoichiometry — decidable bookkeeping, demarcated: reaction arithmetic, not thermodynamics.
 emit({ file: 'Chemistry.lean', skill: 'chemistry',
-  header: 'CHEMISTRY — the reactions domain, as decidable arithmetic, demarcated. A balanced equation conserves atoms (Haber N₂+3H₂→2NH₃, methane combustion); a neutral compound conserves charge (Al₂O₃: 2·(+3)+3·(−2)=0); oxidation states sum to the molecular charge; pH + pOH = 14 at 25 °C; Boyle\'s law keeps P·V constant; neutralization pairs H⁺ with OH⁻; and stoichiometry scales linearly. HONEST SCOPE: the arithmetic of reaction bookkeeping — atom/charge counts and exact ratios, not a full thermodynamics or kinetics derivation, distinct from the electron-shell chemistry in BioPhysics.',
+  header: 'CHEMISTRY — the reactions domain, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

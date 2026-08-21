@@ -1,0 +1,12 @@
+{
+  "handle": "c36c85c0",
+  "address": "c36c85c0-a788-870d-a305-2713f7b7e43f",
+  "statement": "([8,4,4,4,12].head! = 8) ∧ (8 * 4 = 32) ∧ (([8,4,4,4,12].drop 1).take 3).all (fun g => g < 8)",
+  "tactic": "decide",
+  "keys": [
+    "handle_is_the_first_group"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

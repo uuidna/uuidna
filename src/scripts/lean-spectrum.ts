@@ -5,7 +5,7 @@
 // (radio, microwave, infrared, visible, ultraviolet, X-ray, gamma) order by increasing frequency — SEVEN, the
 // rosette count — and photon energy E = h·f rises with them, so gamma carries more energy than radio. The visible
 // window is less than ONE octave (700 nm to 400 nm is a ratio under 2), unlike sound's many octaves. And "300,000
-// km/s" ROUNDS the exact c (like the photography stops), off by 207542 m/s. HONEST SCOPE (integrity, not truth):
+// km/s" ROUNDS the exact c (like the photography stops), off by 207542 m/s. SCOPE (integrity, not truth):
 // this is the ARITHMETIC of the spectrum — the wave relation, the band order, the octave, the rounding gap — NOT an
 // EMF safety, exposure, or health claim of any kind; uuidna makes no claim about radiation and the body. Integrity,
 // not truth.
@@ -55,6 +55,6 @@ const FACTS = [
 
 emit({
   file: 'Spectrum.lean', skill: 'spectrum',
-  header: 'THE SPECTRUM — the electromagnetic spectrum as decidable arithmetic: wavelength × frequency = c, the seven bands in order, photon energy rising with frequency, the visible window under one octave, and the 300,000 km/s rounding gap. The arithmetic of the waves, NOT an EMF safety, exposure, or health claim.',
+  header: 'THE SPECTRUM — the electromagnetic spectrum as decidable arithmetic: wavelength × frequency = c, the seven bands in order, photon energy rising with frequency, the visible window under one octave, and the 300,000 km/s rounding gap.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

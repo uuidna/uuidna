@@ -10,7 +10,7 @@
 // never selected from a table of phrases. A phrase table is the defect this project keeps finding: nine hand-typed
 // sentences lost a word in a refactor and no check noticed, because a word in a table has no witness.
 //
-// HONEST SCOPE: integrity, not truth. This decides the measured shape of the walk over ten digits. That the walk
+// integrity, not truth. This decides the measured shape of the walk over ten digits. That the walk
 // models anything is not claimed, and a residue is not a fact about whatever folded to it.
 import { emit } from './lean-gen.js'
 
@@ -57,5 +57,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Orbits.lean', skill: 'orbits', defs: '',
-  header: `THE ORBITS, WALKED — and the generator's own facts are walked too. Every other wing in this ledger holds a hand-authored array of {key, why, js, lean}; this one computes its array by running the sequence over its domain and reading what comes back, so a change to the ring or to either map rewrites the wing with no line edited. Measured here: ${DISTINCT.length} distinct orbits of orders ${DISTINCT.map((o) => o.length).join(', ')}, each closed under the reflection so that reflecting a finished orbit adds no digit; every one of the ten seeds lands in one of them; and ${D.filter((d) => orbitOf(d).length === 10).length} seeds reach every digit while ${10 - D.filter((d) => orbitOf(d).length === 10).length} do not, both halves counted rather than one of them inferred. The theorem KEYS derive from the orbits themselves and the SENTENCES are composed from the same measurements — never selected from a table of phrases, which is the defect this project keeps finding: a hand-typed sentence has no witness and can be lost in a refactor without any check noticing. PURE ARITHMETIC, nothing measured from the world. HONEST SCOPE: integrity, not truth — this decides the measured shape of the walk over ten digits, claims nothing about what the walk models, and a residue is not a fact about whatever folded to it.`,
+  header: `THE ORBITS, WALKED — and the generator's own facts are walked too.`,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -1,0 +1,12 @@
+{
+  "handle": "7166cd5b",
+  "address": "7166cd5b-e075-8c7b-9362-ee6536f3517b",
+  "statement": "((2:Nat)^7 = 128) ∧ (128 - 2 = 126) ∧ (126 + 2 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "contribution_leaves_one_twentysix"
+  ],
+  "files": [
+    "Contribution.lean"
+  ]
+}

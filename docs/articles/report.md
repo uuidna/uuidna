@@ -5,9 +5,9 @@ description: "Computed from lean/Report.lean — 8 sealed theorems, every claim 
 
 # The report
 
-> THE REPORT — the reporter's METHOD as decidable arithmetic: the six questions, a chronological timeline, corroboration by two reputable sources, trinity editing, full-quorum publication, the inverted pyramid, and the VERIFIED/UNVERIFIED verdict on every claim. The discipline of reporting PROVEN discoveries, NOT a claim uuidna verifies world events. — held by [five_ws_and_one_h](/theorem/five_ws_and_one_h) and its 7 siblings below.
+> THE REPORT — the reporter's METHOD as decidable arithmetic: the six questions, a chronological timeline, corroboration by two reputable sources, trinity editing, full-quorum publication, the inverted pyramid, and the VERIFIED/UNVERIFIED verdict on every claim. — held by [five_ws_and_one_h](/theorem/five_ws_and_one_h) and its 7 siblings below.
 
-**8 theorems**, from [five_ws_and_one_h](/theorem/five_ws_and_one_h) onward, each proven `by decide` in [lean/Report.lean](/lean/Report.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [five_ws_and_one_h](/theorem/five_ws_and_one_h) onward, each proven `by decide` in [lean/Report.lean](/lean/Report.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [timeline_is_chronological](/theorem/timeline_is_chronological). A boundary stated here is decided, not merely denied.
 
 ### A complete report answers SIX questions — who, what, when, where, why, and how: the five W's plus the one H, 5 + 1 = 6. Miss one and the story has a hole a reader can fall through.
 The ledger holds this as [five_ws_and_one_h](/theorem/five_ws_and_one_h) — proven `by decide`, sorry-free:

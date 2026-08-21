@@ -1,0 +1,12 @@
+{
+  "handle": "366f8257",
+  "address": "366f8257-2647-8771-b39f-9dda6dafef38",
+  "statement": "[[0], [0,1,9], [0,1,3,5,7,9], [0,1,3,4,5,6,7,9], [0,1,5,9], [0,1,2,3,4,5,6,7,8,9]].all (fun s => s.all (fun d => s.contains (dz d)))",
+  "tactic": "decide",
+  "keys": [
+    "orbits_closed_involution"
+  ],
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

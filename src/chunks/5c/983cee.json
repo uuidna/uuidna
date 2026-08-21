@@ -1,0 +1,12 @@
+{
+  "handle": "5c983cee",
+  "address": "5c983cee-b6c4-8414-b761-a483fa94658e",
+  "statement": "([1,2,3,4,5,6,7] = [1,2,3,4,5,6,7]) ∧ ([1,2,3,4,5,6,7].eraseDups.length = 7)",
+  "tactic": "decide",
+  "keys": [
+    "syndrome_names_the_position"
+  ],
+  "files": [
+    "Hamming.lean"
+  ]
+}

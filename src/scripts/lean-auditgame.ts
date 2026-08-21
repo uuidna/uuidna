@@ -5,8 +5,7 @@
 // Nim/Bouton decidability (a loss for the mover is a zero position). Because the game is finite (finitely many claims
 // × moves, like a bounded chess game), the verdict is DECIDABLE, and N INDEPENDENT refuters are strictly more
 // accurate: adding a refuter is monotone (never un-flags), a 3-vote panel confirms on a majority, and the survive
-// condition is the product of clears ∏(1−rᵢ) — the same {0,1} algebra Audit.lean proves for the detectors. HONEST
-// SCOPE: the game's DECISION is decidable, but its COVERAGE is not — the refutation lexicon is incomplete, so an
+// condition is the product of clears ∏(1−rᵢ) — the same {0,1} algebra Audit.lean proves for the detectors. // SCOPE: the game's DECISION is decidable, but its COVERAGE is not — the refutation lexicon is incomplete, so an
 // audit RAISES the cost of a false claim surviving, it does NOT reduce it to zero. A floor, not a wall — the same
 // honest bound Security proves. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit, range } from './lean-gen.js'
@@ -61,12 +60,12 @@ const FACTS = [
     lean: 'theorem audit_is_a_finite_game : ([0,1,2,3].map (fun n => (2:Nat)^n)) = [1, 2, 4, 8] := by decide' },
 
   { key: 'no_audit_catches_all',
-    why: 'HONEST SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵), so an audit RAISES the cost of a false claim surviving but never zeroes it. A floor, not a wall — the same "no maximum, only bounds" Security proves; the game\'s DECISION is decidable, its COVERAGE is not.',
+    why: 'SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵), so an audit RAISES the cost of a false claim surviving but never zeroes it. A floor, not a wall — the same "no maximum, only bounds" Security proves; the game\'s DECISION is decidable, its COVERAGE is not.',
     js: () => 2 ** 3 < 2 ** 4 && 2 ** 4 < 2 ** 5,
     lean: 'theorem no_audit_catches_all : ((2:Nat)^3 < 2^4) ∧ ((2:Nat)^4 < 2^5) := by decide' },
 
   { key: 'audit_space_meets_chess_at_eight',
-    why: 'The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) = 10 − 8 = 2 is the first step of the vortex orbit. The three games interact in the diamond: chess at the units {1, 8}, the audit at 8, nim at the nilpotent 6. HONEST SCOPE: a structural residue, NOT a claim the audit IS the ring.',
+    why: 'The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) = 10 − 8 = 2 is the first step of the vortex orbit. The three games interact in the diamond: chess at the units {1, 8}, the audit at 8, nim at the nilpotent 6. a structural residue, NOT a claim the audit IS the ring.',
     js: () => (2 ** 3) % 9 === 8 && (8 * 8) % 9 === 1 && (10 - 8) === 2,
     lean: 'theorem audit_space_meets_chess_at_eight : ((2^3) % 9 = 8) ∧ ((8 * 8) % 9 = 1) ∧ ((10 - 8) = 2) := by decide' },
 ]
@@ -75,6 +74,6 @@ console.log('computing ' + FACTS.length + ' AUDIT-GAME facts (why an audit is mo
 
 emit({
   file: 'AuditGame.lean', skill: 'audit',
-  header: 'THE AUDIT GAME — why an audit is more ACCURATE as a game, sealed by decide: a finding is FLAGGED iff some independent refuter has a winning move (the OR), a claim is CLEAN iff none does (a P-position, the Nim/Bouton decidability), the verdict is exactly one of the two (survive + flag = 1), and N independent refuters are strictly more accurate — adding a refuter is monotone (never un-flags), a 3-vote panel confirms on a majority (4 of 8 profiles), and a unanimous acquittal is the product of clears ∏(1−rᵢ); the honesty gate drains only the hollow-and-unbacked citation (1 of 4 states, echoing Audit.lean); and the game is finite (2ⁿ outcomes) so the value is decidable. HONEST SCOPE: the DECISION is decidable but the COVERAGE is not — the refutation lexicon is incomplete, so an audit raises the cost of a false claim surviving, it does NOT reduce it to zero. A floor, not a wall.',
+  header: 'THE AUDIT GAME — why an audit is more ACCURATE as a game, sealed by decide: a finding is FLAGGED iff some independent refuter has a winning move (the OR), a claim is CLEAN iff none does (a P-position, the Nim/Bouton decidability), the verdict is exactly one of the two (survive + flag = 1), and N independent refuters are strictly more accurate — adding a refuter is monotone (never un-flags), a 3-vote panel confirms on a majority (4 of 8 profiles), and a unanimous acquittal is the product of clears ∏(1−rᵢ); the honesty gate drains only the hollow-and-unbacked citation (1 of 4 states, echoing Audit.lean); and the game is finite (2ⁿ outcomes) so the value is decidable. the DECISION is decidable but the COVERAGE is not — the refutation lexicon is incomplete, so an audit raises the cost of a false claim surviving, it does NOT reduce it to zero.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

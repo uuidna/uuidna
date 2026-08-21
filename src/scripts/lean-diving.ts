@@ -53,5 +53,5 @@ const FACTS = [
 // compute → generate → verify. The arithmetic of trimix gas laws — fractions, Dalton, the oxygen window, blending,
 // narcosis, the decompression ratio. HARD SAFETY DEMARCATION: algebra, never a dive plan; use training and a computer.
 emit({ file: 'Diving.lean', skill: 'diving',
-  header: 'DIVING — the decidable arithmetic of trimix gas laws, demarcated. A mix\'s fractions sum to 100%; absolute pressure is 1 + depth/10 atm; Dalton\'s law makes the partial pressures sum to the absolute pressure; air\'s ppO₂ (0.21·P) leaves the 0.16–1.60 window at depth, so deep dives blend trimix; gases blend by partial pressure to the fill; helium is non-narcotic (lower equivalent narcotic depth); and a direct ascent exceeding the ~2:1 Haldane ratio needs a stop. HARD SAFETY SCOPE: ARITHMETIC ONLY — NOT a dive planner, NOT dive tables, NOT medical or safety advice. Never plan or execute a dive on these numbers; use certified training, cut tables, and a dive computer. Diving is life-critical.',
+  header: 'DIVING — the decidable arithmetic of trimix gas laws, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

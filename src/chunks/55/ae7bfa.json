@@ -4,11 +4,9 @@
   "statement": "(List.range 5).length = 5",
   "tactic": "decide",
   "keys": [
-    "big_five_factors_pentad",
-    "sailing_books_extract_decidable_facts"
+    "big_five_factors_pentad"
   ],
   "files": [
-    "Psychology.lean",
-    "SailingSeals.lean"
+    "Psychology.lean"
   ]
 }

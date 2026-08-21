@@ -1,0 +1,12 @@
+{
+  "handle": "40af7de7",
+  "address": "40af7de7-9f0a-8109-a523-b86eaaff8822",
+  "statement": "[8,10,16].all (fun b => b % (b - 1) == 1)",
+  "tactic": "decide",
+  "keys": [
+    "base_fixes_modulus"
+  ],
+  "files": [
+    "Notation.lean"
+  ]
+}

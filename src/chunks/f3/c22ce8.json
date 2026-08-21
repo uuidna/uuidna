@@ -1,0 +1,12 @@
+{
+  "handle": "f3c22ce8",
+  "address": "f3c22ce8-2d70-8f03-987e-16cf82cb6285",
+  "statement": "6 * 9 * 7 = 378",
+  "tactic": "decide",
+  "keys": [
+    "channel_multiplies_three"
+  ],
+  "files": [
+    "Channel.lean"
+  ]
+}

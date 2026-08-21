@@ -1,4 +1,4 @@
--- lean/Typesetting.lean — GENERATED. THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini's identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. HONEST SCOPE: the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Typesetting.lean — GENERATED. THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini's identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- The printer's units close on the inch: twelve points make a pica, six picas make the inch — 6 · 12 = 72 — so
     the point is exactly 1/72 of an inch, the atom every measure is counted in. Pierre Fournier and then Firmin
@@ -59,9 +59,9 @@ theorem baseline_grid_snaps_to_four : [12,16,20,24].all (fun n => n % 4 == 0) :=
 theorem type_scale_octave : (16 = 8 * 2) ∧ (18 = 9 * 2) := by decide
 
 /-- The ISO page folds like a signature: A4 halves into two A5, A5 into two A6 — [1,2,4] sheets of each become
-    [2,4,8] of the next — so the area halves at every cut. HONEST SCOPE: the √2 side-ratio that lets the shape
-    survive the fold is IRRATIONAL and is NOT decided here; the decidable fact is the doubling of the COUNT, the
-    counting that a print shop actually meters paper by. -/
+    [2,4,8] of the next — so the area halves at every cut. the √2 side-ratio that lets the shape survive the
+    fold is IRRATIONAL and is NOT decided here; the decidable fact is the doubling of the COUNT, the counting
+    that a print shop actually meters paper by. -/
 theorem a_series_halving : [1,2,4].map (fun n => n * 2) = [2,4,8] := by decide
 
 /-- A ream is five hundred sheets: twenty quires of twenty-five — 20 · 25 = 500 — the count a paper mill sells

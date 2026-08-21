@@ -31,7 +31,7 @@ const LT = 'fun n => let t := n%2; let h := n/2%2; let c := n/4%2;'
 
 const FACTS = [
   { key: 'solutions_not_skipped', skill: 'legal',
-    why: 'SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept, not lost. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. HONEST: it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.',
+    why: 'SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept, not lost. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. : it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.',
     js: () => [0, 1, 2, 3].every((a) => [0, 1, 2, 3].every((u) => [0, 1, 2, 3].every((r) => a + (u + r) === a + u + r))),
     lean: 'theorem solutions_not_skipped : (List.range 4).all (fun a => (List.range 4).all (fun u => (List.range 4).all (fun r => a + (u + r) == a + u + r))) := by decide' },
 
@@ -88,5 +88,5 @@ const FACTS = [
 console.log('computing ' + FACTS.length + ' LEGAL-vocabulary facts (the trial terms as sealed theorems) …')
 
 emit({ file: 'Legal.lean', skill: 'legal', defs: DEFS,
-  header: 'The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong), NOT PROVEN (dismissed without prejudice), REMAND (to development trial). Only the proven stays; the non-justiciable is never refuted',
+  header: 'The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong), NOT PROVEN (dismissed without prejudice), REMAND (to development trial).',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

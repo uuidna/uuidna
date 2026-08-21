@@ -5,7 +5,7 @@
 // the unbraced quad (one mechanism — the open pipe of statics: it swings until the path is closed). Searchers ask
 // this rule verbatim (Search Console: three query variants); now the answer is sealed where they already land.
 // Sources: Maxwell 1864 via arXiv:0803.2325, SJSU CE160 determinacy notes, Engineering LibreTexts 5.3.
-// HONEST SCOPE: the counting rule on sample structures — necessary, not sufficient (geometry can still be
+// the counting rule on sample structures — necessary, not sufficient (geometry can still be
 // degenerate); a real design needs the full rank condition. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 

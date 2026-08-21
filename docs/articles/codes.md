@@ -7,7 +7,7 @@ description: "Computed from lean/Codes.lean — 8 sealed theorems, every claim c
 
 > THE ERROR-CORRECTING CODES — Hamming(7,4), the perfect-code sphere-packing, distance/correction bounds, and the XOR checksum, decidable. — held by [hamming_seven_four](/theorem/hamming_seven_four) and its 7 siblings below.
 
-**8 theorems**, from [hamming_seven_four](/theorem/hamming_seven_four) onward, each proven `by decide` in [lean/Codes.lean](/lean/Codes.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [hamming_seven_four](/theorem/hamming_seven_four) onward, each proven `by decide` in [lean/Codes.lean](/lean/Codes.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [distance_three_detects_two](/theorem/distance_three_detects_two). A boundary stated here is decided, not merely denied.
 
 ### Hamming(7,4): 4 data bits + 3 parity bits = 7, carrying 2⁴ = 16 codewords — three redundant bits protect four.
 The ledger holds this as [hamming_seven_four](/theorem/hamming_seven_four) — proven `by decide`, sorry-free:

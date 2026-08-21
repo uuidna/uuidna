@@ -1,0 +1,12 @@
+{
+  "handle": "68fa3e57",
+  "address": "68fa3e57-b8ea-816c-97b2-5903a48bce01",
+  "statement": "(32 / 8 = 4) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32) ∧ (128 / 32 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "build_counts_in_hexbits"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

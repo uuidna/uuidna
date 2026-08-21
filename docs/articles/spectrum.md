@@ -5,9 +5,9 @@ description: "Computed from lean/Spectrum.lean — 8 sealed theorems, every clai
 
 # The spectrum
 
-> THE SPECTRUM — the electromagnetic spectrum as decidable arithmetic: wavelength × frequency = c, the seven bands in order, photon energy rising with frequency, the visible window under one octave, and the 300,000 km/s rounding gap. The arithmetic of the waves, NOT an EMF safety, exposure, or health claim. — held by [wave_product_is_constant](/theorem/wave_product_is_constant) and its 7 siblings below.
+> THE SPECTRUM — the electromagnetic spectrum as decidable arithmetic: wavelength × frequency = c, the seven bands in order, photon energy rising with frequency, the visible window under one octave, and the 300,000 km/s rounding gap. — held by [wave_product_is_constant](/theorem/wave_product_is_constant) and its 7 siblings below.
 
-**8 theorems**, from [wave_product_is_constant](/theorem/wave_product_is_constant) onward, each proven `by decide` in [lean/Spectrum.lean](/lean/Spectrum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [wave_product_is_constant](/theorem/wave_product_is_constant) onward, each proven `by decide` in [lean/Spectrum.lean](/lean/Spectrum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 ### The one law, as arithmetic: wavelength × frequency = c is a CONSTANT, so if the wavelength doubles the frequency halves and the product holds — 2·150 = 300 and 4·75 = 300 (300 scales the constant). λ and f are inversely proportional at the fixed speed of light.
 The ledger holds this as [wave_product_is_constant](/theorem/wave_product_is_constant) — proven `by decide`, sorry-free:

@@ -156,8 +156,12 @@ let _byPrinciple: Map<string, Theorem[]> | null = null
 /** theoremNeighbours(key) → the theorems that SHARE this one's computing principle (its domain), excluding itself —
  *  each theorem scans its neighbours. Built once from the immutable ledger; the neighbourhoods partition the whole
  *  ledger, so every theorem sits in exactly one. Empty for an unknown key. */
-export const theoremNeighbours = (key: string): readonly Theorem[] => {
+export const theoremNeighbours = (key: string): { key: string; principle: string | null; neighbours: readonly Theorem[] } => {
   if (!_byPrinciple) { _byPrinciple = new Map(); for (const t of THEOREMS) { const a = _byPrinciple.get(t.principle) ?? []; a.push(t); _byPrinciple.set(t.principle, a) } }
   const self = theoremByKey().get(key)
-  return self ? (_byPrinciple.get(self.principle) ?? []).filter((t) => t.key !== key) : []
+  // A NULL PRINCIPLE IS THE UNKNOWN-KEY ANSWER. Returning a bare array made "unknown" and "no neighbours"
+  // indistinguishable, so the caller re-derived the reason it had just been denied. The relation now carries it.
+  return self
+    ? { key, principle: self.principle, neighbours: (_byPrinciple.get(self.principle) ?? []).filter((t) => t.key !== key) }
+    : { key, principle: null, neighbours: [] }
 }

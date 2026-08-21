@@ -3,7 +3,7 @@
 // equilibrium has its forces summing to zero and its moments balancing; a lever trades force for distance
 // (mechanical advantage); the centre of mass is the weighted average of positions; a simply-supported beam splits
 // a central load evenly; a rigid planar truss obeys Maxwell's rule m = 2j − 3; stress is force over area; and
-// Hooke's law is linear. HONEST SCOPE: the arithmetic of equilibrium — sums, balances and exact ratios — not a
+// Hooke's law is linear. the arithmetic of equilibrium — sums, balances and exact ratios — not a
 // full structural-analysis or finite-element derivation. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
@@ -52,5 +52,5 @@ const FACTS = [
 // compute → generate → verify. The structures domain — equilibrium, moments, the lever, centre of mass, beam
 // reactions, truss rigidity, stress, Hooke — decidable statics arithmetic, demarcated: not a full FEA derivation.
 emit({ file: 'Statics.lean', skill: 'statics',
-  header: 'STATICS — the structures domain, as decidable arithmetic, demarcated. A body in equilibrium has forces summing to zero (10−6−4=0) and moments balancing (6·2=4·3); a lever gives mechanical advantage (100·1=20·5); the centre of mass is the weighted average (1·0+1·10=2·5); a simply-supported beam splits a central load evenly (50+50=100); a rigid planar truss obeys Maxwell\'s rule m=2j−3 (2·3−3=3); stress is force over area (100/4=25); and Hooke\'s law is linear. HONEST SCOPE: the arithmetic of equilibrium — sums, balances and exact ratios — not a full structural-analysis or finite-element derivation.',
+  header: 'STATICS — the structures domain, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

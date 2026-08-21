@@ -1,0 +1,12 @@
+{
+  "handle": "d928ebae",
+  "address": "d928ebae-45c6-8ee8-938a-9e38ad94dd74",
+  "statement": "(256 - 1 = 255) ∧ (255 * 32 = 8160) ∧ (256 ≠ 255)",
+  "tactic": "decide",
+  "keys": [
+    "every_alternative_differs"
+  ],
+  "files": [
+    "Byte.lean"
+  ]
+}

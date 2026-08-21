@@ -1,0 +1,12 @@
+{
+  "handle": "5277e2be",
+  "address": "5277e2be-dd12-8b7d-9096-1ec00658bc2f",
+  "statement": "(((List.range 10).filter (fun d => dz d == d)).length = 2) ∧ (2 + (10 - 2) / 2 = 6)",
+  "tactic": "decide",
+  "keys": [
+    "six_is_forced_arithmetic"
+  ],
+  "files": [
+    "Reflection.lean"
+  ]
+}

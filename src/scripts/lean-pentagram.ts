@@ -5,7 +5,7 @@
 // single-digit (mod 9) Fibonacci sequence — the digital-root Fibonacci — is periodic, closing into a 24-cycle
 // (its Pisano period), and the SAME recurrence read through the pentagram (mod 5, period 20) and the rosette
 // (mod 7, period 16) closes into their own cycles: one sequence, three moduli, three finite periods.
-// HONEST SCOPE: these are finite periodic cycles of single digits, decidable `by decide` — NOT a claim about the
+// these are finite periodic cycles of single digits, decidable `by decide` — NOT a claim about the
 // irrational golden ratio the pentagram encodes (φ is not a `by decide` object). COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
 

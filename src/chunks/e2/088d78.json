@@ -1,0 +1,12 @@
+{
+  "handle": "e2088d78",
+  "address": "e2088d78-03eb-8c4f-bf8b-b84f80fadfcb",
+  "statement": "(81 = 9^2) ∧ (81 = 3^4) ∧ (9 = 3^2)",
+  "tactic": "decide",
+  "keys": [
+    "eightyone_squares_nine"
+  ],
+  "files": [
+    "Trinities.lean"
+  ]
+}

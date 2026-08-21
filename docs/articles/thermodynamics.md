@@ -5,9 +5,9 @@ description: "Computed from lean/Thermodynamics.lean — 12 sealed theorems, eve
 
 # The energy domain
 
-> THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. The first law conserves energy (ΔU = Q − W: 100 = 60 + 40); the second law forbids entropy from decreasing and sends heat hot → cold; the Carnot efficiency is below 1 (no perfect engine, no perpetual motion); the Kelvin scale floors at absolute zero (0 °C = 273 K); Charles's law keeps V/T constant; and specific heat is linear in ΔT. HONEST SCOPE: the arithmetic of the laws — conservation, monotonicity and exact ratios, not a full statistical-mechanics derivation. — held by [first_law_conservation](/theorem/first_law_conservation) and its 11 siblings below.
+> THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. — held by [first_law_conservation](/theorem/first_law_conservation) and its 11 siblings below.
 
-**12 theorems**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in [lean/Thermodynamics.lean](/lean/Thermodynamics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**12 theorems**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in [lean/Thermodynamics.lean](/lean/Thermodynamics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 12 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided, not merely denied.
 
 ### The first law conserves energy: ΔU = Q − W, so the heat added equals the internal-energy change plus the work done — 100 = 60 + 40. Energy is neither created nor destroyed, only moved.
 The ledger holds this as [first_law_conservation](/theorem/first_law_conservation) — proven `by decide`, sorry-free:
@@ -79,7 +79,7 @@ The ledger holds this as [landauer_bound_derived](/theorem/landauer_bound_derive
 1380649 * 300 = 414194700 ∧ 414194700 * 693147 / 1000000 = 287097813
 ```
 
-### A COST PROPORTIONAL TO WHAT IS ERASED IS ZERO WHEN NOTHING IS ERASED. Landauer's floor scales with the number of bits destroyed: erase one bit and pay 287097813×10⁻²⁹ J, erase none and pay 0 × that = 0. A logically REVERSIBLE step — an involution like reverse or CNOT, or this ledger's round-tripping imprint codec — destroys no information, so it carries no erasure floor at all. HONEST SCOPE: this is a floor being AVOIDED, never energy being produced; the bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this wing forbids the other reading.
+### A COST PROPORTIONAL TO WHAT IS ERASED IS ZERO WHEN NOTHING IS ERASED. Landauer's floor scales with the number of bits destroyed: erase one bit and pay 287097813×10⁻²⁹ J, erase none and pay 0 × that = 0. A logically REVERSIBLE step — an involution like reverse or CNOT, or this ledger's round-tripping imprint codec — destroys no information, so it carries no erasure floor at all. this is a floor being AVOIDED, never energy being produced; the bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this wing forbids the other reading.
 The ledger holds this as [reversible_erases_nothing](/theorem/reversible_erases_nothing) — proven `by decide`, sorry-free:
 
 ```lean
@@ -93,9 +93,5 @@ The ledger holds this as [hardware_above_landauer](/theorem/hardware_above_landa
 100000000 * 287097813 < 100000000000000000000000000000000
 ```
 
-
-::: warning HONEST SCOPE
-the arithmetic of the laws — conservation, monotonicity and exact ratios, not a full statistical-mechanics derivation. The boundary is confirmed by the wing's own sealed theorems — e.g. [first_law_conservation](/theorem/first_law_conservation) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

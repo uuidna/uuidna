@@ -1,0 +1,12 @@
+{
+  "handle": "d92e6f7b",
+  "address": "d92e6f7b-63d0-8935-b78d-b95adb501faa",
+  "statement": "((List.range 2).all (fun a => nandB a a == notB a)) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => notB (nandB a b) == andB a b))) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => nandB (notB a) (notB b) == orB a b)))",
+  "tactic": "decide",
+  "keys": [
+    "nand_rebuilds_the_others"
+  ],
+  "files": [
+    "Boolean.lean"
+  ]
+}

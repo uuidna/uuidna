@@ -12,7 +12,7 @@
 // came. The digit 9 has NONE, so it is UNREACHED — doubling never produces it, and no reversal arrives there
 // because nothing ever left. Under dz every count is exactly 1: no ambiguity, no unexplored digit.
 //
-// HONEST SCOPE: integrity, not truth. This decides the two maps' preimage structure over the ten digits. It says
+// integrity, not truth. This decides the two maps' preimage structure over the ten digits. It says
 // nothing about walks longer than one step, which is the reading these facts support and not itself sealed.
 import { emit } from './lean-gen.js'
 
@@ -61,5 +61,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Reversal.lean', skill: 'reversal', defs: DEFS,
-  header: 'REVERSAL — why undoing an INVOLUTION and undoing a PATH are different acts, and where the walk never goes. Undoing a reflection always works and is never ambiguous: every digit has exactly one preimage under dz, the census is ten ones, and reflecting twice returns each digit to itself. Reversing a PATH is a different demand, because the walk alternates dz with doubling and undoing it needs BOTH maps inverted in reverse order — so the path inherits doubling\'s failures, of which there are two distinct kinds. AMBIGUOUS: the digit 0 has TWO preimages, since 0 and 9 both double onto it, so a path arriving at 0 cannot say where it came from. UNREACHED: the digit 9 has ZERO preimages — nothing doubles onto it, so the forward walk never arrives there and no reversal leaves from it. Nine is outside the image, not merely rare. The two censuses are [1,1,1,1,1,1,1,1,1,1] and [2,1,1,1,1,1,1,1,1,0]: both sum to ten, since every digit goes somewhere, but only the reflection arrives everywhere exactly once, and its image is all ten digits against doubling\'s nine. PURE ARITHMETIC, no ledger count, nothing measured from the world. HONEST SCOPE: integrity, not truth — this decides the two maps\' preimage structure over the ten digits, and says nothing about walks longer than one step, which is the reading these facts support and is not itself sealed.',
+  header: 'REVERSAL — why undoing an INVOLUTION and undoing a PATH are different acts, and where the walk never goes.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -3,7 +3,7 @@
 // demarcated. Saint Cyril's 9th-century Glagolitic script gave each letter a number in alphabetic order: Ⰰ (Az)=1,
 // Ⰱ (Buky)=2, on through the units, the tens (10…90) and the hundreds, combined additively (500+80+3 = 583). The
 // Pliska rosette — a seven-rayed bronze star unearthed at the first Bulgarian capital — turns on seven, and seven
-// is the ℤ/7 the rosette layer already seals. HONEST SCOPE: the documented numeral arithmetic and the seven-fold
+// is the ℤ/7 the rosette layer already seals. the documented numeral arithmetic and the seven-fold
 // symmetry. The rosette's MEANING (the seven planets, the days, the Dulo dynasty, a sun-sign) is historically
 // DEBATED, not decoded here — poetry in the telling, documented fact in the theorem. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
@@ -64,7 +64,7 @@ const FACTS = [
     lean: 'theorem gematria_ignores_order : 1 + 2 + 3 = 3 + 2 + 1 ∧ 1 + 2 + 3 = 6 := by decide' },
 
   { key: 'gematria_forces_collisions',
-    why: 'DIFFERENT WORDS MUST SHARE A VALUE — BY PIGEONHOLE, NOT BY MYSTERY. Over the 22 Hebrew letters there are 22³ = 10648 three-letter strings, while their values (each letter 1…400) can only land between 3 and 1200 — 1198 possible sums. More words than sums, so collisions are FORCED: on average nearly nine strings per value. A shared gematria is therefore the expected case and carries no information on its own; it is the same seats-and-people bound the address layer seals as seats_pigeonhole. HONEST SCOPE: this decides the counting, never the significance anyone assigns to a coincidence.',
+    why: 'DIFFERENT WORDS MUST SHARE A VALUE — BY PIGEONHOLE, NOT BY MYSTERY. Over the 22 Hebrew letters there are 22³ = 10648 three-letter strings, while their values (each letter 1…400) can only land between 3 and 1200 — 1198 possible sums. More words than sums, so collisions are FORCED: on average nearly nine strings per value. A shared gematria is therefore the expected case and carries no information on its own; it is the same seats-and-people bound the address layer seals as seats_pigeonhole. this decides the counting, never the significance anyone assigns to a coincidence.',
     js: () => 22 * 22 * 22 === 10648 && 1200 - 3 + 1 === 1198 && 10648 > 1198,
     lean: 'theorem gematria_forces_collisions : 22 * 22 * 22 = 10648 ∧ 1200 - 3 + 1 = 1198 ∧ 10648 > 1198 := by decide' },
 ]
@@ -72,5 +72,5 @@ const FACTS = [
 // compute → generate → verify. The Glagolitic numerals and the Pliska rosette's seven-fold — documented arithmetic
 // and geometry, demarcated: the rosette's meaning stays historically debated; only the numbers are sealed.
 emit({ file: 'Glagolitic.lean', skill: 'glagolitic',
-  header: 'GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. Cyril\'s 9th-century script numbered its letters in order: the units 1–9 (Az…Zemlja), the tens and hundreds, combined additively (500+80+3 = 583), with the teens 11–19 written unit-before-ten. The nine units sum to 45 (digital root 9); the Pliska rosette turns on seven rays — the ℤ/7 the rosette layer seals — whose six residues sum to 21 (digital root 3, the primitive root), and 7 is prime so ℤ/7 is a field. The same three-rank design letters Greek isopsephy and Hebrew gematria (9+9+9 = 27 signs reaching 900), while Roman numerals read by POSITION instead — a smaller sign before a larger subtracts (IX = 9), where Glagolitic\'s unit-before-ten still adds (11), so 9 ≠ 11 shows the rules are not interchangeable. And because a gematria value is a SUM it is blind to order (anagrams collide) and forced to collide by pigeonhole (22³ = 10648 three-letter strings against 1198 possible sums). HONEST SCOPE: the documented numeral arithmetic, the seven-fold symmetry, and the counting properties of letter-sums. What any of it MEANS is NOT decoded here — the rosette\'s reading (seven planets, the days, the Dulo dynasty, a sun-sign) is historically DEBATED, and a shared gematria value is the expected case by pigeonhole, never evidence of a connection. Significance is not decidable; only the arithmetic is.',
+  header: 'GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

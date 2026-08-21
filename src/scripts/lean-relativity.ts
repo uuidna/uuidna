@@ -4,7 +4,7 @@
 // travels on the null cone (interval zero); the spacetime interval s² = (ct)² − x² is invariant and classifies
 // events as timelike (causal) or spacelike (no causal link without FTL); the Lorentz factor rides a Pythagorean
 // triangle (β = 5/13 → γ = 13/12); moving clocks dilate and moving lengths contract; and rest energy is E = mc².
-// HONEST SCOPE: the arithmetic of special relativity in integer-friendly cases — intervals, the γ triangle and
+// the arithmetic of special relativity in integer-friendly cases — intervals, the γ triangle and
 // exact ratios — not a full tensor or general-relativity derivation. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
@@ -53,5 +53,5 @@ const FACTS = [
 // compute → generate → verify. The spacetime domain — the speed limit, the null cone, the invariant interval,
 // the Lorentz triangle, dilation, contraction, E=mc², causality — decidable arithmetic, demarcated: no FTL, no GR.
 emit({ file: 'Relativity.lean', skill: 'relativity',
-  header: 'RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. Nothing exceeds c (the cosmic speed limit — no FTL); light travels on the null cone (interval 0); the invariant interval s² = (ct)² − x² classifies events as timelike/causal (5²−4²=9>0) or spacelike (3²−5²<0, no causal link without FTL); the Lorentz factor rides a Pythagorean triangle (β=5/13 → γ=13/12, 5²+12²=13²); moving clocks dilate (13>12) and lengths contract (12<13); and rest energy is E=mc². HONEST SCOPE: the arithmetic of special relativity in integer-friendly cases — intervals, the γ triangle and exact ratios — not a full tensor or general-relativity derivation.',
+  header: 'RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

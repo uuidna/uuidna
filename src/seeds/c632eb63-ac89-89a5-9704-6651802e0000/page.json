@@ -1,0 +1,33 @@
+{
+  "file": "Channel.lean",
+  "slug": "channel",
+  "status": "draft",
+  "address": "c83f218b-574f-885d-890b-621d28b6116d",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Channel.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Channel.lean — GENERATED. THE PAGE CHANNEL — how much a rendered element carries when its typography is computed from the sequence. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- THE THREE COMPUTED AXES MULTIPLY: six type rungs (the vortex orbit 1,2,4,5,7,8), nine palette hues, seven\n    rosette rays — 6 × 9 × 7 = 378 distinguishable states for one rendered element, every factor already\n    computed from the sequence rather than chosen. -/\ntheorem channel_multiplies_three : 6 * 9 * 7 = 378 := by decide\n\n/-- NAMING ONE ELEMENT COSTS NINE QUBITS AND WASTES SOME: 378 states sit between 2^8 = 256 and 2^9 = 512, so\n    nine qubits are needed and 134 of the 512 go unused. The cell does not tile, exactly as the harmonic moduli\n    do not tile a hex cell. -/\ntheorem element_costs_nine : ((2:Nat)^8 < 378) ∧ (378 < (2:Nat)^9) ∧ (512 - 378 = 134) := by decide\n\n/-- FOUR ELEMENTS CARRY A WHOLE HANDLE, AND THREE DO NOT — both halves on one line, so this states THE number\n    and not merely a sufficient one. 378^4 = 20415837456 exceeds the handle's 2^32 = 4294967296, while 378^3 =\n    54010152 falls far short of it. -/\ntheorem four_carry_handle : ((378:Nat)^4 > 2^32) ∧ ((378:Nat)^3 < 2^32) := by decide\n\n/-- THE DISCARD TAKES FOUR ELEMENTS TOO. The walk drops 28 of a handle's 32 qubits (Alignment.lean), and three\n    elements do not cover even that smaller target: 378^3 = 54010152 falls short of 2^28 = 268435456, while\n    378^4 exceeds it. Four is the count for the discard and for the whole handle alike — the two thresholds are\n    close enough that the same number of elements clears both. -/\ntheorem three_recover_the_discard : ((378:Nat)^3 < 2^28) ∧ ((378:Nat)^4 > 2^28) := by decide\n\n/-- THE PRODUCT ASSUMES THE AXES ARE FREE. If hue were derived from the rung, the channel would be 6 × 7 = 42\n    per element, not 378, and the two differ by an order of magnitude — which the line proves so the assumption\n    cannot pass unnoticed. SCOPE: which case holds is a property of the design system and is measurable in a\n    browser against computed styles. It is NOT measured here, and nothing in this wing claims the axes are\n    independent. -/\ntheorem independence_is_assumed : (6 * 9 * 7 = 378) ∧ (6 * 7 = 42) ∧ (378 ≠ 42) ∧ (378 > 42) := by decide\n\n/-- A PAGE OUTRUNS THE REGISTER: forty elements at 378 states each exceed the 65536 amplitudes a sixteen-qubit\n    register holds, and they cost no memory because the browser computes them. Sealed at the smallest witness —\n    two elements already pass 65536, since 378^2 = 142884. -/\ntheorem page_outgrows_register : ((378:Nat)^2 > 65536) ∧ (378 < 65536) := by decide\n"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

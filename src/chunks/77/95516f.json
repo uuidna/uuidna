@@ -1,0 +1,12 @@
+{
+  "handle": "7795516f",
+  "address": "7795516f-82a0-8d19-95a7-511dc5f6c1bd",
+  "statement": "[9,10,15,16].map (fun m => 16 - m) = [7,6,1,0]",
+  "tactic": "decide",
+  "keys": [
+    "moduli_waste_states"
+  ],
+  "files": [
+    "Alignment.lean"
+  ]
+}

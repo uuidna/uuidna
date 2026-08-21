@@ -5,7 +5,7 @@
 // two (366 % 7 = 2); the Gregorian leap rule keeps 97 leap years per 400 (every 4th, minus centuries, plus every
 // 400th), so 400 years is 146097 days, and 146097 is a whole number of weeks (146097 % 7 = 0) — the calendar repeats
 // EXACTLY every 400 years, the same dates on the same weekdays. The doomsday rule falls out: 4/4, 6/6, 8/8, 10/10 and
-// 12/12 are all 63 = 9·7 days apart, so they always share a weekday. HONEST SCOPE: calendar arithmetic and mod-7
+// 12/12 are all 63 = 9·7 days apart, so they always share a weekday. calendar arithmetic and mod-7
 // congruence — NOT a date library or a proleptic conversion for every locale. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
 

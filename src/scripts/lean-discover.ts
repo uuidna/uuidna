@@ -28,7 +28,7 @@ const DISCOVERED = [
     lean: 'theorem involution_census_self_explains : (29 > 1) ∧ (2 * 2 = 4) ∧ ((-1 : Int) ^ 2 = 1) := by decide' },
 
   { key: 'happy_ending_verified_cases',
-    why: 'THE BOUNTY BOARD\'S FIRST SEAL — the happy ending problem (Erdős–Szekeres, a $500 Erdős prize): the conjectured ES(n) = 2^(n−2) + 1 matches every computer-verified case — ES(4)=5, ES(5)=9, ES(6)=17 (Szekeres–Peters 2006). Sealed: 2²+1=5 ∧ 2³+1=9 ∧ 2⁴+1=17. HONEST SCOPE (the clay law): three cases is NOT the conjecture; the prize needs all n≥7, still OPEN. The decidable component, a receipt that the formula and the verified record agree.',
+    why: 'THE BOUNTY BOARD\'S FIRST SEAL — the happy ending problem (Erdős–Szekeres, a $500 Erdős prize): the conjectured ES(n) = 2^(n−2) + 1 matches every computer-verified case — ES(4)=5, ES(5)=9, ES(6)=17 (Szekeres–Peters 2006). Sealed: 2²+1=5 ∧ 2³+1=9 ∧ 2⁴+1=17. SCOPE (the clay law): three cases is NOT the conjecture; the prize needs all n≥7, still OPEN. The decidable component, a receipt that the formula and the verified record agree.',
     js: () => JSON.stringify([4, 5, 6].map((n) => 2 ** (n - 2) + 1)) === JSON.stringify([5, 9, 17]),
     lean: 'theorem happy_ending_verified_cases : ((List.range\' 4 3).map (fun n => 2 ^ (n - 2) + 1)) = [5, 9, 17] := by decide' },
   { key: 'units_iff_invertible', why: 'a is a unit (has an inverse mod 9) IFF gcd(a,9)=1 — the unit criterion, computed both ways',
@@ -86,6 +86,6 @@ console.log('missing (new) theorems not in the other lean files: ' + (news.lengt
 
 // compute → generate → verify: invB DERIVES the units, every theorem RECOMPUTES its property (no static lists)
 emit({ file: 'Discover.lean', skill: 'vortex',
-  header: 'Self-discovery; all computes by itself. No hardcoded structure: `invB a` DERIVES whether a is a unit (it has an inverse), and every theorem RECOMPUTES its property by filter/any/all over the ring — nothing typed as a static list.',
+  header: 'Self-discovery; all computes by itself.',
   defs: 'def invB (a : Nat) : Bool := (List.range 9).any (fun e => (a * e) % 9 == 1)   -- a is a unit iff it has an inverse',
   facts: DISCOVERED.map((f) => ({ ...f, name: f.why })) })

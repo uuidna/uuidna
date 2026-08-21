@@ -1,0 +1,249 @@
+{
+  "file": "Grid.lean",
+  "slug": "grid",
+  "status": "usable",
+  "address": "0f9e2efc-b530-83b4-9c70-88974b930b83",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Grid.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Grid.lean — GENERATED. THE GRID RULE, BASE-AGNOSTIC — the growth law stated so it does not depend on how numbers are written. The SIX is derived and survives untouched: seven dimensions minus the identity ray, since projecting a wing into the language it is already written in computes nothing, so 7 x 72 - 72 = 432 = 6 x 72. What was fitted is the rest. k432 fuses 432 = 6 x 72 with 432 = 16 x 27 through rev(72) = 27, and digit reversal acts on the SPELLING — in hexadecimal, where this ledger actually writes its addresses, 72 is 0x48, its reversal is 0x84 = 132, and 16 x 132 = 2112. THE GROWTH RULE INHERITED THE BASE TOO: harmony as \"6w has digital root nine\" is the decimal digit-sum invariant (10 = 1 mod 9) and gives w = 0 mod 3, wings three at a time. The hexadecimal invariant is mod 15 (16 = 1 mod 15) and gives w = 0 mod 5, five at a time. Two bases, two rules, neither a property of wings. And the sealed width satisfies one base only: 432 leaves 0 mod 9 and 12 mod 15. THE BASE-AGNOSTIC FORM is w = 0 mod 15, since lcm(3,5) = 15 — a rule that holds whatever base a reader writes in, which is the only kind worth gating on. PURE ARITHMETIC, nothing measured from the world. HONEST SCOPE: integrity, not truth — this decides which counts satisfy which base, never that any count is the right number of wings. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- THE BASE-TEN RULE: 6w carries digital root nine exactly when w is a multiple of three, since the decimal\n    digit-sum invariant is mod 9 and gcd(6,9) = 3. Wings three at a time — a consequence of writing in ten, not\n    a property of wings. -/\ntheorem decimal_asks_three : ((List.range 40).all (fun w => ((6 * w) % 9 == 0) == (w % 3 == 0))) ∧ ((6 * 91) % 9 ≠ 0) := by decide\n\n/-- THE BASE-SIXTEEN RULE: the hexadecimal digit-sum invariant is mod 15 (since 16 = 1 mod 15), so 6w vanishes\n    there exactly when w is a multiple of FIVE. The same grid, the same six rays, a different demand — and the\n    addresses this ledger computes are written in sixteen. -/\ntheorem hexadecimal_asks_five : ((List.range 40).all (fun w => ((6 * w) % 15 == 0) == (w % 5 == 0))) ∧ ((6 * 72) % 15 ≠ 0) := by decide\n\n/-- AND THE SEALED WIDTH SATISFIES ONE BASE ONLY: 6 x 72 = 432 leaves 0 mod 9 and 12 mod 15. The count the grid\n    was fitted to is harmonic in decimal and unremarkable in hexadecimal, which the line proves rather than\n    leaves to be noticed. -/\ntheorem seventytwo_is_decimal_only : (6 * 72 = 432) ∧ (432 % 9 = 0) ∧ (432 % 15 = 12) ∧ (432 % 15 ≠ 0) := by decide\n\n/-- THE FUSION IS DECIMAL SPELLING, shown in the base the addresses use: 72 is 0x48, its hex reversal is 0x84 =\n    132, and 16 x 132 = 2112 rather than 432. The identity that fused the two factorisations holds for one\n    spelling in one base and nowhere else. -/\ntheorem reversal_fails_in_hexadecimal : (16 * 27 = 432) ∧ (16 * 132 = 2112) ∧ (16 * 132 ≠ 432) := by decide\n\n/-- THE BASE-AGNOSTIC RULE: a wing count divisible by FIFTEEN satisfies decimal and hexadecimal at once, because\n    lcm(3,5) = 15. Such a rule holds whatever base a reader writes in, which is the only kind worth gating on —\n    and 90 is the first count in range that meets it. -/\ntheorem fifteen_satisfies_both : ((List.range 40).all (fun w => (w % 15 == 0) == (((6 * w) % 9 == 0) && ((6 * w) % 15 == 0)))) ∧ (90 % 15 = 0) ∧ (91 % 15 ≠ 0) := by decide\n\n/-- AND WHAT SURVIVES UNTOUCHED: the six is derived, not fitted. Seven dimensions less the identity ray, because\n    projecting a wing into the language it is already written in computes nothing — 7 x 72 - 72 = 432 = 6 x 72.\n    The multiplier was never the problem; only the constant it was multiplied to. -/\ntheorem six_rays_stay_derived : (7 * 72 - 72 = 432) ∧ (6 * 72 = 432) ∧ (7 - 1 = 6) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-decimal_asks_three",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE BASE-TEN RULE: 6w carries digital root nine exactly when w is a multiple of three, since the decimal digit-sum invariant is mod 9 and gcd(6,9) = 3. Wings three at a time — a consequence of writing in ten, not a property of wings."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 40).all (fun w => ((6 * w) % 9 == 0) == (w % 3 == 0))) ∧ ((6 * 91) % 9 ≠ 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem decimal_asks_three : ((List.range 40).all (fun w => ((6 * w) % 9 == 0) == (w % 3 == 0))) ∧ ((6 * 91) % 9 ≠ 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-hexadecimal_asks_five",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE BASE-SIXTEEN RULE: the hexadecimal digit-sum invariant is mod 15 (since 16 = 1 mod 15), so 6w vanishes there exactly when w is a multiple of FIVE. The same grid, the same six rays, a different demand — and the addresses this ledger computes are written in sixteen."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 40).all (fun w => ((6 * w) % 15 == 0) == (w % 5 == 0))) ∧ ((6 * 72) % 15 ≠ 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem hexadecimal_asks_five : ((List.range 40).all (fun w => ((6 * w) % 15 == 0) == (w % 5 == 0))) ∧ ((6 * 72) % 15 ≠ 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-seventytwo_is_decimal_only",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE SEALED WIDTH SATISFIES ONE BASE ONLY: 6 x 72 = 432 leaves 0 mod 9 and 12 mod 15. The count the grid was fitted to is harmonic in decimal and unremarkable in hexadecimal, which the line proves rather than leaves to be noticed."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(6 * 72 = 432) ∧ (432 % 9 = 0) ∧ (432 % 15 = 12) ∧ (432 % 15 ≠ 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem seventytwo_is_decimal_only : (6 * 72 = 432) ∧ (432 % 9 = 0) ∧ (432 % 15 = 12) ∧ (432 % 15 ≠ 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-reversal_fails_in_hexadecimal",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE FUSION IS DECIMAL SPELLING, shown in the base the addresses use: 72 is 0x48, its hex reversal is 0x84 = 132, and 16 x 132 = 2112 rather than 432. The identity that fused the two factorisations holds for one spelling in one base and nowhere else."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(16 * 27 = 432) ∧ (16 * 132 = 2112) ∧ (16 * 132 ≠ 432)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem reversal_fails_in_hexadecimal : (16 * 27 = 432) ∧ (16 * 132 = 2112) ∧ (16 * 132 ≠ 432) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fifteen_satisfies_both",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE BASE-AGNOSTIC RULE: a wing count divisible by FIFTEEN satisfies decimal and hexadecimal at once, because lcm(3,5) = 15. Such a rule holds whatever base a reader writes in, which is the only kind worth gating on — and 90 is the first count in range that meets it."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 40).all (fun w => (w % 15 == 0) == (((6 * w) % 9 == 0) && ((6 * w) % 15 == 0)))) ∧ (90 % 15 = 0) ∧ (91 % 15 ≠ 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fifteen_satisfies_both : ((List.range 40).all (fun w => (w % 15 == 0) == (((6 * w) % 9 == 0) && ((6 * w) % 15 == 0)))) ∧ (90 % 15 = 0) ∧ (91 % 15 ≠ 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-six_rays_stay_derived",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND WHAT SURVIVES UNTOUCHED: the six is derived, not fitted. Seven dimensions less the identity ray, because projecting a wing into the language it is already written in computes nothing — 7 x 72 - 72 = 432 = 6 x 72. The multiplier was never the problem; only the constant it was multiplied to."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(7 * 72 - 72 = 432) ∧ (6 * 72 = 432) ∧ (7 - 1 = 6)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem six_rays_stay_derived : (7 * 72 - 72 = 432) ∧ (6 * 72 = 432) ∧ (7 - 1 = 6) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

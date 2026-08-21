@@ -1,0 +1,12 @@
+{
+  "handle": "1992a562",
+  "address": "1992a562-fee9-8007-b82c-6c8428185250",
+  "statement": "(2 * 2 = 4) ∧ (4 ≠ 2)",
+  "tactic": "decide",
+  "keys": [
+    "handles_give_generators"
+  ],
+  "files": [
+    "DoubleTorus.lean"
+  ]
+}

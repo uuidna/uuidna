@@ -5,9 +5,9 @@ description: "Computed from lean/Optics.lean — 8 sealed theorems, every claim 
 
 # The light domain
 
-> OPTICS — the light domain, as decidable arithmetic, demarcated. Reflection is an involution (angle in = angle out); the refractive index n = c/v is ≥ 1, so light in a medium is SLOWER than c (no FTL, the vacuum is the ceiling); Snell's law n₁sinθ₁ = n₂sinθ₂ holds in a consistent rational-sine case (4·3 = 3·4); the thin-lens equation 1/f = 1/do + 1/di and its magnification are exact; dispersion refracts blue more than red; and total internal reflection needs a denser source. HONEST SCOPE: the arithmetic of geometric optics — specific consistent cases, not a full wave-optics derivation. — held by [law_of_reflection](/theorem/law_of_reflection) and its 7 siblings below.
+> OPTICS — the light domain, as decidable arithmetic, demarcated. — held by [law_of_reflection](/theorem/law_of_reflection) and its 7 siblings below.
 
-**8 theorems**, from [law_of_reflection](/theorem/law_of_reflection) onward, each proven `by decide` in [lean/Optics.lean](/lean/Optics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [law_of_reflection](/theorem/law_of_reflection) onward, each proven `by decide` in [lean/Optics.lean](/lean/Optics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [refractive_index_ge_one](/theorem/refractive_index_ge_one). A boundary stated here is decided, not merely denied.
 
 ### The law of reflection: the angle out equals the angle in, so a mirror is an involution — reflecting the incidence angle twice through the normal returns it, 180 − (180 − a) = a for every angle a in 0…180°.
 The ledger holds this as [law_of_reflection](/theorem/law_of_reflection) — proven `by decide`, sorry-free:
@@ -65,9 +65,5 @@ The ledger holds this as [tir_needs_denser_source](/theorem/tir_needs_denser_sou
 100 < 150
 ```
 
-
-::: warning HONEST SCOPE
-the arithmetic of geometric optics — specific consistent cases, not a full wave-optics derivation. The boundary is confirmed by the wing's own sealed theorems — e.g. [law_of_reflection](/theorem/law_of_reflection) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

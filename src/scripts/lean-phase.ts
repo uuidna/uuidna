@@ -58,5 +58,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Phase.lean', skill: 'phase', defs: DEFS,
-  header: 'PHASE — why the alternating walk does not close, and which half is responsible. The walk alternates the reflection dz(x) = 10 − x with doubling mod 9, so a PERIOD requires returning to the seed IN PHASE, after a completed pair. The cause of the failure is decided here: dz is a BIJECTION, sending ten digits onto ten and erasing nothing, while doubling sends 0 and 9 to the same image and so maps ten digits onto NINE — one digit lost per pass, and the image never widens again. A walk that has left the image cannot return to a seed outside it. Only zero closes, at two steps, because both maps fix it; five sits on its seed after the first step but that is out of phase, with doubling still owed, and doubling then moves it to 1. PURE ARITHMETIC, no ledger count, nothing measured from the world. HONEST SCOPE: integrity, not truth — `by decide` settles the two maps and their images. That a given walk therefore never closes is the reading these facts support, and is not itself sealed.',
+  header: 'PHASE — why the alternating walk does not close, and which half is responsible.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

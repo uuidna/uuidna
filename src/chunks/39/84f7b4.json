@@ -1,0 +1,12 @@
+{
+  "handle": "3984f7b4",
+  "address": "3984f7b4-eec3-8222-a633-53c582f379fb",
+  "statement": "[0,1,5,9].all (fun d => [0,1,5,9].contains (if d = 0 then 0 else 10 - d))",
+  "tactic": "decide",
+  "keys": [
+    "orbit_0_1_5_9_closes"
+  ],
+  "files": [
+    "Orbits.lean"
+  ]
+}

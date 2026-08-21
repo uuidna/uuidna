@@ -3,7 +3,7 @@
 // integrity theme as content-addressing (a check digit is a one-symbol fold of the content that catches tampering,
 // as a uuid is a 128-bit fold). ISBN-10 uses a weighted sum mod 11 (prime) — every weight is nonzero mod 11, so any
 // single-digit error shifts the checksum, and consecutive weights differ by 1, so any adjacent transposition shifts
-// it too. ISBN-13 uses alternating 1/3 weights mod 10 with the 978/979 Bookland prefix. HONEST SCOPE: the checksum
+// it too. ISBN-13 uses alternating 1/3 weights mod 10 with the 978/979 Bookland prefix. the checksum
 // arithmetic and what it catches — NOT a validator library. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 

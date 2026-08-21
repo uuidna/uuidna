@@ -1,0 +1,12 @@
+{
+  "handle": "cb9fefec",
+  "address": "cb9fefec-cec7-8038-8ee9-416c8f5f4283",
+  "statement": "(128 - 2 = 126) ∧ ((128:Nat) ≠ 126) ∧ (126 < 128)",
+  "tactic": "decide",
+  "keys": [
+    "taking_before_paying_differs"
+  ],
+  "files": [
+    "Contribution.lean"
+  ]
+}

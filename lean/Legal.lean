@@ -1,4 +1,4 @@
--- lean/Legal.lean — GENERATED. The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong), NOT PROVEN (dismissed without prejudice), REMAND (to development trial). Only the proven stays; the non-justiciable is never refuted Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Legal.lean — GENERATED. The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong), NOT PROVEN (dismissed without prejudice), REMAND (to development trial). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- the legal verdict over the record: t = a decidable test exists (justiciable), h = it holds, c = cites a sealed authority
 def lp (t h c : Nat) : Nat := t*h + c - t*h*c            -- PROVEN: (test holds) OR (cites a sealed authority)
@@ -10,9 +10,9 @@ def lnp (t h c : Nat) : Nat := (1 - lp t h c) * (1 - lr t h c)  -- NOT PROVEN: n
     solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting
     CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified +
     refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED
-    solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. HONEST: it
-    does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim
-    stays unproven, but it is never dropped. -/
+    solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. : it does
+    NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays
+    unproven, but it is never dropped. -/
 theorem solutions_not_skipped : (List.range 4).all (fun a => (List.range 4).all (fun u => (List.range 4).all (fun r => a + (u + r) == a + u + r))) := by decide
 
 /-- the trial returns EXACTLY ONE verdict per record — PROVEN, REFUTED or NOT PROVEN partition the eight records

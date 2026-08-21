@@ -2,8 +2,7 @@
 // Automate the Lean layer for PROPULSION — Newtonian and BOUNDED, demarcated. Thrust is momentum conservation:
 // the rocket's forward momentum equals the exhaust's backward momentum (Newton's third law). From that: thrust
 // REQUIRES ejected reaction mass (zero exhaust → zero thrust, so no "reactionless" or free drive), thrust = ṁ·vₑ,
-// the Δv budget adds across stages, and acceleration a = F/m is FINITE — there is no infinite g. HONEST SCOPE:
-// the decidable ALGEBRA of Newtonian rocketry — not a claim of a novel drive, not FTL, not infinite g-force.
+// the Δv budget adds across stages, and acceleration a = F/m is FINITE — there is no infinite g. // the decidable ALGEBRA of Newtonian rocketry — not a claim of a novel drive, not FTL, not infinite g-force.
 // COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
@@ -40,5 +39,5 @@ const FACTS = [
 // compute → generate → verify. Propulsion is conserved momentum — bounded, Newtonian, demarcated: no reactionless
 // drive, no infinite g, no FTL. The push is exactly the momentum you throw the other way.
 emit({ file: 'Propulsion.lean', skill: 'propulsion',
-  header: 'PROPULSION — Newtonian and BOUNDED, demarcated. Thrust is momentum conservation (Newton\'s third law): forward momentum balances the ejected exhaust, so a rocket at rest stays at total momentum zero. Thrust REQUIRES reaction mass (zero exhaust → zero thrust: no reactionless/free drive), thrust = ṁ·vₑ, the Δv budget adds across stages, and acceleration a = F/m is FINITE — no infinite g-force. HONEST SCOPE: the decidable algebra of Newtonian rocketry — not a novel drive, not FTL, not infinite g.',
+  header: 'PROPULSION — Newtonian and BOUNDED, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

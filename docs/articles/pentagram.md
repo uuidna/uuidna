@@ -7,7 +7,7 @@ description: "Computed from lean/Pentagram.lean — 13 sealed theorems, every cl
 
 > THE PENTAGRAM & THE FIBONACCI DIGITS — the star polygon {5/2} and the single-digit (Pisano) Fibonacci cycles, finite and decidable. — held by [pentagram_single_stroke](/theorem/pentagram_single_stroke) and its 12 siblings below.
 
-**13 theorems**, from [pentagram_single_stroke](/theorem/pentagram_single_stroke) onward, each proven `by decide` in [lean/Pentagram.lean](/lean/Pentagram.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**13 theorems**, from [pentagram_single_stroke](/theorem/pentagram_single_stroke) onward, each proven `by decide` in [lean/Pentagram.lean](/lean/Pentagram.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pentagram_step_coprime_five](/theorem/pentagram_step_coprime_five). A boundary stated here is decided, not merely denied.
 
 ### The pentagram is the star polygon {5/2}: stepping +2 (mod 5) draws it in a SINGLE stroke — [0,2,4,1,3] — visiting all five points without lifting the pen, because 2 is coprime to 5.
 The ledger holds this as [pentagram_single_stroke](/theorem/pentagram_single_stroke) — proven `by decide`, sorry-free:

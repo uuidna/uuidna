@@ -5,9 +5,9 @@ description: "Computed from lean/Diving.lean — 8 sealed theorems, every claim 
 
 # Diving — trimix gas laws
 
-> DIVING — the decidable arithmetic of trimix gas laws, demarcated. A mix's fractions sum to 100%; absolute pressure is 1 + depth/10 atm; Dalton's law makes the partial pressures sum to the absolute pressure; air's ppO₂ (0.21·P) leaves the 0.16–1.60 window at depth, so deep dives blend trimix; gases blend by partial pressure to the fill; helium is non-narcotic (lower equivalent narcotic depth); and a direct ascent exceeding the ~2:1 Haldane ratio needs a stop. HARD SAFETY SCOPE: ARITHMETIC ONLY — NOT a dive planner, NOT dive tables, NOT medical or safety advice. Never plan or execute a dive on these numbers; use certified training, cut tables, and a dive computer. Diving is life-critical. — held by [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) and its 7 siblings below.
+> DIVING — the decidable arithmetic of trimix gas laws, demarcated. — held by [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) and its 7 siblings below.
 
-**8 theorems**, from [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) onward, each proven `by decide` in [lean/Diving.lean](/lean/Diving.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) onward, each proven `by decide` in [lean/Diving.lean](/lean/Diving.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [air_ppO2_in_window_at_surface](/theorem/air_ppO2_in_window_at_surface). A boundary stated here is decided, not merely denied.
 
 ### A breathing mix is complete: the oxygen, helium and nitrogen fractions sum to 100%. Trimix 18/45 is 18% O₂, 45% He, 37% N₂ — 18 + 45 + 37 = 100.
 The ledger holds this as [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) — proven `by decide`, sorry-free:

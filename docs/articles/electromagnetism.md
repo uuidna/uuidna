@@ -5,9 +5,9 @@ description: "Computed from lean/Electromagnetism.lean — 13 sealed theorems, e
 
 # The field domain
 
-> ELECTROMAGNETISM — the field domain, as decidable arithmetic, demarcated. Coulomb's law sets the sign (like charges repel, opposites attract); Ohm's law is V = I·R (12 = 2·6); electric power is V·I = I²R = 24 W; resistances add in series (3+6=9) and combine reciprocally in parallel (3·12 = 6·6); Kirchhoff conserves current at a node (5 = 2+3) and voltage around a loop (12−4−8 = 0); and Faraday induces EMF only from a CHANGING flux (constant → 0). HONEST SCOPE: the arithmetic of circuits and fields — signs, sums and exact ratios — not a full Maxwell derivation, distinct from the light waves in Optics. — held by [plasma_fourth_state](/theorem/plasma_fourth_state) and its 12 siblings below.
+> ELECTROMAGNETISM — the field domain, as decidable arithmetic, demarcated. — held by [plasma_fourth_state](/theorem/plasma_fourth_state) and its 12 siblings below.
 
-**13 theorems**, from [plasma_fourth_state](/theorem/plasma_fourth_state) onward, each proven `by decide` in [lean/Electromagnetism.lean](/lean/Electromagnetism.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**13 theorems**, from [plasma_fourth_state](/theorem/plasma_fourth_state) onward, each proven `by decide` in [lean/Electromagnetism.lean](/lean/Electromagnetism.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [plasma_fourth_state](/theorem/plasma_fourth_state). A boundary stated here is decided, not merely denied.
 
 ### Plasma is the fourth state of matter: three states a material vessel can hold — solid, liquid, gas — plus the one it cannot, 3 + 1 = 4. A charged plasma melts every wall; it is held by a FIELD or not at all.
 The ledger holds this as [plasma_fourth_state](/theorem/plasma_fourth_state) — proven `by decide`, sorry-free:
@@ -100,9 +100,5 @@ The ledger holds this as [faraday_needs_changing_flux](/theorem/faraday_needs_ch
 (5 - 5 : Int) = 0
 ```
 
-
-::: warning HONEST SCOPE
-the arithmetic of circuits and fields — signs, sums and exact ratios — not a full Maxwell derivation, distinct from the light waves in Optics. The boundary is confirmed by the wing's own sealed theorems — e.g. [plasma_fourth_state](/theorem/plasma_fourth_state) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

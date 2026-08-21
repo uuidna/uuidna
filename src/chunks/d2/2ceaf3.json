@@ -1,0 +1,12 @@
+{
+  "handle": "d22ceaf3",
+  "address": "d22ceaf3-8158-88e7-8295-3abe15aca7c3",
+  "statement": "(16 + 5 = 21) ∧ (16 * 5 ≠ 21)",
+  "tactic": "decide",
+  "keys": [
+    "exponents_add"
+  ],
+  "files": [
+    "HandleSpan.lean"
+  ]
+}

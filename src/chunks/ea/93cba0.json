@@ -1,0 +1,12 @@
+{
+  "handle": "ea93cba0",
+  "address": "ea93cba0-dc37-8f90-a1ae-ccef9646a45e",
+  "statement": "(List.range 10).filter (fun d => dz d == d) = [0, 5]",
+  "tactic": "decide",
+  "keys": [
+    "dz_two_fixedpoints"
+  ],
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

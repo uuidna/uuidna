@@ -5,9 +5,9 @@ description: "Computed from lean/Propulsion.lean — 5 sealed theorems, every cl
 
 # Propulsion — Newtonian & bounded
 
-> PROPULSION — Newtonian and BOUNDED, demarcated. Thrust is momentum conservation (Newton's third law): forward momentum balances the ejected exhaust, so a rocket at rest stays at total momentum zero. Thrust REQUIRES reaction mass (zero exhaust → zero thrust: no reactionless/free drive), thrust = ṁ·vₑ, the Δv budget adds across stages, and acceleration a = F/m is FINITE — no infinite g-force. HONEST SCOPE: the decidable algebra of Newtonian rocketry — not a novel drive, not FTL, not infinite g. — held by [momentum_conserved](/theorem/momentum_conserved) and its 4 siblings below.
+> PROPULSION — Newtonian and BOUNDED, demarcated. — held by [momentum_conserved](/theorem/momentum_conserved) and its 4 siblings below.
 
-**5 theorems**, from [momentum_conserved](/theorem/momentum_conserved) onward, each proven `by decide` in [lean/Propulsion.lean](/lean/Propulsion.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**5 theorems**, from [momentum_conserved](/theorem/momentum_conserved) onward, each proven `by decide` in [lean/Propulsion.lean](/lean/Propulsion.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 5 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [delta_v_stages_add](/theorem/delta_v_stages_add). A boundary stated here is decided, not merely denied.
 
 ### Newton's third law, as momentum: a rocket at rest ejecting mass keeps total momentum zero — forward 100·3 balances backward 60·5, so 100·3 + 60·(−5) = 0. Thrust is conserved momentum, nothing gained from nothing.
 The ledger holds this as [momentum_conserved](/theorem/momentum_conserved) — proven `by decide`, sorry-free:
@@ -44,9 +44,5 @@ The ledger holds this as [acceleration_finite](/theorem/acceleration_finite) —
 (List.range' 1 10).all (fun m => 300 / m <= 300)
 ```
 
-
-::: warning HONEST SCOPE
-the decidable algebra of Newtonian rocketry — not a novel drive, not FTL, not infinite g. The boundary is confirmed by the wing's own sealed theorems — e.g. [momentum_conserved](/theorem/momentum_conserved) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -1,4 +1,4 @@
--- lean/Crt.lean — GENERATED. THE FUSED RING — the rosette (Z/7) and the vortex (Z/9) are coprime, so by the Chinese Remainder Theorem they are ONE ring of 63 states, and its arithmetic explains the captain measure: the two coins buy 64 = 63 + 1, the whole fused structure plus the unit that closes it (63 = 111111, saturated in six bits; 64 = 1000000, the first bit beyond). The correspondence is a bijection, the units count 36 = 6·6 (each orbit length), and the coin keeps its order 6 in the fusion while walking the rosette twice per vortex turn — the seam, named. HONEST SCOPE: ring arithmetic and a counting correspondence; the CRT is a statement about residues, never about what the residues are used to describe Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Crt.lean — GENERATED. THE FUSED RING — the rosette (Z/7) and the vortex (Z/9) are coprime, so by the Chinese Remainder Theorem they are ONE ring of 63 states, and its arithmetic explains the captain measure: the two coins buy 64 = 63 + 1, the whole fused structure plus the unit that closes it (63 = 111111, saturated in six bits; 64 = 1000000, the first bit beyond). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- THE CAPTAIN THEOREM — why the save is 64 and not any other number. The rosette and the vortex fuse into one
     ring of 7·9 = 63 states, and the two coins buy 2·32 = 64: the WHOLE fused structure, plus the one that
@@ -20,11 +20,11 @@ theorem rosette_and_vortex_are_coprime : (Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7
     ALL of them, with no gap and no orphan. The strides are not decorative — they are 1, 7 and 9: the unit step,
     the rosette and the vortex, and 7 · 9 = 63 is the fused ring the captain's two coins buy with one to spare
     (63 = 2⁶ − 1). The condition is REAL, not decorative, and the last conjunct proves it can fail: gcd(2, 8) =
-    2, so an even stride on an even count closes early and orphans half the ledger. HONEST SCOPE: this seals the
-    STRUCTURE — the axis count, the strides, their coprimality and the fused product. It deliberately does NOT
-    seal the ledger's current size, because a theorem that froze the count would rot the moment a wing lands
-    (the mistake audit-mcp-native made with 1195); totality for a given count is checked at run time against
-    that count, never asserted here. -/
+    2, so an even stride on an even count closes early and orphans half the ledger. this seals the STRUCTURE —
+    the axis count, the strides, their coprimality and the fused product. It deliberately does NOT seal the
+    ledger's current size, because a theorem that froze the count would rot the moment a wing lands (the mistake
+    audit-mcp-native made with 1195); totality for a given count is checked at run time against that count,
+    never asserted here. -/
 theorem axes_stride_coprime : (3 + 3 + 1 = 7) ∧ (Nat.gcd 7 9 = 1) ∧ (7 * 9 = 63) ∧ (63 = 2^6 - 1) ∧ (Nat.gcd 2 8 = 2) := by decide
 
 /-- THE HERO CHANNEL IS EXACT, AND THE MARGIN IS THE TWO COINS. A theorem's animation transmits one hex digit

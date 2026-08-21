@@ -1,0 +1,249 @@
+{
+  "file": "HandleSpan.lean",
+  "slug": "handlespan",
+  "status": "usable",
+  "address": "dd073072-b390-81a7-a782-336631fccefd",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "HandleSpan.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/HandleSpan.lean — GENERATED. THE HANDLE SPAN — what 65536 handles of 32 qubits each come to, and what that total is NOT. A handle is the uuid's first segment: 8 hex characters at 4 bits each, 32 bits spanning 2^32 = 4294967296 addresses. Take 2^16 = 65536 of them and the qubit counts ADD while the spans multiply — 2^16 * 2^5 = 2^21 — so the total is 2097152 qubits, which is 65536 * 32 read the other way. The derivation is exactly that exponents add: 16 + 5 = 21, and NOT 16 * 5 = 80, which the seal proves rather than assumes. WHAT IT IS NOT, sealed on the lines and not merely disclaimed: a register of n qubits holds 2^n amplitudes, so 16 qubits is already 65536 complex numbers held at once (the shipped MAX_MESSAGE_QUBITS), and the 2097152-qubit total is strictly greater than that and not equal to it. A total reached by adding exponents describes what can be NAMED, never what can be HELD. The amplitudes such a register would carry is 2 raised to 2097152 — named here, never evaluated, and no claim is made that it can be realised. PURE ARITHMETIC: every number is a power of two or a product of two of them, no ledger count appears, and nothing is measured from the world. integrity, not truth. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- THE PRODUCT: 65536 handles at 32 qubits each is 2097152 qubits — stated both as the plain multiplication and\n    as the powers of two it is, so the two readings are sealed to be the same number. -/\ntheorem handles_times_qubits : (65536 * 32 = 2097152) ∧ ((2:Nat)^16 * 2^5 = 2^21) := by decide\n\n/-- WHY IT IS A SHIFT AND NOT A MULTIPLICATION OF QUBITS: counts multiply exactly when exponents add — 16 + 5 =\n    21. The qubit total is the sum of the two exponents, never their product, and 16 * 5 = 80 differs, which the\n    line proves rather than assumes. -/\ntheorem exponents_add : (16 + 5 = 21) ∧ (16 * 5 ≠ 21) := by decide\n\n/-- ONE HANDLE IS 8 HEX CHARACTERS AT 4 BITS EACH — 32 bits, spanning 2^32 = 4294967296 addresses. The segment\n    length is what fixes the span; nothing else about a handle enters it. -/\ntheorem handle_spans_thirtytwo : (8 * 4 = 32) ∧ ((2:Nat)^32 = 4294967296) := by decide\n\n/-- A REGISTER OF n QUBITS HOLDS 2^n AMPLITUDES, walked from none to sixteen: [1, 2, 4, …, 65536]. Sixteen\n    qubits is already 65536 complex numbers held at once — the shipped messaging cap, and the reason a qubit\n    count is never a count of things stored. -/\ntheorem register_holds_amplitudes : ((List.range 17).map (fun n => 2^n)).getLast! = 65536 := by decide\n\n/-- THE SPAN IS NOT A CAPACITY, and the refusal is on this line: the 2097152-qubit total is strictly greater\n    than the 16 qubits any shipped register holds, and the two numbers are not equal. A total arrived at by\n    adding exponents describes what can be NAMED, never what can be HELD. -/\ntheorem total_exceeds_register : (2097152 > 16) ∧ (2097152 ≠ 16) ∧ ((2:Nat)^21 ≠ 2^16) := by decide\n\n/-- AND THE TOTAL IS NOT AN AMPLITUDE COUNT EITHER: 2^21 = 2097152 is the number of QUBITS, while the amplitudes\n    such a register would carry is 2 raised to that — a number this line does not attempt to write. SCOPE: what\n    is sealed here is that the two differ, 2097152 ≠ 65536; the larger quantity is named, never evaluated, and\n    nothing claims it can be realised. -/\ntheorem total_is_not_amplitudes : (2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-handles_times_qubits",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE PRODUCT: 65536 handles at 32 qubits each is 2097152 qubits — stated both as the plain multiplication and as the powers of two it is, so the two readings are sealed to be the same number."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(65536 * 32 = 2097152) ∧ ((2:Nat)^16 * 2^5 = 2^21)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem handles_times_qubits : (65536 * 32 = 2097152) ∧ ((2:Nat)^16 * 2^5 = 2^21) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-exponents_add",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "WHY IT IS A SHIFT AND NOT A MULTIPLICATION OF QUBITS: counts multiply exactly when exponents add — 16 + 5 = 21. The qubit total is the sum of the two exponents, never their product, and 16 * 5 = 80 differs, which the line proves rather than assumes."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(16 + 5 = 21) ∧ (16 * 5 ≠ 21)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem exponents_add : (16 + 5 = 21) ∧ (16 * 5 ≠ 21) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-handle_spans_thirtytwo",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "ONE HANDLE IS 8 HEX CHARACTERS AT 4 BITS EACH — 32 bits, spanning 2^32 = 4294967296 addresses. The segment length is what fixes the span; nothing else about a handle enters it."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(8 * 4 = 32) ∧ ((2:Nat)^32 = 4294967296)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem handle_spans_thirtytwo : (8 * 4 = 32) ∧ ((2:Nat)^32 = 4294967296) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-register_holds_amplitudes",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A REGISTER OF n QUBITS HOLDS 2^n AMPLITUDES, walked from none to sixteen: [1, 2, 4, …, 65536]. Sixteen qubits is already 65536 complex numbers held at once — the shipped messaging cap, and the reason a qubit count is never a count of things stored."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 17).map (fun n => 2^n)).getLast! = 65536"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem register_holds_amplitudes : ((List.range 17).map (fun n => 2^n)).getLast! = 65536 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-total_exceeds_register",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE SPAN IS NOT A CAPACITY, and the refusal is on this line: the 2097152-qubit total is strictly greater than the 16 qubits any shipped register holds, and the two numbers are not equal. A total arrived at by adding exponents describes what can be NAMED, never what can be HELD."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2097152 > 16) ∧ (2097152 ≠ 16) ∧ ((2:Nat)^21 ≠ 2^16)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem total_exceeds_register : (2097152 > 16) ∧ (2097152 ≠ 16) ∧ ((2:Nat)^21 ≠ 2^16) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-total_is_not_amplitudes",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE TOTAL IS NOT AN AMPLITUDE COUNT EITHER: 2^21 = 2097152 is the number of QUBITS, while the amplitudes such a register would carry is 2 raised to that — a number this line does not attempt to write. SCOPE: what is sealed here is that the two differ, 2097152 ≠ 65536; the larger quantity is named, never evaluated, and nothing claims it can be realised."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem total_is_not_amplitudes : (2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

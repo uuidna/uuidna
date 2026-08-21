@@ -1,0 +1,12 @@
+{
+  "handle": "22fc6969",
+  "address": "22fc6969-2cc5-8570-a76c-f4af9e5cd267",
+  "statement": "((List.range 10).map dzMin).eraseDups.all (fun c => ((List.range 10).filter (fun d => dzMin d == c)).length ≤ 2)",
+  "tactic": "decide",
+  "keys": [
+    "classes_cap_at_two"
+  ],
+  "files": [
+    "Reflection.lean"
+  ]
+}

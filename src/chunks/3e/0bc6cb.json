@@ -1,0 +1,12 @@
+{
+  "handle": "3e0bc6cb",
+  "address": "3e0bc6cb-1a70-8b76-8f8c-25105d3970db",
+  "statement": "orbits.all (fun o => o.all (fun d => o.contains (dz d)))",
+  "tactic": "decide",
+  "keys": [
+    "orbits_reflect_onto_themselves"
+  ],
+  "files": [
+    "ProseTrial.lean"
+  ]
+}

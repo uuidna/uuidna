@@ -1,0 +1,12 @@
+{
+  "handle": "c3731a00",
+  "address": "c3731a00-c2a4-8be4-8d35-1a102612a23c",
+  "statement": "(63 * 2 + 2 = 128) ∧ (128 - 2 = 126) ∧ (126 / 2 = 63)",
+  "tactic": "decide",
+  "keys": [
+    "falsifier_floor_is_the_uuid_less_the_coins"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

@@ -6,7 +6,7 @@
 // (3840×2160 = 4·1920·1080); 16:9 is wider than academy 4:3 (48 > 36 cross-multiplied); the rule of thirds crosses
 // at four power points in a nine-square; a crossfade of L frames makes two clips a+b−L long — inclusion–exclusion on
 // the timeline, the SAME identity uuidna_compare folds; 48 kHz audio is 2000 samples a frame, exactly in sync; and
-// six 30° steps span the 180° axis. HONEST SCOPE: the arithmetic of the edit — NOT a codec, an NLE, or a renderer.
+// six 30° steps span the 180° axis. the arithmetic of the edit — NOT a codec, an NLE, or a renderer.
 // COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 

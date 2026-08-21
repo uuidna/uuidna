@@ -1,0 +1,12 @@
+{
+  "handle": "552a468c",
+  "address": "552a468c-30e4-83ef-a052-686b727d869e",
+  "statement": "(16 * 27 = 432) ∧ (16 * 132 = 2112) ∧ (16 * 132 ≠ 432)",
+  "tactic": "decide",
+  "keys": [
+    "reversal_fails_in_hexadecimal"
+  ],
+  "files": [
+    "Grid.lean"
+  ]
+}

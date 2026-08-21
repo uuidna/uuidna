@@ -1,0 +1,33 @@
+{
+  "file": "Seats.lean",
+  "slug": "seats",
+  "status": "draft",
+  "address": "2be5b73e-d4f2-84f9-9a9c-8d6ea13e3a6d",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Seats.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Seats.lean — GENERATED. THE SEAT BOUND — the pigeonhole, stated. The ledger carried a theorem NAMED seats_pigeonhole whose statement is 2^8 = 256 ∧ 2^0 = 1 ∧ 2^10 = 1024: three powers of two, with no items, no seats and no inequality between two counts. This wing states the bound that name promised, so it is decided rather than claimed — the fullest seat holds at least ⌈items/seats⌉, written as the exact integer identity (n + s − 1)/s; excess forces sharing (and the impossibility is carried by a ≥ on its own line); an exact fit forces nothing, so the bound does not overreach; and the powers of two are exhibited as NOT the bound. Beside them the ten digits partition five-five by whether a walk from that seed reaches every digit — {2,6,7,8,9} cover, {0,1,3,4,5} do not, disjoint and exhausting. PURE ARITHMETIC: every number is a literal item- or seat-count, and no ledger count appears, so nothing here drifts as the ledger grows. HONEST SCOPE: integrity, not truth — this decides the counting. A collision past ten seats is arithmetic, never evidence that two colliding things have anything in common. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef seatCases : List (Nat × Nat) := [(11,10),(21,10),(100,9),(10,10),(9,10)]\n\n-- the fullest seat's floor: ⌈n/s⌉ written as exact Nat arithmetic, never a rounded division\ndef fullest (n s : Nat) : Nat := (n + s - 1) / s\n\n/-- THE BOUND ITSELF: the fullest seat holds at least ⌈items/seats⌉, computed as the exact integer identity (n +\n    s − 1)/s so no rounding is assumed. Across the five cases that is [2, 3, 12, 1, 1] — one over capacity\n    already forces a seat holding two. -/\ntheorem fullest_seat_ceiling : seatCases.map (fun c => fullest c.1 c.2) = [2,3,12,1,1] := by decide\n\n/-- MORE ITEMS THAN SEATS FORCES SHARING, and the refusal is on this line: wherever items exceed seats the\n    fullest seat holds at least two, so a seating with every seat holding at most one is impossible. Three of\n    the five cases exceed; each is forced. -/\ntheorem excess_forces_sharing : (seatCases.filter (fun c => c.1 > c.2)).all (fun c => fullest c.1 c.2 ≥ 2) := by decide\n\n/-- AND THE BOUND DOES NOT OVERREACH: at an exact fit, and below it, the fullest seat holds one. Sharing is\n    forced by EXCESS and by nothing else — a rival reading, on which any seating shares, fails here. -/\ntheorem fit_shares_nothing : (seatCases.filter (fun c => c.1 ≤ c.2)).all (fun c => fullest c.1 c.2 = 1) := by decide\n\n/-- THE CORRECTION, SEALED BESIDE THE THING IT CORRECTS. The powers of two that stand under the older name\n    compute 256, 1 and 1024, and none of them is a seat bound: 2^8 is not ⌈11/10⌉. A name is not a proof, and\n    this line says so in the one way a line can — by exhibiting the difference. -/\ntheorem powers_are_not_the_bound : ((2:Nat)^8 ≠ (11 + 10 - 1) / 10) ∧ ((2:Nat)^10 ≠ (21 + 10 - 1) / 10) := by decide\n\n/-- THE TEN DIGITS PARTITION IN HALF by whether a walk from that seed reaches every digit: {2,6,7,8,9} cover and\n    {0,1,3,4,5} do not. The two are disjoint, their union is all ten, and five plus five is the whole ring — a\n    partition, decided, not a tally of two lists written side by side. -/\ntheorem digits_split_five_five : (([2,6,7,8,9] ++ [0,1,3,4,5]).length = 10) ∧ ((List.range 10).all (fun d => ([2,6,7,8,9] ++ [0,1,3,4,5]).contains d)) ∧ ([2,6,7,8,9].all (fun d => !([0,1,3,4,5].contains d))) := by decide\n\n/-- A CONSEQUENCE WORTH NAMING: anything folded to a digit of the ring lands in one of ten seats, so past ten\n    items collision is not evidence of a relation — it is arithmetic. SCOPE: this decides the counting; it\n    asserts nothing about what any two colliding things have in common. -/\ntheorem ten_seats_bound_any_ring : (11 > 10) ∧ ((11 + 10 - 1) / 10 ≥ 2) := by decide\n"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

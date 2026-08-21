@@ -1,8 +1,8 @@
 {
   "why": "Each Lean line, indexed by its statement, with every key that seals it. A wing verifies STANDALONE — no lean file imports another — so a fact needed in two wings is re-proven in both, on purpose, and that cost is declared here rather than discovered by census. A statement sealed twice inside ONE file is never declared: it buys no independence and one of the two must go. This list may only SHRINK.",
-  "distinct": 1275,
-  "keys": 1359,
-  "renamings": 84,
+  "distinct": 1386,
+  "keys": 1468,
+  "renamings": 82,
   "reuse": {
     "(1 * 1) % 9 = 1": [
       "mul9_1_1",
@@ -293,10 +293,6 @@
       "pauli_group_order_16",
       "proposals_bounded_by_n_squared"
     ],
-    "110 - 108 = 2": [
-      "captain_commission_two_coins",
-      "two_coins"
-    ],
     "1 + 1 + 1 = 3": [
       "sanitize_poison_keys_are_three",
       "trinity_edit_is_three"
@@ -320,10 +316,6 @@
     "(1 < 2)": [
       "corroboration_needs_two",
       "mombh_sample_is_one"
-    ],
-    "(List.range 5).length = 5": [
-      "big_five_factors_pentad",
-      "sailing_books_extract_decidable_facts"
     ]
   },
   "wings": {
@@ -616,10 +608,6 @@
       "Matching.lean",
       "Quantum.lean"
     ],
-    "110 - 108 = 2": [
-      "AntiFraud.lean",
-      "Coins.lean"
-    ],
     "1 + 1 + 1 = 3": [
       "Report.lean",
       "Sanitize.lean"
@@ -643,10 +631,6 @@
     "(1 < 2)": [
       "MoMBHStar1.lean",
       "Report.lean"
-    ],
-    "(List.range 5).length = 5": [
-      "Psychology.lean",
-      "SailingSeals.lean"
     ]
   }
 }

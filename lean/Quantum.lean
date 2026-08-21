@@ -1,4 +1,4 @@
--- lean/Quantum.lean — GENERATED. The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. HONEST SCOPE: the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Quantum.lean — GENERATED. The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded
 -- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it
@@ -115,8 +115,8 @@ theorem w_state_normalized : ((1*1 + 1*1 + 1*1 : Nat) = 3) := by decide
 theorem bell_basis_orthogonal : ((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0) ∧ ((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0) ∧ ((1*1 + 0*0 + 0*0 + 1*1 : Int) = 2) := by decide
 
 /-- n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY,
-    which is exactly why simulating it classically is costly. HONEST SCOPE: this counts the simulation cost, it
-    is NOT a speedup or a quantum advantage. -/
+    which is exactly why simulating it classically is costly. this counts the simulation cost, it is NOT a
+    speedup or a quantum advantage. -/
 theorem n_qubit_dimension : ([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32] := by decide
 
 /-- Combining systems MULTIPLIES their dimensions (the tensor product): two qubits span 2·2 = 4 amplitudes,
@@ -171,14 +171,13 @@ theorem clifford_group_order_24 : 6 * 4 = 24 := by decide
 theorem phase_gate_order_ladder : (8 = 2*4) ∧ (4 = 2*2) ∧ (8 % 8 = 0) := by decide
 
 /-- The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the
-    classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. HONEST SCOPE: the
-    simulator computes the correlation exactly; the squared bound is what decides — and no signal crosses
-    (nothing FTL). -/
+    classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. the simulator
+    computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL). -/
 theorem chsh_beats_classical : ((2:Nat)^2 < 2^3) ∧ (2^3 = 8) := by decide
 
 /-- The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)²
-    dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². HONEST SCOPE: this is the
-    arithmetic SHADOW of the no-cloning theorem (a linearity fact), not a proof of it. -/
+    dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². this is the arithmetic SHADOW
+    of the no-cloning theorem (a linearity fact), not a proof of it. -/
 theorem no_cloning_dimension : (2:Nat)^2 < (2^2)^2 := by decide
 
 /-- The Hadamard swaps the X and Z bases: HXH = Z, verified on integer amplitudes up to the √2² = 2 scale —
@@ -200,19 +199,19 @@ theorem bell_zz_even_parity : ((0+0) % 2 = 0) ∧ ((1+1) % 2 = 0) := by decide
 theorem ghz_stabilized_by_xxx : ([1,0,0,0,0,0,0,1] : List Int).reverse = [1,0,0,0,0,0,0,1] := by decide
 
 /-- Superdense coding: one qubit carries 2 classical bits — Alice's four local operations map |Φ⁺⟩ to the four
-    orthogonal Bell states, 2² = 4 distinguishable messages, and 2 > 1. HONEST SCOPE: this REQUIRES a pre-shared
-    EPR pair; it is not bandwidth from nothing, and nothing signals faster than light. -/
+    orthogonal Bell states, 2² = 4 distinguishable messages, and 2 > 1. this REQUIRES a pre-shared EPR pair; it
+    is not bandwidth from nothing, and nothing signals faster than light. -/
 theorem superdense_two_bits : ((2:Nat)^2 = 4) ∧ (2 > 1) := by decide
 
 /-- Teleportation sends one qubit with 2 classical bits and one EPR pair: Bob applies one of the four Pauli
-    corrections {I, X, Z, XZ} indexed by the 2 measured bits (2+2 = 4 = the four corrections). HONEST SCOPE: the
-    classical channel is ESSENTIAL — without the 2 bits nothing arrives, so no faster-than-light transfer. -/
+    corrections {I, X, Z, XZ} indexed by the 2 measured bits (2+2 = 4 = the four corrections). the classical
+    channel is ESSENTIAL — without the 2 bits nothing arrives, so no faster-than-light transfer. -/
 theorem teleportation_four_corrections : (([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4) := by decide
 
 /-- The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root
     under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for
-    any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical
-    content-address receipt the state folds to, integrity — not a quantum memory. -/
+    any observer in any order (the 3-member fold equals all six permutations). the classical content-address
+    receipt the state folds to, integrity — not a quantum memory. -/
 theorem store_fold_order_invariant :
   (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c =>
     ([a,b,c].foldl lxor 0 == [a,c,b].foldl lxor 0)
@@ -222,8 +221,8 @@ theorem store_fold_order_invariant :
     && ([a,b,c].foldl lxor 0 == [c,b,a].foldl lxor 0)))) := by decide
 
 /-- The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a
-    = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. HONEST
-    SCOPE: integrity of the content-address, not a quantum property. -/
+    = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. integrity
+    of the content-address, not a quantum property. -/
 theorem store_fold_change_moves_receipt :
   (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 =>
     ([a,b,c].foldl lxor 0 == [a2,b,c].foldl lxor 0) == (a == a2))))) := by decide
@@ -237,10 +236,10 @@ theorem message_qubit_cap_states : 2^16 = 65536 := by decide
     the fold is order-invariant even though merge itself is NOT commutative (merge(a,b) ≠ merge(b,a), by
     design). Sealed on a representative 3-leaf fold with a deliberately non-commutative pairwise op
     (f(a,b)=2a+b, so f(1,2)=4 ≠ f(2,1)=5): sorting first (min, mid, max via Nat.min/Nat.max and sum-arithmetic,
-    no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. HONEST
-    SCOPE: one representative instance, the same scope every fold-invariance theorem here uses
-    (store_fold_order_invariant proves the same shape for a commutative XOR fold; this is the harder,
-    non-commutative case merkleFold actually is). -/
+    no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. one
+    representative instance, the same scope every fold-invariance theorem here uses (store_fold_order_invariant
+    proves the same shape for a commutative XOR fold; this is the harder, non-commutative case merkleFold
+    actually is). -/
 theorem merkle_sort_invariant : (let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1)) := by decide
 
 /-- UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one

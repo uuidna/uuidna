@@ -1,0 +1,12 @@
+{
+  "handle": "f78225d7",
+  "address": "f78225d7-9b2a-807e-a8ee-4eace19f62b2",
+  "statement": "(List.range 4).all (fun w => (List.range 4).all (fun c => (voteOk w c == 1) == (w == c)))",
+  "tactic": "decide",
+  "keys": [
+    "vote_passes_iff_weight_paid"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c5ab447f",
+  "address": "c5ab447f-433b-8c2c-9185-d202ce206bd3",
+  "statement": "12 + 14 = 24 + 2",
+  "tactic": "decide",
+  "keys": [
+    "euler_characteristic_two"
+  ],
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

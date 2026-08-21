@@ -1,0 +1,12 @@
+{
+  "handle": "aea8fb9c",
+  "address": "aea8fb9c-46d7-8215-806d-0fe5e82b75b3",
+  "statement": "((List.range 40).all (fun w => ((6 * w) % 9 == 0) == (w % 3 == 0))) ∧ ((6 * 91) % 9 ≠ 0)",
+  "tactic": "decide",
+  "keys": [
+    "decimal_asks_three"
+  ],
+  "files": [
+    "Grid.lean"
+  ]
+}

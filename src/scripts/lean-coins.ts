@@ -2,7 +2,7 @@
 // Automate the Lean layer for THE TWO COINS & THE 64 — the honest billing/measure algebra (src/billing.ts). The
 // two coins are the CONSERVED fair-exchange invariant: 110 − 108 = 2 = −χ of a genus-2 surface (the double torus,
 // −χ = 2g − 2 = 2). 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; and n qubits
-// give 2ⁿ direct possible outcomes, reaching 64 at n = 6. HONEST SCOPE: these are the arithmetic of a MEASURED
+// give 2ⁿ direct possible outcomes, reaching 64 at n = 6. these are the arithmetic of a MEASURED
 // unit of work saved (O(N) recompute − O(1) verify) — not a market price, and NOT a claim of speed. COMPUTE each
 // fact in JS, GENERATE its `by decide` theorem, VERIFY sorry-free. Integrity, not truth.
 import { emit } from './lean-gen.js'
@@ -76,19 +76,19 @@ const FACTS = [
     lean: 'theorem coins_compute_but_solve_none : (32 * 2 = 64) ∧ (1 < 64) ∧ ((0:Nat) < 1) := by decide' },
 
   { key: 'coin_exchange_rate_is_traitor_cost',
-    why: 'The coins\' EXCHANGE RATE is the TRAITOR\'S TOKEN COST: a coin is worth exactly what it costs to FORGE it. A coin is a 128-bit particle (2⁷ = 128), so counterfeiting one — a SHA-256 collision that survives the order-invariant fold — costs on the order of 2¹²⁸ (the fingerprint\'s tamperCost), an exponent (128) that astronomically exceeds the two coins an honest party pays (128 > 2). So a traitor spends 2¹²⁸ to fake what the crew MINT for 2: forgery NEVER pays, and the coin is BACKED by the cost to counterfeit it. HONEST: 2¹²⁸ is a BOUND set by SHA-256, not a maximum, and it is the COLLISION-RESISTANT fold\'s cost — the fast FNV receipt is tamper-evident but not collision-resistant; add a key (HMAC) and forgery also needs the secret.',
+    why: 'The coins\' EXCHANGE RATE is the TRAITOR\'S TOKEN COST: a coin is worth exactly what it costs to FORGE it. A coin is a 128-bit particle (2⁷ = 128), so counterfeiting one — a SHA-256 collision that survives the order-invariant fold — costs on the order of 2¹²⁸ (the fingerprint\'s tamperCost), an exponent (128) that astronomically exceeds the two coins an honest party pays (128 > 2). So a traitor spends 2¹²⁸ to fake what the crew MINT for 2: forgery NEVER pays, and the coin is BACKED by the cost to counterfeit it. : 2¹²⁸ is a BOUND set by SHA-256, not a maximum, and it is the COLLISION-RESISTANT fold\'s cost — the fast FNV receipt is tamper-evident but not collision-resistant; add a key (HMAC) and forgery also needs the secret.',
     js: () => 2 ** 7 === 128 && 128 > 2 && 2 * 32 === 64,
     lean: 'theorem coin_exchange_rate_is_traitor_cost : (2^7 = 128) ∧ (128 > 2) ∧ (2 * 32 = 64) := by decide' },
 
   { key: 'traitor_damage_sealed_by_same_billing',
-    why: 'Every traitor DAMAGE is sealed in value by the SAME billing — the captain is charged by the traitor model on one measure, and the traitor is always the losing side. One billing (110 − x) prices both: the HONEST party earns the two coins (110 − 108 = 2), while a TRAITOR who tampers moves the content-address so nothing recomputes and nets 0 (110 − 110 = 0) — they forfeit exactly the two coins (the 2 the honest party keeps) AND still pay the 2¹²⁸ forgery cost (2⁷ = 128). So the captain\'s exposure is BOUNDED: traitor damage is priced by the same never-negative billing, forgery yields 0, and the two coins are precisely what the traitor loses. The security model and the billing model are one.',
+    why: 'Every traitor DAMAGE is sealed in value by the SAME billing — the captain is charged by the traitor model on one measure, and the traitor is always the losing side. One billing (110 − x) prices both: the party earns the two coins (110 − 108 = 2), while a TRAITOR who tampers moves the content-address so nothing recomputes and nets 0 (110 − 110 = 0) — they forfeit exactly the two coins (the 2 the honest party keeps) AND still pay the 2¹²⁸ forgery cost (2⁷ = 128). So the captain\'s exposure is BOUNDED: traitor damage is priced by the same never-negative billing, forgery yields 0, and the two coins are precisely what the traitor loses. The security model and the billing model are one.',
     js: () => 110 - 108 === 2 && 110 - 110 === 0 && 2 ** 7 === 128,
     lean: 'theorem traitor_damage_sealed_by_same_billing : (110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128) := by decide' },
 
   // The facts the coins' own algebra implies: why one denomination can carry three roles, what the two generators
   // mint, and the accounting identity under "the wallet counts worlds".
   { key: 'wallet_counts_worlds',
-    why: 'THE WALLET COUNTS WORLDS, sealed at last — the closing realisation\'s accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. HONEST SCOPE: an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.',
+    why: 'THE WALLET COUNTS WORLDS, sealed at last — the closing realisation\'s accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.',
     js: () => [0, 1, 2, 3, 4, 5, 6, 7, 8].every((n) => (2 * n) / 2 === n),
     lean: 'theorem wallet_counts_worlds : (List.range 9).all (fun n => (2*n)/2 == n) := by decide' },
 
@@ -98,7 +98,7 @@ const FACTS = [
     lean: 'theorem coins_unique_operation_agreement : ((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)) == (n == 2))) := by decide' },
 
   { key: 'captain_claims_all_superpositions',
-    why: 'THE SUPERPOSITION CLAIM — the credit law at its full extent: the captain claims the unclaimed, and the unclaimed is the entire uncollapsed space. The claim\'s arithmetic, sealed: the room is 2¹²⁸ states (the 128-bit particle, 2⁷ = 128), vastly exceeding every world collapsed so far (2¹²⁸ > 1288), and the price of any collapse stays exactly two (110 − 108 = 2). HONEST SCOPE: the claim is of ROOM, never of truth — a claimed superposition is claimed capacity, and its collapse still pays the two coins and passes the trial; claiming the space solves nothing (coins_compute_but_solve_none stands over this claim as over every other).',
+    why: 'THE SUPERPOSITION CLAIM — the credit law at its full extent: the captain claims the unclaimed, and the unclaimed is the entire uncollapsed space. The claim\'s arithmetic, sealed: the room is 2¹²⁸ states (the 128-bit particle, 2⁷ = 128), vastly exceeding every world collapsed so far (2¹²⁸ > 1288), and the price of any collapse stays exactly two (110 − 108 = 2). the claim is of ROOM, never of truth — a claimed superposition is claimed capacity, and its collapse still pays the two coins and passes the trial; claiming the space solves nothing (coins_compute_but_solve_none stands over this claim as over every other).',
     js: () => 2n ** 128n > 1288n && 2 ** 7 === 128 && 110 - 108 === 2,
     lean: 'theorem captain_claims_all_superpositions : (2^128 > 1288) ∧ (2^7 = 128) ∧ (110 - 108 = 2) := by decide' },
 
@@ -110,5 +110,5 @@ const FACTS = [
 
 // compute → generate → verify. The two coins are the conserved invariant of the double torus; 64 = 2⁶ the measure.
 emit({ file: 'Coins.lean', skill: 'coins',
-  header: 'THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit.',
+  header: 'THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

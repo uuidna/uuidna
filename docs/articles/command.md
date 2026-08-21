@@ -5,9 +5,9 @@ description: "Computed from lean/Command.lean — 7 sealed theorems, every claim
 
 # Command authentication
 
-> COMMAND AUTHENTICATION — the gate logic, proven, HMAC-backed. accept(signed, verifies) = signed·verifies: a command is accepted IFF it is signed and its tag verifies; unsigned is rejected, a failing/tampered tag is rejected, exactly one tag (the correct MAC) verifies, and tampering the message changes the tag. HONEST SCOPE: the DECISION logic and the requirement that the MAC be nonlinear and keyed — a LINEAR tag is forgeable, so the real strength is HMAC-SHA256 (src/sha256.ts, KAT-verified), NOT the arithmetic model here. "Only the key-holder can produce a matching tag" is HMAC's property; this proves the gate, not the cipher. — held by [accept_truth_table](/theorem/accept_truth_table) and its 6 siblings below.
+> COMMAND AUTHENTICATION — the gate logic, proven, HMAC-backed. accept(signed, verifies) = signed·verifies: a command is accepted IFF it is signed and its tag verifies; unsigned is rejected, a failing/tampered tag is rejected, exactly one tag (the correct MAC) verifies, and tampering the message changes the tag. the DECISION logic and the requirement that the MAC be nonlinear and keyed — a LINEAR tag is forgeable, so the real strength is HMAC-SHA256 (src/sha256.ts, KAT-verified), NOT the arithmetic model here. "Only the key-holder can produce a matching tag" is HMAC's property; this proves the gate, not the cipher. — held by [accept_truth_table](/theorem/accept_truth_table) and its 6 siblings below.
 
-**7 theorems**, from [accept_truth_table](/theorem/accept_truth_table) onward, each proven `by decide` in [lean/Command.lean](/lean/Command.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**7 theorems**, from [accept_truth_table](/theorem/accept_truth_table) onward, each proven `by decide` in [lean/Command.lean](/lean/Command.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [accept_truth_table](/theorem/accept_truth_table). A boundary stated here is decided, not merely denied.
 
 ### The authentication gate as a truth table: accept(signed, verifies) = signed·verifies over {0,1}² is 1 only when BOTH hold — a command is accepted exactly when it is signed and its tag verifies.
 The ledger holds this as [accept_truth_table](/theorem/accept_truth_table) — proven `by decide`, sorry-free:
@@ -58,9 +58,5 @@ The ledger holds this as [linear_tag_is_forgeable](/theorem/linear_tag_is_forgea
 (List.range 8).all (fun k => (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (lxor (lxor k m1) (lxor m1 m2)) == (lxor k m2))))
 ```
 
-
-::: warning HONEST SCOPE
-the DECISION logic and the requirement that the MAC be nonlinear and keyed — a LINEAR tag is forgeable, so the real strength is HMAC-SHA256 (src/sha256. The boundary is confirmed by the wing's own sealed theorems — e.g. [accept_truth_table](/theorem/accept_truth_table) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

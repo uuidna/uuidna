@@ -1,0 +1,12 @@
+{
+  "handle": "69d5ebcc",
+  "address": "69d5ebcc-a1eb-8120-9fb2-1870365df396",
+  "statement": "((378:Nat)^3 < 2^28) ∧ ((378:Nat)^4 > 2^28)",
+  "tactic": "decide",
+  "keys": [
+    "three_recover_the_discard"
+  ],
+  "files": [
+    "Channel.lean"
+  ]
+}

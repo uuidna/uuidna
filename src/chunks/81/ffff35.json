@@ -1,0 +1,12 @@
+{
+  "handle": "81ffff35",
+  "address": "81ffff35-c904-8532-b368-83fc099f3a13",
+  "statement": "((List.range' 1 8).map (fun k => 9 * k)).all (fun n => n % 9 == 0)",
+  "tactic": "decide",
+  "keys": [
+    "nine_divides_by_construction"
+  ],
+  "files": [
+    "Notation.lean"
+  ]
+}

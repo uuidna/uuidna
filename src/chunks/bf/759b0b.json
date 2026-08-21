@@ -1,0 +1,12 @@
+{
+  "handle": "bf759b0b",
+  "address": "bf759b0b-77b7-895f-940c-5363873e6243",
+  "statement": "((((List.range 10).map dbl).eraseDups.map dbl).eraseDups.length ≤ ((List.range 10).map dbl).eraseDups.length) ∧ (((List.range 10).map dbl).eraseDups.length = 9)",
+  "tactic": "decide",
+  "keys": [
+    "reach_shrinks_each_pass"
+  ],
+  "files": [
+    "Phase.lean"
+  ]
+}

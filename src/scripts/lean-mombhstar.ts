@@ -5,7 +5,7 @@
 // own numbers — the Balmer break bound, the 4σ variability, the Compton-thick fiducial, the Eddington straddle the
 // paper itself leaves open — and the press-vs-paper delta: "super-Eddington confirmed" is REFUTED by the paper's own
 // 0.18. Four quantum facts derive the break from Rydberg arithmetic: the colour selection IS a Rydberg fraction.
-// HONEST SCOPE: arithmetic witnesses of the PUBLISHED numbers — n=1, one fiducial of ~1e6 models, 0 solved — never
+// arithmetic witnesses of the PUBLISHED numbers — n=1, one fiducial of ~1e6 models, 0 solved — never
 // astrophysics re-derived. The intake pattern: claims → pre-decide → seal → trial; the first passenger of the wing.
 import { emit } from './lean-gen.js'
 

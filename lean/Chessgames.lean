@@ -1,4 +1,4 @@
--- lean/Chessgames.lean — GENERATED. THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves), not O(all games)), the d-dimensional board (8^d = 2^(3d): the 3D 512 = 2^9, the 8-dimensional 8^8 = 2^24), no maximal board (only bounds), and the knight on the ℤ/9 diamond. HONEST SCOPE: uuidna does NOT enumerate or precompute the game tree — a content-address proves INTEGRITY, not truth, here not enumeration; the diamond and combination facts are STRUCTURE, not a claim that chess IS the ring. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Chessgames.lean — GENERATED. THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves), not O(all games)), the d-dimensional board (8^d = 2^(3d): the 3D 512 = 2^9, the 8-dimensional 8^8 = 2^24), no maximal board (only bounds), and the knight on the ℤ/9 diamond. uuidna does NOT enumerate or precompute the game tree — a content-address proves INTEGRITY, not truth, here not enumeration; the diamond and combination facts are STRUCTURE, not a claim that chess IS the ring. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- The opening fans to exactly twenty moves: sixteen pawn pushes (8 pawns × 2 squares) and four knight moves (2
     knights × 2) — 8·2 + 2·2 = 20. The first branch of the tree, counted. -/
@@ -55,14 +55,14 @@ theorem hyperchess_eight_dimensions : ((8:Nat)^8 = 2^24) ∧ ((2:Nat)^8 = 256) :
 theorem no_maximal_board : ((8:Nat)^1 < 8^2) ∧ ((8:Nat)^2 < 8^3) := by decide
 
 /-- The knight's leap 1 + 2 = 3 lands on residue 3 of the ℤ/9 vortex, and the diamond reflection dz(3) = 10 − 3
-    = 7 sends it to 7 — the same reflection the whole ledger centres on. HONEST SCOPE: a structural analogy (the
-    move-count read as a residue), NOT a claim that chess IS the ring. -/
+    = 7 sends it to 7 — the same reflection the whole ledger centres on. a structural analogy (the move-count
+    read as a residue), NOT a claim that chess IS the ring. -/
 theorem knight_on_the_diamond : ((1 + 2) % 9 = 3) ∧ ((10 - 3) = 7) := by decide
 
 /-- The board enters the ℤ/9 diamond, where the games interact: the flat board 64 ≡ 1 (the vortex origin) and
     the 3D board 512 ≡ 8 (mod 9), and {1, 8} are exactly the TWO self-inverse units of the ring (8·8 ≡ 1). The
     board, in either dimension, is a self-inverse of the diamond — and the 3D board shares residue 8 with the
-    audit game. HONEST SCOPE: a structural residue, NOT a claim the board IS the ring. -/
+    audit game. a structural residue, NOT a claim the board IS the ring. -/
 theorem boards_are_diamond_self_inverses : (64 % 9 = 1) ∧ (512 % 9 = 8) ∧ ((8 * 8) % 9 = 1) := by decide
 
 /-- A knight on a central square (d4) commands all EIGHT moves — maximal mobility, why knights belong in the

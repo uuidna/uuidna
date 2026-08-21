@@ -7,7 +7,7 @@ description: "Computed from lean/Core.lean — 64 sealed theorems, every claim c
 
 > The 8×8 CORE: the multiplication table of ℤ/9's eight non-zero residues {1..8}. From these 64 theorems the rest COMPUTES — units, inverses, self-inverses {1,8}, nilpotents {3,6}, the vortex orbit and the reflection all read off this table. — held by [mul9_1_1](/theorem/mul9_1_1) and its 63 siblings below.
 
-**64 theorems**, from [mul9_1_1](/theorem/mul9_1_1) onward, each proven `by decide` in [lean/Core.lean](/lean/Core.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**64 theorems**, from [mul9_1_1](/theorem/mul9_1_1) onward, each proven `by decide` in [lean/Core.lean](/lean/Core.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 ### 1·1 ≡ 1 (mod 9)
 The ledger holds this as [mul9_1_1](/theorem/mul9_1_1) — proven `by decide`, sorry-free:

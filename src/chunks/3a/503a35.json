@@ -1,0 +1,12 @@
+{
+  "handle": "3a503a35",
+  "address": "3a503a35-2f75-87a8-9a10-2d0dc201def3",
+  "statement": "(((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)) ∧ (-((2:Int) - 2 * 2) = 2)",
+  "tactic": "decide",
+  "keys": [
+    "chi_measures_genus"
+  ],
+  "files": [
+    "DoubleTorus.lean"
+  ]
+}

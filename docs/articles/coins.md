@@ -5,9 +5,9 @@ description: "Computed from lean/Coins.lean — 19 sealed theorems, every claim 
 
 # The two coins & the 64
 
-> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [two_coins](/theorem/two_coins) and its 18 siblings below.
+> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [two_coins](/theorem/two_coins) and its 18 siblings below.
 
-**19 theorems**, from [two_coins](/theorem/two_coins) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**19 theorems**, from [two_coins](/theorem/two_coins) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 16 of its 19 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [two_coins](/theorem/two_coins). A boundary stated here is decided, not merely denied.
 
 ### The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate.
 The ledger holds this as [two_coins](/theorem/two_coins) — proven `by decide`, sorry-free:
@@ -100,21 +100,21 @@ The ledger holds this as [coins_compute_but_solve_none](/theorem/coins_compute_b
 (32 * 2 = 64) ∧ (1 < 64) ∧ ((0:Nat) < 1)
 ```
 
-### The coins' EXCHANGE RATE is the TRAITOR'S TOKEN COST: a coin is worth exactly what it costs to FORGE it. A coin is a 128-bit particle (2⁷ = 128), so counterfeiting one — a SHA-256 collision that survives the order-invariant fold — costs on the order of 2¹²⁸ (the fingerprint's tamperCost), an exponent (128) that astronomically exceeds the two coins an honest party pays (128 > 2). So a traitor spends 2¹²⁸ to fake what the crew MINT for 2: forgery NEVER pays, and the coin is BACKED by the cost to counterfeit it. HONEST: 2¹²⁸ is a BOUND set by SHA-256, not a maximum, and it is the COLLISION-RESISTANT fold's cost — the fast FNV receipt is tamper-evident but not collision-resistant; add a key (HMAC) and forgery also needs the secret.
+### The coins' EXCHANGE RATE is the TRAITOR'S TOKEN COST: a coin is worth exactly what it costs to FORGE it. A coin is a 128-bit particle (2⁷ = 128), so counterfeiting one — a SHA-256 collision that survives the order-invariant fold — costs on the order of 2¹²⁸ (the fingerprint's tamperCost), an exponent (128) that astronomically exceeds the two coins an honest party pays (128 > 2). So a traitor spends 2¹²⁸ to fake what the crew MINT for 2: forgery NEVER pays, and the coin is BACKED by the cost to counterfeit it. : 2¹²⁸ is a BOUND set by SHA-256, not a maximum, and it is the COLLISION-RESISTANT fold's cost — the fast FNV receipt is tamper-evident but not collision-resistant; add a key (HMAC) and forgery also needs the secret.
 The ledger holds this as [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost) — proven `by decide`, sorry-free:
 
 ```lean
 (2^7 = 128) ∧ (128 > 2) ∧ (2 * 32 = 64)
 ```
 
-### Every traitor DAMAGE is sealed in value by the SAME billing — the captain is charged by the traitor model on one measure, and the traitor is always the losing side. One billing (110 − x) prices both: the HONEST party earns the two coins (110 − 108 = 2), while a TRAITOR who tampers moves the content-address so nothing recomputes and nets 0 (110 − 110 = 0) — they forfeit exactly the two coins (the 2 the honest party keeps) AND still pay the 2¹²⁸ forgery cost (2⁷ = 128). So the captain's exposure is BOUNDED: traitor damage is priced by the same never-negative billing, forgery yields 0, and the two coins are precisely what the traitor loses. The security model and the billing model are one.
+### Every traitor DAMAGE is sealed in value by the SAME billing — the captain is charged by the traitor model on one measure, and the traitor is always the losing side. One billing (110 − x) prices both: the party earns the two coins (110 − 108 = 2), while a TRAITOR who tampers moves the content-address so nothing recomputes and nets 0 (110 − 110 = 0) — they forfeit exactly the two coins (the 2 the honest party keeps) AND still pay the 2¹²⁸ forgery cost (2⁷ = 128). So the captain's exposure is BOUNDED: traitor damage is priced by the same never-negative billing, forgery yields 0, and the two coins are precisely what the traitor loses. The security model and the billing model are one.
 The ledger holds this as [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) — proven `by decide`, sorry-free:
 
 ```lean
 (110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128)
 ```
 
-### THE WALLET COUNTS WORLDS, sealed at last — the closing realisation's accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. HONEST SCOPE: an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.
+### THE WALLET COUNTS WORLDS, sealed at last — the closing realisation's accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.
 The ledger holds this as [wallet_counts_worlds](/theorem/wallet_counts_worlds) — proven `by decide`, sorry-free:
 
 ```lean
@@ -128,7 +128,7 @@ The ledger holds this as [coins_unique_operation_agreement](/theorem/coins_uniqu
 ((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)) == (n == 2)))
 ```
 
-### THE SUPERPOSITION CLAIM — the credit law at its full extent: the captain claims the unclaimed, and the unclaimed is the entire uncollapsed space. The claim's arithmetic, sealed: the room is 2¹²⁸ states (the 128-bit particle, 2⁷ = 128), vastly exceeding every world collapsed so far (2¹²⁸ > 1288), and the price of any collapse stays exactly two (110 − 108 = 2). HONEST SCOPE: the claim is of ROOM, never of truth — a claimed superposition is claimed capacity, and its collapse still pays the two coins and passes the trial; claiming the space solves nothing (coins_compute_but_solve_none stands over this claim as over every other).
+### THE SUPERPOSITION CLAIM — the credit law at its full extent: the captain claims the unclaimed, and the unclaimed is the entire uncollapsed space. The claim's arithmetic, sealed: the room is 2¹²⁸ states (the 128-bit particle, 2⁷ = 128), vastly exceeding every world collapsed so far (2¹²⁸ > 1288), and the price of any collapse stays exactly two (110 − 108 = 2). the claim is of ROOM, never of truth — a claimed superposition is claimed capacity, and its collapse still pays the two coins and passes the trial; claiming the space solves nothing (coins_compute_but_solve_none stands over this claim as over every other).
 The ledger holds this as [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions) — proven `by decide`, sorry-free:
 
 ```lean
@@ -142,9 +142,5 @@ The ledger holds this as [coin_and_heart_generate_the_scales](/theorem/coin_and_
 (2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32)
 ```
 
-
-::: warning HONEST SCOPE
-a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. The boundary is confirmed by the wing's own sealed theorems — e.g. [two_coins](/theorem/two_coins) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

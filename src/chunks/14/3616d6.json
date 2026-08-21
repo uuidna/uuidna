@@ -1,0 +1,12 @@
+{
+  "handle": "143616d6",
+  "address": "143616d6-51e0-8673-b82c-efcfa6e44536",
+  "statement": "((4:Nat)^3 = 64) ∧ ((2:Nat)^6 = 64) ∧ (3 * 2 = 6) ∧ (pop 63 = 6)",
+  "tactic": "decide",
+  "keys": [
+    "codon_flips_six"
+  ],
+  "files": [
+    "Isometry.lean"
+  ]
+}

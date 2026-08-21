@@ -5,9 +5,9 @@ description: "Computed from lean/Statics.lean — 8 sealed theorems, every claim
 
 # The structures domain
 
-> STATICS — the structures domain, as decidable arithmetic, demarcated. A body in equilibrium has forces summing to zero (10−6−4=0) and moments balancing (6·2=4·3); a lever gives mechanical advantage (100·1=20·5); the centre of mass is the weighted average (1·0+1·10=2·5); a simply-supported beam splits a central load evenly (50+50=100); a rigid planar truss obeys Maxwell's rule m=2j−3 (2·3−3=3); stress is force over area (100/4=25); and Hooke's law is linear. HONEST SCOPE: the arithmetic of equilibrium — sums, balances and exact ratios — not a full structural-analysis or finite-element derivation. — held by [force_equilibrium](/theorem/force_equilibrium) and its 7 siblings below.
+> STATICS — the structures domain, as decidable arithmetic, demarcated. — held by [force_equilibrium](/theorem/force_equilibrium) and its 7 siblings below.
 
-**8 theorems**, from [force_equilibrium](/theorem/force_equilibrium) onward, each proven `by decide` in [lean/Statics.lean](/lean/Statics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [force_equilibrium](/theorem/force_equilibrium) onward, each proven `by decide` in [lean/Statics.lean](/lean/Statics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [mechanical_advantage](/theorem/mechanical_advantage). A boundary stated here is decided, not merely denied.
 
 ### A body in equilibrium has its forces summing to zero (ΣF = 0): a 10 N upward support balances 6 N + 4 N of downward load — 10 − 6 − 4 = 0. Nothing accelerates when the forces cancel.
 The ledger holds this as [force_equilibrium](/theorem/force_equilibrium) — proven `by decide`, sorry-free:
@@ -65,9 +65,5 @@ The ledger holds this as [hookes_law](/theorem/hookes_law) — proven `by decide
 (([1,2,3] : List Nat).map (fun x => 5 * x)) = [5,10,15]
 ```
 
-
-::: warning HONEST SCOPE
-the arithmetic of equilibrium — sums, balances and exact ratios — not a full structural-analysis or finite-element derivation. The boundary is confirmed by the wing's own sealed theorems — e.g. [force_equilibrium](/theorem/force_equilibrium) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -1,0 +1,12 @@
+{
+  "handle": "fe522f2b",
+  "address": "fe522f2b-549b-86ab-8c58-89d273b7fe49",
+  "statement": "(isSub [1]) ∧ (isSub units) ∧ (([1]:List Nat).length ≠ units.length)",
+  "tactic": "decide",
+  "keys": [
+    "trivial_and_whole_always_hold"
+  ],
+  "files": [
+    "Subgroups.lean"
+  ]
+}

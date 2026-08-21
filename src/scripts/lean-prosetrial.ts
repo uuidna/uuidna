@@ -67,5 +67,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'ProseTrial.lean', skill: 'prose-trial', defs: DEFS,
-  header: 'THE PROSE TRIAL — the derivation law decided by the KERNEL rather than by a string comparison. A sentence about a handle is admissible only if it is regenerable from that handle\'s walk, and the two quantities it regenerates from are sealed here: the six distinct orbits the whole ledger lands on, and the ORDER of each, which is exactly its length — taken by decide, never asserted. A forged order is refused on its own line by a `≠` the kernel evaluates, so a period a person chose cannot pass as one the walk measured. Every orbit is closed under dz(x) = 10 − x and every orbit holds zero. PURE ARITHMETIC: every number is a digit of the ring or a length; nothing is measured from the world. HONEST SCOPE: integrity, not truth — this decides that the order is the orbit\'s length and that the six are distinct and dz-closed. It does not decide what any prose MEANS, and a residue is not a fact about the thing that folded to it.',
+  header: 'THE PROSE TRIAL — the derivation law decided by the KERNEL rather than by a string comparison.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

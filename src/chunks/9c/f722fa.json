@@ -1,0 +1,12 @@
+{
+  "handle": "9cf722fa",
+  "address": "9cf722fa-1dc2-87ff-947f-7226208a1481",
+  "statement": "seatCases.map (fun c => fullest c.1 c.2) = [2,3,12,1,1]",
+  "tactic": "decide",
+  "keys": [
+    "fullest_seat_ceiling"
+  ],
+  "files": [
+    "Seats.lean"
+  ]
+}

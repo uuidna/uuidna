@@ -1,0 +1,33 @@
+{
+  "file": "Reversal.lean",
+  "slug": "reversal",
+  "status": "draft",
+  "address": "355302d5-66f6-871a-b44b-1ee4db86009b",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Reversal.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Reversal.lean — GENERATED. REVERSAL — why undoing an INVOLUTION and undoing a PATH are different acts, and where the walk never goes. Undoing a reflection always works and is never ambiguous: every digit has exactly one preimage under dz, the census is ten ones, and reflecting twice returns each digit to itself. Reversing a PATH is a different demand, because the walk alternates dz with doubling and undoing it needs BOTH maps inverted in reverse order — so the path inherits doubling's failures, of which there are two distinct kinds. AMBIGUOUS: the digit 0 has TWO preimages, since 0 and 9 both double onto it, so a path arriving at 0 cannot say where it came from. UNREACHED: the digit 9 has ZERO preimages — nothing doubles onto it, so the forward walk never arrives there and no reversal leaves from it. Nine is outside the image, not merely rare. The two censuses are [1,1,1,1,1,1,1,1,1,1] and [2,1,1,1,1,1,1,1,1,0]: both sum to ten, since every digit goes somewhere, but only the reflection arrives everywhere exactly once, and its image is all ten digits against doubling's nine. PURE ARITHMETIC, no ledger count, nothing measured from the world. HONEST SCOPE: integrity, not truth — this decides the two maps' preimage structure over the ten digits, and says nothing about walks longer than one step, which is the reading these facts support and is not itself sealed. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef dz (d : Nat) : Nat := if d = 0 then 0 else 10 - d\ndef dbl (d : Nat) : Nat := (2 * d) % 9\ndef preOf (f : Nat -> Nat) (t : Nat) : Nat := ((List.range 10).filter (fun d => f d == t)).length\n\n/-- UNDOING A REFLECTION ALWAYS WORKS AND IS NEVER AMBIGUOUS: every digit has exactly ONE preimage under dz —\n    the census is ten ones — and reflecting twice returns each digit to itself. One way in, one way out,\n    everywhere. -/\ntheorem reflection_reverses_uniquely : ((List.range 10).map (preOf dz) = [1,1,1,1,1,1,1,1,1,1]) ∧ ((List.range 10).all (fun d => dz (dz d) == d)) := by decide\n\n/-- UNDOING A DOUBLING CAN BE AMBIGUOUS: the digit 0 has TWO preimages, since 0 and 9 both double onto it, so a\n    path arriving at 0 cannot say which digit it came from. That is the first way a path reversal fails where an\n    involution reversal cannot. -/\ntheorem doubling_reverses_ambiguously : (preOf dbl 0 = 2) ∧ (dbl 0 = 0) ∧ (dbl 9 = 0) ∧ (preOf dbl 0 ≠ 1) := by decide\n\n/-- AND THE UNEXPLORED DIGIT: 9 has ZERO preimages under doubling — nothing doubles onto it, so the forward walk\n    never arrives there and no reversal can leave from it. Nine is not merely hard to reach; it is outside the\n    image, and the line proves the count is zero rather than small. -/\ntheorem nine_is_never_reached : (preOf dbl 9 = 0) ∧ ((List.range 10).all (fun d => dbl d != 9)) := by decide\n\n/-- THE TWO MAPS DIFFER IN KIND, and the line exhibits it rather than asserting it: dz's preimage census is ten\n    ones, doubling's is [2,1,1,1,1,1,1,1,1,0], and the two lists are not equal. Both sum to ten — every digit\n    goes somewhere — but only one of them arrives everywhere exactly once. -/\ntheorem censuses_differ : ((List.range 10).map (preOf dz) ≠ (List.range 10).map (preOf dbl)) ∧ ([1,1,1,1,1,1,1,1,1,1].foldl (· + ·) 0 = 10) ∧ ([2,1,1,1,1,1,1,1,1,0].foldl (· + ·) 0 = 10) := by decide\n\n/-- REVERSING A PATH IS NOT REVERSING A STEP: undoing dz-then-doubling requires undoing the doubling FIRST and\n    the reflection second, so the path inherits doubling's failures. Where doubling is ambiguous or undefined\n    the path cannot be walked backwards, even though every reflection in it could be undone on its own. -/\ntheorem path_reverse_needs_both : (preOf dbl 0 ≠ 1) ∧ (preOf dbl 9 = 0) ∧ ((List.range 10).all (fun d => preOf dz d == 1)) := by decide\n\n/-- THE REFLECTION LEAVES NOTHING UNEXPLORED: its image is all ten digits, so no digit is outside it, while\n    doubling's image holds nine. Ten against nine — the missing one is the digit no doubling produces. -/\ntheorem reflection_explores_all : (((List.range 10).map dz).eraseDups.length = 10) ∧ (((List.range 10).map dbl).eraseDups.length = 9) ∧ (10 ≠ 9) := by decide\n"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "file": "Byte.lean",
+  "slug": "byte",
+  "status": "draft",
+  "address": "10703ca6-639b-82af-bef7-5a04cdbcde4c",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Byte.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Byte.lean — GENERATED. THE BYTE — two hexbits, and the unit exact-copy verification actually compares in. The ladder: a qubit is one bit of exponent, a hexbit is four of them (one hex character, tiling the qubit with no remainder), and a BYTE is two hexbits — eight bits, 256 values, 16^2 spellings. That is why an address of 32 hex characters is 16 bytes and 128 bits, and why a SHA-256 digest of 64 hex characters is 32 bytes and 256 bits; each is one object counted in a different unit, and the readings are proven to agree. THE DIGEST IS EXACTLY TWICE THE ADDRESS in every unit — 32 against 16 bytes, 256 against 128 bits, 64 against 32 characters — so the factor is not an artefact of one reading. WHY THE BYTE IS THE VERIFYING UNIT: Os.lean decides that exact-copy verification IS byte-equality, so a single changed byte, a truncation or a REORDERING all break the match. The table that follows had never been enumerated — over a 32-byte digest every position may take any of 255 other values, giving 8160 single-byte alterations, each a different digest. A NOTE ON WHAT IS NOT SEALED HERE: that byte comparison admits no probability was drafted as a theorem and REMOVED, because it reduced to `(a == b) || (a != b)` — true regardless of content, the vacuous shape this ledger convicts elsewhere. The claim is right and the statement was empty; it is recorded here as prose rather than dressed as a proof. PURE ARITHMETIC, nothing measured from the world. HONEST SCOPE: integrity, not truth — this decides the unit and the comparison, never that any particular copy is authentic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- a 256-element list recurses 255 deep past the kernel's default, so the depth is RAISED DELIBERATELY\n-- and declared here. It is a resource limit, not an axiom: the proof stays `by decide` and kernel-only, which\n-- scripts/lean-axioms verifies independently.\nset_option maxRecDepth 4000\n\n-- a byte's values, and the tamper set over one position: every other value it could hold\ndef alts (b : Nat) : List Nat := (List.range 256).filter (fun v => v != b)\n\n/-- A BYTE IS TWO HEXBITS: eight bits, 256 values, and 16^2 spellings — the two readings agree, so counting a\n    byte in hex characters and counting it in bits land on the same object. Two, not one and not four, which the\n    line proves so the rung cannot be confused with its neighbours. -/\ntheorem byte_holds_two_hexbits : (2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ ((16:Nat)^2 = 256) ∧ (2 ≠ 4) := by decide\n\n/-- THE ADDRESS IS SIXTEEN BYTES: 32 hex characters, 128 bits, 16 bytes — three counts of one object, each\n    derived from the layout rather than stated beside it. -/\ntheorem address_is_sixteen_bytes : (32 / 2 = 16) ∧ (16 * 8 = 128) ∧ (32 * 4 = 128) := by decide\n\n/-- A SHA-256 DIGEST IS EXACTLY TWICE THE ADDRESS: 32 bytes against 16, 256 bits against 128, 64 hex characters\n    against 32. The factor is two in every unit, and the line proves it in all three so the ratio cannot be an\n    artefact of one reading. -/\ntheorem digest_doubles_the_address : (32 = 2 * 16) ∧ (256 = 2 * 128) ∧ (64 = 2 * 32) := by decide\n\n/-- THE TAMPER SET OF ONE POSITION IS 255 VALUES, and every one of them differs from the original — the line\n    proves the count AND the difference, over every byte value a position could hold, so no value is quietly its\n    own alternative. -/\ntheorem every_alternative_differs : ((alts 0).length = 255) ∧ ((alts 255).length = 255) ∧ ((alts 0).all (fun v => v != 0)) ∧ (256 - 1 = 255) := by decide\n\n/-- OVER A THIRTY-TWO BYTE DIGEST THE WHOLE TAMPER SET IS 32 × 255 = 8160 single-byte alterations, every one of\n    them a different digest under byte-equality. Eight thousand one hundred and sixty, counted rather than\n    estimated. -/\ntheorem tamper_set_counts_eight_thousand : (32 * 255 = 8160) ∧ (8160 ≠ 0) := by decide\n"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

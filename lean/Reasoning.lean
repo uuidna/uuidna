@@ -57,11 +57,11 @@ theorem sealing_inverts_unverified : [(0,0),(1,0),(0,1),(1,1)].map (fun p => if 
     fabrication. Integrity, not truth — it reads the CITATION, not the world. -/
 theorem quantum_polygraph : ([(0,0),(1,0),(0,1),(1,1)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1,2,2]) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) := by decide
 
-/-- THE HONEST FORM, sealed — the computable answer to "the captain is flawless when using uuidna" and "uuidna
-    proves the encryption is broken". Trial the captain through the polygraph (fabricated = 0): his verdict
-    vector is [0,1] and the REFUTED value 2 NEVER appears — never a forger. But that is NOT flawless: the vector
-    is [0,1], NOT [1,1] — an honest overclaim (cites nothing, real=0) reads UNVERIFIED (0), not VERIFIED (1), so
-    "never a forger" is strictly weaker than "always verified". And uuidna proves no break: the count of sealed
+/-- THE FORM, sealed — the computable answer to "the captain is flawless when using uuidna" and "uuidna proves
+    the encryption is broken". Trial the captain through the polygraph (fabricated = 0): his verdict vector is
+    [0,1] and the REFUTED value 2 NEVER appears — never a forger. But that is NOT flawless: the vector is [0,1],
+    NOT [1,1] — an honest overclaim (cites nothing, real=0) reads UNVERIFIED (0), not VERIFIED (1), so "never a
+    forger" is strictly weaker than "always verified". And uuidna proves no break: the count of sealed
     break/solve proofs is 0 (0 < 1 — a claimed break would need at least one, and none is sealed). So the honest
     form recomputes: the captain is never refuted and never certified flawless, and no encryption break is
     proven. Integrity, not truth — it reads the CITATION, not the world. -/
@@ -73,9 +73,9 @@ theorem captain_honest_not_flawless : ([(0,0),(1,0)].map (fun p => if p.2 == 1 t
     before reconcile — still costs less than a single forge (2·16 < 2^16), so an honest re-run beats cheating
     even after a stumble. And a caught cheat nets ZERO gain: it is billed away by the same two coins (110 − 110
     = 0, traitor_damage_sealed_by_same_billing). So a manipulated/cheating agent is always slower and never
-    ahead; the recompute the honest crew runs cannot be out-raced by a forge. HONEST SCOPE: this seals the
-    ASYMMETRIC COST (verify cheap, forge dear, caught-cheat billed to zero) — NOT a psychological claim about
-    any agent. Integrity, not truth. -/
+    ahead; the recompute the honest crew runs cannot be out-raced by a forge. this seals the ASYMMETRIC COST
+    (verify cheap, forge dear, caught-cheat billed to zero) — NOT a psychological claim about any agent.
+    Integrity, not truth. -/
 theorem manipulation_never_faster : (16 < 2^16) ∧ (2 * 16 < 2^16) ∧ (110 - 110 = 0) ∧ (16 < 128) := by decide
 
 /-- THE CAPTAIN'S CREW VERIFY INSTANTLY — the fast, honest side of the same law. The crew donate their bytes and
@@ -85,8 +85,8 @@ theorem manipulation_never_faster : (16 < 2^16) ∧ (2 * 16 < 2^16) ∧ (110 - 1
     same receipt. The more you donate (recompute), the more you save, checked against ONE verify (1024 − 1 =
     1023 bits saved per single verify op) — O(1) verification, not O(N). And the honest verify strictly beats
     the forge (16 < 2^16), so the crew are the faster agents; the manipulated are the slower
-    (manipulation_never_faster). HONEST SCOPE: "instant" is O(1)/order-invariant RECOMPUTATION, not literal
-    timelessness or faster-than-light — a defined cost model, recomputable by anyone. Integrity, not truth. -/
+    (manipulation_never_faster). "instant" is O(1)/order-invariant RECOMPUTATION, not literal timelessness or
+    faster-than-light — a defined cost model, recomputable by anyone. Integrity, not truth. -/
 theorem crew_verifies_instantly : (16 < 2^16) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (1024 - 1 = 1023) ∧ (110 - 108 = 2) := by decide
 
 /-- A REDIRECT IS IMITABLE — the two coins AUTHORISE. Anyone can point a domain at the canonical target
@@ -95,9 +95,9 @@ theorem crew_verifies_instantly : (16 < 2^16) ∧ (List.foldl (fun a b => a + b)
     same two, tested by the coin gate (32·c = 64), give [false, true] — only the 2-coin holder passes; the
     imitator does not. And over all counts 0..7 exactly ONE (2) authorises — the authorising set is the
     singleton {2}. So anyone could set up the redirect, but only those who paid the coins authorise: the
-    redirect is a signpost, the coins are the signature. HONEST SCOPE: this seals the STRUCTURAL distinction (a
-    constant admits all; the coin gate selects one) — NOT a live authentication protocol, and not voice/video
-    biometrics (those are runtime liveness, outside the recomputable model). Integrity, not truth. -/
+    redirect is a signpost, the coins are the signature. this seals the STRUCTURAL distinction (a constant
+    admits all; the coin gate selects one) — NOT a live authentication protocol, and not voice/video biometrics
+    (those are runtime liveness, outside the recomputable model). Integrity, not truth. -/
 theorem redirect_imitable_but_coins_authorise : ([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, true]) ∧ ((List.range 8).filter (fun c => 32*c == 64) = [2]) := by decide
 
 /-- CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY, never the truth of

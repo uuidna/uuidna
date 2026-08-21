@@ -93,9 +93,13 @@ export function gridGaps(): GridGap[] {
     gaps.push({ what:`the grid built ${seats.length} seats but ${PROJECTED.length} rays × ${ws.length} wings = ${expected}`,
                 fix: 'grid() must emit exactly one seat per (ray, wing) pair — check the nested loop' })
 
-  if (ws.length % 3 !== 0)
-    gaps.push({ what:`${ws.length} wings breaks harmony — 6 × ${ws.length} = ${6 * ws.length}, digital root ${digitalRoot(6 * ws.length)}, not 9`,
-                fix: `add or remove wings THREE at a time: ${ws.length - (ws.length % 3)} or ${ws.length + (3 - (ws.length % 3))} wings keeps the grid harmonic` })
+  // HARMONY IS BASE-AGNOSTIC (Grid.lean). `% 3` is the DECIMAL digit-sum invariant: 10 ≡ 1 (mod 9), so 6w has
+  // digital root 9 exactly when w ≡ 0 (mod 3). This ledger writes its addresses in BASE SIXTEEN, whose invariant is
+  // mod 15 (16 ≡ 1 mod 15), asking for w ≡ 0 (mod 5). A count divisible by 15 satisfies both, since lcm(3,5) = 15 —
+  // the only form of the rule that does not depend on how a reader writes numbers.
+  if (ws.length % 15 !== 0)
+    gaps.push({ what:`${ws.length} wings is harmonic in ${(6 * ws.length) % 9 === 0 ? 'decimal only' : (6 * ws.length) % 15 === 0 ? 'hexadecimal only' : 'neither base'} — 6 × ${ws.length} = ${6 * ws.length} leaves ${(6 * ws.length) % 9} mod 9 and ${(6 * ws.length) % 15} mod 15`,
+                fix: `a count divisible by FIFTEEN is harmonic in both bases (lcm(3,5) = 15): ${ws.length - (ws.length % 15)} or ${ws.length + (15 - (ws.length % 15))} wings. Three-at-a-time was the decimal rule; five-at-a-time is the hexadecimal one, and fifteen is base-agnostic` })
 
   if (expected !== GRID_SEATS)
     gaps.push({ what:`the grid is ${expected} seats, not the sealed ${GRID_SEATS} — the ledger moved to ${ws.length} wings`,

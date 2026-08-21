@@ -6,7 +6,7 @@
 // ledger's own diamond involution dz(x)=10−x with its unique fixed point 5 (DIAMOND_FIXED). Balance is not a
 // biomechanical claim here; it is a FIXED POINT, and the arts are one more place it appears.
 //
-// HONEST SCOPE — the narrowest in the ledger beside Psychology.lean: every theorem below is a fact about NUMBERS.
+// SCOPE — the narrowest in the ledger beside Psychology.lean: every theorem below is a fact about NUMBERS.
 // Nothing here proves anything about technique, effectiveness, force, injury, physiology, or what wins a fight, and
 // no theorem in this wing may be cited for such a claim. The named arts are the CONTEXT the arithmetic was drawn
 // from, never validation of it.
@@ -43,6 +43,6 @@ const FACTS = [
 
 emit({
   file: 'MartialArts.lean', skill: 'martial-arts',
-  header: 'MARTIAL ARTS — the arithmetic of stance and angle: the complement map\'s fixed point is the half (one law at 90, 100 and the ledger\'s 10), the supplement pair, the chain\'s off-by-one, the exact lever ratio. Facts about NUMBERS: nothing here claims anything about technique, force, physiology or effectiveness.',
+  header: 'MARTIAL ARTS — the arithmetic of stance and angle: the complement map\'s fixed point is the half (one law at 90, 100 and the ledger\'s 10), the supplement pair, the chain\'s off-by-one, the exact lever ratio.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

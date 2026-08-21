@@ -1,0 +1,12 @@
+{
+  "handle": "0a6a3219",
+  "address": "0a6a3219-d562-8d02-9bde-7540aeafd395",
+  "statement": "((List.range 10).map dz).eraseDups.length = 10",
+  "tactic": "decide",
+  "keys": [
+    "dz_loses_nothing"
+  ],
+  "files": [
+    "Phase.lean"
+  ]
+}

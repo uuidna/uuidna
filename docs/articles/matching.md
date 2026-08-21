@@ -5,9 +5,9 @@ description: "Computed from lean/Matching.lean — 8 sealed theorems, every clai
 
 # The matching
 
-> THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching. NOT a dating service, NOT anyone's data — only the graph theory a matching rests on. — held by [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) and its 7 siblings below.
+> THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching. — held by [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) and its 7 siblings below.
 
-**8 theorems**, from [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) onward, each proven `by decide` in [lean/Matching.lean](/lean/Matching.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) onward, each proven `by decide` in [lean/Matching.lean](/lean/Matching.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [edges_are_half_the_degree_sum](/theorem/edges_are_half_the_degree_sum). A boundary stated here is decided, not merely denied.
 
 ### The handshake lemma: every edge touches two people, so summing how many each is connected to double-counts the edges — the degree sum is always EVEN. Here [1,3,2,2,1,1] sums to 10, and 10 is even.
 The ledger holds this as [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) — proven `by decide`, sorry-free:

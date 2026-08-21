@@ -1,0 +1,12 @@
+{
+  "handle": "bd10445a",
+  "address": "bd10445a-c729-86ac-85f2-59bea80a2859",
+  "statement": "(units.map (fun a => ((List.range' 1 6).filter (fun k => (2 ^ k) % 9 == a)).length) = [1,1,1,1,1,1]) ∧ (((List.range' 1 6).map (fun k => (2 ^ k) % 9)) = [2,4,8,7,5,1])",
+  "tactic": "decide",
+  "keys": [
+    "two_generates_the_whole"
+  ],
+  "files": [
+    "Subgroups.lean"
+  ]
+}

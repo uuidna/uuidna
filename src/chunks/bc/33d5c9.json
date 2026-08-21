@@ -1,0 +1,12 @@
+{
+  "handle": "bc33d5c9",
+  "address": "bc33d5c9-ee4b-8cfd-bb7d-d3cfe02832d8",
+  "statement": "(11 > 10) ∧ ((11 + 10 - 1) / 10 ≥ 2)",
+  "tactic": "decide",
+  "keys": [
+    "ten_seats_bound_any_ring"
+  ],
+  "files": [
+    "Seats.lean"
+  ]
+}

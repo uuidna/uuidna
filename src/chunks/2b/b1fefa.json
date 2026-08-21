@@ -1,0 +1,12 @@
+{
+  "handle": "2bb1fefa",
+  "address": "2bb1fefa-cdce-872c-afc1-45e4d08ef42d",
+  "statement": "[0,1,9].all (fun d => [0,1,9].contains (if d = 0 then 0 else 10 - d))",
+  "tactic": "decide",
+  "keys": [
+    "orbit_0_1_9_closes"
+  ],
+  "files": [
+    "Orbits.lean"
+  ]
+}

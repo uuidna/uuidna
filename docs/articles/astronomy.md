@@ -5,9 +5,9 @@ description: "Computed from lean/Astronomy.lean — 11 sealed theorems, every cl
 
 # The fixed stars
 
-> ASTRONOMY — the fixed references of the sky, as decidable arithmetic. The celestial sphere is 360° (15°/hour × 24; the ecliptic 12 signs × 30°), sexagesimal gives 3600 arcseconds per degree, Kepler's harmonic law T² = a³ holds in scaled units, the Metonic cycle folds 19 solar years into 235 synodic months (+7 leap months), the classical great year precesses 72 years per degree (25920), and a star's declination spans 180° pole to pole. HONEST SCOPE: the decidable arithmetic of positional astronomy — exact ratios and cycles, some (precession) classical approximations, not claims about the cosmos. — held by [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) and its 10 siblings below.
+> ASTRONOMY — the fixed references of the sky, as decidable arithmetic. — held by [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) and its 10 siblings below.
 
-**11 theorems**, from [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) onward, each proven `by decide` in [lean/Astronomy.lean](/lean/Astronomy.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**11 theorems**, from [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) onward, each proven `by decide` in [lean/Astronomy.lean](/lean/Astronomy.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [great_year_precession](/theorem/great_year_precession). A boundary stated here is decided, not merely denied.
 
 ### The diurnal turn: the sky rotates 15° every hour, so 24 hours close the full 360° circle — 24 × 15 = 360. Right ascension is measured in these hours.
 The ledger holds this as [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) — proven `by decide`, sorry-free:
@@ -86,9 +86,5 @@ The ledger holds this as [declination_spans_180](/theorem/declination_spans_180)
 (90 - (-90) : Int) = 180
 ```
 
-
-::: warning HONEST SCOPE
-the decidable arithmetic of positional astronomy — exact ratios and cycles, some (precession) classical approximations, not claims about the cosmos. The boundary is confirmed by the wing's own sealed theorems — e.g. [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

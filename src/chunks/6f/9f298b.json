@@ -1,0 +1,12 @@
+{
+  "handle": "6f9f298b",
+  "address": "6f9f298b-4234-83ad-884b-02bbf6dda059",
+  "statement": "(preOf dbl 0 ≠ 1) ∧ (preOf dbl 9 = 0) ∧ ((List.range 10).all (fun d => preOf dz d == 1))",
+  "tactic": "decide",
+  "keys": [
+    "path_reverse_needs_both"
+  ],
+  "files": [
+    "Reversal.lean"
+  ]
+}

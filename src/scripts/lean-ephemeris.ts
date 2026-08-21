@@ -4,7 +4,7 @@
 // (366 sidereal ≈ 365 solar + 1); the Julian calendar runs 1461 days per 4 years and the Gregorian 146097 per 400
 // (97 leap days); a body's mean motion advances its longitude linearly in time; eclipses recur on the Saros; the
 // Sun creeps just under a degree along the ecliptic per day; and a Julian Date is a continuous integer day count.
-// HONEST SCOPE: the arithmetic of calendars and mean motion — the time coordinate — not a perturbed ephemeris.
+// the arithmetic of calendars and mean motion — the time coordinate — not a perturbed ephemeris.
 // Distinct from the positional facts in Astronomy. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
@@ -53,5 +53,5 @@ const FACTS = [
 // compute → generate → verify. The time coordinate — seconds per day, sidereal gain, the Julian and Gregorian
 // calendars, linear mean motion, the Saros, the Sun's creep, the Julian Date — decidable arithmetic, demarcated.
 emit({ file: 'Ephemeris.lean', skill: 'ephemeris',
-  header: 'EPHEMERIS — the astronomical TIME coordinate, as decidable arithmetic, demarcated. A day is 86400 seconds (24·60·60); the Earth turns once more against the stars than the sun each year (366 = 365+1); the Julian calendar runs 1461 days per 4 years and the Gregorian 146097 per 400 (97 leap days); mean motion advances a longitude linearly in time ([1,2,3] → [30,60,90]); eclipses recur on the Saros (~223 synodic months); the Sun creeps just under a degree along the ecliptic per day (360 < 365); and a Julian Date is a continuous integer day count. HONEST SCOPE: the arithmetic of calendars and mean motion — the time coordinate — not a perturbed ephemeris, and distinct from the positional facts in Astronomy.',
+  header: 'EPHEMERIS — the astronomical TIME coordinate, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -3,7 +3,7 @@
 // The board is 8×8 = 64 = 2⁶ squares (the bit measure) in two colours of 32 ((rank+file) parity); the knight leaps
 // 1+2 = 3 (odd), so it flips colour every move and a closed tour is even; the rook reaches 7+7 = 14 on an open
 // board; the bishop's diagonal preserves colour, so it never leaves half the board; and the queen is rook+bishop,
-// 7+7+7 = 21 from a corner. HONEST SCOPE: board arithmetic and parity — NOT a solved game, NOT an engine, and not a
+// 7+7+7 = 21 from a corner. board arithmetic and parity — NOT a solved game, NOT an engine, and not a
 // claim about optimal play. COMPUTE each fact in JS, GENERATE its `by decide` theorem, VERIFY sorry-free.
 import { emit } from './lean-gen.js'
 

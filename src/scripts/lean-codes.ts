@@ -4,7 +4,7 @@
 // codewords, and it is PERFECT: 16 × 8 = 128 = 2⁷ (every 7-bit word lies within one error of exactly one codeword,
 // the sphere-packing bound met exactly). Minimum distance 3 corrects ⌊(3−1)/2⌋ = 1 error and detects 2, and meets the
 // Singleton bound (3 ≤ n−k+1 = 4). The (3,1) repetition code corrects one flip by majority; a linear XOR checksum
-// catches any single flip. HONEST SCOPE: the arithmetic and bounds, NOT a decoder or a full coding-theory treatment.
+// catches any single flip. the arithmetic and bounds, NOT a decoder or a full coding-theory treatment.
 // COMPUTE each fact in JS, GENERATE its `by decide` theorem, VERIFY sorry-free. Integrity, not truth.
 import { emit, LXOR_DEF } from './lean-gen.js'
 

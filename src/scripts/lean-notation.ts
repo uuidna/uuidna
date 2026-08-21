@@ -14,7 +14,7 @@
 // gives 16 × 57 = 912, rev(78) = 87 gives 1392. A relation true of one spelling was sealed and then used to constrain
 // growth, and the wing count has now left it. That is sealed here as what it is.
 //
-// HONEST SCOPE: integrity, not truth. NOTHING here makes an existing theorem false. 432 % 9 = 0 is exact and stays
+// integrity, not truth. NOTHING here makes an existing theorem false. 432 % 9 = 0 is exact and stays
 // exact. What is decided is that its SIGNIFICANCE is base-relative — the arithmetic survives, the harmonic reading
 // is notational, and the two were not previously distinguished in the ledger.
 import { emit } from './lean-gen.js'
@@ -60,5 +60,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Notation.lean', skill: 'notation', defs: '',
-  header: 'NOTATION — which harmonic facts are about NUMBERS and which are about how numbers are WRITTEN. The digital root is this ledger\'s harmonic marker, and it works for exactly one reason: 10 ≡ 1 (mod 9), so every power of ten reduces to one and a digit SUM carries the number\'s own remainder. That is a fact about DECIMAL NOTATION. The modulus is fixed by the base — b ≡ 1 (mod b−1) — so base eight gives mod 7 and hexadecimal mod 15; the ring is chosen by the base, not by the numbers. The same 432 leaves 0 mod 9 and 5 mod 7, and the two disagree on this ledger\'s own sealed width. Sharper still: k432 fuses 6 × 72 with 16 × 27 through rev(72) = 27, and digit reversal acts on the STRING of digits, not the number — rev(75) = 57 gives 912 and rev(78) = 87 gives 1392, so the fusion holds for one spelling and no other. And a multiple of nine has digital root nine BY CONSTRUCTION, so finding one is never evidence. HONEST SCOPE: integrity, not truth. Nothing here makes an existing theorem false — 432 % 9 = 0 is exact and stays exact. What is decided is that its SIGNIFICANCE is base-relative: the remainder survives, the harmony read into it is notational, and the ledger had not previously distinguished the two.',
+  header: 'NOTATION — which harmonic facts are about NUMBERS and which are about how numbers are WRITTEN.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

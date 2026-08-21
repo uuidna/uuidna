@@ -1,4 +1,4 @@
--- lean/Cipher.lean — GENERATED. CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its HONEST limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). HONEST SCOPE: these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Cipher.lean — GENERATED. CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded
 -- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it
@@ -48,8 +48,8 @@ theorem codons_four_cubed : 4^3 = 64 := by decide
     doublings of bits (2⁶ = 64), so 4³ = 2⁶ — the codon count IS the coin's bit measure. The uuid is EXACTLY TWO
     of them: 128 = 2·64 = 2⁷ — two coins, and (double_strand) two antiparallel rails, one per direction. uuid =
     DNA × the two coins, and the double helix is the bidirectional messaging the coins price at one per
-    direction. HONEST SCOPE: an arithmetic coincidence of counts made structural by construction — the address
-    is BUILT as two 64-bit halves; it is not a claim that DNA stores uuids or that biology computes addresses. -/
+    direction. an arithmetic coincidence of counts made structural by construction — the address is BUILT as two
+    64-bit halves; it is not a claim that DNA stores uuids or that biology computes addresses. -/
 theorem uuidna_is_dna_times_the_two_coins : (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide
 
 /-- THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full —
@@ -59,11 +59,11 @@ theorem uuidna_is_dna_times_the_two_coins : (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 =
     (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4
     bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is
     exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the
-    vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. HONEST SCOPE: this is
-    arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic
-    fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales
-    causes another — three quantities happen to be powers of the same number, and the address is BUILT that way
-    by construction, not discovered to be. -/
+    vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. this is arithmetic about
+    EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA
+    is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another —
+    three quantities happen to be powers of the same number, and the address is BUILT that way by construction,
+    not discovered to be. -/
 theorem octave_codon_address : ((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400) := by decide
 
 /-- Translation is LOSSY, never a cipher: 64 codons map onto only 21 outcomes (20 amino acids + stop), and 64 >
@@ -152,9 +152,9 @@ theorem faster_and_more_secure : (0 < 1) ∧ (256 / 2 = 128) ∧ (20 < 1048576) 
     − 7 = 115. The capacity the totality seal rides for every theorem, derived instead of assumed. -/
 theorem imprint_capacity_chain : (128 - 6 = 122) ∧ (122 - 7 = 115) := by decide
 
-/-- SEVEN IS THE SMALLEST HONEST HEADER: the header must count the 116 possible payload lengths (0..115), and 2⁶
-    = 64 cannot while 2⁷ = 128 can — 64 < 116 ≤ 128. One bit fewer under-counts, one more wastes a message bit:
-    the codec sits at the exact minimum, and the minimum is decidable. -/
+/-- SEVEN IS THE SMALLEST HEADER: the header must count the 116 possible payload lengths (0..115), and 2⁶ = 64
+    cannot while 2⁷ = 128 can — 64 < 116 ≤ 128. One bit fewer under-counts, one more wastes a message bit: the
+    codec sits at the exact minimum, and the minimum is decidable. -/
 theorem imprint_header_minimal : (2 ^ 6 < 116) ∧ (116 ≤ 2 ^ 7) := by decide
 
 /-- THE ENTANGLEMENT: the carrier capacity factors 115 = 5 · 23 — the pentagram's 5 and the frame ring's last

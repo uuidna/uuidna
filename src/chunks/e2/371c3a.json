@@ -1,0 +1,12 @@
+{
+  "handle": "e2371c3a",
+  "address": "e2371c3a-a12f-83bf-9488-b54743488dce",
+  "statement": "((16:Nat)^3 = 4096) ∧ ((16:Nat)^6 / (16:Nat)^3 = 4096) ∧ ((16:Nat)^3 * 4096 = 16777216)",
+  "tactic": "decide",
+  "keys": [
+    "shorthand_covers_one_in_four_thousand"
+  ],
+  "files": [
+    "SpectrumHex.lean"
+  ]
+}

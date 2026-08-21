@@ -5,53 +5,74 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1271,
-        "keys": 1355,
-        "renamings": 84,
-        "principles": 72,
-        "skills": 68,
+        "distinct": 1386,
+        "keys": 1468,
+        "renamings": 82,
+        "principles": 71,
+        "skills": 90,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "3b345822-e15e-851c-a5ee-3d5d649741e0"
+        "ledgerReceipt": "ca9f07bb-d993-8277-8364-60c446e8812f"
       },
-      "address": "0975b65c-275c-8d25-a9c2-c5a008cdbec2"
+      "address": "541db3bf-2e98-87c8-8ddc-eea4df1099b4"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1355,
-        "ledgerKeys": 1355,
-        "unmeasured": 0,
-        "summedDecideSteps": 345260
+        "theoremsMeasured": 1481,
+        "ledgerKeys": 1468,
+        "unmeasured": -13,
+        "summedDecideSteps": 572247
       },
-      "address": "066826b6-61ca-8e69-a921-5d07ad860353"
+      "address": "f1fb7756-165f-8c70-b2fb-781e25c7e3b3"
+    },
+    {
+      "title": "Verification cost",
+      "source": "lean/heartbeats.json",
+      "present": true,
+      "facts": {
+        "unit": "decide-steps counted by the kernel — machine-independent, since the repository may not time itself",
+        "theorems": 1481,
+        "cheapest": 13,
+        "quartile1": 53,
+        "median": 62,
+        "quartile3": 155,
+        "dearest": 97467,
+        "total": 572247,
+        "mean": 386,
+        "dearestFive": "7de6a4d3-aadc-88a8-89c6-425150f0576c 97467 · a93bf5ba-f682-8a3f-88de-f8878dca4db4 87981 · d3b61f09-7d20-8ffc-bc90-54759a09c595 81544 · 99dbc484-8da2-865a-ad5b-b9f96a40771d 16540 · 4053eb2d-ec87-813e-bc46-ef49536a62c8 15553",
+        "concentration": "the five dearest against the total, as an exact pair — never a percentage, which would round",
+        "dearestFiveSteps": 299085,
+        "honest": "DESCRIPTIVE: this measures what the kernel spent deciding, never whether a theorem is worth deciding."
+      },
+      "address": "22d60a2a-9fb7-88c9-899c-38dcda22af50"
     },
     {
       "title": "Citation audit",
       "source": "audit-citations.json",
       "present": true,
       "facts": {
-        "publications": 72,
-        "sealedTheorems": 1355,
+        "publications": 73,
+        "sealedTheorems": 1481,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "d9bb71d3-c694-868e-a16f-155c49151c8e"
+      "address": "2b1f61e6-bf0e-8a7e-8d3a-c399b42e64b8"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 358,
-        "roots": 241,
-        "supported": 358,
+        "modules": 389,
+        "roots": 269,
+        "supported": 389,
         "dead": 0,
-        "receipt": "5524aaf2-fd57-8531-9fb5-92fe7be8cec9"
+        "receipt": "b1168049-524e-8b5e-963e-ec8822fb116e"
       },
-      "address": "f8f58f6d-b486-8c22-8f8b-ec0b2b91fb5e"
+      "address": "b52b7213-c967-891f-b617-1b33d0326480"
     },
     {
       "title": "Package inventory",
@@ -69,12 +90,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "7e7fd2cee5fdd9d9",
-        "unifiedFold": "9a3ac6b6433dcf5d"
+        "foldReceipt": "223dd69aa8b99b2e",
+        "unifiedFold": "def3df29d5bab8b7"
       },
-      "address": "4c21e74e-be0b-8449-a24c-d213f766e91c"
+      "address": "4b185111-b82a-820d-9e64-78a1cb1409e2"
     }
   ],
-  "receipt": "47a5418a-29ea-8806-ba55-c2d3b19d4390",
+  "receipt": "7b3541bf-32b8-8cd7-b1c1-453ac155a4a7",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

@@ -1,0 +1,12 @@
+{
+  "handle": "16854b2b",
+  "address": "16854b2b-cab3-86a0-a4d0-3049b509a8c6",
+  "statement": "([2,6,7,8,9].contains 7) ∧ (dzMin 7 = dzMin 3) ∧ (dzMin 7 ≠ 7)",
+  "tactic": "decide",
+  "keys": [
+    "seventh_covers_reflection_cannot"
+  ],
+  "files": [
+    "Reflection.lean"
+  ]
+}

@@ -4,7 +4,7 @@
 // 1,2,3,3,2,1 = 12 (the full range); the rule is a palindrome (flood mirrors ebb); by the third hour the water is at
 // half its range; the middle hours run three times faster than the edges; two highs fall a lunar day apart (12h25m =
 // 745 min, ×2 = 24h50m); a spring tide (sun and moon aligned, pulls ADD) exceeds a neap (at the quarter, pulls partly
-// cancel); and six hours of flood plus six of ebb make one cycle. HONEST SCOPE: tidal arithmetic and the rule of
+// cancel); and six hours of flood plus six of ebb make one cycle. tidal arithmetic and the rule of
 // twelfths — NOT a harmonic tide-prediction model. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 

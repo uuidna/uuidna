@@ -1,0 +1,12 @@
+{
+  "handle": "6829f5d5",
+  "address": "6829f5d5-ef94-8a67-a300-efc52b45ea6b",
+  "statement": "words.eraseDups.length = 16",
+  "tactic": "decide",
+  "keys": [
+    "words_are_distinct"
+  ],
+  "files": [
+    "Hamming.lean"
+  ]
+}

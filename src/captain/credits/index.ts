@@ -78,7 +78,7 @@ export function credits(key: string): Credits {
   for (const r of REGISTRY) if (hay.includes(r.pat) && !seen.has(r.who)) { seen.add(r.who); historical.push({ who: r.who, link: r.wiki }) }
   // CONTEXTUAL — deep research across the NEIGHBOURING domain: names its neighbours reference but it does not itself.
   const contextual: Credit[] = []
-  for (const n of theoremNeighbours(t.key)) {
+  for (const n of theoremNeighbours(t.key).neighbours) {
     const nhay = n.name + ' ' + n.principle
     for (const r of REGISTRY) if (nhay.includes(r.pat) && !seen.has(r.who)) { seen.add(r.who); contextual.push({ who: r.who, link: r.wiki }) }
   }

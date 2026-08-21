@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// Automate the Lean layer for THE MATCHING — connecting people as decidable arithmetic. This is the HONEST kernel of
+// Automate the Lean layer for THE MATCHING — connecting people as decidable arithmetic. This is the kernel of
 // "social dating / connecting people": the graph theory a matching rests on — handshakes, mutual choice, pairings —
-// each proven `by decide`. HONEST SCOPE, stated plainly: uuidna is a theorem ledger and a content-addresser; it does
+// each proven `by decide`. SCOPE, stated plainly: uuidna is a theorem ledger and a content-addresser; it does
 // NOT run a dating service, hold anyone's profile, or match real people. Matching real humans means personal data,
 // consent and safety obligations that live OUTSIDE these theorems (see /privacy). What is sealed here is only the
 // arithmetic: a mutual match is SYMMETRIC (both must choose — one-sided is not a match), a pairing is a fixed-point-
@@ -54,7 +54,7 @@ const FACTS = [
 
 emit({
   file: 'Matching.lean', skill: 'matching',
-  header: 'THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching. NOT a dating service, NOT anyone\'s data — only the graph theory a matching rests on.',
+  header: 'THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching.',
   defs: NTH_DEF,
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

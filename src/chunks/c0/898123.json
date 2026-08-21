@@ -1,0 +1,12 @@
+{
+  "handle": "c0898123",
+  "address": "c0898123-fbe2-8889-953b-43bd7f21c2a7",
+  "statement": "(6 * 4 = 24) ∧ ((16:Nat)^6 = (2:Nat)^24) ∧ ((16:Nat)^6 = 16777216)",
+  "tactic": "decide",
+  "keys": [
+    "colour_is_six_hexbits"
+  ],
+  "files": [
+    "SpectrumHex.lean"
+  ]
+}

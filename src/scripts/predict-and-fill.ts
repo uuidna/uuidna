@@ -54,7 +54,10 @@ function predictTheoremGaps(): PredictedGap[] {
   }
 
   // Pattern 3: Principle count mismatch
-  const expectedPrinciples = 66 // from PRINCIPLES array
+  // DERIVED, NOT REMEMBERED. This was `66`, hardcoded from the PRINCIPLES array at the time it was written, and the
+  // test is `<` — so once the ledger passed 66 the branch became unreachable and the drift detector failed OPEN.
+  // A count copied into code is the very drift this check exists to catch; it now reads the live figure.
+  const expectedPrinciples = PRINCIPLES.length
   const actualPrinciples = principleNames.size
   if (actualPrinciples < expectedPrinciples) {
     gaps.push({
@@ -214,10 +217,20 @@ function predictFeatureGaps(): PredictedGap[] {
   // version of this fix proved it the hard way: the comment above, which names dist/scripts/audit.js while explaining
   // the bug, made audit.ts look wired and hid the very case it describes.
   const stripComments = (s: string): string => s.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/(^|\s)\/\/[^\n]*/g, ' ')
-  const invocationText = (self: string): string => invokerFiles
-    .filter((p) => p !== self)                       // a script re-spawning itself is not what wires it
-    .map((p) => { try { return stripComments(readFileSync(p, 'utf-8')) } catch { return '' } })
-    .join('\n')
+  // READ ONCE, NOT ONCE PER SCRIPT. This read and comment-stripped every invoker file on EVERY iteration of the
+  // loop below — ~160 files across ~120 scripts is ~19,000 reads and as many regex passes to answer a question
+  // about 160 files. Measured: predictGaps() was 2786ms of a 4750ms guard, nearly all of it here. The content is
+  // immutable for the run, so it is read and stripped once and the self-exclusion applied to the cached text.
+  const stripped = new Map<string, string>()
+  for (const p of invokerFiles) {
+    if (stripped.has(p)) continue
+    try { stripped.set(p, stripComments(readFileSync(p, 'utf-8'))) } catch { stripped.set(p, '') }
+  }
+  const invocationText = (self: string): string => {
+    let out = ''
+    for (const [p, text] of stripped) if (p !== self) out += text + '\n'   // a script re-spawning itself is not wiring
+    return out
+  }
 
   // DISCOVERY IS WIRING TOO. lean-all deliberately auto-discovers `dist/scripts/lean-*.js` so a new domain needs no
   // package.json entry, and half this repo's generators are wired that way. Rather than hardcode that one pattern

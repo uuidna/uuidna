@@ -1,0 +1,12 @@
+{
+  "handle": "a1209ed0",
+  "address": "a1209ed0-2284-8c37-a3db-ea194263f83c",
+  "statement": "((378:Nat)^2 > 65536) ∧ (378 < 65536)",
+  "tactic": "decide",
+  "keys": [
+    "page_outgrows_register"
+  ],
+  "files": [
+    "Channel.lean"
+  ]
+}

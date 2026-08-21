@@ -2,8 +2,7 @@
 // Automate the Lean layer for THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. The first
 // law conserves energy (ΔU = Q − W); the second law forbids entropy from decreasing and sends heat from hot to
 // cold; the Carnot efficiency is below 1 (no perfect engine, no perpetual motion); the Kelvin scale floors at
-// absolute zero (0 °C = 273 K); Charles's law keeps V/T constant; and specific heat is linear in ΔT. HONEST SCOPE:
-// the arithmetic of the laws — conservation, monotonicity and exact ratios, not a full statistical-mechanics
+// absolute zero (0 °C = 273 K); Charles's law keeps V/T constant; and specific heat is linear in ΔT. // the arithmetic of the laws — conservation, monotonicity and exact ratios, not a full statistical-mechanics
 // derivation. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
@@ -52,7 +51,7 @@ const FACTS = [
   // information dissipates at least kT·ln2. Since the 2019 SI redefinition the Boltzmann constant is EXACT by
   // definition — k = 1.380649×10⁻²³ J/K — so this bound is DERIVED by arithmetic, not measured, exactly as the
   // WGS 84 polar radius is derived from its two defining constants.
-  // HONEST SCOPE, because this domain attracts the opposite reading: a floor on dissipation is a COST, never a
+  // SCOPE, because this domain attracts the opposite reading: a floor on dissipation is a COST, never a
   // source. Reversible computation avoids paying it; it does not produce energy, and no arrangement of hardware
   // or sensors makes it produce energy — first_law_conservation and no_perpetual_motion, already sealed in this
   // same wing, forbid exactly that. "Free energy from computation" is refused by the ledger, not by opinion.
@@ -77,7 +76,7 @@ const FACTS = [
     lean: 'theorem landauer_bound_derived : 1380649 * 300 = 414194700 ∧ 414194700 * 693147 / 1000000 = 287097813 := by decide' },
 
   { key: 'reversible_erases_nothing',
-    why: 'A COST PROPORTIONAL TO WHAT IS ERASED IS ZERO WHEN NOTHING IS ERASED. Landauer\'s floor scales with the number of bits destroyed: erase one bit and pay 287097813×10⁻²⁹ J, erase none and pay 0 × that = 0. A logically REVERSIBLE step — an involution like reverse or CNOT, or this ledger\'s round-tripping imprint codec — destroys no information, so it carries no erasure floor at all. HONEST SCOPE: this is a floor being AVOIDED, never energy being produced; the bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this wing forbids the other reading.',
+    why: 'A COST PROPORTIONAL TO WHAT IS ERASED IS ZERO WHEN NOTHING IS ERASED. Landauer\'s floor scales with the number of bits destroyed: erase one bit and pay 287097813×10⁻²⁹ J, erase none and pay 0 × that = 0. A logically REVERSIBLE step — an involution like reverse or CNOT, or this ledger\'s round-tripping imprint codec — destroys no information, so it carries no erasure floor at all. this is a floor being AVOIDED, never energy being produced; the bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this wing forbids the other reading.',
     js: () => 0 * 287097813 === 0 && 1 * 287097813 === 287097813 && 0 < 287097813,
     lean: 'theorem reversible_erases_nothing : 0 * 287097813 = 0 ∧ 1 * 287097813 = 287097813 ∧ 0 < 287097813 := by decide' },
 
@@ -92,5 +91,5 @@ const FACTS = [
 // compute → generate → verify. The energy domain — conservation, entropy, heat direction, Carnot, Kelvin, Charles,
 // no perpetual motion, specific heat — decidable arithmetic of the laws, demarcated: not statistical mechanics.
 emit({ file: 'Thermodynamics.lean', skill: 'thermodynamics',
-  header: 'THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. The first law conserves energy (ΔU = Q − W: 100 = 60 + 40); the second law forbids entropy from decreasing and sends heat hot → cold; the Carnot efficiency is below 1 (no perfect engine, no perpetual motion); the Kelvin scale floors at absolute zero (0 °C = 273 K); Charles\'s law keeps V/T constant; and specific heat is linear in ΔT. HONEST SCOPE: the arithmetic of the laws — conservation, monotonicity and exact ratios, not a full statistical-mechanics derivation.',
+  header: 'THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

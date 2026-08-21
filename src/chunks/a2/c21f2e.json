@@ -1,0 +1,12 @@
+{
+  "handle": "a2c21f2e",
+  "address": "a2c21f2e-623a-8899-b57b-ae4c9e91ba97",
+  "statement": "VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4)",
+  "tactic": "decide",
+  "keys": [
+    "radial_equals_edge"
+  ],
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

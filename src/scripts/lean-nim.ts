@@ -3,7 +3,7 @@
 // axiom-free XOR (lxor): the nim-sum IS the bitwise XOR of the heap sizes. Bouton's theorem: a position is a LOSS for
 // the player to move (a P-position) exactly when the nim-sum is zero, and any nonzero nim-sum has a move to zero. From
 // that one XOR the whole normal-play theory reads off — equal heaps cancel (the mirror strategy), a lone heap is a
-// win, and the Sprague–Grundy value of a sum of games is the XOR of the parts. HONEST SCOPE: NORMAL play (last to move
+// win, and the Sprague–Grundy value of a sum of games is the XOR of the parts. NORMAL play (last to move
 // WINS) only — MISÈRE nim (last to move loses) flips the endgame and is demarcated where it appears; and this is the
 // exact arithmetic of the nim-sum, not a general game solver. COMPUTE → GENERATE → VERIFY. Integrity, not truth.
 import { emit, LXOR_DEF } from './lean-gen.js'
@@ -69,7 +69,7 @@ const FACTS = [
     lean: 'theorem nim_misere_differs : lxor (lxor 1 1) 1 = 1 := by decide' },
 
   { key: 'nim_max_is_a_diamond_nilpotent',
-    why: 'Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6 is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond\'s self-annihilating residue, its "draw". The biggest win reduces to the vortex\'s zero-square, while chess sits at the units {1,8} and the audit at 8. HONEST SCOPE: a structural residue of the nim-sum, NOT a claim nim IS the ring.',
+    why: 'Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6 is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond\'s self-annihilating residue, its "draw". The biggest win reduces to the vortex\'s zero-square, while chess sits at the units {1,8} and the audit at 8. a structural residue of the nim-sum, NOT a claim nim IS the ring.',
     js: () => 15 % 9 === 6 && (6 * 6) % 9 === 0,
     lean: 'theorem nim_max_is_a_diamond_nilpotent : (15 % 9 = 6) ∧ ((6 * 6) % 9 = 0) := by decide' },
 ]
@@ -90,6 +90,6 @@ console.log('computing ' + FACTS.length + ' NIM facts (normal-play nim-sum arith
 
 emit({
   file: 'Nim.lean', skill: 'nim', defs: LXOR_DEF,
-  header: 'NIM — the game of heaps as decidable arithmetic, the FIRST application of the ledger\'s axiom-free XOR (lxor): the nim-sum is the bitwise XOR of the heap sizes, a P-position (loss for the mover) is exactly a zero nim-sum (Bouton\'s theorem), equal heaps cancel (the mirror strategy), a lone heap wins, a nonzero nim-sum always has a move to zero, and Sprague–Grundy folds any impartial game to a single nim heap by XOR. HONEST SCOPE: NORMAL play only (last to move WINS) — MISÈRE nim flips the endgame and is demarcated; the exact arithmetic of the nim-sum, not a general game solver.',
+  header: 'NIM — the game of heaps as decidable arithmetic, the FIRST application of the ledger\'s axiom-free XOR (lxor): the nim-sum is the bitwise XOR of the heap sizes, a P-position (loss for the mover) is exactly a zero nim-sum (Bouton\'s theorem), equal heaps cancel (the mirror strategy), a lone heap wins, a nonzero nim-sum always has a move to zero, and Sprague–Grundy folds any impartial game to a single nim heap by XOR.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

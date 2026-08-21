@@ -1,0 +1,12 @@
+{
+  "handle": "c43f77fe",
+  "address": "c43f77fe-b4d9-8f73-9071-3980cd6b604a",
+  "statement": "(2097152 > 16) ∧ (2097152 ≠ 16) ∧ ((2:Nat)^21 ≠ 2^16)",
+  "tactic": "decide",
+  "keys": [
+    "total_exceeds_register"
+  ],
+  "files": [
+    "HandleSpan.lean"
+  ]
+}

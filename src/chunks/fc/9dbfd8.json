@@ -1,0 +1,12 @@
+{
+  "handle": "fc9dbfd8",
+  "address": "fc9dbfd8-8607-865b-8826-9f038219f7d3",
+  "statement": "(((List.range 2).flatMap (fun f => (List.range 2).flatMap (fun d => (List.range 2).map (fun v => cleanAudit f d v)))).filter (fun x => x == 1)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "gate_passes_on_one_state"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

@@ -5,6 +5,7 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity, not truth.
 import { execSync } from 'node:child_process'
+import { predictGaps } from './predict-and-fill.js'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -15,7 +16,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -263,20 +264,25 @@ for (const f of ADVISORY) {
 // 5) QUANTUM PREDICTION — predict gaps before they form and auto-fill critical ones.
 // Analyzes patterns (new theorems, new packages, new exports, new tests, new features) and seals them preemptively.
 // Milliseconds — pure prediction, no external calls.
+// CALLED, NOT SPAWNED. This was `execSync('node predict-and-fill.js')` — a second node process paying its own
+// startup and module load to run TypeScript this file already imports from. Measured: that spawn was ~2.9s of a
+// ~5.1s guard. The prediction is a pure function; the process boundary bought nothing and cost a startup.
 try {
-  execSync('node ' + JSON.stringify(join(HERE, 'predict-and-fill.js')), { stdio: 'inherit' })
-} catch {
+  const p = predictGaps()
+  console.log(`${p.total === 0 ? '✓' : '·'} guard — prediction: ${p.total} gap(s) foreseen (${p.byLikelihood.high} high, ${p.byLikelihood.medium} medium, ${p.byLikelihood.low} low)`)
+} catch (e) {
   failed = true
-  console.error('✗ guard — predict-and-fill quantum prediction failed (see above)')
+  console.error('✗ guard — predict-and-fill quantum prediction failed: ' + String((e as Error).message))
 }
 
 // 6) QUANTUM FOLD — compress entire system state (theorems, packages, exports, tests, predictions, dimensions)
 // into one order-invariant merkle fold. Seal proof of current system state. Recomputable by anyone.
+// CALLED, NOT SPAWNED — same reason. one-receipt is already imported here for its finders; the fold is one more call.
 try {
-  execSync('node ' + JSON.stringify(join(HERE, 'one-receipt.js')) + ' fold', { stdio: 'inherit' })
-} catch {
+  fold()
+} catch (e) {
   failed = true
-  console.error('✗ guard — fold-quantum failed to seal system state (see above)')
+  console.error('✗ guard — fold-quantum failed to seal system state: ' + String((e as Error).message))
 }
 
 if (failed) { console.error('\n✗ guard — traitors caught; fix before reconcile.'); process.exit(1) }

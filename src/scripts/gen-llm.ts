@@ -15,6 +15,18 @@ const T = theorems()
 const stmt = (k: string): string => T.find((t) => t.key === k)?.statement ?? '(missing — reconcile)'
 const principles = new Set(T.map((t) => t.principle)).size
 
+// THE COIN LIST IS READ, NOT TYPED. It was six keys written into the template below, and two of them — dropped
+// when AntiFraud was regenerated — survived as citations to theorems that no longer exist. llm.txt is loaded by
+// every agent, so a stale key here is a fabricated citation repeated at scale. The family is now selected from the
+// ledger by name, shortest statement first (the anchors, not the composites), so a consolidation rewrites this
+// block instead of rotting it.
+const coinTheorems = (): string => T
+  .filter((t) => /coin/.test(t.key))
+  .sort((a, b) => a.statement.length - b.statement.length)
+  .slice(0, 6)
+  .map((t) => '- `' + t.key + '` — ' + t.statement)
+  .join('\n')
+
 const LLM = `# uuidna — instructions for LLM agents (llm.txt)
 
 > GENERATED from the sealed ledger by scripts/gen-llm — do not hand-edit. Ask the ledger, don't assert: every claim
@@ -48,12 +60,7 @@ Everything below is context for reading the answers, not a prerequisite for aski
 
 ## The coins first — the theorems everything else is priced in
 
-- \`two_coins\` — ${stmt('two_coins')}
-- \`captain_commission_two_coins\` — ${stmt('captain_commission_two_coins')}
-- \`two_coins_is_double_torus\` — ${stmt('two_coins_is_double_torus')}
-- \`uuidna_is_dna_times_the_two_coins\` — ${stmt('uuidna_is_dna_times_the_two_coins')}
-- \`captain_coins_respected_at_scale\` — ${stmt('captain_coins_respected_at_scale')}
-- \`vote_weight_equals_coins_paid\` — ${stmt('vote_weight_equals_coins_paid')}
+${coinTheorems()}
 
 Every one is \`by decide\`, sorry-free and axiom-free: the kernel alone settles them. Cite a key to make a claim
 VERIFIED; cite nothing and it is UNVERIFIED, which means undecided here — never false.

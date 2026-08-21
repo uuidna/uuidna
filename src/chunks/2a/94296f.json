@@ -1,0 +1,12 @@
+{
+  "handle": "2a94296f",
+  "address": "2a94296f-273d-8a46-b0b0-0f6e7f17d58e",
+  "statement": "((2:Nat)^4 = 16) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32)",
+  "tactic": "decide",
+  "keys": [
+    "hexbit_is_four_qubits"
+  ],
+  "files": [
+    "Alignment.lean"
+  ]
+}

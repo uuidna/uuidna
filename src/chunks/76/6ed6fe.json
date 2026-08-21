@@ -1,0 +1,12 @@
+{
+  "handle": "766ed6fe",
+  "address": "766ed6fe-9001-89d8-8223-a2343a8d0acb",
+  "statement": "((2:Nat)^8 < 378) ∧ (378 < (2:Nat)^9) ∧ (512 - 378 = 134)",
+  "tactic": "decide",
+  "keys": [
+    "element_costs_nine"
+  ],
+  "files": [
+    "Channel.lean"
+  ]
+}

@@ -5,11 +5,11 @@ description: "Computed from lean/Colour.lean — 17 sealed theorems, every claim
 
 # The colour wheel
 
-> THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. The geometry of the wheel, NOT a claim that taste or beauty is objective. — held by [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) and its 16 siblings below.
+> THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. — held by [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) and its 16 siblings below.
 
-**17 theorems**, from [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) onward, each proven `by decide` in [lean/Colour.lean](/lean/Colour.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**17 theorems**, from [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) onward, each proven `by decide` in [lean/Colour.lean](/lean/Colour.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band). A boundary stated here is decided, not merely denied.
 
-### THE HEART DISCOVERY: each rosette ray offsets the hue wheel by 360/7 = 51°, and the FOURTH ray (index 3, counting the first as 1) lands at 3·51 = 153° — squarely the green band. The seven rays walk the wheel as seven stations, and the fourth is green — the arithmetic behind the observation that two seven-fold systems agree. HONEST SCOPE: the offset arithmetic is sealed; any chakra reading of it stays UNVERIFIED — the number is sealed, the meaning is not.
+### THE HEART DISCOVERY: each rosette ray offsets the hue wheel by 360/7 = 51°, and the FOURTH ray (index 3, counting the first as 1) lands at 3·51 = 153° — squarely the green band. The seven rays walk the wheel as seven stations, and the fourth is green — the arithmetic behind the observation that two seven-fold systems agree. the offset arithmetic is sealed; any chakra reading of it stays UNVERIFIED — the number is sealed, the meaning is not.
 The ledger holds this as [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) — proven `by decide`, sorry-free:
 
 ```lean
@@ -121,7 +121,7 @@ The ledger holds this as [polarity_angles_are_the_system_counts](/theorem/polari
 (360 / 9 = 40) ∧ (360 / 6 = 60) ∧ (360 / 4 = 90) ∧ (360 / 3 = 120) ∧ (2 * 60 = 120) ∧ (2^2 = 4)
 ```
 
-### THE HONEST BOUNDARY BETWEEN THE TWO INVOLUTIONS — the dz mirror (d ↦ 10−d, an involution on DIGITS) is not the colour complement (h ↦ h+180°, an involution on HUES), because no whole number of A432 steps reaches a half turn: 180 % 40 = 20 ≠ 0, and 4·40 = 160 < 180 < 200 = 5·40 — the complement of any digit's hue falls strictly BETWEEN two digits. The 9-lattice and the 6-lattice meet only at multiples of their common 120°. Two involutions, one wheel, and they do not coincide — stated rather than smoothed over.
+### THE BOUNDARY BETWEEN THE TWO INVOLUTIONS — the dz mirror (d ↦ 10−d, an involution on DIGITS) is not the colour complement (h ↦ h+180°, an involution on HUES), because no whole number of A432 steps reaches a half turn: 180 % 40 = 20 ≠ 0, and 4·40 = 160 < 180 < 200 = 5·40 — the complement of any digit's hue falls strictly BETWEEN two digits. The 9-lattice and the 6-lattice meet only at multiples of their common 120°. Two involutions, one wheel, and they do not coincide — stated rather than smoothed over.
 The ledger holds this as [no_digit_is_an_exact_complement](/theorem/no_digit_is_an_exact_complement) — proven `by decide`, sorry-free:
 
 ```lean

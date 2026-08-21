@@ -1,0 +1,12 @@
+{
+  "handle": "67d54732",
+  "address": "67d54732-f715-8dbe-be6c-32ab86e62bb9",
+  "statement": "(32 * 255 = 8160) ∧ (8160 ≠ 0)",
+  "tactic": "decide",
+  "keys": [
+    "tamper_set_counts_eight_thousand"
+  ],
+  "files": [
+    "Byte.lean"
+  ]
+}

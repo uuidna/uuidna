@@ -3,7 +3,7 @@
 // message and a tag; the verifier holds the key and recomputes the expected tag. accept(signed, verifies) =
 // signed·verifies: a command is accepted IFF it is signed AND its tag verifies. Unsigned → reject; a failing or
 // tampered tag → reject; of all presented tags exactly ONE (the correct MAC) verifies; and changing the message
-// changes the tag. HONEST SCOPE: this proves the DECISION logic and the REQUIREMENT that the MAC be nonlinear and
+// changes the tag. this proves the DECISION logic and the REQUIREMENT that the MAC be nonlinear and
 // keyed — a LINEAR tag is forgeable (one tag forges another), so the real strength is HMAC-SHA256 (src/sha256.ts,
 // KAT-verified), NOT the arithmetic model here. "Only the key-holder can produce a matching tag" is HMAC's
 // property, proven by its KATs; this file proves the gate, not the cipher. COMPUTE → GENERATE → VERIFY.
@@ -53,6 +53,6 @@ const FACTS = [
 // compute → generate → verify. The command gate: accept iff signed AND verifying — proven; the strength is
 // HMAC-SHA256, demarcated. Only the key-holder can produce a matching tag; that is HMAC's KAT, not this model.
 emit({ file: 'Command.lean', skill: 'command',
-  header: 'COMMAND AUTHENTICATION — the gate logic, proven, HMAC-backed. accept(signed, verifies) = signed·verifies: a command is accepted IFF it is signed and its tag verifies; unsigned is rejected, a failing/tampered tag is rejected, exactly one tag (the correct MAC) verifies, and tampering the message changes the tag. HONEST SCOPE: the DECISION logic and the requirement that the MAC be nonlinear and keyed — a LINEAR tag is forgeable, so the real strength is HMAC-SHA256 (src/sha256.ts, KAT-verified), NOT the arithmetic model here. "Only the key-holder can produce a matching tag" is HMAC\'s property; this proves the gate, not the cipher.',
+  header: 'COMMAND AUTHENTICATION — the gate logic, proven, HMAC-backed. accept(signed, verifies) = signed·verifies: a command is accepted IFF it is signed and its tag verifies; unsigned is rejected, a failing/tampered tag is rejected, exactly one tag (the correct MAC) verifies, and tampering the message changes the tag. the DECISION logic and the requirement that the MAC be nonlinear and keyed — a LINEAR tag is forgeable, so the real strength is HMAC-SHA256 (src/sha256.ts, KAT-verified), NOT the arithmetic model here. "Only the key-holder can produce a matching tag" is HMAC\'s property; this proves the gate, not the cipher.',
   defs: 'def accept (signed verifies : Nat) : Nat := signed * verifies\n\n' + LXOR_DEF,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

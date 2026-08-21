@@ -1,0 +1,12 @@
+{
+  "handle": "5e67c40f",
+  "address": "5e67c40f-3564-8322-b5f2-ada2558211e0",
+  "statement": "((2:Nat)^2 = 4) ∧ (4 * 2 = 8) ∧ ((2:Nat)^3 = 8)",
+  "tactic": "decide",
+  "keys": [
+    "step_costs_three"
+  ],
+  "files": [
+    "DoubleTorus.lean"
+  ]
+}

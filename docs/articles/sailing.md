@@ -5,9 +5,9 @@ description: "Computed from lean/Sailing.lean — 9 sealed theorems, every claim
 
 # The points-of-sail domain
 
-> SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. A boat cannot sail the ~45° no-go zone either side of the wind (45+45=90); the points of sail fall on multiples of 45° (180/45=4); beating close-hauled makes good distance upwind along a 3-4-5 triangle at a distance penalty (5 > 3); apparent wind exceeds true when close-hauled (5 > 4); a BALANCED helm is a moment equilibrium (8·3 = 6·4) so the boat holds course and the captain rests; two equal tacks cancel leeway (4 + (−4) = 0); and precise tacks compound linearly ([1,2,3] → [3,6,9]). The close-hauled angle is not derived here but READ from the source: Day, Thomas Fleming, On Yacht Sailing (The Rudder Publishing Company, 1904), "This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass" — and his two units are held to agree by arithmetic (4 x 360 = 32 x 45). HONEST SCOPE: the arithmetic of sailing geometry and balance — angles, triangles and equilibrium — not a full aero/hydrodynamic derivation, and Day's 45 deg is his 1904 figure for a good vessel under his rig, not a claim about what a modern yacht can point. — held by [no_go_zone](/theorem/no_go_zone) and its 8 siblings below.
+> SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. — held by [no_go_zone](/theorem/no_go_zone) and its 8 siblings below.
 
-**9 theorems**, from [no_go_zone](/theorem/no_go_zone) onward, each proven `by decide` in [lean/Sailing.lean](/lean/Sailing.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**9 theorems**, from [no_go_zone](/theorem/no_go_zone) onward, each proven `by decide` in [lean/Sailing.lean](/lean/Sailing.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [no_go_zone](/theorem/no_go_zone). A boundary stated here is decided, not merely denied.
 
 ### A boat cannot sail directly into the wind: the no-go zone is about 45° either side, a 90° cone (45 + 45 = 90) where the sails luff and make no power. To go upwind you must sail around it, not through it.
 The ledger holds this as [no_go_zone](/theorem/no_go_zone) — proven `by decide`, sorry-free:
@@ -65,16 +65,12 @@ The ledger holds this as [precise_tacks_compound](/theorem/precise_tacks_compoun
 (([1,2,3] : List Nat).map (fun n => 3 * n)) = [3,6,9]
 ```
 
-### THE CLOSE-HAULED ANGLE, READ FROM THE SOURCE RATHER THAN DERIVED. Thomas Fleming Day — editor of The Rudder — states it exactly in On Yacht Sailing (The Rudder Publishing Company, 1904): "This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass." His two units agree by arithmetic, and that agreement is what is sealed here: the compass rose carries 32 points over 360°, so four points is 45° exactly — 4 × 360 = 32 × 45 = 1440, an integer identity needing no division and no approximation. It also confirms what this wing already sealed independently as no_go_zone (45 + 45 = 90): the two tacks of a boat working to windward lie a right angle apart. HONEST SCOPE: 45° is Day's figure for a good vessel of 1904 under his rig; modern yachts point higher, and this seals the ARITHMETIC of his stated angle, never a claim about what any particular boat can achieve today.
+### THE CLOSE-HAULED ANGLE, READ FROM THE SOURCE RATHER THAN DERIVED. Thomas Fleming Day — editor of The Rudder — states it exactly in On Yacht Sailing (The Rudder Publishing Company, 1904): "This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass." His two units agree by arithmetic, and that agreement is what is sealed here: the compass rose carries 32 points over 360°, so four points is 45° exactly — 4 × 360 = 32 × 45 = 1440, an integer identity needing no division and no approximation. It also confirms what this wing already sealed independently as no_go_zone (45 + 45 = 90): the two tacks of a boat working to windward lie a right angle apart. 45° is Day's figure for a good vessel of 1904 under his rig; modern yachts point higher, and this seals the ARITHMETIC of his stated angle, never a claim about what any particular boat can achieve today.
 The ledger holds this as [four_points_is_45](/theorem/four_points_is_45) — proven `by decide`, sorry-free:
 
 ```lean
 (4 * 360 = 32 * 45) ∧ (4 * 360 = 1440) ∧ (45 + 45 = 90)
 ```
 
-
-::: warning HONEST SCOPE
-the arithmetic of sailing geometry and balance — angles, triangles and equilibrium — not a full aero/hydrodynamic derivation, and Day's 45 deg is his 1904 figure for a good vessel under his rig, not a claim about what a modern yacht can point. The boundary is confirmed by the wing's own sealed theorems — e.g. [no_go_zone](/theorem/no_go_zone) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -1,0 +1,12 @@
+{
+  "handle": "ed0ecf28",
+  "address": "ed0ecf28-ef45-8035-a75c-3d45ba2a1910",
+  "statement": "agl.all (fun f => agl.all (fun g => agl.contains (comp f g)))",
+  "tactic": "decide",
+  "keys": [
+    "composition_stays_inside"
+  ],
+  "files": [
+    "Affine.lean"
+  ]
+}

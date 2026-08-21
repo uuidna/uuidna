@@ -1,0 +1,12 @@
+{
+  "handle": "0b1be2d2",
+  "address": "0b1be2d2-41e0-855f-bb37-914411b50120",
+  "statement": "(List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => dist (lxor m1 k) (lxor m2 k) == dist m1 m2)))",
+  "tactic": "decide",
+  "keys": [
+    "reuse_leaks_by_isometry"
+  ],
+  "files": [
+    "Isometry.lean"
+  ]
+}

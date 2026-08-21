@@ -1,0 +1,12 @@
+{
+  "handle": "1887ee97",
+  "address": "1887ee97-40bb-83bd-b28b-a749524e9c6f",
+  "statement": "(16 - 10 = 6) ∧ (16 - 15 = 1) ∧ (16 - 10 > 16 - 15)",
+  "tactic": "decide",
+  "keys": [
+    "ten_costs_more_than_fifteen"
+  ],
+  "files": [
+    "Alignment.lean"
+  ]
+}

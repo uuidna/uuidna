@@ -1,0 +1,12 @@
+{
+  "handle": "548539a9",
+  "address": "548539a9-01f4-80aa-956b-672f525c7253",
+  "statement": "((List.range 12).map res = [1,2,4,8,7,5,1,2,4,8,7,5]) ∧ (((List.range 12).map res).take 6 = ((List.range 12).map res).drop 6)",
+  "tactic": "decide",
+  "keys": [
+    "residue_walks_the_orbit"
+  ],
+  "files": [
+    "Clock.lean"
+  ]
+}

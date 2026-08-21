@@ -5,9 +5,9 @@ description: "Computed from lean/Navigation.lean — 5 sealed theorems, every cl
 
 # Navigation — bounded geometry
 
-> NAVIGATION — bounded geometry, demarcated. Straight-line distance is Pythagorean (3-4-5), the compass rose is ℤ/8 (eight 45° headings, 8·45 = 360), the reciprocal bearing is +4 (180°, an involution), a quarter turn is +2 (order 4), and dead reckoning is the vector sum of the legs. HONEST SCOPE: the decidable algebra of classical navigation — not GPS-grade guidance and not a positioning claim about any individual, just the geometry. — held by [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) and its 4 siblings below.
+> NAVIGATION — bounded geometry, demarcated. — held by [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) and its 4 siblings below.
 
-**5 theorems**, from [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) onward, each proven `by decide` in [lean/Navigation.lean](/lean/Navigation.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**5 theorems**, from [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) onward, each proven `by decide` in [lean/Navigation.lean](/lean/Navigation.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 ### Straight-line distance is Pythagorean: the range over a 3-east, 4-north leg is 5 — 3² + 4² = 5². The oldest fix in navigation, exact.
 The ledger holds this as [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) — proven `by decide`, sorry-free:
@@ -44,9 +44,5 @@ The ledger holds this as [dead_reckoning_adds](/theorem/dead_reckoning_adds) —
 ([4, 3, -2] : List Int).sum = 5
 ```
 
-
-::: warning HONEST SCOPE
-the decidable algebra of classical navigation — not GPS-grade guidance and not a positioning claim about any individual, just the geometry. The boundary is confirmed by the wing's own sealed theorems — e.g. [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

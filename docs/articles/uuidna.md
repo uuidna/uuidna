@@ -7,7 +7,7 @@ description: "Computed from lean/Uuidna.lean — 15 sealed theorems, every claim
 
 > Uuidna — the algebra, formalised in Lean 4. ONLY algebra: `by decide` over ℤ/9, the involutions, the — held by [units_z9](/theorem/units_z9) and its 14 siblings below.
 
-**15 theorems**, from [units_z9](/theorem/units_z9) onward, each proven `by decide` in [lean/Uuidna.lean](/lean/Uuidna.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**15 theorems**, from [units_z9](/theorem/units_z9) onward, each proven `by decide` in [lean/Uuidna.lean](/lean/Uuidna.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 15 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [ns_spike](/theorem/ns_spike). A boundary stated here is decided, not merely denied.
 
 ### the units of ℤ/9 (the residues with an inverse) are exactly {1,2,4,5,7,8} — computed by search
 The ledger holds this as [units_z9](/theorem/units_z9) — proven `by decide`, sorry-free:

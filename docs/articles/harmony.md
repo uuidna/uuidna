@@ -5,9 +5,9 @@ description: "Computed from lean/Harmony.lean — 8 sealed theorems, every claim
 
 # The harmony of pairs
 
-> THE HARMONY OF PAIRS — the same complementary-pair arithmetic across biology, medicine, chemistry and physics (DNA bases, acid/base, agonist/antagonist, action/reaction, cation/anion), proven to be ONE reflection at different centres. Structure, NOT a medical/biological/chemical/physical claim. — held by [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) and its 7 siblings below.
+> THE HARMONY OF PAIRS — the same complementary-pair arithmetic across biology, medicine, chemistry and physics (DNA bases, acid/base, agonist/antagonist, action/reaction, cation/anion), proven to be ONE reflection at different centres. — held by [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) and its 7 siblings below.
 
-**8 theorems**, from [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) onward, each proven `by decide` in [lean/Harmony.lean](/lean/Harmony.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) onward, each proven `by decide` in [lean/Harmony.lean](/lean/Harmony.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three). A boundary stated here is decided, not merely denied.
 
 ### BIOLOGY: the four DNA bases pair by complement — A↔T, G↔C — written as the REFLECTION c ↦ 3−c on {0,1,2,3} (the same reflection form as pH and charge below, not the XOR form of dna_base_pairing_involution): applied twice it returns (an involution), and no base pairs with itself (3−c ≠ c). The helix pairs through the centre 3.
 The ledger holds this as [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) — proven `by decide`, sorry-free:

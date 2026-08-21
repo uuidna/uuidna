@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE REPORT — the reporter's METHOD as decidable arithmetic: how to dive deep and
-// report the news of PROVEN discoveries. HONEST SCOPE, stated first because it is the whole point: uuidna does NOT
+// report the news of PROVEN discoveries. SCOPE, stated first because it is the whole point: uuidna does NOT
 // verify world events — no `by decide` can settle whether something happened out there; that is the reporter's own
 // work (go there, get the documents, name the sources). What is sealed here is the METHOD: the six questions a
 // complete report answers, a chronological timeline, corroboration by TWO reputable sources (one is uncorroborated),
@@ -55,6 +55,6 @@ const FACTS = [
 
 emit({
   file: 'Report.lean', skill: 'reporting',
-  header: 'THE REPORT — the reporter\'s METHOD as decidable arithmetic: the six questions, a chronological timeline, corroboration by two reputable sources, trinity editing, full-quorum publication, the inverted pyramid, and the VERIFIED/UNVERIFIED verdict on every claim. The discipline of reporting PROVEN discoveries, NOT a claim uuidna verifies world events.',
+  header: 'THE REPORT — the reporter\'s METHOD as decidable arithmetic: the six questions, a chronological timeline, corroboration by two reputable sources, trinity editing, full-quorum publication, the inverted pyramid, and the VERIFIED/UNVERIFIED verdict on every claim.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

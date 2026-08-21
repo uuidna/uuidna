@@ -1,0 +1,12 @@
+{
+  "handle": "a1f6221d",
+  "address": "a1f6221d-2548-85b3-b309-971c8fe3de69",
+  "statement": "(List.range 5).all (fun n => 8^(n+1) == 8 * 8^n)",
+  "tactic": "decide",
+  "keys": [
+    "growth_is_not_bounded_here"
+  ],
+  "files": [
+    "DoubleTorus.lean"
+  ]
+}

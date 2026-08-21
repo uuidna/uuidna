@@ -1,0 +1,12 @@
+{
+  "handle": "838bf32c",
+  "address": "838bf32c-c714-8c59-a49f-8236c85ff18d",
+  "statement": "([8,4,4,4,12].foldl (· + ·) 0 = 32) ∧ (32 + 4 = 36) ∧ (32 ≠ 36)",
+  "tactic": "decide",
+  "keys": [
+    "layout_groups_thirtytwo"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

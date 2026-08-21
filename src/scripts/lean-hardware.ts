@@ -6,7 +6,7 @@
 // and the identities a hardware toolchain checks a netlist AGAINST — the gate truth tables, NAND functional
 // completeness, the half- and full-adder, the 2:1 multiplexer, De Morgan — are each a finite, decidable statement the
 // Lean kernel settles with no axiom. XOR uses `lxor` (structural, 8-bit fuel) so the whole layer stays kernel-only —
-// not even propext (verified by scripts/lean-axioms). HONEST SCOPE: integrity, not truth. uuidna SEALS this spec —
+// not even propext (verified by scripts/lean-axioms). integrity, not truth. uuidna SEALS this spec —
 // the exact decidable arithmetic of the gates — so a gate design can be VERIFIED AGAINST it. It does not, and these
 // theorems do not claim to, fabricate a device, synthesise a netlist, or develop silicon. A sealed spec, not a chip.
 import { emit, LXOR_DEF } from './lean-gen.js'
@@ -98,5 +98,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Hardware.lean', skill: 'hardware', defs: LXOR_DEF,
-  header: 'THE HARDWARE-VERIFIABLE BINARY ALGEBRA — the named nucleus of low-level combinational logic, each fact a decidable, axiom-free `by decide` particle. A bit is a Nat in {0,1}; a gate is arithmetic on bits (NOT a = 1−a, AND = a·b, OR = a+b−a·b, XOR = lxor, kernel-only); the layer seals the four gate truth tables, that XOR is addition mod 2, closure on the bit, NAND functional completeness (NAND rebuilds NOT/AND/OR — why chips are one repeated gate), De Morgan, the half- and full-adder, and the 2:1 multiplexer. These are the identities a hardware toolchain verifies a netlist AGAINST. HONEST SCOPE: integrity, not truth — uuidna SEALS this spec so a gate design can be verified against it; it does NOT fabricate a device, synthesise a netlist, or develop silicon. A sealed spec, not a chip.',
+  header: 'THE HARDWARE-VERIFIABLE BINARY ALGEBRA — the named nucleus of low-level combinational logic, each fact a decidable, axiom-free `by decide` particle.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

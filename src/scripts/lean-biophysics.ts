@@ -3,8 +3,7 @@
 // paired structures: blood (Klein four-group), DNA (base-pair involution), sound (the 432 ladder + octave),
 // chemistry (2n² shells / 4l+2 subshells), music (the circle of fifths + tritone in ℤ/12), acid-base (the pH
 // reflection through 7), heredity (the Mendelian 3:1 + allele-swap involution), and colour (the ℤ/6 complement
-// wheel). COMPUTE each fact, GENERATE a `by decide` Lean theorem, VERIFY it compiles sorry-free. HONEST SCOPE:
-// these prove the combinatorial/algebraic SKELETON — NOT a medical, genetic, chemical or physical claim about any
+// wheel). COMPUTE each fact, GENERATE a `by decide` Lean theorem, VERIFY it compiles sorry-free. // these prove the combinatorial/algebraic SKELETON — NOT a medical, genetic, chemical or physical claim about any
 // person or measurement. The structure is algebra; the scientific reading is the shared pattern, demarcated.
 import { emit, LXOR_DEF } from './lean-gen.js'
 
@@ -83,5 +82,5 @@ const FACTS = [
 console.log('computing ' + FACTS.length + ' bio/physics STRUCTURE facts (algebra, not a medical/physical claim) …')
 
 emit({ file: 'BioPhysics.lean', skill: 'science-pairs', defs: LXOR_DEF,
-  header: 'The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). HONEST SCOPE: the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement.',
+  header: 'The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

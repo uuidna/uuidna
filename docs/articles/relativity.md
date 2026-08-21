@@ -5,9 +5,9 @@ description: "Computed from lean/Relativity.lean — 8 sealed theorems, every cl
 
 # The spacetime domain
 
-> RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. Nothing exceeds c (the cosmic speed limit — no FTL); light travels on the null cone (interval 0); the invariant interval s² = (ct)² − x² classifies events as timelike/causal (5²−4²=9>0) or spacelike (3²−5²<0, no causal link without FTL); the Lorentz factor rides a Pythagorean triangle (β=5/13 → γ=13/12, 5²+12²=13²); moving clocks dilate (13>12) and lengths contract (12<13); and rest energy is E=mc². HONEST SCOPE: the arithmetic of special relativity in integer-friendly cases — intervals, the γ triangle and exact ratios — not a full tensor or general-relativity derivation. — held by [cosmic_speed_limit](/theorem/cosmic_speed_limit) and its 7 siblings below.
+> RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. — held by [cosmic_speed_limit](/theorem/cosmic_speed_limit) and its 7 siblings below.
 
-**8 theorems**, from [cosmic_speed_limit](/theorem/cosmic_speed_limit) onward, each proven `by decide` in [lean/Relativity.lean](/lean/Relativity.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [cosmic_speed_limit](/theorem/cosmic_speed_limit) onward, each proven `by decide` in [lean/Relativity.lean](/lean/Relativity.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [causality_forbids_ftl](/theorem/causality_forbids_ftl). A boundary stated here is decided, not merely denied.
 
 ### Nothing outruns light: c = 299792458 m/s is the universal speed limit, so any real signal is strictly slower — 299792457 < 299792458. There is no faster-than-light; the ledger says "no fake FTL," and relativity proves it.
 The ledger holds this as [cosmic_speed_limit](/theorem/cosmic_speed_limit) — proven `by decide`, sorry-free:
@@ -65,9 +65,5 @@ The ledger holds this as [causality_forbids_ftl](/theorem/causality_forbids_ftl)
 (3*3 - 5*5 : Int) < 0
 ```
 
-
-::: warning HONEST SCOPE
-the arithmetic of special relativity in integer-friendly cases — intervals, the γ triangle and exact ratios — not a full tensor or general-relativity derivation. The boundary is confirmed by the wing's own sealed theorems — e.g. [cosmic_speed_limit](/theorem/cosmic_speed_limit) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

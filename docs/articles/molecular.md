@@ -5,9 +5,9 @@ description: "Computed from lean/Molecular.lean — 8 sealed theorems, every cla
 
 # The bond domain
 
-> MOLECULAR — the bond domain, as decidable arithmetic, demarcated. Atoms bond toward the octet (4+4=8); a covalent bond of order n shares 2n electrons; bond order (bonding−antibonding)/2 gives N₂ a triple and O₂ a double bond; main-group valence is the group number minus 10; a Lewis structure counts total valence electrons (H₂O: 2·1+6=8); a large electronegativity difference makes a bond ionic (NaCl 21 > 17); molar mass sums the atomic masses (H₂O = 18); and bond strength rises with order. HONEST SCOPE: the arithmetic of bonding bookkeeping — electron and mass counts, exact thresholds — not a full quantum-chemistry derivation, distinct from the DNA base-pairing in BioPhysics and the reactions in Chemistry. — held by [octet_rule](/theorem/octet_rule) and its 7 siblings below.
+> MOLECULAR — the bond domain, as decidable arithmetic, demarcated. — held by [octet_rule](/theorem/octet_rule) and its 7 siblings below.
 
-**8 theorems**, from [octet_rule](/theorem/octet_rule) onward, each proven `by decide` in [lean/Molecular.lean](/lean/Molecular.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [octet_rule](/theorem/octet_rule) onward, each proven `by decide` in [lean/Molecular.lean](/lean/Molecular.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 ### The octet rule: atoms bond to reach eight valence electrons. Carbon has 4 of its own and shares 4 more, 4 + 4 = 8 — a full outer shell, the driver of covalent bonding.
 The ledger holds this as [octet_rule](/theorem/octet_rule) — proven `by decide`, sorry-free:
@@ -65,9 +65,5 @@ The ledger holds this as [bond_strength_rises_with_order](/theorem/bond_strength
 (3 > 2) ∧ (2 > 1)
 ```
 
-
-::: warning HONEST SCOPE
-the arithmetic of bonding bookkeeping — electron and mass counts, exact thresholds — not a full quantum-chemistry derivation, distinct from the DNA base-pairing in BioPhysics and the reactions in Chemistry. The boundary is confirmed by the wing's own sealed theorems — e.g. [octet_rule](/theorem/octet_rule) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -1,8 +1,7 @@
--- lean/Byte.lean — GENERATED. THE BYTE — two hexbits, and the unit exact-copy verification actually compares in. The ladder: a qubit is one bit of exponent, a hexbit is four of them (one hex character, tiling the qubit with no remainder), and a BYTE is two hexbits — eight bits, 256 values, 16^2 spellings. That is why an address of 32 hex characters is 16 bytes and 128 bits, and why a SHA-256 digest of 64 hex characters is 32 bytes and 256 bits; each is one object counted in a different unit, and the readings are proven to agree. THE DIGEST IS EXACTLY TWICE THE ADDRESS in every unit — 32 against 16 bytes, 256 against 128 bits, 64 against 32 characters — so the factor is not an artefact of one reading. WHY THE BYTE IS THE VERIFYING UNIT: Os.lean decides that exact-copy verification IS byte-equality, so a single changed byte, a truncation or a REORDERING all break the match. The table that follows had never been enumerated — over a 32-byte digest every position may take any of 255 other values, giving 8160 single-byte alterations, each a different digest. A NOTE ON WHAT IS NOT SEALED HERE: that byte comparison admits no probability was drafted as a theorem and REMOVED, because it reduced to `(a == b) || (a != b)` — true regardless of content, the vacuous shape this ledger convicts elsewhere. The claim is right and the statement was empty; it is recorded here as prose rather than dressed as a proof. PURE ARITHMETIC, nothing measured from the world. HONEST SCOPE: integrity, not truth — this decides the unit and the comparison, never that any particular copy is authentic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Byte.lean — GENERATED. THE BYTE — two hexbits, and the unit exact-copy verification actually compares in. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- A BYTE IS TWO HEXBITS: eight bits, 256 values, and 16^2 spellings — the two readings agree, so counting a
-    byte in hex characters and counting it in bits land on the same object. Two, not one and not four, which the
-    line proves so the rung cannot be confused with its neighbours. -/
+    byte in hex characters and counting it in bits land on the same object. -/
 theorem byte_holds_two_hexbits : (2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ ((16:Nat)^2 = 256) ∧ (2 ≠ 4) := by decide
 
 /-- THE ADDRESS IS SIXTEEN BYTES: 32 hex characters, 128 bits, 16 bytes — three counts of one object, each
@@ -10,18 +9,13 @@ theorem byte_holds_two_hexbits : (2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ ((16:Nat)
 theorem address_is_sixteen_bytes : (32 / 2 = 16) ∧ (16 * 8 = 128) ∧ (32 * 4 = 128) := by decide
 
 /-- A SHA-256 DIGEST IS EXACTLY TWICE THE ADDRESS: 32 bytes against 16, 256 bits against 128, 64 hex characters
-    against 32. The factor is two in every unit, and the line proves it in all three so the ratio cannot be an
-    artefact of one reading. -/
+    against 32. -/
 theorem digest_doubles_the_address : (32 = 2 * 16) ∧ (256 = 2 * 128) ∧ (64 = 2 * 32) := by decide
 
 /-- THE TAMPER SET OF ONE POSITION IS 255 VALUES: a byte holds 256 and one of them is the original, so 256 - 1 =
-    255 alternatives remain, and 255 across 32 positions is 8160. THE COUNT IS THE FACT — a first draft built
-    the 256-element list and recursed over it, which needed the kernel's depth limit RAISED to pass. Raising a
-    limit to prove arithmetic is turning a dial; the arithmetic decides instantly and the list was enumeration
-    for its own sake. -/
+    255 alternatives remain, and 255 across 32 positions is 8160. -/
 theorem every_alternative_differs : (256 - 1 = 255) ∧ (255 * 32 = 8160) ∧ (256 ≠ 255) := by decide
 
 /-- OVER A THIRTY-TWO BYTE DIGEST THE WHOLE TAMPER SET IS 32 × 255 = 8160 single-byte alterations, every one of
-    them a different digest under byte-equality. Eight thousand one hundred and sixty, counted rather than
-    estimated. -/
+    them a different digest under byte-equality. -/
 theorem tamper_set_counts_eight_thousand : (32 * 255 = 8160) ∧ (8160 ≠ 0) := by decide

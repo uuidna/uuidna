@@ -1,0 +1,12 @@
+{
+  "handle": "6282432a",
+  "address": "6282432a-4f46-8698-b35e-ee3681c9841a",
+  "statement": "(32 = 2 * 16) ∧ (256 = 2 * 128) ∧ (64 = 2 * 32)",
+  "tactic": "decide",
+  "keys": [
+    "digest_doubles_the_address"
+  ],
+  "files": [
+    "Byte.lean"
+  ]
+}

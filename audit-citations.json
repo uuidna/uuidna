@@ -1,18 +1,18 @@
 {
-  "key": "64af6608-d71f-8d0c-8309-2dc411048a47",
-  "publications": 72,
-  "sealedTheorems": 1355,
+  "key": "42b6f08b-0085-8fba-beb1-f6735c532a2b",
+  "publications": 71,
+  "sealedTheorems": 1468,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1355,
-    "theorems": 1355,
-    "bijection": true,
+    "claims": 1328,
+    "theorems": 1468,
+    "bijection": false,
     "digitalRoots": {
       "claims": 5,
-      "theorems": 5,
-      "publications": 9
+      "theorems": 1,
+      "publications": 8
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -131,8 +131,8 @@
     },
     {
       "slug": "coins",
-      "claims": 19,
-      "cited": 19,
+      "claims": 20,
+      "cited": 20,
       "uncited": [],
       "fabricated": []
     },
@@ -145,8 +145,8 @@
     },
     {
       "slug": "software",
-      "claims": 11,
-      "cited": 11,
+      "claims": 15,
+      "cited": 15,
       "uncited": [],
       "fabricated": []
     },
@@ -173,6 +173,13 @@
     },
     {
       "slug": "solids",
+      "claims": 12,
+      "cited": 12,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "vector-equilibrium",
       "claims": 12,
       "cited": 12,
       "uncited": [],
@@ -495,22 +502,8 @@
     },
     {
       "slug": "anti-fraud",
-      "claims": 24,
-      "cited": 24,
-      "uncited": [],
-      "fabricated": []
-    },
-    {
-      "slug": "sailing-seals",
-      "claims": 13,
-      "cited": 13,
-      "uncited": [],
-      "fabricated": []
-    },
-    {
-      "slug": "disputed-topics",
-      "claims": 15,
-      "cited": 15,
+      "claims": 8,
+      "cited": 8,
       "uncited": [],
       "fabricated": []
     },

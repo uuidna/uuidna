@@ -1,0 +1,12 @@
+{
+  "handle": "5dc67269",
+  "address": "5dc67269-1a60-8cf5-b09f-9495fe5bc59e",
+  "statement": "(6 * 9 * 7 = 378) ∧ (6 * 7 = 42) ∧ (378 ≠ 42) ∧ (378 > 42)",
+  "tactic": "decide",
+  "keys": [
+    "independence_is_assumed"
+  ],
+  "files": [
+    "Channel.lean"
+  ]
+}

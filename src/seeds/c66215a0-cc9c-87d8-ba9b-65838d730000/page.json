@@ -1,0 +1,249 @@
+{
+  "file": "DoubleTorus.lean",
+  "slug": "doubletorus",
+  "status": "usable",
+  "address": "3e613b94-48cc-8f0a-aded-c40d125a6717",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "DoubleTorus.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/DoubleTorus.lean — GENERATED. THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- THE EULER CHARACTERISTIC IS THE GENUS, READ OFF: χ = 2 − 2g gives 0 at genus one (the plain torus, a closed\n    pipe) and −2 at genus two, so −χ = 2 — the two coins. Both genera on one line, so the number is measured\n    against its neighbour rather than stated alone. -/\ntheorem chi_measures_genus : (((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)) ∧ (-((2:Int) - 2 * 2) = 2) := by decide\n\n/-- EACH HANDLE CARRIES TWO GENERATORS, so a double torus has 2 × 2 = 4 — a₁, b₁ around the first handle and a₂,\n    b₂ around the second. Four, and not two: the handle count and the generator count are different quantities,\n    which the line proves rather than lets slide. -/\ntheorem handles_give_generators : (2 * 2 = 4) ∧ (4 ≠ 2) := by decide\n\n/-- THE WHOLE DESCRIPTION IS FIVE SYMBOLS: four generators and one relation, [a₁,b₁][a₂,b₂] = 1. One relation,\n    not none — a free group on four generators is a different object, and the single constraint is exactly what\n    closes the surface. -/\ntheorem presentation_counts_five : (4 + 1 = 5) ∧ (1 ≠ 0) := by decide\n\n/-- A STEP COSTS THREE QUBITS: two to name which of the four generators (2² = 4) and one for its direction (a or\n    a⁻¹), so the per-step alphabet is 4 × 2 = 8 = 2³. The qubit cost of a step is the exponent, and the exponent\n    is three. -/\ntheorem step_costs_three : ((2:Nat)^2 = 4) ∧ (4 * 2 = 8) ∧ ((2:Nat)^3 = 8) := by decide\n\n/-- WORDS GROW, THE DESCRIPTION DOES NOT. Words of length n over the eight letters number 8ⁿ — [1, 8, 64, 512,\n    4096, 32768] from length zero to five — and every length past the first already exceeds the five symbols\n    that describe them all. The gap widens at every step and the presentation never moves. -/\ntheorem words_outgrow_presentation : ((List.range 6).map (fun n => 8^n) = [1,8,64,512,4096,32768]) ∧ (((List.range 6).map (fun n => 8^n)).drop 1).all (fun w => w > 5) := by decide\n\n/-- AND THE LIMIT OF THIS METHOD, ON ITS OWN LINE: each length multiplies the count by eight — 8ⁿ⁺¹ = 8 · 8ⁿ at\n    every tested length — so the counts do not settle. SCOPE: `by decide` settles finitely many cases and cannot\n    prove a group INFINITE. What is decided is the GROWTH; that it never stops is the reading, and it is not\n    sealed here. -/\ntheorem growth_is_not_bounded_here : (List.range 5).all (fun n => 8^(n+1) == 8 * 8^n) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-chi_measures_genus",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE EULER CHARACTERISTIC IS THE GENUS, READ OFF: χ = 2 − 2g gives 0 at genus one (the plain torus, a closed pipe) and −2 at genus two, so −χ = 2 — the two coins. Both genera on one line, so the number is measured against its neighbour rather than stated alone."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)) ∧ (-((2:Int) - 2 * 2) = 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem chi_measures_genus : (((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)) ∧ (-((2:Int) - 2 * 2) = 2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-handles_give_generators",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "EACH HANDLE CARRIES TWO GENERATORS, so a double torus has 2 × 2 = 4 — a₁, b₁ around the first handle and a₂, b₂ around the second. Four, and not two: the handle count and the generator count are different quantities, which the line proves rather than lets slide."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2 * 2 = 4) ∧ (4 ≠ 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem handles_give_generators : (2 * 2 = 4) ∧ (4 ≠ 2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-presentation_counts_five",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE WHOLE DESCRIPTION IS FIVE SYMBOLS: four generators and one relation, [a₁,b₁][a₂,b₂] = 1. One relation, not none — a free group on four generators is a different object, and the single constraint is exactly what closes the surface."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(4 + 1 = 5) ∧ (1 ≠ 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem presentation_counts_five : (4 + 1 = 5) ∧ (1 ≠ 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-step_costs_three",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A STEP COSTS THREE QUBITS: two to name which of the four generators (2² = 4) and one for its direction (a or a⁻¹), so the per-step alphabet is 4 × 2 = 8 = 2³. The qubit cost of a step is the exponent, and the exponent is three."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((2:Nat)^2 = 4) ∧ (4 * 2 = 8) ∧ ((2:Nat)^3 = 8)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem step_costs_three : ((2:Nat)^2 = 4) ∧ (4 * 2 = 8) ∧ ((2:Nat)^3 = 8) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-words_outgrow_presentation",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "WORDS GROW, THE DESCRIPTION DOES NOT. Words of length n over the eight letters number 8ⁿ — [1, 8, 64, 512, 4096, 32768] from length zero to five — and every length past the first already exceeds the five symbols that describe them all. The gap widens at every step and the presentation never moves."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 6).map (fun n => 8^n) = [1,8,64,512,4096,32768]) ∧ (((List.range 6).map (fun n => 8^n)).drop 1).all (fun w => w > 5)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem words_outgrow_presentation : ((List.range 6).map (fun n => 8^n) = [1,8,64,512,4096,32768]) ∧ (((List.range 6).map (fun n => 8^n)).drop 1).all (fun w => w > 5) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-growth_is_not_bounded_here",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE LIMIT OF THIS METHOD, ON ITS OWN LINE: each length multiplies the count by eight — 8ⁿ⁺¹ = 8 · 8ⁿ at every tested length — so the counts do not settle. SCOPE: `by decide` settles finitely many cases and cannot prove a group INFINITE. What is decided is the GROWTH; that it never stops is the reading, and it is not sealed here."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 5).all (fun n => 8^(n+1) == 8 * 8^n)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem growth_is_not_bounded_here : (List.range 5).all (fun n => 8^(n+1) == 8 * 8^n) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

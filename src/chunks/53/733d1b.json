@@ -1,0 +1,12 @@
+{
+  "handle": "53733d1b",
+  "address": "53733d1b-5b01-8f54-b970-d33c4f2c76ef",
+  "statement": "((2:Nat)^1 < 3) ∧ (3 < (2:Nat)^2)",
+  "tactic": "decide",
+  "keys": [
+    "trinity_exceeds_qubit"
+  ],
+  "files": [
+    "Trinities.lean"
+  ]
+}

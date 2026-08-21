@@ -1,0 +1,321 @@
+{
+  "file": "Statics.lean",
+  "slug": "statics",
+  "status": "usable",
+  "address": "87af9aa8-430d-8224-8320-f4cb68ff6b42",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Statics.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Statics.lean — GENERATED. STATICS — the structures domain, as decidable arithmetic, demarcated. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- A body in equilibrium has its forces summing to zero (ΣF = 0): a 10 N upward support balances 6 N + 4 N of\n    downward load — 10 − 6 − 4 = 0. Nothing accelerates when the forces cancel. -/\ntheorem force_equilibrium : (10 - 6 - 4 : Int) = 0 := by decide\n\n/-- Moments balance about a pivot (Στ = 0): a 6 N force at 2 m balances a 4 N force at 3 m — 6·2 = 4·3 = 12 N·m.\n    Torque is force times lever arm, and a seesaw settles when they match. -/\ntheorem moment_balance : 6 * 2 = 4 * 3 := by decide\n\n/-- A lever trades force for distance: a 100 N load at 1 m from the pivot is held by only 20 N of effort at 5 m\n    — 100·1 = 20·5, a mechanical advantage of 5. Give up distance, gain force. -/\ntheorem mechanical_advantage : 100 * 1 = 20 * 5 := by decide\n\n/-- The centre of mass is the weighted average of positions: two equal masses at 0 and 10 balance at 5 — 1·0 +\n    1·10 = 2·5. The system pivots freely about that point. -/\ntheorem center_of_mass : 1*0 + 1*10 = 2 * 5 := by decide\n\n/-- A simply-supported beam splits a central load evenly between its two supports: a 100 N load gives each\n    reaction 50 N — 50 + 50 = 100. Symmetry shares the burden. -/\ntheorem beam_reactions : 50 + 50 = 100 := by decide\n\n/-- A rigid, statically determinate planar truss obeys Maxwell's rule m = 2j − 3: the simplest one, a triangle,\n    has 3 members and 3 joints — 2·3 − 3 = 3. The triangle is the atom of stable structure. -/\ntheorem truss_maxwell_rule : 2*3 - 3 = 3 := by decide\n\n/-- Stress is force spread over area (σ = F/A): 100 N over 4 units of area is 25 units of stress — 100 / 4 = 25.\n    The same force on less area bites harder. -/\ntheorem stress_is_force_over_area : 100 / 4 = 25 := by decide\n\n/-- Hooke's law is linear (F = k·x): with stiffness k = 5 the restoring force scales with the stretch —\n    extensions [1,2,3] give forces [5,10,15]. Twice the stretch, twice the pull, within the elastic limit. -/\ntheorem hookes_law : (([1,2,3] : List Nat).map (fun x => 5 * x)) = [5,10,15] := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-force_equilibrium",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A body in equilibrium has its forces summing to zero (ΣF = 0): a 10 N upward support balances 6 N + 4 N of downward load — 10 − 6 − 4 = 0. Nothing accelerates when the forces cancel."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(10 - 6 - 4 : Int) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem force_equilibrium : (10 - 6 - 4 : Int) = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-moment_balance",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Moments balance about a pivot (Στ = 0): a 6 N force at 2 m balances a 4 N force at 3 m — 6·2 = 4·3 = 12 N·m. Torque is force times lever arm, and a seesaw settles when they match."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "6 * 2 = 4 * 3"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem moment_balance : 6 * 2 = 4 * 3 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mechanical_advantage",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A lever trades force for distance: a 100 N load at 1 m from the pivot is held by only 20 N of effort at 5 m — 100·1 = 20·5, a mechanical advantage of 5. Give up distance, gain force."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "100 * 1 = 20 * 5"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mechanical_advantage : 100 * 1 = 20 * 5 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-center_of_mass",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The centre of mass is the weighted average of positions: two equal masses at 0 and 10 balance at 5 — 1·0 + 1·10 = 2·5. The system pivots freely about that point."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "1*0 + 1*10 = 2 * 5"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem center_of_mass : 1*0 + 1*10 = 2 * 5 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-beam_reactions",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A simply-supported beam splits a central load evenly between its two supports: a 100 N load gives each reaction 50 N — 50 + 50 = 100. Symmetry shares the burden."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "50 + 50 = 100"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem beam_reactions : 50 + 50 = 100 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-truss_maxwell_rule",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A rigid, statically determinate planar truss obeys Maxwell's rule m = 2j − 3: the simplest one, a triangle, has 3 members and 3 joints — 2·3 − 3 = 3. The triangle is the atom of stable structure."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2*3 - 3 = 3"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem truss_maxwell_rule : 2*3 - 3 = 3 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-stress_is_force_over_area",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Stress is force spread over area (σ = F/A): 100 N over 4 units of area is 25 units of stress — 100 / 4 = 25. The same force on less area bites harder."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "100 / 4 = 25"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem stress_is_force_over_area : 100 / 4 = 25 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-hookes_law",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Hooke's law is linear (F = k·x): with stiffness k = 5 the restoring force scales with the stretch — extensions [1,2,3] give forces [5,10,15]. Twice the stretch, twice the pull, within the elastic limit."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(([1,2,3] : List Nat).map (fun x => 5 * x)) = [5,10,15]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem hookes_law : (([1,2,3] : List Nat).map (fun x => 5 * x)) = [5,10,15] := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

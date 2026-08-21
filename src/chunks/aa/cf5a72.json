@@ -1,0 +1,12 @@
+{
+  "handle": "aacf5a72",
+  "address": "aacf5a72-161b-8fd1-b602-5a2395f21782",
+  "statement": "(List.range 16).all (fun a => (List.range 16).all (fun b => (List.range 16).all (fun k => dist (lxor a k) (lxor b k) == dist a b)))",
+  "tactic": "decide",
+  "keys": [
+    "xor_preserves_distance"
+  ],
+  "files": [
+    "Isometry.lean"
+  ]
+}

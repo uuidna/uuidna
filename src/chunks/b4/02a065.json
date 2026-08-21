@@ -1,0 +1,12 @@
+{
+  "handle": "b402a065",
+  "address": "b402a065-0014-8582-813a-099082878e5d",
+  "statement": "(seatCases.filter (fun c => c.1 > c.2)).all (fun c => fullest c.1 c.2 ≥ 2)",
+  "tactic": "decide",
+  "keys": [
+    "excess_forces_sharing"
+  ],
+  "files": [
+    "Seats.lean"
+  ]
+}

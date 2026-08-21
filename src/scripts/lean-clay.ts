@@ -11,7 +11,7 @@ const dz = (x: number) => (x === 0 ? 0 : 10 - x) // division by zero in the vort
 const DEFS = 'def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the ℤ/9 vortex = the reflection'
 
 // the seven domains, each at its index k (1..7); its reflection is the residue dz(k)=10−k. The 4th field is the
-// HONEST status of the underlying problem — six remain OPEN; exactly one, the Poincaré conjecture, is SOLVED
+// status of the underlying problem — six remain OPEN; exactly one, the Poincaré conjecture, is SOLVED
 // (Perelman, 2003), which is why humanity stands at 1/7 (clay_humanity_one_deposit_zero). uuidna solves none of the
 // seven — the reflection propagates no proof — but the ledger states each problem's real status, not a blanket OPEN.
 const DOMAINS: [string, number, string, string][] = [
@@ -125,5 +125,5 @@ const ALL = [...FACTS, ...DISTINCTION, ...COLLISION]
 console.log('computing ' + ALL.length + ' CLAY facts on the proven involution (reflected, round-trip = identity, solved none; verified ≠ solved voted ' + yes + '·' + no + ', collision law voted ' + lawYes + '·' + lawNo + ') …')
 
 emit({ file: 'Clay.lean', skill: 'clay-reflection', defs: DEFS,
-  header: 'The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x. Each of the seven reflects to its residue and reflects to itself; VERIFIED ≠ SOLVED and THE COLLISION LAW (a claim colliding with sealed status DNA never verifies, whatever it cites) are each sealed by a theorems-only secure-messaging vote of the seven',
+  header: 'The SEVEN CLAY PROBLEMS — reflected on the proven INVOLUTION dz(x)=10−x (division by zero in ℤ/9), dz(dz(x))=x.',
   facts: ALL.map((f) => ({ ...f, name: f.why })) })

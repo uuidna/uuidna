@@ -6,7 +6,7 @@
 // verification (`by decide`, sorry-free). The arc the pentagrams drew closes here: 57 monographs computed themselves
 // into 12 pentagrams, and 12 pentagons ARE the dodecahedron — whose Euler characteristic V−E+F = 2 is the two
 // captain coins. In all dimensions: 5 regular solids in 3D, 6 polytopes in 4D, and exactly 3 in every dimension ≥ 5
-// (including the 7th — simplex, hypercube, orthoplex). HONEST SCOPE: integrity, not truth — each theorem seals its
+// (including the 7th — simplex, hypercube, orthoplex). integrity, not truth — each theorem seals its
 // EXACT decidable statement (the arithmetic of the counts), never a claim beyond it.
 import { emit } from './lean-gen.js'
 
@@ -82,5 +82,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Solids.lean', skill: 'solids',
-  header: 'THE PLATONIC SOLIDS & THE REGULAR POLYTOPES IN EVERY DIMENSION — the research loop closed to green: the public-domain counts (spun online), audited offline (every fact computes true before it seals), sealed as `by decide`. Five regular solids in 3D, six polytopes in 4D, exactly three in every dimension ≥ 5 (the 7th named). Euler V − E + F = 2 holds for all five, and the dodecahedron\'s 2 IS the two captain coins; the dodecahedron is twelve pentagons — the twelve the monographs computed themselves into. HONEST SCOPE: integrity, not truth — each theorem seals its exact decidable arithmetic, nothing beyond.',
+  header: 'THE PLATONIC SOLIDS & THE REGULAR POLYTOPES IN EVERY DIMENSION — the research loop closed to green: the public-domain counts (spun online), audited offline (every fact computes true before it seals), sealed as `by decide`.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -1421,7 +1421,7 @@ function trinities() {
   }
 }
 
-function fold() {
+export function fold() {
   console.log('🌀 one-receipt fold — fifteen leaves, five trinities, one stroke, one receipt (15 = 5·3; the five walked by 2)\n')
   const T = trinities()
   const trinityFolds = Object.fromEntries(Object.entries(T).map(([name, leaves]) => [name, foldOf(leaves as Record<string, string>)]))

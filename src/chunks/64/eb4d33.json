@@ -1,0 +1,12 @@
+{
+  "handle": "64eb4d33",
+  "address": "64eb4d33-04ed-8f3e-a894-0aee3991c7b4",
+  "statement": "(dzMin 7 = dzMin 3) ∧ (dzMin 6 = dzMin 4)",
+  "tactic": "decide",
+  "keys": [
+    "reflection_confuses_seven_three"
+  ],
+  "files": [
+    "Reflection.lean"
+  ]
+}

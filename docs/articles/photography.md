@@ -7,7 +7,7 @@ description: "Computed from lean/Photography.lean — 8 sealed theorems, every c
 
 > THE EXPOSURE — where the photographic standard ROUNDS (1/125≈1/128, f/1.4≈√2) and uuidna keeps the EXACT powers of two, as decidable arithmetic. — held by [full_stop_is_exact_doubling](/theorem/full_stop_is_exact_doubling) and its 7 siblings below.
 
-**8 theorems**, from [full_stop_is_exact_doubling](/theorem/full_stop_is_exact_doubling) onward, each proven `by decide` in [lean/Photography.lean](/lean/Photography.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [full_stop_is_exact_doubling](/theorem/full_stop_is_exact_doubling) onward, each proven `by decide` in [lean/Photography.lean](/lean/Photography.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [full_stop_is_exact_doubling](/theorem/full_stop_is_exact_doubling). A boundary stated here is decided, not merely denied.
 
 ### The physics uuidna keeps: a full stop is EXACTLY a doubling, so the exact shutter after 1/64 is 1/128 = 2⁷ — a power of two, not a round number.
 The ledger holds this as [full_stop_is_exact_doubling](/theorem/full_stop_is_exact_doubling) — proven `by decide`, sorry-free:

@@ -12,7 +12,7 @@
 // fact here carries both halves: the power that covers, AND the one below it that does not. The `<` is the negation,
 // discharged where it is claimed rather than asserted in the sentence above it.
 //
-// HONEST SCOPE: integrity, not truth. 81 trinities span the 128-bit content-address space and 81 = 9^2 is the size
+// integrity, not truth. 81 trinities span the 128-bit content-address space and 81 = 9^2 is the size
 // of the full Z/9 multiplication table. That coincidence is ARITHMETIC and is sealed as arithmetic: 128 / log2(3) =
 // 80.76, so any space near 2^128 needs about 81 threes. No meaning is claimed for the resonance, and none is sealed.
 import { emit } from './lean-gen.js'
@@ -59,5 +59,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Trinities.lean', skill: 'trinities', defs: '',
-  header: 'THE TRINITY COVERING — how many threes span a space. A trinity is three, and n trinities span 3^n exactly as n qubits span 2^n; a trinity is worth log2(3) = 1.5849625… qubits, more than one and less than two, which is why threes never divide a binary space evenly and why this project\'s fold is fifteen leaves as five trinities. EVERY COVERING CARRIES ITS MINIMALITY ON THE SAME LINE — the power that reaches the target AND the one below it that does not — because a theorem stating only that a bound suffices is satisfied by every larger number and seals nothing. Nineteen trinities cover a billion; forty-one cover the 64-bit word; eighty-one cover the 128-bit content-address, and eighty do not. That 81 = 9^2 is the size of the full Z/9 multiplication table is sealed as an ARITHMETIC identity: 128 / log2(3) = 80.76, so any space near 2^128 needs about eighty-one threes. PURE ARITHMETIC, no ledger count and nothing measured from the world. HONEST SCOPE: integrity, not truth — the coincidence is decidable, its meaning is not, and none is claimed.',
+  header: 'THE TRINITY COVERING — how many threes span a space.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -1,0 +1,12 @@
+{
+  "handle": "e6fd8211",
+  "address": "e6fd8211-fc43-8538-89de-4e77f3d06a7b",
+  "statement": "((3:Nat)^81 ≥ 2^128) ∧ ((3:Nat)^80 < 2^128)",
+  "tactic": "decide",
+  "keys": [
+    "trinities_cover_address"
+  ],
+  "files": [
+    "Trinities.lean"
+  ]
+}

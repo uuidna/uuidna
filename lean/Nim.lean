@@ -1,4 +1,4 @@
--- lean/Nim.lean — GENERATED. NIM — the game of heaps as decidable arithmetic, the FIRST application of the ledger's axiom-free XOR (lxor): the nim-sum is the bitwise XOR of the heap sizes, a P-position (loss for the mover) is exactly a zero nim-sum (Bouton's theorem), equal heaps cancel (the mirror strategy), a lone heap wins, a nonzero nim-sum always has a move to zero, and Sprague–Grundy folds any impartial game to a single nim heap by XOR. HONEST SCOPE: NORMAL play only (last to move WINS) — MISÈRE nim flips the endgame and is demarcated; the exact arithmetic of the nim-sum, not a general game solver. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Nim.lean — GENERATED. NIM — the game of heaps as decidable arithmetic, the FIRST application of the ledger's axiom-free XOR (lxor): the nim-sum is the bitwise XOR of the heap sizes, a P-position (loss for the mover) is exactly a zero nim-sum (Bouton's theorem), equal heaps cancel (the mirror strategy), a lone heap wins, a nonzero nim-sum always has a move to zero, and Sprague–Grundy folds any impartial game to a single nim heap by XOR. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded
 -- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it
@@ -63,8 +63,8 @@ theorem nim_misere_differs : lxor (lxor 1 1) 1 = 1 := by decide
 
 /-- Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6
     is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond's self-annihilating residue, its "draw". The biggest win
-    reduces to the vortex's zero-square, while chess sits at the units {1,8} and the audit at 8. HONEST SCOPE: a
-    structural residue of the nim-sum, NOT a claim nim IS the ring. -/
+    reduces to the vortex's zero-square, while chess sits at the units {1,8} and the audit at 8. a structural
+    residue of the nim-sum, NOT a claim nim IS the ring. -/
 theorem nim_max_is_a_diamond_nilpotent : (15 % 9 = 6) ∧ ((6 * 6) % 9 = 0) := by decide
 
 /-- The nim-sum 0 ⊕ 0 = 0 — entry (0,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0,

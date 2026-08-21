@@ -1,4 +1,4 @@
--- lean/AuditGame.lean — GENERATED. THE AUDIT GAME — why an audit is more ACCURATE as a game, sealed by decide: a finding is FLAGGED iff some independent refuter has a winning move (the OR), a claim is CLEAN iff none does (a P-position, the Nim/Bouton decidability), the verdict is exactly one of the two (survive + flag = 1), and N independent refuters are strictly more accurate — adding a refuter is monotone (never un-flags), a 3-vote panel confirms on a majority (4 of 8 profiles), and a unanimous acquittal is the product of clears ∏(1−rᵢ); the honesty gate drains only the hollow-and-unbacked citation (1 of 4 states, echoing Audit.lean); and the game is finite (2ⁿ outcomes) so the value is decidable. HONEST SCOPE: the DECISION is decidable but the COVERAGE is not — the refutation lexicon is incomplete, so an audit raises the cost of a false claim surviving, it does NOT reduce it to zero. A floor, not a wall. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/AuditGame.lean — GENERATED. THE AUDIT GAME — why an audit is more ACCURATE as a game, sealed by decide: a finding is FLAGGED iff some independent refuter has a winning move (the OR), a claim is CLEAN iff none does (a P-position, the Nim/Bouton decidability), the verdict is exactly one of the two (survive + flag = 1), and N independent refuters are strictly more accurate — adding a refuter is monotone (never un-flags), a 3-vote panel confirms on a majority (4 of 8 profiles), and a unanimous acquittal is the product of clears ∏(1−rᵢ); the honesty gate drains only the hollow-and-unbacked citation (1 of 4 states, echoing Audit.lean); and the game is finite (2ⁿ outcomes) so the value is decidable. the DECISION is decidable but the COVERAGE is not — the refutation lexicon is incomplete, so an audit raises the cost of a false claim surviving, it does NOT reduce it to zero. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- A finding is FLAGGED iff ANY independent refuter finds a winning move: flag(a,b) = 1 − (1−a)(1−b), which
     over {0,1}² is exactly the OR — a claim is caught the moment one refuter refutes it. The audit is a game the
@@ -44,14 +44,14 @@ theorem honesty_gate_one_drain : ((List.range 4).filter (fun n => (n / 2) * (1 -
     the verdict computable at all. -/
 theorem audit_is_a_finite_game : ([0,1,2,3].map (fun n => (2:Nat)^n)) = [1, 2, 4, 8] := by decide
 
-/-- HONEST SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵),
-    so an audit RAISES the cost of a false claim surviving but never zeroes it. A floor, not a wall — the same
-    "no maximum, only bounds" Security proves; the game's DECISION is decidable, its COVERAGE is not. -/
+/-- SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵), so an
+    audit RAISES the cost of a false claim surviving but never zeroes it. A floor, not a wall — the same "no
+    maximum, only bounds" Security proves; the game's DECISION is decidable, its COVERAGE is not. -/
 theorem no_audit_catches_all : ((2:Nat)^3 < 2^4) ∧ ((2:Nat)^4 < 2^5) := by decide
 
 /-- The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a
     self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) =
     10 − 8 = 2 is the first step of the vortex orbit. The three games interact in the diamond: chess at the
-    units {1, 8}, the audit at 8, nim at the nilpotent 6. HONEST SCOPE: a structural residue, NOT a claim the
-    audit IS the ring. -/
+    units {1, 8}, the audit at 8, nim at the nilpotent 6. a structural residue, NOT a claim the audit IS the
+    ring. -/
 theorem audit_space_meets_chess_at_eight : ((2^3) % 9 = 8) ∧ ((8 * 8) % 9 = 1) ∧ ((10 - 8) = 2) := by decide

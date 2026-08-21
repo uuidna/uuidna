@@ -1,0 +1,12 @@
+{
+  "handle": "a70dfda8",
+  "address": "a70dfda8-de9f-8f0f-ae0a-99cad2aaa2c5",
+  "statement": "(432 % 9 = 0) ∧ (432 % 7 = 5) ∧ (432 % 9 ≠ 432 % 7)",
+  "tactic": "decide",
+  "keys": [
+    "bases_disagree_on_root"
+  ],
+  "files": [
+    "Notation.lean"
+  ]
+}

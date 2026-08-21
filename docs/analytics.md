@@ -1,8 +1,8 @@
 
 # uuidna â€” Advantage Metrics
 
-**Generated:** 2026-08-20
-**Data source:** Live ledger (1355 sealed theorems)
+**Generated:** 2026-08-21
+**Data source:** Live ledger (1468 sealed theorems)
 
 ---
 
@@ -11,13 +11,13 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 1355 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 1355/1355 (100%) | Kernel-only proofs, recomputable offline |
-| **Principles** | 72 | Mathematical domains (ring, rosette, quantum, etc.) |
-| **Skills** | 68 | Capability axes across the ledger |
-| **Proof cost** | 345260 decide-steps | MEASURED per theorem in lean/heartbeats.json |
-| **Verification work** | 1355 addresses | one recomputed per theorem |
-| **Steps per address** | 254 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
+| **Theorems proven** | 1468 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 1468/1468 (100%) | Kernel-only proofs, recomputable offline |
+| **Principles** | 94 | Mathematical domains (ring, rosette, quantum, etc.) |
+| **Skills** | 90 | Capability axes across the ledger |
+| **Proof cost** | 576904 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Verification work** | 1468 addresses | one recomputed per theorem |
+| **Steps per address** | 392 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -57,8 +57,8 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself â
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 345260 kernel decide-steps, measured
-- Every later push (verify): 1355 address recomputations
+- First push (prove): 576904 kernel decide-steps, measured
+- Every later push (verify): 1468 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
@@ -84,9 +84,9 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       1355
-Axiom-free (decide):  1355 (100.0%)
-Principles:           72 domains
+Total theorems:       1468
+Axiom-free (decide):  1468 (100.0%)
+Principles:           94 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities
 Security checks:      10 automated

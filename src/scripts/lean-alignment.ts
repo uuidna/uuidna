@@ -10,7 +10,7 @@
 // WHERE IT BITES. The walk enters through seedOf, which reads eight hex characters as an integer and then reduces
 // MOD TEN. A base-sixteen object, narrowed by a base-ten modulus: four qubits are spent naming ten states, so six of
 // the sixteen go unused. Base sixteen's own digit invariant is mod 15 (Notation.lean: b ≡ 1 mod b−1), which wastes
-// one. HONEST SCOPE: this decides the counting, never that one choice is better — the ledger deliberately walks ten
+// one. this decides the counting, never that one choice is better — the ledger deliberately walks ten
 // DIGITS rather than nine residues, and that decision is recorded in sequence-run.ts with its own reason.
 import { emit } from './lean-gen.js'
 
@@ -54,5 +54,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Alignment.lean', skill: 'alignment', defs: '',
-  header: 'ALIGNMENT — which moduli tile a qubit and which waste it. A uuid is written in hexadecimal and a qubit is one bit of exponent, so the two are the same substance: 16 = 2^4, and one hex character is EXACTLY four qubits with no remainder — which is why a uuid of 32 hex characters is a clean 128 bits and a handle of 8 is a clean 32. The harmonic moduli are not that substance: in one four-qubit cell, sixteen wastes nothing, fifteen wastes one, ten wastes six and nine wastes seven, and only sixteen tiles exactly. The walk enters through seedOf, which reads eight hex characters as an integer and reduces MOD TEN — six of every sixteen states unused at the door, where base sixteen\'s own invariant (mod 15, by b ≡ 1 mod b−1) would waste one. And the discard is counted: a handle spans 32 qubits, its seed carries at most four, so 28 are dropped before the first step. HONEST SCOPE: integrity, not truth — this decides the COUNTING and never that one choice is better. The ledger walks ten DIGITS rather than nine residues deliberately, because folding mod nine collapsed nine onto zero and made a tenth of the domain unreachable through the runner\'s own front door; that reason is recorded where the choice is made.',
+  header: 'ALIGNMENT — which moduli tile a qubit and which waste it.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

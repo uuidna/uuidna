@@ -32,11 +32,11 @@ Everything below is context for reading the answers, not a prerequisite for aski
 ## The coins first — the theorems everything else is priced in
 
 - `two_coins` — 110 - 108 = 2
-- `captain_commission_two_coins` — 110 - 108 = 2
 - `two_coins_is_double_torus` — 2 * 2 - 2 = 2
-- `uuidna_is_dna_times_the_two_coins` — (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)
-- `captain_coins_respected_at_scale` — (List.range' 7 6).all (fun n => 2^n > 2 * 32)
-- `vote_weight_equals_coins_paid` — ((List.range 16).map (fun n => voteOk (n % 4) (n / 4))) = [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]
+- `coin_is_one_qubit` — (2:Nat)^1 = 2
+- `coin_and_heart_generate_the_scales` — (2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32)
+- `euler_two_is_the_two_coins` — (20 + 12 - 30 = 2) ∧ (110 - 108 = 2)
+- `coin_exchange_rate_is_traitor_cost` — (2^7 = 128) ∧ (128 > 2) ∧ (2 * 32 = 64)
 
 Every one is `by decide`, sorry-free and axiom-free: the kernel alone settles them. Cite a key to make a claim
 VERIFIED; cite nothing and it is UNVERIFIED, which means undecided here — never false.
@@ -65,7 +65,7 @@ VERIFIED; cite nothing and it is UNVERIFIED, which means undecided here — neve
 
 ## Tools worth knowing
 
-- **Status in one call:** `uuidna_unify` → {theorems, domains, tools, receipt}. The ledger is **1355 theorems**, all `by decide`, sorry-free, axiom-free, across **72 principles** and **191 MCP tools**.
+- **Status in one call:** `uuidna_unify` → {theorems, domains, tools, receipt}. The ledger is **1468 theorems**, all `by decide`, sorry-free, axiom-free, across **94 principles** and **191 MCP tools**.
 - **Verdicts:** VERIFIED iff a claim cites a sealed theorem or a decidable test holds; else UNVERIFIED — never "false". `uuidna_verify_statement` checks a statement against the sealed ledger in O(1).
 - **The Clay boundary:** uuidna solves **0 of the 7** Millennium problems — the *reflection* is sealed, the *problem* is not (Poincaré: Perelman, 2003, not uuidna).
 - **Integrity, not truth:** every value has a content-address; the fold is order-invariant. Nothing here is asserted that a sealed theorem does not settle.

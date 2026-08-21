@@ -5,9 +5,9 @@ description: "Computed from lean/Ephemeris.lean — 8 sealed theorems, every cla
 
 # The time coordinate
 
-> EPHEMERIS — the astronomical TIME coordinate, as decidable arithmetic, demarcated. A day is 86400 seconds (24·60·60); the Earth turns once more against the stars than the sun each year (366 = 365+1); the Julian calendar runs 1461 days per 4 years and the Gregorian 146097 per 400 (97 leap days); mean motion advances a longitude linearly in time ([1,2,3] → [30,60,90]); eclipses recur on the Saros (~223 synodic months); the Sun creeps just under a degree along the ecliptic per day (360 < 365); and a Julian Date is a continuous integer day count. HONEST SCOPE: the arithmetic of calendars and mean motion — the time coordinate — not a perturbed ephemeris, and distinct from the positional facts in Astronomy. — held by [seconds_per_day](/theorem/seconds_per_day) and its 7 siblings below.
+> EPHEMERIS — the astronomical TIME coordinate, as decidable arithmetic, demarcated. — held by [seconds_per_day](/theorem/seconds_per_day) and its 7 siblings below.
 
-**8 theorems**, from [seconds_per_day](/theorem/seconds_per_day) onward, each proven `by decide` in [lean/Ephemeris.lean](/lean/Ephemeris.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**8 theorems**, from [seconds_per_day](/theorem/seconds_per_day) onward, each proven `by decide` in [lean/Ephemeris.lean](/lean/Ephemeris.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [gregorian_leap_rule](/theorem/gregorian_leap_rule). A boundary stated here is decided, not merely denied.
 
 ### The base of the time coordinate: a day is 24 hours of 60 minutes of 60 seconds — 24·60·60 = 86400 seconds. Every clock counts up from that grid.
 The ledger holds this as [seconds_per_day](/theorem/seconds_per_day) — proven `by decide`, sorry-free:
@@ -65,9 +65,5 @@ The ledger holds this as [julian_date_is_a_day_count](/theorem/julian_date_is_a_
 2451545 - 2451544 = 1
 ```
 
-
-::: warning HONEST SCOPE
-the arithmetic of calendars and mean motion — the time coordinate — not a perturbed ephemeris, and distinct from the positional facts in Astronomy. The boundary is confirmed by the wing's own sealed theorems — e.g. [seconds_per_day](/theorem/seconds_per_day) — never merely denied.
-:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

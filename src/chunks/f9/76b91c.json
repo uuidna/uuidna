@@ -1,0 +1,12 @@
+{
+  "handle": "f976b91c",
+  "address": "f976b91c-7b14-8cf0-8692-603e86711711",
+  "statement": "((List.range 17).map (fun n => 2^n)).getLast! = 65536",
+  "tactic": "decide",
+  "keys": [
+    "register_holds_amplitudes"
+  ],
+  "files": [
+    "HandleSpan.lean"
+  ]
+}
