@@ -1,13 +1,13 @@
 ---
 title: "The Glagolitic numerals & Pliska rosette"
-description: "Computed from lean/Glagolitic.lean — 6 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Glagolitic.lean — 10 sealed theorems, every claim citing its proof."
 ---
 
 # The Glagolitic numerals & Pliska rosette
 
-> GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. Cyril's 9th-century script numbered its letters in order: the units 1–9 (Az…Zemlja), the tens and hundreds, combined additively (500+80+3 = 583), with the teens 11–19 written unit-before-ten. The nine units sum to 45 (digital root 9); the Pliska rosette turns on seven rays — the ℤ/7 the rosette layer seals — whose six residues sum to 21 (digital root 3, the primitive root), and 7 is prime so ℤ/7 is a field. HONEST SCOPE: the documented numeral arithmetic and the seven-fold symmetry; the rosette's MEANING (the seven planets, the days, the Dulo dynasty, a sun-sign) is historically DEBATED, not decoded here. — held by [glagolitic_units](/theorem/glagolitic_units) and its 5 siblings below.
+> GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. Cyril's 9th-century script numbered its letters in order: the units 1–9 (Az…Zemlja), the tens and hundreds, combined additively (500+80+3 = 583), with the teens 11–19 written unit-before-ten. The nine units sum to 45 (digital root 9); the Pliska rosette turns on seven rays — the ℤ/7 the rosette layer seals — whose six residues sum to 21 (digital root 3, the primitive root), and 7 is prime so ℤ/7 is a field. The same three-rank design letters Greek isopsephy and Hebrew gematria (9+9+9 = 27 signs reaching 900), while Roman numerals read by POSITION instead — a smaller sign before a larger subtracts (IX = 9), where Glagolitic's unit-before-ten still adds (11), so 9 ≠ 11 shows the rules are not interchangeable. And because a gematria value is a SUM it is blind to order (anagrams collide) and forced to collide by pigeonhole (22³ = 10648 three-letter strings against 1198 possible sums). HONEST SCOPE: the documented numeral arithmetic, the seven-fold symmetry, and the counting properties of letter-sums. What any of it MEANS is NOT decoded here — the rosette's reading (seven planets, the days, the Dulo dynasty, a sun-sign) is historically DEBATED, and a shared gematria value is the expected case by pigeonhole, never evidence of a connection. Significance is not decidable; only the arithmetic is. — held by [glagolitic_units](/theorem/glagolitic_units) and its 9 siblings below.
 
-**6 theorems**, from [glagolitic_units](/theorem/glagolitic_units) onward, each proven `by decide` in [lean/Glagolitic.lean](/lean/Glagolitic.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**10 theorems**, from [glagolitic_units](/theorem/glagolitic_units) onward, each proven `by decide` in [lean/Glagolitic.lean](/lean/Glagolitic.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### Cyril gave the letters number: the first nine Glagolitic glyphs, Az through Zemlja, carry the units 1 through 9 in their own alphabetic order — [1,2,3,4,5,6,7,8,9]. An alphabet that counts as it speaks.
 The ledger holds this as [glagolitic_units](/theorem/glagolitic_units) — proven `by decide`, sorry-free:
@@ -51,9 +51,37 @@ The ledger holds this as [pliska_seven_is_prime](/theorem/pliska_seven_is_prime)
 (List.range' 2 5).all (fun k => 7 % k != 0)
 ```
 
+### THE SHARED DESIGN OF THE ALPHABETIC NUMERALS. Greek isopsephy and Hebrew gematria use the same architecture Glagolitic does: nine units, nine tens, nine hundreds — 9 + 9 + 9 = 27 signs, the top rank reaching 9 × 100 = 900. That is why 27 glyphs are needed where 22 or 24 letters exist, and why both scripts press extra or final forms into service. One design, three alphabets.
+The ledger holds this as [alphabetic_three_ranks](/theorem/alphabetic_three_ranks) — proven `by decide`, sorry-free:
+
+```lean
+9 + 9 + 9 = 27 ∧ 9 * 100 = 900
+```
+
+### TWO SCRIPTS, THE SAME TWO SIGNS, DIFFERENT NUMBERS. Roman numerals are POSITIONAL in a way the alphabetic numerals are not: a smaller sign before a larger one subtracts, so IX is 10 − 1 = 9. Glagolitic writes its teens unit-before-ten and still ADDS — one-and-ten is 1 + 10 = 11. The same ordering gesture means subtract in one system and add in the other, and 9 ≠ 11 proves the two rules are not interchangeable.
+The ledger holds this as [roman_reads_subtractively](/theorem/roman_reads_subtractively) — proven `by decide`, sorry-free:
+
+```lean
+10 - 1 = 9 ∧ 1 + 10 = 11 ∧ 9 ≠ 11
+```
+
+### A GEMATRIA VALUE IS A SUM, AND A SUM IS BLIND TO ORDER. Because the letters are added, any rearrangement of the same letters carries the SAME value: 1 + 2 + 3 = 3 + 2 + 1 = 6. So an anagram is numerically indistinguishable from its original, and the value cannot recover which word produced it. This is a property of addition, decided here — not a claim about any tradition that uses it.
+The ledger holds this as [gematria_ignores_order](/theorem/gematria_ignores_order) — proven `by decide`, sorry-free:
+
+```lean
+1 + 2 + 3 = 3 + 2 + 1 ∧ 1 + 2 + 3 = 6
+```
+
+### DIFFERENT WORDS MUST SHARE A VALUE — BY PIGEONHOLE, NOT BY MYSTERY. Over the 22 Hebrew letters there are 22³ = 10648 three-letter strings, while their values (each letter 1…400) can only land between 3 and 1200 — 1198 possible sums. More words than sums, so collisions are FORCED: on average nearly nine strings per value. A shared gematria is therefore the expected case and carries no information on its own; it is the same seats-and-people bound the address layer seals as seats_pigeonhole. HONEST SCOPE: this decides the counting, never the significance anyone assigns to a coincidence.
+The ledger holds this as [gematria_forces_collisions](/theorem/gematria_forces_collisions) — proven `by decide`, sorry-free:
+
+```lean
+22 * 22 * 22 = 10648 ∧ 1200 - 3 + 1 = 1198 ∧ 10648 > 1198
+```
+
 
 ::: warning HONEST SCOPE
-the documented numeral arithmetic and the seven-fold symmetry; the rosette's MEANING (the seven planets, the days, the Dulo dynasty, a sun-sign) is historically DEBATED, not decoded here. The boundary is confirmed by the wing's own sealed theorems — e.g. [glagolitic_units](/theorem/glagolitic_units) — never merely denied.
+the documented numeral arithmetic, the seven-fold symmetry, and the counting properties of letter-sums. The boundary is confirmed by the wing's own sealed theorems — e.g. [glagolitic_units](/theorem/glagolitic_units) — never merely denied.
 :::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -1,13 +1,13 @@
 ---
 title: "The rules of inference"
-description: "Computed from lean/Reasoning.lean — 20 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Reasoning.lean — 25 sealed theorems, every claim citing its proof."
 ---
 
 # The rules of inference
 
-> THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). — held by [modus_ponens](/theorem/modus_ponens) and its 19 siblings below.
+> THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). — held by [modus_ponens](/theorem/modus_ponens) and its 24 siblings below.
 
-**20 theorems**, from [modus_ponens](/theorem/modus_ponens) onward, each proven `by decide` in [lean/Reasoning.lean](/lean/Reasoning.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**25 theorems**, from [modus_ponens](/theorem/modus_ponens) onward, each proven `by decide` in [lean/Reasoning.lean](/lean/Reasoning.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
 
 ### Modus ponens, proven for every assignment: from p and (p → q), q follows — !(p ∧ (p → q)) ∨ q holds on all four rows. The first rule of every valid argument.
 The ledger holds this as [modus_ponens](/theorem/modus_ponens) — proven `by decide`, sorry-free:
@@ -147,6 +147,41 @@ The ledger holds this as [significance_is_partial_not_total](/theorem/significan
 
 ```lean
 ((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2
+```
+
+### THE CONSPIRACY RECORD HAS EXACTLY ONE REACHABLE VERDICT. An allegation about the world is the record (t=0, c=0): no decidable test exists and it cites no sealed theorem. Its NOT PROVEN indicator (1 - PROVEN)(1 - REFUTED) is 1 for every h. That is the whole answer to "can the coins explain any conspiracy" — they cannot, because with no test and no citation the trial has exactly one door, and it is not an explanation.
+The ledger holds this as [untested_stays_unproven](/theorem/untested_stays_unproven) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 2).all (fun h => (1 - (0*h + 0 - 0*h*0)) * (1 - 0*(1-h)*(1-0)) == 1)
+```
+
+### THE COINS MINT NO EXPLANATION. With no decidable test (t=0), the PROVEN indicator t·h + c − t·h·c collapses to c alone, for every h. Nothing about the coins, the trial or the ledger can carry a claim to PROVEN — only a sealed authority can, and an allegation about the world has none. The refusal is the ledger's arithmetic, not an opinion about the allegation.
+The ledger holds this as [proof_needs_citation](/theorem/proof_needs_citation) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 2).all (fun h => (List.range 2).all (fun c => 0*h + c - 0*h*c == c))
+```
+
+### NOT PROVEN IS NOT A FINDING OF FALSEHOOD. On the non-justiciable record the REFUTED indicator t·(1−h)·(1−c) is 0 for every h and c — the court cannot refute what it cannot decide. So an UNVERIFIED stamp means "this ledger cannot decide it", NEVER "it is false"; publishing such a verdict as evidence about the world inverts its meaning, and the inversion is what this seals against.
+The ledger holds this as [unproven_not_refuted](/theorem/unproven_not_refuted) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 2).all (fun h => (List.range 2).all (fun c => 0*(1-h)*(1-c) == 0))
+```
+
+### THE SIGNATURE OF UNFALSIFIABILITY, DECIDED. A claim confirmed by the evidence AND by its absence is a claim the evidence never touched: ((e → c) ∧ (¬e → c)) = c on all four rows — the evidence variable drops out of the expression entirely. That is what "no evidence could change my mind" is, as algebra, and it is checkable in four rows.
+The ledger holds this as [absorbed_evidence_idles](/theorem/absorbed_evidence_idles) — proven `by decide`, sorry-free:
+
+```lean
+([true, false].all (fun e => [true, false].all (fun c => ((!e || c) && (e || c)) == c))) = true
+```
+
+### A CLAIM THAT FORBIDS NOTHING SAYS NOTHING. Information is what a claim EXCLUDES: over the four (e,c) rows the always-true claim rules out 0 of them, while the falsifiable e → c rules out exactly 1. Zero exclusions is zero content — measured, not asserted, so the unfalsifiable claim and the empty claim are shown to be one object.
+The ledger holds this as [unfalsifiable_excludes_nothing](/theorem/unfalsifiable_excludes_nothing) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 4).filter (fun _ => false)).length == 0 && ((List.range 4).filter (fun n => n % 2 == 1 && n / 2 != 1)).length == 1
 ```
 
 

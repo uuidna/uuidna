@@ -15,13 +15,13 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `0f8e1954` | zenodo.org | zenodo record 4963761: The Return From Shot Oblivion (Based on the Materials of Serhii Zhyhalko Trial) | UNVERIFIED | VERIFIED |
-| `de2058e7` | zenodo.org | zenodo record 7056927: Post-hoc subgroup analysis of infants with late cerebral ultrasound in SafeBoosC | UNVERIFIED | VERIFIED |
 | `252f1a96` | zenodo.org | zenodo record 7058392: Best-worst / Worst-best sensitivity analyses of explorative outcomes in SafeBoos | UNVERIFIED | VERIFIED |
 | `7ae471d1` | zenodo.org | zenodo record 7058338: Modification of the definition of bronchopulmonary dysplasia in SafeBoosC-III | UNVERIFIED | VERIFIED |
+| `de2058e7` | zenodo.org | zenodo record 7056927: Post-hoc subgroup analysis of infants with late cerebral ultrasound in SafeBoosC | UNVERIFIED | VERIFIED |
 | `0e3943f4` | zenodo.org | zenodo record 11106279: Trial | UNVERIFIED | VERIFIED |
-| `a947869c` | zenodo.org | zenodo record 7070288: SOP diagnosis and classification of brain injury in SafeBoosC-III | UNVERIFIED | VERIFIED |
-| `dadbe53f` | zenodo.org | zenodo record 7047593: Last central data monitoring report SafeBoosC-III | UNVERIFIED | VERIFIED |
-| `296ff2e2` | zenodo.org | zenodo record 7024707: Blinding procedure and assessment of severe brain injury in the SafeBoosC-III tr | UNVERIFIED | VERIFIED |
+| `8520371b` | zenodo.org | zenodo record 7058314: Central data monitoring plan SafeBoosC-III | UNVERIFIED | VERIFIED |
+| `b5c359b0` | zenodo.org | zenodo record 7058319: Local monitoring plan SafeBoosC-III | UNVERIFIED | VERIFIED |
+| `1408c38a` | zenodo.org | zenodo record 7041689: Marginal effect estimates SafeBoosC-III | UNVERIFIED | VERIFIED |
 | `0217768d` | crossref.org | DOI 10.1163/2210-7975_hrd-9827-2014008: Background paper: Pre-trial detention | UNVERIFIED | VERIFIED |
 | `86734224` | crossref.org | DOI 10.2139/ssrn.1532812: Trial Paper Submission 1 | UNVERIFIED | VERIFIED |
 | `2b80574c` | crossref.org | DOI 10.4135/9781529777338: The Methods: Clinical Trial Phases | UNVERIFIED | VERIFIED |
@@ -36,10 +36,10 @@ the hard gate of the corroboration law.
 | `21cd4132` | openalex.org | OpenAlex RoB 2: a revised tool for assessing risk of bias in randomised trials [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
 | `54faf3c0` | openalex.org | OpenAlex SPIRIT 2013 explanation and elaboration: guidance for protocols of cli [Health Systems, Economic Evalu] | UNVERIFIED | VERIFIED |
 | `14faa39d` | openalex.org | OpenAlex Adherence to a Smartphone Application for Weight Loss Compared to Webs [Mobile Health and mHealth Appl] | UNVERIFIED | VERIFIED |
+| `65c398bc` | openalex.org | OpenAlex Classification of subtype of acute ischemic stroke. Definitions for us [Acute Ischemic Stroke Manageme] | UNVERIFIED | VERIFIED |
 | `b69c28e4` | openalex.org | OpenAlex CONSORT 2010 Statement: updated guidelines for reporting parallel grou [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
-| `9b7e4186` | openalex.org | OpenAlex The World Health Organization quality of life assessment (WHOQOL): Pos [Health Systems, Economic Evalu] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `4021f923`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `71ed1f3c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

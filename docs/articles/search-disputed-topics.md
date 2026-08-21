@@ -16,9 +16,9 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `b8554a29` | zenodo.org | zenodo record 7465400: Improving the Reform of Ukraine's Court System Based on the European experience | UNVERIFIED | VERIFIED |
 | `6c9d02e9` | zenodo.org | zenodo record 4775009: РЕПУТАЦІЯ СУДДІВ ЯК ПЕРЕДУМОВА ФОРМУВАННЯ ПОВАГИ І ДОВІРИ ДО СУДУ В УКРАЇНІ | UNVERIFIED | VERIFIED |
-| `7fdf57e6` | zenodo.org | zenodo record 6963787: COMPULSORY ATTENDANCE AS A TYPE OF PROCEDURAL  COERCIVE MEASURE | UNVERIFIED | VERIFIED |
-| `58caf199` | zenodo.org | zenodo record 3229058: The Court of Justice Practice as a Source of the EU Law | UNVERIFIED | VERIFIED |
 | `3816ff03` | zenodo.org | zenodo record 15697143: A SURVEY OF BIG DATA ANALYTICS | UNVERIFIED | VERIFIED |
+| `58caf199` | zenodo.org | zenodo record 3229058: The Court of Justice Practice as a Source of the EU Law | UNVERIFIED | VERIFIED |
+| `7fdf57e6` | zenodo.org | zenodo record 6963787: COMPULSORY ATTENDANCE AS A TYPE OF PROCEDURAL  COERCIVE MEASURE | UNVERIFIED | VERIFIED |
 | `54faeb95` | zenodo.org | zenodo record 14277551: Public Debt and Economic Growth in Tanzania: An Empirical Investigation | UNVERIFIED | VERIFIED |
 | `ed4efc67` | zenodo.org | zenodo record 6573511: ПОРІВНЯЛЬНО-ПРАВОВА ХАРАКТЕРИСТИКА ПОРЯДКУ ВИКОНАННЯ РІШЕНЬ КОНСТИТУЦІЙНИХ СУДІВ | UNVERIFIED | VERIFIED |
 | `8f5af1e4` | zenodo.org | zenodo record 3607948: Updating the Content of the Category of "Public Administration": Notes for Scien | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `e7a7fc39` | openalex.org | OpenAlex Open Courts: How Cameras in Courts Help Keep the System Honest [Law in Society and Culture] | UNVERIFIED | VERIFIED |
 | `a057a8de` | openalex.org | OpenAlex Frontiers of illusion: science, technology, and the politics of progre [Space Science and Extraterrest] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `6139e2d8`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `9027eb71`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

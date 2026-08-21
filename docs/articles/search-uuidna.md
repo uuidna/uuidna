@@ -24,8 +24,8 @@ the hard gate of the corroboration law.
 | `67d4b5c8` | zenodo.org | zenodo record 2613471: Using Linux-based storage solutions for small and medium size business resources | UNVERIFIED | VERIFIED |
 | `d3de9def` | crossref.org | DOI 10.1103/physrevb.62.14547: String limit of vortex current algebra | UNVERIFIED | VERIFIED |
 | `7adef1a2` | crossref.org | DOI 10.1515/9783111625195-013: 13 Hydrodynamic model of electron vortex fluid in solids | UNVERIFIED | VERIFIED |
-| `ba3312b5` | crossref.org | DOI 10.1364/ol.26.001004: Soliton algebra by vortex-beam splitting | UNVERIFIED | VERIFIED |
 | `2ecbe0c3` | crossref.org | DOI 10.1007/s00006-013-0434-0: Vortex Detection in Vector Fields Using Geometric Algebra | UNVERIFIED | VERIFIED |
+| `ba3312b5` | crossref.org | DOI 10.1364/ol.26.001004: Soliton algebra by vortex-beam splitting | UNVERIFIED | VERIFIED |
 | `62af88e7` | crossref.org | DOI 10.1088/1751-8121/ac0986: On the algebra and groups of incompressible vortex dynamics | UNVERIFIED | VERIFIED |
 | `25f4cf14` | crossref.org | DOI 10.1201/b20911-8: - Interactions Vortex-Vortex, Vortex-Defect and Vortex-Spin | UNVERIFIED | VERIFIED |
 | `4a877056` | crossref.org | DOI 10.28989/vortex.v1i1:  | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `6dd0d709` | openalex.org | OpenAlex Soliton algebra by vortex-beam splitting [Advanced Fiber Laser Technolog] | UNVERIFIED | VERIFIED |
 | `bdd5adbb` | openalex.org | OpenAlex Contributions to Vortex Particle Methods for the Computation of Three- [Fluid Dynamics Simulations and] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `6575e106`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `56b160dd`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

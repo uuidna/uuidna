@@ -30,8 +30,16 @@ the hard gate of the corroboration law.
 | `6eb7e56a` | crossref.org | DOI 10.1017/cbo9780511569746.009: Commentary on stellations and compounds of the Platonic solids | UNVERIFIED | VERIFIED |
 | `2916b5ec` | crossref.org | DOI 10.1021/acs.nanolett.4c04923.s001: Depletion-Induced Tunable Assembly of Complementary Platonic Solids | UNVERIFIED | VERIFIED |
 | `61cc92d1` | crossref.org | DOI 10.1007/978-3-642-04833-3_33: The Platonic Solids | UNVERIFIED | VERIFIED |
+| `f346433b` | openalex.org | OpenAlex Tiling Space by Platonic Solids, I [Quasicrystal Structures and Pr] | UNVERIFIED | VERIFIED |
+| `2224eda3` | openalex.org | OpenAlex 3-manifolds from Platonic solids [Geometric and Algebraic Topolo] | UNVERIFIED | VERIFIED |
+| `759ee10a` | openalex.org | OpenAlex The Platonic solids and fundamental tests of quantum mechanics [Quantum Mechanics and Applicat] | UNVERIFIED | VERIFIED |
+| `c1a91809` | openalex.org | OpenAlex Geometrization of 3-dimensional orbifolds [Geometric and Algebraic Topolo] | UNVERIFIED | VERIFIED |
+| `d81a1b99` | openalex.org | OpenAlex Topological two-dimensional polymers [Topological Materials and Phen] | UNVERIFIED | VERIFIED |
+| `98e6c218` | openalex.org | OpenAlex Platonic solids generate their four-dimensional analogues [Quasicrystal Structures and Pr] | UNVERIFIED | VERIFIED |
+| `2783a0d0` | openalex.org | OpenAlex Platonic Scattering Cancellation for Bending Waves in a Thin Plate [Metamaterials and Metasurfaces] | UNVERIFIED | VERIFIED |
+| `8c93f8cf` | openalex.org | OpenAlex Ordered three-dimensional nanomaterials using DNA-prescribed and valen [Advanced biosensing and bioana] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `5a59e69a`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `1b0f3661`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

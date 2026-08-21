@@ -14,6 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `a8689838` | zenodo.org | zenodo record 7758114: Muongraphy sonification (IP2I) | UNVERIFIED | VERIFIED |
+| `b91da52f` | zenodo.org | zenodo record 16989116: Problems with String Theory in Quantum Gravity | UNVERIFIED | VERIFIED |
+| `b889b96c` | zenodo.org | zenodo record 20612784: THE ELECTRON RADIUS Point-Particle Infinities vs. Finite Topological Knots | UNVERIFIED | VERIFIED |
+| `4a117cf2` | zenodo.org | zenodo record 21072183: Plan for stakeholder engagement | UNVERIFIED | VERIFIED |
+| `57915b63` | zenodo.org | zenodo record 20598880: EXACT DERIVATION OF TOPOLOGICAL CASIMIR TENSION IN A DISCRETE HYDRODYNAMIC VACUU | UNVERIFIED | VERIFIED |
+| `503cce33` | zenodo.org | zenodo record 3784691: Micromechanical model of cross-over fiber bridging | UNVERIFIED | VERIFIED |
+| `b2e543f7` | zenodo.org | zenodo record 7794586: Reaching for the Infinities - A strategic plan for French Nuclear, Particle and  | UNVERIFIED | VERIFIED |
+| `732e839b` | zenodo.org | zenodo record 18235663: Extreme Blueshift as an Operational Projection - Information Saturation and Obse | UNVERIFIED | VERIFIED |
 | `ae2123fa` | crossref.org | DOI 10.5040/9781350115323.ch-s18: Infinities in the Finite, Infinities Beyond Any Finite. Proof of Scott’s Theorem | UNVERIFIED | VERIFIED |
 | `fb7eb5d1` | crossref.org | DOI 10.1103/physics.4.s176: Wrestling with Infinities | UNVERIFIED | VERIFIED |
 | `e896d28b` | crossref.org | DOI 10.1007/978-1-4471-0751-4_14: Infinitely Many Infinities | UNVERIFIED | VERIFIED |
@@ -22,8 +30,16 @@ the hard gate of the corroboration law.
 | `12f41cdd` | crossref.org | DOI 10.2139/ssrn.4197868: Mass Time, Mass System, Electrical Charge Time (Infinities in Physics) | UNVERIFIED | VERIFIED |
 | `04e3e41b` | crossref.org | DOI 10.1016/0550-3213(86)90046-5: Non-perturbative infinities | UNVERIFIED | VERIFIED |
 | `832221df` | crossref.org | DOI 10.2139/ssrn.3943889: ‘Fuzzy Time’, Not Probabilistic Time! (Infinities in Physics) | UNVERIFIED | VERIFIED |
+| `1f6bbe47` | openalex.org | OpenAlex Physics-informed machine learning [Model Reduction and Neural Net] | UNVERIFIED | VERIFIED |
+| `bfa096bd` | openalex.org | OpenAlex DOUBLE-TIME GREEN FUNCTIONS IN STATISTICAL PHYSICS [Theoretical and Computational ] | UNVERIFIED | VERIFIED |
+| `7a7fc291` | openalex.org | OpenAlex The physics and chemistry of the Schottky barrier height [Semiconductor materials and in] | UNVERIFIED | VERIFIED |
+| `d5849582` | openalex.org | OpenAlex Cosmology and fundamental physics with the Euclid satellite [Cosmology and Gravitation Theo] | UNVERIFIED | VERIFIED |
+| `250de96b` | openalex.org | OpenAlex Finite-Temperature Field Theory: Principles and Applications [High-Energy Particle Collision] | UNVERIFIED | VERIFIED |
+| `6a5091b9` | openalex.org | OpenAlex Physics of negative refractive index materials [Metamaterials and Metasurfaces] | UNVERIFIED | VERIFIED |
+| `767950ff` | openalex.org | OpenAlex FIRE-2 simulations: physics versus numerics in galaxy formation [Galaxies: Formation, Evolution] | UNVERIFIED | VERIFIED |
+| `c2de8429` | openalex.org | OpenAlex Conformal collider physics: energy and charge correlations [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 
-**8 findings · 8 usable search-trial combinations · receipt `a5f7dc2d`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `3cab0396`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

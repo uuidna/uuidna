@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The lay of the land
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The lay of the land* — the wing sealed in [lean/Topography.lean](/lean/Topography.lean) with **13 theorems**. Each
+asked in parallel about *The lay of the land* — the wing sealed in [lean/Topography.lean](/lean/Topography.lean) with **18 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -15,8 +15,8 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `1d64b2b3` | zenodo.org | zenodo record 16285606: The commercial exploitation of the freshwater pearl mussel, Margaritifera margar | UNVERIFIED | VERIFIED |
-| `4fb148c5` | zenodo.org | zenodo record 1326385: The 4th Newsletter of the Patient Empowerment through Predictive Personalised De | UNVERIFIED | VERIFIED |
 | `640437e3` | zenodo.org | zenodo record 16970139: Erratum to: MOrphOlOgical and mOlecular evidence OF the Occurrence OF Artibeus a | UNVERIFIED | VERIFIED |
+| `4fb148c5` | zenodo.org | zenodo record 1326385: The 4th Newsletter of the Patient Empowerment through Predictive Personalised De | UNVERIFIED | VERIFIED |
 | `0db76dba` | zenodo.org | zenodo record 16643208: The corrosion of shells in cabinets | UNVERIFIED | VERIFIED |
 | `c7505772` | zenodo.org | zenodo record 16254409: Snail Shells under Starling Roosts | UNVERIFIED | VERIFIED |
 | `70093711` | zenodo.org | zenodo record 3250964: SURAT KETERANGAN TANAH: ANTARA REALITAS DAN PENGAKUAN | UNVERIFIED | VERIFIED |
@@ -28,8 +28,8 @@ the hard gate of the corroboration law.
 | `556f5000` | crossref.org | DOI 10.1163/2210-7975_hrd-0153-0079: lay-of-the-land-improving-land-governance-to-stop-land-grabs | UNVERIFIED | VERIFIED |
 | `6872addd` | crossref.org | DOI 10.3726/978-3-653-04598-7/14: 2 Pragmatics: The lay of the land | UNVERIFIED | VERIFIED |
 | `52cc5690` | crossref.org | DOI 10.1163/ej.9789004201545.i-224.7: Lay Of The Land | UNVERIFIED | VERIFIED |
-| `4c792e96` | crossref.org | DOI 10.14321/j.ctv310vq63.23: The Lay of the Land | UNVERIFIED | VERIFIED |
 | `12ef3663` | crossref.org | DOI 10.1093/oso/9780190863289.003.0013: The Lay of the Land | UNVERIFIED | VERIFIED |
+| `4c792e96` | crossref.org | DOI 10.14321/j.ctv310vq63.23: The Lay of the Land | UNVERIFIED | VERIFIED |
 | `79860eab` | openalex.org | OpenAlex An overview of clinical research: the lay of the land [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
 | `eb13c72e` | openalex.org | OpenAlex The Lay of the Land: Metaphor as Experience and History in American Li [Themes in Literature Analysis] | UNVERIFIED | VERIFIED |
 | `f4ce1fa4` | openalex.org | OpenAlex The Lay of the Land: Metaphor as Experience and History in American Li [Themes in Literature Analysis] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `c9551e5d` | openalex.org | OpenAlex Researching Identity in Mathematics Education: The Lay of the Land [Mathematics Education and Teac] | UNVERIFIED | VERIFIED |
 | `0059876d` | openalex.org | OpenAlex Imperial Leather: Race, Gender and Sexuality in the Colonial Contest [African history and culture st] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `e57f4339`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `427ab419`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -56,6 +56,11 @@ The sealed backing this trial held the findings beside:
 - [gunters_chain_measures](/theorem/gunters_chain_measures) — `(80 * 66 = 5280) ∧ (22 * 220 = 4840)`
 - [vertical_exaggeration](/theorem/vertical_exaggeration) — `500 / 100 = 5`
 - [naismith_rule_estimate](/theorem/naismith_rule_estimate) — `(15 / 5) * 60 + (1200 / 600) * 60 = 300`
+- [wgs84_polar_shorter](/theorem/wgs84_polar_shorter) — `6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385`
+- [oblate_not_prolate](/theorem/oblate_not_prolate) — `6378137 > 6356752`
+- [eratosthenes_fiftieth_circle](/theorem/eratosthenes_fiftieth_circle) — `3600 = 50 * 72`
+- [horizon_distance_finite](/theorem/horizon_distance_finite) — `5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049`
+- [bulge_exceeds_relief](/theorem/bulge_exceeds_relief) — `8849 + 10935 = 19784 ∧ 21385 > 19784`
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not

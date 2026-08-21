@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The sequence & reflection group
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The sequence & reflection group* — the wing sealed in [lean/Sequence.lean](/lean/Sequence.lean) with **27 theorems**. Each
+asked in parallel about *The sequence & reflection group* — the wing sealed in [lean/Sequence.lean](/lean/Sequence.lean) with **28 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -16,12 +16,12 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `ca79942b` | zenodo.org | zenodo record 5675094: e-IRG Statement on the Draft Council Conclusions on the Pact for Research and In | UNVERIFIED | VERIFIED |
 | `d0cf79ed` | zenodo.org | zenodo record 3608075: National Nodes - Getting organised; how far are we? | UNVERIFIED | VERIFIED |
-| `2782ce48` | zenodo.org | zenodo record 19410216: coin-or/GrUMPy: v0.95.3 | UNVERIFIED | VERIFIED |
 | `0032f440` | zenodo.org | zenodo record 14647114: Fostering Quality of Reflection in First-year Honours Students in a Bachelor eng | UNVERIFIED | VERIFIED |
-| `65a48bcd` | zenodo.org | zenodo record 7498555: Demo1 for DOI | UNVERIFIED | VERIFIED |
-| `64c2b3f9` | zenodo.org | zenodo record 6987157: Classical and C-motivic Adams charts | UNVERIFIED | VERIFIED |
+| `2782ce48` | zenodo.org | zenodo record 19410216: coin-or/GrUMPy: v0.95.3 | UNVERIFIED | VERIFIED |
 | `d0218783` | zenodo.org | zenodo record 14603308: Psychological and  Pedagogical Conditions  and Means of  Development of  Profess | UNVERIFIED | VERIFIED |
+| `65a48bcd` | zenodo.org | zenodo record 7498555: Demo1 for DOI | UNVERIFIED | VERIFIED |
 | `3c575bdd` | zenodo.org | zenodo record 3722559: Helping Preservice Teachers to Reflect | UNVERIFIED | VERIFIED |
+| `64c2b3f9` | zenodo.org | zenodo record 6987157: Classical and C-motivic Adams charts | UNVERIFIED | VERIFIED |
 | `c6a43f58` | crossref.org | DOI 10.31274/etd-180810-5141: Reflection group diagrams for a sequence of Gaussian Lorentzian lattices | UNVERIFIED | VERIFIED |
 | `4f827aa3` | crossref.org | DOI 10.37473/dac/10.31223/x5h05z: Subsurface temperature from seismic reflection data: application to the post bre | UNVERIFIED | VERIFIED |
 | `e1f9fe4e` | crossref.org | DOI 10.37473/fic/10.31223/x5h05z: Subsurface temperature from seismic reflection data: application to the post bre | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `590b6545` | openalex.org | OpenAlex Dynamical systems with elastic reflections [Mathematical Dynamics and Frac] | UNVERIFIED | VERIFIED |
 | `2c8fe615` | openalex.org | OpenAlex Seismic Stratigraphy — Applications to Hydrocarbon Exploration [Reservoir Engineering and Simu] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `be998ab2`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `af217a1e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -65,6 +65,7 @@ The sealed backing this trial held the findings beside:
 - [salt_seq_fibre_singleton](/theorem/salt_seq_fibre_singleton) — `(List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0`
 - [five_is_the_halving](/theorem/five_is_the_halving) — `(List.range 9).all (fun x => ((2 * x % 9) * 5) % 9 == x)`
 - [five_orbit_reverses_doubling](/theorem/five_orbit_reverses_doubling) — `([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].`
+- [reverse_walks_inverse](/theorem/reverse_walks_inverse) — `([(1,1),(2,5),(4,7),(5,2),(7,4),(8,8)].all (fun p => (((List.range 6).map (fun k => p.1 ^ `
 - [only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities) — `((List.range' 1 9).filter (fun d => (10 - d == d) && (dz d == d) && ([1,2,4,8,7,5].getLast`
 - [tour_contra_reflects_each_digit](/theorem/tour_contra_reflects_each_digit) — `(([0,1,2,4,8,7,5,3,6,9,0,1].map dz) = [0,9,8,6,2,3,5,7,4,1,0,9]) ∧ (dz 1 = 9)`
 - [tour_contra_involutes](/theorem/tour_contra_involutes) — `(([0,1,2,4,8,7,5,3,6,9,0,1].map dz).map dz) = [0,1,2,4,8,7,5,3,6,9,0,1]`
