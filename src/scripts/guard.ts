@@ -240,18 +240,29 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'skills', run: () => skillsGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
+// the meter's floor is tunable so a profiling pass can see every finder, not only the slow ones: UUIDNA_METER=1
+const METER = Number(process.env.UUIDNA_METER ?? 200)
+const GATE_T0 = process.hrtime.bigint()
 for (const f of FINDERS) {
   if (f.needsBuiltSite && !existsSync(join(HERE, '../../docs/.vitepress/dist'))) {
     console.log(`· guard — ${f.name} skipped: no built site to audit (run npm run docs:build to include it)`)
     continue
   }
+  // THE ONE-SECOND LAW NEEDS A METER on the gate that runs before every reconcile, so the meter ships: a finder
+  // over 200ms names itself and its cost, and a slow gate can never again hide inside one total.
+  const t0 = process.hrtime.bigint()
   const gaps = await f.run()
+  const ms = Number(process.hrtime.bigint() - t0) / 1e6
+  if (ms > METER) console.log(`    · ${f.name} took ${ms.toFixed(0)} ms`)
   if (gaps.length) {
     failed = true
     console.error(`✗ guard — ${f.name}: ${gaps.length} gap(s), each with its exact fix:`)
     for (const g of gaps) { console.error(`    GAP ${g.what}`); console.error(`    FIX ${g.fix}`) }
   } else console.log(`✓ guard — ${f.name} clean`)
 }
+
+if (process.env.UUIDNA_METER) console.log(`    · blocking finders total ${(Number(process.hrtime.bigint() - GATE_T0) / 1e6).toFixed(0)} ms`)
+const TAIL_T0 = process.hrtime.bigint()
 
 // ADVISORY FINDERS — they RUN every pass and print every finding, but do not fail the gate, and each states WHY in one
 // line. This tier exists so that "not blocking" is a declared decision instead of the accident it was: `seo` and
@@ -299,4 +310,5 @@ try {
 }
 
 if (failed) { console.error('\n✗ guard — traitors caught; fix before reconcile.'); process.exit(1) }
+if (process.env.UUIDNA_METER) console.log(`    · advisory + fold total ${(Number(process.hrtime.bigint() - TAIL_T0) / 1e6).toFixed(0)} ms`)
 console.log('✓ guard — no traitors: the ledger is unforged and the source is harmonic. Quantum fold sealed. Safe to reconcile.')

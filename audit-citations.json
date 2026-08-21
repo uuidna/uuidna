@@ -1,17 +1,17 @@
 {
-  "key": "fde07ac2-1246-8d16-8764-04e30f38db87",
+  "key": "15b78121-fcff-8535-a099-d6ed8183bebf",
   "publications": 70,
-  "sealedTheorems": 1436,
+  "sealedTheorems": 1437,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1285,
-    "theorems": 1436,
+    "claims": 1286,
+    "theorems": 1437,
     "bijection": false,
     "digitalRoots": {
-      "claims": 7,
-      "theorems": 5,
+      "claims": 8,
+      "theorems": 6,
       "publications": 7
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -68,8 +68,8 @@
     },
     {
       "slug": "bio-physics",
-      "claims": 16,
-      "cited": 16,
+      "claims": 17,
+      "cited": 17,
       "uncited": [],
       "fabricated": []
     },

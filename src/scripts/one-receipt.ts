@@ -28,6 +28,18 @@ import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
 import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
 
+// THE TRACKED-FILE LIST IS AN IMMUTABLE READ within one pass, and it was being re-spawned per finder — three `git
+// ls-files` processes for one answer. Cached once (the cache-immutable-reads law): the finders that walk the tracked
+// tree now share a single spawn. An empty result on failure is preserved so an offline or non-git checkout still seals.
+let _tracked: string[] | null = null
+const trackedFiles = (): string[] => {
+  if (_tracked === null) {
+    try { _tracked = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n') } catch { _tracked = [] }
+  }
+  return _tracked
+}
+
+
 // ── record: the three audits (each learned from a REAL manually-found gap, folded so it can never recur unwatched) ──
 
 export function legalGaps(): { gaps: Gap[]; facts: string } {
@@ -378,7 +390,7 @@ export function countsGaps(): Gap[] {
   const stated = (text: string, rx: RegExp[]): string[] =>
     [...new Set(rx.flatMap((r) => [...text.matchAll(r)].map((m) => m[1])))]
   let files: string[] = []
-  try { files = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n') } catch { return gaps }
+  files = trackedFiles(); if (files.length === 0) return gaps
   for (const f of files) {
     if (!/\.(md|json|txt|ya?ml)$/.test(f) || f.includes('package-lock') || isDerived(f)) continue
     let text = ''
@@ -1148,7 +1160,7 @@ export function commentsGaps(): Gap[] {
   const HISTORY = /\b(sat|was|were|had|held|published|predate|grew|collapsed?|read|stale|record \d+|carries|stated|froze|frozen|for three days|once|previously|until|then|earlier|holding)\b/i
   // a bound the code enforces on the line beside it — a target
   const THRESHOLD = /\b(at least|minimum|milestone|target|aims? at|goal)\b/i
-  const files = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n').filter((f) => /\.(ts|js)$/.test(f))
+  const files = trackedFiles().filter((f) => /\.(ts|js)$/.test(f))
   for (const f of files) {
     let src = ''
     try { src = readFileSync(join(ROOT, f), 'utf8') } catch { continue }
@@ -1688,11 +1700,15 @@ export function literalGaps(): Gap[] {
 export function binaryGaps(): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = execSync("git ls-files 'src/'", { encoding: 'utf8' }).trim().split('\n').filter((f) => /\.(ts|json|md)$/.test(f)) } catch { return gaps }
+  try { files = trackedFiles().filter((f) => f.startsWith('src/') && /\.(ts|json|md)$/.test(f)) } catch { return gaps }
   for (const f of files) {
     let buf: Buffer
     try { buf = readFileSync(join(ROOT, f)) } catch { continue }
-    const bad = [...buf].findIndex((c) => c < 9 || (c > 13 && c < 32) || c === 127)
+    // scan the bytes in place: [...buf] allocated a JS number array per file, which cost more than the whole rest of
+    // the gate — an index walk reads the same bytes and allocates nothing (the cache-immutable-reads law, applied to
+    // the read itself rather than its result).
+    let bad = -1
+    for (let i = 0; i < buf.length; i++) { const c = buf[i]!; if (c < 9 || (c > 13 && c < 32) || c === 127) { bad = i; break } }
     if (bad < 0) continue
     const line = buf.subarray(0, bad).toString('utf8').split('\n').length
     gaps.push({

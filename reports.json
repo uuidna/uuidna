@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "8e9195f4-8090-858b-ae33-9e40a09cfcde"
+        "ledgerReceipt": "9349762e-3286-882d-b6ce-c6b76c858868"
       },
-      "address": "a5c605cb-8832-8511-af53-4659201052d8"
+      "address": "3b784130-39ec-8f04-afe9-5fb5d38d4703"
     },
     {
       "title": "Heartbeat coverage",
@@ -36,10 +36,10 @@
       "present": true,
       "facts": {
         "publications": 70,
-        "sealedTheorems": 1436,
+        "sealedTheorems": 1437,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "ecaf1d02-7a52-88eb-8ceb-89594ad0a6c1"
+      "address": "7d26a3f6-0fe7-8707-bc25-a938ed2a159a"
     },
     {
       "title": "Support audit",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "b59e73aa7fce32f1",
-        "unifiedFold": "019d9473d3fc1e3f"
+        "foldReceipt": "bb4cca996f0e7113",
+        "unifiedFold": "b35f39e2d36a7de6"
       },
-      "address": "f9449213-3533-8cd8-8008-29914fc4e78c"
+      "address": "bf9b55a0-a520-8f5a-88cf-e94a2310637b"
     }
   ],
-  "receipt": "3c4c5d20-3645-8d7b-ba9d-87bf41fe447a",
+  "receipt": "53918fe1-2d3f-827f-bd6b-e585c795fb51",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

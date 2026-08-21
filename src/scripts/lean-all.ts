@@ -32,41 +32,17 @@ const LEAN = join(ROOT, 'lean')
 const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js', 'lean-one.js']) // heartbeats is an on-demand cost probe; lean-one is the single-domain dispatcher
 const generators = readdirSync(SCRIPTS).filter((f) => /^lean-.*\.js$/.test(f) && !SKIP.has(f)).sort()
 
-// THE GATE, ONE LEVEL UP — SKIP THE RUN, NOT JUST THE SPAWN.
+// NO SECOND GATE. A run-cache sat here: it hashed each generator's source with the ledger and skipped the run
+// when neither had moved, worth about seven seconds. It also wrote lean/generator-cache.json, and it changed
+// WHICH generators fired on a given pass — so proof-cache and the wing manifests moved differently run to run,
+// and spin refused a seal the same gate had invalidated. Ten pushes died on that.
 //
-// emit() already compares an 8-hexbit handle to decide whether the kernel must re-prove a wing, and an unchanged
-// wing costs neither the Lean spawn nor the writes. But the handle only exists AFTER the generator has computed
-// its facts and rendered its text, so a full pass still paid ~22s to recompute what it was about to discard. A
-// deterministic generator on unchanged inputs cannot produce a changed output, so the run itself is skippable.
-//
-// THE KEY IS TWO-PART, and the second part is why this is safe. Some generators read the LEDGER rather than only
-// their own constants — lean-prose counts wings and articles — so their output moves when the ledger moves even
-// though their source did not. A source-only gate would silently freeze those wings at a stale text and report
-// them green. So the key folds the generator's source address WITH the ledger's, and any movement in either
-// re-runs everything. `cases` are recorded during the run, so a skipped generator must also leave its manifest
-// standing; both artifacts are checked before the skip is taken, exactly as emit() checks its own.
-const LEDGER = join(ROOT, 'src', 'theorems', 'generated.ts')
-const ledgerAddress = existsSync(LEDGER) ? toUuid(readFileSync(LEDGER, 'utf8')) : 'no-ledger'
-// A SEPARATE CACHE, BECAUSE IT IS A SEPARATE CLAIM. proof-cache.json says "the kernel signed this exact text";
-// this says "the generator's inputs did not move, so re-running it cannot change the text". Both are receipts,
-// but only one is the kernel's, and a reader who cannot tell them apart cannot audit either. Keeping them in one
-// file broke the proof cache's own stated invariant — every key is a .lean file — and a test caught it.
-const RUN_CACHE = join(ROOT, 'lean', 'generator-cache.json')
-const readRunCache = (): Record<string, string> => {
-  try { return JSON.parse(readFileSync(RUN_CACHE, 'utf8')) as Record<string, string> } catch { return {} }
-}
-const runCache = readRunCache()
-const wingOf = (g: string): string => g.replace(/^lean-/, '').replace(/\.js$/, '')
-const skipKey = (g: string): string => 'run:' + g
-let skipped = 0
+// emit() already holds the delta: it content-addresses the generated text and the kernel's prior signature
+// stands when the bytes are identical. That is one mechanism, and it was enough. A second gate over the first
+// bought seconds and cost the fixed point — harmony did not need the intervention.
 for (const g of generators) {
-  const source = join(ROOT, 'src', 'scripts', g.replace(/\.js$/, '.ts'))
-  const key = existsSync(source) ? handleOf(toUuid(readFileSync(source, 'utf8') + ledgerAddress)) : ''
-  const artifacts = readdirSync(LEAN).some((f) => f.toLowerCase() === wingOf(g) + '-manifest.json')
-  if (key && artifacts && runCache[skipKey(g)] === key && !process.env.UUIDNA_PROVE_ALL) { skipped++; continue }
   try {
     await import(pathToFileURL(join(SCRIPTS, g)).href)
-    if (key) { runCache[skipKey(g)] = key; writeFileSync(RUN_CACHE, JSON.stringify(runCache, null, 0) + '\n') }
   } catch (e) {
     console.error('\n✗ lean-all — generator FAILED: ' + g + '\n  ' + String(e).slice(0, 300))
     process.exit(1)

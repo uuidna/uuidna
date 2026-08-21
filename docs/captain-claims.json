@@ -3739,8 +3739,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "9d3b6904-35d2-8141-920f-35b52c0efc7f",
-      "address": "e4d01bac-4712-8f2c-b65d-f14d53d4f58e",
+      "lineAddress": "659d7d71-eba0-8535-8515-9ad279b82ec1",
+      "address": "bde10835-55f4-8985-8551-fe56c749e767",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3751,8 +3751,8 @@
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "42bfa89e-742e-8bec-b9c0-c6e3431185b7",
-      "address": "4a44a90c-0400-8c99-b69e-d0097b85055d",
+      "lineAddress": "74fbb46d-c88d-8e60-9473-873d6851c1bf",
+      "address": "d0cdf4a4-3706-8795-adab-0450a2936ad2",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3991,38 +3991,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "4f3b1fba-166b-8f99-8172-7960c7ddfaf4",
-      "address": "efc6d153-9740-866d-af95-dedf73c0a0bd",
+      "lineAddress": "90875e39-e442-8693-9530-68b356d01c8f",
+      "address": "3383b843-d947-8234-8953-8a91a5d4e4c3",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "0a9d8953-6a95-8410-a544-8fbb3da53c08",
-      "address": "485a807b-437a-80b9-affd-049c4dda9e01",
+      "lineAddress": "97a53d04-ddab-8601-a00e-6d4660fd2aad",
+      "address": "8e6de72f-a054-86b5-b6ed-b6bb82f6618d",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "9494d165-9fef-8dfb-baa1-84c16af5eb56",
-      "address": "92e0f16e-a1a0-8313-b663-deda8671c0f4",
+      "lineAddress": "b68a6435-a20d-8c84-a482-2bdf68013a5f",
+      "address": "ea9e9ff3-9895-88f6-88d6-4bc7a1610350",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "f3e5f1e5-15e3-8714-99b1-ef9e12485a38",
-      "address": "732b7857-ff0f-8239-94eb-f347e87e79e7",
+      "lineAddress": "29cdae1a-c9cb-8923-b1ee-f9e3805385f7",
+      "address": "baa4972a-7e00-8c59-90da-1fec11e2a654",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "4c0f9dce-78a0-8a04-9d41-c3c2a797d0f1",
-      "address": "4b102abc-f50e-8157-ab5e-2ec38f7cc85b",
+      "lineAddress": "e7e543df-64b7-817e-a187-20a29f29af08",
+      "address": "ddb597ac-1464-8a27-9505-37429acc8ec6",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "a496b346-e663-87a7-bb8a-0e6a3080e06b",
-      "address": "599a6493-ecaf-847a-ac26-2c48dc4bc318",
+      "lineAddress": "392c8365-090c-8609-8822-4f822a72904c",
+      "address": "caec7e6e-d188-859f-93bc-c235cbe8df2c",
       "principle": "The detectors, proven"
     },
     {
@@ -4357,14 +4357,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "081a434b-6973-8082-be1c-d08aed4d2be0",
-      "address": "eeb7378c-7de8-8103-9ad7-2761983a6c22",
+      "lineAddress": "bf27120d-a631-8591-b8b9-e61c19d2a2fc",
+      "address": "460da70c-de4f-8dde-af2e-b4af20879c6b",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "c1af81c5-f8c3-807e-990f-7eaa730b2258",
-      "address": "72712c65-ba14-8edc-835c-8edb1c0f8ad1",
+      "lineAddress": "a45c973f-08dd-84f2-9c80-a415c37f4019",
+      "address": "90c8c1f8-1f02-8acf-ba8c-e74a92d00b45",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -8628,7 +8628,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "61d08a7d-051e-848c-86e2-2d24bc406bd1",
+  "claim_receipt": "74f1fa4c-fb5e-8851-ac84-be20b49843f2",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

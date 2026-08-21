@@ -16,9 +16,9 @@
 //
 // HONEST SCOPE: this is ORCHESTRATION and a RECEIPT over the run. Verification of what a generator emitted belongs
 // to its own authority — guard, provenance and audit-lean-form are the judges. Integrity.
-import { spawnSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { toUuid, merkleGravity } from '../index.js'
 import { coins } from '../index.js'
 import { ROOT } from './api.js'
@@ -48,14 +48,21 @@ const GENERATORS: Gen[] = [
 
 const results: Array<{ file: string; ok: boolean; leaf: string }> = []
 console.log('  THE ONE GENERATOR — every emitter, one manifest, one fused receipt.')
+// ONE PROCESS, not one per generator. Each emitter was a spawned node — sixteen interpreter boots at ~130ms apiece,
+// so the boots cost an order of magnitude more than the work (5.3s of which 0.2s was generating). Dynamic import runs
+// every one inside this process and preserves the manifest order exactly, which is what determinism needs.
 for (const g of GENERATORS) {
   const path = join(ROOT, 'dist', 'scripts', g.file)
-  if (!existsSync(path)) { console.log(`    ✗ ${g.file} — not built (run npm run build)`); process.exit(1) }
-  const r = spawnSync(process.execPath, [path, ...g.args], { cwd: ROOT, encoding: 'utf8' })
-  const ok = r.status === 0
+  if (!existsSync(path)) { console.log(`    ✗ ${g.file} — build first (npm run build)`); process.exit(1) }
+  const t0 = process.hrtime.bigint()
+  let ok = true
+  try { await import(pathToFileURL(path).href) } catch (e) { ok = false; console.log(`    ✗ ${g.file} — ${(e as Error).message}`) }
+  // THE ONE-SECOND LAW NEEDS A METER, so the meter ships: any generator over 250ms names itself and its cost.
+  const ms = Number(process.hrtime.bigint() - t0) / 1e6
+  if (ms > 250) console.log(`    · ${g.file} took ${ms.toFixed(0)} ms`)
   results.push({ file: g.file, ok, leaf: toUuid(`generator|${g.file}|${g.args.join(' ')}|${ok ? 'ok' : 'fail'}`) })
   console.log(`    ${ok ? '✓' : '✗'} ${g.file.padEnd(24)} ${g.note}`)
-  if (!ok) { console.log((r.stderr || r.stdout || '').trim().split('\n').slice(-6).map((l) => '        ' + l).join('\n')); process.exit(1) }
+  if (!ok) process.exit(1)
 }
 
 // ── THE DIMENSIONAL FUSION ────────────────────────────────────────────────────────────────────────────────────────
