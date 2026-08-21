@@ -1,0 +1,12 @@
+{
+  "handle": "da740a22",
+  "address": "da740a22-756e-842a-ba0d-4597cae557fa",
+  "statement": "(0 < 1390) ∧ (0 + 1390 = 1390)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

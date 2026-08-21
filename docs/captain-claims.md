@@ -3,8 +3,8 @@
 **Generated:** 2026-08-21
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1437/1437 theorems — every one, by construction
-**Claim receipt:** `74f1fa4c-fb5e-8851-ac84-be20b49843f2`
+**Total claimed:** 1439/1439 theorems — every one, by construction
+**Claim receipt:** `2e8a2e3a-bb45-8b94-ac7e-42ecec32afc6`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -745,12 +745,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### lean/Hexbit.lean
 
-- **Theorems:** 6
+- **Theorems:** 8
 - **Sample lineAddress:** `ae761a00-25c1-85b7-b982-8940da1ef284`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) · [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) · [characters_span_the_address](/theorem/characters_span_the_address) · [handle_is_the_first_group](/theorem/handle_is_the_first_group) · [groups_are_four_apart](/theorem/groups_are_four_apart) · [build_counts_in_hexbits](/theorem/build_counts_in_hexbits)
+[alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) · [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) · [characters_span_the_address](/theorem/characters_span_the_address) · [handle_is_the_first_group](/theorem/handle_is_the_first_group) · [groups_are_four_apart](/theorem/groups_are_four_apart) · [build_counts_in_hexbits](/theorem/build_counts_in_hexbits) · [payload_carries_the_strand](/theorem/payload_carries_the_strand) · [payload_aligns_where_the_name_does_not](/theorem/payload_aligns_where_the_name_does_not)
 
 ### lean/Isometry.lean
 
@@ -870,7 +870,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1356 (1437 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1358 (1439 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4475 — 2131 usable, 2344 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -888,7 +888,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1437 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1439 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

@@ -1,0 +1,12 @@
+{
+  "handle": "c9456a5b",
+  "address": "c9456a5b-b4d7-89d4-8f5f-3dfb86474898",
+  "statement": "(0 + 1390 = 1390) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_terminator_escaped"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "80e63926",
+  "address": "80e63926-2f9b-88d0-9e86-2486ea535a31",
+  "statement": "(96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (96 % 3 = 0) ∧ (96 / 3 = 32) ∧ (32 % 6 = 2) ∧ (32 % 3 = 2) ∧ (128 % 6 = 2) ∧ (128 % 3 = 2) ∧ (4 ^ 3 = 2 ^ 6)",
+  "tactic": "decide",
+  "keys": [
+    "payload_aligns_where_the_name_does_not"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bf184ddf",
+  "address": "bf184ddf-cde6-8974-9df1-f7db79c04d9c",
+  "statement": "(8 + 24 = 32) ∧ (24 * 4 = 96) ∧ (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (32 % 6 = 2) ∧ (128 % 6 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "payload_carries_the_strand"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

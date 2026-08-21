@@ -1,0 +1,12 @@
+{
+  "handle": "ab1e1a8d",
+  "address": "ab1e1a8d-ade0-8f07-9f57-344e07b263a9",
+  "statement": "(1390 + 0 = 1390) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_round_trips"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}
