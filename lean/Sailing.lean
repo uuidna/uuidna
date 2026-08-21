@@ -13,15 +13,6 @@ theorem points_of_sail : (([45,90,135,180] : List Nat).all (fun a => a % 45 == 0
     triangle. -/
 theorem beating_sailing_triangle : 3^2 + 4^2 = 5^2 := by decide
 
-/-- Sailing upwind costs distance: to make good 3 units toward the wind you sail 5 through the water (the 3-4-5
-    close-hauled leg), and 5 > 3. Beating is always longer than the straight line you cannot take. -/
-theorem beating_distance_penalty : 5 > 3 := by decide
-
-/-- Apparent wind is the vector sum of the true wind and the boat’s own motion, so close-hauled it exceeds the
-    true wind: a true wind of 4 with the boat making 3 across gives an apparent 5 — 5 > 4. The faster you sail
-    upwind, the more wind you feel. -/
-theorem apparent_wind_exceeds_true : 5 > 4 := by decide
-
 /-- When conditions are perfect the boat sails itself: a balanced helm is a moment equilibrium — the sail’s
     turning moment equals the keel’s (8·3 = 6·4 = 24) — so she holds her course with the tiller free. The
     captain rests; the balance steers. -/

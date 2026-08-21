@@ -1,13 +1,13 @@
 ---
 title: "The energy domain"
-description: "Computed from lean/Thermodynamics.lean — 12 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Thermodynamics.lean — 11 sealed theorems, every claim citing its proof."
 ---
 
 # The energy domain
 
-> THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. — held by [first_law_conservation](/theorem/first_law_conservation) and its 11 siblings below.
+> THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. — held by [first_law_conservation](/theorem/first_law_conservation) and its 10 siblings below.
 
-**12 theorems**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in [lean/Thermodynamics.lean](/lean/Thermodynamics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 12 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided, not merely denied.
+**11 theorems**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in [lean/Thermodynamics.lean](/lean/Thermodynamics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided, not merely denied.
 
 ### The first law conserves energy: ΔU = Q − W, so the heat added equals the internal-energy change plus the work done — 100 = 60 + 40. Energy is neither created nor destroyed, only moved.
 The ledger holds this as [first_law_conservation](/theorem/first_law_conservation) — proven `by decide`, sorry-free:
@@ -21,13 +21,6 @@ The ledger holds this as [entropy_never_decreases](/theorem/entropy_never_decrea
 
 ```lean
 (List.range 9).all (fun t => t <= t + 1)
-```
-
-### The second law's direction: heat flows spontaneously from the hotter body to the colder — with Th = 400 K and Tc = 300 K, 400 > 300, so energy moves hot → cold, never the reverse without work.
-The ledger holds this as [heat_flows_hot_to_cold](/theorem/heat_flows_hot_to_cold) — proven `by decide`, sorry-free:
-
-```lean
-400 > 300
 ```
 
 ### The Carnot efficiency η = 1 − Tc/Th is strictly below 1: with Th = 400 and Tc = 300, the extractable work fraction (Th − Tc) = 100 is less than the heat in 400, and Tc = 300 > 0 — no engine is perfect and none reaches absolute zero.

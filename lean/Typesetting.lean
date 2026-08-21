@@ -36,11 +36,6 @@ theorem cassini_golden_page : 5 * 5 - 3 * 8 = 1 := by decide
     construction recovers it: the text block sits high and toward the spine, a shape Gutenberg already obeyed. -/
 theorem van_de_graaf_margins : (4 = 2 * 2) ∧ (6 = 2 * 3) := by decide
 
-/-- The readable measure — characters per line, counting spaces — sits near 66, inside the 45–75 a typographer
-    keeps: 45 ≤ 66 ∧ 66 ≤ 75. Too short and the eye jerks back too often; too long and it loses the return sweep
-    to the next line. Bringhurst's rule, stated as an interval. -/
-theorem readable_measure_range : 45 ≤ 66 ∧ 66 ≤ 75 := by decide
-
 /-- Leading exceeds the type it carries: 12-point type is set on 14-point leading — 14 > 12 ∧ 14 = 12 + 2 — the
     two extra points (the strip of lead the compositor once slid between lines, which named the practice) that
     keep ascenders and descenders from touching. Set solid (12 on 12) the lines crowd; the gap is what makes a

@@ -12,10 +12,6 @@ theorem twelfths_symmetric : [1,2,3,3,2,1].reverse = [1,2,3,3,2,1] := by decide
     mid-flood, not the halfway time by accident but by the twelfths. -/
 theorem half_tide_at_hour_three : 1 + 2 + 3 = 6 ∧ 2 * 6 = 12 := by decide
 
-/-- The middle hours run fastest: 3 twelfths an hour at mid-tide versus 1 at the turns — 3 > 1, so the water
-    moves most where a grounded keel most needs the depth to change. -/
-theorem mid_tide_fastest : 3 > 1 := by decide
-
 /-- Two high tides fall a lunar day apart: 12h25m = 745 minutes each, and 745·2 = 1490 = 24h50m — the
     semidiurnal rhythm, set by the Moon, not the Sun (which would give 24h). -/
 theorem semidiurnal_period : 745 * 2 = 1490 := by decide

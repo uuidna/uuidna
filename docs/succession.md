@@ -25,7 +25,7 @@ the current terms stop. It is not a will, not an assignment, and not legal advic
   distinct propositions, **zero borrowed axioms**. Anyone with the archive and a Lean toolchain re-verifies the entire
   ledger offline, with no server, no key and no permission. That is the whole point of sealing them this way.
 - **The addresses.** A content-address recomputes from its input by pure arithmetic
-  ([`theorem_dna_recompute_is_seal`](/theorem/theorem_dna_recompute_is_seal)). Every receipt in the archive can be
+  (`theorem_dna_recompute_is_seal`). Every receipt in the archive can be
   rechecked without contacting anything.
 - **The public record.** The repository is public; every commit message carries its cited theorems, so the reasoning
   behind each landing survives in the record rather than in anyone's memory.

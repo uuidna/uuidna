@@ -1,13 +1,13 @@
 ---
 title: "The lay of the land"
-description: "Computed from lean/Topography.lean — 18 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Topography.lean — 17 sealed theorems, every claim citing its proof."
 ---
 
 # The lay of the land
 
-> TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. — held by [contour_index_every_fifth](/theorem/contour_index_every_fifth) and its 17 siblings below.
+> TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. — held by [contour_index_every_fifth](/theorem/contour_index_every_fifth) and its 16 siblings below.
 
-**18 theorems**, from [contour_index_every_fifth](/theorem/contour_index_every_fifth) onward, each proven `by decide` in [lean/Topography.lean](/lean/Topography.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 18 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [contour_index_every_fifth](/theorem/contour_index_every_fifth). A boundary stated here is decided, not merely denied.
+**17 theorems**, from [contour_index_every_fifth](/theorem/contour_index_every_fifth) onward, each proven `by decide` in [lean/Topography.lean](/lean/Topography.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [contour_index_every_fifth](/theorem/contour_index_every_fifth). A boundary stated here is decided, not merely denied.
 
 ### A contour joins points of equal height; every fifth line is drawn heavy — the index contour — so with a 10 m interval the heavy lines fall on multiples of 50 m: [50,100,150,200] all divide by 50, while an intermediate 30 m line does not. The map lets you read height without a number on every ring.
 The ledger holds this as [contour_index_every_fifth](/theorem/contour_index_every_fifth) — proven `by decide`, sorry-free:
@@ -105,13 +105,6 @@ The ledger holds this as [wgs84_polar_shorter](/theorem/wgs84_polar_shorter) —
 
 ```lean
 6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385
-```
-
-### NEWTON WAS RIGHT AND CASSINI WAS WRONG, IN ONE COMPARISON. The 18th-century dispute was a yes/no about which axis is longer: Newton predicted a spinning fluid body bulges at the equator (oblate), the Cassinis held it was stretched at the poles (prolate). On the WGS 84 figure the equatorial radius exceeds the polar, 6378137 > 6356752 — oblate. The French geodesic missions to Lapland and Peru measured which way it went; the arithmetic here only states the comparison the standard encodes.
-The ledger holds this as [oblate_not_prolate](/theorem/oblate_not_prolate) — proven `by decide`, sorry-free:
-
-```lean
-6378137 > 6356752
 ```
 
 ### THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 × 72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and decidable; the resulting circumference is NOT sealed here, because it depends on the length of his stadion, which is genuinely uncertain — the honest half is the fifty.

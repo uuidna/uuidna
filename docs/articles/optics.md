@@ -1,13 +1,13 @@
 ---
 title: "The light domain"
-description: "Computed from lean/Optics.lean — 8 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Optics.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
 # The light domain
 
-> OPTICS — the light domain, as decidable arithmetic, demarcated. — held by [law_of_reflection](/theorem/law_of_reflection) and its 7 siblings below.
+> OPTICS — the light domain, as decidable arithmetic, demarcated. — held by [law_of_reflection](/theorem/law_of_reflection) and its 5 siblings below.
 
-**8 theorems**, from [law_of_reflection](/theorem/law_of_reflection) onward, each proven `by decide` in [lean/Optics.lean](/lean/Optics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [refractive_index_ge_one](/theorem/refractive_index_ge_one). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [law_of_reflection](/theorem/law_of_reflection) onward, each proven `by decide` in [lean/Optics.lean](/lean/Optics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [refractive_index_ge_one](/theorem/refractive_index_ge_one). A boundary stated here is decided, not merely denied.
 
 ### The law of reflection: the angle out equals the angle in, so a mirror is an involution — reflecting the incidence angle twice through the normal returns it, 180 − (180 − a) = a for every angle a in 0…180°.
 The ledger holds this as [law_of_reflection](/theorem/law_of_reflection) — proven `by decide`, sorry-free:
@@ -49,20 +49,6 @@ The ledger holds this as [magnification](/theorem/magnification) — proven `by 
 
 ```lean
 30 / 15 = 2
-```
-
-### Dispersion splits white light: the index is higher for blue than for red (n_blue = 1.53 > n_red = 1.51, ×100: 153 > 151), so blue refracts more — the prism spreads the spectrum because n depends on wavelength.
-The ledger holds this as [dispersion_blue_over_red](/theorem/dispersion_blue_over_red) — proven `by decide`, sorry-free:
-
-```lean
-151 < 153
-```
-
-### Total internal reflection needs a denser source: it occurs going from glass (n = 1.50) to air (n = 1.00), where 100 < 150, so the critical angle sinθc = n₂/n₁ = 100/150 = 2/3 ≤ 1 exists. From rarer to denser there is no critical angle — light always crosses.
-The ledger holds this as [tir_needs_denser_source](/theorem/tir_needs_denser_source) — proven `by decide`, sorry-free:
-
-```lean
-100 < 150
 ```
 
 

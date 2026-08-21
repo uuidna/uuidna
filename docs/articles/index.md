@@ -9,10 +9,10 @@ description: "The desk writes — one computed article per wing of the ledger, e
 
 | article | theorems |
 |---|---|
-| [The sound domain](/articles/acoustics) | 8 |
+| [The sound domain](/articles/acoustics) | 6 |
 | [lean/Affine.lean](/articles/affine) | 6 |
 | [lean/Alignment.lean](/articles/alignment) | 6 |
-| [Anti-fraud detection](/articles/anti-fraud) | 8 |
+| [Anti-fraud detection](/articles/anti-fraud) | 13 |
 | [The fixed stars](/articles/astronomy) | 11 |
 | [The detectors, proven](/articles/audit) | 17 |
 | [The audit game](/articles/audit-game) | 11 |
@@ -24,11 +24,10 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The reactions domain](/articles/chemistry) | 8 |
 | [The chessboard](/articles/chess) | 13 |
 | [The chess horizon](/articles/chessgames) | 24 |
-| [The cipher & the strand](/articles/cipher) | 27 |
-| [The seven reflected](/articles/clay) | 14 |
+| [The cipher & the strand](/articles/cipher) | 26 |
 | [lean/Clock.lean](/articles/clock) | 6 |
 | [The error-correcting codes](/articles/codes) | 8 |
-| [The two coins & the 64](/articles/coins) | 19 |
+| [The two coins & the 64](/articles/coins) | 20 |
 | [The colour wheel](/articles/colour) | 17 |
 | [Command authentication](/articles/command) | 7 |
 | [lean/Contribution.lean](/articles/contribution) | 6 |
@@ -41,8 +40,8 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The cut](/articles/editing) | 14 |
 | [The document fold](/articles/editor) | 4 |
 | [The field domain](/articles/electromagnetism) | 13 |
-| [The time coordinate](/articles/ephemeris) | 8 |
-| [The exploit folds](/articles/exploits) | 13 |
+| [The time coordinate](/articles/ephemeris) | 7 |
+| [The exploit folds](/articles/exploits) | 12 |
 | [The Glagolitic numerals & Pliska rosette](/articles/glagolitic) | 10 |
 | [lean/Grid.lean](/articles/grid) | 6 |
 | [lean/Hamming.lean](/articles/hamming) | 6 |
@@ -56,14 +55,14 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The legal vocabulary](/articles/legal) | 10 |
 | [The stance and the angle](/articles/martial-arts) | 4 |
 | [The matching](/articles/matching) | 8 |
-| [The paper on trial](/articles/mo-mbhstar1) | 17 |
-| [The bond domain](/articles/molecular) | 8 |
+| [The paper on trial](/articles/mo-mbhstar1) | 11 |
+| [The bond domain](/articles/molecular) | 7 |
 | [Navigation — bounded geometry](/articles/navigation) | 5 |
 | [The algebra of the neuron](/articles/neuro) | 18 |
 | [The heaps](/articles/nim) | 93 |
 | [lean/Notation.lean](/articles/notation) | 6 |
 | [One leap](/articles/one-leap) | 1 |
-| [The light domain](/articles/optics) | 8 |
+| [The light domain](/articles/optics) | 6 |
 | [The linear optimum](/articles/optimisation) | 9 |
 | [lean/Orbits.lean](/articles/orbits) | 9 |
 | [The OS-integrity algebra](/articles/os) | 7 |
@@ -77,12 +76,12 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The quantum computer](/articles/quantum) | 50 |
 | [The rules of inference](/articles/reasoning) | 25 |
 | [lean/Reflection.lean](/articles/reflection) | 6 |
-| [The spacetime domain](/articles/relativity) | 8 |
-| [The report](/articles/report) | 8 |
+| [The spacetime domain](/articles/relativity) | 5 |
+| [The report](/articles/report) | 7 |
 | [lean/Reversal.lean](/articles/reversal) | 6 |
 | [The ring ℤ/9](/articles/ring) | 234 |
 | [The rosette ℤ/7](/articles/rosette) | 148 |
-| [The points-of-sail domain](/articles/sailing) | 9 |
+| [The points-of-sail domain](/articles/sailing) | 7 |
 | [The sanitise standards](/articles/sanitize) | 7 |
 | [lean/Seats.lean](/articles/seats) | 6 |
 | [The layered defence](/articles/security) | 9 |
@@ -94,11 +93,11 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The structures domain](/articles/statics) | 8 |
 | [Maxwell's rule](/articles/structures) | 3 |
 | [lean/Subgroups.lean](/articles/subgroups) | 6 |
-| [The energy domain](/articles/thermodynamics) | 12 |
-| [The tides](/articles/tides) | 7 |
-| [The lay of the land](/articles/topography) | 18 |
+| [The energy domain](/articles/thermodynamics) | 11 |
+| [The tides](/articles/tides) | 6 |
+| [The lay of the land](/articles/topography) | 17 |
 | [lean/Trinities.lean](/articles/trinities) | 6 |
-| [The measures of type](/articles/typesetting) | 14 |
+| [The measures of type](/articles/typesetting) | 13 |
 | [The uuid mix space](/articles/uuid-mix) | 1 |
 | [The vortex algebra](/articles/uuidna) | 15 |
 | [The vector equilibrium — radius equals edge](/articles/vector-equilibrium) | 12 |
@@ -119,7 +118,6 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-chess](/articles/search-chess)
 - [search-chessgames](/articles/search-chessgames)
 - [search-cipher](/articles/search-cipher)
-- [search-clay](/articles/search-clay)
 - [search-codes](/articles/search-codes)
 - [search-coins](/articles/search-coins)
 - [search-colour](/articles/search-colour)

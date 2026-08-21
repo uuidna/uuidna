@@ -74,13 +74,6 @@ theorem naismith_rule_estimate : (15 / 5) * 60 + (1200 / 600) * 60 = 300 := by d
     division. -/
 theorem wgs84_polar_shorter : 6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385 := by decide
 
-/-- NEWTON WAS RIGHT AND CASSINI WAS WRONG, IN ONE COMPARISON. The 18th-century dispute was a yes/no about which
-    axis is longer: Newton predicted a spinning fluid body bulges at the equator (oblate), the Cassinis held it
-    was stretched at the poles (prolate). On the WGS 84 figure the equatorial radius exceeds the polar, 6378137
-    > 6356752 — oblate. The French geodesic missions to Lapland and Peru measured which way it went; the
-    arithmetic here only states the comparison the standard encodes. -/
-theorem oblate_not_prolate : 6378137 > 6356752 := by decide
-
 /-- THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria
     when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 ×
     72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and

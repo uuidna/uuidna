@@ -1,13 +1,13 @@
 ---
 title: "The cipher & the strand"
-description: "Computed from lean/Cipher.lean — 27 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Cipher.lean — 26 sealed theorems, every claim citing its proof."
 ---
 
 # The cipher & the strand
 
-> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. — held by [dna_complement_involution](/theorem/dna_complement_involution) and its 26 siblings below.
+> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. — held by [dna_complement_involution](/theorem/dna_complement_involution) and its 25 siblings below.
 
-**27 theorems**, from [dna_complement_involution](/theorem/dna_complement_involution) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 16 of its 27 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [complement_is_xor_key3](/theorem/complement_is_xor_key3). A boundary stated here is decided, not merely denied.
+**26 theorems**, from [dna_complement_involution](/theorem/dna_complement_involution) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 26 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [complement_is_xor_key3](/theorem/complement_is_xor_key3). A boundary stated here is decided, not merely denied.
 
 ### Base-pairing is a self-inverse map: the complement comp(x)=3−x applied twice is the identity (A↔T↔A, C↔G↔C) — a decrypt that equals its encrypt, like the diamond reflection.
 The ledger holds this as [dna_complement_involution](/theorem/dna_complement_involution) — proven `by decide`, sorry-free:
@@ -98,13 +98,6 @@ The ledger holds this as [grover_quadratic_bound](/theorem/grover_quadratic_boun
 
 ```lean
 (List.range 27).all (fun n => 2^n * 2^n == 2^(2*n))
-```
-
-### The KDF cost the envelope ASSUMES, sealed (axiom-hunt): 600000 PBKDF2-SHA256 iterations (OWASP 2023) — positive, and within the DoS guard MAX_ITER = 10000000. The two coins paid at the door are a BOUNDED cost, never an unbounded spin.
-The ledger holds this as [kdf_cost_bounded](/theorem/kdf_cost_bounded) — proven `by decide`, sorry-free:
-
-```lean
-(0 < 600000) ∧ (600000 ≤ 10000000)
 ```
 
 ### The envelope’s byte geometry, sealed (axiom-hunt): the ChaCha20-Poly1305 nonce is 12 bytes = 96 bits (RFC 8439) and the KDF salt is 16 bytes = 128 bits — the nonce strictly narrower than the 128-bit address, the salt exactly one address wide.

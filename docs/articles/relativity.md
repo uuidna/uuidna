@@ -1,20 +1,13 @@
 ---
 title: "The spacetime domain"
-description: "Computed from lean/Relativity.lean — 8 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Relativity.lean — 5 sealed theorems, every claim citing its proof."
 ---
 
 # The spacetime domain
 
-> RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. — held by [cosmic_speed_limit](/theorem/cosmic_speed_limit) and its 7 siblings below.
+> RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. — held by [light_on_null_cone](/theorem/light_on_null_cone) and its 4 siblings below.
 
-**8 theorems**, from [cosmic_speed_limit](/theorem/cosmic_speed_limit) onward, each proven `by decide` in [lean/Relativity.lean](/lean/Relativity.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [causality_forbids_ftl](/theorem/causality_forbids_ftl). A boundary stated here is decided, not merely denied.
-
-### Nothing outruns light: c = 299792458 m/s is the universal speed limit, so any real signal is strictly slower — 299792457 < 299792458. There is no faster-than-light; the ledger says "no fake FTL," and relativity proves it.
-The ledger holds this as [cosmic_speed_limit](/theorem/cosmic_speed_limit) — proven `by decide`, sorry-free:
-
-```lean
-299792457 < 299792458
-```
+**5 theorems**, from [light_on_null_cone](/theorem/light_on_null_cone) onward, each proven `by decide` in [lean/Relativity.lean](/lean/Relativity.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 5 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [causality_forbids_ftl](/theorem/causality_forbids_ftl). A boundary stated here is decided, not merely denied.
 
 ### Light travels on the null cone: with c = 1, a flash covering x = 5 in t = 5 has spacetime interval (ct)² − x² = 5² − 5² = 0. Photons trace the zero-interval boundary between cause and no-cause.
 The ledger holds this as [light_on_null_cone](/theorem/light_on_null_cone) — proven `by decide`, sorry-free:
@@ -35,20 +28,6 @@ The ledger holds this as [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangl
 
 ```lean
 5^2 + 12^2 = 13^2
-```
-
-### Moving clocks run slow: at γ = 13/12 a proper time of 12 seconds is observed as 13 — 13 > 12. The traveller ages less; the stay-at-home sees more time pass.
-The ledger holds this as [time_dilation](/theorem/time_dilation) — proven `by decide`, sorry-free:
-
-```lean
-13 > 12
-```
-
-### Moving lengths contract along the motion: at γ = 13/12 a 13-metre rest length measures 13/γ = 12 metres to the observer it flies past — 12 < 13. Space shortens as speed climbs.
-The ledger holds this as [length_contraction](/theorem/length_contraction) — proven `by decide`, sorry-free:
-
-```lean
-12 < 13
 ```
 
 ### Mass is energy: E = mc², so (with c² = 9 in these units) masses [1,2,3] carry rest energies [9,18,27] — linear in mass. Even at rest, matter holds mc² of energy.

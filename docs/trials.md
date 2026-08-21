@@ -71,7 +71,7 @@ A trial on a single statement returns **one** answer, and only one of **two** �
 | **UNVERIFIED** | everything else | no test, no sealed citation, a failed test, or a citation to a proof that is **not** in the ledger — which verifies nothing. **Not "false"** — just not verified |
 
 **uuidna verifies; it never refutes.** Calling a claim *false* is an overclaim it cannot decide — absence of proof is
-not proof of falsity — so there is no third verdict (theorem verdict_exactly_one). The receipt is a content-address, so two people running the same
+not proof of falsity — so there is no third verdict (theorem verdict_is_exactly_one). The receipt is a content-address, so two people running the same
 trial on the same statement get the same answer.
 
 ## The charter — what the trial does and does not judge

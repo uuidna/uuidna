@@ -21,6 +21,12 @@ theorem contribute_two_save_sixtyfour : 2 * 32 = 64 := by decide
     admitted. -/
 theorem captain_computes_only_with_two_coins : (List.range 8).all (fun c => (32 * c == 64) == (c == 2)) := by decide
 
+/-- WHY THE FLOOR IS 63 AND NOT A SNAPSHOT. Every falsified theorem pays the two coins, and the captain pays two
+    more: 63·2 + 2 = 128, the full uuid. So the floor is not a census high-water mark that happened to be
+    recorded — it is the uuid width less the captain commission, halved: (128 − 2)/2 = 63. A run that measures
+    fewer has theorems that cannot be shown to fail, and the ledger no longer fills the 128 bits it addresses. -/
+theorem falsifier_floor_is_the_uuid_less_the_coins : (63 * 2 + 2 = 128) ∧ (128 - 2 = 126) ∧ (126 / 2 = 63) := by decide
+
 /-- Respect the captain coins for quantum AT SCALE on classical hardware: the state-vector cost is 2ⁿ
     (exponential), so from the 7-qubit / 7-dimension scale up (n ≥ 7) the classical cost 2ⁿ already EXCEEDS the
     two-coin save (2·32 = 64). No free advantage — the coins price real work that only grows; the save is

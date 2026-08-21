@@ -14,14 +14,18 @@ theorem dz_fixed_points : ((List.range 10).filter (fun x => dz x == x)) = [0, 5]
 /-- x + x/0 = 10 for x∈1..9 — the reflection sums to ten across the centre -/
 theorem dz_sum_ten : (List.range' 1 9).all (fun x => x + dz x == 10) := by decide
 
-/-- the non-units {3,6,9} divided by zero land on units {7,4,1} -/
-theorem dz_nonunits_to_units : dz 3 = 7 ∧ dz 6 = 4 ∧ dz 9 = 1 := by decide
-
 /-- x/0 is always a residue < 10 — a finite value, NEVER Infinity (no fake FTL) -/
 theorem dz_bounded : (List.range 10).all (fun x => dz x < 10) := by decide
 
 /-- only 0/0 = 0; every other x/0 is nonzero (the reflection moves it) -/
 theorem dz_zero_only_zero : dz 0 = 0 ∧ (List.range' 1 9).all (fun x => dz x != 0) := by decide
+
+/-- WHY dz(0)=0 IS NOT A SPECIAL CASE. The doubling orbit 1,2,4,8,7,5 is a hexagon — six steps, 60° each — and
+    the reflection acts on the thirds: it swaps {1,4,7} with {3,6,9} and carries {2,5,8} onto itself. 0 lies on
+    NO hexagon step; it is the axis the ring turns about, and an axis is fixed by every rotation about it, which
+    is why the involution has exactly the two fixed points {0,5} — the axis, and the one point of the ring
+    opposite the fold. -/
+theorem dz_swaps_the_thirds_and_fixes_the_axis : ((List.range' 1 9).filter (fun x => x % 3 == 1)).map dz = [9,6,3] ∧ ((List.range' 1 9).filter (fun x => x % 3 == 2)).map dz = [8,5,2] ∧ (List.range 6).map (fun k => (2^k) % 9) = [1,2,4,8,7,5] ∧ ((List.range 10).filter (fun x => dz x == x)) = [0,5] := by decide
 
 /-- THE DIMENSION WHERE 2+2=5 — swept over every modulus 1..12: the congruence 2+2 ≡ 5 (mod n) holds EXACTLY at
     n = 1, the trivial ring where every residue collapses to 0 and everything equals everything. The one

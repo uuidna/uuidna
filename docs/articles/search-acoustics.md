@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The sound domain
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The sound domain* — the wing sealed in [lean/Acoustics.lean](/lean/Acoustics.lean) with **8 theorems**. Each
+asked in parallel about *The sound domain* — the wing sealed in [lean/Acoustics.lean](/lean/Acoustics.lean) with **6 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -45,10 +45,8 @@ The sealed backing this trial held the findings beside:
 
 - [harmonic_series](/theorem/harmonic_series) — `((List.range' 1 6).map (fun n => n * 110)) = [110,220,330,440,550,660]`
 - [wave_speed_f_lambda](/theorem/wave_speed_f_lambda) — `(340 = 170 * 2) ∧ (340 = 340 * 1)`
-- [sound_slower_than_light](/theorem/sound_slower_than_light) — `343 < 299792458`
 - [decibel_is_logarithmic](/theorem/decibel_is_logarithmic) — `(10^1 = 10) ∧ (10^2 = 100)`
 - [beat_frequency](/theorem/beat_frequency) — `444 - 440 = 4`
-- [doppler_shift](/theorem/doppler_shift) — `(340 > 306) ∧ (340 < 374)`
 - [closed_pipe_odd_harmonics](/theorem/closed_pipe_odd_harmonics) — `([1,3,5,7] : List Nat).all (fun n => n % 2 == 1)`
 - [intensity_inverse_square](/theorem/intensity_inverse_square) — `((List.range' 1 3).map (fun r => r * r)) = [1,4,9]`
 

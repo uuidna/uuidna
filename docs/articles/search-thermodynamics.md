@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The energy domain
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The energy domain* — the wing sealed in [lean/Thermodynamics.lean](/lean/Thermodynamics.lean) with **12 theorems**. Each
+asked in parallel about *The energy domain* — the wing sealed in [lean/Thermodynamics.lean](/lean/Thermodynamics.lean) with **11 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -15,13 +15,13 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `11e1db91` | zenodo.org | zenodo record 17669867: Energy Domain Datasets | UNVERIFIED | VERIFIED |
-| `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
 | `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
+| `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
 | `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
-| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
 | `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `452aceea` | zenodo.org | zenodo record 14128032: PM_063833_B_Morlanwelz | UNVERIFIED | VERIFIED |
-| `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
+| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `4f0bcf47` | crossref.org | DOI 10.1021/acsami.0c13534.s001: Energy-Efficient Ferroelectric Domain Wall Memory with Controlled Domain Switchi | UNVERIFIED | VERIFIED |
 | `807decf2` | crossref.org | DOI 10.1109/tec.2020.3048389: Identifying DQ-Domain Admittance Models of a 2.3-MVA Commercial Grid-Following I | UNVERIFIED | VERIFIED |
 | `8358e347` | crossref.org | DOI 10.1039/c2ee21327c: The relative importance of domain size, domain purity and domain interfaces to t | UNVERIFIED | VERIFIED |
@@ -39,13 +39,12 @@ the hard gate of the corroboration law.
 | `c392cdc9` | openalex.org | OpenAlex An event generator for the study of nuclear collisions in the Fermi en [Nuclear physics research studi] | UNVERIFIED | VERIFIED |
 | `ba0fc4b7` | openalex.org | OpenAlex CBS domains form energy-sensing modules whose binding of adenosine lig [Ion channel regulation and fun] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5ecc0f6a`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `0a83a063`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
 - [first_law_conservation](/theorem/first_law_conservation) — `100 = 60 + 40`
 - [entropy_never_decreases](/theorem/entropy_never_decreases) — `(List.range 9).all (fun t => t <= t + 1)`
-- [heat_flows_hot_to_cold](/theorem/heat_flows_hot_to_cold) — `400 > 300`
 - [carnot_efficiency_below_one](/theorem/carnot_efficiency_below_one) — `((400 - 300) < 400) ∧ (0 < 300)`
 - [absolute_zero_and_kelvin](/theorem/absolute_zero_and_kelvin) — `(0 + 273 = 273) ∧ (100 + 273 = 373)`
 - [charles_law](/theorem/charles_law) — `2 * 600 = 4 * 300`

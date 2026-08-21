@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The bond domain
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The bond domain* — the wing sealed in [lean/Molecular.lean](/lean/Molecular.lean) with **8 theorems**. Each
+asked in parallel about *The bond domain* — the wing sealed in [lean/Molecular.lean](/lean/Molecular.lean) with **7 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -19,8 +19,8 @@ the hard gate of the corroboration law.
 | `442523ae` | zenodo.org | zenodo record 18477327: Climate Atlas Queensland 2025, 2050 and 2070 – CAIRNS – Comfort/Energy Simulatio | UNVERIFIED | VERIFIED |
 | `6fa4ad74` | zenodo.org | zenodo record 2382431: Ureteritis Cystica Chronica.: Report of a Case With Bilateral Double Ureters | UNVERIFIED | VERIFIED |
 | `7f36137c` | zenodo.org | zenodo record 2439292: The Correlation of Clinician, Pathologist and Layman. | UNVERIFIED | VERIFIED |
-| `b6a9f76b` | zenodo.org | zenodo record 18477235: Climate Atlas Queensland  2025, 2050 and 2070 – GOLDCOAST – Comfort/Energy Simul | UNVERIFIED | VERIFIED |
 | `c3c0aaac` | zenodo.org | zenodo record 18477656: Climate Atlas Queensland 2025 and 2050 – CAIRNS – Climate Charts | UNVERIFIED | VERIFIED |
+| `b6a9f76b` | zenodo.org | zenodo record 18477235: Climate Atlas Queensland  2025, 2050 and 2070 – GOLDCOAST – Comfort/Energy Simul | UNVERIFIED | VERIFIED |
 | `9a8e98be` | zenodo.org | zenodo record 18477439: Climate Atlas Queensland 2025, 2050 and 2070 – BRISBANE – Climate Charts | UNVERIFIED | VERIFIED |
 | `ad0e1f31` | crossref.org | DOI 10.4324/9780203996706-25: Saving the social bond and recovering the public domain | UNVERIFIED | VERIFIED |
 | `eb9341fb` | crossref.org | DOI 10.1201/b14676-12: - Time Domain Analysis | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `fdec72cf` | openalex.org | OpenAlex Peptide tag forming a rapid covalent bond to a protein, through engine [Biochemical and Structural Cha] | UNVERIFIED | VERIFIED |
 | `f26b3d14` | openalex.org | OpenAlex Dual Beneficial Effect of Interloop Disulfide Bond for Single Domain A [Monoclonal and Polyclonal Anti] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `7b4bdcda`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `e481110f`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -50,7 +50,6 @@ The sealed backing this trial held the findings beside:
 - [water_lewis_electrons](/theorem/water_lewis_electrons) — `2 * 1 + 6 = 8`
 - [ionic_threshold](/theorem/ionic_threshold) — `30 - 9 > 17`
 - [molar_mass_water](/theorem/molar_mass_water) — `2 * 1 + 16 = 18`
-- [bond_strength_rises_with_order](/theorem/bond_strength_rises_with_order) — `(3 > 2) ∧ (2 > 1)`
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not

@@ -121,7 +121,7 @@ Sign them by *behaving* them — a signature is a receipt; the proof is recomput
 | --- | --- |
 | **Recomputable, not trusted** — every tool is a pure function; the same input mints the same output for anyone | the whole ledger — `npm run lean` reproduces every receipt |
 | **The gate can return FALSE** — a claim earns a sealed theorem or is flagged | [`exactly_one_flag`](/theorem/exactly_one_flag) |
-| **No FTL, no infinite** — bounded by construction | [`cosmic_speed_limit`](/theorem/cosmic_speed_limit) · [`dz_bounded`](/theorem/dz_bounded) |
+| **No FTL, no infinite** — bounded by construction | `cosmic_speed_limit` · [`dz_bounded`](/theorem/dz_bounded) |
 | **Coins are conserved** — free for the public interest, 2 per commercial seal, never negative | [`two_coins`](/theorem/two_coins) · [`bill_never_negative`](/theorem/bill_never_negative) |
 | **The gate is multilingual** — an overclaim cannot hide in another tongue or script | the provenance audit (Glagolitic→Cyrillic fold, 20+ languages) |
 

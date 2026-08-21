@@ -1,26 +1,19 @@
 ---
 title: "The paper on trial"
-description: "Computed from lean/MoMBHStar1.lean — 17 sealed theorems, every claim citing its proof."
+description: "Computed from lean/MoMBHStar1.lean — 11 sealed theorems, every claim citing its proof."
 ---
 
 # The paper on trial
 
-> THE PAPER ON TRIAL — "A gas-enshrouded and gas-reddened black hole at cosmic dawn" (DOI 10.1038/s41586-026-10846-4, data 10.5281/zenodo.15059214): the letter's published numbers as decidable arithmetic (measurements ×10/×100/×1000 into Nat), the press-vs-paper delta refuted by the paper's own tables, and the Balmer break derived from Rydberg arithmetic. n=1, one fiducial of ~1e6 models, 0 solved — arithmetic witnesses of the PUBLISHED numbers, never astrophysics re-derived — held by [mombh_balmer_break_exceeds_stellar_ceiling](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) and its 16 siblings below.
+> THE PAPER ON TRIAL — "A gas-enshrouded and gas-reddened black hole at cosmic dawn" (DOI 10.1038/s41586-026-10846-4, data 10.5281/zenodo.15059214): the letter's published numbers as decidable arithmetic (measurements ×10/×100/×1000 into Nat), the press-vs-paper delta refuted by the paper's own tables, and the Balmer break derived from Rydberg arithmetic. n=1, one fiducial of ~1e6 models, 0 solved — arithmetic witnesses of the PUBLISHED numbers, never astrophysics re-derived — held by [mombh_balmer_break_exceeds_stellar_ceiling](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) and its 10 siblings below.
 
-**17 theorems**, from [mombh_balmer_break_exceeds_stellar_ceiling](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) onward, each proven `by decide` in [lean/MoMBHStar1.lean](/lean/MoMBHStar1.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [mombh_hbeta_oiii_ratio_central_over_ten_lower_under](/theorem/mombh_hbeta_oiii_ratio_central_over_ten_lower_under). A boundary stated here is decided, not merely denied.
+**11 theorems**, from [mombh_balmer_break_exceeds_stellar_ceiling](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) onward, each proven `by decide` in [lean/MoMBHStar1.lean](/lean/MoMBHStar1.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [mombh_hbeta_oiii_ratio_central_over_ten_lower_under](/theorem/mombh_hbeta_oiii_ratio_central_over_ten_lower_under). A boundary stated here is decided, not merely denied.
 
 ### Break 7.7 (−1.4) lower bound 6.3 > A-star ceiling 5 > Chabrier ceiling 3 (×10). SCOPE: ceilings are model inputs.
 The ledger holds this as [mombh_balmer_break_exceeds_stellar_ceiling](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) — proven `by decide`, sorry-free:
 
 ```lean
 (77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30)
-```
-
-### +2.3 above vs −1.4 below (×10); blue window SNR 3 < 5.
-The ledger holds this as [mombh_break_error_asymmetric_blue_faint](/theorem/mombh_break_error_asymmetric_blue_faint) — proven `by decide`, sorry-free:
-
-```lean
-(23 > 14) ∧ (30 < 50)
 ```
 
 ### 30 ± 7 %: 4·7 ≤ 30 < 5·7. SCOPE: three instruments.
@@ -37,39 +30,11 @@ The ledger holds this as [mombh_hbeta_oiii_ratio_central_over_ten_lower_under](/
 (114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100)
 ```
 
-### 3.5σ < 5σ (×10).
-The ledger holds this as [mombh_oiii_is_tentative](/theorem/mombh_oiii_is_tentative) — proven `by decide`, sorry-free:
-
-```lean
-(35 < 50)
-```
-
-### 95% <100 pc, 99% <117 pc.
-The ledger holds this as [mombh_size_limits_ordered](/theorem/mombh_size_limits_ordered) — proven `by decide`, sorry-free:
-
-```lean
-(100 < 117)
-```
-
 ### log nH 11 ≥ 9; log NH ×10 258 > 241 (Compton-thick). SCOPE: one model of ~1e6, filtered not sampled.
 The ledger holds this as [mombh_fiducial_gas_dense_and_compton_thick](/theorem/mombh_fiducial_gas_dense_and_compton_thick) — proven `by decide`, sorry-free:
 
 ```lean
 (11 >= 9) ∧ (258 > 241)
-```
-
-### A_V 0.15 vs 2–3 (×100).
-The ledger holds this as [mombh_fiducial_is_dust_free](/theorem/mombh_fiducial_is_dust_free) — proven `by decide`, sorry-free:
-
-```lean
-(15 < 200) ∧ (15 < 300)
-```
-
-### 0.18 by scaling, ~5 by alternative (×100): straddle 1. NOT PROVEN which.
-The ledger holds this as [mombh_eddington_two_answers_straddle_one](/theorem/mombh_eddington_two_answers_straddle_one) — proven `by decide`, sorry-free:
-
-```lean
-(18 < 100) ∧ (100 < 500)
 ```
 
 ### REFUTED: "super-Eddington confirmed" vs the paper's own 0.18.
@@ -84,13 +49,6 @@ The ledger holds this as [mombh_black_hole_mass_spans_over_two_dex](/theorem/mom
 
 ```lean
 (83 - 60 = 23) ∧ (23 > 20)
-```
-
-### n = 1.
-The ledger holds this as [mombh_sample_is_one](/theorem/mombh_sample_is_one) — proven `by decide`, sorry-free:
-
-```lean
-(1 < 2)
 ```
 
 ### 3 measured, 1 simplistic model, 0 solved.

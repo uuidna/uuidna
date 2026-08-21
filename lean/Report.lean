@@ -9,10 +9,6 @@ theorem five_ws_and_one_h : 5 + 1 = 6 := by decide
     unconfirmed story. -/
 theorem timeline_is_chronological : (List.range 6) = [0,1,2,3,4,5] := by decide
 
-/-- A fact needs TWO independent reputable sources — one source is uncorroborated (1 < 2), and a second that
-    agrees lifts it over the bar. A single source is a lead, not yet a report. -/
-theorem corroboration_needs_two : 1 < 2 := by decide
-
 /-- Trinity editing is THREE independent passes — reporter, editor, and a third check — 1 + 1 + 1 = 3, the same
     trinity the ledger folds in. One writer's certainty is not an edit; three eyes catch what one misses. -/
 theorem trinity_edit_is_three : 1 + 1 + 1 = 3 := by decide

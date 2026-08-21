@@ -1,13 +1,13 @@
 ---
 title: "The points-of-sail domain"
-description: "Computed from lean/Sailing.lean — 9 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Sailing.lean — 7 sealed theorems, every claim citing its proof."
 ---
 
 # The points-of-sail domain
 
-> SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. — held by [no_go_zone](/theorem/no_go_zone) and its 8 siblings below.
+> SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. — held by [no_go_zone](/theorem/no_go_zone) and its 6 siblings below.
 
-**9 theorems**, from [no_go_zone](/theorem/no_go_zone) onward, each proven `by decide` in [lean/Sailing.lean](/lean/Sailing.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [no_go_zone](/theorem/no_go_zone). A boundary stated here is decided, not merely denied.
+**7 theorems**, from [no_go_zone](/theorem/no_go_zone) onward, each proven `by decide` in [lean/Sailing.lean](/lean/Sailing.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [no_go_zone](/theorem/no_go_zone). A boundary stated here is decided, not merely denied.
 
 ### A boat cannot sail directly into the wind: the no-go zone is about 45° either side, a 90° cone (45 + 45 = 90) where the sails luff and make no power. To go upwind you must sail around it, not through it.
 The ledger holds this as [no_go_zone](/theorem/no_go_zone) — proven `by decide`, sorry-free:
@@ -28,20 +28,6 @@ The ledger holds this as [beating_sailing_triangle](/theorem/beating_sailing_tri
 
 ```lean
 3^2 + 4^2 = 5^2
-```
-
-### Sailing upwind costs distance: to make good 3 units toward the wind you sail 5 through the water (the 3-4-5 close-hauled leg), and 5 > 3. Beating is always longer than the straight line you cannot take.
-The ledger holds this as [beating_distance_penalty](/theorem/beating_distance_penalty) — proven `by decide`, sorry-free:
-
-```lean
-5 > 3
-```
-
-### Apparent wind is the vector sum of the true wind and the boat’s own motion, so close-hauled it exceeds the true wind: a true wind of 4 with the boat making 3 across gives an apparent 5 — 5 > 4. The faster you sail upwind, the more wind you feel.
-The ledger holds this as [apparent_wind_exceeds_true](/theorem/apparent_wind_exceeds_true) — proven `by decide`, sorry-free:
-
-```lean
-5 > 4
 ```
 
 ### When conditions are perfect the boat sails itself: a balanced helm is a moment equilibrium — the sail’s turning moment equals the keel’s (8·3 = 6·4 = 24) — so she holds her course with the tiller free. The captain rests; the balance steers.

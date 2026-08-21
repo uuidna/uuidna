@@ -1,13 +1,13 @@
 ---
 title: "The measures of type"
-description: "Computed from lean/Typesetting.lean — 14 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Typesetting.lean — 13 sealed theorems, every claim citing its proof."
 ---
 
 # The measures of type
 
-> THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini's identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided. — held by [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) and its 13 siblings below.
+> THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini's identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided. — held by [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) and its 12 siblings below.
 
-**14 theorems**, from [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) onward, each proven `by decide` in [lean/Typesetting.lean](/lean/Typesetting.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 14 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [signature_multiple_of_four](/theorem/signature_multiple_of_four). A boundary stated here is decided, not merely denied.
+**13 theorems**, from [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) onward, each proven `by decide` in [lean/Typesetting.lean](/lean/Typesetting.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [signature_multiple_of_four](/theorem/signature_multiple_of_four). A boundary stated here is decided, not merely denied.
 
 ### The printer's units close on the inch: twelve points make a pica, six picas make the inch — 6 · 12 = 72 — so the point is exactly 1/72 of an inch, the atom every measure is counted in. Pierre Fournier and then Firmin Didot fixed the point in the 18th century; the modern 72-to-the-inch is the desktop-publishing heir of that ruler.
 The ledger holds this as [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) — proven `by decide`, sorry-free:
@@ -56,13 +56,6 @@ The ledger holds this as [van_de_graaf_margins](/theorem/van_de_graaf_margins) �
 
 ```lean
 (4 = 2 * 2) ∧ (6 = 2 * 3)
-```
-
-### The readable measure — characters per line, counting spaces — sits near 66, inside the 45–75 a typographer keeps: 45 ≤ 66 ∧ 66 ≤ 75. Too short and the eye jerks back too often; too long and it loses the return sweep to the next line. Bringhurst's rule, stated as an interval.
-The ledger holds this as [readable_measure_range](/theorem/readable_measure_range) — proven `by decide`, sorry-free:
-
-```lean
-45 ≤ 66 ∧ 66 ≤ 75
 ```
 
 ### Leading exceeds the type it carries: 12-point type is set on 14-point leading — 14 > 12 ∧ 14 = 12 + 2 — the two extra points (the strip of lead the compositor once slid between lines, which named the practice) that keep ascenders and descenders from touching. Set solid (12 on 12) the lines crowd; the gap is what makes a paragraph a grey, even field.

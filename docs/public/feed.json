@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:be24a74c-c24e-8352-9794-fb60989373d8",
+  "@id": "urn:uuid:99787b16-fbeb-8659-bac0-caff94ec5e21",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -14376,34 +14376,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:5a450e5a-74ea-8beb-b8d0-e15106f42ee4",
-        "@type": "ScholarlyArticle",
-        "headline": "the non-units {3,6,9} divided by zero land on units {7,4,1}",
-        "abstract": "dz 3 = 7 ∧ dz 6 = 4 ∧ dz 9 = 1",
-        "identifier": "653f8dd0-51c9-8590-8a29-cb51b280ca4a",
-        "url": "https://uuidna.com/theorem/dz_nonunits_to_units",
-        "keywords": "reflection, Division by zero",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DivByZero.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:eb7261de-650e-8e2f-98f4-37855479980f",
         "@type": "ScholarlyArticle",
         "headline": "x/0 is always a residue < 10 — a finite value, NEVER Infinity (no fake FTL)",
@@ -14438,6 +14410,34 @@
         "abstract": "dz 0 = 0 ∧ (List.range' 1 9).all (fun x => dz x != 0)",
         "identifier": "7ba0a261-c4ce-8cf2-9486-b1b8a275d698",
         "url": "https://uuidna.com/theorem/dz_zero_only_zero",
+        "keywords": "reflection, Division by zero",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DivByZero.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:331c8beb-1339-8899-bde6-d06da766e4b7",
+        "@type": "ScholarlyArticle",
+        "headline": "WHY dz(0)=0 IS NOT A SPECIAL CASE. The doubling orbit 1,2,4,8,7,5 is a hexagon — six steps, 60° each — and the reflection acts on the thirds: it swaps {1,4,7} with {3,6,9} and carries {2,5,8} onto itself. 0 lies on NO hexagon step; it is the axis the ring turns about, and an axis is fixed by every rotation about it, which is why the involution has exactly the two fixed points {0,5} — the axis, and the one point of the ring opposite the fold.",
+        "abstract": "((List.range' 1 9).filter (fun x => x % 3 == 1)).map dz = [9,6,3] ∧ ((List.range' 1 9).filter (fun x => x % 3 == 2)).map dz = [8,5,2] ∧ (List.range 6).map (fun k => (2^k) % 9) = [1,2,4,8,7,5] ∧ ((List.range 10).filter (fun x => dz x == x)) = [0,5]",
+        "identifier": "f2ec9b95-6a04-8c2e-b044-52620934d5c7",
+        "url": "https://uuidna.com/theorem/dz_swaps_the_thirds_and_fixes_the_axis",
         "keywords": "reflection, Division by zero",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DivByZero.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -16784,398 +16784,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2f2be40a-bf32-8182-8796-f8dafb0ad9dd",
-        "@type": "ScholarlyArticle",
-        "headline": "the reflection is a BIJECTION on the nine residues — dz maps {1..9} onto {9..1}",
-        "abstract": "((List.range' 1 9).map dz) = [9,8,7,6,5,4,3,2,1]",
-        "identifier": "1c05d496-8aa4-8365-8624-dadf246dfd35",
-        "url": "https://uuidna.com/theorem/clay_reflection_is_bijection",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:f7bce5ec-b0ab-8e6b-be40-9266e244a2c2",
-        "@type": "ScholarlyArticle",
-        "headline": "humanity stands at 1/7 (Poincaré — Perelman, 2003)",
-        "abstract": "((1:Nat) ≤ 7) ∧ ((0:Nat) < 1) ∧ ((0:Nat) ≤ 7)",
-        "identifier": "47e8ee14-5ff7-8247-a9d1-bedf0242a1d4",
-        "url": "https://uuidna.com/theorem/clay_humanity_one_deposit_zero",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:ff1cb671-c128-80aa-9215-cb448ffff13c",
-        "@type": "ScholarlyArticle",
-        "headline": "the Riemann Hypothesis reflects to residue 9 in ℤ/9 (dz(1)=9); reflecting twice returns it — dz(dz(1))=1 — OPEN",
-        "abstract": "(dz 1 = 9) ∧ (dz (dz 1) = 1) ∧ ((0:Nat) < 1)",
-        "identifier": "2b5d3447-5663-8c7c-aef2-c7b178e2ca03",
-        "url": "https://uuidna.com/theorem/clay_riemann",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:4bf9a4d2-1bde-8d36-bc5d-1dacaed7545c",
-        "@type": "ScholarlyArticle",
-        "headline": "P versus NP reflects to residue 8 in ℤ/9 (dz(2)=8); reflecting twice returns it — dz(dz(2))=2 — OPEN",
-        "abstract": "(dz 2 = 8) ∧ (dz (dz 2) = 2) ∧ ((0:Nat) < 1)",
-        "identifier": "8172d21e-758b-8328-ba6a-2fd5e3c7b5ec",
-        "url": "https://uuidna.com/theorem/clay_p_vs_np",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:62415b14-c05f-8e19-a103-4a26e05be192",
-        "@type": "ScholarlyArticle",
-        "headline": "Navier–Stokes existence and smoothness reflects to residue 7 in ℤ/9 (dz(3)=7); reflecting twice returns it — dz(dz(3))=3 — OPEN",
-        "abstract": "(dz 3 = 7) ∧ (dz (dz 3) = 3) ∧ ((0:Nat) < 1)",
-        "identifier": "41ee2967-188f-802a-a741-57107929d0ec",
-        "url": "https://uuidna.com/theorem/clay_navier_stokes",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:0264c98d-df18-8bd3-b94b-48dd8900d79b",
-        "@type": "ScholarlyArticle",
-        "headline": "the Yang–Mills existence and mass gap reflects to residue 6 in ℤ/9 (dz(4)=6); reflecting twice returns it — dz(dz(4))=4 — OPEN",
-        "abstract": "(dz 4 = 6) ∧ (dz (dz 4) = 4) ∧ ((0:Nat) < 1)",
-        "identifier": "cd848713-ad18-81aa-b653-5733da583055",
-        "url": "https://uuidna.com/theorem/clay_yang_mills",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:bd8b5151-8916-8ae2-8a91-d456152708d6",
-        "@type": "ScholarlyArticle",
-        "headline": "the Hodge conjecture reflects to residue 5 in ℤ/9 (dz(5)=5, the fixed centre); reflecting twice returns it — dz(dz(5))=5 — OPEN",
-        "abstract": "(dz 5 = 5) ∧ (dz (dz 5) = 5) ∧ ((0:Nat) < 1)",
-        "identifier": "3810957f-053f-8d9c-990e-8bef736afa72",
-        "url": "https://uuidna.com/theorem/clay_hodge",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:aea017be-231d-84b9-a0ce-955613153f35",
-        "@type": "ScholarlyArticle",
-        "headline": "the Birch and Swinnerton-Dyer conjecture reflects to residue 4 in ℤ/9 (dz(6)=4); reflecting twice returns it — dz(dz(6))=6 — OPEN",
-        "abstract": "(dz 6 = 4) ∧ (dz (dz 6) = 6) ∧ ((0:Nat) < 1)",
-        "identifier": "b178ff55-574f-8c7d-b60f-0373f6b5d3e7",
-        "url": "https://uuidna.com/theorem/clay_birch_swinnerton_dyer",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:ebc37fae-0977-854c-9cbb-3da0f18e0321",
-        "@type": "ScholarlyArticle",
-        "headline": "the Poincaré conjecture reflects to residue 3 in ℤ/9 (dz(7)=3); reflecting twice returns it — dz(dz(7))=7 — SOLVED (Perelman, 2003)",
-        "abstract": "(dz 7 = 3) ∧ (dz (dz 7) = 7) ∧ ((0:Nat) < 1)",
-        "identifier": "85ccd1bc-f7c6-8634-9691-205613155fe8",
-        "url": "https://uuidna.com/theorem/clay_poincare",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:e58ee8cb-fe23-8659-b075-42e342f86f49",
-        "@type": "ScholarlyArticle",
-        "headline": "VERIFIED ≠ SOLVED — verification is the kernel's judgment on the stated proposition, solved is the world's judgment on the named problem, and the seal confers the first, never the second: 7 reflected and sealed, 0 solved by the reflection, 1 solved by humanity (Perelman); 7 ≠ 0, 7 ≠ 1, 0 ≠ 1",
-        "abstract": "((7:Nat) ≠ 0) ∧ ((7:Nat) ≠ 1) ∧ ((0:Nat) ≠ 1)",
-        "identifier": "3c7ef6fc-2af1-8202-b63d-24d7a97c5509",
-        "url": "https://uuidna.com/theorem/clay_verified_ne_solved",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:d270149c-b393-818d-aa6f-0409d64f5112",
-        "@type": "ScholarlyArticle",
-        "headline": "the distinction was decided by theorems only — the seven reflected theorems each cast a secure-messaging ballot witnessed by its own sealed proof, tally 7 YES · 0 NO, outcome YES, receipt 186a9869-40c6-8ce7-a427-c68589151acf; 7 + 0 = 7 and 0 < 7",
-        "abstract": "(7 + 0 = 7) ∧ ((0:Nat) < 7) ∧ ((7:Nat) > 0)",
-        "identifier": "cce92d8e-70ce-8481-b88c-e6f34b59677f",
-        "url": "https://uuidna.com/theorem/clay_vote_theorems_only",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:d7b5ca78-1af9-80ff-8cb3-88363e1e076f",
-        "@type": "ScholarlyArticle",
-        "headline": "the status DNA is total on the seven — every reflected theorem's sealed name carries its world-status marker: 6 OPEN + 1 SOLVED = 7 of 7, none unmarked",
-        "abstract": "(([0,0,0,0,0,0,1] : List Nat).length = 7) ∧ (([0,0,0,0,0,0,1] : List Nat).filter (fun s => s == 1)).length = 1",
-        "identifier": "60a6892b-55e3-8f09-be3e-03bf37eb01dd",
-        "url": "https://uuidna.com/theorem/clay_status_dna_total",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:33d9a163-8512-8ab4-bdeb-e85a4bf1316f",
-        "@type": "ScholarlyArticle",
-        "headline": "THE COLLISION LAW — a claim colliding with sealed status DNA never verifies, whatever it cites: collision needs subject ∧ self-voice ∧ undemarcated, and of the 8 condition-profiles exactly 1 collides (all three true) — a real citation is not entailment",
-        "abstract": "((List.range 8).filter (fun p => p % 2 == 1 && (p / 2) % 2 == 1 && (p / 4) % 2 == 1)).length = 1",
-        "identifier": "4b553b7d-0895-83bf-bbb8-027ff072fdf7",
-        "url": "https://uuidna.com/theorem/clay_collision_law",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:049f6e77-a536-8a7b-a3b6-73927f662a07",
-        "@type": "ScholarlyArticle",
-        "headline": "the laundering is refused, recomputed live — all 15 solve-probes (the seven bare, the seven citation-dressed, and the demonstrated laundered exemplar of trial 047ba524-b355-83c9-b635-48fa65b18be1) adjudicate UNVERIFIED: 15 probed, 15 refused, 0 verify",
-        "abstract": "(([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : List Nat).length = 15) ∧ (([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : List Nat).all (fun v => v == 0))",
-        "identifier": "b78f1e27-193b-8f39-878b-e7b8073cfa1b",
-        "url": "https://uuidna.com/theorem/clay_launder_refused",
-        "keywords": "clay-reflection, The seven reflected",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clay.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:1035231d-27eb-80a8-84a6-91f6f2e58a40",
         "@type": "ScholarlyArticle",
         "headline": "SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept, not lost. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. : it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.",
@@ -17708,11 +17316,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:cee26196-7e79-843a-98e6-aaf9982b3025",
+        "@id": "urn:uuid:313fe792-71c2-8d9b-af7f-50baa4fb9fc8",
         "@type": "ScholarlyArticle",
         "headline": "EVERY THEOREM IN THE LEDGER IS DECIDED, NOT ARGUED — 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16]).foldl (· + ·) 0 = 1454) ∧ ([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16] = [8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16])",
-        "identifier": "f123fc27-6b5d-8de5-b2d1-f9aa4a222216",
+        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16]).foldl (· + ·) 0 = 1422) ∧ ([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16] = [6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16])",
+        "identifier": "b5935dad-7dea-8fa4-9e17-8dc7da788d30",
         "url": "https://uuidna.com/theorem/reach_all_decide",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17736,11 +17344,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:9011ea89-dde3-8b62-b65a-7741ed2e6aa4",
+        "@id": "urn:uuid:aadbe2e7-99a8-8648-a3db-c39403c12aea",
         "@type": "ScholarlyArticle",
         "headline": "FINITE WITHIN INFINITY, COUNTED — exactly 1 statement in the whole ledger carries a ∀ or ∃, and 0 of those range over an unbounded domain. The quantified one ranges over ℤ, which is infinite, and decides anyway because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the decision is finite. Every other statement is quantifier-free enumeration. This is the ledger's whole method stated as a census rather than as a slogan",
-        "abstract": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)",
-        "identifier": "9aeab4e7-a110-86bb-819a-34504f8c3916",
+        "abstract": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)",
+        "identifier": "0b5a90e8-f6a8-8e78-88bd-666792e1722f",
         "url": "https://uuidna.com/theorem/reach_quantifiers_bounded",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17764,11 +17372,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:5e03b7c1-5e49-811e-b0f1-c841b91059df",
+        "@id": "urn:uuid:63e14ac0-e881-802f-a2a7-5e546313a6cb",
         "@type": "ScholarlyArticle",
-        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 63 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number, never an unbounded one",
-        "abstract": "([1, 9, 9, 8, 8, 15, 16, 64, 27, 8, 12, 8, 13, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 15, 16, 64, 27, 8, 12, 8, 13, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)",
-        "identifier": "63d408bb-0d85-84e1-b3a2-eb3cf3a202d5",
+        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 62 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number, never an unbounded one",
+        "abstract": "([1, 9, 9, 8, 8, 15, 16, 64, 27, 12, 8, 13, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 15, 16, 64, 27, 12, 8, 13, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)",
+        "identifier": "f73bf7ea-5ade-8469-af02-fd02bf3ca11a",
         "url": "https://uuidna.com/theorem/reach_window_finite",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17794,7 +17402,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:4e35e235-c059-88e9-9f90-62005a375db6",
         "@type": "ScholarlyArticle",
-        "headline": "THE WINDOW IS WHERE THE PROOF STOPS, NOT WHERE THE PATTERN STOPS — and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So \"decided on a window\" does not entail \"true beyond it\", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the boundary clay_verified_ne_solved seals from the other side",
+        "headline": "THE WINDOW IS WHERE THE PROOF STOPS, NOT WHERE THE PATTERN STOPS — and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So \"decided on a window\" does not entail \"true beyond it\", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the boundary verified seals from the other side",
         "abstract": "((List.range 10).all (fun n => n < 10)) ∧ ¬(10 < 10)",
         "identifier": "4646eab2-455b-80ff-84af-5c2fd78a1370",
         "url": "https://uuidna.com/theorem/window_not_universal",
@@ -18162,34 +17770,6 @@
         "abstract": "(List.range 27).all (fun n => 2^n * 2^n == 2^(2*n))",
         "identifier": "fedeb0d5-6b36-8b99-b2d7-1bc3fcc5c6cd",
         "url": "https://uuidna.com/theorem/grover_quadratic_bound",
-        "keywords": "cipher, The cipher & the strand",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Cipher.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:66a311e7-a7d8-86de-9cc8-42fca9e5910e",
-        "@type": "ScholarlyArticle",
-        "headline": "The KDF cost the envelope ASSUMES, sealed (axiom-hunt): 600000 PBKDF2-SHA256 iterations (OWASP 2023) — positive, and within the DoS guard MAX_ITER = 10000000. The two coins paid at the door are a BOUNDED cost, never an unbounded spin.",
-        "abstract": "(0 < 600000) ∧ (600000 ≤ 10000000)",
-        "identifier": "d6315751-200f-8269-8c8d-5a80ee83bc8e",
-        "url": "https://uuidna.com/theorem/kdf_cost_bounded",
         "keywords": "cipher, The cipher & the strand",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Cipher.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -18884,11 +18464,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:7035e7f9-e1df-824a-8a4f-b73b16895893",
+        "@id": "urn:uuid:05284426-1d70-8cac-8766-9aaee0ecdb92",
         "@type": "ScholarlyArticle",
-        "headline": "every generated theorem carries prose IN the Lean — 1418 of 1418 documented across 90 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
-        "abstract": "(([8, 6, 6, 8, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 12].foldl (· + ·) 0) = 1418) ∧ ([8, 6, 6, 8, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 12] = [8, 6, 6, 8, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 12])",
-        "identifier": "f1b62fae-6074-84e0-9537-1dde94f33cf4",
+        "headline": "every generated theorem carries prose IN the Lean — 1386 of 1386 documented across 89 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
+        "abstract": "(([6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12].foldl (· + ·) 0) = 1386) ∧ ([6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12] = [6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12])",
+        "identifier": "c5d61d69-7d43-883b-93f4-73c72451e686",
         "url": "https://uuidna.com/theorem/prose_coverage_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18912,11 +18492,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:7b749b77-9915-8adf-8a80-a178d98f868a",
+        "@id": "urn:uuid:35dd1946-9012-8c45-9e0c-a592c7c54487",
         "@type": "ScholarlyArticle",
-        "headline": "the prose round-trips exactly — 1418 of 1418 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
-        "abstract": "(1418 + 0 = 1418) ∧ (0 = 0)",
-        "identifier": "d8c6fa75-c6b2-80f5-bbc9-ce5c4f404ea8",
+        "headline": "the prose round-trips exactly — 1386 of 1386 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
+        "abstract": "(1386 + 0 = 1386) ∧ (0 = 0)",
+        "identifier": "4373914b-4de2-88bf-8bd8-ebbf808c5f71",
         "url": "https://uuidna.com/theorem/prose_round_trips",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18940,11 +18520,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:7471b649-1a4b-8f54-9d2b-4257d2d944bf",
+        "@id": "urn:uuid:b0ed2ec0-fa3b-847b-aeee-d1f45203c74a",
         "@type": "ScholarlyArticle",
-        "headline": "no doc comment contains an unescaped -/ — 0 found across 1418; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
-        "abstract": "(0 + 1418 = 1418) ∧ (0 = 0)",
-        "identifier": "4338fc0d-1f5d-88d4-85f9-a527d3002d42",
+        "headline": "no doc comment contains an unescaped -/ — 0 found across 1386; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
+        "abstract": "(0 + 1386 = 1386) ∧ (0 = 0)",
+        "identifier": "dc7e451a-8d9d-8f0e-aaf9-f7623a1f0460",
         "url": "https://uuidna.com/theorem/prose_terminator_escaped",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18968,11 +18548,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:f96178de-d380-8463-9ce1-a0d2f54381d2",
+        "@id": "urn:uuid:555b22c2-e96c-8de6-9c98-f86523691748",
         "@type": "ScholarlyArticle",
-        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1418 informative against 0 bare, of 1418; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
-        "abstract": "(0 < 1418) ∧ (0 + 1418 = 1418)",
-        "identifier": "a13eadfa-bdc6-8b3b-8f0f-dea2dfe94970",
+        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1386 informative against 0 bare, of 1386; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
+        "abstract": "(0 < 1386) ∧ (0 + 1386 = 1386)",
+        "identifier": "759e2d0d-3252-8175-b14a-61b12263130b",
         "url": "https://uuidna.com/theorem/prose_beats_restatement",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18996,11 +18576,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ca117313-51ae-8520-b76f-6e4d18734b0e",
+        "@id": "urn:uuid:20b9b047-26ed-8c29-8ff4-dbf80b4b665f",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 240039 characters across 1418 doc comments in 90 wings fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1446, 1255, 1545, 1704, 1920, 2967, 1860, 1592, 774, 1526, 1813, 1340, 3451, 4277, 9441, 2171, 1597, 1239, 6902, 5088, 1373, 1630, 960, 4667, 2363, 962, 1465, 1615, 3310, 829, 3008, 1550, 2360, 2920, 1543, 1510, 1499, 2272, 1981, 1705, 959, 4222, 1569, 3171, 1641, 1664, 1425, 1365, 753, 5806, 16003, 1733, 1655, 1833, 2046, 1467, 2634, 1510, 1592, 1800, 946, 1019, 2126, 11553, 11220, 1808, 1540, 1743, 1539, 3510, 3069, 2624, 789, 1535, 3412, 8810, 5483, 2125, 1946, 1430, 1412, 919, 1453, 3576, 1064, 6166, 1522, 4328, 524, 2570].foldl (· + ·) 0) = 240039) ∧ (240039 % 9 = 0) ∧ (0 < 9)",
-        "identifier": "5a1ea277-f1f9-8de7-bd5c-8a7111352a0a",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 236486 characters across 1386 doc comments in 89 wings fold to 2; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1255, 1545, 3626, 1920, 2967, 1860, 1592, 774, 1526, 1813, 1340, 3451, 4277, 9207, 1597, 1239, 7326, 5088, 1373, 1630, 960, 4667, 2363, 1348, 1465, 1615, 3310, 829, 3008, 1358, 2200, 2920, 1543, 1510, 1499, 2272, 1981, 1705, 959, 4207, 1569, 3171, 1641, 1664, 1229, 1188, 753, 5806, 16003, 1733, 1188, 1833, 2046, 1467, 2634, 1510, 1592, 1800, 946, 1019, 2126, 11553, 11220, 1808, 987, 1564, 1539, 3510, 3069, 2177, 789, 1535, 3412, 8810, 5483, 2125, 1946, 1430, 1412, 919, 1453, 3384, 895, 5676, 1522, 4053, 524, 2570].foldl (· + ·) 0) = 236486) ∧ (236486 % 9 = 2) ∧ (2 < 9)",
+        "identifier": "cd4bc0e7-1c52-8647-b27f-c0a837bcbe3f",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -19024,11 +18604,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:f383bdef-b1e5-8178-9b98-3459487cd8dc",
+        "@id": "urn:uuid:a72c0a2b-6623-8656-9c29-2d53a7069b3c",
         "@type": "ScholarlyArticle",
-        "headline": "the audit is TOTAL over what a generator writes — 90 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
-        "abstract": "(0 < 90) ∧ (0 < 3) ∧ (1418 = 1418 + 0)",
-        "identifier": "90848212-9578-87d9-b708-9a6cd0c53365",
+        "headline": "the audit is TOTAL over what a generator writes — 89 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
+        "abstract": "(0 < 89) ∧ (0 < 3) ∧ (1386 = 1386 + 0)",
+        "identifier": "0a1313a0-3ec4-8b60-a6de-6f9fd08ba56f",
         "url": "https://uuidna.com/theorem/prose_audit_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -19478,6 +19058,34 @@
         "abstract": "(List.range 8).all (fun c => (32 * c == 64) == (c == 2))",
         "identifier": "af0f5d7d-88b6-8c59-ae21-68b334702485",
         "url": "https://uuidna.com/theorem/captain_computes_only_with_two_coins",
+        "keywords": "coins, The two coins & the 64",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:0719971e-c5f0-8c58-8604-647bfe3cd01d",
+        "@type": "ScholarlyArticle",
+        "headline": "WHY THE FLOOR IS 63 AND NOT A SNAPSHOT. Every falsified theorem pays the two coins, and the captain pays two more: 63·2 + 2 = 128, the full uuid. So the floor is not a census high-water mark that happened to be recorded — it is the uuid width less the captain commission, halved: (128 − 2)/2 = 63. A run that measures fewer has theorems that cannot be shown to fail, and the ledger no longer fills the 128 bits it addresses.",
+        "abstract": "(63 * 2 + 2 = 128) ∧ (128 - 2 = 126) ∧ (126 / 2 = 63)",
+        "identifier": "eed4b3bf-39dc-87ec-9cf1-1b02237cec82",
+        "url": "https://uuidna.com/theorem/falsifier_floor_is_the_uuid_less_the_coins",
         "keywords": "coins, The two coins & the 64",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -20592,11 +20200,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:04678b55-616b-8de3-86d7-34aec4d88b91",
+        "@id": "urn:uuid:ca6e0c00-3569-8caf-8107-19731b48fae8",
         "@type": "ScholarlyArticle",
-        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 93 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files, not chosen, so the kernel is walking the real shape of the ledger and not an example of it.",
-        "abstract": "([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
-        "identifier": "81fd071b-7893-8a9f-93c1-f1c30a4f7770",
+        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 92 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files, not chosen, so the kernel is walking the real shape of the ledger and not an example of it.",
+        "abstract": "([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
+        "identifier": "732eac52-b489-86a9-9d15-67f6fcffe8e5",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -20620,11 +20228,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:e33d30b3-4a95-8d6c-8e80-0b3d0fab8aa3",
+        "@id": "urn:uuid:c0d54477-8605-8750-a3c1-4e0b9024223a",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 93 measured wing counts and lands on 1452 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "(([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16].foldl (· + ·) 0) = 1452) ∧ ([8, 6, 6, 8, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 1, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 15, 12, 16].length = 93) ∧ (93 < 1452)",
-        "identifier": "7c4c6375-df09-87ef-a315-7760c6b3d771",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 92 measured wing counts and lands on 1420 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16].foldl (· + ·) 0) = 1420) ∧ ([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16].length = 92) ∧ (92 < 1420)",
+        "identifier": "0d9bc0ce-a6df-837f-824b-7f7e4ddcc170",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -21214,34 +20822,6 @@
         "abstract": "10 - 10 = 0",
         "identifier": "ae57c927-086f-8f53-83b3-55c9a8b9ab81",
         "url": "https://uuidna.com/theorem/oos_fnv_misuse",
-        "keywords": "exploits, The exploit folds",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Exploits.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:0e4e6d9e-5d04-84e0-bc31-1a0c2bd34943",
-        "@type": "ScholarlyArticle",
-        "headline": "Arbitrary program-correctness / non-decidable logic bugs: uuidna seals decidable facts only — outside a sealed proposition it is the void (0 = 0). OUT OF SCOPE.",
-        "abstract": "0 = 0",
-        "identifier": "7a331458-394e-801b-9ba9-fdf498a21bc1",
-        "url": "https://uuidna.com/theorem/oos_nondecidable_correctness",
         "keywords": "exploits, The exploit folds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Exploits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -23308,34 +22888,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:b9251a13-7452-8e7c-8b82-76d9e260f429",
-        "@type": "ScholarlyArticle",
-        "headline": "NEWTON WAS RIGHT AND CASSINI WAS WRONG, IN ONE COMPARISON. The 18th-century dispute was a yes/no about which axis is longer: Newton predicted a spinning fluid body bulges at the equator (oblate), the Cassinis held it was stretched at the poles (prolate). On the WGS 84 figure the equatorial radius exceeds the polar, 6378137 > 6356752 — oblate. The French geodesic missions to Lapland and Peru measured which way it went; the arithmetic here only states the comparison the standard encodes.",
-        "abstract": "6378137 > 6356752",
-        "identifier": "058a9df8-582f-8b2a-8e80-d7b29f91eb81",
-        "url": "https://uuidna.com/theorem/oblate_not_prolate",
-        "keywords": "topography, The lay of the land",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Topography.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:b4634e28-e31c-8b39-8fc1-15941ac6b7c8",
         "@type": "ScholarlyArticle",
         "headline": "THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 × 72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and decidable; the resulting circumference is NOT sealed here, because it depends on the length of his stadion, which is genuinely uncertain — the honest half is the fifty.",
@@ -24316,62 +23868,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:5db148e9-7d35-87ae-9663-410b6fe55e99",
-        "@type": "ScholarlyArticle",
-        "headline": "Dispersion splits white light: the index is higher for blue than for red (n_blue = 1.53 > n_red = 1.51, ×100: 153 > 151), so blue refracts more — the prism spreads the spectrum because n depends on wavelength.",
-        "abstract": "151 < 153",
-        "identifier": "d3346781-e4f5-8013-aa5c-f55ed819e09c",
-        "url": "https://uuidna.com/theorem/dispersion_blue_over_red",
-        "keywords": "optics, The light domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Optics.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:97728597-c24a-8399-8532-96d5103277a8",
-        "@type": "ScholarlyArticle",
-        "headline": "Total internal reflection needs a denser source: it occurs going from glass (n = 1.50) to air (n = 1.00), where 100 < 150, so the critical angle sinθc = n₂/n₁ = 100/150 = 2/3 ≤ 1 exists. From rarer to denser there is no critical angle — light always crosses.",
-        "abstract": "100 < 150",
-        "identifier": "37547bb2-402c-8242-861c-2f7d4f436ac3",
-        "url": "https://uuidna.com/theorem/tir_needs_denser_source",
-        "keywords": "optics, The light domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Optics.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:1a29f0ed-5a36-8b10-8bd5-51310ab9bb51",
         "@type": "ScholarlyArticle",
         "headline": "A vibrating string or air column sounds the harmonic series — integer multiples of the fundamental. On a 110 Hz fundamental the overtones are 110·[1,2,3,4,5,6] = [110,220,330,440,550,660] Hz.",
@@ -24428,34 +23924,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:d067493f-f191-8c59-a90a-4c435ff27f76",
-        "@type": "ScholarlyArticle",
-        "headline": "Sound is far slower than light: 343 m/s in air against light's 299792458 m/s — 343 < 299792458. You see the lightning long before you hear the thunder.",
-        "abstract": "343 < 299792458",
-        "identifier": "deb3b7b4-4292-876d-8ba3-1c53f3e689eb",
-        "url": "https://uuidna.com/theorem/sound_slower_than_light",
-        "keywords": "acoustics, The sound domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Acoustics.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:b889252d-59dd-86f2-aabb-c71db1655d85",
         "@type": "ScholarlyArticle",
         "headline": "The decibel is logarithmic: dB = 10·log₁₀(I/I₀), so each 10 dB is a factor of 10 in intensity and 20 dB a factor of 100 — 10¹ = 10, 10² = 100. Loudness compresses a huge intensity range.",
@@ -24490,34 +23958,6 @@
         "abstract": "444 - 440 = 4",
         "identifier": "5c22b479-7f9d-8917-835d-dc2819d2f21e",
         "url": "https://uuidna.com/theorem/beat_frequency",
-        "keywords": "acoustics, The sound domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Acoustics.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:f4b4a4e2-af46-8d3e-9e31-4c8fd433c163",
-        "@type": "ScholarlyArticle",
-        "headline": "The Doppler shift: an approaching source raises the observed frequency (f′/f = v/(v−vₛ) = 340/306 > 1) and a receding one lowers it (v/(v+vₛ) = 340/374 < 1) — 340 > 306 and 340 < 374. The passing siren drops in pitch.",
-        "abstract": "(340 > 306) ∧ (340 < 374)",
-        "identifier": "da3efd3c-1c77-89b3-a3e5-8d5a769268fe",
-        "url": "https://uuidna.com/theorem/doppler_shift",
         "keywords": "acoustics, The sound domain",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Acoustics.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -24854,34 +24294,6 @@
         "abstract": "(List.range 9).all (fun t => t <= t + 1)",
         "identifier": "f97bcf7a-bce8-8fae-a324-09971eb6bf7d",
         "url": "https://uuidna.com/theorem/entropy_never_decreases",
-        "keywords": "thermodynamics, The energy domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Thermodynamics.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:f6dad2bd-f72d-8bc5-916a-a05dcc7c2e38",
-        "@type": "ScholarlyArticle",
-        "headline": "The second law's direction: heat flows spontaneously from the hotter body to the colder — with Th = 400 K and Tc = 300 K, 400 > 300, so energy moves hot → cold, never the reverse without work.",
-        "abstract": "400 > 300",
-        "identifier": "02451732-01ea-8e27-8d70-3ff60dfb8715",
-        "url": "https://uuidna.com/theorem/heat_flows_hot_to_cold",
         "keywords": "thermodynamics, The energy domain",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Thermodynamics.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -25330,34 +24742,6 @@
         "abstract": "2 * 1 + 16 = 18",
         "identifier": "719baa6c-de89-8780-b85e-e7ed1f49fe11",
         "url": "https://uuidna.com/theorem/molar_mass_water",
-        "keywords": "molecular, The bond domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Molecular.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:71916687-f56f-8639-a7d5-9c3341e146c1",
-        "@type": "ScholarlyArticle",
-        "headline": "Bond strength rises with order: a triple bond is stronger than a double, a double stronger than a single — 3 > 2 and 2 > 1. Nitrogen's triple bond is why N₂ is so hard to break.",
-        "abstract": "(3 > 2) ∧ (2 > 1)",
-        "identifier": "48b721b9-6c81-8775-93c0-538049ca906e",
-        "url": "https://uuidna.com/theorem/bond_strength_rises_with_order",
         "keywords": "molecular, The bond domain",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Molecular.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -26052,62 +25436,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:71d1c10c-7a96-8693-9f0d-f74c64731425",
-        "@type": "ScholarlyArticle",
-        "headline": "Sailing upwind costs distance: to make good 3 units toward the wind you sail 5 through the water (the 3-4-5 close-hauled leg), and 5 > 3. Beating is always longer than the straight line you cannot take.",
-        "abstract": "5 > 3",
-        "identifier": "330bb6c5-a028-8035-91e0-4aa62c1221ef",
-        "url": "https://uuidna.com/theorem/beating_distance_penalty",
-        "keywords": "sailing, The points-of-sail domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sailing.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:9e587567-fa45-8253-9f4d-2ddee0088cef",
-        "@type": "ScholarlyArticle",
-        "headline": "Apparent wind is the vector sum of the true wind and the boat’s own motion, so close-hauled it exceeds the true wind: a true wind of 4 with the boat making 3 across gives an apparent 5 — 5 > 4. The faster you sail upwind, the more wind you feel.",
-        "abstract": "5 > 4",
-        "identifier": "0040a71e-94e5-84c6-b8a6-e91afad36954",
-        "url": "https://uuidna.com/theorem/apparent_wind_exceeds_true",
-        "keywords": "sailing, The points-of-sail domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Sailing.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:67c2474d-6cee-8b52-9bed-3d8254434e1a",
         "@type": "ScholarlyArticle",
         "headline": "When conditions are perfect the boat sails itself: a balanced helm is a moment equilibrium — the sail’s turning moment equals the keel’s (8·3 = 6·4 = 24) — so she holds her course with the tiller free. The captain rests; the balance steers.",
@@ -26220,34 +25548,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:f8a85514-e384-8bd9-bb30-1d5c35afe74b",
-        "@type": "ScholarlyArticle",
-        "headline": "Nothing outruns light: c = 299792458 m/s is the universal speed limit, so any real signal is strictly slower — 299792457 < 299792458. There is no faster-than-light; the ledger says \"no fake FTL,\" and relativity proves it.",
-        "abstract": "299792457 < 299792458",
-        "identifier": "326fadea-987c-86b7-87ab-6e68f8361c9b",
-        "url": "https://uuidna.com/theorem/cosmic_speed_limit",
-        "keywords": "relativity, The spacetime domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Relativity.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:8e88b5c1-01ae-86db-803c-48104968c767",
         "@type": "ScholarlyArticle",
         "headline": "Light travels on the null cone: with c = 1, a flash covering x = 5 in t = 5 has spacetime interval (ct)² − x² = 5² − 5² = 0. Photons trace the zero-interval boundary between cause and no-cause.",
@@ -26310,62 +25610,6 @@
         "abstract": "5^2 + 12^2 = 13^2",
         "identifier": "10e7e3e1-c691-80eb-b97d-c53673b972ba",
         "url": "https://uuidna.com/theorem/lorentz_gamma_triangle",
-        "keywords": "relativity, The spacetime domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Relativity.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:73dba3b5-9628-83c0-8957-a960fd229fd0",
-        "@type": "ScholarlyArticle",
-        "headline": "Moving clocks run slow: at γ = 13/12 a proper time of 12 seconds is observed as 13 — 13 > 12. The traveller ages less; the stay-at-home sees more time pass.",
-        "abstract": "13 > 12",
-        "identifier": "fa5b4412-cb82-83f0-b60a-058789876e73",
-        "url": "https://uuidna.com/theorem/time_dilation",
-        "keywords": "relativity, The spacetime domain",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Relativity.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:c30052e6-2c19-890e-a4c6-00adca8e616c",
-        "@type": "ScholarlyArticle",
-        "headline": "Moving lengths contract along the motion: at γ = 13/12 a 13-metre rest length measures 13/γ = 12 metres to the observer it flies past — 12 < 13. Space shortens as speed climbs.",
-        "abstract": "12 < 13",
-        "identifier": "54c91626-b6e0-874b-9df4-a7303fc449af",
-        "url": "https://uuidna.com/theorem/length_contraction",
         "keywords": "relativity, The spacetime domain",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Relativity.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -26870,34 +26114,6 @@
         "abstract": "18 * 12 + 7 = 223",
         "identifier": "4b677ddb-524d-873d-83c3-ddd55ee8216a",
         "url": "https://uuidna.com/theorem/saros_eclipse_cycle",
-        "keywords": "ephemeris, The time coordinate",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Ephemeris.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:77a3ec01-ceca-8f31-b08e-2123bcde90aa",
-        "@type": "ScholarlyArticle",
-        "headline": "The Sun advances just under one degree along the ecliptic each day, 360° over ~365 days, so 360 < 365 — a hair less than a degree daily. The year is the slow return of that creep to its start.",
-        "abstract": "360 < 365",
-        "identifier": "4db72f85-3e4d-8d07-8d7e-d75f0b9afadb",
-        "url": "https://uuidna.com/theorem/sun_creeps_under_a_degree",
         "keywords": "ephemeris, The time coordinate",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Ephemeris.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -31540,34 +30756,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:25d14d61-195c-8422-932a-6c094af504a8",
-        "@type": "ScholarlyArticle",
-        "headline": "The middle hours run fastest: 3 twelfths an hour at mid-tide versus 1 at the turns — 3 > 1, so the water moves most where a grounded keel most needs the depth to change.",
-        "abstract": "3 > 1",
-        "identifier": "7f7d11fa-cd4f-81eb-aa45-e41e92ca09ff",
-        "url": "https://uuidna.com/theorem/mid_tide_fastest",
-        "keywords": "tides, The tides",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Tides.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:a4bdd4e1-dcf5-8f70-848f-181f600add4b",
         "@type": "ScholarlyArticle",
         "headline": "Two high tides fall a lunar day apart: 12h25m = 745 minutes each, and 745·2 = 1490 = 24h50m — the semidiurnal rhythm, set by the Moon, not the Sun (which would give 24h).",
@@ -32078,34 +31266,6 @@
         "abstract": "(4 = 2 * 2) ∧ (6 = 2 * 3)",
         "identifier": "ba3b2b86-80fe-8402-8ca6-5168477aa61d",
         "url": "https://uuidna.com/theorem/van_de_graaf_margins",
-        "keywords": "typesetting, The measures of type",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Typesetting.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:633a6158-a593-871d-bd87-fe5ca5c1e52c",
-        "@type": "ScholarlyArticle",
-        "headline": "The readable measure — characters per line, counting spaces — sits near 66, inside the 45–75 a typographer keeps: 45 ≤ 66 ∧ 66 ≤ 75. Too short and the eye jerks back too often; too long and it loses the return sweep to the next line. Bringhurst's rule, stated as an interval.",
-        "abstract": "45 ≤ 66 ∧ 66 ≤ 75",
-        "identifier": "081775f3-fe53-82d8-8d11-715c631b8b75",
-        "url": "https://uuidna.com/theorem/readable_measure_range",
         "keywords": "typesetting, The measures of type",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Typesetting.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -33388,34 +32548,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:e9712f43-0e55-8b72-a5e9-8d7065b052a6",
-        "@type": "ScholarlyArticle",
-        "headline": "+2.3 above vs −1.4 below (×10); blue window SNR 3 < 5.",
-        "abstract": "(23 > 14) ∧ (30 < 50)",
-        "identifier": "5c112a98-3523-8657-9722-04faa2a6356b",
-        "url": "https://uuidna.com/theorem/mombh_break_error_asymmetric_blue_faint",
-        "keywords": "paper-trial, The paper on trial",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/MoMBHStar1.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:056ec62b-66ce-8a40-87cb-67dfc1c38811",
         "@type": "ScholarlyArticle",
         "headline": "30 ± 7 %: 4·7 ≤ 30 < 5·7. SCOPE: three instruments.",
@@ -33472,124 +32604,12 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:134121db-3316-81f6-90b3-62edf0734290",
-        "@type": "ScholarlyArticle",
-        "headline": "3.5σ < 5σ (×10).",
-        "abstract": "(35 < 50)",
-        "identifier": "74c74a40-ba81-8b5f-87ce-4cc8a910ab00",
-        "url": "https://uuidna.com/theorem/mombh_oiii_is_tentative",
-        "keywords": "paper-trial, The paper on trial",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/MoMBHStar1.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:5806c97a-1663-861b-a467-5b2780b4835c",
-        "@type": "ScholarlyArticle",
-        "headline": "95% <100 pc, 99% <117 pc.",
-        "abstract": "(100 < 117)",
-        "identifier": "49297fdb-7ca0-8273-9889-ac704ea80fa4",
-        "url": "https://uuidna.com/theorem/mombh_size_limits_ordered",
-        "keywords": "paper-trial, The paper on trial",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/MoMBHStar1.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:932b5e9c-4389-84af-b96b-b18d40d30fd2",
         "@type": "ScholarlyArticle",
         "headline": "log nH 11 ≥ 9; log NH ×10 258 > 241 (Compton-thick). SCOPE: one model of ~1e6, filtered not sampled.",
         "abstract": "(11 >= 9) ∧ (258 > 241)",
         "identifier": "453c3e41-527d-8f61-bec0-98a8df2f0fa5",
         "url": "https://uuidna.com/theorem/mombh_fiducial_gas_dense_and_compton_thick",
-        "keywords": "paper-trial, The paper on trial",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/MoMBHStar1.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:56367c89-8c4c-8248-b605-f0520f717a10",
-        "@type": "ScholarlyArticle",
-        "headline": "A_V 0.15 vs 2–3 (×100).",
-        "abstract": "(15 < 200) ∧ (15 < 300)",
-        "identifier": "d38d4c89-162c-8ef4-9340-f8414f3de260",
-        "url": "https://uuidna.com/theorem/mombh_fiducial_is_dust_free",
-        "keywords": "paper-trial, The paper on trial",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/MoMBHStar1.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:1b28eefd-7090-8374-97c8-6ad44a0d4cdf",
-        "@type": "ScholarlyArticle",
-        "headline": "0.18 by scaling, ~5 by alternative (×100): straddle 1. NOT PROVEN which.",
-        "abstract": "(18 < 100) ∧ (100 < 500)",
-        "identifier": "191b1f4d-61dc-8029-8f49-6595f697dddd",
-        "url": "https://uuidna.com/theorem/mombh_eddington_two_answers_straddle_one",
         "keywords": "paper-trial, The paper on trial",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/MoMBHStar1.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -33646,34 +32666,6 @@
         "abstract": "(83 - 60 = 23) ∧ (23 > 20)",
         "identifier": "10305dc1-5259-8d04-9588-00a21a632e2a",
         "url": "https://uuidna.com/theorem/mombh_black_hole_mass_spans_over_two_dex",
-        "keywords": "paper-trial, The paper on trial",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/MoMBHStar1.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:45a20af0-705d-8393-ab7e-93e085b971f8",
-        "@type": "ScholarlyArticle",
-        "headline": "n = 1.",
-        "abstract": "(1 < 2)",
-        "identifier": "7f44fb48-0a4e-8540-b06f-ef6ccb0c171f",
-        "url": "https://uuidna.com/theorem/mombh_sample_is_one",
         "keywords": "paper-trial, The paper on trial",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/MoMBHStar1.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -35242,34 +34234,6 @@
         "abstract": "(List.range 6) = [0,1,2,3,4,5]",
         "identifier": "1be77fcc-a915-8cc9-9ef5-374b65764c4e",
         "url": "https://uuidna.com/theorem/timeline_is_chronological",
-        "keywords": "reporting, The report",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Report.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:15259ffa-9615-882f-a0ae-14bf285e1924",
-        "@type": "ScholarlyArticle",
-        "headline": "A fact needs TWO independent reputable sources — one source is uncorroborated (1 < 2), and a second that agrees lifts it over the bar. A single source is a lead, not yet a report.",
-        "abstract": "1 < 2",
-        "identifier": "6247bf91-19bc-840e-827d-726995be2be7",
-        "url": "https://uuidna.com/theorem/corroboration_needs_two",
         "keywords": "reporting, The report",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Report.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -36916,12 +35880,12 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:207a44dd-0dde-8fc9-bc29-f0deb1791162",
+        "@id": "urn:uuid:fc5a7ac0-a1f7-83b3-8be0-354f0d635ff7",
         "@type": "ScholarlyArticle",
-        "headline": "THE COMMISSION IS A STEP, NOT A FRACTION: two coins per COMPLETED 110, so 110 pays two, 220 pays four, and 109 pays nothing. A rate that rounded would leak; a floor cannot.",
+        "headline": "THE CAPTAIN COMMISSION — the key the hosted MCP quotes to every agent that connects and every two-coin deposit cites, so the NAME is a published contract, not a label. THE COMMISSION IS A STEP, NOT A FRACTION: two coins per COMPLETED 110, so 110 pays two, 220 pays four, and 109 pays nothing. A rate that rounded would leak; a floor cannot.",
         "abstract": "(commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0)",
-        "identifier": "89753ad6-c453-8ddf-8505-06eb14d601dc",
-        "url": "https://uuidna.com/theorem/commission_is_two_per_full_hundred_ten",
+        "identifier": "567c5986-69f7-87fa-9f8a-1ffd58a07feb",
+        "url": "https://uuidna.com/theorem/captain_commission_two_coins",
         "keywords": "anti-fraud, Anti-fraud detection",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/AntiFraud.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -37056,12 +36020,152 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:e9a2c784-6afc-8501-a532-4b705a1ed94f",
+        "@id": "urn:uuid:58c91725-3568-87e1-b4a1-9f49ad1aee77",
         "@type": "ScholarlyArticle",
-        "headline": "THE AUDIT GATE IS A CONJUNCTION: across all eight states of the three detectors it passes on exactly ONE — every detector silent — and fails on the other seven. One flag anywhere drains it, which is what makes it a gate rather than a score.",
+        "headline": "THE GATE IS DETERMINISTIC — the published spec the hosted MCP recomputes against, and a name 59 files cite. Across all eight states of the three detectors it passes on exactly ONE — every detector silent — and fails on the other seven, so the verdict table is fixed [1,0,0,0,0,0,0,0]: same input, same verdict, for anyone. One flag anywhere drains it, which is what makes it a gate rather than a score. THE KEY IS PART OF THE CONTRACT: across all eight states of the three detectors it passes on exactly ONE — every detector silent — and fails on the other seven. One flag anywhere drains it, which is what makes it a gate rather than a score.",
         "abstract": "(((List.range 2).flatMap (fun f => (List.range 2).flatMap (fun d => (List.range 2).map (fun v => cleanAudit f d v)))).filter (fun x => x == 1)).length = 1",
-        "identifier": "1237f8a5-5023-8993-a651-3e411745acc9",
-        "url": "https://uuidna.com/theorem/gate_passes_on_one_state",
+        "identifier": "609385c7-ef07-8c6a-8514-7b6920969e12",
+        "url": "https://uuidna.com/theorem/anti_fraud_check_deterministic",
+        "keywords": "anti-fraud, Anti-fraud detection",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/AntiFraud.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:989dd3fe-7e6a-8e89-b631-ccec4d12f275",
+        "@type": "ScholarlyArticle",
+        "headline": "A TRUE SEAL NEVER FLAGS — the gate accuses no honest tool. Walking the nine matching claim-seal pairs, forged is 0 at every one, so the forgery detector has no false positive to trade against its recall. This is the honest half of forgery_flags_every_mismatch, and it carries its own name because 48 files cite it as the guarantee that an honest citation is never refused.",
+        "abstract": "((List.range 9).map (fun c => forged c c)).all (fun x => x == 0)",
+        "identifier": "690be5bf-a185-8d99-b194-2b19d3adc7b4",
+        "url": "https://uuidna.com/theorem/sealed_theorem_not_forged",
+        "keywords": "anti-fraud, Anti-fraud detection",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/AntiFraud.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:62989538-2d2d-856b-9104-00904be7205e",
+        "@type": "ScholarlyArticle",
+        "headline": "THE GATE PASSES EXACTLY WHEN NOTHING IS FLAGGED — an IFF over all eight detector states, not merely \"it passes when clean\". One direction alone would admit a gate that also passed on something else. Named in GATE_THEOREMS as part of the gate’s published spec.",
+        "abstract": "(List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (cleanAudit f d v == 1) == (f == 0 && d == 0 && v == 0))))",
+        "identifier": "9733cc92-2784-884f-b63b-b60e25e82e90",
+        "url": "https://uuidna.com/theorem/honesty_gate_passes_iff_all_sealed",
+        "keywords": "anti-fraud, Anti-fraud detection",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/AntiFraud.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:91f59af1-7177-8cfd-8b17-d672bcc13c72",
+        "@type": "ScholarlyArticle",
+        "headline": "ONE RAISED FLAG DRAINS THE WHOLE AUDIT — no partial credit. Over all eight states, if any detector fires the gate is 0, which is what makes it a conjunction rather than a score that could average an intrusion away.",
+        "abstract": "(List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (f + d + v == 0) || (cleanAudit f d v == 0))))",
+        "identifier": "f29ca687-7a0b-8bec-beb5-d0bb91e7590c",
+        "url": "https://uuidna.com/theorem/conformance_failure_detects_intrusion",
+        "keywords": "anti-fraud, Anti-fraud detection",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/AntiFraud.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:963bdd71-d9ba-84e7-a29a-e4dc9882b4f0",
+        "@type": "ScholarlyArticle",
+        "headline": "THE IMPLEMENTATION EQUALS ITS BOOLEAN SPEC at every one of the eight states — there is no oracle, no judgement call, nothing consulted that a reader cannot recompute. This is the theorem that makes the gate auditable rather than trusted.",
+        "abstract": "(List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => cleanAudit f d v == (if f == 0 && d == 0 && v == 0 then 1 else 0))))",
+        "identifier": "f69eb184-0a3f-8230-a661-6a1b6090e50a",
+        "url": "https://uuidna.com/theorem/honesty_gate_is_theorem_not_oracle",
+        "keywords": "anti-fraud, Anti-fraud detection",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/AntiFraud.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:e870774c-bc56-8932-a26f-5a416336624c",
+        "@type": "ScholarlyArticle",
+        "headline": "A FABRICATED CITATION DRAINS THE AUDIT whatever else is clean: with the citation bit raised the gate is 0 at every combination of the other two detectors. Since the lexical honesty gate was folded away, this is the ONE thing that drains — so it carries its own theorem.",
+        "abstract": "(List.range 2).all (fun f => (List.range 2).all (fun d => cleanAudit f d 1 == 0))",
+        "identifier": "2ba0b184-7ccf-8f31-b1b6-cc5162ffb7b4",
+        "url": "https://uuidna.com/theorem/overclaim_with_fake_cite_fails",
         "keywords": "anti-fraud, Anti-fraud detection",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/AntiFraud.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

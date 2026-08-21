@@ -1,13 +1,13 @@
 ---
 title: "The tides"
-description: "Computed from lean/Tides.lean — 7 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Tides.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
 # The tides
 
-> THE TIDES — the rule of twelfths, half-tide, the semidiurnal period and spring/neap, as decidable arithmetic. — held by [rule_of_twelfths](/theorem/rule_of_twelfths) and its 6 siblings below.
+> THE TIDES — the rule of twelfths, half-tide, the semidiurnal period and spring/neap, as decidable arithmetic. — held by [rule_of_twelfths](/theorem/rule_of_twelfths) and its 5 siblings below.
 
-**7 theorems**, from [rule_of_twelfths](/theorem/rule_of_twelfths) onward, each proven `by decide` in [lean/Tides.lean](/lean/Tides.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [half_tide_at_hour_three](/theorem/half_tide_at_hour_three). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [rule_of_twelfths](/theorem/rule_of_twelfths) onward, each proven `by decide` in [lean/Tides.lean](/lean/Tides.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [half_tide_at_hour_three](/theorem/half_tide_at_hour_three). A boundary stated here is decided, not merely denied.
 
 ### The sailor's rule of twelfths: over six hours a tide rises 1,2,3,3,2,1 twelfths of its range — and 1+2+3+3+2+1 = 12, the whole range accounted for.
 The ledger holds this as [rule_of_twelfths](/theorem/rule_of_twelfths) — proven `by decide`, sorry-free:
@@ -28,13 +28,6 @@ The ledger holds this as [half_tide_at_hour_three](/theorem/half_tide_at_hour_th
 
 ```lean
 1 + 2 + 3 = 6 ∧ 2 * 6 = 12
-```
-
-### The middle hours run fastest: 3 twelfths an hour at mid-tide versus 1 at the turns — 3 > 1, so the water moves most where a grounded keel most needs the depth to change.
-The ledger holds this as [mid_tide_fastest](/theorem/mid_tide_fastest) — proven `by decide`, sorry-free:
-
-```lean
-3 > 1
 ```
 
 ### Two high tides fall a lunar day apart: 12h25m = 745 minutes each, and 745·2 = 1490 = 24h50m — the semidiurnal rhythm, set by the Moon, not the Sun (which would give 24h).

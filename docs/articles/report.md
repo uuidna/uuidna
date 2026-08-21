@@ -1,13 +1,13 @@
 ---
 title: "The report"
-description: "Computed from lean/Report.lean — 8 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Report.lean — 7 sealed theorems, every claim citing its proof."
 ---
 
 # The report
 
-> THE REPORT — the reporter's METHOD as decidable arithmetic: the six questions, a chronological timeline, corroboration by two reputable sources, trinity editing, full-quorum publication, the inverted pyramid, and the VERIFIED/UNVERIFIED verdict on every claim. — held by [five_ws_and_one_h](/theorem/five_ws_and_one_h) and its 7 siblings below.
+> THE REPORT — the reporter's METHOD as decidable arithmetic: the six questions, a chronological timeline, corroboration by two reputable sources, trinity editing, full-quorum publication, the inverted pyramid, and the VERIFIED/UNVERIFIED verdict on every claim. — held by [five_ws_and_one_h](/theorem/five_ws_and_one_h) and its 6 siblings below.
 
-**8 theorems**, from [five_ws_and_one_h](/theorem/five_ws_and_one_h) onward, each proven `by decide` in [lean/Report.lean](/lean/Report.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [timeline_is_chronological](/theorem/timeline_is_chronological). A boundary stated here is decided, not merely denied.
+**7 theorems**, from [five_ws_and_one_h](/theorem/five_ws_and_one_h) onward, each proven `by decide` in [lean/Report.lean](/lean/Report.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [timeline_is_chronological](/theorem/timeline_is_chronological). A boundary stated here is decided, not merely denied.
 
 ### A complete report answers SIX questions — who, what, when, where, why, and how: the five W's plus the one H, 5 + 1 = 6. Miss one and the story has a hole a reader can fall through.
 The ledger holds this as [five_ws_and_one_h](/theorem/five_ws_and_one_h) — proven `by decide`, sorry-free:
@@ -21,13 +21,6 @@ The ledger holds this as [timeline_is_chronological](/theorem/timeline_is_chrono
 
 ```lean
 (List.range 6) = [0,1,2,3,4,5]
-```
-
-### A fact needs TWO independent reputable sources — one source is uncorroborated (1 < 2), and a second that agrees lifts it over the bar. A single source is a lead, not yet a report.
-The ledger holds this as [corroboration_needs_two](/theorem/corroboration_needs_two) — proven `by decide`, sorry-free:
-
-```lean
-1 < 2
 ```
 
 ### Trinity editing is THREE independent passes — reporter, editor, and a third check — 1 + 1 + 1 = 3, the same trinity the ledger folds in. One writer's certainty is not an edit; three eyes catch what one misses.

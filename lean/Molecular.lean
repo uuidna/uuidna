@@ -28,7 +28,3 @@ theorem ionic_threshold : 30 - 9 > 17 := by decide
 /-- Molar mass sums the atomic masses: water is 2·1 (hydrogen) + 16 (oxygen) = 18 g/mol. The molecule weighs
     exactly its parts. -/
 theorem molar_mass_water : 2 * 1 + 16 = 18 := by decide
-
-/-- Bond strength rises with order: a triple bond is stronger than a double, a double stronger than a single — 3
-    > 2 and 2 > 1. Nitrogen's triple bond is why N₂ is so hard to break. -/
-theorem bond_strength_rises_with_order : (3 > 2) ∧ (2 > 1) := by decide

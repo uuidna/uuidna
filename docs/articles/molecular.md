@@ -1,13 +1,13 @@
 ---
 title: "The bond domain"
-description: "Computed from lean/Molecular.lean — 8 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Molecular.lean — 7 sealed theorems, every claim citing its proof."
 ---
 
 # The bond domain
 
-> MOLECULAR — the bond domain, as decidable arithmetic, demarcated. — held by [octet_rule](/theorem/octet_rule) and its 7 siblings below.
+> MOLECULAR — the bond domain, as decidable arithmetic, demarcated. — held by [octet_rule](/theorem/octet_rule) and its 6 siblings below.
 
-**8 theorems**, from [octet_rule](/theorem/octet_rule) onward, each proven `by decide` in [lean/Molecular.lean](/lean/Molecular.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**7 theorems**, from [octet_rule](/theorem/octet_rule) onward, each proven `by decide` in [lean/Molecular.lean](/lean/Molecular.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 ### The octet rule: atoms bond to reach eight valence electrons. Carbon has 4 of its own and shares 4 more, 4 + 4 = 8 — a full outer shell, the driver of covalent bonding.
 The ledger holds this as [octet_rule](/theorem/octet_rule) — proven `by decide`, sorry-free:
@@ -56,13 +56,6 @@ The ledger holds this as [molar_mass_water](/theorem/molar_mass_water) — prove
 
 ```lean
 2 * 1 + 16 = 18
-```
-
-### Bond strength rises with order: a triple bond is stronger than a double, a double stronger than a single — 3 > 2 and 2 > 1. Nitrogen's triple bond is why N₂ is so hard to break.
-The ledger holds this as [bond_strength_rises_with_order](/theorem/bond_strength_rises_with_order) — proven `by decide`, sorry-free:
-
-```lean
-(3 > 2) ∧ (2 > 1)
 ```
 
 

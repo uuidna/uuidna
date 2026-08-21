@@ -24,10 +24,6 @@ theorem mean_motion_linear : (([1,2,3] : List Nat).map (fun t => 30 * t)) = [30,
     intercalary ≈ 223. After a Saros the sun, moon and nodes return to nearly the same alignment. -/
 theorem saros_eclipse_cycle : 18 * 12 + 7 = 223 := by decide
 
-/-- The Sun advances just under one degree along the ecliptic each day, 360° over ~365 days, so 360 < 365 — a
-    hair less than a degree daily. The year is the slow return of that creep to its start. -/
-theorem sun_creeps_under_a_degree : 360 < 365 := by decide
-
 /-- A Julian Date is one continuous integer day count, so any interval is a plain subtraction: the epoch J2000
     (JD 2451545) minus the day before (2451544) is 1 day. Time becomes a coordinate you can just subtract. -/
 theorem julian_date_is_a_day_count : 2451545 - 2451544 = 1 := by decide

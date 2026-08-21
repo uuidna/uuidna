@@ -1,13 +1,13 @@
 ---
 title: "The time coordinate"
-description: "Computed from lean/Ephemeris.lean — 8 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Ephemeris.lean — 7 sealed theorems, every claim citing its proof."
 ---
 
 # The time coordinate
 
-> EPHEMERIS — the astronomical TIME coordinate, as decidable arithmetic, demarcated. — held by [seconds_per_day](/theorem/seconds_per_day) and its 7 siblings below.
+> EPHEMERIS — the astronomical TIME coordinate, as decidable arithmetic, demarcated. — held by [seconds_per_day](/theorem/seconds_per_day) and its 6 siblings below.
 
-**8 theorems**, from [seconds_per_day](/theorem/seconds_per_day) onward, each proven `by decide` in [lean/Ephemeris.lean](/lean/Ephemeris.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [gregorian_leap_rule](/theorem/gregorian_leap_rule). A boundary stated here is decided, not merely denied.
+**7 theorems**, from [seconds_per_day](/theorem/seconds_per_day) onward, each proven `by decide` in [lean/Ephemeris.lean](/lean/Ephemeris.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [gregorian_leap_rule](/theorem/gregorian_leap_rule). A boundary stated here is decided, not merely denied.
 
 ### The base of the time coordinate: a day is 24 hours of 60 minutes of 60 seconds — 24·60·60 = 86400 seconds. Every clock counts up from that grid.
 The ledger holds this as [seconds_per_day](/theorem/seconds_per_day) — proven `by decide`, sorry-free:
@@ -49,13 +49,6 @@ The ledger holds this as [saros_eclipse_cycle](/theorem/saros_eclipse_cycle) —
 
 ```lean
 18 * 12 + 7 = 223
-```
-
-### The Sun advances just under one degree along the ecliptic each day, 360° over ~365 days, so 360 < 365 — a hair less than a degree daily. The year is the slow return of that creep to its start.
-The ledger holds this as [sun_creeps_under_a_degree](/theorem/sun_creeps_under_a_degree) — proven `by decide`, sorry-free:
-
-```lean
-360 < 365
 ```
 
 ### A Julian Date is one continuous integer day count, so any interval is a plain subtraction: the epoch J2000 (JD 2451545) minus the day before (2451544) is 1 day. Time becomes a coordinate you can just subtract.

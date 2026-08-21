@@ -81,11 +81,6 @@ theorem affine_is_permutation : (List.range 5).all (fun y => (List.range 5).any 
     target at all. -/
 theorem grover_quadratic_bound : (List.range 27).all (fun n => 2^n * 2^n == 2^(2*n)) := by decide
 
-/-- The KDF cost the envelope ASSUMES, sealed (axiom-hunt): 600000 PBKDF2-SHA256 iterations (OWASP 2023) —
-    positive, and within the DoS guard MAX_ITER = 10000000. The two coins paid at the door are a BOUNDED cost,
-    never an unbounded spin. -/
-theorem kdf_cost_bounded : (0 < 600000) ∧ (600000 ≤ 10000000) := by decide
-
 /-- The envelope’s byte geometry, sealed (axiom-hunt): the ChaCha20-Poly1305 nonce is 12 bytes = 96 bits (RFC
     8439) and the KDF salt is 16 bytes = 128 bits — the nonce strictly narrower than the 128-bit address, the
     salt exactly one address wide. -/

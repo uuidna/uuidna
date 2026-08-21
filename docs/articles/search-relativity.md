@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The spacetime domain
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The spacetime domain* — the wing sealed in [lean/Relativity.lean](/lean/Relativity.lean) with **8 theorems**. Each
+asked in parallel about *The spacetime domain* — the wing sealed in [lean/Relativity.lean](/lean/Relativity.lean) with **5 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -17,10 +17,10 @@ the hard gate of the corroboration law.
 | `a2526ec6` | zenodo.org | zenodo record 3269507: A Practical Route Reconstruction Method for Wi-Fi Mesh Networks In Disaster Situ | UNVERIFIED | VERIFIED |
 | `d9d487a6` | zenodo.org | zenodo record 3781643: Faster, easier and safer access to microdata | UNVERIFIED | VERIFIED |
 | `011f08fa` | zenodo.org | zenodo record 11028898: Superluminal Dark Spacetime Domain | UNVERIFIED | VERIFIED |
-| `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
 | `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
+| `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
 | `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
-| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
 | `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `045ad1f6` | crossref.org | DOI 10.2139/ssrn.4802140: Superluminal Dark Spacetime Domain | UNVERIFIED | VERIFIED |
 | `cedd834f` | crossref.org | DOI 10.1007/bfb0104596: Domain walls and spacetime-filling branes | UNVERIFIED | VERIFIED |
@@ -39,16 +39,13 @@ the hard gate of the corroboration law.
 | `2d922366` | openalex.org | OpenAlex The Motion of Point Particles in Curved Spacetime [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 | `32e9c79e` | openalex.org | OpenAlex Covariant perturbations of domain walls in curved spacetime [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `94fc1ad4`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `25c2ea03`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
-- [cosmic_speed_limit](/theorem/cosmic_speed_limit) — `299792457 < 299792458`
 - [light_on_null_cone](/theorem/light_on_null_cone) — `(5*5 - 5*5 : Int) = 0`
 - [interval_timelike_causal](/theorem/interval_timelike_causal) — `((5*5 - 4*4 : Int) = 9) ∧ ((9:Int) > 0)`
 - [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) — `5^2 + 12^2 = 13^2`
-- [time_dilation](/theorem/time_dilation) — `13 > 12`
-- [length_contraction](/theorem/length_contraction) — `12 < 13`
 - [rest_energy_mc2](/theorem/rest_energy_mc2) — `(([1,2,3] : List Nat).map (fun m => m * 9)) = [9,18,27]`
 - [causality_forbids_ftl](/theorem/causality_forbids_ftl) — `(3*3 - 5*5 : Int) < 0`
 

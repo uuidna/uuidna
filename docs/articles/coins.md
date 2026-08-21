@@ -1,13 +1,13 @@
 ---
 title: "The two coins & the 64"
-description: "Computed from lean/Coins.lean — 19 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Coins.lean — 20 sealed theorems, every claim citing its proof."
 ---
 
 # The two coins & the 64
 
-> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [two_coins](/theorem/two_coins) and its 18 siblings below.
+> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [two_coins](/theorem/two_coins) and its 19 siblings below.
 
-**19 theorems**, from [two_coins](/theorem/two_coins) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 16 of its 19 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [two_coins](/theorem/two_coins). A boundary stated here is decided, not merely denied.
+**20 theorems**, from [two_coins](/theorem/two_coins) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 17 of its 20 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [two_coins](/theorem/two_coins). A boundary stated here is decided, not merely denied.
 
 ### The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate.
 The ledger holds this as [two_coins](/theorem/two_coins) — proven `by decide`, sorry-free:
@@ -42,6 +42,13 @@ The ledger holds this as [captain_computes_only_with_two_coins](/theorem/captain
 
 ```lean
 (List.range 8).all (fun c => (32 * c == 64) == (c == 2))
+```
+
+### WHY THE FLOOR IS 63 AND NOT A SNAPSHOT. Every falsified theorem pays the two coins, and the captain pays two more: 63·2 + 2 = 128, the full uuid. So the floor is not a census high-water mark that happened to be recorded — it is the uuid width less the captain commission, halved: (128 − 2)/2 = 63. A run that measures fewer has theorems that cannot be shown to fail, and the ledger no longer fills the 128 bits it addresses.
+The ledger holds this as [falsifier_floor_is_the_uuid_less_the_coins](/theorem/falsifier_floor_is_the_uuid_less_the_coins) — proven `by decide`, sorry-free:
+
+```lean
+(63 * 2 + 2 = 128) ∧ (128 - 2 = 126) ∧ (126 / 2 = 63)
 ```
 
 ### Respect the captain coins for quantum AT SCALE on classical hardware: the state-vector cost is 2ⁿ (exponential), so from the 7-qubit / 7-dimension scale up (n ≥ 7) the classical cost 2ⁿ already EXCEEDS the two-coin save (2·32 = 64). No free advantage — the coins price real work that only grows; the save is bounded, the cost is not.

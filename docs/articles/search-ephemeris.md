@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The time coordinate
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The time coordinate* — the wing sealed in [lean/Ephemeris.lean](/lean/Ephemeris.lean) with **8 theorems**. Each
+asked in parallel about *The time coordinate* — the wing sealed in [lean/Ephemeris.lean](/lean/Ephemeris.lean) with **7 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `fbf988a6` | zenodo.org | zenodo record 15121869: Challenges and Opportunities of Self Employment in the Contemporary Labour Marke | UNVERIFIED | VERIFIED |
 | `24944078` | zenodo.org | zenodo record 5732307: The Physics of Spontaneous Emission and Quantum Mechanical Decay | UNVERIFIED | VERIFIED |
 | `c96d8029` | zenodo.org | zenodo record 10805048: ICDAR 2011 - French Handwriting Recognition Competition - Line snippets | UNVERIFIED | VERIFIED |
-| `fbf045f9` | zenodo.org | zenodo record 14499561: Standardized lunar coordinate system – overview | UNVERIFIED | VERIFIED |
+| `cce0d778` | zenodo.org | zenodo record 21483179: A comparative MRI-based study of ResNet-152 and novel deep learning approaches f | UNVERIFIED | VERIFIED |
 | `8159ac27` | crossref.org | DOI 10.1007/978-3-540-72715-6_2: Coordinate and Time Systems | UNVERIFIED | VERIFIED |
 | `40013f95` | crossref.org | DOI 10.7717/peerj.8435/fig-5: Figure 5: Principal Coordinate ordination plots by sampling time. | UNVERIFIED | VERIFIED |
 | `64fe759e` | crossref.org | DOI 10.21236/ad0615034: TIME AND COORDINATE SYSTEM STUDIES | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `8fcdcbc9` | openalex.org | OpenAlex Observer Time as a Coordinate in Relativistic Spherical Hydrodynamics [Relativity and Gravitational T] | UNVERIFIED | VERIFIED |
 | `a31e5682` | openalex.org | OpenAlex Real-Time Coordinated Scheduling for ADNs With Soft Open Points and Ch [Microgrid Control and Optimiza] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `b127b897`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `d47f1662`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -49,7 +49,6 @@ The sealed backing this trial held the findings beside:
 - [gregorian_leap_rule](/theorem/gregorian_leap_rule) — `(100 - 3 = 97) ∧ (400 * 365 + 97 = 146097)`
 - [mean_motion_linear](/theorem/mean_motion_linear) — `(([1,2,3] : List Nat).map (fun t => 30 * t)) = [30,60,90]`
 - [saros_eclipse_cycle](/theorem/saros_eclipse_cycle) — `18 * 12 + 7 = 223`
-- [sun_creeps_under_a_degree](/theorem/sun_creeps_under_a_degree) — `360 < 365`
 - [julian_date_is_a_day_count](/theorem/julian_date_is_a_day_count) — `2451545 - 2451544 = 1`
 
 ::: warning HONEST SCOPE

@@ -4,38 +4,20 @@
     inputs. -/
 theorem mombh_balmer_break_exceeds_stellar_ceiling : (77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30) := by decide
 
-/-- +2.3 above vs −1.4 below (×10); blue window SNR 3 < 5. -/
-theorem mombh_break_error_asymmetric_blue_faint : (23 > 14) ∧ (30 < 50) := by decide
-
 /-- 30 ± 7 %: 4·7 ≤ 30 < 5·7. SCOPE: three instruments. -/
 theorem mombh_variability_is_four_sigma : (4 * 7 <= 30) ∧ (30 < 5 * 7) := by decide
 
 /-- 11.4 (−2.5) ×10: central clears 10, lower bound does not. -/
 theorem mombh_hbeta_oiii_ratio_central_over_ten_lower_under : (114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100) := by decide
 
-/-- 3.5σ < 5σ (×10). -/
-theorem mombh_oiii_is_tentative : (35 < 50) := by decide
-
-/-- 95% <100 pc, 99% <117 pc. -/
-theorem mombh_size_limits_ordered : (100 < 117) := by decide
-
 /-- log nH 11 ≥ 9; log NH ×10 258 > 241 (Compton-thick). SCOPE: one model of ~1e6, filtered not sampled. -/
 theorem mombh_fiducial_gas_dense_and_compton_thick : (11 >= 9) ∧ (258 > 241) := by decide
-
-/-- A_V 0.15 vs 2–3 (×100). -/
-theorem mombh_fiducial_is_dust_free : (15 < 200) ∧ (15 < 300) := by decide
-
-/-- 0.18 by scaling, ~5 by alternative (×100): straddle 1. NOT PROVEN which. -/
-theorem mombh_eddington_two_answers_straddle_one : (18 < 100) ∧ (100 < 500) := by decide
 
 /-- REFUTED: "super-Eddington confirmed" vs the paper's own 0.18. -/
 theorem mombh_press_confirmed_is_refuted : (¬ (18 >= 100)) := by decide
 
 /-- 10^6.0 .. 10^8.3 (log ×10): 23 > 20. -/
 theorem mombh_black_hole_mass_spans_over_two_dex : (83 - 60 = 23) ∧ (23 > 20) := by decide
-
-/-- n = 1. -/
-theorem mombh_sample_is_one : (1 < 2) := by decide
 
 /-- 3 measured, 1 simplistic model, 0 solved. -/
 theorem mombh_verified_ne_solved : (3 >= 1) ∧ (0 < 1) := by decide

@@ -21,7 +21,7 @@ the hard gate of the corroboration law.
 | `b9541b28` | zenodo.org | zenodo record 13907402: Vascular dysfunction following breath-hold diving | UNVERIFIED | VERIFIED |
 | `914a314d` | zenodo.org | zenodo record 15068564: Dataset and Code for "Predicting Post-Dive Inert Gas Bubble Grades in Non-Decomp | UNVERIFIED | VERIFIED |
 | `18bf27bb` | zenodo.org | zenodo record 6607084: Photogrammetrie zur Erstellung detaillierter 3D-Modelle von Unterwasserobjekten | UNVERIFIED | VERIFIED |
-| `1423a77b` | zenodo.org | zenodo record 6276569: Photogrammetrie zur Erstellung detaillierter 3D-Modelle von Unterwasserobjekten | UNVERIFIED | VERIFIED |
+| `59f3bc6e` | zenodo.org | zenodo record 6601687: Thorogobius macrolepis Benthic | UNVERIFIED | VERIFIED |
 | `4c3dd1ec` | crossref.org | DOI 10.3750/aip2016.46.1.06: A quantitative sampling method for assessment of deep cryptobenthic ichthyofauna | UNVERIFIED | VERIFIED |
 | `0d1ecbe5` | crossref.org | DOI 10.1007/978-3-642-41714-6_202803: Trimix gas mixture | UNVERIFIED | VERIFIED |
 | `bc8cf398` | crossref.org | DOI 10.2114/jpa.17.249: Experiment of Nitrox Saturation Diving with Trimix Excursion. | UNVERIFIED | VERIFIED |
@@ -30,6 +30,14 @@ the hard gate of the corroboration law.
 | `7c27db05` | crossref.org | DOI 10.1021/ed050p425.2: Scuba diving and the gas laws | UNVERIFIED | VERIFIED |
 | `f98edb68` | crossref.org | DOI 10.1152/japplphysiol.01365.2006: Heliox, nitrox, and trimix diving; hyperbaric oxygen treatment; and a flaw in He | UNVERIFIED | VERIFIED |
 | `8b91e106` | crossref.org | DOI 10.1096/fasebj.24.1_supplement.803.2: Consecutive trimix diving is associated with high incidence of gas bubbles arter | UNVERIFIED | VERIFIED |
+| `9caf1ad4` | semanticscholar.org | S2 Gas laws and scuba diving: Didactic proposal for the study o | UNVERIFIED | VERIFIED |
+| `d51d81cf` | semanticscholar.org | S2 Android-Based Inquiry Activities on Gas Laws Using Smart App — AI tldr: The creation of Android-based inquiry activities on Gas Laws significantly improved Grade  | UNVERIFIED | VERIFIED |
+| `4bed8099` | semanticscholar.org | S2 Actual composition of gas mixture in curcuit of diving respi | UNVERIFIED | VERIFIED |
+| `86277a8a` | semanticscholar.org | S2 Heliox at 4 ATA Reduces Error Rates Compared to Trimix and A — AI tldr: The results showed that using heliox as a breathing mixture reduces error rate in hyperbar | UNVERIFIED | VERIFIED |
+| `fd3bb62c` | semanticscholar.org | S2 High incidence of venous and arterial gas emboli at rest aft — AI tldr: The observed high gas bubble loads and repeated microemboli in systemic circulation raise  | UNVERIFIED | VERIFIED |
+| `ad2ad82c` | semanticscholar.org | S2 Gas Laws & Scuba Diving | UNVERIFIED | VERIFIED |
+| `1c03f6cf` | semanticscholar.org | S2 Scuba diving and the gas laws | UNVERIFIED | VERIFIED |
+| `1fb076ef` | semanticscholar.org | S2 Consecutive trimix diving is associated with high incidence  — AI tldr: The data indicate that even conservative trimix diving is associated with high incidence o | UNVERIFIED | VERIFIED |
 | `900cfe4e` | openalex.org | OpenAlex Environmental Physiology and Diving Medicine [Cardiovascular and Diving-Rela] | UNVERIFIED | VERIFIED |
 | `1a17e9c2` | openalex.org | OpenAlex The influence of scuba diving experience on divers’ perceptions, and i [Coral and Marine Ecosystems St] | UNVERIFIED | VERIFIED |
 | `59807fac` | openalex.org | OpenAlex Microparticle and interleukin-1β production with human simulated compr [Cardiovascular and Diving-Rela] | UNVERIFIED | VERIFIED |
@@ -39,7 +47,7 @@ the hard gate of the corroboration law.
 | `51a9cdc8` | openalex.org | OpenAlex Pulmonary barotrauma in SCUBA diving-related fatalities: a histologica [Cardiovascular and Diving-Rela] | UNVERIFIED | VERIFIED |
 | `c7b7270e` | openalex.org | OpenAlex The physics of human breathing: flow, timing, volume, and pressure par [Climate Change and Health Impa] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `90ba65e3`** (fold of every finding's address — recompute by re-running the search).
+**32 findings · 32 usable search-trial combinations · receipt `6d920249`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

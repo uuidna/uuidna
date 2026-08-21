@@ -68,34 +68,34 @@ theorem handle_splits_four : (8 = 4 * 2) ∧ (256^4 = 4294967296) ∧ (16^8 = 42
     as the provenance detector, applied to computation instead of prose. -/
 theorem drift_is_named_or_caught : ((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d == 1)))) ∧ (((List.range 4).filter (fun n => let r := n % 2; let d := n / 2 % 2; (1 - r * (1 - d)) == 0)).length = 1) := by decide
 
-/-- every generated theorem carries prose IN the Lean — 1418 of 1418 documented across 90 wings, 0 without; the
+/-- every generated theorem carries prose IN the Lean — 1386 of 1386 documented across 89 wings, 0 without; the
     kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a
     gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a
     sentence cannot drift from the proof it describes without moving the file's content-address -/
-theorem prose_coverage_total : (([8, 6, 6, 8, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 12].foldl (· + ·) 0) = 1418) ∧ ([8, 6, 6, 8, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 12] = [8, 6, 6, 8, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 27, 14, 6, 8, 19, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 8, 13, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 17, 8, 5, 18, 93, 6, 8, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 8, 8, 6, 234, 148, 9, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 12, 7, 18, 6, 14, 1, 12]) := by decide
+theorem prose_coverage_total : (([6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12].foldl (· + ·) 0) = 1386) ∧ ([6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12] = [6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12]) := by decide
 
-/-- the prose round-trips exactly — 1418 of 1418 doc comments re-wrap through the emitter and re-read to the
+/-- the prose round-trips exactly — 1386 of 1386 doc comments re-wrap through the emitter and re-read to the
     text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back
     returns what was written, so the identity is counted and not assumed -/
-theorem prose_round_trips : (1418 + 0 = 1418) ∧ (0 = 0) := by decide
+theorem prose_round_trips : (1386 + 0 = 1386) ∧ (0 = 0) := by decide
 
-/-- no doc comment contains an unescaped -\/ — 0 found across 1418; the terminator would close the comment early
+/-- no doc comment contains an unescaped -\/ — 0 found across 1386; the terminator would close the comment early
     and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on
     the way out rather than assumed absent because none appear today -/
-theorem prose_terminator_escaped : (0 + 1418 = 1418) ∧ (0 = 0) := by decide
+theorem prose_terminator_escaped : (0 + 1386 = 1386) ∧ (0 = 0) := by decide
 
-/-- prose that says more than the statement OUTNUMBERS prose that repeats it — 1418 informative against 0 bare,
-    of 1418; a doc comment identical to its own Lean statement carries nothing the proof did not already say,
+/-- prose that says more than the statement OUTNUMBERS prose that repeats it — 1386 informative against 0 bare,
+    of 1386; a doc comment identical to its own Lean statement carries nothing the proof did not already say,
     and this is the remaining work counted rather than a target claimed -/
-theorem prose_beats_restatement : (0 < 1418) ∧ (0 + 1418 = 1418) := by decide
+theorem prose_beats_restatement : (0 < 1386) ∧ (0 + 1386 = 1386) := by decide
 
-/-- the whole prose corpus folds to ONE ℤ/9 receipt — 240039 characters across 1418 doc comments in 90 wings
-    fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own
+/-- the whole prose corpus folds to ONE ℤ/9 receipt — 236486 characters across 1386 doc comments in 89 wings
+    fold to 2; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own
     vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit -/
-theorem prose_folds_receipt : (([1446, 1255, 1545, 1704, 1920, 2967, 1860, 1592, 774, 1526, 1813, 1340, 3451, 4277, 9441, 2171, 1597, 1239, 6902, 5088, 1373, 1630, 960, 4667, 2363, 962, 1465, 1615, 3310, 829, 3008, 1550, 2360, 2920, 1543, 1510, 1499, 2272, 1981, 1705, 959, 4222, 1569, 3171, 1641, 1664, 1425, 1365, 753, 5806, 16003, 1733, 1655, 1833, 2046, 1467, 2634, 1510, 1592, 1800, 946, 1019, 2126, 11553, 11220, 1808, 1540, 1743, 1539, 3510, 3069, 2624, 789, 1535, 3412, 8810, 5483, 2125, 1946, 1430, 1412, 919, 1453, 3576, 1064, 6166, 1522, 4328, 524, 2570].foldl (· + ·) 0) = 240039) ∧ (240039 % 9 = 0) ∧ (0 < 9) := by decide
+theorem prose_folds_receipt : (([1078, 1255, 1545, 3626, 1920, 2967, 1860, 1592, 774, 1526, 1813, 1340, 3451, 4277, 9207, 1597, 1239, 7326, 5088, 1373, 1630, 960, 4667, 2363, 1348, 1465, 1615, 3310, 829, 3008, 1358, 2200, 2920, 1543, 1510, 1499, 2272, 1981, 1705, 959, 4207, 1569, 3171, 1641, 1664, 1229, 1188, 753, 5806, 16003, 1733, 1188, 1833, 2046, 1467, 2634, 1510, 1592, 1800, 946, 1019, 2126, 11553, 11220, 1808, 987, 1564, 1539, 3510, 3069, 2177, 789, 1535, 3412, 8810, 5483, 2125, 1946, 1430, 1412, 919, 1453, 3384, 895, 5676, 1522, 4053, 524, 2570].foldl (· + ·) 0) = 236486) ∧ (236486 % 9 = 2) ∧ (2 < 9) := by decide
 
-/-- the audit is TOTAL over what a generator writes — 90 generated wings censused against 3 authored ones
+/-- the audit is TOTAL over what a generator writes — 89 generated wings censused against 3 authored ones
     (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by
     a typed list; the authored wings are out of scope because no generator will ever write them a doc comment,
     and this wing excludes itself because it is written after the census it states -/
-theorem prose_audit_total : (0 < 90) ∧ (0 < 3) ∧ (1418 = 1418 + 0) := by decide
+theorem prose_audit_total : (0 < 89) ∧ (0 < 3) ∧ (1386 = 1386 + 0) := by decide

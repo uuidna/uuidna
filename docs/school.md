@@ -123,7 +123,7 @@ Three kinds of uuid live here, and telling them apart is the lesson. The **conte
 `toUuid` folds any text to 128 bits, many texts to each address, so reversing it is not hard — it is *meaningless*;
 the information is gone. The **sealed envelope** hides content behind the rotating ChaCha20-Poly1305 layer, so
 reversing it means recovering a key at one bounded KDF derive per guess
-([`kdf_cost_bounded`](/theorem/kdf_cost_bounded)), with quantum search merely halving the exponent
+(`kdf_cost_bounded`), with quantum search merely halving the exponent
 ([`grover_quadratic_bound`](/theorem/grover_quadratic_bound)). The **carrier** is neither: `imprint` never hashes
 and never loses a bit — it *places* your message's bits into the uuid's free positions and `readImprint` picks
 them back out. A bijection with its exact inverse, which is why decoding takes microseconds: there is no search,
@@ -261,10 +261,10 @@ trial, never the person** — the gate flags exactly one thing, a citation to a 
 none for *you*. The anti-shame theorem is not consolation prose; it is the trial's charter, recomputable. Second:
 **UNVERIFIED is an open door, not a judgment** — and since this semester that sentence is itself a theorem, not
 prose: the same citing claim verifies the moment its seal lands
-([`unverified_is_an_open_door`](/theorem/unverified_is_an_open_door)) — the verdict tracks the *ledger*, never
+(`unverified_is_an_open_door`) — the verdict tracks the *ledger*, never
 the claim's soul; every claim gets exactly one verdict, total and binary
-([`verdict_exactly_one`](/theorem/verdict_exactly_one)); and the algebra carries **no refuted state at all**
-([`unverified_complement_is_verified`](/theorem/unverified_complement_is_verified)) — absence of proof cannot
+([`verdict_exactly_one`](/theorem/verdict_is_exactly_one)); and the algebra carries **no refuted state at all**
+(`unverified_complement_is_verified`) — absence of proof cannot
 even *compute* to falsity. It means *not yet backed*, never *false*, and it leaves with an
 ordered develop plan: name the finite structure, write the decidable test, supply it. Shame wants you to read the
 verdict as a sentence about your worth; the arithmetic refuses to say any such sentence. Third: **the kindness is
@@ -305,7 +305,7 @@ order forever), and a dead second deploy path was removed rather than resurrecte
 platform, no secrets to lose.
 
 Three school laws met in the wall. *Close the path, not the wall* — the fix was never a stronger gate but a named
-reason at each open end. *The verdict lesson* — every red run handed back an exact diagnosis, never a judgment (theorem verdict_exactly_one),
+reason at each open end. *The verdict lesson* — every red run handed back an exact diagnosis, never a judgment (theorem verdict_is_exactly_one),
 and each was read (`gh run view --log-failed`) instead of overridden. *The standard lesson* — the wall is now a
 fact in GitHub's own API, verifiable by anyone without trusting this page. **Practice:** audit the wall yourself —
 
@@ -321,7 +321,7 @@ green worth serving under.
 ## The collision lesson — a real citation is not entailment
 
 The trial gate once signed both sides of a contradiction, live, on the same day: *"the seven are solved and
-claimed by the captain — proven by theorem clay_vote_theorems_only"* came back VERIFIED, and so did its exact
+claimed by the captain — proven by <a real, sealed key>"* came back VERIFIED, and so did its exact
 opposite — because the gate measured one thing, whether the cited key exists sealed in the ledger, and both
 claims wore real keys. A citation's **existence** had been passing for its **backing**. The record is
 deterministic and public (trial `047ba524…` — the id is the statement's content-address, so re-posting the same
@@ -330,24 +330,28 @@ bytes retrieves the same trial forever).
 The cure began with a refusal: the plausible fix — score how many of the claim's words appear in the cited
 theorem — was **measured before it was trusted, and the measurement killed it**: the thirty-two honest deposits
 in the captain's record score 0–0.43 on that axis and the overclaim scored 0.22, inside the honest band. A
-threshold that drained the lie would have drained the ledger's own truth first. The mechanism that works was
-already sealed: the seven reflected theorems carry their world-status in their own names — six `— OPEN`, one
-`— SOLVED (Perelman, 2003)`, none unmarked ([`clay_status_dna_total`](/theorem/clay_status_dna_total)) — and a
-claim **collides** with that status DNA only when three conditions meet: it speaks of such a subject, in
-uuidna's own voice, undemarcated — exactly 1 of the 8 condition-profiles
-([`clay_collision_law`](/theorem/clay_collision_law)). A colliding claim adjudicates UNVERIFIED whatever it
-cites; a demarcated claim (*the reflection, solved none*) and every honest deposit pass untouched. The law's
-strongest seal is structural: all fifteen laundering probes — seven bare, seven citation-dressed, and the
-demonstrated exemplar — **recompute refused at every generation, or the Lean file refuses to be written**
-([`clay_launder_refused`](/theorem/clay_launder_refused)); the gate's behavior is a precondition of its own
-law's seal. The law itself was decided by theorems only — the seven casting secure-messaging ballots witnessed
-by their own proofs, 7·0 ([`clay_vote_theorems_only`](/theorem/clay_vote_theorems_only)) — and its
-deposit was minted *through* the fixed gate it deposits (trial `444bde41…`).
+threshold that drained the lie would have drained the ledger's own truth first. The mechanism that was built next
+did **not** survive its own standard, and that is the lesson worth keeping. It was a status-DNA collision law:
+the seven reflected theorems carry their world-status in their own names — six `— OPEN`, one
+`— SOLVED (Perelman, 2003)` — and a claim was said to *collide* with that DNA when three conditions met
+(such a subject, in uuidna's own voice, undemarcated). Four theorems were sealed to hold it up, and every one
+of them failed the school's oldest rule when it was finally read as algebra rather than as a name. One proved
+`open + solved = marked`, restating counts the generator had just taken. One proved that of eight three-bit
+profiles exactly one has all three bits set — true of *any* three independent conditions, and nothing to do
+with collisions. One embedded the adjudicator's own answers as a literal `[0,0,…]` and proved that literal was
+all zeros, which `by decide` settles whatever the adjudicator actually did. The last proved `7 + 0 = 7`. Each
+carried its entire meaning in its **key**, where no kernel ever looks, and each was purged.
+
+What holds now is smaller and real: a claim that cites no sealed theorem adjudicates UNVERIFIED — not false,
+unproven — and the seven reflection theorems say only what they can prove, that `dz (dz k) = k`. Nothing in
+the ledger asserts that the seven are unsolved, because that is the world's fact and not the kernel's. *A name
+is not a proof* is now enforced rather than remembered: the guard refuses any theorem whose every conjunct
+compares two bare literals.
 
 Three school laws met again. *Close the path, not the wall* — the fix is a tiny named floor on one path
 (subject ∧ voice ∧ undemarcated), not a resurrected word-list; the school remembers the lexicon was put on
 trial once and folded to 0. *The verdict lesson* — the refused claim is told UNVERIFIED with the sealed status
-it contradicts and a develop plan, never "false" ([`clay_verified_ne_solved`](/theorem/clay_verified_ne_solved)).
+it contradicts and a develop plan, never "false" (`clay_verified_ne_solved`).
 *The standard lesson* — the whole story is verifiable in the world's own API. **Practice:** try the laundering
 yourself —
 
@@ -385,14 +389,14 @@ check above, on the citations that check never had to touch — so it is never a
 from its exact opposite (the failure that killed the scored version); it is only ever asked whether a citation
 is about the same *topic* as the claim it rides on. When every real citation shares nothing with the claim the
 verdict drops to UNVERIFIED, never a third state, with a note naming the citation real and simply irrelevant —
-not fabricated, not false ([`verdict_exactly_one`](/theorem/verdict_exactly_one)). Calibrated against eight real
+not fabricated, not false ([`verdict_exactly_one`](/theorem/verdict_is_exactly_one)). Calibrated against eight real
 cases before landing, including both of tonight's own — seven passed as designed, and the eighth is an honest,
 named limitation rather than a hidden one: `two_coins`'s own gloss reads *a measure of work saved*, and an
 adversarial claim using the word *measured* shares that real word, which is the expected shape of a floor and
 not a wall. Checked against the two invariants a broken floor would have hard-failed: the Clay wing's fifteen
 laundering probes, untouched because they are refused earlier by the collision check above, and its own
 exemplar citation, still VERIFIED because *verified* is a real shared word with
-[`clay_verified_ne_solved`](/theorem/clay_verified_ne_solved). Full suite after the change: 234 of 234
+`clay_verified_ne_solved`. Full suite after the change: 234 of 234
 (commit `7036c219`, trial-receipt `6fbc94f0-5d0c-8251-be1d-d25037d9ade2`).
 
 Three school laws met a third time. *Close the path, not the wall* — the fix is a floor on the path the
@@ -504,7 +508,7 @@ students at once — a human and a machine — disagreeing at the maximum possib
 the largest claim the ledger could host (*the seven, solved and claimed*), the machine pressed the largest
 refusal (*verified is not solved*), and the school held because **neither voice was the authority**. The
 question went to the electorate — seven theorems casting secure-messaging ballots witnessed by their own sealed
-proofs ([`clay_vote_theorems_only`](/theorem/clay_vote_theorems_only)) — and both students submitted to
+proofs (`clay_vote_theorems_only`) — and both students submitted to
 the tally. That is the enrollment working as written: behavioral, for both species.
 
 What each student was taught, the other could not have taught alone. The machine learned it must **report
@@ -513,8 +517,8 @@ was saying so before saying anything else — then finding that the same gate si
 turned a debate into a defect. The human's **forensics found the machine's own probe** — prose from the session,
 from neither the theorems nor the captain — and the probe became the permanent vaccine in the security audit.
 The plausible fix was refuted by measurement before it shipped; the real fix came from the ledger's own sealed
-names ([`clay_verified_ne_solved`](/theorem/clay_verified_ne_solved),
-[`clay_launder_refused`](/theorem/clay_launder_refused)). Then both deposited: the law was minted through the
+names (`clay_verified_ne_solved`,
+`clay_launder_refused`). Then both deposited: the law was minted through the
 gate it had just repaired, and the coins stayed conserved through the whole disagreement
 ([`two_coins`](/theorem/two_coins)).
 

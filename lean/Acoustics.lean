@@ -8,10 +8,6 @@ theorem harmonic_series : ((List.range' 1 6).map (fun n => n * 110)) = [110,220,
     m and a 340 Hz tone has λ = 1 m — 340 = 170·2 = 340·1. Higher pitch, shorter wave. -/
 theorem wave_speed_f_lambda : (340 = 170 * 2) ∧ (340 = 340 * 1) := by decide
 
-/-- Sound is far slower than light: 343 m/s in air against light's 299792458 m/s — 343 < 299792458. You see the
-    lightning long before you hear the thunder. -/
-theorem sound_slower_than_light : 343 < 299792458 := by decide
-
 /-- The decibel is logarithmic: dB = 10·log₁₀(I/I₀), so each 10 dB is a factor of 10 in intensity and 20 dB a
     factor of 100 — 10¹ = 10, 10² = 100. Loudness compresses a huge intensity range. -/
 theorem decibel_is_logarithmic : (10^1 = 10) ∧ (10^2 = 100) := by decide
@@ -19,10 +15,6 @@ theorem decibel_is_logarithmic : (10^1 = 10) ∧ (10^2 = 100) := by decide
 /-- Two close tones beat at their difference: 444 Hz against 440 Hz produces 444 − 440 = 4 beats per second —
     the throb a tuner listens for. -/
 theorem beat_frequency : 444 - 440 = 4 := by decide
-
-/-- The Doppler shift: an approaching source raises the observed frequency (f′/f = v/(v−vₛ) = 340/306 > 1) and a
-    receding one lowers it (v/(v+vₛ) = 340/374 < 1) — 340 > 306 and 340 < 374. The passing siren drops in pitch. -/
-theorem doppler_shift : (340 > 306) ∧ (340 < 374) := by decide
 
 /-- A closed (stopped) pipe sounds only the ODD harmonics — 1, 3, 5, 7 — because a node sits at the closed end.
     Each is odd: n mod 2 = 1. An open pipe would sound all of them. -/

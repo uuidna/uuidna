@@ -25,12 +25,3 @@ theorem thin_lens_equation : 10*30 + 10*15 = 15*30 := by decide
 /-- Magnification m = di/do: with the image at di = 30 and the object at do = 15, the image is 30/15 = 2× the
     size — the lens magnifies by the distance ratio. -/
 theorem magnification : 30 / 15 = 2 := by decide
-
-/-- Dispersion splits white light: the index is higher for blue than for red (n_blue = 1.53 > n_red = 1.51,
-    ×100: 153 > 151), so blue refracts more — the prism spreads the spectrum because n depends on wavelength. -/
-theorem dispersion_blue_over_red : 151 < 153 := by decide
-
-/-- Total internal reflection needs a denser source: it occurs going from glass (n = 1.50) to air (n = 1.00),
-    where 100 < 150, so the critical angle sinθc = n₂/n₁ = 100/150 = 2/3 ≤ 1 exists. From rarer to denser there
-    is no critical angle — light always crosses. -/
-theorem tir_needs_denser_source : 100 < 150 := by decide
