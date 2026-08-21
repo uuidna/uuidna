@@ -11,7 +11,7 @@ description: How uuidna is deployed and how to run your own — Cloudflare Worke
 
 The canonical site is **Cloudflare Workers Assets**: `npm run docs:build` produces `docs/.vitepress/dist` (the
 stock VitePress outDir — the site source is `docs/`, the config `docs/.vitepress/config.ts`), and
-[`worker.js`](https://github.com/uuidna/uuidna/blob/main/worker.js) runs in front of it (`run_worker_first`). The
+[`worker.js`](https://github.com/uuidna/uuidna/blob/main/worker.js) runs in front of it — the worker answers first. The
 worker does two things — self-license the first-party wildcard and redirect everything else to the
 [license](/license), and serve the [trial CRUD](/trials) at `/trials` (opt-in, encrypted storage). One command:
 

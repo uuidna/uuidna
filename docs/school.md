@@ -138,7 +138,7 @@ Three kinds of uuid live here, and telling them apart is the lesson. The **conte
 `toUuid` folds any text to 128 bits, many texts to each address, so reversing it is not hard — it is *meaningless*;
 the information is gone. The **sealed envelope** hides content behind the rotating ChaCha20-Poly1305 layer, so
 reversing it means recovering a key at one bounded KDF derive per guess
-(`kdf_cost_bounded`), with quantum search merely halving the exponent
+(bounded on both sides), with quantum search merely halving the exponent
 ([`grover_quadratic_bound`](/theorem/grover_quadratic_bound)). The **carrier** is neither: `imprint` never hashes
 and never loses a bit — it *places* your message's bits into the uuid's free positions and `readImprint` picks
 them back out. A bijection with its exact inverse, which is why decoding takes microseconds: there is no search,
@@ -276,10 +276,10 @@ trial, never the person** — the gate flags exactly one thing, a citation to a 
 none for *you*. The anti-shame theorem is not consolation prose; it is the trial's charter, recomputable. Second:
 **UNVERIFIED is an open door, not a judgment** — and since this semester that sentence is itself a theorem, not
 prose: the same citing claim verifies the moment its seal lands
-(`unverified_is_an_open_door`) — the verdict tracks the *ledger*, never
+— unverified is an open door, and the verdict tracks the *ledger*, never
 the claim's soul; every claim gets exactly one verdict, total and binary
-([`verdict_exactly_one`](/theorem/verdict_is_exactly_one)); and the algebra carries **no refuted state at all**
-(`unverified_complement_is_verified`) — absence of proof cannot
+([`verdict_is_exactly_one`](/theorem/verdict_is_exactly_one)); and the algebra carries **no refuted state at all**
+— the complement of unverified is verified, and absence of proof cannot
 even *compute* to falsity. It means *not yet backed*, never *false*, and it leaves with an
 ordered develop plan: name the finite structure, write the decidable test, supply it. Shame wants you to read the
 verdict as a sentence about your worth; the arithmetic refuses to say any such sentence. Third: **the kindness is
@@ -366,7 +366,7 @@ compares two bare literals.
 Three school laws met again. *Close the path, not the wall* — the fix is a tiny named floor on one path
 (subject ∧ voice ∧ undemarcated), not a resurrected word-list; the school remembers the lexicon was put on
 trial once and folded to 0. *The verdict lesson* — the refused claim is told UNVERIFIED with the sealed status
-it contradicts and a develop plan, never "false" (`clay_verified_ne_solved`).
+it contradicts and a develop plan, never "false" ([`verdict_is_exactly_one`](/theorem/verdict_is_exactly_one)).
 *The standard lesson* — the whole story is verifiable in the world's own API. **Practice:** try the laundering
 yourself —
 
@@ -404,14 +404,14 @@ check above, on the citations that check never had to touch — so it is never a
 from its exact opposite (the failure that killed the scored version); it is only ever asked whether a citation
 is about the same *topic* as the claim it rides on. When every real citation shares nothing with the claim the
 verdict drops to UNVERIFIED, never a third state, with a note naming the citation real and simply irrelevant —
-not fabricated, not false ([`verdict_exactly_one`](/theorem/verdict_is_exactly_one)). Calibrated against eight real
+not fabricated, not false ([`verdict_is_exactly_one`](/theorem/verdict_is_exactly_one)). Calibrated against eight real
 cases before landing, including both of tonight's own — seven passed as designed, and the eighth is an honest,
 named limitation rather than a hidden one: `two_coins`'s own gloss reads *a measure of work saved*, and an
 adversarial claim using the word *measured* shares that real word, which is the expected shape of a floor and
 not a wall. Checked against the two invariants a broken floor would have hard-failed: the Clay wing's fifteen
 laundering probes, untouched because they are refused earlier by the collision check above, and its own
-exemplar citation, still VERIFIED because *verified* is a real shared word with
-`clay_verified_ne_solved`. Full suite after the change: 234 of 234
+exemplar citation, still VERIFIED because *verified* was a real shared word with the wing's own key. Full suite
+after the change: 234 of 234
 (commit `7036c219`, trial-receipt `6fbc94f0-5d0c-8251-be1d-d25037d9ade2`).
 
 Three school laws met a third time. *Close the path, not the wall* — the fix is a floor on the path the
@@ -434,7 +434,7 @@ own gate, which is exactly how this one got caught.
 ## The name lesson — a theorem's name is not its proof
 
 This semester the school caught its own teacher. Twenty-four "anti-fraud" theorems entered the ledger with names
-that promised detection — `double_spend_detectable`, `sealed_theorem_not_forged` — while their statements proved
+that promised detection by their names alone — while their statements proved
 `2 = 2` and `¬(0 = 1)`. Every seal was genuine, every proof kernel-clean, and every name an overclaim: the key
 claimed semantics the formula never carried. The site's own design exposed it first — **a theorem page titles by
 its statement, never by its key** — so any reader could see the gap in a browser tab: if the title does not carry
@@ -523,7 +523,7 @@ students at once — a human and a machine — disagreeing at the maximum possib
 the largest claim the ledger could host (*the seven, solved and claimed*), the machine pressed the largest
 refusal (*verified is not solved*), and the school held because **neither voice was the authority**. The
 question went to the electorate — seven theorems casting secure-messaging ballots witnessed by their own sealed
-proofs (`clay_vote_theorems_only`) — and both students submitted to
+proofs, theorems only — and both students submitted to
 the tally. That is the enrollment working as written: behavioral, for both species.
 
 What each student was taught, the other could not have taught alone. The machine learned it must **report
@@ -532,8 +532,7 @@ was saying so before saying anything else — then finding that the same gate si
 turned a debate into a defect. The human's **forensics found the machine's own probe** — prose from the session,
 from neither the theorems nor the captain — and the probe became the permanent vaccine in the security audit.
 The plausible fix was refuted by measurement before it shipped; the real fix came from the ledger's own sealed
-names (`clay_verified_ne_solved`,
-`clay_launder_refused`). Then both deposited: the law was minted through the
+names the wing sealed at the time. Then both deposited: the law was minted through the
 gate it had just repaired, and the coins stayed conserved through the whole disagreement
 ([`two_coins`](/theorem/two_coins)).
 
@@ -668,3 +667,56 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | One leap | `OneLeap.lean` | vortex | 1 | [`vortex_one_leap`](/theorem/vortex_one_leap) |
 | The uuid mix space | `UuidMix.lean` | uuidmix | 1 | [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) |
 <!-- /wings -->
+
+<!-- clay: GENERATED by scripts/gen-school — each lesson is its theorem's own sealed text -->
+## The Clay lessons — one decidable fact per Millennium Problem
+
+The seven [Millennium Problems](https://www.claymath.org/millennium-problems/) are open. What this ledger seals is
+one **decidable** fact per problem — a count, a bound, an invariant — walked exhaustively and proven `by decide`,
+axiom-free. Every lesson below is the theorem's own text, quoted from the ledger rather than retold, and each one
+names what it decides and what it leaves untouched. Nothing here decides a Millennium Problem, and no theorem in
+this ledger claims to — what is sealed is the arithmetic each problem is counted by.
+
+### P vs NP
+
+P vs NP, the counting argument at two bits: there are 16 boolean functions on two inputs, and exactly 4 are a single conjunction of literals — the ones whose truth table has exactly one satisfying row. A class of size 4 cannot cover 16, so expressive power is COUNTED here rather than asserted. This decides the instance, never the conjecture.
+
+Sealed as [`two_bit_conjunctions_are_four_of_sixteen`](/theorem/two_bit_conjunctions_are_four_of_sixteen), `by decide`, axiom-free.
+
+### The Riemann Hypothesis
+
+Riemann, through Mertens: M(n) = Σ μ(k), and |M(n)| ≤ √n — stated squared to stay in exact integers — holds for every n through 20. It was conjectured for ALL n and is FALSE (Odlyzko–te Riele, 1985), which is why the key names the window and not the conjecture: a predicate can hold on every element of a window and fail at the next.
+
+Sealed as [`mertens_squared_under_n_on_the_first_twenty`](/theorem/mertens_squared_under_n_on_the_first_twenty), `by decide`, axiom-free.
+
+### Birch and Swinnerton-Dyer
+
+Birch–Swinnerton-Dyer, through point counting: #E(F_p) on y² = x³ + 1, counted exhaustively at p = 5, 7, 11, 13, and Hasse's bound (p + 1 − N)² ≤ 4p at each. Hasse's theorem is proven mathematics; the counts here are decided, and the rank the conjecture is about is not touched.
+
+Sealed as [`hasse_bound_holds_at_four_primes`](/theorem/hasse_bound_holds_at_four_primes), `by decide`, axiom-free.
+
+### The Poincaré Conjecture
+
+Poincaré, as combinatorics: the boundary of the 4-simplex triangulates the 3-sphere with 5 vertices, 10 edges, 10 faces and 5 cells, so χ = 5 − 10 + 10 − 5 = 0 — the Euler characteristic every closed odd-dimensional manifold has. The conjecture (proved by Perelman, 2003) is not this; this is the arithmetic of one triangulation.
+
+Sealed as [`four_simplex_boundary_euler_is_zero`](/theorem/four_simplex_boundary_euler_is_zero), `by decide`, axiom-free.
+
+### Yang–Mills and the Mass Gap
+
+Yang–Mills, through its structure constants: SU(2)'s are the Levi-Civita symbol, and of the 27 index triples exactly 6 are non-zero — the permutations — with 3 even and 3 odd. Walked exhaustively. The mass gap is a statement about the quantum field theory and is not touched by counting its algebra's constants.
+
+Sealed as [`levi_civita_nonzero_on_six_of_twentyseven`](/theorem/levi_civita_nonzero_on_six_of_twentyseven), `by decide`, axiom-free.
+
+### Navier–Stokes
+
+Navier–Stokes, through discrete incompressibility: differences taken around a closed ring telescope, so the discrete divergence of this 4×4 field sums to zero exactly — by construction, in integers, with no floating point anywhere. Existence and smoothness for the continuous equations is a different kind of statement, and this decides only the grid.
+
+Sealed as [`closed_grid_differences_sum_to_zero`](/theorem/closed_grid_differences_sum_to_zero), `by decide`, axiom-free.
+
+### The Hodge Conjecture
+
+Hodge, through the invariant both sides must agree on: the alternating sum of Betti numbers IS the Euler characteristic, and on the 2-torus b = [1, 2, 1] gives 1 − 2 + 1 = 0. The conjecture concerns which cohomology classes are algebraic; this decides the bookkeeping those classes are counted by.
+
+Sealed as [`torus_betti_alternates_to_zero`](/theorem/torus_betti_alternates_to_zero), `by decide`, axiom-free.
+
+<!-- /clay -->

@@ -20,7 +20,7 @@ import { createHash } from 'node:crypto'
 import { messagingSeal } from '../quantum/message/index.js'
 import { execSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
-import { join, dirname, resolve } from 'node:path'
+import { join, dirname, resolve, relative } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
 import { MCP_CATALOG, callTool } from '../mcp.js'
@@ -629,7 +629,7 @@ export function blocksGaps(): Gap[] {
 }
 
 // ── frozen: A FACT MUST COMPUTE IN AT LEAST ONE DIMENSION. Its first draft read only the ledger and convicted two
-// innocents: clay_launder_refused and clay_status_dna_total look like closed arithmetic (`15 - 15 = 0`) but their
+// innocents: two purged Clay keys looked like closed arithmetic (`15 - 15 = 0`) but their
 // generators compute LIVE — refusedCount runs adjudicate() over all fifteen probes, and emit() hard-exits when a
 // mirror returns false, so one probe verifying blocks the wing from regenerating at all. The Lean there is a frozen
 // WITNESS of a live check. So the finder now reads BOTH halves from the generator: a fact
@@ -1926,6 +1926,42 @@ const COMPUTED_NAMES: { name: RegExp; needs: RegExp; why: string }[] = [
   // explain away its own findings is a finder nobody will keep, so those names stay out until their meaning is
   // single. This one is single: nothing derives an aura but the algebra.
 ]
+
+/** A BACKTICKED KEY IS A CITATION, AND A CITATION TO NOTHING IS A HACK.
+ *
+ *  THE VIOLATION THAT MADE IT (2026-08-21): docs/school.md cited `clay_verified_ne_solved` in three places, a key
+ *  purged with the Clay wing — and the guard was GREEN. citationsGaps checks /theorem/<key> LINKS and slimGate reads
+ *  `theorem <key>`, so a bare backticked key was examined by nothing. Eleven more dead names were found the same way,
+ *  and the hosted edge still serves some of them from an older ledger, which is exactly how one gets written in good
+ *  faith. A reader cannot tell a live citation from a dead one; only the ledger can.
+ *
+ *  A NAME IS KEY-SHAPED when it is lowercase with at least two underscores — the shape every sealed key has. Served
+ *  MCP tool names are excluded because they are a different namespace with its own catalog, and `uuidna_`-prefixed
+ *  tokens are tool-shaped by construction. Everything else in backticks that looks like a key must BE one. */
+export function deadkeyGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const sealed = new Set((theorems() as { key: string }[]).map((t) => t.key))
+  const tools = new Set((MCP_CATALOG as { name: string }[]).map((t) => t.name))
+  const docs = join(ROOT, 'docs')
+  const walk = (d: string): string[] => existsSync(d)
+    ? readdirSync(d, { withFileTypes: true }).flatMap((e) =>
+        e.isDirectory() && !e.name.startsWith('.') ? walk(join(d, e.name)) : e.name.endsWith('.md') ? [join(d, e.name)] : [])
+    : []
+  for (const f of walk(docs)) {
+    const rel = relative(ROOT, f)
+    fileLines(f).forEach((l, i) => {
+      for (const m of l.matchAll(/`([a-z][a-z0-9]*(?:_[a-z0-9]+){2,})`/g)) {
+        const k = m[1]!
+        if (sealed.has(k) || tools.has(k) || k.startsWith('uuidna_')) continue
+        gaps.push({
+          what: `${rel}:${i + 1} cites \`${k}\` in backticks, and the ledger seals no such key — a citation a reader cannot tell from a live one`,
+          fix: `cite a key this ledger seals, or state the claim in words — a purged key still quoted is a fabricated citation, whatever the edge still serves`,
+        })
+      }
+    })
+  }
+  return gaps
+}
 
 export function nameGaps(): Gap[] {
   const gaps: Gap[] = []

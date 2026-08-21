@@ -56,7 +56,7 @@ key is derived, not typed.
 all pure TypeScript, all KAT-verified. AEAD binds confidentiality and integrity in one operation: the ciphertext is
 hidden *and* tamper-evident, so a single flipped bit is detected, not silently decrypted. The nonce and salt widths
 are fixed and sealed ([`aead_nonce_and_salt_bits`](/theorem/aead_nonce_and_salt_bits)), and the key-derivation cost
-is **bounded on both sides** (`kdf_cost_bounded`: 600 000 ≤ iterations ≤ 10 000 000) —
+is **bounded on both sides** (600 000 ≤ iterations ≤ 10 000 000) —
 strong enough to resist brute force, capped so a hostile envelope cannot spin the CPU forever. This is the course's
 first *use-flaw patched by name*: an unbounded iteration count is a denial-of-service, and the ceiling closes it.
 

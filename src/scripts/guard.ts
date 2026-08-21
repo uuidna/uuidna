@@ -15,7 +15,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, nameGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, nameGaps, deadkeyGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -156,6 +156,11 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // only names with a single meaning: `address` and `receipt` were drafted and removed after they flagged ten
   // correct sites. Enters green, with a control that reproduces the original bug.
   { name: 'name', run: () => nameGaps() },
+  // A BACKTICKED KEY IS A CITATION. citationsGaps holds /theorem/<key> LINKS and slimGate reads `theorem <key>`, so a
+  // bare backticked key was examined by nothing — and docs/school.md cited a key purged with the Clay wing in three
+  // places while the guard stayed green. Eleven more dead names surfaced the same way. The hosted edge still serves
+  // some of them from an older ledger, which is how one gets written in good faith; only this ledger decides.
+  { name: 'deadkey', run: () => deadkeyGaps() },
   // THREE WORDS, HARD: a new key over the limit fails the gate. The 313 that predate the law are the recorded
   // backlog in lean/key-entropy.json and may only shrink — so the entropy stops growing without moving 313
   // published content-addresses in one stroke.

@@ -155,6 +155,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'gate-receipt.json',
   // the practice block is generated from the ledger; a figure that moves must move the file
   'docs/school.md',
+  // the mirror the hosted edge answers from — regenerated whenever the ledger moves
+  'src/rosetta-mirror.ts',
   // the archive's deposited metadata — generated since 2026-08-18, because a hand-written surface that
   // becomes a permanent DOI is the one place a stale number cannot be corrected after the fact.
   '.zenodo.json',
@@ -196,6 +198,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-llm': ['llm.txt'],
   'gen-zenodo': ['.zenodo.json'],
   'gen-school': ['docs/school.md'],
+  'rosetta': ['src/rosetta-mirror.ts'],
   'gate-receipt': ['gate-receipt.json'],
   // the gate now runs as reconcile's precondition, so its one written artifact is declared like any other
   'guard': ['quantum-fold.json'],
