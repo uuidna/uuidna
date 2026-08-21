@@ -1,0 +1,12 @@
+{
+  "handle": "ccf6d3a7",
+  "address": "ccf6d3a7-5214-87a1-9102-449493277a3a",
+  "statement": "(1421 + 0 = 1421) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_round_trips"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

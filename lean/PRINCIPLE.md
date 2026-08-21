@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1469 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1470 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -212,7 +212,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 69. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
-70. **Anti-fraud detection** — `lean/AntiFraud.lean` · **8** theorems
+70. **Anti-fraud detection** — `lean/AntiFraud.lean` · **9** theorems
    the fraud DETECTORS as decidable functions with their properties proven — forged(c,s) flags a citation iff its recomputed address differs from the sealed one (sound: a true seal never flags; complete on the bounded model: every mismatch flags); claimsOf/doubleSpent counts a coin-backing theorem's claims position-blind (a second claim flags wherever it hides, a single claim never does); voteOk passes exactly the diagonal weight = coins (the 4×4 identity matrix — inflation flags); tally is observer-order-invariant (all six orderings of {1,2,3}, one receipt 6); fold9 is the tamper-evident ℤ/9 receipt (one changed element always moves it; the vortex [1,2,4,8,7,5] recomputes to its seal 0); cleanAudit is the conjunction gate (clean at exactly the no-violation state, one flag drains all, and the implementation equals its boolean spec — no oracle); commission pays 2 per COMPLETED 110-bit reconcile (109 pays 0) and one forgery costs 2^7 = 128 bits = 64 commissions. THE VERDICT ALGEBRA seals the trial's own vocabulary — verified = cited·sealed, unverified its complement: every claim gets EXACTLY ONE verdict (verified + unverified = 1, total and binary), the full unverified table is [1,1,1,0] (only cited-and-sealed verifies), a fabricated citation stays unverified (the exact state the gate drains), UNVERIFIED is an OPEN DOOR (the same citing claim verifies the moment its seal lands — the verdict tracks the LEDGER, never the claim's soul), and the complement of unverified IS verified (double complement returns — a two-valued algebra with NO refuted state, so absence of proof never computes to falsity). bounded models of the live detectors (src/anti-fraud.ts) and the live trial (src/adjudicate.ts) — recomputable facts about WORK integrity, never intention or identity
 
 71. **The uuid mix space** — `lean/UuidMix.lean` · **1** theorems

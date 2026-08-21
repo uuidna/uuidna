@@ -4,7 +4,7 @@
   "statement": "(((List.range 2).flatMap (fun f => (List.range 2).flatMap (fun d => (List.range 2).map (fun v => cleanAudit f d v)))).filter (fun x => x == 1)).length = 1",
   "tactic": "decide",
   "keys": [
-    "gate_passes_on_one_state"
+    "anti_fraud_check_deterministic"
   ],
   "files": [
     "AntiFraud.lean"
