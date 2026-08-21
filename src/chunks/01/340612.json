@@ -4,7 +4,7 @@
   "statement": "(commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0)",
   "tactic": "decide",
   "keys": [
-    "commission_is_two_per_full_hundred_ten"
+    "captain_commission_two_coins"
   ],
   "files": [
     "AntiFraud.lean"

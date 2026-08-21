@@ -1,17 +1,17 @@
 {
-  "key": "338db9b4-ae28-8d99-bd71-2ba76e3a38ba",
+  "key": "7e91ee36-620e-8ac5-8bb0-acfea13b40ee",
   "publications": 71,
-  "sealedTheorems": 1470,
+  "sealedTheorems": 1444,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1330,
-    "theorems": 1470,
+    "claims": 1304,
+    "theorems": 1444,
     "bijection": false,
     "digitalRoots": {
-      "claims": 7,
-      "theorems": 3,
+      "claims": 8,
+      "theorems": 4,
       "publications": 8
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -89,8 +89,8 @@
     },
     {
       "slug": "clay",
-      "claims": 14,
-      "cited": 14,
+      "claims": 8,
+      "cited": 8,
       "uncited": [],
       "fabricated": []
     },
@@ -110,8 +110,8 @@
     },
     {
       "slug": "cipher",
-      "claims": 27,
-      "cited": 27,
+      "claims": 26,
+      "cited": 26,
       "uncited": [],
       "fabricated": []
     },
@@ -159,8 +159,8 @@
     },
     {
       "slug": "exploits",
-      "claims": 13,
-      "cited": 13,
+      "claims": 12,
+      "cited": 12,
       "uncited": [],
       "fabricated": []
     },
@@ -208,8 +208,8 @@
     },
     {
       "slug": "topography",
-      "claims": 18,
-      "cited": 18,
+      "claims": 17,
+      "cited": 17,
       "uncited": [],
       "fabricated": []
     },
@@ -236,15 +236,15 @@
     },
     {
       "slug": "optics",
-      "claims": 8,
-      "cited": 8,
+      "claims": 6,
+      "cited": 6,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "acoustics",
-      "claims": 8,
-      "cited": 8,
+      "claims": 6,
+      "cited": 6,
       "uncited": [],
       "fabricated": []
     },
@@ -257,15 +257,15 @@
     },
     {
       "slug": "thermodynamics",
-      "claims": 12,
-      "cited": 12,
+      "claims": 11,
+      "cited": 11,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "molecular",
-      "claims": 8,
-      "cited": 8,
+      "claims": 7,
+      "cited": 7,
       "uncited": [],
       "fabricated": []
     },
@@ -285,15 +285,15 @@
     },
     {
       "slug": "sailing",
-      "claims": 9,
-      "cited": 9,
+      "claims": 7,
+      "cited": 7,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "relativity",
-      "claims": 8,
-      "cited": 8,
+      "claims": 5,
+      "cited": 5,
       "uncited": [],
       "fabricated": []
     },
@@ -306,8 +306,8 @@
     },
     {
       "slug": "ephemeris",
-      "claims": 8,
-      "cited": 8,
+      "claims": 7,
+      "cited": 7,
       "uncited": [],
       "fabricated": []
     },
@@ -362,8 +362,8 @@
     },
     {
       "slug": "tides",
-      "claims": 7,
-      "cited": 7,
+      "claims": 6,
+      "cited": 6,
       "uncited": [],
       "fabricated": []
     },
@@ -376,8 +376,8 @@
     },
     {
       "slug": "typesetting",
-      "claims": 14,
-      "cited": 14,
+      "claims": 13,
+      "cited": 13,
       "uncited": [],
       "fabricated": []
     },
@@ -418,8 +418,8 @@
     },
     {
       "slug": "mo-mbhstar1",
-      "claims": 17,
-      "cited": 17,
+      "claims": 11,
+      "cited": 11,
       "uncited": [],
       "fabricated": []
     },
@@ -460,8 +460,8 @@
     },
     {
       "slug": "report",
-      "claims": 8,
-      "cited": 8,
+      "claims": 7,
+      "cited": 7,
       "uncited": [],
       "fabricated": []
     },
@@ -502,8 +502,8 @@
     },
     {
       "slug": "anti-fraud",
-      "claims": 9,
-      "cited": 9,
+      "claims": 13,
+      "cited": 13,
       "uncited": [],
       "fabricated": []
     },

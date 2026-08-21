@@ -1,0 +1,12 @@
+{
+  "handle": "773e726c",
+  "address": "773e726c-e759-8ea7-8099-3c06df52d84b",
+  "statement": "(List.range 2).all (fun f => (List.range 2).all (fun d => cleanAudit f d 1 == 0))",
+  "tactic": "decide",
+  "keys": [
+    "overclaim_with_fake_cite_fails"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

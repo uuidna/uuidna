@@ -1,0 +1,12 @@
+{
+  "handle": "ada1754b",
+  "address": "ada1754b-1193-8a85-a8b8-fc485caa3c67",
+  "statement": "(List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (cleanAudit f d v == 1) == (f == 0 && d == 0 && v == 0))))",
+  "tactic": "decide",
+  "keys": [
+    "honesty_gate_passes_iff_all_sealed"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

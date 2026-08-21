@@ -1,8 +1,8 @@
 {
   "why": "Each Lean line, indexed by its statement, with every key that seals it. A wing verifies STANDALONE — no lean file imports another — so a fact needed in two wings is re-proven in both, on purpose, and that cost is declared here rather than discovered by census. A statement sealed twice inside ONE file is never declared: it buys no independence and one of the two must go. This list may only SHRINK.",
-  "distinct": 1388,
-  "keys": 1470,
-  "renamings": 82,
+  "distinct": 1363,
+  "keys": 1444,
+  "renamings": 81,
   "reuse": {
     "(1 * 1) % 9 = 1": [
       "mul9_1_1",
@@ -312,10 +312,6 @@
     "6 + 6 = 12": [
       "flood_and_ebb",
       "warm_cool_split_six_six"
-    ],
-    "(1 < 2)": [
-      "corroboration_needs_two",
-      "mombh_sample_is_one"
     ]
   },
   "wings": {
@@ -627,10 +623,6 @@
     "6 + 6 = 12": [
       "Colour.lean",
       "Tides.lean"
-    ],
-    "(1 < 2)": [
-      "MoMBHStar1.lean",
-      "Report.lean"
     ]
   }
 }

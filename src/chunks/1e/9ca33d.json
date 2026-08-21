@@ -1,0 +1,12 @@
+{
+  "handle": "1e9ca33d",
+  "address": "1e9ca33d-1b45-8d29-8bf9-716261363caf",
+  "statement": "(List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => cleanAudit f d v == (if f == 0 && d == 0 && v == 0 then 1 else 0))))",
+  "tactic": "decide",
+  "keys": [
+    "honesty_gate_is_theorem_not_oracle"
+  ],
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

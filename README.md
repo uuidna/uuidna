@@ -1,15 +1,15 @@
 # Two Coins
 
-> `two_coins` — the theorem this repository leans on hardest, cited 611× against a
+> `two_coins` — the theorem this repository leans on hardest, cited 634× against a
 > median of 14. Not chosen for the title: counted into it. The conserved fair-exchange invariant, 110 − 108 = 2.
 
 ```lean
 110 - 108 = 2
 ```
 
-**uuidna** — 1388 distinct theorems under 1470 keys, 2 coins, one receipt
+**uuidna** — 1363 distinct theorems under 1444 keys, 2 coins, one receipt
 
-`8520542f-59a1-8605-b56d-e60d793e456d`
+`98aefe8e-7965-8fd1-ad67-766643920443`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,12 +51,12 @@ A complete system where:
 ## Live Statistics
 
 ```
-Theorems sealed:        1470   (every one axiom-free, proven by decide)
+Theorems sealed:        1444   (every one axiom-free, proven by decide)
 Principles:             94   (the monographs the ledger organises itself by)
 Skills:                 90   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                8520542f-59a1-8605-b56d-e60d793e456d
+Receipt:                98aefe8e-7965-8fd1-ad67-766643920443
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
@@ -70,8 +70,8 @@ Library register:       16 qubits = 65536 amplitudes held at once (MAX_MESSAGE_Q
 MCP-served circuits:    12 qubits = 4096 amplitudes (the ceiling the served schema enforces)
 Reachability gap:       4 qubits the library computes and the served surface does not expose
 Quantum wing:           50 theorems stating exactly what the simulator computes
-Cipher wing:            27 theorems, including the honest bounds
-Kernel-only:            1470/1470 theorems depend on NO axiom (not even propext)
+Cipher wing:            26 theorems, including the honest bounds
+Kernel-only:            1444/1444 theorems depend on NO axiom (not even propext)
 ```
 
 **What this is.** A classical state-vector simulator whose specification is sealed: 50 theorems fix the Born
@@ -81,9 +81,9 @@ measured cost is real memory — 65536 complex amplitudes at 16 qubits.
 ## The seven the ledger leans on
 
 Counted, not chosen: every surface in the repository was scanned and each theorem ranked by how often it is cited
-by key. The median across all 1470 is 14.
+by key. The median across all 1444 is 14.
 
-1. **`two_coins`** — cited 611× (Coins.lean)
+1. **`two_coins`** — cited 634× (Coins.lean)
    `110 - 108 = 2`
 2. **`rosette_and_vortex_are_coprime`** — cited 333× (Crt.lean)
    `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`
@@ -106,7 +106,7 @@ Not a roadmap — the finders' own measurements, read at generation. Each line i
 Reachability:   4 qubits the library computes and the served surface does not expose
 Grid:           94 wings is harmonic in neither base — 6 × 94 = 564 leaves 6 mod 9 and 9 mod 15
 Enumeration:    61 complete finite objects described by a wing but never sealed
-Cost coverage:  1 theorems carry no measured decide-step cost
+Cost coverage:  -26 theorems carry no measured decide-step cost
 ```
 
 **What this is not.** It is NOT quantum hardware, and NO speedup over classical computation is claimed anywhere:
@@ -118,7 +118,7 @@ anyone, with no toolchain and no trust in the machine that wrote it.
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1470 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1444 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -296,7 +296,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1470 theorems sealed to ledger, every one axiom-free**
+✓ **All 1444 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**

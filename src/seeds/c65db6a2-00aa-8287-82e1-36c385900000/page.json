@@ -1,0 +1,429 @@
+{
+  "file": "MoMBHStar1.lean",
+  "slug": "mombhstar1",
+  "status": "usable",
+  "address": "5b6fea0e-4e89-81fb-a61f-3c55a834a9a0",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "MoMBHStar1.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/MoMBHStar1.lean — GENERATED. THE PAPER ON TRIAL — \"A gas-enshrouded and gas-reddened black hole at cosmic dawn\" (DOI 10.1038/s41586-026-10846-4, data 10.5281/zenodo.15059214): the letter's published numbers as decidable arithmetic (measurements ×10/×100/×1000 into Nat), the press-vs-paper delta refuted by the paper's own tables, and the Balmer break derived from Rydberg arithmetic. n=1, one fiducial of ~1e6 models, 0 solved — arithmetic witnesses of the PUBLISHED numbers, never astrophysics re-derived Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- Break 7.7 (−1.4) lower bound 6.3 > A-star ceiling 5 > Chabrier ceiling 3 (×10). SCOPE: ceilings are model\n    inputs. -/\ntheorem mombh_balmer_break_exceeds_stellar_ceiling : (77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30) := by decide\n\n/-- 30 ± 7 %: 4·7 ≤ 30 < 5·7. SCOPE: three instruments. -/\ntheorem mombh_variability_is_four_sigma : (4 * 7 <= 30) ∧ (30 < 5 * 7) := by decide\n\n/-- 11.4 (−2.5) ×10: central clears 10, lower bound does not. -/\ntheorem mombh_hbeta_oiii_ratio_central_over_ten_lower_under : (114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100) := by decide\n\n/-- log nH 11 ≥ 9; log NH ×10 258 > 241 (Compton-thick). SCOPE: one model of ~1e6, filtered not sampled. -/\ntheorem mombh_fiducial_gas_dense_and_compton_thick : (11 >= 9) ∧ (258 > 241) := by decide\n\n/-- REFUTED: \"super-Eddington confirmed\" vs the paper's own 0.18. -/\ntheorem mombh_press_confirmed_is_refuted : (¬ (18 >= 100)) := by decide\n\n/-- 10^6.0 .. 10^8.3 (log ×10): 23 > 20. -/\ntheorem mombh_black_hole_mass_spans_over_two_dex : (83 - 60 = 23) ∧ (23 > 20) := by decide\n\n/-- 3 measured, 1 simplistic model, 0 solved. -/\ntheorem mombh_verified_ne_solved : (3 >= 1) ∧ (0 < 1) := by decide\n\n/-- QUANTUM: E(n=2→∞) = 13.6/4 = 3.4 eV (×10: 136/4 = 34); λ = 12398/3.4 = 3646 Å (12398/34 = 364, ×10). The\n    break sits at the n=2 ionisation edge. -/\ntheorem mombh_quantum_balmer_edge_is_rydberg_quarter : (136 / 4 = 34) ∧ (12398 / 34 = 364) := by decide\n\n/-- QUANTUM: 3646 Å × (1+z)=8.757 → 31927 Å = 3.19 μm (×1000: 3646·8757/10000 = 3192); F277W ends ~3.1 μm, F356W\n    starts ~3.1 μm: 3100 < 3192 < 3560. The colour selection is a Rydberg fraction. -/\ntheorem mombh_quantum_edge_redshifts_into_filter_gap : (3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560) := by decide\n\n/-- QUANTUM: Hβ 1/4−1/16=3/16 → 12398·16/(3·13.6): 12398·160 − 4860·408 = 800 (<0.05%). Hγ 1/4−1/25=21/100 →\n    12398·100/(13.6·21): 12398·1000 − 4339·136·21 = 5816 (<0.05%). The absorbed lines are Rydberg differences\n    with n=2 as the lower level. -/\ntheorem mombh_quantum_hbeta_hgamma_are_balmer_lines : (12398 * 160 - 4860 * 408 = 800) ∧ (800 < 1000) ∧ (12398 * 1000 - 4339 * 136 * 21 = 5816) ∧ (5816 < 12398) := by decide\n\n/-- QUANTUM: at 1e4 K, n2/n1 = 4·exp(−10.2/0.86) ≈ 3e−5 (×1e6: 29 < 100). Thermal population of n=2 is\n    negligible; only collisions at nH ≥ 1e9 fill it. Density is forced by a level population, not chosen. -/\ntheorem mombh_quantum_n2_population_needs_density : (29 < 100) ∧ (9 <= 11) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_balmer_break_exceeds_stellar_ceiling",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Break 7.7 (−1.4) lower bound 6.3 > A-star ceiling 5 > Chabrier ceiling 3 (×10). SCOPE: ceilings are model inputs."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_balmer_break_exceeds_stellar_ceiling : (77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_variability_is_four_sigma",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "30 ± 7 %: 4·7 ≤ 30 < 5·7. SCOPE: three instruments."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(4 * 7 <= 30) ∧ (30 < 5 * 7)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_variability_is_four_sigma : (4 * 7 <= 30) ∧ (30 < 5 * 7) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_hbeta_oiii_ratio_central_over_ten_lower_under",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "11.4 (−2.5) ×10: central clears 10, lower bound does not."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_hbeta_oiii_ratio_central_over_ten_lower_under : (114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_fiducial_gas_dense_and_compton_thick",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "log nH 11 ≥ 9; log NH ×10 258 > 241 (Compton-thick). SCOPE: one model of ~1e6, filtered not sampled."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(11 >= 9) ∧ (258 > 241)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_fiducial_gas_dense_and_compton_thick : (11 >= 9) ∧ (258 > 241) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_press_confirmed_is_refuted",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "REFUTED: \"super-Eddington confirmed\" vs the paper's own 0.18."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(¬ (18 >= 100))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_press_confirmed_is_refuted : (¬ (18 >= 100)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_black_hole_mass_spans_over_two_dex",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "10^6.0 .. 10^8.3 (log ×10): 23 > 20."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(83 - 60 = 23) ∧ (23 > 20)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_black_hole_mass_spans_over_two_dex : (83 - 60 = 23) ∧ (23 > 20) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_verified_ne_solved",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "3 measured, 1 simplistic model, 0 solved."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(3 >= 1) ∧ (0 < 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_verified_ne_solved : (3 >= 1) ∧ (0 < 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_quantum_balmer_edge_is_rydberg_quarter",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "QUANTUM: E(n=2→∞) = 13.6/4 = 3.4 eV (×10: 136/4 = 34); λ = 12398/3.4 = 3646 Å (12398/34 = 364, ×10). The break sits at the n=2 ionisation edge."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(136 / 4 = 34) ∧ (12398 / 34 = 364)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_quantum_balmer_edge_is_rydberg_quarter : (136 / 4 = 34) ∧ (12398 / 34 = 364) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_quantum_edge_redshifts_into_filter_gap",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "QUANTUM: 3646 Å × (1+z)=8.757 → 31927 Å = 3.19 μm (×1000: 3646·8757/10000 = 3192); F277W ends ~3.1 μm, F356W starts ~3.1 μm: 3100 < 3192 < 3560. The colour selection is a Rydberg fraction."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_quantum_edge_redshifts_into_filter_gap : (3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_quantum_hbeta_hgamma_are_balmer_lines",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "QUANTUM: Hβ 1/4−1/16=3/16 → 12398·16/(3·13.6): 12398·160 − 4860·408 = 800 (<0.05%). Hγ 1/4−1/25=21/100 → 12398·100/(13.6·21): 12398·1000 − 4339·136·21 = 5816 (<0.05%). The absorbed lines are Rydberg differences with n=2 as the lower level."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(12398 * 160 - 4860 * 408 = 800) ∧ (800 < 1000) ∧ (12398 * 1000 - 4339 * 136 * 21 = 5816) ∧ (5816 < 12398)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_quantum_hbeta_hgamma_are_balmer_lines : (12398 * 160 - 4860 * 408 = 800) ∧ (800 < 1000) ∧ (12398 * 1000 - 4339 * 136 * 21 = 5816) ∧ (5816 < 12398) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-mombh_quantum_n2_population_needs_density",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "QUANTUM: at 1e4 K, n2/n1 = 4·exp(−10.2/0.86) ≈ 3e−5 (×1e6: 29 < 100). Thermal population of n=2 is negligible; only collisions at nH ≥ 1e9 fill it. Density is forced by a level population, not chosen."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(29 < 100) ∧ (9 <= 11)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem mombh_quantum_n2_population_needs_density : (29 < 100) ∧ (9 <= 11) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

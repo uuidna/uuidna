@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1470 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1444 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -35,7 +35,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 10. **The quantum computer** — `lean/Quantum.lean` · **50** theorems
    the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware
 
-11. **The seven reflected** — `lean/Clay.lean` · **14** theorems
+11. **The seven reflected** — `lean/Clay.lean` · **8** theorems
    the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none. VERIFIED ≠ SOLVED is itself sealed: the kernel verifies the stated proposition, the seal confers no solved status on the named problem — decided by theorems only, the seven casting secure-messaging ballots witnessed by their own sealed proofs. THE COLLISION LAW seals beside it by the same electorate: a claim colliding with the sealed status DNA (subject ∧ self-voice ∧ undemarcated) never verifies, whatever it cites — a real citation is not entailment, and the laundering probes recompute refused at every generation
 
 12. **The legal vocabulary** — `lean/Legal.lean` · **10** theorems
@@ -44,7 +44,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 13. **The physics infinities, made finite** — `lean/Infinity.lean` · **13** theorems
    the nasty divergences of physics — UV catastrophe, self-energy, the Landau pole, 1+2+3+…, the derivative 0/0, δ(0), the horizon, the 1/r singularity — each the finite object physics puts where the naive infinity was, exactly as dz(x)=10−x replaces x/0
 
-14. **The cipher & the strand** — `lean/Cipher.lean` · **27** theorems
+14. **The cipher & the strand** — `lean/Cipher.lean` · **26** theorems
    crypto ∩ DNA, honest by construction — base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR (why a step must rotate), a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128, not a break) — the shared algebra and its honest limits
 
 15. **The detectors, proven** — `lean/Audit.lean` · **17** theorems
@@ -65,7 +65,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 20. **The OS-integrity algebra** — `lean/Os.lean` · **7** theorems
    the decidable facts a DEPLOYMENT is verified against, completing hardware → software → os, each an axiom-free `by decide` particle: exact-copy verification IS byte-equality, so a single-byte tamper, a truncation, or a REORDERING breaks the match (a provenance is a SEQUENCE, not a set); the SHA-256 digest is a fixed 256 bits, the content-address a fixed 128; and the non-determinism boundary is EXACTLY the two named modules (src/os, src/drivers). The runtime side (Alpine + driver provenance, portAllAlpine over the whole arch matrix) enforces it against real bytes with uuidna's own pure-TS SHA-256. integrity, not truth, and NOT execution — uuidna seals what an exact-copy verification decides; it does not boot, port the runtime, link, or run an operating system. A sealed integrity spec, not a booted OS
 
-21. **The exploit folds** — `lean/Exploits.lean` · **13** theorems
+21. **The exploit folds** — `lean/Exploits.lean` · **12** theorems
    known public exploit CLASSES folded through uuidna's involution, the CVE/CWE codes kept INLINE IN LEAN so the audit computes itself from the ledger — a FOLDED class (fold_*) encodes its code as a decidable fact and cites a sealed defence (Trojan-Source→strip 9 BIDI points, prototype-pollution→drop 3 poison keys, supply-chain→zero runtime deps, DoS→sanitiser bounds, weak-hash→SHA-256 seats, tampering→content-address+merkle, code-injection→no eval, weak-RNG→determinism hard-reject), and an OUT-OF-SCOPE class (oos_*) folds to the VOID (compromised host, deceived human, physical side-channel, FNV-as-secret misuse, non-decidable correctness). uuidna does NOT solve all hacks — both problem and solution are verified, and the boundary is named, never falsely marked solved
 
 22. **The sanitise standards** — `lean/Sanitize.lean` · **7** theorems
@@ -86,7 +86,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 27. **Navigation — bounded geometry** — `lean/Navigation.lean` · **5** theorems
    straight-line distance is Pythagorean (3-4-5), the compass rose is ℤ/8 (eight 45° headings), the reciprocal bearing is +4 (an involution), a quarter turn is +2 (order 4), and dead reckoning is the vector sum of the legs — classical navigation as decidable algebra, not GPS-grade guidance and not a positioning claim about anyone
 
-28. **The lay of the land** — `lean/Topography.lean` · **18** theorems
+28. **The lay of the land** — `lean/Topography.lean` · **17** theorems
    topography as decidable arithmetic, the map beneath navigation — a contour joins points of equal height and every fifth line is the heavy index contour (multiples of 50 m at a 10 m interval), so elevation is read by COUNTING rings (5 × 20 = 100 m of ascent); gradient is rise over run (a 1-in-20 slope climbs 5 m in 100), contour spacing is its inverse (a steep 1-in-5 crowds the lines to 50 m, a gentle 1-in-10 spreads them to 100), and the slope distance is Pythagorean (a 400 m run up 300 m walks 500 m, longer than the map's flat shadow); scale is a pure ratio (1:25000 → 1 cm is 250 m, 4 cm a kilometre); a grid reference nests by tens (each 100 m square split ten ways to 10 m); a back-bearing is the forward turned 180° about the compass in ℤ/360; relief is the highest spot height less the lowest; Gunter's chain measures the mile and the acre whole (80 × 66 = 5280 ft, 22 × 220 = 4840 sq yd); triangulation rests on the 180° triangle; and a cross-section's vertical exaggeration stretches the slopes (500/100 = 5-fold). the arithmetic of the map — exact ratios, counts and cycles — NOT a survey, a GPS fix, or a route plan; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's walking time is a rule-of-thumb ESTIMATE, demarcated and never staked on for safety
 
 29. **Command authentication** — `lean/Command.lean` · **7** theorems
@@ -98,19 +98,19 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 31. **Diving — trimix gas laws** — `lean/Diving.lean` · **8** theorems
    the decidable arithmetic of trimix diving, demarcated — a mix sums to 100%, absolute pressure is 1+depth/10 atm, Dalton makes partial pressures sum to it, air leaves the oxygen window at depth (why trimix), gases blend by partial pressure, helium is non-narcotic, and a direct ascent exceeding the Haldane ratio needs a stop. HARD SAFETY SCOPE: arithmetic only, NEVER a dive plan — use training, tables, and a computer
 
-32. **The light domain** — `lean/Optics.lean` · **8** theorems
+32. **The light domain** — `lean/Optics.lean` · **6** theorems
    geometric optics as decidable arithmetic, demarcated — reflection is an involution (angle in = angle out), the refractive index n=c/v ≥ 1 so light in a medium is slower than c (no FTL), Snell's law n₁sinθ₁=n₂sinθ₂ holds in a consistent case (4·3=3·4), the thin-lens equation 1/f=1/do+1/di and its magnification are exact, dispersion refracts blue more than red, and total internal reflection needs a denser source — the light domain, consistent cases, not a full wave-optics derivation
 
-33. **The sound domain** — `lean/Acoustics.lean` · **8** theorems
+33. **The sound domain** — `lean/Acoustics.lean` · **6** theorems
    acoustics as decidable arithmetic, demarcated — the harmonic series stacks integer multiples of the fundamental, the wave speed is v=f·λ, sound (343 m/s) is far slower than light, the decibel is logarithmic (10 dB = ×10 intensity), two tones beat at their difference, the Doppler shift raises pitch on approach and lowers it on recession, a closed pipe sounds only odd harmonics, and intensity falls as the inverse square of distance — the sound domain, exact ratios, distinct from the music/432 ladder in BioPhysics
 
 34. **The reactions domain** — `lean/Chemistry.lean` · **8** theorems
    chemical reactions as decidable arithmetic, demarcated — a balanced equation conserves atoms (Haber, combustion), a neutral compound conserves charge (Al₂O₃), oxidation states sum to the molecular charge, pH+pOH=14 at 25°C, Boyle's law keeps P·V constant, neutralization pairs H⁺ with OH⁻, and stoichiometry scales linearly — reaction bookkeeping, not thermodynamics, distinct from the electron-shell chemistry in BioPhysics
 
-35. **The energy domain** — `lean/Thermodynamics.lean` · **12** theorems
+35. **The energy domain** — `lean/Thermodynamics.lean` · **11** theorems
    thermodynamics as decidable arithmetic, demarcated — the first law conserves energy (ΔU=Q−W), the second law forbids entropy decrease and sends heat hot→cold, the Carnot efficiency is below 1 (no perpetual motion), the Kelvin scale floors at absolute zero (0°C=273K), Charles's law keeps V/T constant, and specific heat is linear in ΔT — the laws as arithmetic, not statistical mechanics
 
-36. **The bond domain** — `lean/Molecular.lean` · **8** theorems
+36. **The bond domain** — `lean/Molecular.lean` · **7** theorems
    molecular bonding as decidable arithmetic, demarcated — the octet rule (4+4=8), a bond of order n shares 2n electrons, bond order gives N₂ a triple and O₂ a double, main-group valence is group−10, Lewis structures count valence electrons, a large electronegativity gap is ionic, molar mass sums the atoms, and bond strength rises with order — bonding bookkeeping, not quantum chemistry
 
 37. **The field domain** — `lean/Electromagnetism.lean` · **13** theorems
@@ -119,16 +119,16 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 38. **The structures domain** — `lean/Statics.lean` · **8** theorems
    statics as decidable arithmetic, demarcated — forces sum to zero and moments balance in equilibrium, a lever gives mechanical advantage, the centre of mass is the weighted average, a simply-supported beam splits a central load evenly, a rigid planar truss obeys Maxwell's rule m=2j−3, stress is force over area, and Hooke's law is linear — equilibrium arithmetic, not finite-element analysis
 
-39. **The points-of-sail domain** — `lean/Sailing.lean` · **9** theorems
+39. **The points-of-sail domain** — `lean/Sailing.lean` · **7** theorems
    sailing as decidable arithmetic, demarcated — the ~45° no-go zone (45+45=90), points of sail on multiples of 45°, the close-hauled 3-4-5 beating triangle at a distance penalty (5>3), apparent wind exceeding true (5>4), a balanced helm as moment equilibrium (8·3=6·4) so the boat holds course and the captain rests, two tacks cancelling leeway, and precise tacks compounding linearly — sailing geometry and balance, not aero/hydrodynamics
 
-40. **The spacetime domain** — `lean/Relativity.lean` · **8** theorems
+40. **The spacetime domain** — `lean/Relativity.lean` · **5** theorems
    special relativity as decidable arithmetic, demarcated — nothing exceeds c (the cosmic speed limit, no FTL), light rides the null cone (interval 0), the invariant interval classifies events timelike/causal or spacelike (no causal link without FTL), the Lorentz factor rides a Pythagorean triangle (β=5/13→γ=13/12), moving clocks dilate and lengths contract, and rest energy is E=mc² — spacetime arithmetic, not a full tensor or GR derivation
 
 41. **The Glagolitic numerals & Pliska rosette** — `lean/Glagolitic.lean` · **10** theorems
    documented Glagolitic arithmetic and the seven-fold, demarcated — Cyril numbered the letters (units 1-9, tens, hundreds, additive: 500+80+3=583; teens written unit-before-ten), the nine units sum to 45 (digital root 9), the Pliska rosette turns on seven rays (ℤ/7, six residues sum 21 → digital root 3 the primitive root), and 7 is prime so ℤ/7 is a field — the numerals and geometry; the rosette meaning stays historically debated, not decoded
 
-42. **The time coordinate** — `lean/Ephemeris.lean` · **8** theorems
+42. **The time coordinate** — `lean/Ephemeris.lean` · **7** theorems
    the astronomical time coordinate as decidable arithmetic, demarcated — a day is 86400 seconds, the Earth gains one turn against the stars each year (366=365+1), the Julian calendar runs 1461 days per 4 years and the Gregorian 146097 per 400 (97 leap days), mean motion advances longitude linearly, eclipses recur on the Saros (~223 months), the Sun creeps under a degree per day, and a Julian Date is a continuous day count — calendar and mean-motion arithmetic, not a perturbed ephemeris, distinct from the positional facts in Astronomy
 
 43. **The pentagram & the Fibonacci digits** — `lean/Pentagram.lean` · **13** theorems
@@ -152,13 +152,13 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 49. **The identifiers** — `lean/Identifiers.lean` · **6** theorems
    the check-digit arithmetic of ISBN/ISSN as decidable facts — the same integrity theme as content-addressing (a check digit is a one-symbol fold of the content that catches tampering): ISBN-10 is a weighted sum mod 11 (prime), so every weight is nonzero mod 11 (any single-digit error shifts the checksum) and consecutive weights differ by 1 (any adjacent transposition shifts it), needing 11 symbols (X for 10); ISBN-13 is alternating 1/3 weights mod 10 in the 978/979 Bookland EAN — the checksum arithmetic and what it catches, NOT a validator library
 
-50. **The tides** — `lean/Tides.lean` · **7** theorems
+50. **The tides** — `lean/Tides.lean` · **6** theorems
    the sailor's tides as decidable arithmetic, joining the captain's domain — the rule of twelfths (1,2,3,3,2,1 = 12, a palindrome of flood and ebb), half-tide by the third hour (1+2+3 = 6 of 12), the middle hours running three times faster than the turns (3 > 1), the semidiurnal period of two highs a lunar day apart (12h25m = 745 min, ×2 = 24h50m), and spring exceeding neap as the Moon's phase adds or cancels the Sun's pull — tidal arithmetic, NOT a harmonic tide-prediction model
 
 51. **The calendar** — `lean/Calendar.lean` · **9** theorems
    the Gregorian calendar and the seven-day week as decidable arithmetic — the week IS the rosette ℤ/7 (advance seven days, the day returns: 7 % 7 = 0), so the calendar counts mod 7: a common year of 365 = 52·7 + 1 days shifts a fixed date one weekday (365 % 7 = 1), a leap year two (366 % 7 = 2); the Gregorian rule keeps 97 leap years per 400 (every 4th − centuries + every 400th = 100 − 4 + 1), making 400 years = 146097 days, a whole number of weeks (146097 % 7 = 0), so the calendar repeats EXACTLY every 400 years; the century exception is decided (2000 leap, 1900 not); and the doomsday even months 4/4, 6/6, 8/8, 10/10, 12/12 sit 63 = 9·7 days apart, so they share a weekday — mod-7 congruence, NOT a locale date library
 
-52. **The measures of type** — `lean/Typesetting.lean` · **14** theorems
+52. **The measures of type** — `lean/Typesetting.lean` · **13** theorems
    typesetting and bookbinding as decidable arithmetic, the craft beneath the publications — the printer's units close exactly (6 picas of 12 points make the 72-point inch) and the em is the type's own square with its half-en and third-thin (12/2 = 6, 12/3 = 4); a folded sheet is a folio (2 leaves, 4 pages), a quarto (8), an octavo (16), leaves doubling so pages run in powers of two and every bound signature is a multiple of four, the ISO A-series halving alike; the harmonious page is the 3:4 rectangle whose diagonal is a whole 5 (3²+4²=5²), or the Fibonacci page that Cassini's identity holds within one unit of the golden section (5²−3·8 = 1), its margins in the medieval 2:3:4:6 canon; the readable measure is 66 characters, inside the 45–75 a typographer keeps; leading exceeds its type (12 on 14) and snaps to a baseline grid (multiples of 4); the type scale rises by octaves (8→16, 9→18); a ream is 500 sheets (20 quires of 25); and a leaf has a recto (odd) and a verso (even) — the arithmetic of the page, NOT a layout engine or a font renderer, and the √2 A-series ratio is irrational, demarcated
 
 53. **Maxwell's rule** — `lean/Structures.lean` · **3** theorems
@@ -176,7 +176,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 57. **The linear optimum** — `lean/Optimisation.lean` · **9** theorems
    linear optimisation as decidable arithmetic on one exact instance (max 3x+2y s.t. x+y ≤ 4, x ≤ 3 over ℕ) — the optimum 11 by TOTAL enumeration sitting at a vertex (two tight constraints in two dimensions), weak duality (no primal value beats a dual bound), STRONG duality exact (primal max 11 = dual min 11 at (2,1), gap zero not epsilon), complementary slackness verified both pairs (positive price ↔ binding constraint), one simplex pivot strictly improving (9 → 11), the 2×2 assignment optimum by checking the whole space; and the honest quantum bridge — enumerating n binary decisions IS walking the 2^n basis states the exact simulator holds, and the sealed Grover margin only ever HALVES that exponent (20 = 2·10), never removes it. exact optima of small named instances by enumeration — NOT a solver at scale, NOT an NP claim, NO quantum advantage
 
-58. **The paper on trial** — `lean/MoMBHStar1.lean` · **17** theorems
+58. **The paper on trial** — `lean/MoMBHStar1.lean` · **11** theorems
    one Nature letter's claims as decidable arithmetic — "A gas-enshrouded and gas-reddened black hole at cosmic dawn" (MoM-BH* 1, DOI 10.1038/s41586-026-10846-4): the published numbers enter ×10/×100/×1000 into Nat (the Balmer break bound over the stellar ceilings, the 4σ variability, the Compton-thick fiducial, the Eddington straddle the paper itself leaves open), the press-vs-paper delta is REFUTED by the paper's own tables ("super-Eddington confirmed" vs its own 0.18), and four quantum facts derive the break from Rydberg arithmetic — the n=2 ionisation edge at 3646 Å redshifting into the JWST filter gap, so the colour selection IS a Rydberg fraction. The intake pattern proven on its first passenger: claims → pre-decide → seal → trial. arithmetic witnesses of the PUBLISHED numbers — n=1, one fiducial of ~1e6 models, 3 measured, 0 solved — never astrophysics re-derived, never a discovery claim
 
 59. **The exposure** — `lean/Photography.lean` · **8** theorems
@@ -194,7 +194,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 63. **The harmony of pairs** — `lean/Harmony.lean` · **8** theorems
    the SAME complementary-pair arithmetic proven across biology, medicine, chemistry and physics, and then proven to be ONE structure — harmonising the science-pairs cluster across the four fields. A complementary pair is reflection through a centre: the two parts sum to a neutral whole or cancel to zero, and the swap is a fixed-point-free involution. DNA bases pair by complement A↔T, G↔C (the reflection 3−c, self-inverse, no base pairs with itself); Chargaff's counts balance (purines A+G = pyrimidines T+C); redox conserves electrons (oxidation +n, reduction −n, sum 0); an ionic compound is neutral (MgCl₂: +2 with two −1); an agonist and a competitive antagonist cancel at the receptor ((+4)+(−4)=0); homeostasis returns to its set point (a +d deviation met by −d); Newton's third law and charge conservation both cancel (F+(−F)=0, electron+positron charge 0) — and the last theorem proves these are the SAME reflection at different centres (0 for charge, 3 for the four bases, 14 for pH). structure facts, the arithmetic of the pairing, NOT medical, biological, chemical or physical claims — uuidna is not a lab; each pair's real mechanism lives in its own science, only the shared decidable signature is sealed here
 
-64. **The report** — `lean/Report.lean` · **8** theorems
+64. **The report** — `lean/Report.lean` · **7** theorems
    the reporter's METHOD as decidable arithmetic — how to dive deep and report the news of PROVEN discoveries. SCOPE first, because it is the whole point: uuidna does NOT verify world events (no by-decide can settle whether something happened out there; that is the reporter's own work — go there, get the documents, name the sources). What IS sealed is the METHOD: a complete report answers the six questions (who/what/when/where/why + how, 5+1=6); a confirmed timeline is chronological (events 0..5 strictly ascending); a fact needs corroboration by TWO independent reputable sources (one is uncorroborated, 1<2); TRINITY editing is three independent passes (1+1+1=3, the trinity the ledger folds in); full-quorum publication is unanimity on the trinity (2+1=3, majority 2>1); a report SHIPS only when verified AND trinity-audited AND quorate — the AND of the three, any one failing blocks it (the same audit-before-publish uuidna runs on its own notes); the inverted pyramid puts the vital fact first and descends (5,4,3,2,1); and every claim carries one of TWO honest verdicts — VERIFIED (cites a checkable source/proof) or UNVERIFIED (held open, never asserted as fact, never called false). The subject is uuidna's own PROVEN discoveries (the sealed theorems); the discipline is what makes the report trustworthy, NOT a claim uuidna knows the world
 
 65. **The matching** — `lean/Matching.lean` · **8** theorems
@@ -212,7 +212,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 69. **One leap** — `lean/OneLeap.lean` · **1** theorems
    the whole vortex proved in a single by decide
 
-70. **Anti-fraud detection** — `lean/AntiFraud.lean` · **9** theorems
+70. **Anti-fraud detection** — `lean/AntiFraud.lean` · **13** theorems
    the fraud DETECTORS as decidable functions with their properties proven — forged(c,s) flags a citation iff its recomputed address differs from the sealed one (sound: a true seal never flags; complete on the bounded model: every mismatch flags); claimsOf/doubleSpent counts a coin-backing theorem's claims position-blind (a second claim flags wherever it hides, a single claim never does); voteOk passes exactly the diagonal weight = coins (the 4×4 identity matrix — inflation flags); tally is observer-order-invariant (all six orderings of {1,2,3}, one receipt 6); fold9 is the tamper-evident ℤ/9 receipt (one changed element always moves it; the vortex [1,2,4,8,7,5] recomputes to its seal 0); cleanAudit is the conjunction gate (clean at exactly the no-violation state, one flag drains all, and the implementation equals its boolean spec — no oracle); commission pays 2 per COMPLETED 110-bit reconcile (109 pays 0) and one forgery costs 2^7 = 128 bits = 64 commissions. THE VERDICT ALGEBRA seals the trial's own vocabulary — verified = cited·sealed, unverified its complement: every claim gets EXACTLY ONE verdict (verified + unverified = 1, total and binary), the full unverified table is [1,1,1,0] (only cited-and-sealed verifies), a fabricated citation stays unverified (the exact state the gate drains), UNVERIFIED is an OPEN DOOR (the same citing claim verifies the moment its seal lands — the verdict tracks the LEDGER, never the claim's soul), and the complement of unverified IS verified (double complement returns — a two-valued algebra with NO refuted state, so absence of proof never computes to falsity). bounded models of the live detectors (src/anti-fraud.ts) and the live trial (src/adjudicate.ts) — recomputable facts about WORK integrity, never intention or identity
 
 71. **The uuid mix space** — `lean/UuidMix.lean` · **1** theorems
