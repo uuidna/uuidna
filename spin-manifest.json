@@ -1508,7 +1508,7 @@
     "lean/handlespan-manifest.json": "aef79f705eb58dc9",
     "lean/hardware-manifest.json": "4d880e87001087e9",
     "lean/harmony-manifest.json": "8f2aef104ec78ab9",
-    "lean/heartbeats.json": "c5ea762140dd88fc",
+    "lean/heartbeats.json": "81e16077490e82dc",
     "lean/hexbit-manifest.json": "0df2686b8e848d26",
     "lean/identifiers-manifest.json": "2e15f4dcc69982b6",
     "lean/infinity-manifest.json": "4fc94a98b8808797",
@@ -1570,5 +1570,5 @@
     "lean/vectorequilibrium-manifest.json": "9c1b28476c0c864f",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd"
   },
-  "receipt": "f8c8e04c-4162-8f3d-9be3-6426163b4ef5"
+  "receipt": "56813cc9-dbd8-8c21-b728-b52a5000aa85"
 }
