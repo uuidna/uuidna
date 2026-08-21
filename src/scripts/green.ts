@@ -17,7 +17,8 @@
 // unforged, every test passes, we are not behind origin, and the index holds nothing this run did not put there.
 // It does NOT mean the theorems are true — no gate here judges content. Integrity.
 import { execSync, spawnSync } from 'node:child_process'
-import { ROOT } from './api.js'
+import { join } from 'node:path'
+import { ROOT, HERE } from './api.js'
 
 interface Arm { name: string; why: string; run: () => boolean }
 
@@ -66,6 +67,9 @@ if (failed.length) {
   process.exit(1)
 }
 
+// THE RECEIPT IS NOT WRITTEN HERE. Every arm has passed by this line, so a receipt written now would describe a
+// green tree — but reconcile then REGENERATES the derived layer, including lean/, which the receipt covers. It
+// would ship a fingerprint of a tree that had already moved. reconcile writes it as its last act before staging.
 console.log(`\n✓ green — every arm passes${full ? ' (kernel included)' : ' (kernel deferred; run with --full before a release)'}.`)
 if (!push) {
   console.log('  READY. Nothing pushed: pass --push to reconcile and publish, or run `npm run green:push`.')

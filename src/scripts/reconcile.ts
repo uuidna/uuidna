@@ -12,6 +12,7 @@
 // Nothing is committed if the reconcile leaves the tree unchanged (the derived layer already matched). account.js
 // fails loudly if the ledger does not reconcile, aborting before any commit/push. Integrity.
 import { execSync } from 'node:child_process'
+import { join } from 'node:path'
 import { ROOT, stageDerived } from './api.js'
 
 const run = (cmd: string): void => { console.log('  · ' + cmd); execSync(cmd, { stdio: 'inherit' }) }
@@ -68,6 +69,11 @@ if (out('git status --porcelain').length === 0) {
     process.exit(1)
   }
   console.log('  ✓ commit signed true — ' + sig.reason)
+  // THE RECEIPT IS WRITTEN LAST, because it fingerprints what is about to be committed. It covers src/ and lean/,
+  // and reconcile REGENERATES lean/ — so a receipt written any earlier (green wrote it after its arms passed) is
+  // stale by the time this commit exists, and would have shipped a proof of a tree that no longer was. Written here
+  // it addresses the tree as staged, which is the only tree the tag can ever check.
+  run('node dist/scripts/gate-receipt.js')              // the push-time proof, fingerprinting the tree as it is about to be staged
   // explicit paths, never -A — the drain commits what IT regenerated; anything else belongs to whoever wrote it
   const staged = stageDerived(ROOT)
   if (staged.leftForHumans.length) console.log('· reconcile — left for a human (not staged' + staged.leftForHumans.join(', '))

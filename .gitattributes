@@ -20,6 +20,7 @@ src/seeds/** merge=derived
 README.md merge=derived
 llm.txt merge=derived
 docs/analytics.md merge=derived
+gate-receipt.json merge=derived
 .zenodo.json merge=derived
 reports.json merge=derived
 lean/statement-index.json merge=derived

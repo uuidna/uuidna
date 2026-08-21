@@ -23,9 +23,13 @@ name: deploy
 # CAPTAIN unless a proving link attributes it to a PRIOR SOURCE, in which case it is CREDITED to that source (the credit
 # law — "the captain claims the unclaimed; whoever claimed first is credited"). So this deploy does NOT re-run Lean; it
 # TRUSTS the push-time proof and re-verifies the fast, decisive checks on the already-proven, already-credited tree:
-#   • build   — tsc type integrity
-#   • tests   — crypt-guard · KAT · pq · quantum · smoke (the no-Math purity check + the derived-count seals) · stream · the /mcp JSON-RPC contract
-#   • guard   — catchTraitors + harmonic-scan: the ledger is unforged, the prose gate clean, no traitor, the source harmonic
+#   • build   — tsc type integrity, on a clean runner: the one check no receipt can stand in for
+#   • receipt — gate-receipt.json content-addresses src/ and lean/, the exact inputs `npm test` and `npm run guard`
+#               read. The tag's commit already passed both in the pre-push gate, so re-running them here was the
+#               same computation over byte-identical inputs — the recompute theorem
+#               verify_beats_recompute_by_magnitudes exists to replace. VERIFY, don't recompute.
+#   • tests + guard — run IN FULL, automatically, whenever the receipt does not cover this tree. The fast path is
+#               taken only when the proof provably applies; a tree that moved by one byte takes the slow one.
 # A failing check FAILS the deploy — never production on a tree that no longer verifies. Integrity, not truth.
 #
 # SECRETS (repo → Settings → Secrets and variables → Actions): CLOUDFLARE_API_TOKEN (a Workers-scoped API token) and
@@ -52,11 +56,24 @@ jobs:
       - name: Install deps
         run: npm install --no-audit --no-fund
 
-      - name: PROVE — build (types) + tests (crypt · KAT · pq · quantum · smoke · stream · the /mcp contract)
-        run: npm test
+      # BUILD STAYS: tsc on a clean ubuntu runner is the one check a receipt cannot stand in for — it proves THIS
+      # environment can compile the tree, not merely that some machine once did.
+      - name: PROVE — build (types) on a clean runner
+        run: npm run build
 
-      - name: "PROVE — the guard (catchTraitors + harmonic-scan: no traitor, prose-gate clean, source harmonic)"
-        run: npm run guard
+      # VERIFY, DO NOT RECOMPUTE (theorem verify_beats_recompute_by_magnitudes). The tag's commit already passed
+      # `npm test` and `npm run guard` in the pre-push gate, and gate-receipt.json content-addresses src/ and lean/
+      # — the exact inputs those checks read. If the tag's tree matches, re-running them is the same computation
+      # over byte-identical inputs; if it does NOT match, the receipt does not apply and the next step runs them in
+      # full. The fast path is taken only when the proof provably covers this tree.
+      - name: PROVE — the push-time proof covers this exact tree
+        id: receipt
+        continue-on-error: true
+        run: node dist/scripts/gate-receipt.js --verify
+
+      - name: PROVE — tests + guard (only when the receipt does not cover this tree)
+        if: steps.receipt.outcome == 'failure'
+        run: npm test && npm run guard
 
       # DEPLOYMENT IS CLOUDFLARE'S OWN GIT INTEGRATION — it builds and ships on every push by itself, which is why
       # the site stayed current even while this job's old wrangler step failed on dead secrets. One deploy path,

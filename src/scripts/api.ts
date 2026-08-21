@@ -150,6 +150,9 @@ export const DRAIN_PATHS: readonly string[] = [
   // then committed with nothing added. Named by `one-receipt drain`, which holds this list against
   // RECONCILE_OUTPUTS from both sides.
   'README.md', 'llm.txt', 'docs/analytics.md',
+  // the push-time proof the tag verifies instead of recomputing — written LAST by reconcile, because it
+  // fingerprints src/ and lean/ and reconcile regenerates lean/; any earlier and it would seal a tree that moved
+  'gate-receipt.json',
   // the archive's deposited metadata — generated since 2026-08-18, because a hand-written surface that
   // becomes a permanent DOI is the one place a stale number cannot be corrected after the fact.
   '.zenodo.json',
@@ -190,6 +193,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-readme': ['README.md'],
   'gen-llm': ['llm.txt'],
   'gen-zenodo': ['.zenodo.json'],
+  'gate-receipt': ['gate-receipt.json'],
   'gen-reports': ['reports.json'],
   'gen-lines': ['lean/statement-index.json'],
   'gen-handle-chunks': ['src/chunks'],
