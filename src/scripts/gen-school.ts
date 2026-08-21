@@ -1,0 +1,123 @@
+#!/usr/bin/env node
+// scripts/gen-school — THE PRACTICES, GENERATED FROM THE COMPUTATION. A practice that quotes a number a human typed
+// is a practice that goes stale: the seventh was authored saying "ninety monographs" when the ledger holds 70, and
+// priced its waste at "208ms" — a wall-clock figure that moves with the host, the cache and the run. Both defects
+// are the same defect, and neither is catchable by reading.
+//
+// So the numbers are COMPUTED HERE and the prose is assembled around them, exactly as a theorem's `name` is written
+// around the value its `js` mirror computes. A figure that moves now moves the file, the drain stages it, and the
+// git-diff arm of the gate fails until someone re-derives — which is what "generated, not authored" buys.
+//
+// SCOPE: only the numbered practice block between the markers is generated. The lessons around it are authored
+// prose about events (a scattering, a colour), and history keeps its own numbers. Integrity.
+import { readFileSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { theorems, PRINCIPLES, coins } from '../index.js'
+import { hexbitsOf, bitsOf } from '../hexbit/index.js'
+import { ROOT } from './api.js'
+
+const T = theorems() as { file: string }[]
+// THE FIGURES — every one recomputed from the live ledger, never carried in the prose.
+const monographs = (PRINCIPLES as [string, string, string][]).filter(([f]) => T.some((t) => t.file === f)).length
+const theoremCount = T.length   // the film's length, but a COUNT — naming it `auras` promised a derivation it never did
+// THE REDUNDANCY IS THE MONOGRAPHS ALONE. The auras were briefly counted here too and that was wrong: an aura is
+// only an aura if it is DERIVED from the algebra, so folding addresses in its place computes no aura at all while
+// keeping the name. The law holds where the derived value carries no meaning of its own; the aura is where it stops.
+const redundant = monographs
+const fig = {
+  monographs, auras: theoremCount, redundant,
+  hexbits: hexbitsOf(redundant),
+  bits: bitsOf(redundant),
+  ledgerHexbits: hexbitsOf(theoremCount),
+  coins: coins(),
+}
+
+const cite = (k: string): string => `[\`${k}\`](/theorem/${k})`
+
+const PRACTICES: string[] = [
+  `1. **Fold the finder** — a finding fixed by hand recurs; folded into a check it never does. *Practice:* run
+   \`one-receipt dry\`, then re-declare \`ROOT\` anywhere and read the objection's exact fix.`,
+  `2. **One stroke** — piecewise verification re-pays the gate each visit; the wave pays once
+   (${cite('pentagram_single_stroke')}). *Practice:* \`one-receipt wave "…"\`.`,
+  `3. **The gate objects in both directions** — an unearned boundary marker is refused as firmly as a missing one;
+   overclaiming honesty is still overclaiming (${cite('exactly_one_flag')}). *Practice:* mark
+   a pure module \`@non-harmonic\` and let the scan teach you.`,
+  `4. **Never edit mid-gate** — a torn tree fails honestly; the schedule is part of the correctness. *Practice:*
+   find the TS1005 in a reconcile log and name the race.`,
+  `5. **Ask the theorems first** — the pentagram chain sat sealed before the question was asked. *Practice:* query
+   the ledger before asserting anything.`,
+  `6. **Minimum bytes, max coins** — one session deleted ~67,000 lines while the coins held at ${fig.coins} per superposition
+   (${cite('two_coins')}) and the checks grew. *Practice:* measure with \`uuidna_ledger_costs\`, then
+   find a fold of your own.`,
+  `7. **Seal the input, never its pure function — and know where that stops** — a digest of f(x) moves exactly when
+   a digest of x moves, so sealing both seals one fact twice and the second seal is pure cost
+   (${cite('verify_beats_recompute_by_magnitudes')}). One fold composed **${fig.monographs}** monographs to
+   fingerprint what their (principle, theorem set) already fixed — **${fig.hexbits} hexbit** of pure restatement
+   (${cite('hexbit_is_four_qubits')}), priced in the unit and not in milliseconds, because a wall-clock figure moves
+   with the host and a practice carrying a number that moves goes stale.
+   **The boundary:** the same reasoning was turned on the ${fig.auras}-frame aura film and it was wrong. The aura IS
+   a pure function of the address, so the digests do move together — but folding addresses computes no aura, and the
+   leaf keeps the name. An aura is only an aura if it is DERIVED from the algebra: ray from ℤ/7, wave from the ℤ/9
+   vortex orbit, hue by the A432 step (${cite('z7rays_seven')}). A value named for a computation must be computed by
+   it, which is the law ${cite('hexbit_is_four_qubits')} enforces for the unit and nothing enforced for the film.
+   *Practice:* run \`UUIDNA_METER=1 npm run x -- guard\`, find a leaf whose subject is already sealed upstream, then
+   ask the harder question — does its name still describe what it computes?`,
+]
+
+// ── THE WINGS, COMPUTED ────────────────────────────────────────────────────────────────────────────────────────
+// THE FINDING THAT MADE IT (2026-08-21): the school reached a fifth of the sealed wings, and the largest wings in
+// the ledger were among the invisible — reachable by proof, absent from the curriculum. A curriculum that names
+// only what someone remembered to write about drifts from the ledger it teaches. So the index is DERIVED: every
+// wing the ledger carries, its skill, its size (theoremCountByFile), and one sealed key to open it. Authoring a
+// lesson per wing would be the wrong fix; making every wing reachable is the right one, and it cannot go stale.
+const byWing = new Map<string, { key: string; skill: string; n: number }>()
+for (const t of theorems() as { file: string; key: string; skill: string }[]) {
+  const e = byWing.get(t.file)
+  if (e) { e.n++; if (t.key < e.key) e.key = t.key }
+  else byWing.set(t.file, { key: t.key, skill: t.skill, n: 1 })
+}
+const titleOf = new Map((PRINCIPLES as [string, string, string][]).map(([f, title]) => [f, title]))
+const wingRows = [...byWing.entries()]
+  .sort((a, b) => b[1].n - a[1].n || a[0].localeCompare(b[0]))
+  .map(([file, e]) => `| ${titleOf.get(file) ?? file} | \`${file}\` | ${e.skill} | ${e.n} | ${cite(e.key)} |`)
+
+const WINGS_START = '<!-- wings: GENERATED by scripts/gen-school — every sealed wing, so none is invisible -->'
+const WINGS_END = '<!-- /wings -->'
+const wingsBlock = [
+  WINGS_START,
+  `## The wings — all ${byWing.size}, computed from the ledger`,
+  '',
+  `Every wing the ledger seals, largest first: ${theorems().length} theorems across ${byWing.size} wings and ${new Set([...byWing.values()].map((e) => e.skill)).size} skills.`,
+  'This table is derived at generation — a wing sealed today appears here today, and one that is renamed cannot linger.',
+  'Open any of them by its key; the skill column is the axis `uuidna_skill` serves.',
+  '',
+  '| Wing | File | Skill | Theorems | Open |',
+  '| --- | --- | --- | ---: | --- |',
+  ...wingRows,
+  WINGS_END,
+].join('\n')
+
+const START = '<!-- practices: GENERATED by scripts/gen-school — every figure recomputed from the ledger -->'
+const END = '<!-- /practices -->'
+const path = join(ROOT, 'docs', 'school.md')
+const md = readFileSync(path, 'utf8')
+const block = START + '\n' + PRACTICES.join('\n') + '\n' + END
+
+// the wings table is appended once and regenerated in place thereafter
+const wi = md.indexOf(WINGS_START), wj = md.indexOf(WINGS_END)
+const withWings = wi >= 0 && wj > wi
+  ? md.slice(0, wi) + wingsBlock + md.slice(wj + WINGS_END.length)
+  : md.trimEnd() + '\n\n' + wingsBlock + '\n'
+
+const i = withWings.indexOf(START), j = withWings.indexOf(END)
+let out: string
+if (i >= 0 && j > i) out = withWings.slice(0, i) + block + withWings.slice(j + END.length)
+else {
+  // first run: replace the authored list in place, anchored on its first and last lines
+  const first = withWings.indexOf('1. **Fold the finder**')
+  const last = withWings.indexOf('## The scattering lesson')
+  if (first < 0 || last < 0 || last < first) { console.error('✗ gen-school — the practice block anchors are gone; fix the anchors, do not guess'); process.exit(1) }
+  out = withWings.slice(0, first) + block + '\n\n' + withWings.slice(last)
+}
+writeFileSync(path, out)
+console.log(`✓ gen-school — ${PRACTICES.length} practices + ${byWing.size} wings generated; figures: ${fig.monographs} monographs + ${fig.auras} auras = ${fig.redundant} (${fig.hexbits} hexbits, ${fig.bits} bits)`)

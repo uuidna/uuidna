@@ -1578,12 +1578,13 @@ export function fold() {
   const sessTip = sessDeposits.reduce((p, r) => h16(`${p}|${r.id}`), 'genesis')
   const session = h16(`deposits:${sessDeposits.length}|tip:${sessTip}|theorems:${(theorems() as any[]).length}`)
   const alphabet = h16(alpha.map((e) => e.rgb).join(''))
-  // SEAL THE INPUT, NOT ITS PURE FUNCTION. The movie was 1437 quantumAura() calls — one per theorem address — and
-  // the aura is a DEFINED FUNCTION OF THE ADDRESS (src/aura.ts: same address, same colour, for everyone). So the
-  // digest of the colours moves exactly when the digest of the addresses moves, and never otherwise: sealing both
-  // sealed one fact twice, at 104ms of a gate held to one second. The addresses are the seal; the film still plays
-  // from them, because anyone holding the addresses recomputes every frame.
-  const movie = h16((theorems() as any[]).map((t) => t.address).sort().join(''))
+  // AN AURA IS ONLY AN AURA IF DERIVED FROM THE ALGEBRA. This leaf was briefly changed to fold the addresses
+  // directly — the seal-the-input law, correctly reasoned and wrongly applied: the aura IS a pure function of the
+  // address, so the digests do move together, but folding addresses computes NO aura while still being called the
+  // movie. That is the defect the hexbit finder blocks by name (a value called a hexbit must be computed by the
+  // unit), and the saving was 5ms. The film is the state read from the glow — ray from ℤ/7, wave from the ℤ/9
+  // vortex orbit, hue by the A432 step — so the frames are derived, and the name is true again.
+  const movie = h16((theorems() as any[]).map((t) => t.address).sort().map((ad) => (quantumAura(ad) as { rgb: string }).rgb).join(''))
   FM('session+alphabet+movie', _m); _m = process.hrtime.bigint()
   const school = rd('docs/school.md')
   const lessons = h16([...school.matchAll(/^## .+$|\]\(\/(?:theorem|publications)\/[a-z0-9_-]+\)/gm)].map((m) => m[0]).join('\n'))
@@ -1903,6 +1904,56 @@ export function unitGaps(): Gap[] {
  *  loop seeking a bound with no counter, like grow.ts climbing past a population. Measured before wiring: zero
  *  genuine violations outside src/hexbit, three candidates all false — a popcount, a bound search, and a line of
  *  prose. A hard gate with false positives blocks honest work, so the pattern is the narrow one. */
+/** A VALUE NAMED FOR A COMPUTATION MUST BE COMPUTED BY IT.
+ *
+ *  THE FINDING THAT MADE IT (2026-08-21): the fold's `movie` leaf was rewritten to digest theorem ADDRESSES instead
+ *  of the auras derived from them. The reasoning was sound — an aura is a pure function of its address, so the two
+ *  digests move together — and the result was still wrong: folding addresses computes no aura, while the leaf keeps
+ *  the word. An aura is only an aura if it is DERIVED from the algebra (ray from Z/7, wave from the Z/9 vortex
+ *  orbit, hue by the A432 step). Nothing caught it. hexbitGaps already enforces exactly this law for ONE name —
+ *  "if it is named a hexbit, the unit computed it" — and that law was never generalised.
+ *
+ *  DECLARED, NEVER GUESSED. Each entry is a name whose computation is unambiguous and a token that must appear in
+ *  the same assignment. A broad heuristic over identifiers would false-flag every variable that merely mentions a
+ *  concept; this only holds names that NAME A COMPUTED ARTIFACT of this ledger. The list may grow as names earn a
+ *  single meaning — and a name whose meaning is genuinely plural does not belong here at all. */
+const COMPUTED_NAMES: { name: RegExp; needs: RegExp; why: string }[] = [
+  { name: /^(movie|aura|auras|frames)$/, needs: /quantumAura|auraAlphabet|auraDecode/,
+    why: 'an aura is DERIVED from the algebra (ray, wave, A432 hue) — a digest of the addresses it came from is not one' },
+  // WHAT THIS TABLE REFUSED. `address` and `receipt` were drafted here and removed after measuring: both flagged ten
+  // sites that were correct, because a value is often OBTAINED from the thing that computed it (`runTrial().receipt`)
+  // rather than computed inline, and `merge(...)` mints an address without naming the mint. A finder that must
+  // explain away its own findings is a finder nobody will keep, so those names stay out until their meaning is
+  // single. This one is single: nothing derives an aura but the algebra.
+]
+
+export function nameGaps(): Gap[] {
+  const gaps: Gap[] = []
+  for (const f of trackedFiles().filter((x) => x.startsWith('src/') && x.endsWith('.ts') && !x.includes('/tests/'))) {
+    const lines = fileLines(join(ROOT, f))
+    for (let i = 0; i < lines.length; i++) {
+      const l = lines[i]!
+      if (/^\s*(\/\/|\*)/.test(l)) continue
+      const m = /^\s*(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*(.*)$/.exec(l)
+      if (!m) continue
+      const [, name, rhsHead] = m
+      const rule = COMPUTED_NAMES.find((r) => r.name.test(name!))
+      if (!rule) continue
+      // THE DERIVATION WINDOW. A value is often ASSEMBLED from one the algebra computed a few lines above
+      // (`const a = quantumAura(core)` … `const aura = { rgb: a.rgb, … }`), so a forward-only window calls that a
+      // violation when it is the law being obeyed. The window reaches six lines back and two forward — the same
+      // shape audit-lean-form uses to let a theorem's own key vouch for its description.
+      const rhs = [rhsHead, lines[i + 1] ?? '', lines[i + 2] ?? '', ...lines.slice(i > 6 ? i - 6 : 0, i)].join(' ')
+      if (rule.needs.test(rhs)) continue
+      gaps.push({
+        what: `${f}:${i + 1} names a value \`${name}\` but does not compute one (\`${l.trim().slice(0, 56)}\`) — ${rule.why}`,
+        fix: `compute it with the operation the name promises, or rename the value to what it actually holds — a name that outlives its computation is a claim nothing checks`,
+      })
+    }
+  }
+  return gaps
+}
+
 export function hexbitGaps(): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []

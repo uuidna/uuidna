@@ -42,6 +42,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-articles.js', args: [], note: 'the desk’s own writing' },
   { file: 'gen-prose-evidence.js', args: [], note: 'the prose evidence' },
   { file: 'gen-gitattributes.js', args: [], note: 'the generated-file marks' },
+  { file: 'gen-school.js', args: [], note: 'the school practices — every figure recomputed from the ledger, never authored' },
   { file: 'gen-analytics.js', args: [], note: 'the measured metrics' },
   { file: 'rosetta.js', args: [], note: 'the five-leg census — rewrites src/rosetta-mirror.ts, the surface the hosted edge answers from' },
 ]

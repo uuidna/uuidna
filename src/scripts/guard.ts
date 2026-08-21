@@ -15,7 +15,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, nameGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -149,6 +149,13 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'unit', run: () => unitGaps() },
   // HARD FAIL IF NOT HEXBIT: a width taken bit-at-a-time outside src/hexbit.
   { name: 'hexbit', run: () => hexbitGaps() },
+  // A VALUE NAMED FOR A COMPUTATION MUST BE COMPUTED BY IT — hexbit's law, generalised the day it was needed for a
+  // second name. The fold's `movie` leaf was rewritten to digest the ADDRESSES the auras come from: sound reasoning
+  // (an aura is a pure function of its address, so the digests move together) and still wrong, because folding
+  // addresses computes no aura while the leaf keeps the word. Nothing caught it. The table is DECLARED, and holds
+  // only names with a single meaning: `address` and `receipt` were drafted and removed after they flagged ten
+  // correct sites. Enters green, with a control that reproduces the original bug.
+  { name: 'name', run: () => nameGaps() },
   // THREE WORDS, HARD: a new key over the limit fails the gate. The 313 that predate the law are the recorded
   // backlog in lean/key-entropy.json and may only shrink — so the entropy stops growing without moving 313
   // published content-addresses in one stroke.
