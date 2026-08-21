@@ -2,8 +2,8 @@
   "generated": "2026-08-21",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1444,
-  "total_theorems": 1444,
+  "total_claimed": 1435,
+  "total_theorems": 1435,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3084,12 +3084,6 @@
       "principle": "Division by zero"
     },
     {
-      "key": "dz_nonunits_to_units",
-      "lineAddress": "5a450e5a-74ea-8beb-b8d0-e15106f42ee4",
-      "address": "653f8dd0-51c9-8590-8a29-cb51b280ca4a",
-      "principle": "Division by zero"
-    },
-    {
       "key": "dz_bounded",
       "lineAddress": "eb7261de-650e-8e2f-98f4-37855479980f",
       "address": "caf10a81-334b-8b0a-b429-1cca7a998569",
@@ -3606,54 +3600,6 @@
       "principle": "The quantum computer"
     },
     {
-      "key": "clay_reflection_is_bijection",
-      "lineAddress": "2f2be40a-bf32-8182-8796-f8dafb0ad9dd",
-      "address": "1c05d496-8aa4-8365-8624-dadf246dfd35",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_riemann",
-      "lineAddress": "ff1cb671-c128-80aa-9215-cb448ffff13c",
-      "address": "2b5d3447-5663-8c7c-aef2-c7b178e2ca03",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_p_vs_np",
-      "lineAddress": "4bf9a4d2-1bde-8d36-bc5d-1dacaed7545c",
-      "address": "8172d21e-758b-8328-ba6a-2fd5e3c7b5ec",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_navier_stokes",
-      "lineAddress": "62415b14-c05f-8e19-a103-4a26e05be192",
-      "address": "41ee2967-188f-802a-a741-57107929d0ec",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_yang_mills",
-      "lineAddress": "0264c98d-df18-8bd3-b94b-48dd8900d79b",
-      "address": "cd848713-ad18-81aa-b653-5733da583055",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_hodge",
-      "lineAddress": "bd8b5151-8916-8ae2-8a91-d456152708d6",
-      "address": "3810957f-053f-8d9c-990e-8bef736afa72",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_birch_swinnerton_dyer",
-      "lineAddress": "aea017be-231d-84b9-a0ce-955613153f35",
-      "address": "b178ff55-574f-8c7d-b60f-0373f6b5d3e7",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_poincare",
-      "lineAddress": "ebc37fae-0977-854c-9cbb-3da0f18e0321",
-      "address": "85ccd1bc-f7c6-8634-9691-205613155fe8",
-      "principle": "The seven reflected"
-    },
-    {
       "key": "solutions_not_skipped",
       "lineAddress": "1035231d-27eb-80a8-84a6-91f6f2e58a40",
       "address": "666b7adb-02e3-8e81-a000-a1d948245aa4",
@@ -3769,20 +3715,20 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "dfcf3955-0fea-86a4-b14c-5035a7e590c9",
-      "address": "952ccaa6-7d89-8763-9a56-3513f864e8ed",
+      "lineAddress": "313fe792-71c2-8d9b-af7f-50baa4fb9fc8",
+      "address": "b5935dad-7dea-8fa4-9e17-8dc7da788d30",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "9011ea89-dde3-8b62-b65a-7741ed2e6aa4",
-      "address": "9aeab4e7-a110-86bb-819a-34504f8c3916",
+      "lineAddress": "aadbe2e7-99a8-8648-a3db-c39403c12aea",
+      "address": "0b5a90e8-f6a8-8e78-88bd-666792e1722f",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "d42f5228-008f-877a-bde0-d0527fbaea36",
-      "address": "a5be1151-c7f6-8690-8438-f118cb482090",
+      "lineAddress": "63e14ac0-e881-802f-a2a7-5e546313a6cb",
+      "address": "f73bf7ea-5ade-8469-af02-fd02bf3ca11a",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4015,38 +3961,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "aa8146d4-c882-8542-9e09-1105c566cc89",
-      "address": "58829e13-88cd-8a2b-9b0b-ec486bd9c1a0",
+      "lineAddress": "05284426-1d70-8cac-8766-9aaee0ecdb92",
+      "address": "c5d61d69-7d43-883b-93f4-73c72451e686",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "686fafd0-72fa-886f-8307-b3edc1fbfe12",
-      "address": "5f6e03dd-177d-84cc-97ff-898dc06c84ef",
+      "lineAddress": "35dd1946-9012-8c45-9e0c-a592c7c54487",
+      "address": "4373914b-4de2-88bf-8bd8-ebbf808c5f71",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "4538b24c-8ee3-8a05-a963-01ca7127f7ad",
-      "address": "7d0fa280-aead-8f65-8ea8-4129fad01cff",
+      "lineAddress": "b0ed2ec0-fa3b-847b-aeee-d1f45203c74a",
+      "address": "dc7e451a-8d9d-8f0e-aaf9-f7623a1f0460",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "f07d14c4-b042-82c8-9095-4f60889097d6",
-      "address": "74dca434-283b-8ce3-9973-25b9f7de1fc0",
+      "lineAddress": "555b22c2-e96c-8de6-9c98-f86523691748",
+      "address": "759e2d0d-3252-8175-b14a-61b12263130b",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "76c16e2d-9bdd-8b81-9c9d-e3cefae3c04e",
-      "address": "5391e826-687c-85b8-acfa-e84fd678bb2f",
+      "lineAddress": "20b9b047-26ed-8c29-8ff4-dbf80b4b665f",
+      "address": "cd4bc0e7-1c52-8647-b27f-c0a837bcbe3f",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "2ebcdd26-60af-8fd5-a038-bed0f21e1944",
-      "address": "78ce48de-b388-8465-80db-50f3690999c7",
+      "lineAddress": "a72c0a2b-6623-8656-9c29-2d53a7069b3c",
+      "address": "0a1313a0-3ec4-8b60-a6de-6f9fd08ba56f",
       "principle": "The detectors, proven"
     },
     {
@@ -4387,14 +4333,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "b0050410-f1b3-8a09-b1aa-64e01c1f1869",
-      "address": "2ddb3dff-e605-8ac9-bd10-92dad90edfc3",
+      "lineAddress": "ca6e0c00-3569-8caf-8107-19731b48fae8",
+      "address": "732eac52-b489-86a9-9d15-67f6fcffe8e5",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "2f094d3c-0dd5-862a-8a75-4ca51509ba40",
-      "address": "459e9e66-743d-87a1-874b-3022779cc236",
+      "lineAddress": "c0d54477-8605-8750-a3c1-4e0b9024223a",
+      "address": "0d9bc0ce-a6df-837f-824b-7f7e4ddcc170",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -8670,7 +8616,7 @@
       "principle": "lean/Trinities.lean"
     }
   ],
-  "claim_receipt": "ac8c00d6-a018-84f5-beaa-ae5941bd5cda",
+  "claim_receipt": "251d5c11-4d50-8155-ba6d-fd74f092e39a",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

@@ -87,7 +87,7 @@ by key. The median across all 1435 is 14.
    `110 - 108 = 2`
 2. **`rosette_and_vortex_are_coprime`** — cited 381× (Crt.lean)
    `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`
-3. **`court_theorem_beats_assertion`** — cited 365× (Legal.lean)
+3. **`court_theorem_beats_assertion`** — cited 363× (Legal.lean)
    `(List.range 2).all (fun a => (List.range 2).all (fun b => (a*(1-b) + b*(1-a) == (a+b) % 2) && ((a*(1-b)) * (b*…`
 4. **`drift_is_named_or_caught`** — cited 313× (Audit.lean)
    `((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d …`
@@ -106,7 +106,7 @@ Not a roadmap — the finders' own measurements, read at generation. Each line i
 Reachability:   4 qubits the library computes and the served surface does not expose
 Grid:           93 wings is harmonic in decimal only — 6 × 93 = 558 leaves 0 mod 9 and 3 mod 15
 Enumeration:    61 complete finite objects described by a wing but never sealed
-Cost coverage:  -9 theorems carry no measured decide-step cost
+Cost coverage:  0 theorems carry no measured decide-step cost
 ```
 
 **What this is not.** It is NOT quantum hardware, and NO speedup over classical computation is claimed anywhere:
