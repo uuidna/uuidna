@@ -4039,8 +4039,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "c75cca10-3ef4-8e49-b4f0-47e03f0d32f5",
-      "address": "093e44c7-2898-859d-9122-b070e6a3314c",
+      "lineAddress": "76c16e2d-9bdd-8b81-9c9d-e3cefae3c04e",
+      "address": "5391e826-687c-85b8-acfa-e84fd678bb2f",
       "principle": "The detectors, proven"
     },
     {
@@ -8670,7 +8670,7 @@
       "principle": "lean/Trinities.lean"
     }
   ],
-  "claim_receipt": "9fb87b3a-b388-86ec-91a1-509cd92d12fb",
+  "claim_receipt": "ac8c00d6-a018-84f5-beaa-ae5941bd5cda",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

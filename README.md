@@ -87,7 +87,7 @@ by key. The median across all 1444 is 14.
    `110 - 108 = 2`
 2. **`rosette_and_vortex_are_coprime`** — cited 381× (Crt.lean)
    `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`
-3. **`court_theorem_beats_assertion`** — cited 363× (Legal.lean)
+3. **`court_theorem_beats_assertion`** — cited 365× (Legal.lean)
    `(List.range 2).all (fun a => (List.range 2).all (fun b => (a*(1-b) + b*(1-a) == (a+b) % 2) && ((a*(1-b)) * (b*…`
 4. **`drift_is_named_or_caught`** — cited 313× (Audit.lean)
    `((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d …`

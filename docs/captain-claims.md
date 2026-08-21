@@ -4,7 +4,7 @@
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Total claimed:** 1444/1444 theorems — every one, by construction
-**Claim receipt:** `9fb87b3a-b388-86ec-91a1-509cd92d12fb`
+**Claim receipt:** `ac8c00d6-a018-84f5-beaa-ae5941bd5cda`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -291,7 +291,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) · [absolute_pressure_at_depth](/theorem/absolute_pressure_at_depth) · [partial_pressures_sum_to_absolute](/theorem/partial_pressures_sum_to_absolute) · [air_ppO2_in_window_at_surface](`air_pp` (no longer sealed)O2_in_window_at_surface) · [air_oxygen_toxic_deep](/theorem/air_oxygen_toxic_deep) · [gas_blend_by_partial_pressure](/theorem/gas_blend_by_partial_pressure) · [helium_reduces_narcosis](/theorem/helium_reduces_narcosis) · [ascent_needs_a_stop](/theorem/ascent_needs_a_stop)
+[trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) · [absolute_pressure_at_depth](/theorem/absolute_pressure_at_depth) · [partial_pressures_sum_to_absolute](/theorem/partial_pressures_sum_to_absolute) · [air_ppO2_in_window_at_surface](/theorem/air_ppO2_in_window_at_surface) · [air_oxygen_toxic_deep](/theorem/air_oxygen_toxic_deep) · [gas_blend_by_partial_pressure](/theorem/gas_blend_by_partial_pressure) · [helium_reduces_narcosis](/theorem/helium_reduces_narcosis) · [ascent_needs_a_stop](/theorem/ascent_needs_a_stop)
 
 ### The light domain
 
