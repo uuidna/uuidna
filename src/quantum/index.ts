@@ -5,7 +5,7 @@
 // gates live in — closed under X, Y, Z, S, S†, H, CNOT, CZ, SWAP, Toffoli, CCZ — so the whole simulation runs in
 // BigInt with no rounding, and every measurement probability is the EXACT rational (re² + im²) / 2^scale.
 //
-// Verified the way the crypto tests verify: exact KNOWN-ANSWER equality.test.mjs).
+// Verified the way the crypto tests verify: exact KNOWN-ANSWER equality, never a tolerance (see the KAT suites).
 //
 // Honestly bounded: exact for small systems, but the state has 2^n amplitudes — EXPONENTIAL in qubit count, the
 // exact classical cost CONFIRMED by theorem n_qubit_dimension; a simulator. The uniform-scale exact rep covers the Clifford group + Toffoli/CCZ

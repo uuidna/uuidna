@@ -92,7 +92,17 @@ const SOURCES: { source: string; args: Record<string, unknown> }[] = [
 for (const { source, args } of SOURCES)
   test(`e2e online: ${source} answers the served contract`, async (t) => {
     if (!online) { t.skip('no network egress from this machine — the offline e2e suite covers the protocol'); return }
-    const { body } = await call('uuidna_school_apis', { source, ...args })
+    // A DEADLINE, BECAUSE AN UNBOUNDED WAIT IS NOT A TEST. This awaited a live third party with no bound and
+    // inherited the runner's 60s default: measured at 60,007ms for one source, which is a minute of CI burned to
+    // learn nothing. A source that will not answer in five seconds has not broken the served contract — it has
+    // failed to speak — so the deadline SKIPS by name rather than failing, the same way no-egress does. What
+    // does not finish, dies.
+    const answered = await Promise.race([
+      call('uuidna_school_apis', { source, ...args }).then((r) => r as { body: Record<string, unknown> }),
+      new Promise<null>((resolve) => setTimeout(() => resolve(null), 5000).unref()),
+    ])
+    if (!answered) { t.skip(`${source} did not answer within 5s — the contract is untested here, not broken`); return }
+    const { body } = answered
     // ── the ENVELOPE is ours, and it holds whether or not the source had anything to say
     assert.equal(body.source, source, 'the answer must say which source it came from')
     assert.ok(typeof body.url === 'string' && (body.url as string).startsWith('https://'), 'the exact url must be citable')

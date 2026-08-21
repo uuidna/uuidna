@@ -483,7 +483,7 @@ export function microbialFuelCellYield(input: MfcInput = {}): EnergyReport {
       ? `Over ${hours.v} h the measured power range spans ${powerOverHoldLo}..${powerOverHoldHi} mWh/m3, which overlaps the measured energy recovery band ${energyLo}..${energyHi} mWh/m3 — the two independent measurements can both describe this reactor.`
       : `Over ${hours.v} h the measured power range spans ${powerOverHoldLo}..${powerOverHoldHi} mWh/m3, which does NOT overlap the measured energy recovery band ${energyLo}..${energyHi} mWh/m3. The two published measurements cannot both describe a pass of this length; the retention time.`,
   ]
-  if (isLab) notes.push('You asked for the lab scale. The record it admits comes from a miniaturised cell fed a defined medium. It is a laboratory result about electrode and reactor design, and treating it as a yield for a bucket of sewage would be the exact overclaim this module exists to refuse.')
+  if (isLab) notes.push('You asked for the lab scale. The record it admits comes from a miniaturised cell fed a defined medium, not wastewater. It is a laboratory result about electrode and reactor design, and treating it as a yield for a bucket of sewage would be the exact overclaim this module exists to refuse.')
 
   const assertedRaw = input.assertedVolumetricMilliwattsPerCubicMetre
   if (assertedRaw === undefined || assertedRaw === null || assertedRaw === '') {

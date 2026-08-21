@@ -187,7 +187,7 @@ export function school(): School {
     ] },
     { id: 'levels-courses', title: 'Levels and courses', computed: true, body: [
       'A course is a proof wing and a lesson is a theorem in it, so the catalogue is the ledger — not a syllabus',
-      'anyone maintains. The LEVEL is measured.json records what each proof cost',
+      'anyone maintains. The LEVEL is measured, never assigned: lean/heartbeats.json records what each proof cost',
       'the Lean kernel in decide-steps, a course takes the median of its own lessons, and the level is the decade',
       'that median falls in — a level-10 course settles in tens of steps on your machine, a level-1000 course in',
       'thousands. Because the level is read off one course alone, it does not move when other courses are added or',
