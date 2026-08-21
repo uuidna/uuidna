@@ -7,7 +7,7 @@ description: "Computed from lean/Os.lean — 7 sealed theorems, every claim citi
 
 > THE OS-INTEGRITY ALGEBRA — the third named layer, completing hardware → software → os: the decidable facts a DEPLOYMENT is verified against. uuidnaOS is a content-addressed PROVENANCE boundary (src/os pins an exact Alpine release, src/drivers the exact driver bundle, each checked against its PUBLISHED SHA-256 with uuidna's own pure-TS hash) — it NEVER boots, ports, links, or executes. — held by [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) and its 6 siblings below.
 
-**7 theorems**, from [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) onward, each proven `by decide` in [lean/Os.lean](/lean/Os.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected). A boundary stated here is decided, not merely denied.
+**7 theorems**, from [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) onward, each proven `by decide` in [lean/Os.lean](/lean/Os.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected). A boundary stated here is decided.
 
 ### PROVENANCE verification IS byte-equality: the bytes you hold match the pinned release exactly — [1,2,3] equals [1,2,3]. The exact-copy proof is nothing more, and nothing less, than the held bytes equalling the named ones.
 The ledger holds this as [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) — proven `by decide`, sorry-free:
@@ -30,7 +30,7 @@ The ledger holds this as [truncation_is_detected](/theorem/truncation_is_detecte
 ([1,2,3] : List Nat) ≠ [1,2]
 ```
 
-### A PROVENANCE is a SEQUENCE, not a set: reordering the bytes breaks the match — [1,2,3] ≠ [3,2,1]. The same bytes in a different order are a different image; exact-copy pins the order, not just the multiset.
+### A PROVENANCE is a SEQUENCE— [1,2,3] ≠ [3,2,1]. The same bytes in a different order are a different image; exact-copy pins the order.
 The ledger holds this as [byte_order_is_significant](/theorem/byte_order_is_significant) — proven `by decide`, sorry-free:
 
 ```lean

@@ -37,6 +37,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-reports.js', args: [], note: 'reports as accounting — computed from the ledger' },
   { file: 'gen-readme.js', args: [], note: 'the published capacity, every figure derived' },
   { file: 'gen-llm.js', args: [], note: 'llm.txt' },
+  { file: 'gen-terminology.js', args: [], note: 'terminology.json' },
   { file: 'gen-feed.js', args: [], note: 'the feed' },
   { file: 'gen-articles.js', args: [], note: 'the desk’s own writing' },
   { file: 'gen-prose-evidence.js', args: [], note: 'the prose evidence' },

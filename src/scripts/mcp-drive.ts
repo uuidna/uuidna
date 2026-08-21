@@ -5,7 +5,7 @@
 // — the directed edge; 90 DISTINCT addresses or the fusion forgot its direction), and the full self-computation
 // (uuidna_conformance: every theorem's DNA recomputes). Each stage folds to a quantum receipt; the mix fold is
 // order-invariant, so the parallel pipe lands on the same root a sequential run does — scheduling cannot move it.
-// Exit 1 on any broken invariant. Integrity.
+// Exit 1 on any broken invariant. Integrity, not truth: receipts of the served surface, not new mathematics.
 import { spawn } from 'node:child_process'
 import { createInterface } from 'node:readline'
 

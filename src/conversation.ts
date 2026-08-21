@@ -8,7 +8,7 @@
 // plaintext stay client-side, the channel IS the uuid stream, nothing is sent. Secrecy is exactly the passphrase
 // entropy; the handles are integrity/routing; an advancing per-message step closes the equality leak.
 import { merge, coin64, toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'   // the ORDER-INVARIANT fold — the superposition's own arithmetic
+import { merkleGravity } from './gravity/index.js'   // the ORDER-INVARIANT fold — the superposition's own arithmetic
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { encryptSession, decryptSession, type Sealed } from './crypt.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'

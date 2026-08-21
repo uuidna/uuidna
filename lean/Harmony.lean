@@ -1,9 +1,7 @@
 -- lean/Harmony.lean — GENERATED. THE HARMONY OF PAIRS — the same complementary-pair arithmetic across biology, medicine, chemistry and physics (DNA bases, acid/base, agonist/antagonist, action/reaction, cation/anion), proven to be ONE reflection at different centres. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- BIOLOGY: the four DNA bases pair by complement — A↔T, G↔C — written as the REFLECTION c ↦ 3−c on {0,1,2,3}
-    (the same reflection form as pH and charge below, not the XOR form of dna_base_pairing_involution): applied
-    twice it returns (an involution), and no base pairs with itself (3−c ≠ c). The helix pairs through the
-    centre 3. -/
+    (the same reflection form as pH and charge below. The helix pairs through the centre 3. -/
 theorem dna_bases_reflect_through_three : (List.range 4).all (fun c => 3 - (3 - c) == c) ∧ (List.range 4).all (fun c => 3 - c != c) := by decide
 
 /-- BIOLOGY: Chargaff's rule as counting — in a duplex #A = #T and #G = #C, so the purines (A+G) equal the

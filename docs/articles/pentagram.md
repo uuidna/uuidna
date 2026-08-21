@@ -7,7 +7,7 @@ description: "Computed from lean/Pentagram.lean — 13 sealed theorems, every cl
 
 > THE PENTAGRAM & THE FIBONACCI DIGITS — the star polygon {5/2} and the single-digit (Pisano) Fibonacci cycles, finite and decidable. — held by [pentagram_single_stroke](/theorem/pentagram_single_stroke) and its 12 siblings below.
 
-**13 theorems**, from [pentagram_single_stroke](/theorem/pentagram_single_stroke) onward, each proven `by decide` in [lean/Pentagram.lean](/lean/Pentagram.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pentagram_step_coprime_five](/theorem/pentagram_step_coprime_five). A boundary stated here is decided, not merely denied.
+**13 theorems**, from [pentagram_single_stroke](/theorem/pentagram_single_stroke) onward, each proven `by decide` in [lean/Pentagram.lean](/lean/Pentagram.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pentagram_step_coprime_five](/theorem/pentagram_step_coprime_five). A boundary stated here is decided.
 
 ### The pentagram is the star polygon {5/2}: stepping +2 (mod 5) draws it in a SINGLE stroke — [0,2,4,1,3] — visiting all five points without lifting the pen, because 2 is coprime to 5.
 The ledger holds this as [pentagram_single_stroke](/theorem/pentagram_single_stroke) — proven `by decide`, sorry-free:
@@ -93,7 +93,7 @@ The ledger holds this as [pentagon_interior_angle_108](/theorem/pentagon_interio
 (5 - 2) * 180 = 540 ∧ 5 * 108 = 540
 ```
 
-### π is the honest edge: irrational, infinite, non-repeating — NOT a `by decide` object (proving anything about π itself needs analysis, not decision). What decides is the finite rationals AROUND it: Archimedes’ bounds 223/71 < π < 22/7 are two ordered fractions — 223·7 = 1561 < 1562 = 22·71 — bracketing π within 1/(71·7). The ledger holds the finite witnesses; π stays outside, by its nature, not by omission.
+### π is the honest edge: irrational, infinite, non-repeating — NOT a `by decide` object (proving anything about π itself needs analysis. What decides is the finite rationals AROUND it: Archimedes’ bounds 223/71 < π < 22/7 are two ordered fractions — 223·7 = 1561 < 1562 = 22·71 — bracketing π within 1/(71·7). The ledger holds the finite witnesses; π stays outside, by its nature.
 The ledger holds this as [pi_bracketed_by_finite_rationals](/theorem/pi_bracketed_by_finite_rationals) — proven `by decide`, sorry-free:
 
 ```lean

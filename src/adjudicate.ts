@@ -7,7 +7,7 @@
 import { slimGate } from './slimgate.js'
 import { THEOREMS, theoremByKey, type LeanTheorem } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { imprint, readImprint } from './imprint.js'
 
 export type VerdictKind = 'VERIFIED' | 'UNVERIFIED'

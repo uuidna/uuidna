@@ -8,7 +8,7 @@
 // its bio BACKED by the ledger count; the aura is ART (an address→hue arithmetic). It shares nothing but
 // what is already public and sealed.
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { runTrial } from './theorems/index.js'
 import { quantumAura } from './aura.js'
 import { creditsSummary } from './captain/credits/index.js'

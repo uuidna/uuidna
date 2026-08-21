@@ -52,7 +52,7 @@ export function agentContribute(workAddress: string, theoremCited: string): Agen
   const t = THEOREMS.find(x => x.key === theoremCited)
   if (!t) throw new Error(`theorem ${theoremCited} not found`)
 
-  // Coins are encoded in the theorem key (e.g., "captain_commission_two_per_110" encodes 2 coins)
+  // Coins are encoded in the theorem key (e.g., "captain_theorem" encodes 2 coins)
   const coinsSpent = COIN_COST.reconcile
 
   const receipt = merkleGravity([workAddress, t.address, toUuid('coins:' + coinsSpent)])

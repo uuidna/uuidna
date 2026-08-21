@@ -7,7 +7,7 @@ description: "Computed from lean/SpectrumHex.lean — 6 sealed theorems, every c
 
 > THE COLOUR AS SIX HEXBITS — the spectrum sized in the unit the machine writes it in. — held by [colour_is_six_hexbits](/theorem/colour_is_six_hexbits) and its 5 siblings below.
 
-**6 theorems**, from [colour_is_six_hexbits](/theorem/colour_is_six_hexbits) onward, each proven `by decide` in [lean/SpectrumHex.lean](/lean/SpectrumHex.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [channel_is_two_hexbits](/theorem/channel_is_two_hexbits). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [colour_is_six_hexbits](/theorem/colour_is_six_hexbits) onward, each proven `by decide` in [lean/SpectrumHex.lean](/lean/SpectrumHex.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [channel_is_two_hexbits](/theorem/channel_is_two_hexbits). A boundary stated here is decided.
 
 ### A COLOUR IS SIX HEX CHARACTERS: #RRGGBB at four bits each is 24 bits, and 16^6 equals 2^24 exactly — the hexadecimal reading and the binary reading are one number, 16777216 colours.
 The ledger holds this as [colour_is_six_hexbits](/theorem/colour_is_six_hexbits) — proven `by decide`, sorry-free:

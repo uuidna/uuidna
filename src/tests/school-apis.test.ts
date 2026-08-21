@@ -22,7 +22,7 @@ test('every registered source declares what it serves and how it answered', () =
   }
 })
 
-// ── THE POINT. An unreachable source is NAMED.
+// ── THE POINT. An unreachable source is NAMED, not dropped.
 test('sources that could not be called are recorded in ABSENT, by name', () => {
   const r = schoolApiRegistry()
   assert.ok(Array.isArray(r.absent), 'absent must exist even when empty — silence is not evidence of reachability')
@@ -43,7 +43,7 @@ test('no two sources share an id', () => {
   assert.equal(new Set(ids).size, ids.length)
 })
 
-// ── THE PAIRING. Education and jobs are joined through a PUBLISHED relation, so the join is named.
+// ── THE PAIRING. Education and jobs are joined through a PUBLISHED relation, so the join is named, not guessed.
 test('ESCO is declared as the bridge, and the jobs side is reachable from the same door', () => {
   const esco = SCHOOL_APIS.find((s) => s.id === 'esco')
   assert.ok(esco, 'the taxonomy that relates skills to occupations must be a wired source')
@@ -55,16 +55,16 @@ test('ESCO is declared as the bridge, and the jobs side is reachable from the sa
 // EURES is the whole reason ABSENT exists: it is the one every survey lists and nobody calls.
 test('EURES is named in ABSENT with what stands in its place', () => {
   const eures = schoolApiRegistry().absent.find((a) => a.source.includes('EURES'))
-  assert.ok(eures, 'a probed-and-refused source must be recorded')
+  assert.ok(eures, 'a probed-and-refused source must be recorded, not dropped')
   assert.ok(eures.why.includes('404') || eures.why.includes('403'), 'the absence carries what the probe actually got')
   assert.ok(eures.instead.length > 0, 'an absence that names no alternative lies by omission')
 })
 
-test('an unknown source is refused BY NAME', async () => {
+test('an unknown source is refused BY NAME, never answered with an empty result', async () => {
   await assert.rejects(() => schoolApiFetch('eures'), /unknown source "eures"/)
   await assert.rejects(() => schoolApiFetch('esco'), /needs \{text\}/)
   await assert.rejects(() => schoolApiFetch('gisco'), /needs \{country\}/)
-  await assert.rejects(() => schoolApiFetch('oeapi'), /SERVED
+  await assert.rejects(() => schoolApiFetch('oeapi'), /SERVED, not fetched/)
 })
 
 // The GISCO rows carry quoted names with embedded commas and doubled quotes — a naive split truncates schools.
@@ -75,11 +75,11 @@ test('the CSV split survives quoted commas and doubled quotes', () => {
 })
 
 // ── THE HOMOGRAPH RULE, and the surface it cost. The finder for the gap this module shipped with: a search returns
-// the query's letters, so a fragment hit carries no information. z9-ring is a ring of sealed arithmetic
+// the query's letters, so a fragment hit carries no information. z9-ring is a ring of sealed arithmetic, never a cast
 // concrete one. The rule now guards the PAIRING's first hop; the bulk ledger-to-ESCO map it was written for was
 // measured, found to produce confident wrong rows that no string rule could reach, and REMOVED — recorded in ABSENT
 // rather than deleted in silence, because a surface that vanishes without a reason looks like one nobody thought of.
-test('a fragment hit is a homograph', () => {
+test('a fragment hit is a homograph, not a mapping', () => {
   const keep: [string, string][] = [['quantum', 'quantum mechanics'], ['astronomy', 'astronomy'],
     ['martial-arts', 'practice martial arts'], ['optimisation', 'conduct search engine optimisation']]
   const drop: [string, string][] = [['z9-ring', 'cast concrete rings'], ['z7-rosette', 'finish costumes'],
@@ -99,8 +99,8 @@ test('the removed bulk mapping is recorded as an absence, with what replaced it'
 // ── A SOURCE THAT ANSWERS IS NOT A SOURCE THAT SERVES. SEDIA returns 200 on the path nobody needs.
 test('a source wired on the responding path rather than the serving path is refused, and says which', () => {
   const sedia = schoolApiRegistry().absent.find((a) => a.source.includes('SEDIA'))
-  assert.ok(sedia, 'a probed source rejected for what it returns must be recorded')
-  assert.match(sedia.why, /ANSWERS/, 'the reason must be that it answers uselessly')
+  assert.ok(sedia, 'a probed source rejected for what it returns must be recorded, not silently skipped')
+  assert.match(sedia.why, /ANSWERS/, 'the reason must be that it answers uselessly, not that it is unreachable')
   assert.match(sedia.instead, /cordis/, 'a rejection that names no replacement lies by omission')
 })
 
@@ -147,7 +147,7 @@ test('the heartbeat separates answering, empty, REFUSED and thrown — and never
   assert.equal(by.gisco.declined, true, 'a REFUSAL must not be reported as an empty world')
   assert.match(by.gisco.note, /REFUSED/)
   assert.equal(by['data-europa'].ok, false)
-  assert.match(by['data-europa'].note, /threw/, 'an unreachable source is named')
+  assert.match(by['data-europa'].note, /threw/, 'an unreachable source is named, not swallowed')
   assert.equal(h.answering, 3)
   assert.equal(h.dark.length, 3)
 })
@@ -167,7 +167,7 @@ test('the heartbeat receipt moves when a source goes dark, and is stable when no
 // each fetcher called r.json(), the web page made it throw, and the throw landed in a best-effort catch that
 // returned an EMPTY answer — so a source serving an error page was indistinguishable from a source that genuinely
 // has nothing. These assertions are pure: the reader's own predicate is exercised, no network involved.
-test('an HTML body is recognised as a web page', () => {
+test('an HTML body is recognised as a web page, not as data', () => {
   const html = ['<!DOCTYPE html><html><head>', '  <html lang="en">', '<!doctype html>\n<title>404</title>']
   const data = ['{"total":3}', 'id,name,lat\nBG_1,X,42.0', '[]', '{"notices":[]}']
   // the predicate the reader uses, asserted directly on both kinds so the discrimination is the thing under test
@@ -180,12 +180,12 @@ test('an HTML body is recognised as a web page', () => {
   assert.ok(!looksHtml('application/json;charset=UTF-8', ''), 'and an empty JSON answer is still an answer')
 })
 
-test('the heartbeat treats a DECLINED source as dark', async () => {
+test('the heartbeat treats a DECLINED source as dark, never as an empty world', async () => {
   const declining = async (source: string): Promise<SchoolApiAnswer> =>
     ({ source, query: {}, url: '', count: 0, results: [], truncated: false, declined: true,
-       note: 'served a WEB PAGE (text/html)', receipt: '', honest: '' })
+       note: 'served a WEB PAGE (text/html), not data', receipt: '', honest: '' })
   const h = await probeSchoolApis(declining)
   assert.equal(h.answering, 0, 'a source serving web pages is answering nothing, whatever its status code said')
   assert.equal(h.dark.length, h.probed)
-  for (const p of h.dark) assert.match(p.note, /REFUSED/, 'and the report must say it was refused')
+  for (const p of h.dark) assert.match(p.note, /REFUSED/, 'and the report must say it was refused, not that nothing was found')
 })

@@ -1,4 +1,4 @@
--- lean/Chessgames.lean — GENERATED. THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves), not O(all games)), the d-dimensional board (8^d = 2^(3d): the 3D 512 = 2^9, the 8-dimensional 8^8 = 2^24), no maximal board (only bounds), and the knight on the ℤ/9 diamond. uuidna does NOT enumerate or precompute the game tree — a content-address proves INTEGRITY, not truth, here not enumeration; the diamond and combination facts are STRUCTURE, not a claim that chess IS the ring. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Chessgames.lean — GENERATED. THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves). uuidna does NOT enumerate or precompute the game tree — a content-address proves INTEGRITY; the diamond and combination facts are STRUCTURE. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- The opening fans to exactly twenty moves: sixteen pawn pushes (8 pawns × 2 squares) and four knight moves (2
     knights × 2) — 8·2 + 2·2 = 20. The first branch of the tree, counted. -/
@@ -20,7 +20,7 @@ theorem positions_exceed_uuid_space : (2:Nat)^128 < 10^44 := by decide
 
 /-- The legal positions (~10^44) sit inside the naive state space 13^64 — 64 squares, each in one of 13 states —
     and 10^44 < 13^64. Most of the naive configurations are illegal, so the true count is far smaller, but still
-    bounded above: finite, never infinite. -/
+    bounded above: finite. -/
 theorem positions_within_naive_bound : (10:Nat)^44 < 13^64 := by decide
 
 /-- Each square holds one of thirteen states: six white pieces, six black, or empty — 6 + 6 + 1 = 13. The naive
@@ -34,7 +34,7 @@ theorem fifty_move_rule_bounds_a_run : 50 * 2 = 100 := by decide
 
 /-- Addressing ONE game costs its ply-count — bounded well under six thousand — and 6000 < 10^120: a single game
     recomputes to its uuid instantly, a speck against the un-enumerable tree. This is the TRUE kernel: recompute
-    is O(moves), an identity, not O(all games), an enumeration. -/
+    is O(moves), an identity. -/
 theorem one_game_is_a_speck : (6000:Nat) < 10^120 := by decide
 
 /-- Raise the board a dimension: an 8×8×8 cube is 512 = 2^9 cells (8^3 = 512, 512 = 2^9). The flat 2^6 board is
@@ -56,13 +56,13 @@ theorem no_maximal_board : ((8:Nat)^1 < 8^2) ∧ ((8:Nat)^2 < 8^3) := by decide
 
 /-- The knight's leap 1 + 2 = 3 lands on residue 3 of the ℤ/9 vortex, and the diamond reflection dz(3) = 10 − 3
     = 7 sends it to 7 — the same reflection the whole ledger centres on. a structural analogy (the move-count
-    read as a residue), NOT a claim that chess IS the ring. -/
+    read as a residue). -/
 theorem knight_on_the_diamond : ((1 + 2) % 9 = 3) ∧ ((10 - 3) = 7) := by decide
 
 /-- The board enters the ℤ/9 diamond, where the games interact: the flat board 64 ≡ 1 (the vortex origin) and
     the 3D board 512 ≡ 8 (mod 9), and {1, 8} are exactly the TWO self-inverse units of the ring (8·8 ≡ 1). The
     board, in either dimension, is a self-inverse of the diamond — and the 3D board shares residue 8 with the
-    audit game. a structural residue, NOT a claim the board IS the ring. -/
+    audit game. a structural residue. -/
 theorem boards_are_diamond_self_inverses : (64 % 9 = 1) ∧ (512 % 9 = 8) ∧ ((8 * 8) % 9 = 1) := by decide
 
 /-- A knight on a central square (d4) commands all EIGHT moves — maximal mobility, why knights belong in the

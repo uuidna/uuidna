@@ -3,7 +3,7 @@
 // ARITHMETIC: every number is a genus, a count of generators, or a power of two; nothing is measured from the world
 // and no ledger count appears, so nothing here drifts.
 //
-// WHAT IS ALREADY SEALED, AND WHAT IS NOT. two_coins_is_double_torus (2*2 − 2 = 2) and containment_is_genus_one
+// WHAT IS ALREADY SEALED, AND WHAT IS NOT. captain_theorem (2*2 − 2 = 2) and containment_is_genus_one
 // ((2 − 2·1 = 0) ∧ (2 − 2·2 = −2)) already carry the Euler characteristic, and double_torus_boards_are_the_address
 // fuses it to the 128-bit address. What no wing carries is the PRESENTATION: a genus-2 surface is described by 2g = 4
 // generators and ONE relation — five symbols — while the words over those generators grow without bound. That gap is

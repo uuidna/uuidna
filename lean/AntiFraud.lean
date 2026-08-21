@@ -9,12 +9,11 @@ def commission (bits : Nat) : Nat := 2 * (bits / 110)
 def verified (c s : Nat) : Nat := c * s
 def unverified (c s : Nat) : Nat := 1 - verified c s
 
--- the 27 length-three claim lists over a three-theorem alphabet — the detector's whole domain, not a sample
+-- the 27 length-three claim lists over a three-theorem alphabet — the detector's whole domain
 def lists : List (List Nat) := [[1,1,1],[1,1,2],[1,1,3],[1,2,1],[1,2,2],[1,2,3],[1,3,1],[1,3,2],[1,3,3],[2,1,1],[2,1,2],[2,1,3],[2,2,1],[2,2,2],[2,2,3],[2,3,1],[2,3,2],[2,3,3],[3,1,1],[3,1,2],[3,1,3],[3,2,1],[3,2,2],[3,2,3],[3,3,1],[3,3,2],[3,3,3]]
 
 /-- THE CAPTAIN COMMISSION — the key the hosted MCP quotes to every agent that connects and every two-coin
-    deposit cites, so the NAME is a published contract, not a label. THE COMMISSION IS A STEP, NOT A FRACTION:
-    two coins per COMPLETED 110, so 110 pays two, 220 pays four, and 109 pays nothing. A rate that rounded would
+    deposit cites, so the NAME is a published contract. THE COMMISSION IS A STEP. A rate that rounded would
     leak; a floor cannot. -/
 theorem captain_commission_two_coins : (commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0) := by decide
 
@@ -24,7 +23,7 @@ theorem forgery_flags_every_mismatch : (((List.range 9).flatMap (fun c => (List.
 
 /-- THE DOUBLE-SPEND DETECTOR, EXHAUSTIVE AT LAST: all 27 length-three claim lists over three theorems are
     walked, and exactly 21 contain a repeat while 6 do not. The wing formerly sampled four lists by hand — a
-    detector tested on the cases its author imagined is tested against its author, not against fraud. -/
+    detector tested on the cases its author imagined is tested against its author. -/
 theorem double_spend_walks_every_list : (lists.length = 27) ∧ ((lists.filter (fun l => [1,2,3].any (fun t => doubleSpent t l))).length = 21) ∧ ((lists.filter (fun l => !([1,2,3].any (fun t => doubleSpent t l)))).length = 6) := by decide
 
 /-- AND IT DOES NOT OVERREACH: a list naming three different theorems flags nothing, so the detector answers to
@@ -50,9 +49,9 @@ theorem anti_fraud_check_deterministic : (((List.range 2).flatMap (fun f => (Lis
     guarantee that an honest citation is never refused. -/
 theorem sealed_theorem_not_forged : ((List.range 9).map (fun c => forged c c)).all (fun x => x == 0) := by decide
 
-/-- THE GATE PASSES EXACTLY WHEN NOTHING IS FLAGGED — an IFF over all eight detector states, not merely "it
-    passes when clean". One direction alone would admit a gate that also passed on something else. Named in
-    GATE_THEOREMS as part of the gate’s published spec. -/
+/-- THE GATE PASSES EXACTLY WHEN NOTHING IS FLAGGED — an IFF over all eight detector states"it passes when
+    clean". One direction alone would admit a gate that also passed on something else. Named in GATE_THEOREMS as
+    part of the gate’s published spec. -/
 theorem honesty_gate_passes_iff_all_sealed : (List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (cleanAudit f d v == 1) == (f == 0 && d == 0 && v == 0)))) := by decide
 
 /-- ONE RAISED FLAG DRAINS THE WHOLE AUDIT — no partial credit. Over all eight states, if any detector fires the
@@ -73,6 +72,5 @@ theorem overclaim_with_fake_cite_fails : (List.range 2).all (fun f => (List.rang
     claim escapes without a verdict and none carries two. The trial is total and binary. -/
 theorem fraud_verdict_is_exactly_one : (List.range 2).all (fun c => (List.range 2).all (fun s => verified c s + unverified c s == 1)) := by decide
 
-/-- A CITATION WITHOUT A SEAL IS UNVERIFIED, never false: citing with nothing sealed behind it leaves the claim
-    open rather than refuted, and only citation AND seal together verify. An open door is not a closed one. -/
+/-- A CITATION WITHOUT A SEAL IS UNVERIFIED. An open door is not a closed one. -/
 theorem fabricated_cite_stays_unverified : (unverified 1 0 = 1) ∧ (verified 1 1 = 1) ∧ (verified 1 0 = 0) := by decide

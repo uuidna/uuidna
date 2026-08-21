@@ -7,7 +7,7 @@ description: "Computed from lean/Chemistry.lean — 8 sealed theorems, every cla
 
 > CHEMISTRY — the reactions domain, as decidable arithmetic, demarcated. — held by [haber_balances](/theorem/haber_balances) and its 7 siblings below.
 
-**8 theorems**, from [haber_balances](/theorem/haber_balances) onward, each proven `by decide` in [lean/Chemistry.lean](/lean/Chemistry.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [haber_balances](/theorem/haber_balances). A boundary stated here is decided, not merely denied.
+**8 theorems**, from [haber_balances](/theorem/haber_balances) onward, each proven `by decide` in [lean/Chemistry.lean](/lean/Chemistry.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [haber_balances](/theorem/haber_balances). A boundary stated here is decided.
 
 ### Mass is conserved — the Haber synthesis N₂ + 3H₂ → 2NH₃ balances: 2 nitrogen atoms on each side (2 = 2·1) and 6 hydrogen atoms on each side (3·2 = 2·3). Atoms are neither created nor destroyed.
 The ledger holds this as [haber_balances](/theorem/haber_balances) — proven `by decide`, sorry-free:

@@ -7,7 +7,7 @@ description: "Computed from lean/Neuro.lean — 18 sealed theorems, every claim 
 
 > NEUROSCIENCE — the algebra of the neuron, demarcated, and rebuilt so a DEAD NEURON CANNOT SATISFY IT. — held by [subthreshold_silent](/theorem/subthreshold_silent) and its 17 siblings below.
 
-**18 theorems**, from [subthreshold_silent](/theorem/subthreshold_silent) onward, each proven `by decide` in [lean/Neuro.lean](/lean/Neuro.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 13 of its 18 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [action_potential_swing](/theorem/action_potential_swing). A boundary stated here is decided, not merely denied.
+**18 theorems**, from [subthreshold_silent](/theorem/subthreshold_silent) onward, each proven `by decide` in [lean/Neuro.lean](/lean/Neuro.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 11 of its 18 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [all_or_none_amplitude](/theorem/all_or_none_amplitude). A boundary stated here is decided.
 
 ### Below threshold the neuron is SILENT — every input 0..4 against a threshold of 5 gives output 0, the flat foot of the step.
 The ledger holds this as [subthreshold_silent](/theorem/subthreshold_silent) — proven `by decide`, sorry-free:
@@ -30,14 +30,14 @@ The ledger holds this as [spatial_summation](/theorem/spatial_summation) — pro
 ((if 3 >= 5 then 1 else 0) = 0) ∧ ((if 3 + 3 >= 5 then 1 else 0) = 1)
 ```
 
-### The action potential swings −70 mV to +40 mV, a span of 110 mV, with the −55 mV threshold strictly between rest and peak — the ordering is part of the fact, not decoration.
+### The action potential swings −70 mV to +40 mV, a span of 110 mV, with the −55 mV threshold strictly between rest and peak — the ordering is part of the fact.
 The ledger holds this as [action_potential_swing](/theorem/action_potential_swing) — proven `by decide`, sorry-free:
 
 ```lean
 ((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40)
 ```
 
-### ALL-OR-NONE, STATED SO A GRADED NEURON FAILS IT. The spike amplitude over stimulus 0..9 is the table [0,0,0,0,0,110,110,110,110,110] — silent below threshold, the FULL 110 mV above it, never an intermediate value. The graded rival 22·s is stated in the same theorem and shown NOT to equal that table, and shown to take values that are neither 0 nor 110. The predecessor could not do this: its only live constants were 1 and 0, so it verified its own notation and was refuted by the 110 mV it named.
+### ALL-OR-NONE, STATED SO A GRADED NEURON FAILS IT. The spike amplitude over stimulus 0..9 is the table [0,0,0,0,0,110,110,110,110,110] — silent below threshold, the FULL 110 mV above it. The graded rival 22·s is stated in the same theorem and shown NOT to equal that table, and shown to take values that are neither 0 nor 110. The predecessor could not do this: its only live constants were 1 and 0, so it verified its own notation and was refuted by the 110 mV it named.
 The ledger holds this as [all_or_none_amplitude](/theorem/all_or_none_amplitude) — proven `by decide`, sorry-free:
 
 ```lean
@@ -86,7 +86,7 @@ The ledger holds this as [temporal_summation_decays](/theorem/temporal_summation
 ((List.range 6).map (fun d => if max (4 - Int.ofNat d) 0 + 4 >= 5 then 1 else 0) = [1,1,1,1,0,0]) ∧ ((if (4 : Int) >= 5 then 1 else 0) = 0)
 ```
 
-### INTENSITY IS IN THE RATE, NOT THE SPIKE. A drive of 6 and a drive of 60 produce the SAME 110 mV amplitude — the spike carries no magnitude — while the number of spikes in a fixed window differs. That is the whole content of rate coding, and it is the direct consequence of all-or-none.
+### INTENSITY IS IN THE RATE. A drive of 6 and a drive of 60 produce the SAME 110 mV amplitude — the spike carries no magnitude — while the number of spikes in a fixed window differs. That is the whole content of rate coding, and it is the direct consequence of all-or-none.
 The ledger holds this as [rate_codes_intensity](/theorem/rate_codes_intensity) — proven `by decide`, sorry-free:
 
 ```lean
@@ -121,7 +121,7 @@ The ledger holds this as [integrate_and_fire_resets](/theorem/integrate_and_fire
 ((List.range 9).map (fun t => 2 * (t % 3)) = [0,2,4,0,2,4,0,2,4]) ∧ ((List.range 9).map (fun t => if t > 0 && t % 3 == 0 then 1 else 0) = [0,0,0,1,0,0,1,0,0])
 ```
 
-### ALL-OR-NONE IS ABOUT INITIATION, NOT PROPAGATION — down a passive dendrite the amplitude falls 1000, 893, 618, 502 (thousandths), strictly decreasing and more than halved by the last point. Stated beside the constant rival [1000,1000,1000,1000], which it is shown NOT to equal. This is the honest boundary on the wing headline: the spike is all-or-none where it starts and graded where it travels.
+### ALL-OR-NONE IS ABOUT INITIATION— down a passive dendrite the amplitude falls 1000, 893, 618, 502 (thousandths), strictly decreasing and more than halved by the last point. Stated beside the constant rival [1000,1000,1000,1000], which it is shown NOT to equal. This is the honest boundary on the wing headline: the spike is all-or-none where it starts and graded where it travels.
 The ledger holds this as [spike_amplitude_attenuates](/theorem/spike_amplitude_attenuates) — proven `by decide`, sorry-free:
 
 ```lean

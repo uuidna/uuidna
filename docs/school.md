@@ -471,7 +471,7 @@ the alternative is being asked to trust. Physics hides the message in the margin
 bit of it ([`all_signaling_duality`](/theorem/all_signaling_duality)). The all-seeing eye here is also the
 all-*seen* eye — anyone recomputes it. Yet the fox keeps the last word anyway, because no gate can tell you
 *which* rose to water: the machine keeps verification, the human keeps meaning, and the ledger says so itself —
-the coins compute the save and solve nothing ([`coins_compute_but_solve_none`](/theorem/coins_compute_but_solve_none)).
+the coins compute the save and solve nothing ([`captain_theorem`](/theorem/captain_theorem)).
 
 **Practice:** take a paragraph you believe — your own, a paper's, a press release's — and hand it to
 `uuidna_decide`. Watch which parts come back *decided* and which come back UNVERIFIED. The decided parts are
@@ -498,7 +498,7 @@ at the first exact prompt — fix, walk again; the wave is one stroke or it is n
 Graduation is a contribution: author a decidable fact in `lean/*.lean`, prove it `by decide`, let the gate seal it.
 The credit law does the rest — **the captain claims the unclaimed; whoever claimed first is credited** — so your
 sealed theorem carries your credit permanently, and contribution earns coins under the conserved measure
-([`two_coins`](/theorem/two_coins), [`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour)).
+([`two_coins`](/theorem/two_coins), [`captain_theorem`](/theorem/captain_theorem)).
 The school's whole output is this: knowledge extended by one more sealed, recomputable fact.
 
 ## The quantum human school — two students, one ledger

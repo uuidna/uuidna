@@ -7,7 +7,7 @@ description: "Computed from lean/Security.lean — 9 sealed theorems, every clai
 
 > THE LAYERED DEFENCE — the arithmetic of defence in depth (bits add, space multiplies, no maximum), as decidable facts. — held by [scout_drones_spin](/theorem/scout_drones_spin) and its 8 siblings below.
 
-**9 theorems**, from [scout_drones_spin](/theorem/scout_drones_spin) onward, each proven `by decide` in [lean/Security.lean](/lean/Security.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [each_key_bit_doubles](/theorem/each_key_bit_doubles). A boundary stated here is decided, not merely denied.
+**9 theorems**, from [scout_drones_spin](/theorem/scout_drones_spin) onward, each proven `by decide` in [lean/Security.lean](/lean/Security.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [birthday_halves_the_exponent](/theorem/birthday_halves_the_exponent). A boundary stated here is decided.
 
 ### The scout drones SPIN — the guard's patrol read on the ℤ/9 vortex (the same doubling the vortex theorems prove, here in the security frame): doubling steps through all SIX units [1,2,4,8,7,5] and RETURNS after six (2⁶ mod 9 = 1), so the patrol CLOSES with no coin left un-scouted (six units, complete coverage), and the closed patrol earns the two coins (2·32 = 64 — the O(1) verify-save the spin captures). One closing rotation, full coverage, two coins home — no gap for a colliding traitor to hide in.
 The ledger holds this as [scout_drones_spin](/theorem/scout_drones_spin) — proven `by decide`, sorry-free:
@@ -30,7 +30,7 @@ The ledger holds this as [two_layers_multiply_space](/theorem/two_layers_multipl
 2^8 * 2^8 = 2^16
 ```
 
-### Each key bit doubles the space a forger must search: 2^11 = 2 · 2^10 (2048 = 2 · 1024). The cost of guessing a key is the key entropy — a bound set by the length, not a maximum.
+### Each key bit doubles the space a forger must search: 2^11 = 2 · 2^10 (2048 = 2 · 1024). The cost of guessing a key is the key entropy — a bound set by the length.
 The ledger holds this as [each_key_bit_doubles](/theorem/each_key_bit_doubles) — proven `by decide`, sorry-free:
 
 ```lean
@@ -44,7 +44,7 @@ The ledger holds this as [birthday_halves_the_exponent](/theorem/birthday_halves
 2 * 64 = 128
 ```
 
-### FOURTEEN COINCIDENCES ARE EXACTLY WHAT FOURTEEN EVENTS PREDICT. By linearity of expectation the expected number of COLLIDING pairs among G events over P bins is C(G,2)/P — a rational, needing no approximation. This ledger has 72 wings, so P = 72·71/2 = 2556 possible wing-pairs; the 14 reuse events outside the declared Core/Ring/Vortex cluster give C(14,2) = 14·13/2 = 91, and 91 < 2556, so the expected collision count is 91/2556, under ONE. Fourteen events landing on fourteen distinct pairs is therefore the PREDICTED outcome, not a discovery: the shared facts are the smallest ones (2³ = 8, 4·4 = 16), and a small pool collides at the rate pigeonhole dictates — the same law gematria_forces_collisions states for letter-sums. this seals the EXPECTATION, an exact rational bound; it does not measure the ledger, and a future ledger with different counts must recompute rather than cite this.
+### FOURTEEN COINCIDENCES ARE EXACTLY WHAT FOURTEEN EVENTS PREDICT. By linearity of expectation the expected number of COLLIDING pairs among G events over P bins is C(G,2)/P — a rational, needing no approximation. This ledger has 72 wings, so P = 72·71/2 = 2556 possible wing-pairs; the 14 reuse events outside the declared Core/Ring/Vortex cluster give C(14,2) = 14·13/2 = 91, and 91 < 2556, so the expected collision count is 91/2556, under ONE. Fourteen events landing on fourteen distinct pairs is therefore the PREDICTED outcome— the same law gematria_forces_collisions states for letter-sums. this seals the EXPECTATION, an exact rational bound; it does not measure the ledger, and a future ledger with different counts must recompute rather than cite this.
 The ledger holds this as [collisions_under_one](/theorem/collisions_under_one) — proven `by decide`, sorry-free:
 
 ```lean
@@ -58,7 +58,7 @@ The ledger holds this as [verify_cheaper_than_forge](/theorem/verify_cheaper_tha
 16 < 2^16
 ```
 
-### THE WAIT MUST OUTLAST THE GAP IT ABSORBS. The release chain runs two jobs from one tag: a deploy of about 2 minutes and an audit of about 9, so the worst case a verifier must sit through is 9 − 2 = 7 minutes, or 420 seconds. The bound is 40 probes at 15 seconds = 600 seconds, and 600 > 420 — the wait covers the margin with room, so a release that is merely slow is not failed as if it were broken. the two durations are the DECLARED BUDGET the chain is designed around, not an observation of the world and not a constant of nature — what is sealed is only the COMPARISON between the bound and the gap. A pipeline whose audit outgrows the budget must widen the bound rather than cite this.
+### THE WAIT MUST OUTLAST THE GAP IT ABSORBS. The release chain runs two jobs from one tag: a deploy of about 2 minutes and an audit of about 9, so the worst case a verifier must sit through is 9 − 2 = 7 minutes, or 420 seconds. The bound is 40 probes at 15 seconds = 600 seconds, and 600 > 420 — the wait covers the margin with room, so a release that is merely slow is not failed as if it were broken. the two durations are the DECLARED BUDGET the chain is designed around— what is sealed is only the COMPARISON between the bound and the gap. A pipeline whose audit outgrows the budget must widen the bound rather than cite this.
 The ledger holds this as [wait_covers_margin](/theorem/wait_covers_margin) — proven `by decide`, sorry-free:
 
 ```lean

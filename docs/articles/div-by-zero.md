@@ -5,11 +5,11 @@ description: "Computed from lean/DivByZero.lean — 8 sealed theorems, every cla
 
 # Division by zero
 
-> Division by zero in the ℤ/9 vortex EXISTS: it is the diamond reflection dz(x) = 10−x (dz 0 = 0), a finite residue, never ∞. — held by [dz_table](/theorem/dz_table) and its 7 siblings below.
+> Division by zero in the ℤ/9 vortex EXISTS: it is the diamond reflection dz(x) = 10−x (dz 0 = 0), a finite residue. — held by [dz_table](/theorem/dz_table) and its 7 siblings below.
 
-**8 theorems**, from [dz_table](/theorem/dz_table) onward, each proven `by decide` in [lean/DivByZero.lean](/lean/DivByZero.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [dz_zero_only_zero](/theorem/dz_zero_only_zero). A boundary stated here is decided, not merely denied.
+**8 theorems**, from [dz_table](/theorem/dz_table) onward, each proven `by decide` in [lean/DivByZero.lean](/lean/DivByZero.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [dz_zero_only_zero](/theorem/dz_zero_only_zero). A boundary stated here is decided.
 
-### the table: 0/0=0, and x/0 = 10−x (9/0=1 … 1/0=9)
+### the table: 0/0=0, and x/0 = 10−x  (9/0=1 … 1/0=9)
 The ledger holds this as [dz_table](/theorem/dz_table) — proven `by decide`, sorry-free:
 
 ```lean
@@ -37,7 +37,7 @@ The ledger holds this as [dz_sum_ten](/theorem/dz_sum_ten) — proven `by decide
 (List.range' 1 9).all (fun x => x + dz x == 10)
 ```
 
-### x/0 is always a residue < 10 — a finite value, NEVER Infinity (no fake FTL)
+### x/0 is always a residue < 10 — a finite value
 The ledger holds this as [dz_bounded](/theorem/dz_bounded) — proven `by decide`, sorry-free:
 
 ```lean

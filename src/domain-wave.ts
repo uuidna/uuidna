@@ -6,7 +6,7 @@
 // domain (ℤ/9, ℤ/7) a physics-constants stream honestly returns NO evidence, which is correct. The
 // order-invariant fold is the "quantum touch" (bell_no_signaling). Integrity.
 import { theorems } from './theorems/index.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
 import { corroborateWithResearch, type Corroboration } from './corroborate.js'
 

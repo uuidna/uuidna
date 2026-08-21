@@ -6,7 +6,7 @@
 // what exists; discovery can.
 //
 //   npm run x -- <script> [args…]   → run exactly that dist/scripts/<script>.js
-//   npm run x                       → list every runnable script, discovered
+//   npm run x                       → list every runnable script, discovered, never declared
 //
 // Named `x` (not `run`) because `npm run run` reads badly and npm reserves no such alias. A script keeps its OWN
 // package.json entry only when something outside package.json calls it by name — CI, a git hook, the README or a

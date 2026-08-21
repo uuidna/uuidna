@@ -1,7 +1,7 @@
 -- lean/Sailing.lean — GENERATED. SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- A boat cannot sail directly into the wind: the no-go zone is about 45° either side, a 90° cone (45 + 45 =
-    90) where the sails luff and make no power. To go upwind you must sail around it, not through it. -/
+    90) where the sails luff and make no power. To go upwind you must sail around it. -/
 theorem no_go_zone : 45 + 45 = 90 := by decide
 
 /-- The points of sail fall on multiples of 45°: close-hauled ~45°, beam reach 90°, broad reach 135°, running
@@ -34,6 +34,5 @@ theorem precise_tacks_compound : (([1,2,3] : List Nat).map (fun n => 3 * n)) = [
     exactly — 4 × 360 = 32 × 45 = 1440, an integer identity needing no division and no approximation. It also
     confirms what this wing already sealed independently as no_go_zone (45 + 45 = 90): the two tacks of a boat
     working to windward lie a right angle apart. 45° is Day's figure for a good vessel of 1904 under his rig;
-    modern yachts point higher, and this seals the ARITHMETIC of his stated angle, never a claim about what any
-    particular boat can achieve today. -/
+    modern yachts point higher, and this seals the ARITHMETIC of his stated angle. -/
 theorem four_points_is_45 : (4 * 360 = 32 * 45) ∧ (4 * 360 = 1440) ∧ (45 + 45 = 90) := by decide

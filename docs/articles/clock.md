@@ -7,7 +7,7 @@ description: "Computed from lean/Clock.lean — 6 sealed theorems, every claim c
 
 > THE CLOCK WITHOUT A NOW — the step algebra src/quantum/clock computes, decided. — held by [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) and its 5 siblings below.
 
-**6 theorems**, from [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) onward, each proven `by decide` in [lean/Clock.lean](/lean/Clock.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [residue_walks_the_orbit](/theorem/residue_walks_the_orbit). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) onward, each proven `by decide` in [lean/Clock.lean](/lean/Clock.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [residue_walks_the_orbit](/theorem/residue_walks_the_orbit). A boundary stated here is decided.
 
 ### The residue of a step is its place in the doubling orbit: over twelve steps it reads 1, 2, 4, 8, 7, 5, 1, 2, 4, 8, 7, 5 — six values, then the same six again. The clock's ring is finite even though its step count is not.
 The ledger holds this as [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) — proven `by decide`, sorry-free:

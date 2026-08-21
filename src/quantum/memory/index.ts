@@ -29,7 +29,7 @@
 // the content a receipt was issued for. It does not decide whether the theorem is right; the kernel does that, and
 // the receipt only records that the kernel already did. A stale receipt can cost extra sealing
 // the handle is recomputed from the address every time and compared.
-import { merkleGravity } from '../../gravity.js'
+import { merkleGravity } from '../../gravity/index.js'
 import { handleOf } from '../../handle.js'
 
 /** one handle staged in memory: the theorem's key, its neighbourhood, its content-address and the handle of it */

@@ -7,7 +7,7 @@ description: "Computed from lean/Hexbit.lean — 6 sealed theorems, every claim 
 
 > THE HEXBIT — the alphabet and the layout an address is actually built from. — held by [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) and its 5 siblings below.
 
-**6 theorems**, from [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) onward, each proven `by decide` in [lean/Hexbit.lean](/lean/Hexbit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) onward, each proven `by decide` in [lean/Hexbit.lean](/lean/Hexbit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo). A boundary stated here is decided.
 
 ### THE SIXTEEN SYMBOLS NAME THE SIXTEEN NIBBLES, one apiece: the values 0 through 15 are all present, all distinct, and there are exactly sixteen of them. A four-bit value therefore has one spelling and no other — the alphabet is a bijection onto the nibble, which is what lets an address be read back exactly.
 The ledger holds this as [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) — proven `by decide`, sorry-free:
@@ -30,7 +30,7 @@ The ledger holds this as [characters_span_the_address](/theorem/characters_span_
 (32 * 4 = 128) ∧ ((2:Nat)^7 = 128)
 ```
 
-### THE HANDLE IS THE FIRST GROUP, not a slice taken afterwards: the layout opens with eight characters, and eight characters are thirty-two bits. Every other group is shorter, which the line proves — so the opening group is the widest single field the layout has, apart from the closing twelve.
+### THE HANDLE IS THE FIRST GROUP. Every other group is shorter, which the line proves — so the opening group is the widest single field the layout has, apart from the closing twelve.
 The ledger holds this as [handle_is_the_first_group](/theorem/handle_is_the_first_group) — proven `by decide`, sorry-free:
 
 ```lean

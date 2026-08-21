@@ -16,7 +16,7 @@ arithmetic and the honest mobility kernel, proven `by decide`.
 The board itself is on the star walk: **8 × 8 = 64 = 2⁶**
 ([`chessboard_sixty_four`](/theorem/chessboard_sixty_four)) — six doublings, exactly the length of the generator's
 orbit ([`order_of_two_is_six`](/theorem/order_of_two_is_six)), and the same 64 the seal folds to —
-contribute 2, save up to 64 ([`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour)). The
+contribute 2, save up to 64 ([`captain_theorem`](/theorem/captain_theorem)). The
 squares you play on are the walk [the school](/school) teaches, counted to its sixth step.
 
 <ClientOnly><Chess /></ClientOnly>

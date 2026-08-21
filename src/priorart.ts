@@ -7,7 +7,7 @@
 // and sign yourself is worthless for priority: you could backdate it. Trusted priority-dating requires an INDEPENDENT
 // observer — the public git commit on GitHub (whose push time is recorded by a third party), a Zenodo DOI (dated by
 // Zenodo), or an RFC 3161 timestamp authority. This record proves WHAT / WHO / INTEGRITY / TERMS on its own; for WHEN,
-// it names the external anchor to cite, and fakes nothing. You cannot notarise your own document. Integrity.
+// it names the external anchor to cite, and fakes nothing. You cannot notarise your own document. Integrity, not truth.
 import { THEOREMS, theoremByKey } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { runTrial } from './theorems/index.js'
@@ -23,9 +23,9 @@ export interface PriorArt {
   author: string
   license: { spdx: string; address: string }
   ledger: { theorems: number; receipt: string }
-  address: string               // the manifest's own content-address — proves WHAT was published
+  address: string               // the manifest's own content-address — proves WHAT was published, not WHEN
   receipt: string               // exhibits + terms folded, order-invariant
-  timestampAnchor: string       // the honest, external "when" — named
+  timestampAnchor: string       // the honest, external "when" — named, not faked
   honest: string
 }
 
@@ -61,6 +61,6 @@ export function priorArt(keys: readonly string[]): PriorArt {
       'In-house and recomputable: the theorems in full, the attribution, the licence and its address, and the ledger ' +
       'receipt — all fold to this record\'s own content-address, which any change moves. It establishes WHAT was ' +
       'published, by WHOM, under what TERMS, with tamper-evidence. It does NOT establish WHEN (an external anchor ' +
-      'does that) and does NOT make the result law or standard (an institution does that). Integrity.',
+      'does that) and does NOT make the result law or standard (an institution does that). Integrity, not truth.',
   }
 }

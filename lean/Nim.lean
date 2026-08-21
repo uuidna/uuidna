@@ -25,8 +25,8 @@ theorem nim_equal_heaps_cancel : (List.range 16).all (fun n => lxor n n == 0) :=
     a finished heap can be ignored. -/
 theorem nim_empty_heap_neutral : (List.range 16).all (fun n => lxor n 0 == n) := by decide
 
-/-- The nim-sum does not care about heap order: lxor a b = lxor b a. The heaps are a set, not a sequence — a
-    symmetry the whole theory rests on. -/
+/-- The nim-sum does not care about heap order: lxor a b = lxor b a. The heaps are a set— a symmetry the whole
+    theory rests on. -/
 theorem nim_sum_commutes : (List.range 8).all (fun a => (List.range 8).all (fun b => lxor a b == lxor b a)) := by decide
 
 /-- The nim-sum folds in any grouping: lxor(lxor a b) c = lxor a (lxor b c). Combined with commutativity, a
@@ -64,7 +64,7 @@ theorem nim_misere_differs : lxor (lxor 1 1) 1 = 1 := by decide
 /-- Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6
     is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond's self-annihilating residue, its "draw". The biggest win
     reduces to the vortex's zero-square, while chess sits at the units {1,8} and the audit at 8. a structural
-    residue of the nim-sum, NOT a claim nim IS the ring. -/
+    residue of the nim-sum. -/
 theorem nim_max_is_a_diamond_nilpotent : (15 % 9 = 6) ∧ ((6 * 6) % 9 = 0) := by decide
 
 /-- The nim-sum 0 ⊕ 0 = 0 — entry (0,0) of the 9×9 nim-addition Cayley table (XOR on {0..8}, group identity 0,

@@ -7,7 +7,7 @@ description: "Computed from lean/Boolean.lean — 6 sealed theorems, every claim
 
 > THE SIXTEEN BINARY BOOLEAN FUNCTIONS — enumerated, under the names mathematics and digital logic already use. — held by [sixteen_binary_functions](/theorem/sixteen_binary_functions) and its 5 siblings below.
 
-**6 theorems**, from [sixteen_binary_functions](/theorem/sixteen_binary_functions) onward, each proven `by decide` in [lean/Boolean.lean](/lean/Boolean.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [nand_rebuilds_the_others](/theorem/nand_rebuilds_the_others). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [sixteen_binary_functions](/theorem/sixteen_binary_functions) onward, each proven `by decide` in [lean/Boolean.lean](/lean/Boolean.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [nand_rebuilds_the_others](/theorem/nand_rebuilds_the_others). A boundary stated here is decided.
 
 ### THERE ARE EXACTLY SIXTEEN two-input boolean functions, and they are the sixteen values of a nibble: each function IS its four-row truth table, so 2^(2^2) = 16 counts them and no argument is needed beyond the encoding. All sixteen are distinct.
 The ledger holds this as [sixteen_binary_functions](/theorem/sixteen_binary_functions) — proven `by decide`, sorry-free:
@@ -44,7 +44,7 @@ The ledger holds this as [xor_differs_from_or](/theorem/xor_differs_from_or) —
 (rowsOf 6 ≠ rowsOf 14) ∧ ((rowsOf 6).take 3 = (rowsOf 14).take 3) ∧ (rowsOf 6 = [0,1,1,0])
 ```
 
-### IMPLICATION IS ONE OF THE SIXTEEN, not a logical extra: a implies b reads 1011 over the four rows, false only where a holds and b does not. Its converse and both negations are also among the sixteen, so the whole of two-input logic is inside the enumeration with nothing left outside it.
+### IMPLICATION IS ONE OF THE SIXTEEN. Its converse and both negations are also among the sixteen, so the whole of two-input logic is inside the enumeration with nothing left outside it.
 The ledger holds this as [implication_is_a_gate](/theorem/implication_is_a_gate) — proven `by decide`, sorry-free:
 
 ```lean

@@ -1,9 +1,9 @@
 // layers — the NAMED LAYERS of the stack (hardware → software → os), as ONE builder. Each layer reads the sealed
 // lean/*.lean theorems of a given skill from the ledger and hands them out as one spec: the decidable statement each is
 // proven by (the specification itself) plus its 128-bit content-address particle, folded to one order-invariant
-// receipt. The three layers differ ONLY in (skill, principle, honest, boundary) — so there is ONE builder
+// receipt. The three layers differ ONLY in (skill, principle, honest, boundary) — so there is ONE builder, not three
 // copies (DRY: a fix or a field lands once, for all three). The sealed STATEMENT is the single source; the layer
-// derives from the ledger alone, so nothing drifts. Integrity.
+// derives from the ledger alone, so nothing drifts. Integrity, not truth.
 import { theorems } from './theorems/index.js'
 import { merkleFold, toUuid } from './address.js'
 
@@ -59,7 +59,7 @@ export const hardwareLayer = (): NamedLayer => namedLayer('hardware', 'lean/Hard
   'The hardware-verifiable binary algebra: sealed combinational-logic identities (gate truth tables, NAND functional ' +
   'completeness, De Morgan, half/full adder, 2:1 mux), each `by decide`, axiom-free, and a 128-bit particle. The sealed ' +
   'STATEMENT is the specification — a gate design can be verified AGAINST it. uuidna seals the spec; it does NOT ' +
-  'fabricate a device, synthesise a netlist, or develop silicon. A sealed spec.')
+  'fabricate a device, synthesise a netlist, or develop silicon. A sealed spec, not a chip.')
 
 /** softwareLayer() → the SOFTWARE-VERIFIABLE algebra (lean/Software.lean): the program-correctness laws an
  *  implementation is verified against — losslessness, totality, termination, order-invariance, safe access, reversibility. */
@@ -68,7 +68,7 @@ export const softwareLayer = (): NamedLayer => namedLayer('software', 'lean/Soft
   'total guarded division, bounded termination, order-invariant reduction, ordering compare-swap, total safe indexing, ' +
   'reversibility), each `by decide`, axiom-free, and a 128-bit particle. The sealed STATEMENT is the specification — an ' +
   'implementation can be verified AGAINST it. uuidna seals the spec; it does NOT write, compile, or run your program, ' +
-  'nor prove an arbitrary program correct. A sealed spec.')
+  'nor prove an arbitrary program correct. A sealed spec, not the program.')
 
 /** osLayer() → the OS-INTEGRITY algebra (lean/Os.lean): the exact-copy facts a deployment is verified against — byte-
  *  equality, tamper/truncation/reorder detection, fixed digest/address widths, the two-module non-determinism boundary. */
@@ -77,5 +77,5 @@ export const osLayer = (): NamedLayer => namedLayer('os', 'lean/Os.lean',
   'break the match; the digest is 256 bits, the address 128; the boundary is exactly two named modules), each `by ' +
   'decide`, axiom-free, and a 128-bit particle. The sealed STATEMENT is the specification; the runtime verifier (Alpine ' +
   '+ driver provenance, portAllAlpine for the whole arch matrix) enforces it against real bytes. uuidna seals the ' +
-  'integrity spec; it does NOT boot, link, or run an operating system. A sealed spec.',
+  'integrity spec; it does NOT boot, link, or run an operating system. A sealed spec, not an OS.',
   ['src/os', 'src/drivers'])

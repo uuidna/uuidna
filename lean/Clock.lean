@@ -3,7 +3,7 @@
 -- the vortex residue of a step: 2^(k mod 6) mod 9, the doubling orbit the coins and the salt share
 def res (step : Nat) : Nat := let r := (2 ^ (step % 6)) % 9; if r = 0 then 9 else r
 
--- a distance is a COUNT, never a duration: the gap between two positions, symmetric by construction
+-- a distance is a COUNT
 def gap (a b : Nat) : Nat := if a > b then a - b else b - a
 
 /-- The residue of a step is its place in the doubling orbit: over twelve steps it reads 1, 2, 4, 8, 7, 5, 1, 2,

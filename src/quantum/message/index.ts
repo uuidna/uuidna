@@ -9,7 +9,11 @@
 // is a sealed theorem, and the message's quantum encoding is the proof that the witness was cited.
 //
 // sealMessage/openMessage COMPLETE the crypto↔quantum fusion: secrecy from the ChaCha20-Poly1305 envelope
-// (crypt.ts, symmetric-only — no Shor target, Grover only halves the 256-bit key to a ~128-bit floor), the
+// (crypt.ts, symmetric-only — no Shor target). MEASURED IN HEXBITS, the unit this architecture computes in: the
+// key is 64 hexbits, Grover halves the brute-force exponent, and the floor is 32 hexbits — which is EXACTLY the
+// uuid. The cipher's post-quantum floor and an identifier's width are the same number in the same unit, sealed
+// as `key_floor_is_one_uuid` (256/4 = 64, 128/4 = 32, 32·4 = 128). In bits that reads as 256 falling to 128 and
+// the correspondence is invisible; bits are the borrowed unit here, hexbits the native one.
 // witness from the sealed theorem — quantum-encoded over the CIPHERTEXT envelope's address
 // plaintext, so anyone verifies the witness and the envelope's integrity while only the key holder reads.
 // The quantum encoding adds NO secrecy and NO quantum channel — not QKD; the cost stays the classical 2^n
@@ -18,7 +22,8 @@
 import { theorems, toUuid } from '../../index.js'
 import { quantumAura, type Aura } from '../../aura.js'
 import { ket0, hadamard, pauliX, pauliZ, label, fraction, distribution, marginal, type QState } from '../index.js'
-import { merkleGravity } from '../../gravity.js'
+import { qubitsToHexbits } from '../../hexbit/index.js'
+import { merkleGravity } from '../../gravity/index.js'
 import { imprintTextChain, readImprintTextChain } from '../../imprint.js'
 import { encrypt, decrypt, verifyEnvelope, type Sealed } from '../../crypt.js'
 
@@ -35,6 +40,10 @@ export interface QuantumMessage {
 
 export interface QuantumState {
   qubits: number              // how many qubits encode this message
+  hexbits: number             // the same width in the ledger's unit — 4 bits, 16 states, 32 to the uuid.
+                              // Reported beside qubits rather than instead of them: a qubit is what the circuit
+                              // holds, a hexbit is what the ledger prices, and a reader comparing this message
+                              // to a theorem's coverage or to a uuid's 32 needs the second without converting.
   state: QState               // the quantum state vector (exact, no floats)
   basis: string[]             // the measurement basis for each qubit (names of theorems involved)
   receipt: string             // one-way hash of the state (tamper-evident)
@@ -92,6 +101,7 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
   // produced the bug; this stops doing it.
   const probs = distribution(state)
   const amplitudes = probs.map((pr, i) => ({ label: label(i, qubits), prob: fraction(pr) }))
+  const hexbits = qubitsToHexbits(qubits)   // the unit, imported — not a fifth copy of the same division
   const receipt = merkleGravity(amplitudes.map(a => toUuid(a.label + '|' + a.prob)))
 
   // Fold the whole message identity
@@ -99,6 +109,7 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
 
   const quantum: QuantumState = {
     qubits,
+    hexbits,
     state,
     basis: Array.from({ length: qubits }, (_, i) => theoremKey + '[' + i + ']'),
     receipt,

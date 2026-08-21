@@ -1,0 +1,12 @@
+{
+  "handle": "554ab823",
+  "address": "554ab823-020e-83fc-bb5b-66368864be42",
+  "statement": "(128 / 64 = 2) ∧ (64 / 32 = 2) ∧ (4 / 2 = 2) ∧ (2 * 2^6 = 128) ∧ (128 / 2 = 64) ∧ (32 * 4 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "captain_singularity"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

@@ -7,7 +7,7 @@ description: "Computed from lean/Isometry.lean — 6 sealed theorems, every clai
 
 > THE XOR ISOMETRY — the one identity the cipher, the strand and the code each hold a corner of. — held by [xor_preserves_distance](/theorem/xor_preserves_distance) and its 5 siblings below.
 
-**6 theorems**, from [xor_preserves_distance](/theorem/xor_preserves_distance) onward, each proven `by decide` in [lean/Isometry.lean](/lean/Isometry.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [reuse_leaks_by_isometry](/theorem/reuse_leaks_by_isometry). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [xor_preserves_distance](/theorem/xor_preserves_distance) onward, each proven `by decide` in [lean/Isometry.lean](/lean/Isometry.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [reuse_leaks_by_isometry](/theorem/reuse_leaks_by_isometry). A boundary stated here is decided.
 
 ### THE ISOMETRY: xoring both sides by the same key leaves the Hamming distance unchanged, for every pair and every key over the four-bit cube. This is the single fact the cipher, the strand and the code each hold a corner of.
 The ledger holds this as [xor_preserves_distance](/theorem/xor_preserves_distance) — proven `by decide`, sorry-free:
@@ -23,7 +23,7 @@ The ledger holds this as [reuse_leaks_by_isometry](/theorem/reuse_leaks_by_isome
 (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => dist (lxor m1 k) (lxor m2 k) == dist m1 m2)))
 ```
 
-### EVERY DNA BASE DIFFERS FROM ITS COMPLEMENT IN EXACTLY TWO BITS. A base is two bits, complementing is lxor with 3, and 3 has weight two — so the distance is two for all four bases, never one and never zero. The strand's pairing is the pad's step, at width two.
+### EVERY DNA BASE DIFFERS FROM ITS COMPLEMENT IN EXACTLY TWO BITS. A base is two bits, complementing is lxor with 3, and 3 has weight two — so the distance is two for all four bases. The strand's pairing is the pad's step, at width two.
 The ledger holds this as [complement_flips_two](/theorem/complement_flips_two) — proven `by decide`, sorry-free:
 
 ```lean
@@ -37,7 +37,7 @@ The ledger holds this as [codon_flips_six](/theorem/codon_flips_six) — proven 
 ((4:Nat)^3 = 64) ∧ ((2:Nat)^6 = 64) ∧ (3 * 2 = 6) ∧ (pop 63 = 6)
 ```
 
-### THE DISTANCE IS A METRIC, not merely a number: it is symmetric, and it is zero exactly when the two words are equal. Both halves on the line, so the second is discharged where it is claimed rather than assumed from the first.
+### THE DISTANCE IS A METRIC. Both halves on the line, so the second is discharged where it is claimed rather than assumed from the first.
 The ledger holds this as [distance_is_symmetric](/theorem/distance_is_symmetric) — proven `by decide`, sorry-free:
 
 ```lean

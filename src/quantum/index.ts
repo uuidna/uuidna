@@ -13,7 +13,7 @@
 // (T = diag(1, e^{iπ/4}), controlled-H, arbitrary rotations) needs per-branch scaling and is the honest boundary —
 // out of this exact representation, by construction. The paradox COMPUTES as simulation.
 import { gcdBigInt, toUuid } from '../address.js'
-import { merkleGravity } from '../gravity.js'
+import { merkleGravity } from '../gravity/index.js'
 
 // ── Gaussian-integer amplitudes: (re + im·i), exact, BigInt ───────────────────────────────────────────────────
 /** A Gaussian-integer amplitude coefficient re + im·i (the true amplitude is this over √(2^scale)). */
@@ -27,7 +27,15 @@ const cneg = (a: Cx): Cx => ({ re: -a.re, im: -a.im })
 const cabs2 = (a: Cx): bigint => a.re * a.re + a.im * a.im // |a|² — an ordinary integer
 
 /** A real-and-imaginary state vector, carried EXACTLY: amplitude_i = amp[i] / √(2^scale); probability_i = |amp[i]|² / 2^scale. */
+import { qubitsToHexbits } from '../hexbit/index.js'
+
 export interface QState { amp: Cx[]; scale: number; qubits: number }
+
+/** THE STATE'S WIDTH IN THE ARCHITECTURE'S UNIT. A hexbit is 4 bits and 16 states, 32 to the uuid, and this
+ *  ledger computes in hexbits — so a register is reported in them and not only in qubits. Exact integer
+ *  division, never a logarithm: 16 qubits is 4 hexbits, and the 64-hexbit cipher key falls to a 32-hexbit floor
+ *  under Grover, which is one whole uuid (`key_floor_is_one_uuid`). Bits are the borrowed unit here. */
+export const hexbitsOfQubits = (qubits: number): number => qubitsToHexbits(qubits)
 /** An exact probability num/den (den a power of two before reduction), reduced to lowest terms. */
 export interface Prob { num: bigint; den: bigint }
 

@@ -45,7 +45,7 @@ The sealed backing this trial held the findings beside:
 
 - [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) — `[(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].length = 5`
 - [platonic_euler_characteristic_is_two](/theorem/platonic_euler_characteristic_is_two) — `[(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].all (fun s => s.1 + s.2.2 == s.2.1 + 2)`
-- [euler_two_is_the_two_coins](/theorem/euler_two_is_the_two_coins) — `(20 + 12 - 30 = 2) ∧ (110 - 108 = 2)`
+- [captain_theorem](/theorem/captain_theorem) — `(20 + 12 - 30 = 2) ∧ (110 - 108 = 2)`
 - [dodecahedron_twelve_pentagons](/theorem/dodecahedron_twelve_pentagons) — `12 * 5 = 2 * 30`
 - [icosahedron_twenty_triangles](/theorem/icosahedron_twenty_triangles) — `20 * 3 = 2 * 30`
 - [cube_octahedron_dual](/theorem/cube_octahedron_dual) — `((8,12,6).1 = (6,12,8).2.2) ∧ ((8,12,6).2.2 = (6,12,8).1) ∧ ((8,12,6).2.1 = (6,12,8).2.1)`

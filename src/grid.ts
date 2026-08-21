@@ -20,7 +20,7 @@
 // translation. The grid proves that every wing is reachable from every ray and that nothing is missing; it makes no
 // claim that the wing has been rendered into that language. Integrity.
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { DIMENSIONS } from './harness.js'
 import { theorems } from './theorems/index.js'
 

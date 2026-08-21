@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // conformance — the COMMIT DNA GATE as a CLI: recompute the folded invariants and HARD-FAIL (exit 1) if any is
-// broken, so no agent can sneak incompatible DNA past the pre-push. Run in the audit wave. Integrity.
+// broken, so no agent can sneak incompatible DNA past the pre-push. Run in the audit wave. Integrity, not truth.
 import { conformance } from '../conformance.js'
 const r = conformance()
 for (const c of r.checks) console.log(`  ${c.pass ? '✓' : '✗'} ${c.id} — ${c.detail}`)

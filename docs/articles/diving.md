@@ -7,7 +7,7 @@ description: "Computed from lean/Diving.lean — 8 sealed theorems, every claim 
 
 > DIVING — the decidable arithmetic of trimix gas laws, demarcated. — held by [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) and its 7 siblings below.
 
-**8 theorems**, from [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) onward, each proven `by decide` in [lean/Diving.lean](/lean/Diving.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [air_ppO2_in_window_at_surface](/theorem/air_ppO2_in_window_at_surface). A boundary stated here is decided, not merely denied.
+**8 theorems**, from [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) onward, each proven `by decide` in [lean/Diving.lean](/lean/Diving.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [air_ppO2_in_window_at_surface](/theorem/air_ppO2_in_window_at_surface). A boundary stated here is decided.
 
 ### A breathing mix is complete: the oxygen, helium and nitrogen fractions sum to 100%. Trimix 18/45 is 18% O₂, 45% He, 37% N₂ — 18 + 45 + 37 = 100.
 The ledger holds this as [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) — proven `by decide`, sorry-free:

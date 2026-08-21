@@ -6,7 +6,7 @@
 // HONEST SCOPE: uuidna audits RECOMPUTABLE FACTS ONLY (theorem addresses, coin tallies,
 // vote weights, ledger DNA). It does NOT judge intention or identity — only the work's
 // integrity. A forged theorem is a fact (the address does not recompute); a traitor is
-// a forgery in the artifact.
+// a forgery in the artifact, never a person.
 
 import { theoremByKey, toUuid, merkleGravity, ledgerFingerprint, type Theorem, type LedgerFingerprint } from './index.js'
 import { catchTraitors, type TreasonReport } from './treason.js'
@@ -105,7 +105,7 @@ export function auditCoinClaim(theoremKey: string, claimedCoins: number): CoinAu
     }
   }
 
-  // The theorem name or proof encodes the coin cost (e.g., "captain_commission_two_per_110" = 2 coins)
+  // The theorem name or proof encodes the coin cost (e.g., "captain_theorem" = 2 coins)
   const recomputed = extractCoinFromTheorem(theorem)
   const match = recomputed === claimedCoins
 
@@ -122,7 +122,7 @@ export function auditCoinClaim(theoremKey: string, claimedCoins: number): CoinAu
 /** extractCoinFromTheorem(theorem) — parse coin cost from theorem key/name.
  *  Returns the sealed coin cost or 0 if not found. */
 function extractCoinFromTheorem(theorem: Theorem): number {
-  // Common pattern: "captain_commission_two_per_110" → 2, "verify_cheaper_than_forge" → 1
+  // Common pattern: "captain_theorem" → 2, "verify_cheaper_than_forge" → 1
   if (theorem.key.includes('two_coins') || theorem.key.includes('two_per')) return 2
   if (theorem.key.includes('one_coin') || theorem.key.includes('one_per')) return 1
   if (theorem.key.includes('zero') || theorem.key.includes('free')) return 0

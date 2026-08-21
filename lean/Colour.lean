@@ -27,7 +27,7 @@ theorem hue_mirror_meeting : (360 - 340 = 20) ∧ (360 - 320 = 40) := by decide
     tiebreak is the smallest possible interaction, the successor: 62+2·5 = 72 with its lifted partner 73, and
     62+2·3 = 68 with its lifted 69 — distinct by +1, so states that once fused now meet, interact, and continue
     distinguishable, the +1 left in the formula as the trace. Degeneracy lifted, information conserved:
-    scattering, not collision. -/
+    scattering. -/
 theorem scattering_tiebreak_separates : (62 + 2*5 = 72) ∧ (72 + 1 = 73) ∧ (62 + 2*3 = 68) ∧ (68 + 1 = 69) := by decide
 
 /-- THE SCATTERING LESSON, part 3 — why the channels had to join. The aura alphabet is 9·7·6 = 378 states and
@@ -72,7 +72,7 @@ theorem warm_cool_split_six_six : 6 + 6 = 12 := by decide
 
 /-- The aura’s hue step the A432 rendering ASSUMES, sealed (axiom-hunt): the ℤ/9 vortex walks the 360° wheel in
     steps of 40° — 9 · 40 = 360 exactly, so the nine residues tile the circle with no remainder. Artistic
-    arithmetic, not physics: a defined step, proven to divide the wheel. -/
+    arithmetic. -/
 theorem aura_step_divides_circle : (9 * 40 = 360) ∧ (360 % 9 = 0) := by decide
 
 /-- THE POLARITY ANGLES ARE NOT CHOSEN — each is 360 divided by a count the system already holds: 360/9 = 40° is

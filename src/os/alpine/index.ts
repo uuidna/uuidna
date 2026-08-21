@@ -8,7 +8,7 @@
 // is honest: reading upstream's LIVE "latest" is a wall-clock-dependent act, declared here.
 // Integrity, not execution.
 import { toUuid } from '../../address.js'
-import { merkleGravity } from '../../gravity.js'
+import { merkleGravity } from '../../gravity/index.js'
 import { sha256 } from '../../sha256.js'
 
 /** An exact Alpine release, pinned as a recomputable provenance record — never a running system. */

@@ -3,7 +3,7 @@
 // @uuidna/research — RECOMPUTABLE RESEARCH: deep research through the imprint codec, corroboration and
 // publication scans, book/movie/record/standard audits, gated publications, the reporter’s method, prior art,
 // the NIST beacon anchor, CODATA constants, CVE fingerprints, the vocabulary, transform-until-verified, the
-// reasoner, and reflections. Provenance and structure, never meaning. Integrity, not truth.
+// reasoner, and reflections. Provenance and structure. Integrity.
 export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from '@uuidna/uuidna'
 export { deepResearch, type DeepResearch } from '@uuidna/uuidna'
 export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, linkBookFacts, composeBookArticle, bookArticle, bookContents, readChapter, readBook, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type BookTheoremLink, type BookLedgerLinkage, type ChapterRead } from '@uuidna/uuidna'

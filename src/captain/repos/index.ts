@@ -13,7 +13,7 @@
 // possession of the code. Best-effort: an unreachable account contributes nothing.
 import { seedOf } from '../../handle.js'
 import { toUuid, digitalRoot, vortexOrbit } from '../../address.js'
-import { merkleGravity } from '../../gravity.js'
+import { merkleGravity } from '../../gravity/index.js'
 
 // the captain's public GitHub accounts — the org and the user behind uuidna (Tsvetan Rouschev / ceccec).
 export const CAPTAIN_ACCOUNTS: readonly { kind: 'org' | 'user'; who: string }[] = [

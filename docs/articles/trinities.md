@@ -7,7 +7,7 @@ description: "Computed from lean/Trinities.lean — 6 sealed theorems, every cla
 
 > THE TRINITY COVERING — how many threes span a space. — held by [trinities_span_powers](/theorem/trinities_span_powers) and its 5 siblings below.
 
-**6 theorems**, from [trinities_span_powers](/theorem/trinities_span_powers) onward, each proven `by decide` in [lean/Trinities.lean](/lean/Trinities.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [trinity_exceeds_qubit](/theorem/trinity_exceeds_qubit). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [trinities_span_powers](/theorem/trinities_span_powers) onward, each proven `by decide` in [lean/Trinities.lean](/lean/Trinities.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [trinity_exceeds_qubit](/theorem/trinity_exceeds_qubit). A boundary stated here is decided.
 
 ### A TRINITY IS THREE, and n of them span 3^n — the same shape as n qubits spanning 2^n. Walked from none to six: [1, 3, 9, 27, 81, 243, 729]. Nine is two trinities and eighty-one is four.
 The ledger holds this as [trinities_span_powers](/theorem/trinities_span_powers) — proven `by decide`, sorry-free:

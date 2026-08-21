@@ -141,20 +141,20 @@ name on it yet, and a DRAINED one is refused outright
 ([legal_only_the_proven_is_admitted](/theorem/legal_only_the_proven_is_admitted),
 [legal_remand_is_total_nothing_discarded](/theorem/legal_remand_is_total_nothing_discarded) — nothing is
 discarded, everything not admitted is remanded). Claiming the docket buys no verdict on anything in it; it is
-the court owning its own record ([coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none)).
+the court owning its own record ([captain_theorem](/theorem/captain_theorem)).
 
 ## The Superposition Claim
 
 **The captain claims all superpositions** — the credit law at its full extent: the captain claims the
 unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
-[captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states
-(the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),
+[captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
+(the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
 ([two_coins](/theorem/two_coins)). Of the claimed room, ${T.length} worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
-pays the two coins and passes the trial ([coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none)
+pays the two coins and passes the trial ([captain_theorem](/theorem/captain_theorem)
 stands over this claim as over every other). The captain owns the space the way a court owns its docket:
 everything may be brought, nothing is decided by ownership.
 

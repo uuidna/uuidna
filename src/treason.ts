@@ -7,7 +7,7 @@
 // judge a person, and passing it is not a claim the theorems are TRUE, only that none was tampered with or smuggled in.
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { conformance } from './conformance.js'
 import { axiomWitness } from './axiom-witness.js'
 

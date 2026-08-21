@@ -24,9 +24,9 @@
 
 **Backing theorems (1):**
 
-- **[contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour)** — ""Contribute 2 to save up to 64" — the measured leverage is 32: 2 · 32 = 64. The two coins in, up to 64 bits of recompute saved."
+- **[captain_theorem](/theorem/captain_theorem)** — "THE CAPTAIN THEOREM — one, and the ledger is priced in it. The commission is a PROPORTION and not a difference: 110/108 = 55/54 by exact cross-multiplication (110·54 = 108·55 = 5940), 54 being the order of AGL(1,ℤ/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are the uuid: 32·4 = 128. The leverage is the uuid over the commission, 128/2 = 64, which is the same 64 the two coins buy across 32 hexbits. And the floor closes the account: every falsified theorem pays two, the captain pays two, 63·2 + 2 = 128 — the uuid exactly, nothing owed and nothing left over. These four conjuncts subsumed eleven separate restatements of 110 − 108 = 2, seven of 2^7 = 128 and five of 2·32 = 64: one fact re-proved under many names is not a ledger, it is an echo."
   - File: Coins.lean
-  - Statement: `2 * 32 = 64...`
+  - Statement: `(110 * 54 = 108 * 55) ∧ (110 - 108 = 2) ∧ (32 * 4 = 128) ∧ (128 / 2 = 64) ∧ (2 * 32 = 64) ∧ (63 * 2 + 2 = 128)...`
 
 
 ## two coins, the double torus
@@ -60,13 +60,13 @@
 
 ## novelty discovery is a proven absence
 
-**Prose:** "an absence proven by recomputation, never a claim (theorem legal_remand_is_total_nothing_discarded)"
+**Prose:** "an absence proven by recomputation"
 
 **Address:** `03bfba33-020a-8cae-9c9b-2ee5fbd7899c`
 
 **Backing theorems (1):**
 
-- **[legal_remand_is_total_nothing_discarded](/theorem/legal_remand_is_total_nothing_discarded)** — "nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial, never deleted"
+- **[legal_remand_is_total_nothing_discarded](/theorem/legal_remand_is_total_nothing_discarded)** — "nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial"
   - File: Legal.lean
   - Statement: `(List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c + lrem t h c == 1) && (lrem t h c =...`
 
@@ -92,4 +92,4 @@
 - Proof method: All `by decide` (no axioms, kernel-only)
 - Integrity: Each claim is content-addressed and verifiable
 
-If a backing theorem is removed from the ledger, its proof vanishes. The prose is a live document, not decoration.
+If a backing theorem is removed from the ledger, its proof vanishes. The prose is a live document.

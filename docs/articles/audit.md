@@ -5,9 +5,9 @@ description: "Computed from lean/Audit.lean — 17 sealed theorems, every claim 
 
 # The detectors, proven
 
-> THE DETECTORS — the provenance audit's decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise, never vacuous. — held by [wall_steady_state](/theorem/wall_steady_state) and its 16 siblings below.
+> THE DETECTORS — the provenance audit's decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise. — held by [wall_steady_state](/theorem/wall_steady_state) and its 16 siblings below.
 
-**17 theorems**, from [wall_steady_state](/theorem/wall_steady_state) onward, each proven `by decide` in [lean/Audit.lean](/lean/Audit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [flag_requires_hollow](/theorem/flag_requires_hollow). A boundary stated here is decided, not merely denied.
+**17 theorems**, from [wall_steady_state](/theorem/wall_steady_state) onward, each proven `by decide` in [lean/Audit.lean](/lean/Audit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [flag_requires_hollow](/theorem/flag_requires_hollow). A boundary stated here is decided.
 
 ### THE GREEN WALL AS STEADY STATE, sealed the day it became one: three independent CI gates (security, analysis, deploy) green on two consecutive pushes — 3·2 = 6 green runs — and the distinction is arithmetic: ONE green is an event, TWO consecutive are a state (2 > 1, the induction shape: the invariant witnessed at n and n+1). The wall was earned brick by brick (537 findings → 82 → 5 → 0, four NAMED allowlist iterations; a rule cured at its root; a dead path removed) and now holds without attention — the wall lesson's green, promoted from achievement to invariant.
 The ledger holds this as [wall_steady_state](/theorem/wall_steady_state) — proven `by decide`, sorry-free:
@@ -30,7 +30,7 @@ The ledger holds this as [flag_requires_hollow](/theorem/flag_requires_hollow) �
 (List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2)
 ```
 
-### A demarcation clears the claim: whenever d=1 the flag is 0 (flag·d = 0) — "never infinity", "not quantum hardware", "simulation, not hardware" pass, as the honest use of the word should.
+### A demarcation clears the claim: whenever d=1 the flag is 0 (flag·d = 0) — "never infinity", "not quantum hardware", "simulation" pass, as the honest use of the word should.
 The ledger holds this as [demarcation_clears](/theorem/demarcation_clears) — proven `by decide`, sorry-free:
 
 ```lean
@@ -44,7 +44,7 @@ The ledger holds this as [backing_clears](/theorem/backing_clears) — proven `b
 (List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/4%2) == 0)
 ```
 
-### The gate is precise, never vacuous: of the eight states EXACTLY ONE fires — it can (and does) flag, but only the hollow-and-uncleared case. A gate that never fires would prove nothing.
+### The gate is precise— it can (and does) flag, but only the hollow-and-uncleared case. A gate that never fires would prove nothing.
 The ledger holds this as [exactly_one_flag](/theorem/exactly_one_flag) — proven `by decide`, sorry-free:
 
 ```lean
@@ -65,7 +65,7 @@ The ledger holds this as [sanitize_depth_bounded](/theorem/sanitize_depth_bounde
 (32 = 2^5) ∧ (0 < 32)
 ```
 
-### TWO WITNESSES DETECT, THREE LOCATE, FIVE SURVIVE A CORRELATED PAIR. This is the error-correcting bound, and it is why the ledger counts legs rather than trusting agreement: to LOCATE t faults you need 2t+1 witnesses, so one fault needs three and two need five. Four is worse than it looks — an even count admits a 2-2 split with no majority, which detects a disagreement while naming no culprit. The case that forced this: strokes_survive_reflection passed BOTH its js mirror and the Lean kernel and was still wrong, because one hand wrote both legs and they carried the same mistaken framing. Two legs agreeing is consistency, not correctness.
+### TWO WITNESSES DETECT, THREE LOCATE, FIVE SURVIVE A CORRELATED PAIR. This is the error-correcting bound, and it is why the ledger counts legs rather than trusting agreement: to LOCATE t faults you need 2t+1 witnesses, so one fault needs three and two need five. Four is worse than it looks — an even count admits a 2-2 split with no majority, which detects a disagreement while naming no culprit. The case that forced this: strokes_survive_reflection passed BOTH its js mirror and the Lean kernel and was still wrong, because one hand wrote both legs and they carried the same mistaken framing. Two legs agreeing is consistency.
 The ledger holds this as [witnesses_locate_faults](/theorem/witnesses_locate_faults) — proven `by decide`, sorry-free:
 
 ```lean
@@ -79,53 +79,53 @@ The ledger holds this as [handle_splits_four](/theorem/handle_splits_four) — p
 (8 = 4 * 2) ∧ (256^4 = 4294967296) ∧ (16^8 = 4294967296) ∧ (256^4 = 16^8)
 ```
 
-### THE HARMONY LAW — every departure from exact recomputation is either NAMED or CAUGHT, and there is no third state. Over the two bits of the scan (r = the module reaches outside determinism: the network, the process, the clock; d = it declares that boundary by name), the verdict is pass = 1 − r·(1−d): of the four states exactly ONE fails, the undeclared reach. Harmony is therefore not the absence of boundaries — the tree carries fourteen, each naming what it touches — but the absence of UNNAMED ones. This is why a claim of quantum advantage cannot pass: it REACHES, asserting computation beyond the exact cost the state count fixes (n qubits span 2^n amplitudes), and it cannot DECLARE, because no boundary marker exists for faster-than-the-cost — so it lands in the one failing state by construction, not by policy. The same algebra as the provenance detector, applied to computation instead of prose.
+### THE HARMONY LAW — every departure from exact recomputation is either NAMED or CAUGHT, and there is no third state. Over the two bits of the scan (r = the module reaches outside determinism: the network, the process, the clock; d = it declares that boundary by name), the verdict is pass = 1 − r·(1−d): of the four states exactly ONE fails, the undeclared reach. Harmony is therefore not the absence of boundaries — the tree carries fourteen, each naming what it touches — but the absence of UNNAMED ones. This is why a claim of quantum advantage cannot pass: it REACHES, asserting computation beyond the exact cost the state count fixes (n qubits span 2^n amplitudes), and it cannot DECLARE, because no boundary marker exists for faster-than-the-cost — so it lands in the one failing state by construction. The same algebra as the provenance detector, applied to computation instead of prose.
 The ledger holds this as [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) — proven `by decide`, sorry-free:
 
 ```lean
 ((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d == 1)))) ∧ (((List.range 4).filter (fun n => let r := n % 2; let d := n / 2 % 2; (1 - r * (1 - d)) == 0)).length = 1)
 ```
 
-### every generated theorem carries prose IN the Lean — 1386 of 1386 documented across 89 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address
+### every generated theorem carries prose IN the Lean — 1391 of 1391 documented across 90 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address
 The ledger holds this as [prose_coverage_total](/theorem/prose_coverage_total) — proven `by decide`, sorry-free:
 
 ```lean
-(([6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12].foldl (· + ·) 0) = 1386) ∧ ([6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12] = [6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12])
+(([6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 7, 6, 8, 22, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12].foldl (· + ·) 0) = 1391) ∧ ([6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 7, 6, 8, 22, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12] = [6, 6, 6, 13, 11, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 7, 6, 8, 22, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 12])
 ```
 
-### the prose round-trips exactly — 1386 of 1386 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed
+### the prose round-trips exactly — 1391 of 1391 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed
 The ledger holds this as [prose_round_trips](/theorem/prose_round_trips) — proven `by decide`, sorry-free:
 
 ```lean
-(1386 + 0 = 1386) ∧ (0 = 0)
+(1391 + 0 = 1391) ∧ (0 = 0)
 ```
 
-### no doc comment contains an unescaped -/ — 0 found across 1386; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today
+### no doc comment contains an unescaped -/ — 0 found across 1391; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today
 The ledger holds this as [prose_terminator_escaped](/theorem/prose_terminator_escaped) — proven `by decide`, sorry-free:
 
 ```lean
-(0 + 1386 = 1386) ∧ (0 = 0)
+(0 + 1391 = 1391) ∧ (0 = 0)
 ```
 
-### prose that says more than the statement OUTNUMBERS prose that repeats it — 1386 informative against 0 bare, of 1386; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed
+### prose that says more than the statement OUTNUMBERS prose that repeats it — 1391 informative against 0 bare, of 1391; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed
 The ledger holds this as [prose_beats_restatement](/theorem/prose_beats_restatement) — proven `by decide`, sorry-free:
 
 ```lean
-(0 < 1386) ∧ (0 + 1386 = 1386)
+(0 < 1391) ∧ (0 + 1391 = 1391)
 ```
 
-### the whole prose corpus folds to ONE ℤ/9 receipt — 236486 characters across 1386 doc comments in 89 wings fold to 2; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit
+### the whole prose corpus folds to ONE ℤ/9 receipt — 232569 characters across 1391 doc comments in 90 wings fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit
 The ledger holds this as [prose_folds_receipt](/theorem/prose_folds_receipt) — proven `by decide`, sorry-free:
 
 ```lean
-(([1078, 1255, 1545, 3626, 1920, 2967, 1860, 1592, 774, 1526, 1813, 1340, 3451, 4277, 9207, 1597, 1239, 7326, 5088, 1373, 1630, 960, 4667, 2363, 1348, 1465, 1615, 3310, 829, 3008, 1358, 2200, 2920, 1543, 1510, 1499, 2272, 1981, 1705, 959, 4207, 1569, 3171, 1641, 1664, 1229, 1188, 753, 5806, 16003, 1733, 1188, 1833, 2046, 1467, 2634, 1510, 1592, 1800, 946, 1019, 2126, 11553, 11220, 1808, 987, 1564, 1539, 3510, 3069, 2177, 789, 1535, 3412, 8810, 5483, 2125, 1946, 1430, 1412, 919, 1453, 3384, 895, 5676, 1522, 4053, 524, 2570].foldl (· + ·) 0) = 236486) ∧ (236486 % 9 = 2) ∧ (2 < 9)
+(([1078, 1237, 1545, 3345, 1892, 2906, 1860, 1487, 774, 1526, 1758, 1340, 3451, 4156, 8961, 2242, 1597, 1239, 8657, 5016, 1319, 1616, 960, 4419, 2363, 1318, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 1593, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 11299, 10650, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 2125, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 2561].foldl (· + ·) 0) = 232569) ∧ (232569 % 9 = 0) ∧ (0 < 9)
 ```
 
-### the audit is TOTAL over what a generator writes — 89 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states
+### the audit is TOTAL over what a generator writes — 90 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states
 The ledger holds this as [prose_audit_total](/theorem/prose_audit_total) — proven `by decide`, sorry-free:
 
 ```lean
-(0 < 89) ∧ (0 < 3) ∧ (1386 = 1386 + 0)
+(0 < 90) ∧ (0 < 3) ∧ (1391 = 1391 + 0)
 ```
 
 

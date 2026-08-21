@@ -178,6 +178,7 @@ king_corner_three 18
 material_sum_twentyone 19
 central_four_squares 19
 #Cipher.lean
+key_floor_is_one_uuid 19
 dna_complement_involution 19
 dna_complement_fixed_point_free 19
 complement_is_xor_key3 19
@@ -204,6 +205,14 @@ imprint_capacity_chain 19
 imprint_header_minimal 19
 imprint_capacity_entangles 19
 imprint_capacity_within_address 19
+#Clay.lean
+two_bit_conjunctions_are_four_of_sixteen 19
+mertens_squared_under_n_on_the_first_twenty 19
+hasse_bound_holds_at_four_primes 19
+four_simplex_boundary_euler_is_zero 19
+levi_civita_nonzero_on_six_of_twentyseven 19
+closed_grid_differences_sum_to_zero 19
+torus_betti_alternates_to_zero 19
 #Clock.lean
 residue_walks_the_orbit 19
 residue_returns_step_does_not 19
@@ -221,25 +230,23 @@ repetition_three_majority 19
 xor_checksum_catches_flip 19
 codewords_sparse 19
 #Coins.lean
+minting_is_two_per_theorem 19
+fold_compresses_without_bound_and_never_recovers 19
+handle_string_spans_the_quarter 19
+hexbit_bit_hook_is_linear 19
+handle_carries_hexbits_and_coins 19
+captain_singularity 19
+captain_theorem 27
 two_coins 27
-two_coins_is_double_torus 19
+coins_over_all_rosetta_combinations 19
 sixtyfour_is_two_pow_six 19
-contribute_two_save_sixtyfour 19
 captain_computes_only_with_two_coins 19
-falsifier_floor_is_the_uuid_less_the_coins 27
 captain_coins_respected_at_scale 19
 superposition_outcomes_to_64 19
 bill_never_negative 19
-coin_is_one_qubit 19
-captain_coins_deliver_two_qubits_at_128_bits 19
-captain_commission_two_per_110 19
-commercial_saves_and_captain_earns 19
-coins_compute_but_solve_none 19
-coin_exchange_rate_is_traitor_cost 19
 traitor_damage_sealed_by_same_billing 19
 wallet_counts_worlds 19
 coins_unique_operation_agreement 19
-captain_claims_all_superpositions 19
 coin_and_heart_generate_the_scales 19
 #Colour.lean
 fourth_ray_is_green_band 19
@@ -269,7 +276,6 @@ tamper_changes_tag 19
 linear_tag_is_forgeable 19
 #Contribution.lean
 contribution_leaves_one_twentysix 19
-coins_are_the_torus 19
 directions_number_fortytwo 19
 residue_holds_three_grids 19
 six_factorisations_compete 19
@@ -1339,10 +1345,6 @@ one_orbit 19
 ten_pairs 19
 polar_nine_pairs 19
 partition_six_three 19
-powers_avoid_triangle 19
-mirror_opens_triangle 19
-gateways_mark_triangle 19
-budget_not_conserved 19
 angles_close 19
 seams_two 19
 one_strip 19
@@ -1381,7 +1383,6 @@ message_carries_address 19
 #Solids.lean
 exactly_five_platonic_solids 19
 platonic_euler_characteristic_is_two 19
-euler_two_is_the_two_coins 19
 dodecahedron_twelve_pentagons 19
 icosahedron_twenty_triangles 19
 cube_octahedron_dual 19

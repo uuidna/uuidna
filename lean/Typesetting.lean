@@ -1,4 +1,4 @@
--- lean/Typesetting.lean — GENERATED. THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini's identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Typesetting.lean — GENERATED. THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini's identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page; the √2 A-series ratio is irrational and demarcated. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- The printer's units close on the inch: twelve points make a pica, six picas make the inch — 6 · 12 = 72 — so
     the point is exactly 1/72 of an inch, the atom every measure is counted in. Pierre Fournier and then Firmin
@@ -47,10 +47,9 @@ theorem leading_exceeds_type : 14 > 12 ∧ 14 = 12 + 2 := by decide
     for line. The grid is to vertical space what the point is to the em: a common denominator. -/
 theorem baseline_grid_snaps_to_four : [12,16,20,24].all (fun n => n % 4 == 0) := by decide
 
-/-- The compositor's case held a fixed scale of sizes, not a continuum, and the classic run
-    6,7,8,9,10,11,12,14,16,18 rises by set steps; doubling is the octave the scale keeps — 8 → 16 and 9 → 18 (16
-    = 8·2, 18 = 9·2) — so a display size is the exact double of a text size, the typographic analogue of the
-    musical octave. -/
+/-- The compositor's case held a fixed scale of sizes; doubling is the octave the scale keeps — 8 → 16 and 9 →
+    18 (16 = 8·2, 18 = 9·2) — so a display size is the exact double of a text size, the typographic analogue of
+    the musical octave. -/
 theorem type_scale_octave : (16 = 8 * 2) ∧ (18 = 9 * 2) := by decide
 
 /-- The ISO page folds like a signature: A4 halves into two A5, A5 into two A6 — [1,2,4] sheets of each become
@@ -60,8 +59,8 @@ theorem type_scale_octave : (16 = 8 * 2) ∧ (18 = 9 * 2) := by decide
 theorem a_series_halving : [1,2,4].map (fun n => n * 2) = [2,4,8] := by decide
 
 /-- A ream is five hundred sheets: twenty quires of twenty-five — 20 · 25 = 500 — the count a paper mill sells
-    the printer by, and the reason a print run is reckoned in reams, not sheets. (The older "short" quire of 24
-    and the printer's ream of 516 are historical variants; the metric ream settled on the round 500.) -/
+    the printer by, and the reason a print run is reckoned in reams. (The older "short" quire of 24 and the
+    printer's ream of 516 are historical variants; the metric ream settled on the round 500.) -/
 theorem ream_is_five_hundred : 20 * 25 = 500 := by decide
 
 /-- Each leaf has two faces: the recto (the front, the right-hand page) carries the odd folios, the verso (the

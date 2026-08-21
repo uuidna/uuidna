@@ -19,14 +19,14 @@
 // HONEST SCOPE, and it is the whole point: this reports WHAT A TEXT SAYS. It makes no claim that a text is right,
 // and none whatever about a text's meaning or authority — for scripture least of all. A claim about the world with
 // no decidable test is NOT PROVEN and stays so (untested_stays_unproven), and a shared number is the expected case
-// by pigeonhole (gematria_forces_collisions).
+// by pigeonhole (gematria_forces_collisions), never evidence of a connection.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fetchGutenberg, extractClaims, extractDecidable, auditText } from '../books.js'
 import { merkleGravity } from '../index.js'
 import { ROOT } from './api.js'
 
-/** the declared corpus — public-domain texts on Project Gutenberg, by id. Grows by declaration. */
+/** the declared corpus — public-domain texts on Project Gutenberg, by id. Grows by declaration, never by guess. */
 export const CORPUS: { id: number; note: string }[] = [
   { id: 10, note: 'King James Bible — the largest measured corpus here; numbers written as words throughout' },
   { id: 2800, note: 'The Koran, Rodwell translation' },
@@ -73,7 +73,7 @@ if (process.argv[1] && process.argv[1].endsWith('mine-books.js')) {
   // one receipt over every lead address — order-invariant, so the corpus folds to one value a reader can recheck
   const receipt = merkleGravity(leads.map((l) => l.address))
   const out = {
-    why: 'Numeric claims that public-domain texts STATE, filed as CANDIDATE leads for a human to judge. Nothing here is sealed, decided or endorsed: a lead is a sentence, its numbers, and the links back to the book and byte-range that produced it. Mined deterministically (a number-word table and two regexes — no model, no judgement), so the cron reproduces it exactly. What a text says is a textual fact; whether it is TRUE of the world has no decidable test here and stays NOT PROVEN (untested_stays_unproven), and a number shared between texts is the expected case by pigeonhole (gematria_forces_collisions).',
+    why: 'Numeric claims that public-domain texts STATE, filed as CANDIDATE leads for a human to judge. Nothing here is sealed, decided or endorsed: a lead is a sentence, its numbers, and the links back to the book and byte-range that produced it. Mined deterministically (a number-word table and two regexes — no model, no judgement), so the cron reproduces it exactly. What a text says is a textual fact; whether it is TRUE of the world has no decidable test here and stays NOT PROVEN (untested_stays_unproven), and a number shared between texts is the expected case by pigeonhole (gematria_forces_collisions), never evidence of a connection.',
     books, leads: leads.length, receipt, lead: leads,
   }
   writeFileSync(join(ROOT, 'book-leads.json'), JSON.stringify(out, null, 2) + '\n')

@@ -21,6 +21,10 @@ import { ROOT, MAXBUF } from './lean-gen.js'
 
 // The trust base is the kernel alone — NO axiom is tolerated.sound. Widen this set only by a
 // conscious, documented decision; a `by decide` ledger should never need to.
+import { handleOf } from '../handle.js'
+import { toUuid } from '../address.js'
+const LEDGER_SRC = join(ROOT, 'src', 'theorems', 'generated.ts')
+
 const ALLOWED = new Set<string>()
 
 const T = theorems()
@@ -99,6 +103,28 @@ async function pool<X, R>(items: X[], concurrency: number, worker: (x: X) => Pro
 async function main() {
   const check = process.argv.includes('--check')
   const files = Object.keys(byFile).sort()
+
+  // THE SAME HEXBIT GATE THE WINGS USE. This audit spawns Lean over every wing to ask `#print axioms` for all
+  // 1440 theorems, and it re-asked on every run even when not one proof had moved — once the generators were
+  // gated it became the whole cost of `npm run lean`. The answer depends on exactly two things: the Lean TEXT
+  // being audited, and which theorems are being asked about. Fold both into one handle — every wing's bytes plus
+  // the ledger's — and an unchanged pair means the previous verdict still stands, because the kernel would be
+  // answering the identical question. A moved byte anywhere in either re-audits everything; --check and
+  // UUIDNA_PROVE_ALL=1 always re-ask, so nothing hides behind the gate.
+  const wingBytes = files.map((f) => readFileSync(join(ROOT, 'lean', f), 'utf8')).join('')
+  const ledgerSrc = existsSync(LEDGER_SRC) ? readFileSync(LEDGER_SRC, 'utf8') : ''
+  const askedKey = handleOf(toUuid(wingBytes + ledgerSrc))
+  const cachePath = join(ROOT, 'lean', 'axioms.json')
+  if (!check && !process.env.UUIDNA_PROVE_ALL && existsSync(cachePath)) {
+    try {
+      const prior = JSON.parse(readFileSync(cachePath, 'utf8')) as { audited?: number; axiomFree?: number; asked?: string }
+      if (prior.asked === askedKey && prior.audited === T.length && prior.axiomFree === T.length) {
+        console.log('✓ axiom audit — ' + T.length + '/' + T.length + ' kernel-only, verified by receipt (unchanged at ' + askedKey + '; UUIDNA_PROVE_ALL=1 re-asks)')
+        return
+      }
+    } catch { /* an unreadable receipt is no receipt — fall through and re-audit */ }
+  }
+
   const results = await pool(files, 8, (f) => auditFile(f, byFile[f]))
 
   // Fold: which theorems carry a DISALLOWED axiom, and did every theorem actually get a verdict (coverage)?
@@ -116,7 +142,7 @@ async function main() {
   }
 
   const axiomFree = audited - Object.keys(offenders).length
-  const receipt = { audited, axiomFree, offenders }
+  const receipt = { audited, axiomFree, offenders, asked: askedKey }
   if (!check) {
     writeFileSync(join(ROOT, 'lean', 'axioms.json'), JSON.stringify(receipt) + '\n')
     console.log('wrote lean/axioms.json — ' + audited + ' theorems audited, keyed by content-address')

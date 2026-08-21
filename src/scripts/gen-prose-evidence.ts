@@ -30,7 +30,7 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
   {
     claim: 'contribute two, save sixty-four',
     prose: 'the leverage: contribute 2, save up to 64',
-    backing: T.filter(t => t.key === 'contribute_two_save_sixtyfour')
+    backing: T.filter(t => t.key === 'captain_theorem')
   },
   {
     claim: 'two coins, the double torus',

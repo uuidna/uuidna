@@ -37,8 +37,7 @@ theorem keplers_harmonic_law : ([(1,1),(4,8),(9,27)] : List (Nat × Nat)).all (f
 theorem metonic_cycle : 19 * 12 + 7 = 235 := by decide
 
 /-- The classical great year: the equinoxes precess at about 72 years per degree, so the full 360° circuit takes
-    72 × 360 = 25920 years. (A classical approximation of the ~25772-year platonic year, not an exact modern
-    figure.) -/
+    72 × 360 = 25920 years. (A classical approximation of the ~25772-year platonic year.) -/
 theorem great_year_precession : 72 * 360 = 25920 := by decide
 
 /-- A star's fixed coordinate is bounded: declination runs from the south celestial pole −90° to the north +90°,

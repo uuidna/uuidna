@@ -7,9 +7,9 @@ description: "Computed from lean/Grid.lean — 6 sealed theorems, every claim ci
 
 > THE GRID RULE, BASE-AGNOSTIC — the growth law stated so it does not depend on how numbers are written. — held by [decimal_asks_three](/theorem/decimal_asks_three) and its 5 siblings below.
 
-**6 theorems**, from [decimal_asks_three](/theorem/decimal_asks_three) onward, each proven `by decide` in [lean/Grid.lean](/lean/Grid.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [decimal_asks_three](/theorem/decimal_asks_three). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [decimal_asks_three](/theorem/decimal_asks_three) onward, each proven `by decide` in [lean/Grid.lean](/lean/Grid.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [fifteen_satisfies_both](/theorem/fifteen_satisfies_both). A boundary stated here is decided.
 
-### THE BASE-TEN RULE: 6w carries digital root nine exactly when w is a multiple of three, since the decimal digit-sum invariant is mod 9 and gcd(6,9) = 3. Wings three at a time — a consequence of writing in ten, not a property of wings.
+### THE BASE-TEN RULE: 6w carries digital root nine exactly when w is a multiple of three, since the decimal digit-sum invariant is mod 9 and gcd(6,9) = 3. Wings three at a time — a consequence of writing in ten.
 The ledger holds this as [decimal_asks_three](/theorem/decimal_asks_three) — proven `by decide`, sorry-free:
 
 ```lean
@@ -44,7 +44,7 @@ The ledger holds this as [fifteen_satisfies_both](/theorem/fifteen_satisfies_bot
 ((List.range 40).all (fun w => (w % 15 == 0) == (((6 * w) % 9 == 0) && ((6 * w) % 15 == 0)))) ∧ (90 % 15 = 0) ∧ (91 % 15 ≠ 0)
 ```
 
-### AND WHAT SURVIVES UNTOUCHED: the six is derived, not fitted. Seven dimensions less the identity ray, because projecting a wing into the language it is already written in computes nothing — 7 x 72 - 72 = 432 = 6 x 72. The multiplier was never the problem; only the constant it was multiplied to.
+### AND WHAT SURVIVES UNTOUCHED: the six is derived. Seven dimensions less the identity ray, because projecting a wing into the language it is already written in computes nothing — 7 x 72 - 72 = 432 = 6 x 72. The multiplier was never the problem; only the constant it was multiplied to.
 The ledger holds this as [six_rays_stay_derived](/theorem/six_rays_stay_derived) — proven `by decide`, sorry-free:
 
 ```lean

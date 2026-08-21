@@ -1,0 +1,12 @@
+{
+  "handle": "a2769cc7",
+  "address": "a2769cc7-9c4f-8781-b675-f2aa09f7fa75",
+  "statement": "((5:Int) - 10 + 10 - 5 = 0) ∧ (([5,10,10,5] : List Int).length = 4)",
+  "tactic": "decide",
+  "keys": [
+    "four_simplex_boundary_euler_is_zero"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

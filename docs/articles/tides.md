@@ -7,7 +7,7 @@ description: "Computed from lean/Tides.lean — 6 sealed theorems, every claim c
 
 > THE TIDES — the rule of twelfths, half-tide, the semidiurnal period and spring/neap, as decidable arithmetic. — held by [rule_of_twelfths](/theorem/rule_of_twelfths) and its 5 siblings below.
 
-**6 theorems**, from [rule_of_twelfths](/theorem/rule_of_twelfths) onward, each proven `by decide` in [lean/Tides.lean](/lean/Tides.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [half_tide_at_hour_three](/theorem/half_tide_at_hour_three). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [rule_of_twelfths](/theorem/rule_of_twelfths) onward, each proven `by decide` in [lean/Tides.lean](/lean/Tides.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 ### The sailor's rule of twelfths: over six hours a tide rises 1,2,3,3,2,1 twelfths of its range — and 1+2+3+3+2+1 = 12, the whole range accounted for.
 The ledger holds this as [rule_of_twelfths](/theorem/rule_of_twelfths) — proven `by decide`, sorry-free:
@@ -23,14 +23,14 @@ The ledger holds this as [twelfths_symmetric](/theorem/twelfths_symmetric) — p
 [1,2,3,3,2,1].reverse = [1,2,3,3,2,1]
 ```
 
-### By the third hour the water stands at HALF its range: 1+2+3 = 6 of 12 (2·6 = 12) — half-tide falls at mid-flood, not the halfway time by accident but by the twelfths.
+### By the third hour the water stands at HALF its range: 1+2+3 = 6 of 12 (2·6 = 12) — half-tide falls at mid-flood.
 The ledger holds this as [half_tide_at_hour_three](/theorem/half_tide_at_hour_three) — proven `by decide`, sorry-free:
 
 ```lean
 1 + 2 + 3 = 6 ∧ 2 * 6 = 12
 ```
 
-### Two high tides fall a lunar day apart: 12h25m = 745 minutes each, and 745·2 = 1490 = 24h50m — the semidiurnal rhythm, set by the Moon, not the Sun (which would give 24h).
+### Two high tides fall a lunar day apart: 12h25m = 745 minutes each, and 745·2 = 1490 = 24h50m — the semidiurnal rhythm, set by the Moon.
 The ledger holds this as [semidiurnal_period](/theorem/semidiurnal_period) — proven `by decide`, sorry-free:
 
 ```lean

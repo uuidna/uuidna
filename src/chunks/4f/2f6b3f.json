@@ -1,0 +1,12 @@
+{
+  "handle": "4f2f6b3f",
+  "address": "4f2f6b3f-6f18-85ca-95c8-060e549b8d57",
+  "statement": "(((List.range 3).flatMap (fun i => (List.range 3).flatMap (fun j => (List.range 3).map (fun k => if i == j || j == k || i == k then 0 else 1)))).filter (fun e => e == 1)).length = 6",
+  "tactic": "decide",
+  "keys": [
+    "levi_civita_nonzero_on_six_of_twentyseven"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

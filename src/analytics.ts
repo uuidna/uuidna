@@ -8,7 +8,7 @@
 // person. It measures the ledger.
 import { theorems } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { coins } from './captain/billing/index.js'
 import { creditsSummary } from './captain/credits/index.js'
 import { coverage } from './publish.js'

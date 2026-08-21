@@ -36,7 +36,7 @@ theorem rule_of_thirds_power_points : 3 * 3 = 9 ∧ 2 * 2 = 4 := by decide
 theorem crossfade_overlap : 48 + 48 - 12 = 84 := by decide
 
 /-- 48 kHz audio at 24 fps is 2000 samples a frame, and it divides evenly (48000 % 24 = 0) — the exact sync that
-    lets a cut land on a sample, not between two. -/
+    lets a cut land on a sample. -/
 theorem audio_samples_per_frame : 48000 / 24 = 2000 ∧ 48000 % 24 = 0 := by decide
 
 /-- UNDO IS THE RING'S OWN LAW: in the frame ring ℤ/24 every invertible step is its OWN inverse — 5², 7², 11²,

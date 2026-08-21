@@ -9,11 +9,11 @@ theorem rule_of_twelfths : 1 + 2 + 3 + 3 + 2 + 1 = 12 := by decide
 theorem twelfths_symmetric : [1,2,3,3,2,1].reverse = [1,2,3,3,2,1] := by decide
 
 /-- By the third hour the water stands at HALF its range: 1+2+3 = 6 of 12 (2·6 = 12) — half-tide falls at
-    mid-flood, not the halfway time by accident but by the twelfths. -/
+    mid-flood. -/
 theorem half_tide_at_hour_three : 1 + 2 + 3 = 6 ∧ 2 * 6 = 12 := by decide
 
 /-- Two high tides fall a lunar day apart: 12h25m = 745 minutes each, and 745·2 = 1490 = 24h50m — the
-    semidiurnal rhythm, set by the Moon, not the Sun (which would give 24h). -/
+    semidiurnal rhythm, set by the Moon. -/
 theorem semidiurnal_period : 745 * 2 = 1490 := by decide
 
 /-- A spring tide (new or full Moon, Sun and Moon aligned, their pulls ADD) exceeds a neap (at the quarter,

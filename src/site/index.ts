@@ -7,7 +7,7 @@
 // it, and scripts/payload-sync emits its docs into the collection it names. A change lands in one place or not at all.
 //
 // SINGULAR IS A MODEL: this folder is one concept — the site's identity — so it carries index faces only.
-// HONEST SCOPE: shared configuration. What the pages SAY is computed from the sealed ledger elsewhere;
+// HONEST SCOPE: shared configuration, not content. What the pages SAY is computed from the sealed ledger elsewhere;
 // this only fixes who they belong to and where they go.
 
 /** The site's identity — the one place its name, voice and origin are written. */

@@ -1,13 +1,20 @@
 ---
 title: "The cipher & the strand"
-description: "Computed from lean/Cipher.lean — 26 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Cipher.lean — 27 sealed theorems, every claim citing its proof."
 ---
 
 # The cipher & the strand
 
-> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. — held by [dna_complement_involution](/theorem/dna_complement_involution) and its 25 siblings below.
+> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305. — held by [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) and its 26 siblings below.
 
-**26 theorems**, from [dna_complement_involution](/theorem/dna_complement_involution) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 26 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [complement_is_xor_key3](/theorem/complement_is_xor_key3). A boundary stated here is decided, not merely denied.
+**27 theorems**, from [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 27 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid). A boundary stated here is decided.
+
+### THE CIPHER MEASURED IN THE ARCHITECTURE’S OWN UNIT. A hexbit is 4 bits, and everything here computes in hexbits, so the ChaCha20-Poly1305 key is 64 hexbits rather than 256 bits. Grover halves the exponent of a brute-force search, which takes the floor to 32 hexbits — and 32 hexbits is EXACTLY the uuid. The post-quantum floor of the cipher and the width of an identifier are the same number, in the same unit, and it is only visible once the bits are converted: 256/4 = 64, 128/4 = 32, and the uuid is 32. Bits hide this; hexbits state it.
+The ledger holds this as [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) — proven `by decide`, sorry-free:
+
+```lean
+(256 / 4 = 64) ∧ (128 / 4 = 32) ∧ (256 = 2 * 128) ∧ (32 * 4 = 128)
+```
 
 ### Base-pairing is a self-inverse map: the complement comp(x)=3−x applied twice is the identity (A↔T↔A, C↔G↔C) — a decrypt that equals its encrypt, like the diamond reflection.
 The ledger holds this as [dna_complement_involution](/theorem/dna_complement_involution) — proven `by decide`, sorry-free:
@@ -23,7 +30,7 @@ The ledger holds this as [dna_complement_fixed_point_free](/theorem/dna_compleme
 (List.range 4).all (fun x => 3 - x != x)
 ```
 
-### Base-pairing IS a XOR cipher: on the 2-bit encoding comp(x)=3−x equals x XOR 3 — a one-time-pad STEP with the fixed pad 3. Real, but a FIXED pad is public, not secret.
+### Base-pairing IS a XOR cipher: on the 2-bit encoding comp(x)=3−x equals x XOR 3 — a one-time-pad STEP with the fixed pad 3. Real, but a FIXED pad is public.
 The ledger holds this as [complement_is_xor_key3](/theorem/complement_is_xor_key3) — proven `by decide`, sorry-free:
 
 ```lean
@@ -44,7 +51,7 @@ The ledger holds this as [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_
 (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2))))
 ```
 
-### A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing, NOT a binding one-way seal.
+### A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing.
 The ledger holds this as [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) — proven `by decide`, sorry-free:
 
 ```lean
@@ -72,14 +79,14 @@ The ledger holds this as [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_
 (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)
 ```
 
-### THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction, not discovered to be.
+### THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction.
 The ledger holds this as [octave_codon_address](/theorem/octave_codon_address) — proven `by decide`, sorry-free:
 
 ```lean
 ((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400)
 ```
 
-### Translation is LOSSY, never a cipher: 64 codons map onto only 21 outcomes (20 amino acids + stop), and 64 > 21, so by pigeonhole the map cannot be injective — a hash-like reduction that cannot be inverted, not encryption.
+### Translation is LOSSY— a hash-like reduction that cannot be inverted.
 The ledger holds this as [translation_is_lossy](/theorem/translation_is_lossy) — proven `by decide`, sorry-free:
 
 ```lean
@@ -93,7 +100,7 @@ The ledger holds this as [affine_is_permutation](/theorem/affine_is_permutation)
 (List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y))
 ```
 
-### The honest quantum posture: Grover’s search is a QUADRATIC speedup, not a break — a 2n-bit key space costs ~2ⁿ work ((2ⁿ)² = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor target at all.
+### The honest quantum posture: Grover’s search is a QUADRATIC speedup— a 2n-bit key space costs ~2ⁿ work ((2ⁿ)² = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor target at all.
 The ledger holds this as [grover_quadratic_bound](/theorem/grover_quadratic_bound) — proven `by decide`, sorry-free:
 
 ```lean
@@ -128,7 +135,7 @@ The ledger holds this as [sha256_rounds_are_the_board](/theorem/sha256_rounds_ar
 ((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧ (512 = 2 * 256)
 ```
 
-### THE POST-QUANTUM ENTANGLEMENT: Grover's quadratic speedup halves SHA-256's preimage exponent — 256/2 = 128 — landing EXACTLY on the content-address width: the standard's worst-case quantum strength IS uuidna's unit of speech. No Shor target exists (symmetric, keyless); the architecture survives the quantum era at precisely the width this system already speaks. uuidna's deployment patches the standard's USE-flaws by name — HMAC against length-extension, the bounded-iteration ceiling against KDF cost abuse, the advancing step against the equality leak — and NAMES the one it cannot patch: pure-JS timing. Integrity, not omniscience.
+### THE POST-QUANTUM ENTANGLEMENT: Grover's quadratic speedup halves SHA-256's preimage exponent — 256/2 = 128 — landing EXACTLY on the content-address width: the standard's worst-case quantum strength IS uuidna's unit of speech. No Shor target exists (symmetric, keyless); the architecture survives the quantum era at precisely the width this system already speaks. uuidna's deployment patches the standard's USE-flaws by name — HMAC against length-extension, the bounded-iteration ceiling against KDF cost abuse, the advancing step against the equality leak — and NAMES the one it cannot patch: pure-JS timing. Integrity.
 The ledger holds this as [sha256_grover_margin_is_the_address](/theorem/sha256_grover_margin_is_the_address) — proven `by decide`, sorry-free:
 
 ```lean

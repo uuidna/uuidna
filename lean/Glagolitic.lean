@@ -42,10 +42,9 @@ theorem roman_reads_subtractively : 10 - 1 = 9 ∧ 1 + 10 = 11 ∧ 9 ≠ 11 := b
     of addition, decided here — not a claim about any tradition that uses it. -/
 theorem gematria_ignores_order : 1 + 2 + 3 = 3 + 2 + 1 ∧ 1 + 2 + 3 = 6 := by decide
 
-/-- DIFFERENT WORDS MUST SHARE A VALUE — BY PIGEONHOLE, NOT BY MYSTERY. Over the 22 Hebrew letters there are 22³
-    = 10648 three-letter strings, while their values (each letter 1…400) can only land between 3 and 1200 — 1198
+/-- DIFFERENT WORDS MUST SHARE A VALUE — BY PIGEONHOLE. Over the 22 Hebrew letters there are 22³ = 10648
+    three-letter strings, while their values (each letter 1…400) can only land between 3 and 1200 — 1198
     possible sums. More words than sums, so collisions are FORCED: on average nearly nine strings per value. A
     shared gematria is therefore the expected case and carries no information on its own; it is the same
-    seats-and-people bound the address layer seals as seats_pigeonhole. this decides the counting, never the
-    significance anyone assigns to a coincidence. -/
+    seats-and-people bound the address layer seals as seats_pigeonhole. this decides the counting. -/
 theorem gematria_forces_collisions : 22 * 22 * 22 = 10648 ∧ 1200 - 3 + 1 = 1198 ∧ 10648 > 1198 := by decide

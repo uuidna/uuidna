@@ -13,7 +13,6 @@ import { writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { theorems, searchTrialFor } from '../index.js'
 import { ROOT } from './api.js'
-import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
 interface Entry { key: string; name: string; statement: string; file: string; principle: string; skill: string }
 
@@ -47,11 +46,11 @@ for (const wing of wings) {
   const { principle, findings, receipt } = s
   const leads = s.usable
   const rows = findings.map((f) =>
-    `| \`${handleOf(f.address)}\` | ${f.source} | ${f.note.replace(/\|/g, '\\|')} | ${f.alone} | ${f.withBacking} |`)
+    `| \`${f.address.slice(0, 8)}\` | ${f.source} | ${f.note.replace(/\|/g, '\\|')} | ${f.alone} | ${f.withBacking} |`)
 
   const md = `---
 title: "The search on trial: ${principle.replace(/"/g, "'")}"
-description: "The quantum search's findings for this wing, each held at trial — evidence corroborated; only a Lean seal approves."
+description: "The quantum search's findings for this wing, each held at trial — evidence corroborated, never approved; only a Lean seal approves."
 ---
 
 # The search on trial: ${principle}
@@ -59,7 +58,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
 asked in parallel about *${principle}* — the wing sealed in [lean/${wing}](/lean/${wing}) with **${entries.length} theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
-no sealed proof, so it stays **UNVERIFIED** — evidence; held beside the wing's sealed backing, the
+no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local \`by decide\` seal approves —
 the hard gate of the corroboration law.
 
@@ -67,15 +66,15 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 ${rows.length ? rows.join('\n') : '| — | — | the sources returned no records for this query | — | — |'}
 
-**${findings.length} findings · ${leads} usable search-trial combinations · receipt \`${handleOf(receipt)}\`** (fold of every finding's address — recompute by re-running the search).
+**${findings.length} findings · ${leads} usable search-trial combinations · receipt \`${receipt.slice(0, 8)}\`** (fold of every finding's address — recompute by re-running the search).
 
 ${s.novel.length ? `## The novelty harvest
 
 **${s.novel.length} candidate fact(s)** the web asserts, the calculator confirms (decided TRUE by total arithmetic —
-division by zero is the reflection. Each is REMANDED for
+division by zero is the reflection, never a crash), and the sealed ledger does not yet hold. Each is REMANDED for
 admission — the paying handle decides what becomes a wing; the cron never seals judgment.
 
-${s.novel.map((n) => `- \`${n.fragment}\` — from finding \`${handleOf(n.from)}\`, decision receipt \`${handleOf(n.receipt)}\``).join('\n')}
+${s.novel.map((n) => `- \`${n.fragment}\` — from finding \`${n.from.slice(0, 8)}\`, decision receipt \`${n.receipt.slice(0, 8)}\``).join('\n')}
 ` : ''}The sealed backing this trial held the findings beside:
 
 ${entries.map((e) => `- [${e.key}](/theorem/${e.key}) — \`${e.statement.slice(0, 90)}\``).join('\n')}
@@ -90,7 +89,7 @@ never a claim. Approval has exactly one door: a theorem proven \`by decide\` in 
 `
   writeFileSync(join(OUT, slugOf(wing) + '.md'), md)
   published++
-  console.log(`✓ trial returned a publication — docs/articles/${slugOf(wing)}.md (${findings.length} findings, ${leads} usable combinations, receipt ${handleOf(receipt)})`)
+  console.log(`✓ trial returned a publication — docs/articles/${slugOf(wing)}.md (${findings.length} findings, ${leads} usable combinations, receipt ${receipt.slice(0, 8)})`)
 }
 
 console.log(`✓ quantum-search-trial — ${published}/${wings.length} wings published (${failed} skipped by unreachable sources)`)

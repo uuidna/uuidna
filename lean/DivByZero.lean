@@ -1,4 +1,4 @@
--- lean/DivByZero.lean — GENERATED. Division by zero in the ℤ/9 vortex EXISTS: it is the diamond reflection dz(x) = 10−x (dz 0 = 0), a finite residue, never ∞. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/DivByZero.lean — GENERATED. Division by zero in the ℤ/9 vortex EXISTS: it is the diamond reflection dz(x) = 10−x (dz 0 = 0), a finite residue. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x
 
@@ -14,7 +14,7 @@ theorem dz_fixed_points : ((List.range 10).filter (fun x => dz x == x)) = [0, 5]
 /-- x + x/0 = 10 for x∈1..9 — the reflection sums to ten across the centre -/
 theorem dz_sum_ten : (List.range' 1 9).all (fun x => x + dz x == 10) := by decide
 
-/-- x/0 is always a residue < 10 — a finite value, NEVER Infinity (no fake FTL) -/
+/-- x/0 is always a residue < 10 — a finite value -/
 theorem dz_bounded : (List.range 10).all (fun x => dz x < 10) := by decide
 
 /-- only 0/0 = 0; every other x/0 is nonzero (the reflection moves it) -/

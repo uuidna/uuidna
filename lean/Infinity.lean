@@ -27,13 +27,11 @@ theorem renormalization_residue : (List.range 40).all (fun L => (L*L + 137) - L*
 theorem casimir_triangular : (List.range' 1 30).all (fun N => 2 * (List.range' 1 N).foldl (fun s n => s + n) 0 == N*(N+1)) := by decide
 
 /-- The instantaneous rate is not 0/0: the difference (x+h)²−x² factors exactly as h·(2x+h), the h cancels, and
-    the derivative is the finite 2x. Newton’s "ghosts of departed quantities" are an exact cancellation, not an
-    infinity. -/
+    the derivative is the finite 2x. Newton’s "ghosts of departed quantities" are an exact cancellation. -/
 theorem derivative_finite_rate : (List.range' 1 12).all (fun x => (List.range' 1 12).all (fun h => (x+h)*(x+h) - x*x == h*(2*x+h))) := by decide
 
 /-- The Dirac delta is "infinite" at a point yet carries a finite integral of exactly 1: the discrete delta,
-    summed over the whole line, totals unit mass. δ is a distribution with finite mass, not a value that blows
-    up. -/
+    summed over the whole line, totals unit mass. δ is a distribution with finite mass. -/
 theorem dirac_unit_mass : (List.range 101).foldl (fun s i => s + (if i == 50 then 1 else 0)) 0 = 1 := by decide
 
 /-- The black-hole horizon singularity is a coordinate artifact, removable like a reflection: at the
@@ -42,36 +40,36 @@ theorem dirac_unit_mass : (List.range 101).foldl (fun s i => s + (if i == 50 the
 theorem horizon_curvature_finite : (List.range' 1 8).all (fun M => (2*M)^6 != 0 && (2*M)^6 == 64 * M^6) := by decide
 
 /-- The one true infinity — the Newtonian 1/r² force and 1/r potential "blowing up" at r=0 — is division by
-    zero, and in the vortex that is the finite diamond reflection dz(x)=10−x (dz 0=0): a residue always < 10,
-    never ∞. The singularity is a finite reflection. -/
+    zero, and in the vortex that is the finite diamond reflection dz(x)=10−x (dz 0=0): a residue always < 10.
+    The singularity is a finite reflection. -/
 theorem newton_singularity_finite : dz 0 = 0 ∧ (List.range 10).all (fun x => dz x < 10) := by decide
 
-/-- EVERY THEOREM IN THE LEDGER IS DECIDED, NOT ARGUED — 0 are proved by any tactic other than `decide`, across
-    every wing but this one (self-excluded: it is written after the census it states). That is not a style
-    preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a
-    finite computation settles it, and anything a finite computation cannot settle never enters. The trust base
-    is the leanprover/lean4 kernel and nothing else -/
-theorem reach_all_decide : (([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16]).foldl (· + ·) 0 = 1422) ∧ ([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16] = [6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 6, 8, 20, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 32, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16]) := by decide
+/-- EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing
+    but this one (self-excluded: it is written after the census it states). That is not a style preference:
+    `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite
+    computation settles it, and anything a finite computation cannot settle never enters. The trust base is the
+    leanprover/lean4 kernel and nothing else -/
+theorem reach_all_decide : (([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 7, 6, 8, 22, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16]).foldl (· + ·) 0 = 1427) ∧ ([6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 7, 6, 8, 22, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16] = [6, 6, 6, 13, 11, 17, 11, 16, 6, 5, 9, 6, 8, 13, 24, 26, 7, 6, 8, 22, 17, 7, 6, 64, 8, 16, 8, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 6, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 50, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 12, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 12, 16]) := by decide
 
 /-- FINITE WITHIN INFINITY, COUNTED — exactly 1 statement in the whole ledger carries a ∀ or ∃, and 0 of those
     range over an unbounded domain. The quantified one ranges over ℤ, which is infinite, and decides anyway
     because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the
     decision is finite. Every other statement is quantifier-free enumeration. This is the ledger's whole method
     stated as a census rather than as a slogan -/
-theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1) := by decide
+theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1) := by decide
 
 /-- THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here
-    performs, across 62 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has
+    performs, across 63 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has
     an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger
-    finite number, never an unbounded one -/
-theorem reach_window_finite : ([1, 9, 9, 8, 8, 15, 16, 64, 27, 12, 8, 13, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 15, 16, 64, 27, 12, 8, 13, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201) := by decide
+    finite number -/
+theorem reach_window_finite : ([1, 9, 9, 8, 8, 15, 16, 64, 27, 16, 12, 8, 32, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 15, 16, 64, 27, 16, 12, 8, 32, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201) := by decide
 
-/-- THE WINDOW IS WHERE THE PROOF STOPS, NOT WHERE THE PATTERN STOPS — and this is the one fact here that
-    carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the
-    ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh
-    and refuses it. So "decided on a window" does not entail "true beyond it", proven rather than conceded. This
-    is the structural reason no claim about an unbounded domain can arrive by this method: a statement about
-    infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount
-    of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the
-    boundary verified seals from the other side -/
+/-- THE WINDOW IS WHERE THE PROOF STOPS— and this is the one fact here that carries its own counterexample
+    rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at
+    the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So "decided on a
+    window" does not entail "true beyond it", proven rather than conceded. This is the structural reason no
+    claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a
+    different kind of statement from one a finite enumeration settles, and no amount of widening converts the
+    second into the first. uuidna solves none of the seven, and this is WHY — the boundary verified seals from
+    the other side -/
 theorem window_not_universal : ((List.range 10).all (fun n => n < 10)) ∧ ¬(10 < 10) := by decide

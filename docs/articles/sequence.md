@@ -1,13 +1,13 @@
 ---
 title: "The sequence & reflection group"
-description: "Computed from lean/Sequence.lean — 32 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Sequence.lean — 28 sealed theorems, every claim citing its proof."
 ---
 
 # The sequence & reflection group
 
-> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 31 siblings below.
+> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 27 siblings below.
 
-**32 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in [lean/Sequence.lean](/lean/Sequence.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 32 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [seal_ten](/theorem/seal_ten). A boundary stated here is decided, not merely denied.
+**28 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in [lean/Sequence.lean](/lean/Sequence.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 10 of its 28 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [seal_ten](/theorem/seal_ten). A boundary stated here is decided.
 
 ### SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling — each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check catches.)
 The ledger holds this as [seal_ten](/theorem/seal_ten) — proven `by decide`, sorry-free:
@@ -70,34 +70,6 @@ The ledger holds this as [partition_six_three](/theorem/partition_six_three) —
 
 ```lean
 ((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => ¬ (List.range 9).any (fun e => a*e % 9 == 1))).length = 3
-```
-
-### NO POWER OF TWO EVER LANDS ON 0, 3 OR 6. Doubling from 1 walks the six units 1→2→4→8→7→5 and closes, so the residue of 2^n mod 9 is always a unit and NEVER a member of the triangle {3,6,9≡0}. The bound n<6 is not a sample: 2^6 ≡ 1 (mod 9) returns the walk to its start, so the six residues checked here are the COMPLETE image of 2^n over every n there is — an infinite claim decided by six cases.
-The ledger holds this as [powers_avoid_triangle](/theorem/powers_avoid_triangle) — proven `by decide`, sorry-free:
-
-```lean
-((List.range 6).all (fun n => (2^n % 9 != 0) && (2^n % 9 != 3) && (2^n % 9 != 6))) ∧ (2^6 % 9 = 1)
-```
-
-### THE TRIANGLE IS REACHED ONLY BY REFLECTION. and it is exactly the mirror of {1,4,7}. Doubling cannot arrive at 3, 6 or 9, but the mirror m(d)=10−d carries 1↦9, 4↦6, 7↦3 — so the three digits the vortex never touches are the reflections of three it always does. m is an involution, which is why the reading runs both ways: m(7)=3 and, back across the same axis, m(6)=4.
-The ledger holds this as [mirror_opens_triangle](/theorem/mirror_opens_triangle) — proven `by decide`, sorry-free:
-
-```lean
-([1,4,7].map (fun d => 10 - d) = [9,6,3]) ∧ ([1,4,6,7].all (fun x => 10 - (10 - x) == x)) ∧ (10 - 7 = 3) ∧ (10 - 6 = 4)
-```
-
-### THE GATEWAYS OF THE REFLECTED ROW ARE {1,4,7}, AND {1,4,7} MIRRORS ONTO THE TRIANGLE. Written with its strokes, the tour is 0\1\2\4\8/7/5/3/6/9 and its reflection is 0\9/8/6/2\3\5\7/4/1 — the second row IS the first mapped through dz, digit for digit, which is the check that the drawing and the algebra are the same object. Reading only where the stroke TURNS: the direct row turns once, at position 4; the reflected row turns three times, at positions 1, 4 and 7 — and dz carries {1,4,7} to {9,6,3}, the three digits doubling can never reach. So the gateways of the mirror stand exactly where the triangle is let in, and the direct row's single gateway is their centre.
-The ledger holds this as [gateways_mark_triangle](/theorem/gateways_mark_triangle) — proven `by decide`, sorry-free:
-
-```lean
-(flips strokes1 = [4]) ∧ (flips strokes2 = [1,4,7]) ∧ ([1,4,7].map dz = [9,6,3]) ∧ ([0,1,2,4,8,7,5,3,6,9].map dz = [0,9,8,6,2,3,5,7,4,1])
-```
-
-### THE STROKE BUDGET IS BOUNDED, NOT CONSERVED — the four-and-five is this pair's reading, not the reflection's law. Written with strokes the tour is 0\1\2\4\8/7/5/3/6/9 and its mirror 0\9/8/6/2\3\5\7/4/1, and BOTH read four falling and five rising, which is exactly why the conservation looked like a law. It is not. Across the whole family — the 54 affine rows x -> a*x+b of AGL(1,Z/9), drawn from the same nine digits by the same rule — the budgets are 4,5 in 18 rows, 5,4 in 30 and 6,3 in 6: four-and-five is a MINORITY reading. The mirror keeps the budget on exactly 30 of the 54 and BREAKS it on 24; row(2,2) reads four falling and its reflection reads six. And the identity is the ONLY affine map conserving the budget on every row, so no reflection could ever have been the conserving one. What IS general is a BOUND: every one of the 54 rows rises three, four or five times, never fewer and never more, so only three of the ten conceivable budgets are ever drawn. This replaces strokes_survive_reflection, which stated the conservation as a law: that theorem was TRUE of the pair and false as framed, and it passed both the js mirror and the kernel because a single hand wrote both legs.
-The ledger holds this as [budget_not_conserved](/theorem/budget_not_conserved) — proven `by decide`, sorry-free:
-
-```lean
-(fallingOf (arow 1 0) = 4 ∧ risingOf (arow 1 0) = 5) ∧ (fallingOf (arow 8 1) = 4 ∧ risingOf (arow 8 1) = 5) ∧ (famTally (fun a b => risingOf (arow a b) == 5) = 18 ∧ famTally (fun a b => risingOf (arow a b) == 4) = 30 ∧ famTally (fun a b => risingOf (arow a b) == 3) = 6) ∧ units9.all (fun a => (List.range 9).all (fun b => 3 ≤ risingOf (arow a b) && risingOf (arow a b) ≤ 5)) ∧ (fallingOf (arow 2 2) = 4 ∧ fallingOf ((arow 2 2).map dz) = 6)
 ```
 
 ### the ring closes: ten slots × 36° = 360°, and the ⟨2⟩ flow is 60° per doubling

@@ -11,7 +11,7 @@ import { adjudicate, theorems, toUuid } from '../index.js'
 import { gateVerdict, gateSelfTest } from '../gate-engine.js'
 import { ROOT } from './api.js'
 // A WORKED EXAMPLE, computed at generation time from the package the tools wrap — so the request/response shown is
-// REAL and recomputable by anyone'production MCP example').
+// REAL and recomputable by anyone, not a hand-written mock (the honest 'production MCP example').
 const EX = adjudicate('FNV-1a is cryptographic')
 // THE GATE, computed at generation time from the real gate engine — the page shows people the SAME verdict the
 // protocol shows machines: a real gate line (this page's own generation, judged), the eight-state table proven
@@ -35,7 +35,7 @@ for (const t of MCP_CATALOG) {
 const cell = (s: string): string => safe(s).replace(/\|/g, '\\|')
 
 // Render a tool's PARAMETERS from its JSON-schema input — name · type · required · description — so the page shows
-// how to CALL each tool. A tool with no inputs says so explicitly.
+// how to CALL each tool, not only what it does. A tool with no inputs says so explicitly.
 const params = (schema?: { properties?: Record<string, { type?: string; description?: string }>; required?: string[] }): string => {
   const props = schema?.properties || {}
   const req = new Set(schema?.required || [])
@@ -48,10 +48,7 @@ const params = (schema?: { properties?: Record<string, { type?: string; descript
 const sections = order.map((cat) => {
   const tools = byCat.get(cat)!
   const skills = [...new Set(tools.map((t) => t.skill))].join(', ')
-  // description THEN detail — the page keeps everything, while only the description rides the wire. A tool's detail
-  // is the derivation and history that a reader here wants and an agent mid-call is billed for; the split is what
-  // stops docs/mcp.md from being charged to every request's context window.
-  const rows = tools.map((t) => `### \`${t.name}\`\n\n${safe(t.description)}\n${t.detail ? '\n' + safe(t.detail) + '\n' : ''}\n${params(t.inputSchema)}\n`).join('\n')
+  const rows = tools.map((t) => `### \`${t.name}\`\n\n${safe(t.description)}\n\n${params(t.inputSchema)}\n`).join('\n')
   return `## ${cat} <Badge type="tip" :text="'${tools.length}'" />\n\n*skill: ${skills}*\n\n${rows}`
 }).join('\n')
 
@@ -60,7 +57,7 @@ let isqrt = 0
 while ((isqrt + 1) * (isqrt + 1) <= MCP_CATALOG.length) isqrt++
 const GRID_LAYOUT = isqrt * isqrt === MCP_CATALOG.length ? `${isqrt}×${isqrt}` : 'in rows of 8'
 
-// The grid EMERGES from the usability metric
+// The grid EMERGES from the usability metric, not a hand-kept order: rank by fewest REQUIRED keys first, so the
 // maximally-reusable (zero-arg) tools rise to the top — exactly what uuidna_mcp_benchmark measures. Top at the top.
 const requiredOf = (t: (typeof MCP_CATALOG)[number]): number => (t.inputSchema?.required?.length ?? 0)
 const byUsability = [...MCP_CATALOG].sort((a, b) => requiredOf(a) - requiredOf(b) || a.name.localeCompare(b.name))
@@ -118,7 +115,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \\
 
 ## The grid <Badge type="tip" :text="\`${MCP_CATALOG.length}\`" />
 
-${MCP_CATALOG.length} tools, **ranked by usability — the reusable at the top** (fewest required keys first; the ${zeroArg} zero-arg tools lead). The order EMERGES from \`uuidna_mcp_benchmark\`. Each links to its entry below.
+${MCP_CATALOG.length} tools, **ranked by usability — the reusable at the top** (fewest required keys first; the ${zeroArg} zero-arg tools lead). The order EMERGES from \`uuidna_mcp_benchmark\`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 ${byUsability.map((t) => `<a href="#${t.name.replace(/_/g, '-')}"><code>${t.name.replace(/^uuidna_/, '')}</code></a>`).join('\n')}

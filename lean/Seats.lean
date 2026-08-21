@@ -2,7 +2,7 @@
 
 def seatCases : List (Nat × Nat) := [(11,10),(21,10),(100,9),(10,10),(9,10)]
 
--- the fullest seat's floor: ⌈n/s⌉ written as exact Nat arithmetic, never a rounded division
+-- the fullest seat's floor: ⌈n/s⌉ written as exact Nat arithmetic
 def fullest (n s : Nat) : Nat := (n + s - 1) / s
 
 /-- THE BOUND ITSELF: the fullest seat holds at least ⌈items/seats⌉, computed as the exact integer identity (n +
@@ -26,7 +26,7 @@ theorem powers_are_not_the_bound : ((2:Nat)^8 ≠ (11 + 10 - 1) / 10) ∧ ((2:Na
 
 /-- THE TEN DIGITS PARTITION IN HALF by whether a walk from that seed reaches every digit: {2,6,7,8,9} cover and
     {0,1,3,4,5} do not. The two are disjoint, their union is all ten, and five plus five is the whole ring — a
-    partition, decided, not a tally of two lists written side by side. -/
+    partition, decided. -/
 theorem digits_split_five_five : (([2,6,7,8,9] ++ [0,1,3,4,5]).length = 10) ∧ ((List.range 10).all (fun d => ([2,6,7,8,9] ++ [0,1,3,4,5]).contains d)) ∧ ([2,6,7,8,9].all (fun d => !([0,1,3,4,5].contains d))) := by decide
 
 /-- A CONSEQUENCE WORTH NAMING: anything folded to a digit of the ring lands in one of ten seats, so past ten

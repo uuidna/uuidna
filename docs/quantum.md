@@ -56,7 +56,7 @@ The chain is sealed end to end — compute it yourself:
    ([`cube_octahedron_dual`](/theorem/cube_octahedron_dual)), the dodecahedron dual to the icosahedron
    ([`dodecahedron_icosahedron_dual`](/theorem/dodecahedron_icosahedron_dual)) — carry V − E + F = **2**, the
    sphere's Euler characteristic. Topologically, the pentagram's solid *is* the cube *is* the sphere: one invariant.
-4. **And the 2 is the coins** — [`euler_two_is_the_two_coins`](/theorem/euler_two_is_the_two_coins):
+4. **And the 2 is the coins** — [`captain_theorem`](/theorem/captain_theorem):
    (20 + 12 − 30 = 2) ∧ (110 − 108 = 2). The pentagon's 108 and the captain's 108 are the same number; the
    geometry's 2 and [the two coins](/captain) are the same 2.
 

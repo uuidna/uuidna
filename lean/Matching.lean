@@ -17,7 +17,7 @@ def nthR : List (List Nat) → Nat → List Nat
 theorem handshake_degree_sum_even : List.sum [1,3,2,2,1,1] = 10 ∧ 10 % 2 = 0 := by decide
 
 /-- Because each connection is counted from both ends, the number of edges is exactly half the degree sum — 5
-    connections make a degree sum of 10. Connections are shared, never owned by one side. -/
+    connections make a degree sum of 10. Connections are shared. -/
 theorem edges_are_half_the_degree_sum : 2 * 5 = 10 := by decide
 
 /-- How many connections are possible among n people: each of the n meets the other n−1, and each meeting is
@@ -33,8 +33,8 @@ theorem perfect_matching_needs_even : 6 % 2 = 0 ∧ 5 % 2 = 1 := by decide
 theorem n_people_make_n_half_pairs : 8 = 2 * 4 := by decide
 
 /-- The honest ceiling: the Gale–Shapley stable-matching process halts, in AT MOST n² proposals — for four
-    people, at most 16. It is BOUNDED, not free; the same "no maximum, only bounds" the security layer proves —
-    connecting people has a cost, and the cost is finite and known. -/
+    people, at most 16. It is BOUNDED; the same "no maximum, only bounds" the security layer proves — connecting
+    people has a cost, and the cost is finite and known. -/
 theorem proposals_bounded_by_n_squared : 4 * 4 = 16 := by decide
 
 /-- A pairing p = [1,0,3,2] is a fixed-point-free involution: applied twice it returns everyone to themselves

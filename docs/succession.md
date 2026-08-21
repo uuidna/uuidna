@@ -63,7 +63,7 @@ trust anything — `npm run lean` re-proves every theorem from source, and the h
 proof that is not sealed ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted)). Keep the
 laws that made the record checkable: a claim carries its receipt, a name must mean its proof, and what cannot be
 recomputed is not asserted. And keep the measure — the contribution comes first
-([`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour),
+([`captain_theorem`](/theorem/captain_theorem),
 [`two_coins`](/theorem/two_coins)).
 
 *Integrity, not truth. This page describes what is technically the case; it grants nothing the licence does not, and

@@ -30,17 +30,16 @@ theorem xor_preserves_distance : (List.range 16).all (fun a => (List.range 16).a
 theorem reuse_leaks_by_isometry : (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => dist (lxor m1 k) (lxor m2 k) == dist m1 m2))) := by decide
 
 /-- EVERY DNA BASE DIFFERS FROM ITS COMPLEMENT IN EXACTLY TWO BITS. A base is two bits, complementing is lxor
-    with 3, and 3 has weight two — so the distance is two for all four bases, never one and never zero. The
-    strand's pairing is the pad's step, at width two. -/
+    with 3, and 3 has weight two — so the distance is two for all four bases. The strand's pairing is the pad's
+    step, at width two. -/
 theorem complement_flips_two : ((List.range 4).all (fun x => dist x (lxor x 3) == 2)) ∧ (pop 3 = 2) := by decide
 
 /-- AND A CODON IS THREE BASES, SO SIX BITS: 4^3 = 64 = 2^6, and complementing a whole codon flips every one of
     the six — three bases at two bits each. The width scales with the word; the isometry does not change. -/
 theorem codon_flips_six : ((4:Nat)^3 = 64) ∧ ((2:Nat)^6 = 64) ∧ (3 * 2 = 6) ∧ (pop 63 = 6) := by decide
 
-/-- THE DISTANCE IS A METRIC, not merely a number: it is symmetric, and it is zero exactly when the two words
-    are equal. Both halves on the line, so the second is discharged where it is claimed rather than assumed from
-    the first. -/
+/-- THE DISTANCE IS A METRIC. Both halves on the line, so the second is discharged where it is claimed rather
+    than assumed from the first. -/
 theorem distance_is_symmetric : (List.range 16).all (fun a => (List.range 16).all (fun b => (dist a b == dist b a) && ((dist a b == 0) == (a == b)))) := by decide
 
 /-- AND WHY A CODE CORRECTS AT ALL: correction depends only on distance, which the isometry preserves, so the

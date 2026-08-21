@@ -7,7 +7,7 @@ description: "Computed from lean/Rosette.lean — 148 sealed theorems, every cla
 
 > The ROSETTE ℤ/7 (the Pliska group) — its full multiplication, addition and power tables. Each right-hand side is COMPUTED; Lean recomputes it. — held by [z7mul_0_0](/theorem/z7mul_0_0) and its 147 siblings below.
 
-**148 theorems**, from [z7mul_0_0](/theorem/z7mul_0_0) onward, each proven `by decide` in [lean/Rosette.lean](/lean/Rosette.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 148 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [rosette_quantum_doubling_is_two_coins](/theorem/rosette_quantum_doubling_is_two_coins). A boundary stated here is decided, not merely denied.
+**148 theorems**, from [z7mul_0_0](/theorem/z7mul_0_0) onward, each proven `by decide` in [lean/Rosette.lean](/lean/Rosette.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 148 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [rosette_quantum_doubling_is_two_coins](/theorem/rosette_quantum_doubling_is_two_coins). A boundary stated here is decided.
 
 ### 0·0 ≡ 0 (mod 7)
 The ledger holds this as [z7mul_0_0](/theorem/z7mul_0_0) — proven `by decide`, sorry-free:

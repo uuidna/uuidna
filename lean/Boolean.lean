@@ -34,7 +34,6 @@ theorem two_functions_ignore_input : (((List.range 16).filter (fun m => (rowsOf 
     agreed everywhere would be the same gate. -/
 theorem xor_differs_from_or : (rowsOf 6 ≠ rowsOf 14) ∧ ((rowsOf 6).take 3 = (rowsOf 14).take 3) ∧ (rowsOf 6 = [0,1,1,0]) := by decide
 
-/-- IMPLICATION IS ONE OF THE SIXTEEN, not a logical extra: a implies b reads 1011 over the four rows, false
-    only where a holds and b does not. Its converse and both negations are also among the sixteen, so the whole
+/-- IMPLICATION IS ONE OF THE SIXTEEN. Its converse and both negations are also among the sixteen, so the whole
     of two-input logic is inside the enumeration with nothing left outside it. -/
 theorem implication_is_a_gate : (rowsOf 13 = [1,0,1,1]) ∧ (rowsOf 11 = [1,1,0,1]) ∧ (rowsOf 2 = [0,1,0,0]) := by decide

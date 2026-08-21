@@ -1,0 +1,12 @@
+{
+  "handle": "c169e976",
+  "address": "c169e976-4668-82c6-ad4f-df7ea27bff8c",
+  "statement": "(8 * 4 = 32) ∧ (32 * 4 = 128) ∧ (128 / 32 = 4) ∧ (8 / 2 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "handle_carries_hexbits_and_coins"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

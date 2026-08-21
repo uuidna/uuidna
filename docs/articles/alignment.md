@@ -7,7 +7,7 @@ description: "Computed from lean/Alignment.lean — 6 sealed theorems, every cla
 
 > ALIGNMENT — which moduli tile a qubit and which waste it. — held by [hexbit_is_four_qubits](/theorem/hexbit_is_four_qubits) and its 5 siblings below.
 
-**6 theorems**, from [hexbit_is_four_qubits](/theorem/hexbit_is_four_qubits) onward, each proven `by decide` in [lean/Alignment.lean](/lean/Alignment.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [ten_costs_more_than_fifteen](/theorem/ten_costs_more_than_fifteen). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [hexbit_is_four_qubits](/theorem/hexbit_is_four_qubits) onward, each proven `by decide` in [lean/Alignment.lean](/lean/Alignment.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [ten_costs_more_than_fifteen](/theorem/ten_costs_more_than_fifteen). A boundary stated here is decided.
 
 ### A HEX CHARACTER IS EXACTLY FOUR QUBITS: 16 = 2^4, so the two measures tile with no remainder. This is why a uuid of 32 hex characters is a clean 128 bits and a handle of 8 is a clean 32.
 The ledger holds this as [hexbit_is_four_qubits](/theorem/hexbit_is_four_qubits) — proven `by decide`, sorry-free:

@@ -15,6 +15,11 @@ const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + 
 const div = (a: number, b: number) => (a - (a % b)) / b // integer floor division — no Math.* (the two-coins guard)
 
 const FACTS = [
+  { key: 'key_floor_is_one_uuid',
+    why: 'THE CIPHER MEASURED IN THE ARCHITECTURE\u2019S OWN UNIT. A hexbit is 4 bits, and everything here computes in hexbits, so the ChaCha20-Poly1305 key is 64 hexbits rather than 256 bits. Grover halves the exponent of a brute-force search, which takes the floor to 32 hexbits \u2014 and 32 hexbits is EXACTLY the uuid. The post-quantum floor of the cipher and the width of an identifier are the same number, in the same unit, and it is only visible once the bits are converted: 256/4 = 64, 128/4 = 32, and the uuid is 32. Bits hide this; hexbits state it.',
+    js: () => 256 / 4 === 64 && 128 / 4 === 32 && 256 === 2 * 128 && 32 * 4 === 128,
+    lean: 'theorem key_floor_is_one_uuid : (256 / 4 = 64) \u2227 (128 / 4 = 32) \u2227 (256 = 2 * 128) \u2227 (32 * 4 = 128) := by decide' },
+
   { key: 'dna_complement_involution',
     why: 'Base-pairing is a self-inverse map: the complement comp(x)=3−x applied twice is the identity (A↔T↔A, C↔G↔C) — a decrypt that equals its encrypt, like the diamond reflection.',
     js: () => R(0, 4).every((x) => comp(comp(x)) === x),

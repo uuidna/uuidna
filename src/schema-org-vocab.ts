@@ -3,7 +3,7 @@
 // same check for a different JSON-LD surface (the united feed) and would otherwise have started a second,
 // parallel vocabulary list, the same drift class this whole session has been finding and fixing elsewhere.
 // Add a new @type or property here, vetted with its real schema.org URL, and every consumer (seo.ts's own tests,
-// gen-feed.ts's) sees it — one list.
+// gen-feed.ts's) sees it — one list, not one per file that happens to emit JSON-LD.
 
 export const SCHEMA_ORG_TYPES: Readonly<Record<string, string>> = {
   ScholarlyArticle: 'https://schema.org/ScholarlyArticle',
@@ -53,7 +53,7 @@ export const SCHEMA_ORG_PROPERTIES: Readonly<Record<string, string>> = {
 }
 
 /** auditJsonLd(node, where, failures) → walk a JSON-LD node (or array/tree of them), pushing one failure message
- *  per unvetted @type or property key found. @context/@type/@id are JSON-LD structural keywords
+ *  per unvetted @type or property key found. @context/@type/@id are JSON-LD structural keywords, never checked
  *  against schema.org vocabulary — schema.org doesn't own them. Mutates `failures`; returns nothing. */
 export function auditJsonLd(node: unknown, where: string, failures: string[]): void {
   if (Array.isArray(node)) { node.forEach((n, i) => auditJsonLd(n, `${where}[${i}]`, failures)); return }

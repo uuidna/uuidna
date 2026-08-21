@@ -1,0 +1,12 @@
+{
+  "handle": "a0a0cac1",
+  "address": "a0a0cac1-bc2e-8e80-87ee-46ebdf29d615",
+  "statement": "((List.range 4).flatMap (fun i => (List.range 4).map (fun j => ((i*3 + ((j+1) % 4)*5) % 7)))).sum = ((List.range 4).flatMap (fun i => (List.range 4).map (fun j => ((i*3 + j*5) % 7)))).sum",
+  "tactic": "decide",
+  "keys": [
+    "closed_grid_differences_sum_to_zero"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

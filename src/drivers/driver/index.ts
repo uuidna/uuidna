@@ -8,7 +8,7 @@
 // runtime — the modules are NAMED and CHECKED. fetchDriverLatest is the upstream automation, a pure
 // fetch + text parse at this boundary — the one place a LIVE "latest" read is honest. Integrity.
 import { toUuid } from '../../address.js'
-import { merkleGravity } from '../../gravity.js'
+import { merkleGravity } from '../../gravity/index.js'
 import { sha256 } from '../../sha256.js'
 
 /** An exact driver bundle (kernel + modloop = the kernel modules), pinned as a recomputable provenance record. */

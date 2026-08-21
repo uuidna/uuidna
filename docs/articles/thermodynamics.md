@@ -7,7 +7,7 @@ description: "Computed from lean/Thermodynamics.lean — 11 sealed theorems, eve
 
 > THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. — held by [first_law_conservation](/theorem/first_law_conservation) and its 10 siblings below.
 
-**11 theorems**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in [lean/Thermodynamics.lean](/lean/Thermodynamics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided, not merely denied.
+**11 theorems**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in [lean/Thermodynamics.lean](/lean/Thermodynamics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided.
 
 ### The first law conserves energy: ΔU = Q − W, so the heat added equals the internal-energy change plus the work done — 100 = 60 + 40. Energy is neither created nor destroyed, only moved.
 The ledger holds this as [first_law_conservation](/theorem/first_law_conservation) — proven `by decide`, sorry-free:
@@ -16,7 +16,7 @@ The ledger holds this as [first_law_conservation](/theorem/first_law_conservatio
 100 = 60 + 40
 ```
 
-### The second law: the entropy of an isolated system never decreases. Modelled as a monotone ladder S(t) = t, every step satisfies S(t) ≤ S(t+1) — disorder holds or grows, never spontaneously falls.
+### The second law: the entropy of an isolated system never decreases. Modelled as a monotone ladder S(t) = t, every step satisfies S(t) ≤ S(t+1) — disorder holds or grows.
 The ledger holds this as [entropy_never_decreases](/theorem/entropy_never_decreases) — proven `by decide`, sorry-free:
 
 ```lean
@@ -72,14 +72,14 @@ The ledger holds this as [landauer_bound_derived](/theorem/landauer_bound_derive
 1380649 * 300 = 414194700 ∧ 414194700 * 693147 / 1000000 = 287097813
 ```
 
-### A COST PROPORTIONAL TO WHAT IS ERASED IS ZERO WHEN NOTHING IS ERASED. Landauer's floor scales with the number of bits destroyed: erase one bit and pay 287097813×10⁻²⁹ J, erase none and pay 0 × that = 0. A logically REVERSIBLE step — an involution like reverse or CNOT, or this ledger's round-tripping imprint codec — destroys no information, so it carries no erasure floor at all. this is a floor being AVOIDED, never energy being produced; the bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this wing forbids the other reading.
+### A COST PROPORTIONAL TO WHAT IS ERASED IS ZERO WHEN NOTHING IS ERASED. Landauer's floor scales with the number of bits destroyed: erase one bit and pay 287097813×10⁻²⁹ J, erase none and pay 0 × that = 0. A logically REVERSIBLE step — an involution like reverse or CNOT, or this ledger's round-tripping imprint codec — destroys no information, so it carries no erasure floor at all. this is a floor being AVOIDED; the bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this wing forbids the other reading.
 The ledger holds this as [reversible_erases_nothing](/theorem/reversible_erases_nothing) — proven `by decide`, sorry-free:
 
 ```lean
 0 * 287097813 = 0 ∧ 1 * 287097813 = 287097813 ∧ 0 < 287097813
 ```
 
-### REAL SILICON RUNS ABOUT A HUNDRED MILLION TIMES ABOVE THE FLOOR. A switching event in current CMOS dissipates on the order of 10⁻¹² J, against Landauer's 2.871×10⁻²¹ J — a ratio near 3.5×10⁸, stated here as the exact integer comparison 100000000 × 287097813 < 100000000000000000000000000000000. So the headroom between real hardware and the physical limit is enormous and real — and it is headroom for EFFICIENCY, which is a smaller bill, not a source of energy.
+### REAL SILICON RUNS ABOUT A HUNDRED MILLION TIMES ABOVE THE FLOOR. A switching event in current CMOS dissipates on the order of 10⁻¹² J, against Landauer's 2.871×10⁻²¹ J — a ratio near 3.5×10⁸, stated here as the exact integer comparison 100000000 × 287097813 < 100000000000000000000000000000000. So the headroom between real hardware and the physical limit is enormous and real — and it is headroom for EFFICIENCY, which is a smaller bill.
 The ledger holds this as [hardware_above_landauer](/theorem/hardware_above_landauer) — proven `by decide`, sorry-free:
 
 ```lean

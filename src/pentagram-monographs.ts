@@ -7,7 +7,7 @@
 // truth): this is a content-addressed PARTITION — it claims no thematic kinship between the five in a pentagram,
 // only that this is the split the addresses produce, and that anyone recomputes the same one.
 import { publications, type Publication } from './publish.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { starPolygon } from './cycles.js'
 
 // The pentagram is the PRIME-NEIGHBOUR graph on five points: each point's neighbour is reached by the step 2 — the

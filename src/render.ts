@@ -64,7 +64,7 @@ export function renderTheorem(t: TheoremView, opts: RenderOpts = {}): string {
     + `<meta itemprop="identifier" content="${escapeHtml(address)}">`
     + `<code data-slot="handle" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(${hue} 60% 40%)">${escapeHtml(handleOf(address))}</code>`
     + `</div>`
-    + `<div data-slot="card-footer"><small style="color:#9a9a9a">integrity`
+    + `<div data-slot="card-footer"><small style="color:#9a9a9a">integrity \u2014 the record recomputes for anyone</small></div>`
     + `</article>`
 }
 

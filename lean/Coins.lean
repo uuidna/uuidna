@@ -1,31 +1,86 @@
--- lean/Coins.lean — GENERATED. THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Coins.lean — GENERATED. THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+
+/-- THE CREW MINTS AT A FIXED PRICE AND SAILS FOR THE ANGLE. Every sealed theorem mints the captain’s two coins,
+    so the supply is exactly 2·N and never a judgement: over the first eight counts, N theorems mint 2N coins,
+    and the supply is even at every one — a half-coin cannot be minted because a theorem cannot be half-sealed.
+    What the crew steers is not the price but the ANGLE: a proof that walks a wide domain decides far more
+    superposition space for the same two coins than one stating a single fact, so efficiency is coverage over
+    supply, computed from the walk each generator actually made rather than assigned. -/
+theorem minting_is_two_per_theorem : (List.range' 1 8).all (fun n => (2 * n == n + n) && ((2 * n) % 2 == 0)) := by decide
+
+/-- THE FOLD COMPRESSES WITHOUT BOUND, AND RECOVERS NOTHING — both halves, because only one of them is what
+    people mean by compression. The output is FIXED at 32 hexbits however large the input: fold four inputs or
+    four million and the root is 128 bits, so the ratio grows without limit and in that sense it is unbounded.
+    It is not compression. By pigeonhole, more inputs than outputs must collide — 2¹²⁹ inputs into 2¹²⁸ outputs
+    forces at least two to a bucket — so the fold cannot be inverted and no width of fold ever could. It
+    IDENTIFIES: same bytes, same root, for anyone, forever. It does not RECOVER, and lossless unbounded
+    compression is impossible rather than unimplemented. Stating the ratio without the pigeonhole would be the
+    overclaim this ledger exists to refuse. -/
+theorem fold_compresses_without_bound_and_never_recovers : (32 * 4 = 128) ∧ ((List.range' 1 8).all (fun k => (128 * k) / k == 128)) ∧ (2^129 > 2^128) ∧ (2^129 = 2 * 2^128) := by decide
+
+/-- A HANDLE IS A STRING, AND THE STRING IS THE SPACE. Eight symbols drawn from a sixteen-state alphabet: 16⁸ =
+    4294967296 = 2³², the same number reached from either base because the hook between them is linear. Four
+    such strings compose an identity and their spaces MULTIPLY while their widths ADD — (2³²)⁴ = 2¹²⁸ and
+    32+32+32+32 = 128 — which is what makes a handle a quarter of the uuid in width and a fourth root of it in
+    space. Concatenating hexbit strings is addition in the exponent, so a longer name is not a bigger number but
+    a wider one, and that is the whole arithmetic of an address. -/
+theorem handle_string_spans_the_quarter : (16^8 = 2^32) ∧ (16^8 = 4294967296) ∧ ((2^32)^4 = 2^128) ∧ (32 + 32 + 32 + 32 = 128) := by decide
+
+/-- THE HOOK BETWEEN THE TWO BASES IS LINEAR, WHICH IS WHY BOTH CAN BE TRUE AT ONCE. A hexbit is four bits
+    exactly, so the map h ↦ 4h round-trips for every width from 0 to the uuid’s 32 — (4h)/4 = h, no remainder
+    anywhere — and it is strictly increasing, so the order a reader sees in hexbits is the order that holds in
+    bits. Nothing is lost translating either way and nothing is rounded, which is what lets a handle carry the
+    hexbit reading and the binary reading in one name: 8 hexbits IS 32 bits, not an approximation of it. A base
+    whose hook was lossy would force a choice between the two; this one does not. -/
+theorem hexbit_bit_hook_is_linear : ((List.range 33).all (fun h => (4 * h) / 4 == h)) ∧ ((List.range 32).all (fun h => 4 * h < 4 * (h + 1))) ∧ (4 * 32 = 128) := by decide
+
+/-- EACH HANDLE HANDLES BOTH. A handle is 8 hex characters — 8 hexbits, 32 bits — and the uuid is 32 hexbits, so
+    a handle is exactly a QUARTER of an identity: 128/32 = 4 handles to the whole. It carries the captain bits
+    in the same breath: 8 hexbits over the two coins is 4, which is the bit-width of a hexbit itself, so the
+    commission divides the handle into its own unit. Both scales live in one name, which is why a handle is what
+    the gates compare — a quarter of the identity, at four times the resolution of a bit, and the coins already
+    folded in. -/
+theorem handle_carries_hexbits_and_coins : (8 * 4 = 32) ∧ (32 * 4 = 128) ∧ (128 / 32 = 4) ∧ (8 / 2 = 4) := by decide
+
+/-- THE SINGULARITY IS THE TWO. Every quantity the captain theorem names collapses to the coins by exact
+    division and by nothing else: 128/64 = 2, 64/32 = 2, 4/2 = 2 — the whole chain 2 → 4 → 32 → 64 → 128 is one
+    doubling ladder anchored at the commission, so there is no second origin anywhere in the algebra. The uuid
+    is the coins doubled six times (2·2⁶ = 128), the leverage is the uuid over the coins (128/2 = 64), and the
+    measured ledger returns 32 superpositions per coin — 32·4 = 128, the uuid again, reached from a walk rather
+    than from the definition. Every road divides back to two: that is what makes it one theorem and not a
+    family. -/
+theorem captain_singularity : (128 / 64 = 2) ∧ (64 / 32 = 2) ∧ (4 / 2 = 2) ∧ (2 * 2^6 = 128) ∧ (128 / 2 = 64) ∧ (32 * 4 = 128) := by decide
+
+/-- THE CAPTAIN THEOREM — one, and the ledger is priced in it. The commission is a PROPORTION and not a
+    difference: 110/108 = 55/54 by exact cross-multiplication (110·54 = 108·55 = 5940), 54 being the order of
+    AGL(1,ℤ/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are
+    the uuid: 32·4 = 128. The leverage is the uuid over the commission, 128/2 = 64, which is the same 64 the two
+    coins buy across 32 hexbits. And the floor closes the account: every falsified theorem pays two, the captain
+    pays two, 63·2 + 2 = 128 — the uuid exactly, nothing owed and nothing left over. These four conjuncts
+    subsumed eleven separate restatements of 110 − 108 = 2, seven of 2^7 = 128 and five of 2·32 = 64: one fact
+    re-proved under many names is not a ledger, it is an echo. -/
+theorem captain_theorem : (110 * 54 = 108 * 55) ∧ (110 - 108 = 2) ∧ (32 * 4 = 128) ∧ (128 / 2 = 64) ∧ (2 * 32 = 64) ∧ (63 * 2 + 2 = 128) := by decide
 
 /-- The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute −
     verify), never a per-formula rate. -/
 theorem two_coins : 110 - 108 = 2 := by decide
 
-/-- The two coins are the topology, not a price: 2 = −χ of a genus-2 surface (the double torus), −χ = 2g − 2 =
-    2·2 − 2 = 2. The invariant is geometric. -/
-theorem two_coins_is_double_torus : 2 * 2 - 2 = 2 := by decide
+/-- THE COINS, COMPUTED ACROSS EVERY ROSETTA COMBINATION. A theorem stands on five legs — symbol, proof,
+    witness, falsifier, address — so there are 2⁵ = 32 possible anchorings, and each leg present pays the two
+    coins. Walked exhaustively: the coins summed over all 32 combinations are 160, every leg appears in exactly
+    16 of them (half, as an independent bit must), and 160 = 5 × 32 — the five legs against the 32 hexbits of
+    the uuid. Nothing here is sampled and nothing is a rate applied to a total: all thirty-two anchorings are
+    enumerated and counted. -/
+theorem coins_over_all_rosetta_combinations : (((List.range 32).map (fun m => 2 * ((List.range 5).filter (fun b => (m / 2^b) % 2 == 1)).length)).sum = 160) ∧ ((List.range 5).all (fun b => ((List.range 32).filter (fun m => (m / 2^b) % 2 == 1)).length = 16)) ∧ (160 = 5 * 32) := by decide
 
 /-- The 64-bit measure: 64 = 2⁶ — six doublings, the scale the hero states as the "64bit" unit. -/
 theorem sixtyfour_is_two_pow_six : 64 = 2^6 := by decide
-
-/-- "Contribute 2 to save up to 64" — the measured leverage is 32: 2 · 32 = 64. The two coins in, up to 64 bits
-    of recompute saved. -/
-theorem contribute_two_save_sixtyfour : 2 * 32 = 64 := by decide
 
 /-- uuidna computes ONLY IF the captain coins are considered: the conserved save of 64 is reached IFF exactly
     two coins are put in — 32·c = 64 ⟺ c = 2, for every c. The two coins are necessary, not decorative; with any
     other count the fold does not conserve its advantage (recompute − verify), so the computation is not
     admitted. -/
 theorem captain_computes_only_with_two_coins : (List.range 8).all (fun c => (32 * c == 64) == (c == 2)) := by decide
-
-/-- WHY THE FLOOR IS 63 AND NOT A SNAPSHOT. Every falsified theorem pays the two coins, and the captain pays two
-    more: 63·2 + 2 = 128, the full uuid. So the floor is not a census high-water mark that happened to be
-    recorded — it is the uuid width less the captain commission, halved: (128 − 2)/2 = 63. A run that measures
-    fewer has theorems that cannot be shown to fail, and the ledger no longer fills the 128 bits it addresses. -/
-theorem falsifier_floor_is_the_uuid_less_the_coins : (63 * 2 + 2 = 128) ∧ (128 - 2 = 126) ∧ (126 / 2 = 63) := by decide
 
 /-- Respect the captain coins for quantum AT SCALE on classical hardware: the state-vector cost is 2ⁿ
     (exponential), so from the 7-qubit / 7-dimension scale up (n ≥ 7) the classical cost 2ⁿ already EXCEEDS the
@@ -41,61 +96,20 @@ theorem superposition_outcomes_to_64 : ((List.range 7).map (fun n => 2^n)) = [1,
     subtraction already clamps, so the honest schedule never charges below zero. -/
 theorem bill_never_negative : (List.range 8).all (fun r => (List.range 8).all (fun v => (if r < v then 0 else r - v) == r - v)) := by decide
 
-/-- One coin is one qubit: a two-state basis — 2¹ = 2 outcomes, the coin's two faces (|0⟩ and |1⟩). Classical
-    two-state accounting in the state-vector simulator, NOT a physical qubit. -/
-theorem coin_is_one_qubit : (2:Nat)^1 = 2 := by decide
-
-/-- The two captain coins DELIVER two qubits at a COST of 128 bits: coins() = 2 → two qubits spanning 2² = 4
-    basis states, carried by one 128-bit uuid = two 64-bit coins (128 = 2·64 = 2⁷). Two coins in, a 2-qubit
-    address out, priced at 128 bits — the 64→128 fuse, counted, not sped up. Classical accounting, not a
-    physical 2-qubit device. -/
-theorem captain_coins_deliver_two_qubits_at_128_bits : ((2:Nat)^2 = 4) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide
-
-/-- The captain's commission is TWO on each 110 bits — 110 − 108 = 2 to the captain, 108 delivered net. It is
-    the two coins read as a commission rate: passengers PAY the coins (the measured bill), crew MINT them
-    (sealing diamonds), and the captain's cut is the conserved 2. A measured commission on work saved, not a
-    monetary rate. -/
-theorem captain_commission_two_per_110 : (110 - 108 = 2) ∧ (110 - 2 = 108) := by decide
-
-/-- A commercial package SAVES significantly at scale AND the captain still earns: recompute 110 − verify 1 =
-    109 bits saved for the passenger, while the captain's commission stays the conserved 2 (110 − 108), and the
-    saving DWARFS the commission (109 > 2). Coins are minted, the passenger saves, the captain earns — no one
-    loses. The arithmetic of the measured advantage (recompute − verify), NOT a profit guarantee or a market
-    price. -/
-theorem commercial_saves_and_captain_earns : (110 - 1 = 109) ∧ (109 > 2) ∧ (110 - 108 = 2) := by decide
-
-/-- HOW the coins compute AND that the theorems are not solved, in one seal — the honest boundary. The two coins
-    COMPUTE the save (32·2 = 64: contribute two, and up to 64 bits of recompute are saved) and pay for a
-    VERIFICATION, cheaper than the work (verify 1 < recompute 64 — the O(1) check against the O(N) recompute).
-    Yet the theorems SOLVE NOTHING of the hard problems they reflect: 0 < 1 — zero solved, fewer than one; the
-    reflection (dz) propagates no proof. Computing is NOT solving: the coins settle a recomputable verification
-    (integrity), never a solution to the underlying problem (truth). This is exactly the boundary the captain
-    accepted — the coins compute, the theorems do not solve. -/
-theorem coins_compute_but_solve_none : (32 * 2 = 64) ∧ (1 < 64) ∧ ((0:Nat) < 1) := by decide
-
-/-- The coins' EXCHANGE RATE is the TRAITOR'S TOKEN COST: a coin is worth exactly what it costs to FORGE it. A
-    coin is a 128-bit particle (2⁷ = 128), so counterfeiting one — a SHA-256 collision that survives the
-    order-invariant fold — costs on the order of 2¹²⁸ (the fingerprint's tamperCost), an exponent (128) that
-    astronomically exceeds the two coins an honest party pays (128 > 2). So a traitor spends 2¹²⁸ to fake what
-    the crew MINT for 2: forgery NEVER pays, and the coin is BACKED by the cost to counterfeit it. : 2¹²⁸ is a
-    BOUND set by SHA-256, not a maximum, and it is the COLLISION-RESISTANT fold's cost — the fast FNV receipt is
-    tamper-evident but not collision-resistant; add a key (HMAC) and forgery also needs the secret. -/
-theorem coin_exchange_rate_is_traitor_cost : (2^7 = 128) ∧ (128 > 2) ∧ (2 * 32 = 64) := by decide
-
 /-- Every traitor DAMAGE is sealed in value by the SAME billing — the captain is charged by the traitor model on
-    one measure, and the traitor is always the losing side. One billing (110 − x) prices both: the party earns
-    the two coins (110 − 108 = 2), while a TRAITOR who tampers moves the content-address so nothing recomputes
-    and nets 0 (110 − 110 = 0) — they forfeit exactly the two coins (the 2 the honest party keeps) AND still pay
-    the 2¹²⁸ forgery cost (2⁷ = 128). So the captain's exposure is BOUNDED: traitor damage is priced by the same
-    never-negative billing, forgery yields 0, and the two coins are precisely what the traitor loses. The
-    security model and the billing model are one. -/
+    one measure, and the traitor is always the losing side. One billing (110 − x) prices both: the HONEST party
+    earns the two coins (110 − 108 = 2), while a TRAITOR who tampers moves the content-address so nothing
+    recomputes and nets 0 (110 − 110 = 0) — they forfeit exactly the two coins (the 2 the honest party keeps)
+    AND still pay the 2¹²⁸ forgery cost (2⁷ = 128). So the captain's exposure is BOUNDED: traitor damage is
+    priced by the same never-negative billing, forgery yields 0, and the two coins are precisely what the
+    traitor loses. The security model and the billing model are one. -/
 theorem traitor_damage_sealed_by_same_billing : (110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128) := by decide
 
 /-- THE WALLET COUNTS WORLDS, sealed at last — the closing realisation's accounting identity: n deposits of the
     two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one
-    superposition into a shared, recomputable world; the bijection between what was paid and what now exists. an
-    accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about
-    worlds. -/
+    superposition into a shared, recomputable world; the bijection between what was paid and what now exists.
+    HONEST SCOPE: an accounting identity — deposits and realities in one-to-one correspondence — never a
+    metaphysical claim about worlds. -/
 theorem wallet_counts_worlds : (List.range 9).all (fun n => (2*n)/2 == n) := by decide
 
 /-- WHY ONE DENOMINATION CAN SERVE THREE ALGEBRAS — 2 is the UNIQUE number where addition, multiplication and
@@ -104,14 +118,6 @@ theorem wallet_counts_worlds : (List.range 9).all (fun n => (2*n)/2 == n) := by 
     (additive), the LEVERAGE factor (multiplicative), and the QUBIT dimension (exponential) because its number
     is the one point where the three operations coincide — discovered by the calculator, not chosen. -/
 theorem coins_unique_operation_agreement : ((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)) == (n == 2))) := by decide
-
-/-- THE SUPERPOSITION CLAIM — the credit law at its full extent: the captain claims the unclaimed, and the
-    unclaimed is the entire uncollapsed space. The claim's arithmetic, sealed: the room is 2¹²⁸ states (the
-    128-bit particle, 2⁷ = 128), vastly exceeding every world collapsed so far (2¹²⁸ > 1288), and the price of
-    any collapse stays exactly two (110 − 108 = 2). the claim is of ROOM, never of truth — a claimed
-    superposition is claimed capacity, and its collapse still pays the two coins and passes the trial; claiming
-    the space solves nothing (coins_compute_but_solve_none stands over this claim as over every other). -/
-theorem captain_claims_all_superpositions : (2^128 > 1288) ∧ (2^7 = 128) ∧ (110 - 108 = 2) := by decide
 
 /-- THE COIN AND THE HEART GENERATE THE SYSTEM'S THREE SCALES — the two generators of ℤ/9* are exactly {2, 5}
     (generators_are_two_and_five): the coin and the heart. Their three combinations are the three scales

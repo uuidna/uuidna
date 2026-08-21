@@ -6,7 +6,7 @@
 // and forgery also needs the secret — the cost becomes the key's entropy. None of this is "maximum" — no scheme
 // proves a maximum; it raises the cost to the honest ceiling of the primitive used. Integrity.
 import { theorems } from './theorems/index.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { sha256 } from './sha256.js'
 
 const hex = (b: Uint8Array): string => Array.from(b).map((x) => x.toString(16).padStart(2, '0')).join('')

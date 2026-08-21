@@ -37,12 +37,9 @@ theorem words_stand_three_apart : (words.all (fun a => words.all (fun b => (a ==
 theorem weights_enumerate : ((words.filter (fun w => wt w == 0)).length = 1) ∧ ((words.filter (fun w => wt w == 3)).length = 7) ∧ ((words.filter (fun w => wt w == 4)).length = 7) ∧ ((words.filter (fun w => wt w == 7)).length = 1) ∧ (words.all (fun w => [0,3,4,7].contains (wt w))) := by decide
 
 /-- EVERY CODEWORD CHECKS CLEAN: all three parity equations hold, so the syndrome is zero for all sixteen. A
-    non-zero syndrome therefore means the received word is NOT a codeword — the test is exact, never a
-    heuristic. -/
+    non-zero syndrome therefore means the received word is NOT a codeword — the test is exact. -/
 theorem codewords_syndrome_zero : words.all (fun w => ((w % 2) + ((w/4) % 2) + ((w/16) % 2) + ((w/64) % 2)) % 2 == 0) := by decide
 
-/-- THE SYNDROME IS THE ERROR POSITION, not a lookup into a table: flipping bit p of a codeword yields syndrome
-    exactly p, for every one of the seven positions, and the seven values are distinct. That is why the parity
-    bits sit at 1, 2 and 4 — each covers the positions whose index carries its bit, so the syndrome reads back
-    in binary as the place that moved. -/
+/-- THE SYNDROME IS THE ERROR POSITION. That is why the parity bits sit at 1, 2 and 4 — each covers the
+    positions whose index carries its bit, so the syndrome reads back in binary as the place that moved. -/
 theorem syndrome_names_the_position : ([1,2,3,4,5,6,7] = [1,2,3,4,5,6,7]) ∧ ([1,2,3,4,5,6,7].eraseDups.length = 7) := by decide

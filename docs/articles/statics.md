@@ -7,7 +7,7 @@ description: "Computed from lean/Statics.lean — 8 sealed theorems, every claim
 
 > STATICS — the structures domain, as decidable arithmetic, demarcated. — held by [force_equilibrium](/theorem/force_equilibrium) and its 7 siblings below.
 
-**8 theorems**, from [force_equilibrium](/theorem/force_equilibrium) onward, each proven `by decide` in [lean/Statics.lean](/lean/Statics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [mechanical_advantage](/theorem/mechanical_advantage). A boundary stated here is decided, not merely denied.
+**8 theorems**, from [force_equilibrium](/theorem/force_equilibrium) onward, each proven `by decide` in [lean/Statics.lean](/lean/Statics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [mechanical_advantage](/theorem/mechanical_advantage). A boundary stated here is decided.
 
 ### A body in equilibrium has its forces summing to zero (ΣF = 0): a 10 N upward support balances 6 N + 4 N of downward load — 10 − 6 − 4 = 0. Nothing accelerates when the forces cancel.
 The ledger holds this as [force_equilibrium](/theorem/force_equilibrium) — proven `by decide`, sorry-free:

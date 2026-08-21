@@ -38,7 +38,7 @@ const allClaimedCount = claimsLedger.total_claimed || 0
 // own lineAddress; see gen-captain-claims.ts). Two earlier bugs lived here in turn: first this compared
 // t.principle against a Set of CATEGORY NAMES like "Algebra" (never matches — a theorem's principle is never
 // literally equal to a category label), then it read a categories_list/keys[] shape gen-captain-claims.ts no
-// longer emits at all, now that claims are per-theorem.
+// longer emits at all, now that claims are per-theorem, not per-bucket.
 const claimedKeys = new Set<string>(
   (claimsLedger.claims_list || []).map((c: any) => c.key)
 )

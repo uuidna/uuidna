@@ -1,0 +1,12 @@
+{
+  "handle": "5db42b29",
+  "address": "5db42b29-0718-8a24-b620-0091e56bdfd3",
+  "statement": "(([(1,1),(0,2),(1,3),(1,4),(4,5),(1,6),(4,7),(4,8),(4,9),(1,10),(4,11),(4,12),(9,13),(4,14),(1,15),(1,16),(4,17),(4,18),(9,19),(9,20)] : List (Nat × Nat)).all (fun q => q.1 ≤ q.2)) = true",
+  "tactic": "decide",
+  "keys": [
+    "mertens_squared_under_n_on_the_first_twenty"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

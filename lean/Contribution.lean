@@ -4,11 +4,6 @@
     subtraction, one answer — 126 is the residue of a contribution and not a number selected for its shape. -/
 theorem contribution_leaves_one_twentysix : ((2:Nat)^7 = 128) ∧ (128 - 2 = 126) ∧ (126 + 2 = 128) := by decide
 
-/-- AND THE TWO ARE NOT ARBITRARY EITHER: the commission is the same two the ledger already seals as 110 - 108,
-    which is the negative Euler characteristic of the double torus — 2 - 2·2 = -2 at genus two. The coin paid
-    here is the coin sealed there. -/
-theorem coins_are_the_torus : (110 - 108 = 2) ∧ (((2:Int) - 2 * 2) = -2) ∧ (-((2:Int) - 2 * 2) = 2) := by decide
-
 /-- THE PAIR GRID IS FORTY-TWO: seven dimensions give 7 x 7 ordered pairs, less the seven self-pairs, so 42
     directions remain. And 6 x 7 = 7 x 6 exactly — the two coordinates COMMUTE, which the line proves, since a
     reading that they counter-rotate was refuted by this ledger before. -/
@@ -27,5 +22,5 @@ theorem six_factorisations_compete : (((List.range' 1 126).filter (fun d => 126 
 
 /-- THE ORDER IS THE LAW: contribute first, then take. Taking 126 without paying leaves 128 untouched, and 128
     is not 126 — so a ledger that skipped the contribution would carry a different number, which the line proves
-    rather than trusts. The two coins are spent, not reserved. -/
+    rather than trusts. The two coins are spent. -/
 theorem taking_before_paying_differs : (128 - 2 = 126) ∧ ((128:Nat) ≠ 126) ∧ (126 < 128) := by decide

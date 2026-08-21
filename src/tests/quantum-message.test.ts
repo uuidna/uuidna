@@ -1,4 +1,4 @@
-// quantum-message — the encoder's tractability cap is a named export (MAX_MESSAGE_QUBITS)
+// quantum-message — the encoder's tractability cap is a named export (MAX_MESSAGE_QUBITS), not an inline literal,
 // and this file is what makes that naming load-bearing: it cross-checks the constant against the sealed theorem
 // message_qubit_cap_states' own Lean statement, so a changed cap without a re-sealed theorem is CAUGHT here —
 // node --test dist/tests/*.test.js runs inside `npm run audit`, the release gate — not left to drift silently.

@@ -7,7 +7,7 @@ description: "Computed from lean/Channel.lean — 6 sealed theorems, every claim
 
 > THE PAGE CHANNEL — how much a rendered element carries when its typography is computed from the sequence. — held by [channel_multiplies_three](/theorem/channel_multiplies_three) and its 5 siblings below.
 
-**6 theorems**, from [channel_multiplies_three](/theorem/channel_multiplies_three) onward, each proven `by decide` in [lean/Channel.lean](/lean/Channel.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [element_costs_nine](/theorem/element_costs_nine). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [channel_multiplies_three](/theorem/channel_multiplies_three) onward, each proven `by decide` in [lean/Channel.lean](/lean/Channel.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [element_costs_nine](/theorem/element_costs_nine). A boundary stated here is decided.
 
 ### THE THREE COMPUTED AXES MULTIPLY: six type rungs (the vortex orbit 1,2,4,5,7,8), nine palette hues, seven rosette rays — 6 × 9 × 7 = 378 distinguishable states for one rendered element, every factor already computed from the sequence rather than chosen.
 The ledger holds this as [channel_multiplies_three](/theorem/channel_multiplies_three) — proven `by decide`, sorry-free:
@@ -37,7 +37,7 @@ The ledger holds this as [three_recover_the_discard](/theorem/three_recover_the_
 ((378:Nat)^3 < 2^28) ∧ ((378:Nat)^4 > 2^28)
 ```
 
-### THE PRODUCT ASSUMES THE AXES ARE FREE. If hue were derived from the rung, the channel would be 6 × 7 = 42 per element, not 378, and the two differ by an order of magnitude — which the line proves so the assumption cannot pass unnoticed. SCOPE: which case holds is a property of the design system and is measurable in a browser against computed styles. It is NOT measured here, and nothing in this wing claims the axes are independent.
+### THE PRODUCT ASSUMES THE AXES ARE FREE. If hue were derived from the rung, the channel would be 6 × 7 = 42 per element— which the line proves so the assumption cannot pass unnoticed. SCOPE: which case holds is a property of the design system and is measurable in a browser against computed styles. It is NOT measured here, and nothing in this wing claims the axes are independent.
 The ledger holds this as [independence_is_assumed](/theorem/independence_is_assumed) — proven `by decide`, sorry-free:
 
 ```lean

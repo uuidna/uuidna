@@ -5,9 +5,9 @@ description: "Computed from lean/Quantum.lean — 50 sealed theorems, every clai
 
 # The quantum computer
 
-> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 49 siblings below.
+> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 49 siblings below.
 
-**50 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 12 of its 50 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided, not merely denied.
+**50 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 50 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
 
 ### the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
 The ledger holds this as [bell_born_weights](/theorem/bell_born_weights) — proven `by decide`, sorry-free:
@@ -247,7 +247,7 @@ The ledger holds this as [real_pauli_group_order_8](/theorem/real_pauli_group_or
 (2 * 4 = 8) ∧ (8 * 2 = 16)
 ```
 
-### The order-8 signed group carries 4 distinguishable messages, not 8: dividing out the unobservable global phase (÷2) collapses 8 group elements to 4 = 2² Bell states — superdense coding's two classical bits. The group's 8 and the channel's 4 pinned together: 8/2 = 4 = 2². Group doubling, phase quotient, message count, one line.
+### The order-8 signed group carries 4 distinguishable messages— superdense coding's two classical bits. The group's 8 and the channel's 4 pinned together: 8/2 = 4 = 2². Group doubling, phase quotient, message count, one line.
 The ledger holds this as [four_messages_two_bits](/theorem/four_messages_two_bits) — proven `by decide`, sorry-free:
 
 ```lean
@@ -275,7 +275,7 @@ The ledger holds this as [chsh_beats_classical](/theorem/chsh_beats_classical) �
 ((2:Nat)^2 < 2^3) ∧ (2^3 = 8)
 ```
 
-### The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)² dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². this is the arithmetic SHADOW of the no-cloning theorem (a linearity fact), not a proof of it.
+### The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)² dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². this is the arithmetic SHADOW of the no-cloning theorem (a linearity fact).
 The ledger holds this as [no_cloning_dimension](/theorem/no_cloning_dimension) — proven `by decide`, sorry-free:
 
 ```lean
@@ -331,7 +331,7 @@ The ledger holds this as [store_fold_order_invariant](/theorem/store_fold_order_
 (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,a,c].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,c,a].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,a,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,b,a].foldl lxor 0))))
 ```
 
-### The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. integrity of the content-address, not a quantum property.
+### The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. integrity of the content-address.
 The ledger holds this as [store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt) — proven `by decide`, sorry-free:
 
 ```lean
@@ -352,7 +352,7 @@ The ledger holds this as [merkle_sort_invariant](/theorem/merkle_sort_invariant)
 (let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1))
 ```
 
-### UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total, never the arrangement (1+0 = 0+1: swap the far side, the near statistics never move; correlation carries no message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal, never by obscurity.
+### UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total; correlation carries no message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal.
 The ledger holds this as [all_signaling_duality](/theorem/all_signaling_duality) — proven `by decide`, sorry-free:
 
 ```lean

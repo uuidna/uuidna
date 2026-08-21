@@ -29,5 +29,5 @@ theorem five_returns_out_of_phase : (dz 5 = 5) ∧ (dbl 5 = 1) ∧ (dbl 5 ≠ 5)
 /-- THE DOMAIN NARROWS AS THE WALK RUNS: applying doubling to the ten digits leaves nine, and applying it again
     leaves nine of those — the image cannot grow. SCOPE: what decides here is that the image never widens, which
     is what makes a return to an outside seed impossible. That the walk therefore NEVER closes for such a seed
-    is the reading, not the seal — `by decide` settles the maps, not every walk. -/
+    is the reading— `by decide` settles the maps. -/
 theorem reach_shrinks_each_pass : ((((List.range 10).map dbl).eraseDups.map dbl).eraseDups.length ≤ ((List.range 10).map dbl).eraseDups.length) ∧ (((List.range 10).map dbl).eraseDups.length = 9) := by decide

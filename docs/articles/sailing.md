@@ -7,9 +7,9 @@ description: "Computed from lean/Sailing.lean — 7 sealed theorems, every claim
 
 > SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. — held by [no_go_zone](/theorem/no_go_zone) and its 6 siblings below.
 
-**7 theorems**, from [no_go_zone](/theorem/no_go_zone) onward, each proven `by decide` in [lean/Sailing.lean](/lean/Sailing.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [no_go_zone](/theorem/no_go_zone). A boundary stated here is decided, not merely denied.
+**7 theorems**, from [no_go_zone](/theorem/no_go_zone) onward, each proven `by decide` in [lean/Sailing.lean](/lean/Sailing.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [no_go_zone](/theorem/no_go_zone). A boundary stated here is decided.
 
-### A boat cannot sail directly into the wind: the no-go zone is about 45° either side, a 90° cone (45 + 45 = 90) where the sails luff and make no power. To go upwind you must sail around it, not through it.
+### A boat cannot sail directly into the wind: the no-go zone is about 45° either side, a 90° cone (45 + 45 = 90) where the sails luff and make no power. To go upwind you must sail around it.
 The ledger holds this as [no_go_zone](/theorem/no_go_zone) — proven `by decide`, sorry-free:
 
 ```lean
@@ -51,7 +51,7 @@ The ledger holds this as [precise_tacks_compound](/theorem/precise_tacks_compoun
 (([1,2,3] : List Nat).map (fun n => 3 * n)) = [3,6,9]
 ```
 
-### THE CLOSE-HAULED ANGLE, READ FROM THE SOURCE RATHER THAN DERIVED. Thomas Fleming Day — editor of The Rudder — states it exactly in On Yacht Sailing (The Rudder Publishing Company, 1904): "This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass." His two units agree by arithmetic, and that agreement is what is sealed here: the compass rose carries 32 points over 360°, so four points is 45° exactly — 4 × 360 = 32 × 45 = 1440, an integer identity needing no division and no approximation. It also confirms what this wing already sealed independently as no_go_zone (45 + 45 = 90): the two tacks of a boat working to windward lie a right angle apart. 45° is Day's figure for a good vessel of 1904 under his rig; modern yachts point higher, and this seals the ARITHMETIC of his stated angle, never a claim about what any particular boat can achieve today.
+### THE CLOSE-HAULED ANGLE, READ FROM THE SOURCE RATHER THAN DERIVED. Thomas Fleming Day — editor of The Rudder — states it exactly in On Yacht Sailing (The Rudder Publishing Company, 1904): "This angle, in a good sailing vessel, is one of 45 degrees, or four points by compass." His two units agree by arithmetic, and that agreement is what is sealed here: the compass rose carries 32 points over 360°, so four points is 45° exactly — 4 × 360 = 32 × 45 = 1440, an integer identity needing no division and no approximation. It also confirms what this wing already sealed independently as no_go_zone (45 + 45 = 90): the two tacks of a boat working to windward lie a right angle apart. 45° is Day's figure for a good vessel of 1904 under his rig; modern yachts point higher, and this seals the ARITHMETIC of his stated angle.
 The ledger holds this as [four_points_is_45](/theorem/four_points_is_45) — proven `by decide`, sorry-free:
 
 ```lean

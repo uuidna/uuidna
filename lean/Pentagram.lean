@@ -56,7 +56,7 @@ theorem codon_frame_rotates_rosette : (List.range 7).map (fun k => (3*k) % 7) = 
 theorem pentagon_interior_angle_108 : (5 - 2) * 180 = 540 ∧ 5 * 108 = 540 := by decide
 
 /-- π is the honest edge: irrational, infinite, non-repeating — NOT a `by decide` object (proving anything about
-    π itself needs analysis, not decision). What decides is the finite rationals AROUND it: Archimedes’ bounds
-    223/71 < π < 22/7 are two ordered fractions — 223·7 = 1561 < 1562 = 22·71 — bracketing π within 1/(71·7).
-    The ledger holds the finite witnesses; π stays outside, by its nature, not by omission. -/
+    π itself needs analysis. What decides is the finite rationals AROUND it: Archimedes’ bounds 223/71 < π <
+    22/7 are two ordered fractions — 223·7 = 1561 < 1562 = 22·71 — bracketing π within 1/(71·7). The ledger
+    holds the finite witnesses; π stays outside, by its nature. -/
 theorem pi_bracketed_by_finite_rationals : 223 * 7 = 1561 ∧ 22 * 71 = 1562 ∧ 223 * 7 < 22 * 71 := by decide

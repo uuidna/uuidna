@@ -5,8 +5,7 @@
 theorem handles_times_qubits : (65536 * 32 = 2097152) ∧ ((2:Nat)^16 * 2^5 = 2^21) := by decide
 
 /-- WHY IT IS A SHIFT AND NOT A MULTIPLICATION OF QUBITS: counts multiply exactly when exponents add — 16 + 5 =
-    21. The qubit total is the sum of the two exponents, never their product, and 16 * 5 = 80 differs, which the
-    line proves rather than assumes. -/
+    21. The qubit total is the sum of the two exponents. -/
 theorem exponents_add : (16 + 5 = 21) ∧ (16 * 5 ≠ 21) := by decide
 
 /-- ONE HANDLE IS 8 HEX CHARACTERS AT 4 BITS EACH — 32 bits, spanning 2^32 = 4294967296 addresses. The segment
@@ -20,11 +19,10 @@ theorem register_holds_amplitudes : ((List.range 17).map (fun n => 2^n)).getLast
 
 /-- THE SPAN IS NOT A CAPACITY, and the refusal is on this line: the 2097152-qubit total is strictly greater
     than the 16 qubits any shipped register holds, and the two numbers are not equal. A total arrived at by
-    adding exponents describes what can be NAMED, never what can be HELD. -/
+    adding exponents describes what can be NAMED. -/
 theorem total_exceeds_register : (2097152 > 16) ∧ (2097152 ≠ 16) ∧ ((2:Nat)^21 ≠ 2^16) := by decide
 
 /-- AND THE TOTAL IS NOT AN AMPLITUDE COUNT EITHER: 2^21 = 2097152 is the number of QUBITS, while the amplitudes
     such a register would carry is 2 raised to that — a number this line does not attempt to write. SCOPE: what
-    is sealed here is that the two differ, 2097152 ≠ 65536; the larger quantity is named, never evaluated, and
-    nothing claims it can be realised. -/
+    is sealed here is that the two differ, 2097152 ≠ 65536; the larger quantity is named. -/
 theorem total_is_not_amplitudes : (2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16) := by decide

@@ -6,7 +6,7 @@
 //                                                ledger — which verifies nothing; not "false", just not verified)
 // uuidna VERIFIES; it never REFUTES — a citation to a nonexistent proof does not make the CLAIM false, it just fails
 // to verify it. The `fabricated` list is still returned (the publish/prose gate refuses shipping a note that names a
-// proof which does not exist), but the VERDICT is binary. Recomputable from the ledger alone. Integrity.
+// proof which does not exist), but the VERDICT is binary. Recomputable from the ledger alone. Integrity, not truth.
 import { THEOREMS } from './theorems/index.js'
 import { merkleFold, toUuid } from './address.js'
 
@@ -44,6 +44,6 @@ export function slimGate(claim: string): SlimVerdict {
       'No lexicon: the verdict is decided only by whether the cited theorems are sealed in the ledger. Cites a sealed ' +
       'theorem and none fabricated → VERIFIED; anything else → UNVERIFIED (no citation, or a citation to a proof not ' +
       'in the ledger — which verifies nothing; not "false", just not verified — absence of proof is not proof of ' +
-      'falsity). uuidna verifies, it never refutes. Delete every word-list and this gate still stands. Integrity.',
+      'falsity). uuidna verifies, it never refutes. Delete every word-list and this gate still stands. Integrity, not truth.',
   }
 }

@@ -7,7 +7,7 @@ description: "Computed from lean/Hardware.lean — 14 sealed theorems, every cla
 
 > THE HARDWARE-VERIFIABLE BINARY ALGEBRA — the named nucleus of low-level combinational logic, each fact a decidable, axiom-free `by decide` particle. — held by [not_gate_truth_table](/theorem/not_gate_truth_table) and its 13 siblings below.
 
-**14 theorems**, from [not_gate_truth_table](/theorem/not_gate_truth_table) onward, each proven `by decide` in [lean/Hardware.lean](/lean/Hardware.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 10 of its 14 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [not_gate_truth_table](/theorem/not_gate_truth_table). A boundary stated here is decided, not merely denied.
+**14 theorems**, from [not_gate_truth_table](/theorem/not_gate_truth_table) onward, each proven `by decide` in [lean/Hardware.lean](/lean/Hardware.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 10 of its 14 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [not_gate_truth_table](/theorem/not_gate_truth_table). A boundary stated here is decided.
 
 ### The NOT gate as arithmetic: NOT a = 1 − a over a bit. Its truth table is [0,1] ↦ [1,0] — the one-input inverter, sealed exactly.
 The ledger holds this as [not_gate_truth_table](/theorem/not_gate_truth_table) — proven `by decide`, sorry-free:

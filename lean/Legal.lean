@@ -1,18 +1,18 @@
--- lean/Legal.lean — GENERATED. The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong), NOT PROVEN (dismissed without prejudice), REMAND (to development trial). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Legal.lean — GENERATED. The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- the legal verdict over the record: t = a decidable test exists (justiciable), h = it holds, c = cites a sealed authority
 def lp (t h c : Nat) : Nat := t*h + c - t*h*c            -- PROVEN: (test holds) OR (cites a sealed authority)
 def lr (t h c : Nat) : Nat := t * (1 - h) * (1 - c)      -- REFUTED: a test EXISTS and FAILS, uncited (recomputable contradiction)
-def lrem (t h c : Nat) : Nat := 1 - lp t h c             -- REMAND: not admitted → development trial (recycled, not discarded)
+def lrem (t h c : Nat) : Nat := 1 - lp t h c             -- REMAND: not admitted → development trial (recycled
 def lnp (t h c : Nat) : Nat := (1 - lp t h c) * (1 - lr t h c)  -- NOT PROVEN: neither (non-justiciable / unbacked)
 
-/-- SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept, not lost. The trial partitions each
-    solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting
-    CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified +
-    refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED
-    solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. : it does
-    NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays
-    unproven, but it is never dropped. -/
+/-- SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept. The trial partitions each solution into
+    ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total
+    however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts.
+    So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO
+    BE REMANDED (kept for the development trial), and the skipped count is 0. : it does NOT verify the
+    unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but
+    it is never dropped. -/
 theorem solutions_not_skipped : (List.range 4).all (fun a => (List.range 4).all (fun u => (List.range 4).all (fun r => a + (u + r) == a + u + r))) := by decide
 
 /-- the trial returns EXACTLY ONE verdict per record — PROVEN, REFUTED or NOT PROVEN partition the eight records
@@ -28,11 +28,11 @@ theorem legal_only_the_proven_is_admitted : (List.range 8).all (fun n => let t :
 theorem legal_non_justiciable_is_never_refuted : (List.range 2).all (fun h => (List.range 2).all (fun c => lr 0 h c == 0)) := by decide
 
 /-- REFUTED is precise: it holds exactly when a decidable test EXISTS and FAILS and no sealed authority is cited
-    (t=1 ∧ h=0 ∧ c=0) — a recomputable contradiction, never otherwise -/
+    (t=1 ∧ h=0 ∧ c=0) — a recomputable contradiction -/
 theorem legal_refuted_iff_test_fails_uncited : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lr t h c == 1) == (t == 1 && h == 0 && c == 0)) := by decide
 
 /-- nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED
-    plus NOT PROVEN — both routed to development trial, never deleted -/
+    plus NOT PROVEN — both routed to development trial -/
 theorem legal_remand_is_total_nothing_discarded : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c + lrem t h c == 1) && (lrem t h c == lr t h c + lnp t h c)) := by decide
 
 /-- the captain theorem sealed INTO the trial: of every contribution k, the ONLY one that computes the conserved
@@ -58,5 +58,5 @@ theorem court_loser_pays_the_two_coins : (List.range 2).all (fun a => (List.rang
 /-- THE FORFEIT LAW, part three — the loser develops exactly as the winner proved: after judgment the docket
     holds a+b−a·b = max(a,b), the join of the two sides — the proven side’s theorem becomes BOTH sides’
     development (the loser adopts it exactly), both-proven keeps what both already hold, and neither-proven
-    leaves nothing admitted (the case remands). Development is assignment to the proof, never to the assertion -/
+    leaves nothing admitted (the case remands). Development is assignment to the proof -/
 theorem court_loser_develops_the_proven : (List.range 2).all (fun a => (List.range 2).all (fun b => a + b - a*b == max a b)) := by decide

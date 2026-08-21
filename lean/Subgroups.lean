@@ -1,4 +1,4 @@
--- lean/Subgroups.lean — GENERATED. THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited, not merely counted. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Subgroups.lean — GENERATED. THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 def units : List Nat := [1,2,4,5,7,8]
 def mul9 (a b : Nat) : Nat := (a * b) % 9

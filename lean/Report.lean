@@ -5,8 +5,7 @@
 theorem five_ws_and_one_h : 5 + 1 = 6 := by decide
 
 /-- A confirmed timeline is ORDERED in time — the events run 0,1,2,3,4,5, strictly ascending, each after the
-    last. Diving deep means confirming the sequence, not just the facts: a reordered timeline is a different,
-    unconfirmed story. -/
+    last. Diving deep means confirming the sequence. -/
 theorem timeline_is_chronological : (List.range 6) = [0,1,2,3,4,5] := by decide
 
 /-- Trinity editing is THREE independent passes — reporter, editor, and a third check — 1 + 1 + 1 = 3, the same

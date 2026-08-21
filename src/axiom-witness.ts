@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { rdRoot } from './boundary.js'
 
 export interface AxiomWitnessReport {

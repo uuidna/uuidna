@@ -2,7 +2,7 @@
 // account — the reconciliation gate. The manual "all is accounted" check, ported to a TEST that runs itself instead
 // of being asked: every theorem accounted for (per-file counts sum to the total), no double-counting (keys distinct),
 // the billing model itself sealed, and the decide-step cost coverage reported. Exits non-zero if the accounting does
-// not reconcile — a suggestion tested in the trial. Integrity.
+// not reconcile — a suggestion tested in the trial, not confirmed by a question. Integrity, not truth.
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { theorems, coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, toUuid } from '../index.js'
@@ -29,8 +29,8 @@ const addrs = T.map((t) => t.address)
 check(new Set(addrs).size === addrs.length, `every theorem uniquely addressable: ${new Set(addrs).size} distinct addresses`)
 
 // the accounting model itself is sealed
-const acct = ['two_coins', 'contribute_two_save_sixtyfour', 'bill_never_negative']
-check(acct.every((k) => T.some((t) => t.key === k)), 'the billing model itself is sealed (two_coins, contribute_two_save_sixtyfour, bill_never_negative)')
+const acct = ['two_coins', 'captain_theorem', 'bill_never_negative']
+check(acct.every((k) => T.some((t) => t.key === k)), 'the billing model itself is sealed (two_coins, captain_theorem, bill_never_negative)')
 
 // account the COINS and the BITS — exercise the billing, do not just check its theorems exist.
 console.log('  accounting bits & coins — the billing exercised:')
@@ -42,7 +42,7 @@ check(bill.coins === 2 && bill.advantage === 99, `commercial bills the two coins
 // the bill is complete in its receipt — a skeptic recomputes the terms and lands on the same receipt, or it was altered
 const reBill = toUuid(`bill|commercial=true|advantage=${bill.advantage}|bitsSaved=${bill.bitsSaved}|coins=${bill.coins}`)
 check(reBill === bill.receipt, 'the bill is complete in its receipt — recomputing every term returns the same address (the skeptic rechecks, does not trust)')
-// bill_never_negative, exercised across a grid — matches the sealed theorem
+// bill_never_negative, exercised across a grid — matches the sealed theorem, not merely cited
 const nonneg = [0, 1, 2, 3, 4].every((r) => [0, 1, 2, 3, 4].every((v) => billUuidna({ commercial: true, recomputeOps: r, verifyOps: v }).bitsSaved >= 0))
 check(nonneg, 'the bill is never negative across a 5×5 grid (matches sealed bill_never_negative)')
 // the BIT-level saving is honest: an address is 128 bits; reference saves only when the payload is larger
@@ -51,7 +51,7 @@ check(ADDRESS_BITS === 128 && referenceBitsSaved(1024, 64) === 0 && referenceBit
 
 // decide-step cost coverage — VERIFY ALL, and the cracks seal: the heartbeat address set must EQUAL the ledger's,
 // exactly. Every theorem measured (no missing), and NO entry left for a theorem no longer in the ledger (no stale —
-// a renamed/changed theorem moved its address, so its old cost is drift). A hard failure now
+// a renamed/changed theorem moved its address, so its old cost is drift). A hard failure now, not a soft snapshot:
 // the whole is verified together, so a manual patch cannot leave a crack. Recompute with `npm run heartbeats --all`.
 try {
   const hb = JSON.parse(readFileSync(join(ROOT, 'lean', 'heartbeats.json'), 'utf8')).costs || {}

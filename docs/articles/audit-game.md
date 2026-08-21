@@ -7,7 +7,7 @@ description: "Computed from lean/AuditGame.lean — 11 sealed theorems, every cl
 
 > THE AUDIT GAME — why an audit is more ACCURATE as a game, sealed by decide: a finding is FLAGGED iff some independent refuter has a winning move (the OR), a claim is CLEAN iff none does (a P-position, the Nim/Bouton decidability), the verdict is exactly one of the two (survive + flag = 1), and N independent refuters are strictly more accurate — adding a refuter is monotone (never un-flags), a 3-vote panel confirms on a majority (4 of 8 profiles), and a unanimous acquittal is the product of clears ∏(1−rᵢ); the honesty gate drains only the hollow-and-unbacked citation (1 of 4 states, echoing Audit.lean); and the game is finite (2ⁿ outcomes) so the value is decidable. the DECISION is decidable but the COVERAGE is not — the refutation lexicon is incomplete, so an audit raises the cost of a false claim surviving, it does NOT reduce it to zero. — held by [flag_is_any_refutation](/theorem/flag_is_any_refutation) and its 10 siblings below.
 
-**11 theorems**, from [flag_is_any_refutation](/theorem/flag_is_any_refutation) onward, each proven `by decide` in [lean/AuditGame.lean](/lean/AuditGame.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [clean_is_a_p_position](/theorem/clean_is_a_p_position). A boundary stated here is decided, not merely denied.
+**11 theorems**, from [flag_is_any_refutation](/theorem/flag_is_any_refutation) onward, each proven `by decide` in [lean/AuditGame.lean](/lean/AuditGame.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [clean_is_a_p_position](/theorem/clean_is_a_p_position). A boundary stated here is decided.
 
 ### A finding is FLAGGED iff ANY independent refuter finds a winning move: flag(a,b) = 1 − (1−a)(1−b), which over {0,1}² is exactly the OR — a claim is caught the moment one refuter refutes it. The audit is a game the claim must survive against every player.
 The ledger holds this as [flag_is_any_refutation](/theorem/flag_is_any_refutation) — proven `by decide`, sorry-free:
@@ -30,7 +30,7 @@ The ledger holds this as [verdict_is_exactly_one](/theorem/verdict_is_exactly_on
 (List.range 2).all (fun a => (List.range 2).all (fun b => ((1-a)*(1-b) + (1 - (1-a)*(1-b))) == 1))
 ```
 
-### Two independent refuters catch at least as much as one: flag(a,b) = a OR b ≥ a. Adding an independent refuter is MONOTONE — it can only catch more, never fewer. This is why a dual audit is strictly more accurate than a single pass.
+### Two independent refuters catch at least as much as one: flag(a,b) = a OR b ≥ a. Adding an independent refuter is MONOTONE — it can only catch more. This is why a dual audit is strictly more accurate than a single pass.
 The ledger holds this as [dual_dominates_single](/theorem/dual_dominates_single) — proven `by decide`, sorry-free:
 
 ```lean
@@ -72,14 +72,14 @@ The ledger holds this as [audit_is_a_finite_game](/theorem/audit_is_a_finite_gam
 ([0,1,2,3].map (fun n => (2:Nat)^n)) = [1, 2, 4, 8]
 ```
 
-### SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵), so an audit RAISES the cost of a false claim surviving but never zeroes it. A floor, not a wall — the same "no maximum, only bounds" Security proves; the game's DECISION is decidable, its COVERAGE is not.
+### SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵), so an audit RAISES the cost of a false claim surviving but never zeroes it. A floor— the same "no maximum, only bounds" Security proves; the game's DECISION is decidable, its COVERAGE is not.
 The ledger holds this as [no_audit_catches_all](/theorem/no_audit_catches_all) — proven `by decide`, sorry-free:
 
 ```lean
 ((2:Nat)^3 < 2^4) ∧ ((2:Nat)^4 < 2^5)
 ```
 
-### The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) = 10 − 8 = 2 is the first step of the vortex orbit. The three games interact in the diamond: chess at the units {1, 8}, the audit at 8, nim at the nilpotent 6. a structural residue, NOT a claim the audit IS the ring.
+### The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) = 10 − 8 = 2 is the first step of the vortex orbit. The three games interact in the diamond: chess at the units {1, 8}, the audit at 8, nim at the nilpotent 6. a structural residue.
 The ledger holds this as [audit_space_meets_chess_at_eight](/theorem/audit_space_meets_chess_at_eight) — proven `by decide`, sorry-free:
 
 ```lean

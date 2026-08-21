@@ -15,16 +15,16 @@
 //   oeapi     — the interoperability standard. Not fetched: uuidna already SERVES it (src/oeapi.ts, uuidna_oeapi),
 //               which is the only one of the four that runs the other way round.
 //
-// HONEST SCOPE: what comes back over the network is EVIDENCE— a provenance fingerprint of what a named
+// HONEST SCOPE: what comes back over the network is EVIDENCE, never a seal — a provenance fingerprint of what a named
 // public source said when it was asked, exactly as corroborate.ts treats its streams. Only a `by decide` theorem
 // SEALS. Eurostat publishes aggregates and GISCO publishes institutions, so nothing here carries a pupil's data; the
 // contact fields in a GISCO row are the member state's own published INSTITUTIONAL contacts, and they are passed
 // through unaltered rather than quietly dropped, because a silent edit to public data is the drift this repo catches.
 // A source may be unreachable — best-effort, and it NEVER fabricates a row. The parse, the decode and the addressing
-// are pure: the same bytes fold to the same receipt for anyone. Integrity.
+// are pure: the same bytes fold to the same receipt for anyone. Integrity, not truth.
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'   // THE one derivation of a handle from an address — see handle.ts
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { skillGroups } from './theorems/index.js'
 
 /** One wired source: what it serves, where, in what format, and the scope it may never exceed. */
@@ -43,7 +43,7 @@ export interface SchoolApi {
   honest: string
 }
 
-/** A row from a public source, content-addressed — evidence of what was said. */
+/** A row from a public source, content-addressed — evidence of what was said, never a proof that it is so. */
 export interface SchoolApiEvidence { source: string; address: string; [field: string]: unknown }
 
 export interface SchoolApiAnswer {
@@ -63,8 +63,8 @@ export interface SchoolApiAnswer {
 const HONEST =
   'EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a named public EU source answered ' +
   'when it was asked, and only a `by decide` theorem SEALS. The rows are passed through unaltered and are never ' +
-  'fabricated — an unreachable source returns nothing, which is an absence. The parse and the ' +
-  'addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity.'
+  'fabricated — an unreachable source returns nothing, which is an absence, not a refutation. The parse and the ' +
+  'addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth.'
 
 const ESCO = 'https://ec.europa.eu/esco/api'
 const EUROSTAT = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data'
@@ -72,7 +72,7 @@ const GISCO = 'https://gisco-services.ec.europa.eu/pub/education'
 const DATA_EUROPA = 'https://data.europa.eu/api/hub/search/search'
 const CORDIS = 'https://cordis.europa.eu/api/search/results'
 const TED = 'https://api.ted.europa.eu/v3/notices/search'
-/** the CPV division for education and training services — TED's own classification, so the filter is the EU's
+/** the CPV division for education and training services — TED's own classification, so the filter is the EU's, not ours */
 export const CPV_EDUCATION = '80000000'
 /** the GISCO education vintage this module was probed against — the directory is versioned, so the year is explicit */
 export const GISCO_VINTAGE = '2020'
@@ -82,7 +82,7 @@ const DEFAULT_LIMIT = 25
 // ESCO the same phrase next year and it may honestly answer differently — so caching them would serve a stale answer
 // as a live one, which is the drift this module exists to catch. GISCO is a different kind of read: its URL CARRIES
 // THE VINTAGE (…/education/2020/csv/BG.csv), so the bytes behind a given URL cannot change — a new vintage is a new
-// URL. That is immutability by construction's own case: cache the
+// URL. That is immutability by construction, not by assumption, and it is the standing law's own case: cache the
 // immutable read and pay for it once. Same idiom as _uuidCache in address.ts and _cache in captain/credits.
 const _immutable = new Map<string, string>()
 
@@ -133,7 +133,7 @@ async function fetchData<T>(url: string, kind: DataKind, init?: RequestInit): Pr
   if (!r.ok) return { data: null, declined: true, note: `responded ${r.status}` }
   const text = await r.text()
   if (isHtml(r.headers.get('content-type') ?? '', text))
-    return { data: null, declined: true, note: 'served a WEB PAGE (text/html)— answering is not the same as answering with data' }
+    return { data: null, declined: true, note: 'served a WEB PAGE (text/html), not data — answering is not the same as answering with data' }
   if (kind === 'csv') return { data: text as unknown as T, declined: false, note: 'ok' }
   try { return { data: JSON.parse(text) as T, declined: false, note: 'ok' } }
   catch { return { data: null, declined: true, note: 'payload did not parse as JSON' } }
@@ -143,7 +143,7 @@ async function fetchData<T>(url: string, kind: DataKind, init?: RequestInit): Pr
  *  It is NOT one edit: adding a source costs three (this entry, a fetcher, a dispatcher branch), unlike
  *  corroborate.ts, where a source really is one line because the streams share a signature and fan out from an
  *  array. The shapes here genuinely differ — GET vs POST, JSON vs CSV, phrase vs classification code — so the
- *  three edits are the honest cost. Stated because a comment claiming one entry
+ *  three edits are the honest cost, not a shortcut nobody took. Stated because a comment claiming one entry
  *  when the code needs three is the drift this repo folds finders to catch. */
 export const SCHOOL_APIS: readonly SchoolApi[] = [
   { id: 'esco', name: 'ESCO — European Skills, Competences, Qualifications and Occupations', base: ESCO,
@@ -151,7 +151,7 @@ export const SCHOOL_APIS: readonly SchoolApi[] = [
     kind: 'taxonomy', direction: 'fetched',
     serves: ['skills', 'competences', 'occupations', 'qualifications', 'multilingual labels'],
     format: 'JSON (HAL)', access: 'public, no key',
-    honest: 'A CLASSIFICATION. ' +
+    honest: 'A CLASSIFICATION, not a school system: it says what a skill IS CALLED across the EU, never who holds it. ' +
       'It is also the BRIDGE — the same concept graph carries skills and occupations, related both ways, so education ' +
       'and jobs are paired INSIDE one public vocabulary rather than joined on a guess.' },
   { id: 'eurostat', name: 'Eurostat — education and training statistics', base: EUROSTAT,
@@ -173,7 +173,7 @@ export const SCHOOL_APIS: readonly SchoolApi[] = [
     kind: 'catalogue', direction: 'fetched',
     serves: ['dataset titles and descriptions', 'publishing country', 'catalogue', 'categories', 'keywords'],
     format: 'JSON', access: 'public, no key',
-    honest: 'A CATALOGUE OF CATALOGUES — it says which datasets EXIST and who publishes them. ' +
+    honest: 'A CATALOGUE OF CATALOGUES — it says which datasets EXIST and who publishes them, never what is in them. ' +
       'It is the door the other three were found through: search it before assuming a European dataset is absent.' },
   { id: 'cordis', name: 'CORDIS — EU research projects and Horizon programme topics', base: CORDIS,
     probe: { text: 'quantum', limit: 3 },
@@ -225,14 +225,14 @@ const ABSENT: { source: string; why: string; instead: string }[] = [
     why: 'it was wired and run over all 68 skill clusters, and it produced confident wrong rows: sequence — the Z/9 ' +
       'doubling orbit — mapped to "sequence explosions" and on to explosives engineer, colour to "add colour" and on ' +
       'to transport engineer. Filtering fragment hits raised the floor and did not reach a ceiling, because the ' +
-      'remaining error needs MEANING. A surface that is right most of the time about which European ' +
+      'remaining error needs MEANING, not string shape. A surface that is right most of the time about which European ' +
       'skill a proof teaches is worse than no surface, since nothing in the output marks which rows are the wrong ones.',
     instead: 'The pairing walk, one subject at a time and a human reading the result: uuidna_education_jobs. It moves ' +
       'along ESCO\'s OWN published skill-to-occupation relation instead of guessing, and now filters its first hop by ' +
       'the same whole-name rule, reporting what it rejected.' },
   { source: 'any student information system (enrolment, grades, attendance)',
     why: 'no EU-level API serves these, and uuidna holds no learner data to serve: it enrols nobody and grades ' +
-      'nobody. A pupil-data API is a thing an institution operates, under a controller.',
+      'nobody. A pupil-data API is a thing an institution operates, under a controller, not a thing to federate.',
     instead: 'Your own API, with OOAPI as the shape — the projection at uuidna_oeapi shows the field names.' },
 ]
 
@@ -307,7 +307,7 @@ export const escoWholeName = (subject: string, title: string): boolean => {
 
 export interface EurostatObservation extends SchoolApiEvidence { value: number; dimensions: Record<string, string> }
 
-/** eurostatEducation(dataset, filters) → EU education statistics as LABELLED observations.
+/** eurostatEducation(dataset, filters) → EU education statistics as LABELLED observations, not raw JSON-stat indices.
  *  `dataset` is a Eurostat code (e.g. "educ_uoe_enrt01"); `filters` are the API's own dimension filters
  *  (e.g. {geo:"BG", time:"2022"}). One network call; the decode is pure integer arithmetic. */
 export async function eurostatEducation(dataset: string, filters: Record<string, string> = {}, limit?: number): Promise<SchoolApiAnswer> {
@@ -422,7 +422,7 @@ export async function giscoSchools(country: string, match?: string, limit?: numb
         })
       }
     }
-  } catch { /* best-effort: a country the dataset does not cover returns nothing, which is an absence
+  } catch { /* best-effort: a country the dataset does not cover returns nothing, which is an absence, not a denial */ }
   return answer('gisco', match ? { country: cc, match, year } : { country: cc, year }, url, results, more)
 }
 
@@ -486,7 +486,7 @@ export async function cordisSearch(text: string, limit?: number): Promise<School
   const got = await fetchData<{ payload?: { total?: number; results?: { id?: string; title?: unknown; teaser?: unknown; contentType?: string }[] } }>(url, 'json')
   if (got.data === null) return answer('cordis', { text }, url, [], false, true, got.note)
   const rows = got.data.payload?.results ?? []
-  // CORDIS's own tell, kept: a 200 whose payload carries no `total` at all is the query being REFUSED
+  // CORDIS's own tell, kept: a 200 whose payload carries no `total` at all is the query being REFUSED, not answered
   declined = got.data.payload?.total === undefined || got.data.payload?.total === null
   more = Number(got.data.payload?.total ?? 0) > rows.length
   for (const c of rows) {
@@ -570,7 +570,7 @@ export async function eurostatVacancies(geo: string, limit?: number): Promise<Sc
 /** pairEducationToJobs(subject) → THE PAIR: a subject taught (a uuidna skill cluster, or any phrase) walked through
  *  ESCO to the occupations that need it, optionally with the vacancies a country reports ({geo:"BG"}).
  *  HONEST: every hop is a published EU relation or a lexical match ESCO returned — a MAP BETWEEN VOCABULARIES for a
- *  human to accept or reject. It is not careers advice
+ *  human to accept or reject. It is not careers advice, not a prediction that a course leads to a job, and not a
  *  claim that any employer recognises anything sealed here. The vacancy figures are a country's own aggregate
  *  reporting, not openings matched to this subject. */
 export async function pairEducationToJobs(subject: string, opts: { geo?: string; perSkill?: number; limit?: number } = {}): Promise<EducationJobsPairing> {
@@ -598,7 +598,7 @@ export async function pairEducationToJobs(subject: string, opts: { geo?: string;
       'skill is walked along ESCO\'s OWN published essential/optional relation to the occupations it serves. It is not ' +
       'careers advice, not a prediction that studying this leads to that work, and not a claim that any employer or ' +
       'authority recognises anything sealed here (theorem provenance_integrity_not_content_truth) — uuidna awards no qualification. The vacancy figures are a country\'s ' +
-      'own aggregate reporting for the whole economy. ' + HONEST,
+      'own aggregate reporting for the whole economy, NEVER openings matched to this subject. ' + HONEST,
   }
 }
 
@@ -639,7 +639,7 @@ export async function schoolApiFetch(source: string, query: SchoolApiQuery = {})
     if (!query.country) throw new Error('school-apis: gisco needs {country} — a two-letter code, e.g. "BG"')
     return giscoSchools(query.country, query.match, query.limit, query.year ?? GISCO_VINTAGE)
   }
-  throw new Error('school-apis: oeapi is SERVED— uuidna publishes it; call uuidna_oeapi instead')
+  throw new Error('school-apis: oeapi is SERVED, not fetched — uuidna publishes it; call uuidna_oeapi instead')
 }
 
 // ── THE HEARTBEAT — a source that nobody calls is a source that can die quietly ───────────────────────────────────
@@ -656,7 +656,7 @@ export async function schoolApiFetch(source: string, query: SchoolApiQuery = {})
 //
 // IT REPORTS DARKNESS, IT DOES NOT FAIL. An EU API being down is not this repository's defect; the defect would be
 // not noticing. There is also no timing here on purpose: a clock is banned in this source tree, so the probe reports
-// WHETHER a source answered and with how many rows— latency is measured outside, by hand.
+// WHETHER a source answered and with how many rows, never how fast — latency is measured outside, by hand.
 
 export interface SourceProbe { id: string; ok: boolean; rows: number; declined: boolean; note: string }
 export interface Heartbeat { probed: number; answering: number; dark: SourceProbe[]; probes: SourceProbe[]; receipt: string; honest: string }
@@ -681,7 +681,7 @@ export async function probeSchoolApis(
     probed: probes.length, answering: probes.length - dark.length, dark, probes,
     receipt: merkleGravity(probes.map((p) => toUuid(p.id + ':' + (p.ok ? 'answering' : 'dark')))),
     honest:
-      'A LIVENESS REPORT' +
+      'A LIVENESS REPORT, not a verdict on anyone: it says which declared sources answered their own known-good ' +
       'query just now. A dark source is NOT a defect of this repository — a public API may be down, moved or ' +
       'rate-limiting — and it is reported rather than raised, because the failure this guards against is not a ' +
       'source going dark, it is a source going dark UNNOTICED. No timing is reported: a clock is banned here.',

@@ -1,0 +1,12 @@
+{
+  "handle": "286e8ca9",
+  "address": "286e8ca9-92f8-8195-9d80-e4e11dcb219b",
+  "statement": "(((List.range 32).map (fun m => 2 * ((List.range 5).filter (fun b => (m / 2^b) % 2 == 1)).length)).sum = 160) ∧ ((List.range 5).all (fun b => ((List.range 32).filter (fun m => (m / 2^b) % 2 == 1)).length = 16)) ∧ (160 = 5 * 32)",
+  "tactic": "decide",
+  "keys": [
+    "coins_over_all_rosetta_combinations"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

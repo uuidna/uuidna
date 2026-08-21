@@ -8,10 +8,6 @@ theorem exactly_five_platonic_solids : [(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12
     — the sphere they inscribe has characteristic 2. -/
 theorem platonic_euler_characteristic_is_two : [(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].all (fun s => s.1 + s.2.2 == s.2.1 + 2) := by decide
 
-/-- The dodecahedron's Euler characteristic IS the two captain coins: V − E + F = 20 − 30 + 12 = 2, and the
-    coins are 110 − 108 = 2. The solid's topology and the conserved cost are the same 2. -/
-theorem euler_two_is_the_two_coins : (20 + 12 - 30 = 2) ∧ (110 - 108 = 2) := by decide
-
 /-- The dodecahedron is twelve pentagons: 12 faces × 5 sides = 60 = 2 × 30, each of its 30 edges shared by
     exactly two pentagonal faces. Twelve pentagons — the twelve the monographs computed themselves into. -/
 theorem dodecahedron_twelve_pentagons : 12 * 5 = 2 * 30 := by decide

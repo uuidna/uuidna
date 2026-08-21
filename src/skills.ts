@@ -23,7 +23,7 @@
 // accredits, or would employ what is sealed here. Integrity.
 import { skillGroups, type Theorem } from './theorems/index.js'
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { handleOf } from './handle.js'
 import { escoSearchUrl, escoWholeName, SCHOOL_APIS } from './school-apis.js'
 

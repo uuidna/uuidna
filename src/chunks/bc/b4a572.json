@@ -1,0 +1,12 @@
+{
+  "handle": "bcb4a572",
+  "address": "bcb4a572-82be-8f77-963b-67d8d1fee68d",
+  "statement": "(32 * 4 = 128) ∧ ((List.range' 1 8).all (fun k => (128 * k) / k == 128)) ∧ (2^129 > 2^128) ∧ (2^129 = 2 * 2^128)",
+  "tactic": "decide",
+  "keys": [
+    "fold_compresses_without_bound_and_never_recovers"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

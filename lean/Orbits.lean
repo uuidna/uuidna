@@ -2,32 +2,32 @@
 
 /-- The walk from any seed reaching 0 settles on 10 of the ten digits (0, 1, 2, 3, 4, 5, 6, 7, 8, 9), which is
     every one, and that set is closed under the reflection — every member's mirror is already a member, so
-    reflecting the finished orbit adds nothing. Measured by walking, not asserted. -/
+    reflecting the finished orbit adds nothing. Measured by walking. -/
 theorem orbit_0_1_2_3_4_5_6_7_8_9_closes : [0,1,2,3,4,5,6,7,8,9].all (fun d => [0,1,2,3,4,5,6,7,8,9].contains (if d = 0 then 0 else 10 - d)) := by decide
 
 /-- The walk from any seed reaching 0 settles on 8 of the ten digits (0, 1, 3, 4, 5, 6, 7, 9), and that set is
     closed under the reflection — every member's mirror is already a member, so reflecting the finished orbit
-    adds nothing. Measured by walking, not asserted. -/
+    adds nothing. Measured by walking. -/
 theorem orbit_0_1_3_4_5_6_7_9_closes : [0,1,3,4,5,6,7,9].all (fun d => [0,1,3,4,5,6,7,9].contains (if d = 0 then 0 else 10 - d)) := by decide
 
 /-- The walk from any seed reaching 0 settles on 6 of the ten digits (0, 1, 3, 5, 7, 9), and that set is closed
     under the reflection — every member's mirror is already a member, so reflecting the finished orbit adds
-    nothing. Measured by walking, not asserted. -/
+    nothing. Measured by walking. -/
 theorem orbit_0_1_3_5_7_9_closes : [0,1,3,5,7,9].all (fun d => [0,1,3,5,7,9].contains (if d = 0 then 0 else 10 - d)) := by decide
 
 /-- The walk from any seed reaching 0 settles on 4 of the ten digits (0, 1, 5, 9), and that set is closed under
     the reflection — every member's mirror is already a member, so reflecting the finished orbit adds nothing.
-    Measured by walking, not asserted. -/
+    Measured by walking. -/
 theorem orbit_0_1_5_9_closes : [0,1,5,9].all (fun d => [0,1,5,9].contains (if d = 0 then 0 else 10 - d)) := by decide
 
 /-- The walk from any seed reaching 0 settles on 3 of the ten digits (0, 1, 9), and that set is closed under the
     reflection — every member's mirror is already a member, so reflecting the finished orbit adds nothing.
-    Measured by walking, not asserted. -/
+    Measured by walking. -/
 theorem orbit_0_1_9_closes : [0,1,9].all (fun d => [0,1,9].contains (if d = 0 then 0 else 10 - d)) := by decide
 
 /-- The walk from any seed reaching 0 settles on 1 of the ten digits (0), and that set is closed under the
     reflection — every member's mirror is already a member, so reflecting the finished orbit adds nothing.
-    Measured by walking, not asserted. -/
+    Measured by walking. -/
 theorem orbit_0_closes : [0].all (fun d => [0].contains (if d = 0 then 0 else 10 - d)) := by decide
 
 /-- Walking every seed yields 6 distinct orbits, of orders 10, 8, 6, 4, 3, 1 — the whole vocabulary the ring

@@ -7,7 +7,7 @@ description: "Computed from lean/Matching.lean — 8 sealed theorems, every clai
 
 > THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching. — held by [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) and its 7 siblings below.
 
-**8 theorems**, from [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) onward, each proven `by decide` in [lean/Matching.lean](/lean/Matching.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [edges_are_half_the_degree_sum](/theorem/edges_are_half_the_degree_sum). A boundary stated here is decided, not merely denied.
+**8 theorems**, from [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) onward, each proven `by decide` in [lean/Matching.lean](/lean/Matching.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [perfect_matching_needs_even](/theorem/perfect_matching_needs_even). A boundary stated here is decided.
 
 ### The handshake lemma: every edge touches two people, so summing how many each is connected to double-counts the edges — the degree sum is always EVEN. Here [1,3,2,2,1,1] sums to 10, and 10 is even.
 The ledger holds this as [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) — proven `by decide`, sorry-free:
@@ -16,7 +16,7 @@ The ledger holds this as [handshake_degree_sum_even](/theorem/handshake_degree_s
 List.sum [1,3,2,2,1,1] = 10 ∧ 10 % 2 = 0
 ```
 
-### Because each connection is counted from both ends, the number of edges is exactly half the degree sum — 5 connections make a degree sum of 10. Connections are shared, never owned by one side.
+### Because each connection is counted from both ends, the number of edges is exactly half the degree sum — 5 connections make a degree sum of 10. Connections are shared.
 The ledger holds this as [edges_are_half_the_degree_sum](/theorem/edges_are_half_the_degree_sum) — proven `by decide`, sorry-free:
 
 ```lean
@@ -44,7 +44,7 @@ The ledger holds this as [n_people_make_n_half_pairs](/theorem/n_people_make_n_h
 8 = 2 * 4
 ```
 
-### The honest ceiling: the Gale–Shapley stable-matching process halts, in AT MOST n² proposals — for four people, at most 16. It is BOUNDED, not free; the same "no maximum, only bounds" the security layer proves — connecting people has a cost, and the cost is finite and known.
+### The honest ceiling: the Gale–Shapley stable-matching process halts, in AT MOST n² proposals — for four people, at most 16. It is BOUNDED; the same "no maximum, only bounds" the security layer proves — connecting people has a cost, and the cost is finite and known.
 The ledger holds this as [proposals_bounded_by_n_squared](/theorem/proposals_bounded_by_n_squared) — proven `by decide`, sorry-free:
 
 ```lean

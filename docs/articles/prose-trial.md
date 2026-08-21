@@ -7,7 +7,7 @@ description: "Computed from lean/ProseTrial.lean — 6 sealed theorems, every cl
 
 > THE PROSE TRIAL — the derivation law decided by the KERNEL rather than by a string comparison. — held by [orbits_number_six](/theorem/orbits_number_six) and its 5 siblings below.
 
-**6 theorems**, from [orbits_number_six](/theorem/orbits_number_six) onward, each proven `by decide` in [lean/ProseTrial.lean](/lean/ProseTrial.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [forged_order_refused](/theorem/forged_order_refused). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [orbits_number_six](/theorem/orbits_number_six) onward, each proven `by decide` in [lean/ProseTrial.lean](/lean/ProseTrial.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [forged_order_refused](/theorem/forged_order_refused). A boundary stated here is decided.
 
 ### The ledger walks exactly six distinct orbits. Six, and the count is the whole vocabulary — a seventh would be a word nothing proves.
 The ledger holds this as [orbits_number_six](/theorem/orbits_number_six) — proven `by decide`, sorry-free:

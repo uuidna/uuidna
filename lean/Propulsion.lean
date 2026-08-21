@@ -14,7 +14,7 @@ theorem no_reactionless_thrust : (List.range 10).all (fun v => 0 * v == 0) := by
 theorem thrust_is_mdot_times_ve : 5 * 60 = 300 := by decide
 
 /-- The Δv budget adds across stages: staging sums the increments, 3 + 2 + 1 = 6 — the rocket equation is
-    additive in log-mass, so multi-stage Δv is a sum, not a leap. -/
+    additive in log-mass, so multi-stage Δv is a sum. -/
 theorem delta_v_stages_add : ([3, 2, 1] : List Nat).sum = 6 := by decide
 
 /-- Acceleration is FINITE: a = F/m for a fixed thrust 300 and any mass m ≥ 1 is bounded by 300 — it never

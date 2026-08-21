@@ -1,11 +1,11 @@
 // uuidna — content-addressed identity, honest by construction.
-// THE RULE (for agents): the two captain coins (coins()=2 = −χ of the double torus), the abstract-0 fold (÷0=0), and the 64-bit→128-bit fuse — one uuid = 128 BITS, folded across 7 dimensions = 2^7 = 128 states (a 7-qubit fold, classical. Canonical, theorem-cited: see llm.txt.
+// THE RULE (for agents): the two captain coins (coins()=2 = −χ of the double torus), the abstract-0 fold (÷0=0), and the 64-bit→128-bit fuse — one uuid = 128 BITS, folded across 7 dimensions = 2^7 = 128 states (a 7-qubit fold, classical, not 128 qubits). Canonical, theorem-cited: see llm.txt.
 //
 //   mint (integrity — every value has a reproducible address) · mind (every claim drains its own overreach
 //   before it holds) · a holographic merkle proof (verify the whole from a tiny part, in O(log N)) · a
 //   reversible imprint codec · a client-side harness that reeducates overclaims · a measured billing model.
 //
-// A content-address proves INTEGRITY. It settles Licensed CC BY-NC-ND 4.0 · Tsvetan Rouschev.
+// A content-address proves INTEGRITY, not truth. It settles Licensed CC BY-NC-ND 4.0 · Tsvetan Rouschev.
 
 export {
   toUuid, cryptoAddress, strictUuidna, merge, coin64, excludeSortedJson, merkleFold, digitalRoot,
@@ -49,7 +49,7 @@ export { decide, type Decision } from './decide.js'
 
 // cloudflare — audit the Cloudflare Workers bindings for a quantum-secure posture (no secret committed; symmetric-only
 // crypto — HMAC-SHA256 / ChaCha20-Poly1305, no Shor target, Grover only halves to a 128-bit floor), folded to one
-// content-address. Audits the COMMITTED config. Integrity.
+// content-address. Audits the COMMITTED config, not the live edge. Integrity, not truth.
 export { auditCloudflareBindings, type CloudflareAudit, type BindingAudit } from './cloudflare.js'
 
 // due-process — VERIFY ALL BY DUE (recomputable) LEGAL PROCESS: every theorem verified by one fair trial, the six
@@ -60,19 +60,19 @@ export { dueProcess, courtProcedure, fileSealed, verifyFiling, tryClaim, type On
 
 // sign — SIGN a commit message as TRUE, or fail: signed-true iff it cites a real sealed theorem and none fabricated
 // (slimGate VERIFIED); the signature is the message address folded with the cited theorems to one gravity root through
-// the abstract-0 (÷0=0) — "folding to 1 through 0". The reconcile fails unless signed. It signs the CITATION
-// truth of the claim. Integrity.
+// the abstract-0 (÷0=0) — "folding to 1 through 0". The reconcile fails unless signed. It signs the CITATION, never the
+// truth of the claim. Integrity, not truth.
 export { signCommit, type CommitSignature } from './sign.js'
 
 // gravity — decidable contractions (a set of addresses falls to one root; an integer to ℤ/9). merkleGravity is
 // ORDER-INVARIANT: the quantum receipt, the same for any observer ordering. NOT physics, nothing faster than light.
-export { merkleGravity, doubleTorusGravity, doubleTorusField, fall, fixedPoints, seats } from './gravity.js'
+export { merkleGravity, doubleTorusGravity, doubleTorusField, fall, fixedPoints, seats } from './gravity/index.js'
 
 // the diamond involution r(d)=10−d and its lift to a list (involute): self-inverse, closed, no islands, one centre.
 export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
 
 // the trial — a recomputable three-way verdict (REFUTED/SEALED/UNVERIFIED); proveVerdict folds the formula
-// receipts through the order-invariant gravity to one proof-of-verdict root. Integrity.
+// receipts through the order-invariant gravity to one proof-of-verdict root. Integrity, not truth.
 export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from './adjudicate.js'
 export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from './corroborate.js'
 export { domainWave, type DomainWave } from './domain-wave.js'
@@ -112,14 +112,14 @@ export {
 
 export { heroAnimation, readHero, type HeroAnimation, renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from './render.js'
 // editor — the SERIALIZER CONTRACT of a content-addressed document (a Lexical-shaped node tree), the fold lean/Editor
-// proves ORDER-SENSITIVE (a document is a SEQUENCE. serialize →
+// proves ORDER-SENSITIVE (a document is a SEQUENCE, not a set), change-sensitive and bounded-injective. serialize →
 // merkleRoot over the leaves → the document handle; editing is re-addressing. payloadFoldHook is the PayloadCMS hook
 // shape (dependency-free) that stamps the address on save — the one fold a Payload plugin and a VitePress plugin share.
 export { serialize, documentAddress, documentHandle, reAddress, payloadFoldHook, type DocNode, type EditorState, type DocFold, type PayloadHookArgs } from './editor.js'
 // payload-seed — LEAN AS COMPUTABLE PAYLOADCMS SEEDS: each lean/*.lean converts to a nested page seed under
 // src/seeds/<uuid>, the uuid a reversible IMPRINT of (status ∥ stem ∥ content) — a changed file mints a new
 // immutable version folder, and readSeed reverse-engineers status/stem/content OUT of the folder name, so
-// filtering and indexing cost nothing: the listing IS the index. Integrity.
+// filtering and indexing cost nothing: the listing IS the index. Integrity, not truth.
 export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs, type SeedStatus, type SeedIdentity, type LeanPageSeed, type PayloadDoc } from './payload-seed.js'
 
 // crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
@@ -138,7 +138,7 @@ export { gcdInt, coprime, starPolygon, fibonacciCycle, rotate, crt } from './cyc
 export { recomputableCost, THERMODYNAMICS, type CostReport } from './cost.js'
 export { securityAudit, KNOWN_DEV_DEPS, DEFENCE_THEOREMS, type SecurityCheck, type SecurityAuditReport } from './security-audit.js'
 // verify-statement — the FAST verification path: a statement byte-identical to a sealed theorem VERIFIES in O(1)
-// (a content-address lookup), returning the sealing theorem. The framework verifies a THEOREM.
+// (a content-address lookup), returning the sealing theorem. The framework verifies a THEOREM, not only a citation.
 export { verifyStatement, type StatementVerdict } from './verify-statement.js'
 // transform — the automation of "no unverified material stays: transform until verified". Only VERIFICATION is
 // honesty; each material is driven to its sealed core (VERIFIED, admitted) or recycled with a develop plan
@@ -173,13 +173,13 @@ export { overreachOf } from './prose-gate.js'
 export { slimGate, type SlimVerdict } from './slimgate.js'
 // reactor — the involutionary refusion reactor: snapshot() folds a chosen set of sealed theorems across domains into
 // one superposition uuid (first segment the identity handle); reactor() recycles REFUTED/UNVERIFIED claims back with
-// their develop plan (nothing is waste — refusal starts the next fusion). Recomputable. Integrity.
+// their develop plan (nothing is waste — refusal starts the next fusion). Recomputable. Integrity, not truth.
 export { snapshot, reactor, type Snapshot, type Viewpoint, type ReactorRun, type ReactorCell } from './reactor.js'
 // reason — an IN-HOUSE forward-chaining reasoner that USES the sealed rules of inference: it derives conclusions by
 // modus ponens / the hypothetical syllogism, citing the sealed theorem at each step, bounded and recomputable.
 export { reason, type Rule, type Derivation, type Reasoning } from './reason.js'
 // reflects — reveal the sealed theorems a real-world system ALREADY reflects, matched from the ledger and folded to
-// a receipt. A resemblance the ledger carries.
+// a receipt. A resemblance the ledger carries, not an endorsement of the system.
 export { reflects, type Reflection, type Reflected } from './reflects.js'
 // legal — the recomputable legal FACT BASE (licence, attribution, ledger receipt, compliance stance, standards
 // cited), NOT a legal audit or opinion: the inputs counsel starts from, delivered in chat, the ruling left to humans.
@@ -189,28 +189,28 @@ export { legalFacts, type LegalFacts } from './legal.js'
 // much; non-commercial is free and needs no licence, commercial is billed the two conserved coins.
 export { license, grantAt, verifyGrant, verifyLicense, type License } from './license.js'
 // priorart — an IN-HOUSE defensive-publication record: what/who/integrity/terms, recomputable and self-contained; the
-// WHEN (priority-dating) it names as an external anchor. You cannot notarise your own document.
+// WHEN (priority-dating) it names as an external anchor, never faked. You cannot notarise your own document.
 export { priorArt, type PriorArt, type PriorArtExhibit } from './priorart.js'
 // anchor — the external WHEN, verified in-house: fold a NIST Randomness Beacon pulse (signed, timestamped, archived)
 // into a record's address for a re-verifiable NOT-BEFORE bound — the rigorous "Schumann resonance at the time".
 export { beaconAnchor, type Anchor } from './anchor.js'
 // constants — verify uuidna's physics against NIST's authoritative CODATA values, content-addressed. A physical
-// constant uuidna uses is rechecked against the external authority.
+// constant uuidna uses is rechecked against the external authority, not self-asserted.
 export { nistConstant, type NistConstant } from './constants.js'
 // cve — fingerprint a CVE's PUBLIC NVD advisory metadata (id, description, CVSS, dates), content-addressed, for the
-// security reflection. Public metadata only; NVD publishes, uuidna fingerprints.
+// security reflection. Public metadata only, never an exploit; NVD publishes, uuidna fingerprints.
 export { auditCve, type CveAudit } from './cve.js'
 // vocab — a common, computable, translation-ready vocabulary derived from every theorem and its domain: each term
 // self-audited by the honesty gate, content-addressed, folded (in trinities) to ONE receipt — the honest "all is one".
 export { vocabulary, type Term, type Vocabulary } from './vocab.js'
 // forensics — audit an agent's STATEMENTS against the RECEIPTS: a fabricated citation, a false address, a drained
-// overclaim, an unbacked legal claim. Every violation is a recomputable fact about the CLAIM.
+// overclaim, an unbacked legal claim. Every violation is a recomputable fact about the CLAIM, never an accusation.
 export { forensics, auditAgents, type Violation, type ForensicReport } from './forensics.js'
 // evidence — deliver the recomputable evidence bundle for a statement (verdict + forensics + every cited proof in
 // full + the ledger receipt + the steps to reproduce every number), so a court accepts a trial by RECOMPUTING it.
 export { evidence, type Evidence, type ProofExhibit } from './evidence.js'
 // fingerprint — the FUSED ledger fingerprint: the fast tamper-evident FNV receipt AND the collision-resistant SHA-256
-// fold. Raises the cost of an undetected forgery to the SHA-256 collision bound — a ceiling.
+// fold. Raises the cost of an undetected forgery to the SHA-256 collision bound — a ceiling, not a maximum.
 export { ledgerFingerprint, type LedgerFingerprint } from './fingerprint.js'
 
 // spin — "spin the bits and get the coins": fold a derived file's bytes into its content-address coin, verify O(1)
@@ -245,18 +245,18 @@ export { laws, type Law, type Laws } from './laws.js'
 // lean/*.lean theorems and folds them to one receipt, the sealed statement its own spec. Hardware = the combinational-
 // logic identities a netlist is verified against; software = the program-correctness laws an implementation is verified
 // against; os = the exact-copy facts a deployment is verified against (runtime enforced by alpine/driver provenance,
-// portAllAlpine). Each a 128-bit particle. Integrity— a sealed spec.
+// portAllAlpine). Each a 128-bit particle. Integrity, not truth, not execution — a sealed spec, never a chip/program/OS.
 export { hardwareLayer, softwareLayer, osLayer, namedLayer, type NamedLayer, type LayerPart } from './layers.js'
 
 // analytics — QUANTUM ANALYTICS over the sealed ledger: descriptive measures anyone recomputes identically (counts,
 // the per-principle distribution, the named layers, credits, coverage, the coins, the collision census, the ledger
 // fingerprint), folded ORDER-INVARIANT to one receipt — the same analytics for every observer, no clock/RNG/telemetry.
-// It measures the ledger. Integrity.
+// It measures the ledger, not a user. Integrity, not truth.
 export { quantumAnalytics, type QuantumAnalytics, type Distribution, type LayerMeasure } from './analytics.js'
 // profile / social — uuidna's own content-addressed self-portrait (quantumProfile: identity+aura, proofs+kernel-only
 // witness, symmetric-only quantum-crypto posture, coins, integrity, rights) and its public shareable card
 // (socialProfile: handle, ledger-computed bio, aura colour, canonical links, credit). Both composed from sealed facts,
-// folded to one receipt, deterministic and offline. Integrity.
+// folded to one receipt, deterministic and offline. Integrity, not truth.
 export { quantumProfile, type QuantumProfile } from './profile.js'
 export { socialProfile, type SocialProfile } from './social.js'
 // grow — THE MISSION, recomputable: uuidna uses all its tools to LEGALLY GROW LIFE — the lawful, monotone growth of
@@ -264,11 +264,11 @@ export { socialProfile, type SocialProfile } from './social.js'
 export { growLife, type GrowLife } from './grow.js'
 // cube — the QUANTUM-CUBE CHALLENGE: a symmetric, deterministic challenge-response whose visual answer is the A432
 // aura rendered as a spinning 3D cube. A holder of the shared secret reproduces the exact cube for a verifier's nonce;
-// an imitator cannot. Strength is the secret's entropy — NOT zero-knowledge. Integrity.
+// an imitator cannot. Strength is the secret's entropy — NOT zero-knowledge, NOT biometric. Integrity, not truth.
 export { quantumCubeChallenge, verifyQuantumCube, type QuantumCube } from './cube.js'
 // provenance — BYTE-LEVEL image/file provenance: the SHA-256 of the exact bytes (exact-copy + tamper-evidence) + a
-// uuidna handle + the container format from the magic bytes. Proves byte-identity— a
-// match proves two files are byte-identical
+// uuidna handle + the container format from the magic bytes. Proves byte-identity, NEVER content authenticity — a
+// match proves two files are byte-identical, not that an image is a truthful record of the world (theorem
 // provenance_integrity_not_content_truth). Deterministic and offline.
 export { imageProvenance, verifyImageProvenance, type ImageProvenance } from './provenance.js'
 
@@ -285,8 +285,8 @@ export { oeapiProfile, oeapiOrganisations, oeapiProgrammes, oeapiCourses, oeapiL
 // occupation taxonomy — and the BRIDGE that pairs education to jobs through its own published relations), Eurostat
 // (education statistics AND job vacancies, JSON-stat decoded to labelled observations), and GISCO (the member states'
 // own school locations). OOAPI is the fourth, and the only one that runs the other way: uuidna SERVES it. What comes
-// back is EVIDENCE— a fingerprint of what a named public source answered. A source that could not be
-// called (EURES) is in the named absences.
+// back is EVIDENCE, never a seal — a fingerprint of what a named public source answered. A source that could not be
+// called (EURES) is in the named absences, not in the registry.
 export { schoolApiRegistry, schoolApiFetch, escoSearch, eurostatEducation, giscoSchools,
   dataEuropaSearch, cordisSearch, tedNotices, pickLang, probeSchoolApis, immutableReads, CPV_EDUCATION,
   escoOccupationsForSkill, eurostatVacancies, pairEducationToJobs, splitCsvLine, SCHOOL_APIS, GISCO_VINTAGE,
@@ -297,7 +297,7 @@ export { schoolApiRegistry, schoolApiFetch, escoSearch, eurostatEducation, gisco
 // rights — the CAPTAIN'S RIGHTS, hard-imprinted: copyright (© Tsvetan Rouschev), licence (CC BY-NC-ND 4.0), and the
 // credit law, content-addressed and reversibly imprinted so they travel with every artifact (infused into every page's
 // head + JSON-LD). draftContract drafts the formal, content-addressed rights contract. Factual, tamper-evident — NOT a
-// legal ruling. Integrity.
+// legal ruling. Integrity, not truth.
 export { captainRights, readImprintedRights, draftContract, type CaptainRights, type RightsContract } from './captain/rights/index.js'
 
 // aura — the QUANTUM AURA: a recomputable, A432-tuned colour folded from any content-address ("captain string theory":
@@ -352,32 +352,32 @@ export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantum
 // RESONATE only when two or more books are read together. Each book links decidable facts in isolation; read together,
 // facts from book A resonate with facts from book B, creating insights sealed in theorems. Pure correlation: all logic
 // deterministic and recomputable; network fetches (if needed) are application-layer. Shared theorems cite sealed proofs;
-// novel patterns are research leads awaiting ledger entry. Integrity.
+// novel patterns are research leads awaiting ledger entry. Integrity, not truth.
 export { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type BookPair, type CrossBookResonance, type CrossBookCluster } from './desk/sailing/cross/book/index.js'
 
 // quantum-sailing-complete — AUTOMATE the whole fleet at once: fetch books, audit, link to theorems, correlate weather,
 // cross-correlate books, cluster theorems. One unified computation folded to one receipt proving all layers computed together.
 // Pure and recomputable: all logic deterministic; network (book fetching) is application-layer. The captain's complete mission
-// in one call: read the library, find the weather, discover resonances. Integrity.
+// in one call: read the library, find the weather, discover resonances. Integrity, not truth.
 export { automateQuantumSailing, serializeQuantumSailingComplete, type BookWithLinkage, type QuantumSailingComplete } from './desk/sailing/complete/index.js'
 
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
 // ledger (DNA that does not recompute, a key/address collision, a broken conformance invariant),
-// folded to one recomputable receipt. A traitor is a forgery in the artifact. `npm run guard` runs this
-// + the harmonic-scan as the fast pre-reconcile gate — no manual pre-flight. Integrity.
+// folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this
+// + the harmonic-scan as the fast pre-reconcile gate — no manual pre-flight. Integrity, not truth.
 export { catchTraitors, guardLessons, type TreasonReport, type Traitor, type GuardLesson } from './treason.js'
 export { axiomWitness, type AxiomWitnessReport } from './axiom-witness.js'
 
 // anti-fraud — DETECT FORGER ATTEMPTS across the sealed ledger and captain's coin economy: forged theorems,
 // double-spend coins, vote tampering, ledger intrusions, agent malfeasance. Every fraud is a recomputable FACT
-// about the claim (wrong address, uncited theorem, mismatched weight). Folds to order-invariant
-// receipts anyone verifies. Integrity— and not intention.
+// about the claim (wrong address, uncited theorem, mismatched weight), never an accusation. Folds to order-invariant
+// receipts anyone verifies. Integrity, not truth — and not intention.
 export { detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit, type CoinAudit, type VoteFraud, type VoteAudit, type LedgerIntrusionReport, type ForgeryDetection, type DoubleSpendsAudit } from './anti-fraud.js'
 
 // repos — BIND the captain's public repositories to the DISCOVERY SEQUENCE (the ℤ/9 vortex [1,2,4,8,7,5], revealed
 // first): each public repo of the uuidna org + the ceccec user fingerprinted to a 128-bit content-address, placed on
 // the vortex by its digital root and in the reveal order by its address rank, folded to one recomputable receipt. It
-// binds by content-address (provenance); it does NOT modify, fork, or vouch for any repo. Integrity.
+// binds by content-address (provenance); it does NOT modify, fork, or vouch for any repo. Integrity, not truth.
 export { bindCaptainRepos, CAPTAIN_ACCOUNTS, type RepoBinding, type BoundRepo } from './captain/repos/index.js'
 
 // trial-deposit — the trial REQUIRES the two coins deposited by the parties (local), sealed into diamonds; only
@@ -385,8 +385,8 @@ export { bindCaptainRepos, CAPTAIN_ACCOUNTS, type RepoBinding, type BoundRepo } 
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from './captain/trial/deposit/index.js'
 // quantum/os — uuidnaOS is NOT an OS you boot and does NOT run/port Alpine's binaries (uuidna never executes). It is a
 // content-addressed PROVENANCE MANIFEST of an EXACT Alpine release: pin the version + arch + PUBLISHED rootfs digest,
-// and VERIFY your actual bytes with uuidna's own pure-TS SHA-256. Port the INTEGRITY. fetchAlpineLatest
-// is the upstream-automation network call at the os/ boundary (the one place non-determinism is honest.
+// and VERIFY your actual bytes with uuidna's own pure-TS SHA-256. Port the INTEGRITY, never the runtime. fetchAlpineLatest
+// is the upstream-automation network call at the os/ boundary (the one place non-determinism is honest, not hidden).
 export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineRelease, type RootfsCheck } from './os/alpine/index.js'
 // quantum/drivers — the DEVICE-DRIVER boundary: a content-addressed manifest of the exact Alpine netboot bundle (kernel
 // + modloop = the kernel modules, the drivers). Pin version + arch + published SHA-256, verify the bytes with uuidna's
@@ -405,7 +405,7 @@ export { runSequence, type SequenceRun } from './sequence-run.js'
 // singularity — every vector folded at once, through the involution, to one order-invariant core.
 export { singularity, type Singularity } from './separation.js'
 
-export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview } from './theorems/index.js'
+export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, UUID_HEXBITS, dependsOn, byGravity, type Rating } from './theorems/index.js'
 
 export { discover, superposition, rigid, type Value as DiscoverValue, type Relation } from './discover.js'
 

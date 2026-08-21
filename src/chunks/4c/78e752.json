@@ -1,0 +1,12 @@
+{
+  "handle": "4c78e752",
+  "address": "4c78e752-1300-801e-9377-3c178d4a0e3f",
+  "statement": "((List.range 16).filter (fun t => ((List.range 4).filter (fun i => (t / (2^i)) % 2 == 1)).length == 1)).length = 4 ∧ (2^(2^2) = 16)",
+  "tactic": "decide",
+  "keys": [
+    "two_bit_conjunctions_are_four_of_sixteen"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

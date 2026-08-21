@@ -7,7 +7,7 @@ description: "Computed from lean/Affine.lean — 6 sealed theorems, every claim 
 
 > AGL(1,ℤ/9), ENUMERATED — the group OneLeap.lean names and never lists. — held by [group_holds_fiftyfour](/theorem/group_holds_fiftyfour) and its 5 siblings below.
 
-**6 theorems**, from [group_holds_fiftyfour](/theorem/group_holds_fiftyfour) onward, each proven `by decide` in [lean/Affine.lean](/lean/Affine.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [units_are_coprime_six](/theorem/units_are_coprime_six). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [group_holds_fiftyfour](/theorem/group_holds_fiftyfour) onward, each proven `by decide` in [lean/Affine.lean](/lean/Affine.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [units_are_coprime_six](/theorem/units_are_coprime_six). A boundary stated here is decided.
 
 ### THE GROUP IS FIFTY-FOUR MAPS, listed rather than counted: six units of ℤ/9 times nine offsets. All fifty-four are distinct, so the listing has no repeat hiding in it.
 The ledger holds this as [group_holds_fiftyfour](/theorem/group_holds_fiftyfour) — proven `by decide`, sorry-free:
@@ -44,7 +44,7 @@ The ledger holds this as [every_map_inverts](/theorem/every_map_inverts) — pro
 agl.all (fun f => agl.any (fun g => comp f g == 9))
 ```
 
-### AND IT IS NOT ABELIAN, shown by exhibiting the failure rather than asserting it: 2376 of the 2916 ordered pairs do not commute — a majority, not an exception. Only 540 pairs agree, so order matters almost everywhere in this group.
+### AND IT IS NOT ABELIAN, shown by exhibiting the failure rather than asserting it: 2376 of the 2916 ordered pairs do not commute — a majority. Only 540 pairs agree, so order matters almost everywhere in this group.
 The ledger holds this as [group_does_not_commute](/theorem/group_does_not_commute) — proven `by decide`, sorry-free:
 
 ```lean

@@ -27,7 +27,7 @@
 import { readFileSync } from 'node:fs'
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 
 /** One lesson in a course: the theorem, and what it cost the kernel to decide. `steps` is 0 when unmeasured. */
 export interface Lesson { key: string; name: string; steps: number }

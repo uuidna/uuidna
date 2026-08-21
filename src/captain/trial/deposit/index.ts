@@ -10,7 +10,7 @@ import { theorems } from '../../../theorems/index.js'
 import { verifyStatement } from '../../../verify-statement.js'
 import { coins } from '../../billing/index.js'
 import { toUuid } from '../../../address.js'
-import { merkleGravity } from '../../../gravity.js'
+import { merkleGravity } from '../../../gravity/index.js'
 
 /** A party's deposit of the coins: a decidable TEST that must hold, or a citation to a SEALED theorem (key or exact
  *  statement). Either is a real contribution — the two-coin fold. A bare assertion with neither is not a deposit. */

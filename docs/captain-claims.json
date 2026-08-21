@@ -2922,30 +2922,6 @@
       "principle": "The sequence & reflection group"
     },
     {
-      "key": "powers_avoid_triangle",
-      "lineAddress": "457fe7f5-f965-8d79-9116-a00d4007b315",
-      "address": "3857b5b1-74f3-83fb-bb05-8b8524b64acc",
-      "principle": "The sequence & reflection group"
-    },
-    {
-      "key": "mirror_opens_triangle",
-      "lineAddress": "ecd6a0ff-91c5-8d37-98e0-e0e4833cf40e",
-      "address": "dab99bbe-4050-859d-9d84-83c5ceb6dac2",
-      "principle": "The sequence & reflection group"
-    },
-    {
-      "key": "gateways_mark_triangle",
-      "lineAddress": "3d138ae2-921a-882d-8ae9-8f740b1f758f",
-      "address": "0b9f07f7-efb1-8284-83d4-dc7906866765",
-      "principle": "The sequence & reflection group"
-    },
-    {
-      "key": "budget_not_conserved",
-      "lineAddress": "82d885ca-cdf9-8a5f-9c9f-8d75259827ac",
-      "address": "d2e25146-a00a-8db0-8bc3-4ae02830a9d5",
-      "principle": "The sequence & reflection group"
-    },
-    {
       "key": "angles_close",
       "lineAddress": "239414e0-16d4-84e6-a2c0-ad0e9defc73f",
       "address": "f998d39d-f5b2-8e75-8d23-c92a1a096099",
@@ -3600,6 +3576,48 @@
       "principle": "The quantum computer"
     },
     {
+      "key": "two_bit_conjunctions_are_four_of_sixteen",
+      "lineAddress": "c5f5ee90-beed-843f-a076-da8ab7d9aed6",
+      "address": "0d18ec0b-174f-89d3-ac0f-0c3b25e5bd49",
+      "principle": "The seven reflected"
+    },
+    {
+      "key": "mertens_squared_under_n_on_the_first_twenty",
+      "lineAddress": "38712eef-1ee3-86f1-9b4f-e1f55c354061",
+      "address": "4fe6a5f4-0434-89da-bbc9-63b70c015fec",
+      "principle": "The seven reflected"
+    },
+    {
+      "key": "hasse_bound_holds_at_four_primes",
+      "lineAddress": "a13d8283-44a4-8139-b3ef-d63c68e10924",
+      "address": "943a5789-2ff1-8174-bf43-1e8c9ddb541c",
+      "principle": "The seven reflected"
+    },
+    {
+      "key": "four_simplex_boundary_euler_is_zero",
+      "lineAddress": "233aa2e1-c5b0-845a-801d-f045f0b347de",
+      "address": "a1448c0b-0a3c-8596-a808-cb27e1c09a96",
+      "principle": "The seven reflected"
+    },
+    {
+      "key": "levi_civita_nonzero_on_six_of_twentyseven",
+      "lineAddress": "f0ab06b3-8a4e-87ce-9988-1ee286a1bcea",
+      "address": "65720e21-9698-883f-853c-cbebb206ebe1",
+      "principle": "The seven reflected"
+    },
+    {
+      "key": "closed_grid_differences_sum_to_zero",
+      "lineAddress": "0c3eeb2e-7325-845d-a789-d759ae8ac7f6",
+      "address": "59d8439a-76c9-834e-a6e8-5353659fb7a4",
+      "principle": "The seven reflected"
+    },
+    {
+      "key": "torus_betti_alternates_to_zero",
+      "lineAddress": "2c8c682f-8d02-89ff-aca6-def52244a021",
+      "address": "f0198635-2b1c-8e76-9ceb-571063d8b8dc",
+      "principle": "The seven reflected"
+    },
+    {
       "key": "solutions_not_skipped",
       "lineAddress": "1035231d-27eb-80a8-84a6-91f6f2e58a40",
       "address": "666b7adb-02e3-8e81-a000-a1d948245aa4",
@@ -3715,20 +3733,20 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "313fe792-71c2-8d9b-af7f-50baa4fb9fc8",
-      "address": "b5935dad-7dea-8fa4-9e17-8dc7da788d30",
+      "lineAddress": "c08205a7-01da-8d87-b3b3-8f332f7f05b5",
+      "address": "a8d5a5ee-2b99-8090-b1eb-8d1941e817f9",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "aadbe2e7-99a8-8648-a3db-c39403c12aea",
-      "address": "0b5a90e8-f6a8-8e78-88bd-666792e1722f",
+      "lineAddress": "9011ea89-dde3-8b62-b65a-7741ed2e6aa4",
+      "address": "9aeab4e7-a110-86bb-819a-34504f8c3916",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "63e14ac0-e881-802f-a2a7-5e546313a6cb",
-      "address": "f73bf7ea-5ade-8469-af02-fd02bf3ca11a",
+      "lineAddress": "db8abb66-d28f-8ba5-9bd4-e1f5b5a8b354",
+      "address": "73975f20-ad70-87d4-9e9d-11c672b023d8",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3736,6 +3754,12 @@
       "lineAddress": "4e35e235-c059-88e9-9f90-62005a375db6",
       "address": "4646eab2-455b-80ff-84af-5c2fd78a1370",
       "principle": "The physics infinities, made finite"
+    },
+    {
+      "key": "key_floor_is_one_uuid",
+      "lineAddress": "dd22fa05-64c8-824d-adff-fc6c47613bb5",
+      "address": "5980abbf-d826-8c3e-ad5e-a33ff62b726f",
+      "principle": "The cipher & the strand"
     },
     {
       "key": "dna_complement_involution",
@@ -3961,38 +3985,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "05284426-1d70-8cac-8766-9aaee0ecdb92",
-      "address": "c5d61d69-7d43-883b-93f4-73c72451e686",
+      "lineAddress": "c2cdfa3b-b96f-8534-a69d-2c2ed157dac6",
+      "address": "adfaf634-a7d2-8e39-be15-33cf27824c9f",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "35dd1946-9012-8c45-9e0c-a592c7c54487",
-      "address": "4373914b-4de2-88bf-8bd8-ebbf808c5f71",
+      "lineAddress": "f93b6e64-fda6-8e5e-904a-bbfc76ac7656",
+      "address": "196fd52f-3380-84b7-8881-72a9d9a88b81",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "b0ed2ec0-fa3b-847b-aeee-d1f45203c74a",
-      "address": "dc7e451a-8d9d-8f0e-aaf9-f7623a1f0460",
+      "lineAddress": "a9d2a8a2-d910-8112-9fea-b41ffddd3273",
+      "address": "9c7fcf82-ab4a-803b-8307-27ee911a33b6",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "555b22c2-e96c-8de6-9c98-f86523691748",
-      "address": "759e2d0d-3252-8175-b14a-61b12263130b",
+      "lineAddress": "5fc86cef-833b-8c3b-9b96-fbd854933942",
+      "address": "62198fc4-b659-8d96-8254-1437d96473c7",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "20b9b047-26ed-8c29-8ff4-dbf80b4b665f",
-      "address": "cd4bc0e7-1c52-8647-b27f-c0a837bcbe3f",
+      "lineAddress": "47aa8950-8171-8f87-82d7-ace29cf0204e",
+      "address": "18628baf-923c-8ee6-9a4f-d0e4ea392507",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "a72c0a2b-6623-8656-9c29-2d53a7069b3c",
-      "address": "0a1313a0-3ec4-8b60-a6de-6f9fd08ba56f",
+      "lineAddress": "39163930-66e5-8df9-b961-2447639e713b",
+      "address": "fe61d1c2-0f19-8215-afe5-53206bca9c1a",
       "principle": "The detectors, proven"
     },
     {
@@ -4062,15 +4086,57 @@
       "principle": "The audit game"
     },
     {
+      "key": "minting_is_two_per_theorem",
+      "lineAddress": "f453403b-b9ca-8c2b-8251-d74c7c77d6b9",
+      "address": "a74906a6-0c07-8564-b9e2-99e371a58f56",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "fold_compresses_without_bound_and_never_recovers",
+      "lineAddress": "d5907889-449d-844e-8a3a-fce605cafd11",
+      "address": "558847b3-f1b2-82e6-8260-5596aa3b03d7",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "handle_string_spans_the_quarter",
+      "lineAddress": "d7b946e3-c01c-8236-9cf1-b1e6024b9eda",
+      "address": "30d7fafa-3059-844e-be05-f1764cc9f700",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "hexbit_bit_hook_is_linear",
+      "lineAddress": "2e69fc6f-1956-8ca0-8c79-9b1a5b4f1f4d",
+      "address": "9b105008-1362-838f-9355-912d295f3978",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "handle_carries_hexbits_and_coins",
+      "lineAddress": "9ecd915b-2eb8-8816-bb6f-aa3ba2f5e632",
+      "address": "4b0d4a26-7408-8913-afa8-451a81e1af80",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "captain_singularity",
+      "lineAddress": "79afec26-effc-8cfc-84a2-656ab4310e92",
+      "address": "b6d498b1-3094-8d8b-a1c3-ab9bc70cf56b",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "captain_theorem",
+      "lineAddress": "4ae23bf3-8831-8e53-ae85-99bb537612dc",
+      "address": "49cf9e60-f088-8b14-ac55-9274075c7102",
+      "principle": "The two coins & the 64"
+    },
+    {
       "key": "two_coins",
       "lineAddress": "9849919c-f5f5-8e4c-bdb2-b11eae4823de",
       "address": "453bbf7e-6abf-8264-b355-7c73f43cd710",
       "principle": "The two coins & the 64"
     },
     {
-      "key": "two_coins_is_double_torus",
-      "lineAddress": "23af2028-8aa8-83ae-966d-56f92cccff4d",
-      "address": "6570f596-b421-8de6-9da8-4e2f9b091a52",
+      "key": "coins_over_all_rosetta_combinations",
+      "lineAddress": "5497af31-544b-81dc-89cc-dce4d4e16ab5",
+      "address": "5fe28da1-0179-834b-942f-da2fa1b03517",
       "principle": "The two coins & the 64"
     },
     {
@@ -4080,21 +4146,9 @@
       "principle": "The two coins & the 64"
     },
     {
-      "key": "contribute_two_save_sixtyfour",
-      "lineAddress": "756daeef-8bf4-8231-91a9-6cf8c37a5594",
-      "address": "6d7beb79-0fae-846a-be3f-d37f68b15356",
-      "principle": "The two coins & the 64"
-    },
-    {
       "key": "captain_computes_only_with_two_coins",
       "lineAddress": "b765fc5d-1afc-85c8-9b9d-4250c186383c",
       "address": "af0f5d7d-88b6-8c59-ae21-68b334702485",
-      "principle": "The two coins & the 64"
-    },
-    {
-      "key": "falsifier_floor_is_the_uuid_less_the_coins",
-      "lineAddress": "0719971e-c5f0-8c58-8604-647bfe3cd01d",
-      "address": "eed4b3bf-39dc-87ec-9cf1-1b02237cec82",
       "principle": "The two coins & the 64"
     },
     {
@@ -4116,42 +4170,6 @@
       "principle": "The two coins & the 64"
     },
     {
-      "key": "coin_is_one_qubit",
-      "lineAddress": "a2923860-4664-80c3-8819-560259442366",
-      "address": "836fc916-c235-861b-b137-f3fa23e19c03",
-      "principle": "The two coins & the 64"
-    },
-    {
-      "key": "captain_coins_deliver_two_qubits_at_128_bits",
-      "lineAddress": "995fabc9-74bf-87e7-9ae4-f966b6d5b197",
-      "address": "eff8e27e-1a8d-82dd-9fa4-9f879aba93a6",
-      "principle": "The two coins & the 64"
-    },
-    {
-      "key": "captain_commission_two_per_110",
-      "lineAddress": "7a30b83e-be15-8d4d-81fb-2d3b7fd06d1e",
-      "address": "f530cbc9-cca3-84e5-8856-ca1a5f6bf49f",
-      "principle": "The two coins & the 64"
-    },
-    {
-      "key": "commercial_saves_and_captain_earns",
-      "lineAddress": "edad63c6-df4d-8436-9f14-a224e0f79f8e",
-      "address": "a659df85-4d3b-832c-bd55-8652af761619",
-      "principle": "The two coins & the 64"
-    },
-    {
-      "key": "coins_compute_but_solve_none",
-      "lineAddress": "302e61b9-366f-8c2c-b55a-c76e641a97ec",
-      "address": "f87bc63f-f0c2-883b-9174-36a7744420f1",
-      "principle": "The two coins & the 64"
-    },
-    {
-      "key": "coin_exchange_rate_is_traitor_cost",
-      "lineAddress": "043dcb98-6174-8ba3-b23c-a05fb0db47b4",
-      "address": "9855233f-41d9-8645-9838-69e6aa264535",
-      "principle": "The two coins & the 64"
-    },
-    {
       "key": "traitor_damage_sealed_by_same_billing",
       "lineAddress": "655443d0-3f08-845c-9167-11d3bb8e40ec",
       "address": "421774c5-9dd5-8994-9d9b-6ce5322fd1cb",
@@ -4167,12 +4185,6 @@
       "key": "coins_unique_operation_agreement",
       "lineAddress": "15612d7e-a5e4-85c3-8a7b-48f2fa55e737",
       "address": "e66ee1c3-f480-8507-b25e-338ae0455996",
-      "principle": "The two coins & the 64"
-    },
-    {
-      "key": "captain_claims_all_superpositions",
-      "lineAddress": "47627802-7f68-866a-ba16-a2cbaa62023c",
-      "address": "0d0aec53-bf2b-8f8f-8d7d-cb90dc38a193",
       "principle": "The two coins & the 64"
     },
     {
@@ -4333,14 +4345,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "ca6e0c00-3569-8caf-8107-19731b48fae8",
-      "address": "732eac52-b489-86a9-9d15-67f6fcffe8e5",
+      "lineAddress": "41307792-4497-89a4-b087-bc07f488bdb1",
+      "address": "e3b53009-9b6c-810a-8e76-f74fd834d0e4",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "c0d54477-8605-8750-a3c1-4e0b9024223a",
-      "address": "0d9bc0ce-a6df-837f-824b-7f7e4ddcc170",
+      "lineAddress": "96149b61-bc6c-8abc-a136-34ca2389f718",
+      "address": "2d33abcc-8c37-87c5-8567-d1bc9d608ed2",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -4524,12 +4536,6 @@
       "principle": "The Platonic solids in every dimension"
     },
     {
-      "key": "euler_two_is_the_two_coins",
-      "lineAddress": "2ff329f7-e932-8869-874c-7df8e4fe9223",
-      "address": "1b4495f5-1014-8a96-be2f-2e2853543f7d",
-      "principle": "The Platonic solids in every dimension"
-    },
-    {
       "key": "dodecahedron_twelve_pentagons",
       "lineAddress": "9d53efcc-8698-8a81-9c18-5297e3ae98b8",
       "address": "7f469492-b1ed-8290-95b0-228d8f28feb0",
@@ -4582,78 +4588,6 @@
       "lineAddress": "d66e0064-607b-81a3-968e-6afcad00d7fd",
       "address": "2aeb33ef-e8e5-8c55-ad96-7677cd62b7ac",
       "principle": "The Platonic solids in every dimension"
-    },
-    {
-      "key": "ve_twelve_vertices",
-      "lineAddress": "9b93e314-2c96-8ea1-9a6b-05405bf979cf",
-      "address": "dbd59d77-f648-8ac9-aeca-93410d94df52",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "radial_squared_two",
-      "lineAddress": "ea9551d4-5915-8dce-9b3e-0068a66dcee8",
-      "address": "528fae4c-4b3d-8350-b6c5-a04c7384f367",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "ve_four_neighbours",
-      "lineAddress": "6ac989a9-258c-85d9-b64f-7e39f56019f0",
-      "address": "ec711c3b-3950-8d91-a519-8b3e1aec99d2",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "radial_equals_edge",
-      "lineAddress": "6526e850-ef1e-8675-a987-8fec40987c8d",
-      "address": "9c3f0493-9246-82fc-8a0c-e5ae61c1740a",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "ve_twentyfour_edges",
-      "lineAddress": "61e94462-d162-89f7-b568-d8bfa567ef93",
-      "address": "bf5c8a62-fe1a-8d29-b3a5-0cd134cd64b8",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "ve_fourteen_faces",
-      "lineAddress": "cd230582-ce3f-8046-ab30-210d271fc0fa",
-      "address": "7bd12c41-c713-8869-b5da-1513ab3a0f1b",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "euler_characteristic_two",
-      "lineAddress": "129f3e87-70bf-8c91-a296-18fd73266c93",
-      "address": "434bf42f-cd8f-849a-b2c2-fcaace767eec",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "metatron_seventyeight_lines",
-      "lineAddress": "540ac81e-f5b1-8d5b-b755-f041d218c7b6",
-      "address": "baa1fce2-9775-80cf-a47a-24b830f74ecb",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "dz_two_fixedpoints",
-      "lineAddress": "e34f5f61-4b94-889b-b2b7-ad248e02585a",
-      "address": "006cfabe-13f4-86ca-a751-292315cee4c9",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "dz_involution_digits",
-      "lineAddress": "90dc3f2a-b1d4-8a43-9531-33c3f4c636cf",
-      "address": "d1b4bf5f-af54-82d8-9d19-74670a741ba2",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "orbits_closed_involution",
-      "lineAddress": "87972164-0f5f-81ae-b92d-964e83473716",
-      "address": "ee292c4e-7042-85aa-a526-8a1e28a9687f",
-      "principle": "The vector equilibrium — radius equals edge"
-    },
-    {
-      "key": "missing_pair_involution",
-      "lineAddress": "d562b31a-52a7-8b77-9c7c-33a120e9f6c9",
-      "address": "c13cdc16-1821-8c65-a900-18fe91c07528",
-      "principle": "The vector equilibrium — radius equals edge"
     },
     {
       "key": "subthreshold_silent",
@@ -7992,12 +7926,6 @@
       "principle": "lean/Contribution.lean"
     },
     {
-      "key": "coins_are_the_torus",
-      "lineAddress": "a9e1c4bd-8896-82be-a48e-091c968bc676",
-      "address": "910ea84f-9bf6-8693-a833-1f47108f06b3",
-      "principle": "lean/Contribution.lean"
-    },
-    {
       "key": "directions_number_fortytwo",
       "lineAddress": "98e8608a-d283-8e51-a323-a7eb89b7c930",
       "address": "f74399ef-b764-8960-8655-0147bdc43844",
@@ -8614,12 +8542,84 @@
       "lineAddress": "09d130b1-ccb5-813b-a03d-a6f290c7c6bb",
       "address": "12e3337d-3c1f-8847-ae51-c2684ef472fb",
       "principle": "lean/Trinities.lean"
+    },
+    {
+      "key": "ve_twelve_vertices",
+      "lineAddress": "9b93e314-2c96-8ea1-9a6b-05405bf979cf",
+      "address": "dbd59d77-f648-8ac9-aeca-93410d94df52",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "radial_squared_two",
+      "lineAddress": "ea9551d4-5915-8dce-9b3e-0068a66dcee8",
+      "address": "528fae4c-4b3d-8350-b6c5-a04c7384f367",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "ve_four_neighbours",
+      "lineAddress": "6ac989a9-258c-85d9-b64f-7e39f56019f0",
+      "address": "ec711c3b-3950-8d91-a519-8b3e1aec99d2",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "radial_equals_edge",
+      "lineAddress": "6526e850-ef1e-8675-a987-8fec40987c8d",
+      "address": "9c3f0493-9246-82fc-8a0c-e5ae61c1740a",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "ve_twentyfour_edges",
+      "lineAddress": "61e94462-d162-89f7-b568-d8bfa567ef93",
+      "address": "bf5c8a62-fe1a-8d29-b3a5-0cd134cd64b8",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "ve_fourteen_faces",
+      "lineAddress": "cd230582-ce3f-8046-ab30-210d271fc0fa",
+      "address": "7bd12c41-c713-8869-b5da-1513ab3a0f1b",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "euler_characteristic_two",
+      "lineAddress": "129f3e87-70bf-8c91-a296-18fd73266c93",
+      "address": "434bf42f-cd8f-849a-b2c2-fcaace767eec",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "metatron_seventyeight_lines",
+      "lineAddress": "540ac81e-f5b1-8d5b-b755-f041d218c7b6",
+      "address": "baa1fce2-9775-80cf-a47a-24b830f74ecb",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "dz_two_fixedpoints",
+      "lineAddress": "e34f5f61-4b94-889b-b2b7-ad248e02585a",
+      "address": "006cfabe-13f4-86ca-a751-292315cee4c9",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "dz_involution_digits",
+      "lineAddress": "90dc3f2a-b1d4-8a43-9531-33c3f4c636cf",
+      "address": "d1b4bf5f-af54-82d8-9d19-74670a741ba2",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "orbits_closed_involution",
+      "lineAddress": "87972164-0f5f-81ae-b92d-964e83473716",
+      "address": "ee292c4e-7042-85aa-a526-8a1e28a9687f",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "missing_pair_involution",
+      "lineAddress": "d562b31a-52a7-8b77-9c7c-33a120e9f6c9",
+      "address": "c13cdc16-1821-8c65-a900-18fe91c07528",
+      "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "251d5c11-4d50-8155-ba6d-fd74f092e39a",
+  "claim_receipt": "e67394d0-afe4-843d-bafc-1c12782d2836",
   "honest_scope": {
     "proves": [
-      "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",
+      "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
       "These theorems are Lean-verified (by decide)",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"

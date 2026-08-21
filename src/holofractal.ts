@@ -13,7 +13,7 @@ import { toUuid, coin64, digitalRoot } from './address.js'
 import { seedOf } from './handle.js'   // THE one address→integer derivation — see handle.ts
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { starPolygon } from './cycles.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS } from './captain/billing/index.js'
 
 export interface HoloFractal {

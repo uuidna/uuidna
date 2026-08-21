@@ -13,7 +13,7 @@
 // the stdio host (mcp.ts) is the named non-harmonic boundary that awaits the tool, then hands the settled output
 // here. Integrity — the record recomputes for anyone — the gate judges the WORK (addresses, citations, bounds).
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { sanitizeInput, sanitizeValue } from './sanitize.js'
 import { slimGate } from './slimgate.js'
 import { theoremByKey, theorems } from './theorems/index.js'

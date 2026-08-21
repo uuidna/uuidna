@@ -7,7 +7,7 @@ description: "Computed from lean/Relativity.lean — 5 sealed theorems, every cl
 
 > RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. — held by [light_on_null_cone](/theorem/light_on_null_cone) and its 4 siblings below.
 
-**5 theorems**, from [light_on_null_cone](/theorem/light_on_null_cone) onward, each proven `by decide` in [lean/Relativity.lean](/lean/Relativity.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 5 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [causality_forbids_ftl](/theorem/causality_forbids_ftl). A boundary stated here is decided, not merely denied.
+**5 theorems**, from [light_on_null_cone](/theorem/light_on_null_cone) onward, each proven `by decide` in [lean/Relativity.lean](/lean/Relativity.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 5 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [causality_forbids_ftl](/theorem/causality_forbids_ftl). A boundary stated here is decided.
 
 ### Light travels on the null cone: with c = 1, a flash covering x = 5 in t = 5 has spacetime interval (ct)² − x² = 5² − 5² = 0. Photons trace the zero-interval boundary between cause and no-cause.
 The ledger holds this as [light_on_null_cone](/theorem/light_on_null_cone) — proven `by decide`, sorry-free:

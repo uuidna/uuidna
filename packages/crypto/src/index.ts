@@ -2,7 +2,7 @@
 // (the one export surface). Regenerate with `npm run gen:packages`; the guard hard-rejects drift.
 // @uuidna/crypto — the CRYPTO SURFACE of uuidna: pure-TS SHA-256 / HMAC / PBKDF2, ChaCha20-Poly1305
 // (RFC 8439, KAT-verified), the 7d-fold envelope, onion-sealed uuid streams, contract seals, byte-level
-// provenance, the exploit fold, and the quantum-cube challenge. Integrity, not truth.
+// provenance, the exploit fold, and the quantum-cube challenge. Integrity.
 export { encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, type Sealed } from '@uuidna/uuidna'
 export { sha256, hmacSha256, pbkdf2Sha256 } from '@uuidna/uuidna'
 export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from '@uuidna/uuidna'

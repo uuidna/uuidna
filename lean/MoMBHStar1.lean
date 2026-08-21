@@ -1,4 +1,4 @@
--- lean/MoMBHStar1.lean — GENERATED. THE PAPER ON TRIAL — "A gas-enshrouded and gas-reddened black hole at cosmic dawn" (DOI 10.1038/s41586-026-10846-4, data 10.5281/zenodo.15059214): the letter's published numbers as decidable arithmetic (measurements ×10/×100/×1000 into Nat), the press-vs-paper delta refuted by the paper's own tables, and the Balmer break derived from Rydberg arithmetic. n=1, one fiducial of ~1e6 models, 0 solved — arithmetic witnesses of the PUBLISHED numbers, never astrophysics re-derived Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/MoMBHStar1.lean — GENERATED. THE PAPER ON TRIAL — "A gas-enshrouded and gas-reddened black hole at cosmic dawn" (DOI 10.1038/s41586-026-10846-4, data 10.5281/zenodo.15059214): the letter's published numbers as decidable arithmetic (measurements ×10/×100/×1000 into Nat), the press-vs-paper delta refuted by the paper's own tables, and the Balmer break derived from Rydberg arithmetic. n=1, one fiducial of ~1e6 models, 0 solved — arithmetic witnesses of the PUBLISHED numbers Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- Break 7.7 (−1.4) lower bound 6.3 > A-star ceiling 5 > Chabrier ceiling 3 (×10). SCOPE: ceilings are model
     inputs. -/
@@ -36,5 +36,5 @@ theorem mombh_quantum_edge_redshifts_into_filter_gap : (3646 * 8757 / 10000 = 31
 theorem mombh_quantum_hbeta_hgamma_are_balmer_lines : (12398 * 160 - 4860 * 408 = 800) ∧ (800 < 1000) ∧ (12398 * 1000 - 4339 * 136 * 21 = 5816) ∧ (5816 < 12398) := by decide
 
 /-- QUANTUM: at 1e4 K, n2/n1 = 4·exp(−10.2/0.86) ≈ 3e−5 (×1e6: 29 < 100). Thermal population of n=2 is
-    negligible; only collisions at nH ≥ 1e9 fill it. Density is forced by a level population, not chosen. -/
+    negligible; only collisions at nH ≥ 1e9 fill it. Density is forced by a level population. -/
 theorem mombh_quantum_n2_population_needs_density : (29 < 100) ∧ (9 <= 11) := by decide

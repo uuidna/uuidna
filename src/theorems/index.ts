@@ -2,8 +2,9 @@
 // `by decide` (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs parses them into ./generated.ts,
 // and this module is the typed, addressed view the package, the MCP tools, the trial and the site all consume.
 // No theorem is authored here. A theorem computes in Lean, or it is not a theorem. Integrity, not truth.
-import { LEAN_LEDGER, PRINCIPLES, type LeanTheorem } from './generated.js'
-import { merkleGravity } from '../gravity.js'
+import { hexbitsOf as hexbitUnit, UUID_HEXBITS as HEXBIT_UUID } from '../hexbit/index.js'
+import { WING_DEFS, LEAN_LEDGER, PRINCIPLES, type LeanTheorem } from './generated.js'
+import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../address.js'
 
 export { PRINCIPLES }
@@ -137,9 +138,11 @@ export function runTrial(): TrialResult {
  *  address (the proposition's identity) and lineAddress (the exact reconstructed Lean line's identity — see
  *  Theorem's own doc comment for why these are two different addresses, not one duplicated). Pass `{ skill }`
  *  to filter to one skill (the capability axis). */
-export function theorems(opts: { skill?: string } = {}): { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string; lean: string; address: string; lineAddress: string }[] {
+export function theorems(opts: { skill?: string } = {}): { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string; lean: string; address: string; lineAddress: string; cases?: number }[] {
   const ts = opts.skill ? THEOREMS.filter((t) => t.skill === opts.skill) : THEOREMS
-  return ts.map((t) => ({ key: t.key, name: t.name, statement: t.statement, tactic: t.tactic, file: t.file, principle: t.principle, skill: t.skill, lean: t.lean, address: t.address, lineAddress: t.lineAddress }))
+  // spread rather than re-listing: a field added to the ledger reaches consumers without an edit here,
+  // which is how the measured `cases` went missing between the ledger and the reactor.
+  return ts.map((t) => ({ ...t }))
 }
 
 // CONSOLIDATED INDICES over the immutable ledger — built ONCE at the source and reused everywhere, so no module
@@ -165,3 +168,82 @@ export const theoremNeighbours = (key: string): { key: string; principle: string
     ? { key, principle: self.principle, neighbours: (_byPrinciple.get(self.principle) ?? []).filter((t) => t.key !== key) }
     : { key, principle: null, neighbours: [] }
 }
+
+/** DECIDED-CASE MASS — the walk the generator actually made, sealed at generation and read back here.
+ *
+ *  This was a regex over the RENDERED statement, hunting `List.range 16` in text: reading prose ABOUT the
+ *  algebra rather than the algebra. It had to be taught about list literals, then about conjuncts, and would
+ *  have rated a theorem by a numeral in a comment. The count is not something to recover downstream — the
+ *  generator WALKS the domain to compute the fact, so `range` tallies what it hands out during that walk and
+ *  emit() records the tally on the same run that validates the JS. Nothing is parsed; a theorem with no
+ *  recorded walk rates 1, the single case it decides. */
+export const decidedMass = (t: Theorem): number => t.cases ?? 1
+
+/** the ledger heaviest-first — the ranking the README surfaces, counted rather than chosen. */
+export const byMass = (): readonly Theorem[] =>
+  [...THEOREMS].sort((a, b) => decidedMass(b) - decidedMass(a) || a.key.localeCompare(b.key))
+
+/** ONE METRIC, RATING EVERYTHING. Mass rates a theorem; the sum of its theorems rates a wing; the sum of its
+ *  wings rates the ledger. There is no second scale anywhere: a surface that wants an order asks this, and a
+ *  surface that wants a share divides by the total. Nothing is ranked by how often it is mentioned, and nothing
+ *  is ranked by a rule written for one place. */
+export interface Rating { name: string; mass: number; theorems: number; share: number }
+
+export const ledgerMass = (): number => THEOREMS.reduce((t, x) => t + decidedMass(x), 0)
+
+/** every wing rated by the same metric that rates every theorem — all of them, never a slice. */
+export const wingRatings = (): readonly Rating[] => {
+  const total = ledgerMass()
+  const by = new Map<string, { mass: number; n: number }>()
+  for (const t of THEOREMS) {
+    const cur = by.get(t.file) ?? { mass: 0, n: 0 }
+    by.set(t.file, { mass: cur.mass + decidedMass(t), n: cur.n + 1 })
+  }
+  return [...by].map(([name, v]) => ({ name, mass: v.mass, theorems: v.n, share: total ? v.mass / total : 0 }))
+    .sort((a, b) => b.mass - a.mass || a.name.localeCompare(b.name))
+}
+
+/** the heaviest theorem of a wing — the one the wing is rated by, chosen by the metric and by nothing else. */
+export const heaviestOf = (file: string): Theorem | undefined =>
+  [...THEOREMS].filter((t) => t.file === file)
+    .sort((a, b) => decidedMass(b) - decidedMass(a) || a.key.localeCompare(b.key))[0]
+
+/** THEOREM GRAVITY — the superpositions a theorem covers, priced in HEXBITS against the two coins.
+ *
+ *  A `by decide` proof settles every case in its domain at once, so the case count IS the superposition space
+ *  the theorem holds. Bits are the wrong unit to report it in: the ledger computes in hexbits (4 bits, one
+ *  qubit-tile, 16 states), and a uuid is 32 of them. So a theorem covering N superpositions fills h hexbits,
+ *  the largest h with 16^h ≤ N — computed by dividing, never by a logarithm, so the answer is an exact integer.
+ *
+ *  The COST is fixed at two coins (128 − 126 = 2, the captain commission), which is what makes this a rate and
+ *  not a size: gravity is what those two coins buy. Two bits in, h hexbits of decided superposition out. */
+// delegated to src/hexbit — one unit, one implementation. This was a second copy of the same loop.
+export const hexbitsOf = (cases: number): number => hexbitUnit(cases)
+
+export const UUID_HEXBITS = HEXBIT_UUID
+
+/** INFINITE GRAVITY IS INFINITE INDEPENDENCE. A theorem that leans on a definition is bound to it: change the
+ *  def and the theorem moves. One that leans on NOTHING — no def, and the ledger already allows no axiom — is
+ *  held by the kernel alone, and nothing in the ledger can move it. `two_coins` (110 - 108 = 2) is that: pure
+ *  numerals, kernel arithmetic, zero dependencies. Its gravity is infinite because there is nothing to depend on.
+ *
+ *  This is the axis coverage and cost both missed. By coverage the captain theorem ranked #1018 of 1438, because
+ *  it settles one case; by cost it tied with 1335 others, because it spends nothing. Neither was measuring what
+ *  makes it the captain theorem. Independence is intrinsic — read off the theorem's own statement against the
+ *  defs its wing declares — and it is not how often the ledger mentions a theorem, which is age wearing a mask. */
+export const dependsOn = (t: Theorem): readonly string[] => {
+  const declared = WING_DEFS.get(t.file) ?? []
+  return declared.filter((d) => new RegExp('\\b' + d + '\\b').test(t.statement))
+}
+
+/** gravity: infinite when the theorem stands on the kernel alone, else the uuid divided by what binds it. */
+export const gravityOf = (t: Theorem): number => {
+  const n = dependsOn(t).length
+  return n === 0 ? Infinity : UUID_HEXBITS / n
+}
+
+/** the ledger by gravity — the unbound first, and among equals the one that decides the most. */
+export const byGravity = (): readonly Theorem[] =>
+  [...THEOREMS].sort((a, b) =>
+    (dependsOn(a).length - dependsOn(b).length) || (decidedMass(b) - decidedMass(a)) || a.key.localeCompare(b.key))
+

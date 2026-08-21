@@ -44,23 +44,23 @@ the hard gate of the corroboration law.
 The sealed backing this trial held the findings beside:
 
 - [two_coins](/theorem/two_coins) — `110 - 108 = 2`
-- [two_coins_is_double_torus](/theorem/two_coins_is_double_torus) — `2 * 2 - 2 = 2`
+- [captain_theorem](/theorem/captain_theorem) — `2 * 2 - 2 = 2`
 - [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) — `64 = 2^6`
-- [contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour) — `2 * 32 = 64`
+- [captain_theorem](/theorem/captain_theorem) — `2 * 32 = 64`
 - [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) — `(List.range 8).all (fun c => (32 * c == 64) == (c == 2))`
 - [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) — `(List.range' 7 6).all (fun n => 2^n > 2 * 32)`
 - [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) — `((List.range 7).map (fun n => 2^n)) = [1,2,4,8,16,32,64]`
 - [bill_never_negative](/theorem/bill_never_negative) — `(List.range 8).all (fun r => (List.range 8).all (fun v => (if r < v then 0 else r - v) == `
-- [coin_is_one_qubit](/theorem/coin_is_one_qubit) — `(2:Nat)^1 = 2`
-- [captain_coins_deliver_two_qubits_at_128_bits](/theorem/captain_coins_deliver_two_qubits_at_128_bits) — `((2:Nat)^2 = 4) ∧ (128 = 2 * 64) ∧ (128 = 2^7)`
-- [captain_commission_two_per_110](/theorem/captain_commission_two_per_110) — `(110 - 108 = 2) ∧ (110 - 2 = 108)`
-- [commercial_saves_and_captain_earns](/theorem/commercial_saves_and_captain_earns) — `(110 - 1 = 109) ∧ (109 > 2) ∧ (110 - 108 = 2)`
-- [coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none) — `(32 * 2 = 64) ∧ (1 < 64) ∧ ((0:Nat) < 1)`
-- [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost) — `(2^7 = 128) ∧ (128 > 2) ∧ (2 * 32 = 64)`
+- [captain_theorem](/theorem/captain_theorem) — `(2:Nat)^1 = 2`
+- [captain_theorem](/theorem/captain_theorem) — `((2:Nat)^2 = 4) ∧ (128 = 2 * 64) ∧ (128 = 2^7)`
+- [captain_theorem](/theorem/captain_theorem) — `(110 - 108 = 2) ∧ (110 - 2 = 108)`
+- [captain_theorem](/theorem/captain_theorem) — `(110 - 1 = 109) ∧ (109 > 2) ∧ (110 - 108 = 2)`
+- [captain_theorem](/theorem/captain_theorem) — `(32 * 2 = 64) ∧ (1 < 64) ∧ ((0:Nat) < 1)`
+- [captain_theorem](/theorem/captain_theorem) — `(2^7 = 128) ∧ (128 > 2) ∧ (2 * 32 = 64)`
 - [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) — `(110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128)`
 - [wallet_counts_worlds](/theorem/wallet_counts_worlds) — `(List.range 9).all (fun n => (2*n)/2 == n)`
 - [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) — `((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)`
-- [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions) — `(2^128 > 1288) ∧ (2^7 = 128) ∧ (110 - 108 = 2)`
+- [captain_theorem](/theorem/captain_theorem) — `(2^128 > 1288) ∧ (2^7 = 128) ∧ (110 - 108 = 2)`
 - [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales) — `(2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32)`
 
 ::: warning HONEST SCOPE

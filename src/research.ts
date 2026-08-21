@@ -7,7 +7,7 @@
 // null by design. Integrity.
 import { toUuid } from './address.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { reflects, type Reflected } from './reflects.js'
 
 export interface DeepResearch {

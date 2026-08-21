@@ -29,12 +29,12 @@ import { join } from 'node:path'
 import { ROOT, report, type Gap } from './api.js'
 
 /** A sentence at or below this length is a canonical law-phrase — a citation, cheap enough to repeat verbatim.
- *  The bound is set where the two canonical citations sit ("Integrity
+ *  The bound is set where the two canonical citations sit ("Integrity, not truth (theorem
  *  provenance_integrity_not_content_truth)." at 70 bytes, "Boundary declared — theorem drift_is_named_or_caught."
  *  at 52) and the 146-byte paragraph that motivated this finder does not. Repeating a citation is the honesty;
  *  repeating the essay around it is the toll. Move the bound only with a reason of that kind. */
 const LAW_PHRASE = 80
-/** Repetition at or above this many descriptions is duplication. */
+/** Repetition at or above this many descriptions is duplication, not emphasis. */
 const REPEATS = 3
 /** A description longer than this owes its derivation to `detail` rather than to every request's context. */
 const WIRE_CAP = 1200
@@ -62,7 +62,7 @@ const sentences = (t: string): string[] => {
 
 export interface Budget { wireBytes: number; note: string }
 
-/** The sealed ceiling. Absent means unsealed — reported as a gap with the exact line to write. */
+/** The sealed ceiling. Absent means unsealed — reported as a gap with the exact line to write, never passed silently. */
 export const sealedBudget = (): Budget | null => {
   try { return JSON.parse(readFileSync(join(ROOT, 'lean', 'mcp-context-budget.json'), 'utf8')) as Budget } catch { return null }
 }
@@ -97,7 +97,7 @@ export function contextGaps(tools: readonly WireTool[]): Gap[] {
     if (names.length < REPEATS) continue
     gaps.push({
       what: `${names.length} descriptions carry the SAME ${s.length}-byte sentence (${(names.length - 1) * s.length} redundant bytes on every request): "${s.slice(0, 90)}${s.length > 90 ? '…' : ''}" — ${names.slice(0, 3).join(', ')}${names.length > 3 ? `, … (${names.length} total)` : ''}`,
-      fix: `state it ONCE in the server INSTRUCTIONS (which a client sends on connect— a repeated citation is honesty, a repeated paragraph is a toll`,
+      fix: `state it ONCE in the server INSTRUCTIONS (which a client sends on connect, not per request) and cut it from the descriptions, or compress it to a citation of ${LAW_PHRASE} bytes or fewer — a repeated citation is honesty, a repeated paragraph is a toll`,
     })
   }
 

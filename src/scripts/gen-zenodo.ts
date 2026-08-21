@@ -28,7 +28,7 @@ const repoUrl = pkg.homepage
 const author = pkg.author.replace(/\s*<.*$/, '').trim().split(/\s+/)
 const creator = `${author[author.length - 1]}, ${author.slice(0, -1).join(' ')}`
 
-// MEASUREMENT — the live census. A theorem is its Lean
+// MEASUREMENT — the live census. A theorem is its Lean, not its name, so BOTH sizes are stated with the reason
 // for the gap; a lone key count is the larger of two true numbers presented alone.
 const census = statementCensus()
 const keys = theorems().length
@@ -52,7 +52,7 @@ const description = [
   'Also: holographic merkle proofs, a reversible imprint codec, the slim honesty gate (a fabricated citation is the',
   'one decidably-false case), pure-TypeScript ChaCha20-Poly1305 (KAT-pinned) under a 7-dimensional fold envelope,',
   'and an MCP server exposing the ledger.',
-  'HONEST SCOPE: a content-address proves integrity; a verified theorem proves its exact statement,',
+  'HONEST SCOPE: a content-address proves integrity, not truth; a verified theorem proves its exact statement,',
   'never a grander claim — verified is not solved, n=1 stays n=1, and every non-proven claim is remanded, not',
   'admitted. The proofs recompute from source with `npm run lean`; the deposited metadata is GENERATED from the',
   'ledger it describes, so the archive states the ledger that exists rather than one that has moved on.',

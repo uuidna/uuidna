@@ -1,0 +1,12 @@
+{
+  "handle": "c10bcc43",
+  "address": "c10bcc43-b502-8088-804b-3ecceb0495ae",
+  "statement": "(16^8 = 2^32) ∧ (16^8 = 4294967296) ∧ ((2^32)^4 = 2^128) ∧ (32 + 32 + 32 + 32 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "handle_string_spans_the_quarter"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

@@ -66,7 +66,7 @@ export function durationVars(): Record<string, string> {
 export function matrixEffects(): string {
   const C = coins()                                   // 2 — the conserved measure (two_coins)
   const halfTurn = fdiv(360, C)                       // 180deg — a turn divided by the coins (the involution)
-  const weight = milli(1, C)                          // 0.500 — each of C equal states (coin_is_one_qubit)
+  const weight = milli(1, C)                          // 0.500 — each of C equal states (captain_theorem)
   const mid = fdiv(100, C)                            // 50% — the keyframe midpoint, the same halving
   const rungs = [...new Set(vortexOrbit())].sort((a, b) => a - b)
   // the dz mirror pairs (d, 10−d) with d below its mirror — the involution chooses them

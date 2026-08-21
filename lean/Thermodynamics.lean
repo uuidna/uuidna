@@ -5,7 +5,7 @@
 theorem first_law_conservation : 100 = 60 + 40 := by decide
 
 /-- The second law: the entropy of an isolated system never decreases. Modelled as a monotone ladder S(t) = t,
-    every step satisfies S(t) ≤ S(t+1) — disorder holds or grows, never spontaneously falls. -/
+    every step satisfies S(t) ≤ S(t+1) — disorder holds or grows. -/
 theorem entropy_never_decreases : (List.range 9).all (fun t => t <= t + 1) := by decide
 
 /-- The Carnot efficiency η = 1 − Tc/Th is strictly below 1: with Th = 400 and Tc = 300, the extractable work
@@ -47,14 +47,14 @@ theorem landauer_bound_derived : 1380649 * 300 = 414194700 ∧ 414194700 * 69314
 /-- A COST PROPORTIONAL TO WHAT IS ERASED IS ZERO WHEN NOTHING IS ERASED. Landauer's floor scales with the
     number of bits destroyed: erase one bit and pay 287097813×10⁻²⁹ J, erase none and pay 0 × that = 0. A
     logically REVERSIBLE step — an involution like reverse or CNOT, or this ledger's round-tripping imprint
-    codec — destroys no information, so it carries no erasure floor at all. this is a floor being AVOIDED, never
-    energy being produced; the bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this
-    wing forbids the other reading. -/
+    codec — destroys no information, so it carries no erasure floor at all. this is a floor being AVOIDED; the
+    bound stays strictly positive (0 < 287097813), and no_perpetual_motion in this wing forbids the other
+    reading. -/
 theorem reversible_erases_nothing : 0 * 287097813 = 0 ∧ 1 * 287097813 = 287097813 ∧ 0 < 287097813 := by decide
 
 /-- REAL SILICON RUNS ABOUT A HUNDRED MILLION TIMES ABOVE THE FLOOR. A switching event in current CMOS
     dissipates on the order of 10⁻¹² J, against Landauer's 2.871×10⁻²¹ J — a ratio near 3.5×10⁸, stated here as
     the exact integer comparison 100000000 × 287097813 < 100000000000000000000000000000000. So the headroom
     between real hardware and the physical limit is enormous and real — and it is headroom for EFFICIENCY, which
-    is a smaller bill, not a source of energy. -/
+    is a smaller bill. -/
 theorem hardware_above_landauer : 100000000 * 287097813 < 100000000000000000000000000000000 := by decide

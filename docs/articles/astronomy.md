@@ -7,7 +7,7 @@ description: "Computed from lean/Astronomy.lean — 11 sealed theorems, every cl
 
 > ASTRONOMY — the fixed references of the sky, as decidable arithmetic. — held by [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) and its 10 siblings below.
 
-**11 theorems**, from [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) onward, each proven `by decide` in [lean/Astronomy.lean](/lean/Astronomy.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [great_year_precession](/theorem/great_year_precession). A boundary stated here is decided, not merely denied.
+**11 theorems**, from [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) onward, each proven `by decide` in [lean/Astronomy.lean](/lean/Astronomy.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [declination_spans_180](/theorem/declination_spans_180). A boundary stated here is decided.
 
 ### The diurnal turn: the sky rotates 15° every hour, so 24 hours close the full 360° circle — 24 × 15 = 360. Right ascension is measured in these hours.
 The ledger holds this as [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) — proven `by decide`, sorry-free:
@@ -72,7 +72,7 @@ The ledger holds this as [metonic_cycle](/theorem/metonic_cycle) — proven `by 
 19 * 12 + 7 = 235
 ```
 
-### The classical great year: the equinoxes precess at about 72 years per degree, so the full 360° circuit takes 72 × 360 = 25920 years. (A classical approximation of the ~25772-year platonic year, not an exact modern figure.)
+### The classical great year: the equinoxes precess at about 72 years per degree, so the full 360° circuit takes 72 × 360 = 25920 years. (A classical approximation of the ~25772-year platonic year.)
 The ledger holds this as [great_year_precession](/theorem/great_year_precession) — proven `by decide`, sorry-free:
 
 ```lean

@@ -1,4 +1,4 @@
--- lean/Cipher.lean — GENERATED. CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128). these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305, not this. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Cipher.lean — GENERATED. CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded
 -- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it
@@ -9,6 +9,14 @@ def lxorAux : Nat → Nat → Nat → Nat
   | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)
 def lxor (a b : Nat) : Nat := lxorAux 8 a b
 
+/-- THE CIPHER MEASURED IN THE ARCHITECTURE’S OWN UNIT. A hexbit is 4 bits, and everything here computes in
+    hexbits, so the ChaCha20-Poly1305 key is 64 hexbits rather than 256 bits. Grover halves the exponent of a
+    brute-force search, which takes the floor to 32 hexbits — and 32 hexbits is EXACTLY the uuid. The
+    post-quantum floor of the cipher and the width of an identifier are the same number, in the same unit, and
+    it is only visible once the bits are converted: 256/4 = 64, 128/4 = 32, and the uuid is 32. Bits hide this;
+    hexbits state it. -/
+theorem key_floor_is_one_uuid : (256 / 4 = 64) ∧ (128 / 4 = 32) ∧ (256 = 2 * 128) ∧ (32 * 4 = 128) := by decide
+
 /-- Base-pairing is a self-inverse map: the complement comp(x)=3−x applied twice is the identity (A↔T↔A, C↔G↔C)
     — a decrypt that equals its encrypt, like the diamond reflection. -/
 theorem dna_complement_involution : (List.range 4).all (fun x => 3 - (3 - x) == x) := by decide
@@ -18,7 +26,7 @@ theorem dna_complement_involution : (List.range 4).all (fun x => 3 - (3 - x) == 
 theorem dna_complement_fixed_point_free : (List.range 4).all (fun x => 3 - x != x) := by decide
 
 /-- Base-pairing IS a XOR cipher: on the 2-bit encoding comp(x)=3−x equals x XOR 3 — a one-time-pad STEP with
-    the fixed pad 3. Real, but a FIXED pad is public, not secret. -/
+    the fixed pad 3. Real, but a FIXED pad is public. -/
 theorem complement_is_xor_key3 : (List.range 4).all (fun x => 3 - x == lxor x 3) := by decide
 
 /-- The one-time-pad is its own inverse (Vernam): (m ⊕ k) ⊕ k = m for every symbol and key — the one
@@ -31,8 +39,7 @@ theorem otp_self_inverse : (List.range 16).all (fun m => (List.range 16).all (fu
 theorem otp_key_reuse_leaks_xor : (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2)))) := by decide
 
 /-- A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it
-    binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing, NOT a binding one-way
-    seal. -/
+    binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing. -/
 theorem xor_fold_is_malleable : (List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d)) := by decide
 
 /-- The uuid transport leaks SIZE: a message of b bits occupies ⌈b/115⌉ uuids, a step function of length —
@@ -62,13 +69,10 @@ theorem uuidna_is_dna_times_the_two_coins : (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 =
     vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. this is arithmetic about
     EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA
     is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another —
-    three quantities happen to be powers of the same number, and the address is BUILT that way by construction,
-    not discovered to be. -/
+    three quantities happen to be powers of the same number, and the address is BUILT that way by construction. -/
 theorem octave_codon_address : ((List.range 8).map (fun k => 2^k) = [1,2,4,8,16,32,64,128]) ∧ (4^3 = 64) ∧ (700 < 2 * 400) := by decide
 
-/-- Translation is LOSSY, never a cipher: 64 codons map onto only 21 outcomes (20 amino acids + stop), and 64 >
-    21, so by pigeonhole the map cannot be injective — a hash-like reduction that cannot be inverted, not
-    encryption. -/
+/-- Translation is LOSSY— a hash-like reduction that cannot be inverted. -/
 theorem translation_is_lossy : 4^3 > 21 := by decide
 
 /-- An affine substitution E(x)=2x+3 over ℤ/5 is a bijection — it hits every residue, so it is an invertible
@@ -76,9 +80,8 @@ theorem translation_is_lossy : 4^3 > 21 := by decide
     Invertible ≠ secure. -/
 theorem affine_is_permutation : (List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y)) := by decide
 
-/-- The honest quantum posture: Grover’s search is a QUADRATIC speedup, not a break — a 2n-bit key space costs
-    ~2ⁿ work ((2ⁿ)² = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor
-    target at all. -/
+/-- The honest quantum posture: Grover’s search is a QUADRATIC speedup— a 2n-bit key space costs ~2ⁿ work ((2ⁿ)²
+    = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor target at all. -/
 theorem grover_quadratic_bound : (List.range 27).all (fun n => 2^n * 2^n == 2^(2*n)) := by decide
 
 /-- The envelope’s byte geometry, sealed (axiom-hunt): the ChaCha20-Poly1305 nonce is 12 bytes = 96 bits (RFC
@@ -107,7 +110,7 @@ theorem sha256_rounds_are_the_board : ((64:Nat) = 2 ^ 6) ∧ (16 * 32 = 512) ∧
     speech. No Shor target exists (symmetric, keyless); the architecture survives the quantum era at precisely
     the width this system already speaks. uuidna's deployment patches the standard's USE-flaws by name — HMAC
     against length-extension, the bounded-iteration ceiling against KDF cost abuse, the advancing step against
-    the equality leak — and NAMES the one it cannot patch: pure-JS timing. Integrity, not omniscience. -/
+    the equality leak — and NAMES the one it cannot patch: pure-JS timing. Integrity. -/
 theorem sha256_grover_margin_is_the_address : (256 / 2 = 128) ∧ (256 % 2 = 0) := by decide
 
 /-- THE THREE-TEAM DRILL, sealed: one team seals a private message, TWO independent teams reverse — a trinity, 1

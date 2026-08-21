@@ -8,20 +8,6 @@ def carries9 (d nx : Nat) : Bool :=                    -- ×2 on units, +3 on {3
   else if d == 3 || d == 6 then nx == (d + 3) % 9
   else false
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x -- the mirror neighbour (= division by zero)
-def flips (w : List Bool) : List Nat :=                -- the GATEWAYS: positions where the stroke turns
-  (List.zip (List.range w.length) (List.zipWith (fun a b => a != b) w w.tail)).filterMap
-    (fun p => if p.2 then some (p.1 + 1) else none)
-def tourTail : List Nat := [1,2,4,8,7,5,3,6,9]
-def ren (v : Nat) : Nat := if v == 0 then 9 else v      -- the drawing writes 9 where the algebra says 0
-def arow (a b : Nat) : List Nat := 0 :: tourTail.map (fun d => ren ((a * d + b) % 9))
-def rises (p n : Nat) : Bool := (n < p) || ((p == 3 || p == 6) && n % 9 == (p + 3) % 9)
-def strokesOf (r : List Nat) : List Bool := List.zipWith rises r r.tail
-def risingOf (r : List Nat) : Nat := ((strokesOf r).filter (fun s => s)).length
-def fallingOf (r : List Nat) : Nat := ((strokesOf r).filter (fun s => !s)).length
-def famTally (p : Nat -> Nat -> Bool) : Nat :=
-  (units9.map (fun a => ((List.range 9).filter (fun b => p a b)).length)).foldl (fun x y => x + y) 0
-def strokes1 : List Bool := strokesOf (arow 1 0)        -- 0\1\2\4\8/7/5/3/6/9, COMPUTED
-def strokes2 : List Bool := strokesOf (arow 8 1)        -- 0\9/8/6/2\3\5\7/4/1, its mirror x -> 8x+1
 def polar (x : Nat) : Nat := (9 - x) % 9               -- the polar neighbour (negation in ℤ/9)
 def saltConv (c _s : Nat) : Nat := c % 9               -- crypt: OLD leaky salt = f(content) — the step _s is dropped
 def saltSeq  (_c s : Nat) : Nat := s % 9               -- crypt: NEW fresh salt = f(sequence) — the step s is kept
@@ -59,41 +45,6 @@ theorem polar_nine_pairs : (List.range' 1 8).all (fun d => d + (9 - d) == 9) := 
 
 /-- the 6+3 partition: 6 units {1,2,4,5,7,8} and 3 non-units {3,6,9} -/
 theorem partition_six_three : ((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => ¬ (List.range 9).any (fun e => a*e % 9 == 1))).length = 3 := by decide
-
-/-- NO POWER OF TWO EVER LANDS ON 0, 3 OR 6. Doubling from 1 walks the six units 1→2→4→8→7→5 and closes, so the
-    residue of 2^n mod 9 is always a unit and NEVER a member of the triangle {3,6,9≡0}. The bound n<6 is not a
-    sample: 2^6 ≡ 1 (mod 9) returns the walk to its start, so the six residues checked here are the COMPLETE
-    image of 2^n over every n there is — an infinite claim decided by six cases. -/
-theorem powers_avoid_triangle : ((List.range 6).all (fun n => (2^n % 9 != 0) && (2^n % 9 != 3) && (2^n % 9 != 6))) ∧ (2^6 % 9 = 1) := by decide
-
-/-- THE TRIANGLE IS REACHED ONLY BY REFLECTION. and it is exactly the mirror of {1,4,7}. Doubling cannot arrive
-    at 3, 6 or 9, but the mirror m(d)=10−d carries 1↦9, 4↦6, 7↦3 — so the three digits the vortex never touches
-    are the reflections of three it always does. m is an involution, which is why the reading runs both ways:
-    m(7)=3 and, back across the same axis, m(6)=4. -/
-theorem mirror_opens_triangle : ([1,4,7].map (fun d => 10 - d) = [9,6,3]) ∧ ([1,4,6,7].all (fun x => 10 - (10 - x) == x)) ∧ (10 - 7 = 3) ∧ (10 - 6 = 4) := by decide
-
-/-- THE GATEWAYS OF THE REFLECTED ROW ARE {1,4,7}, AND {1,4,7} MIRRORS ONTO THE TRIANGLE. Written with its
-    strokes, the tour is 0\1\2\4\8/7/5/3/6/9 and its reflection is 0\9/8/6/2\3\5\7/4/1 — the second row IS the
-    first mapped through dz, digit for digit, which is the check that the drawing and the algebra are the same
-    object. Reading only where the stroke TURNS: the direct row turns once, at position 4; the reflected row
-    turns three times, at positions 1, 4 and 7 — and dz carries {1,4,7} to {9,6,3}, the three digits doubling
-    can never reach. So the gateways of the mirror stand exactly where the triangle is let in, and the direct
-    row's single gateway is their centre. -/
-theorem gateways_mark_triangle : (flips strokes1 = [4]) ∧ (flips strokes2 = [1,4,7]) ∧ ([1,4,7].map dz = [9,6,3]) ∧ ([0,1,2,4,8,7,5,3,6,9].map dz = [0,9,8,6,2,3,5,7,4,1]) := by decide
-
-/-- THE STROKE BUDGET IS BOUNDED, NOT CONSERVED — the four-and-five is this pair's reading, not the reflection's
-    law. Written with strokes the tour is 0\1\2\4\8/7/5/3/6/9 and its mirror 0\9/8/6/2\3\5\7/4/1, and BOTH read
-    four falling and five rising, which is exactly why the conservation looked like a law. It is not. Across the
-    whole family — the 54 affine rows x -> a*x+b of AGL(1,Z/9), drawn from the same nine digits by the same rule
-    — the budgets are 4,5 in 18 rows, 5,4 in 30 and 6,3 in 6: four-and-five is a MINORITY reading. The mirror
-    keeps the budget on exactly 30 of the 54 and BREAKS it on 24; row(2,2) reads four falling and its reflection
-    reads six. And the identity is the ONLY affine map conserving the budget on every row, so no reflection
-    could ever have been the conserving one. What IS general is a BOUND: every one of the 54 rows rises three,
-    four or five times, never fewer and never more, so only three of the ten conceivable budgets are ever drawn.
-    This replaces strokes_survive_reflection, which stated the conservation as a law: that theorem was TRUE of
-    the pair and false as framed, and it passed both the js mirror and the kernel because a single hand wrote
-    both legs. -/
-theorem budget_not_conserved : (fallingOf (arow 1 0) = 4 ∧ risingOf (arow 1 0) = 5) ∧ (fallingOf (arow 8 1) = 4 ∧ risingOf (arow 8 1) = 5) ∧ (famTally (fun a b => risingOf (arow a b) == 5) = 18 ∧ famTally (fun a b => risingOf (arow a b) == 4) = 30 ∧ famTally (fun a b => risingOf (arow a b) == 3) = 6) ∧ units9.all (fun a => (List.range 9).all (fun b => 3 ≤ risingOf (arow a b) && risingOf (arow a b) ≤ 5)) ∧ (fallingOf (arow 2 2) = 4 ∧ fallingOf ((arow 2 2).map dz) = 6) := by decide
 
 /-- the ring closes: ten slots × 36° = 360°, and the ⟨2⟩ flow is 60° per doubling -/
 theorem angles_close : 10 * 36 = 360 ∧ 6 * 60 = 360 := by decide

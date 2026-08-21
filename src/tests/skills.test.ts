@@ -1,5 +1,5 @@
 // skills — the migration gate. Every theorem's skill must be AUTHORED at the Lean source (a manifest `skill` for
-// generated files, or an inline `-- @skill:` for the hand-written trio).
+// generated files, or an inline `-- @skill:` for the hand-written trio), never derived by the skillOf heuristic.
 // This test fails the moment a new theorem lands without an authored skill — so the heuristic stays retired and the
 // capability axis can't silently drift back to a word-list.
 import { test } from 'node:test'

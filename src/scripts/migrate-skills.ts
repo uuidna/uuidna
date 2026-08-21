@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // migrate-skills — a SAVED, idempotent codemod that authors each domain's inline skill into its generator (the
-// single source), so the capability is derived in the generator.
+// single source), so the capability is derived in the generator, not reverse-engineered by the skillOf heuristic.
 // It injects `skill: '<skill>'` into the emit() call of every UNIFORM-skill generator (one authored capability per
 // file). Mixed-skill files (per-fact skills) and the hand-written trio (Uuidna/Vortex/OneLeap) are out of scope —
 // they carry no single file default. Re-runnable: a generator that already carries its skill is skipped.
@@ -12,10 +12,10 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { HERE } from './api.js'
 
-const SCRIPTS = HERE.replace(/\/dist\//, '/src/') // author into src/
+const SCRIPTS = HERE.replace(/\/dist\//, '/src/') // author into src/, not dist/
 
 // Each UNIFORM generator → the ONE capability every fact in its file demonstrates. Domain files that skillOf could
-// not classify (they fell to 'foundational' by default) get their true domain skill here — authored.
+// not classify (they fell to 'foundational' by default) get their true domain skill here — authored, not defaulted.
 const MAP: Record<string, [string, string]> = {
   'lean-astronomy.ts': ['Astronomy.lean', 'astronomy'],
   'lean-calendar.ts': ['Calendar.lean', 'calendar'],

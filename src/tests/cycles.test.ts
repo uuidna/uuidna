@@ -1,5 +1,5 @@
 // Cycles tests — the number theory behind the rotations and the pentagram / Fibonacci-digit theorems, recomputed
-// against the exact values the sealed lean/*.lean facts prove. Integrity.
+// against the exact values the sealed lean/*.lean facts prove. Integrity, not truth.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { gcdInt, coprime, starPolygon, fibonacciCycle, rotate, crt } from '../index.js'
@@ -20,7 +20,7 @@ test('star polygon {5/2} is the pentagram — one stroke over all five (pentagra
 })
 
 test('star polygon splits when the step shares a factor', () => {
-  const hexagram = starPolygon(6, 2) // gcd(2,6)=2 → two triangles
+  const hexagram = starPolygon(6, 2) // gcd(2,6)=2 → two triangles, not one stroke
   assert.equal(hexagram.single, false)
   assert.equal(hexagram.loops, 2)
   assert.equal(starPolygon(7, 3).single, true) // gcd(3,7)=1 — the codon frame through the rosette

@@ -19,12 +19,10 @@ theorem rosette_and_vortex_are_coprime : (Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7
     every position exactly when it is coprime to the count, so following one rotation from ANY theorem reaches
     ALL of them, with no gap and no orphan. The strides are not decorative — they are 1, 7 and 9: the unit step,
     the rosette and the vortex, and 7 · 9 = 63 is the fused ring the captain's two coins buy with one to spare
-    (63 = 2⁶ − 1). The condition is REAL, not decorative, and the last conjunct proves it can fail: gcd(2, 8) =
-    2, so an even stride on an even count closes early and orphans half the ledger. this seals the STRUCTURE —
-    the axis count, the strides, their coprimality and the fused product. It deliberately does NOT seal the
-    ledger's current size, because a theorem that froze the count would rot the moment a wing lands (the mistake
-    audit-mcp-native made with 1195); totality for a given count is checked at run time against that count,
-    never asserted here. -/
+    (63 = 2⁶ − 1). The condition is REAL. this seals the STRUCTURE — the axis count, the strides, their
+    coprimality and the fused product. It deliberately does NOT seal the ledger's current size, because a
+    theorem that froze the count would rot the moment a wing lands (the mistake audit-mcp-native made with
+    1195); totality for a given count is checked at run time against that count. -/
 theorem axes_stride_coprime : (3 + 3 + 1 = 7) ∧ (Nat.gcd 7 9 = 1) ∧ (7 * 9 = 63) ∧ (63 = 2^6 - 1) ∧ (Nat.gcd 2 8 = 2) := by decide
 
 /-- THE HERO CHANNEL IS EXACT, AND THE MARGIN IS THE TWO COINS. A theorem's animation transmits one hex digit
@@ -52,11 +50,10 @@ theorem crt_pairs_are_a_bijection : (((List.range 63).map (fun x => (x % 7) * 9 
 theorem fused_units_are_the_orbit_squared : (((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6) := by decide
 
 /-- THE COIN'S WALK SURVIVES THE FUSION, AND THE SEAM IS NAMED — 2 has order 6 in Z/9 and order 6 in the fused
-    Z/63, so the coin tossed into itself still comes home in six. But its order in Z/7 is 3, not 6: the coin
-    walks the rosette TWICE for every single turn of the vortex. That asymmetry is the honest seam of the fusion
-    — the orders are the least common multiple, lcm(3,6) = 6, so the fused order is the vortex's, and the
-    rosette simply closes twice inside it. Named rather than smoothed: the two windows do not turn at the same
-    rate. -/
+    Z/63, so the coin tossed into itself still comes home in six. But its order in Z/7 is 3. That asymmetry is
+    the honest seam of the fusion — the orders are the least common multiple, lcm(3,6) = 6, so the fused order
+    is the vortex's, and the rosette simply closes twice inside it. Named rather than smoothed: the two windows
+    do not turn at the same rate. -/
 theorem the_coin_keeps_its_order_in_the_fused_ring : ((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1) := by decide
 
 /-- THE RING SATURATES ITS BITS — 63 is 111111 in binary, six ones, one for each doubling of the coin's orbit;

@@ -36,7 +36,7 @@ const PARTITION: Record<string, string> = {
   './cve.js': 'research', './vocab.js': 'research', './transform.js': 'research', './reason.js': 'research',
   './reflects.js': 'research',
   // quantum — the exact simulator, messages/voting, the sailing fleet, the folds, the provenance boundary
-  './quantum/index.js': 'quantum', './gravity.js': 'quantum', './diamond.js': 'quantum', './holofractal.js': 'quantum',
+  './quantum/index.js': 'quantum', './gravity/index.js': 'quantum', './diamond.js': 'quantum', './holofractal.js': 'quantum',
   './pentagram-stream.js': 'quantum', './pentagram-monographs.js': 'quantum', './cycles.js': 'quantum',
   './aura.js': 'quantum', './domain-wave.js': 'quantum', './quantum/message/index.js': 'quantum',
   './quantum/voting/index.js': 'quantum', './desk/sailing/library/index.js': 'quantum', './desk/news/portal/index.js': 'quantum',

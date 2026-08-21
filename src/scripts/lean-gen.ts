@@ -31,6 +31,43 @@ export const m9 = (n: number): number => ((n % 9) + 9) % 9
 // range — THE ONE range walk every generator's js mirror shares. `(List.range n).all (…)` is the commonest shape
 // in the ledger, and its JS twin was being re-declared per generator as `const R8 = [0,1,…,7]`; declared once here,
 // the boilerplate cannot regrow (one-receipt dry objects to any re-declaration, with the exact fix).
+// THE CASE COUNTER. Mass — how many cases a `by decide` actually settles — was being recovered downstream by
+// regexing the RENDERED statement for `List.range 16`, which is reading prose about the algebra rather than the
+// algebra. That parser needed teaching about list literals, then about conjuncts, and would have rated a theorem
+// by a numeral in a comment. The count is not a thing to recover: the generator WALKS the domain to compute the
+// fact, so the walk itself is the measurement. `range` is the shared helper every emitter already uses, so it
+// tallies what it hands out while a fact is being computed, and emit() reads the tally off the same run that
+// proves the JS side. Nothing is parsed.
+//
+// THE TALLY MUST NOT CARE HOW A WING WALKS. Counting only `range` calls was a second parser in disguise: it saw
+// the wings that use the shared helper and reported every other wing as deciding one case. Measured, that read
+// as "97% of enumerating theorems have a JS mirror that walks nothing" — and it was false. `seal_ten` walks
+// `[0..9].every(...)` and `s.map(dz)` with array literals, which the helper-counter cannot see. So the count is
+// taken at the ITERATION itself: for the length of one fact's check, the array methods a walk is made of tally
+// what they visit. Any helper, any literal, any shape — if it iterates, it counts.
+const WALKERS = ['every', 'some', 'map', 'filter', 'forEach', 'reduce', 'find', 'findIndex', 'flatMap'] as const
+let walked = 0
+let tallying = false
+const originals = new Map<string, unknown>()
+export const startTally = (): void => {
+  walked = 0
+  if (tallying) return
+  tallying = true
+  for (const m of WALKERS) {
+    const orig = (Array.prototype as unknown as Record<string, (...a: unknown[]) => unknown>)[m]!
+    originals.set(m, orig)
+    ;(Array.prototype as unknown as Record<string, unknown>)[m] = function (this: unknown[], ...args: unknown[]) {
+      walked += this.length
+      return orig.apply(this, args)
+    }
+  }
+}
+export const endTally = (): number => {
+  if (tallying) for (const m of WALKERS)
+    (Array.prototype as unknown as Record<string, unknown>)[m] = originals.get(m)
+  tallying = false
+  return walked
+}
 export const range = (n: number): number[] => Array.from({ length: n }, (_, i) => i)
 // One shared exec buffer for every `lean` shell-out across the pipeline (generators, the audit, the heartbeat probe)
 // — a Lean file's stdout/stderr never approaches this, but a single constant keeps the cap consistent
@@ -119,7 +156,17 @@ export function docComment(prose: string, width = 108): string {
 
 // One helper, no repetition: JS-check every fact, write lean/<File>.lean + its manifest, verify sorry-free.
 export function emit({ file, header, facts, defs = '', skill }: EmitArgs): number {
-  const fail = facts.filter((f) => f.js && f.js() !== true)
+  // one pass: each fact's JS is run ONCE, its verdict checked and its walk measured on the same execution, so
+  // the recorded mass belongs to the computation that was actually validated.
+  const cases = new Map<string, number>()
+  const fail: Fact[] = []
+  for (const f of facts) {
+    if (!f.js) continue
+    startTally()
+    let ok: unknown
+    try { ok = f.js() } finally { const w = endTally(); cases.set(f.key, w > 0 ? w : 1) }
+    if (ok !== true) fail.push(f)
+  }
   if (fail.length) { console.log('✗ ' + file + ' — JS check failed: ' + fail.map((f) => f.key).join(', ')); process.exit(1) }
   // A doc comment attaches to ONE declaration, and a Fact's `lean` field is free to carry several theorems in one
   // string. Prefixing the fact would document the first and leave the rest bare, so the comment goes before EVERY
@@ -134,7 +181,7 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   // The manifest carries {key, name, skill} — the microdata bridge. skill is the inline, authored capability
   // (a Fact's own skill, else the file-level default); omitted when neither is set, so the ledger falls back.
   const manifestPath = join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json')
-  const manifest = JSON.stringify(facts.map((f) => { const s = f.skill ?? skill; return s ? { key: f.key, name: f.name || f.stmt || f.key, skill: s } : { key: f.key, name: f.name || f.stmt || f.key } }), null, 0) + '\n'
+  const manifest = JSON.stringify(facts.map((f) => { const s = f.skill ?? skill; const c = cases.get(f.key) ?? 1; return s ? { key: f.key, name: f.name || f.stmt || f.key, skill: s, cases: c } : { key: f.key, name: f.name || f.stmt || f.key, cases: c } }), null, 0) + '\n'
   // THE DELTA GATE, decided BEFORE any write: byte-identical content means the kernel's prior signature stands,
   // so an unchanged wing costs neither the spawn NOR the two file writes — the whole step is verify-by-receipt.
   // (Both files must exist: a deleted artifact must be rewritten even when the address matches.)

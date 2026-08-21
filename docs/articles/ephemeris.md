@@ -7,7 +7,7 @@ description: "Computed from lean/Ephemeris.lean — 7 sealed theorems, every cla
 
 > EPHEMERIS — the astronomical TIME coordinate, as decidable arithmetic, demarcated. — held by [seconds_per_day](/theorem/seconds_per_day) and its 6 siblings below.
 
-**7 theorems**, from [seconds_per_day](/theorem/seconds_per_day) onward, each proven `by decide` in [lean/Ephemeris.lean](/lean/Ephemeris.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [gregorian_leap_rule](/theorem/gregorian_leap_rule). A boundary stated here is decided, not merely denied.
+**7 theorems**, from [seconds_per_day](/theorem/seconds_per_day) onward, each proven `by decide` in [lean/Ephemeris.lean](/lean/Ephemeris.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [gregorian_leap_rule](/theorem/gregorian_leap_rule). A boundary stated here is decided.
 
 ### The base of the time coordinate: a day is 24 hours of 60 minutes of 60 seconds — 24·60·60 = 86400 seconds. Every clock counts up from that grid.
 The ledger holds this as [seconds_per_day](/theorem/seconds_per_day) — proven `by decide`, sorry-free:

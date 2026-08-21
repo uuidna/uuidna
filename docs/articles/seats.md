@@ -7,7 +7,7 @@ description: "Computed from lean/Seats.lean — 6 sealed theorems, every claim c
 
 > THE SEAT BOUND — the pigeonhole, stated. — held by [fullest_seat_ceiling](/theorem/fullest_seat_ceiling) and its 5 siblings below.
 
-**6 theorems**, from [fullest_seat_ceiling](/theorem/fullest_seat_ceiling) onward, each proven `by decide` in [lean/Seats.lean](/lean/Seats.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [fit_shares_nothing](/theorem/fit_shares_nothing). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [fullest_seat_ceiling](/theorem/fullest_seat_ceiling) onward, each proven `by decide` in [lean/Seats.lean](/lean/Seats.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [fit_shares_nothing](/theorem/fit_shares_nothing). A boundary stated here is decided.
 
 ### THE BOUND ITSELF: the fullest seat holds at least ⌈items/seats⌉, computed as the exact integer identity (n + s − 1)/s so no rounding is assumed. Across the five cases that is [2, 3, 12, 1, 1] — one over capacity already forces a seat holding two.
 The ledger holds this as [fullest_seat_ceiling](/theorem/fullest_seat_ceiling) — proven `by decide`, sorry-free:
@@ -37,7 +37,7 @@ The ledger holds this as [powers_are_not_the_bound](/theorem/powers_are_not_the_
 ((2:Nat)^8 ≠ (11 + 10 - 1) / 10) ∧ ((2:Nat)^10 ≠ (21 + 10 - 1) / 10)
 ```
 
-### THE TEN DIGITS PARTITION IN HALF by whether a walk from that seed reaches every digit: {2,6,7,8,9} cover and {0,1,3,4,5} do not. The two are disjoint, their union is all ten, and five plus five is the whole ring — a partition, decided, not a tally of two lists written side by side.
+### THE TEN DIGITS PARTITION IN HALF by whether a walk from that seed reaches every digit: {2,6,7,8,9} cover and {0,1,3,4,5} do not. The two are disjoint, their union is all ten, and five plus five is the whole ring — a partition, decided.
 The ledger holds this as [digits_split_five_five](/theorem/digits_split_five_five) — proven `by decide`, sorry-free:
 
 ```lean

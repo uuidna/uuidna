@@ -7,7 +7,7 @@ description: "Computed from lean/Nim.lean — 93 sealed theorems, every claim ci
 
 > NIM — the game of heaps as decidable arithmetic, the FIRST application of the ledger's axiom-free XOR (lxor): the nim-sum is the bitwise XOR of the heap sizes, a P-position (loss for the mover) is exactly a zero nim-sum (Bouton's theorem), equal heaps cancel (the mirror strategy), a lone heap wins, a nonzero nim-sum always has a move to zero, and Sprague–Grundy folds any impartial game to a single nim heap by XOR. — held by [nim_sum_is_xor](/theorem/nim_sum_is_xor) and its 92 siblings below.
 
-**93 theorems**, from [nim_sum_is_xor](/theorem/nim_sum_is_xor) onward, each proven `by decide` in [lean/Nim.lean](/lean/Nim.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 93 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [nim_empty_heap_neutral](/theorem/nim_empty_heap_neutral). A boundary stated here is decided, not merely denied.
+**93 theorems**, from [nim_sum_is_xor](/theorem/nim_sum_is_xor) onward, each proven `by decide` in [lean/Nim.lean](/lean/Nim.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 93 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [nim_empty_heap_neutral](/theorem/nim_empty_heap_neutral). A boundary stated here is decided.
 
 ### The nim-sum is the bitwise XOR of the heap sizes — the ledger's own axiom-free lxor: heaps 3, 5, 7 fold to lxor(lxor 3 5) 7 = 1. Nonzero, so the position is a WIN for the player to move (Bouton's theorem).
 The ledger holds this as [nim_sum_is_xor](/theorem/nim_sum_is_xor) — proven `by decide`, sorry-free:
@@ -37,7 +37,7 @@ The ledger holds this as [nim_empty_heap_neutral](/theorem/nim_empty_heap_neutra
 (List.range 16).all (fun n => lxor n 0 == n)
 ```
 
-### The nim-sum does not care about heap order: lxor a b = lxor b a. The heaps are a set, not a sequence — a symmetry the whole theory rests on.
+### The nim-sum does not care about heap order: lxor a b = lxor b a. The heaps are a set— a symmetry the whole theory rests on.
 The ledger holds this as [nim_sum_commutes](/theorem/nim_sum_commutes) — proven `by decide`, sorry-free:
 
 ```lean
@@ -86,7 +86,7 @@ The ledger holds this as [nim_misere_differs](/theorem/nim_misere_differs) — p
 lxor (lxor 1 1) 1 = 1
 ```
 
-### Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6 is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond's self-annihilating residue, its "draw". The biggest win reduces to the vortex's zero-square, while chess sits at the units {1,8} and the audit at 8. a structural residue of the nim-sum, NOT a claim nim IS the ring.
+### Nim enters the ℤ/9 diamond, where the games interact: the maximal four-power nim-sum 15 ≡ 6 (mod 9), and 6 is a NILPOTENT of the ring (6·6 ≡ 0) — the diamond's self-annihilating residue, its "draw". The biggest win reduces to the vortex's zero-square, while chess sits at the units {1,8} and the audit at 8. a structural residue of the nim-sum.
 The ledger holds this as [nim_max_is_a_diamond_nilpotent](/theorem/nim_max_is_a_diamond_nilpotent) — proven `by decide`, sorry-free:
 
 ```lean

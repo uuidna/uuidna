@@ -23,7 +23,7 @@
 //             seal as an integer BRACKET. Confusing the two is how a rounded figure
 //             becomes an asserted constant.
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 
 export type Status = 'read' | 'secondary' | 'unread' | 'refuted'
 export type Kind = 'convention' | 'measured'

@@ -7,7 +7,7 @@ description: "Computed from lean/Optics.lean — 6 sealed theorems, every claim 
 
 > OPTICS — the light domain, as decidable arithmetic, demarcated. — held by [law_of_reflection](/theorem/law_of_reflection) and its 5 siblings below.
 
-**6 theorems**, from [law_of_reflection](/theorem/law_of_reflection) onward, each proven `by decide` in [lean/Optics.lean](/lean/Optics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [refractive_index_ge_one](/theorem/refractive_index_ge_one). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [law_of_reflection](/theorem/law_of_reflection) onward, each proven `by decide` in [lean/Optics.lean](/lean/Optics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [refractive_index_ge_one](/theorem/refractive_index_ge_one). A boundary stated here is decided.
 
 ### The law of reflection: the angle out equals the angle in, so a mirror is an involution — reflecting the incidence angle twice through the normal returns it, 180 − (180 − a) = a for every angle a in 0…180°.
 The ledger holds this as [law_of_reflection](/theorem/law_of_reflection) — proven `by decide`, sorry-free:

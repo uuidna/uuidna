@@ -15,7 +15,7 @@
 import { THEOREMS } from './theorems/index.js'
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { adjudicate } from './adjudicate.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
 
 const BY_KEY = new Map(THEOREMS.map((t) => [t.key, t]))

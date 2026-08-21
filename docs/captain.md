@@ -49,7 +49,7 @@ The two coins are not a price — they are topology: **110 − 108 = 2 = −χ o
 **64 = 2⁶** is the bit measure of a seal: a fixed 128 bits = 64 two-bit fold-verifications, folding O(log N)
 (1024 leaves → one root in 10 levels). Contribute 2, save up to 64, keep up to 62 — and the measured saving never
 goes negative. All of it decidable arithmetic, sealed in [the coins cluster](/publications/coins):
-[`two_coins`](/theorem/two_coins) · [`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour) ·
+[`two_coins`](/theorem/two_coins) · [`captain_theorem`](/theorem/captain_theorem) ·
 [`bill_never_negative`](/theorem/bill_never_negative).
 
 ## The completion — why two handles
@@ -95,7 +95,7 @@ Whichever angle you sail, the coins land in the same wallet the same way: **paid
 
 The contribution is needed for one reason: **to compute quantum at a scale and speed worth competing with, globally
 — and to prove it by measurement, not assertion.** The leverage is already sealed — contribute 2, save up to 64
-([`contribute_two_save_sixtyfour`](/theorem/contribute_two_save_sixtyfour)), folding O(log N) — so every coin
+([`captain_theorem`](/theorem/captain_theorem)), folding O(log N) — so every coin
 compounds: credits fund the compute, the compute seals more theorems, each seal saves up to 64 more verifications.
 The measure is the standard: speedups are **measured in [trials](/trials)** (never claimed), the crypto layer is
 verified against **known-answer tests** (the KAT suite), and every measurement recomputes for any auditor — that is

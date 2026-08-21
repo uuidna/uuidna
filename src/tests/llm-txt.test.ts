@@ -5,8 +5,11 @@
 // as the ledger that witnessed itself.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
-import { theorems } from '../index.js'
+import { readFileSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from '../boundary.js'
+import { theorems, toUuid } from '../index.js'
+import { handleOf } from '../handle.js'
 import { MCP_CATALOG } from '../mcp.js'
 
 const txt = (): string => readFileSync(new URL('../../llm.txt', import.meta.url), 'utf8')
@@ -33,29 +36,50 @@ test('it cites both kinds — theorems to verify, and tools to call', () => {
   assert.ok(cited.some((c) => tools.has(c)), 'no tool cited — an agent could not act on it')
 })
 
-// ── ORDER. An agent should be able to connect before it has read anything else.
-test('the MCP connection comes before the exposition', () => {
+// ── ORDER. The claim and its proof lead; an agent can still connect without scrolling.
+test('the proof leads and the endpoint is reachable in one screenful', () => {
   const t = txt()
-  const connect = t.indexOf('## Connect first')
-  assert.ok(connect > 0, 'the connect block must exist')
-  for (const later of ['## THE RULE', '## The coins first', '## Hard rules']) {
-    assert.ok(t.indexOf(later) > connect, `${later} must come after the connection`)
-  }
-  assert.ok(connect < 1200, 'the connection must be reachable in the first screenful')
+  assert.ok(t.indexOf('```lean') < 400, 'the Lean proof must lead the file')
+  assert.ok(t.indexOf('https://uuidna.com/mcp') > 0, 'the endpoint must be present')
+  assert.ok(t.indexOf('## Agree, then contribute') > t.indexOf('```lean'), 'the licence follows the proof')
 })
 
 // ── SLIM. A budget only means something if something enforces it.
 test('llm.txt stays within its size budget', () => {
   const n = Buffer.byteLength(txt(), 'utf8')
-  assert.ok(n <= 6000, `llm.txt is ${n} bytes; it is the first thing an agent loads and must stay slim`)
-  assert.ok(n > 2000, 'and it must not have silently emptied')
+  assert.ok(n <= 2500, `llm.txt is ${n} bytes; it is the first thing an agent loads and must stay slim`)
+  assert.ok(n > 800, 'and it must not have silently emptied')
 })
 
-// ── THE RULES THAT PREVENT AGENT FAILURE. Each was earned by a real failure in this repository.
-test('the operational hard rules survive regeneration', () => {
+// ── THE PAYLOAD RESOLVES. The operational rules moved out of the inline file and into content-addressed
+// chunks named by their 8-hexbit handle, so llm.txt costs an index line instead of the whole text on every
+// session. That is only honest if the handles actually open: an index naming a chunk nobody can fetch is worse
+// than the bytes it saved. Every handle is checked against the chunk it names, and the chunk against its own
+// address — same bytes, same handle, or the name moved and the index is stale.
+test('every payload handle resolves to the chunk it names', () => {
   const t = txt()
+  const listed = [...t.matchAll(/^- `([0-9a-f]{8})` — (.+)$/gm)]
+  assert.ok(listed.length >= 4, `expected the payload index, saw ${listed.length} entries`)
+  for (const [, handle, title] of listed) {
+    const path = join(ROOT, 'docs', 'public', 'chunk', handle + '.json')
+    assert.ok(existsSync(path), `${handle} (${title}) is indexed but no chunk exists at ${path}`)
+    const chunk = JSON.parse(readFileSync(path, 'utf8')) as { handle: string; body: string; title: string }
+    assert.equal(chunk.handle, handle, 'the chunk must carry the handle it is filed under')
+    assert.equal(handleOf(toUuid(chunk.body)), handle, `${handle} does not content-address to its own body`)
+    assert.ok(chunk.body.length > 100, `${handle} resolves to an empty payload`)
+  }
+})
+
+// the rules themselves must survive SOMEWHERE — inline or in the payload they moved to
+test('the operational hard rules survive regeneration, in the payload', () => {
+  const t = txt()
+  const listed = [...t.matchAll(/^- `([0-9a-f]{8})`/gm)].map((m) => m[1])
+  const all = t + listed.map((h) => {
+    const p = join(ROOT, 'docs', 'public', 'chunk', h + '.json')
+    return existsSync(p) ? (JSON.parse(readFileSync(p, 'utf8')) as { body: string }).body : ''
+  }).join('\n')
   for (const rule of [/Math\.\*/, /exit code/i, /use is not mention|Use is not mention/, /git add -A/])
-    assert.match(t, rule, 'a hard rule was lost from the generated file')
+    assert.match(all, rule, 'a hard rule was lost from the generated file and its payload')
 })
 
 // ── NO FROZEN COUNTS. A number written into prose is a claim with no way to stay true.

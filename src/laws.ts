@@ -6,7 +6,7 @@ import { theorems } from './theorems/index.js'
 import { conformance } from './conformance.js'
 import { computes } from './gate.js'
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 
 export interface Law { law: string; enforcedBy: string; holds: boolean; detail: string }
 export interface Laws { laws: Law[]; allHold: boolean; receipt: string }

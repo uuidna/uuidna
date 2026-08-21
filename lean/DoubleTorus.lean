@@ -10,9 +10,9 @@ theorem chi_measures_genus : (((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)) 
     which the line proves rather than lets slide. -/
 theorem handles_give_generators : (2 * 2 = 4) ∧ (4 ≠ 2) := by decide
 
-/-- THE WHOLE DESCRIPTION IS FIVE SYMBOLS: four generators and one relation, [a₁,b₁][a₂,b₂] = 1. One relation,
-    not none — a free group on four generators is a different object, and the single constraint is exactly what
-    closes the surface. -/
+/-- THE WHOLE DESCRIPTION IS FIVE SYMBOLS: four generators and one relation, [a₁,b₁][a₂,b₂] = 1. One relation— a
+    free group on four generators is a different object, and the single constraint is exactly what closes the
+    surface. -/
 theorem presentation_counts_five : (4 + 1 = 5) ∧ (1 ≠ 0) := by decide
 
 /-- A STEP COSTS THREE QUBITS: two to name which of the four generators (2² = 4) and one for its direction (a or

@@ -16,7 +16,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -145,6 +145,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'binary', run: () => binaryGaps() },
   // a deleted generator whose build output survives still runs, against a ledger that has moved on.
   { name: 'orphan', run: () => orphanGaps() },
+  // the hexbit unit has ONE implementation; a second copy is drift waiting to happen.
+  { name: 'unit', run: () => unitGaps() },
+  // HARD FAIL IF NOT HEXBIT: a width taken bit-at-a-time outside src/hexbit.
+  { name: 'hexbit', run: () => hexbitGaps() },
   // THREE WORDS, HARD: a new key over the limit fails the gate. The 313 that predate the law are the recorded
   // backlog in lean/key-entropy.json and may only shrink — so the entropy stops growing without moving 313
   // published content-addresses in one stroke.

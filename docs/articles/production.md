@@ -7,7 +7,7 @@ description: "Computed from lean/Production.lean — 10 sealed theorems, every c
 
 > THE MIX — the studio involutions (reverse, invert, and their fusion) and the counting of pitch, tempo and sample, as decidable arithmetic. — held by [reverse_involutive](/theorem/reverse_involutive) and its 9 siblings below.
 
-**10 theorems**, from [reverse_involutive](/theorem/reverse_involutive) onward, each proven `by decide` in [lean/Production.lean](/lean/Production.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [midi_is_seven_bit](/theorem/midi_is_seven_bit). A boundary stated here is decided, not merely denied.
+**10 theorems**, from [reverse_involutive](/theorem/reverse_involutive) onward, each proven `by decide` in [lean/Production.lean](/lean/Production.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [midi_is_seven_bit](/theorem/midi_is_seven_bit). A boundary stated here is decided.
 
 ### Reversing a clip is self-inverse: reverse it twice and the signal returns — ([3,-5,8] : List Int).reverse.reverse = [3,-5,8]. The tape run backward and backward again is the tape.
 The ledger holds this as [reverse_involutive](/theorem/reverse_involutive) — proven `by decide`, sorry-free:

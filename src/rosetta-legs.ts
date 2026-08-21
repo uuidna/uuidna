@@ -10,12 +10,12 @@
 // therefore free to disagree, which is why src/tests/rosetta-legs.test.ts recomputes the census and compares it to
 // the mirror key by key, and why the stdio tool reports the comparison in its own output instead of assuming it.
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { MIRROR, CLAIMS, FLOOR } from './rosetta-mirror.js'
 
 export type Leg = 'symbol' | 'proof' | 'witness' | 'falsifier' | 'address'
 export const LEGS: readonly Leg[] = ['symbol', 'proof', 'witness', 'falsifier', 'address'] as const
-/** the bit each leg occupies in the shipped mirror — the mirror is a mask per key
+/** the bit each leg occupies in the shipped mirror — the mirror is a mask per key, never a repeated word list */
 export const LEG_BIT: Record<Leg, number> = { symbol: 1, proof: 2, witness: 4, falsifier: 8, address: 16 }
 
 export interface Rosetta { key: string; wing: string; legs: Leg[]; missing: Leg[]; claimedBy: string }
@@ -79,8 +79,8 @@ export function legsFor(rows: readonly Rosetta[], key: string): LegAnswer {
     key: r.key, wing: r.wing, legs: r.legs, missing: r.missing, claimedBy: r.claimedBy,
     canLocateFault: canLocateFault(r.legs),
     verdict: canLocateFault(r.legs)
-      ? `${r.legs.length} of ${LEGS.length} independent witnesses — enough to LOCATE a fault`
-      : `${r.legs.length} of ${LEGS.length} independent witnesses — enough only to DETECT a disagreement; symbol and proof are written by one hand and share that hand's errors`,
+      ? `${r.legs.length} of ${LEGS.length} independent witnesses — enough to LOCATE a fault, not merely detect one`
+      : `${r.legs.length} of ${LEGS.length} independent witnesses — enough only to DETECT a disagreement, never to locate it; symbol and proof are written by one hand and share that hand's errors`,
   }
 }
 
@@ -104,7 +104,7 @@ const HONEST_LEGS =
   'neither is evidence about the world. SYMBOL is the js mirror the emitter cross-checks. WITNESS (a source outside ' +
   'this repository) and FALSIFIER (a test that must fail on a deliberate mutation) are the scarce ones, and a low ' +
   'count is reported as it stands rather than smoothed: two legs can DETECT a disagreement and never locate it. ' +
-  'A missing leg is never a claim that the theorem is false. Integrity.'
+  'A missing leg is never a claim that the theorem is false. Integrity, not truth.'
 
 export function legCensus(rows: readonly Rosetta[], floor: { witness: number; falsifier: number } = FLOOR): LegCensus {
   const perLeg = LEGS.map((leg) => {

@@ -11,12 +11,12 @@ import { dirname, join } from 'node:path'
 import { runTrial, THEOREMS, PRINCIPLES, statementCensus } from '../index.js'
 import { ROOT } from './api.js'
 
-const TARGET = 1024 // the v1.0.0 milestone (2^10) — the one stated goal, a named constant
+const TARGET = 1024 // the v1.0.0 milestone (2^10) — the one stated goal, a named constant, not a magic number
 const count = THEOREMS.length
 const principles = new Set(THEOREMS.map((t) => t.principle)).size
 const receipt = runTrial().receipt
 
-// BOTH NUMBERS, ALWAYS — a theorem is its LEAN. The ledger holds more KEYS than distinct propositions
+// BOTH NUMBERS, ALWAYS — a theorem is its LEAN, not its name. The ledger holds more KEYS than distinct propositions
 // because some statements are deliberately sealed in two wings (the ℤ/9 table lives in Core and in Ring, 64 of the
 // overlap), and every surface that printed only the key count was quietly using the larger of two true numbers. The
 // milestone is measured on the DISTINCT count, because that is what a skeptic recomputing the ledger would find.

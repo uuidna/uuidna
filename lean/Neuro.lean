@@ -13,14 +13,14 @@ theorem suprathreshold_fires : (List.range' 5 5).all (fun x => (if x >= 5 then 1
 theorem spatial_summation : ((if 3 >= 5 then 1 else 0) = 0) ∧ ((if 3 + 3 >= 5 then 1 else 0) = 1) := by decide
 
 /-- The action potential swings −70 mV to +40 mV, a span of 110 mV, with the −55 mV threshold strictly between
-    rest and peak — the ordering is part of the fact, not decoration. -/
+    rest and peak — the ordering is part of the fact. -/
 theorem action_potential_swing : ((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40) := by decide
 
 /-- ALL-OR-NONE, STATED SO A GRADED NEURON FAILS IT. The spike amplitude over stimulus 0..9 is the table
-    [0,0,0,0,0,110,110,110,110,110] — silent below threshold, the FULL 110 mV above it, never an intermediate
-    value. The graded rival 22·s is stated in the same theorem and shown NOT to equal that table, and shown to
-    take values that are neither 0 nor 110. The predecessor could not do this: its only live constants were 1
-    and 0, so it verified its own notation and was refuted by the 110 mV it named. -/
+    [0,0,0,0,0,110,110,110,110,110] — silent below threshold, the FULL 110 mV above it. The graded rival 22·s is
+    stated in the same theorem and shown NOT to equal that table, and shown to take values that are neither 0
+    nor 110. The predecessor could not do this: its only live constants were 1 and 0, so it verified its own
+    notation and was refuted by the 110 mV it named. -/
 theorem all_or_none_amplitude :
     ((List.range 10).map (fun s => if s >= 5 then 110 else 0) = [0,0,0,0,0,110,110,110,110,110])
   ∧ ((List.range 10).map (fun s => 22 * s) ≠ [0,0,0,0,0,110,110,110,110,110])
@@ -87,9 +87,9 @@ theorem temporal_summation_decays :
     ((List.range 6).map (fun d => if max (4 - Int.ofNat d) 0 + 4 >= 5 then 1 else 0) = [1,1,1,1,0,0])
   ∧ ((if (4 : Int) >= 5 then 1 else 0) = 0) := by decide
 
-/-- INTENSITY IS IN THE RATE, NOT THE SPIKE. A drive of 6 and a drive of 60 produce the SAME 110 mV amplitude —
-    the spike carries no magnitude — while the number of spikes in a fixed window differs. That is the whole
-    content of rate coding, and it is the direct consequence of all-or-none. -/
+/-- INTENSITY IS IN THE RATE. A drive of 6 and a drive of 60 produce the SAME 110 mV amplitude — the spike
+    carries no magnitude — while the number of spikes in a fixed window differs. That is the whole content of
+    rate coding, and it is the direct consequence of all-or-none. -/
 theorem rate_codes_intensity :
     ((if (6 : Int) >= 5 then 110 else 0) = (if (60 : Int) >= 5 then 110 else 0))
   ∧ (((List.range 20).filter (fun t => t % 10 == 0)).length
@@ -128,10 +128,10 @@ theorem integrate_and_fire_resets :
     ((List.range 9).map (fun t => 2 * (t % 3)) = [0,2,4,0,2,4,0,2,4])
   ∧ ((List.range 9).map (fun t => if t > 0 && t % 3 == 0 then 1 else 0) = [0,0,0,1,0,0,1,0,0]) := by decide
 
-/-- ALL-OR-NONE IS ABOUT INITIATION, NOT PROPAGATION — down a passive dendrite the amplitude falls 1000, 893,
-    618, 502 (thousandths), strictly decreasing and more than halved by the last point. Stated beside the
-    constant rival [1000,1000,1000,1000], which it is shown NOT to equal. This is the honest boundary on the
-    wing headline: the spike is all-or-none where it starts and graded where it travels. -/
+/-- ALL-OR-NONE IS ABOUT INITIATION— down a passive dendrite the amplitude falls 1000, 893, 618, 502
+    (thousandths), strictly decreasing and more than halved by the last point. Stated beside the constant rival
+    [1000,1000,1000,1000], which it is shown NOT to equal. This is the honest boundary on the wing headline: the
+    spike is all-or-none where it starts and graded where it travels. -/
 theorem spike_amplitude_attenuates :
     ([1000, 893, 618, 502] ≠ [1000, 1000, 1000, 1000])
   ∧ (List.zipWith (fun a b => decide (b < a)) [1000, 893, 618, 502] [1000, 893, 618, 502].tail).all (fun p => p)

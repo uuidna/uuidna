@@ -30,6 +30,5 @@ theorem identity_leaves_all : (agl.contains 9) ∧ (agl.all (fun f => (comp f 9 
 theorem every_map_inverts : agl.all (fun f => agl.any (fun g => comp f g == 9)) := by decide
 
 /-- AND IT IS NOT ABELIAN, shown by exhibiting the failure rather than asserting it: 2376 of the 2916 ordered
-    pairs do not commute — a majority, not an exception. Only 540 pairs agree, so order matters almost
-    everywhere in this group. -/
+    pairs do not commute — a majority. Only 540 pairs agree, so order matters almost everywhere in this group. -/
 theorem group_does_not_commute : (agl.any (fun f => agl.any (fun g => comp f g != comp g f))) ∧ (2376 + 540 = 2916) ∧ (2376 ≠ 0) := by decide

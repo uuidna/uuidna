@@ -14,8 +14,8 @@ theorem single_byte_tamper_is_detected : ([1,2,3,4] : List Nat) ≠ [1,2,0,4] :=
     breaks the exact-copy proof; you cannot pass off a partial base as the whole named release. -/
 theorem truncation_is_detected : ([1,2,3] : List Nat) ≠ [1,2] := by decide
 
-/-- A PROVENANCE is a SEQUENCE, not a set: reordering the bytes breaks the match — [1,2,3] ≠ [3,2,1]. The same
-    bytes in a different order are a different image; exact-copy pins the order, not just the multiset. -/
+/-- A PROVENANCE is a SEQUENCE— [1,2,3] ≠ [3,2,1]. The same bytes in a different order are a different image;
+    exact-copy pins the order. -/
 theorem byte_order_is_significant : ([1,2,3] : List Nat) ≠ [3,2,1] := by decide
 
 /-- The provenance DIGEST is a fixed width: SHA-256 is 256 bits = 32 bytes = 64 hex characters (32·8 = 256 and

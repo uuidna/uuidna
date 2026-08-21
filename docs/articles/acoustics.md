@@ -7,7 +7,7 @@ description: "Computed from lean/Acoustics.lean — 6 sealed theorems, every cla
 
 > ACOUSTICS — the sound domain, as decidable arithmetic, demarcated. — held by [harmonic_series](/theorem/harmonic_series) and its 5 siblings below.
 
-**6 theorems**, from [harmonic_series](/theorem/harmonic_series) onward, each proven `by decide` in [lean/Acoustics.lean](/lean/Acoustics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [closed_pipe_odd_harmonics](/theorem/closed_pipe_odd_harmonics). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [harmonic_series](/theorem/harmonic_series) onward, each proven `by decide` in [lean/Acoustics.lean](/lean/Acoustics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [closed_pipe_odd_harmonics](/theorem/closed_pipe_odd_harmonics). A boundary stated here is decided.
 
 ### A vibrating string or air column sounds the harmonic series — integer multiples of the fundamental. On a 110 Hz fundamental the overtones are 110·[1,2,3,4,5,6] = [110,220,330,440,550,660] Hz.
 The ledger holds this as [harmonic_series](/theorem/harmonic_series) — proven `by decide`, sorry-free:

@@ -3,11 +3,11 @@
 // time: the captain coins are conserved, EVERY theorem's content-address recomputes (a forged or tampered theorem is
 // caught — its DNA no longer matches), the security posture is clean (zero runtime deps, defences + collision-
 // resistance sealed, the honesty gate bites, Clay solves none), and the ledger is non-empty and axiom-shaped. Run in
-// the audit / pre-push wave; a non-conforming commit is BLOCKED. Recomputable by anyone — integrity.
+// the audit / pre-push wave; a non-conforming commit is BLOCKED. Recomputable by anyone — integrity, not truth.
 import { theorems } from './theorems/index.js'
 import { coins } from './captain/billing/index.js'
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { securityAudit } from './security-audit.js'
 
 export interface ConformanceCheck { id: string; pass: boolean; detail: string }

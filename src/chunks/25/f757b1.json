@@ -1,0 +1,12 @@
+{
+  "handle": "25f757b1",
+  "address": "25f757b1-2d8a-84f1-b33d-63ac98ed1563",
+  "statement": "(List.range' 1 8).all (fun n => (2 * n == n + n) && ((2 * n) % 2 == 0))",
+  "tactic": "decide",
+  "keys": [
+    "minting_is_two_per_theorem"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

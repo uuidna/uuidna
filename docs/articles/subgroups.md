@@ -5,9 +5,9 @@ description: "Computed from lean/Subgroups.lean — 6 sealed theorems, every cla
 
 # lean/Subgroups.lean
 
-> THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited, not merely counted. — held by [units_form_six](/theorem/units_form_six) and its 5 siblings below.
+> THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited. — held by [units_form_six](/theorem/units_form_six) and its 5 siblings below.
 
-**6 theorems**, from [units_form_six](/theorem/units_form_six) onward, each proven `by decide` in [lean/Subgroups.lean](/lean/Subgroups.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [units_form_six](/theorem/units_form_six). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [units_form_six](/theorem/units_form_six) onward, each proven `by decide` in [lean/Subgroups.lean](/lean/Subgroups.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [units_form_six](/theorem/units_form_six). A boundary stated here is decided.
 
 ### THE GROUP IS THE SIX UNITS of Z/9 — the residues with a multiplicative inverse, 1, 2, 4, 5, 7, 8 — and three, six and zero are excluded because they share a factor with nine and cannot be inverted.
 The ledger holds this as [units_form_six](/theorem/units_form_six) — proven `by decide`, sorry-free:

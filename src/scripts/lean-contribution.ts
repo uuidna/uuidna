@@ -28,10 +28,6 @@ const FACTS = [
     js: () => 2 ** 7 === 128 && 128 - 2 === 126,
     lean: 'theorem contribution_leaves_one_twentysix : ((2:Nat)^7 = 128) ∧ (128 - 2 = 126) ∧ (126 + 2 = 128) := by decide' },
 
-  { key: 'coins_are_the_torus',
-    why: 'AND THE TWO ARE NOT ARBITRARY EITHER: the commission is the same two the ledger already seals as 110 - 108, which is the negative Euler characteristic of the double torus — 2 - 2·2 = -2 at genus two. The coin paid here is the coin sealed there.',
-    js: () => 110 - 108 === 2 && 2 - 2 * 2 === -2,
-    lean: 'theorem coins_are_the_torus : (110 - 108 = 2) ∧ (((2:Int) - 2 * 2) = -2) ∧ (-((2:Int) - 2 * 2) = 2) := by decide' },
 
   { key: 'directions_number_fortytwo',
     why: 'THE PAIR GRID IS FORTY-TWO: seven dimensions give 7 x 7 ordered pairs, less the seven self-pairs, so 42 directions remain. And 6 x 7 = 7 x 6 exactly — the two coordinates COMMUTE, which the line proves, since a reading that they counter-rotate was refuted by this ledger before.',

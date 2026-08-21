@@ -9,7 +9,7 @@
 // Integrity — the record recomputes for anyone.
 import { adjudicate } from './adjudicate.js'
 import { nistConstant } from './constants.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
 
 /** One piece of external research — a provenance-fingerprinted attestation from a free public API. NOT a proof. */
@@ -118,7 +118,7 @@ const openAlexSource: ResearchSource = async (query) => {
 }
 
 const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource, semanticScholarSource, openAlexSource]
-/** the sources BY NAME — so any surface states how many are actually wired
+/** the sources BY NAME — so any surface states how many are actually wired. */
 export const RESEARCH_SOURCE_NAMES: readonly string[] = ['nist.gov', 'zenodo.org', 'crossref.org', 'semanticscholar.org', 'openalex.org']
 
 /** researchEvidence(query) → external research from the free API STREAMS, FANNED OUT IN PARALLEL (Promise.all over

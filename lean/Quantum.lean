@@ -1,4 +1,4 @@
--- lean/Quantum.lean — GENERATED. The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Quantum.lean — GENERATED. The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded
 -- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it
@@ -154,8 +154,7 @@ theorem sixteen_connectives : (2:Nat) ^ (2 * 2) = 16 := by decide
     sign. -/
 theorem real_pauli_group_order_8 : (2 * 4 = 8) ∧ (8 * 2 = 16) := by decide
 
-/-- The order-8 signed group carries 4 distinguishable messages, not 8: dividing out the unobservable global
-    phase (÷2) collapses 8 group elements to 4 = 2² Bell states — superdense coding's two classical bits. The
+/-- The order-8 signed group carries 4 distinguishable messages— superdense coding's two classical bits. The
     group's 8 and the channel's 4 pinned together: 8/2 = 4 = 2². Group doubling, phase quotient, message count,
     one line. -/
 theorem four_messages_two_bits : (8 / 2 = 4) ∧ ((2:Nat)^2 = 4) := by decide
@@ -177,7 +176,7 @@ theorem chsh_beats_classical : ((2:Nat)^2 < 2^3) ∧ (2^3 = 8) := by decide
 
 /-- The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)²
     dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². this is the arithmetic SHADOW
-    of the no-cloning theorem (a linearity fact), not a proof of it. -/
+    of the no-cloning theorem (a linearity fact). -/
 theorem no_cloning_dimension : (2:Nat)^2 < (2^2)^2 := by decide
 
 /-- The Hadamard swaps the X and Z bases: HXH = Z, verified on integer amplitudes up to the √2² = 2 scale —
@@ -222,7 +221,7 @@ theorem store_fold_order_invariant :
 
 /-- The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a
     = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. integrity
-    of the content-address, not a quantum property. -/
+    of the content-address. -/
 theorem store_fold_change_moves_receipt :
   (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 =>
     ([a,b,c].foldl lxor 0 == [a2,b,c].foldl lxor 0) == (a == a2))))) := by decide
@@ -243,12 +242,11 @@ theorem message_qubit_cap_states : 2^16 = 65536 := by decide
 theorem merkle_sort_invariant : (let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1)) := by decide
 
 /-- UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one
-    duality. Physics side: the marginal is BLIND — the sum a+b sees only the total, never the arrangement (1+0 =
-    0+1: swap the far side, the near statistics never move; correlation carries no message — the invariance
-    bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold
-    10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for
-    digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt
-    IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces.
-    Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total
-    signal, never by obscurity. -/
+    duality. Physics side: the marginal is BLIND — the sum a+b sees only the total; correlation carries no
+    message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is
+    ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address
+    exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two
+    parties computing the same receipt IS the message. The same arithmetic run in opposite directions:
+    invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in
+    an address — secure messaging by total signal. -/
 theorem all_signaling_duality : (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d)))))) := by decide

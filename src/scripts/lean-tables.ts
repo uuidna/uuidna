@@ -3,7 +3,7 @@
 // and the ROSETTE ℤ/7 (the Pliska group). This generates their full multiplication, addition and power tables,
 // one `by decide` Lean theorem per cell, into lean/Ring.lean and lean/Rosette.lean — each a computing principle.
 // Every fact is COMPUTED (the right-hand side derived, Lean recomputes it). Emits manifests for the microdata UI,
-// and verifies both files compile sorry-free. Integrity.
+// and verifies both files compile sorry-free. Integrity, not truth.
 import { emit } from './lean-gen.js'
 
 function build(n: number, label: string, sym: string, skill: string) {

@@ -9,7 +9,7 @@
 // facts, it asserts nothing new. The aura is ART (a defined arithmetic from the address to a hue).
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { theorems, runTrial } from './theorems/index.js'
 import { quantumAura } from './aura.js'
 import { axiomWitness } from './axiom-witness.js'

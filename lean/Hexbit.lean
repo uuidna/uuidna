@@ -15,9 +15,8 @@ theorem layout_groups_thirtytwo : ([8,4,4,4,12].foldl (· + ·) 0 = 32) ∧ (32 
     rather than a separate fact. -/
 theorem characters_span_the_address : (32 * 4 = 128) ∧ ((2:Nat)^7 = 128) := by decide
 
-/-- THE HANDLE IS THE FIRST GROUP, not a slice taken afterwards: the layout opens with eight characters, and
-    eight characters are thirty-two bits. Every other group is shorter, which the line proves — so the opening
-    group is the widest single field the layout has, apart from the closing twelve. -/
+/-- THE HANDLE IS THE FIRST GROUP. Every other group is shorter, which the line proves — so the opening group is
+    the widest single field the layout has, apart from the closing twelve. -/
 theorem handle_is_the_first_group : ([8,4,4,4,12].head! = 8) ∧ (8 * 4 = 32) ∧ (([8,4,4,4,12].drop 1).take 3).all (fun g => g < 8) := by decide
 
 /-- EVERY GROUP IS A WHOLE NUMBER OF HEXBITS, so every boundary falls on a four-bit edge and no field is split

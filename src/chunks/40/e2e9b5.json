@@ -1,0 +1,12 @@
+{
+  "handle": "40e2e9b5",
+  "address": "40e2e9b5-a1a4-843c-80fb-6a0d814bd041",
+  "statement": "(256 / 4 = 64) ∧ (128 / 4 = 32) ∧ (256 = 2 * 128) ∧ (32 * 4 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "key_floor_is_one_uuid"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

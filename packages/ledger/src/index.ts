@@ -3,7 +3,7 @@
 // @uuidna/ledger — the SEALED THEOREM LEDGER and every gate that stands on it: the content-address core,
 // merkle proofs, the honesty gates (slimGate / computes / overreachOf), the trial, commit signing, anti-fraud,
 // forensics, conformance, treason, the ledger fingerprint, laws, credits, and the billing coins. A claim is
-// judged solely by whether the theorems it cites are sealed here. Integrity, not truth.
+// judged solely by whether the theorems it cites are sealed here. Integrity.
 export {
   toUuid, cryptoAddress, strictUuidna, merge, coin64, excludeSortedJson, merkleFold, digitalRoot,
   gcd, gcdBigInt, isPrime, modpow,
@@ -29,4 +29,4 @@ export { catchTraitors, guardLessons, type TreasonReport, type Traitor, type Gua
 export { axiomWitness, type AxiomWitnessReport } from '@uuidna/uuidna'
 export { detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit, type CoinAudit, type VoteFraud, type VoteAudit, type LedgerIntrusionReport, type ForgeryDetection, type DoubleSpendsAudit } from '@uuidna/uuidna'
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from '@uuidna/uuidna'
-export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview } from '@uuidna/uuidna'
+export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, UUID_HEXBITS, dependsOn, byGravity, type Rating } from '@uuidna/uuidna'

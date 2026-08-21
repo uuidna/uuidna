@@ -1,13 +1,13 @@
 ---
 title: "The Platonic solids in every dimension"
-description: "Computed from lean/Solids.lean — 12 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Solids.lean — 11 sealed theorems, every claim citing its proof."
 ---
 
 # The Platonic solids in every dimension
 
-> THE PLATONIC SOLIDS & THE REGULAR POLYTOPES IN EVERY DIMENSION — the research loop closed to green: the public-domain counts (spun online), audited offline (every fact computes true before it seals), sealed as `by decide`. — held by [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) and its 11 siblings below.
+> THE PLATONIC SOLIDS & THE REGULAR POLYTOPES IN EVERY DIMENSION — the research loop closed to green: the public-domain counts (spun online), audited offline (every fact computes true before it seals), sealed as `by decide`. — held by [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) and its 10 siblings below.
 
-**12 theorems**, from [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) onward, each proven `by decide` in [lean/Solids.lean](/lean/Solids.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 12 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [three_pentagons_close_a_vertex](/theorem/three_pentagons_close_a_vertex). A boundary stated here is decided, not merely denied.
+**11 theorems**, from [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) onward, each proven `by decide` in [lean/Solids.lean](/lean/Solids.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [three_pentagons_close_a_vertex](/theorem/three_pentagons_close_a_vertex). A boundary stated here is decided.
 
 ### There are exactly FIVE regular convex solids in three dimensions — tetrahedron, cube, octahedron, dodecahedron, icosahedron — listed as (V,E,F). Five, no more, no fewer.
 The ledger holds this as [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) — proven `by decide`, sorry-free:
@@ -21,13 +21,6 @@ The ledger holds this as [platonic_euler_characteristic_is_two](/theorem/platoni
 
 ```lean
 [(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].all (fun s => s.1 + s.2.2 == s.2.1 + 2)
-```
-
-### The dodecahedron's Euler characteristic IS the two captain coins: V − E + F = 20 − 30 + 12 = 2, and the coins are 110 − 108 = 2. The solid's topology and the conserved cost are the same 2.
-The ledger holds this as [euler_two_is_the_two_coins](/theorem/euler_two_is_the_two_coins) — proven `by decide`, sorry-free:
-
-```lean
-(20 + 12 - 30 = 2) ∧ (110 - 108 = 2)
 ```
 
 ### The dodecahedron is twelve pentagons: 12 faces × 5 sides = 60 = 2 × 30, each of its 30 edges shared by exactly two pentagonal faces. Twelve pentagons — the twelve the monographs computed themselves into.

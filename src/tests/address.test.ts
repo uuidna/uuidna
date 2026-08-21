@@ -1,6 +1,6 @@
-// excludeSortedJson — real behavior on real objects. Determinism here
+// excludeSortedJson — real behavior on real objects, not a small representative Lean instance. Determinism here
 // is an ECMAScript-spec guarantee (JSON.stringify with a sorted replacer array), verified by actually calling it
-// with different key orders and different object shapes.
+// with different key orders and different object shapes, not by proving one hand-picked case in Lean.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { excludeSortedJson, toUuid } from '../index.js'

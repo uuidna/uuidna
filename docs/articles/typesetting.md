@@ -5,9 +5,9 @@ description: "Computed from lean/Typesetting.lean — 13 sealed theorems, every 
 
 # The measures of type
 
-> THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini's identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page, not a layout engine; the √2 A-series ratio is irrational and demarcated, not decided. — held by [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) and its 12 siblings below.
+> THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini's identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. the arithmetic of the page; the √2 A-series ratio is irrational and demarcated. — held by [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) and its 12 siblings below.
 
-**13 theorems**, from [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) onward, each proven `by decide` in [lean/Typesetting.lean](/lean/Typesetting.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [signature_multiple_of_four](/theorem/signature_multiple_of_four). A boundary stated here is decided, not merely denied.
+**13 theorems**, from [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) onward, each proven `by decide` in [lean/Typesetting.lean](/lean/Typesetting.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [signature_multiple_of_four](/theorem/signature_multiple_of_four). A boundary stated here is decided.
 
 ### The printer's units close on the inch: twelve points make a pica, six picas make the inch — 6 · 12 = 72 — so the point is exactly 1/72 of an inch, the atom every measure is counted in. Pierre Fournier and then Firmin Didot fixed the point in the 18th century; the modern 72-to-the-inch is the desktop-publishing heir of that ruler.
 The ledger holds this as [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) — proven `by decide`, sorry-free:
@@ -72,7 +72,7 @@ The ledger holds this as [baseline_grid_snaps_to_four](/theorem/baseline_grid_sn
 [12,16,20,24].all (fun n => n % 4 == 0)
 ```
 
-### The compositor's case held a fixed scale of sizes, not a continuum, and the classic run 6,7,8,9,10,11,12,14,16,18 rises by set steps; doubling is the octave the scale keeps — 8 → 16 and 9 → 18 (16 = 8·2, 18 = 9·2) — so a display size is the exact double of a text size, the typographic analogue of the musical octave.
+### The compositor's case held a fixed scale of sizes; doubling is the octave the scale keeps — 8 → 16 and 9 → 18 (16 = 8·2, 18 = 9·2) — so a display size is the exact double of a text size, the typographic analogue of the musical octave.
 The ledger holds this as [type_scale_octave](/theorem/type_scale_octave) — proven `by decide`, sorry-free:
 
 ```lean
@@ -86,7 +86,7 @@ The ledger holds this as [a_series_halving](/theorem/a_series_halving) — prove
 [1,2,4].map (fun n => n * 2) = [2,4,8]
 ```
 
-### A ream is five hundred sheets: twenty quires of twenty-five — 20 · 25 = 500 — the count a paper mill sells the printer by, and the reason a print run is reckoned in reams, not sheets. (The older "short" quire of 24 and the printer's ream of 516 are historical variants; the metric ream settled on the round 500.)
+### A ream is five hundred sheets: twenty quires of twenty-five — 20 · 25 = 500 — the count a paper mill sells the printer by, and the reason a print run is reckoned in reams. (The older "short" quire of 24 and the printer's ream of 516 are historical variants; the metric ream settled on the round 500.)
 The ledger holds this as [ream_is_five_hundred](/theorem/ream_is_five_hundred) — proven `by decide`, sorry-free:
 
 ```lean

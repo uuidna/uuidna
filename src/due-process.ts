@@ -15,7 +15,7 @@ import { adjudicate } from './adjudicate.js'
 import { computes } from './gate.js'
 import { decide } from './decide.js'
 import { toUuid, merkleFold } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { sealMessage, verifyMessage, type SealedQuantumMessage } from './quantum/message/index.js'
 import { verifyEnvelope } from './crypt.js'
 

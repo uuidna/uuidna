@@ -7,7 +7,7 @@ description: "Computed from lean/Electromagnetism.lean — 13 sealed theorems, e
 
 > ELECTROMAGNETISM — the field domain, as decidable arithmetic, demarcated. — held by [plasma_fourth_state](/theorem/plasma_fourth_state) and its 12 siblings below.
 
-**13 theorems**, from [plasma_fourth_state](/theorem/plasma_fourth_state) onward, each proven `by decide` in [lean/Electromagnetism.lean](/lean/Electromagnetism.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [plasma_fourth_state](/theorem/plasma_fourth_state). A boundary stated here is decided, not merely denied.
+**13 theorems**, from [plasma_fourth_state](/theorem/plasma_fourth_state) onward, each proven `by decide` in [lean/Electromagnetism.lean](/lean/Electromagnetism.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [plasma_fourth_state](/theorem/plasma_fourth_state). A boundary stated here is decided.
 
 ### Plasma is the fourth state of matter: three states a material vessel can hold — solid, liquid, gas — plus the one it cannot, 3 + 1 = 4. A charged plasma melts every wall; it is held by a FIELD or not at all.
 The ledger holds this as [plasma_fourth_state](/theorem/plasma_fourth_state) — proven `by decide`, sorry-free:

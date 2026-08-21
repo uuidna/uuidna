@@ -5,11 +5,11 @@ description: "Computed from lean/Legal.lean — 10 sealed theorems, every claim 
 
 # The legal vocabulary
 
-> The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong), NOT PROVEN (dismissed without prejudice), REMAND (to development trial). — held by [solutions_not_skipped](/theorem/solutions_not_skipped) and its 9 siblings below.
+> The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong). — held by [solutions_not_skipped](/theorem/solutions_not_skipped) and its 9 siblings below.
 
-**10 theorems**, from [solutions_not_skipped](/theorem/solutions_not_skipped) onward, each proven `by decide` in [lean/Legal.lean](/lean/Legal.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 10 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [solutions_not_skipped](/theorem/solutions_not_skipped). A boundary stated here is decided, not merely denied.
+**10 theorems**, from [solutions_not_skipped](/theorem/solutions_not_skipped) onward, each proven `by decide` in [lean/Legal.lean](/lean/Legal.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [solutions_not_skipped](/theorem/solutions_not_skipped). A boundary stated here is decided.
 
-### SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept, not lost. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. : it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.
+### SOLUTIONS ARE NOT SKIPPED — verifying that every UNVERIFIED is kept. The trial partitions each solution into ADMITTED (verified), UNVERIFIED (the honest frontier), or REFUTED, and the accounting CONSERVES the total however it is grouped: admitted + (unverified + refuted) = admitted + unverified + refuted, for all counts. So folding the unverified-and-refuted into REMANDED loses nothing, every UNVERIFIED solution is VERIFIED TO BE REMANDED (kept for the development trial), and the skipped count is 0. : it does NOT verify the unverified as TRUE — it verifies they are all ACCOUNTED FOR and kept; an unproven claim stays unproven, but it is never dropped.
 The ledger holds this as [solutions_not_skipped](/theorem/solutions_not_skipped) — proven `by decide`, sorry-free:
 
 ```lean
@@ -37,14 +37,14 @@ The ledger holds this as [legal_non_justiciable_is_never_refuted](/theorem/legal
 (List.range 2).all (fun h => (List.range 2).all (fun c => lr 0 h c == 0))
 ```
 
-### REFUTED is precise: it holds exactly when a decidable test EXISTS and FAILS and no sealed authority is cited (t=1 ∧ h=0 ∧ c=0) — a recomputable contradiction, never otherwise
+### REFUTED is precise: it holds exactly when a decidable test EXISTS and FAILS and no sealed authority is cited (t=1 ∧ h=0 ∧ c=0) — a recomputable contradiction
 The ledger holds this as [legal_refuted_iff_test_fails_uncited](/theorem/legal_refuted_iff_test_fails_uncited) — proven `by decide`, sorry-free:
 
 ```lean
 (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lr t h c == 1) == (t == 1 && h == 0 && c == 0))
 ```
 
-### nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial, never deleted
+### nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial
 The ledger holds this as [legal_remand_is_total_nothing_discarded](/theorem/legal_remand_is_total_nothing_discarded) — proven `by decide`, sorry-free:
 
 ```lean
@@ -72,7 +72,7 @@ The ledger holds this as [court_loser_pays_the_two_coins](/theorem/court_loser_p
 (List.range 2).all (fun a => (List.range 2).all (fun b => 2*(a*(1-b)) + 2*(b*(1-a)) == 2*((a+b) % 2)))
 ```
 
-### THE FORFEIT LAW, part three — the loser develops exactly as the winner proved: after judgment the docket holds a+b−a·b = max(a,b), the join of the two sides — the proven side’s theorem becomes BOTH sides’ development (the loser adopts it exactly), both-proven keeps what both already hold, and neither-proven leaves nothing admitted (the case remands). Development is assignment to the proof, never to the assertion
+### THE FORFEIT LAW, part three — the loser develops exactly as the winner proved: after judgment the docket holds a+b−a·b = max(a,b), the join of the two sides — the proven side’s theorem becomes BOTH sides’ development (the loser adopts it exactly), both-proven keeps what both already hold, and neither-proven leaves nothing admitted (the case remands). Development is assignment to the proof
 The ledger holds this as [court_loser_develops_the_proven](/theorem/court_loser_develops_the_proven) — proven `by decide`, sorry-free:
 
 ```lean

@@ -7,7 +7,7 @@ description: "Computed from lean/DoubleTorus.lean — 6 sealed theorems, every c
 
 > THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing. — held by [chi_measures_genus](/theorem/chi_measures_genus) and its 5 siblings below.
 
-**6 theorems**, from [chi_measures_genus](/theorem/chi_measures_genus) onward, each proven `by decide` in [lean/DoubleTorus.lean](/lean/DoubleTorus.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [handles_give_generators](/theorem/handles_give_generators). A boundary stated here is decided, not merely denied.
+**6 theorems**, from [chi_measures_genus](/theorem/chi_measures_genus) onward, each proven `by decide` in [lean/DoubleTorus.lean](/lean/DoubleTorus.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [handles_give_generators](/theorem/handles_give_generators). A boundary stated here is decided.
 
 ### THE EULER CHARACTERISTIC IS THE GENUS, READ OFF: χ = 2 − 2g gives 0 at genus one (the plain torus, a closed pipe) and −2 at genus two, so −χ = 2 — the two coins. Both genera on one line, so the number is measured against its neighbour rather than stated alone.
 The ledger holds this as [chi_measures_genus](/theorem/chi_measures_genus) — proven `by decide`, sorry-free:
@@ -23,7 +23,7 @@ The ledger holds this as [handles_give_generators](/theorem/handles_give_generat
 (2 * 2 = 4) ∧ (4 ≠ 2)
 ```
 
-### THE WHOLE DESCRIPTION IS FIVE SYMBOLS: four generators and one relation, [a₁,b₁][a₂,b₂] = 1. One relation, not none — a free group on four generators is a different object, and the single constraint is exactly what closes the surface.
+### THE WHOLE DESCRIPTION IS FIVE SYMBOLS: four generators and one relation, [a₁,b₁][a₂,b₂] = 1. One relation— a free group on four generators is a different object, and the single constraint is exactly what closes the surface.
 The ledger holds this as [presentation_counts_five](/theorem/presentation_counts_five) — proven `by decide`, sorry-free:
 
 ```lean

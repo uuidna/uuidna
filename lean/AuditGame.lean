@@ -15,8 +15,8 @@ theorem clean_is_a_p_position : (List.range 2).all (fun a => (List.range 2).all 
 theorem verdict_is_exactly_one : (List.range 2).all (fun a => (List.range 2).all (fun b => ((1-a)*(1-b) + (1 - (1-a)*(1-b))) == 1)) := by decide
 
 /-- Two independent refuters catch at least as much as one: flag(a,b) = a OR b ≥ a. Adding an independent
-    refuter is MONOTONE — it can only catch more, never fewer. This is why a dual audit is strictly more
-    accurate than a single pass. -/
+    refuter is MONOTONE — it can only catch more. This is why a dual audit is strictly more accurate than a
+    single pass. -/
 theorem dual_dominates_single : (List.range 2).all (fun a => (List.range 2).all (fun b => (1 - (1-a)*(1-b)) >= a)) := by decide
 
 /-- A third independent refuter never un-flags: flag(a,b,c) = a∨b∨c ≥ a∨b = flag(a,b). Accuracy grows
@@ -45,13 +45,12 @@ theorem honesty_gate_one_drain : ((List.range 4).filter (fun n => (n / 2) * (1 -
 theorem audit_is_a_finite_game : ([0,1,2,3].map (fun n => (2:Nat)^n)) = [1, 2, 4, 8] := by decide
 
 /-- SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵), so an
-    audit RAISES the cost of a false claim surviving but never zeroes it. A floor, not a wall — the same "no
-    maximum, only bounds" Security proves; the game's DECISION is decidable, its COVERAGE is not. -/
+    audit RAISES the cost of a false claim surviving but never zeroes it. A floor— the same "no maximum, only
+    bounds" Security proves; the game's DECISION is decidable, its COVERAGE is not. -/
 theorem no_audit_catches_all : ((2:Nat)^3 < 2^4) ∧ ((2:Nat)^4 < 2^5) := by decide
 
 /-- The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a
     self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) =
     10 − 8 = 2 is the first step of the vortex orbit. The three games interact in the diamond: chess at the
-    units {1, 8}, the audit at 8, nim at the nilpotent 6. a structural residue, NOT a claim the audit IS the
-    ring. -/
+    units {1, 8}, the audit at 8, nim at the nilpotent 6. a structural residue. -/
 theorem audit_space_meets_chess_at_eight : ((2^3) % 9 = 8) ∧ ((8 * 8) % 9 = 1) ∧ ((10 - 8) = 2) := by decide

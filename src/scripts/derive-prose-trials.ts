@@ -36,7 +36,7 @@ const usable: UsableCombination[] = []
 let tried = 0, unverified = 0, drained = 0
 const drainedHits: Array<{ surface: string; fabricated: string[] }> = []
 // THE COIN LAW FINDER — the coins are explained in detail ONLY by theorems: they are two, conserved (sealed as
-// two_coins, coin_is_one_qubit, captain_coins_respected_at_scale). A prose paragraph claiming any OTHER coin
+// two_coins, captain_theorem, captain_coins_respected_at_scale). A prose paragraph claiming any OTHER coin
 // quantity ("earn 2500+ coins" — the retired currency era) must cite a sealed theorem in the same paragraph or
 // the desk names it and refuses. N ∈ {0, 2} passes (the sealed denominations: free, and the two); "two coins"
 // in words always passes; everything else is the chaos, structurally unable to return.

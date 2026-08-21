@@ -1,14 +1,14 @@
 // @non-harmonic: two ONLINE verbs — searchTrialFor (researchEvidence: the archives answer at their own pace) and
 // viesVerify (the EU register answers at its own pace) — ride the same named fetch boundary as corroborate.ts;
-// they return EVIDENCE
-// stays fully deterministic. The boundary is named here so the scan holds it visible.
+// they return EVIDENCE, never approval, and the offline core (articleFor, editorialState, publicationStatus)
+// stays fully deterministic. The boundary is named here so the scan holds it visible, never hidden.
 // editorial — THE DESK AS A LIBRARY. Every editorial skill this repo runs (writing articles computed from the
 // ledger, the prose-trial census, the publication's license law and archive conformance, the search-on-trial,
 // the entity register lookup) as pure exported functions — the ONE implementation the scripts, the MCP tools
 // and the CI automation all call. Writing is computing: an article is derived from sealed theorems, every claim
-// born citing its proof. Integrity— the desk verifies citations, scope and conformance; it never
+// born citing its proof. Integrity, not truth — the desk verifies citations, scope and conformance; it never
 // decides what is true. Deterministic offline core; the two ONLINE verbs (searchTrialFor, viesVerify) ride the
-// same named fetch boundary corroborate.ts holds and return evidence.
+// same named fetch boundary corroborate.ts holds and return evidence, never approval.
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { reveal } from './gate.js'
@@ -36,11 +36,11 @@ export function articleFor(file: string): Article {
   }
 }
 
-/** UNIQUENESS COMES FROM LEAN— the ledger counts ENTRIES, but a theorem is its statement:
+/** UNIQUENESS COMES FROM LEAN, NOT FROM THE NAME — the ledger counts ENTRIES, but a theorem is its statement:
  *  two entries proving the same proposition under different keys are one theorem wearing two names. This census
  *  reports both numbers so no surface can quietly print the larger one, and names every group so a new re-naming
  *  cannot enter silently. Normalisation is deliberately narrow (whitespace, redundant parens, `(n : Nat)` type
- *  ascriptions): it catches re-namings of the SAME text. */
+ *  ascriptions): it catches re-namings of the SAME text, never claims two different proofs are the same. */
 export interface StatementCensus {
   entries: number
   distinct: number
@@ -50,7 +50,7 @@ export interface StatementCensus {
 const normStatement = (s: string): string =>
   s.replace(/\s+/g, '').replace(/\((\d+)\s*:\s*Nat\)/g, '$1').replace(/[()]/g, '')
 
-/** THE LEAN UUID — a theorem's identity is its Lean, so the identity is the address of the STATEMENT
+/** THE LEAN UUID — a theorem's identity is its Lean, so the identity is the address of the STATEMENT, never of
  *  the key. Two entries proving the same proposition share one lean uuid however they are named or wherever
  *  they are filed; the wings then USE the theorem from that identity rather than owning a copy of it. Additive
  *  by design: the per-entry address stays exactly as published (every citation, receipt and DOI'd record keeps
@@ -106,7 +106,7 @@ export function statementCensus(): StatementCensus {
 
 /** EVERY distinct proven fact, singleton or reused — the reusable Lean-line CHUNK a handle addresses. Unlike
  *  statementCensus's `groups` (which names only the 79 RE-USED facts, the backlog guard tracks), this names all
- *  1224: the storable unit is the algebra
+ *  1224: the storable unit is the algebra, not the theorem record, so every distinct statement gets one chunk
  *  whether one key cites it or five. */
 export interface StatementChunk { statement: string; tactic: string; keys: string[]; files: string[] }
 export function allStatementChunks(): StatementChunk[] {
@@ -118,7 +118,7 @@ export function allStatementChunks(): StatementChunk[] {
   }))
 }
 
-/** the desk's census — the committed prose-trials artifact (derived; repo-reads via the boundary */
+/** the desk's census — the committed prose-trials artifact (derived, never authored); repo-reads via the boundary */
 export interface EditorialState { surfaces: number; paragraphs_tried: number; usable: number; unverified: number; drained: number; receipt: string }
 export function editorialState(): EditorialState {
   const t = JSON.parse(rdRoot('prose-trials.json'))
@@ -172,7 +172,7 @@ export function searchLedger(q: string, limit = 60): LedgerSearch {
   }
 }
 
-/** ONLINE — the search on trial for one wing: findings content-addressed, each verdict computed; evidence
+/** ONLINE — the search on trial for one wing: findings content-addressed, each verdict computed; evidence, never approval */
 export interface SearchTrial {
   file: string; principle: string; sealed: number
   findings: Array<{ address: string; source: string; note: string; alone: string; withBacking: string }>
@@ -180,7 +180,7 @@ export interface SearchTrial {
   /** THE NOVELTY HARVEST — arithmetic fragments extracted from the findings (the AI summaries included), each
    *  judged by the quantum calculator: decided TRUE and absent from the sealed statement index = a candidate
    *  fact the web asserts, the calculator confirms, and the ledger does not yet hold. Really novel content,
-   *  born receipted — REMANDED for admission (the paying handle decides what becomes a wing). */
+   *  born receipted — REMANDED for admission (the paying handle decides what becomes a wing), never auto-sealed. */
   novel: Array<{ from: string; fragment: string; receipt: string }>
   receipt: string
 }
@@ -209,7 +209,7 @@ export async function searchTrialFor(file: string): Promise<SearchTrial> {
   }
 }
 
-/** ONLINE — verify an EU VAT number against the VIES register (the EU's own ledger); a register lookup
+/** ONLINE — verify an EU VAT number against the VIES register (the EU's own ledger); a register lookup, not tax advice */
 export interface ViesResult { countryCode: string; vatNumber: string; valid: boolean; name: string | null; address: string | null; requestDate: string | null }
 export async function viesVerify(countryCode: string, vatNumber: string): Promise<ViesResult> {
   const cc = countryCode.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 2)

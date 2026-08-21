@@ -1,0 +1,12 @@
+{
+  "handle": "9bf0459d",
+  "address": "9bf0459d-4450-880f-b8cd-7a33df343e2d",
+  "statement": "(0 < 1391) ∧ (0 + 1391 = 1391)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

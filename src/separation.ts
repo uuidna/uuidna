@@ -168,7 +168,7 @@ export const isReversible = <T>(f: (x: T) => T, domain: readonly T[], key: (x: T
 // HONEST SCOPE: integrity. The core proves WHICH set folded to it and nothing about what the members
 // mean. Two different sets can share a core only by collision, and the address layer's bound governs that.
 import { toUuid as _toUuidForFold } from './address.js'
-import { merkleGravity as _foldForCore } from './gravity.js'
+import { merkleGravity as _foldForCore } from './gravity/index.js'
 
 export interface Singularity {
   vectors: readonly string[]  // the inputs, as given

@@ -13,11 +13,11 @@
 |--------|-------|-----------------|
 | **Theorems proven** | 1435 | Every theorem by decidable computation (no axioms) |
 | **Axiom-free** | 1435/1435 (100%) | Kernel-only proofs, recomputable offline |
-| **Principles** | 93 | Mathematical domains (ring, rosette, quantum, etc.) |
-| **Skills** | 90 | Capability axes across the ledger |
-| **Proof cost** | 577125 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Principles** | 94 | Mathematical domains (ring, rosette, quantum, etc.) |
+| **Skills** | 91 | Capability axes across the ledger |
+| **Proof cost** | 575422 decide-steps | MEASURED per theorem in lean/heartbeats.json |
 | **Verification work** | 1435 addresses | one recomputed per theorem |
-| **Steps per address** | 402 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
+| **Steps per address** | 400 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -57,7 +57,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 577125 kernel decide-steps, measured
+- First push (prove): 575422 kernel decide-steps, measured
 - Every later push (verify): 1435 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
@@ -65,9 +65,9 @@ New theorems require proof-time; updates verify at speed-of-light (Merkle fold, 
 **Competitive advantage:** Iteration speed while maintaining ironclad certainty. Competitors either slow down (re-prove every change) or trade certainty for speed.
 
 ### 5. **Coins Are Conserved (Fair Exchange)**
-The two coins (110 − 108 = 2 = −χ of genus-2 torus) are topologically conserved. No refunds, no chargebacks, no negotiation — mathematics settles disputes, not lawyers.
+The two coins (110 − 108 = 2 = −χ of genus-2 torus) are topologically conserved. No refunds, no chargebacks, no negotiation — mathematics settles disputes.
 
-**Competitive advantage:** Billing is auditable, fair, and final. Customers know the exact cost; the captain knows the exact revenue. Disputes are resolved by recomputing, not arbitration.
+**Competitive advantage:** Billing is auditable, fair, and final. Customers know the exact cost; the captain knows the exact revenue. Disputes are resolved by recomputing.
 
 ### 6. **Deterministic Concurrency**
 Classical concurrency (Promise.all, fan-out) cannot corrupt the result. The Merkle fold is order-invariant (store_fold_order_invariant theorem): race conditions speed it up, they never break it.
@@ -77,7 +77,7 @@ Classical concurrency (Promise.all, fan-out) cannot corrupt the result. The Merk
 ### 7. **Honest Scope Is The Scope**
 Every term has a disclaimer: "This does NOT prove X." The gate does not verify relevance, fitness, or truth — only theorem backing. Customers know exactly what they're buying.
 
-**Competitive advantage:** Dramatically reduced legal liability. No claim is overstated; every boundary is explicit. A theorem covers what it covers; a content-address proves integrity, never authenticity.
+**Competitive advantage:** Dramatically reduced legal liability. No claim is overstated; every boundary is explicit. A theorem covers what it covers; a content-address proves integrity.
 
 ---
 
@@ -86,7 +86,7 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ```
 Total theorems:       1435
 Axiom-free (decide):  1435 (100.0%)
-Principles:           93 domains
+Principles:           94 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities
 Security checks:      10 automated

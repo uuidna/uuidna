@@ -9,7 +9,7 @@
 // all tools" is the recomputable capabilities serving the growth. It composes what is
 // already sealed; it asserts nothing new.
 import { toUuid } from './address.js'
-import { merkleGravity } from './gravity.js'
+import { merkleGravity } from './gravity/index.js'
 import { theorems } from './theorems/index.js'
 import { legalFacts } from './legal.js'
 import { captainRights } from './captain/rights/index.js'
