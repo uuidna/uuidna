@@ -3,8 +3,8 @@
 **Generated:** 2026-08-21
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1435/1435 theorems — every one, by construction
-**Claim receipt:** `0b16d044-fe30-87f7-aceb-774115a26b48`
+**Total claimed:** 1436/1436 theorems — every one, by construction
+**Claim receipt:** `531938ce-4f0c-80ca-9b34-a4786c64362a`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -160,12 +160,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The two coins & the 64
 
-- **Theorems:** 18
+- **Theorems:** 19
 - **Sample lineAddress:** `f453403b-b9ca-8c2b-8251-d74c7c77d6b9`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) · [fold_compresses_without_bound_and_never_recovers](/theorem/fold_compresses_without_bound_and_never_recovers) · [handle_string_spans_the_quarter](/theorem/handle_string_spans_the_quarter) · [hexbit_bit_hook_is_linear](/theorem/hexbit_bit_hook_is_linear) · [handle_carries_hexbits_and_coins](/theorem/handle_carries_hexbits_and_coins) · [captain_singularity](/theorem/captain_singularity) · [captain_theorem](/theorem/captain_theorem) · [two_coins](/theorem/two_coins) · [coins_over_all_rosetta_combinations](/theorem/coins_over_all_rosetta_combinations) · [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) · [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) · [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) · [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) · [bill_never_negative](/theorem/bill_never_negative) · [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) · [wallet_counts_worlds](/theorem/wallet_counts_worlds) · [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) · [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales)
+[minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) · [fold_compresses_without_bound_and_never_recovers](/theorem/fold_compresses_without_bound_and_never_recovers) · [handle_string_spans_the_quarter](/theorem/handle_string_spans_the_quarter) · [hexbit_bit_hook_is_linear](/theorem/hexbit_bit_hook_is_linear) · [handle_carries_hexbits_and_coins](/theorem/handle_carries_hexbits_and_coins) · [captain_singularity](/theorem/captain_singularity) · [fold_reads_by_handle_not_by_tile](/theorem/fold_reads_by_handle_not_by_tile) · [captain_theorem](/theorem/captain_theorem) · [two_coins](/theorem/two_coins) · [coins_over_all_rosetta_combinations](/theorem/coins_over_all_rosetta_combinations) · [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) · [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) · [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) · [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) · [bill_never_negative](/theorem/bill_never_negative) · [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) · [wallet_counts_worlds](/theorem/wallet_counts_worlds) · [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) · [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales)
 
 ### The hardware-verifiable binary algebra
 
@@ -870,7 +870,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1354 (1435 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1355 (1436 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4475 — 2131 usable, 2344 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -888,7 +888,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1435 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1436 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

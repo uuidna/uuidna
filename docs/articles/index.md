@@ -28,7 +28,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The seven reflected](/articles/clay) | 7 |
 | [lean/Clock.lean](/articles/clock) | 6 |
 | [The error-correcting codes](/articles/codes) | 8 |
-| [The two coins & the 64](/articles/coins) | 18 |
+| [The two coins & the 64](/articles/coins) | 19 |
 | [The colour wheel](/articles/colour) | 17 |
 | [Command authentication](/articles/command) | 7 |
 | [lean/Contribution.lean](/articles/contribution) | 5 |

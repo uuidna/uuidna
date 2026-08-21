@@ -236,6 +236,7 @@ handle_string_spans_the_quarter 19
 hexbit_bit_hook_is_linear 19
 handle_carries_hexbits_and_coins 19
 captain_singularity 19
+fold_reads_by_handle_not_by_tile 19
 captain_theorem 27
 two_coins 27
 coins_over_all_rosetta_combinations 19

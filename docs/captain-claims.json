@@ -2,8 +2,8 @@
   "generated": "2026-08-21",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1435,
-  "total_theorems": 1435,
+  "total_claimed": 1436,
+  "total_theorems": 1436,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -4119,6 +4119,12 @@
       "key": "captain_singularity",
       "lineAddress": "79afec26-effc-8cfc-84a2-656ab4310e92",
       "address": "b6d498b1-3094-8d8b-a1c3-ab9bc70cf56b",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "fold_reads_by_handle_not_by_tile",
+      "lineAddress": "c4fa6338-d1f8-800c-98af-4acf76bc4cb8",
+      "address": "c22d5db4-1bd2-8a89-a748-a4a6308f5994",
       "principle": "The two coins & the 64"
     },
     {
@@ -8616,7 +8622,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "0b16d044-fe30-87f7-aceb-774115a26b48",
+  "claim_receipt": "531938ce-4f0c-80ca-9b34-a4786c64362a",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

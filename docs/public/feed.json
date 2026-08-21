@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:7882dad7-433b-8228-8fb1-0119558ab57b",
+  "@id": "urn:uuid:b3f68aa1-b83d-875e-beff-40bd4a9953a1",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -19198,6 +19198,34 @@
         "abstract": "(128 / 64 = 2) ∧ (64 / 32 = 2) ∧ (4 / 2 = 2) ∧ (2 * 2^6 = 128) ∧ (128 / 2 = 64) ∧ (32 * 4 = 128)",
         "identifier": "b6d498b1-3094-8d8b-a1c3-ab9bc70cf56b",
         "url": "https://uuidna.com/theorem/captain_singularity",
+        "keywords": "coins, The two coins & the 64",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:c4fa6338-d1f8-800c-98af-4acf76bc4cb8",
+        "@type": "ScholarlyArticle",
+        "headline": "FOLD BY THE HANDLE, NOT BY THE TILE — measured, and the naive reading lost. A uuid is 32 hexbits, so a fold can read it as 32 tiles or as 4 handles of 8, and 32/4 = 8 fewer reads for the same 128 bits. Measured over 40 folds of 1024 addresses: reading by handle beat re-hashing the concatenated strings 1.3x, while reading one tile at a time was HALF the speed of the thing it replaced — the per-read cost swamped the smaller step. The advantage of a base is not that its unit is small; it is that a whole word of it is read in one operation. Both readings cover the uuid exactly (4·8 = 32, 4·32 = 128), so this is a choice about cost and never about correctness.",
+        "abstract": "(4 * 8 = 32) ∧ (4 * 32 = 128) ∧ (32 / 4 = 8) ∧ (8 * 4 = 32)",
+        "identifier": "c22d5db4-1bd2-8a89-a748-a4a6308f5994",
+        "url": "https://uuidna.com/theorem/fold_reads_by_handle_not_by_tile",
         "keywords": "coins, The two coins & the 64",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

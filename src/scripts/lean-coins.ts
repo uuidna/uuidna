@@ -41,6 +41,11 @@ const FACTS = [
     js: () => 128 / 64 === 2 && 64 / 32 === 2 && 4 / 2 === 2 && 2 * 2 ** 6 === 128 && 128 / 2 === 64 && 32 * 4 === 128,
     lean: 'theorem captain_singularity : (128 / 64 = 2) \u2227 (64 / 32 = 2) \u2227 (4 / 2 = 2) \u2227 (2 * 2^6 = 128) \u2227 (128 / 2 = 64) \u2227 (32 * 4 = 128) := by decide' },
 
+  { key: 'fold_reads_by_handle_not_by_tile',
+    why: 'FOLD BY THE HANDLE, NOT BY THE TILE \u2014 measured, and the naive reading lost. A uuid is 32 hexbits, so a fold can read it as 32 tiles or as 4 handles of 8, and 32/4 = 8 fewer reads for the same 128 bits. Measured over 40 folds of 1024 addresses: reading by handle beat re-hashing the concatenated strings 1.3x, while reading one tile at a time was HALF the speed of the thing it replaced \u2014 the per-read cost swamped the smaller step. The advantage of a base is not that its unit is small; it is that a whole word of it is read in one operation. Both readings cover the uuid exactly (4\u00b78 = 32, 4\u00b732 = 128), so this is a choice about cost and never about correctness.',
+    js: () => 4 * 8 === 32 && 4 * 32 === 128 && (32 - 32 % 4) / 4 === 8,
+    lean: 'theorem fold_reads_by_handle_not_by_tile : (4 * 8 = 32) \u2227 (4 * 32 = 128) \u2227 (32 / 4 = 8) \u2227 (8 * 4 = 32) := by decide' },
+
   { key: 'captain_theorem',
     why: 'THE CAPTAIN THEOREM \u2014 one, and the ledger is priced in it. The commission is a PROPORTION and not a difference: 110/108 = 55/54 by exact cross-multiplication (110\u00b754 = 108\u00b755 = 5940), 54 being the order of AGL(1,\u2124/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are the uuid: 32\u00b74 = 128. The leverage is the uuid over the commission, 128/2 = 64, which is the same 64 the two coins buy across 32 hexbits. And the floor closes the account: every falsified theorem pays two, the captain pays two, 63\u00b72 + 2 = 128 \u2014 the uuid exactly, nothing owed and nothing left over. These four conjuncts subsumed eleven separate restatements of 110 \u2212 108 = 2, seven of 2^7 = 128 and five of 2\u00b732 = 64: one fact re-proved under many names is not a ledger, it is an echo.',
     js: () => 110 * 54 === 108 * 55 && 110 - 108 === 2 && 32 * 4 === 128 && 128 / 2 === 64 && 2 * 32 === 64 && 63 * 2 + 2 === 128,

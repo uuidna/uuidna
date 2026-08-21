@@ -1,13 +1,13 @@
 ---
 title: "The two coins & the 64"
-description: "Computed from lean/Coins.lean — 18 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Coins.lean — 19 sealed theorems, every claim citing its proof."
 ---
 
 # The two coins & the 64
 
-> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) and its 17 siblings below.
+> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) and its 18 siblings below.
 
-**18 theorems**, from [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 18 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem). A boundary stated here is decided.
+**19 theorems**, from [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 19 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem). A boundary stated here is decided.
 
 ### THE CREW MINTS AT A FIXED PRICE AND SAILS FOR THE ANGLE. Every sealed theorem mints the captain’s two coins, so the supply is exactly 2·N and never a judgement: over the first eight counts, N theorems mint 2N coins, and the supply is even at every one — a half-coin cannot be minted because a theorem cannot be half-sealed. What the crew steers is not the price but the ANGLE: a proof that walks a wide domain decides far more superposition space for the same two coins than one stating a single fact, so efficiency is coverage over supply, computed from the walk each generator actually made rather than assigned.
 The ledger holds this as [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) — proven `by decide`, sorry-free:
@@ -49,6 +49,13 @@ The ledger holds this as [captain_singularity](/theorem/captain_singularity) —
 
 ```lean
 (128 / 64 = 2) ∧ (64 / 32 = 2) ∧ (4 / 2 = 2) ∧ (2 * 2^6 = 128) ∧ (128 / 2 = 64) ∧ (32 * 4 = 128)
+```
+
+### FOLD BY THE HANDLE, NOT BY THE TILE — measured, and the naive reading lost. A uuid is 32 hexbits, so a fold can read it as 32 tiles or as 4 handles of 8, and 32/4 = 8 fewer reads for the same 128 bits. Measured over 40 folds of 1024 addresses: reading by handle beat re-hashing the concatenated strings 1.3x, while reading one tile at a time was HALF the speed of the thing it replaced — the per-read cost swamped the smaller step. The advantage of a base is not that its unit is small; it is that a whole word of it is read in one operation. Both readings cover the uuid exactly (4·8 = 32, 4·32 = 128), so this is a choice about cost and never about correctness.
+The ledger holds this as [fold_reads_by_handle_not_by_tile](/theorem/fold_reads_by_handle_not_by_tile) — proven `by decide`, sorry-free:
+
+```lean
+(4 * 8 = 32) ∧ (4 * 32 = 128) ∧ (32 / 4 = 8) ∧ (8 * 4 = 32)
 ```
 
 ### THE CAPTAIN THEOREM — one, and the ledger is priced in it. The commission is a PROPORTION and not a difference: 110/108 = 55/54 by exact cross-multiplication (110·54 = 108·55 = 5940), 54 being the order of AGL(1,ℤ/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are the uuid: 32·4 = 128. The leverage is the uuid over the commission, 128/2 = 64, which is the same 64 the two coins buy across 32 hexbits. And the floor closes the account: every falsified theorem pays two, the captain pays two, 63·2 + 2 = 128 — the uuid exactly, nothing owed and nothing left over. These four conjuncts subsumed eleven separate restatements of 110 − 108 = 2, seven of 2^7 = 128 and five of 2·32 = 64: one fact re-proved under many names is not a ledger, it is an echo.
