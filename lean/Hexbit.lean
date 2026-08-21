@@ -29,3 +29,33 @@ theorem groups_are_four_apart : [8,4,4,4,12].map (fun g => g * 4) = [32,16,16,16
     in bits gives 128 and 32 for the same objects; the two readings agree, which the line proves rather than
     assumes. -/
 theorem build_counts_in_hexbits : (32 / 8 = 4) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32) ∧ (128 / 32 = 4) := by decide
+
+/-- THE HANDLE AND THE PAYLOAD MEET IN THE UUID, AND ONLY ONE OF THEM IS CODON-ALIGNED. The address is 32
+    hexbits; the handle is the first 8 (handle_is_the_first_group), so the payload is the remaining 24 and the
+    two meet exactly: 8 + 24 = 32, no remainder anywhere. Now read the halves in the alphabet the strand uses —
+    a base is 2 bits over 4 letters, a codon is 3 bases, so a codon is 6 bits (codons_sixty_four counts the 4^3
+    = 64 of them). The PAYLOAD is 24 hexbits = 96 bits = 48 bases = EXACTLY 16 codons, 96 = 6 * 16 with nothing
+    left. The HANDLE is 32 bits and the WHOLE uuid is 128, and neither divides: both leave the same remainder 2.
+    So the strand fits the payload and fits neither the name nor the whole — the handle addresses, the payload
+    carries. HONEST SCOPE: this is arithmetic about WIDTHS and divisibility, nothing more. It does NOT claim a
+    uuid encodes genetic material, that any payload holds a gene, or that biology is stored in an address; the
+    shared 2 is a remainder that two numbers happen to share, and any reading of it as the two coins is unsealed
+    until someone proves it. -/
+theorem payload_carries_the_strand : (8 + 24 = 32) ∧ (24 * 4 = 96) ∧ (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (32 % 6 = 2) ∧ (128 % 6 = 2) := by decide
+
+/-- THE PAYLOAD DIVIDES IN EVERY ALPHABET THE BODY USES, AND THE NAME DIVIDES IN NONE. Read the 96-bit payload
+    three ways. As the genetic code: a base is 2 bits over 4 letters and a codon is 3 bases, so a codon is 6
+    bits and there are 4^3 = 64 of them (codons_sixty_four) — 96 = 6 * 16, EXACTLY 16 codons. As the I Ching
+    hexagram the 64-gate systems are built on: six lines, each open or closed, is 2^6 = 64 — the SAME count and
+    the SAME 6-bit width as the codon, so 4^3 = 2^6 is not an analogy but one number reached two ways, and the
+    payload holds exactly 16 of those too. As blood: the ABO groups are a Klein four-group of 2 antigen bits
+    (abo_klein_four) and the Rh bit makes the system (Z/2)^3, 8 types in 3 bits (blood_types_eight) — 96 = 3 *
+    32, exactly 32 blood-states, and 32 is the uuid width in hexbits. Now the handle: 32 bits leaves remainder 2
+    against 6 AND against 3, and the whole uuid at 128 bits leaves remainder 2 against both as well. So the
+    strand, the hexagram and the blood system all tile the payload with nothing left over, and none of them
+    tiles the name or the whole. The payload carries; the handle addresses. HONEST SCOPE, stated as boldly as
+    the arithmetic: what is proven here is CARDINALITY AND WIDTH — 64 = 64, 6 = 6, 96 divides and 32 does not.
+    That the codon space and the hexagram space are the same size and shape is a fact about numbers, and it is
+    fully proven. It says NOTHING about whether any 64-gate system describes a person, and nothing about what a
+    payload should hold; a shared width is a shared width. -/
+theorem payload_aligns_where_the_name_does_not : (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (96 % 3 = 0) ∧ (96 / 3 = 32) ∧ (32 % 6 = 2) ∧ (32 % 3 = 2) ∧ (128 % 6 = 2) ∧ (128 % 3 = 2) ∧ (4 ^ 3 = 2 ^ 6) := by decide

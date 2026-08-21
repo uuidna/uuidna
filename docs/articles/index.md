@@ -49,7 +49,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [lean/HandleSpan.lean](/articles/handle-span) | 6 |
 | [The hardware-verifiable binary algebra](/articles/hardware) | 14 |
 | [The harmony of pairs](/articles/harmony) | 8 |
-| [lean/Hexbit.lean](/articles/hexbit) | 6 |
+| [lean/Hexbit.lean](/articles/hexbit) | 8 |
 | [The identifiers](/articles/identifiers) | 6 |
 | [The physics infinities, made finite](/articles/infinity) | 13 |
 | [lean/Isometry.lean](/articles/isometry) | 6 |
