@@ -5,7 +5,7 @@
     "CHANGELOG.md": "299ad8b70cf38432",
     "lean/axioms.json": "c8d488f76d4c84af",
     "docs/mcp.md": "cef79c3a8c008b3f",
-    "audit-citations.json": "df664f3dcdeb8cf2",
+    "audit-citations.json": "b07e54fd6e43833c",
     "support-audit.json": "f2ceb16b744f8f36",
     "research-leads.json": "fa149512e9808284",
     ".zenodo.json": "1391bf8dcd14846c",
@@ -1570,5 +1570,5 @@
     "lean/vectorequilibrium-manifest.json": "9c1b28476c0c864f",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd"
   },
-  "receipt": "b151a6a3-43ff-86c6-85f0-1ab2fb4d93ef"
+  "receipt": "f8c8e04c-4162-8f3d-9be3-6426163b4ef5"
 }
