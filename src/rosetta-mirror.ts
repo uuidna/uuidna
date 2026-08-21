@@ -516,6 +516,8 @@ characters_span_the_address 19
 handle_is_the_first_group 19
 groups_are_four_apart 19
 build_counts_in_hexbits 19
+payload_carries_the_strand 19
+payload_aligns_where_the_name_does_not 19
 #Identifiers.lean
 isbn10_valid_check 19
 isbn13_valid_check 19

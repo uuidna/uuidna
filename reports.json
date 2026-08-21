@@ -22,13 +22,13 @@
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1437,
+        "theoremsMeasured": 1439,
         "ledgerKeys": 1439,
-        "unmeasured": 2,
+        "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "f598566a-2f97-891f-987f-58558f4d4abc"
+      "address": "aa12ee7e-4a24-8436-81c5-9d869685ef27"
     },
     {
       "title": "Citation audit",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 70,
-        "sealedTheorems": 1437,
+        "sealedTheorems": 1439,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "7d26a3f6-0fe7-8707-bc25-a938ed2a159a"
+      "address": "3dbaccfd-cd41-8d1a-8337-6fc9807d54a1"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 406,
-        "roots": 281,
-        "supported": 406,
+        "modules": 407,
+        "roots": 282,
+        "supported": 407,
         "dead": 0,
-        "receipt": "9e19dedf-670a-825f-806f-7001913a3af2"
+        "receipt": "345fdd3a-5253-816d-be64-0fbb7d13372f"
       },
-      "address": "3f89ab01-c890-8ec4-af92-e9a1bde50a74"
+      "address": "2849171c-18c6-875f-8c35-f9afa47dc074"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "1edd9a878d9a33f5",
+        "foldReceipt": "3de3c1df9bb88a09",
         "unifiedFold": "3c080acaa5076e5e"
       },
-      "address": "0b1e9d9d-0288-8cd8-ae57-000bfa16acd2"
+      "address": "7e647665-4d1a-8e18-a37d-6d9996e0ee34"
     }
   ],
-  "receipt": "709fb125-738b-832f-8ad1-4e58e0c1b65e",
+  "receipt": "219aa382-56f6-8248-8a58-3e0e85f2fdbc",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
