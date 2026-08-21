@@ -794,8 +794,27 @@ export function drainGaps(): Gap[] {
     }
   }
   const reconcileSrc = fileText(join(ROOT, 'src/scripts/reconcile.ts'))
-  const reconcileInvoked = [...new Set([...reconcileSrc.matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
+  // THE MANIFEST IS PART OF THE CHAIN. reconcile invokes `generate`, which runs every emitter in generate.ts's
+  // manifest — so naming generate alone would let eighteen generators escape this check the moment the two lists
+  // were merged. Expanding it keeps the law exactly as strong as when each was listed by hand: every generator the
+  // chain reaches, directly or through the manifest, must declare what it writes.
+  const manifest = [...fileText(join(ROOT, 'src/scripts/generate.ts')).matchAll(/file: '([a-z-]+)\.js'/g)].map((m) => m[1]!)
+  const direct = [...new Set([...reconcileSrc.matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
+  const reconcileInvoked = [...new Set(direct.includes('generate') ? [...direct, ...manifest] : direct)]
   checkChain('reconcile', reconcileInvoked, RECONCILE_OUTPUTS)
+
+  // AND THE DECLARATION MUST BE HEXBIT-COMPUTABLE. Naming a path proves nothing: a typo, a renamed artifact or a
+  // generator that stopped writing all read the same as a correct declaration, because nothing ever measured the
+  // thing declared. An output that EXISTS has a width — bytes fold to a hexbit magnitude through the unit — and a
+  // declaration whose subject cannot be measured is a claim about a file nobody has. Every reconcile generates
+  // before this runs, so an absent output means the declaration is wrong, not that the run was early.
+  for (const [g, outs] of Object.entries(RECONCILE_OUTPUTS))
+    for (const o of outs as readonly string[])
+      if (!existsSync(join(ROOT, o)))
+        gaps.push({
+          what: `the reconcile declaration says ${g} writes ${o}, and no such path exists — a declared output nothing can measure`,
+          fix: `point the declaration at what the generator actually writes, or drop the entry — regenerate first with \`node dist/scripts/generate.js\` if the tree has never been generated`,
+        })
 
   // THE SAME LAW, THE OTHER CHAIN — `docs:build` regenerates tracked files too (gen-captain-claims' two outputs,
   // one declared and one not, drifted docs/captain-claims.md dirty for most of a session before this existed).
