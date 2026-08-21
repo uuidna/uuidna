@@ -18,10 +18,10 @@ the hard gate of the corroboration law.
 | `bfc17907` | zenodo.org | zenodo record 10477159: Kendo Headgear Concussion Safety Evaluation | UNVERIFIED | VERIFIED |
 | `e0ffefa2` | zenodo.org | zenodo record 10553550: A Dual-Discriminator GAN for Sleep EEG Signal Synthesis | UNVERIFIED | VERIFIED |
 | `2befc789` | zenodo.org | zenodo record 14727213: Host specificity of herbivorous insects promotes negative species–genetic divers | UNVERIFIED | VERIFIED |
-| `dfce7e58` | zenodo.org | zenodo record 2211265: Applied Science in the Navy | UNVERIFIED | VERIFIED |
 | `4660ad27` | zenodo.org | zenodo record 2659337: Interactive Design Exploration in Early Design Phase | UNVERIFIED | VERIFIED |
 | `ad855ca5` | zenodo.org | zenodo record 6498981: Data of paper Controlling the interfacial reactions and environment of rare-eart | UNVERIFIED | VERIFIED |
-| `6386a221` | zenodo.org | zenodo record 6321977: Controlling the interfacial reactions and environment of rare-earth ions in thin | UNVERIFIED | VERIFIED |
+| `dfce7e58` | zenodo.org | zenodo record 2211265: Applied Science in the Navy | UNVERIFIED | VERIFIED |
+| `54b91e98` | zenodo.org | zenodo record 7740560: Applied Geodata Science | UNVERIFIED | VERIFIED |
 | `73a577b4` | crossref.org | DOI 10.1016/s0169-4332(01)00021-6: The electronic structure and location of H pairs in bcc Fe edge dislocation | UNVERIFIED | VERIFIED |
 | `a2d08408` | crossref.org | DOI 10.1016/s0169-4332(01)00990-4: The electronic structure and bonding of H pairs at Σ=5 BCC Fe grain boundary | UNVERIFIED | VERIFIED |
 | `edb1f32d` | crossref.org | DOI 10.2210/pdb2o83/pdb: The Structure of Tandem GA RNA Pairs When Flanking Pairs are isoG-isoC Pairs | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `d2b61f7e` | openalex.org | OpenAlex The neighbor-joining method: a new method for reconstructing phylogene [Genetic diversity and populati] | UNVERIFIED | VERIFIED |
 | `ceeeabeb` | openalex.org | OpenAlex Fitting Linear Mixed-Effects Models Using <b>lme4</b> [Data Analysis with R] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `a207588d`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `a11ed400`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

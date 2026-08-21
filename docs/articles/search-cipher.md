@@ -15,6 +15,7 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `3fbea9b0` | zenodo.org | zenodo record 12808845: Fig. 1 in Short communications | UNVERIFIED | VERIFIED |
+<<<<<<< HEAD
 | `230b7a90` | zenodo.org | zenodo record 2061537: In the Librarian's office | UNVERIFIED | VERIFIED |
 | `cedaf63f` | zenodo.org | zenodo record 16247937: Specimen of the Kiránti language (Báhing dialect) | UNVERIFIED | VERIFIED |
 | `c5f92b87` | zenodo.org | zenodo record 2366974: A short survey of the physics and chemistry of colloids | UNVERIFIED | VERIFIED |
@@ -22,6 +23,15 @@ the hard gate of the corroboration law.
 | `3db363eb` | zenodo.org | zenodo record 1741060: The Complication Pendulum | UNVERIFIED | VERIFIED |
 | `4d14f4a3` | zenodo.org | zenodo record 16005257: Meteorological Register Kept at the Office of the Secretary to Government, N.W.P | UNVERIFIED | VERIFIED |
 | `5e01e793` | zenodo.org | zenodo record 16708881: Proceedings of the Asiatic Society | UNVERIFIED | VERIFIED |
+=======
+| `1ae78839` | zenodo.org | zenodo record 16007261: Meteorological Register Kept at the Office of the Secretary to Government, N. W. | UNVERIFIED | VERIFIED |
+| `fbf560d6` | zenodo.org | zenodo record 1923152: General. | UNVERIFIED | VERIFIED |
+| `cedaf63f` | zenodo.org | zenodo record 16247937: Specimen of the Kiránti language (Báhing dialect) | UNVERIFIED | VERIFIED |
+| `c5f92b87` | zenodo.org | zenodo record 2366974: A short survey of the physics and chemistry of colloids | UNVERIFIED | VERIFIED |
+| `7d550797` | zenodo.org | zenodo record 16134363: Notes On The Andamanese Captured At Port Blair | UNVERIFIED | VERIFIED |
+| `f3cf0fd1` | zenodo.org | zenodo record 16070061: Literary Intelligence | UNVERIFIED | VERIFIED |
+| `760d874a` | zenodo.org | zenodo record 16104179: On the System Employed in Outlining the Figures of Deities and other Religions D | UNVERIFIED | VERIFIED |
+>>>>>>> origin/main
 | `5704ff8a` | crossref.org | DOI 10.18178/ijmlc.2019.9.3.801: A Complex Transformation of Monoalphabetic Cipher to Polyalphabetic Cipher: (Vig | UNVERIFIED | VERIFIED |
 | `82443aa6` | crossref.org | DOI 10.1117/12.2237570.5178981884001:  | UNVERIFIED | VERIFIED |
 | `5020ba9c` | crossref.org | DOI 10.36341/rabit.v11i1.7490: EVALUASI PERFORMA ALGORITMA HILL CIPHER DAN AFFINE CIPHER PADA PENGAMANAN DATA P | UNVERIFIED | VERIFIED |
@@ -39,7 +49,11 @@ the hard gate of the corroboration law.
 | `76c0fb9c` | openalex.org | OpenAlex Genome Engineering With Zinc-Finger Nucleases [CRISPR and Genetic Engineering] | UNVERIFIED | VERIFIED |
 | `6933466c` | openalex.org | OpenAlex Dynamic 3D scrambled image based RGB image encryption scheme using hyp [Chaos-based Image/Signal Encry] | UNVERIFIED | VERIFIED |
 
+<<<<<<< HEAD
 **24 findings · 24 usable search-trial combinations · receipt `62a3beff`** (fold of every finding's address — recompute by re-running the search).
+=======
+**24 findings · 24 usable search-trial combinations · receipt `5c226245`** (fold of every finding's address — recompute by re-running the search).
+>>>>>>> origin/main
 
 The sealed backing this trial held the findings beside:
 

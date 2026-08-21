@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `aa20e63b` | zenodo.org | zenodo record 10450099: The matching equivalent classes of P4 U I6 U T(1,1,n) | UNVERIFIED | VERIFIED |
-| `743a176b` | zenodo.org | zenodo record 7656030: INTERESUL SUPERIOR AL COPILULUI ÎN ADOPȚIE: ÎNTRE LEGĂTURILE DE SÂNGE ȘI DREPTUL | UNVERIFIED | VERIFIED |
-| `553e5ffe` | zenodo.org | zenodo record 20089436: Cost-Aware Evaluation of Large Language Models for Ambiguous Product Entity Matc | UNVERIFIED | VERIFIED |
-| `c5c93728` | zenodo.org | zenodo record 21704078: Flow Matching with von Mises-Fisher Posteriors: An Irreducibility Theorem | UNVERIFIED | VERIFIED |
-| `5ef7d002` | zenodo.org | zenodo record 7497305: HOROSCOPE MATCHING IS BETTER THAN 10 STARS MATCHING IN MARRIAGE MATCHING | UNVERIFIED | VERIFIED |
-| `748be65a` | zenodo.org | zenodo record 1243175: DominikVogel/matching-ids: First release of the matching IDs R-script | UNVERIFIED | VERIFIED |
-| `7c78c605` | zenodo.org | zenodo record 4562155: Solving the Catalogue Cross-Match Problem in the Era of LSST: The Effect of Unre | UNVERIFIED | VERIFIED |
-| `f352fc4d` | zenodo.org | zenodo record 7182820: ATEPP: A Dataset of Automatically Transcribed Expressive Piano Performance | UNVERIFIED | VERIFIED |
 | `0af980d8` | crossref.org | DOI 10.1093/oso/9780195113679.003.0014: Tree Pattern Matching | UNVERIFIED | VERIFIED |
 | `790e72c4` | crossref.org | DOI 10.1093/oso/9780195113679.003.0012: Two Dimensional Matching | UNVERIFIED | VERIFIED |
 | `ece96141` | crossref.org | DOI 10.1007/s10751-026-02574-y: Cryogenics in the Dalian Advanced Light Source SRF Module Test Facility | UNVERIFIED | VERIFIED |
@@ -30,16 +22,8 @@ the hard gate of the corroboration law.
 | `60ac3aa0` | crossref.org | DOI 10.1007/978-3-8348-2095-2_12: Name Matching and Identity Matching | UNVERIFIED | VERIFIED |
 | `29e14757` | crossref.org | DOI 10.1007/978-3-540-49612-0_3: The matching problem | UNVERIFIED | VERIFIED |
 | `86938977` | crossref.org | DOI 10.1007/978-3-540-49612-0_8: Evaluation of matching systems | UNVERIFIED | VERIFIED |
-| `f45d27be` | openalex.org | OpenAlex Matching pursuits with time-frequency dictionaries [Machine Fault Diagnosis Techni] | UNVERIFIED | VERIFIED |
-| `114f2ab3` | openalex.org | OpenAlex Signal Recovery From Random Measurements Via Orthogonal Matching Pursu [Sparse and Compressive Sensing] | UNVERIFIED | VERIFIED |
-| `4d3ab59e` | openalex.org | OpenAlex SOME PRACTICAL GUIDANCE FOR THE IMPLEMENTATION OF PROPENSITY SCORE MAT [Advanced Causal Inference Tech] | UNVERIFIED | VERIFIED |
-| `d0a3a74d` | openalex.org | OpenAlex Matching Methods for Causal Inference: A Review and a Look Forward [Advanced Causal Inference Tech] | UNVERIFIED | VERIFIED |
-| `6eae5936` | openalex.org | OpenAlex Shape matching and object recognition using shape contexts [Image Retrieval and Classifica] | UNVERIFIED | VERIFIED |
-| `a2ca7d55` | openalex.org | OpenAlex Video Google: a text retrieval approach to object matching in videos [Advanced Image and Video Retri] | UNVERIFIED | VERIFIED |
-| `7c968ed4` | openalex.org | OpenAlex Matching As An Econometric Evaluation Estimator [Statistical Methods and Infere] | UNVERIFIED | VERIFIED |
-| `afcb46ca` | openalex.org | OpenAlex Stereo Processing by Semiglobal Matching and Mutual Information [Advanced Vision and Imaging] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `251298de`** (fold of every finding's address — recompute by re-running the search).
+**8 findings · 8 usable search-trial combinations · receipt `7ff6a4a9`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

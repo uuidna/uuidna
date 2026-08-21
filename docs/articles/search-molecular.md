@@ -14,6 +14,7 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+<<<<<<< HEAD
 | `b039f11d` | zenodo.org | zenodo record 4751755: Shared decision making in Australian physiotherapy practice: a survey of knowled | UNVERIFIED | VERIFIED |
 | `ab8b7dd4` | zenodo.org | zenodo record 15531718: Corruption as Strategy? Manipulating Government Spending for Illicit Gains | UNVERIFIED | VERIFIED |
 | `442523ae` | zenodo.org | zenodo record 18477327: Climate Atlas Queensland 2025, 2050 and 2070 – CAIRNS – Comfort/Energy Simulatio | UNVERIFIED | VERIFIED |
@@ -22,6 +23,8 @@ the hard gate of the corroboration law.
 | `c3c0aaac` | zenodo.org | zenodo record 18477656: Climate Atlas Queensland 2025 and 2050 – CAIRNS – Climate Charts | UNVERIFIED | VERIFIED |
 | `b6a9f76b` | zenodo.org | zenodo record 18477235: Climate Atlas Queensland  2025, 2050 and 2070 – GOLDCOAST – Comfort/Energy Simul | UNVERIFIED | VERIFIED |
 | `9a8e98be` | zenodo.org | zenodo record 18477439: Climate Atlas Queensland 2025, 2050 and 2070 – BRISBANE – Climate Charts | UNVERIFIED | VERIFIED |
+=======
+>>>>>>> origin/main
 | `ad0e1f31` | crossref.org | DOI 10.4324/9780203996706-25: Saving the social bond and recovering the public domain | UNVERIFIED | VERIFIED |
 | `eb9341fb` | crossref.org | DOI 10.1201/b14676-12: - Time Domain Analysis | UNVERIFIED | VERIFIED |
 | `620c6a06` | crossref.org | DOI 10.1201/b14676-13: - Frequency Domain Analysis | UNVERIFIED | VERIFIED |
@@ -39,7 +42,11 @@ the hard gate of the corroboration law.
 | `fdec72cf` | openalex.org | OpenAlex Peptide tag forming a rapid covalent bond to a protein, through engine [Biochemical and Structural Cha] | UNVERIFIED | VERIFIED |
 | `f26b3d14` | openalex.org | OpenAlex Dual Beneficial Effect of Interloop Disulfide Bond for Single Domain A [Monoclonal and Polyclonal Anti] | UNVERIFIED | VERIFIED |
 
+<<<<<<< HEAD
 **24 findings · 24 usable search-trial combinations · receipt `e481110f`** (fold of every finding's address — recompute by re-running the search).
+=======
+**16 findings · 16 usable search-trial combinations · receipt `b1e20479`** (fold of every finding's address — recompute by re-running the search).
+>>>>>>> origin/main
 
 The sealed backing this trial held the findings beside:
 

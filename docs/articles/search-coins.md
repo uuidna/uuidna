@@ -14,14 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `a77f5d88` | zenodo.org | zenodo record 16057963: Literary Intelligence | UNVERIFIED | VERIFIED |
-| `d88fd87a` | zenodo.org | zenodo record 2286557: Herstellung kolloider Lösungen durch Zerstäubung von Metallen mit ultraviolettem | UNVERIFIED | VERIFIED |
-| `2b77ec73` | zenodo.org | zenodo record 16005104: Meteorological Observations Abstract of the Results of the Hourly Meteorological | UNVERIFIED | VERIFIED |
-| `ff29f516` | zenodo.org | zenodo record 16058548: Meteorological Register kept at Rangoon | UNVERIFIED | VERIFIED |
-| `bb37fbf8` | zenodo.org | zenodo record 16070057: Literary and Misccllaneous Intelligence | UNVERIFIED | VERIFIED |
-| `307ce972` | zenodo.org | zenodo record 16188934: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
-| `df04ade0` | zenodo.org | zenodo record 16023483: Literary Intelligence | UNVERIFIED | VERIFIED |
-| `71f2dcf5` | zenodo.org | zenodo record 16140517: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
+| `3fbea9b0` | zenodo.org | zenodo record 12808845: Fig. 1 in Short communications | UNVERIFIED | VERIFIED |
+| `1ae78839` | zenodo.org | zenodo record 16007261: Meteorological Register Kept at the Office of the Secretary to Government, N. W. | UNVERIFIED | VERIFIED |
+| `fbf560d6` | zenodo.org | zenodo record 1923152: General. | UNVERIFIED | VERIFIED |
+| `cedaf63f` | zenodo.org | zenodo record 16247937: Specimen of the Kiránti language (Báhing dialect) | UNVERIFIED | VERIFIED |
+| `c5f92b87` | zenodo.org | zenodo record 2366974: A short survey of the physics and chemistry of colloids | UNVERIFIED | VERIFIED |
+| `7d550797` | zenodo.org | zenodo record 16134363: Notes On The Andamanese Captured At Port Blair | UNVERIFIED | VERIFIED |
+| `f3cf0fd1` | zenodo.org | zenodo record 16070061: Literary Intelligence | UNVERIFIED | VERIFIED |
+| `760d874a` | zenodo.org | zenodo record 16104179: On the System Employed in Outlining the Figures of Deities and other Religions D | UNVERIFIED | VERIFIED |
 | `de176129` | crossref.org | DOI 10.1163/9789004226425_004: A Typology of Herod’s Coins | UNVERIFIED | VERIFIED |
 | `77bacc2c` | crossref.org | DOI 10.1111/j.1600-0471.1995.tb00076.x: Two South Arabian coins from Mleiha | UNVERIFIED | VERIFIED |
 | `a0adcfca` | crossref.org | DOI 10.1093/nq/s7-vi.135.64c: Leather coins | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `a2a28886` | openalex.org | OpenAlex The coin model of privilege and critical allyship: implications for he [Obesity and Health Practices] | UNVERIFIED | VERIFIED |
 | `04da909f` | openalex.org | OpenAlex Adipo-Myokines: Two Sides of the Same Coin—Mediators of Inflammation a [Adipose Tissue and Metabolism] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `5357a477`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `a5570d84`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

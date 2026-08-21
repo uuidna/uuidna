@@ -14,11 +14,19 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+<<<<<<< HEAD
 | `640437e3` | zenodo.org | zenodo record 16970139: Erratum to: MOrphOlOgical and mOlecular evidence OF the Occurrence OF Artibeus a | UNVERIFIED | VERIFIED |
 | `4fb148c5` | zenodo.org | zenodo record 1326385: The 4th Newsletter of the Patient Empowerment through Predictive Personalised De | UNVERIFIED | VERIFIED |
 | `1d64b2b3` | zenodo.org | zenodo record 16285606: The commercial exploitation of the freshwater pearl mussel, Margaritifera margar | UNVERIFIED | VERIFIED |
 | `c7505772` | zenodo.org | zenodo record 16254409: Snail Shells under Starling Roosts | UNVERIFIED | VERIFIED |
 | `0db76dba` | zenodo.org | zenodo record 16643208: The corrosion of shells in cabinets | UNVERIFIED | VERIFIED |
+=======
+| `c7505772` | zenodo.org | zenodo record 16254409: Snail Shells under Starling Roosts | UNVERIFIED | VERIFIED |
+| `0db76dba` | zenodo.org | zenodo record 16643208: The corrosion of shells in cabinets | UNVERIFIED | VERIFIED |
+| `1d64b2b3` | zenodo.org | zenodo record 16285606: The commercial exploitation of the freshwater pearl mussel, Margaritifera margar | UNVERIFIED | VERIFIED |
+| `640437e3` | zenodo.org | zenodo record 16970139: Erratum to: MOrphOlOgical and mOlecular evidence OF the Occurrence OF Artibeus a | UNVERIFIED | VERIFIED |
+| `4fb148c5` | zenodo.org | zenodo record 1326385: The 4th Newsletter of the Patient Empowerment through Predictive Personalised De | UNVERIFIED | VERIFIED |
+>>>>>>> origin/main
 | `70093711` | zenodo.org | zenodo record 3250964: SURAT KETERANGAN TANAH: ANTARA REALITAS DAN PENGAKUAN | UNVERIFIED | VERIFIED |
 | `58211676` | zenodo.org | zenodo record 17525851: (Poor) accounting for God: the tracking and monitoring of cash flows in the Cust | UNVERIFIED | VERIFIED |
 | `1c11f16c` | zenodo.org | zenodo record 8333406: Legal Status of the Land of the Sultanate Special Region of Yogyakarta | UNVERIFIED | VERIFIED |
@@ -39,7 +47,11 @@ the hard gate of the corroboration law.
 | `c9551e5d` | openalex.org | OpenAlex Researching Identity in Mathematics Education: The Lay of the Land [Mathematics Education and Teac] | UNVERIFIED | VERIFIED |
 | `0059876d` | openalex.org | OpenAlex Imperial Leather: Race, Gender and Sexuality in the Colonial Contest [African history and culture st] | UNVERIFIED | VERIFIED |
 
+<<<<<<< HEAD
 **24 findings · 24 usable search-trial combinations · receipt `4e6456fd`** (fold of every finding's address — recompute by re-running the search).
+=======
+**24 findings · 24 usable search-trial combinations · receipt `a3da4354`** (fold of every finding's address — recompute by re-running the search).
+>>>>>>> origin/main
 
 The sealed backing this trial held the findings beside:
 

@@ -14,13 +14,21 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+<<<<<<< HEAD
+=======
+| `69e9c096` | zenodo.org | zenodo record 15753748: Additional information on the masked crab spider Thomisus blandus Karsch, 1880 f | UNVERIFIED | VERIFIED |
+>>>>>>> origin/main
 | `0fab098a` | zenodo.org | zenodo record 15753702: Additional information on the Jackson's long bodied lynx spider Oxyopes jacksoni | UNVERIFIED | VERIFIED |
 | `473c3027` | zenodo.org | zenodo record 15753474: More information on the jumping spider Mexcala rufa G.W. Peckham & E.G. Peckham, | UNVERIFIED | VERIFIED |
 | `69e9c096` | zenodo.org | zenodo record 15753748: Additional information on the masked crab spider Thomisus blandus Karsch, 1880 f | UNVERIFIED | VERIFIED |
 | `2d33be9a` | zenodo.org | zenodo record 2155923: The Tides | UNVERIFIED | VERIFIED |
-| `38d77dc4` | zenodo.org | zenodo record 21144369: pyTMD: Python-based tidal prediction software | UNVERIFIED | VERIFIED |
 | `41afeb71` | zenodo.org | zenodo record 7450215: Two data sets of gravitational field degree-2 order-1 Stokes coefficient | UNVERIFIED | VERIFIED |
+<<<<<<< HEAD
 | `e1ef319d` | zenodo.org | zenodo record 10851200: Surface drifters and high resolution global simulations mapping of internal tide | UNVERIFIED | VERIFIED |
+=======
+| `38d77dc4` | zenodo.org | zenodo record 21144369: pyTMD: Python-based tidal prediction software | UNVERIFIED | VERIFIED |
+| `ffb72deb` | zenodo.org | zenodo record 6662719: Acoustic Mid-Ocean Dynamics Experiment (AMODE), 1991, North Atlantic: High-frequ | UNVERIFIED | VERIFIED |
+>>>>>>> origin/main
 | `2dee9115` | zenodo.org | zenodo record 6403046: mroviranavarro/Poroviscoelastic_Tides: Poroviscoelasticity v1 | UNVERIFIED | VERIFIED |
 | `3064a222` | crossref.org | DOI 10.1093/actrade/9780198826637.003.0002: 2. Making tides | UNVERIFIED | VERIFIED |
 | `1283c465` | crossref.org | DOI 10.5089/9781484386194.022.a005: Shifting Tides | UNVERIFIED | VERIFIED |
@@ -30,6 +38,7 @@ the hard gate of the corroboration law.
 | `78688e12` | crossref.org | DOI 10.5089/9781513512334.087.a001: Facing the Tides | UNVERIFIED | VERIFIED |
 | `e4e64447` | crossref.org | DOI 10.1142/9789812774330_0011: The Weather and the Tides. | UNVERIFIED | VERIFIED |
 | `7cb2e6ce` | crossref.org | DOI 10.1016/b978-008036372-1/50003-9: Tides | UNVERIFIED | VERIFIED |
+<<<<<<< HEAD
 | `a4018d89` | semanticscholar.org | S2 A Spectral Method to Compute the Tides of Laterally Heteroge | UNVERIFIED | VERIFIED |
 | `20fae8d7` | semanticscholar.org | S2 The Tides They Are A‐Changin': A Comprehensive Review of Pas | UNVERIFIED | VERIFIED |
 | `c8351bd1` | semanticscholar.org | S2 Efficient Inverse Modeling of Barotropic Ocean Tides | UNVERIFIED | VERIFIED |
@@ -48,6 +57,10 @@ the hard gate of the corroboration law.
 | `f65df608` | openalex.org | OpenAlex Protoplanet Migration by Nebula Tides [Astrophysics and Star Formatio] | UNVERIFIED | VERIFIED |
 
 **32 findings · 32 usable search-trial combinations · receipt `4bb115fa`** (fold of every finding's address — recompute by re-running the search).
+=======
+
+**16 findings · 16 usable search-trial combinations · receipt `fe339210`** (fold of every finding's address — recompute by re-running the search).
+>>>>>>> origin/main
 
 The sealed backing this trial held the findings beside:
 

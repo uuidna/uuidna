@@ -16,12 +16,12 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `ca79942b` | zenodo.org | zenodo record 5675094: e-IRG Statement on the Draft Council Conclusions on the Pact for Research and In | UNVERIFIED | VERIFIED |
 | `d0cf79ed` | zenodo.org | zenodo record 3608075: National Nodes - Getting organised; how far are we? | UNVERIFIED | VERIFIED |
-| `0032f440` | zenodo.org | zenodo record 14647114: Fostering Quality of Reflection in First-year Honours Students in a Bachelor eng | UNVERIFIED | VERIFIED |
 | `2782ce48` | zenodo.org | zenodo record 19410216: coin-or/GrUMPy: v0.95.3 | UNVERIFIED | VERIFIED |
-| `d0218783` | zenodo.org | zenodo record 14603308: Psychological and  Pedagogical Conditions  and Means of  Development of  Profess | UNVERIFIED | VERIFIED |
+| `0032f440` | zenodo.org | zenodo record 14647114: Fostering Quality of Reflection in First-year Honours Students in a Bachelor eng | UNVERIFIED | VERIFIED |
 | `65a48bcd` | zenodo.org | zenodo record 7498555: Demo1 for DOI | UNVERIFIED | VERIFIED |
-| `3c575bdd` | zenodo.org | zenodo record 3722559: Helping Preservice Teachers to Reflect | UNVERIFIED | VERIFIED |
+| `d0218783` | zenodo.org | zenodo record 14603308: Psychological and  Pedagogical Conditions  and Means of  Development of  Profess | UNVERIFIED | VERIFIED |
 | `64c2b3f9` | zenodo.org | zenodo record 6987157: Classical and C-motivic Adams charts | UNVERIFIED | VERIFIED |
+| `3c575bdd` | zenodo.org | zenodo record 3722559: Helping Preservice Teachers to Reflect | UNVERIFIED | VERIFIED |
 | `c6a43f58` | crossref.org | DOI 10.31274/etd-180810-5141: Reflection group diagrams for a sequence of Gaussian Lorentzian lattices | UNVERIFIED | VERIFIED |
 | `4f827aa3` | crossref.org | DOI 10.37473/dac/10.31223/x5h05z: Subsurface temperature from seismic reflection data: application to the post bre | UNVERIFIED | VERIFIED |
 | `e1f9fe4e` | crossref.org | DOI 10.37473/fic/10.31223/x5h05z: Subsurface temperature from seismic reflection data: application to the post bre | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `590b6545` | openalex.org | OpenAlex Dynamical systems with elastic reflections [Mathematical Dynamics and Frac] | UNVERIFIED | VERIFIED |
 | `2c8fe615` | openalex.org | OpenAlex Seismic Stratigraphy — Applications to Hydrocarbon Exploration [Reservoir Engineering and Simu] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `af217a1e`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `ba84a2f7`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

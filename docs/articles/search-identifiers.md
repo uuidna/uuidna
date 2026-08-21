@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `599c1bee` | zenodo.org | zenodo record 17105974: Rethinking the Evaluation of Microservice RCA with a Fault Propagation-Aware Ben | UNVERIFIED | VERIFIED |
-| `4011303a` | zenodo.org | zenodo record 2624128: Vad är PIDar? en kort introduktion | UNVERIFIED | VERIFIED |
-| `d7a6d352` | zenodo.org | zenodo record 15360626: ARK - A persistent identifier solution for online edition of the "Bulgarian Neur | UNVERIFIED | VERIFIED |
-| `97be5ade` | zenodo.org | zenodo record 17662525: Natural Science Identifiers & CETAF Stable Identifiers | UNVERIFIED | VERIFIED |
-| `22a1d7d6` | zenodo.org | zenodo record 19068510: Persistent Identifiers | UNVERIFIED | VERIFIED |
-| `11792772` | zenodo.org | zenodo record 15655624: Persistent Identifiers | UNVERIFIED | VERIFIED |
-| `3c92a1e0` | zenodo.org | zenodo record 2654644: Identifiers & Relationships | UNVERIFIED | VERIFIED |
-| `8ea4f3a4` | zenodo.org | zenodo record 4477074: Identifiers at the Smithsonian Institution | UNVERIFIED | VERIFIED |
 | `99a9152e` | crossref.org | DOI 10.3403/30143238: Information technology. Unique identifiers | UNVERIFIED | VERIFIED |
 | `cc003e3e` | crossref.org | DOI 10.3403/30128110u: Information technology. Unique identifiers | UNVERIFIED | VERIFIED |
 | `40523bbe` | crossref.org | DOI 10.3403/30128110: Information technology. Unique identifiers | UNVERIFIED | VERIFIED |
@@ -30,16 +22,8 @@ the hard gate of the corroboration law.
 | `547ee855` | crossref.org | DOI 10.3403/02016085: Information technology. EAN/UCC application identifiers and fact data identifier | UNVERIFIED | VERIFIED |
 | `997502ea` | crossref.org | DOI 10.3403/02097448u: Information technology � Automatic identification and data capture techniques �  | UNVERIFIED | VERIFIED |
 | `37eac8fa` | crossref.org | DOI 10.3403/30435753: Information technology � Automatic identification and data capture techniques �  | UNVERIFIED | VERIFIED |
-| `05415f93` | openalex.org | OpenAlex Techniques to Identify Themes [Computational and Text Analysi] | UNVERIFIED | VERIFIED |
-| `a3cd83b8` | openalex.org | OpenAlex Mutation in the α-Synuclein Gene Identified in Families with Parkinson [Parkinson's Disease Mechanisms] | UNVERIFIED | VERIFIED |
-| `ed51e43b` | openalex.org | OpenAlex Distinct types of diffuse large B-cell lymphoma identified by gene exp [Lymphoma Diagnosis and Treatme] | UNVERIFIED | VERIFIED |
-| `8453af78` | openalex.org | OpenAlex Topological domains in mammalian genomes identified by analysis of chr [Genomics and Chromatin Dynamic] | UNVERIFIED | VERIFIED |
-| `9fef794f` | openalex.org | OpenAlex UK Biobank: An Open Access Resource for Identifying the Causes of a Wi [Genetic Associations and Epide] | UNVERIFIED | VERIFIED |
-| `997776e5` | openalex.org | OpenAlex cytoHubba: identifying hub objects and sub-networks from complex inter [Bioinformatics and Genomic Net] | UNVERIFIED | VERIFIED |
-| `27b6dd2c` | openalex.org | OpenAlex Regression Diagnostics -- Identifying Influential Data and Sources of  [Advanced Statistical Methods a] | UNVERIFIED | VERIFIED |
-| `f29a0897` | openalex.org | OpenAlex <scp>micro</scp>‐<scp>checker</scp>: software for identifying and corr [Genetic diversity and populati] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `b615180d`** (fold of every finding's address — recompute by re-running the search).
+**8 findings · 8 usable search-trial combinations · receipt `5026872e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

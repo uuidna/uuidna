@@ -17,10 +17,14 @@ the hard gate of the corroboration law.
 | `11691d5c` | zenodo.org | zenodo record 5776867: Polyphenols' Inflammation-mediated Deglucuronidation and Promiscuous-binding Beh | UNVERIFIED | VERIFIED |
 | `6d27ef43` | zenodo.org | zenodo record 14031739: Notes on North American Butterflies. 2. | UNVERIFIED | VERIFIED |
 | `d75813a3` | zenodo.org | zenodo record 19188955: THE CONCEPT OF BIOETHICS | UNVERIFIED | VERIFIED |
+| `01213a17` | zenodo.org | zenodo record 15545755: Technologies and collaboration for sustained Arctic Ocean Observing Systems (AOO | UNVERIFIED | VERIFIED |
 | `784ff9c3` | zenodo.org | zenodo record 8278861: Gravitational lensing in the age of the ILT and SKA-VLBI | UNVERIFIED | VERIFIED |
-| `df8e3701` | zenodo.org | zenodo record 7660504: Burkitt Type Lymphoma in Palatine Tonsil. A report of a case | UNVERIFIED | VERIFIED |
 | `18c68b53` | zenodo.org | zenodo record 5163356: Compendium of Best Practices | UNVERIFIED | VERIFIED |
+<<<<<<< HEAD
 | `e3e067c2` | zenodo.org | zenodo record 1461996: Draft: Research Output Management Policy at IUG | UNVERIFIED | VERIFIED |
+=======
+| `df8e3701` | zenodo.org | zenodo record 7660504: Burkitt Type Lymphoma in Palatine Tonsil. A report of a case | UNVERIFIED | VERIFIED |
+>>>>>>> origin/main
 | `ddab8860` | zenodo.org | zenodo record 12081954: IMPACT OF FINANCIAL TECHNOLOGY ON THE DEVELOPMENT OF DEPOSIT MONEY BANKS IN NIGE | UNVERIFIED | VERIFIED |
 | `c6674077` | crossref.org | DOI 10.53055/icimod.1133: Annual Report 2025 | UNVERIFIED | VERIFIED |
 | `e782bd09` | crossref.org | DOI 10.3133/ofr72394_suppliment: Addendum [to Open-file report 1799][Open-file report 1799 changed to Open-file r | UNVERIFIED | VERIFIED |
@@ -39,7 +43,11 @@ the hard gate of the corroboration law.
 | `d7af4f42` | openalex.org | OpenAlex Consolidated criteria for reporting qualitative research (COREQ): a 32 [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
 | `e4db3a80` | openalex.org | OpenAlex The Strengthening the Reporting of Observational Studies in Epidemiolo [Meta-analysis and systematic r] | UNVERIFIED | VERIFIED |
 
+<<<<<<< HEAD
 **24 findings · 24 usable search-trial combinations · receipt `fd423afe`** (fold of every finding's address — recompute by re-running the search).
+=======
+**24 findings · 24 usable search-trial combinations · receipt `8ab178f8`** (fold of every finding's address — recompute by re-running the search).
+>>>>>>> origin/main
 
 The sealed backing this trial held the findings beside:
 

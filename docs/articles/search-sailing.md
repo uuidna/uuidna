@@ -16,11 +16,18 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `439fc346` | zenodo.org | zenodo record 10096125: THE ELEGANT POWER OF LIGHT - EXPLORING SOLAR SAILS AS THE FUTURE OF INTERSTELLAR | UNVERIFIED | VERIFIED |
 | `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `452aceea` | zenodo.org | zenodo record 14128032: PM_063833_B_Morlanwelz | UNVERIFIED | VERIFIED |
+<<<<<<< HEAD
 | `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `53d14953` | zenodo.org | zenodo record 14128058: PM_063851_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `a451da99` | zenodo.org | zenodo record 14128030: PM_063877_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `14d60e98` | zenodo.org | zenodo record 14128040: PM_063838_B_Morlanwelz | UNVERIFIED | VERIFIED |
+=======
+| `14d60e98` | zenodo.org | zenodo record 14128040: PM_063838_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `53d14953` | zenodo.org | zenodo record 14128058: PM_063851_B_Morlanwelz | UNVERIFIED | VERIFIED |
+| `a451da99` | zenodo.org | zenodo record 14128030: PM_063877_B_Morlanwelz | UNVERIFIED | VERIFIED |
+>>>>>>> origin/main
 | `bcb3a520` | zenodo.org | zenodo record 6322674: Synthesis of Heptazolidine | UNVERIFIED | VERIFIED |
 | `a0f8d3dd` | crossref.org | DOI 10.1353/ect.2008.0077: The Points of Sail | UNVERIFIED | VERIFIED |
 | `269a542a` | crossref.org | DOI 10.1016/j.ast.2016.01.007: Further investigation of the body torques on a square solar sail due to the disp | UNVERIFIED | VERIFIED |
@@ -39,7 +46,11 @@ the hard gate of the corroboration law.
 | `3c6fa4c8` | openalex.org | OpenAlex Technological transitions as evolutionary reconfiguration processes: a [Innovation Diffusion and Forec] | UNVERIFIED | VERIFIED |
 | `a4c3e4f3` | openalex.org | OpenAlex The LIM domain-containing homeo box gene Xlim-1 is expressed specifica [Developmental Biology and Gene] | UNVERIFIED | VERIFIED |
 
+<<<<<<< HEAD
 **24 findings · 24 usable search-trial combinations · receipt `b4e6cdeb`** (fold of every finding's address — recompute by re-running the search).
+=======
+**24 findings · 24 usable search-trial combinations · receipt `8c337fed`** (fold of every finding's address — recompute by re-running the search).
+>>>>>>> origin/main
 
 The sealed backing this trial held the findings beside:
 

@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `6607ce3d` | zenodo.org | zenodo record 7354452: Climate Change and its Impacts: A Global Perspective | UNVERIFIED | VERIFIED |
-| `a19011f6` | zenodo.org | zenodo record 7356457: UK Climate Change Programme - Consultation paper | UNVERIFIED | VERIFIED |
-| `a77f5d88` | zenodo.org | zenodo record 16057963: Literary Intelligence | UNVERIFIED | VERIFIED |
-| `d88fd87a` | zenodo.org | zenodo record 2286557: Herstellung kolloider Lösungen durch Zerstäubung von Metallen mit ultraviolettem | UNVERIFIED | VERIFIED |
-| `2b77ec73` | zenodo.org | zenodo record 16005104: Meteorological Observations Abstract of the Results of the Hourly Meteorological | UNVERIFIED | VERIFIED |
-| `ff29f516` | zenodo.org | zenodo record 16058548: Meteorological Register kept at Rangoon | UNVERIFIED | VERIFIED |
-| `bb37fbf8` | zenodo.org | zenodo record 16070057: Literary and Misccllaneous Intelligence | UNVERIFIED | VERIFIED |
-| `307ce972` | zenodo.org | zenodo record 16188934: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
 | `585d031c` | crossref.org | DOI 10.7717/peerj.21201/fig-3: Figure 3: Mean and standard deviation (shading) time series for control and rese | UNVERIFIED | VERIFIED |
 | `b1bb3ae0` | crossref.org | DOI 10.7717/peerj.21201/fig-1: Figure 1: Mean and standard deviation (shading) time series for control and rese | UNVERIFIED | VERIFIED |
 | `3641ac60` | crossref.org | DOI 10.1016/s0031-9406(05)66653-9: Measurement of Foot Progression Angle Through Stance | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `5cbd7f0b` | openalex.org | OpenAlex The Simplest Walking Model: Stability, Complexity, and Scaling [Robotic Locomotion and Control] | UNVERIFIED | VERIFIED |
 | `270185bd` | openalex.org | OpenAlex How to squat? Effects of various stance widths, foot placement angles  [Lower Extremity Biomechanics a] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `20ee5339`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `9fa34ad1`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

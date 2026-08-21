@@ -16,12 +16,17 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `4765df3e` | zenodo.org | zenodo record 8300671: A recommendation on suitable devices to be used as portable displacement generat | UNVERIFIED | VERIFIED |
 | `7d969a20` | zenodo.org | zenodo record 10209533: 19ENG08.Calibration_2kNm_TorqueTransducer.GUM.PTB.v1.20231106 | UNVERIFIED | VERIFIED |
-| `ff7d730f` | zenodo.org | zenodo record 11121120: Radiofrequency Measuring Receiver with Spectrum Analyzer Function as a Tool for  | UNVERIFIED | VERIFIED |
 | `bb4fd308` | zenodo.org | zenodo record 17802131: VNA with two coils impedance measurement data | UNVERIFIED | VERIFIED |
+| `ff7d730f` | zenodo.org | zenodo record 11121120: Radiofrequency Measuring Receiver with Spectrum Analyzer Function as a Tool for  | UNVERIFIED | VERIFIED |
 | `4b970ff9` | zenodo.org | zenodo record 1317529: ДЕЯКІ ПРОЦЕСУАЛЬНІ СКЛАДНОЩІ  У ВИКОНАННІ ЗАВДАНЬ КРИМІНАЛЬНОГО ПРОВАДЖЕННЯ | UNVERIFIED | VERIFIED |
+<<<<<<< HEAD
 | `9b498729` | zenodo.org | zenodo record 375962: RegMeasures/XChannel: XChannel v1 | UNVERIFIED | VERIFIED |
 | `d37cb7d3` | zenodo.org | zenodo record 2580436: RegMeasures/HurunuiDataProcessing: Completed analysis supporting draft paper | UNVERIFIED | VERIFIED |
+=======
+>>>>>>> origin/main
 | `02799a58` | zenodo.org | zenodo record 18513988: Fingertip Injuries: From Current Epidemiology in Mexico to Reconstructive Option | UNVERIFIED | VERIFIED |
+| `d37cb7d3` | zenodo.org | zenodo record 2580436: RegMeasures/HurunuiDataProcessing: Completed analysis supporting draft paper | UNVERIFIED | VERIFIED |
+| `9b498729` | zenodo.org | zenodo record 375962: RegMeasures/XChannel: XChannel v1 | UNVERIFIED | VERIFIED |
 | `d8514743` | crossref.org | DOI 10.1515/9783112231463-007: Bibliography | UNVERIFIED | VERIFIED |
 | `4007b008` | crossref.org | DOI 10.1515/9783112231463-005: 4775 Gibbs measures associated with Feynman–Kac semigroups | UNVERIFIED | VERIFIED |
 | `5c83aee5` | crossref.org | DOI 10.1787/888933389290: Figure 2.15. Non-tariff-measures by type | UNVERIFIED | VERIFIED |
@@ -39,7 +44,11 @@ the hard gate of the corroboration law.
 | `fe518dea` | openalex.org | OpenAlex Common method biases in behavioral research: A critical review of the  [Behavioral and Psychological S] | UNVERIFIED | VERIFIED |
 | `170248fc` | openalex.org | OpenAlex A Radioisotopic Method to Measure Delayed Type Hypersensitivity in the [Vitamin D Research Studies] | UNVERIFIED | VERIFIED |
 
+<<<<<<< HEAD
 **24 findings · 24 usable search-trial combinations · receipt `74491be3`** (fold of every finding's address — recompute by re-running the search).
+=======
+**24 findings · 24 usable search-trial combinations · receipt `e723efcb`** (fold of every finding's address — recompute by re-running the search).
+>>>>>>> origin/main
 
 The sealed backing this trial held the findings beside:
 
