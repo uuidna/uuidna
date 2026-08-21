@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1436 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1437 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -26,7 +26,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 7. **Division by zero** — `lean/DivByZero.lean` · **8** theorems
    the reflection dz(x)=10−x — a finite residue, never infinity
 
-8. **Applied structure — the science pairs** — `lean/BioPhysics.lean` · **16** theorems
+8. **Applied structure — the science pairs** — `lean/BioPhysics.lean` · **17** theorems
    blood, DNA, sound, chemistry, music, acid-base, heredity, colour — the algebra, demarcated
 
 9. **Self-discovered** — `lean/Discover.lean` · **16** theorems

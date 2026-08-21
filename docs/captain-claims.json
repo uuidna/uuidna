@@ -2,8 +2,8 @@
   "generated": "2026-08-21",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1436,
-  "total_theorems": 1436,
+  "total_claimed": 1437,
+  "total_theorems": 1437,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3177,6 +3177,12 @@
       "key": "primary_secondary_split",
       "lineAddress": "89ac523e-00a4-8a75-9fe2-75e736023257",
       "address": "61bad87d-0602-87b9-bebf-8583fc4db165",
+      "principle": "Applied structure — the science pairs"
+    },
+    {
+      "key": "reflection_is_total_by_the_key",
+      "lineAddress": "d8d243fe-9582-8084-b9d2-022b66665e85",
+      "address": "53c9a993-8311-8c19-a022-6a147769b6cd",
       "principle": "Applied structure — the science pairs"
     },
     {
@@ -8622,7 +8628,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "d675a62b-dd71-82d6-8144-29d76f2cf073",
+  "claim_receipt": "61d08a7d-051e-848c-86e2-2d24bc406bd1",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

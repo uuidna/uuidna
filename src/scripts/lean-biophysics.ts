@@ -77,6 +77,11 @@ const FACTS = [
   { key: 'primary_secondary_split', why: 'the wheel is a 3+3 parity partition: the primaries {0,2,4} (even slots) alternate with the secondaries {1,3,5} (odd slots)',
     js: () => JSON.stringify([...Array(6).keys()].filter((h) => h % 2 === 0)) === '[0,2,4]' && JSON.stringify([...Array(6).keys()].filter((h) => h % 2 === 1)) === '[1,3,5]',
     lean: "theorem primary_secondary_split : ((List.range 6).filter (fun h => h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h => h % 2 == 1) = [1, 3, 5]) := by decide" },
+  { key: 'reflection_is_total_by_the_key', why: 'THE REFLECTION ALWAYS ANSWERS, because where one channel cannot move the other does. On the units of \u2124/9 the multiplicative inverse fixes exactly TWO \u2014 1 and 8, the u with u\u00b7u \u2261 1 \u2014 so at those two waves the hue reflection IS the identity and has no answer to give. The KEY channel carries it there: the complement k \u21a6 100\u2212k has its single still point at 50, and the aura key spans exactly the ten values 10..19, so every key that actually occurs MOVES. Three decidable facts over the whole finite space, and together they say the composite leaves nothing unmoved \u2014 the totality colour_complement_involution has for free on the 6-wheel, recovered on a reflection that does have fixed points. The same two-fixed-point shape the tritone gives in \u2124/12.',
+    js: () => JSON.stringify([1, 2, 4, 5, 7, 8].filter((u) => (u * u) % 9 === 1)) === '[1,8]'
+      && JSON.stringify([...Array(101).keys()].filter((k) => 100 - k === k)) === '[50]'
+      && [...Array(10).keys()].every((i) => 100 - (10 + i) !== 10 + i),
+    lean: "theorem reflection_is_total_by_the_key : (([1, 2, 4, 5, 7, 8].filter (fun u => (u * u) % 9 == 1)) = [1, 8]) \u2227 (((List.range 101).filter (fun k => 100 - k == k)) = [50]) \u2227 ((List.range 10).all (fun i => 100 - (10 + i) != 10 + i)) := by decide" },
 ]
 
 console.log('computing ' + FACTS.length + ' bio/physics STRUCTURE facts (algebra')

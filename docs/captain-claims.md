@@ -3,8 +3,8 @@
 **Generated:** 2026-08-21
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1436/1436 theorems — every one, by construction
-**Claim receipt:** `d675a62b-dd71-82d6-8144-29d76f2cf073`
+**Total claimed:** 1437/1437 theorems — every one, by construction
+**Claim receipt:** `61d08a7d-051e-848c-86e2-2d24bc406bd1`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -79,12 +79,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### Applied structure — the science pairs
 
-- **Theorems:** 16
+- **Theorems:** 17
 - **Sample lineAddress:** `a221f323-1ad5-8c8a-89a8-179cec2bfc1d`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[abo_klein_four](/theorem/abo_klein_four) · [blood_types_eight](/theorem/blood_types_eight) · [dna_base_pairing_involution](/theorem/dna_base_pairing_involution) · [codons_sixty_four](/theorem/codons_sixty_four) · [sound_ladder_432](/theorem/sound_ladder_432) · [octave_doubling](/theorem/octave_doubling) · [electron_shells_2n2](/theorem/electron_shells_2n2) · [subshell_capacities_4l2](/theorem/subshell_capacities_4l2) · [circle_of_fifths](/theorem/circle_of_fifths) · [tritone_involution](/theorem/tritone_involution) · [ph_reflection_seven](/theorem/ph_reflection_seven) · [ph_conjugate_sum_14](/theorem/ph_conjugate_sum_14) · [punnett_three_to_one](/theorem/punnett_three_to_one) · [heterozygote_symmetry](/theorem/heterozygote_symmetry) · [colour_complement_involution](/theorem/colour_complement_involution) · [primary_secondary_split](/theorem/primary_secondary_split)
+[abo_klein_four](/theorem/abo_klein_four) · [blood_types_eight](/theorem/blood_types_eight) · [dna_base_pairing_involution](/theorem/dna_base_pairing_involution) · [codons_sixty_four](/theorem/codons_sixty_four) · [sound_ladder_432](/theorem/sound_ladder_432) · [octave_doubling](/theorem/octave_doubling) · [electron_shells_2n2](/theorem/electron_shells_2n2) · [subshell_capacities_4l2](/theorem/subshell_capacities_4l2) · [circle_of_fifths](/theorem/circle_of_fifths) · [tritone_involution](/theorem/tritone_involution) · [ph_reflection_seven](/theorem/ph_reflection_seven) · [ph_conjugate_sum_14](/theorem/ph_conjugate_sum_14) · [punnett_three_to_one](/theorem/punnett_three_to_one) · [heterozygote_symmetry](/theorem/heterozygote_symmetry) · [colour_complement_involution](/theorem/colour_complement_involution) · [primary_secondary_split](/theorem/primary_secondary_split) · [reflection_is_total_by_the_key](/theorem/reflection_is_total_by_the_key)
 
 ### Self-discovered
 
@@ -870,7 +870,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1355 (1436 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1356 (1437 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4475 — 2131 usable, 2344 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -888,7 +888,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1436 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1437 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

@@ -1,13 +1,13 @@
 ---
 title: "Applied structure — the science pairs"
-description: "Computed from lean/BioPhysics.lean — 16 sealed theorems, every claim citing its proof."
+description: "Computed from lean/BioPhysics.lean — 17 sealed theorems, every claim citing its proof."
 ---
 
 # Applied structure — the science pairs
 
-> The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement. — held by [abo_klein_four](/theorem/abo_klein_four) and its 15 siblings below.
+> The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement. — held by [abo_klein_four](/theorem/abo_klein_four) and its 16 siblings below.
 
-**16 theorems**, from [abo_klein_four](/theorem/abo_klein_four) onward, each proven `by decide` in [lean/BioPhysics.lean](/lean/BioPhysics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 16 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [punnett_three_to_one](/theorem/punnett_three_to_one). A boundary stated here is decided.
+**17 theorems**, from [abo_klein_four](/theorem/abo_klein_four) onward, each proven `by decide` in [lean/BioPhysics.lean](/lean/BioPhysics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [punnett_three_to_one](/theorem/punnett_three_to_one). A boundary stated here is decided.
 
 ### the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative, each self-inverse (order ≤ 2)
 The ledger holds this as [abo_klein_four](/theorem/abo_klein_four) — proven `by decide`, sorry-free:
@@ -119,6 +119,13 @@ The ledger holds this as [primary_secondary_split](/theorem/primary_secondary_sp
 
 ```lean
 ((List.range 6).filter (fun h => h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h => h % 2 == 1) = [1, 3, 5])
+```
+
+### THE REFLECTION ALWAYS ANSWERS, because where one channel cannot move the other does. On the units of ℤ/9 the multiplicative inverse fixes exactly TWO — 1 and 8, the u with u·u ≡ 1 — so at those two waves the hue reflection IS the identity and has no answer to give. The KEY channel carries it there: the complement k ↦ 100−k has its single still point at 50, and the aura key spans exactly the ten values 10..19, so every key that actually occurs MOVES. Three decidable facts over the whole finite space, and together they say the composite leaves nothing unmoved — the totality colour_complement_involution has for free on the 6-wheel, recovered on a reflection that does have fixed points. The same two-fixed-point shape the tritone gives in ℤ/12.
+The ledger holds this as [reflection_is_total_by_the_key](/theorem/reflection_is_total_by_the_key) — proven `by decide`, sorry-free:
+
+```lean
+(([1, 2, 4, 5, 7, 8].filter (fun u => (u * u) % 9 == 1)) = [1, 8]) ∧ (((List.range 101).filter (fun k => 100 - k == k)) = [50]) ∧ ((List.range 10).all (fun i => 100 - (10 + i) != 10 + i))
 ```
 
 

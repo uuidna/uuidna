@@ -99,6 +99,7 @@ punnett_three_to_one 19
 heterozygote_symmetry 19
 colour_complement_involution 19
 primary_secondary_split 19
+reflection_is_total_by_the_key 19
 #Boolean.lean
 sixteen_binary_functions 19
 gates_name_their_tables 19

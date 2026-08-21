@@ -16,7 +16,7 @@ description: "The desk writes — one computed article per wing of the ledger, e
 | [The fixed stars](/articles/astronomy) | 11 |
 | [The detectors, proven](/articles/audit) | 17 |
 | [The audit game](/articles/audit-game) | 11 |
-| [Applied structure — the science pairs](/articles/bio-physics) | 16 |
+| [Applied structure — the science pairs](/articles/bio-physics) | 17 |
 | [lean/Boolean.lean](/articles/boolean) | 6 |
 | [lean/Byte.lean](/articles/byte) | 5 |
 | [The calendar](/articles/calendar) | 9 |

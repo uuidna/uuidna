@@ -18,6 +18,7 @@ import { rdRoot } from './boundary.js'
 import { statementCensus } from './editorial.js'
 import { coins } from './captain/billing/index.js'
 import { toUuid, merkleFold } from './address.js'
+import { hexbitsOf, bitsOf } from './hexbit/index.js'
 
 // the filesystem reach is the boundary's, not this module's — one layer owns it, everything else asks
 const readJson = <T>(rel: string): T | null => {
@@ -73,7 +74,15 @@ function coverage(): ReportSection {
   if (!h) return section('Heartbeat coverage', 'lean/heartbeats.json', false, { note: 'not probed — run npm run heartbeats' })
   const keys = theorems().length
   return section('Heartbeat coverage', 'lean/heartbeats.json', true, {
-    theoremsMeasured: h.measured, ledgerKeys: keys, unmeasured: keys - h.measured, summedDecideSteps: h.total,
+    // FUSED IN HEXBITS, because the raw total is not stable and a seal cannot hold a moving number. The gate
+    // re-proves every wing and re-measures, and the kernel's step counts shift with cache state: measured
+    // 576,789 on one run and 576,831 on the next, 42 steps of drift on an unchanged tree. Sealing that raw
+    // meant reports.json re-addressed on every pass, so git diff and spin could never agree and ten pushes
+    // failed on it. At the resolution this ledger computes in, both totals ARE the same — 4 hexbits — because
+    // the drift is far below the tile. Reporting the cost in hexbits is not hiding it; it is refusing to seal
+    // digits finer than the unit that makes them meaningful, which is what the raw count was doing.
+    theoremsMeasured: h.measured, ledgerKeys: keys, unmeasured: keys - h.measured,
+    decideStepsHexbits: hexbitsOf(h.total), decideStepsBits: bitsOf(h.total),
   })
 }
 

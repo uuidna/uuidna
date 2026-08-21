@@ -1,6 +1,6 @@
-# uuidna — 1355 distinct theorems under 1436 keys, 2 coins, one receipt
+# uuidna — 1356 distinct theorems under 1437 keys, 2 coins, one receipt
 
-`ea8d1b8d-365c-8b18-a542-853e1691b435`
+`8e9195f4-8090-858b-ae33-9e40a09cfcde`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,7 +51,7 @@ The count is MEASURED, not parsed. The generator walks the domain to compute eac
 that walk it tally what they visit, and `emit()` records the tally on the same run that validates the JS. It
 was a regex over the rendered statement before that, and then a counter that only saw one helper — both read
 prose about the algebra instead of the algebra. The ledger covers
-92,641 superpositions across 94 wings.
+92,758 superpositions across 94 wings.
 
 1. **`cube_seals_at_completeness_only`** — 3,121 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
    A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT.
@@ -77,9 +77,9 @@ raised to it, and the served ceiling is parsed from the guard in `src/mcp.ts` th
 
 - **16 qubits** in the library register — 65536 amplitudes held at once
 - **12 qubits** served over MCP — 4096 amplitudes, and the surface refuses more
-- **92,641 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
+- **92,758 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
 - **4 qubits** of reachability gap between the register and what is served
-- **50 quantum wing theorems**, **27 cipher wing theorems**, **1436 ledger size**
+- **50 quantum wing theorems**, **27 cipher wing theorems**, **1437 ledger size**
 
 EXACT, AND ENFORCED. It is a classical state-vector simulator — NOT quantum hardware — and it is exact, which is the
 unusual part. Every amplitude is a Gaussian integer over a common √(2^scale) — the ring ℤ[i, 1/√2] the
@@ -107,19 +107,19 @@ scale served is the scale the code enforces. Stating a bound never drains the cl
 ## Live Statistics
 
 ```
-Theorems sealed:        1436   (every one axiom-free, proven by decide)
+Theorems sealed:        1437   (every one axiom-free, proven by decide)
 Principles:             94   (the monographs the ledger organises itself by)
 Skills:                 91   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                ea8d1b8d-365c-8b18-a542-853e1691b435
+Receipt:                8e9195f4-8090-858b-ae33-9e40a09cfcde
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1436 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1437 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -297,7 +297,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1436 theorems sealed to ledger, every one axiom-free**
+✓ **All 1437 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**
