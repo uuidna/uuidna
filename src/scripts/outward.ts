@@ -21,6 +21,7 @@ import { writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { toUuid, beaconAnchor, nistConstant, auditCve, viesVerify, corroborate, bindCaptainRepos, scanPublications, fetchGutenberg } from '../index.js'
 import { ROOT, rd } from './api.js'
+import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
 /** One outward probe: a named external answer, fetched by a thunk, folded to an address. */
 type Probe = { name: string; host: string; run: () => Promise<unknown> | unknown }
@@ -66,7 +67,7 @@ const verified = rows.filter((r) => r.state === 'unchanged')
 console.log('outward — every external boundary, one pass, each answer content-addressed:')
 for (const r of rows) {
   const mark = { fresh: '·', unchanged: '✓', moved: '→', unreachable: '⚠' }[r.state]
-  console.log(`  ${mark} ${r.name.padEnd(17)} ${r.host.padEnd(26)} ${r.address.slice(0, 8) || '—'}  ${r.state}${r.note ? ' — ' + r.note : ''}`)
+  console.log(`  ${mark} ${r.name.padEnd(17)} ${r.host.padEnd(26)} ${handleOf(r.address) || '—'}  ${r.state}${r.note ? ' — ' + r.note : ''}`)
 }
 console.log(`\n  ${verified.length} verified by receipt (no re-read needed) · ${moved.length} moved · ${unreachable.length} unreachable · ${rows.length} probes`)
 if (moved.length) console.log('  MOVED: ' + moved.map((r) => r.name).join(', ') + ' — the world changed; read the answer, do not assume it')

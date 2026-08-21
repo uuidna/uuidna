@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into the generated claims — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // gen-captain-claims-complete — the captain claims ALL sealed theorems; the number is read from the census
 // Exhaustive categorization with fallback "Uncategorized" for any remainder
 // Guarantees 100% coverage: every theorem is either claimed or revealed as gap

@@ -1,0 +1,12 @@
+{
+  "handle": "34162268",
+  "address": "34162268-0afe-8195-9f9f-3dd1a8ba4ea4",
+  "statement": "((List.range 8).map (fun i => min (100 * i) 450) = [0,100,200,300,400,450,450,450]) ∧ ((List.range 8).map (fun i => min (100 * i) 450) ≠ (List.range 8).map (fun i => 100 * i)) ∧ (List.zipWith (fun a b => decide (a <= b)) ((List.range 8).map (fun i => min (100 * i) 450)) ((List.range 8).map (fun i => min (100 * i) 450)).tail).all (fun p => p)",
+  "tactic": "decide",
+  "keys": [
+    "firing_rate_saturates"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

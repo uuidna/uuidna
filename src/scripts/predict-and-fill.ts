@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url'
 import { theorems, PRINCIPLES } from '../index.js'
 import { HERE, ROOT, invokesFile } from './api.js'
 
-interface PredictedGap {
+export interface PredictedGap {
   pattern: string
   likelihood: 'high' | 'medium' | 'low'
   location: string
@@ -95,23 +95,12 @@ function predictPackageGaps(): PredictedGap[] {
       })
     }
 
-    // Pattern: Source exists but dist is stale
-    if (existsSync(srcPath) && existsSync(distPath)) {
-      const srcMtime = statSync(srcPath).mtime.getTime()
-      const distMtime = statSync(distPath).mtime.getTime()
-      if (srcMtime > distMtime) {
-        gaps.push({
-          pattern: 'dist-stale',
-          likelihood: 'high',
-          location: `packages/${pkg}/dist/`,
-          prediction: `Source ${srcPath.split('/').pop()} is newer than dist/. Build is stale; next CI run will fail.`,
-          autoFillAction: {
-            file: `packages/${pkg}/dist/index.js`,
-            content: `// STALE: run npm run build to regenerate`,
-          },
-        })
-      }
-    }
+    // DIST-STALE, REMOVED. It compared mtimes of packages/<pkg>/dist — a directory that is
+    // GITIGNORED and never committed, rebuilt from source by every CI run. So it fired after any source edit,
+    // reported nothing a reader could act on, and did it at HIGH likelihood: the engine's single most severe
+    // finding was a local build artifact being younger than its source, which is what a build artifact IS between
+    // edits. The real check is deterministic and already runs: gen-packages --verify at guard step 3, which
+    // compares the CONTENT of the generated surfaces, not a timestamp on an untracked file.
 
     // Pattern: Generated file without marker
     if (existsSync(srcPath)) {
@@ -140,35 +129,12 @@ function predictExportGaps(): PredictedGap[] {
 
   if (existsSync(srcIndexPath)) {
     const srcIndex = readFileSync(srcIndexPath, 'utf-8')
-    const exportCount = (srcIndex.match(/^export /gm) || []).length
-
-    // Pattern: Export count changed but packages not regenerated
-    if (exportCount > 0) {
-      // Check if all packages have been regenerated
-      const PACKAGES = ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge']
-      for (const pkg of PACKAGES) {
-        const pkgSrcPath = join(ROOT, 'packages', pkg, 'src', 'index.ts')
-        if (existsSync(pkgSrcPath)) {
-          const pkgSrc = readFileSync(pkgSrcPath, 'utf-8')
-          // Check if package exports are in src/index.ts
-          const pkgExports = pkgSrc.match(/export \{[^}]+\}/gm) || []
-          if (pkgExports.length > 0) {
-            // Predict: if src/index.ts changes, packages will drift
-            gaps.push({
-              pattern: 'export-drift-risk',
-              likelihood: 'medium',
-              location: `packages/${pkg}/src/index.ts`,
-              prediction: `Next edit to src/index.ts will drift package exports. Pattern: gen-packages --verify will catch it, but automation can run first.`,
-              autoFillAction: {
-                file: `packages/${pkg}/src/index.ts`,
-                content: `// Run: npm run gen:packages to auto-update exports`,
-              },
-            })
-            break // Only warn once per pattern
-          }
-        }
-      }
-    }
+    // EXPORT-DRIFT-RISK, REMOVED. Its condition was `exportCount > 0` and a package having any
+    // exports — true of this repository at every moment it has existed, so it could not fail to fire. A check that
+    // holds regardless of state is the VACUOUS class `one-receipt vacuous` already exists to catch, and it was
+    // reporting the POSSIBILITY of drift while gen-packages --verify was already BLOCKING the actual drift.
+    // A prediction that duplicates a hard gate and cannot be false is not a prediction; it is a slogan.
+    void srcIndex
   }
 
   return gaps
@@ -206,6 +172,16 @@ function predictTestGaps(): PredictedGap[] {
 
   return gaps
 }
+
+/** the scripts already DECLARED dormant — read once, so the engine cannot predict what the repo has written down.
+ *  A missing or unreadable list is treated as EMPTY rather than silently trusted: if the declaration cannot be
+ *  read, every unwired script should be reported, not none of them. */
+const DECLARED_DORMANT: Set<string> = (() => {
+  try {
+    const raw = JSON.parse(readFileSync(join(ROOT, 'lean', 'dormant-scripts.json'), 'utf8')) as { scripts?: string[] }
+    return new Set((raw.scripts ?? []).map((x) => String(x).split('/').pop() ?? String(x)))
+  } catch { return new Set<string>() }
+})()
 
 function predictFeatureGaps(): PredictedGap[] {
   const gaps: PredictedGap[] = []
@@ -263,6 +239,12 @@ function predictFeatureGaps(): PredictedGap[] {
     // opposite advice is worse than either alone. Both now use invokesFile from api.ts.
     const isWired = invokesFile(others, scriptName)
       || discoveryGlobs(others).some((re) => re.test(`${scriptName}.js`))
+    // A DECLARED BOUNDARY IS EXACTLY WHAT PASSES. lean/dormant-scripts.json names the scripts that are BUILT and
+    // reachable and that nothing runs — a list that already exists, is exercised by exercise-dormant.ts, and may
+    // only shrink. Re-reporting its 30 entries as PREDICTED gaps made 30 of this engine's 32 predictions noise,
+    // and a predictor that is 94% noise is one nobody reads. It reported the declaration as a defect, which is the
+    // inverse of the law every tool description here states.
+    if (!isWired && DECLARED_DORMANT.has(file)) continue
     if (!isWired && !scriptName.startsWith('_')) {
       gaps.push({
         pattern: 'unwired-script',
@@ -280,6 +262,40 @@ function predictFeatureGaps(): PredictedGap[] {
   }
 
   return gaps
+}
+
+/** predictGaps() → THE FIVE PREDICTORS AS DATA, so the MCP can serve what the script prints.
+ *
+ *  This ran only as a console script and only in CI (school.yml's registrar files it as an issue). An agent asking
+ *  "what is about to break here" had no way to ask — which is the same shape as gap 49: a capability the repo has
+ *  and no served door onto it. Deterministic: same source, same predictions. The autoFillAction CONTENT is
+ *  deliberately not returned — a served tool proposes, it does not hand back a file to write, and the two-handle
+ *  law keeps the writing hand human.
+ *
+ *  It reads the source TREE, so it is a stdio-only tool: the Workers edge has no filesystem and must not pretend. */
+export function predictGaps(): { total: number; declaredDormantSkipped: number; byLikelihood: { high: number; medium: number; low: number }
+                                 gaps: { pattern: string; likelihood: string; location: string; prediction: string; hasAutoFill: boolean }[]
+                                 honest: string } {
+  const all = [...predictTheoremGaps(), ...predictPackageGaps(), ...predictExportGaps(), ...predictTestGaps(), ...predictFeatureGaps()]
+  return {
+    total: all.length,
+    // NO SILENT CAPS: what the declaration absorbed is COUNTED, never just dropped — a number that quietly
+    // shrinks reads as progress, and this one is a boundary being respected, which is a different fact.
+    declaredDormantSkipped: DECLARED_DORMANT.size,
+    byLikelihood: {
+      high: all.filter((p) => p.likelihood === 'high').length,
+      medium: all.filter((p) => p.likelihood === 'medium').length,
+      low: all.filter((p) => p.likelihood === 'low').length,
+    },
+    gaps: all.map((p) => ({ pattern: p.pattern, likelihood: p.likelihood, location: p.location,
+      prediction: p.prediction, hasAutoFill: p.autoFillAction !== undefined })),
+    honest:
+      'PREDICTIONS from the source tree\'s own patterns — an unwired script, a drifted export, a principle with no ' +
+      'test — NOT proofs and NOT a claim that any of these WILL break. Each is a pattern that has produced a gap ' +
+      'here before, offered so it can be closed before it forms. Deterministic: same tree, same list. Reads the ' +
+      'filesystem, so this answers from the stdio server only; the edge has none and does not pretend to. ' +
+      'Integrity, not truth.',
+  }
 }
 
 function main() {
@@ -329,4 +345,6 @@ function main() {
   process.exit(0)
 }
 
-main()
+// RUN ONLY WHEN RUN. Without this guard, importing predictGaps() executed the whole report — and the MCP tool
+// that serves the predictions printed them to stdout, which on a stdio JSON-RPC server is the transport itself.
+if (process.argv[1] && process.argv[1].endsWith('predict-and-fill.js')) main()

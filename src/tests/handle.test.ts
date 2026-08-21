@@ -7,7 +7,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  isHandle, handleOf, handleParts, handlePath, handleOfPath, handleDirs, pathOrderMatchesHandleOrder, HANDLE_ROOT,
+  isHandle, handleOf, seedOf, handleParts, handlePath, handleOfPath, handleDirs, pathOrderMatchesHandleOrder, HANDLE_ROOT,
 } from '../handle.js'
 import { chunkHandleOf } from '../scripts/gen-handle-chunks.js'
 import { theorems } from '../index.js'
@@ -128,4 +128,36 @@ test('handleOf refuses what it cannot address, rather than coercing it', () => {
   assert.equal(handleOf('57F5EF04-A2F0-83CB-A686-3343C324DE12'), '57f5ef04', 'handles are lowercase hex')
   for (const bad of ['', 'zzzzzzzz', 'short', '----------'])
     assert.throws(() => handleOf(bad), /eight hex/, `refused, not coerced: ${JSON.stringify(bad)}`)
+})
+
+// ── THE SECOND DERIVATION. seedOf was six inline expressions, and the sharpest part is that ONE of them took a
+// different route to the same number: css.ts computed Number(BigInt('0x' + h)) where aura.ts, captain/repos,
+// holofractal and refactor all used parseInt(h, 16). The two agree over the whole 8-hex domain — which is exactly
+// why the split survived unnoticed for as long as it did. Nothing ever disagreed, so nothing ever complained.
+test('the two routes to an address-integer agree over the domain, edges included', () => {
+  const both = (h: string): void =>
+    assert.equal(parseInt(h, 16), Number(BigInt('0x' + h)), `the routes diverge at ${h}`)
+  for (const h of ['00000000', 'ffffffff', '80000000', '7fffffff', '0000000f', 'deadbeef'])  both(h)
+  for (let i = 0; i < 200000; i += 7919) both(i.toString(16).padStart(8, '0'))
+})
+
+test('seedOf is the handle read as a number, over the LIVE ledger and not over examples', () => {
+  const T = theorems()
+  assert.ok(T.length > 1000)
+  const wrong = T.filter((t) => seedOf(t.address) !== parseInt(handleOf(t.address), 16))
+  assert.deepEqual(wrong.map((t) => t.key), [], 'the seed must be the handle, never a parallel truncation')
+  for (const t of T.slice(0, 200)) {
+    assert.ok(Number.isInteger(seedOf(t.address)), 'an exact integer, never a float')
+    assert.ok(seedOf(t.address) <= 0xffffffff, 'eight hex cannot exceed 2^32 - 1')
+  }
+})
+
+// ── SAME-LOOKING CODE, DIFFERENT ACTS. These must NOT be folded into seedOf, and saying so is the point: a merge
+// that swallowed them would be tidy and wrong. The widths and domains differ on purpose.
+test('the derivations that are deliberately NOT seedOf keep their own width and domain', () => {
+  const a = 'e9ba369d-dac3-8385-8d01-d40f33e8e0a3'
+  const hex = a.replace(/-/g, '')
+  assert.notEqual(hex.slice(0, 13), hex.slice(0, 8), 'stream.ts steps THIRTEEN hex, a wider step on purpose')
+  assert.notEqual(Number(BigInt('0x' + hex) % 7n), seedOf(a) % 7,
+    'the rosette folds the WHOLE address mod 7 — a different domain, not a truncation of this one')
 })

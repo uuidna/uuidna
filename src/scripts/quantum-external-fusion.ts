@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into its fusion record — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // src/scripts/quantum-external-fusion.ts — QUANTUM EXTERNAL API FUSION
 import { createHash } from 'node:crypto'
 // Automate discovery, verification, and sealing of external sources

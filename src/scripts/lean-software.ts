@@ -80,6 +80,15 @@ const FACTS = [
 // audit each fact offline, then GENERATE its green `by decide` theorem — the research loop's terminal.
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
+// ...and then the same laws turned on the MEMORY that decides which of these theorems is safe to save. cubeFacts()
+// censuses every OTHER wing on disk and seals the sealing rule itself: a neighbourhood seals exactly when it is
+// whole and at no smaller count, its members are distinct keys and not merely the right number of them, a standing
+// receipt costs nothing while only a moved neighbourhood is paid for, and what travels between them is the complete
+// address rather than the eight-hex path. It belongs HERE and not in a wing of its own — wings move three at a time
+// — and this file already holds the algebra a program is verified against.
+
+import { cubeFacts } from './lean-cube.js'
+
 emit({ file: 'Software.lean', skill: 'software', defs: NTH_DEF,
   header: 'THE SOFTWARE-VERIFIABLE ALGEBRA — the companion to the hardware layer, one level up: the algebraic correctness LAWS a program is verified AGAINST, each a decidable, axiom-free `by decide` particle. Losslessness (split-and-recompose is the identity), structure preservation (map keeps length, filter never grows, append adds), idempotent normalisation, total guarded division (no divide-by-zero crash), bounded termination (a shift loop halts), order-invariant reduction (safe to parallelise), the compare-swap that orders (every sort\'s basis), total safe indexing (no over-read), and reversibility (undo of undo is the identity). Indexing uses the axiom-free `nth`. HONEST SCOPE: integrity, not truth — uuidna SEALS the spec so an implementation can be verified against it; it does NOT write, compile, or run your program, nor prove an arbitrary program correct. A sealed spec a program is checked against — not the program.',
-  facts: FACTS.map((f) => ({ ...f, name: f.why })) })
+  facts: [...FACTS.map((f) => ({ ...f, name: f.why })), ...cubeFacts()] })

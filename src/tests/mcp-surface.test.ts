@@ -12,7 +12,7 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import { MCP_CATALOG, callTool } from '../mcp.js'
-import { handleMcpRpc, mcpHttpToolNames } from '../mcp-http.js'
+import { handleMcpRpc, mcpHttpToolNames, edgeAbsentNames } from '../mcp-http.js'
 
 interface Declared {
   argumentDivergence: { tool: string; stdio: string[]; edge: string[]; note: string }[]
@@ -100,4 +100,34 @@ test('the same call to both surfaces returns the same research answer, not just 
   const ledgerLocal = callTool('uuidna_research_ledger', {}) as { receipt: string }
   const ledgerEdge = JSON.parse((handleMcpRpc({ jsonrpc: '2.0', id: 5, method: 'tools/call', params: { name: 'uuidna_research_ledger', arguments: {} } }) as { result: { content: { text: string }[] } }).result.content[0].text) as { receipt: string }
   assert.equal(ledgerEdge.receipt, ledgerLocal.receipt)
+})
+
+// ── THE GAP THAT WAS NEVER DECLARED. The edge kept a SECOND hand-written list and called itself "the Workers-safe
+// subset", which reads as a safety boundary. Measured on 2026-08-20: it served 19 of 191 tools, and of the 172
+// missing, exactly ONE actually touched the filesystem, network or a process. The other 171 were pure arithmetic
+// absent for no stated reason, and lean/mcp-surface-divergence.json — the file whose job is to declare divergence
+// and which may only shrink — listed 4 argument divergences and 2 edge-only names, saying nothing about any of it.
+// The edge now INHERITS the one catalogue and subtracts only what it names. This holds that shape.
+test('the edge serves the whole catalogue except what it DECLARES it cannot', () => {
+  const served = new Set(mcpHttpToolNames())
+  const absent = new Set(edgeAbsentNames())
+  const catalogue = MCP_CATALOG.map((t) => t.name)
+  const undeclared = catalogue.filter((n) => !served.has(n) && !absent.has(n))
+  assert.deepEqual(undeclared, [], 'these tools are missing from the edge with NO declared reason — the drift this test exists to stop')
+})
+
+test('every declared absence is a real tool — a stale excuse is drift with paperwork', () => {
+  const catalogue = new Set(MCP_CATALOG.map((t) => t.name))
+  const ghosts = edgeAbsentNames().filter((n) => !catalogue.has(n))
+  assert.deepEqual(ghosts, [], 'these are declared absent but do not exist in the catalogue at all')
+  const contradictions = edgeAbsentNames().filter((n) => mcpHttpToolNames().includes(n))
+  assert.deepEqual(contradictions, [], 'declared absent AND served — the declaration and the code disagree')
+})
+
+test('an inherited tool answers with the SAME dispatch the stdio surface uses', () => {
+  const viaEdge = handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call',
+    params: { name: 'uuidna_theorem', arguments: { key: 'two_coins' } } }) as { result: { content: { text: string }[] } }
+  const edgeBody = JSON.parse(viaEdge.result.content[0].text) as { key: string }
+  const stdioBody = callTool('uuidna_theorem', { key: 'two_coins' }) as { key: string }
+  assert.equal(edgeBody.key, stdioBody.key, 'one door, one answer — two dispatches would be the next drift')
 })

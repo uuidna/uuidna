@@ -1,0 +1,12 @@
+{
+  "handle": "52429182",
+  "address": "52429182-3301-8512-b0af-25ba0eb10836",
+  "statement": "([1000, 893, 618, 502] ≠ [1000, 1000, 1000, 1000]) ∧ (List.zipWith (fun a b => decide (b < a)) [1000, 893, 618, 502] [1000, 893, 618, 502].tail).all (fun p => p) ∧ ((502 : Nat) * 2 < 1010)",
+  "tactic": "decide",
+  "keys": [
+    "spike_amplitude_attenuates"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

@@ -214,13 +214,14 @@ export function publications(): Publication[] {
   return (_pubs = files.map(composePublication))
 }
 
-/** A COVERAGE gap: a domain the monographs do not cover — the actionable diagnosis that the readiness gate blocks on. */
+/** A COVERAGE gap: a domain the monographs do not cover — a presentation diagnosis. It BLOCKS NOTHING: PRINCIPLE's
+ *  power to reject a Lean-verified theorem was withdrawn, so this reports what is unpublished, never what is refused. */
 export interface Coverage {
   total: number                 // theorems in the ledger
   covered: number               // theorems shown in some monograph
-  uncovered: string[]           // theorem KEYS in no monograph — each one blocks the push (next.ts ARM 4)
+  uncovered: string[]           // theorem KEYS in no monograph — DIAGNOSTIC ONLY; no longer blocks any push
   uncoveredFiles: string[]      // ledger FILES with no publication — the ROOT fix: author a PRINCIPLE [file,title,blurb]
-  ready: boolean                // true iff nothing is uncovered — the gate's coverage arm passes
+  ready: boolean                // true iff nothing is uncovered — a presentation signal, not a gate verdict
   receipt: string               // the order-invariant fold of the coverage state, recomputable by anyone from the ledger
 }
 

@@ -1,0 +1,12 @@
+{
+  "handle": "b6bd72eb",
+  "address": "b6bd72eb-f8b5-8dba-8cca-4b888790672d",
+  "statement": "((-6372943 : Int) - (-6373043) = 100)",
+  "tactic": "decide",
+  "keys": [
+    "threshold_is_quasi_threshold"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

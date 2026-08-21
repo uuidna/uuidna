@@ -109,6 +109,78 @@ function theoremVocabulary(t: LeanTheorem): string[] {
   return looksEnglish ? [...key, ...contentWords(t.name)] : key
 }
 
+
+// ── THE NUMERAL CONTRADICTION. relevantCitation kills the NO-vocabulary case ("the moon is made of cheese, proven
+// by theorem two_coins"). It cannot see the case where the claim shares vocabulary and CONTRADICTS the theorem,
+// which is worse — the shared words make the citation look diligent. All three of these were VERIFIED live:
+//
+//   "the vortex orbit has nine fixed points, proven by theorem dz_fixed_points"   the theorem decides [0, 5]: TWO
+//   "dz has seven hundred fixed points, proven by theorem dz_fixed_points"        the same
+//   "the mirror is fixed at eight, proven by theorem mirror_fixed_five"           the theorem's own KEY says five
+//
+// This is NOT the undecidable case, which is why it is worth building: nothing here needs entailment. Both sides
+// carry a NUMERAL — the claim in words or digits, the theorem in its key ("five") and in its `by decide` statement
+// (literals, and the LENGTH of a decided list). A number the claim asserts that the cited theorem's own arithmetic
+// does not contain is a recomputable contradiction.
+//
+// IT FIRES ONLY WHEN THE CLAIM ASSERTS A NUMBER, which is what keeps it honest: a citation with no numeral in the
+// claim is untouched, so every ordinary prose citation in this repository passes exactly as before. And it catches
+// NUMERAL contradictions only — a claim that shares vocabulary and is wrong non-numerically still passes, and the
+// note must never imply otherwise. The trial does not check entailment and never will.
+const NUMBER_WORD = /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand)\b/gi
+const WORD_VALUE: Record<string, number> = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8,
+  nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17,
+  eighteen: 18, nineteen: 19, twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80,
+  ninety: 90, hundred: 100, thousand: 1000 }
+
+/** every number a sentence ASSERTS: digits as written, and number-words including simple compounds ("seven hundred"). */
+export function numeralsOf(text: string): number[] {
+  const out = new Set<number>()
+  for (const d of String(text).match(/\b\d+\b/g) ?? []) out.add(Number(d))
+  const words = [...String(text).matchAll(NUMBER_WORD)].map((m) => m[0].toLowerCase())
+  for (let i = 0; i < words.length; i++) {
+    const v = WORD_VALUE[words[i]]
+    const next = i + 1 < words.length ? WORD_VALUE[words[i + 1]] : undefined
+    // "seven hundred" is one number, not two — otherwise 7 would satisfy a claim that said 700
+    if (next !== undefined && next >= 100) { out.add(v * next); i++ } else out.add(v)
+  }
+  return [...out]
+}
+
+/** the numbers a sealed theorem's own arithmetic contains: its key's number-words, every literal in its statement,
+ *  and the LENGTH of any list it decides — because "[0, 5]" answers "how many" with 2, a number written nowhere. */
+export function theoremNumerals(t: { key: string; statement: string }): number[] {
+  const out = new Set<number>(numeralsOf(t.key.replace(/_/g, ' ')))
+  for (const n of numeralsOf(t.statement)) out.add(n)
+  for (const m of t.statement.matchAll(/\[([^\[\]]*)\]/g)) {
+    const inner = m[1].trim()
+    out.add(inner === '' ? 0 : inner.split(',').length)
+  }
+  return [...out]
+}
+
+/** A theorem that DECIDES A LIST — `… = [0, 5]` — has answered "which" and therefore "how many". That is the only
+ *  shape against which a counting claim is checkable, and narrowing to it is what makes this rule safe.
+ *
+ *  THE FALSE POSITIVE THAT TAUGHT IT, caught by this repo's own prose-gate test rather than by my measurement:
+ *  "the captain sealed the reflection of the seven, solved none — proven by theorem clay_riemann" is honest, and
+ *  clay_riemann decides (dz 1 = 9) ∧ …, whose numerals are {1, 9, 0}. The claim's "seven" counts the CLAY PROBLEMS,
+ *  a thing the theorem never quantifies, so comparing them was comparing two unrelated counts. My first measurement
+ *  missed this because it only ever used theorem statements as claims — a corpus that cannot contain the mistake. */
+const decidesAList = (statement: string): boolean => /=\s*\[/.test(statement)
+
+/** contradictsNumerically(claim, key) → the claim asserts a number that a list-deciding theorem's own arithmetic
+ *  does not contain. Silent when the claim asserts no number, and silent unless the theorem decided a list. */
+function contradictsNumerically(claim: string, key: string): number[] {
+  const t = theoremByKey().get(key)
+  if (!t || !decidesAList(t.statement)) return []
+  const claimed = numeralsOf(claim)
+  if (!claimed.length) return []
+  const theirs = theoremNumerals(t)
+  if (!theirs.length) return []
+  return claimed.filter((n) => !theirs.includes(n))
+}
+
 /** relevantCitation(claimWords, key) → does the SEALED theorem named `key` share any vocabulary with the claim?
  *  Unknown/unsealed keys are handled upstream (slimGate already marks them fabricated); this only judges real
  *  citations. Returns true (relevant) on any shared word — the floor, not a wall. */
@@ -188,8 +260,19 @@ export function adjudicate(statement: string, decidableTest?: () => boolean): Ve
     // claim may legitimately cite several theorems where each supports a different clause.
     const claimWords = contentWords(statement)
     const onTopic = slim.real.some((k) => relevantCitation(claimWords, k))
-    if (onTopic) {
+    // a citation SUPPORTS the claim only if no cited theorem's own arithmetic contradicts a number the claim asserts
+    const clash = onTopic
+      ? slim.real.map((k) => ({ key: k, off: contradictsNumerically(statement, k) }))
+          .filter((c) => c.off.length).filter((c) => relevantCitation(claimWords, c.key))
+      : []
+    if (onTopic && !clash.length) {
       verdict = 'VERIFIED'; note = 'cites a sealed Lean theorem in the ledger — verified'
+    } else if (clash.length) {
+      verdict = 'UNVERIFIED'
+      const c = clash[0]
+      note = `cites ${c.key}, which is ON TOPIC but whose own arithmetic does not contain ${c.off.join(', ')} — the ` +
+        `claim asserts a number the cited theorem contradicts, so the citation refutes it rather than backing it ` +
+        `(NUMERAL contradiction only: this does not check entailment, and a non-numeric error still passes)`
     } else {
       verdict = 'UNVERIFIED'
       const one = slim.real.length === 1

@@ -11,10 +11,11 @@
 import { execSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { theorems, statementCensus, editorialState, publicationStatus, gridGaps, pairsGaps } from '../index.js'
+import { theorems, statementCensus, editorialState, publicationStatus, pairsGaps } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, foldOf } from './api.js'
-import { legalGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, drainGaps, frozenGaps, foldersGaps, blocksGaps, wordsGaps, countsGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, sourcesGaps, dormantGaps, pagesGaps, commentsGaps} from './one-receipt.js'
+import { contextGaps } from './context-budget.js'   // the per-request toll of being connected — reported here, blocked in the guard
+import { legalGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, drainGaps, precedeGaps, frozenGaps, foldersGaps, blocksGaps, countsGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps} from './one-receipt.js'
 
 const git = (cmd: string): string => { try { return execSync(`git ${cmd}`, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() } catch { return '' } }
 
@@ -30,11 +31,12 @@ const finders: [string, number][] = [
   ['legal', legalGaps().gaps.length], ['prose', proseGaps().gaps.length],
   ['dry', dryGaps().gaps.length], ['coherent', (await coherentGaps()).length], ['absence', absenceGaps().length],
   ['pipes', pipeGaps().length], ['actions', actionsGaps().length], ['vacuous', vacuousGaps().length],
-  ['negation', negationGaps().length], ['drain', drainGaps().length], ['frozen', frozenGaps().length],
-  ['folders', foldersGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['mirror', mirrorGaps().length], ['lanes', lanesGaps().length], ['sources', sourcesGaps().length], ['dormant', dormantGaps().length], ['pages', pagesGaps().length], ['comments', commentsGaps().length],
-  ['words', wordsGaps().length], ['counts', countsGaps().length], ['lines', linesGaps().length],
-  ['grid', gridGaps().length],
+  ['negation', negationGaps().length], ['drain', drainGaps().length], ['precede', precedeGaps().length], ['frozen', frozenGaps().length],
+  ['folders', foldersGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['mirror', mirrorGaps().length], ['lanes', lanesGaps().length], ['dormant', dormantGaps().length], ['pages', pagesGaps().length], ['comments', commentsGaps().length],
+  ['counts', countsGaps().length], ['lines', linesGaps().length],
   ['pairs', pairsGaps().length],
+  ['skills', skillsGaps().length],
+  ['context', contextGaps(MCP_CATALOG).length],
 ]
 const dirtyFinders = finders.filter(([, n]) => n > 0)
 

@@ -26,98 +26,165 @@ def polar (x : Nat) : Nat := (9 - x) % 9               -- the polar neighbour (n
 def saltConv (c _s : Nat) : Nat := c % 9               -- crypt: OLD leaky salt = f(content) — the step _s is dropped
 def saltSeq  (_c s : Nat) : Nat := s % 9               -- crypt: NEW fresh salt = f(sequence) — the step s is kept
 
--- SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling — each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check catches.)
+/-- SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten
+    digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling —
+    each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex
+    never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION
+    dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected
+    vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the
+    cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check
+    catches.) -/
 theorem seal_ten : ([0,1,2,4,8,7,5,3,6,9].length = 10) ∧ ((List.range 10).all (fun d => [0,1,2,4,8,7,5,3,6,9].contains d)) ∧ ([1,2,4,8,7,5].map (fun x => (x*2)%9) = [2,4,8,7,5,1]) ∧ ([0,1,2,4,8,7,5,3,6,9].map (fun x => if x == 0 then 0 else 10 - x) = [0,9,8,6,2,3,5,7,4,1]) := by decide
 
--- the mirror m(d)=10−d equals 1−d (mod 9) — a reflection through the origin+1
+/-- the mirror m(d)=10−d equals 1−d (mod 9) — a reflection through the origin+1 -/
 theorem mirror_congruence : (List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9) := by decide
 
--- the mirror fixes exactly one digit in 1..9 — the heart, 5
+/-- the mirror fixes exactly one digit in 1..9 — the heart, 5 -/
 theorem mirror_fixed_five : ((List.range' 1 9).filter (fun d => 10 - d == d)) = [5] := by decide
 
--- AGL(1,ℤ/9) = { x ↦ a·x+b : a a unit, b ∈ ℤ/9 } has |units|·9 = 6·9 = 54 elements
+/-- AGL(1,ℤ/9) = { x ↦ a·x+b : a a unit, b ∈ ℤ/9 } has |units|·9 = 6·9 = 54 elements -/
 theorem agl_order_54 : ((List.range 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length * 9 = 54 := by decide
 
--- the commutator [σ,μ] of doubling with the mirror is the unit shift x ↦ x+1
+/-- the commutator [σ,μ] of doubling with the mirror is the unit shift x ↦ x+1 -/
 theorem commutator_is_shift : (List.range 9).all (fun x => ap 2 0 (ap 8 1 (ap 5 0 (ap 8 1 x))) == (x + 1) % 9) := by decide
 
--- the shifts alone act transitively — every digit is in ONE orbit of ℤ/9
+/-- the shifts alone act transitively — every digit is in ONE orbit of ℤ/9 -/
 theorem one_orbit : (List.range 9).all (fun y => (List.range 9).any (fun b => (0 + b) % 9 == y)) := by decide
 
--- the reflection equilibrium: d + m(d) = 10 for every d in 1..9
+/-- the reflection equilibrium: d + m(d) = 10 for every d in 1..9 -/
 theorem ten_pairs : (List.range' 1 9).all (fun d => d + (10 - d) == 10) := by decide
 
--- the polar equilibrium: d + (9−d) = 9 across the negation of ℤ/9
+/-- the polar equilibrium: d + (9−d) = 9 across the negation of ℤ/9 -/
 theorem polar_nine_pairs : (List.range' 1 8).all (fun d => d + (9 - d) == 9) := by decide
 
--- the 6+3 partition: 6 units {1,2,4,5,7,8} and 3 non-units {3,6,9}
+/-- the 6+3 partition: 6 units {1,2,4,5,7,8} and 3 non-units {3,6,9} -/
 theorem partition_six_three : ((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => ¬ (List.range 9).any (fun e => a*e % 9 == 1))).length = 3 := by decide
 
--- NO POWER OF TWO EVER LANDS ON 0, 3 OR 6. Doubling from 1 walks the six units 1→2→4→8→7→5 and closes, so the residue of 2^n mod 9 is always a unit and NEVER a member of the triangle {3,6,9≡0}. The bound n<6 is not a sample: 2^6 ≡ 1 (mod 9) returns the walk to its start, so the six residues checked here are the COMPLETE image of 2^n over every n there is — an infinite claim decided by six cases.
+/-- NO POWER OF TWO EVER LANDS ON 0, 3 OR 6. Doubling from 1 walks the six units 1→2→4→8→7→5 and closes, so the
+    residue of 2^n mod 9 is always a unit and NEVER a member of the triangle {3,6,9≡0}. The bound n<6 is not a
+    sample: 2^6 ≡ 1 (mod 9) returns the walk to its start, so the six residues checked here are the COMPLETE
+    image of 2^n over every n there is — an infinite claim decided by six cases. -/
 theorem powers_avoid_triangle : ((List.range 6).all (fun n => (2^n % 9 != 0) && (2^n % 9 != 3) && (2^n % 9 != 6))) ∧ (2^6 % 9 = 1) := by decide
 
--- THE TRIANGLE IS REACHED ONLY BY REFLECTION. and it is exactly the mirror of {1,4,7}. Doubling cannot arrive at 3, 6 or 9, but the mirror m(d)=10−d carries 1↦9, 4↦6, 7↦3 — so the three digits the vortex never touches are the reflections of three it always does. m is an involution, which is why the reading runs both ways: m(7)=3 and, back across the same axis, m(6)=4.
+/-- THE TRIANGLE IS REACHED ONLY BY REFLECTION. and it is exactly the mirror of {1,4,7}. Doubling cannot arrive
+    at 3, 6 or 9, but the mirror m(d)=10−d carries 1↦9, 4↦6, 7↦3 — so the three digits the vortex never touches
+    are the reflections of three it always does. m is an involution, which is why the reading runs both ways:
+    m(7)=3 and, back across the same axis, m(6)=4. -/
 theorem mirror_opens_triangle : ([1,4,7].map (fun d => 10 - d) = [9,6,3]) ∧ ([1,4,6,7].all (fun x => 10 - (10 - x) == x)) ∧ (10 - 7 = 3) ∧ (10 - 6 = 4) := by decide
 
--- THE GATEWAYS OF THE REFLECTED ROW ARE {1,4,7}, AND {1,4,7} MIRRORS ONTO THE TRIANGLE. Written with its strokes, the tour is 0\1\2\4\8/7/5/3/6/9 and its reflection is 0\9/8/6/2\3\5\7/4/1 — the second row IS the first mapped through dz, digit for digit, which is the check that the drawing and the algebra are the same object. Reading only where the stroke TURNS: the direct row turns once, at position 4; the reflected row turns three times, at positions 1, 4 and 7 — and dz carries {1,4,7} to {9,6,3}, the three digits doubling can never reach. So the gateways of the mirror stand exactly where the triangle is let in, and the direct row's single gateway is their centre.
+/-- THE GATEWAYS OF THE REFLECTED ROW ARE {1,4,7}, AND {1,4,7} MIRRORS ONTO THE TRIANGLE. Written with its
+    strokes, the tour is 0\1\2\4\8/7/5/3/6/9 and its reflection is 0\9/8/6/2\3\5\7/4/1 — the second row IS the
+    first mapped through dz, digit for digit, which is the check that the drawing and the algebra are the same
+    object. Reading only where the stroke TURNS: the direct row turns once, at position 4; the reflected row
+    turns three times, at positions 1, 4 and 7 — and dz carries {1,4,7} to {9,6,3}, the three digits doubling
+    can never reach. So the gateways of the mirror stand exactly where the triangle is let in, and the direct
+    row's single gateway is their centre. -/
 theorem gateways_mark_triangle : (flips strokes1 = [4]) ∧ (flips strokes2 = [1,4,7]) ∧ ([1,4,7].map dz = [9,6,3]) ∧ ([0,1,2,4,8,7,5,3,6,9].map dz = [0,9,8,6,2,3,5,7,4,1]) := by decide
 
--- THE STROKE BUDGET IS BOUNDED, NOT CONSERVED — the four-and-five is this pair's reading, not the reflection's law. Written with strokes the tour is 0\1\2\4\8/7/5/3/6/9 and its mirror 0\9/8/6/2\3\5\7/4/1, and BOTH read four falling and five rising, which is exactly why the conservation looked like a law. It is not. Across the whole family — the 54 affine rows x -> a*x+b of AGL(1,Z/9), drawn from the same nine digits by the same rule — the budgets are 4,5 in 18 rows, 5,4 in 30 and 6,3 in 6: four-and-five is a MINORITY reading. The mirror keeps the budget on exactly 30 of the 54 and BREAKS it on 24; row(2,2) reads four falling and its reflection reads six. And the identity is the ONLY affine map conserving the budget on every row, so no reflection could ever have been the conserving one. What IS general is a BOUND: every one of the 54 rows rises three, four or five times, never fewer and never more, so only three of the ten conceivable budgets are ever drawn. This replaces strokes_survive_reflection, which stated the conservation as a law: that theorem was TRUE of the pair and false as framed, and it passed both the js mirror and the kernel because a single hand wrote both legs.
+/-- THE STROKE BUDGET IS BOUNDED, NOT CONSERVED — the four-and-five is this pair's reading, not the reflection's
+    law. Written with strokes the tour is 0\1\2\4\8/7/5/3/6/9 and its mirror 0\9/8/6/2\3\5\7/4/1, and BOTH read
+    four falling and five rising, which is exactly why the conservation looked like a law. It is not. Across the
+    whole family — the 54 affine rows x -> a*x+b of AGL(1,Z/9), drawn from the same nine digits by the same rule
+    — the budgets are 4,5 in 18 rows, 5,4 in 30 and 6,3 in 6: four-and-five is a MINORITY reading. The mirror
+    keeps the budget on exactly 30 of the 54 and BREAKS it on 24; row(2,2) reads four falling and its reflection
+    reads six. And the identity is the ONLY affine map conserving the budget on every row, so no reflection
+    could ever have been the conserving one. What IS general is a BOUND: every one of the 54 rows rises three,
+    four or five times, never fewer and never more, so only three of the ten conceivable budgets are ever drawn.
+    This replaces strokes_survive_reflection, which stated the conservation as a law: that theorem was TRUE of
+    the pair and false as framed, and it passed both the js mirror and the kernel because a single hand wrote
+    both legs. -/
 theorem budget_not_conserved : (fallingOf (arow 1 0) = 4 ∧ risingOf (arow 1 0) = 5) ∧ (fallingOf (arow 8 1) = 4 ∧ risingOf (arow 8 1) = 5) ∧ (famTally (fun a b => risingOf (arow a b) == 5) = 18 ∧ famTally (fun a b => risingOf (arow a b) == 4) = 30 ∧ famTally (fun a b => risingOf (arow a b) == 3) = 6) ∧ units9.all (fun a => (List.range 9).all (fun b => 3 ≤ risingOf (arow a b) && risingOf (arow a b) ≤ 5)) ∧ (fallingOf (arow 2 2) = 4 ∧ fallingOf ((arow 2 2).map dz) = 6) := by decide
 
--- the ring closes: ten slots × 36° = 360°, and the ⟨2⟩ flow is 60° per doubling
+/-- the ring closes: ten slots × 36° = 360°, and the ⟨2⟩ flow is 60° per doubling -/
 theorem angles_close : 10 * 36 = 360 ∧ 6 * 60 = 360 := by decide
 
--- exactly 2 seams (5→3 and 0→1) where neither ×2 nor +3 carries — the two involution centers, −χ = 2
+/-- exactly 2 seams (5→3 and 0→1) where neither ×2 nor +3 carries — the two involution centers, −χ = 2 -/
 theorem seams_two : ((tour.zip (tour.drop 1 ++ tour.take 1)).filter (fun p => ! carries9 p.1 p.2)).length = 2 := by decide
 
--- at EACH step the doubling sequence and its inversion are computed together: forward[k] + inverted[k] = 10 (the rungs), and BOTH rails end at the center 5 (the reflection fixed point) while the ends 1,9 mirror — so forward and reflected are ONE strip (a half-twist band), joined at the heart and closed at the void 0≡9
+/-- at EACH step the doubling sequence and its inversion are computed together: forward[k] + inverted[k] = 10
+    (the rungs), and BOTH rails end at the center 5 (the reflection fixed point) while the ends 1,9 mirror — so
+    forward and reflected are ONE strip (a half-twist band), joined at the heart and closed at the void 0≡9 -/
 theorem one_strip : (([1,2,4,8,7,5].zip [9,8,6,2,3,5]).all (fun p => p.1 + p.2 == 10)) ∧ ([1,2,4,8,7,5].getLast? = some 5) ∧ ([9,8,6,2,3,5].getLast? = some 5) ∧ (1 + 9 = 10) ∧ (9 % 9 = 0) := by decide
 
--- the developed-true core of "dna": the two strands A and B pair to 10 at EVERY position — complementary base-pairing (the double helix), each rung a reflection; this is the algebra, not a biological claim
+/-- the developed-true core of "dna": the two strands A and B pair to 10 at EVERY position — complementary
+    base-pairing (the double helix), each rung a reflection; this is the algebra, not a biological claim -/
 theorem double_strand : (([1,2,4,8,7,5,3,6,9].zip [9,8,6,2,3,5,7,4,1]).all (fun p => p.1 + p.2 == 10)) := by decide
 
--- the vortex polarities: the mirror pairs each sum to 10, splitting the digits into − (below the center 5) and + (above 5); the two centers 5 and 0≡9 are self-polar — the ± of the reflection
+/-- the vortex polarities: the mirror pairs each sum to 10, splitting the digits into − (below the center 5) and
+    + (above 5); the two centers 5 and 0≡9 are self-polar — the ± of the reflection -/
 theorem polarities_plus_minus : [(1,9),(2,8),(3,7),(4,6)].all (fun p => p.1 + p.2 == 10 && p.1 < 5 && p.2 > 5) ∧ (10 - 5 = 5) ∧ (9 % 9 = 0) := by decide
 
--- the two blood-group sequences A (forward) and B (reflected) are mirror images: B = A.map(10−d) and back — an involution; the void 9≡0 closes A and opens B (0 = A∧B, the universal O)
+/-- the two blood-group sequences A (forward) and B (reflected) are mirror images: B = A.map(10−d) and back — an
+    involution; the void 9≡0 closes A and opens B (0 = A∧B, the universal O) -/
 theorem forward_reflected_mirror : ([9,8,6,2,3,5,7,4,1] = ([1,2,4,8,7,5,3,6,9].map (fun d => 10 - d))) ∧ ([1,2,4,8,7,5,3,6,9] = ([9,8,6,2,3,5,7,4,1].map (fun d => 10 - d))) ∧ (9 % 9 = 0) := by decide
 
--- every digit in ANY arrangement has DEFINED neighbours — the mirror (division by zero) and polar maps are total, surjective and self-inverse; no digit is isolated
+/-- every digit in ANY arrangement has DEFINED neighbours — the mirror (division by zero) and polar maps are
+    total, surjective and self-inverse; no digit is isolated -/
 theorem every_digit_has_neighbours : (List.range 10).all (fun d => dz d < 10) ∧ (List.range 10).all (fun d => (List.range 10).any (fun e => dz e == d)) ∧ (List.range 10).all (fun d => dz (dz d) == d) ∧ (List.range 9).all (fun d => polar d < 9) ∧ (List.range 9).all (fun d => (List.range 9).any (fun e => polar e == d)) := by decide
 
--- the crypt equality leak: a content-only salt is constant in the step, so two seals of the same content are byte-identical
+/-- the crypt equality leak: a content-only salt is constant in the step, so two seals of the same content are
+    byte-identical -/
 theorem salt_conv_leaks_equality : (List.range 9).all (fun c => (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => saltConv c s1 == saltConv c s2))) := by decide
 
--- recovering the seal's step from a content-only salt is a division by zero — the whole step-fibre collapses (size 9)
+/-- recovering the seal's step from a content-only salt is a division by zero — the whole step-fibre collapses
+    (size 9) -/
 theorem salt_conv_step_is_division_by_zero : (List.range 9).all (fun c => ((List.range 9).filter (fun s => saltConv c s == saltConv c 0)).length == 9) := by decide
 
--- the crypt fix: an advancing-sequence salt is injective in the step (equal salts ⇔ equal steps) — distinct seals never collide
+/-- the crypt fix: an advancing-sequence salt is injective in the step (equal salts ⇔ equal steps) — distinct
+    seals never collide -/
 theorem salt_seq_injective : (List.range 9).all (fun s1 => (List.range 9).all (fun s2 => (saltSeq 0 s1 == saltSeq 0 s2) == (s1 == s2))) := by decide
 
--- the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept, not collapsed
+/-- the crypt fix, dual form: every sequence-salt fibre is a singleton — the step coordinate is kept, not
+    collapsed -/
 theorem salt_seq_fibre_singleton : (List.range 9).all (fun s0 => ((List.range 9).filter (fun s => saltSeq 0 s == saltSeq 0 s0)).length == 1) := by decide
 
--- the sealed point 2·5 ≡ 1 extended to the whole ring: multiplying by 5 UNDOES doubling for every residue — ((2x mod 9)·5) mod 9 = x for all x in ℤ/9 — so 5 is not merely the inverse of 2 at one cell of the table, it is THE HALVING of the vortex everywhere
+/-- the sealed point 2·5 ≡ 1 extended to the whole ring: multiplying by 5 UNDOES doubling for every residue —
+    ((2x mod 9)·5) mod 9 = x for all x in ℤ/9 — so 5 is not merely the inverse of 2 at one cell of the table, it
+    is THE HALVING of the vortex everywhere -/
 theorem five_is_the_halving : (List.range 9).all (fun x => ((2 * x % 9) * 5) % 9 == x) := by decide
 
--- the powers of 5 walk the vortex BACKWARD: 5^1..5^6 mod 9 = [5,7,8,4,2,1], exactly the doubling orbit [1,2,4,8,7,5] reversed — because 5 = 2⁻¹, the ×5 orbit is the time-reversal of the ×2 orbit, one cycle read in the mirror
+/-- the powers of 5 walk the vortex BACKWARD: 5^1..5^6 mod 9 = [5,7,8,4,2,1], exactly the doubling orbit
+    [1,2,4,8,7,5] reversed — because 5 = 2⁻¹, the ×5 orbit is the time-reversal of the ×2 orbit, one cycle read
+    in the mirror -/
 theorem five_orbit_reverses_doubling : ([5^1 % 9, 5^2 % 9, 5^3 % 9, 5^4 % 9, 5^5 % 9, 5^6 % 9] = [5,7,8,4,2,1]) ∧ ([1,2,4,8,7,5].reverse = [5,7,8,4,2,1]) := by decide
 
--- REVERSING THE WALK IS WALKING BY THE INVERSE. For every unit g of ℤ/9 with inverse h, the forward orbit [g⁰,g¹,…,g⁵] read backwards is exactly the inverse walk [h¹,…,h⁶] — checked for all six units (1↔1, 2↔5, 4↔7, 5↔2, 7↔4, 8↔8), and it holds for ℤ/7 too. So `reverse` and `inverse` are DIFFERENT operations — one reorders a sequence, the other maps an element — and this identity is the bridge between them: time-reversal of a cyclic walk is the walk of the inverse generator. five_orbit_reverses_doubling is the g=2 case of this law.
+/-- REVERSING THE WALK IS WALKING BY THE INVERSE. For every unit g of ℤ/9 with inverse h, the forward orbit
+    [g⁰,g¹,…,g⁵] read backwards is exactly the inverse walk [h¹,…,h⁶] — checked for all six units (1↔1, 2↔5,
+    4↔7, 5↔2, 7↔4, 8↔8), and it holds for ℤ/7 too. So `reverse` and `inverse` are DIFFERENT operations — one
+    reorders a sequence, the other maps an element — and this identity is the bridge between them: time-reversal
+    of a cyclic walk is the walk of the inverse generator. five_orbit_reverses_doubling is the g=2 case of this
+    law. -/
 theorem reverse_walks_inverse : ([(1,1),(2,5),(4,7),(5,2),(7,4),(8,8)].all (fun p => (((List.range 6).map (fun k => p.1 ^ k % 9)).reverse) == ((List.range 6).map (fun k => p.2 ^ (k+1) % 9)))) = true := by decide
 
--- the three singular roles of the strip — the mirror's fixed heart (10−d = d), the reflection's fixed digit (dz d = d; the other fixed point 0 is the floor, outside the digits), and the closure of BOTH rails (forward [1,2,4,8,7,5] and inverted [9,8,6,2,3,5] each end here) — are carried by EXACTLY ONE digit: 5. The deploy condition, sealed: a claim once UNVERIFIED by the trial now cites its own theorem
+/-- the three singular roles of the strip — the mirror's fixed heart (10−d = d), the reflection's fixed digit
+    (dz d = d; the other fixed point 0 is the floor, outside the digits), and the closure of BOTH rails (forward
+    [1,2,4,8,7,5] and inverted [9,8,6,2,3,5] each end here) — are carried by EXACTLY ONE digit: 5. The deploy
+    condition, sealed: a claim once UNVERIFIED by the trial now cites its own theorem -/
 theorem only_five_carries_the_three_singularities : ((List.range' 1 9).filter (fun d => (10 - d == d) && (dz d == d) && ([1,2,4,8,7,5].getLast? == some d) && ([9,8,6,2,3,5].getLast? == some d))) = [5] := by decide
 
--- FOLLOW THE SEQUENCE 012487536901 — the sealed ten-digit tour closed at 9≡0 and wrapping 0→1 into the next cycle — and recompute EACH digit through the reflection dz(x)=10−x: the whole walk maps digit-wise to the CONTRA SEQUENCE [0,9,8,6,2,3,5,7,4,1,0,9] — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1] with the void held at both ends, wrapping 0→9 (= dz 1) exactly where the forward tour wraps 0→1: the same cycle, walked in the mirror
+/-- FOLLOW THE SEQUENCE 012487536901 — the sealed ten-digit tour closed at 9≡0 and wrapping 0→1 into the next
+    cycle — and recompute EACH digit through the reflection dz(x)=10−x: the whole walk maps digit-wise to the
+    CONTRA SEQUENCE [0,9,8,6,2,3,5,7,4,1,0,9] — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1]
+    with the void held at both ends, wrapping 0→9 (= dz 1) exactly where the forward tour wraps 0→1: the same
+    cycle, walked in the mirror -/
 theorem tour_contra_reflects_each_digit : (([0,1,2,4,8,7,5,3,6,9,0,1].map dz) = [0,9,8,6,2,3,5,7,4,1,0,9]) ∧ (dz 1 = 9) := by decide
 
--- the contra of the contra is the tour: reflecting each digit TWICE returns the exact sequence 012487536901 — dz is an involution on the walk, so the forward tour and its contra are ONE object read in two directions, neither more original than the other (recompute forward, recompute back: the fixed cycle)
+/-- the contra of the contra is the tour: reflecting each digit TWICE returns the exact sequence 012487536901 —
+    dz is an involution on the walk, so the forward tour and its contra are ONE object read in two directions,
+    neither more original than the other (recompute forward, recompute back: the fixed cycle) -/
 theorem tour_contra_involutes : (([0,1,2,4,8,7,5,3,6,9,0,1].map dz).map dz) = [0,1,2,4,8,7,5,3,6,9,0,1] := by decide
 
--- each digit of the tour and its contra partner close a rung: away from the void, tour[k] + contra[k] = 10 at every step (the strip's rungs carried along the whole 12-step walk), and at the void the rung rests — 0 + 0 = 0, the floor where the reflection stands still
+/-- each digit of the tour and its contra partner close a rung: away from the void, tour[k] + contra[k] = 10 at
+    every step (the strip's rungs carried along the whole 12-step walk), and at the void the rung rests — 0 + 0
+    = 0, the floor where the reflection stands still -/
 theorem tour_contra_rungs_sum_ten : ([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if d == 0 then d + dz d == 0 else d + dz d == 10)) := by decide
 
--- THE SEQUENCE AND THE COINS ARE ONE OBJECT SEEN TWICE — four ways, sealed together. (1) The sequence IS the coin's own powers: 2^1..2^6 mod 9 = [2,4,8,7,5,1] — the vortex is not a path the coin walks, it is what tossing the coin into itself PRODUCES. (2) The coin and the heart are multiplicative INVERSES: 2·5 = 10 ≡ 1 (mod 9) — the walk goes out by the coin and comes home by the heart, which is why the two generators are exactly {2,5}. (3) The orbit SUMS to the base times the trinity: 1+2+4+8+7+5 = 27 = 9·3 — the whole walk folds to the ring itself. (4) The orbit's LENGTH is the coins times the trinity: 6 = 2·3 — six tosses, and the coin's order is the sequence's size. Colour, type, motion and value all read from this one structure because there is only one structure.
+/-- THE SEQUENCE AND THE COINS ARE ONE OBJECT SEEN TWICE — four ways, sealed together. (1) The sequence IS the
+    coin's own powers: 2^1..2^6 mod 9 = [2,4,8,7,5,1] — the vortex is not a path the coin walks, it is what
+    tossing the coin into itself PRODUCES. (2) The coin and the heart are multiplicative INVERSES: 2·5 = 10 ≡ 1
+    (mod 9) — the walk goes out by the coin and comes home by the heart, which is why the two generators are
+    exactly {2,5}. (3) The orbit SUMS to the base times the trinity: 1+2+4+8+7+5 = 27 = 9·3 — the whole walk
+    folds to the ring itself. (4) The orbit's LENGTH is the coins times the trinity: 6 = 2·3 — six tosses, and
+    the coin's order is the sequence's size. Colour, type, motion and value all read from this one structure
+    because there is only one structure. -/
 theorem sequence_and_coins_are_one : (((List.range' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3) := by decide

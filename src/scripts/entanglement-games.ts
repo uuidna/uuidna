@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into its game record — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // entanglement-games — Discover theorem relationships through playable games
 // Research automation: games generate leads by exploring entangled theorem structure
 

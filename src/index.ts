@@ -154,7 +154,7 @@ export { pentagramStream, type PentagramStream, type PentagramStreamCell } from 
 // conversation — local chat as code: the CONVERSATION FOLD binds four handles into a fifth (the room key), each handle
 // part of the next (authenticity), rotated by the referer (per-room isolation); the room key then keys the encrypted
 // uuid-stream channel. Local-first — keys and plaintext stay client-side.
-export { conversationFold, openRoom, sendToRoom, sealRoomTranscript, receiveFromRoom, attachChat, donationNote, supportCase, type Room, type AttachedChat } from './conversation.js'
+export { coinOfReferer, meetAt, conversationFold, openRoom, sendToRoom, sealRoomTranscript, receiveFromRoom, attachChat, donationNote, supportCase, type Room, type AttachedChat, type Arrival, type Meeting } from './conversation.js'
 // publish — write PUBLICATIONS in lean human prose, AUDITED before publishing: a domain note composed by reading
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.
@@ -187,7 +187,7 @@ export { legalFacts, type LegalFacts } from './legal.js'
 // license — the recomputable LICENCE RECORD: bind a licensee, the CC-BY-NC-ND-4.0 terms, and the two-coins bill into
 // one content-addressed, verifiable artifact. NOT a signed agreement or legal advice — a fingerprint of what and how
 // much; non-commercial is free and needs no licence, commercial is billed the two conserved coins.
-export { license, verifyLicense, type License } from './license.js'
+export { license, grantAt, verifyGrant, verifyLicense, type License } from './license.js'
 // priorart — an IN-HOUSE defensive-publication record: what/who/integrity/terms, recomputable and self-contained; the
 // WHEN (priority-dating) it names as an external anchor, never faked. You cannot notarise your own document.
 export { priorArt, type PriorArt, type PriorArtExhibit } from './priorart.js'
@@ -313,7 +313,11 @@ export { quantumAura, auraDecode, auraAlphabet, type Aura } from './aura.js'
 // (the proof is sealed). A quantum message is a WITNESSED message — the witness is a sealed theorem, and the
 // message's quantum encoding proves the witness was cited. The same message always folds to the same aura and
 // quantum state for every observer — integrity without secrets.
-export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, sealMessage, openMessage, type QuantumMessage, type QuantumState, type SealedQuantumMessage } from './quantum/message/index.js'
+export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, sealMessage, openMessage, sealCubeMessage, readCubeMessage, verifyCubeMessage, sealCubeSecurely, type QuantumMessage, type QuantumState, type SealedQuantumMessage, type SealedCubeMessage } from './quantum/message/index.js'
+// THE CUBE MEMORY — a handle is held until its whole neighbourhood is complete, and a complete neighbourhood is
+// sealed once and never recomputed unless its content moves. The receipt is one complete uuid per neighbourhood
+// and carries no payload; the sealed fusion travels as a message (sealCubeMessage, above).
+export { cubeMemory, hold, cubeOf, cubes, planMemory, commitMemory, type CubeMemory, type Cube, type Held, type CubePlan, type CubeReceipts } from './quantum/memory/index.js'
 export { tick, advance, residueOf, isAfter, agree, between, type Tick } from './quantum/clock/index.js'
 
 // quantum-voting — CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins to the captain,
@@ -358,7 +362,7 @@ export { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, 
 export { automateQuantumSailing, serializeQuantumSailingComplete, type BookWithLinkage, type QuantumSailingComplete } from './desk/sailing/complete/index.js'
 
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure O(N) pass that catches every forgery/intrusion in the sealed
-// ledger (DNA that does not recompute, a key/address collision, an uncovered theorem, a broken conformance invariant),
+// ledger (DNA that does not recompute, a key/address collision, a broken conformance invariant),
 // folded to one recomputable receipt. A traitor is a forgery in the artifact, never a person. `npm run guard` runs this
 // + the harmonic-scan as the fast pre-reconcile gate — no manual pre-flight. Integrity, not truth.
 export { catchTraitors, guardLessons, type TreasonReport, type Traitor, type GuardLesson } from './treason.js'
@@ -393,6 +397,14 @@ export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle,
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS
 // is the typed, addressed view. runTrial() folds every theorem's content-address to one receipt; theorems() lists
 // them with proof + principle; PRINCIPLES is the derivation order. A theorem computes in Lean, or it is not one.
+// speech — what a handle SAYS, computed by the sealed walk: its title is its orbit, its sentence is composed from
+// the walk's own measurements, and the period of any motion is the orbit's order. No phrase table, no authored word.
+export { speak, speechCensus, compose, tryProse, type Speech, type ProseTrial, type ProseVerdict } from './speech.js'
+// sequence-run — the walk itself, which had no public door until now (its own header said the primitives lacked one).
+export { runSequence, type SequenceRun } from './sequence-run.js'
+// singularity — every vector folded at once, through the involution, to one order-invariant core.
+export { singularity, type Singularity } from './separation.js'
+
 export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview } from './theorems/index.js'
 
 export { discover, superposition, rigid, type Value as DiscoverValue, type Relation } from './discover.js'

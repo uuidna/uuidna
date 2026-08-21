@@ -9,142 +9,210 @@ def lxorAux : Nat → Nat → Nat → Nat
   | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)
 def lxor (a b : Nat) : Nat := lxorAux 8 a b
 
--- the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
+/-- the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever
+    observed, |01⟩ and |10⟩ never (probability 0) -/
 theorem bell_born_weights : (([1,0,0,1] : List Nat).map (fun a => a * a)) = [1,0,0,1] := by decide
 
--- Bell normalization: Σ|amp|² = 1+0+0+1 = 2 = 2¹ (scale 1) — the weights are an exact probability distribution, no floating point
+/-- Bell normalization: Σ|amp|² = 1+0+0+1 = 2 = 2¹ (scale 1) — the weights are an exact probability
+    distribution, no floating point -/
 theorem bell_normalized : ((1*1 + 0*0 + 0*0 + 1*1 : Nat) = 2) ∧ ((2:Nat) = 2^1) := by decide
 
--- perfect correlation: the two qubits always agree — the outcomes carrying weight are exactly the basis states {00, 11} (indices where bit q0 equals bit q1)
+/-- perfect correlation: the two qubits always agree — the outcomes carrying weight are exactly the basis states
+    {00, 11} (indices where bit q0 equals bit q1) -/
 theorem bell_perfect_correlation : ((List.range 4).filter (fun i => i % 2 == i / 2 % 2)) = [0, 3] := by decide
 
--- no-signaling (the paradox, computed): the two marginals of q0 are equal — weight(q0=0)=1²+0² = 0²+1²=weight(q0=1) — so measuring q1 sends NOTHING to q0 (no-communication)
+/-- no-signaling (the paradox, computed): the two marginals of q0 are equal — weight(q0=0)=1²+0² =
+    0²+1²=weight(q0=1) — so measuring q1 sends NOTHING to q0 (no-communication) -/
 theorem bell_no_signaling : ((1*1 + 0*0 : Nat) = (0*0 + 1*1)) := by decide
 
--- superposition H|0⟩ = |+⟩ — the Born weights are [1,1] over √2, so P(0)=P(1)=1/2: before measurement both, after, one
+/-- superposition H|0⟩ = |+⟩ — the Born weights are [1,1] over √2, so P(0)=P(1)=1/2: before measurement both,
+    after, one -/
 theorem superposition_h0 : ((([1,1]:List Nat).map (fun a => a*a)) = [1,1]) ∧ ((1+1:Nat) = 2) := by decide
 
--- GHZ(3) = (|000⟩+|111⟩)/√2 — of the 2³ = 8 basis outcomes exactly two carry weight (the all-0 and all-1 corners); three-party entanglement
+/-- GHZ(3) = (|000⟩+|111⟩)/√2 — of the 2³ = 8 basis outcomes exactly two carry weight (the all-0 and all-1
+    corners); three-party entanglement -/
 theorem ghz3_two_outcomes : (([1,0,0,0,0,0,0,1]:List Nat).filter (fun a => a != 0)).length = 2 := by decide
 
--- GHZ(3) normalization: Σ|amp|² = 1²+1² = 2 = 2¹ — an exact distribution over the two correlated corners
+/-- GHZ(3) normalization: Σ|amp|² = 1²+1² = 2 = 2¹ — an exact distribution over the two correlated corners -/
 theorem ghz3_normalized : ((1*1 + 1*1 : Nat) = 2) := by decide
 
--- CNOT(q0→q1) flips q1 iff q0 is set — the basis permutation i ↦ i ⊕ 2·(q0) = [0,3,2,1] on two qubits
+/-- CNOT(q0→q1) flips q1 iff q0 is set — the basis permutation i ↦ i ⊕ 2·(q0) = [0,3,2,1] on two qubits -/
 theorem cnot_truth_table : ((List.range 4).map (fun i => lxor i (2 * (i % 2)))) = [0,3,2,1] := by decide
 
--- CNOT is its own inverse: applying it twice returns every basis state — a reversible (unitary) permutation
+/-- CNOT is its own inverse: applying it twice returns every basis state — a reversible (unitary) permutation -/
 theorem cnot_involution : (List.range 4).all (fun i => (let j := lxor i (2 * (i % 2)); lxor j (2 * (j % 2))) == i) := by decide
 
--- Toffoli (CCX) flips q2 iff q0 ∧ q1 — the reversible classical AND: i ↦ i ⊕ 4·(q0·q1) = [0,1,2,7,4,5,6,3] on three qubits
+/-- Toffoli (CCX) flips q2 iff q0 ∧ q1 — the reversible classical AND: i ↦ i ⊕ 4·(q0·q1) = [0,1,2,7,4,5,6,3] on
+    three qubits -/
 theorem toffoli_truth_table : ((List.range 8).map (fun i => lxor i (4 * ((i % 2) * (i / 2 % 2))))) = [0,1,2,7,4,5,6,3] := by decide
 
--- SWAP exchanges q0 and q1 — the basis permutation i ↦ 2·q0 + q1 = [0,2,1,3] on two qubits
+/-- SWAP exchanges q0 and q1 — the basis permutation i ↦ 2·q0 + q1 = [0,2,1,3] on two qubits -/
 theorem swap_truth_table : ((List.range 4).map (fun i => (i % 2) * 2 + (i / 2 % 2))) = [0,2,1,3] := by decide
 
--- S·S = Z: two phase gates compose to the Z phase-flip (i² = −1), verified exactly on sample Gaussian-integer amplitudes S(re,im)=(−im,re)
+/-- S·S = Z: two phase gates compose to the Z phase-flip (i² = −1), verified exactly on sample Gaussian-integer
+    amplitudes S(re,im)=(−im,re) -/
 theorem s_squared_is_z : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let s1 := (-(p.2), p.1); let s2 := (-(s1.2), s1.1); (s2.1 == -(p.1)) && (s2.2 == -(p.2)))) := by decide
 
--- Z² = I: the phase flip is its own inverse — negating an amplitude twice returns it, on sample Gaussian-integer amplitudes
+/-- Z² = I: the phase flip is its own inverse — negating an amplitude twice returns it, on sample
+    Gaussian-integer amplitudes -/
 theorem z_involution : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (-(-(p.1)) == p.1) && (-(-(p.2)) == p.2)) := by decide
 
--- S·S† = I: the phase gate and its adjoint invert — S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the amplitude
+/-- S·S† = I: the phase gate and its adjoint invert — S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the
+    amplitude -/
 theorem s_dagger_inverse : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let s := (-(p.2), p.1); (s.2 == p.1) && (-(s.1) == p.2))) := by decide
 
--- X² = I: the bit-flip is its own inverse — flip q0 twice (i ⊕ 1 ⊕ 1) returns every basis state; X is an involution
+/-- X² = I: the bit-flip is its own inverse — flip q0 twice (i ⊕ 1 ⊕ 1) returns every basis state; X is an
+    involution -/
 theorem pauli_x_involution : (List.range 2).all (fun i => lxor (lxor i 1) 1 == i) := by decide
 
--- SWAP² = I: exchanging q0 and q1 twice returns every basis state — SWAP is an involution
+/-- SWAP² = I: exchanging q0 and q1 twice returns every basis state — SWAP is an involution -/
 theorem swap_involution : (List.range 4).all (fun i => (let s := (i % 2) * 2 + (i / 2 % 2); (s % 2) * 2 + (s / 2 % 2)) == i) := by decide
 
--- Toffoli² = I: the reversible AND is its own inverse — applying CCX twice returns every basis state; Toffoli is an involution
+/-- Toffoli² = I: the reversible AND is its own inverse — applying CCX twice returns every basis state; Toffoli
+    is an involution -/
 theorem toffoli_involution : (List.range 8).all (fun i => (let j := lxor i (4 * ((i % 2) * (i / 2 % 2))); lxor j (4 * ((j % 2) * (j / 2 % 2)))) == i) := by decide
 
--- CZ² = I: the |11⟩ phase-flip squared is the identity — the sign (1 − 2·q0·q1) ∈ {+1,−1} squares to +1; CZ is an involution
+/-- CZ² = I: the |11⟩ phase-flip squared is the identity — the sign (1 − 2·q0·q1) ∈ {+1,−1} squares to +1; CZ is
+    an involution -/
 theorem cz_involution : (List.range 4).all (fun i => (let m := (i % 2) * (i / 2 % 2); (1 - 2*(m:Int)) * (1 - 2*(m:Int))) == 1) := by decide
 
--- H² = I on |0⟩: two Hadamards give amplitudes [2,0] at scale 2, which canonicalize (÷2, dropping scale by 2) to |0⟩ = [1,0]; H is an involution
+/-- H² = I on |0⟩: two Hadamards give amplitudes [2,0] at scale 2, which canonicalize (÷2, dropping scale by 2)
+    to |0⟩ = [1,0]; H is an involution -/
 theorem h_involution_on_zero : (([2,0] : List Nat).map (fun a => a / 2)) = [1, 0] := by decide
 
--- S⁴ = I but S² = Z ≠ I: the phase gate has ORDER 4 (i⁴=1), so S is NOT an involution — the honest exception; multiplying an amplitude by i four times returns it
+/-- S⁴ = I but S² = Z ≠ I: the phase gate has ORDER 4 (i⁴=1), so S is NOT an involution — the honest exception;
+    multiplying an amplitude by i four times returns it -/
 theorem s_fourth_is_identity : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let a := (-(p.2), p.1); let b := (-(a.2), a.1); let c := (-(b.2), b.1); let d := (-(c.2), c.1); (d.1 == p.1) && (d.2 == p.2))) := by decide
 
--- Deutsch–Jozsa interference: a BALANCED boolean sends equal +1/−1 phases, which cancel to 0 — the query amplitude vanishes. The honest heart of the algorithm, as the simulator computes it (classical linear algebra, no advantage)
+/-- Deutsch–Jozsa interference: a BALANCED boolean sends equal +1/−1 phases, which cancel to 0 — the query
+    amplitude vanishes. The honest heart of the algorithm, as the simulator computes it (classical linear
+    algebra, no advantage) -/
 theorem dj_balanced_cancels : ([1, 1, -1, -1] : List Int).sum = 0 := by decide
 
--- Deutsch–Jozsa: a CONSTANT boolean sends one phase, so all four reinforce to ±4 — the opposite of the balanced cancellation. Constant vs balanced IS exactly this interference sum
+/-- Deutsch–Jozsa: a CONSTANT boolean sends one phase, so all four reinforce to ±4 — the opposite of the
+    balanced cancellation. Constant vs balanced IS exactly this interference sum -/
 theorem dj_constant_reinforces : (([1, 1, 1, 1] : List Int).sum = 4) ∧ (([-1, -1, -1, -1] : List Int).sum = -4) := by decide
 
--- The entanglement witness: a two-qubit state (a,b,c,d) factorizes into a product iff a·d − b·c = 0. Bell (1,0,0,1) gives 1 ≠ 0 (ENTANGLED); |00⟩ (1,0,0,0) and |+0⟩ (1,1,0,0) give 0 (separable) — entanglement is the nonzero determinant, computed exactly
+/-- The entanglement witness: a two-qubit state (a,b,c,d) factorizes into a product iff a·d − b·c = 0. Bell
+    (1,0,0,1) gives 1 ≠ 0 (ENTANGLED); |00⟩ (1,0,0,0) and |+0⟩ (1,1,0,0) give 0 (separable) — entanglement is
+    the nonzero determinant, computed exactly -/
 theorem entanglement_determinant : ((1*1 - 0*0 : Int) ≠ 0) ∧ ((1*0 - 0*0 : Int) = 0) ∧ ((1*0 - 1*0 : Int) = 0) := by decide
 
--- Pauli X and Z ANTICOMMUTE (XZ = −ZX): X flips the bit, Z stamps (−1)^bit, and (−1)^b = −(−1)^(1−b) on both bits — the sign the simulator carries; the nonabelian core of the gate algebra
+/-- Pauli X and Z ANTICOMMUTE (XZ = −ZX): X flips the bit, Z stamps (−1)^bit, and (−1)^b = −(−1)^(1−b) on both
+    bits — the sign the simulator carries; the nonabelian core of the gate algebra -/
 theorem pauli_x_z_anticommute : (List.range 2).all (fun b => ((-1 : Int))^b == -(((-1 : Int))^(1 - b))) := by decide
 
--- The W state (|001⟩+|010⟩+|100⟩)/√3 — exactly THREE of the 2³ corners carry weight (vs GHZ’s two): a distinct entanglement class, robust to one-party loss. The simulator’s amplitude vector, counted
+/-- The W state (|001⟩+|010⟩+|100⟩)/√3 — exactly THREE of the 2³ corners carry weight (vs GHZ’s two): a distinct
+    entanglement class, robust to one-party loss. The simulator’s amplitude vector, counted -/
 theorem w_state_three_outcomes : (([0,1,1,0,1,0,0,0] : List Nat).filter (fun a => a != 0)).length = 3 := by decide
 
--- W-state normalization: Σ|amp|² = 1+1+1 = 3 over √3 — an exact distribution over the three single-excitation corners
+/-- W-state normalization: Σ|amp|² = 1+1+1 = 3 over √3 — an exact distribution over the three single-excitation
+    corners -/
 theorem w_state_normalized : ((1*1 + 1*1 + 1*1 : Nat) = 3) := by decide
 
--- The four Bell states form a complete ORTHOGONAL basis: ⟨Φ⁺|Φ⁻⟩ = 0 and ⟨Ψ⁺|Ψ⁻⟩ = 0 (over √2 integer vectors), while ⟨Φ⁺|Φ⁺⟩ = 2 — the entangled-basis measurement, as exact integer inner products
+/-- The four Bell states form a complete ORTHOGONAL basis: ⟨Φ⁺|Φ⁻⟩ = 0 and ⟨Ψ⁺|Ψ⁻⟩ = 0 (over √2 integer
+    vectors), while ⟨Φ⁺|Φ⁺⟩ = 2 — the entangled-basis measurement, as exact integer inner products -/
 theorem bell_basis_orthogonal : ((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0) ∧ ((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0) ∧ ((1*1 + 0*0 + 0*0 + 1*1 : Int) = 2) := by decide
 
--- n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. HONEST SCOPE: this counts the simulation cost, it is NOT a speedup or a quantum advantage.
+/-- n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY,
+    which is exactly why simulating it classically is costly. HONEST SCOPE: this counts the simulation cost, it
+    is NOT a speedup or a quantum advantage. -/
 theorem n_qubit_dimension : ([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32] := by decide
 
--- Combining systems MULTIPLIES their dimensions (the tensor product): two qubits span 2·2 = 4 amplitudes, three span 2·2·2 = 8. Independent subsystems compose by product, the source of the exponential.
+/-- Combining systems MULTIPLIES their dimensions (the tensor product): two qubits span 2·2 = 4 amplitudes,
+    three span 2·2·2 = 8. Independent subsystems compose by product, the source of the exponential. -/
 theorem tensor_dimension_multiplies : (2*2 = 4) ∧ (2*2*2 = 8) := by decide
 
--- The single-qubit Pauli group is {I, X, Y, Z} × {±1, ±i} — 4 operators times 4 phases = 16 elements. The finite group the whole gate algebra is built over, counted.
+/-- The single-qubit Pauli group is {I, X, Y, Z} × {±1, ±i} — 4 operators times 4 phases = 16 elements. The
+    finite group the whole gate algebra is built over, counted. -/
 theorem pauli_group_order_16 : 4 * 4 = 16 := by decide
 
--- THE SEMESTER'S UNIFICATION, sealed as one line: every walk this system closes is closed by the SAME law — a generator coprime to its ring. The pentagram's 2 on ℤ/5, the rosette's 3 on ℤ/7, the vortex's 2 on ℤ/9, the frame ring's stride 5 on ℤ/24, and the tokamak winding's 3/2 on the torus: five rings, five walks, one gcd = 1. Closure is arithmetic, and arithmetic is what holds — the school's whole curriculum in one decidable conjunction.
+/-- THE SEMESTER'S UNIFICATION, sealed as one line: every walk this system closes is closed by the SAME law — a
+    generator coprime to its ring. The pentagram's 2 on ℤ/5, the rosette's 3 on ℤ/7, the vortex's 2 on ℤ/9, the
+    frame ring's stride 5 on ℤ/24, and the tokamak winding's 3/2 on the torus: five rings, five walks, one gcd =
+    1. Closure is arithmetic, and arithmetic is what holds — the school's whole curriculum in one decidable
+    conjunction. -/
 theorem closure_is_coprime : (Nat.gcd 2 5 = 1) ∧ (Nat.gcd 3 7 = 1) ∧ (Nat.gcd 2 9 = 1) ∧ (Nat.gcd 5 24 = 1) ∧ (Nat.gcd 3 2 = 1) := by decide
 
--- THE TWO KERNELS' COUNTING SHADOW (Curry–Howard): a type is a proposition and its inhabitants are its proofs, so types COUNT — the sum type (disjunction) of Bool with itself has 2+2 inhabitants, the product (conjunction) 2·2, the function space (implication) 2². All three equal 4, because 2 is the unique positive integer where sum, product, and power coincide — the two coins are the fixed point where every logical connective counts alike. The fast kernel (the type checker, seconds) and the slow kernel (the proof checker, minutes) reject the same class because they check the same correspondence.
+/-- THE TWO KERNELS' COUNTING SHADOW (Curry–Howard): a type is a proposition and its inhabitants are its proofs,
+    so types COUNT — the sum type (disjunction) of Bool with itself has 2+2 inhabitants, the product
+    (conjunction) 2·2, the function space (implication) 2². All three equal 4, because 2 is the unique positive
+    integer where sum, product, and power coincide — the two coins are the fixed point where every logical
+    connective counts alike. The fast kernel (the type checker, seconds) and the slow kernel (the proof checker,
+    minutes) reject the same class because they check the same correspondence. -/
 theorem types_count_as_arithmetic : (2 + 2 = 4) ∧ (2 * 2 = 4) ∧ ((2:Nat) ^ 2 = 4) := by decide
 
--- Every binary logical connective, counted by its type: Bool → Bool → Bool has exactly 2^(2·2) = 16 truth tables — AND, OR, XOR, NAND and the other twelve — the same sixteen gates the hardware layer builds from NAND alone. Logic's whole binary vocabulary is one exponent, and the type system knew the count before any truth table was drawn.
+/-- Every binary logical connective, counted by its type: Bool → Bool → Bool has exactly 2^(2·2) = 16 truth
+    tables — AND, OR, XOR, NAND and the other twelve — the same sixteen gates the hardware layer builds from
+    NAND alone. Logic's whole binary vocabulary is one exponent, and the type system knew the count before any
+    truth table was drawn. -/
 theorem sixteen_connectives : (2:Nat) ^ (2 * 2) = 16 := by decide
 
--- The four operations {I, X, Y, Z}, each with its signed inverse ±, form the REAL Pauli group of order 8 = 2·4 — the rung between the four effective operations and the full order-16 group (8·2 = 16, the two i-phases restored). Reversing the four does not double them (each is its own inverse, X²=I); the doubling is the sign.
+/-- The four operations {I, X, Y, Z}, each with its signed inverse ±, form the REAL Pauli group of order 8 = 2·4
+    — the rung between the four effective operations and the full order-16 group (8·2 = 16, the two i-phases
+    restored). Reversing the four does not double them (each is its own inverse, X²=I); the doubling is the
+    sign. -/
 theorem real_pauli_group_order_8 : (2 * 4 = 8) ∧ (8 * 2 = 16) := by decide
 
--- The order-8 signed group carries 4 distinguishable messages, not 8: dividing out the unobservable global phase (÷2) collapses 8 group elements to 4 = 2² Bell states — superdense coding's two classical bits. The group's 8 and the channel's 4 pinned together: 8/2 = 4 = 2². Group doubling, phase quotient, message count, one line.
+/-- The order-8 signed group carries 4 distinguishable messages, not 8: dividing out the unobservable global
+    phase (÷2) collapses 8 group elements to 4 = 2² Bell states — superdense coding's two classical bits. The
+    group's 8 and the channel's 4 pinned together: 8/2 = 4 = 2². Group doubling, phase quotient, message count,
+    one line. -/
 theorem four_messages_two_bits : (8 / 2 = 4) ∧ ((2:Nat)^2 = 4) := by decide
 
--- The single-qubit Clifford group (the gates that permute the Paulis) has order 24 = 6 · 4 — six signed axes for X's image, four for the phase. Finite: the Cliffords are classically simulable (Gottesman–Knill), the honest reason they are NOT the source of advantage.
+/-- The single-qubit Clifford group (the gates that permute the Paulis) has order 24 = 6 · 4 — six signed axes
+    for X's image, four for the phase. Finite: the Cliffords are classically simulable (Gottesman–Knill), the
+    honest reason they are NOT the source of advantage. -/
 theorem clifford_group_order_24 : 6 * 4 = 24 := by decide
 
--- The phase gates form an order ladder: T has order 8, S = T² has order 4, Z = S² has order 2 — each the square of the next (8 = 2·4, 4 = 2·2) — and T⁸ = I is a full 2π turn (8 mod 8 = 0). Squaring a phase gate halves its order.
+/-- The phase gates form an order ladder: T has order 8, S = T² has order 4, Z = S² has order 2 — each the
+    square of the next (8 = 2·4, 4 = 2·2) — and T⁸ = I is a full 2π turn (8 mod 8 = 0). Squaring a phase gate
+    halves its order. -/
 theorem phase_gate_order_ladder : (8 = 2*4) ∧ (4 = 2*2) ∧ (8 % 8 = 0) := by decide
 
--- The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. HONEST SCOPE: the simulator computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL).
+/-- The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the
+    classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. HONEST SCOPE: the
+    simulator computes the correlation exactly; the squared bound is what decides — and no signal crosses
+    (nothing FTL). -/
 theorem chsh_beats_classical : ((2:Nat)^2 < 2^3) ∧ (2^3 = 8) := by decide
 
--- The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)² dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². HONEST SCOPE: this is the arithmetic SHADOW of the no-cloning theorem (a linearity fact), not a proof of it.
+/-- The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)²
+    dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². HONEST SCOPE: this is the
+    arithmetic SHADOW of the no-cloning theorem (a linearity fact), not a proof of it. -/
 theorem no_cloning_dimension : (2:Nat)^2 < (2^2)^2 := by decide
 
--- The Hadamard swaps the X and Z bases: HXH = Z, verified on integer amplitudes up to the √2² = 2 scale — HXH[a,b] = [2a, −2b] = 2·Z[a,b], on sample amplitudes. The conjugation that turns a bit-flip into a phase-flip, the heart of the Clifford structure.
+/-- The Hadamard swaps the X and Z bases: HXH = Z, verified on integer amplitudes up to the √2² = 2 scale —
+    HXH[a,b] = [2a, −2b] = 2·Z[a,b], on sample amplitudes. The conjugation that turns a bit-flip into a
+    phase-flip, the heart of the Clifford structure. -/
 theorem hadamard_conjugates_x_to_z : ([(3,5),(1,-2),(4,0)] : List (Int × Int)).all (fun p => (let a := p.1; let b := p.2; ((a-b)+(a+b) == 2*a) && ((a-b)-(a+b) == -(2*b)))) := by decide
 
--- The Bell state |Φ⁺⟩ = [1,0,0,1] is a +1 eigenstate of XX: flipping both bits reverses the amplitude vector (00↔11, 01↔10), and [1,0,0,1] is its own reverse — a stabiliser. The entanglement, read as a fixed point.
+/-- The Bell state |Φ⁺⟩ = [1,0,0,1] is a +1 eigenstate of XX: flipping both bits reverses the amplitude vector
+    (00↔11, 01↔10), and [1,0,0,1] is its own reverse — a stabiliser. The entanglement, read as a fixed point. -/
 theorem bell_stabilized_by_xx : ([1,0,0,1] : List Int).reverse = [1,0,0,1] := by decide
 
--- The Bell state is a +1 eigenstate of ZZ too: its supported corners {00, 11} both have EVEN bit-parity ((0+0) and (1+1) are 0 mod 2), so ZZ stamps +1 on each. Two stabilisers XX and ZZ pin the state — the stabiliser formalism, in miniature.
+/-- The Bell state is a +1 eigenstate of ZZ too: its supported corners {00, 11} both have EVEN bit-parity ((0+0)
+    and (1+1) are 0 mod 2), so ZZ stamps +1 on each. Two stabilisers XX and ZZ pin the state — the stabiliser
+    formalism, in miniature. -/
 theorem bell_zz_even_parity : ((0+0) % 2 = 0) ∧ ((1+1) % 2 = 0) := by decide
 
--- GHZ(3) = [1,0,0,0,0,0,0,1] is a +1 eigenstate of XXX: flipping all three bits reverses the 8-amplitude vector (000↔111), and the GHZ vector is its own reverse. The three-party entanglement, stabilised.
+/-- GHZ(3) = [1,0,0,0,0,0,0,1] is a +1 eigenstate of XXX: flipping all three bits reverses the 8-amplitude
+    vector (000↔111), and the GHZ vector is its own reverse. The three-party entanglement, stabilised. -/
 theorem ghz_stabilized_by_xxx : ([1,0,0,0,0,0,0,1] : List Int).reverse = [1,0,0,0,0,0,0,1] := by decide
 
--- Superdense coding: one qubit carries 2 classical bits — Alice's four local operations map |Φ⁺⟩ to the four orthogonal Bell states, 2² = 4 distinguishable messages, and 2 > 1. HONEST SCOPE: this REQUIRES a pre-shared EPR pair; it is not bandwidth from nothing, and nothing signals faster than light.
+/-- Superdense coding: one qubit carries 2 classical bits — Alice's four local operations map |Φ⁺⟩ to the four
+    orthogonal Bell states, 2² = 4 distinguishable messages, and 2 > 1. HONEST SCOPE: this REQUIRES a pre-shared
+    EPR pair; it is not bandwidth from nothing, and nothing signals faster than light. -/
 theorem superdense_two_bits : ((2:Nat)^2 = 4) ∧ (2 > 1) := by decide
 
--- Teleportation sends one qubit with 2 classical bits and one EPR pair: Bob applies one of the four Pauli corrections {I, X, Z, XZ} indexed by the 2 measured bits (2+2 = 4 = the four corrections). HONEST SCOPE: the classical channel is ESSENTIAL — without the 2 bits nothing arrives, so no faster-than-light transfer.
+/-- Teleportation sends one qubit with 2 classical bits and one EPR pair: Bob applies one of the four Pauli
+    corrections {I, X, Z, XZ} indexed by the 2 measured bits (2+2 = 4 = the four corrections). HONEST SCOPE: the
+    classical channel is ESSENTIAL — without the 2 bits nothing arrives, so no faster-than-light transfer. -/
 theorem teleportation_four_corrections : (([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4) := by decide
 
--- The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical content-address receipt the state folds to, integrity — not a quantum memory.
+/-- The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root
+    under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for
+    any observer in any order (the 3-member fold equals all six permutations). HONEST SCOPE: the classical
+    content-address receipt the state folds to, integrity — not a quantum memory. -/
 theorem store_fold_order_invariant :
   (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c =>
     ([a,b,c].foldl lxor 0 == [a,c,b].foldl lxor 0)
@@ -153,16 +221,35 @@ theorem store_fold_order_invariant :
     && ([a,b,c].foldl lxor 0 == [c,a,b].foldl lxor 0)
     && ([a,b,c].foldl lxor 0 == [c,b,a].foldl lxor 0)))) := by decide
 
--- The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. HONEST SCOPE: integrity of the content-address, not a quantum property.
+/-- The memory receipt refuses DRIFT — a changed member MOVES the fold: [a,b,c] folds to [a2,b,c]'s value iff a
+    = a2, so any edit to a memory is visible (tamper-evident), the change-sensitivity of the XOR fold. HONEST
+    SCOPE: integrity of the content-address, not a quantum property. -/
 theorem store_fold_change_moves_receipt :
   (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 =>
     ([a,b,c].foldl lxor 0 == [a2,b,c].foldl lxor 0) == (a == a2))))) := by decide
 
--- The tractability cap the quantum message ASSUMES, sealed (axiom-hunt): 16 qubits span 2^16 = 65536 states — the encoder’s honest ceiling. Exponential and BOUNDED: the cap is what keeps the classical simulation classical, no quantum advantage claimed at any size.
+/-- The tractability cap the quantum message ASSUMES, sealed (axiom-hunt): 16 qubits span 2^16 = 65536 states —
+    the encoder’s honest ceiling. Exponential and BOUNDED: the cap is what keeps the classical simulation
+    classical, no quantum advantage claimed at any size. -/
 theorem message_qubit_cap_states : 2^16 = 65536 := by decide
 
--- The message receipt folds every leaf through merkleFold, which SORTS before it merges — the honest reason the fold is order-invariant even though merge itself is NOT commutative (merge(a,b) ≠ merge(b,a), by design). Sealed on a representative 3-leaf fold with a deliberately non-commutative pairwise op (f(a,b)=2a+b, so f(1,2)=4 ≠ f(2,1)=5): sorting first (min, mid, max via Nat.min/Nat.max and sum-arithmetic, no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. HONEST SCOPE: one representative instance, the same scope every fold-invariance theorem here uses (store_fold_order_invariant proves the same shape for a commutative XOR fold; this is the harder, non-commutative case merkleFold actually is).
+/-- The message receipt folds every leaf through merkleFold, which SORTS before it merges — the honest reason
+    the fold is order-invariant even though merge itself is NOT commutative (merge(a,b) ≠ merge(b,a), by
+    design). Sealed on a representative 3-leaf fold with a deliberately non-commutative pairwise op
+    (f(a,b)=2a+b, so f(1,2)=4 ≠ f(2,1)=5): sorting first (min, mid, max via Nat.min/Nat.max and sum-arithmetic,
+    no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. HONEST
+    SCOPE: one representative instance, the same scope every fold-invariance theorem here uses
+    (store_fold_order_invariant proves the same shape for a commutative XOR fold; this is the harder,
+    non-commutative case merkleFold actually is). -/
 theorem merkle_sort_invariant : (let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1)) := by decide
 
--- UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total, never the arrangement (1+0 = 0+1: swap the far side, the near statistics never move; correlation carries no message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal, never by obscurity.
+/-- UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one
+    duality. Physics side: the marginal is BLIND — the sum a+b sees only the total, never the arrangement (1+0 =
+    0+1: swap the far side, the near statistics never move; correlation carries no message — the invariance
+    bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold
+    10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for
+    digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt
+    IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces.
+    Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total
+    signal, never by obscurity. -/
 theorem all_signaling_duality : (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d)))))) := by decide

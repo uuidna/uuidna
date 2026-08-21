@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="189 keys" />
+# MCP tools <Badge type="tip" text="191 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 189 tools below are read from the server's own tool list and
+is **built from the keys**: the 191 tools below are read from the server's own tool list and
 organised into 38 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · ab622368-2cdb-8b59-9776-607eb23898b2
+gate CLEAN f0 d0 v0 · 659565f0-8721-8d19-b65a-c9c2a0912fe9
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 189-tool registry folds to its
-order-invariant identity `f3d8ce57-0d2c-8bac-b5d9-6a6574f3787b` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 191-tool registry folds to its
+order-invariant identity `591a728a-b89e-86ab-ad31-6496e64d4c29` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`189`" />
+## The grid <Badge type="tip" :text="`191`" />
 
-189 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 73 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+191 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 73 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -170,6 +170,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-neighbours"><code>neighbours</code></a>
 <a href="#uuidna-nist-constant"><code>nist_constant</code></a>
 <a href="#uuidna-pentagram-stream"><code>pentagram_stream</code></a>
+<a href="#uuidna-predict"><code>predict</code></a>
 <a href="#uuidna-prior-art"><code>prior_art</code></a>
 <a href="#uuidna-prove-verdict"><code>prove_verdict</code></a>
 <a href="#uuidna-reactor"><code>reactor</code></a>
@@ -187,6 +188,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-seats"><code>seats</code></a>
 <a href="#uuidna-sha256"><code>sha256</code></a>
 <a href="#uuidna-sign"><code>sign</code></a>
+<a href="#uuidna-skill"><code>skill</code></a>
 <a href="#uuidna-slim-gate"><code>slim_gate</code></a>
 <a href="#uuidna-snapshot"><code>snapshot</code></a>
 <a href="#uuidna-spin"><code>spin</code></a>
@@ -557,7 +559,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'80'" />
+## Other <Badge type="tip" :text="'81'" />
 
 *skill: other*
 
@@ -977,6 +979,16 @@ THE OPEN EDUCATION API PROJECTION — the sealed ledger served under the field n
 | --- | --- | --- | --- |
 | `resource` | string | no | omit for the profile, or "learning-outcomes" for the lessons |
 | `course` | string | no | a publication slug, to narrow the learning outcomes to one wing |
+
+### `uuidna_predict`
+
+WHAT IS ABOUT TO BREAK — the five predictive patterns read off the source tree itself: a script that exists but no npm script runs, an export that has drifted from the one surface, a principle carrying no test, a package surface out of step with src/index.ts, a feature half-wired. Each is a pattern that HAS produced a gap in this repository before, so the list is what to close BEFORE it forms rather than a report of what already broke — the companion to uuidna_conformance (which proves what IS sealed) and the guard (which catches what already drifted). Deterministic: the same tree yields the same list, every time. Returns {total,byLikelihood:{high,medium,low},gaps:[{pattern,likelihood,location,prediction,hasAutoFill}],honest}. HONEST SCOPE: these are PREDICTIONS from structural patterns, NOT proofs, and NOT a claim that any of them will break (theorem provenance_integrity_not_content_truth) — a prediction here has no verdict and seals nothing. The auto-fill CONTENT is deliberately never returned: a served tool proposes and the two-handle law keeps the writing hand human. It reads the source TREE, so it answers from the stdio server only — the Workers edge has no filesystem and this tool does not pretend it does. Integrity, not truth (theorem provenance_integrity_not_content_truth). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `likelihood` | string | **yes** | "high", "medium", "low", or "all" for the whole list |
 
 ### `uuidna_school_apis`
 
@@ -1726,7 +1738,7 @@ The Chinese remainder solution: for COPRIME moduli m,n the unique x in [0, m·n)
 | `b` | integer | **yes** |  |
 | `n` | integer | **yes** |  |
 
-## Theorems & trial <Badge type="tip" :text="'10'" />
+## Theorems & trial <Badge type="tip" :text="'11'" />
 
 *skill: theorem*
 
@@ -1768,9 +1780,20 @@ The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean t
 
 ### `uuidna_skills`
 
-The theorem ledger organised by SKILL — the capability axis, orthogonal to principle. A skill is derived (recomputable) from each theorem's key. Returns each skill with its count and the order-invariant fold of its theorems' content-addresses. Then pull one skill's theorems with uuidna_theorems { skill }.
+EVERY SKILL THE SEALED LEDGER CARRIES, with its theorem count — the discoverable index of the capability axis (orthogonal to `principle`, which groups by derivation file). Each row carries the order-invariant fold of that skill's theorem addresses, the handle of that fold (the identity to cite for the whole cluster), the ESCO taxonomy lookup for the skill, and the exact `uuidna_skill` call that opens it. Zero-argument and fully computed from the ledger, so a skill sealed in a new wing appears here the day it lands — nothing is authored per skill. Returns [{skill,theorems,fold,handle,esco,open}].
 
 _No parameters._
+
+### `uuidna_skill`
+
+OPEN ONE SKILL — the capability axis served as a DIMENSION rather than as one tool per skill. Returns that skill's sealed theorems (key, name, statement, tactic, file, principle, the reconstructed Lean line, its content-address and its HANDLE), the files and principles they were derived in, the group's order-invariant fold and handle, and the skill's ESCO MAPPING onto the European Commission's own taxonomy of skills, competences and occupations: the exact lookup URL, its content-address, the one hop that actually fetches it (uuidna_school_apis) and the walk to the occupations ESCO relates it to (uuidna_education_jobs). Pass `escoTitles` — concept titles you already fetched — to have them judged by school-apis' OWN published whole-name rule, which separates on-topic hits from homographs (a search guarantees the query's letters come back, so a fragment hit carries no information); both lists are returned by name, never silently dropped. PURE: this tool reaches no network, so it is deterministic and folds to the same receipt for anyone, offline. An unknown skill is REFUSED by name with the live list, never answered with an empty set that would read like "this capability is unproven". List the skills with uuidna_skills. HONEST SCOPE: the ESCO leg is a MAP BETWEEN VOCABULARIES — what this capability is CALLED in a European taxonomy — and never a claim that any authority recognises, accredits or would employ anything sealed here (theorem provenance_integrity_not_content_truth); uuidna awards no qualification. Integrity, not truth. Returns {skill,count,fold,handle,files,principles,theorems,esco,receipt,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `skill` | string | **yes** | a skill name from uuidna_skills (the live, recomputable list — never a fixed enum here, so it cannot go stale as wings are sealed) |
+| `escoTitles` | array | no | ESCO concept titles you already fetched, to be judged on-topic or homograph by the published whole-name rule |
 
 ### `uuidna_review_domains`
 

@@ -7,7 +7,13 @@
 // THE DELTA GATE: generators execute by dynamic import in ONE process (a spawn per generator would pay node
 // startup each), and the hand-written proofs ride the same receipt cache as the generated wings — a
 // byte-identical file's prior kernel signature stands, a changed file always re-proves, and UUIDNA_PROVE_ALL=1
-// forces every spawn. A stale cache can only cause extra proving, never a false pass.
+// forces every spawn.
+//
+// WHAT THE CACHE CAN AND CANNOT PROMISE. A STALE entry is safe: the text moved, its address moved, the file
+// re-proves. A FORGED entry is not — proof-cache.json is committed and nothing validates it, so an entry naming
+// the current text's address makes this gate answer "verified by receipt" for text the kernel never signed.
+// The cure is not to trust the cache harder: the RELEASE consults no cache. `npm run audit` sets
+// UUIDNA_PROVE_ALL=1, so everything shipped is kernel-signed in that run. The cache is for local iteration.
 import { execSync } from 'node:child_process'
 import { readdirSync, existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -15,6 +21,7 @@ import { pathToFileURL } from 'node:url'
 import { MAXBUF, readProofCache, writeProofCache } from './lean-gen.js'
 import { toUuid } from '../address.js'
 import { ROOT } from './api.js'
+import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
 const SCRIPTS = join(ROOT, 'dist', 'scripts')
 const LEAN = join(ROOT, 'lean')
@@ -42,14 +49,14 @@ for (const f of HAND_WRITTEN) {
   const text = readFileSync(join(LEAN, f), 'utf8')
   const address = toUuid(text)
   if (cache[f] === address && !process.env.UUIDNA_PROVE_ALL) {
-    console.log('✓ lean/' + f + ' — hand-written, verified by receipt (unchanged at ' + address.slice(0, 8) + ')')
+    console.log('✓ lean/' + f + ' — hand-written, verified by receipt (unchanged at ' + handleOf(address) + ')')
     continue
   }
   try {
     execSync('lean ' + JSON.stringify(join(LEAN, f)), { cwd: ROOT, stdio: 'inherit', maxBuffer: MAXBUF })
     cache[f] = address
     writeProofCache(cache)
-    console.log('✓ lean/' + f + ' — hand-written, verified sorry-free (receipt ' + address.slice(0, 8) + ' cached).')
+    console.log('✓ lean/' + f + ' — hand-written, verified sorry-free (receipt ' + handleOf(address) + ' cached).')
   } catch {
     console.error('\n✗ lean-all — hand-written proof FAILED: lean/' + f)
     process.exit(1)

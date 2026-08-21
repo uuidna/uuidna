@@ -68,6 +68,36 @@ function accounting(): ReportSection {
  *  `total` in the artifact is the SUMMED cost, not a theorem count; subtracting one from the other would be a
  *  nonsense the report would then publish, so both are named for what they are and the shortfall is computed
  *  against the ledger instead. */
+// COST — the DISTRIBUTION of what verification actually costs, not merely how much of it was measured. coverage()
+// above reports the totals; this reports the shape, which is where the information is: a median beside a maximum
+// three orders of magnitude larger says the ledger is cheap everywhere except in a few places, and names them.
+// The unit is DECIDE-STEPS, counted by the kernel — the repository cannot time itself (harmonic-scan hard-rejects
+// wall-clock reads with no exemption anywhere in src), so cost is measured in the work the kernel performs rather
+// than in seconds, which also makes it machine-independent: the same theorem costs the same steps on any host.
+// All arithmetic here is exact integer division — no host intrinsic settles a statistic in this ledger.
+function cost(): ReportSection {
+  const h = readJson<{ costs: Record<string, number> }>('lean/heartbeats.json')
+  if (!h?.costs) return section('Verification cost', 'lean/heartbeats.json', false, { note: 'not probed — run npm run heartbeats' })
+  const entries = Object.entries(h.costs).sort((a, b) => a[1] - b[1])
+  const v = entries.map((e) => e[1])
+  const n = v.length
+  if (n === 0) return section('Verification cost', 'lean/heartbeats.json', false, { note: 'no costs recorded' })
+  const at = (num: number, den: number): number => v[(num * n - (num * n) % den) / den < n ? (num * n - (num * n) % den) / den : n - 1]
+  const total = v.reduce((a, b) => a + b, 0)
+  return section('Verification cost', 'lean/heartbeats.json', true, {
+    unit: 'decide-steps counted by the kernel — machine-independent, since the repository may not time itself',
+    theorems: n,
+    cheapest: v[0], quartile1: at(1, 4), median: at(1, 2), quartile3: at(3, 4), dearest: v[n - 1],
+    total,
+    mean: (total - total % n) / n,
+    // the tail is the whole story: name what the ledger actually spends its verification on
+    dearestFive: entries.slice(-5).reverse().map(([key, steps]) => key + ' ' + steps).join(' · '),
+    concentration: 'the five dearest against the total, as an exact pair — never a percentage, which would round',
+    dearestFiveSteps: entries.slice(-5).reduce((a, e) => a + e[1], 0),
+    honest: 'DESCRIPTIVE: this measures what the kernel spent deciding, never whether a theorem is worth deciding.',
+  })
+}
+
 function coverage(): ReportSection {
   const h = readJson<{ measured: number; total: number }>('lean/heartbeats.json')
   if (!h) return section('Heartbeat coverage', 'lean/heartbeats.json', false, { note: 'not probed — run npm run heartbeats' })
@@ -120,7 +150,7 @@ function readiness(): ReportSection {
 
 /** reportAll() — every report and audit in one structure, folded to one order-invariant receipt. */
 export function reportAll(): ConsolidatedReports {
-  const sections = [accounting(), coverage(), citations(), support(), packages(), readiness()]
+  const sections = [accounting(), coverage(), cost(), citations(), support(), packages(), readiness()]
   return {
     sections,
     receipt: merkleFold(sections.map((s) => s.address)),

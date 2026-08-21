@@ -9,6 +9,7 @@
 // aesthetic derived from the address: a defined arithmetic from a number to a hue. Recomputable by anyone; it decorates
 // the work, it does not describe the universe.
 import { toUuid, A432_STEP, vortexOrbit } from './address.js'
+import { seedOf } from './handle.js'   // THE one address→integer derivation — see handle.ts
 
 const RAYS = 7                                   // the ℤ/7 rosette rays — the spectral bands (z7rays_seven)
 const WAVE = vortexOrbit()                       // the ℤ/9 vortex orbit [1,2,4,8,7,5] — the wave each ray rides
@@ -68,7 +69,7 @@ const rgbToCmyk = (r: number, g: number, b: number): [number, number, number, nu
  *  returns the colour in HSL/RGB/CMYK plus a ready moving-aura CSS block. Artistic, not physics. */
 export function quantumAura(subject: string): Aura {
   const address = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(subject) ? subject : toUuid(subject)
-  const n = parseInt(address.replace(/-/g, '').slice(0, 8), 16)   // a stable integer from the address
+  const n = seedOf(address)                                        // a stable integer from the address
   const ray = n % RAYS                                             // 0..6 — the spectral band
   const wi = n % WAVE.length                                       // 0..5 — the wave index (lightness channel)
   const wave = WAVE[wi]                                            // the ray's phase on the ℤ/9 vortex wave

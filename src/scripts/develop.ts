@@ -34,6 +34,9 @@ const CURES: Cure[] = [
   { name: 'changelog section missing', when: /CHANGELOG\.md does not mention version/,
     cmd: 'node dist/scripts/gen-changelog-section.js',
     because: 'the calendar ticks the odometer on its own, so the FACTS of a version (counts, receipts, the odometer step, the surfaces) are emitted from the ledger; the narrative is still never generated — the section says the meaning is owed, and a human completing it is finishing the entry, not correcting it' },
+  { name: 'rosetta mirror stale', when: /hosted edge would answer from a stale census/,
+    cmd: 'node dist/scripts/rosetta.js && npm run build',
+    because: 'the five-leg census is recomputed from the ledger and shipped to the hosted edge as src/rosetta-mirror.ts, so ANY change to the ledger leaves the edge answering from the previous generation — the test that catches it prints exactly this command. The rebuild is part of the cure and not an afterthought: rewriting the mirror source without compiling it leaves dist/ carrying the stale census, which is the same fault one step further along. Taught 2026-08-20, after a session where this objection came back three times and was hand-run each time. DELIBERATELY NARROW: the signature matches only the STALE-MIRROR face, never rosetta refusing to write because the floor fell — see NO_CURE' },
   { name: 'axiom witness stale', when: /AXIOM WITNESS STALE|kernel-only-witness-shipped/,
     cmd: 'npm run axioms',
     because: 'a new theorem has no kernel-only witness yet; the audit regenerates them in one probe per file' },
@@ -79,12 +82,22 @@ const CURES: Cure[] = [
   { name: 'package surface drift', when: /packages? (?:receipt|surface)|gen:packages/,
     cmd: 'node dist/scripts/gen-packages.js',
     because: 'the six package surfaces are generated from src/index.ts; the guard hard-rejects drift' },
+  // A neighbourhood that will not seal is nearly always a census taken while the wings were being written — the
+  // memory walked lean/ mid-generation and saw a file that had not finished moving. Regenerating the wings and
+  // re-sealing is the whole repair, and it is safe to attempt because a stale memory can only cost extra sealing:
+  // every address is recomputed from the file's own bytes on each run and compared, never trusted from the file.
+  // If it survives the cure, the cause is a genuine duplicate key and the emitter's own gate will name it.
+  { name: 'neighbourhood did not seal', when: /neighbourhood \S+ did not seal|members held, missing/,
+    cmd: 'node dist/scripts/lean-all.js && node dist/scripts/cube-memory.js',
+    because: 'the cube memory holds a handle until its whole neighbourhood is complete; an unsealed cube usually means the census ran against wings mid-write, and re-generating then re-sealing is the repair' },
 ]
 
 /** Objections that are deliberately NOT cured here — each needs a human, and saying so is the honest answer. */
 const NO_CURE: { when: RegExp; why: string }[] = [
   // (the changelog-missing-version class moved OUT of NO_CURE on 2026-08-17 — see CURES: the calendar now emits a
   // factual section, and only the MEANING is still owed to a human. A statistic is not a story.)
+  { when: /below the floor of \d+|floor may only rise/,
+    why: 'a five-leg census came back BELOW the floor it published, and the two causes are indistinguishable from the message alone: either the mirror is stale (mechanical) or a claim genuinely lost its external anchor (not). Re-running the census cannot decide between them — rosetta REFUSES to write a fallen floor, so the cure would fail identically in both cases and teach nothing. This happened on 2026-08-20: the witness leg read 9 to 0 and nothing had lost an anchor at all — the reader had stopped looking, because the prose moved into Lean doc comments and commentAbove still scanned only `--` lines. A pass that re-ran the census would have retried forever; a person read the message and found the reader. The refusal to auto-cure is what surfaced it' },
   { when: /overclaim|fabricated|does not compute/,
     why: 'the honesty gate refused a claim — fix the claim at its source; a pass that silences this would be the fraud it exists to catch' },
 ]

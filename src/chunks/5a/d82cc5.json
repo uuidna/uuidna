@@ -1,0 +1,12 @@
+{
+  "handle": "5ad82cc5",
+  "address": "5ad82cc5-9690-887b-80e3-907dbd9775ca",
+  "statement": "((List.range 9).map (fun t => 2 * (t % 3)) = [0,2,4,0,2,4,0,2,4]) ∧ ((List.range 9).map (fun t => if t > 0 && t % 3 == 0 then 1 else 0) = [0,0,0,1,0,0,1,0,0])",
+  "tactic": "decide",
+  "keys": [
+    "integrate_and_fire_resets"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

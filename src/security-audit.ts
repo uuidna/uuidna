@@ -23,7 +23,12 @@ const readPkg = (): { dependencies?: Record<string, string>; devDependencies?: R
   JSON.parse(rdRoot('package.json'))
 
 // the ONLY dev dependencies uuidna is allowed to carry — a new one is a supply-chain change the audit must surface.
-export const KNOWN_DEV_DEPS = ['@types/node', 'typescript', 'vitepress', 'wrangler'] as const
+export const KNOWN_DEV_DEPS = ['@types/node', 'typescript', 'vitepress', 'wrangler',
+  // the scanner, added 2026-08-20: eslint + typescript-eslint carry the strict general rules and host
+  // eslint-rules/, where this repository's own laws (one handle derivation, no clock, no float) became AST rules
+  // instead of greps. It cost 83 transitive packages — a real supply-chain change, which is why this list exists
+  // and why the number is written down rather than absorbed. RUNTIME dependencies remain ZERO: nothing here ships.
+  'eslint', 'typescript-eslint', '@eslint/js'] as const
 // the defence-in-depth theorems the posture leans on — each a sealed `by decide` fact in lean/Security.lean.
 export const DEFENCE_THEOREMS = ['defence_layers_add_bits', 'two_layers_multiply_space', 'each_key_bit_doubles',
   'birthday_halves_the_exponent', 'verify_cheaper_than_forge', 'no_maximum_only_bounds'] as const

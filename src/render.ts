@@ -5,6 +5,7 @@
 // proof page (/theorem/<key>) — the statement and its proof are one edge. A content-address proves integrity,
 // not truth.
 import { toUuid, vortexOrbit } from './address.js'
+import { handleOf } from './handle.js'   // the door /<handle> IS the handle — one derivation, see handle.ts
 import { DIMENSIONS } from './harness.js'
 import { sequenceVars, durationVars } from './css.js'
 // the ledger, for the address a hero carries — aliased because renderList already binds the name `theorems`
@@ -61,7 +62,7 @@ export function renderTheorem(t: TheoremView, opts: RenderOpts = {}): string {
     // crawlable) and as the uuidna:address meta. What the reader sees is the first-part HANDLE (first 8 hex, the
     // door /<handle>); the rest of the uuid computes on the spot from the proof. Real uuids compute, they don't display.
     + `<meta itemprop="identifier" content="${escapeHtml(address)}">`
-    + `<code data-slot="handle" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(${hue} 60% 40%)">${escapeHtml(address.slice(0, 8))}</code>`
+    + `<code data-slot="handle" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(${hue} 60% 40%)">${escapeHtml(handleOf(address))}</code>`
     + `</div>`
     + `<div data-slot="card-footer"><small style="color:#9a9a9a">integrity, not truth</small></div>`
     + `</article>`

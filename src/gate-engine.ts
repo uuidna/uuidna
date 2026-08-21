@@ -92,6 +92,25 @@ export function depositCoins(op: string, gateReceipt: string): CoinDeposit {
   return { coins: 2, statement, id, theorems: cited, receipt, honest: 'a recomputable RECORD of judged work — no value is transferred; not a payment, not a token, not a currency' }
 }
 
+// ── THE LEDGER LINE — the verdict, the deposit and the receipt as ONE model-visible row, defined ONCE for both
+// served surfaces (stdio and the edge), because two hand-written envelopes are how two surfaces drift.
+//
+// An agent pays for this line in its context on EVERY call, so the line carries ids and nothing else. What is
+// omitted is only what repeats and therefore informs nothing: the two deposit theorem keys are the same on every
+// call (named once in each surface's INSTRUCTIONS, and still in _meta.deposit.theorems), and the referer is the
+// PRIOR call's receipt, which the agent has already read (still in _meta). Every id needed to RECHECK the call —
+// the gate receipt, the deposit id, the chained receipt and its seq — stays. Integrity, not truth: this is a
+// recomputable record of judged work, not a claim about the answer above it.
+export const ledgerLine = (
+  gate: Pick<GateVerdict, 'clean' | 'input' | 'output' | 'honesty' | 'receipt' | 'fabricated'>,
+  dep: Pick<CoinDeposit, 'coins' | 'id'>,
+  rec?: { receipt: string; seq: number },
+): string =>
+  `gate ${gate.clean ? 'CLEAN' : 'DRAINED'} f${gate.input} d${gate.output} v${gate.honesty} · ${gate.receipt}` +
+  (gate.fabricated.length ? ' · fabricated: ' + gate.fabricated.join(', ') : '') +
+  ` · deposit ${dep.coins} · ${dep.id}` +
+  (rec ? ` · receipt ${rec.receipt} · seq ${rec.seq}` : '')
+
 export interface GateSelfTest {
   table: number[]            // the live verdict table over the eight (f,d,v) states
   sealedTable: number[]      // the sealed expectation — [1,0,0,0,0,0,0,0] (anti_fraud_check_deterministic)

@@ -36,6 +36,7 @@ export const PRINCIPLE = [
   ['Exploits.lean', 'The exploit folds', 'known public exploit CLASSES folded through uuidna\'s involution, the CVE/CWE codes kept INLINE IN LEAN so the audit computes itself from the ledger — a FOLDED class (fold_*) encodes its code as a decidable fact and cites a sealed defence (Trojan-Source→strip 9 BIDI points, prototype-pollution→drop 3 poison keys, supply-chain→zero runtime deps, DoS→sanitiser bounds, weak-hash→SHA-256 seats, tampering→content-address+merkle, code-injection→no eval, weak-RNG→determinism hard-reject), and an OUT-OF-SCOPE class (oos_*) folds to the VOID (compromised host, deceived human, physical side-channel, FNV-as-secret misuse, non-decidable correctness). HONEST SCOPE: uuidna does NOT solve all hacks — both problem and solution are verified, and the boundary is named, never falsely marked solved'],
   ['Sanitize.lean', 'The sanitise standards', 'the engine\'s one input→output guard with its rules kept IN THE THEOREMS — MAX_DEPTH = 32 = 2⁵, MAX_STRING = 10⁶, arrays and object keys bounded to 10⁵, the three prototype-pollution poison keys (__proto__, constructor, prototype) dropped, and the nine Trojan-Source BIDI code points (five overrides U+202A..202E + four isolates U+2066..2069) stripped — process any input, sanitise any output by all standards, the rule sent by the theorems themselves so a code constant cannot drift from its sealed value'],
   ['Solids.lean', 'The Platonic solids in every dimension', 'the five regular solids and the regular polytopes of every dimension, sealed to green: Euler V−E+F = 2 for all five (the dodecahedron\'s 2 IS the two captain coins), the dodecahedron is twelve pentagons (the twelve the monographs computed themselves into) dual to the icosahedron\'s twenty triangles, the tetrahedron self-dual, three pentagons closing each vertex by the angle defect 3·108° < 360° < 4·108°, and the per-dimension census [5,6,3,3,3] for dimensions 3..7 — five in 3D, six in 4D, exactly three in every dimension ≥5 including the 7th (simplex, hypercube, orthoplex). Integrity, not truth: each theorem seals its exact decidable arithmetic'],
+  ['VectorEquilibrium.lean', 'The vector equilibrium — radius equals edge', 'the cuboctahedron placed in the coordinates where its defining property IS arithmetic: twelve vertices at the permutations of (±1,±1,0), so the radial and the circumferential squared lengths are both exactly 2 and Fuller\'s equilibrium (Synergetics, 1975) decides in the kernel with no irrational taken. Four neighbours at each vertex, 24 edges, 14 faces (8 triangles + 6 squares), and V − E + F = 2 — the same two coins the dodecahedron folds to, though this solid is Archimedean and is not one of the five in Solids.lean. Beside it the reflection dz(x) = 10 − x: exactly two fixed points (0 and 5), an involution across all ten digits, and the orbit sets closed under it — the walk alternates dz with doubling, so it already carries its own mirror and reflecting a finished orbit adds no digit. The complete graph on the figure\'s thirteen centres draws C(13,2) = 78 lines. SCOPE: the arithmetic is what seals. The orbit sets are this repository\'s own walk output rather than an observation of the world, and no meaning of the figure is decoded here.'],
   ['Neuro.lean', 'The algebra of the neuron', 'neuroscience, demarcated — all-or-none firing as a threshold step, sub-threshold silence, supra-threshold spike, monotone firing, spatial summation (two sub-threshold inputs sum to fire), the excitatory−inhibitory net drive, the −70→+40 mV action potential (rest < threshold < peak), Hebbian coincidence (Δw = pre·post), and the refractory cap — the textbook model as decidable algebra, not clinical and not about any individual'],
   ['Propulsion.lean', 'Propulsion — Newtonian & bounded', 'thrust is conserved momentum (Newton\'s third law), it REQUIRES reaction mass (zero exhaust → zero thrust: no reactionless/free drive), thrust = ṁ·vₑ, the Δv budget adds across stages, and acceleration a = F/m is finite — no infinite g. The algebra of rocketry, demarcated: not a novel drive, not FTL, not infinite g'],
   ['Navigation.lean', 'Navigation — bounded geometry', 'straight-line distance is Pythagorean (3-4-5), the compass rose is ℤ/8 (eight 45° headings), the reciprocal bearing is +4 (an involution), a quarter turn is +2 (order 4), and dead reckoning is the vector sum of the legs — classical navigation as decidable algebra, not GPS-grade guidance and not a positioning claim about anyone'],
@@ -99,9 +100,38 @@ const inlineSkill: Record<string, string> = {}
 for (const f of readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')))
   for (const mm of readFileSync(join(LEAN_DIR, f), 'utf8').matchAll(/--\s*@skill:\s*([\w-]+)\s*\n\s*theorem\s+(\w+)/g)) inlineSkill[mm[2]] = mm[1]
 
-const parseLean = (file: string): Omit<LeanTheorem, 'file' | 'principle'>[] => [...readFileSync(join(LEAN_DIR, file), 'utf8')
-  .matchAll(/theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:--|theorem|def|namespace|end|$))/g)]
-  .map((m) => ({ key: m[1], statement: m[2].trim().replace(/\s+/g, ' '), tactic: m[3].trim().replace(/\s+/g, ' '), name: manifest[m[1]]?.name || m[2].trim().replace(/\s+/g, ' '), skill: manifest[m[1]]?.skill ?? inlineSkill[m[1]] }))
+// THE PROSE COMES OUT OF THE LEAN. `emit` now writes each fact's sentence as a real `/-- … -/` doc comment attached
+// to its theorem, so the name is read back from the .lean file itself rather than from the JSON sidecar beside it.
+// The manifest stays as the FALLBACK — the hand-written wings (Uuidna, Vortex, OneLeap) have no generator and so no
+// doc comment, and a wing regenerated by an older emitter still parses — but for every generated theorem the .lean
+// is now the single source of both the statement and what it means. Two things that were only ever true together
+// are now stored together, and the file's content-address covers both.
+//
+// The lookahead had to learn `/--`: it terminated a tactic capture at a newline followed by `--`, `theorem`, `def`,
+// `namespace`, `end` or EOF, and a doc comment opens with none of those. Left alone it would have swallowed the
+// next theorem's doc comment into the previous theorem's tactic — a silent corruption of every wing, caught here
+// because `/--` is checked BEFORE `--` (a doc comment starts with a slash, and the alternation is ordered).
+// The LAST doc comment before the theorem, never a span across several. The capture may not contain `-/`, so a
+// match cannot stretch from one comment's opening to a later comment's close — without that guard the lazy form
+// backtracks across the whole file and every theorem inherits the first theorem's prose.
+const DOC = /\/--((?:(?!-\/)[\s\S])*?)-\/\s*$/
+const parseLean = (file: string): Omit<LeanTheorem, 'file' | 'principle'>[] => {
+  const text = readFileSync(join(LEAN_DIR, file), 'utf8')
+  return [...text.matchAll(/theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:\/--|--|theorem|def|namespace|end|$))/g)]
+    .map((m) => {
+      const statement = m[2].trim().replace(/\s+/g, ' ')
+      // the doc comment immediately preceding this theorem, if the emitter wrote one
+      const doc = DOC.exec(text.slice(0, m.index))
+      const inline = doc ? doc[1].trim().replace(/\s+/g, ' ').replace(/-\\\//g, '-/') : ''
+      return {
+        key: m[1],
+        statement,
+        tactic: m[3].trim().replace(/\s+/g, ' '),
+        name: inline || manifest[m[1]]?.name || statement,
+        skill: manifest[m[1]]?.skill ?? inlineSkill[m[1]],
+      }
+    })
+}
 
 const allFiles = existsSync(LEAN_DIR) ? readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')).sort() : []
 const ordered = [...PRINCIPLE.map((p) => p[0]).filter((f) => allFiles.includes(f)), ...allFiles.filter((f) => !PRINCIPLE.some((p) => p[0] === f))]

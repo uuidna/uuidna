@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into its analytics output — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // gcp-analytics — Analyze uuidna on Google Cloud (Cloud CDN, Cloud Run, BigQuery)
 
 interface GCPMetrics {

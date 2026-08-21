@@ -7,6 +7,7 @@
 // so the tree keeps only meaningful single-word folders. Run with --apply to execute the move + rewrite every import
 // (depth-aware); default is the dry-run PLAN so the guard can check it before a single file moves. Integrity, not truth.
 import { readdirSync, readFileSync, statSync } from 'node:fs'
+import { seedOf } from '../handle.js'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { toUuid, digitalRoot } from '../index.js'
@@ -29,7 +30,7 @@ const LIGHT_BYTES = 1500 // the "lightest" threshold — modules below this comp
 const plan = modules.map((name) => {
   const src = readFileSync(join(SRC, name + '.ts'), 'utf8')
   const bytes = Buffer.byteLength(src)                       // TIME weight — the work it carries
-  const gravity = digitalRoot(parseInt(toUuid(src).replace(/-/g, '').slice(0, 8), 16)) // GRAVITY weight — ℤ/9 digital root
+  const gravity = digitalRoot(seedOf(toUuid(src))) // GRAVITY weight — ℤ/9 digital root
   const word = wordOf(name)
   const compress = bytes < LIGHT_BYTES                       // the lightest get compressed
   return { name, word, bytes, gravity, compress, folder: compress ? 'misc' : word }

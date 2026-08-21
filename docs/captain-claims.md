@@ -3,8 +3,8 @@
 **Generated:** 2026-08-20
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1336/1336 theorems — every one, by construction
-**Claim receipt:** `9ec97f4c-aad4-8bab-811f-e87944270549`
+**Total claimed:** 1355/1355 theorems — every one, by construction
+**Claim receipt:** `71792b57-9f05-8bb2-91bd-0240f1edca6c`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -124,12 +124,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The physics infinities, made finite
 
-- **Theorems:** 9
+- **Theorems:** 13
 - **Sample lineAddress:** `de8d0756-e23f-894c-9de6-05b06b0791da`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[zeno_finite_sum](/theorem/zeno_finite_sum) · [uv_partition_closed](/theorem/uv_partition_closed) · [asymptotic_freedom](/theorem/asymptotic_freedom) · [renormalization_residue](/theorem/renormalization_residue) · [casimir_triangular](/theorem/casimir_triangular) · [derivative_finite_rate](/theorem/derivative_finite_rate) · [dirac_unit_mass](/theorem/dirac_unit_mass) · [horizon_curvature_finite](/theorem/horizon_curvature_finite) · [newton_singularity_finite](/theorem/newton_singularity_finite)
+[zeno_finite_sum](/theorem/zeno_finite_sum) · [uv_partition_closed](/theorem/uv_partition_closed) · [asymptotic_freedom](/theorem/asymptotic_freedom) · [renormalization_residue](/theorem/renormalization_residue) · [casimir_triangular](/theorem/casimir_triangular) · [derivative_finite_rate](/theorem/derivative_finite_rate) · [dirac_unit_mass](/theorem/dirac_unit_mass) · [horizon_curvature_finite](/theorem/horizon_curvature_finite) · [newton_singularity_finite](/theorem/newton_singularity_finite) · [reach_all_decide](/theorem/reach_all_decide) · [reach_quantifiers_bounded](/theorem/reach_quantifiers_bounded) · [reach_window_finite](/theorem/reach_window_finite) · [window_not_universal](/theorem/window_not_universal)
 
 ### The cipher & the strand
 
@@ -142,12 +142,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The detectors, proven
 
-- **Theorems:** 11
+- **Theorems:** 17
 - **Sample lineAddress:** `dbb130ad-3a9a-83ab-8dd4-9de755d6f4ca`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[wall_steady_state](/theorem/wall_steady_state) · [flag_truth_table](/theorem/flag_truth_table) · [flag_requires_hollow](/theorem/flag_requires_hollow) · [demarcation_clears](/theorem/demarcation_clears) · [backing_clears](/theorem/backing_clears) · [exactly_one_flag](/theorem/exactly_one_flag) · [flag_matches_spec](/theorem/flag_matches_spec) · [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) · [witnesses_locate_faults](/theorem/witnesses_locate_faults) · [handle_splits_four](/theorem/handle_splits_four) · [drift_is_named_or_caught](/theorem/drift_is_named_or_caught)
+[wall_steady_state](/theorem/wall_steady_state) · [flag_truth_table](/theorem/flag_truth_table) · [flag_requires_hollow](/theorem/flag_requires_hollow) · [demarcation_clears](/theorem/demarcation_clears) · [backing_clears](/theorem/backing_clears) · [exactly_one_flag](/theorem/exactly_one_flag) · [flag_matches_spec](/theorem/flag_matches_spec) · [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) · [witnesses_locate_faults](/theorem/witnesses_locate_faults) · [handle_splits_four](/theorem/handle_splits_four) · [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) · [prose_coverage_total](/theorem/prose_coverage_total) · [prose_round_trips](/theorem/prose_round_trips) · [prose_terminator_escaped](/theorem/prose_terminator_escaped) · [prose_beats_restatement](/theorem/prose_beats_restatement) · [prose_folds_receipt](/theorem/prose_folds_receipt) · [prose_audit_total](/theorem/prose_audit_total)
 
 ### The audit game
 
@@ -223,12 +223,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The algebra of the neuron
 
-- **Theorems:** 9
-- **Sample lineAddress:** `98930140-7409-834c-9e63-4961e06bdd28`
+- **Theorems:** 18
+- **Sample lineAddress:** `4a73d392-11bd-8696-8c4f-62e24c4fa331`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[all_or_none](/theorem/all_or_none) · [subthreshold_silent](/theorem/subthreshold_silent) · [suprathreshold_fires](/theorem/suprathreshold_fires) · [firing_monotone](/theorem/firing_monotone) · [spatial_summation](/theorem/spatial_summation) · [excitatory_inhibitory_net](/theorem/excitatory_inhibitory_net) · [action_potential_swing](/theorem/action_potential_swing) · [hebbian_coincidence](/theorem/hebbian_coincidence) · [refractory_caps_spike](/theorem/refractory_caps_spike)
+[subthreshold_silent](/theorem/subthreshold_silent) · [suprathreshold_fires](/theorem/suprathreshold_fires) · [spatial_summation](/theorem/spatial_summation) · [action_potential_swing](/theorem/action_potential_swing) · [all_or_none_amplitude](/theorem/all_or_none_amplitude) · [firing_rate_saturates](/theorem/firing_rate_saturates) · [hebbian_coincidence_table](/theorem/hebbian_coincidence_table) · [hebbian_ltd_is_signed](/theorem/hebbian_ltd_is_signed) · [refractory_absolute_and_relative](/theorem/refractory_absolute_and_relative) · [inhibition_vetoes_spike](/theorem/inhibition_vetoes_spike) · [temporal_summation_decays](/theorem/temporal_summation_decays) · [rate_codes_intensity](/theorem/rate_codes_intensity) · [refractory_bounds_rate](/theorem/refractory_bounds_rate) · [threshold_accommodates_ramp](/theorem/threshold_accommodates_ramp) · [depolarisation_blocks_firing](/theorem/depolarisation_blocks_firing) · [integrate_and_fire_resets](/theorem/integrate_and_fire_resets) · [spike_amplitude_attenuates](/theorem/spike_amplitude_attenuates) · [threshold_is_quasi_threshold](/theorem/threshold_is_quasi_threshold)
 
 ### Propulsion — Newtonian & bounded
 
@@ -672,7 +672,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1252 (1336 entries, 84 re-namings — a theorem is its Lean, not its name) |
+| sealed propositions | 1271 (1355 entries, 84 re-namings — a theorem is its Lean, not its name) |
 | prose paragraphs tried | 3885 — 1802 usable, 2083 held open, 0 drained |
 
 **The claim is of ROOM, never of truth** — the same scope the superposition claim carries. Every item in the
@@ -690,7 +690,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states
 (the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1336 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1355 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM, never of truth** — a claimed superposition is claimed capacity; its collapse still

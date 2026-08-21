@@ -2,8 +2,8 @@
   "generated": "2026-08-20",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1336,
-  "total_theorems": 1336,
+  "total_claimed": 1355,
+  "total_theorems": 1355,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3798,6 +3798,30 @@
       "principle": "The physics infinities, made finite"
     },
     {
+      "key": "reach_all_decide",
+      "lineAddress": "791f161a-7236-8480-9194-4484cfc44ccb",
+      "address": "5a54e508-201c-877f-966b-effdabd8bf53",
+      "principle": "The physics infinities, made finite"
+    },
+    {
+      "key": "reach_quantifiers_bounded",
+      "lineAddress": "74b6faa7-2b98-8373-87ed-b783e473373e",
+      "address": "9b2f54cb-1128-8cc5-a8b1-812d6ed510f9",
+      "principle": "The physics infinities, made finite"
+    },
+    {
+      "key": "reach_window_finite",
+      "lineAddress": "f154a71d-be07-8c75-acbc-544f0b1e9996",
+      "address": "e0d166c9-cf09-8d02-a135-e68f5182bd05",
+      "principle": "The physics infinities, made finite"
+    },
+    {
+      "key": "window_not_universal",
+      "lineAddress": "4e35e235-c059-88e9-9f90-62005a375db6",
+      "address": "4646eab2-455b-80ff-84af-5c2fd78a1370",
+      "principle": "The physics infinities, made finite"
+    },
+    {
       "key": "dna_complement_involution",
       "lineAddress": "d67860c4-e053-8992-a39c-53ba1ed61970",
       "address": "bba07b66-3d21-876c-b315-d1bae6369a02",
@@ -4023,6 +4047,42 @@
       "key": "drift_is_named_or_caught",
       "lineAddress": "74d4b39a-1a40-88a1-91a2-d5176d6b5bc3",
       "address": "c3a03488-6006-8cf9-bddf-7342e4630075",
+      "principle": "The detectors, proven"
+    },
+    {
+      "key": "prose_coverage_total",
+      "lineAddress": "d70dda31-1e08-81e2-baa7-bfc709e53342",
+      "address": "52e95b16-d586-82ae-b2b9-ec51a690b982",
+      "principle": "The detectors, proven"
+    },
+    {
+      "key": "prose_round_trips",
+      "lineAddress": "280853c1-4d3b-8fbc-b9ea-ae9f3d2b1e40",
+      "address": "b3f5a7a5-7222-8322-8528-086d308bdddb",
+      "principle": "The detectors, proven"
+    },
+    {
+      "key": "prose_terminator_escaped",
+      "lineAddress": "8b9e3ef7-d212-892a-904f-8efba941c4f0",
+      "address": "d996260d-4a37-8d0c-80e2-5a64c0dc6609",
+      "principle": "The detectors, proven"
+    },
+    {
+      "key": "prose_beats_restatement",
+      "lineAddress": "8a1d829c-7c62-86f1-98b9-6d365c9faee3",
+      "address": "d87e74f5-6371-8510-8943-7623fd55b84c",
+      "principle": "The detectors, proven"
+    },
+    {
+      "key": "prose_folds_receipt",
+      "lineAddress": "800e6765-6f39-8d7c-9699-7896e6aae4fb",
+      "address": "1fee95d4-55c0-84a1-807e-e47f2d03a895",
+      "principle": "The detectors, proven"
+    },
+    {
+      "key": "prose_audit_total",
+      "lineAddress": "472dbb86-51f9-848a-8736-27bc7b3fa2a8",
+      "address": "eb07bc7b-9c87-85c7-868f-6dddb683b453",
       "principle": "The detectors, proven"
     },
     {
@@ -4590,12 +4650,6 @@
       "principle": "The Platonic solids in every dimension"
     },
     {
-      "key": "all_or_none",
-      "lineAddress": "98930140-7409-834c-9e63-4961e06bdd28",
-      "address": "b1c6a9b5-1063-8846-8e82-6e62884f7d1e",
-      "principle": "The algebra of the neuron"
-    },
-    {
       "key": "subthreshold_silent",
       "lineAddress": "4a73d392-11bd-8696-8c4f-62e24c4fa331",
       "address": "a88985bc-6e22-83a3-bc43-279ec7412fa2",
@@ -4608,21 +4662,9 @@
       "principle": "The algebra of the neuron"
     },
     {
-      "key": "firing_monotone",
-      "lineAddress": "97fbe018-6d08-80d3-bbe0-7056305d3d88",
-      "address": "02a3a7b0-f61c-83d0-9079-800ef166a461",
-      "principle": "The algebra of the neuron"
-    },
-    {
       "key": "spatial_summation",
       "lineAddress": "6cd40c27-945a-8614-b9a8-cbad631c1ce6",
       "address": "38f9ed06-e127-875e-b190-bc67ecd6ad93",
-      "principle": "The algebra of the neuron"
-    },
-    {
-      "key": "excitatory_inhibitory_net",
-      "lineAddress": "35aa1fb3-eb56-896e-93f1-1f72ae1238cb",
-      "address": "806bd1d7-ba15-8ba5-8c90-aa0da3f72659",
       "principle": "The algebra of the neuron"
     },
     {
@@ -4632,15 +4674,87 @@
       "principle": "The algebra of the neuron"
     },
     {
-      "key": "hebbian_coincidence",
-      "lineAddress": "4efecac8-2646-8221-b843-ab73b1cbab72",
-      "address": "7e051e64-bd90-8057-8af6-d11a81bc4dbb",
+      "key": "all_or_none_amplitude",
+      "lineAddress": "06bfef1d-f6cc-8c52-8bb9-ca99ad588141",
+      "address": "f7531865-e9d1-8987-b563-0b7dcc454cda",
       "principle": "The algebra of the neuron"
     },
     {
-      "key": "refractory_caps_spike",
-      "lineAddress": "28ad4c77-f696-819f-a8f8-86ee76bd4ee0",
-      "address": "259e436a-0813-88d8-ab34-38f69d224334",
+      "key": "firing_rate_saturates",
+      "lineAddress": "1135971f-1206-8349-affa-67d3768d853c",
+      "address": "16e38990-e2ce-89a6-8185-cd74f7aa233a",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "hebbian_coincidence_table",
+      "lineAddress": "9dd59512-4b45-852c-aaf2-6fe2158e5316",
+      "address": "a34505f1-4719-890f-ad63-e4627563e386",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "hebbian_ltd_is_signed",
+      "lineAddress": "a5bfb82a-27aa-8c19-a227-209d88f0916f",
+      "address": "7c837cf2-2f35-868a-84d9-03b6fc01f216",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "refractory_absolute_and_relative",
+      "lineAddress": "7ddcd63b-8d53-87c8-8f7f-ad15bb6c5dc3",
+      "address": "a6893ddd-2c73-8c07-a868-8628697009db",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "inhibition_vetoes_spike",
+      "lineAddress": "472a9844-260f-8fa3-a77e-2893313c77f4",
+      "address": "a4c3c92e-8f4b-8423-b4f5-4be50edc242f",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "temporal_summation_decays",
+      "lineAddress": "50cd46db-ce4a-8364-9562-56e0f0313ed7",
+      "address": "7cad79ba-bcd0-88e1-a13a-8ba67ff55e7b",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "rate_codes_intensity",
+      "lineAddress": "a3f96eb9-72fd-84a9-91d0-462171b253a4",
+      "address": "58b2949e-5fb4-8ef7-8cc4-fbfc38e959ac",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "refractory_bounds_rate",
+      "lineAddress": "e98f107d-1992-88da-9f02-d70c7b695d4e",
+      "address": "7513741b-7914-81f8-befb-abf2ece664b4",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "threshold_accommodates_ramp",
+      "lineAddress": "6635ecbf-1da6-87e7-8030-62d2f50504e8",
+      "address": "d5548dfc-35ec-8c0d-9f25-1aecf661fbf2",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "depolarisation_blocks_firing",
+      "lineAddress": "0f6a0369-da3f-8ddd-a506-7420bd96f0c8",
+      "address": "b332c0c9-823c-89d4-bf54-626825e43dfc",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "integrate_and_fire_resets",
+      "lineAddress": "2b1067b3-4fd2-80c9-9be1-b7a8eb368ad5",
+      "address": "98ebd216-3c9b-859c-ab42-982ccfd53658",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "spike_amplitude_attenuates",
+      "lineAddress": "b6ba4ceb-6e75-8315-938f-ac496e9ab0c7",
+      "address": "827da1fe-a084-81cd-89b3-c1b2c5fe5fb1",
+      "principle": "The algebra of the neuron"
+    },
+    {
+      "key": "threshold_is_quasi_threshold",
+      "lineAddress": "d6cbd98f-988c-814c-8518-fbace6b373b5",
+      "address": "0335433e-221b-8d57-92bb-0628969873ab",
       "principle": "The algebra of the neuron"
     },
     {
@@ -8022,7 +8136,7 @@
       "principle": "The uuid mix space"
     }
   ],
-  "claim_receipt": "9ec97f4c-aad4-8bab-811f-e87944270549",
+  "claim_receipt": "71792b57-9f05-8bb2-91bd-0240f1edca6c",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

@@ -23,7 +23,9 @@ import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
-import { MCP_CATALOG } from '../mcp.js'
+import { MCP_CATALOG, callTool } from '../mcp.js'
+import { handleMcpRpc } from '../mcp-http.js'
+import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
 import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
 
 // ── record: the three audits (each learned from a REAL manually-found gap, folded so it can never recur unwatched) ──
@@ -453,23 +455,11 @@ export function linesGaps(): Gap[] {
   return gaps
 }
 
-export function wordsGaps(): Gap[] {
-  const FILLER = new Set(['is', 'are', 'was', 'be', 'the', 'a', 'an', 'of', 'by', 'to', 'in', 'on', 'for', 'with', 'its', 'it', 'that', 'then', 'into', 'from', 'as', 'at', 'and', 'or', 'only', 'ever'])
-  const content = (k: string): string[] => k.replace(/^uuidna_/, '').split('_').filter((x) => x && !FILLER.has(x))
-  let backlog = new Set<string>()
-  try { backlog = new Set((JSON.parse(rd('lean/key-entropy.json')) as { keys: string[] }).keys) } catch { /* no baseline yet: every long key is new */ }
-  const gaps: Gap[] = []
-  for (const t of theorems()) {
-    const c = content(t.key)
-    if (c.length <= 3 || backlog.has(t.key)) continue
-    gaps.push({
-      what: `${t.file}: theorem ${t.key} carries ${c.length} content words (${c.join(' ')}) — the limit is 3`,
-      fix: `rename it to the THREE words that carry the fact and regenerate its wing; the rest is scaffolding (forged_theorem_costs_2_power_7_bits → forgery_costs_128). If it genuinely predates this law, it belongs in lean/key-entropy.json — but that list may only shrink`,
-    })
-  }
-  return gaps
-}
-
+// ── words: REMOVED. It capped a theorem NAME at a word count, and a name is prose about a proof, never the proof —
+// the kernel verifies the same statement whatever it is called. It caught no Lean violation, so it was custom logic
+// over spelling, and tuning its limit (3 -> the derived 6) was elaborating something that should not exist. The
+// naming law survives where it belongs: name the OPERATION, as Glagolitic does. That is a law for a person writing a
+// wing, not a gate on the kernel's output. lean/key-entropy.json and its test go with it.
 export function vacuousGaps(): Gap[] {
   // strip outer parens ONLY when the first '(' closes at the last ')' — a greedy strip mangles "(A) ∨ (B)"
   // into "A) ∨ (B" and makes the detector miss what it exists to catch (measured: 1 found instead of 12)
@@ -671,8 +661,13 @@ export function stateGaps(): Gap[] {
   // shape but is deliberately non-blocking, so it is not part of what state.ts's fold owes.
   const findersBlock = guardSrc.slice(guardSrc.indexOf('const FINDERS'), guardSrc.indexOf('const ADVISORY'))
   const guardNames = new Set([...findersBlock.matchAll(/\{ name: '([a-z]+)', run:/g)].map((m) => m[1]).filter((n) => !STATE_EXEMPT.has(n)))
+  // SYMMETRY WITH THE GUARD SIDE ABOVE. guard.ts has two tiers and only its BLOCKING one is read; state.ts now has
+  // two tiers for the same reason, so only ITS blocking one is read. Its `advisory` array uses the identical
+  // ['name', xGaps(…)] shape, and without this slice every deliberately-demoted finder reads as a fold naming a
+  // gate that does not gate — the finder would fire on the very declaration that makes the demotion honest.
   // `(await coherentGaps()).length` — the invocation may be wrapped in (await …), not just called bare
-  const stateNames = new Set([...stateSrc.matchAll(/\['([a-z]+)',\s*\(?(?:await )?\w+Gaps\(/g)].map((m) => m[1]))
+  const stateFindersBlock = stateSrc.slice(stateSrc.indexOf('const finders'))
+  const stateNames = new Set([...stateFindersBlock.matchAll(/\['([a-z]+)',\s*\(?(?:await )?\w+Gaps\(/g)].map((m) => m[1]))
   for (const n of guardNames) if (!stateNames.has(n)) gaps.push({ what: `guard.ts blocks on '${n}' but state.ts's finders array does not report it — the fold is incomplete`, fix: `add ['${n}', ${n}Gaps().length] (or the shape its guard.ts entry uses — .gaps.length, or await if async) to the finders array in src/scripts/state.ts` })
   for (const n of stateNames) if (!guardNames.has(n) && !STATE_EXEMPT.has(n)) gaps.push({ what: `state.ts reports '${n}' but guard.ts does not block on it — the fold names a finder that is not actually gating`, fix: `either wire '${n}' into guard.ts's blocking FINDERS, or remove it from state.ts's finders array` })
   return gaps
@@ -778,6 +773,40 @@ export function drainGaps(): Gap[] {
     const line = p.endsWith('/') || !p.includes('.') ? p + '/**' : p
     if (!attrs.includes(`${line} merge=derived`))
       gaps.push({ what: `${p} is a drain path but .gitattributes does not mark it unmergeable`, fix: 'run `npm run gen:gitattributes` — .gitattributes is generated from DRAIN_PATHS, never hand-edited; a derived file has no merge, only a recomputation' })
+  }
+  return gaps
+}
+
+// ── precede: THE SOURCE IS STAGED BEFORE WHAT IT DERIVES. The drain stages DRAIN_PATHS and nothing else, by
+// design — a sibling session's in-flight source edit must never be swept into a machine commit. The cost of that
+// design is this inversion: with the derived layer staged and its Lean source still unstaged, a commit publishes
+// generated.ts, CHANGELOG, README and .zenodo.json describing wings origin cannot see. The receipts then seal a
+// ledger state nobody can recompute — integrity claimed over source that was never published, which is the one
+// failure this repo cannot absorb, because every downstream proof cites those receipts.
+// CI checks out clean and stages nothing, so this finder returns green there by construction. It exists to hold the
+// LOCAL act — which is precisely where the drain stages, and where no other gate was looking. ──
+export function precedeGaps(cwd: string = ROOT): Gap[] {
+  const gaps: Gap[] = []
+  const git = (cmd: string): string[] => {
+    try { return execSync(cmd, { cwd, encoding: 'utf8' }).split('\n').filter(Boolean) } catch { return [] }
+  }
+  const staged = git('git diff --cached --name-only')
+  if (!staged.length) return gaps                        // nothing armed — nothing can invert
+  const isDerived = (f: string): boolean => DRAIN_PATHS.some((p) => p.includes('*')
+    ? new RegExp('^' + p.replace(/[.]/g, '\\.').replace(/[*]/g, '[^/]*') + '$').test(f)
+    : f === p || f.startsWith(p + '/'))
+  const stagedDerived = staged.filter(isDerived)
+  if (!stagedDerived.length) return gaps
+  // The whole derived layer is a function of two things: the Lean corpus and the generators that read it. Either one
+  // dirty-but-unstaged makes the staged output unreproducible from what a commit would actually publish.
+  const unstagedSource = git('git diff --name-only')     // worktree vs INDEX: modified and NOT staged
+    .filter((f) => /^lean\/[^/]+\.lean$/.test(f) || /^src\/scripts\/lean-.+\.ts$/.test(f))
+  if (unstagedSource.length) {
+    const show = (xs: string[]): string => xs.slice(0, 3).join(', ') + (xs.length > 3 ? `, … (${xs.length} total)` : '')
+    gaps.push({
+      what: `${stagedDerived.length} derived file(s) are STAGED (${show(stagedDerived)}) while ${unstagedSource.length} source file(s) they are computed from are modified and NOT staged (${show(unstagedSource)})`,
+      fix: `stage the source in the SAME commit as its derived output — \`git add ${unstagedSource.slice(0, 2).join(' ')}${unstagedSource.length > 2 ? ' …' : ''}\` — or disarm the index with \`git restore --staged .\` and commit deliberately. Derived committed without its source seals a ledger origin cannot recompute.`,
+    })
   }
   return gaps
 }
@@ -1042,8 +1071,26 @@ export function pagesGaps(): Gap[] {
     'guides.md': 'a link index — it navigates, it does not assert',
     'changelog.md': 'generated: sync-changelog stamps it from the ledger',
     'analytics.md': 'generated: gen-analytics writes it (declared in RECONCILE_OUTPUTS)',
+    'articles/index.md': 'a link index over the computed articles — the desk regenerates it with the articles themselves, and each ARTICLE carries the citations; the index only points',
   }
-  for (const f of readdirSync(docs).filter((x) => x.endsWith('.md')).sort()) {
+  // THE GATE WALKS THE WHOLE TREE, which it did not before. readdirSync(docs) is not recursive, so this check
+  // scanned the 34 top-level pages and never looked at the 148 beneath them — 81% of the docs tree, including
+  // every article, was exempt by accident rather than by declaration. The articles happen to pass (each cites the
+  // wing it was written from), and that is exactly why the hole survived: nothing was wrong, so nothing complained.
+  // A check that silently covers a fifth of what it names is the same failure shape as a gate that cannot fail.
+  const pages: string[] = []
+  const walk = (dir: string, prefix: string): void => {
+    for (const e of readdirSync(dir, { withFileTypes: true }).sort((a, b) => (a.name < b.name ? -1 : 1))) {
+      if (e.isDirectory()) { if (!e.name.startsWith('.') && e.name !== 'node_modules') walk(join(dir, e.name), prefix + e.name + '/'); continue }
+      if (e.name.endsWith('.md')) pages.push(prefix + e.name)
+    }
+  }
+  walk(docs, '')
+  for (const f of pages) {
+    // VitePress DYNAMIC ROUTES are templates, not pages: `[key].md` renders once per theorem and `[slug].md` once
+    // per publication, each from its paired .paths.ts loader. They assert nothing on their own — what they render
+    // is the ledger — so they are skipped by SHAPE rather than by name, and a new dynamic route needs no edit here.
+    if (/\[[^\]]+\]\.md$/.test(f)) continue
     const s = readFileSync(join(docs, f), 'utf8')
     const cites = [...s.matchAll(/\/theorem\/([a-z0-9_]+)|theorem\s+([a-z][a-z0-9_]{4,})/gi)]
       .map((m) => (m[1] || m[2] || '').toLowerCase()).filter((k) => keys.has(k))
@@ -1097,6 +1144,75 @@ export function commentsGaps(): Gap[] {
           fix: `drop the number and name the source instead ("the key count", "theoremCountByFile()"), or mark the sentence as HISTORY if it describes something that already happened (past tense, or a named record — those keep their numbers and must not be edited). A count that is correct today is wrong on the next landing, so updating it only schedules the next drift.`,
         })
     }
+  }
+  return gaps
+}
+
+// ── skills: A THEOREM IS A HOOK AND HOOKED AT ONCE — reachable from the live API through the skill it carries.
+// Measured the day this landed: most of the skills the sealed ledger carries matched NO tool name and NO category
+// on the served catalogue — sequence, involution, z9-ring, z7-rosette, clay-reflection, foundational, neuro and
+// science-pairs among them. Those theorems were sealed, axiom-free, witnessed by their wings, and served by nothing.
+//
+// THE LAW: every skill a theorem carries must be OPENABLE through the live API, on BOTH surfaces. It is measured by
+// CALLING each dispatch, never by reading a catalogue — a catalogue can advertise a tool whose handler answers for
+// something else, and a source-level check would pass that. The skill set is carried by the WINGS, so it moves: this
+// is why the surface is one computed dimension and not one authored tool per skill. Fifty authored tools would be
+// fifty places to forget, which is how every hand-kept list in this repository has rotted.
+//
+// BOTH SURFACES, because they are maintained separately and have drifted before (the edge advertised a version
+// eleven releases stale). Registering the axis in src/mcp.ts alone would leave uuidna.com/mcp without it, and that
+// class of gap is exactly what lean/mcp-surface-divergence.json records.
+export function skillsGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const openStdio = (skill: string): unknown => callTool('uuidna_skill', { skill })
+  const edgeCall = (name: string, args: Record<string, unknown>): unknown => {
+    const r = handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name, arguments: args } }) as
+      { result?: { content?: { text: string }[]; isError?: boolean } } | null
+    const text = r?.result?.content?.[0]?.text
+    if (r?.result?.isError || text === undefined) throw new Error(String(text ?? 'the edge returned no content'))
+    return JSON.parse(text)
+  }
+  const openEdge = (skill: string): unknown => edgeCall('uuidna_skill', { skill })
+
+  // 1) THE INTERSECTION, on each surface: every skill the ledger carries, opened through that surface's own dispatch
+  for (const [surface, open] of [['stdio (src/mcp.ts)', openStdio], ['edge (src/mcp-http.ts)', openEdge]] as const)
+    for (const o of orphanedSkills(open))
+      gaps.push({
+        what: `${surface}: the skill "${o.skill}" carries ${o.theorems} sealed theorem(s) and ${o.why} — proven and unreachable`,
+        fix: `uuidna_skill is COMPUTED from the ledger (src/skills.ts, skillSurface), so this means the surface stopped serving the computed answer. Restore the computed dispatch rather than adding a case for "${o.skill}" — one tool per skill is the shape this finder exists to prevent.`,
+      })
+
+  // 2) DISCOVERABILITY: a served skill nobody can enumerate is reachable only by guessing its name
+  const names = skillNames()
+  for (const [surface, list] of [['stdio (src/mcp.ts)', () => callTool('uuidna_skills', {})], ['edge (src/mcp-http.ts)', () => edgeCall('uuidna_skills', {})]] as const) {
+    let rows: { skill?: string; theorems?: number }[]
+    try { rows = list() as { skill?: string; theorems?: number }[] } catch (e) {
+      gaps.push({ what: `${surface}: uuidna_skills refused a zero-argument call — ${String((e as Error)?.message ?? e).slice(0, 160)}`, fix: 'register uuidna_skills with an empty schema and run skillIndex() (src/skills.ts)' })
+      continue
+    }
+    if (!Array.isArray(rows)) { gaps.push({ what: `${surface}: uuidna_skills did not return a list of skills`, fix: 'return skillIndex() (src/skills.ts) — the computed index, one row per skill' }); continue }
+    const listed = new Set(rows.map((r) => String(r.skill)))
+    for (const n of names)
+      if (!listed.has(n))
+        gaps.push({ what: `${surface}: uuidna_skills does not list "${n}", so it can only be opened by guessing the name`, fix: 'uuidna_skills must return skillIndex() (src/skills.ts), which is computed from the ledger and cannot omit a skill' })
+    for (const r of rows)
+      if (typeof r.theorems !== 'number')
+        gaps.push({ what: `${surface}: uuidna_skills lists "${String(r.skill)}" with no theorem count`, fix: 'each row carries {skill,theorems,fold,handle,esco,open} — return skillIndex() unaltered' })
+  }
+
+  // 3) ONE CONTRACT, TWO DOORS: the axis must be registered on both surfaces, taking the same required arguments —
+  //    an agent that learns a tool against uuidna.com and then runs it over stdio must not get an error.
+  const edgeSchemas = new Map((handleMcpRpc({ jsonrpc: '2.0', id: 2, method: 'tools/list' }) as { result: { tools: { name: string; inputSchema?: { required?: string[] } }[] } }).result.tools
+    .map((t) => [t.name, [...(t.inputSchema?.required ?? [])].sort().join(',')]))
+  const localSchemas = new Map(MCP_CATALOG.map((t) => [t.name, [...(t.inputSchema?.required ?? [])].sort().join(',')]))
+  for (const tool of SKILL_TOOLS) {
+    if (!localSchemas.has(tool)) gaps.push({ what: `${tool} is not in the stdio catalogue`, fix: `register ${tool} in src/mcp.ts's TOOLS, running the computed surface in src/skills.ts` })
+    if (!edgeSchemas.has(tool)) gaps.push({ what: `${tool} is not served by the hosted edge — uuidna.com/mcp cannot open the capability axis`, fix: `register ${tool} in src/mcp-http.ts's TOOLS (the surface is pure and reaches no network, so it is Workers-safe)` })
+    if (localSchemas.has(tool) && edgeSchemas.has(tool) && localSchemas.get(tool) !== edgeSchemas.get(tool))
+      gaps.push({
+        what: `${tool} requires [${localSchemas.get(tool)}] over stdio and [${edgeSchemas.get(tool)}] at the edge`,
+        fix: 'make the two schemas identical — an agent that learned this tool on one surface would get an error on the other (the divergence class lean/mcp-surface-divergence.json records)',
+      })
   }
   return gaps
 }
@@ -1438,6 +1554,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'state') report('one-receipt state', stateGaps(), 'the folded question has one copy — no workflow re-implements what npm run state already answers.')
   else if (cmd === 'folders') report('one-receipt folders', foldersGaps(), 'every module folder is one word holding index faces only — one concept, one name.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
+  else if (cmd === 'precede') report('one-receipt precede', precedeGaps(), 'no derived file is staged ahead of the source it derives from — every commit can be recomputed from what it publishes.')
   else if (cmd === 'drain') report('one-receipt drain', drainGaps(), 'the drain stages everything reconcile regenerates — every generator declares its output, and every output is a drain path.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
@@ -1448,8 +1565,8 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'stage') { const r = stageDerived(ROOT); console.log('✓ one-receipt stage — ' + r.staged + ' derived path(s) staged' + (r.leftForHumans.length ? '; left for a human (not staged, not swept): ' + r.leftForHumans.join(', ') : '; nothing else pending')) }
   else if (cmd === 'counts') report('one-receipt counts', countsGaps(), 'every surface states both ledger sizes, and both are live')
   else if (cmd === 'lines') report('one-receipt lines', linesGaps(), 'every Lean line is indexed — no wing seals a statement twice, and every cross-wing reuse is declared')
-  else if (cmd === 'words') report('one-receipt words', wordsGaps(), 'every theorem key carries its fact in three content words or is in the recorded backlog')
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | counts | lines | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else if (cmd === 'skills') report('one-receipt skills', skillsGaps(), 'every skill the sealed ledger carries is openable through the live API on BOTH surfaces, and enumerable with its theorem count — no capability is proven and unreachable')
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | precede | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | counts | lines | skills | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }

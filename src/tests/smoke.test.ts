@@ -435,7 +435,20 @@ test('spin — the bits spin by themselves: a sealed layer verifies O(1), any dr
   // seal a layer, then re-spinning the SAME bytes is a fixed point (verify O(1) — no re-derivation)
   const layer = Object.fromEntries(DERIVED_FILES.map((p, i) => [p, 'derived-' + i]))
   const sealed = sealSpin(layer)
-  assert.equal(Object.keys(sealed.coins).length, DERIVED_FILES.length)
+  // THE LAW IS ABOUT PLAIN FILES, not about the length of the declaration. DERIVED_FILES carries two DIRECTORY
+  // entries (src/chunks, lean) that sealSpin expands into their children, and this synthetic layer gives them
+  // none — so 15 declared paths correctly yield 13 coins. The old assertion compared against the declaration
+  // length and went stale the moment directories were added; the count was never the invariant.
+  //
+  // Asserted as the exact KEY SET rather than a count, so it cannot pass by two numbers coinciding. The extra
+  // check that fewer coins were sealed than paths declared is the control: were directory expansion removed,
+  // every entry would seal itself, the counts would agree again, and a count-only assertion would go quiet.
+  // (A directory entry WITH children is covered by spin-parity.test.ts — not duplicated here.)
+  const plainFiles = DERIVED_FILES.filter((p) => /\.[a-z0-9]+$/i.test(p))
+  assert.deepEqual(Object.keys(sealed.coins).sort(), [...plainFiles].sort(),
+    'sealSpin seals exactly the plain-file entries; directory entries seal their children, and here they have none')
+  assert.ok(plainFiles.length < DERIVED_FILES.length,
+    'this layer must actually contain directory entries, or the case above proves nothing')
   const clean = verifySpin(sealed, layer)
   assert.ok(clean.ok && clean.drift.length === 0, 'a sealed layer re-spins to itself — a fixed point')
   assert.equal(clean.receipt, sealed.receipt, 'the one receipt folds all coins — unchanged')

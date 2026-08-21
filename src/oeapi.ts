@@ -10,12 +10,16 @@
 //   /programmes        → the skill clusters, typed `track` — the standard's own word for "a structured learning path,
 //                        often thematically defined"; NOT `programme`, which the spec defines as leading to a
 //                        qualification or degree. uuidna awards none, so the honest enum value is the smaller one.
-//   /courses           → the monographs, one per proof wing — the course texts the school already reads
+//   /courses           → the monographs, one per proof wing — the course texts the school already reads, each
+//                        carrying the school's own MEASURED grading (src/school.ts) in the spec's `ext` slot
 //   /learning-outcomes → the theorems: a lesson whose outcome is DECIDABLE, its Lean proof one click away
 //
 // STRICT MEANS REFUSING TOO — `complexityLevel` (Bloom/SOLO) is deliberately never emitted: no theorem carries a
 // cognitive level, and inventing one would be the overclaim the honesty gate exists to catch. Same law as the absent
-// law-types in the schema.org surface.
+// law-types in the schema.org surface. `Course.level` is refused for the same reason and is the sharper case: the
+// school genuinely DOES grade its courses — by the decade of the measured kernel cost of their proofs — so there was
+// a real value to put in a field whose name fits perfectly and whose MEANING is a qualification level. It goes in
+// `ext` instead, and the refusal is served by name in ABSENT_FIELDS.
 //
 // HONEST SCOPE: an interoperability PROJECTION of sealed, public data — NOT a Student Information System. Read-only,
 // and it carries NO personal data: no persons, groups, offerings, associations or results, because uuidna enrols
@@ -23,6 +27,7 @@
 // absence is listed by name with the pointer to what stands in its place. Recomputable by anyone; integrity, not truth.
 import { theorems, skillGroups } from './theorems/index.js'
 import { publications } from './publish.js'
+import { courses as schoolCourses } from './school.js'
 import { toUuid, merkleFold } from './address.js'
 
 const HOST = 'https://uuidna.com'
@@ -47,11 +52,14 @@ export interface OeapiProgramme {
   organisationId: string; link: string; teachingLanguages: string[]
   learningOutcomeIds: string[]; otherCodes: OeapiCode[]
 }
+/** The school's own grading, carried in the standard's `ext` — the slot the spec reserves for exactly this: a real
+ *  attribute the vocabulary has no word for. Never `Course.level`; see ABSENT_FIELDS for why that field is refused. */
+export interface OeapiCourseExt { level: number; band: string; rank: number; decideSteps: number; entryCost: number }
 export interface OeapiCourse {
   courseId: string; name: OeapiLangString[]; primaryCode: OeapiCode; description: OeapiLangString[]
   organisationId: string; link: string; teachingLanguages: string[]
   programmeIds: string[]; learningOutcomeIds: string[]
-  abbreviation: string; otherCodes: OeapiCode[]
+  abbreviation: string; otherCodes: OeapiCode[]; ext: OeapiCourseExt
 }
 export interface OeapiLearningOutcome {
   learningOutcomeId: string; name: OeapiLangString[]; primaryCode: OeapiCode
@@ -106,12 +114,18 @@ export function oeapiProgrammes(): OeapiProgramme[] {
   }))
 }
 
-/** The monographs as courses — one per proof wing, carrying its wing's theorems as learning outcomes. */
+/** The monographs as courses — one per proof wing, carrying its wing's theorems as learning outcomes, and the
+ *  school's own MEASURED grading (school.ts's courses(): the decade of the wing's median kernel decide-step cost,
+ *  and its place in the derived reading order) in `ext`. That grading is the one thing a reader of a bare course
+ *  list cannot supply for themselves, and it is measured rather than assigned — so it is served, under a name that
+ *  cannot be mistaken for the qualification level the spec's own `level` field means. */
 export function oeapiCourses(): OeapiCourse[] {
   const T = theorems(), groups = skillGroups()
   const foldOfSkill = new Map(groups.map((g) => [g.skill, g.fold]))
+  const graded = new Map(schoolCourses().map((c) => [c.wing, c]))
   return publications().map((p) => {
     const wing = T.filter((t) => t.file === p.file)
+    const g = graded.get(p.file)
     const programmeIds: string[] = []
     for (const t of wing) {
       const fold = t.skill ? foldOfSkill.get(t.skill) : undefined
@@ -124,6 +138,9 @@ export function oeapiCourses(): OeapiCourse[] {
       description: lang(p.abstract), organisationId: SCHOOL_ID,
       link: `${HOST}/publications/${p.slug}`, teachingLanguages: TEACHING_LANGUAGES,
       programmeIds, learningOutcomeIds: wing.map((t) => t.address),
+      // an unknown wing grades as 0/unmeasured rather than defaulting to the easiest rung — undecided, never low
+      ext: { level: g?.level ?? 0, band: g?.band ?? 'unmeasured', rank: g?.rank ?? 0,
+        decideSteps: g?.steps ?? 0, entryCost: g?.entry ?? 0 },
     }
   })
 }
@@ -169,6 +186,13 @@ const ABSENT_FIELDS: { field: string; why: string }[] = [
     why: 'the spec types it as an ISCED-F code (UNESCO\'s field-of-study classification). A theorem carries a uuidna ' +
       'SKILL — "z9-ring", "vortex" — which is not an ISCED-F code and does not map onto one. Emitting the skill here ' +
       'would satisfy the field-name audit and misinform every reader who trusts the field to mean what ISCED says.' },
+  { field: 'Course.level',
+    why: 'the spec types it as the QUALIFICATION level a course sits at — the Dutch/EQF ladder (secondary vocational, ' +
+      'associate degree, bachelor, master, doctoral). uuidna awards no qualification at any of those levels, so every ' +
+      'value the enum offers would be false. The school DOES grade its courses, by the decade of the measured kernel ' +
+      'decide-step cost of the wing\'s proofs, and that grading is served in `ext` — a difficulty reading, never a ' +
+      'qualification. Putting it in `level` would satisfy the field-name audit and tell every consumer that uuidna ' +
+      'confers a degree it does not confer, which is the one overclaim this projection exists to refuse.' },
   { field: 'LearningOutcome.parentIds',
     why: 'the spec types it as the ids of the LEARNING OUTCOMES that are this one\'s parents. uuidna groups theorems ' +
       'by PRINCIPLE, and a principle is not a learning outcome — it is not taught and it is not decidable — so every ' +

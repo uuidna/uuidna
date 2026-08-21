@@ -31,6 +31,25 @@ const ledeOf = (file: string): string => {
   return m ? m[1] : first.replace(/^-- /, '')
 }
 
+/** boundaryLine(entries) → what this wing can HONESTLY say about its own boundaries, counted rather than claimed.
+ *
+ *  Every article used to print "every boundary it names is CONFIRMED by a sealed theorem, never merely denied."
+ *  That sentence was a template constant applied to all 72 wings, so it was true of the wings that had sealed their
+ *  boundaries and false of the ones that had not — and the reader had no way to tell which article they were
+ *  holding. It was carried as a CRITICAL finding against docs/articles/neuro.md, where the wing's stated boundaries
+ *  were backed by a theorem that folded to a constant.
+ *
+ *  A blanket assurance that cannot vary is not an assurance. This counts the wing's demarcating theorems — those
+ *  whose prose names a limit (NOT, never, only, fails, bounded) — and says how many there are. A wing with none
+ *  says so plainly instead of claiming the opposite. */
+const DEMARCATES = /\b(?:NOT|not|never|only|fails?|bounded|cannot|no longer|neither)\b/
+const boundaryLine = (entries: { key: string; name: string }[]): string => {
+  const bounded = entries.filter((t) => DEMARCATES.test(t.name))
+  if (!bounded.length)
+    return 'This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.'
+  return `${bounded.length} of its ${entries.length} theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [${bounded[0]!.key}](/theorem/${bounded[0]!.key}). A boundary stated here is decided, not merely denied.`
+}
+
 const slugOf = (file: string): string => file.replace('.lean', '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
 
 let n = 0
@@ -55,7 +74,7 @@ description: "Computed from lean/${file} — ${entries.length} sealed theorems, 
 
 > ${lede.replace(/\n/g, ' ')} — held by [${entries[0]!.key}](/theorem/${entries[0]!.key}) and its ${entries.length - 1} siblings below.
 
-**${entries.length} theorems**, from [${entries[0]!.key}](/theorem/${entries[0]!.key}) onward, each proven \`by decide\` in [lean/${file}](/lean/${file}), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored; every claim carries its citation, and every boundary it names is CONFIRMED by a sealed theorem, never merely denied.
+**${entries.length} theorems**, from [${entries[0]!.key}](/theorem/${entries[0]!.key}) onward, each proven \`by decide\` in [lean/${file}](/lean/${file}), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. ${boundaryLine(entries)}
 
 ${body}
 ${scope ? `\n::: warning HONEST SCOPE\n${scope} The boundary is confirmed by the wing's own sealed theorems — e.g. [${entries[0]!.key}](/theorem/${entries[0]!.key}) — never merely denied.\n:::\n` : ''}

@@ -62,7 +62,13 @@ flag_matches_spec 19
 sanitize_depth_bounded 19
 witnesses_locate_faults 19
 handle_splits_four 19
-drift_is_named_or_caught 19
+drift_is_named_or_caught 27
+prose_coverage_total 19
+prose_round_trips 19
+prose_terminator_escaped 19
+prose_beats_restatement 19
+prose_folds_receipt 19
+prose_audit_total 19
 #AuditGame.lean
 flag_is_any_refutation 19
 clean_is_a_p_position 19
@@ -357,8 +363,8 @@ disputed_audit_receipt_open 18
 disputed_all_topics_computable 18
 #DivByZero.lean
 dz_table 19
-dz_involution 19
-dz_fixed_points 19
+dz_involution 27
+dz_fixed_points 27
 dz_sum_ten 19
 dz_nonunits_to_units 19
 dz_bounded 19
@@ -482,6 +488,10 @@ derivative_finite_rate 19
 dirac_unit_mass 19
 horizon_curvature_finite 19
 newton_singularity_finite 19
+reach_all_decide 19
+reach_quantifiers_bounded 19
+reach_window_finite 19
+window_not_universal 19
 #Legal.lean
 solutions_not_skipped 19
 legal_verdict_is_exactly_one 27
@@ -541,15 +551,24 @@ reverse_bearing_involution 19
 quarter_turn_order_four 19
 dead_reckoning_adds 19
 #Neuro.lean
-all_or_none 19
 subthreshold_silent 19
 suprathreshold_fires 19
-firing_monotone 19
 spatial_summation 19
-excitatory_inhibitory_net 19
 action_potential_swing 19
-hebbian_coincidence 19
-refractory_caps_spike 19
+all_or_none_amplitude 19
+firing_rate_saturates 19
+hebbian_coincidence_table 19
+hebbian_ltd_is_signed 19
+refractory_absolute_and_relative 19
+inhibition_vetoes_spike 19
+temporal_summation_decays 19
+rate_codes_intensity 19
+refractory_bounds_rate 19
+threshold_accommodates_ramp 19
+depolarisation_blocks_firing 19
+integrate_and_fire_resets 19
+spike_amplitude_attenuates 19
+threshold_is_quasi_threshold 19
 #Nim.lean
 nim_sum_is_xor 19
 nim_pposition_is_zero 19
@@ -645,7 +664,7 @@ nimsum_8_6 18
 nimsum_8_7 18
 nimsum_8_8 18
 #OneLeap.lean
-vortex_one_leap 18
+vortex_one_leap 26
 #Optics.lean
 law_of_reflection 19
 refractive_index_ge_one 19
@@ -735,7 +754,7 @@ cnot_involution 19
 toffoli_truth_table 19
 swap_truth_table 19
 s_squared_is_z 19
-z_involution 19
+z_involution 27
 s_dagger_inverse 19
 pauli_x_involution 19
 swap_involution 19
@@ -789,8 +808,8 @@ quantum_polygraph 19
 captain_honest_not_flawless 19
 manipulation_never_faster 19
 crew_verifies_instantly 19
-redirect_imitable_but_coins_authorise 19
-provenance_integrity_not_content_truth 19
+redirect_imitable_but_coins_authorise 27
+provenance_integrity_not_content_truth 27
 trust_by_recomputation 19
 unity_census_is_plural_and_needs_two 19
 significance_is_partial_not_total 19
@@ -811,7 +830,7 @@ causality_forbids_ftl 19
 #Report.lean
 five_ws_and_one_h 19
 timeline_is_chronological 19
-corroboration_needs_two 19
+corroboration_needs_two 27
 trinity_edit_is_three 19
 full_quorum_of_three 19
 publish_gate_is_conjunction 19
@@ -1246,7 +1265,7 @@ no_maximum_only_bounds 19
 #Sequence.lean
 seal_ten 19
 mirror_congruence 19
-mirror_fixed_five 19
+mirror_fixed_five 27
 agl_order_54 19
 commutator_is_shift 19
 one_orbit 19
@@ -1283,11 +1302,15 @@ filter_never_grows 19
 append_length_adds 19
 clamp_is_idempotent 19
 safe_div_is_total 19
-reduce_is_order_invariant 19
+reduce_is_order_invariant 27
 shift_loop_terminates 19
 compare_swap_orders 19
 safe_index_is_total 19
 reverse_is_involutive 19
+cube_seals_at_completeness_only 19
+cubes_partition_ledger 19
+receipt_costs_nothing 19
+message_carries_address 19
 #Solids.lean
 exactly_five_platonic_solids 19
 platonic_euler_characteristic_is_two 19
@@ -1424,4 +1447,4 @@ reversible_erases_nothing Landauer
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 9, falsifier: 53 }
+export const FLOOR = { witness: 9, falsifier: 63 }

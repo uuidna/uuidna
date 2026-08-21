@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into the generated analytics — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // gen-analytics — Generate advantage metrics and statistics for README/homepage
 
 import { theorems } from '../index.js'

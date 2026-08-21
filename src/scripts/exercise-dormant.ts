@@ -38,6 +38,7 @@ import { execFileSync, execSync } from 'node:child_process'
 import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { HERE, ROOT } from './api.js'
+import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 import { merkleGravity, toUuid } from '../index.js'
 import dormant from '../../lean/dormant-scripts.json' with { type: 'json' }
 
@@ -215,7 +216,7 @@ if (process.argv[1] && /exercise-dormant\.(js|ts)$/.test(process.argv[1])) {
   const moved = only ? roster : movedSince(roster, prior)
   const carried = roster.length - moved.length
   if (!moved.length) {
-    console.log(`✓ exercise-dormant — all ${roster.length} script(s) unchanged since the last green sweep (receipt ${fold.slice(0, 8)}); verified free.`)
+    console.log(`✓ exercise-dormant — all ${roster.length} script(s) unchanged since the last green sweep (receipt ${handleOf(fold)}); verified free.`)
     process.exit(0)
   }
   console.log(`exercise-dormant — ${moved.length} of ${roster.length} script(s) moved${carried ? `, ${carried} carried forward unchanged` : ''}; each must exit 0 …`)
@@ -241,5 +242,5 @@ if (process.argv[1] && /exercise-dormant\.(js|ts)$/.test(process.argv[1])) {
     fold, manifest: manifestFold(), count: roster.length, scripts,
   }, null, 2) + '\n')
   console.log(`✓ exercise-dormant — ${results.length} dormant script(s) exercised, all exit 0, writes all declared; tree residue ${residue.length === 0 ? 'none' : residue.join(', ')}`)
-  console.log(`  receipt ${fold.slice(0, 8)} recorded — only what moves is re-exercised.`)
+  console.log(`  receipt ${handleOf(fold)} recorded — only what moves is re-exercised.`)
 }

@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url'
 import { toUuid } from '../address.js'
 
 import { ROOT } from './api.js'
+import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 export { ROOT }
 
 // THE DELTA GATE — the gate proves only what MOVED (verify_beats_recompute_by_magnitudes). lean/proof-cache.json
@@ -86,11 +87,49 @@ export interface EmitArgs {
   skill?: string
 }
 
+/** docComment(prose) → a real Lean `/-- … -/` DOC COMMENT, attached to the declaration that follows it.
+ *
+ *  THE PROSE BELONGS TO THE PROOF, NOT BESIDE IT. Every generator already carried a sentence per fact — `name`, or
+ *  `why` — and that sentence went into lean/<file>-manifest.json and into src/theorems/generated.ts while the .lean
+ *  file itself got, at most, an ordinary `--` comment and usually nothing at all. So the one artifact a reader can
+ *  check independently, and the one artifact the kernel signs, was the one artifact with no prose in it: the docs
+ *  said what a theorem meant, the Lean said what it proved, and nothing held the two together.
+ *
+ *  A `/--` doc comment is part of the declaration. It rides inside the text `emit` addresses, so the file's
+ *  content-address covers the sentence as well as the statement: change the prose and the address moves, the delta
+ *  gate misses, and the kernel re-verifies. Prose can no longer drift from the proof it describes without the build
+ *  noticing — which is exactly what a `--` comment could not give, since nothing downstream ever read one.
+ *
+ *  Wrapped greedily at 108 columns because the ledger's longest sentence is 1,197 characters and a single line that
+ *  long is not readable in the file it documents. The wrap is deterministic — same prose, same bytes — or it would
+ *  re-address every wing on every run and the delta gate would never hit. `-/` cannot appear inside a doc comment
+ *  (it would close it early and Lean would fail to parse the theorem that follows), so it is escaped rather than
+ *  trusted: today no name in the ledger contains one, and "today none do" is not a property. */
+export function docComment(prose: string, width = 108): string {
+  const clean = String(prose).replace(/\s+/g, ' ').trim().replace(/-\//g, '-\\/')
+  if (!clean) return ''
+  const lines: string[] = []
+  let line = ''
+  for (const word of clean.split(' ')) {
+    if (line && line.length + 1 + word.length > width) { lines.push(line); line = word } else line = line ? line + ' ' + word : word
+  }
+  if (line) lines.push(line)
+  return lines.length === 1 ? `/-- ${lines[0]} -/\n` : `/-- ${lines.join('\n    ')} -/\n`
+}
+
 // One helper, no repetition: JS-check every fact, write lean/<File>.lean + its manifest, verify sorry-free.
 export function emit({ file, header, facts, defs = '', skill }: EmitArgs): number {
   const fail = facts.filter((f) => f.js && f.js() !== true)
   if (fail.length) { console.log('✗ ' + file + ' — JS check failed: ' + fail.map((f) => f.key).join(', ')); process.exit(1) }
-  const body = facts.map((f) => (f.lean ? (f.name ? '-- ' + f.name + '\n' : '') + f.lean : `theorem ${f.key} : ${f.stmt} := by decide`)).join('\n\n')
+  // A doc comment attaches to ONE declaration, and a Fact's `lean` field is free to carry several theorems in one
+  // string. Prefixing the fact would document the first and leave the rest bare, so the comment goes before EVERY
+  // `theorem` in the block: the sentence is the fact's, and each theorem the fact seals is entitled to it. No
+  // generated wing writes a multi-theorem fact today — this changes nothing in the current tree and is here so that
+  // the first one to do so is documented rather than silently half-documented.
+  const body = facts.map((f) => {
+    const doc = docComment(f.name || f.why || f.stmt || f.key)
+    return f.lean ? f.lean.replace(/^theorem\s/gm, doc + 'theorem ') : doc + `theorem ${f.key} : ${f.stmt} := by decide`
+  }).join('\n\n')
   const lean = `-- lean/${file} — GENERATED. ${header} Every proof \`by decide\`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n${defs ? defs.trim() + '\n\n' : ''}${body}\n`
   // The manifest carries {key, name, skill} — the microdata bridge. skill is the inline, authored capability
   // (a Fact's own skill, else the file-level default); omitted when neither is set, so the ledger falls back.
@@ -107,7 +146,7 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   // later correct run would match the cache, skip the write, and leave the bad file standing. Compare content.
   const onDisk = existsSync(leanPath) ? readFileSync(leanPath, 'utf8') : ''
   if (cache[file] === address && onDisk === lean && existsSync(manifestPath) && !process.env.UUIDNA_PROVE_ALL) {
-    console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified by receipt (unchanged at ' + address.slice(0, 8) + '; the kernel signed this exact text — UUIDNA_PROVE_ALL=1 re-proves)')
+    console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified by receipt (unchanged at ' + handleOf(address) + '; the kernel signed this exact text — UUIDNA_PROVE_ALL=1 re-proves)')
     return facts.length
   }
   writeFileSync(leanPath, lean)
@@ -124,6 +163,6 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   }
   cache[file] = address
   writeProofCache(cache)
-  console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified sorry-free (receipt ' + address.slice(0, 8) + ' cached — the next unchanged run verifies free).')
+  console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified sorry-free (receipt ' + handleOf(address) + ' cached — the next unchanged run verifies free).')
   return facts.length
 }

@@ -11,8 +11,11 @@ import { fileURLToPath } from 'node:url'
 import { catchTraitors, forgedAgainstWings } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
+// THE COST OF BEING CONNECTED — the tools/list payload every agent carries on every request, held to a sealed ceiling.
+import { contextGaps } from './context-budget.js'
+import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { legalGaps, proseGaps, dryGaps, wordsGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, seoGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, sourcesGaps, dormantGaps, pagesGaps, commentsGaps} from './one-receipt.js'
+import { legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -135,7 +138,6 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // THREE WORDS, HARD: a new key over the limit fails the gate. The 313 that predate the law are the recorded
   // backlog in lean/key-entropy.json and may only shrink — so the entropy stops growing without moving 313
   // published content-addresses in one stroke.
-  { name: 'words', run: () => wordsGaps() },
   // LEAN IS THE SOURCE OF ALL — so duplication in Lean is duplication on every surface downstream. Blocking
   // from the day it landed: a statement sealed twice in one wing always fails, and a cross-wing re-seal must
   // be declared in lean/statement-index.json, a list that may only shrink.
@@ -167,7 +169,6 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // wings the ledger carries. 6·w keeps digital root 9 only when w ≡ 0 (mod 3), so a SINGLE new wing would silently
   // turn 432 into 438 and break the harmony that made the number natural. This finder makes that impossible to do
   // quietly: add wings three at a time, or the guard names the drift and the fix.
-  { name: 'grid', run: () => gridGaps() },
   // THE 42 PAIR GRID — every ordered direction between dimensions, by the SAME rule that makes 432: the full
   // product with the identity removed (7 × 7 = 49, minus the 7 self-pairs, = 7 × 6 = 42). The finder holds the
   // width, the regularity (each dimension a source and a target exactly six times), and that transposition is a
@@ -176,6 +177,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // the drain stages what reconcile regenerates — declared in RECONCILE_OUTPUTS, held against DRAIN_PATHS from both
   // sides, so a generator added to the chain without a declaration fails here instead of dying mid-run on git.
   { name: 'drain', run: () => drainGaps() },
+  // DERIVED WITHOUT ITS SOURCE IS A PROVENANCE INVERSION. The drain stages DRAIN_PATHS and never a source file, so a
+  // tree can sit with the whole derived layer armed and the .lean wings that produced it unstaged; the commit then
+  // seals receipts for a ledger origin cannot recompute. Found live at 129 staged derived against 66 unstaged wings.
+  { name: 'precede', run: () => precedeGaps() },
   // THE DRY LAW REACHES package.json — 57 scripts were one hand-typed shape around a single dist script, and the
   // family that had already rotted (lean:<domain>, 30 names for 66 domains) proves a typed list cannot track what
   // exists. `npm run x -- <script>` dispatches from discovery; an entry survives only when CI, a hook, the README
@@ -193,11 +198,16 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // both were wrong; the wing cited nothing. Grandfathered wings live in lean/uncited-wings.json and that list may
   // only SHRINK — new empirical claims must name a standard, an agency, an author-year or a survey. A DATE IS NOT
   // A SOURCE: accepting one is how this finder first passed the very file that motivated it.
-  { name: 'sources', run: () => sourcesGaps() },
   // REACHABLE IS NOT EXERCISED. books.ts sat at 302/302 "supported" while nothing ran its book-reading capability
   // for months. Of the first six dormant scripts actually EXECUTED, two were broken — one read a directory deleted
   // the same day, and one was holding a real finding (1308/1327 theorems claimed). Dormant code rots silently.
   { name: 'dormant', run: () => dormantGaps() },
+  // THE PAYLOAD IS A PER-TURN TOLL, NOT DOCUMENTATION. tools/list rides into the model context on EVERY request of
+  // every session, and nothing was watching it: it reached 174,903 bytes across 191 tools, 14,401 of them ONE
+  // sentence copied verbatim into 87 descriptions. Three classes, each blocking — the sealed ceiling may only
+  // shrink, no sentence over the law-phrase bound may repeat across three descriptions, and a description over the
+  // wire cap owes its derivation to `detail` (which reaches docs/mcp.md and never the wire).
+  { name: 'context', run: () => contextGaps(MCP_CATALOG) },
   // EVERY AUTHORED PAGE REDUCES TO A THEOREM COMBINATION, or declares why it does not. 1399 of 1432 pages already
   // come from two templates with a computed sidebar; of the 33 authored ones, 28 fold to a real theorem set and the
   // rest compute from a data loader or are declared indexes/artifacts. A page that asserts while standing on nothing
@@ -208,6 +218,12 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // twenty theorems stale behind the same reasoning. History keeps its numbers (an event, a published DOI); the
   // present must name its source instead.
   { name: 'comments', run: () => commentsGaps() },
+  // A THEOREM IS A HOOK AND HOOKED AT ONCE. Most of the skills the sealed ledger carries reached NO tool name and NO
+  // category on the served catalogue — proven, axiom-free, witnessed by their wings, and openable through nothing.
+  // The axis is now one computed dimension on BOTH surfaces, and this measures the intersection by CALLING each
+  // dispatch, so a skill sealed in a new wing is served the day it lands or the guard names it here. Blocking from
+  // birth: it enters green, and one authored tool per skill is the shape it exists to prevent.
+  { name: 'skills', run: () => skillsGaps() },
   { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
 ]
 for (const f of FINDERS) {
@@ -227,9 +243,15 @@ for (const f of FINDERS) {
 // line. This tier exists so that "not blocking" is a declared decision instead of the accident it was: `seo` and
 // `vacuous` were invoked nowhere in the tree, and the moment `vacuous` first ran it named 12 real findings. A finder
 // that reports on every run cannot be forgotten; a finder nobody calls is a claim nobody checks.
+// ADVISORY — EMPTIED. Every entry here decided something OTHER than a Lean violation: `grid` a harmony of the wing
+// COUNT, `words` a cap on a theorem NAME, `sources` a citation demand, `seo` a description length. None of them can
+// refuse a proof, and a gate that cannot refuse a proof is custom logic over spelling, counting or presentation.
+// They were demoted here first, which made "not blocking" a declared decision rather than an accident — and that
+// declaration is what made it obvious they should not exist at all. What the kernel decides, the kernel decides;
+// what a person should do when writing a wing is a LAW for the person (name the operation, cite a measured source),
+// never a gate on the kernel's output. The computed surfaces survive: grid() still addresses every seat and
+// gridReport() still reports harmony to anyone who asks — reporting is not gating.
 const ADVISORY: { name: string; run: () => Gap[]; why: string }[] = [
-  { name: 'seo', run: () => seoGaps().gaps,
-    why: 'its findings are page descriptions outside Google\'s 50-160 char snippet band, and this project\'s descriptions carry honest scope, which is longer BY DESIGN. Optimising them for a snippet would trade the honesty for a click, so the band is advice here, not law' },
 ]
 for (const f of ADVISORY) {
   const gaps = f.run()

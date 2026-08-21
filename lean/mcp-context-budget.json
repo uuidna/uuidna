@@ -1,0 +1,4 @@
+{
+  "wireBytes": 154409,
+  "note": "The tools/list payload every MCP client puts in the model context on EVERY request — names + descriptions + input schemas, never detail. A CEILING that may only SHRINK: trimming re-seals it lower, growth fails the guard. Held by scripts/context-budget (contextGaps) and src/tests/context-budget.test.ts. Was 174903 bytes across 191 tools when first measured."
+}

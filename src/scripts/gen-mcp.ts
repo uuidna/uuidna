@@ -48,7 +48,10 @@ const params = (schema?: { properties?: Record<string, { type?: string; descript
 const sections = order.map((cat) => {
   const tools = byCat.get(cat)!
   const skills = [...new Set(tools.map((t) => t.skill))].join(', ')
-  const rows = tools.map((t) => `### \`${t.name}\`\n\n${safe(t.description)}\n\n${params(t.inputSchema)}\n`).join('\n')
+  // description THEN detail — the page keeps everything, while only the description rides the wire. A tool's detail
+  // is the derivation and history that a reader here wants and an agent mid-call is billed for; the split is what
+  // stops docs/mcp.md from being charged to every request's context window.
+  const rows = tools.map((t) => `### \`${t.name}\`\n\n${safe(t.description)}\n${t.detail ? '\n' + safe(t.detail) + '\n' : ''}\n${params(t.inputSchema)}\n`).join('\n')
   return `## ${cat} <Badge type="tip" :text="'${tools.length}'" />\n\n*skill: ${skills}*\n\n${rows}`
 }).join('\n')
 

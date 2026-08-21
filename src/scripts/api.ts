@@ -13,6 +13,31 @@ export const HERE = dirname(fileURLToPath(import.meta.url))
 /** the repo root */
 export const ROOT = join(HERE, '..', '..')
 
+// ── THE ONE LEAN PARSE. Reading a theorem out of a .lean file was written twice — the ledger builder and the prose
+// census each carried a character-identical regex — and the two agreed only because nobody had yet edited one. The
+// parse is subtle enough that a divergence would be silent: the lookahead must stop a tactic at the NEXT
+// declaration, and `/--` must be tested BEFORE `--` (a doc comment opens with a slash, and the alternation is
+// ordered), or every wing's tactic swallows the next theorem's prose. The doc capture may not contain `-/`, so a
+// match cannot stretch from one comment's opening to a later comment's close — without that guard the lazy form
+// backtracks across the whole file and every theorem inherits the FIRST theorem's sentence. One declaration; a
+// third copy is what `one-receipt dry` exists to refuse.
+export interface LeanDecl { key: string; statement: string; tactic: string; doc: string }
+const LEAN_DOC = /\/--((?:(?!-\/)[\s\S])*?)-\/\s*$/
+const LEAN_THEOREM = /theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:\/--|--|theorem|def|namespace|end|$))/g
+
+/** every `theorem k : s := by t` in a Lean file, each with the doc comment immediately above it ('' when bare) */
+export function leanDecls(text: string): LeanDecl[] {
+  return [...text.matchAll(LEAN_THEOREM)].map((m) => {
+    const doc = LEAN_DOC.exec(text.slice(0, m.index))
+    return {
+      key: m[1]!,
+      statement: m[2]!.trim().replace(/\s+/g, ' '),
+      tactic: m[3]!.trim().replace(/\s+/g, ' '),
+      doc: doc ? doc[1]!.trim().replace(/\s+/g, ' ').replace(/-\\\//g, '-/') : '',
+    }
+  })
+}
+
 // ── USE VERSUS MENTION — THE LAW EVERY RAW-SOURCE CHECK MEETS. A finder that greps source cannot tell a line that
 // DOES a thing from a line that TALKS ABOUT it. This bit four separate checks in one session (2026-08-19), in two
 // opposite directions, and both are now named so the fifth is recognised rather than rediscovered:

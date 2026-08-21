@@ -10,6 +10,7 @@ import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { reveal, toUuid, decide, theorems } from '../index.js'
 import { ROOT } from './api.js'
+import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
 interface UsableCombination {
   surface: string          // the file the prose lives in
@@ -129,7 +130,7 @@ if (deadLinks.length) {
 }
 if (develop.length) {
   console.log(`    develop    : ${develop.length} internal novelty candidate(s) — decidable facts our prose asserts that the ledger does not yet hold (the homework the prose writes for itself):`)
-  for (const d of develop.slice(0, 10)) console.log(`      • ${d.surface}: \`${d.fragment}\` (receipt ${d.receipt.slice(0, 8)})`)
+  for (const d of develop.slice(0, 10)) console.log(`      • ${d.surface}: \`${d.fragment}\` (receipt ${handleOf(d.receipt)})`)
   if (develop.length > 10) console.log(`      … and ${develop.length - 10} more in prose-trials.json develop[]`)
 } else {
   console.log(`    develop    : 0 candidates — every decidable fact the prose asserts is already sealed`)

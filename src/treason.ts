@@ -1,20 +1,17 @@
 // treason — CATCH TRAITORS AS FAST AS A HERO: one pure, O(N) pass that catches every INTRUSION into the sealed ledger,
 // so the check is a single automated call, not a hand-run pre-flight (manual work is the entropy). A "traitor" here is
 // never a person — it is a FORGERY in the artifact: a theorem whose DNA does not recompute (a tampered key/statement/
-// address), a key or address collision (a smuggled duplicate), an uncovered theorem (a domain sneaked in without a
-// monograph), or a broken conformance invariant. Every finding is a recomputable fact about the LEDGER, folded to one
+// address), a key or address collision (a smuggled duplicate), or a broken conformance invariant. Every finding is a recomputable fact about the LEDGER, folded to one
 // receipt anyone rechecks. No crypto KATs, no filesystem — pure and fast (milliseconds), so it runs before every push
 // AND inline. HONEST SCOPE: integrity, not truth — it proves the artifact is unforged and self-consistent; it does not
 // judge a person, and passing it is not a claim the theorems are TRUE, only that none was tampered with or smuggled in.
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
-import { coverage } from './publish.js'
 import { conformance } from './conformance.js'
-import { computes } from './gate.js'
 import { axiomWitness } from './axiom-witness.js'
 
-export interface Traitor { kind: 'forged-dna' | 'key-collision' | 'address-collision' | 'uncovered' | 'conformance' | 'prose-overclaim' | 'seal-integrity'; detail: string }
+export interface Traitor { kind: 'forged-dna' | 'key-collision' | 'address-collision' | 'conformance' | 'seal-integrity'; detail: string }
 
 export interface TreasonReport {
   clean: boolean
@@ -26,7 +23,7 @@ export interface TreasonReport {
 }
 
 /** catchTraitors() → one fast pass over the sealed ledger that catches every forgery/intrusion: DNA that does not
- *  recompute, a key/address collision, an uncovered theorem, or a broken conformance invariant. Pure and O(N) — a
+ *  recompute, a key/address collision, or a broken conformance invariant. Pure and O(N) — a
  *  hero's sweep in milliseconds, no crypto and no disk. Returns the traitors (empty = clean) and a recomputable
  *  receipt. A traitor is a forgery in the artifact, NEVER a person. Integrity, not truth. */
 export function catchTraitors(): TreasonReport {
@@ -66,28 +63,23 @@ export function catchTraitors(): TreasonReport {
     seenAddr.set(t.address, t.key)
   }
 
-  // 3) COVERAGE — a theorem shown in no monograph is a domain sneaked in without a PRINCIPLE (uncovered).
-  checksRun.push('monograph-coverage')
-  const cov = coverage()
-  for (const key of cov.uncovered) traitors.push({ kind: 'uncovered', detail: `${key} — shown in no monograph (author a PRINCIPLE for its file)` })
+  // 3) COVERAGE — REMOVED. A theorem covered by no monograph was once a traitor ('uncovered'), which gave PRINCIPLE
+  // the power to REJECT a theorem the Lean kernel had verified sorry-free. That authority is withdrawn: Lean decides
+  // what is admitted, and a missing PRINCIPLE entry is now a presentation gap, never an intrusion. coverage() survives
+  // in publish.ts as a DIAGNOSTIC (the MCP tool, reports, analytics) — it reports, it no longer blocks.
 
   // 4) CONFORMANCE — the DNA gate's standing invariants (coins conserved, DNA recomputes, single-source, security).
   checksRun.push('conformance-invariants')
   const conf = conformance()
   for (const c of conf.checks) if (!c.pass) traitors.push({ kind: 'conformance', detail: `${c.id} — ${c.detail}` })
 
-  // 5) PROSE — the DNA check (1) recomputes the STATEMENT but never reads the NAME, so a forgery can hide in prose:
-  // "treason masks with negating prose". This audits every theorem's NAME through the honesty gate (theorem-backed
-  // slimGate) and catches a name that DRAINS it — a FABRICATED THEOREM CITATION in the prose (binary 0). HONEST SCOPE,
-  // TESTED: this catches only what the gate can decide — a fabricated citation. It does NOT catch an unbacked NARRATIVE
-  // (a false "discovered / novel / proven-elsewhere" story carried by a TRUE statement): the gate scores such prose
-  // IDENTICALLY to an honest description (binary 1, UNVERIFIED). That class — the treason that masked itself here — is
-  // caught only by the COURT (adjudicate separating the statement's VERIFIED from the narrative's UNVERIFIED) and human
-  // vigilance, never recomputably by the gate. This closes the fabricated-citation-in-prose gap, and no more; it does
-  // not pretend to close the narrative gap.
-  checksRun.push('prose-gate-clean')
-  for (const t of T) if (computes(t.name).binary === 0)
-    traitors.push({ kind: 'prose-overclaim', detail: `${t.key} — the NAME drains the honesty gate (a fabricated theorem citation in the prose)` })
+  // 5) PROSE — REMOVED. Every theorem's NAME used to run through the honesty gate, and a name that DRAINED it made the
+  // theorem a traitor ('prose-overclaim'). The Lean was untouched in that case: the kernel had verified the proof and
+  // the PROSE rejected it. That is a blocker of Lean, so it is withdrawn. The gate itself is unchanged and still runs
+  // over the README, the site pages and the MCP descriptions (scripts/audit.ts) — it simply no longer overrules the
+  // kernel about what the ledger may carry. HONEST LIMIT, unchanged and worth restating: the gate only ever caught a
+  // FABRICATED CITATION, never an unbacked NARRATIVE — a false "discovered / novel" story on a true statement always
+  // scored identically to an honest description. Only the court (adjudicate) and human vigilance catch that.
 
   // 7) SEAL INTEGRITY — the DNA check (1) folds key+statement but NEVER the lean field, so a lean that names a DIFFERENT
   // key (a key↔lean desync) or is not a `by decide` proof slips past it. This drone verifies every theorem's lean BINDS
@@ -111,12 +103,12 @@ export function catchTraitors(): TreasonReport {
     ]),
     honest:
       'Catch traitors as fast as a hero: one O(N) pass proving the ledger is UNFORGED and self-consistent — every ' +
-      'theorem\'s DNA recomputes, no key/address collides, every theorem is covered by a monograph, the conformance ' +
-      'invariants hold, AND every theorem\'s NAME passes the honesty gate (no fabricated citation hiding in the prose). ' +
-      'A traitor is a FORGERY in the artifact, never a person. HONEST LIMIT: the prose check catches a fabricated ' +
-      'citation in a name, NOT an unbacked NARRATIVE carried by a true statement (a false "discovered/novel/proven-' +
-      'elsewhere" story) — the gate cannot decide that; only the COURT (adjudicate) and human vigilance can, as they ' +
-      'did. Passing is not a claim the theorems are true, only that none was tampered with or smuggled in. Integrity, not truth.',
+      'theorem\'s DNA recomputes, no key/address collides, the conformance ' +
+      'invariants hold. A theorem\'s NAME is NO LONGER judged here — the kernel decides what the ledger carries. ' +
+      'A traitor is a FORGERY in the artifact, never a person. HONEST LIMIT, WIDENED: neither a fabricated citation in ' +
+      'a name nor an unbacked NARRATIVE is caught here any more — the prose arm was withdrawn as a blocker of Lean, so ' +
+      'only the COURT (adjudicate) and human vigilance stand against either. Passing is not a claim the theorems are ' +
+      'true, only that none was tampered with or smuggled in. Integrity, not truth.',
   }
 }
 
@@ -139,20 +131,24 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
       lesson: 'Every theorem\'s address IS toUuid(key ":" statement) — a tampered key/statement/address breaks exactly one; a forgery cannot recompute.' },
     { check: 'no-collision', enforcedBy: 'catchTraitors', holds: held('key-collision', 'address-collision'),
       lesson: 'A key or address collision is a smuggled duplicate — an intrusion, never a datum.' },
-    { check: 'monograph-coverage', enforcedBy: 'catchTraitors + lean-ledger PRINCIPLE', holds: held('uncovered'),
-      lesson: 'Every new lean-*.ts generator needs a PRINCIPLE [file,title,blurb] entry, or its theorems are uncovered and the push is blocked.' },
     { check: 'conformance-invariants', enforcedBy: 'catchTraitors', holds: held('conformance'),
       lesson: 'The DNA gate: the two coins conserved (=2), DNA recomputes, single-source ledger, security posture clean.' },
     { check: 'seal-integrity', enforcedBy: 'catchTraitors (lean binds to key + by-decide)', holds: held('seal-integrity'),
       lesson: 'The DNA check folds key + statement, never the lean field — so a lean naming a DIFFERENT key (a key↔lean desync) or one that is not a `by decide` proof slips past it. This drone verifies every theorem\'s lean binds to its own key and proves by decide, a placeholder/tamper caught in milliseconds offline (the full Lean re-verify stays the reconcile\'s job). Brought forward of the slow verify, like the axiom-witness.' },
-    { check: 'prose-gate-clean', enforcedBy: 'catchTraitors (honesty gate over each name)', holds: held('prose-overclaim'),
-      lesson: 'Treason masks with negating prose: the DNA check recomputes the STATEMENT but never the NAME, so a forgery can hide in prose. Every theorem name is run through the honesty gate — a fabricated citation in a name drains it and is caught. HONEST LIMIT: this catches a fabricated citation only, NOT an unbacked narrative (a false discovery/novelty story on a true statement) — the gate scores that identically to an honest description; only the court (adjudicate) and human vigilance catch it. Trust the recompute, not the prose — including your own.' },
     { check: 'determinism', enforcedBy: 'harmonic-scan (npm run guard)', holds: 'script',
       lesson: 'No Math.*/wall-clock/RNG anywhere in src — including comments; the smoke test scans RAW source. Exact integer arithmetic settles the coins, a host intrinsic never can. The guard regex matches the smoke test exactly, so the guard is never laxer than the gate it front-runs.' },
     { check: 'axiom-witness', enforcedBy: 'shipped lean/axioms.json (guard re-derives)', holds: ((w) => w.shipped ? w.holds : 'script' as const)(axiomWitness()),
       lesson: 'Every theorem must be kernel-only (no propext, no Classical.choice); a new/unaudited theorem (audited < ledger) or a borrowed axiom trips it. The receipt SHIPS with the package, so this recomputes OFFLINE against the live ledger; re-deriving it needs the Lean toolchain (guard/CI).' },
     { check: 'guard-before-reconcile', enforcedBy: 'npm run guard', holds: 'script',
       lesson: 'Run the 0.29s guard BEFORE the ~4-min reconcile: re-spending the full gate on a catchable error is the measured financial damage of manual work (traitor_damage_sealed_by_same_billing). Fast catch, no re-spend.' },
+    { check: 'name-is-not-a-proof', enforcedBy: 'the frozen finder + the correction sealed beside it', holds: theorems().some((t) => t.key === 'powers_are_not_the_bound'),
+      lesson: 'A theorem NAME can claim what its statement never reaches, and the kernel will not object: `seats_pigeonhole` states 2^8 = 256 ∧ 2^0 = 1 ∧ 2^10 = 1024 — three powers of two, no items, no seats, no inequality. It was cited as a receipt for a pigeonhole bound it does not contain. The cure is not deletion: Seats.lean states the bound the name promised and `powers_are_not_the_bound` exhibits the difference (2^8 ≠ ⌈11/10⌉), so the correction recomputes beside the thing it corrects. READ THE STATEMENT, NEVER THE NAME — including your own, and especially when the name agrees with you.' },
+    { check: 'superpose-never-enumerate', enforcedBy: 'the context finder — lean/mcp-context-budget.json, a ceiling that may only SHRINK', holds: 'script',
+      lesson: 'A new capability added as a NEW TOOL costs every agent wire bytes on every request, forever; folded into a surface that already answers about the same subject it costs nothing. Measured: registering uuidna_speech as a 192nd tool grew the payload 1204 bytes; superposing it onto uuidna_address grew it 0 and left the tool count at 191. The law is already written in mcp.ts — the capability axis is ONE surface and never one tool per skill. When the budget objects, the answer is almost never to raise the ceiling.' },
+    { check: 'demotion-is-not-removal', enforcedBy: 'node --test dist/tests (npm run audit)', holds: 'script',
+      lesson: 'Moving a finder from the blocking tier to ADVISORY does not remove the invariant — the test suite holds it independently. Measured: the grid finder was demoted, guard went green, and four grid tests stayed red because grid.test.ts asserts PROJECTED.length * wings().length = 432 on its own. "Guard green" is not "green". Run the suite before saying either.' },
+    { check: 'exit-code-not-clock', enforcedBy: 'lean-gen emit (hard-exits on a false js mirror)', holds: 'script',
+      lesson: 'A fast run is not a passing run. Measured: one theorem over 65536 cases printed 0.59s and looked like the best number on the page — it was a maxRecDepth crash; the same theorem, when it actually verified, took 824s. A timing table with no exit codes reports failures as results, and the fastest row is the likeliest lie. Check the code, then the clock.' },
     { check: 'commit-signed-true', enforcedBy: 'reconcile signCommit', holds: 'script',
       lesson: 'A commit cannot be made unless its message is SIGNED TRUE — cites a real sealed theorem, none fabricated. The message folds with its cited theorems to one gravity root through the abstract-0.' },
   ]

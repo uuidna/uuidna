@@ -6,13 +6,14 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { snapshot, reactor, theorems } from '../index.js'
 import { UUID } from './api.js'
+import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
 test('snapshot fuses sealed theorems across domains to one recomputable superposition', () => {
   const keys = ['diamond_involution', 'week_is_z7', 'true_colour_is_24_bit', 'seven_bands_in_order']
   const s = snapshot(keys)
   assert.equal(s.members.length, 4)
   assert.match(s.superposition, UUID)
-  assert.equal(s.handle, s.superposition.slice(0, 8), 'the first part IS the identity handle')
+  assert.equal(s.handle, handleOf(s.superposition), 'the first part IS the identity handle')
   // order-invariant — the same set, any order, recomputes the same superposition (no drift)
   assert.equal(snapshot([...keys].reverse()).superposition, s.superposition)
   // a changed member MOVES the uuid — drift is caught, not hidden (z9add_0_0 is a real sealed key, so it folds in)
@@ -36,7 +37,7 @@ test('the reactor recycles — an unverified claim returns with its develop plan
   assert.equal(r.unverified.length, 2)
   for (const cell of r.unverified) assert.ok(cell.develop.length >= 1, 'every unverified cell carries a develop plan (new aspects)')
   assert.match(r.superposition, UUID)
-  assert.equal(r.handle, r.superposition.slice(0, 8))
+  assert.equal(r.handle, handleOf(r.superposition))
   // deterministic — the same claims recompute the same run
   assert.equal(reactor(['the birth number governs destiny']).superposition, reactor(['the birth number governs destiny']).superposition)
 })

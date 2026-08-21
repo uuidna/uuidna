@@ -10,6 +10,7 @@
 // The three fuse to one order-invariant receipt. `verified` is the recomputable conjunction (single ∧ proof ∧
 // self-similar) — true by construction for every input. Integrity, not truth.
 import { toUuid, coin64, digitalRoot } from './address.js'
+import { seedOf } from './handle.js'   // THE one address→integer derivation — see handle.ts
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { starPolygon } from './cycles.js'
 import { merkleGravity } from './gravity.js'
@@ -50,7 +51,7 @@ export function pentagramHologramFractal(input: string): HoloFractal {
 
   // FRACTAL — the same content-fold at descending scales; the coin IS the top half of the address (self-similar)
   const coin = coin64(s)
-  const dr = digitalRoot(parseInt(hex.slice(0, 8), 16))
+  const dr = digitalRoot(seedOf(address))
   const scales = [
     { scale: '128-bit uuid', value: address },
     { scale: '64-bit coin', value: coin },

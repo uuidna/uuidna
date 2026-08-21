@@ -2,28 +2,455 @@
   "why": "Every lead this session raised, INCLUDING the ones negated, refuted or refused. A refuted lead is not waste — it is the cheapest thing in the ledger, because it stops the same derivation being made twice. Several entries below were re-derived two or three times in one session before measurement killed them, and one number moved under me three times. A refused lead records a BOUNDARY: not that the idea is stupid, but where the evidence stops.",
   "recorded": "2026-08-20",
   "held": [
-    { "lead": "The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution.", "status": "rigid, measured, UNSEALED", "owes": "a falsifier, and an independent witness. The engine side has one: Rathbun's odd-cylinder condition IS gcd(2,n)=1, read from the source. That the Z/9 vortex and a rotary firing order are the SAME argument is my claim, not a measured one." },
-    { "lead": "An involution alone is barren: dz reaches exactly two states from any seed, alternating with doubling reaches all ten. The productive partner is the IRREVERSIBLE one — dz is reversible and free, doubling collapses.", "status": "measured, in src/separation.ts with 12 tests", "owes": "sealing; it connects to reversible_erases_nothing beside Landauer" },
-    { "lead": "Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.", "status": "ASSERTED FROM RECALL, never verified — the researcher sent to check it stalled", "owes": "a primary source for the temperatures, the per-stage separation factor, and whether 'involution' is a fair description or my imposition on chemistry that does not work that way" }
+    {
+      "lead": "The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution.",
+      "status": "rigid, measured, UNSEALED",
+      "owes": "a falsifier, and an independent witness. The engine side has one: Rathbun's odd-cylinder condition IS gcd(2,n)=1, read from the source. That the Z/9 vortex and a rotary firing order are the SAME argument is my claim, not a measured one."
+    },
+    {
+      "lead": "An involution alone is barren: dz reaches exactly two states from any seed, alternating with doubling reaches all ten. The productive partner is the IRREVERSIBLE one — dz is reversible and free, doubling collapses.",
+      "status": "measured, in src/separation.ts with 12 tests",
+      "owes": "sealing; it connects to reversible_erases_nothing beside Landauer"
+    },
+    {
+      "lead": "Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.",
+      "status": "ASSERTED FROM RECALL, never verified — the researcher sent to check it stalled",
+      "owes": "a primary source for the temperatures, the per-stage separation factor, and whether 'involution' is a fair description or my imposition on chemistry that does not work that way"
+    },
+    {
+      "lead": "The grid breaks at 73 wings: 6 × 73 = 438, digital root 6, and the sealed width is 432. VectorEquilibrium.lean landed alone.",
+      "status": "MEASURED, BLOCKING — guard `grid` fails now",
+      "owes": "a decision, not a fix: two more wings so they enter three at a time, or a deliberate re-seal of the 432 width, or the wing comes back out. The finder already states all three; none is mine to choose."
+    },
+    {
+      "lead": "predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.",
+      "status": "MEASURED, unfixed — a dead check inside guard step 5",
+      "owes": "derive the count instead of remembering it, reconcile the two definitions, and fold the general finder: a hardcoded expected-count anywhere in the guard chain is a tripwire aimed at its own foot. The drift detector drifted, in the one direction that mutes it."
+    },
+    {
+      "lead": "Measurement has no single source: 28 independent recomputations of a theorem count across src/, and 5 of the principle count. one-receipt.ts:394 already states the law — 'the number is read, never chosen' — and nothing enforces it.",
+      "status": "MEASURED, unfixed",
+      "owes": "one Lean-derived census() every surface reads, plus a finder that fails when a count is computed anywhere else."
+    },
+    {
+      "lead": "Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).",
+      "status": "MEASURED, and it has already cost — next.ts ARM 7 fails on docs/prose-evidence.md drift while printing 'regenerate docs/prose-evidence.md' as the fix. THE GATE NAMES A FIX NO CHAIN PERFORMS.",
+      "owes": "an ownership manifest naming every derived artifact and its single writer, with a finder that fails on zero owners or two. The order-merge of the 17 gen-* comes after that, and must model reconcile's mid-chain `npm run build` barriers as explicit nodes rather than hiding them."
+    },
+    {
+      "lead": "A negation in the comment above a Lean line must be discharged by the line below it. Run by hand over the newest wing it convicted 6 of 12; the surviving 4 are SCOPE-declared, proven, or scanner artefacts ('non-covering' is a NAME, 'rather than' is contrast).",
+      "status": "LAW STATED (captain, this session), finder UNBUILT",
+      "owes": "the split that makes it enforceable — object-level negations must be proven beneath; meta-level boundary statements must be PREFIXED `SCOPE:` and exempted, because no Lean line can prove that nothing further is claimed. Then a second arm: does the line contain a `≠`/`¬` at all. Glagolitic already passes it — roman_reads_subtractively seals `9 ≠ 11` as its third conjunct, the model for all 73 wings. The hard half is the scanner, not the law: lexical matching cannot tell a claim from a name, which is the same wall treason.ts documents against itself."
+    },
+    {
+      "lead": "Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.",
+      "status": "OBSERVED — the naming law the repo already follows in one wing",
+      "owes": "the VE wing renamed by it. radial_squared_two names a VALUE and fails the rule; only radial_equals_edge got it right, because `equals` is a verb. This also dissolves the 3-content-word cap: an operation has a one-word name, so the cap stops being a constraint fought against and becomes a consequence."
+    },
+    {
+      "lead": "refused[] in this very file is read by NO finder. Seven readers open leads.json; none looks at the refusals.",
+      "status": "MEASURED — and it cost, this session",
+      "owes": "a finder that fails when a network-touching source names a host listed here, plus a recomputed robots.txt assertion so the boundary can FAIL rather than merely be written down. I proposed crawling chitanka's /api hours after this file refused it, because prose no gate reads is prose that gets walked past."
+    },
+    {
+      "lead": "runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.",
+      "status": "RESOLVED (export) + the period half RETRACTED — measured, and period was never broken",
+      "owes": "nothing on the export. THE PERIOD CLAIM WAS FALSE and is corrected here rather than deleted: I reported period returning 0 for every non-zero seed as a defect and said every period figure this session was suspect. Measured: the alternating dz/doubling walk genuinely has NO in-phase period — seed 2 returns to itself at step 6 (an EVEN index, out of phase), seeds 1 and 3 never return within 24, and only seed 0 closes in phase at 2 because both maps fix it. period() requires a return at an odd index (a completed dz-then-doubling pair) and that is CORRECT. Returning 0 is an accurate report that no period exists, and the reason is structural: doubling is irreversible, so the walk cannot return to a seed outside its image. The only real defect left is cosmetic — 0 reads like a measured value in a table when it means 'no period'. I diagnosed by reading the code and did not run it."
+    },
+    {
+      "lead": "docs/theorem/[key].paths.js and docs/publications/[slug].paths.js already mint a page per handle; the template is scoped to theorem keys and publication slugs.",
+      "status": "OPEN — extension, not new construction",
+      "owes": "one template reaching ALL handles — sequence handles, chunk handles, VE handles — the way the crypto layer answers any nonce with one derivation."
+    },
+    {
+      "lead": "The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bound is ALREADY SEALED as gematria_forces_collisions (22^3 = 10648 > 1198 sums) and seats_pigeonhole.",
+      "status": "DEMARCATED — the split kept, the receipt now cited",
+      "owes": "before the 12 VE directions may multiply anything, they must be shown INDEPENDENT of the walk's own two operations. Every measured orbit set is already dz-closed, so involution is not an extra direction — it is inside the walk, and testing it returns the identity mistaken for confirmation. Any direction reducing to dz or doubling is free, and 420 is inflated by exactly those."
+    }
   ],
   "refuted": [
-    { "lead": "Reflection conserves the stroke budget (four falling, five rising)", "killed_by": "measured across all 54 affine rows: budgets are 4,5 in 18 rows, 5,4 in 30, 6,3 in 6. The mirror keeps it on 30 of 54 and breaks it on 24; the IDENTITY is the only map conserving it everywhere.", "replaced_by": "budget_not_conserved" },
-    { "lead": "The seams reflect (row1's seams map onto row2's under the mirror)", "killed_by": "true by construction — the mirrored law was defined as carries(dz p, dz n) and dz is an involution, so it holds for ANY row. Unfalsifiable, therefore says nothing." },
-    { "lead": "Every merkaba has union 8 — an 8-vertex star tetrahedron", "killed_by": "reduced mod 9 where 0 and 9 are one residue, m0 and m1 hold only 7 distinct. Only m2 is a genuine 8-vertex star. My 'union 8' counted the void twice and survived two exchanges before arithmetic caught it." },
-    { "lead": "42 tiles 432 (the pair grid divides the full grid)", "killed_by": "432/42 = 10.2857 — 7 does not divide 72. They share the factor 6 and diverge on the second." },
-    { "lead": "6x7 and 7x6 counter-rotate (the ORDER is the rotation)", "killed_by": "the two coordinates are independent, so they COMMUTE — 6x7 == 7x6 exactly. The opposition is between doubling and halving (x2 against x5 mod 9), not between orderings." },
-    { "lead": "The re-namings are 2 x 42 = 84", "killed_by": "measured 73 (1336 keys over 1263 distinct). This number moved under me three times in one session; I nearly recorded the stale value twice." },
-    { "lead": "Renaming a theorem moves its handle", "killed_by": "the handle folds the LEAN, not the key. mul9_1_1 and z9mul_1_1 are two names for one statement and share handle cc9c0011. Renaming moves the address and 1617 citations; it moves no handle. I used the wrong claim as grounds NOT to do work." },
-    { "lead": "harmonic-scan enforces 'quantum'", "killed_by": "it enforces HARMONIC. The word 'quantum' appears in it twice, both in comments; delete every occurrence and the non-comment source is identical. What it rejects is non-determinism." },
-    { "lead": "The network is down", "killed_by": "seven of eight hosts answered 200. Gutendex returned 301 — an unfollowed redirect, not a failure. I concluded an outage from one probe and repeated it twice as fact." },
-    { "lead": "Literature has poor theorem yield (one per quarter-million characters)", "killed_by": "the METRIC was wrong, not literature. I counted the arithmetic a book ASSERTS and ignored the arithmetic a book IS — counts, ranks, letter order, numerals. One novel yields five sealable facts in seconds." },
-    { "lead": "The ledger and the wings had drifted; two theorems were proven and invisible", "killed_by": "I read theorems() out of a stale dist/. lean-all imports lean-ledger deliberately after its generator loop and generated.ts had the right count all along. The real defect is smaller: npm run lean PRINTS a count that lags what it writes." }
+    {
+      "lead": "Reflection conserves the stroke budget (four falling, five rising)",
+      "killed_by": "measured across all 54 affine rows: budgets are 4,5 in 18 rows, 5,4 in 30, 6,3 in 6. The mirror keeps it on 30 of 54 and breaks it on 24; the IDENTITY is the only map conserving it everywhere.",
+      "replaced_by": "budget_not_conserved"
+    },
+    {
+      "lead": "The seams reflect (row1's seams map onto row2's under the mirror)",
+      "killed_by": "true by construction — the mirrored law was defined as carries(dz p, dz n) and dz is an involution, so it holds for ANY row. Unfalsifiable, therefore says nothing."
+    },
+    {
+      "lead": "Every merkaba has union 8 — an 8-vertex star tetrahedron",
+      "killed_by": "reduced mod 9 where 0 and 9 are one residue, m0 and m1 hold only 7 distinct. Only m2 is a genuine 8-vertex star. My 'union 8' counted the void twice and survived two exchanges before arithmetic caught it."
+    },
+    {
+      "lead": "42 tiles 432 (the pair grid divides the full grid)",
+      "killed_by": "432/42 = 10.2857 — 7 does not divide 72. They share the factor 6 and diverge on the second."
+    },
+    {
+      "lead": "6x7 and 7x6 counter-rotate (the ORDER is the rotation)",
+      "killed_by": "the two coordinates are independent, so they COMMUTE — 6x7 == 7x6 exactly. The opposition is between doubling and halving (x2 against x5 mod 9), not between orderings."
+    },
+    {
+      "lead": "The re-namings are 2 x 42 = 84",
+      "killed_by": "measured 73 (1336 keys over 1263 distinct). This number moved under me three times in one session; I nearly recorded the stale value twice."
+    },
+    {
+      "lead": "Renaming a theorem moves its handle",
+      "killed_by": "the handle folds the LEAN, not the key. mul9_1_1 and z9mul_1_1 are two names for one statement and share handle cc9c0011. Renaming moves the address and 1617 citations; it moves no handle. I used the wrong claim as grounds NOT to do work."
+    },
+    {
+      "lead": "harmonic-scan enforces 'quantum'",
+      "killed_by": "it enforces HARMONIC. The word 'quantum' appears in it twice, both in comments; delete every occurrence and the non-comment source is identical. What it rejects is non-determinism."
+    },
+    {
+      "lead": "The network is down",
+      "killed_by": "seven of eight hosts answered 200. Gutendex returned 301 — an unfollowed redirect, not a failure. I concluded an outage from one probe and repeated it twice as fact."
+    },
+    {
+      "lead": "Literature has poor theorem yield (one per quarter-million characters)",
+      "killed_by": "the METRIC was wrong, not literature. I counted the arithmetic a book ASSERTS and ignored the arithmetic a book IS — counts, ranks, letter order, numerals. One novel yields five sealable facts in seconds."
+    },
+    {
+      "lead": "The ledger and the wings had drifted; two theorems were proven and invisible",
+      "killed_by": "I read theorems() out of a stale dist/. lean-all imports lean-ledger deliberately after its generator loop and generated.ts had the right count all along. The real defect is smaller: npm run lean PRINTS a count that lags what it writes."
+    }
   ],
   "refused": [
-    { "lead": "Over-unity / free energy devices", "boundary": "the first law. Splitting water costs at least what burning it returns. NOT refused as a topic — the ambient-harvesting articles were written in full; refused only as a net-positive loop.", "note": "'Free' in Gibbs energy means AVAILABLE, not gratis: G = H - TS is a ceiling on extractable work, which is why IUPAC dropped the word." },
-    { "lead": "Water itself as fuel", "boundary": "water is combustion's ash, already fully oxidised. But the CONTAMINANT in polluted water is fuel, and I was wrong to refuse that half — corrected the same session.", "note": "Hydrogen fusion inverts it again: the deuterium in one mole of water yields ~190x the energy needed to split that mole. Different layer of the same molecule." },
-    { "lead": "MFC exhausting pure drinkable water", "boundary": "measured pilot effluent 247 +/- 206 mg/L COD against a ~60 target. Cleaner, not clean. And CH4 combustion emits CO2 — water is not the only exhaust." },
-    { "lead": "Bulk crawling of chitanka.info", "boundary": "its robots.txt disallows /api and every full-text format. A single user-directed fetch is a different act and remains available; systematic retrieval is not.", "note": "Wikisource is open to machines and carries the same public-domain canon — the substitute, not a consolation." },
-    { "lead": "Quantum advantage or speedup claims", "boundary": "already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced." }
-  ]
+    {
+      "lead": "Over-unity / free energy devices",
+      "boundary": "the first law. Splitting water costs at least what burning it returns. NOT refused as a topic — the ambient-harvesting articles were written in full; refused only as a net-positive loop.",
+      "note": "'Free' in Gibbs energy means AVAILABLE, not gratis: G = H - TS is a ceiling on extractable work, which is why IUPAC dropped the word."
+    },
+    {
+      "lead": "Water itself as fuel",
+      "boundary": "water is combustion's ash, already fully oxidised. But the CONTAMINANT in polluted water is fuel, and I was wrong to refuse that half — corrected the same session.",
+      "note": "Hydrogen fusion inverts it again: the deuterium in one mole of water yields ~190x the energy needed to split that mole. Different layer of the same molecule."
+    },
+    {
+      "lead": "MFC exhausting pure drinkable water",
+      "boundary": "measured pilot effluent 247 +/- 206 mg/L COD against a ~60 target. Cleaner, not clean. And CH4 combustion emits CO2 — water is not the only exhaust."
+    },
+    {
+      "lead": "Bulk crawling of chitanka.info",
+      "boundary": "its robots.txt disallows /api and every full-text format. A single user-directed fetch is a different act and remains available; systematic retrieval is not.",
+      "note": "Wikisource is open to machines and carries the same public-domain canon — the substitute, not a consolation."
+    },
+    {
+      "lead": "Quantum advantage or speedup claims",
+      "boundary": "already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced."
+    }
+  ],
+  "tables": {
+    "why": "Complete finite objects each wing DESCRIBES but never ENUMERATES, found 2026-08-21 by an 11-agent sweep over the stating wings. THE MEASUREMENT THAT MOTIVATED IT: a handful of ENUMERATING wings carry as many theorems as scores of STATING ones, because a wing that finds its table produces hundreds while a wing that states facts produces single digits. The live figures are read from statementCensus()/theoremCountByFile(); none is copied here, since a lead carrying its own copy of a count is the very drift it describes. Every entry below was reported decidable by `by decide` without Mathlib. NOT YET VERIFIED BY ME — an agent's report is a lead, not a receipt; two spot-checks held (OneLeap's AGL(1,Z/9) order 54, Spectrum's two vacuous theorems), the rest are unchecked.",
+    "sealed_since": [
+      "OneLeap AGL(1,Z/9) -> Affine.lean, 54 elements / 2916 products"
+    ],
+    "found": [
+      {
+        "wing": "Spectrum",
+        "object": "seven EM bands with nm/THz boundaries + 21 pairwise orderings + ROYGBIV",
+        "size": "35"
+      },
+      {
+        "wing": "Harmony",
+        "object": "Watson-Crick 4x4 base-pairing matrix (4 valid, 12 invalid)",
+        "size": "16"
+      },
+      {
+        "wing": "Sailing",
+        "object": "32-point compass rose in integer quarter-degrees + 8 points of sail",
+        "size": "32"
+      },
+      {
+        "wing": "Matching",
+        "object": "fixed-point-free involutions on 4 and 6",
+        "size": "18"
+      },
+      {
+        "wing": "Report",
+        "object": "publish-gate truth table over (verified, audited, quorate)",
+        "size": "8"
+      },
+      {
+        "wing": "Psychology",
+        "object": "signal-detection 2x2 outcome table",
+        "size": "4"
+      },
+      {
+        "wing": "UuidMix",
+        "object": "10x10 directed mix table over the RFC 9562 types",
+        "size": "100"
+      },
+      {
+        "wing": "Structures",
+        "object": "Maxwell trichotomy grid, sign of m-(2j-3)",
+        "size": "220"
+      },
+      {
+        "wing": "Editor",
+        "object": "dfold bijection over all 3-node base-8 documents",
+        "size": "512"
+      },
+      {
+        "wing": "MartialArts",
+        "object": "complement involution at widths 10/90/100/180",
+        "size": "384"
+      },
+      {
+        "wing": "Propulsion",
+        "object": "thrust grid F = mdot*ve, thrust zero iff a factor is zero",
+        "size": "100"
+      },
+      {
+        "wing": "Statics",
+        "object": "Maxwell determinacy over (joints, members)",
+        "size": "390"
+      },
+      {
+        "wing": "Relativity",
+        "object": "exact-gamma Pythagorean triples, hypotenuse <= 100",
+        "size": "16"
+      },
+      {
+        "wing": "Ephemeris",
+        "object": "Gregorian 400-year leap table (97 leap / 303 common)",
+        "size": "400"
+      },
+      {
+        "wing": "Codes",
+        "object": "XOR-checksum involution over all 4-bit pairs",
+        "size": "256"
+      },
+      {
+        "wing": "Crt",
+        "object": "the 36 units of (Z/63)* and their 36x36 product table",
+        "size": "1296"
+      },
+      {
+        "wing": "Photography",
+        "object": "full-stop ladder: 13 shutter, 10 f-number, 9 ISO",
+        "size": "32"
+      },
+      {
+        "wing": "Typesetting",
+        "object": "ISO A-series A0-A10 halving chain",
+        "size": "22"
+      },
+      {
+        "wing": "Editing",
+        "object": "SMPTE drop-frame per-minute map over an hour",
+        "size": "60"
+      },
+      {
+        "wing": "Uuidna",
+        "object": "Klein four-group Cayley table",
+        "size": "16"
+      },
+      {
+        "wing": "Software",
+        "object": "4-input sorting network over all permutations",
+        "size": "24"
+      },
+      {
+        "wing": "DisputedTopics",
+        "object": "audit-bits -> verdict classification table",
+        "size": "8"
+      },
+      {
+        "wing": "Vortex",
+        "object": "nuclear shell prefix sums, 22 caps, which are magic",
+        "size": "22"
+      },
+      {
+        "wing": "Chess",
+        "object": "per-square move counts, 5 pieces",
+        "size": "320"
+      },
+      {
+        "wing": "Pentagram",
+        "object": "Z/5 step table, all five star-polygon walks",
+        "size": "25"
+      },
+      {
+        "wing": "SailingSeals",
+        "object": "hex-nibble alphabet + uuid position map",
+        "size": "52"
+      },
+      {
+        "wing": "Hardware",
+        "object": "all 16 two-input Boolean functions",
+        "size": "64"
+      },
+      {
+        "wing": "Diving",
+        "object": "Dalton ppO2 grid, air and trimix over 1-8 atm",
+        "size": "64"
+      },
+      {
+        "wing": "Optics",
+        "object": "refractive-index ordered-pair matrix, TIR + critical ratio",
+        "size": "16"
+      },
+      {
+        "wing": "Acoustics",
+        "object": "decibel ladder 0-120 in 10 dB rungs",
+        "size": "13"
+      },
+      {
+        "wing": "Chemistry",
+        "object": "pH/pOH scale 0-14 with verdicts",
+        "size": "45"
+      },
+      {
+        "wing": "Molecular",
+        "object": "main-group valence table",
+        "size": "16"
+      },
+      {
+        "wing": "Navigation",
+        "object": "32-point rose at 11.25 deg = 1125 hundredths",
+        "size": "32"
+      },
+      {
+        "wing": "Identifiers",
+        "object": "ISBN-10 single-digit-error table, 10 positions x 9 digits",
+        "size": "101"
+      },
+      {
+        "wing": "Os",
+        "object": "single-byte tamper over a pinned 32-byte digest",
+        "size": "8160"
+      },
+      {
+        "wing": "Sanitize",
+        "object": "the stripped code points themselves (BIDI 9 + control 61)",
+        "size": "70"
+      },
+      {
+        "wing": "Command",
+        "object": "all 16 two-input functions, eliminating the 15 that are not AND",
+        "size": "16"
+      },
+      {
+        "wing": "Tides",
+        "object": "rule-of-twelfths cumulative table + 8 phases",
+        "size": "15"
+      },
+      {
+        "wing": "AuditGame",
+        "object": "3-refuter panel verdict table + 4-state gate",
+        "size": "12"
+      },
+      {
+        "wing": "Astronomy",
+        "object": "12 ecliptic sign boundaries + Metonic 19-year cycle",
+        "size": "24"
+      },
+      {
+        "wing": "Solids",
+        "object": "the SIX regular 4-polytopes with (V,E,F,C), Euler = 0",
+        "size": "24"
+      },
+      {
+        "wing": "Thermodynamics",
+        "object": "the 7 exact SI defining constants (only 3 used)",
+        "size": "7"
+      },
+      {
+        "wing": "Infinity",
+        "object": "infinity -> resolution-mechanism assignment",
+        "size": "10"
+      },
+      {
+        "wing": "Exploits",
+        "object": "the 9 Trojan-Source BIDI code points, listed",
+        "size": "9"
+      },
+      {
+        "wing": "Calendar",
+        "object": "400-year leap flags + 12 doomsday anchors",
+        "size": "412"
+      },
+      {
+        "wing": "Optimisation",
+        "object": "feasible polytope vertices + 20 lattice points",
+        "size": "24"
+      },
+      {
+        "wing": "Security",
+        "object": "bits->space->birthday ladder, k = 0..64",
+        "size": "65"
+      },
+      {
+        "wing": "Glagolitic",
+        "object": "the 27-sign numeral table, sum 4995",
+        "size": "27"
+      },
+      {
+        "wing": "Production",
+        "object": "Z/12 generator orbits + circle of fifths",
+        "size": "12"
+      },
+      {
+        "wing": "BioPhysics",
+        "object": "the standard genetic code, 64 codons -> 21 classes",
+        "size": "64"
+      },
+      {
+        "wing": "Discover",
+        "object": "subgroup lattice of Z/9* over all 64 subsets",
+        "size": "64"
+      },
+      {
+        "wing": "Audit",
+        "object": "all 16 four-witness profiles, 6 tied",
+        "size": "16"
+      },
+      {
+        "wing": "MoMBHStar1",
+        "object": "JWST NIRCam 8 wide filters, nm cut-on/cut-off",
+        "size": "15"
+      },
+      {
+        "wing": "Colour",
+        "object": "the 378-state aura alphabet + pairwise distinctness",
+        "size": "378"
+      },
+      {
+        "wing": "Neuro",
+        "object": "falsification sweep 31 thresholds x 14 predicates",
+        "size": "434"
+      },
+      {
+        "wing": "Topography",
+        "object": "back-bearing involution on Z/360",
+        "size": "360"
+      },
+      {
+        "wing": "Coins",
+        "object": "the 64 basis states of the 6-cube, popcount census",
+        "size": "64"
+      },
+      {
+        "wing": "Chessgames",
+        "object": "knight + king mobility over all 64 squares",
+        "size": "128"
+      },
+      {
+        "wing": "AntiFraud",
+        "object": "double-spend over all length-3 claim lists",
+        "size": "27"
+      },
+      {
+        "wing": "Reasoning",
+        "object": "the 16 binary Boolean connectives as truth tables",
+        "size": "64"
+      },
+      {
+        "wing": "Cipher",
+        "object": "genetic code 64 codons + Z/5 S-box + 16x16 XOR table",
+        "size": "325"
+      }
+    ]
+  }
 }

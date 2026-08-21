@@ -53,7 +53,8 @@ export interface SchoolApiAnswer {
   count: number
   results: SchoolApiEvidence[]
   truncated: boolean
-  declined?: boolean          // the source answered 200 with no result envelope at all — it REFUSED the query
+  declined?: boolean   // the source did not ANSWER WITH DATA: a refusal, a wrong shape, or a web page served as 200
+  note?: string        // when declined, what it actually did — so a silence is never mistaken for an empty world
 
   receipt: string
   honest: string
@@ -82,19 +83,18 @@ const DEFAULT_LIMIT = 25
 // as a live one, which is the drift this module exists to catch. GISCO is a different kind of read: its URL CARRIES
 // THE VINTAGE (…/education/2020/csv/BG.csv), so the bytes behind a given URL cannot change — a new vintage is a new
 // URL. That is immutability by construction, not by assumption, and it is the standing law's own case: cache the
-// immutable read and pay for it once. MEASURED before caching: 1,012,784 bytes fetched to return 7,377 — 0.7%
-// useful, re-paid on every call. Same idiom as _uuidCache in address.ts and _cache in captain/credits.
+// immutable read and pay for it once. Same idiom as _uuidCache in address.ts and _cache in captain/credits.
 const _immutable = new Map<string, string>()
 
 /** Fetch a URL whose bytes cannot change because the URL names its own version. Anything else must NOT come here. */
-async function immutableText(url: string, accept: string): Promise<string> {
+async function immutableText(url: string, kind: DataKind): Promise<Fetched<string>> {
   const hit = _immutable.get(url)
-  if (hit !== undefined) return hit
-  const r = await fetch(url, { headers: { accept } })
-  if (!r.ok) throw new Error(`school-apis: ${url} responded ${r.status}`)
-  const text = await r.text()
-  _immutable.set(url, text)
-  return text
+  if (hit !== undefined) return { data: hit, declined: false, note: 'cached' }
+  const got = await fetchData<string>(url, kind)
+  // VALIDATE BEFORE STORING. The url names its own vintage, so whatever is cached here is served for the life of
+  // the process — caching an error page would make one bad minute permanent.
+  if (got.data !== null) _immutable.set(url, got.data)
+  return got
 }
 
 /** immutableReads() → what the vintage-carrying cache is holding: the URLs paid for once, for the heartbeat and for
@@ -104,6 +104,39 @@ export function immutableReads(): { handle: string; url: string; bytes: number }
   // is a 2^32 collision surface, and a cache that returns the wrong bytes on a collision is a correctness defect,
   // not a naming one. So the map keeps the whole url and the report carries the handle anyone would quote.
   return [..._immutable].map(([url, text]) => ({ handle: handleOf(toUuid(url)), url, bytes: text.length }))
+}
+
+
+// ── WHAT CAME BACK IS NOT THE SAME QUESTION AS WHETHER IT ANSWERED ───────────────────────────────────────────────
+//
+// A 200 is not an answer: twelve EU endpoints serve text/html, two of them at a path containing /api/.
+//
+// This module was one level better and still not enough. Each fetcher called r.json(), which THROWS on a web page,
+// and the throw landed in a best-effort catch that returns an empty answer — so a source serving an error page read
+// as "answered, found nothing", indistinguishable from a source that genuinely has nothing. cordisSearch got a
+// `declined` flag when the hyphen trap made that distinction visible; the other five never did.
+//
+// So the tell is universal now: a refusal, a wrong shape and a web page are all DECLINED, each with what it was,
+// and only a real payload is an answer. This is also why the cache validates BEFORE storing — caching an error page
+// under an immutable URL would serve that page for the life of the process.
+type DataKind = 'json' | 'csv'
+interface Fetched<T> { data: T | null; declined: boolean; note: string }
+
+const isHtml = (contentType: string, body: string): boolean =>
+  /text\/html/i.test(contentType) || /^\s*(<!doctype html|<html[\s>])/i.test(body.slice(0, 200))
+
+async function fetchData<T>(url: string, kind: DataKind, init?: RequestInit): Promise<Fetched<T>> {
+  const accept = kind === 'json' ? 'application/json' : 'text/csv'
+  let r: Response
+  try { r = await fetch(url, { ...init, headers: { accept, ...(init?.headers ?? {}) } }) }
+  catch (e) { return { data: null, declined: true, note: 'unreachable: ' + String((e as Error).message).slice(0, 90) } }
+  if (!r.ok) return { data: null, declined: true, note: `responded ${r.status}` }
+  const text = await r.text()
+  if (isHtml(r.headers.get('content-type') ?? '', text))
+    return { data: null, declined: true, note: 'served a WEB PAGE (text/html), not data — answering is not the same as answering with data' }
+  if (kind === 'csv') return { data: text as unknown as T, declined: false, note: 'ok' }
+  try { return { data: JSON.parse(text) as T, declined: false, note: 'ok' } }
+  catch { return { data: null, declined: true, note: 'payload did not parse as JSON' } }
 }
 
 /** THE ONE REGISTRY — every source is DECLARED here and reached through schoolApiFetch, so there is one door.
@@ -221,8 +254,10 @@ export function schoolApiRegistry(): SchoolApiRegistry {
   }
 }
 
-const answer = (source: string, query: Record<string, string>, url: string, results: SchoolApiEvidence[], truncated: boolean): SchoolApiAnswer =>
-  ({ source, query, url, count: results.length, results, truncated, receipt: merkleGravity(results.map((r) => r.address)), honest: HONEST })
+const answer = (source: string, query: Record<string, string>, url: string, results: SchoolApiEvidence[],
+                truncated: boolean, declined = false, note = ''): SchoolApiAnswer =>
+  ({ source, query, url, count: results.length, results, truncated, declined,
+     ...(note ? { note } : {}), receipt: merkleGravity(results.map((r) => r.address)), honest: HONEST })
 
 const limitOf = (n?: number): number => (n === undefined || n <= 0 ? DEFAULT_LIMIT : n > 200 ? 200 : n)
 
@@ -230,24 +265,26 @@ const limitOf = (n?: number): number => (n === undefined || n <= 0 ? DEFAULT_LIM
 
 export interface EscoConcept extends SchoolApiEvidence { uri: string; title: string; conceptType: string }
 
+/** escoSearchUrl(text,type,limit) → THE ONE derivation of an ESCO search URL. PURE — it builds the query and reaches
+ *  nothing, so a surface that only needs to say WHERE a concept would be looked up (the skill axis: src/skills.ts)
+ *  cites the exact URL the live fetcher below calls, instead of spelling a second one that can drift from it. */
+export function escoSearchUrl(text: string, type = 'skill', limit?: number): string {
+  return `${ESCO}/search?text=${encodeURIComponent(text)}&language=en&type=${encodeURIComponent(type)}&limit=${limitOf(limit)}`
+}
+
 /** escoSearch(text) → the EU's own skills/occupations matching a phrase, each content-addressed by its ESCO URI.
  *  One network call. `type` is the ESCO class: skill (default), occupation, or qualification. */
 export async function escoSearch(text: string, type = 'skill', limit?: number): Promise<SchoolApiAnswer> {
-  const n = limitOf(limit)
-  const url = `${ESCO}/search?text=${encodeURIComponent(text)}&language=en&type=${encodeURIComponent(type)}&limit=${n}`
+  const url = escoSearchUrl(text, type, limit)
   const results: EscoConcept[] = []
   let total = 0
-  try {
-    const r = await fetch(url, { headers: { accept: 'application/json' } })
-    if (r.ok) {
-      const body = await r.json() as { total?: number; _embedded?: { results?: { uri?: string; title?: string; className?: string }[] } }
-      total = Number(body.total ?? 0)
-      for (const c of body._embedded?.results ?? []) {
-        if (!c.uri) continue // never fabricate an identifier the source did not give
-        results.push({ source: 'esco', address: toUuid(c.uri), uri: c.uri, title: String(c.title ?? ''), conceptType: String(c.className ?? type) })
-      }
-    }
-  } catch { /* a free public API may be unreachable — best-effort, and it NEVER fabricates a row */ }
+  const got = await fetchData<{ total?: number; _embedded?: { results?: { uri?: string; title?: string; className?: string }[] } }>(url, 'json')
+  if (got.data === null) return answer('esco', { text, type }, url, [], false, true, got.note)
+  total = Number(got.data.total ?? 0)
+  for (const c of got.data._embedded?.results ?? []) {
+    if (!c.uri) continue // never fabricate an identifier the source did not give
+    results.push({ source: 'esco', address: toUuid(c.uri), uri: c.uri, title: String(c.title ?? ''), conceptType: String(c.className ?? type) })
+  }
   return answer('esco', { text, type }, url, results, total > results.length)
 }
 
@@ -258,7 +295,10 @@ export async function escoSearch(text: string, type = 'skill', limit?: number): 
  *  Two weaker rules were tried and REFUTED first: vocabulary overlap between the subject's theorem statements and
  *  the concept's description scored "quantum mechanics" and "cast concrete rings" identically (the signal was
  *  stopwords), and requiring an occupation relation rejected nothing — "cast concrete rings" has two. */
-const isWholeName = (subject: string, title: string): boolean => {
+// EXPORTED so the skill axis (src/skills.ts) judges an ESCO title by THIS rule rather than a copy of it: the
+// acceptance law has one implementation, and a caller that fetched concepts through the one door hands the titles
+// back to be judged the same way the pairing walk judges them.
+export const escoWholeName = (subject: string, title: string): boolean => {
   const norm = (x: string): string => ' ' + x.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() + ' '
   return norm(title).includes(norm(subject))
 }
@@ -276,43 +316,42 @@ export async function eurostatEducation(dataset: string, filters: Record<string,
   const url = `${EUROSTAT}/${encodeURIComponent(dataset)}?format=JSON&lang=EN${q ? '&' + q : ''}`
   const results: EurostatObservation[] = []
   let more = false
-  try {
-    const r = await fetch(url, { headers: { accept: 'application/json' } })
-    if (r.ok) {
-      const body = await r.json() as {
-        id?: string[]; size?: number[]; value?: Record<string, number> | number[]
-        dimension?: Record<string, { label?: string; category?: { index?: Record<string, number> | string[]; label?: Record<string, string> } }>
-      }
-      const ids = body.id ?? [], size = body.size ?? []
-      // JSON-stat packs every cell into ONE flat index over the dimension sizes. Decode by successive integer
-      // division from the LAST dimension — exact on non-negative integers, so no rounding is ever taken.
-      const codesOf = (dim: string): string[] => {
-        const index = body.dimension?.[dim]?.category?.index
-        if (Array.isArray(index)) return index.map(String)
-        if (index) return Object.keys(index).sort((a, b) => (index[a] as number) - (index[b] as number))
-        return []
-      }
-      const codes = ids.map(codesOf)
-      const labels = ids.map((d) => body.dimension?.[d]?.category?.label ?? {})
-      const raw = body.value ?? {}
-      const cells: [string, number][] = Array.isArray(raw)
-        ? raw.map((v, i) => [String(i), v] as [string, number]).filter(([, v]) => typeof v === 'number')
-        : Object.entries(raw)
-      for (const [flat, value] of cells) {
-        if (results.length >= n) { more = true; break }
-        let rest = Number(flat)
-        const dimensions: Record<string, string> = {}
-        for (let d = ids.length - 1; d >= 0; d--) {
-          const width = size[d] ?? 1
-          const pos = rest % width
-          rest = (rest - pos) / width         // integer division, exact — never a rounded quotient
-          const code = codes[d]?.[pos] ?? String(pos)
-          dimensions[ids[d]] = labels[d]?.[code] ?? code
-        }
-        results.push({ source: 'eurostat', address: toUuid(dataset + ':' + flat + ':' + value), value, dimensions })
-      }
+  const got = await fetchData<{
+    id?: string[]; size?: number[]; value?: Record<string, number> | number[]
+    dimension?: Record<string, { label?: string; category?: { index?: Record<string, number> | string[]; label?: Record<string, string> } }>
+  }>(url, 'json')
+  if (got.data === null) return answer('eurostat', { dataset, ...filters }, url, [], false, true, got.note)
+  {
+    const body = got.data
+    const ids = body.id ?? [], size = body.size ?? []
+    // JSON-stat packs every cell into ONE flat index over the dimension sizes. Decode by successive integer
+    // division from the LAST dimension — exact on non-negative integers, so no rounding is ever taken.
+    const codesOf = (dim: string): string[] => {
+      const index = body.dimension?.[dim]?.category?.index
+      if (Array.isArray(index)) return index.map(String)
+      if (index) return Object.keys(index).sort((a, b) => (index[a] as number) - (index[b] as number))
+      return []
     }
-  } catch { /* best-effort: an unreachable source returns nothing, and never a fabricated observation */ }
+    const codes = ids.map(codesOf)
+    const labels = ids.map((d) => body.dimension?.[d]?.category?.label ?? {})
+    const raw = body.value ?? {}
+    const cells: [string, number][] = Array.isArray(raw)
+      ? raw.map((v, i) => [String(i), v] as [string, number]).filter(([, v]) => typeof v === 'number')
+      : Object.entries(raw)
+    for (const [flat, value] of cells) {
+      if (results.length >= n) { more = true; break }
+      let rest = Number(flat)
+      const dimensions: Record<string, string> = {}
+      for (let d = ids.length - 1; d >= 0; d--) {
+        const width = size[d] ?? 1
+        const pos = rest % width
+        rest = (rest - pos) / width         // integer division, exact — never a rounded quotient
+        const code = codes[d]?.[pos] ?? String(pos)
+        dimensions[ids[d]] = labels[d]?.[code] ?? code
+      }
+      results.push({ source: 'eurostat', address: toUuid(dataset + ':' + flat + ':' + value), value, dimensions })
+    }
+  }
   return answer('eurostat', { dataset, ...filters }, url, results, more)
 }
 
@@ -356,7 +395,9 @@ export async function giscoSchools(country: string, match?: string, limit?: numb
   try {
     // the vintage is in the URL, so this text is paid for ONCE per country per vintage, however many times a
     // caller narrows it with a different `match` or `limit` — the filtering below is pure and re-runs for free.
-    const text = (await immutableText(url, 'text/csv')).replace(/^\ufeff/, '')     // the file is served with a BOM
+    const got = await immutableText(url, 'csv')
+    if (got.data === null) return answer('gisco', match ? { country: cc, match, year } : { country: cc, year }, url, [], false, true, got.note)
+    const text = got.data.replace(/^\ufeff/, '')     // the file is served with a BOM
     {
       const lines = text.split(/\r?\n/)
       const head = splitCsvLine(lines[0] ?? '')
@@ -415,17 +456,13 @@ export async function dataEuropaSearch(text: string, limit?: number): Promise<Sc
   const n = limitOf(limit)
   const url = `${DATA_EUROPA}?q=${encodeURIComponent(text)}&limit=${n}`
   const results: EuDataset[] = []
-  try {
-    const r = await fetch(url, { headers: { accept: 'application/json' } })
-    if (r.ok) {
-      const body = await r.json() as { result?: { results?: { id?: string; title?: unknown; country?: { label?: string }; catalog?: { id?: string } }[] } }
-      for (const d of body.result?.results ?? []) {
-        if (!d.id) continue // never fabricate an identifier the catalogue did not give
-        results.push({ source: 'data-europa', address: toUuid('data-europa:' + d.id), id: d.id,
-          title: pickLang(d.title), country: d.country?.label ?? '', catalogue: d.catalog?.id ?? '' })
-      }
-    }
-  } catch { /* best-effort: an unreachable catalogue returns nothing, never an invented dataset */ }
+  const got = await fetchData<{ result?: { results?: { id?: string; title?: unknown; country?: { label?: string }; catalog?: { id?: string } }[] } }>(url, 'json')
+  if (got.data === null) return answer('data-europa', { text }, url, [], false, true, got.note)
+  for (const d of got.data.result?.results ?? []) {
+    if (!d.id) continue // never fabricate an identifier the catalogue did not give
+    results.push({ source: 'data-europa', address: toUuid('data-europa:' + d.id), id: d.id,
+      title: pickLang(d.title), country: d.country?.label ?? '', catalogue: d.catalog?.id ?? '' })
+  }
   return answer('data-europa', { text }, url, results, false)
 }
 
@@ -446,21 +483,19 @@ export async function cordisSearch(text: string, limit?: number): Promise<School
   const url = `${CORDIS}?q=${encodeURIComponent(phrase)}&format=json&num=${n}`
   const results: CordisRecord[] = []
   let more = false, declined = false
-  try {
-    const r = await fetch(url, { headers: { accept: 'application/json' } })
-    if (r.ok) {
-      const body = await r.json() as { payload?: { total?: number; results?: { id?: string; title?: unknown; teaser?: unknown; contentType?: string }[] } }
-      const rows = body.payload?.results ?? []
-      declined = body.payload?.total === undefined || body.payload?.total === null
-      more = Number(body.payload?.total ?? 0) > rows.length
-      for (const c of rows) {
-        if (!c.id) continue
-        results.push({ source: 'cordis', address: toUuid('cordis:' + c.id), id: c.id,
-          title: pickLang(c.title), teaser: pickLang(c.teaser).slice(0, 240), contentType: c.contentType ?? '' })
-      }
-    }
-  } catch { /* best-effort */ }
-  return { ...answer('cordis', { text }, url, results, more), declined }
+  const got = await fetchData<{ payload?: { total?: number; results?: { id?: string; title?: unknown; teaser?: unknown; contentType?: string }[] } }>(url, 'json')
+  if (got.data === null) return answer('cordis', { text }, url, [], false, true, got.note)
+  const rows = got.data.payload?.results ?? []
+  // CORDIS's own tell, kept: a 200 whose payload carries no `total` at all is the query being REFUSED, not answered
+  declined = got.data.payload?.total === undefined || got.data.payload?.total === null
+  more = Number(got.data.payload?.total ?? 0) > rows.length
+  for (const c of rows) {
+    if (!c.id) continue
+    results.push({ source: 'cordis', address: toUuid('cordis:' + c.id), id: c.id,
+      title: pickLang(c.title), teaser: pickLang(c.teaser).slice(0, 240), contentType: c.contentType ?? '' })
+  }
+  return answer('cordis', { text }, url, results, more, declined,
+    declined ? 'the payload carried no result envelope — the source refused the query' : '')
 }
 
 export interface TedNotice extends SchoolApiEvidence { publication: string; title: string; link: string }
@@ -471,21 +506,18 @@ export async function tedNotices(cpv = CPV_EDUCATION, limit?: number): Promise<S
   const n = limitOf(limit)
   const results: TedNotice[] = []
   let more = false
-  try {
-    const r = await fetch(TED, { method: 'POST', headers: { 'content-type': 'application/json', accept: 'application/json' },
+  const got = await fetchData<{ notices?: { 'publication-number'?: string; 'notice-title'?: unknown }[]; totalNoticeCount?: number }>(
+    TED, 'json', { method: 'POST', headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ query: `classification-cpv=${cpv}`, limit: n, fields: ['publication-number', 'notice-title'] }) })
-    if (r.ok) {
-      const body = await r.json() as { notices?: { 'publication-number'?: string; 'notice-title'?: unknown }[]; totalNoticeCount?: number }
-      const rows = body.notices ?? []
-      more = Number(body.totalNoticeCount ?? 0) > rows.length
-      for (const t of rows) {
-        const pub = t['publication-number']
-        if (!pub) continue
-        results.push({ source: 'ted', address: toUuid('ted:' + pub), publication: pub,
-          title: pickLang(t['notice-title']).slice(0, 200), link: `https://ted.europa.eu/en/notice/${pub}` })
-      }
-    }
-  } catch { /* best-effort */ }
+  if (got.data === null) return answer('ted', { cpv }, TED, [], false, true, got.note)
+  const rows = got.data.notices ?? []
+  more = Number(got.data.totalNoticeCount ?? 0) > rows.length
+  for (const t of rows) {
+    const pub = t['publication-number']
+    if (!pub) continue
+    results.push({ source: 'ted', address: toUuid('ted:' + pub), publication: pub,
+      title: pickLang(t['notice-title']).slice(0, 200), link: `https://ted.europa.eu/en/notice/${pub}` })
+  }
   return answer('ted', { cpv }, TED, results, more)
 }
 
@@ -518,17 +550,14 @@ export interface EducationJobsPairing {
 export async function escoOccupationsForSkill(uri: string): Promise<OccupationLink[]> {
   const url = `${ESCO}/resource/skill?uri=${encodeURIComponent(uri)}&language=en`
   const out: OccupationLink[] = []
-  try {
-    const r = await fetch(url, { headers: { accept: 'application/json' } })
-    if (!r.ok) return out
-    const body = await r.json() as { _links?: Record<string, { uri?: string; title?: string }[]> }
-    const relations: [string, 'essential' | 'optional'][] = [['isEssentialForOccupation', 'essential'], ['isOptionalForOccupation', 'optional']]
-    for (const [key, relation] of relations)
-      for (const o of body._links?.[key] ?? []) {
-        if (!o.uri) continue // never fabricate a link the graph did not publish
-        out.push({ source: 'esco', address: toUuid(o.uri), uri: o.uri, title: String(o.title ?? ''), relation })
-      }
-  } catch { /* best-effort: an unreachable hop is an absence, and an absence is reported, never filled in */ }
+  const got = await fetchData<{ _links?: Record<string, { uri?: string; title?: string }[]> }>(url, 'json')
+  if (got.data === null) return out   // an unreachable hop is an absence; the pairing reports it rather than filling it in
+  const relations: [string, 'essential' | 'optional'][] = [['isEssentialForOccupation', 'essential'], ['isOptionalForOccupation', 'optional']]
+  for (const [key, relation] of relations)
+    for (const o of got.data._links?.[key] ?? []) {
+      if (!o.uri) continue // never fabricate a link the graph did not publish
+      out.push({ source: 'esco', address: toUuid(o.uri), uri: o.uri, title: String(o.title ?? ''), relation })
+    }
   return out
 }
 
@@ -548,8 +577,8 @@ export async function pairEducationToJobs(subject: string, opts: { geo?: string;
   const group = skillGroups().find((g) => g.skill.toLowerCase() === subject.toLowerCase())
   const skills = await escoSearch(subject, 'skill', opts.perSkill ?? 3)
   const all = skills.results as EscoConcept[]
-  const onTopic = all.filter((c) => isWholeName(subject, c.title))
-  const homographs = all.filter((c) => !isWholeName(subject, c.title)).map((c) => c.title)
+  const onTopic = all.filter((c) => escoWholeName(subject, c.title))
+  const homographs = all.filter((c) => !escoWholeName(subject, c.title)).map((c) => c.title)
   const pairs: SkillJobPair[] = onTopic.length
     ? await Promise.all(onTopic.map(async (c) => ({
         skill: subject, escoSkill: { uri: c.uri, title: c.title }, occupations: await escoOccupationsForSkill(c.uri),

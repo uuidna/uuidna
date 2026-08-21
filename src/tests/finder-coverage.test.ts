@@ -16,6 +16,11 @@ import { ROOT } from '../boundary.js'
 const ON_DEMAND: Record<string, string> = {
   crypto: 'covers every cryptographic operation against its KAT; the crypto-primitives tests already assert the vectors each pass, so the guard would pay twice',
   re: 'measures reverse-engineering cost by bounded key recovery at ~2.1s per guess on this host — a measurement, not a check, so it stays a deliberate invocation',
+  // DEMOTED OUT OF THE GUARD ENTIRELY on 2026-08-21, not muted: each decided something OTHER than a Lean violation,
+  // and a gate that cannot refuse a proof is custom logic over spelling, counting or presentation. They remain
+  // exported because the MEASUREMENT is still worth asking for on demand; what ended is their power to block.
+  seo: 'reports page descriptions outside a search-snippet band; this project\'s descriptions carry honest scope and are longer BY DESIGN, so the band is advice and never law',
+  sources: 'demands a named authority for an empirically measured quantity — right for a wing that reads the world, and exactly wrong as a gate on a wing that reads only arithmetic',
 }
 
 test('every finder one-receipt exports is wired: blocking in the guard, advisory with a reason, or on-demand with why', () => {
@@ -42,7 +47,10 @@ test('an advisory finder must state WHY it does not block — "not blocking" is 
   const guard = readFileSync(join(ROOT, 'src', 'scripts', 'guard.ts'), 'utf8')
   const advisoryBlock = guard.slice(guard.indexOf('const ADVISORY'))
   const entries = [...advisoryBlock.matchAll(/\{ name: '([a-z]+)', run: [\s\S]*?why: '([^']{40,})'/g)]
-  assert.ok(entries.length >= 1, 'the advisory tier should hold at least the finders that cannot block yet')
+  // AN EMPTY TIER IS THE STRONGEST STATE, not a missing one. The tier existed so that "not blocking" was a
+  // DECLARED decision rather than an accident — and reading four such declarations side by side is what showed
+  // they should not be gates at all. They were removed on 2026-08-21, not muted, and each now sits ON_DEMAND
+  // with its reason. What this test guards is that nothing sits here WITHOUT a reason; zero entries pass.
   for (const [, name, why] of entries)
     assert.ok(why.length >= 40, `advisory finder "${name}" must state a real reason, got ${why.length} chars`)
 })

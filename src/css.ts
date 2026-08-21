@@ -5,6 +5,7 @@
 // custom properties under `:root`, folded to a receipt: two surfaces rendering the same matrix compute the same
 // receipt, or they are not the same matrix. Exact integer arithmetic; no host intrinsics, no wall-clock.
 import { toUuid, vortexOrbit, digitalRoot, BASE, TRINITY, A432_STEP } from './address.js'
+import { seedOf, handleOf } from './handle.js'   // THE one address→integer derivation — see handle.ts
 import { DIAMOND_FIXED } from './diamond.js'
 import { typeScaleVars } from './typography.js'
 import { coins } from './captain/billing/index.js'
@@ -126,14 +127,14 @@ ${ladder}
  *  the whole field re-derives the moment a theorem lands and moves the receipt. Artistic, and exact. */
 export function matrixBackground(receipt: string, theorems: number): string {
   const root = digitalRoot(theorems)                    // the ledger's own digit — moves as the ledger grows
-  const seed = digitalRoot(Number(BigInt('0x' + toUuid(receipt).replace(/-/g, '').slice(0, 8))))
+  const seed = digitalRoot(seedOf(toUuid(receipt)))   // was a BigInt route computing this same number
   const hue = (seed * A432_STEP) % 360                  // the same A432 law as every other hue
   const mirror = (10 - seed) % BASE
   const rungs = [...new Set(vortexOrbit())].sort((a, b) => a - b)
   const drift = rungs[rungs.length - 1] * BASE          // seconds: the last rung, one turn per orbit digit
   const opacity = milli(1, BASE * TRINITY)              // 1/27 — the trinity of the base, a whisper
   return `
-/* the field: folded from receipt ${receipt.slice(0, 8)} over ${theorems} sealed theorems — it moves when they do */
+/* the field: folded from receipt ${handleOf(toUuid(receipt))} over ${theorems} sealed theorems — it moves when they do */
 body::before {
   content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background:

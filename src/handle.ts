@@ -42,6 +42,20 @@ export function handleOf(address: string): string {
   return handle
 }
 
+/** seedOf(address) → the handle read as an INTEGER: the one way this repository turns a content-address into a
+ *  number. It was six inline expressions before it was one — aura.ts and captain/repos carried character-identical
+ *  copies, refactor.ts and holofractal.ts each wrote their own, iq-books a fourth, and css.ts computed the SAME
+ *  VALUE by a different route entirely (`Number(BigInt('0x' + h))` where the others used `parseInt(h, 16)`). The
+ *  two routes agree — verified over the domain edges and a sweep, not assumed — which is exactly why the split
+ *  survived: nothing ever disagreed, so nothing ever complained, and a reader had no way to tell that six places
+ *  meant one thing.
+ *
+ *  WHAT DELIBERATELY DOES NOT COME HERE, because merging these would be wrong rather than tidy: stream.ts slices
+ *  THIRTEEN hex (a wider step, on purpose), the rosette in theorems/index.ts folds the WHOLE address mod 7 (a
+ *  different domain, not a truncation), render.ts indexes single digits, and payload-seed expands hex to bits.
+ *  Same-looking code, different acts. */
+export const seedOf = (address: string): number => parseInt(handleOf(address), 16)
+
 /** split a handle into its four parts: cc9c0011 -> ['cc','9c','00','11'] */
 export function handleParts(handle: string): string[] {
   if (!isHandle(handle)) throw new Error(`handle must be eight lowercase hex characters, got ${JSON.stringify(handle)}`)

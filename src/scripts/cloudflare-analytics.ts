@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into its analytics output — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // cloudflare-analytics — Analyze uuidna traffic patterns from Cloudflare
 // Query Analytics Engine for game usage, MCP requests, trial patterns, domain licensing
 

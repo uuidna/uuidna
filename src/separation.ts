@@ -152,3 +152,46 @@ export const withinPrice = (c: Cost, n: bigint, d: bigint): boolean => c.spent *
  *  the same accounting: no separation without an irreversible difference between the two passes. */
 export const isReversible = <T>(f: (x: T) => T, domain: readonly T[], key: (x: T) => string = String): boolean =>
   new Set(domain.map((x) => key(f(x)))).size === new Set(domain.map(key)).size
+
+// ── THE SINGULARITY FOLD — every vector folded at once, through the involution, to one core ─────────────────────
+// The involution reflects; the fold collapses. Applied to a SET rather than to one input, they compose into a
+// single address that every member reaches simultaneously: fold in all vectors at once and the result is one core,
+// independent of the order they arrived in. That order-independence is the whole point — a set of referrers is a
+// SUPERPOSITION, not a sequence, and a core that depended on arrival order would be reading history rather than
+// membership.
+//
+// WHY THE REFLECTION BEFORE THE FOLD. dz is a bijection (Phase.lean: dz_loses_nothing), so reflecting first
+// destroys nothing and the core remains a function of exactly the same information. Applying it TWICE returns every
+// vector to itself, so the core of the twice-reflected set is the core of the original — the fold inherits the
+// involution's own self-inverse property, which is what makes the singularity a mirror rather than a drain.
+//
+// HONEST SCOPE: integrity, not truth. The core proves WHICH set folded to it and nothing about what the members
+// mean. Two different sets can share a core only by collision, and the address layer's bound governs that, not this.
+import { toUuid as _toUuidForFold } from './address.js'
+import { merkleGravity as _foldForCore } from './gravity.js'
+
+export interface Singularity {
+  vectors: readonly string[]  // the inputs, as given
+  seeds: number[]             // each vector's residue, before reflection
+  reflected: number[]         // each seed's mirror under dz — the involution applied to all at once
+  core: string                // the order-invariant fold of the reflected set: the singularity
+  fixed: number[]             // the vectors the reflection does not move (seeds 0 and 5)
+  honest: string
+}
+
+/** singularity(vectors) → fold every vector through the involution, all at once, to one core address. */
+export function singularity(vectors: readonly string[]): Singularity {
+  const seeds = vectors.map((v) => { const s = Number('0x' + _toUuidForFold(v).slice(0, 8)) % 10; return s })
+  const reflected = seeds.map(dz)
+  return {
+    vectors, seeds, reflected,
+    // fold the REFLECTED members — order-invariant by merkleGravity, so a superposition and not a sequence
+    core: _foldForCore(vectors.map((v, i) => _toUuidForFold(reflected[i] + ':' + v))),
+    fixed: seeds.filter((s) => dz(s) === s),
+    honest:
+      'Every vector reflected and folded at once into one core. The fold is ORDER-INVARIANT, so the core reads ' +
+      'membership rather than arrival order — a set of referrers is a superposition, not a sequence. The reflection ' +
+      'is a bijection, so nothing is lost before the fold, and applying it twice returns every vector to itself. ' +
+      'HONEST SCOPE: integrity, not truth — the core proves WHICH set folded to it, never what its members mean.',
+  }
+}

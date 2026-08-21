@@ -33,13 +33,25 @@ const HONEST =
   'promote a claim to SEALED. The evidence folds order-invariantly to the receipt, recomputable by anyone.'
 
 /** corroborate(statement, evidence[, decidableTest]) → the LOCAL binary verdict augmented with external evidence,
- *  folded to an order-invariant receipt. A sealed proof (VERIFIED) outranks everything; else external evidence, if
- *  any, yields CORROBORATED (attestation, not proof); else UNVERIFIED (never "false"). Pure and deterministic. */
+ *  folded to an order-invariant receipt. A sealed proof (VERIFIED) outranks everything; else evidence from TWO
+ *  INDEPENDENT SOURCES yields CORROBORATED (attestation, not proof); else UNVERIFIED (never "false"). Pure.
+ *
+ *  TWO, NOT ONE, AND SOURCES, NOT ROWS — this function contradicted the theorem it is named for. reporter.ts:34
+ *  has always read `sources.length >= 2`, citing the sealed `corroboration_needs_two` ("1 < 2"), while this line
+ *  read `evidence.length` — ONE, and one ROW at that, so eight hits from a single stream would have cleared even a
+ *  naive two-check. MEASURED before the fix: corroborateWithResearch('qwertzuiop asdfghjkl yxcvbnm') returned
+ *  CORROBORATED on a single CrossRef row. Retrieval is not corroboration, the same way a citation is not
+ *  entailment; a ranked search engine answers with the best of what it has, never with nothing.
+ *
+ *  WHAT THIS STILL DOES NOT FIX, said plainly rather than left to be discovered: a uuidna coinage naming nothing
+ *  outside this repository ("The 8x8 core") returns THREE independent sources and clears the bar honestly. Counting
+ *  cannot see relevance. This closes the gibberish class and no more. */
 export function corroborate(statement: string, evidence: ResearchEvidence[] = [], decidableTest?: () => boolean): Corroboration {
   const adj = adjudicate(statement, decidableTest)
   const local = adj.verdict
   const receipt = merkleGravity(evidence.map((e) => e.address))
-  const verdict = local === 'VERIFIED' ? 'VERIFIED' : evidence.length ? 'CORROBORATED' : 'UNVERIFIED'
+  const independentSources = new Set(evidence.map((e) => e.source)).size
+  const verdict = local === 'VERIFIED' ? 'VERIFIED' : independentSources >= 2 ? 'CORROBORATED' : 'UNVERIFIED'
   return { statement, local, evidence, verdict, receipt, develop: adj.develop, honest: HONEST }
 }
 

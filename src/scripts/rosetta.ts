@@ -65,7 +65,17 @@ export function claimedBy(note: string): string {
   return m ? m[0] : 'captain'
 }
 
-/** the comment block immediately above a theorem is where its wing records provenance. */
+/** the comment block immediately above a theorem is where its wing records provenance.
+ *
+ *  TWO FORMS, BECAUSE THE PROSE MOVED. This read only `--` lines, and when `emit` began writing each fact's
+ *  sentence as a real Lean `/-- … -/` DOC COMMENT the notes went silent: every wing note came back empty, and the
+ *  witness leg — the scarcest and most valuable of the five, the one that says a STRANGER can check this — fell
+ *  from 9 to 0 in a single generation. Nothing had lost its anchor. The reader had stopped looking where the
+ *  anchors now live.
+ *
+ *  That is worth recording rather than quietly patching: the census reported a catastrophic loss, the floor ratchet
+ *  refused to publish it (`the floor may only rise`), and the refusal is what surfaced the bug. A census that had
+ *  been willing to write down a smaller number would have ratified the loss and nobody would have looked. */
 export function commentAbove(src: string, key: string): string {
   const at = src.search(new RegExp('^theorem\\s+' + key.replace(/[-_]/g, '[-_]') + '\\b', 'm'))
   if (at < 0) return ''
@@ -74,6 +84,16 @@ export function commentAbove(src: string, key: string): string {
   const out: string[] = []
   for (let i = lines.length - 1; i >= 0; i--) {
     const l = lines[i]
+    // a doc comment closes with `-/`; walk back to its `/--` opener and take the whole block
+    if (/-\/\s*$/.test(l) && !/^\s*--/.test(l)) {
+      const block: string[] = []
+      for (let j = i; j >= 0; j--) {
+        block.unshift(lines[j])
+        if (/^\s*\/--/.test(lines[j])) { out.unshift(...block); i = j; break }
+        if (j === 0) return out.join('\n')   // an unterminated opener: take what is already gathered
+      }
+      continue
+    }
     if (/^\s*--/.test(l)) out.unshift(l)
     else if (l.trim() === '' && out.length) break
     else if (l.trim() === '') continue

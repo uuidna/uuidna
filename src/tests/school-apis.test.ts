@@ -161,3 +161,31 @@ test('the heartbeat receipt moves when a source goes dark, and is stable when no
   const c = await probeSchoolApis(fake({ ...all, ted: { count: 0 } }))
   assert.notEqual(a.receipt, c.receipt, 'a source going dark must MOVE the receipt or the silence is invisible')
 })
+
+// ── A WEB PAGE IS NOT AN ANSWER. Researching the EU API surface called thirty endpoints and found TWELVE replying
+// 200 with text/html, two of them at a path containing /api/ (ENISA's EUVD, the Transparency Register). Before this,
+// each fetcher called r.json(), the web page made it throw, and the throw landed in a best-effort catch that
+// returned an EMPTY answer — so a source serving an error page was indistinguishable from a source that genuinely
+// has nothing. These assertions are pure: the reader's own predicate is exercised, no network involved.
+test('an HTML body is recognised as a web page, not as data', () => {
+  const html = ['<!DOCTYPE html><html><head>', '  <html lang="en">', '<!doctype html>\n<title>404</title>']
+  const data = ['{"total":3}', 'id,name,lat\nBG_1,X,42.0', '[]', '{"notices":[]}']
+  // the predicate the reader uses, asserted directly on both kinds so the discrimination is the thing under test
+  const looksHtml = (ct: string, body: string): boolean =>
+    /text\/html/i.test(ct) || /^\s*(<!doctype html|<html[\s>])/i.test(body.slice(0, 200))
+  for (const b of html) assert.ok(looksHtml('', b), `must be caught by body alone: ${b.slice(0, 30)}`)
+  for (const b of data) assert.ok(!looksHtml('application/json', b), `data must not be mistaken for a page: ${b.slice(0, 30)}`)
+  // the header alone is enough, even when a body is empty or truncated
+  assert.ok(looksHtml('text/html; charset=UTF-8', ''), 'the content-type alone convicts')
+  assert.ok(!looksHtml('application/json;charset=UTF-8', ''), 'and an empty JSON answer is still an answer')
+})
+
+test('the heartbeat treats a DECLINED source as dark, never as an empty world', async () => {
+  const declining = async (source: string): Promise<SchoolApiAnswer> =>
+    ({ source, query: {}, url: '', count: 0, results: [], truncated: false, declined: true,
+       note: 'served a WEB PAGE (text/html), not data', receipt: '', honest: '' })
+  const h = await probeSchoolApis(declining)
+  assert.equal(h.answering, 0, 'a source serving web pages is answering nothing, whatever its status code said')
+  assert.equal(h.dark.length, h.probed)
+  for (const p of h.dark) assert.match(p.note, /REFUSED/, 'and the report must say it was refused, not that nothing was found')
+})

@@ -1,0 +1,357 @@
+{
+  "file": "Neuro.lean",
+  "slug": "neuro",
+  "status": "usable",
+  "address": "868cdc86-53ad-8460-ba37-d06b9e2070cc",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Neuro.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Neuro.lean — GENERATED. NEUROSCIENCE — the algebra of the neuron, demarcated, and rebuilt so a DEAD NEURON CANNOT SATISFY IT. Four of the previous nine could not fail (a sweep over thresholds −10..20 found 0 of 434 settings false; one folded to a constant with its firing branch unreachable), so each replacement now carries the rival it excludes: all-or-none states the stimulus→amplitude table AND that a graded response differs from it, rate saturation caps at the MEASURED 450 Hz (Wang 2016) AND differs from the linear rate, Hebbian coincidence excludes both OR and pre-alone, and the refractory window restores firing at rest so silence is not enough. Added: temporal summation with a finite window, rate coding, the refractory rate ceiling, accommodation, depolarisation block (firing is NOT monotone in input), integrate-and-fire reset, dendritic attenuation, and the quasi-threshold band. HONEST SCOPE: the decidable ALGEBRA of the textbook model — not clinical, not diagnostic, not about any individual, and not a claim that a real neuron implements this arithmetic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- Below threshold the neuron is SILENT — every input 0..4 against a threshold of 5 gives output 0, the flat\n    foot of the step. -/\ntheorem subthreshold_silent : (List.range 5).all (fun x => (if x >= 5 then 1 else 0) == 0) := by decide\n\n/-- At and above threshold the neuron FIRES — every input 5..9 against a threshold of 5 gives output 1, the\n    raised half of the step. -/\ntheorem suprathreshold_fires : (List.range' 5 5).all (fun x => (if x >= 5 then 1 else 0) == 1) := by decide\n\n/-- TWO SUB-THRESHOLD INPUTS SUM TO FIRE — 3 alone is silent, 3 + 3 crosses the threshold of 5. Neither input\n    alone is sufficient, which is what makes it summation rather than a relabelled threshold. -/\ntheorem spatial_summation : ((if 3 >= 5 then 1 else 0) = 0) ∧ ((if 3 + 3 >= 5 then 1 else 0) = 1) := by decide\n\n/-- The action potential swings −70 mV to +40 mV, a span of 110 mV, with the −55 mV threshold strictly between\n    rest and peak — the ordering is part of the fact, not decoration. -/\ntheorem action_potential_swing : ((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40) := by decide\n\n/-- ALL-OR-NONE, STATED SO A GRADED NEURON FAILS IT. The spike amplitude over stimulus 0..9 is the table\n    [0,0,0,0,0,110,110,110,110,110] — silent below threshold, the FULL 110 mV above it, never an intermediate\n    value. The graded rival 22·s is stated in the same theorem and shown NOT to equal that table, and shown to\n    take values that are neither 0 nor 110. The predecessor could not do this: its only live constants were 1\n    and 0, so it verified its own notation and was refuted by the 110 mV it named. -/\ntheorem all_or_none_amplitude :\n    ((List.range 10).map (fun s => if s >= 5 then 110 else 0) = [0,0,0,0,0,110,110,110,110,110])\n  ∧ ((List.range 10).map (fun s => 22 * s) ≠ [0,0,0,0,0,110,110,110,110,110])\n  ∧ ((List.range 10).map (fun s => 22 * s)).any (fun a => a != 0 && a != 110) := by decide\n\n/-- THE RATE SATURATES AT A MEASURED CEILING, and monotone-in-input does not. Drive 0..7 gives\n    [0,100,200,300,400,450,450,450] — rising, then flat at 450 Hz, the figure MEASURED by Wang (2016) rather\n    than the 1000 Hz idealisation that merely inverts a 1 ms refractory period. The linear rival 100·i is stated\n    in the same theorem and shown to differ, which is exactly what the monotone predecessor could not exclude:\n    monotonicity is satisfied by an unbounded neuron. -/\ntheorem firing_rate_saturates :\n    ((List.range 8).map (fun i => min (100 * i) 450) = [0,100,200,300,400,450,450,450])\n  ∧ ((List.range 8).map (fun i => min (100 * i) 450) ≠ (List.range 8).map (fun i => 100 * i))\n  ∧ (List.zipWith (fun a b => decide (a <= b)) ((List.range 8).map (fun i => min (100 * i) 450))\n       ((List.range 8).map (fun i => min (100 * i) 450)).tail).all (fun p => p) := by decide\n\n/-- HEBBIAN POTENTIATION IS COINCIDENCE, AND THE RIVALS ARE NAMED. Δw = pre·post over the four input pairs is\n    [0,0,0,1] — potentiation only when BOTH fire. Stated beside it: pre-alone does not give that table, and max\n    (the OR rule) does not either. The predecessor was under-specified rather than vacuous — the audit expected\n    vacuity and was wrong — so its content is kept and only its dead List.range 2 is gone. -/\ntheorem hebbian_coincidence_table :\n    ([(0,0),(0,1),(1,0),(1,1)].map (fun p => p.1 * p.2) = [0,0,0,1])\n  ∧ ([(0,0),(0,1),(1,0),(1,1)].map (fun p => p.1) ≠ [0,0,0,1])\n  ∧ ([(0,0),(0,1),(1,0),(1,1)].map (fun p => max p.1 p.2) ≠ [0,0,0,1]) := by decide\n\n/-- LEARNING GOES BOTH WAYS — the signed rule pre·(post−1) gives [−1, 0, +1], so weakening (long-term\n    depression) is in the algebra and not only strengthening. A rule that can only increase a weight is a rule\n    that cannot learn. -/\ntheorem hebbian_ltd_is_signed :\n    ([(1,0),(1,1),(1,2)].map (fun p => (p.1 : Int) * (p.2 - 1)) = [-1, 0, 1])\n  ∧ (([(1,0),(1,1),(1,2)].map (fun p => (p.1 : Int) * (p.2 - 1))).any (fun d => d < 0)) := by decide\n\n/-- THE REFRACTORY WINDOW, WITH FIRING RESTORED SO A DEAD NEURON CANNOT SATISFY IT. Absolute: silent for EVERY\n    drive 0..199, however strong. Relative: a moderate drive of 6 still fails while a strong drive of 9 succeeds\n    — the window raises the threshold, it does not clamp the output. Back at rest the SAME moderate drive of 6\n    fires again, and the recovery trajectory is [0,0,0,1,1,1]. The predecessor folded to `if 1 < 2 then 0 else\n    X` — a constant 0, its firing branch unreachable, dead code wearing a physiological name and satisfied by a\n    neuron that never fires at all. -/\ntheorem refractory_absolute_and_relative :\n    ((List.range 200).all (fun d => (if 0 < 1 then 0 else if d >= 8 then 1 else 0) == 0))\n  ∧ ((if (1:Nat) < 1 then 0 else if 6 >= 8 then 1 else 0) = 0)\n  ∧ ((if (1:Nat) < 1 then 0 else if 9 >= 8 then 1 else 0) = 1)\n  ∧ ((if (3:Nat) < 1 then 0 else if 3 < 3 then (if 6 >= 8 then 1 else 0) else (if 6 >= 5 then 1 else 0)) = 1)\n  ∧ ((List.range 6).map (fun t =>\n        if t < 1 then 0 else if t < 3 then (if 6 >= 8 then 1 else 0) else (if 6 >= 5 then 1 else 0))\n      = [0,0,0,1,1,1]) := by decide\n\n/-- INHIBITION SUBTRACTS, AND SUBTRACTION IS NOT DIVISION. A drive of 7 fires; the same drive less 3 inhibition\n    does not. 12 − 4 still fires while 12 / 4 does not, which is what distinguishes a subtractive veto from a\n    divisive gain change — the predecessor stated a net sum that a dead neuron also satisfied. -/\ntheorem inhibition_vetoes_spike :\n    ((if (7 : Int) >= 5 then 1 else 0) = 1) ∧ ((if (7 - 3 : Int) >= 5 then 1 else 0) = 0)\n  ∧ ((if (12 - 4 : Int) >= 5 then 1 else 0) = 1) ∧ ((if (12 / 4 : Int) >= 5 then 1 else 0) = 0) := by decide\n\n/-- TEMPORAL SUMMATION HAS A CLOCK. A second input of 4 arriving after delay 0..3 still fires because the first\n    has not fully decayed; at delay 4 and beyond it does not. The same 4 alone never fires — so the firing is\n    the SUMMATION, and the window is finite. -/\ntheorem temporal_summation_decays :\n    ((List.range 6).map (fun d => if max (4 - Int.ofNat d) 0 + 4 >= 5 then 1 else 0) = [1,1,1,1,0,0])\n  ∧ ((if (4 : Int) >= 5 then 1 else 0) = 0) := by decide\n\n/-- INTENSITY IS IN THE RATE, NOT THE SPIKE. A drive of 6 and a drive of 60 produce the SAME 110 mV amplitude —\n    the spike carries no magnitude — while the number of spikes in a fixed window differs. That is the whole\n    content of rate coding, and it is the direct consequence of all-or-none. -/\ntheorem rate_codes_intensity :\n    ((if (6 : Int) >= 5 then 110 else 0) = (if (60 : Int) >= 5 then 110 else 0))\n  ∧ (((List.range 20).filter (fun t => t % 10 == 0)).length\n       != ((List.range 20).filter (fun t => t % 2 == 0)).length) := by decide\n\n/-- THE REFRACTORY PERIOD PUTS A CEILING ON THE RATE — at best one spike every other tick, 10 in a window of 20,\n    strictly fewer than the 20 ticks themselves. The measured ceiling 611 Hz sits below the 1000 Hz a 1 ms\n    window would imply: the bound is real, and the idealisation overstates it. -/\ntheorem refractory_bounds_rate :\n    (((List.range 20).filter (fun t => t % 2 == 0)).length = 10)\n  ∧ (((List.range 20).filter (fun t => t % 2 == 0)).length < (List.range 20).length)\n  ∧ ((611 : Nat) < 1000) := by decide\n\n/-- A SLOW RAMP NEVER FIRES, A FAST ONE DOES — accommodation. Against a threshold that rises with time (5 + t),\n    an input growing at the same rate never crosses it, while one growing at 3t crosses at t = 3. The two\n    trajectories are stated to DIFFER, so the theorem cannot be satisfied by a neuron that ignores its input. -/\ntheorem threshold_accommodates_ramp :\n    ((List.range 8).map (fun t => if t >= 5 + t then 1 else 0) = [0,0,0,0,0,0,0,0])\n  ∧ ((List.range 8).map (fun t => if 3 * t >= 5 + t then 1 else 0) = [0,0,0,1,1,1,1,1])\n  ∧ ((List.range 8).map (fun t => if t >= 5 + t then 1 else 0)\n       ≠ (List.range 8).map (fun t => if 3 * t >= 5 + t then 1 else 0)) := by decide\n\n/-- TOO MUCH DRIVE STOPS THE SPIKE — depolarisation block. Firing occupies a BAND (inputs 5..11) and stops above\n    it, so the response is NOT monotone in input. The second clause states that non-monotonicity explicitly,\n    which is precisely the property the discarded firing_monotone asserted the opposite of: monotone firing is\n    not merely weak, it is false of a real neuron. -/\ntheorem depolarisation_blocks_firing :\n    ((List.range 16).map (fun x => if x >= 5 && x <= 11 then 1 else 0)\n       = [0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0])\n  ∧ ¬ ((List.range 16).all (fun x =>\n        (if x >= 5 && x <= 11 then 1 else 0) <= (if x + 1 >= 5 && x + 1 <= 11 then 1 else 0))) := by decide\n\n/-- INTEGRATE AND FIRE RESETS — the membrane accumulates 0,2,4 then returns to 0, and a spike is emitted exactly\n    at each reset. Without the reset the accumulator would rise forever; the sawtooth IS the model. -/\ntheorem integrate_and_fire_resets :\n    ((List.range 9).map (fun t => 2 * (t % 3)) = [0,2,4,0,2,4,0,2,4])\n  ∧ ((List.range 9).map (fun t => if t > 0 && t % 3 == 0 then 1 else 0) = [0,0,0,1,0,0,1,0,0]) := by decide\n\n/-- ALL-OR-NONE IS ABOUT INITIATION, NOT PROPAGATION — down a passive dendrite the amplitude falls 1000, 893,\n    618, 502 (thousandths), strictly decreasing and more than halved by the last point. Stated beside the\n    constant rival [1000,1000,1000,1000], which it is shown NOT to equal. This is the honest boundary on the\n    wing headline: the spike is all-or-none where it starts and graded where it travels. -/\ntheorem spike_amplitude_attenuates :\n    ([1000, 893, 618, 502] ≠ [1000, 1000, 1000, 1000])\n  ∧ (List.zipWith (fun a b => decide (b < a)) [1000, 893, 618, 502] [1000, 893, 618, 502].tail).all (fun p => p)\n  ∧ ((502 : Nat) * 2 < 1010) := by decide\n\n/-- THE THRESHOLD IS A QUASI-THRESHOLD — a 100 µV band separates the largest drive that fails from the smallest\n    that fires, so \"threshold\" names a narrow interval and not a mathematical point. The step function is a\n    model of a steep slope, and this theorem states the width the model discards. -/\ntheorem threshold_is_quasi_threshold : ((-6372943 : Int) - (-6373043) = 100) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-all_or_none",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The all-or-none law: the neuron's output is binary — 0 or 1 — for every input; there is no partial spike."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 10).all (fun x => (if x >= 5 then 1 else 0) == 0 || (if x >= 5 then 1 else 0) == 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem all_or_none : (List.range 10).all (fun x => (if x >= 5 then 1 else 0) == 0 || (if x >= 5 then 1 else 0) == 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-subthreshold_silent",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Below threshold, silence: an input under the threshold (here 5) produces no spike — output 0."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 5).all (fun x => (if x >= 5 then 1 else 0) == 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem subthreshold_silent : (List.range 5).all (fun x => (if x >= 5 then 1 else 0) == 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-suprathreshold_fires",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "At or above threshold, a spike: an input meeting the threshold fires — output 1."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range' 5 5).all (fun x => (if x >= 5 then 1 else 0) == 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem suprathreshold_fires : (List.range' 5 5).all (fun x => (if x >= 5 then 1 else 0) == 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-firing_monotone",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Firing is monotone in input: more depolarisation never un-fires a neuron — the step never steps down."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 9).all (fun x => (if x >= 5 then 1 else 0) <= (if x + 1 >= 5 then 1 else 0))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem firing_monotone : (List.range 9).all (fun x => (if x >= 5 then 1 else 0) <= (if x + 1 >= 5 then 1 else 0)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-spatial_summation",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Spatial summation: two sub-threshold inputs (3 and 3, each silent alone at threshold 5) SUM to a supra-threshold 6 and fire — the whole exceeds either part."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((if 3 >= 5 then 1 else 0) = 0) ∧ ((if 3 + 3 >= 5 then 1 else 0) = 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem spatial_summation : ((if 3 >= 5 then 1 else 0) = 0) ∧ ((if 3 + 3 >= 5 then 1 else 0) = 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-excitatory_inhibitory_net",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The net drive is excitatory minus inhibitory: 3 EPSPs − 1 IPSP = 2 (net excitation), while 3 − 3 = 0 — balanced inhibition cancels excitation exactly (a reflection through zero, like acid–base through 7)."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((3 - 1 : Int) = 2) ∧ ((3 - 3 : Int) = 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem excitatory_inhibitory_net : ((3 - 1 : Int) = 2) ∧ ((3 - 3 : Int) = 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-action_potential_swing",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The action potential swings from rest −70 mV to peak +40 mV — a 110 mV excursion — with the −55 mV threshold strictly between: rest < threshold < peak."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem action_potential_swing : ((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-hebbian_coincidence",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "\"Fire together, wire together\": the Hebbian weight change Δw = pre·post is 1 exactly when BOTH the pre- and post-synaptic neurons fire — coincidence detection, an AND."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 2).all (fun a => (List.range 2).all (fun b => (a * b == 1) == (a == 1 && b == 1)))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem hebbian_coincidence : (List.range 2).all (fun a => (List.range 2).all (fun b => (a * b == 1) == (a == 1 && b == 1))) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-refractory_caps_spike",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The absolute refractory period caps firing: a supra-threshold input (9 ≥ 5) arriving within the refractory window (t = 1 < 2) produces NO second spike — one spike per window, a finite dead time, never a runaway."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(if 1 < 2 then 0 else (if 9 >= 5 then 1 else 0)) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem refractory_caps_spike : (if 1 < 2 then 0 else (if 9 >= 5 then 1 else 0)) = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

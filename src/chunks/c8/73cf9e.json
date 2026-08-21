@@ -1,0 +1,12 @@
+{
+  "handle": "c873cf9e",
+  "address": "c873cf9e-148c-8fad-b9a6-dec1e8386865",
+  "statement": "((List.range 16).map (fun x => if x >= 5 && x <= 11 then 1 else 0) = [0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0]) ∧ ¬ ((List.range 16).all (fun x => (if x >= 5 && x <= 11 then 1 else 0) <= (if x + 1 >= 5 && x + 1 <= 11 then 1 else 0)))",
+  "tactic": "decide",
+  "keys": [
+    "depolarisation_blocks_firing"
+  ],
+  "files": [
+    "Neuro.lean"
+  ]
+}

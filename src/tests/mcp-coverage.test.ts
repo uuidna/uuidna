@@ -38,7 +38,7 @@ test('the MCP covers every theorem in full functionality, in all dimensions; eac
     assert.equal(r.principle, t.principle, `neighbours share the principle: ${t.key}`)
     for (const n of r.neighbours) assert.ok(keys.has(n.key) && n.key !== t.key, `neighbour is in the ledger, not self: ${t.key}`)
     covered += r.neighbours.length + 1 // itself + its neighbours = its principle's size
-    assert.deepEqual(theoremNeighbours(t.key).map((x) => x.key).sort(), r.neighbours.map((n) => n.key).sort(), 'library and MCP agree')
+    assert.deepEqual(theoremNeighbours(t.key).neighbours.map((x) => x.key).sort(), r.neighbours.map((n) => n.key).sort(), 'library and MCP agree')
   }
   // every theorem, summed over its (self + neighbours), reproduces the ledger size per principle — the graph partitions it
   const perPrinciple = new Map<string, number>()

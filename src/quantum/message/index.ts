@@ -218,6 +218,82 @@ export function openMessage(message: SealedQuantumMessage, passphrase: string): 
   return { plaintext, theoremKey: message.witness.theoremKey, reason: 'opened — envelope integral, witness sealed, Poly1305 authenticated' }
 }
 
+
+// ── THE SEALED NEIGHBOURHOOD AS A MESSAGE THAT TRAVELS. The cube memory (../memory.ts) holds a handle until its
+// whole neighbourhood is complete and seals the fusion to ONE order-invariant address. That address is the whole
+// point of the memory, and an address that never leaves the process it was computed in has not been sealed — it
+// has been remembered. So a sealed cube travels the same way every other message here travels: imprinted into a
+// reversible uuid chain that decodes back byte-exact, witnessed by one of the cube's OWN theorems, and folded to a
+// single fusion identity. Any alteration anywhere breaks the decode or the fold.
+//
+// WHAT THE WITNESS IS. encodeMessage binds a payload to a sealed theorem; here the theorem is a MEMBER of the very
+// neighbourhood being announced — the first by key, so the choice is deterministic and carries no clock and no RNG.
+// A cube therefore witnesses its own completion out of its own contents, and a fabricated cube cannot borrow one:
+// encodeMessage refuses a key the ledger does not carry.
+//
+// HONEST SCOPE: this is TAMPER-EVIDENCE AND REVERSIBILITY, NOT SECRECY. The carrier is a codec, not a cipher —
+// everyone who holds the chain reads the address back. For secrecy, sealCubeSecurely puts the same address inside
+// the ChaCha20-Poly1305 envelope, where the secrecy comes from the cipher alone (symmetric-only: no Shor target,
+// Grover halving 256 bits to a ~128-bit floor) and the quantum encoding adds none. No quantum channel, no QKD, no
+// advantage claimed — the quantum part is the recomputable witness that a sealed theorem was cited. ──
+import type { Cube } from '../memory/index.js'
+import { handleOf } from '../../handle.js'   // THE one derivation — never re-derived inline (see src/handle.ts)
+
+export interface SealedCubeMessage {
+  principle: string           // the neighbourhood this announces
+  address: string             // its fold — the COMPLETE uuid, the identity that travels
+  handle: string              // the eight-hex index derived from it — a path, never the message
+  carrier: string[]           // the imprint chain carrying the address: reversible, byte-exact, tamper-evident
+  witness: QuantumMessage     // one of the cube's own theorems, witnessing its completion
+  fold: string                // merkleGravity of (address, witness fold) — one identity for the whole fusion
+  honest: string
+}
+
+const CUBE_HONEST =
+  'A sealed neighbourhood announced as a message: the payload is the cube\'s order-invariant fold (a complete uuid, ' +
+  'never the truncated handle), the carrier is the reversible imprint codec, and the witness is one of the cube\'s ' +
+  'OWN sealed theorems. Tamper-evidence and reversibility, NOT secrecy — the carrier is a codec and anyone holding ' +
+  'the chain reads the address back. Only a COMPLETE neighbourhood can be sealed this way; an incomplete one is ' +
+  'refused rather than announced. Integrity, not truth.'
+
+/** sealCubeMessage(cube) → the complete fusion, imprinted as a travelling chain and witnessed by its own contents.
+ *  An INCOMPLETE cube is refused: a half-neighbourhood that could be announced is the exact artifact the memory
+ *  exists to never produce, and refusing it here keeps that guarantee at the boundary where it would leak. */
+export function sealCubeMessage(cube: Cube): SealedCubeMessage {
+  if (!cube.sealed) throw new Error(`sealed cube message: "${cube.principle}" is incomplete — ${cube.members.length} of ${cube.size} members, missing ${cube.missing.join(', ')}. Only a whole neighbourhood travels.`)
+  const witnessKey = cube.members[0]!.key         // deterministic: members are held in key order, no clock, no RNG
+  const witness = encodeMessage(cube.address, witnessKey)
+  return {
+    principle: cube.principle, address: cube.address, handle: cube.handle,
+    carrier: imprintTextChain(cube.address),
+    witness, fold: merkleGravity([cube.address, witness.fold]), honest: CUBE_HONEST,
+  }
+}
+
+/** readCubeMessage(msg) → the address recovered from the CARRIER alone, byte-exact. The round trip is the check:
+ *  a chain that decodes to anything else has been altered, and the codec cannot be persuaded otherwise. */
+export const readCubeMessage = (msg: SealedCubeMessage): string => readImprintTextChain(msg.carrier)
+
+/** verifyCubeMessage(msg) → does the whole fusion still recompute? The carrier must decode to the address, the
+ *  witness must bind exactly that address, the witness must itself verify against the ledger, the fusion fold must
+ *  recompute, and the handle must be that address truncated — never a second identity carried alongside it. */
+export function verifyCubeMessage(msg: SealedCubeMessage): { valid: boolean; reason: string } {
+  if (readCubeMessage(msg) !== msg.address) return { valid: false, reason: 'the carrier does not decode to the address (altered chain)' }
+  if (msg.witness.plaintext !== msg.address) return { valid: false, reason: 'the witness does not bind this cube (witness/address mismatch)' }
+  const w = verifyMessage(msg.witness)
+  if (!w.valid) return { valid: false, reason: 'the witness fails — ' + w.reason }
+  if (merkleGravity([msg.address, msg.witness.fold]) !== msg.fold) return { valid: false, reason: 'the fusion fold does not recompute' }
+  if (msg.handle !== handleOf(msg.address)) return { valid: false, reason: 'the handle is not this address truncated' }
+  return { valid: true, reason: 'sealed — carrier reversible, witness sealed in the ledger, fusion fold recomputes' }
+}
+
+/** sealCubeSecurely(cube, passphrase, step?) → the same fold, inside the ChaCha20-Poly1305 envelope. Secrecy comes
+ *  from the cipher alone; the quantum witness adds none. Pass an advancing `step` to close the equality leak. */
+export function sealCubeSecurely(cube: Cube, passphrase: string, step?: number): SealedQuantumMessage {
+  if (!cube.sealed) throw new Error(`sealed cube message: "${cube.principle}" is incomplete — only a whole neighbourhood travels`)
+  return sealMessage(cube.address, passphrase, cube.members[0]!.key, step)
+}
+
 // ── SECURE MESSAGING, TOTAL OVER THE LEDGER — every sealed theorem is itself a message. The payload is the
 // theorem's exact Lean statement, the witness is the theorem itself, the CARRIER is the reversible imprint codec
 // (a uuid chain that decodes back byte-exact — the message travels as addresses, any alteration breaks the decode),

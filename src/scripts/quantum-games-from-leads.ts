@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into its game record — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // quantum-games-from-leads — Implement research leads as playable quantum games
 // Verification through play: each game tests a hypothesis, outcome seals or refutes
 

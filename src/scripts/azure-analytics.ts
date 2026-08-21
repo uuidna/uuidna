@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into its analytics output — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // azure-analytics — Analyze uuidna on Azure (Application Gateway, CDN, App Service)
 
 interface AzureMetrics {

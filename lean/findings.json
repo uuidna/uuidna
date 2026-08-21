@@ -1,181 +1,217 @@
 {
-  "why": "Defects found by audit and NOT yet fixed. This exists because the session that found them had no queue, so priority became whatever was most recent and thirty real findings lived only in a transcript. A finding here is not a claim that something is broken in general — each names a file, a line, and the input or condition that exposes it, so it can be reproduced or refuted. Drain in order of severity. A fixed entry moves to `fixed` with the commit that closed it; a refuted one moves to `refuted` with what disproved it.",
-  "recorded": "2026-08-20",
-  "open": [
-    {
-      "severity": "medium",
-      "where": "src/next.ts:155 and src/scripts/gen-analytics.ts:48",
-      "what": "Two 'measured' figures that are typed-in literals: verificationSpeedupMeasured = true, and verification_speedup_x: 80000 published as '80x faster verify than prove'.",
-      "reproduce": "read the lines; neither derives from a measurement",
-      "fix": "measure them, or drop the word measured"
-    },
-    {
-      "severity": "medium",
-      "where": "src/scripts/crypto-measure.ts:339 and :347",
-      "what": "computeLog2 is a six-branch ladder that cannot return 0, so a constant buffer with true entropy zero reports 1 bit/byte. And :339 prints 'approaching 8 bits/byte' directly under measured 4.0000 — unreachable by construction, since H <= log2(n) caps a 16-byte sample at 4.",
-      "reproduce": "all-zero input -> repo reports 1.0000, true value 0.0000",
-      "fix": "handle p = 1 explicitly; state the sample-size ceiling instead of an unreachable target"
-    },
-    {
-      "severity": "medium",
-      "where": "lean/Thermodynamics.lean:7 with src/scripts/one-receipt.ts:472",
-      "what": "entropy_never_decreases is (List.range 9).all (fun t => t <= t + 1) — a Nat tautology with S as the identity, so no input can falsify it. vacuousGaps() cannot see it because it splits at paren depth 0 and this sits at depth 1 inside the lambda.",
-      "reproduce": "vacuousGaps() returns 0 against a theorem that is vacuous by inspection",
-      "fix": "state entropy as a function that can decrease, and teach vacuousGaps to descend into lambdas"
-    },
-    {
-      "severity": "medium",
-      "where": "lean/Thermodynamics.lean:37 with src/scripts/lean-thermodynamics.ts:88",
-      "what": "hardware_above_landauer carries 10^32 on the RHS where the wing's unit implies 10^17, so the theorem stays true if silicon were 10^15 times worse than it is. The js mirror carries the SAME literal, so the cross-check confirms agreement and not correctness.",
-      "reproduce": "measured slack 3.48e15 against prose claiming a ratio near 3.5e8",
-      "fix": "tighten to 100000000 * 287097813 < 100000000000000000, and add a third witness"
-    },
-    {
-      "severity": "medium",
-      "where": "src/forensics.ts:47 and src/evidence.ts:42",
-      "what": "Both copied slimgate.ts's citation regex WITHOUT its /[_0-9]/ key-shape guard, so ordinary English prose about theorems is reported as a fabricated citation. Three library modules now disagree about the same string.",
-      "reproduce": "'the theorem ledger is sealed' -> forensics clean=false, evidence missing ['ledger'], slimGate cited []",
-      "fix": "share one matcher rather than three copies"
-    },
-    {
-      "severity": "medium",
-      "where": "src/books.ts:279",
-      "what": "linkBookFacts uses substring matching (t.norm.includes(core)), so a novel fact is reported as already sealed against an unrelated theorem.",
-      "reproduce": "linkBookFacts('and 4 + 1 is 5 lanterns') -> status 'sealed-match' against sanitize_bidi_overrides_are_five, whose statement is about Unicode codepoints",
-      "fix": "match on equality of normalised statements, not substring containment"
-    },
-    {
-      "severity": "low",
-      "where": "src/harness.ts:15, :26, :36",
-      "what": "Vacuous end to end: reproducible compares toUuid(output) to an address defined as toUuid(output); harnessGain().gained is (always true) && !(literal false). Brute-forced 200,015 inputs, never false. harnessGain also has zero call sites.",
-      "reproduce": "any input",
-      "fix": "delete, or compare two independent derivations the way gateSelfTest does"
-    },
-    {
-      "severity": "low",
-      "where": "src/corroborate.ts:125, src/license.ts:55",
-      "what": "approve() is documented as 'the HARD gate' and verifyLicense as making any altered term visible. Neither has a call site. verifyLicense IS falsifiable (zeroing bill.coins returns false) — a working check nobody runs.",
-      "reproduce": "AST census over 349 files finds zero callers",
-      "fix": "wire them into the gate, or retire the claim that they gate anything"
-    },
-    {
-      "severity": "low",
-      "where": "src/mcp.ts:68, src/cube.ts:9, src/reports.ts:114",
-      "what": "Three 'measured' claims that measure nothing: 'Measured entropy: 122 free bits' is 128-6 bit accounting; cube.ts says strength is 'measured not asserted' with no code path measuring it; reports.ts declares zero_entropy in the type and never reads it.",
-      "reproduce": "read the lines",
-      "fix": "measure, or drop the word"
-    },
-    {
-      "severity": "low",
-      "where": "lean/key-entropy.json with src/scripts/guard.ts:114 and src/tests/key-entropy.test.ts:6",
-      "what": "The backlog holds 311 keys; two other places say 313. one-receipt.ts:338 already documents this exact drift, so the fix landed in one comment and not the other two."
-    },
-    {
-      "severity": "medium",
-      "where": "src/scripts/quantum-school.ts (907 lines), docs/school.md (546 lines), src/oeapi.ts",
-      "what": "PARTIALLY ADDRESSED. src/school.ts computes all eleven sections from the ledger — courses ARE the 72 proof wings, lesson counts ARE the theorems in them, and the accreditation section states plainly that uuidna is NOT accredited (asserted in src/tests/school.test.ts, including that no phrasing may imply an accrediting body). The school is chaotic and unusable and must be rebuilt from scratch against a stated information architecture: name/mission, ENROLLMENT requirements and application, grade levels and courses, academic calendar and dates, tuition or free-public-school status, technology requirements, student handbook and policies, teacher and counsellor information, FAQ, contact and technical support, and news/announcements/clubs/events.",
-      "reproduce": "read docs/school.md and quantum-school.ts; neither presents a navigable structure a reader could enrol from",
-      "fix": "REMAINING: render these sections into docs/school.md and the OEAPI surface, and retire the 907-line quantum-school.ts and 546-line docs/school.md that the computed model replaces. src/school-apis.ts is available as the external data layer (ESCO skills, Eurostat enrolment, GISCO directory). The data model and its constraints are done; the rendering and the retirement are not."
-    },
-    {
-      "severity": "high",
-      "where": "src/mcp.ts (189 tools, 38 categories) against the 68 skills carried by theorems in src/theorems/generated.ts",
-      "what": "A theorem is meant to be a hook and hooked at once — reachable from the live API through the skill it carries. Only 18 of 68 skills are reachable from any tool name or category; 50 are ORPHANED, including sequence, involution, z9-ring, z7-rosette, clay-reflection, foundational, neuro and science-pairs. Theorems carrying those skills are sealed, witnessed and served by nothing.",
-      "reproduce": "intersect the distinct theorem skills with MCP tool names and categories; 18 match, 50 do not",
-      "fix": "Serve skills as a dimension rather than adding 50 tools by hand: one tool that takes a skill and returns its theorems, its handles and its ESCO mapping. src/school-apis.ts already wires ESCO for exactly this and is currently referenced by nothing (0 call sites). That closes the orphan set in one computed surface instead of fifty authored ones — and a finder should then assert the intersection, so a new skill cannot arrive unserved."
-    },
-    {
-      "severity": "high",
-      "where": "package.json (38 npm scripts, 30 gate steps), src/scripts (159), src/scripts/guard.ts (29 finders), src/mcp.ts (189 tools)",
-      "what": "The automation surface has grown past what a reader can hold, and several entries do overlapping work. MEASURED: 10 of 38 npm scripts are a single dist call adding nothing but a name — gen:captain-claims, axioms, reconcile, security, develop, probe:apis, guard, mcp:drive, state, x. And FIVE separate entry points all answer one question, what is the state of this ledger: measure, rosetta, exercise-dormant, discover, trial-protocol. Three overlapping catalogues describe the same work: 30 gate steps, 29 guard finders, 38 npm scripts.",
-      "reproduce": "count them; then note that measure.js already registers six measurements behind one call, which is the shape the other four should fold into",
-      "fix": "FOLD, do not add. The good precedents are already here and each REPLACED N entry points with one: gate-all took 30 chain steps into a single concurrent pass, measure --all took six one-liners into one receipted call, searchAll took six libraries into one search, handleOf took three derivations of a handle into one, exercise-dormant took 32 unrun scripts into one roster. Register rosetta, exercise-dormant, discover and trial-protocol INTO measure so there is one command, one receipt, and one obvious way in; retire the thin npm wrappers in favour of the x dispatcher, which the scripts finder already asks for. NOT a sixth entry point. The aggregate is the defect, not any single addition — 27 files were added in one session, each defensible alone.",
-      "caution": "A count of scripts no npm script names is NOT a count of dead scripts: 72 lean-* wing emitters are discovered from disk by lean-all by design, and others are invoked by siblings. Measure invocation, not naming, or this fold will delete working code."
-    },
-    {
-      "severity": "high",
-      "where": "src/mcp.ts and src/mcp-http.ts — the tool catalogue served to every client",
-      "what": "Loading the MCP catalogue costs about 43,637 tokens PER CONNECTION (174,548 bytes for 190 tools), and 130,851 bytes of that — 75% — is tool DESCRIPTIONS. The median description is 646 bytes and the longest is 2,849. Every agent pays this before it can do anything, on every connection, whether or not it uses a single tool.",
-      "reproduce": "JSON.stringify the catalogue name/description/inputSchema triples and measure; then sum description bytes alone",
-      "fix": "USE THE THEOREMS. 82 of 190 tools carry honest-scope PROSE totalling 23,282 bytes (~5,821 tokens), and 110 tools ALREADY cite a sealed theorem — the pattern exists and is simply not applied to scope. A theorem key costs ~6 tokens; a scope sentence averages ~71. Replacing the prose with a citation is ~12x cheaper AND strictly more honest, because a cited theorem is VERIFIED scope where prose only asserts it. That is this project law already: cite a sealed theorem or the claim is UNVERIFIED. So the catalogue carries one sentence on what the tool does plus the keys it is bounded by, and a client that wants the reasoning fetches the theorem — which it can then recompute. This supersedes the earlier cap-at-200-bytes fix: capping DELETES the scope, citing PROVES it.",
-      "caution": "The earlier caution stands but inverts: do not delete scope prose to save tokens. Replace it with the theorem that seals the same bound, which is smaller AND checkable. Where no theorem seals a stated bound, that is a finding in itself — a scope claim with nothing behind it."
-    },
-    {
-      "severity": "medium",
-      "where": "lean/Quantum.lean chsh_beats_classical, and src/scripts/lean-quantum.ts:147",
-      "what": "The statement is (2:Nat)^2 < 2^3 and 2^3 = 8 — that is, 4 < 8. Squaring is the RIGHT way to bracket the Tsirelson bound 2*sqrt2 without an irrational, since its square is 8 against the classical 4. But the arithmetic only asserts two numbers are ordered. It derives neither bound, computes no correlator, and names no measurement setting, while the prose says quantum correlations exceed every local hidden variable. Not vacuous — change the numbers and it fails — but the framing reaches past what the statement establishes, the same class as hardware_above_landauer.",
-      "reproduce": "read the statement beside its why: the why describes CHSH, the Lean says 4 < 8",
-      "fix": "Either derive it or say plainly that it is a BRACKET on two published bounds rather than a derivation. A full CHSH correlator needs measurement angles and therefore cosines, which are irrational, and Math.* is rejected tree-wide — so the reduction to squared bounds is a legitimate consequence of this ledger honest constraints, not laziness. The honest form states that constraint in the why. What COULD be derived in exact integers: that the Bell state distribution [1,0,0,1]/2 gives perfect correlation while any product state cannot, which is the no-hidden-variable content reachable without trigonometry.",
-      "caution": "Do not delete it. The squared bracket is the correct idiom for an irrational bound and matches caesium_light_step. The defect is the prose claiming a derivation, not the arithmetic."
-    },
-    {
-      "severity": "critical",
-      "where": "docs/articles/neuro.md",
-      "what": "PUBLISHED OVERCLAIM. The article states the neurons output is binary 0 or 1 FOR EVERY INPUT with no partial spike, and asserts that every boundary it names is CONFIRMED by a sealed theorem. Neither the universal quantifier nor the no-partial-spike claim is sealed by anything, and the refractory boundary it names is backed by DEAD CODE. Measured amplitude is not invariant: Ohura and Kamiya 2018 eNeuro 5(1) report 89.3%, 61.8% and 50.2% of the first spike under repetitive firing.",
-      "reproduce": "read the article beside lean/Neuro.lean; the sealed theorems do not carry the quantifier the prose claims",
-      "fix": "State the abstraction honestly — a binary threshold unit is legitimate, presenting it as the physiology is not — and remove the claim that every named boundary is sealed until it is."
-    },
-    {
-      "severity": "critical",
-      "where": "lean/Neuro.lean — all_or_none, firing_monotone, excitatory_inhibitory_net, refractory_caps_spike",
-      "what": "FOUR OF NINE THEOREMS CANNOT FAIL, proved in Lean rather than argued: by decide certifies all_or_none and firing_monotone for EVERY threshold 0..39 and refractory_caps_spike for every threshold and input. They are satisfied by a dead neuron, an always-on neuron, and an inverted one. refractory_caps_spike is the worst: if 1 < 2 then 0 else X folds to 0, so the firing branch is unreachable — dead code wearing a physiological name. And all_or_none is INVERTED: its only live constants are the numerals 1 and 0, so substituting the real amplitude of 110 mV makes it FALSE. It verifies its own notation and is refuted by the physiology it names.",
-      "reproduce": "parameter sweep over thresholds -10..20; 0 of 434 settings false for all_or_none and firing_monotone; vacuity_witness.lean compiles exit 0",
-      "fix": "Replace, do not delete. 18 mutation-tested replacements exist and compile axiom-free — all_or_none becomes a stimulus-to-amplitude table with a graded rival, firing_monotone becomes rate saturation capped at the MEASURED 450 Hz (Wang 2016) rather than the 1000 Hz idealisation, refractory_caps_spike becomes absolute plus relative windows with firing restored at rest so a dead neuron cannot satisfy it.",
-      "caution": "hebbian_coincidence is UNDER-SPECIFIED, not vacuous — the auditor expected vacuity and was wrong. It survives a threshold sweep but is killed by replacing multiplication with max, sum or pre-alone, so it genuinely excludes OR and SUM potentiation. Keep its content; fix only the dead List.range 2."
-    },
-    {
-      "severity": "high",
-      "where": "src/scripts/one-receipt.ts:473 vacuousGaps",
-      "what": "THE VACUITY DETECTOR FLAGS 0 OF 9 known-vacuous theorems. It is string equality on a depth-0 split, so besides missing anything inside a lambda it also misses x + 0 = x and 2 * 3 = 6. It detects NOTATION, not vacuity — which is why entropy_never_decreases and four Neuro theorems all passed it.",
-      "reproduce": "lift why() verbatim and run it over lean/Neuro.lean: zero flagged",
-      "fix": "The proposed guard is better than widening the regex: emit() at src/scripts/lean-gen.ts:91 already runs each facts js() and exits 1 if false. Add an optional mutants field to Fact — the same check with one constant moved — and refuse any fact whose mutants ALL still pass. A prototype flags all_or_none and refractory_caps_spike, passes spatial_summation, and separately reports action_potential_swing as UNGUARDED because it declares no mutants. That distinction matters: proved-vacuous is not the same as never-tested."
-    }
-  ],
-  "fixed": [
-    {
-      "where": "src/quantum/voting/index.ts",
-      "what": "encodeVote applied H then Z to every qubit, so YES and NO differed by a GLOBAL PHASE and produced the identical receipt — the ballot could not be read. Also a dead store overwrote the encoding with a plain merkle fold.",
-      "closed_by": "7a54411e"
-    },
-    {
-      "where": "lean/Sequence.lean",
-      "what": "strokes_survive_reflection framed a minority reading as reflection's law; the mirror conserves the budget on 30 of 54 rows and the identity is the only map conserving it everywhere.",
-      "closed_by": "7a54411e, replaced by budget_not_conserved"
-    },
-    {
-      "where": "src/scripts/reserve.ts",
-      "what": "Targeted a hardcoded 65536-byte package that had grown to 3,253,634, so it threw — but only AFTER emptying the shipped reserved.uuidna, whose header meanwhile asserted 64 KiB alignment to every npm consumer.",
-      "closed_by": "7b37022c"
-    },
-    {
-      "where": "src/theorems/index.ts:62 with src/treason.ts:39, src/conformance.ts:28, src/domain-wave.ts:40, src/exploit-fold.ts:31",
-      "what": "withDerived COMPUTES both `lean` and `address` at load time, so every check that recomputes the address and compares it to t.address compares a pure function to itself. Four checks cannot fail.",
-      "closed_by": "7e8851ca — forgedAgainstWings runs in guard.ts ahead of catchTraitors; guard reports all 1336 entries witnessed by a wing, and a forged entry is rejected as no-wing. The tautological check is kept and annotated, not deleted."
-    },
-    {
-      "where": "src/adjudicate.ts:27 and :37",
-      "what": "DEMARCATED matches a hedge word ANYWHERE in the sentence and :37 then returns no collisions, so appending a hedge flips a Clay claim from UNVERIFIED to VERIFIED.",
-      "closed_by": "demarcation is clause-local now: the hedge must sit in the clause carrying both the self-voice and the solve verb. Four evasions that returned zero collisions now collide; four genuine demarcations still pass. src/tests/adjudicate-demarcation.test.ts"
-    },
-    {
-      "where": "src/grow.ts:19 and :6",
-      "what": "TARGET = 1024 while the ledger holds 1336 keys over 1252 distinct propositions, so growLife() returns toGo: -310 and the honest string still reads 'growing toward 1024'. This SHIPS through the MCP tool uuidna_grow_life to every consumer.",
-      "closed_by": "nextMilestone(living) computes the next power of two strictly above the count, by doubling — no Math.*, no logarithm. target 2048, toGo 712. src/tests/grow-milestone.test.ts asserts that crossing a milestone ADVANCES it."
-    },
-    {
-      "where": "src/spin.ts:14 and :38",
-      "what": "DERIVED_FILES lists 8 of the 14 paths the audit chain git-diffs; six real files are never rotated. Worse, sealSpin skips anything not listed, so the manifest can be empty and verifySpin on an empty manifest returns ok:true against ANY file set.",
-      "closed_by": "DERIVED_FILES now covers every gated path, directory entries are walked into their files (8 sealed coins became 1417), and verifySpin REFUSES an empty manifest instead of agreeing with any file set. src/tests/spin-parity.test.ts reads the audit chain from package.json so the two lists cannot separate by hand again."
-    },
-    {
-      "where": "src/quantum/message/index.ts:77",
-      "what": "BigInt(1 << (state.scale * 2)) with scale 16 wraps to 1 in JS 32-bit bitwise, so every probability is wrong and every quantum receipt is the SAME constant, independent of plaintext.",
-      "closed_by": "Both delegated to the verified simulator (distribution, marginal) instead of recomputing, AND the key moved out of a phase into the basis state. The overflow was real but never the cause: hadamardX and hadamard have the identical distribution, so the key was unreadable by any measurement. Receipts 1/4 distinct became 4/4; measureMessage returns bits instead of zeros. src/tests/quantum-message-encoding.test.ts"
-    },
-    {
-      "where": "src/quantum/message/index.ts:111",
-      "what": "measureMessage conflates qubit index with basis index (i1 = i | (1 << i)), so p1 > p0 is never true and it always returns all zeros.",
-      "closed_by": "Both delegated to the verified simulator (distribution, marginal) instead of recomputing, AND the key moved out of a phase into the basis state. The overflow was real but never the cause: hadamardX and hadamard have the identical distribution, so the key was unreadable by any measurement. Receipts 1/4 distinct became 4/4; measureMessage returns bits instead of zeros. src/tests/quantum-message-encoding.test.ts"
-    }
-  ]
+ "why": "Defects found by audit and NOT yet fixed. This exists because the session that found them had no queue, so priority became whatever was most recent and thirty real findings lived only in a transcript. A finding here is not a claim that something is broken in general — each names a file, a line, and the input or condition that exposes it, so it can be reproduced or refuted. Drain in order of severity. A fixed entry moves to `fixed` with the commit that closed it; a refuted one moves to `refuted` with what disproved it.",
+ "recorded": "2026-08-20",
+ "open": [
+  {
+   "severity": "medium",
+   "where": "src/next.ts:155 and src/scripts/gen-analytics.ts:48",
+   "what": "Two 'measured' figures that are typed-in literals: verificationSpeedupMeasured = true, and verification_speedup_x: 80000 published as '80x faster verify than prove'.",
+   "reproduce": "read the lines; neither derives from a measurement",
+   "fix": "measure them, or drop the word measured"
+  },
+  {
+   "severity": "medium",
+   "where": "src/scripts/crypto-measure.ts:339 and :347",
+   "what": "computeLog2 is a six-branch ladder that cannot return 0, so a constant buffer with true entropy zero reports 1 bit/byte. And :339 prints 'approaching 8 bits/byte' directly under measured 4.0000 — unreachable by construction, since H <= log2(n) caps a 16-byte sample at 4.",
+   "reproduce": "all-zero input -> repo reports 1.0000, true value 0.0000",
+   "fix": "handle p = 1 explicitly; state the sample-size ceiling instead of an unreachable target"
+  },
+  {
+   "severity": "medium",
+   "where": "lean/Thermodynamics.lean:7 with src/scripts/one-receipt.ts:472",
+   "what": "entropy_never_decreases is (List.range 9).all (fun t => t <= t + 1) — a Nat tautology with S as the identity, so no input can falsify it. vacuousGaps() cannot see it because it splits at paren depth 0 and this sits at depth 1 inside the lambda.",
+   "reproduce": "vacuousGaps() returns 0 against a theorem that is vacuous by inspection",
+   "fix": "state entropy as a function that can decrease, and teach vacuousGaps to descend into lambdas"
+  },
+  {
+   "severity": "medium",
+   "where": "lean/Thermodynamics.lean:37 with src/scripts/lean-thermodynamics.ts:88",
+   "what": "hardware_above_landauer carries 10^32 on the RHS where the wing's unit implies 10^17, so the theorem stays true if silicon were 10^15 times worse than it is. The js mirror carries the SAME literal, so the cross-check confirms agreement and not correctness.",
+   "reproduce": "measured slack 3.48e15 against prose claiming a ratio near 3.5e8",
+   "fix": "tighten to 100000000 * 287097813 < 100000000000000000, and add a third witness"
+  },
+  {
+   "severity": "medium",
+   "where": "src/forensics.ts:47 and src/evidence.ts:42",
+   "what": "Both copied slimgate.ts's citation regex WITHOUT its /[_0-9]/ key-shape guard, so ordinary English prose about theorems is reported as a fabricated citation. Three library modules now disagree about the same string.",
+   "reproduce": "'the theorem ledger is sealed' -> forensics clean=false, evidence missing ['ledger'], slimGate cited []",
+   "fix": "share one matcher rather than three copies"
+  },
+  {
+   "severity": "medium",
+   "where": "src/books.ts:279",
+   "what": "linkBookFacts uses substring matching (t.norm.includes(core)), so a novel fact is reported as already sealed against an unrelated theorem.",
+   "reproduce": "linkBookFacts('and 4 + 1 is 5 lanterns') -> status 'sealed-match' against sanitize_bidi_overrides_are_five, whose statement is about Unicode codepoints",
+   "fix": "match on equality of normalised statements, not substring containment"
+  },
+  {
+   "severity": "low",
+   "where": "src/harness.ts:15, :26, :36",
+   "what": "Vacuous end to end: reproducible compares toUuid(output) to an address defined as toUuid(output); harnessGain().gained is (always true) && !(literal false). Brute-forced 200,015 inputs, never false. harnessGain also has zero call sites.",
+   "reproduce": "any input",
+   "fix": "delete, or compare two independent derivations the way gateSelfTest does"
+  },
+  {
+   "severity": "low",
+   "where": "src/corroborate.ts:125, src/license.ts:55",
+   "what": "approve() is documented as 'the HARD gate' and verifyLicense as making any altered term visible. Neither has a call site. verifyLicense IS falsifiable (zeroing bill.coins returns false) — a working check nobody runs.",
+   "reproduce": "AST census over 349 files finds zero callers",
+   "fix": "wire them into the gate, or retire the claim that they gate anything"
+  },
+  {
+   "severity": "low",
+   "where": "src/mcp.ts:68, src/cube.ts:9, src/reports.ts:114",
+   "what": "Three 'measured' claims that measure nothing: 'Measured entropy: 122 free bits' is 128-6 bit accounting; cube.ts says strength is 'measured not asserted' with no code path measuring it; reports.ts declares zero_entropy in the type and never reads it.",
+   "reproduce": "read the lines",
+   "fix": "measure, or drop the word"
+  },
+  {
+   "severity": "low",
+   "where": "lean/key-entropy.json with src/scripts/guard.ts:114 and src/tests/key-entropy.test.ts:6",
+   "what": "The backlog holds 311 keys; two other places say 313. one-receipt.ts:338 already documents this exact drift, so the fix landed in one comment and not the other two."
+  },
+  {
+   "severity": "medium",
+   "where": "src/scripts/quantum-school.ts (907 lines), docs/school.md (546 lines), src/oeapi.ts",
+   "what": "PARTIALLY ADDRESSED. src/school.ts computes all eleven sections from the ledger — courses ARE the 72 proof wings, lesson counts ARE the theorems in them, and the accreditation section states plainly that uuidna is NOT accredited (asserted in src/tests/school.test.ts, including that no phrasing may imply an accrediting body). The school is chaotic and unusable and must be rebuilt from scratch against a stated information architecture: name/mission, ENROLLMENT requirements and application, grade levels and courses, academic calendar and dates, tuition or free-public-school status, technology requirements, student handbook and policies, teacher and counsellor information, FAQ, contact and technical support, and news/announcements/clubs/events.",
+   "reproduce": "read docs/school.md and quantum-school.ts; neither presents a navigable structure a reader could enrol from",
+   "fix": "REMAINING: render these sections into docs/school.md and the OEAPI surface, and retire the 907-line quantum-school.ts and 546-line docs/school.md that the computed model replaces. src/school-apis.ts is available as the external data layer (ESCO skills, Eurostat enrolment, GISCO directory). The data model and its constraints are done; the rendering and the retirement are not."
+  },
+  {
+   "severity": "high",
+   "where": "package.json (38 npm scripts, 30 gate steps), src/scripts (159), src/scripts/guard.ts (29 finders), src/mcp.ts (189 tools)",
+   "what": "The automation surface has grown past what a reader can hold, and several entries do overlapping work. MEASURED: 10 of 38 npm scripts are a single dist call adding nothing but a name — gen:captain-claims, axioms, reconcile, security, develop, probe:apis, guard, mcp:drive, state, x. And FIVE separate entry points all answer one question, what is the state of this ledger: measure, rosetta, exercise-dormant, discover, trial-protocol. Three overlapping catalogues describe the same work: 30 gate steps, 29 guard finders, 38 npm scripts.",
+   "reproduce": "count them; then note that measure.js already registers six measurements behind one call, which is the shape the other four should fold into",
+   "fix": "FOLD, do not add. The good precedents are already here and each REPLACED N entry points with one: gate-all took 30 chain steps into a single concurrent pass, measure --all took six one-liners into one receipted call, searchAll took six libraries into one search, handleOf took three derivations of a handle into one, exercise-dormant took 32 unrun scripts into one roster. Register rosetta, exercise-dormant, discover and trial-protocol INTO measure so there is one command, one receipt, and one obvious way in; retire the thin npm wrappers in favour of the x dispatcher, which the scripts finder already asks for. NOT a sixth entry point. The aggregate is the defect, not any single addition — 27 files were added in one session, each defensible alone.",
+   "caution": "A count of scripts no npm script names is NOT a count of dead scripts: 72 lean-* wing emitters are discovered from disk by lean-all by design, and others are invoked by siblings. Measure invocation, not naming, or this fold will delete working code."
+  },
+  {
+   "severity": "high",
+   "where": "src/mcp.ts and src/mcp-http.ts — the tool catalogue served to every client",
+   "what": "Loading the MCP catalogue costs about 43,637 tokens PER CONNECTION (174,548 bytes for 190 tools), and 130,851 bytes of that — 75% — is tool DESCRIPTIONS. The median description is 646 bytes and the longest is 2,849. Every agent pays this before it can do anything, on every connection, whether or not it uses a single tool.",
+   "reproduce": "JSON.stringify the catalogue name/description/inputSchema triples and measure; then sum description bytes alone",
+   "fix": "USE THE THEOREMS. 82 of 190 tools carry honest-scope PROSE totalling 23,282 bytes (~5,821 tokens), and 110 tools ALREADY cite a sealed theorem — the pattern exists and is simply not applied to scope. A theorem key costs ~6 tokens; a scope sentence averages ~71. Replacing the prose with a citation is ~12x cheaper AND strictly more honest, because a cited theorem is VERIFIED scope where prose only asserts it. That is this project law already: cite a sealed theorem or the claim is UNVERIFIED. So the catalogue carries one sentence on what the tool does plus the keys it is bounded by, and a client that wants the reasoning fetches the theorem — which it can then recompute. This supersedes the earlier cap-at-200-bytes fix: capping DELETES the scope, citing PROVES it.",
+   "caution": "The earlier caution stands but inverts: do not delete scope prose to save tokens. Replace it with the theorem that seals the same bound, which is smaller AND checkable. Where no theorem seals a stated bound, that is a finding in itself — a scope claim with nothing behind it.",
+   "measured": "2026-08-20, from MCP_CATALOG directly: 191 tools, 131,056 bytes of DESCRIPTION (~32,764 tokens). Exactly 5 sentences repeat across tools, wasting 13,171 bytes (~3,293 tokens) — and ONE of them is 94% of that waste: \"The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught - theorem drift_is_named_or_caught\" appears 85 times for 12,348 duplicated bytes. It already NAMES its theorem, so the repetition buys nothing a citation does not: replacing the 146-byte sentence with a ~53-byte citation form keeps the theorem reachable for the negation and prose gates (both require a sealed theorem within 350 characters of a bare boundary) while saving roughly 7,900 bytes / 1,975 tokens per connection. This is the citation fix, not the capping fix: no scope sentence is deleted, only its 84 redundant copies. Second target, much smaller: \"Integrity, not truth (theorem provenance_integrity_not_content_truth).\" appears 10 times for 630 bytes and is short enough to leave alone. NOTE the remaining ~29,500 tokens are UNIQUE per-tool scope prose - deduplication alone does not solve this finding, it removes the free 6% first.",
+   "blocked_by": "src/mcp.ts and src/mcp-http.ts both carry uncommitted edits from a concurrent process and were deliberately not touched. The edit is one find-and-replace in each once that tree settles."
+  },
+  {
+   "severity": "medium",
+   "where": "lean/Quantum.lean chsh_beats_classical, and src/scripts/lean-quantum.ts:147",
+   "what": "The statement is (2:Nat)^2 < 2^3 and 2^3 = 8 — that is, 4 < 8. Squaring is the RIGHT way to bracket the Tsirelson bound 2*sqrt2 without an irrational, since its square is 8 against the classical 4. But the arithmetic only asserts two numbers are ordered. It derives neither bound, computes no correlator, and names no measurement setting, while the prose says quantum correlations exceed every local hidden variable. Not vacuous — change the numbers and it fails — but the framing reaches past what the statement establishes, the same class as hardware_above_landauer.",
+   "reproduce": "read the statement beside its why: the why describes CHSH, the Lean says 4 < 8",
+   "fix": "Either derive it or say plainly that it is a BRACKET on two published bounds rather than a derivation. A full CHSH correlator needs measurement angles and therefore cosines, which are irrational, and Math.* is rejected tree-wide — so the reduction to squared bounds is a legitimate consequence of this ledger honest constraints, not laziness. The honest form states that constraint in the why. What COULD be derived in exact integers: that the Bell state distribution [1,0,0,1]/2 gives perfect correlation while any product state cannot, which is the no-hidden-variable content reachable without trigonometry.",
+   "caution": "Do not delete it. The squared bracket is the correct idiom for an irrational bound and matches caesium_light_step. The defect is the prose claiming a derivation, not the arithmetic."
+  },
+  {
+   "severity": "high",
+   "where": "src/scripts/one-receipt.ts:473 vacuousGaps",
+   "what": "THE VACUITY DETECTOR FLAGS 0 OF 9 known-vacuous theorems. It is string equality on a depth-0 split, so besides missing anything inside a lambda it also misses x + 0 = x and 2 * 3 = 6. It detects NOTATION, not vacuity — which is why entropy_never_decreases and four Neuro theorems all passed it.",
+   "reproduce": "lift why() verbatim and run it over lean/Neuro.lean: zero flagged",
+   "fix": "The proposed guard is better than widening the regex: emit() at src/scripts/lean-gen.ts:91 already runs each facts js() and exits 1 if false. Add an optional mutants field to Fact — the same check with one constant moved — and refuse any fact whose mutants ALL still pass. A prototype flags all_or_none and refractory_caps_spike, passes spatial_summation, and separately reports action_potential_swing as UNGUARDED because it declares no mutants. That distinction matters: proved-vacuous is not the same as never-tested."
+  },
+  {
+   "severity": "high",
+   "where": "src/skills.ts skillReach() and orphanedSkills(), with skillsGaps() in src/scripts/one-receipt.ts",
+   "what": "THE REACHABILITY SELF-CHECK REPORTS THE OPPOSITE OF THE TRUTH AND THE GATE CALLS IT CLEAN. skillReach() returns served 0 and orphaned 68, every entry giving the reason that the surface refused it because answer is not a function - because it probes a catalogue entry through a .run method that does not exist. MCP_CATALOG entries carry name, description, category, skill and inputSchema; dispatch is the exported callTool. Measured through the real entry point, 68 of 68 skills answer. The capability is sound and its own monitor is inverted, while skillsGaps() exits 0 and guard prints skills clean with every skill reported orphaned.",
+   "reproduce": "call skillReach() and compare with a loop over callTool(uuidna_skill, {skill}) for every skillNames() entry: 0 served versus 68 served",
+   "fix": "Probe through callTool, the same entry point a client uses. Then make skillsGaps() FAIL on a nonzero orphan count - it currently cannot, since it reported clean while its own reach function claimed total unreachability. A monitor that agrees with the gate while contradicting reality is worse than no monitor.",
+   "caution": "Do NOT weaken the check to match the current output. The finding it was built for is genuinely closed; what is broken is the instrument. It happens to be broken in the direction that looks alarming rather than the direction that looks fine - the dangerous version of this bug is the inverse."
+  },
+  {
+   "severity": "high",
+   "where": "agent orchestration, not the codebase - recorded here because it is the largest measured token sink of the session",
+   "what": "A DELEGATING AGENT THAT WAITS ON CHILDREN CAN BURN ITS ENTIRE BUDGET REPORTING THAT IT IS WAITING. One research agent spawned three sub-researchers, then emitted eight completion notifications of roughly 110k tokens each - about 800k tokens - every one saying only that it was still waiting. Its children had ALREADY completed and reported directly to the parent session, so it was blocked on work that had finished. TaskStop reports it as completed at each notification, so there is no live process to kill: each cycle finishes and respawns a wait.",
+   "reproduce": "compare the sub-agent completion notifications, which carried full findings, against the parent agent notifications over the same window, which carried none",
+   "fix": "Do not have an agent delegate and then wait. Either it does the work, or it spawns children that report to the ROOT session directly - which is what actually happened here and is what delivered. The parent added a waiting loop and nothing else. Where a fan-out is genuinely needed, the root should spawn the children itself.",
+   "caution": "The research itself was NOT wasted - the children produced the sessions best work, including six refutations of widely cited claims and one self-caught fabrication. The waste is entirely in the coordination layer, so the lesson is about orchestration shape and not about delegation being unproductive."
+  },
+  {
+   "severity": "low",
+   "where": "src/scripts/lean-gen.ts emit(), every src/scripts/lean-*.ts emitter, and the /-- -/ doc comments in lean/*.lean",
+   "what": "THE PROSE FOLD LEAVES A BUILD-TIME SEED, NOT A SECOND SOURCE — downgraded from high on the same day it was raised, after measuring what actually reads the prose. The duplication is real (1,271 doc comments in lean/, effectively all of them also present in src/scripts/lean-*.ts) but it is a PIPELINE, not a fork: emit() seeds the .lean from the emitter, lean-ledger parses the doc comment back out as the theorem name, and every consumer downstream — the site, the articles, the MCP catalogue, the school — reads theorems(), which is the LEAN. Verified: the only downstream reader of the emitter files is rosetta.ts, and it reads them for the SYMBOL leg (does a js mirror exist for this key) and never for prose.",
+   "why_it_matters": "The claims made for the fold hold for what the UI renders: the prose the reader sees is parsed out of the text the kernel signed. What remains true is narrower — an emitter edited without regenerating leaves the seed and the signed copy disagreeing until the next generation, and only lean-all notices.",
+   "fix": "The captain's resolution, and it is already most of the way built: the UI is GENERATED FROM THEOREM COMBINATIONS, so prose has no reason to live outside Lean in the first place. gen-articles computes 72 articles from the ledger, home.data.ts computes the front page, and lean-ledger takes the name from the doc comment. What is left is to make the seed unnecessary rather than to delete it — and the honest ceiling is stated in the caution below.",
+   "caution": "Do NOT resolve this by deleting the emitter prose. The js mirror is what makes each fact falsifiable — emit() checks every predicate before a byte is written — and the mirror needs the fact expressed in TypeScript BEFORE the .lean exists. A fold that dissolves the emitter dissolves the falsifier with it, which is how four unfailable neuro theorems got written in the first place.",
+   "found": "2026-08-20"
+  },
+  {
+   "severity": "medium",
+   "where": "src/scripts/guard.ts:97, src/scripts/gen-packages.ts:10,55,90, src/scripts/one-receipt.ts:42",
+   "what": "A FIX INSTRUCTION THAT FAILS WHEN FOLLOWED — five places prescribe `npm run gen:packages`, and package.json carries no such script (it exits with npm's 'missing script' error). Found by following the guard's own exact fix after a package surface drifted: the guard reported the drift correctly, named the command, and the command did not exist. The repair is real and one line away — `node dist/scripts/gen-packages.js` is what develop.ts's CURES table already runs for this exact drift, and `npm run x -- gen-packages` is what the scripts law now prescribes in place of thin wrappers, since the dispatcher discovers every script. Not repaired in this session because all five sites sit in files another process is actively writing (guard.ts, one-receipt.ts and mcp.ts were each modified within minutes of the measurement), and editing a file mid-write is how a corrupted snapshot gets attributed to the wrong author.",
+   "why": "The guard's value is that its fix is exact — a gap it names is meant to be closeable by pasting the line it prints. A fix text that fails teaches the reader to distrust the whole class, and it is the one kind of defect the guard cannot catch about itself: nothing checks that a prescribed npm script exists. The same check is cheap to compute — every `npm run <name>` appearing in a fix string must be a key of package.json's scripts — which is exactly the shape of guard finder that would stop this returning.",
+   "fix": "replace `npm run gen:packages` with `npm run x -- gen-packages` in all five sites, then add a finder (one-receipt or guard) that scans fix strings for `npm run <name>` and objects when <name> is not a key of package.json scripts — the computed guard that prevents the class, not just this instance."
+  }
+ ],
+ "fixed": [
+  {
+   "where": "src/quantum/voting/index.ts",
+   "what": "encodeVote applied H then Z to every qubit, so YES and NO differed by a GLOBAL PHASE and produced the identical receipt — the ballot could not be read. Also a dead store overwrote the encoding with a plain merkle fold.",
+   "closed_by": "7a54411e"
+  },
+  {
+   "where": "lean/Sequence.lean",
+   "what": "strokes_survive_reflection framed a minority reading as reflection's law; the mirror conserves the budget on 30 of 54 rows and the identity is the only map conserving it everywhere.",
+   "closed_by": "7a54411e, replaced by budget_not_conserved"
+  },
+  {
+   "where": "src/scripts/reserve.ts",
+   "what": "Targeted a hardcoded 65536-byte package that had grown to 3,253,634, so it threw — but only AFTER emptying the shipped reserved.uuidna, whose header meanwhile asserted 64 KiB alignment to every npm consumer.",
+   "closed_by": "7b37022c"
+  },
+  {
+   "where": "src/theorems/index.ts:62 with src/treason.ts:39, src/conformance.ts:28, src/domain-wave.ts:40, src/exploit-fold.ts:31",
+   "what": "withDerived COMPUTES both `lean` and `address` at load time, so every check that recomputes the address and compares it to t.address compares a pure function to itself. Four checks cannot fail.",
+   "closed_by": "7e8851ca — forgedAgainstWings runs in guard.ts ahead of catchTraitors; guard reports all 1336 entries witnessed by a wing, and a forged entry is rejected as no-wing. The tautological check is kept and annotated, not deleted."
+  },
+  {
+   "where": "src/adjudicate.ts:27 and :37",
+   "what": "DEMARCATED matches a hedge word ANYWHERE in the sentence and :37 then returns no collisions, so appending a hedge flips a Clay claim from UNVERIFIED to VERIFIED.",
+   "closed_by": "demarcation is clause-local now: the hedge must sit in the clause carrying both the self-voice and the solve verb. Four evasions that returned zero collisions now collide; four genuine demarcations still pass. src/tests/adjudicate-demarcation.test.ts"
+  },
+  {
+   "where": "src/grow.ts:19 and :6",
+   "what": "TARGET = 1024 while the ledger holds 1336 keys over 1252 distinct propositions, so growLife() returns toGo: -310 and the honest string still reads 'growing toward 1024'. This SHIPS through the MCP tool uuidna_grow_life to every consumer.",
+   "closed_by": "nextMilestone(living) computes the next power of two strictly above the count, by doubling — no Math.*, no logarithm. target 2048, toGo 712. src/tests/grow-milestone.test.ts asserts that crossing a milestone ADVANCES it."
+  },
+  {
+   "where": "src/spin.ts:14 and :38",
+   "what": "DERIVED_FILES lists 8 of the 14 paths the audit chain git-diffs; six real files are never rotated. Worse, sealSpin skips anything not listed, so the manifest can be empty and verifySpin on an empty manifest returns ok:true against ANY file set.",
+   "closed_by": "DERIVED_FILES now covers every gated path, directory entries are walked into their files (8 sealed coins became 1417), and verifySpin REFUSES an empty manifest instead of agreeing with any file set. src/tests/spin-parity.test.ts reads the audit chain from package.json so the two lists cannot separate by hand again."
+  },
+  {
+   "where": "src/quantum/message/index.ts:77",
+   "what": "BigInt(1 << (state.scale * 2)) with scale 16 wraps to 1 in JS 32-bit bitwise, so every probability is wrong and every quantum receipt is the SAME constant, independent of plaintext.",
+   "closed_by": "Both delegated to the verified simulator (distribution, marginal) instead of recomputing, AND the key moved out of a phase into the basis state. The overflow was real but never the cause: hadamardX and hadamard have the identical distribution, so the key was unreadable by any measurement. Receipts 1/4 distinct became 4/4; measureMessage returns bits instead of zeros. src/tests/quantum-message-encoding.test.ts"
+  },
+  {
+   "where": "src/quantum/message/index.ts:111",
+   "what": "measureMessage conflates qubit index with basis index (i1 = i | (1 << i)), so p1 > p0 is never true and it always returns all zeros.",
+   "closed_by": "Both delegated to the verified simulator (distribution, marginal) instead of recomputing, AND the key moved out of a phase into the basis state. The overflow was real but never the cause: hadamardX and hadamard have the identical distribution, so the key was unreadable by any measurement. Receipts 1/4 distinct became 4/4; measureMessage returns bits instead of zeros. src/tests/quantum-message-encoding.test.ts"
+  },
+  {
+   "where": "src/mcp.ts (189 tools, 38 categories) against the 68 skills carried by theorems in src/theorems/generated.ts",
+   "what": "A theorem is meant to be a hook and hooked at once — reachable from the live API through the skill it carries. Only 18 of 68 skills are reachable from any tool name or category; 50 are ORPHANED, including sequence, involution, z9-ring, z7-rosette, clay-reflection, foundational, neuro and science-pairs. Theorems carrying those skills are sealed, witnessed and served by nothing.",
+   "closed_by": "One computed dimension on both surfaces, not fifty authored tools. src/skills.ts exposes skillSurface/skillIndex/skillNames/skillEsco/orphanedSkills/skillReach; uuidna_skill {skill, escoTitles?} and uuidna_skills {} are registered in src/mcp.ts AND src/mcp-http.ts with identical argument contracts; skillsGaps() in one-receipt.ts is wired BLOCKING in guard.ts and reported in state.ts; covered by src/tests/skill-surface.test.ts. VERIFIED INDEPENDENTLY through the real entry point: callTool(uuidna_skill, {skill}) answers for 68 of 68 skills and uuidna_skills returns 68 entries. one-receipt.js skills exits 0 and guard prints skills clean."
+  },
+  {
+   "severity": "critical",
+   "where": "lean/Neuro.lean — all_or_none, firing_monotone, excitatory_inhibitory_net, refractory_caps_spike",
+   "what": "FOUR OF NINE THEOREMS CANNOT FAIL, proved in Lean rather than argued: by decide certifies all_or_none and firing_monotone for EVERY threshold 0..39 and refractory_caps_spike for every threshold and input. They are satisfied by a dead neuron, an always-on neuron, and an inverted one. refractory_caps_spike is the worst: if 1 < 2 then 0 else X folds to 0, so the firing branch is unreachable — dead code wearing a physiological name. And all_or_none is INVERTED: its only live constants are the numerals 1 and 0, so substituting the real amplitude of 110 mV makes it FALSE. It verifies its own notation and is refuted by the physiology it names.",
+   "reproduce": "parameter sweep over thresholds -10..20; 0 of 434 settings false for all_or_none and firing_monotone; vacuity_witness.lean compiles exit 0",
+   "fix": "Replace, do not delete. 18 mutation-tested replacements exist and compile axiom-free — all_or_none becomes a stimulus-to-amplitude table with a graded rival, firing_monotone becomes rate saturation capped at the MEASURED 450 Hz (Wang 2016) rather than the 1000 Hz idealisation, refractory_caps_spike becomes absolute plus relative windows with firing restored at rest so a dead neuron cannot satisfy it.",
+   "caution": "hebbian_coincidence is UNDER-SPECIFIED, not vacuous — the auditor expected vacuity and was wrong. It survives a threshold sweep but is killed by replacing multiplication with max, sum or pre-alone, so it genuinely excludes OR and SUM potentiation. Keep its content; fix only the dead List.range 2.",
+   "closed_by": "lean/Neuro.lean rebuilt from src/scripts/lean-neuro.ts: 9 theorems replaced by 18, of which the four unfailable ones are gone. all_or_none -> all_or_none_amplitude (the stimulus-to-amplitude table, stating that the graded rival 22*s does NOT equal it and takes values that are neither 0 nor 110). firing_monotone -> firing_rate_saturates (capped at the MEASURED 450 Hz, Wang 2016, stating that the linear rival differs) and depolarisation_blocks_firing, which asserts firing is NOT monotone in input — the discarded theorem claimed the opposite of a fact. refractory_caps_spike -> refractory_absolute_and_relative (absolute window silent for every drive 0..199, relative window passing 9 but not 6, firing RESTORED at rest, full recovery trajectory [0,0,0,1,1,1]) so silence no longer satisfies it. excitatory_inhibitory_net -> inhibition_vetoes_spike (subtractive, and shown NOT divisive). hebbian_coincidence kept its content per the caution and became hebbian_coincidence_table (excluding both max/OR and pre-alone) plus hebbian_ltd_is_signed. Added: temporal_summation_decays, rate_codes_intensity, refractory_bounds_rate, threshold_accommodates_ramp, integrate_and_fire_resets, spike_amplitude_attenuates, threshold_is_quasi_threshold. VERIFIED: kernel sorry-free, axiom-free (npm run axioms, 1355/1355 kernel-only), and MUTATION-TESTED — replacing fires() with a dead neuron that never fires now FAILS four theorems including refractory_absolute_and_relative, the one it previously satisfied; moving the saturation ceiling off the measured 450 fails firing_rate_saturates.",
+   "closed": "2026-08-20"
+  },
+  {
+   "severity": "critical",
+   "where": "docs/articles/neuro.md",
+   "what": "PUBLISHED OVERCLAIM. The article states the neurons output is binary 0 or 1 FOR EVERY INPUT with no partial spike, and asserts that every boundary it names is CONFIRMED by a sealed theorem. Neither the universal quantifier nor the no-partial-spike claim is sealed by anything, and the refractory boundary it names is backed by DEAD CODE. Measured amplitude is not invariant: Ohura and Kamiya 2018 eNeuro 5(1) report 89.3%, 61.8% and 50.2% of the first spike under repetitive firing.",
+   "reproduce": "read the article beside lean/Neuro.lean; the sealed theorems do not carry the quantifier the prose claims",
+   "fix": "State the abstraction honestly — a binary threshold unit is legitimate, presenting it as the physiology is not — and remove the claim that every named boundary is sealed until it is.",
+   "closed_by": "Both halves addressed and VERIFIED, not asserted. (1) The binary / no-partial-spike claim died with the wing rewrite: docs/articles/neuro.md is regenerated from a Neuro.lean whose all_or_none_amplitude states the stimulus-to-amplitude table AND that a graded rival differs from it, and whose spike_amplitude_attenuates states the all-or-none headline holds at INITIATION and fails during propagation. (2) The blanket sentence \"every boundary it names is CONFIRMED by a sealed theorem\" was a TEMPLATE CONSTANT printed on all 72 articles, true of some wings and false of others with no way for a reader to tell which article they held. gen-articles.ts now COMPUTES it per wing: 63 wings report how many of their theorems seal a boundary, and 9 state plainly that they seal none. Neuro reads \"13 of its 18 theorems seal a BOUNDARY rather than a capability\". (3) The dead-code allegation was still LIVE after the first rewrite and is now fixed: clause 1 of refractory_absolute_and_relative read \"if 0 < 1 then 0 else\", so its 200-drive sweep ran over an unreachable branch, the same constant-fold the finding condemned. It now sweeps t and adds the complementary clause showing the SAME expression past the window fires for every strong drive 8..27, so neither branch is dead. Mutation-tested: a dead neuron fails four theorems including this one.",
+   "closed": "2026-08-20"
+  }
+ ]
 }

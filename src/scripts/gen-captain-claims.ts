@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into the generated claims — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // gen-captain-claims — Automated captain claim discovery & generation.
 //
 // DERIVED ONLY FROM LEAN, indexed by LINE CONTENT, not by file or principle. Two prior versions of this script

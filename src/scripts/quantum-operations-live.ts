@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into its report output — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // src/scripts/quantum-operations-live.ts — QUANTUM OPERATIONS: LIVE
 // Captain coins in production. Real students. Real work. Real coins. Real impact.
 // Watch the system do what it was designed to do: change the world.

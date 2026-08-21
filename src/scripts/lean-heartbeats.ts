@@ -70,7 +70,19 @@ const blockOf = (file: string, key: string, fallback: string): string => {
     if (start < 0) return fallback
     let end = start + 1
     while (end < lines.length && !/^(theorem |def |abbrev |namespace|end )/.test(lines[end])) end++
-    return lines.slice(start, end).join('\n')
+    // TRIM WHAT BELONGS TO THE NEXT THEOREM. The scan stops at the next top-level declaration, but a doc-comment
+    // sits BEFORE the theorem it documents — so the slice carried a trailing doc block attached to nothing, and
+    // Lean rejected the probe with "unexpected end of input; expected '#guard_msgs', 'abbrev', ...". Every one of
+    // the 21 unmeasured theorems was that shape: newly added, and followed by the next theorem's doc-comment.
+    const block = lines.slice(start, end)
+    while (block.length && block[block.length - 1].trim() === '') block.pop()
+    if (block.length && block[block.length - 1].trim().endsWith('-/')) {
+      let open = block.length - 1
+      while (open > 0 && !/^\s*\/--/.test(block[open])) open--
+      if (/^\s*\/--/.test(block[open])) block.length = open
+      while (block.length && block[block.length - 1].trim() === '') block.pop()
+    }
+    return block.join('\n')
   } catch { return fallback }
 }
 

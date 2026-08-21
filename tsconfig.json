@@ -8,6 +8,18 @@
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
+    // FAIL FAST: without this tsc EMITS broken JS on a type error and every downstream step runs against it —
+    // the generators, the 700s `npm run lean`, the guard. Measured: a no-overlap comparison in lean-handlespan.ts
+    // failed the build, dist was written anyway, and the wing generator ran and printed a checkmark. Stop at the
+    // compiler, not four minutes later.
+    "noEmitOnError": true,
+    // THE DELTA GATE, APPLIED TO THE BUILD. uuidna already content-addresses the EXPENSIVE judge: lean/proof-cache.json
+    // maps each wing to the address of the last text the kernel signed, so byte-identical content skips the spawn. The
+    // cheap judge had no such gate and recompiled the whole tree on every invocation — measured at 3.8-5.1s, paid dozens
+    // of times a session, while the 700s kernel run was the one being cached. tsc's own equivalent is incremental: it
+    // records what it compiled and reuses it, so an unchanged file is not retypechecked. Same law, cheaper judge.
+    "incremental": true,
+    "tsBuildInfoFile": "dist/.tsbuildinfo",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true

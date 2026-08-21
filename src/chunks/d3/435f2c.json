@@ -1,0 +1,12 @@
+{
+  "handle": "d3435f2c",
+  "address": "d3435f2c-734e-8ee7-806e-564fb3ffd866",
+  "statement": "(0 + 1254 = 1254) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_terminator_escaped"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

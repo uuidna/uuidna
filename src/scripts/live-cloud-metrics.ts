@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: stamps a wall-clock ISO time into its metrics output — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // live-cloud-metrics — Fetch REAL metrics from cloud provider APIs
 // Cloudflare Analytics Engine, AWS CloudWatch, GCP Cloud Monitoring, Azure Monitor
 

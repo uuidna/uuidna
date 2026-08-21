@@ -19,6 +19,7 @@
 //   node dist/scripts/measure.js <name>     run one, with its receipt
 //   node dist/scripts/measure.js --all      run every one
 import { toUuid } from '../index.js'
+import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
 export interface Measurement { name: string; what: string; run: () => Promise<unknown> | unknown }
 export interface Receipted { name: string; what: string; value: unknown; receipt: string }
@@ -106,6 +107,6 @@ if (process.argv[1] && /measure\.(js|ts)$/.test(process.argv[1])) {
   if (!chosen.length) { console.error(`measure — no measurement named '${arg}'`); process.exit(1) }
   for (const m of chosen) {
     const r = await take(m)
-    console.log(`${r.receipt.slice(0, 8)}  ${r.name.padEnd(18)} ${JSON.stringify(r.value)}`)
+    console.log(`${handleOf(r.receipt)}  ${r.name.padEnd(18)} ${JSON.stringify(r.value)}`)
   }
 }
