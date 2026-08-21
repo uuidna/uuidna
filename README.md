@@ -7,9 +7,9 @@
 110 - 108 = 2
 ```
 
-**uuidna** — 1363 distinct theorems under 1444 keys, 2 coins, one receipt
+**uuidna** — 1354 distinct theorems under 1435 keys, 2 coins, one receipt
 
-`611e9a57-0907-8d7e-b1cf-43471a3949d8`
+`425d83a0-eabf-87e8-a203-5f34bc7111d4`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,12 +51,12 @@ A complete system where:
 ## Live Statistics
 
 ```
-Theorems sealed:        1444   (every one axiom-free, proven by decide)
-Principles:             94   (the monographs the ledger organises itself by)
+Theorems sealed:        1435   (every one axiom-free, proven by decide)
+Principles:             93   (the monographs the ledger organises itself by)
 Skills:                 90   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                611e9a57-0907-8d7e-b1cf-43471a3949d8
+Receipt:                425d83a0-eabf-87e8-a203-5f34bc7111d4
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
@@ -71,7 +71,7 @@ MCP-served circuits:    12 qubits = 4096 amplitudes (the ceiling the served sche
 Reachability gap:       4 qubits the library computes and the served surface does not expose
 Quantum wing:           50 theorems stating exactly what the simulator computes
 Cipher wing:            26 theorems, including the honest bounds
-Kernel-only:            1444/1444 theorems depend on NO axiom (not even propext)
+Kernel-only:            1435/1435 theorems depend on NO axiom (not even propext)
 ```
 
 **What this is.** A classical state-vector simulator whose specification is sealed: 50 theorems fix the Born
@@ -81,7 +81,7 @@ measured cost is real memory — 65536 complex amplitudes at 16 qubits.
 ## The seven the ledger leans on
 
 Counted, not chosen: every surface in the repository was scanned and each theorem ranked by how often it is cited
-by key. The median across all 1444 is 14.
+by key. The median across all 1435 is 14.
 
 1. **`two_coins`** — cited 652× (Coins.lean)
    `110 - 108 = 2`
@@ -104,9 +104,9 @@ Not a roadmap — the finders' own measurements, read at generation. Each line i
 
 ```
 Reachability:   4 qubits the library computes and the served surface does not expose
-Grid:           94 wings is harmonic in neither base — 6 × 94 = 564 leaves 6 mod 9 and 9 mod 15
+Grid:           93 wings is harmonic in decimal only — 6 × 93 = 558 leaves 0 mod 9 and 3 mod 15
 Enumeration:    61 complete finite objects described by a wing but never sealed
-Cost coverage:  0 theorems carry no measured decide-step cost
+Cost coverage:  -9 theorems carry no measured decide-step cost
 ```
 
 **What this is not.** It is NOT quantum hardware, and NO speedup over classical computation is claimed anywhere:
@@ -118,7 +118,7 @@ anyone, with no toolchain and no trust in the machine that wrote it.
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1444 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1435 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -296,7 +296,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1444 theorems sealed to ledger, every one axiom-free**
+✓ **All 1435 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**
