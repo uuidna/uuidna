@@ -64,10 +64,14 @@
       "outward-receipts.json"
     ],
     "quantum-games-from-leads.ts": [
+      "src/scripts/quantum-games-server.json",
       "src/scripts/quantum-games-state.json"
     ],
     "reserve.ts": [
       "reserved.uuidna"
+    ],
+    "migrate-skills.ts": [
+      "src/scripts/lean-clay.ts"
     ]
   }
 }
