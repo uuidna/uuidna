@@ -1,15 +1,15 @@
 # Two Coins
 
-> `two_coins` — the theorem this repository leans on hardest, cited 609× against a
+> `two_coins` — the theorem this repository leans on hardest, cited 611× against a
 > median of 14. Not chosen for the title: counted into it. The conserved fair-exchange invariant, 110 − 108 = 2.
 
 ```lean
 110 - 108 = 2
 ```
 
-**uuidna** — 1386 distinct theorems under 1468 keys, 2 coins, one receipt
+**uuidna** — 1387 distinct theorems under 1469 keys, 2 coins, one receipt
 
-`ca9f07bb-d993-8277-8364-60c446e8812f`
+`48d05731-d3fb-8408-b8f4-6913d5c4937f`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,12 +51,12 @@ A complete system where:
 ## Live Statistics
 
 ```
-Theorems sealed:        1468   (every one axiom-free, proven by decide)
+Theorems sealed:        1469   (every one axiom-free, proven by decide)
 Principles:             94   (the monographs the ledger organises itself by)
 Skills:                 90   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                ca9f07bb-d993-8277-8364-60c446e8812f
+Receipt:                48d05731-d3fb-8408-b8f4-6913d5c4937f
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
@@ -71,7 +71,7 @@ MCP-served circuits:    12 qubits = 4096 amplitudes (the ceiling the served sche
 Reachability gap:       4 qubits the library computes and the served surface does not expose
 Quantum wing:           50 theorems stating exactly what the simulator computes
 Cipher wing:            27 theorems, including the honest bounds
-Kernel-only:            1468/1468 theorems depend on NO axiom (not even propext)
+Kernel-only:            1469/1469 theorems depend on NO axiom (not even propext)
 ```
 
 **What this is.** A classical state-vector simulator whose specification is sealed: 50 theorems fix the Born
@@ -81,17 +81,17 @@ measured cost is real memory — 65536 complex amplitudes at 16 qubits.
 ## The seven the ledger leans on
 
 Counted, not chosen: every surface in the repository was scanned and each theorem ranked by how often it is cited
-by key. The median across all 1468 is 14.
+by key. The median across all 1469 is 14.
 
-1. **`two_coins`** — cited 609× (Coins.lean)
+1. **`two_coins`** — cited 611× (Coins.lean)
    `110 - 108 = 2`
-2. **`rosette_and_vortex_are_coprime`** — cited 317× (Crt.lean)
+2. **`rosette_and_vortex_are_coprime`** — cited 333× (Crt.lean)
    `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)`
-3. **`court_theorem_beats_assertion`** — cited 313× (Legal.lean)
+3. **`court_theorem_beats_assertion`** — cited 314× (Legal.lean)
    `(List.range 2).all (fun a => (List.range 2).all (fun b => (a*(1-b) + b*(1-a) == (a+b) % 2) && ((a*(1-b)) * (b*…`
 4. **`drift_is_named_or_caught`** — cited 313× (Audit.lean)
    `((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d …`
-5. **`uuid_mix_census_is_quantum`** — cited 209× (UuidMix.lean)
+5. **`uuid_mix_census_is_quantum`** — cited 218× (UuidMix.lean)
    `(10 * 9 = 2 * 45) ∧ (90 + 10 = 10 * 10) ∧ (1 + 10 + 45 + 120 + 210 + 252 + 210 + 120 + 45 + 10 + 1 = 1024)`
 6. **`provenance_integrity_not_content_truth`** — cited 194× (Reasoning.lean)
    `(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => …`
@@ -106,7 +106,7 @@ Not a roadmap — the finders' own measurements, read at generation. Each line i
 Reachability:   4 qubits the library computes and the served surface does not expose
 Grid:           94 wings is harmonic in neither base — 6 × 94 = 564 leaves 6 mod 9 and 9 mod 15
 Enumeration:    61 complete finite objects described by a wing but never sealed
-Cost coverage:  -13 theorems carry no measured decide-step cost
+Cost coverage:  1 theorems carry no measured decide-step cost
 ```
 
 **What this is not.** It is NOT quantum hardware, and NO speedup over classical computation is claimed anywhere:
@@ -118,7 +118,7 @@ anyone, with no toolchain and no trust in the machine that wrote it.
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1468 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1469 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -296,7 +296,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1468 theorems sealed to ledger, every one axiom-free**
+✓ **All 1469 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**
