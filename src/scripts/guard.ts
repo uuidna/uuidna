@@ -16,7 +16,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -136,6 +136,15 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // theorem may again be true regardless of its content. `by decide` checks the proposition; this checks that
   // the proposition means its key.
   { name: 'vacuous', run: () => vacuousGaps() },
+  // A CITED KEY IS A PUBLISHED CONTRACT: a rename that leaves the ledger green still turns every citation into a
+  // fabricated one. Compares the committed ledger to the live one and names any departed key still cited.
+  { name: 'citations', run: () => citationsGaps() },
+  // A NAME IS NOT A PROOF: every conjunct comparing two bare literals means the key carries the claim alone.
+  { name: 'literal', run: () => literalGaps() },
+  // a file grep cannot read is a file no finder above ever scanned.
+  { name: 'binary', run: () => binaryGaps() },
+  // a deleted generator whose build output survives still runs, against a ledger that has moved on.
+  { name: 'orphan', run: () => orphanGaps() },
   // THREE WORDS, HARD: a new key over the limit fails the gate. The 313 that predate the law are the recorded
   // backlog in lean/key-entropy.json and may only shrink — so the entropy stops growing without moving 313
   // published content-addresses in one stroke.

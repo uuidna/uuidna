@@ -37,7 +37,7 @@ const HONEST =
  *  INDEPENDENT SOURCES yields CORROBORATED (attestation, not proof); else UNVERIFIED (never "false"). Pure.
  *
  *  TWO, NOT ONE, AND SOURCES, NOT ROWS — this function contradicted the theorem it is named for. reporter.ts:34
- *  has always read `sources.length >= 2`, citing the sealed `corroboration_needs_two` ("1 < 2"), while this line
+ *  has always read `sources.length >= 2` — the threshold is the code's, and the theorem that once "sealed" it only compared 1 to 2 — while this line
  *  read `evidence.length` — ONE, and one ROW at that, so eight hits from a single stream would have cleared even a
  *  naive two-check. MEASURED before the fix: corroborateWithResearch('qwertzuiop asdfghjkl yxcvbnm') returned
  *  CORROBORATED on a single CrossRef row. Retrieval is not corroboration, the same way a citation is not

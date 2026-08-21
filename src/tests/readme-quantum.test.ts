@@ -49,6 +49,11 @@ test('the capacity section keeps its honest boundary, not just its numbers', () 
   for (const clause of ['classical state-vector simulator', 'NOT quantum hardware', 'Grover HALVES'])
     assert.ok(md.includes(clause), `the README dropped its honest boundary: "${clause}"`)
   // and the refused claim must never appear
-  assert.equal(/quantum advantage|quantum speedup|faster than classical/i.test(md.replace(/claims quantum advantage/gi, '')), false,
-    'the README must not claim quantum advantage — next.ts ARM 6 fails a release on it and refused[] carries the boundary')
+  // THE LEAN FORM (derive-prose-trials.ts): lean CONFIRMS instead of denying, so the boundary is stated by CITING the
+  // sealed bound (n_qubit_dimension, demarcation_clears) — never by uttering the refused phrase in order to deny it.
+  // The phrase is therefore absent OUTRIGHT: no carve-out to strip first, which is the whole point of the lean form.
+  assert.equal(/quantum advantage|quantum speedup|faster than classical/i.test(md), false,
+    'the README must not carry the refused phrase at all — next.ts ARM 6 fails a release on it and refused[] carries the boundary')
+  for (const cite of ['n_qubit_dimension', 'demarcation_clears'])
+    assert.ok(md.includes(cite), `the lean form requires the positive citation "${cite}", not an adverb of absence`)
 })

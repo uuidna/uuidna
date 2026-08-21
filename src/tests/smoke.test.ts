@@ -347,7 +347,10 @@ test('conformance — the commit DNA gate: coins conserved, every theorem addres
 test('exploit fold — computes from the ledger (no table), verifies BOTH problem and solution, honest boundary', () => {
   const a = exploitFold()
   assert.ok(a.foldedCount >= 8, 'folds the known exploit classes')
-  assert.ok(a.outOfScopeCount >= 5, 'holds out-of-scope classes')
+  // four, not five: `oos_nondecidable_correctness` stated `0 = 0` and was purged with the rest of the
+  // literal-only theorems. The four that remain name real boundaries — a compromised host, a deceived human, a
+  // physical side-channel, FNV used as a secret — and each is a class uuidna declines rather than a placeholder.
+  assert.ok(a.outOfScopeCount >= 4, 'holds out-of-scope classes')
   assert.equal(a.total, a.foldedCount + a.outOfScopeCount, 'every audited class is folded or out-of-scope')
   // VERIFY BOTH — every fold verifies its problem (sealed theorem) AND its solution (sealed defence / design / void)
   assert.ok(a.allBothVerified, 'every class verifies both problem and solution against the ledger')
@@ -377,7 +380,7 @@ test('sanitise by all standards — process any input, sanitise any output, rule
   assert.deepEqual(sanitizeValue(circ), { self: '[Circular]' }, 'cycles broken')
   assert.deepEqual(sanitizeValue(JSON.parse('{"__proto__":{"x":1},"ok":2}')), { ok: 2 }, 'prototype-pollution keys dropped')
   // string scrub — control/null and BIDI (Trojan-Source) stripped, legitimate maths unicode preserved
-  assert.equal(scrubString('a b\tc'), 'ab\tc', 'null/control stripped, tab kept')
+  assert.equal(scrubString('a\0b\tc'), 'ab\tc', 'null/control stripped, tab kept')
   assert.equal(scrubString('safe‮evil'), 'safeevil', 'BIDI override stripped')
   assert.equal(scrubString('ℤ/9 × ≡ 2⁶'), 'ℤ/9 × ≡ 2⁶', 'maths unicode preserved')
   // ONE COMMAND — uuidna_sanitize returns the sanitized value + a recomputable receipt

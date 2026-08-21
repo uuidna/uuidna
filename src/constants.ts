@@ -2,7 +2,7 @@
 // constants — verify uuidna's physics against NIST's AUTHORITATIVE CODATA values, content-addressed. Fetches the
 // official NIST fundamental-constants table (physics.nist.gov, the recognised reference) and finds a constant by
 // name, returning its value, uncertainty, unit and a content-address — so a physical constant uuidna uses (the speed
-// of light in `cosmic_speed_limit`, Landauer's kT·ln2, Boltzmann's k) is not self-asserted but RECHECKED against the
+// of light, Landauer's kT·ln2, Boltzmann's k) is not self-asserted but RECHECKED against the
 // external authority. HONEST SCOPE: it VERIFIES against NIST's published values; it is NOT a claim that NIST endorses
 // uuidna, and CODATA values carry uncertainties (except the ones defined exact). One network call (Node's built-in
 // fetch); the parse and addressing are pure and recomputable. Integrity, not truth.

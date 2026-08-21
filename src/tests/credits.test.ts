@@ -26,10 +26,12 @@ test('every theorem is credited — a named historical result it reflects, or th
   assert.equal(s.captainAlone, captain)
   assert.equal(s.total, T.length)
 
-  // uuidna reflects history, never claims it: a Clay theorem credits the mathematician, never uuidna.
-  const poincare = credits('clay_poincare')
-  assert.equal(poincare.claimedBy, 'historical')
-  assert.ok(poincare.historical.some((h) => /Perelman/.test(h.who)), 'Poincaré is credited to Perelman, not uuidna')
+  // uuidna reflects history, never claims it. This stood on clay_poincare, whose wing is purged: its theorems
+  // proved dz 7 = 3 and dz (dz 7) = 7 — single points of dz_involution, with Poincaré named only in the key.
+  // A surviving theorem that genuinely reflects a named result carries the credit instead.
+  const named = T.find((t) => credits(t.key).claimedBy === 'historical')
+  assert.ok(named, 'some sealed theorem reflects a named historical result')
+  assert.ok(credits(named.key).historical.length > 0, 'and the credit names who, not uuidna')
   // an elementary decidable fact has no prior discoverer — the captain claims it.
   assert.equal(credits('mul9_1_1').claimedBy, 'captain')
 })

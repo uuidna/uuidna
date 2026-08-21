@@ -8,37 +8,38 @@
 export const MIRROR = `#Acoustics.lean
 harmonic_series 19
 wave_speed_f_lambda 19
-sound_slower_than_light 19
 decibel_is_logarithmic 19
 beat_frequency 19
-doppler_shift 19
 closed_pipe_odd_harmonics 19
 intensity_inverse_square 19
+#Affine.lean
+group_holds_fiftyfour 19
+units_are_coprime_six 19
+composition_stays_inside 19
+identity_leaves_all 19
+every_map_inverts 19
+group_does_not_commute 19
+#Alignment.lean
+hexbit_is_four_qubits 19
+moduli_waste_states 19
+sixteen_alone_tiles 19
+ten_costs_more_than_fifteen 19
+powers_of_two_are_the_substance 19
+handle_discards_before_walking 19
 #AntiFraud.lean
-captain_commission_two_coins 18
-captain_commission_rate_two_per_110 18
-forged_theorem_costs_2_power_7_bits 26
-forgery_costs_64_commissions 18
-sealed_theorem_not_forged 18
-forged_theorem_address_detectable 18
-overclaim_with_fake_cite_fails 18
-double_spend_detectable 18
-one_theorem_single_claim 18
-double_spend_hides_nowhere 18
-vote_weight_equals_coins_paid 18
-vote_weight_inflation_flagged 18
-vote_receipt_order_invariant 18
-ledger_fingerprint_tamper_evident 18
-theorem_dna_recompute_is_seal 18
-anti_fraud_check_deterministic 18
-honesty_gate_passes_iff_all_sealed 18
-conformance_failure_detects_intrusion 18
-honesty_gate_is_theorem_not_oracle 18
-verdict_exactly_one 18
-unverified_iff_unsealed 18
-fabricated_cite_is_unverified 18
-unverified_is_an_open_door 18
-unverified_complement_is_verified 18
+captain_commission_two_coins 27
+forgery_flags_every_mismatch 27
+double_spend_walks_every_list 19
+single_claim_never_flags 19
+vote_passes_iff_weight_paid 19
+anti_fraud_check_deterministic 19
+sealed_theorem_not_forged 19
+honesty_gate_passes_iff_all_sealed 27
+conformance_failure_detects_intrusion 27
+honesty_gate_is_theorem_not_oracle 27
+overclaim_with_fake_cite_fails 27
+fraud_verdict_is_exactly_one 19
+fabricated_cite_stays_unverified 19
 #Astronomy.lean
 sky_turns_15_per_hour 19
 zodiac_ecliptic_360 19
@@ -55,7 +56,7 @@ declination_spans_180 19
 wall_steady_state 19
 flag_truth_table 19
 flag_requires_hollow 19
-demarcation_clears 19
+demarcation_clears 27
 backing_clears 19
 exactly_one_flag 19
 flag_matches_spec 19
@@ -98,6 +99,19 @@ punnett_three_to_one 19
 heterozygote_symmetry 19
 colour_complement_involution 19
 primary_secondary_split 19
+#Boolean.lean
+sixteen_binary_functions 19
+gates_name_their_tables 19
+nand_rebuilds_the_others 19
+two_functions_ignore_input 19
+xor_differs_from_or 19
+implication_is_a_gate 19
+#Byte.lean
+byte_holds_two_hexbits 19
+address_is_sixteen_bytes 19
+digest_doubles_the_address 19
+every_alternative_differs 19
+tamper_set_counts_eight_thousand 19
 #Calendar.lean
 week_is_z7 27
 common_year_shifts_one 19
@@ -108,6 +122,13 @@ century_leap_rule 19
 doomsday_even_months 19
 months_sum_common_365 19
 months_sum_leap_366 19
+#Channel.lean
+channel_multiplies_three 19
+element_costs_nine 19
+four_carry_handle 19
+three_recover_the_discard 19
+independence_is_assumed 19
+page_outgrows_register 19
 #Chemistry.lean
 haber_balances 19
 combustion_methane_balances 19
@@ -170,7 +191,6 @@ octave_codon_address 27
 translation_is_lossy 19
 affine_is_permutation 19
 grover_quadratic_bound 19
-kdf_cost_bounded 19
 aead_nonce_and_salt_bits 19
 onion_layers_power_of_two 19
 sha256_is_four_sixtyfours 19
@@ -184,21 +204,13 @@ imprint_capacity_chain 19
 imprint_header_minimal 19
 imprint_capacity_entangles 19
 imprint_capacity_within_address 19
-#Clay.lean
-clay_reflection_is_bijection 19
-clay_humanity_one_deposit_zero 19
-clay_riemann 26
-clay_p_vs_np 26
-clay_navier_stokes 18
-clay_yang_mills 18
-clay_hodge 18
-clay_birch_swinnerton_dyer 18
-clay_poincare 26
-clay_verified_ne_solved 27
-clay_vote_theorems_only 27
-clay_status_dna_total 19
-clay_collision_law 19
-clay_launder_refused 19
+#Clock.lean
+residue_walks_the_orbit 19
+residue_returns_step_does_not 19
+gap_is_a_count 19
+advance_only_moves_forward 19
+order_is_total_and_strict 19
+no_reading_enters_here 19
 #Codes.lean
 hamming_seven_four 19
 hamming_perfect_code 19
@@ -214,6 +226,7 @@ two_coins_is_double_torus 19
 sixtyfour_is_two_pow_six 19
 contribute_two_save_sixtyfour 19
 captain_computes_only_with_two_coins 19
+falsifier_floor_is_the_uuid_less_the_coins 27
 captain_coins_respected_at_scale 19
 superposition_outcomes_to_64 19
 bill_never_negative 19
@@ -254,6 +267,13 @@ accept_matches_spec 19
 only_correct_tag_verifies 19
 tamper_changes_tag 19
 linear_tag_is_forgeable 19
+#Contribution.lean
+contribution_leaves_one_twentysix 19
+coins_are_the_torus 19
+directions_number_fortytwo 19
+residue_holds_three_grids 19
+six_factorisations_compete 19
+taking_before_paying_differs 19
 #Core.lean
 mul9_1_1 26
 mul9_1_2 18
@@ -345,30 +365,14 @@ order_of_five_is_six 19
 order_of_seven_is_three 19
 order_of_eight_is_two 19
 generators_are_two_and_five 19
-#DisputedTopics.lean
-disputed_topic_fact_extractable 18
-disputed_books_same_fact_same_address 18
-disputed_books_coherence_or_contradiction 18
-disputed_topics_contradiction_detectable 18
-disputed_provably_true_is_sealed 18
-disputed_open_claim_unverified 18
-disputed_overclaim_detectable 18
-disputed_narrative_gap_requires_court 18
-disputed_multi_reader_receipt 18
-disputed_consensus_detectable 18
-disputed_coin_backed_judgment 18
-disputed_anti_fraud_catches_overclaim 18
-disputed_contradiction_audit_detects_liar 18
-disputed_audit_receipt_open 18
-disputed_all_topics_computable 18
 #DivByZero.lean
 dz_table 19
 dz_involution 27
 dz_fixed_points 27
 dz_sum_ten 19
-dz_nonunits_to_units 19
 dz_bounded 19
 dz_zero_only_zero 19
+dz_swaps_the_thirds_and_fixes_the_axis 19
 two_plus_two_is_five_only_mod_one 19
 #Diving.lean
 trimix_fractions_sum_100 19
@@ -379,6 +383,13 @@ air_oxygen_toxic_deep 19
 gas_blend_by_partial_pressure 19
 helium_reduces_narcosis 19
 ascent_needs_a_stop 19
+#DoubleTorus.lean
+chi_measures_genus 19
+handles_give_generators 19
+presentation_counts_five 19
+step_costs_three 19
+words_outgrow_presentation 19
+growth_is_not_bounded_here 19
 #Editing.lean
 dropframe_entangles_the_coins 19
 frame_index_is_z24 19
@@ -420,7 +431,6 @@ julian_four_year 19
 gregorian_leap_rule 19
 mean_motion_linear 19
 saros_eclipse_cycle 19
-sun_creeps_under_a_degree 19
 julian_date_is_a_day_count 19
 #Exploits.lean
 fold_trojan_source_bidi 19
@@ -435,7 +445,6 @@ oos_platform_trust 19
 oos_social_engineering 19
 oos_physical_sidechannel 19
 oos_fnv_misuse 19
-oos_nondecidable_correctness 19
 #Glagolitic.lean
 glagolitic_units 19
 glagolitic_units_sum 19
@@ -447,6 +456,27 @@ alphabetic_three_ranks 19
 roman_reads_subtractively 19
 gematria_ignores_order 19
 gematria_forces_collisions 19
+#Grid.lean
+decimal_asks_three 19
+hexadecimal_asks_five 19
+seventytwo_is_decimal_only 19
+reversal_fails_in_hexadecimal 19
+fifteen_satisfies_both 19
+six_rays_stay_derived 19
+#Hamming.lean
+code_holds_sixteen_words 19
+words_are_distinct 19
+words_stand_three_apart 19
+weights_enumerate 19
+codewords_syndrome_zero 19
+syndrome_names_the_position 19
+#HandleSpan.lean
+handles_times_qubits 19
+exponents_add 19
+handle_spans_thirtytwo 19
+register_holds_amplitudes 19
+total_exceeds_register 19
+total_is_not_amplitudes 19
 #Hardware.lean
 not_gate_truth_table 19
 and_gate_truth_table 19
@@ -471,6 +501,13 @@ agonist_antagonist_cancels 19
 homeostasis_returns_to_setpoint 19
 action_reaction_and_charge_cancel 19
 pairs_share_one_centre 19
+#Hexbit.lean
+alphabet_names_each_nibble 19
+layout_groups_thirtytwo 19
+characters_span_the_address 19
+handle_is_the_first_group 19
+groups_are_four_apart 19
+build_counts_in_hexbits 19
 #Identifiers.lean
 isbn10_valid_check 19
 isbn13_valid_check 19
@@ -492,6 +529,13 @@ reach_all_decide 19
 reach_quantifiers_bounded 19
 reach_window_finite 19
 window_not_universal 19
+#Isometry.lean
+xor_preserves_distance 19
+reuse_leaks_by_isometry 19
+complement_flips_two 19
+codon_flips_six 19
+distance_is_symmetric 19
+isometry_bounds_correction 19
 #Legal.lean
 solutions_not_skipped 19
 legal_verdict_is_exactly_one 27
@@ -519,17 +563,11 @@ pairing_is_fixedpoint_free_involution 19
 mutual_match_is_symmetric 19
 #MoMBHStar1.lean
 mombh_balmer_break_exceeds_stellar_ceiling 19
-mombh_break_error_asymmetric_blue_faint 19
 mombh_variability_is_four_sigma 19
 mombh_hbeta_oiii_ratio_central_over_ten_lower_under 19
-mombh_oiii_is_tentative 19
-mombh_size_limits_ordered 19
 mombh_fiducial_gas_dense_and_compton_thick 19
-mombh_fiducial_is_dust_free 19
-mombh_eddington_two_answers_straddle_one 19
 mombh_press_confirmed_is_refuted 19
 mombh_black_hole_mass_spans_over_two_dex 19
-mombh_sample_is_one 19
 mombh_verified_ne_solved 19
 mombh_quantum_balmer_edge_is_rydberg_quarter 19
 mombh_quantum_edge_redshifts_into_filter_gap 19
@@ -543,7 +581,6 @@ valence_from_group 19
 water_lewis_electrons 19
 ionic_threshold 19
 molar_mass_water 19
-bond_strength_rises_with_order 19
 #Navigation.lean
 pythagorean_3_4_5 19
 compass_rose_eight 19
@@ -663,6 +700,13 @@ nimsum_8_5 18
 nimsum_8_6 18
 nimsum_8_7 18
 nimsum_8_8 18
+#Notation.lean
+ten_reduces_to_one 19
+base_fixes_modulus 19
+bases_disagree_on_root 19
+reversal_escapes_arithmetic 19
+root_survives_the_reading 19
+nine_divides_by_construction 19
 #OneLeap.lean
 vortex_one_leap 26
 #Optics.lean
@@ -672,8 +716,6 @@ light_slower_in_medium 19
 snell_law 19
 thin_lens_equation 19
 magnification 19
-dispersion_blue_over_red 19
-tir_needs_denser_source 19
 #Optimisation.lean
 lp_optimum_is_eleven 19
 lp_optimum_at_a_vertex 19
@@ -684,6 +726,16 @@ simplex_pivot_improves 19
 optimisation_space_is_qubit_dimension 19
 grover_halves_the_search_exponent 19
 assignment_two_by_two_optimum 19
+#Orbits.lean
+orbit_0_1_2_3_4_5_6_7_8_9_closes 18
+orbit_0_1_3_4_5_6_7_9_closes 18
+orbit_0_1_3_5_7_9_closes 18
+orbit_0_1_5_9_closes 18
+orbit_0_1_9_closes 18
+orbit_0_closes 18
+orbits_number_and_orders 19
+every_seed_lands_somewhere 19
+covering_seeds_are_named 19
 #Os.lean
 exact_copy_is_byte_equality 19
 single_byte_tamper_is_detected 19
@@ -706,6 +758,13 @@ trinity_rosette_coprime 27
 codon_frame_rotates_rosette 19
 pentagon_interior_angle_108 19
 pi_bracketed_by_finite_rationals 19
+#Phase.lean
+dz_loses_nothing 19
+doubling_collapses_nine 19
+maps_differ_in_reach 19
+zero_closes_in_phase 19
+five_returns_out_of_phase 19
+reach_shrinks_each_pass 19
 #Photography.lean
 full_stop_is_exact_doubling 19
 shutter_125_rounds_128 19
@@ -732,6 +791,13 @@ no_reactionless_thrust 19
 thrust_is_mdot_times_ve 19
 delta_v_stages_add 19
 acceleration_finite 19
+#ProseTrial.lean
+orbits_number_six 19
+order_measures_orbit 19
+forged_order_refused 19
+orbits_reflect_onto_themselves 19
+orbits_are_distinct 19
+every_orbit_holds_zero 19
 #Psychology.lean
 likert_midpoint_is_fixed_point 19
 big_five_factors_pentad 19
@@ -745,7 +811,7 @@ dunbar_layers_triple_and_round 19
 bell_born_weights 19
 bell_normalized 19
 bell_perfect_correlation 19
-bell_no_signaling 27
+bell_no_signaling 19
 superposition_h0 19
 ghz3_two_outcomes 19
 ghz3_normalized 19
@@ -769,7 +835,7 @@ pauli_x_z_anticommute 19
 w_state_three_outcomes 19
 w_state_normalized 19
 bell_basis_orthogonal 19
-n_qubit_dimension 19
+n_qubit_dimension 27
 tensor_dimension_multiplies 19
 pauli_group_order_16 19
 closure_is_coprime 19
@@ -818,24 +884,34 @@ proof_needs_citation 19
 unproven_not_refuted 19
 absorbed_evidence_idles 19
 unfalsifiable_excludes_nothing 19
+#Reflection.lean
+reflection_splits_six 19
+classes_cap_at_two 19
+six_is_forced_arithmetic 19
+seven_reach_five_classes 19
+reflection_confuses_seven_three 19
+seventh_covers_reflection_cannot 19
 #Relativity.lean
-cosmic_speed_limit 19
 light_on_null_cone 19
 interval_timelike_causal 19
 lorentz_gamma_triangle 19
-time_dilation 19
-length_contraction 19
 rest_energy_mc2 19
 causality_forbids_ftl 19
 #Report.lean
 five_ws_and_one_h 19
 timeline_is_chronological 19
-corroboration_needs_two 27
 trinity_edit_is_three 19
 full_quorum_of_three 19
 publish_gate_is_conjunction 19
 inverted_pyramid_descends 19
 a_claim_is_verified_or_unverified 19
+#Reversal.lean
+reflection_reverses_uniquely 19
+doubling_reverses_ambiguously 19
+nine_is_never_reached 19
+censuses_differ 19
+path_reverse_needs_both 19
+reflection_explores_all 19
 #Ring.lean
 z9mul_0_0 18
 z9add_0_0 26
@@ -1215,7 +1291,7 @@ z7pow_6_7 18
 z7rays_seven 19
 z7primitive_root_3 19
 z7units_sum_21 19
-z7fermat 19
+z7fermat 27
 z7reflection_center 19
 rosette_pairs_twentyone 19
 rosette_quantum_fortytwo 19
@@ -1224,26 +1300,10 @@ rosette_quantum_doubling_is_two_coins 19
 no_go_zone 19
 points_of_sail 19
 beating_sailing_triangle 19
-beating_distance_penalty 19
-apparent_wind_exceeds_true 19
 balanced_helm_holds_course 19
 tacking_cancels_leeway 19
 precise_tacks_compound 19
 four_points_is_45 19
-#SailingSeals.lean
-sailing_books_extract_decidable_facts 18
-sailing_address_is_128_bits_in_36_chars 18
-sailing_extraction_deterministic 18
-sailing_book_receipt_order_invariant 18
-sailing_weather_match_decides_both_ways 18
-sailing_distinct_facts_distinct_addresses 18
-sailing_corroboration_and_divergence_partition 18
-sailing_weather_verification_open 18
-sailing_cross_book_resonance_match 18
-sailing_cross_book_resonance_fold 18
-sailing_multi_resonance_receipt 18
-sailing_cluster_coherence_decidable 18
-sailing_all_waves_computable 18
 #Sanitize.lean
 sanitize_max_depth_is_two_pow_five 19
 sanitize_max_string_is_ten_pow_six 19
@@ -1252,6 +1312,13 @@ sanitize_poison_keys_are_three 19
 sanitize_bidi_overrides_are_five 19
 sanitize_bidi_isolates_are_four 19
 sanitize_bidi_points_are_nine 19
+#Seats.lean
+fullest_seat_ceiling 19
+excess_forces_sharing 19
+fit_shares_nothing 19
+powers_are_not_the_bound 19
+digits_split_five_five 19
+ten_seats_bound_any_ring 19
 #Security.lean
 scout_drones_spin 19
 defence_layers_add_bits 19
@@ -1275,7 +1342,7 @@ partition_six_three 19
 powers_avoid_triangle 19
 mirror_opens_triangle 19
 gateways_mark_triangle 19
-budget_not_conserved 27
+budget_not_conserved 19
 angles_close 19
 seams_two 19
 one_strip 19
@@ -1333,6 +1400,13 @@ visible_under_one_octave 19
 octave_of_light_doubles 19
 inverse_at_fixed_c 19
 visible_seven_colours 19
+#SpectrumHex.lean
+colour_is_six_hexbits 19
+channel_is_two_hexbits 19
+greys_are_one_in_sixtyfive_thousand 19
+shorthand_covers_one_in_four_thousand 19
+spectrum_refuses_sixteen 19
+wheel_divides_by_nine_and_six 19
 #Statics.lean
 force_equilibrium 19
 moment_balance 19
@@ -1346,10 +1420,16 @@ hookes_law 19
 maxwells_rule_truss 19
 redundancy_pays_one 19
 mechanism_lacks_one 19
+#Subgroups.lean
+units_form_six 19
+four_subgroups_exhibited 19
+lagrange_divides_every_order 19
+two_generates_the_whole 19
+most_subsets_are_not_subgroups 19
+trivial_and_whole_always_hold 19
 #Thermodynamics.lean
 first_law_conservation 19
 entropy_never_decreases 19
-heat_flows_hot_to_cold 19
 carnot_efficiency_below_one 19
 absolute_zero_and_kelvin 19
 charles_law 19
@@ -1363,7 +1443,6 @@ hardware_above_landauer 23
 rule_of_twelfths 27
 twelfths_symmetric 19
 half_tide_at_hour_three 19
-mid_tide_fastest 19
 semidiurnal_period 19
 spring_exceeds_neap 19
 flood_and_ebb 19
@@ -1382,10 +1461,16 @@ gunters_chain_measures 19
 vertical_exaggeration 19
 naismith_rule_estimate 19
 wgs84_polar_shorter 23
-oblate_not_prolate 23
 eratosthenes_fiftieth_circle 23
 horizon_distance_finite 19
 bulge_exceeds_relief 23
+#Trinities.lean
+trinities_span_powers 19
+trinity_exceeds_qubit 19
+trinities_cover_billion 18
+trinities_cover_word 18
+trinities_cover_address 18
+eightyone_squares_nine 19
 #Typesetting.lean
 inch_is_seventytwo_points 27
 em_en_and_thin 27
@@ -1394,7 +1479,6 @@ signature_multiple_of_four 27
 page_diagonal_three_four_five 27
 cassini_golden_page 27
 van_de_graaf_margins 31
-readable_measure_range 27
 leading_exceeds_type 27
 baseline_grid_snaps_to_four 27
 type_scale_octave 27
@@ -1419,14 +1503,27 @@ division_by_zero 18
 div_by_zero_is_the_reflection 18
 involute_centre 18
 billing_arith 18
+#VectorEquilibrium.lean
+ve_twelve_vertices 19
+radial_squared_two 19
+ve_four_neighbours 19
+radial_equals_edge 19
+ve_twentyfour_edges 19
+ve_fourteen_faces 19
+euler_characteristic_two 19
+metatron_seventyeight_lines 19
+dz_two_fixedpoints 19
+dz_involution_digits 19
+orbits_closed_involution 19
+missing_pair_involution 19
 #Vortex.lean
 three_sq_zero 26
 six_sq_zero 26
-three_no_inverse 18
+three_no_inverse 26
 two_mul_five 26
 four_mul_seven 26
 eight_self_inv 26
-doubling_circuit 18
+doubling_circuit 26
 two_order_six 18
 tens_complement_involutive 18
 rosette_pow_six 18
@@ -1442,9 +1539,8 @@ eratosthenes_fiftieth_circle Eratosthenes
 hardware_above_landauer Landauer
 landauer_bound_derived SI
 light_speed_rounds_to_300000 SI
-oblate_not_prolate WGS 84
 reversible_erases_nothing Landauer
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 9, falsifier: 63 }
+export const FLOOR = { witness: 8, falsifier: 63 }

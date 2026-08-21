@@ -15,10 +15,6 @@ const FACTS = [
     js: () => (77 - 14 === 63) && (63 > 50) && (50 > 30),
     lean: 'theorem mombh_balmer_break_exceeds_stellar_ceiling : (77 - 14 = 63) ∧ (63 > 50) ∧ (50 > 30) := by decide' },
 
-  { key: 'mombh_break_error_asymmetric_blue_faint', skill: 'paper-trial',
-    name: '+2.3 above vs −1.4 below (×10); blue window SNR 3 < 5.',
-    js: () => (23 > 14) && (30 < 50),
-    lean: 'theorem mombh_break_error_asymmetric_blue_faint : (23 > 14) ∧ (30 < 50) := by decide' },
 
   { key: 'mombh_variability_is_four_sigma', skill: 'paper-trial',
     name: '30 ± 7 %: 4·7 ≤ 30 < 5·7. SCOPE: three instruments.',
@@ -30,30 +26,14 @@ const FACTS = [
     js: () => (114 > 100) && (114 - 25 === 89) && (89 < 100),
     lean: 'theorem mombh_hbeta_oiii_ratio_central_over_ten_lower_under : (114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100) := by decide' },
 
-  { key: 'mombh_oiii_is_tentative', skill: 'paper-trial',
-    name: '3.5σ < 5σ (×10).',
-    js: () => 35 < 50,
-    lean: 'theorem mombh_oiii_is_tentative : (35 < 50) := by decide' },
 
-  { key: 'mombh_size_limits_ordered', skill: 'paper-trial',
-    name: '95% <100 pc, 99% <117 pc.',
-    js: () => 100 < 117,
-    lean: 'theorem mombh_size_limits_ordered : (100 < 117) := by decide' },
 
   { key: 'mombh_fiducial_gas_dense_and_compton_thick', skill: 'paper-trial',
     name: 'log nH 11 ≥ 9; log NH ×10 258 > 241 (Compton-thick). SCOPE: one model of ~1e6, filtered not sampled.',
     js: () => (11 >= 9) && (258 > 241),
     lean: 'theorem mombh_fiducial_gas_dense_and_compton_thick : (11 >= 9) ∧ (258 > 241) := by decide' },
 
-  { key: 'mombh_fiducial_is_dust_free', skill: 'paper-trial',
-    name: 'A_V 0.15 vs 2–3 (×100).',
-    js: () => (15 < 200) && (15 < 300),
-    lean: 'theorem mombh_fiducial_is_dust_free : (15 < 200) ∧ (15 < 300) := by decide' },
 
-  { key: 'mombh_eddington_two_answers_straddle_one', skill: 'paper-trial',
-    name: '0.18 by scaling, ~5 by alternative (×100): straddle 1. NOT PROVEN which.',
-    js: () => (18 < 100) && (100 < 500),
-    lean: 'theorem mombh_eddington_two_answers_straddle_one : (18 < 100) ∧ (100 < 500) := by decide' },
 
   { key: 'mombh_press_confirmed_is_refuted', skill: 'paper-trial',
     name: 'REFUTED: "super-Eddington confirmed" vs the paper\'s own 0.18.',
@@ -65,10 +45,6 @@ const FACTS = [
     js: () => (83 - 60 === 23) && (23 > 20),
     lean: 'theorem mombh_black_hole_mass_spans_over_two_dex : (83 - 60 = 23) ∧ (23 > 20) := by decide' },
 
-  { key: 'mombh_sample_is_one', skill: 'paper-trial',
-    name: 'n = 1.',
-    js: () => 1 < 2,
-    lean: 'theorem mombh_sample_is_one : (1 < 2) := by decide' },
 
   { key: 'mombh_verified_ne_solved', skill: 'paper-trial',
     name: '3 measured, 1 simplistic model, 0 solved.',

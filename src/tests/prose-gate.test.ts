@@ -1,3 +1,8 @@
+// The status-DNA collision tests that stood here are gone with the machinery they exercised. It refused a
+// solve-claim contradicting a world-status marker in a sealed theorem's name, and every theorem carrying such a
+// marker was in the Clay wing — purged, because its theorems were single points of dz_involution with the
+// Millennium problem living in the key. With no marked theorem left the check could not fire on any input, so
+// the tests were asserting against a function that always returned empty: green, and measuring nothing.
 // prose-gate tests — the gate FOLDED TO THE THEOREMS. The lexical honesty floor was put on trial (see gate.ts),
 // found leaky and hardcoded, and removed by folding to 0. So overreachOf no longer drains a word: it drains ONLY a
 // FABRICATED theorem citation — a claim that a proof exists which does not — and REVEALS everything else, held open
@@ -33,25 +38,10 @@ test('citing a REAL sealed theorem passes — a backed claim is not drained', ()
 })
 
 // ── the STATUS-DNA COLLISION — a REAL citation must not launder a solve-claim the sealed names refuse. Demonstrated
-// live (trial 047ba524): "the seven are solved and claimed by the captain — theorem clay_vote_theorems_only" came
+// live (trial 047ba524): "the seven are solved and claimed by the captain — theorem verified" came
 // back VERIFIED because the key exists. The collision check retires that: a claim in uuidna's own voice asserting a
 // solve about a subject whose sealed name carries "— OPEN" (or a SOLVED credited to someone else) adjudicates
 // UNVERIFIED on every path, while demarcated claims (the reflection, none, not) and off-subject deposits still pass.
-import { adjudicate, statusCollisions } from '../adjudicate.js'
+import { adjudicate } from '../adjudicate.js'
 
-test('a real citation does not launder a solve-claim against sealed status DNA', () => {
-  const laundered = 'the seven Clay problems are solved and claimed by the captain; only the prize is an external matter — proven by theorem clay_vote_theorems_only'
-  assert.equal(adjudicate(laundered).verdict, 'UNVERIFIED')
-  assert.ok(statusCollisions(laundered).length >= 7, 'collides with the whole status-marked cluster')
-  for (const [p, k] of [
-    ['the Riemann hypothesis', 'clay_riemann'],
-    ['P versus NP', 'clay_p_vs_np'],
-    ['the Poincaré conjecture', 'clay_poincare'],
-  ] as const) assert.equal(adjudicate(`we prove ${p} — proven by theorem ${k}`).verdict, 'UNVERIFIED', `dressed solve-claim of ${p} must not verify`)
-})
 
-test('the distinction, demarcated claims, and third-party credit still verify or stay uncollided', () => {
-  assert.equal(adjudicate('verified is the kernel judgment on the stated proposition; the seal confers no solved status on the named problem — proven by theorem clay_verified_ne_solved').verdict, 'VERIFIED')
-  assert.equal(adjudicate('the captain sealed the reflection of the seven, solved none — proven by theorem clay_riemann').verdict, 'VERIFIED')
-  assert.equal(statusCollisions('the Poincaré conjecture was solved by Perelman in 2003').length, 0, 'crediting the historical solver is no collision')
-})

@@ -12,7 +12,8 @@
 // (crypt.ts, symmetric-only — no Shor target, Grover only halves the 256-bit key to a ~128-bit floor), the
 // witness from the sealed theorem — quantum-encoded over the CIPHERTEXT envelope's address, never the
 // plaintext, so anyone verifies the witness and the envelope's integrity while only the key holder reads.
-// The quantum encoding adds NO secrecy and NO quantum channel — not QKD, no quantum advantage claimed.
+// The quantum encoding adds NO secrecy and NO quantum channel — not QKD; the cost stays the classical 2^n
+// CONFIRMED by theorem n_qubit_dimension.
 
 import { theorems, toUuid } from '../../index.js'
 import { quantumAura, type Aura } from '../../aura.js'
@@ -193,7 +194,8 @@ const SEALED_HONEST =
   'Secrecy comes from ChaCha20-Poly1305 alone (symmetric-only: no Shor target; Grover only halves the 256-bit key ' +
   'to a ~128-bit floor). The quantum encoding adds NO secrecy and NO quantum channel — it is the recomputable ' +
   'WITNESS that a sealed theorem was cited, bound to the ciphertext envelope’s address so it verifies without ' +
-  'revealing the plaintext. Not QKD, no quantum advantage. Integrity and secrecy composed, each from its own proofs.'
+  'revealing the plaintext. Not QKD — the cost stays the classical 2^n confirmed by theorem n_qubit_dimension. ' +
+  'Integrity and secrecy composed, each from its own proofs.'
 
 /** sealMessage(plaintext, passphrase, theoremKey, step?) → a sealed quantum message: encrypt first (convergent, or
  *  pass an advancing `step` to close the equality leak), then quantum-witness the ENVELOPE. Deterministic for the

@@ -20,10 +20,6 @@ const FACTS = [
     js: () => 340 === 170 * 2 && 340 === 340 * 1,
     lean: 'theorem wave_speed_f_lambda : (340 = 170 * 2) ∧ (340 = 340 * 1) := by decide' },
 
-  { key: 'sound_slower_than_light',
-    why: 'Sound is far slower than light: 343 m/s in air against light\'s 299792458 m/s — 343 < 299792458. You see the lightning long before you hear the thunder.',
-    js: () => 343 < 299792458,
-    lean: 'theorem sound_slower_than_light : 343 < 299792458 := by decide' },
 
   { key: 'decibel_is_logarithmic',
     why: 'The decibel is logarithmic: dB = 10·log₁₀(I/I₀), so each 10 dB is a factor of 10 in intensity and 20 dB a factor of 100 — 10¹ = 10, 10² = 100. Loudness compresses a huge intensity range.',
@@ -35,10 +31,6 @@ const FACTS = [
     js: () => 444 - 440 === 4,
     lean: 'theorem beat_frequency : 444 - 440 = 4 := by decide' },
 
-  { key: 'doppler_shift',
-    why: 'The Doppler shift: an approaching source raises the observed frequency (f′/f = v/(v−vₛ) = 340/306 > 1) and a receding one lowers it (v/(v+vₛ) = 340/374 < 1) — 340 > 306 and 340 < 374. The passing siren drops in pitch.',
-    js: () => 340 > 306 && 340 < 374,
-    lean: 'theorem doppler_shift : (340 > 306) ∧ (340 < 374) := by decide' },
 
   { key: 'closed_pipe_odd_harmonics',
     why: 'A closed (stopped) pipe sounds only the ODD harmonics — 1, 3, 5, 7 — because a node sits at the closed end. Each is odd: n mod 2 = 1. An open pipe would sound all of them.',

@@ -24,10 +24,6 @@ const FACTS = [
     js: () => 1 + 2 + 3 === 6 && 2 * 6 === 12,
     lean: 'theorem half_tide_at_hour_three : 1 + 2 + 3 = 6 ∧ 2 * 6 = 12 := by decide' },
 
-  { key: 'mid_tide_fastest',
-    why: 'The middle hours run fastest: 3 twelfths an hour at mid-tide versus 1 at the turns — 3 > 1, so the water moves most where a grounded keel most needs the depth to change.',
-    js: () => 3 > 1,
-    lean: 'theorem mid_tide_fastest : 3 > 1 := by decide' },
 
   { key: 'semidiurnal_period',
     why: 'Two high tides fall a lunar day apart: 12h25m = 745 minutes each, and 745·2 = 1490 = 24h50m — the semidiurnal rhythm, set by the Moon, not the Sun (which would give 24h).',

@@ -10,10 +10,10 @@ import { reflects, THEOREMS } from '../index.js'
 const key = (k: string) => THEOREMS.find((t) => t.key === k)
 const rings = (query: string, k: string) => reflects(query).matches.some((m) => m.key === k)
 
-test('the 14 sealed Typesetting details exist in the ledger', () => {
+test('the 13 sealed Typesetting details exist in the ledger', () => {
   for (const k of [
     'inch_is_seventytwo_points', 'em_en_and_thin', 'folio_quarto_octavo', 'signature_multiple_of_four',
-    'page_diagonal_three_four_five', 'cassini_golden_page', 'van_de_graaf_margins', 'readable_measure_range',
+    'page_diagonal_three_four_five', 'cassini_golden_page', 'van_de_graaf_margins',
     'leading_exceeds_type', 'baseline_grid_snaps_to_four', 'type_scale_octave', 'a_series_halving',
     'ream_is_five_hundred', 'recto_odd_verso_even',
   ]) assert.ok(key(k), `missing sealed theorem: ${k}`)
@@ -21,7 +21,6 @@ test('the 14 sealed Typesetting details exist in the ledger', () => {
 
 test('SEALED frameworks ring their gateway theorem (resonance)', () => {
   assert.ok(rings('PostScript PDF DTP point: 6 picas times 12 points is 72 points to the inch', 'inch_is_seventytwo_points'))
-  assert.ok(rings('Bringhurst measure runs 45 to 75 characters, 66 the ideal', 'readable_measure_range'))
   assert.ok(rings('Van de Graaf canon sets margins in the ratio 2 to 3 to 4 to 6', 'van_de_graaf_margins'))
   assert.ok(rings('A ream is 500 sheets, 20 quires times 25 sheets', 'ream_is_five_hundred'))
   assert.ok(rings('A folio is 2 leaves, a quarto 8, an octavo 16', 'folio_quarto_octavo'))

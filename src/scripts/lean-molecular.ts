@@ -44,10 +44,6 @@ const FACTS = [
     js: () => 2 * 1 + 16 === 18,
     lean: 'theorem molar_mass_water : 2 * 1 + 16 = 18 := by decide' },
 
-  { key: 'bond_strength_rises_with_order',
-    why: 'Bond strength rises with order: a triple bond is stronger than a double, a double stronger than a single — 3 > 2 and 2 > 1. Nitrogen\'s triple bond is why N₂ is so hard to break.',
-    js: () => 3 > 2 && 2 > 1,
-    lean: 'theorem bond_strength_rises_with_order : (3 > 2) ∧ (2 > 1) := by decide' },
 ]
 
 // compute → generate → verify. The bond domain — octet, shared pairs, bond order, valence, Lewis counts, the ionic

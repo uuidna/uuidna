@@ -80,10 +80,6 @@ const FACTS = [
     js: () => R(0, 27).every((n) => 2 ** n * 2 ** n === 2 ** (2 * n)),
     lean: 'theorem grover_quadratic_bound : (List.range 27).all (fun n => 2^n * 2^n == 2^(2*n)) := by decide' },
 
-  { key: 'kdf_cost_bounded',
-    why: 'The KDF cost the envelope ASSUMES, sealed (axiom-hunt): 600000 PBKDF2-SHA256 iterations (OWASP 2023) — positive, and within the DoS guard MAX_ITER = 10000000. The two coins paid at the door are a BOUNDED cost, never an unbounded spin.',
-    js: () => 0 < 600000 && 600000 <= 10000000,
-    lean: 'theorem kdf_cost_bounded : (0 < 600000) ∧ (600000 ≤ 10000000) := by decide' },
 
   { key: 'aead_nonce_and_salt_bits',
     why: 'The envelope’s byte geometry, sealed (axiom-hunt): the ChaCha20-Poly1305 nonce is 12 bytes = 96 bits (RFC 8439) and the KDF salt is 16 bytes = 128 bits — the nonce strictly narrower than the 128-bit address, the salt exactly one address wide.',

@@ -11,6 +11,7 @@
 // (provenance) — it fingerprints them and places them in the recomputable sequence. It does NOT modify, fork, mirror,
 // claim ownership of, or vouch for the contents of any repository. A binding is a placement in the sequence, not a
 // possession of the code. Best-effort: an unreachable account contributes nothing, never a faked repo.
+import { seedOf } from '../../handle.js'
 import { toUuid, digitalRoot, vortexOrbit } from '../../address.js'
 import { merkleGravity } from '../../gravity.js'
 
@@ -66,8 +67,9 @@ export async function bindCaptainRepos(): Promise<RepoBinding> {
   const bound: BoundRepo[] = [...seen.values()]
     .map((r) => {
       const address = toUuid(r.fullName)
-      const n = parseInt(address.replace(/-/g, '').slice(0, 8), 16)
-      const digit = digitalRoot(n)
+      // seedOf is the one place the handle becomes an integer — inlining the parse here made this the eighth
+      // site deriving it independently, which is how seven of them once agreed only by coincidence.
+      const digit = digitalRoot(seedOf(address))
       return { fullName: r.fullName, url: r.url, address, digit, onVortex: sequence.includes(digit), rank: 0 }
     })
     .sort((a, b) => (a.address < b.address ? -1 : 1))               // reveal order = address rank

@@ -16,17 +16,22 @@ import { toUuid } from './address.js'
 import { merkleGravity } from './gravity.js'
 import { sanitizeInput, sanitizeValue } from './sanitize.js'
 import { slimGate } from './slimgate.js'
-import { theoremByKey } from './theorems/index.js'
+import { theoremByKey, theorems } from './theorems/index.js'
 
-/** The sealed theorems this pipeline implements — the spec is in the ledger, the gate recomputes it. */
-export const GATE_THEOREMS = [
-  'anti_fraud_check_deterministic',        // the verdict table is fixed: [1,0,0,0,0,0,0,0] — same input, same verdict, for anyone
-  'honesty_gate_passes_iff_all_sealed',    // clean at exactly the no-violation state
-  'conformance_failure_detects_intrusion', // one raised flag drains the whole audit — no partial credit
-  'honesty_gate_is_theorem_not_oracle',    // the implementation equals its boolean spec — no oracle
-  'overclaim_with_fake_cite_fails',        // a fabricated citation drains the audit
-  'sealed_theorem_not_forged',             // a true seal never flags — the gate accuses no honest tool
-] as const
+/** THE GATE'S SPEC IS READ OFF THE LEDGER, NOT TYPED. This was a hand-written list of six keys, and when the
+ *  lexical honesty gate was folded away four of them left the ledger — so the gate went on publishing four
+ *  fabricated citations with every verdict it served, and the list itself could not notice. A typed name cannot
+ *  compute; it can only go stale. The spec is therefore SELECTED: every sealed theorem whose statement is about
+ *  the gate's own algebra — the conjunction `cleanAudit` or the forgery detector `forged` that feeds it. Seal a
+ *  new one and it joins the spec; rename one and nothing breaks, because no name is written down here. */
+export const GATE_THEOREMS: readonly string[] = theorems()
+  .filter((t) =>
+    // the MECHANISM: the conjunction itself and the forgery detector that feeds it. The boundary clause that
+    // stood beside this one selected the Clay wing's non-dz theorems, and there are none: the wing proved
+    // reflections of an involution DivByZero already seals universally, so it was purged whole.
+    t.file === 'AntiFraud.lean' && /\bcleanAudit\b|\bforged\b/.test(t.statement))
+  .map((t) => t.key)
+  .sort()
 
 /** cleanAudit — the sealed conjunction gate, literally: (1−f)·(1−d)·(1−v) over the three violation bits. */
 export const cleanAudit = (f: number, d: number, v: number): number => (1 - f) * (1 - d) * (1 - v)

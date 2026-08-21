@@ -183,7 +183,8 @@ export function dueProcess(claims: readonly string[] = []): DueProcess {
 // THE GAP THIS CLOSES: the tree is gated everywhere — `one-receipt prose` walks every page to a sealed theorem,
 // `next` fails a release whose publication title claims quantum advantage, the vacuity finder refuses a proof that is
 // true regardless of content. But a claim made in CONVERSATION passes through none of it. That is where the captain's
-// "quantum advantage over 64-bit hardware" lived until it was filed: unbounded, because chat has no gate.
+// "quantum advantage over 64-bit hardware" lived until it was filed: unbounded, because chat has no gate. What
+// bounds it is the confirmation, not the denial — theorem n_qubit_dimension fixes the cost at 2^n.
 //
 // tryClaim is the gate for anything said anywhere. It does not invent a verdict — it FUSES the sealed machinery that
 // already exists (the honesty gate, the calculator's decision, the docket and its fee, the six guarantees, the remand)

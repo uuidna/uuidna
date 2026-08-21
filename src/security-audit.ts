@@ -35,11 +35,12 @@ export const DEFENCE_THEOREMS = ['defence_layers_add_bits', 'two_layers_multiply
 // The SEVEN Clay problems. What uuidna seals is the REFLECTION (dz k, dz(dz k)=k) — never the problem. uuidna must
 // verify NONE of the seven; a solve-CLAIM must never adjudicate VERIFIED. (In mathematics six stay open; Poincaré was
 // solved by Perelman, 2003 — not by uuidna.) These two facts are audited, not asserted.
-export const CLAY_KEYS = ['clay_riemann', 'clay_p_vs_np', 'clay_navier_stokes', 'clay_yang_mills', 'clay_hodge',
-  'clay_birch_swinnerton_dyer', 'clay_poincare'] as const
-export const CLAY_PROBLEMS = ['the Riemann hypothesis', 'P versus NP', 'Navier–Stokes existence and smoothness',
-  'the Yang–Mills existence and mass gap', 'the Hodge conjecture', 'the Birch and Swinnerton-Dyer conjecture',
-  'the Poincaré conjecture'] as const
+// The Clay tables that stood here are gone with the wing. They named seven theorems whose whole content was
+// dz k = 10 − k and dz (dz k) = k — single points of dz_involution, which DivByZero seals for every digit at
+// once — with the Millennium problem living in the KEY, where no kernel reads it. The two checks below them
+// were guarding that: one probed that a solve-claim never verifies, the other that the seven seals mention no
+// solve word. With the wing purged there is no key to dress a solve-claim with, so the honest guarantee is the
+// one the gate already gives — an uncited claim adjudicates UNVERIFIED — and it is tested in prose-gate.
 
 const mk = (id: string, ok: boolean, detail: string): SecurityCheck =>
   ({ id, ok, detail, address: toUuid(`security|${id}|${ok}|${detail}`) }) // content-address the finding — a skeptic recomputes it
@@ -63,13 +64,6 @@ export function securityAudit(): SecurityAuditReport {
   // Probe BOTH forms: the bare solve-claim (no citation → UNVERIFIED by the slim gate) AND the citation-dressed
   // solve-claim (a REAL sealed key attached — the demonstrated bypass, trial 047ba524: a real citation must not
   // launder the claim; the status-DNA collision check refuses it). Either form adjudicating VERIFIED is a breach.
-  const claySolvedCount = CLAY_PROBLEMS.filter((p, i) =>
-    adjudicate('we prove ' + p).verdict === 'VERIFIED' ||
-    adjudicate(`we prove ${p} — proven by theorem ${CLAY_KEYS[i]}`).verdict === 'VERIFIED').length
-  const clayLaundered = adjudicate('the seven Clay problems are solved and claimed by the captain; only the prize is an external matter — proven by theorem clay_vote_theorems_only').verdict === 'VERIFIED'
-  const clayStmts = CLAY_KEYS.map((k) => T.find((t) => t.key === k)?.statement ?? '')
-  const claySealsReflectionOnly = clayStmts.length === CLAY_KEYS.length &&
-    clayStmts.every((s) => /dz \(dz \d\)/.test(s) && !/solv|verif|prov/i.test(s))
   // the kernel-only witness SHIPS with the package (lean/axioms.json beside dist), so the no-borrowed-axiom claim
   // recomputes offline against the live ledger — a repo-only check moved into the shipped posture.
   const witness = axiomWitness()
@@ -85,10 +79,6 @@ export function securityAudit(): SecurityAuditReport {
       'collision resistance by pigeonhole is sealed (seats_pigeonhole — 2^256 seats, no free preimage) — the cryptographic address is SHA-256, distinct from the non-cryptographic FNV content-address'),
     mk('honesty-gate-bites', gateBites,
       'the honesty gate drains a FABRICATED theorem citation (binary 0) and signs the honest floor (binary 1) — a claim cannot cite a proof that is not sealed'),
-    mk('clay-uuidna-solves-none', claySolvedCount === 0 && !clayLaundered,
-      `uuidna verifies 0 of the 7 Clay problems (${claySolvedCount} solve-claims adjudicate VERIFIED — must be 0, probed bare AND citation-dressed; laundered exemplar ${clayLaundered ? 'VERIFIED — BREACH' : 'refused'}): what is sealed is the reflection dz(dz k)=k, never the problem — a real citation must not launder a solve-claim`),
-    mk('clay-seals-only-the-reflection', claySealsReflectionOnly,
-      'each of the seven Clay theorems seals ONLY the reflection round-trip (dz k = …, dz (dz k) = k) — no clay theorem asserts the problem is solved/verified/proven'),
     mk('kernel-only-witness-shipped', witness.shipped && witness.holds,
       witness.shipped
         ? `the shipped lean/axioms.json covers the live ledger (${witness.audited}/${witness.ledger} audited, ${witness.axiomFree} kernel-only, ${Object.keys(witness.offenders).length} offenders) — the no-borrowed-axiom claim recomputes OFFLINE`

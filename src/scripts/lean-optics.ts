@@ -41,15 +41,7 @@ const FACTS = [
     js: () => 30 / 15 === 2,
     lean: 'theorem magnification : 30 / 15 = 2 := by decide' },
 
-  { key: 'dispersion_blue_over_red',
-    why: 'Dispersion splits white light: the index is higher for blue than for red (n_blue = 1.53 > n_red = 1.51, ×100: 153 > 151), so blue refracts more — the prism spreads the spectrum because n depends on wavelength.',
-    js: () => 151 < 153,
-    lean: 'theorem dispersion_blue_over_red : 151 < 153 := by decide' },
 
-  { key: 'tir_needs_denser_source',
-    why: 'Total internal reflection needs a denser source: it occurs going from glass (n = 1.50) to air (n = 1.00), where 100 < 150, so the critical angle sinθc = n₂/n₁ = 100/150 = 2/3 ≤ 1 exists. From rarer to denser there is no critical angle — light always crosses.',
-    js: () => 100 < 150,
-    lean: 'theorem tir_needs_denser_source : 100 < 150 := by decide' },
 ]
 
 // compute → generate → verify. The light domain — reflection, refraction, the lens, dispersion, TIR — as decidable

@@ -39,10 +39,6 @@ const FACTS = [
     js: () => 18 * 12 + 7 === 223,
     lean: 'theorem saros_eclipse_cycle : 18 * 12 + 7 = 223 := by decide' },
 
-  { key: 'sun_creeps_under_a_degree',
-    why: 'The Sun advances just under one degree along the ecliptic each day, 360° over ~365 days, so 360 < 365 — a hair less than a degree daily. The year is the slow return of that creep to its start.',
-    js: () => 360 < 365,
-    lean: 'theorem sun_creeps_under_a_degree : 360 < 365 := by decide' },
 
   { key: 'julian_date_is_a_day_count',
     why: 'A Julian Date is one continuous integer day count, so any interval is a plain subtraction: the epoch J2000 (JD 2451545) minus the day before (2451544) is 1 day. Time becomes a coordinate you can just subtract.',

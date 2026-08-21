@@ -7,8 +7,8 @@
 //
 // Verified the way the crypto tests verify: exact KNOWN-ANSWER equality, never tolerances (test/quantum.test.mjs).
 //
-// Honestly bounded: exact for small systems, but the state has 2^n amplitudes — EXPONENTIAL in qubit count. NO
-// quantum advantage, NOT a quantum computer. The uniform-scale exact rep covers the Clifford group + Toffoli/CCZ
+// Honestly bounded: exact for small systems, but the state has 2^n amplitudes — EXPONENTIAL in qubit count, the
+// exact classical cost CONFIRMED by theorem n_qubit_dimension; a simulator, NOT a quantum computer. The uniform-scale exact rep covers the Clifford group + Toffoli/CCZ
 // (permutations, Gaussian-integer phases, and H); a non-Clifford √-phase applied to only part of a superposition
 // (T = diag(1, e^{iπ/4}), controlled-H, arbitrary rotations) needs per-branch scaling and is the honest boundary —
 // out of this exact representation, by construction. The paradox COMPUTES as simulation, not as hardware.
@@ -238,8 +238,9 @@ export function report(): string {
   o += '    H·Z·H = X : ' + hzh_is_x + '     S·S = Z : ' + ss_is_z + '\n\n'
   o += '  the quantum receipt (order-invariant content-address of the Bell distribution):\n    ' + quantumReceipt() + '\n\n'
   o += 'HONEST: this is CLASSICAL state-vector simulation — exact for small systems, but the state has\n'
-  o += '2^n amplitudes, so it is EXPONENTIAL in qubit count: NO quantum advantage, NOT a quantum\n'
-  o += 'computer. The Bell correlation carries NO message (marginals unchanged). The paradox COMPUTES\n'
+  o += '2^n amplitudes, so it is EXPONENTIAL in qubit count — the exact classical cost CONFIRMED by\n'
+  o += 'theorem n_qubit_dimension; a simulator, NOT a quantum computer. The Bell correlation carries NO\n'
+  o += 'message (marginals unchanged). The paradox COMPUTES\n'
   o += 'as simulation, not as quantum hardware. entails →'
   return o
 }

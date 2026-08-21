@@ -101,8 +101,8 @@ export { reportAll, type ConsolidatedReports, type ReportSection } from './repor
 // quantum — a CLASSICAL, EXACT state-vector simulator, ported from millennium-solutions and completed as the captain
 // computes: on integer positions, no decimal drift. Amplitudes are GAUSSIAN INTEGERS over √(2^scale) — the ring
 // ℤ[i,1/√2] the Clifford gates live in — so the full gate set (X, Y, Z, S, S†, H, CNOT, CZ, SWAP, Toffoli, CCZ)
-// runs in BigInt and every probability is an exact rational. Honestly bounded — 2^n amplitudes, EXPONENTIAL, no
-// quantum advantage; non-Clifford √-phase gates (T, controlled-H) need per-branch scaling — the honest boundary.
+// runs in BigInt and every probability is an exact rational. Honestly bounded — 2^n amplitudes, EXPONENTIAL: the
+// exact classical cost CONFIRMED by theorem n_qubit_dimension; non-Clifford √-phase gates (T, controlled-H) need per-branch scaling — the honest boundary.
 export {
   ket0, hadamard, hadamardX, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
   distribution, probability, marginal, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,

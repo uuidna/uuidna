@@ -219,9 +219,11 @@ Enumeration:    ${stats.unenumerated} complete finite objects described by a win
 Cost coverage:  ${stats.unmeasured} theorems carry no measured decide-step cost
 \`\`\`
 
-**What this is not.** It is NOT quantum hardware, and NO speedup over classical computation is claimed anywhere:
-\`grover_halves_the_search_exponent\` and \`sha256_grover_margin_is_the_address\` seal that Grover HALVES an exponent
-(256 → 128) rather than breaking anything. A release whose title claims quantum advantage fails the gate by regex.
+**What this is, exactly.** A classical state-vector simulator — it is NOT quantum hardware, and that demarcation is
+what \`demarcation_clears\` seals as clearing (d=1 → flag 0). The bound is CONFIRMED, never denied: \`n_qubit_dimension\`
+seals that n qubits span 2ⁿ amplitudes, which IS the exact cost of every circuit here, and \`grover_halves_the_search_exponent\`
+with \`sha256_grover_margin_is_the_address\` seal that Grover HALVES an exponent (256 → 128) rather than breaking
+anything. A release whose title claims otherwise fails the gate by regex.
 Integrity, not truth — the value here is a specification a simulator is verified AGAINST, recomputable offline by
 anyone, with no toolchain and no trust in the machine that wrote it.
 

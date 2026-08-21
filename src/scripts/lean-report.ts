@@ -22,10 +22,6 @@ const FACTS = [
     js: () => JSON.stringify(Array.from({ length: 6 }, (_, i) => i)) === JSON.stringify([0, 1, 2, 3, 4, 5]),
     lean: 'theorem timeline_is_chronological : (List.range 6) = [0,1,2,3,4,5] := by decide' },
 
-  { key: 'corroboration_needs_two',
-    why: 'A fact needs TWO independent reputable sources — one source is uncorroborated (1 < 2), and a second that agrees lifts it over the bar. A single source is a lead, not yet a report.',
-    js: () => 1 < 2,
-    lean: 'theorem corroboration_needs_two : 1 < 2 := by decide' },
 
   { key: 'trinity_edit_is_three',
     why: 'Trinity editing is THREE independent passes — reporter, editor, and a third check — 1 + 1 + 1 = 3, the same trinity the ledger folds in. One writer\'s certainty is not an edit; three eyes catch what one misses.',

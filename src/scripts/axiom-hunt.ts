@@ -13,7 +13,9 @@ import { MAX_MESSAGE_QUBITS } from '../quantum/message/index.js'
 
 type Candidate = { key: string; assumes: string; where: string; live: () => boolean }
 const CANDIDATES: Candidate[] = [
-  { key: 'kdf_cost_bounded', assumes: 'ITER = 600000 (OWASP 2023), positive, within the DoS guard MAX_ITER = 10000000', where: 'src/crypt.ts', live: () => ITER === 600000 && 0 < ITER && ITER <= MAX_ITER },
+  // REMOVED — kdf_cost_bounded. The theorem it watched stated (0 < 600000) ∧ (600000 ≤ 10000000): two literal
+  // comparisons, so the kernel confirmed the numerals and never the KDF. The live bound itself is still enforced,
+  // by the ITER/MAX_ITER check in one-receipt.ts, which reads src/crypt.ts rather than a name.
   { key: 'aead_nonce_and_salt_bits', assumes: 'the nonce is NONCE_BYTES=12 B = 96 bits (RFC 8439), the salt SALT_BYTES=16 B = 128 bits, nonce strictly inside the address width', where: 'src/crypt.ts', live: () => NONCE_BYTES === 12 && SALT_BYTES === 16 && NONCE_BYTES * 8 === 96 && SALT_BYTES * 8 === 128 && NONCE_BYTES * 8 < ADDRESS_BITS },
   { key: 'onion_layers_power_of_two', assumes: 'MAX_LAYERS = 16 = 2^4, at most the 128 address bits', where: 'src/stream.ts', live: () => MAX_LAYERS === 16 && 16 === 2 ** 4 && MAX_LAYERS <= ADDRESS_BITS },
   { key: 'imprint_capacity_within_address', assumes: 'CAPACITY = 115 < 128 — the imprint fits strictly inside its address, 13 bits of seam', where: 'src/imprint.ts', live: () => CAPACITY === 115 && CAPACITY < ADDRESS_BITS },

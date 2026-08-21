@@ -92,10 +92,6 @@ const FACTS = [
     js: () => (6378137n * (298257223563n - 1000000000n)) / 298257223563n === 6356752n && 6378137 - 6356752 === 21385,
     lean: 'theorem wgs84_polar_shorter : 6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385 := by decide' },
 
-  { key: 'oblate_not_prolate',
-    why: 'NEWTON WAS RIGHT AND CASSINI WAS WRONG, IN ONE COMPARISON. The 18th-century dispute was a yes/no about which axis is longer: Newton predicted a spinning fluid body bulges at the equator (oblate), the Cassinis held it was stretched at the poles (prolate). On the WGS 84 figure the equatorial radius exceeds the polar, 6378137 > 6356752 — oblate. The French geodesic missions to Lapland and Peru measured which way it went; the arithmetic here only states the comparison the standard encodes.',
-    js: () => 6378137 > 6356752,
-    lean: 'theorem oblate_not_prolate : 6378137 > 6356752 := by decide' },
 
   { key: 'eratosthenes_fiftieth_circle',
     why: 'THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 × 72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and decidable; the resulting circumference is NOT sealed here, because it depends on the length of his stadion, which is genuinely uncertain — the honest half is the fifty.',

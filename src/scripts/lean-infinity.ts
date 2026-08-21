@@ -89,7 +89,7 @@ const FACTS = [
 // of a window can be false immediately past it — and that is the fact worth having, because it is the structural
 // reason no claim about an unbounded domain can arrive by this method. Riemann concerns infinitely many zeros;
 // every instrument in this ledger terminates at a bounded window. Not ranked low — unreachable by construction,
-// which is the same boundary clay_verified_ne_solved seals from the other side.
+// which is the same boundary verified seals from the other side.
 // THE CENSUS READS THE .lean FILES ON DISK, NOT theorems(). Reading the compiled ledger meant reading the PREVIOUS
 // generation: the count came back four short, this wing emitted the stale figure, lean-ledger then wrote the true
 // one, and the counts gate failed until a second pass settled it. The .lean files are the live artifact — lean-all
@@ -154,7 +154,7 @@ const REACH = [
     lean: `theorem reach_window_finite : (${LIST(windows)}.all (fun w => w ≤ ${widest})) ∧ (${LIST(windows)}.any (fun w => w == ${widest})) ∧ (${widest} < ${widest + 1}) := by decide` },
 
   { key: 'window_not_universal',
-    why: 'THE WINDOW IS WHERE THE PROOF STOPS, NOT WHERE THE PATTERN STOPS — and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So "decided on a window" does not entail "true beyond it", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the boundary clay_verified_ne_solved seals from the other side',
+    why: 'THE WINDOW IS WHERE THE PROOF STOPS, NOT WHERE THE PATTERN STOPS — and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So "decided on a window" does not entail "true beyond it", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the boundary verified seals from the other side',
     js: () => [...Array(10).keys()].every((n) => n < 10) && !(10 < 10),
     lean: 'theorem window_not_universal : ((List.range 10).all (fun n => n < 10)) ∧ ¬(10 < 10) := by decide' },
 ]

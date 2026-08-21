@@ -17,10 +17,6 @@ const FACTS = [
     js: () => Array.from({ length: 9 }, (_, t) => t).every((t) => t <= t + 1),
     lean: 'theorem entropy_never_decreases : (List.range 9).all (fun t => t <= t + 1) := by decide' },
 
-  { key: 'heat_flows_hot_to_cold',
-    why: 'The second law\'s direction: heat flows spontaneously from the hotter body to the colder — with Th = 400 K and Tc = 300 K, 400 > 300, so energy moves hot → cold, never the reverse without work.',
-    js: () => 400 > 300,
-    lean: 'theorem heat_flows_hot_to_cold : 400 > 300 := by decide' },
 
   { key: 'carnot_efficiency_below_one',
     why: 'The Carnot efficiency η = 1 − Tc/Th is strictly below 1: with Th = 400 and Tc = 300, the extractable work fraction (Th − Tc) = 100 is less than the heat in 400, and Tc = 300 > 0 — no engine is perfect and none reaches absolute zero.',

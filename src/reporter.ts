@@ -11,7 +11,7 @@ import { toUuid } from './address.js'
 export interface FiledReport {
   sources: string[]
   audited: boolean       // passes the honesty gate — no fabricated theorem citation (the "verified" arm)
-  corroborated: boolean  // ≥ 2 independent sources — corroboration_needs_two seals 1 < 2
+  corroborated: boolean  // ≥ 2 independent sources; the threshold lives here, not in a theorem that only compared 1 to 2
   publishable: boolean   // AUDITED ∧ CORROBORATED — the publish gate (publish_gate_is_conjunction)
   findings: PubFinding[] // what blocks publication (a sentence citing a fabricated theorem)
   receipt: string        // content-address of the filing (draft + sources + verdict)

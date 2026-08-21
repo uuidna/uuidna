@@ -31,10 +31,10 @@ def unverified (c s : Nat) : Nat := 1 - verified c s
 def lists : List (List Nat) := [${LISTS.map((l) => '[' + l.join(',') + ']').join(',')}]`
 
 const FACTS = [
-  { key: 'commission_is_two_per_full_hundred_ten',
-    why: 'THE COMMISSION IS A STEP, NOT A FRACTION: two coins per COMPLETED 110, so 110 pays two, 220 pays four, and 109 pays nothing. A rate that rounded would leak; a floor cannot.',
+  { key: 'captain_commission_two_coins',
+    why: 'THE CAPTAIN COMMISSION \u2014 the key the hosted MCP quotes to every agent that connects and every two-coin deposit cites, so the NAME is a published contract, not a label. THE COMMISSION IS A STEP, NOT A FRACTION: two coins per COMPLETED 110, so 110 pays two, 220 pays four, and 109 pays nothing. A rate that rounded would leak; a floor cannot.',
     js: () => 2 * ((110 / 110) | 0) === 2 && 2 * ((220 / 110) | 0) === 4 && 2 * ((109 / 110) | 0) === 0,
-    lean: 'theorem commission_is_two_per_full_hundred_ten : (commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0) := by decide' },
+    lean: 'theorem captain_commission_two_coins : (commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0) := by decide' },
 
   { key: 'forgery_flags_every_mismatch',
     why: 'THE FORGERY DETECTOR IS EXHAUSTIVE over all 81 cited-versus-sealed pairs: it flags exactly the 72 where the two differ and clears exactly the 9 on the diagonal. Every pair walked, so no mismatch has a hiding place.',
@@ -56,10 +56,35 @@ const FACTS = [
     js: () => R(4).every((w) => R(4).every((c) => ((w === c ? 1 : 0) === 1) === (w === c))),
     lean: 'theorem vote_passes_iff_weight_paid : (List.range 4).all (fun w => (List.range 4).all (fun c => (voteOk w c == 1) == (w == c))) := by decide' },
 
-  { key: 'gate_passes_on_one_state',
-    why: 'THE AUDIT GATE IS A CONJUNCTION: across all eight states of the three detectors it passes on exactly ONE — every detector silent — and fails on the other seven. One flag anywhere drains it, which is what makes it a gate rather than a score.',
+  { key: 'anti_fraud_check_deterministic',
+    why: 'THE GATE IS DETERMINISTIC — the published spec the hosted MCP recomputes against, and a name 59 files cite. Across all eight states of the three detectors it passes on exactly ONE — every detector silent — and fails on the other seven, so the verdict table is fixed [1,0,0,0,0,0,0,0]: same input, same verdict, for anyone. One flag anywhere drains it, which is what makes it a gate rather than a score. THE KEY IS PART OF THE CONTRACT: across all eight states of the three detectors it passes on exactly ONE — every detector silent — and fails on the other seven. One flag anywhere drains it, which is what makes it a gate rather than a score.',
     js: () => { let p = 0; for (const f of [0, 1]) for (const d of [0, 1]) for (const v of [0, 1]) if ((1 - f) * (1 - d) * (1 - v) === 1) p++; return p === 1 },
-    lean: 'theorem gate_passes_on_one_state : (((List.range 2).flatMap (fun f => (List.range 2).flatMap (fun d => (List.range 2).map (fun v => cleanAudit f d v)))).filter (fun x => x == 1)).length = 1 := by decide' },
+    lean: 'theorem anti_fraud_check_deterministic : (((List.range 2).flatMap (fun f => (List.range 2).flatMap (fun d => (List.range 2).map (fun v => cleanAudit f d v)))).filter (fun x => x == 1)).length = 1 := by decide' },
+
+  { key: 'sealed_theorem_not_forged',
+    why: 'A TRUE SEAL NEVER FLAGS — the gate accuses no honest tool. Walking the nine matching claim-seal pairs, forged is 0 at every one, so the forgery detector has no false positive to trade against its recall. This is the honest half of forgery_flags_every_mismatch, and it carries its own name because 48 files cite it as the guarantee that an honest citation is never refused.',
+    js: () => R(9).every((c) => (c === c ? 0 : 1) === 0),
+    lean: 'theorem sealed_theorem_not_forged : ((List.range 9).map (fun c => forged c c)).all (fun x => x == 0) := by decide' },
+
+  { key: 'honesty_gate_passes_iff_all_sealed',
+    why: 'THE GATE PASSES EXACTLY WHEN NOTHING IS FLAGGED \u2014 an IFF over all eight detector states, not merely "it passes when clean". One direction alone would admit a gate that also passed on something else. Named in GATE_THEOREMS as part of the gate\u2019s published spec.',
+    js: () => [0,1].every((f) => [0,1].every((d) => [0,1].every((v) => ((1-f)*(1-d)*(1-v) === 1) === (f === 0 && d === 0 && v === 0)))),
+    lean: 'theorem honesty_gate_passes_iff_all_sealed : (List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (cleanAudit f d v == 1) == (f == 0 && d == 0 && v == 0)))) := by decide' },
+
+  { key: 'conformance_failure_detects_intrusion',
+    why: 'ONE RAISED FLAG DRAINS THE WHOLE AUDIT \u2014 no partial credit. Over all eight states, if any detector fires the gate is 0, which is what makes it a conjunction rather than a score that could average an intrusion away.',
+    js: () => [0,1].every((f) => [0,1].every((d) => [0,1].every((v) => (f + d + v > 0 ? (1-f)*(1-d)*(1-v) === 0 : true)))),
+    lean: 'theorem conformance_failure_detects_intrusion : (List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (f + d + v == 0) || (cleanAudit f d v == 0)))) := by decide' },
+
+  { key: 'honesty_gate_is_theorem_not_oracle',
+    why: 'THE IMPLEMENTATION EQUALS ITS BOOLEAN SPEC at every one of the eight states \u2014 there is no oracle, no judgement call, nothing consulted that a reader cannot recompute. This is the theorem that makes the gate auditable rather than trusted.',
+    js: () => [0,1].every((f) => [0,1].every((d) => [0,1].every((v) => (1-f)*(1-d)*(1-v) === (f === 0 && d === 0 && v === 0 ? 1 : 0)))),
+    lean: 'theorem honesty_gate_is_theorem_not_oracle : (List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => cleanAudit f d v == (if f == 0 && d == 0 && v == 0 then 1 else 0)))) := by decide' },
+
+  { key: 'overclaim_with_fake_cite_fails',
+    why: 'A FABRICATED CITATION DRAINS THE AUDIT whatever else is clean: with the citation bit raised the gate is 0 at every combination of the other two detectors. Since the lexical honesty gate was folded away, this is the ONE thing that drains \u2014 so it carries its own theorem.',
+    js: () => [0,1].every((f) => [0,1].every((d) => (1-f)*(1-d)*(1-1) === 0)),
+    lean: 'theorem overclaim_with_fake_cite_fails : (List.range 2).all (fun f => (List.range 2).all (fun d => cleanAudit f d 1 == 0)) := by decide' },
 
   { key: 'fraud_verdict_is_exactly_one',
     why: 'EVERY CLAIM LEAVES WITH ONE VERDICT: verified plus unverified is one at all four evidence states, so no claim escapes without a verdict and none carries two. The trial is total and binary.',

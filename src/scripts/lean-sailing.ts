@@ -24,15 +24,7 @@ const FACTS = [
     js: () => 3 ** 2 + 4 ** 2 === 5 ** 2,
     lean: 'theorem beating_sailing_triangle : 3^2 + 4^2 = 5^2 := by decide' },
 
-  { key: 'beating_distance_penalty',
-    why: 'Sailing upwind costs distance: to make good 3 units toward the wind you sail 5 through the water (the 3-4-5 close-hauled leg), and 5 > 3. Beating is always longer than the straight line you cannot take.',
-    js: () => 5 > 3,
-    lean: 'theorem beating_distance_penalty : 5 > 3 := by decide' },
 
-  { key: 'apparent_wind_exceeds_true',
-    why: 'Apparent wind is the vector sum of the true wind and the boat’s own motion, so close-hauled it exceeds the true wind: a true wind of 4 with the boat making 3 across gives an apparent 5 — 5 > 4. The faster you sail upwind, the more wind you feel.',
-    js: () => 5 > 4,
-    lean: 'theorem apparent_wind_exceeds_true : 5 > 4 := by decide' },
 
   { key: 'balanced_helm_holds_course',
     why: 'When conditions are perfect the boat sails itself: a balanced helm is a moment equilibrium — the sail’s turning moment equals the keel’s (8·3 = 6·4 = 24) — so she holds her course with the tiller free. The captain rests; the balance steers.',

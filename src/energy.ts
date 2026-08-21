@@ -434,7 +434,7 @@ export function microbialFuelCellYield(input: MfcInput = {}): EnergyReport {
   const scaleRaw = input.scale
   // NEVER String() an untrusted value: a hostile toString throws, and a route that throws while validating is not
   // total. Only a real string is accepted; anything else falls through to the named refusal below.
-  const scale = scaleRaw === undefined || scaleRaw === null || scaleRaw === '' ? 'pilot' : typeof scaleRaw === 'string' ? scaleRaw : ' not-a-string'
+  const scale = scaleRaw === undefined || scaleRaw === null || scaleRaw === '' ? 'pilot' : typeof scaleRaw === 'string' ? scaleRaw : '\0not-a-string'
   const isLab = scale === 'lab'
   const cap = isLab ? MFC_LAB_RECORD : MFC_VOL_MAX
   const capCeiling = exactBracket(isLab

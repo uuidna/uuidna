@@ -213,7 +213,7 @@ const FACTS = [
     lean: 'theorem all_signaling_duality : (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d)))))) := by decide' },
 ]
 
-console.log('computing ' + FACTS.length + ' QUANTUM facts (classical simulation, not hardware — no quantum advantage) …')
+console.log('computing ' + FACTS.length + ' QUANTUM facts (classical simulation, not hardware — the classical 2^n of n_qubit_dimension) …')
 
 emit({ file: 'Quantum.lean', skill: 'quantum', defs: LXOR_DEF,
   header: 'The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage, NOT quantum hardware, and (bell_no_signaling) NOTHING signals — no channel, no FTL.',
