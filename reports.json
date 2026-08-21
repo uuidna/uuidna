@@ -25,9 +25,9 @@
         "theoremsMeasured": 1436,
         "ledgerKeys": 1436,
         "unmeasured": 0,
-        "summedDecideSteps": 576789
+        "summedDecideSteps": 576831
       },
-      "address": "30408bec-1713-8e77-b98f-ad3a0c310462"
+      "address": "e2a37ee3-0e4e-8cdd-b496-30f3d521b1ce"
     },
     {
       "title": "Citation audit",
@@ -75,6 +75,6 @@
       "address": "81a8a55f-10f3-800a-80af-3d9fdf8c6e38"
     }
   ],
-  "receipt": "6d8564df-99da-8e03-a67d-999a0b9a3946",
+  "receipt": "47b43a23-df95-8598-9bd3-4589ee9f20e7",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
