@@ -20,6 +20,13 @@ const ON_DEMAND: Record<string, string> = {
   // and a gate that cannot refuse a proof is custom logic over spelling, counting or presentation. They remain
   // exported because the MEASUREMENT is still worth asking for on demand; what ended is their power to block.
   seo: 'reports page descriptions outside a search-snippet band; this project\'s descriptions carry honest scope and are longer BY DESIGN, so the band is advice and never law',
+  // MOVED TO THE AUDIT CHAIN on 2026-08-21 — not on-demand: `npm run audit` runs each by name every pass, so they
+  // still report before anything ships. They left the GATE because the gate decides whether a RECONCILE may run, and
+  // none of the three protects the commit: a reconcile with any of them open still stages a correct derived layer
+  // over an unforged ledger. Together they were 580ms of a gate the captain holds to one second.
+  dormant: 'asks whether built code is ever EXERCISED, not whether the commit is honest — runs in npm run audit (one-receipt dormant)',
+  skills: 'asks whether a sealed skill is reachable through a dispatch; the stdio/edge pair is held by skill-surface.test.ts — runs in npm run audit (one-receipt skills)',
+  micro: 'reads the BUILT site\'s JSON-LD, which a pre-reconcile gate has no reason to require built — runs in npm run audit (one-receipt micro)',
   sources: 'demands a named authority for an empirically measured quantity — right for a wing that reads the world, and exactly wrong as a gate on a wing that reads only arithmetic',
 }
 

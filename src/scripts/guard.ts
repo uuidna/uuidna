@@ -5,7 +5,6 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { execSync } from 'node:child_process'
-import { predictGaps } from './predict-and-fill.js'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -86,7 +85,8 @@ try {
 
 // 2) the source sweep — the tightened harmonic-scan (non-quantum + determinism hard-reject), fast
 try {
-  execSync('node ' + JSON.stringify(join(HERE, 'harmonic-scan.js')), { stdio: 'inherit' })
+  const { harmonicClean } = await import('./harmonic-scan.js')
+  if (!harmonicClean) throw new Error('sneak')
 } catch {
   failed = true
   console.error('✗ guard — harmonic-scan caught a non-quantum / non-deterministic sneak (see above)')
@@ -215,7 +215,6 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // REACHABLE IS NOT EXERCISED. books.ts sat at 302/302 "supported" while nothing ran its book-reading capability
   // for months. Of the first six dormant scripts actually EXECUTED, two were broken — one read a directory deleted
   // the same day, and one was holding a real finding (1308/1327 theorems claimed). Dormant code rots silently.
-  { name: 'dormant', run: () => dormantGaps() },
   // THE PAYLOAD IS A PER-TURN TOLL. tools/list rides into the model context on EVERY request of
   // every session, and nothing was watching it: it reached 174,903 bytes across 191 tools, 14,401 of them ONE
   // sentence copied verbatim into 87 descriptions. Three classes, each blocking — the sealed ceiling may only
@@ -237,12 +236,20 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // The axis is now one computed dimension on BOTH surfaces, and this measures the intersection by CALLING each
   // dispatch, so a skill sealed in a new wing is served the day it lands or the guard names it here. Blocking from
   // birth: it enters green, and one authored tool per skill is the shape it exists to prevent.
-  { name: 'skills', run: () => skillsGaps() },
-  { name: 'micro', run: () => microGaps().gaps, needsBuiltSite: true },
+  // ── MOVED TO THE AUDIT CHAIN (`npm run audit`, via one-receipt) ──────────────────────────────────────────────
+  // dormant, skills and micro were 580ms of a gate that decides whether a RECONCILE may run, and none of the three
+  // protects the commit: dormant asks whether built code is ever exercised, skills whether a sealed skill is
+  // reachable through a dispatch, micro whether the built site's JSON-LD cites real addresses. A reconcile with any
+  // of those open still stages a correct derived layer over an unforged ledger. What the gate keeps is what makes
+  // the COMMIT honest — citations resolving, mirrors agreeing by value, counts current, sources preceding derived.
+  // What these three give up is same-minute notice; they now report at audit time, before anything ships.
 ]
 // the meter's floor is tunable so a profiling pass can see every finder, not only the slow ones: UUIDNA_METER=1
 const METER = Number(process.env.UUIDNA_METER ?? 200)
 const GATE_T0 = process.hrtime.bigint()
+// the ledger checks above (traitors, wing witness, axioms, uniqueness, harmonic-scan) run BEFORE this mark, so the
+// phase they cost was invisible; process.uptime() covers node boot and module load too, which the finder loop cannot.
+if (process.env.UUIDNA_METER) console.log(`    · boot + ledger checks ${(process.uptime() * 1000).toFixed(0)} ms`)
 for (const f of FINDERS) {
   if (f.needsBuiltSite && !existsSync(join(HERE, '../../docs/.vitepress/dist'))) {
     console.log(`· guard — ${f.name} skipped: no built site to audit (run npm run docs:build to include it)`)
@@ -285,19 +292,10 @@ for (const f of ADVISORY) {
   for (const g of gaps.slice(0, 3)) console.log(`    · ${g.what}`)
   if (gaps.length > 3) console.log(`    · … ${gaps.length - 3} more — run \`node dist/scripts/one-receipt.js ${f.name}\` for all of them, each with its exact fix`)
 }
-// 5) QUANTUM PREDICTION — predict gaps before they form and auto-fill critical ones.
-// Analyzes patterns (new theorems, new packages, new exports, new tests, new features) and seals them preemptively.
-// Milliseconds — pure prediction, no external calls.
-// CALLED, NOT SPAWNED. This was `execSync('node predict-and-fill.js')` — a second node process paying its own
-// startup and module load to run TypeScript this file already imports from. Measured: that spawn was ~2.9s of a
-// ~5.1s guard. The prediction is a pure function; the process boundary bought nothing and cost a startup.
-try {
-  const p = predictGaps()
-  console.log(`${p.total === 0 ? '✓' : '·'} guard — prediction: ${p.total} gap(s) foreseen (${p.byLikelihood.high} high, ${p.byLikelihood.medium} medium, ${p.byLikelihood.low} low)`)
-} catch (e) {
-  failed = true
-  console.error('✗ guard — predict-and-fill quantum prediction failed: ' + String((e as Error).message))
-}
+// 5) QUANTUM PREDICTION — MOVED TO THE AUDIT CHAIN. Prediction foresees gaps before they form; it never refuses a
+// proof, so it was 815ms of a gate that decides whether a reconcile may run — a quarter of the gate's whole cost
+// spent on advice. It now runs as its own step in `npm run audit` (node dist/scripts/predict-and-fill.js), where
+// advice belongs. What the gate gives up is seeing a foreseen gap at reconcile time rather than at audit time.
 
 // 6) QUANTUM FOLD — compress entire system state (theorems, packages, exports, tests, predictions, dimensions)
 // into one order-invariant merkle fold. Seal proof of current system state. Recomputable by anyone.

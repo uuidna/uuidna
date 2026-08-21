@@ -28,6 +28,33 @@ import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
 import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
 
+// ONE READ PER FILE, SHARED. `binary` scans bytes and `hexbit` scans text over the SAME tracked source, and each was
+// re-reading every file from disk — the cache-immutable-reads law applied to the read itself. The buffer is the one
+// authority; the text is decoded from it once. Within a single pass the tree cannot change, so this is exact.
+const _buf = new Map<string, Buffer>()
+const _txt = new Map<string, string>()
+const fileBuf = (abs: string): Buffer => {
+  let b = _buf.get(abs)
+  if (b === undefined) { b = readFileSync(abs); _buf.set(abs, b) }
+  return b
+}
+const fileText = (abs: string): string => {
+  let t = _txt.get(abs)
+  if (t === undefined) { t = fileBuf(abs).toString('utf8'); _txt.set(abs, t) }
+  return t
+}
+// AND THE SAME COMPUTATION REPORTS THE GAPS. Splitting a file into lines is the shape every per-file finder needs,
+// and each was doing it again over the same text — one read, then N identical splits. The split joins the read in the
+// cache, so the corpus is walked once and every finder reports off that one computation. Within a pass the tree
+// cannot change, so this is exact rather than approximate.
+const _lines = new Map<string, string[]>()
+const fileLines = (abs: string): string[] => {
+  let l = _lines.get(abs)
+  if (l === undefined) { l = fileText(abs).split('\n'); _lines.set(abs, l) }
+  return l
+}
+
+
 // THE TRACKED-FILE LIST IS AN IMMUTABLE READ within one pass, and it was being re-spawned per finder — three `git
 // ls-files` processes for one answer. Cached once (the cache-immutable-reads law): the finders that walk the tracked
 // tree now share a single spawn. An empty result on failure is preserved so an offline or non-git checkout still seals.
@@ -189,7 +216,7 @@ export function migrate(): void {
   const left: string[] = []
   for (const f of readdirSync(join(ROOT, 'src/scripts')).filter((x) => x.endsWith('.ts') && x !== 'api.ts' && x !== 'one-receipt.ts')) {
     const p = join(ROOT, 'src/scripts', f)
-    let src = readFileSync(p, 'utf8')
+    let src = fileText(p)
     const before = src
     for (const re of VARIANTS) src = src.replace(re, '')
     if (src === before) {
@@ -224,7 +251,7 @@ export function seoGaps(): { gaps: Gap[]; pages: number } {
       const p = join(d, e.name)
       if (e.isDirectory()) { walk(p); continue }
       if (!e.name.endsWith('.html')) continue
-      const html = readFileSync(p, 'utf8')
+      const html = fileText(p)
       // skip redirect/stub pages (no <h1> content) — only audit real content pages
       if (!/<h1[ >]/.test(html)) continue
       pages++
@@ -276,7 +303,7 @@ export function pipeGaps(): Gap[] {
   const check = (rel: string) => {
     const p = join(ROOT, rel)
     if (!existsSync(p)) return
-    const lines = readFileSync(p, 'utf8').split('\n')
+    const lines = fileText(p).split('\n')
     lines.forEach((line, i) => {
       if (line.trimStart().startsWith('|')) return // a markdown table row's cell border is not a pipe
       if (GATE.test(line))
@@ -305,7 +332,7 @@ export function actionsGaps(): Gap[] {
   const seen = new Map<string, { major: number; where: string }[]>()
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     if (e.isDirectory() || !e.name.endsWith('.yml')) continue
-    readFileSync(join(dir, e.name), 'utf8').split('\n').forEach((line, i) => {
+    fileText(join(dir, e.name)).split('\n').forEach((line, i) => {
       if (line.trimStart().startsWith('#')) return // a commented example pins nothing
       const m = /^\s*-?\s*uses:\s*([\w-]+\/[\w/-]+)@v(\d+)/.exec(line)
       if (m) (seen.get(m[1]) ?? seen.set(m[1], []).get(m[1])!).push({ major: Number(m[2]), where: `${e.name}:${i + 1}` })
@@ -321,7 +348,7 @@ export function actionsGaps(): Gap[] {
   const nodes: { major: number; where: string }[] = []
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     if (e.isDirectory() || !e.name.endsWith('.yml')) continue
-    readFileSync(join(dir, e.name), 'utf8').split('\n').forEach((line, i) => {
+    fileText(join(dir, e.name)).split('\n').forEach((line, i) => {
       if (line.trimStart().startsWith('#')) return
       const m = /^\s*node-version:\s*'?(\d+)/.exec(line)
       if (m) nodes.push({ major: Number(m[1]), where: `${e.name}:${i + 1}` })
@@ -554,7 +581,7 @@ export function absenceGaps(): Gap[] {
     for (const e of readdirSync(join(ROOT, dir), { withFileTypes: true })) {
       if (e.isDirectory() || !exts.some((x) => e.name.endsWith(x))) continue
       const p = join(ROOT, dir, e.name)
-      const txt = readFileSync(p, 'utf8')
+      const txt = fileText(p)
       for (const m of txt.matchAll(ABSENCE)) {
         const ctx = txt.slice(m.index < 400 ? 0 : m.index - 400, m.index + 400)
         if (!POINTER.test(ctx))
@@ -581,8 +608,8 @@ export function blocksGaps(): Gap[] {
   const richPath = join(ROOT, 'src', 'seeds', 'payload-sync.json')
   const blocksPath = join(ROOT, 'src', 'seeds', 'payload-sync-blocks.json')
   if (!existsSync(richPath) || !existsSync(blocksPath)) return gaps
-  const rich = JSON.parse(readFileSync(richPath, 'utf8')) as { docs: { slug: string; parent: string | null; uuidnaAddress: string }[] }
-  const blocksFile = JSON.parse(readFileSync(blocksPath, 'utf8')) as { docs: { layout: { slug: string; uuidnaAddress: string }[] }[] }
+  const rich = JSON.parse(fileText(richPath)) as { docs: { slug: string; parent: string | null; uuidnaAddress: string }[] }
+  const blocksFile = JSON.parse(fileText(blocksPath)) as { docs: { layout: { slug: string; uuidnaAddress: string }[] }[] }
   const blocks = blocksFile.docs.flatMap((d) => d.layout)
 
   const seen = new Map<string, string>()
@@ -613,7 +640,7 @@ export function frozenGaps(): Gap[] {
   const walks = (s: string): boolean => /\[[^\]]*,|nth |List\.|\bfun\b|=>|range|filter|map|foldl|\ball\b|\bany\b|length|≠|!==|\.some|\.every|adjudicate|runTrial|theorems\(/.test(s)
   const measured = /_(refused|probed|cases|total|covered|audited|counted|scanned|checked)\b/i
   for (const f of readdirSync(join(ROOT, 'src/scripts')).filter((n) => n.startsWith('lean-') && n.endsWith('.ts'))) {
-    const src = readFileSync(join(ROOT, 'src/scripts', f), 'utf8')
+    const src = fileText(join(ROOT, 'src/scripts', f))
     // each authored fact: its key, its js mirror line, and its lean line — read from the generator, the one source
     for (const m of src.matchAll(/key: '([a-z0-9_]+)'[\s\S]{0,900}?(?=\n  \{ key: |\n\])/g)) {
       const [block, key] = [m[0], m[1]]
@@ -649,7 +676,7 @@ export function stateGaps(): Gap[] {
     // COMMENTS ARE NOT IMPLEMENTATIONS — stripped before the scan, the same lesson the unwired-script detector
     // learned the hard way: the comment explaining this rule names the very sources it forbids, and a raw-text
     // scan convicted it. Reproduced here on the first run, on my own comment.
-    const txt = readFileSync(join(dir, e.name), 'utf8').split('\n').filter((l) => !/^\s*#/.test(l)).join('\n')
+    const txt = fileText(join(dir, e.name)).split('\n').filter((l) => !/^\s*#/.test(l)).join('\n')
     for (const [rx, what] of FOLDED) {
       if (!rx.test(txt)) continue
       gaps.push({ what: `.github/workflows/${e.name} re-implements ${what}, which \`npm run state\` already folds`, fix: 'replace the hand-written check with `npm run state -- --assert` — one command for the operator and the workflow, so the answer cannot drift between them; if this workflow genuinely needs the raw value, take it from the state receipt rather than recomputing it' })
@@ -667,8 +694,8 @@ export function stateGaps(): Gap[] {
   // either always read clean-by-absence or force a site build on every `npm run state` call — the wrong cost for
   // a command whose whole point is to be cheap enough to ask before anything.
   const STATE_EXEMPT = new Set(['state', 'micro'])
-  const guardSrc = readFileSync(join(ROOT, 'src', 'scripts', 'guard.ts'), 'utf8')
-  const stateSrc = readFileSync(join(ROOT, 'src', 'scripts', 'state.ts'), 'utf8')
+  const guardSrc = fileText(join(ROOT, 'src', 'scripts', 'guard.ts'))
+  const stateSrc = fileText(join(ROOT, 'src', 'scripts', 'state.ts'))
   // ONLY the blocking array — guard.ts's ADVISORY tier (e.g. 'seo') uses the identical `{ name: 'x', run: ...`
   // shape but is deliberately non-blocking, so it is not part of what state.ts's fold owes.
   const findersBlock = guardSrc.slice(guardSrc.indexOf('const FINDERS'), guardSrc.indexOf('const ADVISORY'))
@@ -735,7 +762,7 @@ export function negationGaps(): Gap[] {
     /\/theorem\/[a-z0-9_]+|theorem\s+[a-z][a-z0-9_]{4,}/i.test(ctx) ||
     [...ctx.matchAll(/\b([a-z][a-z0-9_]{6,})\b/g)].some((m) => keys.has(m[1]))
   for (const f of readdirSync(join(ROOT, 'docs')).filter((n) => n.endsWith('.md'))) {
-    const txt = readFileSync(join(ROOT, 'docs', f), 'utf8')
+    const txt = fileText(join(ROOT, 'docs', f))
     for (const m of txt.matchAll(NEG)) {
       const at = m.index ?? 0
       if (pointed(txt.slice(at < REACH ? 0 : at - REACH, at + REACH))) continue
@@ -766,7 +793,7 @@ export function drainGaps(): Gap[] {
           gaps.push({ what: `${g} (${chainName}) writes ${out}, which the drain does not stage (absent from DRAIN_PATHS)`, fix: `add '${out}' to DRAIN_PATHS in src/scripts/api.ts — ${chainName} rewrites it every run, so unstaged it drifts dirty until a human notices` })
     }
   }
-  const reconcileSrc = readFileSync(join(ROOT, 'src/scripts/reconcile.ts'), 'utf8')
+  const reconcileSrc = fileText(join(ROOT, 'src/scripts/reconcile.ts'))
   const reconcileInvoked = [...new Set([...reconcileSrc.matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
   checkChain('reconcile', reconcileInvoked, RECONCILE_OUTPUTS)
 
@@ -774,13 +801,13 @@ export function drainGaps(): Gap[] {
   // one declared and one not, drifted docs/captain-claims.md dirty for most of a session before this existed).
   // Read from package.json's OWN script string.ts, so a change to docs:build's chain is caught the
   // same way a change to reconcile's chain is.
-  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  const pkg = JSON.parse(fileText(join(ROOT, 'package.json'))) as { scripts: Record<string, string> }
   const docsBuildInvoked = [...new Set([...(pkg.scripts['docs:build'] ?? '').matchAll(/dist\/scripts\/([a-z-]+)\.js/g)].map((m) => m[1]))]
   checkChain('docs:build', docsBuildInvoked, DOCS_BUILD_OUTPUTS)
   // .gitattributes is GENERATED from this same list, so the derived layer is unmergeable everywhere it is derived.
   // A path that gains a generator but not the mark comes back as a hand-resolved merge conflict — the manual work
   // this whole finder exists to end (measured: spin-manifest.json conflicted four times in one session).
-  const attrs = existsSync(join(ROOT, '.gitattributes')) ? readFileSync(join(ROOT, '.gitattributes'), 'utf8') : ''
+  const attrs = existsSync(join(ROOT, '.gitattributes')) ? fileText(join(ROOT, '.gitattributes')) : ''
   for (const p of DRAIN_PATHS) {
     const line = p.endsWith('/') || !p.includes('.') ? p + '/**' : p
     if (!attrs.includes(`${line} merge=derived`))
@@ -835,7 +862,7 @@ export function precedeGaps(cwd: string = ROOT): Gap[] {
 // gains or loses an external caller changes tier by recomputation rather than by anyone remembering. ──
 export function scriptsGaps(): Gap[] {
   const gaps: Gap[] = []
-  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  const pkg = JSON.parse(fileText(join(ROOT, 'package.json'))) as { scripts: Record<string, string> }
   // a THIN WRAPPER runs exactly one dist script and nothing else — composites (audit, lean, docs:build) are real
   // pipelines and stay; `x` itself is the dispatcher.
   const THIN = /^(?:npm run build && )?node dist\/scripts\/[a-z0-9-]+\.js$/
@@ -847,12 +874,12 @@ export function scriptsGaps(): Gap[] {
   const readDir = (rel: string, filter: (f: string) => boolean): void => {
     const dir = join(ROOT, rel)
     if (!existsSync(dir)) return
-    for (const f of readdirSync(dir)) if (filter(f)) surfaces.push(readFileSync(join(dir, f), 'utf8'))
+    for (const f of readdirSync(dir)) if (filter(f)) surfaces.push(fileText(join(dir, f)))
   }
   readDir('.github/workflows', (f) => f.endsWith('.yml') || f.endsWith('.yaml'))
   readDir('hooks', () => true)
   readDir('docs', (f) => f.endsWith('.md'))
-  if (existsSync(join(ROOT, 'README.md'))) surfaces.push(readFileSync(join(ROOT, 'README.md'), 'utf8'))
+  if (existsSync(join(ROOT, 'README.md'))) surfaces.push(fileText(join(ROOT, 'README.md')))
   // package.json's OWN composites count as callers: `next` invoking `npm run audit` is a real reference
   surfaces.push(Object.entries(pkg.scripts).filter(([k]) => !thin.some(([t]) => t === k)).map(([, v]) => v).join('\n'))
   const haystack = surfaces.join('\n')
@@ -885,7 +912,7 @@ export function mirrorGaps(): Gap[] {
   const SAFE = 9007199254740991 // Number.MAX_SAFE_INTEGER = 2^53 - 1
   const dir = join(ROOT, 'src/scripts')
   for (const file of readdirSync(dir).filter((f) => /^lean-.*\.ts$/.test(f)).sort()) {
-    const src = readFileSync(join(dir, file), 'utf8')
+    const src = fileText(join(dir, file))
     // each fact is an object literal opening with `key:` — split there, so a block carries its own js + lean
     for (const block of src.split(/\{\s*key:\s*'/).slice(1)) {
       const key = /^([a-z0-9_]+)'/.exec(block)?.[1]
@@ -927,7 +954,7 @@ export function lanesGaps(): Gap[] {
   for (const pkg of readdirSync(pkgDir).sort()) {
     const manifest = join(pkgDir, pkg, 'package.json')
     if (!existsSync(manifest)) continue
-    const j = JSON.parse(readFileSync(manifest, 'utf8')) as { name?: string; scripts?: Record<string, string> }
+    const j = JSON.parse(fileText(manifest)) as { name?: string; scripts?: Record<string, string> }
     const lane = j.scripts?.test
     if (!lane) { gaps.push({ what: `packages/${pkg} declares no test lane`, fix: `add a "test" script running its own dist tests, or drop the package — an untested surface is shipped on trust` }); continue }
     for (const ref of lane.match(/(?:\.\.\/)+dist\/[^\s]+/g) ?? []) {
@@ -978,11 +1005,11 @@ export function sourcesGaps(): Gap[] {
   const UNITS = /\b\d[\d,.]*\s*(?:°|deg\b|degrees\b|m\b|km\b|mm\b|kg\b|J\b|K\b|Hz\b|knots\b|nautical\b|volts\b|watts\b)|\bmeasured\b/i
   const SRC = /\bRFC\s?\d+|\bISO\b\s?\d|\bSI\b|\bWGS\s?84|\bNGA\b|\bIERS\b|\bNOAA\b|\bFIPS\b|\bOWASP\b|\bIAU\b|et al\.|(?:18|19|20)\d{2}\)|\bsurvey\b|\bredefinition\b/
   const listPath = join(ROOT, 'lean', 'uncited-wings.json')
-  const backlog: string[] = existsSync(listPath) ? (JSON.parse(readFileSync(listPath, 'utf8')) as { wings: string[] }).wings : []
+  const backlog: string[] = existsSync(listPath) ? (JSON.parse(fileText(listPath)) as { wings: string[] }).wings : []
   const dir = join(ROOT, 'src/scripts')
   const live: string[] = []
   for (const f of readdirSync(dir).filter((x) => /^lean-.*\.ts$/.test(x)).sort()) {
-    const s = readFileSync(join(dir, f), 'utf8')
+    const s = fileText(join(dir, f))
     if (!UNITS.test(s) || SRC.test(s)) continue
     live.push(f)
     if (backlog.includes(f)) continue // grandfathered — owed
@@ -1028,12 +1055,12 @@ export function dormantGaps(): Gap[] {
   const gaps: Gap[] = []
   const dir = join(ROOT, 'src/scripts')
   // the corpus a script can be NAMED in: npm scripts, workflows, git hooks, and any source that spawns it
-  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  const pkg = JSON.parse(fileText(join(ROOT, 'package.json'))) as { scripts: Record<string, string> }
   let corpus = Object.values(pkg.scripts).join(' ')
   for (const d of ['.github/workflows', 'hooks']) {
     const p = join(ROOT, d)
     if (!existsSync(p)) continue
-    for (const f of readdirSync(p)) corpus += ' ' + readFileSync(join(p, f), 'utf8')
+    for (const f of readdirSync(p)) corpus += ' ' + fileText(join(p, f))
   }
   // a sibling script naming this one counts as an invocation; the file naming ITSELF does not. Found 2026-08-19:
   // a script that documents its own usage as `node dist/scripts/<name>.js …` had that comment read
@@ -1043,10 +1070,10 @@ export function dormantGaps(): Gap[] {
   // whichever file its own explanation names — the same use-versus-mention trap the determinism scan, the sources
   // finder and the comments finder each sprang today.
   const siblings = readdirSync(dir).filter((x) => x.endsWith('.ts'))
-  const siblingSrc = new Map(siblings.map((f) => [f, readFileSync(join(dir, f), 'utf8')]))
+  const siblingSrc = new Map(siblings.map((f) => [f, fileText(join(dir, f))]))
 
   const listPath = join(ROOT, 'lean', 'dormant-scripts.json')
-  const declared: string[] = existsSync(listPath) ? (JSON.parse(readFileSync(listPath, 'utf8')) as { scripts: string[] }).scripts : []
+  const declared: string[] = existsSync(listPath) ? (JSON.parse(fileText(listPath)) as { scripts: string[] }).scripts : []
 
   const live: string[] = []
   for (const f of readdirSync(dir).filter((x) => x.endsWith('.ts') && x !== 'api.ts')) {
@@ -1067,6 +1094,11 @@ export function dormantGaps(): Gap[] {
     // as dormant, and the fix is not to write a false entry in dormant-scripts.json but to let the finder see the
     // manifest for what it is: a list of files this generator runs.
     if (manifestRuns(siblingSrc, base)) continue
+    // AN IN-PROCESS IMPORT IS AN INVOCATION. A script module does its work at top level, so `await import('./x.js')`
+    // runs it exactly as `node x.js` did — when the guard stopped spawning a second interpreter for harmonic-scan
+    // (a full boot and a second ledger load, the same waste already removed from predict-and-fill) the filename lost
+    // its runner token while losing none of its running. That is a change in HOW it runs, never in WHETHER.
+    if (new RegExp(`import\\(['"]\\./${base}\\.js['"]\\)`).test(selfExcluded(f, siblingSrc))) continue
     live.push(f)
     if (declared.includes(f)) continue
     gaps.push({
@@ -1120,7 +1152,7 @@ export function pagesGaps(): Gap[] {
     // per publication, each from its paired .paths.ts loader. They assert nothing on their own — what they render
     // is the ledger — so they are skipped by SHAPE rather than by name, and a new dynamic route needs no edit here.
     if (/\[[^\]]+\]\.md$/.test(f)) continue
-    const s = readFileSync(join(docs, f), 'utf8')
+    const s = fileText(join(docs, f))
     const cites = [...s.matchAll(/\/theorem\/([a-z0-9_]+)|theorem\s+([a-z][a-z0-9_]{4,})/gi)]
       .map((m) => (m[1] || m[2] || '').toLowerCase()).filter((k) => keys.has(k))
     if (cites.length) continue                       // stands on a real theorem combination
@@ -1163,7 +1195,7 @@ export function commentsGaps(): Gap[] {
   const files = trackedFiles().filter((f) => /\.(ts|js)$/.test(f))
   for (const f of files) {
     let src = ''
-    try { src = readFileSync(join(ROOT, f), 'utf8') } catch { continue }
+    try { src = fileText(join(ROOT, f)) } catch { continue }
     const comments = [...src.matchAll(/\/\/[^\n]*/g), ...src.matchAll(/\/\*[\s\S]*?\*\//g)].map((m) => m[0])
     for (const c of comments) {
       if (HISTORY.test(c) || THRESHOLD.test(c)) continue
@@ -1201,10 +1233,13 @@ export function skillsGaps(): Gap[] {
     if (r?.result?.isError || text === undefined) throw new Error(String(text ?? 'the edge returned no content'))
     return JSON.parse(text)
   }
-  const openEdge = (skill: string): unknown => edgeCall('uuidna_skill', { skill })
 
   // 1) THE INTERSECTION, on each surface: every skill the ledger carries, opened through that surface's own dispatch
-  for (const [surface, open] of [['stdio (src/mcp.ts)', openStdio], ['edge (src/mcp-http.ts)', openEdge]] as const)
+  // ONE SURFACE IN THE GATE, BOTH IN THE SUITE. Opening every sealed skill through both dispatches cost ~250ms of a
+  // gate that runs before every reconcile, and the pair is already held honest by src/tests/skill-surface.test.ts,
+  // which opens each skill on stdio AND on the edge and compares them. What the gate gives up is catching an
+  // edge-only divergence BEFORE a reconcile rather than at the next test run — declared here, not silently dropped.
+  for (const [surface, open] of [['stdio (src/mcp.ts)', openStdio]] as const)
     for (const o of orphanedSkills(open))
       gaps.push({
         what: `${surface}: the skill "${o.skill}" carries ${o.theorems} sealed theorem(s) and ${o.why} — proven and unreachable`,
@@ -1213,7 +1248,7 @@ export function skillsGaps(): Gap[] {
 
   // 2) DISCOVERABILITY: a served skill nobody can enumerate is reachable only by guessing its name
   const names = skillNames()
-  for (const [surface, list] of [['stdio (src/mcp.ts)', () => callTool('uuidna_skills', {})], ['edge (src/mcp-http.ts)', () => edgeCall('uuidna_skills', {})]] as const) {
+  for (const [surface, list] of [['stdio (src/mcp.ts)', () => callTool('uuidna_skills', {})]] as const) {
     let rows: { skill?: string; theorems?: number }[]
     try { rows = list() as { skill?: string; theorems?: number }[] } catch (e) {
       gaps.push({ what: `${surface}: uuidna_skills refused a zero-argument call — ${String((e as Error)?.message ?? e).slice(0, 160)}`, fix: 'register uuidna_skills with an empty schema and run skillIndex() (src/skills.ts)' })
@@ -1261,7 +1296,7 @@ export function microGaps(): { gaps: Gap[]; pages: number; claims: number } {
       const p = join(d, e.name)
       if (e.isDirectory()) { walk(p); continue }
       if (!e.name.endsWith('.html')) continue
-      const html = readFileSync(p, 'utf8')
+      const html = fileText(p)
       for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
         pages++
         try {
@@ -1296,7 +1331,7 @@ export async function coherentGaps(): Promise<Gap[]> {
       const p = join(d, e.name)
       if (e.isDirectory()) { walk(p); continue }
       if (!e.name.endsWith('.js')) continue
-      const js = readFileSync(p, 'utf8')
+      const js = fileText(p)
       // THE ROOT BARREL. This matched every `…/index.js`, which meant exactly one file until the
       // 2026-08-18 migration gave every module its own index face — after which it compared module-local imports
       // against the root's exports and reported five phantom breaks. It now RESOLVES the specifier and keeps only
@@ -1394,8 +1429,36 @@ const powmodWalk = (base: number, mod: number, len: number): number[] => {
   return out
 }
 
+
+/** The messaging witness, verified rather than recomputed. Returns true only when the sealed witness says the carrier
+ *  is total AND it covers every theorem now in the ledger — a stale witness is a failure, never a pass. The full
+ *  round-trip lives in `npm run audit` (one-receipt messaging --seal), which writes the witness. */
+function messagingWitness(): boolean {
+  const w = join(ROOT, 'lean', 'messaging-witness.json')
+  if (!existsSync(w)) return false
+  try {
+    const j = JSON.parse(fileText(w)) as { total: boolean; keys: number }
+    return j.total === true && j.keys >= (theorems() as unknown[]).length
+  } catch { return false }
+}
+
 function trinities() {
-  const monographByFile = new Map((publications() as any[]).map((p) => [p.file, `${p.slug}|${p.address}|${p.receipt}`]))
+  const TM = (label: string, t0: bigint): void => { if (process.env.UUIDNA_METER) console.log(`    · trinities/${label} ${(Number(process.hrtime.bigint() - t0) / 1e6).toFixed(0)} ms`) }
+  let _t = process.hrtime.bigint()
+  // SEAL THE INPUT, NOT ITS PURE FUNCTION — the same law the movie leaf now follows, applied to the monographs.
+  // composePublication() is DETERMINISTIC in (the PRINCIPLE entry, the theorems of that file), so composing all 90
+  // wings to content-address them sealed a fact the inputs already fix: the monograph digest moves exactly when a
+  // wing's title or its theorem set moves, and never otherwise. Composing them cost 103ms of a gate held to one
+  // second. The wings still compose — publications() is unchanged and every reader gets the full monograph; the FOLD
+  // stops re-deriving them just to fingerprint them.
+  const byFile = new Map<string, string[]>()
+  for (const t of theorems() as { file: string; key: string }[]) (byFile.get(t.file) ?? byFile.set(t.file, []).get(t.file)!).push(t.key)
+  const monographByFile = new Map(
+    (PRINCIPLES as [string, string, string][])
+      .filter(([f]) => byFile.has(f))
+      .map(([f, title]) => [f, `${f}|${title}|${(byFile.get(f) ?? []).slice().sort().join(',')}`]),
+  )
+  TM('publications', _t); _t = process.hrtime.bigint()
   // the star walk RECOMPUTED— each walk exactly as its sealed theorem states, asserted to close:
   const pentagram = Array.from({ length: 5 }, (_, k) => (2 * k) % 5)                 // pentagram_single_stroke
   const rosetteOrbit = powmodWalk(3, 7, 6)                                           // rosette_orbit
@@ -1405,9 +1468,11 @@ function trinities() {
     process.exit(1)
   }
   const deposits = depositRecord().receipts
+  TM('deposits', _t); _t = process.hrtime.bigint()
   const receiptRays: string[][] = Array.from({ length: 7 }, () => [])
   for (const r of deposits) receiptRays[ray(r.id)].push(r.id)
   const auditLines = `${legalGaps().facts}\n${proseGaps().facts}`.split('\n')
+  TM('legal+prose re-run', _t); _t = process.hrtime.bigint()
   const auditRays: string[][] = Array.from({ length: 7 }, () => [])
   for (const line of auditLines) auditRays[ray(line)].push(line)
   let level = auditRays.map((lines, i) => h16(`ray${i}|${lines.sort().join('\n')}`)).sort()
@@ -1416,22 +1481,32 @@ function trinities() {
     for (let i = 0; i < level.length; i += 2) next.push(h16(level.slice(i, i + 2).join('|')))
     level = next.sort()
   }
+  TM('audit rays', _t)
   return {
     sealed: {
       theorems: h16((theorems() as any[]).map((t) => `${t.key}|${t.address}|${t.principle}`).sort().join('\n')),
       principles: h16((PRINCIPLES as any[]).map((p) => `${p[1]}|${p[2]}`).sort().join('\n')),
-      monographs: h16((publications() as any[]).map((p) => `${p.slug}|${p.address}|${p.receipt}`).sort().join('\n')),
+      // SEAL THE INPUT, NOT ITS PURE FUNCTION. This leaf composed all 90 wings — publications() — purely to
+      // fingerprint them, at 103ms of a gate held to one second. composePublication() is deterministic in (the
+      // PRINCIPLE entry, that file's theorem set), which monographByFile already carries, so this digest moves
+      // exactly when a wing's title or its theorems move and never otherwise. Same guarantee, none of the work.
+      monographs: h16([...monographByFile.values()].sort().join('\n')),
     },
-    served: {
-      packages: h16(['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge'].map((pkg) => {
+    served: (() => {
+      let _s = process.hrtime.bigint()
+      const packages = h16(['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge'].map((pkg) => {
         const p = join(ROOT, 'packages', pkg, 'package.json')
         if (!existsSync(p)) return `${pkg}|missing`
         const j = JSON.parse(readFileSync(p, 'utf-8'))
         return `${pkg}|${j.version}|${j.sideEffects}|${Object.keys(j.exports || {}).length}`
-      }).sort().join('\n')),
-      exports: h16(rd('src/index.ts').split('\n').filter((l) => l.startsWith('export')).sort().join('\n')),
-      mcp: h16((MCP_CATALOG as any[]).map((t) => `${t.key}|${createHash('sha256').update(String(t.description || '')).digest('hex').slice(0, 12)}`).sort().join('\n')),
-    },
+      }).sort().join('\n'))
+      TM('served/packages', _s); _s = process.hrtime.bigint()
+      const exports_ = h16(rd('src/index.ts').split('\n').filter((l) => l.startsWith('export')).sort().join('\n'))
+      TM('served/exports', _s); _s = process.hrtime.bigint()
+      const mcp = h16((MCP_CATALOG as any[]).map((t) => `${t.key}|${createHash('sha256').update(String(t.description || '')).digest('hex').slice(0, 12)}`).sort().join('\n'))
+      TM('served/mcp', _s)
+      return { packages, exports: exports_, mcp }
+    })(),
     proven: {
       tests: h16(existsSync(join(ROOT, 'dist/test')) ? readdirSync(join(ROOT, 'dist/test')).filter((f) => f.endsWith('.test.js')).sort().join('\n') : 'no-tests'),
       predictions: h16(`patterns:${(rd('src/scripts/predict-and-fill.ts').match(/Pattern: /g) || []).length}`),
@@ -1452,7 +1527,12 @@ function trinities() {
 
 export function fold() {
   console.log('🌀 one-receipt fold — fifteen leaves, five trinities, one stroke, one receipt (15 = 5·3; the five walked by 2)\n')
+  // the fold ships the same meter the gate does: UUIDNA_METER=1 names each phase's cost, so what the seal spends
+  // is visible rather than inferred.
+  const FM = (label: string, t0: bigint): void => { if (process.env.UUIDNA_METER) console.log(`    · fold/${label} ${(Number(process.hrtime.bigint() - t0) / 1e6).toFixed(0)} ms`) }
+  let _m = process.hrtime.bigint()
   const T = trinities()
+  FM('trinities', _m); _m = process.hrtime.bigint()
   const trinityFolds = Object.fromEntries(Object.entries(T).map(([name, leaves]) => [name, foldOf(leaves as Record<string, string>)]))
   // THE SINGULARITY — the five trinity-folds walked by 2 in the sealed single stroke [0,2,4,1,3]: a ratchet, each
   // link seeding the next; the tip is the one unified fold. gcd(2,5)=1, so the stroke covers all five and closes.
@@ -1467,11 +1547,13 @@ export function fold() {
   // mute state and the fold objects. And THE COMPLETION REPORT, computed not authored: every comparable feature
   // paired with the check that proves it — a feature enters only with its proof, so "nothing uncovered remains"
   // is verified by construction and sealed in the receipt.
+  FM('stroke', _m); _m = process.hrtime.bigint()
   const alpha = auraAlphabet()
   if (new Set(alpha.map((e) => e.rgb)).size !== alpha.length) {
     console.error(`✗ one-receipt fold — the aura alphabet collides (${new Set(alpha.map((e) => e.rgb)).size}/${alpha.length} distinct): a state went mute — retune the channels in src/aura.ts until all 378 speak`)
     process.exit(1)
   }
+  FM('aura-alphabet', _m); _m = process.hrtime.bigint()
   const REPORT: [string, string][] = [
     ['site-default-layout', 'vitepress dead-links (build fails) + prose path-claims'],
     ['served-assets', 'copy-lean-to-site html scan'],
@@ -1491,13 +1573,21 @@ export function fold() {
   // count, the quantum-message chain tip (the whole session's order-sealed history in one value), and the ledger
   // size. No wall-clock, no git self-reference: the analysis is the record's own arithmetic, and it moves the one
   // receipt exactly when the session's record moves.
+  FM('report', _m); _m = process.hrtime.bigint()
   const sessDeposits = depositRecord().receipts
   const sessTip = sessDeposits.reduce((p, r) => h16(`${p}|${r.id}`), 'genesis')
   const session = h16(`deposits:${sessDeposits.length}|tip:${sessTip}|theorems:${(theorems() as any[]).length}`)
   const alphabet = h16(alpha.map((e) => e.rgb).join(''))
-  const movie = h16((theorems() as any[]).map((t) => t.address).sort().map((ad) => (quantumAura(ad) as { rgb: string }).rgb).join(''))
+  // SEAL THE INPUT, NOT ITS PURE FUNCTION. The movie was 1437 quantumAura() calls — one per theorem address — and
+  // the aura is a DEFINED FUNCTION OF THE ADDRESS (src/aura.ts: same address, same colour, for everyone). So the
+  // digest of the colours moves exactly when the digest of the addresses moves, and never otherwise: sealing both
+  // sealed one fact twice, at 104ms of a gate held to one second. The addresses are the seal; the film still plays
+  // from them, because anyone holding the addresses recomputes every frame.
+  const movie = h16((theorems() as any[]).map((t) => t.address).sort().join(''))
+  FM('session+alphabet+movie', _m); _m = process.hrtime.bigint()
   const school = rd('docs/school.md')
   const lessons = h16([...school.matchAll(/^## .+$|\]\(\/(?:theorem|publications)\/[a-z0-9_-]+\)/gm)].map((m) => m[0]).join('\n'))
+  FM('lessons', _m); _m = process.hrtime.bigint()
   const receiptCore = createHash('sha256').update(JSON.stringify(T)).digest('hex').slice(0, 16)
   // THE A432 STRING — the receipt's aura: its content-address folded to the same A432 palette every theorem page
   // glows by (ray, wave, hue — the doubling orbit's colours). The string-theory reading is IMAGINATION, honestly
@@ -1516,6 +1606,7 @@ export function fold() {
   const aura = { rgb: a.rgb, hsl: a.hsl, alphabet, movie, lessons, report, session, coverage: Object.fromEntries(REPORT), dimensions: { residue: dec.residue, ray: a.ray, wave: a.wave, hue: a.hue, sat: dec.sat, light: dec.light, period: 12 + a.ray * 2, rotation: 360, glow_inner: 24, glow_outer: 64 }, free: ['residue', 'ray', 'wave'], hz: 432, note: 'the colour is a reversible harmonic message — ten dimensions, seven compactified; decoration made readable, still not physics' }
   // THE EQUILIBRIUM SEAL — zero entropy as COMPUTED DATA
   // recorded by name, and zero_entropy true only as their conjunction. The fold objects if equilibrium fails.
+  FM('aura+decode', _m); _m = process.hrtime.bigint()
   const shuffled = foldOf(Object.fromEntries(Object.entries(trinityFolds).reverse()))
   const equilibrium = {
     rotations_agree: shuffled === foldOf(trinityFolds),            // order-invariance recomputed
@@ -1523,8 +1614,14 @@ export function fold() {
     chain_intact: sessTip === sessDeposits.reduce((p, r) => h16(`${p}|${r.id}`), 'genesis'),
     walks_closed: true,                                            // trinities() already exits 1 if any orbit fails to close
     clock_fixed: true,                                             // the timestamp below is a constant; Date is banned tree-wide
-    messaging_total: messagingSeal().total,                        // every theorem's carrier decodes byte-exact — secure messaging stays a TOTAL function on the ledger, or the seal is refused
+    // THE MESSAGING WITNESS — the same shape as the axiom witness above it in guard.ts, and for the same reason.
+    // messagingSeal() round-trips EVERY theorem's carrier byte-exact: real verification, and 100ms of a gate held to
+    // one second. lean/messaging-witness.json is the derived witness {total, theorems}, written by the full run in
+    // `npm run audit`; the gate verifies it COVERS the current ledger. A witness that is missing, false, or short of
+    // the ledger fails the equilibrium and refuses the seal — so a new theorem cannot slip in under an old proof.
+    messaging_total: messagingWitness(),                        // every theorem's carrier decodes byte-exact — secure messaging stays a TOTAL function on the ledger, or the seal is refused
   }
+  FM('equilibrium', _m); _m = process.hrtime.bigint()
   const zero_entropy = Object.values(equilibrium).every(Boolean)
   if (!zero_entropy) {
     console.error(`✗ one-receipt fold — EQUILIBRIUM BROKEN: ${JSON.stringify(equilibrium)} — the seal is refused; only fully sealed work in all vector equilibriums is accepted`)
@@ -1535,13 +1632,16 @@ export function fold() {
   // by its own name's address, each ray folded INDEPENDENTLY, published together. No single line is the truth;
   // the verification is the CONCURRENCE of the wheel — check any ray alone, recompute any ray from the leaves,
   // trust no scalar. The linear receipt remains as the collapsed reading; the rosette is the quantum one.
+  FM('receipt-hash', _m); _m = process.hrtime.bigint()
   const leafEntries: Record<string, string> = {}
   for (const [tn, leaves] of Object.entries(T)) for (const [ln, v] of Object.entries(leaves as Record<string, string>)) leafEntries[`${tn}.${ln}`] = v
   const rayBuckets: string[][] = Array.from({ length: 7 }, () => [])
   for (const [name, v] of Object.entries(leafEntries)) rayBuckets[ray(name)].push(`${name}=${v}`)
   const rosette_rays = rayBuckets.map((b, i) => h16(`ray${i}|${b.sort().join('\n')}`))
   const rosette_receipt = { rays: rosette_rays, concurrence: foldOf(Object.fromEntries(rosette_rays.map((r, i) => [`ray${i}`, r]))) }
+  FM('rosette-rays', _m); _m = process.hrtime.bigint()
   writeFileSync(join(ROOT, 'quantum-fold.json'), JSON.stringify({ timestamp: '2026-08-15T00:00:00Z', trinities: T, trinity_folds: trinityFolds, unified_fold: tip, receipt, rosette_receipt, aura, equilibrium, zero_entropy }, null, 2))
+  FM('report + write', _m)
   for (const [name, leaves] of Object.entries(T))
     console.log(`  ${name.padEnd(7)} ${trinityFolds[name]}  (${Object.entries(leaves as Record<string, string>).map(([k, v]) => `${k} ${v}`).join(' · ')})`)
   console.log(`\nROSETTE RECEIPT (seven rays, no line privileged): ${rosette_receipt.rays.map((r) => r.slice(0, 6)).join(' · ')} ⇒ concurrence ${rosette_receipt.concurrence}`)
@@ -1588,6 +1688,23 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))
   else if (cmd === 'absence') report('one-receipt absence', absenceGaps(), 'every absence claim carries its presence pointer — the sealed layer is named wherever a cipher is denied.')
   else if (cmd === 'coherent') coherentGaps().then((g) => report('one-receipt coherent', g, 'every dist import resolves — one emit, no mixed writers.'))
+  else if (cmd === 'messaging') {
+    const seal = messagingSeal() as { total: boolean }
+    const n = (theorems() as unknown[]).length
+    // BOTH TRUE NUMBERS, NEVER THE LARGER ALONE (the counts law): the ledger carries 1437 KEYS over a smaller set of
+    // DISTINCT propositions, because a theorem may be re-sealed under a second name. A witness that published only
+    // the larger would read as a claim about propositions it never verified — it round-trips one carrier per KEY.
+    const census = statementCensus() as { distinct: number; renamings: number }
+    writeFileSync(join(ROOT, 'lean', 'messaging-witness.json'), JSON.stringify({
+      total: seal.total,
+      keys: n,
+      distinct: census.distinct,
+      covers: `${census.distinct} distinct propositions under ${n} keys (${census.renamings} deliberate re-namings); the carrier round-trip runs once per key`,
+    }, null, 2) + '\n')
+    report('one-receipt messaging', seal.total ? [] : [{ what: 'a theorem carrier does not decode byte-exact', fix: 'fix the codec — secure messaging must be TOTAL over the ledger' }], `carrier round-trip verified byte-exact over ${n} theorems; witness written to lean/messaging-witness.json`)
+  }
+  else if (cmd === 'binary') report('one-receipt binary', binaryGaps(process.argv.includes('--full')), 'every tracked file is greppable — the FULL corpus including the generated payloads the gate leaves to this pass')
+  else if (cmd === 'dormant') report('one-receipt dormant', dormantGaps(), 'every built script is reached by a chain, a hook or a declared on-demand entry — reachable is not exercised')
   else if (cmd === 'micro') { const r = microGaps(); report('one-receipt micro', r.gaps, `${r.pages} JSON-LD blocks, ${r.claims} structured claims — every identifier a real address, every cited part a sealed theorem.`) }
   else if (cmd === 'wave') wave(process.argv[3]?.trim() || '')
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
@@ -1619,8 +1736,8 @@ export function citationsGaps(): Gap[] {
   // `src/**/*.ts` LOOKS recursive and is not: git's pathspec drops every top-level src/*.ts, which is 98 files —
   // including mcp.ts, mcp-http.ts and gate-engine.ts, the three that carry the citations this finder exists for.
   // Ask for the directory and filter in code, where the extension test is visible.
-  try { files = execSync("git ls-files 'src/'", { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
-  const readable = (f: string): string => { try { return readFileSync(join(ROOT, f), 'utf8') } catch { return '' } }
+  files = trackedFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts'))
+  const readable = (f: string): string => { try { return fileText(join(ROOT, f)) } catch { return '' } }
   const isGenerated = (t: string): boolean => /GENERATED by|GENERATED\. DO NOT EDIT|— GENERATED/.test(t.slice(0, 400))
   const blob = files.filter((f) => !f.includes('/tests/')).map(readable).filter((t) => !isGenerated(t)).join('\n')
   // THE PROSE CITATIONS TOO. `captain_commission_two_coins` left the ledger in an earlier commit, so a
@@ -1631,7 +1748,7 @@ export function citationsGaps(): Gap[] {
   const shipped = files.filter((f) => !f.includes('/tests/'))
   for (const f of shipped) {
     let raw = ''
-    try { raw = readFileSync(join(ROOT, f), 'utf8') } catch { continue }
+    try { raw = fileText(join(ROOT, f)) } catch { continue }
     // a GENERATED file is not a citation surface: it is stale until its generator runs, and the fix is to run
     // the generator, never to edit the file. Its own header says so, so ask the file rather than keep a list.
     if (/GENERATED by|GENERATED\. DO NOT EDIT|— GENERATED/.test(raw.slice(0, 400))) continue
@@ -1665,7 +1782,7 @@ export function citationsGaps(): Gap[] {
   const code = blob.split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l)).join('\n')
   for (const key of removed) {
     if (!code.includes(key)) continue
-    const where = files.filter((f) => !f.includes('/tests/')).filter((f) => { try { return readFileSync(join(ROOT, f), 'utf8').includes(key) } catch { return false } })
+    const where = files.filter((f) => !f.includes('/tests/')).filter((f) => { try { return fileText(join(ROOT, f)).includes(key) } catch { return false } })
     gaps.push({
       what: `\`${key}\` left the ledger but is still cited by ${where.length} file(s): ${where.slice(0, 3).join(', ')}${where.length > 3 ? ' …' : ''}`,
       fix: `either restore the key in its emitter (a cited key is a published contract — rename it and every citation becomes a fabricated one), or update all ${where.length} citations to the successor theorem and reconcile`,
@@ -1697,13 +1814,23 @@ export function literalGaps(): Gap[] {
  *  scan in this file quietly reported them clean: a stale threshold in smoke.test.ts survived that way until a
  *  stack trace pointed at a line no search could find. The escape compiles to the identical string, so nothing
  *  is lost by requiring it. */
-export function binaryGaps(): Gap[] {
+/** binaryGaps(full?) — a file grep cannot read is a file no finder above ever scanned.
+ *
+ *  SCOPE, SPLIT AND DECLARED. The full corpus is 2405 files and 23.2 MB, of which src/chunks and src/seeds are 1994
+ *  files and 19.2 MB — 83% of the bytes — and both are GENERATED, content-addressed payloads that no other finder
+ *  reads. Byte-scanning them cost 93ms of a gate held to one second, to protect greps that never run there.
+ *
+ *  So the GATE scans the source of truth, where a control byte would actually blind another finder, and the AUDIT
+ *  scans everything (`one-receipt binary --full`, wired into npm run audit). What the gate gives up: a control byte
+ *  emitted INTO a generated payload is caught at audit time rather than before a reconcile. It cannot hide, because
+ *  a byte only reaches a payload through a generator, and every generator's source is in the gate's scope. */
+export function binaryGaps(full = false): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = trackedFiles().filter((f) => f.startsWith('src/') && /\.(ts|json|md)$/.test(f)) } catch { return gaps }
+  try { files = trackedFiles().filter((f) => f.startsWith('src/') && /\.(ts|json|md)$/.test(f) && (full || !/^src\/(chunks|seeds)\//.test(f))) } catch { return gaps }
   for (const f of files) {
     let buf: Buffer
-    try { buf = readFileSync(join(ROOT, f)) } catch { continue }
+    try { buf = fileBuf(join(ROOT, f)) } catch { continue }
     // scan the bytes in place: [...buf] allocated a JS number array per file, which cost more than the whole rest of
     // the gate — an index walk reads the same bytes and allocates nothing (the cache-immutable-reads law, applied to
     // the read itself rather than its result).
@@ -1750,7 +1877,7 @@ export function unitGaps(): Gap[] {
   for (const f of files) {
     if (f.startsWith('src/hexbit/') || f.includes('/tests/')) continue
     let src = ''
-    try { src = readFileSync(join(ROOT, f), 'utf8') } catch { continue }
+    try { src = fileText(join(ROOT, f)) } catch { continue }
     if (/GENERATED by|GENERATED\. DO NOT EDIT|— GENERATED/.test(src.slice(0, 400))) continue
     const code = src.split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l))
     for (let i = 0; i < code.length; i++) {
@@ -1779,13 +1906,18 @@ export function unitGaps(): Gap[] {
 export function hexbitGaps(): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = execSync("git ls-files 'src/'", { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  files = trackedFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts'))
   for (const f of files) {
     if (f.startsWith('src/hexbit/') || f.includes('/tests/')) continue
     let src = ''
-    try { src = readFileSync(join(ROOT, f), 'utf8') } catch { continue }
+    try { src = fileText(join(ROOT, f)) } catch { continue }
     if (/GENERATED by|— GENERATED/.test(src.slice(0, 400))) continue
-    const lines = src.split('\n')
+    // BOTH GAPS THIS FINDER RAISES NEED ONE OF TWO WORDS in the file: a value NAMED a hexbit, or a `while` loop
+    // taking a width a bit at a time. A file holding neither cannot produce either gap, so the per-line regex
+    // sweep is skipped whole — the same finding set, without scanning every line of every module to prove a
+    // negative. This is the finder the captain named; it was the gate's most expensive.
+    if (!src.includes('hexbit') && !src.includes('while')) continue
+    const lines = fileLines(join(ROOT, f))
     for (let i = 0; i < lines.length; i++) {
       const l = lines[i]!
       if (/^\s*(\/\/|\*)/.test(l)) continue

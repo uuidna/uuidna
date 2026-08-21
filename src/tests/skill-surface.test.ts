@@ -221,14 +221,15 @@ test('skillReach counts what a surface SERVES — and a half-served surface does
   assert.notEqual(skillReach('edge', stdioOpen).receipt, full.receipt)
 })
 
-test('the skills FINDER is clean, and is wired into the guard as BLOCKING', () => {
+test('the skills FINDER is clean, and runs by name in the audit chain', () => {
   assert.deepEqual(skillsGaps(), [], 'every gap carries its exact fix — run `node dist/scripts/one-receipt.js skills`')
-  const guard = readFileSync(join(ROOT, 'src', 'scripts', 'guard.ts'), 'utf8')
-  assert.match(guard, /\{ name: 'skills', run: \(\) => skillsGaps\(\) \}/, 'a finder nobody calls is a claim nobody checks')
-  const advisory = guard.slice(guard.indexOf('const ADVISORY'))
-  assert.doesNotMatch(advisory, /'skills'/, 'the skills finder blocks; it is not advisory')
-  // NEGATIVE CONTROL — the assertion above must be capable of failing, so a name the guard does NOT wire must not match
-  assert.doesNotMatch(guard, /\{ name: 'no-such-finder', run:/)
+  // MOVED OUT OF THE GATE 2026-08-21: opening every sealed skill through a dispatch cost ~500ms (both surfaces) of a
+  // gate held to one second, and it asks whether a skill is REACHABLE, never whether the commit is honest. It runs
+  // by name every audit pass instead, so a finder nobody calls is still not a claim nobody checks.
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  assert.match(pkg.scripts.audit, /one-receipt\.js skills/, 'the skills finder must run by name in npm run audit')
+  // NEGATIVE CONTROL — the assertion above must be capable of failing on a name the chain does NOT run
+  assert.doesNotMatch(pkg.scripts.audit, /one-receipt\.js no-such-finder/)
 })
 
 test('the two skill tools are CATEGORISED', () => {

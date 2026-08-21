@@ -110,5 +110,11 @@ if (nonDeterministic.length) {
   console.error('✗ harmonic-scan — DETERMINISM hard-reject (Math.*/wall-clock/RNG settle no theorem — NO exemption, anywhere):')
   for (const o of nonDeterministic) console.error(`    ${o.file}: ${o.ops.join(', ')}`)
 }
-if (failed) process.exit(1)
+// CALLED, NOT SPAWNED — the guard used to run this file as a second node process, paying a full interpreter boot and
+// a second load of the whole ledger to run code it already imports. (The same spawn was removed from predict-and-fill
+// for the same reason, where it was measured at ~2.9s of a ~5.1s guard.) So the exit belongs to the CLI path only:
+// run directly it still exits 1 on a sneak, imported it reports through `harmonicClean` and lets the caller decide.
+const IS_CLI = (process.argv[1] ?? '').endsWith('harmonic-scan.js')
+export const harmonicClean = !failed
+if (failed && IS_CLI) process.exit(1)
 console.log('✓ harmonic-scan — the core is harmonic, and the whole tree is determinism-clean (no Math.*/wall-clock/RNG).')
