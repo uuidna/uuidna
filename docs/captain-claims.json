@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-20",
+  "generated": "2026-08-21",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1355,
-  "total_theorems": 1355,
+  "total_claimed": 1444,
+  "total_theorems": 1444,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3102,6 +3102,12 @@
       "principle": "Division by zero"
     },
     {
+      "key": "dz_swaps_the_thirds_and_fixes_the_axis",
+      "lineAddress": "331c8beb-1339-8899-bde6-d06da766e4b7",
+      "address": "f2ec9b95-6a04-8c2e-b044-52620934d5c7",
+      "principle": "Division by zero"
+    },
+    {
       "key": "two_plus_two_is_five_only_mod_one",
       "lineAddress": "55684707-46c4-8489-8d90-706a779dbdc9",
       "address": "bd46e0f6-ab95-8f91-8512-341e416fd6dc",
@@ -3606,12 +3612,6 @@
       "principle": "The seven reflected"
     },
     {
-      "key": "clay_humanity_one_deposit_zero",
-      "lineAddress": "f7bce5ec-b0ab-8e6b-be40-9266e244a2c2",
-      "address": "47e8ee14-5ff7-8247-a9d1-bedf0242a1d4",
-      "principle": "The seven reflected"
-    },
-    {
       "key": "clay_riemann",
       "lineAddress": "ff1cb671-c128-80aa-9215-cb448ffff13c",
       "address": "2b5d3447-5663-8c7c-aef2-c7b178e2ca03",
@@ -3651,36 +3651,6 @@
       "key": "clay_poincare",
       "lineAddress": "ebc37fae-0977-854c-9cbb-3da0f18e0321",
       "address": "85ccd1bc-f7c6-8634-9691-205613155fe8",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_verified_ne_solved",
-      "lineAddress": "e58ee8cb-fe23-8659-b075-42e342f86f49",
-      "address": "3c7ef6fc-2af1-8202-b63d-24d7a97c5509",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_vote_theorems_only",
-      "lineAddress": "d270149c-b393-818d-aa6f-0409d64f5112",
-      "address": "cce92d8e-70ce-8481-b88c-e6f34b59677f",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_status_dna_total",
-      "lineAddress": "d7b5ca78-1af9-80ff-8cb3-88363e1e076f",
-      "address": "60a6892b-55e3-8f09-be3e-03bf37eb01dd",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_collision_law",
-      "lineAddress": "33d9a163-8512-8ab4-bdeb-e85a4bf1316f",
-      "address": "4b553b7d-0895-83bf-bbb8-027ff072fdf7",
-      "principle": "The seven reflected"
-    },
-    {
-      "key": "clay_launder_refused",
-      "lineAddress": "049f6e77-a536-8a7b-a3b6-73927f662a07",
-      "address": "b78f1e27-193b-8f39-878b-e7b8073cfa1b",
       "principle": "The seven reflected"
     },
     {
@@ -3799,20 +3769,20 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "791f161a-7236-8480-9194-4484cfc44ccb",
-      "address": "5a54e508-201c-877f-966b-effdabd8bf53",
+      "lineAddress": "dfcf3955-0fea-86a4-b14c-5035a7e590c9",
+      "address": "952ccaa6-7d89-8763-9a56-3513f864e8ed",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "74b6faa7-2b98-8373-87ed-b783e473373e",
-      "address": "9b2f54cb-1128-8cc5-a8b1-812d6ed510f9",
+      "lineAddress": "9011ea89-dde3-8b62-b65a-7741ed2e6aa4",
+      "address": "9aeab4e7-a110-86bb-819a-34504f8c3916",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "f154a71d-be07-8c75-acbc-544f0b1e9996",
-      "address": "e0d166c9-cf09-8d02-a135-e68f5182bd05",
+      "lineAddress": "d42f5228-008f-877a-bde0-d0527fbaea36",
+      "address": "a5be1151-c7f6-8690-8438-f118cb482090",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3897,12 +3867,6 @@
       "key": "grover_quadratic_bound",
       "lineAddress": "89d46ee3-e699-8f3f-a667-bbc03c990579",
       "address": "fedeb0d5-6b36-8b99-b2d7-1bc3fcc5c6cd",
-      "principle": "The cipher & the strand"
-    },
-    {
-      "key": "kdf_cost_bounded",
-      "lineAddress": "66a311e7-a7d8-86de-9cc8-42fca9e5910e",
-      "address": "d6315751-200f-8269-8c8d-5a80ee83bc8e",
       "principle": "The cipher & the strand"
     },
     {
@@ -4051,38 +4015,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "d70dda31-1e08-81e2-baa7-bfc709e53342",
-      "address": "52e95b16-d586-82ae-b2b9-ec51a690b982",
+      "lineAddress": "aa8146d4-c882-8542-9e09-1105c566cc89",
+      "address": "58829e13-88cd-8a2b-9b0b-ec486bd9c1a0",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "280853c1-4d3b-8fbc-b9ea-ae9f3d2b1e40",
-      "address": "b3f5a7a5-7222-8322-8528-086d308bdddb",
+      "lineAddress": "686fafd0-72fa-886f-8307-b3edc1fbfe12",
+      "address": "5f6e03dd-177d-84cc-97ff-898dc06c84ef",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "8b9e3ef7-d212-892a-904f-8efba941c4f0",
-      "address": "d996260d-4a37-8d0c-80e2-5a64c0dc6609",
+      "lineAddress": "4538b24c-8ee3-8a05-a963-01ca7127f7ad",
+      "address": "7d0fa280-aead-8f65-8ea8-4129fad01cff",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "8a1d829c-7c62-86f1-98b9-6d365c9faee3",
-      "address": "d87e74f5-6371-8510-8943-7623fd55b84c",
+      "lineAddress": "f07d14c4-b042-82c8-9095-4f60889097d6",
+      "address": "74dca434-283b-8ce3-9973-25b9f7de1fc0",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "800e6765-6f39-8d7c-9699-7896e6aae4fb",
-      "address": "1fee95d4-55c0-84a1-807e-e47f2d03a895",
+      "lineAddress": "c75cca10-3ef4-8e49-b4f0-47e03f0d32f5",
+      "address": "093e44c7-2898-859d-9122-b070e6a3314c",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "472dbb86-51f9-848a-8736-27bc7b3fa2a8",
-      "address": "eb07bc7b-9c87-85c7-868f-6dddb683b453",
+      "lineAddress": "2ebcdd26-60af-8fd5-a038-bed0f21e1944",
+      "address": "78ce48de-b388-8465-80db-50f3690999c7",
       "principle": "The detectors, proven"
     },
     {
@@ -4179,6 +4143,12 @@
       "key": "captain_computes_only_with_two_coins",
       "lineAddress": "b765fc5d-1afc-85c8-9b9d-4250c186383c",
       "address": "af0f5d7d-88b6-8c59-ae21-68b334702485",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "falsifier_floor_is_the_uuid_less_the_coins",
+      "lineAddress": "0719971e-c5f0-8c58-8604-647bfe3cd01d",
+      "address": "eed4b3bf-39dc-87ec-9cf1-1b02237cec82",
       "principle": "The two coins & the 64"
     },
     {
@@ -4416,6 +4386,30 @@
       "principle": "The software-verifiable algebra"
     },
     {
+      "key": "cube_seals_at_completeness_only",
+      "lineAddress": "b0050410-f1b3-8a09-b1aa-64e01c1f1869",
+      "address": "2ddb3dff-e605-8ac9-bd10-92dad90edfc3",
+      "principle": "The software-verifiable algebra"
+    },
+    {
+      "key": "cubes_partition_ledger",
+      "lineAddress": "2f094d3c-0dd5-862a-8a75-4ca51509ba40",
+      "address": "459e9e66-743d-87a1-874b-3022779cc236",
+      "principle": "The software-verifiable algebra"
+    },
+    {
+      "key": "receipt_costs_nothing",
+      "lineAddress": "003cd84d-0c1a-83d9-98fa-59151c8fe39c",
+      "address": "920793ad-b2b5-893f-bbb2-e3bc2d44aca1",
+      "principle": "The software-verifiable algebra"
+    },
+    {
+      "key": "message_carries_address",
+      "lineAddress": "541882e7-736d-8159-bca6-3b0f2da3fa64",
+      "address": "efb6d8f6-f4b9-8772-a272-fd253553bb28",
+      "principle": "The software-verifiable algebra"
+    },
+    {
       "key": "exact_copy_is_byte_equality",
       "lineAddress": "ebe54653-894f-876a-8a39-b0cfaf76507c",
       "address": "89f43f66-58bc-8cb1-bf00-6925f17a6c07",
@@ -4527,12 +4521,6 @@
       "key": "oos_fnv_misuse",
       "lineAddress": "577b3975-86c8-8f95-96d0-45b77f94db8e",
       "address": "ae57c927-086f-8f53-83b3-55c9a8b9ab81",
-      "principle": "The exploit folds"
-    },
-    {
-      "key": "oos_nondecidable_correctness",
-      "lineAddress": "0e4e6d9e-5d04-84e0-bc31-1a0c2bd34943",
-      "address": "7a331458-394e-801b-9ba9-fdf498a21bc1",
       "principle": "The exploit folds"
     },
     {
@@ -4650,6 +4638,78 @@
       "principle": "The Platonic solids in every dimension"
     },
     {
+      "key": "ve_twelve_vertices",
+      "lineAddress": "9b93e314-2c96-8ea1-9a6b-05405bf979cf",
+      "address": "dbd59d77-f648-8ac9-aeca-93410d94df52",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "radial_squared_two",
+      "lineAddress": "ea9551d4-5915-8dce-9b3e-0068a66dcee8",
+      "address": "528fae4c-4b3d-8350-b6c5-a04c7384f367",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "ve_four_neighbours",
+      "lineAddress": "6ac989a9-258c-85d9-b64f-7e39f56019f0",
+      "address": "ec711c3b-3950-8d91-a519-8b3e1aec99d2",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "radial_equals_edge",
+      "lineAddress": "6526e850-ef1e-8675-a987-8fec40987c8d",
+      "address": "9c3f0493-9246-82fc-8a0c-e5ae61c1740a",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "ve_twentyfour_edges",
+      "lineAddress": "61e94462-d162-89f7-b568-d8bfa567ef93",
+      "address": "bf5c8a62-fe1a-8d29-b3a5-0cd134cd64b8",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "ve_fourteen_faces",
+      "lineAddress": "cd230582-ce3f-8046-ab30-210d271fc0fa",
+      "address": "7bd12c41-c713-8869-b5da-1513ab3a0f1b",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "euler_characteristic_two",
+      "lineAddress": "129f3e87-70bf-8c91-a296-18fd73266c93",
+      "address": "434bf42f-cd8f-849a-b2c2-fcaace767eec",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "metatron_seventyeight_lines",
+      "lineAddress": "540ac81e-f5b1-8d5b-b755-f041d218c7b6",
+      "address": "baa1fce2-9775-80cf-a47a-24b830f74ecb",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "dz_two_fixedpoints",
+      "lineAddress": "e34f5f61-4b94-889b-b2b7-ad248e02585a",
+      "address": "006cfabe-13f4-86ca-a751-292315cee4c9",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "dz_involution_digits",
+      "lineAddress": "90dc3f2a-b1d4-8a43-9531-33c3f4c636cf",
+      "address": "d1b4bf5f-af54-82d8-9d19-74670a741ba2",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "orbits_closed_involution",
+      "lineAddress": "87972164-0f5f-81ae-b92d-964e83473716",
+      "address": "ee292c4e-7042-85aa-a526-8a1e28a9687f",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
+      "key": "missing_pair_involution",
+      "lineAddress": "d562b31a-52a7-8b77-9c7c-33a120e9f6c9",
+      "address": "c13cdc16-1821-8c65-a900-18fe91c07528",
+      "principle": "The vector equilibrium — radius equals edge"
+    },
+    {
       "key": "subthreshold_silent",
       "lineAddress": "4a73d392-11bd-8696-8c4f-62e24c4fa331",
       "address": "a88985bc-6e22-83a3-bc43-279ec7412fa2",
@@ -4699,8 +4759,8 @@
     },
     {
       "key": "refractory_absolute_and_relative",
-      "lineAddress": "7ddcd63b-8d53-87c8-8f7f-ad15bb6c5dc3",
-      "address": "a6893ddd-2c73-8c07-a868-8628697009db",
+      "lineAddress": "d74fe056-05f6-8c3c-b524-1e5f06b6d3ec",
+      "address": "7a0a4b69-6f6b-86f6-9775-8752e9faec81",
       "principle": "The algebra of the neuron"
     },
     {
@@ -4899,12 +4959,6 @@
       "key": "wgs84_polar_shorter",
       "lineAddress": "d82f161b-cac8-894b-bac5-1dafb207d9fd",
       "address": "e5b4ad36-efba-89e8-b2a3-c768cf3c609b",
-      "principle": "The lay of the land"
-    },
-    {
-      "key": "oblate_not_prolate",
-      "lineAddress": "b9251a13-7452-8e7c-8b82-76d9e260f429",
-      "address": "058a9df8-582f-8b2a-8e80-d7b29f91eb81",
       "principle": "The lay of the land"
     },
     {
@@ -5118,18 +5172,6 @@
       "principle": "The light domain"
     },
     {
-      "key": "dispersion_blue_over_red",
-      "lineAddress": "5db148e9-7d35-87ae-9663-410b6fe55e99",
-      "address": "d3346781-e4f5-8013-aa5c-f55ed819e09c",
-      "principle": "The light domain"
-    },
-    {
-      "key": "tir_needs_denser_source",
-      "lineAddress": "97728597-c24a-8399-8532-96d5103277a8",
-      "address": "37547bb2-402c-8242-861c-2f7d4f436ac3",
-      "principle": "The light domain"
-    },
-    {
       "key": "harmonic_series",
       "lineAddress": "1a29f0ed-5a36-8b10-8bd5-51310ab9bb51",
       "address": "1b8c4765-f09f-8d05-9c37-89eae209fe78",
@@ -5142,12 +5184,6 @@
       "principle": "The sound domain"
     },
     {
-      "key": "sound_slower_than_light",
-      "lineAddress": "d067493f-f191-8c59-a90a-4c435ff27f76",
-      "address": "deb3b7b4-4292-876d-8ba3-1c53f3e689eb",
-      "principle": "The sound domain"
-    },
-    {
       "key": "decibel_is_logarithmic",
       "lineAddress": "b889252d-59dd-86f2-aabb-c71db1655d85",
       "address": "3b944f89-def6-8f5a-b772-499de0767cc8",
@@ -5157,12 +5193,6 @@
       "key": "beat_frequency",
       "lineAddress": "24526af3-a087-8090-a44d-b1c48c363388",
       "address": "5c22b479-7f9d-8917-835d-dc2819d2f21e",
-      "principle": "The sound domain"
-    },
-    {
-      "key": "doppler_shift",
-      "lineAddress": "f4b4a4e2-af46-8d3e-9e31-4c8fd433c163",
-      "address": "da3efd3c-1c77-89b3-a3e5-8d5a769268fe",
       "principle": "The sound domain"
     },
     {
@@ -5235,12 +5265,6 @@
       "key": "entropy_never_decreases",
       "lineAddress": "3839d0b6-a7d8-8fcf-ade3-bcaae9a1eef8",
       "address": "f97bcf7a-bce8-8fae-a324-09971eb6bf7d",
-      "principle": "The energy domain"
-    },
-    {
-      "key": "heat_flows_hot_to_cold",
-      "lineAddress": "f6dad2bd-f72d-8bc5-916a-a05dcc7c2e38",
-      "address": "02451732-01ea-8e27-8d70-3ff60dfb8715",
       "principle": "The energy domain"
     },
     {
@@ -5337,12 +5361,6 @@
       "key": "molar_mass_water",
       "lineAddress": "7f120135-5705-882c-a1b5-e88c3d5e1d00",
       "address": "719baa6c-de89-8780-b85e-e7ed1f49fe11",
-      "principle": "The bond domain"
-    },
-    {
-      "key": "bond_strength_rises_with_order",
-      "lineAddress": "71916687-f56f-8639-a7d5-9c3341e146c1",
-      "address": "48b721b9-6c81-8775-93c0-538049ca906e",
       "principle": "The bond domain"
     },
     {
@@ -5490,18 +5508,6 @@
       "principle": "The points-of-sail domain"
     },
     {
-      "key": "beating_distance_penalty",
-      "lineAddress": "71d1c10c-7a96-8693-9f0d-f74c64731425",
-      "address": "330bb6c5-a028-8035-91e0-4aa62c1221ef",
-      "principle": "The points-of-sail domain"
-    },
-    {
-      "key": "apparent_wind_exceeds_true",
-      "lineAddress": "9e587567-fa45-8253-9f4d-2ddee0088cef",
-      "address": "0040a71e-94e5-84c6-b8a6-e91afad36954",
-      "principle": "The points-of-sail domain"
-    },
-    {
       "key": "balanced_helm_holds_course",
       "lineAddress": "67c2474d-6cee-8b52-9bed-3d8254434e1a",
       "address": "7d367b1c-5176-8e63-9867-9c99e49fa3a9",
@@ -5526,12 +5532,6 @@
       "principle": "The points-of-sail domain"
     },
     {
-      "key": "cosmic_speed_limit",
-      "lineAddress": "f8a85514-e384-8bd9-bb30-1d5c35afe74b",
-      "address": "326fadea-987c-86b7-87ab-6e68f8361c9b",
-      "principle": "The spacetime domain"
-    },
-    {
       "key": "light_on_null_cone",
       "lineAddress": "8e88b5c1-01ae-86db-803c-48104968c767",
       "address": "03aacd0f-9136-86d0-b337-4691ff4fa6fc",
@@ -5547,18 +5547,6 @@
       "key": "lorentz_gamma_triangle",
       "lineAddress": "af377635-39c8-8ce4-8e8f-8af38101df40",
       "address": "10e7e3e1-c691-80eb-b97d-c53673b972ba",
-      "principle": "The spacetime domain"
-    },
-    {
-      "key": "time_dilation",
-      "lineAddress": "73dba3b5-9628-83c0-8957-a960fd229fd0",
-      "address": "fa5b4412-cb82-83f0-b60a-058789876e73",
-      "principle": "The spacetime domain"
-    },
-    {
-      "key": "length_contraction",
-      "lineAddress": "c30052e6-2c19-890e-a4c6-00adca8e616c",
-      "address": "54c91626-b6e0-874b-9df4-a7303fc449af",
       "principle": "The spacetime domain"
     },
     {
@@ -5667,12 +5655,6 @@
       "key": "saros_eclipse_cycle",
       "lineAddress": "78bd00ce-1d3b-864d-a986-791ca3188469",
       "address": "4b677ddb-524d-873d-83c3-ddd55ee8216a",
-      "principle": "The time coordinate"
-    },
-    {
-      "key": "sun_creeps_under_a_degree",
-      "lineAddress": "77a3ec01-ceca-8f31-b08e-2123bcde90aa",
-      "address": "4db72f85-3e4d-8d07-8d7e-d75f0b9afadb",
       "principle": "The time coordinate"
     },
     {
@@ -6666,12 +6648,6 @@
       "principle": "The tides"
     },
     {
-      "key": "mid_tide_fastest",
-      "lineAddress": "25d14d61-195c-8422-932a-6c094af504a8",
-      "address": "7f7d11fa-cd4f-81eb-aa45-e41e92ca09ff",
-      "principle": "The tides"
-    },
-    {
       "key": "semidiurnal_period",
       "lineAddress": "a4bdd4e1-dcf5-8f70-848f-181f600add4b",
       "address": "ee079235-7376-8c55-8655-e5a625e1c2d6",
@@ -6783,12 +6759,6 @@
       "key": "van_de_graaf_margins",
       "lineAddress": "2b14974a-49ab-8465-9e0f-c0d56557a331",
       "address": "ba3b2b86-80fe-8402-8ca6-5168477aa61d",
-      "principle": "The measures of type"
-    },
-    {
-      "key": "readable_measure_range",
-      "lineAddress": "633a6158-a593-871d-bd87-fe5ca5c1e52c",
-      "address": "081775f3-fe53-82d8-8d11-715c631b8b75",
       "principle": "The measures of type"
     },
     {
@@ -7062,12 +7032,6 @@
       "principle": "The paper on trial"
     },
     {
-      "key": "mombh_break_error_asymmetric_blue_faint",
-      "lineAddress": "e9712f43-0e55-8b72-a5e9-8d7065b052a6",
-      "address": "5c112a98-3523-8657-9722-04faa2a6356b",
-      "principle": "The paper on trial"
-    },
-    {
       "key": "mombh_variability_is_four_sigma",
       "lineAddress": "056ec62b-66ce-8a40-87cb-67dfc1c38811",
       "address": "15441eaa-2039-8fe6-9687-ca98c63fb7b3",
@@ -7080,33 +7044,9 @@
       "principle": "The paper on trial"
     },
     {
-      "key": "mombh_oiii_is_tentative",
-      "lineAddress": "134121db-3316-81f6-90b3-62edf0734290",
-      "address": "74c74a40-ba81-8b5f-87ce-4cc8a910ab00",
-      "principle": "The paper on trial"
-    },
-    {
-      "key": "mombh_size_limits_ordered",
-      "lineAddress": "5806c97a-1663-861b-a467-5b2780b4835c",
-      "address": "49297fdb-7ca0-8273-9889-ac704ea80fa4",
-      "principle": "The paper on trial"
-    },
-    {
       "key": "mombh_fiducial_gas_dense_and_compton_thick",
       "lineAddress": "932b5e9c-4389-84af-b96b-b18d40d30fd2",
       "address": "453c3e41-527d-8f61-bec0-98a8df2f0fa5",
-      "principle": "The paper on trial"
-    },
-    {
-      "key": "mombh_fiducial_is_dust_free",
-      "lineAddress": "56367c89-8c4c-8248-b605-f0520f717a10",
-      "address": "d38d4c89-162c-8ef4-9340-f8414f3de260",
-      "principle": "The paper on trial"
-    },
-    {
-      "key": "mombh_eddington_two_answers_straddle_one",
-      "lineAddress": "1b28eefd-7090-8374-97c8-6ad44a0d4cdf",
-      "address": "191b1f4d-61dc-8029-8f49-6595f697dddd",
       "principle": "The paper on trial"
     },
     {
@@ -7119,12 +7059,6 @@
       "key": "mombh_black_hole_mass_spans_over_two_dex",
       "lineAddress": "28d559fb-8528-86b2-88e2-1ad083e287f9",
       "address": "10305dc1-5259-8d04-9588-00a21a632e2a",
-      "principle": "The paper on trial"
-    },
-    {
-      "key": "mombh_sample_is_one",
-      "lineAddress": "45a20af0-705d-8393-ab7e-93e085b971f8",
-      "address": "7f44fb48-0a4e-8540-b06f-ef6ccb0c171f",
       "principle": "The paper on trial"
     },
     {
@@ -7461,12 +7395,6 @@
       "key": "timeline_is_chronological",
       "lineAddress": "46d614ec-d000-834e-bd36-f6983d351042",
       "address": "1be77fcc-a915-8cc9-9ef5-374b65764c4e",
-      "principle": "The report"
-    },
-    {
-      "key": "corroboration_needs_two",
-      "lineAddress": "15259ffa-9615-882f-a0ae-14bf285e1924",
-      "address": "6247bf91-19bc-840e-827d-726995be2be7",
       "principle": "The report"
     },
     {
@@ -7819,324 +7747,930 @@
     },
     {
       "key": "captain_commission_two_coins",
-      "lineAddress": "99606d7e-3b27-8c4a-803c-2d84e97c52fa",
-      "address": "27fca927-ab2b-8c20-ba26-c60efd2863e1",
+      "lineAddress": "fc5a7ac0-a1f7-83b3-8be0-354f0d635ff7",
+      "address": "567c5986-69f7-87fa-9f8a-1ffd58a07feb",
       "principle": "Anti-fraud detection"
     },
     {
-      "key": "captain_commission_rate_two_per_110",
-      "lineAddress": "014c2113-2ae7-86bf-92bf-582fd578b5fd",
-      "address": "ffb0d077-9549-867c-b90f-9609fa06503c",
+      "key": "forgery_flags_every_mismatch",
+      "lineAddress": "aa39936b-15a9-89b2-a05e-39fb80541945",
+      "address": "661e927a-e8bc-89fb-b912-69645ed0b833",
       "principle": "Anti-fraud detection"
     },
     {
-      "key": "forged_theorem_costs_2_power_7_bits",
-      "lineAddress": "29290982-68e1-8f15-bd9f-f66c2d0a0cea",
-      "address": "96d70847-6b01-86d8-9b23-c02460c16185",
+      "key": "double_spend_walks_every_list",
+      "lineAddress": "6890ddf9-a4fc-8c82-af7d-4e193deaba63",
+      "address": "d7ff8c56-61c9-894a-8897-bbf9f7ac1e58",
       "principle": "Anti-fraud detection"
     },
     {
-      "key": "forgery_costs_64_commissions",
-      "lineAddress": "9ebac761-74b1-86a3-bcb2-2948ed59e762",
-      "address": "39ea803a-e3cd-8e12-a8c9-b925635cd63c",
+      "key": "single_claim_never_flags",
+      "lineAddress": "02f39d92-baae-8e3b-9b18-17bbfa52524a",
+      "address": "236343e6-fd15-85df-b09e-e488f4362288",
       "principle": "Anti-fraud detection"
     },
     {
-      "key": "sealed_theorem_not_forged",
-      "lineAddress": "b2a07b32-3d4a-8a43-9259-b391f5c5d6fb",
-      "address": "805ef953-79ce-877c-bb0a-365549b6ace8",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "forged_theorem_address_detectable",
-      "lineAddress": "b2bde4a6-f03d-8255-91be-bf2f5d48d7e6",
-      "address": "56306a16-aa9e-8cda-8856-476373ff5851",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "overclaim_with_fake_cite_fails",
-      "lineAddress": "9d7236be-a609-83af-83ad-19d32e12f1d2",
-      "address": "985a9a92-ab69-8285-b112-85551d68b884",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "double_spend_detectable",
-      "lineAddress": "4d5b4cd0-19c9-8d73-9724-a26ea71a7f16",
-      "address": "0e185b3c-3331-8f8f-93d4-8e7fe3efdefa",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "one_theorem_single_claim",
-      "lineAddress": "8cf086ff-9143-85ef-aa6c-551ab23893f7",
-      "address": "901d6d60-91af-82db-9bc3-8b3b27c3f1b2",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "double_spend_hides_nowhere",
-      "lineAddress": "422f98b7-c6ca-8cd1-8a81-fe92e2633a45",
-      "address": "cf78966f-01d1-8ab2-a977-89cd961a4809",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "vote_weight_equals_coins_paid",
-      "lineAddress": "cebb4323-49a0-8cd6-a045-50db4720f464",
-      "address": "da247578-d894-8efd-acd8-d152a69b2476",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "vote_weight_inflation_flagged",
-      "lineAddress": "a22a9eb6-2683-8824-8a69-a6aeeb6a6baf",
-      "address": "b39236ec-5e8c-887d-a13c-72a22eb53efa",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "vote_receipt_order_invariant",
-      "lineAddress": "ee738480-a198-804a-9cb8-c0e9e3d5253f",
-      "address": "9ded872a-e55c-826a-a041-91de1f6f609d",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "ledger_fingerprint_tamper_evident",
-      "lineAddress": "8ce05671-9e5f-8889-b9a4-b08063610550",
-      "address": "2130f1fd-8ec0-80f1-8ae5-71429a8f0081",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "theorem_dna_recompute_is_seal",
-      "lineAddress": "f5527dbb-bdd2-83d6-967a-94a1355eace6",
-      "address": "5025a080-a2eb-8479-b9cc-83e3de3b6b28",
+      "key": "vote_passes_iff_weight_paid",
+      "lineAddress": "2f08c229-fb28-8396-a4c6-b3efb30a42bd",
+      "address": "f5daa9a0-dc49-8f9a-b103-6592fcf7a298",
       "principle": "Anti-fraud detection"
     },
     {
       "key": "anti_fraud_check_deterministic",
-      "lineAddress": "e87159de-c288-8e3d-84a5-23ffba9a12f0",
-      "address": "0db37ec0-630f-8a6b-8297-6bdeb85b1e17",
+      "lineAddress": "58c91725-3568-87e1-b4a1-9f49ad1aee77",
+      "address": "609385c7-ef07-8c6a-8514-7b6920969e12",
+      "principle": "Anti-fraud detection"
+    },
+    {
+      "key": "sealed_theorem_not_forged",
+      "lineAddress": "989dd3fe-7e6a-8e89-b631-ccec4d12f275",
+      "address": "690be5bf-a185-8d99-b194-2b19d3adc7b4",
       "principle": "Anti-fraud detection"
     },
     {
       "key": "honesty_gate_passes_iff_all_sealed",
-      "lineAddress": "d5c54b66-28c1-855b-8efc-c889a2735b62",
-      "address": "0db02fa0-7fac-858d-898d-9b2f4470c02b",
+      "lineAddress": "62989538-2d2d-856b-9104-00904be7205e",
+      "address": "9733cc92-2784-884f-b63b-b60e25e82e90",
       "principle": "Anti-fraud detection"
     },
     {
       "key": "conformance_failure_detects_intrusion",
-      "lineAddress": "0f7ba8c5-ee89-8e68-9378-dca88f2f56db",
-      "address": "cad6c241-6e11-86a2-9a93-b069fcaa1eba",
+      "lineAddress": "91f59af1-7177-8cfd-8b17-d672bcc13c72",
+      "address": "f29ca687-7a0b-8bec-beb5-d0bb91e7590c",
       "principle": "Anti-fraud detection"
     },
     {
       "key": "honesty_gate_is_theorem_not_oracle",
-      "lineAddress": "905e4688-ad69-8e1f-ae17-4694c727b435",
-      "address": "ea17a87a-4204-8d82-b26c-24dc31dcf2b1",
+      "lineAddress": "963bdd71-d9ba-84e7-a29a-e4dc9882b4f0",
+      "address": "f69eb184-0a3f-8230-a661-6a1b6090e50a",
       "principle": "Anti-fraud detection"
     },
     {
-      "key": "verdict_exactly_one",
-      "lineAddress": "08d05a6f-f577-8ca7-8fac-b1e0d718d31e",
-      "address": "4690944f-f7c0-8712-b82d-1decdc4c9855",
+      "key": "overclaim_with_fake_cite_fails",
+      "lineAddress": "e870774c-bc56-8932-a26f-5a416336624c",
+      "address": "2ba0b184-7ccf-8f31-b1b6-cc5162ffb7b4",
       "principle": "Anti-fraud detection"
     },
     {
-      "key": "unverified_iff_unsealed",
-      "lineAddress": "9826f7d6-69bc-8494-88da-ffbd50aedc46",
-      "address": "6819c15d-c35d-887d-b849-4345b9c210a7",
+      "key": "fraud_verdict_is_exactly_one",
+      "lineAddress": "c99381f5-7a5a-8c6d-a7ac-19be6935569d",
+      "address": "41e20081-0f2f-84b5-ae0c-c3f5e5a8de0d",
       "principle": "Anti-fraud detection"
     },
     {
-      "key": "fabricated_cite_is_unverified",
-      "lineAddress": "43242aa1-ae65-88e9-b708-6c823dc8acf2",
-      "address": "64efa29b-bc68-84ef-b287-b7dddc763131",
+      "key": "fabricated_cite_stays_unverified",
+      "lineAddress": "85773805-6699-8b7f-a457-504a038a7fc1",
+      "address": "0c12854f-8838-84f3-8657-19cd297082c8",
       "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "unverified_is_an_open_door",
-      "lineAddress": "e9f171fc-07d7-8a95-b49b-603e491eb830",
-      "address": "6d790054-580f-80b3-b8fa-6eb6483b9116",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "unverified_complement_is_verified",
-      "lineAddress": "f5f523a6-0292-846c-92e6-3be014eda95b",
-      "address": "d8dd9ed3-444c-8851-bbe9-a56bed001fcd",
-      "principle": "Anti-fraud detection"
-    },
-    {
-      "key": "sailing_books_extract_decidable_facts",
-      "lineAddress": "65c98f59-e666-8750-8be5-8d0beca44fb3",
-      "address": "454eee84-125e-82fd-855e-a76a4ae48d01",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_address_is_128_bits_in_36_chars",
-      "lineAddress": "0261675f-af34-88f0-8d94-b6122a1099fb",
-      "address": "a2798b2d-d2af-8b2d-aa9f-8b7fcaeb87d1",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_extraction_deterministic",
-      "lineAddress": "501431e3-3477-8507-97c7-806bb07ffddb",
-      "address": "5f079e0b-00fe-8281-b1ae-33a34695e8ae",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_book_receipt_order_invariant",
-      "lineAddress": "18aee872-f3ec-8e3f-a856-7cddaf8c7ec2",
-      "address": "81e57f66-afae-8113-918c-562b4f574301",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_weather_match_decides_both_ways",
-      "lineAddress": "bde159cd-855e-8668-ab80-d078d4346530",
-      "address": "c8d6ee20-9877-8b34-ac73-b165f60d8022",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_distinct_facts_distinct_addresses",
-      "lineAddress": "ec10d1f6-3a8c-85f6-93ff-dbfacc66c466",
-      "address": "7f757f75-b70f-86a4-a3c9-d6c7d615e947",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_corroboration_and_divergence_partition",
-      "lineAddress": "35e4d184-48ec-832d-99b3-f2c14f64bc8e",
-      "address": "6dba14b8-9f73-8e15-98f5-342c9bd51844",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_weather_verification_open",
-      "lineAddress": "42ad0b33-1f4a-8502-b606-94005adc0cd1",
-      "address": "ae0ffe8e-d8fa-8a49-8bb1-5bbec22492ec",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_cross_book_resonance_match",
-      "lineAddress": "f845857b-43f0-8ef2-a0eb-20a15c5ab048",
-      "address": "d284743f-8a4b-8713-8c96-0d00193bda21",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_cross_book_resonance_fold",
-      "lineAddress": "a3cd9c36-d5d4-8ce8-8919-b7d91a6c2622",
-      "address": "7654d0a8-8584-82c9-a94c-c9f42a215efc",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_multi_resonance_receipt",
-      "lineAddress": "f3c0e97b-71a0-8aab-b82f-72da31cab7f7",
-      "address": "e4c44c88-dcff-8bdc-8c47-217ada0f8673",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_cluster_coherence_decidable",
-      "lineAddress": "f12eba97-e7d5-8433-8ac1-972106d78d9d",
-      "address": "39c22887-aa0e-8e20-8f3e-eb0cf8186941",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "sailing_all_waves_computable",
-      "lineAddress": "3837b61a-24ba-823a-8558-355dec55a762",
-      "address": "4e336188-366c-8533-bab8-b4f4ffcf46af",
-      "principle": "Quantum sailing seals"
-    },
-    {
-      "key": "disputed_topic_fact_extractable",
-      "lineAddress": "5565081c-8309-86c2-9d89-b83719d065c4",
-      "address": "61b67144-b59e-8906-902a-38cbde021905",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_books_same_fact_same_address",
-      "lineAddress": "1baaa6cd-cd8b-8f25-bc89-ed76f368b07c",
-      "address": "b7f4e0af-f847-83bc-bbf5-1c6b514c95bc",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_books_coherence_or_contradiction",
-      "lineAddress": "466fdc32-c32f-8cf0-a95f-c181330e6d01",
-      "address": "a9ce8fbd-2f74-881d-bcde-5ab50b34497d",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_topics_contradiction_detectable",
-      "lineAddress": "c90571b8-9434-8242-8aee-fd7849bd6ff9",
-      "address": "88476c0a-9d62-850b-9825-a9bb6f0fa996",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_provably_true_is_sealed",
-      "lineAddress": "4d0da883-6620-846d-a0c0-a4eae9bea8d5",
-      "address": "45a08f5f-5e77-8612-a520-ae5bd261f18c",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_open_claim_unverified",
-      "lineAddress": "74022826-f588-8747-8507-06b8fe47e5dc",
-      "address": "c2ddb2a6-8bc9-887b-8eac-f062102786bf",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_overclaim_detectable",
-      "lineAddress": "b033d1a0-17e0-8b46-ae7f-a2ea230e51d2",
-      "address": "8edf19df-c712-8a52-ac21-f83059ba9e83",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_narrative_gap_requires_court",
-      "lineAddress": "063132d3-46cd-8dac-a7a9-49ac659571ed",
-      "address": "8db38876-1e77-8713-9e41-5005f154d7e4",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_multi_reader_receipt",
-      "lineAddress": "0bbfa556-eab3-85e3-8e21-d0ccd0109236",
-      "address": "30d1ae18-0426-873c-8276-0cef50abf8a0",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_consensus_detectable",
-      "lineAddress": "2cb7a119-10e1-8828-b72b-1e7625c67b3f",
-      "address": "6a92e5cb-a292-8f8b-8c73-003b53d4ebd5",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_coin_backed_judgment",
-      "lineAddress": "0a3805dc-c70f-8e5a-94d6-f14827115980",
-      "address": "7b91020b-b075-8ab9-9efe-c88230521458",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_anti_fraud_catches_overclaim",
-      "lineAddress": "30243289-8b5c-82a2-80b4-c30ccb462ed6",
-      "address": "4b44058f-c3fc-8ffb-b258-024cebf197f3",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_contradiction_audit_detects_liar",
-      "lineAddress": "ab789e9d-917a-85da-a864-9b35a3e42fb0",
-      "address": "79c7b77d-add0-818b-92ce-a7fa497fc9a5",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_audit_receipt_open",
-      "lineAddress": "661320b7-f98e-8c23-873d-d2579e8466a9",
-      "address": "3d239c51-5f22-808a-a68e-95452dbaa657",
-      "principle": "The honest court"
-    },
-    {
-      "key": "disputed_all_topics_computable",
-      "lineAddress": "bad3111e-0fd4-8991-b15f-0beaf8c75331",
-      "address": "7cfb1b10-39d4-8fca-a041-7ecaf1392044",
-      "principle": "The honest court"
     },
     {
       "key": "uuid_mix_census_is_quantum",
       "lineAddress": "163fbc40-578e-8de3-af4e-0c5945e8168b",
       "address": "3996446b-15d8-8a25-aed6-a02d5734c5f1",
       "principle": "The uuid mix space"
+    },
+    {
+      "key": "group_holds_fiftyfour",
+      "lineAddress": "47105abe-a8f3-80ae-a5ca-e507178b608b",
+      "address": "494b9d8d-4270-8488-aa14-672bffee04a1",
+      "principle": "lean/Affine.lean"
+    },
+    {
+      "key": "units_are_coprime_six",
+      "lineAddress": "f3bf5bfd-4de0-8b4a-abda-b96030cd88bc",
+      "address": "18fe6fdc-9e76-8d97-91d7-f9510934c075",
+      "principle": "lean/Affine.lean"
+    },
+    {
+      "key": "composition_stays_inside",
+      "lineAddress": "3edb59ed-93c7-8bd4-83d2-753c24ec7593",
+      "address": "d3b61f09-7d20-8ffc-bc90-54759a09c595",
+      "principle": "lean/Affine.lean"
+    },
+    {
+      "key": "identity_leaves_all",
+      "lineAddress": "ef46b836-5443-8d8f-b0df-25a2c95ed9fd",
+      "address": "aeba1dfd-4a62-8824-8fb1-1dcd5369eb19",
+      "principle": "lean/Affine.lean"
+    },
+    {
+      "key": "every_map_inverts",
+      "lineAddress": "033551c8-365b-8833-b3e9-75320038d5a2",
+      "address": "1e44655d-012e-8334-91fe-13af5468ca96",
+      "principle": "lean/Affine.lean"
+    },
+    {
+      "key": "group_does_not_commute",
+      "lineAddress": "ac26796c-bd3c-8dff-8284-264affa749b5",
+      "address": "5ce9bcca-5f17-8250-8bf5-1cf6836f78e3",
+      "principle": "lean/Affine.lean"
+    },
+    {
+      "key": "hexbit_is_four_qubits",
+      "lineAddress": "8ebb8641-5bc5-8536-99c5-760191ba7fb6",
+      "address": "533f84bc-2818-8ee4-9343-f5af41f21a2f",
+      "principle": "lean/Alignment.lean"
+    },
+    {
+      "key": "moduli_waste_states",
+      "lineAddress": "fed66564-108a-8704-a3b8-4fb2cef32630",
+      "address": "61fd2a22-b33f-8e96-a953-95d2ce4b00c5",
+      "principle": "lean/Alignment.lean"
+    },
+    {
+      "key": "sixteen_alone_tiles",
+      "lineAddress": "83750cb9-77dd-8c33-8844-cf4ddf163fb0",
+      "address": "c84df594-8f79-87a8-b051-b09a50cbd558",
+      "principle": "lean/Alignment.lean"
+    },
+    {
+      "key": "ten_costs_more_than_fifteen",
+      "lineAddress": "ec4e1397-4920-838d-a1ce-24285ba9a3e5",
+      "address": "37ab2f38-57b9-8331-a9dc-037e0a298675",
+      "principle": "lean/Alignment.lean"
+    },
+    {
+      "key": "powers_of_two_are_the_substance",
+      "lineAddress": "c0b68010-4264-83b9-8cec-b2af3b761e18",
+      "address": "8c130f10-c2c6-8d09-8b66-b65fa1d5887a",
+      "principle": "lean/Alignment.lean"
+    },
+    {
+      "key": "handle_discards_before_walking",
+      "lineAddress": "f4eb0961-6306-826e-94e6-a616f16cb49c",
+      "address": "cc2cc229-093c-8bc7-9e3f-761220ef6372",
+      "principle": "lean/Alignment.lean"
+    },
+    {
+      "key": "sixteen_binary_functions",
+      "lineAddress": "e731c1a2-1571-84de-bec0-6027dc417570",
+      "address": "9e73137a-e872-829d-a2c4-b898d6b67241",
+      "principle": "lean/Boolean.lean"
+    },
+    {
+      "key": "gates_name_their_tables",
+      "lineAddress": "7dcdf8a5-bd25-85b0-adee-7251485dea9f",
+      "address": "83174480-f5a1-8085-9e2a-c3abfec26101",
+      "principle": "lean/Boolean.lean"
+    },
+    {
+      "key": "nand_rebuilds_the_others",
+      "lineAddress": "b5e25f5e-f4d4-8c9c-afd9-93c3b928afe3",
+      "address": "9662d798-9746-865d-bb3e-c4273546852f",
+      "principle": "lean/Boolean.lean"
+    },
+    {
+      "key": "two_functions_ignore_input",
+      "lineAddress": "97d0fce3-f8ff-8382-bcd5-71794f769baf",
+      "address": "47397db5-5ec4-8ad0-8301-7e42e2f219a3",
+      "principle": "lean/Boolean.lean"
+    },
+    {
+      "key": "xor_differs_from_or",
+      "lineAddress": "9aee45d9-28b4-8f99-8a36-03d05c09fb6a",
+      "address": "bb091eb7-dd3b-8cee-875e-3a6a79ec9d63",
+      "principle": "lean/Boolean.lean"
+    },
+    {
+      "key": "implication_is_a_gate",
+      "lineAddress": "db367749-fb55-84a9-8c68-a4b20f2403a4",
+      "address": "54d82068-9c96-8c4d-91ec-839d37fde9c6",
+      "principle": "lean/Boolean.lean"
+    },
+    {
+      "key": "byte_holds_two_hexbits",
+      "lineAddress": "e22c69c8-beb1-806f-a909-adc748198c8e",
+      "address": "16790609-ce5e-8bf5-ad95-210867ee252f",
+      "principle": "lean/Byte.lean"
+    },
+    {
+      "key": "address_is_sixteen_bytes",
+      "lineAddress": "704071cf-86b3-81f1-a241-b461d5b7888d",
+      "address": "612d1ebc-04f0-841a-b2ce-cc0bd47f2e27",
+      "principle": "lean/Byte.lean"
+    },
+    {
+      "key": "digest_doubles_the_address",
+      "lineAddress": "befaeae8-6338-81ae-866e-4a85fd7ad6c2",
+      "address": "ff68ee7a-0fb0-82f0-887b-40ea35c25c18",
+      "principle": "lean/Byte.lean"
+    },
+    {
+      "key": "every_alternative_differs",
+      "lineAddress": "83234985-b837-80c7-ae07-2fafc28d1bfe",
+      "address": "2c6cc047-a881-8aa2-a7cf-f5e608a9dedd",
+      "principle": "lean/Byte.lean"
+    },
+    {
+      "key": "tamper_set_counts_eight_thousand",
+      "lineAddress": "774da136-f0c1-8326-a038-3ae421db03be",
+      "address": "c7fc4727-618e-8ae7-bf45-7942841be975",
+      "principle": "lean/Byte.lean"
+    },
+    {
+      "key": "channel_multiplies_three",
+      "lineAddress": "eb901dc5-1e7b-8cd0-9f3d-ac48e78b5f1e",
+      "address": "180365da-253e-8b33-89af-2138b6bdb073",
+      "principle": "lean/Channel.lean"
+    },
+    {
+      "key": "element_costs_nine",
+      "lineAddress": "acf37988-5fb0-8cfb-8eaa-cd9ef2662f3e",
+      "address": "92b63beb-3d9e-8c42-9283-b2cee1f5a085",
+      "principle": "lean/Channel.lean"
+    },
+    {
+      "key": "four_carry_handle",
+      "lineAddress": "5411c862-bd08-8208-a0b6-6f60a9275f66",
+      "address": "3950fa7e-f816-8830-91ce-9946a6a5b3bb",
+      "principle": "lean/Channel.lean"
+    },
+    {
+      "key": "three_recover_the_discard",
+      "lineAddress": "160a43ab-fb41-8894-b2c6-3137c2fb6e1e",
+      "address": "91b5b3e1-e916-8925-84d1-e0c7e8af52e8",
+      "principle": "lean/Channel.lean"
+    },
+    {
+      "key": "independence_is_assumed",
+      "lineAddress": "a7165b5e-600a-88fd-a181-b5b52faa0dfc",
+      "address": "340b3218-1736-8044-a33f-d4e1fd089e04",
+      "principle": "lean/Channel.lean"
+    },
+    {
+      "key": "page_outgrows_register",
+      "lineAddress": "eaa8a511-79d2-8dba-b609-9eb229314b72",
+      "address": "9d2dd9dc-2701-80d1-8e87-73b0f1e2d1b8",
+      "principle": "lean/Channel.lean"
+    },
+    {
+      "key": "residue_walks_the_orbit",
+      "lineAddress": "41186eba-2ee1-8957-b90b-2a2b2cf8e7a8",
+      "address": "2e16fa2b-c881-813c-b21b-d3970a29b01c",
+      "principle": "lean/Clock.lean"
+    },
+    {
+      "key": "residue_returns_step_does_not",
+      "lineAddress": "f8610c73-a203-8b69-b50f-62ae25841fbc",
+      "address": "0d83fcd0-d9f8-86de-907a-14a0f9fa4536",
+      "principle": "lean/Clock.lean"
+    },
+    {
+      "key": "gap_is_a_count",
+      "lineAddress": "11c7823a-ff00-83ba-b82b-eb24e8701801",
+      "address": "83a2382e-2738-858c-a981-fbf066824bfb",
+      "principle": "lean/Clock.lean"
+    },
+    {
+      "key": "advance_only_moves_forward",
+      "lineAddress": "66c3bc43-5222-8d9e-af61-f83b352f3680",
+      "address": "662e52ba-f086-8501-8b2b-d9e13aa06239",
+      "principle": "lean/Clock.lean"
+    },
+    {
+      "key": "order_is_total_and_strict",
+      "lineAddress": "b1f93386-eb53-8aae-8528-92a1e8668cd4",
+      "address": "8763a5b0-a26c-805d-9fcd-6ac6bb3a1259",
+      "principle": "lean/Clock.lean"
+    },
+    {
+      "key": "no_reading_enters_here",
+      "lineAddress": "f76e5a65-ab5a-8a6e-8ab1-74ae3cf1e078",
+      "address": "430202e7-39ad-8708-b29d-39f4827c9a5f",
+      "principle": "lean/Clock.lean"
+    },
+    {
+      "key": "contribution_leaves_one_twentysix",
+      "lineAddress": "b7af07bb-26d3-8083-8d15-98d437c17989",
+      "address": "93f0b889-eaee-842d-affa-6f8e72ee1916",
+      "principle": "lean/Contribution.lean"
+    },
+    {
+      "key": "coins_are_the_torus",
+      "lineAddress": "a9e1c4bd-8896-82be-a48e-091c968bc676",
+      "address": "910ea84f-9bf6-8693-a833-1f47108f06b3",
+      "principle": "lean/Contribution.lean"
+    },
+    {
+      "key": "directions_number_fortytwo",
+      "lineAddress": "98e8608a-d283-8e51-a323-a7eb89b7c930",
+      "address": "f74399ef-b764-8960-8655-0147bdc43844",
+      "principle": "lean/Contribution.lean"
+    },
+    {
+      "key": "residue_holds_three_grids",
+      "lineAddress": "78eb83cd-3ab1-815c-8333-27eb155b4bc3",
+      "address": "03009874-8005-8a36-9a9f-5d1e2eaf8621",
+      "principle": "lean/Contribution.lean"
+    },
+    {
+      "key": "six_factorisations_compete",
+      "lineAddress": "1c32b3de-7556-8478-a046-8b745bca5324",
+      "address": "a0e1f90e-122e-842a-a427-6f643ba92cee",
+      "principle": "lean/Contribution.lean"
+    },
+    {
+      "key": "taking_before_paying_differs",
+      "lineAddress": "24e063e1-9443-8e30-ba2f-84c3299e6d07",
+      "address": "3ec75fd9-b90e-80ae-84ad-2e218293d407",
+      "principle": "lean/Contribution.lean"
+    },
+    {
+      "key": "chi_measures_genus",
+      "lineAddress": "ead5714e-17f4-8f06-911f-ff369409c38c",
+      "address": "08533e0f-34cb-89e7-ba31-6242507cb2bc",
+      "principle": "lean/DoubleTorus.lean"
+    },
+    {
+      "key": "handles_give_generators",
+      "lineAddress": "37abe796-c377-89b4-906a-b1a164e1002c",
+      "address": "e9df801e-e95b-84c7-b5d9-98976eecde62",
+      "principle": "lean/DoubleTorus.lean"
+    },
+    {
+      "key": "presentation_counts_five",
+      "lineAddress": "053e296f-9e7c-8eac-b323-9e360de988d9",
+      "address": "97fa529a-77e1-8a27-982d-70dc1a040807",
+      "principle": "lean/DoubleTorus.lean"
+    },
+    {
+      "key": "step_costs_three",
+      "lineAddress": "e3fa55d9-21a9-8b0a-a02b-9f584c76e486",
+      "address": "835c0556-61d3-84d8-b69c-d16512ea4430",
+      "principle": "lean/DoubleTorus.lean"
+    },
+    {
+      "key": "words_outgrow_presentation",
+      "lineAddress": "918f8aa9-3d8c-8b05-ab13-e608ff70c77d",
+      "address": "72825824-650b-880d-bfbe-61dcf24b6611",
+      "principle": "lean/DoubleTorus.lean"
+    },
+    {
+      "key": "growth_is_not_bounded_here",
+      "lineAddress": "2bb1c856-4f23-829d-896e-3548d5a7a276",
+      "address": "fb7f9d09-4268-8aad-860c-588c25b1ec38",
+      "principle": "lean/DoubleTorus.lean"
+    },
+    {
+      "key": "decimal_asks_three",
+      "lineAddress": "d8a2e809-c512-8cf7-b4b7-5c56cee2ff2c",
+      "address": "95c7f845-d4ff-8ddf-bc6a-a2c28aad28e2",
+      "principle": "lean/Grid.lean"
+    },
+    {
+      "key": "hexadecimal_asks_five",
+      "lineAddress": "3e037545-2a75-8e15-9a6c-5e765ff301c0",
+      "address": "eafa130b-b62c-87e4-b97d-0287dfe2472a",
+      "principle": "lean/Grid.lean"
+    },
+    {
+      "key": "seventytwo_is_decimal_only",
+      "lineAddress": "991a586d-1dbb-8620-9523-2e9256cb0188",
+      "address": "d1bbaa1a-528b-80ce-a85f-d990994a7871",
+      "principle": "lean/Grid.lean"
+    },
+    {
+      "key": "reversal_fails_in_hexadecimal",
+      "lineAddress": "1d35ce37-3e3e-8fcf-9ccc-0fa6ef7179ac",
+      "address": "b5209dda-8373-8e47-941e-064616121f5d",
+      "principle": "lean/Grid.lean"
+    },
+    {
+      "key": "fifteen_satisfies_both",
+      "lineAddress": "f988b909-9942-8266-9a66-b30ae4763397",
+      "address": "e87a8a06-27f8-8d60-b304-dc5a5cffd174",
+      "principle": "lean/Grid.lean"
+    },
+    {
+      "key": "six_rays_stay_derived",
+      "lineAddress": "992f6f3c-2cb1-8393-9dc3-cc0eee1c6aa8",
+      "address": "72402ccd-10d1-8dff-a0af-9c6b8af3adae",
+      "principle": "lean/Grid.lean"
+    },
+    {
+      "key": "code_holds_sixteen_words",
+      "lineAddress": "a51066b2-66fb-818f-b5b0-740a9992410b",
+      "address": "13ba3e16-d902-8106-8964-9c5613a92f36",
+      "principle": "lean/Hamming.lean"
+    },
+    {
+      "key": "words_are_distinct",
+      "lineAddress": "7e984f42-b2af-8558-9c4e-d79609f7ae43",
+      "address": "70026c05-2e59-8493-ac6f-ebc0f36180d7",
+      "principle": "lean/Hamming.lean"
+    },
+    {
+      "key": "words_stand_three_apart",
+      "lineAddress": "c6d1873b-3931-8b34-9afa-26cc6baaeaf2",
+      "address": "9d06300c-d571-85eb-86a8-aee47a7866cf",
+      "principle": "lean/Hamming.lean"
+    },
+    {
+      "key": "weights_enumerate",
+      "lineAddress": "52b700a1-54ef-8d49-b92c-5713a3a70e52",
+      "address": "c5a79552-d086-8513-9ab8-551723f97d05",
+      "principle": "lean/Hamming.lean"
+    },
+    {
+      "key": "codewords_syndrome_zero",
+      "lineAddress": "30fa5926-77d8-8d51-8c86-ed9a4275af59",
+      "address": "20efaddc-d154-80ff-8a6f-3d462827dac6",
+      "principle": "lean/Hamming.lean"
+    },
+    {
+      "key": "syndrome_names_the_position",
+      "lineAddress": "40a308ad-04b7-88be-ad0f-b004a480fcca",
+      "address": "0844038f-4b81-8572-a2dc-bef239c37d31",
+      "principle": "lean/Hamming.lean"
+    },
+    {
+      "key": "handles_times_qubits",
+      "lineAddress": "e5f4865d-576c-8172-bca6-784a5bccb14e",
+      "address": "2c64ada3-0ab1-8f4f-a8e9-d305d34f95a1",
+      "principle": "lean/HandleSpan.lean"
+    },
+    {
+      "key": "exponents_add",
+      "lineAddress": "a114c37a-1a1a-8360-b223-20318526df9b",
+      "address": "ed8538cd-734d-88c5-9d79-293d282956f6",
+      "principle": "lean/HandleSpan.lean"
+    },
+    {
+      "key": "handle_spans_thirtytwo",
+      "lineAddress": "63d333ca-3ee3-8c06-b2e2-123500272dc1",
+      "address": "03fb6755-8f8d-82f8-9bbc-237b1de5880e",
+      "principle": "lean/HandleSpan.lean"
+    },
+    {
+      "key": "register_holds_amplitudes",
+      "lineAddress": "c54495c4-9ae1-877a-a228-5b7b3cf384cb",
+      "address": "10d3663d-8490-8423-bd06-6ce5d52defbf",
+      "principle": "lean/HandleSpan.lean"
+    },
+    {
+      "key": "total_exceeds_register",
+      "lineAddress": "3b90a789-f01e-898b-af93-4c0b1302f0e1",
+      "address": "4f5b29be-fdb7-812d-99e9-630e80a0726b",
+      "principle": "lean/HandleSpan.lean"
+    },
+    {
+      "key": "total_is_not_amplitudes",
+      "lineAddress": "d50c37f6-5b70-8a83-aef1-6ea7e190f7dc",
+      "address": "03332dd8-18e9-8dae-aef4-34015987dbe0",
+      "principle": "lean/HandleSpan.lean"
+    },
+    {
+      "key": "alphabet_names_each_nibble",
+      "lineAddress": "ae761a00-25c1-85b7-b982-8940da1ef284",
+      "address": "26d43440-428d-8970-a736-90a91507f9f6",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "layout_groups_thirtytwo",
+      "lineAddress": "2c116a75-ee49-8391-a1f3-c307fb91175b",
+      "address": "c4d2b7f4-dcdc-813e-8a21-66eb062e94fd",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "characters_span_the_address",
+      "lineAddress": "75d8053a-4133-89c4-8480-294138b29322",
+      "address": "456ce744-7306-891d-b4c2-ab222c47276f",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "handle_is_the_first_group",
+      "lineAddress": "cdaf421b-a89b-83c9-8f49-6e934f9e5b8f",
+      "address": "b778dd89-b4bd-83e0-8e76-474798d604fa",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "groups_are_four_apart",
+      "lineAddress": "b3e42c81-7a90-8205-96fe-f0e91e6a2ad1",
+      "address": "e1924ac0-a069-8478-a07a-1347d6f25b42",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "build_counts_in_hexbits",
+      "lineAddress": "1638bff9-4d9a-8941-9219-61e658f40a49",
+      "address": "a7b43509-2bc7-8ace-8a4e-b6c663c8a090",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "xor_preserves_distance",
+      "lineAddress": "bc1d7ae9-ffa0-8f54-9005-28128f71cd63",
+      "address": "a93bf5ba-f682-8a3f-88de-f8878dca4db4",
+      "principle": "lean/Isometry.lean"
+    },
+    {
+      "key": "reuse_leaks_by_isometry",
+      "lineAddress": "4940d60c-b462-8b36-99f2-42684ec8dfd0",
+      "address": "746ab8a0-9e0e-8140-8953-70c7f2b6d977",
+      "principle": "lean/Isometry.lean"
+    },
+    {
+      "key": "complement_flips_two",
+      "lineAddress": "0deff804-c939-8292-b193-124b302695a1",
+      "address": "4b4f16c4-76a0-8179-9799-72d17ec54ab2",
+      "principle": "lean/Isometry.lean"
+    },
+    {
+      "key": "codon_flips_six",
+      "lineAddress": "3271374a-0b20-87b0-850b-45697ba61eb3",
+      "address": "5aded7ec-e283-8686-969c-c8debeaab9dc",
+      "principle": "lean/Isometry.lean"
+    },
+    {
+      "key": "distance_is_symmetric",
+      "lineAddress": "7344e796-9709-8052-b398-69b28d5a5bc5",
+      "address": "4687658a-d485-8586-be43-a7dd3aa054c8",
+      "principle": "lean/Isometry.lean"
+    },
+    {
+      "key": "isometry_bounds_correction",
+      "lineAddress": "3de8010e-e3e3-87a8-8988-f9f359aeac51",
+      "address": "76a0a6f8-73cf-8a0a-83f2-3ebc1dcbea6a",
+      "principle": "lean/Isometry.lean"
+    },
+    {
+      "key": "ten_reduces_to_one",
+      "lineAddress": "525ec927-7b66-8103-ad66-eaf0cdab000c",
+      "address": "34ad8bb2-ab00-8e57-88a9-1b6a9679f352",
+      "principle": "lean/Notation.lean"
+    },
+    {
+      "key": "base_fixes_modulus",
+      "lineAddress": "cf0eca42-4b3f-801c-bc05-85b20298b22e",
+      "address": "72e8a913-400a-823d-86c3-aed534ebcc30",
+      "principle": "lean/Notation.lean"
+    },
+    {
+      "key": "bases_disagree_on_root",
+      "lineAddress": "a678b09b-2658-8c2c-9e37-0eaec0afdcff",
+      "address": "4293a613-165b-897a-abe0-e84bdcf0dc08",
+      "principle": "lean/Notation.lean"
+    },
+    {
+      "key": "reversal_escapes_arithmetic",
+      "lineAddress": "eb6be149-5ec6-85ef-a405-46c172e7402a",
+      "address": "044acdfc-f523-82bc-abeb-752d997e2f5f",
+      "principle": "lean/Notation.lean"
+    },
+    {
+      "key": "root_survives_the_reading",
+      "lineAddress": "a9e4bd65-d766-89ad-ab46-02f1f11fc165",
+      "address": "80d4b0ae-2097-8436-9e40-fdcddd38d1a4",
+      "principle": "lean/Notation.lean"
+    },
+    {
+      "key": "nine_divides_by_construction",
+      "lineAddress": "eb73a874-7534-8487-a602-04d3bf06f3fb",
+      "address": "6ef3763c-4174-8f85-a862-1669a89099fd",
+      "principle": "lean/Notation.lean"
+    },
+    {
+      "key": "orbit_0_1_2_3_4_5_6_7_8_9_closes",
+      "lineAddress": "0177a449-0dc2-87c6-9ba7-67a99dbb3a39",
+      "address": "f9b8157b-9d3d-8d5c-93f7-8a08a36feb0d",
+      "principle": "lean/Orbits.lean"
+    },
+    {
+      "key": "orbit_0_1_3_4_5_6_7_9_closes",
+      "lineAddress": "8b7348aa-ebfb-8d53-a581-220e7346d78b",
+      "address": "adad8cd1-cbf6-817c-81d1-80815aaf9c0b",
+      "principle": "lean/Orbits.lean"
+    },
+    {
+      "key": "orbit_0_1_3_5_7_9_closes",
+      "lineAddress": "99aa8602-55a7-8c40-b407-6037438355fc",
+      "address": "1447898d-1bad-89d2-8832-9e03a9deb0d4",
+      "principle": "lean/Orbits.lean"
+    },
+    {
+      "key": "orbit_0_1_5_9_closes",
+      "lineAddress": "c65f161c-d443-8502-9b27-bf7e533c8656",
+      "address": "6ef041bd-77b2-86c8-bebf-19fcb35533cc",
+      "principle": "lean/Orbits.lean"
+    },
+    {
+      "key": "orbit_0_1_9_closes",
+      "lineAddress": "ce67887b-7b1e-8894-8e50-6f8c42402c59",
+      "address": "e1e37005-76b6-8bea-8219-e27fa7baf4b9",
+      "principle": "lean/Orbits.lean"
+    },
+    {
+      "key": "orbit_0_closes",
+      "lineAddress": "431edbec-16b1-8ef8-98d2-84c46fd5ddb9",
+      "address": "e81fbcbf-d04d-8d24-a69d-49e0dd9d6004",
+      "principle": "lean/Orbits.lean"
+    },
+    {
+      "key": "orbits_number_and_orders",
+      "lineAddress": "4b0aff46-ba74-80f0-abfa-b94891fe2492",
+      "address": "e07be0ad-0b16-8a29-8f7b-bd87572f6e94",
+      "principle": "lean/Orbits.lean"
+    },
+    {
+      "key": "every_seed_lands_somewhere",
+      "lineAddress": "db8785c7-6bf5-8776-900c-c227de5f0c1a",
+      "address": "24abbea8-a7ba-88f0-a1e8-7751119a5e1e",
+      "principle": "lean/Orbits.lean"
+    },
+    {
+      "key": "covering_seeds_are_named",
+      "lineAddress": "ee9537ef-54f2-8fb9-a58a-2df0f080f5cc",
+      "address": "f00ad8a6-d1c8-87a8-9a56-21697b93f508",
+      "principle": "lean/Orbits.lean"
+    },
+    {
+      "key": "dz_loses_nothing",
+      "lineAddress": "93190a31-1567-8fd1-8c79-44e054d45987",
+      "address": "8df168de-703b-8efb-93b8-601e0f9905d1",
+      "principle": "lean/Phase.lean"
+    },
+    {
+      "key": "doubling_collapses_nine",
+      "lineAddress": "6880f8d1-8c8d-8814-bdc0-a5feeee73f20",
+      "address": "70c49015-6174-8700-9f2e-ac93622a1f70",
+      "principle": "lean/Phase.lean"
+    },
+    {
+      "key": "maps_differ_in_reach",
+      "lineAddress": "9fd9816c-e5ed-85ce-ae9a-ef30058c2d7e",
+      "address": "4ced2a31-a93c-8db4-b9d9-25af75bf6585",
+      "principle": "lean/Phase.lean"
+    },
+    {
+      "key": "zero_closes_in_phase",
+      "lineAddress": "972f66a3-0e97-8e55-b4a6-f1702930a6eb",
+      "address": "846ff86c-7e0f-87ad-be2a-9aebb18da018",
+      "principle": "lean/Phase.lean"
+    },
+    {
+      "key": "five_returns_out_of_phase",
+      "lineAddress": "527b3bcb-cab2-81d7-83af-e21fe0a5c7e8",
+      "address": "f2b0d2d0-171f-8d78-bc70-a8ced5ea0bbe",
+      "principle": "lean/Phase.lean"
+    },
+    {
+      "key": "reach_shrinks_each_pass",
+      "lineAddress": "53b17eb3-14e5-8b9a-b6a1-9db21e4fa807",
+      "address": "9eca9b1a-9d00-85bb-865f-5aaecf098e9c",
+      "principle": "lean/Phase.lean"
+    },
+    {
+      "key": "orbits_number_six",
+      "lineAddress": "25a6418c-c61c-8792-9145-60ff22cfff87",
+      "address": "b952f04f-0a13-802a-8dcd-d03ff467ba63",
+      "principle": "lean/ProseTrial.lean"
+    },
+    {
+      "key": "order_measures_orbit",
+      "lineAddress": "35f05a06-fe34-8782-b70d-5113e4b5079d",
+      "address": "e5cbb88b-9e95-859f-aaf7-0ae5d743786a",
+      "principle": "lean/ProseTrial.lean"
+    },
+    {
+      "key": "forged_order_refused",
+      "lineAddress": "a21255dd-8252-89d9-a942-02fd4d42aa0d",
+      "address": "99c108c5-0670-8167-832f-8c932dfe09d4",
+      "principle": "lean/ProseTrial.lean"
+    },
+    {
+      "key": "orbits_reflect_onto_themselves",
+      "lineAddress": "295e186a-9768-895c-8dc7-253d028c7359",
+      "address": "19a7e171-f555-80ff-9fc1-d676c131a79d",
+      "principle": "lean/ProseTrial.lean"
+    },
+    {
+      "key": "orbits_are_distinct",
+      "lineAddress": "91e5a519-dd36-8b28-89a4-b8e8278f1226",
+      "address": "04429592-b435-85df-bc8a-43737ce73b60",
+      "principle": "lean/ProseTrial.lean"
+    },
+    {
+      "key": "every_orbit_holds_zero",
+      "lineAddress": "68ead2ec-35aa-83bd-9695-bb3cd519b6f9",
+      "address": "b6fac6a1-67ad-84f0-b36f-150ef9726257",
+      "principle": "lean/ProseTrial.lean"
+    },
+    {
+      "key": "reflection_splits_six",
+      "lineAddress": "5cc2ac21-57de-8663-8a7e-47040723400f",
+      "address": "3f22bf19-39b8-8e6f-ad99-107c24190d2d",
+      "principle": "lean/Reflection.lean"
+    },
+    {
+      "key": "classes_cap_at_two",
+      "lineAddress": "c686d1a7-e484-8714-b389-3d17b5945d7f",
+      "address": "17b0fb29-c6f1-80d9-b508-342d7b0f1c03",
+      "principle": "lean/Reflection.lean"
+    },
+    {
+      "key": "six_is_forced_arithmetic",
+      "lineAddress": "488390f9-a7b3-85d0-b103-2b634ffff966",
+      "address": "59cc3f52-28bd-8448-bc3e-d30bde92c829",
+      "principle": "lean/Reflection.lean"
+    },
+    {
+      "key": "seven_reach_five_classes",
+      "lineAddress": "959a2a62-9f3e-8045-a0e8-d81b45a0a66f",
+      "address": "06ca32bb-5da9-868f-985f-4d427ddd9201",
+      "principle": "lean/Reflection.lean"
+    },
+    {
+      "key": "reflection_confuses_seven_three",
+      "lineAddress": "837d4594-a40a-89ec-8d83-ea5bd5420ca7",
+      "address": "8f11351a-4aa1-8e74-9ebf-b622a6573c88",
+      "principle": "lean/Reflection.lean"
+    },
+    {
+      "key": "seventh_covers_reflection_cannot",
+      "lineAddress": "06b6cfad-0b59-8607-8a1f-5aa3d6bf3e0e",
+      "address": "dc15f102-b3bd-8dfe-946e-bf704f329763",
+      "principle": "lean/Reflection.lean"
+    },
+    {
+      "key": "reflection_reverses_uniquely",
+      "lineAddress": "cb258834-335f-82f3-b2dc-4ba23cd22e22",
+      "address": "1c0db4c2-4e51-8d86-a1cf-ffb0fb9e8b46",
+      "principle": "lean/Reversal.lean"
+    },
+    {
+      "key": "doubling_reverses_ambiguously",
+      "lineAddress": "5d4e763a-4cef-85c6-a002-3b3319d65666",
+      "address": "685e68fd-2a88-8ad7-b421-7f671d0cc4ba",
+      "principle": "lean/Reversal.lean"
+    },
+    {
+      "key": "nine_is_never_reached",
+      "lineAddress": "96ebed2f-00bf-84a0-945f-45b5a8e6cd21",
+      "address": "ab65873e-55a9-8769-89f0-d8395d7fa178",
+      "principle": "lean/Reversal.lean"
+    },
+    {
+      "key": "censuses_differ",
+      "lineAddress": "41a32ab6-b250-8eb8-942a-edadcbb8f596",
+      "address": "45fed086-6957-89be-aaa5-e8a290fce7dd",
+      "principle": "lean/Reversal.lean"
+    },
+    {
+      "key": "path_reverse_needs_both",
+      "lineAddress": "9e26188c-2b97-862f-ace4-ff807ad60e3c",
+      "address": "e5eb6f5f-9917-81d4-9e8f-8d71c3324cb9",
+      "principle": "lean/Reversal.lean"
+    },
+    {
+      "key": "reflection_explores_all",
+      "lineAddress": "135be310-1049-80c1-8715-bf605dbf4976",
+      "address": "9a32d60c-8986-87dc-98b3-0e6364e01c91",
+      "principle": "lean/Reversal.lean"
+    },
+    {
+      "key": "fullest_seat_ceiling",
+      "lineAddress": "a8560d63-df9f-8e56-9ed3-60c9d9fd2106",
+      "address": "d345c417-4282-8804-b0d9-083dc84ba573",
+      "principle": "lean/Seats.lean"
+    },
+    {
+      "key": "excess_forces_sharing",
+      "lineAddress": "c354adf7-4f15-8539-83cf-04a9a68d05ed",
+      "address": "dc86fe6e-2b71-80c5-8711-7d57229e7863",
+      "principle": "lean/Seats.lean"
+    },
+    {
+      "key": "fit_shares_nothing",
+      "lineAddress": "786be7ae-f5d8-89ed-bc32-a82ecd2ecc70",
+      "address": "8a13920b-a9e0-8f12-9b49-18d42fe59885",
+      "principle": "lean/Seats.lean"
+    },
+    {
+      "key": "powers_are_not_the_bound",
+      "lineAddress": "65099200-d10e-82d2-a03e-a15a365ef4c3",
+      "address": "177c819a-9ae2-8c5c-a5ac-fa5708694971",
+      "principle": "lean/Seats.lean"
+    },
+    {
+      "key": "digits_split_five_five",
+      "lineAddress": "0a869d13-cfd0-8587-91b9-9badfe162e6f",
+      "address": "ce4ff8a9-a31c-8c39-bfda-e5d29111aee8",
+      "principle": "lean/Seats.lean"
+    },
+    {
+      "key": "ten_seats_bound_any_ring",
+      "lineAddress": "9dea5987-2c94-8fc7-80d5-04d2b736d0ba",
+      "address": "155ae4a5-bb1b-809a-a17e-733dacb7d448",
+      "principle": "lean/Seats.lean"
+    },
+    {
+      "key": "colour_is_six_hexbits",
+      "lineAddress": "21709568-04d5-851a-95c7-533a5fed7e82",
+      "address": "3222293d-e79c-86c4-bee9-0a3366e18001",
+      "principle": "lean/SpectrumHex.lean"
+    },
+    {
+      "key": "channel_is_two_hexbits",
+      "lineAddress": "f8823a37-6ffb-8728-a6dc-d5548aba1d68",
+      "address": "e9adc9d8-5e74-83b2-a8ef-cd48838b8955",
+      "principle": "lean/SpectrumHex.lean"
+    },
+    {
+      "key": "greys_are_one_in_sixtyfive_thousand",
+      "lineAddress": "733b3146-6474-8d2e-be14-01b5ab3555f8",
+      "address": "7a2dea79-76a8-8906-9649-2ff0540e1b2b",
+      "principle": "lean/SpectrumHex.lean"
+    },
+    {
+      "key": "shorthand_covers_one_in_four_thousand",
+      "lineAddress": "acc30943-74d0-8cfe-8c52-449406349f78",
+      "address": "337359f0-ded1-81ca-af70-a170c208e3b2",
+      "principle": "lean/SpectrumHex.lean"
+    },
+    {
+      "key": "spectrum_refuses_sixteen",
+      "lineAddress": "ebb23b67-47b3-86e6-b431-a9a091c306c5",
+      "address": "859b51d2-fbbf-8ff9-9cc7-7d8973fa05ce",
+      "principle": "lean/SpectrumHex.lean"
+    },
+    {
+      "key": "wheel_divides_by_nine_and_six",
+      "lineAddress": "761e047b-9da3-889a-a505-8fe51644d76c",
+      "address": "827c1b2b-5604-80bd-a730-d1b006a17a61",
+      "principle": "lean/SpectrumHex.lean"
+    },
+    {
+      "key": "units_form_six",
+      "lineAddress": "ce45c5a6-9169-81a9-920d-3563fe1a73ef",
+      "address": "f31fd6d1-5209-8ed3-99f5-8ef2becdf838",
+      "principle": "lean/Subgroups.lean"
+    },
+    {
+      "key": "four_subgroups_exhibited",
+      "lineAddress": "65357b23-2214-8b9f-863f-5904296cd047",
+      "address": "4bdec332-bb13-877c-b003-8309abba87a4",
+      "principle": "lean/Subgroups.lean"
+    },
+    {
+      "key": "lagrange_divides_every_order",
+      "lineAddress": "87f6a750-8cd9-82c1-a968-27049f140aee",
+      "address": "32b956fe-396b-8c51-b9c1-a791e9f7f53d",
+      "principle": "lean/Subgroups.lean"
+    },
+    {
+      "key": "two_generates_the_whole",
+      "lineAddress": "cb8823e1-730f-8209-83de-8ee9132586ce",
+      "address": "fc05c9bd-39a5-8cb2-89a9-907fa1b50ec3",
+      "principle": "lean/Subgroups.lean"
+    },
+    {
+      "key": "most_subsets_are_not_subgroups",
+      "lineAddress": "122a14de-ee82-86f4-9b1a-07b4482dd666",
+      "address": "7eb0a7a6-a4dc-8bee-9ff1-0ea0a1e58b19",
+      "principle": "lean/Subgroups.lean"
+    },
+    {
+      "key": "trivial_and_whole_always_hold",
+      "lineAddress": "32f31d14-3592-8716-95c7-6ccd8edb7ab9",
+      "address": "86a922c0-30c9-8383-9aec-36cbc10b74b8",
+      "principle": "lean/Subgroups.lean"
+    },
+    {
+      "key": "trinities_span_powers",
+      "lineAddress": "b13daa21-8d06-880a-8b24-874b305494e3",
+      "address": "cd19de9c-29f0-8874-9fdc-73ef55162678",
+      "principle": "lean/Trinities.lean"
+    },
+    {
+      "key": "trinity_exceeds_qubit",
+      "lineAddress": "873b5f0c-d89c-8e6f-a2b5-38ddd20fb24d",
+      "address": "7fcf294f-4f88-8336-80a8-1824a85a999e",
+      "principle": "lean/Trinities.lean"
+    },
+    {
+      "key": "trinities_cover_billion",
+      "lineAddress": "a790fd76-ebe1-881d-8961-41906c2ce34d",
+      "address": "4c3b2605-0cc3-8008-81d1-ec6fbd53e7ba",
+      "principle": "lean/Trinities.lean"
+    },
+    {
+      "key": "trinities_cover_word",
+      "lineAddress": "faf916c0-86cd-8780-8080-54a1b5732bc7",
+      "address": "911977cc-1d2b-821e-b765-b3e7c6452b8f",
+      "principle": "lean/Trinities.lean"
+    },
+    {
+      "key": "trinities_cover_address",
+      "lineAddress": "0444012c-baab-8826-aa28-9bf7a0c32cd5",
+      "address": "55734dfe-16fd-824f-83c2-fc4d995a5ac6",
+      "principle": "lean/Trinities.lean"
+    },
+    {
+      "key": "eightyone_squares_nine",
+      "lineAddress": "09d130b1-ccb5-813b-a03d-a6f290c7c6bb",
+      "address": "12e3337d-3c1f-8847-ae51-c2684ef472fb",
+      "principle": "lean/Trinities.lean"
     }
   ],
-  "claim_receipt": "71792b57-9f05-8bb2-91bd-0240f1edca6c",
+  "claim_receipt": "9fb87b3a-b388-86ec-91a1-509cd92d12fb",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress), not a hand-picked bucket",

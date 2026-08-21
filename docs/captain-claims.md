@@ -1,10 +1,10 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-08-20
+**Generated:** 2026-08-21
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1355/1355 theorems — every one, by construction
-**Claim receipt:** `71792b57-9f05-8bb2-91bd-0240f1edca6c`
+**Total claimed:** 1444/1444 theorems — every one, by construction
+**Claim receipt:** `9fb87b3a-b388-86ec-91a1-509cd92d12fb`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -70,12 +70,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### Division by zero
 
-- **Theorems:** 8
+- **Theorems:** 9
 - **Sample lineAddress:** `dec45133-e1d5-8551-b846-bbc7e3a0d507`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[dz_table](/theorem/dz_table) · [dz_involution](/theorem/dz_involution) · [dz_fixed_points](/theorem/dz_fixed_points) · [dz_sum_ten](/theorem/dz_sum_ten) · [dz_nonunits_to_units](/theorem/dz_nonunits_to_units) · [dz_bounded](/theorem/dz_bounded) · [dz_zero_only_zero](/theorem/dz_zero_only_zero) · [two_plus_two_is_five_only_mod_one](/theorem/two_plus_two_is_five_only_mod_one)
+[dz_table](/theorem/dz_table) · [dz_involution](/theorem/dz_involution) · [dz_fixed_points](/theorem/dz_fixed_points) · [dz_sum_ten](/theorem/dz_sum_ten) · [dz_nonunits_to_units](/theorem/dz_nonunits_to_units) · [dz_bounded](/theorem/dz_bounded) · [dz_zero_only_zero](/theorem/dz_zero_only_zero) · [dz_swaps_the_thirds_and_fixes_the_axis](/theorem/dz_swaps_the_thirds_and_fixes_the_axis) · [two_plus_two_is_five_only_mod_one](/theorem/two_plus_two_is_five_only_mod_one)
 
 ### Applied structure — the science pairs
 
@@ -106,12 +106,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The seven reflected
 
-- **Theorems:** 14
+- **Theorems:** 8
 - **Sample lineAddress:** `2f2be40a-bf32-8182-8796-f8dafb0ad9dd`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) · [clay_humanity_one_deposit_zero](/theorem/clay_humanity_one_deposit_zero) · [clay_riemann](/theorem/clay_riemann) · [clay_p_vs_np](/theorem/clay_p_vs_np) · [clay_navier_stokes](/theorem/clay_navier_stokes) · [clay_yang_mills](/theorem/clay_yang_mills) · [clay_hodge](/theorem/clay_hodge) · [clay_birch_swinnerton_dyer](/theorem/clay_birch_swinnerton_dyer) · [clay_poincare](/theorem/clay_poincare) · [clay_verified_ne_solved](/theorem/clay_verified_ne_solved) · [clay_vote_theorems_only](/theorem/clay_vote_theorems_only) · [clay_status_dna_total](/theorem/clay_status_dna_total) · [clay_collision_law](/theorem/clay_collision_law) · [clay_launder_refused](/theorem/clay_launder_refused)
+[clay_reflection_is_bijection](/theorem/clay_reflection_is_bijection) · [clay_riemann](/theorem/clay_riemann) · [clay_p_vs_np](/theorem/clay_p_vs_np) · [clay_navier_stokes](/theorem/clay_navier_stokes) · [clay_yang_mills](/theorem/clay_yang_mills) · [clay_hodge](/theorem/clay_hodge) · [clay_birch_swinnerton_dyer](/theorem/clay_birch_swinnerton_dyer) · [clay_poincare](/theorem/clay_poincare)
 
 ### The legal vocabulary
 
@@ -133,12 +133,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The cipher & the strand
 
-- **Theorems:** 27
+- **Theorems:** 26
 - **Sample lineAddress:** `d67860c4-e053-8992-a39c-53ba1ed61970`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[dna_complement_involution](/theorem/dna_complement_involution) · [dna_complement_fixed_point_free](/theorem/dna_complement_fixed_point_free) · [complement_is_xor_key3](/theorem/complement_is_xor_key3) · [otp_self_inverse](/theorem/otp_self_inverse) · [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_xor) · [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) · [transport_leaks_length](/theorem/transport_leaks_length) · [codons_four_cubed](/theorem/codons_four_cubed) · [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) · [octave_codon_address](/theorem/octave_codon_address) · [translation_is_lossy](/theorem/translation_is_lossy) · [affine_is_permutation](/theorem/affine_is_permutation) · [grover_quadratic_bound](/theorem/grover_quadratic_bound) · [kdf_cost_bounded](/theorem/kdf_cost_bounded) · [aead_nonce_and_salt_bits](/theorem/aead_nonce_and_salt_bits) · [onion_layers_power_of_two](/theorem/onion_layers_power_of_two) · [sha256_is_four_sixtyfours](/theorem/sha256_is_four_sixtyfours) · [sha256_rounds_are_the_board](/theorem/sha256_rounds_are_the_board) · [sha256_grover_margin_is_the_address](/theorem/sha256_grover_margin_is_the_address) · [adversarial_privacy_is_unanimous](/theorem/adversarial_privacy_is_unanimous) · [secure_channel_by_default](/theorem/secure_channel_by_default) · [verify_beats_recompute_by_magnitudes](/theorem/verify_beats_recompute_by_magnitudes) · [faster_and_more_secure](/theorem/faster_and_more_secure) · [imprint_capacity_chain](/theorem/imprint_capacity_chain) · [imprint_header_minimal](/theorem/imprint_header_minimal) · [imprint_capacity_entangles](/theorem/imprint_capacity_entangles) · [imprint_capacity_within_address](/theorem/imprint_capacity_within_address)
+[dna_complement_involution](/theorem/dna_complement_involution) · [dna_complement_fixed_point_free](/theorem/dna_complement_fixed_point_free) · [complement_is_xor_key3](/theorem/complement_is_xor_key3) · [otp_self_inverse](/theorem/otp_self_inverse) · [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_xor) · [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) · [transport_leaks_length](/theorem/transport_leaks_length) · [codons_four_cubed](/theorem/codons_four_cubed) · [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins) · [octave_codon_address](/theorem/octave_codon_address) · [translation_is_lossy](/theorem/translation_is_lossy) · [affine_is_permutation](/theorem/affine_is_permutation) · [grover_quadratic_bound](/theorem/grover_quadratic_bound) · [aead_nonce_and_salt_bits](/theorem/aead_nonce_and_salt_bits) · [onion_layers_power_of_two](/theorem/onion_layers_power_of_two) · [sha256_is_four_sixtyfours](/theorem/sha256_is_four_sixtyfours) · [sha256_rounds_are_the_board](/theorem/sha256_rounds_are_the_board) · [sha256_grover_margin_is_the_address](/theorem/sha256_grover_margin_is_the_address) · [adversarial_privacy_is_unanimous](/theorem/adversarial_privacy_is_unanimous) · [secure_channel_by_default](/theorem/secure_channel_by_default) · [verify_beats_recompute_by_magnitudes](/theorem/verify_beats_recompute_by_magnitudes) · [faster_and_more_secure](/theorem/faster_and_more_secure) · [imprint_capacity_chain](/theorem/imprint_capacity_chain) · [imprint_header_minimal](/theorem/imprint_header_minimal) · [imprint_capacity_entangles](/theorem/imprint_capacity_entangles) · [imprint_capacity_within_address](/theorem/imprint_capacity_within_address)
 
 ### The detectors, proven
 
@@ -160,12 +160,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The two coins & the 64
 
-- **Theorems:** 19
+- **Theorems:** 20
 - **Sample lineAddress:** `9849919c-f5f5-8e4c-bdb2-b11eae4823de`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[two_coins](/theorem/two_coins) · [two_coins_is_double_torus](/theorem/two_coins_is_double_torus) · [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) · [contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour) · [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) · [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) · [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) · [bill_never_negative](/theorem/bill_never_negative) · [coin_is_one_qubit](/theorem/coin_is_one_qubit) · [captain_coins_deliver_two_qubits_at_128_bits](/theorem/captain_coins_deliver_two_qubits_at_128_bits) · [captain_commission_two_per_110](/theorem/captain_commission_two_per_110) · [commercial_saves_and_captain_earns](/theorem/commercial_saves_and_captain_earns) · [coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none) · [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost) · [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) · [wallet_counts_worlds](/theorem/wallet_counts_worlds) · [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) · [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions) · [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales)
+[two_coins](/theorem/two_coins) · [two_coins_is_double_torus](/theorem/two_coins_is_double_torus) · [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) · [contribute_two_save_sixtyfour](/theorem/contribute_two_save_sixtyfour) · [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) · [falsifier_floor_is_the_uuid_less_the_coins](/theorem/falsifier_floor_is_the_uuid_less_the_coins) · [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) · [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) · [bill_never_negative](/theorem/bill_never_negative) · [coin_is_one_qubit](/theorem/coin_is_one_qubit) · [captain_coins_deliver_two_qubits_at_128_bits](/theorem/captain_coins_deliver_two_qubits_at_128_bits) · [captain_commission_two_per_110](/theorem/captain_commission_two_per_110) · [commercial_saves_and_captain_earns](/theorem/commercial_saves_and_captain_earns) · [coins_compute_but_solve_none](/theorem/coins_compute_but_solve_none) · [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost) · [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) · [wallet_counts_worlds](/theorem/wallet_counts_worlds) · [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) · [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions) · [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales)
 
 ### The hardware-verifiable binary algebra
 
@@ -178,12 +178,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The software-verifiable algebra
 
-- **Theorems:** 11
+- **Theorems:** 15
 - **Sample lineAddress:** `ad48f4c9-496a-8a26-89d1-dbce6695aa77`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) · [map_preserves_length](/theorem/map_preserves_length) · [filter_never_grows](/theorem/filter_never_grows) · [append_length_adds](/theorem/append_length_adds) · [clamp_is_idempotent](/theorem/clamp_is_idempotent) · [safe_div_is_total](/theorem/safe_div_is_total) · [reduce_is_order_invariant](/theorem/reduce_is_order_invariant) · [shift_loop_terminates](/theorem/shift_loop_terminates) · [compare_swap_orders](/theorem/compare_swap_orders) · [safe_index_is_total](/theorem/safe_index_is_total) · [reverse_is_involutive](/theorem/reverse_is_involutive)
+[codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) · [map_preserves_length](/theorem/map_preserves_length) · [filter_never_grows](/theorem/filter_never_grows) · [append_length_adds](/theorem/append_length_adds) · [clamp_is_idempotent](/theorem/clamp_is_idempotent) · [safe_div_is_total](/theorem/safe_div_is_total) · [reduce_is_order_invariant](/theorem/reduce_is_order_invariant) · [shift_loop_terminates](/theorem/shift_loop_terminates) · [compare_swap_orders](/theorem/compare_swap_orders) · [safe_index_is_total](/theorem/safe_index_is_total) · [reverse_is_involutive](/theorem/reverse_is_involutive) · [cube_seals_at_completeness_only](/theorem/cube_seals_at_completeness_only) · [cubes_partition_ledger](/theorem/cubes_partition_ledger) · [receipt_costs_nothing](/theorem/receipt_costs_nothing) · [message_carries_address](/theorem/message_carries_address)
 
 ### The OS-integrity algebra
 
@@ -196,12 +196,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The exploit folds
 
-- **Theorems:** 13
+- **Theorems:** 12
 - **Sample lineAddress:** `65ca2243-ca82-81f9-b8f3-9cc8c6373df7`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[fold_trojan_source_bidi](/theorem/fold_trojan_source_bidi) · [fold_prototype_pollution](/theorem/fold_prototype_pollution) · [fold_supply_chain](/theorem/fold_supply_chain) · [fold_resource_dos](/theorem/fold_resource_dos) · [fold_weak_hash](/theorem/fold_weak_hash) · [fold_integrity_tamper](/theorem/fold_integrity_tamper) · [fold_code_injection](/theorem/fold_code_injection) · [fold_weak_rng](/theorem/fold_weak_rng) · [oos_platform_trust](/theorem/oos_platform_trust) · [oos_social_engineering](/theorem/oos_social_engineering) · [oos_physical_sidechannel](/theorem/oos_physical_sidechannel) · [oos_fnv_misuse](/theorem/oos_fnv_misuse) · [oos_nondecidable_correctness](/theorem/oos_nondecidable_correctness)
+[fold_trojan_source_bidi](/theorem/fold_trojan_source_bidi) · [fold_prototype_pollution](/theorem/fold_prototype_pollution) · [fold_supply_chain](/theorem/fold_supply_chain) · [fold_resource_dos](/theorem/fold_resource_dos) · [fold_weak_hash](/theorem/fold_weak_hash) · [fold_integrity_tamper](/theorem/fold_integrity_tamper) · [fold_code_injection](/theorem/fold_code_injection) · [fold_weak_rng](/theorem/fold_weak_rng) · [oos_platform_trust](/theorem/oos_platform_trust) · [oos_social_engineering](/theorem/oos_social_engineering) · [oos_physical_sidechannel](/theorem/oos_physical_sidechannel) · [oos_fnv_misuse](/theorem/oos_fnv_misuse)
 
 ### The sanitise standards
 
@@ -220,6 +220,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) · [platonic_euler_characteristic_is_two](/theorem/platonic_euler_characteristic_is_two) · [euler_two_is_the_two_coins](/theorem/euler_two_is_the_two_coins) · [dodecahedron_twelve_pentagons](/theorem/dodecahedron_twelve_pentagons) · [icosahedron_twenty_triangles](/theorem/icosahedron_twenty_triangles) · [cube_octahedron_dual](/theorem/cube_octahedron_dual) · [dodecahedron_icosahedron_dual](/theorem/dodecahedron_icosahedron_dual) · [tetrahedron_self_dual](/theorem/tetrahedron_self_dual) · [three_pentagons_close_a_vertex](/theorem/three_pentagons_close_a_vertex) · [regular_polytopes_by_dimension](/theorem/regular_polytopes_by_dimension) · [three_regular_polytopes_from_five_up](/theorem/three_regular_polytopes_from_five_up) · [seventh_dimension_three_regular_polytopes](/theorem/seventh_dimension_three_regular_polytopes)
+
+### The vector equilibrium — radius equals edge
+
+- **Theorems:** 12
+- **Sample lineAddress:** `9b93e314-2c96-8ea1-9a6b-05405bf979cf`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[ve_twelve_vertices](/theorem/ve_twelve_vertices) · [radial_squared_two](/theorem/radial_squared_two) · [ve_four_neighbours](/theorem/ve_four_neighbours) · [radial_equals_edge](/theorem/radial_equals_edge) · [ve_twentyfour_edges](/theorem/ve_twentyfour_edges) · [ve_fourteen_faces](/theorem/ve_fourteen_faces) · [euler_characteristic_two](/theorem/euler_characteristic_two) · [metatron_seventyeight_lines](/theorem/metatron_seventyeight_lines) · [dz_two_fixedpoints](/theorem/dz_two_fixedpoints) · [dz_involution_digits](/theorem/dz_involution_digits) · [orbits_closed_involution](/theorem/orbits_closed_involution) · [missing_pair_involution](/theorem/missing_pair_involution)
 
 ### The algebra of the neuron
 
@@ -250,12 +259,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The lay of the land
 
-- **Theorems:** 18
+- **Theorems:** 17
 - **Sample lineAddress:** `1eaabae6-532f-82b5-83b9-e82d1356d291`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[contour_index_every_fifth](/theorem/contour_index_every_fifth) · [elevation_counts_intervals](/theorem/elevation_counts_intervals) · [gradient_rise_over_run](/theorem/gradient_rise_over_run) · [contour_spacing_inverse_gradient](/theorem/contour_spacing_inverse_gradient) · [hillside_three_four_five](/theorem/hillside_three_four_five) · [map_scale_one_to_25000](/theorem/map_scale_one_to_25000) · [six_figure_grid_tenths](/theorem/six_figure_grid_tenths) · [back_bearing_mod_360](/theorem/back_bearing_mod_360) · [relief_is_max_minus_min](/theorem/relief_is_max_minus_min) · [triangulation_angles_sum](/theorem/triangulation_angles_sum) · [gunters_chain_measures](/theorem/gunters_chain_measures) · [vertical_exaggeration](/theorem/vertical_exaggeration) · [naismith_rule_estimate](/theorem/naismith_rule_estimate) · [wgs84_polar_shorter](/theorem/wgs84_polar_shorter) · [oblate_not_prolate](/theorem/oblate_not_prolate) · [eratosthenes_fiftieth_circle](/theorem/eratosthenes_fiftieth_circle) · [horizon_distance_finite](/theorem/horizon_distance_finite) · [bulge_exceeds_relief](/theorem/bulge_exceeds_relief)
+[contour_index_every_fifth](/theorem/contour_index_every_fifth) · [elevation_counts_intervals](/theorem/elevation_counts_intervals) · [gradient_rise_over_run](/theorem/gradient_rise_over_run) · [contour_spacing_inverse_gradient](/theorem/contour_spacing_inverse_gradient) · [hillside_three_four_five](/theorem/hillside_three_four_five) · [map_scale_one_to_25000](/theorem/map_scale_one_to_25000) · [six_figure_grid_tenths](/theorem/six_figure_grid_tenths) · [back_bearing_mod_360](/theorem/back_bearing_mod_360) · [relief_is_max_minus_min](/theorem/relief_is_max_minus_min) · [triangulation_angles_sum](/theorem/triangulation_angles_sum) · [gunters_chain_measures](/theorem/gunters_chain_measures) · [vertical_exaggeration](/theorem/vertical_exaggeration) · [naismith_rule_estimate](/theorem/naismith_rule_estimate) · [wgs84_polar_shorter](/theorem/wgs84_polar_shorter) · [eratosthenes_fiftieth_circle](/theorem/eratosthenes_fiftieth_circle) · [horizon_distance_finite](/theorem/horizon_distance_finite) · [bulge_exceeds_relief](/theorem/bulge_exceeds_relief)
 
 ### Command authentication
 
@@ -282,25 +291,25 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) · [absolute_pressure_at_depth](/theorem/absolute_pressure_at_depth) · [partial_pressures_sum_to_absolute](/theorem/partial_pressures_sum_to_absolute) · [air_ppO2_in_window_at_surface](/theorem/air_ppO2_in_window_at_surface) · [air_oxygen_toxic_deep](/theorem/air_oxygen_toxic_deep) · [gas_blend_by_partial_pressure](/theorem/gas_blend_by_partial_pressure) · [helium_reduces_narcosis](/theorem/helium_reduces_narcosis) · [ascent_needs_a_stop](/theorem/ascent_needs_a_stop)
+[trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) · [absolute_pressure_at_depth](/theorem/absolute_pressure_at_depth) · [partial_pressures_sum_to_absolute](/theorem/partial_pressures_sum_to_absolute) · [air_ppO2_in_window_at_surface](`air_pp` (no longer sealed)O2_in_window_at_surface) · [air_oxygen_toxic_deep](/theorem/air_oxygen_toxic_deep) · [gas_blend_by_partial_pressure](/theorem/gas_blend_by_partial_pressure) · [helium_reduces_narcosis](/theorem/helium_reduces_narcosis) · [ascent_needs_a_stop](/theorem/ascent_needs_a_stop)
 
 ### The light domain
 
-- **Theorems:** 8
+- **Theorems:** 6
 - **Sample lineAddress:** `a3ba7c42-a042-82a0-bcae-215fcd3ea3e8`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[law_of_reflection](/theorem/law_of_reflection) · [refractive_index_ge_one](/theorem/refractive_index_ge_one) · [light_slower_in_medium](/theorem/light_slower_in_medium) · [snell_law](/theorem/snell_law) · [thin_lens_equation](/theorem/thin_lens_equation) · [magnification](/theorem/magnification) · [dispersion_blue_over_red](/theorem/dispersion_blue_over_red) · [tir_needs_denser_source](/theorem/tir_needs_denser_source)
+[law_of_reflection](/theorem/law_of_reflection) · [refractive_index_ge_one](/theorem/refractive_index_ge_one) · [light_slower_in_medium](/theorem/light_slower_in_medium) · [snell_law](/theorem/snell_law) · [thin_lens_equation](/theorem/thin_lens_equation) · [magnification](/theorem/magnification)
 
 ### The sound domain
 
-- **Theorems:** 8
+- **Theorems:** 6
 - **Sample lineAddress:** `1a29f0ed-5a36-8b10-8bd5-51310ab9bb51`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[harmonic_series](/theorem/harmonic_series) · [wave_speed_f_lambda](/theorem/wave_speed_f_lambda) · [sound_slower_than_light](/theorem/sound_slower_than_light) · [decibel_is_logarithmic](/theorem/decibel_is_logarithmic) · [beat_frequency](/theorem/beat_frequency) · [doppler_shift](/theorem/doppler_shift) · [closed_pipe_odd_harmonics](/theorem/closed_pipe_odd_harmonics) · [intensity_inverse_square](/theorem/intensity_inverse_square)
+[harmonic_series](/theorem/harmonic_series) · [wave_speed_f_lambda](/theorem/wave_speed_f_lambda) · [decibel_is_logarithmic](/theorem/decibel_is_logarithmic) · [beat_frequency](/theorem/beat_frequency) · [closed_pipe_odd_harmonics](/theorem/closed_pipe_odd_harmonics) · [intensity_inverse_square](/theorem/intensity_inverse_square)
 
 ### The reactions domain
 
@@ -313,21 +322,21 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The energy domain
 
-- **Theorems:** 12
+- **Theorems:** 11
 - **Sample lineAddress:** `83ea9781-db24-8999-b2ee-8463326b3121`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[first_law_conservation](/theorem/first_law_conservation) · [entropy_never_decreases](/theorem/entropy_never_decreases) · [heat_flows_hot_to_cold](/theorem/heat_flows_hot_to_cold) · [carnot_efficiency_below_one](/theorem/carnot_efficiency_below_one) · [absolute_zero_and_kelvin](/theorem/absolute_zero_and_kelvin) · [charles_law](/theorem/charles_law) · [no_perpetual_motion](/theorem/no_perpetual_motion) · [specific_heat_linear](/theorem/specific_heat_linear) · [caesium_light_step](/theorem/caesium_light_step) · [landauer_bound_derived](/theorem/landauer_bound_derived) · [reversible_erases_nothing](/theorem/reversible_erases_nothing) · [hardware_above_landauer](/theorem/hardware_above_landauer)
+[first_law_conservation](/theorem/first_law_conservation) · [entropy_never_decreases](/theorem/entropy_never_decreases) · [carnot_efficiency_below_one](/theorem/carnot_efficiency_below_one) · [absolute_zero_and_kelvin](/theorem/absolute_zero_and_kelvin) · [charles_law](/theorem/charles_law) · [no_perpetual_motion](/theorem/no_perpetual_motion) · [specific_heat_linear](/theorem/specific_heat_linear) · [caesium_light_step](/theorem/caesium_light_step) · [landauer_bound_derived](/theorem/landauer_bound_derived) · [reversible_erases_nothing](/theorem/reversible_erases_nothing) · [hardware_above_landauer](/theorem/hardware_above_landauer)
 
 ### The bond domain
 
-- **Theorems:** 8
+- **Theorems:** 7
 - **Sample lineAddress:** `8fa63a26-1f94-88d0-84be-637166352756`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[octet_rule](/theorem/octet_rule) · [bond_shares_electron_pairs](/theorem/bond_shares_electron_pairs) · [bond_order_n2_o2](/theorem/bond_order_n2_o2) · [valence_from_group](/theorem/valence_from_group) · [water_lewis_electrons](/theorem/water_lewis_electrons) · [ionic_threshold](/theorem/ionic_threshold) · [molar_mass_water](/theorem/molar_mass_water) · [bond_strength_rises_with_order](/theorem/bond_strength_rises_with_order)
+[octet_rule](/theorem/octet_rule) · [bond_shares_electron_pairs](/theorem/bond_shares_electron_pairs) · [bond_order_n2_o2](/theorem/bond_order_n2_o2) · [valence_from_group](/theorem/valence_from_group) · [water_lewis_electrons](/theorem/water_lewis_electrons) · [ionic_threshold](/theorem/ionic_threshold) · [molar_mass_water](/theorem/molar_mass_water)
 
 ### The field domain
 
@@ -349,21 +358,21 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The points-of-sail domain
 
-- **Theorems:** 9
+- **Theorems:** 7
 - **Sample lineAddress:** `bd33c9c4-5bc7-8397-8f24-5cf9f26fd555`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[no_go_zone](/theorem/no_go_zone) · [points_of_sail](/theorem/points_of_sail) · [beating_sailing_triangle](/theorem/beating_sailing_triangle) · [beating_distance_penalty](/theorem/beating_distance_penalty) · [apparent_wind_exceeds_true](/theorem/apparent_wind_exceeds_true) · [balanced_helm_holds_course](/theorem/balanced_helm_holds_course) · [tacking_cancels_leeway](/theorem/tacking_cancels_leeway) · [precise_tacks_compound](/theorem/precise_tacks_compound) · [four_points_is_45](/theorem/four_points_is_45)
+[no_go_zone](/theorem/no_go_zone) · [points_of_sail](/theorem/points_of_sail) · [beating_sailing_triangle](/theorem/beating_sailing_triangle) · [balanced_helm_holds_course](/theorem/balanced_helm_holds_course) · [tacking_cancels_leeway](/theorem/tacking_cancels_leeway) · [precise_tacks_compound](/theorem/precise_tacks_compound) · [four_points_is_45](/theorem/four_points_is_45)
 
 ### The spacetime domain
 
-- **Theorems:** 8
-- **Sample lineAddress:** `f8a85514-e384-8bd9-bb30-1d5c35afe74b`
+- **Theorems:** 5
+- **Sample lineAddress:** `8e88b5c1-01ae-86db-803c-48104968c767`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[cosmic_speed_limit](/theorem/cosmic_speed_limit) · [light_on_null_cone](/theorem/light_on_null_cone) · [interval_timelike_causal](/theorem/interval_timelike_causal) · [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) · [time_dilation](/theorem/time_dilation) · [length_contraction](/theorem/length_contraction) · [rest_energy_mc2](/theorem/rest_energy_mc2) · [causality_forbids_ftl](/theorem/causality_forbids_ftl)
+[light_on_null_cone](/theorem/light_on_null_cone) · [interval_timelike_causal](/theorem/interval_timelike_causal) · [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) · [rest_energy_mc2](/theorem/rest_energy_mc2) · [causality_forbids_ftl](/theorem/causality_forbids_ftl)
 
 ### The Glagolitic numerals & Pliska rosette
 
@@ -376,12 +385,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The time coordinate
 
-- **Theorems:** 8
+- **Theorems:** 7
 - **Sample lineAddress:** `759ef01b-3810-8d31-b416-e6863cbfe122`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[seconds_per_day](/theorem/seconds_per_day) · [sidereal_gains_one_turn](/theorem/sidereal_gains_one_turn) · [julian_four_year](/theorem/julian_four_year) · [gregorian_leap_rule](/theorem/gregorian_leap_rule) · [mean_motion_linear](/theorem/mean_motion_linear) · [saros_eclipse_cycle](/theorem/saros_eclipse_cycle) · [sun_creeps_under_a_degree](/theorem/sun_creeps_under_a_degree) · [julian_date_is_a_day_count](/theorem/julian_date_is_a_day_count)
+[seconds_per_day](/theorem/seconds_per_day) · [sidereal_gains_one_turn](/theorem/sidereal_gains_one_turn) · [julian_four_year](/theorem/julian_four_year) · [gregorian_leap_rule](/theorem/gregorian_leap_rule) · [mean_motion_linear](/theorem/mean_motion_linear) · [saros_eclipse_cycle](/theorem/saros_eclipse_cycle) · [julian_date_is_a_day_count](/theorem/julian_date_is_a_day_count)
 
 ### The pentagram & the Fibonacci digits
 
@@ -448,12 +457,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The tides
 
-- **Theorems:** 7
+- **Theorems:** 6
 - **Sample lineAddress:** `6742fb4d-a2d7-8d86-8b45-e209eca7f91a`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[rule_of_twelfths](/theorem/rule_of_twelfths) · [twelfths_symmetric](/theorem/twelfths_symmetric) · [half_tide_at_hour_three](/theorem/half_tide_at_hour_three) · [mid_tide_fastest](/theorem/mid_tide_fastest) · [semidiurnal_period](/theorem/semidiurnal_period) · [spring_exceeds_neap](/theorem/spring_exceeds_neap) · [flood_and_ebb](/theorem/flood_and_ebb)
+[rule_of_twelfths](/theorem/rule_of_twelfths) · [twelfths_symmetric](/theorem/twelfths_symmetric) · [half_tide_at_hour_three](/theorem/half_tide_at_hour_three) · [semidiurnal_period](/theorem/semidiurnal_period) · [spring_exceeds_neap](/theorem/spring_exceeds_neap) · [flood_and_ebb](/theorem/flood_and_ebb)
 
 ### The calendar
 
@@ -466,12 +475,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The measures of type
 
-- **Theorems:** 14
+- **Theorems:** 13
 - **Sample lineAddress:** `f4018bd6-b739-87db-817b-a6ae665d20f7`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) · [em_en_and_thin](/theorem/em_en_and_thin) · [folio_quarto_octavo](/theorem/folio_quarto_octavo) · [signature_multiple_of_four](/theorem/signature_multiple_of_four) · [page_diagonal_three_four_five](/theorem/page_diagonal_three_four_five) · [cassini_golden_page](/theorem/cassini_golden_page) · [van_de_graaf_margins](/theorem/van_de_graaf_margins) · [readable_measure_range](/theorem/readable_measure_range) · [leading_exceeds_type](/theorem/leading_exceeds_type) · [baseline_grid_snaps_to_four](/theorem/baseline_grid_snaps_to_four) · [type_scale_octave](/theorem/type_scale_octave) · [a_series_halving](/theorem/a_series_halving) · [ream_is_five_hundred](/theorem/ream_is_five_hundred) · [recto_odd_verso_even](/theorem/recto_odd_verso_even)
+[inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) · [em_en_and_thin](/theorem/em_en_and_thin) · [folio_quarto_octavo](/theorem/folio_quarto_octavo) · [signature_multiple_of_four](/theorem/signature_multiple_of_four) · [page_diagonal_three_four_five](/theorem/page_diagonal_three_four_five) · [cassini_golden_page](/theorem/cassini_golden_page) · [van_de_graaf_margins](/theorem/van_de_graaf_margins) · [leading_exceeds_type](/theorem/leading_exceeds_type) · [baseline_grid_snaps_to_four](/theorem/baseline_grid_snaps_to_four) · [type_scale_octave](/theorem/type_scale_octave) · [a_series_halving](/theorem/a_series_halving) · [ream_is_five_hundred](/theorem/ream_is_five_hundred) · [recto_odd_verso_even](/theorem/recto_odd_verso_even)
 
 ### Maxwell's rule
 
@@ -520,12 +529,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The paper on trial
 
-- **Theorems:** 17
+- **Theorems:** 11
 - **Sample lineAddress:** `94816bed-4c1f-8c18-ac91-690dea5aa35f`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[mombh_balmer_break_exceeds_stellar_ceiling](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) · [mombh_break_error_asymmetric_blue_faint](/theorem/mombh_break_error_asymmetric_blue_faint) · [mombh_variability_is_four_sigma](/theorem/mombh_variability_is_four_sigma) · [mombh_hbeta_oiii_ratio_central_over_ten_lower_under](/theorem/mombh_hbeta_oiii_ratio_central_over_ten_lower_under) · [mombh_oiii_is_tentative](/theorem/mombh_oiii_is_tentative) · [mombh_size_limits_ordered](/theorem/mombh_size_limits_ordered) · [mombh_fiducial_gas_dense_and_compton_thick](/theorem/mombh_fiducial_gas_dense_and_compton_thick) · [mombh_fiducial_is_dust_free](/theorem/mombh_fiducial_is_dust_free) · [mombh_eddington_two_answers_straddle_one](/theorem/mombh_eddington_two_answers_straddle_one) · [mombh_press_confirmed_is_refuted](/theorem/mombh_press_confirmed_is_refuted) · [mombh_black_hole_mass_spans_over_two_dex](/theorem/mombh_black_hole_mass_spans_over_two_dex) · [mombh_sample_is_one](/theorem/mombh_sample_is_one) · [mombh_verified_ne_solved](/theorem/mombh_verified_ne_solved) · [mombh_quantum_balmer_edge_is_rydberg_quarter](/theorem/mombh_quantum_balmer_edge_is_rydberg_quarter) · [mombh_quantum_edge_redshifts_into_filter_gap](/theorem/mombh_quantum_edge_redshifts_into_filter_gap) · [mombh_quantum_hbeta_hgamma_are_balmer_lines](/theorem/mombh_quantum_hbeta_hgamma_are_balmer_lines) · [mombh_quantum_n2_population_needs_density](/theorem/mombh_quantum_n2_population_needs_density)
+[mombh_balmer_break_exceeds_stellar_ceiling](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) · [mombh_variability_is_four_sigma](/theorem/mombh_variability_is_four_sigma) · [mombh_hbeta_oiii_ratio_central_over_ten_lower_under](/theorem/mombh_hbeta_oiii_ratio_central_over_ten_lower_under) · [mombh_fiducial_gas_dense_and_compton_thick](/theorem/mombh_fiducial_gas_dense_and_compton_thick) · [mombh_press_confirmed_is_refuted](/theorem/mombh_press_confirmed_is_refuted) · [mombh_black_hole_mass_spans_over_two_dex](/theorem/mombh_black_hole_mass_spans_over_two_dex) · [mombh_verified_ne_solved](/theorem/mombh_verified_ne_solved) · [mombh_quantum_balmer_edge_is_rydberg_quarter](/theorem/mombh_quantum_balmer_edge_is_rydberg_quarter) · [mombh_quantum_edge_redshifts_into_filter_gap](/theorem/mombh_quantum_edge_redshifts_into_filter_gap) · [mombh_quantum_hbeta_hgamma_are_balmer_lines](/theorem/mombh_quantum_hbeta_hgamma_are_balmer_lines) · [mombh_quantum_n2_population_needs_density](/theorem/mombh_quantum_n2_population_needs_density)
 
 ### The exposure
 
@@ -574,12 +583,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The report
 
-- **Theorems:** 8
+- **Theorems:** 7
 - **Sample lineAddress:** `a16fd718-de87-8d20-9aa5-91aaf9d63d2e`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[five_ws_and_one_h](/theorem/five_ws_and_one_h) · [timeline_is_chronological](/theorem/timeline_is_chronological) · [corroboration_needs_two](/theorem/corroboration_needs_two) · [trinity_edit_is_three](/theorem/trinity_edit_is_three) · [full_quorum_of_three](/theorem/full_quorum_of_three) · [publish_gate_is_conjunction](/theorem/publish_gate_is_conjunction) · [inverted_pyramid_descends](/theorem/inverted_pyramid_descends) · [a_claim_is_verified_or_unverified](/theorem/a_claim_is_verified_or_unverified)
+[five_ws_and_one_h](/theorem/five_ws_and_one_h) · [timeline_is_chronological](/theorem/timeline_is_chronological) · [trinity_edit_is_three](/theorem/trinity_edit_is_three) · [full_quorum_of_three](/theorem/full_quorum_of_three) · [publish_gate_is_conjunction](/theorem/publish_gate_is_conjunction) · [inverted_pyramid_descends](/theorem/inverted_pyramid_descends) · [a_claim_is_verified_or_unverified](/theorem/a_claim_is_verified_or_unverified)
 
 ### The matching
 
@@ -628,30 +637,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### Anti-fraud detection
 
-- **Theorems:** 24
-- **Sample lineAddress:** `99606d7e-3b27-8c4a-803c-2d84e97c52fa`
-
-The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
-
-[captain_commission_two_coins](/theorem/captain_commission_two_coins) · [captain_commission_rate_two_per_110](/theorem/captain_commission_rate_two_per_110) · [forged_theorem_costs_2_power_7_bits](/theorem/forged_theorem_costs_2_power_7_bits) · [forgery_costs_64_commissions](/theorem/forgery_costs_64_commissions) · [sealed_theorem_not_forged](/theorem/sealed_theorem_not_forged) · [forged_theorem_address_detectable](/theorem/forged_theorem_address_detectable) · [overclaim_with_fake_cite_fails](/theorem/overclaim_with_fake_cite_fails) · [double_spend_detectable](/theorem/double_spend_detectable) · [one_theorem_single_claim](/theorem/one_theorem_single_claim) · [double_spend_hides_nowhere](/theorem/double_spend_hides_nowhere) · [vote_weight_equals_coins_paid](/theorem/vote_weight_equals_coins_paid) · [vote_weight_inflation_flagged](/theorem/vote_weight_inflation_flagged) · [vote_receipt_order_invariant](/theorem/vote_receipt_order_invariant) · [ledger_fingerprint_tamper_evident](/theorem/ledger_fingerprint_tamper_evident) · [theorem_dna_recompute_is_seal](/theorem/theorem_dna_recompute_is_seal) · [anti_fraud_check_deterministic](/theorem/anti_fraud_check_deterministic) · [honesty_gate_passes_iff_all_sealed](/theorem/honesty_gate_passes_iff_all_sealed) · [conformance_failure_detects_intrusion](/theorem/conformance_failure_detects_intrusion) · [honesty_gate_is_theorem_not_oracle](/theorem/honesty_gate_is_theorem_not_oracle) · [verdict_exactly_one](/theorem/verdict_exactly_one) · [unverified_iff_unsealed](/theorem/unverified_iff_unsealed) · [fabricated_cite_is_unverified](/theorem/fabricated_cite_is_unverified) · [unverified_is_an_open_door](/theorem/unverified_is_an_open_door) · [unverified_complement_is_verified](/theorem/unverified_complement_is_verified)
-
-### Quantum sailing seals
-
 - **Theorems:** 13
-- **Sample lineAddress:** `65c98f59-e666-8750-8be5-8d0beca44fb3`
+- **Sample lineAddress:** `fc5a7ac0-a1f7-83b3-8be0-354f0d635ff7`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[sailing_books_extract_decidable_facts](/theorem/sailing_books_extract_decidable_facts) · [sailing_address_is_128_bits_in_36_chars](/theorem/sailing_address_is_128_bits_in_36_chars) · [sailing_extraction_deterministic](/theorem/sailing_extraction_deterministic) · [sailing_book_receipt_order_invariant](/theorem/sailing_book_receipt_order_invariant) · [sailing_weather_match_decides_both_ways](/theorem/sailing_weather_match_decides_both_ways) · [sailing_distinct_facts_distinct_addresses](/theorem/sailing_distinct_facts_distinct_addresses) · [sailing_corroboration_and_divergence_partition](/theorem/sailing_corroboration_and_divergence_partition) · [sailing_weather_verification_open](/theorem/sailing_weather_verification_open) · [sailing_cross_book_resonance_match](/theorem/sailing_cross_book_resonance_match) · [sailing_cross_book_resonance_fold](/theorem/sailing_cross_book_resonance_fold) · [sailing_multi_resonance_receipt](/theorem/sailing_multi_resonance_receipt) · [sailing_cluster_coherence_decidable](/theorem/sailing_cluster_coherence_decidable) · [sailing_all_waves_computable](/theorem/sailing_all_waves_computable)
-
-### The honest court
-
-- **Theorems:** 15
-- **Sample lineAddress:** `5565081c-8309-86c2-9d89-b83719d065c4`
-
-The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
-
-[disputed_topic_fact_extractable](/theorem/disputed_topic_fact_extractable) · [disputed_books_same_fact_same_address](/theorem/disputed_books_same_fact_same_address) · [disputed_books_coherence_or_contradiction](/theorem/disputed_books_coherence_or_contradiction) · [disputed_topics_contradiction_detectable](/theorem/disputed_topics_contradiction_detectable) · [disputed_provably_true_is_sealed](/theorem/disputed_provably_true_is_sealed) · [disputed_open_claim_unverified](/theorem/disputed_open_claim_unverified) · [disputed_overclaim_detectable](/theorem/disputed_overclaim_detectable) · [disputed_narrative_gap_requires_court](/theorem/disputed_narrative_gap_requires_court) · [disputed_multi_reader_receipt](/theorem/disputed_multi_reader_receipt) · [disputed_consensus_detectable](/theorem/disputed_consensus_detectable) · [disputed_coin_backed_judgment](/theorem/disputed_coin_backed_judgment) · [disputed_anti_fraud_catches_overclaim](/theorem/disputed_anti_fraud_catches_overclaim) · [disputed_contradiction_audit_detects_liar](/theorem/disputed_contradiction_audit_detects_liar) · [disputed_audit_receipt_open](/theorem/disputed_audit_receipt_open) · [disputed_all_topics_computable](/theorem/disputed_all_topics_computable)
+[captain_commission_two_coins](/theorem/captain_commission_two_coins) · [forgery_flags_every_mismatch](/theorem/forgery_flags_every_mismatch) · [double_spend_walks_every_list](/theorem/double_spend_walks_every_list) · [single_claim_never_flags](/theorem/single_claim_never_flags) · [vote_passes_iff_weight_paid](/theorem/vote_passes_iff_weight_paid) · [anti_fraud_check_deterministic](/theorem/anti_fraud_check_deterministic) · [sealed_theorem_not_forged](/theorem/sealed_theorem_not_forged) · [honesty_gate_passes_iff_all_sealed](/theorem/honesty_gate_passes_iff_all_sealed) · [conformance_failure_detects_intrusion](/theorem/conformance_failure_detects_intrusion) · [honesty_gate_is_theorem_not_oracle](/theorem/honesty_gate_is_theorem_not_oracle) · [overclaim_with_fake_cite_fails](/theorem/overclaim_with_fake_cite_fails) · [fraud_verdict_is_exactly_one](/theorem/fraud_verdict_is_exactly_one) · [fabricated_cite_stays_unverified](/theorem/fabricated_cite_stays_unverified)
 
 ### The uuid mix space
 
@@ -661,6 +652,213 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [uuid_mix_census_is_quantum](/theorem/uuid_mix_census_is_quantum)
+
+### lean/Affine.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `47105abe-a8f3-80ae-a5ca-e507178b608b`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[group_holds_fiftyfour](/theorem/group_holds_fiftyfour) · [units_are_coprime_six](/theorem/units_are_coprime_six) · [composition_stays_inside](/theorem/composition_stays_inside) · [identity_leaves_all](/theorem/identity_leaves_all) · [every_map_inverts](/theorem/every_map_inverts) · [group_does_not_commute](/theorem/group_does_not_commute)
+
+### lean/Alignment.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `8ebb8641-5bc5-8536-99c5-760191ba7fb6`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[hexbit_is_four_qubits](/theorem/hexbit_is_four_qubits) · [moduli_waste_states](/theorem/moduli_waste_states) · [sixteen_alone_tiles](/theorem/sixteen_alone_tiles) · [ten_costs_more_than_fifteen](/theorem/ten_costs_more_than_fifteen) · [powers_of_two_are_the_substance](/theorem/powers_of_two_are_the_substance) · [handle_discards_before_walking](/theorem/handle_discards_before_walking)
+
+### lean/Boolean.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `e731c1a2-1571-84de-bec0-6027dc417570`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[sixteen_binary_functions](/theorem/sixteen_binary_functions) · [gates_name_their_tables](/theorem/gates_name_their_tables) · [nand_rebuilds_the_others](/theorem/nand_rebuilds_the_others) · [two_functions_ignore_input](/theorem/two_functions_ignore_input) · [xor_differs_from_or](/theorem/xor_differs_from_or) · [implication_is_a_gate](/theorem/implication_is_a_gate)
+
+### lean/Byte.lean
+
+- **Theorems:** 5
+- **Sample lineAddress:** `e22c69c8-beb1-806f-a909-adc748198c8e`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[byte_holds_two_hexbits](/theorem/byte_holds_two_hexbits) · [address_is_sixteen_bytes](/theorem/address_is_sixteen_bytes) · [digest_doubles_the_address](/theorem/digest_doubles_the_address) · [every_alternative_differs](/theorem/every_alternative_differs) · [tamper_set_counts_eight_thousand](/theorem/tamper_set_counts_eight_thousand)
+
+### lean/Channel.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `eb901dc5-1e7b-8cd0-9f3d-ac48e78b5f1e`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[channel_multiplies_three](/theorem/channel_multiplies_three) · [element_costs_nine](/theorem/element_costs_nine) · [four_carry_handle](/theorem/four_carry_handle) · [three_recover_the_discard](/theorem/three_recover_the_discard) · [independence_is_assumed](/theorem/independence_is_assumed) · [page_outgrows_register](/theorem/page_outgrows_register)
+
+### lean/Clock.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `41186eba-2ee1-8957-b90b-2a2b2cf8e7a8`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[residue_walks_the_orbit](/theorem/residue_walks_the_orbit) · [residue_returns_step_does_not](/theorem/residue_returns_step_does_not) · [gap_is_a_count](/theorem/gap_is_a_count) · [advance_only_moves_forward](/theorem/advance_only_moves_forward) · [order_is_total_and_strict](/theorem/order_is_total_and_strict) · [no_reading_enters_here](/theorem/no_reading_enters_here)
+
+### lean/Contribution.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `b7af07bb-26d3-8083-8d15-98d437c17989`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[contribution_leaves_one_twentysix](/theorem/contribution_leaves_one_twentysix) · [coins_are_the_torus](/theorem/coins_are_the_torus) · [directions_number_fortytwo](/theorem/directions_number_fortytwo) · [residue_holds_three_grids](/theorem/residue_holds_three_grids) · [six_factorisations_compete](/theorem/six_factorisations_compete) · [taking_before_paying_differs](/theorem/taking_before_paying_differs)
+
+### lean/DoubleTorus.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `ead5714e-17f4-8f06-911f-ff369409c38c`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[chi_measures_genus](/theorem/chi_measures_genus) · [handles_give_generators](/theorem/handles_give_generators) · [presentation_counts_five](/theorem/presentation_counts_five) · [step_costs_three](/theorem/step_costs_three) · [words_outgrow_presentation](/theorem/words_outgrow_presentation) · [growth_is_not_bounded_here](/theorem/growth_is_not_bounded_here)
+
+### lean/Grid.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `d8a2e809-c512-8cf7-b4b7-5c56cee2ff2c`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[decimal_asks_three](/theorem/decimal_asks_three) · [hexadecimal_asks_five](/theorem/hexadecimal_asks_five) · [seventytwo_is_decimal_only](/theorem/seventytwo_is_decimal_only) · [reversal_fails_in_hexadecimal](/theorem/reversal_fails_in_hexadecimal) · [fifteen_satisfies_both](/theorem/fifteen_satisfies_both) · [six_rays_stay_derived](/theorem/six_rays_stay_derived)
+
+### lean/Hamming.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `a51066b2-66fb-818f-b5b0-740a9992410b`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[code_holds_sixteen_words](/theorem/code_holds_sixteen_words) · [words_are_distinct](/theorem/words_are_distinct) · [words_stand_three_apart](/theorem/words_stand_three_apart) · [weights_enumerate](/theorem/weights_enumerate) · [codewords_syndrome_zero](/theorem/codewords_syndrome_zero) · [syndrome_names_the_position](/theorem/syndrome_names_the_position)
+
+### lean/HandleSpan.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `e5f4865d-576c-8172-bca6-784a5bccb14e`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[handles_times_qubits](/theorem/handles_times_qubits) · [exponents_add](/theorem/exponents_add) · [handle_spans_thirtytwo](/theorem/handle_spans_thirtytwo) · [register_holds_amplitudes](/theorem/register_holds_amplitudes) · [total_exceeds_register](/theorem/total_exceeds_register) · [total_is_not_amplitudes](/theorem/total_is_not_amplitudes)
+
+### lean/Hexbit.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `ae761a00-25c1-85b7-b982-8940da1ef284`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) · [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) · [characters_span_the_address](/theorem/characters_span_the_address) · [handle_is_the_first_group](/theorem/handle_is_the_first_group) · [groups_are_four_apart](/theorem/groups_are_four_apart) · [build_counts_in_hexbits](/theorem/build_counts_in_hexbits)
+
+### lean/Isometry.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `bc1d7ae9-ffa0-8f54-9005-28128f71cd63`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_preserves_distance](/theorem/xor_preserves_distance) · [reuse_leaks_by_isometry](/theorem/reuse_leaks_by_isometry) · [complement_flips_two](/theorem/complement_flips_two) · [codon_flips_six](/theorem/codon_flips_six) · [distance_is_symmetric](/theorem/distance_is_symmetric) · [isometry_bounds_correction](/theorem/isometry_bounds_correction)
+
+### lean/Notation.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `525ec927-7b66-8103-ad66-eaf0cdab000c`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[ten_reduces_to_one](/theorem/ten_reduces_to_one) · [base_fixes_modulus](/theorem/base_fixes_modulus) · [bases_disagree_on_root](/theorem/bases_disagree_on_root) · [reversal_escapes_arithmetic](/theorem/reversal_escapes_arithmetic) · [root_survives_the_reading](/theorem/root_survives_the_reading) · [nine_divides_by_construction](/theorem/nine_divides_by_construction)
+
+### lean/Orbits.lean
+
+- **Theorems:** 9
+- **Sample lineAddress:** `0177a449-0dc2-87c6-9ba7-67a99dbb3a39`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[orbit_0_1_2_3_4_5_6_7_8_9_closes](/theorem/orbit_0_1_2_3_4_5_6_7_8_9_closes) · [orbit_0_1_3_4_5_6_7_9_closes](/theorem/orbit_0_1_3_4_5_6_7_9_closes) · [orbit_0_1_3_5_7_9_closes](/theorem/orbit_0_1_3_5_7_9_closes) · [orbit_0_1_5_9_closes](/theorem/orbit_0_1_5_9_closes) · [orbit_0_1_9_closes](/theorem/orbit_0_1_9_closes) · [orbit_0_closes](/theorem/orbit_0_closes) · [orbits_number_and_orders](/theorem/orbits_number_and_orders) · [every_seed_lands_somewhere](/theorem/every_seed_lands_somewhere) · [covering_seeds_are_named](/theorem/covering_seeds_are_named)
+
+### lean/Phase.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `93190a31-1567-8fd1-8c79-44e054d45987`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[dz_loses_nothing](/theorem/dz_loses_nothing) · [doubling_collapses_nine](/theorem/doubling_collapses_nine) · [maps_differ_in_reach](/theorem/maps_differ_in_reach) · [zero_closes_in_phase](/theorem/zero_closes_in_phase) · [five_returns_out_of_phase](/theorem/five_returns_out_of_phase) · [reach_shrinks_each_pass](/theorem/reach_shrinks_each_pass)
+
+### lean/ProseTrial.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `25a6418c-c61c-8792-9145-60ff22cfff87`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[orbits_number_six](/theorem/orbits_number_six) · [order_measures_orbit](/theorem/order_measures_orbit) · [forged_order_refused](/theorem/forged_order_refused) · [orbits_reflect_onto_themselves](/theorem/orbits_reflect_onto_themselves) · [orbits_are_distinct](/theorem/orbits_are_distinct) · [every_orbit_holds_zero](/theorem/every_orbit_holds_zero)
+
+### lean/Reflection.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `5cc2ac21-57de-8663-8a7e-47040723400f`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[reflection_splits_six](/theorem/reflection_splits_six) · [classes_cap_at_two](/theorem/classes_cap_at_two) · [six_is_forced_arithmetic](/theorem/six_is_forced_arithmetic) · [seven_reach_five_classes](/theorem/seven_reach_five_classes) · [reflection_confuses_seven_three](/theorem/reflection_confuses_seven_three) · [seventh_covers_reflection_cannot](/theorem/seventh_covers_reflection_cannot)
+
+### lean/Reversal.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `cb258834-335f-82f3-b2dc-4ba23cd22e22`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[reflection_reverses_uniquely](/theorem/reflection_reverses_uniquely) · [doubling_reverses_ambiguously](/theorem/doubling_reverses_ambiguously) · [nine_is_never_reached](/theorem/nine_is_never_reached) · [censuses_differ](/theorem/censuses_differ) · [path_reverse_needs_both](/theorem/path_reverse_needs_both) · [reflection_explores_all](/theorem/reflection_explores_all)
+
+### lean/Seats.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `a8560d63-df9f-8e56-9ed3-60c9d9fd2106`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[fullest_seat_ceiling](/theorem/fullest_seat_ceiling) · [excess_forces_sharing](/theorem/excess_forces_sharing) · [fit_shares_nothing](/theorem/fit_shares_nothing) · [powers_are_not_the_bound](/theorem/powers_are_not_the_bound) · [digits_split_five_five](/theorem/digits_split_five_five) · [ten_seats_bound_any_ring](/theorem/ten_seats_bound_any_ring)
+
+### lean/SpectrumHex.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `21709568-04d5-851a-95c7-533a5fed7e82`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[colour_is_six_hexbits](/theorem/colour_is_six_hexbits) · [channel_is_two_hexbits](/theorem/channel_is_two_hexbits) · [greys_are_one_in_sixtyfive_thousand](/theorem/greys_are_one_in_sixtyfive_thousand) · [shorthand_covers_one_in_four_thousand](/theorem/shorthand_covers_one_in_four_thousand) · [spectrum_refuses_sixteen](/theorem/spectrum_refuses_sixteen) · [wheel_divides_by_nine_and_six](/theorem/wheel_divides_by_nine_and_six)
+
+### lean/Subgroups.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `ce45c5a6-9169-81a9-920d-3563fe1a73ef`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[units_form_six](/theorem/units_form_six) · [four_subgroups_exhibited](/theorem/four_subgroups_exhibited) · [lagrange_divides_every_order](/theorem/lagrange_divides_every_order) · [two_generates_the_whole](/theorem/two_generates_the_whole) · [most_subsets_are_not_subgroups](/theorem/most_subsets_are_not_subgroups) · [trivial_and_whole_always_hold](/theorem/trivial_and_whole_always_hold)
+
+### lean/Trinities.lean
+
+- **Theorems:** 6
+- **Sample lineAddress:** `b13daa21-8d06-880a-8b24-874b305494e3`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[trinities_span_powers](/theorem/trinities_span_powers) · [trinity_exceeds_qubit](/theorem/trinity_exceeds_qubit) · [trinities_cover_billion](/theorem/trinities_cover_billion) · [trinities_cover_word](/theorem/trinities_cover_word) · [trinities_cover_address](/theorem/trinities_cover_address) · [eightyone_squares_nine](/theorem/eightyone_squares_nine)
 
 
 ---
@@ -672,8 +870,8 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1271 (1355 entries, 84 re-namings — a theorem is its Lean, not its name) |
-| prose paragraphs tried | 3885 — 1802 usable, 2083 held open, 0 drained |
+| sealed propositions | 1363 (1444 entries, 81 re-namings — a theorem is its Lean, not its name) |
+| prose paragraphs tried | 4167 — 1952 usable, 2215 held open, 0 drained |
 
 **The claim is of ROOM, never of truth** — the same scope the superposition claim carries. Every item in the
 docket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's
@@ -690,7 +888,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_claims_all_superpositions](/theorem/captain_claims_all_superpositions): the room is 2¹²⁸ states
 (the 128-bit particle, [coin_exchange_rate_is_traitor_cost](/theorem/coin_exchange_rate_is_traitor_cost)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1355 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1444 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM, never of truth** — a claimed superposition is claimed capacity; its collapse still

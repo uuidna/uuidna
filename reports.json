@@ -13,21 +13,21 @@
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "98aefe8e-7965-8fd1-ad67-766643920443"
+        "ledgerReceipt": "611e9a57-0907-8d7e-b1cf-43471a3949d8"
       },
-      "address": "b1142e7e-a1b8-8d94-ac34-262736bcc325"
+      "address": "149f3dd2-fedb-867e-a231-cfc62dc5efee"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1470,
+        "theoremsMeasured": 1444,
         "ledgerKeys": 1444,
-        "unmeasured": -26,
-        "summedDecideSteps": 577647
+        "unmeasured": 0,
+        "summedDecideSteps": 577748
       },
-      "address": "67918bef-3fae-89cc-a41b-4e411be054f3"
+      "address": "b3ff5bb0-87ee-8dba-a193-0a2d2506d467"
     },
     {
       "title": "Verification cost",
@@ -35,20 +35,20 @@
       "present": true,
       "facts": {
         "unit": "decide-steps counted by the kernel — machine-independent, since the repository may not time itself",
-        "theorems": 1470,
+        "theorems": 1444,
         "cheapest": 13,
         "quartile1": 53,
-        "median": 71,
+        "median": 74,
         "quartile3": 155,
         "dearest": 97467,
-        "total": 577647,
-        "mean": 392,
+        "total": 577748,
+        "mean": 400,
         "dearestFive": "7de6a4d3-aadc-88a8-89c6-425150f0576c 97467 · a93bf5ba-f682-8a3f-88de-f8878dca4db4 87981 · d3b61f09-7d20-8ffc-bc90-54759a09c595 81544 · 99dbc484-8da2-865a-ad5b-b9f96a40771d 16540 · 4053eb2d-ec87-813e-bc46-ef49536a62c8 15553",
         "concentration": "the five dearest against the total, as an exact pair — never a percentage, which would round",
         "dearestFiveSteps": 299085,
         "honest": "DESCRIPTIVE: this measures what the kernel spent deciding, never whether a theorem is worth deciding."
       },
-      "address": "aa9945c4-6ce5-8d21-83c7-e10895adb90a"
+      "address": "6512baaf-bbdd-8317-a2b4-1d19accaa020"
     },
     {
       "title": "Citation audit",
@@ -56,10 +56,10 @@
       "present": true,
       "facts": {
         "publications": 71,
-        "sealedTheorems": 1470,
+        "sealedTheorems": 1444,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "2ba74341-5ce1-85ea-972e-5f3332639f31"
+      "address": "ec1d58cf-a621-8acc-a6bb-48f42fa4d54f"
     },
     {
       "title": "Support audit",
@@ -90,12 +90,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "8903b8716ebec2e4",
-        "unifiedFold": "5b2d29edfecf5391"
+        "foldReceipt": "de3296a70fc47a5a",
+        "unifiedFold": "1b020ee5afd12a14"
       },
-      "address": "69936f9b-8baf-81ba-a56d-41bf2deb283d"
+      "address": "30ad6fdf-47f8-8010-8c7b-92806094820a"
     }
   ],
-  "receipt": "f323ef81-4646-8871-a517-fcc127da4727",
+  "receipt": "44814bf2-8913-8d95-a18b-c42112c572f8",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
