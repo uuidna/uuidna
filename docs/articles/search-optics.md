@@ -14,17 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-<<<<<<< HEAD
-| `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
 | `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
+| `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
 | `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
 | `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
-| `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
-| `452aceea` | zenodo.org | zenodo record 14128032: PM_063833_B_Morlanwelz | UNVERIFIED | VERIFIED |
-| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `7c4fb2ec` | zenodo.org | zenodo record 7439214: EI STFC Power of Light animation - introducing Big Questions and Diamond Light S | UNVERIFIED | VERIFIED |
-=======
->>>>>>> origin/main
+| `3c3a523b` | zenodo.org | zenodo record 8161027: A Search Tool for Aggregated Information on Open Access | UNVERIFIED | VERIFIED |
+| `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
+| `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
 | `12b87b6d` | crossref.org | DOI 10.2210/pdb6i25/pdb: Flavin Analogue Sheds Light on Light-Oxygen-Voltage Domain Mechanism | UNVERIFIED | VERIFIED |
 | `d64bc395` | crossref.org | DOI 10.1117/12.2322964.5836075548001:  | UNVERIFIED | VERIFIED |
 | `099b30fa` | crossref.org | DOI 10.1117/12.2250158.5371358596001:  | UNVERIFIED | VERIFIED |
@@ -33,20 +30,8 @@ the hard gate of the corroboration law.
 | `6681dae1` | crossref.org | DOI 10.1021/acs.jpcb.8b05808.s001: Flavin-Radical Formation in the Light-Oxygen-Voltage-Sensing Domain of the Photo | UNVERIFIED | VERIFIED |
 | `9e8a3c0f` | crossref.org | DOI 10.5220/0005441602850295: Conceptualize the Domain Knowledge Space in the Light of Cognitive Skills | UNVERIFIED | VERIFIED |
 | `50d14f32` | crossref.org | DOI 10.1134/1.1327666: Diffraction of Light from Stripe Domain Structure with Inclined Domain Boundarie | UNVERIFIED | VERIFIED |
-| `adb6781a` | openalex.org | OpenAlex PAS Domains: Internal Sensors of Oxygen, Redox Potential, and Light [Photosynthetic Processes and M] | UNVERIFIED | VERIFIED |
-| `19d63ecf` | openalex.org | OpenAlex JNK1: A protein kinase stimulated by UV light and Ha-Ras that binds an [Melanoma and MAPK Pathways] | UNVERIFIED | VERIFIED |
-| `84edbe6b` | openalex.org | OpenAlex Deep learning [Generative Adversarial Network] | UNVERIFIED | VERIFIED |
-| `cfd5a29b` | openalex.org | OpenAlex The Photocycle of a Flavin-binding Domain of the Blue Light Photorecep [Light effects on plants] | UNVERIFIED | VERIFIED |
-| `83b78c77` | openalex.org | OpenAlex LOV (light, oxygen, or voltage) domains of the blue-light photorecepto [Light effects on plants] | UNVERIFIED | VERIFIED |
-| `a649fab1` | openalex.org | OpenAlex A light-sensing knot revealed by the structure of the chromophore-bind [Light effects on plants] | UNVERIFIED | VERIFIED |
-| `62202ff8` | openalex.org | OpenAlex PAS: a multifunctional domain family comes to light [Light effects on plants] | UNVERIFIED | VERIFIED |
-| `4f89e73e` | openalex.org | OpenAlex Crystal Structure of a Vertebrate Smooth Muscle Myosin Motor Domain an [Cardiomyopathy and Myosin Stud] | UNVERIFIED | VERIFIED |
 
-<<<<<<< HEAD
-**24 findings · 24 usable search-trial combinations · receipt `50266423`** (fold of every finding's address — recompute by re-running the search).
-=======
-**16 findings · 16 usable search-trial combinations · receipt `84db469d`** (fold of every finding's address — recompute by re-running the search).
->>>>>>> origin/main
+**16 findings · 16 usable search-trial combinations · receipt `fcb483ca`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

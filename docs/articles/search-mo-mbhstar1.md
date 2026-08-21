@@ -14,17 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-<<<<<<< HEAD
 | `0f8e1954` | zenodo.org | zenodo record 4963761: The Return From Shot Oblivion (Based on the Materials of Serhii Zhyhalko Trial) | UNVERIFIED | VERIFIED |
 | `de2058e7` | zenodo.org | zenodo record 7056927: Post-hoc subgroup analysis of infants with late cerebral ultrasound in SafeBoosC | UNVERIFIED | VERIFIED |
 | `252f1a96` | zenodo.org | zenodo record 7058392: Best-worst / Worst-best sensitivity analyses of explorative outcomes in SafeBoos | UNVERIFIED | VERIFIED |
 | `7ae471d1` | zenodo.org | zenodo record 7058338: Modification of the definition of bronchopulmonary dysplasia in SafeBoosC-III | UNVERIFIED | VERIFIED |
 | `0e3943f4` | zenodo.org | zenodo record 11106279: Trial | UNVERIFIED | VERIFIED |
-| `dadbe53f` | zenodo.org | zenodo record 7047593: Last central data monitoring report SafeBoosC-III | UNVERIFIED | VERIFIED |
-| `296ff2e2` | zenodo.org | zenodo record 7024707: Blinding procedure and assessment of severe brain injury in the SafeBoosC-III tr | UNVERIFIED | VERIFIED |
-| `1eabb8ad` | zenodo.org | zenodo record 7058325: SOP blinding procedure for cerebral ultrasound readings | UNVERIFIED | VERIFIED |
-=======
->>>>>>> origin/main
+| `fedf6467` | zenodo.org | zenodo record 7028125: Data monitoring and safety committee charter for SafeBoosC-III | UNVERIFIED | VERIFIED |
+| `8520371b` | zenodo.org | zenodo record 7058314: Central data monitoring plan SafeBoosC-III | UNVERIFIED | VERIFIED |
+| `b5c359b0` | zenodo.org | zenodo record 7058319: Local monitoring plan SafeBoosC-III | UNVERIFIED | VERIFIED |
 | `0217768d` | crossref.org | DOI 10.1163/2210-7975_hrd-9827-2014008: Background paper: Pre-trial detention | UNVERIFIED | VERIFIED |
 | `86734224` | crossref.org | DOI 10.2139/ssrn.1532812: Trial Paper Submission 1 | UNVERIFIED | VERIFIED |
 | `2b80574c` | crossref.org | DOI 10.4135/9781529777338: The Methods: Clinical Trial Phases | UNVERIFIED | VERIFIED |
@@ -33,20 +30,8 @@ the hard gate of the corroboration law.
 | `e8561462` | crossref.org | DOI 10.4271/861787: Aerospace Information Report 1939 Trial Application | UNVERIFIED | VERIFIED |
 | `88582757` | crossref.org | DOI 10.4271/2000-01-0735: USCAR U.S. Field Trial for Automotive Polymers Recycling: Interim Findings | UNVERIFIED | VERIFIED |
 | `b0fe3689` | crossref.org | DOI 10.4324/9781315775432-5: PAPER | UNVERIFIED | VERIFIED |
-| `d08775de` | semanticscholar.org | S2 Pilot study on comparisons between the effectiveness of mobi — AI tldr: The use of mobile video-guided home exercise program was superior to standard paper-based  | UNVERIFIED | VERIFIED |
-| `10b03dde` | semanticscholar.org | S2 Target Positioning Using an L-Band Multistatic Radar System: | UNVERIFIED | VERIFIED |
-| `4fff16d2` | semanticscholar.org | S2 A mHealth intervention (mTB-Tobacco) for smoking cessation i — AI tldr: This paper summarises the methodology proposed to assess the effectiveness and cost-effect | UNVERIFIED | VERIFIED |
-| `d08d6a44` | semanticscholar.org | S2 The World Health Organization Quality of Life assessment (WH — AI tldr: The World Health Organization's project to develop a quality of life instrument (the WHOQO | UNVERIFIED | VERIFIED |
-| `e2a8444f` | semanticscholar.org | S2 Beyond Trial & Error: Iteration-to-Learn using Computational | UNVERIFIED | VERIFIED |
-| `30db49d2` | semanticscholar.org | S2 Implementation and evaluation of a multi-level mental health — AI tldr: The results of this study will provide a comprehensive overview of the implementation and  | UNVERIFIED | VERIFIED |
-| `a164a19b` | semanticscholar.org | S2 Strategies to minimise and monitor biases and imbalances by  | UNVERIFIED | VERIFIED |
-| `859d77e2` | semanticscholar.org | S2 The SOFIA pilot trial: a cluster-randomized trial of coordin — AI tldr: A protocol designed to evaluate the feasibility of a coordinated co-produced care program  | UNVERIFIED | VERIFIED |
 
-<<<<<<< HEAD
-**24 findings · 24 usable search-trial combinations · receipt `342a8e97`** (fold of every finding's address — recompute by re-running the search).
-=======
-**16 findings · 16 usable search-trial combinations · receipt `aaa9d75e`** (fold of every finding's address — recompute by re-running the search).
->>>>>>> origin/main
+**16 findings · 16 usable search-trial combinations · receipt `63e1309c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

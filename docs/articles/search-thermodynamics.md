@@ -15,18 +15,13 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `11e1db91` | zenodo.org | zenodo record 17669867: Energy Domain Datasets | UNVERIFIED | VERIFIED |
-| `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
 | `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
+| `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
 | `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
 | `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
+| `3c3a523b` | zenodo.org | zenodo record 8161027: A Search Tool for Aggregated Information on Open Access | UNVERIFIED | VERIFIED |
+| `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
 | `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
-<<<<<<< HEAD
-| `452aceea` | zenodo.org | zenodo record 14128032: PM_063833_B_Morlanwelz | UNVERIFIED | VERIFIED |
-| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
-=======
-| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
-| `452aceea` | zenodo.org | zenodo record 14128032: PM_063833_B_Morlanwelz | UNVERIFIED | VERIFIED |
->>>>>>> origin/main
 | `4f0bcf47` | crossref.org | DOI 10.1021/acsami.0c13534.s001: Energy-Efficient Ferroelectric Domain Wall Memory with Controlled Domain Switchi | UNVERIFIED | VERIFIED |
 | `807decf2` | crossref.org | DOI 10.1109/tec.2020.3048389: Identifying DQ-Domain Admittance Models of a 2.3-MVA Commercial Grid-Following I | UNVERIFIED | VERIFIED |
 | `8358e347` | crossref.org | DOI 10.1039/c2ee21327c: The relative importance of domain size, domain purity and domain interfaces to t | UNVERIFIED | VERIFIED |
@@ -36,11 +31,7 @@ the hard gate of the corroboration law.
 | `dc17c97d` | crossref.org | DOI 10.3403/30377849u: Top priority standards development status in the domain of smart energy | UNVERIFIED | VERIFIED |
 | `68698739` | crossref.org | DOI 10.3403/30377849: Top priority standards development status in the domain of smart energy | UNVERIFIED | VERIFIED |
 
-<<<<<<< HEAD
-**24 findings · 24 usable search-trial combinations · receipt `0a83a063`** (fold of every finding's address — recompute by re-running the search).
-=======
-**16 findings · 16 usable search-trial combinations · receipt `ced3777f`** (fold of every finding's address — recompute by re-running the search).
->>>>>>> origin/main
+**16 findings · 16 usable search-trial combinations · receipt `15365352`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

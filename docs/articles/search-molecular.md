@@ -14,17 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-<<<<<<< HEAD
 | `b039f11d` | zenodo.org | zenodo record 4751755: Shared decision making in Australian physiotherapy practice: a survey of knowled | UNVERIFIED | VERIFIED |
 | `ab8b7dd4` | zenodo.org | zenodo record 15531718: Corruption as Strategy? Manipulating Government Spending for Illicit Gains | UNVERIFIED | VERIFIED |
 | `442523ae` | zenodo.org | zenodo record 18477327: Climate Atlas Queensland 2025, 2050 and 2070 – CAIRNS – Comfort/Energy Simulatio | UNVERIFIED | VERIFIED |
+| `9a8e98be` | zenodo.org | zenodo record 18477439: Climate Atlas Queensland 2025, 2050 and 2070 – BRISBANE – Climate Charts | UNVERIFIED | VERIFIED |
+| `b6a9f76b` | zenodo.org | zenodo record 18477235: Climate Atlas Queensland  2025, 2050 and 2070 – GOLDCOAST – Comfort/Energy Simul | UNVERIFIED | VERIFIED |
+| `c3c0aaac` | zenodo.org | zenodo record 18477656: Climate Atlas Queensland 2025 and 2050 – CAIRNS – Climate Charts | UNVERIFIED | VERIFIED |
 | `6fa4ad74` | zenodo.org | zenodo record 2382431: Ureteritis Cystica Chronica.: Report of a Case With Bilateral Double Ureters | UNVERIFIED | VERIFIED |
 | `7f36137c` | zenodo.org | zenodo record 2439292: The Correlation of Clinician, Pathologist and Layman. | UNVERIFIED | VERIFIED |
-| `c3c0aaac` | zenodo.org | zenodo record 18477656: Climate Atlas Queensland 2025 and 2050 – CAIRNS – Climate Charts | UNVERIFIED | VERIFIED |
-| `b6a9f76b` | zenodo.org | zenodo record 18477235: Climate Atlas Queensland  2025, 2050 and 2070 – GOLDCOAST – Comfort/Energy Simul | UNVERIFIED | VERIFIED |
-| `9a8e98be` | zenodo.org | zenodo record 18477439: Climate Atlas Queensland 2025, 2050 and 2070 – BRISBANE – Climate Charts | UNVERIFIED | VERIFIED |
-=======
->>>>>>> origin/main
 | `ad0e1f31` | crossref.org | DOI 10.4324/9780203996706-25: Saving the social bond and recovering the public domain | UNVERIFIED | VERIFIED |
 | `eb9341fb` | crossref.org | DOI 10.1201/b14676-12: - Time Domain Analysis | UNVERIFIED | VERIFIED |
 | `620c6a06` | crossref.org | DOI 10.1201/b14676-13: - Frequency Domain Analysis | UNVERIFIED | VERIFIED |
@@ -33,20 +30,8 @@ the hard gate of the corroboration law.
 | `1bdb5bfe` | crossref.org | DOI 10.2139/ssrn.911158: Bond Repudiation, Tax Codes, the Appropriations Process and Restitution Post-Emi | UNVERIFIED | VERIFIED |
 | `4f72d7e7` | crossref.org | DOI 10.1021/jacs.9b06977.s001: Lipid Acyl Chain cis Double Bond Position Modulates Membrane Domain Registration | UNVERIFIED | VERIFIED |
 | `3aaf5a0b` | crossref.org | DOI 10.1021/acs.biochem.1c00132.s001: PEGylation Increases the Strength of a Nearby NH Hydrogen Bond in the WW Domain | UNVERIFIED | VERIFIED |
-| `bac3b836` | openalex.org | OpenAlex An Intrinsic Bond-Centered Electronic Glass with Unidirectional Domain [Physics of Superconductivity a] | UNVERIFIED | VERIFIED |
-| `fbe9df21` | openalex.org | OpenAlex Observation of topological hydrogen-bonding domains in physical hydrog [Hydrogels: synthesis, properti] | UNVERIFIED | VERIFIED |
-| `0066115b` | openalex.org | OpenAlex A new strategy for methylated DNA detection based on photoelectrochemi [Advanced biosensing and bioana] | UNVERIFIED | VERIFIED |
-| `69b8a100` | openalex.org | OpenAlex The Structural Basis of Ribosome Activity in Peptide Bond Synthesis [RNA and protein synthesis mech] | UNVERIFIED | VERIFIED |
-| `969fbfab` | openalex.org | OpenAlex Ligand-promoted weakening of intersubunit bonding domains in aspartate [Hemoglobin structure and funct] | UNVERIFIED | VERIFIED |
-| `5f09ee1c` | openalex.org | OpenAlex The structure of aggrecan fragments in human synovial fluid. Evidence  [Osteoarthritis Treatment and M] | UNVERIFIED | VERIFIED |
-| `fdec72cf` | openalex.org | OpenAlex Peptide tag forming a rapid covalent bond to a protein, through engine [Biochemical and Structural Cha] | UNVERIFIED | VERIFIED |
-| `f26b3d14` | openalex.org | OpenAlex Dual Beneficial Effect of Interloop Disulfide Bond for Single Domain A [Monoclonal and Polyclonal Anti] | UNVERIFIED | VERIFIED |
 
-<<<<<<< HEAD
-**24 findings · 24 usable search-trial combinations · receipt `e481110f`** (fold of every finding's address — recompute by re-running the search).
-=======
-**16 findings · 16 usable search-trial combinations · receipt `b1e20479`** (fold of every finding's address — recompute by re-running the search).
->>>>>>> origin/main
+**16 findings · 16 usable search-trial combinations · receipt `ca423f6c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
