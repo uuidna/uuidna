@@ -22,12 +22,12 @@
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1435,
+        "theoremsMeasured": 1436,
         "ledgerKeys": 1436,
-        "unmeasured": 1,
-        "summedDecideSteps": 576575
+        "unmeasured": 0,
+        "summedDecideSteps": 576789
       },
-      "address": "f7d18486-ce21-8ba1-b2ba-c084f2b92505"
+      "address": "30408bec-1713-8e77-b98f-ad3a0c310462"
     },
     {
       "title": "Citation audit",
@@ -35,10 +35,10 @@
       "present": true,
       "facts": {
         "publications": 70,
-        "sealedTheorems": 1435,
+        "sealedTheorems": 1436,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "17689612-d9ea-88de-897f-8c92b7fecda2"
+      "address": "ecaf1d02-7a52-88eb-8ceb-89594ad0a6c1"
     },
     {
       "title": "Support audit",
@@ -75,6 +75,6 @@
       "address": "106de90f-42dc-8dcf-a699-5d5873f14b2f"
     }
   ],
-  "receipt": "aec8ed53-669e-8b3d-a841-415a3e52de80",
+  "receipt": "d585e104-4c64-8e13-84ac-8958623befc8",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
