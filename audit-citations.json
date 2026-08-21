@@ -1,16 +1,16 @@
 {
-  "key": "8d7462e3-ad8b-8d6e-948c-a9eceac87efd",
+  "key": "6ee2618d-b92a-82fd-95ea-74a8009e2857",
   "publications": 70,
   "sealedTheorems": 1435,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1295,
+    "claims": 1284,
     "theorems": 1435,
     "bijection": false,
     "digitalRoots": {
-      "claims": 8,
+      "claims": 6,
       "theorems": 4,
       "publications": 7
     },
@@ -54,8 +54,8 @@
     },
     {
       "slug": "sequence",
-      "claims": 32,
-      "cited": 32,
+      "claims": 28,
+      "cited": 28,
       "uncited": [],
       "fabricated": []
     },
@@ -88,6 +88,13 @@
       "fabricated": []
     },
     {
+      "slug": "clay",
+      "claims": 7,
+      "cited": 7,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
       "slug": "legal",
       "claims": 10,
       "cited": 10,
@@ -103,8 +110,8 @@
     },
     {
       "slug": "cipher",
-      "claims": 26,
-      "cited": 26,
+      "claims": 27,
+      "cited": 27,
       "uncited": [],
       "fabricated": []
     },
@@ -124,8 +131,8 @@
     },
     {
       "slug": "coins",
-      "claims": 20,
-      "cited": 20,
+      "claims": 18,
+      "cited": 18,
       "uncited": [],
       "fabricated": []
     },
@@ -166,15 +173,8 @@
     },
     {
       "slug": "solids",
-      "claims": 12,
-      "cited": 12,
-      "uncited": [],
-      "fabricated": []
-    },
-    {
-      "slug": "vector-equilibrium",
-      "claims": 12,
-      "cited": 12,
+      "claims": 11,
+      "cited": 11,
       "uncited": [],
       "fabricated": []
     },
