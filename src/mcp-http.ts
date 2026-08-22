@@ -16,7 +16,7 @@ import { decide } from './decide.js'
 import { matrixCss } from './css.js'
 import { toUuid } from './address.js'
 import { conformance } from './conformance.js'
-import { MCP_CATALOG, callTool } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party
+import { MCP_CATALOG, callTool, toolHandleOf, apiHandleOf } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { coins, billUuidna } from './captain/billing/index.js'
 import { quantumAura } from './aura.js'
@@ -201,7 +201,10 @@ const INHERITED = MCP_CATALOG
 /** every tool this endpoint serves: the edge's own, then everything the catalogue can lawfully lend it */
 const SERVED = [...TOOLS, ...INHERITED]
 
-const listing = (): unknown[] => SERVED.map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema }))
+// the edge's listing is sealed the same way the stdio listing is: per-tool contract handles from THE one fold
+// (toolHandleOf in mcp.ts) — this surface serves a different subset, so its api fold DIFFERS from stdio's by
+// construction, and each surface's listing names exactly what that surface promises
+const listing = (): unknown[] => SERVED.map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema, handle: toolHandleOf(t) }))
 const rpc = (id: unknown, result: unknown) => ({ jsonrpc: '2.0', id, result })
 const rpcErr = (id: unknown, code: number, message: string) => ({ jsonrpc: '2.0', id, error: { code, message } })
 
@@ -216,7 +219,7 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
     instructions: 'uuidna hosted MCP — the Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED: each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) — input sanitized, output sanitized, no fabricated theorem citation — one violation drains, named. EVERY call DEPOSITS THE TWO COINS immediately (contribute first, then take — the id a deterministic content-address citing theorem captain_commission_two_coins and theorem two_coins): your first call has already contributed. Every result is TWO content blocks: the answer, then ONE ledger line carrying the gate receipt and the deposit id; full detail in _meta. Recompute the gate against its sealed spec: uuidna_gate_status (theorem anti_fraud_check_deterministic). Integrity.' })
   if (method === 'ping') return rpc(id, {})
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
-  if (method === 'tools/list') return rpc(id, { tools: listing() })
+  if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(SERVED) } })
   if (method === 'tools/call') {
     const name = params.name
     const tool = SERVED.find((t) => t.name === name)

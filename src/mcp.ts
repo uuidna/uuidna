@@ -1230,7 +1230,9 @@ function handle(msg: RpcMessage) {
   }
   if (method === 'notifications/initialized' || method === 'initialized') return // notification — no reply
   if (method === 'ping') return ok(id, {})
-  if (method === 'tools/list') return ok(id, { tools: TOOLS.map(({ name, description, inputSchema }) => ({ name, description, inputSchema })) })
+  // every listed tool carries the handle of its own contract, and the listing carries the fold of them all —
+  // the API sealed in hexbit handles, so a drifted description is a changed address, visible from either side
+  if (method === 'tools/list') return ok(id, { tools: TOOLS.map(({ name, description, inputSchema }) => ({ name, description, inputSchema, handle: toolHandleOf({ name, description }) })), _meta: { api: apiHandleOf(TOOLS) } })
   if (method === 'tools/call') {
     const t = TOOLS.find((x) => x.name === params?.name)
     if (!t) return err(id, -32602, 'unknown tool: ' + params?.name)
@@ -1348,6 +1350,22 @@ export const MCP_CATALOG: McpCatalogEntry[] = TOOLS.map((t) => {
 
 /** Every tool name the server exposes — the catalog's keys, so a test can iterate the SERVED surface. */
 export const TOOL_NAMES: readonly string[] = TOOLS.map((t) => t.name)
+
+/** THE API SEALED IN HEXBIT HANDLES. A tool's CONTRACT is its name plus the description a caller decides by, and
+ *  that contract folds to an eight-tile handle exactly the way a locale, a page or a recording does — so a tool
+ *  that quietly rewords what it promises changes address, and a caller holding yesterday's handle can SEE the
+ *  drift instead of trusting the name. The whole served surface merkle-folds to ONE handle: two parties comparing
+ *  one eight-character string have compared every contract at once (dual-party verification, applied to the API
+ *  itself). The schema is deliberately outside the fold: its JSON spelling is not canonical across surfaces, and
+ *  a fold that moves when nothing meaningful moved would cry wolf — the mcp-schema finder holds schemas separately. */
+export const toolHandleOf = (t: { name: string; description: string }): string =>
+  handleOf(toUuid('tool:' + t.name + ':' + t.description))
+
+export interface ApiSeal { count: number; root: string; handle: string }
+export const apiHandleOf = (tools: readonly { name: string; description: string }[]): ApiSeal => {
+  const root = merkleFold(tools.map((t) => toUuid('tool:' + t.name + ':' + t.description)))
+  return { count: tools.length, root, handle: handleOf(root) }
+}
 
 /** callTool — invoke a tool's handler by name: the SAME dispatch the MCP server runs for a `tools/call`. Exposed so
  *  CI exercises the SERVED interface (not just the functions underneath), and so the catalog can never list a tool
