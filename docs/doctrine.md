@@ -60,5 +60,5 @@ executives, insurers, accountants, compliance officers, tax accountants, arbitra
 to the same primitive — *verify a claim against a record both sides can recompute* — which is what the ledger does at
 zero marginal cost. The detailed 11-domain walkthrough is retired to git history; the operational replacements are
 live and linked: [the trials](/trials) (adjudication), [the tests](/tests) (audit), [MCP tools](/mcp) (the working
-interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" data-receipt="d4bb9df3-99f9-87f2-87ed-ec3048f4e7d5">1376</span><!--/L--> distinct theorems under <!--L:keys--><span class="ledger" data-slot="keys" data-receipt="d4bb9df3-99f9-87f2-87ed-ec3048f4e7d5">1456</span><!--/L--> keys](/theorems) (the record itself). *Honest scope:* uuidna replaces the
+interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" data-receipt="56c2b2c9-3fce-8d25-8fd5-7638e13f2170">1378</span><!--/L--> distinct theorems under <!--L:keys--><span class="ledger" data-slot="keys" data-receipt="56c2b2c9-3fce-8d25-8fd5-7638e13f2170">1458</span><!--/L--> keys](/theorems) (the record itself). *Honest scope:* uuidna replaces the
 **verification** these professions perform, not the judgment, advocacy, or human accountability they also carry.

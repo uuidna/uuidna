@@ -75,6 +75,42 @@ export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
 // receipts through the order-invariant gravity to one proof-of-verdict root. Integrity, not truth.
 export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from './adjudicate.js'
 export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from './corroborate.js'
+
+// QUANTUM ENTANGLEMENT — the four physical frames (crypto/bio/chemo/physical) verify every theorem
+export {
+  verifyCryptoFrame, verifyBioFrame, verifyChemoFrame, verifyPhysicalFrame,
+  entangleAllFrames, entanglementReport, frameMaskFromEntanglement,
+  type CryptoFrame, type BioFrame, type ChemoFrame, type PhysicalFrame,
+  type QuantumEntanglement, type EntanglementReport, type FrameLeg
+} from './entangle-crypto-bio-chemo-physical.js'
+
+export {
+  verifyEntangledResponse, wrapMCPResponse, entanglementSummary,
+  type MCPEntanglementMeta
+} from './mcp-entanglement-gate.js'
+
+// ENTANGLEMENT LAYER 2 — Six Rosetta Legs + Eight Hexbits (theorem metadata structure)
+export {
+  verifyRecomputationLeg, verifyHexbitStructure, entangleLayer2, layer2Report,
+  ROSETTA_LEGS_EXTENDED, ROSETTA_LEG_BIT,
+  type RosettaLegExtended, type RecomputationLeg, type HexbitStructure,
+  type Layer2Entanglement, type Layer2Report
+} from './entangle-six-legs-eight-hexbits.js'
+
+// ENTANGLEMENT LAYER 3 — Six Packages + Six Vector Motions (ledger topology)
+export {
+  verifyPackageIntegrity, verifyMotionTrajectory, entangleLayer3, layer3Report,
+  PACKAGES, VECTOR_MOTIONS,
+  type Package, type VectorMotion, type PackageIntegrity, type MotionTrajectory,
+  type Layer3Entanglement, type Layer3Report
+} from './entangle-six-packages-six-motions.js'
+
+// ROTATIONAL ENTANGLEMENT — bidirectional spin in 6×7 and 7×6 planes
+export {
+  spinForward6x7, spinReverse7x6, entangleBirotational, birotationalReport, visualizeRotationalPlanes,
+  type RotationalPlane6x7, type RotationalPlane7x6, type BirotationalEntanglement, type BirotationalReport,
+  type Dimension, type MotionIndex
+} from './entangle-rotational-planes.js'
 export { domainWave, type DomainWave } from './domain-wave.js'
 // research — deep research pressed/decompressed with the reversible imprint codec, bound to the entangled algebra,
 // with NOVELTY as content-address uniqueness. Does NOT extract MEANING (provenance + structure only; meaning is null).
