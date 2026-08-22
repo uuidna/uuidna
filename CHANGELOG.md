@@ -14,7 +14,7 @@ theorems). A `.0` bumps development onward.
 ## Roadmap — toward [1.0.0]
 
 A plan, not a promise. **v1.0.0 aims at 1024 theorems** (2¹⁰ — a clean power-of-two milestone), **all `by decide`,
-sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **1449 distinct / 1024 — -425 to go** (1529 keys, 80 deliberate re-namings), across 100 principles.<!-- /LEDGER:TODAY -->
+sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **1459 distinct / 1024 — -435 to go** (1540 keys, 81 deliberate re-namings), across 101 principles.<!-- /LEDGER:TODAY -->
 The versions in between are real, gated releases: each `0.1.x` grows the ledger and must pass `npm run next` (proofs +
 prose + accounts + graph + the changelog self-audit) before it ships. And the honest odometer holds — **1.0.0 comes
 only after the `0.1.x` line is actually published on npm** (today only `0.1.0` is), never by minting forward past an
@@ -329,7 +329,7 @@ pipeline's own gates version what they archive — the Zenodo deposit job names 
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **1449 distinct propositions** under **1529 keys** (80 re-namings — a statement sealed in two wings is one theorem with two names) across **100 principles**, folded to receipt `01967e68-e987-896d-a54c-ab984a2d4d94`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **1459 distinct propositions** under **1540 keys** (81 re-namings — a statement sealed in two wings is one theorem with two names) across **101 principles**, folded to receipt `3daa74cb-9a79-8715-8ea8-372bd9497d81`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added

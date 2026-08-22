@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1529/1529 theorems — every one, by construction
-**Claim receipt:** `ca81ba63-9460-8756-b13a-549eed81d001`
+**Total claimed:** 1540/1540 theorems — every one, by construction
+**Claim receipt:** `99793e9a-8b96-8e13-91c6-7a53011722e6`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -914,6 +914,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [ve_twelve_vertices](/theorem/ve_twelve_vertices) · [radial_squared_two](/theorem/radial_squared_two) · [ve_four_neighbours](/theorem/ve_four_neighbours) · [radial_equals_edge](/theorem/radial_equals_edge) · [ve_handshake_crosses](/theorem/ve_handshake_crosses) · [ve_twentyfour_edges](/theorem/ve_twentyfour_edges) · [ve_fourteen_faces](/theorem/ve_fourteen_faces) · [euler_characteristic_two](/theorem/euler_characteristic_two) · [metatron_seventyeight_lines](/theorem/metatron_seventyeight_lines) · [dz_two_fixedpoints](/theorem/dz_two_fixedpoints) · [dz_involution_digits](/theorem/dz_involution_digits) · [orbits_closed_involution](/theorem/orbits_closed_involution) · [missing_pair_involution](/theorem/missing_pair_involution)
 
+### lean/Waves.lean
+
+- **Theorems:** 11
+- **Sample lineAddress:** `9bd83494-39d0-86aa-a607-6e020ab2e5e0`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) · [nine_complement_half_turns_the_orbit](/theorem/nine_complement_half_turns_the_orbit) · [five_is_the_developing_center](/theorem/five_is_the_developing_center) · [the_hex_center_is_empty](/theorem/the_hex_center_is_empty) · [gas_volume_walks_the_harmonic_series](/theorem/gas_volume_walks_the_harmonic_series) · [pressure_doubles_down_the_octave](/theorem/pressure_doubles_down_the_octave) · [haldane_bound_is_two_to_one](/theorem/haldane_bound_is_two_to_one) · [buddy_pair_squares_the_failure](/theorem/buddy_pair_squares_the_failure) · [thirds_rule_sums_whole](/theorem/thirds_rule_sums_whole) · [divers_and_astronauts_share_the_ladder](/theorem/divers_and_astronauts_share_the_ladder) · [the_promotion_chain_doubles_home](/theorem/the_promotion_chain_doubles_home)
+
 
 ---
 
@@ -924,7 +933,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1449 (1529 entries, 80 re-namings — a theorem is its Lean |
+| sealed propositions | 1459 (1540 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -942,7 +951,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1529 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1540 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

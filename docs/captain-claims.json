@@ -2,8 +2,8 @@
   "generated": "2026-08-22",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1529,
-  "total_theorems": 1529,
+  "total_claimed": 1540,
+  "total_theorems": 1540,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -9178,9 +9178,75 @@
       "lineAddress": "d562b31a-52a7-8b77-9c7c-33a120e9f6c9",
       "address": "c13cdc16-1821-8c65-a900-18fe91c07528",
       "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
+      "key": "captains_columns_sum_to_ten",
+      "lineAddress": "9bd83494-39d0-86aa-a607-6e020ab2e5e0",
+      "address": "26f5c88e-8d10-83b1-82a4-ac80e0d86d0b",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "nine_complement_half_turns_the_orbit",
+      "lineAddress": "4bb74335-223a-84ab-8c00-b3714392ffc1",
+      "address": "324b992f-2db9-8b4d-beb3-935ab1646c1a",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "five_is_the_developing_center",
+      "lineAddress": "d11f67cc-099d-8b87-b6dc-706e8d1fdcad",
+      "address": "d579ecb2-bca1-8207-844c-3c47b37ec9c2",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "the_hex_center_is_empty",
+      "lineAddress": "de138fef-51a6-84b9-84dd-03d1d6fe9226",
+      "address": "cbd12eec-3ef6-8cbb-84de-dce827fd5242",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "gas_volume_walks_the_harmonic_series",
+      "lineAddress": "c040a0d8-d795-8426-b6a0-ca3012377a04",
+      "address": "f9271f08-d5ed-8690-a90c-2a49a9f18b9e",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "pressure_doubles_down_the_octave",
+      "lineAddress": "9442250d-9c3a-8406-b152-6b2bcfe28317",
+      "address": "22e72ea2-3199-8b22-8b83-134461bda902",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "haldane_bound_is_two_to_one",
+      "lineAddress": "461e216f-dedf-858a-8fa1-ff1e4834151f",
+      "address": "ca148014-0bb5-824a-bf3d-54db97ffb9d7",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "buddy_pair_squares_the_failure",
+      "lineAddress": "bd25e609-12c3-802c-b2f3-a2001bbe0cea",
+      "address": "669679dd-d030-822d-a4f1-2309fea13d58",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "thirds_rule_sums_whole",
+      "lineAddress": "2c327669-945e-8b9f-af9f-7f8dd5557e5a",
+      "address": "4c16a853-894c-80c9-87d2-eed040bdb1e8",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "divers_and_astronauts_share_the_ladder",
+      "lineAddress": "d8779afc-d868-80f5-b95e-60a15d5962e5",
+      "address": "ec382dea-aa57-8075-be62-68af2cb293c0",
+      "principle": "lean/Waves.lean"
+    },
+    {
+      "key": "the_promotion_chain_doubles_home",
+      "lineAddress": "9af699e6-899f-8ae4-99a5-9a6c78484b82",
+      "address": "ce52945b-3c3c-8847-a66e-74c95d6e08a7",
+      "principle": "lean/Waves.lean"
     }
   ],
-  "claim_receipt": "ca81ba63-9460-8756-b13a-549eed81d001",
+  "claim_receipt": "99793e9a-8b96-8e13-91c6-7a53011722e6",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

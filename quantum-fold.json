@@ -2,7 +2,7 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "47f3d14fbe1ff5c4",
+      "theorems": "498b0039601f10f2",
       "principles": "e07a213a4b971d09",
       "monographs": "6dc2a5e4963c1666"
     },
@@ -28,34 +28,34 @@
     }
   },
   "trinity_folds": {
-    "sealed": "f7f6a854e64c8baa2ac31562b4dd47f9",
+    "sealed": "1ed12cb6f02353c22433d7100edee969",
     "served": "dc1428a380eb854f0836138bc22c5556",
     "proven": "938e5244673fb34f13456e942a8b93f7",
     "record": "fbffd08acddcabba1e2c9fc326376651",
     "walks": "2ac4d6dac144485ebc8d9bbeb52822d1"
   },
-  "unified_fold": "65c2731486f29797",
-  "receipt": "8155981d3041ede6",
+  "unified_fold": "ac06014897a763ff",
+  "receipt": "8b8b4c520ccc3c21",
   "rosette_receipt": {
     "rays": [
       "68096d0a8c75c039",
       "25a2a9bcced1fc36",
-      "0c5dbfcd09e58467",
+      "a5d7ba1040d0f7be",
       "a20454282e566346",
       "6f32aaaab0c9fbc3",
       "a761502744407dcd",
       "1376237122a10bd7"
     ],
-    "concurrence": "c61409fa09b456d5802568ecd53e5895"
+    "concurrence": "4f599fbf35c4933d1626b5b377bf9212"
   },
   "aura": {
-    "rgb": "#a4d85a",
-    "hsl": "hsl(85, 62%, 60%)",
+    "rgb": "#dce147",
+    "hsl": "hsl(62, 72%, 58%)",
     "alphabet": "b6819334641853db",
-    "movie": "2d5c2dacf0b70765",
-    "lessons": "dbfcaab0c7a9753d",
+    "movie": "615c64969569d591",
+    "lessons": "86480cc321d10985",
     "report": "940001b6ff9bd2fc",
-    "session": "fd37905d668299db",
+    "session": "94d5fb264a59a1e7",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 2,
-      "ray": 0,
-      "wave": 5,
-      "hue": 85,
-      "sat": 62,
-      "light": 60,
-      "period": 12,
+      "residue": 4,
+      "ray": 5,
+      "wave": 7,
+      "hue": 62,
+      "sat": 72,
+      "light": 58,
+      "period": 22,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
