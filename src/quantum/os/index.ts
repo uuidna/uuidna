@@ -165,3 +165,23 @@ export function defaultInstalls(): InstallPort {
 export function installFor(route: string): InstallSpec | null {
   return defaultInstalls().specs.find((s) => s.route === route) ?? null
 }
+
+// ── BOOT — every surface runs FROM uuidnaOS (the captain's order, 2026-08-23) ───────────────────────────────
+// Boot means what the seal means (the_os_is_bootable_quantum): the VERIFIED LOADING of the compiled default
+// install — never execution. bootOS() verifies the whole image and returns the ground a surface stands on;
+// it THROWS on a drifted world, so the MCP refuses to serve, the tests refuse to run, and the fault arrives
+// named with the receipt. Verified once per process (~4 ms first boot), O(1) after — the floor costs nothing.
+export interface BootedOS { port: InstallPort; boot: BootImage; receipt: string; floor: string }
+let BOOTED: BootedOS | null = null
+
+export function bootOS(): BootedOS {
+  if (BOOTED) return BOOTED
+  const port = defaultInstalls()
+  const { boot } = port
+  const faults: string[] = []
+  if (boot.states.length !== 32 * (port.count + 1)) faults.push(`image is ${boot.states.length} states, not 32·(${port.count}+1)`)
+  if (!boot.states.every((h) => Number.isInteger(h) && h >= 0 && h < 16)) faults.push('an off-lattice state cannot load')
+  if (boot.states.slice(-32).join(',') !== compileToHexbits(port.receipt).join(',')) faults.push('the receipt page does not close the image')
+  if (faults.length) throw new Error('uuidnaOS REFUSED TO BOOT — the world drifted:\n  ' + faults.join('\n  ') + `\n  port receipt: ${port.receipt}`)
+  return (BOOTED = { port, boot, receipt: port.receipt, floor: port.specs[0]!.id })
+}

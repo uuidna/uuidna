@@ -43,7 +43,7 @@ import { resources } from './resources.js' // Node-only (reads process/os) — i
 import { ROOT as LIB_ROOT } from './boundary.js'
 import { portAllAlpine } from './os/alpine/index.js' // os/ boundary — LIVE upstream read (named non-determinism), not via the deterministic index
 import { infuseAlpinePackages, alpinePackage } from './os/packages/index.js' // os/ boundary — each Alpine package → uuidna/<name>
-import { defaultInstalls } from './quantum/os/index.js' // PURE — the default-install port from the committed mirror (no fetch, edge-clean)
+import { defaultInstalls, bootOS } from './quantum/os/index.js' // PURE — the port + the boot every surface stands on (no fetch, edge-clean)
 import { balanceContext } from './quantum/context/index.js' // PURE — the context-window balance by the unit's own spare law
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
 import { gateVerdict, gateSelfTest, registryReceipt, depositCoins, ledgerLine, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate and deposits the two coins
@@ -1240,6 +1240,9 @@ function handle(msg: RpcMessage) {
   // the API sealed in hexbit handles, so a drifted description is a changed address, visible from either side
   if (method === 'tools/list') return ok(id, { tools: TOOLS.map(({ name, description, inputSchema }) => ({ name, description, inputSchema, handle: toolHandleOf({ name, description }) })), _meta: { api: apiHandleOf(TOOLS) } })
   if (method === 'tools/call') {
+    // THE SERVER RUNS FROM uuidnaOS: the first call boots the verified world (~4 ms, cached) and a DRIFTED
+    // world refuses to serve at all, fault named with the receipt — the same floor the tests stand on.
+    try { bootOS() } catch (e) { return err(id, -32000, String((e as Error).message)) }
     const t = TOOLS.find((x) => x.name === params?.name)
     if (!t) return err(id, -32602, 'unknown tool: ' + params?.name)
     const args = params?.arguments || {}

@@ -10,6 +10,7 @@
 // worker signs it (env.TRIAL_KEY); a fork recomputes the same result but cannot forge the signature. The tools carry
 // their own honest scope (the aura is art, image provenance is exact-copy not content-truth, the cube is symmetric).
 import { adjudicate } from './adjudicate.js'
+import { bootOS } from './quantum/os/index.js'
 import { reveal } from './gate.js'
 import { searchLedger } from './editorial.js'
 import { decide } from './decide.js'
@@ -221,6 +222,9 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
   if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(SERVED) } })
   if (method === 'tools/call') {
+    // THE EDGE RUNS FROM uuidnaOS TOO: first call boots the verified world (cached), a drifted world refuses
+    // to serve — one floor under stdio, worker, and tests alike.
+    try { bootOS() } catch (e) { return rpcErr(id, -32000, String((e as Error).message)) }
     const name = params.name
     const tool = SERVED.find((t) => t.name === name)
     if (!tool) return rpcErr(id, -32602, 'unknown tool: ' + String(name))
