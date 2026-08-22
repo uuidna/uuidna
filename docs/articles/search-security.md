@@ -14,18 +14,10 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `9f31b753` | zenodo.org | zenodo record 17545491: The Pakistan-Saudi Defence Pact | UNVERIFIED | VERIFIED |
-| `1ec85849` | zenodo.org | zenodo record 15920803: Effectiveness of Using Moisturizer with Saccharide Isomerate on Skin Hydration i | UNVERIFIED | VERIFIED |
-| `3cf4aea1` | zenodo.org | zenodo record 14629255: Recommendations on the implementation of portfolio management in the defense man | UNVERIFIED | VERIFIED |
-| `bf36a698` | zenodo.org | zenodo record 15244824: Time Differences in Reaching Minimal Erythemal Doses among Different Fitzpatrick | UNVERIFIED | VERIFIED |
-| `fe4cb69d` | zenodo.org | zenodo record 14629133: Project management in the Ministry of Defense of Ukraine and the Armed Forces of | UNVERIFIED | VERIFIED |
-| `a501f1e5` | zenodo.org | zenodo record 3381483: The adaptable energy platform | UNVERIFIED | VERIFIED |
-| `011dfdc6` | zenodo.org | zenodo record 12031612: CREATION OF A SUBSYSTEM FOR EXTERNAL QUALITY ASSURANCE OF PROFESSIONAL MILITARY  | UNVERIFIED | VERIFIED |
-| `14f9c299` | zenodo.org | zenodo record 2248344: Effect of Gas-To-Liquid (GTL) fuels on marine diesel engines compared to F-76 | UNVERIFIED | VERIFIED |
 | `948d2ac0` | crossref.org | DOI 10.1016/j.dt.2024.11.008: Impact of adhesive layer properties on ceramic multi-layered ballistic armour sy | UNVERIFIED | VERIFIED |
 | `9473cbe0` | crossref.org | DOI 10.1007/978-3-642-20751-8_3: The Common Security and Defence Policy | UNVERIFIED | VERIFIED |
-| `ba1bc566` | crossref.org | DOI 10.1016/j.dt.2023.01.013: Design of Multi-layered Protection Against Guided Mortar Threats Yhrough Numeric | UNVERIFIED | VERIFIED |
 | `a81364aa` | crossref.org | DOI 10.1080/13567888.2021.1952780: The strategic implications of layered missile defence | UNVERIFIED | VERIFIED |
+| `ba1bc566` | crossref.org | DOI 10.1016/j.dt.2023.01.013: Design of Multi-layered Protection Against Guided Mortar Threats Yhrough Numeric | UNVERIFIED | VERIFIED |
 | `d76c19d9` | crossref.org | DOI 10.1016/j.dt.2024.07.009: Composite armor philosophy (CAP): Holistic design methodology of multi-layered c | UNVERIFIED | VERIFIED |
 | `2565a261` | crossref.org | DOI 10.1016/s1353-4858(12)70043-0: Why multi-layered security is still the best defence | UNVERIFIED | VERIFIED |
 | `fc5d8a9b` | crossref.org | DOI 10.1016/j.dt.2021.03.014: Blast performance of layered charges enveloped by aluminum powder/rubber composi | UNVERIFIED | VERIFIED |
@@ -35,11 +27,11 @@ the hard gate of the corroboration law.
 | `1b07bc97` | openalex.org | OpenAlex Modelling Botnet Propagation in Networks with Layered Defences [Network Security and Intrusion] | UNVERIFIED | VERIFIED |
 | `77b946cf` | openalex.org | OpenAlex Preliminaries of Orthogonal Layered Defence Using Functional and Assur [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `0b5f90cf` | openalex.org | OpenAlex Mechanical Defences to Herbivory [Tree Root and Stability Studie] | UNVERIFIED | VERIFIED |
+| `70a7539f` | openalex.org | OpenAlex Class III peroxidases in plant defence reactions [Plant-Microbe Interactions and] | UNVERIFIED | VERIFIED |
 | `b19926a4` | openalex.org | OpenAlex Multi-layered Defence Mechanisms: Architecture, Implementation and Dem [Artificial Immune Systems Appl] | UNVERIFIED | VERIFIED |
 | `419120be` | openalex.org | OpenAlex Multi-Layer Defences for Robust GNSS Timing Retrieval [GNSS positioning and interfere] | UNVERIFIED | VERIFIED |
-| `70a7539f` | openalex.org | OpenAlex Class III peroxidases in plant defence reactions [Plant-Microbe Interactions and] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `e79c0afd`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `8e458bab`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

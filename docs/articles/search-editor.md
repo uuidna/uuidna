@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `c9fa8a3c` | zenodo.org | zenodo record 19423742: Printed Refolding Guidance System for Multi-Panel Folded Documents | UNVERIFIED | VERIFIED |
-| `fdfe7cf4` | zenodo.org | zenodo record 5713734: Digital Sovereignty | UNVERIFIED | VERIFIED |
-| `c1a0bfad` | zenodo.org | zenodo record 7244312: Sustainability of OSS Projects (the Experience of LibreOffice) | UNVERIFIED | VERIFIED |
-| `5dc14833` | zenodo.org | zenodo record 5832573: Analysis and Development of a Methodological Approach to Structuring the List of | UNVERIFIED | VERIFIED |
-| `daa7aa4f` | zenodo.org | zenodo record 5734220: Documentology at the Stage of Advanced Science: Essence of the Unit of Documenta | UNVERIFIED | VERIFIED |
-| `a0809efc` | zenodo.org | zenodo record 20637852: Family Φ-R V2.0: Complete Nine-Sibling Roster — A Recursive Fold Operator Across | UNVERIFIED | VERIFIED |
-| `af084dff` | zenodo.org | zenodo record 15201848: Déclaration européenne des droits de l'animal | UNVERIFIED | VERIFIED |
-| `46c0e35f` | zenodo.org | zenodo record 14567797: Servants in Leadership: The Five-Fold Ministry in Perspective | UNVERIFIED | VERIFIED |
 | `a3101705` | crossref.org | DOI 10.1145/3103010.3121030: The Common Fold | UNVERIFIED | VERIFIED |
 | `10171668` | crossref.org | DOI 10.1109/access.2024.3521937/mm1: Automated Morphology Detection of Nail-fold Capillaries through Enhanced Object  | UNVERIFIED | VERIFIED |
 | `cf1390f9` | crossref.org | DOI 10.1109/tim.2026.3667224/mm1: A Novel AI-Enhanced Textile-Embedded Wearable Biosensor for Non-Invasive Vocal-F | UNVERIFIED | VERIFIED |
@@ -39,7 +31,7 @@ the hard gate of the corroboration law.
 | `82219568` | openalex.org | OpenAlex The impact of the endoplasmic reticulum protein-folding environment on [Endoplasmic Reticulum Stress a] | UNVERIFIED | VERIFIED |
 | `9e31a010` | openalex.org | OpenAlex Reappraisal of European guidelines on hypertension management: a Europ [Blood Pressure and Hypertensio] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `a9344dcb`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `01f6c31c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

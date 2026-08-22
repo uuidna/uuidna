@@ -24,8 +24,8 @@ the hard gate of the corroboration law.
 | `1c928475` | zenodo.org | zenodo record 12573961: Cakawi [sic] Cam 1969 | UNVERIFIED | VERIFIED |
 | `ebc70768` | crossref.org | DOI 10.1093/0198270348.003.0005: Calendar and Community: The Emergence of the Normative Jewish Calendar | UNVERIFIED | VERIFIED |
 | `69faf410` | crossref.org | DOI 10.32614/cran.package.jcalendar: jcalendaR: Interconversion Between the Japanese Calendar System and the Western  | UNVERIFIED | VERIFIED |
-| `009ff1cc` | crossref.org | DOI 10.1163/1878-9781_ejiw_com_0004860: Calendar and calendar disputes | UNVERIFIED | VERIFIED |
 | `52ae763d` | crossref.org | DOI 10.1177/002205740305701426: Book Review: Nature Calendar Series: The Bird Calendar, the Wild Flower Calendar | UNVERIFIED | VERIFIED |
+| `009ff1cc` | crossref.org | DOI 10.1163/1878-9781_ejiw_com_0004860: Calendar and calendar disputes | UNVERIFIED | VERIFIED |
 | `221343d3` | crossref.org | DOI 10.1093/gao/9781884446054.article.t013157: Calendar | UNVERIFIED | VERIFIED |
 | `5f561b58` | crossref.org | DOI 10.1163/1874-6772_seg_a55_1984: Calendar. Intercalations in the Roman calendar, 191-46 B.C. | UNVERIFIED | VERIFIED |
 | `21870b01` | crossref.org | DOI 10.2307/j.ctvh1dj98.16: Between Crucifixion and Calendar Reform: | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `40174380` | openalex.org | OpenAlex Hidden Rhythms: Schedules and Calendars in Social Life [Globalization and Cultural Ide] | UNVERIFIED | VERIFIED |
 | `93c58005` | openalex.org | OpenAlex An accelerated calendar and cycle life study of Li-ion cells [Advanced Battery Technologies ] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `6e083317`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `8b030ee2`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

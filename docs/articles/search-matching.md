@@ -22,8 +22,16 @@ the hard gate of the corroboration law.
 | `60ac3aa0` | crossref.org | DOI 10.1007/978-3-8348-2095-2_12: Name Matching and Identity Matching | UNVERIFIED | VERIFIED |
 | `29e14757` | crossref.org | DOI 10.1007/978-3-540-49612-0_3: The matching problem | UNVERIFIED | VERIFIED |
 | `86938977` | crossref.org | DOI 10.1007/978-3-540-49612-0_8: Evaluation of matching systems | UNVERIFIED | VERIFIED |
+| `f45d27be` | openalex.org | OpenAlex Matching pursuits with time-frequency dictionaries [Machine Fault Diagnosis Techni] | UNVERIFIED | VERIFIED |
+| `114f2ab3` | openalex.org | OpenAlex Signal Recovery From Random Measurements Via Orthogonal Matching Pursu [Sparse and Compressive Sensing] | UNVERIFIED | VERIFIED |
+| `4d3ab59e` | openalex.org | OpenAlex SOME PRACTICAL GUIDANCE FOR THE IMPLEMENTATION OF PROPENSITY SCORE MAT [Advanced Causal Inference Tech] | UNVERIFIED | VERIFIED |
+| `d0a3a74d` | openalex.org | OpenAlex Matching Methods for Causal Inference: A Review and a Look Forward [Advanced Causal Inference Tech] | UNVERIFIED | VERIFIED |
+| `6eae5936` | openalex.org | OpenAlex Shape matching and object recognition using shape contexts [Image Retrieval and Classifica] | UNVERIFIED | VERIFIED |
+| `a2ca7d55` | openalex.org | OpenAlex Video Google: a text retrieval approach to object matching in videos [Advanced Image and Video Retri] | UNVERIFIED | VERIFIED |
+| `7c968ed4` | openalex.org | OpenAlex Matching As An Econometric Evaluation Estimator [Statistical Methods and Infere] | UNVERIFIED | VERIFIED |
+| `afcb46ca` | openalex.org | OpenAlex Stereo Processing by Semiglobal Matching and Mutual Information [Advanced Vision and Imaging] | UNVERIFIED | VERIFIED |
 
-**8 findings · 8 usable search-trial combinations · receipt `7ff6a4a9`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `9e783fa1`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

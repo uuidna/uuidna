@@ -17,8 +17,8 @@ the hard gate of the corroboration law.
 | `01d9b827` | zenodo.org | zenodo record 1513294: An Improved Colour-Wheel | UNVERIFIED | VERIFIED |
 | `d05ed97d` | zenodo.org | zenodo record 17976059: Traction and Energy Indicators of Propellers of Wheeled Mobile Energy Vehicles f | UNVERIFIED | VERIFIED |
 | `e9ed9b8b` | zenodo.org | zenodo record 17570649: INSPIRE_T1.4 - INSPIRE_Observational Fieldwork - First version_Dataset 1_2025_04 | UNVERIFIED | VERIFIED |
-| `18529c6b` | zenodo.org | zenodo record 18914756: Emergent dynamics from a position-based calving law and the limits of rate-based | UNVERIFIED | VERIFIED |
 | `ac4427ea` | zenodo.org | zenodo record 10182710: Algorithm outline associated with the 3D full-Stokes calving model in Elmer/Ice  | UNVERIFIED | VERIFIED |
+| `18529c6b` | zenodo.org | zenodo record 18914756: Emergent dynamics from a position-based calving law and the limits of rate-based | UNVERIFIED | VERIFIED |
 | `9990a0bc` | zenodo.org | zenodo record 10182705: StAndrewsGlacio/ElmerIceCalvingModel: 3D Calving Model in Elmer/Ice (v9.0) | UNVERIFIED | VERIFIED |
 | `ab3979e5` | zenodo.org | zenodo record 17726850: Calving laws and where to find them. | UNVERIFIED | VERIFIED |
 | `81a722c2` | zenodo.org | zenodo record 5510854: A colour recognition device for the visually disabled people | UNVERIFIED | VERIFIED |
@@ -32,14 +32,14 @@ the hard gate of the corroboration law.
 | `d75cc33f` | crossref.org | DOI 10.18772/12021117151.24: Conclusion: | UNVERIFIED | VERIFIED |
 | `2e135eac` | openalex.org | OpenAlex Bursting paradigms: a colour wheel of practice-research [Artistic and Creative Research] | UNVERIFIED | VERIFIED |
 | `8ead8c90` | openalex.org | OpenAlex A magenta gap in the colour wheel [Experimental and Theoretical P] | UNVERIFIED | VERIFIED |
-| `0fd14d2b` | openalex.org | OpenAlex Features and development of <i>Coot</i> [Enzyme Structure and Function] | UNVERIFIED | VERIFIED |
+| `0fd14d2b` | openalex.org | OpenAlex Features and development of Coot [Enzyme Structure and Function] | UNVERIFIED | VERIFIED |
 | `9a865861` | openalex.org | OpenAlex The Manchester Colour Wheel: Enhancing its Utility [Color perception and design] | UNVERIFIED | VERIFIED |
 | `61945cd4` | openalex.org | OpenAlex Cutadapt removes adapter sequences from high-throughput sequencing rea [Genomics and Phylogenetic Stud] | UNVERIFIED | VERIFIED |
 | `df3db136` | openalex.org | OpenAlex The Adaptive Capacity Wheel: a method to assess the inherent character [Sustainability and Climate Cha] | UNVERIFIED | VERIFIED |
 | `e648706d` | openalex.org | OpenAlex Bifurcations, harmonics and the four colour wheel model of Drosophila  [Developmental Biology and Gene] | UNVERIFIED | VERIFIED |
 | `fef8f96f` | openalex.org | OpenAlex A high-quality apple genome assembly reveals the association of a retr [Plant Gene Expression Analysis] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `93dfb962`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `820ade6e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
