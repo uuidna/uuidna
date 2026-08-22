@@ -647,6 +647,7 @@ AUDIT EVERY SINGLE DETAIL of a text (offline, pure): deterministic split into se
 | --- | --- | --- | --- |
 | `text` | string | **yes** | the document whose every detail is adjudicated |
 | `title` | string | no |  |
+| `delimiter` | string | no | explicit detail boundary (for ASR/caption text, which has no punctuation) |
 
 ### `uuidna_book_article`
 
