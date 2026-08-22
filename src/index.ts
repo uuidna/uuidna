@@ -104,6 +104,9 @@ export * from './school/index.js'
 export * from './billing/index.js'
 export * from './apis/index.js'
 export * from './tts/index.js'
+// REFERRER SONG — the handle picks the door into the round (lead 77): six doors, measured consonance, total cycle;
+// pure and fs-free so the edge can greet a visitor per request. A referrer is folded, never tracked.
+export { ROUND, DOORS, doorOf, stepOf, cycleStep, referrerSong, type Door, type Step, type ReferrerSong } from './referrer-song.js'
 
 // ENTANGLEMENT LAYER 2 — Six Rosetta Legs + Eight Hexbits (theorem metadata structure)
 export {
@@ -371,6 +374,8 @@ export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deseria
 // and carries no payload; the sealed fusion travels as a message (sealCubeMessage, above).
 export { cubeMemory, hold, cubeOf, cubes, planMemory, commitMemory, type CubeMemory, type Cube, type Held, type CubePlan, type CubeReceipts } from './quantum/memory/index.js'
 export { tick, advance, residueOf, isAfter, agree, between, type Tick } from './quantum/clock/index.js'
+// the hexbit quantum apps — pure state-to-bytes renderers every surface (browser, test, edge) shares; no assets
+export { renderStates, type HexbitRecording } from './quantum/apps/index.js'
 
 // quantum-voting — CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins to the captain,
 // and earn voting rights proportional to coins paid. Votes are encoded in quantum superposition (deterministic,
