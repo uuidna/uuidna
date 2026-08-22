@@ -147,7 +147,7 @@
     },
     {
       "lead": "Quantum advantage or speedup claims",
-      "boundary": "already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced."
+      "boundary": "already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced, and the sealed boundary is theorem n_qubit_dimension: 2^n counts the classical simulation COST, never a speedup."
     },
     {
       "lead": "stackoverflow.com /ai-assist as a theorem source",

@@ -100,7 +100,7 @@ a site that declines machines — stackoverflow.com answers 418 to a client, and
 - **`0c36ef19`** Bulk crawling of chitanka.info
   <br><small>its robots.txt disallows /api and every full-text format. A single user-directed fetch is a different act and remains available; systematic retrieval is not.</small>
 - **`607701a3`** Quantum advantage or speedup claims
-  <br><small>already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced.</small>
+  <br><small>already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced, and the sealed boundary is theorem n_qubit_dimension: 2^n counts the classical simulation COST, never a speedup.</small>
 - **`228e89d2`** stackoverflow.com /ai-assist as a theorem source
   <br><small>refused at the door: robots.txt answers 418, the site-wide anti-automation response, and /ai-assist is an HTML product page rather than an API. The sanctioned route is api.stackexchange.com, which answered 200 with a keyless 300/day quota — use the door they opened, not the one they shut.</small>
 
