@@ -1,16 +1,7 @@
 {
   "modules": 427,
   "roots": 289,
-  "supported": 419,
-  "dead": [
-    "src/apis/index.ts",
-    "src/billing/index.ts",
-    "src/loop-closure-auto-fold.ts",
-    "src/school/automate/improvement/index.ts",
-    "src/school/index.ts",
-    "src/school/practice/feedback/loop/index.ts",
-    "src/tts/index.ts",
-    "src/tts/synth.ts"
-  ],
-  "receipt": "aa4ead07-7912-8bbc-9101-b2d1216b5815"
+  "supported": 427,
+  "dead": [],
+  "receipt": "0637f2ec-25a2-80b1-9c56-321dc4095f44"
 }
