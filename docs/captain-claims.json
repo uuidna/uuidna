@@ -2,8 +2,8 @@
   "generated": "2026-08-22",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1507,
-  "total_theorems": 1507,
+  "total_claimed": 1522,
+  "total_theorems": 1522,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,20 +3781,20 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "cea1c6e9-30f5-84d5-ad21-a16e4df6369a",
-      "address": "c221ac80-b337-866e-b8fe-852a0459e480",
+      "lineAddress": "d3754db1-70a4-82b8-b794-c53ba6769579",
+      "address": "22a2b904-795c-8e78-ac2a-dcbe27d1408f",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "86da4a93-292b-892b-bd97-b42a551b3863",
-      "address": "c3225275-22f4-8551-83c4-16e8cb635036",
+      "lineAddress": "d5550e5e-f61c-86b0-a1c0-729b789826ec",
+      "address": "4ac87b5d-a3bc-8a40-9d8e-c43fbdad17f8",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "7518c681-7041-8656-b0ec-39315447270f",
-      "address": "29a116da-297c-86dd-97d4-5a5f5e779be4",
+      "lineAddress": "5c89ac40-f5fc-880f-aae9-3360d7deb34a",
+      "address": "6a337a96-2919-8cd2-9b9f-0c814aaa1208",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "2c6f9647-e258-8489-bcd9-e79efcecaf0e",
-      "address": "6715826e-1e63-8d48-8cd5-c0615ade2241",
+      "lineAddress": "f68f08e7-4930-8d78-9a57-fb2d473e6ba0",
+      "address": "53f6fc53-f554-842b-8d96-b52a6105f5f4",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "666ffa94-2a35-8fff-ab42-353a7f4b79c1",
-      "address": "a538581f-14ff-80e0-a031-afe15a7c0c59",
+      "lineAddress": "0d53111b-809a-8e55-ad23-594aab733306",
+      "address": "1d1049a9-8913-8773-990b-c686910f3168",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "e48aca90-2f6a-8746-a11d-89c545f8d21b",
-      "address": "70742703-5cf2-88d9-a56b-81f4aed4f2b3",
+      "lineAddress": "dcc9bb8a-ae9f-8193-9b88-074027d08d0a",
+      "address": "e6ca1ca5-b416-8380-9d0f-b137f7a06de5",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "b7b3f0a6-3f95-8bd7-9afe-2afe19d48cdb",
-      "address": "37187d0b-448c-8d81-9491-daa3100a5587",
+      "lineAddress": "5dd2eb15-980f-8cc4-8ad6-25156a564656",
+      "address": "dc189166-6aa6-8ee3-ad1d-0c3dfc61e948",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "bc7012ad-f18c-8c27-8315-11a96be9f52c",
-      "address": "6ac1915f-409c-8d88-ab21-a1d7cdfa66f4",
+      "lineAddress": "56ccd603-08ca-84aa-b1cb-642a9c8fa513",
+      "address": "2b03e284-2ab6-885a-8fcf-bdb43c5a103f",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "ac193388-b5ae-8d56-9e27-1890440dd3ff",
-      "address": "cdbf551c-0d8c-8807-95b6-e72be286e0ed",
+      "lineAddress": "3d5017fd-de19-86ec-bb4f-9b542c7ef434",
+      "address": "d82c5e3a-7aa8-8816-bf1f-11ff7677480f",
       "principle": "The detectors, proven"
     },
     {
@@ -4435,14 +4435,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "74bb11d2-f808-875f-92d0-0fb0f93c3bc1",
-      "address": "6ea29019-02e9-8b25-9e39-dbb4aa283dc4",
+      "lineAddress": "61fb701d-b678-859f-a010-61f7fc8d61fb",
+      "address": "73e686ba-3101-8d02-a32b-9d2a6eef5928",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "bd7b14f0-fcda-87a1-9be9-e6fa8bf0f1bc",
-      "address": "aa85bd8c-905a-852c-ac67-465ee695aed5",
+      "lineAddress": "17e84a63-cfc4-8803-bc90-e292bd4b776a",
+      "address": "1e11a45e-bb4b-8c7e-a513-0dcac228832b",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -7806,66 +7806,6 @@
       "principle": "The uuid mix space"
     },
     {
-      "key": "door_of_the_referrer",
-      "lineAddress": "8fe5c8b5-22b4-8ab1-a54c-8e201650bde6",
-      "address": "fbe414df-9b58-8ee2-b33f-525be9ea4f7b",
-      "principle": "The referrer song"
-    },
-    {
-      "key": "rotation_is_multiplication",
-      "lineAddress": "70120d56-5a8a-81d6-9140-d99e0ad58587",
-      "address": "b67a729f-a39e-821a-a900-ef75786865dd",
-      "principle": "The referrer song"
-    },
-    {
-      "key": "the_shift_is_the_trinity",
-      "lineAddress": "bfeccf07-6fda-83bf-95b7-45ebcc5acfd0",
-      "address": "28a290ed-d582-8163-9107-5af4a7ba0a05",
-      "principle": "The referrer song"
-    },
-    {
-      "key": "every_referrer_reaches_every_page",
-      "lineAddress": "1815f066-57b3-848d-a41f-c3d34c8f65a0",
-      "address": "a7668205-1ecf-837c-aa2c-08847172bd6b",
-      "principle": "The referrer song"
-    },
-    {
-      "key": "prev_undoes_next",
-      "lineAddress": "62867866-ac0d-8f81-8c0e-4c5737782bb8",
-      "address": "f7e5f399-5c7a-8f53-aee4-fa9e759da5ca",
-      "principle": "The referrer song"
-    },
-    {
-      "key": "tuning_cancels_from_every_interval",
-      "lineAddress": "4cb9ca83-14fb-84c5-8c72-7bdcfbaf0c2f",
-      "address": "3c24d51e-040c-8c78-990e-41711338279a",
-      "principle": "The referrer song"
-    },
-    {
-      "key": "orbit_steps_name_their_intervals",
-      "lineAddress": "7d52796e-6ba5-82da-9574-7870f788a200",
-      "address": "ec4c9431-5b5c-87d1-b19b-b337e053f4bc",
-      "principle": "The referrer song"
-    },
-    {
-      "key": "adjacent_steps_beat_at_the_tuning",
-      "lineAddress": "dde1817d-814b-8280-bc00-88dd91ab2f31",
-      "address": "e8e838d8-4b6d-8953-9059-23c79df07c93",
-      "principle": "The referrer song"
-    },
-    {
-      "key": "development_is_the_complement",
-      "lineAddress": "2ec015f6-f367-80f4-a4b7-673863421800",
-      "address": "4f5b0429-8762-85f7-a131-67a9e9069c52",
-      "principle": "The referrer song"
-    },
-    {
-      "key": "the_movie_and_the_song_are_one",
-      "lineAddress": "8f98707d-5f1b-8393-8a94-600ffc961f20",
-      "address": "830522fe-2d74-8223-accd-e46ea5402c53",
-      "principle": "The referrer song"
-    },
-    {
       "key": "song_pi_roof_opens",
       "lineAddress": "f9e32186-a2c5-8880-8daa-0f2cf658c7bd",
       "address": "a34e9592-3245-8406-abfb-3c9c3d08c68d",
@@ -7972,6 +7912,90 @@
       "lineAddress": "99e9ba9e-c0c6-887f-9ba2-0f473f3bf0e7",
       "address": "8736cd73-a3db-802e-8d5a-5d2c5e5d2943",
       "principle": "The release anthem"
+    },
+    {
+      "key": "referrer_six_doors",
+      "lineAddress": "ec855bf9-8122-82f1-bffc-ec1321af5796",
+      "address": "2058a620-22c3-8922-b726-bfcd2ff8bb57",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "referrer_consonance_ladder",
+      "lineAddress": "91fc69c0-eb6f-8f61-a956-84a81e121b34",
+      "address": "6a83a7f6-06fe-8db1-94b5-0ef1fb7542a3",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "referrer_lower_octaves_on_lattice",
+      "lineAddress": "c90559ff-a0f4-8547-86a5-79a72c4f5c94",
+      "address": "2b0d5bda-1414-80ee-a2ca-e884a0dff735",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "referrer_cycle_is_total",
+      "lineAddress": "99c6c572-2164-8f7c-ad8d-50528f004a07",
+      "address": "d573f43f-2f31-8248-9265-e798afd4a60a",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "door_of_the_referrer",
+      "lineAddress": "8fe5c8b5-22b4-8ab1-a54c-8e201650bde6",
+      "address": "fbe414df-9b58-8ee2-b33f-525be9ea4f7b",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "rotation_is_multiplication",
+      "lineAddress": "70120d56-5a8a-81d6-9140-d99e0ad58587",
+      "address": "b67a729f-a39e-821a-a900-ef75786865dd",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "the_shift_is_the_trinity",
+      "lineAddress": "bfeccf07-6fda-83bf-95b7-45ebcc5acfd0",
+      "address": "28a290ed-d582-8163-9107-5af4a7ba0a05",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "every_referrer_reaches_every_page",
+      "lineAddress": "1815f066-57b3-848d-a41f-c3d34c8f65a0",
+      "address": "a7668205-1ecf-837c-aa2c-08847172bd6b",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "prev_undoes_next",
+      "lineAddress": "62867866-ac0d-8f81-8c0e-4c5737782bb8",
+      "address": "f7e5f399-5c7a-8f53-aee4-fa9e759da5ca",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "tuning_cancels_from_every_interval",
+      "lineAddress": "4cb9ca83-14fb-84c5-8c72-7bdcfbaf0c2f",
+      "address": "3c24d51e-040c-8c78-990e-41711338279a",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "orbit_steps_name_their_intervals",
+      "lineAddress": "7d52796e-6ba5-82da-9574-7870f788a200",
+      "address": "ec4c9431-5b5c-87d1-b19b-b337e053f4bc",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "adjacent_steps_beat_at_the_tuning",
+      "lineAddress": "dde1817d-814b-8280-bc00-88dd91ab2f31",
+      "address": "e8e838d8-4b6d-8953-9059-23c79df07c93",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "development_is_the_complement",
+      "lineAddress": "2ec015f6-f367-80f4-a4b7-673863421800",
+      "address": "4f5b0429-8762-85f7-a131-67a9e9069c52",
+      "principle": "The referrer song"
+    },
+    {
+      "key": "the_movie_and_the_song_are_one",
+      "lineAddress": "8f98707d-5f1b-8393-8a94-600ffc961f20",
+      "address": "830522fe-2d74-8223-accd-e46ea5402c53",
+      "principle": "The referrer song"
     },
     {
       "key": "readings_seven_rays",
@@ -8556,6 +8580,72 @@
       "principle": "lean/Hexbit.lean"
     },
     {
+      "key": "default_install_is_dependency_closed",
+      "lineAddress": "ccc4cb34-1f6f-8472-a51c-c8955c6e47e4",
+      "address": "096e89d6-1c63-828d-b7bb-e719ff1c6717",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "every_install_and_its_path_named_once",
+      "lineAddress": "b2fa239f-b0f1-8692-a963-9d5d487bec8f",
+      "address": "5554e227-1fda-8d22-9fa3-8ed2d64e4646",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "home_is_the_meta_package",
+      "lineAddress": "31408e85-6cee-86d5-b032-6baa825c2999",
+      "address": "050fb320-4429-845a-a45f-7074655b79b9",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "home_reaches_every_install",
+      "lineAddress": "2e6d1fcc-0588-825a-a14c-e612d94d8c4f",
+      "address": "f54b5f97-a732-8201-b4c3-1f0f163d4a57",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "the_port_rises_from_the_floor",
+      "lineAddress": "7f75ce66-70ce-8593-81d5-75b631425b87",
+      "address": "16a2abc2-872f-82c8-9c23-59ac46f235da",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "the_services_hold_each_other_up",
+      "lineAddress": "1524b97e-6cbc-86bd-b6e8-6f18735d1589",
+      "address": "38e45836-65d9-81d7-bbd4-67f25c07d04b",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "the_terminal_is_the_toolbox",
+      "lineAddress": "aaf046f1-8950-84c9-99fb-884a45963ff0",
+      "address": "4e5020c6-ed12-847c-a432-9fd48a7a7148",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "the_foundation_depends_on_nothing",
+      "lineAddress": "db98964b-cc4f-8606-a9bb-ab580b0cd59c",
+      "address": "ffd4ae6d-6a88-8163-a456-492a5412086b",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "every_path_carries_its_published_meaning",
+      "lineAddress": "5527d89d-6dc1-82fe-b72b-7350b74e4995",
+      "address": "422aee1b-4890-84a7-b8a1-655de839b08b",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "a_spec_compiles_to_hexbits",
+      "lineAddress": "270ea8b6-08ed-883f-a59f-d7c061bec0e5",
+      "address": "10b131d5-be81-83f3-b9e1-49c491d0b59e",
+      "principle": "lean/Installs.lean"
+    },
+    {
+      "key": "the_os_is_bootable_quantum",
+      "lineAddress": "cdd84013-a955-8a12-9903-f056f58105ac",
+      "address": "8b5f439d-0e9f-82ab-ac73-3fd15eef7e49",
+      "principle": "lean/Installs.lean"
+    },
+    {
       "key": "xor_preserves_distance",
       "lineAddress": "bc1d7ae9-ffa0-8f54-9005-28128f71cd63",
       "address": "a93bf5ba-f682-8a3f-88de-f8878dca4db4",
@@ -9048,7 +9138,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "13945913-f089-8e15-acc0-1ade06cc7f49",
+  "claim_receipt": "07682c15-065c-8978-9005-388da8ae0e10",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:16935238-9997-8939-8494-e57f1d16b76a",
+  "@id": "urn:uuid:2c14045f-fa17-8a15-a1fb-6dadb6454854",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -17624,11 +17624,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:cea1c6e9-30f5-84d5-ad21-a16e4df6369a",
+        "@id": "urn:uuid:d3754db1-70a4-82b8-b794-c53ba6769579",
         "@type": "ScholarlyArticle",
         "headline": "EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1494) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])",
-        "identifier": "c221ac80-b337-866e-b8fe-852a0459e480",
+        "abstract": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1509) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])",
+        "identifier": "22a2b904-795c-8e78-ac2a-dcbe27d1408f",
         "url": "https://uuidna.com/theorem/reach_all_decide",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17652,11 +17652,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:86da4a93-292b-892b-bd97-b42a551b3863",
+        "@id": "urn:uuid:d5550e5e-f61c-86b0-a1c0-729b789826ec",
         "@type": "ScholarlyArticle",
         "headline": "FINITE WITHIN INFINITY, COUNTED — exactly 1 statement in the whole ledger carries a ∀ or ∃, and 0 of those range over an unbounded domain. The quantified one ranges over ℤ, which is infinite, and decides anyway because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the decision is finite. Every other statement is quantifier-free enumeration. This is the ledger's whole method stated as a census rather than as a slogan",
-        "abstract": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)",
-        "identifier": "c3225275-22f4-8551-83c4-16e8cb635036",
+        "abstract": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)",
+        "identifier": "4ac87b5d-a3bc-8a40-9d8e-c43fbdad17f8",
         "url": "https://uuidna.com/theorem/reach_quantifiers_bounded",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17680,11 +17680,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:7518c681-7041-8656-b0ec-39315447270f",
+        "@id": "urn:uuid:5c89ac40-f5fc-880f-aae9-3360d7deb34a",
         "@type": "ScholarlyArticle",
-        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 68 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number",
-        "abstract": "([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)",
-        "identifier": "29a116da-297c-86dd-97d4-5a5f5e779be4",
+        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 69 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number",
+        "abstract": "([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 25, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 25, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)",
+        "identifier": "6a337a96-2919-8cd2-9b9f-0c814aaa1208",
         "url": "https://uuidna.com/theorem/reach_window_finite",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -18800,11 +18800,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2c6f9647-e258-8489-bcd9-e79efcecaf0e",
+        "@id": "urn:uuid:f68f08e7-4930-8d78-9a57-fb2d473e6ba0",
         "@type": "ScholarlyArticle",
-        "headline": "every generated theorem carries prose IN the Lean — 1458 of 1458 documented across 94 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
-        "abstract": "(([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1458) ∧ ([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])",
-        "identifier": "6715826e-1e63-8d48-8cd5-c0615ade2241",
+        "headline": "every generated theorem carries prose IN the Lean — 1473 of 1473 documented across 95 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
+        "abstract": "(([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1473) ∧ ([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])",
+        "identifier": "53f6fc53-f554-842b-8d96-b52a6105f5f4",
         "url": "https://uuidna.com/theorem/prose_coverage_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18828,11 +18828,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:666ffa94-2a35-8fff-ab42-353a7f4b79c1",
+        "@id": "urn:uuid:0d53111b-809a-8e55-ad23-594aab733306",
         "@type": "ScholarlyArticle",
-        "headline": "the prose round-trips exactly — 1458 of 1458 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
-        "abstract": "(1458 + 0 = 1458) ∧ (0 = 0)",
-        "identifier": "a538581f-14ff-80e0-a031-afe15a7c0c59",
+        "headline": "the prose round-trips exactly — 1473 of 1473 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
+        "abstract": "(1473 + 0 = 1473) ∧ (0 = 0)",
+        "identifier": "1d1049a9-8913-8773-990b-c686910f3168",
         "url": "https://uuidna.com/theorem/prose_round_trips",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18856,11 +18856,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:e48aca90-2f6a-8746-a11d-89c545f8d21b",
+        "@id": "urn:uuid:dcc9bb8a-ae9f-8193-9b88-074027d08d0a",
         "@type": "ScholarlyArticle",
-        "headline": "no doc comment contains an unescaped -/ — 0 found across 1458; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
-        "abstract": "(0 + 1458 = 1458) ∧ (0 = 0)",
-        "identifier": "70742703-5cf2-88d9-a56b-81f4aed4f2b3",
+        "headline": "no doc comment contains an unescaped -/ — 0 found across 1473; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
+        "abstract": "(0 + 1473 = 1473) ∧ (0 = 0)",
+        "identifier": "e6ca1ca5-b416-8380-9d0f-b137f7a06de5",
         "url": "https://uuidna.com/theorem/prose_terminator_escaped",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18884,11 +18884,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:b7b3f0a6-3f95-8bd7-9afe-2afe19d48cdb",
+        "@id": "urn:uuid:5dd2eb15-980f-8cc4-8ad6-25156a564656",
         "@type": "ScholarlyArticle",
-        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1458 informative against 0 bare, of 1458; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
-        "abstract": "(0 < 1458) ∧ (0 + 1458 = 1458)",
-        "identifier": "37187d0b-448c-8d81-9491-daa3100a5587",
+        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1473 informative against 0 bare, of 1473; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
+        "abstract": "(0 < 1473) ∧ (0 + 1473 = 1473)",
+        "identifier": "dc189166-6aa6-8ee3-ad1d-0c3dfc61e948",
         "url": "https://uuidna.com/theorem/prose_beats_restatement",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18912,11 +18912,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:bc7012ad-f18c-8c27-8315-11a96be9f52c",
+        "@id": "urn:uuid:56ccd603-08ca-84aa-b1cb-642a9c8fa513",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 273822 characters across 1458 doc comments in 94 wings fold to 6; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1078, 1237, 1545, 2318, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 4608, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 273822) ∧ (273822 % 9 = 6) ∧ (6 < 9)",
-        "identifier": "6ac1915f-409c-8d88-ab21-a1d7cdfa66f4",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 279653 characters across 1473 doc comments in 95 wings fold to 5; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1237, 1545, 2318, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 279653) ∧ (279653 % 9 = 5) ∧ (5 < 9)",
+        "identifier": "2b03e284-2ab6-885a-8fcf-bdb43c5a103f",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18940,11 +18940,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ac193388-b5ae-8d56-9e27-1890440dd3ff",
+        "@id": "urn:uuid:3d5017fd-de19-86ec-bb4f-9b542c7ef434",
         "@type": "ScholarlyArticle",
-        "headline": "the audit is TOTAL over what a generator writes — 94 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
-        "abstract": "(0 < 94) ∧ (0 < 3) ∧ (1458 = 1458 + 0)",
-        "identifier": "cdbf551c-0d8c-8807-95b6-e72be286e0ed",
+        "headline": "the audit is TOTAL over what a generator writes — 95 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
+        "abstract": "(0 < 95) ∧ (0 < 3) ∧ (1473 = 1473 + 0)",
+        "identifier": "d82c5e3a-7aa8-8816-bf1f-11ff7677480f",
         "url": "https://uuidna.com/theorem/prose_audit_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -20676,11 +20676,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:74bb11d2-f808-875f-92d0-0fb0f93c3bc1",
+        "@id": "urn:uuid:61fb701d-b678-859f-a010-61f7fc8d61fb",
         "@type": "ScholarlyArticle",
-        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 97 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.",
-        "abstract": "([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
-        "identifier": "6ea29019-02e9-8b25-9e39-dbb4aa283dc4",
+        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 98 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.",
+        "abstract": "([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
+        "identifier": "73e686ba-3101-8d02-a32b-9d2a6eef5928",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -20704,11 +20704,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:bd7b14f0-fcda-87a1-9be9-e6fa8bf0f1bc",
+        "@id": "urn:uuid:17e84a63-cfc4-8803-bc90-e292bd4b776a",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 97 measured wing counts and lands on 1492 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1492) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 10, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 97) ∧ (97 < 1492)",
-        "identifier": "aa85bd8c-905a-852c-ac67-465ee695aed5",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 98 measured wing counts and lands on 1507 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1507) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 98) ∧ (98 < 1507)",
+        "identifier": "1e11a45e-bb4b-8c7e-a513-0dcac228832b",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -36412,286 +36412,6 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:8fe5c8b5-22b4-8ab1-a54c-8e201650bde6",
-        "@type": "ScholarlyArticle",
-        "headline": "THE REFERRER’S FIRST TILE PICKS THE DOOR, TOTALLY. A handle’s first tile is one of sixteen states, the round has six doors, and t mod 6 maps every tile to a door with every door reached — no referrer is turned away and no door stays shut. The map is total and onto but not equitable: the fibers count [3,3,3,3,2,2], and 16 mod 6 = 4 names the four tiles of unevenness rather than smoothing them — the same honesty moduli_waste_states keeps one wing over.",
-        "abstract": "((List.range 16).all (fun t => t % 6 < 6)) ∧ ((List.range 6).all (fun d => (List.range 16).any (fun t => t % 6 == d))) ∧ (((List.range 6).map (fun d => ((List.range 16).filter (fun t => t % 6 == d)).length)) = [3,3,3,3,2,2]) ∧ (16 % 6 = 4)",
-        "identifier": "fbe414df-9b58-8ee2-b33f-525be9ea4f7b",
-        "url": "https://uuidna.com/theorem/door_of_the_referrer",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:70120d56-5a8a-81d6-9140-d99e0ad58587",
-        "@type": "ScholarlyArticle",
-        "headline": "ENTERING AT ANOTHER DOOR IS NOT A NEW SONG — IT IS A MULTIPLICATION. Rotating the round’s six digits one note left is multiplying by ten modulo 999999, and on the cyclic number the shifts land EXACTLY on the verses: one shift is ×3, two is ×2, three is ×6, four is ×4, five is ×5. The door you enter by and the verse you hear are the same arithmetic fact, which is why a referrer-positioned song needs no new material — only a new remainder.",
-        "abstract": "((142857 * 10) % 999999 = 142857 * 3) ∧ ((142857 * 100) % 999999 = 142857 * 2) ∧ ((142857 * 1000) % 999999 = 142857 * 6) ∧ ((142857 * 10000) % 999999 = 142857 * 4) ∧ ((142857 * 100000) % 999999 = 142857 * 5)",
-        "identifier": "b67a729f-a39e-821a-a900-ef75786865dd",
-        "url": "https://uuidna.com/theorem/rotation_is_multiplication",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:bfeccf07-6fda-83bf-95b7-45ebcc5acfd0",
-        "@type": "ScholarlyArticle",
-        "headline": "WHY THOSE MULTIPLIERS, IN THAT ORDER: the decimal shift is the trinity step in ℤ/7. Ten leaves remainder three to seven, so d shifts multiply by 3^d mod 7 — and the powers of three walk [1,3,2,6,4,5], exactly the door-to-verse sequence, visiting every non-zero residue because three generates the rosette (the same 3 the codon reading frame steps by). The door order was never a choice; it is the orbit of the trinity through the seven-ray ring.",
-        "abstract": "(10 % 7 = 3) ∧ (((List.range 6).map (fun d => (3^d) % 7)) = [1,3,2,6,4,5])",
-        "identifier": "28a290ed-d582-8163-9107-5af4a7ba0a05",
-        "url": "https://uuidna.com/theorem/the_shift_is_the_trinity",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:1815f066-57b3-848d-a41f-c3d34c8f65a0",
-        "@type": "ScholarlyArticle",
-        "headline": "FROM EVERY DOOR, EVERYTHING. On a closed cycle of n pages the +1 walk started at ANY phase p reaches every page — checked exhaustively on the rosette ring 7 and the hexbit ring 16, every start, every target. The referrer’s position is not a constraint on where they can go; it is only the phase of a walk that was always going everywhere.",
-        "abstract": "([7,16] : List Nat).all (fun n => (List.range n).all (fun p => (List.range n).all (fun j => (List.range n).any (fun k => (p + k) % n == j))))",
-        "identifier": "a7668205-1ecf-837c-aa2c-08847172bd6b",
-        "url": "https://uuidna.com/theorem/every_referrer_reaches_every_page",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:62867866-ac0d-8f81-8c0e-4c5737782bb8",
-        "@type": "ScholarlyArticle",
-        "headline": "PREVIOUS AND NEXT ARE ALWAYS DEFINED, AND EACH UNDOES THE OTHER. On the closed cycle next is +1 and previous is +(n−1), both total — no first page, no last page, no null — and their composition is the identity from every node in both orders, proven case by case on the rings 7 and 16. The pager’s two buttons are a two-sided inverse pair, which is what “always defined” cashes out to in arithmetic.",
-        "abstract": "([7,16] : List Nat).all (fun n => (List.range n).all (fun i => ((((i + 1) % n + (n - 1)) % n == i) && (((i + (n - 1)) % n + 1) % n == i))))",
-        "identifier": "f7e5f399-5c7a-8f53-aee4-fa9e759da5ca",
-        "url": "https://uuidna.com/theorem/prev_undoes_next",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:4cb9ca83-14fb-84c5-8c72-7bdcfbaf0c2f",
-        "@type": "ScholarlyArticle",
-        "headline": "HOW HARMONIC A NEXT IS, IS MEASURABLE — AND THE TUNING DROPS OUT OF THE MEASUREMENT. Any two lattice tones are 432a and 432b hertz, and their greatest common divisor is exactly 432·gcd(a,b) — verified over all 225 pairs of the sixteen states — so every interval reduces to the ratio of the DIGITS alone. Consonance on the A432 lattice is a property of the addresses, not of the tuning: measure the step between two handles and 432 has already cancelled.",
-        "abstract": "(List.range' 1 15).all (fun a => (List.range' 1 15).all (fun b => Nat.gcd (432*a) (432*b) == 432 * Nat.gcd a b))",
-        "identifier": "3c24d51e-040c-8c78-990e-41711338279a",
-        "url": "https://uuidna.com/theorem/tuning_cancels_from_every_interval",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:7d52796e-6ba5-82da-9574-7870f788a200",
-        "@type": "ScholarlyArticle",
-        "headline": "THE DOUBLING ORBIT’S STEPS, MEASURED BY THE SAME RULE: 1→2, 2→4 and 4→8 each reduce to the pure octave (gcd = the smaller, ratio exactly 2), then 8→7 and 7→5 are already-reduced coprime tensions — 8:7 and 7:5 — before the round closes home. The melody the vortex sings is three clean octaves rising, two irreducible steps of tension, and return: the analysis is arithmetic, the drama is free.",
-        "abstract": "(Nat.gcd 1 2 = 1) ∧ (Nat.gcd 2 4 = 2) ∧ (2 * 2 = 4) ∧ (Nat.gcd 4 8 = 4) ∧ (4 * 2 = 8) ∧ (Nat.gcd 8 7 = 1) ∧ (Nat.gcd 7 5 = 1)",
-        "identifier": "ec4c9431-5b5c-87d1-b19b-b337e053f4bc",
-        "url": "https://uuidna.com/theorem/orbit_steps_name_their_intervals",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:dde1817d-814b-8280-bc00-88dd91ab2f31",
-        "@type": "ScholarlyArticle",
-        "headline": "NEIGHBOURS ON THE LATTICE BEAT AT EXACTLY THE TUNING. Two close tones beat at their difference, and any two ADJACENT lattice states differ by exactly 432 hertz — all fourteen adjacent pairs checked — so the roughness of a one-step next is A432 itself, and a k-step next beats at 432·k. The dissonance meter for the pager’s walk comes pre-calibrated in units of the tuning fork.",
-        "abstract": "(List.range' 1 14).all (fun a => 432*(a+1) - 432*a == 432)",
-        "identifier": "e8e838d8-4b6d-8953-9059-23c79df07c93",
-        "url": "https://uuidna.com/theorem/adjacent_steps_beat_at_the_tuning",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:2ec015f6-f367-80f4-a4b7-673863421800",
-        "@type": "ScholarlyArticle",
-        "headline": "FILM TO PAPER IS THE COMPLEMENT, AND THE CANONICAL RECORDING IS THE UNDEVELOPED FILM. Developing a negative maps every tone to its complement, and doing it twice returns the film — on the digits that is 9 − d, an involution proven across the row. The round’s negative is REAL: verse 1 and verse 6 sum to 999999 digit against digit, and verse 6 is the THREE-shift door — 3³ ≡ 6 (mod 7) — so the half-rotation of the melody IS its print. The shipped song, entered at ×1, is the latent image; each referrer’s door develops it, and the complement door develops it fully. The darkroom, the DNA complement and the dark fringe’s half-turn are one self-inverse map wearing three coats.",
-        "abstract": "((List.range' 1 9).all (fun d => 9 - (9 - d) == d)) ∧ (142857 + 857142 = 999999) ∧ ((3^3) % 7 = 6)",
-        "identifier": "4f5b0429-8762-85f7-a131-67a9e9069c52",
-        "url": "https://uuidna.com/theorem/development_is_the_complement",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
-        "@id": "urn:uuid:8f98707d-5f1b-8393-8a94-600ffc961f20",
-        "@type": "ScholarlyArticle",
-        "headline": "THE MOVIE AND THE SONG ARE ONE BAR OF ARITHMETIC. One bar of the song is 252 ms at 16000 samples a second — 16·252 = 4032 samples — and 4032 factors as every ring this ledger turns on at once: 9·7·64 (the vortex ring times the rosette times the coin measure — the four tongues’ fusion, sample-exact), 63·64 (the fused ring times the coins), and 24·24·7 (the film’s frame ring, squared, seven times — the ℤ/24 whose every unit is self-inverse). A frame slot of the bar is 168 samples with nothing left over. The pager’s walk, sounded and animated, is not a song WITH pictures: at the sample level the two tilings are the same integer.",
-        "abstract": "(16 * 252 = 4032) ∧ (4032 = 9 * 7 * 64) ∧ (4032 = 63 * 64) ∧ (4032 = 24 * 24 * 7) ∧ (4032 = 24 * 168) ∧ (168 = 24 * 7)",
-        "identifier": "830522fe-2d74-8223-accd-e46ea5402c53",
-        "url": "https://uuidna.com/theorem/the_movie_and_the_song_are_one",
-        "keywords": "referrer, The referrer song",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
-        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
-        "isPartOf": {
-          "@type": "Dataset",
-          "name": "uuidna theorem ledger",
-          "url": "https://uuidna.com/theorems"
-        },
-        "license": "https://uuidna.com/license",
-        "copyrightYear": 2025,
-        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
-        "copyrightHolder": {
-          "@type": "Person",
-          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
-        }
-      }
-    },
-    {
-      "@type": "DataFeedItem",
-      "dateCreated": "2025-01-01",
-      "item": {
-        "@context": "https://schema.org",
         "@id": "urn:uuid:f9e32186-a2c5-8880-8daa-0f2cf658c7bd",
         "@type": "ScholarlyArticle",
         "headline": "THE OVERTURE. π cannot be sung to the end — irrational, infinite, no `by decide` object — but its rational roof can: 22/7 opens 3.142857, the familiar three-point-one-four and then the round begins. 22·10⁶ / 7 = 3142857 in exact integer division; the song starts where Archimedes left the bracket.",
@@ -37176,6 +36896,398 @@
         "url": "https://uuidna.com/theorem/anthem_finale_sings_one_uuid",
         "keywords": "anthem, The release anthem",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Anthem.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:ec855bf9-8122-82f1-bffc-ec1321af5796",
+        "@type": "ScholarlyArticle",
+        "headline": "SIX DOORS INTO THE ROUND. The round 142857 has exactly six rotations (song_six_verses_one_melody seals them one by one), so a visitor's handle picks its door by value mod 6 — and the pick is total at the edges the kernel can hold: the zero handle enters door 0, the last handle 2³²−1 = 4294967295 enters door 3, and six never divides to nothing (6 ≠ 0). Every visitor gets a door; no referrer is turned away.",
+        "abstract": "0 % 6 = 0 ∧ 4294967295 % 6 = 3 ∧ (6:Nat) ≠ 0",
+        "identifier": "2058a620-22c3-8922-b726-bfcd2ff8bb57",
+        "url": "https://uuidna.com/theorem/referrer_six_doors",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:91fc69c0-eb6f-8f61-a956-84a81e121b34",
+        "@type": "ScholarlyArticle",
+        "headline": "CONSONANCE IS MEASURED, NOT FELT. An interval between lattice tones (h₁+1)·432 and (h₂+1)·432 reduces to the ratio of its multipliers, and its consonance measure is the reduced ratio's term sum — Euler's gradus made bare: unison 1:1 sums 2, octave 1:2 sums 3, fifth 2:3 sums 5, fourth 3:4 sums 7, and the ladder orders itself 2 < 3 < 5 < 7 — the sweetest steps are the smallest sums, decidably, before any ear is consulted.",
+        "abstract": "1 + 1 = 2 ∧ 1 + 2 = 3 ∧ 2 + 3 = 5 ∧ 3 + 4 = 7 ∧ 2 < 3 ∧ 3 < 5 ∧ 5 < 7",
+        "identifier": "6a83a7f6-06fe-8db1-94b5-0ef1fb7542a3",
+        "url": "https://uuidna.com/theorem/referrer_consonance_ladder",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:c90559ff-a0f4-8547-86a5-79a72c4f5c94",
+        "@type": "ScholarlyArticle",
+        "headline": "THE LOWER HALF ALWAYS HAS ITS OCTAVE. For every tile h in the bottom half of the lattice (h ≤ 7), the octave of its tone is another lattice tone: (h+1)·2 ≤ 16, so tile 2h+1 exists and sounds exactly double. The sweetest step after unison is therefore always AVAILABLE from any low tile — the pager can offer a consonant next wherever the walk stands low, checked for all eight at once.",
+        "abstract": "((List.range 8).all (fun h => (h + 1) * 2 ≤ 16)) ∧ 8 * 2 = 16",
+        "identifier": "2b0d5bda-1414-80ee-a2ca-e884a0dff735",
+        "url": "https://uuidna.com/theorem/referrer_lower_octaves_on_lattice",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:99c6c572-2164-8f7c-ad8d-50528f004a07",
+        "@type": "ScholarlyArticle",
+        "headline": "THE CLOSED CYCLE MAKES PREV AND NEXT TOTAL. On a cycle of n pages the step is (k+1) mod n and the last page wraps home: with six doors as the worked case, every position steps inside the cycle ((k+1) mod 6 < 6 for all k < 6) and the sixth steps to the first (5+1 ≡ 0). No page is without a next, no next falls off the world — totality is what the wrap buys, and it is the same wrap the vortex orbit closes with (2⁶ ≡ 1 mod 9).",
+        "abstract": "((List.range 6).all (fun k => (k + 1) % 6 < 6)) ∧ (5 + 1) % 6 = 0 ∧ 2 ^ 6 % 9 = 1",
+        "identifier": "d573f43f-2f31-8248-9265-e798afd4a60a",
+        "url": "https://uuidna.com/theorem/referrer_cycle_is_total",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:8fe5c8b5-22b4-8ab1-a54c-8e201650bde6",
+        "@type": "ScholarlyArticle",
+        "headline": "THE REFERRER’S FIRST TILE PICKS THE DOOR, TOTALLY. A handle’s first tile is one of sixteen states, the round has six doors, and t mod 6 maps every tile to a door with every door reached — no referrer is turned away and no door stays shut. The map is total and onto but not equitable: the fibers count [3,3,3,3,2,2], and 16 mod 6 = 4 names the four tiles of unevenness rather than smoothing them — the same honesty moduli_waste_states keeps one wing over.",
+        "abstract": "((List.range 16).all (fun t => t % 6 < 6)) ∧ ((List.range 6).all (fun d => (List.range 16).any (fun t => t % 6 == d))) ∧ (((List.range 6).map (fun d => ((List.range 16).filter (fun t => t % 6 == d)).length)) = [3,3,3,3,2,2]) ∧ (16 % 6 = 4)",
+        "identifier": "fbe414df-9b58-8ee2-b33f-525be9ea4f7b",
+        "url": "https://uuidna.com/theorem/door_of_the_referrer",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:70120d56-5a8a-81d6-9140-d99e0ad58587",
+        "@type": "ScholarlyArticle",
+        "headline": "ENTERING AT ANOTHER DOOR IS NOT A NEW SONG — IT IS A MULTIPLICATION. Rotating the round’s six digits one note left is multiplying by ten modulo 999999, and on the cyclic number the shifts land EXACTLY on the verses: one shift is ×3, two is ×2, three is ×6, four is ×4, five is ×5. The door you enter by and the verse you hear are the same arithmetic fact, which is why a referrer-positioned song needs no new material — only a new remainder.",
+        "abstract": "((142857 * 10) % 999999 = 142857 * 3) ∧ ((142857 * 100) % 999999 = 142857 * 2) ∧ ((142857 * 1000) % 999999 = 142857 * 6) ∧ ((142857 * 10000) % 999999 = 142857 * 4) ∧ ((142857 * 100000) % 999999 = 142857 * 5)",
+        "identifier": "b67a729f-a39e-821a-a900-ef75786865dd",
+        "url": "https://uuidna.com/theorem/rotation_is_multiplication",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:bfeccf07-6fda-83bf-95b7-45ebcc5acfd0",
+        "@type": "ScholarlyArticle",
+        "headline": "WHY THOSE MULTIPLIERS, IN THAT ORDER: the decimal shift is the trinity step in ℤ/7. Ten leaves remainder three to seven, so d shifts multiply by 3^d mod 7 — and the powers of three walk [1,3,2,6,4,5], exactly the door-to-verse sequence, visiting every non-zero residue because three generates the rosette (the same 3 the codon reading frame steps by). The door order was never a choice; it is the orbit of the trinity through the seven-ray ring.",
+        "abstract": "(10 % 7 = 3) ∧ (((List.range 6).map (fun d => (3^d) % 7)) = [1,3,2,6,4,5])",
+        "identifier": "28a290ed-d582-8163-9107-5af4a7ba0a05",
+        "url": "https://uuidna.com/theorem/the_shift_is_the_trinity",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:1815f066-57b3-848d-a41f-c3d34c8f65a0",
+        "@type": "ScholarlyArticle",
+        "headline": "FROM EVERY DOOR, EVERYTHING. On a closed cycle of n pages the +1 walk started at ANY phase p reaches every page — checked exhaustively on the rosette ring 7 and the hexbit ring 16, every start, every target. The referrer’s position is not a constraint on where they can go; it is only the phase of a walk that was always going everywhere.",
+        "abstract": "([7,16] : List Nat).all (fun n => (List.range n).all (fun p => (List.range n).all (fun j => (List.range n).any (fun k => (p + k) % n == j))))",
+        "identifier": "a7668205-1ecf-837c-aa2c-08847172bd6b",
+        "url": "https://uuidna.com/theorem/every_referrer_reaches_every_page",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:62867866-ac0d-8f81-8c0e-4c5737782bb8",
+        "@type": "ScholarlyArticle",
+        "headline": "PREVIOUS AND NEXT ARE ALWAYS DEFINED, AND EACH UNDOES THE OTHER. On the closed cycle next is +1 and previous is +(n−1), both total — no first page, no last page, no null — and their composition is the identity from every node in both orders, proven case by case on the rings 7 and 16. The pager’s two buttons are a two-sided inverse pair, which is what “always defined” cashes out to in arithmetic.",
+        "abstract": "([7,16] : List Nat).all (fun n => (List.range n).all (fun i => ((((i + 1) % n + (n - 1)) % n == i) && (((i + (n - 1)) % n + 1) % n == i))))",
+        "identifier": "f7e5f399-5c7a-8f53-aee4-fa9e759da5ca",
+        "url": "https://uuidna.com/theorem/prev_undoes_next",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:4cb9ca83-14fb-84c5-8c72-7bdcfbaf0c2f",
+        "@type": "ScholarlyArticle",
+        "headline": "HOW HARMONIC A NEXT IS, IS MEASURABLE — AND THE TUNING DROPS OUT OF THE MEASUREMENT. Any two lattice tones are 432a and 432b hertz, and their greatest common divisor is exactly 432·gcd(a,b) — verified over all 225 pairs of the sixteen states — so every interval reduces to the ratio of the DIGITS alone. Consonance on the A432 lattice is a property of the addresses, not of the tuning: measure the step between two handles and 432 has already cancelled.",
+        "abstract": "(List.range' 1 15).all (fun a => (List.range' 1 15).all (fun b => Nat.gcd (432*a) (432*b) == 432 * Nat.gcd a b))",
+        "identifier": "3c24d51e-040c-8c78-990e-41711338279a",
+        "url": "https://uuidna.com/theorem/tuning_cancels_from_every_interval",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:7d52796e-6ba5-82da-9574-7870f788a200",
+        "@type": "ScholarlyArticle",
+        "headline": "THE DOUBLING ORBIT’S STEPS, MEASURED BY THE SAME RULE: 1→2, 2→4 and 4→8 each reduce to the pure octave (gcd = the smaller, ratio exactly 2), then 8→7 and 7→5 are already-reduced coprime tensions — 8:7 and 7:5 — before the round closes home. The melody the vortex sings is three clean octaves rising, two irreducible steps of tension, and return: the analysis is arithmetic, the drama is free.",
+        "abstract": "(Nat.gcd 1 2 = 1) ∧ (Nat.gcd 2 4 = 2) ∧ (2 * 2 = 4) ∧ (Nat.gcd 4 8 = 4) ∧ (4 * 2 = 8) ∧ (Nat.gcd 8 7 = 1) ∧ (Nat.gcd 7 5 = 1)",
+        "identifier": "ec4c9431-5b5c-87d1-b19b-b337e053f4bc",
+        "url": "https://uuidna.com/theorem/orbit_steps_name_their_intervals",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:dde1817d-814b-8280-bc00-88dd91ab2f31",
+        "@type": "ScholarlyArticle",
+        "headline": "NEIGHBOURS ON THE LATTICE BEAT AT EXACTLY THE TUNING. Two close tones beat at their difference, and any two ADJACENT lattice states differ by exactly 432 hertz — all fourteen adjacent pairs checked — so the roughness of a one-step next is A432 itself, and a k-step next beats at 432·k. The dissonance meter for the pager’s walk comes pre-calibrated in units of the tuning fork.",
+        "abstract": "(List.range' 1 14).all (fun a => 432*(a+1) - 432*a == 432)",
+        "identifier": "e8e838d8-4b6d-8953-9059-23c79df07c93",
+        "url": "https://uuidna.com/theorem/adjacent_steps_beat_at_the_tuning",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:2ec015f6-f367-80f4-a4b7-673863421800",
+        "@type": "ScholarlyArticle",
+        "headline": "FILM TO PAPER IS THE COMPLEMENT, AND THE CANONICAL RECORDING IS THE UNDEVELOPED FILM. Developing a negative maps every tone to its complement, and doing it twice returns the film — on the digits that is 9 − d, an involution proven across the row. The round’s negative is REAL: verse 1 and verse 6 sum to 999999 digit against digit, and verse 6 is the THREE-shift door — 3³ ≡ 6 (mod 7) — so the half-rotation of the melody IS its print. The shipped song, entered at ×1, is the latent image; each referrer’s door develops it, and the complement door develops it fully. The darkroom, the DNA complement and the dark fringe’s half-turn are one self-inverse map wearing three coats.",
+        "abstract": "((List.range' 1 9).all (fun d => 9 - (9 - d) == d)) ∧ (142857 + 857142 = 999999) ∧ ((3^3) % 7 = 6)",
+        "identifier": "4f5b0429-8762-85f7-a131-67a9e9069c52",
+        "url": "https://uuidna.com/theorem/development_is_the_complement",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:8f98707d-5f1b-8393-8a94-600ffc961f20",
+        "@type": "ScholarlyArticle",
+        "headline": "THE MOVIE AND THE SONG ARE ONE BAR OF ARITHMETIC. One bar of the song is 252 ms at 16000 samples a second — 16·252 = 4032 samples — and 4032 factors as every ring this ledger turns on at once: 9·7·64 (the vortex ring times the rosette times the coin measure — the four tongues’ fusion, sample-exact), 63·64 (the fused ring times the coins), and 24·24·7 (the film’s frame ring, squared, seven times — the ℤ/24 whose every unit is self-inverse). A frame slot of the bar is 168 samples with nothing left over. The pager’s walk, sounded and animated, is not a song WITH pictures: at the sample level the two tilings are the same integer.",
+        "abstract": "(16 * 252 = 4032) ∧ (4032 = 9 * 7 * 64) ∧ (4032 = 63 * 64) ∧ (4032 = 24 * 24 * 7) ∧ (4032 = 24 * 168) ∧ (168 = 24 * 7)",
+        "identifier": "830522fe-2d74-8223-accd-e46ea5402c53",
+        "url": "https://uuidna.com/theorem/the_movie_and_the_song_are_one",
+        "keywords": "referrer, The referrer song",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Referrer.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
           "@type": "Dataset",
@@ -39892,6 +40004,314 @@
         "url": "https://uuidna.com/theorem/which_path_conserves_the_total",
         "keywords": "hexbit, lean/Hexbit.lean",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:ccc4cb34-1f6f-8472-a51c-c8955c6e47e4",
+        "@type": "ScholarlyArticle",
+        "headline": "THE DEFAULT INSTALL IS A CLOSED WORLD. Alpine's alpine-base metapackage, followed dependency by dependency through the PUBLISHED index, closes at 25 packages — 25 = 5·5 — and every one of the 47 dependency edges lands INSIDE the set: no member needs anything the default install does not already carry. \"Port in full\" is exactly this closure, sealed.",
+        "abstract": "(installEdges.all (fun e => e.1 < 25)) ∧ (installEdges.all (fun e => e.2 < 25)) ∧ (installEdges.length = 47) ∧ (installNames.length = 25) ∧ (25 = 5 * 5)",
+        "identifier": "096e89d6-1c63-828d-b7bb-e719ff1c6717",
+        "url": "https://uuidna.com/theorem/default_install_is_dependency_closed",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:b2fa239f-b0f1-8692-a963-9d5d487bec8f",
+        "@type": "ScholarlyArticle",
+        "headline": "PORTED EVERY ONE, EACH EXACTLY ONCE: the 25 package names are distinct, the 25 site paths they specify are distinct, and the two lists pair off index by index — a bijection between the default install and uuidna.com's paths. No path serves two packages; no package hides behind two paths.",
+        "abstract": "((List.range 25).all (fun i => (List.range i).all (fun j => nthS installNames i != nthS installNames j))) ∧ ((List.range 25).all (fun i => (List.range i).all (fun j => nthS installRoutes i != nthS installRoutes j))) ∧ (installRoutes.length = installNames.length)",
+        "identifier": "5554e227-1fda-8d22-9fa3-8ed2d64e4646",
+        "url": "https://uuidna.com/theorem/every_install_and_its_path_named_once",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:31408e85-6cee-86d5-b032-6baa825c2999",
+        "@type": "ScholarlyArticle",
+        "headline": "HOME HAS THE SPECIAL FUNCTIONALITY BECAUSE alpine-base DOES: uuidna.com/ is the meta package — \"Meta package for minimal alpine base\" — the one member that exists only to name the others, with 10 direct dependencies and nothing of its own to run. Opening home is installing the default set; the front page is the install line.",
+        "abstract": "(nthS installNames 0 = \"alpine-base\") ∧ (nthS installRoutes 0 = \"/\") ∧ ((installEdges.filter (fun e => e.1 == 0)).length = 10)",
+        "identifier": "050fb320-4429-845a-a45f-7074655b79b9",
+        "url": "https://uuidna.com/theorem/home_is_the_meta_package",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:2e6d1fcc-0588-825a-a14c-e612d94d8c4f",
+        "@type": "ScholarlyArticle",
+        "headline": "FROM HOME, EVERYTHING: a breadth-first walk of the dependency edges starting at alpine-base visits all 25 members, and the witness order is sealed — each member after the first is reached by an edge from an earlier one. No default package is unreachable from the front page; the whole port hangs off '/'.",
+        "abstract": "(bfsOrder.length = 25) ∧ bfsOrder.Nodup ∧ (nth bfsOrder 0 = 0) ∧ (bfsOrder.all (fun x => x < 25)) ∧ ((List.range 24).all (fun i => (List.range (i+1)).any (fun j => installEdges.contains (nth bfsOrder j, nth bfsOrder (i+1)))))",
+        "identifier": "f54b5f97-a732-8201-b4c3-1f0f163d4a57",
+        "url": "https://uuidna.com/theorem/home_reaches_every_install",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:7f75ce66-70ce-8593-81d5-75b631425b87",
+        "@type": "ScholarlyArticle",
+        "headline": "PORTED LOWEST LEVEL FIRST — AND UP: the sealed build order places every dependency no later than what stands on it, so the floor layer enters first and home, the meta package, is ported LAST (position 24) — the top of the stack is the sum of everything beneath it. The exceptions are EXACT: openrc → openrc-user — each an arm of a dependency cycle Alpine itself publishes, named rather than smoothed away. Beneath the whole port sits the already-sealed firmware boundary (src/drivers, lean/Os.lean): hardware → software → os, from the ground up.",
+        "abstract": "(invOrder.length = 25) ∧ invOrder.Nodup ∧ (invOrder.all (fun x => x < 25)) ∧ (nth invOrder 0 = 24) ∧ ((installEdges.filter (fun e => nth invOrder e.1 ≤ nth invOrder e.2)) = [(21, 22)])",
+        "identifier": "16a2abc2-872f-82c8-9c23-59ac46f235da",
+        "url": "https://uuidna.com/theorem/the_port_rises_from_the_floor",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:1524b97e-6cbc-86bd-b6e8-6f18735d1589",
+        "@type": "ScholarlyArticle",
+        "headline": "SEALED AS PUBLISHED, CYCLE AND ALL: Alpine's own index has openrc and openrc-user depending on EACH OTHER — a genuine dependency cycle inside the default install. The port does not tidy it away: the world is closed and fully reachable WITHOUT being acyclic, and the seal records what upstream publishes, not what would be neat.",
+        "abstract": "(installEdges.contains (21, 22)) ∧ (installEdges.contains (22, 21)) ∧ (nthS installNames 21 = \"openrc\") ∧ (nthS installNames 22 = \"openrc-user\")",
+        "identifier": "38e45836-65d9-81d7-bbd4-67f25c07d04b",
+        "url": "https://uuidna.com/theorem/the_services_hold_each_other_up",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:aaf046f1-8950-84c9-99fb-884a45963ff0",
+        "@type": "ScholarlyArticle",
+        "headline": "/terminal MEANS busybox — \"Size optimized toolbox of many common UNIX utilities\" — and the busybox family maps onto the /terminal paths pair by pair, every pair sealed: busybox ↔ /terminal, busybox-binsh ↔ /terminal/sh, busybox-ifupdown ↔ /terminal/network, busybox-mdev-openrc ↔ /terminal/devices, busybox-openrc ↔ /terminal/services, busybox-suid ↔ /terminal/privileged. The path's specification is the package's, port for port — 6 members, 6 /terminal paths, one for one.",
+        "abstract": "(nthS installNames 7 = \"busybox\") ∧ (nthS installRoutes 7 = \"/terminal\") ∧ (nthS installNames 8 = \"busybox-binsh\") ∧ (nthS installRoutes 8 = \"/terminal/sh\") ∧ (nthS installNames 9 = \"busybox-ifupdown\") ∧ (nthS installRoutes 9 = \"/terminal/network\") ∧ (nthS installNames 10 = \"busybox-mdev-openrc\") ∧ (nthS installRoutes 10 = \"/terminal/devices\") ∧ (nthS installNames 11 = \"busybox-openrc\") ∧ (nthS installRoutes 11 = \"/terminal/services\") ∧ (nthS installNames 12 = \"busybox-suid\") ∧ (nthS installRoutes 12 = \"/terminal/privileged\") ∧ ((6 : Nat) = 6)",
+        "identifier": "4e5020c6-ed12-847c-a432-9fd48a7a7148",
+        "url": "https://uuidna.com/theorem/the_terminal_is_the_toolbox",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:db98964b-cc4f-8606-a9bb-ab580b0cd59c",
+        "@type": "ScholarlyArticle",
+        "headline": "/core MEANS musl, the C library — the floor of the default install: it depends on NOTHING, and 13 of the 25 members stand directly on it — no member's in-degree outranks it. The lowest level the port begins from is the one the most of the system rests on.",
+        "abstract": "(nthS installNames 19 = \"musl\") ∧ (nthS installRoutes 19 = \"/core\") ∧ (installEdges.all (fun e => e.1 != 19)) ∧ ((installEdges.filter (fun e => e.2 == 19)).length = 13) ∧ ((List.range 25).all (fun i => (installEdges.filter (fun e => e.2 == i)).length ≤ 13))",
+        "identifier": "ffd4ae6d-6a88-8163-a456-492a5412086b",
+        "url": "https://uuidna.com/theorem/the_foundation_depends_on_nothing",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:5527d89d-6dc1-82fe-b72b-7350b74e4995",
+        "@type": "ScholarlyArticle",
+        "headline": "THE MEANING IS THE PUBLISHED ONE, SEALED VERBATIM: each path's specification is Alpine's own description of its package — 25 non-empty meanings ride the wing itself, index-paired with the names. /terminal does not mean what uuidna says it means; it means what the repository publishes, and the seal carries the words.",
+        "abstract": "(installMeanings.length = 25) ∧ (installMeanings.all (fun m => m != \"\"))",
+        "identifier": "422aee1b-4890-84a7-b8a1-655de839b08b",
+        "url": "https://uuidna.com/theorem/every_path_carries_its_published_meaning",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:270ea8b6-08ed-883f-a59f-d7c061bec0e5",
+        "@type": "ScholarlyArticle",
+        "headline": "EVERY SPEC COMPILES FROM SOURCE IN HEXBIT: the published tuple folds to a 128-bit address, and 128 bits are exactly 32 hexbit states of 16 = 2⁴ — the site's native lattice, playable by the standard hexbit app. The compile is total on the port: 25 specs and the port's receipt, each 32 on-lattice states, every state a nibble of the address — the specification and its sound are the same integer.",
+        "abstract": "(32 * 4 = 128) ∧ (16 = 2 ^ 4) ∧ ((128 : Nat) / 4 = 32)",
+        "identifier": "10b131d5-be81-83f3-b9e1-49c491d0b59e",
+        "url": "https://uuidna.com/theorem/a_spec_compiles_to_hexbits",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:cdd84013-a955-8a12-9903-f056f58105ac",
+        "@type": "ScholarlyArticle",
+        "headline": "PORT MEANS COMPILE FROM SOURCE TO HEXBIT, AND THE COMPILED OS IS BOOTABLE — QUANTUM. The boot image rides the wing VERBATIM: every spec's 32 states laid down in the sealed build order (firmware and up — the floor first, home last) with the port receipt's 32 states closing the image, 832 = 32·(25+1) states in all, every one on the 16-state lattice. On this computer BOOTING IS THE VERIFIED LOADING OF THE COMPILED STATES — the standard hexbit app loads and sounds the image deterministically, the same states for every observer — and no Alpine binary is ever executed: bootable on the lattice, not on a CPU.",
+        "abstract": "(bootPages.length = 26) ∧ (26 * 32 = 832) ∧ (bootPages.all (fun p => p.length = 32)) ∧ (bootPages.all (fun p => p.all (fun h => h < 16)))",
+        "identifier": "8b5f439d-0e9f-82ab-ac73-3fd15eef7e49",
+        "url": "https://uuidna.com/theorem/the_os_is_bootable_quantum",
+        "keywords": "installs, lean/Installs.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
           "@type": "Dataset",

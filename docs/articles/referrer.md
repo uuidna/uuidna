@@ -1,15 +1,43 @@
 ---
 title: "The referrer song"
-description: "Computed from lean/Referrer.lean — 10 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Referrer.lean — 14 sealed theorems, every claim citing its proof."
 ---
 
 # The referrer song
 
-> THE REFERRER SONG — doors, rotations, the trinity orbit, total prev/next, measurable consonance, the darkroom complement — as decidable arithmetic, demarcated. — held by [door_of_the_referrer](/theorem/door_of_the_referrer) and its 9 siblings below.
+> REFERRER — the referrer song's sealed arithmetic: six doors into the round, consonance as a measured ladder, the lower lattice's octave completeness, and the wrap that makes the page-cycle total. — held by [referrer_six_doors](/theorem/referrer_six_doors) and its 13 siblings below.
 
-**10 theorems**, from [door_of_the_referrer](/theorem/door_of_the_referrer) onward, each proven `by decide` in [lean/Referrer.lean](/lean/Referrer.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [door_of_the_referrer](/theorem/door_of_the_referrer). A boundary stated here is decided.
+**14 theorems**, from [referrer_six_doors](/theorem/referrer_six_doors) onward, each proven `by decide` in [lean/Referrer.lean](/lean/Referrer.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 14 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [referrer_six_doors](/theorem/referrer_six_doors). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReferrer.lean)** — nothing to install. The editor fetches `lean/Referrer.lean` from the repository and re-decides all 10 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReferrer.lean)** — nothing to install. The editor fetches `lean/Referrer.lean` from the repository and re-decides all 14 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
+### SIX DOORS INTO THE ROUND. The round 142857 has exactly six rotations (song_six_verses_one_melody seals them one by one), so a visitor's handle picks its door by value mod 6 — and the pick is total at the edges the kernel can hold: the zero handle enters door 0, the last handle 2³²−1 = 4294967295 enters door 3, and six never divides to nothing (6 ≠ 0). Every visitor gets a door; no referrer is turned away.
+The ledger holds this as [referrer_six_doors](/theorem/referrer_six_doors) — proven `by decide`, sorry-free:
+
+```lean
+0 % 6 = 0 ∧ 4294967295 % 6 = 3 ∧ (6:Nat) ≠ 0
+```
+
+### CONSONANCE IS MEASURED, NOT FELT. An interval between lattice tones (h₁+1)·432 and (h₂+1)·432 reduces to the ratio of its multipliers, and its consonance measure is the reduced ratio's term sum — Euler's gradus made bare: unison 1:1 sums 2, octave 1:2 sums 3, fifth 2:3 sums 5, fourth 3:4 sums 7, and the ladder orders itself 2 < 3 < 5 < 7 — the sweetest steps are the smallest sums, decidably, before any ear is consulted.
+The ledger holds this as [referrer_consonance_ladder](/theorem/referrer_consonance_ladder) — proven `by decide`, sorry-free:
+
+```lean
+1 + 1 = 2 ∧ 1 + 2 = 3 ∧ 2 + 3 = 5 ∧ 3 + 4 = 7 ∧ 2 < 3 ∧ 3 < 5 ∧ 5 < 7
+```
+
+### THE LOWER HALF ALWAYS HAS ITS OCTAVE. For every tile h in the bottom half of the lattice (h ≤ 7), the octave of its tone is another lattice tone: (h+1)·2 ≤ 16, so tile 2h+1 exists and sounds exactly double. The sweetest step after unison is therefore always AVAILABLE from any low tile — the pager can offer a consonant next wherever the walk stands low, checked for all eight at once.
+The ledger holds this as [referrer_lower_octaves_on_lattice](/theorem/referrer_lower_octaves_on_lattice) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).all (fun h => (h + 1) * 2 ≤ 16)) ∧ 8 * 2 = 16
+```
+
+### THE CLOSED CYCLE MAKES PREV AND NEXT TOTAL. On a cycle of n pages the step is (k+1) mod n and the last page wraps home: with six doors as the worked case, every position steps inside the cycle ((k+1) mod 6 < 6 for all k < 6) and the sixth steps to the first (5+1 ≡ 0). No page is without a next, no next falls off the world — totality is what the wrap buys, and it is the same wrap the vortex orbit closes with (2⁶ ≡ 1 mod 9).
+The ledger holds this as [referrer_cycle_is_total](/theorem/referrer_cycle_is_total) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 6).all (fun k => (k + 1) % 6 < 6)) ∧ (5 + 1) % 6 = 0 ∧ 2 ^ 6 % 9 = 1
+```
 
 ### THE REFERRER’S FIRST TILE PICKS THE DOOR, TOTALLY. A handle’s first tile is one of sixteen states, the round has six doors, and t mod 6 maps every tile to a door with every door reached — no referrer is turned away and no door stays shut. The map is total and onto but not equitable: the fibers count [3,3,3,3,2,2], and 16 mod 6 = 4 names the four tiles of unevenness rather than smoothing them — the same honesty moduli_waste_states keeps one wing over.
 The ledger holds this as [door_of_the_referrer](/theorem/door_of_the_referrer) — proven `by decide`, sorry-free:

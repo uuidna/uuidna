@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1507/1507 theorems — every one, by construction
-**Claim receipt:** `13945913-f089-8e15-acc0-1ade06cc7f49`
+**Total claimed:** 1522/1522 theorems — every one, by construction
+**Claim receipt:** `07682c15-065c-8978-9005-388da8ae0e10`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -644,15 +644,6 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [uuid_mix_census_is_quantum](/theorem/uuid_mix_census_is_quantum)
 
-### The referrer song
-
-- **Theorems:** 10
-- **Sample lineAddress:** `8fe5c8b5-22b4-8ab1-a54c-8e201650bde6`
-
-The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
-
-[door_of_the_referrer](/theorem/door_of_the_referrer) · [rotation_is_multiplication](/theorem/rotation_is_multiplication) · [the_shift_is_the_trinity](/theorem/the_shift_is_the_trinity) · [every_referrer_reaches_every_page](/theorem/every_referrer_reaches_every_page) · [prev_undoes_next](/theorem/prev_undoes_next) · [tuning_cancels_from_every_interval](/theorem/tuning_cancels_from_every_interval) · [orbit_steps_name_their_intervals](/theorem/orbit_steps_name_their_intervals) · [adjacent_steps_beat_at_the_tuning](/theorem/adjacent_steps_beat_at_the_tuning) · [development_is_the_complement](/theorem/development_is_the_complement) · [the_movie_and_the_song_are_one](/theorem/the_movie_and_the_song_are_one)
-
 ### The song from the ledger
 
 - **Theorems:** 11
@@ -670,6 +661,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) · [anthem_three_lengths_quarter_the_bar](/theorem/anthem_three_lengths_quarter_the_bar) · [anthem_rest_twelfths_the_bar](/theorem/anthem_rest_twelfths_the_bar) · [anthem_four_movements](/theorem/anthem_four_movements) · [anthem_closes_on_the_coin_octave](/theorem/anthem_closes_on_the_coin_octave) · [anthem_pi_primes_trinity](/theorem/anthem_pi_primes_trinity) · [anthem_finale_sings_one_uuid](/theorem/anthem_finale_sings_one_uuid)
+
+### The referrer song
+
+- **Theorems:** 14
+- **Sample lineAddress:** `ec855bf9-8122-82f1-bffc-ec1321af5796`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[referrer_six_doors](/theorem/referrer_six_doors) · [referrer_consonance_ladder](/theorem/referrer_consonance_ladder) · [referrer_lower_octaves_on_lattice](/theorem/referrer_lower_octaves_on_lattice) · [referrer_cycle_is_total](/theorem/referrer_cycle_is_total) · [door_of_the_referrer](/theorem/door_of_the_referrer) · [rotation_is_multiplication](/theorem/rotation_is_multiplication) · [the_shift_is_the_trinity](/theorem/the_shift_is_the_trinity) · [every_referrer_reaches_every_page](/theorem/every_referrer_reaches_every_page) · [prev_undoes_next](/theorem/prev_undoes_next) · [tuning_cancels_from_every_interval](/theorem/tuning_cancels_from_every_interval) · [orbit_steps_name_their_intervals](/theorem/orbit_steps_name_their_intervals) · [adjacent_steps_beat_at_the_tuning](/theorem/adjacent_steps_beat_at_the_tuning) · [development_is_the_complement](/theorem/development_is_the_complement) · [the_movie_and_the_song_are_one](/theorem/the_movie_and_the_song_are_one)
 
 ### The seven readings
 
@@ -787,6 +787,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) · [the_uuid_is_two_boards](/theorem/the_uuid_is_two_boards) · [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) · [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) · [characters_span_the_address](/theorem/characters_span_the_address) · [handle_is_the_first_group](/theorem/handle_is_the_first_group) · [groups_are_four_apart](/theorem/groups_are_four_apart) · [build_counts_in_hexbits](/theorem/build_counts_in_hexbits) · [payload_carries_the_strand](/theorem/payload_carries_the_strand) · [payload_aligns_where_the_name_does_not](/theorem/payload_aligns_where_the_name_does_not) · [the_handle_molecule_is_the_mix_census](/theorem/the_handle_molecule_is_the_mix_census) · [four_vectors_reach_the_uuid](/theorem/four_vectors_reach_the_uuid) · [slit_on_the_hexbit_ring](/theorem/slit_on_the_hexbit_ring) · [dark_fringe_is_the_half_turn](/theorem/dark_fringe_is_the_half_turn) · [fringe_pattern_reflects_dz](/theorem/fringe_pattern_reflects_dz) · [which_path_conserves_the_total](/theorem/which_path_conserves_the_total)
+
+### lean/Installs.lean
+
+- **Theorems:** 11
+- **Sample lineAddress:** `ccc4cb34-1f6f-8472-a51c-c8955c6e47e4`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed) · [every_install_and_its_path_named_once](/theorem/every_install_and_its_path_named_once) · [home_is_the_meta_package](/theorem/home_is_the_meta_package) · [home_reaches_every_install](/theorem/home_reaches_every_install) · [the_port_rises_from_the_floor](/theorem/the_port_rises_from_the_floor) · [the_services_hold_each_other_up](/theorem/the_services_hold_each_other_up) · [the_terminal_is_the_toolbox](/theorem/the_terminal_is_the_toolbox) · [the_foundation_depends_on_nothing](/theorem/the_foundation_depends_on_nothing) · [every_path_carries_its_published_meaning](/theorem/every_path_carries_its_published_meaning) · [a_spec_compiles_to_hexbits](/theorem/a_spec_compiles_to_hexbits) · [the_os_is_bootable_quantum](/theorem/the_os_is_bootable_quantum)
 
 ### lean/Isometry.lean
 
@@ -906,7 +915,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1427 (1507 entries, 80 re-namings — a theorem is its Lean |
+| sealed propositions | 1442 (1522 entries, 80 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -924,7 +933,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1507 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1522 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

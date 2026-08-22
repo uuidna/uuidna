@@ -1062,6 +1062,7 @@ PORT ALL ALPINE — automate the OS-provenance port across the WHOLE official ar
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `branch` | string | no | Alpine branch, e.g. "latest-stable" (default) or "edge" |
+| `installs` | boolean | no | return THE DEFAULT INSTALL PORT instead: every uuidna.com path's exact meaning — the alpine-base dependency closure from the committed mirror (deterministic, NO fetch), lowest level first, each spec compiled to 32 hexbit states, sealed in lean/Installs.lean |
 
 ### `uuidna_package`
 
