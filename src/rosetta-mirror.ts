@@ -942,6 +942,17 @@ proof_needs_citation 19
 unproven_not_refuted 19
 absorbed_evidence_idles 19
 unfalsifiable_excludes_nothing 19
+#Referrer.lean
+door_of_the_referrer 19
+rotation_is_multiplication 19
+the_shift_is_the_trinity 19
+every_referrer_reaches_every_page 19
+prev_undoes_next 19
+tuning_cancels_from_every_interval 19
+orbit_steps_name_their_intervals 19
+adjacent_steps_beat_at_the_tuning 19
+development_is_the_complement 19
+the_movie_and_the_song_are_one 19
 #Reflection.lean
 reflection_splits_six 19
 classes_cap_at_two 19

@@ -5,7 +5,7 @@ description: The whole ledger sung in place — theorem k at bar k, every struct
 
 # The release anthem <Badge type="tip" text="theorem k at bar k" />
 
-> The anthem sings the **whole ledger, in place**: theorem k sounds at bar k, in ledger order — 1497
+> The anthem sings the **whole ledger, in place**: theorem k sounds at bar k, in ledger order — 1507
 > theorems, each one bar, each bar that theorem's own two address-coins as a chord. It is derived, never composed:
 > every structural figure below is a theorem in [`lean/Anthem.lean`](/lean/Anthem.lean) or
 > [`lean/Song.lean`](/lean/Song.lean), and the generator refuses any unsealed bar. The anthem **regrows at every
@@ -13,8 +13,8 @@ description: The whole ledger sung in place — theorem k at bar k, every struct
 
 <audio controls src="/anthem.wav" style="width:100%"></audio>
 
-Exact integers on the A432 lattice: the **same bytes for anyone, forever**. Content-address `18a4d2aa` —
-recompute it from the file, or the recording is not this anthem. Duration 5:33 for 1497 theorems.
+Exact integers on the A432 lattice: the **same bytes for anyone, forever**. Content-address `fedc984a` —
+recompute it from the file, or the recording is not this anthem. Duration 5:36 for 1507 theorems.
 
 ## Compared with the Pi Song — the place law, made verifiable
 
@@ -34,16 +34,16 @@ between them (`song_melody_rides_the_orbit`):
 
 | movement | theorems (in place) | begins at |
 |---|---|---|
-| 1 | 1–375 | 0:02 |
-| 2 | 376–750 | 1:24 |
-| 3 | 751–1125 | 2:46 |
-| 4 | 1126–1497 | 4:06 |
+| 1 | 1–377 | 0:02 |
+| 2 | 378–754 | 1:24 |
+| 3 | 755–1131 | 2:47 |
+| 4 | 1132–1507 | 4:08 |
 
 **Each bar is one theorem paying its two coins** (`anthem_chord_halves_the_bar`: 252/2 = 126 — two coins close
 the bar), its length picked by its own bytes from the sealed three (`anthem_three_lengths_quarter_the_bar`:
 126 · 189 · 252 ms), the breath between bars the sealed twelfth (`anthem_rest_twelfths_the_bar`: 21 ms).
 
-**Finale** (at 5:26) — the merkle root of all 1497 addresses, `5f0174c6-3fba-889b-bb74-b7c408e3324c`, sung whole:
+**Finale** (at 5:29) — the merkle root of all 1507 addresses, `62421c38-19cd-8db8-b364-af27cc581bac`, sung whole:
 32 tiles, one uuid entire (`anthem_finale_sings_one_uuid`), over the Az drone. The final chord is 432 against
 864 — the coin octave (`anthem_closes_on_the_coin_octave`): the same factor two that
 [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) weighs in black-hole mass, sounded as the interval

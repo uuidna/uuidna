@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1497/1497 theorems — every one, by construction
-**Claim receipt:** `6afcb02d-ced0-8603-ad0a-88a87ceaaea3`
+**Total claimed:** 1507/1507 theorems — every one, by construction
+**Claim receipt:** `13945913-f089-8e15-acc0-1ade06cc7f49`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -644,6 +644,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [uuid_mix_census_is_quantum](/theorem/uuid_mix_census_is_quantum)
 
+### The referrer song
+
+- **Theorems:** 10
+- **Sample lineAddress:** `8fe5c8b5-22b4-8ab1-a54c-8e201650bde6`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[door_of_the_referrer](/theorem/door_of_the_referrer) · [rotation_is_multiplication](/theorem/rotation_is_multiplication) · [the_shift_is_the_trinity](/theorem/the_shift_is_the_trinity) · [every_referrer_reaches_every_page](/theorem/every_referrer_reaches_every_page) · [prev_undoes_next](/theorem/prev_undoes_next) · [tuning_cancels_from_every_interval](/theorem/tuning_cancels_from_every_interval) · [orbit_steps_name_their_intervals](/theorem/orbit_steps_name_their_intervals) · [adjacent_steps_beat_at_the_tuning](/theorem/adjacent_steps_beat_at_the_tuning) · [development_is_the_complement](/theorem/development_is_the_complement) · [the_movie_and_the_song_are_one](/theorem/the_movie_and_the_song_are_one)
+
 ### The song from the ledger
 
 - **Theorems:** 11
@@ -897,7 +906,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1417 (1497 entries, 80 re-namings — a theorem is its Lean |
+| sealed propositions | 1427 (1507 entries, 80 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -915,7 +924,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1497 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1507 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

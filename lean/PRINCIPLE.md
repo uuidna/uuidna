@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1497 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1507 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -215,13 +215,16 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 70. **The uuid mix space** — `lean/UuidMix.lean` · **1** theorems
    the census of mixing the ten RFC 9562 uuid types, one quantum seal: directed doubles the pairs (10·9 = 2·45), self-mixes complete the square (90 + 10 = 10²), and Pascal's row 10 folds to the 1024 qubit lattice — cited to optimisation_space_is_qubit_dimension, never re-sealed
 
-71. **The song from the ledger** — `lean/Song.lean` · **11** theorems
+71. **The referrer song** — `lean/Referrer.lean` · **10** theorems
+   lead 77, the captain's fragments sealed — the song entered from the referrer's position: the first tile picks a door totally (fibers [3,3,3,3,2,2], 16 mod 6 = 4 named), a rotation IS a multiplication ((142857·10^r) mod 999999 lands on the verses), the multiplier order [1,3,2,6,4,5] is the powers of the trinity in ℤ/7 (10 ≡ 3 mod 7 — the decimal shift is the rosette step), prev/next are total and mutually inverse on the closed cycle from every phase, the tuning cancels from every interval (gcd(432a,432b) = 432·gcd(a,b) — consonance is the digits' ratio), adjacent lattice steps beat at exactly A432, film-to-paper development is the 9−d involution (verse 6 = the 3-shift door = the print of verse 1; the canonical recording is the undeveloped film), and one bar is 4032 samples = 9·7·64 = 63·64 = 24²·7 — the movie's frame ring and the song tiling the same integer. HONEST SCOPE: doors, rotations, ratios and rings — nothing about listeners, taste, or trusting a referrer header
+
+72. **The song from the ledger** — `lean/Song.lean` · **11** theorems
    the song nobody had written (queue lead 68: the search "sing glagolitic pi primes dna song" finds nothing joining the four), generated from the ledger as decidable arithmetic — π's rational roof 22/7 opens 3.142857 and its period 142857 is the cyclic number of ℤ/7 (the rosette's ring), the six rotation-verses base-pair like DNA strands (verse k + verse 7−k = 999999, every rung a nine), the notes sung are exactly the units of ℤ/9 on the A432 lattice where the Glagolitic units 1..9 are the scale and Az is the tuning, primes keep the time, and the four tongues fuse by CRT into 9·7·4 = 252 bars — the middle of Pascal's row ten. HONEST SCOPE: π itself stays outside, irrational and undecidable (pi_bracketed_by_finite_rationals holds the bracket); only the finite round its rational roof sings is sealed — arithmetic sung, never numerology
 
-72. **The release anthem** — `lean/Anthem.lean` · **7** theorems
+73. **The release anthem** — `lean/Anthem.lean` · **7** theorems
    the anthem's sealed structure — the whole ledger sung IN PLACE (theorem k at bar k, the Pi Song's place law made language-free and verifiable): two coins to the bar (252/2 = 126), rhythm quartering the bar on the vortex's three (126·189·252), the breath at the twelfth (21), four movements from the DNA tongue, the finale singing the merkle root as one whole uuid (32·4 = 128), the closing chord the coin octave (864 = 2·432 — the same factor two two_coins_in_kilograms weighs in black-hole mass), and π·primes·trinity: the round's six nines held shut by two trinities of primes (999999 = 999·1001, 999 = 3³·37, 1001 = 7·11·13). gen-anthem derives /anthem + anthem.wav from these seals over the LIVE ledger — the anthem regrows at every release. HONEST SCOPE: arithmetic sung; no tuning mysticism, no numerology — the demarcations live in the theorems
 
-73. **The seven readings** — `lean/Readings.lean` · **17** theorems
+74. **The seven readings** — `lean/Readings.lean` · **17** theorems
    seven tongues reading hexbit-translated English (the fold IS the translation): the seven locale rays sealed distinct, each ray's sixteen state-names sealed pairwise distinct so the reading is invertible and the address survives the tongue — the Lean lists GENERATED from src/tts HEXBIT_WORDS, one source, never restated. And not only them: the A432 lattice sealed under the Nyquist ceiling (432·16 = 6912 < 16000/2, closing the synth's claimed clearance), the voice's amplitude inside int16 and the arrangement's mix budget landing exactly on the ceiling (queue lead 74 — bounds by construction, not measurement), χ = 2−2g in all three genera with the sphere leg sealed at last (lead 75), and the time counts of the music and dance books — note values as the doubling ladder, march 2 vs waltz 3, the Morris eight-bars-halved (lead 70). HONEST SCOPE: table STRUCTURE is sealed, never linguistic correctness — no kernel decides what a word means to a speaker; and the χ table is sealed without the Gauss–Bonnet bridge, which is analysis and stays outside
 
 ---

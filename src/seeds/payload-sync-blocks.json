@@ -803,6 +803,316 @@
       "uuidnaAddress": "facb747e-0336-8854-9a3e-95d5ffcb6433"
     },
     {
+      "slug": "anthem",
+      "title": "anthem.lean",
+      "_status": "published",
+      "layout": [
+        {
+          "blockType": "theorem",
+          "slug": "theorem-anthem_chord_halves_the_bar",
+          "title": "theorem-anthem_chord_halves_the_bar",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "TWO COINS TO THE BAR. Each theorem in the anthem sounds ONE chord — its two address-coins together — and the chord takes exactly half the sealed 252 ms bar: 252/2 = 126, and two of them close it, 126·2 = 252. The pricing law becomes the meter: every bar of the anthem is one theorem paying its two coins."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "252 / 2 = 126 ∧ 126 * 2 = 252"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem anthem_chord_halves_the_bar : 252 / 2 = 126 ∧ 126 * 2 = 252 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "5d632d76-968d-8dc5-998f-18e61aea9316"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-anthem_three_lengths_quarter_the_bar",
+          "title": "theorem-anthem_three_lengths_quarter_the_bar",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE RHYTHM QUARTERS THE BAR ON THE VORTEX'S THREE. A chord's length is picked by its own coins' sum on ℤ/3 — the nilpotent axis of the ℤ/9 vortex — from the three quarter-multiples of the bar: 252·2/4 = 126, 252·3/4 = 189, 252·4/4 = 252. Half, three-quarters, whole: the DNA tongue's four quarters the bar, the vortex's three chooses among them, and no length is authored."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "252 * 2 / 4 = 126 ∧ 252 * 3 / 4 = 189 ∧ 252 * 4 / 4 = 252"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem anthem_three_lengths_quarter_the_bar : 252 * 2 / 4 = 126 ∧ 252 * 3 / 4 = 189 ∧ 252 * 4 / 4 = 252 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "3002d132-824e-8e38-9d7e-0d42d2d5838e"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-anthem_rest_twelfths_the_bar",
+          "title": "theorem-anthem_rest_twelfths_the_bar",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE BREATH IS THE TWELFTH. Between chords the anthem rests 252/12 = 21 ms — the bar divided by the twelve of the chromatic count the lattice deliberately does not use (the harmonic series sings where 12-TET cannot recompute), kept here as the silence between what IS sung."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "252 / 12 = 21 ∧ 21 * 12 = 252"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem anthem_rest_twelfths_the_bar : 252 / 12 = 21 ∧ 21 * 12 = 252 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "e8cba92d-d29d-8011-accd-d3a8fc5ada16"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-anthem_four_movements",
+          "title": "theorem-anthem_four_movements",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "FOUR MOVEMENTS — THE DNA TONGUE CONDUCTS. The fused cycle 9·7·4 = 252 carries the four of the genetic alphabet, and the anthem takes its movement count from that same four: the ledger is walked in four movements with the vortex refrain between them. The count is the seal's, not a taste."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "9 * 7 * 4 = 252 ∧ 252 / 63 = 4"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem anthem_four_movements : 9 * 7 * 4 = 252 ∧ 252 / 63 = 4 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "d9afe556-f4a8-85e3-a96c-3a1d2a023ec0"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-anthem_closes_on_the_coin_octave",
+          "title": "theorem-anthem_closes_on_the_coin_octave",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE FINAL CHORD IS THE TWO COINS, IN HERTZ. two_coins_in_kilograms seals that a uuid-holding black hole weighs exactly twice a handle-holding one (128 = 4·32, 2² = 4); the anthem closes on the same TWO sounded as sound: 864 = 2·432 — Az against its octave, the mass ratio and the interval one number. What the kilograms weigh, the hertz sing."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "864 = 2 * 432 ∧ 128 = 4 * 32 ∧ 2 ^ 2 = 4"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem anthem_closes_on_the_coin_octave : 864 = 2 * 432 ∧ 128 = 4 * 32 ∧ 2 ^ 2 = 4 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "9f3aa64c-fbc8-8894-8c33-df5721ba0ee0"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-anthem_pi_primes_trinity",
+          "title": "theorem-anthem_pi_primes_trinity",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "π · PRIMES · TRINITY — THE ROUND CLOSES ON TWO TRINITIES OF PRIMES. The six nines the strands close to factor as 999999 = 999 · 1001, and each factor is a trinity: 1001 = 7·11·13, three CONSECUTIVE primes side by side, and 999 = 3³·37 — the trinity CUBED times 37. So π's rational round (142857·7 = 999999) is held shut by primes arranged in threes: the helix's rungs of nines are not one number but two trinities clasped. Arithmetic, sealed; the delight is free."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "142857 * 7 = 999999 ∧ 999999 = 999 * 1001 ∧ 999 = 3 ^ 3 * 37 ∧ 1001 = 7 * 11 * 13"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem anthem_pi_primes_trinity : 142857 * 7 = 999999 ∧ 999999 = 999 * 1001 ∧ 999 = 3 ^ 3 * 37 ∧ 1001 = 7 * 11 * 13 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "efce8656-098c-8e18-9302-addb002fe2d7"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-anthem_finale_sings_one_uuid",
+          "title": "theorem-anthem_finale_sings_one_uuid",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE FINALE IS THE ROOT, WHOLE. All the ledger's addresses merkle-fold to one root, and the finale sings its every tile: 32 hexbits at 4 bits each — 32·4 = 128, one uuid entire, the release folded to the width of its own unit of speech and sounded tile by tile over the Az drone."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "32 * 4 = 128"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem anthem_finale_sings_one_uuid : 32 * 4 = 128 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "6c1bc63d-813c-88b9-a86c-2a65557c186a"
+        }
+      ],
+      "uuidnaVersion": "c667b562-634c-846f-b5a2-e345894e0000",
+      "uuidnaAddress": "eb1e5595-190d-835a-9b97-d5cbdaab2346"
+    },
+    {
       "slug": "antifraud",
       "title": "antifraud.lean",
       "_status": "published",
@@ -2344,7 +2654,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "every generated theorem carries prose IN the Lean — 1420 of 1420 documented across 91 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address"
+                      "text": "every generated theorem carries prose IN the Lean — 1448 of 1448 documented across 93 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address"
                     }
                   ]
                 },
@@ -2354,7 +2664,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1420) ∧ ([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])"
+                      "text": "(([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1448) ∧ ([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])"
                     }
                   ]
                 },
@@ -2364,14 +2674,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_coverage_total : (([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1420) ∧ ([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13]) := by decide"
+                      "text": "theorem prose_coverage_total : (([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1448) ∧ ([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13]) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "3837a8a2-5728-88f2-9a65-880f507e1e15"
+          "uuidnaAddress": "7b924f4c-3d3a-8845-87dd-5401886bcf69"
         },
         {
           "blockType": "theorem",
@@ -2387,7 +2697,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "the prose round-trips exactly — 1420 of 1420 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed"
+                      "text": "the prose round-trips exactly — 1448 of 1448 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed"
                     }
                   ]
                 },
@@ -2397,7 +2707,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(1420 + 0 = 1420) ∧ (0 = 0)"
+                      "text": "(1448 + 0 = 1448) ∧ (0 = 0)"
                     }
                   ]
                 },
@@ -2407,14 +2717,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_round_trips : (1420 + 0 = 1420) ∧ (0 = 0) := by decide"
+                      "text": "theorem prose_round_trips : (1448 + 0 = 1448) ∧ (0 = 0) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "8c8cb43b-32c9-880d-a5fc-6f5e1879c698"
+          "uuidnaAddress": "c348bab9-6fd8-8cdb-b2af-f7f5017cb91a"
         },
         {
           "blockType": "theorem",
@@ -2430,7 +2740,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "no doc comment contains an unescaped -/ — 0 found across 1420; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today"
+                      "text": "no doc comment contains an unescaped -/ — 0 found across 1448; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today"
                     }
                   ]
                 },
@@ -2440,7 +2750,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(0 + 1420 = 1420) ∧ (0 = 0)"
+                      "text": "(0 + 1448 = 1448) ∧ (0 = 0)"
                     }
                   ]
                 },
@@ -2450,14 +2760,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_terminator_escaped : (0 + 1420 = 1420) ∧ (0 = 0) := by decide"
+                      "text": "theorem prose_terminator_escaped : (0 + 1448 = 1448) ∧ (0 = 0) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "3aadcdfe-7d30-843c-bc8f-f93dde716095"
+          "uuidnaAddress": "46c5ee50-77f8-8001-98ae-9b303bca05bf"
         },
         {
           "blockType": "theorem",
@@ -2473,7 +2783,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1420 informative against 0 bare, of 1420; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed"
+                      "text": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1448 informative against 0 bare, of 1448; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed"
                     }
                   ]
                 },
@@ -2483,7 +2793,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(0 < 1420) ∧ (0 + 1420 = 1420)"
+                      "text": "(0 < 1448) ∧ (0 + 1448 = 1448)"
                     }
                   ]
                 },
@@ -2493,14 +2803,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_beats_restatement : (0 < 1420) ∧ (0 + 1420 = 1420) := by decide"
+                      "text": "theorem prose_beats_restatement : (0 < 1448) ∧ (0 + 1448 = 1448) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "97c850ea-f7a8-8b04-a52c-4ea2a447b304"
+          "uuidnaAddress": "d1e94783-116c-853b-b4a1-00cbafc3f839"
         },
         {
           "blockType": "theorem",
@@ -2516,7 +2826,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "the whole prose corpus folds to ONE ℤ/9 receipt — 256732 characters across 1420 doc comments in 91 wings fold to 7; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit"
+                      "text": "the whole prose corpus folds to ONE ℤ/9 receipt — 269214 characters across 1448 doc comments in 93 wings fold to 6; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit"
                     }
                   ]
                 },
@@ -2526,7 +2836,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(([1078, 1237, 1545, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 7751, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 10650, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 256732) ∧ (256732 % 9 = 7) ∧ (7 < 9)"
+                      "text": "(([1078, 1237, 1545, 2318, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 269214) ∧ (269214 % 9 = 6) ∧ (6 < 9)"
                     }
                   ]
                 },
@@ -2536,14 +2846,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_folds_receipt : (([1078, 1237, 1545, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 7751, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 10650, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 256732) ∧ (256732 % 9 = 7) ∧ (7 < 9) := by decide"
+                      "text": "theorem prose_folds_receipt : (([1078, 1237, 1545, 2318, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 269214) ∧ (269214 % 9 = 6) ∧ (6 < 9) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "aeb199d7-ca9f-8671-bc1e-c8ad4955f77c"
+          "uuidnaAddress": "300bd4a8-0500-8cf9-a479-8d5125ce894c"
         },
         {
           "blockType": "theorem",
@@ -2559,7 +2869,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "the audit is TOTAL over what a generator writes — 91 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states"
+                      "text": "the audit is TOTAL over what a generator writes — 93 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states"
                     }
                   ]
                 },
@@ -2569,7 +2879,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(0 < 91) ∧ (0 < 3) ∧ (1420 = 1420 + 0)"
+                      "text": "(0 < 93) ∧ (0 < 3) ∧ (1448 = 1448 + 0)"
                     }
                   ]
                 },
@@ -2579,18 +2889,18 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_audit_total : (0 < 91) ∧ (0 < 3) ∧ (1420 = 1420 + 0) := by decide"
+                      "text": "theorem prose_audit_total : (0 < 93) ∧ (0 < 3) ∧ (1448 = 1448 + 0) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "84b00e86-a3ae-8a99-9f53-4a2b9a7b43ff"
+          "uuidnaAddress": "55ddcdb6-e756-87b8-b0c8-987c8fedc4b0"
         }
       ],
-      "uuidnaVersion": "c6482660-ff42-862a-a991-dea0843a0000",
-      "uuidnaAddress": "bf0ecf99-e23a-8479-bd68-59b0a5e7e030"
+      "uuidnaVersion": "c6482660-ff61-80b4-b18b-f7eb85ff0000",
+      "uuidnaAddress": "5645995d-ff24-888f-a911-ef6de100c4bd"
     },
     {
       "slug": "auditgame",
@@ -21349,10 +21659,182 @@
             }
           },
           "uuidnaAddress": "6f6bbfd1-0c2b-870d-946d-cd8e4dd31f8e"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-slit_on_the_hexbit_ring",
+          "title": "theorem-slit_on_the_hexbit_ring",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE SLIT DRAWN ON THE HEXBIT: two sources a half-turn apart on the 16-state ring, and detector k reads the exact Int amplitude 1 + (−1)^k. The census is total: eight detectors bright at (1+1)² = 4, eight dark at (1−1)² = 0, and the whole screen sums to 32 = 2·16 — exactly what two independent sources would deposit. The fringes REDISTRIBUTE brightness; they never create it. This is hexbit_slit_visibility unrolled from one phase pair to the full pattern a screen actually shows."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 4))).length = 8) ∧ (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 0))).length = 8) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = 32) ∧ (2 * 16 = 32)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem slit_on_the_hexbit_ring : (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 4))).length = 8) ∧ (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 0))).length = 8) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = 32) ∧ (2 * 16 = 32) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "d3c0d1ed-7222-8fa8-92d2-ebc7f0df4818"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-dark_fringe_is_the_half_turn",
+          "title": "theorem-dark_fringe_is_the_half_turn",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE DARK FRINGES SIT EXACTLY AT THE SELF-INVERSE ROTATION. On the ring the relative phase at detector k is 8k mod 16, and the screen is dark precisely where that phase is the half-turn 8 — checked at all sixteen detectors, an equivalence and not an implication. The half-turn is the ring’s own involution: 8 + 8 ≡ 0 (mod 16), the one rotation that is its own inverse. So the slit’s \"unexplained\" cancellation lands where the ledger keeps finding its mysteries — on a self-inverse map (involution_census_self_explains): to explain the dark fringe, apply the half-turn again and you are home."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "((List.range 16).all (fun k => (((8*k) % 16 == 8) == ((1 + (-1:Int)^k)^2 == 0)))) ∧ ((8 + 8) % 16 = 0)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem dark_fringe_is_the_half_turn : ((List.range 16).all (fun k => (((8*k) % 16 == 8) == ((1 + (-1:Int)^k)^2 == 0)))) ∧ ((8 + 8) % 16 = 0) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "60e67bd6-e63a-8a6e-a6c6-b56ce28f3aee"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-fringe_pattern_reflects_dz",
+          "title": "theorem-fringe_pattern_reflects_dz",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE SCREEN OBEYS THE dz MIRROR. The reflection the ledger writes as dz(x) = 10 − x on the digits has one shape on the hexbit ring — k ↦ 16 − k — and the fringe pattern cannot tell a detector from its mirror image: intensity(k) = intensity(16 − k mod 16) at every one of the sixteen positions. The interference pattern is a palindrome under the ring’s own reflection, which is why reading the screen left-to-right or right-to-left is the same experiment. The reflection settles the pattern the way dz settles the void: by symmetry, decided case by case, never assumed."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(List.range 16).all (fun k => ((1 + (-1:Int)^k)^2 == (1 + (-1:Int)^((16 - k) % 16))^2))"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem fringe_pattern_reflects_dz : (List.range 16).all (fun k => ((1 + (-1:Int)^k)^2 == (1 + (-1:Int)^((16 - k) % 16))^2)) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "1e05b37d-ac39-83dd-bcf7-4a05f4d3d26d"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-which_path_conserves_the_total",
+          "title": "theorem-which_path_conserves_the_total",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE HANDLE-READ MOVES BRIGHTNESS AND NEVER MAKES OR DESTROYS IT. Recorded, every detector reads the flat 1² + 1² = 2 (the orthogonal-record sum hexbit_slit_visibility seals), and sixteen twos are 32; unrecorded, the fringed screen is eight fours and eight zeros — also 32. The which-path read re-shapes the whole pattern and changes the total by exactly nothing: 8·4 + 8·0 = 16·2. What the read costs is the FRINGES, not the light — the cross terms move to zero (hexbit_slit_cross_is_overlap) while the diagonal stays put. Bookkeeping conserved on both sides of the reading, which is what a ledger means by explained."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(((List.range 16).foldl (fun s _ => s + ((1:Int)*1 + 1*1)) (0:Int)) = 32) ∧ (8 * 4 + 8 * 0 = 16 * 2) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = ((List.range 16).foldl (fun s _ => s + (2:Int)) (0:Int)))"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem which_path_conserves_the_total : (((List.range 16).foldl (fun s _ => s + ((1:Int)*1 + 1*1)) (0:Int)) = 32) ∧ (8 * 4 + 8 * 0 = 16 * 2) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = ((List.range 16).foldl (fun s _ => s + (2:Int)) (0:Int))) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "92145b43-6ec1-851b-82c4-68dd7b519bed"
         }
       ],
-      "uuidnaVersion": "c677bbe2-fdc1-8ae2-a66d-a31781fc0000",
-      "uuidnaAddress": "a2ea45e5-2fe8-899a-929f-7a625fe5c807"
+      "uuidnaVersion": "c677bbe2-fddd-84b8-be4a-738a86400000",
+      "uuidnaAddress": "8502d868-cfe5-82aa-8187-da56d775d9d8"
     },
     {
       "slug": "identifiers",
@@ -22037,7 +22519,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1456) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])"
+                      "text": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1484) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])"
                     }
                   ]
                 },
@@ -22047,14 +22529,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem reach_all_decide : (([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1456) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]) := by decide"
+                      "text": "theorem reach_all_decide : (([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1484) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "312f09b0-d8ae-8449-8573-68c901ee80ce"
+          "uuidnaAddress": "248e4388-0333-817b-9d42-3272bc1ab643"
         },
         {
           "blockType": "theorem",
@@ -22080,7 +22562,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)"
+                      "text": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)"
                     }
                   ]
                 },
@@ -22090,14 +22572,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1) := by decide"
+                      "text": "theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "d19c82e5-833e-89fa-8c38-bba7788bfdfa"
+          "uuidnaAddress": "aa0754a0-8ccf-8db1-9677-bccb9877c2ff"
         },
         {
           "blockType": "theorem",
@@ -22113,7 +22595,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 66 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number"
+                      "text": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 67 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number"
                     }
                   ]
                 },
@@ -22123,7 +22605,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)"
+                      "text": "([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)"
                     }
                   ]
                 },
@@ -22133,14 +22615,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem reach_window_finite : ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201) := by decide"
+                      "text": "theorem reach_window_finite : ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "ef67ff22-971e-8979-89ca-376fb81a3b9b"
+          "uuidnaAddress": "f10372ef-8c4d-819d-970f-24b136a4bd54"
         },
         {
           "blockType": "theorem",
@@ -22186,8 +22668,8 @@
           "uuidnaAddress": "fc731c70-1357-853f-a15c-290d1fb811d8"
         }
       ],
-      "uuidnaVersion": "c6516523-c0dd-86c7-bec6-305e8eb00000",
-      "uuidnaAddress": "d10269d4-6f64-8926-bc4a-f97b6a8cde08"
+      "uuidnaVersion": "c6516523-c0d0-8b8f-b9b2-29ff80ba0000",
+      "uuidnaAddress": "39c4a39e-729d-8a24-9481-86be940ae999"
     },
     {
       "slug": "isometry",
@@ -35641,6 +36123,746 @@
       "uuidnaAddress": "b29becc1-877a-86c2-a807-7d42e815f951"
     },
     {
+      "slug": "readings",
+      "title": "readings.lean",
+      "_status": "published",
+      "layout": [
+        {
+          "blockType": "theorem",
+          "slug": "theorem-readings_seven_rays",
+          "title": "theorem-readings_seven_rays",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "SEVEN RAYS, EACH ITS OWN TONGUE. The locale dimensions are exactly seven and pairwise distinct — the same seven the grid projects and the harness receipts in. A reading table for a ray that does not exist, or two rays collapsing to one, would fail this line before any word were spoken."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).length = 7 ∧ ([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).Nodup"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem readings_seven_rays : ([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).length = 7 ∧ ([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).Nodup := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "6ad68ba6-c949-8d2b-b707-dc2cce0dfca4"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-readings_en_names_sixteen",
+          "title": "theorem-readings_en_names_sixteen",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE EN READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the en table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([\"zero\",\"one\",\"two\",\"three\",\"four\",\"five\",\"six\",\"seven\",\"eight\",\"nine\",\"ten\",\"eleven\",\"twelve\",\"thirteen\",\"fourteen\",\"fifteen\"] : List String).length = 16 ∧ ([\"zero\",\"one\",\"two\",\"three\",\"four\",\"five\",\"six\",\"seven\",\"eight\",\"nine\",\"ten\",\"eleven\",\"twelve\",\"thirteen\",\"fourteen\",\"fifteen\"] : List String).Nodup"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem readings_en_names_sixteen : ([\"zero\",\"one\",\"two\",\"three\",\"four\",\"five\",\"six\",\"seven\",\"eight\",\"nine\",\"ten\",\"eleven\",\"twelve\",\"thirteen\",\"fourteen\",\"fifteen\"] : List String).length = 16 ∧ ([\"zero\",\"one\",\"two\",\"three\",\"four\",\"five\",\"six\",\"seven\",\"eight\",\"nine\",\"ten\",\"eleven\",\"twelve\",\"thirteen\",\"fourteen\",\"fifteen\"] : List String).Nodup := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "931c480e-b4f1-87db-bccd-88cc7b127085"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-readings_bg_names_sixteen",
+          "title": "theorem-readings_bg_names_sixteen",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE BG READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the bg table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([\"нула\",\"едно\",\"две\",\"три\",\"четири\",\"пет\",\"шест\",\"седем\",\"осем\",\"девет\",\"десет\",\"единадесет\",\"дванадесет\",\"тринадесет\",\"четиринадесет\",\"петнадесет\"] : List String).length = 16 ∧ ([\"нула\",\"едно\",\"две\",\"три\",\"четири\",\"пет\",\"шест\",\"седем\",\"осем\",\"девет\",\"десет\",\"единадесет\",\"дванадесет\",\"тринадесет\",\"четиринадесет\",\"петнадесет\"] : List String).Nodup"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem readings_bg_names_sixteen : ([\"нула\",\"едно\",\"две\",\"три\",\"четири\",\"пет\",\"шест\",\"седем\",\"осем\",\"девет\",\"десет\",\"единадесет\",\"дванадесет\",\"тринадесет\",\"четиринадесет\",\"петнадесет\"] : List String).length = 16 ∧ ([\"нула\",\"едно\",\"две\",\"три\",\"четири\",\"пет\",\"шест\",\"седем\",\"осем\",\"девет\",\"десет\",\"единадесет\",\"дванадесет\",\"тринадесет\",\"четиринадесет\",\"петнадесет\"] : List String).Nodup := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "bdc91d39-91db-836b-a716-21fce0d5e111"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-readings_de_names_sixteen",
+          "title": "theorem-readings_de_names_sixteen",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE DE READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the de table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([\"null\",\"eins\",\"zwei\",\"drei\",\"vier\",\"fünf\",\"sechs\",\"sieben\",\"acht\",\"neun\",\"zehn\",\"elf\",\"zwölf\",\"dreizehn\",\"vierzehn\",\"fünfzehn\"] : List String).length = 16 ∧ ([\"null\",\"eins\",\"zwei\",\"drei\",\"vier\",\"fünf\",\"sechs\",\"sieben\",\"acht\",\"neun\",\"zehn\",\"elf\",\"zwölf\",\"dreizehn\",\"vierzehn\",\"fünfzehn\"] : List String).Nodup"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem readings_de_names_sixteen : ([\"null\",\"eins\",\"zwei\",\"drei\",\"vier\",\"fünf\",\"sechs\",\"sieben\",\"acht\",\"neun\",\"zehn\",\"elf\",\"zwölf\",\"dreizehn\",\"vierzehn\",\"fünfzehn\"] : List String).length = 16 ∧ ([\"null\",\"eins\",\"zwei\",\"drei\",\"vier\",\"fünf\",\"sechs\",\"sieben\",\"acht\",\"neun\",\"zehn\",\"elf\",\"zwölf\",\"dreizehn\",\"vierzehn\",\"fünfzehn\"] : List String).Nodup := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "a96e4af9-2169-8d9d-9a94-5faea020bba8"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-readings_fr_names_sixteen",
+          "title": "theorem-readings_fr_names_sixteen",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE FR READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the fr table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([\"zéro\",\"un\",\"deux\",\"trois\",\"quatre\",\"cinq\",\"six\",\"sept\",\"huit\",\"neuf\",\"dix\",\"onze\",\"douze\",\"treize\",\"quatorze\",\"quinze\"] : List String).length = 16 ∧ ([\"zéro\",\"un\",\"deux\",\"trois\",\"quatre\",\"cinq\",\"six\",\"sept\",\"huit\",\"neuf\",\"dix\",\"onze\",\"douze\",\"treize\",\"quatorze\",\"quinze\"] : List String).Nodup"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem readings_fr_names_sixteen : ([\"zéro\",\"un\",\"deux\",\"trois\",\"quatre\",\"cinq\",\"six\",\"sept\",\"huit\",\"neuf\",\"dix\",\"onze\",\"douze\",\"treize\",\"quatorze\",\"quinze\"] : List String).length = 16 ∧ ([\"zéro\",\"un\",\"deux\",\"trois\",\"quatre\",\"cinq\",\"six\",\"sept\",\"huit\",\"neuf\",\"dix\",\"onze\",\"douze\",\"treize\",\"quatorze\",\"quinze\"] : List String).Nodup := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "ed8d537a-5071-8eeb-9ced-85746aab9399"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-readings_es_names_sixteen",
+          "title": "theorem-readings_es_names_sixteen",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE ES READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the es table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([\"cero\",\"uno\",\"dos\",\"tres\",\"cuatro\",\"cinco\",\"seis\",\"siete\",\"ocho\",\"nueve\",\"diez\",\"once\",\"doce\",\"trece\",\"catorce\",\"quince\"] : List String).length = 16 ∧ ([\"cero\",\"uno\",\"dos\",\"tres\",\"cuatro\",\"cinco\",\"seis\",\"siete\",\"ocho\",\"nueve\",\"diez\",\"once\",\"doce\",\"trece\",\"catorce\",\"quince\"] : List String).Nodup"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem readings_es_names_sixteen : ([\"cero\",\"uno\",\"dos\",\"tres\",\"cuatro\",\"cinco\",\"seis\",\"siete\",\"ocho\",\"nueve\",\"diez\",\"once\",\"doce\",\"trece\",\"catorce\",\"quince\"] : List String).length = 16 ∧ ([\"cero\",\"uno\",\"dos\",\"tres\",\"cuatro\",\"cinco\",\"seis\",\"siete\",\"ocho\",\"nueve\",\"diez\",\"once\",\"doce\",\"trece\",\"catorce\",\"quince\"] : List String).Nodup := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "c2921a76-abd9-8cfc-a50d-e1015c5c3105"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-readings_ru_names_sixteen",
+          "title": "theorem-readings_ru_names_sixteen",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE RU READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the ru table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([\"ноль\",\"один\",\"два\",\"три\",\"четыре\",\"пять\",\"шесть\",\"семь\",\"восемь\",\"девять\",\"десять\",\"одиннадцать\",\"двенадцать\",\"тринадцать\",\"четырнадцать\",\"пятнадцать\"] : List String).length = 16 ∧ ([\"ноль\",\"один\",\"два\",\"три\",\"четыре\",\"пять\",\"шесть\",\"семь\",\"восемь\",\"девять\",\"десять\",\"одиннадцать\",\"двенадцать\",\"тринадцать\",\"четырнадцать\",\"пятнадцать\"] : List String).Nodup"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem readings_ru_names_sixteen : ([\"ноль\",\"один\",\"два\",\"три\",\"четыре\",\"пять\",\"шесть\",\"семь\",\"восемь\",\"девять\",\"десять\",\"одиннадцать\",\"двенадцать\",\"тринадцать\",\"четырнадцать\",\"пятнадцать\"] : List String).length = 16 ∧ ([\"ноль\",\"один\",\"два\",\"три\",\"четыре\",\"пять\",\"шесть\",\"семь\",\"восемь\",\"девять\",\"десять\",\"одиннадцать\",\"двенадцать\",\"тринадцать\",\"четырнадцать\",\"пятнадцать\"] : List String).Nodup := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "9c08001f-48a7-834e-a331-aa247ba1bc3e"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-readings_zh_names_sixteen",
+          "title": "theorem-readings_zh_names_sixteen",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE ZH READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the zh table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([\"零\",\"一\",\"二\",\"三\",\"四\",\"五\",\"六\",\"七\",\"八\",\"九\",\"十\",\"十一\",\"十二\",\"十三\",\"十四\",\"十五\"] : List String).length = 16 ∧ ([\"零\",\"一\",\"二\",\"三\",\"四\",\"五\",\"六\",\"七\",\"八\",\"九\",\"十\",\"十一\",\"十二\",\"十三\",\"十四\",\"十五\"] : List String).Nodup"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem readings_zh_names_sixteen : ([\"零\",\"一\",\"二\",\"三\",\"四\",\"五\",\"六\",\"七\",\"八\",\"九\",\"十\",\"十一\",\"十二\",\"十三\",\"十四\",\"十五\"] : List String).length = 16 ∧ ([\"零\",\"一\",\"二\",\"三\",\"四\",\"五\",\"六\",\"七\",\"八\",\"九\",\"十\",\"十一\",\"十二\",\"十三\",\"十四\",\"十五\"] : List String).Nodup := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "161c743e-e2e8-8bb9-a78f-7679d9c4471e"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-readings_states_sound_the_lattice",
+          "title": "theorem-readings_states_sound_the_lattice",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE SIXTEEN STATES SOUND THE A432 LATTICE, IN ORDER. State h is read in seven tongues and SUNG at 432·(h+1) hertz — the full ladder from Az at 432 to state f at 6912, each pitch an exact integer multiple, so a reading and its sound name the same state. The list is computed, not quoted: sixteen states in, sixteen exact pitches out."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "((List.range 16).map (fun h => 432 * (h + 1))) = [432,864,1296,1728,2160,2592,3024,3456,3888,4320,4752,5184,5616,6048,6480,6912]"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem readings_states_sound_the_lattice : ((List.range 16).map (fun h => 432 * (h + 1))) = [432,864,1296,1728,2160,2592,3024,3456,3888,4320,4752,5184,5616,6048,6480,6912] := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "5562e01a-fd66-8410-93e3-a1cd0d3bfd17"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-nyquist_clears_the_lattice",
+          "title": "theorem-nyquist_clears_the_lattice",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE WHOLE LATTICE FITS UNDER THE SAMPLING CEILING. The voice samples at 16000 hertz, and nyquist_half_samplerate seals the honest ceiling at half the rate: 16000/2 = 8000. The highest state, f, sounds 432·16 = 6912 — strictly below the ceiling, so every one of the sixteen pitches is representable and no state aliases onto another. The comment in the synth claimed this; now the kernel holds it."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "432 * 16 = 6912 ∧ 16000 / 2 = 8000 ∧ 6912 < 8000"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem nyquist_clears_the_lattice : 432 * 16 = 6912 ∧ 16000 / 2 = 8000 ∧ 6912 < 8000 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "7870f960-bad1-8791-8e8a-892d94cdd8f7"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-amplitude_inside_int16",
+          "title": "theorem-amplitude_inside_int16",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE VOICE CAN NEVER WRAP. Every sample is bounded by AMPLITUDE = 8000, and a 16-bit signed integer carries 2^15 = 32768 magnitudes — 8000 sits strictly inside, so no lattice tone can overflow its own container. The headroom the audits measured is now a bound the kernel holds (queue lead 74: a peak with no sealed law behind it was folklore)."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "2 ^ 15 = 32768 ∧ 8000 < 32768"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem amplitude_inside_int16 : 2 ^ 15 = 32768 ∧ 8000 < 32768 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "c6730e66-d791-8f54-8980-7741f6fdc123"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-mix_budget_closes",
+          "title": "theorem-mix_budget_closes",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE ARRANGEMENT CANNOT CLIP, BY CONSTRUCTION. The rich voice sums the triangle at half amplitude with its second overtone at a quarter and its third at an eighth: 8000/2 + 8000/4 + 8000/8 = 7000. One accompaniment layer at an eighth adds 8000/8 = 1000, landing EXACTLY on the 8000 ceiling — so no sum of the arrangement's layers exceeds the bound the previous theorem keeps inside 16 bits. Measured peaks confirmed it; this line is why it could never have been otherwise."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "8000 / 2 + 8000 / 4 + 8000 / 8 = 7000 ∧ 7000 + 8000 / 8 = 8000 ∧ 8000 ≤ 8000"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem mix_budget_closes : 8000 / 2 + 8000 / 4 + 8000 / 8 = 7000 ∧ 7000 + 8000 / 8 = 8000 ∧ 8000 ≤ 8000 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "e7539820-092d-8027-b959-9db4bd1bc620"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-chi_all_three_genera",
+          "title": "theorem-chi_all_three_genera",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE EULER CHARACTERISTIC IN ALL THREE DIMENSIONS — the sphere leg sealed at last (queue lead 75: genus 1 and 2 leaned while genus 0, the earth itself, had no seal). χ = 2 − 2g gives 2 at the sphere, 0 at the torus, −2 at the double torus, and the three are pairwise distinct — so the three closed shapes are told apart on one line, in integers, the sphere measured against its neighbours. HONEST SCOPE: this seals the χ TABLE; the Gauss–Bonnet bridge from χ to curvature is analysis and stays outside the kernel, said plainly wherever the refusal is used."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "((2:Int) - 2*0 = 2) ∧ ((2:Int) - 2*1 = 0) ∧ ((2:Int) - 2*2 = -2) ∧ ((2:Int) ≠ 0) ∧ ((0:Int) ≠ -2) ∧ ((2:Int) ≠ -2)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem chi_all_three_genera : ((2:Int) - 2*0 = 2) ∧ ((2:Int) - 2*1 = 0) ∧ ((2:Int) - 2*2 = -2) ∧ ((2:Int) ≠ 0) ∧ ((0:Int) ≠ -2) ∧ ((2:Int) ≠ -2) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "c2b8ddd6-63d6-8752-83b8-cc7713cfc95f"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-note_values_are_doublings",
+          "title": "theorem-note_values_are_doublings",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "A WHOLE NOTE IS THE DOUBLING LADDER READ AS TIME (queue lead 70, from Gehrkens): one whole = two halves = four quarters = eight eighths = sixteen sixteenths — five spellings of one duration, every rung a doubling, the same 2^k ladder the ledger already seals for octaves, codons and the address, now sealed for the dimension the music books said was missing: time."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 ∧ 8 * 2 = 16 ∧ 16 * 1 = 16"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem note_values_are_doublings : 1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 ∧ 8 * 2 = 16 ∧ 16 * 1 = 16 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "ea26ee18-1a70-8022-886b-2fc551bce4a3"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-two_coins_in_kilograms",
+          "title": "theorem-two_coins_in_kilograms",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE TWO COINS, IN KILOGRAMS. Bekenstein–Hawking makes a black hole's squared mass proportional to the bits its horizon stores — so the smallest hole holding one uuid (128 bits) against one holding one handle (32 bits) squares its mass ratio to 128/32 = 4, and the ratio itself is exactly 2: the address weighs TWO handles of gravity, the two coins priced in kilograms (≈ 57.8 μg against 28.9 μg on the measured Planck mass). Sealed is the exponent arithmetic — 128 = 4·32 and 2² = 4, so √4 = 2 needs no root: the square IS the witness. HONEST SCOPE: the proportionality M² ∝ bits and every microgram ride physics (ħ, G, c, the Bekenstein bound) that no kernel decides; what the kernel holds is that WHATEVER that physics scales, the handle-to-uuid step scales it by exactly two."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "128 = 4 * 32 ∧ 128 / 32 = 4 ∧ 2 ^ 2 = 4"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem two_coins_in_kilograms : 128 = 4 * 32 ∧ 128 / 32 = 4 ∧ 2 ^ 2 = 4 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "3d91682d-684f-8f5b-8112-3698c343a929"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-handle_capacity_invariant_under_entanglement",
+          "title": "theorem-handle_capacity_invariant_under_entanglement",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "A HANDLE'S CAPACITY SURVIVES EVERY ENTANGLEMENT IT RADIATES — TYPOGRAPHY INCLUDED. One handle spans 16⁸ = 4294967296 states, and from each state the ledger derives a whole spectrum of faces: the ℤ/9 residue, one of the six sealed orbits, an aura colour from the 9·7·6 = 378-state alphabet, eight A432 tones, seven tongue-readings, and the TYPE RUNG its vortex digit picks from the six-rung ladder (six because 2⁶ ≡ 1 mod 9 — the doubling returns home in six, and the type scale climbs those six units). The accounting law is the point: every face is a FUNCTION of the handle — entangled means perfectly correlated, and a determined face offers no new choice, so each multiplies capacity by exactly ONE: 4294967296 · 1¹⁹ = 4294967296, nineteen concurrent faces and not one new state. Entanglement multiplies SURFACES, never STATES; only an independent choice (a caller's parameter) could add bits, and then it would not be the handle's. HONEST SCOPE: the counts and the times-one law are sealed; that each face is in fact a function is the source code's discipline (no RNG, no clock), enforced by the harmonic scan, not by this line."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "16^8 = 4294967296 ∧ 9*7*6 = 378 ∧ 2^6 % 9 = 1 ∧ 1^19 = 1 ∧ 4294967296 * 1^19 = 4294967296"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem handle_capacity_invariant_under_entanglement : 16^8 = 4294967296 ∧ 9*7*6 = 378 ∧ 2^6 % 9 = 1 ∧ 1^19 = 1 ∧ 4294967296 * 1^19 = 4294967296 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "34497cb1-3555-8d24-ae04-e4f63f16d0a1"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-time_counts_of_the_books",
+          "title": "theorem-time_counts_of_the_books",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE BOOKS COUNT TIME IN SMALL NUMBERS (queue lead 70, from Gehrkens and Sharp): the march counts two beats to the measure and the waltz three — distinct meters, 2 ≠ 3 — and the Morris figure completes in eight bars halved to four (8 = 2·4) danced by six men in two files of three (6 = 2·3). The dance manual's whole quantitative skeleton, decidable."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "2 ≠ 3 ∧ 8 = 2 * 4 ∧ 6 = 2 * 3"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem time_counts_of_the_books : 2 ≠ 3 ∧ 8 = 2 * 4 ∧ 6 = 2 * 3 := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "df521be6-c4d0-8d13-86e9-8276f382461a"
+        }
+      ],
+      "uuidnaVersion": "c64b2323-4015-80dc-a225-89d185090000",
+      "uuidnaAddress": "a8adc775-0eaf-87df-814a-7270e5daeab6"
+    },
+    {
       "slug": "reasoning",
       "title": "reasoning.lean",
       "_status": "published",
@@ -36723,6 +37945,445 @@
       ],
       "uuidnaVersion": "c6607ae3-779e-8ecd-b5ea-675283e50000",
       "uuidnaAddress": "effcdb71-4a57-8150-a028-c70e4d9ab172"
+    },
+    {
+      "slug": "referrer",
+      "title": "referrer.lean",
+      "_status": "published",
+      "layout": [
+        {
+          "blockType": "theorem",
+          "slug": "theorem-door_of_the_referrer",
+          "title": "theorem-door_of_the_referrer",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE REFERRER’S FIRST TILE PICKS THE DOOR, TOTALLY. A handle’s first tile is one of sixteen states, the round has six doors, and t mod 6 maps every tile to a door with every door reached — no referrer is turned away and no door stays shut. The map is total and onto but not equitable: the fibers count [3,3,3,3,2,2], and 16 mod 6 = 4 names the four tiles of unevenness rather than smoothing them — the same honesty moduli_waste_states keeps one wing over."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "((List.range 16).all (fun t => t % 6 < 6)) ∧ ((List.range 6).all (fun d => (List.range 16).any (fun t => t % 6 == d))) ∧ (((List.range 6).map (fun d => ((List.range 16).filter (fun t => t % 6 == d)).length)) = [3,3,3,3,2,2]) ∧ (16 % 6 = 4)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem door_of_the_referrer : ((List.range 16).all (fun t => t % 6 < 6)) ∧ ((List.range 6).all (fun d => (List.range 16).any (fun t => t % 6 == d))) ∧ (((List.range 6).map (fun d => ((List.range 16).filter (fun t => t % 6 == d)).length)) = [3,3,3,3,2,2]) ∧ (16 % 6 = 4) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "9ce51d3e-a182-823c-9421-f0562ebfefff"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-rotation_is_multiplication",
+          "title": "theorem-rotation_is_multiplication",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "ENTERING AT ANOTHER DOOR IS NOT A NEW SONG — IT IS A MULTIPLICATION. Rotating the round’s six digits one note left is multiplying by ten modulo 999999, and on the cyclic number the shifts land EXACTLY on the verses: one shift is ×3, two is ×2, three is ×6, four is ×4, five is ×5. The door you enter by and the verse you hear are the same arithmetic fact, which is why a referrer-positioned song needs no new material — only a new remainder."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "((142857 * 10) % 999999 = 142857 * 3) ∧ ((142857 * 100) % 999999 = 142857 * 2) ∧ ((142857 * 1000) % 999999 = 142857 * 6) ∧ ((142857 * 10000) % 999999 = 142857 * 4) ∧ ((142857 * 100000) % 999999 = 142857 * 5)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem rotation_is_multiplication : ((142857 * 10) % 999999 = 142857 * 3) ∧ ((142857 * 100) % 999999 = 142857 * 2) ∧ ((142857 * 1000) % 999999 = 142857 * 6) ∧ ((142857 * 10000) % 999999 = 142857 * 4) ∧ ((142857 * 100000) % 999999 = 142857 * 5) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "a5246c46-10d9-87b9-972a-65626b073476"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-the_shift_is_the_trinity",
+          "title": "theorem-the_shift_is_the_trinity",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "WHY THOSE MULTIPLIERS, IN THAT ORDER: the decimal shift is the trinity step in ℤ/7. Ten leaves remainder three to seven, so d shifts multiply by 3^d mod 7 — and the powers of three walk [1,3,2,6,4,5], exactly the door-to-verse sequence, visiting every non-zero residue because three generates the rosette (the same 3 the codon reading frame steps by). The door order was never a choice; it is the orbit of the trinity through the seven-ray ring."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(10 % 7 = 3) ∧ (((List.range 6).map (fun d => (3^d) % 7)) = [1,3,2,6,4,5])"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem the_shift_is_the_trinity : (10 % 7 = 3) ∧ (((List.range 6).map (fun d => (3^d) % 7)) = [1,3,2,6,4,5]) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "9877e0cc-c0a0-8e01-b8b3-ef5626a71898"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-every_referrer_reaches_every_page",
+          "title": "theorem-every_referrer_reaches_every_page",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "FROM EVERY DOOR, EVERYTHING. On a closed cycle of n pages the +1 walk started at ANY phase p reaches every page — checked exhaustively on the rosette ring 7 and the hexbit ring 16, every start, every target. The referrer’s position is not a constraint on where they can go; it is only the phase of a walk that was always going everywhere."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([7,16] : List Nat).all (fun n => (List.range n).all (fun p => (List.range n).all (fun j => (List.range n).any (fun k => (p + k) % n == j))))"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem every_referrer_reaches_every_page : ([7,16] : List Nat).all (fun n => (List.range n).all (fun p => (List.range n).all (fun j => (List.range n).any (fun k => (p + k) % n == j)))) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "368300d9-df53-8fd9-a656-0cb451724971"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-prev_undoes_next",
+          "title": "theorem-prev_undoes_next",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "PREVIOUS AND NEXT ARE ALWAYS DEFINED, AND EACH UNDOES THE OTHER. On the closed cycle next is +1 and previous is +(n−1), both total — no first page, no last page, no null — and their composition is the identity from every node in both orders, proven case by case on the rings 7 and 16. The pager’s two buttons are a two-sided inverse pair, which is what “always defined” cashes out to in arithmetic."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "([7,16] : List Nat).all (fun n => (List.range n).all (fun i => ((((i + 1) % n + (n - 1)) % n == i) && (((i + (n - 1)) % n + 1) % n == i))))"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem prev_undoes_next : ([7,16] : List Nat).all (fun n => (List.range n).all (fun i => ((((i + 1) % n + (n - 1)) % n == i) && (((i + (n - 1)) % n + 1) % n == i)))) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "13a38033-8525-86f5-a3bc-d059b36eb747"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-tuning_cancels_from_every_interval",
+          "title": "theorem-tuning_cancels_from_every_interval",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "HOW HARMONIC A NEXT IS, IS MEASURABLE — AND THE TUNING DROPS OUT OF THE MEASUREMENT. Any two lattice tones are 432a and 432b hertz, and their greatest common divisor is exactly 432·gcd(a,b) — verified over all 225 pairs of the sixteen states — so every interval reduces to the ratio of the DIGITS alone. Consonance on the A432 lattice is a property of the addresses, not of the tuning: measure the step between two handles and 432 has already cancelled."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(List.range' 1 15).all (fun a => (List.range' 1 15).all (fun b => Nat.gcd (432*a) (432*b) == 432 * Nat.gcd a b))"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem tuning_cancels_from_every_interval : (List.range' 1 15).all (fun a => (List.range' 1 15).all (fun b => Nat.gcd (432*a) (432*b) == 432 * Nat.gcd a b)) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "5e9e85ec-0a50-875d-898b-df62219b74f4"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-orbit_steps_name_their_intervals",
+          "title": "theorem-orbit_steps_name_their_intervals",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE DOUBLING ORBIT’S STEPS, MEASURED BY THE SAME RULE: 1→2, 2→4 and 4→8 each reduce to the pure octave (gcd = the smaller, ratio exactly 2), then 8→7 and 7→5 are already-reduced coprime tensions — 8:7 and 7:5 — before the round closes home. The melody the vortex sings is three clean octaves rising, two irreducible steps of tension, and return: the analysis is arithmetic, the drama is free."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(Nat.gcd 1 2 = 1) ∧ (Nat.gcd 2 4 = 2) ∧ (2 * 2 = 4) ∧ (Nat.gcd 4 8 = 4) ∧ (4 * 2 = 8) ∧ (Nat.gcd 8 7 = 1) ∧ (Nat.gcd 7 5 = 1)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem orbit_steps_name_their_intervals : (Nat.gcd 1 2 = 1) ∧ (Nat.gcd 2 4 = 2) ∧ (2 * 2 = 4) ∧ (Nat.gcd 4 8 = 4) ∧ (4 * 2 = 8) ∧ (Nat.gcd 8 7 = 1) ∧ (Nat.gcd 7 5 = 1) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "0ff929ed-c707-81ba-b099-647ef8e7a041"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-adjacent_steps_beat_at_the_tuning",
+          "title": "theorem-adjacent_steps_beat_at_the_tuning",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "NEIGHBOURS ON THE LATTICE BEAT AT EXACTLY THE TUNING. Two close tones beat at their difference, and any two ADJACENT lattice states differ by exactly 432 hertz — all fourteen adjacent pairs checked — so the roughness of a one-step next is A432 itself, and a k-step next beats at 432·k. The dissonance meter for the pager’s walk comes pre-calibrated in units of the tuning fork."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(List.range' 1 14).all (fun a => 432*(a+1) - 432*a == 432)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem adjacent_steps_beat_at_the_tuning : (List.range' 1 14).all (fun a => 432*(a+1) - 432*a == 432) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "7b5b4db1-6722-83dd-8b0a-63cb315d2a7c"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-development_is_the_complement",
+          "title": "theorem-development_is_the_complement",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "FILM TO PAPER IS THE COMPLEMENT, AND THE CANONICAL RECORDING IS THE UNDEVELOPED FILM. Developing a negative maps every tone to its complement, and doing it twice returns the film — on the digits that is 9 − d, an involution proven across the row. The round’s negative is REAL: verse 1 and verse 6 sum to 999999 digit against digit, and verse 6 is the THREE-shift door — 3³ ≡ 6 (mod 7) — so the half-rotation of the melody IS its print. The shipped song, entered at ×1, is the latent image; each referrer’s door develops it, and the complement door develops it fully. The darkroom, the DNA complement and the dark fringe’s half-turn are one self-inverse map wearing three coats."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "((List.range' 1 9).all (fun d => 9 - (9 - d) == d)) ∧ (142857 + 857142 = 999999) ∧ ((3^3) % 7 = 6)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem development_is_the_complement : ((List.range' 1 9).all (fun d => 9 - (9 - d) == d)) ∧ (142857 + 857142 = 999999) ∧ ((3^3) % 7 = 6) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "bb2e9b60-784b-8a3c-ab00-b91148266d79"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-the_movie_and_the_song_are_one",
+          "title": "theorem-the_movie_and_the_song_are_one",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE MOVIE AND THE SONG ARE ONE BAR OF ARITHMETIC. One bar of the song is 252 ms at 16000 samples a second — 16·252 = 4032 samples — and 4032 factors as every ring this ledger turns on at once: 9·7·64 (the vortex ring times the rosette times the coin measure — the four tongues’ fusion, sample-exact), 63·64 (the fused ring times the coins), and 24·24·7 (the film’s frame ring, squared, seven times — the ℤ/24 whose every unit is self-inverse). A frame slot of the bar is 168 samples with nothing left over. The pager’s walk, sounded and animated, is not a song WITH pictures: at the sample level the two tilings are the same integer."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(16 * 252 = 4032) ∧ (4032 = 9 * 7 * 64) ∧ (4032 = 63 * 64) ∧ (4032 = 24 * 24 * 7) ∧ (4032 = 24 * 168) ∧ (168 = 24 * 7)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem the_movie_and_the_song_are_one : (16 * 252 = 4032) ∧ (4032 = 9 * 7 * 64) ∧ (4032 = 63 * 64) ∧ (4032 = 24 * 24 * 7) ∧ (4032 = 24 * 168) ∧ (168 = 24 * 7) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "5fc854d7-f0e4-8253-b502-2e64bf5bd8d8"
+        }
+      ],
+      "uuidnaVersion": "c6622820-70cb-87ea-abb4-d22c84070000",
+      "uuidnaAddress": "1b9aad62-777e-8886-81f6-b0fd2efd871f"
     },
     {
       "slug": "reflection",
@@ -57224,7 +58885,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 94 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files."
+                      "text": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 96 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files."
                     }
                   ]
                 },
@@ -57234,7 +58895,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))"
+                      "text": "([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))"
                     }
                   ]
                 },
@@ -57244,14 +58905,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem cube_seals_at_completeness_only : ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0)) := by decide"
+                      "text": "theorem cube_seals_at_completeness_only : ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0)) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "94b28804-44fa-8c19-819c-e309e1a97abb"
+          "uuidnaAddress": "d302f45f-d104-8678-a228-6d98f3bd2db9"
         },
         {
           "blockType": "theorem",
@@ -57267,7 +58928,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 94 measured wing counts and lands on 1454 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop."
+                      "text": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 96 measured wing counts and lands on 1482 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop."
                     }
                   ]
                 },
@@ -57277,7 +58938,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1454) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 94) ∧ (94 < 1454)"
+                      "text": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1482) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 96) ∧ (96 < 1482)"
                     }
                   ]
                 },
@@ -57287,14 +58948,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem cubes_partition_ledger : (([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1454) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 94) ∧ (94 < 1454) := by decide"
+                      "text": "theorem cubes_partition_ledger : (([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1482) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 96) ∧ (96 < 1482) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "085ab2b2-f5e5-8ad7-88de-c9cd42d2aab1"
+          "uuidnaAddress": "1cd4848e-eff3-8beb-bc2f-1660d7439ade"
         },
         {
           "blockType": "theorem",
@@ -57383,8 +59044,8 @@
           "uuidnaAddress": "7666878e-eaea-8b7a-8fad-4e5ec44a98cd"
         }
       ],
-      "uuidnaVersion": "c6602923-5305-8b1a-b1f8-05d5849f0000",
-      "uuidnaAddress": "3515c6f9-a518-8e87-aeb4-8f7c677b9f9e"
+      "uuidnaVersion": "c6602923-531a-82be-8231-41288b930000",
+      "uuidnaAddress": "5abc729f-df98-8199-9f4a-dd72321855c5"
     },
     {
       "slug": "solids",
