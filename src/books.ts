@@ -103,6 +103,9 @@ const EXTRACT_OPS: Record<string, [(a: number, b: number) => number, string]> = 
   '+': [(a, b) => a + b, '+'], plus: [(a, b) => a + b, '+'],
   '-': [natSub, '-'], '−': [natSub, '-'], minus: [natSub, '-'], less: [natSub, '-'],
   '/': [natDiv, '/'], '÷': [natDiv, '/'], over: [natDiv, '/'], div: [natDiv, '/'], 'divided by': [natDiv, '/'],
+  // "and" is addition ONLY inside the binary a-and-b-make-c grammar ("two and two make four") — the equals-word
+  // the regex requires is what disambiguates it from "and" the separator, which carries no verdict of its own.
+  and: [(a, b) => a + b, '+'],
 }
 
 /** extractDecidable(text) → the DECIDABLE INTEGER ARITHMETIC the text asserts, each independently sealed by decide
@@ -112,10 +115,16 @@ const EXTRACT_OPS: Record<string, [(a: number, b: number) => number, string]> = 
 export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
   const out: ExtractedFact[] = []
   const seen = new Set<string>()
-  // integer  a  (× | * | x | times | + | plus | − | - | minus | less | ÷ | / | over | divided by | div)  b  (= | is |
-  // equals | makes)  c. Subtraction and division use uuidna's TOTAL Nat semantics (a − b = 0 when b > a; n / 0 = 0), so
-  // "108 minus 110 is 0" and "10 divided by 0 is 0" both verify — uuidna computes the total forms.
-  const re = /\b(\d{1,4})\s*(×|\*|x|times|\+|plus|−|-|minus|less|÷|\/|divided\s+by|over|div)\s*(\d{1,4})\s*(?:=|is|equals|makes)\s*(\d{1,7})\b/gi
+  // integer  a  (× | * | x | times | + | plus | and | − | - | minus | less | ÷ | / | over | divided by | div)  b
+  // (= | is | are | equals | make | makes) c. Subtraction and division use uuidna's TOTAL Nat semantics (a − b = 0
+  // when b > a; n / 0 = 0), so "108 minus 110 is 0" and "10 divided by 0 is 0" both verify — uuidna computes the
+  // total forms. EVERY OPERAND HEARS WORDS AS WELL AS DIGITS: a book says "two and two make four", and a reader
+  // that only hears digits reported three books on music, dance and singing — 143k words — as containing zero
+  // arithmetic. The number-word fold (wordsToNumber) already existed for measurements; the decidable grammar now
+  // reads through it too, so the spelled and the digit form of one claim seal to the same theorem.
+  const OPERAND = `(\\d{1,4}|${NUM_PHRASE})`
+  const re = new RegExp(`\\b${OPERAND}\\s*(×|\\*|x|times|\\+|plus|and|−|-|minus|less|÷|\\/|divided\\s+by|over|div)\\s*${OPERAND}\\s*(?:=|is|are|equals|makes?)\\s*(\\d{1,7}|${NUM_PHRASE})\\b`, 'gi')
+  const operand = (s: string): number | null => (/^\d+$/.test(s) ? Number(s) : wordsToNumber(s))
   // COMPOUND GUARD — the grammar is BINARY (a op b = c). If the match is flanked by another arithmetic operator, it is
   // a FRAGMENT of a larger expression (e.g. "5 times 5 minus 3 times 8 is 1" would mis-scope to "3 times 8 is 1" and
   // emit a false REFUTED). Refuse the fragment rather than settle a sub-expression uuidna cannot evaluate whole. The
@@ -129,7 +138,8 @@ export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
     const pre = text.slice(i < 10 ? 0 : i - 10, i)
     const post = text.slice(i + m[0].length, i + m[0].length + 10)
     if (CONNECTOR_BEFORE.test(pre) || CONNECTOR_AFTER.test(post)) continue  // fragment of a compound — refuse, don't mis-verdict
-    const a = Number(m[1]), b = Number(m[3]), asserted = Number(m[4])
+    const a = operand(m[1]), b = operand(m[3]), asserted = operand(m[4])
+    if (a === null || b === null || asserted === null) continue  // a phrase the fold cannot read is not a claim
     const actual = op[0](a, b)
     const lean = `theorem book_fact : ${a} ${op[1]} ${b} = ${actual} := by decide`
     if (seen.has(lean)) continue
@@ -188,7 +198,11 @@ export function wordsToNumber(phrase: string): number | null {
 
 const NUM_PHRASE = '(?:(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|score|twoscore|threescore|fourscore|fivescore|and)[\\s-]+)*(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|score|twoscore|threescore|fourscore|fivescore)'
 
-const UNIT = '(?:degrees?|points?|cubits?|feet|foot|inches|spans?|handbreadths?|knots?|miles?|leagues?|fathoms?|talents?|shekels?|homers?|ephahs?|baths?|hins?|omers?|days?|years?|months?|cubit)'
+// The unit vocabulary grew by reading: the nautical/biblical row came from the first corpora, and the music/
+// dance/singing row from the 2026-08-22 reading (Gehrkens/Sharp/Mills) — three books whose every quantity is a
+// beat, a bar, a note value or a breath, all inaudible to a vocabulary that only knew cubits.
+const UNIT = '(?:degrees?|points?|cubits?|feet|foot|inches|spans?|handbreadths?|knots?|miles?|leagues?|fathoms?|talents?|shekels?|homers?|ephahs?|baths?|hins?|omers?|days?|years?|months?|cubit' +
+  '|(?:whole|half|quarter|eighth|sixteenth)[\\s-]+notes?|notes?|beats?|bars?|measures?|steps?|dancers?|voices?|breaths?|vibrations?)'
 
 /** extractClaims(text) → every numeric claim the text STATES, as candidate leads. Two shapes are mined:
  *  UNIT-EQUIVALENCE ("45 degrees, or four points by compass") — the shape that carries domain knowledge and that
