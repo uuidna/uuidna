@@ -9,7 +9,7 @@ import { auditDetails, auditDetail, splitDetails } from '../detail-audit.js'
 test('the controls are pre-registered, run first, and all rejected — the instrument can fail', () => {
   const a = auditDetails('anything at all.')
   assert.equal(a.outcome, 'audited')
-  assert.equal(a.controls.length, 3, 'three controls: arithmetic, laundered citation, fabricated citation')
+  assert.equal(a.controls.length, 4, 'four controls: digit arithmetic, word arithmetic, laundered citation, fabricated citation')
   for (const c of a.controls) assert.equal(c.rejected, true, `control accepted — the instrument cannot discriminate: ${c.control} → ${c.got}`)
 })
 
@@ -48,4 +48,31 @@ test('a verdict moved is a receipt moved — altering one detail is visible in t
   const a = auditDetails('2 + 2 = 4.')
   const b = auditDetails('2 + 2 = 5.')
   assert.notEqual(a.receipt, b.receipt)
+})
+
+// ── lead 76's two cracks, folded. (a) the word-arithmetic deafness: the Black Whole audit heard 668 details and
+// could not refute one, because prose states sums in words. (b) ASR text has no punctuation, so the sentence law
+// never fires — the caller now names the boundary explicitly.
+test('the tool hears word arithmetic — a false spoken sum is REFUTED, a true one decides', () => {
+  const wrong = auditDetail('two and two make five')
+  assert.equal(wrong.verdict, 'REFUTED', 'the deafness crack: a spoken falsehood must no longer pass as UNVERIFIED')
+  assert.equal(wrong.arithmetic.length, 1)
+  assert.equal(wrong.arithmetic[0].actual, 4)
+  const right = auditDetail('twenty plus twenty is forty')
+  assert.equal(right.verdict, 'VERIFIED_BY_DECIDE')
+  assert.match(right.note, /only the arithmetic slice/, 'the honest scope must ride the verdict')
+  const compound = auditDetail('the edge of the metric 20 plus 20 is 40 plus 24 brought me to 64 tetrahedron')
+  assert.equal(compound.verdict, 'UNVERIFIED', 'the compound guard still refuses fragments rather than mis-verdict — lead 71\'s deeper work')
+})
+
+test('a fabricated citation outranks true arithmetic — draining is the gate\'s law', () => {
+  const v = auditDetail('two and two make four, proven by theorem detail_audit_no_such_seal')
+  assert.equal(v.verdict, 'DRAINED')
+})
+
+test('an explicit delimiter is the split law for unpunctuated text', () => {
+  const asr = auditDetails('what unifies everything|two and two make five|the vacuum is infinitely dense', { delimiter: '|' })
+  assert.equal(asr.details, 3)
+  assert.deepEqual(asr.counts, { verified: 0, refuted: 1, unverified: 2, drained: 0 })
+  assert.equal(splitDetails('a.b|c. d', '|').length, 2, 'an explicit delimiter suppresses the sentence heuristic')
 })
