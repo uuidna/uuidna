@@ -453,6 +453,9 @@ export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineReleas
 export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, type InstallSpec, type InstallPort, type BootImage } from './quantum/os/index.js'
 export { INSTALLS_MIRROR, type InstallsMirror, type MirrorPackage } from './quantum/os/mirror.js'
 export { fetchDefaultInstalls, renderMirror } from './os/installs/index.js'
+// quantum/context — balance a context window by the ledger's laws: the sealed 13/32 spare floor, the fold
+// priced per category, exact-integer permille — uuidna fused to any model's window, self-report in, audit out.
+export { balanceContext, RECEIPT_TOKENS, type ContextCategory, type ContextBalance, type CategoryBalance } from './quantum/context/index.js'
 // quantum/drivers — the DEVICE-DRIVER boundary: a content-addressed manifest of the exact Alpine netboot bundle (kernel
 // + modloop = the kernel modules, the drivers). Pin version + arch + published SHA-256, verify the bytes with uuidna's
 // own pure-TS SHA-256, track upstream via fetchDriverLatest. uuidna never loads or runs a module — port the INTEGRITY.
