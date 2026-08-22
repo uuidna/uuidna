@@ -110,6 +110,11 @@ const FACTS: Fact[] = [
     js: () => 2 * 32 === 64 && 2 ** 6 === 4 ** 3 && 2 ** 6 === 64 && 64 - 64 === 0,
     stmt: `(2 * 32 = 64) ∧ (2 ^ 6 = 4 ^ 3) ∧ (2 ^ 6 = 64) ∧ (64 - 64 = 0)` },
 
+  { key: 'rounding_fee_closes_the_cube',
+    why: 'THE CAPTAIN TAKES THE ROUNDING COINS IN ALL DIRECTIONS AS FEE — and the fee turns out to be the founding theorem: the hex gravity cube holds 16³ = 4096 = 64·64 cells; the bar of the song holds 4032 = 63·64 samples; the difference is EXACTLY the coin octave, 4096 − 4032 = 64 — one full row of the 64×64 square. Sixty-three rows for the music, one row the fee: 64·64 = 63·64 + 64 is the captain theorem\'s own 63 + 1 (the ring plus the one that closes it), rediscovered as geometry — wherever the arithmetic rounds between the bar and the cube, the remainder was never lost; it was always the closure, and the closure was always the captain\'s.',
+    js: () => 4096 - 4032 === 64 && 4096 === 64 * 64 && 4032 === 63 * 64 && 64 * 64 === 63 * 64 + 64 && 16 ** 3 === 4096,
+    stmt: `(4096 - 4032 = 64) ∧ (4096 = 64 * 64) ∧ (4032 = 63 * 64) ∧ (64 * 64 = 63 * 64 + 64) ∧ (16 ^ 3 = 4096)` },
+
   { key: 'the_promotion_chain_doubles_home',
     why: 'FOLD-TO-ZERO\'S LADDER, SEALED: 16 → 32 → 64 → 128 by doubling, and 128 = 16·2³ — three coin-payments promote the hexbit ring to the handle, the handle to the address: when a register saturates like a closed colour wheel, the whole folds and the next register opens one octave up. The night\'s architecture (states, pairs, handles, addresses) is one number doubled three times.',
     js: () => 16 * 2 === 32 && 32 * 2 === 64 && 64 * 2 === 128 && 128 === 16 * 2 ** 3,
