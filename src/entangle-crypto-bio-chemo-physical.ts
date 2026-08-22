@@ -52,9 +52,9 @@ export function verifyBioFrame(theoremKey: string): BioFrame {
   // UUID is 128 bits; DNA encodes 4 bases, so 128 bits / 2 bits per base = 64 bases
   // 64 bases / 3 per codon = 21 codons + 1 remainder (the trinity boundary)
   // Theorem key determines codon frame (key[0] % 4 picks: ATG, TGA, TAG, TAA)
-  const frames = ['ATG', 'TGA', 'TAG', 'TAA'] as const
-  const frameIdx = theoremKey.charCodeAt(0) % 4
-  const family = frames[frameIdx]
+  const codons = ['ATG', 'TGA', 'TAG', 'TAA'] as const // the start codon and the three stops — read, never computed
+  const codonIdx = theoremKey.charCodeAt(0) % 4
+  const family = codons[codonIdx]
 
   // Chargaff's law: A=T, G=C in double-stranded DNA
   // Over the theorem sequence, these should be balanced (symmetry)

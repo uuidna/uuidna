@@ -136,7 +136,7 @@ export function entangleLayer2(
   rosettaLegs: RosettaLegExtended[]
 ): Layer2Entanglement {
   const recomp = verifyRecomputationLeg(theoremKey, proofContent, toUuid(`recompute:${theoremKey}:${proofContent}`))
-  const hexbits = verifyHexbitStructure(handle)
+  const structure = verifyHexbitStructure(handle) // the eight bands read from the handle; hexbitsOf owns the unit itself
 
   const legs = {
     symbol: rosettaLegs.includes('symbol'),
@@ -148,18 +148,18 @@ export function entangleLayer2(
   }
 
   const allLegsPresent = Object.values(legs).every((v) => v)
-  const allHexbitsIntegral = hexbits.integrity
+  const allHexbitsIntegral = structure.integrity
 
   // Receipt: fold all six legs + eight hexbits order-invariantly
   const legAddresses = Object.entries(legs)
     .filter(([_, v]) => v)
     .map(([k]) => toUuid(`leg:${k}:${theoremKey}`))
   const hexbitAddresses = [
-    toUuid(`hexbit:wing:${hexbits.wing}`),
-    toUuid(`hexbit:principle:${hexbits.principle}`),
-    toUuid(`hexbit:payload:${hexbits.payload}`),
-    toUuid(`hexbit:motion:${hexbits.motion}`),
-    toUuid(`hexbit:destiny:${hexbits.destiny}`),
+    toUuid(`hexbit:wing:${structure.wing}`),
+    toUuid(`hexbit:principle:${structure.principle}`),
+    toUuid(`hexbit:payload:${structure.payload}`),
+    toUuid(`hexbit:motion:${structure.motion}`),
+    toUuid(`hexbit:destiny:${structure.destiny}`),
   ]
   const receipt = merkleGravity([...legAddresses, ...hexbitAddresses])
 
@@ -169,7 +169,7 @@ export function entangleLayer2(
     legs,
     recomputationPath: recomp.recomputePath,
     expectedReceipt: recomp.expectedReceipt,
-    hexbits,
+    hexbits: structure,
     allLegsPresent,
     allHexbitsIntegral,
     receipt,
