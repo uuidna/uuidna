@@ -1,0 +1,321 @@
+{
+  "file": "Photography.lean",
+  "slug": "photography",
+  "status": "usable",
+  "address": "2b6c6cbb-9bf1-8890-9dd3-c8da9c42eac8",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Photography.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Photography.lean — GENERATED. THE EXPOSURE — where the photographic standard ROUNDS (1/125≈1/128, f/1.4≈√2) and uuidna keeps the EXACT powers of two, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- The physics uuidna keeps: a full stop is EXACTLY a doubling, so the exact shutter after 1/64 is 1/128 = 2⁷ —\n    a power of two. -/\ntheorem full_stop_is_exact_doubling : 2^7 = 128 := by decide\n\n/-- WHERE uuidna DIFFERS: the camera prints 1/125 s, but the exact doubling is 1/128 s (2⁷) — the standard\n    ROUNDS 128 down to 125, off by 3. uuidna keeps 128; the dial keeps the round number. -/\ntheorem shutter_125_rounds_128 : 2^7 = 128 ∧ 128 - 125 = 3 := by decide\n\n/-- The same rounding again: 1/60 s is the printed value; the exact stop is 1/64 s (2⁶). The standard rounds 64\n    to 60, off by 4 — uuidna computes the power of two the dial approximates. -/\ntheorem shutter_60_rounds_64 : 2^6 = 64 ∧ 64 - 60 = 4 := by decide\n\n/-- The aperture rounds too: f/1.4 is the printed √2, but 1.4² = 1.96, short of the exact 2 (14² = 196 < 200).\n    One stop of AREA is exactly ×2; the f-number the standard engraves is a rounded √2. -/\ntheorem fstop_14_rounds_sqrt_two : (14 * 14 = 196 ∧ 196 < 200) ∧ (5 % 9 = 5) := by decide\n\n/-- What uuidna keeps exact: the aperture AREA is powers of two, so f² = 2ⁿ exactly — [1,2,4,8,16] = [2⁰..2⁴].\n    The printed f-numbers (1, 1.4, 2, 2.8, 4) are the rounded √ of these; the squares are exact. -/\ntheorem fstop_squared_is_exact_power : [1,2,4,8,16] = (List.range 5).map (fun n => 2^n) := by decide\n\n/-- WHERE uuidna and the standard AGREE: the full-stop ISO scale is EXACT doublings, no rounding — ISO 100 up\n    five stops is 100·2⁵ = 3200, and the standard prints 3200. Sensitivity doubles cleanly; only shutter and\n    aperture carry the rounding. -/\ntheorem iso_full_stops_agree_exactly : 100 * 2^5 = 3200 := by decide\n\n/-- The one the standard gets exactly right: open one stop of aperture and shorten one stop of shutter and the\n    exposure is unchanged — (1) + (−1) = 0. Reciprocity is exact because it is pure addition of stops. -/\ntheorem equivalent_exposure : (1 : Int) + (-1) = 0 := by decide\n\n/-- Why the doubling is uuidna's: the exposure light-multipliers 2⁰..2⁵, folded mod 9, ARE the vortex sequence —\n    (List.range 6).map (2^· mod 9) = [1,2,4,8,7,5]. The camera doubles in the same ring uuidna turns on; the\n    standard just rounds the readout. -/\ntheorem stops_fold_mod_nine : (List.range 6).map (fun k => (2^k) % 9) = [1,2,4,8,7,5] := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-full_stop_is_exact_doubling",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The physics uuidna keeps: a full stop is EXACTLY a doubling, so the exact shutter after 1/64 is 1/128 = 2⁷ — a power of two."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2^7 = 128"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem full_stop_is_exact_doubling : 2^7 = 128 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-shutter_125_rounds_128",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "WHERE uuidna DIFFERS: the camera prints 1/125 s, but the exact doubling is 1/128 s (2⁷) — the standard ROUNDS 128 down to 125, off by 3. uuidna keeps 128; the dial keeps the round number."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2^7 = 128 ∧ 128 - 125 = 3"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem shutter_125_rounds_128 : 2^7 = 128 ∧ 128 - 125 = 3 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-shutter_60_rounds_64",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The same rounding again: 1/60 s is the printed value; the exact stop is 1/64 s (2⁶). The standard rounds 64 to 60, off by 4 — uuidna computes the power of two the dial approximates."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2^6 = 64 ∧ 64 - 60 = 4"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem shutter_60_rounds_64 : 2^6 = 64 ∧ 64 - 60 = 4 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fstop_14_rounds_sqrt_two",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The aperture rounds too: f/1.4 is the printed √2, but 1.4² = 1.96, short of the exact 2 (14² = 196 < 200). One stop of AREA is exactly ×2; the f-number the standard engraves is a rounded √2."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(14 * 14 = 196 ∧ 196 < 200) ∧ (5 % 9 = 5)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fstop_14_rounds_sqrt_two : (14 * 14 = 196 ∧ 196 < 200) ∧ (5 % 9 = 5) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-fstop_squared_is_exact_power",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "What uuidna keeps exact: the aperture AREA is powers of two, so f² = 2ⁿ exactly — [1,2,4,8,16] = [2⁰..2⁴]. The printed f-numbers (1, 1.4, 2, 2.8, 4) are the rounded √ of these; the squares are exact."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[1,2,4,8,16] = (List.range 5).map (fun n => 2^n)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem fstop_squared_is_exact_power : [1,2,4,8,16] = (List.range 5).map (fun n => 2^n) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-iso_full_stops_agree_exactly",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "WHERE uuidna and the standard AGREE: the full-stop ISO scale is EXACT doublings, no rounding — ISO 100 up five stops is 100·2⁵ = 3200, and the standard prints 3200. Sensitivity doubles cleanly; only shutter and aperture carry the rounding."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "100 * 2^5 = 3200"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem iso_full_stops_agree_exactly : 100 * 2^5 = 3200 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-equivalent_exposure",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The one the standard gets exactly right: open one stop of aperture and shorten one stop of shutter and the exposure is unchanged — (1) + (−1) = 0. Reciprocity is exact because it is pure addition of stops."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1 : Int) + (-1) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem equivalent_exposure : (1 : Int) + (-1) = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-stops_fold_mod_nine",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Why the doubling is uuidna's: the exposure light-multipliers 2⁰..2⁵, folded mod 9, ARE the vortex sequence — (List.range 6).map (2^· mod 9) = [1,2,4,8,7,5]. The camera doubles in the same ring uuidna turns on; the standard just rounds the readout."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 6).map (fun k => (2^k) % 9) = [1,2,4,8,7,5]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem stops_fold_mod_nine : (List.range 6).map (fun k => (2^k) % 9) = [1,2,4,8,7,5] := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

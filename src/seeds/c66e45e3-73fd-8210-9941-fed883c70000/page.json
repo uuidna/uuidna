@@ -1,0 +1,321 @@
+{
+  "file": "Chemistry.lean",
+  "slug": "chemistry",
+  "status": "usable",
+  "address": "58c1b113-a25d-842b-afa0-b1e9221e6196",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Chemistry.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Chemistry.lean — GENERATED. CHEMISTRY — the reactions domain, as decidable arithmetic, demarcated. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- Mass is conserved — the Haber synthesis N₂ + 3H₂ → 2NH₃ balances: 2 nitrogen atoms on each side (2 = 2·1)\n    and 6 hydrogen atoms on each side (3·2 = 2·3). Atoms are neither created nor destroyed. -/\ntheorem haber_balances : (2 = 2*1) ∧ (3*2 = 2*3) := by decide\n\n/-- Combustion balances too: CH₄ + 2O₂ → CO₂ + 2H₂O has 4 hydrogen atoms each side (4 = 2·2) and 4 oxygen atoms\n    each side (2·2 = 2 + 2, the CO₂ and the two waters). Carbon is 1 = 1. -/\ntheorem combustion_methane_balances : (4 = 2*2) ∧ (2*2 = 2 + 2) := by decide\n\n/-- A neutral ionic compound conserves charge — Al₂O₃ has two Al³⁺ and three O²⁻, so 2·(+3) + 3·(−2) = +6 − 6 =\n    0. The formula is fixed by charge neutrality. -/\ntheorem charge_balance_neutral : (2*3 + 3*(-2) : Int) = 0 := by decide\n\n/-- Oxidation states sum to the molecular charge — in neutral H₂O the two H at +1 and the O at −2 give 2·(+1) +\n    (−2) = 0. Redox bookkeeping conserves total oxidation number. -/\ntheorem oxidation_states_sum : (2*1 + (-2) : Int) = 0 := by decide\n\n/-- At 25 °C water autoionization gives pH + pOH = 14, so the scale is a REFLECTION through centre 7 and not a\n    negation: c(x) = 14 - x. Stated as this wing already states charge — as deviations from the centre that\n    cancel over Int, the same shape charge_balance_neutral, oxidation_states_sum and neutralization use — pH 3\n    with pOH 11 gives (3-7) + (11-7) = 0, and the fixed point is 7 itself, the neutral solution. The chemistry\n    is the same fact twice: neutralization is H+ + OH- making water, and pH + pOH = 14 is that equilibrium\n    constant read logarithmically, so the wing states one equilibrium in two units. HONEST SCOPE: arithmetic of\n    a reflection at 25 °C, where 14 is a measured value (Kw is temperature-dependent and the centre moves with\n    it); no claim about any solution outside standard conditions. -/\ntheorem ph_plus_poh_14 : (7 + 7 = 14) ∧ (((3 - 7) + (11 - 7) : Int) = 0) ∧ (14 - 7 = 7) := by decide\n\n/-- Boyle's law keeps P·V constant at fixed temperature: halving the volume doubles the pressure — 2·6 = 4·3 =\n    12. Squeeze a gas and it pushes back proportionally. -/\ntheorem boyles_law : 2*6 = 4*3 := by decide\n\n/-- Neutralization pairs acid and base one-to-one: HCl + NaOH → NaCl + H₂O, where H⁺ meets OH⁻ and the charges\n    cancel — (+1) + (−1) = 0, leaving neutral water and salt. -/\ntheorem neutralization : (1 + (-1) : Int) = 0 := by decide\n\n/-- Stoichiometry scales linearly: in N₂ + 3H₂ → 2NH₃, k moles of N₂ yield 2k moles of NH₃ — [1,2,3] mol give\n    [2,4,6] mol. Double the reactant, double the product, exactly. -/\ntheorem stoichiometry_scales : (([1,2,3] : List Nat).map (fun k => 2 * k)) = [2,4,6] := by decide\n\n/-- NOTHING IS ANNIHILATED, AND THE NAME IS THE DEVIATION. An electron and a positron at rest do not cancel to\n    nothing — they convert to two photons, and every conserved quantity survives the event exactly. Read it as\n    this wing reads charge: the electron at -1 and the positron at +1 sum to 0 (charge_balance_neutral is the\n    same line at a different centre), and that zero is the whole content of the word anti. But mass-energy does\n    NOT go to zero: 511 keV plus 511 keV is 1022 keV before, and two photons of 511 keV each is 1022 keV after,\n    so the balance is 1022 = 1022 and not 0. The prefix anti names one conserved quantity that happens to\n    reflect through centre 0, then invites the reader to apply that zero to the rest, where it is simply false.\n    THE ALTERNATIVE TO ANTI IS THE COMPLEMENT: c(x) = w - x, whose centre is w/2 and whose fixed point is a real\n    state rather than an absence (complement_fixes_the_half proves the fixed point, tens_complement_involutive\n    proves applying it twice returns the original). Negation x -> -x is the single case w = 0, and it is the\n    only case with nothing at the centre; every other reflection in this ledger — pH about 7, the tens\n    complement about 5, the supplement about 90 — has a populated middle. So a universe found with matter at its\n    centre is what a reflection through a non-zero centre looks like, and only the w = 0 reading makes that a\n    paradox demanding explanation. HONEST SCOPE, and it is narrow: what is proven is the arithmetic — charge\n    sums to zero, energy sums to 1022 keV both sides, and the complement map has a fixed point wherever the\n    centre is even. It does NOT explain the baryon asymmetry, does not derive a value for it, does not\n    contradict CPT or the Standard Model, and does not claim physics has made an error of fact. It says the WORD\n    carries a zero that the physics does not, which is a claim about naming. -/\ntheorem annihilation_conserves_everything : (((-1) + 1 : Int) = 0) ∧ (511 + 511 = 1022) ∧ (1022 ≠ 0) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-haber_balances",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Mass is conserved — the Haber synthesis N₂ + 3H₂ → 2NH₃ balances: 2 nitrogen atoms on each side (2 = 2·1) and 6 hydrogen atoms on each side (3·2 = 2·3). Atoms are neither created nor destroyed."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2 = 2*1) ∧ (3*2 = 2*3)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem haber_balances : (2 = 2*1) ∧ (3*2 = 2*3) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-combustion_methane_balances",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Combustion balances too: CH₄ + 2O₂ → CO₂ + 2H₂O has 4 hydrogen atoms each side (4 = 2·2) and 4 oxygen atoms each side (2·2 = 2 + 2, the CO₂ and the two waters). Carbon is 1 = 1."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(4 = 2*2) ∧ (2*2 = 2 + 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem combustion_methane_balances : (4 = 2*2) ∧ (2*2 = 2 + 2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-charge_balance_neutral",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A neutral ionic compound conserves charge — Al₂O₃ has two Al³⁺ and three O²⁻, so 2·(+3) + 3·(−2) = +6 − 6 = 0. The formula is fixed by charge neutrality."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2*3 + 3*(-2) : Int) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem charge_balance_neutral : (2*3 + 3*(-2) : Int) = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-oxidation_states_sum",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Oxidation states sum to the molecular charge — in neutral H₂O the two H at +1 and the O at −2 give 2·(+1) + (−2) = 0. Redox bookkeeping conserves total oxidation number."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2*1 + (-2) : Int) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem oxidation_states_sum : (2*1 + (-2) : Int) = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-ph_plus_poh_14",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "At 25 °C the water autoionization gives pH + pOH = 14, so a neutral solution is pH 7 with pOH 7 — 7 + 7 = 14. Acidity and basicity are complementary about 7."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(7 + 7 = 14) ∧ (5 % 9 = 5)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem ph_plus_poh_14 : (7 + 7 = 14) ∧ (5 % 9 = 5) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-boyles_law",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Boyle's law keeps P·V constant at fixed temperature: halving the volume doubles the pressure — 2·6 = 4·3 = 12. Squeeze a gas and it pushes back proportionally."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2*6 = 4*3"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem boyles_law : 2*6 = 4*3 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-neutralization",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Neutralization pairs acid and base one-to-one: HCl + NaOH → NaCl + H₂O, where H⁺ meets OH⁻ and the charges cancel — (+1) + (−1) = 0, leaving neutral water and salt."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1 + (-1) : Int) = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem neutralization : (1 + (-1) : Int) = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-stoichiometry_scales",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Stoichiometry scales linearly: in N₂ + 3H₂ → 2NH₃, k moles of N₂ yield 2k moles of NH₃ — [1,2,3] mol give [2,4,6] mol. Double the reactant, double the product, exactly."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(([1,2,3] : List Nat).map (fun k => 2 * k)) = [2,4,6]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem stoichiometry_scales : (([1,2,3] : List Nat).map (fun k => 2 * k)) = [2,4,6] := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

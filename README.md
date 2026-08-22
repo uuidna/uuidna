@@ -1,6 +1,6 @@
-# uuidna — 1371 distinct theorems under 1451 keys, 2 coins, one receipt
+# uuidna — 1376 distinct theorems under 1456 keys, 2 coins, one receipt
 
-`7001dfa5-2d52-8ea5-a37c-2b36d277dfb0`
+`d4bb9df3-99f9-87f2-87ed-ec3048f4e7d5`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,9 +51,9 @@ The count is MEASURED, not parsed. The generator walks the domain to compute eac
 that walk it tally what they visit, and `emit()` records the tally on the same run that validates the JS. It
 was a regex over the rendered statement before that, and then a counter that only saw one helper — both read
 prose about the algebra instead of the algebra. The ledger covers
-93,409 superpositions across 94 wings.
+93,711 superpositions across 94 wings.
 
-1. **`cube_seals_at_completeness_only`** — 3,151 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
+1. **`cube_seals_at_completeness_only`** — 3,161 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
    A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT.
 2. **`order_is_total_and_strict`** — 588 superpositions, Infinity hexbits for the two coins, in [Clock.lean](lean/Clock.lean)
    BEFORE AND AFTER ARE DECIDABLE FOR EVERY PAIR: of any two positions, exactly one of earlier, later or same holds — never two of them, and never none.
@@ -61,12 +61,12 @@ prose about the algebra instead of the algebra. The ledger covers
    THE REFRACTORY WINDOW, WITH FIRING RESTORED SO A DEAD NEURON CANNOT SATISFY IT.
 4. **`coins_over_all_rosetta_combinations`** — 389 superpositions, Infinity hexbits for the two coins, in [Coins.lean](lean/Coins.lean)
    THE COINS, COMPUTED ACROSS EVERY ROSETTA COMBINATION.
-5. **`residues_identify_digit`** — 272 superpositions, Infinity hexbits for the two coins, in [Crt.lean](lean/Crt.lean)
+5. **`the_void_tile_cannot_cross`** — 288 superpositions, Infinity hexbits for the two coins, in [Hexbit.lean](lean/Hexbit.lean)
+   A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS.
+6. **`residues_identify_digit`** — 272 superpositions, Infinity hexbits for the two coins, in [Crt.lean](lean/Crt.lean)
    residues_identify_digit.
-6. **`the_cross_tells_a_ratio_from_a_convention`** — 264 superpositions, Infinity hexbits for the two coins, in [DivByZero.lean](lean/DivByZero.lean)
+7. **`the_cross_tells_a_ratio_from_a_convention`** — 264 superpositions, Infinity hexbits for the two coins, in [DivByZero.lean](lean/DivByZero.lean)
    CROSSING A DIVISION SORTS IT.
-7. **`mertens_squared_under_n_on_the_first_twenty`** — 230 superpositions, Infinity hexbits for the two coins, in [Clay.lean](lean/Clay.lean)
-   Riemann, through Mertens: M(n) = Σ μ(k), and |M(n)| ≤ √n — stated squared to stay in exact integers — holds for every n through 20.
 
 ---
 
@@ -77,9 +77,9 @@ raised to it, and the served ceiling is parsed from the guard in `src/mcp.ts` th
 
 - **16 qubits** in the library register — 65536 amplitudes held at once
 - **12 qubits** served over MCP — 4096 amplitudes, and the surface refuses more
-- **93,409 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
+- **93,711 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
 - **4 qubits** of reachability gap between the register and what is served
-- **50 quantum wing theorems**, **27 cipher wing theorems**, **1451 ledger size**
+- **50 quantum wing theorems**, **27 cipher wing theorems**, **1456 ledger size**
 
 EXACT, AND ENFORCED. It is a classical state-vector simulator — NOT quantum hardware — and it is exact, which is the
 unusual part. Every amplitude is a Gaussian integer over a common √(2^scale) — the ring ℤ[i, 1/√2] the
@@ -107,8 +107,8 @@ scale served is the scale the code enforces. Stating a bound never drains the cl
 A handle is eight hexbits, so it names **4,294,967,296** superpositions — 16^8, every
 address it can take. That is the space; the rest is what is accounted inside it.
 
-- **93,409 superpositions** decided across the ledger, every one walked rather than sampled
-- **2,902 coins** in existence — 2 per sealed theorem, and only that
+- **93,711 superpositions** decided across the ledger, every one walked rather than sampled
+- **2,912 coins** in existence — 2 per sealed theorem, and only that
 - **32 superpositions per coin**, floored: what one coin covers today
 
 SIX DIRECTIONS leave every residue, which is why a per-coin figure needs them stated beside it: the 60-degree
@@ -127,19 +127,19 @@ COSTS untouched.
 ## Live Statistics
 
 ```
-Theorems sealed:        1451   (every one axiom-free, proven by decide)
+Theorems sealed:        1456   (every one axiom-free, proven by decide)
 Principles:             94   (the monographs the ledger organises itself by)
 Skills:                 91   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                7001dfa5-2d52-8ea5-a37c-2b36d277dfb0
+Receipt:                d4bb9df3-99f9-87f2-87ed-ec3048f4e7d5
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1451 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1456 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -317,7 +317,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1451 theorems sealed to ledger, every one axiom-free**
+✓ **All 1456 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**

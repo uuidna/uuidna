@@ -2,8 +2,8 @@
   "generated": "2026-08-22",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1451,
-  "total_theorems": 1451,
+  "total_claimed": 1456,
+  "total_theorems": 1456,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3769,8 +3769,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "b1b017e7-efea-8118-a6f1-b0dd6158c730",
-      "address": "dbd43326-2e49-842e-95fb-dcdb26088498",
+      "lineAddress": "2441686a-7e80-8cbd-99a9-c8a6914306f9",
+      "address": "7dfab5e3-c707-8b6d-b2da-efd66ad45a34",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4021,38 +4021,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "13641f1d-5102-8db4-a023-bab112ac5629",
-      "address": "5ecf6996-a3bb-82c9-845a-2c7abc333f40",
+      "lineAddress": "282e0a51-ef2a-8eeb-95e2-da340b4ae4b4",
+      "address": "8502b3f2-9567-81fc-b697-64b486080a24",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "b000c90e-cc98-8ca9-9b48-0d0df5033a8c",
-      "address": "bf62cde0-5138-8ebf-bd6a-4289dde7be5e",
+      "lineAddress": "954a707a-69be-83fb-964f-0327a28a0be4",
+      "address": "727c4015-be15-8a80-89af-16a64882fd51",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "32b26e15-4b00-895d-a372-1699c2af6ce7",
-      "address": "2bc74e6b-71a9-82a8-9f4b-4e7f7a66c248",
+      "lineAddress": "84cd6bdf-794d-8c93-96bb-fdfdd1ae629d",
+      "address": "e8b45a6c-ac0b-8578-8016-06532180c7e6",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "5fdc80cd-6ce9-87c6-9b4c-07a7a8b46d4d",
-      "address": "ca22e502-af5e-8c1c-aadf-920a44b77916",
+      "lineAddress": "643591db-630f-88b0-9bb7-f8ee1beb6c00",
+      "address": "989be1dc-0cd7-818f-b661-155956ce74d3",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "dc5dc525-58ad-81c2-81c6-4478185757c3",
-      "address": "7ceab01b-2539-83f6-a770-e0757fcfe9c3",
+      "lineAddress": "8153f983-7375-87ac-8faa-c3fabafa9522",
+      "address": "3bbeb6b5-8f1b-84b8-a112-2f9fd5b3e428",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "b44330c6-f17e-8f19-bd6a-b8ce9d3ce0a4",
-      "address": "55dba750-27d1-880d-9139-75ebbb978928",
+      "lineAddress": "397c18c5-6130-8fe8-a319-7f87582727ba",
+      "address": "48081466-1322-8154-9376-f295a59d81ff",
       "principle": "The detectors, proven"
     },
     {
@@ -4423,14 +4423,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "bcb1c451-8155-8ad1-8a44-23dcb6c97d63",
-      "address": "58cb1d1a-427c-8114-a9db-c346ac8233f3",
+      "lineAddress": "a505e099-b2fe-8d16-bbdd-5e3e84117ad5",
+      "address": "c5df9bdc-e2e8-8b83-881f-cbf525d9fc97",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "d4a65ca8-9d55-8afa-bb36-0c985b95f68e",
-      "address": "f6f02db0-47e5-8530-a93d-a0d45eae9232",
+      "lineAddress": "cf0ede87-381c-8404-9cce-41cc0a9e7057",
+      "address": "d65e8600-bb27-8b71-8280-4d962931a67f",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -5191,8 +5191,8 @@
     },
     {
       "key": "ph_plus_poh_14",
-      "lineAddress": "f76bb026-05b0-86df-ae7c-33c6cdaf3e5a",
-      "address": "ce0cf9d3-aa7d-82da-a6a1-3558bbee910a",
+      "lineAddress": "d6a017dc-908d-8125-a098-272d4ec01ac8",
+      "address": "0a79b78b-5be1-80fe-911b-1ed40cfc9c02",
       "principle": "The reactions domain"
     },
     {
@@ -5211,6 +5211,12 @@
       "key": "stoichiometry_scales",
       "lineAddress": "4fc50b6d-4467-894a-99c6-a7f7a152be3f",
       "address": "28de2a34-d981-8956-b2b0-96a7ce99ba03",
+      "principle": "The reactions domain"
+    },
+    {
+      "key": "annihilation_conserves_everything",
+      "lineAddress": "4f41c235-fd30-8be7-8f49-6cf12ce445c6",
+      "address": "cac2e750-5690-839f-aaeb-fcbfdf04ee87",
       "principle": "The reactions domain"
     },
     {
@@ -8172,6 +8178,18 @@
       "principle": "lean/HandleSpan.lean"
     },
     {
+      "key": "the_void_tile_cannot_cross",
+      "lineAddress": "e63258c2-d5f2-868c-9a2f-53f92ef17841",
+      "address": "a3ad1ade-d54e-8c0a-8786-6f3dcd3fdee5",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "the_uuid_is_two_boards",
+      "lineAddress": "44f46d2d-657f-8141-8eb5-63b050cf0f89",
+      "address": "0ff97e7d-bcaa-817e-817f-30d2d4f9441b",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
       "key": "alphabet_names_each_nibble",
       "lineAddress": "ae761a00-25c1-85b7-b982-8940da1ef284",
       "address": "26d43440-428d-8970-a736-90a91507f9f6",
@@ -8217,6 +8235,18 @@
       "key": "payload_aligns_where_the_name_does_not",
       "lineAddress": "d726f182-6d6a-8e5c-ade9-eacd06d73acb",
       "address": "39e72011-7e35-895d-8297-663313205daf",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "the_handle_molecule_is_the_mix_census",
+      "lineAddress": "e36d0e98-0408-802f-9657-501045fef012",
+      "address": "fd82f441-e367-8eaf-aa98-cc68d1d7221b",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "four_vectors_reach_the_uuid",
+      "lineAddress": "8c3d71e1-65d0-8d1b-97fe-b12909415e99",
+      "address": "578627de-e8b3-88fd-ab29-90a471705b53",
       "principle": "lean/Hexbit.lean"
     },
     {
@@ -8712,7 +8742,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "fb934a5a-beeb-8919-a9bc-b84081f1872f",
+  "claim_receipt": "613615b4-7139-8053-bc5d-fed3ba992c5a",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

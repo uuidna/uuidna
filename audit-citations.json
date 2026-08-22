@@ -1,17 +1,17 @@
 {
-  "key": "a86b73bf-0012-8c51-ba51-e304cde3e515",
+  "key": "09e3a11d-b847-8352-9ce7-961e46964feb",
   "publications": 70,
-  "sealedTheorems": 1439,
+  "sealedTheorems": 1456,
   "fabricated": 0,
-  "uncited": 0,
+  "uncited": 1,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1286,
-    "theorems": 1439,
+    "claims": 1298,
+    "theorems": 1456,
     "bijection": false,
     "digitalRoots": {
-      "claims": 8,
-      "theorems": 8,
+      "claims": 2,
+      "theorems": 7,
       "publications": 7
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -61,9 +61,11 @@
     },
     {
       "slug": "div-by-zero",
-      "claims": 8,
-      "cited": 8,
-      "uncited": [],
+      "claims": 13,
+      "cited": 12,
+      "uncited": [
+        "- THE RING IS CONNECTED, AND THE REFLECTION IS WHAT CONNECTS IT. Closing every seed of ℤ/9 under all six motions — the doubling and its i…"
+      ],
       "fabricated": []
     },
     {
@@ -131,8 +133,8 @@
     },
     {
       "slug": "coins",
-      "claims": 19,
-      "cited": 19,
+      "claims": 25,
+      "cited": 25,
       "uncited": [],
       "fabricated": []
     },
@@ -243,8 +245,8 @@
     },
     {
       "slug": "chemistry",
-      "claims": 8,
-      "cited": 8,
+      "claims": 9,
+      "cited": 9,
       "uncited": [],
       "fabricated": []
     },

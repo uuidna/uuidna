@@ -2,7 +2,7 @@
 # uuidna â€” Advantage Metrics
 
 **Generated:** 2026-08-22
-**Data source:** Live ledger (1451 sealed theorems)
+**Data source:** Live ledger (1456 sealed theorems)
 
 ---
 
@@ -11,13 +11,13 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 1451 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 1451/1451 (100%) | Kernel-only proofs, recomputable offline |
+| **Theorems proven** | 1456 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 1456/1456 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 94 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 91 | Capability axes across the ledger |
 | **Proof cost** | 584537 decide-steps | MEASURED per theorem in lean/heartbeats.json |
-| **Verification work** | 1451 addresses | one recomputed per theorem |
-| **Steps per address** | 402 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
+| **Verification work** | 1456 addresses | one recomputed per theorem |
+| **Steps per address** | 401 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -58,7 +58,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself â
 
 ### 4. **Verification 80,000x Faster Than Proof**
 - First push (prove): 584537 kernel decide-steps, measured
-- Every later push (verify): 1451 address recomputations
+- Every later push (verify): 1456 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
@@ -84,8 +84,8 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       1451
-Axiom-free (decide):  1451 (100.0%)
+Total theorems:       1456
+Axiom-free (decide):  1456 (100.0%)
 Principles:           94 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities

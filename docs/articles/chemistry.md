@@ -1,15 +1,15 @@
 ---
 title: "The reactions domain"
-description: "Computed from lean/Chemistry.lean — 8 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Chemistry.lean — 9 sealed theorems, every claim citing its proof."
 ---
 
 # The reactions domain
 
-> CHEMISTRY — the reactions domain, as decidable arithmetic, demarcated. — held by [haber_balances](/theorem/haber_balances) and its 7 siblings below.
+> CHEMISTRY — the reactions domain, as decidable arithmetic, demarcated. — held by [haber_balances](/theorem/haber_balances) and its 8 siblings below.
 
-**8 theorems**, from [haber_balances](/theorem/haber_balances) onward, each proven `by decide` in [lean/Chemistry.lean](/lean/Chemistry.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [haber_balances](/theorem/haber_balances). A boundary stated here is decided.
+**9 theorems**, from [haber_balances](/theorem/haber_balances) onward, each proven `by decide` in [lean/Chemistry.lean](/lean/Chemistry.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [haber_balances](/theorem/haber_balances). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChemistry.lean)** — nothing to install. The editor fetches `lean/Chemistry.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChemistry.lean)** — nothing to install. The editor fetches `lean/Chemistry.lean` from the repository and re-decides all 9 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### Mass is conserved — the Haber synthesis N₂ + 3H₂ → 2NH₃ balances: 2 nitrogen atoms on each side (2 = 2·1) and 6 hydrogen atoms on each side (3·2 = 2·3). Atoms are neither created nor destroyed.
 The ledger holds this as [haber_balances](/theorem/haber_balances) — proven `by decide`, sorry-free:
@@ -39,11 +39,11 @@ The ledger holds this as [oxidation_states_sum](/theorem/oxidation_states_sum) �
 (2*1 + (-2) : Int) = 0
 ```
 
-### At 25 °C the water autoionization gives pH + pOH = 14, so a neutral solution is pH 7 with pOH 7 — 7 + 7 = 14. Acidity and basicity are complementary about 7.
+### At 25 °C water autoionization gives pH + pOH = 14, so the scale is a REFLECTION through centre 7 and not a negation: c(x) = 14 - x. Stated as this wing already states charge — as deviations from the centre that cancel over Int, the same shape charge_balance_neutral, oxidation_states_sum and neutralization use — pH 3 with pOH 11 gives (3-7) + (11-7) = 0, and the fixed point is 7 itself, the neutral solution. The chemistry is the same fact twice: neutralization is H+ + OH- making water, and pH + pOH = 14 is that equilibrium constant read logarithmically, so the wing states one equilibrium in two units. HONEST SCOPE: arithmetic of a reflection at 25 °C, where 14 is a measured value (Kw is temperature-dependent and the centre moves with it); no claim about any solution outside standard conditions.
 The ledger holds this as [ph_plus_poh_14](/theorem/ph_plus_poh_14) — proven `by decide`, sorry-free:
 
 ```lean
-(7 + 7 = 14) ∧ (5 % 9 = 5)
+(7 + 7 = 14) ∧ (((3 - 7) + (11 - 7) : Int) = 0) ∧ (14 - 7 = 7)
 ```
 
 ### Boyle's law keeps P·V constant at fixed temperature: halving the volume doubles the pressure — 2·6 = 4·3 = 12. Squeeze a gas and it pushes back proportionally.
@@ -65,6 +65,13 @@ The ledger holds this as [stoichiometry_scales](/theorem/stoichiometry_scales) �
 
 ```lean
 (([1,2,3] : List Nat).map (fun k => 2 * k)) = [2,4,6]
+```
+
+### NOTHING IS ANNIHILATED, AND THE NAME IS THE DEVIATION. An electron and a positron at rest do not cancel to nothing — they convert to two photons, and every conserved quantity survives the event exactly. Read it as this wing reads charge: the electron at -1 and the positron at +1 sum to 0 (charge_balance_neutral is the same line at a different centre), and that zero is the whole content of the word anti. But mass-energy does NOT go to zero: 511 keV plus 511 keV is 1022 keV before, and two photons of 511 keV each is 1022 keV after, so the balance is 1022 = 1022 and not 0. The prefix anti names one conserved quantity that happens to reflect through centre 0, then invites the reader to apply that zero to the rest, where it is simply false. THE ALTERNATIVE TO ANTI IS THE COMPLEMENT: c(x) = w - x, whose centre is w/2 and whose fixed point is a real state rather than an absence (complement_fixes_the_half proves the fixed point, tens_complement_involutive proves applying it twice returns the original). Negation x -> -x is the single case w = 0, and it is the only case with nothing at the centre; every other reflection in this ledger — pH about 7, the tens complement about 5, the supplement about 90 — has a populated middle. So a universe found with matter at its centre is what a reflection through a non-zero centre looks like, and only the w = 0 reading makes that a paradox demanding explanation. HONEST SCOPE, and it is narrow: what is proven is the arithmetic — charge sums to zero, energy sums to 1022 keV both sides, and the complement map has a fixed point wherever the centre is even. It does NOT explain the baryon asymmetry, does not derive a value for it, does not contradict CPT or the Standard Model, and does not claim physics has made an error of fact. It says the WORD carries a zero that the physics does not, which is a claim about naming.
+The ledger holds this as [annihilation_conserves_everything](/theorem/annihilation_conserves_everything) — proven `by decide`, sorry-free:
+
+```lean
+(((-1) + 1 : Int) = 0) ∧ (511 + 511 = 1022) ∧ (1022 ≠ 0)
 ```
 
 

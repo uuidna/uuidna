@@ -1,6 +1,48 @@
 {
   "leads": [
     {
+      "module": "src/apis/index.ts",
+      "capability": [
+        "Answered",
+        "answered",
+        "ask",
+        "foldAnswers"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "3574e24c-c147-859b-83c9-4dc805f08c5b"
+    },
+    {
+      "module": "src/billing/index.ts",
+      "capability": [
+        "Billable",
+        "Charge",
+        "PRICE",
+        "WHY",
+        "bill",
+        "billChain",
+        "account",
+        "billEntangled"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "d02f7a33-b391-83ce-9b16-1ef2c2f4d5bc"
+    },
+    {
       "module": "src/tts/index.ts",
       "capability": [
         "Utterance",
@@ -44,5 +86,5 @@
       "receipt": "eff2a741-dcfa-8c13-acf8-750edb9e32f9"
     }
   ],
-  "receipt": "d4e72771-92c4-8890-8d58-58ef9b1c6335"
+  "receipt": "c2f36a45-2594-82a7-ac6c-807345fc9e73"
 }

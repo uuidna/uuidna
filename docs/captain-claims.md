@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1451/1451 theorems — every one, by construction
-**Claim receipt:** `fb934a5a-beeb-8919-a9bc-b84081f1872f`
+**Total claimed:** 1456/1456 theorems — every one, by construction
+**Claim receipt:** `613615b4-7139-8053-bc5d-fed3ba992c5a`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -304,12 +304,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The reactions domain
 
-- **Theorems:** 8
+- **Theorems:** 9
 - **Sample lineAddress:** `fe3e31f5-1b25-8405-bad5-210a6f8e22c2`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[haber_balances](/theorem/haber_balances) · [combustion_methane_balances](/theorem/combustion_methane_balances) · [charge_balance_neutral](/theorem/charge_balance_neutral) · [oxidation_states_sum](/theorem/oxidation_states_sum) · [ph_plus_poh_14](/theorem/ph_plus_poh_14) · [boyles_law](/theorem/boyles_law) · [neutralization](/theorem/neutralization) · [stoichiometry_scales](/theorem/stoichiometry_scales)
+[haber_balances](/theorem/haber_balances) · [combustion_methane_balances](/theorem/combustion_methane_balances) · [charge_balance_neutral](/theorem/charge_balance_neutral) · [oxidation_states_sum](/theorem/oxidation_states_sum) · [ph_plus_poh_14](/theorem/ph_plus_poh_14) · [boyles_law](/theorem/boyles_law) · [neutralization](/theorem/neutralization) · [stoichiometry_scales](/theorem/stoichiometry_scales) · [annihilation_conserves_everything](/theorem/annihilation_conserves_everything)
 
 ### The energy domain
 
@@ -745,12 +745,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### lean/Hexbit.lean
 
-- **Theorems:** 8
-- **Sample lineAddress:** `ae761a00-25c1-85b7-b982-8940da1ef284`
+- **Theorems:** 12
+- **Sample lineAddress:** `e63258c2-d5f2-868c-9a2f-53f92ef17841`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) · [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) · [characters_span_the_address](/theorem/characters_span_the_address) · [handle_is_the_first_group](/theorem/handle_is_the_first_group) · [groups_are_four_apart](/theorem/groups_are_four_apart) · [build_counts_in_hexbits](/theorem/build_counts_in_hexbits) · [payload_carries_the_strand](/theorem/payload_carries_the_strand) · [payload_aligns_where_the_name_does_not](/theorem/payload_aligns_where_the_name_does_not)
+[the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) · [the_uuid_is_two_boards](/theorem/the_uuid_is_two_boards) · [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) · [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) · [characters_span_the_address](/theorem/characters_span_the_address) · [handle_is_the_first_group](/theorem/handle_is_the_first_group) · [groups_are_four_apart](/theorem/groups_are_four_apart) · [build_counts_in_hexbits](/theorem/build_counts_in_hexbits) · [payload_carries_the_strand](/theorem/payload_carries_the_strand) · [payload_aligns_where_the_name_does_not](/theorem/payload_aligns_where_the_name_does_not) · [the_handle_molecule_is_the_mix_census](/theorem/the_handle_molecule_is_the_mix_census) · [four_vectors_reach_the_uuid](/theorem/four_vectors_reach_the_uuid)
 
 ### lean/Isometry.lean
 
@@ -870,7 +870,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1371 (1451 entries, 80 re-namings — a theorem is its Lean |
+| sealed propositions | 1376 (1456 entries, 80 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -888,7 +888,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1451 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1456 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

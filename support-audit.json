@@ -1,10 +1,12 @@
 {
-  "modules": 409,
-  "roots": 282,
-  "supported": 407,
+  "modules": 418,
+  "roots": 289,
+  "supported": 414,
   "dead": [
+    "src/apis/index.ts",
+    "src/billing/index.ts",
     "src/tts/index.ts",
     "src/tts/synth.ts"
   ],
-  "receipt": "d4e72771-92c4-8890-8d58-58ef9b1c6335"
+  "receipt": "c2f36a45-2594-82a7-ac6c-807345fc9e73"
 }

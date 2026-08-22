@@ -39,7 +39,8 @@
     "quantum-operations-live.ts",
     "quantum-rosetta-apis.ts",
     "refactor.ts",
-    "reserve.ts"
+    "reserve.ts",
+    "scout.ts"
   ],
   "writes_why": "What each dormant script changes in the working tree when exercised. Undeclared output is a gap: a script the gate runs on every pass must not surprise the tree. exercise-dormant restores every path listed here after running, so exercising is side-effect free.",
   "writes": {
