@@ -127,7 +127,7 @@ test('handleOf refuses what it cannot address, rather than coercing it', () => {
   assert.equal(handleOf('57f5ef04a2f083cba6863343c324de12'), '57f5ef04', 'hyphens are incidental')
   assert.equal(handleOf('57F5EF04-A2F0-83CB-A686-3343C324DE12'), '57f5ef04', 'handles are lowercase hex')
   for (const bad of ['', 'zzzzzzzz', 'short', '----------'])
-    assert.throws(() => handleOf(bad), /eight hex/, `refused.stringify(bad)}`)
+    assert.throws(() => handleOf(bad), /eight hex/, `refused, not coerced: ${JSON.stringify(bad)}`)
 })
 
 // ── THE SECOND DERIVATION. seedOf was six inline expressions, and the sharpest part is that ONE of them took a

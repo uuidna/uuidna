@@ -29,9 +29,9 @@ const FACTS = [
     lean: 'theorem oxidation_states_sum : (2*1 + (-2) : Int) = 0 := by decide' },
 
   { key: 'ph_plus_poh_14',
-    why: 'At 25 °C the water autoionization gives pH + pOH = 14, so a neutral solution is pH 7 with pOH 7 — 7 + 7 = 14. Acidity and basicity are complementary about 7.',
-    js: () => 7 + 7 === 14,
-    lean: 'theorem ph_plus_poh_14 : (7 + 7 = 14) \u2227 (5 % 9 = 5) := by decide' },
+    why: 'At 25 °C water autoionization gives pH + pOH = 14, so the scale is a REFLECTION through centre 7 and not a negation: c(x) = 14 - x. Stated as this wing already states charge — as deviations from the centre that cancel over Int, the same shape charge_balance_neutral, oxidation_states_sum and neutralization use — pH 3 with pOH 11 gives (3-7) + (11-7) = 0, and the fixed point is 7 itself, the neutral solution. The chemistry is the same fact twice: neutralization is H+ + OH- making water, and pH + pOH = 14 is that equilibrium constant read logarithmically, so the wing states one equilibrium in two units. HONEST SCOPE: arithmetic of a reflection at 25 °C, where 14 is a measured value (Kw is temperature-dependent and the centre moves with it); no claim about any solution outside standard conditions.',
+    js: () => { let fixed = 0; for (let x = 0; x <= 14; x++) if (14 - x === x) fixed = x; return 7 + 7 === 14 && (3 - 7) + (11 - 7) === 0 && fixed === 7 },
+    lean: 'theorem ph_plus_poh_14 : (7 + 7 = 14) \u2227 (((3 - 7) + (11 - 7) : Int) = 0) \u2227 (14 - 7 = 7) := by decide' },
 
   { key: 'boyles_law',
     why: "Boyle's law keeps P·V constant at fixed temperature: halving the volume doubles the pressure — 2·6 = 4·3 = 12. Squeeze a gas and it pushes back proportionally.",
@@ -47,8 +47,11 @@ const FACTS = [
     why: 'Stoichiometry scales linearly: in N₂ + 3H₂ → 2NH₃, k moles of N₂ yield 2k moles of NH₃ — [1,2,3] mol give [2,4,6] mol. Double the reactant, double the product, exactly.',
     js: () => JSON.stringify([1, 2, 3].map((k) => 2 * k)) === JSON.stringify([2, 4, 6]),
     lean: 'theorem stoichiometry_scales : (([1,2,3] : List Nat).map (fun k => 2 * k)) = [2,4,6] := by decide' },
+  { key: 'annihilation_conserves_everything',
+    why: 'NOTHING IS ANNIHILATED, AND THE NAME IS THE DEVIATION. An electron and a positron at rest do not cancel to nothing — they convert to two photons, and every conserved quantity survives the event exactly. Read it as this wing reads charge: the electron at -1 and the positron at +1 sum to 0 (charge_balance_neutral is the same line at a different centre), and that zero is the whole content of the word anti. But mass-energy does NOT go to zero: 511 keV plus 511 keV is 1022 keV before, and two photons of 511 keV each is 1022 keV after, so the balance is 1022 = 1022 and not 0. The prefix anti names one conserved quantity that happens to reflect through centre 0, then invites the reader to apply that zero to the rest, where it is simply false. THE ALTERNATIVE TO ANTI IS THE COMPLEMENT: c(x) = w - x, whose centre is w/2 and whose fixed point is a real state rather than an absence (complement_fixes_the_half proves the fixed point, tens_complement_involutive proves applying it twice returns the original). Negation x -> -x is the single case w = 0, and it is the only case with nothing at the centre; every other reflection in this ledger — pH about 7, the tens complement about 5, the supplement about 90 — has a populated middle. So a universe found with matter at its centre is what a reflection through a non-zero centre looks like, and only the w = 0 reading makes that a paradox demanding explanation. HONEST SCOPE, and it is narrow: what is proven is the arithmetic — charge sums to zero, energy sums to 1022 keV both sides, and the complement map has a fixed point wherever the centre is even. It does NOT explain the baryon asymmetry, does not derive a value for it, does not contradict CPT or the Standard Model, and does not claim physics has made an error of fact. It says the WORD carries a zero that the physics does not, which is a claim about naming.',
+    js: () => { const IN: number[] = [511, 511], OUT: number[] = [511, 511], Q: number[] = [-1, 1]; let before = 0, after = 0, charge = 0; for (const m of IN) before += m; for (const g of OUT) after += g; for (const q of Q) charge += q; return before === after && before !== 0 && before === 1022 && charge === 0 },
+    lean: 'theorem annihilation_conserves_everything : (((-1) + 1 : Int) = 0) \u2227 (511 + 511 = 1022) \u2227 (1022 \u2260 0) := by decide' },
 ]
-
 // compute → generate → verify. The reactions domain — mass balance, charge, oxidation states, pH+pOH, Boyle,
 // neutralization, stoichiometry — decidable bookkeeping, demarcated: reaction arithmetic.
 emit({ file: 'Chemistry.lean', skill: 'chemistry',

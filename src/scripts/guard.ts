@@ -15,7 +15,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, incompleteGaps, nameGaps, deadkeyGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -151,6 +151,8 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'hexbit', run: () => hexbitGaps() },
   // a key that claims a universal must have a statement that quantifies one — one step is not a walk.
   { name: 'incomplete', run: () => incompleteGaps() },
+  // markup that does not close: compiles, then fails only where it renders.
+  { name: 'markup', run: () => markupGaps() },
   // A VALUE NAMED FOR A COMPUTATION MUST BE COMPUTED BY IT — hexbit's law, generalised the day it was needed for a
   // second name. The fold's `movie` leaf was rewritten to digest the ADDRESSES the auras come from: sound reasoning
   // (an aura is a pure function of its address, so the digests move together) and still wrong, because folding
@@ -213,6 +215,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // family that had already rotted (lean:<domain>, 30 names for 66 domains) proves a typed list cannot track what
   // exists. `npm run x -- <script>` dispatches from discovery; an entry survives only when CI, a hook, the README
   // or a docs page calls it by name, and that set is recomputed here rather than declared.
+  { name: 'stale', run: () => staleGaps() },
   { name: 'scripts', run: () => scriptsGaps() },
   // THE MIRROR MUST AGREE BY VALUE— a js mirror doing Number arithmetic past 2^53 can round to
   // the SAME wrong value as the Lean it is checked against and pass emit()'s comparison by luck. Three mirrors

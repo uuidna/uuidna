@@ -9,6 +9,7 @@
 // overclaim cannot hide in another script. 777 is the MNEMONIC (3 × 7 aligned), expanded to 7 arms for full defensibility.
 // The true number of claim×fold trials actually run is printed below, honestly. It CAN fail (exit 1);
 // a gate rigged to pass would make "ready" mean nothing. Integrity. Legal soundness. Quantum honesty.
+import { lonelyGaps } from './one-receipt.js'
 import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, type PageNode } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { readFileSync, existsSync } from 'node:fs'
@@ -215,4 +216,28 @@ if (ready) {
   for (const f of fails.slice(0, 40)) console.log(`      • ${f}`)
   console.log('')
 }
+// ── WHERE THE LEVERAGE IS. A trial that only says pass/fail leaves the next reader to rediscover the map. This
+// closes with the work ORDERED BY HOW MANY GAPS ONE ACT CLOSES, computed here rather than written down, because
+// a typed list rots the moment the tree moves.
+//
+// The ordering rule is earned, not chosen. Measured on 2026-08-22: teaching `invokesFile` that a manifest entry
+// is an invocation took the gap predictor from 12 to 2 AND the dormant finder to 0 — two finders, one rule.
+// `connect-lonely` took 23 isolated theorems to 10 in a single pass. Tracing the negation-strip to its root
+// explained four separate test failures. Removing a second cache ended thirteen refused pushes. In every case
+// the gap was never the finding; it was the RULE that generated the findings, and fixing the rule closed them
+// at scale. So: fix rules before instances, and unblock before building.
+const leverage: Array<{ act: string; closes: string }> = []
+if (!ready) leverage.push({ act: 'fix the arms above', closes: 'the trial itself — nothing downstream is testable while a version fails its own trials' })
+try {
+  const lonely = lonelyGaps().length
+  if (lonely > 0) leverage.push({ act: 'npm run build && node dist/scripts/connect-lonely.js', closes: `${lonely} theorem(s) connecting to no neighbour — the dry run reports, --write applies` })
+} catch { /* the survey is on-demand; its absence is not a failure */ }
+leverage.push({ act: 'deploy so the edge matches origin', closes: 'every MCP finding at once — the hosted surface is tested against what it serves, not what the tree holds' })
+leverage.push({ act: 'return t.lean from every deciding MCP tool', closes: 'the whole surface in one pattern — the ledger already carries the line; a caller that receives it rechecks instead of trusting' })
+
+console.log('\n  WHERE THE LEVERAGE IS — one act, many gaps (fix rules before instances):')
+for (const [i, l] of leverage.entries()) console.log(`    ${i + 1}. ${l.act}\n       closes: ${l.closes}`)
+console.log('\n  Read next: lean/leads.json (what is noticed and unsettled) · npm run state (laws, ledger, finders)')
+console.log('  The gates are the teacher: every finder names its own exact fix, and none of them can be argued with.\n')
+
 process.exitCode = ready ? 0 : 1

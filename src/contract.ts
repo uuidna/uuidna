@@ -46,7 +46,7 @@ export function sealToContract(message: string, terms: string, step?: number): C
  *  proof of holding the right contract), then decrypts. A wrong contract fails the address check or Poly1305 auth. */
 export function openFromContract(sealed: ContractSealed, terms: string): string {
   if (contractId(terms) !== sealed.contract)
-    throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}.contract}`)
+    throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}, not ${sealed.contract}`)
   return openStream(sealed.uuids, [terms])
 }
 
@@ -68,6 +68,6 @@ export function sealChainToContract(messages: readonly string[], terms: string):
  *  rotates correctly, then decrypts each link. A wrong contract, or a dropped/reordered/edited link, throws. */
 export function openChainFromContract(chain: ContractChain, terms: string): string[] {
   if (contractId(terms) !== chain.contract)
-    throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}.contract}`)
+    throw new Error(`contract: wrong contract — your terms address to ${contractId(terms)}, not ${chain.contract}`)
   return openChain(chain.links, [terms], chain.contract)
 }

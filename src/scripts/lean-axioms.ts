@@ -19,7 +19,7 @@ import { tmpdir } from 'node:os'
 import { theorems } from '../index.js'
 import { ROOT, MAXBUF } from './lean-gen.js'
 
-// The trust base is the kernel alone — NO axiom is tolerated.sound. Widen this set only by a
+// The trust base is the kernel alone — NO axiom is tolerated, not even propext/Quot.sound. Widen this set only by a
 // conscious, documented decision; a `by decide` ledger should never need to.
 import { handleOf } from '../handle.js'
 import { toUuid } from '../address.js'

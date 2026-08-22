@@ -81,7 +81,7 @@ Recompute either by folding the content-addresses with \`merkleGravity\` (\`uuid
 // PROSE → MARKDOWN-SAFE inline text. Theorem names are full prose sentences computed from Lean — they carry
 // markdown specials (| * _ [ ] < > `) that break links and tables, and braces Vue would try to interpolate. Escape
 // at the COMPOSITION seam only: params/frontmatter keep the raw values (transformPageData escapes its own meta).
-const mdSafe = (v) => String(v).replace(/[\\`*_[\]<>|]/g, (c) => '\\' + c).replace(/{/g, '&#123;').replace(/}/g, '&#125;')
+const mdSafe = (v) => String(v).replace(/[\\`*_[\]|]/g, (c) => '\\' + c).replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/{/g, '&#123;').replace(/}/g, '&#125;')
 // the SHORT title — the pre-em-dash head (the same head the card renderer shows); links carry the TITLE, never the
 // whole sentence: the prose lives once on the theorem's own page, not in every neighbour's compass.
 const titleOf = (t) => {
@@ -157,8 +157,6 @@ export default {
       content: `# ${titleOf(t)}
 
 > ${mdSafe(t.name)}
-
-${cardOf(t)}
 
 **VERIFIED** — proven in Lean (\`by ${t.tactic}\`, sorry-free) · skill **[${t.skill}](/topics#skill-${t.skill})** · principle **${t.principle}**
 

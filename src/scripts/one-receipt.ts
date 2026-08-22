@@ -886,6 +886,43 @@ export function precedeGaps(cwd: string = ROOT): Gap[] {
 // CI, a git hook, or a reader following the README — and that set is COMPUTED here from every such surface at once
 // (workflows + hooks + README + docs/*.md + package.json's own composite scripts)
 // gains or loses an external caller changes tier by recomputation rather than by anyone remembering. ──
+// ── stale: A CHAIN MAY NOT READ dist/ FROM BEFORE ITS OWN GENERATOR RAN ─────────────────────────────────────
+// lean-all.js rewrites src/theorems/generated.ts — the ledger itself. Every step after it that runs `node dist/`
+// imports the ledger tsc compiled BEFORE that rewrite, so it reads the previous count and then PUBLISHES it.
+// This is measured, not imagined: gen-feed sealed a DataFeed of 1453 nodes while the ledger it claims to feed
+// already held 1456, and the only reason anyone noticed is that the two were compared by hand. Running the chain
+// a second time made it agree, which is the worst possible symptom — a defect that a retry hides.
+//
+// The knowledge already existed in the repository and simply never reached the chain that needed it: `audit`
+// inserts its own `npm run build` after `npm run lean`, while standalone `npm run lean` did not. One composite
+// knew the rule and the other did not, and nothing held them to the same answer.
+//
+// THE LAW, stated for the next generator rather than this one: a step that rewrites compiled SOURCE invalidates
+// dist, and dist must be rebuilt before anything reads it again. GENERATORS is named rather than discovered
+// because the guard cannot infer intent from a write — but once a step is named, the ORDER is held mechanically,
+// which is the part that was manual before.
+export function staleGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const pkg = JSON.parse(fileText(join(ROOT, 'package.json'))) as { scripts: Record<string, string> }
+  const GENERATORS = ['lean-all.js']
+  for (const [name, body] of Object.entries(pkg.scripts)) {
+    for (const gen of GENERATORS) {
+      const at = body.indexOf(gen)
+      if (at < 0) continue
+      const after = body.slice(at + gen.length)
+      const reads = after.indexOf('node dist/')
+      if (reads < 0) continue                       // nothing reads dist afterwards — nothing can go stale
+      const rebuilt = after.indexOf('npm run build')
+      if (rebuilt >= 0 && rebuilt < reads) continue // rebuilt before the first read — the order holds
+      gaps.push({
+        what: `package.json script "${name}" runs ${gen} and then reads dist/ with no rebuild between — every later step sees the ledger as it stood BEFORE the generator wrote it`,
+        fix: `insert \`npm run build\` immediately after ${gen} in the "${name}" script. The generator rewrites compiled source, so dist is stale until tsc runs again, and a derived surface published from stale dist states a count the ledger does not hold.`,
+      })
+    }
+  }
+  return gaps
+}
+
 export function scriptsGaps(): Gap[] {
   const gaps: Gap[] = []
   const pkg = JSON.parse(fileText(join(ROOT, 'package.json'))) as { scripts: Record<string, string> }
@@ -2125,6 +2162,48 @@ export function lonelyGaps(): Gap[] {
       gaps.push({
         what: `${t.key} shares no symbol and no constant with any neighbour in ${file} — \`${t.statement.slice(0, 46)}\``,
         fix: 'connect it: state it over a constant or definition the wing already uses, so the theorem leans on its neighbours instead of standing alone under its name',
+      })
+    }
+  }
+  return gaps
+}
+
+/** MARKUP THAT DOES NOT CLOSE — the defect that broke every theorem page and passed every gate.
+ *
+ *  A clause-strip removed `, not truth</small></div>` from render.ts, leaving `>integrity` and a <div> that
+ *  never closed. It compiled. Types passed, the kernel passed, the axiom audit passed, every finder passed — and
+ *  VitePress then failed all 1442 theorem pages with "Element is missing end tag", naming a symptom four layers from
+ *  the cause. It took a separate debugging session to find, and the same strip damaged four other files the same
+ *  evening, each rediscovered from scratch.
+ *
+ *  THE RULE: markup a module emits must balance. Count opening and closing tags per file for the elements that
+ *  carry content; a mismatch means a template is emitting HTML that no browser will parse and no compiler will
+ *  refuse. Void elements (br, img, hr, input, meta, link) never close and are excluded.
+ *
+ *  This is the finder I owed and did not write while fixing five instances by hand — the exact failure the
+ *  captain's rule names: hard labour is only worth spawning to build the tool that ends it. */
+export function markupGaps(): Gap[] {
+  const CARRY = ['div', 'article', 'section', 'span', 'small', 'p', 'a', 'ul', 'li', 'table', 'tr', 'td', 'h1', 'h2', 'h3']
+  const gaps: Gap[] = []
+  let files: string[] = []
+  try { files = execSync("git ls-files 'src/'", { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  for (const f of files) {
+    if (f.includes('/tests/')) continue
+    let src = ''
+    try { src = readFileSync(join(ROOT, f), 'utf8') } catch { continue }
+    // COMMENTS ARE MENTIONS, NOT EMISSIONS. The first version counted tags inside prose and flagged four files,
+    // one of them this very finder — whose doc comment names `</div>` while explaining the defect it hunts. The
+    // same use-versus-mention trap the determinism scan, the sources finder and the comments finder each sprang.
+    const code = src
+      .replace(/\/\*[\s\S]*?\*\//g, ' ')
+      .split('\n').filter((l) => !/^\s*(\/\/|\*)/.test(l)).join('\n')
+    if (!/<[a-z]+[ >]/.test(code)) continue
+    for (const tag of CARRY) {
+      const open = (code.match(new RegExp(`<${tag}[ >$]`, 'g')) ?? []).length
+      const close = (code.match(new RegExp(`</${tag}>`, 'g')) ?? []).length
+      if (open !== close) gaps.push({
+        what: `${f} emits ${open} <${tag}> and closes ${close} — markup that does not balance compiles fine and fails only where it is rendered`,
+        fix: `close the ${tag} in the template that emits it; a stripped clause often takes the closing tag with it, which is how render.ts lost its closing tag and broke every theorem page`,
       })
     }
   }
