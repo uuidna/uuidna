@@ -432,7 +432,7 @@ frame_ring_undo_involutive 19
 reverse_cut_is_undone_by_itself 19
 hour_of_film_is_a_day_of_seconds 19
 dropframe_is_one_thousandth 19
-angle_of_the_cut 19
+angle_of_the_cut 27
 #Editor.lean
 editor_empty_doc_folds_zero 19
 editor_fold_order_sensitive 27
@@ -567,6 +567,18 @@ reach_all_decide 19
 reach_quantifiers_bounded 19
 reach_window_finite 19
 window_not_universal 19
+#Installs.lean
+default_install_is_dependency_closed 19
+every_install_and_its_path_named_once 19
+home_is_the_meta_package 19
+home_reaches_every_install 19
+the_port_rises_from_the_floor 19
+the_services_hold_each_other_up 19
+the_terminal_is_the_toolbox 19
+the_foundation_depends_on_nothing 19
+every_path_carries_its_published_meaning 19
+a_spec_compiles_to_hexbits 19
+the_os_is_bootable_quantum 19
 #Isometry.lean
 xor_preserves_distance 19
 reuse_leaks_by_isometry 19
@@ -947,6 +959,16 @@ referrer_six_doors 19
 referrer_consonance_ladder 19
 referrer_lower_octaves_on_lattice 19
 referrer_cycle_is_total 19
+door_of_the_referrer 27
+rotation_is_multiplication 19
+the_shift_is_the_trinity 19
+every_referrer_reaches_every_page 19
+prev_undoes_next 19
+tuning_cancels_from_every_interval 19
+orbit_steps_name_their_intervals 19
+adjacent_steps_beat_at_the_tuning 19
+development_is_the_complement 19
+the_movie_and_the_song_are_one 19
 #Reflection.lean
 reflection_splits_six 19
 classes_cap_at_two 19

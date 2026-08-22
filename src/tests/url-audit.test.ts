@@ -35,6 +35,16 @@ test('the url\'s own words reach pages and theorems the caller supplies', () => 
   assert.ok(!r.matches.some((m) => m.link === '/theorem/unrelated_thing'), 'no token overlap, no claim of relevance')
 })
 
+test('the relevance floor holds — of/the never outrank a content word (a peer session\'s probe, folded)', () => {
+  const r = auditUrl('/the-theory-of-strings', { theoremKeys: ['angle_of_the_cut', 'door_of_the_referrer', 'strings_theory_stub'] })
+  assert.ok(!r.matches.some((m) => m.link === '/theorem/angle_of_the_cut'), 'a pure of/the overlap is no relevance at all')
+  assert.ok(!r.matches.some((m) => m.link === '/theorem/door_of_the_referrer'), 'same — stopwords never score')
+  assert.ok(r.matches.some((m) => m.link === '/theorem/strings_theory_stub'), 'two content words still land')
+  assert.deepEqual(auditUrl('/the-theory-of-strings').tokens, ['theory', 'strings'], 'the tokens ARE the content words')
+  // numbers survive the letter-only law — /grid-432 genuinely says 432
+  assert.ok(auditUrl('/grid-432').tokens.includes('432'))
+})
+
 test('deterministic AND change-sensitive — the instrument can fail', () => {
   const a1 = auditUrl('/some/path', { theoremKeys: ['two_coins'] })
   const a2 = auditUrl('/some/path', { theoremKeys: ['two_coins'] })

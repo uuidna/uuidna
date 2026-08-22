@@ -37,8 +37,10 @@ const STOPWORDS = new Set(['the', 'a', 'an', 'is', 'are', 'was', 'be', 'been', '
 
 /** contentWords(text) → the lowercase words that carry meaning — the citation clause itself is stripped first
  *  (so a theorem's own key spelled out in the sentence does not trivially "match itself"), then split on
- *  non-letters and filtered against STOPWORDS. Order-independent, deterministic, no external NLP. */
-function contentWords(text: string): string[] {
+ *  non-letters and filtered against STOPWORDS. Order-independent, deterministic, no external NLP.
+ *  EXPORTED as the ONE relevance-floor law: the url-audit scores 404 paths with the same definition, so
+ *  "two words overlap" always means two CONTENT words — never of/the (the dry finder's own preference). */
+export function contentWords(text: string): string[] {
   const stripped = text.replace(/\/theorem\/[a-z0-9_]+/gi, ' ').replace(/\btheorem\s+[a-z][a-z0-9_]{3,}/gi, ' ')
   return [...stripped.toLowerCase().matchAll(/[a-z]+/g)].map((m) => m[0]).filter((w) => !STOPWORDS.has(w))
 }

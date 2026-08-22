@@ -11,6 +11,7 @@
 // network, no clock, no float — the same path and context give the same report, browser or Node, and the
 // report carries its own content-address so anyone can recompute it.
 import { toUuid } from '../../address.js'
+import { contentWords } from '../../adjudicate.js'
 import { defaultInstalls, installFor, compileToHexbits } from '../os/index.js'
 
 export interface UrlAuditMatch {
@@ -36,9 +37,14 @@ const HONEST =
   'the answer is never empty. Deterministic and recomputable — same path, same context, same report, same ' +
   'address. No fetch, no clock, no guess: content the ledger can stand behind, or the search that finds it.'
 
+// the url's words that CARRY MEANING — adjudicate's own contentWords law (one definition, the relevance
+// floor: of/the never score), plus bare numbers, which the letter-only law drops but a path like /grid-432
+// genuinely says. Found by a peer session's probe: without the floor, almost any theorem with of/the in its
+// key matched almost any wordy miss, outranking genuinely relevant content.
 const tokensOf = (s: string): string[] => {
   const seen: string[] = []
-  for (const t of s.split(/[/\-_.\s]+/)) if (t && !seen.includes(t)) seen.push(t)
+  for (const t of [...contentWords(s), ...s.split(/[/\-_.\s]+/).filter((x) => /^[0-9]+$/.test(x))])
+    if (t && !seen.includes(t)) seen.push(t)
   return seen
 }
 
