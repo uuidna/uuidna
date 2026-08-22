@@ -41,7 +41,8 @@ for (let round = 1; round <= ROUNDS; round++) {
   console.log(`\nland — round ${round}/${ROUNDS}: heal, commit, push …`)
   const heal = run('node dist/scripts/develop.js')          // taught cures only; prints its own receipts
   if (!heal.ok) {
-    console.error('✗ land — develop met an objection with NO taught cure; its GAP+FIX is printed above. A human decides here — that is the design, not a failure of it.')
+    console.error('✗ land — develop met an objection with NO taught cure. Its GAP+FIX, verbatim — a human decides here (that is the design, not a failure of it):\n')
+    console.error(heal.out.split('\n').filter((l) => /✗|GAP|FIX/.test(l)).join('\n') || heal.out.slice(-1500))
     process.exit(1)
   }
   run('node dist/scripts/reconcile.js --derive-only')        // derived layer freshly sealed, spin LAST, no publish
