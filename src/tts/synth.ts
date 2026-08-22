@@ -5,12 +5,13 @@
 // sample is an integer computed from the ledger's own lattice, so the audio for a given text is the SAME AUDIO
 // for anyone, forever — and it folds to an address like everything else here.
 //
-// THE LATTICE IS 432. A hexbit has 16 states, and each maps to a tone on the 432 harmonic: state h sounds at
-// 216·(h+1) hertz, so a handle — eight hexbits — is eight tones, and the uuid is thirty-two. That is not a
-// decoration: the pitch IS the digit, so a listener with the lattice can read a handle back out of the sound.
+// THE LATTICE IS A432 AND ONLY A432. A hexbit has 16 states, and each maps to a whole multiple of the tuning:
+// state h sounds at 432·(h+1) hertz, so state 0 IS the tuning tone itself and no tone below or beside the 432
+// series exists here — a handle is eight of its harmonics, the uuid thirty-two. That is not a decoration: the
+// pitch IS the digit, so a listener with the lattice can read a handle back out of the sound.
 //
 // THE PHASE IS ACCUMULATED, NEVER THE PERIOD ROUNDED. No sample rate divides all sixteen tones — their lcm is
-// 216·lcm(1..16), far past any device — so a whole-samples period would quantise the lattice until neighbouring
+// 432·lcm(1..16), far past any device — so a whole-samples period would quantise the lattice until neighbouring
 // states collide on the same pitch and the digit is no longer readable. Instead each sample asks where phase
 // (i·hz) mod SAMPLE_RATE sits in its cycle: all-integer, and over any full second the wave completes EXACTLY hz
 // cycles, for every state at once. The jitter is at most one sample and the average pitch is the digit, exactly.
@@ -31,10 +32,10 @@
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 
-export const SAMPLE_RATE = 16000       // Nyquist 8000 clears state f's 3456 Hz with room for its early overtones
+export const SAMPLE_RATE = 16000       // Nyquist 8000 clears state f's 6912 Hz fundamental; folded overtones sit at 1/9 amplitude or less
 export const AMPLITUDE = 8000          // headroom inside 16-bit signed
-export const BASE_HZ = 216             // the 432 harmonic, halved: state 0 sounds here, state 1 at 432
-export const A432_HZ = BASE_HZ * 2     // the tuning the lattice is named for — the sound of hexbit state 1
+export const A432_HZ = 432             // the tuning, and the only base: every tone is a whole multiple of this
+export const BASE_HZ = A432_HZ         // state 0 sounds the tuning itself — nothing halved, nothing beside the series
 export const ATTACK_MS = 8             // the edge ramp: 128 samples in and out, the difference between a note and a click
 export const GAP_MS = 40               // the breath between tiles — cadence, so a listener can count eight
 

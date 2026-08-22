@@ -22,9 +22,9 @@ export * from './synth.js'
 
 export interface Utterance { lines: readonly string[]; text: string; address: string; handle: string; words: number; hexbits: number }
 
-/** COMPOSE — pure, and the whole testable half. Blank lines are dropped and whitespace collapsed so the same
+/** UTTER — pure, and the whole testable half. Blank lines are dropped and whitespace collapsed so the same
  *  passage always yields the same utterance, whatever it was formatted like on the page. */
-export const compose = (lines: readonly string[]): Utterance => {
+export const utter = (lines: readonly string[]): Utterance => {
   const clean = lines.map((l) => l.replace(/\s+/g, ' ').trim()).filter((l) => l.length > 0)
   const text = clean.join('\n')
   const address = toUuid(text)
@@ -34,7 +34,7 @@ export const compose = (lines: readonly string[]): Utterance => {
 
 /** a theorem, said the way a reader would say it: its name, then the statement it settles. */
 export const utterTheorem = (t: { key: string; name?: string; statement: string }): Utterance =>
-  compose([t.name ?? t.key, `It states: ${t.statement}`, `Sealed as ${t.key}.`])
+  utter([t.name ?? t.key, `It states: ${t.statement}`, `Sealed as ${t.key}.`])
 
 /** THE BOUNDARY — the only device write in this module.
  *
@@ -52,6 +52,6 @@ export const emit = (u: Utterance, opts: { voice?: string; rate?: number; dryRun
 
 /** read a passage aloud and return what was said, addressed — compose then emit, in one call. */
 export const readAloud = (lines: readonly string[], opts?: { voice?: string; rate?: number; dryRun?: boolean }): { utterance: Utterance; emitted: ReturnType<typeof emit> } => {
-  const utterance = compose(lines)
+  const utterance = utter(lines)
   return { utterance, emitted: emit(utterance, opts) }
 }
