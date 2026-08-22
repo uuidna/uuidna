@@ -22,13 +22,13 @@
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1456,
+        "theoremsMeasured": 1458,
         "ledgerKeys": 1458,
-        "unmeasured": 2,
+        "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "fc8bd4b8-e493-8ec6-bc94-8cea147cab1c"
+      "address": "dda5dead-d6df-8e9c-8cb3-8eb0b71ed808"
     },
     {
       "title": "Citation audit",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 70,
-        "sealedTheorems": 1456,
+        "sealedTheorems": 1458,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "1b41063d-135c-879e-a8e0-31d87b208862"
+      "address": "41c499c3-0af6-869f-863d-98eee8656b71"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 418,
+        "modules": 427,
         "roots": 289,
-        "supported": 414,
-        "dead": 4,
-        "receipt": "c2f36a45-2594-82a7-ac6c-807345fc9e73"
+        "supported": 419,
+        "dead": 8,
+        "receipt": "aa4ead07-7912-8bbc-9101-b2d1216b5815"
       },
-      "address": "aea991d0-6f61-8cc0-b5a5-c4efaed6ca23"
+      "address": "360fb843-c86f-885b-8fe9-72064469c361"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "ea57abda43e8ed68",
-        "unifiedFold": "6c7b8ff01725fb90"
+        "foldReceipt": "0c156079f53b1dff",
+        "unifiedFold": "9cc0d2feab03257c"
       },
-      "address": "13882755-a8fb-8530-b03f-affa563ead12"
+      "address": "16332771-7582-8be1-8dca-33dcc39f7a88"
     }
   ],
-  "receipt": "f0801869-c571-8fbb-961f-4ef12e241659",
+  "receipt": "1c9748ac-34d9-8d6f-96dc-36842d1d2ab3",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
