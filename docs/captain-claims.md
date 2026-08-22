@@ -1,6 +1,6 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-08-21
+**Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Total claimed:** 1439/1439 theorems — every one, by construction
@@ -871,7 +871,7 @@ computed, never typed:
 | in trial | count |
 |---|---|
 | sealed propositions | 1358 (1439 entries, 81 re-namings — a theorem is its Lean |
-| prose paragraphs tried | 4511 — 2126 usable, 2385 held open, 0 drained |
+| prose paragraphs tried | 4727 — 2150 usable, 2577 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
 docket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's
