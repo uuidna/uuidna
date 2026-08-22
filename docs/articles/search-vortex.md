@@ -36,10 +36,10 @@ the hard gate of the corroboration law.
 | `288173c1` | openalex.org | OpenAlex Nature-based solutions to climate change mitigation and adaptation in  [Urban Green Space and Health] | UNVERIFIED | VERIFIED |
 | `f232d61d` | openalex.org | OpenAlex Large-scale temperature response to external forcing in simulations an [Tree-ring climate responses] | UNVERIFIED | VERIFIED |
 | `ed17305f` | openalex.org | OpenAlex Modeling global water use for the 21st century: the Water Futures and  [Water-Energy-Food Nexus Studie] | UNVERIFIED | VERIFIED |
-| `2067ecd9` | openalex.org | OpenAlex Wind erosion and dust from <scp>US</scp> drylands: a review of causes, [Aeolian processes and effects] | UNVERIFIED | VERIFIED |
-| `afa6c93e` | openalex.org | OpenAlex Greenhouse Gas Emissions from Global Cities [Sustainability and Ecological ] | UNVERIFIED | VERIFIED |
+| `6f863252` | openalex.org | OpenAlex Adapting Urban Water Systems to a Changing Climate: Lessons from the M [Water resources management and] | UNVERIFIED | VERIFIED |
+| `2067ecd9` | openalex.org | OpenAlex Wind erosion and dust from US drylands: a review of causes, consequenc [Aeolian processes and effects] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `7e4c0b62`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `55dde443`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

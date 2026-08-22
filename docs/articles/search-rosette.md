@@ -17,21 +17,29 @@ the hard gate of the corroboration law.
 | `f325d9d5` | crossref.org | DOI 10.1079/pwkb.20147801385: Groundnut rosette virus. | UNVERIFIED | VERIFIED |
 | `fd0e891b` | crossref.org | DOI 10.1079/pwkb.20167800878: Virus de la rosette de l'arachide | UNVERIFIED | VERIFIED |
 | `0d8fb56b` | crossref.org | DOI 10.1093/benz/9780199773787.article.b00037344: Chicotot, Rosette | UNVERIFIED | VERIFIED |
-| `2d00a6c4` | crossref.org | DOI 10.1093/benz/9780199773787.article.b00091793: Idzowski, Rosette | UNVERIFIED | VERIFIED |
 | `246df382` | crossref.org | DOI 10.1093/gmo/9781561592630.article.o900005: Anday, Rosette | UNVERIFIED | VERIFIED |
 | `637f5dc0` | crossref.org | DOI 10.1079/pwkb.20137804391: Groundnut Rosette Disease | UNVERIFIED | VERIFIED |
+| `2d00a6c4` | crossref.org | DOI 10.1093/benz/9780199773787.article.b00091793: Idzowski, Rosette | UNVERIFIED | VERIFIED |
 | `e604bcb0` | crossref.org | DOI 10.1093/benz/9780199773787.article.b00020102: Bir, Rosette | UNVERIFIED | VERIFIED |
 | `666ad874` | crossref.org | DOI 10.1079/pwkb.20127801289: Groundnut rosette disease | UNVERIFIED | VERIFIED |
+| `b488f4e9` | semanticscholar.org | S2 Euclid: Discovery of bright z~7 Lyman-break galaxies in Ultr | UNVERIFIED | VERIFIED |
+| `6557c541` | semanticscholar.org | S2 Euclid preparation. LVII. Observational expectations for red | UNVERIFIED | VERIFIED |
+| `09ae5b03` | semanticscholar.org | S2 Implications of Broad [O III] 4364 and UV Line Emission in T | UNVERIFIED | VERIFIED |
+| `6f3bf71a` | semanticscholar.org | S2 A solar metallicity galaxy at z > 7? Possible detection of t | UNVERIFIED | VERIFIED |
+| `a778a4ea` | semanticscholar.org | S2 A solar metallicity galaxy at 𝑧 > 7 ? Detection of the [N i | UNVERIFIED | VERIFIED |
+| `307acd6c` | semanticscholar.org | S2 Comparison of the effects of single versus multiple agent ch — AI tldr: Subpopulation of the T‐ RFC which has been labeled Active T‐RFC appears to be the best ind | UNVERIFIED | VERIFIED |
+| `4f8d6c1c` | semanticscholar.org | S2 Herschel : the first science highlights Special feature L et | UNVERIFIED | VERIFIED |
+| `50f9e3eb` | semanticscholar.org | S2 High‐resolution proton metabolic mapping of the human brain  — AI tldr: High‐resolution (in‐plane resolution of 2 × 2 mm2) mapping of proton (1H) metabolites in t | UNVERIFIED | VERIFIED |
 | `cfd6e270` | openalex.org | OpenAlex Millennium Solutions - The ℤ/9 Vortex Framework [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
 | `e97b4508` | openalex.org | OpenAlex Design and testing of a low-energy and -carbon prototype structure tha [Structural Analysis and Optimi] | UNVERIFIED | VERIFIED |
-| `5f9cdf93` | openalex.org | OpenAlex Random walk models in the life sciences: including births, deaths and  [Diffusion and Search Dynamics] | UNVERIFIED | VERIFIED |
-| `315a9b97` | openalex.org | OpenAlex Microstructural Analysis of Additive Manufactured Walls of AA5083 and  [Additive Manufacturing and 3D ] | UNVERIFIED | VERIFIED |
-| `73f583a1` | openalex.org | OpenAlex Optimization of a LEO-PNT Constellation: Design Considerations and Ope [Spacecraft Design and Technolo] | UNVERIFIED | VERIFIED |
-| `f2b1624a` | openalex.org | OpenAlex Dependency of high-order harmonics to polarisation properties of many- [Laser-Matter Interactions and ] | UNVERIFIED | VERIFIED |
-| `748d66df` | openalex.org | OpenAlex Integral-Transform Methods in Medical Artificial Intelligence: Theorem [Mathematical Analysis and Tran] | UNVERIFIED | VERIFIED |
-| `ea0a5d8a` | openalex.org | OpenAlex  [Polynomial and algebraic compu] | UNVERIFIED | VERIFIED |
+| `7be32866` | openalex.org | OpenAlex The ℤ/9 Vortex Framework: reflections, division-by-zero as domain chan [Algebraic and Geometric Analys] | UNVERIFIED | VERIFIED |
+| `155c3116` | openalex.org | OpenAlex The ℤ/9 Vortex Framework: reflections, division-by-zero as domain chan [Algebraic and Geometric Analys] | UNVERIFIED | VERIFIED |
+| `65a67ed5` | openalex.org | OpenAlex The ℤ/9 Vortex Framework: reflections, division-by-zero as domain chan [Algebraic and Geometric Analys] | UNVERIFIED | VERIFIED |
+| `0905315d` | openalex.org | OpenAlex The ℤ/9 Vortex Framework: reflections, division-by-zero as domain chan [Algebraic and Geometric Analys] | UNVERIFIED | VERIFIED |
+| `16cc7d26` | openalex.org | OpenAlex The ℤ/9 Vortex Framework: reflections, division-by-zero as domain chan [Algebraic and Geometric Analys] | UNVERIFIED | VERIFIED |
+| `bc90aca5` | openalex.org | OpenAlex The ℤ/9 Vortex Framework: reflections, division-by-zero as domain chan [Algebraic and Geometric Analys] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `40751e5f`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `1c0df69b`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

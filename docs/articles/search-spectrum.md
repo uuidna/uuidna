@@ -23,15 +23,15 @@ the hard gate of the corroboration law.
 | `2b006051` | crossref.org | DOI 10.29173/spectrum101: Editorial Note | UNVERIFIED | VERIFIED |
 | `3166c01d` | crossref.org | DOI 10.53053/xwyf1768: 2022: The year in review | UNVERIFIED | VERIFIED |
 | `24d9f59b` | openalex.org | OpenAlex Raman Spectrum of Graphene and Graphene Layers [Graphene research and applicat] | UNVERIFIED | VERIFIED |
-| `741fb3ab` | openalex.org | OpenAlex Raman Spectrum of Graphite [Graphite, nuclear technology, ] | UNVERIFIED | VERIFIED |
 | `2a4d1cbb` | openalex.org | OpenAlex The empirical mode decomposition and the Hilbert spectrum for nonlinea [Time Series Analysis and Forec] | UNVERIFIED | VERIFIED |
+| `741fb3ab` | openalex.org | OpenAlex Raman Spectrum of Graphite [Graphite, nuclear technology, ] | UNVERIFIED | VERIFIED |
 | `90d745c2` | openalex.org | OpenAlex The worldwide leaf economics spectrum [Plant Water Relations and Carb] | UNVERIFIED | VERIFIED |
 | `ed2debac` | openalex.org | OpenAlex Exploring the full spectrum of macrophage activation [Immune cells in cancer] | UNVERIFIED | VERIFIED |
 | `689e8cb0` | openalex.org | OpenAlex The mutational constraint spectrum quantified from variation in 141,45 [Genomics and Rare Diseases] | UNVERIFIED | VERIFIED |
 | `0556d374` | openalex.org | OpenAlex Spectrum estimation and harmonic analysis [Image and Signal Denoising Met] | UNVERIFIED | VERIFIED |
 | `973d15cb` | openalex.org | OpenAlex Secure spread spectrum watermarking for multimedia [Advanced Steganography and Wat] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `1cc142dc`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `4399b65c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

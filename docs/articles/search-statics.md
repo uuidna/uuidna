@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `b01f8466` | zenodo.org | zenodo record 5835288: Creating Conditions for the Industrial  Application of Basalt-Plastic Reinforcem | UNVERIFIED | VERIFIED |
-| `96123ad4` | zenodo.org | zenodo record 2667917: Social and literary structures: how are they interrelated? | UNVERIFIED | VERIFIED |
-| `ff19e5bd` | zenodo.org | zenodo record 5709840: Co-cure joining of epoxy composites with rapidly UV-irradiated PEEK and PPS comp | UNVERIFIED | VERIFIED |
-| `9bae131d` | zenodo.org | zenodo record 7038052: How to reach >90% Open Access | UNVERIFIED | VERIFIED |
-| `a23eb5a2` | zenodo.org | zenodo record 17713404: Building Open Research Data Services | UNVERIFIED | VERIFIED |
-| `aa02a4a6` | zenodo.org | zenodo record 14217158: Global comparative structural analysis of responses to protein phosphorylation | UNVERIFIED | VERIFIED |
-| `95a6b681` | zenodo.org | zenodo record 14536020: Course "Research Data Management - The Basics", Lib4RI 2024 | UNVERIFIED | VERIFIED |
-| `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
 | `d216f0de` | crossref.org | DOI 10.1016/0141-0296(88)90036-3: Response of guyed offshore towers to stochastic loads: Time domain vs frequency  | UNVERIFIED | VERIFIED |
 | `16dca460` | crossref.org | DOI 10.1016/j.istruc.2021.05.082: An investigation of bridge influence line identification using time-domain and f | UNVERIFIED | VERIFIED |
 | `9698d2f0` | crossref.org | DOI 10.31274/rtd-180816-50: Identification of frequency domain and time domain aeroelastic parameters for fl | UNVERIFIED | VERIFIED |
@@ -33,13 +25,13 @@ the hard gate of the corroboration law.
 | `d62acd11` | openalex.org | OpenAlex Structure of the SARS-CoV-2 spike receptor-binding domain bound to the [SARS-CoV-2 and COVID-19 Resear] | UNVERIFIED | VERIFIED |
 | `0910c92d` | openalex.org | OpenAlex Cognitive Flexibility, Constructivism, and Hypertext: Random Access In [Visual and Cognitive Learning ] | UNVERIFIED | VERIFIED |
 | `83f77d5c` | openalex.org | OpenAlex Phylogenetic structure of the prokaryotic domain: The primary kingdoms [Genomics and Phylogenetic Stud] | UNVERIFIED | VERIFIED |
-| `b75095a2` | openalex.org | OpenAlex CATH – a hierarchic classification of protein domain structures [Protein Structure and Dynamics] | UNVERIFIED | VERIFIED |
 | `a11df742` | openalex.org | OpenAlex Cognitive Flexibility Theory: Advanced Knowledge Acquisition in Ill-St [Educational Games and Gamifica] | UNVERIFIED | VERIFIED |
+| `b75095a2` | openalex.org | OpenAlex CATH – a hierarchic classification of protein domain structures [Protein Structure and Dynamics] | UNVERIFIED | VERIFIED |
 | `27dda5f9` | openalex.org | OpenAlex Protein folding: local structures, domains, subunits, and assemblies [Protein Structure and Dynamics] | UNVERIFIED | VERIFIED |
-| `1ea26d24` | openalex.org | OpenAlex Bacterial Membranes: Structure, Domains, and Function [Bacterial Genetics and Biotech] | UNVERIFIED | VERIFIED |
-| `723f8651` | openalex.org | OpenAlex Structure of SARS Coronavirus Spike Receptor-Binding Domain Complexed  [SARS-CoV-2 and COVID-19 Resear] | UNVERIFIED | VERIFIED |
+| `03780b0f` | openalex.org | OpenAlex Structure of the MDM2 Oncoprotein Bound to the p53 Tumor Suppressor Tr [Cancer-related Molecular Pathw] | UNVERIFIED | VERIFIED |
+| `5bb8762b` | openalex.org | OpenAlex The eukaryotic protein kinase superfamily: kinase (catalytic) domain s [Protein Structure and Dynamics] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `cd4705ff`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `9ace8b3e`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

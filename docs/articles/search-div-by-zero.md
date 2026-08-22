@@ -16,8 +16,8 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `240f17fb` | zenodo.org | zenodo record 7270363: HISTORY OF THE DIVISION BY ZERO AND DIVISION BY ZERO CALCULUS | UNVERIFIED | VERIFIED |
 | `b6a77d00` | zenodo.org | zenodo record 7270398: Geometry and Division by Zero Calculus | UNVERIFIED | VERIFIED |
-| `5e06279a` | zenodo.org | zenodo record 3692416: Division by zero | UNVERIFIED | VERIFIED |
 | `0ce1878f` | zenodo.org | zenodo record 4637008: Division by Zero Chart Proposition | UNVERIFIED | VERIFIED |
+| `5e06279a` | zenodo.org | zenodo record 3692416: Division by zero | UNVERIFIED | VERIFIED |
 | `65000497` | zenodo.org | zenodo record 3668512: Division by zero | UNVERIFIED | VERIFIED |
 | `46c64cf1` | zenodo.org | zenodo record 7270427: DIVISION BY ZERO CALCULUS IN ORDINARY DIFFERENTIAL EQUATIONS | UNVERIFIED | VERIFIED |
 | `b318d27e` | zenodo.org | zenodo record 7376468: AN ICONIC CONFIGURATION OF WASAN GEOMETRY WITH 1/0 = 0 | UNVERIFIED | VERIFIED |
@@ -30,8 +30,16 @@ the hard gate of the corroboration law.
 | `baf7cecc` | crossref.org | DOI 10.1163/9789004691568_041: Division by Zero (khahara) in Indian Mathematics | UNVERIFIED | VERIFIED |
 | `23436163` | crossref.org | DOI 10.4236/9781649972808: Division by Zero Calculus—History and Development | UNVERIFIED | VERIFIED |
 | `cd7f8e71` | crossref.org | DOI 10.4236/9781649972746: Introduction to the Division by Zero Calculus | UNVERIFIED | VERIFIED |
+| `dcba919e` | openalex.org | OpenAlex Division by zero, pseudo-division by zero, Zhang dynamics method and Z [Adaptive Control of Nonlinear ] | UNVERIFIED | VERIFIED |
+| `24638565` | openalex.org | OpenAlex Division by Zero in Common Meadows [Polynomial and algebraic compu] | UNVERIFIED | VERIFIED |
+| `90487623` | openalex.org | OpenAlex Wheels – on division by zero [Advanced Algebra and Logic] | UNVERIFIED | VERIFIED |
+| `cec7f39b` | openalex.org | OpenAlex Division by Zero [History and Theory of Mathemat] | UNVERIFIED | VERIFIED |
+| `2b71e78b` | openalex.org | OpenAlex Division by zero [Mathematics Education and Teac] | UNVERIFIED | VERIFIED |
+| `8af4cde4` | openalex.org | OpenAlex Division by Zero z/0 = 0 in Euclidean Spaces [Mathematics and Applications] | UNVERIFIED | VERIFIED |
+| `3500d1ea` | openalex.org | OpenAlex Zero forcing and minimum mean-square-error equalization for multiuser  [Wireless Communication Network] | UNVERIFIED | VERIFIED |
+| `0740ca9a` | openalex.org | OpenAlex Matrices and Division by Zero z/0 = 0 [Mathematics and Applications] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `17b1c375`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `20157c9f`** (fold of every finding's address — recompute by re-running the search).
 
 ## The novelty harvest
 

@@ -28,10 +28,10 @@ the hard gate of the corroboration law.
 | `92620735` | openalex.org | OpenAlex Development of an Instrument to Measure the Perceptions of Adopting an [Technology Adoption and User B] | UNVERIFIED | VERIFIED |
 | `b86b15af` | openalex.org | OpenAlex Mendelian randomization with invalid instruments: effect estimation an [Genetic Associations and Epide] | UNVERIFIED | VERIFIED |
 | `9045c6c9` | openalex.org | OpenAlex Guidelines, criteria, and rules of thumb for evaluating normed and sta [Reliability and Agreement in M] | UNVERIFIED | VERIFIED |
+| `8c6843f8` | openalex.org | OpenAlex A Note on the Theme of Too Many Instruments * [Monetary Policy and Economic I] | UNVERIFIED | VERIFIED |
 | `bfc586ee` | openalex.org | OpenAlex The European Organization for Research and Treatment of Cancer QLQ-C30 [Cancer survivorship and care] | UNVERIFIED | VERIFIED |
-| `881f248e` | openalex.org | OpenAlex AERONET—A Federated Instrument Network and Data Archive for Aerosol Ch [Atmospheric aerosols and cloud] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `d541fa53`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `d7b3baa0`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

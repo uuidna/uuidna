@@ -24,14 +24,14 @@ the hard gate of the corroboration law.
 | `7b864478` | crossref.org | DOI 10.1787/888933729705: Fiscal stance and fiscal stance: Brazil | UNVERIFIED | VERIFIED |
 | `ffacda05` | openalex.org | OpenAlex Lower limb alignment and foot angle are related to stance phase knee a [Total Knee Arthroplasty Outcom] | UNVERIFIED | VERIFIED |
 | `25ce0e46` | openalex.org | OpenAlex Unified theory regarding A/P and M/L balance in quiet stance [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
-| `1a19ffcd` | openalex.org | OpenAlex Results of proximal tibial osteotomy. The effects of tibiofemoral angl [Total Knee Arthroplasty Outcom] | UNVERIFIED | VERIFIED |
 | `5d2ec0b4` | openalex.org | OpenAlex Effect of frontal plane tibiofemoral angle on the stress and strain at [Lower Extremity Biomechanics a] | UNVERIFIED | VERIFIED |
+| `1a19ffcd` | openalex.org | OpenAlex Results of proximal tibial osteotomy. The effects of tibiofemoral angl [Total Knee Arthroplasty Outcom] | UNVERIFIED | VERIFIED |
 | `1e411f51` | openalex.org | OpenAlex Stance Width and Angle at Sea: Effects of Sea State and Body Orientati [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
 | `7058900d` | openalex.org | OpenAlex Preferred placement of the feet during quiet stance: development of a  [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
 | `5cbd7f0b` | openalex.org | OpenAlex The Simplest Walking Model: Stability, Complexity, and Scaling [Robotic Locomotion and Control] | UNVERIFIED | VERIFIED |
 | `270185bd` | openalex.org | OpenAlex How to squat? Effects of various stance widths, foot placement angles  [Lower Extremity Biomechanics a] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `9fa34ad1`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `6efb28e7`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

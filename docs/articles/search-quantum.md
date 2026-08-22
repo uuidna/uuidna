@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `2e1d5253` | zenodo.org | zenodo record 4971743: QUANTUM COMPUTING | UNVERIFIED | VERIFIED |
-| `59d9ba34` | zenodo.org | zenodo record 15766134: PERSEPSI MAHASISWA TERHADAP PENGARUH FISIKA DALAM PERKEMBANGAN ILMU KOMPUTER | UNVERIFIED | VERIFIED |
-| `2b539b1e` | zenodo.org | zenodo record 17636264: Multimodal Brain Imaging Fusion Using Machine Learning for Enhanced Diagnostic A | UNVERIFIED | VERIFIED |
-| `11971ca0` | zenodo.org | zenodo record 15150020: Recent Trends of Quantum Mechanics in Computing | UNVERIFIED | VERIFIED |
-| `73c7af54` | zenodo.org | zenodo record 822078: The Existence of Quantum Computer | UNVERIFIED | VERIFIED |
-| `c7d6dc8a` | zenodo.org | zenodo record 839139: THE POWER OF QUANTUM COMPUTER AND ITS LIMITATIONS | UNVERIFIED | VERIFIED |
-| `b66b2057` | zenodo.org | zenodo record 10051347: STATE OF THE ART OF QUANTUM COMPUTING: OVERVIEW | UNVERIFIED | VERIFIED |
-| `172b2639` | zenodo.org | zenodo record 19400449: An Extensible Quantum Network Simulator Built on ns-3: Q2NS Design and Evaluatio | UNVERIFIED | VERIFIED |
 | `fdd07f87` | crossref.org | DOI 10.1007/1-4020-7895-1_3: Quantum Computer Programming | UNVERIFIED | VERIFIED |
 | `03123e8b` | crossref.org | DOI 10.1007/978-0-387-36791-0_2: Quantum Computer Simulation | UNVERIFIED | VERIFIED |
 | `a5d2021d` | crossref.org | DOI 10.1007/978-0-387-36791-0_3: Quantum Computer Programming | UNVERIFIED | VERIFIED |
@@ -30,8 +22,16 @@ the hard gate of the corroboration law.
 | `a02bf173` | crossref.org | DOI 10.3390/quantum6030032: The Planck Computer Is the Quantum Gravity Computer: We Live inside a Gigantic C | UNVERIFIED | VERIFIED |
 | `dc2b8185` | crossref.org | DOI 10.58837/chula.the.2019.156: Quantum comparator circuit on superconducting quantum computer | UNVERIFIED | VERIFIED |
 | `02dc51d5` | crossref.org | DOI 10.1007/springerreference_104340: Quantum Computer | UNVERIFIED | VERIFIED |
+| `dd54e638` | openalex.org | OpenAlex A One-Way Quantum Computer [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
+| `613a007e` | openalex.org | OpenAlex Quantum computers [Quantum Information and Crypto] | UNVERIFIED | VERIFIED |
+| `35f7e2a4` | openalex.org | OpenAlex Quantum theory, the Church–Turing principle and the universal quantum  [Quantum Mechanics and Applicat] | UNVERIFIED | VERIFIED |
+| `25a80ad0` | openalex.org | OpenAlex Polynomial-Time Algorithms for Prime Factorization and Discrete Logari [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
+| `86a8fa3e` | openalex.org | OpenAlex Scheme for reducing decoherence in quantum computer memory [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
+| `eec897c6` | openalex.org | OpenAlex A silicon-based nuclear spin quantum computer [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
+| `fc453492` | openalex.org | OpenAlex Polynomial-Time Algorithms for Prime Factorization and Discrete Logari [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
+| `41c9f893` | openalex.org | OpenAlex Architecture for a large-scale ion-trap quantum computer [Quantum Information and Crypto] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `61876094`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `15bfd0b7`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

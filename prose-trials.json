@@ -1,10 +1,10 @@
 {
- "surfaces": 200,
- "paragraphs_tried": 4511,
- "usable": 2126,
- "unverified": 2385,
+ "surfaces": 224,
+ "paragraphs_tried": 4727,
+ "usable": 2150,
+ "unverified": 2577,
  "drained": 0,
- "receipt": "c1180cff-4442-8aa9-9691-5af372263b3f",
+ "receipt": "79ea6934-d528-8467-a3e0-f7f4ccbbc1d6",
  "develop": [
   {
    "surface": "README.md",
@@ -11296,6 +11296,32 @@
    ]
   },
   {
+   "surface": "docs/articles/search-affine.md",
+   "address": "14540847-c9d1-8877-bc56-64c75c8f5571",
+   "prose": "- [group_holds_fiftyfour](/theorem/group_holds_fiftyfour) — `(agl.length = 54) ∧ (agl.eraseDups.length = 54) ∧ (6 * 9 = 54)`\n- [units_are_coprime_six](/theorem/units_are_coprime_six) — `((List.range 9).filter (fun a => (List.range 9).any (fun c => (a * c) % 9 == 1)) = [1,2,4,`\n- [composition_stays_inside](/theorem/composition_stays_inside) — `agl.all (fun f => agl.all (fun g => agl.contains (comp f g)))`\n- [identity_leaves_all](/theorem/identity_leaves_all) — `(agl.contains 9) ∧ (agl.all (fun f => (comp f 9 == f) && (comp 9 f == f)))`\n- [every_map_inverts](/theorem/every_map_inverts) — `agl.all (fun f => agl.any (fun g => comp f g == 9))`\n- [group_does_not_commute](/theorem/group_does_not_commute) — `(agl.any (fun f => agl.any (fun g => comp f g != comp g f))) ∧ (2376 + 540 = 2916) ∧ (2376`",
+   "cites": [
+    "group_holds_fiftyfour",
+    "units_are_coprime_six",
+    "composition_stays_inside",
+    "identity_leaves_all",
+    "every_map_inverts",
+    "group_does_not_commute"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-alignment.md",
+   "address": "feb6de9e-494b-82d9-a067-ef433ca0f992",
+   "prose": "- [hexbit_is_four_qubits](/theorem/hexbit_is_four_qubits) — `((2:Nat)^4 = 16) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32)`\n- [moduli_waste_states](/theorem/moduli_waste_states) — `[9,10,15,16].map (fun m => 16 - m) = [7,6,1,0]`\n- [sixteen_alone_tiles](/theorem/sixteen_alone_tiles) — `(16 - 16 = 0) ∧ ([9,10,15].all (fun m => 16 - m > 0))`\n- [ten_costs_more_than_fifteen](/theorem/ten_costs_more_than_fifteen) — `(16 - 10 = 6) ∧ (16 - 15 = 1) ∧ (16 - 10 > 16 - 15)`\n- [powers_of_two_are_the_substance](/theorem/powers_of_two_are_the_substance) — `((2:Nat)^4 = 16 ∧ (2:Nat)^5 = 32 ∧ (2:Nat)^7 = 128 ∧ (2:Nat)^16 = 65536) ∧ ((2:Nat)^3 < 9 `\n- [handle_discards_before_walking](/theorem/handle_discards_before_walking) — `(32 - 4 = 28) ∧ (32 ≠ 4) ∧ (4 * 8 = 32)`",
+   "cites": [
+    "hexbit_is_four_qubits",
+    "moduli_waste_states",
+    "sixteen_alone_tiles",
+    "ten_costs_more_than_fifteen",
+    "powers_of_two_are_the_substance",
+    "handle_discards_before_walking"
+   ]
+  },
+  {
    "surface": "docs/articles/search-anti-fraud.md",
    "address": "e787ba36-a6fc-86a4-bc41-e7fdd46e0e05",
    "prose": "- [captain_commission_two_coins](/theorem/captain_commission_two_coins) — `(commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0)`\n- [forgery_flags_every_mismatch](/theorem/forgery_flags_every_mismatch) — `(((List.range 9).flatMap (fun c => (List.range 9).map (fun s => forged c s))).filter (fun `\n- [double_spend_walks_every_list](/theorem/double_spend_walks_every_list) — `(lists.length = 27) ∧ ((lists.filter (fun l => [1,2,3].any (fun t => doubleSpent t l))).le`\n- [single_claim_never_flags](/theorem/single_claim_never_flags) — `(doubleSpent 1 [1,2,3] = false) ∧ (claimsOf 1 [1,2,3] = 1) ∧ (doubleSpent 3 [3,1,3] = true`\n- [vote_passes_iff_weight_paid](/theorem/vote_passes_iff_weight_paid) — `(List.range 4).all (fun w => (List.range 4).all (fun c => (voteOk w c == 1) == (w == c)))`\n- [anti_fraud_check_deterministic](/theorem/anti_fraud_check_deterministic) — `(((List.range 2).flatMap (fun f => (List.range 2).flatMap (fun d => (List.range 2).map (fu`\n- [sealed_theorem_not_forged](/theorem/sealed_theorem_not_forged) — `((List.range 9).map (fun c => forged c c)).all (fun x => x == 0)`\n- [honesty_gate_passes_iff_all_sealed](/theorem/honesty_gate_passes_iff_all_sealed) — `(List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (cl`\n- [conformance_failure_detects_intrusion](/theorem/conformance_failure_detects_intrusion) — `(List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (f `\n- [honesty_gate_is_theorem_not_oracle](/theorem/honesty_gate_is_theorem_not_oracle) — `(List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => cle`\n- [overclaim_with_fake_cite_fails](/theorem/overclaim_with_fake_cite_fails) — `(List.range 2).all (fun f => (List.range 2).all (fun d => cleanAudit f d 1 == 0))`\n- [fraud_verdict_is_exactly_one](/theorem/fraud_verdict_is_exactly_one) — `(List.range 2).all (fun c => (List.range 2).all (fun s => verified c s + unverified c s ==`\n- [fabricated_cite_stays_unverified](/theorem/fabricated_cite_stays_unverified) — `(unverified 1 0 = 1) ∧ (verified 1 1 = 1) ∧ (verified 1 0 = 0)`",
@@ -11353,8 +11379,8 @@
   },
   {
    "surface": "docs/articles/search-audit.md",
-   "address": "5845902a-cd0a-8a55-a96d-15a874172c1f",
-   "prose": "- [wall_steady_state](/theorem/wall_steady_state) — `(3 * 2 = 6) ∧ (2 > 1) ∧ (3 > 0)`\n- [flag_truth_table](/theorem/flag_truth_table) — `((List.range 8).map (fun n => flag (n%2) (n/2%2) (n/4%2))) = [0,1,0,0,0,0,0,0]`\n- [flag_requires_hollow](/theorem/flag_requires_hollow) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2)`\n- [demarcation_clears](/theorem/demarcation_clears) — `(List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/2%2) == 0)`\n- [backing_clears](/theorem/backing_clears) — `(List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/4%2) == 0)`\n- [exactly_one_flag](/theorem/exactly_one_flag) — `((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1`\n- [flag_matches_spec](/theorem/flag_matches_spec) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) `\n- [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) — `(32 = 2^5) ∧ (0 < 32)`\n- [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) — `((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1)`",
+   "address": "ecff76ac-9d59-89f5-b546-0595e0542d3a",
+   "prose": "- [wall_steady_state](/theorem/wall_steady_state) — `(3 * 2 = 6) ∧ (2 > 1) ∧ (3 > 0)`\n- [flag_truth_table](/theorem/flag_truth_table) — `((List.range 8).map (fun n => flag (n%2) (n/2%2) (n/4%2))) = [0,1,0,0,0,0,0,0]`\n- [flag_requires_hollow](/theorem/flag_requires_hollow) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2)`\n- [demarcation_clears](/theorem/demarcation_clears) — `(List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/2%2) == 0)`\n- [backing_clears](/theorem/backing_clears) — `(List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/4%2) == 0)`\n- [exactly_one_flag](/theorem/exactly_one_flag) — `((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1`\n- [flag_matches_spec](/theorem/flag_matches_spec) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) `\n- [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) — `(32 = 2^5) ∧ (0 < 32)`\n- [witnesses_locate_faults](/theorem/witnesses_locate_faults) — `(2*1+1 = 3) ∧ (2*2+1 = 5) ∧ ([3,5].all (fun n => n % 2 == 1)) ∧ (4 % 2 = 0) ∧ (3 - 1 = 2)`\n- [handle_splits_four](/theorem/handle_splits_four) — `(8 = 4 * 2) ∧ (256^4 = 4294967296) ∧ (16^8 = 4294967296) ∧ (256^4 = 16^8)`\n- [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) — `((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1)`\n- [prose_coverage_total](/theorem/prose_coverage_total) — `(([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 8, 13, 24, 27, 7, 6, 8, 19, 17, 7, 5, 64, 8, 16, 8`\n- [prose_round_trips](/theorem/prose_round_trips) — `(1390 + 0 = 1390) ∧ (0 = 0)`\n- [prose_terminator_escaped](/theorem/prose_terminator_escaped) — `(0 + 1390 = 1390) ∧ (0 = 0)`\n- [prose_beats_restatement](/theorem/prose_beats_restatement) — `(0 < 1390) ∧ (0 + 1390 = 1390)`\n- [prose_folds_receipt](/theorem/prose_folds_receipt) — `(([1078, 1237, 1545, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 1340, 3451, 4156, 9501`\n- [prose_audit_total](/theorem/prose_audit_total) — `(0 < 90) ∧ (0 < 3) ∧ (1390 = 1390 + 0)`",
    "cites": [
     "wall_steady_state",
     "flag_truth_table",
@@ -11364,13 +11390,21 @@
     "exactly_one_flag",
     "flag_matches_spec",
     "sanitize_depth_bounded",
-    "drift_is_named_or_caught"
+    "witnesses_locate_faults",
+    "handle_splits_four",
+    "drift_is_named_or_caught",
+    "prose_coverage_total",
+    "prose_round_trips",
+    "prose_terminator_escaped",
+    "prose_beats_restatement",
+    "prose_folds_receipt",
+    "prose_audit_total"
    ]
   },
   {
    "surface": "docs/articles/search-bio-physics.md",
-   "address": "80259cb4-3ea6-857a-afeb-bb1d0033557f",
-   "prose": "- [abo_klein_four](/theorem/abo_klein_four) — `(List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == l`\n- [blood_types_eight](/theorem/blood_types_eight) — `(2:Nat)^3 = 8`\n- [dna_base_pairing_involution](/theorem/dna_base_pairing_involution) — `(List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b))`\n- [codons_sixty_four](/theorem/codons_sixty_four) — `(4:Nat)^3 = 64`\n- [sound_ladder_432](/theorem/sound_ladder_432) — `((List.range' 1 9).map (fun d => 48 * d) = [48,96,144,192,240,288,336,384,432]) ∧ (48 * 9 `\n- [octave_doubling](/theorem/octave_doubling) — `[48, 96, 192, 384] = [48, 48*2, 96*2, 192*2]`\n- [electron_shells_2n2](/theorem/electron_shells_2n2) — `(List.range' 1 4).map (fun n => 2 * n * n) = [2, 8, 18, 32]`\n- [subshell_capacities_4l2](/theorem/subshell_capacities_4l2) — `(List.range 4).map (fun l => 4 * l + 2) = [2, 6, 10, 14]`\n- [circle_of_fifths](/theorem/circle_of_fifths) — `(List.range 12).all (fun t => (List.range 12).any (fun k => (7 * k) % 12 == t))`\n- [tritone_involution](/theorem/tritone_involution) — `(List.range 12).all (fun p => ((p + 6) % 12 + 6) % 12 == p && (p + 6) % 12 != p)`\n- [ph_reflection_seven](/theorem/ph_reflection_seven) — `((List.range 15).all (fun p => 14 - (14 - p) == p)) ∧ ((List.range 15).filter (fun p => 14`\n- [ph_conjugate_sum_14](/theorem/ph_conjugate_sum_14) — `(List.range 15).all (fun p => p + (14 - p) == 14)`\n- [punnett_three_to_one](/theorem/punnett_three_to_one) — `(([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 1 || p.2 == 1)).length = 3) ∧ (([(0,0)`\n- [heterozygote_symmetry](/theorem/heterozygote_symmetry) — `(([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == p.2)).length = 2) ∧ (([(0,0),(0,1),(1,`\n- [colour_complement_involution](/theorem/colour_complement_involution) — `(List.range 6).all (fun h => ((h + 3) % 6 + 3) % 6 == h && (h + 3) % 6 != h)`\n- [primary_secondary_split](/theorem/primary_secondary_split) — `((List.range 6).filter (fun h => h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h `",
+   "address": "b9159940-0775-8b1e-a3e7-f400fbd81717",
+   "prose": "- [abo_klein_four](/theorem/abo_klein_four) — `(List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == l`\n- [blood_types_eight](/theorem/blood_types_eight) — `(2:Nat)^3 = 8`\n- [dna_base_pairing_involution](/theorem/dna_base_pairing_involution) — `(List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b))`\n- [codons_sixty_four](/theorem/codons_sixty_four) — `(4:Nat)^3 = 64`\n- [sound_ladder_432](/theorem/sound_ladder_432) — `((List.range' 1 9).map (fun d => 48 * d) = [48,96,144,192,240,288,336,384,432]) ∧ (48 * 9 `\n- [octave_doubling](/theorem/octave_doubling) — `[48, 96, 192, 384] = [48, 48*2, 96*2, 192*2]`\n- [electron_shells_2n2](/theorem/electron_shells_2n2) — `(List.range' 1 4).map (fun n => 2 * n * n) = [2, 8, 18, 32]`\n- [subshell_capacities_4l2](/theorem/subshell_capacities_4l2) — `(List.range 4).map (fun l => 4 * l + 2) = [2, 6, 10, 14]`\n- [circle_of_fifths](/theorem/circle_of_fifths) — `(List.range 12).all (fun t => (List.range 12).any (fun k => (7 * k) % 12 == t))`\n- [tritone_involution](/theorem/tritone_involution) — `(List.range 12).all (fun p => ((p + 6) % 12 + 6) % 12 == p && (p + 6) % 12 != p)`\n- [ph_reflection_seven](/theorem/ph_reflection_seven) — `((List.range 15).all (fun p => 14 - (14 - p) == p)) ∧ ((List.range 15).filter (fun p => 14`\n- [ph_conjugate_sum_14](/theorem/ph_conjugate_sum_14) — `(List.range 15).all (fun p => p + (14 - p) == 14)`\n- [punnett_three_to_one](/theorem/punnett_three_to_one) — `(([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 1 || p.2 == 1)).length = 3) ∧ (([(0,0)`\n- [heterozygote_symmetry](/theorem/heterozygote_symmetry) — `(([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == p.2)).length = 2) ∧ (([(0,0),(0,1),(1,`\n- [colour_complement_involution](/theorem/colour_complement_involution) — `(List.range 6).all (fun h => ((h + 3) % 6 + 3) % 6 == h && (h + 3) % 6 != h)`\n- [primary_secondary_split](/theorem/primary_secondary_split) — `((List.range 6).filter (fun h => h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h `\n- [reflection_is_total_by_the_key](/theorem/reflection_is_total_by_the_key) — `(([1, 2, 4, 5, 7, 8].filter (fun u => (u * u) % 9 == 1)) = [1, 8]) ∧ (((List.range 101).fi`",
    "cites": [
     "abo_klein_four",
     "blood_types_eight",
@@ -11387,7 +11421,33 @@
     "punnett_three_to_one",
     "heterozygote_symmetry",
     "colour_complement_involution",
-    "primary_secondary_split"
+    "primary_secondary_split",
+    "reflection_is_total_by_the_key"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-boolean.md",
+   "address": "87b9594b-0fb6-88b5-a6c9-4917c18c5d7d",
+   "prose": "- [sixteen_binary_functions](/theorem/sixteen_binary_functions) — `((List.range 16).map rowsOf).eraseDups.length = 16 ∧ ((2:Nat)^(2^2) = 16)`\n- [gates_name_their_tables](/theorem/gates_name_their_tables) — `(rowsOf 8 = [0,0,0,1]) ∧ (rowsOf 14 = [0,1,1,1]) ∧ (rowsOf 6 = [0,1,1,0]) ∧ (rowsOf 7 = [1`\n- [nand_rebuilds_the_others](/theorem/nand_rebuilds_the_others) — `((List.range 2).all (fun a => nandB a a == notB a)) ∧ ((List.range 2).all (fun a => (List.`\n- [two_functions_ignore_input](/theorem/two_functions_ignore_input) — `(((List.range 16).filter (fun m => (rowsOf m).eraseDups.length == 1)).length = 2) ∧ (((Lis`\n- [xor_differs_from_or](/theorem/xor_differs_from_or) — `(rowsOf 6 ≠ rowsOf 14) ∧ ((rowsOf 6).take 3 = (rowsOf 14).take 3) ∧ (rowsOf 6 = [0,1,1,0])`\n- [implication_is_a_gate](/theorem/implication_is_a_gate) — `(rowsOf 13 = [1,0,1,1]) ∧ (rowsOf 11 = [1,1,0,1]) ∧ (rowsOf 2 = [0,1,0,0])`",
+   "cites": [
+    "sixteen_binary_functions",
+    "gates_name_their_tables",
+    "nand_rebuilds_the_others",
+    "two_functions_ignore_input",
+    "xor_differs_from_or",
+    "implication_is_a_gate"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-byte.md",
+   "address": "025c3b99-e073-8012-aec9-0b40c0570578",
+   "prose": "- [byte_holds_two_hexbits](/theorem/byte_holds_two_hexbits) — `(2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ ((16:Nat)^2 = 256) ∧ (2 ≠ 4)`\n- [address_is_sixteen_bytes](/theorem/address_is_sixteen_bytes) — `(32 / 2 = 16) ∧ (16 * 8 = 128) ∧ (32 * 4 = 128)`\n- [digest_doubles_the_address](/theorem/digest_doubles_the_address) — `(32 = 2 * 16) ∧ (256 = 2 * 128) ∧ (64 = 2 * 32)`\n- [every_alternative_differs](/theorem/every_alternative_differs) — `(256 - 1 = 255) ∧ (255 * 32 = 8160) ∧ (256 ≠ 255)`\n- [tamper_set_counts_eight_thousand](/theorem/tamper_set_counts_eight_thousand) — `(32 * 255 = 8160) ∧ (8160 ≠ 0)`",
+   "cites": [
+    "byte_holds_two_hexbits",
+    "address_is_sixteen_bytes",
+    "digest_doubles_the_address",
+    "every_alternative_differs",
+    "tamper_set_counts_eight_thousand"
    ]
   },
   {
@@ -11404,6 +11464,19 @@
     "doomsday_even_months",
     "months_sum_common_365",
     "months_sum_leap_366"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-channel.md",
+   "address": "f5c0da00-c984-8269-ac3a-4a53d93b1700",
+   "prose": "- [channel_multiplies_three](/theorem/channel_multiplies_three) — `6 * 9 * 7 = 378`\n- [element_costs_nine](/theorem/element_costs_nine) — `((2:Nat)^8 < 378) ∧ (378 < (2:Nat)^9) ∧ (512 - 378 = 134)`\n- [four_carry_handle](/theorem/four_carry_handle) — `((378:Nat)^4 > 2^32) ∧ ((378:Nat)^3 < 2^32)`\n- [three_recover_the_discard](/theorem/three_recover_the_discard) — `((378:Nat)^3 < 2^28) ∧ ((378:Nat)^4 > 2^28)`\n- [independence_is_assumed](/theorem/independence_is_assumed) — `(6 * 9 * 7 = 378) ∧ (6 * 7 = 42) ∧ (378 ≠ 42) ∧ (378 > 42)`\n- [page_outgrows_register](/theorem/page_outgrows_register) — `((378:Nat)^2 > 65536) ∧ (378 < 65536)`",
+   "cites": [
+    "channel_multiplies_three",
+    "element_costs_nine",
+    "four_carry_handle",
+    "three_recover_the_discard",
+    "independence_is_assumed",
+    "page_outgrows_register"
    ]
   },
   {
@@ -11521,6 +11594,19 @@
    ]
   },
   {
+   "surface": "docs/articles/search-clock.md",
+   "address": "02e12209-b1bc-877c-9a81-b87b60706112",
+   "prose": "- [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) — `((List.range 12).map res = [1,2,4,8,7,5,1,2,4,8,7,5]) ∧ (((List.range 12).map res).take 6 `\n- [residue_returns_step_does_not](/theorem/residue_returns_step_does_not) — `(res 0 = res 6) ∧ ((0:Nat) ≠ 6)`\n- [gap_is_a_count](/theorem/gap_is_a_count) — `(List.range 12).all (fun a => (List.range 12).all (fun b => (gap a b == gap b a) && ((gap `\n- [advance_only_moves_forward](/theorem/advance_only_moves_forward) — `(List.range 12).all (fun s => [1,2,3].all (fun n => s + n > s))`\n- [order_is_total_and_strict](/theorem/order_is_total_and_strict) — `(List.range 12).all (fun a => (List.range 12).all (fun b => (if a < b then 1 else 0) + (if`\n- [no_reading_enters_here](/theorem/no_reading_enters_here) — `((List.range 12).all (fun s => res s == res s)) ∧ (res 7 ≠ res 8)`",
+   "cites": [
+    "residue_walks_the_orbit",
+    "residue_returns_step_does_not",
+    "gap_is_a_count",
+    "advance_only_moves_forward",
+    "order_is_total_and_strict",
+    "no_reading_enters_here"
+   ]
+  },
+  {
    "surface": "docs/articles/search-codes.md",
    "address": "260e55c1-b286-85d9-b4c3-e396f83f4f05",
    "prose": "- [hamming_seven_four](/theorem/hamming_seven_four) — `4 + 3 = 7 ∧ 2^4 = 16`\n- [hamming_perfect_code](/theorem/hamming_perfect_code) — `16 * 8 = 128 ∧ 2^7 = 128`\n- [singleton_bound](/theorem/singleton_bound) — `3 ≤ 7 - 4 + 1`\n- [distance_three_corrects_one](/theorem/distance_three_corrects_one) — `(3 - 1) / 2 = 1`\n- [distance_three_detects_two](/theorem/distance_three_detects_two) — `3 - 1 = 2`\n- [repetition_three_majority](/theorem/repetition_three_majority) — `(([1,1,0].filter (fun x => x == 1)).length = 2) ∧ (2 * 2 > 3)`\n- [xor_checksum_catches_flip](/theorem/xor_checksum_catches_flip) — `(List.range 8).all (fun a => lxor (lxor a 5) a == 5)`\n- [codewords_sparse](/theorem/codewords_sparse) — `2^4 < 2^7`",
@@ -11537,11 +11623,19 @@
   },
   {
    "surface": "docs/articles/search-coins.md",
-   "address": "720cb0a2-ee89-8e99-88a3-0a35f5945bce",
-   "prose": "- [two_coins](/theorem/two_coins) — `110 - 108 = 2`\n- [captain_theorem](/theorem/captain_theorem) — `2 * 2 - 2 = 2`\n- [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) — `64 = 2^6`\n- [captain_theorem](/theorem/captain_theorem) — `2 * 32 = 64`\n- [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) — `(List.range 8).all (fun c => (32 * c == 64) == (c == 2))`\n- [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) — `(List.range' 7 6).all (fun n => 2^n > 2 * 32)`\n- [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) — `((List.range 7).map (fun n => 2^n)) = [1,2,4,8,16,32,64]`\n- [bill_never_negative](/theorem/bill_never_negative) — `(List.range 8).all (fun r => (List.range 8).all (fun v => (if r < v then 0 else r - v) == `\n- [captain_theorem](/theorem/captain_theorem) — `(2:Nat)^1 = 2`\n- [captain_theorem](/theorem/captain_theorem) — `((2:Nat)^2 = 4) ∧ (128 = 2 * 64) ∧ (128 = 2^7)`\n- [captain_theorem](/theorem/captain_theorem) — `(110 - 108 = 2) ∧ (110 - 2 = 108)`\n- [captain_theorem](/theorem/captain_theorem) — `(110 - 1 = 109) ∧ (109 > 2) ∧ (110 - 108 = 2)`\n- [captain_theorem](/theorem/captain_theorem) — `(32 * 2 = 64) ∧ (1 < 64) ∧ ((0:Nat) < 1)`\n- [captain_theorem](/theorem/captain_theorem) — `(2^7 = 128) ∧ (128 > 2) ∧ (2 * 32 = 64)`\n- [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) — `(110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128)`\n- [wallet_counts_worlds](/theorem/wallet_counts_worlds) — `(List.range 9).all (fun n => (2*n)/2 == n)`\n- [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) — `((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)`\n- [captain_theorem](/theorem/captain_theorem) — `(2^128 > 1288) ∧ (2^7 = 128) ∧ (110 - 108 = 2)`\n- [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales) — `(2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32)`",
+   "address": "7904e276-1e4a-8b12-8715-e2bb6a8c2e97",
+   "prose": "- [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) — `(List.range' 1 8).all (fun n => (2 * n == n + n) && ((2 * n) % 2 == 0))`\n- [fold_compresses_without_bound_and_never_recovers](/theorem/fold_compresses_without_bound_and_never_recovers) — `(32 * 4 = 128) ∧ ((List.range' 1 8).all (fun k => (128 * k) / k == 128)) ∧ (2^129 > 2^128)`\n- [handle_string_spans_the_quarter](/theorem/handle_string_spans_the_quarter) — `(16^8 = 2^32) ∧ (16^8 = 4294967296) ∧ ((2^32)^4 = 2^128) ∧ (32 + 32 + 32 + 32 = 128)`\n- [hexbit_bit_hook_is_linear](/theorem/hexbit_bit_hook_is_linear) — `((List.range 33).all (fun h => (4 * h) / 4 == h)) ∧ ((List.range 32).all (fun h => 4 * h <`\n- [handle_carries_hexbits_and_coins](/theorem/handle_carries_hexbits_and_coins) — `(8 * 4 = 32) ∧ (32 * 4 = 128) ∧ (128 / 32 = 4) ∧ (8 / 2 = 4)`\n- [captain_singularity](/theorem/captain_singularity) — `(128 / 64 = 2) ∧ (64 / 32 = 2) ∧ (4 / 2 = 2) ∧ (2 * 2^6 = 128) ∧ (128 / 2 = 64) ∧ (32 * 4 `\n- [fold_reads_by_handle_not_by_tile](/theorem/fold_reads_by_handle_not_by_tile) — `(4 * 8 = 32) ∧ (4 * 32 = 128) ∧ (32 / 4 = 8) ∧ (8 * 4 = 32)`\n- [captain_theorem](/theorem/captain_theorem) — `(110 * 54 = 108 * 55) ∧ (110 - 108 = 2) ∧ (32 * 4 = 128) ∧ (128 / 2 = 64) ∧ (2 * 32 = 64) `\n- [two_coins](/theorem/two_coins) — `110 - 108 = 2`\n- [coins_over_all_rosetta_combinations](/theorem/coins_over_all_rosetta_combinations) — `(((List.range 32).map (fun m => 2 * ((List.range 5).filter (fun b => (m / 2^b) % 2 == 1)).`\n- [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) — `64 = 2^6`\n- [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) — `(List.range 8).all (fun c => (32 * c == 64) == (c == 2))`\n- [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) — `(List.range' 7 6).all (fun n => 2^n > 2 * 32)`\n- [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) — `((List.range 7).map (fun n => 2^n)) = [1,2,4,8,16,32,64]`\n- [bill_never_negative](/theorem/bill_never_negative) — `(List.range 8).all (fun r => (List.range 8).all (fun v => (if r < v then 0 else r - v) == `\n- [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) — `(110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128)`\n- [wallet_counts_worlds](/theorem/wallet_counts_worlds) — `(List.range 9).all (fun n => (2*n)/2 == n)`\n- [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) — `((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)`\n- [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales) — `(2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32)`",
    "cites": [
-    "two_coins",
+    "minting_is_two_per_theorem",
+    "fold_compresses_without_bound_and_never_recovers",
+    "handle_string_spans_the_quarter",
+    "hexbit_bit_hook_is_linear",
+    "handle_carries_hexbits_and_coins",
+    "captain_singularity",
+    "fold_reads_by_handle_not_by_tile",
     "captain_theorem",
+    "two_coins",
+    "coins_over_all_rosetta_combinations",
     "sixtyfour_is_two_pow_six",
     "captain_computes_only_with_two_coins",
     "captain_coins_respected_at_scale",
@@ -11589,6 +11683,18 @@
     "only_correct_tag_verifies",
     "tamper_changes_tag",
     "linear_tag_is_forgeable"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-contribution.md",
+   "address": "681475f6-7318-897a-a1f1-6b42ca85bd4f",
+   "prose": "- [contribution_leaves_one_twentysix](/theorem/contribution_leaves_one_twentysix) — `((2:Nat)^7 = 128) ∧ (128 - 2 = 126) ∧ (126 + 2 = 128)`\n- [directions_number_fortytwo](/theorem/directions_number_fortytwo) — `(7 * 7 - 7 = 42) ∧ (6 * 7 = 42) ∧ (7 * 6 = 42) ∧ (6 * 7 = 7 * 6)`\n- [residue_holds_three_grids](/theorem/residue_holds_three_grids) — `(3 * 42 = 126) ∧ (128 - 2 = 3 * 42)`\n- [six_factorisations_compete](/theorem/six_factorisations_compete) — `(((List.range' 1 126).filter (fun d => 126 % d == 0)).length = 12) ∧ (3 * 42 = 126) ∧ (9 *`\n- [taking_before_paying_differs](/theorem/taking_before_paying_differs) — `(128 - 2 = 126) ∧ ((128:Nat) ≠ 126) ∧ (126 < 128)`",
+   "cites": [
+    "contribution_leaves_one_twentysix",
+    "directions_number_fortytwo",
+    "residue_holds_three_grids",
+    "six_factorisations_compete",
+    "taking_before_paying_differs"
    ]
   },
   {
@@ -11731,6 +11837,19 @@
    ]
   },
   {
+   "surface": "docs/articles/search-double-torus.md",
+   "address": "bb3244b6-67c9-8c37-901e-e735d6a99046",
+   "prose": "- [chi_measures_genus](/theorem/chi_measures_genus) — `(((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)) ∧ (-((2:Int) - 2 * 2) = 2)`\n- [handles_give_generators](/theorem/handles_give_generators) — `(2 * 2 = 4) ∧ (4 ≠ 2)`\n- [presentation_counts_five](/theorem/presentation_counts_five) — `(4 + 1 = 5) ∧ (1 ≠ 0)`\n- [step_costs_three](/theorem/step_costs_three) — `((2:Nat)^2 = 4) ∧ (4 * 2 = 8) ∧ ((2:Nat)^3 = 8)`\n- [words_outgrow_presentation](/theorem/words_outgrow_presentation) — `((List.range 6).map (fun n => 8^n) = [1,8,64,512,4096,32768]) ∧ (((List.range 6).map (fun `\n- [growth_is_not_bounded_here](/theorem/growth_is_not_bounded_here) — `(List.range 5).all (fun n => 8^(n+1) == 8 * 8^n)`",
+   "cites": [
+    "chi_measures_genus",
+    "handles_give_generators",
+    "presentation_counts_five",
+    "step_costs_three",
+    "words_outgrow_presentation",
+    "growth_is_not_bounded_here"
+   ]
+  },
+  {
    "surface": "docs/articles/search-editing.md",
    "address": "6d89d920-ca02-8fa2-8165-315298896a11",
    "prose": "- [dropframe_entangles_the_coins](/theorem/dropframe_entangles_the_coins) — `(2 * 54 = 108) ∧ (5 * 108 = 540) ∧ (110 - 108 = 2)`\n- [frame_index_is_z24](/theorem/frame_index_is_z24) — `(List.range 24).length = 24 ∧ 24 % 24 = 0`\n- [frames_per_minute](/theorem/frames_per_minute) — `24 * 60 = 1440`\n- [dropframe_per_hour](/theorem/dropframe_per_hour) — `2 * 54 = 108`\n- [uhd_is_four_times_hd](/theorem/uhd_is_four_times_hd) — `3840 * 2160 = 4 * (1920 * 1080)`\n- [widescreen_wider_than_academy](/theorem/widescreen_wider_than_academy) — `16 * 3 > 9 * 4`\n- [rule_of_thirds_power_points](/theorem/rule_of_thirds_power_points) — `3 * 3 = 9 ∧ 2 * 2 = 4`\n- [crossfade_overlap](/theorem/crossfade_overlap) — `48 + 48 - 12 = 84`\n- [audio_samples_per_frame](/theorem/audio_samples_per_frame) — `48000 / 24 = 2000 ∧ 48000 % 24 = 0`\n- [frame_ring_undo_involutive](/theorem/frame_ring_undo_involutive) — `(5*5) % 24 = 1 ∧ (7*7) % 24 = 1 ∧ (11*11) % 24 = 1 ∧ (13*13) % 24 = 1 ∧ (17*17) % 24 = 1 ∧`\n- [reverse_cut_is_undone_by_itself](/theorem/reverse_cut_is_undone_by_itself) — `(List.range 24).reverse.reverse = List.range 24`\n- [hour_of_film_is_a_day_of_seconds](/theorem/hour_of_film_is_a_day_of_seconds) — `(24 * 60 * 60 = 86400) ∧ (24 * 3600 = 86400)`\n- [dropframe_is_one_thousandth](/theorem/dropframe_is_one_thousandth) — `(108 * 1000 = 108000) ∧ (108000 - 108 = 107892) ∧ (30 * 60 * 60 = 108000)`\n- [angle_of_the_cut](/theorem/angle_of_the_cut) — `30 * 6 = 180`",
@@ -11833,6 +11952,45 @@
    ]
   },
   {
+   "surface": "docs/articles/search-grid.md",
+   "address": "5ea2004d-894c-815b-9280-0631ae157193",
+   "prose": "- [decimal_asks_three](/theorem/decimal_asks_three) — `((List.range 40).all (fun w => ((6 * w) % 9 == 0) == (w % 3 == 0))) ∧ ((6 * 91) % 9 ≠ 0)`\n- [hexadecimal_asks_five](/theorem/hexadecimal_asks_five) — `((List.range 40).all (fun w => ((6 * w) % 15 == 0) == (w % 5 == 0))) ∧ ((6 * 72) % 15 ≠ 0)`\n- [seventytwo_is_decimal_only](/theorem/seventytwo_is_decimal_only) — `(6 * 72 = 432) ∧ (432 % 9 = 0) ∧ (432 % 15 = 12) ∧ (432 % 15 ≠ 0)`\n- [reversal_fails_in_hexadecimal](/theorem/reversal_fails_in_hexadecimal) — `(16 * 27 = 432) ∧ (16 * 132 = 2112) ∧ (16 * 132 ≠ 432)`\n- [fifteen_satisfies_both](/theorem/fifteen_satisfies_both) — `((List.range 40).all (fun w => (w % 15 == 0) == (((6 * w) % 9 == 0) && ((6 * w) % 15 == 0)`\n- [six_rays_stay_derived](/theorem/six_rays_stay_derived) — `(7 * 72 - 72 = 432) ∧ (6 * 72 = 432) ∧ (7 - 1 = 6)`",
+   "cites": [
+    "decimal_asks_three",
+    "hexadecimal_asks_five",
+    "seventytwo_is_decimal_only",
+    "reversal_fails_in_hexadecimal",
+    "fifteen_satisfies_both",
+    "six_rays_stay_derived"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-hamming.md",
+   "address": "003a67b5-4eb7-8ef9-8d18-79be9d63ccc3",
+   "prose": "- [code_holds_sixteen_words](/theorem/code_holds_sixteen_words) — `(words.length = 16) ∧ ((2:Nat)^4 = 16) ∧ ((2:Nat)^7 = 128)`\n- [words_are_distinct](/theorem/words_are_distinct) — `words.eraseDups.length = 16`\n- [words_stand_three_apart](/theorem/words_stand_three_apart) — `(words.all (fun a => words.all (fun b => (a == b) || (wt (lxor a b) ≥ 3)))) ∧ (3 ≠ 2)`\n- [weights_enumerate](/theorem/weights_enumerate) — `((words.filter (fun w => wt w == 0)).length = 1) ∧ ((words.filter (fun w => wt w == 3)).le`\n- [codewords_syndrome_zero](/theorem/codewords_syndrome_zero) — `words.all (fun w => ((w % 2) + ((w/4) % 2) + ((w/16) % 2) + ((w/64) % 2)) % 2 == 0)`\n- [syndrome_names_the_position](/theorem/syndrome_names_the_position) — `([1,2,3,4,5,6,7] = [1,2,3,4,5,6,7]) ∧ ([1,2,3,4,5,6,7].eraseDups.length = 7)`",
+   "cites": [
+    "code_holds_sixteen_words",
+    "words_are_distinct",
+    "words_stand_three_apart",
+    "weights_enumerate",
+    "codewords_syndrome_zero",
+    "syndrome_names_the_position"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-handle-span.md",
+   "address": "ca18736b-ac44-8d00-b523-6d3b459e340c",
+   "prose": "- [handles_times_qubits](/theorem/handles_times_qubits) — `(65536 * 32 = 2097152) ∧ ((2:Nat)^16 * 2^5 = 2^21)`\n- [exponents_add](/theorem/exponents_add) — `(16 + 5 = 21) ∧ (16 * 5 ≠ 21)`\n- [handle_spans_thirtytwo](/theorem/handle_spans_thirtytwo) — `(8 * 4 = 32) ∧ ((2:Nat)^32 = 4294967296)`\n- [register_holds_amplitudes](/theorem/register_holds_amplitudes) — `((List.range 17).map (fun n => 2^n)).getLast! = 65536`\n- [total_exceeds_register](/theorem/total_exceeds_register) — `(2097152 > 16) ∧ (2097152 ≠ 16) ∧ ((2:Nat)^21 ≠ 2^16)`\n- [total_is_not_amplitudes](/theorem/total_is_not_amplitudes) — `(2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16)`",
+   "cites": [
+    "handles_times_qubits",
+    "exponents_add",
+    "handle_spans_thirtytwo",
+    "register_holds_amplitudes",
+    "total_exceeds_register",
+    "total_is_not_amplitudes"
+   ]
+  },
+  {
    "surface": "docs/articles/search-hardware.md",
    "address": "4d5121b5-a100-80c3-80d7-4b8002962620",
    "prose": "- [not_gate_truth_table](/theorem/not_gate_truth_table) — `[0,1].map (fun a => 1 - a) = [1,0]`\n- [and_gate_truth_table](/theorem/and_gate_truth_table) — `[(0,0),(0,1),(1,0),(1,1)].map (fun p => p.1 * p.2) = [0,0,0,1]`\n- [or_gate_truth_table](/theorem/or_gate_truth_table) — `[(0,0),(0,1),(1,0),(1,1)].map (fun p => p.1 + p.2 - p.1 * p.2) = [0,1,1,1]`\n- [xor_gate_truth_table](/theorem/xor_gate_truth_table) — `[(0,0),(0,1),(1,0),(1,1)].map (fun p => lxor p.1 p.2) = [0,1,1,0]`\n- [xor_is_addition_mod_two](/theorem/xor_is_addition_mod_two) — `[(0,0),(0,1),(1,0),(1,1)].all (fun p => lxor p.1 p.2 == (p.1 + p.2) % 2)`\n- [gate_output_is_one_bit](/theorem/gate_output_is_one_bit) — `[(0,0),(0,1),(1,0),(1,1)].all (fun p => (1 - p.1 <= 1) ∧ (p.1 * p.2 <= 1) ∧ (p.1 + p.2 - p`\n- [nand_reconstructs_not](/theorem/nand_reconstructs_not) — `[0,1].all (fun a => (1 - a * a) == (1 - a))`\n- [nand_reconstructs_and](/theorem/nand_reconstructs_and) — `[(0,0),(0,1),(1,0),(1,1)].all (fun p => (1 - (1 - p.1 * p.2)) == p.1 * p.2)`\n- [nand_reconstructs_or](/theorem/nand_reconstructs_or) — `[(0,0),(0,1),(1,0),(1,1)].all (fun p => (1 - (1 - p.1) * (1 - p.2)) == p.1 + p.2 - p.1 * p`\n- [nand_functionally_complete](/theorem/nand_functionally_complete) — `(List.range 4).all (fun n => ((1 - (n%2) * (n%2)) == (1 - n%2)) ∧ ((1 - (1 - (n%2) * (n/2%`\n- [de_morgan_gate_law](/theorem/de_morgan_gate_law) — `[(0,0),(0,1),(1,0),(1,1)].all (fun p => (1 - p.1 * p.2) == (1 - p.1) + (1 - p.2) - (1 - p.`\n- [half_adder_correct](/theorem/half_adder_correct) — `[(0,0),(0,1),(1,0),(1,1)].all (fun p => lxor p.1 p.2 + 2 * (p.1 * p.2) == p.1 + p.2)`\n- [full_adder_correct](/theorem/full_adder_correct) — `(List.range 8).all (fun n => lxor (lxor (n%2) (n/2%2)) (n/4%2) + 2 * ((n%2 + n/2%2 + n/4%2`\n- [mux_selects_input](/theorem/mux_selects_input) — `(List.range 8).all (fun n => (1 - n%2) * (n/2%2) + (n%2) * (n/4%2) == (if n%2 == 0 then n/`",
@@ -11869,6 +12027,21 @@
    ]
   },
   {
+   "surface": "docs/articles/search-hexbit.md",
+   "address": "a06d5b65-41b1-8eef-b78d-395a6131aa2c",
+   "prose": "- [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) — `((List.range 16).length = 16) ∧ ((List.range 16).eraseDups.length = 16) ∧ ((List.range 16)`\n- [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) — `([8,4,4,4,12].foldl (· + ·) 0 = 32) ∧ (32 + 4 = 36) ∧ (32 ≠ 36)`\n- [characters_span_the_address](/theorem/characters_span_the_address) — `(32 * 4 = 128) ∧ ((2:Nat)^7 = 128)`\n- [handle_is_the_first_group](/theorem/handle_is_the_first_group) — `([8,4,4,4,12].head! = 8) ∧ (8 * 4 = 32) ∧ (([8,4,4,4,12].drop 1).take 3).all (fun g => g <`\n- [groups_are_four_apart](/theorem/groups_are_four_apart) — `[8,4,4,4,12].map (fun g => g * 4) = [32,16,16,16,48]`\n- [build_counts_in_hexbits](/theorem/build_counts_in_hexbits) — `(32 / 8 = 4) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32) ∧ (128 / 32 = 4)`\n- [payload_carries_the_strand](/theorem/payload_carries_the_strand) — `(8 + 24 = 32) ∧ (24 * 4 = 96) ∧ (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (32 % 6 = 2) ∧ (128 % 6 = 2`\n- [payload_aligns_where_the_name_does_not](/theorem/payload_aligns_where_the_name_does_not) — `(96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (96 % 3 = 0) ∧ (96 / 3 = 32) ∧ (32 % 6 = 2) ∧ (32 % 3 = 2) `",
+   "cites": [
+    "alphabet_names_each_nibble",
+    "layout_groups_thirtytwo",
+    "characters_span_the_address",
+    "handle_is_the_first_group",
+    "groups_are_four_apart",
+    "build_counts_in_hexbits",
+    "payload_carries_the_strand",
+    "payload_aligns_where_the_name_does_not"
+   ]
+  },
+  {
    "surface": "docs/articles/search-identifiers.md",
    "address": "49474dc1-3244-8ee2-af40-700b93c64e28",
    "prose": "- [isbn10_valid_check](/theorem/isbn10_valid_check) — `(([10,9,8,7,6,5,4,3,2,1].zip [0,3,0,6,4,0,6,1,5,2]).map (fun p => p.1 * p.2)).foldl (· + ·`\n- [isbn13_valid_check](/theorem/isbn13_valid_check) — `(([1,3,1,3,1,3,1,3,1,3,1,3,1].zip [9,7,8,0,3,0,6,4,0,6,1,5,7]).map (fun p => p.1 * p.2)).f`\n- [isbn10_check_alphabet_eleven](/theorem/isbn10_check_alphabet_eleven) — `[0,1,2,3,4,5,6,7,8,9,10].length = 11`\n- [isbn10_catches_single_error](/theorem/isbn10_catches_single_error) — `[10,9,8,7,6,5,4,3,2,1].all (fun w => w % 11 != 0)`\n- [isbn10_catches_transposition](/theorem/isbn10_catches_transposition) — `([10,9,8,7,6,5,4,3,2,1].zip [9,8,7,6,5,4,3,2,1]).all (fun p => p.1 - p.2 == 1)`\n- [isbn13_bookland_prefix](/theorem/isbn13_bookland_prefix) — `979 - 978 = 1 ∧ 978 < 979`",
@@ -11883,8 +12056,8 @@
   },
   {
    "surface": "docs/articles/search-infinity.md",
-   "address": "37b333c2-5827-8b52-a470-873762645354",
-   "prose": "- [zeno_finite_sum](/theorem/zeno_finite_sum) — `(List.range 13).all (fun k => (List.range (k+1)).foldl (fun s n => s + 2^n) 0 + 1 == 2^(k+`\n- [uv_partition_closed](/theorem/uv_partition_closed) — `(List.range 9).all (fun k => 2 * (List.range (k+1)).foldl (fun s n => s + 3^n) 0 + 1 == 3^`\n- [asymptotic_freedom](/theorem/asymptotic_freedom) — `(List.range 30).all (fun n => 137 + 7*n < 137 + 7*(n+1))`\n- [renormalization_residue](/theorem/renormalization_residue) — `(List.range 40).all (fun L => (L*L + 137) - L*L == 137)`\n- [casimir_triangular](/theorem/casimir_triangular) — `(List.range' 1 30).all (fun N => 2 * (List.range' 1 N).foldl (fun s n => s + n) 0 == N*(N+`\n- [derivative_finite_rate](/theorem/derivative_finite_rate) — `(List.range' 1 12).all (fun x => (List.range' 1 12).all (fun h => (x+h)*(x+h) - x*x == h*(`\n- [dirac_unit_mass](/theorem/dirac_unit_mass) — `(List.range 101).foldl (fun s i => s + (if i == 50 then 1 else 0)) 0 = 1`\n- [horizon_curvature_finite](/theorem/horizon_curvature_finite) — `(List.range' 1 8).all (fun M => (2*M)^6 != 0 && (2*M)^6 == 64 * M^6)`\n- [newton_singularity_finite](/theorem/newton_singularity_finite) — `dz 0 = 0 ∧ (List.range 10).all (fun x => dz x < 10)`",
+   "address": "8e5948c0-6b21-858e-ac7c-5455d24ad059",
+   "prose": "- [zeno_finite_sum](/theorem/zeno_finite_sum) — `(List.range 13).all (fun k => (List.range (k+1)).foldl (fun s n => s + 2^n) 0 + 1 == 2^(k+`\n- [uv_partition_closed](/theorem/uv_partition_closed) — `(List.range 9).all (fun k => 2 * (List.range (k+1)).foldl (fun s n => s + 3^n) 0 + 1 == 3^`\n- [asymptotic_freedom](/theorem/asymptotic_freedom) — `(List.range 30).all (fun n => 137 + 7*n < 137 + 7*(n+1))`\n- [renormalization_residue](/theorem/renormalization_residue) — `(List.range 40).all (fun L => (L*L + 137) - L*L == 137)`\n- [casimir_triangular](/theorem/casimir_triangular) — `(List.range' 1 30).all (fun N => 2 * (List.range' 1 N).foldl (fun s n => s + n) 0 == N*(N+`\n- [derivative_finite_rate](/theorem/derivative_finite_rate) — `(List.range' 1 12).all (fun x => (List.range' 1 12).all (fun h => (x+h)*(x+h) - x*x == h*(`\n- [dirac_unit_mass](/theorem/dirac_unit_mass) — `(List.range 101).foldl (fun s i => s + (if i == 50 then 1 else 0)) 0 = 1`\n- [horizon_curvature_finite](/theorem/horizon_curvature_finite) — `(List.range' 1 8).all (fun M => (2*M)^6 != 0 && (2*M)^6 == 64 * M^6)`\n- [newton_singularity_finite](/theorem/newton_singularity_finite) — `dz 0 = 0 ∧ (List.range 10).all (fun x => dz x < 10)`\n- [reach_all_decide](/theorem/reach_all_decide) — `(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 8, 13, 24, 27, 7, 6, 8, 19, 17, 7, 5, 64, 8, 1`\n- [reach_quantifiers_bounded](/theorem/reach_quantifiers_bounded) — `([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0`\n- [reach_window_finite](/theorem/reach_window_finite) — `([1, 9, 9, 8, 8, 101, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17,`\n- [window_not_universal](/theorem/window_not_universal) — `((List.range 10).all (fun n => n < 10)) ∧ ¬(10 < 10)`",
    "cites": [
     "zeno_finite_sum",
     "uv_partition_closed",
@@ -11894,7 +12067,24 @@
     "derivative_finite_rate",
     "dirac_unit_mass",
     "horizon_curvature_finite",
-    "newton_singularity_finite"
+    "newton_singularity_finite",
+    "reach_all_decide",
+    "reach_quantifiers_bounded",
+    "reach_window_finite",
+    "window_not_universal"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-isometry.md",
+   "address": "23cb52ff-114b-8db9-a7cb-b3ed29e5a171",
+   "prose": "- [xor_preserves_distance](/theorem/xor_preserves_distance) — `(List.range 16).all (fun a => (List.range 16).all (fun b => (List.range 16).all (fun k => `\n- [reuse_leaks_by_isometry](/theorem/reuse_leaks_by_isometry) — `(List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => d`\n- [complement_flips_two](/theorem/complement_flips_two) — `((List.range 4).all (fun x => dist x (lxor x 3) == 2)) ∧ (pop 3 = 2)`\n- [codon_flips_six](/theorem/codon_flips_six) — `((4:Nat)^3 = 64) ∧ ((2:Nat)^6 = 64) ∧ (3 * 2 = 6) ∧ (pop 63 = 6)`\n- [distance_is_symmetric](/theorem/distance_is_symmetric) — `(List.range 16).all (fun a => (List.range 16).all (fun b => (dist a b == dist b a) && ((di`\n- [isometry_bounds_correction](/theorem/isometry_bounds_correction) — `((3 - 1) / 2 = 1) ∧ (3 - 1 = 2) ∧ ((3 - 1) / 2 ≠ 2)`",
+   "cites": [
+    "xor_preserves_distance",
+    "reuse_leaks_by_isometry",
+    "complement_flips_two",
+    "codon_flips_six",
+    "distance_is_symmetric",
+    "isometry_bounds_correction"
    ]
   },
   {
@@ -12110,6 +12300,19 @@
    ]
   },
   {
+   "surface": "docs/articles/search-notation.md",
+   "address": "cbde2bb3-c254-884d-975b-bcec8868d6a3",
+   "prose": "- [ten_reduces_to_one](/theorem/ten_reduces_to_one) — `[10,100,1000,10000].all (fun p => p % 9 == 1)`\n- [base_fixes_modulus](/theorem/base_fixes_modulus) — `[8,10,16].all (fun b => b % (b - 1) == 1)`\n- [bases_disagree_on_root](/theorem/bases_disagree_on_root) — `(432 % 9 = 0) ∧ (432 % 7 = 5) ∧ (432 % 9 ≠ 432 % 7)`\n- [reversal_escapes_arithmetic](/theorem/reversal_escapes_arithmetic) — `(16 * 27 = 432) ∧ (16 * 57 ≠ 432) ∧ (16 * 87 ≠ 432)`\n- [root_survives_the_reading](/theorem/root_survives_the_reading) — `(432 % 9 = 0) ∧ (45 % 9 = 0) ∧ (4 + 5 = 9)`\n- [nine_divides_by_construction](/theorem/nine_divides_by_construction) — `((List.range' 1 8).map (fun k => 9 * k)).all (fun n => n % 9 == 0)`",
+   "cites": [
+    "ten_reduces_to_one",
+    "base_fixes_modulus",
+    "bases_disagree_on_root",
+    "reversal_escapes_arithmetic",
+    "root_survives_the_reading",
+    "nine_divides_by_construction"
+   ]
+  },
+  {
    "surface": "docs/articles/search-one-leap.md",
    "address": "97b7e328-5b14-82c2-9188-dc20851bcf82",
    "prose": "- [vortex_one_leap](/theorem/vortex_one_leap) — `-- follow the sequence: the doubling orbit on the units (List.range 6).map (fun k => (2 ^ `",
@@ -12147,6 +12350,22 @@
    ]
   },
   {
+   "surface": "docs/articles/search-orbits.md",
+   "address": "869db0e8-007e-8b4c-9f4e-4cdee434332d",
+   "prose": "- [orbit_0_1_2_3_4_5_6_7_8_9_closes](/theorem/orbit_0_1_2_3_4_5_6_7_8_9_closes) — `[0,1,2,3,4,5,6,7,8,9].all (fun d => [0,1,2,3,4,5,6,7,8,9].contains (if d = 0 then 0 else 1`\n- [orbit_0_1_3_4_5_6_7_9_closes](/theorem/orbit_0_1_3_4_5_6_7_9_closes) — `[0,1,3,4,5,6,7,9].all (fun d => [0,1,3,4,5,6,7,9].contains (if d = 0 then 0 else 10 - d))`\n- [orbit_0_1_3_5_7_9_closes](/theorem/orbit_0_1_3_5_7_9_closes) — `[0,1,3,5,7,9].all (fun d => [0,1,3,5,7,9].contains (if d = 0 then 0 else 10 - d))`\n- [orbit_0_1_5_9_closes](/theorem/orbit_0_1_5_9_closes) — `[0,1,5,9].all (fun d => [0,1,5,9].contains (if d = 0 then 0 else 10 - d))`\n- [orbit_0_1_9_closes](/theorem/orbit_0_1_9_closes) — `[0,1,9].all (fun d => [0,1,9].contains (if d = 0 then 0 else 10 - d))`\n- [orbit_0_closes](/theorem/orbit_0_closes) — `[0].all (fun d => [0].contains (if d = 0 then 0 else 10 - d))`\n- [orbits_number_and_orders](/theorem/orbits_number_and_orders) — `([[0,1,2,3,4,5,6,7,8,9],[0,1,3,4,5,6,7,9],[0,1,3,5,7,9],[0,1,5,9],[0,1,9],[0]].length = 6)`\n- [every_seed_lands_somewhere](/theorem/every_seed_lands_somewhere) — `[[0],[0,1,9],[0,1,2,3,4,5,6,7,8,9],[0,1,3,5,7,9],[0,1,3,4,5,6,7,9],[0,1,5,9],[0,1,2,3,4,5,`\n- [covering_seeds_are_named](/theorem/covering_seeds_are_named) — `([2,6,7,8,9].length = 5) ∧ ([0,1,3,4,5].length = 5) ∧ (5 + 5 = 10)`",
+   "cites": [
+    "orbit_0_1_2_3_4_5_6_7_8_9_closes",
+    "orbit_0_1_3_4_5_6_7_9_closes",
+    "orbit_0_1_3_5_7_9_closes",
+    "orbit_0_1_5_9_closes",
+    "orbit_0_1_9_closes",
+    "orbit_0_closes",
+    "orbits_number_and_orders",
+    "every_seed_lands_somewhere",
+    "covering_seeds_are_named"
+   ]
+  },
+  {
    "surface": "docs/articles/search-os.md",
    "address": "60910699-1302-810d-a913-750aa4bab39e",
    "prose": "- [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) — `([1,2,3] : List Nat) = [1,2,3]`\n- [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected) — `([1,2,3,4] : List Nat) ≠ [1,2,0,4]`\n- [truncation_is_detected](/theorem/truncation_is_detected) — `([1,2,3] : List Nat) ≠ [1,2]`\n- [byte_order_is_significant](/theorem/byte_order_is_significant) — `([1,2,3] : List Nat) ≠ [3,2,1]`\n- [sha256_digest_is_256_bits](/theorem/sha256_digest_is_256_bits) — `(32 * 8 = 256) ∧ (64 = 32 * 2)`\n- [provenance_address_is_128_bits](/theorem/provenance_address_is_128_bits) — `16 * 8 = 128`\n- [boundary_is_exactly_two_named_modules](/theorem/boundary_is_exactly_two_named_modules) — `([\"os\",\"drivers\"] : List String).length = 2`",
@@ -12178,6 +12397,19 @@
     "codon_frame_rotates_rosette",
     "pentagon_interior_angle_108",
     "pi_bracketed_by_finite_rationals"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-phase.md",
+   "address": "c50a287d-edd1-8b37-b144-5129c9675a85",
+   "prose": "- [dz_loses_nothing](/theorem/dz_loses_nothing) — `((List.range 10).map dz).eraseDups.length = 10`\n- [doubling_collapses_nine](/theorem/doubling_collapses_nine) — `(((List.range 10).map dbl).eraseDups.length = 9) ∧ (dbl 0 = dbl 9) ∧ (dbl 0 = 0)`\n- [maps_differ_in_reach](/theorem/maps_differ_in_reach) — `(((List.range 10).map dz).eraseDups.length ≠ ((List.range 10).map dbl).eraseDups.length) ∧`\n- [zero_closes_in_phase](/theorem/zero_closes_in_phase) — `(dz 0 = 0) ∧ (dbl 0 = 0)`\n- [five_returns_out_of_phase](/theorem/five_returns_out_of_phase) — `(dz 5 = 5) ∧ (dbl 5 = 1) ∧ (dbl 5 ≠ 5)`\n- [reach_shrinks_each_pass](/theorem/reach_shrinks_each_pass) — `((((List.range 10).map dbl).eraseDups.map dbl).eraseDups.length ≤ ((List.range 10).map dbl`",
+   "cites": [
+    "dz_loses_nothing",
+    "doubling_collapses_nine",
+    "maps_differ_in_reach",
+    "zero_closes_in_phase",
+    "five_returns_out_of_phase",
+    "reach_shrinks_each_pass"
    ]
   },
   {
@@ -12222,6 +12454,19 @@
     "thrust_is_mdot_times_ve",
     "delta_v_stages_add",
     "acceleration_finite"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-prose-trial.md",
+   "address": "0f09065d-a5e8-8632-9f51-629624d30131",
+   "prose": "- [orbits_number_six](/theorem/orbits_number_six) — `orbits.length = 6`\n- [order_measures_orbit](/theorem/order_measures_orbit) — `orbits.map (fun o => o.length) = [10,8,3,1,6,4]`\n- [forged_order_refused](/theorem/forged_order_refused) — `(orbits.map (fun o => o.length) = [10,8,3,1,6,4]) ∧ (orbits.map (fun o => o.length) ≠ [10,`\n- [orbits_reflect_onto_themselves](/theorem/orbits_reflect_onto_themselves) — `orbits.all (fun o => o.all (fun d => o.contains (dz d)))`\n- [orbits_are_distinct](/theorem/orbits_are_distinct) — `(orbits.map (fun o => o.length)).eraseDups.length = 6`\n- [every_orbit_holds_zero](/theorem/every_orbit_holds_zero) — `orbits.all (fun o => o.contains 0)`",
+   "cites": [
+    "orbits_number_six",
+    "order_measures_orbit",
+    "forged_order_refused",
+    "orbits_reflect_onto_themselves",
+    "orbits_are_distinct",
+    "every_orbit_holds_zero"
    ]
   },
   {
@@ -12329,6 +12574,19 @@
    ]
   },
   {
+   "surface": "docs/articles/search-reflection.md",
+   "address": "f9ebfc54-5097-8232-ab95-19274a41e81d",
+   "prose": "- [reflection_splits_six](/theorem/reflection_splits_six) — `((List.range 10).map dzMin).eraseDups.length = 6`\n- [classes_cap_at_two](/theorem/classes_cap_at_two) — `((List.range 10).map dzMin).eraseDups.all (fun c => ((List.range 10).filter (fun d => dzMi`\n- [six_is_forced_arithmetic](/theorem/six_is_forced_arithmetic) — `(((List.range 10).filter (fun d => dz d == d)).length = 2) ∧ (2 + (10 - 2) / 2 = 6)`\n- [seven_reach_five_classes](/theorem/seven_reach_five_classes) — `(((List.range' 1 7).map dzMin).eraseDups.length = 5) ∧ (!(((List.range' 1 7).map dzMin).co`\n- [reflection_confuses_seven_three](/theorem/reflection_confuses_seven_three) — `(dzMin 7 = dzMin 3) ∧ (dzMin 6 = dzMin 4)`\n- [seventh_covers_reflection_cannot](/theorem/seventh_covers_reflection_cannot) — `([2,6,7,8,9].contains 7) ∧ (dzMin 7 = dzMin 3) ∧ (dzMin 7 ≠ 7)`",
+   "cites": [
+    "reflection_splits_six",
+    "classes_cap_at_two",
+    "six_is_forced_arithmetic",
+    "seven_reach_five_classes",
+    "reflection_confuses_seven_three",
+    "seventh_covers_reflection_cannot"
+   ]
+  },
+  {
    "surface": "docs/articles/search-relativity.md",
    "address": "07a6d557-0605-8484-8f63-6f86897a1b42",
    "prose": "- [light_on_null_cone](/theorem/light_on_null_cone) — `(5*5 - 5*5 : Int) = 0`\n- [interval_timelike_causal](/theorem/interval_timelike_causal) — `((5*5 - 4*4 : Int) = 9) ∧ ((9:Int) > 0)`\n- [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) — `5^2 + 12^2 = 13^2`\n- [rest_energy_mc2](/theorem/rest_energy_mc2) — `(([1,2,3] : List Nat).map (fun m => m * 9)) = [9,18,27]`\n- [causality_forbids_ftl](/theorem/causality_forbids_ftl) — `(3*3 - 5*5 : Int) < 0`",
@@ -12352,6 +12610,19 @@
     "publish_gate_is_conjunction",
     "inverted_pyramid_descends",
     "a_claim_is_verified_or_unverified"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-reversal.md",
+   "address": "a793dbe0-7b2d-828e-929d-1564ef023b9d",
+   "prose": "- [reflection_reverses_uniquely](/theorem/reflection_reverses_uniquely) — `((List.range 10).map (preOf dz) = [1,1,1,1,1,1,1,1,1,1]) ∧ ((List.range 10).all (fun d => `\n- [doubling_reverses_ambiguously](/theorem/doubling_reverses_ambiguously) — `(preOf dbl 0 = 2) ∧ (dbl 0 = 0) ∧ (dbl 9 = 0) ∧ (preOf dbl 0 ≠ 1)`\n- [nine_is_never_reached](/theorem/nine_is_never_reached) — `(preOf dbl 9 = 0) ∧ ((List.range 10).all (fun d => dbl d != 9))`\n- [censuses_differ](/theorem/censuses_differ) — `((List.range 10).map (preOf dz) ≠ (List.range 10).map (preOf dbl)) ∧ ([1,1,1,1,1,1,1,1,1,1`\n- [path_reverse_needs_both](/theorem/path_reverse_needs_both) — `(preOf dbl 0 ≠ 1) ∧ (preOf dbl 9 = 0) ∧ ((List.range 10).all (fun d => preOf dz d == 1))`\n- [reflection_explores_all](/theorem/reflection_explores_all) — `(((List.range 10).map dz).eraseDups.length = 10) ∧ (((List.range 10).map dbl).eraseDups.le`",
+   "cites": [
+    "reflection_reverses_uniquely",
+    "doubling_reverses_ambiguously",
+    "nine_is_never_reached",
+    "censuses_differ",
+    "path_reverse_needs_both",
+    "reflection_explores_all"
    ]
   },
   {
@@ -12779,6 +13050,19 @@
    ]
   },
   {
+   "surface": "docs/articles/search-seats.md",
+   "address": "e2506ae8-a357-8311-82aa-e0c4826f2616",
+   "prose": "- [fullest_seat_ceiling](/theorem/fullest_seat_ceiling) — `seatCases.map (fun c => fullest c.1 c.2) = [2,3,12,1,1]`\n- [excess_forces_sharing](/theorem/excess_forces_sharing) — `(seatCases.filter (fun c => c.1 > c.2)).all (fun c => fullest c.1 c.2 ≥ 2)`\n- [fit_shares_nothing](/theorem/fit_shares_nothing) — `(seatCases.filter (fun c => c.1 ≤ c.2)).all (fun c => fullest c.1 c.2 = 1)`\n- [powers_are_not_the_bound](/theorem/powers_are_not_the_bound) — `((2:Nat)^8 ≠ (11 + 10 - 1) / 10) ∧ ((2:Nat)^10 ≠ (21 + 10 - 1) / 10)`\n- [digits_split_five_five](/theorem/digits_split_five_five) — `(([2,6,7,8,9] ++ [0,1,3,4,5]).length = 10) ∧ ((List.range 10).all (fun d => ([2,6,7,8,9] +`\n- [ten_seats_bound_any_ring](/theorem/ten_seats_bound_any_ring) — `(11 > 10) ∧ ((11 + 10 - 1) / 10 ≥ 2)`",
+   "cites": [
+    "fullest_seat_ceiling",
+    "excess_forces_sharing",
+    "fit_shares_nothing",
+    "powers_are_not_the_bound",
+    "digits_split_five_five",
+    "ten_seats_bound_any_ring"
+   ]
+  },
+  {
    "surface": "docs/articles/search-security.md",
    "address": "2429be89-eb47-8d4a-aa50-513f1f0b7d7d",
    "prose": "- [scout_drones_spin](/theorem/scout_drones_spin) — `(2^6 % 9 = 1) ∧ ([1,2,4,8,7,5].length = 6) ∧ (2 * 32 = 64)`\n- [defence_layers_add_bits](/theorem/defence_layers_add_bits) — `64 + 64 = 128`\n- [two_layers_multiply_space](/theorem/two_layers_multiply_space) — `2^8 * 2^8 = 2^16`\n- [each_key_bit_doubles](/theorem/each_key_bit_doubles) — `2^11 = 2 * 2^10`\n- [birthday_halves_the_exponent](/theorem/birthday_halves_the_exponent) — `2 * 64 = 128`\n- [collisions_under_one](/theorem/collisions_under_one) — `(72 * 71 / 2 = 2556) ∧ (14 * 13 / 2 = 91) ∧ (91 < 2556)`\n- [verify_cheaper_than_forge](/theorem/verify_cheaper_than_forge) — `16 < 2^16`\n- [wait_covers_margin](/theorem/wait_covers_margin) — `(40 * 15 = 600) ∧ ((9 - 2) * 60 = 420) ∧ (600 > 420)`\n- [no_maximum_only_bounds](/theorem/no_maximum_only_bounds) — `2^8 < 2^9`",
@@ -12831,8 +13115,8 @@
   },
   {
    "surface": "docs/articles/search-software.md",
-   "address": "3ef07101-ed53-8b25-bf07-47ff1cce90f0",
-   "prose": "- [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) — `(List.range 32).all (fun n => 2 * (n / 2) + n % 2 == n)`\n- [map_preserves_length](/theorem/map_preserves_length) — `((List.range 10).map (fun x => x + 1)).length = 10`\n- [filter_never_grows](/theorem/filter_never_grows) — `((List.range 10).filter (fun x => x % 2 == 0)).length ≤ 10`\n- [append_length_adds](/theorem/append_length_adds) — `([1,2,3] ++ [4,5]).length = 3 + 2`\n- [clamp_is_idempotent](/theorem/clamp_is_idempotent) — `(List.range 20).all (fun n => let c := if n ≤ 7 then n else 7; (if c ≤ 7 then c else 7) ==`\n- [safe_div_is_total](/theorem/safe_div_is_total) — `[0,1,2,3,4,6].map (fun b => if b == 0 then 0 else 12 / b) = [0,12,6,4,3,2]`\n- [reduce_is_order_invariant](/theorem/reduce_is_order_invariant) — `List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]`\n- [shift_loop_terminates](/theorem/shift_loop_terminates) — `(List.range 16).all (fun n => n/2/2/2/2 == 0)`\n- [compare_swap_orders](/theorem/compare_swap_orders) — `[(3,1),(1,3),(2,2)].all (fun p => (if p.1 ≤ p.2 then p.1 else p.2) ≤ (if p.1 ≤ p.2 then p.`\n- [safe_index_is_total](/theorem/safe_index_is_total) — `(nth [10,20,30] 5 = 0) ∧ (nth [10,20,30] 1 = 20)`\n- [reverse_is_involutive](/theorem/reverse_is_involutive) — `[1,2,3,4].reverse.reverse = [1,2,3,4]`",
+   "address": "7fda1420-176a-8435-8f26-a447694f0c9b",
+   "prose": "- [codec_split_recompose_lossless](/theorem/codec_split_recompose_lossless) — `(List.range 32).all (fun n => 2 * (n / 2) + n % 2 == n)`\n- [map_preserves_length](/theorem/map_preserves_length) — `((List.range 10).map (fun x => x + 1)).length = 10`\n- [filter_never_grows](/theorem/filter_never_grows) — `((List.range 10).filter (fun x => x % 2 == 0)).length ≤ 10`\n- [append_length_adds](/theorem/append_length_adds) — `([1,2,3] ++ [4,5]).length = 3 + 2`\n- [clamp_is_idempotent](/theorem/clamp_is_idempotent) — `(List.range 20).all (fun n => let c := if n ≤ 7 then n else 7; (if c ≤ 7 then c else 7) ==`\n- [safe_div_is_total](/theorem/safe_div_is_total) — `[0,1,2,3,4,6].map (fun b => if b == 0 then 0 else 12 / b) = [0,12,6,4,3,2]`\n- [reduce_is_order_invariant](/theorem/reduce_is_order_invariant) — `List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]`\n- [shift_loop_terminates](/theorem/shift_loop_terminates) — `(List.range 16).all (fun n => n/2/2/2/2 == 0)`\n- [compare_swap_orders](/theorem/compare_swap_orders) — `[(3,1),(1,3),(2,2)].all (fun p => (if p.1 ≤ p.2 then p.1 else p.2) ≤ (if p.1 ≤ p.2 then p.`\n- [safe_index_is_total](/theorem/safe_index_is_total) — `(nth [10,20,30] 5 = 0) ∧ (nth [10,20,30] 1 = 20)`\n- [reverse_is_involutive](/theorem/reverse_is_involutive) — `[1,2,3,4].reverse.reverse = [1,2,3,4]`\n- [cube_seals_at_completeness_only](/theorem/cube_seals_at_completeness_only) — `([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 8, 13, 24, 27, 7, 6, 8, 19, 17, 7, 5, 64, 8, 16`\n- [cubes_partition_ledger](/theorem/cubes_partition_ledger) — `(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 8, 13, 24, 27, 7, 6, 8, 19, 17, 7, 5, 64, 8, 1`\n- [receipt_costs_nothing](/theorem/receipt_costs_nothing) — `(((List.range 4).filter (fun n => let s := n % 2; let m := n / 2 % 2; s * (1 - m) == 1)).l`\n- [message_carries_address](/theorem/message_carries_address) — `(16^8 = 4294967296) ∧ (65536 * 65536 = 16^8) ∧ (8 * 4 = 32) ∧ (32 * 4 = 128)`",
    "cites": [
     "codec_split_recompose_lossless",
     "map_preserves_length",
@@ -12844,17 +13128,20 @@
     "shift_loop_terminates",
     "compare_swap_orders",
     "safe_index_is_total",
-    "reverse_is_involutive"
+    "reverse_is_involutive",
+    "cube_seals_at_completeness_only",
+    "cubes_partition_ledger",
+    "receipt_costs_nothing",
+    "message_carries_address"
    ]
   },
   {
    "surface": "docs/articles/search-solids.md",
-   "address": "673ad592-1223-86c4-be19-c8c1803ba089",
-   "prose": "- [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) — `[(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].length = 5`\n- [platonic_euler_characteristic_is_two](/theorem/platonic_euler_characteristic_is_two) — `[(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].all (fun s => s.1 + s.2.2 == s.2.1 + 2)`\n- [captain_theorem](/theorem/captain_theorem) — `(20 + 12 - 30 = 2) ∧ (110 - 108 = 2)`\n- [dodecahedron_twelve_pentagons](/theorem/dodecahedron_twelve_pentagons) — `12 * 5 = 2 * 30`\n- [icosahedron_twenty_triangles](/theorem/icosahedron_twenty_triangles) — `20 * 3 = 2 * 30`\n- [cube_octahedron_dual](/theorem/cube_octahedron_dual) — `((8,12,6).1 = (6,12,8).2.2) ∧ ((8,12,6).2.2 = (6,12,8).1) ∧ ((8,12,6).2.1 = (6,12,8).2.1)`\n- [dodecahedron_icosahedron_dual](/theorem/dodecahedron_icosahedron_dual) — `((20,30,12).1 = (12,30,20).2.2) ∧ ((20,30,12).2.2 = (12,30,20).1) ∧ ((20,30,12).2.1 = (12,`\n- [tetrahedron_self_dual](/theorem/tetrahedron_self_dual) — `(4,6,4).1 = (4,6,4).2.2`\n- [three_pentagons_close_a_vertex](/theorem/three_pentagons_close_a_vertex) — `(3 * 108 < 360) ∧ (360 < 4 * 108)`\n- [regular_polytopes_by_dimension](/theorem/regular_polytopes_by_dimension) — `(List.range' 3 5).map (fun d => if d = 3 then 5 else if d = 4 then 6 else 3) = [5,6,3,3,3]`\n- [three_regular_polytopes_from_five_up](/theorem/three_regular_polytopes_from_five_up) — `(List.range' 5 3).all (fun d => (if d = 3 then 5 else if d = 4 then 6 else 3) == 3)`\n- [seventh_dimension_three_regular_polytopes](/theorem/seventh_dimension_three_regular_polytopes) — `(if (7:Nat) = 3 then 5 else if 7 = 4 then 6 else 3) = 3`",
+   "address": "9f78f039-1257-86c9-93ab-b8b43284b8f2",
+   "prose": "- [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) — `[(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].length = 5`\n- [platonic_euler_characteristic_is_two](/theorem/platonic_euler_characteristic_is_two) — `[(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].all (fun s => s.1 + s.2.2 == s.2.1 + 2)`\n- [dodecahedron_twelve_pentagons](/theorem/dodecahedron_twelve_pentagons) — `12 * 5 = 2 * 30`\n- [icosahedron_twenty_triangles](/theorem/icosahedron_twenty_triangles) — `20 * 3 = 2 * 30`\n- [cube_octahedron_dual](/theorem/cube_octahedron_dual) — `((8,12,6).1 = (6,12,8).2.2) ∧ ((8,12,6).2.2 = (6,12,8).1) ∧ ((8,12,6).2.1 = (6,12,8).2.1)`\n- [dodecahedron_icosahedron_dual](/theorem/dodecahedron_icosahedron_dual) — `((20,30,12).1 = (12,30,20).2.2) ∧ ((20,30,12).2.2 = (12,30,20).1) ∧ ((20,30,12).2.1 = (12,`\n- [tetrahedron_self_dual](/theorem/tetrahedron_self_dual) — `(4,6,4).1 = (4,6,4).2.2`\n- [three_pentagons_close_a_vertex](/theorem/three_pentagons_close_a_vertex) — `(3 * 108 < 360) ∧ (360 < 4 * 108)`\n- [regular_polytopes_by_dimension](/theorem/regular_polytopes_by_dimension) — `(List.range' 3 5).map (fun d => if d = 3 then 5 else if d = 4 then 6 else 3) = [5,6,3,3,3]`\n- [three_regular_polytopes_from_five_up](/theorem/three_regular_polytopes_from_five_up) — `(List.range' 5 3).all (fun d => (if d = 3 then 5 else if d = 4 then 6 else 3) == 3)`\n- [seventh_dimension_three_regular_polytopes](/theorem/seventh_dimension_three_regular_polytopes) — `(if (7:Nat) = 3 then 5 else if 7 = 4 then 6 else 3) = 3`",
    "cites": [
     "exactly_five_platonic_solids",
     "platonic_euler_characteristic_is_two",
-    "captain_theorem",
     "dodecahedron_twelve_pentagons",
     "icosahedron_twenty_triangles",
     "cube_octahedron_dual",
@@ -12864,6 +13151,19 @@
     "regular_polytopes_by_dimension",
     "three_regular_polytopes_from_five_up",
     "seventh_dimension_three_regular_polytopes"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-spectrum-hex.md",
+   "address": "c5169bba-d9fb-8959-a78f-e6f257144a4a",
+   "prose": "- [colour_is_six_hexbits](/theorem/colour_is_six_hexbits) — `(6 * 4 = 24) ∧ ((16:Nat)^6 = (2:Nat)^24) ∧ ((16:Nat)^6 = 16777216)`\n- [channel_is_two_hexbits](/theorem/channel_is_two_hexbits) — `(2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ (3 * 8 = 24) ∧ (3 * 2 = 6)`\n- [greys_are_one_in_sixtyfive_thousand](/theorem/greys_are_one_in_sixtyfive_thousand) — `((16:Nat)^6 / 256 = 65536) ∧ ((2:Nat)^16 = 65536) ∧ (256 * 65536 = 16777216)`\n- [shorthand_covers_one_in_four_thousand](/theorem/shorthand_covers_one_in_four_thousand) — `((16:Nat)^3 = 4096) ∧ ((16:Nat)^6 / (16:Nat)^3 = 4096) ∧ ((16:Nat)^3 * 4096 = 16777216)`\n- [spectrum_refuses_sixteen](/theorem/spectrum_refuses_sixteen) — `(16 * 22 < 360) ∧ (360 < 16 * 23) ∧ (360 % 9 = 0) ∧ (360 % 6 = 0) ∧ (360 % 16 ≠ 0)`\n- [wheel_divides_by_nine_and_six](/theorem/wheel_divides_by_nine_and_six) — `(((List.range' 1 20).filter (fun d => 360 % d == 0)) = [1,2,3,4,5,6,8,9,10,12,15,18,20]) ∧`",
+   "cites": [
+    "colour_is_six_hexbits",
+    "channel_is_two_hexbits",
+    "greys_are_one_in_sixtyfive_thousand",
+    "shorthand_covers_one_in_four_thousand",
+    "spectrum_refuses_sixteen",
+    "wheel_divides_by_nine_and_six"
    ]
   },
   {
@@ -12904,6 +13204,19 @@
     "maxwells_rule_truss",
     "redundancy_pays_one",
     "mechanism_lacks_one"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-subgroups.md",
+   "address": "be62de44-065c-83f3-9a88-cb32f381d7a9",
+   "prose": "- [units_form_six](/theorem/units_form_six) — `(units.length = 6) ∧ (units.all (fun a => units.any (fun b => mul9 a b == 1)))`\n- [four_subgroups_exhibited](/theorem/four_subgroups_exhibited) — `(([[1],[1,8],[1,4,7],[1,2,4,5,7,8]]).all isSub) ∧ (([[1],[1,8],[1,4,7],[1,2,4,5,7,8]]).len`\n- [lagrange_divides_every_order](/theorem/lagrange_divides_every_order) — `([1,2,3,6].all (fun n => 6 % n == 0)) ∧ ([1,2,3,6] = ((List.range' 1 6).filter (fun d => 6`\n- [two_generates_the_whole](/theorem/two_generates_the_whole) — `(units.map (fun a => ((List.range' 1 6).filter (fun k => (2 ^ k) % 9 == a)).length) = [1,1`\n- [most_subsets_are_not_subgroups](/theorem/most_subsets_are_not_subgroups) — `(64 - 4 = 60) ∧ (4 ≠ 64) ∧ ((2:Nat)^6 = 64)`\n- [trivial_and_whole_always_hold](/theorem/trivial_and_whole_always_hold) — `(isSub [1]) ∧ (isSub units) ∧ (([1]:List Nat).length ≠ units.length)`",
+   "cites": [
+    "units_form_six",
+    "four_subgroups_exhibited",
+    "lagrange_divides_every_order",
+    "two_generates_the_whole",
+    "most_subsets_are_not_subgroups",
+    "trivial_and_whole_always_hold"
    ]
   },
   {
@@ -12962,6 +13275,19 @@
    ]
   },
   {
+   "surface": "docs/articles/search-trinities.md",
+   "address": "f1cac218-5ce8-8a54-b397-aa326fb96e88",
+   "prose": "- [trinities_span_powers](/theorem/trinities_span_powers) — `(List.range 7).map (fun n => 3^n) = [1,3,9,27,81,243,729]`\n- [trinity_exceeds_qubit](/theorem/trinity_exceeds_qubit) — `((2:Nat)^1 < 3) ∧ (3 < (2:Nat)^2)`\n- [trinities_cover_billion](/theorem/trinities_cover_billion) — `((3:Nat)^19 ≥ 10^9) ∧ ((3:Nat)^18 < 10^9)`\n- [trinities_cover_word](/theorem/trinities_cover_word) — `((3:Nat)^41 ≥ 2^64) ∧ ((3:Nat)^40 < 2^64)`\n- [trinities_cover_address](/theorem/trinities_cover_address) — `((3:Nat)^81 ≥ 2^128) ∧ ((3:Nat)^80 < 2^128)`\n- [eightyone_squares_nine](/theorem/eightyone_squares_nine) — `(81 = 9^2) ∧ (81 = 3^4) ∧ (9 = 3^2)`",
+   "cites": [
+    "trinities_span_powers",
+    "trinity_exceeds_qubit",
+    "trinities_cover_billion",
+    "trinities_cover_word",
+    "trinities_cover_address",
+    "eightyone_squares_nine"
+   ]
+  },
+  {
    "surface": "docs/articles/search-typesetting.md",
    "address": "aa14c9d4-86a1-8074-9e30-c6aec393b55e",
    "prose": "- [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) — `6 * 12 = 72`\n- [em_en_and_thin](/theorem/em_en_and_thin) — `(12 / 2 = 6) ∧ (12 / 3 = 4)`\n- [folio_quarto_octavo](/theorem/folio_quarto_octavo) — `[2,4,8].map (fun n => n * 2) = [4,8,16]`\n- [signature_multiple_of_four](/theorem/signature_multiple_of_four) — `[4,8,16,32].all (fun p => p % 4 == 0)`\n- [page_diagonal_three_four_five](/theorem/page_diagonal_three_four_five) — `3 * 3 + 4 * 4 = 5 * 5`\n- [cassini_golden_page](/theorem/cassini_golden_page) — `5 * 5 - 3 * 8 = 1`\n- [van_de_graaf_margins](/theorem/van_de_graaf_margins) — `(4 = 2 * 2) ∧ (6 = 2 * 3)`\n- [leading_exceeds_type](/theorem/leading_exceeds_type) — `14 > 12 ∧ 14 = 12 + 2`\n- [baseline_grid_snaps_to_four](/theorem/baseline_grid_snaps_to_four) — `[12,16,20,24].all (fun n => n % 4 == 0)`\n- [type_scale_octave](/theorem/type_scale_octave) — `(16 = 8 * 2) ∧ (18 = 9 * 2)`\n- [a_series_halving](/theorem/a_series_halving) — `[1,2,4].map (fun n => n * 2) = [2,4,8]`\n- [ream_is_five_hundred](/theorem/ream_is_five_hundred) — `20 * 25 = 500`\n- [recto_odd_verso_even](/theorem/recto_odd_verso_even) — `[1,3,5].all (fun n => n % 2 == 1) ∧ [2,4,6].all (fun n => n % 2 == 0)`",
@@ -13009,6 +13335,25 @@
     "div_by_zero_is_the_reflection",
     "involute_centre",
     "billing_arith"
+   ]
+  },
+  {
+   "surface": "docs/articles/search-vector-equilibrium.md",
+   "address": "6f55f2c0-39a7-85ca-bb4d-d91d84d506bb",
+   "prose": "- [ve_twelve_vertices](/theorem/ve_twelve_vertices) — `VE.length = 12`\n- [radial_squared_two](/theorem/radial_squared_two) — `VE.all (fun v => n2 v == 2)`\n- [ve_four_neighbours](/theorem/ve_four_neighbours) — `VE.all (fun v => (VE.filter (fun w => dd v w == 2)).length == 4)`\n- [radial_equals_edge](/theorem/radial_equals_edge) — `VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4)`\n- [ve_twentyfour_edges](/theorem/ve_twentyfour_edges) — `12 * 4 / 2 = 24`\n- [ve_fourteen_faces](/theorem/ve_fourteen_faces) — `8 + 6 = 14`\n- [euler_characteristic_two](/theorem/euler_characteristic_two) — `12 + 14 = 24 + 2`\n- [metatron_seventyeight_lines](/theorem/metatron_seventyeight_lines) — `13 * 12 / 2 = 78`\n- [dz_two_fixedpoints](/theorem/dz_two_fixedpoints) — `(List.range 10).filter (fun d => dz d == d) = [0, 5]`\n- [dz_involution_digits](/theorem/dz_involution_digits) — `(List.range 10).all (fun d => dz (dz d) == d)`\n- [orbits_closed_involution](/theorem/orbits_closed_involution) — `[[0], [0,1,9], [0,1,3,5,7,9], [0,1,3,4,5,6,7,9], [0,1,5,9], [0,1,2,3,4,5,6,7,8,9]].all (fu`\n- [missing_pair_involution](/theorem/missing_pair_involution) — `((List.range 10).filter (fun d => !([0,1,3,4,5] ++ [0,9,7,6,5]).contains d) = [2, 8]) ∧ (d`",
+   "cites": [
+    "ve_twelve_vertices",
+    "radial_squared_two",
+    "ve_four_neighbours",
+    "radial_equals_edge",
+    "ve_twentyfour_edges",
+    "ve_fourteen_faces",
+    "euler_characteristic_two",
+    "metatron_seventyeight_lines",
+    "dz_two_fixedpoints",
+    "dz_involution_digits",
+    "orbits_closed_involution",
+    "missing_pair_involution"
    ]
   },
   {
@@ -17923,8 +18268,8 @@
   },
   {
    "surface": "docs/captain.md",
-   "address": "f5daf901-a31a-8ec4-a0b7-b5e500e578a2",
-   "prose": "| Term | Backed by |\n| --- | --- |\n| **Recomputable, not trusted** — every tool is a pure function; the same input mints the same output for anyone | the whole ledger — `npm run lean` reproduces every receipt |\n| **The gate can return FALSE** — a claim earns a sealed theorem or is flagged | [`exactly_one_flag`](/theorem/exactly_one_flag) |\n| **No FTL, no infinite** — bounded by construction | `cosmic_speed_limit` · [`dz_bounded`](/theorem/dz_bounded) |\n| **Coins are conserved** — free for the public interest, 2 per commercial seal, never negative | [`two_coins`](/theorem/two_coins) · [`bill_never_negative`](/theorem/bill_never_negative) |\n| **The gate is multilingual** — an overclaim cannot hide in another tongue or script | the provenance audit (Glagolitic→Cyrillic fold, 20+ languages) |",
+   "address": "d3db1cf0-f68b-81cf-a569-7d760ea2ed1e",
+   "prose": "| Term | Backed by |\n| --- | --- |\n| **Recomputable, not trusted** — every tool is a pure function; the same input mints the same output for anyone | the whole ledger — `npm run lean` reproduces every receipt |\n| **The gate can return FALSE** — a claim earns a sealed theorem or is flagged | [`exactly_one_flag`](/theorem/exactly_one_flag) |\n| **No FTL, no infinite** — bounded by construction | [`dz_bounded`](/theorem/dz_bounded) |\n| **Coins are conserved** — free for the public interest, 2 per commercial seal, never negative | [`two_coins`](/theorem/two_coins) · [`bill_never_negative`](/theorem/bill_never_negative) |\n| **The gate is multilingual** — an overclaim cannot hide in another tongue or script | the provenance audit (Glagolitic→Cyrillic fold, 20+ languages) |",
    "cites": [
     "exactly_one_flag",
     "dz_bounded",
@@ -19170,8 +19515,8 @@
   },
   {
    "surface": "docs/quantum-cryptography.md",
-   "address": "411b5109-8927-8fc9-9964-a53cf5ed7b90",
-   "prose": "**The idea.** uuidna's secrecy layer is **ChaCha20-Poly1305** (RFC 8439) over a **PBKDF2-SHA256** key derivation —\nall pure TypeScript, all KAT-verified. AEAD binds confidentiality and integrity in one operation: the ciphertext is\nhidden *and* tamper-evident, so a single flipped bit is detected, not silently decrypted. The nonce and salt widths\nare fixed and sealed ([`aead_nonce_and_salt_bits`](/theorem/aead_nonce_and_salt_bits)), and the key-derivation cost\nis **bounded on both sides** (`kdf_cost_bounded`: 600 000 ≤ iterations ≤ 10 000 000) —\nstrong enough to resist brute force, capped so a hostile envelope cannot spin the CPU forever. This is the course's\nfirst *use-flaw patched by name*: an unbounded iteration count is a denial-of-service, and the ceiling closes it.",
+   "address": "b0ffd4be-8a19-8e7a-a447-5965310e3794",
+   "prose": "**The idea.** uuidna's secrecy layer is **ChaCha20-Poly1305** (RFC 8439) over a **PBKDF2-SHA256** key derivation —\nall pure TypeScript, all KAT-verified. AEAD binds confidentiality and integrity in one operation: the ciphertext is\nhidden *and* tamper-evident, so a single flipped bit is detected, not silently decrypted. The nonce and salt widths\nare fixed and sealed ([`aead_nonce_and_salt_bits`](/theorem/aead_nonce_and_salt_bits)), and the key-derivation cost\nis **bounded on both sides** (600 000 ≤ iterations ≤ 10 000 000) —\nstrong enough to resist brute force, capped so a hostile envelope cannot spin the CPU forever. This is the course's\nfirst *use-flaw patched by name*: an unbounded iteration count is a denial-of-service, and the ceiling closes it.",
    "cites": [
     "aead_nonce_and_salt_bits"
    ]
@@ -19418,8 +19763,8 @@
   },
   {
    "surface": "docs/school.md",
-   "address": "ad8a689f-15e0-80c2-a261-7b3dc2fc1583",
-   "prose": "Three kinds of uuid live here, and telling them apart is the lesson. The **content-address** is a projection:\n`toUuid` folds any text to 128 bits, many texts to each address, so reversing it is not hard — it is *meaningless*;\nthe information is gone. The **sealed envelope** hides content behind the rotating ChaCha20-Poly1305 layer, so\nreversing it means recovering a key at one bounded KDF derive per guess\n(`kdf_cost_bounded`), with quantum search merely halving the exponent\n([`grover_quadratic_bound`](/theorem/grover_quadratic_bound)). The **carrier** is neither: `imprint` never hashes\nand never loses a bit — it *places* your message's bits into the uuid's free positions and `readImprint` picks\nthem back out. A bijection with its exact inverse, which is why decoding takes microseconds: there is no search,\nno key, nothing to break — the uuid does not hide the message, the uuid **is** the message, shaped to travel\nanywhere an id travels.",
+   "address": "27c78a92-a61a-8cfb-bc11-217f6bb42745",
+   "prose": "Three kinds of uuid live here, and telling them apart is the lesson. The **content-address** is a projection:\n`toUuid` folds any text to 128 bits, many texts to each address, so reversing it is not hard — it is *meaningless*;\nthe information is gone. The **sealed envelope** hides content behind the rotating ChaCha20-Poly1305 layer, so\nreversing it means recovering a key at one bounded KDF derive per guess\n(bounded on both sides), with quantum search merely halving the exponent\n([`grover_quadratic_bound`](/theorem/grover_quadratic_bound)). The **carrier** is neither: `imprint` never hashes\nand never loses a bit — it *places* your message's bits into the uuid's free positions and `readImprint` picks\nthem back out. A bijection with its exact inverse, which is why decoding takes microseconds: there is no search,\nno key, nothing to break — the uuid does not hide the message, the uuid **is** the message, shaped to travel\nanywhere an id travels.",
    "cites": [
     "grover_quadratic_bound"
    ]
@@ -19514,8 +19859,8 @@
   },
   {
    "surface": "docs/school.md",
-   "address": "68904f91-bffc-8967-8d97-998352e3c6e7",
-   "prose": "Every student here will be told UNVERIFIED, many times, forever — the curriculum is incomplete without learning\nwhat that verdict is and what it is not. Three facts, all sealed, carry the lesson. First: **the claim is on\ntrial, never the person** — the gate flags exactly one thing, a citation to a proof that does not exist\n([`exactly_one_flag`](/theorem/exactly_one_flag)); there is no verdict for \"unwelcome,\" none for \"foolish,\" and\nnone for *you*. The anti-shame theorem is not consolation prose; it is the trial's charter, recomputable. Second:\n**UNVERIFIED is an open door, not a judgment** — and since this semester that sentence is itself a theorem, not\nprose: the same citing claim verifies the moment its seal lands\n(`unverified_is_an_open_door`) — the verdict tracks the *ledger*, never\nthe claim's soul; every claim gets exactly one verdict, total and binary\n([`verdict_exactly_one`](/theorem/verdict_is_exactly_one)); and the algebra carries **no refuted state at all**\n(`unverified_complement_is_verified`) — absence of proof cannot\neven *compute* to falsity. It means *not yet backed*, never *false*, and it leaves with an\nordered develop plan: name the finite structure, write the decidable test, supply it. Shame wants you to read the\nverdict as a sentence about your worth; the arithmetic refuses to say any such sentence. Third: **the kindness is\nstructural** — everything here reverses except the human: imprints decode and chains replay, but no dossier of\nthe worker is arithmetically possible; the work seals eternal, the worker stays unrecomputable and therefore\nfree. The school grades claims precisely so it never has to grade people.",
+   "address": "12bcb77e-4b2d-8e39-b4fa-1a964bb29c56",
+   "prose": "Every student here will be told UNVERIFIED, many times, forever — the curriculum is incomplete without learning\nwhat that verdict is and what it is not. Three facts, all sealed, carry the lesson. First: **the claim is on\ntrial, never the person** — the gate flags exactly one thing, a citation to a proof that does not exist\n([`exactly_one_flag`](/theorem/exactly_one_flag)); there is no verdict for \"unwelcome,\" none for \"foolish,\" and\nnone for *you*. The anti-shame theorem is not consolation prose; it is the trial's charter, recomputable. Second:\n**UNVERIFIED is an open door, not a judgment** — and since this semester that sentence is itself a theorem, not\nprose: the same citing claim verifies the moment its seal lands\n— unverified is an open door, and the verdict tracks the *ledger*, never\nthe claim's soul; every claim gets exactly one verdict, total and binary\n([`verdict_is_exactly_one`](/theorem/verdict_is_exactly_one)); and the algebra carries **no refuted state at all**\n— the complement of unverified is verified, and absence of proof cannot\neven *compute* to falsity. It means *not yet backed*, never *false*, and it leaves with an\nordered develop plan: name the finite structure, write the decidable test, supply it. Shame wants you to read the\nverdict as a sentence about your worth; the arithmetic refuses to say any such sentence. Third: **the kindness is\nstructural** — everything here reverses except the human: imprints decode and chains replay, but no dossier of\nthe worker is arithmetically possible; the work seals eternal, the worker stays unrecomputable and therefore\nfree. The school grades claims precisely so it never has to grade people.",
    "cites": [
     "exactly_one_flag",
     "verdict_is_exactly_one"
@@ -19547,8 +19892,8 @@
   },
   {
    "surface": "docs/school.md",
-   "address": "00306d87-1018-8739-8760-b53b0160ad16",
-   "prose": "Entailment is undecidable, and a checker that claimed to compute it would be exactly the fraud this ledger\nexists to catch — so the fix already sealed for the Clay case does not generalize; a **different**, deliberately\nweaker one does. Every cited theorem's key tokens and, where its name reads as English rather than a dumped\nformula, its own gloss words become a small vocabulary; a claim's words are checked against that vocabulary for\nidentity, containment, or a shared six-character prefix — no score, no threshold, no percentage, because a\nthreshold is exactly the mechanism the collision lesson already put on trial and refused. This floor asks only\nwhether the claim and its citation share **any** vocabulary at all, and it runs strictly *after* the collision\ncheck above, on the citations that check never had to touch — so it is never asked to tell a true Clay claim\nfrom its exact opposite (the failure that killed the scored version); it is only ever asked whether a citation\nis about the same *topic* as the claim it rides on. When every real citation shares nothing with the claim the\nverdict drops to UNVERIFIED, never a third state, with a note naming the citation real and simply irrelevant —\nnot fabricated, not false ([`verdict_exactly_one`](/theorem/verdict_is_exactly_one)). Calibrated against eight real\ncases before landing, including both of tonight's own — seven passed as designed, and the eighth is an honest,\nnamed limitation rather than a hidden one: `two_coins`'s own gloss reads *a measure of work saved*, and an\nadversarial claim using the word *measured* shares that real word, which is the expected shape of a floor and\nnot a wall. Checked against the two invariants a broken floor would have hard-failed: the Clay wing's fifteen\nlaundering probes, untouched because they are refused earlier by the collision check above, and its own\nexemplar citation, still VERIFIED because *verified* was a real shared word with the wing's own key. Full suite\nafter the change: 234 of 234\n(commit `7036c219`, trial-receipt `6fbc94f0-5d0c-8251-be1d-d25037d9ade2`).",
+   "address": "5c69900c-ef62-8586-a090-ba7b775cf15d",
+   "prose": "Entailment is undecidable, and a checker that claimed to compute it would be exactly the fraud this ledger\nexists to catch — so the fix already sealed for the Clay case does not generalize; a **different**, deliberately\nweaker one does. Every cited theorem's key tokens and, where its name reads as English rather than a dumped\nformula, its own gloss words become a small vocabulary; a claim's words are checked against that vocabulary for\nidentity, containment, or a shared six-character prefix — no score, no threshold, no percentage, because a\nthreshold is exactly the mechanism the collision lesson already put on trial and refused. This floor asks only\nwhether the claim and its citation share **any** vocabulary at all, and it runs strictly *after* the collision\ncheck above, on the citations that check never had to touch — so it is never asked to tell a true Clay claim\nfrom its exact opposite (the failure that killed the scored version); it is only ever asked whether a citation\nis about the same *topic* as the claim it rides on. When every real citation shares nothing with the claim the\nverdict drops to UNVERIFIED, never a third state, with a note naming the citation real and simply irrelevant —\nnot fabricated, not false ([`verdict_is_exactly_one`](/theorem/verdict_is_exactly_one)). Calibrated against eight real\ncases before landing, including both of tonight's own — seven passed as designed, and the eighth is an honest,\nnamed limitation rather than a hidden one: `two_coins`'s own gloss reads *a measure of work saved*, and an\nadversarial claim using the word *measured* shares that real word, which is the expected shape of a floor and\nnot a wall. Checked against the two invariants a broken floor would have hard-failed: the Clay wing's fifteen\nlaundering probes, untouched because they are refused earlier by the collision check above, and its own\nexemplar citation, still VERIFIED because *verified* was a real shared word with the wing's own key. Full suite\nafter the change: 234 of 234\n(commit `7036c219`, trial-receipt `6fbc94f0-5d0c-8251-be1d-d25037d9ade2`).",
    "cites": [
     "verdict_is_exactly_one"
    ]

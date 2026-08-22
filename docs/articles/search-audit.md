@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The detectors, proven
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The detectors, proven* — the wing sealed in [lean/Audit.lean](/lean/Audit.lean) with **9 theorems**. Each
+asked in parallel about *The detectors, proven* — the wing sealed in [lean/Audit.lean](/lean/Audit.lean) with **17 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -21,14 +21,14 @@ the hard gate of the corroboration law.
 | `a69a2116` | zenodo.org | zenodo record 8384083: A dataset of open-source android applications collected from F-droid | UNVERIFIED | VERIFIED |
 | `b3f8cdc1` | zenodo.org | zenodo record 1078514: Assessing Post-Detection Filters for a Generic Pedestrian Detector in a Tracking | UNVERIFIED | VERIFIED |
 | `a6580660` | zenodo.org | zenodo record 10926483: Raw data for "Deep mouse brain two-photon near-infrared fluorescence imaging usi | UNVERIFIED | VERIFIED |
-| `fa7e3ea8` | zenodo.org | zenodo record 6969827: G-Networks that Detect Different Types of Cyberattacks | UNVERIFIED | VERIFIED |
+| `c3f398aa` | zenodo.org | zenodo record 8344603: On-site testing of VOC detectors for Indoor Air Quality assessment | UNVERIFIED | VERIFIED |
 | `25a8a845` | crossref.org | DOI 10.1142/9789812819093_0107: IGNORED DISCOVERY NOW PROVEN CAPABLE OF SAVING MILLIONS OF LIVES FROM PREMATURE  | UNVERIFIED | VERIFIED |
 | `54ea419e` | crossref.org | DOI 10.7591/cornell/9781501750373.003.0001: Introduction | UNVERIFIED | VERIFIED |
 | `d4942777` | crossref.org | DOI 10.53347/rid-161861: amyloid biopsy proven | UNVERIFIED | VERIFIED |
 | `c44cb315` | crossref.org | DOI 10.1515/9781501750397-001: 1. Introduction: The Data-Method- Theory Triad, or Why Finance Cannot Be Proven | UNVERIFIED | VERIFIED |
 | `c5d2eaee` | crossref.org | DOI 10.1093/oed/2401541757: proven, adj. | UNVERIFIED | VERIFIED |
-| `828360ce` | crossref.org | DOI 10.1093/oed/1040001202: non-proven, adj. | UNVERIFIED | VERIFIED |
 | `40ce8897` | crossref.org | DOI 10.1007/978-1-4020-2867-0_7: BHDL: Principles and tools for generating proven hardware | UNVERIFIED | VERIFIED |
+| `828360ce` | crossref.org | DOI 10.1093/oed/1040001202: non-proven, adj. | UNVERIFIED | VERIFIED |
 | `1d2aa0f7` | crossref.org | DOI 10.7591/cornell/9781501750373.001.0001: The Ascent of Market Efficiency | UNVERIFIED | VERIFIED |
 | `926ffed1` | openalex.org | OpenAlex The LHCb Detector at the LHC [Particle Detector Development ] | UNVERIFIED | VERIFIED |
 | `deb4b688` | openalex.org | OpenAlex DSSD : Deconvolutional Single Shot Detector [Advanced Neural Network Applic] | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `cd21a41c` | openalex.org | OpenAlex A Multi-Modal Distributed Real-Time IoT System for Urban Traffic Contr [Advanced Image and Video Retri] | UNVERIFIED | VERIFIED |
 | `4ea15c23` | openalex.org | OpenAlex Performance test of an LSO-APD detector in a 7-T MRI scanner for simul [Medical Imaging Techniques and] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `47b9d5f5`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `39e7202b`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -51,7 +51,15 @@ The sealed backing this trial held the findings beside:
 - [exactly_one_flag](/theorem/exactly_one_flag) — `((List.range 8).filter (fun n => flag (n%2) (n/2%2) (n/4%2) == 1)).length = 1`
 - [flag_matches_spec](/theorem/flag_matches_spec) — `(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) `
 - [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) — `(32 = 2^5) ∧ (0 < 32)`
+- [witnesses_locate_faults](/theorem/witnesses_locate_faults) — `(2*1+1 = 3) ∧ (2*2+1 = 5) ∧ ([3,5].all (fun n => n % 2 == 1)) ∧ (4 % 2 = 0) ∧ (3 - 1 = 2)`
+- [handle_splits_four](/theorem/handle_splits_four) — `(8 = 4 * 2) ∧ (256^4 = 4294967296) ∧ (16^8 = 4294967296) ∧ (256^4 = 16^8)`
 - [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) — `((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1)`
+- [prose_coverage_total](/theorem/prose_coverage_total) — `(([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 8, 13, 24, 27, 7, 6, 8, 19, 17, 7, 5, 64, 8, 16, 8`
+- [prose_round_trips](/theorem/prose_round_trips) — `(1390 + 0 = 1390) ∧ (0 = 0)`
+- [prose_terminator_escaped](/theorem/prose_terminator_escaped) — `(0 + 1390 = 1390) ∧ (0 = 0)`
+- [prose_beats_restatement](/theorem/prose_beats_restatement) — `(0 < 1390) ∧ (0 + 1390 = 1390)`
+- [prose_folds_receipt](/theorem/prose_folds_receipt) — `(([1078, 1237, 1545, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 1340, 3451, 4156, 9501`
+- [prose_audit_total](/theorem/prose_audit_total) — `(0 < 90) ∧ (0 < 3) ∧ (1390 = 1390 + 0)`
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not

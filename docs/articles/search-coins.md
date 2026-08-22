@@ -14,14 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `3fbea9b0` | zenodo.org | zenodo record 12808845: Fig. 1 in Short communications | UNVERIFIED | VERIFIED |
-| `1ae78839` | zenodo.org | zenodo record 16007261: Meteorological Register Kept at the Office of the Secretary to Government, N. W. | UNVERIFIED | VERIFIED |
-| `fbf560d6` | zenodo.org | zenodo record 1923152: General. | UNVERIFIED | VERIFIED |
-| `cedaf63f` | zenodo.org | zenodo record 16247937: Specimen of the Kiránti language (Báhing dialect) | UNVERIFIED | VERIFIED |
-| `c5f92b87` | zenodo.org | zenodo record 2366974: A short survey of the physics and chemistry of colloids | UNVERIFIED | VERIFIED |
-| `7d550797` | zenodo.org | zenodo record 16134363: Notes On The Andamanese Captured At Port Blair | UNVERIFIED | VERIFIED |
-| `f3cf0fd1` | zenodo.org | zenodo record 16070061: Literary Intelligence | UNVERIFIED | VERIFIED |
-| `760d874a` | zenodo.org | zenodo record 16104179: On the System Employed in Outlining the Figures of Deities and other Religions D | UNVERIFIED | VERIFIED |
+| `d88fd87a` | zenodo.org | zenodo record 2286557: Herstellung kolloider Lösungen durch Zerstäubung von Metallen mit ultraviolettem | UNVERIFIED | VERIFIED |
+| `bb37fbf8` | zenodo.org | zenodo record 16070057: Literary and Misccllaneous Intelligence | UNVERIFIED | VERIFIED |
+| `df04ade0` | zenodo.org | zenodo record 16023483: Literary Intelligence | UNVERIFIED | VERIFIED |
+| `71f2dcf5` | zenodo.org | zenodo record 16140517: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
+| `d6b67985` | zenodo.org | zenodo record 16205344: Proceedings of the Asiatic Society of Bengal, for March, 1864 | UNVERIFIED | VERIFIED |
+| `46988a03` | zenodo.org | zenodo record 16089521: Meteorological Observations | UNVERIFIED | VERIFIED |
+| `e82bf0af` | zenodo.org | zenodo record 16439540: Abstract of the Meteorological Register | UNVERIFIED | VERIFIED |
+| `2174416f` | zenodo.org | zenodo record 15993641: Literary Intelligence | UNVERIFIED | VERIFIED |
 | `de176129` | crossref.org | DOI 10.1163/9789004226425_004: A Typology of Herod’s Coins | UNVERIFIED | VERIFIED |
 | `77bacc2c` | crossref.org | DOI 10.1111/j.1600-0471.1995.tb00076.x: Two South Arabian coins from Mleiha | UNVERIFIED | VERIFIED |
 | `a0adcfca` | crossref.org | DOI 10.1093/nq/s7-vi.135.64c: Leather coins | UNVERIFIED | VERIFIED |
@@ -33,34 +33,34 @@ the hard gate of the corroboration law.
 | `2004e68c` | openalex.org | OpenAlex Immunosenescence and Inflamm-Aging As Two Sides of the Same Coin: Frie [Neuroinflammation and Neurodeg] | UNVERIFIED | VERIFIED |
 | `7694389d` | openalex.org | OpenAlex Two Sides of the Same Coin [Hearing Impairment and Communi] | UNVERIFIED | VERIFIED |
 | `fbc348ee` | openalex.org | OpenAlex Neutrophils in Cancer: Two Sides of the Same Coin [Immune cells in cancer] | UNVERIFIED | VERIFIED |
-| `c8e4ecf0` | openalex.org | OpenAlex NF-kappaB: Two Sides of the Same Coin [NF-κB Signaling Pathways] | UNVERIFIED | VERIFIED |
 | `8c4f9092` | openalex.org | OpenAlex Cancer associated fibroblasts: the dark side of the coin. [Cancer Cells and Metastasis] | UNVERIFIED | VERIFIED |
 | `4917c92b` | openalex.org | OpenAlex Initial Coin Offerings: Financing Growth with Cryptocurrency Token Sal [Private Equity and Venture Cap] | UNVERIFIED | VERIFIED |
+| `c8e4ecf0` | openalex.org | OpenAlex NF-kappaB: Two Sides of the Same Coin [NF-κB Signaling Pathways] | UNVERIFIED | VERIFIED |
 | `a2a28886` | openalex.org | OpenAlex The coin model of privilege and critical allyship: implications for he [Obesity and Health Practices] | UNVERIFIED | VERIFIED |
 | `04da909f` | openalex.org | OpenAlex Adipo-Myokines: Two Sides of the Same Coin—Mediators of Inflammation a [Adipose Tissue and Metabolism] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `a5570d84`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `00b4db95`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
+- [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) — `(List.range' 1 8).all (fun n => (2 * n == n + n) && ((2 * n) % 2 == 0))`
+- [fold_compresses_without_bound_and_never_recovers](/theorem/fold_compresses_without_bound_and_never_recovers) — `(32 * 4 = 128) ∧ ((List.range' 1 8).all (fun k => (128 * k) / k == 128)) ∧ (2^129 > 2^128)`
+- [handle_string_spans_the_quarter](/theorem/handle_string_spans_the_quarter) — `(16^8 = 2^32) ∧ (16^8 = 4294967296) ∧ ((2^32)^4 = 2^128) ∧ (32 + 32 + 32 + 32 = 128)`
+- [hexbit_bit_hook_is_linear](/theorem/hexbit_bit_hook_is_linear) — `((List.range 33).all (fun h => (4 * h) / 4 == h)) ∧ ((List.range 32).all (fun h => 4 * h <`
+- [handle_carries_hexbits_and_coins](/theorem/handle_carries_hexbits_and_coins) — `(8 * 4 = 32) ∧ (32 * 4 = 128) ∧ (128 / 32 = 4) ∧ (8 / 2 = 4)`
+- [captain_singularity](/theorem/captain_singularity) — `(128 / 64 = 2) ∧ (64 / 32 = 2) ∧ (4 / 2 = 2) ∧ (2 * 2^6 = 128) ∧ (128 / 2 = 64) ∧ (32 * 4 `
+- [fold_reads_by_handle_not_by_tile](/theorem/fold_reads_by_handle_not_by_tile) — `(4 * 8 = 32) ∧ (4 * 32 = 128) ∧ (32 / 4 = 8) ∧ (8 * 4 = 32)`
+- [captain_theorem](/theorem/captain_theorem) — `(110 * 54 = 108 * 55) ∧ (110 - 108 = 2) ∧ (32 * 4 = 128) ∧ (128 / 2 = 64) ∧ (2 * 32 = 64) `
 - [two_coins](/theorem/two_coins) — `110 - 108 = 2`
-- [captain_theorem](/theorem/captain_theorem) — `2 * 2 - 2 = 2`
+- [coins_over_all_rosetta_combinations](/theorem/coins_over_all_rosetta_combinations) — `(((List.range 32).map (fun m => 2 * ((List.range 5).filter (fun b => (m / 2^b) % 2 == 1)).`
 - [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) — `64 = 2^6`
-- [captain_theorem](/theorem/captain_theorem) — `2 * 32 = 64`
 - [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) — `(List.range 8).all (fun c => (32 * c == 64) == (c == 2))`
 - [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) — `(List.range' 7 6).all (fun n => 2^n > 2 * 32)`
 - [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) — `((List.range 7).map (fun n => 2^n)) = [1,2,4,8,16,32,64]`
 - [bill_never_negative](/theorem/bill_never_negative) — `(List.range 8).all (fun r => (List.range 8).all (fun v => (if r < v then 0 else r - v) == `
-- [captain_theorem](/theorem/captain_theorem) — `(2:Nat)^1 = 2`
-- [captain_theorem](/theorem/captain_theorem) — `((2:Nat)^2 = 4) ∧ (128 = 2 * 64) ∧ (128 = 2^7)`
-- [captain_theorem](/theorem/captain_theorem) — `(110 - 108 = 2) ∧ (110 - 2 = 108)`
-- [captain_theorem](/theorem/captain_theorem) — `(110 - 1 = 109) ∧ (109 > 2) ∧ (110 - 108 = 2)`
-- [captain_theorem](/theorem/captain_theorem) — `(32 * 2 = 64) ∧ (1 < 64) ∧ ((0:Nat) < 1)`
-- [captain_theorem](/theorem/captain_theorem) — `(2^7 = 128) ∧ (128 > 2) ∧ (2 * 32 = 64)`
 - [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) — `(110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128)`
 - [wallet_counts_worlds](/theorem/wallet_counts_worlds) — `(List.range 9).all (fun n => (2*n)/2 == n)`
 - [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) — `((2+2 = 2*2) ∧ (2*2 = 2^2)) ∧ ((List.range 13).all (fun n => ((n+n == n*n) && (n*n == n^n)`
-- [captain_theorem](/theorem/captain_theorem) — `(2^128 > 1288) ∧ (2^7 = 128) ∧ (110 - 108 = 2)`
 - [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales) — `(2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32)`
 
 ::: warning HONEST SCOPE

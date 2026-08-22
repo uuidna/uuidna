@@ -18,12 +18,20 @@ the hard gate of the corroboration law.
 | `756722a2` | crossref.org | DOI 10.1007/978-94-009-4311-7_3: A Property of Unit Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `e8b125ea` | crossref.org | DOI 10.1080/00150517.1996.12429058: On the Sums of Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `8417c715` | crossref.org | DOI 10.1080/00150517.1973.12430803: On the Periodicity of the Terminal Digits in Fibonacci Sequences | UNVERIFIED | VERIFIED |
-| `419c6600` | crossref.org | DOI 10.1080/00150517.1963.12431543: On the Periodicity of the Last Digits of the Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `4e0c21b6` | crossref.org | DOI 10.1080/00150517.1981.12430099: Initial Digits in Number Theory | UNVERIFIED | VERIFIED |
+| `419c6600` | crossref.org | DOI 10.1080/00150517.1963.12431543: On the Periodicity of the Last Digits of the Fibonacci Numbers | UNVERIFIED | VERIFIED |
 | `bc95d9dd` | crossref.org | DOI 10.1080/00150517.1964.12431492: Further Comments on the Periodicity of the Digits of the Fibonacci Sequence | UNVERIFIED | VERIFIED |
 | `0e808e67` | crossref.org | DOI 10.1080/00150517.1995.12429122: Some Probabilistic Aspects of the Terminal Digits of Fibonacci Numbers | UNVERIFIED | VERIFIED |
+| `872ec405` | openalex.org | OpenAlex Golden ratio in science, as random sequence source, its computation an [Advanced Mathematical Theories] | UNVERIFIED | VERIFIED |
+| `86cc60f1` | openalex.org | OpenAlex Fascinating Characteristics and Applications of the Fibonacci Sequence [Advanced Mathematical Theories] | UNVERIFIED | VERIFIED |
+| `7a447d27` | openalex.org | OpenAlex The Relation of Golden Ratio, Mathematics and Aesthetics [Architecture and Cultural Infl] | UNVERIFIED | VERIFIED |
+| `ac5057dd` | openalex.org | OpenAlex Teaching puzzle-based learning [Teaching and Learning Programm] | UNVERIFIED | VERIFIED |
+| `07c26f6c` | openalex.org | OpenAlex Introducing Golden Section in the Mathematics Class to Develop Critica [Mathematics Education and Peda] | UNVERIFIED | VERIFIED |
+| `a09743f7` | openalex.org | OpenAlex Exploring the Beauty of Fascinating Numbers [Mathematics Education and Teac] | UNVERIFIED | VERIFIED |
+| `336fa520` | openalex.org | OpenAlex The Fibonacci Association: Memories and Reflections 1962–2024 [Advanced Mathematical Theories] | UNVERIFIED | VERIFIED |
+| `9962d97d` | openalex.org | OpenAlex The BFP (Benford-Fibonacci-Perez) method validates the consistency of  [Benford’s Law and Fraud Detect] | UNVERIFIED | VERIFIED |
 
-**8 findings · 8 usable search-trial combinations · receipt `fa879df7`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `ce0753a0`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

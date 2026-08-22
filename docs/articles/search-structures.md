@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `5c249202` | zenodo.org | zenodo record 20437260: GENIA-Americas/multimodal-ai-americas: v1.0.1 | UNVERIFIED | VERIFIED |
-| `6a98474c` | zenodo.org | zenodo record 13837202: KirasFM-NN | UNVERIFIED | VERIFIED |
-| `16b3cb80` | zenodo.org | zenodo record 16707625: Two New Species of Eucalyptus (Myrtaceae) in South-eastern Australia | UNVERIFIED | VERIFIED |
-| `da557ed7` | zenodo.org | zenodo record 2105509: Journal of Indian industries and labour. Vol. I., part I. February, 1921. (Calcu | UNVERIFIED | VERIFIED |
-| `f875b47e` | zenodo.org | zenodo record 1654525: The Leonian Sacramentary: An Analytical Study. Ii | UNVERIFIED | VERIFIED |
-| `90e34c29` | zenodo.org | zenodo record 1872673: The Leonian Sacramentary: An Analytical Study | UNVERIFIED | VERIFIED |
-| `bf892cd2` | zenodo.org | zenodo record 15953210: Eucalyptus silvestris, a new species of Eucalyptus (Myrtaceae) for Victoria and  | UNVERIFIED | VERIFIED |
-| `089b4454` | zenodo.org | zenodo record 16252859: Three new Victorian species related to Eucalyptus aromaphloia L.D. Pryor and J.H | UNVERIFIED | VERIFIED |
 | `7de5296c` | crossref.org | DOI 10.1007/978-0-387-30160-0_7127: Maxwell's rule | UNVERIFIED | VERIFIED |
 | `3fbff2fb` | crossref.org | DOI 10.1038/nphys2146: Bending Maxwell's rule | UNVERIFIED | VERIFIED |
 | `82d97441` | crossref.org | DOI 10.1017/9781108303538.015: Appendix Vectors, Maxwell's Equations, the Harmonic Oscillator and a Sum Rule | UNVERIFIED | VERIFIED |
@@ -30,8 +22,16 @@ the hard gate of the corroboration law.
 | `4481e4cb` | crossref.org | DOI 10.1021/ed075p200: Prediction of the Saturation Curve of a Pure Substance Using Maxwell's Rule | UNVERIFIED | VERIFIED |
 | `26a62062` | crossref.org | DOI 10.1016/s0020-7683(98)00326-6: A symmetry extension of Maxwell's rule for rigidity of frames | UNVERIFIED | VERIFIED |
 | `7ccfa518` | crossref.org | DOI 10.7591/9781501703270-016: Appendix From Maxwell's Equations To "Maxwell's Equations" | UNVERIFIED | VERIFIED |
+| `bb0da761` | openalex.org | OpenAlex Buckminster Fuller's “Tensegrity” structures and Clerk Maxwell's rules [Structural Analysis and Optimi] | UNVERIFIED | VERIFIED |
+| `1e4cdcad` | openalex.org | OpenAlex A symmetry extension of Maxwell's rule for rigidity of frames [Structural Analysis and Optimi] | UNVERIFIED | VERIFIED |
+| `0f687aef` | openalex.org | OpenAlex The mechanical theory of fluid interfaces and Maxwell's rule [Phase Equilibria and Thermodyn] | UNVERIFIED | VERIFIED |
+| `188983d9` | openalex.org | OpenAlex Bending Maxwell's rule [Force Microscopy Techniques an] | UNVERIFIED | VERIFIED |
+| `6bfc0051` | openalex.org | OpenAlex Prediction of the Saturation Curve of a Pure Substance Using Maxwell's [Enhanced Oil Recovery Techniqu] | UNVERIFIED | VERIFIED |
+| `e96cc0c1` | openalex.org | OpenAlex Résumé of Maxwell's and Kirchhoff's rules for network analysis [Graph theory and applications] | UNVERIFIED | VERIFIED |
+| `6e24ae78` | openalex.org | OpenAlex Granular gas dynamics: how Maxwell's demon rules in a non-equilibrium  [Granular flow and fluidized be] | UNVERIFIED | VERIFIED |
+| `dc8d21cb` | openalex.org | OpenAlex Matrix Tree Theorems [Graph theory and applications] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `563e32ee`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `5f63e09a`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

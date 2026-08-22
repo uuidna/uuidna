@@ -36,10 +36,10 @@ the hard gate of the corroboration law.
 | `ad34efd6` | openalex.org | OpenAlex The Spinorial Chessboard [Experimental and Theoretical P] | UNVERIFIED | VERIFIED |
 | `f4703214` | openalex.org | OpenAlex A Circularly Polarized High-Gain Antenna With Low RCS Over a Wideband  [Advanced Antenna and Metasurfa] | UNVERIFIED | VERIFIED |
 | `79797af9` | openalex.org | OpenAlex Chessboard Complexes and Matching Complexes [Topological and Geometric Data] | UNVERIFIED | VERIFIED |
-| `68d6175a` | openalex.org | OpenAlex The cubic chessboard [Advanced Topics in Algebra] | UNVERIFIED | VERIFIED |
 | `6a558357` | openalex.org | OpenAlex Extended Hartmann test based on the pseudoguiding property of a Hartma [Optical measurement and interf] | UNVERIFIED | VERIFIED |
+| `68d6175a` | openalex.org | OpenAlex The cubic chessboard [Advanced Topics in Algebra] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `b270cf4b`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `2cfb8e57`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

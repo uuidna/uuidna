@@ -14,24 +14,32 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `ff2179e3` | zenodo.org | zenodo record 1623682: Remarks on Prof. Huxley's proposed Classification of Birds | UNVERIFIED | VERIFIED |
-| `3d3df9cd` | zenodo.org | zenodo record 2156795: The Evidences of the Geological Age and Human Manufacture of the Fossil Flint Im | UNVERIFIED | VERIFIED |
-| `f4691159` | zenodo.org | zenodo record 16494722: Art. I.—Sanscrit Inscription on the Slab Removed from Above the Kothoutiya Gate  | UNVERIFIED | VERIFIED |
+| `d88fd87a` | zenodo.org | zenodo record 2286557: Herstellung kolloider Lösungen durch Zerstäubung von Metallen mit ultraviolettem | UNVERIFIED | VERIFIED |
 | `bb37fbf8` | zenodo.org | zenodo record 16070057: Literary and Misccllaneous Intelligence | UNVERIFIED | VERIFIED |
-| `a360e7e3` | zenodo.org | zenodo record 16109736: Note on an Inscription from Oodeypore near Sagur | UNVERIFIED | VERIFIED |
-| `5230e6d8` | zenodo.org | zenodo record 16711761: Vocabulary of the Lepcha Language | UNVERIFIED | VERIFIED |
-| `fca2c7e2` | zenodo.org | zenodo record 16075124: Memorandumm, Showing the Final Result of Archdeacon Pratt's Calculations Regardi | UNVERIFIED | VERIFIED |
+| `df04ade0` | zenodo.org | zenodo record 16023483: Literary Intelligence | UNVERIFIED | VERIFIED |
 | `71f2dcf5` | zenodo.org | zenodo record 16140517: Proceedings of the Asiatic Society of Bengal | UNVERIFIED | VERIFIED |
+| `d6b67985` | zenodo.org | zenodo record 16205344: Proceedings of the Asiatic Society of Bengal, for March, 1864 | UNVERIFIED | VERIFIED |
+| `46988a03` | zenodo.org | zenodo record 16089521: Meteorological Observations | UNVERIFIED | VERIFIED |
+| `e82bf0af` | zenodo.org | zenodo record 16439540: Abstract of the Meteorological Register | UNVERIFIED | VERIFIED |
+| `2174416f` | zenodo.org | zenodo record 15993641: Literary Intelligence | UNVERIFIED | VERIFIED |
 | `5704ff8a` | crossref.org | DOI 10.18178/ijmlc.2019.9.3.801: A Complex Transformation of Monoalphabetic Cipher to Polyalphabetic Cipher: (Vig | UNVERIFIED | VERIFIED |
 | `82443aa6` | crossref.org | DOI 10.1117/12.2237570.5178981884001:  | UNVERIFIED | VERIFIED |
 | `5020ba9c` | crossref.org | DOI 10.36341/rabit.v11i1.7490: EVALUASI PERFORMA ALGORITMA HILL CIPHER DAN AFFINE CIPHER PADA PENGAMANAN DATA P | UNVERIFIED | VERIFIED |
 | `c8b439a6` | crossref.org | DOI 10.35940/ijeat.a1107.1291s419: A Novel Stream Cipher for Multimedia Security A Novel Stream Cipher for Multimed | UNVERIFIED | VERIFIED |
-| `3376c2ad` | crossref.org | DOI 10.14710/jmasif.10.2.31495: Kriptografi Citra Digital Menggunakan Algoritma Hill Cipher Dan Affine Cipher Be | UNVERIFIED | VERIFIED |
 | `f0a85fd0` | crossref.org | DOI 10.1201/b11310-18: Stream Cipher HC-128 | UNVERIFIED | VERIFIED |
+| `3376c2ad` | crossref.org | DOI 10.14710/jmasif.10.2.31495: Kriptografi Citra Digital Menggunakan Algoritma Hill Cipher Dan Affine Cipher Be | UNVERIFIED | VERIFIED |
 | `c53b2527` | crossref.org | DOI 10.24843/mite.2018.v17i01.p08: Efektivitas Pesan Teks Dengan Cipher Substitusi, Vigenere Cipher, dan Cipher Tra | UNVERIFIED | VERIFIED |
-| `0dc4d482` | crossref.org | DOI 10.19184/mims.v21i2.26978: KOMBINASI CAESAR CIPHER DAN REVERSE CIPHER BERDASARKAN CIPHER BLOCK CHAINING | UNVERIFIED | VERIFIED |
+| `ab7ddca7` | crossref.org | DOI 10.1007/springerreference_10001: cipher | UNVERIFIED | VERIFIED |
+| `98a58988` | openalex.org | OpenAlex Targeting DNA Double-Strand Breaks with TAL Effector Nucleases [CRISPR and Genetic Engineering] | UNVERIFIED | VERIFIED |
+| `cf9cf6bc` | openalex.org | OpenAlex Repair of Strand Breaks by Homologous Recombination [Concrete Corrosion and Durabil] | UNVERIFIED | VERIFIED |
+| `7f4cd970` | openalex.org | OpenAlex Breaking DES using a molecular computer [Chemical Synthesis and Analysi] | UNVERIFIED | VERIFIED |
+| `e5aaf3f7` | openalex.org | OpenAlex Modularly assembled designer TAL effector nucleases for targeted gene  [CRISPR and Genetic Engineering] | UNVERIFIED | VERIFIED |
+| `49840c6b` | openalex.org | OpenAlex Ciphers and Executioners: How 3′-Untranslated Regions Determine the Fa [RNA Research and Splicing] | UNVERIFIED | VERIFIED |
+| `c99121e9` | openalex.org | OpenAlex DNA Strands Level Scrambling Based Color Image Encryption Scheme [Chaos-based Image/Signal Encry] | UNVERIFIED | VERIFIED |
+| `76c0fb9c` | openalex.org | OpenAlex Genome Engineering With Zinc-Finger Nucleases [CRISPR and Genetic Engineering] | UNVERIFIED | VERIFIED |
+| `6933466c` | openalex.org | OpenAlex Dynamic 3D scrambled image based RGB image encryption scheme using hyp [Chaos-based Image/Signal Encry] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `ade6c402`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `d45b1c50`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

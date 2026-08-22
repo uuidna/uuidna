@@ -20,8 +20,8 @@ the hard gate of the corroboration law.
 | `3141a638` | zenodo.org | zenodo record 17355761: AI-Powered Anti-Money Laundering (AML) and fraud detection - enhancing financial | UNVERIFIED | VERIFIED |
 | `0b0d2661` | zenodo.org | zenodo record 15656461: Fraud Aware Banking Platform | UNVERIFIED | VERIFIED |
 | `5a5451e9` | zenodo.org | zenodo record 13325910: Comparative Analysis On implementation in fraud detection systems Based on Machi | UNVERIFIED | VERIFIED |
-| `fd2f79b6` | zenodo.org | zenodo record 13852274: IDNet: A Novel Dataset for Identity Document Analysis and Fraud Detection (part  | UNVERIFIED | VERIFIED |
-| `81ba98ac` | zenodo.org | zenodo record 13852757: IDNet: A Novel Dataset for Identity Document Analysis and Fraud Detection (part  | UNVERIFIED | VERIFIED |
+| `3cda9b01` | zenodo.org | zenodo record 21355769: A Machine Learning Framework for Credit Card Fraud Detection Using Random Forest | UNVERIFIED | VERIFIED |
+| `b110e17e` | zenodo.org | zenodo record 8022953: Credit Card Fraud Detection using Machine Learning | UNVERIFIED | VERIFIED |
 | `a948eeac` | crossref.org | DOI 10.4324/9781315263656-2: Developing an Anti-Fraud Culture | UNVERIFIED | VERIFIED |
 | `0c257444` | crossref.org | DOI 10.2139/ssrn.972557: Fraud and Anti-Fraud: A Theory of Misreporting and Detection | UNVERIFIED | VERIFIED |
 | `fb978e20` | crossref.org | DOI 10.1002/9781119205654.ch8: Advanced Fraud Detection Tools and Techniques | UNVERIFIED | VERIFIED |
@@ -30,8 +30,16 @@ the hard gate of the corroboration law.
 | `6a5ce004` | crossref.org | DOI 10.5220/0013911700004919: Machine Learning Anti-Fraud Detection Model for Internet Loans | UNVERIFIED | VERIFIED |
 | `7f213b0d` | crossref.org | DOI 10.70764/gdpu-fr.2025.1(1)-04: Forensic Auditing in Fraud Detection and Prevention: Integration of Technology,  | UNVERIFIED | VERIFIED |
 | `5259fd5a` | crossref.org | DOI 10.1007/s10791-025-09549-7: Dynamic quantification anti-fraud machine learning model for real-time transacti | UNVERIFIED | VERIFIED |
+| `9a4947e0` | openalex.org | OpenAlex Deep Learning Anomaly Detection as Support Fraud Investigation in Braz [Crime, Illicit Activities, and] | UNVERIFIED | VERIFIED |
+| `a8713e89` | openalex.org | OpenAlex Design of a NLP-empowered finance fraud awareness model: the anti-frau [Spam and Phishing Detection] | UNVERIFIED | VERIFIED |
+| `a12215f2` | openalex.org | OpenAlex The Credit Card Anti-fraud Detection Model in the Context of Dynamic I [Imbalanced Data Classification] | UNVERIFIED | VERIFIED |
+| `374cbfdb` | openalex.org | OpenAlex Financial Fraud: A Review of Anomaly Detection Techniques and Recent A [Imbalanced Data Classification] | UNVERIFIED | VERIFIED |
+| `d35e1393` | openalex.org | OpenAlex Accountants' perceptions regarding fraud detection and prevention meth [Auditing, Earnings Management,] | UNVERIFIED | VERIFIED |
+| `af65ea3c` | openalex.org | OpenAlex Fraud detection: A systematic literature review of graph-based anomaly [Imbalanced Data Classification] | UNVERIFIED | VERIFIED |
+| `24df711b` | openalex.org | OpenAlex Anti Fraud Detection Model Using Deep Learning Approach [Imbalanced Data Classification] | UNVERIFIED | VERIFIED |
+| `087c1d51` | openalex.org | OpenAlex A Synthesis of Fraud-Related Research [Auditing, Earnings Management,] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `c8bd46d3`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `2413c481`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

@@ -15,8 +15,8 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `4f137a30` | zenodo.org | zenodo record 1435932: Artificial Software Testing Workload | UNVERIFIED | VERIFIED |
-| `460c3c8f` | zenodo.org | zenodo record 1490744: Generated Software Testing Workload | UNVERIFIED | VERIFIED |
 | `75caf661` | zenodo.org | zenodo record 18184854: Simple UUID Server | UNVERIFIED | VERIFIED |
+| `460c3c8f` | zenodo.org | zenodo record 1490744: Generated Software Testing Workload | UNVERIFIED | VERIFIED |
 | `73c5e121` | zenodo.org | zenodo record 2578234: eschnett/FastArrays.jl: Correct UUID | UNVERIFIED | VERIFIED |
 | `3f37bea7` | zenodo.org | zenodo record 14679920: Evaluation datasets and results of the paper "Efficient Online Computation of Bu | UNVERIFIED | VERIFIED |
 | `ba74749f` | zenodo.org | zenodo record 2537838: Dataset for paper "Sharing emotions at scale: The Vent dataset" | UNVERIFIED | VERIFIED |
@@ -39,7 +39,7 @@ the hard gate of the corroboration law.
 | `694fc1bc` | openalex.org | OpenAlex Mineralogy and mixing state of north African mineral dust by online si [Atmospheric chemistry and aero] | UNVERIFIED | VERIFIED |
 | `ba085d8c` | openalex.org | OpenAlex The science case and challenges of space-borne sub-millimeter interfer [Astrophysics and Cosmic Phenom] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `6c051b19`** (fold of every finding's address — recompute by re-running the search).
+**24 findings · 24 usable search-trial combinations · receipt `52d88843`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

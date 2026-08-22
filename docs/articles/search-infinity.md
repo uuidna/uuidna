@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The physics infinities, made finite
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The physics infinities, made finite* — the wing sealed in [lean/Infinity.lean](/lean/Infinity.lean) with **9 theorems**. Each
+asked in parallel about *The physics infinities, made finite* — the wing sealed in [lean/Infinity.lean](/lean/Infinity.lean) with **13 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -25,13 +25,13 @@ the hard gate of the corroboration law.
 | `1f6bbe47` | openalex.org | OpenAlex Physics-informed machine learning [Model Reduction and Neural Net] | UNVERIFIED | VERIFIED |
 | `bfa096bd` | openalex.org | OpenAlex DOUBLE-TIME GREEN FUNCTIONS IN STATISTICAL PHYSICS [Theoretical and Computational ] | UNVERIFIED | VERIFIED |
 | `7a7fc291` | openalex.org | OpenAlex The physics and chemistry of the Schottky barrier height [Semiconductor materials and in] | UNVERIFIED | VERIFIED |
-| `d5849582` | openalex.org | OpenAlex Cosmology and fundamental physics with the Euclid satellite [Cosmology and Gravitation Theo] | UNVERIFIED | VERIFIED |
 | `250de96b` | openalex.org | OpenAlex Finite-Temperature Field Theory: Principles and Applications [High-Energy Particle Collision] | UNVERIFIED | VERIFIED |
+| `d5849582` | openalex.org | OpenAlex Cosmology and fundamental physics with the Euclid satellite [Cosmology and Gravitation Theo] | UNVERIFIED | VERIFIED |
 | `6a5091b9` | openalex.org | OpenAlex Physics of negative refractive index materials [Metamaterials and Metasurfaces] | UNVERIFIED | VERIFIED |
-| `767950ff` | openalex.org | OpenAlex FIRE-2 simulations: physics versus numerics in galaxy formation [Galaxies: Formation, Evolution] | UNVERIFIED | VERIFIED |
 | `c2de8429` | openalex.org | OpenAlex Conformal collider physics: energy and charge correlations [Black Holes and Theoretical Ph] | UNVERIFIED | VERIFIED |
+| `767950ff` | openalex.org | OpenAlex FIRE-2 simulations: physics versus numerics in galaxy formation [Galaxies: Formation, Evolution] | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `f166f3be`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `8a8800ce`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -44,6 +44,10 @@ The sealed backing this trial held the findings beside:
 - [dirac_unit_mass](/theorem/dirac_unit_mass) — `(List.range 101).foldl (fun s i => s + (if i == 50 then 1 else 0)) 0 = 1`
 - [horizon_curvature_finite](/theorem/horizon_curvature_finite) — `(List.range' 1 8).all (fun M => (2*M)^6 != 0 && (2*M)^6 == 64 * M^6)`
 - [newton_singularity_finite](/theorem/newton_singularity_finite) — `dz 0 = 0 ∧ (List.range 10).all (fun x => dz x < 10)`
+- [reach_all_decide](/theorem/reach_all_decide) — `(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 8, 13, 24, 27, 7, 6, 8, 19, 17, 7, 5, 64, 8, 1`
+- [reach_quantifiers_bounded](/theorem/reach_quantifiers_bounded) — `([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0`
+- [reach_window_finite](/theorem/reach_window_finite) — `([1, 9, 9, 8, 8, 101, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 10, 6, 24, 8, 2, 40, 17,`
+- [window_not_universal](/theorem/window_not_universal) — `((List.range 10).all (fun n => n < 10)) ∧ ¬(10 < 10)`
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not

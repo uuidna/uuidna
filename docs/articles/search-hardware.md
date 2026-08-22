@@ -14,14 +14,6 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `33a7e06d` | zenodo.org | zenodo record 10134: REDUCTION OF DIMENSION IN LINEAR BINARY CLASSIFICATION | UNVERIFIED | VERIFIED |
-| `927b41a7` | zenodo.org | zenodo record 810877: Definite Integration of Parametric Rational Functions: Applying a DITLU | UNVERIFIED | VERIFIED |
-| `09d8f2ce` | zenodo.org | zenodo record 3911510: Special Economic Zones: An Evaluation of Lusaka South - Multi Facility Economic  | UNVERIFIED | VERIFIED |
-| `b5b1e40e` | zenodo.org | zenodo record 21911604: A Proof of Shor's Orthogonal-Measurement Conjecture and the Structure of Informa | UNVERIFIED | VERIFIED |
-| `55195a86` | zenodo.org | zenodo record 7064491: The Influence of Human Resource Management Practices on Employees Intention to E | UNVERIFIED | VERIFIED |
-| `0d4a1ff2` | zenodo.org | zenodo record 2613490: Using Windows Server 2012-based storage solutions for small and medium size busi | UNVERIFIED | VERIFIED |
-| `53440167` | zenodo.org | zenodo record 6957570: Significance of first flight take-off delays: A case study of a low-cost hub in  | UNVERIFIED | VERIFIED |
-| `67d4b5c8` | zenodo.org | zenodo record 2613471: Using Linux-based storage solutions for small and medium size business resources | UNVERIFIED | VERIFIED |
 | `d3de5f76` | crossref.org | DOI 10.36227/techrxiv.177223066.62993533/v1: V-PUF: An Ephemeral-Key Decentralized Architecture for Verifiable Hardware Authe | UNVERIFIED | VERIFIED |
 | `4f9117d7` | crossref.org | DOI 10.52202/079017-3030: Optimistic Verifiable Training by Controlling Hardware Nondeterminism | UNVERIFIED | VERIFIED |
 | `d798c9d1` | crossref.org | DOI 10.23919/date48585.2020.9116342: Verifiable Security Templates for Hardware | UNVERIFIED | VERIFIED |
@@ -36,10 +28,10 @@ the hard gate of the corroboration law.
 | `e96b9b37` | openalex.org | OpenAlex ICEBERG : An Involutional Cipher Efficient for Block Encryption in Rec [Cryptographic Implementations ] | UNVERIFIED | VERIFIED |
 | `cc0b9617` | openalex.org | OpenAlex An Efficient ABE Scheme With Verifiable Outsourced Encryption and Decr [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
 | `96e7ef95` | openalex.org | OpenAlex A Survey on Homomorphic Encryption Schemes [Cryptography and Data Security] | UNVERIFIED | VERIFIED |
-| `2a4d891d` | openalex.org | OpenAlex Cryptanalysis of Algebraic Verifiable Delay Functions [Coding theory and cryptography] | UNVERIFIED | VERIFIED |
+| `2a4d891d` | openalex.org | OpenAlex Cryptanalysis of Algebraic Verifiable Delay Functions [Coding theory and cryptography] | UNVERIFIED | VERIFIED |
 | `acbd5915` | openalex.org | OpenAlex Introduction to differential power analysis [Cryptographic Implementations ] | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `82e0f871`** (fold of every finding's address — recompute by re-running the search).
+**16 findings · 16 usable search-trial combinations · receipt `b534117a`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
