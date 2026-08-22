@@ -50,6 +50,10 @@ export interface ControlRun {
   rejected: boolean
 }
 
+/** a claim decided ACROSS details: the assertion lives in one detail, its operands in earlier ones — the
+ *  provenance (which details supplied what) rides the fact, so the composition is auditable, not oracular */
+export interface ComposedFact extends ExtractedFact { assertedAt: number; operandsAt: number[] }
+
 export interface DetailAudit {
   title?: string
   /** the whole text's content-address — the exact edition audited */
@@ -62,6 +66,8 @@ export interface DetailAudit {
   outcome: 'audited' | 'void'
   counts: { verified: number; refuted: number; unverified: number; drained: number }
   verdicts: DetailVerdict[]
+  /** claims composed across details (orders-of-magnitude with distant operands), decided document-level */
+  composed: ComposedFact[]
   receipt: string
   honest: string
 }
@@ -181,6 +187,52 @@ const CONTROLS: { control: string; mustNotBe: DetailVerdictKind[] }[] = [
   { control: 'this audit is perfect, proven by theorem detail_audit_control_unsealed', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
 ]
 
+// ── CROSS-DETAIL COMPOSITION (lead 79c). Speech separates a claim from its operands: the Black Whole film says
+// "some 39 orders of magnitude smaller" captions away from the 10⁵⁵ and 10⁹³ it compares — and 93 − 55 = 38,
+// a refutable claim no single-detail law can reach. The composition law: an "k orders of magnitude" assertion
+// whose own detail could not decide it looks back through a BOUNDED window of details; if the window holds
+// EXACTLY two distinct same-base positive exponents, the claim is unambiguous and |e1 − e2| = k decides it —
+// any other operand count is ambiguity, and ambiguity is refused rather than mis-verdicted (the compound
+// guard's discipline at document scale). Provenance rides every composed fact: which detail asserted, which
+// details supplied the operands.
+const COMPOSE_WINDOW = 16
+
+function composeAcrossDetails(verdicts: DetailVerdict[]): ComposedFact[] {
+  const out: ComposedFact[] = []
+  verdicts.forEach((v, i) => {
+    const orders = v.detail.match(/\b(\d{1,4})\s+orders?\s+of\s+magnitude\b/i)
+    if (!orders) return
+    // the in-detail law already decided it — composition only reaches for what single-detail hearing could not
+    if (v.arithmetic.some((f) => f.lean.startsWith('theorem power_fact'))) return
+    const window = verdicts.slice(i < COMPOSE_WINDOW ? 0 : i - COMPOSE_WINDOW, i + 1)
+    const base10 = window.flatMap((w, j) => w.magnitudes.filter((m) => !m.negative && m.base === 10)
+      .map((m) => ({ exp: m.exp, at: (i < COMPOSE_WINDOW ? 0 : i - COMPOSE_WINDOW) + j })))
+    const distinct = [...new Set(base10.map((p) => p.exp))]
+    if (distinct.length !== 2) return  // zero, one, or many candidate operands — ambiguous, refuse
+    const [hi, lo] = distinct[0] >= distinct[1] ? [distinct[0], distinct[1]] : [distinct[1], distinct[0]]
+    const gap = hi - lo
+    const asserted = Number(orders[1])
+    const lean = `theorem power_fact : ${hi} - ${lo} = ${gap} := by decide`
+    const fact: ComposedFact = {
+      claim: `10^${hi} vs 10^${lo}: ${orders[0]}`, asserted, actual: gap, lean,
+      verdict: gap === asserted ? 'VERIFIED' : 'REFUTED', address: toUuid(lean),
+      assertedAt: i, operandsAt: [...new Set(base10.map((p) => p.at))],
+    }
+    out.push(fact)
+    // the asserting detail carries the composed verdict — unless it already drained (draining outranks)
+    if (v.verdict === 'UNVERIFIED') {
+      v.verdict = fact.verdict === 'REFUTED' ? 'REFUTED' : 'VERIFIED_BY_DECIDE'
+      v.note = `composed across details [${fact.operandsAt.join(', ')}]: ${fact.claim} — recomputes to ${gap}, ` +
+        (fact.verdict === 'REFUTED' ? `asserted ${asserted}: REFUTED (about the arithmetic only)` : `asserted ${asserted}: holds (only the arithmetic slice is adjudicated)`)
+    }
+  })
+  return out
+}
+
+// the composition's own pre-registered control: operands two details apart, gap 4, asserted 5 — the instrument
+// must REFUTE it, and ONLY refutation passes (a silent no-composition would otherwise slip through mustNotBe)
+const COMPOSED_CONTROL = 'the first density is 10 to the 9 units\nthat is 5 orders of magnitude more than the second density of 10 to the 5'
+
 /** auditDetails(text[, opts]) → every single detail adjudicated, controls first, one order-invariant receipt.
  *  Pure and offline; the same text, delimiter and ledger always fold to the same receipt. */
 export function auditDetails(text: string, opts: { title?: string; delimiter?: string } = {}): DetailAudit {
@@ -189,11 +241,20 @@ export function auditDetails(text: string, opts: { title?: string; delimiter?: s
     const got = auditDetail(control).verdict
     return { control, mustNotBe, got, rejected: !mustNotBe.includes(got) }
   })
+  // the composition control: ONLY refutation passes — a silent no-composition must fail the control, so every
+  // verdict except REFUTED is listed as unacceptable
+  const controlDetails = splitDetails(COMPOSED_CONTROL).map(auditDetail)
+  const composedControl = composeAcrossDetails(controlDetails)
+  const composedGot: DetailVerdictKind = composedControl.length === 1 && composedControl[0].verdict === 'REFUTED'
+    ? 'REFUTED' : (controlDetails[controlDetails.length - 1]?.verdict ?? 'UNVERIFIED')
+  controls.push({ control: COMPOSED_CONTROL, mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE', 'UNVERIFIED', 'DRAINED'], got: composedGot, rejected: composedGot === 'REFUTED' })
   const sound = controls.every((c) => c.rejected)
   const all = splitDetails(text, delimiter)
   const kept = all.slice(0, MAX_DETAILS)
   // a void instrument adjudicates nothing — per-detail verdicts from a non-discriminating test are noise
   const verdicts = sound ? kept.map(auditDetail) : []
+  const composed = sound ? composeAcrossDetails(verdicts) : []
+  // counts AFTER composition — a cross-detail refutation moves its asserting detail's verdict
   const counts = {
     verified: verdicts.filter((v) => v.verdict === 'VERIFIED' || v.verdict === 'VERIFIED_BY_DECIDE').length,
     refuted: verdicts.filter((v) => v.verdict === 'REFUTED').length,
@@ -205,6 +266,7 @@ export function auditDetails(text: string, opts: { title?: string; delimiter?: s
     address,
     ...controls.map((c) => toUuid('control:' + c.control + '→' + c.got)),
     ...verdicts.map((v) => toUuid(v.address + '|' + v.verdict)),
+    ...composed.map((f) => toUuid(f.address + '|' + f.verdict + '|' + f.assertedAt)),
   ])
   return {
     ...meta,
@@ -215,6 +277,7 @@ export function auditDetails(text: string, opts: { title?: string; delimiter?: s
     outcome: sound ? 'audited' : 'void',
     counts,
     verdicts,
+    composed,
     receipt,
     honest: sound
       ? 'every detail adjudicated by an instrument shown able to fail (all controls rejected). Integrity, not ' +

@@ -9,7 +9,7 @@ import { auditDetails, auditDetail, splitDetails } from '../detail-audit.js'
 test('the controls are pre-registered, run first, and all rejected — the instrument can fail', () => {
   const a = auditDetails('anything at all.')
   assert.equal(a.outcome, 'audited')
-  assert.equal(a.controls.length, 5, 'five controls: digit arithmetic, word arithmetic, power equation, laundered citation, fabricated citation')
+  assert.equal(a.controls.length, 6, 'six controls: digit arithmetic, word arithmetic, power equation, laundered citation, fabricated citation, cross-detail composition')
   for (const c of a.controls) assert.equal(c.rejected, true, `control accepted — the instrument cannot discriminate: ${c.control} → ${c.got}`)
 })
 
@@ -85,6 +85,30 @@ test('the powers-of-ten grammar: equations and orders decide, magnitudes only sp
   const neg = auditDetail('the standard proton with the mass of 10 to the minus 24 didn\'t even come close')
   assert.equal(neg.verdict, 'UNVERIFIED')
   assert.deepEqual(neg.magnitudes, [{ base: 10, exp: 24, negative: true }], 'a negative exponent is not a Nat — heard, refused')
+})
+
+// ── lead 79's remainder (c): the film's "39 orders of magnitude" sits captions away from its 10⁵⁵/10⁹³
+// operands — and 93 − 55 = 38, a refutable claim only cross-detail composition can reach. Exactly two distinct
+// same-base exponents in the window = unambiguous; anything else is refused rather than mis-verdicted.
+test('cross-detail composition reaches the film\'s distant-operand claim', () => {
+  const filmShaped = 'the result is 10 to the 93 grams per centimeter cube\nan enormous number indeed\nthe universe is approximately 10 to the 55th grams\nsqueezed into that cube it is still some 39 orders of magnitude smaller than the vacuum'
+  const a = auditDetails(filmShaped)
+  assert.equal(a.composed.length, 1)
+  assert.equal(a.composed[0].verdict, 'REFUTED', '93 − 55 = 38, the film says 39 — the composition refutes it')
+  assert.equal(a.composed[0].actual, 38)
+  assert.deepEqual(a.composed[0].operandsAt, [0, 2], 'provenance: which details supplied the operands')
+  assert.equal(a.verdicts[3].verdict, 'REFUTED', 'the asserting detail carries the composed verdict')
+  assert.equal(a.counts.refuted, 1)
+  const trueVersion = auditDetails(filmShaped.replace('39 orders', '38 orders'))
+  assert.equal(trueVersion.composed[0].verdict, 'VERIFIED')
+  assert.equal(trueVersion.verdicts[3].verdict, 'VERIFIED_BY_DECIDE')
+})
+
+test('ambiguous operands are refused, not guessed', () => {
+  const three = 'first 10 to the 9\nthen 10 to the 5\nalso 10 to the 3\nthat is 4 orders of magnitude apart'
+  const a = auditDetails(three)
+  assert.equal(a.composed.length, 0, 'three distinct exponents in the window — ambiguity refuses composition')
+  assert.equal(a.verdicts[3].verdict, 'UNVERIFIED')
 })
 
 test('an explicit delimiter is the split law for unpunctuated text', () => {
