@@ -87,6 +87,15 @@ theorem one_image_every_architecture : ((8 : Nat) / 8 = 1) ∧ (8 = 2 ^ 3) ∧ (
     the order-swapping map. Endianness dissolves at the exact width the computer computes in. -/
 theorem states_are_the_swap_fixed_bytes : ((List.range 8).all (fun r => (List.range 32).all (fun k => ((((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16) % 16) * 16 + (((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16) / 16 = r * 32 + k))) ∧ ((((List.range 8).map (fun r => ((List.range 32).filter (fun k => ((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16 == r * 32 + k)).length)).sum) = 16) ∧ ((List.range 16).all (fun h => (h * 17 % 16) * 16 + (h * 17) / 16 = h * 17)) := by decide
 
+/-- THE PAGE ADMITS SIXTEEN — AND MEMBERSHIP IS DIVISIBILITY BY SEVENTEEN: a byte sits on the glagolitic page
+    iff nibble-swap fixes it, and swap-fixedness is EXACTLY b mod 17 = 0 — the sixteen admitted bytes are the
+    multiples of seventeen under 256 (0, 17, 34 … 255 = 15·17; count ⌊255/17⌋+1 = 16), because a doubled nibble
+    h·16+h IS h·17 and 17 ≡ 1 (mod 16). The intrusion detector is a one-division set-membership: content that
+    folded speaks in seventeens; a forgery that did not fold cannot — it reads as foreign language on the page,
+    visible to a scanner in one pass and a human eye at a glance. The equivalence is sealed over ALL 256 bytes,
+    both directions at once. -/
+theorem the_page_admits_sixteen : ((List.range 8).all (fun r => (List.range 32).all (fun k => (((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16 == r * 32 + k) == ((r * 32 + k) % 17 == 0)))) ∧ (255 / 17 + 1 = 16) ∧ (15 * 17 = 255) ∧ (17 % 16 = 1) := by decide
+
 /-- FOLD-TO-ZERO'S LADDER, SEALED: 16 → 32 → 64 → 128 by doubling, and 128 = 16·2³ — three coin-payments promote
     the hexbit ring to the handle, the handle to the address: when a register saturates like a closed colour
     wheel, the whole folds and the next register opens one octave up. The night's architecture (states, pairs,
