@@ -1,15 +1,15 @@
 ---
 title: "The quantum computer"
-description: "Computed from lean/Quantum.lean — 50 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Quantum.lean — 52 sealed theorems, every claim citing its proof."
 ---
 
 # The quantum computer
 
-> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 49 siblings below.
+> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 51 siblings below.
 
-**50 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 50 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
+**52 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 10 of its 52 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 50 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 52 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
 The ledger holds this as [bell_born_weights](/theorem/bell_born_weights) — proven `by decide`, sorry-free:
@@ -359,6 +359,20 @@ The ledger holds this as [all_signaling_duality](/theorem/all_signaling_duality)
 
 ```lean
 (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d))))))
+```
+
+### THE HEXBIT SLIT — the double slit's "unexplained", read as handle bookkeeping in exact integers. Two slits are one path qubit with amplitudes [1,1]; a which-path read APPENDS a record qubit — a handle-read that gives the branch a definite time-space address (the handle is the timestamp) — and the joint state is EXACTLY the Bell vector [1,0,0,1] this wing already stabilises (bell_stabilized_by_xx). UNRECORDED, the screen sees (1+1)² = 4 bright and (1−1)² = 0 dark — fringes of visibility 4. RECORDED, summing over the unread record basis: (1±0)² + (0±1)² = 2 at BOTH phases (the minus phase computed in ℤ) — flat, visibility 0. No collapse postulate enters: the fringes were the cross term, and the record made the branches orthogonal. HONEST SCOPE: exact bookkeeping of the integer amplitude vectors this wing already counts (bell_basis_orthogonal); it decides the ARITHMETIC of which-path decoherence, never a claim about photons — and why THIS outcome occurs (the Born selection) stays exactly as unexplained as before.
+The ledger holds this as [hexbit_slit_visibility](/theorem/hexbit_slit_visibility) — proven `by decide`, sorry-free:
+
+```lean
+((1 + 1)^2 = 4) ∧ ((1 - 1)^2 = 0) ∧ (((1 : Int) + 0)^2 + ((0 : Int) + 1)^2 = 2) ∧ (((1 : Int) - 0)^2 + ((0 : Int) - 1)^2 = 2)
+```
+
+### THE CROSS TERM IS THE RECORD OVERLAP — the whole mystery, one inner product. Identical records keep the fringes (⟨r₀|r₀⟩ = 1·1 + 0·0 = 1); orthogonal records kill them (⟨r₀|r₁⟩ = 1·0 + 0·1 = 0). And the quantum eraser is the same arithmetic run backwards: both records overlap the erasing diagonal [1,1] in exactly 1 (1·1 + 0·1 = 1 and 0·1 + 1·1 = 1), so sorting the screen by an erasing-basis read restores the fringes in each subensemble — nothing is undone, the bookkeeping is re-partitioned. Exact integer inner products, the bell_basis_orthogonal method applied to the slit.
+The ledger holds this as [hexbit_slit_cross_is_overlap](/theorem/hexbit_slit_cross_is_overlap) — proven `by decide`, sorry-free:
+
+```lean
+(1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1)
 ```
 
 

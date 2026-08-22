@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1456/1456 theorems — every one, by construction
-**Claim receipt:** `613615b4-7139-8053-bc5d-fed3ba992c5a`
+**Total claimed:** 1458/1458 theorems — every one, by construction
+**Claim receipt:** `8e93b1b0-3a3f-8a30-90ae-1f2240c42bb6`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -97,12 +97,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The quantum computer
 
-- **Theorems:** 50
+- **Theorems:** 52
 - **Sample lineAddress:** `191a2aea-fc25-85cc-8c2f-af14baa3aa3f`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[bell_born_weights](/theorem/bell_born_weights) · [bell_normalized](/theorem/bell_normalized) · [bell_perfect_correlation](/theorem/bell_perfect_correlation) · [bell_no_signaling](/theorem/bell_no_signaling) · [superposition_h0](/theorem/superposition_h0) · [ghz3_two_outcomes](/theorem/ghz3_two_outcomes) · [ghz3_normalized](/theorem/ghz3_normalized) · [cnot_truth_table](/theorem/cnot_truth_table) · [cnot_involution](/theorem/cnot_involution) · [toffoli_truth_table](/theorem/toffoli_truth_table) · [swap_truth_table](/theorem/swap_truth_table) · [s_squared_is_z](/theorem/s_squared_is_z) · [z_involution](/theorem/z_involution) · [s_dagger_inverse](/theorem/s_dagger_inverse) · [pauli_x_involution](/theorem/pauli_x_involution) · [swap_involution](/theorem/swap_involution) · [toffoli_involution](/theorem/toffoli_involution) · [cz_involution](/theorem/cz_involution) · [h_involution_on_zero](/theorem/h_involution_on_zero) · [s_fourth_is_identity](/theorem/s_fourth_is_identity) · [dj_balanced_cancels](/theorem/dj_balanced_cancels) · [dj_constant_reinforces](/theorem/dj_constant_reinforces) · [entanglement_determinant](/theorem/entanglement_determinant) · [pauli_x_z_anticommute](/theorem/pauli_x_z_anticommute) · [w_state_three_outcomes](/theorem/w_state_three_outcomes) · [w_state_normalized](/theorem/w_state_normalized) · [bell_basis_orthogonal](/theorem/bell_basis_orthogonal) · [n_qubit_dimension](/theorem/n_qubit_dimension) · [tensor_dimension_multiplies](/theorem/tensor_dimension_multiplies) · [pauli_group_order_16](/theorem/pauli_group_order_16) · [closure_is_coprime](/theorem/closure_is_coprime) · [types_count_as_arithmetic](/theorem/types_count_as_arithmetic) · [sixteen_connectives](/theorem/sixteen_connectives) · [real_pauli_group_order_8](/theorem/real_pauli_group_order_8) · [four_messages_two_bits](/theorem/four_messages_two_bits) · [clifford_group_order_24](/theorem/clifford_group_order_24) · [phase_gate_order_ladder](/theorem/phase_gate_order_ladder) · [chsh_beats_classical](/theorem/chsh_beats_classical) · [no_cloning_dimension](/theorem/no_cloning_dimension) · [hadamard_conjugates_x_to_z](/theorem/hadamard_conjugates_x_to_z) · [bell_stabilized_by_xx](/theorem/bell_stabilized_by_xx) · [bell_zz_even_parity](/theorem/bell_zz_even_parity) · [ghz_stabilized_by_xxx](/theorem/ghz_stabilized_by_xxx) · [superdense_two_bits](/theorem/superdense_two_bits) · [teleportation_four_corrections](/theorem/teleportation_four_corrections) · [store_fold_order_invariant](/theorem/store_fold_order_invariant) · [store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt) · [message_qubit_cap_states](/theorem/message_qubit_cap_states) · [merkle_sort_invariant](/theorem/merkle_sort_invariant) · [all_signaling_duality](/theorem/all_signaling_duality)
+[bell_born_weights](/theorem/bell_born_weights) · [bell_normalized](/theorem/bell_normalized) · [bell_perfect_correlation](/theorem/bell_perfect_correlation) · [bell_no_signaling](/theorem/bell_no_signaling) · [superposition_h0](/theorem/superposition_h0) · [ghz3_two_outcomes](/theorem/ghz3_two_outcomes) · [ghz3_normalized](/theorem/ghz3_normalized) · [cnot_truth_table](/theorem/cnot_truth_table) · [cnot_involution](/theorem/cnot_involution) · [toffoli_truth_table](/theorem/toffoli_truth_table) · [swap_truth_table](/theorem/swap_truth_table) · [s_squared_is_z](/theorem/s_squared_is_z) · [z_involution](/theorem/z_involution) · [s_dagger_inverse](/theorem/s_dagger_inverse) · [pauli_x_involution](/theorem/pauli_x_involution) · [swap_involution](/theorem/swap_involution) · [toffoli_involution](/theorem/toffoli_involution) · [cz_involution](/theorem/cz_involution) · [h_involution_on_zero](/theorem/h_involution_on_zero) · [s_fourth_is_identity](/theorem/s_fourth_is_identity) · [dj_balanced_cancels](/theorem/dj_balanced_cancels) · [dj_constant_reinforces](/theorem/dj_constant_reinforces) · [entanglement_determinant](/theorem/entanglement_determinant) · [pauli_x_z_anticommute](/theorem/pauli_x_z_anticommute) · [w_state_three_outcomes](/theorem/w_state_three_outcomes) · [w_state_normalized](/theorem/w_state_normalized) · [bell_basis_orthogonal](/theorem/bell_basis_orthogonal) · [n_qubit_dimension](/theorem/n_qubit_dimension) · [tensor_dimension_multiplies](/theorem/tensor_dimension_multiplies) · [pauli_group_order_16](/theorem/pauli_group_order_16) · [closure_is_coprime](/theorem/closure_is_coprime) · [types_count_as_arithmetic](/theorem/types_count_as_arithmetic) · [sixteen_connectives](/theorem/sixteen_connectives) · [real_pauli_group_order_8](/theorem/real_pauli_group_order_8) · [four_messages_two_bits](/theorem/four_messages_two_bits) · [clifford_group_order_24](/theorem/clifford_group_order_24) · [phase_gate_order_ladder](/theorem/phase_gate_order_ladder) · [chsh_beats_classical](/theorem/chsh_beats_classical) · [no_cloning_dimension](/theorem/no_cloning_dimension) · [hadamard_conjugates_x_to_z](/theorem/hadamard_conjugates_x_to_z) · [bell_stabilized_by_xx](/theorem/bell_stabilized_by_xx) · [bell_zz_even_parity](/theorem/bell_zz_even_parity) · [ghz_stabilized_by_xxx](/theorem/ghz_stabilized_by_xxx) · [superdense_two_bits](/theorem/superdense_two_bits) · [teleportation_four_corrections](/theorem/teleportation_four_corrections) · [store_fold_order_invariant](/theorem/store_fold_order_invariant) · [store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt) · [message_qubit_cap_states](/theorem/message_qubit_cap_states) · [merkle_sort_invariant](/theorem/merkle_sort_invariant) · [all_signaling_duality](/theorem/all_signaling_duality) · [hexbit_slit_visibility](/theorem/hexbit_slit_visibility) · [hexbit_slit_cross_is_overlap](/theorem/hexbit_slit_cross_is_overlap)
 
 ### The seven reflected
 
@@ -870,7 +870,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1376 (1456 entries, 80 re-namings — a theorem is its Lean |
+| sealed propositions | 1378 (1458 entries, 80 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -888,7 +888,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1456 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1458 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

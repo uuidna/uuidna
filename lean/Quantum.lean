@@ -250,3 +250,23 @@ theorem merkle_sort_invariant : (let fold3 := fun (a b c : Nat) => let mn := Nat
     invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in
     an address — secure messaging by total signal. -/
 theorem all_signaling_duality : (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d)))))) := by decide
+
+/-- THE HEXBIT SLIT — the double slit's "unexplained", read as handle bookkeeping in exact integers. Two slits
+    are one path qubit with amplitudes [1,1]; a which-path read APPENDS a record qubit — a handle-read that
+    gives the branch a definite time-space address (the handle is the timestamp) — and the joint state is
+    EXACTLY the Bell vector [1,0,0,1] this wing already stabilises (bell_stabilized_by_xx). UNRECORDED, the
+    screen sees (1+1)² = 4 bright and (1−1)² = 0 dark — fringes of visibility 4. RECORDED, summing over the
+    unread record basis: (1±0)² + (0±1)² = 2 at BOTH phases (the minus phase computed in ℤ) — flat, visibility
+    0. No collapse postulate enters: the fringes were the cross term, and the record made the branches
+    orthogonal. HONEST SCOPE: exact bookkeeping of the integer amplitude vectors this wing already counts
+    (bell_basis_orthogonal); it decides the ARITHMETIC of which-path decoherence, never a claim about photons —
+    and why THIS outcome occurs (the Born selection) stays exactly as unexplained as before. -/
+theorem hexbit_slit_visibility : ((1 + 1)^2 = 4) ∧ ((1 - 1)^2 = 0) ∧ (((1 : Int) + 0)^2 + ((0 : Int) + 1)^2 = 2) ∧ (((1 : Int) - 0)^2 + ((0 : Int) - 1)^2 = 2) := by decide
+
+/-- THE CROSS TERM IS THE RECORD OVERLAP — the whole mystery, one inner product. Identical records keep the
+    fringes (⟨r₀|r₀⟩ = 1·1 + 0·0 = 1); orthogonal records kill them (⟨r₀|r₁⟩ = 1·0 + 0·1 = 0). And the quantum
+    eraser is the same arithmetic run backwards: both records overlap the erasing diagonal [1,1] in exactly 1
+    (1·1 + 0·1 = 1 and 0·1 + 1·1 = 1), so sorting the screen by an erasing-basis read restores the fringes in
+    each subensemble — nothing is undone, the bookkeeping is re-partitioned. Exact integer inner products, the
+    bell_basis_orthogonal method applied to the slit. -/
+theorem hexbit_slit_cross_is_overlap : (1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1) := by decide
