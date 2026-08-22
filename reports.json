@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "3daa74cb-9a79-8715-8ea8-372bd9497d81"
+        "ledgerReceipt": "fa1f0256-ba4e-8d79-a75a-97d1f6a441f3"
       },
-      "address": "bf558a37-d4ff-8537-9792-4b5a3dc6494a"
+      "address": "6a6c3d4a-7119-817e-b806-0d6119244a4a"
     },
     {
       "title": "Heartbeat coverage",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 74,
-        "sealedTheorems": 1529,
+        "sealedTheorems": 1540,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "0bef1ba0-dc1d-8e86-9efe-f608299baec3"
+      "address": "64c7fd13-9b9c-8670-833f-0505ff2f0f16"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 474,
-        "roots": 319,
-        "supported": 474,
+        "modules": 476,
+        "roots": 321,
+        "supported": 476,
         "dead": 0,
-        "receipt": "2bff8091-5e68-8cff-94e1-1dbe4c1a4b20"
+        "receipt": "4e57433f-4b71-8e93-ba1d-ae53b3551784"
       },
-      "address": "79225427-6250-872f-bcdb-3acfbe8286e8"
+      "address": "8cfcda3f-50d9-8492-8646-2e0320a6b6b9"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "415cd99c5f2a451c",
-        "unifiedFold": "23a4be1b0e14d998"
+        "foldReceipt": "0eca3741fc9bc839",
+        "unifiedFold": "949519a0e52703fd"
       },
-      "address": "2ee4ce8d-cbd0-862a-a30f-15765c300364"
+      "address": "2884770d-6b5f-86cf-b462-c468fb0daac5"
     }
   ],
-  "receipt": "773ef02e-b6f0-8907-aafe-a37fade703c8",
+  "receipt": "9306198c-b707-8fd1-843a-026ef5dffb51",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
