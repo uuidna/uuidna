@@ -6,10 +6,10 @@
     "lean/axioms.json": "02f073b91b9d85e5",
     "docs/mcp.md": "04696ce9e4888eb8",
     "audit-citations.json": "ee19205002288c61",
-    "support-audit.json": "3406ac43d2ce8209",
-    "research-leads.json": "a82cd2da405581b5",
+    "support-audit.json": "0ae1fe8f61fc86d4",
+    "research-leads.json": "669b5390eaf8806b",
     ".zenodo.json": "f7611df264de8dac",
-    "reports.json": "bc674c25d42885db",
+    "reports.json": "dc8a84f097db856c",
     "lean/statement-index.json": "0c7dfdc594d08e3f",
     "README.md": "97ea008afdaa82ce",
     "llm.txt": "2d45169b7c51828f",
@@ -1575,5 +1575,5 @@
     "lean/vectorequilibrium-manifest.json": "bd853f5a67168351",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd"
   },
-  "receipt": "7be56417-aa2d-8df2-bc5d-1b8a38c71310"
+  "receipt": "8d6d8312-1ea9-8ac8-861b-0f658b3e5302"
 }
