@@ -13,7 +13,8 @@
 // HONEST SCOPE: this composes and emits; it does not transcribe, and it makes no claim about what a listener
 // hears. The voice is the host's — macOS `say` — so the sound is the operating system's and the words are ours.
 // Nothing here is sealed as a theorem: an utterance is an event, and events are not decidable.
-import { execFile } from 'node:child_process'
+// node:child_process is loaded LAZILY at the one call that needs it (the mcp.ts:38 pattern): a top-level import
+// rides every bundle that reaches this module, and the edge worker has no processes — validation refuses it.
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 import { HANDLE_HEXBITS } from '../hexbit/index.js'
@@ -46,7 +47,10 @@ export const emit = (u: Utterance, opts: { voice?: string; rate?: number; dryRun
   const args = [...(opts.voice ? ['-v', opts.voice] : []), ...(opts.rate ? ['-r', String(opts.rate)] : []), u.text]
   const command = `say ${args.slice(0, -1).join(' ')} <${u.words} words>`.trim()
   if (opts.dryRun) return { handle: u.handle, spoken: false, command }
-  execFile('/usr/bin/say', args, () => { /* the device is the boundary: no verdict comes back from a speaker */ })
+  // fire-and-forget was already the contract ("deliberately not awaited"), so the lazy import changes nothing a
+  // caller can observe — the device write happens when the module arrives, and no verdict ever came back anyway
+  void import('node:child_process').then(({ execFile }) =>
+    execFile('/usr/bin/say', args, () => { /* the device is the boundary: no verdict comes back from a speaker */ }))
   return { handle: u.handle, spoken: true, command }
 }
 
