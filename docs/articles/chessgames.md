@@ -9,6 +9,8 @@ description: "Computed from lean/Chessgames.lean — 24 sealed theorems, every c
 
 **24 theorems**, from [first_move_twenty](/theorem/first_move_twenty) onward, each proven `by decide` in [lean/Chessgames.lean](/lean/Chessgames.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 24 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [game_tree_exceeds_universe](/theorem/game_tree_exceeds_universe). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChessgames.lean)** — nothing to install. The editor fetches `lean/Chessgames.lean` from the repository and re-decides all 24 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The opening fans to exactly twenty moves: sixteen pawn pushes (8 pawns × 2 squares) and four knight moves (2 knights × 2) — 8·2 + 2·2 = 20. The first branch of the tree, counted.
 The ledger holds this as [first_move_twenty](/theorem/first_move_twenty) — proven `by decide`, sorry-free:
 

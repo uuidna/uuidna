@@ -9,6 +9,8 @@ description: "Computed from lean/Statics.lean — 8 sealed theorems, every claim
 
 **8 theorems**, from [force_equilibrium](/theorem/force_equilibrium) onward, each proven `by decide` in [lean/Statics.lean](/lean/Statics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [mechanical_advantage](/theorem/mechanical_advantage). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FStatics.lean)** — nothing to install. The editor fetches `lean/Statics.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### A body in equilibrium has its forces summing to zero (ΣF = 0): a 10 N upward support balances 6 N + 4 N of downward load — 10 − 6 − 4 = 0. Nothing accelerates when the forces cancel.
 The ledger holds this as [force_equilibrium](/theorem/force_equilibrium) — proven `by decide`, sorry-free:
 

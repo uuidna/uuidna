@@ -9,6 +9,8 @@ description: "Computed from lean/Vortex.lean — 16 sealed theorems, every claim
 
 **16 theorems**, from [three_sq_zero](/theorem/three_sq_zero) onward, each proven `by decide` in [lean/Vortex.lean](/lean/Vortex.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 16 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [three_no_inverse](/theorem/three_no_inverse). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FVortex.lean)** — nothing to install. The editor fetches `lean/Vortex.lean` from the repository and re-decides all 16 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### 3² ≡ 0 (mod 9) — 3 is nilpotent
 The ledger holds this as [three_sq_zero](/theorem/three_sq_zero) — proven `by decide`, sorry-free:
 

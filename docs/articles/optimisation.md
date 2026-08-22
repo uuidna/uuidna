@@ -9,6 +9,8 @@ description: "Computed from lean/Optimisation.lean — 9 sealed theorems, every 
 
 **9 theorems**, from [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) onward, each proven `by decide` in [lean/Optimisation.lean](/lean/Optimisation.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [lp_strong_duality_instance](/theorem/lp_strong_duality_instance). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FOptimisation.lean)** — nothing to install. The editor fetches `lean/Optimisation.lean` from the repository and re-decides all 9 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### the primal instance max 3x+2y s.t. x+y ≤ 4, x ≤ 3: every feasible lattice point scores ≤ 11, and (3,1) scores exactly 11 — the optimum by TOTAL enumeration, exact, no epsilon
 The ledger holds this as [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) — proven `by decide`, sorry-free:
 

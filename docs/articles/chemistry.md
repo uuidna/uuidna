@@ -9,6 +9,8 @@ description: "Computed from lean/Chemistry.lean — 8 sealed theorems, every cla
 
 **8 theorems**, from [haber_balances](/theorem/haber_balances) onward, each proven `by decide` in [lean/Chemistry.lean](/lean/Chemistry.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [haber_balances](/theorem/haber_balances). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChemistry.lean)** — nothing to install. The editor fetches `lean/Chemistry.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### Mass is conserved — the Haber synthesis N₂ + 3H₂ → 2NH₃ balances: 2 nitrogen atoms on each side (2 = 2·1) and 6 hydrogen atoms on each side (3·2 = 2·3). Atoms are neither created nor destroyed.
 The ledger holds this as [haber_balances](/theorem/haber_balances) — proven `by decide`, sorry-free:
 

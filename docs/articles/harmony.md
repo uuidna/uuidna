@@ -9,6 +9,8 @@ description: "Computed from lean/Harmony.lean — 8 sealed theorems, every claim
 
 **8 theorems**, from [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) onward, each proven `by decide` in [lean/Harmony.lean](/lean/Harmony.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHarmony.lean)** — nothing to install. The editor fetches `lean/Harmony.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### BIOLOGY: the four DNA bases pair by complement — A↔T, G↔C — written as the REFLECTION c ↦ 3−c on {0,1,2,3} (the same reflection form as pH and charge below. The helix pairs through the centre 3.
 The ledger holds this as [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) — proven `by decide`, sorry-free:
 

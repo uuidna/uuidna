@@ -9,6 +9,8 @@ description: "Computed from lean/Editing.lean — 14 sealed theorems, every clai
 
 **14 theorems**, from [dropframe_entangles_the_coins](/theorem/dropframe_entangles_the_coins) onward, each proven `by decide` in [lean/Editing.lean](/lean/Editing.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 14 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [dropframe_per_hour](/theorem/dropframe_per_hour). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FEditing.lean)** — nothing to install. The editor fetches `lean/Editing.lean` from the repository and re-decides all 14 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE ENTANGLEMENT: SMPTE dropframe timecode drops 108 frames per hour (2 per minute × 54 dropping minutes) — and 108 is the pentagon's interior angle (5·108 = 540) and the captain's number (110 − 108 = 2, the two coins). One identity binding broadcast engineering, geometry, and the conserved economics — the timecode standard has carried the coins' number since 1953. Measure any side, know all three, forever.
 The ledger holds this as [dropframe_entangles_the_coins](/theorem/dropframe_entangles_the_coins) — proven `by decide`, sorry-free:
 

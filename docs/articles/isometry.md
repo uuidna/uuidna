@@ -9,6 +9,8 @@ description: "Computed from lean/Isometry.lean — 6 sealed theorems, every clai
 
 **6 theorems**, from [xor_preserves_distance](/theorem/xor_preserves_distance) onward, each proven `by decide` in [lean/Isometry.lean](/lean/Isometry.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [reuse_leaks_by_isometry](/theorem/reuse_leaks_by_isometry). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FIsometry.lean)** — nothing to install. The editor fetches `lean/Isometry.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE ISOMETRY: xoring both sides by the same key leaves the Hamming distance unchanged, for every pair and every key over the four-bit cube. This is the single fact the cipher, the strand and the code each hold a corner of.
 The ledger holds this as [xor_preserves_distance](/theorem/xor_preserves_distance) — proven `by decide`, sorry-free:
 

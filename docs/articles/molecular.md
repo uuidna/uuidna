@@ -9,6 +9,8 @@ description: "Computed from lean/Molecular.lean — 7 sealed theorems, every cla
 
 **7 theorems**, from [octet_rule](/theorem/octet_rule) onward, each proven `by decide` in [lean/Molecular.lean](/lean/Molecular.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FMolecular.lean)** — nothing to install. The editor fetches `lean/Molecular.lean` from the repository and re-decides all 7 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The octet rule: atoms bond to reach eight valence electrons. Carbon has 4 of its own and shares 4 more, 4 + 4 = 8 — a full outer shell, the driver of covalent bonding.
 The ledger holds this as [octet_rule](/theorem/octet_rule) — proven `by decide`, sorry-free:
 

@@ -9,6 +9,8 @@ description: "Computed from lean/Command.lean — 7 sealed theorems, every claim
 
 **7 theorems**, from [accept_truth_table](/theorem/accept_truth_table) onward, each proven `by decide` in [lean/Command.lean](/lean/Command.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [accept_truth_table](/theorem/accept_truth_table). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCommand.lean)** — nothing to install. The editor fetches `lean/Command.lean` from the repository and re-decides all 7 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The authentication gate as a truth table: accept(signed, verifies) = signed·verifies over {0,1}² is 1 only when BOTH hold — a command is accepted exactly when it is signed and its tag verifies.
 The ledger holds this as [accept_truth_table](/theorem/accept_truth_table) — proven `by decide`, sorry-free:
 

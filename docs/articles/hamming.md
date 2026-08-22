@@ -9,6 +9,8 @@ description: "Computed from lean/Hamming.lean — 6 sealed theorems, every claim
 
 **6 theorems**, from [code_holds_sixteen_words](/theorem/code_holds_sixteen_words) onward, each proven `by decide` in [lean/Hamming.lean](/lean/Hamming.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [words_stand_three_apart](/theorem/words_stand_three_apart). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHamming.lean)** — nothing to install. The editor fetches `lean/Hamming.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### FOUR DATA BITS GIVE SIXTEEN CODEWORDS, each seven bits long — the whole code, enumerated rather than counted: 2^4 = 16 words over 2^7 = 128 possible strings, so the code occupies one eighth of the space.
 The ledger holds this as [code_holds_sixteen_words](/theorem/code_holds_sixteen_words) — proven `by decide`, sorry-free:
 

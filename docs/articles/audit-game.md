@@ -9,6 +9,8 @@ description: "Computed from lean/AuditGame.lean — 11 sealed theorems, every cl
 
 **11 theorems**, from [flag_is_any_refutation](/theorem/flag_is_any_refutation) onward, each proven `by decide` in [lean/AuditGame.lean](/lean/AuditGame.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [clean_is_a_p_position](/theorem/clean_is_a_p_position). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAuditGame.lean)** — nothing to install. The editor fetches `lean/AuditGame.lean` from the repository and re-decides all 11 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### A finding is FLAGGED iff ANY independent refuter finds a winning move: flag(a,b) = 1 − (1−a)(1−b), which over {0,1}² is exactly the OR — a claim is caught the moment one refuter refutes it. The audit is a game the claim must survive against every player.
 The ledger holds this as [flag_is_any_refutation](/theorem/flag_is_any_refutation) — proven `by decide`, sorry-free:
 

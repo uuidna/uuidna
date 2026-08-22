@@ -9,6 +9,8 @@ description: "Computed from lean/DoubleTorus.lean — 6 sealed theorems, every c
 
 **6 theorems**, from [chi_measures_genus](/theorem/chi_measures_genus) onward, each proven `by decide` in [lean/DoubleTorus.lean](/lean/DoubleTorus.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [handles_give_generators](/theorem/handles_give_generators). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FDoubleTorus.lean)** — nothing to install. The editor fetches `lean/DoubleTorus.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE EULER CHARACTERISTIC IS THE GENUS, READ OFF: χ = 2 − 2g gives 0 at genus one (the plain torus, a closed pipe) and −2 at genus two, so −χ = 2 — the two coins. Both genera on one line, so the number is measured against its neighbour rather than stated alone.
 The ledger holds this as [chi_measures_genus](/theorem/chi_measures_genus) — proven `by decide`, sorry-free:
 

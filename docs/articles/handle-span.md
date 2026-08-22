@@ -9,6 +9,8 @@ description: "Computed from lean/HandleSpan.lean — 6 sealed theorems, every cl
 
 **6 theorems**, from [handles_times_qubits](/theorem/handles_times_qubits) onward, each proven `by decide` in [lean/HandleSpan.lean](/lean/HandleSpan.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [exponents_add](/theorem/exponents_add). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHandleSpan.lean)** — nothing to install. The editor fetches `lean/HandleSpan.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE PRODUCT: 65536 handles at 32 qubits each is 2097152 qubits — stated both as the plain multiplication and as the powers of two it is, so the two readings are sealed to be the same number.
 The ledger holds this as [handles_times_qubits](/theorem/handles_times_qubits) — proven `by decide`, sorry-free:
 

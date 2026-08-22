@@ -9,6 +9,8 @@ description: "Computed from lean/BioPhysics.lean — 17 sealed theorems, every c
 
 **17 theorems**, from [abo_klein_four](/theorem/abo_klein_four) onward, each proven `by decide` in [lean/BioPhysics.lean](/lean/BioPhysics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [punnett_three_to_one](/theorem/punnett_three_to_one). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FBioPhysics.lean)** — nothing to install. The editor fetches `lean/BioPhysics.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative, each self-inverse (order ≤ 2)
 The ledger holds this as [abo_klein_four](/theorem/abo_klein_four) — proven `by decide`, sorry-free:
 

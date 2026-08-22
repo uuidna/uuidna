@@ -9,6 +9,8 @@ description: "Computed from lean/Typesetting.lean — 13 sealed theorems, every 
 
 **13 theorems**, from [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) onward, each proven `by decide` in [lean/Typesetting.lean](/lean/Typesetting.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [signature_multiple_of_four](/theorem/signature_multiple_of_four). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FTypesetting.lean)** — nothing to install. The editor fetches `lean/Typesetting.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The printer's units close on the inch: twelve points make a pica, six picas make the inch — 6 · 12 = 72 — so the point is exactly 1/72 of an inch, the atom every measure is counted in. Pierre Fournier and then Firmin Didot fixed the point in the 18th century; the modern 72-to-the-inch is the desktop-publishing heir of that ruler.
 The ledger holds this as [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) — proven `by decide`, sorry-free:
 

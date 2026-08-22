@@ -9,6 +9,8 @@ description: "Computed from lean/Topography.lean — 17 sealed theorems, every c
 
 **17 theorems**, from [contour_index_every_fifth](/theorem/contour_index_every_fifth) onward, each proven `by decide` in [lean/Topography.lean](/lean/Topography.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [contour_index_every_fifth](/theorem/contour_index_every_fifth). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FTopography.lean)** — nothing to install. The editor fetches `lean/Topography.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### A contour joins points of equal height; every fifth line is drawn heavy — the index contour — so with a 10 m interval the heavy lines fall on multiples of 50 m: [50,100,150,200] all divide by 50, while an intermediate 30 m line does not. The map lets you read height without a number on every ring.
 The ledger holds this as [contour_index_every_fifth](/theorem/contour_index_every_fifth) — proven `by decide`, sorry-free:
 

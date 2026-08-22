@@ -9,6 +9,8 @@ description: "Computed from lean/Grid.lean — 6 sealed theorems, every claim ci
 
 **6 theorems**, from [decimal_asks_three](/theorem/decimal_asks_three) onward, each proven `by decide` in [lean/Grid.lean](/lean/Grid.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [fifteen_satisfies_both](/theorem/fifteen_satisfies_both). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FGrid.lean)** — nothing to install. The editor fetches `lean/Grid.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE BASE-TEN RULE: 6w carries digital root nine exactly when w is a multiple of three, since the decimal digit-sum invariant is mod 9 and gcd(6,9) = 3. Wings three at a time — a consequence of writing in ten.
 The ledger holds this as [decimal_asks_three](/theorem/decimal_asks_three) — proven `by decide`, sorry-free:
 

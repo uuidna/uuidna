@@ -9,6 +9,8 @@ description: "Computed from lean/Diving.lean — 8 sealed theorems, every claim 
 
 **8 theorems**, from [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) onward, each proven `by decide` in [lean/Diving.lean](/lean/Diving.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [air_ppO2_in_window_at_surface](/theorem/air_ppO2_in_window_at_surface). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FDiving.lean)** — nothing to install. The editor fetches `lean/Diving.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### A breathing mix is complete: the oxygen, helium and nitrogen fractions sum to 100%. Trimix 18/45 is 18% O₂, 45% He, 37% N₂ — 18 + 45 + 37 = 100.
 The ledger holds this as [trimix_fractions_sum_100](/theorem/trimix_fractions_sum_100) — proven `by decide`, sorry-free:
 

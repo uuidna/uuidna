@@ -9,6 +9,8 @@ description: "Computed from lean/Infinity.lean — 13 sealed theorems, every cla
 
 **13 theorems**, from [zeno_finite_sum](/theorem/zeno_finite_sum) onward, each proven `by decide` in [lean/Infinity.lean](/lean/Infinity.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [zeno_finite_sum](/theorem/zeno_finite_sum). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FInfinity.lean)** — nothing to install. The editor fetches `lean/Infinity.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### Zeno's supertask — infinitely many halving steps sum to one finite total: 1+2+4+…+2ᵏ = 2ᵏ⁺¹−1, an exact closed form bounded by the very next term. The infinity of steps is finite.
 The ledger holds this as [zeno_finite_sum](/theorem/zeno_finite_sum) — proven `by decide`, sorry-free:
 

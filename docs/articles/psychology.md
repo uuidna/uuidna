@@ -9,6 +9,8 @@ description: "Computed from lean/Psychology.lean — 8 sealed theorems, every cl
 
 **8 theorems**, from [likert_midpoint_is_fixed_point](/theorem/likert_midpoint_is_fixed_point) onward, each proven `by decide` in [lean/Psychology.lean](/lean/Psychology.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [big_five_factors_pentad](/theorem/big_five_factors_pentad). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FPsychology.lean)** — nothing to install. The editor fetches `lean/Psychology.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### A 7-point Likert scale has a NEUTRAL centre: the reflection 8−x on the points 1..7 (agree reflects to disagree) fixes exactly the 4th point, with an equal 3 above and 3 below (4−1 = 7−4). The neutral midpoint is the fixed point — the same reflection structure the ledger centres on. Says nothing about what the scale measures.
 The ledger holds this as [likert_midpoint_is_fixed_point](/theorem/likert_midpoint_is_fixed_point) — proven `by decide`, sorry-free:
 

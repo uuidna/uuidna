@@ -9,6 +9,8 @@ description: "Computed from lean/Navigation.lean — 5 sealed theorems, every cl
 
 **5 theorems**, from [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) onward, each proven `by decide` in [lean/Navigation.lean](/lean/Navigation.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FNavigation.lean)** — nothing to install. The editor fetches `lean/Navigation.lean` from the repository and re-decides all 5 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### Straight-line distance is Pythagorean: the range over a 3-east, 4-north leg is 5 — 3² + 4² = 5². The oldest fix in navigation, exact.
 The ledger holds this as [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) — proven `by decide`, sorry-free:
 

@@ -9,6 +9,8 @@ description: "Computed from lean/Acoustics.lean — 6 sealed theorems, every cla
 
 **6 theorems**, from [harmonic_series](/theorem/harmonic_series) onward, each proven `by decide` in [lean/Acoustics.lean](/lean/Acoustics.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [closed_pipe_odd_harmonics](/theorem/closed_pipe_odd_harmonics). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAcoustics.lean)** — nothing to install. The editor fetches `lean/Acoustics.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### A vibrating string or air column sounds the harmonic series — integer multiples of the fundamental. On a 110 Hz fundamental the overtones are 110·[1,2,3,4,5,6] = [110,220,330,440,550,660] Hz.
 The ledger holds this as [harmonic_series](/theorem/harmonic_series) — proven `by decide`, sorry-free:
 

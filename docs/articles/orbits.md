@@ -9,6 +9,8 @@ description: "Computed from lean/Orbits.lean — 9 sealed theorems, every claim 
 
 **9 theorems**, from [orbit_0_1_2_3_4_5_6_7_8_9_closes](/theorem/orbit_0_1_2_3_4_5_6_7_8_9_closes) onward, each proven `by decide` in [lean/Orbits.lean](/lean/Orbits.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [covering_seeds_are_named](/theorem/covering_seeds_are_named). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FOrbits.lean)** — nothing to install. The editor fetches `lean/Orbits.lean` from the repository and re-decides all 9 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The walk from any seed reaching 0 settles on 10 of the ten digits (0, 1, 2, 3, 4, 5, 6, 7, 8, 9), which is every one, and that set is closed under the reflection — every member's mirror is already a member, so reflecting the finished orbit adds nothing. Measured by walking.
 The ledger holds this as [orbit_0_1_2_3_4_5_6_7_8_9_closes](/theorem/orbit_0_1_2_3_4_5_6_7_8_9_closes) — proven `by decide`, sorry-free:
 

@@ -9,6 +9,8 @@ description: "Computed from lean/Chess.lean — 13 sealed theorems, every claim 
 
 **13 theorems**, from [torus_chessboard_chi_zero](/theorem/torus_chessboard_chi_zero) onward, each proven `by decide` in [lean/Chess.lean](/lean/Chess.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [knight_has_eight_moves](/theorem/knight_has_eight_moves). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChess.lean)** — nothing to install. The editor fetches `lean/Chess.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE BOARD COMPUTES ITS OWN TOPOLOGY: glue the 8×8 chessboard's opposite edges and it becomes a torus — and the board's own counts prove it: 64 vertices, 128 edges (64 vertical + 64 horizontal, all wrapping), 64 faces, so V − E + F = 64 − 128 + 64 = 0 = χ(torus) = 2 − 2·1. The vortex board circulates without residue; every knight's path wraps and closes.
 The ledger holds this as [torus_chessboard_chi_zero](/theorem/torus_chessboard_chi_zero) — proven `by decide`, sorry-free:
 

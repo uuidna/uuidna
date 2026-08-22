@@ -9,6 +9,8 @@ description: "Computed from lean/Reflection.lean — 6 sealed theorems, every cl
 
 **6 theorems**, from [reflection_splits_six](/theorem/reflection_splits_six) onward, each proven `by decide` in [lean/Reflection.lean](/lean/Reflection.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [seven_reach_five_classes](/theorem/seven_reach_five_classes). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReflection.lean)** — nothing to install. The editor fetches `lean/Reflection.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The reflection alone splits the ten digits into SIX classes — each digit paired with its mirror, named by the lesser: [0, 1, 2, 3, 4, 5].
 The ledger holds this as [reflection_splits_six](/theorem/reflection_splits_six) — proven `by decide`, sorry-free:
 

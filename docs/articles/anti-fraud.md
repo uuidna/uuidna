@@ -9,6 +9,8 @@ description: "Computed from lean/AntiFraud.lean — 13 sealed theorems, every cl
 
 **13 theorems**, from [captain_commission_two_coins](/theorem/captain_commission_two_coins) onward, each proven `by decide` in [lean/AntiFraud.lean](/lean/AntiFraud.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [captain_commission_two_coins](/theorem/captain_commission_two_coins). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAntiFraud.lean)** — nothing to install. The editor fetches `lean/AntiFraud.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE CAPTAIN COMMISSION — the key the hosted MCP quotes to every agent that connects and every two-coin deposit cites, so the NAME is a published contract. THE COMMISSION IS A STEP. A rate that rounded would leak; a floor cannot.
 The ledger holds this as [captain_commission_two_coins](/theorem/captain_commission_two_coins) — proven `by decide`, sorry-free:
 

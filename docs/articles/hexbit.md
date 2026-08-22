@@ -9,6 +9,8 @@ description: "Computed from lean/Hexbit.lean — 8 sealed theorems, every claim 
 
 **8 theorems**, from [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) onward, each proven `by decide` in [lean/Hexbit.lean](/lean/Hexbit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHexbit.lean)** — nothing to install. The editor fetches `lean/Hexbit.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE SIXTEEN SYMBOLS NAME THE SIXTEEN NIBBLES, one apiece: the values 0 through 15 are all present, all distinct, and there are exactly sixteen of them. A four-bit value therefore has one spelling and no other — the alphabet is a bijection onto the nibble, which is what lets an address be read back exactly.
 The ledger holds this as [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) — proven `by decide`, sorry-free:
 

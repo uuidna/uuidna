@@ -9,6 +9,8 @@ description: "Computed from lean/Reasoning.lean — 25 sealed theorems, every cl
 
 **25 theorems**, from [modus_ponens](/theorem/modus_ponens) onward, each proven `by decide` in [lean/Reasoning.lean](/lean/Reasoning.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 25 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [research_always_has_a_next](/theorem/research_always_has_a_next). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReasoning.lean)** — nothing to install. The editor fetches `lean/Reasoning.lean` from the repository and re-decides all 25 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### Modus ponens, proven for every assignment: from p and (p → q), q follows — !(p ∧ (p → q)) ∨ q holds on all four rows. The first rule of every valid argument.
 The ledger holds this as [modus_ponens](/theorem/modus_ponens) — proven `by decide`, sorry-free:
 

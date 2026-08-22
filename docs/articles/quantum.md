@@ -9,6 +9,8 @@ description: "Computed from lean/Quantum.lean — 50 sealed theorems, every clai
 
 **50 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 50 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 50 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
 The ledger holds this as [bell_born_weights](/theorem/bell_born_weights) — proven `by decide`, sorry-free:
 

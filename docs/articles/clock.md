@@ -9,6 +9,8 @@ description: "Computed from lean/Clock.lean — 6 sealed theorems, every claim c
 
 **6 theorems**, from [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) onward, each proven `by decide` in [lean/Clock.lean](/lean/Clock.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [residue_walks_the_orbit](/theorem/residue_walks_the_orbit). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FClock.lean)** — nothing to install. The editor fetches `lean/Clock.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The residue of a step is its place in the doubling orbit: over twelve steps it reads 1, 2, 4, 8, 7, 5, 1, 2, 4, 8, 7, 5 — six values, then the same six again. The clock's ring is finite even though its step count is not.
 The ledger holds this as [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) — proven `by decide`, sorry-free:
 

@@ -9,6 +9,8 @@ description: "Computed from lean/Clay.lean — 7 sealed theorems, every claim ci
 
 **7 theorems**, from [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) onward, each proven `by decide` in [lean/Clay.lean](/lean/Clay.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FClay.lean)** — nothing to install. The editor fetches `lean/Clay.lean` from the repository and re-decides all 7 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### P vs NP, the counting argument at two bits: there are 16 boolean functions on two inputs, and exactly 4 are a single conjunction of literals — the ones whose truth table has exactly one satisfying row. A class of size 4 cannot cover 16, so expressive power is COUNTED here rather than asserted. This decides the instance, never the conjecture.
 The ledger holds this as [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) — proven `by decide`, sorry-free:
 

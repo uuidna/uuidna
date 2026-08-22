@@ -9,6 +9,8 @@ description: "Computed from lean/Rosette.lean — 148 sealed theorems, every cla
 
 **148 theorems**, from [z7mul_0_0](/theorem/z7mul_0_0) onward, each proven `by decide` in [lean/Rosette.lean](/lean/Rosette.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 148 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [rosette_quantum_doubling_is_two_coins](/theorem/rosette_quantum_doubling_is_two_coins). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FRosette.lean)** — nothing to install. The editor fetches `lean/Rosette.lean` from the repository and re-decides all 148 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### 0·0 ≡ 0 (mod 7)
 The ledger holds this as [z7mul_0_0](/theorem/z7mul_0_0) — proven `by decide`, sorry-free:
 

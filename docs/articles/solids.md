@@ -9,6 +9,8 @@ description: "Computed from lean/Solids.lean — 11 sealed theorems, every claim
 
 **11 theorems**, from [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) onward, each proven `by decide` in [lean/Solids.lean](/lean/Solids.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [three_pentagons_close_a_vertex](/theorem/three_pentagons_close_a_vertex). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FSolids.lean)** — nothing to install. The editor fetches `lean/Solids.lean` from the repository and re-decides all 11 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### There are exactly FIVE regular convex solids in three dimensions — tetrahedron, cube, octahedron, dodecahedron, icosahedron — listed as (V,E,F). Five, no more, no fewer.
 The ledger holds this as [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) — proven `by decide`, sorry-free:
 

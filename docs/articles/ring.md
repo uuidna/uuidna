@@ -9,6 +9,8 @@ description: "Computed from lean/Ring.lean — 234 sealed theorems, every claim 
 
 **234 theorems**, from [z9mul_0_0](/theorem/z9mul_0_0) onward, each proven `by decide` in [lean/Ring.lean](/lean/Ring.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FRing.lean)** — nothing to install. The editor fetches `lean/Ring.lean` from the repository and re-decides all 234 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### 0·0 ≡ 0 (mod 9)
 The ledger holds this as [z9mul_0_0](/theorem/z9mul_0_0) — proven `by decide`, sorry-free:
 

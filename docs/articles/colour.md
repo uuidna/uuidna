@@ -9,6 +9,8 @@ description: "Computed from lean/Colour.lean — 17 sealed theorems, every claim
 
 **17 theorems**, from [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) onward, each proven `by decide` in [lean/Colour.lean](/lean/Colour.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FColour.lean)** — nothing to install. The editor fetches `lean/Colour.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE HEART DISCOVERY: each rosette ray offsets the hue wheel by 360/7 = 51°, and the FOURTH ray (index 3, counting the first as 1) lands at 3·51 = 153° — squarely the green band. The seven rays walk the wheel as seven stations, and the fourth is green — the arithmetic behind the observation that two seven-fold systems agree. the offset arithmetic is sealed; any chakra reading of it stays UNVERIFIED — the number is sealed, the meaning is not.
 The ledger holds this as [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) — proven `by decide`, sorry-free:
 

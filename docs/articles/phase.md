@@ -9,6 +9,8 @@ description: "Computed from lean/Phase.lean — 6 sealed theorems, every claim c
 
 **6 theorems**, from [dz_loses_nothing](/theorem/dz_loses_nothing) onward, each proven `by decide` in [lean/Phase.lean](/lean/Phase.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [doubling_collapses_nine](/theorem/doubling_collapses_nine). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FPhase.lean)** — nothing to install. The editor fetches `lean/Phase.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE REFLECTION IS A BIJECTION: dz sends the ten digits onto ten distinct digits, so nothing is lost and every step can be undone. Reversible, and therefore barren on its own.
 The ledger holds this as [dz_loses_nothing](/theorem/dz_loses_nothing) — proven `by decide`, sorry-free:
 

@@ -9,6 +9,8 @@ description: "Computed from lean/Codes.lean — 8 sealed theorems, every claim c
 
 **8 theorems**, from [hamming_seven_four](/theorem/hamming_seven_four) onward, each proven `by decide` in [lean/Codes.lean](/lean/Codes.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [distance_three_detects_two](/theorem/distance_three_detects_two). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCodes.lean)** — nothing to install. The editor fetches `lean/Codes.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### Hamming(7,4): 4 data bits + 3 parity bits = 7, carrying 2⁴ = 16 codewords — three redundant bits protect four.
 The ledger holds this as [hamming_seven_four](/theorem/hamming_seven_four) — proven `by decide`, sorry-free:
 

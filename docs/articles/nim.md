@@ -9,6 +9,8 @@ description: "Computed from lean/Nim.lean — 93 sealed theorems, every claim ci
 
 **93 theorems**, from [nim_sum_is_xor](/theorem/nim_sum_is_xor) onward, each proven `by decide` in [lean/Nim.lean](/lean/Nim.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 93 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [nim_empty_heap_neutral](/theorem/nim_empty_heap_neutral). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FNim.lean)** — nothing to install. The editor fetches `lean/Nim.lean` from the repository and re-decides all 93 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The nim-sum is the bitwise XOR of the heap sizes — the ledger's own axiom-free lxor: heaps 3, 5, 7 fold to lxor(lxor 3 5) 7 = 1. Nonzero, so the position is a WIN for the player to move (Bouton's theorem).
 The ledger holds this as [nim_sum_is_xor](/theorem/nim_sum_is_xor) — proven `by decide`, sorry-free:
 

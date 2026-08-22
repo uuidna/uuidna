@@ -9,6 +9,8 @@ description: "Computed from lean/Matching.lean — 8 sealed theorems, every clai
 
 **8 theorems**, from [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) onward, each proven `by decide` in [lean/Matching.lean](/lean/Matching.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [perfect_matching_needs_even](/theorem/perfect_matching_needs_even). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FMatching.lean)** — nothing to install. The editor fetches `lean/Matching.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The handshake lemma: every edge touches two people, so summing how many each is connected to double-counts the edges — the degree sum is always EVEN. Here [1,3,2,2,1,1] sums to 10, and 10 is even.
 The ledger holds this as [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) — proven `by decide`, sorry-free:
 

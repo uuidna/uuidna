@@ -9,6 +9,8 @@ description: "Computed from lean/VectorEquilibrium.lean — 12 sealed theorems, 
 
 **12 theorems**, from [ve_twelve_vertices](/theorem/ve_twelve_vertices) onward, each proven `by decide` in [lean/VectorEquilibrium.lean](/lean/VectorEquilibrium.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 12 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [orbits_closed_involution](/theorem/orbits_closed_involution). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FVectorEquilibrium.lean)** — nothing to install. The editor fetches `lean/VectorEquilibrium.lean` from the repository and re-decides all 12 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### The vector equilibrium has TWELVE vertices — every permutation of (±1,±1,0), three coordinate pairs by four sign choices. Twelve radial directions from one centre.
 The ledger holds this as [ve_twelve_vertices](/theorem/ve_twelve_vertices) — proven `by decide`, sorry-free:
 

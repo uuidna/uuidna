@@ -9,6 +9,8 @@ description: "Computed from lean/Channel.lean — 6 sealed theorems, every claim
 
 **6 theorems**, from [channel_multiplies_three](/theorem/channel_multiplies_three) onward, each proven `by decide` in [lean/Channel.lean](/lean/Channel.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [element_costs_nine](/theorem/element_costs_nine). A boundary stated here is decided.
 
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChannel.lean)** — nothing to install. The editor fetches `lean/Channel.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+
 ### THE THREE COMPUTED AXES MULTIPLY: six type rungs (the vortex orbit 1,2,4,5,7,8), nine palette hues, seven rosette rays — 6 × 9 × 7 = 378 distinguishable states for one rendered element, every factor already computed from the sequence rather than chosen.
 The ledger holds this as [channel_multiplies_three](/theorem/channel_multiplies_three) — proven `by decide`, sorry-free:
 
