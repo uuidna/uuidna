@@ -53,3 +53,17 @@ npm run audit       # the whole release gate
 Same source in, same receipts out — what a deployment serves is [the uuidna cluster](/publications/uuidna) and the
 conserved coins ([`two_coins`](/theorem/two_coins)) behind it. See the [Guides](/guides) for the rest.
 Integrity, not truth.
+
+## The landing
+
+Local landings run through one command — the push loop folded (2026-08-23, after seven hand-walked gates):
+
+```bash
+npm run land
+```
+
+`land` heals with `develop`'s taught cures only, derives the tree to its fixed point, commits what the drain
+owns, and walks the gate — looping on taught denials, **stopping honestly on an untaught one** with the
+GAP+FIX printed verbatim for a human. `--no-verify` appears nowhere in it: the gate is the teacher, and the
+loop exists to attend, not to skip class. The one-writer lock guards the whole loop (a second writer is
+refused with the holder named; the holder's own children pass — ancestry, not trust).

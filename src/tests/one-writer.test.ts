@@ -20,15 +20,20 @@ const deadPid = (): number => {
   return child.pid!
 }
 
-test('one writer wins; the second is refused with the holder NAMED', () => {
+test('one writer wins; a STRANGER is refused with the holder NAMED (a descendant passes — that is reentrancy)', () => {
   const path = lockAt('a.lock')
   assert.deepEqual(acquire('audit', process.pid, path), { ok: true })
-  const second = acquire('reconcile', process.pid + 1, path)
-  assert.equal(second.ok, false)
+  // the stranger must be REAL and never our descendant: pid 1 (launchd/init) is alive and ancestral to us,
+  // not the reverse — the first version used process.pid+1, which the OS had just handed to our own ps child,
+  // so the lock CORRECTLY reentrant-passed it and the test blamed the lock for its own bad stranger.
+  const second = acquire('reconcile', 1, path)
+  assert.equal(second.ok, false, 'a live stranger is refused')
   if (!second.ok) {
     assert.equal(second.holder.pid, process.pid, 'the refusal must name the LIVE holder')
     assert.equal(second.holder.purpose, 'audit')
   }
+  // and the holder's own descendant passes without rewriting the lock — lead 91's reentrancy, tested straight
+  assert.deepEqual(acquire('child-write', process.pid, path), { ok: true }, 'the holder itself (trivial ancestor) passes')
 })
 
 test('a dead holder is stale by pid-liveness — reclaimed on the next acquire, no clock consulted', () => {
