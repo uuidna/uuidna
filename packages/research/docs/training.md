@@ -345,7 +345,7 @@ git push origin main        # Pre-push gate auto-verifies
 1. **Code** → https://github.com/uuidna/uuidna (source)
 2. **Site** → https://uuidna.com (research landing page, captain claims)
 3. **Ledger** → `docs/captain-claims.json` (machine-readable claim ledger)
-4. **Verification** → `docs/analytics.md` (metrics: <!--L:distinct:raw-->1442<!--/L--> distinct theorems, 100% axiom-free, etc.)
+4. **Verification** → `docs/analytics.md` (metrics: <!--L:distinct:raw-->1449<!--/L--> distinct theorems, 100% axiom-free, etc.)
 
 ---
 
