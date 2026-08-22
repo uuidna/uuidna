@@ -108,7 +108,7 @@ A handle is eight hexbits, so it names **4,294,967,296** superpositions — 16^8
 address it can take. That is the space; the rest is what is accounted inside it.
 
 - **93,717 superpositions** decided across the ledger, every one walked rather than sampled
-- **2,916 coins** in existence — 2 per sealed theorem, and only that
+- **2,916 coins** in existence — 2 per sealed theorem, and only that (theorem two_coins: the conserved denomination)
 - **32 superpositions per coin**, floored: what one coin covers today
 
 SIX DIRECTIONS leave every residue, which is why a per-coin figure needs them stated beside it: the 60-degree

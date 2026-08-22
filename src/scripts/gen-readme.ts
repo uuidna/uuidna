@@ -140,7 +140,7 @@ A handle is eight hexbits, so it names **${HANDLE_SPAN.toLocaleString('en-US')}*
 address it can take. That is the space; the rest is what is accounted inside it.
 
 - **${ledgerMass().toLocaleString('en-US')} superpositions** decided across the ledger, every one walked rather than sampled
-- **${(theorems().length * COINS).toLocaleString('en-US')} coins** in existence — ${COINS} per sealed theorem, and only that
+- **${(theorems().length * COINS).toLocaleString('en-US')} coins** in existence — ${COINS} per sealed theorem, and only that (theorem two_coins: the conserved denomination)
 - **${((ledgerMass() - ledgerMass() % (theorems().length * COINS)) / (theorems().length * COINS))} superpositions per coin**, floored: what one coin covers today
 
 SIX DIRECTIONS leave every residue, which is why a per-coin figure needs them stated beside it: the 60-degree
