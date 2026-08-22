@@ -884,6 +884,8 @@ store_fold_change_moves_receipt 19
 message_qubit_cap_states 27
 merkle_sort_invariant 19
 all_signaling_duality 19
+hexbit_slit_visibility 19
+hexbit_slit_cross_is_overlap 19
 #Reasoning.lean
 modus_ponens 27
 modus_tollens 19
