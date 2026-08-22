@@ -201,6 +201,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/referrer-song.md',
   // the default install's meaning page — derived from Installs.lean by gen-os
   'docs/os.md',
+  // the model comparison page — rewritten by gen-models from the committed feed mirror every reconcile
+  'docs/models.md',
   // one chunk per DISTINCT proven fact — fewer than the key count, since a statement sealed in two wings is
   // one fact with two names. The two figures are deliberately not written here; statementCensus() reports them,
   // and a count in a comment is stale the next time a wing lands. Generated
