@@ -34,8 +34,9 @@ export function uuidnaPackage(p: { name: string; version: string; arch: string; 
 }
 
 // pure-TS untar — 512-byte header blocks; return the named member's bytes. NO Math.* (exact block padding).
+// Exported for the one sibling at the same boundary (os/installs) — the tar format is shared, the honesty is too.
 const dec = new TextDecoder()
-const untarMember = (tar: Uint8Array, member: string): string => {
+export const untarMember = (tar: Uint8Array, member: string): string => {
   let off = 0
   while (off + 512 <= tar.length) {
     const name = dec.decode(tar.slice(off, off + 100)).replace(/\0[\s\S]*$/, '')

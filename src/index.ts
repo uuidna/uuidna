@@ -445,6 +445,14 @@ export { depositTrial, depositValid, type Deposit, type DepositDiamond, type Dep
 // and VERIFY your actual bytes with uuidna's own pure-TS SHA-256. Port the INTEGRITY, never the runtime. fetchAlpineLatest
 // is the upstream-automation network call at the os/ boundary (the one place non-determinism is honest, not hidden).
 export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineRelease, type RootfsCheck } from './os/alpine/index.js'
+// quantum/os — THE DEFAULT INSTALL as the site's path algebra: every uuidna.com path's exact meaning is one package of
+// a default Alpine install (alpine-base's dependency closure), ported in full, lowest level first — each spec COMPILED
+// from its published source to 32 hexbit states, the whole port folded to one receipt and one BOOTABLE boot image
+// (bootable = the verified loading of compiled states on the lattice, NEVER execution). Pure and edge-clean from the
+// committed mirror; the always-Alpine-latest live recompute rides fetchDefaultInstalls at the src/os boundary.
+export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, type InstallSpec, type InstallPort, type BootImage } from './quantum/os/index.js'
+export { INSTALLS_MIRROR, type InstallsMirror, type MirrorPackage } from './quantum/os/mirror.js'
+export { fetchDefaultInstalls, renderMirror } from './os/installs/index.js'
 // quantum/drivers — the DEVICE-DRIVER boundary: a content-addressed manifest of the exact Alpine netboot bundle (kernel
 // + modloop = the kernel modules, the drivers). Pin version + arch + published SHA-256, verify the bytes with uuidna's
 // own pure-TS SHA-256, track upstream via fetchDriverLatest. uuidna never loads or runs a module — port the INTEGRITY.

@@ -49,10 +49,10 @@ export function discoverStaticPages(): PageNode[] {
 //    SiteFooter.vue as it was before. Any real page NOT listed here still appears (in "More"), so a forgotten
 //    category assignment is a visible gap, never a silent drop the way an un-added sidebar entry used to be.
 export const SIDEBAR_CATEGORIES: readonly [string, string[]][] = [
-  ['The ledger', ['/theorems', '/topics', '/grid', '/trials', '/quantum', '/quantum-cryptography', '/rosetta', '/rosetta-glagolitic', '/search', '/publications', '/news', '/articles', '/games', '/song', '/anthem']],
+  ['The ledger', ['/theorems', '/topics', '/grid', '/trials', '/quantum', '/quantum-cryptography', '/rosetta', '/rosetta-glagolitic', '/search', '/publications', '/news', '/articles', '/games', '/song', '/anthem', '/referrer-song']],
   ['Fuse it in', ['/school', '/mcp', '/chat', '/books', '/guides', '/chess', '/quantum-messaging', '/dimensions']],
   ['The captain', ['/captain', '/doctrine', '/succession', '/captain-claims']],
-  ['Verify it yourself', ['/tests', '/analytics', '/deploy', '/changelog', '/prose-evidence', '/by-proof']],
+  ['Verify it yourself', ['/tests', '/analytics', '/deploy', '/os', '/changelog', '/prose-evidence', '/by-proof']],
   ['The terms', ['/license', '/privacy', '/justice']],
 ]
 
@@ -63,10 +63,11 @@ const LABELS: Readonly<Record<string, string>> = {
   '/quantum': 'What quantum means', '/quantum-cryptography': 'Quantum Cryptography (course)',
   '/rosetta': 'Rosette rays', '/rosetta-glagolitic': 'The Glagolitic hypothesis', '/search': 'Search',
   '/publications': 'Publications', '/news': 'News (computed)', '/articles': 'Articles (computed)',
-  '/games': 'Games', '/song': 'The song ♪', '/anthem': 'The anthem ♪', '/school': 'The school', '/mcp': 'MCP tools', '/chat': 'Chat', '/books': 'Books',
+  '/games': 'Games', '/song': 'The song ♪', '/anthem': 'The anthem ♪', '/referrer-song': 'The referrer song ♪', '/school': 'The school', '/mcp': 'MCP tools', '/chat': 'Chat', '/books': 'Books',
   '/guides': 'Guides', '/quantum-messaging': 'Quantum messaging', '/dimensions': 'Reading dimensions ◈',
   '/captain': "The captain's coins", '/doctrine': 'The doctrine', '/succession': 'Succession',
   '/captain-claims': 'Captain claims', '/tests': 'The tests', '/analytics': 'Analytics', '/deploy': 'Deploy',
+  '/os': 'The OS (default install)',
   '/changelog': 'Changelog', '/prose-evidence': 'Prose evidence', '/by-proof': 'By proof (second axis)', '/license': 'License', '/privacy': 'Privacy',
   '/justice': 'Justice',
 }
