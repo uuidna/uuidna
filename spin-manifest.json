@@ -12,7 +12,7 @@
     "reports.json": "4c25168c3fc58601",
     "lean/statement-index.json": "aa8bc01a35838e10",
     "README.md": "10bdb8a5cf778323",
-    "llm.txt": "279bfbc2edc98d17",
+    "llm.txt": "e524782d196e80e3",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
     "src/chunks/00/476e9d.json": "cc81754bbb7287bb",
@@ -1505,8 +1505,8 @@
     "lean/discover-manifest.json": "3192704bd08f8717",
     "lean/divbyzero-manifest.json": "acba7e4255ed8376",
     "lean/diving-manifest.json": "636537af9f528b58",
-    "lean/dormant-receipt.json": "6498523bc0938819",
-    "lean/dormant-scripts.json": "437c7be8aad28c2e",
+    "lean/dormant-receipt.json": "ff1871286a1383a2",
+    "lean/dormant-scripts.json": "a2c48c91859e802c",
     "lean/doubletorus-manifest.json": "9aa143d8f9f48ce7",
     "lean/editing-manifest.json": "e87a2cc25dd2891a",
     "lean/editor-manifest.json": "4bf17f879bb78ef4",
@@ -1590,5 +1590,5 @@
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "138680ca-45a4-8782-8b8d-79e1a4acab82"
+  "receipt": "1d7b5d89-ab25-894b-a099-004c64e12e0b"
 }
