@@ -33,7 +33,6 @@ The sealed backing this trial held the findings beside:
 - [lagrange_divides_every_order](/theorem/lagrange_divides_every_order) — `([1,2,3,6].all (fun n => 6 % n == 0)) ∧ ([1,2,3,6] = ((List.range' 1 6).filter (fun d => 6`
 - [two_generates_the_whole](/theorem/two_generates_the_whole) — `(units.map (fun a => ((List.range' 1 6).filter (fun k => (2 ^ k) % 9 == a)).length) = [1,1`
 - [most_subsets_are_not_subgroups](/theorem/most_subsets_are_not_subgroups) — `(64 - 4 = 60) ∧ (4 ≠ 64) ∧ ((2:Nat)^6 = 64)`
-- [trivial_and_whole_always_hold](/theorem/trivial_and_whole_always_hold) — `(isSub [1]) ∧ (isSub units) ∧ (([1]:List Nat).length ≠ units.length)`
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not
