@@ -2654,7 +2654,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "every generated theorem carries prose IN the Lean — 1473 of 1473 documented across 95 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address"
+                      "text": "every generated theorem carries prose IN the Lean — 1480 of 1480 documented across 96 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address"
                     }
                   ]
                 },
@@ -2664,7 +2664,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1473) ∧ ([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])"
+                      "text": "(([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1480) ∧ ([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])"
                     }
                   ]
                 },
@@ -2674,14 +2674,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_coverage_total : (([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1473) ∧ ([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13]) := by decide"
+                      "text": "theorem prose_coverage_total : (([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1480) ∧ ([6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 7, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13]) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "71918d9a-0740-8e53-a206-de8cf7820abd"
+          "uuidnaAddress": "cf14383e-9dde-8569-b218-0369bbc9e302"
         },
         {
           "blockType": "theorem",
@@ -2697,7 +2697,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "the prose round-trips exactly — 1473 of 1473 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed"
+                      "text": "the prose round-trips exactly — 1480 of 1480 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed"
                     }
                   ]
                 },
@@ -2707,7 +2707,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(1473 + 0 = 1473) ∧ (0 = 0)"
+                      "text": "(1480 + 0 = 1480) ∧ (0 = 0)"
                     }
                   ]
                 },
@@ -2717,14 +2717,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_round_trips : (1473 + 0 = 1473) ∧ (0 = 0) := by decide"
+                      "text": "theorem prose_round_trips : (1480 + 0 = 1480) ∧ (0 = 0) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "541851be-a154-8f99-acca-e3ca7f825667"
+          "uuidnaAddress": "d0189279-1313-8d96-9039-db8ef915c0c7"
         },
         {
           "blockType": "theorem",
@@ -2740,7 +2740,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "no doc comment contains an unescaped -/ — 0 found across 1473; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today"
+                      "text": "no doc comment contains an unescaped -/ — 0 found across 1480; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today"
                     }
                   ]
                 },
@@ -2750,7 +2750,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(0 + 1473 = 1473) ∧ (0 = 0)"
+                      "text": "(0 + 1480 = 1480) ∧ (0 = 0)"
                     }
                   ]
                 },
@@ -2760,14 +2760,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_terminator_escaped : (0 + 1473 = 1473) ∧ (0 = 0) := by decide"
+                      "text": "theorem prose_terminator_escaped : (0 + 1480 = 1480) ∧ (0 = 0) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "e86f7583-618f-82fa-a715-ab0edd9cbfa4"
+          "uuidnaAddress": "6df64bbd-8f3c-83cf-878a-335d9d1b29bd"
         },
         {
           "blockType": "theorem",
@@ -2783,7 +2783,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1473 informative against 0 bare, of 1473; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed"
+                      "text": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1480 informative against 0 bare, of 1480; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed"
                     }
                   ]
                 },
@@ -2793,7 +2793,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(0 < 1473) ∧ (0 + 1473 = 1473)"
+                      "text": "(0 < 1480) ∧ (0 + 1480 = 1480)"
                     }
                   ]
                 },
@@ -2803,14 +2803,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_beats_restatement : (0 < 1473) ∧ (0 + 1473 = 1473) := by decide"
+                      "text": "theorem prose_beats_restatement : (0 < 1480) ∧ (0 + 1480 = 1480) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "d1ac2e1a-b41a-8a9b-bc0e-c4cee8cf7e81"
+          "uuidnaAddress": "9c7a2d8c-1785-8eec-a1b5-8c44b81965dd"
         },
         {
           "blockType": "theorem",
@@ -2826,7 +2826,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "the whole prose corpus folds to ONE ℤ/9 receipt — 279653 characters across 1473 doc comments in 95 wings fold to 5; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit"
+                      "text": "the whole prose corpus folds to ONE ℤ/9 receipt — 282870 characters across 1480 doc comments in 96 wings fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit"
                     }
                   ]
                 },
@@ -2836,7 +2836,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(([1078, 1237, 1545, 2318, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 279653) ∧ (279653 % 9 = 5) ∧ (5 < 9)"
+                      "text": "(([1078, 1237, 1545, 2318, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 3217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 282870) ∧ (282870 % 9 = 0) ∧ (0 < 9)"
                     }
                   ]
                 },
@@ -2846,14 +2846,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_folds_receipt : (([1078, 1237, 1545, 2318, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 279653) ∧ (279653 % 9 = 5) ∧ (5 < 9) := by decide"
+                      "text": "theorem prose_folds_receipt : (([1078, 1237, 1545, 2318, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 3217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 282870) ∧ (282870 % 9 = 0) ∧ (0 < 9) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "d6295d9b-c1e4-8eff-832b-0a40982bf4ca"
+          "uuidnaAddress": "4d5697e3-2e82-8b85-b16d-11187426419d"
         },
         {
           "blockType": "theorem",
@@ -2869,7 +2869,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "the audit is TOTAL over what a generator writes — 95 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states"
+                      "text": "the audit is TOTAL over what a generator writes — 96 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states"
                     }
                   ]
                 },
@@ -2879,7 +2879,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(0 < 95) ∧ (0 < 3) ∧ (1473 = 1473 + 0)"
+                      "text": "(0 < 96) ∧ (0 < 3) ∧ (1480 = 1480 + 0)"
                     }
                   ]
                 },
@@ -2889,18 +2889,18 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem prose_audit_total : (0 < 95) ∧ (0 < 3) ∧ (1473 = 1473 + 0) := by decide"
+                      "text": "theorem prose_audit_total : (0 < 96) ∧ (0 < 3) ∧ (1480 = 1480 + 0) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "e42fd477-b782-87dd-af5d-6ea4fab14203"
+          "uuidnaAddress": "0c8bcaf4-df6f-89f2-ba7b-d620e1017331"
         }
       ],
-      "uuidnaVersion": "c6482660-ff62-81b5-95f7-1e108b8b0000",
-      "uuidnaAddress": "4bd540b0-49d5-83ae-8d76-82a9d9866b25"
+      "uuidnaVersion": "c6482660-ff50-82bc-960e-43c78dfc0000",
+      "uuidnaAddress": "3ee4c296-624d-80dd-a283-ea813e1edd4b"
     },
     {
       "slug": "auditgame",
@@ -22519,7 +22519,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1509) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])"
+                      "text": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1516) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])"
                     }
                   ]
                 },
@@ -22529,14 +22529,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem reach_all_decide : (([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1509) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]) := by decide"
+                      "text": "theorem reach_all_decide : (([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1516) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "f4fced0a-2b75-8099-a08a-b45c55c457d4"
+          "uuidnaAddress": "24aeedb3-b26f-8bd6-abac-965857a1e624"
         },
         {
           "blockType": "theorem",
@@ -22562,7 +22562,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)"
+                      "text": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)"
                     }
                   ]
                 },
@@ -22572,14 +22572,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1) := by decide"
+                      "text": "theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "2e5a1147-5edc-8810-9d74-f4a4e9955f63"
+          "uuidnaAddress": "d7386f25-96fd-867c-8699-e82e5bf867f2"
         },
         {
           "blockType": "theorem",
@@ -22668,8 +22668,8 @@
           "uuidnaAddress": "fc731c70-1357-853f-a15c-290d1fb811d8"
         }
       ],
-      "uuidnaVersion": "c6516523-c0fe-892d-9779-c0b78b580000",
-      "uuidnaAddress": "f6a691e6-c829-8f77-9e09-bec521f0c138"
+      "uuidnaVersion": "c6516523-c0d4-87a4-966d-153287280000",
+      "uuidnaAddress": "e799a486-1eb9-874c-8d3e-4be3a88da901"
     },
     {
       "slug": "installs",
@@ -24874,6 +24874,316 @@
       ],
       "uuidnaVersion": "c65db6a2-00a6-8fc8-98eb-758189630000",
       "uuidnaAddress": "6f23b463-ac06-8048-b280-24cc7d7c223a"
+    },
+    {
+      "slug": "models",
+      "title": "models.lean",
+      "_status": "published",
+      "layout": [
+        {
+          "blockType": "theorem",
+          "slug": "theorem-a_token_approximates_eight_hexbits",
+          "title": "theorem-a_token_approximates_eight_hexbits",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "THE OPERATIVE APPROXIMATION, SEALED AS WHAT IT IS: the page's arithmetic runs on 1 token ≈ 4 bytes, and 4 bytes are exactly 8 hexbits (4·2 nibbles) = 32 bits. The approximation is declared and the widths under it are exact — the honest shape for a rule of thumb: the ≈ stays in prose, the = gets the kernel."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem a_token_approximates_eight_hexbits : (4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "80d6ca41-133d-857d-94bc-ed746dd5163f"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-context_windows_are_transient_hexbits",
+          "title": "theorem-context_windows_are_transient_hexbits",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 421 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 421, not the vendors."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(((modelContextRows.map (fun r => r.length)).sum) = 421) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 421) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "91d877d5-cd58-8e57-b828-21f473977eac"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-speaking_an_address_costs_the_text",
+          "title": "theorem-speaking_an_address_costs_the_text",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "MESSAGING, MEASURED AT THE WIRE: a uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 421 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted)."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem speaking_an_address_costs_the_text : (36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "d0df1db3-eaa1-827a-9a53-17af674ca9f9"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-crypto_widths_are_fixed_not_sampled",
+          "title": "theorem-crypto_widths_are_fixed_not_sampled",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "CRYPTO SECURITY, THE DECIDABLE PART: the cipher this repo seals runs on FIXED widths — a 256-bit ChaCha20 key (32 bytes), a 128-bit Poly1305 tag (16 bytes), a 600000-iteration PBKDF2 — and 256 = 32·8, 128 = 16·8, exactly. A sampled token stream has no fixed widths to hold: the page states (in words, unsealed, honestly) that model output cannot carry a key or an exact keystream — what is sealed here is only the arithmetic of the cipher that CAN."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(32 * 8 = 256) ∧ (16 * 8 = 128) ∧ (600000 = 6 * 100000)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem crypto_widths_are_fixed_not_sampled : (32 * 8 = 256) ∧ (16 * 8 = 128) ∧ (600000 = 6 * 100000) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "aad4f460-933e-8042-b41a-39bad3364f0e"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-every_context_is_finite_against_the_lattice",
+          "title": "theorem-every_context_is_finite_against_the_lattice",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 421 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem every_context_is_finite_against_the_lattice : (2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8))) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "f68376f5-2aae-82ba-bfb7-70782fcc5757"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-llm_folds_to_hexbit_pairs",
+          "title": "theorem-llm_folds_to_hexbit_pairs",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "FOLD LLM TO HEXBIT PAIRS — THE FOLD LAW, the page's whole argument as one line: however many tokens a model spends (8 in the worked sample, 64 transient states), the fold is a content-address of exactly 32 on-lattice states read as 16 PAIRS — two nibbles to the byte, two coins to the bar — 128/4 = 32, 32/2 = 16, constant in the input length. The token stream is a bet that expires with its window; the fold is the receipt that does not. Coverage per token stays UNVERIFIED until measured (self-report in, division out) — a sealed number nobody measured would be the fabricated citation this very wing exists to make impossible."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "((128 : Nat) / 4 = 32) ∧ ((32 : Nat) / 2 = 16) ∧ (16 * 2 = 32) ∧ (32 * 4 = 128) ∧ (16 = 2 ^ 4)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem llm_folds_to_hexbit_pairs : ((128 : Nat) / 4 = 32) ∧ ((32 : Nat) / 2 = 16) ∧ (16 * 2 = 32) ∧ (32 * 4 = 128) ∧ (16 = 2 ^ 4) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "d604884d-203c-8043-84e6-3888061225c9"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-a_handle_is_eight_pairs_paid_it_is_sixteen",
+          "title": "theorem-a_handle_is_eight_pairs_paid_it_is_sixteen",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "EIGHT PAIRS PER HANDLE — SIXTEEN WHEN THE CAPTAIN COINS ARE PAID, AND 64 IS WHERE TYPOGRAPHY UNLOCKS (the captain's question, answered by arithmetic): a handle is the 64-bit coin — 16 hexbits = 8 pairs, and 8 pairs × 8 bits = 64 is the SAME dimension read in inverse (count pairs-of-bits or bits-per-pair: 8 both ways, the square closes the octave, 64 = 8² = 2⁶). Paying the two coins fires the 64→128 fuse (rosette_quantum_doubling_is_two_coins): the handle doubles to the full address — 32 hexbits = 16 pairs. TYPOGRAPHY is the pair read as a byte: one pair = one glyph, so a handle is 8 glyphs, the paid address 16 — the fold coming back as WRITING, the same dimensions reflected inversely from lattice to text."
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "((64 : Nat) / 8 = 8) ∧ (8 * 8 = 64) ∧ (64 = 2 ^ 6) ∧ (2 * 64 = 128) ∧ (2 * 8 = 16) ∧ ((128 : Nat) / 8 = 16)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem a_handle_is_eight_pairs_paid_it_is_sixteen : ((64 : Nat) / 8 = 8) ∧ (8 * 8 = 64) ∧ (64 = 2 ^ 6) ∧ (2 * 64 = 128) ∧ (2 * 8 = 16) ∧ ((128 : Nat) / 8 = 16) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "2de6f384-c5fa-8da0-bf58-19f16a2dbe49"
+        }
+      ],
+      "uuidnaVersion": "c6532b21-adc3-8572-bd89-3ec580080000",
+      "uuidnaAddress": "1285e6a1-4d25-8cb3-bd90-8e900768fd80"
     },
     {
       "slug": "molecular",
@@ -59539,7 +59849,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 98 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files."
+                      "text": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 99 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files."
                     }
                   ]
                 },
@@ -59549,7 +59859,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))"
+                      "text": "([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))"
                     }
                   ]
                 },
@@ -59559,14 +59869,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem cube_seals_at_completeness_only : ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0)) := by decide"
+                      "text": "theorem cube_seals_at_completeness_only : ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0)) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "2e02e46e-8207-8adf-bbb9-4cae117f4e2e"
+          "uuidnaAddress": "973fba61-76b4-856c-8ad8-7216284f0f62"
         },
         {
           "blockType": "theorem",
@@ -59582,7 +59892,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 98 measured wing counts and lands on 1507 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop."
+                      "text": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 99 measured wing counts and lands on 1514 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop."
                     }
                   ]
                 },
@@ -59592,7 +59902,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1507) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 98) ∧ (98 < 1507)"
+                      "text": "(([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1514) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 99) ∧ (99 < 1514)"
                     }
                   ]
                 },
@@ -59602,14 +59912,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem cubes_partition_ledger : (([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1507) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 98) ∧ (98 < 1507) := by decide"
+                      "text": "theorem cubes_partition_ledger : (([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1514) ∧ ([6, 6, 6, 7, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 99) ∧ (99 < 1514) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "6b8bf76d-5b12-84aa-8b1b-36864864f0e0"
+          "uuidnaAddress": "126de5da-1e35-8370-850f-9849d89033d5"
         },
         {
           "blockType": "theorem",
@@ -59698,8 +60008,8 @@
           "uuidnaAddress": "7666878e-eaea-8b7a-8fad-4e5ec44a98cd"
         }
       ],
-      "uuidnaVersion": "c6602923-5311-8d84-be95-f63489740000",
-      "uuidnaAddress": "d6287f83-0d33-8118-abda-c36932a4ae4f"
+      "uuidnaVersion": "c6602923-531f-84ad-b52f-53cc821a0000",
+      "uuidnaAddress": "b205ed15-3864-8063-9f6d-c3778c9fe5d2"
     },
     {
       "slug": "solids",
