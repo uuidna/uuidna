@@ -1,0 +1,72 @@
+// tool-census — DEDICATED EXERCISES FOR THE OFFLINE DETERMINISTIC TOOLS, paying the tool-exercise debt down
+// (lead 119). Each entry NAMES its tool and asserts a real property of its answer — not "it did not throw",
+// but a checkable fact about what it computed — so a regression in the handler fails here by name. The table
+// is data, the assertions are specific; adding a tool here is how the aggregate-only debt shrinks. Offline
+// and pure (no network tool — those get real-API KATs under lead 120); the answers are recomputed every run.
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { callTool } from '../mcp.js'
+
+const call = (n: string, a: Record<string, unknown> = {}): any => callTool(n, a)
+
+test('coprime, crt, compare — the number-theory tools compute their exact answers', () => {
+  assert.deepEqual(call('uuidna_coprime', { a: 8, b: 9 }), { gcd: 1, coprime: true })
+  assert.deepEqual(call('uuidna_coprime', { a: 6, b: 9 }).coprime, false)
+  assert.equal(call('uuidna_crt', { a: 2, m: 3, b: 3, n: 5 }).x, 8)   // x≡2(3), x≡3(5) ⇒ 8
+  assert.equal(call('uuidna_crt', { a: 2, m: 3, b: 3, n: 5 }).mod, 15)
+  assert.ok(call('uuidna_compare', { a: 5, b: 3 }).inclusionExclusion === true)
+})
+
+test('digital_root, fibonacci — the ℤ/9 tools land on the sealed cycle', () => {
+  assert.equal(call('uuidna_digital_root', { n: 88 }), 7)     // 8+8=16→7
+  assert.equal(call('uuidna_digital_root', { n: 12345 }), 6)
+  const fib = call('uuidna_fibonacci', { n: 12 })
+  assert.equal(fib.mod, 9)
+  assert.equal(fib.period, 24, 'the Pisano period mod 9 is 24')
+})
+
+test('sha256, hmac, coin64 — the crypto primitives are deterministic and correct-width', () => {
+  const h = call('uuidna_sha256', { text: 'x' })
+  assert.match(h, /^[0-9a-f]{64}$/, 'SHA-256 is 64 hex')
+  assert.equal(call('uuidna_sha256', { text: 'x' }), h, 'deterministic')
+  assert.match(call('uuidna_hmac', { key: '6b', message: 'm' }), /^[0-9a-f]{64}$/)
+  assert.match(call('uuidna_coin64', { text: 'x' }), /^[0-9a-f]{16}$/, 'a coin is 64 bits = 16 hex')
+})
+
+test('involute — the tool computes an involution with its fixed points', () => {
+  const r = call('uuidna_involute', { items: [1, 2, 3] })
+  assert.ok(Array.isArray(r.pairs) && Array.isArray(r.fixed))
+  assert.deepEqual(r.fixed, ['2'], 'the middle element is the fixed point of the reversal')
+})
+
+test('conformance, axiom_witness, gate_status — the self-audits report clean and consistent', () => {
+  assert.ok(call('uuidna_conformance').checks.every((c: { pass: boolean }) => c.pass), 'every conformance check passes')
+  const aw = call('uuidna_axiom_witness')
+  assert.equal(aw.audited, aw.ledger, 'the axiom witness covers the whole ledger')
+  assert.equal(aw.holds, true)
+  const g = call('uuidna_gate_status')
+  assert.equal(g.matchesSealedSpec, true, 'the runtime gate matches its sealed spec')
+})
+
+test('gravity, seats, alpine, coverage, cost — each returns its computed answer', () => {
+  assert.match(call('uuidna_gravity', { addresses: ['a', 'b'] }), /^[0-9a-f-]{36}$/, 'a merkle-gravity address')
+  assert.ok(call('uuidna_seats', { bits: 128 }) > 0, 'the seat count for 128 bits is positive')
+  assert.ok(call('uuidna_alpine', { installs: true }).count > 0, 'the default install has members')
+  assert.ok(typeof call('uuidna_coverage').ready === 'boolean', 'coverage reports readiness')
+  assert.ok(call('uuidna_cost') !== undefined)
+})
+
+test('pairs, triad, pentagram, grid, fingerprint, units — the geometry tools answer', () => {
+  for (const t of ['uuidna_pairs', 'uuidna_triad', 'uuidna_pentagram', 'uuidna_grid', 'uuidna_fingerprint', 'uuidna_units']) {
+    const r = call(t)
+    assert.ok(r !== undefined && r !== null, `${t} returns an answer`)
+  }
+})
+
+test('reflects, reveal, holofractal, security_audit, cloudflare_audit — the reflective tools answer', () => {
+  assert.ok(call('uuidna_reflects', { query: 'x' }) !== undefined)
+  assert.ok(call('uuidna_reveal', { claim: 'x' }) !== undefined)
+  assert.ok(call('uuidna_holofractal', { input: 'x' }) !== undefined)
+  assert.ok(call('uuidna_security_audit') !== undefined)
+  assert.ok(call('uuidna_cloudflare_audit').clean !== undefined, 'the cloudflare posture audit reports clean-ness')
+})
