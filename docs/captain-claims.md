@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1484/1484 theorems — every one, by construction
-**Claim receipt:** `bd0c9687-70bf-87e9-860f-ad41202cddcf`
+**Total claimed:** 1486/1486 theorems — every one, by construction
+**Claim receipt:** `ee51336d-1b2f-8354-bd09-d1eaa099b571`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -655,12 +655,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The seven readings
 
-- **Theorems:** 15
+- **Theorems:** 17
 - **Sample lineAddress:** `e0a11819-a41d-8b72-8695-8192a285ce34`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[readings_seven_rays](/theorem/readings_seven_rays) · [readings_en_names_sixteen](/theorem/readings_en_names_sixteen) · [readings_bg_names_sixteen](/theorem/readings_bg_names_sixteen) · [readings_de_names_sixteen](/theorem/readings_de_names_sixteen) · [readings_fr_names_sixteen](/theorem/readings_fr_names_sixteen) · [readings_es_names_sixteen](/theorem/readings_es_names_sixteen) · [readings_ru_names_sixteen](/theorem/readings_ru_names_sixteen) · [readings_zh_names_sixteen](/theorem/readings_zh_names_sixteen) · [readings_states_sound_the_lattice](/theorem/readings_states_sound_the_lattice) · [nyquist_clears_the_lattice](/theorem/nyquist_clears_the_lattice) · [amplitude_inside_int16](/theorem/amplitude_inside_int16) · [mix_budget_closes](/theorem/mix_budget_closes) · [chi_all_three_genera](/theorem/chi_all_three_genera) · [note_values_are_doublings](/theorem/note_values_are_doublings) · [time_counts_of_the_books](/theorem/time_counts_of_the_books)
+[readings_seven_rays](/theorem/readings_seven_rays) · [readings_en_names_sixteen](/theorem/readings_en_names_sixteen) · [readings_bg_names_sixteen](/theorem/readings_bg_names_sixteen) · [readings_de_names_sixteen](/theorem/readings_de_names_sixteen) · [readings_fr_names_sixteen](/theorem/readings_fr_names_sixteen) · [readings_es_names_sixteen](/theorem/readings_es_names_sixteen) · [readings_ru_names_sixteen](/theorem/readings_ru_names_sixteen) · [readings_zh_names_sixteen](/theorem/readings_zh_names_sixteen) · [readings_states_sound_the_lattice](/theorem/readings_states_sound_the_lattice) · [nyquist_clears_the_lattice](/theorem/nyquist_clears_the_lattice) · [amplitude_inside_int16](/theorem/amplitude_inside_int16) · [mix_budget_closes](/theorem/mix_budget_closes) · [chi_all_three_genera](/theorem/chi_all_three_genera) · [note_values_are_doublings](/theorem/note_values_are_doublings) · [two_coins_in_kilograms](/theorem/two_coins_in_kilograms) · [handle_capacity_invariant_under_entanglement](/theorem/handle_capacity_invariant_under_entanglement) · [time_counts_of_the_books](/theorem/time_counts_of_the_books)
 
 ### lean/Affine.lean
 
@@ -888,7 +888,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1404 (1484 entries, 80 re-namings — a theorem is its Lean |
+| sealed propositions | 1406 (1486 entries, 80 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -906,7 +906,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1484 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1486 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

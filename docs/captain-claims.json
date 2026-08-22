@@ -2,8 +2,8 @@
   "generated": "2026-08-22",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1484,
-  "total_theorems": 1484,
+  "total_claimed": 1486,
+  "total_theorems": 1486,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -7956,6 +7956,18 @@
       "principle": "The seven readings"
     },
     {
+      "key": "two_coins_in_kilograms",
+      "lineAddress": "4ad37116-cc90-8dc6-8b93-08edbec1f1ae",
+      "address": "1431b819-aa8e-8350-87fd-033d32b65124",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "handle_capacity_invariant_under_entanglement",
+      "lineAddress": "f0111279-728e-8c86-91b4-41e7528b892a",
+      "address": "1eb6bbec-a0e6-8792-b236-579bd6c2752b",
+      "principle": "The seven readings"
+    },
+    {
       "key": "time_counts_of_the_books",
       "lineAddress": "3f071f8d-0afd-8410-b310-88ae9edb501d",
       "address": "3cc00666-69ab-840c-916f-9e96aa644c7f",
@@ -8910,7 +8922,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "bd0c9687-70bf-87e9-860f-ad41202cddcf",
+  "claim_receipt": "ee51336d-1b2f-8354-bd09-d1eaa099b571",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

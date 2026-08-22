@@ -2,7 +2,7 @@
 # uuidna â€” Advantage Metrics
 
 **Generated:** 2026-08-22
-**Data source:** Live ledger (1484 sealed theorems)
+**Data source:** Live ledger (1486 sealed theorems)
 
 ---
 
@@ -11,13 +11,13 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 1484 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 1484/1484 (100%) | Kernel-only proofs, recomputable offline |
+| **Theorems proven** | 1486 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 1486/1486 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 96 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 93 | Capability axes across the ledger |
-| **Proof cost** | 588993 decide-steps | MEASURED per theorem in lean/heartbeats.json |
-| **Verification work** | 1484 addresses | one recomputed per theorem |
-| **Steps per address** | 396 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
+| **Proof cost** | 598385 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Verification work** | 1486 addresses | one recomputed per theorem |
+| **Steps per address** | 402 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -57,8 +57,8 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself â
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 588993 kernel decide-steps, measured
-- Every later push (verify): 1484 address recomputations
+- First push (prove): 598385 kernel decide-steps, measured
+- Every later push (verify): 1486 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
@@ -84,8 +84,8 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       1484
-Axiom-free (decide):  1484 (100.0%)
+Total theorems:       1486
+Axiom-free (decide):  1486 (100.0%)
 Principles:           96 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities

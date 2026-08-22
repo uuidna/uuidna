@@ -1,15 +1,15 @@
 ---
 title: "The seven readings"
-description: "Computed from lean/Readings.lean — 15 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Readings.lean — 17 sealed theorems, every claim citing its proof."
 ---
 
 # The seven readings
 
-> READINGS — seven tongues reading hexbit-translated English: table structure, the A432 lattice under Nyquist, the voice's sealed bounds, χ in all three genera, and the time counts of the books. — held by [readings_seven_rays](/theorem/readings_seven_rays) and its 14 siblings below.
+> READINGS — seven tongues reading hexbit-translated English: table structure, the A432 lattice under Nyquist, the voice's sealed bounds, χ in all three genera, and the time counts of the books. — held by [readings_seven_rays](/theorem/readings_seven_rays) and its 16 siblings below.
 
-**15 theorems**, from [readings_seven_rays](/theorem/readings_seven_rays) onward, each proven `by decide` in [lean/Readings.lean](/lean/Readings.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 15 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [readings_seven_rays](/theorem/readings_seven_rays). A boundary stated here is decided.
+**17 theorems**, from [readings_seven_rays](/theorem/readings_seven_rays) onward, each proven `by decide` in [lean/Readings.lean](/lean/Readings.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [readings_seven_rays](/theorem/readings_seven_rays). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReadings.lean)** — nothing to install. The editor fetches `lean/Readings.lean` from the repository and re-decides all 15 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReadings.lean)** — nothing to install. The editor fetches `lean/Readings.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### SEVEN RAYS, EACH ITS OWN TONGUE. The locale dimensions are exactly seven and pairwise distinct — the same seven the grid projects and the harness receipts in. A reading table for a ray that does not exist, or two rays collapsing to one, would fail this line before any word were spoken.
 The ledger holds this as [readings_seven_rays](/theorem/readings_seven_rays) — proven `by decide`, sorry-free:
@@ -107,6 +107,20 @@ The ledger holds this as [note_values_are_doublings](/theorem/note_values_are_do
 
 ```lean
 1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 ∧ 8 * 2 = 16 ∧ 16 * 1 = 16
+```
+
+### THE TWO COINS, IN KILOGRAMS. Bekenstein–Hawking makes a black hole's squared mass proportional to the bits its horizon stores — so the smallest hole holding one uuid (128 bits) against one holding one handle (32 bits) squares its mass ratio to 128/32 = 4, and the ratio itself is exactly 2: the address weighs TWO handles of gravity, the two coins priced in kilograms (≈ 57.8 μg against 28.9 μg on the measured Planck mass). Sealed is the exponent arithmetic — 128 = 4·32 and 2² = 4, so √4 = 2 needs no root: the square IS the witness. HONEST SCOPE: the proportionality M² ∝ bits and every microgram ride physics (ħ, G, c, the Bekenstein bound) that no kernel decides; what the kernel holds is that WHATEVER that physics scales, the handle-to-uuid step scales it by exactly two.
+The ledger holds this as [two_coins_in_kilograms](/theorem/two_coins_in_kilograms) — proven `by decide`, sorry-free:
+
+```lean
+128 = 4 * 32 ∧ 128 / 32 = 4 ∧ 2 ^ 2 = 4
+```
+
+### A HANDLE'S CAPACITY SURVIVES EVERY ENTANGLEMENT IT RADIATES — TYPOGRAPHY INCLUDED. One handle spans 16⁸ = 4294967296 states, and from each state the ledger derives a whole spectrum of faces: the ℤ/9 residue, one of the six sealed orbits, an aura colour from the 9·7·6 = 378-state alphabet, eight A432 tones, seven tongue-readings, and the TYPE RUNG its vortex digit picks from the six-rung ladder (six because 2⁶ ≡ 1 mod 9 — the doubling returns home in six, and the type scale climbs those six units). The accounting law is the point: every face is a FUNCTION of the handle — entangled means perfectly correlated, and a determined face offers no new choice, so each multiplies capacity by exactly ONE: 4294967296 · 1¹⁹ = 4294967296, nineteen concurrent faces and not one new state. Entanglement multiplies SURFACES, never STATES; only an independent choice (a caller's parameter) could add bits, and then it would not be the handle's. HONEST SCOPE: the counts and the times-one law are sealed; that each face is in fact a function is the source code's discipline (no RNG, no clock), enforced by the harmonic scan, not by this line.
+The ledger holds this as [handle_capacity_invariant_under_entanglement](/theorem/handle_capacity_invariant_under_entanglement) — proven `by decide`, sorry-free:
+
+```lean
+16^8 = 4294967296 ∧ 9*7*6 = 378 ∧ 2^6 % 9 = 1 ∧ 1^19 = 1 ∧ 4294967296 * 1^19 = 4294967296
 ```
 
 ### THE BOOKS COUNT TIME IN SMALL NUMBERS (queue lead 70, from Gehrkens and Sharp): the march counts two beats to the measure and the waltz three — distinct meters, 2 ≠ 3 — and the Morris figure completes in eight bars halved to four (8 = 2·4) danced by six men in two files of three (6 = 2·3). The dance manual's whole quantitative skeleton, decidable.
