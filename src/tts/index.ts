@@ -16,8 +16,9 @@
 import { execFile } from 'node:child_process'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
+import { HANDLE_HEXBITS } from '../hexbit/index.js'
 
-export interface Utterance { lines: readonly string[]; text: string; address: string; handle: string; words: number }
+export interface Utterance { lines: readonly string[]; text: string; address: string; handle: string; words: number; hexbits: number }
 
 /** COMPOSE — pure, and the whole testable half. Blank lines are dropped and whitespace collapsed so the same
  *  passage always yields the same utterance, whatever it was formatted like on the page. */
@@ -25,7 +26,8 @@ export const compose = (lines: readonly string[]): Utterance => {
   const clean = lines.map((l) => l.replace(/\s+/g, ' ').trim()).filter((l) => l.length > 0)
   const text = clean.join('\n')
   const address = toUuid(text)
-  return { lines: clean, text, address, handle: handleOf(address), words: clean.join(' ').split(' ').filter(Boolean).length }
+  // the utterance is addressed, so its width is the handle's: eight tiles, the unit every other surface reports in
+  return { lines: clean, text, address, handle: handleOf(address), words: clean.join(' ').split(' ').filter(Boolean).length, hexbits: HANDLE_HEXBITS }
 }
 
 /** a theorem, said the way a reader would say it: its name, then the statement it settles. */

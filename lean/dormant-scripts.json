@@ -72,9 +72,6 @@
     ],
     "migrate-skills.ts": [
       "src/scripts/lean-clay.ts"
-    ],
-    "gen-leads.ts": [
-      "docs/leads.md"
     ]
   }
 }

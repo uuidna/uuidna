@@ -9,7 +9,9 @@ import { toUuid } from '../../address.js'
 /** The two coins — the conserved fair-exchange invariant. */
 export function coins(): number { return 110 - 108 }
 
-/** A uuid address is 128 bits — the FIXED budget a value is presented by, whatever its size. */
+/** A uuid address is 128 bits — 32 HEXBITS, the unit this ledger computes in — the FIXED budget a value is
+ *  presented by, whatever its size. Stated in tiles as well as bits because every other surface reports in
+ *  tiles: four hexbits is a halfword, eight is a handle, thirty-two is the whole identity. */
 export const ADDRESS_BITS = 128
 
 /** referenceBitsSaved(items, payloadBits) → the BITS saved by presenting `items` values by their 128-bit address
