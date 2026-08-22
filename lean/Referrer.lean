@@ -1,4 +1,28 @@
--- lean/Referrer.lean — GENERATED. THE REFERRER SONG — doors, rotations, the trinity orbit, total prev/next, measurable consonance, the darkroom complement — as decidable arithmetic, demarcated. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Referrer.lean — GENERATED. REFERRER — the referrer song's sealed arithmetic: six doors into the round, consonance as a measured ladder, the lower lattice's octave completeness, and the wrap that makes the page-cycle total. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+
+/-- SIX DOORS INTO THE ROUND. The round 142857 has exactly six rotations (song_six_verses_one_melody seals them
+    one by one), so a visitor's handle picks its door by value mod 6 — and the pick is total at the edges the
+    kernel can hold: the zero handle enters door 0, the last handle 2³²−1 = 4294967295 enters door 3, and six
+    never divides to nothing (6 ≠ 0). Every visitor gets a door; no referrer is turned away. -/
+theorem referrer_six_doors : 0 % 6 = 0 ∧ 4294967295 % 6 = 3 ∧ (6:Nat) ≠ 0 := by decide
+
+/-- CONSONANCE IS MEASURED, NOT FELT. An interval between lattice tones (h₁+1)·432 and (h₂+1)·432 reduces to the
+    ratio of its multipliers, and its consonance measure is the reduced ratio's term sum — Euler's gradus made
+    bare: unison 1:1 sums 2, octave 1:2 sums 3, fifth 2:3 sums 5, fourth 3:4 sums 7, and the ladder orders
+    itself 2 < 3 < 5 < 7 — the sweetest steps are the smallest sums, decidably, before any ear is consulted. -/
+theorem referrer_consonance_ladder : 1 + 1 = 2 ∧ 1 + 2 = 3 ∧ 2 + 3 = 5 ∧ 3 + 4 = 7 ∧ 2 < 3 ∧ 3 < 5 ∧ 5 < 7 := by decide
+
+/-- THE LOWER HALF ALWAYS HAS ITS OCTAVE. For every tile h in the bottom half of the lattice (h ≤ 7), the octave
+    of its tone is another lattice tone: (h+1)·2 ≤ 16, so tile 2h+1 exists and sounds exactly double. The
+    sweetest step after unison is therefore always AVAILABLE from any low tile — the pager can offer a consonant
+    next wherever the walk stands low, checked for all eight at once. -/
+theorem referrer_lower_octaves_on_lattice : ((List.range 8).all (fun h => (h + 1) * 2 ≤ 16)) ∧ 8 * 2 = 16 := by decide
+
+/-- THE CLOSED CYCLE MAKES PREV AND NEXT TOTAL. On a cycle of n pages the step is (k+1) mod n and the last page
+    wraps home: with six doors as the worked case, every position steps inside the cycle ((k+1) mod 6 < 6 for
+    all k < 6) and the sixth steps to the first (5+1 ≡ 0). No page is without a next, no next falls off the
+    world — totality is what the wrap buys, and it is the same wrap the vortex orbit closes with (2⁶ ≡ 1 mod 9). -/
+theorem referrer_cycle_is_total : ((List.range 6).all (fun k => (k + 1) % 6 < 6)) ∧ (5 + 1) % 6 = 0 ∧ 2 ^ 6 % 9 = 1 := by decide
 
 /-- THE REFERRER’S FIRST TILE PICKS THE DOOR, TOTALLY. A handle’s first tile is one of sixteen states, the round
     has six doors, and t mod 6 maps every tile to a door with every door reached — no referrer is turned away

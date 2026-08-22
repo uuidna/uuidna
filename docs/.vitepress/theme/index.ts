@@ -3,6 +3,7 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
+import HexbitPlayer from './HexbitPlayer.vue'
 import ReferrerNav from './ReferrerNav.vue'
 import ReadAloud from './ReadAloud.vue'
 import LinkAuditor from './LinkAuditor.vue'
@@ -65,6 +66,9 @@ export default {
     loadDimensions()
     // Global — the theorem pages embed <RefererCompass /> to show a path-aware backlink (referer tracked client-side).
     app.component('RefererCompass', RefererCompass)
+    // THE STANDARD HEXBIT QUANTUM APP for sound — states 0..15 in, lattice audio out, computed in the browser,
+    // no asset fetched (the captain's rule: no assets; all computes in browser; hexbit quantum apps only).
+    app.component('HexbitPlayer', HexbitPlayer)
     // The 7d fold, animated — seven addresses fold to one receipt (self-contained SVG/CSS).
     app.component('FoldAnimation', FoldAnimation)
     // The hero, animated — the sealed doubling orbit across the seven reading dimensions; `dimension` selects

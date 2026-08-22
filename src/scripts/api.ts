@@ -197,6 +197,10 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/song.md', 'docs/public/song.wav',
   // the release anthem — the whole ledger sung in place, derived from Anthem.lean seals by gen-anthem
   'docs/anthem.md', 'docs/public/anthem.wav',
+  // the referrer song — the doors and the walk census; the audio computes IN THE BROWSER (no asset, the captain's rule)
+  'docs/referrer-song.md',
+  // the default install's meaning page — derived from Installs.lean by gen-os
+  'docs/os.md',
   // one chunk per DISTINCT proven fact — fewer than the key count, since a statement sealed in two wings is
   // one fact with two names. The two figures are deliberately not written here; statementCensus() reports them,
   // and a count in a comment is stale the next time a wing lands. Generated
@@ -242,6 +246,8 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-analytics': ['docs/analytics.md'],
   'gen-song': ['docs/song.md', 'docs/public/song.wav'],
   'gen-anthem': ['docs/anthem.md', 'docs/public/anthem.wav'],
+  'gen-referrer-song': ['docs/referrer-song.md'],
+  'gen-os': ['docs/os.md'],
   'lean-heartbeats': ['lean/heartbeats.json'],
   'support': ['support-audit.json', 'research-leads.json'],
   'audit-citations': ['audit-citations.json'],
