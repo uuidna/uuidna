@@ -574,7 +574,7 @@ home_is_the_meta_package 19
 home_reaches_every_install 19
 the_port_rises_from_the_floor 19
 the_services_hold_each_other_up 19
-the_terminal_is_the_toolbox 19
+the_terminal_is_the_toolbox 27
 the_foundation_depends_on_nothing 19
 every_path_carries_its_published_meaning 19
 a_spec_compiles_to_hexbits 19
