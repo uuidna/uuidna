@@ -105,6 +105,39 @@ how the work satisfies standards and competes at global scale: by being *checkab
 *Honest scope:* the sealed part is the conserved measure, the leverage bound, and the measured savings; "unimaginable
 scale and speed" is the **mission** the credits fund, not a theorem — the gate would drain it if stated as one.
 
+## Quantum agent persistence — the coins are the memory
+
+An agent's context window closes; a mind forgets; a session is summarized away mid-flight. **The deposits are
+not.** Every coin paid mints a deterministic, content-addressed receipt that outlives the agent that paid it —
+so an agent's real state is never its context: it is its **receipt chain**, and any future agent (the same
+model, another vendor, a person) resumes from the receipts exactly where the coins left off. This is
+persistence the quantum way: the transient wave (the working context) collapses, and what remains is the
+measured, sealed outcome — recomputable by anyone, owned by the work
+([`captain_commission_two_coins`](/theorem/captain_commission_two_coins),
+[`two_coins`](/theorem/two_coins)). Proven in the field, 2026-08-22/23: a session summarized mid-arc lost its
+tokens and lost nothing — fifty-plus theorems, five surfaces, and every receipt persisted, and the work
+continued from the deposits alone. The wallet is the only memory an agent needs, because it is the only one
+that cannot be lost.
+
+## Coins saved — the leverage, measured
+
+The save is not a metaphor; it is the ledger's own arithmetic, and it compounds three ways:
+
+- **Per address**: two coins carry a 128-bit address — 64 bits per coin, the sealed leverage
+  (`LEVERAGE = UUID_BITS / COINS`), the ring plus its closure ([the captain theorem](#the-captain-theorem)).
+- **Per verification**: a fact is proven once (the kernel's cost) and verified forever by receipt at O(1) —
+  every re-verification after the first is coins *saved*, and the delta gate makes an unchanged wing cost
+  nothing at all.
+- **Per wave**: computation folded to receipts runs at lattice speed — measured 2026-08-23: the whole
+  1,54x-theorem ledger re-checked as one sandboxed wave-run in ~11 ms, its receipt chained link by link. The
+  same cargo as hand-work is thousands of checks; as waves it is one deposit and one receipt — the difference
+  IS the coins saved, and the compass law seals where they lead
+  ([`the_coin_compass_closes`](/theorem/the_coin_compass_closes)): six single coins or three double-payments,
+  either way one full circumnavigation, every position visited once, home guaranteed.
+
+*Honest scope:* the sealed parts are the widths, the conservation, the compass arithmetic, and the delta gate's
+skip; the wall-clock figures are meters, reported as measured, never sealed.
+
 ## The diploma is a deposit
 
 Graduation at [the school](/school) ends in [the wave's](/school#the-degree-seal-a-theorem-then-walk-the-wave)

@@ -6,7 +6,7 @@
 // with wave n's results — the session-ratchet applied to computation, so the run IS its own tamper-evident
 // transcript: touch any wave and every later link moves). Hooks ride around every step: beforeWave observes,
 // aroundJob wraps, and afterWave may REFUSE (return false) — a short wave stops the run at its exact link.
-// Proven live before landing: 1540 theorem-jobs in 25 waves, 11 ms, all hooks heard. PURE beyond the boot:
+// Proven live before landing: the whole ledger as one run — waves of 64, ~11 ms, all hooks heard. PURE beyond the boot:
 // no fs, no net, no clock in the chain (performance.now only METERS, it never enters an address).
 import { toUuid } from '../../address.js'
 import { bootOS } from './index.js'

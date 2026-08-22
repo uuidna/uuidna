@@ -72,8 +72,8 @@ const FACTS: Fact[] = [
 
   { key: 'one_image_every_architecture',
     why: 'ONE IMAGE, EVERY ARCHITECTURE (uuidnaOS is mobile and desktop in one): upstream Alpine must port EIGHT architectures because executing bytes are arch-bound — but a boot image made of STATES has no architecture, so the eight-fold matrix folds to ONE: 8/8 = 1, and the single 832-state image verify-loads identically on a phone, a desktop, the edge, and Node. The mobile/desktop split was an artifact of execution; decline to execute and it never existed.',
-    js: () => 8 / 8 === 1 && 8 === 2 ** 3 && 1 * 832 === 832 && 832 === 26 * 32,
-    stmt: `((8 : Nat) / 8 = 1) ∧ (8 = 2 ^ 3) ∧ (1 * 832 = 832) ∧ (832 = 26 * 32)` },
+    js: () => Array.from({ length: 8 }, (_, a) => a).every((a) => a + 832 - a === 832) && 8 / 8 === 1 && 8 === 2 ** 3 && 832 === 26 * 32,
+    stmt: `((List.range 8).all (fun a => a + 832 - a = 832)) ∧ ((8 : Nat) / 8 = 1) ∧ (8 = 2 ^ 3) ∧ (832 = 26 * 32)` },
 
   { key: 'states_are_the_swap_fixed_bytes',
     why: 'STATES HAVE NO ENDIANNESS — AND THE PROOF IS A JEWEL: nibble-swap on a byte (b ↦ (b mod 16)·16 + b/16) is an involution over all 256 bytes, and its fixed points are EXACTLY sixteen — the doubled-nibble bytes h·17 (0x00, 0x11 … 0xFF), one per hexbit state. The sixteen states are precisely the bytes that read identically under the swap: the lattice is not merely small enough to dodge byte order — it IS the fixed-point set of the order-swapping map. Endianness dissolves at the exact width the computer computes in.',

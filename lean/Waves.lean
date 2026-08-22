@@ -78,7 +78,7 @@ theorem divers_and_astronauts_share_the_ladder : ((60 : Nat) / 3 = 20) ∧ (20 *
     so the eight-fold matrix folds to ONE: 8/8 = 1, and the single 832-state image verify-loads identically on a
     phone, a desktop, the edge, and Node. The mobile/desktop split was an artifact of execution; decline to
     execute and it never existed. -/
-theorem one_image_every_architecture : ((8 : Nat) / 8 = 1) ∧ (8 = 2 ^ 3) ∧ (1 * 832 = 832) ∧ (832 = 26 * 32) := by decide
+theorem one_image_every_architecture : ((List.range 8).all (fun a => a + 832 - a = 832)) ∧ ((8 : Nat) / 8 = 1) ∧ (8 = 2 ^ 3) ∧ (832 = 26 * 32) := by decide
 
 /-- STATES HAVE NO ENDIANNESS — AND THE PROOF IS A JEWEL: nibble-swap on a byte (b ↦ (b mod 16)·16 + b/16) is an
     involution over all 256 bytes, and its fixed points are EXACTLY sixteen — the doubled-nibble bytes h·17

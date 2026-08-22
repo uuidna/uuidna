@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 421,
+ "count": 422,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -464,8 +464,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000005866",
-   "completionPrice": "0.00000011732"
+   "promptPrice": "0.00000005726",
+   "completionPrice": "0.00000011452"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -2605,6 +2605,13 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "tencent/hy-mt2-30b-a3b",
    "name": "Tencent: Hy-MT2-30B-A3B",
+   "contextTokens": 8192,
+   "promptPrice": "0.000000074",
+   "completionPrice": "0.000000295"
+  },
+  {
+   "id": "tencent/hy-mt2-7b",
+   "name": "Tencent: Hy-MT2-7B",
    "contextTokens": 8192,
    "promptPrice": "0.000000074",
    "completionPrice": "0.000000295"
