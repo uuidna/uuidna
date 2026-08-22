@@ -4,9 +4,9 @@
 // Five predictive patterns: new theorems, new packages, new exports, new tests, new features.
 // Deterministic: same source → same predictions always.
 
-import { readdirSync, readFileSync, writeFileSync, existsSync, statSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs') // lazy: this chunk uploads to the edge, which has no fs
+const pathm = (): typeof import('node:path') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:path') as typeof import('node:path') // lazy: this chunk uploads to the edge, which has no path
+const urlm = (): typeof import('node:url') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:url') as typeof import('node:url') // lazy: this chunk uploads to the edge, which has no url
 import { theorems, PRINCIPLES } from '../index.js'
 import { HERE, ROOT, invokesFile } from './api.js'
 
@@ -80,12 +80,12 @@ function predictPackageGaps(): PredictedGap[] {
   const PACKAGES = ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge']
 
   for (const pkg of PACKAGES) {
-    const pkgDir = join(ROOT, 'packages', pkg)
-    const pkgJsonPath = join(pkgDir, 'package.json')
-    const srcPath = join(pkgDir, 'src', 'index.ts')
-    const distPath = join(pkgDir, 'dist', 'index.js')
+    const pkgDir = pathm().join(ROOT, 'packages', pkg)
+    const pkgJsonPath = pathm().join(pkgDir, 'package.json')
+    const srcPath = pathm().join(pkgDir, 'src', 'index.ts')
+    const distPath = pathm().join(pkgDir, 'dist', 'index.js')
 
-    if (!existsSync(pkgJsonPath)) {
+    if (!fsm().existsSync(pkgJsonPath)) {
       gaps.push({
         pattern: 'package-missing-config',
         likelihood: 'high',
@@ -106,8 +106,8 @@ function predictPackageGaps(): PredictedGap[] {
     // compares the CONTENT of the generated surfaces.
 
     // Pattern: Generated file without marker
-    if (existsSync(srcPath)) {
-      const srcContent = readFileSync(srcPath, 'utf-8')
+    if (fsm().existsSync(srcPath)) {
+      const srcContent = fsm().readFileSync(srcPath, 'utf-8')
       if (!srcContent.includes('GENERATED') && srcContent.includes('export')) {
         gaps.push({
           pattern: 'hand-authored-export',
@@ -128,10 +128,10 @@ function predictPackageGaps(): PredictedGap[] {
 
 function predictExportGaps(): PredictedGap[] {
   const gaps: PredictedGap[] = []
-  const srcIndexPath = join(ROOT, 'src', 'index.ts')
+  const srcIndexPath = pathm().join(ROOT, 'src', 'index.ts')
 
-  if (existsSync(srcIndexPath)) {
-    const srcIndex = readFileSync(srcIndexPath, 'utf-8')
+  if (fsm().existsSync(srcIndexPath)) {
+    const srcIndex = fsm().readFileSync(srcIndexPath, 'utf-8')
     // EXPORT-DRIFT-RISK, REMOVED. Its condition was `exportCount > 0` and a package having any
     // exports — true of this repository at every moment it has existed, so it could not fail to fire. A check that
     // holds regardless of state is the VACUOUS class `one-receipt vacuous` already exists to catch, and it was
@@ -148,16 +148,16 @@ function predictTestGaps(): PredictedGap[] {
   const PACKAGES = ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge']
 
   for (const pkg of PACKAGES) {
-    const pkgJsonPath = join(ROOT, 'packages', pkg, 'package.json')
-    if (existsSync(pkgJsonPath)) {
-      const pkgJson = JSON.parse(readFileSync(pkgJsonPath, 'utf-8'))
+    const pkgJsonPath = pathm().join(ROOT, 'packages', pkg, 'package.json')
+    if (fsm().existsSync(pkgJsonPath)) {
+      const pkgJson = JSON.parse(fsm().readFileSync(pkgJsonPath, 'utf-8'))
       const testScript = pkgJson.scripts?.test || ''
 
       // Pattern: test script references files that don't exist
       const testFiles = testScript.match(/dist\/test\/[^\s]+\.test\.js/g) || []
       for (const testFile of testFiles) {
-        const fullPath = join(ROOT, testFile)
-        if (!existsSync(fullPath)) {
+        const fullPath = pathm().join(ROOT, testFile)
+        if (!fsm().existsSync(fullPath)) {
           gaps.push({
             pattern: 'test-file-missing',
             likelihood: 'high',
@@ -181,7 +181,7 @@ function predictTestGaps(): PredictedGap[] {
  *  read, every unwired script should be reported. */
 const DECLARED_DORMANT: Set<string> = (() => {
   try {
-    const raw = JSON.parse(readFileSync(join(ROOT, 'lean', 'dormant-scripts.json'), 'utf8')) as { scripts?: string[] }
+    const raw = JSON.parse(fsm().readFileSync(pathm().join(ROOT, 'lean', 'dormant-scripts.json'), 'utf8')) as { scripts?: string[] }
     return new Set((raw.scripts ?? []).map((x) => String(x).split('/').pop() ?? String(x)))
   } catch { return new Set<string>() }
 })()
@@ -190,10 +190,10 @@ function predictFeatureGaps(): PredictedGap[] {
   const gaps: PredictedGap[] = []
 
   // Pattern: New files in src/scripts but not wired to npm scripts
-  const scriptsDir = join(ROOT, 'src', 'scripts')
-  const scriptFiles = readdirSync(scriptsDir).filter((f) => f.endsWith('.ts'))
-  const packageJsonPath = join(ROOT, 'package.json')
-  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'))
+  const scriptsDir = pathm().join(ROOT, 'src', 'scripts')
+  const scriptFiles = fsm().readdirSync(scriptsDir).filter((f) => f.endsWith('.ts'))
+  const packageJsonPath = pathm().join(ROOT, 'package.json')
+  const packageJson = JSON.parse(fsm().readFileSync(packageJsonPath, 'utf-8'))
   const npmScripts = Object.keys(packageJson.scripts || {})
 
   // A script is WIRED when something actually INVOKES it — `dist/scripts/<name>.js` in an npm script body, a CI
@@ -203,15 +203,15 @@ function predictFeatureGaps(): PredictedGap[] {
   // for as long as nobody looked, which is exactly the gap this detector exists to prevent. (The old expression also
   // nested a second `.some` over the same keys array, rescanning it for no effect.)
   const invokerFiles = [
-    join(ROOT, 'package.json'),
-    ...(existsSync(join(ROOT, '.github', 'workflows'))
-      ? readdirSync(join(ROOT, '.github', 'workflows')).map((f) => join(ROOT, '.github', 'workflows', f)) : []),
+    pathm().join(ROOT, 'package.json'),
+    ...(fsm().existsSync(pathm().join(ROOT, '.github', 'workflows'))
+      ? fsm().readdirSync(pathm().join(ROOT, '.github', 'workflows')).map((f) => pathm().join(ROOT, '.github', 'workflows', f)) : []),
     // the tracked git hooks (core.hooksPath = hooks) are a real invoker: hooks/commit-msg runs check-msg.js, so
     // omitting this directory reported a script as unwired that a hook has been running on every commit.
-    ...(existsSync(join(ROOT, 'hooks'))
-      ? readdirSync(join(ROOT, 'hooks')).map((f) => join(ROOT, 'hooks', f)) : []),
-    ...scriptFiles.map((f) => join(scriptsDir, f)),
-    ...readdirSync(join(ROOT, 'src')).filter((f) => f.endsWith('.ts')).map((f) => join(ROOT, 'src', f)),
+    ...(fsm().existsSync(pathm().join(ROOT, 'hooks'))
+      ? fsm().readdirSync(pathm().join(ROOT, 'hooks')).map((f) => pathm().join(ROOT, 'hooks', f)) : []),
+    ...scriptFiles.map((f) => pathm().join(scriptsDir, f)),
+    ...fsm().readdirSync(pathm().join(ROOT, 'src')).filter((f) => f.endsWith('.ts')).map((f) => pathm().join(ROOT, 'src', f)),
   ]
   // COMMENTS ARE NOT WIRING. Stripped before searching, because a mention in prose is not an invocation — the first
   // version of this fix proved it the hard way: the comment above, which names dist/scripts/audit.js while explaining
@@ -224,7 +224,7 @@ function predictFeatureGaps(): PredictedGap[] {
   const stripped = new Map<string, string>()
   for (const p of invokerFiles) {
     if (stripped.has(p)) continue
-    try { stripped.set(p, stripComments(readFileSync(p, 'utf-8'))) } catch { stripped.set(p, '') }
+    try { stripped.set(p, stripComments(fsm().readFileSync(p, 'utf-8'))) } catch { stripped.set(p, '') }
   }
   const invocationText = (self: string): string => {
     let out = ''
@@ -241,7 +241,7 @@ function predictFeatureGaps(): PredictedGap[] {
 
   for (const file of scriptFiles) {
     const scriptName = file.replace('.ts', '')
-    const others = invocationText(join(scriptsDir, file))
+    const others = invocationText(pathm().join(scriptsDir, file))
     // A file another module IMPORTS is a shared library (scripts/api.ts is the declared one)
     // runs — reachability for those is support.ts's dead-module scan. Only files nothing imports must be INVOKED.
     if (others.includes(`from './${scriptName}.js'`) || others.includes(`from './scripts/${scriptName}.js'`)) continue
