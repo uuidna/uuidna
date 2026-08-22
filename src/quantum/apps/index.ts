@@ -6,3 +6,7 @@ export { renderStates, type HexbitRecording } from './hexbit-player.js'
 // url-audit — the 404 handled as an AUDIT: parse the url, compute the relevant sealed content (exact path
 // meaning, family, token matches, total fallback), never an empty answer — serving always 200 in substance.
 export { auditUrl, type UrlAuditReport, type UrlAuditMatch } from './url-audit.js'
+// categories — the store's shelves (the captain's taxonomy): each category directory re-exports its apps, and a
+// store page derives its listing from this registry, never from a hand-typed list. coding/ is the school's
+// shelf: testing, editing, building — the instruments of educated quantum minds (lead 81).
+export { testClaim, type ClaimTest, type ControlRun, start, applyStride, undo, unitSquaresToOne, UNITS_24, FRAME_RING, type EditState, build, type Composition } from './categories/coding/index.js'

@@ -1,0 +1,36 @@
+// categories/coding/claim-tester — THE SCHOOL'S TESTING TOOL (lead 81: the testing tool of educated quantum
+// minds). Paste a claim, and the trial the ledger already runs on itself runs FOR you, in your browser: the three
+// pre-registered controls go first — a false arithmetic, a fabricated citation, a laundered real citation — and
+// if ANY control verifies the whole session is VOID (an instrument that cannot fail proves nothing); only then
+// is the subject adjudicated, and the verdict comes back with its receipt and its develop-plan. Pure hexbit-app
+// law: no network, no clock, no float — the same claim gives the same verdict and the same receipt on any
+// machine, which is what makes the tool a TEACHER: the student can recompute everything it says.
+// HONEST SCOPE: the verdict algebra is integrity, not truth — VERIFIED means cited-and-sealed or recomputed-true,
+// UNVERIFIED means unproven-as-stated (never false); the tool settles arithmetic and citations, never the world.
+import { adjudicate, type Verdict } from '../../../../adjudicate.js'
+
+export interface ControlRun { name: string; statement: string; verdict: string; rejected: boolean }
+export interface ClaimTest { controls: ControlRun[]; instrumentValid: boolean; subject: Verdict | null; honest: string }
+
+const CONTROLS: readonly { name: string; statement: string; test?: () => boolean }[] = [
+  { name: 'false arithmetic', statement: '2 + 2 = 5, so this instrument can fail', test: () => (2 + 2) === 5 },
+  { name: 'fabricated citation', statement: 'anything at all, proven by theorem this_theorem_was_never_sealed' },
+  { name: 'laundered citation', statement: 'the moon is made of cheese, proven by theorem two_coins' },
+]
+
+/** run the trial the ledger's way: controls first, subject only on a valid instrument. */
+export function testClaim(claim: string, decidableTest?: () => boolean): ClaimTest {
+  const controls: ControlRun[] = CONTROLS.map((c) => {
+    const v = adjudicate(c.statement, c.test)
+    return { name: c.name, statement: c.statement, verdict: v.verdict, rejected: v.verdict !== 'VERIFIED' }
+  })
+  const instrumentValid = controls.every((c) => c.rejected)
+  return {
+    controls,
+    instrumentValid,
+    subject: instrumentValid ? adjudicate(claim, decidableTest) : null,
+    honest: instrumentValid
+      ? 'controls all rejected — the instrument can fail, so its verdict on your claim means something'
+      : 'a control VERIFIED — the instrument is broken and adjudicates nothing (a void names the instrument, not your claim)',
+  }
+}
