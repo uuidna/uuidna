@@ -3,6 +3,7 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
+import UrlAudit from './UrlAudit.vue'
 import HexbitPlayer from './HexbitPlayer.vue'
 import ReferrerNav from './ReferrerNav.vue'
 import ReadAloud from './ReadAloud.vue'
@@ -50,6 +51,10 @@ export default {
     // (the previous page was a theorem); nav.ts's own 4 links stay the static baseline every static site needs,
     // this is the referrer-computed layer alongside them, not a replacement of what can't be made dynamic at build time.
     return h(DefaultTheme.Layout, null, {
+      // THE 404 IS AN AUDIT (the captain's rule): the not-found slot parses the url in the visitor's browser
+      // and computes the relevant sealed content — exact path meaning, family, token matches, total fallback —
+      // so in substance every path serves. The logic is the pure app quantum/apps/url-audit; this is a shell.
+      'not-found': () => h(UrlAudit),
       'nav-bar-content-after': () => h(ReferrerNav),
       // ReadAloud rides doc-before — right before the page's own content, so a reader tabbing in from the skip
       // link meets it immediately. Purely user-initiated (see the component's own header comment for why: an

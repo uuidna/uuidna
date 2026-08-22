@@ -3,3 +3,6 @@
 // surface that wants sound, image or motion imports an app from here and computes it where the visitor stands;
 // nothing is served that could not be recomputed.
 export { renderStates, type HexbitRecording } from './hexbit-player.js'
+// url-audit — the 404 handled as an AUDIT: parse the url, compute the relevant sealed content (exact path
+// meaning, family, token matches, total fallback), never an empty answer — serving always 200 in substance.
+export { auditUrl, type UrlAuditReport, type UrlAuditMatch } from './url-audit.js'
