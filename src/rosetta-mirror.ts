@@ -886,6 +886,24 @@ merkle_sort_invariant 19
 all_signaling_duality 19
 hexbit_slit_visibility 19
 hexbit_slit_cross_is_overlap 19
+#Readings.lean
+readings_seven_rays 19
+readings_en_names_sixteen 18
+readings_bg_names_sixteen 18
+readings_de_names_sixteen 18
+readings_fr_names_sixteen 18
+readings_es_names_sixteen 18
+readings_ru_names_sixteen 18
+readings_zh_names_sixteen 18
+readings_states_sound_the_lattice 19
+nyquist_clears_the_lattice 19
+amplitude_inside_int16 19
+mix_budget_closes 19
+chi_all_three_genera 19
+note_values_are_doublings 19
+two_coins_in_kilograms 19
+handle_capacity_invariant_under_entanglement 19
+time_counts_of_the_books 19
 #Reasoning.lean
 modus_ponens 27
 modus_tollens 19
