@@ -380,7 +380,7 @@ export interface FetchedBook { id: number; title: string; authors: string[]; tex
 /** fetchGutenberg(id) → a public-domain book from Project Gutenberg via the public Gutendex API (no key). Node's
  *  built-in fetch — the ONE network call in the package. The returned text is DATA to be audited, never executed. */
 export async function fetchGutenberg(id: number | string): Promise<FetchedBook> {
-  const metaRes = await fetch(`https://gutendex.com/books/${encodeURIComponent(String(id))}`)
+  const metaRes = await fetch(`https://gutendex.com/books/${encodeURIComponent(String(id))}`, { signal: AbortSignal.timeout(15000) })
   if (!metaRes.ok) throw new Error(`books: Gutendex responded ${metaRes.status} for id ${id}`)
   const meta = (await metaRes.json()) as { title?: string; authors?: { name: string }[]; formats?: Record<string, string> }
   const formats = meta.formats || {}
@@ -428,7 +428,7 @@ export interface RecordAudit extends BookAudit { doi: string }
  *  the same address. Read-only — it never deposits, authenticates, or changes a record. */
 export async function auditZenodo(id: number | string, opts: { sandbox?: boolean } = {}): Promise<RecordAudit> {
   const host = opts.sandbox ? 'sandbox.zenodo.org' : 'zenodo.org'
-  const r = await fetch(`https://${host}/api/records/${encodeURIComponent(String(id))}`)
+  const r = await fetch(`https://${host}/api/records/${encodeURIComponent(String(id))}`, { signal: AbortSignal.timeout(15000) })
   if (!r.ok) throw new Error(`records: Zenodo (${host}) responded ${r.status} for id ${id}`)
   const j = (await r.json()) as { doi?: string; metadata?: { title?: string; creators?: { name?: string }[]; publication_date?: string }; links?: { self_html?: string } }
   const md = j.metadata || {}
@@ -452,7 +452,7 @@ export interface MovieAudit extends BookAudit { movieDescription: string }
  *  film: a movie is video, and a copyrighted film's footage, dialogue and screenplay are neither fetched nor
  *  reproduced here. uuidna audits text provenance only; this fingerprints public metadata, not a hidden meaning. */
 export async function auditMovie(title: string): Promise<MovieAudit> {
-  const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`)
+  const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`, { signal: AbortSignal.timeout(15000) })
   if (!r.ok) throw new Error(`movies: Wikipedia summary responded ${r.status} for "${title}"`)
   const j = (await r.json()) as { title?: string; description?: string; extract?: string; content_urls?: { desktop?: { page?: string } } }
   const source = j.content_urls?.desktop?.page || ''
@@ -477,7 +477,7 @@ export interface StandardAudit extends BookAudit { standard: string; checks: Ext
  *  and leaves the ruling to humans; the "free" is a free public API + LOCAL by-decide checks. The text is DATA,
  *  content-addressed, never executed. */
 export async function auditStandard(name: string): Promise<StandardAudit> {
-  const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(name)}`)
+  const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(name)}`, { signal: AbortSignal.timeout(15000) })
   if (!r.ok) throw new Error(`standards: Wikipedia summary responded ${r.status} for "${name}"`)
   const j = (await r.json()) as { title?: string; description?: string; extract?: string; content_urls?: { desktop?: { page?: string } } }
   const source = j.content_urls?.desktop?.page || ''
