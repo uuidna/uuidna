@@ -623,6 +623,14 @@ mombh_quantum_balmer_edge_is_rydberg_quarter 19
 mombh_quantum_edge_redshifts_into_filter_gap 19
 mombh_quantum_hbeta_hgamma_are_balmer_lines 19
 mombh_quantum_n2_population_needs_density 19
+#Models.lean
+a_token_approximates_eight_hexbits 19
+context_windows_are_transient_hexbits 19
+speaking_an_address_costs_the_text 19
+crypto_widths_are_fixed_not_sampled 19
+every_context_is_finite_against_the_lattice 19
+llm_folds_to_hexbit_pairs 19
+a_handle_is_eight_pairs_paid_it_is_sixteen 19
 #Molecular.lean
 octet_rule 19
 bond_shares_electron_pairs 19

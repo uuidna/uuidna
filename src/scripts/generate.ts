@@ -49,6 +49,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-anthem.js', args: [], note: 'the release anthem — the whole ledger in place, theorem k at bar k, derived from Anthem.lean seals, regrown each release' },
   { file: 'gen-referrer-song.js', args: [], note: 'the referrer song — the doors, the measured walk census, and the site cycle sounded; every claim a Referrer.lean seal' },
   { file: 'gen-os.js', args: [], note: 'the default install — every path\'s exact meaning from the committed Alpine mirror; every claim an Installs.lean seal' },
+  { file: 'gen-models.js', args: [], note: 'the model comparison over all public live data — every figure\'s honesty class visible; every sealed claim an Models.lean cite' },
   { file: 'rosetta.js', args: [], note: 'the five-leg census — rewrites src/rosetta-mirror.ts, the surface the hosted edge answers from' },
 ]
 
