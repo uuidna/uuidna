@@ -1633,7 +1633,19 @@ k432 26
 doubling_digit_sum 18
 magic_numbers 18
 proton_fit 18
-self_seal 18`
+self_seal 18
+#Waves.lean
+captains_columns_sum_to_ten 19
+nine_complement_half_turns_the_orbit 19
+five_is_the_developing_center 19
+the_hex_center_is_empty 19
+gas_volume_walks_the_harmonic_series 19
+pressure_doubles_down_the_octave 19
+haldane_bound_is_two_to_one 19
+buddy_pair_squares_the_failure 19
+thirds_rule_sums_whole 19
+divers_and_astronauts_share_the_ladder 19
+the_promotion_chain_doubles_home 19`
 
 export const CLAIMS = `bulge_exceeds_relief WGS 84
 eratosthenes_fiftieth_circle Eratosthenes
