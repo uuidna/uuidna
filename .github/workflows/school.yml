@@ -33,7 +33,7 @@ jobs:
           node-version: '26'
       - name: Install deps
         run: npm install --no-audit --no-fund
-      - name: LEAN GREEN — the development pass: walk the gate, cure what is deterministic
+      - name: 'LEAN GREEN — the development pass: walk the gate, cure what is deterministic'
         run: |
           npm run develop
       - name: DRAIN — commit and push the derived drift (a quiet run is health)
