@@ -11,9 +11,12 @@ const pathm = (): typeof import('node:path') => (process as unknown as { getBuil
 const urlm = (): typeof import('node:url') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:url') as typeof import('node:url') // lazy: the edge bundles this module but never calls it
 
 /** the scripts directory (dist/scripts at runtime) — every script lives here, so one HERE serves all */
-export const HERE = pathm().dirname(urlm().fileURLToPath(import.meta.url))
+// the edge bundles this module but never walks a filesystem: on a runtime without the builtin registry the
+// anchors resolve to '/', and every function that would read from them stays uncalled there by construction
+const hasNodeRegistry = typeof (process as unknown as { getBuiltinModule?: unknown } | undefined)?.getBuiltinModule === 'function'
+export const HERE = hasNodeRegistry ? pathm().dirname(urlm().fileURLToPath(import.meta.url)) : '/'
 /** the repo root */
-export const ROOT = pathm().join(HERE, '..', '..')
+export const ROOT = hasNodeRegistry ? pathm().join(HERE, '..', '..') : '/'
 
 // ── THE ONE LEAN PARSE. Reading a theorem out of a .lean file was written twice — the ledger builder and the prose
 // census each carried a character-identical regex — and the two agreed only because nobody had yet edited one. The

@@ -153,12 +153,13 @@ export function census(): Rosetta[] {
 // The rows, compact: one `#wing` section header, then `key mask` per theorem (the mask is the leg bit-set defined in
 // rosetta-legs.ts). Non-captain attribution is carried separately because it is rare — writing "captain" beside
 // every key would be storing a default, which is the annotation habit this module already refused once.
-const MIRROR_PATH = pathm().join(ROOT, 'src', 'rosetta-mirror.ts')
+// module scope must not touch the builtin registry (the edge loads this module and has none) — resolve lazily
+const mirrorPath = (): string => pathm().join(ROOT, 'src', 'rosetta-mirror.ts')
 
 /** The floor STATED in the current mirror, read from source (never from dist, which may lag a rebuild). */
 export function statedFloor(): { witness: number; falsifier: number } {
-  if (!fsm().existsSync(MIRROR_PATH)) return { witness: 0, falsifier: 0 }
-  const src = fsm().readFileSync(MIRROR_PATH, 'utf8')
+  if (!fsm().existsSync(mirrorPath())) return { witness: 0, falsifier: 0 }
+  const src = fsm().readFileSync(mirrorPath(), 'utf8')
   const m = /export const FLOOR = \{ witness: (\d+), falsifier: (\d+) \}/.exec(src)
   return m ? { witness: Number(m[1]), falsifier: Number(m[2]) } : { witness: 0, falsifier: 0 }
 }
@@ -202,8 +203,8 @@ export function renderMirror(rows: readonly Rosetta[]): string {
 /** Legs the CURRENT mirror records, key by key — the baseline a regression is measured against. */
 function priorLegs(): Map<string, Leg[]> {
   const out = new Map<string, Leg[]>()
-  if (!fsm().existsSync(MIRROR_PATH)) return out
-  const body = /export const MIRROR = `([\s\S]*?)`/.exec(fsm().readFileSync(MIRROR_PATH, 'utf8'))
+  if (!fsm().existsSync(mirrorPath())) return out
+  const body = /export const MIRROR = `([\s\S]*?)`/.exec(fsm().readFileSync(mirrorPath(), 'utf8'))
   if (!body) return out
   for (const line of body[1].split('\n')) {
     const m = /^([a-z0-9_]+) (\d+)$/.exec(line.trim())
@@ -232,9 +233,9 @@ export function writeMirror(rows: readonly Rosetta[]): { changed: boolean; refus
   const refused = [...regressions(rows), ...floorGaps(rows, { witness: 0, falsifier: (128 - 2) / 2 })]
   if (refused.length) return { changed: false, refused }
   const next = renderMirror(rows)
-  const current = fsm().existsSync(MIRROR_PATH) ? fsm().readFileSync(MIRROR_PATH, 'utf8') : ''
+  const current = fsm().existsSync(mirrorPath()) ? fsm().readFileSync(mirrorPath(), 'utf8') : ''
   if (current === next) return { changed: false, refused: [] }
-  fsm().writeFileSync(MIRROR_PATH, next)
+  fsm().writeFileSync(mirrorPath(), next)
   return { changed: true, refused: [] }
 }
 
