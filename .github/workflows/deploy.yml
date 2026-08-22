@@ -44,6 +44,14 @@ concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: true
 
+# THE TOKEN CAN ONLY READ. Without this block the GITHUB_TOKEN handed to every job carries the repository default,
+# which for a workflow that runs on a tag push is far more than this job uses: it checks out, builds, and deploys to
+# Cloudflare with CLOUDFLARE_API_TOKEN — a secret of its own. Nothing here calls the GitHub API, so a compromised
+# dependency in `npm install` gets a token that cannot write to the repository (actions/missing-workflow-permissions).
+# Declared at workflow level so a job added later inherits the floor instead of silently starting from the default.
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

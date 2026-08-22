@@ -27,6 +27,16 @@ concurrency:
   group: publish-${{ github.ref }}
   cancel-in-progress: false
 
+# THE FLOOR IS READ-ONLY, and the two jobs that need more already say so at the job level, where the grant sits next
+# to the step that spends it: `publish` adds id-token: write for OIDC trusted publishing and Sigstore provenance,
+# `extension` adds contents: write for `gh release`. The other three — editorial, live, zenodo — only read the tree
+# and talk to services holding their own secrets (Zenodo's ZENODO_ACCESS_TOKEN, the live site over plain HTTP), so
+# they had no reason to hold a writable repository token and now cannot (actions/missing-workflow-permissions).
+# This narrows what a compromised dependency reaches during `npm install` on a workflow that publishes to npm and
+# mints DOIs; it grants nothing new, so the jobs that already declared their needs are unaffected.
+permissions:
+  contents: read
+
 jobs:
   # THE EDITORIAL DESK — every editorial skill and procedure runs BEFORE any publication, automatically: the
   # provenance audit (no fabricated citation on any prose surface), the citation ledger, the prose receipt, the
