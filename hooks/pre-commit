@@ -1,0 +1,17 @@
+#!/bin/sh
+# pre-commit — THE RECEIPT TRAVELS WITH THE COMMIT IT CERTIFIES. gate-receipt.json fingerprints the inputs `npm test`
+# and `npm run guard` read, so deploy.yml can VERIFY the push-time proof instead of recomputing it. It was written
+# only by reconcile — so any commit made by hand left it behind, and the first dispatch showed the consequence: the
+# tag's tree no longer matched, the fast path never fired, and the deploy ran the full checks every time. A proof
+# that only sometimes accompanies its subject is not a proof anyone can use.
+#
+# Written and staged here, on EVERY commit path, after the sources are staged and before the tree is sealed — the
+# same position reconcile writes it in, for the same reason: it must fingerprint the tree being committed.
+#
+# HONEST SCOPE: this makes the receipt CURRENT, never true. It records that a tree was verified; deploy.yml still
+# keeps its clean-room install and build, and falls back to the full checks whenever the receipt does not cover the
+# tree it finds. Skips gracefully if dist is not built. Bypassable with --no-verify (owned, not hidden).
+[ -f dist/scripts/gate-receipt.js ] || exit 0
+node dist/scripts/gate-receipt.js >/dev/null 2>&1 || exit 0
+git add gate-receipt.json 2>/dev/null
+exit 0

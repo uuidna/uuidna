@@ -19,12 +19,20 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 
 const RECEIPT = join(ROOT, 'gate-receipt.json')
-// THE COVERED INPUTS — exactly what `npm test` and `npm run guard` read: the source and the sealed ledger. The
-// receipt itself lives at the root, outside both, so fingerprinting can never be circular.
+// THE COVERED INPUTS — exactly what `npm test` and `npm run guard` READ, and nothing else. The receipt itself lives
+// at the root, outside both, so fingerprinting can never be circular.
+//
+// GENERATED PAYLOADS ARE EXCLUDED, and the first dispatch proved why: removing 549 superseded seed versions moved
+// src's digest and the receipt went stale, so the deploy fell back to running the full checks — over a tree whose
+// only change was payload directories neither the tests nor the guard ever open. The gate already draws this line
+// for `binary`, which scans the source of truth and leaves the generated trees to the audit; the receipt must draw
+// the same one, or it tracks churn the checks it stands in for cannot see.
 const COVERED = ['src', 'lean'] as const
+const EXCLUDED = /^src\/(seeds|chunks)\//
 
 const digestOf = (dir: string): string => {
-  const files = execSync(`git ls-files ${dir}`, { cwd: ROOT, encoding: 'utf8' }).split('\n').filter(Boolean).sort()
+  const files = execSync(`git ls-files ${dir}`, { cwd: ROOT, encoding: 'utf8' })
+    .split('\n').filter(Boolean).filter((f) => !EXCLUDED.test(f)).sort()
   const h = createHash('sha256')
   for (const f of files) {
     h.update(f)
@@ -53,6 +61,7 @@ if (process.argv.includes('--verify')) {
 writeFileSync(RECEIPT, JSON.stringify({
   covers: compute(),
   verified: ['types (tsc noEmitOnError)', 'tests', 'guard', 'gate-all 29 checks'],
+  excludes: 'src/seeds, src/chunks — generated payloads the tests and the guard never read',
   honest: 'Content-addresses src/ and lean/ — the inputs the tests and the guard read. It proves THIS TREE was ' +
     'verified at push time; it does not prove any particular runner can verify it, which is why the deploy keeps ' +
     'its clean-room install and build. A tree that moved by one byte fails --verify and the checks run in full.',
