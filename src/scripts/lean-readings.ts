@@ -64,6 +64,16 @@ const FACTS: Fact[] = [
     js: () => 1 * 16 === 16 && 2 * 8 === 16 && 4 * 4 === 16 && 8 * 2 === 16 && 16 * 1 === 16,
     lean: 'theorem note_values_are_doublings : 1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 ∧ 8 * 2 = 16 ∧ 16 * 1 = 16 := by decide' },
 
+  { key: 'two_coins_in_kilograms',
+    why: 'THE TWO COINS, IN KILOGRAMS. Bekenstein–Hawking makes a black hole\'s squared mass proportional to the bits its horizon stores — so the smallest hole holding one uuid (128 bits) against one holding one handle (32 bits) squares its mass ratio to 128/32 = 4, and the ratio itself is exactly 2: the address weighs TWO handles of gravity, the two coins priced in kilograms (≈ 57.8 μg against 28.9 μg on the measured Planck mass). Sealed is the exponent arithmetic — 128 = 4·32 and 2² = 4, so √4 = 2 needs no root: the square IS the witness. HONEST SCOPE: the proportionality M² ∝ bits and every microgram ride physics (ħ, G, c, the Bekenstein bound) that no kernel decides; what the kernel holds is that WHATEVER that physics scales, the handle-to-uuid step scales it by exactly two.',
+    js: () => 128 === 4 * 32 && 128 / 32 === 4 && 2 ** 2 === 4,
+    lean: 'theorem two_coins_in_kilograms : 128 = 4 * 32 ∧ 128 / 32 = 4 ∧ 2 ^ 2 = 4 := by decide' },
+
+  { key: 'handle_capacity_invariant_under_entanglement',
+    why: 'A HANDLE\'S CAPACITY SURVIVES EVERY ENTANGLEMENT IT RADIATES — TYPOGRAPHY INCLUDED. One handle spans 16⁸ = 4294967296 states, and from each state the ledger derives a whole spectrum of faces: the ℤ/9 residue, one of the six sealed orbits, an aura colour from the 9·7·6 = 378-state alphabet, eight A432 tones, seven tongue-readings, and the TYPE RUNG its vortex digit picks from the six-rung ladder (six because 2⁶ ≡ 1 mod 9 — the doubling returns home in six, and the type scale climbs those six units). The accounting law is the point: every face is a FUNCTION of the handle — entangled means perfectly correlated, and a determined face offers no new choice, so each multiplies capacity by exactly ONE: 4294967296 · 1¹⁹ = 4294967296, nineteen concurrent faces and not one new state. Entanglement multiplies SURFACES, never STATES; only an independent choice (a caller\'s parameter) could add bits, and then it would not be the handle\'s. HONEST SCOPE: the counts and the times-one law are sealed; that each face is in fact a function is the source code\'s discipline (no RNG, no clock), enforced by the harmonic scan, not by this line.',
+    js: () => 16 ** 8 === 4294967296 && 9 * 7 * 6 === 378 && 2 ** 6 % 9 === 1 && 1 ** 19 === 1 && 4294967296 * 1 ** 19 === 4294967296,
+    lean: 'theorem handle_capacity_invariant_under_entanglement : 16^8 = 4294967296 ∧ 9*7*6 = 378 ∧ 2^6 % 9 = 1 ∧ 1^19 = 1 ∧ 4294967296 * 1^19 = 4294967296 := by decide' },
+
   { key: 'time_counts_of_the_books',
     why: 'THE BOOKS COUNT TIME IN SMALL NUMBERS (queue lead 70, from Gehrkens and Sharp): the march counts two beats to the measure and the waltz three — distinct meters, 2 ≠ 3 — and the Morris figure completes in eight bars halved to four (8 = 2·4) danced by six men in two files of three (6 = 2·3). The dance manual\'s whole quantitative skeleton, decidable.',
     js: () => { const march: number = 2, waltz: number = 3; return march !== waltz && 8 === 2 * 4 && 6 === 2 * 3 },
