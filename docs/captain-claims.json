@@ -2,8 +2,8 @@
   "generated": "2026-08-22",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1469,
-  "total_theorems": 1469,
+  "total_claimed": 1484,
+  "total_theorems": 1484,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,20 +3781,20 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "6fdcf377-a8b6-8c33-82e8-7d14df41d85e",
-      "address": "5040215b-f479-85d7-ab49-6f10f0bababc",
+      "lineAddress": "224817c5-503c-8ae0-a185-8284ed511627",
+      "address": "bec196b9-562f-898d-ac05-c4cb032a53e3",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "ece1b56b-b96f-8f70-bb95-b880a7d8d94a",
-      "address": "017e0551-3ed4-8c74-a32d-bb09ce86d151",
+      "lineAddress": "cf71831e-09b8-88a7-b16c-369dd0d755a2",
+      "address": "2f16aee0-0b09-8208-ba43-3537d3bfd7d8",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "2716655c-ed4e-8d3c-94fc-505dd3fbc806",
-      "address": "a98fe912-965f-8805-b885-5a2b84cd42d0",
+      "lineAddress": "a580e3c6-8039-81ab-82aa-e1def4a3a287",
+      "address": "0a6eeda5-d249-85f8-ac7d-df2436e2d416",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "ad13e2e2-cced-81de-abf2-0a747e85c963",
-      "address": "bd5c848c-6434-8158-8be1-4107e7b278a8",
+      "lineAddress": "d6d17020-ad75-8c4a-8a06-ad22d303261f",
+      "address": "bf0bdc23-272b-86b6-9092-23510b0664d8",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "f9318459-0be3-8cc5-8016-d0093fefad0a",
-      "address": "5ed68761-6cc8-8d87-bb77-45885b20e4e1",
+      "lineAddress": "d45846e5-18f9-80a6-a2a4-0e6efc51470f",
+      "address": "9c38f93f-7db5-8aac-ae06-6925c4387e34",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "b2185279-04f9-88a0-bc6a-ab96f55da1ca",
-      "address": "1640318e-57b1-813d-9614-1908392f3cd4",
+      "lineAddress": "73423c03-aed0-842a-b0fd-2d770421bf0c",
+      "address": "b587fbd1-e84e-8f44-86c9-058db396d159",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "47f47367-63b4-87c5-957e-74e1f6ae86e6",
-      "address": "8183f5b0-1bda-8bde-a543-1f5ce36849fd",
+      "lineAddress": "4edaefea-5607-819e-a401-2ca18fe2d2b8",
+      "address": "997291ef-d564-8528-bd39-165613ab1468",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "6d5786c7-6477-8d1f-b8b5-746152f9aad9",
-      "address": "1e8f35c3-cd88-8a5c-88ca-e78934923a09",
+      "lineAddress": "437c2cd1-292e-8dc7-92e8-92ef5b0a889c",
+      "address": "865c6ee3-ab58-8f6a-a03c-42428ea3b3e6",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "428fb752-c261-84e2-9458-32ba57a109b0",
-      "address": "b862ee50-a0f5-8608-b902-dff565e5da10",
+      "lineAddress": "277557ca-c3e3-8e51-9e66-4dd4fd205870",
+      "address": "6cafa5e6-8c9e-85a0-8c13-edf97dc86dec",
       "principle": "The detectors, proven"
     },
     {
@@ -4435,14 +4435,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "396a7184-0316-8dcf-9320-f7bdd9ef1100",
-      "address": "a385d881-8773-859b-a42c-b198a8f840dd",
+      "lineAddress": "c09ea1c8-1f89-877f-b53b-0022ce551b5e",
+      "address": "915a4a48-527b-813e-ac3f-cec0bc7a48fb",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "1793ee2c-4c8d-8f8c-af79-ad027350de04",
-      "address": "0cf19207-a124-87dc-b081-805048651c7e",
+      "lineAddress": "63957c69-efba-8764-ad16-5dc3e639e6d4",
+      "address": "3caffde1-ae9d-8e0c-addf-6d0890d6bc76",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -7872,6 +7872,96 @@
       "principle": "The song from the ledger"
     },
     {
+      "key": "readings_seven_rays",
+      "lineAddress": "e0a11819-a41d-8b72-8695-8192a285ce34",
+      "address": "d9b8c383-e8d6-8878-8478-bd6511476eb7",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "readings_en_names_sixteen",
+      "lineAddress": "ae44d496-2eae-872f-9638-36d5b44dced0",
+      "address": "80913b6e-0d24-8454-80a0-58fa5875dcfb",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "readings_bg_names_sixteen",
+      "lineAddress": "77d83408-5343-8158-adae-eed63a977798",
+      "address": "f7d54542-3542-813f-8769-fb8602335a03",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "readings_de_names_sixteen",
+      "lineAddress": "f34ac194-bd28-8cad-aee2-988e125b714e",
+      "address": "6eb6ce62-3459-8495-9fbf-dd48206426d6",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "readings_fr_names_sixteen",
+      "lineAddress": "f04ed1c5-d2c2-8cec-81a6-c3192a3aa97e",
+      "address": "b36f50c9-7353-8a70-a635-77d01a7e3ce9",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "readings_es_names_sixteen",
+      "lineAddress": "8bee3b58-869a-8309-a0dc-e44062222278",
+      "address": "bd973497-a14d-8209-9685-dc8fcbf6b1c1",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "readings_ru_names_sixteen",
+      "lineAddress": "f46d4a0b-603a-870b-9d4b-cf7b4b43b662",
+      "address": "cbaa5cce-f1a7-8801-8778-e0bb67adb41b",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "readings_zh_names_sixteen",
+      "lineAddress": "cde81690-d58e-816e-81af-6d31e895543f",
+      "address": "82253cad-f786-8d9f-9cfc-906a93bf0431",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "readings_states_sound_the_lattice",
+      "lineAddress": "f2a1ae32-4e62-8ae4-8036-48cd80f14bad",
+      "address": "f7b15a96-7aff-8fce-81b7-3571fdde78d7",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "nyquist_clears_the_lattice",
+      "lineAddress": "2dbefc15-f60b-883b-964c-c5af2254bb05",
+      "address": "c09da83a-8bf6-80a4-af2b-6c753e890307",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "amplitude_inside_int16",
+      "lineAddress": "97dbea1d-9420-8285-854d-be168b3bf2fd",
+      "address": "9b0bf7be-088a-8aa2-abbf-74f19006bf02",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "mix_budget_closes",
+      "lineAddress": "0184dbe3-1d1c-86ea-8b30-492059507b84",
+      "address": "e79ebc59-9e2a-890b-b94a-f34d2dbdd131",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "chi_all_three_genera",
+      "lineAddress": "6832510a-34e8-82b2-888e-2fd28e4b22e4",
+      "address": "05e39e95-8ccc-8736-af37-9b8f15e3348c",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "note_values_are_doublings",
+      "lineAddress": "4559de56-eae8-8284-b798-1b54b413cd17",
+      "address": "f721176c-4210-87fa-b26c-088a109a1cea",
+      "principle": "The seven readings"
+    },
+    {
+      "key": "time_counts_of_the_books",
+      "lineAddress": "3f071f8d-0afd-8410-b310-88ae9edb501d",
+      "address": "3cc00666-69ab-840c-916f-9e96aa644c7f",
+      "principle": "The seven readings"
+    },
+    {
       "key": "group_holds_fiftyfour",
       "lineAddress": "47105abe-a8f3-80ae-a5ca-e507178b608b",
       "address": "494b9d8d-4270-8488-aa14-672bffee04a1",
@@ -8820,7 +8910,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "38cce2b9-c425-8b04-a625-f7c713ba3493",
+  "claim_receipt": "bd0c9687-70bf-87e9-860f-ad41202cddcf",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

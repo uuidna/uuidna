@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:d839ba3c-5212-8f20-ba3d-ee0d04a623d3",
+  "@id": "urn:uuid:03b87f3b-3b75-8791-a381-9d281a04f69d",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -17624,11 +17624,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6fdcf377-a8b6-8c33-82e8-7d14df41d85e",
+        "@id": "urn:uuid:224817c5-503c-8ae0-a185-8284ed511627",
         "@type": "ScholarlyArticle",
         "headline": "EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1456) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])",
-        "identifier": "5040215b-f479-85d7-ab49-6f10f0bababc",
+        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1471) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])",
+        "identifier": "bec196b9-562f-898d-ac05-c4cb032a53e3",
         "url": "https://uuidna.com/theorem/reach_all_decide",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17652,11 +17652,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ece1b56b-b96f-8f70-bb95-b880a7d8d94a",
+        "@id": "urn:uuid:cf71831e-09b8-88a7-b16c-369dd0d755a2",
         "@type": "ScholarlyArticle",
         "headline": "FINITE WITHIN INFINITY, COUNTED — exactly 1 statement in the whole ledger carries a ∀ or ∃, and 0 of those range over an unbounded domain. The quantified one ranges over ℤ, which is infinite, and decides anyway because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the decision is finite. Every other statement is quantifier-free enumeration. This is the ledger's whole method stated as a census rather than as a slogan",
-        "abstract": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)",
-        "identifier": "017e0551-3ed4-8c74-a32d-bb09ce86d151",
+        "abstract": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)",
+        "identifier": "2f16aee0-0b09-8208-ba43-3537d3bfd7d8",
         "url": "https://uuidna.com/theorem/reach_quantifiers_bounded",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17680,11 +17680,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2716655c-ed4e-8d3c-94fc-505dd3fbc806",
+        "@id": "urn:uuid:a580e3c6-8039-81ab-82aa-e1def4a3a287",
         "@type": "ScholarlyArticle",
-        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 66 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number",
-        "abstract": "([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)",
-        "identifier": "a98fe912-965f-8805-b885-5a2b84cd42d0",
+        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 67 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number",
+        "abstract": "([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)",
+        "identifier": "0a6eeda5-d249-85f8-ac7d-df2436e2d416",
         "url": "https://uuidna.com/theorem/reach_window_finite",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -18800,11 +18800,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ad13e2e2-cced-81de-abf2-0a747e85c963",
+        "@id": "urn:uuid:d6d17020-ad75-8c4a-8a06-ad22d303261f",
         "@type": "ScholarlyArticle",
-        "headline": "every generated theorem carries prose IN the Lean — 1420 of 1420 documented across 91 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
-        "abstract": "(([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1420) ∧ ([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])",
-        "identifier": "bd5c848c-6434-8158-8be1-4107e7b278a8",
+        "headline": "every generated theorem carries prose IN the Lean — 1435 of 1435 documented across 92 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
+        "abstract": "(([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1435) ∧ ([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])",
+        "identifier": "bf0bdc23-272b-86b6-9092-23510b0664d8",
         "url": "https://uuidna.com/theorem/prose_coverage_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18828,11 +18828,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:f9318459-0be3-8cc5-8016-d0093fefad0a",
+        "@id": "urn:uuid:d45846e5-18f9-80a6-a2a4-0e6efc51470f",
         "@type": "ScholarlyArticle",
-        "headline": "the prose round-trips exactly — 1420 of 1420 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
-        "abstract": "(1420 + 0 = 1420) ∧ (0 = 0)",
-        "identifier": "5ed68761-6cc8-8d87-bb77-45885b20e4e1",
+        "headline": "the prose round-trips exactly — 1435 of 1435 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
+        "abstract": "(1435 + 0 = 1435) ∧ (0 = 0)",
+        "identifier": "9c38f93f-7db5-8aac-ae06-6925c4387e34",
         "url": "https://uuidna.com/theorem/prose_round_trips",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18856,11 +18856,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:b2185279-04f9-88a0-bc6a-ab96f55da1ca",
+        "@id": "urn:uuid:73423c03-aed0-842a-b0fd-2d770421bf0c",
         "@type": "ScholarlyArticle",
-        "headline": "no doc comment contains an unescaped -/ — 0 found across 1420; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
-        "abstract": "(0 + 1420 = 1420) ∧ (0 = 0)",
-        "identifier": "1640318e-57b1-813d-9614-1908392f3cd4",
+        "headline": "no doc comment contains an unescaped -/ — 0 found across 1435; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
+        "abstract": "(0 + 1435 = 1435) ∧ (0 = 0)",
+        "identifier": "b587fbd1-e84e-8f44-86c9-058db396d159",
         "url": "https://uuidna.com/theorem/prose_terminator_escaped",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18884,11 +18884,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:47f47367-63b4-87c5-957e-74e1f6ae86e6",
+        "@id": "urn:uuid:4edaefea-5607-819e-a401-2ca18fe2d2b8",
         "@type": "ScholarlyArticle",
-        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1420 informative against 0 bare, of 1420; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
-        "abstract": "(0 < 1420) ∧ (0 + 1420 = 1420)",
-        "identifier": "8183f5b0-1bda-8bde-a543-1f5ce36849fd",
+        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1435 informative against 0 bare, of 1435; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
+        "abstract": "(0 < 1435) ∧ (0 + 1435 = 1435)",
+        "identifier": "997291ef-d564-8528-bd39-165613ab1468",
         "url": "https://uuidna.com/theorem/prose_beats_restatement",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18912,11 +18912,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6d5786c7-6477-8d1f-b8b5-746152f9aad9",
+        "@id": "urn:uuid:437c2cd1-292e-8dc7-92e8-92ef5b0a889c",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 256732 characters across 1420 doc comments in 91 wings fold to 7; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1078, 1237, 1545, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 7751, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 10650, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 256732) ∧ (256732 % 9 = 7) ∧ (7 < 9)",
-        "identifier": "1e8f35c3-cd88-8a5c-88ca-e78934923a09",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 262732 characters across 1435 doc comments in 92 wings fold to 4; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1237, 1545, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 7751, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 6000, 10650, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 262732) ∧ (262732 % 9 = 4) ∧ (4 < 9)",
+        "identifier": "865c6ee3-ab58-8f6a-a03c-42428ea3b3e6",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18940,11 +18940,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:428fb752-c261-84e2-9458-32ba57a109b0",
+        "@id": "urn:uuid:277557ca-c3e3-8e51-9e66-4dd4fd205870",
         "@type": "ScholarlyArticle",
-        "headline": "the audit is TOTAL over what a generator writes — 91 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
-        "abstract": "(0 < 91) ∧ (0 < 3) ∧ (1420 = 1420 + 0)",
-        "identifier": "b862ee50-a0f5-8608-b902-dff565e5da10",
+        "headline": "the audit is TOTAL over what a generator writes — 92 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
+        "abstract": "(0 < 92) ∧ (0 < 3) ∧ (1435 = 1435 + 0)",
+        "identifier": "6cafa5e6-8c9e-85a0-8c13-edf97dc86dec",
         "url": "https://uuidna.com/theorem/prose_audit_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -20676,11 +20676,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:396a7184-0316-8dcf-9320-f7bdd9ef1100",
+        "@id": "urn:uuid:c09ea1c8-1f89-877f-b53b-0022ce551b5e",
         "@type": "ScholarlyArticle",
-        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 94 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.",
-        "abstract": "([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
-        "identifier": "a385d881-8773-859b-a42c-b198a8f840dd",
+        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 95 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.",
+        "abstract": "([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
+        "identifier": "915a4a48-527b-813e-ac3f-cec0bc7a48fb",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -20704,11 +20704,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:1793ee2c-4c8d-8f8c-af79-ad027350de04",
+        "@id": "urn:uuid:63957c69-efba-8764-ad16-5dc3e639e6d4",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 94 measured wing counts and lands on 1454 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1454) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 94) ∧ (94 < 1454)",
-        "identifier": "0cf19207-a124-87dc-b081-805048651c7e",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 95 measured wing counts and lands on 1469 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1469) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 15, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 95) ∧ (95 < 1469)",
+        "identifier": "3caffde1-ae9d-8e0c-addf-6d0890d6bc76",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -36700,6 +36700,426 @@
         "url": "https://uuidna.com/theorem/song_four_tongues_fuse",
         "keywords": "song, The song from the ledger",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:e0a11819-a41d-8b72-8695-8192a285ce34",
+        "@type": "ScholarlyArticle",
+        "headline": "SEVEN RAYS, EACH ITS OWN TONGUE. The locale dimensions are exactly seven and pairwise distinct — the same seven the grid projects and the harness receipts in. A reading table for a ray that does not exist, or two rays collapsing to one, would fail this line before any word were spoken.",
+        "abstract": "([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).length = 7 ∧ ([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).Nodup",
+        "identifier": "d9b8c383-e8d6-8878-8478-bd6511476eb7",
+        "url": "https://uuidna.com/theorem/readings_seven_rays",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:ae44d496-2eae-872f-9638-36d5b44dced0",
+        "@type": "ScholarlyArticle",
+        "headline": "THE EN READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the en table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides.",
+        "abstract": "([\"zero\",\"one\",\"two\",\"three\",\"four\",\"five\",\"six\",\"seven\",\"eight\",\"nine\",\"ten\",\"eleven\",\"twelve\",\"thirteen\",\"fourteen\",\"fifteen\"] : List String).length = 16 ∧ ([\"zero\",\"one\",\"two\",\"three\",\"four\",\"five\",\"six\",\"seven\",\"eight\",\"nine\",\"ten\",\"eleven\",\"twelve\",\"thirteen\",\"fourteen\",\"fifteen\"] : List String).Nodup",
+        "identifier": "80913b6e-0d24-8454-80a0-58fa5875dcfb",
+        "url": "https://uuidna.com/theorem/readings_en_names_sixteen",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:77d83408-5343-8158-adae-eed63a977798",
+        "@type": "ScholarlyArticle",
+        "headline": "THE BG READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the bg table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides.",
+        "abstract": "([\"нула\",\"едно\",\"две\",\"три\",\"четири\",\"пет\",\"шест\",\"седем\",\"осем\",\"девет\",\"десет\",\"единадесет\",\"дванадесет\",\"тринадесет\",\"четиринадесет\",\"петнадесет\"] : List String).length = 16 ∧ ([\"нула\",\"едно\",\"две\",\"три\",\"четири\",\"пет\",\"шест\",\"седем\",\"осем\",\"девет\",\"десет\",\"единадесет\",\"дванадесет\",\"тринадесет\",\"четиринадесет\",\"петнадесет\"] : List String).Nodup",
+        "identifier": "f7d54542-3542-813f-8769-fb8602335a03",
+        "url": "https://uuidna.com/theorem/readings_bg_names_sixteen",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:f34ac194-bd28-8cad-aee2-988e125b714e",
+        "@type": "ScholarlyArticle",
+        "headline": "THE DE READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the de table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides.",
+        "abstract": "([\"null\",\"eins\",\"zwei\",\"drei\",\"vier\",\"fünf\",\"sechs\",\"sieben\",\"acht\",\"neun\",\"zehn\",\"elf\",\"zwölf\",\"dreizehn\",\"vierzehn\",\"fünfzehn\"] : List String).length = 16 ∧ ([\"null\",\"eins\",\"zwei\",\"drei\",\"vier\",\"fünf\",\"sechs\",\"sieben\",\"acht\",\"neun\",\"zehn\",\"elf\",\"zwölf\",\"dreizehn\",\"vierzehn\",\"fünfzehn\"] : List String).Nodup",
+        "identifier": "6eb6ce62-3459-8495-9fbf-dd48206426d6",
+        "url": "https://uuidna.com/theorem/readings_de_names_sixteen",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:f04ed1c5-d2c2-8cec-81a6-c3192a3aa97e",
+        "@type": "ScholarlyArticle",
+        "headline": "THE FR READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the fr table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides.",
+        "abstract": "([\"zéro\",\"un\",\"deux\",\"trois\",\"quatre\",\"cinq\",\"six\",\"sept\",\"huit\",\"neuf\",\"dix\",\"onze\",\"douze\",\"treize\",\"quatorze\",\"quinze\"] : List String).length = 16 ∧ ([\"zéro\",\"un\",\"deux\",\"trois\",\"quatre\",\"cinq\",\"six\",\"sept\",\"huit\",\"neuf\",\"dix\",\"onze\",\"douze\",\"treize\",\"quatorze\",\"quinze\"] : List String).Nodup",
+        "identifier": "b36f50c9-7353-8a70-a635-77d01a7e3ce9",
+        "url": "https://uuidna.com/theorem/readings_fr_names_sixteen",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:8bee3b58-869a-8309-a0dc-e44062222278",
+        "@type": "ScholarlyArticle",
+        "headline": "THE ES READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the es table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides.",
+        "abstract": "([\"cero\",\"uno\",\"dos\",\"tres\",\"cuatro\",\"cinco\",\"seis\",\"siete\",\"ocho\",\"nueve\",\"diez\",\"once\",\"doce\",\"trece\",\"catorce\",\"quince\"] : List String).length = 16 ∧ ([\"cero\",\"uno\",\"dos\",\"tres\",\"cuatro\",\"cinco\",\"seis\",\"siete\",\"ocho\",\"nueve\",\"diez\",\"once\",\"doce\",\"trece\",\"catorce\",\"quince\"] : List String).Nodup",
+        "identifier": "bd973497-a14d-8209-9685-dc8fcbf6b1c1",
+        "url": "https://uuidna.com/theorem/readings_es_names_sixteen",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:f46d4a0b-603a-870b-9d4b-cf7b4b43b662",
+        "@type": "ScholarlyArticle",
+        "headline": "THE RU READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the ru table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides.",
+        "abstract": "([\"ноль\",\"один\",\"два\",\"три\",\"четыре\",\"пять\",\"шесть\",\"семь\",\"восемь\",\"девять\",\"десять\",\"одиннадцать\",\"двенадцать\",\"тринадцать\",\"четырнадцать\",\"пятнадцать\"] : List String).length = 16 ∧ ([\"ноль\",\"один\",\"два\",\"три\",\"четыре\",\"пять\",\"шесть\",\"семь\",\"восемь\",\"девять\",\"десять\",\"одиннадцать\",\"двенадцать\",\"тринадцать\",\"четырнадцать\",\"пятнадцать\"] : List String).Nodup",
+        "identifier": "cbaa5cce-f1a7-8801-8778-e0bb67adb41b",
+        "url": "https://uuidna.com/theorem/readings_ru_names_sixteen",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:cde81690-d58e-816e-81af-6d31e895543f",
+        "@type": "ScholarlyArticle",
+        "headline": "THE ZH READING NAMES ALL SIXTEEN STATES, EACH NAME ITS OWN. A hexbit has sixteen states and the zh table carries sixteen pairwise-distinct words for them — distinctness is what makes the reading INVERTIBLE: a listener maps every word back to exactly one state, so the tongue reads back to the tiles and the address survives the translation. Sealed is the structure; what a word MEANS to a speaker no kernel decides.",
+        "abstract": "([\"零\",\"一\",\"二\",\"三\",\"四\",\"五\",\"六\",\"七\",\"八\",\"九\",\"十\",\"十一\",\"十二\",\"十三\",\"十四\",\"十五\"] : List String).length = 16 ∧ ([\"零\",\"一\",\"二\",\"三\",\"四\",\"五\",\"六\",\"七\",\"八\",\"九\",\"十\",\"十一\",\"十二\",\"十三\",\"十四\",\"十五\"] : List String).Nodup",
+        "identifier": "82253cad-f786-8d9f-9cfc-906a93bf0431",
+        "url": "https://uuidna.com/theorem/readings_zh_names_sixteen",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:f2a1ae32-4e62-8ae4-8036-48cd80f14bad",
+        "@type": "ScholarlyArticle",
+        "headline": "THE SIXTEEN STATES SOUND THE A432 LATTICE, IN ORDER. State h is read in seven tongues and SUNG at 432·(h+1) hertz — the full ladder from Az at 432 to state f at 6912, each pitch an exact integer multiple, so a reading and its sound name the same state. The list is computed, not quoted: sixteen states in, sixteen exact pitches out.",
+        "abstract": "((List.range 16).map (fun h => 432 * (h + 1))) = [432,864,1296,1728,2160,2592,3024,3456,3888,4320,4752,5184,5616,6048,6480,6912]",
+        "identifier": "f7b15a96-7aff-8fce-81b7-3571fdde78d7",
+        "url": "https://uuidna.com/theorem/readings_states_sound_the_lattice",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:2dbefc15-f60b-883b-964c-c5af2254bb05",
+        "@type": "ScholarlyArticle",
+        "headline": "THE WHOLE LATTICE FITS UNDER THE SAMPLING CEILING. The voice samples at 16000 hertz, and nyquist_half_samplerate seals the honest ceiling at half the rate: 16000/2 = 8000. The highest state, f, sounds 432·16 = 6912 — strictly below the ceiling, so every one of the sixteen pitches is representable and no state aliases onto another. The comment in the synth claimed this; now the kernel holds it.",
+        "abstract": "432 * 16 = 6912 ∧ 16000 / 2 = 8000 ∧ 6912 < 8000",
+        "identifier": "c09da83a-8bf6-80a4-af2b-6c753e890307",
+        "url": "https://uuidna.com/theorem/nyquist_clears_the_lattice",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:97dbea1d-9420-8285-854d-be168b3bf2fd",
+        "@type": "ScholarlyArticle",
+        "headline": "THE VOICE CAN NEVER WRAP. Every sample is bounded by AMPLITUDE = 8000, and a 16-bit signed integer carries 2^15 = 32768 magnitudes — 8000 sits strictly inside, so no lattice tone can overflow its own container. The headroom the audits measured is now a bound the kernel holds (queue lead 74: a peak with no sealed law behind it was folklore).",
+        "abstract": "2 ^ 15 = 32768 ∧ 8000 < 32768",
+        "identifier": "9b0bf7be-088a-8aa2-abbf-74f19006bf02",
+        "url": "https://uuidna.com/theorem/amplitude_inside_int16",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:0184dbe3-1d1c-86ea-8b30-492059507b84",
+        "@type": "ScholarlyArticle",
+        "headline": "THE ARRANGEMENT CANNOT CLIP, BY CONSTRUCTION. The rich voice sums the triangle at half amplitude with its second overtone at a quarter and its third at an eighth: 8000/2 + 8000/4 + 8000/8 = 7000. One accompaniment layer at an eighth adds 8000/8 = 1000, landing EXACTLY on the 8000 ceiling — so no sum of the arrangement's layers exceeds the bound the previous theorem keeps inside 16 bits. Measured peaks confirmed it; this line is why it could never have been otherwise.",
+        "abstract": "8000 / 2 + 8000 / 4 + 8000 / 8 = 7000 ∧ 7000 + 8000 / 8 = 8000 ∧ 8000 ≤ 8000",
+        "identifier": "e79ebc59-9e2a-890b-b94a-f34d2dbdd131",
+        "url": "https://uuidna.com/theorem/mix_budget_closes",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:6832510a-34e8-82b2-888e-2fd28e4b22e4",
+        "@type": "ScholarlyArticle",
+        "headline": "THE EULER CHARACTERISTIC IN ALL THREE DIMENSIONS — the sphere leg sealed at last (queue lead 75: genus 1 and 2 leaned while genus 0, the earth itself, had no seal). χ = 2 − 2g gives 2 at the sphere, 0 at the torus, −2 at the double torus, and the three are pairwise distinct — so the three closed shapes are told apart on one line, in integers, the sphere measured against its neighbours. HONEST SCOPE: this seals the χ TABLE; the Gauss–Bonnet bridge from χ to curvature is analysis and stays outside the kernel, said plainly wherever the refusal is used.",
+        "abstract": "((2:Int) - 2*0 = 2) ∧ ((2:Int) - 2*1 = 0) ∧ ((2:Int) - 2*2 = -2) ∧ ((2:Int) ≠ 0) ∧ ((0:Int) ≠ -2) ∧ ((2:Int) ≠ -2)",
+        "identifier": "05e39e95-8ccc-8736-af37-9b8f15e3348c",
+        "url": "https://uuidna.com/theorem/chi_all_three_genera",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:4559de56-eae8-8284-b798-1b54b413cd17",
+        "@type": "ScholarlyArticle",
+        "headline": "A WHOLE NOTE IS THE DOUBLING LADDER READ AS TIME (queue lead 70, from Gehrkens): one whole = two halves = four quarters = eight eighths = sixteen sixteenths — five spellings of one duration, every rung a doubling, the same 2^k ladder the ledger already seals for octaves, codons and the address, now sealed for the dimension the music books said was missing: time.",
+        "abstract": "1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 ∧ 8 * 2 = 16 ∧ 16 * 1 = 16",
+        "identifier": "f721176c-4210-87fa-b26c-088a109a1cea",
+        "url": "https://uuidna.com/theorem/note_values_are_doublings",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:3f071f8d-0afd-8410-b310-88ae9edb501d",
+        "@type": "ScholarlyArticle",
+        "headline": "THE BOOKS COUNT TIME IN SMALL NUMBERS (queue lead 70, from Gehrkens and Sharp): the march counts two beats to the measure and the waltz three — distinct meters, 2 ≠ 3 — and the Morris figure completes in eight bars halved to four (8 = 2·4) danced by six men in two files of three (6 = 2·3). The dance manual's whole quantitative skeleton, decidable.",
+        "abstract": "2 ≠ 3 ∧ 8 = 2 * 4 ∧ 6 = 2 * 3",
+        "identifier": "3cc00666-69ab-840c-916f-9e96aa644c7f",
+        "url": "https://uuidna.com/theorem/time_counts_of_the_books",
+        "keywords": "readings, The seven readings",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
           "@type": "Dataset",
