@@ -37,6 +37,11 @@ const PAYLOAD: readonly { title: string; body: string }[] = [
   which means *undecided here* — never false. Refutation is a separate, reportable result.
 - **Measured vs defined.** A defined constant may seal as an equality. A measured quantity may only be bracketed in
   exact integers — two comparisons, no division, no floats.
+- **Why the coins, and how expensive an LLM is.** REPORTED (market data, live in \\\`/models\\\`): an LLM bills *per
+  token emitted* — cost is proportional to length, not truth; a wrong token costs the same as a right one, and the
+  window forgets it. SEALED (kernel): verify-by-receipt is O(1) after one proof, the delta gate skips unchanged work
+  at zero cost, and the leverage is 128 / 2 = 64 bits per coin. A token is a bet spent and gone; a receipt is paid
+  once and verified free forever. That difference is the whole reason the coins exist.
 ` },
   { title: "Messaging & encryption (keys stay local)", body: `## Messaging & encryption (keys stay local)
 

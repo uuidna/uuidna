@@ -37,6 +37,7 @@ const b = balanceMachine({
 
 console.log(`machine — ${b.cores} cores · load ${b.loadPermille}‰ · mem free ${b.memFreePermille}‰ · floor ${b.safeFloorPermille}‰`)
 for (const w of b.writers.slice(0, 6)) console.log(`  ${String(w.sharePermille).padStart(4)}‰  ${w.name}`)
-console.log((b.balanced ? '✓ ' : '✗ ') + b.verdict)
+console.log((b.balanced ? '✓ ' : '· ') + b.verdict)
 console.log(`  receipt ${b.receipt}`)
-if (!b.balanced) process.exit(1)
+// a resource reading is a DIAGNOSTIC, never a build failure: FOLD means "pause a writer before a heavy run",
+// which is advice to a human/land, not a broken tree — so it always exits 0 (exercise-dormant runs it clean).

@@ -5,7 +5,7 @@
  "Anthem.lean": "0314013f-8b85-88fe-9cbe-472c450e4a44",
  "AntiFraud.lean": "ba47cdc1-f315-8eef-9b0c-b0a2dbf38775",
  "Astronomy.lean": "13892af8-40b3-8370-b820-5fe677d3be99",
- "Audit.lean": "134787f5-357a-8b80-ad0b-6f77a59b360a",
+ "Audit.lean": "9fed1317-e066-8ac9-9067-528e9c79bb93",
  "AuditGame.lean": "166fa204-53f7-8a6d-9174-540c48a0e892",
  "BioPhysics.lean": "6a69f98c-1323-814f-9a5e-c72db8912b92",
  "Boolean.lean": "1b6ddb29-5c41-8b22-94cc-8f103752d338",
@@ -44,7 +44,7 @@
  "Harmony.lean": "c6720784-fbac-8e58-b734-7d9b0afa3954",
  "Hexbit.lean": "db2c0ec9-f9ba-8296-a14f-f3c085ae1290",
  "Identifiers.lean": "88a9caae-62cf-8678-a354-7483b444b5bd",
- "Infinity.lean": "e4ad8c8e-c405-8c99-8f71-9fcf0a34e025",
+ "Infinity.lean": "48985191-fbaf-8fb8-ac90-41bbaf0116aa",
  "Installs.lean": "85ebc5f0-7769-8d8d-be00-dd643f8aef51",
  "Isometry.lean": "26d66027-0710-818e-8155-c9be92e92afe",
  "Legal.lean": "0ce98eea-96ff-8130-9357-dbae589590f6",
@@ -85,7 +85,7 @@
  "Seats.lean": "d348f488-9264-8794-b4e6-4b281e24480b",
  "Security.lean": "bc57d0b9-6477-851a-b808-95841972fe99",
  "Sequence.lean": "8bb40ced-4232-809a-9f79-215370f75cce",
- "Software.lean": "97593cee-7eff-8c9c-a349-16fae3f245b3",
+ "Software.lean": "df14c994-419b-8da7-8f8b-05c14e62b785",
  "Solids.lean": "8ac50897-28f5-8ed2-bc71-0b55c7a3c225",
  "Song.lean": "8a5f6ea8-42d6-8ed5-812f-1445ff7c74a7",
  "Spectrum.lean": "ee2833c4-5535-8a04-8c26-7ea77e34a911",
@@ -102,5 +102,5 @@
  "Uuidna.lean": "e31e9bfa-7334-8630-907c-6003b5af5e47",
  "VectorEquilibrium.lean": "9a021ee7-5ddb-8fdb-9491-6a8e0acaf070",
  "Vortex.lean": "08c9c911-584a-8db4-a9ca-98f9c3c4adae",
- "Waves.lean": "38eeb9dd-2846-834b-be55-ef4fe65e0c87"
+ "Waves.lean": "f3abee36-b937-8c80-9e65-06c7302ec375"
 }

@@ -2,7 +2,7 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "3430adf590970704",
+      "theorems": "fc5742c39a3a8700",
       "principles": "e07a213a4b971d09",
       "monographs": "6dc2a5e4963c1666"
     },
@@ -28,34 +28,34 @@
     }
   },
   "trinity_folds": {
-    "sealed": "46629de4e01ee9794f9ff8ea7ac178d9",
+    "sealed": "769073612dbfaf37711f01ab067d7467",
     "served": "85578ddf13fa98d6ce41925dd68e84b7",
     "proven": "938e5244673fb34f13456e942a8b93f7",
     "record": "fbffd08acddcabba1e2c9fc326376651",
     "walks": "2ac4d6dac144485ebc8d9bbeb52822d1"
   },
-  "unified_fold": "c6b845a2f3a820b2",
-  "receipt": "5ee317f3900def1d",
+  "unified_fold": "d37a1d9b562b0be0",
+  "receipt": "1b31da271ec25535",
   "rosette_receipt": {
     "rays": [
       "68096d0a8c75c039",
       "25a2a9bcced1fc36",
-      "e35cf6f8b61448d2",
+      "f1500c2c21eb1b5f",
       "a20454282e566346",
       "6f32aaaab0c9fbc3",
       "a761502744407dcd",
       "3b57285690396813"
     ],
-    "concurrence": "98c6b605cf0de1244a13f109b49e4364"
+    "concurrence": "a19dc75da77a3fbede1471cd93a43ae5"
   },
   "aura": {
-    "rgb": "#d3367d",
-    "hsl": "hsl(333, 64%, 52%)",
+    "rgb": "#2a4edf",
+    "hsl": "hsl(228, 74%, 52%)",
     "alphabet": "b6819334641853db",
-    "movie": "fcc05b6be06f9f86",
-    "lessons": "5044a71f16fb4568",
+    "movie": "a8f6d49af0dfb3cb",
+    "lessons": "0cab7fb8df0bec2e",
     "report": "940001b6ff9bd2fc",
-    "session": "2dc9714bd20facb0",
+    "session": "7db98eab0f7cdf8d",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -72,12 +72,12 @@
     },
     "dimensions": {
       "residue": 7,
-      "ray": 1,
+      "ray": 6,
       "wave": 2,
-      "hue": 333,
-      "sat": 64,
+      "hue": 228,
+      "sat": 74,
       "light": 52,
-      "period": 14,
+      "period": 24,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

@@ -1596,7 +1596,7 @@ uuid_mix_census_is_quantum 19
 units_z9 18
 vortex_orbit 26
 mod9_arithmetic 18
-digital_root 18
+digital_root 26
 diamond_involution 26
 seats_pigeonhole 18
 involution_group 18
@@ -1656,6 +1656,7 @@ the_page_admits_sixteen 19
 the_coin_compass_closes 19
 chi_crystallises_three_genera 19
 imaginings_meet_at_sixtyfour 19
+rounding_fee_closes_the_cube 19
 the_promotion_chain_doubles_home 19`
 
 export const CLAIMS = `bulge_exceeds_relief WGS 84

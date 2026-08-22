@@ -1,15 +1,15 @@
 ---
 title: "lean/Waves.lean"
-description: "Computed from lean/Waves.lean — 17 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Waves.lean — 18 sealed theorems, every claim citing its proof."
 ---
 
 # lean/Waves.lean
 
-> THE NIGHT'S HARVEST PORTED AS THEOREMS — the compass mandala (two hands summing ten, the 9-complement as a HALF-TURN of the doubling ring, five the unique developing center, the hex center EMPTY), the diving mathematics as integer skeletons (Boyle walking the harmonic series in exact sixtieths, pressure doubling down the octave, Haldane's 2:1 with his ladder sealed exactly as far as it doubles, the buddy pair squaring the failure, the thirds rule closing whole), and the fold-to-zero promotion chain 16→32→64→128. HONEST SCOPE: arithmetic only — no physiology, no medicine, no claim about any real event; published laws' integer skeletons, deviations named. — held by [captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) and its 16 siblings below.
+> THE NIGHT'S HARVEST PORTED AS THEOREMS — the compass mandala (two hands summing ten, the 9-complement as a HALF-TURN of the doubling ring, five the unique developing center, the hex center EMPTY), the diving mathematics as integer skeletons (Boyle walking the harmonic series in exact sixtieths, pressure doubling down the octave, Haldane's 2:1 with his ladder sealed exactly as far as it doubles, the buddy pair squaring the failure, the thirds rule closing whole), and the fold-to-zero promotion chain 16→32→64→128. HONEST SCOPE: arithmetic only — no physiology, no medicine, no claim about any real event; published laws' integer skeletons, deviations named. — held by [captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) and its 17 siblings below.
 
-**17 theorems**, from [captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) onward, each proven `by decide` in [lean/Waves.lean](/lean/Waves.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [nine_complement_half_turns_the_orbit](/theorem/nine_complement_half_turns_the_orbit). A boundary stated here is decided.
+**18 theorems**, from [captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) onward, each proven `by decide` in [lean/Waves.lean](/lean/Waves.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 18 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [nine_complement_half_turns_the_orbit](/theorem/nine_complement_half_turns_the_orbit). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWaves.lean)** — nothing to install. The editor fetches `lean/Waves.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWaves.lean)** — nothing to install. The editor fetches `lean/Waves.lean` from the repository and re-decides all 18 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TWO HANDS OF THE MANDALA SUM TO TEN IN EVERY COLUMN: [1 2 4 8 7 5 3 6 9] over [9 8 6 2 3 5 7 4 1] — nine columns, one constant. The second line is the first DEVELOPED (film to paper), and two contrary voices summing to a drone is the round and its negative sung together — the same shape 142857 + 857142 = 999999 seals one wing over.
 The ledger holds this as [captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) — proven `by decide`, sorry-free:
@@ -121,6 +121,13 @@ The ledger holds this as [imaginings_meet_at_sixtyfour](/theorem/imaginings_meet
 
 ```lean
 (2 * 32 = 64) ∧ (2 ^ 6 = 4 ^ 3) ∧ (2 ^ 6 = 64) ∧ (64 - 64 = 0)
+```
+
+### THE CAPTAIN TAKES THE ROUNDING COINS IN ALL DIRECTIONS AS FEE — and the fee turns out to be the founding theorem: the hex gravity cube holds 16³ = 4096 = 64·64 cells; the bar of the song holds 4032 = 63·64 samples; the difference is EXACTLY the coin octave, 4096 − 4032 = 64 — one full row of the 64×64 square. Sixty-three rows for the music, one row the fee: 64·64 = 63·64 + 64 is the captain theorem's own 63 + 1 (the ring plus the one that closes it), rediscovered as geometry — wherever the arithmetic rounds between the bar and the cube, the remainder was never lost; it was always the closure, and the closure was always the captain's.
+The ledger holds this as [rounding_fee_closes_the_cube](/theorem/rounding_fee_closes_the_cube) — proven `by decide`, sorry-free:
+
+```lean
+(4096 - 4032 = 64) ∧ (4096 = 64 * 64) ∧ (4032 = 63 * 64) ∧ (64 * 64 = 63 * 64 + 64) ∧ (16 ^ 3 = 4096)
 ```
 
 ### FOLD-TO-ZERO'S LADDER, SEALED: 16 → 32 → 64 → 128 by doubling, and 128 = 16·2³ — three coin-payments promote the hexbit ring to the handle, the handle to the address: when a register saturates like a closed colour wheel, the whole folds and the next register opens one octave up. The night's architecture (states, pairs, handles, addresses) is one number doubled three times.
