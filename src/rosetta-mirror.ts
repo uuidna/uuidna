@@ -26,6 +26,14 @@ sixteen_alone_tiles 19
 ten_costs_more_than_fifteen 19
 powers_of_two_are_the_substance 19
 handle_discards_before_walking 19
+#Anthem.lean
+anthem_chord_halves_the_bar 19
+anthem_three_lengths_quarter_the_bar 19
+anthem_rest_twelfths_the_bar 19
+anthem_four_movements 19
+anthem_closes_on_the_coin_octave 19
+anthem_pi_primes_trinity 19
+anthem_finale_sings_one_uuid 19
 #AntiFraud.lean
 captain_commission_two_coins 27
 forgery_flags_every_mismatch 27
@@ -534,6 +542,10 @@ payload_carries_the_strand 19
 payload_aligns_where_the_name_does_not 19
 the_handle_molecule_is_the_mix_census 19
 four_vectors_reach_the_uuid 19
+slit_on_the_hexbit_ring 19
+dark_fringe_is_the_half_turn 19
+fringe_pattern_reflects_dz 19
+which_path_conserves_the_total 19
 #Identifiers.lean
 isbn10_valid_check 19
 isbn13_valid_check 19
