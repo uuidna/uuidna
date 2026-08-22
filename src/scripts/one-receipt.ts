@@ -48,6 +48,17 @@ const fileText = (abs: string): string => {
 // cache, so the corpus is walked once and every finder reports off that one computation. Within a pass the tree
 // cannot change, so this is exact rather than approximate.
 const _lines = new Map<string, string[]>()
+// the hexbit unit's LIVE export vocabulary — read from src/hexbit itself, once per run, so the gate that
+// enforces "if it is named a hexbit, the unit computed it" always knows the unit's whole current surface
+// (the captain's rule: tighten the gates to better educate, radiating complete solutions).
+let HEXBIT_VOCAB: string[] | null = null
+const hexbitVocabulary = (): string[] => {
+  if (HEXBIT_VOCAB) return HEXBIT_VOCAB
+  const src = readFileSync(join(ROOT, 'src', 'hexbit', 'index.ts'), 'utf8')
+  HEXBIT_VOCAB = [...src.matchAll(/^export const (\w+)/gm)].map((m) => m[1]!)
+  return HEXBIT_VOCAB
+}
+
 const fileLines = (abs: string): string[] => {
   let l = _lines.get(abs)
   if (l === undefined) { l = fileText(abs).split('\n'); _lines.set(abs, l) }
@@ -2069,6 +2080,11 @@ export function hexbitGaps(): Gap[] {
     // sweep is skipped whole — the same finding set, without scanning every line of every module to prove a
     // negative. This is the finder the captain named; it was the gate's most expensive.
     if (!src.includes('hexbit') && !src.includes('while')) continue
+    // THE UNIT'S VOCABULARY, READ LIVE (the captain's rule: tighten the gates to better educate, radiating
+    // COMPLETE solutions): the old hardcoded six-name regex was itself the drift it policed — the unit grew
+    // compileToHexbits and the gate flagged lawful code because its list had not. The gate now reads
+    // src/hexbit's actual export names on each run, so a new unit function is lawful the moment it exists,
+    // and the FIX line teaches the unit's whole current surface instead of a stale excerpt.
     const lines = fileLines(join(ROOT, f))
     for (let i = 0; i < lines.length; i++) {
       const l = lines[i]!
@@ -2085,12 +2101,12 @@ export function hexbitGaps(): Gap[] {
       // an ASSIGNMENT of a value, not a type annotation (`hexbits: number`) and not prose (`'…TWO HEXBITS…'`),
       // both of which the first version flagged — the word appearing is not the same as the value being made.
       const namesHexbit = /\b(const|let|var)\s+hexbits?\b\s*=|\bhexbits?\s*=\s*[^=]/.test(l) && !/why:|note:|'|"/.test(l.split('=')[0]!)
-      const usesUnit = /hexbitsOf|bitsToHexbits|qubitsToHexbits|HEXBIT_BITS|UUID_HEXBITS|spareOf/.test(l)
+      const usesUnit = hexbitVocabulary().some((name) => l.includes(name))
       const declaration = /interface|type\s|readonly|\?:/.test(l)
       if (namesHexbit && !usesUnit && !declaration && !/hexBits/.test(l))
         gaps.push({
           what: `${f}:${i + 1} names a value \`hexbit\` but does not compute it with the unit (\`${l.trim().slice(0, 52)}\`)`,
-          fix: 'compute it with src/hexbit — hexbitsOf, bitsToHexbits, qubitsToHexbits, spareOf — so the name and the arithmetic agree',
+          fix: `compute it with src/hexbit — the unit's whole live surface: ${hexbitVocabulary().join(', ')} — so the name and the arithmetic agree (or grow the unit a new function and this gate learns it on the next run)`,
         })
       if (/\bwhile\b/.test(l) && doubles && counts)
         gaps.push({

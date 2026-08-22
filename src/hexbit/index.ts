@@ -53,6 +53,13 @@ export const qubitsToHexbits = (qubits: number): number => bitsToHexbits(qubits)
 /** what remains of the uuid after a width is spent — the gravity reading, in one place. */
 export const spareOf = (hexbits: number): number => UUID_HEXBITS - hexbits
 
+/** compileToHexbits(address) → COMPILE a content-address to its UUID_HEXBITS states, one per hex nibble —
+ *  the unit's OWN address→states reading (moved here from quantum/os the day the hexbit finder flagged a
+ *  `hexbits =` line computed outside the unit: if it is named a hexbit, the unit computes it — so the
+ *  compiler that MAKES hexbit states lives where the law can see it). Every state 0..15 by construction. */
+export const compileToHexbits = (address: string): number[] =>
+  address.replace(/-/g, '').split('').map((c) => parseInt(c, 16))
+
 /** HALF THE UUID — 16 hexbits, 64 bits. The coin width: a content-address folded to its top half, which is what
  *  a coin is and why it is called a 64-bit coin. Computed here so the two places that mint one stop agreeing by
  *  literal. */

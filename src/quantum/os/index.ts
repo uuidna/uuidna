@@ -53,11 +53,11 @@ export const INSTALL_ROUTES: Readonly<Record<string, string>> = {
 /** routeOf(name) → the uuidna.com path a default install specifies — total (an unmapped name is '/' + name). */
 export const routeOf = (name: string): string => INSTALL_ROUTES[name] ?? '/' + name
 
-/** compileToHexbits(address) → COMPILE a 128-bit content-address to the hexbit lattice: 32 states 0..15, one per hex
- *  nibble. This is the "compile from source in hexbit": the spec's fold, expressed in the site's native unit,
- *  directly playable by the standard hexbit app (quantum/apps/hexbit-player). */
-export const compileToHexbits = (address: string): number[] =>
-  address.replace(/-/g, '').split('').map((c) => parseInt(c, 16))
+/** compileToHexbits — the unit's own address→states compiler (src/hexbit owns it; re-exported here because
+ *  the port is where "compile from source in hexbit" is spoken). 32 states 0..15, one per nibble, directly
+ *  playable by the standard hexbit app (quantum/apps/hexbit-player). */
+import { compileToHexbits } from '../../hexbit/index.js'
+export { compileToHexbits }
 
 /** One default install, ported: the uuidna/<name> identity plus its path, its published meaning, its
  *  dependency names, and its hexbit compile. */
