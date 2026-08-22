@@ -46,13 +46,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 435,
-        "roots": 296,
-        "supported": 435,
+        "modules": 436,
+        "roots": 297,
+        "supported": 436,
         "dead": 0,
-        "receipt": "6032a1d9-f86b-82d5-8f1a-a88b4f13854b"
+        "receipt": "fc699a50-453e-8b7a-a8c6-89a186212203"
       },
-      "address": "6f49925a-7864-8eaa-824a-35d5e8c7e8c0"
+      "address": "cae75a26-3e02-8572-9749-ce5169e0ff41"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "bec80f6f39f9f552",
-        "unifiedFold": "4539bd5f31448e6a"
+        "foldReceipt": "79e7fb33ccd15864",
+        "unifiedFold": "3ffe5393658637cf"
       },
-      "address": "b3b99d89-2461-828d-8d52-3d5ab28ec492"
+      "address": "ed6fb0b8-a09f-8eab-87d2-589c2c53808a"
     }
   ],
-  "receipt": "e03b38ac-a789-82db-8c31-60cb7d2b5bee",
+  "receipt": "702b8e4b-b39b-8f43-8131-1113e77d417d",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
