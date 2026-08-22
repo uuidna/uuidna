@@ -9,7 +9,7 @@ import { auditDetails, auditDetail, splitDetails } from '../detail-audit.js'
 test('the controls are pre-registered, run first, and all rejected — the instrument can fail', () => {
   const a = auditDetails('anything at all.')
   assert.equal(a.outcome, 'audited')
-  assert.equal(a.controls.length, 4, 'four controls: digit arithmetic, word arithmetic, laundered citation, fabricated citation')
+  assert.equal(a.controls.length, 5, 'five controls: digit arithmetic, word arithmetic, power equation, laundered citation, fabricated citation')
   for (const c of a.controls) assert.equal(c.rejected, true, `control accepted — the instrument cannot discriminate: ${c.control} → ${c.got}`)
 })
 
@@ -68,6 +68,23 @@ test('the tool hears word arithmetic — a false spoken sum is REFUTED, a true o
 test('a fabricated citation outranks true arithmetic — draining is the gate\'s law', () => {
   const v = auditDetail('two and two make four, proven by theorem detail_audit_no_such_seal')
   assert.equal(v.verdict, 'DRAINED')
+})
+
+// ── lead 79's remainder (b): powers-of-ten speech, the Black Whole film's dominant number shape, was entirely
+// unhearable. Now: an equation decides, an orders-of-magnitude relation decides, a bare magnitude is RECORDED
+// but never verdicted (a value is not a claim), a negative exponent is recorded and refused (not a Nat).
+test('the powers-of-ten grammar: equations and orders decide, magnitudes only speak', () => {
+  assert.equal(auditDetail('10 to the 3 is 1000').verdict, 'VERIFIED_BY_DECIDE')
+  assert.equal(auditDetail('10 to the 3 is 999').verdict, 'REFUTED')
+  const orders = auditDetail('10 to the 93 is 38 orders of magnitude larger than 10 to the 55')
+  assert.equal(orders.verdict, 'VERIFIED_BY_DECIDE', 'the film\'s own claim shape: |93 − 55| = 38 decides')
+  assert.equal(auditDetail('10 to the 93 is 39 orders of magnitude larger than 10 to the 55').verdict, 'REFUTED')
+  const bare = auditDetail('the result is 10 to the 93 grams per centimeter cube that is an enormous number')
+  assert.equal(bare.verdict, 'UNVERIFIED', 'a magnitude is a VALUE, not a claim — recorded, never verdicted')
+  assert.deepEqual(bare.magnitudes, [{ base: 10, exp: 93, negative: false }])
+  const neg = auditDetail('the standard proton with the mass of 10 to the minus 24 didn\'t even come close')
+  assert.equal(neg.verdict, 'UNVERIFIED')
+  assert.deepEqual(neg.magnitudes, [{ base: 10, exp: 24, negative: true }], 'a negative exponent is not a Nat — heard, refused')
 })
 
 test('an explicit delimiter is the split law for unpunctuated text', () => {
