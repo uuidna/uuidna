@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="193 keys" />
+# MCP tools <Badge type="tip" text="194 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 193 tools below are read from the server's own tool list and
+is **built from the keys**: the 194 tools below are read from the server's own tool list and
 organised into 38 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 9794915d-6600-8776-9bfe-d2e4ef401aea
+gate CLEAN f0 d0 v0 · 294d4f6e-3f38-8086-bc33-32e090a2fffa
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 193-tool registry folds to its
-order-invariant identity `f3377649-9a12-8dd1-aa24-b461989dec7c` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 194-tool registry folds to its
+order-invariant identity `a16b0f70-c371-8da4-9696-721bcd2e211d` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`193`" />
+## The grid <Badge type="tip" :text="`194`" />
 
-193 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 73 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+194 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 73 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -246,6 +246,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-quantum-voting"><code>quantum_voting</code></a>
 <a href="#uuidna-aead-decrypt"><code>aead_decrypt</code></a>
 <a href="#uuidna-crt"><code>crt</code></a>
+<a href="#uuidna-machine"><code>machine</code></a>
 </div>
 
 ## Getting started
@@ -561,7 +562,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'83'" />
+## Other <Badge type="tip" :text="'84'" />
 
 *skill: other*
 
@@ -1089,6 +1090,20 @@ BALANCE A CONTEXT WINDOW by the ledger's own laws — uuidna fused to Claude (or
 | --- | --- | --- | --- |
 | `categories` | array | **yes** | the window breakdown, e.g. [{"name":"messages","tokens":537900}] |
 | `capacity` | integer | **yes** | the window capacity in tokens, e.g. 1000000 |
+
+### `uuidna_machine`
+
+BALANCE A MACHINE by the ledger's laws — the resource balancer for a development machine, a server, or a visitor's device: pass the machine's self-report ({cores, centiLoad1 (load×100, integer), memTotalMb, memFreeMb, writers:[{name,centiCpu}]}) and the exact-integer audit returns both lanes judged against the unit's sealed spare floor (SAFE_HEXBITS/UUID_HEXBITS = 13/32 = 406‰ — the same spare that guards the uuid and the context window guards the metal), the writers ranked heaviest-first as the pause order, verdict, receipt, 32-state compile. The window balancer's sibling: one pure law, three surfaces (uuidna_context for the window, this for the machine, uuidna.com's in-browser DeviceBalance for the visitor's device — computed there, nothing sent). HONEST SCOPE: the figures are YOUR self-report — this tool cannot read a machine and never pretends to; locally `npm run x -- machine` measures at the scripts boundary and feeds this same function. Returns {cores,loadPermille,memFreePermille,safeFloorPermille,cpuBalanced,memBalanced,balanced,writers,verdict,receipt,hexbits,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `cores` | integer | **yes** |  |
+| `centiLoad1` | integer | **yes** | 1-minute load average × 100 |
+| `memTotalMb` | integer | **yes** |  |
+| `memFreeMb` | integer | **yes** |  |
+| `writers` | array | no |  |
 
 ### `uuidna_credits`
 
