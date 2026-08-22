@@ -66,6 +66,16 @@
       "lead": "The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bound is ALREADY SEALED as gematria_forces_collisions (22^3 = 10648 > 1198 sums) and seats_pigeonhole.",
       "status": "DEMARCATED — the split kept, the receipt now cited",
       "owes": "before the 12 VE directions may multiply anything, they must be shown INDEPENDENT of the walk's own two operations. Every measured orbit set is already dz-closed, so involution is not an extra direction — it is inside the walk, and testing it returns the identity mistaken for confirmation. Any direction reducing to dz or doubling is free, and 420 is inflated by exactly those."
+    },
+    {
+      "lead": "The hosted MCP bills a call that is missing a required argument",
+      "status": "open",
+      "owes": "uuidna.com/mcp accepted uuidna_decide with no input, stringified undefined into the input field, ran the gate CLEAN, deposited two coins and returned UNVERIFIED — a real verdict about a non-claim. Local callTool refuses it correctly (missing required argument: input), so the enforcement exists and is absent from the deployed path. Validate before the deposit: the coins are taken before the verdict is formed."
+    },
+    {
+      "lead": "roundTrips() disagrees with a verified byte-exact imprint round-trip",
+      "status": "open",
+      "owes": "imprintTextChain(addr) then readImprintTextChain returned the address byte-exact over 3 links at 115 bits each, while roundTrips(addr) returned false for the same address. Either the predicate checks a stricter chain form than the text chain, or it is wrong. Read it before trusting either."
     }
   ],
   "refuted": [
@@ -138,6 +148,11 @@
     {
       "lead": "Quantum advantage or speedup claims",
       "boundary": "already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced."
+    },
+    {
+      "lead": "stackoverflow.com /ai-assist as a theorem source",
+      "boundary": "refused at the door: robots.txt answers 418, the site-wide anti-automation response, and /ai-assist is an HTML product page rather than an API. The sanctioned route is api.stackexchange.com, which answered 200 with a keyless 300/day quota — use the door they opened, not the one they shut.",
+      "recorded": "2026-08-22"
     }
   ],
   "tables": {

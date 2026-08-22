@@ -9,7 +9,7 @@
     "support-audit.json": "970078e7ea5186a6",
     "research-leads.json": "31417bdcc27a828c",
     ".zenodo.json": "5a0b88e7463984e7",
-    "reports.json": "c7e1e4e0678f8fd7",
+    "reports.json": "c0d37a1a266b80be",
     "lean/statement-index.json": "5dfd6baf71908aeb",
     "README.md": "b810efec18878614",
     "llm.txt": "0bdb3c0869ef854a",
@@ -1496,7 +1496,7 @@
     "lean/divbyzero-manifest.json": "acba7e4255ed8376",
     "lean/diving-manifest.json": "636537af9f528b58",
     "lean/dormant-receipt.json": "384de5d11bf980bb",
-    "lean/dormant-scripts.json": "de6bef4c1f5f8660",
+    "lean/dormant-scripts.json": "eb0ba445198887e4",
     "lean/doubletorus-manifest.json": "9aa143d8f9f48ce7",
     "lean/editing-manifest.json": "e87a2cc25dd2891a",
     "lean/editor-manifest.json": "4bf17f879bb78ef4",
@@ -1515,7 +1515,7 @@
     "lean/identifiers-manifest.json": "2e15f4dcc69982b6",
     "lean/infinity-manifest.json": "69ee3311be118882",
     "lean/isometry-manifest.json": "67d91c8f67d28b44",
-    "lean/leads.json": "6aff7d01dc608938",
+    "lean/leads.json": "f076b73fda1a8de5",
     "lean/legal-manifest.json": "e71b72d2ebb58fdd",
     "lean/martialarts-manifest.json": "8d67ea81aaf08717",
     "lean/matching-manifest.json": "2b8b1987e23e8043",
@@ -1573,5 +1573,5 @@
     "lean/vectorequilibrium-manifest.json": "bd853f5a67168351",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd"
   },
-  "receipt": "9f1e3488-9ab7-8b52-9842-42517b023084"
+  "receipt": "a5957321-06cd-8365-8ded-467a2047e1fa"
 }

@@ -151,3 +151,30 @@ export function commitMemory(plan: CubePlan, prior: CubeReceipts = {}): CubeRece
   for (const k of Object.keys(next).sort()) sorted[k] = next[k]!
   return sorted
 }
+
+/** MEMORY, MEASURED IN THE UNIT THE LEDGER COMPUTES IN.
+ *
+ *  A cube memory knows which keys each neighbourhood is owed and which it holds, and it counted them — a count
+ *  is a number without a scale. Every other surface here reports in hexbits: a tile is 4 bits and 16 states, a
+ *  handle is 8 tiles, a uuid is 32. Memory was the last place still answering in bare keys.
+ *
+ *  WHAT A HEXBIT MEANS FOR A MEMORY. The states a neighbourhood can be in is 2^n over n expected keys — each
+ *  either held or owed — so its width is what it takes to name one of those states, and that width in tiles is
+ *  what this returns. A neighbourhood owed four keys spans sixteen states, which is exactly one hexbit: the unit
+ *  is not imposed on the memory, it is what the memory already was.
+ *
+ *  Exact integers throughout, by halving and dividing — no logarithm, since a width from a float cannot be
+ *  sealed and this ledger allows no axiom. */
+export interface MemoryWidth { principle: string; expected: number; held: number; owed: number; bits: number; hexbits: number }
+
+export const widthOf = (mem: CubeMemory, principle: string): MemoryWidth => {
+  const expected = mem.expected.get(principle)?.size ?? 0
+  const held = mem.held.get(principle)?.size ?? 0
+  // the state space is 2^expected — each key held or owed — and its width is `expected` bits exactly
+  const bits = expected
+  return { principle, expected, held, owed: expected - held, bits, hexbits: (bits - (bits % 4)) / 4 }
+}
+
+/** every neighbourhood's width, widest first — what the whole memory spans, in the unit it computes in. */
+export const memoryWidths = (mem: CubeMemory): readonly MemoryWidth[] =>
+  [...mem.expected.keys()].map((p) => widthOf(mem, p)).sort((a, b) => b.bits - a.bits || a.principle.localeCompare(b.principle))

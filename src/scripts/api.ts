@@ -148,7 +148,7 @@ export function teeStep(label: string, cmd: string, cwd: string = ROOT): StepRes
 export const DRAIN_PATHS: readonly string[] = [
   // the declared derived layer (mirrors src/spin.ts DERIVED_FILES — spin seals exactly these)
   'src/theorems/generated.ts', 'lean/PRINCIPLE.md', 'CHANGELOG.md', 'lean/axioms.json',
-  'docs/mcp.md', 'audit-citations.json', 'support-audit.json', 'research-leads.json',
+  'docs/mcp.md', 'docs/leads.md', 'audit-citations.json', 'support-audit.json', 'research-leads.json',
   // the other computed artifacts the drain writes: the fold, the seal manifest, the measured costs, the page seeds
   'quantum-fold.json', 'spin-manifest.json', 'lean/heartbeats.json', 'lean/proof-cache.json',
   'prose-trials.json', 'docs/captain-claims.json', 'src/seeds',
@@ -207,6 +207,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-mcp': ['docs/mcp.md'],
   'gen-readme': ['README.md'],
   'gen-llm': ['llm.txt'],
+  'gen-leads': ['docs/leads.md'],
   'gen-zenodo': ['.zenodo.json'],
   'gen-school': ['docs/school.md'],
   // THE EIGHT THE CHAIN NEVER RAN. reconcile listed nine generators by hand while generate.ts's manifest held
