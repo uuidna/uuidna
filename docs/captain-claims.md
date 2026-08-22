@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1540/1540 theorems — every one, by construction
-**Claim receipt:** `68d53ec6-1ec6-8b49-bcd3-51dc2cd5e150`
+**Total claimed:** 1549/1549 theorems — every one, by construction
+**Claim receipt:** `f2ab0664-ef49-81c7-9064-9f995e4ef45a`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -734,6 +734,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) · [residue_returns_step_does_not](/theorem/residue_returns_step_does_not) · [gap_is_a_count](/theorem/gap_is_a_count) · [advance_only_moves_forward](/theorem/advance_only_moves_forward) · [order_is_total_and_strict](/theorem/order_is_total_and_strict) · [no_reading_enters_here](/theorem/no_reading_enters_here)
 
+### lean/Comparisons.lean
+
+- **Theorems:** 4
+- **Sample lineAddress:** `cae921f8-6fb4-8138-95dd-9f0b4c754546`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[kernel_channels_order_completely](/theorem/kernel_channels_order_completely) · [version_encoding_is_lossless](/theorem/version_encoding_is_lossless) · [register_ladder_doubles_completely](/theorem/register_ladder_doubles_completely) · [the_surface_is_the_geometric_mean](/theorem/the_surface_is_the_geometric_mean)
+
 ### lean/Contribution.lean
 
 - **Theorems:** 5
@@ -916,12 +925,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### lean/Waves.lean
 
-- **Theorems:** 11
+- **Theorems:** 16
 - **Sample lineAddress:** `9bd83494-39d0-86aa-a607-6e020ab2e5e0`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) · [nine_complement_half_turns_the_orbit](/theorem/nine_complement_half_turns_the_orbit) · [five_is_the_developing_center](/theorem/five_is_the_developing_center) · [the_hex_center_is_empty](/theorem/the_hex_center_is_empty) · [gas_volume_walks_the_harmonic_series](/theorem/gas_volume_walks_the_harmonic_series) · [pressure_doubles_down_the_octave](/theorem/pressure_doubles_down_the_octave) · [haldane_bound_is_two_to_one](/theorem/haldane_bound_is_two_to_one) · [buddy_pair_squares_the_failure](/theorem/buddy_pair_squares_the_failure) · [thirds_rule_sums_whole](/theorem/thirds_rule_sums_whole) · [divers_and_astronauts_share_the_ladder](/theorem/divers_and_astronauts_share_the_ladder) · [the_promotion_chain_doubles_home](/theorem/the_promotion_chain_doubles_home)
+[captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) · [nine_complement_half_turns_the_orbit](/theorem/nine_complement_half_turns_the_orbit) · [five_is_the_developing_center](/theorem/five_is_the_developing_center) · [the_hex_center_is_empty](/theorem/the_hex_center_is_empty) · [gas_volume_walks_the_harmonic_series](/theorem/gas_volume_walks_the_harmonic_series) · [pressure_doubles_down_the_octave](/theorem/pressure_doubles_down_the_octave) · [haldane_bound_is_two_to_one](/theorem/haldane_bound_is_two_to_one) · [buddy_pair_squares_the_failure](/theorem/buddy_pair_squares_the_failure) · [thirds_rule_sums_whole](/theorem/thirds_rule_sums_whole) · [divers_and_astronauts_share_the_ladder](/theorem/divers_and_astronauts_share_the_ladder) · [one_image_every_architecture](/theorem/one_image_every_architecture) · [states_are_the_swap_fixed_bytes](/theorem/states_are_the_swap_fixed_bytes) · [the_page_admits_sixteen](/theorem/the_page_admits_sixteen) · [the_coin_compass_closes](/theorem/the_coin_compass_closes) · [chi_crystallises_three_genera](/theorem/chi_crystallises_three_genera) · [the_promotion_chain_doubles_home](/theorem/the_promotion_chain_doubles_home)
 
 
 ---
@@ -933,7 +942,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1459 (1540 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1468 (1549 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -951,7 +960,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1540 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1549 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

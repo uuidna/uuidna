@@ -1655,6 +1655,7 @@ states_are_the_swap_fixed_bytes 19
 the_page_admits_sixteen 19
 the_coin_compass_closes 19
 chi_crystallises_three_genera 19
+imaginings_meet_at_sixtyfour 19
 the_promotion_chain_doubles_home 19`
 
 export const CLAIMS = `bulge_exceeds_relief WGS 84
