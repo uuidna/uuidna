@@ -1,6 +1,6 @@
-# uuidna — 1358 distinct theorems under 1439 keys, 2 coins, one receipt
+# uuidna — 1365 distinct theorems under 1446 keys, 2 coins, one receipt
 
-`0a1209ad-aacb-8bd9-922e-3ddc2ef1ebc0`
+`026313ca-9d29-856d-b47f-e8422a864303`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,7 +51,7 @@ The count is MEASURED, not parsed. The generator walks the domain to compute eac
 that walk it tally what they visit, and `emit()` records the tally on the same run that validates the JS. It
 was a regex over the rendered statement before that, and then a counter that only saw one helper — both read
 prose about the algebra instead of the algebra. The ledger covers
-92,766 superpositions across 94 wings.
+93,128 superpositions across 94 wings.
 
 1. **`cube_seals_at_completeness_only`** — 3,127 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
    A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT.
@@ -63,10 +63,10 @@ prose about the algebra instead of the algebra. The ledger covers
    THE COINS, COMPUTED ACROSS EVERY ROSETTA COMBINATION.
 5. **`residues_identify_digit`** — 272 superpositions, Infinity hexbits for the two coins, in [Crt.lean](lean/Crt.lean)
    residues_identify_digit.
-6. **`mertens_squared_under_n_on_the_first_twenty`** — 230 superpositions, Infinity hexbits for the two coins, in [Clay.lean](lean/Clay.lean)
+6. **`the_cross_tells_a_ratio_from_a_convention`** — 264 superpositions, Infinity hexbits for the two coins, in [DivByZero.lean](lean/DivByZero.lean)
+   CROSSING A DIVISION SORTS IT.
+7. **`mertens_squared_under_n_on_the_first_twenty`** — 230 superpositions, Infinity hexbits for the two coins, in [Clay.lean](lean/Clay.lean)
    Riemann, through Mertens: M(n) = Σ μ(k), and |M(n)| ≤ √n — stated squared to stay in exact integers — holds for every n through 20.
-7. **`cubes_partition_ledger`** — 186 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
-   THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD.
 
 ---
 
@@ -77,9 +77,9 @@ raised to it, and the served ceiling is parsed from the guard in `src/mcp.ts` th
 
 - **16 qubits** in the library register — 65536 amplitudes held at once
 - **12 qubits** served over MCP — 4096 amplitudes, and the surface refuses more
-- **92,766 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
+- **93,128 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
 - **4 qubits** of reachability gap between the register and what is served
-- **50 quantum wing theorems**, **27 cipher wing theorems**, **1439 ledger size**
+- **50 quantum wing theorems**, **27 cipher wing theorems**, **1446 ledger size**
 
 EXACT, AND ENFORCED. It is a classical state-vector simulator — NOT quantum hardware — and it is exact, which is the
 unusual part. Every amplitude is a Gaussian integer over a common √(2^scale) — the ring ℤ[i, 1/√2] the
@@ -107,19 +107,19 @@ scale served is the scale the code enforces. Stating a bound never drains the cl
 ## Live Statistics
 
 ```
-Theorems sealed:        1439   (every one axiom-free, proven by decide)
+Theorems sealed:        1446   (every one axiom-free, proven by decide)
 Principles:             94   (the monographs the ledger organises itself by)
 Skills:                 91   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                0a1209ad-aacb-8bd9-922e-3ddc2ef1ebc0
+Receipt:                026313ca-9d29-856d-b47f-e8422a864303
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1439 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1446 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -297,7 +297,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1439 theorems sealed to ledger, every one axiom-free**
+✓ **All 1446 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**

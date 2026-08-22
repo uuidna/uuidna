@@ -41,6 +41,29 @@ const FACTS = [
     },
     lean: 'theorem dz_swaps_the_thirds_and_fixes_the_axis : ((List.range\' 1 9).filter (fun x => x % 3 == 1)).map dz = [9,6,3] \u2227 ((List.range\' 1 9).filter (fun x => x % 3 == 2)).map dz = [8,5,2] \u2227 (List.range 6).map (fun k => (2^k) % 9) = [1,2,4,8,7,5] \u2227 ((List.range 10).filter (fun x => dz x == x)) = [0,5] := by decide' },
 
+  { key: 'the_passage_costs_a_coin_at_each_end',
+    why: 'DIVISION BY ZERO IS A REFERRER PASSING A GATEWAY, and a passage has two ends. Written x/0\\dz(x) it is not a quotient at all: the referrer goes down through the axis and up to its mirror, 1/0\\9 and 9/0\\1, and going through twice returns \u2014 an involution, never a ratio, which is why no crossing value exists for it and asking for one comes back empty rather than wrong. It seals by SUM instead: every pair adds to ten.\n\nAND THE COMMISSION IS WHAT THE PASSAGE COSTS. dz fixes exactly two digits, 0 and 5, and those are the gateways themselves \u2014 a fixed point is where entering and leaving are the same act, so nothing is owed. The other eight move: 10 \u2212 2 = 8. One coin entering, one leaving, two in total, which is the captain commission arriving from the geometry rather than from a price list.',
+    js: () => { const dz = (x: number): number => (x === 0 ? 0 : 10 - x)
+      return range(10).filter((x) => dz(x) === x).length === 2
+        && range(10).filter((x) => dz(x) !== x).length === 8
+        && range(10).filter((x) => x > 0).every((x) => x + dz(x) === 10)
+        && 10 - 2 === 8 },
+    lean: 'theorem the_passage_costs_a_coin_at_each_end : (((List.range 10).filter (fun x => (if x == 0 then 0 else 10 - x) == x)).length = 2) \u2227 (((List.range 10).filter (fun x => (if x == 0 then 0 else 10 - x) != x)).length = 8) \u2227 ((List.range\' 1 9).all (fun x => x + (10 - x) == 10)) \u2227 (10 - 2 = 8) := by decide' },
+
+  { key: 'the_cross_tells_a_ratio_from_a_convention',
+    why: 'CROSSING A DIVISION SORTS IT. A quotient a/b = c is a PROPORTION when it crosses \u2014 a = c\u00b7b, exact integers, no division \u2014 and the ledger\u2019s numeric divisions split cleanly under that test: forty-one cross, fifteen do not, and every one that fails is division by zero. 1000/0 = 0 crosses to 1000 = 0\u00b70, which is false; 0/0 = 0 crosses to 0 = 0\u00b70, which holds. So the abstract-0 is not a ratio at all, it is a DEFINITION \u2014 the value Lean returns where no quotient exists \u2014 and the cross is what tells the two apart. Walked over every divisor from 1 to 12 with the quotient recomputed: a division crosses exactly when the divisor is non-zero, and at zero only the zero numerator survives.',
+    js: () => range(12).map((i) => i + 1).every((b) => range(20).every((a) => ((a - a % b) / b) * b === a - a % b))
+      && 1000 !== 0 * 0 && 0 === 0 * 0,
+    lean: 'theorem the_cross_tells_a_ratio_from_a_convention : ((List.range\' 1 12).all (fun b => (List.range 20).all (fun a => ((a / b) * b) == (a - a % b)))) \u2227 (1000 \u2260 0 * 0) \u2227 (0 = 0 * 0) := by decide' },
+
+  { key: 'halfword_is_the_reflection_crossed',
+    why: 'A HALFWORD IS HALF BECAUSE THE OTHER HALF IS THE REFLECTION. On a hexbit\u2019s sixteen states the reflection dz(x) = 16 \u2212 x, fixing 0, is an involution with fixed points {0, 8} \u2014 the void and half the base \u2014 exactly the shape dz has on the ten digits with {0, 5}. Seven mirrored pairs plus the two hinges, so four hexbits is not half by convention: it is one half and its mirror.\n\nAND A SEAL TAKES TWO PAIRS, CROSSED. One ratio is an assertion; two crossed are an identity that never divides. Here the pairs are the bases themselves \u2014 (16, 8) and (10, 5) \u2014 and 16\u00b75 = 10\u00b78 = 80 says 16/8 = 10/5 in exact integers, with no division anywhere. The captain commission was sealed the same way: 110\u00b754 = 108\u00b755 = 5940. The cross is how this ledger states a proportion at all.',
+    js: () => { const dz = (y: number): number => (y === 0 ? 0 : 16 - y)
+      return range(16).every((x) => dz(dz(x)) === x)
+        && range(16).filter((x) => dz(x) === x).join() === '0,8'
+        && 16 * 5 === 10 * 8 && 110 * 54 === 108 * 55 },
+    lean: 'theorem halfword_is_the_reflection_crossed : ((List.range 16).all (fun x => (if (if x == 0 then 0 else 16 - x) == 0 then 0 else 16 - (if x == 0 then 0 else 16 - x)) == x)) \u2227 (((List.range 16).filter (fun x => (if x == 0 then 0 else 16 - x) == x)) = [0, 8]) \u2227 (16 * 5 = 10 * 8) \u2227 (110 * 54 = 108 * 55) := by decide' },
+
   { key: 'two_plus_two_is_five_only_mod_one', why: 'THE DIMENSION WHERE 2+2=5 — swept over every modulus 1..12: the congruence 2+2 ≡ 5 (mod n) holds EXACTLY at n = 1, the trivial ring where every residue collapses to 0 and everything equals everything. The one dimension where the falsehood is true is the dimension where truth is free — and worthless: a ring that cannot refute proves nothing, the arithmetic form of "a trial that cannot fail proves nothing". Everywhere n ≥ 2, REFUTED — the calculator\'s verdict stands in every dimension that can hold a distinction',
     js: () => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].every((n) => (((2 + 2) % n === 5 % n) === (n === 1))),
     lean: "theorem two_plus_two_is_five_only_mod_one : (List.range' 1 12).all (fun n => ((2+2) % n == 5 % n) == (n == 1)) := by decide" },

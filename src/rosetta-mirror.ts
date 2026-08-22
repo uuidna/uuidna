@@ -238,6 +238,9 @@ hexbit_bit_hook_is_linear 19
 handle_carries_hexbits_and_coins 19
 captain_singularity 19
 fold_reads_by_handle_not_by_tile 19
+safe_width_is_thirteen_hexbits 19
+heartbeat_share_resolves_at_four_hexbits 19
+billing_closes_at_every_count 19
 captain_theorem 27
 two_coins 27
 coins_over_all_rosetta_combinations 19
@@ -381,6 +384,9 @@ dz_sum_ten 19
 dz_bounded 19
 dz_zero_only_zero 19
 dz_swaps_the_thirds_and_fixes_the_axis 19
+the_passage_costs_a_coin_at_each_end 19
+the_cross_tells_a_ratio_from_a_convention 19
+halfword_is_the_reflection_crossed 19
 two_plus_two_is_five_only_mod_one 19
 #Diving.lean
 trimix_fractions_sum_100 19
@@ -1513,6 +1519,7 @@ ve_twelve_vertices 19
 radial_squared_two 19
 ve_four_neighbours 19
 radial_equals_edge 19
+ve_handshake_crosses 19
 ve_twentyfour_edges 19
 ve_fourteen_faces 19
 euler_characteristic_two 19

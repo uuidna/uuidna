@@ -195,7 +195,12 @@ export function readHero(svg: string): { digits: string; carried: number; comple
   const durs = durationVars()
   const tempoKeys = Object.keys(durs)
   const order = tempoKeys.map((k) => durs[k])                       // the sealed tempi, in their sealed order
-  const nodes = [...svg.matchAll(/data-seq="(\d+)"[^]*?dur="([^"]+)"/g)]
+  // The gap between a node's data-seq and its dur is 44 characters in the SVG we emit; 200 is the slack. Bounded
+  // because readHero is exported and reads a string the caller supplies — an unbounded `[^]*?` between two anchors
+  // is quadratic on input that never completes the match, and a forged SVG is exactly the case this must survive
+  // (the forgery test feeds it one). A node spread wider than the bound is not our channel, which is the same
+  // verdict the tempo check below already returns.
+  const nodes = [...svg.matchAll(/data-seq="(\d{1,9})"[^]{0,200}?dur="([^"]{1,32})"/g)]
   const digits: string[] = []
   for (const [, seqRes, dur] of nodes) {
     const modNine = Number(seqRes)

@@ -1,7 +1,10 @@
 {
-  "modules": 407,
+  "modules": 409,
   "roots": 282,
   "supported": 407,
-  "dead": [],
-  "receipt": "345fdd3a-5253-816d-be64-0fbb7d13372f"
+  "dead": [
+    "src/tts/index.ts",
+    "src/tts/synth.ts"
+  ],
+  "receipt": "d4e72771-92c4-8890-8d58-58ef9b1c6335"
 }

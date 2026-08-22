@@ -32,7 +32,11 @@ for (const t of MCP_CATALOG) {
 }
 
 // Table-safe: escape the pipe (the cell delimiter) on top of the < > / {{ escaping safe() already does.
-const cell = (s: string): string => safe(s).replace(/\|/g, '\\|')
+// THE BACKSLASH GOES FIRST, and the order is the whole correctness argument. Escaping `|` alone means a source
+// backslash before a pipe produces `\` + `\|` — the reader sees an escaped backslash followed by a LIVE pipe, and
+// the row splits a column early. Escaping backslashes first makes the pipe's escape the only one that can be
+// consumed by something else (js/incomplete-sanitization). Reversing these two lines silently breaks the table.
+const cell = (s: string): string => safe(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
 
 // Render a tool's PARAMETERS from its JSON-schema input — name · type · required · description — so the page shows
 // how to CALL each tool, not only what it does. A tool with no inputs says so explicitly.

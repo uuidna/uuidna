@@ -850,8 +850,15 @@ export function precedeGaps(cwd: string = ROOT): Gap[] {
   }
   const staged = git('git diff --cached --name-only')
   if (!staged.length) return gaps                        // nothing armed — nothing can invert
+  // A glob becomes a regex by escaping EVERYTHING except the one metacharacter it owns. The previous form escaped
+  // only `.`, so any other regex character in a DRAIN_PATHS entry — `+`, `?`, `(`, `[` — would have been read as
+  // regex syntax rather than as itself, silently widening the match or throwing on an unbalanced bracket. No entry
+  // contains one today, which is exactly why this would have failed the day someone added the first (the split on
+  // `*` keeps the wildcard's meaning while the escape covers the rest — js/incomplete-sanitization).
+  const globToRe = (p: string): RegExp =>
+    new RegExp('^' + p.split('*').map((seg) => seg.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[^/]*') + '$')
   const isDerived = (f: string): boolean => DRAIN_PATHS.some((p) => p.includes('*')
-    ? new RegExp('^' + p.replace(/[.]/g, '\\.').replace(/[*]/g, '[^/]*') + '$').test(f)
+    ? globToRe(p).test(f)
     : f === p || f.startsWith(p + '/'))
   const stagedDerived = staged.filter(isDerived)
   if (!stagedDerived.length) return gaps
@@ -906,7 +913,10 @@ export function scriptsGaps(): Gap[] {
   for (const [name, body] of thin) {
     // `npm run <name>` / `npm run --silent <name>` / `run: npm run <name>` — the word-boundary guard keeps
     // `npm run audit` from matching `audit:packages`.
-    if (new RegExp(`npm run (?:--silent )?${name.replace(/[:.]/g, '\\$&')}(?![a-z0-9:-])`).test(haystack)) continue
+    // The script name is escaped in full, not just `:` and `.`. A name is npm's to choose, and npm allows characters
+    // that mean something to a regex — one `+` or `(` in a script name turned this guard into either a wrong match
+    // or a thrown SyntaxError, and the gap it reports would have vanished quietly (js/incomplete-sanitization).
+    if (new RegExp(`npm run (?:--silent )?${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![a-z0-9:-])`).test(haystack)) continue
     const file = /dist\/scripts\/([a-z0-9-]+)\.js/.exec(body)![1]
     gaps.push({
       what: `package.json script "${name}" is a thin wrapper around dist/scripts/${file}.js that nothing outside package.json calls`,

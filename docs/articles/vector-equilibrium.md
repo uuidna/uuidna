@@ -1,15 +1,15 @@
 ---
 title: "lean/VectorEquilibrium.lean"
-description: "Computed from lean/VectorEquilibrium.lean — 12 sealed theorems, every claim citing its proof."
+description: "Computed from lean/VectorEquilibrium.lean — 13 sealed theorems, every claim citing its proof."
 ---
 
 # lean/VectorEquilibrium.lean
 
-> THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferential vectors are Buckminster Fuller's (Synergetics, 1975). Sealed WITHOUT an irrational: placing the twelve vertices at the permutations of (±1,±1,0) makes the radial and the edge squared-lengths both exactly 2, so Fuller's defining equilibrium property is an integer identity that decides in the kernel. Twelve vertices, four neighbours each, 24 edges, 14 faces (8 triangles + 6 squares), and V − E + F = 2 — the same two as the Platonic solids, though the cuboctahedron is Archimedean and is NOT among the five in Solids.lean. Beside it, the reflection dz(x) = 10 − x: exactly two fixed points (0 and 5), an involution on all ten digits, and the measured orbit sets each closed under it — the walk alternates dz with doubling, so it carries its own mirror and reflecting a finished orbit adds nothing. integrity— each theorem seals its exact decidable arithmetic. The orbit sets are OUTPUT OF THIS REPOSITORY'S OWN WALK (src/sequence-run.ts); their closure under dz is what decides. — held by [ve_twelve_vertices](/theorem/ve_twelve_vertices) and its 11 siblings below.
+> THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferential vectors are Buckminster Fuller's (Synergetics, 1975). Sealed WITHOUT an irrational: placing the twelve vertices at the permutations of (±1,±1,0) makes the radial and the edge squared-lengths both exactly 2, so Fuller's defining equilibrium property is an integer identity that decides in the kernel. Twelve vertices, four neighbours each, 24 edges, 14 faces (8 triangles + 6 squares), and V − E + F = 2 — the same two as the Platonic solids, though the cuboctahedron is Archimedean and is NOT among the five in Solids.lean. Beside it, the reflection dz(x) = 10 − x: exactly two fixed points (0 and 5), an involution on all ten digits, and the measured orbit sets each closed under it — the walk alternates dz with doubling, so it carries its own mirror and reflecting a finished orbit adds nothing. integrity— each theorem seals its exact decidable arithmetic. The orbit sets are OUTPUT OF THIS REPOSITORY'S OWN WALK (src/sequence-run.ts); their closure under dz is what decides. — held by [ve_twelve_vertices](/theorem/ve_twelve_vertices) and its 12 siblings below.
 
-**12 theorems**, from [ve_twelve_vertices](/theorem/ve_twelve_vertices) onward, each proven `by decide` in [lean/VectorEquilibrium.lean](/lean/VectorEquilibrium.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 12 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [orbits_closed_involution](/theorem/orbits_closed_involution). A boundary stated here is decided.
+**13 theorems**, from [ve_twelve_vertices](/theorem/ve_twelve_vertices) onward, each proven `by decide` in [lean/VectorEquilibrium.lean](/lean/VectorEquilibrium.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [ve_handshake_crosses](/theorem/ve_handshake_crosses). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FVectorEquilibrium.lean)** — nothing to install. The editor fetches `lean/VectorEquilibrium.lean` from the repository and re-decides all 12 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FVectorEquilibrium.lean)** — nothing to install. The editor fetches `lean/VectorEquilibrium.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### The vector equilibrium has TWELVE vertices — every permutation of (±1,±1,0), three coordinate pairs by four sign choices. Twelve radial directions from one centre.
 The ledger holds this as [ve_twelve_vertices](/theorem/ve_twelve_vertices) — proven `by decide`, sorry-free:
@@ -37,6 +37,15 @@ The ledger holds this as [radial_equals_edge](/theorem/radial_equals_edge) — p
 
 ```lean
 VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4)
+```
+
+### THE CROSS THE VECTOR EQUILIBRIUM ALREADY CARRIES. Twelve vertices, each meeting four others; twenty-four edges, each met twice. So 12·4 = 24·2 = 48 — two pairs, crossed, and the identity holds without dividing by two anywhere. That is the handshake stated as a proportion rather than as a halving, and it is what lets the edge count be READ off the vertices instead of computed from them.
+
+NOT A FITTED PAIR. Any two numbers sharing a ratio cross, so a cross is only evidence when both pairs are quantities the figure already has: 12 and 4 are counted at the vertices, 24 and 2 at the edges, and nothing here was chosen to make the product agree. Euler holds straight alongside it — 12 + 14 = 24 + 2 — and needs no cross, because a sum is already exact.
+The ledger holds this as [ve_handshake_crosses](/theorem/ve_handshake_crosses) — proven `by decide`, sorry-free:
+
+```lean
+(12 * 4 = 24 * 2) ∧ (12 + 14 = 24 + 2) ∧ (VE.length * 4 = 24 * 2)
 ```
 
 ### Twelve vertices, four edges at each, each edge counted from both ends: 12 × 4 / 2 = 24 edges.

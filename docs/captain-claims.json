@@ -2,8 +2,8 @@
   "generated": "2026-08-22",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1439,
-  "total_theorems": 1439,
+  "total_claimed": 1446,
+  "total_theorems": 1446,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3078,6 +3078,24 @@
       "principle": "Division by zero"
     },
     {
+      "key": "the_passage_costs_a_coin_at_each_end",
+      "lineAddress": "5a66c359-8b23-8c49-9587-db75dd375bdf",
+      "address": "4c292fd3-391b-8047-8b07-92da63caaed4",
+      "principle": "Division by zero"
+    },
+    {
+      "key": "the_cross_tells_a_ratio_from_a_convention",
+      "lineAddress": "25e43367-65ab-8d7c-a9d4-60baa0e093e0",
+      "address": "4ca4b0e1-8fe4-8d18-9b67-3101f786e5d4",
+      "principle": "Division by zero"
+    },
+    {
+      "key": "halfword_is_the_reflection_crossed",
+      "lineAddress": "b3440d9f-8bb3-8265-9066-b333018e4cbd",
+      "address": "f846477a-7a51-849f-92cd-64015e73c160",
+      "principle": "Division by zero"
+    },
+    {
       "key": "two_plus_two_is_five_only_mod_one",
       "lineAddress": "55684707-46c4-8489-8d90-706a779dbdc9",
       "address": "bd46e0f6-ab95-8f91-8512-341e416fd6dc",
@@ -4131,6 +4149,24 @@
       "key": "fold_reads_by_handle_not_by_tile",
       "lineAddress": "c4fa6338-d1f8-800c-98af-4acf76bc4cb8",
       "address": "c22d5db4-1bd2-8a89-a748-a4a6308f5994",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "safe_width_is_thirteen_hexbits",
+      "lineAddress": "8815a399-17ea-8e1a-bba2-193de3662112",
+      "address": "3359e085-1e7e-8697-aff3-b9741d0427ca",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "heartbeat_share_resolves_at_four_hexbits",
+      "lineAddress": "c305febc-c100-8079-a6ac-9b6a83aacfd5",
+      "address": "1329b936-0e98-8e91-8a2b-347d563293b5",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "billing_closes_at_every_count",
+      "lineAddress": "63ec4357-7423-8e26-b2bf-2938a3064356",
+      "address": "53672a8b-6400-8dca-b8dd-33e0e36755c2",
       "principle": "The two coins & the 64"
     },
     {
@@ -8592,6 +8628,12 @@
       "principle": "lean/VectorEquilibrium.lean"
     },
     {
+      "key": "ve_handshake_crosses",
+      "lineAddress": "b06024e4-90ab-8350-909e-39f2b6daf345",
+      "address": "9c12b775-bdb2-840a-9a51-a2c49f8e42d5",
+      "principle": "lean/VectorEquilibrium.lean"
+    },
+    {
       "key": "ve_twentyfour_edges",
       "lineAddress": "61e94462-d162-89f7-b568-d8bfa567ef93",
       "address": "bf5c8a62-fe1a-8d29-b3a5-0cd134cd64b8",
@@ -8640,7 +8682,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "2e8a2e3a-bb45-8b94-ac7e-42ecec32afc6",
+  "claim_receipt": "9de1ad9b-32c1-84e7-9ede-deda9b077925",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

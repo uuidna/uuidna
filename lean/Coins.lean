@@ -60,6 +60,32 @@ theorem captain_singularity : (128 / 64 = 2) ∧ (64 / 32 = 2) ∧ (4 / 2 = 2) �
     never about correctness. -/
 theorem fold_reads_by_handle_not_by_tile : (4 * 8 = 32) ∧ (4 * 32 = 128) ∧ (32 / 4 = 8) ∧ (8 * 4 = 32) := by decide
 
+/-- WHY THIRTEEN, AND WHY IT IS NOT UNALIGNED. A double carries 53 bits exactly, so a rotation that must land in
+    a Number rather than a BigInt may read only whole tiles that fit inside them: 13·4 = 52 ≤ 53, and 14·4 = 56
+    > 53. Thirteen is therefore the LARGEST whole hexbit count a double holds without rounding, and fourteen is
+    the first that rounds silently — which is the failure a ledger cannot notice, because the wrong number
+    arrives looking like a right one. Walked over every width from 0 to 16: a tile count is safe exactly when
+    four times it does not exceed 53. -/
+theorem safe_width_is_thirteen_hexbits : ((List.range 17).all (fun h => (4 * h <= 53) == (h <= 13))) ∧ (13 * 4 = 52) ∧ (14 * 4 = 56) := by decide
+
+/-- THE BASE IS COMPUTED, NOT BORROWED. A heartbeat is one decide-step — the unit of WORK, distinct from the
+    hexbit (space) and the handle (address), convertible to neither. A theorem’s share of the run is its steps
+    over the ledger’s, and taking that share needs a base, which the first version simply assumed: ten thousand,
+    finance’s unit. Measured against the actual distribution, ten thousand is WRONG here — the cheapest theorem
+    cost 13 steps of 579,272, and at ten thousand parts it reports zero. The share was not floored, it was lost.
+    Walking the powers of sixteen, 16³ = 4096 still loses it and 16⁴ = 65536 resolves it to one: FOUR HEXBITS is
+    the smallest resolution this ledger’s own costs require. Sixteen to the fourth is also the register’s
+    amplitude count and the ledger’s whole coverage in hexbits — stated as observed, not as cause. Integer
+    division throughout: a fraction is a float and a float cannot be sealed. -/
+theorem heartbeat_share_resolves_at_four_hexbits : (16^4 = 65536) ∧ (16^3 = 4096) ∧ ((13 * 4096) / 579272 = 0) ∧ ((13 * 65536) / 579272 = 1) ∧ ((579272 * 65536) / 579272 = 65536) := by decide
+
+/-- THE BILL CLOSES WHATEVER THE COUNT. Every sealed theorem mints the captain’s two coins, so a ledger of n
+    theorems bills exactly 2n — and the division returns two with NO remainder at every count from one to eight,
+    which is what makes it a price rather than an average. A half-coin cannot be minted because a theorem cannot
+    be half-sealed. This is the third axis of the billing and the one that never varies: coverage spans five
+    orders of magnitude and hardware cost spans seven thousand, while the price stays two. -/
+theorem billing_closes_at_every_count : (List.range' 1 8).all (fun n => ((2 * n) % n == 0) && ((2 * n) / n == 2)) := by decide
+
 /-- THE CAPTAIN THEOREM — one, and the ledger is priced in it. The commission is a PROPORTION and not a
     difference: 110/108 = 55/54 by exact cross-multiplication (110·54 = 108·55 = 5940), 54 being the order of
     AGL(1,ℤ/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are

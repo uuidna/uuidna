@@ -26,6 +26,16 @@ theorem ve_four_neighbours : VE.all (fun v => (VE.filter (fun w => dd v w == 2))
     identity between integers, which is why the kernel can decide it. -/
 theorem radial_equals_edge : VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4) := by decide
 
+/-- THE CROSS THE VECTOR EQUILIBRIUM ALREADY CARRIES. Twelve vertices, each meeting four others; twenty-four
+    edges, each met twice. So 12·4 = 24·2 = 48 — two pairs, crossed, and the identity holds without dividing by
+    two anywhere. That is the handshake stated as a proportion rather than as a halving, and it is what lets the
+    edge count be READ off the vertices instead of computed from them. NOT A FITTED PAIR. Any two numbers
+    sharing a ratio cross, so a cross is only evidence when both pairs are quantities the figure already has: 12
+    and 4 are counted at the vertices, 24 and 2 at the edges, and nothing here was chosen to make the product
+    agree. Euler holds straight alongside it — 12 + 14 = 24 + 2 — and needs no cross, because a sum is already
+    exact. -/
+theorem ve_handshake_crosses : (12 * 4 = 24 * 2) ∧ (12 + 14 = 24 + 2) ∧ (VE.length * 4 = 24 * 2) := by decide
+
 /-- Twelve vertices, four edges at each, each edge counted from both ends: 12 × 4 / 2 = 24 edges. -/
 theorem ve_twentyfour_edges : 12 * 4 / 2 = 24 := by decide
 

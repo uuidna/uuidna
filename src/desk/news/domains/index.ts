@@ -55,14 +55,19 @@ export function extractMedicineFacts(article: MedicineArticle): string[] {
   const facts: string[] = []
 
   // Clinical trial results (N patients, X% efficacy)
-  const trialRegex = /(\d+)\s+patients?.*?(\d+)%\s+efficacy/gi
+  // EVERY QUANTIFIER HERE IS BOUNDED, and that is a security property, not a style choice. These extractors are
+  // exported from @uuidna/quantum, so `article.body` is CALLER input — a consumer may hand them a megabyte of
+  // whatever they like. An unbounded `\d+` or `.*?` scanned per start position is quadratic, so a long run of
+  // digits with no match becomes a hang in the caller's process (js/polynomial-redos). The bounds are far wider
+  // than any real dosage, year, or sentence gap, so nothing legible stops matching.
+  const trialRegex = /(\d{1,9})\s{1,20}patients?[^\n]{0,200}?(\d{1,3})%\s{1,20}efficacy/gi
   let match
   while ((match = trialRegex.exec(article.body)) !== null) {
     facts.push(`trial:${match[1]}:${match[2]}`)
   }
 
   // Dosages (mg, ml)
-  const dosageRegex = /(\d+)\s*(mg|ml|µg|ng)/gi
+  const dosageRegex = /(\d{1,9})\s{0,20}(mg|ml|µg|ng)/gi
   while ((match = dosageRegex.exec(article.body)) !== null) {
     facts.push(`dosage:${match[1]}:${match[2]}`)
   }
@@ -88,14 +93,14 @@ export function extractClimateFacts(article: ClimateArticle): string[] {
   const facts: string[] = []
 
   // Temperature records (±X.X°C, 32°F)
-  const tempRegex = /([-+]?\d+\.?\d*)\s*°?[CF]/gi
+  const tempRegex = /([-+]?\d{1,9}(?:\.\d{1,6})?)\s{0,20}°?[CF]/gi
   let match
   while ((match = tempRegex.exec(article.body)) !== null) {
     facts.push(`temperature:${match[1]}`)
   }
 
   // CO2 levels (ppm)
-  const co2Regex = /(\d+)\s*ppm/gi
+  const co2Regex = /(\d{1,9})\s{0,20}ppm/gi
   while ((match = co2Regex.exec(article.body)) !== null) {
     facts.push(`co2:${match[1]}`)
   }
@@ -154,14 +159,14 @@ export function extractEconomicsFacts(article: EconomicsArticle): string[] {
   const facts: string[] = []
 
   // Economic indicators (GDP, inflation, unemployment)
-  const gdpRegex = /GDP.*?(\$[\d.]+\s*(?:trillion|billion|million))/gi
+  const gdpRegex = /GDP[^\n]{0,200}?(\$[\d.]{1,20}\s{0,20}(?:trillion|billion|million))/gi
   let match
   while ((match = gdpRegex.exec(article.body)) !== null) {
     facts.push(`gdp:${match[1]}`)
   }
 
   // Inflation rate
-  const inflationRegex = /inflation.*?(\d+\.?\d*)%/gi
+  const inflationRegex = /inflation[^\n]{0,200}?(\d{1,9}(?:\.\d{1,6})?)%/gi
   while ((match = inflationRegex.exec(article.body)) !== null) {
     facts.push(`inflation:${match[1]}`)
   }

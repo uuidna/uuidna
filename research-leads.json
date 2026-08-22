@@ -1,4 +1,48 @@
 {
-  "leads": [],
-  "receipt": "345fdd3a-5253-816d-be64-0fbb7d13372f"
+  "leads": [
+    {
+      "module": "src/tts/index.ts",
+      "capability": [
+        "Utterance",
+        "compose",
+        "utterTheorem",
+        "emit",
+        "readAloud"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "033ccae3-6277-87b8-b267-94009fb305f3"
+    },
+    {
+      "module": "src/tts/synth.ts",
+      "capability": [
+        "SAMPLE_RATE",
+        "AMPLITUDE",
+        "BASE_HZ",
+        "toneOf",
+        "tone",
+        "speakHandle",
+        "wav",
+        "voiceOf"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "eff2a741-dcfa-8c13-acf8-750edb9e32f9"
+    }
+  ],
+  "receipt": "d4e72771-92c4-8890-8d58-58ef9b1c6335"
 }

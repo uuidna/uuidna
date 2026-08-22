@@ -4,6 +4,7 @@
 // cryptoAddress (SHA-256), which is collision- and preimage-resistant.
 // Licensed CC BY-NC-ND 4.0 · Attribution: Tsvetan Rouschev (ceccec@psg.bg).
 import { sha256 } from './sha256.js'
+import { COIN_HEXBITS } from './hexbit/index.js'
 
 const enc = new TextEncoder()
 const BYTE_MASK = 0xff
@@ -87,7 +88,7 @@ export function merge(a: string, b: string): string {
 
 /** A 64-bit coin (16 hex digits) minted from any content — the top 64 bits of its content-address. */
 export function coin64(text: string): string {
-  return toUuid(text).replace(/-/g, '').slice(0, 16)
+  return toUuid(text).replace(/-/g, '').slice(0, COIN_HEXBITS)   // half the uuid, from the unit
 }
 
 /** Canonical JSON of a plain object with some keys dropped and the rest key-sorted — ready for toUuid().

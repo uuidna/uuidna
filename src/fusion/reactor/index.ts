@@ -17,6 +17,9 @@
 // two coins, and refuses when the arithmetic does not close. Integrity, not truth.
 import { theorems, decidedMass, hexbitsOf, dependsOn, UUID_HEXBITS } from '../../theorems/index.js'
 import { merkleGravity } from '../../gravity/index.js'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from '../../boundary.js'
 import { vortexOrbit } from '../../address.js'
 import { seedOf } from '../../handle.js'
 import { toUuid } from '../../address.js'
@@ -198,3 +201,63 @@ export const powerOf = (): Power => {
     tail: T.filter((t) => decidedMass(t) <= 1).length,
   }
 }
+
+/** THE RATE, PER THEOREM — both sides are exactly known, so their ratio is too.
+ *
+ *  The cost is fixed and sealed: two coins per theorem, `minting_is_two_per_theorem`. The coverage is measured,
+ *  not estimated: the generator walks the domain to compute each fact and the walk is tallied on the same run
+ *  that validates it. Two exact numbers, so the rate between them is exact — and it is not a ledger-wide
+ *  average, it belongs to the theorem.
+ *
+ *  IT VARIES BY FIVE ORDERS OF MAGNITUDE. `editor_fold_injective_bounded` returns 55,986 superpositions for its
+ *  two coins; `two_coins` returns one, for the same two. Reporting only the ledger mean (32 per coin) hides
+ *  exactly that, which is why this is per-theorem and why `perCoin` sits beside the raw count rather than
+ *  replacing it. The spread is the fact, not the noise — and it is why the commission is a PROPORTION on the
+ *  whole rather than a fee per case: a per-unit price on numbers this uneven would be a different claim. */
+export interface Rate { key: string; superpositions: number; hexbits: number; coins: number; perCoin: number }
+
+export const rateOf = (t: { key: string; statement: string; cases?: number }): Rate => {
+  const superpositions = decidedMass(t as never)
+  return {
+    key: t.key,
+    superpositions,
+    hexbits: hexbitsOf(superpositions),
+    coins: COINS,
+    perCoin: (superpositions - (superpositions % COINS)) / COINS,
+  }
+}
+
+/** every theorem's rate, richest first — the whole spread, never a mean standing in for it. */
+export const rates = (): readonly Rate[] =>
+  theorems().map(rateOf).sort((a, b) => b.perCoin - a.perCoin || a.key.localeCompare(b.key))
+
+/** WHAT A THEOREM COSTS THE HARDWARE, as a fraction of the whole.
+ *
+ *  A `by decide` is settled by the kernel doing work, and lean/heartbeats.json records that work per theorem in
+ *  decide-steps, keyed by content-address. So the share of total lean time a theorem takes is not an estimate:
+ *  it is its steps over the ledger's steps, both counted.
+ *
+ *  IN BASIS POINTS, BECAUSE A FRACTION IS A FLOAT. Parts per ten thousand by integer division — no Math.*, no
+ *  rounding, and the remainder is discarded downward so a share is never overstated. A theorem below one basis
+ *  point reports zero, which is true: it costs less than a ten-thousandth of the run.
+ *
+ *  THE SPREAD IS THE POINT. The dearest theorem measured 97,467 steps and the cheapest 13 — a factor of seven
+ *  thousand at the same two-coin price. Coverage and cost are separate axes: a proof can settle a wide domain
+ *  cheaply or a single fact dearly, and only measuring both tells them apart. */
+/** SHARE_BASE is 16^4 — computed, not borrowed. Measured against this ledger's own costs: at ten thousand
+ *  parts the cheapest theorem (13 steps of 579,272) reports zero, so the share is not floored but LOST. 16^3
+ *  still loses it; 16^4 resolves it to one. Four hexbits is the smallest resolution the distribution requires. */
+export const SHARE_BASE = 16 ** 4
+
+export interface Cost { key: string; steps: number; totalSteps: number; share: number; shareBase: number; coins: number }
+
+export const costOf = (t: { key: string; address: string }): Cost => {
+  const h = JSON.parse(readFileSync(join(ROOT, 'lean', 'heartbeats.json'), 'utf8')) as { total: number; costs: Record<string, number> }
+  const steps = h.costs[t.address] ?? 0
+  const scaled = steps * SHARE_BASE
+  return { key: t.key, steps, totalSteps: h.total, share: h.total ? (scaled - (scaled % h.total)) / h.total : 0, shareBase: SHARE_BASE, coins: COINS }
+}
+
+/** every theorem's hardware share, dearest first — the whole distribution, not a mean. */
+export const costs = (): readonly Cost[] =>
+  theorems().map((t) => costOf(t)).sort((a, b) => b.steps - a.steps || a.key.localeCompare(b.key))

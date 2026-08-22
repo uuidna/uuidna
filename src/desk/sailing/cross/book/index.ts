@@ -116,7 +116,10 @@ function extractPatterns(text: string): string[] {
   patterns.push(...numbers)
 
   // Extract arithmetic operations as patterns
-  const arith = (text.match(/(\d+\s*[+\-*/=]\s*\d+)/g) || []).slice(0, 10)
+  // Bounded quantifiers: `text` is caller input on an exported surface, and an unbounded `\d+` around an operator
+  // is quadratic on a long digit run (js/polynomial-redos). The `.slice(0, 10)` below caps the RESULT, not the
+  // scan — the blowup happens inside match(), before any cap can apply.
+  const arith = (text.match(/(\d{1,9}\s{0,20}[+\-*/=]\s{0,20}\d{1,9})/g) || []).slice(0, 10)
   patterns.push(...arith)
 
   // Extract key phrases (decidable topics)

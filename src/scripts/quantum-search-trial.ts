@@ -45,8 +45,14 @@ for (const wing of wings) {
   }
   const { principle, findings, receipt } = s
   const leads = s.usable
+  // Cell text is the least trusted string this repo writes: a finding's note and source come back from the online
+  // search, not from the ledger. Backslash first, then the pipe — escaping the pipe alone leaves `\|` in the source
+  // rendering as an escaped backslash plus a LIVE delimiter, which ends the cell early and lets the rest of the note
+  // land in the next column (js/incomplete-sanitization). `source` was interpolated raw and is escaped here too;
+  // CodeQL flagged only the note, but the two strings arrive by the same road.
+  const cell = (s: string): string => String(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
   const rows = findings.map((f) =>
-    `| \`${f.address.slice(0, 8)}\` | ${f.source} | ${f.note.replace(/\|/g, '\\|')} | ${f.alone} | ${f.withBacking} |`)
+    `| \`${f.address.slice(0, 8)}\` | ${cell(f.source)} | ${cell(f.note)} | ${f.alone} | ${f.withBacking} |`)
 
   const md = `---
 title: "The search on trial: ${principle.replace(/"/g, "'")}"

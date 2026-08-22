@@ -16,6 +16,7 @@
 import { encrypt, decrypt, type Sealed } from './crypt.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
 import { merkleFold, toUuid } from './address.js'
+import { SAFE_HEXBITS } from './hexbit/index.js'
 
 /** Bounded onion depth. Each layer re-base64s the one below (~4/3× size), so depth is finite by construction. */
 export const MAX_LAYERS = 16
@@ -79,7 +80,7 @@ export const GENESIS = 'uuidna-genesis' // the chain's zeroth referer — toUuid
 
 /** Rotate a receipt (uuid) to a non-negative step: the first 13 hex nibbles (52 bits, a safe integer). Content-
  *  derived and deterministic, so the same referer always rotates to the same step, and distinct links differ. */
-const stepOf = (referer: string): number => parseInt(referer.replace(/-/g, '').slice(0, 13), 16)
+const stepOf = (referer: string): number => parseInt(referer.replace(/-/g, '').slice(0, SAFE_HEXBITS), 16)
 
 /** sealChain(messages, passphrases[, genesis]) → a forward-linked (ratcheting) stream. Each message onion-seals
  *  at a step ROTATED from the prior link's receipt (the referer), so every step is fresh and the whole stream is

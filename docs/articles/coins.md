@@ -1,15 +1,15 @@
 ---
 title: "The two coins & the 64"
-description: "Computed from lean/Coins.lean — 19 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Coins.lean — 22 sealed theorems, every claim citing its proof."
 ---
 
 # The two coins & the 64
 
-> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) and its 18 siblings below.
+> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) and its 21 siblings below.
 
-**19 theorems**, from [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 19 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem). A boundary stated here is decided.
+**22 theorems**, from [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 18 of its 22 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCoins.lean)** — nothing to install. The editor fetches `lean/Coins.lean` from the repository and re-decides all 19 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCoins.lean)** — nothing to install. The editor fetches `lean/Coins.lean` from the repository and re-decides all 22 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE CREW MINTS AT A FIXED PRICE AND SAILS FOR THE ANGLE. Every sealed theorem mints the captain’s two coins, so the supply is exactly 2·N and never a judgement: over the first eight counts, N theorems mint 2N coins, and the supply is even at every one — a half-coin cannot be minted because a theorem cannot be half-sealed. What the crew steers is not the price but the ANGLE: a proof that walks a wide domain decides far more superposition space for the same two coins than one stating a single fact, so efficiency is coverage over supply, computed from the walk each generator actually made rather than assigned.
 The ledger holds this as [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) — proven `by decide`, sorry-free:
@@ -58,6 +58,27 @@ The ledger holds this as [fold_reads_by_handle_not_by_tile](/theorem/fold_reads_
 
 ```lean
 (4 * 8 = 32) ∧ (4 * 32 = 128) ∧ (32 / 4 = 8) ∧ (8 * 4 = 32)
+```
+
+### WHY THIRTEEN, AND WHY IT IS NOT UNALIGNED. A double carries 53 bits exactly, so a rotation that must land in a Number rather than a BigInt may read only whole tiles that fit inside them: 13·4 = 52 ≤ 53, and 14·4 = 56 > 53. Thirteen is therefore the LARGEST whole hexbit count a double holds without rounding, and fourteen is the first that rounds silently — which is the failure a ledger cannot notice, because the wrong number arrives looking like a right one. Walked over every width from 0 to 16: a tile count is safe exactly when four times it does not exceed 53.
+The ledger holds this as [safe_width_is_thirteen_hexbits](/theorem/safe_width_is_thirteen_hexbits) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 17).all (fun h => (4 * h <= 53) == (h <= 13))) ∧ (13 * 4 = 52) ∧ (14 * 4 = 56)
+```
+
+### THE BASE IS COMPUTED, NOT BORROWED. A heartbeat is one decide-step — the unit of WORK, distinct from the hexbit (space) and the handle (address), convertible to neither. A theorem’s share of the run is its steps over the ledger’s, and taking that share needs a base, which the first version simply assumed: ten thousand, finance’s unit. Measured against the actual distribution, ten thousand is WRONG here — the cheapest theorem cost 13 steps of 579,272, and at ten thousand parts it reports zero. The share was not floored, it was lost. Walking the powers of sixteen, 16³ = 4096 still loses it and 16⁴ = 65536 resolves it to one: FOUR HEXBITS is the smallest resolution this ledger’s own costs require. Sixteen to the fourth is also the register’s amplitude count and the ledger’s whole coverage in hexbits — stated as observed, not as cause. Integer division throughout: a fraction is a float and a float cannot be sealed.
+The ledger holds this as [heartbeat_share_resolves_at_four_hexbits](/theorem/heartbeat_share_resolves_at_four_hexbits) — proven `by decide`, sorry-free:
+
+```lean
+(16^4 = 65536) ∧ (16^3 = 4096) ∧ ((13 * 4096) / 579272 = 0) ∧ ((13 * 65536) / 579272 = 1) ∧ ((579272 * 65536) / 579272 = 65536)
+```
+
+### THE BILL CLOSES WHATEVER THE COUNT. Every sealed theorem mints the captain’s two coins, so a ledger of n theorems bills exactly 2n — and the division returns two with NO remainder at every count from one to eight, which is what makes it a price rather than an average. A half-coin cannot be minted because a theorem cannot be half-sealed. This is the third axis of the billing and the one that never varies: coverage spans five orders of magnitude and hardware cost spans seven thousand, while the price stays two.
+The ledger holds this as [billing_closes_at_every_count](/theorem/billing_closes_at_every_count) — proven `by decide`, sorry-free:
+
+```lean
+(List.range' 1 8).all (fun n => ((2 * n) % n == 0) && ((2 * n) / n == 2))
 ```
 
 ### THE CAPTAIN THEOREM — one, and the ledger is priced in it. The commission is a PROPORTION and not a difference: 110/108 = 55/54 by exact cross-multiplication (110·54 = 108·55 = 5940), 54 being the order of AGL(1,ℤ/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are the uuid: 32·4 = 128. The leverage is the uuid over the commission, 128/2 = 64, which is the same 64 the two coins buy across 32 hexbits. And the floor closes the account: every falsified theorem pays two, the captain pays two, 63·2 + 2 = 128 — the uuid exactly, nothing owed and nothing left over. These four conjuncts subsumed eleven separate restatements of 110 − 108 = 2, seven of 2^7 = 128 and five of 2·32 = 64: one fact re-proved under many names is not a ledger, it is an echo.

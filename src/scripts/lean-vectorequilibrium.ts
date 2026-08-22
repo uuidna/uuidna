@@ -72,6 +72,11 @@ const FACTS = [
     js: () => VE.every((v) => norm2(v) === 2) && VE.every((v) => VE.filter((w) => d2(v, w) === 2).length === 4),
     lean: 'theorem radial_equals_edge : VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4) := by decide' },
 
+  { key: 've_handshake_crosses',
+    why: 'THE CROSS THE VECTOR EQUILIBRIUM ALREADY CARRIES. Twelve vertices, each meeting four others; twenty-four edges, each met twice. So 12\u00b74 = 24\u00b72 = 48 \u2014 two pairs, crossed, and the identity holds without dividing by two anywhere. That is the handshake stated as a proportion rather than as a halving, and it is what lets the edge count be READ off the vertices instead of computed from them.\n\nNOT A FITTED PAIR. Any two numbers sharing a ratio cross, so a cross is only evidence when both pairs are quantities the figure already has: 12 and 4 are counted at the vertices, 24 and 2 at the edges, and nothing here was chosen to make the product agree. Euler holds straight alongside it \u2014 12 + 14 = 24 + 2 \u2014 and needs no cross, because a sum is already exact.',
+    js: () => 12 * 4 === 24 * 2 && 12 + 14 === 24 + 2 && 48 === 12 * 4,
+    lean: 'theorem ve_handshake_crosses : (12 * 4 = 24 * 2) \u2227 (12 + 14 = 24 + 2) \u2227 (VE.length * 4 = 24 * 2) := by decide' },
+
   { key: 've_twentyfour_edges',
     why: 'Twelve vertices, four edges at each, each edge counted from both ends: 12 × 4 / 2 = 24 edges.',
     js: () => (12 * 4) / 2 === 24,

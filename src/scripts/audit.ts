@@ -74,8 +74,12 @@ for (const page of builtPages) {
   let html
   try { html = rd(page) } catch { continue }
   const visible = html
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    // `</script >` is a legal end tag — HTML permits whitespace before the closing angle. Matching only `</script>`
+    // left such a block unstripped, so its JavaScript source would have been counted as VISIBLE PROSE and audited
+    // as if a human wrote it (js/bad-tag-filter). The audit reads generated pages, so this is a correctness bug in
+    // what the audit measures rather than a way in for an attacker.
+    .replace(/<script[\s\S]*?<\/script\s*>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style\s*>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&[a-z#0-9]+;/gi, ' ')
     .replace(/\s+/g, ' ')
