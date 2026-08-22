@@ -2,7 +2,7 @@
   "coins": {
     "src/theorems/generated.ts": "94cc381b6e4d85b8",
     "lean/PRINCIPLE.md": "6fa09ef32df38e06",
-    "CHANGELOG.md": "06e588065b078628",
+    "CHANGELOG.md": "5f4dce985de68458",
     "lean/axioms.json": "b8d301e6da3883df",
     "docs/mcp.md": "cef79c3a8c008b3f",
     "audit-citations.json": "e21843913f2a854f",
@@ -1573,5 +1573,5 @@
     "lean/vectorequilibrium-manifest.json": "9c1b28476c0c864f",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd"
   },
-  "receipt": "59682936-7ccd-87e1-ab54-a7f2d4b5e72c"
+  "receipt": "b7576f38-328a-82e4-933b-c8bc79eab46b"
 }
