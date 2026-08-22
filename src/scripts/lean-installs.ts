@@ -24,7 +24,10 @@ import { routeOf, compileToHexbits, portFrom, buildOrder } from '../quantum/os/i
 import { INSTALLS_MIRROR, type InstallsMirror } from '../quantum/os/mirror.js'
 
 // ── always latest: refresh the mirror at the boundary, best-effort, then seal from the SAME data ─────────────
-const live = await fetchDefaultInstalls()
+// EXCEPT under UUIDNA_PROVE_ALL: the gate's re-prove verifies the COMMITTED world — a live refresh inside the
+// gate is nondeterminism in the one place determinism is the whole point (the models feed proved it by
+// breaking spin mid-walk; Alpine moves slower but the law is the same). Tracking upstream = reconcile's act.
+const live = process.env.UUIDNA_PROVE_ALL ? null : await fetchDefaultInstalls()
 const data: InstallsMirror = live ?? INSTALLS_MIRROR
 if (live) {
   const rendered = renderMirror(live)

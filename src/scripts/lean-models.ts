@@ -20,7 +20,11 @@ import { modelComparison, foldLlm, TOKEN_BYTES, HEXBITS_PER_TOKEN, UUID_TEXT_CHA
 import { MODELS_MIRROR, type ModelsMirror } from '../quantum/models/mirror.js'
 
 // ── always live: refresh the mirror at the boundary, best-effort, then seal from the SAME data ───────────────
-const live = await fetchPublicModels()
+// EXCEPT under UUIDNA_PROVE_ALL: the gate's re-prove verifies the COMMITTED world, and the public feed moves
+// constantly — a fetch inside the gate rewrote the mirror mid-walk and broke spin's seal every time (found
+// 2026-08-22, five blocked pushes deep). Tracking upstream is the deliberate reconcile's act; verification
+// proves what is, not what just changed.
+const live = process.env.UUIDNA_PROVE_ALL ? null : await fetchPublicModels()
 const data: ModelsMirror = live ?? MODELS_MIRROR
 if (live) {
   const rendered = renderModelsMirror(live)
