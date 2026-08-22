@@ -9,6 +9,7 @@
 // holder is dead is reclaimed on the next acquire; no Date, no timeout, no guess. The CLI stores the PARENT
 // pid (process.ppid), because in an `a && b && c` chain each link is its own short-lived process while the
 // shell running the chain lives exactly as long as the work does.
+import { execSync } from 'node:child_process'
 import { readFileSync, writeFileSync, unlinkSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
@@ -19,6 +20,18 @@ export interface Writer { pid: number; purpose: string }
 export const LOCK_PATH = join(ROOT, '.uuidna-writer.lock')
 
 const alive = (pid: number): boolean => { try { process.kill(pid, 0); return true } catch { return false } }
+
+// isAncestor(holder, pid) → walk pid's ppid chain (ps, macOS has no /proc) until init; the holder passing its
+// OWN descendants is lead 91's reentrancy: land holds the tree, land's reconcile child may write — a stranger
+// still may not. Deterministic, clockless; a failed ps reads as "not an ancestor" (refuse, never guess).
+const isAncestor = (holder: number, pid: number): boolean => {
+  let p = pid
+  for (let hop = 0; hop < 32 && p > 1; hop++) {
+    if (p === holder) return true
+    try { p = Number(execSync(`ps -o ppid= -p ${p}`, { encoding: 'utf8' }).trim()) || 0 } catch { return false }
+  }
+  return p === holder
+}
 
 /** currentWriter(path) → the LIVE holder, or null (no lock, unreadable lock, or a holder whose pid is dead —
  *  a dead holder is stale by definition, whatever the file says). */
@@ -39,7 +52,12 @@ export function acquire(purpose: string, pid: number, path = LOCK_PATH): { ok: t
       return { ok: true }
     } catch {
       const holder = currentWriter(path)
-      if (holder) return { ok: false, holder }
+      if (holder) {
+        // lead 91's reentrancy: the holder's own descendant passes (the lock stays the ANCESTOR's — nothing
+        // is rewritten, and the child's release is refused by the holder check, so the parent still lets go)
+        if (isAncestor(holder.pid, pid)) return { ok: true }
+        return { ok: false, holder }
+      }
       try { unlinkSync(path) } catch { /* raced another reclaim — the retry decides */ }
     }
   }
