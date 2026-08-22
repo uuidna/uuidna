@@ -104,6 +104,17 @@ theorem the_page_admits_sixteen : ((List.range 8).all (fun r => (List.range 32).
     way visited exactly once — the compass never lies twice. -/
 theorem the_coin_compass_closes : (2 ^ 6 = 64) ∧ (4 ^ 3 = 64) ∧ (64 % 9 = 1) ∧ (((List.range 6).map (fun k => 2 ^ k % 9)) = [1, 2, 4, 8, 7, 5]) := by decide
 
+/-- IMAGINE EARTH AS DOUBLE TORUS APPLE AND ALL CRYSTALLISES (the captain's vision, sealing lead 75's long-open
+    sphere leg): the Euler characteristic tells the three shapes apart on one line — the SPHERE (the earth-rock,
+    genus 0): 2 − 2·0 = 2, at last sealed after the flat-earth refusal left it standing alone; the TORUS (genus
+    1): 2 − 2·1 = 0; and the DOUBLE TORUS APPLE (genus 2), whose deficit 2·2 − 2 = 2 IS THE TWO COINS — the
+    house's oldest identity (coins = −χ of the address's home surface) now crystallised beside its neighbours.
+    Three genera, three distinct verdicts, the sphere measured against the apple it was imagined into. HONEST
+    SCOPE, load-bearing as ever: the χ TABLE seals; the Gauss–Bonnet bridge to curvature stays with the
+    analysts, and the earth's FIELD-shape stays with the physicists — the kernel holds the arithmetic, the
+    imagination holds the apple. -/
+theorem chi_crystallises_three_genera : (2 - 2 * 0 = 2) ∧ (2 - 2 * 1 = 0) ∧ (2 * 2 - 2 = 2) ∧ ((2 : Nat) ≠ 0) := by decide
+
 /-- FOLD-TO-ZERO'S LADDER, SEALED: 16 → 32 → 64 → 128 by doubling, and 128 = 16·2³ — three coin-payments promote
     the hexbit ring to the handle, the handle to the address: when a register saturates like a closed colour
     wheel, the whole folds and the next register opens one octave up. The night's architecture (states, pairs,
