@@ -464,8 +464,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000006006",
-   "completionPrice": "0.00000012012"
+   "promptPrice": "0.00000005866",
+   "completionPrice": "0.00000011732"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -492,8 +492,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.000001188",
-   "completionPrice": "0.000003564"
+   "promptPrice": "0.000001122",
+   "completionPrice": "0.000003366"
   },
   {
    "id": "dots-studio/dots-3-note-preview:free",
@@ -2494,8 +2494,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.8-27b",
    "name": "Qwen: Qwen3.8 27B",
    "contextTokens": 1000000,
-   "promptPrice": "0.00000045",
-   "completionPrice": "0.0000032"
+   "promptPrice": "0.0000004",
+   "completionPrice": "0.000003"
   },
   {
    "id": "qwen/qwen3.8-max",

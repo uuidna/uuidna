@@ -45,7 +45,10 @@ console.log('reconcile — the guard first, because a reconcile on an unforged l
 run('node dist/scripts/guard.js')
 
 console.log('reconcile — regenerating the derived layer to match the Lean source …')
-run('npm run lean')                                   // generated.ts + PRINCIPLE.md + CHANGELOG — verifies every proof
+// UUIDNA_TRACK_LATEST: reconcile is THE deliberate upstream-tracking act — its lean step refreshes the
+// committed mirrors (Alpine, the model feed) and commits what moved in the same run. Every other lean is
+// OFFLINE by default: a moving public feed under a plain lean dirtied the tree mid-gate all day 2026-08-22.
+run('UUIDNA_TRACK_LATEST=1 npm run lean')             // generated.ts + PRINCIPLE.md + CHANGELOG — verifies every proof
 run('node dist/scripts/one-receipt.js coherent || { rm -rf dist; npm run build; node dist/scripts/one-receipt.js coherent; }') // SELF-HEAL the mixed-dist class (interleaved writers on the shared tree): probe every dist import against dist/index.js; on drift, one clean emit — the known total cure — then re-probe. The wrapper no longer dies mid-chain on a stale export.
 run('npm run build')                                  // REBUILD dist from the fresh generated.ts, so the downstream generators (gen-mcp/gen-readme/heartbeats/account) read the CURRENT ledger— else a new domain's theorems are missing from heartbeats and accounting fails at the pre-push gate
 // ONE LIST, NOT TWO. reconcile listed nine generators by hand while generate.ts's manifest ran eighteen, so the

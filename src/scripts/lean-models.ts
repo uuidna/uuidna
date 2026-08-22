@@ -24,7 +24,7 @@ import { MODELS_MIRROR, type ModelsMirror } from '../quantum/models/mirror.js'
 // constantly — a fetch inside the gate rewrote the mirror mid-walk and broke spin's seal every time (found
 // 2026-08-22, five blocked pushes deep). Tracking upstream is the deliberate reconcile's act; verification
 // proves what is, not what just changed.
-const live = process.env.UUIDNA_PROVE_ALL ? null : await fetchPublicModels()
+const live = process.env.UUIDNA_TRACK_LATEST ? await fetchPublicModels() : null
 const data: ModelsMirror = live ?? MODELS_MIRROR
 if (live) {
   const rendered = renderModelsMirror(live)
