@@ -239,7 +239,8 @@ export function writeMirror(rows: readonly Rosetta[]): { changed: boolean; refus
   return { changed: true, refused: [] }
 }
 
-if (process.argv[1] && /rosetta\.(js|ts)$/.test(process.argv[1])) {
+const argvm = (globalThis as { process?: { argv: string[] } }).process?.argv // the edge has no process; the CLI block below simply never runs there
+if (argvm?.[1] && /rosetta\.(js|ts)$/.test(argvm[1])) {
   const rows = census()
   const key = process.argv.indexOf('--key') >= 0 ? process.argv[process.argv.indexOf('--key') + 1] : null
 
