@@ -24,12 +24,49 @@
 import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRoute } from 'vitepress'
 import { quantumAura } from '../../../dist/index.js'
-import { pickVoice, pitchFromRay, createReadAloudController } from './readAloudLogic.js'
+import {
+  pickVoice, pitchFromRay, createReadAloudController,
+  languagesOf, dialectsOf, canonicalTag, localeHandleOf, encodeLocale, decodeLocale,
+} from './readAloudLogic.js'
 
 const route = useRoute()
 const supported = ref(false)
 const state = ref('idle') // idle | reading | paused
 const status = ref('')
+
+// LANGUAGE AND DIALECT ARE THE READER'S CHOICE, and the choice is an address. The menus are computed from the
+// voices this browser actually has (readAloudLogic.languagesOf/dialectsOf — seven sealed rays first); the pick
+// persists as { tag, handle } and syncs by the storage event, so every tab and the installed PWA window follow
+// one verified preference. An empty selection means "the page's own language", exactly as before this control.
+const LOCALE_KEY = 'uuidna-read-aloud-locale'
+const voiceList = ref([])
+const lang = ref('')
+const dialect = ref('')
+const languages = computed(() => languagesOf(voiceList.value))
+const dialects = computed(() => (lang.value ? dialectsOf(voiceList.value, lang.value) : []))
+const chosenTag = computed(() => dialect.value || lang.value || (typeof document !== 'undefined' && document.documentElement.lang) || 'en')
+const chosenHandle = computed(() => localeHandleOf(chosenTag.value))
+
+const refreshVoices = () => {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return
+  voiceList.value = window.speechSynthesis.getVoices().map((v) => ({ name: v.name, lang: v.lang, default: v.default }))
+}
+
+const applyStored = (raw) => {
+  const stored = decodeLocale(raw) // recomputed before honoured — a preference that does not verify is ignored
+  if (!stored) return
+  lang.value = stored.tag.split('-')[0]
+  dialect.value = stored.tag.includes('-') ? stored.tag : ''
+}
+
+const saveLocale = () => {
+  try { window.localStorage.setItem(LOCALE_KEY, JSON.stringify(encodeLocale(chosenTag.value))) } catch { /* storage denied — session-only */ }
+}
+
+const onStorage = (e) => { if (e.key === LOCALE_KEY) applyStored(e.newValue) }
+
+const onPickLanguage = () => { dialect.value = ''; saveLocale() }
+const onPickDialect = () => { saveLocale() }
 
 // The controller (readAloudLogic.ts) owns the actual state machine — unit-tested (readAloudLogic.test.ts, wired
 // into `npm run test:docs`/audit) with a fake speechSynthesis, including the two things that shipped unverified
@@ -52,8 +89,8 @@ const pageText = () => {
 
 const currentVoice = () => {
   if (typeof window === 'undefined' || !window.speechSynthesis) return null
-  const voices = window.speechSynthesis.getVoices().map((v) => ({ name: v.name, lang: v.lang, default: v.default }))
-  const chosen = pickVoice(voices, document.documentElement.lang || 'en')
+  refreshVoices()
+  const chosen = pickVoice(voiceList.value, chosenTag.value)
   if (!chosen) return null
   return window.speechSynthesis.getVoices().find((v) => v.name === chosen.name) || null
 }
@@ -87,15 +124,23 @@ onMounted(() => {
       (s) => { state.value = s.phase; status.value = s.status },
     )
     // getVoices() often returns [] until the browser loads them asynchronously — prime it now so the FIRST click
-    // already has the full voice list, not just whatever happened to be ready synchronously.
-    window.speechSynthesis.getVoices()
-    window.speechSynthesis.addEventListener?.('voiceschanged', () => window.speechSynthesis.getVoices(), { once: true })
+    // already has the full voice list, and refresh the locale menus whenever the list actually lands.
+    refreshVoices()
+    window.speechSynthesis.addEventListener?.('voiceschanged', refreshVoices)
+    applyStored(window.localStorage?.getItem(LOCALE_KEY) ?? null)
+    window.addEventListener('storage', onStorage) // the PWA's own sync: other tabs' verified writes arrive here
   }
 })
 
 // Never let a page keep talking after the reader has navigated away from it.
 watch(() => route.path, stop)
-onBeforeUnmount(stop)
+onBeforeUnmount(() => {
+  stop()
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('storage', onStorage)
+    window.speechSynthesis?.removeEventListener?.('voiceschanged', refreshVoices)
+  }
+})
 </script>
 
 <template>
@@ -106,6 +151,22 @@ onBeforeUnmount(stop)
     <button v-if="state !== 'idle'" type="button" class="ra-btn ra-stop" @click="stop">
       <span aria-hidden="true">⏹</span> Stop
     </button>
+    <label v-if="languages.length > 1" class="ra-pick">
+      <span class="ra-pick-label">Language</span>
+      <select v-model="lang" class="ra-select" @change="onPickLanguage" :title="'locale handle ' + chosenHandle">
+        <option value="">Page language</option>
+        <option v-for="l in languages" :key="l" :value="l">{{ l }}</option>
+      </select>
+    </label>
+    <label v-if="dialects.length > 1" class="ra-pick">
+      <span class="ra-pick-label">Dialect</span>
+      <!-- option VALUES are canonical (the handle's spelling); the label keeps the tag's familiar casing.
+           A stored canonical preference must match an option value exactly, or a restore lands on blank. -->
+      <select v-model="dialect" class="ra-select" @change="onPickDialect" :title="'locale handle ' + chosenHandle">
+        <option value="">Any</option>
+        <option v-for="d in dialects" :key="d" :value="canonicalTag(d)">{{ d }}</option>
+      </select>
+    </label>
     <span class="ra-status" role="status" aria-live="polite">{{ status }}</span>
   </div>
 </template>
@@ -120,6 +181,13 @@ onBeforeUnmount(stop)
 .ra-btn:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 .ra-btn:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 2px; }
 .ra-stop { color: var(--vp-c-text-2); }
+.ra-pick { display: inline-flex; align-items: center; gap: .3rem; font-size: .78rem; color: var(--vp-c-text-2); }
+.ra-pick-label { font-weight: 600; }
+.ra-select {
+  font-size: .78rem; padding: .25rem .4rem; border-radius: 6px; cursor: pointer;
+  background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-text-2); color: var(--vp-c-text-1);
+}
+.ra-select:focus-visible { outline: 2px solid var(--vp-c-brand-1); outline-offset: 2px; }
 /* visually hidden but announced — the live status is for assistive tech, not a visible line of text */
 .ra-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0,0,0,0); white-space: nowrap; border: 0; }

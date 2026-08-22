@@ -159,3 +159,61 @@ test('an utterance error stops reading rather than hanging silently', () => {
   assert.equal(c.getState().phase, 'idle')
   assert.equal(c.getState().status, 'Reading stopped — a speech error occurred.')
 })
+
+// ——— language & dialect selection, and the handle the choice collides to ———
+import { languagesOf, dialectsOf, canonicalTag, localeHandleOf, encodeLocale, decodeLocale } from './readAloudLogic.ts'
+
+const POLYGLOT: VoiceLike[] = [
+  { name: 'Samantha', lang: 'en-US', default: false },
+  { name: 'Kate', lang: 'en-GB', default: false },
+  { name: 'Daria', lang: 'bg-BG', default: false },
+  { name: 'Anna', lang: 'de-DE', default: false },
+  { name: 'Petra', lang: 'de-CH', default: false },
+  { name: 'Amelie', lang: 'fr-CA', default: false },
+  { name: 'Monica', lang: 'es-ES', default: false },
+  { name: 'Milena', lang: 'ru-RU', default: false },
+  { name: 'Tingting', lang: 'zh-CN', default: false },
+  { name: 'Meijia', lang: 'zh_TW', default: false },   // underscore on purpose — some engines report it
+  { name: 'Alva', lang: 'sv-SE', default: false },     // a tongue the grid does not project
+]
+
+test('languagesOf lists the seven rays first, in sealed order, then the rest alphabetically', () => {
+  assert.deepEqual(languagesOf(POLYGLOT), ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh', 'sv'])
+})
+
+test('languagesOf offers only languages a voice can actually speak', () => {
+  assert.deepEqual(languagesOf([{ name: 'Kate', lang: 'en-GB', default: false }]), ['en'])
+  assert.deepEqual(languagesOf([]), [])
+})
+
+test('dialectsOf lists the installed dialects of one language, hyphen-canonical, alphabetical', () => {
+  assert.deepEqual(dialectsOf(POLYGLOT, 'zh'), ['zh-CN', 'zh-TW'])
+  assert.deepEqual(dialectsOf(POLYGLOT, 'de'), ['de-CH', 'de-DE'])
+})
+
+test('pickVoice respects the dialect before the language — en-GB never loses to a curated en-US voice', () => {
+  // Samantha is first in the curated en list; the old primary-subtag filter would return her for en-GB
+  assert.equal(pickVoice(POLYGLOT, 'en-GB')?.name, 'Kate')
+  assert.equal(pickVoice(POLYGLOT, 'de-CH')?.name, 'Petra')
+  // no exact dialect installed → the language still speaks, rather than silence
+  assert.equal(pickVoice(POLYGLOT, 'de-AT')?.name, 'Anna')
+})
+
+test('every linear spelling of a locale collides to one hexbit handle', () => {
+  const h = localeHandleOf('en-GB')
+  assert.match(h, /^[0-9a-f]{8}$/)
+  for (const spelling of ['en-gb', 'EN-GB', 'en_GB', 'En_gB']) {
+    assert.equal(localeHandleOf(spelling), h, `${spelling} is the same locale, so the same handle`)
+  }
+  assert.notEqual(localeHandleOf('en-US'), h, 'a different dialect is a different handle')
+  assert.equal(canonicalTag('EN_gb'), 'en-gb')
+})
+
+test('the stored locale is verified by recomputation — what does not recompute is discarded', () => {
+  const good = JSON.stringify(encodeLocale('bg-BG'))
+  assert.deepEqual(decodeLocale(good), { tag: 'bg-bg', handle: localeHandleOf('bg-bg') }, 'a verified preference round-trips canonical')
+  const forged = JSON.stringify({ tag: 'bg-bg', handle: '00000000' })
+  assert.equal(decodeLocale(forged), null, 'a handle that does not recompute is not a preference')
+  assert.equal(decodeLocale('not json'), null)
+  assert.equal(decodeLocale(null), null)
+})
