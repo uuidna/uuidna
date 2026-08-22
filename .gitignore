@@ -8,3 +8,4 @@ handles.js
 .DS_Store
 .wrangler/
 *.mcpb
+.uuidna-writer.lock

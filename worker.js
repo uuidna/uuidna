@@ -148,21 +148,29 @@ export default {
     // MCP presentable as a page); a CLIENT gets the JSON discovery document. Connect to https://uuidna.com/mcp
     // (Streamable HTTP). One path, two honest readings — the page for people, the protocol for machines.
     if (licensed && url.pathname === '/mcp') {
+      // CORS, on THIS route only: the wire is READ-ONLY and every call passes the sealed gate, so a browser
+      // anywhere is a first-class client — the site's own terminal (quantum/apps/terminal) computes on this
+      // wire from wherever it is previewed, and a web MCP client connects without a proxy. The open origin
+      // grants no write anything: there is nothing here to write.
+      const cors = { 'access-control-allow-origin': '*', 'access-control-allow-methods': 'GET, POST, OPTIONS', 'access-control-allow-headers': 'content-type' }
+      const mjson = (obj, status = 200) =>
+        new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', ...cors } })
+      if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors })
       if (request.method === 'GET') {
         if ((request.headers.get('accept') || '').includes('text/html')) return env.ASSETS.fetch(request)
-        return json({ server: 'uuidna', transport: 'streamable-http (JSON-RPC 2.0)', protocolVersion: MCP_HTTP_PROTOCOL, endpoint: `${url.origin}/mcp`, tools: mcpHttpToolNames(),
+        return mjson({ server: 'uuidna', transport: 'streamable-http (JSON-RPC 2.0)', protocolVersion: MCP_HTTP_PROTOCOL, endpoint: `${url.origin}/mcp`, tools: mcpHttpToolNames(),
           note: 'POST a JSON-RPC message here (initialize · tools/list · tools/call · ping). Read-only, stateless, the Workers-safe subset of the full `npx @uuidna/uuidna` stdio catalog. Integrity, not truth.' })
       }
       if (request.method !== 'POST')
-        return json({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'POST a JSON-RPC message to /mcp (or GET for discovery)' } }, 405)
+        return mjson({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'POST a JSON-RPC message to /mcp (or GET for discovery)' } }, 405)
       let msg
-      try { msg = await request.json() } catch { return json({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
+      try { msg = await request.json() } catch { return mjson({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
       if (Array.isArray(msg)) {                                   // a JSON-RPC batch
         const out = msg.map(handleMcpRpc).filter(Boolean)
-        return out.length ? json(out) : new Response(null, { status: 202 })
+        return out.length ? mjson(out) : new Response(null, { status: 202, headers: cors })
       }
       const res = handleMcpRpc(msg)
-      return res ? json(res) : new Response(null, { status: 202 })  // a notification → 202, no body
+      return res ? mjson(res) : new Response(null, { status: 202, headers: cors })  // a notification → 202, no body
     }
 
     // THE CONTENT-ADDRESS DOOR — /<handle> (first 8 hex of a proof's address) resolves to its theorem on the spot,

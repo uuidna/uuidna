@@ -18,6 +18,15 @@ isn't a claim about what was said; it's a **recomputable chain** anyone can rech
 theorems and the tools, not a model's fluency — which is why a uuidna answer can be *verified*, not just trusted.
 Browse the [64 MCP tools](/mcp); connect the server and every turn you take is receipted.
 
+**Have that conversation here.** The terminal below IS the agents' chat, live: every line is a tool call on
+the same wire (`/mcp`), through the same gate, depositing the same two coins — and a plain sentence routes to
+the matching tool **deterministically**, by content words against the live-learned toolbox
+([`llm_folds_to_hexbit_pairs`](/theorem/llm_folds_to_hexbit_pairs) holds the fold; there is still no language
+model on this page, and the router shows its reasoning instead of guessing). The same singularity app serves
+[/terminal](/terminal); the transcript compiles to the lattice as you type:
+
+<UuidnaTerminal />
+
 **A trial is authoritative only when signed by uuidna.com.** Send a claim to the live `uuidna.com/trials` and it
 comes back with a `signature` — an HMAC keyed by a secret only uuidna.com holds. A fork running the same public code
 recomputes the *same* verdict (that is the strength), but it **cannot forge the signature**, so it cannot pass its

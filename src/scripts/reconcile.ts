@@ -14,6 +14,7 @@
 import { execSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT, stageDerived } from './api.js'
+import { acquire, release } from './one-writer.js'
 
 const run = (cmd: string): void => { console.log('  · ' + cmd); execSync(cmd, { stdio: 'inherit' }) }
 const out = (cmd: string): string => execSync(cmd).toString().trim()
@@ -29,6 +30,17 @@ const msg = process.argv.slice(2).filter((a) => a !== '--derive-only').join(' ')
 // the shape of every crack this tree folds into a finder. The gate DOES run later, inside the pre-push hook, but by
 // then reconcile has already spent `npm run lean` and the whole regeneration; the guard costs 0.90s and fails on a
 // forged ledger before any of that is paid. So the conjunction stops being something to remember.
+// THE ONE-WRITER LAW, BEFORE ANYTHING IS PAID: two heavy chains regenerating the same derived layer at once is
+// the interleaved-writers class the coherent self-heal below exists to cure after the fact — this refuses it
+// BEFORE the fact. The lock is pid-liveness-stale (no clock): a crashed reconcile never wedges the tree, and a
+// LIVE audit or peer reconcile is named with the cure (wait, or coordinate over messaging) instead of raced.
+const gate = acquire('reconcile', process.pid)
+if (!gate.ok) {
+  console.error(`✗ reconcile — the tree is HELD by pid ${gate.holder.pid} (${gate.holder.purpose}); a second writer would interleave the derived layer. Wait, or coordinate — never race.`)
+  process.exit(1)
+}
+process.on('exit', () => release(process.pid))   // the holder lets go however the chain ends; a crash is stale by pid
+
 console.log('reconcile — the guard first, because a reconcile on an unforged ledger is the only kind worth paying for …')
 run('node dist/scripts/guard.js')
 

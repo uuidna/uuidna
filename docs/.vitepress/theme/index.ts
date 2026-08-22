@@ -4,6 +4,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
 import UrlAudit from './UrlAudit.vue'
+import Terminal from './Terminal.vue'
 import HexbitPlayer from './HexbitPlayer.vue'
 import SchoolTools from './SchoolTools.vue'
 import ReferrerNav from './ReferrerNav.vue'
@@ -77,6 +78,10 @@ export default {
     app.component('HexbitPlayer', HexbitPlayer)
     // The school's three instruments — test/edit/build, pure coding-shelf apps computed in the visitor's browser.
     app.component('SchoolTools', SchoolTools)
+    // THE TERMINAL ON THE MCP — a singularity, not a mirror: the toolbox is learned live from the wire's own
+    // tools/list (the page carries no list to drift), and every command is a real tools/call through the same
+    // gate, deposit, and receipt as any MCP client. The pure half is quantum/apps/terminal; this is the shell.
+    app.component('UuidnaTerminal', Terminal)
     // The 7d fold, animated — seven addresses fold to one receipt (self-contained SVG/CSS).
     app.component('FoldAnimation', FoldAnimation)
     // The hero, animated — the sealed doubling orbit across the seven reading dimensions; `dimension` selects

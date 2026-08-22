@@ -7,6 +7,13 @@ import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const T = theorems()
+// the consolidated censuses — every measured statistic any page quotes, computed here in the one generator
+import { defaultInstalls } from '../quantum/os/index.js'
+import { modelComparison } from '../quantum/models/index.js'
+import { BUILTINS } from '../quantum/apps/terminal.js'
+const installPort = defaultInstalls()
+const modelCensus = modelComparison()
+const terminalBuiltins = BUILTINS.length
 
 /** The kernel cost of PROVING the ledger, READ from the heartbeat measurements rather than estimated.
  *
@@ -166,6 +173,19 @@ Code coverage:        100% reachable modules
 \`\`\`
 
 ---
+
+## The consolidated censuses
+
+Every measured census this site serves, consolidated HERE in the one generator (the captain's rule: all
+analytics measurements and statistics live in the generator — a figure quoted on any page traces back to this
+table or it is not a measurement):
+
+| census | measured | where it is sealed / served |
+|---|---|---|
+| Default Alpine installs ported | ${installPort.count} packages · ${installPort.boot.count} boot states (${installPort.count + 1} pages × 32) | [/os](/os) · \`Installs.lean\` |
+| Public model feed | ${modelCensus.count} models · widest window ${modelCensus.largestContext.toLocaleString('en-US')} tokens · ${modelCensus.totalTransientHexbits.toLocaleString('en-US')} transient hexbits across all windows | [/models](/models) · \`Models.lean\` |
+| Terminal singularity | ${terminalBuiltins} builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
+| Ledger | ${analytics.theorems_total} theorems · ${analytics.principles} principles · ${analytics.skills} skills | [/theorems](/theorems) · every wing |
 
 ## How to Verify These Numbers
 
