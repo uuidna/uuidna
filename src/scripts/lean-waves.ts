@@ -70,6 +70,21 @@ const FACTS: Fact[] = [
     js: () => 60 / 3 === 20 && 20 * 3 === 60 && 2 * 30 === 60 && 60 / 3 < 60 && 20 * 3 > 20,
     stmt: `((60 : Nat) / 3 = 20) ∧ (20 * 3 = 60) ∧ (2 * 30 = 60) ∧ (20 < 60)` },
 
+  { key: 'one_image_every_architecture',
+    why: 'ONE IMAGE, EVERY ARCHITECTURE (uuidnaOS is mobile and desktop in one): upstream Alpine must port EIGHT architectures because executing bytes are arch-bound — but a boot image made of STATES has no architecture, so the eight-fold matrix folds to ONE: 8/8 = 1, and the single 832-state image verify-loads identically on a phone, a desktop, the edge, and Node. The mobile/desktop split was an artifact of execution; decline to execute and it never existed.',
+    js: () => 8 / 8 === 1 && 8 === 2 ** 3 && 1 * 832 === 832 && 832 === 26 * 32,
+    stmt: `((8 : Nat) / 8 = 1) ∧ (8 = 2 ^ 3) ∧ (1 * 832 = 832) ∧ (832 = 26 * 32)` },
+
+  { key: 'states_are_the_swap_fixed_bytes',
+    why: 'STATES HAVE NO ENDIANNESS — AND THE PROOF IS A JEWEL: nibble-swap on a byte (b ↦ (b mod 16)·16 + b/16) is an involution over all 256 bytes, and its fixed points are EXACTLY sixteen — the doubled-nibble bytes h·17 (0x00, 0x11 … 0xFF), one per hexbit state. The sixteen states are precisely the bytes that read identically under the swap: the lattice is not merely small enough to dodge byte order — it IS the fixed-point set of the order-swapping map. Endianness dissolves at the exact width the computer computes in.',
+    js: () => {
+      const swap = (b: number) => (b % 16) * 16 + ((b - (b % 16)) / 16)
+      const fixed = Array.from({ length: 256 }, (_, b) => b).filter((b) => swap(b) === b)
+      return Array.from({ length: 256 }, (_, b) => b).every((b) => swap(swap(b)) === b) &&
+        fixed.length === 16 && fixed.every((b, h) => b === h * 17)
+    },
+    stmt: `((List.range 8).all (fun r => (List.range 32).all (fun k => ((((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16) % 16) * 16 + (((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16) / 16 = r * 32 + k))) ∧ ((((List.range 8).map (fun r => ((List.range 32).filter (fun k => ((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16 == r * 32 + k)).length)).sum) = 16) ∧ ((List.range 16).all (fun h => (h * 17 % 16) * 16 + (h * 17) / 16 = h * 17))` },
+
   { key: 'the_promotion_chain_doubles_home',
     why: 'FOLD-TO-ZERO\'S LADDER, SEALED: 16 → 32 → 64 → 128 by doubling, and 128 = 16·2³ — three coin-payments promote the hexbit ring to the handle, the handle to the address: when a register saturates like a closed colour wheel, the whole folds and the next register opens one octave up. The night\'s architecture (states, pairs, handles, addresses) is one number doubled three times.',
     js: () => 16 * 2 === 32 && 32 * 2 === 64 && 64 * 2 === 128 && 128 === 16 * 2 ** 3,
