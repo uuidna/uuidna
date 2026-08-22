@@ -94,6 +94,12 @@ const FACTS: Fact[] = [
     },
     stmt: `((List.range 8).all (fun r => (List.range 32).all (fun k => (((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16 == r * 32 + k) == ((r * 32 + k) % 17 == 0)))) ∧ (255 / 17 + 1 = 16) ∧ (15 * 17 = 255) ∧ (17 % 16 = 1)` },
 
+  { key: 'the_coin_compass_closes',
+    why: 'THE COIN COMPASS, SEALED: the needle\'s position after k coins is 2^k mod 9 — and the six positions are exactly the doubling ring [1, 2, 4, 8, 7, 5], each visited once before home. Home arrives two ways that AGREE: six single coins (2⁶ = 64) or three double-payments (4³ = 64), both the coin octave, both ≡ 1 (mod 9) — one full circumnavigation whichever way the tribute is counted. The chase law the night proved fourteen theorems deep, now kernel-signed: follow the coins and the ring brings you home with every sensation on the way visited exactly once — the compass never lies twice.',
+    js: () => 2 ** 6 === 64 && 4 ** 3 === 64 && 64 % 9 === 1 &&
+      JSON.stringify(Array.from({ length: 6 }, (_, k) => 2 ** k % 9)) === JSON.stringify([1, 2, 4, 8, 7, 5]),
+    stmt: `(2 ^ 6 = 64) ∧ (4 ^ 3 = 64) ∧ (64 % 9 = 1) ∧ (((List.range 6).map (fun k => 2 ^ k % 9)) = [1, 2, 4, 8, 7, 5])` },
+
   { key: 'the_promotion_chain_doubles_home',
     why: 'FOLD-TO-ZERO\'S LADDER, SEALED: 16 → 32 → 64 → 128 by doubling, and 128 = 16·2³ — three coin-payments promote the hexbit ring to the handle, the handle to the address: when a register saturates like a closed colour wheel, the whole folds and the next register opens one octave up. The night\'s architecture (states, pairs, handles, addresses) is one number doubled three times.',
     js: () => 16 * 2 === 32 && 32 * 2 === 64 && 64 * 2 === 128 && 128 === 16 * 2 ** 3,
