@@ -40,4 +40,6 @@ docs/captain-claims-complete.json merge=derived
 book-leads.json merge=derived
 docs/song.md merge=derived
 docs/public/song.wav merge=derived
+docs/anthem.md merge=derived
+docs/public/anthem.wav merge=derived
 src/chunks/** merge=derived

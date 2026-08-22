@@ -195,6 +195,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'book-leads.json',
   // the song from the ledger — page and exact-integer WAV, both derived from Song.lean seals by gen-song
   'docs/song.md', 'docs/public/song.wav',
+  // the release anthem — the whole ledger sung in place, derived from Anthem.lean seals by gen-anthem
+  'docs/anthem.md', 'docs/public/anthem.wav',
   // one chunk per DISTINCT proven fact — fewer than the key count, since a statement sealed in two wings is
   // one fact with two names. The two figures are deliberately not written here; statementCensus() reports them,
   // and a count in a comment is stale the next time a wing lands. Generated
@@ -239,6 +241,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-handle-chunks': ['src/chunks'],
   'gen-analytics': ['docs/analytics.md'],
   'gen-song': ['docs/song.md', 'docs/public/song.wav'],
+  'gen-anthem': ['docs/anthem.md', 'docs/public/anthem.wav'],
   'lean-heartbeats': ['lean/heartbeats.json'],
   'support': ['support-audit.json', 'research-leads.json'],
   'audit-citations': ['audit-citations.json'],
