@@ -17,8 +17,11 @@
 // two coins, and refuses when the arithmetic does not close. Integrity, not truth.
 import { theorems, decidedMass, hexbitsOf, dependsOn, UUID_HEXBITS } from '../../theorems/index.js'
 import { merkleGravity } from '../../gravity/index.js'
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
+// node:fs rides LAZILY through the runtime's own registry (the mcp.ts:38 law, sync form): a top-level
+// import rides every bundle that reaches this module, and the edge worker has no filesystem.
+const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
+// node:path rides LAZILY (the mcp.ts:38 law, sync form) — the edge worker resolves no filesystem paths.
+const pathm = (): typeof import('node:path') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:path') as typeof import('node:path')
 import { ROOT } from '../../boundary.js'
 import { vortexOrbit } from '../../address.js'
 import { seedOf } from '../../handle.js'
@@ -252,7 +255,7 @@ export const SHARE_BASE = 16 ** 4
 export interface Cost { key: string; steps: number; totalSteps: number; share: number; shareBase: number; coins: number }
 
 export const costOf = (t: { key: string; address: string }): Cost => {
-  const h = JSON.parse(readFileSync(join(ROOT, 'lean', 'heartbeats.json'), 'utf8')) as { total: number; costs: Record<string, number> }
+  const h = JSON.parse(fsm().readFileSync(pathm().join(ROOT, 'lean', 'heartbeats.json'), 'utf8')) as { total: number; costs: Record<string, number> }
   const steps = h.costs[t.address] ?? 0
   const scaled = steps * SHARE_BASE
   return { key: t.key, steps, totalSteps: h.total, share: h.total ? (scaled - (scaled % h.total)) / h.total : 0, shareBase: SHARE_BASE, coins: COINS }

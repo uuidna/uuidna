@@ -33,7 +33,7 @@ import { schoolApiRegistry, schoolApiFetch, pairEducationToJobs } from './school
 import { skillSurface, skillIndex } from './skills.js' // THE CAPABILITY AXIS, SERVED AS A DIMENSION — one computed surface over every skill the wings carry, never one tool per skill
 import { ledgerReport } from './research-ledger.js' // the findings, each carrying how well it was verified — the SAME report the hosted edge serves
 import { legCensus, legsFor, mirrorAgreement, type Rosetta } from './rosetta-legs.js' // the leg census, interpreted by the one law both surfaces run
-import { census as legCensusRows } from './scripts/rosetta.js' // deciding a leg reads the tree, so the LIVE decision is local-only; the edge answers from the shipped mirror
+import { census as legCensusRows } from './scripts/rosetta.js' // deciding a leg reads the tree, so the LIVE decision is local-only; the edge answers from the shipped mirror — rosetta and scripts/api load their node builtins LAZILY, so this static import carries none of them to the edge
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 // NOTE: node:child_process and node:url are loaded LAZILY, at the two places that need them. They were top-level
 // imports, and that alone made this whole 245 KB catalogue unbundlable for the Workers edge — so the edge kept a

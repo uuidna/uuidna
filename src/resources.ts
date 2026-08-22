@@ -6,7 +6,9 @@
 // keeping the books on the COST side: it names the work spent, and names Landauer's floor as the energy that work
 // costs — there is no free energy, only a measured spend pushed toward. Node-only (reads
 // process/os), so it is deliberately NOT re-exported through the browser index. Integrity.
-import { loadavg, cpus, totalmem, freemem, uptime as osUptime } from 'node:os'
+// node:os rides LAZILY through the runtime's own registry (the mcp.ts:38 law, sync form): a top-level import
+// rides every bundle that reaches this module, and the edge worker has no host to measure.
+const osm = (): typeof import('node:os') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:os') as typeof import('node:os')
 import { toUuid } from './address.js'
 
 export interface ResourceReading {
@@ -29,11 +31,11 @@ export function resources(): ResourceReading {
     cpu: { userMicros: cu.user, systemMicros: cu.system },
     memory: { rssBytes: mu.rss, heapUsedBytes: mu.heapUsed, heapTotalBytes: mu.heapTotal },
     system: {
-      loadAvg1: loadavg()[0],
-      cores: cpus().length,
-      totalMemBytes: totalmem(),
-      freeMemBytes: freemem(),
-      uptimeSec: osUptime(),
+      loadAvg1: osm().loadavg()[0],
+      cores: osm().cpus().length,
+      totalMemBytes: osm().totalmem(),
+      freeMemBytes: osm().freemem(),
+      uptimeSec: osm().uptime(),
     },
   }
   return {

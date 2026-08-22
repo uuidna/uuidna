@@ -8,8 +8,11 @@ import { publications } from './publish.js'
 import { lsRoot } from './boundary.js'
 import { toUuid } from './address.js'
 import { merkleRoot } from './merkle.js'
-import { readFileSync, existsSync } from 'node:fs'
-import { join } from 'node:path'
+// node:fs rides LAZILY through the runtime's own registry (the mcp.ts:38 law, sync form): a top-level
+// import rides every bundle that reaches this module, and the edge worker has no filesystem.
+const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
+// node:path rides LAZILY (the mcp.ts:38 law, sync form) — the edge worker resolves no filesystem paths.
+const pathm = (): typeof import('node:path') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:path') as typeof import('node:path')
 import { ROOT } from './boundary.js'
 
 /** A page in the graph — its route and a short human label for the pager. */
@@ -100,9 +103,9 @@ export function pagesByProof(): { groups: ProofGroup[]; grouped: number; root: s
   const byPrinciple = new Map<string, ProofGroup>()
   let grouped = 0
   for (const page of discoverStaticPages().filter((p) => p.route === '/articles' || !p.route.startsWith('/articles/'))) {
-    const file = join(ROOT, 'docs', (page.route === '/' ? 'index' : page.route.slice(1)) + '.md')
-    if (!existsSync(file)) continue
-    const src = readFileSync(file, 'utf8')
+    const file = pathm().join(ROOT, 'docs', (page.route === '/' ? 'index' : page.route.slice(1)) + '.md')
+    if (!fsm().existsSync(file)) continue
+    const src = fsm().readFileSync(file, 'utf8')
     const cites = [...new Set([...src.matchAll(/\/theorem\/([a-z0-9_]+)|theorem\s+([a-z][a-z0-9_]{4,})/gi)]
       .map((m) => (m[1] || m[2] || '').toLowerCase()).filter((k) => known.has(k)))]
     if (!cites.length) continue // rests on nothing to group by

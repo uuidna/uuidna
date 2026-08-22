@@ -32,8 +32,10 @@
 // already runs this script, so the mirror refreshes itself; nothing is kept current by hand.
 //
 //   node dist/scripts/rosetta.js [--census] [--key <theorem>]
-import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs'
-import { join } from 'node:path'
+// node:fs rides LAZILY through the runtime's own registry (the mcp.ts:38 law, sync form): a top-level
+// import rides every bundle that reaches this module, and the edge worker has no filesystem.
+const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
+const pathm = (): typeof import('node:path') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:path') as typeof import('node:path') // lazy: the edge bundles this module but never calls it
 import { ROOT } from './api.js'
 import { LEGS, maskOfLegs, legsOfMask, floorGaps, type Leg, type Rosetta } from '../rosetta-legs.js'
 
@@ -104,26 +106,26 @@ export function commentAbove(src: string, key: string): string {
 
 /** Read every wing and decide, per theorem, which of the five legs it actually carries. */
 export function census(): Rosetta[] {
-  const leanDir = join(ROOT, 'lean')
-  const wings = readdirSync(leanDir).filter((f) => f.endsWith('.lean'))
-  const testDir = join(ROOT, 'src', 'tests')
+  const leanDir = pathm().join(ROOT, 'lean')
+  const wings = fsm().readdirSync(leanDir).filter((f) => f.endsWith('.lean'))
+  const testDir = pathm().join(ROOT, 'src', 'tests')
   // COMMENTS ARE NOT COVERAGE. This scan is a substring match, so for a long time a theorem key merely MENTIONED in
   // a test's prose earned the falsifier leg — two of the keys the published floor rested on were named only as
   // examples in a test about key length, in a file that was then deleted. A leg that a comment can earn measures
   // nothing, so comment lines are stripped and only executable test text counts.
   const executable = (src: string): string =>
     src.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').filter((l) => !/^\s*(\/\/|\*)/.test(l)).join('\n')
-  const tests = existsSync(testDir)
-    ? readdirSync(testDir).filter((f) => f.endsWith('.ts')).map((f) => executable(readFileSync(join(testDir, f), 'utf8'))).join('\n')
+  const tests = fsm().existsSync(testDir)
+    ? fsm().readdirSync(testDir).filter((f) => f.endsWith('.ts')).map((f) => executable(fsm().readFileSync(pathm().join(testDir, f), 'utf8'))).join('\n')
     : ''
-  const emitters = readdirSync(join(ROOT, 'src', 'scripts')).filter((f) => /^lean-.*\.ts$/.test(f))
-    .map((f) => readFileSync(join(ROOT, 'src', 'scripts', f), 'utf8')).join('\n')
-  const generated = existsSync(join(ROOT, 'src', 'theorems', 'generated.ts'))
-    ? readFileSync(join(ROOT, 'src', 'theorems', 'generated.ts'), 'utf8') : ''
+  const emitters = fsm().readdirSync(pathm().join(ROOT, 'src', 'scripts')).filter((f) => /^lean-.*\.ts$/.test(f))
+    .map((f) => fsm().readFileSync(pathm().join(ROOT, 'src', 'scripts', f), 'utf8')).join('\n')
+  const generated = fsm().existsSync(pathm().join(ROOT, 'src', 'theorems', 'generated.ts'))
+    ? fsm().readFileSync(pathm().join(ROOT, 'src', 'theorems', 'generated.ts'), 'utf8') : ''
 
   const out: Rosetta[] = []
   for (const wing of wings) {
-    const src = readFileSync(join(leanDir, wing), 'utf8')
+    const src = fsm().readFileSync(pathm().join(leanDir, wing), 'utf8')
     for (const m of src.matchAll(/^theorem\s+([A-Za-z0-9_]+)/gm)) {
       const key = m[1]
       const note = commentAbove(src, key)
@@ -151,12 +153,12 @@ export function census(): Rosetta[] {
 // The rows, compact: one `#wing` section header, then `key mask` per theorem (the mask is the leg bit-set defined in
 // rosetta-legs.ts). Non-captain attribution is carried separately because it is rare — writing "captain" beside
 // every key would be storing a default, which is the annotation habit this module already refused once.
-const MIRROR_PATH = join(ROOT, 'src', 'rosetta-mirror.ts')
+const MIRROR_PATH = pathm().join(ROOT, 'src', 'rosetta-mirror.ts')
 
 /** The floor STATED in the current mirror, read from source (never from dist, which may lag a rebuild). */
 export function statedFloor(): { witness: number; falsifier: number } {
-  if (!existsSync(MIRROR_PATH)) return { witness: 0, falsifier: 0 }
-  const src = readFileSync(MIRROR_PATH, 'utf8')
+  if (!fsm().existsSync(MIRROR_PATH)) return { witness: 0, falsifier: 0 }
+  const src = fsm().readFileSync(MIRROR_PATH, 'utf8')
   const m = /export const FLOOR = \{ witness: (\d+), falsifier: (\d+) \}/.exec(src)
   return m ? { witness: Number(m[1]), falsifier: Number(m[2]) } : { witness: 0, falsifier: 0 }
 }
@@ -200,8 +202,8 @@ export function renderMirror(rows: readonly Rosetta[]): string {
 /** Legs the CURRENT mirror records, key by key — the baseline a regression is measured against. */
 function priorLegs(): Map<string, Leg[]> {
   const out = new Map<string, Leg[]>()
-  if (!existsSync(MIRROR_PATH)) return out
-  const body = /export const MIRROR = `([\s\S]*?)`/.exec(readFileSync(MIRROR_PATH, 'utf8'))
+  if (!fsm().existsSync(MIRROR_PATH)) return out
+  const body = /export const MIRROR = `([\s\S]*?)`/.exec(fsm().readFileSync(MIRROR_PATH, 'utf8'))
   if (!body) return out
   for (const line of body[1].split('\n')) {
     const m = /^([a-z0-9_]+) (\d+)$/.exec(line.trim())
@@ -230,9 +232,9 @@ export function writeMirror(rows: readonly Rosetta[]): { changed: boolean; refus
   const refused = [...regressions(rows), ...floorGaps(rows, { witness: 0, falsifier: (128 - 2) / 2 })]
   if (refused.length) return { changed: false, refused }
   const next = renderMirror(rows)
-  const current = existsSync(MIRROR_PATH) ? readFileSync(MIRROR_PATH, 'utf8') : ''
+  const current = fsm().existsSync(MIRROR_PATH) ? fsm().readFileSync(MIRROR_PATH, 'utf8') : ''
   if (current === next) return { changed: false, refused: [] }
-  writeFileSync(MIRROR_PATH, next)
+  fsm().writeFileSync(MIRROR_PATH, next)
   return { changed: true, refused: [] }
 }
 

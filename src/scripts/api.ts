@@ -2,16 +2,18 @@
 // resolution, file reads, the 16-hex fold, the GAP+FIX reporter); this module is the singularity they all import
 // from — standardisation and DRY use of one api, so a script is only its own logic. The `one-receipt dry` finder
 // objects (GAP + exact FIX) to any script that re-declares what lives here — the duplication class cannot regrow.
-import { createHash } from 'node:crypto'
-import { execSync } from 'node:child_process'
-import { readFileSync, existsSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+const cryptom = (): typeof import('node:crypto') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:crypto') as typeof import('node:crypto') // lazy: the edge bundles this module but never calls it
+const cpm = (): typeof import('node:child_process') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:child_process') as typeof import('node:child_process') // lazy: the edge bundles this module but never calls it
+// node:fs rides LAZILY through the runtime's own registry (the mcp.ts:38 law, sync form): a top-level
+// import rides every bundle that reaches this module, and the edge worker has no filesystem.
+const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
+const pathm = (): typeof import('node:path') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:path') as typeof import('node:path') // lazy: the edge bundles this module but never calls it
+const urlm = (): typeof import('node:url') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:url') as typeof import('node:url') // lazy: the edge bundles this module but never calls it
 
 /** the scripts directory (dist/scripts at runtime) — every script lives here, so one HERE serves all */
-export const HERE = dirname(fileURLToPath(import.meta.url))
+export const HERE = pathm().dirname(urlm().fileURLToPath(import.meta.url))
 /** the repo root */
-export const ROOT = join(HERE, '..', '..')
+export const ROOT = pathm().join(HERE, '..', '..')
 
 // ── THE ONE LEAN PARSE. Reading a theorem out of a .lean file was written twice — the ledger builder and the prose
 // census each carried a character-identical regex — and the two agreed only because nobody had yet edited one. The
@@ -105,16 +107,16 @@ export function invokesFile(corpus: string, base: string): boolean {
   return new RegExp("file:\\s*'" + base.replace(/-/g, '[-]') + "\\.js'").test(corpus)
 }
 /** read a repo-relative file as utf8 */
-export const rd = (p: string): string => readFileSync(join(ROOT, p), 'utf8')
+export const rd = (p: string): string => fsm().readFileSync(pathm().join(ROOT, p), 'utf8')
 /** does a repo-relative path exist */
-export const has = (p: string): boolean => existsSync(join(ROOT, p))
+export const has = (p: string): boolean => fsm().existsSync(pathm().join(ROOT, p))
 /** the 16-hex component fold */
-export const h16 = (data: string): string => createHash('sha256').update(data).digest('hex').slice(0, 16)
+export const h16 = (data: string): string => cryptom().createHash('sha256').update(data).digest('hex').slice(0, 16)
 /** the 32-hex order-invariant fold over named components */
 export const foldOf = (entries: Record<string, string>): string =>
-  createHash('sha256').update(Object.entries(entries).map(([k, v]) => `${k}:${v}`).sort().join('|')).digest('hex').slice(0, 32)
+  cryptom().createHash('sha256').update(Object.entries(entries).map(([k, v]) => `${k}:${v}`).sort().join('|')).digest('hex').slice(0, 32)
 /** the ℤ/7 ray of a string — the same partition as /rosetta */
-export const ray = (s: string): number => parseInt(createHash('sha256').update(s).digest('hex').slice(0, 8), 16) % 7
+export const ray = (s: string): number => parseInt(cryptom().createHash('sha256').update(s).digest('hex').slice(0, 8), 16) % 7
 
 /** The result of a teed child step: whether it passed, and the tail of what it said. */
 export type StepResult = { ok: boolean; out: string; tail: string }
@@ -128,7 +130,7 @@ export const lastLines = (s: string, n = 20): string => s.trimEnd().split('\n').
 export function teeStep(label: string, cmd: string, cwd: string = ROOT): StepResult {
   process.stdout.write(`\n── ${label} ──\n`)
   try {
-    const out = execSync(`${cmd} 2>&1`, { cwd, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+    const out = cpm().execSync(`${cmd} 2>&1`, { cwd, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
     process.stdout.write(out)
     return { ok: true, out, tail: lastLines(out) }
   } catch (e) {
@@ -263,10 +265,10 @@ export const DOCS_BUILD_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
 export function stageDerived(cwd: string = ROOT): { staged: number; leftForHumans: string[] } {
   // a pathspec with a glob is handed to git as-is — existsSync cannot answer for a pattern, and the set it
   // matches (one manifest per wing) grows with the ledger, so listing them by name would rot on the next wing.
-  const existing = DRAIN_PATHS.filter((p) => p.includes('*') || existsSync(join(cwd, p)))
-  if (existing.length) execSync(`git add -- ${existing.map((p) => JSON.stringify(p)).join(' ')}`, { cwd })
-  const staged = execSync('git diff --cached --name-only', { cwd, encoding: 'utf8' }).trim().split('\n').filter(Boolean).length
-  const leftForHumans = execSync('git status --porcelain', { cwd, encoding: 'utf8' })
+  const existing = DRAIN_PATHS.filter((p) => p.includes('*') || fsm().existsSync(pathm().join(cwd, p)))
+  if (existing.length) cpm().execSync(`git add -- ${existing.map((p) => JSON.stringify(p)).join(' ')}`, { cwd })
+  const staged = cpm().execSync('git diff --cached --name-only', { cwd, encoding: 'utf8' }).trim().split('\n').filter(Boolean).length
+  const leftForHumans = cpm().execSync('git status --porcelain', { cwd, encoding: 'utf8' })
     .split('\n').filter(Boolean)
     .filter((l) => !l.startsWith('M  ') && !l.startsWith('A  ') && !l.startsWith('D  '))   // not already staged
     .map((l) => l.slice(3).trim())

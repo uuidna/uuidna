@@ -24,7 +24,9 @@
 // What IS true is worth more than a borrowed credential: every lesson is a `by decide` theorem the reader can
 // recompute, and nothing is taken on the teacher's authority. That is a stronger guarantee than accreditation
 // offers, and it is the only one uuidna can actually give.
-import { readFileSync } from 'node:fs'
+// node:fs rides LAZILY through the runtime's own registry (the mcp.ts:38 law, sync form): a top-level
+// import rides every bundle that reaches this module, and the edge worker has no filesystem.
+const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
@@ -49,7 +51,7 @@ export interface School { sections: Section[]; courses: Course[]; levels: Level[
  *  difficulty measure in this repository that is not an opinion: it is what the kernel actually spent. */
 const decideSteps = (): Record<string, number> => {
   try {
-    const hb = JSON.parse(readFileSync(new URL('../lean/heartbeats.json', import.meta.url), 'utf8')) as { costs?: Record<string, number> }
+    const hb = JSON.parse(fsm().readFileSync(new URL('../lean/heartbeats.json', import.meta.url), 'utf8')) as { costs?: Record<string, number> }
     return hb.costs ?? {}
   } catch { return {} }
 }
@@ -138,7 +140,7 @@ const line = (label: string, value: string | number): string => `${label}: ${val
  *  every contact URL — each of which is a field in package.json that I retyped. A retyped field is a claim that
  *  cannot stay true, which is the same defect as a ledger count frozen into a comment. */
 const manifest = (): Record<string, string | Record<string, string>> => {
-  try { return JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')) as Record<string, string | Record<string, string>> }
+  try { return JSON.parse(fsm().readFileSync(new URL('../package.json', import.meta.url), 'utf8')) as Record<string, string | Record<string, string>> }
   catch { return {} }
 }
 const mf = (k: string, sub?: string): string => {
@@ -151,7 +153,7 @@ const runtimeDeps = (): number => Object.keys((manifest().dependencies as Record
 /** Releases ARE the calendar. Each is a dated event with a receipt; I wrote "no dates" rather than read them. */
 const releases = (): string[] => {
   try {
-    const md = readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8')
+    const md = fsm().readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8')
     return [...md.matchAll(/^##\s*\[?(\d+\.\d+\.\d+)\]?\s*[-–—]?\s*(\d{4}-\d{2}-\d{2})?/gm)]
       .map((m) => m[2] ? `${m[1]} — ${m[2]}` : m[1])
   } catch { return [] }
