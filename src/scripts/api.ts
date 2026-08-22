@@ -248,6 +248,8 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-anthem': ['docs/anthem.md', 'docs/public/anthem.wav'],
   'gen-referrer-song': ['docs/referrer-song.md'],
   'gen-os': ['docs/os.md'],
+  // the model comparison over all public live data — derived from the committed feed mirror by gen-models
+  'gen-models': ['docs/models.md'],
   'lean-heartbeats': ['lean/heartbeats.json'],
   'support': ['support-audit.json', 'research-leads.json'],
   'audit-citations': ['audit-citations.json'],
