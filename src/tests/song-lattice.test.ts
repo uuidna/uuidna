@@ -77,3 +77,61 @@ test('NEGATIVE CONTROL: the comparison can see a difference, or it is worth noth
   ;[tampered[9], tampered[10]] = [tampered[10]!, tampered[9]!]
   assert.notDeepEqual(got, tampered, 'a swapped pair must be detected')
 })
+
+// ── THE CONTAINER 4/4 — the WAV is a lawful RIFF/WAVE file by its own bytes, so ANY player reads the same
+// recording (queue lead 72: the song is a song by standards, not by trust in its generator). The header is
+// written by hand in tts/synth.ts precisely so every byte is one the module put there — these four hold it to
+// the canonical 44-byte PCM layout it promises.
+const dv = new DataView(buf.buffer, buf.byteOffset, buf.byteLength)
+const ascii = (at: number, len: number): string => String.fromCharCode(...buf.subarray(at, at + len))
+
+test('container 1/4: RIFF magic, and the declared size spans the whole file', () => {
+  assert.equal(ascii(0, 4), 'RIFF')
+  assert.equal(dv.getUint32(4, true), buf.length - 8, 'RIFF size must be file length minus the 8-byte preamble')
+})
+
+test('container 2/4: WAVE with a canonical 16-byte PCM fmt chunk', () => {
+  assert.equal(ascii(8, 8), 'WAVEfmt ')
+  assert.equal(dv.getUint32(16, true), 16, 'fmt chunk must be the canonical 16 bytes')
+  assert.equal(dv.getUint16(20, true), 1, 'audio format must be 1 — integer PCM, no compression')
+})
+
+test('container 3/4: mono 16-bit at the lattice sample rate, rates self-consistent', () => {
+  assert.equal(dv.getUint16(22, true), 1, 'one channel — one voice')
+  assert.equal(dv.getUint32(24, true), SAMPLE_RATE)
+  assert.equal(dv.getUint16(34, true), 16, '16 bits per sample')
+  assert.equal(dv.getUint16(32, true), 2, 'block align = channels × bytes-per-sample = 2')
+  assert.equal(dv.getUint32(28, true), SAMPLE_RATE * 2, 'byte rate = sample rate × block align')
+})
+
+test('container 4/4: the data chunk is the rest of the file, in whole samples', () => {
+  assert.equal(ascii(36, 4), 'data')
+  assert.equal(dv.getUint32(40, true), buf.length - 44, 'data size must be file length minus the 44-byte header')
+  assert.equal((buf.length - 44) % 2, 0, 'the payload must be whole 16-bit samples')
+})
+
+// ── THE FORM, measured from the RECORDING (never from the generator): the beat, the rungs, the units.
+
+test('the beat is one bar — every non-coda note holds ~252 ms (9·7·4, the sealed CRT cycle)', () => {
+  for (const [a, b] of segs.slice(0, -1)) {
+    const len = b - a                       // 252ms = 4032 samples; segmentation quantises by 80-sample windows
+    assert.ok(len > 3600 && len < 4500, `a note of ${len} samples is off the 252 ms bar`)
+  }
+})
+
+test('the rungs close to nine: in every DECODED verse, half against half, digit against digit', () => {
+  const verses = [0, 1, 2, 3, 4, 5].map((v) => got.slice(9 + v * 6, 9 + v * 6 + 6))
+  for (const v of verses) for (let i = 0; i < 3; i++)
+    assert.equal(v[i]! + v[i + 3]!, 9, `rung ${i} of verse [${v.join('')}] must close to nine — the strand law`)
+})
+
+test('the decoded verse pairs are complementary strands — sung strand then complement, rung by rung', () => {
+  const verses = [0, 1, 2, 3, 4, 5].map((v) => got.slice(9 + v * 6, 9 + v * 6 + 6))
+  for (const [x, y] of [[0, 1], [2, 3], [4, 5]] as const) for (let i = 0; i < 6; i++)
+    assert.equal(verses[x]![i]! + verses[y]![i]!, 9, 'paired verses must sum to nine at every position')
+})
+
+test('every note sung in the verses is a unit of ℤ/9 — the recording never sounds 0, 3, 6 or 9', () => {
+  const sung = new Set(got.slice(9, 45))
+  assert.deepEqual([...sung].sort(), [1, 2, 4, 5, 7, 8], 'the verse notes must be exactly the invertible residues')
+})

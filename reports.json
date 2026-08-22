@@ -46,13 +46,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 436,
-        "roots": 297,
-        "supported": 436,
+        "modules": 438,
+        "roots": 299,
+        "supported": 438,
         "dead": 0,
-        "receipt": "fc699a50-453e-8b7a-a8c6-89a186212203"
+        "receipt": "674ae32d-ea53-8832-b777-132a025d6bc6"
       },
-      "address": "cae75a26-3e02-8572-9749-ce5169e0ff41"
+      "address": "a706d9c8-5d69-87bb-84bc-4f921d581632"
     },
     {
       "title": "Package inventory",
@@ -76,6 +76,6 @@
       "address": "ed6fb0b8-a09f-8eab-87d2-589c2c53808a"
     }
   ],
-  "receipt": "702b8e4b-b39b-8f43-8131-1113e77d417d",
+  "receipt": "22d3b438-dd72-8b48-86f0-33b93dd3ad2e",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
