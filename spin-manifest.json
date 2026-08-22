@@ -1505,7 +1505,7 @@
     "lean/discover-manifest.json": "3192704bd08f8717",
     "lean/divbyzero-manifest.json": "acba7e4255ed8376",
     "lean/diving-manifest.json": "636537af9f528b58",
-    "lean/dormant-receipt.json": "ff1871286a1383a2",
+    "lean/dormant-receipt.json": "9fc37b3721b281bb",
     "lean/dormant-scripts.json": "a2c48c91859e802c",
     "lean/doubletorus-manifest.json": "9aa143d8f9f48ce7",
     "lean/editing-manifest.json": "e87a2cc25dd2891a",
@@ -1590,5 +1590,5 @@
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "1d7b5d89-ab25-894b-a099-004c64e12e0b"
+  "receipt": "1fbc6b54-ab0c-855f-967c-b32ea8a4a55f"
 }
