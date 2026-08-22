@@ -291,6 +291,11 @@ accept_matches_spec 19
 only_correct_tag_verifies 19
 tamper_changes_tag 19
 linear_tag_is_forgeable 19
+#Comparisons.lean
+kernel_channels_order_completely 19
+version_encoding_is_lossless 19
+register_ladder_doubles_completely 19
+the_surface_is_the_geometric_mean 19
 #Contribution.lean
 contribution_leaves_one_twentysix 19
 directions_number_fortytwo 19
@@ -1645,6 +1650,11 @@ haldane_bound_is_two_to_one 19
 buddy_pair_squares_the_failure 19
 thirds_rule_sums_whole 19
 divers_and_astronauts_share_the_ladder 19
+one_image_every_architecture 19
+states_are_the_swap_fixed_bytes 19
+the_page_admits_sixteen 19
+the_coin_compass_closes 19
+chi_crystallises_three_genera 19
 the_promotion_chain_doubles_home 19`
 
 export const CLAIMS = `bulge_exceeds_relief WGS 84
