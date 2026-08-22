@@ -12,17 +12,19 @@ import { adjudicate, type Verdict } from '../../../../adjudicate.js'
 export interface ControlRun { name: string; statement: string; verdict: string; rejected: boolean }
 export interface ClaimTest { controls: ControlRun[]; instrumentValid: boolean; subject: Verdict | null; honest: string }
 
-const CONTROLS: readonly { name: string; statement: string; test?: () => boolean }[] = [
-  { name: 'false arithmetic', statement: '2 + 2 = 5, so this instrument can fail', test: () => (2 + 2) === 5 },
-  { name: 'fabricated citation', statement: 'anything at all, proven by theorem this_theorem_was_never_sealed' },
-  { name: 'laundered citation', statement: 'the moon is made of cheese, proven by theorem two_coins' },
+// each canary lives in a field literally named `control:` — the declared-control idiom the citations finder
+// reads (a canary exists to be refused; a ledger that never holds its key is the design, not a fabrication).
+const CONTROLS: readonly { name: string; control: string; test?: () => boolean }[] = [
+  { name: 'false arithmetic', control: '2 + 2 = 5, so this instrument can fail', test: () => (2 + 2) === 5 },
+  { name: 'fabricated citation', control: 'anything at all, proven by theorem this_theorem_was_never_sealed' },
+  { name: 'laundered citation', control: 'the moon is made of cheese, proven by theorem two_coins' },
 ]
 
 /** run the trial the ledger's way: controls first, subject only on a valid instrument. */
 export function testClaim(claim: string, decidableTest?: () => boolean): ClaimTest {
   const controls: ControlRun[] = CONTROLS.map((c) => {
-    const v = adjudicate(c.statement, c.test)
-    return { name: c.name, statement: c.statement, verdict: v.verdict, rejected: v.verdict !== 'VERIFIED' }
+    const v = adjudicate(c.control, c.test)
+    return { name: c.name, statement: c.control, verdict: v.verdict, rejected: v.verdict !== 'VERIFIED' }
   })
   const instrumentValid = controls.every((c) => c.rejected)
   return {
