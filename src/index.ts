@@ -73,7 +73,7 @@ export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
 
 // the trial — a recomputable three-way verdict (REFUTED/SEALED/UNVERIFIED); proveVerdict folds the formula
 // receipts through the order-invariant gravity to one proof-of-verdict root. Integrity, not truth.
-export { adjudicate, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict } from './adjudicate.js'
+export { adjudicate, adjudicateAll, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict, type DimensionVerdict, type AllDimensionsVerdict } from './adjudicate.js'
 
 // detail-audit — AUDIT EVERY SINGLE DETAIL: split any text into details, adjudicate each (the calculator first,
 // then the citation trial), controls FIRST (a control accepted voids the audit — the instrument must be able to

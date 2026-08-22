@@ -229,6 +229,34 @@ export function adjudicate(statement: string, decidableTest?: () => boolean): Ve
   return { statement, verdict, receipt, note, develop: developPlan(statement, verdict, slim.fabricated, verdict === 'UNVERIFIED' && slim.verdict === 'VERIFIED' ? slim.real : []) }
 }
 
+// ── THE TRIAL IN ALL DIMENSIONS — a universal claim is tried at EVERY point of its named range, never at one.
+// adjudicate() takes one decidable test, which is exactly enough to seal a sample and call it a walk (the
+// standing lesson this ledger already paid for: a universal in the NAME needs a quantifier in the TRIAL). Here
+// the claim brings its range WITH it — one named test per dimension — and the verdict is VERIFIED only when
+// every dimension recomputes true. One failed dimension names itself in the note; an EMPTY range is UNVERIFIED
+// by construction, because zero dimensions verify nothing and vacuous truth is the one-step fraud in disguise.
+// Per-dimension receipts fold order-invariantly through merkleGravity, so two observers who tried the
+// dimensions in different orders hold the same proof root.
+export interface DimensionVerdict { dimension: string; computed: boolean; receipt: string }
+export interface AllDimensionsVerdict extends Verdict { dimensions: DimensionVerdict[]; computedAll: boolean; dimensionRoot: string }
+
+export function adjudicateAll(statement: string, range: readonly { dimension: string; test: () => boolean }[]): AllDimensionsVerdict {
+  const dimensions = range.map((d) => {
+    let computed = false
+    try { computed = d.test() === true } catch { computed = false }
+    return { dimension: d.dimension, computed, receipt: toUuid(`dimension:${d.dimension}|${statement}|${computed}`) }
+  })
+  const computedAll = dimensions.length > 0 && dimensions.every((d) => d.computed)
+  const base = adjudicate(statement, () => computedAll)
+  const failed = dimensions.filter((d) => !d.computed).map((d) => d.dimension)
+  const note = dimensions.length === 0
+    ? 'an empty range computes nothing — UNVERIFIED (a claim with no dimensions brought no trial at all)'
+    : computedAll
+      ? `computed true in all ${dimensions.length} dimensions (${dimensions.map((d) => d.dimension).join(', ')}) — verified across the whole named range`
+      : `fails in ${failed.length} of ${dimensions.length} dimensions (${failed.join(', ')}) — UNVERIFIED (not false: unproven exactly where named)`
+  return { ...base, note, dimensions, computedAll, dimensionRoot: merkleGravity(dimensions.map((d) => d.receipt)) }
+}
+
 // A valid trial folds the FORMULAS
 // theorems (each recomputing true) that establish the floor for this claim; they fold — with the gate predicate
 // and the verdict — through merkleGravity (ORDER-INVARIANT, the quantum receipt) to ONE proof-of-verdict root,
