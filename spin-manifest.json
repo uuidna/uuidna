@@ -1496,7 +1496,7 @@
     "lean/divbyzero-manifest.json": "acba7e4255ed8376",
     "lean/diving-manifest.json": "636537af9f528b58",
     "lean/dormant-receipt.json": "384de5d11bf980bb",
-    "lean/dormant-scripts.json": "2e815d0b88ef850e",
+    "lean/dormant-scripts.json": "437c7be8aad28c2e",
     "lean/doubletorus-manifest.json": "9aa143d8f9f48ce7",
     "lean/editing-manifest.json": "e87a2cc25dd2891a",
     "lean/editor-manifest.json": "4bf17f879bb78ef4",
@@ -1573,5 +1573,5 @@
     "lean/vectorequilibrium-manifest.json": "bd853f5a67168351",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd"
   },
-  "receipt": "bb5dd6de-3d18-86fb-8280-5647c921d887"
+  "receipt": "05b42304-6c98-84d3-8025-e84cbb6943fa"
 }

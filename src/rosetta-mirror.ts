@@ -139,6 +139,7 @@ ph_plus_poh_14 19
 boyles_law 19
 neutralization 19
 stoichiometry_scales 19
+annihilation_conserves_everything 19
 #Chess.lean
 torus_chessboard_chi_zero 19
 double_torus_boards_are_the_address 19
@@ -521,6 +522,8 @@ homeostasis_returns_to_setpoint 19
 action_reaction_and_charge_cancel 19
 pairs_share_one_centre 19
 #Hexbit.lean
+the_void_tile_cannot_cross 19
+the_uuid_is_two_boards 19
 alphabet_names_each_nibble 19
 layout_groups_thirtytwo 19
 characters_span_the_address 19
@@ -529,6 +532,8 @@ groups_are_four_apart 19
 build_counts_in_hexbits 19
 payload_carries_the_strand 19
 payload_aligns_where_the_name_does_not 19
+the_handle_molecule_is_the_mix_census 19
+four_vectors_reach_the_uuid 19
 #Identifiers.lean
 isbn10_valid_check 19
 isbn13_valid_check 19
