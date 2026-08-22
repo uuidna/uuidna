@@ -12,7 +12,11 @@ import { DERIVED_FILES, sealSpin, verifySpin } from '../spin.js'
 const gated = (): string[] => {
   const audit = (JSON.parse(readFileSync(new URL('../../package.json', import.meta.url), 'utf8')) as
     { scripts: Record<string, string> }).scripts.audit
-  return audit.slice(audit.indexOf('git diff --exit-code -- ') + 24).split(' ').filter(Boolean)
+  // the gated list ends at the first chain operator: an `&&` and whatever follows it are the NEXT command,
+  // not gated files — the one-writer release wrapper taught this parser that the diff arm is not always last
+  const tail = audit.slice(audit.indexOf('git diff --exit-code -- ') + 24)
+  const cut = tail.indexOf(' && ')
+  return (cut >= 0 ? tail.slice(0, cut) : tail).split(' ').filter(Boolean)
 }
 
 // ── THE PARITY. Every FILE the gate diffs must be rotated. Directory entries are covered by prefix.
