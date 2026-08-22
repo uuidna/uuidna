@@ -5,6 +5,7 @@
 // Layer 3 = six packages + six vector motions (the ledger topology)
 
 import { toUuid } from './address.js'
+import { handleOf } from './handle.js'
 import { merkleGravity } from './gravity/index.js'
 
 // ============================================================================
@@ -214,7 +215,7 @@ export function layer3Report(entangle: Layer3Entanglement): Layer3Report {
     `Address space coverage: ${entangle.motions.reduce((sum, m) => sum + m.coverage, 0)}/9 unique states (should be 9)`,
   ]
 
-  const gateLine = `✓ Layer 3 TOPOLOGY: ${verdict} — ${packageStatus}, ${motionStatus}, receipt = ${entangle.receipt.slice(0, 8)}…`
+  const gateLine = `✓ Layer 3 TOPOLOGY: ${verdict} — ${packageStatus}, ${motionStatus}, receipt = ${handleOf(entangle.receipt)}…`
 
   return {
     ledgerSize: entangle.ledgerSize,

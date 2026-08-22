@@ -89,6 +89,17 @@ export {
   type MCPEntanglementMeta
 } from './mcp-entanglement-gate.js'
 
+// LOOP CLOSURE — every closed loop folds and emits its continuation; handlers are synchronous by law
+export * from './loop-closure-auto-fold.js'
+
+// THE SCHOOL — weekly automation (automate/improvement) and the practice feedback loop (practice/feedback/loop)
+export * from './school/index.js'
+
+// BILLING — the two-coin price sheet; APIS — the outward ask; TTS — theorems read aloud (all reachable, none dead)
+export * from './billing/index.js'
+export * from './apis/index.js'
+export * from './tts/index.js'
+
 // ENTANGLEMENT LAYER 2 — Six Rosetta Legs + Eight Hexbits (theorem metadata structure)
 export {
   verifyRecomputationLeg, verifyHexbitStructure, entangleLayer2, layer2Report,

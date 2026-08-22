@@ -18,6 +18,8 @@ import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 import { HANDLE_HEXBITS } from '../hexbit/index.js'
 
+export * from './synth.js'
+
 export interface Utterance { lines: readonly string[]; text: string; address: string; handle: string; words: number; hexbits: number }
 
 /** COMPOSE — pure, and the whole testable half. Blank lines are dropped and whitespace collapsed so the same
