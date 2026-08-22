@@ -13,7 +13,7 @@ const urlm = (): typeof import('node:url') => (process as unknown as { getBuilti
 /** the scripts directory (dist/scripts at runtime) — every script lives here, so one HERE serves all */
 // the edge bundles this module but never walks a filesystem: on a runtime without the builtin registry the
 // anchors resolve to '/', and every function that would read from them stays uncalled there by construction
-const hasNodeRegistry = typeof (process as unknown as { getBuiltinModule?: unknown } | undefined)?.getBuiltinModule === 'function'
+const hasNodeRegistry = typeof (globalThis as { process?: { getBuiltinModule?: unknown } }).process?.getBuiltinModule === 'function'
 export const HERE = hasNodeRegistry ? pathm().dirname(urlm().fileURLToPath(import.meta.url)) : '/'
 /** the repo root */
 export const ROOT = hasNodeRegistry ? pathm().join(HERE, '..', '..') : '/'
