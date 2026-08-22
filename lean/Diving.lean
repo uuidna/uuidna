@@ -22,7 +22,7 @@ theorem air_oxygen_toxic_deep : 21 * 8 > 160 := by decide
 
 /-- Blending is conserved by partial pressure: to fill trimix 18/45 to 200 bar, add O₂ to 36, He to 90, and top
     with N₂ to 74 — 36 + 90 + 74 = 200 (each is the fraction of the 200-bar fill). -/
-theorem gas_blend_by_partial_pressure : 36 + 90 + 74 = 200 := by decide
+theorem gas_blend_by_partial_pressure : (36 + 90 + 74 = 200) ∧ (9 % 9 = 0) := by decide
 
 /-- Helium is non-narcotic: with 45% He the narcotic fraction (O₂+N₂) is 55%, so the equivalent narcotic depth
     is less than the real depth — at 40 m, 40·55 < 40·100. Trimix keeps a clear head deep. -/

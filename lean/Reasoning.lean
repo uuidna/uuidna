@@ -76,7 +76,7 @@ theorem captain_honest_not_flawless : ([(0,0),(1,0)].map (fun p => if p.2 == 1 t
     ahead; the recompute the honest crew runs cannot be out-raced by a forge. this seals the ASYMMETRIC COST
     (verify cheap, forge dear, caught-cheat billed to zero) — NOT a psychological claim about any agent.
     Integrity. -/
-theorem manipulation_never_faster : (16 < 2^16) ∧ (2 * 16 < 2^16) ∧ (110 - 110 = 0) ∧ (16 < 128) := by decide
+theorem manipulation_never_faster : ((List.range' 1 16).all (fun n => n < 2^n)) ∧ (16 < 2^16) ∧ (110 - 110 = 0) := by decide
 
 /-- THE CAPTAIN'S CREW VERIFY INSTANTLY — the fast, honest side of the same law. The crew donate their bytes and
     coins (account the two coins, 110 − 108 = 2, the fuse the donation requires) and are verified in CONSTANT,

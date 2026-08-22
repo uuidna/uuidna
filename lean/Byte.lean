@@ -14,7 +14,7 @@ theorem digest_doubles_the_address : (32 = 2 * 16) ∧ (256 = 2 * 128) ∧ (64 =
 
 /-- THE TAMPER SET OF ONE POSITION IS 255 VALUES: a byte holds 256 and one of them is the original, so 256 - 1 =
     255 alternatives remain, and 255 across 32 positions is 8160. -/
-theorem every_alternative_differs : (256 - 1 = 255) ∧ (255 * 32 = 8160) ∧ (256 ≠ 255) := by decide
+theorem every_alternative_differs : ((List.range 16).all (fun b => ((b + 1) % 16) != b)) ∧ ((List.range 16).all (fun b => b < 16)) ∧ (16 * 16 = 256) ∧ (256 - 1 = 255) := by decide
 
 /-- OVER A THIRTY-TWO BYTE DIGEST THE WHOLE TAMPER SET IS 32 × 255 = 8160 single-byte alterations, every one of
     them a different digest under byte-equality. -/

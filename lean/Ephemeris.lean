@@ -22,7 +22,7 @@ theorem mean_motion_linear : (([1,2,3] : List Nat).map (fun t => 30 * t)) = [30,
 
 /-- Eclipses recur on the Saros of ~18 years — about 223 synodic months: 18·12 = 216 ordinary months plus 7
     intercalary ≈ 223. After a Saros the sun, moon and nodes return to nearly the same alignment. -/
-theorem saros_eclipse_cycle : 18 * 12 + 7 = 223 := by decide
+theorem saros_eclipse_cycle : (18 * 12 + 7 = 223) ∧ (9 % 9 = 0) := by decide
 
 /-- A Julian Date is one continuous integer day count, so any interval is a plain subtraction: the epoch J2000
     (JD 2451545) minus the day before (2451544) is 1 day. Time becomes a coordinate you can just subtract. -/

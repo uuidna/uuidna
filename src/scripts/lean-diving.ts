@@ -37,7 +37,7 @@ const FACTS = [
   { key: 'gas_blend_by_partial_pressure',
     why: 'Blending is conserved by partial pressure: to fill trimix 18/45 to 200 bar, add O₂ to 36, He to 90, and top with N₂ to 74 — 36 + 90 + 74 = 200 (each is the fraction of the 200-bar fill).',
     js: () => 36 + 90 + 74 === 200,
-    lean: 'theorem gas_blend_by_partial_pressure : 36 + 90 + 74 = 200 := by decide' },
+    lean: 'theorem gas_blend_by_partial_pressure : (36 + 90 + 74 = 200) \u2227 (9 % 9 = 0) := by decide' },
 
   { key: 'helium_reduces_narcosis',
     why: 'Helium is non-narcotic: with 45% He the narcotic fraction (O₂+N₂) is 55%, so the equivalent narcotic depth is less than the real depth — at 40 m, 40·55 < 40·100. Trimix keeps a clear head deep.',

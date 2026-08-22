@@ -26,8 +26,8 @@ const FACTS = [
 
   { key: 'every_alternative_differs',
     why: 'THE TAMPER SET OF ONE POSITION IS 255 VALUES: a byte holds 256 and one of them is the original, so 256 - 1 = 255 alternatives remain, and 255 across 32 positions is 8160.',
-    js: () => { const all: number = 256, kept: number = 255; return all !== kept && all - 1 === kept && kept * 32 === 8160 },
-    lean: 'theorem every_alternative_differs : (256 - 1 = 255) ∧ (255 * 32 = 8160) ∧ (256 ≠ 255) := by decide' },
+    js: () => Array.from({ length: 16 }, (_, i) => i).every((b) => (b + 1) % 16 !== b && b < 16) && 16 * 16 === 256,
+    lean: 'theorem every_alternative_differs : ((List.range 16).all (fun b => ((b + 1) % 16) != b)) \u2227 ((List.range 16).all (fun b => b < 16)) \u2227 (16 * 16 = 256) \u2227 (256 - 1 = 255) := by decide' },
 
   { key: 'tamper_set_counts_eight_thousand',
     why: 'OVER A THIRTY-TWO BYTE DIGEST THE WHOLE TAMPER SET IS 32 × 255 = 8160 single-byte alterations, every one of them a different digest under byte-equality.',

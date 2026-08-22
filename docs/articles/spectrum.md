@@ -22,7 +22,7 @@ The ledger holds this as [wave_product_is_constant](/theorem/wave_product_is_con
 The ledger holds this as [light_speed_rounds_to_300000](/theorem/light_speed_rounds_to_300000) — proven `by decide`, sorry-free:
 
 ```lean
-300000000 - 299792458 = 207542
+(300000000 - 299792458 = 207542) ∧ (3 % 9 = 3)
 ```
 
 ### The spectrum has SEVEN bands — radio, microwave, infrared, visible, ultraviolet, X-ray, gamma — indexed 0..6 by increasing frequency, and the list is strictly increasing: seven, the rosette count. The waves uuidna navigates are a ℤ/7 of bands.

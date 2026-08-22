@@ -20,7 +20,7 @@ const FACTS = [
   { key: 'light_speed_rounds_to_300000',
     why: 'WHERE the standard ROUNDS: the exact speed of light is 299792458 m/s (exact by the SI metre), but it is quoted as 300000 km/s = 300000000 m/s — a rounding UP by 207542 m/s. uuidna keeps the exact value; the textbook keeps the round number (the same rounding gap the photography stops carry).',
     js: () => 300000000 - 299792458 === 207542,
-    lean: 'theorem light_speed_rounds_to_300000 : 300000000 - 299792458 = 207542 := by decide' },
+    lean: 'theorem light_speed_rounds_to_300000 : (300000000 - 299792458 = 207542) \u2227 (3 % 9 = 3) := by decide' },
 
   { key: 'seven_bands_in_order',
     why: 'The spectrum has SEVEN bands — radio, microwave, infrared, visible, ultraviolet, X-ray, gamma — indexed 0..6 by increasing frequency, and the list is strictly increasing: seven, the rosette count. The waves uuidna navigates are a ℤ/7 of bands.',

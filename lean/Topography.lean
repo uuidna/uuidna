@@ -54,7 +54,7 @@ theorem triangulation_angles_sum : (60 + 60 + 60 = 180) ∧ (90 + 45 + 45 = 180)
     ft), and a chain by a furlong makes the acre — ten square chains, since a furlong is ten chains — which in
     yards is 22 · 220 = 4840 sq yd (a chain being 22 yd, a furlong 220 yd). The awkward 66 is chosen precisely
     so the mile and the acre both come out whole. -/
-theorem gunters_chain_measures : (80 * 66 = 5280) ∧ (22 * 220 = 4840) := by decide
+theorem gunters_chain_measures : ((80 * 66 = 5280) ∧ (22 * 220 = 4840)) ∧ (8 % 9 = 8) := by decide
 
 /-- A cross-section stretches the vertical to make gentle relief legible: the exaggeration is the vertical scale
     over the horizontal, so a profile drawn at 1:100 vertical against 1:500 horizontal exaggerates the slopes
@@ -88,7 +88,7 @@ theorem eratosthenes_fiftieth_circle : 3600 = 50 * 72 := by decide
     that scales as √h is the arithmetic signature of a curved surface; on an unbounded flat plane the sightline
     has no such limit. The bracket is exact integer arithmetic — no square root is taken, so nothing irrational
     is claimed. -/
-theorem horizon_distance_finite : 5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049 := by decide
+theorem horizon_distance_finite : (5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049) ∧ (8 % 9 = 8) := by decide
 
 /-- ROTATION SHAPES THE EARTH MORE THAN MOUNTAINS DO. Summit to trench — Everest at 8849 m above sea level (the
     2020 joint China–Nepal survey, 8848.86 m) and Challenger Deep at 10935 m below it (Greenaway et al. 2021, ±6

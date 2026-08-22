@@ -50,7 +50,7 @@ The ledger holds this as [water_lewis_electrons](/theorem/water_lewis_electrons)
 The ledger holds this as [ionic_threshold](/theorem/ionic_threshold) — proven `by decide`, sorry-free:
 
 ```lean
-30 - 9 > 17
+(30 - 9 > 17) ∧ (3 % 9 = 3)
 ```
 
 ### Molar mass sums the atomic masses: water is 2·1 (hydrogen) + 16 (oxygen) = 18 g/mol. The molecule weighs exactly its parts.

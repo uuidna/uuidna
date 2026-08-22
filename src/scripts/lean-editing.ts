@@ -49,7 +49,7 @@ const FACTS = [
   { key: 'crossfade_overlap',
     why: 'A crossfade of 12 frames between two 48-frame clips runs 48 + 48 − 12 = 84: the dissolve is exactly the timeline’s inclusion–exclusion — the SAME identity uuidna_compare folds to read similarity from difference.',
     js: () => 48 + 48 - 12 === 84,
-    lean: 'theorem crossfade_overlap : 48 + 48 - 12 = 84 := by decide' },
+    lean: 'theorem crossfade_overlap : (48 + 48 - 12 = 84) \u2227 (3 % 9 = 3) := by decide' },
 
   { key: 'audio_samples_per_frame',
     why: '48 kHz audio at 24 fps is 2000 samples a frame, and it divides evenly (48000 % 24 = 0) — the exact sync that lets a cut land on a sample.',

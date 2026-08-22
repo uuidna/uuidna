@@ -1070,15 +1070,6 @@ export function sourcesGaps(): Gap[] {
 //   3. only after modelling BOTH discovery mechanisms does the number hold at 33.
 // A repo that invokes by discovery cannot be audited by grep — which is exactly why nothing caught books.ts.
 
-/** files listed in a generator's own manifest — `{ file: 'gen-x.js', … }` — are run by it, loop or no loop. */
-const manifestRuns = (siblingSrc: Map<string, string>, base: string): boolean => {
-  const entry = new RegExp("file:\\s*'" + base.replace(/-/g, '[-]') + "\\.js'")
-  for (const [name, src] of siblingSrc) {
-    if (name === base + '.ts') continue
-    if (entry.test(src)) return true
-  }
-  return false
-}
 
 export function dormantGaps(): Gap[] {
   const gaps: Gap[] = []
@@ -1117,12 +1108,6 @@ export function dormantGaps(): Gap[] {
     // USE VERSUS MENTION, both directions, from api.ts: selfExcluded keeps a file from being its own witness, and
     // invokesFile demands one line carry both the filename and a runner — see the law stated there in full.
     if (invokesFile(corpus + '\n' + selfExcluded(f, siblingSrc), base)) continue
-    // A MANIFEST ENTRY IS AN INVOCATION. invokesFile wants a runner token on the SAME LINE as the filename, which
-    // a shell chain gives it — but generate.ts drives its emitters from a manifest and spawns them in a generic
-    // loop, so the filename and the runner are never on one line. The scripts it runs every pass therefore read
-    // as dormant, and the fix is not to write a false entry in dormant-scripts.json but to let the finder see the
-    // manifest for what it is: a list of files this generator runs.
-    if (manifestRuns(siblingSrc, base)) continue
     // AN IN-PROCESS IMPORT IS AN INVOCATION. A script module does its work at top level, so `await import('./x.js')`
     // runs it exactly as `node x.js` did — when the guard stopped spawning a second interpreter for harmonic-scan
     // (a full boot and a second ledger load, the same waste already removed from predict-and-fill) the filename lost
@@ -2072,6 +2057,75 @@ export function hexbitGaps(): Gap[] {
           what: `${f}:${i + 1} takes a width one BIT at a time (\`${l.trim().slice(0, 56)}\`) — 2.9x the cost of the same width by tile`,
           fix: 'import bitsOf/hexbitsOf from src/hexbit — one implementation, exact integers, and the tile is the unit this ledger computes in',
         })
+    }
+  }
+  return gaps
+}
+
+/** INCOMPLETE — the key claims more than the statement establishes.
+ *
+ *  A theorem whose NAME says every, never, reaches or generates is claiming something universal, and only a
+ *  quantifier can carry that: `.all` over a range, a walked enumeration, a list decided element by element. A
+ *  handful of point facts cannot, however true each one is.
+ *
+ *  This was earned. a theorem claiming the void and the axis never reach each other was sealed here with the word REACH in its
+ *  name while its Lean settled counts and its JS applied each motion ONCE from the seed — never closing the set
+ *  under composition. One step is not a walk: closed properly, every seed reaches all nine residues and the
+ *  theorem was false. It passed the kernel, the axiom audit, the vacuous check and the literal check, because
+ *  none of them compares a name to what its statement actually quantifies over.
+ *
+ *  AN ENUMERATED LIST COUNTS. A statement decided over `[a, b, c, …]` walks its domain exhaustively and is a
+ *  quantification; an earlier version of this finder called those unquantified and flagged eighteen theorems,
+ *  most of them sound. The prompt names the domain the key implies, so the fix is stated rather than hinted. */
+export function incompleteGaps(): Gap[] {
+  // VERBS AND ADVERBS ONLY — a universal is a claim about all cases, not a noun that happens to share a stem.
+  // `sixteen_connectives` counts sixteen things and proves the count with 2^4 = 16; it claims nothing universal,
+  // and `connect\w*` flagged it because "connectives" starts the same way. The words below are the ones that
+  // assert scope: reaches, connects, generates, and the quantifying adverbs.
+  const UNIVERSAL = /(^|_)(every|never|always|reaches|reach|connects|connect|generates|generate|closed)(_|$)/
+  const quantifies = (s: string): boolean =>
+    /\.(all|every|filter|map|flatMap)\b|List\.range/.test(s) || /\[[^\]]*,[^\]]*,[^\]]*\]/.test(s)
+  return theorems()
+    .filter((t) => UNIVERSAL.test(t.key) && !quantifies(t.statement))
+    .map((t) => ({
+      what: `${t.key} claims a universal ("${(t.key.match(UNIVERSAL) ?? [, , ''])[2]}") but its statement quantifies over nothing — \`${t.statement.slice(0, 54)}\``,
+      fix: `state it over the domain the name claims: (List.range N).all (fun x => …) or a decided enumeration, so the walk is closed rather than sampled — a handful of point facts cannot carry a universal, and one step is not a walk`,
+    }))
+}
+
+/** LONELY — a theorem that connects to nothing in its own wing.
+ *
+ *  A theorem leans on its neighbours or it is a name with a sum under it. `fold_prototype_pollution` settles
+ *  1300 + 21 = 1321 and shares neither a symbol nor a constant with anything else in Exploits.lean: the
+ *  arithmetic is true and what it has to do with prototype pollution is carried entirely by the key.
+ *
+ *  CONSTANTS COUNT AS CONNECTION. Reading identifiers alone reports 39 lonely theorems and the examples are
+ *  `division_by_zero`, `units_z9`, `digital_root` — the core of their wing, flagged because they are stated in
+ *  bare numerals with no symbols at all. Counting numerals too gives 23 and an entirely different set. An
+ *  isolation detector that flags the most central theorems in the ledger is measuring its own blind spot.
+ *
+ *  ADVISORY, NOT BLOCKING. A wing's first theorem in a new direction has no neighbours yet, and that is growth
+ *  rather than rot — so this reports and never refuses. `incomplete` blocks because a universal with nothing
+ *  quantified is always wrong; lonely is a question, not a verdict. */
+export function lonelyGaps(): Gap[] {
+  const STOP = /^(List|range|fun|all|Nat|Int|true|false|filter|map|length|sum|if|then|else)$/
+  const toks = (s: string): Set<string> => new Set([
+    ...(s.match(/[A-Za-z_][A-Za-z0-9_]{2,}/g) ?? []).filter((w) => !STOP.test(w)),
+    ...(s.match(/\b\d+\b/g) ?? []),
+  ])
+  const byWing = new Map<string, ReturnType<typeof theorems>>()
+  for (const t of theorems()) byWing.set(t.file, [...(byWing.get(t.file) ?? []), t])
+  const gaps: Gap[] = []
+  for (const [file, ts] of byWing) {
+    if (ts.length < 2) continue          // a wing of one has no neighbours to connect to
+    for (const t of ts) {
+      const mine = toks(t.statement)
+      if (mine.size === 0) continue
+      if (ts.some((o) => o.key !== t.key && [...toks(o.statement)].some((w) => mine.has(w)))) continue
+      gaps.push({
+        what: `${t.key} shares no symbol and no constant with any neighbour in ${file} — \`${t.statement.slice(0, 46)}\``,
+        fix: 'connect it: state it over a constant or definition the wing already uses, so the theorem leans on its neighbours instead of standing alone under its name',
+      })
     }
   }
   return gaps

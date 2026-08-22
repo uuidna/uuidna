@@ -78,7 +78,7 @@ The ledger holds this as [knight_has_eight_moves](/theorem/knight_has_eight_move
 The ledger holds this as [closed_knight_tour_even](/theorem/closed_knight_tour_even) — proven `by decide`, sorry-free:
 
 ```lean
-64 % 2 = 0
+(((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 0)).length = 32) ∧ (((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 1)).length = 32) ∧ (64 % 2 = 0)
 ```
 
 ### A rook on an otherwise-empty board attacks 14 squares — 7 along its rank and 7 along its file (all but its own), independent of where it stands. 7+7 = 14.

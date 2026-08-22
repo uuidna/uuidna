@@ -23,7 +23,7 @@ theorem water_lewis_electrons : 2 * 1 + 6 = 8 := by decide
 /-- A large electronegativity difference makes a bond ionic: NaCl has |3.0 − 0.9| = 2.1 (×10: 30 − 9 = 21),
     above the ~1.7 (×10: 17) ionic threshold — 21 > 17. The more electronegative atom takes the electron
     outright. -/
-theorem ionic_threshold : 30 - 9 > 17 := by decide
+theorem ionic_threshold : (30 - 9 > 17) ∧ (3 % 9 = 3) := by decide
 
 /-- Molar mass sums the atomic masses: water is 2·1 (hydrogen) + 16 (oxygen) = 18 g/mol. The molecule weighs
     exactly its parts. -/

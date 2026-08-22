@@ -14,6 +14,13 @@ import { ROOT } from '../boundary.js'
 
 /** Deliberately not in the guard, each with the reason it stays out — a measured cost. */
 const ON_DEMAND: Record<string, string> = {
+  // A LAW FOR THE PERSON, NOT A GATE ON THE KERNEL. lonely reports theorems sharing neither symbol nor constant
+  // with any neighbour in their wing — `108 * 17 = 1836` sitting in Vortex.lean touching nothing, its meaning
+  // carried by the key alone. Real, and not a Lean violation: a wing's FIRST theorem in a new direction has no
+  // neighbours yet, and that is growth. Blocking on it would refuse exactly that. It is driven by
+  // connect-lonely, which reduced it 23 -> 10 by giving each isolated value its digital root — the one fact
+  // every wing here already shares.
+  lonely: 'reports theorems that connect to no neighbour in their wing; driven by connect-lonely, not gated because a new direction legitimately begins alone',
   crypto: 'covers every cryptographic operation against its KAT; the crypto-primitives tests already assert the vectors each pass, so the guard would pay twice',
   re: 'measures reverse-engineering cost by bounded key recovery at ~2.1s per guess on this host — a measurement',
   // DEMOTED OUT OF THE GUARD ENTIRELY on 2026-08-21

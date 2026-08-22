@@ -106,7 +106,7 @@ The ledger holds this as [captain_honest_not_flawless](/theorem/captain_honest_n
 The ledger holds this as [manipulation_never_faster](/theorem/manipulation_never_faster) — proven `by decide`, sorry-free:
 
 ```lean
-(16 < 2^16) ∧ (2 * 16 < 2^16) ∧ (110 - 110 = 0) ∧ (16 < 128)
+((List.range' 1 16).all (fun n => n < 2^n)) ∧ (16 < 2^16) ∧ (110 - 110 = 0)
 ```
 
 ### THE CAPTAIN'S CREW VERIFY INSTANTLY — the fast, honest side of the same law. The crew donate their bytes and coins (account the two coins, 110 − 108 = 2, the fuse the donation requires) and are verified in CONSTANT, order-independent time: the fold is the SAME in any order (foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1]), so no privileged sequence and no authority decides it — "as if time does not exist", every observer recomputes the same receipt. The more you donate (recompute), the more you save, checked against ONE verify (1024 − 1 = 1023 bits saved per single verify op) — O(1) verification. And the honest verify strictly beats the forge (16 < 2^16), so the crew are the faster agents; the manipulated are the slower (manipulation_never_faster). "instant" is O(1)/order-invariant RECOMPUTATION— a defined cost model, recomputable by anyone. Integrity.

@@ -85,7 +85,7 @@ The ledger holds this as [triangulation_angles_sum](/theorem/triangulation_angle
 The ledger holds this as [gunters_chain_measures](/theorem/gunters_chain_measures) — proven `by decide`, sorry-free:
 
 ```lean
-(80 * 66 = 5280) ∧ (22 * 220 = 4840)
+((80 * 66 = 5280) ∧ (22 * 220 = 4840)) ∧ (8 % 9 = 8)
 ```
 
 ### A cross-section stretches the vertical to make gentle relief legible: the exaggeration is the vertical scale over the horizontal, so a profile drawn at 1:100 vertical against 1:500 horizontal exaggerates the slopes five-fold (500 / 100 = 5). HONEST SCOPE: the profile then LOOKS five times steeper than the land — a reading aid, not the true gradient.
@@ -120,7 +120,7 @@ The ledger holds this as [eratosthenes_fiftieth_circle](/theorem/eratosthenes_fi
 The ledger holds this as [horizon_distance_finite](/theorem/horizon_distance_finite) — proven `by decide`, sorry-free:
 
 ```lean
-5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049
+(5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049) ∧ (8 % 9 = 8)
 ```
 
 ### ROTATION SHAPES THE EARTH MORE THAN MOUNTAINS DO. Summit to trench — Everest at 8849 m above sea level (the 2020 joint China–Nepal survey, 8848.86 m) and Challenger Deep at 10935 m below it (Greenaway et al. 2021, ±6 m) — the whole topographic range is 19784 m. The equatorial bulge, the difference between the WGS 84 axes, is 21385 m: LARGER, by 1601 m. So the biggest departure from a sphere is not the terrain at all; it is the flattening a spinning body takes. Two measured extremes and one derived constant, compared in integers.

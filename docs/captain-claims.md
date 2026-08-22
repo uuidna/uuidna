@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1446/1446 theorems — every one, by construction
-**Claim receipt:** `9de1ad9b-32c1-84e7-9ede-deda9b077925`
+**Total claimed:** 1451/1451 theorems — every one, by construction
+**Claim receipt:** `fb934a5a-beeb-8919-a9bc-b84081f1872f`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -70,12 +70,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### Division by zero
 
-- **Theorems:** 11
+- **Theorems:** 13
 - **Sample lineAddress:** `dec45133-e1d5-8551-b846-bbc7e3a0d507`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[dz_table](/theorem/dz_table) · [dz_involution](/theorem/dz_involution) · [dz_fixed_points](/theorem/dz_fixed_points) · [dz_sum_ten](/theorem/dz_sum_ten) · [dz_bounded](/theorem/dz_bounded) · [dz_zero_only_zero](/theorem/dz_zero_only_zero) · [dz_swaps_the_thirds_and_fixes_the_axis](/theorem/dz_swaps_the_thirds_and_fixes_the_axis) · [the_passage_costs_a_coin_at_each_end](/theorem/the_passage_costs_a_coin_at_each_end) · [the_cross_tells_a_ratio_from_a_convention](/theorem/the_cross_tells_a_ratio_from_a_convention) · [halfword_is_the_reflection_crossed](/theorem/halfword_is_the_reflection_crossed) · [two_plus_two_is_five_only_mod_one](/theorem/two_plus_two_is_five_only_mod_one)
+[dz_table](/theorem/dz_table) · [dz_involution](/theorem/dz_involution) · [dz_fixed_points](/theorem/dz_fixed_points) · [dz_sum_ten](/theorem/dz_sum_ten) · [dz_bounded](/theorem/dz_bounded) · [dz_zero_only_zero](/theorem/dz_zero_only_zero) · [dz_swaps_the_thirds_and_fixes_the_axis](/theorem/dz_swaps_the_thirds_and_fixes_the_axis) · [the_six_motions_connect_the_whole_ring](/theorem/the_six_motions_connect_the_whole_ring) · [a_chain_shares_its_gateway_ends](/theorem/a_chain_shares_its_gateway_ends) · [the_passage_costs_a_coin_at_each_end](/theorem/the_passage_costs_a_coin_at_each_end) · [the_cross_tells_a_ratio_from_a_convention](/theorem/the_cross_tells_a_ratio_from_a_convention) · [halfword_is_the_reflection_crossed](/theorem/halfword_is_the_reflection_crossed) · [two_plus_two_is_five_only_mod_one](/theorem/two_plus_two_is_five_only_mod_one)
 
 ### Applied structure — the science pairs
 
@@ -160,12 +160,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The two coins & the 64
 
-- **Theorems:** 22
+- **Theorems:** 25
 - **Sample lineAddress:** `f453403b-b9ca-8c2b-8251-d74c7c77d6b9`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) · [fold_compresses_without_bound_and_never_recovers](/theorem/fold_compresses_without_bound_and_never_recovers) · [handle_string_spans_the_quarter](/theorem/handle_string_spans_the_quarter) · [hexbit_bit_hook_is_linear](/theorem/hexbit_bit_hook_is_linear) · [handle_carries_hexbits_and_coins](/theorem/handle_carries_hexbits_and_coins) · [captain_singularity](/theorem/captain_singularity) · [fold_reads_by_handle_not_by_tile](/theorem/fold_reads_by_handle_not_by_tile) · [safe_width_is_thirteen_hexbits](/theorem/safe_width_is_thirteen_hexbits) · [heartbeat_share_resolves_at_four_hexbits](/theorem/heartbeat_share_resolves_at_four_hexbits) · [billing_closes_at_every_count](/theorem/billing_closes_at_every_count) · [captain_theorem](/theorem/captain_theorem) · [two_coins](/theorem/two_coins) · [coins_over_all_rosetta_combinations](/theorem/coins_over_all_rosetta_combinations) · [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) · [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) · [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) · [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) · [bill_never_negative](/theorem/bill_never_negative) · [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) · [wallet_counts_worlds](/theorem/wallet_counts_worlds) · [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) · [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales)
+[minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) · [fold_compresses_without_bound_and_never_recovers](/theorem/fold_compresses_without_bound_and_never_recovers) · [handle_string_spans_the_quarter](/theorem/handle_string_spans_the_quarter) · [hexbit_bit_hook_is_linear](/theorem/hexbit_bit_hook_is_linear) · [handle_carries_hexbits_and_coins](/theorem/handle_carries_hexbits_and_coins) · [captain_singularity](/theorem/captain_singularity) · [fold_reads_by_handle_not_by_tile](/theorem/fold_reads_by_handle_not_by_tile) · [safe_width_is_thirteen_hexbits](/theorem/safe_width_is_thirteen_hexbits) · [heartbeat_share_resolves_at_four_hexbits](/theorem/heartbeat_share_resolves_at_four_hexbits) · [billing_closes_at_every_count](/theorem/billing_closes_at_every_count) · [two_coins_are_switch_and_track](/theorem/two_coins_are_switch_and_track) · [minting_is_free_and_forging_is_not](/theorem/minting_is_free_and_forging_is_not) · [discovery_buys_coverage_never_supply](/theorem/discovery_buys_coverage_never_supply) · [captain_theorem](/theorem/captain_theorem) · [two_coins](/theorem/two_coins) · [coins_over_all_rosetta_combinations](/theorem/coins_over_all_rosetta_combinations) · [sixtyfour_is_two_pow_six](/theorem/sixtyfour_is_two_pow_six) · [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins) · [captain_coins_respected_at_scale](/theorem/captain_coins_respected_at_scale) · [superposition_outcomes_to_64](/theorem/superposition_outcomes_to_64) · [bill_never_negative](/theorem/bill_never_negative) · [traitor_damage_sealed_by_same_billing](/theorem/traitor_damage_sealed_by_same_billing) · [wallet_counts_worlds](/theorem/wallet_counts_worlds) · [coins_unique_operation_agreement](/theorem/coins_unique_operation_agreement) · [coin_and_heart_generate_the_scales](/theorem/coin_and_heart_generate_the_scales)
 
 ### The hardware-verifiable binary algebra
 
@@ -197,7 +197,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The exploit folds
 
 - **Theorems:** 12
-- **Sample lineAddress:** `65ca2243-ca82-81f9-b8f3-9cc8c6373df7`
+- **Sample lineAddress:** `80d14ebb-89b1-841d-aef3-15a82b34470c`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -840,7 +840,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[units_form_six](/theorem/units_form_six) · [four_subgroups_exhibited](/theorem/four_subgroups_exhibited) · [lagrange_divides_every_order](/theorem/lagrange_divides_every_order) · [two_generates_the_whole](/theorem/two_generates_the_whole) · [most_subsets_are_not_subgroups](/theorem/most_subsets_are_not_subgroups) · [trivial_and_whole_always_hold](/theorem/trivial_and_whole_always_hold)
+[units_form_six](/theorem/units_form_six) · [four_subgroups_exhibited](/theorem/four_subgroups_exhibited) · [lagrange_divides_every_order](/theorem/lagrange_divides_every_order) · [two_generates_the_whole](/theorem/two_generates_the_whole) · [most_subsets_are_not_subgroups](/theorem/most_subsets_are_not_subgroups) · [trivial_and_whole_are_subgroups](/theorem/trivial_and_whole_are_subgroups)
 
 ### lean/Trinities.lean
 
@@ -870,7 +870,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1365 (1446 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1371 (1451 entries, 80 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -888,7 +888,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1446 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1451 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

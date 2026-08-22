@@ -33,4 +33,4 @@ theorem most_subsets_are_not_subgroups : (64 - 4 = 60) ∧ (4 ≠ 64) ∧ ((2:Na
 /-- THE LATTICE HAS A FLOOR AND A CEILING: the trivial subgroup and the whole group are both subgroups, and they
     differ — one has a single member and the other six. Every other subgroup lies strictly between them, which
     is what makes it a lattice rather than a list. -/
-theorem trivial_and_whole_always_hold : (isSub [1]) ∧ (isSub units) ∧ (([1]:List Nat).length ≠ units.length) := by decide
+theorem trivial_and_whole_are_subgroups : (isSub [1]) ∧ (isSub units) ∧ (([1]:List Nat).length ≠ units.length) := by decide

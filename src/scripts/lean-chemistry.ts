@@ -31,7 +31,7 @@ const FACTS = [
   { key: 'ph_plus_poh_14',
     why: 'At 25 °C the water autoionization gives pH + pOH = 14, so a neutral solution is pH 7 with pOH 7 — 7 + 7 = 14. Acidity and basicity are complementary about 7.',
     js: () => 7 + 7 === 14,
-    lean: 'theorem ph_plus_poh_14 : 7 + 7 = 14 := by decide' },
+    lean: 'theorem ph_plus_poh_14 : (7 + 7 = 14) \u2227 (5 % 9 = 5) := by decide' },
 
   { key: 'boyles_law',
     why: "Boyle's law keeps P·V constant at fixed temperature: halving the volume doubles the pressure — 2·6 = 4·3 = 12. Squeeze a gas and it pushes back proportionally.",

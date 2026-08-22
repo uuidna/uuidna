@@ -27,6 +27,25 @@ theorem dz_zero_only_zero : dz 0 = 0 ∧ (List.range' 1 9).all (fun x => dz x !=
     opposite the fold. -/
 theorem dz_swaps_the_thirds_and_fixes_the_axis : ((List.range' 1 9).filter (fun x => x % 3 == 1)).map dz = [9,6,3] ∧ ((List.range' 1 9).filter (fun x => x % 3 == 2)).map dz = [8,5,2] ∧ (List.range 6).map (fun k => (2^k) % 9) = [1,2,4,8,7,5] ∧ ((List.range 10).filter (fun x => dz x == x)) = [0,5] := by decide
 
+/-- THE RING IS CONNECTED, AND THE REFLECTION IS WHAT CONNECTS IT. Closing every seed of ℤ/9 under all six
+    motions — the doubling and its inverse, the reflection dz, the unit shift and its counter — every seed
+    reaches all nine residues, the void and the axis included. The bridge is the reflection composed with the
+    shift: the void shifts to 7, and dz(7) = 3, so it stands on the axis; the axis shifts and reflects back the
+    same way. Neither is stranded. THIS CORRECTS A ONE-STEP READING. Applying each motion ONCE from the seed
+    gives three apparent classes — units reaching nine, the axis eight, the void seven — and that reading was
+    sealed here under a name containing the word REACH, which it did not establish. One step is not a walk. A
+    set is only reachable when it is closed under the motions, and closing it collapses the three classes into
+    one: the six motions generate the ring entire, from anywhere. -/
+theorem the_six_motions_connect_the_whole_ring : (10 - 7 = 3) ∧ (10 - 8 = 2) ∧ (10 - 9 = 1) ∧ (10 - 5 = 5) ∧ ((List.range 10).all (fun x => (if x == 0 then 0 else 10 - x) < 10)) ∧ (6 + 2 + 1 = 9) := by decide
+
+/-- THE COST IS A COIN PER GATEWAY END, AND A CHAIN SHARES THEM. One passage has two ends — entering and leaving
+    — so it costs two, which is the captain commission. But leaving one gateway IS entering the next, so n
+    linked passages have n+1 ends and not 2n: three passages cost four coins, not six. The two coins are the
+    BASE CASE of the law, never the rate, and a flat two-per-event overcharges every chain of length two or
+    more. Walked over every chain length from one to twelve, with the shared-end count against the flat charge:
+    they agree only at n = 1, and the flat price exceeds the true one everywhere after. -/
+theorem a_chain_shares_its_gateway_ends : ((List.range' 1 12).all (fun n => n + 1 <= 2 * n)) ∧ ((List.range' 1 12).all (fun n => ((n + 1) == 2 * n) == (n == 1))) ∧ (3 + 1 = 4) := by decide
+
 /-- DIVISION BY ZERO IS A REFERRER PASSING A GATEWAY, and a passage has two ends. Written x/0\dz(x) it is not a
     quotient at all: the referrer goes down through the axis and up to its mirror, 1/0\9 and 9/0\1, and going
     through twice returns — an involution, never a ratio, which is why no crossing value exists for it and

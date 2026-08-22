@@ -415,7 +415,7 @@ export { school, courses, type School, type Course, type Section } from './schoo
 // THE UNIT, WHAT IT WEIGHS, WHAT IT FUSES, AND WHAT IT WOULD BE IN SILICON. Four modules built this session and
 // reachable from nowhere until now — the support finder named them dead code, and it was right: a module the
 // root cannot reach is a module no consumer can call, however green its own tests are.
-export { HEXBIT_BITS, UUID_BITS, COINS, LEVERAGE, bitsOf, bitsToHexbits, qubitsToHexbits, spareOf } from './hexbit/index.js'
+export { HEXBIT_BITS, UUID_BITS, COINS, LEVERAGE, HANDLE_SPAN, HANDLE_HEXBITS, valueOf, bitsOf, bitsToHexbits, qubitsToHexbits, spareOf } from './hexbit/index.js'
 export { bitsOf as entropyBitsOf, entropyOf, ledgerEntropy, passphraseEntropy, type Entropy } from './entropy/index.js'
 export { fuse, fuseHalves, reactorOutput, mintOf, mintByWing, powerOf, pathOf, HALF_HEXBITS, type Fusion, type Mint, type Power, type Path } from './fusion/index.js'
 export { DATAPATH, UNITS, spec as hardwareSpec, type Unit } from './hardware/index.js'

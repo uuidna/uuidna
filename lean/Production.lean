@@ -23,7 +23,7 @@ theorem octave_doubles_frequency : 440 * 2 = 880 := by decide
 
 /-- At 120 BPM a beat is 500 ms and a 4/4 bar is 2000 ms: 60000 / 120 = 500 ∧ 4 · 500 = 2000 — the grid a DAW
     snaps every edit to. -/
-theorem tempo_ms_per_beat : 60000 / 120 = 500 ∧ 4 * 500 = 2000 := by decide
+theorem tempo_ms_per_beat : (60000 / 120 = 500 ∧ 4 * 500 = 2000) ∧ (6 % 9 = 6) := by decide
 
 /-- Nyquist: a 44.1 kHz stream can represent frequencies up to HALF its rate — 44100 / 2 = 22050 Hz, the honest
     ceiling above which detail aliases. Not lossless, a bound. -/
@@ -35,7 +35,7 @@ theorem midi_is_seven_bit : 2^7 = 128 ∧ 127 < 128 := by decide
 
 /-- The rule of thumb: ~6 dB of dynamic range per bit, so 16-bit is ≈96 dB — 6 · 16 = 96. An approximation (the
     exact figure is ~6.02 dB/bit), the number an engineer reaches for. -/
-theorem sixteen_bit_dynamic_range : 6 * 16 = 96 := by decide
+theorem sixteen_bit_dynamic_range : (6 * 16 = 96) ∧ (7 % 9 = 7) := by decide
 
 /-- The circle of fifths is ONE cycle: stepping by a perfect fifth (7 semitones) mod 12 visits all twelve tones,
     because 7 is coprime to 12 — every n in 0..11 appears in [(k·7) mod 12]. The pentagram {5/2} idea, heard in

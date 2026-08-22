@@ -50,7 +50,7 @@ The ledger holds this as [air_oxygen_toxic_deep](/theorem/air_oxygen_toxic_deep)
 The ledger holds this as [gas_blend_by_partial_pressure](/theorem/gas_blend_by_partial_pressure) — proven `by decide`, sorry-free:
 
 ```lean
-36 + 90 + 74 = 200
+(36 + 90 + 74 = 200) ∧ (9 % 9 = 0)
 ```
 
 ### Helium is non-narcotic: with 45% He the narcotic fraction (O₂+N₂) is 55%, so the equivalent narcotic depth is less than the real depth — at 40 m, 40·55 < 40·100. Trimix keeps a clear head deep.

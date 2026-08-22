@@ -2,8 +2,8 @@
   "generated": "2026-08-22",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1446,
-  "total_theorems": 1446,
+  "total_claimed": 1451,
+  "total_theorems": 1451,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3078,6 +3078,18 @@
       "principle": "Division by zero"
     },
     {
+      "key": "the_six_motions_connect_the_whole_ring",
+      "lineAddress": "42da4ab5-2383-8b16-b731-c95586cfe3a3",
+      "address": "e566b7e7-700b-89a5-8f4f-42e6d1d1b01c",
+      "principle": "Division by zero"
+    },
+    {
+      "key": "a_chain_shares_its_gateway_ends",
+      "lineAddress": "2e8f633b-50a4-86e9-91fa-0f779329450e",
+      "address": "df137e18-2b7e-86bc-af06-dd000f6151ae",
+      "principle": "Division by zero"
+    },
+    {
       "key": "the_passage_costs_a_coin_at_each_end",
       "lineAddress": "5a66c359-8b23-8c49-9587-db75dd375bdf",
       "address": "4c292fd3-391b-8047-8b07-92da63caaed4",
@@ -3757,8 +3769,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "75d63172-293c-87a3-a7b5-069e86a150f3",
-      "address": "8e11f679-b33a-80ef-90ba-225f63b3ac20",
+      "lineAddress": "b1b017e7-efea-8118-a6f1-b0dd6158c730",
+      "address": "dbd43326-2e49-842e-95fb-dcdb26088498",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3769,8 +3781,8 @@
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "74fbb46d-c88d-8e60-9473-873d6851c1bf",
-      "address": "d0cdf4a4-3706-8795-adab-0450a2936ad2",
+      "lineAddress": "c16c4ea8-3355-86a2-bbd0-56c42c56696e",
+      "address": "5c1c9d4f-42ad-82eb-b48d-2754686bc181",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4009,38 +4021,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "be36ac74-621b-897d-9759-1c4979302cc8",
-      "address": "b869fcf7-1005-88b0-8b59-136008ad9d25",
+      "lineAddress": "13641f1d-5102-8db4-a023-bab112ac5629",
+      "address": "5ecf6996-a3bb-82c9-845a-2c7abc333f40",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "c6339d9a-c6c9-8da4-92ba-822ce289dd8d",
-      "address": "b6dddcbe-eb75-8928-b05f-ae16d14f19d0",
+      "lineAddress": "b000c90e-cc98-8ca9-9b48-0d0df5033a8c",
+      "address": "bf62cde0-5138-8ebf-bd6a-4289dde7be5e",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "c4989d72-4bdf-8de0-8970-c4b02ff34c32",
-      "address": "d755182c-3549-8a2c-827d-0892428166bb",
+      "lineAddress": "32b26e15-4b00-895d-a372-1699c2af6ce7",
+      "address": "2bc74e6b-71a9-82a8-9f4b-4e7f7a66c248",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "c2fc52d4-73de-81ac-86de-eaf469a311bb",
-      "address": "d9fed4a9-b796-8be9-9e96-01d3b745bd8c",
+      "lineAddress": "5fdc80cd-6ce9-87c6-9b4c-07a7a8b46d4d",
+      "address": "ca22e502-af5e-8c1c-aadf-920a44b77916",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "51c2f61d-36a7-8daf-b7c1-643ec8e4e594",
-      "address": "12b1bd19-eea3-851e-be22-a4d5dc499f0b",
+      "lineAddress": "dc5dc525-58ad-81c2-81c6-4478185757c3",
+      "address": "7ceab01b-2539-83f6-a770-e0757fcfe9c3",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "98c13082-c27d-8ce0-b8f8-57de8f2df48e",
-      "address": "4e721d48-d755-8331-9e00-84a204a5466e",
+      "lineAddress": "b44330c6-f17e-8f19-bd6a-b8ce9d3ce0a4",
+      "address": "55dba750-27d1-880d-9139-75ebbb978928",
       "principle": "The detectors, proven"
     },
     {
@@ -4170,6 +4182,24 @@
       "principle": "The two coins & the 64"
     },
     {
+      "key": "two_coins_are_switch_and_track",
+      "lineAddress": "6a525f11-9075-89af-9271-aaf35bccc684",
+      "address": "c273453e-d1ff-899b-b95f-9d680c4ca8bf",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "minting_is_free_and_forging_is_not",
+      "lineAddress": "cdc3d52e-c6a9-8b30-8b6e-4e5e46d7bd51",
+      "address": "693bb69f-67f6-8815-8c93-e50430811c1e",
+      "principle": "The two coins & the 64"
+    },
+    {
+      "key": "discovery_buys_coverage_never_supply",
+      "lineAddress": "a73cc9cb-8b0a-8973-830f-07d3b354dd39",
+      "address": "aa030bc3-a46c-817b-a658-d3031bae4275",
+      "principle": "The two coins & the 64"
+    },
+    {
       "key": "captain_theorem",
       "lineAddress": "4ae23bf3-8831-8e53-ae85-99bb537612dc",
       "address": "49cf9e60-f088-8b14-ac55-9274075c7102",
@@ -4237,8 +4267,8 @@
     },
     {
       "key": "coin_and_heart_generate_the_scales",
-      "lineAddress": "1fd61bfa-9277-8cc1-a115-1dfdf49623c8",
-      "address": "573d63c8-bab7-8fed-81b0-0b639865631c",
+      "lineAddress": "7434d231-84b6-814a-9524-7c9220801a13",
+      "address": "bda363ac-35c4-80b2-9ffc-e8aa71832ffb",
       "principle": "The two coins & the 64"
     },
     {
@@ -4393,14 +4423,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "376a7121-9c44-820e-a814-e4219bc1d944",
-      "address": "e4c5b816-cd89-8608-bac9-fc8cb341b5b0",
+      "lineAddress": "bcb1c451-8155-8ad1-8a44-23dcb6c97d63",
+      "address": "58cb1d1a-427c-8114-a9db-c346ac8233f3",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "89f67b97-2f9b-8028-9510-e64e970d3b84",
-      "address": "5c89c0c5-20ef-87bb-94d9-3d679fbc4756",
+      "lineAddress": "d4a65ca8-9d55-8afa-bb36-0c985b95f68e",
+      "address": "f6f02db0-47e5-8530-a93d-a0d45eae9232",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -4459,38 +4489,38 @@
     },
     {
       "key": "fold_trojan_source_bidi",
-      "lineAddress": "65ca2243-ca82-81f9-b8f3-9cc8c6373df7",
-      "address": "d2c994be-cf88-8572-98ae-cc7565c4e9f8",
+      "lineAddress": "80d14ebb-89b1-841d-aef3-15a82b34470c",
+      "address": "bbfb187f-e93b-8d96-91c4-60ef68a9ff4b",
       "principle": "The exploit folds"
     },
     {
       "key": "fold_prototype_pollution",
-      "lineAddress": "c6cbe7ba-c28d-8c6c-9c1f-4c0f65d04760",
-      "address": "94c43628-5392-8fc7-8478-dfa2915eda6c",
+      "lineAddress": "bf5ea0e3-411c-84c2-9b27-7b8a1c3f3f96",
+      "address": "ddead96d-6ce7-8fb5-927f-d19e2f10c9d7",
       "principle": "The exploit folds"
     },
     {
       "key": "fold_supply_chain",
-      "lineAddress": "9f3c975d-43c5-83f0-a1d9-cd1c3a17e06d",
-      "address": "ab1b1b6b-d7ef-8057-bcba-040b693c3d95",
+      "lineAddress": "b9df7c3b-822f-8c1c-87f3-3a48c05be94e",
+      "address": "4bd6b412-62a5-8e50-b76e-abbe0a975610",
       "principle": "The exploit folds"
     },
     {
       "key": "fold_resource_dos",
-      "lineAddress": "db01bd9f-7c94-847b-9a14-e165f2234645",
-      "address": "702c2b09-6cb4-8c3a-83c4-3871a1bcf84e",
+      "lineAddress": "8f4e96df-3256-8c16-b76e-f499ac46f3be",
+      "address": "6810933f-aca8-860f-a0cd-0b958ef9ea6b",
       "principle": "The exploit folds"
     },
     {
       "key": "fold_weak_hash",
-      "lineAddress": "d5af7de7-0e91-8eec-ac38-614943aa20e0",
-      "address": "73837d76-0fba-8dc0-8b4e-cca9e0414e1b",
+      "lineAddress": "76d50d98-2830-83ee-b91a-dc7a5d9352ee",
+      "address": "5d43d8da-e820-89e1-b29a-7c2dbc8df966",
       "principle": "The exploit folds"
     },
     {
       "key": "fold_integrity_tamper",
-      "lineAddress": "6b14eb8c-191c-87eb-ba92-92bb9256970f",
-      "address": "5a171f1c-a892-8427-9853-fd55f6d81c17",
+      "lineAddress": "6bb26dd9-7788-81aa-8258-6b4c7bfc696a",
+      "address": "121e5d02-8ddd-8d38-a71c-0a2b7e168af1",
       "principle": "The exploit folds"
     },
     {
@@ -4867,8 +4897,8 @@
     },
     {
       "key": "gunters_chain_measures",
-      "lineAddress": "1f11a724-e86a-8c48-9c26-e8040023fd53",
-      "address": "236c5bf6-10bd-81dd-88dd-e86b9df797bb",
+      "lineAddress": "af812f7d-a3b7-8c16-a3a5-b56c0eac9680",
+      "address": "2b323fb5-32bf-846b-ba77-b894f3b08167",
       "principle": "The lay of the land"
     },
     {
@@ -4897,8 +4927,8 @@
     },
     {
       "key": "horizon_distance_finite",
-      "lineAddress": "bb1d60a0-0d34-8576-8588-b5584aa1f75f",
-      "address": "d9e1869c-2dea-8594-81ad-cd509df5d09d",
+      "lineAddress": "95a38359-f1ba-8a1c-811c-1d37e1a225cd",
+      "address": "d2ddb29f-331b-8a47-b403-43bd948fe2f2",
       "principle": "The lay of the land"
     },
     {
@@ -5047,8 +5077,8 @@
     },
     {
       "key": "gas_blend_by_partial_pressure",
-      "lineAddress": "b55b1ad9-ef28-8830-8da4-b56fb8bb8711",
-      "address": "30e6022c-a7a8-8cb4-b04e-525f126fd719",
+      "lineAddress": "ac31c08a-95a8-8661-8381-d8dca7964b36",
+      "address": "608b5cce-7a08-8ae4-ba70-35d489fbc520",
       "principle": "Diving — trimix gas laws"
     },
     {
@@ -5161,8 +5191,8 @@
     },
     {
       "key": "ph_plus_poh_14",
-      "lineAddress": "48d40ef3-55b1-805e-ac17-eccc8aa42e23",
-      "address": "eee16aff-fd3b-8708-86ae-0f51bc8db8bd",
+      "lineAddress": "f76bb026-05b0-86df-ae7c-33c6cdaf3e5a",
+      "address": "ce0cf9d3-aa7d-82da-a6a1-3558bbee910a",
       "principle": "The reactions domain"
     },
     {
@@ -5281,8 +5311,8 @@
     },
     {
       "key": "ionic_threshold",
-      "lineAddress": "bdb014d0-cea4-835d-bd02-3c3b6456c0de",
-      "address": "a8b13003-e29c-87a1-8768-8806e13e7a41",
+      "lineAddress": "558f5882-83fc-86cf-b076-f3adf0b99e95",
+      "address": "6fcfa597-8177-8a5c-b9e8-ad77c5745bbe",
       "principle": "The bond domain"
     },
     {
@@ -5581,8 +5611,8 @@
     },
     {
       "key": "saros_eclipse_cycle",
-      "lineAddress": "78bd00ce-1d3b-864d-a986-791ca3188469",
-      "address": "4b677ddb-524d-873d-83c3-ddd55ee8216a",
+      "lineAddress": "fdebf48f-9a5c-83f3-b0c7-f6d2f302b75f",
+      "address": "753f3d16-4d2a-8b9e-9f03-05a9d2c2a34a",
       "principle": "The time coordinate"
     },
     {
@@ -5725,8 +5755,8 @@
     },
     {
       "key": "closed_knight_tour_even",
-      "lineAddress": "de8bf86f-174a-879c-9d2d-eb7b95241124",
-      "address": "fbab2ce3-24be-89c1-9031-f8dd5f0cbba5",
+      "lineAddress": "4c8c5c71-a8d3-848a-ad8f-1e54df6ca94c",
+      "address": "d4c7c671-de12-8240-b1a0-19bbca79d326",
       "principle": "The chessboard"
     },
     {
@@ -6811,8 +6841,8 @@
     },
     {
       "key": "crossfade_overlap",
-      "lineAddress": "5a364c4d-df9b-86eb-97af-fe25171b4891",
-      "address": "c85c0d88-87c0-84a8-bccd-8a6caca777a3",
+      "lineAddress": "62d9f8ab-51cc-8f94-a193-16441f64b255",
+      "address": "29790301-f730-8f68-837c-df388c1e764f",
       "principle": "The cut"
     },
     {
@@ -7039,8 +7069,8 @@
     },
     {
       "key": "fstop_14_rounds_sqrt_two",
-      "lineAddress": "28a40a49-44a0-8b19-925b-8a97f1535cda",
-      "address": "e072f82c-accb-8a50-976b-6764cefde4c5",
+      "lineAddress": "37ac21bd-7bc1-8481-9e0e-312be573ed06",
+      "address": "533f7a6f-9095-85fb-bd8d-573e043c9694",
       "principle": "The exposure"
     },
     {
@@ -7123,8 +7153,8 @@
     },
     {
       "key": "light_speed_rounds_to_300000",
-      "lineAddress": "21f2ab46-7349-8cc9-9f7d-319d419387eb",
-      "address": "f65f34c5-73a3-8926-ad90-2bb92e837a1c",
+      "lineAddress": "f857e7d2-510b-8dcf-bbec-7f12dceff80c",
+      "address": "514a4084-83c0-8700-9314-3aa74fbc0545",
       "principle": "The spectrum"
     },
     {
@@ -7483,8 +7513,8 @@
     },
     {
       "key": "manipulation_never_faster",
-      "lineAddress": "2111d243-dd4f-8c4e-bc14-6dccbcb03cce",
-      "address": "75e63d31-8795-8abe-b6ea-32b3ccecb34e",
+      "lineAddress": "23eaa28b-17a0-85fb-87d2-b8eced98de87",
+      "address": "86922768-803c-8a45-ad1e-962b0a48c731",
       "principle": "The rules of inference"
     },
     {
@@ -7639,8 +7669,8 @@
     },
     {
       "key": "tempo_ms_per_beat",
-      "lineAddress": "0458b2b6-2beb-8b7d-8f83-bcc570bdce62",
-      "address": "c138042c-f9e9-8562-9325-b8833a47fdc1",
+      "lineAddress": "0d0d7088-089e-8371-9e05-a06dbe43900a",
+      "address": "8d44ccf1-9fb7-8337-b7a0-5c9c4a8f92e2",
       "principle": "The mix"
     },
     {
@@ -7657,8 +7687,8 @@
     },
     {
       "key": "sixteen_bit_dynamic_range",
-      "lineAddress": "8743f91c-3c4f-843f-b6db-2825a6ab0c13",
-      "address": "e42cb23a-698d-8c99-ba46-6cbae4bac8af",
+      "lineAddress": "f1e4974a-ddda-84d8-9ba1-121d5e9fc14d",
+      "address": "8c840cc8-e899-87c1-b602-5f6bfb37216c",
       "principle": "The mix"
     },
     {
@@ -7885,8 +7915,8 @@
     },
     {
       "key": "every_alternative_differs",
-      "lineAddress": "83234985-b837-80c7-ae07-2fafc28d1bfe",
-      "address": "2c6cc047-a881-8aa2-a7cf-f5e608a9dedd",
+      "lineAddress": "fcf3c951-25b6-8bb1-a46f-110bc4c35205",
+      "address": "5d0480b6-d364-8fcd-a721-bca0261d3043",
       "principle": "lean/Byte.lean"
     },
     {
@@ -8562,9 +8592,9 @@
       "principle": "lean/Subgroups.lean"
     },
     {
-      "key": "trivial_and_whole_always_hold",
-      "lineAddress": "32f31d14-3592-8716-95c7-6ccd8edb7ab9",
-      "address": "86a922c0-30c9-8383-9aec-36cbc10b74b8",
+      "key": "trivial_and_whole_are_subgroups",
+      "lineAddress": "b1039f26-5e2e-8a4b-88c2-067b3856c5a1",
+      "address": "af923b63-8a33-85ad-b0e1-a942aaec5bff",
       "principle": "lean/Subgroups.lean"
     },
     {
@@ -8682,7 +8712,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "9de1ad9b-32c1-84e7-9ede-deda9b077925",
+  "claim_receipt": "fb934a5a-beeb-8919-a9bc-b84081f1872f",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

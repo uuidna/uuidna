@@ -36,7 +36,7 @@ The ledger holds this as [shutter_60_rounds_64](/theorem/shutter_60_rounds_64) �
 The ledger holds this as [fstop_14_rounds_sqrt_two](/theorem/fstop_14_rounds_sqrt_two) — proven `by decide`, sorry-free:
 
 ```lean
-14 * 14 = 196 ∧ 196 < 200
+(14 * 14 = 196 ∧ 196 < 200) ∧ (5 % 9 = 5)
 ```
 
 ### What uuidna keeps exact: the aperture AREA is powers of two, so f² = 2ⁿ exactly — [1,2,4,8,16] = [2⁰..2⁴]. The printed f-numbers (1, 1.4, 2, 2.8, 4) are the rounded √ of these; the squares are exact.

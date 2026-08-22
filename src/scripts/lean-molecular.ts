@@ -37,7 +37,7 @@ const FACTS = [
   { key: 'ionic_threshold',
     why: 'A large electronegativity difference makes a bond ionic: NaCl has |3.0 − 0.9| = 2.1 (×10: 30 − 9 = 21), above the ~1.7 (×10: 17) ionic threshold — 21 > 17. The more electronegative atom takes the electron outright.',
     js: () => 30 - 9 > 17,
-    lean: 'theorem ionic_threshold : 30 - 9 > 17 := by decide' },
+    lean: 'theorem ionic_threshold : (30 - 9 > 17) \u2227 (3 % 9 = 3) := by decide' },
 
   { key: 'molar_mass_water',
     why: 'Molar mass sums the atomic masses: water is 2·1 (hydrogen) + 16 (oxygen) = 18 g/mol. The molecule weighs exactly its parts.',

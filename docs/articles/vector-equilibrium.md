@@ -39,9 +39,7 @@ The ledger holds this as [radial_equals_edge](/theorem/radial_equals_edge) — p
 VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4)
 ```
 
-### THE CROSS THE VECTOR EQUILIBRIUM ALREADY CARRIES. Twelve vertices, each meeting four others; twenty-four edges, each met twice. So 12·4 = 24·2 = 48 — two pairs, crossed, and the identity holds without dividing by two anywhere. That is the handshake stated as a proportion rather than as a halving, and it is what lets the edge count be READ off the vertices instead of computed from them.
-
-NOT A FITTED PAIR. Any two numbers sharing a ratio cross, so a cross is only evidence when both pairs are quantities the figure already has: 12 and 4 are counted at the vertices, 24 and 2 at the edges, and nothing here was chosen to make the product agree. Euler holds straight alongside it — 12 + 14 = 24 + 2 — and needs no cross, because a sum is already exact.
+### THE CROSS THE VECTOR EQUILIBRIUM ALREADY CARRIES. Twelve vertices, each meeting four others; twenty-four edges, each met twice. So 12·4 = 24·2 = 48 — two pairs, crossed, and the identity holds without dividing by two anywhere. That is the handshake stated as a proportion rather than as a halving, and it is what lets the edge count be READ off the vertices instead of computed from them. NOT A FITTED PAIR. Any two numbers sharing a ratio cross, so a cross is only evidence when both pairs are quantities the figure already has: 12 and 4 are counted at the vertices, 24 and 2 at the edges, and nothing here was chosen to make the product agree. Euler holds straight alongside it — 12 + 14 = 24 + 2 — and needs no cross, because a sum is already exact.
 The ledger holds this as [ve_handshake_crosses](/theorem/ve_handshake_crosses) — proven `by decide`, sorry-free:
 
 ```lean

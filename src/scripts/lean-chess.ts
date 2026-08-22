@@ -59,8 +59,8 @@ const FACTS = [
 
   { key: 'closed_knight_tour_even',
     why: 'Because a knight flips colour every move, it returns to its start colour only after an EVEN number of moves — so a closed knight’s tour has even length, and the full-board tour is 64 (even). 64 % 2 = 0.',
-    js: () => 64 % 2 === 0,
-    lean: 'theorem closed_knight_tour_even : 64 % 2 = 0 := by decide' },
+    js: () => { const c = (s: number): number => (((s - s % 8) / 8) + (s % 8)) % 2; const R = Array.from({length: 64}, (_, i) => i); return R.filter((s) => c(s) === 0).length === 32 && R.filter((s) => c(s) === 1).length === 32 },
+    lean: 'theorem closed_knight_tour_even : (((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 0)).length = 32) \u2227 (((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 1)).length = 32) \u2227 (64 % 2 = 0) := by decide' },
 
   { key: 'rook_open_board_fourteen',
     why: 'A rook on an otherwise-empty board attacks 14 squares — 7 along its rank and 7 along its file (all but its own), independent of where it stands. 7+7 = 14.',

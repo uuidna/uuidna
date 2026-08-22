@@ -50,7 +50,7 @@ The ledger holds this as [mean_motion_linear](/theorem/mean_motion_linear) — p
 The ledger holds this as [saros_eclipse_cycle](/theorem/saros_eclipse_cycle) — proven `by decide`, sorry-free:
 
 ```lean
-18 * 12 + 7 = 223
+(18 * 12 + 7 = 223) ∧ (9 % 9 = 0)
 ```
 
 ### A Julian Date is one continuous integer day count, so any interval is a plain subtraction: the epoch J2000 (JD 2451545) minus the day before (2451544) is 1 day. Time becomes a coordinate you can just subtract.

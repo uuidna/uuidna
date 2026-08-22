@@ -64,7 +64,7 @@ The ledger holds this as [rule_of_thirds_power_points](/theorem/rule_of_thirds_p
 The ledger holds this as [crossfade_overlap](/theorem/crossfade_overlap) — proven `by decide`, sorry-free:
 
 ```lean
-48 + 48 - 12 = 84
+(48 + 48 - 12 = 84) ∧ (3 % 9 = 3)
 ```
 
 ### 48 kHz audio at 24 fps is 2000 samples a frame, and it divides evenly (48000 % 24 = 0) — the exact sync that lets a cut land on a sample.

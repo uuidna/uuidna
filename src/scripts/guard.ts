@@ -15,7 +15,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, nameGaps, deadkeyGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, incompleteGaps, nameGaps, deadkeyGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -149,6 +149,8 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'unit', run: () => unitGaps() },
   // HARD FAIL IF NOT HEXBIT: a width taken bit-at-a-time outside src/hexbit.
   { name: 'hexbit', run: () => hexbitGaps() },
+  // a key that claims a universal must have a statement that quantifies one — one step is not a walk.
+  { name: 'incomplete', run: () => incompleteGaps() },
   // A VALUE NAMED FOR A COMPUTATION MUST BE COMPUTED BY IT — hexbit's law, generalised the day it was needed for a
   // second name. The fold's `movie` leaf was rewritten to digest the ADDRESSES the auras come from: sound reasoning
   // (an aura is a pure function of its address, so the digests move together) and still wrong, because folding

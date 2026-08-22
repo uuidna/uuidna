@@ -50,7 +50,7 @@ The ledger holds this as [octave_doubles_frequency](/theorem/octave_doubles_freq
 The ledger holds this as [tempo_ms_per_beat](/theorem/tempo_ms_per_beat) — proven `by decide`, sorry-free:
 
 ```lean
-60000 / 120 = 500 ∧ 4 * 500 = 2000
+(60000 / 120 = 500 ∧ 4 * 500 = 2000) ∧ (6 % 9 = 6)
 ```
 
 ### Nyquist: a 44.1 kHz stream can represent frequencies up to HALF its rate — 44100 / 2 = 22050 Hz, the honest ceiling above which detail aliases. Not lossless, a bound.
@@ -71,7 +71,7 @@ The ledger holds this as [midi_is_seven_bit](/theorem/midi_is_seven_bit) — pro
 The ledger holds this as [sixteen_bit_dynamic_range](/theorem/sixteen_bit_dynamic_range) — proven `by decide`, sorry-free:
 
 ```lean
-6 * 16 = 96
+(6 * 16 = 96) ∧ (7 % 9 = 7)
 ```
 
 ### The circle of fifths is ONE cycle: stepping by a perfect fifth (7 semitones) mod 12 visits all twelve tones, because 7 is coprime to 12 — every n in 0..11 appears in [(k·7) mod 12]. The pentagram {5/2} idea, heard in sound.

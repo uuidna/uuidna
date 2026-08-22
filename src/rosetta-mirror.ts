@@ -241,6 +241,9 @@ fold_reads_by_handle_not_by_tile 19
 safe_width_is_thirteen_hexbits 19
 heartbeat_share_resolves_at_four_hexbits 19
 billing_closes_at_every_count 19
+two_coins_are_switch_and_track 19
+minting_is_free_and_forging_is_not 19
+discovery_buys_coverage_never_supply 19
 captain_theorem 27
 two_coins 27
 coins_over_all_rosetta_combinations 19
@@ -384,6 +387,8 @@ dz_sum_ten 19
 dz_bounded 19
 dz_zero_only_zero 19
 dz_swaps_the_thirds_and_fixes_the_axis 19
+the_six_motions_connect_the_whole_ring 19
+a_chain_shares_its_gateway_ends 19
 the_passage_costs_a_coin_at_each_end 19
 the_cross_tells_a_ratio_from_a_convention 19
 halfword_is_the_reflection_crossed 19
@@ -1346,7 +1351,7 @@ verify_cheaper_than_forge 19
 wait_covers_margin 19
 no_maximum_only_bounds 19
 #Sequence.lean
-seal_ten 19
+seal_ten 27
 mirror_congruence 19
 mirror_fixed_five 27
 agl_order_54 19
@@ -1437,7 +1442,7 @@ four_subgroups_exhibited 19
 lagrange_divides_every_order 19
 two_generates_the_whole 19
 most_subsets_are_not_subgroups 19
-trivial_and_whole_always_hold 19
+trivial_and_whole_are_subgroups 19
 #Thermodynamics.lean
 first_law_conservation 19
 entropy_never_decreases 19

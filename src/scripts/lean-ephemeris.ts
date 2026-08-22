@@ -37,7 +37,7 @@ const FACTS = [
   { key: 'saros_eclipse_cycle',
     why: 'Eclipses recur on the Saros of ~18 years — about 223 synodic months: 18·12 = 216 ordinary months plus 7 intercalary ≈ 223. After a Saros the sun, moon and nodes return to nearly the same alignment.',
     js: () => 18 * 12 + 7 === 223,
-    lean: 'theorem saros_eclipse_cycle : 18 * 12 + 7 = 223 := by decide' },
+    lean: 'theorem saros_eclipse_cycle : (18 * 12 + 7 = 223) \u2227 (9 % 9 = 0) := by decide' },
 
 
   { key: 'julian_date_is_a_day_count',

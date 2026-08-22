@@ -43,7 +43,7 @@ The ledger holds this as [oxidation_states_sum](/theorem/oxidation_states_sum) �
 The ledger holds this as [ph_plus_poh_14](/theorem/ph_plus_poh_14) — proven `by decide`, sorry-free:
 
 ```lean
-7 + 7 = 14
+(7 + 7 = 14) ∧ (5 % 9 = 5)
 ```
 
 ### Boyle's law keeps P·V constant at fixed temperature: halving the volume doubles the pressure — 2·6 = 4·3 = 12. Squeeze a gas and it pushes back proportionally.

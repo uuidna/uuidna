@@ -370,15 +370,30 @@ export async function fetchGutenberg(id: number | string): Promise<FetchedBook> 
   if (!metaRes.ok) throw new Error(`books: Gutendex responded ${metaRes.status} for id ${id}`)
   const meta = (await metaRes.json()) as { title?: string; authors?: { name: string }[]; formats?: Record<string, string> }
   const formats = meta.formats || {}
-  const url =
-    formats['text/plain; charset=utf-8'] ||
-    formats['text/plain; charset=us-ascii'] ||
-    formats['text/plain'] ||
-    Object.entries(formats).find(([k, v]) => k.startsWith('text/plain') && !v.endsWith('.zip'))?.[1]
-  if (!url) throw new Error(`books: no plain-text format offered for Gutenberg id ${id}`)
-  const textRes = await fetch(url)
-  if (!textRes.ok) throw new Error(`books: fetching text got ${textRes.status} from ${url}`)
-  return { id: Number(id), title: meta.title || '', authors: (meta.authors || []).map((a) => a.name), text: await textRes.text(), source: url }
+  // EVERY MIRROR GUTENDEX OFFERS, IN ORDER — not the first and then surrender. Gutendex lists several plain-text
+  // URLs for a book and they do not fail together: measured on id 2017, the utf-8 mirror timed out while the
+  // us-ascii one served 68,652 characters and the epub cache served 88,514. Taking only the first turned a
+  // healthy catalogue into "no book available", which is how the whole reading pipeline read as unreachable.
+  const candidates = [
+    formats['text/plain; charset=utf-8'],
+    formats['text/plain; charset=us-ascii'],
+    formats['text/plain'],
+    ...Object.entries(formats).filter(([k, v]) => k.startsWith('text/plain') && !v.endsWith('.zip')).map(([, v]) => v),
+  ].filter((u): u is string => typeof u === 'string')
+  if (candidates.length === 0) throw new Error(`books: no plain-text format offered for Gutenberg id ${id}`)
+  let textRes: Response | undefined
+  const refused: string[] = []
+  for (const candidate of [...new Set(candidates)]) {
+    try {
+      const attempt = await fetch(candidate, { signal: AbortSignal.timeout(15000) })
+      if (attempt.ok) { textRes = attempt; break }
+      refused.push(`${attempt.status} ${candidate}`)
+    } catch (e) { refused.push(`${String((e as Error).message).slice(0, 40)} ${candidate}`) }
+  }
+  // NAMED, NEVER SILENT: a book that no mirror served says which ones refused and how, so the next reader knows
+  // whether the catalogue is wrong or the network is.
+  if (!textRes) throw new Error(`books: no mirror served id ${id} — ${refused.join('; ')}`)
+  return { id: Number(id), title: meta.title || '', authors: (meta.authors || []).map((a) => a.name), text: await textRes.text(), source: textRes.url }
 }
 
 /** auditBook(id) → fetch a public-domain Gutenberg book, then audit it. The network step is fetchGutenberg; the

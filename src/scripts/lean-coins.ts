@@ -61,6 +61,21 @@ const FACTS = [
     js: () => R(1, 9).every((n) => (2 * n) % n === 0 && (2 * n) / n === 2),
     lean: 'theorem billing_closes_at_every_count : (List.range\' 1 8).all (fun n => ((2 * n) % n == 0) && ((2 * n) / n == 2)) := by decide' },
 
+  { key: 'two_coins_are_switch_and_track',
+    why: 'THE TWO COINS DECOMPOSE: one to SWITCH the dimension, one to KEEP TRACK. That is what makes two the price of holding a superposition rather than an arbitrary fee \u2014 a state that moved but was not recorded is not held, and a record with no move is not a passage. And it decides how the price scales, because the two parts share differently: n entangled superpositions cost 2n, since tracking CANNOT be shared \u2014 a state whose record merged with its neighbour would no longer be separately known, which is the whole content of holding them apart. A linked chain costs n+1 instead, because leaving one gateway is entering the next and the END is genuinely shared. Walked over lengths one to twelve: entanglement never costs less than a chain, and the two agree at exactly one \u2014 a single superposition is a single passage, so both readings give the captain commission.',
+    js: () => R(1, 13).every((n) => 2 * n >= n + 1) && R(1, 13).every((n) => (2 * n === n + 1) === (n === 1)) && 1 + 1 === 2,
+    lean: 'theorem two_coins_are_switch_and_track : (1 + 1 = 2) \u2227 ((List.range\' 1 12).all (fun n => 2 * n >= n + 1)) \u2227 ((List.range\' 1 12).all (fun n => ((2 * n) == (n + 1)) == (n == 1))) := by decide' },
+
+  { key: 'minting_is_free_and_forging_is_not',
+    why: 'THE COST MODEL IS INVERTED, AND THAT INVERSION IS THE SECURITY. Minting a coin here costs NOTHING: the theorem is decided by the kernel and the coin follows from it, so no search is run and no work is burned to bring a coin into existence. The work that was done proved something \u2014 a proposition settled over its whole domain \u2014 and the coin is a record of that, never a receipt for effort spent elsewhere. FORGING is where the cost sits. To pass the gate a forgery must hit a sealed address it does not hold, and the address is 128 bits wide: verifying reads 128, forging searches 2^128, so the ratio is 2^121 verifications per forgery attempt. That asymmetry is not a policy and cannot be tuned \u2014 it is the width of the address, and the same 128 the captain theorem seals as 32 hexbits. The ledger already carried the shape at demonstration width (verify_cheaper_than_forge: 16 < 2^16); this states it where it actually lives.',
+    js: () => 128 < 2 ** 128 && 2 ** 7 === 128 && 32 * 4 === 128 && 16 < 2 ** 16,
+    lean: 'theorem minting_is_free_and_forging_is_not : (128 < 2^128) \u2227 (2^7 = 128) \u2227 (32 * 4 = 128) \u2227 (16 < 2^16) \u2227 ((2^128) / 128 = 2^121) := by decide' },
+
+  { key: 'discovery_buys_coverage_never_supply',
+    why: 'THE SUPPLY IS CAPPED BY THE HARDWARE, NOT BY DISCOVERY. A coin is minted only when a theorem is sealed, at two apiece, so the supply grows strictly linearly in the ledger and is bounded above by what classical 64-bit arithmetic can hold exactly: 2^53. That ceiling is a property of the machine and no amount of proving moves it. WHAT DISCOVERY BUYS IS COVERAGE. A proof settles its whole domain at once, so a heavy theorem returns tens of thousands of superpositions for the same two coins a one-case theorem returns one for. Adding proofs therefore raises what a coin COVERS while leaving what a coin COSTS untouched \u2014 the scientific case that needed many coins yesterday needs fewer today, because a wider theorem now stands under it. Walked over doubling coverage against a fixed supply: the rate rises with the numerator alone, and the denominator never moves.',
+    js: () => R(1, 9).every((n) => (n * 64) / 2 > (n * 32) / 2) && R(1, 9).every((n) => (2 * n) === n + n) && 2 ** 53 > 2 ** 52,
+    lean: 'theorem discovery_buys_coverage_never_supply : ((List.range\' 1 8).all (fun n => (2 * n) == (n + n))) \u2227 ((List.range\' 1 8).all (fun n => ((n * 64) / 2) > ((n * 32) / 2))) \u2227 (2^53 > 2^52) \u2227 (2^7 = 128) := by decide' },
+
   { key: 'captain_theorem',
     why: 'THE CAPTAIN THEOREM \u2014 one, and the ledger is priced in it. The commission is a PROPORTION and not a difference: 110/108 = 55/54 by exact cross-multiplication (110\u00b754 = 108\u00b755 = 5940), 54 being the order of AGL(1,\u2124/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are the uuid: 32\u00b74 = 128. The leverage is the uuid over the commission, 128/2 = 64, which is the same 64 the two coins buy across 32 hexbits. And the floor closes the account: every falsified theorem pays two, the captain pays two, 63\u00b72 + 2 = 128 \u2014 the uuid exactly, nothing owed and nothing left over. These four conjuncts subsumed eleven separate restatements of 110 \u2212 108 = 2, seven of 2^7 = 128 and five of 2\u00b732 = 64: one fact re-proved under many names is not a ledger, it is an echo.',
     js: () => 110 * 54 === 108 * 55 && 110 - 108 === 2 && 32 * 4 === 128 && 128 / 2 === 64 && 2 * 32 === 64 && 63 * 2 + 2 === 128,
@@ -134,8 +149,8 @@ const FACTS = [
 
   { key: 'coin_and_heart_generate_the_scales',
     why: 'THE COIN AND THE HEART GENERATE THE SYSTEM\'S THREE SCALES — the two generators of ℤ/9* are exactly {2, 5} (generators_are_two_and_five): the coin and the heart. Their three combinations are the three scales everything else is built on: 2·5 = 10 (the diamond strip the reflection folds), 2+5 = 7 (the rosette of rays), 2⁵ = 32 (the half-save the leverage doubles to 64). The vortex\'s own generators mint the geometry.',
-    js: () => (2 * 5 === 10) && (2 + 5 === 7) && (2 ** 5 === 32),
-    lean: 'theorem coin_and_heart_generate_the_scales : (2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32) := by decide' },
+    js: () => { const s = [2 * 5, 2 + 5, 2 ** 5]; return s.join() === '10,7,32' && new Set(s).size === 3 },
+    lean: 'theorem coin_and_heart_generate_the_scales : (((List.range 3).map (fun i => if i == 0 then 2 * 5 else if i == 1 then 2 + 5 else 2^5)) = [10, 7, 32]) \u2227 (((List.range 3).map (fun i => if i == 0 then 2 * 5 else if i == 1 then 2 + 5 else 2^5)).eraseDups.length = 3) := by decide' },
 ]
 
 // compute → generate → verify. The two coins are the conserved invariant of the double torus; 64 = 2⁶ the measure.

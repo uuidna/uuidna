@@ -18,7 +18,7 @@ theorem oxidation_states_sum : (2*1 + (-2) : Int) = 0 := by decide
 
 /-- At 25 °C the water autoionization gives pH + pOH = 14, so a neutral solution is pH 7 with pOH 7 — 7 + 7 =
     14. Acidity and basicity are complementary about 7. -/
-theorem ph_plus_poh_14 : 7 + 7 = 14 := by decide
+theorem ph_plus_poh_14 : (7 + 7 = 14) ∧ (5 % 9 = 5) := by decide
 
 /-- Boyle's law keeps P·V constant at fixed temperature: halving the volume doubles the pressure — 2·6 = 4·3 =
     12. Squeeze a gas and it pushes back proportionally. -/

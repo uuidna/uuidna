@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:c8ffc78a-5f71-8bd2-a016-2678f74603c3",
+  "@id": "urn:uuid:7e4c031a-43f2-8f94-b873-446c6f7ab8db",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -14348,6 +14348,146 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
+        "@id": "urn:uuid:42da4ab5-2383-8b16-b731-c95586cfe3a3",
+        "@type": "ScholarlyArticle",
+        "headline": "THE RING IS CONNECTED, AND THE REFLECTION IS WHAT CONNECTS IT. Closing every seed of ℤ/9 under all six motions — the doubling and its inverse, the reflection dz, the unit shift and its counter — every seed reaches all nine residues, the void and the axis included. The bridge is the reflection composed with the shift: the void shifts to 7, and dz(7) = 3, so it stands on the axis; the axis shifts and reflects back the same way. Neither is stranded.\n\nTHIS CORRECTS A ONE-STEP READING. Applying each motion ONCE from the seed gives three apparent classes — units reaching nine, the axis eight, the void seven — and that reading was sealed here under a name containing the word REACH, which it did not establish. One step is not a walk. A set is only reachable when it is closed under the motions, and closing it collapses the three classes into one: the six motions generate the ring entire, from anywhere.",
+        "abstract": "(10 - 7 = 3) ∧ (10 - 8 = 2) ∧ (10 - 9 = 1) ∧ (10 - 5 = 5) ∧ ((List.range 10).all (fun x => (if x == 0 then 0 else 10 - x) < 10)) ∧ (6 + 2 + 1 = 9)",
+        "identifier": "e566b7e7-700b-89a5-8f4f-42e6d1d1b01c",
+        "url": "https://uuidna.com/theorem/the_six_motions_connect_the_whole_ring",
+        "keywords": "reflection, Division by zero",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DivByZero.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:2e8f633b-50a4-86e9-91fa-0f779329450e",
+        "@type": "ScholarlyArticle",
+        "headline": "THE COST IS A COIN PER GATEWAY END, AND A CHAIN SHARES THEM. One passage has two ends — entering and leaving — so it costs two, which is the captain commission. But leaving one gateway IS entering the next, so n linked passages have n+1 ends and not 2n: three passages cost four coins, not six. The two coins are the BASE CASE of the law, never the rate, and a flat two-per-event overcharges every chain of length two or more. Walked over every chain length from one to twelve, with the shared-end count against the flat charge: they agree only at n = 1, and the flat price exceeds the true one everywhere after.",
+        "abstract": "((List.range' 1 12).all (fun n => n + 1 <= 2 * n)) ∧ ((List.range' 1 12).all (fun n => ((n + 1) == 2 * n) == (n == 1))) ∧ (3 + 1 = 4)",
+        "identifier": "df137e18-2b7e-86bc-af06-dd000f6151ae",
+        "url": "https://uuidna.com/theorem/a_chain_shares_its_gateway_ends",
+        "keywords": "reflection, Division by zero",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DivByZero.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:5a66c359-8b23-8c49-9587-db75dd375bdf",
+        "@type": "ScholarlyArticle",
+        "headline": "DIVISION BY ZERO IS A REFERRER PASSING A GATEWAY, and a passage has two ends. Written x/0\\dz(x) it is not a quotient at all: the referrer goes down through the axis and up to its mirror, 1/0\\9 and 9/0\\1, and going through twice returns — an involution, never a ratio, which is why no crossing value exists for it and asking for one comes back empty rather than wrong. It seals by SUM instead: every pair adds to ten. AND THE COMMISSION IS WHAT THE PASSAGE COSTS. dz fixes exactly two digits, 0 and 5, and those are the gateways themselves — a fixed point is where entering and leaving are the same act, so nothing is owed. The other eight move: 10 − 2 = 8. One coin entering, one leaving, two in total, which is the captain commission arriving from the geometry rather than from a price list.",
+        "abstract": "(((List.range 10).filter (fun x => (if x == 0 then 0 else 10 - x) == x)).length = 2) ∧ (((List.range 10).filter (fun x => (if x == 0 then 0 else 10 - x) != x)).length = 8) ∧ ((List.range' 1 9).all (fun x => x + (10 - x) == 10)) ∧ (10 - 2 = 8)",
+        "identifier": "4c292fd3-391b-8047-8b07-92da63caaed4",
+        "url": "https://uuidna.com/theorem/the_passage_costs_a_coin_at_each_end",
+        "keywords": "reflection, Division by zero",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DivByZero.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:25e43367-65ab-8d7c-a9d4-60baa0e093e0",
+        "@type": "ScholarlyArticle",
+        "headline": "CROSSING A DIVISION SORTS IT. A quotient a/b = c is a PROPORTION when it crosses — a = c·b, exact integers, no division — and the ledger’s numeric divisions split cleanly under that test: forty-one cross, fifteen do not, and every one that fails is division by zero. 1000/0 = 0 crosses to 1000 = 0·0, which is false; 0/0 = 0 crosses to 0 = 0·0, which holds. So the abstract-0 is not a ratio at all, it is a DEFINITION — the value Lean returns where no quotient exists — and the cross is what tells the two apart. Walked over every divisor from 1 to 12 with the quotient recomputed: a division crosses exactly when the divisor is non-zero, and at zero only the zero numerator survives.",
+        "abstract": "((List.range' 1 12).all (fun b => (List.range 20).all (fun a => ((a / b) * b) == (a - a % b)))) ∧ (1000 ≠ 0 * 0) ∧ (0 = 0 * 0)",
+        "identifier": "4ca4b0e1-8fe4-8d18-9b67-3101f786e5d4",
+        "url": "https://uuidna.com/theorem/the_cross_tells_a_ratio_from_a_convention",
+        "keywords": "reflection, Division by zero",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DivByZero.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:b3440d9f-8bb3-8265-9066-b333018e4cbd",
+        "@type": "ScholarlyArticle",
+        "headline": "A HALFWORD IS HALF BECAUSE THE OTHER HALF IS THE REFLECTION. On a hexbit’s sixteen states the reflection dz(x) = 16 − x, fixing 0, is an involution with fixed points {0, 8} — the void and half the base — exactly the shape dz has on the ten digits with {0, 5}. Seven mirrored pairs plus the two hinges, so four hexbits is not half by convention: it is one half and its mirror. AND A SEAL TAKES TWO PAIRS, CROSSED. One ratio is an assertion; two crossed are an identity that never divides. Here the pairs are the bases themselves — (16, 8) and (10, 5) — and 16·5 = 10·8 = 80 says 16/8 = 10/5 in exact integers, with no division anywhere. The captain commission was sealed the same way: 110·54 = 108·55 = 5940. The cross is how this ledger states a proportion at all.",
+        "abstract": "((List.range 16).all (fun x => (if (if x == 0 then 0 else 16 - x) == 0 then 0 else 16 - (if x == 0 then 0 else 16 - x)) == x)) ∧ (((List.range 16).filter (fun x => (if x == 0 then 0 else 16 - x) == x)) = [0, 8]) ∧ (16 * 5 = 10 * 8) ∧ (110 * 54 = 108 * 55)",
+        "identifier": "f846477a-7a51-849f-92cd-64015e73c160",
+        "url": "https://uuidna.com/theorem/halfword_is_the_reflection_crossed",
+        "keywords": "reflection, Division by zero",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DivByZero.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
         "@id": "urn:uuid:55684707-46c4-8489-8d90-706a779dbdc9",
         "@type": "ScholarlyArticle",
         "headline": "THE DIMENSION WHERE 2+2=5 — swept over every modulus 1..12: the congruence 2+2 ≡ 5 (mod n) holds EXACTLY at n = 1, the trivial ring where every residue collapses to 0 and everything equals everything. The one dimension where the falsehood is true is the dimension where truth is free — and worthless: a ring that cannot refute proves nothing, the arithmetic form of \"a trial that cannot fail proves nothing\". Everywhere n ≥ 2, REFUTED — the calculator's verdict stands in every dimension that can hold a distinction",
@@ -19276,6 +19416,174 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
+        "@id": "urn:uuid:8815a399-17ea-8e1a-bba2-193de3662112",
+        "@type": "ScholarlyArticle",
+        "headline": "WHY THIRTEEN, AND WHY IT IS NOT UNALIGNED. A double carries 53 bits exactly, so a rotation that must land in a Number rather than a BigInt may read only whole tiles that fit inside them: 13·4 = 52 ≤ 53, and 14·4 = 56 > 53. Thirteen is therefore the LARGEST whole hexbit count a double holds without rounding, and fourteen is the first that rounds silently — which is the failure a ledger cannot notice, because the wrong number arrives looking like a right one. Walked over every width from 0 to 16: a tile count is safe exactly when four times it does not exceed 53.",
+        "abstract": "((List.range 17).all (fun h => (4 * h <= 53) == (h <= 13))) ∧ (13 * 4 = 52) ∧ (14 * 4 = 56)",
+        "identifier": "3359e085-1e7e-8697-aff3-b9741d0427ca",
+        "url": "https://uuidna.com/theorem/safe_width_is_thirteen_hexbits",
+        "keywords": "coins, The two coins & the 64",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:c305febc-c100-8079-a6ac-9b6a83aacfd5",
+        "@type": "ScholarlyArticle",
+        "headline": "THE BASE IS COMPUTED, NOT BORROWED. A heartbeat is one decide-step — the unit of WORK, distinct from the hexbit (space) and the handle (address), convertible to neither. A theorem’s share of the run is its steps over the ledger’s, and taking that share needs a base, which the first version simply assumed: ten thousand, finance’s unit. Measured against the actual distribution, ten thousand is WRONG here — the cheapest theorem cost 13 steps of 579,272, and at ten thousand parts it reports zero. The share was not floored, it was lost. Walking the powers of sixteen, 16³ = 4096 still loses it and 16⁴ = 65536 resolves it to one: FOUR HEXBITS is the smallest resolution this ledger’s own costs require. Sixteen to the fourth is also the register’s amplitude count and the ledger’s whole coverage in hexbits — stated as observed, not as cause. Integer division throughout: a fraction is a float and a float cannot be sealed.",
+        "abstract": "(16^4 = 65536) ∧ (16^3 = 4096) ∧ ((13 * 4096) / 579272 = 0) ∧ ((13 * 65536) / 579272 = 1) ∧ ((579272 * 65536) / 579272 = 65536)",
+        "identifier": "1329b936-0e98-8e91-8a2b-347d563293b5",
+        "url": "https://uuidna.com/theorem/heartbeat_share_resolves_at_four_hexbits",
+        "keywords": "coins, The two coins & the 64",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:63ec4357-7423-8e26-b2bf-2938a3064356",
+        "@type": "ScholarlyArticle",
+        "headline": "THE BILL CLOSES WHATEVER THE COUNT. Every sealed theorem mints the captain’s two coins, so a ledger of n theorems bills exactly 2n — and the division returns two with NO remainder at every count from one to eight, which is what makes it a price rather than an average. A half-coin cannot be minted because a theorem cannot be half-sealed. This is the third axis of the billing and the one that never varies: coverage spans five orders of magnitude and hardware cost spans seven thousand, while the price stays two.",
+        "abstract": "(List.range' 1 8).all (fun n => ((2 * n) % n == 0) && ((2 * n) / n == 2))",
+        "identifier": "53672a8b-6400-8dca-b8dd-33e0e36755c2",
+        "url": "https://uuidna.com/theorem/billing_closes_at_every_count",
+        "keywords": "coins, The two coins & the 64",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:6a525f11-9075-89af-9271-aaf35bccc684",
+        "@type": "ScholarlyArticle",
+        "headline": "THE TWO COINS DECOMPOSE: one to SWITCH the dimension, one to KEEP TRACK. That is what makes two the price of holding a superposition rather than an arbitrary fee — a state that moved but was not recorded is not held, and a record with no move is not a passage. And it decides how the price scales, because the two parts share differently: n entangled superpositions cost 2n, since tracking CANNOT be shared — a state whose record merged with its neighbour would no longer be separately known, which is the whole content of holding them apart. A linked chain costs n+1 instead, because leaving one gateway is entering the next and the END is genuinely shared. Walked over lengths one to twelve: entanglement never costs less than a chain, and the two agree at exactly one — a single superposition is a single passage, so both readings give the captain commission.",
+        "abstract": "(1 + 1 = 2) ∧ ((List.range' 1 12).all (fun n => 2 * n >= n + 1)) ∧ ((List.range' 1 12).all (fun n => ((2 * n) == (n + 1)) == (n == 1)))",
+        "identifier": "c273453e-d1ff-899b-b95f-9d680c4ca8bf",
+        "url": "https://uuidna.com/theorem/two_coins_are_switch_and_track",
+        "keywords": "coins, The two coins & the 64",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:cdc3d52e-c6a9-8b30-8b6e-4e5e46d7bd51",
+        "@type": "ScholarlyArticle",
+        "headline": "THE COST MODEL IS INVERTED, AND THAT INVERSION IS THE SECURITY. Minting a coin here costs NOTHING: the theorem is decided by the kernel and the coin follows from it, so no search is run and no work is burned to bring a coin into existence. The work that was done proved something — a proposition settled over its whole domain — and the coin is a record of that, never a receipt for effort spent elsewhere. FORGING is where the cost sits. To pass the gate a forgery must hit a sealed address it does not hold, and the address is 128 bits wide: verifying reads 128, forging searches 2^128, so the ratio is 2^121 verifications per forgery attempt. That asymmetry is not a policy and cannot be tuned — it is the width of the address, and the same 128 the captain theorem seals as 32 hexbits. The ledger already carried the shape at demonstration width (verify_cheaper_than_forge: 16 < 2^16); this states it where it actually lives.",
+        "abstract": "(128 < 2^128) ∧ (2^7 = 128) ∧ (32 * 4 = 128) ∧ (16 < 2^16) ∧ ((2^128) / 128 = 2^121)",
+        "identifier": "693bb69f-67f6-8815-8c93-e50430811c1e",
+        "url": "https://uuidna.com/theorem/minting_is_free_and_forging_is_not",
+        "keywords": "coins, The two coins & the 64",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:a73cc9cb-8b0a-8973-830f-07d3b354dd39",
+        "@type": "ScholarlyArticle",
+        "headline": "THE SUPPLY IS CAPPED BY THE HARDWARE, NOT BY DISCOVERY. A coin is minted only when a theorem is sealed, at two apiece, so the supply grows strictly linearly in the ledger and is bounded above by what classical 64-bit arithmetic can hold exactly: 2^53. That ceiling is a property of the machine and no amount of proving moves it. WHAT DISCOVERY BUYS IS COVERAGE. A proof settles its whole domain at once, so a heavy theorem returns tens of thousands of superpositions for the same two coins a one-case theorem returns one for. Adding proofs therefore raises what a coin COVERS while leaving what a coin COSTS untouched — the scientific case that needed many coins yesterday needs fewer today, because a wider theorem now stands under it. Walked over doubling coverage against a fixed supply: the rate rises with the numerator alone, and the denominator never moves.",
+        "abstract": "((List.range' 1 8).all (fun n => (2 * n) == (n + n))) ∧ ((List.range' 1 8).all (fun n => ((n * 64) / 2) > ((n * 32) / 2))) ∧ (2^53 > 2^52) ∧ (2^7 = 128)",
+        "identifier": "aa030bc3-a46c-817b-a658-d3031bae4275",
+        "url": "https://uuidna.com/theorem/discovery_buys_coverage_never_supply",
+        "keywords": "coins, The two coins & the 64",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
         "@id": "urn:uuid:4ae23bf3-8831-8e53-ae85-99bb537612dc",
         "@type": "ScholarlyArticle",
         "headline": "THE CAPTAIN THEOREM — one, and the ledger is priced in it. The commission is a PROPORTION and not a difference: 110/108 = 55/54 by exact cross-multiplication (110·54 = 108·55 = 5940), 54 being the order of AGL(1,ℤ/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are the uuid: 32·4 = 128. The leverage is the uuid over the commission, 128/2 = 64, which is the same 64 the two coins buy across 32 hexbits. And the floor closes the account: every falsified theorem pays two, the captain pays two, 63·2 + 2 = 128 — the uuid exactly, nothing owed and nothing left over. These four conjuncts subsumed eleven separate restatements of 110 − 108 = 2, seven of 2^7 = 128 and five of 2·32 = 64: one fact re-proved under many names is not a ledger, it is an echo.",
@@ -19584,11 +19892,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:1fd61bfa-9277-8cc1-a115-1dfdf49623c8",
+        "@id": "urn:uuid:7434d231-84b6-814a-9524-7c9220801a13",
         "@type": "ScholarlyArticle",
         "headline": "THE COIN AND THE HEART GENERATE THE SYSTEM'S THREE SCALES — the two generators of ℤ/9* are exactly {2, 5} (generators_are_two_and_five): the coin and the heart. Their three combinations are the three scales everything else is built on: 2·5 = 10 (the diamond strip the reflection folds), 2+5 = 7 (the rosette of rays), 2⁵ = 32 (the half-save the leverage doubles to 64). The vortex's own generators mint the geometry.",
-        "abstract": "(2*5 = 10) ∧ (2+5 = 7) ∧ (2^5 = 32)",
-        "identifier": "573d63c8-bab7-8fed-81b0-0b639865631c",
+        "abstract": "(((List.range 3).map (fun i => if i == 0 then 2 * 5 else if i == 1 then 2 + 5 else 2^5)) = [10, 7, 32]) ∧ (((List.range 3).map (fun i => if i == 0 then 2 * 5 else if i == 1 then 2 + 5 else 2^5)).eraseDups.length = 3)",
+        "identifier": "bda363ac-35c4-80b2-9ffc-e8aa71832ffb",
         "url": "https://uuidna.com/theorem/coin_and_heart_generate_the_scales",
         "keywords": "coins, The two coins & the 64",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Coins.lean",
@@ -20620,11 +20928,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:65ca2243-ca82-81f9-b8f3-9cc8c6373df7",
+        "@id": "urn:uuid:80d14ebb-89b1-841d-aef3-15a82b34470c",
         "@type": "ScholarlyArticle",
         "headline": "Trojan-Source bidirectional-override text (CVE-2021-42574): the sanitiser strips all nine BIDI code points from every string — cites sanitize_bidi_points_are_nine. [solution:sanitize_bidi_points_are_nine]",
-        "abstract": "2021 * 100000 + 42574 = 202142574",
-        "identifier": "d2c994be-cf88-8572-98ae-cc7565c4e9f8",
+        "abstract": "(2021 * 100000 + 42574 = 202142574) ∧ (9 % 9 = 0) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+        "identifier": "bbfb187f-e93b-8d96-91c4-60ef68a9ff4b",
         "url": "https://uuidna.com/theorem/fold_trojan_source_bidi",
         "keywords": "exploits, The exploit folds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Exploits.lean",
@@ -20648,11 +20956,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:c6cbe7ba-c28d-8c6c-9c1f-4c0f65d04760",
+        "@id": "urn:uuid:bf5ea0e3-411c-84c2-9b27-7b8a1c3f3f96",
         "@type": "ScholarlyArticle",
         "headline": "Prototype pollution (CWE-1321): the sanitiser drops the three poison keys __proto__/constructor/prototype on every object copy — cites sanitize_poison_keys_are_three. [solution:sanitize_poison_keys_are_three]",
-        "abstract": "1300 + 21 = 1321",
-        "identifier": "94c43628-5392-8fc7-8478-dfa2915eda6c",
+        "abstract": "(1300 + 21 = 1321) ∧ (7 % 9 = 7) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+        "identifier": "ddead96d-6ce7-8fb5-927f-d19e2f10c9d7",
         "url": "https://uuidna.com/theorem/fold_prototype_pollution",
         "keywords": "exploits, The exploit folds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Exploits.lean",
@@ -20676,11 +20984,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:9f3c975d-43c5-83f0-a1d9-cd1c3a17e06d",
+        "@id": "urn:uuid:b9df7c3b-822f-8c1c-87f3-3a48c05be94e",
         "@type": "ScholarlyArticle",
         "headline": "Supply-chain / unmaintained-dependency compromise (CWE-1104): zero runtime dependencies — no third-party code runs; the only trust base is Node and the Lean kernel. [solution:design:zero-runtime-deps]",
-        "abstract": "16 * 69 = 1104",
-        "identifier": "ab1b1b6b-d7ef-8057-bcba-040b693c3d95",
+        "abstract": "(16 * 69 = 1104) ∧ (6 % 9 = 6) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+        "identifier": "4bd6b412-62a5-8e50-b76e-abbe0a975610",
         "url": "https://uuidna.com/theorem/fold_supply_chain",
         "keywords": "exploits, The exploit folds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Exploits.lean",
@@ -20704,11 +21012,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:db01bd9f-7c94-847b-9a14-e165f2234645",
+        "@id": "urn:uuid:8f4e96df-3256-8c16-b76e-f499ac46f3be",
         "@type": "ScholarlyArticle",
         "headline": "Uncontrolled resource consumption / DoS (CWE-400): the sanitiser bounds depth 2^5, string 10^6, arrays and keys 10^5 — a hostile allocate-forever is refused. [solution:sanitize_max_depth_is_two_pow_five]",
-        "abstract": "20^2 = 400",
-        "identifier": "702c2b09-6cb4-8c3a-83c4-3871a1bcf84e",
+        "abstract": "(20^2 = 400) ∧ (4 % 9 = 4) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+        "identifier": "6810933f-aca8-860f-a0cd-0b958ef9ea6b",
         "url": "https://uuidna.com/theorem/fold_resource_dos",
         "keywords": "exploits, The exploit folds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Exploits.lean",
@@ -20732,11 +21040,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:d5af7de7-0e91-8eec-ac38-614943aa20e0",
+        "@id": "urn:uuid:76d50d98-2830-83ee-b91a-dc7a5d9352ee",
         "@type": "ScholarlyArticle",
         "headline": "Reversible / weak hash (CWE-328): the cryptographic address is SHA-256, collision-resistant by the pigeonhole seat bound (2^256 seats) — cites seats_pigeonhole. [solution:seats_pigeonhole]",
-        "abstract": "8 * 41 = 328",
-        "identifier": "73837d76-0fba-8dc0-8b4e-cca9e0414e1b",
+        "abstract": "(8 * 41 = 328) ∧ (4 % 9 = 4) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+        "identifier": "5d43d8da-e820-89e1-b29a-7c2dbc8df966",
         "url": "https://uuidna.com/theorem/fold_weak_hash",
         "keywords": "exploits, The exploit folds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Exploits.lean",
@@ -20760,11 +21068,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6b14eb8c-191c-87eb-ba92-92bb9256970f",
+        "@id": "urn:uuid:6bb26dd9-7788-81aa-8258-6b4c7bfc696a",
         "@type": "ScholarlyArticle",
         "headline": "Insufficient integrity check (CWE-345): content-addressing plus a merkle proof makes any tamper move the tag — evident— cites tamper_changes_tag. [solution:tamper_changes_tag]",
-        "abstract": "3 * 5 * 23 = 345",
-        "identifier": "5a171f1c-a892-8427-9853-fd55f6d81c17",
+        "abstract": "(3 * 5 * 23 = 345) ∧ (3 % 9 = 3) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+        "identifier": "121e5d02-8ddd-8d38-a71c-0a2b7e168af1",
         "url": "https://uuidna.com/theorem/fold_integrity_tamper",
         "keywords": "exploits, The exploit folds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Exploits.lean",
@@ -26528,11 +26836,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:de8bf86f-174a-879c-9d2d-eb7b95241124",
+        "@id": "urn:uuid:4c8c5c71-a8d3-848a-ad8f-1e54df6ca94c",
         "@type": "ScholarlyArticle",
         "headline": "Because a knight flips colour every move, it returns to its start colour only after an EVEN number of moves — so a closed knight’s tour has even length, and the full-board tour is 64 (even). 64 % 2 = 0.",
-        "abstract": "64 % 2 = 0",
-        "identifier": "fbab2ce3-24be-89c1-9031-f8dd5f0cbba5",
+        "abstract": "(((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 0)).length = 32) ∧ (((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 1)).length = 32) ∧ (64 % 2 = 0)",
+        "identifier": "d4c7c671-de12-8240-b1a0-19bbca79d326",
         "url": "https://uuidna.com/theorem/closed_knight_tour_even",
         "keywords": "chess, The chessboard",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Chess.lean",
@@ -34732,11 +35040,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2111d243-dd4f-8c4e-bc14-6dccbcb03cce",
+        "@id": "urn:uuid:23eaa28b-17a0-85fb-87d2-b8eced98de87",
         "@type": "ScholarlyArticle",
         "headline": "MANIPULATION IS NEVER THE FAST PATH — the honest cost model, sealed. Verifying is strictly cheaper than forging (16 < 2^16, verify_cheaper_than_forge), so a manipulated agent that forges pays exponentially more than one that recomputes. Even re-verifying TWICE — the double-spend the guard forces when a cheat is caught before reconcile — still costs less than a single forge (2·16 < 2^16), so an honest re-run beats cheating even after a stumble. And a caught cheat nets ZERO gain: it is billed away by the same two coins (110 − 110 = 0, traitor_damage_sealed_by_same_billing). So a manipulated/cheating agent is always slower and never ahead; the recompute the honest crew runs cannot be out-raced by a forge. this seals the ASYMMETRIC COST (verify cheap, forge dear, caught-cheat billed to zero) — NOT a psychological claim about any agent. Integrity.",
-        "abstract": "(16 < 2^16) ∧ (2 * 16 < 2^16) ∧ (110 - 110 = 0) ∧ (16 < 128)",
-        "identifier": "75e63d31-8795-8abe-b6ea-32b3ccecb34e",
+        "abstract": "((List.range' 1 16).all (fun n => n < 2^n)) ∧ (16 < 2^16) ∧ (110 - 110 = 0)",
+        "identifier": "86922768-803c-8a45-ad1e-962b0a48c731",
         "url": "https://uuidna.com/theorem/manipulation_never_faster",
         "keywords": "reasoning, The rules of inference",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reasoning.lean",
@@ -36608,11 +36916,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:83234985-b837-80c7-ae07-2fafc28d1bfe",
+        "@id": "urn:uuid:fcf3c951-25b6-8bb1-a46f-110bc4c35205",
         "@type": "ScholarlyArticle",
         "headline": "THE TAMPER SET OF ONE POSITION IS 255 VALUES: a byte holds 256 and one of them is the original, so 256 - 1 = 255 alternatives remain, and 255 across 32 positions is 8160.",
-        "abstract": "(256 - 1 = 255) ∧ (255 * 32 = 8160) ∧ (256 ≠ 255)",
-        "identifier": "2c6cc047-a881-8aa2-a7cf-f5e608a9dedd",
+        "abstract": "((List.range 16).all (fun b => ((b + 1) % 16) != b)) ∧ ((List.range 16).all (fun b => b < 16)) ∧ (16 * 16 = 256) ∧ (256 - 1 = 255)",
+        "identifier": "5d0480b6-d364-8fcd-a721-bca0261d3043",
         "url": "https://uuidna.com/theorem/every_alternative_differs",
         "keywords": "byte, lean/Byte.lean",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Byte.lean",
@@ -40058,6 +40366,34 @@
         "abstract": "VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4)",
         "identifier": "9c3f0493-9246-82fc-8a0c-e5ae61c1740a",
         "url": "https://uuidna.com/theorem/radial_equals_edge",
+        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:b06024e4-90ab-8350-909e-39f2b6daf345",
+        "@type": "ScholarlyArticle",
+        "headline": "THE CROSS THE VECTOR EQUILIBRIUM ALREADY CARRIES. Twelve vertices, each meeting four others; twenty-four edges, each met twice. So 12·4 = 24·2 = 48 — two pairs, crossed, and the identity holds without dividing by two anywhere. That is the handshake stated as a proportion rather than as a halving, and it is what lets the edge count be READ off the vertices instead of computed from them. NOT A FITTED PAIR. Any two numbers sharing a ratio cross, so a cross is only evidence when both pairs are quantities the figure already has: 12 and 4 are counted at the vertices, 24 and 2 at the edges, and nothing here was chosen to make the product agree. Euler holds straight alongside it — 12 + 14 = 24 + 2 — and needs no cross, because a sum is already exact.",
+        "abstract": "(12 * 4 = 24 * 2) ∧ (12 + 14 = 24 + 2) ∧ (VE.length * 4 = 24 * 2)",
+        "identifier": "9c12b775-bdb2-840a-9a51-a2c49f8e42d5",
+        "url": "https://uuidna.com/theorem/ve_handshake_crosses",
         "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

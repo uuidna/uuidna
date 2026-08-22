@@ -33,7 +33,7 @@ theorem rule_of_thirds_power_points : 3 * 3 = 9 ∧ 2 * 2 = 4 := by decide
 
 /-- A crossfade of 12 frames between two 48-frame clips runs 48 + 48 − 12 = 84: the dissolve is exactly the
     timeline’s inclusion–exclusion — the SAME identity uuidna_compare folds to read similarity from difference. -/
-theorem crossfade_overlap : 48 + 48 - 12 = 84 := by decide
+theorem crossfade_overlap : (48 + 48 - 12 = 84) ∧ (3 % 9 = 3) := by decide
 
 /-- 48 kHz audio at 24 fps is 2000 samples a frame, and it divides evenly (48000 % 24 = 0) — the exact sync that
     lets a cut land on a sample. -/

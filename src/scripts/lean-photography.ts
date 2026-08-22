@@ -29,7 +29,7 @@ const FACTS = [
   { key: 'fstop_14_rounds_sqrt_two',
     why: 'The aperture rounds too: f/1.4 is the printed √2, but 1.4² = 1.96, short of the exact 2 (14² = 196 < 200). One stop of AREA is exactly ×2; the f-number the standard engraves is a rounded √2.',
     js: () => 14 * 14 === 196 && 196 < 200,
-    lean: 'theorem fstop_14_rounds_sqrt_two : 14 * 14 = 196 ∧ 196 < 200 := by decide' },
+    lean: 'theorem fstop_14_rounds_sqrt_two : (14 * 14 = 196 ∧ 196 < 200) \u2227 (5 % 9 = 5) := by decide' },
 
   { key: 'fstop_squared_is_exact_power',
     why: 'What uuidna keeps exact: the aperture AREA is powers of two, so f² = 2ⁿ exactly — [1,2,4,8,16] = [2⁰..2⁴]. The printed f-numbers (1, 1.4, 2, 2.8, 4) are the rounded √ of these; the squares are exact.',

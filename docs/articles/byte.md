@@ -36,7 +36,7 @@ The ledger holds this as [digest_doubles_the_address](/theorem/digest_doubles_th
 The ledger holds this as [every_alternative_differs](/theorem/every_alternative_differs) — proven `by decide`, sorry-free:
 
 ```lean
-(256 - 1 = 255) ∧ (255 * 32 = 8160) ∧ (256 ≠ 255)
+((List.range 16).all (fun b => ((b + 1) % 16) != b)) ∧ ((List.range 16).all (fun b => b < 16)) ∧ (16 * 16 = 256) ∧ (256 - 1 = 255)
 ```
 
 ### OVER A THIRTY-TWO BYTE DIGEST THE WHOLE TAMPER SET IS 32 × 255 = 8160 single-byte alterations, every one of them a different digest under byte-equality.

@@ -96,7 +96,13 @@ export function selfExcluded(candidate: string, sources: ReadonlyMap<string, str
 export function invokesFile(corpus: string, base: string): boolean {
   const named = new RegExp(base.replace(/-/g, '[-]') + '\\.(js|ts)\\b')
   const runner = /\b(node|execSync|spawn(Sync)?|npm run|x\s+--)\b/
-  return corpus.split('\n').some((line) => named.test(line) && runner.test(line))
+  if (corpus.split('\n').some((line) => named.test(line) && runner.test(line))) return true
+  // A MANIFEST ENTRY IS AN INVOCATION. The line-with-a-runner rule fits a shell chain, where the filename and
+  // the `node` sit together. It does not fit a manifest: generate.ts lists its emitters as `{ file: 'gen-x.js' }`
+  // and spawns them in a generic loop, so the name and the runner are never on one line and every generator it
+  // runs on every pass reads as dead. Both the dormant finder and the gap predictor hit this and each was about
+  // to grow its own copy of the rule — so it lives here, where they already both look.
+  return new RegExp("file:\\s*'" + base.replace(/-/g, '[-]') + "\\.js'").test(corpus)
 }
 /** read a repo-relative file as utf8 */
 export const rd = (p: string): string => readFileSync(join(ROOT, p), 'utf8')
