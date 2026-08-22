@@ -93,6 +93,10 @@ const run = async () => {
 .uu-terminal .scroll { height: 340px; overflow-y: auto; padding: 12px 14px; white-space: pre-wrap; word-break: break-word; }
 .uu-terminal .line { line-height: 1.5; }
 .uu-terminal .prompt { display: flex; gap: 8px; border-top: 1px solid var(--vp-c-divider); padding: 8px 14px; }
+/* the input's own outline is suppressed ONLY because the prompt row replaces it: a visible focus ring on the
+   whole line (keyboard users must always see where they are — the Tier 1 law the theme tests hold) */
 .uu-terminal .prompt input { flex: 1; background: none; border: none; outline: none; color: var(--vp-c-text-1); font: inherit; }
+.uu-terminal .prompt:focus-within { outline: 2px solid var(--vp-c-brand-1); outline-offset: -2px; }
+.uu-terminal .prompt input:focus-visible { outline: none; }
 .uu-terminal .receipt { margin: 0; padding: 6px 14px 10px; color: var(--vp-c-text-3); word-break: break-all; }
 </style>
