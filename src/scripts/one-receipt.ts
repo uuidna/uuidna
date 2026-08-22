@@ -1821,6 +1821,9 @@ export function citationsGaps(): Gap[] {
     // from the law it documents, which gate-all.ts learned the same way.)
     const fixture = new Set<string>()
     for (const m of src.matchAll(/(?:computes|adjudicate|overreachOf)\([^)]*theorem ([a-z0-9_]+)/g)) fixture.add(m[1])
+    // A DECLARED CONTROL IS A FIXTURE TOO: a `control:` field carrying a made-up key is the instrument that can
+    // fail — the canary EXISTS to be refused, so a ledger that never holds it is the design, not a fabrication.
+    for (const m of src.matchAll(/control:\s*['`"][^'`"]*theorem ([a-z0-9_]+)/g)) fixture.add(m[1])
     for (const key of declared) {
       if (live.has(key) || fixture.has(key)) continue
       gaps.push({
