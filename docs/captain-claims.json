@@ -2,8 +2,8 @@
   "generated": "2026-08-22",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1486,
-  "total_theorems": 1486,
+  "total_claimed": 1497,
+  "total_theorems": 1497,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,14 +3781,14 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "956de1d0-9e88-84a1-be7f-79b713e25ff2",
-      "address": "343f1657-5104-89a4-b02d-8057c6272796",
+      "lineAddress": "63b98859-c3af-83cb-aa47-0b44594049db",
+      "address": "95d4c47e-dc37-8700-8a24-1e592cf5997d",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "cf71831e-09b8-88a7-b16c-369dd0d755a2",
-      "address": "2f16aee0-0b09-8208-ba43-3537d3bfd7d8",
+      "lineAddress": "f7354797-939e-8c06-a17a-389a94bcccb9",
+      "address": "9bdb714b-3762-8d35-a709-9fdba54933c1",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "4257c4d5-cc3a-8639-913e-f37a9b0d51ef",
-      "address": "653f25d0-640b-8c76-bb89-8cd92c5bbf94",
+      "lineAddress": "9c1e763c-bb4c-86ed-9295-3eb165792033",
+      "address": "de692139-57fb-8d46-b033-dff8f7ab5d9d",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "15452105-159b-89a2-b742-94f2012d4227",
-      "address": "257f4134-749d-86d5-bd60-816bd175cf0e",
+      "lineAddress": "bf85b304-fa9e-8ff1-8522-04a20c1b6fe6",
+      "address": "bab6b909-babc-89e8-bcff-c7f80453290a",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "50e7edb6-cffd-8116-94c8-e684d5c2215a",
-      "address": "7d18953b-0f92-8976-b8df-6f82329ebd12",
+      "lineAddress": "633f0ccf-a705-8202-b314-05a11e51dbde",
+      "address": "d69355ce-ed4e-8ef8-b2e9-d901f6bf7935",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "d3c79623-c4b1-8ddc-8c94-7ae31e49a090",
-      "address": "7717b0a9-c582-83d9-b3ae-5e2afef5935d",
+      "lineAddress": "9694560f-87b1-8e94-964a-62fa2d341d88",
+      "address": "8f49fbac-4362-8474-a93d-39b3261872bb",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "f1b1bb28-b557-8cb2-8bae-1e01d679c25c",
-      "address": "16a22902-e5c5-8c8f-bbc1-860abaf50213",
+      "lineAddress": "4507d40f-4269-8083-ac5a-029608dec738",
+      "address": "2f7383bb-b515-80fd-92b3-d4ea2d028d2d",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "8ee2aa71-57e1-8486-9045-3e2ed7ca4e26",
-      "address": "4b2b523a-43e9-8f81-a60b-1c4e495241b6",
+      "lineAddress": "7ab3ce07-3e0c-8a2f-bdd3-65caaaa53ad9",
+      "address": "9cfa09b8-01a0-8d5c-8051-b61e7eb47600",
       "principle": "The detectors, proven"
     },
     {
@@ -4435,14 +4435,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "4f56abcb-56dd-8735-be07-97187011b3e6",
-      "address": "f1d8afe0-69f5-8500-9eca-7bc865cc0f49",
+      "lineAddress": "dc5188db-afc6-8c55-b2ac-0d0a59f5d205",
+      "address": "49677472-68b4-80bc-8ae5-003ed3d16bed",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "77f11d54-6a49-8099-89fc-9d09c8a50fbb",
-      "address": "53a8eab1-5b53-80c0-9c44-ac2f37f30f91",
+      "lineAddress": "289f00d8-3496-8f12-b7e5-dc4d2035fc8f",
+      "address": "47649134-92d7-87fa-8844-c045f75f60eb",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -7872,6 +7872,48 @@
       "principle": "The song from the ledger"
     },
     {
+      "key": "anthem_chord_halves_the_bar",
+      "lineAddress": "b67dfd57-cd1c-86d9-b5bd-75f0bb377e43",
+      "address": "7c079e0c-d87c-8dc4-92af-1baecad5cabd",
+      "principle": "The release anthem"
+    },
+    {
+      "key": "anthem_three_lengths_quarter_the_bar",
+      "lineAddress": "501cd6da-3cff-8704-b115-655d89f5e10d",
+      "address": "5725943a-1afa-83a4-9c8f-29b072bdcd0b",
+      "principle": "The release anthem"
+    },
+    {
+      "key": "anthem_rest_twelfths_the_bar",
+      "lineAddress": "4e038f05-c944-8d15-add9-0f03e86b5d11",
+      "address": "06c69ca5-77c2-89ac-9319-82e7e2d663bd",
+      "principle": "The release anthem"
+    },
+    {
+      "key": "anthem_four_movements",
+      "lineAddress": "26fd7462-b2fb-8421-b1a7-7dfcc73773e7",
+      "address": "84e73a2d-21f3-8f8d-b699-13532a393ada",
+      "principle": "The release anthem"
+    },
+    {
+      "key": "anthem_closes_on_the_coin_octave",
+      "lineAddress": "7baa3be5-fc2b-8383-b1f5-a96eb9d95af9",
+      "address": "e79bfcbb-2171-8bf7-9ce1-cd031b4de554",
+      "principle": "The release anthem"
+    },
+    {
+      "key": "anthem_pi_primes_trinity",
+      "lineAddress": "e40569a3-6d1d-8d5a-8f1c-34cf01f08077",
+      "address": "be4f1de5-7675-8f2e-9631-9eea5bea9bc2",
+      "principle": "The release anthem"
+    },
+    {
+      "key": "anthem_finale_sings_one_uuid",
+      "lineAddress": "99e9ba9e-c0c6-887f-9ba2-0f473f3bf0e7",
+      "address": "8736cd73-a3db-802e-8d5a-5d2c5e5d2943",
+      "principle": "The release anthem"
+    },
+    {
       "key": "readings_seven_rays",
       "lineAddress": "e0a11819-a41d-8b72-8695-8192a285ce34",
       "address": "d9b8c383-e8d6-8878-8478-bd6511476eb7",
@@ -8430,6 +8472,30 @@
       "principle": "lean/Hexbit.lean"
     },
     {
+      "key": "slit_on_the_hexbit_ring",
+      "lineAddress": "34a3726b-4be5-8468-8ee2-73ff2618831d",
+      "address": "599d7250-ed10-87a7-813e-8d5f740cd1fe",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "dark_fringe_is_the_half_turn",
+      "lineAddress": "191d6c9b-d9fa-87af-b315-304e6dcad2e7",
+      "address": "9fbf8e2f-b207-81e0-a7f7-3be748e0e8f8",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "fringe_pattern_reflects_dz",
+      "lineAddress": "0cf1218a-6081-874a-8c42-d1e34beb284a",
+      "address": "dd77fbe0-a913-8ae5-b549-52cf9da65e7f",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
+      "key": "which_path_conserves_the_total",
+      "lineAddress": "b82f8359-4591-8e5d-b04e-ecccf59a2d75",
+      "address": "8a6a9cd5-ec4f-88d0-be38-2ebcc7ec5ebe",
+      "principle": "lean/Hexbit.lean"
+    },
+    {
       "key": "xor_preserves_distance",
       "lineAddress": "bc1d7ae9-ffa0-8f54-9005-28128f71cd63",
       "address": "a93bf5ba-f682-8a3f-88de-f8878dca4db4",
@@ -8922,7 +8988,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "3dea8f3d-365b-8733-9025-9447061fb31b",
+  "claim_receipt": "6afcb02d-ced0-8603-ad0a-88a87ceaaea3",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

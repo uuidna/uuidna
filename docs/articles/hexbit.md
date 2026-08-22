@@ -1,15 +1,15 @@
 ---
 title: "lean/Hexbit.lean"
-description: "Computed from lean/Hexbit.lean — 12 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Hexbit.lean — 16 sealed theorems, every claim citing its proof."
 ---
 
 # lean/Hexbit.lean
 
-> THE HEXBIT — the alphabet and the layout an address is actually built from. — held by [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) and its 11 siblings below.
+> THE HEXBIT — the alphabet and the layout an address is actually built from. — held by [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) and its 15 siblings below.
 
-**12 theorems**, from [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) onward, each proven `by decide` in [lean/Hexbit.lean](/lean/Hexbit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 12 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross). A boundary stated here is decided.
+**16 theorems**, from [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) onward, each proven `by decide` in [lean/Hexbit.lean](/lean/Hexbit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 13 of its 16 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHexbit.lean)** — nothing to install. The editor fetches `lean/Hexbit.lean` from the repository and re-decides all 12 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHexbit.lean)** — nothing to install. The editor fetches `lean/Hexbit.lean` from the repository and re-decides all 16 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two stated pairs, and a zero on either side collapses the product: every pair holding a zero multiplies to zero, so it agrees with every other such pair and distinguishes nothing. Measured over 400 handles: 215 were complete — all eight tiles covered by crossings — and NOT ONE of those contained a zero tile, while 157 of the 185 short handles did. So a handle carrying a void is not broken; it is incomplete under CROSSING, and needs the other fold. That is the same boundary the ring shows one level up: the cross settles proportions and the reflection settles the void, dz(0) = 0 being the only motion that touches it, sealing by sum rather than by product.
 The ledger holds this as [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) — proven `by decide`, sorry-free:
@@ -93,6 +93,34 @@ The ledger holds this as [four_vectors_reach_the_uuid](/theorem/four_vectors_rea
 
 ```lean
 (4 * 32 = 128) ∧ (7 * 32 = 224) ∧ (224 > 128) ∧ ((List.range' 1 7).all (fun v => (decide (v * 32 >= 128)) == (decide (v >= 4))))
+```
+
+### THE SLIT DRAWN ON THE HEXBIT: two sources a half-turn apart on the 16-state ring, and detector k reads the exact Int amplitude 1 + (−1)^k. The census is total: eight detectors bright at (1+1)² = 4, eight dark at (1−1)² = 0, and the whole screen sums to 32 = 2·16 — exactly what two independent sources would deposit. The fringes REDISTRIBUTE brightness; they never create it. This is hexbit_slit_visibility unrolled from one phase pair to the full pattern a screen actually shows.
+The ledger holds this as [slit_on_the_hexbit_ring](/theorem/slit_on_the_hexbit_ring) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 4))).length = 8) ∧ (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 0))).length = 8) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = 32) ∧ (2 * 16 = 32)
+```
+
+### THE DARK FRINGES SIT EXACTLY AT THE SELF-INVERSE ROTATION. On the ring the relative phase at detector k is 8k mod 16, and the screen is dark precisely where that phase is the half-turn 8 — checked at all sixteen detectors, an equivalence and not an implication. The half-turn is the ring’s own involution: 8 + 8 ≡ 0 (mod 16), the one rotation that is its own inverse. So the slit’s "unexplained" cancellation lands where the ledger keeps finding its mysteries — on a self-inverse map (involution_census_self_explains): to explain the dark fringe, apply the half-turn again and you are home.
+The ledger holds this as [dark_fringe_is_the_half_turn](/theorem/dark_fringe_is_the_half_turn) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).all (fun k => (((8*k) % 16 == 8) == ((1 + (-1:Int)^k)^2 == 0)))) ∧ ((8 + 8) % 16 = 0)
+```
+
+### THE SCREEN OBEYS THE dz MIRROR. The reflection the ledger writes as dz(x) = 10 − x on the digits has one shape on the hexbit ring — k ↦ 16 − k — and the fringe pattern cannot tell a detector from its mirror image: intensity(k) = intensity(16 − k mod 16) at every one of the sixteen positions. The interference pattern is a palindrome under the ring’s own reflection, which is why reading the screen left-to-right or right-to-left is the same experiment. The reflection settles the pattern the way dz settles the void: by symmetry, decided case by case, never assumed.
+The ledger holds this as [fringe_pattern_reflects_dz](/theorem/fringe_pattern_reflects_dz) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 16).all (fun k => ((1 + (-1:Int)^k)^2 == (1 + (-1:Int)^((16 - k) % 16))^2))
+```
+
+### THE HANDLE-READ MOVES BRIGHTNESS AND NEVER MAKES OR DESTROYS IT. Recorded, every detector reads the flat 1² + 1² = 2 (the orthogonal-record sum hexbit_slit_visibility seals), and sixteen twos are 32; unrecorded, the fringed screen is eight fours and eight zeros — also 32. The which-path read re-shapes the whole pattern and changes the total by exactly nothing: 8·4 + 8·0 = 16·2. What the read costs is the FRINGES, not the light — the cross terms move to zero (hexbit_slit_cross_is_overlap) while the diagonal stays put. Bookkeeping conserved on both sides of the reading, which is what a ledger means by explained.
+The ledger holds this as [which_path_conserves_the_total](/theorem/which_path_conserves_the_total) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 16).foldl (fun s _ => s + ((1:Int)*1 + 1*1)) (0:Int)) = 32) ∧ (8 * 4 + 8 * 0 = 16 * 2) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = ((List.range 16).foldl (fun s _ => s + (2:Int)) (0:Int)))
 ```
 
 

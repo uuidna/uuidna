@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1486/1486 theorems — every one, by construction
-**Claim receipt:** `3dea8f3d-365b-8733-9025-9447061fb31b`
+**Total claimed:** 1497/1497 theorems — every one, by construction
+**Claim receipt:** `6afcb02d-ced0-8603-ad0a-88a87ceaaea3`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -653,6 +653,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [song_pi_roof_opens](/theorem/song_pi_roof_opens) · [song_round_turns_on_seven](/theorem/song_round_turns_on_seven) · [song_six_verses_one_melody](/theorem/song_six_verses_one_melody) · [song_verses_base_pair](/theorem/song_verses_base_pair) · [song_halves_are_strands](/theorem/song_halves_are_strands) · [song_notes_are_units](/theorem/song_notes_are_units) · [song_melody_rides_the_orbit](/theorem/song_melody_rides_the_orbit) · [song_scale_is_glagolitic](/theorem/song_scale_is_glagolitic) · [song_az_is_the_tuning](/theorem/song_az_is_the_tuning) · [song_primes_keep_time](/theorem/song_primes_keep_time) · [song_four_tongues_fuse](/theorem/song_four_tongues_fuse)
 
+### The release anthem
+
+- **Theorems:** 7
+- **Sample lineAddress:** `b67dfd57-cd1c-86d9-b5bd-75f0bb377e43`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) · [anthem_three_lengths_quarter_the_bar](/theorem/anthem_three_lengths_quarter_the_bar) · [anthem_rest_twelfths_the_bar](/theorem/anthem_rest_twelfths_the_bar) · [anthem_four_movements](/theorem/anthem_four_movements) · [anthem_closes_on_the_coin_octave](/theorem/anthem_closes_on_the_coin_octave) · [anthem_pi_primes_trinity](/theorem/anthem_pi_primes_trinity) · [anthem_finale_sings_one_uuid](/theorem/anthem_finale_sings_one_uuid)
+
 ### The seven readings
 
 - **Theorems:** 17
@@ -763,12 +772,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### lean/Hexbit.lean
 
-- **Theorems:** 12
+- **Theorems:** 16
 - **Sample lineAddress:** `e63258c2-d5f2-868c-9a2f-53f92ef17841`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) · [the_uuid_is_two_boards](/theorem/the_uuid_is_two_boards) · [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) · [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) · [characters_span_the_address](/theorem/characters_span_the_address) · [handle_is_the_first_group](/theorem/handle_is_the_first_group) · [groups_are_four_apart](/theorem/groups_are_four_apart) · [build_counts_in_hexbits](/theorem/build_counts_in_hexbits) · [payload_carries_the_strand](/theorem/payload_carries_the_strand) · [payload_aligns_where_the_name_does_not](/theorem/payload_aligns_where_the_name_does_not) · [the_handle_molecule_is_the_mix_census](/theorem/the_handle_molecule_is_the_mix_census) · [four_vectors_reach_the_uuid](/theorem/four_vectors_reach_the_uuid)
+[the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) · [the_uuid_is_two_boards](/theorem/the_uuid_is_two_boards) · [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) · [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) · [characters_span_the_address](/theorem/characters_span_the_address) · [handle_is_the_first_group](/theorem/handle_is_the_first_group) · [groups_are_four_apart](/theorem/groups_are_four_apart) · [build_counts_in_hexbits](/theorem/build_counts_in_hexbits) · [payload_carries_the_strand](/theorem/payload_carries_the_strand) · [payload_aligns_where_the_name_does_not](/theorem/payload_aligns_where_the_name_does_not) · [the_handle_molecule_is_the_mix_census](/theorem/the_handle_molecule_is_the_mix_census) · [four_vectors_reach_the_uuid](/theorem/four_vectors_reach_the_uuid) · [slit_on_the_hexbit_ring](/theorem/slit_on_the_hexbit_ring) · [dark_fringe_is_the_half_turn](/theorem/dark_fringe_is_the_half_turn) · [fringe_pattern_reflects_dz](/theorem/fringe_pattern_reflects_dz) · [which_path_conserves_the_total](/theorem/which_path_conserves_the_total)
 
 ### lean/Isometry.lean
 
@@ -888,7 +897,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1406 (1486 entries, 80 re-namings — a theorem is its Lean |
+| sealed propositions | 1417 (1497 entries, 80 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -906,7 +915,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1486 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1497 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

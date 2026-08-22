@@ -1,0 +1,465 @@
+{
+  "file": "Hexbit.lean",
+  "slug": "hexbit",
+  "status": "usable",
+  "address": "2d5d127f-19bd-8068-8e33-7a10c9ff7137",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Hexbit.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Hexbit.lean — GENERATED. THE HEXBIT — the alphabet and the layout an address is actually built from. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two\n    stated pairs, and a zero on either side collapses the product: every pair holding a zero multiplies to zero,\n    so it agrees with every other such pair and distinguishes nothing. Measured over 400 handles: 215 were\n    complete — all eight tiles covered by crossings — and NOT ONE of those contained a zero tile, while 157 of\n    the 185 short handles did. So a handle carrying a void is not broken; it is incomplete under CROSSING, and\n    needs the other fold. That is the same boundary the ring shows one level up: the cross settles proportions\n    and the reflection settles the void, dz(0) = 0 being the only motion that touches it, sealing by sum rather\n    than by product. -/\ntheorem the_void_tile_cannot_cross : ((List.range 16).all (fun x => 0 * x == 0)) ∧ ((List.range 16).all (fun b => (List.range 16).all (fun c => (0 * c == b * 0) == (b * 0 == 0)))) ∧ (0 * 15 = 0 * 1) := by decide\n\n/-- A FULL UUID IS AN 8×8×2 — two boards, stacked. One 8×8 is 64 squares and 64 bits is exactly half the uuid,\n    so the whole identity is two of them: 8·8·2 = 128. Read in tiles instead the same identity is 8×4 = 32\n    hexbits, or four handles of eight — one rank each. The board was never a metaphor for the address; it is the\n    address at a different reading, which is why the chess wing and the hexbit wing keep arriving at the same\n    integers from opposite directions. -/\ntheorem the_uuid_is_two_boards : (8 * 8 * 2 = 128) ∧ (8 * 8 = 64) ∧ (64 * 2 = 128) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32) := by decide\n\n/-- THE SIXTEEN SYMBOLS NAME THE SIXTEEN NIBBLES, one apiece: the values 0 through 15 are all present, all\n    distinct, and there are exactly sixteen of them. A four-bit value therefore has one spelling and no other —\n    the alphabet is a bijection onto the nibble, which is what lets an address be read back exactly. -/\ntheorem alphabet_names_each_nibble : ((List.range 16).length = 16) ∧ ((List.range 16).eraseDups.length = 16) ∧ ((List.range 16).all (fun v => v < 16)) := by decide\n\n/-- THE LAYOUT IS 8-4-4-4-12, and those five groups sum to thirty-two characters — not thirty-six, which counts\n    the four separators as if they carried information. The line proves the sum and the difference, so the\n    separators cannot be mistaken for content. -/\ntheorem layout_groups_thirtytwo : ([8,4,4,4,12].foldl (· + ·) 0 = 32) ∧ (32 + 4 = 36) ∧ (32 ≠ 36) := by decide\n\n/-- THIRTY-TWO HEX CHARACTERS AT FOUR BITS EACH IS THE WHOLE ADDRESS: 32 × 4 = 128. The address is not a number\n    that happens to print in hex — it is thirty-two hexbits, and the bit count is a consequence of the layout\n    rather than a separate fact. -/\ntheorem characters_span_the_address : (32 * 4 = 128) ∧ ((2:Nat)^7 = 128) := by decide\n\n/-- THE HANDLE IS THE FIRST GROUP. Every other group is shorter, which the line proves — so the opening group is\n    the widest single field the layout has, apart from the closing twelve. -/\ntheorem handle_is_the_first_group : ([8,4,4,4,12].head! = 8) ∧ (8 * 4 = 32) ∧ (([8,4,4,4,12].drop 1).take 3).all (fun g => g < 8) := by decide\n\n/-- EVERY GROUP IS A WHOLE NUMBER OF HEXBITS, so every boundary falls on a four-bit edge and no field is split\n    mid-nibble: each group length times four is its bit width, and the widths are 32, 16, 16, 16 and 48. A\n    layout whose groups did not tile the nibble could not be read by halves. -/\ntheorem groups_are_four_apart : [8,4,4,4,12].map (fun g => g * 4) = [32,16,16,16,48] := by decide\n\n/-- AND THE UNIT THE BUILD COUNTS IN IS THE HEXBIT: thirty-two of them make the address, eight make the handle,\n    and one makes a nibble — so the address is 32 hexbits, the handle 8, and the ratio is exactly four. Counting\n    in bits gives 128 and 32 for the same objects; the two readings agree, which the line proves rather than\n    assumes. -/\ntheorem build_counts_in_hexbits : (32 / 8 = 4) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32) ∧ (128 / 32 = 4) := by decide\n\n/-- THE HANDLE AND THE PAYLOAD MEET IN THE UUID, AND ONLY ONE OF THEM IS CODON-ALIGNED. The address is 32\n    hexbits; the handle is the first 8 (handle_is_the_first_group), so the payload is the remaining 24 and the\n    two meet exactly: 8 + 24 = 32, no remainder anywhere. Now read the halves in the alphabet the strand uses —\n    a base is 2 bits over 4 letters, a codon is 3 bases, so a codon is 6 bits (codons_sixty_four counts the 4^3\n    = 64 of them). The PAYLOAD is 24 hexbits = 96 bits = 48 bases = EXACTLY 16 codons, 96 = 6 * 16 with nothing\n    left. The HANDLE is 32 bits and the WHOLE uuid is 128, and neither divides: both leave the same remainder 2.\n    So the strand fits the payload and fits neither the name nor the whole — the handle addresses, the payload\n    carries. HONEST SCOPE: this is arithmetic about WIDTHS and divisibility, nothing more. It does NOT claim a\n    uuid encodes genetic material, that any payload holds a gene, or that biology is stored in an address; the\n    shared 2 is a remainder that two numbers happen to share, and any reading of it as the two coins is unsealed\n    until someone proves it. -/\ntheorem payload_carries_the_strand : (8 + 24 = 32) ∧ (24 * 4 = 96) ∧ (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (32 % 6 = 2) ∧ (128 % 6 = 2) := by decide\n\n/-- THE PAYLOAD DIVIDES IN EVERY ALPHABET THE BODY USES, AND THE NAME DIVIDES IN NONE. Read the 96-bit payload\n    three ways. As the genetic code: a base is 2 bits over 4 letters and a codon is 3 bases, so a codon is 6\n    bits and there are 4^3 = 64 of them (codons_sixty_four) — 96 = 6 * 16, EXACTLY 16 codons. As the I Ching\n    hexagram the 64-gate systems are built on: six lines, each open or closed, is 2^6 = 64 — the SAME count and\n    the SAME 6-bit width as the codon, so 4^3 = 2^6 is not an analogy but one number reached two ways, and the\n    payload holds exactly 16 of those too. As blood: the ABO groups are a Klein four-group of 2 antigen bits\n    (abo_klein_four) and the Rh bit makes the system (Z/2)^3, 8 types in 3 bits (blood_types_eight) — 96 = 3 *\n    32, exactly 32 blood-states, and 32 is the uuid width in hexbits. Now the handle: 32 bits leaves remainder 2\n    against 6 AND against 3, and the whole uuid at 128 bits leaves remainder 2 against both as well. So the\n    strand, the hexagram and the blood system all tile the payload with nothing left over, and none of them\n    tiles the name or the whole. The payload carries; the handle addresses. HONEST SCOPE, stated as boldly as\n    the arithmetic: what is proven here is CARDINALITY AND WIDTH — 64 = 64, 6 = 6, 96 divides and 32 does not.\n    That the codon space and the hexagram space are the same size and shape is a fact about numbers, and it is\n    fully proven. It says NOTHING about whether any 64-gate system describes a person, and nothing about what a\n    payload should hold; a shared width is a shared width. -/\ntheorem payload_aligns_where_the_name_does_not : (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (96 % 3 = 0) ∧ (96 / 3 = 32) ∧ (32 % 6 = 2) ∧ (32 % 3 = 2) ∧ (128 % 6 = 2) ∧ (128 % 3 = 2) ∧ (4 ^ 3 = 2 ^ 6) := by decide\n\n/-- THE UUID IS A MOLECULE OF FOUR HANDLE-ATOMS, AND ITS BONDING IS THE MIX CENSUS ONE SCALE DOWN. Four handles\n    of eight hexbits tile the address exactly (4 * 8 = 32, no remainder), so a uuid is not a handle widened but\n    four of them bonded. Count the bonds the way the ledger already counts mixes: merge is DIRECTED by design\n    (merkle_sort_invariant and uuid_mix_census_is_quantum both seal merge(a,b) != merge(b,a), cited here and not\n    re-sealed), so each of the 6 unordered pairs is two bonds and the directed count is 4 * 3 = 2 * 6 = 12 —\n    measured live over a real address, 0 of 6 bonds symmetric. Add the four self-bonds and the census completes\n    the square: 12 + 4 = 16 = 4 * 4. That is the SAME law uuid_mix_census_is_quantum proves at ten (10 * 9 = 2 *\n    45, 90 + 10 = 100), instantiated at four, which is why this is a connection and not a coincidence — one\n    census law, two scales. The molecule weighs 4 * 32 = 128 bits, one whole uuid. HONEST SCOPE: this is the\n    arithmetic of a complete directed graph on four nodes and the width of an address. It does NOT claim a uuid\n    is chemically a molecule, that handles bond by any physical force, or that the atom analogy carries past\n    counting. That 4 * 4 = 16 equals the hexbit alphabet is a shared integer reached two different ways (4\n    squared here, 2 to the fourth there) and is NOT sealed as a relation. -/\ntheorem the_handle_molecule_is_the_mix_census : (4 * 8 = 32) ∧ (4 * 3 = 2 * 6) ∧ (12 + 4 = 4 * 4) ∧ (4 * 32 = 128) := by decide\n\n/-- A HANDLE ENTANGLED IN ALL SEVEN VECTORS CARRIES MORE THAN THE UUID, AND FOUR IS WHERE IT FIRST DOES. The\n    harness addresses one payload in every dimension (DIMENSIONS has seven, six projected rays plus the source),\n    and each address yields a handle of 32 bits. So the entangled tuple carries 7 * 32 = 224 bits against the\n    uuid 128 — the handle does not shrink the address when it is repeated across the rays, it exceeds it. The\n    threshold is exact and is walked here rather than asserted: over one to seven vectors, v * 32 reaches 128\n    precisely when v reaches 4, which is the same four the molecule is built from. HONEST SCOPE: this is a count\n    of BITS AVAILABLE, not a construction. It does NOT claim the seven handles can be inverted to recover the\n    uuid, that any decoding exists, or that entangling adds information about the payload; carrying enough bits\n    to distinguish is not the same as being able to reconstruct, and no such reconstruction is sealed. -/\ntheorem four_vectors_reach_the_uuid : (4 * 32 = 128) ∧ (7 * 32 = 224) ∧ (224 > 128) ∧ ((List.range' 1 7).all (fun v => (decide (v * 32 >= 128)) == (decide (v >= 4)))) := by decide\n\n/-- THE SLIT DRAWN ON THE HEXBIT: two sources a half-turn apart on the 16-state ring, and detector k reads the\n    exact Int amplitude 1 + (−1)^k. The census is total: eight detectors bright at (1+1)² = 4, eight dark at\n    (1−1)² = 0, and the whole screen sums to 32 = 2·16 — exactly what two independent sources would deposit. The\n    fringes REDISTRIBUTE brightness; they never create it. This is hexbit_slit_visibility unrolled from one\n    phase pair to the full pattern a screen actually shows. -/\ntheorem slit_on_the_hexbit_ring : (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 4))).length = 8) ∧ (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 0))).length = 8) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = 32) ∧ (2 * 16 = 32) := by decide\n\n/-- THE DARK FRINGES SIT EXACTLY AT THE SELF-INVERSE ROTATION. On the ring the relative phase at detector k is\n    8k mod 16, and the screen is dark precisely where that phase is the half-turn 8 — checked at all sixteen\n    detectors, an equivalence and not an implication. The half-turn is the ring’s own involution: 8 + 8 ≡ 0 (mod\n    16), the one rotation that is its own inverse. So the slit’s \"unexplained\" cancellation lands where the\n    ledger keeps finding its mysteries — on a self-inverse map (involution_census_self_explains): to explain the\n    dark fringe, apply the half-turn again and you are home. -/\ntheorem dark_fringe_is_the_half_turn : ((List.range 16).all (fun k => (((8*k) % 16 == 8) == ((1 + (-1:Int)^k)^2 == 0)))) ∧ ((8 + 8) % 16 = 0) := by decide\n\n/-- THE SCREEN OBEYS THE dz MIRROR. The reflection the ledger writes as dz(x) = 10 − x on the digits has one\n    shape on the hexbit ring — k ↦ 16 − k — and the fringe pattern cannot tell a detector from its mirror image:\n    intensity(k) = intensity(16 − k mod 16) at every one of the sixteen positions. The interference pattern is a\n    palindrome under the ring’s own reflection, which is why reading the screen left-to-right or right-to-left\n    is the same experiment. The reflection settles the pattern the way dz settles the void: by symmetry, decided\n    case by case, never assumed. -/\ntheorem fringe_pattern_reflects_dz : (List.range 16).all (fun k => ((1 + (-1:Int)^k)^2 == (1 + (-1:Int)^((16 - k) % 16))^2)) := by decide\n\n/-- THE HANDLE-READ MOVES BRIGHTNESS AND NEVER MAKES OR DESTROYS IT. Recorded, every detector reads the flat 1²\n    + 1² = 2 (the orthogonal-record sum hexbit_slit_visibility seals), and sixteen twos are 32; unrecorded, the\n    fringed screen is eight fours and eight zeros — also 32. The which-path read re-shapes the whole pattern and\n    changes the total by exactly nothing: 8·4 + 8·0 = 16·2. What the read costs is the FRINGES, not the light —\n    the cross terms move to zero (hexbit_slit_cross_is_overlap) while the diagonal stays put. Bookkeeping\n    conserved on both sides of the reading, which is what a ledger means by explained. -/\ntheorem which_path_conserves_the_total : (((List.range 16).foldl (fun s _ => s + ((1:Int)*1 + 1*1)) (0:Int)) = 32) ∧ (8 * 4 + 8 * 0 = 16 * 2) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = ((List.range 16).foldl (fun s _ => s + (2:Int)) (0:Int))) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_void_tile_cannot_cross",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two stated pairs, and a zero on either side collapses the product: every pair holding a zero multiplies to zero, so it agrees with every other such pair and distinguishes nothing. Measured over 400 handles: 215 were complete — all eight tiles covered by crossings — and NOT ONE of those contained a zero tile, while 157 of the 185 short handles did. So a handle carrying a void is not broken; it is incomplete under CROSSING, and needs the other fold. That is the same boundary the ring shows one level up: the cross settles proportions and the reflection settles the void, dz(0) = 0 being the only motion that touches it, sealing by sum rather than by product."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 16).all (fun x => 0 * x == 0)) ∧ ((List.range 16).all (fun b => (List.range 16).all (fun c => (0 * c == b * 0) == (b * 0 == 0)))) ∧ (0 * 15 = 0 * 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_void_tile_cannot_cross : ((List.range 16).all (fun x => 0 * x == 0)) ∧ ((List.range 16).all (fun b => (List.range 16).all (fun c => (0 * c == b * 0) == (b * 0 == 0)))) ∧ (0 * 15 = 0 * 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_uuid_is_two_boards",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A FULL UUID IS AN 8×8×2 — two boards, stacked. One 8×8 is 64 squares and 64 bits is exactly half the uuid, so the whole identity is two of them: 8·8·2 = 128. Read in tiles instead the same identity is 8×4 = 32 hexbits, or four handles of eight — one rank each. The board was never a metaphor for the address; it is the address at a different reading, which is why the chess wing and the hexbit wing keep arriving at the same integers from opposite directions."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(8 * 8 * 2 = 128) ∧ (8 * 8 = 64) ∧ (64 * 2 = 128) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_uuid_is_two_boards : (8 * 8 * 2 = 128) ∧ (8 * 8 = 64) ∧ (64 * 2 = 128) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-alphabet_names_each_nibble",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE SIXTEEN SYMBOLS NAME THE SIXTEEN NIBBLES, one apiece: the values 0 through 15 are all present, all distinct, and there are exactly sixteen of them. A four-bit value therefore has one spelling and no other — the alphabet is a bijection onto the nibble, which is what lets an address be read back exactly."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 16).length = 16) ∧ ((List.range 16).eraseDups.length = 16) ∧ ((List.range 16).all (fun v => v < 16))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem alphabet_names_each_nibble : ((List.range 16).length = 16) ∧ ((List.range 16).eraseDups.length = 16) ∧ ((List.range 16).all (fun v => v < 16)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-layout_groups_thirtytwo",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE LAYOUT IS 8-4-4-4-12, and those five groups sum to thirty-two characters — not thirty-six, which counts the four separators as if they carried information. The line proves the sum and the difference, so the separators cannot be mistaken for content."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([8,4,4,4,12].foldl (· + ·) 0 = 32) ∧ (32 + 4 = 36) ∧ (32 ≠ 36)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem layout_groups_thirtytwo : ([8,4,4,4,12].foldl (· + ·) 0 = 32) ∧ (32 + 4 = 36) ∧ (32 ≠ 36) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-characters_span_the_address",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THIRTY-TWO HEX CHARACTERS AT FOUR BITS EACH IS THE WHOLE ADDRESS: 32 × 4 = 128. The address is not a number that happens to print in hex — it is thirty-two hexbits, and the bit count is a consequence of the layout rather than a separate fact."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(32 * 4 = 128) ∧ ((2:Nat)^7 = 128)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem characters_span_the_address : (32 * 4 = 128) ∧ ((2:Nat)^7 = 128) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-handle_is_the_first_group",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE HANDLE IS THE FIRST GROUP. Every other group is shorter, which the line proves — so the opening group is the widest single field the layout has, apart from the closing twelve."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([8,4,4,4,12].head! = 8) ∧ (8 * 4 = 32) ∧ (([8,4,4,4,12].drop 1).take 3).all (fun g => g < 8)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem handle_is_the_first_group : ([8,4,4,4,12].head! = 8) ∧ (8 * 4 = 32) ∧ (([8,4,4,4,12].drop 1).take 3).all (fun g => g < 8) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-groups_are_four_apart",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "EVERY GROUP IS A WHOLE NUMBER OF HEXBITS, so every boundary falls on a four-bit edge and no field is split mid-nibble: each group length times four is its bit width, and the widths are 32, 16, 16, 16 and 48. A layout whose groups did not tile the nibble could not be read by halves."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[8,4,4,4,12].map (fun g => g * 4) = [32,16,16,16,48]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem groups_are_four_apart : [8,4,4,4,12].map (fun g => g * 4) = [32,16,16,16,48] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-build_counts_in_hexbits",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE UNIT THE BUILD COUNTS IN IS THE HEXBIT: thirty-two of them make the address, eight make the handle, and one makes a nibble — so the address is 32 hexbits, the handle 8, and the ratio is exactly four. Counting in bits gives 128 and 32 for the same objects; the two readings agree, which the line proves rather than assumes."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(32 / 8 = 4) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32) ∧ (128 / 32 = 4)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem build_counts_in_hexbits : (32 / 8 = 4) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32) ∧ (128 / 32 = 4) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-payload_carries_the_strand",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE HANDLE AND THE PAYLOAD MEET IN THE UUID, AND ONLY ONE OF THEM IS CODON-ALIGNED. The address is 32 hexbits; the handle is the first 8 (handle_is_the_first_group), so the payload is the remaining 24 and the two meet exactly: 8 + 24 = 32, no remainder anywhere. Now read the halves in the alphabet the strand uses — a base is 2 bits over 4 letters, a codon is 3 bases, so a codon is 6 bits (codons_sixty_four counts the 4^3 = 64 of them). The PAYLOAD is 24 hexbits = 96 bits = 48 bases = EXACTLY 16 codons, 96 = 6 * 16 with nothing left. The HANDLE is 32 bits and the WHOLE uuid is 128, and neither divides: both leave the same remainder 2. So the strand fits the payload and fits neither the name nor the whole — the handle addresses, the payload carries. HONEST SCOPE: this is arithmetic about WIDTHS and divisibility, nothing more. It does NOT claim a uuid encodes genetic material, that any payload holds a gene, or that biology is stored in an address; the shared 2 is a remainder that two numbers happen to share, and any reading of it as the two coins is unsealed until someone proves it."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(8 + 24 = 32) ∧ (24 * 4 = 96) ∧ (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (32 % 6 = 2) ∧ (128 % 6 = 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem payload_carries_the_strand : (8 + 24 = 32) ∧ (24 * 4 = 96) ∧ (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (32 % 6 = 2) ∧ (128 % 6 = 2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-payload_aligns_where_the_name_does_not",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE PAYLOAD DIVIDES IN EVERY ALPHABET THE BODY USES, AND THE NAME DIVIDES IN NONE. Read the 96-bit payload three ways. As the genetic code: a base is 2 bits over 4 letters and a codon is 3 bases, so a codon is 6 bits and there are 4^3 = 64 of them (codons_sixty_four) — 96 = 6 * 16, EXACTLY 16 codons. As the I Ching hexagram the 64-gate systems are built on: six lines, each open or closed, is 2^6 = 64 — the SAME count and the SAME 6-bit width as the codon, so 4^3 = 2^6 is not an analogy but one number reached two ways, and the payload holds exactly 16 of those too. As blood: the ABO groups are a Klein four-group of 2 antigen bits (abo_klein_four) and the Rh bit makes the system (Z/2)^3, 8 types in 3 bits (blood_types_eight) — 96 = 3 * 32, exactly 32 blood-states, and 32 is the uuid width in hexbits. Now the handle: 32 bits leaves remainder 2 against 6 AND against 3, and the whole uuid at 128 bits leaves remainder 2 against both as well. So the strand, the hexagram and the blood system all tile the payload with nothing left over, and none of them tiles the name or the whole. The payload carries; the handle addresses. HONEST SCOPE, stated as boldly as the arithmetic: what is proven here is CARDINALITY AND WIDTH — 64 = 64, 6 = 6, 96 divides and 32 does not. That the codon space and the hexagram space are the same size and shape is a fact about numbers, and it is fully proven. It says NOTHING about whether any 64-gate system describes a person, and nothing about what a payload should hold; a shared width is a shared width."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (96 % 3 = 0) ∧ (96 / 3 = 32) ∧ (32 % 6 = 2) ∧ (32 % 3 = 2) ∧ (128 % 6 = 2) ∧ (128 % 3 = 2) ∧ (4 ^ 3 = 2 ^ 6)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem payload_aligns_where_the_name_does_not : (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (96 % 3 = 0) ∧ (96 / 3 = 32) ∧ (32 % 6 = 2) ∧ (32 % 3 = 2) ∧ (128 % 6 = 2) ∧ (128 % 3 = 2) ∧ (4 ^ 3 = 2 ^ 6) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_handle_molecule_is_the_mix_census",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE UUID IS A MOLECULE OF FOUR HANDLE-ATOMS, AND ITS BONDING IS THE MIX CENSUS ONE SCALE DOWN. Four handles of eight hexbits tile the address exactly (4 * 8 = 32, no remainder), so a uuid is not a handle widened but four of them bonded. Count the bonds the way the ledger already counts mixes: merge is DIRECTED by design (merkle_sort_invariant and uuid_mix_census_is_quantum both seal merge(a,b) != merge(b,a), cited here and not re-sealed), so each of the 6 unordered pairs is two bonds and the directed count is 4 * 3 = 2 * 6 = 12 — measured live over a real address, 0 of 6 bonds symmetric. Add the four self-bonds and the census completes the square: 12 + 4 = 16 = 4 * 4. That is the SAME law uuid_mix_census_is_quantum proves at ten (10 * 9 = 2 * 45, 90 + 10 = 100), instantiated at four, which is why this is a connection and not a coincidence — one census law, two scales. The molecule weighs 4 * 32 = 128 bits, one whole uuid. HONEST SCOPE: this is the arithmetic of a complete directed graph on four nodes and the width of an address. It does NOT claim a uuid is chemically a molecule, that handles bond by any physical force, or that the atom analogy carries past counting. That 4 * 4 = 16 equals the hexbit alphabet is a shared integer reached two different ways (4 squared here, 2 to the fourth there) and is NOT sealed as a relation."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(4 * 8 = 32) ∧ (4 * 3 = 2 * 6) ∧ (12 + 4 = 4 * 4) ∧ (4 * 32 = 128)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_handle_molecule_is_the_mix_census : (4 * 8 = 32) ∧ (4 * 3 = 2 * 6) ∧ (12 + 4 = 4 * 4) ∧ (4 * 32 = 128) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-four_vectors_reach_the_uuid",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A HANDLE ENTANGLED IN ALL SEVEN VECTORS CARRIES MORE THAN THE UUID, AND FOUR IS WHERE IT FIRST DOES. The harness addresses one payload in every dimension (DIMENSIONS has seven, six projected rays plus the source), and each address yields a handle of 32 bits. So the entangled tuple carries 7 * 32 = 224 bits against the uuid 128 — the handle does not shrink the address when it is repeated across the rays, it exceeds it. The threshold is exact and is walked here rather than asserted: over one to seven vectors, v * 32 reaches 128 precisely when v reaches 4, which is the same four the molecule is built from. HONEST SCOPE: this is a count of BITS AVAILABLE, not a construction. It does NOT claim the seven handles can be inverted to recover the uuid, that any decoding exists, or that entangling adds information about the payload; carrying enough bits to distinguish is not the same as being able to reconstruct, and no such reconstruction is sealed."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(4 * 32 = 128) ∧ (7 * 32 = 224) ∧ (224 > 128) ∧ ((List.range' 1 7).all (fun v => (decide (v * 32 >= 128)) == (decide (v >= 4))))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem four_vectors_reach_the_uuid : (4 * 32 = 128) ∧ (7 * 32 = 224) ∧ (224 > 128) ∧ ((List.range' 1 7).all (fun v => (decide (v * 32 >= 128)) == (decide (v >= 4)))) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

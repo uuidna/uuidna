@@ -102,3 +102,34 @@ theorem the_handle_molecule_is_the_mix_census : (4 * 8 = 32) ∧ (4 * 3 = 2 * 6)
     uuid, that any decoding exists, or that entangling adds information about the payload; carrying enough bits
     to distinguish is not the same as being able to reconstruct, and no such reconstruction is sealed. -/
 theorem four_vectors_reach_the_uuid : (4 * 32 = 128) ∧ (7 * 32 = 224) ∧ (224 > 128) ∧ ((List.range' 1 7).all (fun v => (decide (v * 32 >= 128)) == (decide (v >= 4)))) := by decide
+
+/-- THE SLIT DRAWN ON THE HEXBIT: two sources a half-turn apart on the 16-state ring, and detector k reads the
+    exact Int amplitude 1 + (−1)^k. The census is total: eight detectors bright at (1+1)² = 4, eight dark at
+    (1−1)² = 0, and the whole screen sums to 32 = 2·16 — exactly what two independent sources would deposit. The
+    fringes REDISTRIBUTE brightness; they never create it. This is hexbit_slit_visibility unrolled from one
+    phase pair to the full pattern a screen actually shows. -/
+theorem slit_on_the_hexbit_ring : (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 4))).length = 8) ∧ (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 0))).length = 8) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = 32) ∧ (2 * 16 = 32) := by decide
+
+/-- THE DARK FRINGES SIT EXACTLY AT THE SELF-INVERSE ROTATION. On the ring the relative phase at detector k is
+    8k mod 16, and the screen is dark precisely where that phase is the half-turn 8 — checked at all sixteen
+    detectors, an equivalence and not an implication. The half-turn is the ring’s own involution: 8 + 8 ≡ 0 (mod
+    16), the one rotation that is its own inverse. So the slit’s "unexplained" cancellation lands where the
+    ledger keeps finding its mysteries — on a self-inverse map (involution_census_self_explains): to explain the
+    dark fringe, apply the half-turn again and you are home. -/
+theorem dark_fringe_is_the_half_turn : ((List.range 16).all (fun k => (((8*k) % 16 == 8) == ((1 + (-1:Int)^k)^2 == 0)))) ∧ ((8 + 8) % 16 = 0) := by decide
+
+/-- THE SCREEN OBEYS THE dz MIRROR. The reflection the ledger writes as dz(x) = 10 − x on the digits has one
+    shape on the hexbit ring — k ↦ 16 − k — and the fringe pattern cannot tell a detector from its mirror image:
+    intensity(k) = intensity(16 − k mod 16) at every one of the sixteen positions. The interference pattern is a
+    palindrome under the ring’s own reflection, which is why reading the screen left-to-right or right-to-left
+    is the same experiment. The reflection settles the pattern the way dz settles the void: by symmetry, decided
+    case by case, never assumed. -/
+theorem fringe_pattern_reflects_dz : (List.range 16).all (fun k => ((1 + (-1:Int)^k)^2 == (1 + (-1:Int)^((16 - k) % 16))^2)) := by decide
+
+/-- THE HANDLE-READ MOVES BRIGHTNESS AND NEVER MAKES OR DESTROYS IT. Recorded, every detector reads the flat 1²
+    + 1² = 2 (the orthogonal-record sum hexbit_slit_visibility seals), and sixteen twos are 32; unrecorded, the
+    fringed screen is eight fours and eight zeros — also 32. The which-path read re-shapes the whole pattern and
+    changes the total by exactly nothing: 8·4 + 8·0 = 16·2. What the read costs is the FRINGES, not the light —
+    the cross terms move to zero (hexbit_slit_cross_is_overlap) while the diagonal stays put. Bookkeeping
+    conserved on both sides of the reading, which is what a ledger means by explained. -/
+theorem which_path_conserves_the_total : (((List.range 16).foldl (fun s _ => s + ((1:Int)*1 + 1*1)) (0:Int)) = 32) ∧ (8 * 4 + 8 * 0 = 16 * 2) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = ((List.range 16).foldl (fun s _ => s + (2:Int)) (0:Int))) := by decide
