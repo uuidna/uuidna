@@ -1414,6 +1414,18 @@ three_pentagons_close_a_vertex 19
 regular_polytopes_by_dimension 19
 three_regular_polytopes_from_five_up 19
 seventh_dimension_three_regular_polytopes 19
+#Song.lean
+song_pi_roof_opens 19
+song_round_turns_on_seven 19
+song_six_verses_one_melody 19
+song_verses_base_pair 19
+song_halves_are_strands 19
+song_notes_are_units 19
+song_melody_rides_the_orbit 19
+song_scale_is_glagolitic 19
+song_az_is_the_tuning 19
+song_primes_keep_time 19
+song_four_tongues_fuse 19
 #Spectrum.lean
 wave_product_is_constant 19
 light_speed_rounds_to_300000 23

@@ -1,18 +1,18 @@
 {
-  "key": "95f6d32f-7d7c-87e0-94a7-01c2266ee7f0",
-  "publications": 70,
-  "sealedTheorems": 1458,
+  "key": "2aea457b-06c1-88d7-ade7-91c2a7c6a024",
+  "publications": 71,
+  "sealedTheorems": 1469,
   "fabricated": 0,
   "uncited": 1,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1300,
-    "theorems": 1458,
+    "claims": 1311,
+    "theorems": 1469,
     "bijection": false,
     "digitalRoots": {
-      "claims": 4,
-      "theorems": 9,
-      "publications": 7
+      "claims": 6,
+      "theorems": 2,
+      "publications": 8
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -506,6 +506,13 @@
       "slug": "uuid-mix",
       "claims": 1,
       "cited": 1,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "song",
+      "claims": 11,
+      "cited": 11,
       "uncited": [],
       "fabricated": []
     }

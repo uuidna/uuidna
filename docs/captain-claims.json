@@ -2,8 +2,8 @@
   "generated": "2026-08-22",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1458,
-  "total_theorems": 1458,
+  "total_claimed": 1469,
+  "total_theorems": 1469,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,20 +3781,20 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "67b745b3-be94-8c73-a5e7-189bca499ea6",
-      "address": "027cfbe0-103c-83b1-8c9f-e96b055e3cad",
+      "lineAddress": "6fdcf377-a8b6-8c33-82e8-7d14df41d85e",
+      "address": "5040215b-f479-85d7-ab49-6f10f0bababc",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "9011ea89-dde3-8b62-b65a-7741ed2e6aa4",
-      "address": "9aeab4e7-a110-86bb-819a-34504f8c3916",
+      "lineAddress": "ece1b56b-b96f-8f70-bb95-b880a7d8d94a",
+      "address": "017e0551-3ed4-8c74-a32d-bb09ce86d151",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "c16c4ea8-3355-86a2-bbd0-56c42c56696e",
-      "address": "5c1c9d4f-42ad-82eb-b48d-2754686bc181",
+      "lineAddress": "2716655c-ed4e-8d3c-94fc-505dd3fbc806",
+      "address": "a98fe912-965f-8805-b885-5a2b84cd42d0",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "9ca65c9c-804e-82d7-919b-3c7dd88b9aa1",
-      "address": "407fe4ec-b85c-8185-a6d4-3f6637d640a3",
+      "lineAddress": "ad13e2e2-cced-81de-abf2-0a747e85c963",
+      "address": "bd5c848c-6434-8158-8be1-4107e7b278a8",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "3ef9a8d1-b4de-82d1-b320-7dcef4223c4d",
-      "address": "c47a007c-1e57-8d1f-867e-d2d0126a2745",
+      "lineAddress": "f9318459-0be3-8cc5-8016-d0093fefad0a",
+      "address": "5ed68761-6cc8-8d87-bb77-45885b20e4e1",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "6375f9f9-0153-829a-8add-6691ae5bf39e",
-      "address": "923615bd-43a9-83ff-b778-e8df2b60dc0d",
+      "lineAddress": "b2185279-04f9-88a0-bc6a-ab96f55da1ca",
+      "address": "1640318e-57b1-813d-9614-1908392f3cd4",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "228a83c8-fec7-88d7-bd57-6a0621e70c87",
-      "address": "ddc440f1-625a-8028-a938-1babf20670e6",
+      "lineAddress": "47f47367-63b4-87c5-957e-74e1f6ae86e6",
+      "address": "8183f5b0-1bda-8bde-a543-1f5ce36849fd",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "ba0d29d2-058f-8e0f-b5c6-b6a674f1f5d9",
-      "address": "d22a6a8e-e987-8bdc-83ac-3ad3a094f937",
+      "lineAddress": "6d5786c7-6477-8d1f-b8b5-746152f9aad9",
+      "address": "1e8f35c3-cd88-8a5c-88ca-e78934923a09",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "6e6358b9-f1bd-84fd-bdf1-e55e6ffebedd",
-      "address": "c7b4183f-f209-833d-8886-257a17cdccb8",
+      "lineAddress": "428fb752-c261-84e2-9458-32ba57a109b0",
+      "address": "b862ee50-a0f5-8608-b902-dff565e5da10",
       "principle": "The detectors, proven"
     },
     {
@@ -4435,14 +4435,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "371c1a24-7a9c-8ab6-9238-79534fddf1aa",
-      "address": "1cfe3769-433c-836f-8178-276c10caf9f0",
+      "lineAddress": "396a7184-0316-8dcf-9320-f7bdd9ef1100",
+      "address": "a385d881-8773-859b-a42c-b198a8f840dd",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "af9fecaa-cc8d-8d8d-bba8-84cd32501b22",
-      "address": "ae3ae987-cbbc-8860-88ae-81a2aa812afe",
+      "lineAddress": "1793ee2c-4c8d-8f8c-af79-ad027350de04",
+      "address": "0cf19207-a124-87dc-b081-805048651c7e",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -7806,6 +7806,72 @@
       "principle": "The uuid mix space"
     },
     {
+      "key": "song_pi_roof_opens",
+      "lineAddress": "f9e32186-a2c5-8880-8daa-0f2cf658c7bd",
+      "address": "a34e9592-3245-8406-abfb-3c9c3d08c68d",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_round_turns_on_seven",
+      "lineAddress": "381f401b-1346-8437-a398-494686acfcf3",
+      "address": "1f4bec2d-800f-8cf4-a9dc-4a6487ff92f0",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_six_verses_one_melody",
+      "lineAddress": "f9771528-ad8b-813a-a8ab-553ad2c93a00",
+      "address": "f2d0eb80-f4bc-8061-9dcd-7775afa555fd",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_verses_base_pair",
+      "lineAddress": "695b45c7-329e-87ec-92ce-d42832ba73da",
+      "address": "00f38ef9-d983-87f4-97c0-29f724647bfc",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_halves_are_strands",
+      "lineAddress": "4554c598-a54e-8e3c-bafb-4e2d5754e892",
+      "address": "e551cfaf-8574-87ad-b3d8-ea405be66653",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_notes_are_units",
+      "lineAddress": "dcfc7cd8-30d6-8c69-8ecf-548593023e85",
+      "address": "7152dd59-3b2e-83b6-a49c-47d2cbaf2325",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_melody_rides_the_orbit",
+      "lineAddress": "22cf9bb3-5f69-87d0-a01e-17e781d8dbde",
+      "address": "153e8b8b-1060-808d-b76b-89c4bb0b1591",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_scale_is_glagolitic",
+      "lineAddress": "565f8468-6852-80a2-8265-2e9c6a8c66d6",
+      "address": "a15a7197-cb83-8c74-8baa-40afde6bce88",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_az_is_the_tuning",
+      "lineAddress": "5f74f084-f709-8490-8cce-992547d1e451",
+      "address": "0c656129-d8fd-810b-953c-1614de3d5696",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_primes_keep_time",
+      "lineAddress": "8b1fa806-7375-801c-bbfb-cb995a405c4f",
+      "address": "2d155fd4-ff79-82c0-8cd6-9204ba76f93c",
+      "principle": "The song from the ledger"
+    },
+    {
+      "key": "song_four_tongues_fuse",
+      "lineAddress": "08ba7600-c530-82e3-a2ff-a989a9656d59",
+      "address": "735884b1-6741-8417-a045-4b19100a6948",
+      "principle": "The song from the ledger"
+    },
+    {
       "key": "group_holds_fiftyfour",
       "lineAddress": "47105abe-a8f3-80ae-a5ca-e507178b608b",
       "address": "494b9d8d-4270-8488-aa14-672bffee04a1",
@@ -8754,7 +8820,7 @@
       "principle": "lean/VectorEquilibrium.lean"
     }
   ],
-  "claim_receipt": "8e93b1b0-3a3f-8a30-90ae-1f2240c42bb6",
+  "claim_receipt": "38cce2b9-c425-8b04-a625-f7c713ba3493",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

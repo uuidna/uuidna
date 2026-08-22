@@ -3,8 +3,8 @@
 **Generated:** 2026-08-22
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1458/1458 theorems — every one, by construction
-**Claim receipt:** `8e93b1b0-3a3f-8a30-90ae-1f2240c42bb6`
+**Total claimed:** 1469/1469 theorems — every one, by construction
+**Claim receipt:** `38cce2b9-c425-8b04-a625-f7c713ba3493`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -644,6 +644,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [uuid_mix_census_is_quantum](/theorem/uuid_mix_census_is_quantum)
 
+### The song from the ledger
+
+- **Theorems:** 11
+- **Sample lineAddress:** `f9e32186-a2c5-8880-8daa-0f2cf658c7bd`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[song_pi_roof_opens](/theorem/song_pi_roof_opens) · [song_round_turns_on_seven](/theorem/song_round_turns_on_seven) · [song_six_verses_one_melody](/theorem/song_six_verses_one_melody) · [song_verses_base_pair](/theorem/song_verses_base_pair) · [song_halves_are_strands](/theorem/song_halves_are_strands) · [song_notes_are_units](/theorem/song_notes_are_units) · [song_melody_rides_the_orbit](/theorem/song_melody_rides_the_orbit) · [song_scale_is_glagolitic](/theorem/song_scale_is_glagolitic) · [song_az_is_the_tuning](/theorem/song_az_is_the_tuning) · [song_primes_keep_time](/theorem/song_primes_keep_time) · [song_four_tongues_fuse](/theorem/song_four_tongues_fuse)
+
 ### lean/Affine.lean
 
 - **Theorems:** 6
@@ -870,7 +879,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1378 (1458 entries, 80 re-namings — a theorem is its Lean |
+| sealed propositions | 1389 (1469 entries, 80 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -888,7 +897,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1458 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1469 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

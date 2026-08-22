@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:a2172dc0-14df-8661-9b23-d3e34d1aa787",
+  "@id": "urn:uuid:d839ba3c-5212-8f20-ba3d-ee0d04a623d3",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -17624,11 +17624,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:67b745b3-be94-8c73-a5e7-189bca499ea6",
+        "@id": "urn:uuid:6fdcf377-a8b6-8c33-82e8-7d14df41d85e",
         "@type": "ScholarlyArticle",
         "headline": "EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1445) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])",
-        "identifier": "027cfbe0-103c-83b1-8c9f-e96b055e3cad",
+        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16]).foldl (· + ·) 0 = 1456) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16] = [6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16])",
+        "identifier": "5040215b-f479-85d7-ab49-6f10f0bababc",
         "url": "https://uuidna.com/theorem/reach_all_decide",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17652,11 +17652,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:9011ea89-dde3-8b62-b65a-7741ed2e6aa4",
+        "@id": "urn:uuid:ece1b56b-b96f-8f70-bb95-b880a7d8d94a",
         "@type": "ScholarlyArticle",
         "headline": "FINITE WITHIN INFINITY, COUNTED — exactly 1 statement in the whole ledger carries a ∀ or ∃, and 0 of those range over an unbounded domain. The quantified one ranges over ℤ, which is infinite, and decides anyway because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the decision is finite. Every other statement is quantifier-free enumeration. This is the ledger's whole method stated as a census rather than as a slogan",
-        "abstract": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)",
-        "identifier": "9aeab4e7-a110-86bb-819a-34504f8c3916",
+        "abstract": "([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) ∧ (([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]).foldl (· + ·) 0 = 1)",
+        "identifier": "017e0551-3ed4-8c74-a32d-bb09ce86d151",
         "url": "https://uuidna.com/theorem/reach_quantifiers_bounded",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17680,11 +17680,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:c16c4ea8-3355-86a2-bbd0-56c42c56696e",
+        "@id": "urn:uuid:2716655c-ed4e-8d3c-94fc-505dd3fbc806",
         "@type": "ScholarlyArticle",
-        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 65 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number",
-        "abstract": "([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)",
-        "identifier": "5c1c9d4f-42ad-82eb-b48d-2754686bc181",
+        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 200, and it is a window — the largest enumeration any theorem here performs, across 66 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number",
+        "abstract": "([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].all (fun w => w ≤ 200)) ∧ ([1, 9, 9, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 1, 63, 9, 20, 6, 24, 8, 10, 2, 40, 17, 8, 4, 16, 101, 16, 8, 4, 8, 200, 16, 1, 10, 181, 5, 7, 10, 6, 12, 10, 5, 8, 16, 10, 6, 10, 7, 10, 10, 32, 5, 9, 7, 1, 1, 9, 7, 64, 10, 11].any (fun w => w == 200)) ∧ (200 < 201)",
+        "identifier": "a98fe912-965f-8805-b885-5a2b84cd42d0",
         "url": "https://uuidna.com/theorem/reach_window_finite",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -18800,11 +18800,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:9ca65c9c-804e-82d7-919b-3c7dd88b9aa1",
+        "@id": "urn:uuid:ad13e2e2-cced-81de-abf2-0a747e85c963",
         "@type": "ScholarlyArticle",
-        "headline": "every generated theorem carries prose IN the Lean — 1409 of 1409 documented across 90 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
-        "abstract": "(([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1409) ∧ ([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])",
-        "identifier": "407fe4ec-b85c-8185-a6d4-3f6637d640a3",
+        "headline": "every generated theorem carries prose IN the Lean — 1420 of 1420 documented across 91 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
+        "abstract": "(([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13].foldl (· + ·) 0) = 1420) ∧ ([6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13] = [6, 6, 6, 13, 11, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 13])",
+        "identifier": "bd5c848c-6434-8158-8be1-4107e7b278a8",
         "url": "https://uuidna.com/theorem/prose_coverage_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18828,11 +18828,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:3ef9a8d1-b4de-82d1-b320-7dcef4223c4d",
+        "@id": "urn:uuid:f9318459-0be3-8cc5-8016-d0093fefad0a",
         "@type": "ScholarlyArticle",
-        "headline": "the prose round-trips exactly — 1409 of 1409 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
-        "abstract": "(1409 + 0 = 1409) ∧ (0 = 0)",
-        "identifier": "c47a007c-1e57-8d1f-867e-d2d0126a2745",
+        "headline": "the prose round-trips exactly — 1420 of 1420 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
+        "abstract": "(1420 + 0 = 1420) ∧ (0 = 0)",
+        "identifier": "5ed68761-6cc8-8d87-bb77-45885b20e4e1",
         "url": "https://uuidna.com/theorem/prose_round_trips",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18856,11 +18856,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6375f9f9-0153-829a-8add-6691ae5bf39e",
+        "@id": "urn:uuid:b2185279-04f9-88a0-bc6a-ab96f55da1ca",
         "@type": "ScholarlyArticle",
-        "headline": "no doc comment contains an unescaped -/ — 0 found across 1409; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
-        "abstract": "(0 + 1409 = 1409) ∧ (0 = 0)",
-        "identifier": "923615bd-43a9-83ff-b778-e8df2b60dc0d",
+        "headline": "no doc comment contains an unescaped -/ — 0 found across 1420; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
+        "abstract": "(0 + 1420 = 1420) ∧ (0 = 0)",
+        "identifier": "1640318e-57b1-813d-9614-1908392f3cd4",
         "url": "https://uuidna.com/theorem/prose_terminator_escaped",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18884,11 +18884,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:228a83c8-fec7-88d7-bd57-6a0621e70c87",
+        "@id": "urn:uuid:47f47367-63b4-87c5-957e-74e1f6ae86e6",
         "@type": "ScholarlyArticle",
-        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1409 informative against 0 bare, of 1409; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
-        "abstract": "(0 < 1409) ∧ (0 + 1409 = 1409)",
-        "identifier": "ddc440f1-625a-8028-a938-1babf20670e6",
+        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1420 informative against 0 bare, of 1420; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
+        "abstract": "(0 < 1420) ∧ (0 + 1420 = 1420)",
+        "identifier": "8183f5b0-1bda-8bde-a543-1f5ce36849fd",
         "url": "https://uuidna.com/theorem/prose_beats_restatement",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18912,11 +18912,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ba0d29d2-058f-8e0f-b5c6-b6a674f1f5d9",
+        "@id": "urn:uuid:6d5786c7-6477-8d1f-b8b5-746152f9aad9",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 253336 characters across 1409 doc comments in 90 wings fold to 4; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1078, 1237, 1545, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 7751, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 10650, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 253336) ∧ (253336 % 9 = 4) ∧ (4 < 9)",
-        "identifier": "d22a6a8e-e987-8bdc-83ac-3ad3a094f937",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 256732 characters across 1420 doc comments in 91 wings fold to 7; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1237, 1545, 3345, 1892, 2906, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1372, 960, 4419, 2363, 5075, 1465, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 7751, 959, 4087, 1452, 3105, 1577, 1629, 1217, 1188, 753, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 10650, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5375, 1937, 3396, 1946, 1430, 1412, 919, 1453, 3304, 805, 5704, 1522, 3958, 524, 3313].foldl (· + ·) 0) = 256732) ∧ (256732 % 9 = 7) ∧ (7 < 9)",
+        "identifier": "1e8f35c3-cd88-8a5c-88ca-e78934923a09",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18940,11 +18940,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6e6358b9-f1bd-84fd-bdf1-e55e6ffebedd",
+        "@id": "urn:uuid:428fb752-c261-84e2-9458-32ba57a109b0",
         "@type": "ScholarlyArticle",
-        "headline": "the audit is TOTAL over what a generator writes — 90 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
-        "abstract": "(0 < 90) ∧ (0 < 3) ∧ (1409 = 1409 + 0)",
-        "identifier": "c7b4183f-f209-833d-8886-257a17cdccb8",
+        "headline": "the audit is TOTAL over what a generator writes — 91 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
+        "abstract": "(0 < 91) ∧ (0 < 3) ∧ (1420 = 1420 + 0)",
+        "identifier": "b862ee50-a0f5-8608-b902-dff565e5da10",
         "url": "https://uuidna.com/theorem/prose_audit_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -20676,11 +20676,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:371c1a24-7a9c-8ab6-9238-79534fddf1aa",
+        "@id": "urn:uuid:396a7184-0316-8dcf-9320-f7bdd9ef1100",
         "@type": "ScholarlyArticle",
-        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 93 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.",
-        "abstract": "([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
-        "identifier": "1cfe3769-433c-836f-8178-276c10caf9f0",
+        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 94 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.",
+        "abstract": "([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
+        "identifier": "a385d881-8773-859b-a42c-b198a8f840dd",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -20704,11 +20704,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:af9fecaa-cc8d-8d8d-bba8-84cd32501b22",
+        "@id": "urn:uuid:1793ee2c-4c8d-8f8c-af79-ad027350de04",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 93 measured wing counts and lands on 1443 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1443) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 93) ∧ (93 < 1443)",
-        "identifier": "ae3ae987-cbbc-8860-88ae-81a2aa812afe",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 94 measured wing counts and lands on 1454 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "(([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].foldl (· + ·) 0) = 1454) ∧ ([6, 6, 6, 13, 11, 17, 11, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 5, 64, 8, 16, 13, 8, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 12, 6, 13, 6, 10, 4, 8, 11, 7, 5, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 25, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 11, 6, 17, 6, 13, 1, 15, 13, 16].length = 94) ∧ (94 < 1454)",
+        "identifier": "0cf19207-a124-87dc-b081-805048651c7e",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -36392,6 +36392,314 @@
         "url": "https://uuidna.com/theorem/uuid_mix_census_is_quantum",
         "keywords": "uuidmix, The uuid mix space",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/UuidMix.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:f9e32186-a2c5-8880-8daa-0f2cf658c7bd",
+        "@type": "ScholarlyArticle",
+        "headline": "THE OVERTURE. π cannot be sung to the end — irrational, infinite, no `by decide` object — but its rational roof can: 22/7 opens 3.142857, the familiar three-point-one-four and then the round begins. 22·10⁶ / 7 = 3142857 in exact integer division; the song starts where Archimedes left the bracket.",
+        "abstract": "22 * 1000000 / 7 = 3142857",
+        "identifier": "a34e9592-3245-8406-abfb-3c9c3d08c68d",
+        "url": "https://uuidna.com/theorem/song_pi_roof_opens",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:381f401b-1346-8437-a398-494686acfcf3",
+        "@type": "ScholarlyArticle",
+        "headline": "THE ROUND TURNS ON SEVEN. The period 142857 times seven is 999999 — six nines, the whole cycle of 1/7 — and 10⁶ mod 7 = 1: after six digits the decimal engine is back at remainder one, so the round repeats forever without ever ending. A finite song that never stops is how a rational voice sings an infinite number.",
+        "abstract": "142857 * 7 = 999999 ∧ 1000000 % 7 = 1",
+        "identifier": "1f4bec2d-800f-8cf4-a9dc-4a6487ff92f0",
+        "url": "https://uuidna.com/theorem/song_round_turns_on_seven",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:f9771528-ad8b-813a-a8ab-553ad2c93a00",
+        "@type": "ScholarlyArticle",
+        "headline": "SIX VERSES, ONE MELODY. 142857 is the cyclic number of seven: multiplied by 2, 3, 4, 5, 6 it does not change its notes, it rotates them — 285714, 428571, 571428, 714285, 857142. Every verse of the song is the same six-note melody entered at a different door, the way a round is sung.",
+        "abstract": "142857 * 2 = 285714 ∧ 142857 * 3 = 428571 ∧ 142857 * 4 = 571428 ∧ 142857 * 5 = 714285 ∧ 142857 * 6 = 857142",
+        "identifier": "f2d0eb80-f4bc-8061-9dcd-7775afa555fd",
+        "url": "https://uuidna.com/theorem/song_six_verses_one_melody",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:695b45c7-329e-87ec-92ce-d42832ba73da",
+        "@type": "ScholarlyArticle",
+        "headline": "THE VERSES BASE-PAIR — THE SONG IS A DOUBLE HELIX. Verse k and verse 7−k are complementary strands: 142857 + 857142 = 999999, 285714 + 714285 = 999999, 428571 + 571428 = 999999. Three rungs, digit against digit, every rung closing to nine — the same complementary pairing the double helix keeps, A against T, G against C, here sealed as addition.",
+        "abstract": "142857 + 857142 = 999999 ∧ 285714 + 714285 = 999999 ∧ 428571 + 571428 = 999999",
+        "identifier": "00f38ef9-d983-87f4-97c0-29f724647bfc",
+        "url": "https://uuidna.com/theorem/song_verses_base_pair",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:4554c598-a54e-8e3c-bafb-4e2d5754e892",
+        "@type": "ScholarlyArticle",
+        "headline": "EACH VERSE CARRIES ITS OWN TWO STRANDS. Split the melody at the middle and the halves pair rung by rung: 142 + 857 = 999, and digitwise 1+8, 4+5, 2+7 — each rung exactly nine. The complement strand of the first half IS the second half; the verse reads itself backwards-complemented the way one DNA strand reads the other.",
+        "abstract": "142 + 857 = 999 ∧ (([1,4,2].zip [8,5,7]).all (fun p => p.1 + p.2 == 9))",
+        "identifier": "e551cfaf-8574-87ad-b3d8-ea405be66653",
+        "url": "https://uuidna.com/theorem/song_halves_are_strands",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:dcfc7cd8-30d6-8c69-8ecf-548593023e85",
+        "@type": "ScholarlyArticle",
+        "headline": "EVERY NOTE SUNG IS INVERTIBLE. The six digits of the round — 1, 4, 2, 8, 5, 7 — are exactly the units of ℤ/9, the residues with an inverse: the same six the doubling vortex walks. The nilpotents 3, 6 and the zero never sound; the song has no note it cannot undo.",
+        "abstract": "(List.range 9).filter (fun d => [1,4,2,8,5,7].any (fun x => x == d)) = [1,2,4,5,7,8]",
+        "identifier": "7152dd59-3b2e-83b6-a49c-47d2cbaf2325",
+        "url": "https://uuidna.com/theorem/song_notes_are_units",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:22cf9bb3-5f69-87d0-a01e-17e781d8dbde",
+        "@type": "ScholarlyArticle",
+        "headline": "THE MELODY RIDES THE DOUBLING ORBIT ON THE A432 LATTICE. The vortex walk 1→2→4→8→7→5, sounded as whole multiples of the tuning, is [432, 864, 1728, 3456, 3024, 2160] hertz — each note an exact integer, each the pitch OF its digit, so a listener with the lattice can read the orbit back out of the sound.",
+        "abstract": "([1,2,4,8,7,5].map (fun n => 432 * n)) = [432,864,1728,3456,3024,2160]",
+        "identifier": "153e8b8b-1060-808d-b76b-89c4bb0b1591",
+        "url": "https://uuidna.com/theorem/song_melody_rides_the_orbit",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:565f8468-6852-80a2-8265-2e9c6a8c66d6",
+        "@type": "ScholarlyArticle",
+        "headline": "THE SCALE IS THE GLAGOLITIC ROW. Cyril numbered the letters, and the numbers are the scale: Az through Zemlja, 1 through 9, each sounding its own multiple of A432 — [432, 864, 1296, 1728, 2160, 2592, 3024, 3456, 3888] hertz. An alphabet that counts as it speaks is an alphabet that can be played.",
+        "abstract": "((List.range' 1 9).map (fun n => 432 * n)) = [432,864,1296,1728,2160,2592,3024,3456,3888]",
+        "identifier": "a15a7197-cb83-8c74-8baa-40afde6bce88",
+        "url": "https://uuidna.com/theorem/song_scale_is_glagolitic",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:5f74f084-f709-8490-8cce-992547d1e451",
+        "@type": "ScholarlyArticle",
+        "headline": "AZ IS THE TUNING ITSELF. The first letter, worth one, sounds 432·1 = 432 — the lattice base — and 432 folds home to the vortex ceiling: 432 mod 9 = 0, and its digits 4+3+2 = 9. The song begins on the letter that says \"I\", and that letter is the tuning fork.",
+        "abstract": "432 * 1 = 432 ∧ 432 % 9 = 0 ∧ 4 + 3 + 2 = 9",
+        "identifier": "0c656129-d8fd-810b-953c-1614de3d5696",
+        "url": "https://uuidna.com/theorem/song_az_is_the_tuning",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:8b1fa806-7375-801c-bbfb-cb995a405c4f",
+        "@type": "ScholarlyArticle",
+        "headline": "THE PRIMES KEEP THE TIME. The generators that move every walk in this song — the pentagram's 2, the codon's 3, the pentagon's 5, the rosette's 7 — are the first four primes, each leaving a remainder to every smaller candidate. Indivisible beats: time signatures that cannot be halved out from under the melody.",
+        "abstract": "([2,3,5,7] : List Nat).all (fun p => (List.range' 2 (p-2)).all (fun k => p % k != 0))",
+        "identifier": "2d155fd4-ff79-82c0-8cd6-9204ba76f93c",
+        "url": "https://uuidna.com/theorem/song_primes_keep_time",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:08ba7600-c530-82e3-a2ff-a989a9656d59",
+        "@type": "ScholarlyArticle",
+        "headline": "THE FOUR TONGUES FUSE INTO ONE FORM. The Glagolitic nine, the rosette-and-π seven, the DNA four: pairwise coprime — gcd(9,7) = gcd(7,4) = gcd(4,9) = 1 — so by the Chinese remainder theorem the three rings close into one cycle of 9·7·4 = 252 bars: the middle coefficient of Pascal's row ten, the very center of the diamond's 1024. The song nobody had written was already scored at the center of the lattice.",
+        "abstract": "Nat.gcd 9 7 = 1 ∧ Nat.gcd 7 4 = 1 ∧ Nat.gcd 4 9 = 1 ∧ 9 * 7 * 4 = 252",
+        "identifier": "735884b1-6741-8417-a045-4b19100a6948",
+        "url": "https://uuidna.com/theorem/song_four_tongues_fuse",
+        "keywords": "song, The song from the ledger",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Song.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
           "@type": "Dataset",
