@@ -1,6 +1,6 @@
 # uuidna — 1406 distinct theorems under 1486 keys, 2 coins, one receipt
 
-`5d486b8c-309a-822e-99b4-c1409511c6a9`
+`b713d4e3-e490-891a-91b2-0597bdc8380f`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,9 +51,9 @@ The count is MEASURED, not parsed. The generator walks the domain to compute eac
 that walk it tally what they visit, and `emit()` records the tally on the same run that validates the JS. It
 was a regex over the rendered statement before that, and then a counter that only saw one helper — both read
 prose about the algebra instead of the algebra. The ledger covers
-93,898 superpositions across 96 wings.
+93,902 superpositions across 96 wings.
 
-1. **`cube_seals_at_completeness_only`** — 3,223 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
+1. **`cube_seals_at_completeness_only`** — 3,227 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
    A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT.
 2. **`order_is_total_and_strict`** — 588 superpositions, Infinity hexbits for the two coins, in [Clock.lean](lean/Clock.lean)
    BEFORE AND AFTER ARE DECIDABLE FOR EVERY PAIR: of any two positions, exactly one of earlier, later or same holds — never two of them, and never none.
@@ -77,7 +77,7 @@ raised to it, and the served ceiling is parsed from the guard in `src/mcp.ts` th
 
 - **16 qubits** in the library register — 65536 amplitudes held at once
 - **12 qubits** served over MCP — 4096 amplitudes, and the surface refuses more
-- **93,898 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
+- **93,902 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
 - **4 qubits** of reachability gap between the register and what is served
 - **52 quantum wing theorems**, **27 cipher wing theorems**, **1486 ledger size**
 
@@ -107,7 +107,7 @@ scale served is the scale the code enforces. Stating a bound never drains the cl
 A handle is eight hexbits, so it names **4,294,967,296** superpositions — 16^8, every
 address it can take. That is the space; the rest is what is accounted inside it.
 
-- **93,898 superpositions** decided across the ledger, every one walked rather than sampled
+- **93,902 superpositions** decided across the ledger, every one walked rather than sampled
 - **2,972 coins** in existence — 2 per sealed theorem, and only that (theorem two_coins: the conserved denomination)
 - **31 superpositions per coin**, floored: what one coin covers today
 
@@ -132,7 +132,7 @@ Principles:             96   (the monographs the ledger organises itself by)
 Skills:                 93   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                5d486b8c-309a-822e-99b4-c1409511c6a9
+Receipt:                b713d4e3-e490-891a-91b2-0597bdc8380f
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
