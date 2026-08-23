@@ -4,12 +4,12 @@
     "lean/PRINCIPLE.md": "fb8cb02da4318da9",
     "CHANGELOG.md": "f881f95942148263",
     "lean/axioms.json": "acb490b4a8c68b71",
-    "docs/mcp.md": "8f636c13cc4283ba",
+    "docs/mcp.md": "a56317f045338baf",
     "audit-citations.json": "e83e5fba9e6c89ce",
     "support-audit.json": "678fcacb3632858c",
     "research-leads.json": "0bdd2192b5f58d99",
     ".zenodo.json": "1222e53afd7a8f31",
-    "reports.json": "52e43d7e5d5a8c5d",
+    "reports.json": "23f8474e09de8b49",
     "lean/statement-index.json": "8115243aed1a8bcb",
     "README.md": "2942d82b63e38a44",
     "llm.txt": "677c208506d38347",
@@ -1531,7 +1531,7 @@
     "lean/legal-manifest.json": "e71b72d2ebb58fdd",
     "lean/martialarts-manifest.json": "8d67ea81aaf08717",
     "lean/matching-manifest.json": "2b8b1987e23e8043",
-    "lean/mcp-context-budget.json": "1879463b6ad68125",
+    "lean/mcp-context-budget.json": "993cbd08deec88aa",
     "lean/mcp-surface-divergence.json": "1052a22014db8971",
     "lean/messaging-witness.json": "44582366598585c9",
     "lean/models-manifest.json": "ab64415e798e8461",
@@ -1581,7 +1581,7 @@
     "lean/subgroups-manifest.json": "8ab400d9bf238097",
     "lean/thermodynamics-manifest.json": "22a3c81550688010",
     "lean/tides-manifest.json": "fc18ddce67318cbb",
-    "lean/tool-exercise-baseline.json": "383f8606ce208b88",
+    "lean/tool-exercise-baseline.json": "999d5407e9db8bdb",
     "lean/topography-manifest.json": "ab89d419b4fc8f77",
     "lean/trinities-manifest.json": "5a70c39b9d0886da",
     "lean/typesetting-manifest.json": "d064de449faa837a",
@@ -1592,5 +1592,5 @@
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "6786557c-a6ac-8ea1-a4e6-9506e0f03a00"
+  "receipt": "4d016087-4380-81ef-a846-e3467aeb7bc0"
 }
