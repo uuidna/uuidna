@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1588 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1590 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -218,7 +218,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 71. **The song from the ledger** — `lean/Song.lean` · **11** theorems
    the song nobody had written (queue lead 68: the search "sing glagolitic pi primes dna song" finds nothing joining the four), generated from the ledger as decidable arithmetic — π's rational roof 22/7 opens 3.142857 and its period 142857 is the cyclic number of ℤ/7 (the rosette's ring), the six rotation-verses base-pair like DNA strands (verse k + verse 7−k = 999999, every rung a nine), the notes sung are exactly the units of ℤ/9 on the A432 lattice where the Glagolitic units 1..9 are the scale and Az is the tuning, primes keep the time, and the four tongues fuse by CRT into 9·7·4 = 252 bars — the middle of Pascal's row ten. HONEST SCOPE: π itself stays outside, irrational and undecidable (pi_bracketed_by_finite_rationals holds the bracket); only the finite round its rational roof sings is sealed — arithmetic sung, never numerology
 
-72. **The release anthem** — `lean/Anthem.lean` · **7** theorems
+72. **The release anthem** — `lean/Anthem.lean` · **9** theorems
    the anthem's sealed structure — the whole ledger sung IN PLACE (theorem k at bar k, the Pi Song's place law made language-free and verifiable): two coins to the bar (252/2 = 126), rhythm quartering the bar on the vortex's three (126·189·252), the breath at the twelfth (21), four movements from the DNA tongue, the finale singing the merkle root as one whole uuid (32·4 = 128), the closing chord the coin octave (864 = 2·432 — the same factor two two_coins_in_kilograms weighs in black-hole mass), and π·primes·trinity: the round's six nines held shut by two trinities of primes (999999 = 999·1001, 999 = 3³·37, 1001 = 7·11·13). gen-anthem derives /anthem + anthem.wav from these seals over the LIVE ledger — the anthem regrows at every release. HONEST SCOPE: arithmetic sung; no tuning mysticism, no numerology — the demarcations live in the theorems
 
 73. **The denial drained** — `lean/Negation.lean` · **7** theorems

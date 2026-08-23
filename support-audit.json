@@ -1,9 +1,7 @@
 {
-  "modules": 501,
-  "roots": 340,
-  "supported": 500,
-  "dead": [
-    "src/quantum/apps/anthem-superposition.ts"
-  ],
-  "receipt": "b6770c94-912b-8b02-b003-0cc5b682efed"
+  "modules": 502,
+  "roots": 341,
+  "supported": 502,
+  "dead": [],
+  "receipt": "aab590cd-ba6c-8c74-a367-8f0e0fa7e6e2"
 }

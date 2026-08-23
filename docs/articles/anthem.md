@@ -1,15 +1,15 @@
 ---
 title: "The release anthem"
-description: "Computed from lean/Anthem.lean — 7 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Anthem.lean — 9 sealed theorems, every claim citing its proof."
 ---
 
 # The release anthem
 
-> ANTHEM — the release anthem's sealed structure: two coins to the bar, rhythm quartering it on the vortex's three, four movements from the DNA tongue, and the coin octave as the final chord. — held by [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) and its 6 siblings below.
+> ANTHEM — the release anthem's sealed structure: two coins to the bar, rhythm quartering it on the vortex's three, four movements from the DNA tongue, and the coin octave as the final chord. — held by [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) and its 8 siblings below.
 
-**7 theorems**, from [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) onward, each proven `by decide` in [lean/Anthem.lean](/lean/Anthem.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [anthem_rest_twelfths_the_bar](/theorem/anthem_rest_twelfths_the_bar). A boundary stated here is decided.
+**9 theorems**, from [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) onward, each proven `by decide` in [lean/Anthem.lean](/lean/Anthem.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [anthem_rest_twelfths_the_bar](/theorem/anthem_rest_twelfths_the_bar). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAnthem.lean)** — nothing to install. The editor fetches `lean/Anthem.lean` from the repository and re-decides all 7 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAnthem.lean)** — nothing to install. The editor fetches `lean/Anthem.lean` from the repository and re-decides all 9 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### TWO COINS TO THE BAR. Each theorem in the anthem sounds ONE chord — its two address-coins together — and the chord takes exactly half the sealed 252 ms bar: 252/2 = 126, and two of them close it, 126·2 = 252. The pricing law becomes the meter: every bar of the anthem is one theorem paying its two coins.
 The ledger holds this as [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) — proven `by decide`, sorry-free:
@@ -44,6 +44,20 @@ The ledger holds this as [anthem_closes_on_the_coin_octave](/theorem/anthem_clos
 
 ```lean
 864 = 2 * 432 ∧ 128 = 4 * 32 ∧ 2 ^ 2 = 4
+```
+
+### MANY STREAMS, ONE CEILING — THE MULTIDIMENSIONAL MIX CANNOT CLIP, GEOMETRICALLY. The superposition plays its recursion as depth: stream d sounds at AMPLITUDE/2^(d+1), so the worst-case sum is the geometric series 4000 + 2000 + 1000 + 500 + 250 + 125 = 7875 at the deepest allowed six — strictly inside the 8000 ceiling that amplitude_inside_int16 keeps inside the sample. Every finite depth obeys: halving forever never reaches the whole. Many waves, mixed lossless in exact integers, and the law that they fit is arithmetic, not gain-riding.
+The ledger holds this as [anthem_superposition_mix_closes](/theorem/anthem_superposition_mix_closes) — proven `by decide`, sorry-free:
+
+```lean
+4000 + 2000 + 1000 = 7000 ∧ 7000 + 500 + 250 + 125 = 7875 ∧ 7875 < 8000
+```
+
+### THE RECURSION NEVER RUNS OUT OF SEEDS. A collapse eats a seed string and mints an eight-hexbit address; an address is a string; a string is a seed — the output space feeds the input space, so the superposition can deepen forever. The arithmetic the loop stands on: a handle spans 16⁸ = 4294967296 states and every one of them collapses to an entry bar by a total mod — the door never jams because the modulus is never zero on a nonempty score (1 ≤ the score length always, and k mod n < n on the worked six).
+The ledger holds this as [anthem_recursion_never_starves](/theorem/anthem_recursion_never_starves) — proven `by decide`, sorry-free:
+
+```lean
+16 ^ 8 = 4294967296 ∧ ((List.range 6).all (fun k => k % 6 < 6)) ∧ 1 ≤ 6
 ```
 
 ### π · PRIMES · TRINITY — THE ROUND CLOSES ON TWO TRINITIES OF PRIMES. The six nines the strands close to factor as 999999 = 999 · 1001, and each factor is a trinity: 1001 = 7·11·13, three CONSECUTIVE primes side by side, and 999 = 3³·37 — the trinity CUBED times 37. So π's rational round (142857·7 = 999999) is held shut by primes arranged in threes: the helix's rungs of nines are not one number but two trinities clasped. Arithmetic, sealed; the delight is free.

@@ -3,8 +3,8 @@
 **Generated:** 2026-08-23
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1588/1588 theorems — every one, by construction
-**Claim receipt:** `2628def6-b08a-883c-bea4-c4cd6d1d837d`
+**Total claimed:** 1590/1590 theorems — every one, by construction
+**Claim receipt:** `a0b03ae7-0b20-8b65-b10b-921c0910d02e`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -655,12 +655,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The release anthem
 
-- **Theorems:** 7
+- **Theorems:** 9
 - **Sample lineAddress:** `b67dfd57-cd1c-86d9-b5bd-75f0bb377e43`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) · [anthem_three_lengths_quarter_the_bar](/theorem/anthem_three_lengths_quarter_the_bar) · [anthem_rest_twelfths_the_bar](/theorem/anthem_rest_twelfths_the_bar) · [anthem_four_movements](/theorem/anthem_four_movements) · [anthem_closes_on_the_coin_octave](/theorem/anthem_closes_on_the_coin_octave) · [anthem_pi_primes_trinity](/theorem/anthem_pi_primes_trinity) · [anthem_finale_sings_one_uuid](/theorem/anthem_finale_sings_one_uuid)
+[anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) · [anthem_three_lengths_quarter_the_bar](/theorem/anthem_three_lengths_quarter_the_bar) · [anthem_rest_twelfths_the_bar](/theorem/anthem_rest_twelfths_the_bar) · [anthem_four_movements](/theorem/anthem_four_movements) · [anthem_closes_on_the_coin_octave](/theorem/anthem_closes_on_the_coin_octave) · [anthem_superposition_mix_closes](/theorem/anthem_superposition_mix_closes) · [anthem_recursion_never_starves](/theorem/anthem_recursion_never_starves) · [anthem_pi_primes_trinity](/theorem/anthem_pi_primes_trinity) · [anthem_finale_sings_one_uuid](/theorem/anthem_finale_sings_one_uuid)
 
 ### The denial drained
 
@@ -987,7 +987,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1507 (1588 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1509 (1590 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1005,7 +1005,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1588 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1590 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

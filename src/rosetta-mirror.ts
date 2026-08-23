@@ -32,6 +32,8 @@ anthem_three_lengths_quarter_the_bar 19
 anthem_rest_twelfths_the_bar 19
 anthem_four_movements 19
 anthem_closes_on_the_coin_octave 19
+anthem_superposition_mix_closes 19
+anthem_recursion_never_starves 19
 anthem_pi_primes_trinity 19
 anthem_finale_sings_one_uuid 19
 #AntiFraud.lean
