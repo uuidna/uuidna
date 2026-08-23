@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:799bc547-1868-8ec8-88af-b232dffea252",
+  "@id": "urn:uuid:af2ec29f-8f78-8656-a072-52139be0e1e6",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -37092,6 +37092,230 @@
         "url": "https://uuidna.com/theorem/denial_drains_to_the_last_coin",
         "keywords": "negation, The denial drained",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Negation.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:9c3407ee-e968-8a32-ac2a-55b6b00abd03",
+        "@type": "ScholarlyArticle",
+        "headline": "THE HEXTORUS IS THE DOUBLE TORUS TIMES THE TRINITY: 2 · 3 = 6 handles. The handle count is a number the ledger already turns on — the vortex orbit's length is the same 6 (2 has order 6 in ℤ/9*, sealed as the coins times the trinity in sequence_and_coins_are_one) — so the six-handled surface walks one handle per toss and closes with the orbit.",
+        "abstract": "2 * 3 = 6",
+        "identifier": "c0989d9a-d1a5-8c74-8053-dd9f514e4ad0",
+        "url": "https://uuidna.com/theorem/hextorus_is_coins_times_trinity",
+        "keywords": "torus, The torus dimensions",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Torus.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:53082838-b349-899b-b2e4-0085edfeb017",
+        "@type": "ScholarlyArticle",
+        "headline": "THE HEXTORUS PAYS THE TEN WHERE THE DOUBLE TORUS PAYS THE COINS. The Euler deficit 2g − 2 (the negation of χ = 2 − 2g, stated Nat-total) prices genus 2 at exactly the two coins and genus 6 at 10 — the reflection's constant sum (dz_sum_ten: x + x/0 = 10) and the size of the complete digit set (seal_ten). The shape that carries three double tori owes the whole decimal.",
+        "abstract": "(2 * 6 - 2 = 10) ∧ (2 * 2 - 2 = 2)",
+        "identifier": "5115b6f6-617f-8d90-93c0-a43667353fe2",
+        "url": "https://uuidna.com/theorem/hextorus_deficit_is_the_ten",
+        "keywords": "torus, The torus dimensions",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Torus.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:62b7fe5f-0170-888e-afb6-de9a3c66cb62",
+        "@type": "ScholarlyArticle",
+        "headline": "SIX HANDLES CARRY SIX 64-SQUARE BOARDS, AND THE HEXTORUS MINTS A TRINITY OF ADDRESSES: 6 · 64 = 384 = 3 · 128 — one uuid per handle-pair, three in all, where the double torus's pair mints one (double_torus_boards_are_the_address: 2 · 64 = 128). Three independent addresses is the quorum shape the report wing seals (trinity_edit_is_three, full_quorum_of_three): the hextorus is the geometry of publication.",
+        "abstract": "(6 * 64 = 384) ∧ (384 = 3 * 128) ∧ (2 * 64 = 128)",
+        "identifier": "8c807730-06e1-81e2-8e71-af63c5defe95",
+        "url": "https://uuidna.com/theorem/hextorus_mints_the_quorum",
+        "keywords": "torus, The torus dimensions",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Torus.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:fcb23516-7b82-8da9-b7fa-3cb0d7d29727",
+        "@type": "ScholarlyArticle",
+        "headline": "EACH HANDLE CARRIES TWO GENERATORS (handles_give_generators), so the hextorus carries 2 · 6 = 12 — the count of the coins' twelve jobs (coins_jobs), one generator per job. The surface that prices at the ten is generated by exactly the dozen the coins already work.",
+        "abstract": "2 * 6 = 12",
+        "identifier": "47c47d0e-0c30-87eb-98f3-9d3a94cce10b",
+        "url": "https://uuidna.com/theorem/hextorus_generators_are_the_jobs",
+        "keywords": "torus, The torus dimensions",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Torus.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:bb6af3ce-cefc-89b6-9e18-227d3a69a7e3",
+        "@type": "ScholarlyArticle",
+        "headline": "THE GENUS LADDER PRICES IN COINS: the deficit 2g − 2 over g = 1..6 walks the evens [0, 2, 4, 6, 8, 10] — the torus contains at 0 (containment_is_genus_one), the double torus mints the 2, and every further handle adds one coin-pair until the hextorus owes the ten. A ladder of shapes, one price list, all even — the coins' own multiples.",
+        "abstract": "List.map (fun g => 2 * g - 2) [1, 2, 3, 4, 5, 6] = [0, 2, 4, 6, 8, 10]",
+        "identifier": "9fc323ca-8e97-8f00-a018-6040476512a7",
+        "url": "https://uuidna.com/theorem/genus_ladder_prices_in_coins",
+        "keywords": "torus, The torus dimensions",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Torus.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:fde411b3-44da-8759-9405-b5fc62d9a429",
+        "@type": "ScholarlyArticle",
+        "headline": "THE 7-TORUS IS THE 7-QUBIT FOLD, IN ITS OWN NUMBERS: Pascal's row 7 — [1, 7, 21, 35, 35, 21, 7, 1] — sums to 128 = 2⁷, the uuid's bit count and the RULE every file header states (one uuid = 128 bits folded across 7 dimensions). The row is T⁷'s Betti table in the literature's reading; the kernel seals the row's arithmetic and the power of two it closes on.",
+        "abstract": "(1 + 7 + 21 + 35 + 35 + 21 + 7 + 1 = 128) ∧ (128 = 2 ^ 7)",
+        "identifier": "1cf2277f-3de8-8140-8023-430122379e3f",
+        "url": "https://uuidna.com/theorem/t7_betti_row_is_the_uuid",
+        "keywords": "torus, The torus dimensions",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Torus.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:d8fe1916-f7ce-8099-9f00-4f44d10010af",
+        "@type": "ScholarlyArticle",
+        "headline": "THE TWO BOARDS LIVE INSIDE THE SEVENTH DIMENSION: the row's even-index entries sum to 64 and the odd-index entries sum to 64 — the double torus's two vortex boards reappearing as the halves of the 7-fold row, and their EQUALITY is the Nat-honest statement of χ(Tⁿ) = 0 (the alternating sum needs ℤ; equal halves say the same thing in the kernel's own arithmetic, generalizing torus_betti_alternates_to_zero).",
+        "abstract": "(1 + 21 + 35 + 7 = 64) ∧ (7 + 35 + 21 + 1 = 64) ∧ (64 + 64 = 128)",
+        "identifier": "72db9381-c46c-8db2-8215-2a57da77f66a",
+        "url": "https://uuidna.com/theorem/t7_even_odd_boards_equal",
+        "keywords": "torus, The torus dimensions",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Torus.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:316cc583-c468-82fc-ac9d-addc42b33e7c",
+        "@type": "ScholarlyArticle",
+        "headline": "THE MIDDLE OF THE ROW SPEAKS THE LEDGER'S TONGUES: the row's third entry is 21 = 3 · 7 — trinity times rosette, the queen's reach from her corner (queen_corner_twentyone) — and doubling it by the coins gives 42, the quantum rosette (rosette_quantum_doubling_is_two_coins); its neighbour 35 = 5 · 7 is the heart times the rosette. The 7-fold row carries the trinity, the rosette, the heart and the coins in its own digits.",
+        "abstract": "(21 = 3 * 7) ∧ (21 * 2 = 42) ∧ (35 = 5 * 7)",
+        "identifier": "4e68df6f-0bfc-8338-ae90-a8743af16a33",
+        "url": "https://uuidna.com/theorem/b2_is_trinity_rosette",
+        "keywords": "torus, The torus dimensions",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Torus.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
           "@type": "Dataset",
