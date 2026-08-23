@@ -22,13 +22,13 @@
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1551,
+        "theoremsMeasured": 1558,
         "ledgerKeys": 1558,
-        "unmeasured": 7,
+        "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "ab0bf533-bf2f-86a3-9598-653ea3e561db"
+      "address": "a7593e50-3402-8dce-8449-752d2663d98a"
     },
     {
       "title": "Citation audit",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "ce0ff4a69a1898b1",
-        "unifiedFold": "2a4183b028ef8ecf"
+        "foldReceipt": "548fae4de8db449f",
+        "unifiedFold": "f361b79b4bdfea0f"
       },
-      "address": "4e99a634-4bb1-8cce-939a-0dcd72c6f9fc"
+      "address": "7360f2e2-39e9-8bc5-84cf-fdad8a6c66fa"
     }
   ],
-  "receipt": "16d1c6b8-0ecc-834c-910d-5c47a94a5599",
+  "receipt": "1a77708a-9167-8d1f-b350-82f65d5cde91",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
