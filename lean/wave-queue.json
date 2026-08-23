@@ -1,5 +1,31 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "key": "scrubber_margin_holds",
+      "why": "THE SCRUBBER'S SAFETY MARGIN, PROVEN: soda lime absorbs 23 L of CO2 per 100 g, so a 2.5 kg canister holds 23 x 25 = 575 L of theoretical capacity; the CE rating drives it at 1.6 L/min of CO2 - 96 L per hour - so the 3-hour rating consumes 96 x 3 = 288 L, and 288 < 575: the rated duration sits under HALF the chemistry's capacity. The life-saving apparatus is rated the way UL rates safes - honestly, in time, with the margin real and computable. Same soda lime, same margin discipline, in every anesthesia circle system.",
+      "lean": "theorem scrubber_margin_holds : (23 * 25 = 575) ∧ (96 * 3 = 288) ∧ (288 < 575) := by decide"
+    },
+    {
+      "key": "chubb_stood_thirty_three_years",
+      "why": "THE DETECTOR LOCK'S REIGN: Jeremiah Chubb's 1818 tamper-reporting lock stood unpicked until Hobbs at the 1851 Great Exhibition - 33 years - and Hobbs' repeat pick took 7 minutes against his first 25: the attack, once learned, is cheap to repeat, which is why tamper-EVIDENCE (the lock reporting the attempt) mattered more than tamper-resistance. The mechanical ancestor of the moved address that proves its own forgery.",
+      "lean": "theorem chubb_stood_thirty_three_years : (1851 - 1818 = 33) ∧ (7 < 25) := by decide"
+    },
+    {
+      "key": "freedive_records_ascend",
+      "why": "THE BREATH-HOLD RUNGS OF THE LADDER: constant-weight 130 m (Molchanov) sits below No-Limits 214 m (Nitsch), and the deepest rung reads 1 + 214/10 = 22 atmospheres by the floor - a human on one breath of surface air holding two-tenths of a Comex saturation. The diving ladder's bottom rung for an unassisted lung, integer-exact at the literature's 10 m per atmosphere.",
+      "lean": "theorem freedive_records_ascend : (130 < 214) ∧ (1 + 214 / 10 = 22) := by decide"
+    },
+    {
+      "key": "fock_window_exceeds_a_monthly_toll",
+      "why": "THE FATALITY STUDY'S HONEST WINDOW: Fock counted 181 recreational rebreather deaths across 1998-2010 - a 12-year window of 144 months - and 181 > 144: more than one death per month, every month, for twelve years. The number that made checklists a moral argument rather than a preference; the ~10x-open-circuit rate rides in the prose as the literature's figure.",
+      "lean": "theorem fock_window_exceeds_a_monthly_toll : (2010 - 1998 = 12) ∧ (12 * 12 = 144) ∧ (181 > 144) := by decide"
+    },
+    {
+      "key": "checklist_trial_two_dives_each",
+      "why": "THE CHECKLIST TRIAL'S SHAPE: Ranapurwala's cluster-randomized trial enrolled 1,043 divers across 2,041 dives, and 2041 < 1043 x 2 = 2086 - just under two dives per diver, the bound sealed. The trial cut all mishaps by roughly a third; the percentages stay in the prose as the study's measurements, the enrollment arithmetic seals here. Pre-registration, a control, and counts that recompute: the trading-strategy bar, met by the diving world first.",
+      "lean": "theorem checklist_trial_two_dives_each : (1043 * 2 = 2086) ∧ (2041 < 2086) := by decide"
+    }
+  ],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
