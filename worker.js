@@ -166,10 +166,10 @@ export default {
       let msg
       try { msg = await request.json() } catch { return mjson({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
       if (Array.isArray(msg)) {                                   // a JSON-RPC batch
-        const out = msg.map(handleMcpRpc).filter(Boolean)
+        const out = (await Promise.all(msg.map(handleMcpRpc))).filter(Boolean)   // a thenable dispatch settles here
         return out.length ? mjson(out) : new Response(null, { status: 202, headers: cors })
       }
-      const res = handleMcpRpc(msg)
+      const res = await handleMcpRpc(msg)                                        // sync answers pass through await unchanged
       return res ? mjson(res) : new Response(null, { status: 202, headers: cors })  // a notification → 202, no body
     }
 

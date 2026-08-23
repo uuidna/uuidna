@@ -135,8 +135,9 @@ const TOOLS: HttpTool[] = [
  *    POLICY — the tool needs the NETWORK, and a Worker CAN fetch. Ten modules are network-only, so their absence
  *      is a DECISION about what a hosted, read-only, recomputable surface should do — not a limit of the runtime.
  *      Stating it as a capability, as this comment first did, dressed a choice up as a law.
- *    ASYNC RUN — handleMcpRpc is synchronous by design (stateless, one request one answer), so it cannot
- *      await. These are PURE and belong here; they wait on the dispatch becoming async.
+ *    ASYNC RUN — RETIRED 2026-08-23 (the captain's serve order): the one dispatch now SETTLES a thenable run
+ *      before gating it, so a pure-but-async tool serves here like any other; the worker awaits, sync callers
+ *      of sync tools are untouched. The class emptied the day the reason died.
  *  Conservative on purpose: a tool is absent if it TOUCHES such a module at all, even where the
  *  specific function it calls is pure. Shrinking that is the next honest pass. */
 const EDGE_ABSENT: Record<string, string> = {
@@ -156,7 +157,6 @@ const EDGE_ABSENT: Record<string, string> = {
   "uuidna_entangle": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_audit_translation": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_audit_movie": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_audit_video": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_audit_record": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_aead_decrypt": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_snapshot": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
@@ -181,13 +181,6 @@ const EDGE_ABSENT: Record<string, string> = {
   "uuidna_scan_publications": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_selftest": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_quantum": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_quantum_sailing_weather": 'pure, but its run is ASYNC and this dispatch is synchronous',
-  "uuidna_quantum_message": 'pure, but its run is ASYNC and this dispatch is synchronous',
-  "uuidna_theorem_message": 'pure, but its run is ASYNC and this dispatch is synchronous',
-  "uuidna_dictionary": 'pure, but its run is ASYNC and this dispatch is synchronous',
-  "uuidna_quantum_voting": 'pure, but its run is ASYNC and this dispatch is synchronous',
-  "uuidna_agent_contribute": 'pure, but its run is ASYNC and this dispatch is synchronous',
-  "uuidna_predict": 'pure, but its run is ASYNC and this dispatch is synchronous',
 }
 
 /** The catalogue tools this edge INHERITS — computed. */
@@ -212,8 +205,10 @@ const rpcErr = (id: unknown, code: number, message: string) => ({ jsonrpc: '2.0'
 
 /** handleMcpRpc(msg) → dispatch ONE JSON-RPC 2.0 message of the MCP protocol (initialize / tools/list / tools/call /
  *  ping). Returns the JSON-RPC response object, or NULL for a notification (no response — the caller answers 202).
- *  Pure and stateless: every request is independent, so no session is kept (the edge is stateless by design). */
-export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }): object | null {
+ *  Pure and stateless: every request is independent, so no session is kept (the edge is stateless by design).
+ *  A SYNC tool answers synchronously, exactly as before; a tool whose run returns a thenable answers with a
+ *  PROMISE of the same response shape — one dispatch, both tempers, the worker awaits either. */
+export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }): object | null | Promise<object | null> {
   const id = msg?.id ?? null
   const method = msg?.method
   const params = msg?.params ?? {}
@@ -243,17 +238,25 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
         const missing = required.filter((k) => args[String(k)] === undefined)
         if (missing.length) throw new Error(`${String(name)}: missing required argument${missing.length > 1 ? 's' : ''}: ${missing.join(', ')} (the tool's own schema declares ${missing.length > 1 ? 'them' : 'it'} required — nothing was computed)`)
       }
+      // THE SETTLED OUTPUT IS WHAT THE GATE JUDGES — a thenable run settles first, then walks the same gate,
+      // deposit and envelope as a sync one; the gate never sees a Promise, only what the tool actually computed.
+      const finish = (settled: unknown): object => {
+        const g = gateVerdict(String(name), (params.arguments as Record<string, unknown>) ?? {}, settled)
+        // THE IMMEDIATE DEPOSIT — the edge deposits too: the agent's first hosted call already contributes.
+        const dep = depositCoins(String(name), g.gate.receipt)
+        // ONE row for verdict + deposit (the edge is stateless, so there is no session receipt to chain) — the same
+        // ledgerLine both surfaces share, so the envelope cannot drift between them.
+        return rpc(id, {
+          content: [{ type: 'text', text: typeof g.output === 'string' ? g.output : JSON.stringify(g.output) }, { type: 'text', text: ledgerLine(g.gate, dep) }],
+          _meta: { gate: g.gate, deposit: dep },
+          ...(g.gate.clean ? {} : { isError: true }),
+        })
+      }
+      const fail = (e: unknown): object => rpc(id, { content: [{ type: 'text', text: 'error: ' + String((e as Error)?.message ?? e) }], isError: true })
       const out = tool.run(args)
-      const g = gateVerdict(String(name), (params.arguments as Record<string, unknown>) ?? {}, out)
-      // THE IMMEDIATE DEPOSIT — the edge deposits too: the agent's first hosted call already contributes.
-      const dep = depositCoins(String(name), g.gate.receipt)
-      // ONE row for verdict + deposit (the edge is stateless, so there is no session receipt to chain) — the same
-      // ledgerLine both surfaces share, so the envelope cannot drift between them.
-      return rpc(id, {
-        content: [{ type: 'text', text: typeof g.output === 'string' ? g.output : JSON.stringify(g.output) }, { type: 'text', text: ledgerLine(g.gate, dep) }],
-        _meta: { gate: g.gate, deposit: dep },
-        ...(g.gate.clean ? {} : { isError: true }),
-      })
+      if (out !== null && (typeof out === 'object' || typeof out === 'function') && typeof (out as { then?: unknown }).then === 'function')
+        return (out as Promise<unknown>).then(finish, fail)
+      return finish(out)
     } catch (e) {
       return rpc(id, { content: [{ type: 'text', text: 'error: ' + String((e as Error)?.message ?? e) }], isError: true })
     }
