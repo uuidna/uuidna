@@ -3,8 +3,8 @@
 **Generated:** 2026-08-23
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1598/1598 theorems — every one, by construction
-**Claim receipt:** `40665fd2-bce2-8ec7-9faf-71ccb0768301`
+**Total claimed:** 1604/1604 theorems — every one, by construction
+**Claim receipt:** `95eba48f-0cca-8343-991b-bf9784d1c462`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -662,6 +662,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) · [anthem_three_lengths_quarter_the_bar](/theorem/anthem_three_lengths_quarter_the_bar) · [anthem_rest_twelfths_the_bar](/theorem/anthem_rest_twelfths_the_bar) · [anthem_four_movements](/theorem/anthem_four_movements) · [anthem_closes_on_the_coin_octave](/theorem/anthem_closes_on_the_coin_octave) · [anthem_superposition_mix_closes](/theorem/anthem_superposition_mix_closes) · [anthem_recursion_never_starves](/theorem/anthem_recursion_never_starves) · [anthem_pi_primes_trinity](/theorem/anthem_pi_primes_trinity) · [anthem_finale_sings_one_uuid](/theorem/anthem_finale_sings_one_uuid)
 
+### The register's alternation law
+
+- **Theorems:** 6
+- **Sample lineAddress:** `1a42599e-cdf8-8c45-af0f-41fe841049f9`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[tesla_trio_files_adjacent](/theorem/tesla_trio_files_adjacent) · [tesla_leap_spring_to_grant](/theorem/tesla_leap_spring_to_grant) · [three_tilings_of_the_circle](/theorem/three_tilings_of_the_circle) · [alternation_needs_a_second_phase](/theorem/alternation_needs_a_second_phase) · [the_grids_minute](/theorem/the_grids_minute) · [teleautomaton_precedes_transmission](/theorem/teleautomaton_precedes_transmission)
+
 ### The geared computer of Rhodes
 
 - **Theorems:** 8
@@ -996,7 +1005,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1517 (1598 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1522 (1604 entries, 82 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1014,7 +1023,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1598 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1604 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

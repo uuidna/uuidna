@@ -2,9 +2,9 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "28903011af2c9b84",
-      "principles": "06d03de212786c95",
-      "monographs": "1505ba6ce1cd8a77"
+      "theorems": "c421d4fae574b85f",
+      "principles": "65613d29a76b8610",
+      "monographs": "09df524348837313"
     },
     "served": {
       "packages": "5aacd0af35a35c23",
@@ -28,34 +28,34 @@
     }
   },
   "trinity_folds": {
-    "sealed": "f6f961be34acb38f1392c86af991a8dd",
+    "sealed": "3cee39cc82523fecbdc81fa599d97a58",
     "served": "5f75a5843cc1549d7846fd28c11049e7",
     "proven": "938e5244673fb34f13456e942a8b93f7",
     "record": "4e7bae5d438ca0b661670ac39d2a6095",
     "walks": "9d970706d573038051f1843d44d48d8b"
   },
-  "unified_fold": "b9fb458f53c7cae5",
-  "receipt": "91f54cc0f45e99b7",
+  "unified_fold": "543203fe46cfd0ab",
+  "receipt": "81d6bc4f40fa285f",
   "rosette_receipt": {
     "rays": [
-      "fbb5de9bcf83ddf4",
+      "f801c41c739eca4a",
       "25a2a9bcced1fc36",
-      "c48aa18bd3aa228d",
+      "e40bb90d4a411470",
       "a20454282e566346",
-      "dba15d0e3929698a",
+      "819ef96f6105af37",
       "a761502744407dcd",
       "2d32b20151e1c9ad"
     ],
-    "concurrence": "001159bff05a927a74cc2425e8d9d4c2"
+    "concurrence": "08afcdaa168e227f00a678f4579cd476"
   },
   "aura": {
-    "rgb": "#258fda",
-    "hsl": "hsl(205, 71%, 50%)",
+    "rgb": "#7434d5",
+    "hsl": "hsl(264, 66%, 52%)",
     "alphabet": "b6819334641853db",
-    "movie": "777a325c73c156ab",
+    "movie": "5b0b5ae36fa6d86d",
     "lessons": "c7f132719baf0f17",
     "report": "940001b6ff9bd2fc",
-    "session": "7a95eafd5bdd59e0",
+    "session": "ef4088fda13c8a79",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 0,
-      "ray": 4,
-      "wave": 1,
-      "hue": 205,
-      "sat": 71,
-      "light": 50,
-      "period": 20,
+      "residue": 4,
+      "ray": 2,
+      "wave": 2,
+      "hue": 264,
+      "sat": 66,
+      "light": 52,
+      "period": 16,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

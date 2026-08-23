@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**49 open doors** across 20 topics, derived from the tree's own records — the held leads,
+**49 open doors** across 21 topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
@@ -110,29 +110,6 @@ page regrows without it.
   <br><small>sealed neighbors: [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census) · [`a_chain_shares_its_gateway_ends`](/theorem/a_chain_shares_its_gateway_ends) · [`complement_flips_two`](/theorem/complement_flips_two) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## coins — 4 open
-
-- **Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`audit_space_meets_chess_at_eight`](/theorem/audit_space_meets_chess_at_eight) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) </small>
-  <br><small>sealed neighbors: [`coin_and_heart_generate_the_scales`](/theorem/coin_and_heart_generate_the_scales) · [`hextorus_mints_the_quorum`](/theorem/hextorus_mints_the_quorum) · [`octave_codon_address`](/theorem/octave_codon_address) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bou…**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive) · [`involution_census_self_explains`](/theorem/involution_census_self_explains) </small>
-  <br><small>sealed neighbors: [`fold_compresses_without_bound_and_never_recovers`](/theorem/fold_compresses_without_bound_and_never_recovers) · [`gematria_forces_collisions`](/theorem/gematria_forces_collisions) · [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **Interleaving is a DISCRIMINATION intervention, not a spacing one (recorded value: 0.73 immediate succession vs 0.22 when temporally spaced)**
-  <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`otp_self_inverse`](/theorem/otp_self_inverse) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
-  <br><small>sealed neighbors: [`two_coins_are_switch_and_track`](/theorem/two_coins_are_switch_and_track) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **Classroom interleaving, preregistered cluster RCT (recorded value: 61% vs 38% at one month, d = 0.83 (0.68-0.97), 54 classes)**
-  <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`xor_checksum_catches_flip`](/theorem/xor_checksum_catches_flip) · [`no_digit_is_an_exact_complement`](/theorem/no_digit_is_an_exact_complement) </small>
-  <br><small>sealed neighbors: [`two_coins_are_switch_and_track`](/theorem/two_coins_are_switch_and_track) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
 ## sequence — 4 open
 
 - **The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…**
@@ -177,6 +154,24 @@ page regrows without it.
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`dark_fringe_is_the_half_turn`](/theorem/dark_fringe_is_the_half_turn) · [`otp_self_inverse`](/theorem/otp_self_inverse) </small>
   <br><small>sealed neighbors: [`absolute_zero_and_kelvin`](/theorem/absolute_zero_and_kelvin) · [`fringe_pattern_reflects_dz`](/theorem/fringe_pattern_reflects_dz) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
+## coins — 3 open
+
+- **Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).**
+  <br><small>door: the held leads</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`audit_space_meets_chess_at_eight`](/theorem/audit_space_meets_chess_at_eight) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) </small>
+  <br><small>sealed neighbors: [`coin_and_heart_generate_the_scales`](/theorem/coin_and_heart_generate_the_scales) · [`hextorus_mints_the_quorum`](/theorem/hextorus_mints_the_quorum) · [`octave_codon_address`](/theorem/octave_codon_address) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bou…**
+  <br><small>door: the held leads</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive) · [`involution_census_self_explains`](/theorem/involution_census_self_explains) </small>
+  <br><small>sealed neighbors: [`fold_compresses_without_bound_and_never_recovers`](/theorem/fold_compresses_without_bound_and_never_recovers) · [`gematria_forces_collisions`](/theorem/gematria_forces_collisions) · [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **Classroom interleaving, preregistered cluster RCT (recorded value: 61% vs 38% at one month, d = 0.83 (0.68-0.97), 54 classes)**
+  <br><small>door: the research ledger</small>
+  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`xor_checksum_catches_flip`](/theorem/xor_checksum_catches_flip) · [`no_digit_is_an_exact_complement`](/theorem/no_digit_is_an_exact_complement) </small>
+  <br><small>sealed neighbors: [`two_coins_are_switch_and_track`](/theorem/two_coins_are_switch_and_track) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## reasoning — 2 open
@@ -283,6 +278,14 @@ page regrows without it.
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) · [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) </small>
   <br><small>sealed neighbors: [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
+## tesla — 1 open
+
+- **Interleaving is a DISCRIMINATION intervention, not a spacing one (recorded value: 0.73 immediate succession vs 0.22 when temporally spaced)**
+  <br><small>door: the research ledger</small>
+  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`otp_self_inverse`](/theorem/otp_self_inverse) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
+  <br><small>sealed neighbors: [`alternation_needs_a_second_phase`](/theorem/alternation_needs_a_second_phase) · [`two_coins_are_switch_and_track`](/theorem/two_coins_are_switch_and_track) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## universe — 1 open
