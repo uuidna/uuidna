@@ -11,8 +11,8 @@
 # the paying handle — the word, the judgment, the key — stays human by the two-handle law.
 name: school
 on:
-  schedule:
-    - cron: '13,43 * * * *'
+  # the bell is silenced by the captain's order (2026-08-23): the schedule is disabled, the court convenes
+  # only on manual dispatch — the machinery stays whole, the clock stays human.
   workflow_dispatch:
 
 concurrency:
