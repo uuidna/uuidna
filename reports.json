@@ -5,17 +5,17 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1509,
-        "keys": 1590,
+        "distinct": 1517,
+        "keys": 1598,
         "renamings": 81,
-        "principles": 79,
-        "skills": 104,
+        "principles": 80,
+        "skills": 105,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "98832c93-ac39-8897-94f9-a74931840d52"
+        "ledgerReceipt": "a456ba14-2a46-8aab-b911-de71bab89b75"
       },
-      "address": "83407400-5bb4-84e6-a1cc-de727b525658"
+      "address": "47951e49-d8e6-8d56-967c-c0a357e995c7"
     },
     {
       "title": "Heartbeat coverage",
@@ -23,12 +23,12 @@
       "present": true,
       "facts": {
         "theoremsMeasured": 1590,
-        "ledgerKeys": 1590,
-        "unmeasured": 0,
+        "ledgerKeys": 1598,
+        "unmeasured": 8,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "8edacce9-a42b-834b-8cb8-8cdab57d49d4"
+      "address": "cc90c13e-1ba2-89a2-a62a-d8dada3652d4"
     },
     {
       "title": "Citation audit",
@@ -46,13 +46,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 502,
-        "roots": 341,
-        "supported": 502,
+        "modules": 520,
+        "roots": 345,
+        "supported": 520,
         "dead": 0,
-        "receipt": "aab590cd-ba6c-8c74-a367-8f0e0fa7e6e2"
+        "receipt": "23feb767-ec32-83da-a999-0452a05c5637"
       },
-      "address": "682e0233-3cd7-86a9-b1ef-4ebc3548c940"
+      "address": "5cbf3358-3f0d-854f-a60f-9f449e4aad73"
     },
     {
       "title": "Package inventory",
@@ -76,6 +76,6 @@
       "address": "2c8c2061-da3a-8a5c-8b2c-a930a8c1ccdf"
     }
   ],
-  "receipt": "7d1895b2-68a8-807d-8072-253b046dceb5",
+  "receipt": "e7a48983-5e3d-8ba1-a14a-e2dec3db42c5",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

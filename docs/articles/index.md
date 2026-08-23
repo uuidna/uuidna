@@ -18,6 +18,7 @@ in the link, because these wings import nothing.
 | [lean/Alignment.lean](/articles/alignment) | 6 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAlignment.lean) |
 | [The release anthem](/articles/anthem) | 9 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAnthem.lean) |
 | [Anti-fraud detection](/articles/anti-fraud) | 13 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAntiFraud.lean) |
+| [The geared computer of Rhodes](/articles/antikythera) | 8 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAntikythera.lean) |
 | [The fixed stars](/articles/astronomy) | 11 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAstronomy.lean) |
 | [The detectors, proven](/articles/audit) | 17 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAudit.lean) |
 | [The audit game](/articles/audit-game) | 11 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAuditGame.lean) |

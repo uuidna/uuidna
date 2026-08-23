@@ -213,6 +213,14 @@ page regrows without it.
   <br><small>sealed neighbors: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`captain_commission_two_coins`](/theorem/captain_commission_two_coins) · [`billing_closes_at_every_count`](/theorem/billing_closes_at_every_count) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
+## antikythera — 1 open
+
+- **Savonius rotor peak coefficient of performance and its tip-speed ratio (recorded value: unknown)**
+  <br><small>door: the research ledger</small>
+  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`pin_and_slot_equal_teeth`](/theorem/pin_and_slot_equal_teeth) · [`ascent_needs_a_stop`](/theorem/ascent_needs_a_stop) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
 ## audit — 1 open
 
 - **docs/theorem/[key].paths.js and docs/publications/[slug].paths.js already mint a page per handle; the template is scoped to theorem keys and publication slugs.**
@@ -235,14 +243,6 @@ page regrows without it.
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`negation_involution_solves`](/theorem/negation_involution_solves) </small>
   <br><small>sealed neighbors: [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`digest_doubles_the_address`](/theorem/digest_doubles_the_address) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
-## diving — 1 open
-
-- **Savonius rotor peak coefficient of performance and its tip-speed ratio (recorded value: unknown)**
-  <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
-  <br><small>sealed neighbors: [`ascent_needs_a_stop`](/theorem/ascent_needs_a_stop) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) · [`lever_ratio_is_exact_division`](/theorem/lever_ratio_is_exact_division) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## hardware — 1 open

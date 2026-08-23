@@ -2,7 +2,7 @@
 # uuidna — Advantage Metrics
 
 **Generated:** 2026-08-23
-**Data source:** Live ledger (1590 sealed theorems)
+**Data source:** Live ledger (1598 sealed theorems)
 
 ---
 
@@ -11,13 +11,13 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 1590 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 1590/1590 (100%) | Kernel-only proofs, recomputable offline |
-| **Principles** | 107 | Mathematical domains (ring, rosette, quantum, etc.) |
-| **Skills** | 104 | Capability axes across the ledger |
+| **Theorems proven** | 1598 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 1598/1598 (100%) | Kernel-only proofs, recomputable offline |
+| **Principles** | 108 | Mathematical domains (ring, rosette, quantum, etc.) |
+| **Skills** | 105 | Capability axes across the ledger |
 | **Proof cost** | 677513 decide-steps | MEASURED per theorem in lean/heartbeats.json |
-| **Verification work** | 1590 addresses | one recomputed per theorem |
-| **Steps per address** | 426 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
+| **Verification work** | 1598 addresses | one recomputed per theorem |
+| **Steps per address** | 423 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -58,7 +58,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 
 ### 4. **Verification 80,000x Faster Than Proof**
 - First push (prove): 677513 kernel decide-steps, measured
-- Every later push (verify): 1590 address recomputations
+- Every later push (verify): 1598 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
@@ -84,9 +84,9 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       1590
-Axiom-free (decide):  1590 (100.0%)
-Principles:           107 domains
+Total theorems:       1598
+Axiom-free (decide):  1598 (100.0%)
+Principles:           108 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities
 Security checks:      10 automated
@@ -108,7 +108,7 @@ table or it is not a measurement):
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
 | Public model feed | 422 models · widest window 2,000,000 tokens · 1,634,723,856 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
-| Ledger | 1590 theorems · 107 principles · 104 skills | [/theorems](/theorems) · every wing |
+| Ledger | 1598 theorems · 108 principles · 105 skills | [/theorems](/theorems) · every wing |
 
 ## How to Verify These Numbers
 
