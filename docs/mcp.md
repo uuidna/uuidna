@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="196 keys" />
+# MCP tools <Badge type="tip" text="197 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 196 tools below are read from the server's own tool list and
+is **built from the keys**: the 197 tools below are read from the server's own tool list and
 organised into 38 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 3d0ceecb-7a14-8dfb-ac28-382a16fe4b97
+gate CLEAN f0 d0 v0 · 31d97f07-ab8e-8daf-a9f1-1a09cf12246c
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 196-tool registry folds to its
-order-invariant identity `08e52ba7-0100-8334-b3f5-3d3647e00ca3` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 197-tool registry folds to its
+order-invariant identity `7d9ed78d-1c2c-8187-890d-e37449f7c128` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`196`" />
+## The grid <Badge type="tip" :text="`197`" />
 
-196 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 74 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+197 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 74 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -138,6 +138,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-audit-record"><code>audit_record</code></a>
 <a href="#uuidna-audit-standard"><code>audit_standard</code></a>
 <a href="#uuidna-audit-text"><code>audit_text</code></a>
+<a href="#uuidna-audit-video"><code>audit_video</code></a>
 <a href="#uuidna-aura"><code>aura</code></a>
 <a href="#uuidna-book-article"><code>book_article</code></a>
 <a href="#uuidna-book-contents"><code>book_contents</code></a>
@@ -564,7 +565,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'86'" />
+## Other <Badge type="tip" :text="'87'" />
 
 *skill: other*
 
@@ -812,6 +813,18 @@ The REPORTER'S METHOD (Report.lean) reflected live: file a report of a PROVEN di
 | --- | --- | --- | --- |
 | `draft` | string | **yes** | the report draft (its claims are honesty-gated) Boundary declared — theorem drift_is_named_or_caught. |
 | `sources` | array | no | the independent sources (≥ 2 to corroborate) |
+
+### `uuidna_audit_video`
+
+Audit a PUBLIC video listing by URL or id: fingerprint its posted oEmbed metadata (title, channel — keyless), and when {captions} text is supplied, adjudicate EVERY caption detail with the controls-first detail audit, folded to one receipt. HONEST: the fingerprint proves WHICH listing, never that it is true; captions are caller-supplied DATA, never executed; the video itself is never fetched. Boundary declared — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `url` | string | **yes** | a YouTube watch URL or bare 11-character video id |
+| `captions` | string | no | caption/transcript text to adjudicate detail by detail |
+| `delimiter` | string | no | detail boundary for the captions (default: newline) |
 
 ### `uuidna_snapshot`
 

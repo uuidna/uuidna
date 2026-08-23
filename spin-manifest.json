@@ -4,15 +4,15 @@
     "lean/PRINCIPLE.md": "66867b680ae58b26",
     "CHANGELOG.md": "69c95e9e82868f89",
     "lean/axioms.json": "296b9f4d2c438456",
-    "docs/mcp.md": "a56317f045338baf",
+    "docs/mcp.md": "9c46ad12521d8240",
     "audit-citations.json": "9a87edea07998334",
-    "support-audit.json": "ef8d2d252d87804a",
-    "research-leads.json": "25c40a026eac8fc3",
+    "support-audit.json": "e8ea4acb023884c4",
+    "research-leads.json": "8be866677e7f8d28",
     ".zenodo.json": "da699c7e1f3786b7",
-    "reports.json": "658a50c6d357879a",
+    "reports.json": "971d8eb7d7d08425",
     "lean/statement-index.json": "39af1a519d8c88ca",
     "README.md": "ad4bba9f0dd488d1",
-    "llm.txt": "e9306f4517b0818e",
+    "llm.txt": "7cba9832c3298d64",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
     "src/chunks/00/476e9d.json": "cc81754bbb7287bb",
@@ -1543,7 +1543,7 @@
     "lean/legal-manifest.json": "e71b72d2ebb58fdd",
     "lean/martialarts-manifest.json": "8d67ea81aaf08717",
     "lean/matching-manifest.json": "2b8b1987e23e8043",
-    "lean/mcp-context-budget.json": "993cbd08deec88aa",
+    "lean/mcp-context-budget.json": "771869f1d63b8933",
     "lean/mcp-surface-divergence.json": "1052a22014db8971",
     "lean/messaging-witness.json": "96c6a95d94b987f5",
     "lean/models-manifest.json": "ab64415e798e8461",
@@ -1611,5 +1611,5 @@
     "lean/wave-queue.json": "82f95a4d5429880e",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "d04b67e5-dc81-82a8-80f5-3dd0217099bc"
+  "receipt": "ecb310e8-b412-8614-b72e-7404cc726d33"
 }
