@@ -73,7 +73,15 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add docs/articles prose-trials.json quantum-fold.json
             git commit -m "Research desk: the quantum search swept every wing, each finding held at trial, and each trial returned its publication — findings content-addressed, verdicts computed, novelty leads remanded, sessionless. External evidence corroborates; only a Lean seal approves. Backed by theorem two_coins and theorem legal_only_the_proven_is_admitted"
-            git pull --rebase --autostash || true
+            # UNCENSORED (lead 120a): a failed rebase must never be erased — pushing after a swallowed
+            # rebase failure lands derived state on an unknown tree, and a rebase over the queue/derived
+            # state files can silently interleave them (the wave-queue lesson, 2026-08-23). On failure:
+            # abort cleanly, say so loudly, and DO NOT push — the desk holds its return for the next run.
+            if ! git pull --rebase --autostash; then
+              git rebase --abort || echo "::warning::rebase abort itself failed — tree needs eyes"
+              echo "::error::the desk's rebase failed against a moving origin — publication held, nothing pushed on an unknown tree"
+              exit 1
+            fi
             git push
             echo "published=true" >> "$GITHUB_OUTPUT"
             echo "the trials' returns are published"
