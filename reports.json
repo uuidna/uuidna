@@ -8,14 +8,14 @@
         "distinct": 1564,
         "keys": 1646,
         "renamings": 82,
-        "principles": 84,
+        "principles": 112,
         "skills": 109,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
         "ledgerReceipt": "fbba1200-0d9b-8cda-b128-ea3edf62bdc4"
       },
-      "address": "83e260bc-2300-8eae-b0ae-8106dbee5431"
+      "address": "b9c11569-7174-8303-a147-a1958cd0986a"
     },
     {
       "title": "Heartbeat coverage",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "a988af47d17faef4",
-        "unifiedFold": "ebd71d7b17c8ddd4"
+        "foldReceipt": "592d293664ee09a9",
+        "unifiedFold": "ee09404041e109d3"
       },
-      "address": "c8379436-4779-8e6d-aac3-46bca652ce6d"
+      "address": "085fae69-4378-8326-88d4-de23a73d1219"
     }
   ],
-  "receipt": "284a1a0e-173d-8c59-b112-4f41762c27e3",
+  "receipt": "8d8b5b81-57f1-8764-9354-45a67c4072a4",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

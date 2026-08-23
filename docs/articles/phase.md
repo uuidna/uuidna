@@ -1,9 +1,9 @@
 ---
-title: "lean/Phase.lean"
+title: "The phase"
 description: "Computed from lean/Phase.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Phase.lean
+# The phase
 
 > PHASE — why the alternating walk does not close, and which half is responsible. — held by [dz_loses_nothing](/theorem/dz_loses_nothing) and its 5 siblings below.
 

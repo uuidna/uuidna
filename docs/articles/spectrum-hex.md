@@ -1,9 +1,9 @@
 ---
-title: "lean/SpectrumHex.lean"
+title: "The spectrum hex"
 description: "Computed from lean/SpectrumHex.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/SpectrumHex.lean
+# The spectrum hex
 
 > THE COLOUR AS SIX HEXBITS — the spectrum sized in the unit the machine writes it in. — held by [colour_is_six_hexbits](/theorem/colour_is_six_hexbits) and its 5 siblings below.
 

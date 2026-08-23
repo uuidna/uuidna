@@ -1,9 +1,9 @@
 ---
-title: "lean/Reversal.lean"
+title: "The reversal"
 description: "Computed from lean/Reversal.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Reversal.lean
+# The reversal
 
 > REVERSAL — why undoing an INVOLUTION and undoing a PATH are different acts, and where the walk never goes. — held by [reflection_reverses_uniquely](/theorem/reflection_reverses_uniquely) and its 5 siblings below.
 

@@ -1,9 +1,9 @@
 ---
-title: "lean/Waves.lean"
+title: "The waves"
 description: "Computed from lean/Waves.lean — 18 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Waves.lean
+# The waves
 
 > THE NIGHT'S HARVEST PORTED AS THEOREMS — the compass mandala (two hands summing ten, the 9-complement as a HALF-TURN of the doubling ring, five the unique developing center, the hex center EMPTY), the diving mathematics as integer skeletons (Boyle walking the harmonic series in exact sixtieths, pressure doubling down the octave, Haldane's 2:1 with his ladder sealed exactly as far as it doubles, the buddy pair squaring the failure, the thirds rule closing whole), and the fold-to-zero promotion chain 16→32→64→128. HONEST SCOPE: arithmetic only — no physiology, no medicine, no claim about any real event; published laws' integer skeletons, deviations named. — held by [captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) and its 17 siblings below.
 

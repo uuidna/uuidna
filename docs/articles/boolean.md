@@ -1,9 +1,9 @@
 ---
-title: "lean/Boolean.lean"
+title: "The boolean"
 description: "Computed from lean/Boolean.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Boolean.lean
+# The boolean
 
 > THE SIXTEEN BINARY BOOLEAN FUNCTIONS — enumerated, under the names mathematics and digital logic already use. — held by [sixteen_binary_functions](/theorem/sixteen_binary_functions) and its 5 siblings below.
 

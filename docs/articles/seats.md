@@ -1,9 +1,9 @@
 ---
-title: "lean/Seats.lean"
+title: "The seats"
 description: "Computed from lean/Seats.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Seats.lean
+# The seats
 
 > THE SEAT BOUND — the pigeonhole, stated. — held by [fullest_seat_ceiling](/theorem/fullest_seat_ceiling) and its 5 siblings below.
 

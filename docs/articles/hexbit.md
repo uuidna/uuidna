@@ -1,9 +1,9 @@
 ---
-title: "lean/Hexbit.lean"
+title: "The hexbit"
 description: "Computed from lean/Hexbit.lean — 16 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Hexbit.lean
+# The hexbit
 
 > THE HEXBIT — the alphabet and the layout an address is actually built from. — held by [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) and its 15 siblings below.
 

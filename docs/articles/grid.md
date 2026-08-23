@@ -1,9 +1,9 @@
 ---
-title: "lean/Grid.lean"
+title: "The grid"
 description: "Computed from lean/Grid.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Grid.lean
+# The grid
 
 > THE GRID RULE, BASE-AGNOSTIC — the growth law stated so it does not depend on how numbers are written. — held by [decimal_asks_three](/theorem/decimal_asks_three) and its 5 siblings below.
 

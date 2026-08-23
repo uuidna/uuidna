@@ -1,9 +1,9 @@
 ---
-title: "lean/Alignment.lean"
+title: "The alignment"
 description: "Computed from lean/Alignment.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Alignment.lean
+# The alignment
 
 > ALIGNMENT — which moduli tile a qubit and which waste it. — held by [hexbit_is_four_qubits](/theorem/hexbit_is_four_qubits) and its 5 siblings below.
 

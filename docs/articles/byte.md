@@ -1,9 +1,9 @@
 ---
-title: "lean/Byte.lean"
+title: "The byte"
 description: "Computed from lean/Byte.lean — 5 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Byte.lean
+# The byte
 
 > THE BYTE — two hexbits, and the unit exact-copy verification actually compares in. — held by [byte_holds_two_hexbits](/theorem/byte_holds_two_hexbits) and its 4 siblings below.
 

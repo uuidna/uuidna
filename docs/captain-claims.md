@@ -770,7 +770,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [readings_seven_rays](/theorem/readings_seven_rays) · [readings_en_names_sixteen](/theorem/readings_en_names_sixteen) · [readings_bg_names_sixteen](/theorem/readings_bg_names_sixteen) · [readings_de_names_sixteen](/theorem/readings_de_names_sixteen) · [readings_fr_names_sixteen](/theorem/readings_fr_names_sixteen) · [readings_es_names_sixteen](/theorem/readings_es_names_sixteen) · [readings_ru_names_sixteen](/theorem/readings_ru_names_sixteen) · [readings_zh_names_sixteen](/theorem/readings_zh_names_sixteen) · [readings_states_sound_the_lattice](/theorem/readings_states_sound_the_lattice) · [nyquist_clears_the_lattice](/theorem/nyquist_clears_the_lattice) · [amplitude_inside_int16](/theorem/amplitude_inside_int16) · [mix_budget_closes](/theorem/mix_budget_closes) · [chi_all_three_genera](/theorem/chi_all_three_genera) · [note_values_are_doublings](/theorem/note_values_are_doublings) · [two_coins_in_kilograms](/theorem/two_coins_in_kilograms) · [handle_capacity_invariant_under_entanglement](/theorem/handle_capacity_invariant_under_entanglement) · [time_counts_of_the_books](/theorem/time_counts_of_the_books)
 
-### lean/Affine.lean
+### The affine
 
 - **Theorems:** 6
 - **Sample lineAddress:** `47105abe-a8f3-80ae-a5ca-e507178b608b`
@@ -779,7 +779,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [group_holds_fiftyfour](/theorem/group_holds_fiftyfour) · [units_are_coprime_six](/theorem/units_are_coprime_six) · [composition_stays_inside](/theorem/composition_stays_inside) · [identity_leaves_all](/theorem/identity_leaves_all) · [every_map_inverts](/theorem/every_map_inverts) · [group_does_not_commute](/theorem/group_does_not_commute)
 
-### lean/Alignment.lean
+### The alignment
 
 - **Theorems:** 6
 - **Sample lineAddress:** `8ebb8641-5bc5-8536-99c5-760191ba7fb6`
@@ -788,7 +788,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [hexbit_is_four_qubits](/theorem/hexbit_is_four_qubits) · [moduli_waste_states](/theorem/moduli_waste_states) · [sixteen_alone_tiles](/theorem/sixteen_alone_tiles) · [ten_costs_more_than_fifteen](/theorem/ten_costs_more_than_fifteen) · [powers_of_two_are_the_substance](/theorem/powers_of_two_are_the_substance) · [handle_discards_before_walking](/theorem/handle_discards_before_walking)
 
-### lean/Boolean.lean
+### The boolean
 
 - **Theorems:** 6
 - **Sample lineAddress:** `e731c1a2-1571-84de-bec0-6027dc417570`
@@ -797,7 +797,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [sixteen_binary_functions](/theorem/sixteen_binary_functions) · [gates_name_their_tables](/theorem/gates_name_their_tables) · [nand_rebuilds_the_others](/theorem/nand_rebuilds_the_others) · [two_functions_ignore_input](/theorem/two_functions_ignore_input) · [xor_differs_from_or](/theorem/xor_differs_from_or) · [implication_is_a_gate](/theorem/implication_is_a_gate)
 
-### lean/Byte.lean
+### The byte
 
 - **Theorems:** 5
 - **Sample lineAddress:** `e22c69c8-beb1-806f-a909-adc748198c8e`
@@ -806,7 +806,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [byte_holds_two_hexbits](/theorem/byte_holds_two_hexbits) · [address_is_sixteen_bytes](/theorem/address_is_sixteen_bytes) · [digest_doubles_the_address](/theorem/digest_doubles_the_address) · [every_alternative_differs](/theorem/every_alternative_differs) · [tamper_set_counts_eight_thousand](/theorem/tamper_set_counts_eight_thousand)
 
-### lean/Channel.lean
+### The channel
 
 - **Theorems:** 6
 - **Sample lineAddress:** `eb901dc5-1e7b-8cd0-9f3d-ac48e78b5f1e`
@@ -815,7 +815,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [channel_multiplies_three](/theorem/channel_multiplies_three) · [element_costs_nine](/theorem/element_costs_nine) · [four_carry_handle](/theorem/four_carry_handle) · [three_recover_the_discard](/theorem/three_recover_the_discard) · [independence_is_assumed](/theorem/independence_is_assumed) · [page_outgrows_register](/theorem/page_outgrows_register)
 
-### lean/Clock.lean
+### The clock
 
 - **Theorems:** 6
 - **Sample lineAddress:** `41186eba-2ee1-8957-b90b-2a2b2cf8e7a8`
@@ -824,7 +824,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) · [residue_returns_step_does_not](/theorem/residue_returns_step_does_not) · [gap_is_a_count](/theorem/gap_is_a_count) · [advance_only_moves_forward](/theorem/advance_only_moves_forward) · [order_is_total_and_strict](/theorem/order_is_total_and_strict) · [no_reading_enters_here](/theorem/no_reading_enters_here)
 
-### lean/Comparisons.lean
+### The comparisons
 
 - **Theorems:** 4
 - **Sample lineAddress:** `cae921f8-6fb4-8138-95dd-9f0b4c754546`
@@ -833,7 +833,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [kernel_channels_order_completely](/theorem/kernel_channels_order_completely) · [version_encoding_is_lossless](/theorem/version_encoding_is_lossless) · [register_ladder_doubles_completely](/theorem/register_ladder_doubles_completely) · [the_surface_is_the_geometric_mean](/theorem/the_surface_is_the_geometric_mean)
 
-### lean/Contribution.lean
+### The contribution
 
 - **Theorems:** 5
 - **Sample lineAddress:** `b7af07bb-26d3-8083-8d15-98d437c17989`
@@ -842,7 +842,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [contribution_leaves_one_twentysix](/theorem/contribution_leaves_one_twentysix) · [directions_number_fortytwo](/theorem/directions_number_fortytwo) · [residue_holds_three_grids](/theorem/residue_holds_three_grids) · [six_factorisations_compete](/theorem/six_factorisations_compete) · [taking_before_paying_differs](/theorem/taking_before_paying_differs)
 
-### lean/DoubleTorus.lean
+### The double torus
 
 - **Theorems:** 6
 - **Sample lineAddress:** `ead5714e-17f4-8f06-911f-ff369409c38c`
@@ -851,7 +851,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [chi_measures_genus](/theorem/chi_measures_genus) · [handles_give_generators](/theorem/handles_give_generators) · [presentation_counts_five](/theorem/presentation_counts_five) · [step_costs_three](/theorem/step_costs_three) · [words_outgrow_presentation](/theorem/words_outgrow_presentation) · [growth_is_not_bounded_here](/theorem/growth_is_not_bounded_here)
 
-### lean/Grid.lean
+### The grid
 
 - **Theorems:** 6
 - **Sample lineAddress:** `d8a2e809-c512-8cf7-b4b7-5c56cee2ff2c`
@@ -860,7 +860,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [decimal_asks_three](/theorem/decimal_asks_three) · [hexadecimal_asks_five](/theorem/hexadecimal_asks_five) · [seventytwo_is_decimal_only](/theorem/seventytwo_is_decimal_only) · [reversal_fails_in_hexadecimal](/theorem/reversal_fails_in_hexadecimal) · [fifteen_satisfies_both](/theorem/fifteen_satisfies_both) · [six_rays_stay_derived](/theorem/six_rays_stay_derived)
 
-### lean/Hamming.lean
+### The hamming
 
 - **Theorems:** 6
 - **Sample lineAddress:** `a51066b2-66fb-818f-b5b0-740a9992410b`
@@ -869,7 +869,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [code_holds_sixteen_words](/theorem/code_holds_sixteen_words) · [words_are_distinct](/theorem/words_are_distinct) · [words_stand_three_apart](/theorem/words_stand_three_apart) · [weights_enumerate](/theorem/weights_enumerate) · [codewords_syndrome_zero](/theorem/codewords_syndrome_zero) · [syndrome_names_the_position](/theorem/syndrome_names_the_position)
 
-### lean/HandleSpan.lean
+### The handle span
 
 - **Theorems:** 6
 - **Sample lineAddress:** `e5f4865d-576c-8172-bca6-784a5bccb14e`
@@ -878,7 +878,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [handles_times_qubits](/theorem/handles_times_qubits) · [exponents_add](/theorem/exponents_add) · [handle_spans_thirtytwo](/theorem/handle_spans_thirtytwo) · [register_holds_amplitudes](/theorem/register_holds_amplitudes) · [total_exceeds_register](/theorem/total_exceeds_register) · [total_is_not_amplitudes](/theorem/total_is_not_amplitudes)
 
-### lean/Hexbit.lean
+### The hexbit
 
 - **Theorems:** 16
 - **Sample lineAddress:** `e63258c2-d5f2-868c-9a2f-53f92ef17841`
@@ -887,7 +887,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) · [the_uuid_is_two_boards](/theorem/the_uuid_is_two_boards) · [alphabet_names_each_nibble](/theorem/alphabet_names_each_nibble) · [layout_groups_thirtytwo](/theorem/layout_groups_thirtytwo) · [characters_span_the_address](/theorem/characters_span_the_address) · [handle_is_the_first_group](/theorem/handle_is_the_first_group) · [groups_are_four_apart](/theorem/groups_are_four_apart) · [build_counts_in_hexbits](/theorem/build_counts_in_hexbits) · [payload_carries_the_strand](/theorem/payload_carries_the_strand) · [payload_aligns_where_the_name_does_not](/theorem/payload_aligns_where_the_name_does_not) · [the_handle_molecule_is_the_mix_census](/theorem/the_handle_molecule_is_the_mix_census) · [four_vectors_reach_the_uuid](/theorem/four_vectors_reach_the_uuid) · [slit_on_the_hexbit_ring](/theorem/slit_on_the_hexbit_ring) · [dark_fringe_is_the_half_turn](/theorem/dark_fringe_is_the_half_turn) · [fringe_pattern_reflects_dz](/theorem/fringe_pattern_reflects_dz) · [which_path_conserves_the_total](/theorem/which_path_conserves_the_total)
 
-### lean/Installs.lean
+### The installs
 
 - **Theorems:** 11
 - **Sample lineAddress:** `ccc4cb34-1f6f-8472-a51c-c8955c6e47e4`
@@ -896,7 +896,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed) · [every_install_and_its_path_named_once](/theorem/every_install_and_its_path_named_once) · [home_is_the_meta_package](/theorem/home_is_the_meta_package) · [home_reaches_every_install](/theorem/home_reaches_every_install) · [the_port_rises_from_the_floor](/theorem/the_port_rises_from_the_floor) · [the_services_hold_each_other_up](/theorem/the_services_hold_each_other_up) · [the_terminal_is_the_toolbox](/theorem/the_terminal_is_the_toolbox) · [the_foundation_depends_on_nothing](/theorem/the_foundation_depends_on_nothing) · [every_path_carries_its_published_meaning](/theorem/every_path_carries_its_published_meaning) · [a_spec_compiles_to_hexbits](/theorem/a_spec_compiles_to_hexbits) · [the_os_is_bootable_quantum](/theorem/the_os_is_bootable_quantum)
 
-### lean/Isometry.lean
+### The isometry
 
 - **Theorems:** 6
 - **Sample lineAddress:** `bc1d7ae9-ffa0-8f54-9005-28128f71cd63`
@@ -905,7 +905,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [xor_preserves_distance](/theorem/xor_preserves_distance) · [reuse_leaks_by_isometry](/theorem/reuse_leaks_by_isometry) · [complement_flips_two](/theorem/complement_flips_two) · [codon_flips_six](/theorem/codon_flips_six) · [distance_is_symmetric](/theorem/distance_is_symmetric) · [isometry_bounds_correction](/theorem/isometry_bounds_correction)
 
-### lean/Models.lean
+### The models
 
 - **Theorems:** 7
 - **Sample lineAddress:** `62bf7359-a245-8ebf-b5ef-94e1ccd3fd6a`
@@ -914,7 +914,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [a_token_approximates_eight_hexbits](/theorem/a_token_approximates_eight_hexbits) · [context_windows_are_transient_hexbits](/theorem/context_windows_are_transient_hexbits) · [speaking_an_address_costs_the_text](/theorem/speaking_an_address_costs_the_text) · [crypto_widths_are_fixed_not_sampled](/theorem/crypto_widths_are_fixed_not_sampled) · [every_context_is_finite_against_the_lattice](/theorem/every_context_is_finite_against_the_lattice) · [llm_folds_to_hexbit_pairs](/theorem/llm_folds_to_hexbit_pairs) · [a_handle_is_eight_pairs_paid_it_is_sixteen](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen)
 
-### lean/Notation.lean
+### The notation
 
 - **Theorems:** 6
 - **Sample lineAddress:** `525ec927-7b66-8103-ad66-eaf0cdab000c`
@@ -923,7 +923,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [ten_reduces_to_one](/theorem/ten_reduces_to_one) · [base_fixes_modulus](/theorem/base_fixes_modulus) · [bases_disagree_on_root](/theorem/bases_disagree_on_root) · [reversal_escapes_arithmetic](/theorem/reversal_escapes_arithmetic) · [root_survives_the_reading](/theorem/root_survives_the_reading) · [nine_divides_by_construction](/theorem/nine_divides_by_construction)
 
-### lean/Orbits.lean
+### The orbits
 
 - **Theorems:** 9
 - **Sample lineAddress:** `0177a449-0dc2-87c6-9ba7-67a99dbb3a39`
@@ -932,7 +932,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [orbit_0_1_2_3_4_5_6_7_8_9_closes](/theorem/orbit_0_1_2_3_4_5_6_7_8_9_closes) · [orbit_0_1_3_4_5_6_7_9_closes](/theorem/orbit_0_1_3_4_5_6_7_9_closes) · [orbit_0_1_3_5_7_9_closes](/theorem/orbit_0_1_3_5_7_9_closes) · [orbit_0_1_5_9_closes](/theorem/orbit_0_1_5_9_closes) · [orbit_0_1_9_closes](/theorem/orbit_0_1_9_closes) · [orbit_0_closes](/theorem/orbit_0_closes) · [orbits_number_and_orders](/theorem/orbits_number_and_orders) · [every_seed_lands_somewhere](/theorem/every_seed_lands_somewhere) · [covering_seeds_are_named](/theorem/covering_seeds_are_named)
 
-### lean/Phase.lean
+### The phase
 
 - **Theorems:** 6
 - **Sample lineAddress:** `93190a31-1567-8fd1-8c79-44e054d45987`
@@ -941,7 +941,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [dz_loses_nothing](/theorem/dz_loses_nothing) · [doubling_collapses_nine](/theorem/doubling_collapses_nine) · [maps_differ_in_reach](/theorem/maps_differ_in_reach) · [zero_closes_in_phase](/theorem/zero_closes_in_phase) · [five_returns_out_of_phase](/theorem/five_returns_out_of_phase) · [reach_shrinks_each_pass](/theorem/reach_shrinks_each_pass)
 
-### lean/ProseTrial.lean
+### The prose trial
 
 - **Theorems:** 6
 - **Sample lineAddress:** `25a6418c-c61c-8792-9145-60ff22cfff87`
@@ -950,7 +950,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [orbits_number_six](/theorem/orbits_number_six) · [order_measures_orbit](/theorem/order_measures_orbit) · [forged_order_refused](/theorem/forged_order_refused) · [orbits_reflect_onto_themselves](/theorem/orbits_reflect_onto_themselves) · [orbits_are_distinct](/theorem/orbits_are_distinct) · [every_orbit_holds_zero](/theorem/every_orbit_holds_zero)
 
-### lean/Reflection.lean
+### The reflection
 
 - **Theorems:** 6
 - **Sample lineAddress:** `5cc2ac21-57de-8663-8a7e-47040723400f`
@@ -959,7 +959,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [reflection_splits_six](/theorem/reflection_splits_six) · [classes_cap_at_two](/theorem/classes_cap_at_two) · [six_is_forced_arithmetic](/theorem/six_is_forced_arithmetic) · [seven_reach_five_classes](/theorem/seven_reach_five_classes) · [reflection_confuses_seven_three](/theorem/reflection_confuses_seven_three) · [seventh_covers_reflection_cannot](/theorem/seventh_covers_reflection_cannot)
 
-### lean/Reversal.lean
+### The reversal
 
 - **Theorems:** 6
 - **Sample lineAddress:** `cb258834-335f-82f3-b2dc-4ba23cd22e22`
@@ -968,7 +968,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [reflection_reverses_uniquely](/theorem/reflection_reverses_uniquely) · [doubling_reverses_ambiguously](/theorem/doubling_reverses_ambiguously) · [nine_is_never_reached](/theorem/nine_is_never_reached) · [censuses_differ](/theorem/censuses_differ) · [path_reverse_needs_both](/theorem/path_reverse_needs_both) · [reflection_explores_all](/theorem/reflection_explores_all)
 
-### lean/Seats.lean
+### The seats
 
 - **Theorems:** 6
 - **Sample lineAddress:** `a8560d63-df9f-8e56-9ed3-60c9d9fd2106`
@@ -977,7 +977,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [fullest_seat_ceiling](/theorem/fullest_seat_ceiling) · [excess_forces_sharing](/theorem/excess_forces_sharing) · [fit_shares_nothing](/theorem/fit_shares_nothing) · [powers_are_not_the_bound](/theorem/powers_are_not_the_bound) · [digits_split_five_five](/theorem/digits_split_five_five) · [ten_seats_bound_any_ring](/theorem/ten_seats_bound_any_ring)
 
-### lean/SpectrumHex.lean
+### The spectrum hex
 
 - **Theorems:** 6
 - **Sample lineAddress:** `21709568-04d5-851a-95c7-533a5fed7e82`
@@ -986,7 +986,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [colour_is_six_hexbits](/theorem/colour_is_six_hexbits) · [channel_is_two_hexbits](/theorem/channel_is_two_hexbits) · [greys_are_one_in_sixtyfive_thousand](/theorem/greys_are_one_in_sixtyfive_thousand) · [shorthand_covers_one_in_four_thousand](/theorem/shorthand_covers_one_in_four_thousand) · [spectrum_refuses_sixteen](/theorem/spectrum_refuses_sixteen) · [wheel_divides_by_nine_and_six](/theorem/wheel_divides_by_nine_and_six)
 
-### lean/Subgroups.lean
+### The subgroups
 
 - **Theorems:** 6
 - **Sample lineAddress:** `ce45c5a6-9169-81a9-920d-3563fe1a73ef`
@@ -995,7 +995,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [units_form_six](/theorem/units_form_six) · [four_subgroups_exhibited](/theorem/four_subgroups_exhibited) · [lagrange_divides_every_order](/theorem/lagrange_divides_every_order) · [two_generates_the_whole](/theorem/two_generates_the_whole) · [most_subsets_are_not_subgroups](/theorem/most_subsets_are_not_subgroups) · [trivial_and_whole_are_subgroups](/theorem/trivial_and_whole_are_subgroups)
 
-### lean/Trinities.lean
+### The trinities
 
 - **Theorems:** 6
 - **Sample lineAddress:** `b13daa21-8d06-880a-8b24-874b305494e3`
@@ -1004,7 +1004,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [trinities_span_powers](/theorem/trinities_span_powers) · [trinity_exceeds_qubit](/theorem/trinity_exceeds_qubit) · [trinities_cover_billion](/theorem/trinities_cover_billion) · [trinities_cover_word](/theorem/trinities_cover_word) · [trinities_cover_address](/theorem/trinities_cover_address) · [eightyone_squares_nine](/theorem/eightyone_squares_nine)
 
-### lean/VectorEquilibrium.lean
+### The vector equilibrium
 
 - **Theorems:** 13
 - **Sample lineAddress:** `9b93e314-2c96-8ea1-9a6b-05405bf979cf`
@@ -1013,7 +1013,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [ve_twelve_vertices](/theorem/ve_twelve_vertices) · [radial_squared_two](/theorem/radial_squared_two) · [ve_four_neighbours](/theorem/ve_four_neighbours) · [radial_equals_edge](/theorem/radial_equals_edge) · [ve_handshake_crosses](/theorem/ve_handshake_crosses) · [ve_twentyfour_edges](/theorem/ve_twentyfour_edges) · [ve_fourteen_faces](/theorem/ve_fourteen_faces) · [euler_characteristic_two](/theorem/euler_characteristic_two) · [metatron_seventyeight_lines](/theorem/metatron_seventyeight_lines) · [dz_two_fixedpoints](/theorem/dz_two_fixedpoints) · [dz_involution_digits](/theorem/dz_involution_digits) · [orbits_closed_involution](/theorem/orbits_closed_involution) · [missing_pair_involution](/theorem/missing_pair_involution)
 
-### lean/Waves.lean
+### The waves
 
 - **Theorems:** 18
 - **Sample lineAddress:** `9bd83494-39d0-86aa-a607-6e020ab2e5e0`

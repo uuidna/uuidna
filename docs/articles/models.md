@@ -1,9 +1,9 @@
 ---
-title: "lean/Models.lean"
+title: "The models"
 description: "Computed from lean/Models.lean — 7 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Models.lean
+# The models
 
 > THE MODEL COMPARISON OVER ALL PUBLIC LIVE DATA — the decidable core of the served page /models: the declared token≈4-byte approximation's exact widths, all 422 of the public feed's reported context windows as transient hexbit capacity, the 288-bit cost of speaking a 128-bit address in text (identical for every model), the cipher's fixed widths against a sampler's none, every window finite against 2¹²⁸, THE FOLD LAW (any model's output folds to exactly 32 on-lattice states = 16 pairs), and the handle's eight pairs doubling to sixteen when the captain coins are paid (64 = 8², typography unlocked). Vendor speeds and coverage-per-token are NOT here — absent from the feed and unmeasured respectively, named as such on the page. — held by [a_token_approximates_eight_hexbits](/theorem/a_token_approximates_eight_hexbits) and its 6 siblings below.
 

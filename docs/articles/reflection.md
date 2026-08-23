@@ -1,9 +1,9 @@
 ---
-title: "lean/Reflection.lean"
+title: "The reflection"
 description: "Computed from lean/Reflection.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Reflection.lean
+# The reflection
 
 > THE REFLECTION'S REACH — what an involution alone can and cannot separate. Clay.lean reflects seven problems through dz(x) = 10 − x and states in prose that it reflects all seven and solves none; this wing DECIDES that limitation. The reflection splits the ten digits into six classes of AT MOST TWO — reversibility erases nothing and so derives nothing — and six is FORCED by arithmetic, since dz fixes exactly two digits and pairs the other eight: 2 + (10 − 2)/2 = 6. The seven residues reach five of those classes. The limitation stated exactly: dzMin 7 = dzMin 3, so the reflection cannot tell the seventh residue from the third. Yet the seventh lies in the covering half of the ring ({2,6,7,8,9}, sealed as digits_split_five_five), where the walk that adds the IRREVERSIBLE doubling reaches every digit — what the full walk distinguishes, the involution confuses. PURE ARITHMETIC, no ledger count, nothing measured from the world. integrity. The sequence walk also yields six orbits; that is a separate measurement landing on the same integer, and no correspondence between the two sixes is claimed. Nothing here decides any Clay problem, and a residue is not a fact about the thing seated at it. — held by [reflection_splits_six](/theorem/reflection_splits_six) and its 5 siblings below.
 

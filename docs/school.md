@@ -162,7 +162,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    find a fold of your own.
 7. **Seal the input, never its pure function — and know where that stops** — a digest of f(x) moves exactly when
    a digest of x moves, so sealing both seals one fact twice and the second seal is pure cost
-   ([`verify_beats_recompute_by_magnitudes`](/theorem/verify_beats_recompute_by_magnitudes)). One fold composed **84** monographs to
+   ([`verify_beats_recompute_by_magnitudes`](/theorem/verify_beats_recompute_by_magnitudes)). One fold composed **112** monographs to
    fingerprint what their (principle, theorem set) already fixed — **1 hexbit** of pure restatement
    ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)), priced in the unit and not in milliseconds, because a wall-clock figure moves
    with the host and a practice carrying a number that moves goes stale.
@@ -674,14 +674,14 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The rules of inference | `Reasoning.lean` | reasoning | 25 | [`absorbed_evidence_idles`](/theorem/absorbed_evidence_idles) |
 | The chess horizon | `Chessgames.lean` | chess | 24 | [`after_one_move_four_hundred`](/theorem/after_one_move_four_hundred) |
 | The algebra of the neuron | `Neuro.lean` | neuro | 18 | [`action_potential_swing`](/theorem/action_potential_swing) |
-| Waves.lean | `Waves.lean` | waves | 18 | [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) |
+| The waves | `Waves.lean` | waves | 18 | [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) |
 | The detectors, proven | `Audit.lean` | audit | 17 | [`backing_clears`](/theorem/backing_clears) |
 | Applied structure — the science pairs | `BioPhysics.lean` | science-pairs | 17 | [`abo_klein_four`](/theorem/abo_klein_four) |
 | The colour wheel | `Colour.lean` | colour | 17 | [`alphabet_digital_root_is_nine`](/theorem/alphabet_digital_root_is_nine) |
 | The seven readings | `Readings.lean` | readings | 17 | [`amplitude_inside_int16`](/theorem/amplitude_inside_int16) |
 | The lay of the land | `Topography.lean` | topography | 17 | [`back_bearing_mod_360`](/theorem/back_bearing_mod_360) |
 | Self-discovered | `Discover.lean` | vortex | 16 | [`generators_are_two_and_five`](/theorem/generators_are_two_and_five) |
-| Hexbit.lean | `Hexbit.lean` | hexbit | 16 | [`alphabet_names_each_nibble`](/theorem/alphabet_names_each_nibble) |
+| The hexbit | `Hexbit.lean` | hexbit | 16 | [`alphabet_names_each_nibble`](/theorem/alphabet_names_each_nibble) |
 | Ported from millennium-solutions | `Vortex.lean` | z9-ring | 16 | [`doubling_circuit`](/theorem/doubling_circuit) |
 | The software-verifiable algebra | `Software.lean` | software | 15 | [`append_length_adds`](/theorem/append_length_adds) |
 | The vortex algebra | `Uuidna.lean` | vortex | 15 | [`billing_arith`](/theorem/billing_arith) |
@@ -695,11 +695,11 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The physics infinities, made finite | `Infinity.lean` | infinity | 13 | [`asymptotic_freedom`](/theorem/asymptotic_freedom) |
 | The pentagram & the Fibonacci digits | `Pentagram.lean` | pentagram | 13 | [`codon_frame_rotates_rosette`](/theorem/codon_frame_rotates_rosette) |
 | The measures of type | `Typesetting.lean` | typesetting | 13 | [`a_series_halving`](/theorem/a_series_halving) |
-| VectorEquilibrium.lean | `VectorEquilibrium.lean` | vector-equilibrium | 13 | [`dz_involution_digits`](/theorem/dz_involution_digits) |
+| The vector equilibrium | `VectorEquilibrium.lean` | vector-equilibrium | 13 | [`dz_involution_digits`](/theorem/dz_involution_digits) |
 | The exploit folds | `Exploits.lean` | exploits | 12 | [`fold_code_injection`](/theorem/fold_code_injection) |
 | The fixed stars | `Astronomy.lean` | astronomy | 11 | [`arcminutes_equator_to_pole`](/theorem/arcminutes_equator_to_pole) |
 | The audit game | `AuditGame.lean` | audit | 11 | [`audit_is_a_finite_game`](/theorem/audit_is_a_finite_game) |
-| Installs.lean | `Installs.lean` | installs | 11 | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| The installs | `Installs.lean` | installs | 11 | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | The paper on trial | `MoMBHStar1.lean` | paper-trial | 11 | [`mombh_balmer_break_exceeds_stellar_ceiling`](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) |
 | The Platonic solids in every dimension | `Solids.lean` | solids | 11 | [`cube_octahedron_dual`](/theorem/cube_octahedron_dual) |
 | The song from the ledger | `Song.lean` | song | 11 | [`song_az_is_the_tuning`](/theorem/song_az_is_the_tuning) |
@@ -712,7 +712,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The calendar | `Calendar.lean` | calendar | 9 | [`century_leap_rule`](/theorem/century_leap_rule) |
 | The reactions domain | `Chemistry.lean` | chemistry | 9 | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) |
 | The linear optimum | `Optimisation.lean` | optimisation | 9 | [`assignment_two_by_two_optimum`](/theorem/assignment_two_by_two_optimum) |
-| Orbits.lean | `Orbits.lean` | orbits | 9 | [`covering_seeds_are_named`](/theorem/covering_seeds_are_named) |
+| The orbits | `Orbits.lean` | orbits | 9 | [`covering_seeds_are_named`](/theorem/covering_seeds_are_named) |
 | The layered defence | `Security.lean` | security | 9 | [`birthday_halves_the_exponent`](/theorem/birthday_halves_the_exponent) |
 | The geared computer of Rhodes | `Antikythera.lean` | antikythera | 8 | [`callippic_corrects_by_four`](/theorem/callippic_corrects_by_four) |
 | The error-correcting codes | `Codes.lean` | codes | 8 | [`codewords_sparse`](/theorem/codewords_sparse) |
@@ -728,7 +728,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The seven reflected | `Clay.lean` | clay | 7 | [`closed_grid_differences_sum_to_zero`](/theorem/closed_grid_differences_sum_to_zero) |
 | Command authentication | `Command.lean` | command | 7 | [`accept_matches_spec`](/theorem/accept_matches_spec) |
 | The time coordinate | `Ephemeris.lean` | ephemeris | 7 | [`gregorian_leap_rule`](/theorem/gregorian_leap_rule) |
-| Models.lean | `Models.lean` | models | 7 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) |
+| The models | `Models.lean` | models | 7 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) |
 | The bond domain | `Molecular.lean` | molecular | 7 | [`bond_order_n2_o2`](/theorem/bond_order_n2_o2) |
 | The denial drained | `Negation.lean` | negation | 7 | [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself) |
 | The OS-integrity algebra | `Os.lean` | os | 7 | [`boundary_is_exactly_two_named_modules`](/theorem/boundary_is_exactly_two_named_modules) |
@@ -737,38 +737,38 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The sanitise standards | `Sanitize.lean` | sanitize | 7 | [`sanitize_array_and_keys_are_ten_pow_five`](/theorem/sanitize_array_and_keys_are_ten_pow_five) |
 | The known universe, handled | `Universe.lean` | universe | 7 | [`eclipse_four_hundred`](/theorem/eclipse_four_hundred) |
 | The sound domain | `Acoustics.lean` | acoustics | 6 | [`beat_frequency`](/theorem/beat_frequency) |
-| Affine.lean | `Affine.lean` | affine | 6 | [`composition_stays_inside`](/theorem/composition_stays_inside) |
-| Alignment.lean | `Alignment.lean` | alignment | 6 | [`handle_discards_before_walking`](/theorem/handle_discards_before_walking) |
+| The affine | `Affine.lean` | affine | 6 | [`composition_stays_inside`](/theorem/composition_stays_inside) |
+| The alignment | `Alignment.lean` | alignment | 6 | [`handle_discards_before_walking`](/theorem/handle_discards_before_walking) |
 | The compound billing law | `Billing.lean` | billing | 6 | [`advantage_first_doubles_at_seal_38`](/theorem/advantage_first_doubles_at_seal_38) |
-| Boolean.lean | `Boolean.lean` | boolean | 6 | [`gates_name_their_tables`](/theorem/gates_name_their_tables) |
-| Channel.lean | `Channel.lean` | channel | 6 | [`channel_multiplies_three`](/theorem/channel_multiplies_three) |
-| Clock.lean | `Clock.lean` | clock | 6 | [`advance_only_moves_forward`](/theorem/advance_only_moves_forward) |
-| DoubleTorus.lean | `DoubleTorus.lean` | double-torus | 6 | [`chi_measures_genus`](/theorem/chi_measures_genus) |
-| Grid.lean | `Grid.lean` | grid | 6 | [`decimal_asks_three`](/theorem/decimal_asks_three) |
-| Hamming.lean | `Hamming.lean` | hamming | 6 | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) |
-| HandleSpan.lean | `HandleSpan.lean` | handle-span | 6 | [`exponents_add`](/theorem/exponents_add) |
+| The boolean | `Boolean.lean` | boolean | 6 | [`gates_name_their_tables`](/theorem/gates_name_their_tables) |
+| The channel | `Channel.lean` | channel | 6 | [`channel_multiplies_three`](/theorem/channel_multiplies_three) |
+| The clock | `Clock.lean` | clock | 6 | [`advance_only_moves_forward`](/theorem/advance_only_moves_forward) |
+| The double torus | `DoubleTorus.lean` | double-torus | 6 | [`chi_measures_genus`](/theorem/chi_measures_genus) |
+| The grid | `Grid.lean` | grid | 6 | [`decimal_asks_three`](/theorem/decimal_asks_three) |
+| The hamming | `Hamming.lean` | hamming | 6 | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) |
+| The handle span | `HandleSpan.lean` | handle-span | 6 | [`exponents_add`](/theorem/exponents_add) |
 | The identifiers | `Identifiers.lean` | identifiers | 6 | [`isbn10_catches_single_error`](/theorem/isbn10_catches_single_error) |
-| Isometry.lean | `Isometry.lean` | isometry | 6 | [`codon_flips_six`](/theorem/codon_flips_six) |
-| Notation.lean | `Notation.lean` | notation | 6 | [`base_fixes_modulus`](/theorem/base_fixes_modulus) |
+| The isometry | `Isometry.lean` | isometry | 6 | [`codon_flips_six`](/theorem/codon_flips_six) |
+| The notation | `Notation.lean` | notation | 6 | [`base_fixes_modulus`](/theorem/base_fixes_modulus) |
 | The light domain | `Optics.lean` | optics | 6 | [`law_of_reflection`](/theorem/law_of_reflection) |
-| Phase.lean | `Phase.lean` | phase | 6 | [`doubling_collapses_nine`](/theorem/doubling_collapses_nine) |
+| The phase | `Phase.lean` | phase | 6 | [`doubling_collapses_nine`](/theorem/doubling_collapses_nine) |
 | The Cyrillic ROM | `Pravets.lean` | pravets | 6 | [`a_glyph_costs_one_coin_measure`](/theorem/a_glyph_costs_one_coin_measure) |
-| ProseTrial.lean | `ProseTrial.lean` | prose-trial | 6 | [`every_orbit_holds_zero`](/theorem/every_orbit_holds_zero) |
-| Reflection.lean | `Reflection.lean` | reflection | 6 | [`classes_cap_at_two`](/theorem/classes_cap_at_two) |
-| Reversal.lean | `Reversal.lean` | reversal | 6 | [`censuses_differ`](/theorem/censuses_differ) |
-| Seats.lean | `Seats.lean` | seats | 6 | [`digits_split_five_five`](/theorem/digits_split_five_five) |
-| SpectrumHex.lean | `SpectrumHex.lean` | spectrum-hex | 6 | [`channel_is_two_hexbits`](/theorem/channel_is_two_hexbits) |
-| Subgroups.lean | `Subgroups.lean` | subgroups | 6 | [`four_subgroups_exhibited`](/theorem/four_subgroups_exhibited) |
+| The prose trial | `ProseTrial.lean` | prose-trial | 6 | [`every_orbit_holds_zero`](/theorem/every_orbit_holds_zero) |
+| The reflection | `Reflection.lean` | reflection | 6 | [`classes_cap_at_two`](/theorem/classes_cap_at_two) |
+| The reversal | `Reversal.lean` | reversal | 6 | [`censuses_differ`](/theorem/censuses_differ) |
+| The seats | `Seats.lean` | seats | 6 | [`digits_split_five_five`](/theorem/digits_split_five_five) |
+| The spectrum hex | `SpectrumHex.lean` | spectrum-hex | 6 | [`channel_is_two_hexbits`](/theorem/channel_is_two_hexbits) |
+| The subgroups | `Subgroups.lean` | subgroups | 6 | [`four_subgroups_exhibited`](/theorem/four_subgroups_exhibited) |
 | The symphony as form | `Symphony.lean` | symphony | 6 | [`a_symphony_is_a_sequence_not_a_set`](/theorem/a_symphony_is_a_sequence_not_a_set) |
 | The register's alternation law | `Tesla.lean` | tesla | 6 | [`alternation_needs_a_second_phase`](/theorem/alternation_needs_a_second_phase) |
 | The tides | `Tides.lean` | tides | 6 | [`flood_and_ebb`](/theorem/flood_and_ebb) |
-| Trinities.lean | `Trinities.lean` | trinities | 6 | [`eightyone_squares_nine`](/theorem/eightyone_squares_nine) |
-| Byte.lean | `Byte.lean` | byte | 5 | [`address_is_sixteen_bytes`](/theorem/address_is_sixteen_bytes) |
-| Contribution.lean | `Contribution.lean` | contribution | 5 | [`contribution_leaves_one_twentysix`](/theorem/contribution_leaves_one_twentysix) |
+| The trinities | `Trinities.lean` | trinities | 6 | [`eightyone_squares_nine`](/theorem/eightyone_squares_nine) |
+| The byte | `Byte.lean` | byte | 5 | [`address_is_sixteen_bytes`](/theorem/address_is_sixteen_bytes) |
+| The contribution | `Contribution.lean` | contribution | 5 | [`contribution_leaves_one_twentysix`](/theorem/contribution_leaves_one_twentysix) |
 | Navigation — bounded geometry | `Navigation.lean` | navigation | 5 | [`compass_rose_eight`](/theorem/compass_rose_eight) |
 | Propulsion — Newtonian & bounded | `Propulsion.lean` | propulsion | 5 | [`acceleration_finite`](/theorem/acceleration_finite) |
 | The spacetime domain | `Relativity.lean` | relativity | 5 | [`causality_forbids_ftl`](/theorem/causality_forbids_ftl) |
-| Comparisons.lean | `Comparisons.lean` | compare | 4 | [`kernel_channels_order_completely`](/theorem/kernel_channels_order_completely) |
+| The comparisons | `Comparisons.lean` | compare | 4 | [`kernel_channels_order_completely`](/theorem/kernel_channels_order_completely) |
 | The document fold | `Editor.lean` | editor | 4 | [`editor_empty_doc_folds_zero`](/theorem/editor_empty_doc_folds_zero) |
 | The stance and the angle | `MartialArts.lean` | martial-arts | 4 | [`chain_joints_are_links_minus_one`](/theorem/chain_joints_are_links_minus_one) |
 | Maxwell's rule | `Structures.lean` | structures | 3 | [`maxwells_rule_truss`](/theorem/maxwells_rule_truss) |

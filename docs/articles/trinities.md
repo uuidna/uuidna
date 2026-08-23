@@ -1,9 +1,9 @@
 ---
-title: "lean/Trinities.lean"
+title: "The trinities"
 description: "Computed from lean/Trinities.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Trinities.lean
+# The trinities
 
 > THE TRINITY COVERING — how many threes span a space. — held by [trinities_span_powers](/theorem/trinities_span_powers) and its 5 siblings below.
 

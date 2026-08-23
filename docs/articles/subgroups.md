@@ -1,9 +1,9 @@
 ---
-title: "lean/Subgroups.lean"
+title: "The subgroups"
 description: "Computed from lean/Subgroups.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Subgroups.lean
+# The subgroups
 
 > THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited. — held by [units_form_six](/theorem/units_form_six) and its 5 siblings below.
 

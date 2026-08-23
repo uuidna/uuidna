@@ -1,9 +1,9 @@
 ---
-title: "lean/Comparisons.lean"
+title: "The comparisons"
 description: "Computed from lean/Comparisons.lean — 4 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Comparisons.lean
+# The comparisons
 
 > THE COMPLETE COMPARISONS — every pair, never samples (the one-step-is-not-a-walk law as architecture): kernel.org's eight channels totally ordered through a lossless integer encoding (28 strict pairs; the versions are the kernel's published data), the encoding's round-trip sealed, the register ladder 4→128 doubling completely (any two registers an exact number of coin-payments apart), and the pressure ladder of divers and astronauts closing on THE JEWEL: the surface is the geometric mean of the buddy depths, 180·20 = 60². Arithmetic only; published data named as data. — held by [kernel_channels_order_completely](/theorem/kernel_channels_order_completely) and its 3 siblings below.
 

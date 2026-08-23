@@ -8673,1213 +8673,1213 @@
       "key": "group_holds_fiftyfour",
       "lineAddress": "47105abe-a8f3-80ae-a5ca-e507178b608b",
       "address": "494b9d8d-4270-8488-aa14-672bffee04a1",
-      "principle": "lean/Affine.lean"
+      "principle": "The affine"
     },
     {
       "key": "units_are_coprime_six",
       "lineAddress": "f3bf5bfd-4de0-8b4a-abda-b96030cd88bc",
       "address": "18fe6fdc-9e76-8d97-91d7-f9510934c075",
-      "principle": "lean/Affine.lean"
+      "principle": "The affine"
     },
     {
       "key": "composition_stays_inside",
       "lineAddress": "3edb59ed-93c7-8bd4-83d2-753c24ec7593",
       "address": "d3b61f09-7d20-8ffc-bc90-54759a09c595",
-      "principle": "lean/Affine.lean"
+      "principle": "The affine"
     },
     {
       "key": "identity_leaves_all",
       "lineAddress": "ef46b836-5443-8d8f-b0df-25a2c95ed9fd",
       "address": "aeba1dfd-4a62-8824-8fb1-1dcd5369eb19",
-      "principle": "lean/Affine.lean"
+      "principle": "The affine"
     },
     {
       "key": "every_map_inverts",
       "lineAddress": "033551c8-365b-8833-b3e9-75320038d5a2",
       "address": "1e44655d-012e-8334-91fe-13af5468ca96",
-      "principle": "lean/Affine.lean"
+      "principle": "The affine"
     },
     {
       "key": "group_does_not_commute",
       "lineAddress": "ac26796c-bd3c-8dff-8284-264affa749b5",
       "address": "5ce9bcca-5f17-8250-8bf5-1cf6836f78e3",
-      "principle": "lean/Affine.lean"
+      "principle": "The affine"
     },
     {
       "key": "hexbit_is_four_qubits",
       "lineAddress": "8ebb8641-5bc5-8536-99c5-760191ba7fb6",
       "address": "533f84bc-2818-8ee4-9343-f5af41f21a2f",
-      "principle": "lean/Alignment.lean"
+      "principle": "The alignment"
     },
     {
       "key": "moduli_waste_states",
       "lineAddress": "fed66564-108a-8704-a3b8-4fb2cef32630",
       "address": "61fd2a22-b33f-8e96-a953-95d2ce4b00c5",
-      "principle": "lean/Alignment.lean"
+      "principle": "The alignment"
     },
     {
       "key": "sixteen_alone_tiles",
       "lineAddress": "83750cb9-77dd-8c33-8844-cf4ddf163fb0",
       "address": "c84df594-8f79-87a8-b051-b09a50cbd558",
-      "principle": "lean/Alignment.lean"
+      "principle": "The alignment"
     },
     {
       "key": "ten_costs_more_than_fifteen",
       "lineAddress": "ec4e1397-4920-838d-a1ce-24285ba9a3e5",
       "address": "37ab2f38-57b9-8331-a9dc-037e0a298675",
-      "principle": "lean/Alignment.lean"
+      "principle": "The alignment"
     },
     {
       "key": "powers_of_two_are_the_substance",
       "lineAddress": "c0b68010-4264-83b9-8cec-b2af3b761e18",
       "address": "8c130f10-c2c6-8d09-8b66-b65fa1d5887a",
-      "principle": "lean/Alignment.lean"
+      "principle": "The alignment"
     },
     {
       "key": "handle_discards_before_walking",
       "lineAddress": "f4eb0961-6306-826e-94e6-a616f16cb49c",
       "address": "cc2cc229-093c-8bc7-9e3f-761220ef6372",
-      "principle": "lean/Alignment.lean"
+      "principle": "The alignment"
     },
     {
       "key": "sixteen_binary_functions",
       "lineAddress": "e731c1a2-1571-84de-bec0-6027dc417570",
       "address": "9e73137a-e872-829d-a2c4-b898d6b67241",
-      "principle": "lean/Boolean.lean"
+      "principle": "The boolean"
     },
     {
       "key": "gates_name_their_tables",
       "lineAddress": "7dcdf8a5-bd25-85b0-adee-7251485dea9f",
       "address": "83174480-f5a1-8085-9e2a-c3abfec26101",
-      "principle": "lean/Boolean.lean"
+      "principle": "The boolean"
     },
     {
       "key": "nand_rebuilds_the_others",
       "lineAddress": "b5e25f5e-f4d4-8c9c-afd9-93c3b928afe3",
       "address": "9662d798-9746-865d-bb3e-c4273546852f",
-      "principle": "lean/Boolean.lean"
+      "principle": "The boolean"
     },
     {
       "key": "two_functions_ignore_input",
       "lineAddress": "97d0fce3-f8ff-8382-bcd5-71794f769baf",
       "address": "47397db5-5ec4-8ad0-8301-7e42e2f219a3",
-      "principle": "lean/Boolean.lean"
+      "principle": "The boolean"
     },
     {
       "key": "xor_differs_from_or",
       "lineAddress": "9aee45d9-28b4-8f99-8a36-03d05c09fb6a",
       "address": "bb091eb7-dd3b-8cee-875e-3a6a79ec9d63",
-      "principle": "lean/Boolean.lean"
+      "principle": "The boolean"
     },
     {
       "key": "implication_is_a_gate",
       "lineAddress": "db367749-fb55-84a9-8c68-a4b20f2403a4",
       "address": "54d82068-9c96-8c4d-91ec-839d37fde9c6",
-      "principle": "lean/Boolean.lean"
+      "principle": "The boolean"
     },
     {
       "key": "byte_holds_two_hexbits",
       "lineAddress": "e22c69c8-beb1-806f-a909-adc748198c8e",
       "address": "16790609-ce5e-8bf5-ad95-210867ee252f",
-      "principle": "lean/Byte.lean"
+      "principle": "The byte"
     },
     {
       "key": "address_is_sixteen_bytes",
       "lineAddress": "704071cf-86b3-81f1-a241-b461d5b7888d",
       "address": "612d1ebc-04f0-841a-b2ce-cc0bd47f2e27",
-      "principle": "lean/Byte.lean"
+      "principle": "The byte"
     },
     {
       "key": "digest_doubles_the_address",
       "lineAddress": "befaeae8-6338-81ae-866e-4a85fd7ad6c2",
       "address": "ff68ee7a-0fb0-82f0-887b-40ea35c25c18",
-      "principle": "lean/Byte.lean"
+      "principle": "The byte"
     },
     {
       "key": "every_alternative_differs",
       "lineAddress": "fcf3c951-25b6-8bb1-a46f-110bc4c35205",
       "address": "5d0480b6-d364-8fcd-a721-bca0261d3043",
-      "principle": "lean/Byte.lean"
+      "principle": "The byte"
     },
     {
       "key": "tamper_set_counts_eight_thousand",
       "lineAddress": "774da136-f0c1-8326-a038-3ae421db03be",
       "address": "c7fc4727-618e-8ae7-bf45-7942841be975",
-      "principle": "lean/Byte.lean"
+      "principle": "The byte"
     },
     {
       "key": "channel_multiplies_three",
       "lineAddress": "eb901dc5-1e7b-8cd0-9f3d-ac48e78b5f1e",
       "address": "180365da-253e-8b33-89af-2138b6bdb073",
-      "principle": "lean/Channel.lean"
+      "principle": "The channel"
     },
     {
       "key": "element_costs_nine",
       "lineAddress": "acf37988-5fb0-8cfb-8eaa-cd9ef2662f3e",
       "address": "92b63beb-3d9e-8c42-9283-b2cee1f5a085",
-      "principle": "lean/Channel.lean"
+      "principle": "The channel"
     },
     {
       "key": "four_carry_handle",
       "lineAddress": "5411c862-bd08-8208-a0b6-6f60a9275f66",
       "address": "3950fa7e-f816-8830-91ce-9946a6a5b3bb",
-      "principle": "lean/Channel.lean"
+      "principle": "The channel"
     },
     {
       "key": "three_recover_the_discard",
       "lineAddress": "160a43ab-fb41-8894-b2c6-3137c2fb6e1e",
       "address": "91b5b3e1-e916-8925-84d1-e0c7e8af52e8",
-      "principle": "lean/Channel.lean"
+      "principle": "The channel"
     },
     {
       "key": "independence_is_assumed",
       "lineAddress": "a7165b5e-600a-88fd-a181-b5b52faa0dfc",
       "address": "340b3218-1736-8044-a33f-d4e1fd089e04",
-      "principle": "lean/Channel.lean"
+      "principle": "The channel"
     },
     {
       "key": "page_outgrows_register",
       "lineAddress": "eaa8a511-79d2-8dba-b609-9eb229314b72",
       "address": "9d2dd9dc-2701-80d1-8e87-73b0f1e2d1b8",
-      "principle": "lean/Channel.lean"
+      "principle": "The channel"
     },
     {
       "key": "residue_walks_the_orbit",
       "lineAddress": "41186eba-2ee1-8957-b90b-2a2b2cf8e7a8",
       "address": "2e16fa2b-c881-813c-b21b-d3970a29b01c",
-      "principle": "lean/Clock.lean"
+      "principle": "The clock"
     },
     {
       "key": "residue_returns_step_does_not",
       "lineAddress": "f8610c73-a203-8b69-b50f-62ae25841fbc",
       "address": "0d83fcd0-d9f8-86de-907a-14a0f9fa4536",
-      "principle": "lean/Clock.lean"
+      "principle": "The clock"
     },
     {
       "key": "gap_is_a_count",
       "lineAddress": "11c7823a-ff00-83ba-b82b-eb24e8701801",
       "address": "83a2382e-2738-858c-a981-fbf066824bfb",
-      "principle": "lean/Clock.lean"
+      "principle": "The clock"
     },
     {
       "key": "advance_only_moves_forward",
       "lineAddress": "66c3bc43-5222-8d9e-af61-f83b352f3680",
       "address": "662e52ba-f086-8501-8b2b-d9e13aa06239",
-      "principle": "lean/Clock.lean"
+      "principle": "The clock"
     },
     {
       "key": "order_is_total_and_strict",
       "lineAddress": "b1f93386-eb53-8aae-8528-92a1e8668cd4",
       "address": "8763a5b0-a26c-805d-9fcd-6ac6bb3a1259",
-      "principle": "lean/Clock.lean"
+      "principle": "The clock"
     },
     {
       "key": "no_reading_enters_here",
       "lineAddress": "f76e5a65-ab5a-8a6e-8ab1-74ae3cf1e078",
       "address": "430202e7-39ad-8708-b29d-39f4827c9a5f",
-      "principle": "lean/Clock.lean"
+      "principle": "The clock"
     },
     {
       "key": "kernel_channels_order_completely",
       "lineAddress": "cae921f8-6fb4-8138-95dd-9f0b4c754546",
       "address": "e9cae649-b913-82b2-a70b-392e9b438377",
-      "principle": "lean/Comparisons.lean"
+      "principle": "The comparisons"
     },
     {
       "key": "version_encoding_is_lossless",
       "lineAddress": "db9401c6-2732-8fd6-aa5f-019c190878a5",
       "address": "97764475-7a92-8961-b53c-897c99b6c997",
-      "principle": "lean/Comparisons.lean"
+      "principle": "The comparisons"
     },
     {
       "key": "register_ladder_doubles_completely",
       "lineAddress": "b3cd268a-8512-8296-89a5-8d605fe7a4ff",
       "address": "ef3069f0-edf6-81da-9173-47acefac8f2f",
-      "principle": "lean/Comparisons.lean"
+      "principle": "The comparisons"
     },
     {
       "key": "the_surface_is_the_geometric_mean",
       "lineAddress": "dd3f5468-41b0-8e5e-8303-e21671936841",
       "address": "b89ea739-d89e-897e-9110-81e7625fcffd",
-      "principle": "lean/Comparisons.lean"
+      "principle": "The comparisons"
     },
     {
       "key": "contribution_leaves_one_twentysix",
       "lineAddress": "b7af07bb-26d3-8083-8d15-98d437c17989",
       "address": "93f0b889-eaee-842d-affa-6f8e72ee1916",
-      "principle": "lean/Contribution.lean"
+      "principle": "The contribution"
     },
     {
       "key": "directions_number_fortytwo",
       "lineAddress": "98e8608a-d283-8e51-a323-a7eb89b7c930",
       "address": "f74399ef-b764-8960-8655-0147bdc43844",
-      "principle": "lean/Contribution.lean"
+      "principle": "The contribution"
     },
     {
       "key": "residue_holds_three_grids",
       "lineAddress": "78eb83cd-3ab1-815c-8333-27eb155b4bc3",
       "address": "03009874-8005-8a36-9a9f-5d1e2eaf8621",
-      "principle": "lean/Contribution.lean"
+      "principle": "The contribution"
     },
     {
       "key": "six_factorisations_compete",
       "lineAddress": "1c32b3de-7556-8478-a046-8b745bca5324",
       "address": "a0e1f90e-122e-842a-a427-6f643ba92cee",
-      "principle": "lean/Contribution.lean"
+      "principle": "The contribution"
     },
     {
       "key": "taking_before_paying_differs",
       "lineAddress": "24e063e1-9443-8e30-ba2f-84c3299e6d07",
       "address": "3ec75fd9-b90e-80ae-84ad-2e218293d407",
-      "principle": "lean/Contribution.lean"
+      "principle": "The contribution"
     },
     {
       "key": "chi_measures_genus",
       "lineAddress": "ead5714e-17f4-8f06-911f-ff369409c38c",
       "address": "08533e0f-34cb-89e7-ba31-6242507cb2bc",
-      "principle": "lean/DoubleTorus.lean"
+      "principle": "The double torus"
     },
     {
       "key": "handles_give_generators",
       "lineAddress": "37abe796-c377-89b4-906a-b1a164e1002c",
       "address": "e9df801e-e95b-84c7-b5d9-98976eecde62",
-      "principle": "lean/DoubleTorus.lean"
+      "principle": "The double torus"
     },
     {
       "key": "presentation_counts_five",
       "lineAddress": "053e296f-9e7c-8eac-b323-9e360de988d9",
       "address": "97fa529a-77e1-8a27-982d-70dc1a040807",
-      "principle": "lean/DoubleTorus.lean"
+      "principle": "The double torus"
     },
     {
       "key": "step_costs_three",
       "lineAddress": "e3fa55d9-21a9-8b0a-a02b-9f584c76e486",
       "address": "835c0556-61d3-84d8-b69c-d16512ea4430",
-      "principle": "lean/DoubleTorus.lean"
+      "principle": "The double torus"
     },
     {
       "key": "words_outgrow_presentation",
       "lineAddress": "918f8aa9-3d8c-8b05-ab13-e608ff70c77d",
       "address": "72825824-650b-880d-bfbe-61dcf24b6611",
-      "principle": "lean/DoubleTorus.lean"
+      "principle": "The double torus"
     },
     {
       "key": "growth_is_not_bounded_here",
       "lineAddress": "2bb1c856-4f23-829d-896e-3548d5a7a276",
       "address": "fb7f9d09-4268-8aad-860c-588c25b1ec38",
-      "principle": "lean/DoubleTorus.lean"
+      "principle": "The double torus"
     },
     {
       "key": "decimal_asks_three",
       "lineAddress": "d8a2e809-c512-8cf7-b4b7-5c56cee2ff2c",
       "address": "95c7f845-d4ff-8ddf-bc6a-a2c28aad28e2",
-      "principle": "lean/Grid.lean"
+      "principle": "The grid"
     },
     {
       "key": "hexadecimal_asks_five",
       "lineAddress": "3e037545-2a75-8e15-9a6c-5e765ff301c0",
       "address": "eafa130b-b62c-87e4-b97d-0287dfe2472a",
-      "principle": "lean/Grid.lean"
+      "principle": "The grid"
     },
     {
       "key": "seventytwo_is_decimal_only",
       "lineAddress": "991a586d-1dbb-8620-9523-2e9256cb0188",
       "address": "d1bbaa1a-528b-80ce-a85f-d990994a7871",
-      "principle": "lean/Grid.lean"
+      "principle": "The grid"
     },
     {
       "key": "reversal_fails_in_hexadecimal",
       "lineAddress": "1d35ce37-3e3e-8fcf-9ccc-0fa6ef7179ac",
       "address": "b5209dda-8373-8e47-941e-064616121f5d",
-      "principle": "lean/Grid.lean"
+      "principle": "The grid"
     },
     {
       "key": "fifteen_satisfies_both",
       "lineAddress": "f988b909-9942-8266-9a66-b30ae4763397",
       "address": "e87a8a06-27f8-8d60-b304-dc5a5cffd174",
-      "principle": "lean/Grid.lean"
+      "principle": "The grid"
     },
     {
       "key": "six_rays_stay_derived",
       "lineAddress": "992f6f3c-2cb1-8393-9dc3-cc0eee1c6aa8",
       "address": "72402ccd-10d1-8dff-a0af-9c6b8af3adae",
-      "principle": "lean/Grid.lean"
+      "principle": "The grid"
     },
     {
       "key": "code_holds_sixteen_words",
       "lineAddress": "a51066b2-66fb-818f-b5b0-740a9992410b",
       "address": "13ba3e16-d902-8106-8964-9c5613a92f36",
-      "principle": "lean/Hamming.lean"
+      "principle": "The hamming"
     },
     {
       "key": "words_are_distinct",
       "lineAddress": "7e984f42-b2af-8558-9c4e-d79609f7ae43",
       "address": "70026c05-2e59-8493-ac6f-ebc0f36180d7",
-      "principle": "lean/Hamming.lean"
+      "principle": "The hamming"
     },
     {
       "key": "words_stand_three_apart",
       "lineAddress": "c6d1873b-3931-8b34-9afa-26cc6baaeaf2",
       "address": "9d06300c-d571-85eb-86a8-aee47a7866cf",
-      "principle": "lean/Hamming.lean"
+      "principle": "The hamming"
     },
     {
       "key": "weights_enumerate",
       "lineAddress": "52b700a1-54ef-8d49-b92c-5713a3a70e52",
       "address": "c5a79552-d086-8513-9ab8-551723f97d05",
-      "principle": "lean/Hamming.lean"
+      "principle": "The hamming"
     },
     {
       "key": "codewords_syndrome_zero",
       "lineAddress": "30fa5926-77d8-8d51-8c86-ed9a4275af59",
       "address": "20efaddc-d154-80ff-8a6f-3d462827dac6",
-      "principle": "lean/Hamming.lean"
+      "principle": "The hamming"
     },
     {
       "key": "syndrome_names_the_position",
       "lineAddress": "40a308ad-04b7-88be-ad0f-b004a480fcca",
       "address": "0844038f-4b81-8572-a2dc-bef239c37d31",
-      "principle": "lean/Hamming.lean"
+      "principle": "The hamming"
     },
     {
       "key": "handles_times_qubits",
       "lineAddress": "e5f4865d-576c-8172-bca6-784a5bccb14e",
       "address": "2c64ada3-0ab1-8f4f-a8e9-d305d34f95a1",
-      "principle": "lean/HandleSpan.lean"
+      "principle": "The handle span"
     },
     {
       "key": "exponents_add",
       "lineAddress": "a114c37a-1a1a-8360-b223-20318526df9b",
       "address": "ed8538cd-734d-88c5-9d79-293d282956f6",
-      "principle": "lean/HandleSpan.lean"
+      "principle": "The handle span"
     },
     {
       "key": "handle_spans_thirtytwo",
       "lineAddress": "63d333ca-3ee3-8c06-b2e2-123500272dc1",
       "address": "03fb6755-8f8d-82f8-9bbc-237b1de5880e",
-      "principle": "lean/HandleSpan.lean"
+      "principle": "The handle span"
     },
     {
       "key": "register_holds_amplitudes",
       "lineAddress": "c54495c4-9ae1-877a-a228-5b7b3cf384cb",
       "address": "10d3663d-8490-8423-bd06-6ce5d52defbf",
-      "principle": "lean/HandleSpan.lean"
+      "principle": "The handle span"
     },
     {
       "key": "total_exceeds_register",
       "lineAddress": "3b90a789-f01e-898b-af93-4c0b1302f0e1",
       "address": "4f5b29be-fdb7-812d-99e9-630e80a0726b",
-      "principle": "lean/HandleSpan.lean"
+      "principle": "The handle span"
     },
     {
       "key": "total_is_not_amplitudes",
       "lineAddress": "d50c37f6-5b70-8a83-aef1-6ea7e190f7dc",
       "address": "03332dd8-18e9-8dae-aef4-34015987dbe0",
-      "principle": "lean/HandleSpan.lean"
+      "principle": "The handle span"
     },
     {
       "key": "the_void_tile_cannot_cross",
       "lineAddress": "e63258c2-d5f2-868c-9a2f-53f92ef17841",
       "address": "a3ad1ade-d54e-8c0a-8786-6f3dcd3fdee5",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "the_uuid_is_two_boards",
       "lineAddress": "44f46d2d-657f-8141-8eb5-63b050cf0f89",
       "address": "0ff97e7d-bcaa-817e-817f-30d2d4f9441b",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "alphabet_names_each_nibble",
       "lineAddress": "ae761a00-25c1-85b7-b982-8940da1ef284",
       "address": "26d43440-428d-8970-a736-90a91507f9f6",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "layout_groups_thirtytwo",
       "lineAddress": "2c116a75-ee49-8391-a1f3-c307fb91175b",
       "address": "c4d2b7f4-dcdc-813e-8a21-66eb062e94fd",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "characters_span_the_address",
       "lineAddress": "75d8053a-4133-89c4-8480-294138b29322",
       "address": "456ce744-7306-891d-b4c2-ab222c47276f",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "handle_is_the_first_group",
       "lineAddress": "cdaf421b-a89b-83c9-8f49-6e934f9e5b8f",
       "address": "b778dd89-b4bd-83e0-8e76-474798d604fa",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "groups_are_four_apart",
       "lineAddress": "b3e42c81-7a90-8205-96fe-f0e91e6a2ad1",
       "address": "e1924ac0-a069-8478-a07a-1347d6f25b42",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "build_counts_in_hexbits",
       "lineAddress": "1638bff9-4d9a-8941-9219-61e658f40a49",
       "address": "a7b43509-2bc7-8ace-8a4e-b6c663c8a090",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "payload_carries_the_strand",
       "lineAddress": "b33da8a8-9f28-8cb6-9e07-8b4389c59547",
       "address": "ffc2997e-d1b2-8b9b-ab7b-d4a6ce6868b3",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "payload_aligns_where_the_name_does_not",
       "lineAddress": "d726f182-6d6a-8e5c-ade9-eacd06d73acb",
       "address": "39e72011-7e35-895d-8297-663313205daf",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "the_handle_molecule_is_the_mix_census",
       "lineAddress": "e36d0e98-0408-802f-9657-501045fef012",
       "address": "fd82f441-e367-8eaf-aa98-cc68d1d7221b",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "four_vectors_reach_the_uuid",
       "lineAddress": "8c3d71e1-65d0-8d1b-97fe-b12909415e99",
       "address": "578627de-e8b3-88fd-ab29-90a471705b53",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "slit_on_the_hexbit_ring",
       "lineAddress": "34a3726b-4be5-8468-8ee2-73ff2618831d",
       "address": "599d7250-ed10-87a7-813e-8d5f740cd1fe",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "dark_fringe_is_the_half_turn",
       "lineAddress": "191d6c9b-d9fa-87af-b315-304e6dcad2e7",
       "address": "9fbf8e2f-b207-81e0-a7f7-3be748e0e8f8",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "fringe_pattern_reflects_dz",
       "lineAddress": "0cf1218a-6081-874a-8c42-d1e34beb284a",
       "address": "dd77fbe0-a913-8ae5-b549-52cf9da65e7f",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "which_path_conserves_the_total",
       "lineAddress": "b82f8359-4591-8e5d-b04e-ecccf59a2d75",
       "address": "8a6a9cd5-ec4f-88d0-be38-2ebcc7ec5ebe",
-      "principle": "lean/Hexbit.lean"
+      "principle": "The hexbit"
     },
     {
       "key": "default_install_is_dependency_closed",
       "lineAddress": "ccc4cb34-1f6f-8472-a51c-c8955c6e47e4",
       "address": "096e89d6-1c63-828d-b7bb-e719ff1c6717",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "every_install_and_its_path_named_once",
       "lineAddress": "b2fa239f-b0f1-8692-a963-9d5d487bec8f",
       "address": "5554e227-1fda-8d22-9fa3-8ed2d64e4646",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "home_is_the_meta_package",
       "lineAddress": "31408e85-6cee-86d5-b032-6baa825c2999",
       "address": "050fb320-4429-845a-a45f-7074655b79b9",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "home_reaches_every_install",
       "lineAddress": "2e6d1fcc-0588-825a-a14c-e612d94d8c4f",
       "address": "f54b5f97-a732-8201-b4c3-1f0f163d4a57",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "the_port_rises_from_the_floor",
       "lineAddress": "7f75ce66-70ce-8593-81d5-75b631425b87",
       "address": "16a2abc2-872f-82c8-9c23-59ac46f235da",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "the_services_hold_each_other_up",
       "lineAddress": "1524b97e-6cbc-86bd-b6e8-6f18735d1589",
       "address": "38e45836-65d9-81d7-bbd4-67f25c07d04b",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "the_terminal_is_the_toolbox",
       "lineAddress": "aaf046f1-8950-84c9-99fb-884a45963ff0",
       "address": "4e5020c6-ed12-847c-a432-9fd48a7a7148",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "the_foundation_depends_on_nothing",
       "lineAddress": "db98964b-cc4f-8606-a9bb-ab580b0cd59c",
       "address": "ffd4ae6d-6a88-8163-a456-492a5412086b",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "every_path_carries_its_published_meaning",
       "lineAddress": "5527d89d-6dc1-82fe-b72b-7350b74e4995",
       "address": "422aee1b-4890-84a7-b8a1-655de839b08b",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "a_spec_compiles_to_hexbits",
       "lineAddress": "270ea8b6-08ed-883f-a59f-d7c061bec0e5",
       "address": "10b131d5-be81-83f3-b9e1-49c491d0b59e",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "the_os_is_bootable_quantum",
       "lineAddress": "cdd84013-a955-8a12-9903-f056f58105ac",
       "address": "8b5f439d-0e9f-82ab-ac73-3fd15eef7e49",
-      "principle": "lean/Installs.lean"
+      "principle": "The installs"
     },
     {
       "key": "xor_preserves_distance",
       "lineAddress": "bc1d7ae9-ffa0-8f54-9005-28128f71cd63",
       "address": "a93bf5ba-f682-8a3f-88de-f8878dca4db4",
-      "principle": "lean/Isometry.lean"
+      "principle": "The isometry"
     },
     {
       "key": "reuse_leaks_by_isometry",
       "lineAddress": "4940d60c-b462-8b36-99f2-42684ec8dfd0",
       "address": "746ab8a0-9e0e-8140-8953-70c7f2b6d977",
-      "principle": "lean/Isometry.lean"
+      "principle": "The isometry"
     },
     {
       "key": "complement_flips_two",
       "lineAddress": "0deff804-c939-8292-b193-124b302695a1",
       "address": "4b4f16c4-76a0-8179-9799-72d17ec54ab2",
-      "principle": "lean/Isometry.lean"
+      "principle": "The isometry"
     },
     {
       "key": "codon_flips_six",
       "lineAddress": "3271374a-0b20-87b0-850b-45697ba61eb3",
       "address": "5aded7ec-e283-8686-969c-c8debeaab9dc",
-      "principle": "lean/Isometry.lean"
+      "principle": "The isometry"
     },
     {
       "key": "distance_is_symmetric",
       "lineAddress": "7344e796-9709-8052-b398-69b28d5a5bc5",
       "address": "4687658a-d485-8586-be43-a7dd3aa054c8",
-      "principle": "lean/Isometry.lean"
+      "principle": "The isometry"
     },
     {
       "key": "isometry_bounds_correction",
       "lineAddress": "3de8010e-e3e3-87a8-8988-f9f359aeac51",
       "address": "76a0a6f8-73cf-8a0a-83f2-3ebc1dcbea6a",
-      "principle": "lean/Isometry.lean"
+      "principle": "The isometry"
     },
     {
       "key": "a_token_approximates_eight_hexbits",
       "lineAddress": "62bf7359-a245-8ebf-b5ef-94e1ccd3fd6a",
       "address": "59ce118e-1587-8dfb-bf58-c959f5739ac7",
-      "principle": "lean/Models.lean"
+      "principle": "The models"
     },
     {
       "key": "context_windows_are_transient_hexbits",
       "lineAddress": "7729a195-e0a4-8423-b8bd-27d3018f49d0",
       "address": "325181ea-8412-8b60-a164-60e8fa17b08d",
-      "principle": "lean/Models.lean"
+      "principle": "The models"
     },
     {
       "key": "speaking_an_address_costs_the_text",
       "lineAddress": "c5806bc4-a861-8377-8035-c46d2660fb90",
       "address": "28b73899-48fa-86d1-93b4-4f6f2852b597",
-      "principle": "lean/Models.lean"
+      "principle": "The models"
     },
     {
       "key": "crypto_widths_are_fixed_not_sampled",
       "lineAddress": "28abe84a-2f79-8410-ac78-5ac5e0bf6d39",
       "address": "4daa3c87-c5cd-824e-8b81-10faf473d3a9",
-      "principle": "lean/Models.lean"
+      "principle": "The models"
     },
     {
       "key": "every_context_is_finite_against_the_lattice",
       "lineAddress": "ddca61e3-57b1-87d0-b5bc-dd3138fd87a5",
       "address": "0958d5f7-a2df-878b-bbaf-72fefb4d60dd",
-      "principle": "lean/Models.lean"
+      "principle": "The models"
     },
     {
       "key": "llm_folds_to_hexbit_pairs",
       "lineAddress": "45375d7c-6c34-8163-9c3b-576e91239126",
       "address": "a117fb17-f381-88d1-a107-33bdce8bc554",
-      "principle": "lean/Models.lean"
+      "principle": "The models"
     },
     {
       "key": "a_handle_is_eight_pairs_paid_it_is_sixteen",
       "lineAddress": "938eeca9-2dde-8640-b618-5a28c7aabf1d",
       "address": "8b3fc716-17d1-8da6-b42c-d8f93e2b5152",
-      "principle": "lean/Models.lean"
+      "principle": "The models"
     },
     {
       "key": "ten_reduces_to_one",
       "lineAddress": "525ec927-7b66-8103-ad66-eaf0cdab000c",
       "address": "34ad8bb2-ab00-8e57-88a9-1b6a9679f352",
-      "principle": "lean/Notation.lean"
+      "principle": "The notation"
     },
     {
       "key": "base_fixes_modulus",
       "lineAddress": "cf0eca42-4b3f-801c-bc05-85b20298b22e",
       "address": "72e8a913-400a-823d-86c3-aed534ebcc30",
-      "principle": "lean/Notation.lean"
+      "principle": "The notation"
     },
     {
       "key": "bases_disagree_on_root",
       "lineAddress": "a678b09b-2658-8c2c-9e37-0eaec0afdcff",
       "address": "4293a613-165b-897a-abe0-e84bdcf0dc08",
-      "principle": "lean/Notation.lean"
+      "principle": "The notation"
     },
     {
       "key": "reversal_escapes_arithmetic",
       "lineAddress": "eb6be149-5ec6-85ef-a405-46c172e7402a",
       "address": "044acdfc-f523-82bc-abeb-752d997e2f5f",
-      "principle": "lean/Notation.lean"
+      "principle": "The notation"
     },
     {
       "key": "root_survives_the_reading",
       "lineAddress": "a9e4bd65-d766-89ad-ab46-02f1f11fc165",
       "address": "80d4b0ae-2097-8436-9e40-fdcddd38d1a4",
-      "principle": "lean/Notation.lean"
+      "principle": "The notation"
     },
     {
       "key": "nine_divides_by_construction",
       "lineAddress": "eb73a874-7534-8487-a602-04d3bf06f3fb",
       "address": "6ef3763c-4174-8f85-a862-1669a89099fd",
-      "principle": "lean/Notation.lean"
+      "principle": "The notation"
     },
     {
       "key": "orbit_0_1_2_3_4_5_6_7_8_9_closes",
       "lineAddress": "0177a449-0dc2-87c6-9ba7-67a99dbb3a39",
       "address": "f9b8157b-9d3d-8d5c-93f7-8a08a36feb0d",
-      "principle": "lean/Orbits.lean"
+      "principle": "The orbits"
     },
     {
       "key": "orbit_0_1_3_4_5_6_7_9_closes",
       "lineAddress": "8b7348aa-ebfb-8d53-a581-220e7346d78b",
       "address": "adad8cd1-cbf6-817c-81d1-80815aaf9c0b",
-      "principle": "lean/Orbits.lean"
+      "principle": "The orbits"
     },
     {
       "key": "orbit_0_1_3_5_7_9_closes",
       "lineAddress": "99aa8602-55a7-8c40-b407-6037438355fc",
       "address": "1447898d-1bad-89d2-8832-9e03a9deb0d4",
-      "principle": "lean/Orbits.lean"
+      "principle": "The orbits"
     },
     {
       "key": "orbit_0_1_5_9_closes",
       "lineAddress": "c65f161c-d443-8502-9b27-bf7e533c8656",
       "address": "6ef041bd-77b2-86c8-bebf-19fcb35533cc",
-      "principle": "lean/Orbits.lean"
+      "principle": "The orbits"
     },
     {
       "key": "orbit_0_1_9_closes",
       "lineAddress": "ce67887b-7b1e-8894-8e50-6f8c42402c59",
       "address": "e1e37005-76b6-8bea-8219-e27fa7baf4b9",
-      "principle": "lean/Orbits.lean"
+      "principle": "The orbits"
     },
     {
       "key": "orbit_0_closes",
       "lineAddress": "431edbec-16b1-8ef8-98d2-84c46fd5ddb9",
       "address": "e81fbcbf-d04d-8d24-a69d-49e0dd9d6004",
-      "principle": "lean/Orbits.lean"
+      "principle": "The orbits"
     },
     {
       "key": "orbits_number_and_orders",
       "lineAddress": "4b0aff46-ba74-80f0-abfa-b94891fe2492",
       "address": "e07be0ad-0b16-8a29-8f7b-bd87572f6e94",
-      "principle": "lean/Orbits.lean"
+      "principle": "The orbits"
     },
     {
       "key": "every_seed_lands_somewhere",
       "lineAddress": "db8785c7-6bf5-8776-900c-c227de5f0c1a",
       "address": "24abbea8-a7ba-88f0-a1e8-7751119a5e1e",
-      "principle": "lean/Orbits.lean"
+      "principle": "The orbits"
     },
     {
       "key": "covering_seeds_are_named",
       "lineAddress": "ee9537ef-54f2-8fb9-a58a-2df0f080f5cc",
       "address": "f00ad8a6-d1c8-87a8-9a56-21697b93f508",
-      "principle": "lean/Orbits.lean"
+      "principle": "The orbits"
     },
     {
       "key": "dz_loses_nothing",
       "lineAddress": "93190a31-1567-8fd1-8c79-44e054d45987",
       "address": "8df168de-703b-8efb-93b8-601e0f9905d1",
-      "principle": "lean/Phase.lean"
+      "principle": "The phase"
     },
     {
       "key": "doubling_collapses_nine",
       "lineAddress": "6880f8d1-8c8d-8814-bdc0-a5feeee73f20",
       "address": "70c49015-6174-8700-9f2e-ac93622a1f70",
-      "principle": "lean/Phase.lean"
+      "principle": "The phase"
     },
     {
       "key": "maps_differ_in_reach",
       "lineAddress": "9fd9816c-e5ed-85ce-ae9a-ef30058c2d7e",
       "address": "4ced2a31-a93c-8db4-b9d9-25af75bf6585",
-      "principle": "lean/Phase.lean"
+      "principle": "The phase"
     },
     {
       "key": "zero_closes_in_phase",
       "lineAddress": "972f66a3-0e97-8e55-b4a6-f1702930a6eb",
       "address": "846ff86c-7e0f-87ad-be2a-9aebb18da018",
-      "principle": "lean/Phase.lean"
+      "principle": "The phase"
     },
     {
       "key": "five_returns_out_of_phase",
       "lineAddress": "527b3bcb-cab2-81d7-83af-e21fe0a5c7e8",
       "address": "f2b0d2d0-171f-8d78-bc70-a8ced5ea0bbe",
-      "principle": "lean/Phase.lean"
+      "principle": "The phase"
     },
     {
       "key": "reach_shrinks_each_pass",
       "lineAddress": "53b17eb3-14e5-8b9a-b6a1-9db21e4fa807",
       "address": "9eca9b1a-9d00-85bb-865f-5aaecf098e9c",
-      "principle": "lean/Phase.lean"
+      "principle": "The phase"
     },
     {
       "key": "orbits_number_six",
       "lineAddress": "25a6418c-c61c-8792-9145-60ff22cfff87",
       "address": "b952f04f-0a13-802a-8dcd-d03ff467ba63",
-      "principle": "lean/ProseTrial.lean"
+      "principle": "The prose trial"
     },
     {
       "key": "order_measures_orbit",
       "lineAddress": "35f05a06-fe34-8782-b70d-5113e4b5079d",
       "address": "e5cbb88b-9e95-859f-aaf7-0ae5d743786a",
-      "principle": "lean/ProseTrial.lean"
+      "principle": "The prose trial"
     },
     {
       "key": "forged_order_refused",
       "lineAddress": "a21255dd-8252-89d9-a942-02fd4d42aa0d",
       "address": "99c108c5-0670-8167-832f-8c932dfe09d4",
-      "principle": "lean/ProseTrial.lean"
+      "principle": "The prose trial"
     },
     {
       "key": "orbits_reflect_onto_themselves",
       "lineAddress": "295e186a-9768-895c-8dc7-253d028c7359",
       "address": "19a7e171-f555-80ff-9fc1-d676c131a79d",
-      "principle": "lean/ProseTrial.lean"
+      "principle": "The prose trial"
     },
     {
       "key": "orbits_are_distinct",
       "lineAddress": "91e5a519-dd36-8b28-89a4-b8e8278f1226",
       "address": "04429592-b435-85df-bc8a-43737ce73b60",
-      "principle": "lean/ProseTrial.lean"
+      "principle": "The prose trial"
     },
     {
       "key": "every_orbit_holds_zero",
       "lineAddress": "68ead2ec-35aa-83bd-9695-bb3cd519b6f9",
       "address": "b6fac6a1-67ad-84f0-b36f-150ef9726257",
-      "principle": "lean/ProseTrial.lean"
+      "principle": "The prose trial"
     },
     {
       "key": "reflection_splits_six",
       "lineAddress": "5cc2ac21-57de-8663-8a7e-47040723400f",
       "address": "3f22bf19-39b8-8e6f-ad99-107c24190d2d",
-      "principle": "lean/Reflection.lean"
+      "principle": "The reflection"
     },
     {
       "key": "classes_cap_at_two",
       "lineAddress": "c686d1a7-e484-8714-b389-3d17b5945d7f",
       "address": "17b0fb29-c6f1-80d9-b508-342d7b0f1c03",
-      "principle": "lean/Reflection.lean"
+      "principle": "The reflection"
     },
     {
       "key": "six_is_forced_arithmetic",
       "lineAddress": "488390f9-a7b3-85d0-b103-2b634ffff966",
       "address": "59cc3f52-28bd-8448-bc3e-d30bde92c829",
-      "principle": "lean/Reflection.lean"
+      "principle": "The reflection"
     },
     {
       "key": "seven_reach_five_classes",
       "lineAddress": "959a2a62-9f3e-8045-a0e8-d81b45a0a66f",
       "address": "06ca32bb-5da9-868f-985f-4d427ddd9201",
-      "principle": "lean/Reflection.lean"
+      "principle": "The reflection"
     },
     {
       "key": "reflection_confuses_seven_three",
       "lineAddress": "837d4594-a40a-89ec-8d83-ea5bd5420ca7",
       "address": "8f11351a-4aa1-8e74-9ebf-b622a6573c88",
-      "principle": "lean/Reflection.lean"
+      "principle": "The reflection"
     },
     {
       "key": "seventh_covers_reflection_cannot",
       "lineAddress": "06b6cfad-0b59-8607-8a1f-5aa3d6bf3e0e",
       "address": "dc15f102-b3bd-8dfe-946e-bf704f329763",
-      "principle": "lean/Reflection.lean"
+      "principle": "The reflection"
     },
     {
       "key": "reflection_reverses_uniquely",
       "lineAddress": "cb258834-335f-82f3-b2dc-4ba23cd22e22",
       "address": "1c0db4c2-4e51-8d86-a1cf-ffb0fb9e8b46",
-      "principle": "lean/Reversal.lean"
+      "principle": "The reversal"
     },
     {
       "key": "doubling_reverses_ambiguously",
       "lineAddress": "5d4e763a-4cef-85c6-a002-3b3319d65666",
       "address": "685e68fd-2a88-8ad7-b421-7f671d0cc4ba",
-      "principle": "lean/Reversal.lean"
+      "principle": "The reversal"
     },
     {
       "key": "nine_is_never_reached",
       "lineAddress": "96ebed2f-00bf-84a0-945f-45b5a8e6cd21",
       "address": "ab65873e-55a9-8769-89f0-d8395d7fa178",
-      "principle": "lean/Reversal.lean"
+      "principle": "The reversal"
     },
     {
       "key": "censuses_differ",
       "lineAddress": "41a32ab6-b250-8eb8-942a-edadcbb8f596",
       "address": "45fed086-6957-89be-aaa5-e8a290fce7dd",
-      "principle": "lean/Reversal.lean"
+      "principle": "The reversal"
     },
     {
       "key": "path_reverse_needs_both",
       "lineAddress": "9e26188c-2b97-862f-ace4-ff807ad60e3c",
       "address": "e5eb6f5f-9917-81d4-9e8f-8d71c3324cb9",
-      "principle": "lean/Reversal.lean"
+      "principle": "The reversal"
     },
     {
       "key": "reflection_explores_all",
       "lineAddress": "135be310-1049-80c1-8715-bf605dbf4976",
       "address": "9a32d60c-8986-87dc-98b3-0e6364e01c91",
-      "principle": "lean/Reversal.lean"
+      "principle": "The reversal"
     },
     {
       "key": "fullest_seat_ceiling",
       "lineAddress": "a8560d63-df9f-8e56-9ed3-60c9d9fd2106",
       "address": "d345c417-4282-8804-b0d9-083dc84ba573",
-      "principle": "lean/Seats.lean"
+      "principle": "The seats"
     },
     {
       "key": "excess_forces_sharing",
       "lineAddress": "c354adf7-4f15-8539-83cf-04a9a68d05ed",
       "address": "dc86fe6e-2b71-80c5-8711-7d57229e7863",
-      "principle": "lean/Seats.lean"
+      "principle": "The seats"
     },
     {
       "key": "fit_shares_nothing",
       "lineAddress": "786be7ae-f5d8-89ed-bc32-a82ecd2ecc70",
       "address": "8a13920b-a9e0-8f12-9b49-18d42fe59885",
-      "principle": "lean/Seats.lean"
+      "principle": "The seats"
     },
     {
       "key": "powers_are_not_the_bound",
       "lineAddress": "65099200-d10e-82d2-a03e-a15a365ef4c3",
       "address": "177c819a-9ae2-8c5c-a5ac-fa5708694971",
-      "principle": "lean/Seats.lean"
+      "principle": "The seats"
     },
     {
       "key": "digits_split_five_five",
       "lineAddress": "0a869d13-cfd0-8587-91b9-9badfe162e6f",
       "address": "ce4ff8a9-a31c-8c39-bfda-e5d29111aee8",
-      "principle": "lean/Seats.lean"
+      "principle": "The seats"
     },
     {
       "key": "ten_seats_bound_any_ring",
       "lineAddress": "9dea5987-2c94-8fc7-80d5-04d2b736d0ba",
       "address": "155ae4a5-bb1b-809a-a17e-733dacb7d448",
-      "principle": "lean/Seats.lean"
+      "principle": "The seats"
     },
     {
       "key": "colour_is_six_hexbits",
       "lineAddress": "21709568-04d5-851a-95c7-533a5fed7e82",
       "address": "3222293d-e79c-86c4-bee9-0a3366e18001",
-      "principle": "lean/SpectrumHex.lean"
+      "principle": "The spectrum hex"
     },
     {
       "key": "channel_is_two_hexbits",
       "lineAddress": "f8823a37-6ffb-8728-a6dc-d5548aba1d68",
       "address": "e9adc9d8-5e74-83b2-a8ef-cd48838b8955",
-      "principle": "lean/SpectrumHex.lean"
+      "principle": "The spectrum hex"
     },
     {
       "key": "greys_are_one_in_sixtyfive_thousand",
       "lineAddress": "733b3146-6474-8d2e-be14-01b5ab3555f8",
       "address": "7a2dea79-76a8-8906-9649-2ff0540e1b2b",
-      "principle": "lean/SpectrumHex.lean"
+      "principle": "The spectrum hex"
     },
     {
       "key": "shorthand_covers_one_in_four_thousand",
       "lineAddress": "acc30943-74d0-8cfe-8c52-449406349f78",
       "address": "337359f0-ded1-81ca-af70-a170c208e3b2",
-      "principle": "lean/SpectrumHex.lean"
+      "principle": "The spectrum hex"
     },
     {
       "key": "spectrum_refuses_sixteen",
       "lineAddress": "ebb23b67-47b3-86e6-b431-a9a091c306c5",
       "address": "859b51d2-fbbf-8ff9-9cc7-7d8973fa05ce",
-      "principle": "lean/SpectrumHex.lean"
+      "principle": "The spectrum hex"
     },
     {
       "key": "wheel_divides_by_nine_and_six",
       "lineAddress": "761e047b-9da3-889a-a505-8fe51644d76c",
       "address": "827c1b2b-5604-80bd-a730-d1b006a17a61",
-      "principle": "lean/SpectrumHex.lean"
+      "principle": "The spectrum hex"
     },
     {
       "key": "units_form_six",
       "lineAddress": "ce45c5a6-9169-81a9-920d-3563fe1a73ef",
       "address": "f31fd6d1-5209-8ed3-99f5-8ef2becdf838",
-      "principle": "lean/Subgroups.lean"
+      "principle": "The subgroups"
     },
     {
       "key": "four_subgroups_exhibited",
       "lineAddress": "65357b23-2214-8b9f-863f-5904296cd047",
       "address": "4bdec332-bb13-877c-b003-8309abba87a4",
-      "principle": "lean/Subgroups.lean"
+      "principle": "The subgroups"
     },
     {
       "key": "lagrange_divides_every_order",
       "lineAddress": "87f6a750-8cd9-82c1-a968-27049f140aee",
       "address": "32b956fe-396b-8c51-b9c1-a791e9f7f53d",
-      "principle": "lean/Subgroups.lean"
+      "principle": "The subgroups"
     },
     {
       "key": "two_generates_the_whole",
       "lineAddress": "cb8823e1-730f-8209-83de-8ee9132586ce",
       "address": "fc05c9bd-39a5-8cb2-89a9-907fa1b50ec3",
-      "principle": "lean/Subgroups.lean"
+      "principle": "The subgroups"
     },
     {
       "key": "most_subsets_are_not_subgroups",
       "lineAddress": "122a14de-ee82-86f4-9b1a-07b4482dd666",
       "address": "7eb0a7a6-a4dc-8bee-9ff1-0ea0a1e58b19",
-      "principle": "lean/Subgroups.lean"
+      "principle": "The subgroups"
     },
     {
       "key": "trivial_and_whole_are_subgroups",
       "lineAddress": "b1039f26-5e2e-8a4b-88c2-067b3856c5a1",
       "address": "af923b63-8a33-85ad-b0e1-a942aaec5bff",
-      "principle": "lean/Subgroups.lean"
+      "principle": "The subgroups"
     },
     {
       "key": "trinities_span_powers",
       "lineAddress": "b13daa21-8d06-880a-8b24-874b305494e3",
       "address": "cd19de9c-29f0-8874-9fdc-73ef55162678",
-      "principle": "lean/Trinities.lean"
+      "principle": "The trinities"
     },
     {
       "key": "trinity_exceeds_qubit",
       "lineAddress": "873b5f0c-d89c-8e6f-a2b5-38ddd20fb24d",
       "address": "7fcf294f-4f88-8336-80a8-1824a85a999e",
-      "principle": "lean/Trinities.lean"
+      "principle": "The trinities"
     },
     {
       "key": "trinities_cover_billion",
       "lineAddress": "a790fd76-ebe1-881d-8961-41906c2ce34d",
       "address": "4c3b2605-0cc3-8008-81d1-ec6fbd53e7ba",
-      "principle": "lean/Trinities.lean"
+      "principle": "The trinities"
     },
     {
       "key": "trinities_cover_word",
       "lineAddress": "faf916c0-86cd-8780-8080-54a1b5732bc7",
       "address": "911977cc-1d2b-821e-b765-b3e7c6452b8f",
-      "principle": "lean/Trinities.lean"
+      "principle": "The trinities"
     },
     {
       "key": "trinities_cover_address",
       "lineAddress": "0444012c-baab-8826-aa28-9bf7a0c32cd5",
       "address": "55734dfe-16fd-824f-83c2-fc4d995a5ac6",
-      "principle": "lean/Trinities.lean"
+      "principle": "The trinities"
     },
     {
       "key": "eightyone_squares_nine",
       "lineAddress": "09d130b1-ccb5-813b-a03d-a6f290c7c6bb",
       "address": "12e3337d-3c1f-8847-ae51-c2684ef472fb",
-      "principle": "lean/Trinities.lean"
+      "principle": "The trinities"
     },
     {
       "key": "ve_twelve_vertices",
       "lineAddress": "9b93e314-2c96-8ea1-9a6b-05405bf979cf",
       "address": "dbd59d77-f648-8ac9-aeca-93410d94df52",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "radial_squared_two",
       "lineAddress": "ea9551d4-5915-8dce-9b3e-0068a66dcee8",
       "address": "528fae4c-4b3d-8350-b6c5-a04c7384f367",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "ve_four_neighbours",
       "lineAddress": "6ac989a9-258c-85d9-b64f-7e39f56019f0",
       "address": "ec711c3b-3950-8d91-a519-8b3e1aec99d2",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "radial_equals_edge",
       "lineAddress": "6526e850-ef1e-8675-a987-8fec40987c8d",
       "address": "9c3f0493-9246-82fc-8a0c-e5ae61c1740a",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "ve_handshake_crosses",
       "lineAddress": "b06024e4-90ab-8350-909e-39f2b6daf345",
       "address": "9c12b775-bdb2-840a-9a51-a2c49f8e42d5",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "ve_twentyfour_edges",
       "lineAddress": "61e94462-d162-89f7-b568-d8bfa567ef93",
       "address": "bf5c8a62-fe1a-8d29-b3a5-0cd134cd64b8",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "ve_fourteen_faces",
       "lineAddress": "cd230582-ce3f-8046-ab30-210d271fc0fa",
       "address": "7bd12c41-c713-8869-b5da-1513ab3a0f1b",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "euler_characteristic_two",
       "lineAddress": "129f3e87-70bf-8c91-a296-18fd73266c93",
       "address": "434bf42f-cd8f-849a-b2c2-fcaace767eec",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "metatron_seventyeight_lines",
       "lineAddress": "540ac81e-f5b1-8d5b-b755-f041d218c7b6",
       "address": "baa1fce2-9775-80cf-a47a-24b830f74ecb",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "dz_two_fixedpoints",
       "lineAddress": "e34f5f61-4b94-889b-b2b7-ad248e02585a",
       "address": "006cfabe-13f4-86ca-a751-292315cee4c9",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "dz_involution_digits",
       "lineAddress": "90dc3f2a-b1d4-8a43-9531-33c3f4c636cf",
       "address": "d1b4bf5f-af54-82d8-9d19-74670a741ba2",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "orbits_closed_involution",
       "lineAddress": "87972164-0f5f-81ae-b92d-964e83473716",
       "address": "ee292c4e-7042-85aa-a526-8a1e28a9687f",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "missing_pair_involution",
       "lineAddress": "d562b31a-52a7-8b77-9c7c-33a120e9f6c9",
       "address": "c13cdc16-1821-8c65-a900-18fe91c07528",
-      "principle": "lean/VectorEquilibrium.lean"
+      "principle": "The vector equilibrium"
     },
     {
       "key": "captains_columns_sum_to_ten",
       "lineAddress": "9bd83494-39d0-86aa-a607-6e020ab2e5e0",
       "address": "26f5c88e-8d10-83b1-82a4-ac80e0d86d0b",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "nine_complement_half_turns_the_orbit",
       "lineAddress": "4bb74335-223a-84ab-8c00-b3714392ffc1",
       "address": "324b992f-2db9-8b4d-beb3-935ab1646c1a",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "five_is_the_developing_center",
       "lineAddress": "d11f67cc-099d-8b87-b6dc-706e8d1fdcad",
       "address": "d579ecb2-bca1-8207-844c-3c47b37ec9c2",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "the_hex_center_is_empty",
       "lineAddress": "de138fef-51a6-84b9-84dd-03d1d6fe9226",
       "address": "cbd12eec-3ef6-8cbb-84de-dce827fd5242",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "gas_volume_walks_the_harmonic_series",
       "lineAddress": "c040a0d8-d795-8426-b6a0-ca3012377a04",
       "address": "f9271f08-d5ed-8690-a90c-2a49a9f18b9e",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "pressure_doubles_down_the_octave",
       "lineAddress": "9442250d-9c3a-8406-b152-6b2bcfe28317",
       "address": "22e72ea2-3199-8b22-8b83-134461bda902",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "haldane_bound_is_two_to_one",
       "lineAddress": "461e216f-dedf-858a-8fa1-ff1e4834151f",
       "address": "ca148014-0bb5-824a-bf3d-54db97ffb9d7",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "buddy_pair_squares_the_failure",
       "lineAddress": "bd25e609-12c3-802c-b2f3-a2001bbe0cea",
       "address": "669679dd-d030-822d-a4f1-2309fea13d58",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "thirds_rule_sums_whole",
       "lineAddress": "2c327669-945e-8b9f-af9f-7f8dd5557e5a",
       "address": "4c16a853-894c-80c9-87d2-eed040bdb1e8",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "divers_and_astronauts_share_the_ladder",
       "lineAddress": "d8779afc-d868-80f5-b95e-60a15d5962e5",
       "address": "ec382dea-aa57-8075-be62-68af2cb293c0",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "one_image_every_architecture",
       "lineAddress": "ddbe54e8-42e2-806b-9369-b24964476a2e",
       "address": "597a8c4b-dc8e-80e7-ae29-93b363fff5c6",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "states_are_the_swap_fixed_bytes",
       "lineAddress": "cd363742-ec49-8473-a72b-65bb207ffae3",
       "address": "5202fbb5-d068-8703-9f33-2208fab9bf8a",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "the_page_admits_sixteen",
       "lineAddress": "5f5721a9-48a1-8852-bf99-04edc44d1e63",
       "address": "a2627210-e257-8012-8fa5-12857b011a31",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "the_coin_compass_closes",
       "lineAddress": "81785ba3-e7c5-8357-ae68-1aac322cfd38",
       "address": "55555830-bcef-8de5-940c-8a170689a2c7",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "chi_crystallises_three_genera",
       "lineAddress": "c43f44c2-0a15-8f3c-ada6-b3f1d72841cd",
       "address": "932250c1-065c-8cac-b308-6caf5880d755",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "imaginings_meet_at_sixtyfour",
       "lineAddress": "d75f5863-ac43-8944-a65e-78001ad8415c",
       "address": "2f8e9f2e-f0a9-8205-bc59-cd174d13ac79",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "rounding_fee_closes_the_cube",
       "lineAddress": "20ecab0b-27e0-8464-9633-3a4c18aba8af",
       "address": "7b5ef24c-995c-896e-a208-c93ff71fc76b",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     },
     {
       "key": "the_promotion_chain_doubles_home",
       "lineAddress": "9af699e6-899f-8ae4-99a5-9a6c78484b82",
       "address": "ce52945b-3c3c-8847-a66e-74c95d6e08a7",
-      "principle": "lean/Waves.lean"
+      "principle": "The waves"
     }
   ],
   "claim_receipt": "9fdb2d5f-0452-841c-8c06-fa2263388732",

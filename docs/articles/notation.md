@@ -1,9 +1,9 @@
 ---
-title: "lean/Notation.lean"
+title: "The notation"
 description: "Computed from lean/Notation.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Notation.lean
+# The notation
 
 > NOTATION — which harmonic facts are about NUMBERS and which are about how numbers are WRITTEN. — held by [ten_reduces_to_one](/theorem/ten_reduces_to_one) and its 5 siblings below.
 

@@ -1,9 +1,9 @@
 ---
-title: "lean/Hamming.lean"
+title: "The hamming"
 description: "Computed from lean/Hamming.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Hamming.lean
+# The hamming
 
 > HAMMING(7,4), ENUMERATED — the whole table rather than facts stated around it. — held by [code_holds_sixteen_words](/theorem/code_holds_sixteen_words) and its 5 siblings below.
 

@@ -1,9 +1,9 @@
 ---
-title: "lean/Contribution.lean"
+title: "The contribution"
 description: "Computed from lean/Contribution.lean — 5 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Contribution.lean
+# The contribution
 
 > THE CONTRIBUTION — what the address becomes once the coins are paid. — held by [contribution_leaves_one_twentysix](/theorem/contribution_leaves_one_twentysix) and its 4 siblings below.
 

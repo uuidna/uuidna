@@ -1,9 +1,9 @@
 ---
-title: "lean/Affine.lean"
+title: "The affine"
 description: "Computed from lean/Affine.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Affine.lean
+# The affine
 
 > AGL(1,ℤ/9), ENUMERATED — the group OneLeap.lean names and never lists. — held by [group_holds_fiftyfour](/theorem/group_holds_fiftyfour) and its 5 siblings below.
 

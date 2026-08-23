@@ -40450,7 +40450,7 @@
         "abstract": "(agl.length = 54) ∧ (agl.eraseDups.length = 54) ∧ (6 * 9 = 54)",
         "identifier": "494b9d8d-4270-8488-aa14-672bffee04a1",
         "url": "https://uuidna.com/theorem/group_holds_fiftyfour",
-        "keywords": "affine, lean/Affine.lean",
+        "keywords": "affine, The affine",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Affine.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40478,7 +40478,7 @@
         "abstract": "((List.range 9).filter (fun a => (List.range 9).any (fun c => (a * c) % 9 == 1)) = [1,2,4,5,7,8]) ∧ (!([1,2,4,5,7,8].contains 3))",
         "identifier": "18fe6fdc-9e76-8d97-91d7-f9510934c075",
         "url": "https://uuidna.com/theorem/units_are_coprime_six",
-        "keywords": "affine, lean/Affine.lean",
+        "keywords": "affine, The affine",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Affine.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40506,7 +40506,7 @@
         "abstract": "agl.all (fun f => agl.all (fun g => agl.contains (comp f g)))",
         "identifier": "d3b61f09-7d20-8ffc-bc90-54759a09c595",
         "url": "https://uuidna.com/theorem/composition_stays_inside",
-        "keywords": "affine, lean/Affine.lean",
+        "keywords": "affine, The affine",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Affine.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40534,7 +40534,7 @@
         "abstract": "(agl.contains 9) ∧ (agl.all (fun f => (comp f 9 == f) && (comp 9 f == f)))",
         "identifier": "aeba1dfd-4a62-8824-8fb1-1dcd5369eb19",
         "url": "https://uuidna.com/theorem/identity_leaves_all",
-        "keywords": "affine, lean/Affine.lean",
+        "keywords": "affine, The affine",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Affine.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40562,7 +40562,7 @@
         "abstract": "agl.all (fun f => agl.any (fun g => comp f g == 9))",
         "identifier": "1e44655d-012e-8334-91fe-13af5468ca96",
         "url": "https://uuidna.com/theorem/every_map_inverts",
-        "keywords": "affine, lean/Affine.lean",
+        "keywords": "affine, The affine",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Affine.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40590,7 +40590,7 @@
         "abstract": "(agl.any (fun f => agl.any (fun g => comp f g != comp g f))) ∧ (2376 + 540 = 2916) ∧ (2376 ≠ 0)",
         "identifier": "5ce9bcca-5f17-8250-8bf5-1cf6836f78e3",
         "url": "https://uuidna.com/theorem/group_does_not_commute",
-        "keywords": "affine, lean/Affine.lean",
+        "keywords": "affine, The affine",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Affine.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40618,7 +40618,7 @@
         "abstract": "((2:Nat)^4 = 16) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32)",
         "identifier": "533f84bc-2818-8ee4-9343-f5af41f21a2f",
         "url": "https://uuidna.com/theorem/hexbit_is_four_qubits",
-        "keywords": "alignment, lean/Alignment.lean",
+        "keywords": "alignment, The alignment",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Alignment.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40646,7 +40646,7 @@
         "abstract": "[9,10,15,16].map (fun m => 16 - m) = [7,6,1,0]",
         "identifier": "61fd2a22-b33f-8e96-a953-95d2ce4b00c5",
         "url": "https://uuidna.com/theorem/moduli_waste_states",
-        "keywords": "alignment, lean/Alignment.lean",
+        "keywords": "alignment, The alignment",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Alignment.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40674,7 +40674,7 @@
         "abstract": "(16 - 16 = 0) ∧ ([9,10,15].all (fun m => 16 - m > 0))",
         "identifier": "c84df594-8f79-87a8-b051-b09a50cbd558",
         "url": "https://uuidna.com/theorem/sixteen_alone_tiles",
-        "keywords": "alignment, lean/Alignment.lean",
+        "keywords": "alignment, The alignment",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Alignment.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40702,7 +40702,7 @@
         "abstract": "(16 - 10 = 6) ∧ (16 - 15 = 1) ∧ (16 - 10 > 16 - 15)",
         "identifier": "37ab2f38-57b9-8331-a9dc-037e0a298675",
         "url": "https://uuidna.com/theorem/ten_costs_more_than_fifteen",
-        "keywords": "alignment, lean/Alignment.lean",
+        "keywords": "alignment, The alignment",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Alignment.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40730,7 +40730,7 @@
         "abstract": "((2:Nat)^4 = 16 ∧ (2:Nat)^5 = 32 ∧ (2:Nat)^7 = 128 ∧ (2:Nat)^16 = 65536) ∧ ((2:Nat)^3 < 9 ∧ 9 < 2^4) ∧ ((2:Nat)^3 < 10 ∧ 10 < 2^4)",
         "identifier": "8c130f10-c2c6-8d09-8b66-b65fa1d5887a",
         "url": "https://uuidna.com/theorem/powers_of_two_are_the_substance",
-        "keywords": "alignment, lean/Alignment.lean",
+        "keywords": "alignment, The alignment",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Alignment.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40758,7 +40758,7 @@
         "abstract": "(32 - 4 = 28) ∧ (32 ≠ 4) ∧ (4 * 8 = 32)",
         "identifier": "cc2cc229-093c-8bc7-9e3f-761220ef6372",
         "url": "https://uuidna.com/theorem/handle_discards_before_walking",
-        "keywords": "alignment, lean/Alignment.lean",
+        "keywords": "alignment, The alignment",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Alignment.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40786,7 +40786,7 @@
         "abstract": "((List.range 16).map rowsOf).eraseDups.length = 16 ∧ ((2:Nat)^(2^2) = 16)",
         "identifier": "9e73137a-e872-829d-a2c4-b898d6b67241",
         "url": "https://uuidna.com/theorem/sixteen_binary_functions",
-        "keywords": "boolean, lean/Boolean.lean",
+        "keywords": "boolean, The boolean",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Boolean.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40814,7 +40814,7 @@
         "abstract": "(rowsOf 8 = [0,0,0,1]) ∧ (rowsOf 14 = [0,1,1,1]) ∧ (rowsOf 6 = [0,1,1,0]) ∧ (rowsOf 7 = [1,1,1,0]) ∧ (rowsOf 1 = [1,0,0,0])",
         "identifier": "83174480-f5a1-8085-9e2a-c3abfec26101",
         "url": "https://uuidna.com/theorem/gates_name_their_tables",
-        "keywords": "boolean, lean/Boolean.lean",
+        "keywords": "boolean, The boolean",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Boolean.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40842,7 +40842,7 @@
         "abstract": "((List.range 2).all (fun a => nandB a a == notB a)) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => notB (nandB a b) == andB a b))) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => nandB (notB a) (notB b) == orB a b)))",
         "identifier": "9662d798-9746-865d-bb3e-c4273546852f",
         "url": "https://uuidna.com/theorem/nand_rebuilds_the_others",
-        "keywords": "boolean, lean/Boolean.lean",
+        "keywords": "boolean, The boolean",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Boolean.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40870,7 +40870,7 @@
         "abstract": "(((List.range 16).filter (fun m => (rowsOf m).eraseDups.length == 1)).length = 2) ∧ (((List.range 16).filter (fun m => (rowsOf m).eraseDups.length > 1)).length = 14)",
         "identifier": "47397db5-5ec4-8ad0-8301-7e42e2f219a3",
         "url": "https://uuidna.com/theorem/two_functions_ignore_input",
-        "keywords": "boolean, lean/Boolean.lean",
+        "keywords": "boolean, The boolean",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Boolean.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40898,7 +40898,7 @@
         "abstract": "(rowsOf 6 ≠ rowsOf 14) ∧ ((rowsOf 6).take 3 = (rowsOf 14).take 3) ∧ (rowsOf 6 = [0,1,1,0])",
         "identifier": "bb091eb7-dd3b-8cee-875e-3a6a79ec9d63",
         "url": "https://uuidna.com/theorem/xor_differs_from_or",
-        "keywords": "boolean, lean/Boolean.lean",
+        "keywords": "boolean, The boolean",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Boolean.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40926,7 +40926,7 @@
         "abstract": "(rowsOf 13 = [1,0,1,1]) ∧ (rowsOf 11 = [1,1,0,1]) ∧ (rowsOf 2 = [0,1,0,0])",
         "identifier": "54d82068-9c96-8c4d-91ec-839d37fde9c6",
         "url": "https://uuidna.com/theorem/implication_is_a_gate",
-        "keywords": "boolean, lean/Boolean.lean",
+        "keywords": "boolean, The boolean",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Boolean.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40954,7 +40954,7 @@
         "abstract": "(2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ ((16:Nat)^2 = 256) ∧ (2 ≠ 4)",
         "identifier": "16790609-ce5e-8bf5-ad95-210867ee252f",
         "url": "https://uuidna.com/theorem/byte_holds_two_hexbits",
-        "keywords": "byte, lean/Byte.lean",
+        "keywords": "byte, The byte",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Byte.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -40982,7 +40982,7 @@
         "abstract": "(32 / 2 = 16) ∧ (16 * 8 = 128) ∧ (32 * 4 = 128)",
         "identifier": "612d1ebc-04f0-841a-b2ce-cc0bd47f2e27",
         "url": "https://uuidna.com/theorem/address_is_sixteen_bytes",
-        "keywords": "byte, lean/Byte.lean",
+        "keywords": "byte, The byte",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Byte.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41010,7 +41010,7 @@
         "abstract": "(32 = 2 * 16) ∧ (256 = 2 * 128) ∧ (64 = 2 * 32)",
         "identifier": "ff68ee7a-0fb0-82f0-887b-40ea35c25c18",
         "url": "https://uuidna.com/theorem/digest_doubles_the_address",
-        "keywords": "byte, lean/Byte.lean",
+        "keywords": "byte, The byte",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Byte.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41038,7 +41038,7 @@
         "abstract": "((List.range 16).all (fun b => ((b + 1) % 16) != b)) ∧ ((List.range 16).all (fun b => b < 16)) ∧ (16 * 16 = 256) ∧ (256 - 1 = 255)",
         "identifier": "5d0480b6-d364-8fcd-a721-bca0261d3043",
         "url": "https://uuidna.com/theorem/every_alternative_differs",
-        "keywords": "byte, lean/Byte.lean",
+        "keywords": "byte, The byte",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Byte.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41066,7 +41066,7 @@
         "abstract": "(32 * 255 = 8160) ∧ (8160 ≠ 0)",
         "identifier": "c7fc4727-618e-8ae7-bf45-7942841be975",
         "url": "https://uuidna.com/theorem/tamper_set_counts_eight_thousand",
-        "keywords": "byte, lean/Byte.lean",
+        "keywords": "byte, The byte",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Byte.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41094,7 +41094,7 @@
         "abstract": "6 * 9 * 7 = 378",
         "identifier": "180365da-253e-8b33-89af-2138b6bdb073",
         "url": "https://uuidna.com/theorem/channel_multiplies_three",
-        "keywords": "channel, lean/Channel.lean",
+        "keywords": "channel, The channel",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Channel.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41122,7 +41122,7 @@
         "abstract": "((2:Nat)^8 < 378) ∧ (378 < (2:Nat)^9) ∧ (512 - 378 = 134)",
         "identifier": "92b63beb-3d9e-8c42-9283-b2cee1f5a085",
         "url": "https://uuidna.com/theorem/element_costs_nine",
-        "keywords": "channel, lean/Channel.lean",
+        "keywords": "channel, The channel",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Channel.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41150,7 +41150,7 @@
         "abstract": "((378:Nat)^4 > 2^32) ∧ ((378:Nat)^3 < 2^32)",
         "identifier": "3950fa7e-f816-8830-91ce-9946a6a5b3bb",
         "url": "https://uuidna.com/theorem/four_carry_handle",
-        "keywords": "channel, lean/Channel.lean",
+        "keywords": "channel, The channel",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Channel.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41178,7 +41178,7 @@
         "abstract": "((378:Nat)^3 < 2^28) ∧ ((378:Nat)^4 > 2^28)",
         "identifier": "91b5b3e1-e916-8925-84d1-e0c7e8af52e8",
         "url": "https://uuidna.com/theorem/three_recover_the_discard",
-        "keywords": "channel, lean/Channel.lean",
+        "keywords": "channel, The channel",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Channel.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41206,7 +41206,7 @@
         "abstract": "(6 * 9 * 7 = 378) ∧ (6 * 7 = 42) ∧ (378 ≠ 42) ∧ (378 > 42)",
         "identifier": "340b3218-1736-8044-a33f-d4e1fd089e04",
         "url": "https://uuidna.com/theorem/independence_is_assumed",
-        "keywords": "channel, lean/Channel.lean",
+        "keywords": "channel, The channel",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Channel.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41234,7 +41234,7 @@
         "abstract": "((378:Nat)^2 > 65536) ∧ (378 < 65536)",
         "identifier": "9d2dd9dc-2701-80d1-8e87-73b0f1e2d1b8",
         "url": "https://uuidna.com/theorem/page_outgrows_register",
-        "keywords": "channel, lean/Channel.lean",
+        "keywords": "channel, The channel",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Channel.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41262,7 +41262,7 @@
         "abstract": "((List.range 12).map res = [1,2,4,8,7,5,1,2,4,8,7,5]) ∧ (((List.range 12).map res).take 6 = ((List.range 12).map res).drop 6)",
         "identifier": "2e16fa2b-c881-813c-b21b-d3970a29b01c",
         "url": "https://uuidna.com/theorem/residue_walks_the_orbit",
-        "keywords": "clock, lean/Clock.lean",
+        "keywords": "clock, The clock",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clock.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41290,7 +41290,7 @@
         "abstract": "(res 0 = res 6) ∧ ((0:Nat) ≠ 6)",
         "identifier": "0d83fcd0-d9f8-86de-907a-14a0f9fa4536",
         "url": "https://uuidna.com/theorem/residue_returns_step_does_not",
-        "keywords": "clock, lean/Clock.lean",
+        "keywords": "clock, The clock",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clock.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41318,7 +41318,7 @@
         "abstract": "(List.range 12).all (fun a => (List.range 12).all (fun b => (gap a b == gap b a) && ((gap a b == 0) == (a == b))))",
         "identifier": "83a2382e-2738-858c-a981-fbf066824bfb",
         "url": "https://uuidna.com/theorem/gap_is_a_count",
-        "keywords": "clock, lean/Clock.lean",
+        "keywords": "clock, The clock",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clock.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41346,7 +41346,7 @@
         "abstract": "(List.range 12).all (fun s => [1,2,3].all (fun n => s + n > s))",
         "identifier": "662e52ba-f086-8501-8b2b-d9e13aa06239",
         "url": "https://uuidna.com/theorem/advance_only_moves_forward",
-        "keywords": "clock, lean/Clock.lean",
+        "keywords": "clock, The clock",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clock.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41374,7 +41374,7 @@
         "abstract": "(List.range 12).all (fun a => (List.range 12).all (fun b => (if a < b then 1 else 0) + (if a > b then 1 else 0) + (if a == b then 1 else 0) == 1))",
         "identifier": "8763a5b0-a26c-805d-9fcd-6ac6bb3a1259",
         "url": "https://uuidna.com/theorem/order_is_total_and_strict",
-        "keywords": "clock, lean/Clock.lean",
+        "keywords": "clock, The clock",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clock.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41402,7 +41402,7 @@
         "abstract": "((List.range 12).all (fun s => res s == res s)) ∧ (res 7 ≠ res 8)",
         "identifier": "430202e7-39ad-8708-b29d-39f4827c9a5f",
         "url": "https://uuidna.com/theorem/no_reading_enters_here",
-        "keywords": "clock, lean/Clock.lean",
+        "keywords": "clock, The clock",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Clock.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41430,7 +41430,7 @@
         "abstract": "(List.range 8).all (fun i => (List.range 8).all (fun j => Nat.ble j i || nth [7002000, 7001009, 6018045, 6012104, 6006152, 6001183, 5015216, 5010265] i > nth [7002000, 7001009, 6018045, 6012104, 6006152, 6001183, 5015216, 5010265] j))",
         "identifier": "e9cae649-b913-82b2-a70b-392e9b438377",
         "url": "https://uuidna.com/theorem/kernel_channels_order_completely",
-        "keywords": "compare, lean/Comparisons.lean",
+        "keywords": "compare, The comparisons",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Comparisons.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41458,7 +41458,7 @@
         "abstract": "([7002000, 7001009, 6018045, 6012104, 6006152, 6001183, 5015216, 5010265] : List Nat).all (fun e => (e / 1000000) * 1000000 + ((e / 1000) % 1000) * 1000 + (e % 1000) = e ∧ (e / 1000) % 1000 < 1000 ∧ e % 1000 < 1000)",
         "identifier": "97764475-7a92-8961-b53c-897c99b6c997",
         "url": "https://uuidna.com/theorem/version_encoding_is_lossless",
-        "keywords": "compare, lean/Comparisons.lean",
+        "keywords": "compare, The comparisons",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Comparisons.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41486,7 +41486,7 @@
         "abstract": "(List.range 6).all (fun i => (List.range 6).all (fun j => Nat.ble j i || nth [4, 8, 16, 32, 64, 128] j = nth [4, 8, 16, 32, 64, 128] i * 2 ^ (j - i)))",
         "identifier": "ef3069f0-edf6-81da-9173-47acefac8f2f",
         "url": "https://uuidna.com/theorem/register_ladder_doubles_completely",
-        "keywords": "compare, lean/Comparisons.lean",
+        "keywords": "compare, The comparisons",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Comparisons.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41514,7 +41514,7 @@
         "abstract": "((List.range 4).all (fun i => (List.range 4).all (fun j => Nat.ble j i || nth [180, 120, 60, 20] i > nth [180, 120, 60, 20] j))) ∧ (180 * 20 = 3600) ∧ (60 * 60 = 3600) ∧ (120 * 30 = 3600)",
         "identifier": "b89ea739-d89e-897e-9110-81e7625fcffd",
         "url": "https://uuidna.com/theorem/the_surface_is_the_geometric_mean",
-        "keywords": "compare, lean/Comparisons.lean",
+        "keywords": "compare, The comparisons",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Comparisons.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41542,7 +41542,7 @@
         "abstract": "((2:Nat)^7 = 128) ∧ (128 - 2 = 126) ∧ (126 + 2 = 128)",
         "identifier": "93f0b889-eaee-842d-affa-6f8e72ee1916",
         "url": "https://uuidna.com/theorem/contribution_leaves_one_twentysix",
-        "keywords": "contribution, lean/Contribution.lean",
+        "keywords": "contribution, The contribution",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Contribution.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41570,7 +41570,7 @@
         "abstract": "(7 * 7 - 7 = 42) ∧ (6 * 7 = 42) ∧ (7 * 6 = 42) ∧ (6 * 7 = 7 * 6)",
         "identifier": "f74399ef-b764-8960-8655-0147bdc43844",
         "url": "https://uuidna.com/theorem/directions_number_fortytwo",
-        "keywords": "contribution, lean/Contribution.lean",
+        "keywords": "contribution, The contribution",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Contribution.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41598,7 +41598,7 @@
         "abstract": "(3 * 42 = 126) ∧ (128 - 2 = 3 * 42)",
         "identifier": "03009874-8005-8a36-9a9f-5d1e2eaf8621",
         "url": "https://uuidna.com/theorem/residue_holds_three_grids",
-        "keywords": "contribution, lean/Contribution.lean",
+        "keywords": "contribution, The contribution",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Contribution.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41626,7 +41626,7 @@
         "abstract": "(((List.range' 1 126).filter (fun d => 126 % d == 0)).length = 12) ∧ (3 * 42 = 126) ∧ (9 * 14 = 126) ∧ (7 * 18 = 126)",
         "identifier": "a0e1f90e-122e-842a-a427-6f643ba92cee",
         "url": "https://uuidna.com/theorem/six_factorisations_compete",
-        "keywords": "contribution, lean/Contribution.lean",
+        "keywords": "contribution, The contribution",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Contribution.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41654,7 +41654,7 @@
         "abstract": "(128 - 2 = 126) ∧ ((128:Nat) ≠ 126) ∧ (126 < 128)",
         "identifier": "3ec75fd9-b90e-80ae-84ad-2e218293d407",
         "url": "https://uuidna.com/theorem/taking_before_paying_differs",
-        "keywords": "contribution, lean/Contribution.lean",
+        "keywords": "contribution, The contribution",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Contribution.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41682,7 +41682,7 @@
         "abstract": "(((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)) ∧ (-((2:Int) - 2 * 2) = 2)",
         "identifier": "08533e0f-34cb-89e7-ba31-6242507cb2bc",
         "url": "https://uuidna.com/theorem/chi_measures_genus",
-        "keywords": "double-torus, lean/DoubleTorus.lean",
+        "keywords": "double-torus, The double torus",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DoubleTorus.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41710,7 +41710,7 @@
         "abstract": "(2 * 2 = 4) ∧ (4 ≠ 2)",
         "identifier": "e9df801e-e95b-84c7-b5d9-98976eecde62",
         "url": "https://uuidna.com/theorem/handles_give_generators",
-        "keywords": "double-torus, lean/DoubleTorus.lean",
+        "keywords": "double-torus, The double torus",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DoubleTorus.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41738,7 +41738,7 @@
         "abstract": "(4 + 1 = 5) ∧ (1 ≠ 0)",
         "identifier": "97fa529a-77e1-8a27-982d-70dc1a040807",
         "url": "https://uuidna.com/theorem/presentation_counts_five",
-        "keywords": "double-torus, lean/DoubleTorus.lean",
+        "keywords": "double-torus, The double torus",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DoubleTorus.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41766,7 +41766,7 @@
         "abstract": "((2:Nat)^2 = 4) ∧ (4 * 2 = 8) ∧ ((2:Nat)^3 = 8)",
         "identifier": "835c0556-61d3-84d8-b69c-d16512ea4430",
         "url": "https://uuidna.com/theorem/step_costs_three",
-        "keywords": "double-torus, lean/DoubleTorus.lean",
+        "keywords": "double-torus, The double torus",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DoubleTorus.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41794,7 +41794,7 @@
         "abstract": "((List.range 6).map (fun n => 8^n) = [1,8,64,512,4096,32768]) ∧ (((List.range 6).map (fun n => 8^n)).drop 1).all (fun w => w > 5)",
         "identifier": "72825824-650b-880d-bfbe-61dcf24b6611",
         "url": "https://uuidna.com/theorem/words_outgrow_presentation",
-        "keywords": "double-torus, lean/DoubleTorus.lean",
+        "keywords": "double-torus, The double torus",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DoubleTorus.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41822,7 +41822,7 @@
         "abstract": "(List.range 5).all (fun n => 8^(n+1) == 8 * 8^n)",
         "identifier": "fb7f9d09-4268-8aad-860c-588c25b1ec38",
         "url": "https://uuidna.com/theorem/growth_is_not_bounded_here",
-        "keywords": "double-torus, lean/DoubleTorus.lean",
+        "keywords": "double-torus, The double torus",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/DoubleTorus.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41850,7 +41850,7 @@
         "abstract": "((List.range 40).all (fun w => ((6 * w) % 9 == 0) == (w % 3 == 0))) ∧ ((6 * 91) % 9 ≠ 0)",
         "identifier": "95c7f845-d4ff-8ddf-bc6a-a2c28aad28e2",
         "url": "https://uuidna.com/theorem/decimal_asks_three",
-        "keywords": "grid, lean/Grid.lean",
+        "keywords": "grid, The grid",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Grid.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41878,7 +41878,7 @@
         "abstract": "((List.range 40).all (fun w => ((6 * w) % 15 == 0) == (w % 5 == 0))) ∧ ((6 * 72) % 15 ≠ 0)",
         "identifier": "eafa130b-b62c-87e4-b97d-0287dfe2472a",
         "url": "https://uuidna.com/theorem/hexadecimal_asks_five",
-        "keywords": "grid, lean/Grid.lean",
+        "keywords": "grid, The grid",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Grid.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41906,7 +41906,7 @@
         "abstract": "(6 * 72 = 432) ∧ (432 % 9 = 0) ∧ (432 % 15 = 12) ∧ (432 % 15 ≠ 0)",
         "identifier": "d1bbaa1a-528b-80ce-a85f-d990994a7871",
         "url": "https://uuidna.com/theorem/seventytwo_is_decimal_only",
-        "keywords": "grid, lean/Grid.lean",
+        "keywords": "grid, The grid",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Grid.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41934,7 +41934,7 @@
         "abstract": "(16 * 27 = 432) ∧ (16 * 132 = 2112) ∧ (16 * 132 ≠ 432)",
         "identifier": "b5209dda-8373-8e47-941e-064616121f5d",
         "url": "https://uuidna.com/theorem/reversal_fails_in_hexadecimal",
-        "keywords": "grid, lean/Grid.lean",
+        "keywords": "grid, The grid",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Grid.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41962,7 +41962,7 @@
         "abstract": "((List.range 40).all (fun w => (w % 15 == 0) == (((6 * w) % 9 == 0) && ((6 * w) % 15 == 0)))) ∧ (90 % 15 = 0) ∧ (91 % 15 ≠ 0)",
         "identifier": "e87a8a06-27f8-8d60-b304-dc5a5cffd174",
         "url": "https://uuidna.com/theorem/fifteen_satisfies_both",
-        "keywords": "grid, lean/Grid.lean",
+        "keywords": "grid, The grid",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Grid.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -41990,7 +41990,7 @@
         "abstract": "(7 * 72 - 72 = 432) ∧ (6 * 72 = 432) ∧ (7 - 1 = 6)",
         "identifier": "72402ccd-10d1-8dff-a0af-9c6b8af3adae",
         "url": "https://uuidna.com/theorem/six_rays_stay_derived",
-        "keywords": "grid, lean/Grid.lean",
+        "keywords": "grid, The grid",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Grid.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42018,7 +42018,7 @@
         "abstract": "(words.length = 16) ∧ ((2:Nat)^4 = 16) ∧ ((2:Nat)^7 = 128)",
         "identifier": "13ba3e16-d902-8106-8964-9c5613a92f36",
         "url": "https://uuidna.com/theorem/code_holds_sixteen_words",
-        "keywords": "hamming, lean/Hamming.lean",
+        "keywords": "hamming, The hamming",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hamming.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42046,7 +42046,7 @@
         "abstract": "words.eraseDups.length = 16",
         "identifier": "70026c05-2e59-8493-ac6f-ebc0f36180d7",
         "url": "https://uuidna.com/theorem/words_are_distinct",
-        "keywords": "hamming, lean/Hamming.lean",
+        "keywords": "hamming, The hamming",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hamming.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42074,7 +42074,7 @@
         "abstract": "(words.all (fun a => words.all (fun b => (a == b) || (wt (lxor a b) ≥ 3)))) ∧ (3 ≠ 2)",
         "identifier": "9d06300c-d571-85eb-86a8-aee47a7866cf",
         "url": "https://uuidna.com/theorem/words_stand_three_apart",
-        "keywords": "hamming, lean/Hamming.lean",
+        "keywords": "hamming, The hamming",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hamming.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42102,7 +42102,7 @@
         "abstract": "((words.filter (fun w => wt w == 0)).length = 1) ∧ ((words.filter (fun w => wt w == 3)).length = 7) ∧ ((words.filter (fun w => wt w == 4)).length = 7) ∧ ((words.filter (fun w => wt w == 7)).length = 1) ∧ (words.all (fun w => [0,3,4,7].contains (wt w)))",
         "identifier": "c5a79552-d086-8513-9ab8-551723f97d05",
         "url": "https://uuidna.com/theorem/weights_enumerate",
-        "keywords": "hamming, lean/Hamming.lean",
+        "keywords": "hamming, The hamming",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hamming.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42130,7 +42130,7 @@
         "abstract": "words.all (fun w => ((w % 2) + ((w/4) % 2) + ((w/16) % 2) + ((w/64) % 2)) % 2 == 0)",
         "identifier": "20efaddc-d154-80ff-8a6f-3d462827dac6",
         "url": "https://uuidna.com/theorem/codewords_syndrome_zero",
-        "keywords": "hamming, lean/Hamming.lean",
+        "keywords": "hamming, The hamming",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hamming.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42158,7 +42158,7 @@
         "abstract": "([1,2,3,4,5,6,7] = [1,2,3,4,5,6,7]) ∧ ([1,2,3,4,5,6,7].eraseDups.length = 7)",
         "identifier": "0844038f-4b81-8572-a2dc-bef239c37d31",
         "url": "https://uuidna.com/theorem/syndrome_names_the_position",
-        "keywords": "hamming, lean/Hamming.lean",
+        "keywords": "hamming, The hamming",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hamming.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42186,7 +42186,7 @@
         "abstract": "(65536 * 32 = 2097152) ∧ ((2:Nat)^16 * 2^5 = 2^21)",
         "identifier": "2c64ada3-0ab1-8f4f-a8e9-d305d34f95a1",
         "url": "https://uuidna.com/theorem/handles_times_qubits",
-        "keywords": "handle-span, lean/HandleSpan.lean",
+        "keywords": "handle-span, The handle span",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/HandleSpan.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42214,7 +42214,7 @@
         "abstract": "(16 + 5 = 21) ∧ (16 * 5 ≠ 21)",
         "identifier": "ed8538cd-734d-88c5-9d79-293d282956f6",
         "url": "https://uuidna.com/theorem/exponents_add",
-        "keywords": "handle-span, lean/HandleSpan.lean",
+        "keywords": "handle-span, The handle span",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/HandleSpan.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42242,7 +42242,7 @@
         "abstract": "(8 * 4 = 32) ∧ ((2:Nat)^32 = 4294967296)",
         "identifier": "03fb6755-8f8d-82f8-9bbc-237b1de5880e",
         "url": "https://uuidna.com/theorem/handle_spans_thirtytwo",
-        "keywords": "handle-span, lean/HandleSpan.lean",
+        "keywords": "handle-span, The handle span",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/HandleSpan.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42270,7 +42270,7 @@
         "abstract": "((List.range 17).map (fun n => 2^n)).getLast! = 65536",
         "identifier": "10d3663d-8490-8423-bd06-6ce5d52defbf",
         "url": "https://uuidna.com/theorem/register_holds_amplitudes",
-        "keywords": "handle-span, lean/HandleSpan.lean",
+        "keywords": "handle-span, The handle span",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/HandleSpan.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42298,7 +42298,7 @@
         "abstract": "(2097152 > 16) ∧ (2097152 ≠ 16) ∧ ((2:Nat)^21 ≠ 2^16)",
         "identifier": "4f5b29be-fdb7-812d-99e9-630e80a0726b",
         "url": "https://uuidna.com/theorem/total_exceeds_register",
-        "keywords": "handle-span, lean/HandleSpan.lean",
+        "keywords": "handle-span, The handle span",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/HandleSpan.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42326,7 +42326,7 @@
         "abstract": "(2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16)",
         "identifier": "03332dd8-18e9-8dae-aef4-34015987dbe0",
         "url": "https://uuidna.com/theorem/total_is_not_amplitudes",
-        "keywords": "handle-span, lean/HandleSpan.lean",
+        "keywords": "handle-span, The handle span",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/HandleSpan.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42354,7 +42354,7 @@
         "abstract": "((List.range 16).all (fun x => 0 * x == 0)) ∧ ((List.range 16).all (fun b => (List.range 16).all (fun c => (0 * c == b * 0) == (b * 0 == 0)))) ∧ (0 * 15 = 0 * 1)",
         "identifier": "a3ad1ade-d54e-8c0a-8786-6f3dcd3fdee5",
         "url": "https://uuidna.com/theorem/the_void_tile_cannot_cross",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42382,7 +42382,7 @@
         "abstract": "(8 * 8 * 2 = 128) ∧ (8 * 8 = 64) ∧ (64 * 2 = 128) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32)",
         "identifier": "0ff97e7d-bcaa-817e-817f-30d2d4f9441b",
         "url": "https://uuidna.com/theorem/the_uuid_is_two_boards",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42410,7 +42410,7 @@
         "abstract": "((List.range 16).length = 16) ∧ ((List.range 16).eraseDups.length = 16) ∧ ((List.range 16).all (fun v => v < 16))",
         "identifier": "26d43440-428d-8970-a736-90a91507f9f6",
         "url": "https://uuidna.com/theorem/alphabet_names_each_nibble",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42438,7 +42438,7 @@
         "abstract": "([8,4,4,4,12].foldl (· + ·) 0 = 32) ∧ (32 + 4 = 36) ∧ (32 ≠ 36)",
         "identifier": "c4d2b7f4-dcdc-813e-8a21-66eb062e94fd",
         "url": "https://uuidna.com/theorem/layout_groups_thirtytwo",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42466,7 +42466,7 @@
         "abstract": "(32 * 4 = 128) ∧ ((2:Nat)^7 = 128)",
         "identifier": "456ce744-7306-891d-b4c2-ab222c47276f",
         "url": "https://uuidna.com/theorem/characters_span_the_address",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42494,7 +42494,7 @@
         "abstract": "([8,4,4,4,12].head! = 8) ∧ (8 * 4 = 32) ∧ (([8,4,4,4,12].drop 1).take 3).all (fun g => g < 8)",
         "identifier": "b778dd89-b4bd-83e0-8e76-474798d604fa",
         "url": "https://uuidna.com/theorem/handle_is_the_first_group",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42522,7 +42522,7 @@
         "abstract": "[8,4,4,4,12].map (fun g => g * 4) = [32,16,16,16,48]",
         "identifier": "e1924ac0-a069-8478-a07a-1347d6f25b42",
         "url": "https://uuidna.com/theorem/groups_are_four_apart",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42550,7 +42550,7 @@
         "abstract": "(32 / 8 = 4) ∧ (32 * 4 = 128) ∧ (8 * 4 = 32) ∧ (128 / 32 = 4)",
         "identifier": "a7b43509-2bc7-8ace-8a4e-b6c663c8a090",
         "url": "https://uuidna.com/theorem/build_counts_in_hexbits",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42578,7 +42578,7 @@
         "abstract": "(8 + 24 = 32) ∧ (24 * 4 = 96) ∧ (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (32 % 6 = 2) ∧ (128 % 6 = 2)",
         "identifier": "ffc2997e-d1b2-8b9b-ab7b-d4a6ce6868b3",
         "url": "https://uuidna.com/theorem/payload_carries_the_strand",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42606,7 +42606,7 @@
         "abstract": "(96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (96 % 3 = 0) ∧ (96 / 3 = 32) ∧ (32 % 6 = 2) ∧ (32 % 3 = 2) ∧ (128 % 6 = 2) ∧ (128 % 3 = 2) ∧ (4 ^ 3 = 2 ^ 6)",
         "identifier": "39e72011-7e35-895d-8297-663313205daf",
         "url": "https://uuidna.com/theorem/payload_aligns_where_the_name_does_not",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42634,7 +42634,7 @@
         "abstract": "(4 * 8 = 32) ∧ (4 * 3 = 2 * 6) ∧ (12 + 4 = 4 * 4) ∧ (4 * 32 = 128)",
         "identifier": "fd82f441-e367-8eaf-aa98-cc68d1d7221b",
         "url": "https://uuidna.com/theorem/the_handle_molecule_is_the_mix_census",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42662,7 +42662,7 @@
         "abstract": "(4 * 32 = 128) ∧ (7 * 32 = 224) ∧ (224 > 128) ∧ ((List.range' 1 7).all (fun v => (decide (v * 32 >= 128)) == (decide (v >= 4))))",
         "identifier": "578627de-e8b3-88fd-ab29-90a471705b53",
         "url": "https://uuidna.com/theorem/four_vectors_reach_the_uuid",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42690,7 +42690,7 @@
         "abstract": "(((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 4))).length = 8) ∧ (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 0))).length = 8) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = 32) ∧ (2 * 16 = 32)",
         "identifier": "599d7250-ed10-87a7-813e-8d5f740cd1fe",
         "url": "https://uuidna.com/theorem/slit_on_the_hexbit_ring",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42718,7 +42718,7 @@
         "abstract": "((List.range 16).all (fun k => (((8*k) % 16 == 8) == ((1 + (-1:Int)^k)^2 == 0)))) ∧ ((8 + 8) % 16 = 0)",
         "identifier": "9fbf8e2f-b207-81e0-a7f7-3be748e0e8f8",
         "url": "https://uuidna.com/theorem/dark_fringe_is_the_half_turn",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42746,7 +42746,7 @@
         "abstract": "(List.range 16).all (fun k => ((1 + (-1:Int)^k)^2 == (1 + (-1:Int)^((16 - k) % 16))^2))",
         "identifier": "dd77fbe0-a913-8ae5-b549-52cf9da65e7f",
         "url": "https://uuidna.com/theorem/fringe_pattern_reflects_dz",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42774,7 +42774,7 @@
         "abstract": "(((List.range 16).foldl (fun s _ => s + ((1:Int)*1 + 1*1)) (0:Int)) = 32) ∧ (8 * 4 + 8 * 0 = 16 * 2) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = ((List.range 16).foldl (fun s _ => s + (2:Int)) (0:Int)))",
         "identifier": "8a6a9cd5-ec4f-88d0-be38-2ebcc7ec5ebe",
         "url": "https://uuidna.com/theorem/which_path_conserves_the_total",
-        "keywords": "hexbit, lean/Hexbit.lean",
+        "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42802,7 +42802,7 @@
         "abstract": "(installEdges.all (fun e => e.1 < 25)) ∧ (installEdges.all (fun e => e.2 < 25)) ∧ (installEdges.length = 47) ∧ (installNames.length = 25) ∧ (25 = 5 * 5)",
         "identifier": "096e89d6-1c63-828d-b7bb-e719ff1c6717",
         "url": "https://uuidna.com/theorem/default_install_is_dependency_closed",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42830,7 +42830,7 @@
         "abstract": "((List.range 25).all (fun i => (List.range i).all (fun j => nthS installNames i != nthS installNames j))) ∧ ((List.range 25).all (fun i => (List.range i).all (fun j => nthS installRoutes i != nthS installRoutes j))) ∧ (installRoutes.length = installNames.length)",
         "identifier": "5554e227-1fda-8d22-9fa3-8ed2d64e4646",
         "url": "https://uuidna.com/theorem/every_install_and_its_path_named_once",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42858,7 +42858,7 @@
         "abstract": "(nthS installNames 0 = \"alpine-base\") ∧ (nthS installRoutes 0 = \"/\") ∧ ((installEdges.filter (fun e => e.1 == 0)).length = 10)",
         "identifier": "050fb320-4429-845a-a45f-7074655b79b9",
         "url": "https://uuidna.com/theorem/home_is_the_meta_package",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42886,7 +42886,7 @@
         "abstract": "(bfsOrder.length = 25) ∧ bfsOrder.Nodup ∧ (nth bfsOrder 0 = 0) ∧ (bfsOrder.all (fun x => x < 25)) ∧ ((List.range 24).all (fun i => (List.range (i+1)).any (fun j => installEdges.contains (nth bfsOrder j, nth bfsOrder (i+1)))))",
         "identifier": "f54b5f97-a732-8201-b4c3-1f0f163d4a57",
         "url": "https://uuidna.com/theorem/home_reaches_every_install",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42914,7 +42914,7 @@
         "abstract": "(invOrder.length = 25) ∧ invOrder.Nodup ∧ (invOrder.all (fun x => x < 25)) ∧ (nth invOrder 0 = 24) ∧ ((installEdges.filter (fun e => nth invOrder e.1 ≤ nth invOrder e.2)) = [(21, 22)])",
         "identifier": "16a2abc2-872f-82c8-9c23-59ac46f235da",
         "url": "https://uuidna.com/theorem/the_port_rises_from_the_floor",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42942,7 +42942,7 @@
         "abstract": "(installEdges.contains (21, 22)) ∧ (installEdges.contains (22, 21)) ∧ (nthS installNames 21 = \"openrc\") ∧ (nthS installNames 22 = \"openrc-user\")",
         "identifier": "38e45836-65d9-81d7-bbd4-67f25c07d04b",
         "url": "https://uuidna.com/theorem/the_services_hold_each_other_up",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42970,7 +42970,7 @@
         "abstract": "(nthS installNames 7 = \"busybox\") ∧ (nthS installRoutes 7 = \"/terminal\") ∧ (nthS installNames 8 = \"busybox-binsh\") ∧ (nthS installRoutes 8 = \"/terminal/sh\") ∧ (nthS installNames 9 = \"busybox-ifupdown\") ∧ (nthS installRoutes 9 = \"/terminal/network\") ∧ (nthS installNames 10 = \"busybox-mdev-openrc\") ∧ (nthS installRoutes 10 = \"/terminal/devices\") ∧ (nthS installNames 11 = \"busybox-openrc\") ∧ (nthS installRoutes 11 = \"/terminal/services\") ∧ (nthS installNames 12 = \"busybox-suid\") ∧ (nthS installRoutes 12 = \"/terminal/privileged\") ∧ ((6 : Nat) = 6)",
         "identifier": "4e5020c6-ed12-847c-a432-9fd48a7a7148",
         "url": "https://uuidna.com/theorem/the_terminal_is_the_toolbox",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -42998,7 +42998,7 @@
         "abstract": "(nthS installNames 19 = \"musl\") ∧ (nthS installRoutes 19 = \"/core\") ∧ (installEdges.all (fun e => e.1 != 19)) ∧ ((installEdges.filter (fun e => e.2 == 19)).length = 13) ∧ ((List.range 25).all (fun i => (installEdges.filter (fun e => e.2 == i)).length ≤ 13))",
         "identifier": "ffd4ae6d-6a88-8163-a456-492a5412086b",
         "url": "https://uuidna.com/theorem/the_foundation_depends_on_nothing",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43026,7 +43026,7 @@
         "abstract": "(installMeanings.length = 25) ∧ (installMeanings.all (fun m => m != \"\"))",
         "identifier": "422aee1b-4890-84a7-b8a1-655de839b08b",
         "url": "https://uuidna.com/theorem/every_path_carries_its_published_meaning",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43054,7 +43054,7 @@
         "abstract": "(32 * 4 = 128) ∧ (16 = 2 ^ 4) ∧ ((128 : Nat) / 4 = 32)",
         "identifier": "10b131d5-be81-83f3-b9e1-49c491d0b59e",
         "url": "https://uuidna.com/theorem/a_spec_compiles_to_hexbits",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43082,7 +43082,7 @@
         "abstract": "(bootPages.length = 26) ∧ (26 * 32 = 832) ∧ (bootPages.all (fun p => p.length = 32)) ∧ (bootPages.all (fun p => p.all (fun h => h < 16)))",
         "identifier": "8b5f439d-0e9f-82ab-ac73-3fd15eef7e49",
         "url": "https://uuidna.com/theorem/the_os_is_bootable_quantum",
-        "keywords": "installs, lean/Installs.lean",
+        "keywords": "installs, The installs",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Installs.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43110,7 +43110,7 @@
         "abstract": "(List.range 16).all (fun a => (List.range 16).all (fun b => (List.range 16).all (fun k => dist (lxor a k) (lxor b k) == dist a b)))",
         "identifier": "a93bf5ba-f682-8a3f-88de-f8878dca4db4",
         "url": "https://uuidna.com/theorem/xor_preserves_distance",
-        "keywords": "isometry, lean/Isometry.lean",
+        "keywords": "isometry, The isometry",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Isometry.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43138,7 +43138,7 @@
         "abstract": "(List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => dist (lxor m1 k) (lxor m2 k) == dist m1 m2)))",
         "identifier": "746ab8a0-9e0e-8140-8953-70c7f2b6d977",
         "url": "https://uuidna.com/theorem/reuse_leaks_by_isometry",
-        "keywords": "isometry, lean/Isometry.lean",
+        "keywords": "isometry, The isometry",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Isometry.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43166,7 +43166,7 @@
         "abstract": "((List.range 4).all (fun x => dist x (lxor x 3) == 2)) ∧ (pop 3 = 2)",
         "identifier": "4b4f16c4-76a0-8179-9799-72d17ec54ab2",
         "url": "https://uuidna.com/theorem/complement_flips_two",
-        "keywords": "isometry, lean/Isometry.lean",
+        "keywords": "isometry, The isometry",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Isometry.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43194,7 +43194,7 @@
         "abstract": "((4:Nat)^3 = 64) ∧ ((2:Nat)^6 = 64) ∧ (3 * 2 = 6) ∧ (pop 63 = 6)",
         "identifier": "5aded7ec-e283-8686-969c-c8debeaab9dc",
         "url": "https://uuidna.com/theorem/codon_flips_six",
-        "keywords": "isometry, lean/Isometry.lean",
+        "keywords": "isometry, The isometry",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Isometry.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43222,7 +43222,7 @@
         "abstract": "(List.range 16).all (fun a => (List.range 16).all (fun b => (dist a b == dist b a) && ((dist a b == 0) == (a == b))))",
         "identifier": "4687658a-d485-8586-be43-a7dd3aa054c8",
         "url": "https://uuidna.com/theorem/distance_is_symmetric",
-        "keywords": "isometry, lean/Isometry.lean",
+        "keywords": "isometry, The isometry",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Isometry.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43250,7 +43250,7 @@
         "abstract": "((3 - 1) / 2 = 1) ∧ (3 - 1 = 2) ∧ ((3 - 1) / 2 ≠ 2)",
         "identifier": "76a0a6f8-73cf-8a0a-83f2-3ebc1dcbea6a",
         "url": "https://uuidna.com/theorem/isometry_bounds_correction",
-        "keywords": "isometry, lean/Isometry.lean",
+        "keywords": "isometry, The isometry",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Isometry.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43278,7 +43278,7 @@
         "abstract": "(4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32)",
         "identifier": "59ce118e-1587-8dfb-bf58-c959f5739ac7",
         "url": "https://uuidna.com/theorem/a_token_approximates_eight_hexbits",
-        "keywords": "models, lean/Models.lean",
+        "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43306,7 +43306,7 @@
         "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 422) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
         "identifier": "325181ea-8412-8b60-a164-60e8fa17b08d",
         "url": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
-        "keywords": "models, lean/Models.lean",
+        "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43334,7 +43334,7 @@
         "abstract": "(36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)",
         "identifier": "28b73899-48fa-86d1-93b4-4f6f2852b597",
         "url": "https://uuidna.com/theorem/speaking_an_address_costs_the_text",
-        "keywords": "models, lean/Models.lean",
+        "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43362,7 +43362,7 @@
         "abstract": "(32 * 8 = 256) ∧ (16 * 8 = 128) ∧ (600000 = 6 * 100000)",
         "identifier": "4daa3c87-c5cd-824e-8b81-10faf473d3a9",
         "url": "https://uuidna.com/theorem/crypto_widths_are_fixed_not_sampled",
-        "keywords": "models, lean/Models.lean",
+        "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43390,7 +43390,7 @@
         "abstract": "(2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))",
         "identifier": "0958d5f7-a2df-878b-bbaf-72fefb4d60dd",
         "url": "https://uuidna.com/theorem/every_context_is_finite_against_the_lattice",
-        "keywords": "models, lean/Models.lean",
+        "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43418,7 +43418,7 @@
         "abstract": "((128 : Nat) / 4 = 32) ∧ ((32 : Nat) / 2 = 16) ∧ (16 * 2 = 32) ∧ (32 * 4 = 128) ∧ (16 = 2 ^ 4)",
         "identifier": "a117fb17-f381-88d1-a107-33bdce8bc554",
         "url": "https://uuidna.com/theorem/llm_folds_to_hexbit_pairs",
-        "keywords": "models, lean/Models.lean",
+        "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43446,7 +43446,7 @@
         "abstract": "((64 : Nat) / 8 = 8) ∧ (8 * 8 = 64) ∧ (64 = 2 ^ 6) ∧ (2 * 64 = 128) ∧ (2 * 8 = 16) ∧ ((128 : Nat) / 8 = 16)",
         "identifier": "8b3fc716-17d1-8da6-b42c-d8f93e2b5152",
         "url": "https://uuidna.com/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen",
-        "keywords": "models, lean/Models.lean",
+        "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43474,7 +43474,7 @@
         "abstract": "[10,100,1000,10000].all (fun p => p % 9 == 1)",
         "identifier": "34ad8bb2-ab00-8e57-88a9-1b6a9679f352",
         "url": "https://uuidna.com/theorem/ten_reduces_to_one",
-        "keywords": "notation, lean/Notation.lean",
+        "keywords": "notation, The notation",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Notation.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43502,7 +43502,7 @@
         "abstract": "[8,10,16].all (fun b => b % (b - 1) == 1)",
         "identifier": "72e8a913-400a-823d-86c3-aed534ebcc30",
         "url": "https://uuidna.com/theorem/base_fixes_modulus",
-        "keywords": "notation, lean/Notation.lean",
+        "keywords": "notation, The notation",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Notation.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43530,7 +43530,7 @@
         "abstract": "(432 % 9 = 0) ∧ (432 % 7 = 5) ∧ (432 % 9 ≠ 432 % 7)",
         "identifier": "4293a613-165b-897a-abe0-e84bdcf0dc08",
         "url": "https://uuidna.com/theorem/bases_disagree_on_root",
-        "keywords": "notation, lean/Notation.lean",
+        "keywords": "notation, The notation",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Notation.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43558,7 +43558,7 @@
         "abstract": "(16 * 27 = 432) ∧ (16 * 57 ≠ 432) ∧ (16 * 87 ≠ 432)",
         "identifier": "044acdfc-f523-82bc-abeb-752d997e2f5f",
         "url": "https://uuidna.com/theorem/reversal_escapes_arithmetic",
-        "keywords": "notation, lean/Notation.lean",
+        "keywords": "notation, The notation",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Notation.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43586,7 +43586,7 @@
         "abstract": "(432 % 9 = 0) ∧ (45 % 9 = 0) ∧ (4 + 5 = 9)",
         "identifier": "80d4b0ae-2097-8436-9e40-fdcddd38d1a4",
         "url": "https://uuidna.com/theorem/root_survives_the_reading",
-        "keywords": "notation, lean/Notation.lean",
+        "keywords": "notation, The notation",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Notation.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43614,7 +43614,7 @@
         "abstract": "((List.range' 1 8).map (fun k => 9 * k)).all (fun n => n % 9 == 0)",
         "identifier": "6ef3763c-4174-8f85-a862-1669a89099fd",
         "url": "https://uuidna.com/theorem/nine_divides_by_construction",
-        "keywords": "notation, lean/Notation.lean",
+        "keywords": "notation, The notation",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Notation.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43642,7 +43642,7 @@
         "abstract": "[0,1,2,3,4,5,6,7,8,9].all (fun d => [0,1,2,3,4,5,6,7,8,9].contains (if d = 0 then 0 else 10 - d))",
         "identifier": "f9b8157b-9d3d-8d5c-93f7-8a08a36feb0d",
         "url": "https://uuidna.com/theorem/orbit_0_1_2_3_4_5_6_7_8_9_closes",
-        "keywords": "orbits, lean/Orbits.lean",
+        "keywords": "orbits, The orbits",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Orbits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43670,7 +43670,7 @@
         "abstract": "[0,1,3,4,5,6,7,9].all (fun d => [0,1,3,4,5,6,7,9].contains (if d = 0 then 0 else 10 - d))",
         "identifier": "adad8cd1-cbf6-817c-81d1-80815aaf9c0b",
         "url": "https://uuidna.com/theorem/orbit_0_1_3_4_5_6_7_9_closes",
-        "keywords": "orbits, lean/Orbits.lean",
+        "keywords": "orbits, The orbits",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Orbits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43698,7 +43698,7 @@
         "abstract": "[0,1,3,5,7,9].all (fun d => [0,1,3,5,7,9].contains (if d = 0 then 0 else 10 - d))",
         "identifier": "1447898d-1bad-89d2-8832-9e03a9deb0d4",
         "url": "https://uuidna.com/theorem/orbit_0_1_3_5_7_9_closes",
-        "keywords": "orbits, lean/Orbits.lean",
+        "keywords": "orbits, The orbits",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Orbits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43726,7 +43726,7 @@
         "abstract": "[0,1,5,9].all (fun d => [0,1,5,9].contains (if d = 0 then 0 else 10 - d))",
         "identifier": "6ef041bd-77b2-86c8-bebf-19fcb35533cc",
         "url": "https://uuidna.com/theorem/orbit_0_1_5_9_closes",
-        "keywords": "orbits, lean/Orbits.lean",
+        "keywords": "orbits, The orbits",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Orbits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43754,7 +43754,7 @@
         "abstract": "[0,1,9].all (fun d => [0,1,9].contains (if d = 0 then 0 else 10 - d))",
         "identifier": "e1e37005-76b6-8bea-8219-e27fa7baf4b9",
         "url": "https://uuidna.com/theorem/orbit_0_1_9_closes",
-        "keywords": "orbits, lean/Orbits.lean",
+        "keywords": "orbits, The orbits",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Orbits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43782,7 +43782,7 @@
         "abstract": "[0].all (fun d => [0].contains (if d = 0 then 0 else 10 - d))",
         "identifier": "e81fbcbf-d04d-8d24-a69d-49e0dd9d6004",
         "url": "https://uuidna.com/theorem/orbit_0_closes",
-        "keywords": "orbits, lean/Orbits.lean",
+        "keywords": "orbits, The orbits",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Orbits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43810,7 +43810,7 @@
         "abstract": "([[0,1,2,3,4,5,6,7,8,9],[0,1,3,4,5,6,7,9],[0,1,3,5,7,9],[0,1,5,9],[0,1,9],[0]].length = 6) ∧ ([[0,1,2,3,4,5,6,7,8,9],[0,1,3,4,5,6,7,9],[0,1,3,5,7,9],[0,1,5,9],[0,1,9],[0]].map (fun o => o.length) = [10,8,6,4,3,1])",
         "identifier": "e07be0ad-0b16-8a29-8f7b-bd87572f6e94",
         "url": "https://uuidna.com/theorem/orbits_number_and_orders",
-        "keywords": "orbits, lean/Orbits.lean",
+        "keywords": "orbits, The orbits",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Orbits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43838,7 +43838,7 @@
         "abstract": "[[0],[0,1,9],[0,1,2,3,4,5,6,7,8,9],[0,1,3,5,7,9],[0,1,3,4,5,6,7,9],[0,1,5,9],[0,1,2,3,4,5,6,7,8,9],[0,1,2,3,4,5,6,7,8,9],[0,1,2,3,4,5,6,7,8,9],[0,1,2,3,4,5,6,7,8,9]].all (fun o => o.length > 0) ∧ ([[0],[0,1,9],[0,1,2,3,4,5,6,7,8,9],[0,1,3,5,7,9],[0,1,3,4,5,6,7,9],[0,1,5,9],[0,1,2,3,4,5,6,7,8,9],[0,1,2,3,4,5,6,7,8,9],[0,1,2,3,4,5,6,7,8,9],[0,1,2,3,4,5,6,7,8,9]].length = 10)",
         "identifier": "24abbea8-a7ba-88f0-a1e8-7751119a5e1e",
         "url": "https://uuidna.com/theorem/every_seed_lands_somewhere",
-        "keywords": "orbits, lean/Orbits.lean",
+        "keywords": "orbits, The orbits",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Orbits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43866,7 +43866,7 @@
         "abstract": "([2,6,7,8,9].length = 5) ∧ ([0,1,3,4,5].length = 5) ∧ (5 + 5 = 10)",
         "identifier": "f00ad8a6-d1c8-87a8-9a56-21697b93f508",
         "url": "https://uuidna.com/theorem/covering_seeds_are_named",
-        "keywords": "orbits, lean/Orbits.lean",
+        "keywords": "orbits, The orbits",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Orbits.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43894,7 +43894,7 @@
         "abstract": "((List.range 10).map dz).eraseDups.length = 10",
         "identifier": "8df168de-703b-8efb-93b8-601e0f9905d1",
         "url": "https://uuidna.com/theorem/dz_loses_nothing",
-        "keywords": "phase, lean/Phase.lean",
+        "keywords": "phase, The phase",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Phase.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43922,7 +43922,7 @@
         "abstract": "(((List.range 10).map dbl).eraseDups.length = 9) ∧ (dbl 0 = dbl 9) ∧ (dbl 0 = 0)",
         "identifier": "70c49015-6174-8700-9f2e-ac93622a1f70",
         "url": "https://uuidna.com/theorem/doubling_collapses_nine",
-        "keywords": "phase, lean/Phase.lean",
+        "keywords": "phase, The phase",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Phase.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43950,7 +43950,7 @@
         "abstract": "(((List.range 10).map dz).eraseDups.length ≠ ((List.range 10).map dbl).eraseDups.length) ∧ (10 ≠ 9)",
         "identifier": "4ced2a31-a93c-8db4-b9d9-25af75bf6585",
         "url": "https://uuidna.com/theorem/maps_differ_in_reach",
-        "keywords": "phase, lean/Phase.lean",
+        "keywords": "phase, The phase",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Phase.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -43978,7 +43978,7 @@
         "abstract": "(dz 0 = 0) ∧ (dbl 0 = 0)",
         "identifier": "846ff86c-7e0f-87ad-be2a-9aebb18da018",
         "url": "https://uuidna.com/theorem/zero_closes_in_phase",
-        "keywords": "phase, lean/Phase.lean",
+        "keywords": "phase, The phase",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Phase.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44006,7 +44006,7 @@
         "abstract": "(dz 5 = 5) ∧ (dbl 5 = 1) ∧ (dbl 5 ≠ 5)",
         "identifier": "f2b0d2d0-171f-8d78-bc70-a8ced5ea0bbe",
         "url": "https://uuidna.com/theorem/five_returns_out_of_phase",
-        "keywords": "phase, lean/Phase.lean",
+        "keywords": "phase, The phase",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Phase.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44034,7 +44034,7 @@
         "abstract": "((((List.range 10).map dbl).eraseDups.map dbl).eraseDups.length ≤ ((List.range 10).map dbl).eraseDups.length) ∧ (((List.range 10).map dbl).eraseDups.length = 9)",
         "identifier": "9eca9b1a-9d00-85bb-865f-5aaecf098e9c",
         "url": "https://uuidna.com/theorem/reach_shrinks_each_pass",
-        "keywords": "phase, lean/Phase.lean",
+        "keywords": "phase, The phase",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Phase.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44062,7 +44062,7 @@
         "abstract": "orbits.length = 6",
         "identifier": "b952f04f-0a13-802a-8dcd-d03ff467ba63",
         "url": "https://uuidna.com/theorem/orbits_number_six",
-        "keywords": "prose-trial, lean/ProseTrial.lean",
+        "keywords": "prose-trial, The prose trial",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/ProseTrial.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44090,7 +44090,7 @@
         "abstract": "orbits.map (fun o => o.length) = [10,8,3,1,6,4]",
         "identifier": "e5cbb88b-9e95-859f-aaf7-0ae5d743786a",
         "url": "https://uuidna.com/theorem/order_measures_orbit",
-        "keywords": "prose-trial, lean/ProseTrial.lean",
+        "keywords": "prose-trial, The prose trial",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/ProseTrial.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44118,7 +44118,7 @@
         "abstract": "(orbits.map (fun o => o.length) = [10,8,3,1,6,4]) ∧ (orbits.map (fun o => o.length) ≠ [10,8,3,1,6,5])",
         "identifier": "99c108c5-0670-8167-832f-8c932dfe09d4",
         "url": "https://uuidna.com/theorem/forged_order_refused",
-        "keywords": "prose-trial, lean/ProseTrial.lean",
+        "keywords": "prose-trial, The prose trial",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/ProseTrial.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44146,7 +44146,7 @@
         "abstract": "orbits.all (fun o => o.all (fun d => o.contains (dz d)))",
         "identifier": "19a7e171-f555-80ff-9fc1-d676c131a79d",
         "url": "https://uuidna.com/theorem/orbits_reflect_onto_themselves",
-        "keywords": "prose-trial, lean/ProseTrial.lean",
+        "keywords": "prose-trial, The prose trial",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/ProseTrial.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44174,7 +44174,7 @@
         "abstract": "(orbits.map (fun o => o.length)).eraseDups.length = 6",
         "identifier": "04429592-b435-85df-bc8a-43737ce73b60",
         "url": "https://uuidna.com/theorem/orbits_are_distinct",
-        "keywords": "prose-trial, lean/ProseTrial.lean",
+        "keywords": "prose-trial, The prose trial",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/ProseTrial.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44202,7 +44202,7 @@
         "abstract": "orbits.all (fun o => o.contains 0)",
         "identifier": "b6fac6a1-67ad-84f0-b36f-150ef9726257",
         "url": "https://uuidna.com/theorem/every_orbit_holds_zero",
-        "keywords": "prose-trial, lean/ProseTrial.lean",
+        "keywords": "prose-trial, The prose trial",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/ProseTrial.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44230,7 +44230,7 @@
         "abstract": "((List.range 10).map dzMin).eraseDups.length = 6",
         "identifier": "3f22bf19-39b8-8e6f-ad99-107c24190d2d",
         "url": "https://uuidna.com/theorem/reflection_splits_six",
-        "keywords": "reflection, lean/Reflection.lean",
+        "keywords": "reflection, The reflection",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reflection.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44258,7 +44258,7 @@
         "abstract": "((List.range 10).map dzMin).eraseDups.all (fun c => ((List.range 10).filter (fun d => dzMin d == c)).length ≤ 2)",
         "identifier": "17b0fb29-c6f1-80d9-b508-342d7b0f1c03",
         "url": "https://uuidna.com/theorem/classes_cap_at_two",
-        "keywords": "reflection, lean/Reflection.lean",
+        "keywords": "reflection, The reflection",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reflection.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44286,7 +44286,7 @@
         "abstract": "(((List.range 10).filter (fun d => dz d == d)).length = 2) ∧ (2 + (10 - 2) / 2 = 6)",
         "identifier": "59cc3f52-28bd-8448-bc3e-d30bde92c829",
         "url": "https://uuidna.com/theorem/six_is_forced_arithmetic",
-        "keywords": "reflection, lean/Reflection.lean",
+        "keywords": "reflection, The reflection",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reflection.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44314,7 +44314,7 @@
         "abstract": "(((List.range' 1 7).map dzMin).eraseDups.length = 5) ∧ (!(((List.range' 1 7).map dzMin).contains 0))",
         "identifier": "06ca32bb-5da9-868f-985f-4d427ddd9201",
         "url": "https://uuidna.com/theorem/seven_reach_five_classes",
-        "keywords": "reflection, lean/Reflection.lean",
+        "keywords": "reflection, The reflection",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reflection.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44342,7 +44342,7 @@
         "abstract": "(dzMin 7 = dzMin 3) ∧ (dzMin 6 = dzMin 4)",
         "identifier": "8f11351a-4aa1-8e74-9ebf-b622a6573c88",
         "url": "https://uuidna.com/theorem/reflection_confuses_seven_three",
-        "keywords": "reflection, lean/Reflection.lean",
+        "keywords": "reflection, The reflection",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reflection.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44370,7 +44370,7 @@
         "abstract": "([2,6,7,8,9].contains 7) ∧ (dzMin 7 = dzMin 3) ∧ (dzMin 7 ≠ 7)",
         "identifier": "dc15f102-b3bd-8dfe-946e-bf704f329763",
         "url": "https://uuidna.com/theorem/seventh_covers_reflection_cannot",
-        "keywords": "reflection, lean/Reflection.lean",
+        "keywords": "reflection, The reflection",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reflection.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44398,7 +44398,7 @@
         "abstract": "((List.range 10).map (preOf dz) = [1,1,1,1,1,1,1,1,1,1]) ∧ ((List.range 10).all (fun d => dz (dz d) == d))",
         "identifier": "1c0db4c2-4e51-8d86-a1cf-ffb0fb9e8b46",
         "url": "https://uuidna.com/theorem/reflection_reverses_uniquely",
-        "keywords": "reversal, lean/Reversal.lean",
+        "keywords": "reversal, The reversal",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reversal.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44426,7 +44426,7 @@
         "abstract": "(preOf dbl 0 = 2) ∧ (dbl 0 = 0) ∧ (dbl 9 = 0) ∧ (preOf dbl 0 ≠ 1)",
         "identifier": "685e68fd-2a88-8ad7-b421-7f671d0cc4ba",
         "url": "https://uuidna.com/theorem/doubling_reverses_ambiguously",
-        "keywords": "reversal, lean/Reversal.lean",
+        "keywords": "reversal, The reversal",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reversal.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44454,7 +44454,7 @@
         "abstract": "(preOf dbl 9 = 0) ∧ ((List.range 10).all (fun d => dbl d != 9))",
         "identifier": "ab65873e-55a9-8769-89f0-d8395d7fa178",
         "url": "https://uuidna.com/theorem/nine_is_never_reached",
-        "keywords": "reversal, lean/Reversal.lean",
+        "keywords": "reversal, The reversal",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reversal.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44482,7 +44482,7 @@
         "abstract": "((List.range 10).map (preOf dz) ≠ (List.range 10).map (preOf dbl)) ∧ ([1,1,1,1,1,1,1,1,1,1].foldl (· + ·) 0 = 10) ∧ ([2,1,1,1,1,1,1,1,1,0].foldl (· + ·) 0 = 10)",
         "identifier": "45fed086-6957-89be-aaa5-e8a290fce7dd",
         "url": "https://uuidna.com/theorem/censuses_differ",
-        "keywords": "reversal, lean/Reversal.lean",
+        "keywords": "reversal, The reversal",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reversal.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44510,7 +44510,7 @@
         "abstract": "(preOf dbl 0 ≠ 1) ∧ (preOf dbl 9 = 0) ∧ ((List.range 10).all (fun d => preOf dz d == 1))",
         "identifier": "e5eb6f5f-9917-81d4-9e8f-8d71c3324cb9",
         "url": "https://uuidna.com/theorem/path_reverse_needs_both",
-        "keywords": "reversal, lean/Reversal.lean",
+        "keywords": "reversal, The reversal",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reversal.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44538,7 +44538,7 @@
         "abstract": "(((List.range 10).map dz).eraseDups.length = 10) ∧ (((List.range 10).map dbl).eraseDups.length = 9) ∧ (10 ≠ 9)",
         "identifier": "9a32d60c-8986-87dc-98b3-0e6364e01c91",
         "url": "https://uuidna.com/theorem/reflection_explores_all",
-        "keywords": "reversal, lean/Reversal.lean",
+        "keywords": "reversal, The reversal",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Reversal.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44566,7 +44566,7 @@
         "abstract": "seatCases.map (fun c => fullest c.1 c.2) = [2,3,12,1,1]",
         "identifier": "d345c417-4282-8804-b0d9-083dc84ba573",
         "url": "https://uuidna.com/theorem/fullest_seat_ceiling",
-        "keywords": "seats, lean/Seats.lean",
+        "keywords": "seats, The seats",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Seats.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44594,7 +44594,7 @@
         "abstract": "(seatCases.filter (fun c => c.1 > c.2)).all (fun c => fullest c.1 c.2 ≥ 2)",
         "identifier": "dc86fe6e-2b71-80c5-8711-7d57229e7863",
         "url": "https://uuidna.com/theorem/excess_forces_sharing",
-        "keywords": "seats, lean/Seats.lean",
+        "keywords": "seats, The seats",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Seats.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44622,7 +44622,7 @@
         "abstract": "(seatCases.filter (fun c => c.1 ≤ c.2)).all (fun c => fullest c.1 c.2 = 1)",
         "identifier": "8a13920b-a9e0-8f12-9b49-18d42fe59885",
         "url": "https://uuidna.com/theorem/fit_shares_nothing",
-        "keywords": "seats, lean/Seats.lean",
+        "keywords": "seats, The seats",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Seats.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44650,7 +44650,7 @@
         "abstract": "((2:Nat)^8 ≠ (11 + 10 - 1) / 10) ∧ ((2:Nat)^10 ≠ (21 + 10 - 1) / 10)",
         "identifier": "177c819a-9ae2-8c5c-a5ac-fa5708694971",
         "url": "https://uuidna.com/theorem/powers_are_not_the_bound",
-        "keywords": "seats, lean/Seats.lean",
+        "keywords": "seats, The seats",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Seats.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44678,7 +44678,7 @@
         "abstract": "(([2,6,7,8,9] ++ [0,1,3,4,5]).length = 10) ∧ ((List.range 10).all (fun d => ([2,6,7,8,9] ++ [0,1,3,4,5]).contains d)) ∧ ([2,6,7,8,9].all (fun d => !([0,1,3,4,5].contains d)))",
         "identifier": "ce4ff8a9-a31c-8c39-bfda-e5d29111aee8",
         "url": "https://uuidna.com/theorem/digits_split_five_five",
-        "keywords": "seats, lean/Seats.lean",
+        "keywords": "seats, The seats",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Seats.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44706,7 +44706,7 @@
         "abstract": "(11 > 10) ∧ ((11 + 10 - 1) / 10 ≥ 2)",
         "identifier": "155ae4a5-bb1b-809a-a17e-733dacb7d448",
         "url": "https://uuidna.com/theorem/ten_seats_bound_any_ring",
-        "keywords": "seats, lean/Seats.lean",
+        "keywords": "seats, The seats",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Seats.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44734,7 +44734,7 @@
         "abstract": "(6 * 4 = 24) ∧ ((16:Nat)^6 = (2:Nat)^24) ∧ ((16:Nat)^6 = 16777216)",
         "identifier": "3222293d-e79c-86c4-bee9-0a3366e18001",
         "url": "https://uuidna.com/theorem/colour_is_six_hexbits",
-        "keywords": "spectrum-hex, lean/SpectrumHex.lean",
+        "keywords": "spectrum-hex, The spectrum hex",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SpectrumHex.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44762,7 +44762,7 @@
         "abstract": "(2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ (3 * 8 = 24) ∧ (3 * 2 = 6)",
         "identifier": "e9adc9d8-5e74-83b2-a8ef-cd48838b8955",
         "url": "https://uuidna.com/theorem/channel_is_two_hexbits",
-        "keywords": "spectrum-hex, lean/SpectrumHex.lean",
+        "keywords": "spectrum-hex, The spectrum hex",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SpectrumHex.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44790,7 +44790,7 @@
         "abstract": "((16:Nat)^6 / 256 = 65536) ∧ ((2:Nat)^16 = 65536) ∧ (256 * 65536 = 16777216)",
         "identifier": "7a2dea79-76a8-8906-9649-2ff0540e1b2b",
         "url": "https://uuidna.com/theorem/greys_are_one_in_sixtyfive_thousand",
-        "keywords": "spectrum-hex, lean/SpectrumHex.lean",
+        "keywords": "spectrum-hex, The spectrum hex",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SpectrumHex.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44818,7 +44818,7 @@
         "abstract": "((16:Nat)^3 = 4096) ∧ ((16:Nat)^6 / (16:Nat)^3 = 4096) ∧ ((16:Nat)^3 * 4096 = 16777216)",
         "identifier": "337359f0-ded1-81ca-af70-a170c208e3b2",
         "url": "https://uuidna.com/theorem/shorthand_covers_one_in_four_thousand",
-        "keywords": "spectrum-hex, lean/SpectrumHex.lean",
+        "keywords": "spectrum-hex, The spectrum hex",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SpectrumHex.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44846,7 +44846,7 @@
         "abstract": "(16 * 22 < 360) ∧ (360 < 16 * 23) ∧ (360 % 9 = 0) ∧ (360 % 6 = 0) ∧ (360 % 16 ≠ 0)",
         "identifier": "859b51d2-fbbf-8ff9-9cc7-7d8973fa05ce",
         "url": "https://uuidna.com/theorem/spectrum_refuses_sixteen",
-        "keywords": "spectrum-hex, lean/SpectrumHex.lean",
+        "keywords": "spectrum-hex, The spectrum hex",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SpectrumHex.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44874,7 +44874,7 @@
         "abstract": "(((List.range' 1 20).filter (fun d => 360 % d == 0)) = [1,2,3,4,5,6,8,9,10,12,15,18,20]) ∧ (360 / 9 = 40) ∧ (360 / 6 = 60)",
         "identifier": "827c1b2b-5604-80bd-a730-d1b006a17a61",
         "url": "https://uuidna.com/theorem/wheel_divides_by_nine_and_six",
-        "keywords": "spectrum-hex, lean/SpectrumHex.lean",
+        "keywords": "spectrum-hex, The spectrum hex",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SpectrumHex.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44902,7 +44902,7 @@
         "abstract": "(units.length = 6) ∧ (units.all (fun a => units.any (fun b => mul9 a b == 1)))",
         "identifier": "f31fd6d1-5209-8ed3-99f5-8ef2becdf838",
         "url": "https://uuidna.com/theorem/units_form_six",
-        "keywords": "subgroups, lean/Subgroups.lean",
+        "keywords": "subgroups, The subgroups",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Subgroups.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44930,7 +44930,7 @@
         "abstract": "(([[1],[1,8],[1,4,7],[1,2,4,5,7,8]]).all isSub) ∧ (([[1],[1,8],[1,4,7],[1,2,4,5,7,8]]).length = 4)",
         "identifier": "4bdec332-bb13-877c-b003-8309abba87a4",
         "url": "https://uuidna.com/theorem/four_subgroups_exhibited",
-        "keywords": "subgroups, lean/Subgroups.lean",
+        "keywords": "subgroups, The subgroups",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Subgroups.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44958,7 +44958,7 @@
         "abstract": "([1,2,3,6].all (fun n => 6 % n == 0)) ∧ ([1,2,3,6] = ((List.range' 1 6).filter (fun d => 6 % d == 0)))",
         "identifier": "32b956fe-396b-8c51-b9c1-a791e9f7f53d",
         "url": "https://uuidna.com/theorem/lagrange_divides_every_order",
-        "keywords": "subgroups, lean/Subgroups.lean",
+        "keywords": "subgroups, The subgroups",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Subgroups.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -44986,7 +44986,7 @@
         "abstract": "(units.map (fun a => ((List.range' 1 6).filter (fun k => (2 ^ k) % 9 == a)).length) = [1,1,1,1,1,1]) ∧ (((List.range' 1 6).map (fun k => (2 ^ k) % 9)) = [2,4,8,7,5,1])",
         "identifier": "fc05c9bd-39a5-8cb2-89a9-907fa1b50ec3",
         "url": "https://uuidna.com/theorem/two_generates_the_whole",
-        "keywords": "subgroups, lean/Subgroups.lean",
+        "keywords": "subgroups, The subgroups",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Subgroups.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45014,7 +45014,7 @@
         "abstract": "(64 - 4 = 60) ∧ (4 ≠ 64) ∧ ((2:Nat)^6 = 64)",
         "identifier": "7eb0a7a6-a4dc-8bee-9ff1-0ea0a1e58b19",
         "url": "https://uuidna.com/theorem/most_subsets_are_not_subgroups",
-        "keywords": "subgroups, lean/Subgroups.lean",
+        "keywords": "subgroups, The subgroups",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Subgroups.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45042,7 +45042,7 @@
         "abstract": "(isSub [1]) ∧ (isSub units) ∧ (([1]:List Nat).length ≠ units.length)",
         "identifier": "af923b63-8a33-85ad-b0e1-a942aaec5bff",
         "url": "https://uuidna.com/theorem/trivial_and_whole_are_subgroups",
-        "keywords": "subgroups, lean/Subgroups.lean",
+        "keywords": "subgroups, The subgroups",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Subgroups.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45070,7 +45070,7 @@
         "abstract": "(List.range 7).map (fun n => 3^n) = [1,3,9,27,81,243,729]",
         "identifier": "cd19de9c-29f0-8874-9fdc-73ef55162678",
         "url": "https://uuidna.com/theorem/trinities_span_powers",
-        "keywords": "trinities, lean/Trinities.lean",
+        "keywords": "trinities, The trinities",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Trinities.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45098,7 +45098,7 @@
         "abstract": "((2:Nat)^1 < 3) ∧ (3 < (2:Nat)^2)",
         "identifier": "7fcf294f-4f88-8336-80a8-1824a85a999e",
         "url": "https://uuidna.com/theorem/trinity_exceeds_qubit",
-        "keywords": "trinities, lean/Trinities.lean",
+        "keywords": "trinities, The trinities",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Trinities.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45126,7 +45126,7 @@
         "abstract": "((3:Nat)^19 ≥ 10^9) ∧ ((3:Nat)^18 < 10^9)",
         "identifier": "4c3b2605-0cc3-8008-81d1-ec6fbd53e7ba",
         "url": "https://uuidna.com/theorem/trinities_cover_billion",
-        "keywords": "trinities, lean/Trinities.lean",
+        "keywords": "trinities, The trinities",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Trinities.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45154,7 +45154,7 @@
         "abstract": "((3:Nat)^41 ≥ 2^64) ∧ ((3:Nat)^40 < 2^64)",
         "identifier": "911977cc-1d2b-821e-b765-b3e7c6452b8f",
         "url": "https://uuidna.com/theorem/trinities_cover_word",
-        "keywords": "trinities, lean/Trinities.lean",
+        "keywords": "trinities, The trinities",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Trinities.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45182,7 +45182,7 @@
         "abstract": "((3:Nat)^81 ≥ 2^128) ∧ ((3:Nat)^80 < 2^128)",
         "identifier": "55734dfe-16fd-824f-83c2-fc4d995a5ac6",
         "url": "https://uuidna.com/theorem/trinities_cover_address",
-        "keywords": "trinities, lean/Trinities.lean",
+        "keywords": "trinities, The trinities",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Trinities.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45210,7 +45210,7 @@
         "abstract": "(81 = 9^2) ∧ (81 = 3^4) ∧ (9 = 3^2)",
         "identifier": "12e3337d-3c1f-8847-ae51-c2684ef472fb",
         "url": "https://uuidna.com/theorem/eightyone_squares_nine",
-        "keywords": "trinities, lean/Trinities.lean",
+        "keywords": "trinities, The trinities",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Trinities.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45238,7 +45238,7 @@
         "abstract": "VE.length = 12",
         "identifier": "dbd59d77-f648-8ac9-aeca-93410d94df52",
         "url": "https://uuidna.com/theorem/ve_twelve_vertices",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45266,7 +45266,7 @@
         "abstract": "VE.all (fun v => n2 v == 2)",
         "identifier": "528fae4c-4b3d-8350-b6c5-a04c7384f367",
         "url": "https://uuidna.com/theorem/radial_squared_two",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45294,7 +45294,7 @@
         "abstract": "VE.all (fun v => (VE.filter (fun w => dd v w == 2)).length == 4)",
         "identifier": "ec711c3b-3950-8d91-a519-8b3e1aec99d2",
         "url": "https://uuidna.com/theorem/ve_four_neighbours",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45322,7 +45322,7 @@
         "abstract": "VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4)",
         "identifier": "9c3f0493-9246-82fc-8a0c-e5ae61c1740a",
         "url": "https://uuidna.com/theorem/radial_equals_edge",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45350,7 +45350,7 @@
         "abstract": "(12 * 4 = 24 * 2) ∧ (12 + 14 = 24 + 2) ∧ (VE.length * 4 = 24 * 2)",
         "identifier": "9c12b775-bdb2-840a-9a51-a2c49f8e42d5",
         "url": "https://uuidna.com/theorem/ve_handshake_crosses",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45378,7 +45378,7 @@
         "abstract": "12 * 4 / 2 = 24",
         "identifier": "bf5c8a62-fe1a-8d29-b3a5-0cd134cd64b8",
         "url": "https://uuidna.com/theorem/ve_twentyfour_edges",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45406,7 +45406,7 @@
         "abstract": "8 + 6 = 14",
         "identifier": "7bd12c41-c713-8869-b5da-1513ab3a0f1b",
         "url": "https://uuidna.com/theorem/ve_fourteen_faces",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45434,7 +45434,7 @@
         "abstract": "12 + 14 = 24 + 2",
         "identifier": "434bf42f-cd8f-849a-b2c2-fcaace767eec",
         "url": "https://uuidna.com/theorem/euler_characteristic_two",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45462,7 +45462,7 @@
         "abstract": "13 * 12 / 2 = 78",
         "identifier": "baa1fce2-9775-80cf-a47a-24b830f74ecb",
         "url": "https://uuidna.com/theorem/metatron_seventyeight_lines",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45490,7 +45490,7 @@
         "abstract": "(List.range 10).filter (fun d => dz d == d) = [0, 5]",
         "identifier": "006cfabe-13f4-86ca-a751-292315cee4c9",
         "url": "https://uuidna.com/theorem/dz_two_fixedpoints",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45518,7 +45518,7 @@
         "abstract": "(List.range 10).all (fun d => dz (dz d) == d)",
         "identifier": "d1b4bf5f-af54-82d8-9d19-74670a741ba2",
         "url": "https://uuidna.com/theorem/dz_involution_digits",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45546,7 +45546,7 @@
         "abstract": "[[0], [0,1,9], [0,1,3,5,7,9], [0,1,3,4,5,6,7,9], [0,1,5,9], [0,1,2,3,4,5,6,7,8,9]].all (fun s => s.all (fun d => s.contains (dz d)))",
         "identifier": "ee292c4e-7042-85aa-a526-8a1e28a9687f",
         "url": "https://uuidna.com/theorem/orbits_closed_involution",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45574,7 +45574,7 @@
         "abstract": "((List.range 10).filter (fun d => !([0,1,3,4,5] ++ [0,9,7,6,5]).contains d) = [2, 8]) ∧ (dz 2 = 8)",
         "identifier": "c13cdc16-1821-8c65-a900-18fe91c07528",
         "url": "https://uuidna.com/theorem/missing_pair_involution",
-        "keywords": "vector-equilibrium, lean/VectorEquilibrium.lean",
+        "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45602,7 +45602,7 @@
         "abstract": "((List.zip [1, 2, 4, 8, 7, 5, 3, 6, 9] [9, 8, 6, 2, 3, 5, 7, 4, 1]).all (fun p => p.1 + p.2 = 10)) ∧ (([1, 2, 4, 8, 7, 5, 3, 6, 9] : List Nat).length = 9)",
         "identifier": "26f5c88e-8d10-83b1-82a4-ac80e0d86d0b",
         "url": "https://uuidna.com/theorem/captains_columns_sum_to_ten",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45630,7 +45630,7 @@
         "abstract": "(List.range 6).all (fun i => 9 - nth [1, 2, 4, 8, 7, 5] i = nth [1, 2, 4, 8, 7, 5] ((i + 3) % 6))",
         "identifier": "324b992f-2db9-8b4d-beb3-935ab1646c1a",
         "url": "https://uuidna.com/theorem/nine_complement_half_turns_the_orbit",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45658,7 +45658,7 @@
         "abstract": "((List.range' 1 9).filter (fun d => 10 - d == d)) = [5]",
         "identifier": "d579ecb2-bca1-8207-844c-3c47b37ec9c2",
         "url": "https://uuidna.com/theorem/five_is_the_developing_center",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45686,7 +45686,7 @@
         "abstract": "(((List.range 16).filter (fun d => 15 - d == d)) = []) ∧ (15 % 2 = 1)",
         "identifier": "cbd12eec-3ef6-8cbb-84de-dce827fd5242",
         "url": "https://uuidna.com/theorem/the_hex_center_is_empty",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45714,7 +45714,7 @@
         "abstract": "((List.range' 1 6).all (fun n => n * (60 / n) = 60)) ∧ ((List.range' 1 5).all (fun n => 60 / n > 60 / (n + 1)))",
         "identifier": "f9271f08-d5ed-8690-a90c-2a49a9f18b9e",
         "url": "https://uuidna.com/theorem/gas_volume_walks_the_harmonic_series",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45742,7 +45742,7 @@
         "abstract": "(1 + 10 / 10 = 2) ∧ (1 + 30 / 10 = 4) ∧ (4 = 2 ^ 2) ∧ (1 + 70 / 10 = 8) ∧ (8 = 2 ^ 3)",
         "identifier": "22e72ea2-3199-8b22-8b83-134461bda902",
         "url": "https://uuidna.com/theorem/pressure_doubles_down_the_octave",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45770,7 +45770,7 @@
         "abstract": "(2 / 1 = 2) ∧ (2 = 2 ^ 1) ∧ ((List.range 3).all (fun i => nth [5, 10, 20, 40] (i + 1) = 2 * nth [5, 10, 20, 40] i))",
         "identifier": "ca148014-0bb5-824a-bf3d-54db97ffb9d7",
         "url": "https://uuidna.com/theorem/haldane_bound_is_two_to_one",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45798,7 +45798,7 @@
         "abstract": "((List.range' 2 9).all (fun n => n * n > n)) ∧ (10 * 10 = 100)",
         "identifier": "669679dd-d030-822d-a4f1-2309fea13d58",
         "url": "https://uuidna.com/theorem/buddy_pair_squares_the_failure",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45826,7 +45826,7 @@
         "abstract": "(20 + 20 + 20 = 60) ∧ ((60 : Nat) / 3 = 20)",
         "identifier": "4c16a853-894c-80c9-87d2-eed040bdb1e8",
         "url": "https://uuidna.com/theorem/thirds_rule_sums_whole",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45854,7 +45854,7 @@
         "abstract": "((60 : Nat) / 3 = 20) ∧ (20 * 3 = 60) ∧ (2 * 30 = 60) ∧ (20 < 60)",
         "identifier": "ec382dea-aa57-8075-be62-68af2cb293c0",
         "url": "https://uuidna.com/theorem/divers_and_astronauts_share_the_ladder",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45882,7 +45882,7 @@
         "abstract": "((List.range 8).all (fun a => a + 832 - a = 832)) ∧ ((8 : Nat) / 8 = 1) ∧ (8 = 2 ^ 3) ∧ (832 = 26 * 32)",
         "identifier": "597a8c4b-dc8e-80e7-ae29-93b363fff5c6",
         "url": "https://uuidna.com/theorem/one_image_every_architecture",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45910,7 +45910,7 @@
         "abstract": "((List.range 8).all (fun r => (List.range 32).all (fun k => ((((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16) % 16) * 16 + (((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16) / 16 = r * 32 + k))) ∧ ((((List.range 8).map (fun r => ((List.range 32).filter (fun k => ((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16 == r * 32 + k)).length)).sum) = 16) ∧ ((List.range 16).all (fun h => (h * 17 % 16) * 16 + (h * 17) / 16 = h * 17))",
         "identifier": "5202fbb5-d068-8703-9f33-2208fab9bf8a",
         "url": "https://uuidna.com/theorem/states_are_the_swap_fixed_bytes",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45938,7 +45938,7 @@
         "abstract": "((List.range 8).all (fun r => (List.range 32).all (fun k => (((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16 == r * 32 + k) == ((r * 32 + k) % 17 == 0)))) ∧ (255 / 17 + 1 = 16) ∧ (15 * 17 = 255) ∧ (17 % 16 = 1)",
         "identifier": "a2627210-e257-8012-8fa5-12857b011a31",
         "url": "https://uuidna.com/theorem/the_page_admits_sixteen",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45966,7 +45966,7 @@
         "abstract": "(2 ^ 6 = 64) ∧ (4 ^ 3 = 64) ∧ (64 % 9 = 1) ∧ (((List.range 6).map (fun k => 2 ^ k % 9)) = [1, 2, 4, 8, 7, 5])",
         "identifier": "55555830-bcef-8de5-940c-8a170689a2c7",
         "url": "https://uuidna.com/theorem/the_coin_compass_closes",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -45994,7 +45994,7 @@
         "abstract": "(2 - 2 * 0 = 2) ∧ (2 - 2 * 1 = 0) ∧ (2 * 2 - 2 = 2) ∧ ((2 : Nat) ≠ 0)",
         "identifier": "932250c1-065c-8cac-b308-6caf5880d755",
         "url": "https://uuidna.com/theorem/chi_crystallises_three_genera",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -46022,7 +46022,7 @@
         "abstract": "(2 * 32 = 64) ∧ (2 ^ 6 = 4 ^ 3) ∧ (2 ^ 6 = 64) ∧ (64 - 64 = 0)",
         "identifier": "2f8e9f2e-f0a9-8205-bc59-cd174d13ac79",
         "url": "https://uuidna.com/theorem/imaginings_meet_at_sixtyfour",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -46050,7 +46050,7 @@
         "abstract": "(4096 - 4032 = 64) ∧ (4096 = 64 * 64) ∧ (4032 = 63 * 64) ∧ (64 * 64 = 63 * 64 + 64) ∧ (16 ^ 3 = 4096)",
         "identifier": "7b5ef24c-995c-896e-a208-c93ff71fc76b",
         "url": "https://uuidna.com/theorem/rounding_fee_closes_the_cube",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
@@ -46078,7 +46078,7 @@
         "abstract": "(16 * 2 = 32) ∧ (32 * 2 = 64) ∧ (64 * 2 = 128) ∧ (128 = 16 * 2 ^ 3)",
         "identifier": "ce52945b-3c3c-8847-a66e-74c95d6e08a7",
         "url": "https://uuidna.com/theorem/the_promotion_chain_doubles_home",
-        "keywords": "waves, lean/Waves.lean",
+        "keywords": "waves, The waves",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Waves.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {

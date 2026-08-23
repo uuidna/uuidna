@@ -1,18 +1,18 @@
 {
-  "key": "5d21648d-b7ed-88e7-8f1c-7039f6370f41",
-  "publications": 84,
+  "key": "e2a975ff-028c-8a36-8ad7-ed1a9056b9ef",
+  "publications": 112,
   "sealedTheorems": 1646,
   "fabricated": 0,
   "uncited": 1,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1444,
+    "claims": 1646,
     "theorems": 1646,
-    "bijection": false,
+    "bijection": true,
     "digitalRoots": {
-      "claims": 4,
+      "claims": 8,
       "theorems": 8,
-      "publications": 3
+      "publications": 4
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -604,6 +604,202 @@
       "slug": "readings",
       "claims": 17,
       "cited": 17,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "affine",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "alignment",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "boolean",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "byte",
+      "claims": 5,
+      "cited": 5,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "channel",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "clock",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "comparisons",
+      "claims": 4,
+      "cited": 4,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "contribution",
+      "claims": 5,
+      "cited": 5,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "double-torus",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "grid",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hamming",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "handle-span",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hexbit",
+      "claims": 16,
+      "cited": 16,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "installs",
+      "claims": 11,
+      "cited": 11,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "isometry",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "models",
+      "claims": 7,
+      "cited": 7,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "notation",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "orbits",
+      "claims": 9,
+      "cited": 9,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "phase",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "prose-trial",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "reflection",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "reversal",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "seats",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "spectrum-hex",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "subgroups",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "trinities",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "vector-equilibrium",
+      "claims": 13,
+      "cited": 13,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "waves",
+      "claims": 18,
+      "cited": 18,
       "uncited": [],
       "fabricated": []
     }

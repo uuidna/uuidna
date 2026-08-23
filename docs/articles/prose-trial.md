@@ -1,9 +1,9 @@
 ---
-title: "lean/ProseTrial.lean"
+title: "The prose trial"
 description: "Computed from lean/ProseTrial.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/ProseTrial.lean
+# The prose trial
 
 > THE PROSE TRIAL — the derivation law decided by the KERNEL rather than by a string comparison. — held by [orbits_number_six](/theorem/orbits_number_six) and its 5 siblings below.
 

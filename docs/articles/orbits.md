@@ -1,9 +1,9 @@
 ---
-title: "lean/Orbits.lean"
+title: "The orbits"
 description: "Computed from lean/Orbits.lean — 9 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Orbits.lean
+# The orbits
 
 > THE ORBITS, WALKED — and the generator's own facts are walked too. — held by [orbit_0_1_2_3_4_5_6_7_8_9_closes](/theorem/orbit_0_1_2_3_4_5_6_7_8_9_closes) and its 8 siblings below.
 

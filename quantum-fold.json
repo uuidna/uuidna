@@ -2,9 +2,9 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "37f30dba0c360737",
-      "principles": "3a2ee13467993c69",
-      "monographs": "a732590d844d5299"
+      "theorems": "8c376eb679adbff6",
+      "principles": "6c2ca56e2ebffac7",
+      "monographs": "3d3356a1892d6934"
     },
     "served": {
       "packages": "5aacd0af35a35c23",
@@ -28,29 +28,29 @@
     }
   },
   "trinity_folds": {
-    "sealed": "93d913ae1a55c4dacae5a437f3b11701",
+    "sealed": "1896eab95eb6b0af3e836eb7a314e9a6",
     "served": "80713d2c95148cfb20b884dbe3208de0",
     "proven": "938e5244673fb34f13456e942a8b93f7",
     "record": "401f453ee25ccacbb64c037b139e5569",
     "walks": "f37eaea166d9fec79b11b0e61b66004d"
   },
-  "unified_fold": "ebd71d7b17c8ddd4",
-  "receipt": "a988af47d17faef4",
+  "unified_fold": "ee09404041e109d3",
+  "receipt": "592d293664ee09a9",
   "rosette_receipt": {
     "rays": [
-      "d583570de269fd87",
+      "3d035a831866bba8",
       "25a2a9bcced1fc36",
-      "fe191ecb2e7acc73",
+      "53dea5c1b6ea5554",
       "a20454282e566346",
-      "dbe8276a21bd2d14",
+      "ee0ac1e818d844d9",
       "a761502744407dcd",
       "12de7d01b335cb25"
     ],
-    "concurrence": "1397652cd277aa84f2d04b5ab69efa46"
+    "concurrence": "466b65cb38c8c6e087f8c45c079ddd5a"
   },
   "aura": {
-    "rgb": "#51d6ba",
-    "hsl": "hsl(167, 62%, 58%)",
+    "rgb": "#7434d5",
+    "hsl": "hsl(264, 66%, 52%)",
     "alphabet": "b6819334641853db",
     "movie": "6886b3ed81865d99",
     "lessons": "a88cbd46d631f8fb",
@@ -72,12 +72,12 @@
     },
     "dimensions": {
       "residue": 4,
-      "ray": 0,
-      "wave": 7,
-      "hue": 167,
-      "sat": 62,
-      "light": 58,
-      "period": 12,
+      "ray": 2,
+      "wave": 2,
+      "hue": 264,
+      "sat": 66,
+      "light": 52,
+      "period": 16,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

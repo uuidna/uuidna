@@ -1,9 +1,9 @@
 ---
-title: "lean/Clock.lean"
+title: "The clock"
 description: "Computed from lean/Clock.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Clock.lean
+# The clock
 
 > THE CLOCK WITHOUT A NOW — the step algebra src/quantum/clock computes, decided. — held by [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) and its 5 siblings below.
 

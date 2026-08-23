@@ -1,9 +1,9 @@
 ---
-title: "lean/Channel.lean"
+title: "The channel"
 description: "Computed from lean/Channel.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Channel.lean
+# The channel
 
 > THE PAGE CHANNEL — how much a rendered element carries when its typography is computed from the sequence. — held by [channel_multiplies_three](/theorem/channel_multiplies_three) and its 5 siblings below.
 

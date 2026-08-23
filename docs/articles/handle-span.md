@@ -1,9 +1,9 @@
 ---
-title: "lean/HandleSpan.lean"
+title: "The handle span"
 description: "Computed from lean/HandleSpan.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/HandleSpan.lean
+# The handle span
 
 > THE HANDLE SPAN — what 65536 handles of 32 qubits each come to, and what that total is NOT. — held by [handles_times_qubits](/theorem/handles_times_qubits) and its 5 siblings below.
 

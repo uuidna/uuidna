@@ -1,9 +1,9 @@
 ---
-title: "lean/DoubleTorus.lean"
+title: "The double torus"
 description: "Computed from lean/DoubleTorus.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/DoubleTorus.lean
+# The double torus
 
 > THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing. — held by [chi_measures_genus](/theorem/chi_measures_genus) and its 5 siblings below.
 

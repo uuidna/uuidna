@@ -1,9 +1,9 @@
 ---
-title: "lean/Installs.lean"
+title: "The installs"
 description: "Computed from lean/Installs.lean — 11 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Installs.lean
+# The installs
 
 > THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the 25 packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED latest-stable index, Alpine 3.24.1), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising from the floor with the published cycle named, the terminal the toolbox, the foundation depending on nothing, every meaning verbatim, every spec compiled from source to 32 hexbit states, and the BOOT IMAGE sealed verbatim (832 on-lattice states, build-ordered, receipt-closed) — the OS bootable on the lattice, never on a CPU. Integrity and meaning, never execution. — held by [default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed) and its 10 siblings below.
 

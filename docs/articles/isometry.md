@@ -1,9 +1,9 @@
 ---
-title: "lean/Isometry.lean"
+title: "The isometry"
 description: "Computed from lean/Isometry.lean — 6 sealed theorems, every claim citing its proof."
 ---
 
-# lean/Isometry.lean
+# The isometry
 
 > THE XOR ISOMETRY — the one identity the cipher, the strand and the code each hold a corner of. — held by [xor_preserves_distance](/theorem/xor_preserves_distance) and its 5 siblings below.
 
