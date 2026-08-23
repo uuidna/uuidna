@@ -13,7 +13,7 @@ import { cpus, loadavg, totalmem, freemem } from 'node:os'
 import { execSync } from 'node:child_process'
 import { balanceMachine, type MachineWriter } from '../quantum/machine/index.js'
 
-const centi = (x: number): number => (x * 100) - ((x * 100) % 1)   // ×100, floored to integer — no Math.*
+const centi = (x: number): number => (x * 100) - ((x * 100) % 1)   // ×100, floored to integer by remainder, no float builtins
 const mb = (b: number): number => (b - (b % 1048576)) / 1048576
 
 // the heavy writers: any process over ~half a core, named — ps at the boundary, the response is data
