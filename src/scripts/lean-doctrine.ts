@@ -51,6 +51,17 @@ const FACTS = [
     why: 'IDENTIFICATION IS A ONE-WAY COLLAPSE, SHOWN AS THE MAP ITSELF: identify sends the middle to a pole (here 1 to 0 — plane, balloon, Venus) and fixes the poles, so the domain [0, 1, 2] with no duplicate maps to the image [0, 0, 2] WITH one — Nodup holds before and fails after, the pigeonhole collapse computed rather than gestured at. No inverse recovers the middle from the image: a UFO identified stops being a UFO, and the class lives only in the in-between, destroyed by the act that resolves it.',
     js: () => { const dom: number[] = [0, 1, 2]; const img = dom.map((v) => v === 1 ? 0 : v); return new Set(dom).size === 3 && JSON.stringify(img) === JSON.stringify([0, 0, 2]) && new Set(img).size !== img.length },
     lean: 'theorem identification_collapses_the_middle : (([0, 1, 2] : List Nat).Nodup) ∧ (List.map (fun v => if v == 1 then 0 else v) [0, 1, 2] = [0, 0, 2]) ∧ (¬ ([0, 0, 2] : List Nat).Nodup) := by decide' },
+
+  // ── the compass quorum (captain, 2026-08-23: "3 higher theorems decide for 1 lower one like east west north and south") ──
+  { key: 'compass_three_decide_the_fourth',
+    why: 'THREE DECIDE THE FOURTH: the four directions as Z/4 — N, E, S, W as 0, 1, 2, 3 — sum to 6, so any one direction is the total minus the other three: three higher fix the one lower, every way round, the quorum drawn as geometry. The accreditation reading rides in prose: a lower theorem presents to the court under three higher ones, and their agreement leaves it exactly one place to stand.',
+    js: () => { const t: number = 0 + 1 + 2 + 3; return t === 6 && 6 - (0 + 1 + 2) === 3 && 6 - (0 + 1 + 3) === 2 && 6 - (0 + 2 + 3) === 1 && 6 - (1 + 2 + 3) === 0 },
+    lean: 'theorem compass_three_decide_the_fourth : (0 + 1 + 2 + 3 = 6) ∧ (6 - (0 + 1 + 2) = 3) ∧ (6 - (0 + 1 + 3) = 2) ∧ (6 - (0 + 2 + 3) = 1) ∧ (6 - (1 + 2 + 3) = 0) := by decide' },
+
+  { key: 'compass_opposites_involute',
+    why: 'THE COMPASS IS TWO REFLECTIONS: opposite is +2 in Z/4, and applying it twice returns every direction home — N to S to N, E to W to E — the same self-inverse shape as dz, worn by the map over the whole domain rather than by any single pair. Two involution pairs, one quadrature: the four basis states the two coins deliver (2 squared).',
+    js: () => { const dom: number[] = [0, 1, 2, 3]; const opp = dom.map((x) => (x + 2) % 4); return JSON.stringify(opp) === JSON.stringify([2, 3, 0, 1]) && JSON.stringify(opp.map((x) => (x + 2) % 4)) === JSON.stringify(dom) && 2 * 2 === 4 },
+    lean: 'theorem compass_opposites_involute : (List.map (fun x => (x + 2) % 4) [0, 1, 2, 3] = [2, 3, 0, 1]) ∧ (List.map (fun x => ((x + 2) % 4 + 2) % 4) [0, 1, 2, 3] = [0, 1, 2, 3]) ∧ (2 * 2 = 4) := by decide' },
 ]
 
 emit({ file: 'Doctrine.lean', skill: 'doctrine',

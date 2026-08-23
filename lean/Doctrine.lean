@@ -43,3 +43,15 @@ theorem the_middle_is_not_a_pole : (([0, 1, 2] : List Nat).Nodup) ∧ (([0, 1, 2
     gestured at. No inverse recovers the middle from the image: a UFO identified stops being a UFO, and the
     class lives only in the in-between, destroyed by the act that resolves it. -/
 theorem identification_collapses_the_middle : (([0, 1, 2] : List Nat).Nodup) ∧ (List.map (fun v => if v == 1 then 0 else v) [0, 1, 2] = [0, 0, 2]) ∧ (¬ ([0, 0, 2] : List Nat).Nodup) := by decide
+
+/-- THREE DECIDE THE FOURTH: the four directions as Z/4 — N, E, S, W as 0, 1, 2, 3 — sum to 6, so any one
+    direction is the total minus the other three: three higher fix the one lower, every way round, the quorum
+    drawn as geometry. The accreditation reading rides in prose: a lower theorem presents to the court under
+    three higher ones, and their agreement leaves it exactly one place to stand. -/
+theorem compass_three_decide_the_fourth : (0 + 1 + 2 + 3 = 6) ∧ (6 - (0 + 1 + 2) = 3) ∧ (6 - (0 + 1 + 3) = 2) ∧ (6 - (0 + 2 + 3) = 1) ∧ (6 - (1 + 2 + 3) = 0) := by decide
+
+/-- THE COMPASS IS TWO REFLECTIONS: opposite is +2 in Z/4, and applying it twice returns every direction home —
+    N to S to N, E to W to E — the same self-inverse shape as dz, worn by the map over the whole domain rather
+    than by any single pair. Two involution pairs, one quadrature: the four basis states the two coins deliver
+    (2 squared). -/
+theorem compass_opposites_involute : (List.map (fun x => (x + 2) % 4) [0, 1, 2, 3] = [2, 3, 0, 1]) ∧ (List.map (fun x => ((x + 2) % 4 + 2) % 4) [0, 1, 2, 3] = [0, 1, 2, 3]) ∧ (2 * 2 = 4) := by decide
