@@ -8,9 +8,9 @@
    "physical": null,
    "usable": 128,
    "usableMetric": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer",
-   "opTimeNs": 11312,
+   "opTimeNs": 12010,
    "opClass": "measured",
-   "source": "measured by this generator: full-1660-theorem receipt sweep 18.8 ms on the build host"
+   "source": "measured by this generator: full-1660-theorem receipt sweep 19.9 ms on the build host"
   },
   {
    "model": "logical-48 array",
@@ -133,11 +133,11 @@
    "source": "Xanadu, Nature 2022"
   }
  ],
- "receipt": "5facb816-8ed4-8877-be23-7e561d85f78f",
+ "receipt": "8e3de693-18cf-86aa-b65d-8725f08ee553",
  "measured": {
-  "nsPerVerify": 11312,
+  "nsPerVerify": 12010,
   "ledger": 1660,
-  "sweepMs": 18.8
+  "sweepMs": 19.9
  },
  "honest": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer"
 }

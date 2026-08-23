@@ -7,6 +7,7 @@ import assert from 'node:assert/strict'
 import { unifiedRegistry, portTool } from '../quantum/os/registry.js'
 import { defaultInstalls } from '../quantum/os/index.js'
 import { toUuid } from '../address.js'
+import { callTool } from '../mcp.js'
 
 const SAMPLE = [
   { name: 'uuidna_digital_root', description: 'The digital root of a number. Reduce n mod 9 to one digit.' },
@@ -49,4 +50,17 @@ test('the whole registry folds to ONE root, recomputable AND change-sensitive', 
 test('the registry is sorted by id — a stable order, so the fold is order-free of insertion', () => {
   const ids = unifiedRegistry(SAMPLE).packages.map((p) => p.id)
   assert.deepEqual(ids, [...ids].sort(), 'packages are in id order')
+})
+
+test('the SERVED tool uuidna_registry dispatches: the whole live catalogue folds with the OS to one receipt', () => {
+  const r = callTool('uuidna_registry', {}) as ReturnType<typeof unifiedRegistry>
+  assert.equal(r.count, r.tools + r.installs, 'the served registry is the live toolbox plus the OS')
+  assert.equal(r.installs, defaultInstalls().specs.length, 'the whole install port is folded in')
+  assert.ok(r.tools > r.installs, 'the live catalogue has more tools than the OS has installs')
+  // uuidna_registry ports ITSELF — the tool is a package in its own registry (the fixed point of the unification)
+  const self = r.packages.find((p) => p.name === 'uuidna_registry')
+  assert.ok(self, 'uuidna_registry appears as a package in its own registry')
+  assert.equal(self!.kind, 'tool')
+  assert.equal(self!.id, 'uuidna/uuidna_registry')
+  assert.equal(self!.hexbits.length, 32)
 })
