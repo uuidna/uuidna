@@ -29,15 +29,6 @@ const full = process.argv.includes('--full')      // include the kernel (~700s);
 const push = process.argv.includes('--push')      // push if — and only if — every arm is green
 
 const ARMS: Arm[] = [
-  { name: 'types', why: 'tsc with noEmitOnError — a type error must not write dist for the next step to run',
-    run: () => sh('npm run build') },
-
-  { name: 'ledger', why: 'guard: DNA recomputes, no collision, conformance holds, the lean binds to its key, determinism clean',
-    run: () => sh('node dist/scripts/guard.js') },
-
-  { name: 'tests', why: 'the invariants no finder holds — a demoted finder does not demote its test, which is how "guard green" stopped meaning green',
-    run: () => sh('node --test dist/tests/*.test.js') },
-
   { name: 'behind', why: 'origin must hold nothing we lack — a push over a divergence is a merge decided blind',
     run: () => { execSync('git fetch origin --quiet', { cwd: ROOT }); return out('git rev-list --count HEAD..origin/main') === '0' } },
 
@@ -49,6 +40,15 @@ const ARMS: Arm[] = [
       const sources = out('git diff --name-only').split('\n').filter((f) => f.startsWith('lean/') && f.endsWith('.lean'))
       return sources.length === 0
     } },
+
+  { name: 'types', why: 'tsc with noEmitOnError — a type error must not write dist for the next step to run',
+    run: () => sh('npm run build') },
+
+  { name: 'ledger', why: 'guard: DNA recomputes, no collision, conformance holds, the lean binds to its key, determinism clean',
+    run: () => sh('node dist/scripts/guard.js') },
+
+  { name: 'tests', why: 'the invariants no finder holds — a demoted finder does not demote its test, which is how "guard green" stopped meaning green',
+    run: () => sh('node --test dist/tests/*.test.js') },
 
   ...(full ? [{ name: 'kernel', why: 'every wing re-proven sorry-free and every theorem kernel-only (UUIDNA_PROVE_ALL=1)',
     run: () => sh('UUIDNA_PROVE_ALL=1 npm run lean && node dist/scripts/lean-axioms.js') }] : []),

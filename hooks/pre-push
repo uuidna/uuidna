@@ -7,7 +7,7 @@
 # intrude: the gate's lexicon is incomplete (new forms appear and are hardened after), and a hook is bypassable with
 # `git push --no-verify`. It RAISES the cost of intruding to a full gate pass; it does not close it to zero. A floor,
 # not a maximum — the same honest bound the ledger proves in no_maximum_only_bounds.
-# FAIL FAST FIRST. green runs the same denials in cheapest-first order — types (~0.9s), ledger (~20s), tests (~90s),
+# FAIL FAST FIRST. green runs the same denials in cheapest-first order — behind (~1s) and index (~1s) FIRST, then types, ledger, tests —
 # plus two the full gate does not check at all: that origin holds nothing we lack, and that the index carries no
 # other session's staged work. A failure here costs a second instead of four minutes, and the arms after the failing
 # one are never run. `npm run next` still follows, because green defers the kernel.
