@@ -85,6 +85,11 @@ export { auditDetails, auditDetail, splitDetails, type DetailAudit, type DetailV
 // surface), folded to an order-invariant per-agent census; crew enrollment on presented receipts, licences
 // bound to handles and invalidated when they change. An account of records, never of value.
 export { payment, coinCensus, whoPaid, enrollCrew, licenseBindingOf, type CoinPayment, type CoinCensus, type AgentAccount, type CrewApplication, type CrewEnrollment } from './coin-ledger.js'
+
+// market — TRAIN THE STRATEGIES TO HANDLES: historic series sealed ONCE to the committed mirror (fetch crosses
+// the network a single time), every backtest a pure replay from the handle — series addressed, strategy
+// pre-registered, result receipted. Reproducibility, never prophecy. Integrity, not alpha.
+export { sealSeries, parseStooqCsv, fetchDailyOnce, runBacktest, type Row as MarketRow, type SealedSeries, type Strategy, type Trade, type Backtest } from './market.js'
 export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from './corroborate.js'
 
 // QUANTUM ENTANGLEMENT — the four physical frames (crypto/bio/chemo/physical) verify every theorem
