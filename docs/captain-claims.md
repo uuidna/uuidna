@@ -3,8 +3,8 @@
 **Generated:** 2026-08-23
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1633/1633 theorems — every one, by construction
-**Claim receipt:** `c3109497-dae1-8304-91df-cfd330f74c0c`
+**Total claimed:** 1639/1639 theorems — every one, by construction
+**Claim receipt:** `497e3880-d7af-895e-9002-743ec3f2e2d1`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -662,6 +662,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) · [anthem_three_lengths_quarter_the_bar](/theorem/anthem_three_lengths_quarter_the_bar) · [anthem_rest_twelfths_the_bar](/theorem/anthem_rest_twelfths_the_bar) · [anthem_four_movements](/theorem/anthem_four_movements) · [anthem_closes_on_the_coin_octave](/theorem/anthem_closes_on_the_coin_octave) · [anthem_superposition_mix_closes](/theorem/anthem_superposition_mix_closes) · [anthem_recursion_never_starves](/theorem/anthem_recursion_never_starves) · [anthem_pi_primes_trinity](/theorem/anthem_pi_primes_trinity) · [anthem_finale_sings_one_uuid](/theorem/anthem_finale_sings_one_uuid)
 
+### The Cyrillic ROM
+
+- **Theorems:** 6
+- **Sample lineAddress:** `998d0c84-f4ac-81da-8461-c2da914a5ce6`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[pravets_built_in_a_prime_year](/theorem/pravets_built_in_a_prime_year) · [the_rom_frees_twentysix_for_the_tongue](/theorem/the_rom_frees_twentysix_for_the_tongue) · [the_screen_carries_the_rings](/theorem/the_screen_carries_the_rings) · [a_glyph_costs_one_coin_measure](/theorem/a_glyph_costs_one_coin_measure) · [the_boot_pays_the_captains_fee](/theorem/the_boot_pays_the_captains_fee) · [from_eight_bits_to_the_dos_ceiling](/theorem/from_eight_bits_to_the_dos_ceiling)
+
 ### The compound billing law
 
 - **Theorems:** 6
@@ -1014,7 +1023,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1551 (1633 entries, 82 re-namings — a theorem is its Lean |
+| sealed propositions | 1557 (1639 entries, 82 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1032,7 +1041,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1633 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1639 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

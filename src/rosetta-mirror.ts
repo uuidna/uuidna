@@ -874,6 +874,13 @@ fstop_squared_is_exact_power 19
 iso_full_stops_agree_exactly 19
 equivalent_exposure 19
 stops_fold_mod_nine 19
+#Pravets.lean
+pravets_built_in_a_prime_year 19
+the_rom_frees_twentysix_for_the_tongue 19
+the_screen_carries_the_rings 19
+a_glyph_costs_one_coin_measure 19
+the_boot_pays_the_captains_fee 19
+from_eight_bits_to_the_dos_ceiling 19
 #Production.lean
 reverse_involutive 19
 phase_inversion_involutive 19

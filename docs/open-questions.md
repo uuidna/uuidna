@@ -102,7 +102,7 @@ page regrows without it.
 - **refused[] in this very file is read by NO finder. Seven readers open leads.json; none looks at the refusals.**
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`lights_out_flip_involution`](/theorem/lights_out_flip_involution) · [`morris_eight_bars_halved`](/theorem/morris_eight_bars_halved) </small>
-  <br><small>sealed neighbors: [`four_vectors_reach_the_uuid`](/theorem/four_vectors_reach_the_uuid) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) · [`first_cron_wave_receipt`](/theorem/first_cron_wave_receipt) </small>
+  <br><small>sealed neighbors: [`four_vectors_reach_the_uuid`](/theorem/four_vectors_reach_the_uuid) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) · [`the_screen_carries_the_rings`](/theorem/the_screen_carries_the_rings) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Four-stroke cycle completes in two crankshaft revolutions (recorded value: 2)**
   <br><small>door: the research ledger</small>
