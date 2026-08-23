@@ -11,7 +11,7 @@
     ".zenodo.json": "2b7de5510787800e",
     "reports.json": "52e0894f86a786fb",
     "lean/statement-index.json": "0ccf0d0b37878980",
-    "README.md": "94ecb1218ea987c5",
+    "README.md": "e39e02a5b93e8ca0",
     "llm.txt": "ef34d987e48c8f5f",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -1568,8 +1568,8 @@
     "lean/propulsion-manifest.json": "dd4ce996a8f18260",
     "lean/prosetrial-manifest.json": "f29c531397f588fd",
     "lean/psychology-manifest.json": "573f1cc3d653898b",
-    "lean/quantum-capacity.json": "8553bf0f3fb68305",
-    "lean/quantum-capacity.md": "1aa0aa682edb85be",
+    "lean/quantum-capacity.json": "10fcf69868a08908",
+    "lean/quantum-capacity.md": "ba4365c04ee984aa",
     "lean/quantum-manifest.json": "cc3daca37bf3899a",
     "lean/readings-manifest.json": "a5f340bef0708c7c",
     "lean/reasoning-manifest.json": "deb3b05237f48b3a",
@@ -1613,5 +1613,5 @@
     "lean/wave-queue.json": "b545c1f6acbb8994",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "76ad5cdc-2556-8932-849a-8ff216d45aaa"
+  "receipt": "406e3d81-2f6d-8047-b70f-16af965a48c2"
 }
