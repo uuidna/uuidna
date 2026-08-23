@@ -126,3 +126,12 @@ theorem first_cron_wave_receipt : (5 + 5 = 10) ∧ (7 = 5 + 2) ∧ (10 + 1 = 11)
     human hand anywhere between deposit and origin. If this theorem is in the ledger, the captain's order
     "install the kernel on ci so the cron judges by itself" is not a claim but a receipt. -/
 theorem cron_judges_by_itself : 17 * 19 = 323 := by decide
+
+/-- THE LAW SCHOOL GRADUATES ITS FIRST STUDENT: tet_semitone_no_integer_lattice was refused because the
+    irrationality of the twelfth root of two is not a by-decide — and the accredited restatement is: NO rational
+    p/q at the window satisfies (p/q)^12 = 2, checked exhaustively for every q below 20 and p below 40 (p^12 =
+    2·q^12 has no solution there). HONEST SCOPE, the graduation lesson itself: this seals irrationality AT THE
+    WINDOW and not beyond it (window_not_universal) — the full irrationality stays with the literature; the
+    window is exactly what the kernel can hold, stated so it cannot claim more. The 12-TET semitone still has no
+    integer lattice as far as the kernel can see, which is the honest form of the songbook schism (lead 73). -/
+theorem tet_semitone_no_rational_at_the_window : (List.range' 1 19).all (fun q => (List.range' 1 39).all (fun p => p ^ 12 ≠ 2 * q ^ 12)) := by decide

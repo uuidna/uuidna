@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:b11634c7-d68a-8c0f-b12d-becd538b3054",
+  "@id": "urn:uuid:79ed2576-3628-8fc1-aa26-7213f42bc1a0",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -38210,6 +38210,34 @@
         "abstract": "17 * 19 = 323",
         "identifier": "c728d4a0-71e0-8891-adaf-5a754ba07abc",
         "url": "https://uuidna.com/theorem/cron_judges_by_itself",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:036ff0e8-0f3d-8878-89ff-ff9318c92278",
+        "@type": "ScholarlyArticle",
+        "headline": "THE LAW SCHOOL GRADUATES ITS FIRST STUDENT: tet_semitone_no_integer_lattice was refused because the irrationality of the twelfth root of two is not a by-decide — and the accredited restatement is: NO rational p/q at the window satisfies (p/q)^12 = 2, checked exhaustively for every q below 20 and p below 40 (p^12 = 2·q^12 has no solution there). HONEST SCOPE, the graduation lesson itself: this seals irrationality AT THE WINDOW and not beyond it (window_not_universal) — the full irrationality stays with the literature; the window is exactly what the kernel can hold, stated so it cannot claim more. The 12-TET semitone still has no integer lattice as far as the kernel can see, which is the honest form of the songbook schism (lead 73).",
+        "abstract": "(List.range' 1 19).all (fun q => (List.range' 1 39).all (fun p => p ^ 12 ≠ 2 * q ^ 12))",
+        "identifier": "65144cf1-7cca-85b9-be4b-8e1c8cdc6e9b",
+        "url": "https://uuidna.com/theorem/tet_semitone_no_rational_at_the_window",
         "keywords": "wave, The conveyor's first wave",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
