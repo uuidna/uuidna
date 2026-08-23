@@ -1562,6 +1562,13 @@ lagrange_divides_every_order 19
 two_generates_the_whole 19
 most_subsets_are_not_subgroups 19
 trivial_and_whole_are_subgroups 19
+#Tesla.lean
+tesla_trio_files_adjacent 19
+tesla_leap_spring_to_grant 19
+three_tilings_of_the_circle 19
+alternation_needs_a_second_phase 19
+the_grids_minute 19
+teleautomaton_precedes_transmission 19
 #Thermodynamics.lean
 first_law_conservation 19
 entropy_never_decreases 19
