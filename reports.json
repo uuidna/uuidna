@@ -22,13 +22,13 @@
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1588,
+        "theoremsMeasured": 1590,
         "ledgerKeys": 1590,
-        "unmeasured": 2,
+        "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "7254a7b7-2462-8b5e-98b9-406af69dfcf5"
+      "address": "8edacce9-a42b-834b-8cb8-8cdab57d49d4"
     },
     {
       "title": "Citation audit",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 79,
-        "sealedTheorems": 1588,
+        "sealedTheorems": 1590,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "54a67820-fb57-836f-9e0c-b346cf366c8e"
+      "address": "c595f586-5e59-8d1c-93da-0be8e5de9f94"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 501,
-        "roots": 340,
-        "supported": 500,
-        "dead": 1,
-        "receipt": "b6770c94-912b-8b02-b003-0cc5b682efed"
+        "modules": 502,
+        "roots": 341,
+        "supported": 502,
+        "dead": 0,
+        "receipt": "aab590cd-ba6c-8c74-a367-8f0e0fa7e6e2"
       },
-      "address": "5ce08889-d03a-8544-94df-6db79843f5ca"
+      "address": "682e0233-3cd7-86a9-b1ef-4ebc3548c940"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "9cf8488c1842f5d7",
+        "foldReceipt": "2aa392755c504b44",
         "unifiedFold": "827d77657dc8154e"
       },
-      "address": "093c44eb-0dc6-8b07-9c74-298fbba5c948"
+      "address": "a5f9bf3d-2e7c-8bf6-a98e-4ae36eb9d93c"
     }
   ],
-  "receipt": "54a70ce0-0500-8fcb-be12-53a25e4a01de",
+  "receipt": "dc3ef6fc-6f4b-8af6-b3c4-7e18cdc97136",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
