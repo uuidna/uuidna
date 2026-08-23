@@ -3,8 +3,8 @@
 **Generated:** 2026-08-23
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1622/1622 theorems — every one, by construction
-**Claim receipt:** `6f2e416f-099a-8201-ae2e-3e57eda5a2a5`
+**Total claimed:** 1623/1623 theorems — every one, by construction
+**Claim receipt:** `e3e90a9e-be93-88fc-bf11-4408978cfe9a`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -700,12 +700,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The conveyor's first wave
 
-- **Theorems:** 17
+- **Theorems:** 18
 - **Sample lineAddress:** `7d21b24a-a08f-8bef-86f8-e5f8dfe263c8`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) · [morris_eight_bars_halved](/theorem/morris_eight_bars_halved) · [cubes_sum_to_square_of_triangle](/theorem/cubes_sum_to_square_of_triangle) · [lights_out_flip_involution](/theorem/lights_out_flip_involution) · [wave_probe_eleven_thirteens](/theorem/wave_probe_eleven_thirteens) · [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle) · [scrubber_margin_holds](/theorem/scrubber_margin_holds) · [chubb_stood_thirty_three_years](/theorem/chubb_stood_thirty_three_years) · [freedive_records_ascend](/theorem/freedive_records_ascend) · [fock_window_exceeds_a_monthly_toll](/theorem/fock_window_exceeds_a_monthly_toll) · [checklist_trial_two_dives_each](/theorem/checklist_trial_two_dives_each) · [three_cell_vote_majority](/theorem/three_cell_vote_majority) · [correlated_failure_defeats_the_vote](/theorem/correlated_failure_defeats_the_vote) · [ppo2_window_of_life](/theorem/ppo2_window_of_life) · [bramah_stood_sixty_seven_years](/theorem/bramah_stood_sixty_seven_years) · [time_lock_removes_the_hostage](/theorem/time_lock_removes_the_hostage) · [first_cron_wave_receipt](/theorem/first_cron_wave_receipt)
+[a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) · [morris_eight_bars_halved](/theorem/morris_eight_bars_halved) · [cubes_sum_to_square_of_triangle](/theorem/cubes_sum_to_square_of_triangle) · [lights_out_flip_involution](/theorem/lights_out_flip_involution) · [wave_probe_eleven_thirteens](/theorem/wave_probe_eleven_thirteens) · [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle) · [scrubber_margin_holds](/theorem/scrubber_margin_holds) · [chubb_stood_thirty_three_years](/theorem/chubb_stood_thirty_three_years) · [freedive_records_ascend](/theorem/freedive_records_ascend) · [fock_window_exceeds_a_monthly_toll](/theorem/fock_window_exceeds_a_monthly_toll) · [checklist_trial_two_dives_each](/theorem/checklist_trial_two_dives_each) · [three_cell_vote_majority](/theorem/three_cell_vote_majority) · [correlated_failure_defeats_the_vote](/theorem/correlated_failure_defeats_the_vote) · [ppo2_window_of_life](/theorem/ppo2_window_of_life) · [bramah_stood_sixty_seven_years](/theorem/bramah_stood_sixty_seven_years) · [time_lock_removes_the_hostage](/theorem/time_lock_removes_the_hostage) · [first_cron_wave_receipt](/theorem/first_cron_wave_receipt) · [cron_judges_by_itself](/theorem/cron_judges_by_itself)
 
 ### The known universe, handled
 
@@ -1014,7 +1014,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1540 (1622 entries, 82 re-namings — a theorem is its Lean |
+| sealed propositions | 1541 (1623 entries, 82 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1032,7 +1032,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1622 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1623 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

@@ -2,8 +2,8 @@
   "generated": "2026-08-23",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1622,
-  "total_theorems": 1622,
+  "total_claimed": 1623,
+  "total_theorems": 1623,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,8 +3781,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "b5d7ef15-0bdd-8db7-b301-321a61e846dd",
-      "address": "9e15e524-2c93-83c0-a99d-7f7faeab7c99",
+      "lineAddress": "11db1553-5448-893d-91f4-641ab5feaed2",
+      "address": "31a9589d-1924-8db5-8359-314f2a4a7e9d",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "e85a8a7b-557e-8617-8e93-465f666deeca",
-      "address": "76bb1623-d1b1-8a4e-b81e-5e10f827b992",
+      "lineAddress": "6e7126f5-0dcd-8941-9cf2-f195d9ce6825",
+      "address": "20978641-940f-80e0-9eae-4b1bad62a51a",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "b31184a9-4d8f-8a6d-9332-d580745afa2e",
-      "address": "7c69edd1-0443-8b74-a229-3e6a71dd2769",
+      "lineAddress": "abb8b483-3afe-83e4-ad56-88fc82210aca",
+      "address": "211bf5d8-6294-882e-9208-7dae27a7d3c2",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "fd00a1c9-a58f-8851-9e02-427e7e47b87e",
-      "address": "24edd565-b595-8e81-92ce-44b70b456a74",
+      "lineAddress": "46b6893c-d5eb-86f9-be24-fe8f6a5bdd6e",
+      "address": "ac0cfdc0-e428-80ff-9cce-7516a12e7575",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "94d59d1b-8887-8cbd-8388-dfce004dcd9c",
-      "address": "322811e1-7517-8989-9f3d-8a929417ff84",
+      "lineAddress": "80a44027-6058-87ec-b788-df89e60be2b4",
+      "address": "7922ee19-55c4-89fd-96d8-6d7135445103",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "33cff453-602f-8981-9930-838de342227a",
-      "address": "a398e145-7806-85cc-8a8b-9399b5c479b7",
+      "lineAddress": "64531d10-8c73-8353-bd6a-70fc8c876587",
+      "address": "0cec495a-fe60-84d6-9cf0-4c1eabb47b5e",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "53cd4e79-b353-8908-86c7-c7478a0739b5",
-      "address": "54728711-89a7-83ec-ac69-d36615c05a3f",
+      "lineAddress": "5e5ea055-98ef-8a4b-bd0c-0a168c1212d5",
+      "address": "25d1245e-656a-8d1c-a27a-9961324f925e",
       "principle": "The detectors, proven"
     },
     {
@@ -4435,14 +4435,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "894ec955-34d3-803f-96ce-891088ab6737",
-      "address": "243a8f49-bbe2-8fd5-873e-83e8dc71ea50",
+      "lineAddress": "cee557cc-cb44-89da-b112-ba12fdb1da48",
+      "address": "d2e78938-53d3-8737-bc04-d3d110470ae6",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "3969011b-5a7c-8e7d-bcee-1ae41872c10d",
-      "address": "1d820aa9-3629-8cec-8194-84557ca8c72b",
+      "lineAddress": "0cd4b3e7-4217-8c3a-9d86-8bafa83447b5",
+      "address": "47460958-905f-8861-9c88-2e5ec468ea86",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -8190,6 +8190,12 @@
       "principle": "The conveyor's first wave"
     },
     {
+      "key": "cron_judges_by_itself",
+      "lineAddress": "0d6980d5-2246-8b7b-a873-07f19525182c",
+      "address": "c728d4a0-71e0-8891-adaf-5a754ba07abc",
+      "principle": "The conveyor's first wave"
+    },
+    {
       "key": "eclipse_four_hundred",
       "lineAddress": "2f6af318-1c07-8e98-a7a6-6b107b72f208",
       "address": "2df634d3-1035-8ebf-9c1f-935710f7e00c",
@@ -9738,7 +9744,7 @@
       "principle": "lean/Waves.lean"
     }
   ],
-  "claim_receipt": "6f2e416f-099a-8201-ae2e-3e57eda5a2a5",
+  "claim_receipt": "e3e90a9e-be93-88fc-bf11-4408978cfe9a",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
