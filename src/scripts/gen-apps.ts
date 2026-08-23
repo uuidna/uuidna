@@ -37,6 +37,11 @@ the same fold — and the bar every instrument keeps is the sealed 4032
 ([\`the_movie_and_the_song_are_one\`](/theorem/the_movie_and_the_song_are_one)). What survives here survived
 its denials ([\`denial_drains_to_the_last_coin\`](/theorem/denial_drains_to_the_last_coin)).
 
+**The kernel's second layer** — the same states as motion: type anything below, fold it, and the uuid sings and
+moves at once, every layer refolding to one identity (the DVD read whole — lead 94's imprint):
+
+<HexbitAnimator />
+
 ${sections}
 
 ## Honest scope

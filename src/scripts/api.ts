@@ -204,6 +204,7 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/apps.md',
   // the default install's meaning page — derived from Installs.lean by gen-os
   'docs/os.md',
+  'docs/store.md',
   // the model comparison page — rewritten by gen-models from the committed feed mirror every reconcile
   'docs/models.md',
   // one chunk per DISTINCT proven fact — fewer than the key count, since a statement sealed in two wings is
@@ -251,6 +252,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-analytics': ['docs/analytics.md'],
   'gen-song': ['docs/song.md', 'docs/public/song.wav'],
   'gen-anthem': ['docs/anthem.md'],
+  'gen-store': ['docs/store.md'],
   'gen-referrer-song': ['docs/referrer-song.md'],
   'gen-open-questions': ['docs/open-questions.md'],
   'gen-apps': ['docs/apps.md'],

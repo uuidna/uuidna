@@ -52,6 +52,6 @@ const lifted = existsSync(queuePath)
   ? (JSON.parse(readFileSync(queuePath, 'utf8')) as { accepted?: { key: string; why: string; lean: string }[] }).accepted ?? []
   : []
 
-emit({ file: 'Wave.lean', skill: 'wave',
+emit({ file: 'Wave.lean', defs: 'set_option maxRecDepth 4096', skill: 'wave',
   header: 'WAVE — the conveyor\'s first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism\'s residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus\' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed.',
   facts: [...FACTS, ...lifted].map((f) => ({ ...f, name: f.why })) })

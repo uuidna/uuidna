@@ -6,6 +6,12 @@
       "why": "THE CONVEYOR'S OWN PROBE — the first candidate to ride the route with no model at the gate: 11 · 13 = 143, two primes and their product, deposited pending so validate → kernel-probe → accept → lift → gate proves itself end to end.",
       "lean": "theorem wave_probe_eleven_thirteens : 11 * 13 = 143 := by decide",
       "receipt": "c75e5cda-b46d-8e78-a515-e57fa46ae83e"
+    },
+    {
+      "key": "pilgrims_walk_must_cycle",
+      "why": "THE PILGRIM'S WALK MUST COME HOME (queue lead 128b, from the live superposition's deepening chain): a deepening step maps an address to an address, and an address space is finite — so every chain of collapses revisits, by pigeonhole. The pigeonhole is enumerated IN FULL on the 3-state model: all 81 possible four-step traces over three states, and every single one holds a repeat (at most three distinct among four) — no exception exists, the kernel checked each trace. Beside it, the real space's size: 16^8 = 4294967296 addresses, so the live walk revisits within 4294967297 steps — the BOUND is sealed; the empty seed's actual cycle length stays open as computation (lead 128b). HONEST SCOPE: exhaustive pigeonhole on the model, arithmetic on the space — never a claim about which theorems any cycle greets.",
+      "lean": "theorem pilgrims_walk_must_cycle : ((List.range 81).all (fun v => (([v % 3, v / 3 % 3, v / 9 % 3, v / 27 % 3].eraseDups).length ≤ 3))) ∧ (16 ^ 8 = 4294967296) := by decide",
+      "receipt": "2fcf88f7-5ead-88e5-a0e3-e687d59b1799"
     }
   ],
   "refused": [

@@ -50,6 +50,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-apps.js', args: [], note: 'the store — shelves derived from the category registry itself' },
   { file: 'gen-open-questions.js', args: [], note: 'the school of open doors — the unverified in topics, involution magnets attached, derived from the three records' },
   { file: 'gen-referrer-song.js', args: [], note: 'the referrer song — the doors, the measured walk census, and the site cycle sounded; every claim a Referrer.lean seal' },
+  { file: 'gen-store.js', args: [], note: 'the storefront — apps, games, books unified at /store, derived from each shelf' },
   { file: 'gen-os.js', args: [], note: 'the default install — every path\'s exact meaning from the committed Alpine mirror; every claim an Installs.lean seal' },
   { file: 'gen-models.js', args: [], note: 'the model comparison over all public live data — every figure\'s honesty class visible; every sealed claim an Models.lean cite' },
   { file: 'rosetta.js', args: [], note: 'the five-leg census — rewrites src/rosetta-mirror.ts, the surface the hosted edge answers from' },

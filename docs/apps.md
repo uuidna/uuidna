@@ -16,6 +16,11 @@ the same fold — and the bar every instrument keeps is the sealed 4032
 ([`the_movie_and_the_song_are_one`](/theorem/the_movie_and_the_song_are_one)). What survives here survived
 its denials ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
+**The kernel's second layer** — the same states as motion: type anything below, fold it, and the uuid sings and
+moves at once, every layer refolding to one identity (the DVD read whole — lead 94's imprint):
+
+<HexbitAnimator />
+
 ## books — 4 instruments
 
 categories/books — THE READING ROOM SHELF (lead 81b, the captain's "next 4/4 come from books"): the corpus pipeline as four hand instruments — the reader (a text's recomputable identity and its ledger linkage), the fact-finder (the word-arithmetic ear, controls-first), the librarian (the shelf ranked by counted weight), and the quote-trial (a quoted sentence stands the citation trial and leaves addressed). The books the first thread surfaced — music, dance, singing — become the school's own read

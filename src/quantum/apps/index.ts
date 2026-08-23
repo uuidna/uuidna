@@ -3,6 +3,9 @@
 // surface that wants sound, image or motion imports an app from here and computes it where the visitor stands;
 // nothing is served that could not be recomputed.
 export { renderStates, type HexbitRecording } from './hexbit-player.js'
+// the kernel's second layer — the same states as MOTION: integer keyframes the shell paints; sound and motion
+// align bar-for-bar by the sealed 4032 = 24·168, and every layer refolds to the one identity (lead 94)
+export { animateStates, layersOf, BAR_MS, FRAMES_PER_BAR, SAMPLES_PER_FRAME, type Animation, type Keyframe } from './hexbit-animator.js'
 // url-audit — the 404 handled as an AUDIT: parse the url, compute the relevant sealed content (exact path
 // meaning, family, token matches, total fallback), never an empty answer — serving always 200 in substance.
 export { auditUrl, type UrlAuditReport, type UrlAuditMatch } from './url-audit.js'
