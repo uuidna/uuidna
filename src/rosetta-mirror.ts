@@ -179,14 +179,14 @@ hyperchess_eight_dimensions 19
 no_maximal_board 19
 knight_on_the_diamond 19
 boards_are_diamond_self_inverses 19
-knight_centre_eight 18
+knight_centre_eight 26
 knight_near_centre_six 18
 knight_edge_four 18
 knight_near_corner_three 18
-knight_corner_two 18
-king_centre_eight 18
+knight_corner_two 26
+king_centre_eight 26
 king_edge_five 18
-king_corner_three 18
+king_corner_three 26
 material_sum_twentyone 19
 central_four_squares 19
 #Cipher.lean
@@ -968,7 +968,7 @@ modus_tollens 19
 contrapositive 19
 de_morgan_and 19
 de_morgan_or 19
-double_negation 19
+double_negation 27
 excluded_middle 19
 hypothetical_syllogism 27
 disjunctive_syllogism 19
