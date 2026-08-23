@@ -650,6 +650,14 @@ compass_rose_eight 19
 reverse_bearing_involution 19
 quarter_turn_order_four 19
 dead_reckoning_adds 19
+#Negation.lean
+negation_involution_solves 19
+denials_exhaust_to_the_whole 19
+exhausted_denial_is_the_proof 19
+a_window_exhausts_only_itself 19
+silence_never_refutes 19
+waves_of_denial_tighten 19
+denial_drains_to_the_last_coin 19
 #Neuro.lean
 subthreshold_silent 19
 suprathreshold_fires 19
