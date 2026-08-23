@@ -402,7 +402,7 @@ export async function fetchGutenberg(id: number | string): Promise<FetchedBook> 
       const attempt = await fetch(candidate, { signal: AbortSignal.timeout(15000) })
       if (attempt.ok) { textRes = attempt; break }
       refused.push(`${attempt.status} ${candidate}`)
-    } catch (e) { refused.push(`${String((e as Error).message).slice(0, 40)} ${candidate}`) }
+    } catch (e) { refused.push(`${String((e as Error).message).slice(0, 200)} ${candidate}`) }
   }
   // NAMED, NEVER SILENT: a book that no mirror served says which ones refused and how, so the next reader knows
   // whether the catalogue is wrong or the network is.
