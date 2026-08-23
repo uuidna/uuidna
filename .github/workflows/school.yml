@@ -33,9 +33,6 @@ jobs:
           node-version: '26'
       - name: Install deps
         run: npm install --no-audit --no-fund
-      - name: 'LEAN GREEN — the development pass: walk the gate, cure what is deterministic'
-        run: |
-          npm run develop
       - name: 'KERNEL CACHE — the judge is heavy, carry it between bells'
         uses: actions/cache@v4
         with:
@@ -50,6 +47,9 @@ jobs:
           "$HOME/.elan/bin/elan" toolchain install "$(cat lean-toolchain)" || true
           "$HOME/.elan/bin/elan" default "$(cat lean-toolchain)"
           "$HOME/.elan/bin/lean" --version
+      - name: 'LEAN GREEN — the development pass: walk the gate, cure what is deterministic'
+        run: |
+          npm run develop
       - name: 'WAVE — the conveyor lifts sealable candidates, the kernel adjudicating'
         run: |
           node dist/scripts/queue-wave.js

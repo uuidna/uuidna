@@ -76,7 +76,7 @@ const runLean = (probe: string, attempt = 0): Promise<string> =>
       const hasVerdict = /depends on axioms|does not depend on any axioms/.test(msg)
       if (err && !hasVerdict) {
         if (attempt < RETRIES) return resolve(runLean(probe, attempt + 1)) // transient — retry
-        return reject(new Error('lean produced no axiom verdict after ' + (RETRIES + 1) + ' attempts on ' + probe + ':\n' + msg.slice(0, 200)))
+        return reject(new Error('lean produced no axiom verdict after ' + (RETRIES + 1) + ' attempts on ' + probe + (msg.trim() ? ':\n' + msg.slice(0, 200) : ' — the spawn itself failed: is the lean kernel installed on this host? (an absent instrument voids, it does not verdict)')))
       }
       resolve(msg)
     })
