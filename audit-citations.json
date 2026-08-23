@@ -1,13 +1,13 @@
 {
-  "key": "1dc045ed-0fd2-8986-9a89-5cd9853f7f5a",
+  "key": "330b0e00-c8d6-8046-9ffb-37c3d5134b72",
   "publications": 82,
-  "sealedTheorems": 1624,
+  "sealedTheorems": 1633,
   "fabricated": 0,
   "uncited": 1,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1422,
-    "theorems": 1624,
+    "claims": 1431,
+    "theorems": 1633,
     "bijection": false,
     "digitalRoots": {
       "claims": 9,
@@ -553,8 +553,8 @@
     },
     {
       "slug": "wave",
-      "claims": 19,
-      "cited": 19,
+      "claims": 28,
+      "cited": 28,
       "uncited": [],
       "fabricated": []
     },

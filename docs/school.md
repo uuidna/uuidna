@@ -57,15 +57,15 @@ When practice stalls on a theorem, the gap is almost never the theorem itself �
 skipped. The fix is never to invent a bridging theorem (a restatement is not a unity,
 [`unity_census_is_plural_and_needs_two`](/theorem/unity_census_is_plural_and_needs_two)); it is to **reorder the walk** so the sealed prerequisite comes
 first. And the prerequisite relation is not curated: it is scanned from the ledger itself — every sealed name
-that cites another sealed key IS a citation edge, 73 prerequisites over 84 edges at this
+that cites another sealed key IS a citation edge, 75 prerequisites over 87 edges at this
 generation, ranked by how many theorems rest on each. Walk the most-cited first; each row lists up to its first
 three citers alphabetically, and the count carries the rest.
 
 | Walk this first | Cited by | Among its citers |
 | --- | ---: | --- |
+| [`window_not_universal`](/theorem/window_not_universal) | 4 | [`cubes_sum_to_square_of_triangle`](/theorem/cubes_sum_to_square_of_triangle), [`pluck_preserves_bound_at_the_window`](/theorem/pluck_preserves_bound_at_the_window), [`tet_semitone_no_rational_at_the_window`](/theorem/tet_semitone_no_rational_at_the_window) |
 | [`codons_sixty_four`](/theorem/codons_sixty_four) | 3 | [`octave_codon_address`](/theorem/octave_codon_address), [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not), [`payload_carries_the_strand`](/theorem/payload_carries_the_strand) |
 | [`verify_cheaper_than_forge`](/theorem/verify_cheaper_than_forge) | 3 | [`bramah_stood_sixty_seven_years`](/theorem/bramah_stood_sixty_seven_years), [`manipulation_never_faster`](/theorem/manipulation_never_faster), [`minting_is_free_and_forging_is_not`](/theorem/minting_is_free_and_forging_is_not) |
-| [`window_not_universal`](/theorem/window_not_universal) | 3 | [`cubes_sum_to_square_of_triangle`](/theorem/cubes_sum_to_square_of_triangle), [`team_pairs_triples_cover`](/theorem/team_pairs_triples_cover), [`tet_semitone_no_rational_at_the_window`](/theorem/tet_semitone_no_rational_at_the_window) |
 | [`bell_basis_orthogonal`](/theorem/bell_basis_orthogonal) | 2 | [`hexbit_slit_cross_is_overlap`](/theorem/hexbit_slit_cross_is_overlap), [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) |
 | [`charge_balance_neutral`](/theorem/charge_balance_neutral) | 2 | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything), [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) |
 | [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) | 2 | [`slit_on_the_hexbit_ring`](/theorem/slit_on_the_hexbit_ring), [`which_path_conserves_the_total`](/theorem/which_path_conserves_the_total) |
@@ -89,7 +89,9 @@ three citers alphabetically, and the count carries the rest.
 | [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) | 1 | [`flat_drift_is_quadratic`](/theorem/flat_drift_is_quadratic) |
 | [`dz_bounded`](/theorem/dz_bounded) | 1 | [`acceleration_finite`](/theorem/acceleration_finite) |
 | [`dz_sum_ten`](/theorem/dz_sum_ten) | 1 | [`hextorus_deficit_is_the_ten`](/theorem/hextorus_deficit_is_the_ten) |
+| [`eclipse_four_hundred`](/theorem/eclipse_four_hundred) | 1 | [`astronomy_eight_planets`](/theorem/astronomy_eight_planets) |
 | [`five_orbit_reverses_doubling`](/theorem/five_orbit_reverses_doubling) | 1 | [`reverse_walks_inverse`](/theorem/reverse_walks_inverse) |
+| [`flat_drift_is_quadratic`](/theorem/flat_drift_is_quadratic) | 1 | [`geography_degree_and_dozen`](/theorem/geography_degree_and_dozen) |
 | [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) | 1 | [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged) |
 | [`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive) | 1 | [`imprint_capacity_entangles`](/theorem/imprint_capacity_entangles) |
 | [`full_quorum_of_three`](/theorem/full_quorum_of_three) | 1 | [`hextorus_mints_the_quorum`](/theorem/hextorus_mints_the_quorum) |
@@ -164,7 +166,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    fingerprint what their (principle, theorem set) already fixed — **1 hexbit** of pure restatement
    ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)), priced in the unit and not in milliseconds, because a wall-clock figure moves
    with the host and a practice carrying a number that moves goes stale.
-   **The boundary:** the same reasoning was turned on the 1624-frame aura film and it was wrong. The aura IS
+   **The boundary:** the same reasoning was turned on the 1633-frame aura film and it was wrong. The aura IS
    a pure function of the address, so the digests do move together — but folding addresses computes no aura, and the
    leaf keeps the name. An aura is only an aura if it is DERIVED from the algebra: ray from ℤ/7, wave from the ℤ/9
    vortex orbit, hue by the A432 step ([`z7rays_seven`](/theorem/z7rays_seven)). A value named for a computation must be computed by
@@ -654,7 +656,7 @@ or judgment — those stay with the student; the court decides meaning. Integrit
 <!-- wings: GENERATED by scripts/gen-school — every sealed wing, so none is invisible -->
 ## The wings — all 110, computed from the ledger
 
-Every wing the ledger seals, largest first: 1624 theorems across 110 wings and 102 skills.
+Every wing the ledger seals, largest first: 1633 theorems across 110 wings and 102 skills.
 This table is derived at generation — a wing sealed today appears here today, and one that is renamed cannot linger.
 Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 
@@ -666,11 +668,11 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The 8×8 core | `Core.lean` | z9-ring | 64 | [`mul9_1_1`](/theorem/mul9_1_1) |
 | The quantum computer | `Quantum.lean` | quantum | 52 | [`all_signaling_duality`](/theorem/all_signaling_duality) |
 | The sequence & reflection group | `Sequence.lean` | sequence | 28 | [`agl_order_54`](/theorem/agl_order_54) |
+| The conveyor's first wave | `Wave.lean` | wave | 28 | [`a440_not_on_the_vortex`](/theorem/a440_not_on_the_vortex) |
 | The cipher & the strand | `Cipher.lean` | cipher | 27 | [`adversarial_privacy_is_unanimous`](/theorem/adversarial_privacy_is_unanimous) |
 | The two coins & the 64 | `Coins.lean` | coins | 25 | [`bill_never_negative`](/theorem/bill_never_negative) |
 | The rules of inference | `Reasoning.lean` | reasoning | 25 | [`absorbed_evidence_idles`](/theorem/absorbed_evidence_idles) |
 | The chess horizon | `Chessgames.lean` | chess | 24 | [`after_one_move_four_hundred`](/theorem/after_one_move_four_hundred) |
-| The conveyor's first wave | `Wave.lean` | wave | 19 | [`a440_not_on_the_vortex`](/theorem/a440_not_on_the_vortex) |
 | The algebra of the neuron | `Neuro.lean` | neuro | 18 | [`action_potential_swing`](/theorem/action_potential_swing) |
 | Waves.lean | `Waves.lean` | waves | 18 | [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) |
 | The detectors, proven | `Audit.lean` | audit | 17 | [`backing_clears`](/theorem/backing_clears) |

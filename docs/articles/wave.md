@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 19 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 28 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 18 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 27 siblings below.
 
-**19 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 19 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
+**28 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 28 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 19 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 28 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -142,6 +142,69 @@ The ledger holds this as [tet_semitone_no_rational_at_the_window](/theorem/tet_s
 
 ```lean
 (List.range' 1 19).all (fun q => (List.range' 1 39).all (fun p => p ^ 12 ≠ 2 * q ^ 12))
+```
+
+### THE SECOND GRADUATION: pluck_preserves_bound was refused because its lead owed the bounded form — here it is: a truncating scale s·k/8 with k at most 8 never grows a sample, checked exhaustively for every sample below 65 and every numerator below 9 (floor division: s·k ≤ 8s so s·k/8 ≤ s). The synth's pluck decay can only shrink what it touches, sealed at the window the kernel holds (window_not_universal), the headroom seals' missing sibling from lead 74.
+The ledger holds this as [pluck_preserves_bound_at_the_window](/theorem/pluck_preserves_bound_at_the_window) — proven `by decide`, sorry-free:
+
+```lean
+(List.range' 0 65).all (fun s => (List.range' 0 9).all (fun k => s * k / 8 ≤ s))
+```
+
+### GRAMMAR CLASS: the English alphabet closes at five vowels plus twenty-one consonants — 5 + 21 = 26 — the partition every speller learns first, sealed as the sum it is. The school covers language from its first counting.
+The ledger holds this as [grammar_vowels_and_consonants](/theorem/grammar_vowels_and_consonants) — proven `by decide`, sorry-free:
+
+```lean
+(5 + 21 = 26) ∧ (26 - 5 = 21)
+```
+
+### LITERATURE CLASS: the sonnet holds fourteen lines of ten syllables — 14 · 10 = 140 beats to the whole form — and Shakespeare left 154 of them, eleven times the form's own line count (154 = 11 · 14). The poem's shape is arithmetic before it is anything else.
+The ledger holds this as [literature_sonnet_measure](/theorem/literature_sonnet_measure) — proven `by decide`, sorry-free:
+
+```lean
+(14 * 10 = 140) ∧ (154 = 11 * 14)
+```
+
+### GEOGRAPHY CLASS: one degree of meridian is 111 kilometres by the floor — 40008 / 360 = 111 of the earth's polar circumference — and the map's first census is seven continents plus five oceans, a dozen great names. The flat chart's drift table (flat_drift_is_quadratic) already priced this class's honesty.
+The ledger holds this as [geography_degree_and_dozen](/theorem/geography_degree_and_dozen) — proven `by decide`, sorry-free:
+
+```lean
+(40008 / 360 = 111) ∧ (7 + 5 = 12)
+```
+
+### BIOLOGY CLASS: the human karyotype is twenty-three pairs — 23 · 2 = 46 chromosomes — and the genetic code writes with four letters taken three at a time, 4³ = 64 codons: the same 64 the chessboard and the coin measure carry, the unity the census already counts.
+The ledger holds this as [biology_pairs_and_codons](/theorem/biology_pairs_and_codons) — proven `by decide`, sorry-free:
+
+```lean
+(23 * 2 = 46) ∧ (4 ^ 3 = 64)
+```
+
+### CHEMISTRY CLASS: water is three atoms — two hydrogen and one oxygen, 2 + 1 = 3 — and the periodic table stands at 118 named elements, 26 beyond uranium's 92: the smallest molecule every child draws and the full table it lives in, counted.
+The ledger holds this as [chemistry_water_and_the_table](/theorem/chemistry_water_and_the_table) — proven `by decide`, sorry-free:
+
+```lean
+(2 + 1 = 3) ∧ (92 + 26 = 118)
+```
+
+### SPORT CLASS: the marathon runs 42 kilometres and 195 metres — 42 · 1000 + 195 = 42,195 — and football fields eleven a side, 11 · 2 = 22 players on the pitch: the distances and the teams the playground already knows, sealed.
+The ledger holds this as [sport_marathon_and_the_teams](/theorem/sport_marathon_and_the_teams) — proven `by decide`, sorry-free:
+
+```lean
+(42 * 1000 + 195 = 42195) ∧ (11 * 2 = 22)
+```
+
+### ASTRONOMY CLASS: the solar system counts eight planets since 2006 — four rocky and four giant, 4 + 4 = 8 — with the eclipse wing (eclipse_four_hundred) already teaching this class's crown jewel. Pluto's demotion made the census honest: a definition is a boundary, and boundaries are what this ledger seals.
+The ledger holds this as [astronomy_eight_planets](/theorem/astronomy_eight_planets) — proven `by decide`, sorry-free:
+
+```lean
+(4 + 4 = 8) ∧ (8 < 9)
+```
+
+### ART CLASS: the painter mixes from three primaries and the rainbow shows seven bands — 2 · 3 + 1 = 7, the primaries doubled through their secondaries plus the one indigo Newton insisted on — while the house palette computes its colours from the ℤ/9 sequence (matrixCss), never from taste. Art enters the school the way everything enters: counted first.
+The ledger holds this as [art_spectrum_and_primaries](/theorem/art_spectrum_and_primaries) — proven `by decide`, sorry-free:
+
+```lean
+(2 * 3 + 1 = 7) ∧ (3 < 7)
 ```
 
 
