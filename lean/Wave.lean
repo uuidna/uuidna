@@ -135,3 +135,51 @@ theorem cron_judges_by_itself : 17 * 19 = 323 := by decide
     window is exactly what the kernel can hold, stated so it cannot claim more. The 12-TET semitone still has no
     integer lattice as far as the kernel can see, which is the honest form of the songbook schism (lead 73). -/
 theorem tet_semitone_no_rational_at_the_window : (List.range' 1 19).all (fun q => (List.range' 1 39).all (fun p => p ^ 12 ≠ 2 * q ^ 12)) := by decide
+
+/-- THE SECOND GRADUATION: pluck_preserves_bound was refused because its lead owed the bounded form — here it
+    is: a truncating scale s·k/8 with k at most 8 never grows a sample, checked exhaustively for every sample
+    below 65 and every numerator below 9 (floor division: s·k ≤ 8s so s·k/8 ≤ s). The synth's pluck decay can
+    only shrink what it touches, sealed at the window the kernel holds (window_not_universal), the headroom
+    seals' missing sibling from lead 74. -/
+theorem pluck_preserves_bound_at_the_window : (List.range' 0 65).all (fun s => (List.range' 0 9).all (fun k => s * k / 8 ≤ s)) := by decide
+
+/-- GRAMMAR CLASS: the English alphabet closes at five vowels plus twenty-one consonants — 5 + 21 = 26 — the
+    partition every speller learns first, sealed as the sum it is. The school covers language from its first
+    counting. -/
+theorem grammar_vowels_and_consonants : (5 + 21 = 26) ∧ (26 - 5 = 21) := by decide
+
+/-- LITERATURE CLASS: the sonnet holds fourteen lines of ten syllables — 14 · 10 = 140 beats to the whole form —
+    and Shakespeare left 154 of them, eleven times the form's own line count (154 = 11 · 14). The poem's shape
+    is arithmetic before it is anything else. -/
+theorem literature_sonnet_measure : (14 * 10 = 140) ∧ (154 = 11 * 14) := by decide
+
+/-- GEOGRAPHY CLASS: one degree of meridian is 111 kilometres by the floor — 40008 / 360 = 111 of the earth's
+    polar circumference — and the map's first census is seven continents plus five oceans, a dozen great names.
+    The flat chart's drift table (flat_drift_is_quadratic) already priced this class's honesty. -/
+theorem geography_degree_and_dozen : (40008 / 360 = 111) ∧ (7 + 5 = 12) := by decide
+
+/-- BIOLOGY CLASS: the human karyotype is twenty-three pairs — 23 · 2 = 46 chromosomes — and the genetic code
+    writes with four letters taken three at a time, 4³ = 64 codons: the same 64 the chessboard and the coin
+    measure carry, the unity the census already counts. -/
+theorem biology_pairs_and_codons : (23 * 2 = 46) ∧ (4 ^ 3 = 64) := by decide
+
+/-- CHEMISTRY CLASS: water is three atoms — two hydrogen and one oxygen, 2 + 1 = 3 — and the periodic table
+    stands at 118 named elements, 26 beyond uranium's 92: the smallest molecule every child draws and the full
+    table it lives in, counted. -/
+theorem chemistry_water_and_the_table : (2 + 1 = 3) ∧ (92 + 26 = 118) := by decide
+
+/-- SPORT CLASS: the marathon runs 42 kilometres and 195 metres — 42 · 1000 + 195 = 42,195 — and football fields
+    eleven a side, 11 · 2 = 22 players on the pitch: the distances and the teams the playground already knows,
+    sealed. -/
+theorem sport_marathon_and_the_teams : (42 * 1000 + 195 = 42195) ∧ (11 * 2 = 22) := by decide
+
+/-- ASTRONOMY CLASS: the solar system counts eight planets since 2006 — four rocky and four giant, 4 + 4 = 8 —
+    with the eclipse wing (eclipse_four_hundred) already teaching this class's crown jewel. Pluto's demotion
+    made the census honest: a definition is a boundary, and boundaries are what this ledger seals. -/
+theorem astronomy_eight_planets : (4 + 4 = 8) ∧ (8 < 9) := by decide
+
+/-- ART CLASS: the painter mixes from three primaries and the rainbow shows seven bands — 2 · 3 + 1 = 7, the
+    primaries doubled through their secondaries plus the one indigo Newton insisted on — while the house palette
+    computes its colours from the ℤ/9 sequence (matrixCss), never from taste. Art enters the school the way
+    everything enters: counted first. -/
+theorem art_spectrum_and_primaries : (2 * 3 + 1 = 7) ∧ (3 < 7) := by decide

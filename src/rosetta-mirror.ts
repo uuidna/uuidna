@@ -1720,6 +1720,15 @@ time_lock_removes_the_hostage 18
 first_cron_wave_receipt 18
 cron_judges_by_itself 18
 tet_semitone_no_rational_at_the_window 18
+pluck_preserves_bound_at_the_window 18
+grammar_vowels_and_consonants 18
+literature_sonnet_measure 18
+geography_degree_and_dozen 18
+biology_pairs_and_codons 18
+chemistry_water_and_the_table 18
+sport_marathon_and_the_teams 18
+astronomy_eight_planets 18
+art_spectrum_and_primaries 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19
