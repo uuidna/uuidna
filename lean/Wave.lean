@@ -194,3 +194,13 @@ theorem art_spectrum_and_primaries : (2 * 3 + 1 = 7) ∧ (3 < 7) := by decide
     on the smallest stage: the unexplained is usually self-inverse, but the self-inverse is one map in
     twenty-five. -/
 theorem involution_walks_home_in_two : (((List.range 256).filter (fun c => (List.range 4).all (fun x => (c / 4 ^ (c / 4 ^ x % 4) % 4) == x))).length = 10) ∧ (1 + 6 + 3 = 10) ∧ (10 < 256) := by decide
+
+/-- THE DRIFT OF CONVENTIONAL TUNING FROM HARMONICS, INTEGER-EXACT (queue lead 130, captain: 'consider drift in
+    conventional science from harmonics' + 'seal the pythagorean comma through the conveyor'): twelve pure
+    fifths overshoot seven octaves by the Pythagorean comma — clearing (3/2)^12 against 2^7 gives 3^12 vs 2^19,
+    and 531441 − 524288 = 7153, with 2^19 < 3^12 the overshoot's direction. Equal temperament is the DECLARED
+    distortion budget that spreads this comma across twelve steps — cartography's flat-map law applied to music:
+    every tuning is a chart, lawful when its comma is disclosed. HONEST SCOPE: the seal is the arithmetic of the
+    drift, never a claim that any tuning sounds better — conventional science does not contradict harmonics, it
+    is harmonics with the drift accounted. -/
+theorem pythagorean_comma_is_the_drift : (2 ^ 19 < 3 ^ 12) ∧ (3 ^ 12 - 2 ^ 19 = 7153) := by decide

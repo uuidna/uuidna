@@ -1744,6 +1744,7 @@ sport_marathon_and_the_teams 18
 astronomy_eight_planets 18
 art_spectrum_and_primaries 18
 involution_walks_home_in_two 18
+pythagorean_comma_is_the_drift 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

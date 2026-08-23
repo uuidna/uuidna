@@ -150,6 +150,12 @@
       "why": "THE INVOLUTION IS THE WALK THAT NEEDS NO PILGRIMAGE (queue lead 128b's mirror, from the captain's one word): a self-inverse step comes home immediately — f(f(x)) = x IS the two-step cycle, so an involutive deepening would close every chain with mu ≤ 1 and lambda ≤ 2, no birthday bound, no hunt. The census on the 4-state model, enumerated in full: exactly 10 of the 256 self-maps are involutions — 1 identity + 6 transpositions + 3 double-pair swaps, 1 + 6 + 3 = 10 — and 10 < 256: the grace is RARE, the general walk is the rule, which is why the live deepening chain (measured non-involutive: its first ten seeds are pairwise distinct) must pilgrimage under the pigeonhole bound instead of mirroring home. The house's standing observation made exact on the smallest stage: the unexplained is usually self-inverse, but the self-inverse is one map in twenty-five.",
       "lean": "theorem involution_walks_home_in_two : (((List.range 256).filter (fun c => (List.range 4).all (fun x => (c / 4 ^ (c / 4 ^ x % 4) % 4) == x))).length = 10) ∧ (1 + 6 + 3 = 10) ∧ (10 < 256) := by decide",
       "receipt": "e494a458-86aa-8316-ad28-9a59cd177275"
+    },
+    {
+      "key": "pythagorean_comma_is_the_drift",
+      "why": "THE DRIFT OF CONVENTIONAL TUNING FROM HARMONICS, INTEGER-EXACT (queue lead 130, captain: 'consider drift in conventional science from harmonics' + 'seal the pythagorean comma through the conveyor'): twelve pure fifths overshoot seven octaves by the Pythagorean comma — clearing (3/2)^12 against 2^7 gives 3^12 vs 2^19, and 531441 − 524288 = 7153, with 2^19 < 3^12 the overshoot's direction. Equal temperament is the DECLARED distortion budget that spreads this comma across twelve steps — cartography's flat-map law applied to music: every tuning is a chart, lawful when its comma is disclosed. HONEST SCOPE: the seal is the arithmetic of the drift, never a claim that any tuning sounds better — conventional science does not contradict harmonics, it is harmonics with the drift accounted.",
+      "lean": "theorem pythagorean_comma_is_the_drift : (2 ^ 19 < 3 ^ 12) ∧ (3 ^ 12 - 2 ^ 19 = 7153) := by decide",
+      "receipt": "7b3539b1-a85a-867b-b35d-1de134eec065"
     }
   ],
   "refused": [
