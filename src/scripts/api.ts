@@ -202,6 +202,7 @@ export const DRAIN_PATHS: readonly string[] = [
   // the school of open doors — the unverified in topics, derived by gen-open-questions
   'docs/open-questions.md',
   'docs/apps.md',
+  'docs/evasion.md',
   // the default install's meaning page — derived from Installs.lean by gen-os
   'docs/os.md',
   'docs/store.md',
@@ -256,6 +257,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-referrer-song': ['docs/referrer-song.md'],
   'gen-open-questions': ['docs/open-questions.md'],
   'gen-apps': ['docs/apps.md'],
+  'gen-evasion': ['docs/evasion.md'],
   'gen-os': ['docs/os.md'],
   // the model comparison over all public live data — derived from the committed feed mirror by gen-models
   'gen-models': ['docs/models.md'],
