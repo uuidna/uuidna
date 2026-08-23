@@ -14,4 +14,18 @@
 [ -f dist/scripts/gate-receipt.js ] || exit 0
 node dist/scripts/gate-receipt.js >/dev/null 2>&1 || exit 0
 git add gate-receipt.json 2>/dev/null
+
+# LAW ENFORCEMENT AT THE COMMIT DOOR (queue lead 112, ordered as "tighten the gates" and again as "law
+# enforcement"): a commit may not land on a red guard. The evidence that a hand cannot hold this line: three
+# times in one day a session printed the guard's verdict and committed anyway, because a pipe or a semicolon
+# swallowed the exit code — the repeating manual leak, ended here by the machine checking what the hand
+# forgets, every time. Skips gracefully when dist is not built (the receipt above already skipped too);
+# bypassable with --no-verify (owned, not hidden) — an owned bypass is a named drift, a silent one is treason.
+if [ -f dist/scripts/guard.js ]; then
+  if ! node dist/scripts/guard.js >/dev/null 2>&1; then
+    echo "pre-commit: GUARD RED — the commit is blocked (run node dist/scripts/guard.js to see the finding;"
+    echo "pre-commit: fix it, or bypass knowingly with --no-verify — owned, not hidden)."
+    exit 1
+  fi
+fi
 exit 0

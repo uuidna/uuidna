@@ -11,17 +11,13 @@ import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { emit, ROOT } from './lean-gen.js'
 
+// THE CEDE OF WAVE ONE (treason investigation, 2026-08-23): three of wave one's facts — amplitude_inside_int16,
+// mix_budget_closes, note_values_are_doublings — were sealed CONCURRENTLY by another session into Readings.lean
+// (same propositions, conjuncts swapped: different addresses, caught as DRIFT by the witness). The first seal
+// holds; a re-seal under the same key is inflation, so this wing CEDED them — the collision is recorded here
+// so the cede is a named event, never a silent deletion.
 const FACTS = [
-  // ── lead 74: the headroom seals ──
-  { key: 'amplitude_inside_int16',
-    why: 'THE VOICE CANNOT WRAP: the synth\'s amplitude ceiling is 8000 and the int16 wall is 2¹⁵ = 32768 — the sample stays strictly inside, so no arrangement of the voice alone can overflow the format. The bound that was a code literal with no law behind it (lead 74, found by the strict search paying out zero) now has its seal.',
-    js: () => 8000 < 32768 && 2 ** 15 === 32768,
-    lean: 'theorem amplitude_inside_int16 : (8000 < 32768) ∧ (32768 = 2 ^ 15) := by decide' },
 
-  { key: 'mix_budget_closes',
-    why: 'THE MIX BUDGET LANDS EXACTLY ON THE CEILING: the rich voice at two quarters plus one quarter plus one eighth of 8000 sums to 7000, and adding the last eighth closes at exactly 8000 — the arrangement\'s layers cannot clip because their sum IS the ceiling, not less than or hoping under it.',
-    js: () => (8000 * 2 - (8000 * 2) % 4) / 4 + (8000 - 8000 % 4) / 4 + (8000 - 8000 % 8) / 8 === 7000 && 7000 + (8000 - 8000 % 8) / 8 === 8000,
-    lean: 'theorem mix_budget_closes : (8000 * 2 / 4 + 8000 / 4 + 8000 / 8 = 7000) ∧ (7000 + 8000 / 8 = 8000) := by decide' },
 
   // ── lead 73: the tuning schism, decidable slices ──
   { key: 'a440_not_on_the_vortex',
@@ -29,11 +25,6 @@ const FACTS = [
     js: () => 432 % 9 === 0 && 440 % 9 === 8 && (() => { const a = (60000 - 60000 % 252) / 252; return (a - a % 2) / 2 === 119 })(),
     lean: 'theorem a440_not_on_the_vortex : (432 % 9 = 0) ∧ (440 % 9 = 8) ∧ (60000 / 252 / 2 = 119) := by decide' },
 
-  // ── lead 70: the time dimension, arithmetic slices ──
-  { key: 'note_values_are_doublings',
-    why: 'NOTE VALUES ARE THE DOUBLING LADDER: whole, half, quarter, eighth are 2ᵏ for k = 0..3 — [1, 2, 4, 8], the same octave ladder the codon address climbs — and the meters are small counts: the march\'s 2 and the waltz\'s 3 both under the bar of 4. Gehrkens\' notation book said it in prose (lead 70); the ladder now has its integer seal.',
-    js: () => JSON.stringify([0, 1, 2, 3].map((k) => 2 ** k)) === JSON.stringify([1, 2, 4, 8]) && 2 < 4 && 3 < 4,
-    lean: 'theorem note_values_are_doublings : (List.map (fun k => 2 ^ k) [0, 1, 2, 3] = [1, 2, 4, 8]) ∧ (2 < 4) ∧ (3 < 4) := by decide' },
 
   { key: 'morris_eight_bars_halved',
     why: 'THE MORRIS FIGURE COMPLETES IN EIGHT BARS HALVED TO FOUR — 8 = 2·4 — and the column REVERSES at the half: reverse twice is home over the whole file of dancers, the involution mid-dance (Sharp\'s Morris Book, lead 70) wearing the house\'s favourite shape. Six dancers permute; the reversal is self-inverse over the file.',

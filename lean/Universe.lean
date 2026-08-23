@@ -27,11 +27,11 @@ theorem flat_drift_is_quadratic : List.map (fun m => 8 * m * m) [1, 2, 3] = [8, 
     (compass_opposites_involute). -/
 theorem poles_on_the_axis_at_the_quadrature : (360 / 4 = 90) ∧ (90 + 90 = 180) ∧ (90 % 9 = 0) ∧ (180 % 9 = 0) := by decide
 
-/-- THE KNOWN UNIVERSE, LITERARY HANDLED: a handle is eight hex characters — 8 · 4 = 32 bits — and the handle
-    universe is 16⁸ = 2³² = 4,294,967,296 addresses, every one the head of a full 32-hexbit, 128-bit uuid (32 ·
-    4 = 128). Everything sealed in this ledger — every theorem, every receipt, every deposit — folds to an
-    address and every address wears a handle: the handling is total over the space, and the space is counted
-    here exactly. -/
+/-- THE KNOWN UNIVERSE, LITERARY HANDLED: a handle is HANDLE_HEXBITS hexbits of HEXBIT_BITS bits each — the
+    units imported from hexbit/, never re-derived — and the handle universe is 4,294,967,296 addresses, every
+    one the head of a full UUID_HEXBITS-hexbit, 128-bit uuid. Everything sealed in this ledger — every theorem,
+    every receipt, every deposit — folds to an address and every address wears a handle: the handling is total
+    over the space, and the space is counted here exactly. -/
 theorem universe_of_handles : (8 * 4 = 32) ∧ (16 ^ 8 = 4294967296) ∧ (2 ^ 32 = 4294967296) ∧ (32 * 4 = 128) := by decide
 
 /-- THE TIDES JOIN THE SAME GEOMETRY: the lunar day is 24 h 50 m = 1490 minutes, it carries TWO bulges, and 1490
