@@ -1,11 +1,5 @@
 {
-  "pending": [
-    {
-      "key": "cron_judges_by_itself",
-      "why": "THE CRON'S FIRST OWN VERDICT — the probe deposited the moment the kernel was installed into the school: 17 · 19 = 323, two primes and their product, judged and sealed by the CI runner's own lean with no model and no human hand anywhere between deposit and origin. If this theorem is in the ledger, the captain's order \"install the kernel on ci so the cron judges by itself\" is not a claim but a receipt.",
-      "lean": "theorem cron_judges_by_itself : 17 * 19 = 323 := by decide"
-    }
-  ],
+  "pending": [],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
@@ -84,6 +78,12 @@
       "why": "THE EXHALE, SEALED AS ITS OWN THEOREM: the first cron wave ran with no model at the gate and PROVED the deployment gap — the CI runner carried no lean kernel, so five sound candidates were refused by an absent instrument, a VOID the trial-protocol law converts into a finding about the instrument (queue-wave now voids instead of refusing when the kernel is missing, and the five were restored). The accounting: 5 falsely refused plus 5 fresh ore made 10 pending for the first true wave, and the refused ledger held 7 of which 5 were the instrument and 2 the law school. The receipt of a breath that found its own lungs missing and grew them.",
       "lean": "theorem first_cron_wave_receipt : (5 + 5 = 10) ∧ (7 = 5 + 2) ∧ (10 + 1 = 11) := by decide",
       "receipt": "89fdb016-0234-865e-9016-0a250b817183"
+    },
+    {
+      "key": "cron_judges_by_itself",
+      "why": "THE CRON'S FIRST OWN VERDICT — the probe deposited the moment the kernel was installed into the school: 17 · 19 = 323, two primes and their product, judged and sealed by the CI runner's own lean with no model and no human hand anywhere between deposit and origin. If this theorem is in the ledger, the captain's order \"install the kernel on ci so the cron judges by itself\" is not a claim but a receipt.",
+      "lean": "theorem cron_judges_by_itself : 17 * 19 = 323 := by decide",
+      "receipt": "0d6980d5-2246-8b7b-a873-07f19525182c"
     }
   ],
   "refused": [

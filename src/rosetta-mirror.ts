@@ -1718,6 +1718,7 @@ ppo2_window_of_life 18
 bramah_stood_sixty_seven_years 18
 time_lock_removes_the_hostage 18
 first_cron_wave_receipt 18
+cron_judges_by_itself 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

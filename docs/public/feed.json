@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:7fe8227b-8744-8290-943d-978b54e2f5f8",
+  "@id": "urn:uuid:f802567b-a4d8-8837-a8e0-26d6ae135559",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -38182,6 +38182,34 @@
         "abstract": "(5 + 5 = 10) ∧ (7 = 5 + 2) ∧ (10 + 1 = 11)",
         "identifier": "aa8de5dd-1b75-8659-b2d2-d958bc26af30",
         "url": "https://uuidna.com/theorem/first_cron_wave_receipt",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:0d6980d5-2246-8b7b-a873-07f19525182c",
+        "@type": "ScholarlyArticle",
+        "headline": "THE CRON'S FIRST OWN VERDICT — the probe deposited the moment the kernel was installed into the school: 17 · 19 = 323, two primes and their product, judged and sealed by the CI runner's own lean with no model and no human hand anywhere between deposit and origin. If this theorem is in the ledger, the captain's order \"install the kernel on ci so the cron judges by itself\" is not a claim but a receipt.",
+        "abstract": "17 * 19 = 323",
+        "identifier": "c728d4a0-71e0-8891-adaf-5a754ba07abc",
+        "url": "https://uuidna.com/theorem/cron_judges_by_itself",
         "keywords": "wave, The conveyor's first wave",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
