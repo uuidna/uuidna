@@ -101,6 +101,13 @@ honesty_gate_one_drain 19
 audit_is_a_finite_game 19
 no_audit_catches_all 19
 audit_space_meets_chess_at_eight 19
+#Billing.lean
+coins_are_the_common_factor 19
+the_rate_is_triangle_over_group 19
+difference_mints_ratio_bills 19
+the_pair_is_coins_times_rate 19
+advantage_first_doubles_at_seal_38 19
+compound_steps_in_exact_integers 19
 #BioPhysics.lean
 abo_klein_four 19
 blood_types_eight 19

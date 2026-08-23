@@ -88,10 +88,10 @@ theorem prose_terminator_escaped : (0 + 1561 = 1561) ∧ (0 = 0) := by decide
     and this is the remaining work counted rather than a target claimed -/
 theorem prose_beats_restatement : (0 < 1561) ∧ (0 + 1561 = 1561) := by decide
 
-/-- the whole prose corpus folds to ONE ℤ/9 receipt — 316901 characters across 1561 doc comments in 106 wings
-    fold to 2; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own
+/-- the whole prose corpus folds to ONE ℤ/9 receipt — 316997 characters across 1561 doc comments in 106 wings
+    fold to 8; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own
     vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit -/
-theorem prose_folds_receipt : (([1078, 1237, 1545, 3368, 3345, 3111, 1892, 2906, 2046, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1736, 1372, 960, 4419, 2363, 5075, 1465, 3409, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 3217, 1188, 753, 3412, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5377, 1937, 3396, 1946, 1430, 1412, 919, 1453, 2148, 3304, 805, 5704, 2905, 1522, 3958, 3675, 524, 3313, 1552, 8985].foldl (· + ·) 0) = 316901) ∧ (316901 % 9 = 2) ∧ (2 < 9) := by decide
+theorem prose_folds_receipt : (([1078, 1237, 1545, 3368, 3345, 3111, 1892, 2906, 2142, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1736, 1372, 960, 4419, 2363, 5075, 1465, 3409, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 3217, 1188, 753, 3412, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5377, 1937, 3396, 1946, 1430, 1412, 919, 1453, 2148, 3304, 805, 5704, 2905, 1522, 3958, 3675, 524, 3313, 1552, 8985].foldl (· + ·) 0) = 316997) ∧ (316997 % 9 = 8) ∧ (8 < 9) := by decide
 
 /-- the audit is TOTAL over what a generator writes — 106 generated wings censused against 3 authored ones
     (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by

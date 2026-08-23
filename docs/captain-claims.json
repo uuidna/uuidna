@@ -2,8 +2,8 @@
   "generated": "2026-08-23",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1604,
-  "total_theorems": 1604,
+  "total_claimed": 1610,
+  "total_theorems": 1610,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,14 +3781,14 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "c3ddf83d-a882-83c6-8f5a-450d68ce7c69",
-      "address": "41338958-141c-827a-a5df-2827541fbd22",
+      "lineAddress": "2fc06375-bb34-8618-b31f-f363d28d994b",
+      "address": "e29d4e49-5001-8206-8db0-57a6bda6533d",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "ee558042-3444-8e92-b739-de53bfeba623",
-      "address": "2508d4d2-89ce-8329-b569-5921cf013883",
+      "lineAddress": "242756dd-cad2-8195-a384-9606cd918fd6",
+      "address": "2caf0849-30a3-84a8-8230-102757b6a705",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "904a3fe1-8136-8b14-8317-ff9884328ce1",
-      "address": "140369f8-3258-8bd0-9ab2-775f10ec4033",
+      "lineAddress": "95ad32fa-3461-88ce-8691-24ae34224b78",
+      "address": "94fd0550-d845-8a37-b593-72efe5ec6763",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "37dbd2c6-d6b8-8417-98e8-48f67512d879",
-      "address": "aa2859b4-76e8-8c59-963a-8c0461e8ee16",
+      "lineAddress": "9f86a847-bdc0-8c45-9750-7eefb76e0cac",
+      "address": "3f8b9b8e-69df-8a57-aed6-f92091f0358b",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "6ab929e8-7d0e-8a8f-83a9-6d71f8d17361",
-      "address": "742cb106-eb4b-8e73-9f6c-5149de67a146",
+      "lineAddress": "8f5e97e4-c7a1-84d6-b30f-661eff61fb52",
+      "address": "8acc456f-72ab-8ab7-9183-28bf4cdbd369",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "8f3bf2a9-12be-8f78-a55c-5ad006f8e935",
-      "address": "a0550c28-5bd9-8349-ab06-cba8d52928e9",
+      "lineAddress": "2944d6d8-9719-85a4-915d-af1629eb51cd",
+      "address": "27c648b2-6968-8a01-82c7-20c2ed643225",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "53da7245-2c0d-8e68-87e0-4fd59d1c076a",
-      "address": "9e6d6ec4-d048-8596-87ee-d2d4bf0c41e1",
+      "lineAddress": "76b40595-485c-87aa-93e6-5a0545a9456d",
+      "address": "a5a163e2-f72f-8b02-856e-c48847acce33",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "94226b3d-19b9-8c65-ab15-2b156d10c1d9",
-      "address": "2c4d7e95-5670-88e6-a8cb-18fd5bc2791f",
+      "lineAddress": "c303962b-b72f-86ad-bad3-d977c1a1a78a",
+      "address": "8adbf984-9b56-8da6-8f8d-9e8cfa02edc5",
       "principle": "The detectors, proven"
     },
     {
@@ -4435,14 +4435,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "4dc2ac31-90e6-84f6-a14f-c1326590f0b6",
-      "address": "8aba0f11-a68d-852b-92ea-26f67cf1ef8e",
+      "lineAddress": "a92ce52c-56ff-8e92-836d-e042d7efd03f",
+      "address": "5d9a1838-83b6-87fe-8873-cf6f0f7f04b3",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "1c5ffd67-5875-871d-87ec-a543c1be0fd0",
-      "address": "c63c4dad-3df1-85b7-b234-3e1b14b991fa",
+      "lineAddress": "7ba290d2-7ad2-8338-a4c6-1c253819119a",
+      "address": "141d6a2b-3694-8022-b145-1ad2a2ddac1f",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -7926,6 +7926,42 @@
       "principle": "The release anthem"
     },
     {
+      "key": "coins_are_the_common_factor",
+      "lineAddress": "1108e9ff-551b-80d6-b50a-e57f99f53b4d",
+      "address": "c0386228-7a55-8858-a6f7-e2207a2c067d",
+      "principle": "The compound billing law"
+    },
+    {
+      "key": "the_rate_is_triangle_over_group",
+      "lineAddress": "482d5de7-4db3-8c7f-8d2d-a3b5dee656e4",
+      "address": "b828504b-c78c-8c74-8343-837001529695",
+      "principle": "The compound billing law"
+    },
+    {
+      "key": "difference_mints_ratio_bills",
+      "lineAddress": "86c4c83f-1ef1-84f0-b6c4-eae889d61806",
+      "address": "ee43febf-fbd0-84a3-8872-5fe72ff83862",
+      "principle": "The compound billing law"
+    },
+    {
+      "key": "the_pair_is_coins_times_rate",
+      "lineAddress": "48710fab-7481-8e87-a4ca-d7d8307d2783",
+      "address": "67c536de-3760-8aa8-939f-f1ef6abd93cb",
+      "principle": "The compound billing law"
+    },
+    {
+      "key": "advantage_first_doubles_at_seal_38",
+      "lineAddress": "481796c2-ebf1-8f3a-87e3-06e85614e787",
+      "address": "fe206af6-18d0-8131-a598-36f6cfe4d91d",
+      "principle": "The compound billing law"
+    },
+    {
+      "key": "compound_steps_in_exact_integers",
+      "lineAddress": "82a36928-f140-8ac4-9dd9-9f32e24c86bb",
+      "address": "135148c9-f763-8be7-b526-3c7ae1519585",
+      "principle": "The compound billing law"
+    },
+    {
       "key": "tesla_trio_files_adjacent",
       "lineAddress": "1a42599e-cdf8-8c45-af0f-41fe841049f9",
       "address": "41cf2473-6967-8707-8a5b-5cd4d89ae866",
@@ -9630,7 +9666,7 @@
       "principle": "lean/Waves.lean"
     }
   ],
-  "claim_receipt": "95eba48f-0cca-8343-991b-bf9784d1c462",
+  "claim_receipt": "ed614652-d09a-8e97-863c-d56e97e47074",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
