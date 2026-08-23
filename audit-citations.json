@@ -1,17 +1,17 @@
 {
-  "key": "5e271897-7587-8cda-b29c-9763f57cabfe",
+  "key": "809b2f01-87ce-8a43-826d-2ffd87a69492",
   "publications": 82,
-  "sealedTheorems": 1610,
+  "sealedTheorems": 1611,
   "fabricated": 0,
   "uncited": 1,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1408,
-    "theorems": 1610,
+    "claims": 1409,
+    "theorems": 1611,
     "bijection": false,
     "digitalRoots": {
-      "claims": 4,
-      "theorems": 8,
+      "claims": 5,
+      "theorems": 9,
       "publications": 1
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -553,8 +553,8 @@
     },
     {
       "slug": "wave",
-      "claims": 5,
-      "cited": 5,
+      "claims": 6,
+      "cited": 6,
       "uncited": [],
       "fabricated": []
     },

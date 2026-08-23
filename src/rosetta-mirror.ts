@@ -1706,6 +1706,7 @@ morris_eight_bars_halved 19
 cubes_sum_to_square_of_triangle 19
 lights_out_flip_involution 19
 wave_probe_eleven_thirteens 18
+pilgrims_walk_must_cycle 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

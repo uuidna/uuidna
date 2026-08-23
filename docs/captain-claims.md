@@ -3,8 +3,8 @@
 **Generated:** 2026-08-23
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1610/1610 theorems — every one, by construction
-**Claim receipt:** `ed614652-d09a-8e97-863c-d56e97e47074`
+**Total claimed:** 1611/1611 theorems — every one, by construction
+**Claim receipt:** `96d5b549-354b-88ef-a48f-50d6d035c012`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -700,12 +700,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The conveyor's first wave
 
-- **Theorems:** 5
+- **Theorems:** 6
 - **Sample lineAddress:** `7d21b24a-a08f-8bef-86f8-e5f8dfe263c8`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) · [morris_eight_bars_halved](/theorem/morris_eight_bars_halved) · [cubes_sum_to_square_of_triangle](/theorem/cubes_sum_to_square_of_triangle) · [lights_out_flip_involution](/theorem/lights_out_flip_involution) · [wave_probe_eleven_thirteens](/theorem/wave_probe_eleven_thirteens)
+[a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) · [morris_eight_bars_halved](/theorem/morris_eight_bars_halved) · [cubes_sum_to_square_of_triangle](/theorem/cubes_sum_to_square_of_triangle) · [lights_out_flip_involution](/theorem/lights_out_flip_involution) · [wave_probe_eleven_thirteens](/theorem/wave_probe_eleven_thirteens) · [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle)
 
 ### The known universe, handled
 
@@ -1014,7 +1014,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1528 (1610 entries, 82 re-namings — a theorem is its Lean |
+| sealed propositions | 1529 (1611 entries, 82 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1032,7 +1032,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1610 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1611 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
