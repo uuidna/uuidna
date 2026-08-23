@@ -79,7 +79,7 @@ page regrows without it.
 - **The optimal study gap is NOT a fixed percentage of the retention interval (recorded value: declines from ~43% at a 7-day delay to ~8% at 350 days)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`complement_fixes_the_half`](/theorem/complement_fixes_the_half) · [`dz_swaps_the_thirds_and_fixes_the_axis`](/theorem/dz_swaps_the_thirds_and_fixes_the_axis) </small>
-  <br><small>sealed neighbors: [`julian_date_is_a_day_count`](/theorem/julian_date_is_a_day_count) · [`common_year_shifts_one`](/theorem/common_year_shifts_one) · [`contour_spacing_inverse_gradient`](/theorem/contour_spacing_inverse_gradient) </small>
+  <br><small>sealed neighbors: [`egyptian_five_harmonise_the_circle`](/theorem/egyptian_five_harmonise_the_circle) · [`epact_eleven_harmonised_by_meton`](/theorem/epact_eleven_harmonised_by_meton) · [`julian_date_is_a_day_count`](/theorem/julian_date_is_a_day_count) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## hexbit — 5 open
@@ -253,7 +253,7 @@ page regrows without it.
 - **No engine book consulted states degrees of crank rotation per stroke or per cycle (recorded value: absent)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`states_are_the_swap_fixed_bytes`](/theorem/states_are_the_swap_fixed_bytes) · [`dark_fringe_is_the_half_turn`](/theorem/dark_fringe_is_the_half_turn) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) </small>
-  <br><small>sealed neighbors: [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) · [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) · [`codon_frame_rotates_rosette`](/theorem/codon_frame_rotates_rosette) </small>
+  <br><small>sealed neighbors: [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) · [`gregorian_cycle_closes_on_the_week`](/theorem/gregorian_cycle_closes_on_the_week) · [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## nim — 1 open

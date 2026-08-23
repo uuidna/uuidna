@@ -1745,6 +1745,11 @@ astronomy_eight_planets 18
 art_spectrum_and_primaries 18
 involution_walks_home_in_two 18
 pythagorean_comma_is_the_drift 18
+a440_drifts_eight_from_the_lattice 18
+egyptian_five_harmonise_the_circle 18
+gregorian_cycle_closes_on_the_week 18
+epact_eleven_harmonised_by_meton 18
+binary_kilo_drift_compounds 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

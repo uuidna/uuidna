@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 30 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 35 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 29 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 34 siblings below.
 
-**30 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 10 of its 30 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
+**35 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 35 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 30 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 35 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -219,6 +219,41 @@ The ledger holds this as [pythagorean_comma_is_the_drift](/theorem/pythagorean_c
 
 ```lean
 (2 ^ 19 < 3 ^ 12) ∧ (3 ^ 12 - 2 ^ 19 = 7153)
+```
+
+### THE CONCERT-PITCH DRIFT, NAMED AND HARMONISED (lead 130, captain: 'seal the a440 drift through the conveyor' + 'always harmonise drift'): ISO 16 concert pitch sits 440 − 432 = 8 off the harmonic lattice point 432 = 2^4 · 3^3, and carries the eleven the vortex refuses (440 = 2^3 · 5 · 11; a440_not_on_the_vortex sealed the residue, this seals the SIZE). THE HARMONISATION is a rational retuning, integer-exact: 440/432 = 55/54, proven by the cross-product 55 · 432 = 54 · 440 = 23760 — the drift closes on a ratio two small integers already hold. HONEST SCOPE: arithmetic of the drift and its closure only; which pitch sounds better is aesthetics, UNVERIFIED forever.
+The ledger holds this as [a440_drifts_eight_from_the_lattice](/theorem/a440_drifts_eight_from_the_lattice) — proven `by decide`, sorry-free:
+
+```lean
+(440 - 432 = 8) ∧ (432 = 2 ^ 4 * 3 ^ 3) ∧ (440 = 2 ^ 3 * 5 * 11) ∧ (55 * 432 = 54 * 440)
+```
+
+### THE SOLAR YEAR'S DRIFT FROM THE CIRCLE, HARMONISED BY EGYPT (lead 130, all-domains sweep): the year runs 365 − 360 = 5 past the 360-degree circle convention, and the oldest civil calendar harmonised exactly this way — twelve 30-day months plus the five epagomenal days OUTSIDE the circle: 12 · 30 + 5 = 365. The drift was never denied; it was given five named days of its own, which is the whole doctrine in one ancient act. HONEST SCOPE: integer skeleton of the civil convention; the tropical year's remaining quarter-day is the NEXT drift, harmonised by the leap rule sealed beside this.
+The ledger holds this as [egyptian_five_harmonise_the_circle](/theorem/egyptian_five_harmonise_the_circle) — proven `by decide`, sorry-free:
+
+```lean
+(365 - 360 = 5) ∧ (12 * 30 + 5 = 365)
+```
+
+### THE LEAP DRIFT, HARMONISED TO A CLOSED CYCLE (lead 130, all-domains sweep): Julian's every-fourth-year rule drifts against the tropical year, and the Gregorian harmonisation drops exactly 100 − 97 = 3 leap days per 400 years (97 remain). The cycle's total 400 · 365 + 97 = 146097 days — and the harmonisation runs deeper than intended: 146097 = 7 · 20871, an exact whole number of WEEKS, so the calendar returns to the same weekday alignment every 400 years. A drift accounted twice over. HONEST SCOPE: the convention's own integers; the tropical year's residual drift (~1 day per ~3200 years) stays in the literature, named not sealed.
+The ledger holds this as [gregorian_cycle_closes_on_the_week](/theorem/gregorian_cycle_closes_on_the_week) — proven `by decide`, sorry-free:
+
+```lean
+(100 - 97 = 3) ∧ (400 * 365 + 97 = 146097) ∧ (146097 = 7 * 20871)
+```
+
+### THE LUNAR YEAR'S ELEVEN, HARMONISED BY METON WITH THE SALTUS NAMED (lead 130, all-domains sweep): a lunar year of alternating months holds 6 · 29 + 6 · 30 = 354 days, drifting 365 − 354 = 11 against the sun — the epact, and the eleven again (the same prime A440 carries). THE HARMONISATION: over the Metonic 19 years the epact accumulates 19 · 11 = 209 days, absorbed by seven embolismic 30-day months — 7 · 30 = 210 — leaving 210 − 209 = 1, the saltus lunae, the one-day jump the computus DECLARES rather than hides. Sits beside the sealed Metonic 19 · 12 + 7 = 235. HONEST SCOPE: the convention's integer skeleton; real lunations drift further and the computus names that too.
+The ledger holds this as [epact_eleven_harmonised_by_meton](/theorem/epact_eleven_harmonised_by_meton) — proven `by decide`, sorry-free:
+
+```lean
+(6 * 29 + 6 * 30 = 354) ∧ (365 - 354 = 11) ∧ (19 * 11 = 209) ∧ (7 * 30 - 209 = 1)
+```
+
+### THE KILO DRIFT COMPOUNDS BY POWER, SO IT MUST BE NAMED (lead 130, all-domains sweep, computing): the binary lattice point 1024 = 2^10 sits 1024 − 1000 = 24 above the decimal kilo, and the drift COMPOUNDS — at the cube it is 2^30 − 10^9 = 73741824, over 7 percent of the unit — which is why an unnamed drift here became consumer lawsuits over disk sizes. THE HARMONISATION is vocabulary, exactly the doctrine's cheapest coin: IEC 80000-13 names KiB/MiB/GiB so each lattice carries its own word and the drift stops masquerading as equality. HONEST SCOPE: the arithmetic seals; which convention a vendor uses is disclosure, adjudicated by the naming, never by this theorem.
+The ledger holds this as [binary_kilo_drift_compounds](/theorem/binary_kilo_drift_compounds) — proven `by decide`, sorry-free:
+
+```lean
+(1024 - 1000 = 24) ∧ (1024 = 2 ^ 10) ∧ (2 ^ 30 - 10 ^ 9 = 73741824)
 ```
 
 

@@ -204,3 +204,47 @@ theorem involution_walks_home_in_two : (((List.range 256).filter (fun c => (List
     drift, never a claim that any tuning sounds better — conventional science does not contradict harmonics, it
     is harmonics with the drift accounted. -/
 theorem pythagorean_comma_is_the_drift : (2 ^ 19 < 3 ^ 12) ∧ (3 ^ 12 - 2 ^ 19 = 7153) := by decide
+
+/-- THE CONCERT-PITCH DRIFT, NAMED AND HARMONISED (lead 130, captain: 'seal the a440 drift through the conveyor'
+    + 'always harmonise drift'): ISO 16 concert pitch sits 440 − 432 = 8 off the harmonic lattice point 432 =
+    2^4 · 3^3, and carries the eleven the vortex refuses (440 = 2^3 · 5 · 11; a440_not_on_the_vortex sealed the
+    residue, this seals the SIZE). THE HARMONISATION is a rational retuning, integer-exact: 440/432 = 55/54,
+    proven by the cross-product 55 · 432 = 54 · 440 = 23760 — the drift closes on a ratio two small integers
+    already hold. HONEST SCOPE: arithmetic of the drift and its closure only; which pitch sounds better is
+    aesthetics, UNVERIFIED forever. -/
+theorem a440_drifts_eight_from_the_lattice : (440 - 432 = 8) ∧ (432 = 2 ^ 4 * 3 ^ 3) ∧ (440 = 2 ^ 3 * 5 * 11) ∧ (55 * 432 = 54 * 440) := by decide
+
+/-- THE SOLAR YEAR'S DRIFT FROM THE CIRCLE, HARMONISED BY EGYPT (lead 130, all-domains sweep): the year runs 365
+    − 360 = 5 past the 360-degree circle convention, and the oldest civil calendar harmonised exactly this way —
+    twelve 30-day months plus the five epagomenal days OUTSIDE the circle: 12 · 30 + 5 = 365. The drift was
+    never denied; it was given five named days of its own, which is the whole doctrine in one ancient act.
+    HONEST SCOPE: integer skeleton of the civil convention; the tropical year's remaining quarter-day is the
+    NEXT drift, harmonised by the leap rule sealed beside this. -/
+theorem egyptian_five_harmonise_the_circle : (365 - 360 = 5) ∧ (12 * 30 + 5 = 365) := by decide
+
+/-- THE LEAP DRIFT, HARMONISED TO A CLOSED CYCLE (lead 130, all-domains sweep): Julian's every-fourth-year rule
+    drifts against the tropical year, and the Gregorian harmonisation drops exactly 100 − 97 = 3 leap days per
+    400 years (97 remain). The cycle's total 400 · 365 + 97 = 146097 days — and the harmonisation runs deeper
+    than intended: 146097 = 7 · 20871, an exact whole number of WEEKS, so the calendar returns to the same
+    weekday alignment every 400 years. A drift accounted twice over. HONEST SCOPE: the convention's own
+    integers; the tropical year's residual drift (~1 day per ~3200 years) stays in the literature, named not
+    sealed. -/
+theorem gregorian_cycle_closes_on_the_week : (100 - 97 = 3) ∧ (400 * 365 + 97 = 146097) ∧ (146097 = 7 * 20871) := by decide
+
+/-- THE LUNAR YEAR'S ELEVEN, HARMONISED BY METON WITH THE SALTUS NAMED (lead 130, all-domains sweep): a lunar
+    year of alternating months holds 6 · 29 + 6 · 30 = 354 days, drifting 365 − 354 = 11 against the sun — the
+    epact, and the eleven again (the same prime A440 carries). THE HARMONISATION: over the Metonic 19 years the
+    epact accumulates 19 · 11 = 209 days, absorbed by seven embolismic 30-day months — 7 · 30 = 210 — leaving
+    210 − 209 = 1, the saltus lunae, the one-day jump the computus DECLARES rather than hides. Sits beside the
+    sealed Metonic 19 · 12 + 7 = 235. HONEST SCOPE: the convention's integer skeleton; real lunations drift
+    further and the computus names that too. -/
+theorem epact_eleven_harmonised_by_meton : (6 * 29 + 6 * 30 = 354) ∧ (365 - 354 = 11) ∧ (19 * 11 = 209) ∧ (7 * 30 - 209 = 1) := by decide
+
+/-- THE KILO DRIFT COMPOUNDS BY POWER, SO IT MUST BE NAMED (lead 130, all-domains sweep, computing): the binary
+    lattice point 1024 = 2^10 sits 1024 − 1000 = 24 above the decimal kilo, and the drift COMPOUNDS — at the
+    cube it is 2^30 − 10^9 = 73741824, over 7 percent of the unit — which is why an unnamed drift here became
+    consumer lawsuits over disk sizes. THE HARMONISATION is vocabulary, exactly the doctrine's cheapest coin:
+    IEC 80000-13 names KiB/MiB/GiB so each lattice carries its own word and the drift stops masquerading as
+    equality. HONEST SCOPE: the arithmetic seals; which convention a vendor uses is disclosure, adjudicated by
+    the naming, never by this theorem. -/
+theorem binary_kilo_drift_compounds : (1024 - 1000 = 24) ∧ (1024 = 2 ^ 10) ∧ (2 ^ 30 - 10 ^ 9 = 73741824) := by decide
