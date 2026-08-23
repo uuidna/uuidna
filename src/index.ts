@@ -198,6 +198,8 @@ export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './cha
 export { sealStream, openStream, sealMessages, openMessages, sealChain, openChain, MAX_LAYERS, GENESIS, type Stream, type Link } from './stream.js'
 export { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract, type ContractSealed, type ContractChain } from './contract.js'
 export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, extractClaims, wordsToNumber, linkBookFacts, composeBookArticle, bookArticle, bookContents, readChapter, readBook, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type TextClaim, type BookTheoremLink, type BookLedgerLinkage, type ChapterRead } from './books.js'
+// video — a hand-driven session folded into the surface: oEmbed metadata fingerprint + caption detail audit
+export { auditVideo, videoIdOf, type VideoAudit } from './video.js'
 // the 432 grid — every projected ray × every ledger wing, named, addressed, folded to one root
 export { PROJECTED, GRID_SEATS, wings, wingSlug, wingRoot, seatName, grid, gridSeat, gridRoot, gridGaps, gridReport, PAIR_SEATS, pairName, pairs, pairSeat, transpose, pairsRoot, pairsGaps, pairsReport, type Seat, type GridGap, type Pair } from './grid.js'
 export { gcdInt, coprime, starPolygon, fibonacciCycle, rotate, crt } from './cycles.js'

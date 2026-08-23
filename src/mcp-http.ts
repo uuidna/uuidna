@@ -156,6 +156,7 @@ const EDGE_ABSENT: Record<string, string> = {
   "uuidna_entangle": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_audit_translation": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_audit_movie": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
+  "uuidna_audit_video": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_audit_record": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_aead_decrypt": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_snapshot": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
