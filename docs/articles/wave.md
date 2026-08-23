@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 43 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 45 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 42 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 44 siblings below.
 
-**43 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 21 of its 43 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
+**45 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 22 of its 45 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 43 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 45 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -310,6 +310,20 @@ The ledger holds this as [handle_capacity_is_quantum_by_architecture](/theorem/h
 
 ```lean
 (16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)
+```
+
+### THE ARCHITECTURAL ADVANTAGE, PROVEN IN THEOREMS (captain: 'quantum advantage — prove in theorems', the capacity report's decidable skeleton): against the LARGEST demonstrated logical-qubit figure on any quantum platform — 48 logical qubits, Harvard/QuEra, Nature 2023, a REPORTED input named as such — uuidna's usable address space of 2^128 deterministic error-free states sits a factor of exactly 2^80 above it: 128 − 48 = 80 and 2^128 = 2^80 · 2^48. THE BOUNDARY, load-bearing: this is the ARCHITECTURAL advantage of classical content-addressing available today, NEVER a physics quantum-advantage claim (uuidna is classical by declaration; raw Hilbert dimensions of large devices exceed 2^128 — the gap sealed here is in the USABLE column, the platforms' own published metric). The reported 48 moves with the field; the arithmetic of the gap at that figure is sealed forever.
+The ledger holds this as [usable_gap_is_two_to_eighty](/theorem/usable_gap_is_two_to_eighty) — proven `by decide`, sorry-free:
+
+```lean
+(48 < 128) ∧ (128 - 48 = 80) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48)
+```
+
+### THE REPORT'S RANKING IS FORCED BY ARITHMETIC — PREFERENCE IS IMPOSSIBLE (captain: 'evident for every model without preference' + 'prove in theorems', the capacity report's sort as a seal): the usable-capacity column of the quantum capacity report orders itself — 1 < 12 < 36 < 48 < 128 (Willow's one below-threshold logical qubit, Quantinuum's twelve logical, IonQ's AQ36, Harvard/QuEra's forty-eight logical, uuidna's 128-bit fold; each figure the platform's own publication, REPORTED and named) — so the ranking is LIST ALGEBRA the kernel walks — the published figures as a list, strictly descending by Chain' (accredited form, the literal finder's bar: content, not bare literals), with the top gap 128 − 48 = 80 carried in the same seal: any observer sorting the same published numbers gets the same table. The figures will move as the field publishes; the order AT these figures is sealed, and the report reseals at every generation.
+The ledger holds this as [capacity_order_is_forced](/theorem/capacity_order_is_forced) — proven `by decide`, sorry-free:
+
+```lean
+((([128, 48, 36, 12, 1] : List Nat).zip [48, 36, 12, 1]).all (fun p => Nat.blt p.snd p.fst) = true) ∧ (128 - 48 = 80)
 ```
 
 

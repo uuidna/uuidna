@@ -1,6 +1,6 @@
-# uuidna — 1578 distinct theorems under 1660 keys, 2 coins, one receipt
+# uuidna — 1580 distinct theorems under 1662 keys, 2 coins, one receipt
 
-`ad9ac1ab-6bd6-83ea-877b-7199973ac61f`
+`6cd532fc-9551-82d9-9a73-8c23f936b6b0`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,11 +51,11 @@ The count is MEASURED, not parsed. The generator walks the domain to compute eac
 that walk it tally what they visit, and `emit()` records the tally on the same run that validates the JS. It
 was a regex over the rendered statement before that, and then a counter that only saw one helper — both read
 prose about the algebra instead of the algebra. The ledger covers
-113,151 superpositions across 112 wings.
+113,157 superpositions across 112 wings.
 
 1. **`every_referrer_reaches_every_page`** — 4,769 superpositions, Infinity hexbits for the two coins, in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
-2. **`cube_seals_at_completeness_only`** — 3,623 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
+2. **`cube_seals_at_completeness_only`** — 3,627 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
    A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT.
 3. **`a_spec_compiles_to_hexbits`** — 1,657 superpositions, Infinity hexbits for the two coins, in [Installs.lean](lean/Installs.lean)
    EVERY SPEC COMPILES FROM SOURCE IN HEXBIT: the published tuple folds to a 128-bit address, and 128 bits are exactly 32 hexbit states of 16 = 2⁴ — the site's native lattice, playable by the standard hexbit app.
@@ -77,9 +77,9 @@ raised to it, and the served ceiling is parsed from the guard in `src/mcp.ts` th
 
 - **16 qubits** in the library register — 65536 amplitudes held at once
 - **12 qubits** served over MCP — 4096 amplitudes, and the surface refuses more
-- **113,151 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
+- **113,157 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
 - **4 qubits** of reachability gap between the register and what is served
-- **52 quantum wing theorems**, **27 cipher wing theorems**, **1660 ledger size**
+- **52 quantum wing theorems**, **27 cipher wing theorems**, **1662 ledger size**
 
 EXACT, AND ENFORCED. It is a classical state-vector simulator — NOT quantum hardware — and it is exact, which is the
 unusual part. Every amplitude is a Gaussian integer over a common √(2^scale) — the ring ℤ[i, 1/√2] the
@@ -107,8 +107,8 @@ scale served is the scale the code enforces. Stating a bound never drains the cl
 A handle is eight hexbits, so it names **4,294,967,296** superpositions — 16^8, every
 address it can take. That is the space; the rest is what is accounted inside it.
 
-- **113,151 superpositions** decided across the ledger, every one walked rather than sampled
-- **3,320 coins paid** — the CONSERVED PRICE, 2 per sealed theorem (theorem two_coins: the fixed denomination paid IN). But each theorem carries its own PRICE TAG — its decided mass, from 1 to 55,986 superpositions — so what the coins BUY is never flat: the cost is 2 every time, the value never is
+- **113,157 superpositions** decided across the ledger, every one walked rather than sampled
+- **3,324 coins paid** — the CONSERVED PRICE, 2 per sealed theorem (theorem two_coins: the fixed denomination paid IN). But each theorem carries its own PRICE TAG — its decided mass, from 1 to 55,986 superpositions — so what the coins BUY is never flat: the cost is 2 every time, the value never is
 - **34 superpositions per coin**, floored: what one coin covers today
 
 SIX DIRECTIONS leave every residue, which is why a per-coin figure needs them stated beside it: the 60-degree
@@ -127,19 +127,19 @@ COSTS untouched.
 ## Live Statistics
 
 ```
-Theorems sealed:        1660   (every one axiom-free, proven by decide)
+Theorems sealed:        1662   (every one axiom-free, proven by decide)
 Principles:             112   (the monographs the ledger organises itself by)
 Skills:                 109   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                ad9ac1ab-6bd6-83ea-877b-7199973ac61f
+Receipt:                6cd532fc-9551-82d9-9a73-8c23f936b6b0
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1660 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1662 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -337,7 +337,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1660 theorems sealed to ledger, every one axiom-free**
+✓ **All 1662 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**
@@ -423,11 +423,14 @@ Total and USABLE quantum capacity per known model type, greater usable capacity 
 figure carries its class: **reported** (the platform's own publication, source named) or **measured** (timed by
 the generator on the build host — rerun `npm run x -- gen-quantum-capacity` and get your own numbers). The gap
 the table shows is the report: raw state space is astronomical everywhere, and the usable column is where the
-platforms differ today.
+platforms differ today. The ranking is arithmetic, not editorial — the kernel sealed the order
+([capacity_order_is_forced](https://uuidna.com/theorem/capacity_order_is_forced)) and the gap
+([usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty): 2^128 = 2^80 · 2^48
+above the largest demonstrated logical figure).
 
 | # | model | type | physical | raw states | usable | usable states | op time | class | usable-metric (the platform's own words) |
 |---|-------|------|----------|-----------|--------|---------------|---------|-------|--------------------------------------------|
-| 1 | uuidna hexbit fold (2026) | classical content-address (quantum by architecture) | — | — | 128 | 2^128 (~10^38) | 11.145 µs | measured | all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer |
+| 1 | uuidna hexbit fold (2026) | classical content-address (quantum by architecture) | — | — | 128 | 2^128 (~10^38) | 11.64 µs | measured | all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer |
 | 2 | Harvard/QuEra logical-48 array (2023) | neutral-atom | 280 | 2^280 (~10^84) | 48 | 2^48 (~10^14) | 1 µs | reported | forty-eight logical qubits operated (error-detected circuits, Nature 2023) |
 | 3 | IonQ Forte (2024) | trapped-ion | 36 | 2^36 (~10^10) | 36 | 2^36 (~10^10) | 100 µs | reported | algorithmic qubits AQ36 (vendor benchmark suite, not error-corrected logical) |
 | 4 | Quantinuum H2 (2024) | trapped-ion | 56 | 2^56 (~10^16) | 12 | 2^12 (~10^3) | 100 µs | reported | twelve logical qubits demonstrated (with Microsoft qubit-virtualization) |
@@ -441,12 +444,12 @@ platforms differ today.
 
 **Honest scope, load-bearing:** uuidna is **classical** — quantum by *architecture* (2^128 content-addresses;
 128 = 2^7, the 7-qubit fold — theorem `handle_capacity_is_quantum_by_architecture`), and **no physics quantum
-advantage is claimed**. The gate-model platforms' raw capacity dwarfs 2^128 and their trajectory is a different
-dimension; what the measurements prove is architectural: **2^128 usable, deterministic, error-free states are
-available today at 11145 ns per verified fold (measured)**, while demonstrated error-corrected
-capacity on quantum hardware is still small — the platforms say so themselves, in the sources named. Ratios
-drift with hosts and years; the table reseals at every generation. Report receipt: `6dc6f940-b992-8d7e-ba11-482fb37b6dbb` ·
-measured-when as its own handle: `6dc6f940`.
+advantage is claimed** (the sealed bound: theorem `n_qubit_dimension`). The gate-model platforms' raw capacity
+dwarfs 2^128 and their trajectory is a different dimension; what the measurements prove is architectural:
+**2^128 usable, deterministic, error-free states are available today at 11640 ns per verified fold
+(measured)**, while demonstrated error-corrected capacity on quantum hardware is still small — the platforms say
+so themselves, in the sources named. Ratios drift with hosts and years; the table reseals at every generation.
+Report receipt: `0cb77e2c-4dca-82d6-aeea-15aae25ae9a7` · measured-when as its own handle: `0cb77e2c`.
 <!-- quantum-capacity:end -->
 
 ---

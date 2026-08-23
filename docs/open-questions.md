@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**49 open doors** across 20 topics, derived from the tree's own records — the held leads,
+**49 open doors** across 19 topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
@@ -151,6 +151,29 @@ page regrows without it.
   <br><small>sealed neighbors: [`absolute_zero_and_kelvin`](/theorem/absolute_zero_and_kelvin) · [`fringe_pattern_reflects_dz`](/theorem/fringe_pattern_reflects_dz) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
+## wave — 4 open
+
+- **runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.**
+  <br><small>door: the held leads</small>
+  <br><small>involutions around: [`development_is_the_complement`](/theorem/development_is_the_complement) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`poles_on_the_axis_at_the_quadrature`](/theorem/poles_on_the_axis_at_the_quadrature) </small>
+  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`closure_is_coprime`](/theorem/closure_is_coprime) · [`sequence_and_coins_are_one`](/theorem/sequence_and_coins_are_one) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **No engine book consulted states degrees of crank rotation per stroke or per cycle (recorded value: absent)**
+  <br><small>door: the research ledger</small>
+  <br><small>involutions around: [`states_are_the_swap_fixed_bytes`](/theorem/states_are_the_swap_fixed_bytes) · [`dark_fringe_is_the_half_turn`](/theorem/dark_fringe_is_the_half_turn) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) </small>
+  <br><small>sealed neighbors: [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) · [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) · [`gregorian_cycle_closes_on_the_week`](/theorem/gregorian_cycle_closes_on_the_week) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **Thermoelectric module efficiency against Carnot (recorded value: 4.0% actual vs 47.1% Carnot = 8.5% of Carnot)**
+  <br><small>door: the research ledger</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`negation_involution_solves`](/theorem/negation_involution_solves) </small>
+  <br><small>sealed neighbors: [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) · [`digest_doubles_the_address`](/theorem/digest_doubles_the_address) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **The optimal study gap is NOT a fixed percentage of the retention interval (recorded value: declines from ~43% at a 7-day delay to ~8% at 350 days)**
+  <br><small>door: the research ledger</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`complement_fixes_the_half`](/theorem/complement_fixes_the_half) · [`dz_swaps_the_thirds_and_fixes_the_axis`](/theorem/dz_swaps_the_thirds_and_fixes_the_axis) </small>
+  <br><small>sealed neighbors: [`seasons_return_in_eighteen_years`](/theorem/seasons_return_in_eighteen_years) · [`egyptian_five_harmonise_the_circle`](/theorem/egyptian_five_harmonise_the_circle) · [`epact_eleven_harmonised_by_meton`](/theorem/epact_eleven_harmonised_by_meton) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
 ## coins — 3 open
 
 - **Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).**
@@ -167,24 +190,6 @@ page regrows without it.
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`xor_checksum_catches_flip`](/theorem/xor_checksum_catches_flip) · [`no_digit_is_an_exact_complement`](/theorem/no_digit_is_an_exact_complement) </small>
   <br><small>sealed neighbors: [`two_coins_are_switch_and_track`](/theorem/two_coins_are_switch_and_track) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
-## wave — 3 open
-
-- **No engine book consulted states degrees of crank rotation per stroke or per cycle (recorded value: absent)**
-  <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`states_are_the_swap_fixed_bytes`](/theorem/states_are_the_swap_fixed_bytes) · [`dark_fringe_is_the_half_turn`](/theorem/dark_fringe_is_the_half_turn) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) </small>
-  <br><small>sealed neighbors: [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) · [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) · [`gregorian_cycle_closes_on_the_week`](/theorem/gregorian_cycle_closes_on_the_week) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **Thermoelectric module efficiency against Carnot (recorded value: 4.0% actual vs 47.1% Carnot = 8.5% of Carnot)**
-  <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`negation_involution_solves`](/theorem/negation_involution_solves) </small>
-  <br><small>sealed neighbors: [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) · [`digest_doubles_the_address`](/theorem/digest_doubles_the_address) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **The optimal study gap is NOT a fixed percentage of the retention interval (recorded value: declines from ~43% at a 7-day delay to ~8% at 350 days)**
-  <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`complement_fixes_the_half`](/theorem/complement_fixes_the_half) · [`dz_swaps_the_thirds_and_fixes_the_axis`](/theorem/dz_swaps_the_thirds_and_fixes_the_axis) </small>
-  <br><small>sealed neighbors: [`seasons_return_in_eighteen_years`](/theorem/seasons_return_in_eighteen_years) · [`egyptian_five_harmonise_the_circle`](/theorem/egyptian_five_harmonise_the_circle) · [`epact_eleven_harmonised_by_meton`](/theorem/epact_eleven_harmonised_by_meton) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## reasoning — 2 open
@@ -259,14 +264,6 @@ page regrows without it.
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`missing_pair_involution`](/theorem/missing_pair_involution) · [`orbits_closed_involution`](/theorem/orbits_closed_involution) </small>
   <br><small>sealed neighbors: [`grundy_sum_is_xor`](/theorem/grundy_sum_is_xor) · [`cubes_partition_ledger`](/theorem/cubes_partition_ledger) · [`prose_coverage_total`](/theorem/prose_coverage_total) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
-## quantum — 1 open
-
-- **runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`development_is_the_complement`](/theorem/development_is_the_complement) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`poles_on_the_axis_at_the_quadrature`](/theorem/poles_on_the_axis_at_the_quadrature) </small>
-  <br><small>sealed neighbors: [`closure_is_coprime`](/theorem/closure_is_coprime) · [`sequence_and_coins_are_one`](/theorem/sequence_and_coins_are_one) · [`door_of_the_referrer`](/theorem/door_of_the_referrer) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## readings — 1 open
