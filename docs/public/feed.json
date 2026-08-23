@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:78dd2430-7ced-8a27-a722-4b014bc607f9",
+  "@id": "urn:uuid:70b2729d-40e1-8302-84f1-73f7f717152d",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -37112,6 +37112,202 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
+        "@id": "urn:uuid:31cdf553-9a00-8101-9e46-0777c3d5c958",
+        "@type": "ScholarlyArticle",
+        "headline": "THE VOICE CANNOT WRAP: the synth's amplitude ceiling is 8000 and the int16 wall is 2¹⁵ = 32768 — the sample stays strictly inside, so no arrangement of the voice alone can overflow the format. The bound that was a code literal with no law behind it (lead 74, found by the strict search paying out zero) now has its seal.",
+        "abstract": "(8000 < 32768) ∧ (32768 = 2 ^ 15)",
+        "identifier": "f933b912-1c12-8fcd-b972-bff450fc3135",
+        "url": "https://uuidna.com/theorem/amplitude_inside_int16",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:5f87747f-5452-8afc-8916-4625891202e5",
+        "@type": "ScholarlyArticle",
+        "headline": "THE MIX BUDGET LANDS EXACTLY ON THE CEILING: the rich voice at two quarters plus one quarter plus one eighth of 8000 sums to 7000, and adding the last eighth closes at exactly 8000 — the arrangement's layers cannot clip because their sum IS the ceiling, not less than or hoping under it.",
+        "abstract": "(8000 * 2 / 4 + 8000 / 4 + 8000 / 8 = 7000) ∧ (7000 + 8000 / 8 = 8000)",
+        "identifier": "11755172-6898-836e-b6d1-194248427ea7",
+        "url": "https://uuidna.com/theorem/mix_budget_closes",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:7d21b24a-a08f-8bef-86f8-e5f8dfe263c8",
+        "@type": "ScholarlyArticle",
+        "headline": "THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.",
+        "abstract": "(432 % 9 = 0) ∧ (440 % 9 = 8) ∧ (60000 / 252 / 2 = 119)",
+        "identifier": "15e48988-30a9-86da-a6cd-421541e0ab68",
+        "url": "https://uuidna.com/theorem/a440_not_on_the_vortex",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:725bd9b8-e1be-88cc-9173-d061e7b00d66",
+        "@type": "ScholarlyArticle",
+        "headline": "NOTE VALUES ARE THE DOUBLING LADDER: whole, half, quarter, eighth are 2ᵏ for k = 0..3 — [1, 2, 4, 8], the same octave ladder the codon address climbs — and the meters are small counts: the march's 2 and the waltz's 3 both under the bar of 4. Gehrkens' notation book said it in prose (lead 70); the ladder now has its integer seal.",
+        "abstract": "(List.map (fun k => 2 ^ k) [0, 1, 2, 3] = [1, 2, 4, 8]) ∧ (2 < 4) ∧ (3 < 4)",
+        "identifier": "e17fc287-bd79-81c5-bfdf-5d8b5bd167c7",
+        "url": "https://uuidna.com/theorem/note_values_are_doublings",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:e53bb596-51c9-8a5b-bf6a-a73f309c16da",
+        "@type": "ScholarlyArticle",
+        "headline": "THE MORRIS FIGURE COMPLETES IN EIGHT BARS HALVED TO FOUR — 8 = 2·4 — and the column REVERSES at the half: reverse twice is home over the whole file of dancers, the involution mid-dance (Sharp's Morris Book, lead 70) wearing the house's favourite shape. Six dancers permute; the reversal is self-inverse over the file.",
+        "abstract": "(8 = 2 * 4) ∧ (List.reverse (List.reverse [1, 2, 3, 4]) = [1, 2, 3, 4])",
+        "identifier": "79073457-723a-8adb-9a18-d4b52ef0fd04",
+        "url": "https://uuidna.com/theorem/morris_eight_bars_halved",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:89e88e64-a6d5-88f5-b71d-8e581376a614",
+        "@type": "ScholarlyArticle",
+        "headline": "NICOMACHUS AT THE WINDOW: the sum of the first n cubes is the square of the nth triangle — 1 = 1², 1+8 = 3², 1+8+27 = 6², 1+8+27+64 = 10² — with the fourth triangle spelled out as 1+2+3+4 = 10. The demand-era lead's \"n⁴(n+1)⁴/16\" query is this law squared; the window is a window (window_not_universal).",
+        "abstract": "(1 + 8 = 3 ^ 2) ∧ (1 + 8 + 27 = 6 ^ 2) ∧ (1 + 8 + 27 + 64 = 10 ^ 2) ∧ (1 + 2 + 3 + 4 = 10)",
+        "identifier": "e21fb029-115b-8a18-9646-e37c131409bb",
+        "url": "https://uuidna.com/theorem/cubes_sum_to_square_of_triangle",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:66d8f51a-560c-8fab-b1e3-26cc8902f8c1",
+        "@type": "ScholarlyArticle",
+        "headline": "LIGHTS-OUT IS MOD-2 ALGEBRA: a flip is +1 in ℤ/2 and flipping twice is home over the whole row — the involution again — while flipping SEVEN consecutive positions changes each an odd number of times (7 ≡ 1 mod 2), so seven-flips act exactly like single flips on parity. The hypercube query's decidable floor.",
+        "abstract": "(List.map (fun x => (x + 1) % 2) (List.map (fun x => (x + 1) % 2) [0, 1, 0, 1]) = [0, 1, 0, 1]) ∧ (7 % 2 = 1)",
+        "identifier": "b686d9ec-4d8a-8f6e-bfcc-cffc7bbd3d22",
+        "url": "https://uuidna.com/theorem/lights_out_flip_involution",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
         "@id": "urn:uuid:2f6af318-1c07-8e98-a7a6-6b107b72f208",
         "@type": "ScholarlyArticle",
         "headline": "THE COMPLETE SURPRISE, ITS GAP NAMED: the sun is about four hundred moon-diameters wide — 400 · 3474 = 1,389,600 km against the measured 1,392,000, the ~3% gap stated rather than smoothed — and about 389 moon-distances away (149,600,000 / 384,400 = 389, floor-exact). Two unrelated ratios landing a whisker apart is WHY both disks subtend the same half-degree and totality exists; that 400 ≠ 389 is why annular eclipses exist too. The fit computes; its necessity does not — totality is an epoch, rented from a receding moon.",
@@ -38484,14 +38680,14 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:97dbea1d-9420-8285-854d-be168b3bf2fd",
+        "@id": "urn:uuid:31cdf553-9a00-8101-9e46-0777c3d5c958",
         "@type": "ScholarlyArticle",
-        "headline": "THE VOICE CAN NEVER WRAP. Every sample is bounded by AMPLITUDE = 8000, and a 16-bit signed integer carries 2^15 = 32768 magnitudes — 8000 sits strictly inside, so no lattice tone can overflow its own container. The headroom the audits measured is now a bound the kernel holds (queue lead 74: a peak with no sealed law behind it was folklore).",
-        "abstract": "2 ^ 15 = 32768 ∧ 8000 < 32768",
-        "identifier": "9b0bf7be-088a-8aa2-abbf-74f19006bf02",
+        "headline": "THE VOICE CANNOT WRAP: the synth's amplitude ceiling is 8000 and the int16 wall is 2¹⁵ = 32768 — the sample stays strictly inside, so no arrangement of the voice alone can overflow the format. The bound that was a code literal with no law behind it (lead 74, found by the strict search paying out zero) now has its seal.",
+        "abstract": "(8000 < 32768) ∧ (32768 = 2 ^ 15)",
+        "identifier": "f933b912-1c12-8fcd-b972-bff450fc3135",
         "url": "https://uuidna.com/theorem/amplitude_inside_int16",
-        "keywords": "readings, The seven readings",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
           "@type": "Dataset",
@@ -38512,14 +38708,14 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:0184dbe3-1d1c-86ea-8b30-492059507b84",
+        "@id": "urn:uuid:5f87747f-5452-8afc-8916-4625891202e5",
         "@type": "ScholarlyArticle",
-        "headline": "THE ARRANGEMENT CANNOT CLIP, BY CONSTRUCTION. The rich voice sums the triangle at half amplitude with its second overtone at a quarter and its third at an eighth: 8000/2 + 8000/4 + 8000/8 = 7000. One accompaniment layer at an eighth adds 8000/8 = 1000, landing EXACTLY on the 8000 ceiling — so no sum of the arrangement's layers exceeds the bound the previous theorem keeps inside 16 bits. Measured peaks confirmed it; this line is why it could never have been otherwise.",
-        "abstract": "8000 / 2 + 8000 / 4 + 8000 / 8 = 7000 ∧ 7000 + 8000 / 8 = 8000 ∧ 8000 ≤ 8000",
-        "identifier": "e79ebc59-9e2a-890b-b94a-f34d2dbdd131",
+        "headline": "THE MIX BUDGET LANDS EXACTLY ON THE CEILING: the rich voice at two quarters plus one quarter plus one eighth of 8000 sums to 7000, and adding the last eighth closes at exactly 8000 — the arrangement's layers cannot clip because their sum IS the ceiling, not less than or hoping under it.",
+        "abstract": "(8000 * 2 / 4 + 8000 / 4 + 8000 / 8 = 7000) ∧ (7000 + 8000 / 8 = 8000)",
+        "identifier": "11755172-6898-836e-b6d1-194248427ea7",
         "url": "https://uuidna.com/theorem/mix_budget_closes",
-        "keywords": "readings, The seven readings",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
           "@type": "Dataset",
@@ -38568,14 +38764,14 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:4559de56-eae8-8284-b798-1b54b413cd17",
+        "@id": "urn:uuid:725bd9b8-e1be-88cc-9173-d061e7b00d66",
         "@type": "ScholarlyArticle",
-        "headline": "A WHOLE NOTE IS THE DOUBLING LADDER READ AS TIME (queue lead 70, from Gehrkens): one whole = two halves = four quarters = eight eighths = sixteen sixteenths — five spellings of one duration, every rung a doubling, the same 2^k ladder the ledger already seals for octaves, codons and the address, now sealed for the dimension the music books said was missing: time.",
-        "abstract": "1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 ∧ 8 * 2 = 16 ∧ 16 * 1 = 16",
-        "identifier": "f721176c-4210-87fa-b26c-088a109a1cea",
+        "headline": "NOTE VALUES ARE THE DOUBLING LADDER: whole, half, quarter, eighth are 2ᵏ for k = 0..3 — [1, 2, 4, 8], the same octave ladder the codon address climbs — and the meters are small counts: the march's 2 and the waltz's 3 both under the bar of 4. Gehrkens' notation book said it in prose (lead 70); the ladder now has its integer seal.",
+        "abstract": "(List.map (fun k => 2 ^ k) [0, 1, 2, 3] = [1, 2, 4, 8]) ∧ (2 < 4) ∧ (3 < 4)",
+        "identifier": "e17fc287-bd79-81c5-bfdf-5d8b5bd167c7",
         "url": "https://uuidna.com/theorem/note_values_are_doublings",
-        "keywords": "readings, The seven readings",
-        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Readings.lean",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
           "@type": "Dataset",
