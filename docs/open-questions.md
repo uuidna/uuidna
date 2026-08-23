@@ -114,7 +114,7 @@ page regrows without it.
 
 - **The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…**
   <br><small>door: the held leads</small>
-  <br><small>involutions around: [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) · [`compass_opposites_involute`](/theorem/compass_opposites_involute) </small>
+  <br><small>involutions around: [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
   <br><small>sealed neighbors: [`reverse_walks_inverse`](/theorem/reverse_walks_inverse) · [`octave_codon_address`](/theorem/octave_codon_address) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Retrieval practice vs OTHER ACTIVE strategies is not significant (recorded value: g = 0.095, 95% CI [-0.005, 0.194], p = .062, k = 41)**
@@ -165,7 +165,7 @@ page regrows without it.
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bou…**
   <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive) · [`involution_census_self_explains`](/theorem/involution_census_self_explains) </small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive) </small>
   <br><small>sealed neighbors: [`fold_compresses_without_bound_and_never_recovers`](/theorem/fold_compresses_without_bound_and_never_recovers) · [`gematria_forces_collisions`](/theorem/gematria_forces_collisions) · [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Classroom interleaving, preregistered cluster RCT (recorded value: 61% vs 38% at one month, d = 0.83 (0.68-0.97), 54 classes)**
@@ -179,7 +179,7 @@ page regrows without it.
 - **Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.**
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`real_pauli_group_order_8`](/theorem/real_pauli_group_order_8) · [`states_are_the_swap_fixed_bytes`](/theorem/states_are_the_swap_fixed_bytes) </small>
-  <br><small>sealed neighbors: [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`phase_gate_order_ladder`](/theorem/phase_gate_order_ladder) · [`crew_verifies_instantly`](/theorem/crew_verifies_instantly) </small>
+  <br><small>sealed neighbors: [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`phase_gate_order_ladder`](/theorem/phase_gate_order_ladder) · [`a_symphony_is_a_sequence_not_a_set`](/theorem/a_symphony_is_a_sequence_not_a_set) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **roundTrips() disagrees with a verified byte-exact imprint round-trip**
   <br><small>door: the held leads</small>
@@ -268,7 +268,7 @@ page regrows without it.
 
 - **runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.**
   <br><small>door: the held leads</small>
-  <br><small>involutions around: [`development_is_the_complement`](/theorem/development_is_the_complement) · [`poles_on_the_axis_at_the_quadrature`](/theorem/poles_on_the_axis_at_the_quadrature) · [`imprint_capacity_entangles`](/theorem/imprint_capacity_entangles) </small>
+  <br><small>involutions around: [`development_is_the_complement`](/theorem/development_is_the_complement) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`poles_on_the_axis_at_the_quadrature`](/theorem/poles_on_the_axis_at_the_quadrature) </small>
   <br><small>sealed neighbors: [`closure_is_coprime`](/theorem/closure_is_coprime) · [`sequence_and_coins_are_one`](/theorem/sequence_and_coins_are_one) · [`door_of_the_referrer`](/theorem/door_of_the_referrer) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
@@ -293,7 +293,7 @@ page regrows without it.
 - **Cognitive load theory is near-unfalsifiable as commonly applied (recorded value: every outcome fits post-hoc)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`negation_involution_solves`](/theorem/negation_involution_solves) · [`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive) </small>
-  <br><small>sealed neighbors: [`universe_of_handles`](/theorem/universe_of_handles) · [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page) · [`coins_over_all_rosetta_combinations`](/theorem/coins_over_all_rosetta_combinations) </small>
+  <br><small>sealed neighbors: [`universe_of_handles`](/theorem/universe_of_handles) · [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page) · [`the_tempi_tile_the_film`](/theorem/the_tempi_tile_the_film) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## open frontier — 6 open

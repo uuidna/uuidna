@@ -1,18 +1,18 @@
 {
-  "key": "26054ba8-0c75-8c8a-9897-cf5f9ea9b287",
-  "publications": 83,
-  "sealedTheorems": 1639,
+  "key": "5d21648d-b7ed-88e7-8f1c-7039f6370f41",
+  "publications": 84,
+  "sealedTheorems": 1646,
   "fabricated": 0,
   "uncited": 1,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1437,
-    "theorems": 1639,
+    "claims": 1444,
+    "theorems": 1646,
     "bijection": false,
     "digitalRoots": {
-      "claims": 6,
-      "theorems": 1,
-      "publications": 2
+      "claims": 4,
+      "theorems": 8,
+      "publications": 3
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -524,6 +524,13 @@
       "fabricated": []
     },
     {
+      "slug": "symphony",
+      "claims": 6,
+      "cited": 6,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
       "slug": "pravets",
       "claims": 6,
       "cited": 6,
@@ -560,8 +567,8 @@
     },
     {
       "slug": "wave",
-      "claims": 28,
-      "cited": 28,
+      "claims": 29,
+      "cited": 29,
       "uncited": [],
       "fabricated": []
     },

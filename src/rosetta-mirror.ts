@@ -1576,6 +1576,13 @@ lagrange_divides_every_order 19
 two_generates_the_whole 19
 most_subsets_are_not_subgroups 19
 trivial_and_whole_are_subgroups 19
+#Symphony.lean
+four_movements_are_the_tongues 19
+sonata_form_is_a_palindrome 19
+recapitulation_is_the_involution 19
+the_keys_walk_home 19
+a_symphony_is_a_sequence_not_a_set 19
+the_tempi_tile_the_film 19
 #Tesla.lean
 tesla_trio_files_adjacent 19
 tesla_leap_spring_to_grant 19
@@ -1736,6 +1743,7 @@ chemistry_water_and_the_table 18
 sport_marathon_and_the_teams 18
 astronomy_eight_planets 18
 art_spectrum_and_primaries 18
+involution_walks_home_in_two 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19
