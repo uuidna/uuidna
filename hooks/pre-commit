@@ -22,10 +22,16 @@ git add gate-receipt.json 2>/dev/null
 # forgets, every time. Skips gracefully when dist is not built (the receipt above already skipped too);
 # bypassable with --no-verify (owned, not hidden) — an owned bypass is a named drift, a silent one is treason.
 if [ -f dist/scripts/guard.js ]; then
-  if ! node dist/scripts/guard.js >/dev/null 2>&1; then
-    echo "pre-commit: GUARD RED — the commit is blocked (run node dist/scripts/guard.js to see the finding;"
-    echo "pre-commit: fix it, or bypass knowingly with --no-verify — owned, not hidden)."
+  # the charge sheet is read ALOUD: a gate that blocks while hiding the finding censors its own court —
+  # the committer was being forced to re-run the guard just to learn the accusation (found by the
+  # censorship sweep, 2026-08-23). The verdict lines print on the spot; the full record is in the file.
+  GUARDLOG=$(mktemp)
+  if ! node dist/scripts/guard.js > "$GUARDLOG" 2>&1; then
+    echo "pre-commit: GUARD RED — the commit is blocked. The charges:"
+    grep -E "✗|GAP|FIX|TRAITOR|STALE" "$GUARDLOG" | head -12
+    echo "pre-commit: full record: $GUARDLOG"
     exit 1
   fi
+  rm -f "$GUARDLOG"
 fi
 exit 0
