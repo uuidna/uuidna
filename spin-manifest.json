@@ -9,7 +9,7 @@
     "support-audit.json": "b3eb09f6e0378511",
     "research-leads.json": "612d639f9e6f832f",
     ".zenodo.json": "2b7de5510787800e",
-    "reports.json": "a8affa2cd49c8b4c",
+    "reports.json": "4fa6f179bead8f83",
     "lean/statement-index.json": "0ccf0d0b37878980",
     "README.md": "6ec9a62e8bb282fe",
     "llm.txt": "696c3433052482b3",
@@ -1611,5 +1611,5 @@
     "lean/wave-queue.json": "b545c1f6acbb8994",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "ba9c9b19-d41a-83e4-a543-7b827e7eb4ce"
+  "receipt": "0d994c82-1e46-8e94-8a5f-0faee4894a0a"
 }
