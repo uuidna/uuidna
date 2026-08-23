@@ -2,9 +2,9 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "107c153251ac770c",
-      "principles": "5e9093cafb4ac708",
-      "monographs": "aae10cad5da5fac2"
+      "theorems": "06ab197ad6cd735a",
+      "principles": "70360af81939567f",
+      "monographs": "7cc0cdea131ba35b"
     },
     "served": {
       "packages": "5aacd0af35a35c23",
@@ -28,34 +28,34 @@
     }
   },
   "trinity_folds": {
-    "sealed": "c852ef41e7159f512a21dad70bb4c4fa",
+    "sealed": "4f10d338134725a8ef5dd2d2ae30c3fb",
     "served": "4ea78afe4b20a61fc4cbc96f6aedef93",
     "proven": "938e5244673fb34f13456e942a8b93f7",
     "record": "fbffd08acddcabba1e2c9fc326376651",
     "walks": "2ac4d6dac144485ebc8d9bbeb52822d1"
   },
-  "unified_fold": "4b8669be6fd0e594",
-  "receipt": "ba51bc0016dd4e15",
+  "unified_fold": "61a6eb2415643870",
+  "receipt": "bca829b817a03154",
   "rosette_receipt": {
     "rays": [
-      "264c801abdd75f6b",
+      "2f163e49bafa0df0",
       "25a2a9bcced1fc36",
-      "78cf301bff9492cf",
+      "180f340dfa4efd0b",
       "a20454282e566346",
-      "8faee1aa3924e39b",
+      "31627fc061644fbd",
       "a761502744407dcd",
       "2d32b20151e1c9ad"
     ],
-    "concurrence": "be0698424bc855d39db2a588968e9dbe"
+    "concurrence": "d91a0947b06e56e15c2396d9592a7429"
   },
   "aura": {
-    "rgb": "#7c3de1",
-    "hsl": "hsl(263, 73%, 56%)",
+    "rgb": "#df20c9",
+    "hsl": "hsl(307, 75%, 50%)",
     "alphabet": "b6819334641853db",
-    "movie": "448ac1ef56f357ce",
+    "movie": "3adc377f7d40035f",
     "lessons": "8926b5253bb7b673",
     "report": "940001b6ff9bd2fc",
-    "session": "a35162e7adb4cfa6",
+    "session": "5d4d2ae50a178d5a",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",
@@ -72,12 +72,12 @@
     },
     "dimensions": {
       "residue": 0,
-      "ray": 5,
-      "wave": 8,
-      "hue": 263,
-      "sat": 73,
-      "light": 56,
-      "period": 22,
+      "ray": 6,
+      "wave": 1,
+      "hue": 307,
+      "sat": 75,
+      "light": 50,
+      "period": 24,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
