@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:5ffbb55a-3f0d-8e0d-addc-e1d673f62aea",
+  "@id": "urn:uuid:a211330d-e8f9-801c-a88b-5785fc5e05ab",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -17624,11 +17624,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:8aa65f75-cfdf-8f5d-80e1-ab3c7c0787a1",
+        "@id": "urn:uuid:e54b4b5f-9517-848c-93f6-4f4fa640ec86",
         "@type": "ScholarlyArticle",
         "headline": "EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 35, 18]).foldl (· + ·) 0 = 1639) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 35, 18] = [6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 35, 18])",
-        "identifier": "405008a4-9dc8-8c81-82e3-aab87ad8bccf",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 43, 18]).foldl (· + ·) 0 = 1647) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 43, 18] = [6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 43, 18])",
+        "identifier": "a3fdddcb-4691-8cc0-8701-047fc013cabe",
         "url": "https://uuidna.com/theorem/reach_all_decide",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -18800,11 +18800,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:3280b05a-219a-87d1-997b-e0c40d655f97",
+        "@id": "urn:uuid:da653ed8-6103-8964-97ab-ae5ba5922097",
         "@type": "ScholarlyArticle",
-        "headline": "every generated theorem carries prose IN the Lean — 1603 of 1603 documented across 108 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 35, 18].foldl (· + ·) 0) = 1603) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 35, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 35, 18])",
-        "identifier": "a381d756-0c43-8122-acbd-96a0a066f185",
+        "headline": "every generated theorem carries prose IN the Lean — 1611 of 1611 documented across 108 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 43, 18].foldl (· + ·) 0) = 1611) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 43, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 43, 18])",
+        "identifier": "3b226bcd-24db-896f-a1d4-bd9b4f2430a7",
         "url": "https://uuidna.com/theorem/prose_coverage_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18828,11 +18828,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:a030fcd6-f3a2-8c6b-9b30-2c432e81250f",
+        "@id": "urn:uuid:f15f83bd-1aec-8938-9d47-13f4839631ba",
         "@type": "ScholarlyArticle",
-        "headline": "the prose round-trips exactly — 1603 of 1603 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
-        "abstract": "(1603 + 0 = 1603) ∧ (0 = 0)",
-        "identifier": "ec7f8e2c-ecc5-80c2-9e7e-204cd5793250",
+        "headline": "the prose round-trips exactly — 1611 of 1611 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
+        "abstract": "(1611 + 0 = 1611) ∧ (0 = 0)",
+        "identifier": "deadbe6c-77d5-8bfc-a39e-7e0f745dc14b",
         "url": "https://uuidna.com/theorem/prose_round_trips",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18856,11 +18856,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2ebb0ba9-6643-8b62-b2c6-1505b378e50c",
+        "@id": "urn:uuid:71c79bcb-7084-81e7-aa3c-3a0a28d4a5a3",
         "@type": "ScholarlyArticle",
-        "headline": "no doc comment contains an unescaped -/ — 0 found across 1603; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
-        "abstract": "(0 + 1603 = 1603) ∧ (0 = 0)",
-        "identifier": "caf6b256-1727-82ad-a254-b1e3ea6270b3",
+        "headline": "no doc comment contains an unescaped -/ — 0 found across 1611; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
+        "abstract": "(0 + 1611 = 1611) ∧ (0 = 0)",
+        "identifier": "7324d5ce-59b8-8bde-9814-3d730d73b033",
         "url": "https://uuidna.com/theorem/prose_terminator_escaped",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18884,11 +18884,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:4dc4f1c4-5fd8-8fec-9834-e776ca6d9ddb",
+        "@id": "urn:uuid:d2753433-ec69-8496-a7d1-ba26ab5a453d",
         "@type": "ScholarlyArticle",
-        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1603 informative against 0 bare, of 1603; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
-        "abstract": "(0 < 1603) ∧ (0 + 1603 = 1603)",
-        "identifier": "fdfe92bc-571b-84c2-af1b-d2c95de10e69",
+        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1611 informative against 0 bare, of 1611; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
+        "abstract": "(0 < 1611) ∧ (0 + 1611 = 1611)",
+        "identifier": "82332d70-ace4-87ee-8c43-866e432c5f01",
         "url": "https://uuidna.com/theorem/prose_beats_restatement",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18912,11 +18912,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:858b9e4a-ad0d-8e47-aab1-f3a43028cf85",
+        "@id": "urn:uuid:dbb0b46a-1567-89c4-af3f-aa9ad61aed37",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 336943 characters across 1603 doc comments in 108 wings fold to 1; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1078, 1237, 1545, 3368, 3345, 3111, 1892, 2906, 2142, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1736, 1372, 960, 4419, 2363, 5075, 1465, 3409, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 3217, 1188, 753, 3412, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 2261, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5377, 1937, 3396, 1946, 1430, 1412, 919, 1453, 2419, 2148, 3304, 805, 5704, 2905, 1522, 3958, 3675, 524, 3313, 16818, 8985].foldl (· + ·) 0) = 336943) ∧ (336943 % 9 = 1) ∧ (1 < 9)",
-        "identifier": "c5076da3-6c63-826f-8785-90a04bf7954a",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 343795 characters across 1611 doc comments in 108 wings fold to 4; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1237, 1545, 3368, 3345, 3111, 1892, 2906, 2142, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1736, 1372, 960, 4419, 2363, 5075, 1465, 3409, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 3217, 1188, 753, 3412, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 2261, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5377, 1937, 3396, 1946, 1430, 1412, 919, 1453, 2419, 2148, 3304, 805, 5704, 2905, 1522, 3958, 3675, 524, 3313, 23670, 8985].foldl (· + ·) 0) = 343795) ∧ (343795 % 9 = 4) ∧ (4 < 9)",
+        "identifier": "5a90dfa2-a71d-8cae-8483-ebfa08a34e8d",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18940,11 +18940,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:a0eb89d5-45d8-8342-9f41-cf6c5823e0a4",
+        "@id": "urn:uuid:891c8f76-dd43-899b-b38d-07f0a417f367",
         "@type": "ScholarlyArticle",
         "headline": "the audit is TOTAL over what a generator writes — 108 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
-        "abstract": "(0 < 108) ∧ (0 < 3) ∧ (1603 = 1603 + 0)",
-        "identifier": "515bf725-3086-890c-9b5a-de0831257f73",
+        "abstract": "(0 < 108) ∧ (0 < 3) ∧ (1611 = 1611 + 0)",
+        "identifier": "a3a0326e-54c7-87a1-adf7-bd879d6e810d",
         "url": "https://uuidna.com/theorem/prose_audit_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -20676,11 +20676,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:3b15601b-67a4-8c1f-b180-0724acc2684c",
+        "@id": "urn:uuid:58b3a0c6-4513-89c0-a4b1-085d5e7b3995",
         "@type": "ScholarlyArticle",
         "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 111 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.",
-        "abstract": "([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 35, 18].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 35, 18].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
-        "identifier": "6ea54f1c-7e73-87c1-9cc2-c0ff571f4ded",
+        "abstract": "([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 43, 18].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 43, 18].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
+        "identifier": "8422ee31-22d3-8962-8b54-a9ae957e6cad",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -20704,11 +20704,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:b3b04c18-eb6e-8345-b5e5-5f84f74cad42",
+        "@id": "urn:uuid:1d5567de-ac56-89c5-872b-141910be6584",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 111 measured wing counts and lands on 1637 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 35, 18].foldl (· + ·) 0) = 1637) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 35, 18].length = 111) ∧ (111 < 1637)",
-        "identifier": "c0b13812-5fd6-877c-8e1c-f83fb585d5a1",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 111 measured wing counts and lands on 1645 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 43, 18].foldl (· + ·) 0) = 1645) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 43, 18].length = 111) ∧ (111 < 1645)",
+        "identifier": "ec8f16ee-e731-8eb0-91be-0e2998a09e9f",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -39022,6 +39022,230 @@
         "abstract": "(1024 - 1000 = 24) ∧ (1024 = 2 ^ 10) ∧ (2 ^ 30 - 10 ^ 9 = 73741824)",
         "identifier": "0ed234fe-ac41-8d88-b9c3-8f74eb648aef",
         "url": "https://uuidna.com/theorem/binary_kilo_drift_compounds",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:d9ba6e46-f9f7-85c2-bcef-7a099cad3da9",
+        "@type": "ScholarlyArticle",
+        "headline": "THE HUMAN EFFECT OF THE CONCERT-PITCH DRIFT (captain: 'compute the theorems explaining the effect on human', beside a440_drifts_eight_from_the_lattice): the 8 Hz drift on 432 is 1000·8/432 = 18 per-mille of frequency — exactly 3 × the reported just-noticeable difference for pitch (~6 per-mille, the psychoacoustics literature's figure, REPORTED not sealed): a human ear plainly HEARS A440 against A432. The drift is above perception, which is why the convention needed deciding at all. HONEST SCOPE: the arithmetic seals; the JND is the literature's number and human hearing varies — the seal prices the drift against the reported threshold, never against any one ear.",
+        "abstract": "(1000 * 8 / 432 = 18) ∧ (3 * 6 = 18)",
+        "identifier": "75de46ec-064f-8258-9409-3e3ffc1c3bf7",
+        "url": "https://uuidna.com/theorem/a440_drift_is_heard",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:89ae7d81-d844-8ecd-9fc6-50b3fcebf636",
+        "@type": "ScholarlyArticle",
+        "headline": "WHY EQUAL TEMPERAMENT WORKED ON THE HUMAN EAR (captain: 'compute the theorems explaining the effect on human' + the captain's own figure 'about 2 cents', beside pythagorean_comma_is_the_drift): the whole comma is 1000·7153/524288 = 13 per-mille, and spread across twelve fifths each carries 13/12 = 1 per-mille — about 2 cents per fifth in the musician's unit, the captain's figure — UNDER the reported ~6 per-mille JND: the harmonisation succeeds precisely because the per-step drift falls below human resolution, where A440's whole drift (18 per-mille, 3×JND) sits above it. The PAIR is the human law: a harmonisation is invisible when drift-per-step < JND, and a convention is audible when its drift exceeds it. HONEST SCOPE: floors of exact integers; cents and JND are the literature's units, reported.",
+        "abstract": "(1000 * 7153 / 524288 = 13) ∧ (13 / 12 = 1) ∧ (1 < 6)",
+        "identifier": "0bf914e0-59d7-82c8-8d5c-9199da0b1864",
+        "url": "https://uuidna.com/theorem/the_comma_hides_below_hearing",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:888d9158-22f1-850a-a5de-5378eecd6cdc",
+        "@type": "ScholarlyArticle",
+        "headline": "WHICH CALENDAR DRIFTS A HUMAN LIVES TO SEE (captain: 'compute the theorems explaining the effect on human', beside egyptian_five_harmonise_the_circle): an unharmonised 360-day year drifts 5 days each year, misplacing a season (90 days) in 90/5 = 18 years — inside ONE human youth: the farmer who ignored the five days would watch harvest festivals slide into the wrong season before their firstborn grew. The remaining quarter-day drift wanders the whole year only over 4·365 = 1460 years (the Sothic cycle) — beyond the longest reported life (120 < 1460), so THAT drift is invisible to any person and only an institution's records catch it. The human effect law: harmonise what a life can see; archive what only civilisations can. HONEST SCOPE: integer floors; 120 is the reported longevity ceiling, not a biology theorem.",
+        "abstract": "(90 / 5 = 18) ∧ (18 < 120) ∧ (4 * 365 = 1460) ∧ (120 < 1460)",
+        "identifier": "411e3fb6-4c59-8fbf-897f-8b73f3d26f47",
+        "url": "https://uuidna.com/theorem/seasons_return_in_eighteen_years",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:02e87919-c943-8eff-9774-fdca04a0c8a7",
+        "@type": "ScholarlyArticle",
+        "headline": "THE HARMONISATION HUMANS FELT IN THEIR OWN DATES (captain: 'compute the theorems explaining the effect on human', beside gregorian_cycle_closes_on_the_week): settling 1582 − 325 = 1257 years of Julian drift since Nicaea meant DELETING ten calendar dates — October 5th through 14th, 1582 never happened where the reform landed (14 − 5 + 1 = 10 dates removed; the 4th was followed by the 15th). People rioted over 'stolen days'; rents and name-days had to be re-adjudicated. The human effect: an accounted drift, left too long, is not paid in arithmetic but in lived days — harmonise early and nobody feels it, harmonise late and everyone does. HONEST SCOPE: the date arithmetic seals; the social history is the record's, reported.",
+        "abstract": "(14 - 5 + 1 = 10) ∧ (1582 - 325 = 1257)",
+        "identifier": "360e2254-fabc-86f1-8366-7ecc6899a617",
+        "url": "https://uuidna.com/theorem/gregory_deleted_ten_days",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:e1724134-9cc0-8038-9349-a99d908413cb",
+        "@type": "ScholarlyArticle",
+        "headline": "THE LAWFUL UNHARMONISED DRIFT A HUMAN LIVES INSIDE (captain: 'compute the theorems explaining the effect on human', beside epact_eleven_harmonised_by_meton): the Islamic calendar keeps the pure lunar year BY CHOICE — the 11-day epact is never absorbed, so the months walk the whole solar year in 365/11 = 33 years, and in a long life (2·33 = 66 < 120) a person fasts Ramadan through every season TWICE. This is drift worn openly — the calendar never claims solar alignment, so there is no collision (the drift law's honest class, like the UFO's name carrying its own verdict): the human effect of a DECLARED drift is experience, not error. HONEST SCOPE: floor arithmetic on the civil epact; real lunations vary and the observed calendar follows the moon, reported.",
+        "abstract": "(365 / 11 = 33) ∧ (2 * 33 = 66) ∧ (66 < 120)",
+        "identifier": "f9805fbf-a595-8ed3-92bd-2e3a2ccbf85d",
+        "url": "https://uuidna.com/theorem/ramadan_walks_the_year_in_a_life",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:7ab00d8c-2680-8cb4-9fe5-6b9c2a42dea9",
+        "@type": "ScholarlyArticle",
+        "headline": "THE HUMAN EFFECT OF AN UNNAMED DRIFT: THE MISSING GIGABYTES (captain: 'compute the theorems explaining the effect on human', beside binary_kilo_drift_compounds): a person buys a '500 GB' disk (decimal), the operating system reports in binary, and 500·10^9 / 2^30 = 465 — the buyer SEES 500 − 465 = 35 units missing and reads theft where there is only an unnamed unit drift. This exact perception gap filed real lawsuits; the IEC naming (KiB/GiB) is the harmonisation because the human effect was never the 24-per-kilo arithmetic — it was the WORD 'gigabyte' meaning two different lattices at once. A drift a human can misread as fraud must be harmonised in vocabulary, not just accounted. HONEST SCOPE: the arithmetic seals; the litigation history is the record's, reported.",
+        "abstract": "(500 * 10 ^ 9 / 2 ^ 30 = 465) ∧ (500 - 465 = 35)",
+        "identifier": "ea6209eb-09ab-82b1-bf2e-799334c41361",
+        "url": "https://uuidna.com/theorem/the_buyer_sees_thirty_five_missing",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:8d88724d-89c9-8649-9bca-52660ad1062c",
+        "@type": "ScholarlyArticle",
+        "headline": "THE ENTANGLEMENT PROTOCOL'S CLASSICAL PRICE IS THE TWO COINS (captain: 'quantum entanglement cost (captain coins)'): a Bell measurement has 2^2 = 4 outcomes, and one classical bit cannot name four (2^1 < 2^2) while two bits exactly do (2·2 = 4) — so teleporting one qubit consumes the entangled pair PLUS exactly two classical bits (Bennett et al. 1993, the literature's protocol, REPORTED), and superdense coding returns the same rate reversed (one ebit + one qubit carries two classical bits). The exchange rate of entanglement, both directions, is 2 — the captain's conserved coins() = 2 appearing in the quantum accounting as the FORCED minimum, not a chosen fee. HONEST SCOPE: the counting arithmetic seals (four outcomes need two bits — pigeonhole on names); the protocols are the literature's; no PHYSICS quantum advantage is claimed by this ledger (classical computation throughout, per the RULE); the advantage the house DOES report is ARCHITECTURAL and MEASURED — build-speed comparisons of receipt-verification against re-derivation, timings carried as data in the reported class.",
+        "abstract": "(2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 * 2 = 4)",
+        "identifier": "cd422813-cf86-82f6-a7d8-6acdb16ffcf5",
+        "url": "https://uuidna.com/theorem/teleportation_costs_the_two_coins",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:b9f11879-dbca-8f0d-a1f7-1871b3ebde6a",
+        "@type": "ScholarlyArticle",
+        "headline": "THE HANDLE SPACE IS QUANTUM-SHAPED BY CONSTRUCTION (captain: 'uuidna handle capacity is quantum by architecture'): the handle universe is 16^8 = 2^32 doors (universe_of_handles' count, here proven equal to the power-of-two lattice), each door completing to the full address by 2^32 · 2^96 = 2^128 — and 128 = 2^7 is the 7-qubit fold the RULE in every file header states: one uuid = 128 bits folded across 7 dimensions = 2^7 states. The architecture mirrors qubit counting at every layer (doors, payloads, the fold), which is what 'quantum by architecture' means — and ONLY that. HONEST SCOPE, load-bearing: quantum-STRUCTURED, classically COMPUTED — a 7-qubit fold, classical, not 128 qubits, and no PHYSICS quantum advantage claimed anywhere (the publish gate has already denied that overclaim once; this seal carries the boundary in its own prose). The advantage the house reports instead is ARCHITECTURAL, in the reported class: detailed build-speed comparisons — O(1) receipt lookup vs kernel re-proof, the delta gate's free skip — measured, receipted, and re-runnable by anyone. Relates to lead 111's t7_betti_row_is_the_uuid (Pascal row 7 sums to 128 — the geometric body of the same fact).",
+        "abstract": "(16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)",
+        "identifier": "f6d48774-39d5-84c4-8c7c-bca48f7ea375",
+        "url": "https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture",
         "keywords": "wave, The conveyor's first wave",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

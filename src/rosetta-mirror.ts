@@ -1750,6 +1750,14 @@ egyptian_five_harmonise_the_circle 18
 gregorian_cycle_closes_on_the_week 18
 epact_eleven_harmonised_by_meton 18
 binary_kilo_drift_compounds 18
+a440_drift_is_heard 18
+the_comma_hides_below_hearing 18
+seasons_return_in_eighteen_years 18
+gregory_deleted_ten_days 18
+ramadan_walks_the_year_in_a_life 18
+the_buyer_sees_thirty_five_missing 18
+teleportation_costs_the_two_coins 18
+handle_capacity_is_quantum_by_architecture 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

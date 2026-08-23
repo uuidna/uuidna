@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 35 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 43 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 34 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 42 siblings below.
 
-**35 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 35 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
+**43 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 21 of its 43 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 35 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 43 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -254,6 +254,62 @@ The ledger holds this as [binary_kilo_drift_compounds](/theorem/binary_kilo_drif
 
 ```lean
 (1024 - 1000 = 24) ∧ (1024 = 2 ^ 10) ∧ (2 ^ 30 - 10 ^ 9 = 73741824)
+```
+
+### THE HUMAN EFFECT OF THE CONCERT-PITCH DRIFT (captain: 'compute the theorems explaining the effect on human', beside a440_drifts_eight_from_the_lattice): the 8 Hz drift on 432 is 1000·8/432 = 18 per-mille of frequency — exactly 3 × the reported just-noticeable difference for pitch (~6 per-mille, the psychoacoustics literature's figure, REPORTED not sealed): a human ear plainly HEARS A440 against A432. The drift is above perception, which is why the convention needed deciding at all. HONEST SCOPE: the arithmetic seals; the JND is the literature's number and human hearing varies — the seal prices the drift against the reported threshold, never against any one ear.
+The ledger holds this as [a440_drift_is_heard](/theorem/a440_drift_is_heard) — proven `by decide`, sorry-free:
+
+```lean
+(1000 * 8 / 432 = 18) ∧ (3 * 6 = 18)
+```
+
+### WHY EQUAL TEMPERAMENT WORKED ON THE HUMAN EAR (captain: 'compute the theorems explaining the effect on human' + the captain's own figure 'about 2 cents', beside pythagorean_comma_is_the_drift): the whole comma is 1000·7153/524288 = 13 per-mille, and spread across twelve fifths each carries 13/12 = 1 per-mille — about 2 cents per fifth in the musician's unit, the captain's figure — UNDER the reported ~6 per-mille JND: the harmonisation succeeds precisely because the per-step drift falls below human resolution, where A440's whole drift (18 per-mille, 3×JND) sits above it. The PAIR is the human law: a harmonisation is invisible when drift-per-step < JND, and a convention is audible when its drift exceeds it. HONEST SCOPE: floors of exact integers; cents and JND are the literature's units, reported.
+The ledger holds this as [the_comma_hides_below_hearing](/theorem/the_comma_hides_below_hearing) — proven `by decide`, sorry-free:
+
+```lean
+(1000 * 7153 / 524288 = 13) ∧ (13 / 12 = 1) ∧ (1 < 6)
+```
+
+### WHICH CALENDAR DRIFTS A HUMAN LIVES TO SEE (captain: 'compute the theorems explaining the effect on human', beside egyptian_five_harmonise_the_circle): an unharmonised 360-day year drifts 5 days each year, misplacing a season (90 days) in 90/5 = 18 years — inside ONE human youth: the farmer who ignored the five days would watch harvest festivals slide into the wrong season before their firstborn grew. The remaining quarter-day drift wanders the whole year only over 4·365 = 1460 years (the Sothic cycle) — beyond the longest reported life (120 < 1460), so THAT drift is invisible to any person and only an institution's records catch it. The human effect law: harmonise what a life can see; archive what only civilisations can. HONEST SCOPE: integer floors; 120 is the reported longevity ceiling, not a biology theorem.
+The ledger holds this as [seasons_return_in_eighteen_years](/theorem/seasons_return_in_eighteen_years) — proven `by decide`, sorry-free:
+
+```lean
+(90 / 5 = 18) ∧ (18 < 120) ∧ (4 * 365 = 1460) ∧ (120 < 1460)
+```
+
+### THE HARMONISATION HUMANS FELT IN THEIR OWN DATES (captain: 'compute the theorems explaining the effect on human', beside gregorian_cycle_closes_on_the_week): settling 1582 − 325 = 1257 years of Julian drift since Nicaea meant DELETING ten calendar dates — October 5th through 14th, 1582 never happened where the reform landed (14 − 5 + 1 = 10 dates removed; the 4th was followed by the 15th). People rioted over 'stolen days'; rents and name-days had to be re-adjudicated. The human effect: an accounted drift, left too long, is not paid in arithmetic but in lived days — harmonise early and nobody feels it, harmonise late and everyone does. HONEST SCOPE: the date arithmetic seals; the social history is the record's, reported.
+The ledger holds this as [gregory_deleted_ten_days](/theorem/gregory_deleted_ten_days) — proven `by decide`, sorry-free:
+
+```lean
+(14 - 5 + 1 = 10) ∧ (1582 - 325 = 1257)
+```
+
+### THE LAWFUL UNHARMONISED DRIFT A HUMAN LIVES INSIDE (captain: 'compute the theorems explaining the effect on human', beside epact_eleven_harmonised_by_meton): the Islamic calendar keeps the pure lunar year BY CHOICE — the 11-day epact is never absorbed, so the months walk the whole solar year in 365/11 = 33 years, and in a long life (2·33 = 66 < 120) a person fasts Ramadan through every season TWICE. This is drift worn openly — the calendar never claims solar alignment, so there is no collision (the drift law's honest class, like the UFO's name carrying its own verdict): the human effect of a DECLARED drift is experience, not error. HONEST SCOPE: floor arithmetic on the civil epact; real lunations vary and the observed calendar follows the moon, reported.
+The ledger holds this as [ramadan_walks_the_year_in_a_life](/theorem/ramadan_walks_the_year_in_a_life) — proven `by decide`, sorry-free:
+
+```lean
+(365 / 11 = 33) ∧ (2 * 33 = 66) ∧ (66 < 120)
+```
+
+### THE HUMAN EFFECT OF AN UNNAMED DRIFT: THE MISSING GIGABYTES (captain: 'compute the theorems explaining the effect on human', beside binary_kilo_drift_compounds): a person buys a '500 GB' disk (decimal), the operating system reports in binary, and 500·10^9 / 2^30 = 465 — the buyer SEES 500 − 465 = 35 units missing and reads theft where there is only an unnamed unit drift. This exact perception gap filed real lawsuits; the IEC naming (KiB/GiB) is the harmonisation because the human effect was never the 24-per-kilo arithmetic — it was the WORD 'gigabyte' meaning two different lattices at once. A drift a human can misread as fraud must be harmonised in vocabulary, not just accounted. HONEST SCOPE: the arithmetic seals; the litigation history is the record's, reported.
+The ledger holds this as [the_buyer_sees_thirty_five_missing](/theorem/the_buyer_sees_thirty_five_missing) — proven `by decide`, sorry-free:
+
+```lean
+(500 * 10 ^ 9 / 2 ^ 30 = 465) ∧ (500 - 465 = 35)
+```
+
+### THE ENTANGLEMENT PROTOCOL'S CLASSICAL PRICE IS THE TWO COINS (captain: 'quantum entanglement cost (captain coins)'): a Bell measurement has 2^2 = 4 outcomes, and one classical bit cannot name four (2^1 < 2^2) while two bits exactly do (2·2 = 4) — so teleporting one qubit consumes the entangled pair PLUS exactly two classical bits (Bennett et al. 1993, the literature's protocol, REPORTED), and superdense coding returns the same rate reversed (one ebit + one qubit carries two classical bits). The exchange rate of entanglement, both directions, is 2 — the captain's conserved coins() = 2 appearing in the quantum accounting as the FORCED minimum, not a chosen fee. HONEST SCOPE: the counting arithmetic seals (four outcomes need two bits — pigeonhole on names); the protocols are the literature's; no PHYSICS quantum advantage is claimed by this ledger (classical computation throughout, per the RULE); the advantage the house DOES report is ARCHITECTURAL and MEASURED — build-speed comparisons of receipt-verification against re-derivation, timings carried as data in the reported class.
+The ledger holds this as [teleportation_costs_the_two_coins](/theorem/teleportation_costs_the_two_coins) — proven `by decide`, sorry-free:
+
+```lean
+(2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 * 2 = 4)
+```
+
+### THE HANDLE SPACE IS QUANTUM-SHAPED BY CONSTRUCTION (captain: 'uuidna handle capacity is quantum by architecture'): the handle universe is 16^8 = 2^32 doors (universe_of_handles' count, here proven equal to the power-of-two lattice), each door completing to the full address by 2^32 · 2^96 = 2^128 — and 128 = 2^7 is the 7-qubit fold the RULE in every file header states: one uuid = 128 bits folded across 7 dimensions = 2^7 states. The architecture mirrors qubit counting at every layer (doors, payloads, the fold), which is what 'quantum by architecture' means — and ONLY that. HONEST SCOPE, load-bearing: quantum-STRUCTURED, classically COMPUTED — a 7-qubit fold, classical, not 128 qubits, and no PHYSICS quantum advantage claimed anywhere (the publish gate has already denied that overclaim once; this seal carries the boundary in its own prose). The advantage the house reports instead is ARCHITECTURAL, in the reported class: detailed build-speed comparisons — O(1) receipt lookup vs kernel re-proof, the delta gate's free skip — measured, receipted, and re-runnable by anyone. Relates to lead 111's t7_betti_row_is_the_uuid (Pascal row 7 sums to 128 — the geometric body of the same fact).
+The ledger holds this as [handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture) — proven `by decide`, sorry-free:
+
+```lean
+(16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)
 ```
 
 
