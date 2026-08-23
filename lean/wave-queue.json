@@ -1,31 +1,5 @@
 {
-  "pending": [
-    {
-      "key": "three_cell_vote_majority",
-      "why": "MECHANICS DISCOVERS QUANTUM ELECTRONICS: the rebreather carries THREE oxygen cells and takes the 2-of-3 vote because one cell can lie — and the vote is floor arithmetic: the sum of three bits over 2 is the majority, [0,0,0]->0, [1,0,0]->0, [1,1,0]->1, [1,1,1]->1. This is the majority gate of electronics AND the decode of the three-qubit repetition code of quantum error correction: one flipped bit is outvoted, exactly one mechanical practice, one classical gate and one quantum code wearing the same table. From the rebreather research (DAN, Shearwater): the mechanical discipline preceded and predicts the electronic and quantum forms.",
-      "lean": "theorem three_cell_vote_majority : ((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) ∧ ((1 + 1 + 1) / 2 = 1) := by decide"
-    },
-    {
-      "key": "correlated_failure_defeats_the_vote",
-      "why": "WHY NEVER REPLACE ALL THREE CELLS AT ONCE: two cells from the same batch aging alike fail TOGETHER, and two liars outvote one honest witness — (0+0+1)/2 = 0 kills the true reading — the same reason correlated errors defeat the three-qubit repetition code. Diversity is not a preference: it is what the majority table requires to mean anything. The rebreather manuals (rEvo, DAN) state it as practice; the arithmetic states it as law.",
-      "lean": "theorem correlated_failure_defeats_the_vote : ((0 + 0 + 1) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) := by decide"
-    },
-    {
-      "key": "ppo2_window_of_life",
-      "why": "THE BREATHING WINDOW IN CENTIBAR, the life-saving numbers of rebreather diving sealed as an ordered chain: consciousness fails below 16 (hypoxia, PPO2 0.16 bar), the working ceiling is 140 (1.4 bar), the contingency ceiling 160 (1.6 bar, NOAA), and the oxygen-rebreather depth limit keeps loop PPO2 under 200. Life is the interval; the apparatus exists to hold a number inside it, silently, for hours — which is why the checklist RCT (1,043 divers, 2,041 dives) cut mishaps by roughly a third: the human verifies what the body cannot sense.",
-      "lean": "theorem ppo2_window_of_life : (16 < 140) ∧ (140 < 160) ∧ (160 < 200) := by decide"
-    },
-    {
-      "key": "bramah_stood_sixty_seven_years",
-      "why": "THE SAFES' HONEST RATING, in the ledger's own cost model: Bramah's challenge lock stood from 1784 to 1851 — 67 years — and fell to Hobbs only after 51 hours of work; a three-wheel hundred-number dial offers a million states (100^3); and UL rates every safe in MINUTES of resistance (TL-15 before TL-30), never as unbreakable. Mechanics learned centuries ago what verify_cheaper_than_forge seals: security IS the measured work asymmetry, honestly time-rated — seconds to lock, years to breach, and the rating tells the truth about the gap.",
-      "lean": "theorem bramah_stood_sixty_seven_years : (1851 - 1784 = 67) ∧ (100 * 100 * 100 = 1000000) ∧ (15 < 30) := by decide"
-    },
-    {
-      "key": "time_lock_removes_the_hostage",
-      "why": "THE TIME LOCK OF 1874 REMOVED THE HUMAN ATTACK SURFACE: after the masked-robbery era of kidnapped cashiers, Sargent's lock at Morrison, Illinois made early opening impossible for EVERYONE — coercion became useless because no one held a key that time had not yet granted. 1874 sits between the detector lock of 1818 (tamper-evidence: the attack reports itself, Chubb) and the Hiroshima Moslers of 1945 (four of four at 360 metres). The mechanical ancestors of the epoch, the drained verdict and the unforgeable receipt, dated and ordered.",
-      "lean": "theorem time_lock_removes_the_hostage : (1818 < 1874) ∧ (1874 < 1945) ∧ (4 = 4) := by decide"
-    }
-  ],
+  "pending": [],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
@@ -46,6 +20,36 @@
       "why": "a truncating scale k/r with k ≤ r never grows a sample (queue lead 74).",
       "lean": "",
       "reason": "the bounded ∀ form is owed by the lead before any runner may lift it — refused until the statement is specified"
+    },
+    {
+      "key": "three_cell_vote_majority",
+      "why": "MECHANICS DISCOVERS QUANTUM ELECTRONICS: the rebreather carries THREE oxygen cells and takes the 2-of-3 vote because one cell can lie — and the vote is floor arithmetic: the sum of three bits over 2 is the majority, [0,0,0]->0, [1,0,0]->0, [1,1,0]->1, [1,1,1]->1. This is the majority gate of electronics AND the decode of the three-qubit repetition code of quantum error correction: one flipped bit is outvoted, exactly one mechanical practice, one classical gate and one quantum code wearing the same table. From the rebreather research (DAN, Shearwater): the mechanical discipline preceded and predicts the electronic and quantum forms.",
+      "lean": "theorem three_cell_vote_majority : ((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) ∧ ((1 + 1 + 1) / 2 = 1) := by decide",
+      "reason": "/bin/sh: 1: lean: not found\n"
+    },
+    {
+      "key": "correlated_failure_defeats_the_vote",
+      "why": "WHY NEVER REPLACE ALL THREE CELLS AT ONCE: two cells from the same batch aging alike fail TOGETHER, and two liars outvote one honest witness — (0+0+1)/2 = 0 kills the true reading — the same reason correlated errors defeat the three-qubit repetition code. Diversity is not a preference: it is what the majority table requires to mean anything. The rebreather manuals (rEvo, DAN) state it as practice; the arithmetic states it as law.",
+      "lean": "theorem correlated_failure_defeats_the_vote : ((0 + 0 + 1) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) := by decide",
+      "reason": "/bin/sh: 1: lean: not found\n"
+    },
+    {
+      "key": "ppo2_window_of_life",
+      "why": "THE BREATHING WINDOW IN CENTIBAR, the life-saving numbers of rebreather diving sealed as an ordered chain: consciousness fails below 16 (hypoxia, PPO2 0.16 bar), the working ceiling is 140 (1.4 bar), the contingency ceiling 160 (1.6 bar, NOAA), and the oxygen-rebreather depth limit keeps loop PPO2 under 200. Life is the interval; the apparatus exists to hold a number inside it, silently, for hours — which is why the checklist RCT (1,043 divers, 2,041 dives) cut mishaps by roughly a third: the human verifies what the body cannot sense.",
+      "lean": "theorem ppo2_window_of_life : (16 < 140) ∧ (140 < 160) ∧ (160 < 200) := by decide",
+      "reason": "/bin/sh: 1: lean: not found\n"
+    },
+    {
+      "key": "bramah_stood_sixty_seven_years",
+      "why": "THE SAFES' HONEST RATING, in the ledger's own cost model: Bramah's challenge lock stood from 1784 to 1851 — 67 years — and fell to Hobbs only after 51 hours of work; a three-wheel hundred-number dial offers a million states (100^3); and UL rates every safe in MINUTES of resistance (TL-15 before TL-30), never as unbreakable. Mechanics learned centuries ago what verify_cheaper_than_forge seals: security IS the measured work asymmetry, honestly time-rated — seconds to lock, years to breach, and the rating tells the truth about the gap.",
+      "lean": "theorem bramah_stood_sixty_seven_years : (1851 - 1784 = 67) ∧ (100 * 100 * 100 = 1000000) ∧ (15 < 30) := by decide",
+      "reason": "/bin/sh: 1: lean: not found\n"
+    },
+    {
+      "key": "time_lock_removes_the_hostage",
+      "why": "THE TIME LOCK OF 1874 REMOVED THE HUMAN ATTACK SURFACE: after the masked-robbery era of kidnapped cashiers, Sargent's lock at Morrison, Illinois made early opening impossible for EVERYONE — coercion became useless because no one held a key that time had not yet granted. 1874 sits between the detector lock of 1818 (tamper-evidence: the attack reports itself, Chubb) and the Hiroshima Moslers of 1945 (four of four at 360 metres). The mechanical ancestors of the epoch, the drained verdict and the unforgeable receipt, dated and ordered.",
+      "lean": "theorem time_lock_removes_the_hostage : (1818 < 1874) ∧ (1874 < 1945) ∧ (4 = 4) := by decide",
+      "reason": "/bin/sh: 1: lean: not found\n"
     }
   ]
 }
