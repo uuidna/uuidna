@@ -144,6 +144,12 @@
       "why": "ART CLASS: the painter mixes from three primaries and the rainbow shows seven bands — 2 · 3 + 1 = 7, the primaries doubled through their secondaries plus the one indigo Newton insisted on — while the house palette computes its colours from the ℤ/9 sequence (matrixCss), never from taste. Art enters the school the way everything enters: counted first.",
       "lean": "theorem art_spectrum_and_primaries : (2 * 3 + 1 = 7) ∧ (3 < 7) := by decide",
       "receipt": "f49bfe97-b6b5-8fca-b6f5-d794c4c5c9e3"
+    },
+    {
+      "key": "involution_walks_home_in_two",
+      "why": "THE INVOLUTION IS THE WALK THAT NEEDS NO PILGRIMAGE (queue lead 128b's mirror, from the captain's one word): a self-inverse step comes home immediately — f(f(x)) = x IS the two-step cycle, so an involutive deepening would close every chain with mu ≤ 1 and lambda ≤ 2, no birthday bound, no hunt. The census on the 4-state model, enumerated in full: exactly 10 of the 256 self-maps are involutions — 1 identity + 6 transpositions + 3 double-pair swaps, 1 + 6 + 3 = 10 — and 10 < 256: the grace is RARE, the general walk is the rule, which is why the live deepening chain (measured non-involutive: its first ten seeds are pairwise distinct) must pilgrimage under the pigeonhole bound instead of mirroring home. The house's standing observation made exact on the smallest stage: the unexplained is usually self-inverse, but the self-inverse is one map in twenty-five.",
+      "lean": "theorem involution_walks_home_in_two : (((List.range 256).filter (fun c => (List.range 4).all (fun x => (c / 4 ^ (c / 4 ^ x % 4) % 4) == x))).length = 10) ∧ (1 + 6 + 3 = 10) ∧ (10 < 256) := by decide",
+      "receipt": "e494a458-86aa-8316-ad28-9a59cd177275"
     }
   ],
   "refused": [

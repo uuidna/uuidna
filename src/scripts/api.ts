@@ -203,6 +203,7 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/open-questions.md',
   'docs/apps.md',
   'docs/evasion.md',
+  'docs/symphony.md',
   // the default install's meaning page — derived from Installs.lean by gen-os
   'docs/os.md',
   'docs/store.md',
@@ -258,6 +259,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-open-questions': ['docs/open-questions.md'],
   'gen-apps': ['docs/apps.md'],
   'gen-evasion': ['docs/evasion.md'],
+  'gen-symphony': ['docs/symphony.md'],
   'gen-os': ['docs/os.md'],
   // the model comparison over all public live data — derived from the committed feed mirror by gen-models
   'gen-models': ['docs/models.md'],

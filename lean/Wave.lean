@@ -183,3 +183,14 @@ theorem astronomy_eight_planets : (4 + 4 = 8) ∧ (8 < 9) := by decide
     computes its colours from the ℤ/9 sequence (matrixCss), never from taste. Art enters the school the way
     everything enters: counted first. -/
 theorem art_spectrum_and_primaries : (2 * 3 + 1 = 7) ∧ (3 < 7) := by decide
+
+/-- THE INVOLUTION IS THE WALK THAT NEEDS NO PILGRIMAGE (queue lead 128b's mirror, from the captain's one word):
+    a self-inverse step comes home immediately — f(f(x)) = x IS the two-step cycle, so an involutive deepening
+    would close every chain with mu ≤ 1 and lambda ≤ 2, no birthday bound, no hunt. The census on the 4-state
+    model, enumerated in full: exactly 10 of the 256 self-maps are involutions — 1 identity + 6 transpositions +
+    3 double-pair swaps, 1 + 6 + 3 = 10 — and 10 < 256: the grace is RARE, the general walk is the rule, which
+    is why the live deepening chain (measured non-involutive: its first ten seeds are pairwise distinct) must
+    pilgrimage under the pigeonhole bound instead of mirroring home. The house's standing observation made exact
+    on the smallest stage: the unexplained is usually self-inverse, but the self-inverse is one map in
+    twenty-five. -/
+theorem involution_walks_home_in_two : (((List.range 256).filter (fun c => (List.range 4).all (fun x => (c / 4 ^ (c / 4 ^ x % 4) % 4) == x))).length = 10) ∧ (1 + 6 + 3 = 10) ∧ (10 < 256) := by decide
