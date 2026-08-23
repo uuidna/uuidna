@@ -19,9 +19,13 @@ test('no test pins the ledger count — the forbidden literal is derived, so thi
   for (const f of readdirSync(dir)) {
     if (!f.endsWith('.ts') || f === 'no-pinned-counts.test.ts') continue
     const src = readFileSync(join(dir, f), 'utf8')
-    for (const [i, line] of src.split('\n').entries())
+    for (const [i, line] of src.split('\n').entries()) {
+      // USE VERSUS MENTION, the fixture arm (re-applied after a wave swept it): a digit-run inside a long hex
+      // literal is DATA — an RFC 8439 vector carried the live count by coincidence; a vector is never a pin
+      if (/(['"`])[0-9a-f]{24,}\1/.test(line) || /hx\(/.test(line)) continue
       if (line.includes(count) && !/theorems\(\)|T\.length|derived|\bcount\b/.test(line))
         offenders.push(`${f}:${i + 1} carries the live ledger count ${count} as a literal — derive it (theorems().length), never pin it`)
+    }
   }
   assert.deepEqual(offenders, [], 'a pinned sequence-value fails the sequence — the night of 2026-08-22 proved it seven walks deep')
   // the control that proves the guard can fail: a line that WOULD pin the count is caught by the same regex

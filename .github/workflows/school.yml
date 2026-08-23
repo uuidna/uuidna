@@ -63,6 +63,10 @@ jobs:
           # tree under a message describing the heartbeat — and a commit message here is a signed artifact that must
           # cite a sealed theorem, so it has to mean what it says.
           node dist/scripts/one-receipt.js stage
+          # THE SENTRY STANDS THE DRAIN'S WATCH (lead 120's close): after the janitor stages and commits, the
+          # sentry delivers - lock-aware, uncensored, no bypass - or reports the exact refusal in this log.
+          # On a clean runner it answers in a second: a real exercise every run.
+          node dist/scripts/sentry.js 3 || echo "::warning::the sentry could not deliver - its uncensored verdict is above; commits remain on the runner"
           if [ -n "$(git diff --cached --name-only)" ]; then
             git commit -m "Heartbeat: the school verifies itself and drains the derived drift — gate-clean, sessionless. Backed by theorem two_coins"
             git push
