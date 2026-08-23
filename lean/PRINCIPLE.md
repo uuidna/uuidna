@@ -257,6 +257,90 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 84. **The seven readings** — `lean/Readings.lean` · **17** theorems
    seven tongues reading hexbit-translated English (the fold IS the translation): the seven locale rays sealed distinct, each ray's sixteen state-names sealed pairwise distinct so the reading is invertible and the address survives the tongue — the Lean lists GENERATED from src/tts HEXBIT_WORDS, one source, never restated. And not only them: the A432 lattice sealed under the Nyquist ceiling (432·16 = 6912 < 16000/2, closing the synth's claimed clearance), the voice's amplitude inside int16 and the arrangement's mix budget landing exactly on the ceiling (queue lead 74 — bounds by construction, not measurement), χ = 2−2g in all three genera with the sphere leg sealed at last (lead 75), and the time counts of the music and dance books — note values as the doubling ladder, march 2 vs waltz 3, the Morris eight-bars-halved (lead 70). HONEST SCOPE: table STRUCTURE is sealed, never linguistic correctness — no kernel decides what a word means to a speaker; and the χ table is sealed without the Gauss–Bonnet bridge, which is analysis and stays outside
 
+85. **The affine** — `lean/Affine.lean` · **6** theorems
+   AGL(1,ℤ/9), ENUMERATED — the group OneLeap.lean names and never lists. an affine map x ↦ ax + b of ℤ/9, packed as one Nat: e = a*9 + b THE GROUP IS FIFTY-FOUR MAPS, listed rather than counted: six units of ℤ/9 times nine offsets. All
+
+86. **The alignment** — `lean/Alignment.lean` · **6** theorems
+   ALIGNMENT — which moduli tile a qubit and which waste it. A HEX CHARACTER IS EXACTLY FOUR QUBITS: 16 = 2^4, so the two measures tile with no remainder. This is why a
+
+87. **The boolean** — `lean/Boolean.lean` · **6** theorems
+   THE SIXTEEN BINARY BOOLEAN FUNCTIONS — enumerated, under the names mathematics and digital logic already use. a two-input boolean function packed as its truth table over (0,0),(0,1),(1,0),(1,1) — one nibble each the classical gates, as arithmetic on bits THERE ARE EXACTLY SIXTEEN two-input boolean functions, and they are the sixteen values of a nibble: each
+
+88. **The byte** — `lean/Byte.lean` · **5** theorems
+   THE BYTE — two hexbits, and the unit exact-copy verification actually compares in. A BYTE IS TWO HEXBITS: eight bits, 256 values, and 16^2 spellings — the two readings agree, so counting a
+
+89. **The channel** — `lean/Channel.lean` · **6** theorems
+   THE PAGE CHANNEL — how much a rendered element carries when its typography is computed from the sequence. THE THREE COMPUTED AXES MULTIPLY: six type rungs (the vortex orbit 1,2,4,5,7,8), nine palette hues, seven
+
+90. **The clock** — `lean/Clock.lean` · **6** theorems
+   THE CLOCK WITHOUT A NOW — the step algebra src/quantum/clock computes, decided. the vortex residue of a step: 2^(k mod 6) mod 9, the doubling orbit the coins and the salt share a distance is a COUNT The residue of a step is its place in the doubling orbit: over twelve steps it reads 1, 2, 4, 8, 7, 5, 1, 2,
+
+91. **The comparisons** — `lean/Comparisons.lean` · **4** theorems
+   THE COMPLETE COMPARISONS — every pair, never samples (the one-step-is-not-a-walk law as architecture): kernel.org's eight channels totally ordered through a lossless integer encoding (28 strict pairs; the versions are the kernel's published data), the encoding's round-trip sealed, the register ladder 4→128 doubling completely (any two registers an exact number of coin-payments 
+
+92. **The contribution** — `lean/Contribution.lean` · **5** theorems
+   THE CONTRIBUTION — what the address becomes once the coins are paid. THE DERIVATION: the address is 2^7 = 128 bits, the commission is two, and paying it leaves 126. One
+
+93. **The double torus** — `lean/DoubleTorus.lean` · **6** theorems
+   THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing. THE EULER CHARACTERISTIC IS THE GENUS, READ OFF: χ = 2 − 2g gives 0 at genus one (the plain torus, a closed
+
+94. **The grid** — `lean/Grid.lean` · **6** theorems
+   THE GRID RULE, BASE-AGNOSTIC — the growth law stated so it does not depend on how numbers are written. THE BASE-TEN RULE: 6w carries digital root nine exactly when w is a multiple of three, since the decimal
+
+95. **The hamming** — `lean/Hamming.lean` · **6** theorems
+   HAMMING(7,4), ENUMERATED — the whole table rather than facts stated around it. lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it is NOT kernel-only. This structural recursion over an 8-bit fuel (covers 
+
+96. **The handle span** — `lean/HandleSpan.lean` · **6** theorems
+   THE HANDLE SPAN — what 65536 handles of 32 qubits each come to, and what that total is NOT. THE PRODUCT: 65536 handles at 32 qubits each is 2097152 qubits — stated both as the plain multiplication and
+
+97. **The hexbit** — `lean/Hexbit.lean` · **16** theorems
+   THE HEXBIT — the alphabet and the layout an address is actually built from. A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two
+
+98. **The installs** — `lean/Installs.lean` · **11** theorems
+   THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the 25 packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED latest-stable index, Alpine 3.24.1), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising 
+
+99. **The isometry** — `lean/Isometry.lean` · **6** theorems
+   THE XOR ISOMETRY — the one identity the cipher, the strand and the code each hold a corner of. lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it is NOT kernel-only. This structural recursion over an 8-b
+
+100. **The models** — `lean/Models.lean` · **7** theorems
+   THE MODEL COMPARISON OVER ALL PUBLIC LIVE DATA — the decidable core of the served page /models: the declared token≈4-byte approximation's exact widths, all 422 of the public feed's reported context windows as transient hexbit capacity, the 288-bit cost of speaking a 128-bit address in text (identical for every model), the cipher's fixed widths against a sampler's none, every wi
+
+101. **The notation** — `lean/Notation.lean` · **6** theorems
+   NOTATION — which harmonic facts are about NUMBERS and which are about how numbers are WRITTEN. EVERY POWER OF TEN IS ONE, MOD NINE: 10, 100, 1000, 10000 all leave remainder 1. That is the entire
+
+102. **The orbits** — `lean/Orbits.lean` · **9** theorems
+   THE ORBITS, WALKED — and the generator's own facts are walked too. The walk from any seed reaching 0 settles on 10 of the ten digits (0, 1, 2, 3, 4, 5, 6, 7, 8, 9), which is
+
+103. **The phase** — `lean/Phase.lean` · **6** theorems
+   PHASE — why the alternating walk does not close, and which half is responsible. THE REFLECTION IS A BIJECTION: dz sends the ten digits onto ten distinct digits, so nothing is lost and
+
+104. **The prose trial** — `lean/ProseTrial.lean` · **6** theorems
+   THE PROSE TRIAL — the derivation law decided by the KERNEL rather than by a string comparison. The ledger walks exactly six distinct orbits. Six, and the count is the whole vocabulary — a seventh would
+
+105. **The reflection** — `lean/Reflection.lean` · **6** theorems
+   THE REFLECTION'S REACH — what an involution alone can and cannot separate. Clay.lean reflects seven problems through dz(x) = 10 − x and states in prose that it reflects all seven and solves none; this wing DECIDES that limitation. The reflection splits the ten digits into six classes of AT MOST TWO — reversibility erases nothing and so derives nothing — and six is FORCED by ari
+
+106. **The reversal** — `lean/Reversal.lean` · **6** theorems
+   REVERSAL — why undoing an INVOLUTION and undoing a PATH are different acts, and where the walk never goes. UNDOING A REFLECTION ALWAYS WORKS AND IS NEVER AMBIGUOUS: every digit has exactly ONE preimage under dz —
+
+107. **The seats** — `lean/Seats.lean` · **6** theorems
+   THE SEAT BOUND — the pigeonhole, stated. the fullest seat's floor: ⌈n/s⌉ written as exact Nat arithmetic THE BOUND ITSELF: the fullest seat holds at least ⌈items/seats⌉, computed as the exact integer identity (n +
+
+108. **The spectrum hex** — `lean/SpectrumHex.lean` · **6** theorems
+   THE COLOUR AS SIX HEXBITS — the spectrum sized in the unit the machine writes it in. A COLOUR IS SIX HEX CHARACTERS: #RRGGBB at four bits each is 24 bits, and 16^6 equals 2^24 exactly — the
+
+109. **The subgroups** — `lean/Subgroups.lean` · **6** theorems
+   THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited. a subset is a SUBGROUP when it holds the identity, is closed under the product, and inverts every member THE GROUP IS THE SIX UNITS of Z/9 — the residues with a multiplicative inverse, 1, 2, 4, 5, 7, 8 — and
+
+110. **The trinities** — `lean/Trinities.lean` · **6** theorems
+   THE TRINITY COVERING — how many threes span a space. A TRINITY IS THREE, and n of them span 3^n — the same shape as n qubits spanning 2^n. Walked from none to
+
+111. **The vector equilibrium** — `lean/VectorEquilibrium.lean` · **13** theorems
+   THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferent
+
+112. **The waves** — `lean/Waves.lean` · **18** theorems
+   THE NIGHT'S HARVEST PORTED AS THEOREMS — the compass mandala (two hands summing ten, the 9-complement as a HALF-TURN of the doubling ring, five the unique developing center, the hex center EMPTY), the diving mathematics as integer skeletons (Boyle walking the harmonic series in exact sixtieths, pressure doubling down the octave, Haldane's 2:1 with his ladder sealed exactly as f
+
 ---
 
 Rendered as schema.org microdata cards at [uuidna.com/theorems](https://uuidna.com/theorems), folded to one recomputable receipt.
