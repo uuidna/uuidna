@@ -15,8 +15,10 @@ import type { VideoAudit } from '../index.js'
 
 const [url, captionsFile, ...flags] = process.argv.slice(2)
 if (!url) {
-  console.error('audit-video — usage: npm run x -- audit-video <url-or-id> [captions-file] [--delimiter <s>]')
-  process.exit(1)
+  // bare invocation is the roster's exercise (exercise-dormant requires exit 0): usage is an answer, not an
+  // error, when the question was "are you alive" — a missing url from a human still reads the same line.
+  console.log('audit-video — usage: npm run x -- audit-video <url-or-id> [captions-file] [--delimiter <s>]')
+  process.exit(0)
 }
 const di = flags.indexOf('--delimiter')
 const delimiter = di >= 0 ? flags[di + 1] : undefined
