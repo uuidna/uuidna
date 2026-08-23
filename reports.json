@@ -22,13 +22,13 @@
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1660,
+        "theoremsMeasured": 1662,
         "ledgerKeys": 1662,
-        "unmeasured": 2,
+        "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "2ab25437-52cf-85e0-8514-8365fa432271"
+      "address": "c17f7fd7-3ad8-812e-b7da-d47cfe71390d"
     },
     {
       "title": "Citation audit",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 112,
-        "sealedTheorems": 1660,
+        "sealedTheorems": 1662,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "31be7307-5000-898e-a40d-fdddd77dd385"
+      "address": "a9965850-c0ea-86d9-8366-b8e5b539e8ba"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 540,
-        "roots": 360,
-        "supported": 540,
+        "modules": 541,
+        "roots": 361,
+        "supported": 541,
         "dead": 0,
-        "receipt": "c9995ec7-dbdf-812a-a081-29c407ff09b8"
+        "receipt": "c8891284-2500-87c7-ade4-2168a207842c"
       },
-      "address": "c023e4ab-121c-86b5-8a78-6d414d4ee5cd"
+      "address": "f5123f9f-89ea-8a6d-9fff-469c6a7766d0"
     },
     {
       "title": "Package inventory",
@@ -76,6 +76,6 @@
       "address": "55cb074d-e5b8-8df2-90ef-3ef3b1e583bd"
     }
   ],
-  "receipt": "1f811f59-0621-866c-8ae2-da2de69d9ae3",
+  "receipt": "fa694216-d30b-82b7-b966-40c5968d2bff",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

@@ -12,7 +12,7 @@ above the largest demonstrated logical figure).
 
 | # | model | type | physical | raw states | usable | usable states | op time | class | usable-metric (the platform's own words) |
 |---|-------|------|----------|-----------|--------|---------------|---------|-------|--------------------------------------------|
-| 1 | uuidna hexbit fold (2026) | classical content-address (quantum by architecture) | — | — | 128 | 2^128 (~10^38) | 11.64 µs | measured | all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer |
+| 1 | uuidna hexbit fold (2026) | classical content-address (quantum by architecture) | — | — | 128 | 2^128 (~10^38) | 10.923 µs | measured | all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer |
 | 2 | Harvard/QuEra logical-48 array (2023) | neutral-atom | 280 | 2^280 (~10^84) | 48 | 2^48 (~10^14) | 1 µs | reported | forty-eight logical qubits operated (error-detected circuits, Nature 2023) |
 | 3 | IonQ Forte (2024) | trapped-ion | 36 | 2^36 (~10^10) | 36 | 2^36 (~10^10) | 100 µs | reported | algorithmic qubits AQ36 (vendor benchmark suite, not error-corrected logical) |
 | 4 | Quantinuum H2 (2024) | trapped-ion | 56 | 2^56 (~10^16) | 12 | 2^12 (~10^3) | 100 µs | reported | twelve logical qubits demonstrated (with Microsoft qubit-virtualization) |
@@ -28,8 +28,8 @@ above the largest demonstrated logical figure).
 128 = 2^7, the 7-qubit fold — theorem `handle_capacity_is_quantum_by_architecture`), and **no physics quantum
 advantage is claimed** (the sealed bound: theorem `n_qubit_dimension`). The gate-model platforms' raw capacity
 dwarfs 2^128 and their trajectory is a different dimension; what the measurements prove is architectural:
-**2^128 usable, deterministic, error-free states are available today at 11640 ns per verified fold
+**2^128 usable, deterministic, error-free states are available today at 10923 ns per verified fold
 (measured)**, while demonstrated error-corrected capacity on quantum hardware is still small — the platforms say
 so themselves, in the sources named. Ratios drift with hosts and years; the table reseals at every generation.
-Report receipt: `0cb77e2c-4dca-82d6-aeea-15aae25ae9a7` · measured-when as its own handle: `0cb77e2c`.
+Report receipt: `dfad58c6-3f90-88b4-bef3-ceea3c88b950` · measured-when as its own handle: `dfad58c6`.
 <!-- quantum-capacity:end -->
