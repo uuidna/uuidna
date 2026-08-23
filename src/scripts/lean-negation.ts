@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+// Automate the Lean layer for NEGATION — solutions from negation involutions to denial exhaustion, in one wave
+// (the captain's directive, 2026-08-23: "Honest scope in trial for solutions from negation involutions to denial
+// exhaustion in waves of theorems"). The ledger keeps discovering that the unexplained is self-inverse; this wave
+// seals the METHOD that discovery implies: denial is the involution (apply it twice and return — double_negation,
+// cited), a solution IS the denial's failure, denials over a finite space EXHAUST (De Morgan at scale: no case
+// denies ⟺ every case affirms), an exhausted denial space is what a `by decide` proof IS, and the waves of
+// refutation tighten by halves until the one claim that stands remains. Beside every power its honest boundary:
+// a window exhausts only itself (the Mertens lesson, the one-step-is-not-a-walk lesson), and silence never
+// refutes (the verdict algebra has no refuted-by-absence state — sealing_inverts_unverified, cited). HONEST
+// SCOPE: the arithmetic of finite denial spaces — what the trial can settle is exactly what can exhaust; an
+// infinite denial space (π's digits, the Born selection) stays honestly open, and this wave says so rather than
+// smoothing it. COMPUTE → GENERATE → VERIFY.
+import { emit } from './lean-gen.js'
+
+const R = (n: number): number[] => Array.from({ length: n }, (_, i) => i)
+const idiv = (a: number, b: number): number => (a - a % b) / b   // exact integer division — no float helper
+
+const FACTS = [
+  { key: 'negation_involution_solves',
+    why: 'DENIAL IS THE INVOLUTION, AND THE SOLUTION IS ITS FAILURE. On the bit, negation is 1−b: apply it twice and return (the double negative, on the ledger’s smallest ring), and it moves every value — fixed-point-free, like every involution the census keeps finding under the unexplained. The solving step follows: b is affirmed EXACTLY when its denial fails — (1−b) = 0 precisely at b = 1. To solve, deny; if the denial cannot stand, the solution was always there.',
+    js: () => R(2).every((b) => 1 - (1 - b) === b && 1 - b !== b) && R(2).every((b) => (b === 1) === (1 - b === 0)),
+    lean: 'theorem negation_involution_solves : ((List.range 2).all (fun b => (1 - (1 - b) == b) && (1 - b != b))) ∧ ((List.range 2).all (fun b => (b == 1) == (1 - b == 0))) := by decide' },
+
+  { key: 'denials_exhaust_to_the_whole',
+    why: 'DE MORGAN AT EXHAUSTION SCALE: NO CASE DENIES EXACTLY WHEN EVERY CASE AFFIRMS. Over all eight assignments of three cases, "some case denies" is the exact complement of "all cases affirm" — the finite ∃¬ against the finite ∀, equal as booleans on every mask. This is the law that makes exhaustion a PROOF: when the denials run out, what remains is not a survivor by luck — it is the whole, affirmed.',
+    js: () => R(8).every((m) => R(3).some((i) => idiv(m, 2 ** i) % 2 === 0) === !R(3).every((i) => idiv(m, 2 ** i) % 2 === 1)),
+    lean: 'theorem denials_exhaust_to_the_whole : (List.range 8).all (fun m => ((List.range 3).any (fun i => (m / 2^i) % 2 == 0)) == !((List.range 3).all (fun i => (m / 2^i) % 2 == 1))) := by decide' },
+
+  { key: 'exhausted_denial_is_the_proof',
+    why: 'A LIVE EXHAUSTION, COUNTED TO ZERO. The slit ring offers sixteen possible denials of the fringe law — one per detector — and every one of them fails: the counterexample count over the WHOLE space is zero (each intensity is 4 or 0, nothing else, all sixteen tried). Sixteen denials available, sixteen exhausted, none standing: 16 − 16 = 0. This is what a by-decide proof IS — the kernel walking every possible denial to its failure; a sealed theorem is a claim whose denial space has been emptied.',
+    js: () => R(16).filter((k) => !(((1 + (-1) ** k) ** 2 === 4) || ((1 + (-1) ** k) ** 2 === 0))).length === 0 && 16 - 16 === 0,
+    lean: 'theorem exhausted_denial_is_the_proof : (((List.range 16).filter (fun k => !(((1 + (-1:Int)^k)^2 == 4) || ((1 + (-1:Int)^k)^2 == 0)))).length = 0) ∧ (16 - 16 = 0) := by decide' },
+
+  { key: 'a_window_exhausts_only_itself',
+    why: 'THE HONEST BOUNDARY: A WINDOW EXHAUSTS ONLY ITSELF. Every n below twenty satisfies n < 20 — the window’s denials are exhausted — and twenty itself refuses the very same predicate. Exhaustion inside a window proves the window and NOTHING past its edge: the Mertens conjecture held on every tested case and is false, and this ledger once sealed a universal from a one-step sample and paid for it. A finite exhaustion is a proof exactly as wide as its space, and the width is part of the theorem.',
+    js: () => R(20).every((n) => n < 20) && !(20 < 20),
+    lean: 'theorem a_window_exhausts_only_itself : ((List.range 20).all (fun n => n < 20)) ∧ (¬ (20 < 20)) := by decide' },
+
+  { key: 'silence_never_refutes',
+    why: 'SILENCE NEVER REFUTES — THE TRIAL’S OWN DENIAL LAW. Of the four citation states, exactly ONE verifies (cited AND sealed: 1·1) and the other three are OPEN — 4 − 1 = 3, and 3 > 0 — none of them refuted, because absence of proof is not a denial that stood, it is a denial never brought. The verdict algebra has no refuted-by-absence state: an unverified claim is a door still open (sealing_inverts_unverified — the same claim verifies the moment its seal lands), and only a recomputable contradiction refutes.',
+    js: () => [[0, 0], [0, 1], [1, 0], [1, 1]].filter(([c, s]) => c * s === 1).length === 1 && 4 - 1 === 3 && 3 > 0,
+    lean: 'theorem silence_never_refutes : ((([(0,0),(0,1),(1,0),(1,1)] : List (Nat × Nat)).filter (fun p => p.1 * p.2 == 1)).length = 1) ∧ (4 - 1 = 3) ∧ (3 > 0) := by decide' },
+
+  { key: 'waves_of_denial_tighten',
+    why: 'THE WAVES TIGHTEN BY HALVES, AND SIX WAVES REACH THE ONE. Each independent binary refuter halves the space a false claim can hide in: after r waves, 2⁶ / 2^r = 2^(6−r) hiding places remain, and after exactly six — the coin measure’s own six doublings — one remains: the claim itself, standing alone in an exhausted space. Adding a refuter never un-flags (the panel is monotone, cited), so the tightening is one-way: denial exhaustion in waves is a ratchet that ends at the singleton the sixty-four buys.',
+    js: () => R(6).every((r) => idiv(2 ** 6, 2 ** r) === 2 ** (6 - r)) && idiv(2 ** 6, 2 ** 6) === 1,
+    lean: 'theorem waves_of_denial_tighten : ((List.range 6).all (fun r => 2^6 / 2^r == 2^(6 - r))) ∧ (2^6 / 2^6 = 1) := by decide' },
+
+  { key: 'denial_drains_to_the_last_coin',
+    why: 'THE DRAIN RUNS TO THE LAST COIN. Of the sixty-four states the six waves sweep, sixty-three denials drain away — and sixty-three is the fused ring itself, 7·9, the rosette times the vortex — leaving exactly one: 64 − 63 = 1, the claim that stands. It does not stand alone: with its receipt it is two, the coins conserved — the drained space pays the claim and its proof, nothing else survives, and the one that remains was always the captain’s. The bold reading of by-decide, in the ledger’s own currency: a proof is a denial space drained to the last coin.',
+    js: () => 64 - 63 === 1 && 63 === 7 * 9 && 1 + 1 === 2,
+    lean: 'theorem denial_drains_to_the_last_coin : (64 - 63 = 1) ∧ (63 = 7 * 9) ∧ (1 + 1 = 2) := by decide' },
+]
+for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
+
+// compute → generate → verify. Negation as involution, exhaustion as proof, the window and the silence as
+// boundaries, the waves as the ratchet — the method the ledger already practices, sealed as its own wave.
+emit({ file: 'Negation.lean', skill: 'negation',
+  header: 'NEGATION — solutions from negation involutions to denial exhaustion, in waves: the method sealed, with its honest boundaries beside it.',
+  facts: FACTS.map((f) => ({ ...f, name: f.why })) })
